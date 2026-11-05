@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "batch": "B61",
+  "title": "Concurrent activity-rule and long-play direction drift reconciled",
+  "at": "2026-11-04T20:08:36.445819+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/ACTIVITY_ABSTRACTION_RULES.md",
+      "ids": [
+        "ACR1–ACR14",
+        "AD52",
+        "AC1–AC18/SI1–SI12/XC1–XC10/XD1–XD8"
+      ],
+      "classification": "fresh full drift reconciliation",
+      "owners": [
+        "docs/ACTIVITY_ABSTRACTION_RULES.md",
+        "docs/ACTIVITY_ABSTRACTION_RULES.md"
+      ],
+      "disposition": "Current authority reread after concurrent drift: ACR1 now explicitly says compression imposes no short total-play target. Long growth, sustained pursuits and enjoyable time in a place remain valid; no mandatory slow grind or duration target follows. Other operating principles remain accepted; detailed forms/world examples/numbers/order/playstyles remain proposals.",
+      "evidence": "Complete current source read; clipped ACR final paragraph and world-slice E4/E5/early F1 were retrieved separately. USER_VISION7302–7316 confirms narrow adoption and long-play clarification. No runtime proof renewed.",
+      "reopen": "Relevant activity consumers follow current ACR authority and local world law; proposal estimates and detailed playstyles need selected scope, no automatic implementation.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "849f72bc8892142dd6d9a32ce77262e0abf658f597d16750ddbfb28320649047",
+      "input_lines": 37,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          37
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/WORLD_SLICE_EFFORT_AND_ABSTRACTION_2026-11-01.md",
+      "ids": [
+        "F1",
+        "E1–E5",
+        "O1–O3",
+        "S1",
+        "A1",
+        "Nov4 activity/cross-world follow-ups"
+      ],
+      "classification": "fresh full drift reconciliation",
+      "owners": [
+        "docs/reviews/WORLD_SLICE_EFFORT_AND_ABSTRACTION_2026-11-01.md",
+        "docs/ACTIVITY_ABSTRACTION_RULES.md"
+      ],
+      "disposition": "Current full source reread after concurrent leading-note additions. Preserve unbenchmarked effort bands and coherent regional/full-franchise/start-law distinctions, source/consumer constraints and flexible activity detail. Current ACR principles are adopted separately from this specific activity-envelope investigation example; no JJK rollout, new priority, shorter campaign or universal simulator follows.",
+      "evidence": "Complete current source read; clipped ACR final paragraph and world-slice E4/E5/early F1 were retrieved separately. USER_VISION7302–7316 confirms narrow adoption and long-play clarification. No runtime proof renewed.",
+      "reopen": "Relevant activity consumers follow current ACR authority and local world law; proposal estimates and detailed playstyles need selected scope, no automatic implementation.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "22a7e832e6bf3cdf5391d0f9dc4517c85e5f627cfc616ed25c2445fc463a7eb0",
+      "input_lines": 104,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          104
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/reviews/WORLD_SLICE_EFFORT_AND_ABSTRACTION_2026-11-01.md",
+      "heading": "## Later activity authority and long-play clarification, 2026-11-04 (B61)",
+      "body": "AD52/ACR1–ACR14 now adopts the reusable activity principles; A1’s exact investigation envelope, examples, numbers and implementation shape remain proposals. USER_VISION’s later long-play clarification and ACR1 explicitly preserve long growth, sustained pursuits and time enjoyed in a place: compressing repetitive handling and delivering a small slice do not require short campaigns, world stays or rapid mastery. This adds no target duration or compulsory slow grind and does not validate E1–E5 effort estimates. Keep AD51’s shared-software seam separate from compressed player activity, and preserve actual costs, consequences, clocks, knowledge and world differences.",
+      "before_sha256": "22a7e832e6bf3cdf5391d0f9dc4517c85e5f627cfc616ed25c2445fc463a7eb0",
+      "after_sha256": "0b32d23c8188bd69a4657a547d61ff8e59ca7c672eeb65aaad93c89957fbf505"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1413
+}

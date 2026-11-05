@@ -1,0 +1,348 @@
+{
+  "schema": 1,
+  "batch": "B47",
+  "title": "Source-reading shard overlaps, semantic-review closure and unresolved payload gates",
+  "at": "2026-11-04T19:57:36.741781+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/shadow-full/CHECKPOINT.md",
+      "ids": [
+        "E8",
+        "E8B",
+        "E8C",
+        "E8D"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/power-systems/wiki-digests/full-dumps/workers/shadow-full/NOTES.jsonl, READ_LEDGER.jsonl and explicitly named parent-review route (actual consumer not specified)"
+      ],
+      "disposition": "Historical old-wiki reader completed 31 retained inputs with hashes and paraphrased notes, but source identity differs from the currently requested wiki and is not canon authentication. Missing template expansions and many effect triggers, ranges, costs and defenses stay unknown. Preserve correct source identity, novel/secondary snapshot difference and actual research dispatch vs unselected candidates. Existing owner retains mechanisms/proposals; no raw novel/wiki reading or donor trial performed. New activity rules do not adopt every procedural-crafting candidate.",
+      "mechanism_and_interactions": "The old Shadow Slave wiki archive reports a multi-rank Nightmare path, separate human rank and creature class/rank axes, Flaws that price powers, Memory/Echo item rules, portal-anchored travel, faction/academy institutions and shard rent/labor. Character excerpts describe distinct effects/costs, while the archive says Nightmare Spell nature and trial-selection principles are unknown and establishes no general vow/contract system. All E8-family mappings remain proposals.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint gives a synthesized secondary-source inventory and receipt audit; no notes or novel text were inspected here.",
+      "reopen": "Qualify each proposed mapping against the correct source/version and novel; do not fill missing template fields or infer a general contract system.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          23
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S042.json"
+      ],
+      "prior_input_sha256": "601be91e0d9371b8fff95295690796985c8fb3e8bfa683bafa37b3b1049e0bad",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "601be91e0d9371b8fff95295690796985c8fb3e8bfa683bafa37b3b1049e0bad",
+      "input_lines": 23
+    },
+    {
+      "path": "docs/research/procedural-crafting-ui-2026-10-15/CHECKPOINT.md",
+      "ids": [
+        "DQ1",
+        "DQ2–DQ5",
+        "J1"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/procedural-crafting-ui-2026-10-15/REPORT.md, DEEPER_SYNTHESIS.md, DQ1_DISPATCH.md and QUD_CDDA_REPORT.md (named outputs); direction owner must select a bounded original slice"
+      ],
+      "disposition": "Historical research is complete but proposals are unselected and no implementation or YAIR gameplay is claimed. Native reference trials, selected slice, rebuilt desktop behavior and persistence remain distinct later checks; installation evidence in the checkpoint is not proof that a game was launched or tested. Preserve correct source identity, novel/secondary snapshot difference and actual research dispatch vs unselected candidates. Existing owner retains mechanisms/proposals; no raw novel/wiki reading or donor trial performed. New activity rules do not adopt every procedural-crafting candidate.",
+      "mechanism_and_interactions": "The procedural-crafting research favors causal process with actual use, ingredient cross-use/free-versus-held detail, experiment-to-observation-to-method revision and declared repeat means/policy; a grid/map is conditional on spatial law. Round 2 adds multi-use ingredients, skill/power combination and recipe evidence while keeping full sources private. Candidate J1 is proposed only, and DQ1 became a separately authorized research chat; DQ2–DQ5 remained undispatched.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports document/source integrity checks and selected reference evidence; no full report, underlying sources or native interaction were inspected in this shard.",
+      "reopen": "Any selected slice follows current direction and actual design/source owners, with a declared desktop target and relevant rebuilt browser/persistence checks. The old research record itself does not select a slice, commission native trials or create a new approval gate.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          39
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S042.json"
+      ],
+      "prior_input_sha256": "15898ebef9692c04262dff8a4c0494e986e889d0c8d64bb11bf311585cfd8844",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "15898ebef9692c04262dff8a4c0494e986e889d0c8d64bb11bf311585cfd8844",
+      "input_lines": 39
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/hxh-full/CHECKPOINT.md",
+      "ids": [
+        "uncoded source-reader queue and correction scope"
+      ],
+      "classification": "fresh full uncoded checkpoint review",
+      "owners": [
+        "docs/research/power-systems/wiki-digests/full-dumps/workers/hxh-full/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve predecessor100 and assigned703/453 shard reports without counting B’s extra out-of-assignment receipt as new coverage;66 no-input candidates remain outside shard scope. Corrections, scope and selected text vs full article remain distinct.",
+      "evidence": "Entire pending checkpoint freshly read in bounded output; no raw wiki/novel ledger re-count or source authentication performed.",
+      "reopen": "For a selected source claim use exact note/receipt/correction and primary scene; respect current priority owner before separate source resumption.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "9641d151a747da6702db72ee5588b19303bf9d9d203880c002a1164a8be5c6d9",
+      "input_lines": 17,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/hxh-full/r2-2026-10-13/shard-a/CHECKPOINT.md",
+      "ids": [
+        "uncoded source-reader queue and correction scope"
+      ],
+      "classification": "fresh full uncoded checkpoint review",
+      "owners": [
+        "docs/research/power-systems/wiki-digests/full-dumps/workers/hxh-full/r2-2026-10-13/shard-a/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve predecessor100 and assigned703/453 shard reports without counting B’s extra out-of-assignment receipt as new coverage;66 no-input candidates remain outside shard scope. Corrections, scope and selected text vs full article remain distinct.",
+      "evidence": "Entire pending checkpoint freshly read in bounded output; no raw wiki/novel ledger re-count or source authentication performed.",
+      "reopen": "For a selected source claim use exact note/receipt/correction and primary scene; respect current priority owner before separate source resumption.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "8c23f119a4f21cbccdaf8984793877bb251c6d2192221f933294119a4c8c1964",
+      "input_lines": 22,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          22
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/hxh-full/r2-2026-10-13/shard-b/CHECKPOINT.md",
+      "ids": [
+        "uncoded source-reader queue and correction scope"
+      ],
+      "classification": "fresh full uncoded checkpoint review",
+      "owners": [
+        "docs/research/power-systems/wiki-digests/full-dumps/workers/hxh-full/r2-2026-10-13/shard-b/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve predecessor100 and assigned703/453 shard reports without counting B’s extra out-of-assignment receipt as new coverage;66 no-input candidates remain outside shard scope. Corrections, scope and selected text vs full article remain distinct.",
+      "evidence": "Entire pending checkpoint freshly read in bounded output; no raw wiki/novel ledger re-count or source authentication performed.",
+      "reopen": "For a selected source claim use exact note/receipt/correction and primary scene; respect current priority owner before separate source resumption.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "1505a1c7caab7c70fe4af02a839ac44e6c71caa8e341ff3645a1f55c1844b3bf",
+      "input_lines": 28,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          28
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/jjk-full/CHECKPOINT.md",
+      "ids": [
+        "uncoded source-reader queue and correction scope"
+      ],
+      "classification": "fresh full uncoded checkpoint review",
+      "owners": [
+        "docs/research/power-systems/wiki-digests/full-dumps/workers/jjk-full/CHECKPOINT.md"
+      ],
+      "disposition": "Later481/481 pending semantic-review completion supersedes initial20-reviewed/481-pending line, but missing988-character landing payload and noncharacter archive integration remain explicit unresolved source-scope gates.",
+      "evidence": "Entire pending checkpoint freshly read in bounded output; no raw wiki/novel ledger re-count or source authentication performed.",
+      "reopen": "For a selected source claim use exact note/receipt/correction and primary scene; respect current priority owner before separate source resumption.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "25b169f0e0323edca8745b64399872b462739507b3f3b1f5e386fcaeeb46dc40",
+      "input_lines": 35,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          35
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/mha-full/shard-a/CHECKPOINT.md",
+      "ids": [
+        "uncoded source-reader queue and correction scope"
+      ],
+      "classification": "fresh full uncoded checkpoint review",
+      "owners": [
+        "docs/research/power-systems/wiki-digests/full-dumps/workers/mha-full/shard-a/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve complete retained-input reading report, scope exclusions, source synopsis under-construction limits, exact actor/cost/timing repairs and separate primary-canon/gameplay proof. No raw payload reread or current aggregate completion inferred.",
+      "evidence": "Entire pending checkpoint freshly read in bounded output; no raw wiki/novel ledger re-count or source authentication performed.",
+      "reopen": "For a selected source claim use exact note/receipt/correction and primary scene; respect current priority owner before separate source resumption.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "2d818da05017b2639a470155935a460f1ea5791f8386842529e6d40e13382a53",
+      "input_lines": 10,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          10
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/mha-full/shard-b/CHECKPOINT.md",
+      "ids": [
+        "uncoded source-reader queue and correction scope"
+      ],
+      "classification": "fresh full uncoded checkpoint review",
+      "owners": [
+        "docs/research/power-systems/wiki-digests/full-dumps/workers/mha-full/shard-b/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve complete retained-input reading report, scope exclusions, source synopsis under-construction limits, exact actor/cost/timing repairs and separate primary-canon/gameplay proof. No raw payload reread or current aggregate completion inferred.",
+      "evidence": "Entire pending checkpoint freshly read in bounded output; no raw wiki/novel ledger re-count or source authentication performed.",
+      "reopen": "For a selected source claim use exact note/receipt/correction and primary scene; respect current priority owner before separate source resumption.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "b187d2f9049c5a690775d16c5921de92694397936bcccb52509e3e27f7fc2d37",
+      "input_lines": 15,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/one-piece-full/shard-a/CHECKPOINT.md",
+      "ids": [
+        "uncoded source-reader queue and correction scope"
+      ],
+      "classification": "fresh full uncoded checkpoint review",
+      "owners": [
+        "docs/research/power-systems/wiki-digests/full-dumps/workers/one-piece-full/shard-a/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve final distinct-input completion against append-only correction row counts; overlapping scope reads/metadata-only exclusions are not extra main inputs. Repaired wrong-page/truncated proof and unsupported contradiction labels remain visible, with exact snapshot/continuity limits.",
+      "evidence": "Entire pending checkpoint freshly read in bounded output; no raw wiki/novel ledger re-count or source authentication performed.",
+      "reopen": "For a selected source claim use exact note/receipt/correction and primary scene; respect current priority owner before separate source resumption.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "fe9a7c0c7443d286b59d65b6c45ccdf5ef534ba3c50ac171c98c8b34d2f76fd2",
+      "input_lines": 65,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          65
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/one-piece-full/shard-b/CHECKPOINT.md",
+      "ids": [
+        "uncoded source-reader queue and correction scope"
+      ],
+      "classification": "fresh full uncoded checkpoint review",
+      "owners": [
+        "docs/research/power-systems/wiki-digests/full-dumps/workers/one-piece-full/shard-b/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve final distinct-input completion against append-only correction row counts; overlapping scope reads/metadata-only exclusions are not extra main inputs. Repaired wrong-page/truncated proof and unsupported contradiction labels remain visible, with exact snapshot/continuity limits.",
+      "evidence": "Entire pending checkpoint freshly read in bounded output; no raw wiki/novel ledger re-count or source authentication performed.",
+      "reopen": "For a selected source claim use exact note/receipt/correction and primary scene; respect current priority owner before separate source resumption.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "42861d00a71879e427678ca21385efbe11cf1254971b20453014046eb04a8892",
+      "input_lines": 16,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          16
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/one-piece-full/shard-c/CHECKPOINT.md",
+      "ids": [
+        "uncoded source-reader queue and correction scope"
+      ],
+      "classification": "fresh full uncoded checkpoint review",
+      "owners": [
+        "docs/research/power-systems/wiki-digests/full-dumps/workers/one-piece-full/shard-c/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve final distinct-input completion against append-only correction row counts; overlapping scope reads/metadata-only exclusions are not extra main inputs. Repaired wrong-page/truncated proof and unsupported contradiction labels remain visible, with exact snapshot/continuity limits.",
+      "evidence": "Entire pending checkpoint freshly read in bounded output; no raw wiki/novel ledger re-count or source authentication performed.",
+      "reopen": "For a selected source claim use exact note/receipt/correction and primary scene; respect current priority owner before separate source resumption.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "50e05692e8afe8bece35338d01beb3445f1181454a02e680ccc527fa0df268a8",
+      "input_lines": 25,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          25
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/qualifier/CHECKPOINT.md",
+      "ids": [
+        "uncoded source-reader queue and correction scope"
+      ],
+      "classification": "fresh full uncoded checkpoint review",
+      "owners": [
+        "docs/research/power-systems/wiki-digests/full-dumps/workers/qualifier/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve complete retained-input reading report, scope exclusions, source synopsis under-construction limits, exact actor/cost/timing repairs and separate primary-canon/gameplay proof. No raw payload reread or current aggregate completion inferred.",
+      "evidence": "Entire pending checkpoint freshly read in bounded output; no raw wiki/novel ledger re-count or source authentication performed.",
+      "reopen": "For a selected source claim use exact note/receipt/correction and primary scene; respect current priority owner before separate source resumption.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "364d1b80cd46680b89ff3f8d3f9c37eb153057b4c0e01fc0d9d8fa821f8254b0",
+      "input_lines": 26,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          26
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/skyrim-full/CHECKPOINT.md",
+      "ids": [
+        "uncoded source-reader queue and correction scope"
+      ],
+      "classification": "fresh full uncoded checkpoint review",
+      "owners": [
+        "docs/research/power-systems/wiki-digests/full-dumps/workers/skyrim-full/CHECKPOINT.md"
+      ],
+      "disposition": "Dated priority pause governs over undated active/continue instructions. Retain131 partial inputs, out-of-order qualified page and template/child-page dependencies without resuming broad queue or inferring absence.",
+      "evidence": "Entire pending checkpoint freshly read in bounded output; no raw wiki/novel ledger re-count or source authentication performed.",
+      "reopen": "For a selected source claim use exact note/receipt/correction and primary scene; respect current priority owner before separate source resumption.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "83a99665d16e7e3831f9f670a91d26f08f756ea79ac2b6ad2b216f82c0cb23f6",
+      "input_lines": 28,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          28
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/hxh-full/CHECKPOINT.md",
+      "heading": "## Later assigned-shard routing, 2026-11-04 (B47)",
+      "body": "The predecessor100-complete/1156-pending line is initial history. Later r2 shard-a reports703 assigned retained inputs and shard-b453; these arithmetically reconcile with100 to1256. Shard-b preserves one extra out-of-assignment Book of Tyson receipt, explicitly excluded from assigned coverage, and corrected a too-large chunk by rereading. Do not double-count it or convert the66 no-input candidates into read source. Follow exact shard summaries/errata and keep missing-input scope, accurate secondary notes and primary-canon qualification separate. This reconciliation did not independently recount raw notes or source payloads.",
+      "before_sha256": "9641d151a747da6702db72ee5588b19303bf9d9d203880c002a1164a8be5c6d9",
+      "after_sha256": "846240ef3e0993a8734022b51f952e00f9ed251008f80ebf699369e1244aeef2"
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/jjk-full/CHECKPOINT.md",
+      "heading": "## Semantic-review chronology, 2026-11-04 (B47)",
+      "body": "The later Review progress section supersedes the earlier20-reviewed/481-pending snapshot for that semantic review: it reports481/481 remaining notes reviewed with append-only corrections. It does not close the separate empty-input gate, whose restored-text payload is missing, or noncharacter archive integration. Preserve that exact missing-source proof boundary rather than treating a metadata landing-page classification as a fully read/hash-verified payload. This task reviewed checkpoint content only; no raw source/cache restoration or primary-canon certification occurred.",
+      "before_sha256": "25b169f0e0323edca8745b64399872b462739507b3f3b1f5e386fcaeeb46dc40",
+      "after_sha256": "7b0aef6d789767b67e780ca2fd664e3d1ecbb1d68aad411f41ced0d27d7a406d"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1522
+}

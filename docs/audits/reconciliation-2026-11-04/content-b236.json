@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "batch": "B236",
+  "title": "Monster-side palette: persistent residents, hunter evidence and lair settlement",
+  "at": "2026-11-04T23:40:46.530172+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/worlds/NONHUMAN_MONSTER_SIDE_2026-10-14.md",
+      "ids": [
+        "MF1–MF8",
+        "MH1–MH5",
+        "MD1–MD7",
+        "ME1–ME7",
+        "ML1–ML7",
+        "MB1–MB12",
+        "MC1–MC5",
+        "MS1–MS24",
+        "MSS1–MSS5"
+      ],
+      "classification": "Full original monster-side palette with attributed historical source findings",
+      "owners": [
+        "docs/worlds/NONHUMAN_MONSTER_SIDE_2026-10-14.md",
+        "docs/ENCOUNTERS_AND_PURSUIT.md"
+      ],
+      "disposition": "F1. Complete content review covers MF1–MF8, MH1–MH5, MD1–MD7, ME1–ME7, ML1–ML7, MB1–MB12, MC1–MC5, MS1–MS24 and MSS1–MSS5. Keep a reusable enemy template, generated encounter instance and returning named resident distinct. Bestiary rank is not political leadership; attack_count30 is not thirty persistent minds; targetable wall is not a person; listed age/power variants do not establish an evolution chain. A selected returning neighbor needs real actor identity, wounds, stock, history and fighter/dialogue binding. Ordinary anonymous repeated encounters can retain their legacy semantics without claiming population simulation or erasing an actual resident's aftermath.\n\nF2. The hunter chain has separate issuer, beneficiary, contractor, target claim, evidence, locating means, contact and settlement. Power or office alone grants no perfect locator, universally effective attack or matching-level reinforcement. Closing one issuer's case ends that case's eligibility, not every jurisdiction's evidence; later reports need actual recipients. Disguise, body shift, citizenship, negotiated service and affection change their own facts without a global allegiance flip. An actually sourced locator, compulsory mandate, source correction or powerful countermeasure can work by its mechanism; the ordinary funded-search example is not a universal ban on exceptional means under AD38.\n\nF3. Lair fees, worker costs, prize stock/custody, salvage, XP and kill/source conversion are independent operations. The illustrative two-customer ledger yields +3 only from its actual receipts. A new visitor is not a timer-generated purse; anonymous loot is not automatically a living neighbor's pelt. Conversely real renewable production, legitimate repeated challenges, source creation and genuine kill-to-energy can remain profitable under AD22. Prevent duplicate settlement and fabricated suppliers, not actual useful gains. Housing/core reach, institutional land title and observation of occupants remain different; sharing a building does not grant every resident's knowledge or body control.\n\nF4. The documented frog/dragonfly global-effect callback hazard is a historical source finding, not a newly reproduced current defect or completed repair. Existing fighter arrays already contradicted the older single-fighter claim; arrays alone do not prove generic actor-aware poison, reward routing, surrender/capture or body-fit attacks. Select actual target and effect consumer before reusing a callback as a player power. A new original wolf-rat incident does not retroactively assign the human quest's crimes, unlocks or earned rewards to that individual. A source lore statement about expulsion/hunger is not implemented habitat capacity or permission to add hunger death.\n\nF5. Preserve quiet resident, useful service, nonlethal trial, repair and relocation routes beside severe selected premises. Actual independent workers/autonomous fixtures can support concurrent jobs where their channels and reservations permit; the one-body warning is not a blanket ban on genuine parallel mechanisms. Historical freeze, one-realm/prestige and1366-primary statements do not govern current clock, campaign or desktop direction. The five suggestions and proposed schemas remain proposals under AD32; AD36/AD43 govern a selected slice and AD42 keeps human review optional. No linked source/primary book, code behavior, native start, migration, UI or save proof was freshly verified here.",
+      "evidence": "Entire337-line input delivered in ranges1–125,126–245,246–337. No linked code, private dossier or runtime receipt renewed.",
+      "reopen": "Selected named resident, hunter/claim, target-effect or lair consumer changes; inspect actual source and necessary persistence boundary without starting a full ecology or adventurer simulation.",
+      "input_sha256": "021763d5d5cc1deb78d33c5689e1e693506e499ecba1b755a570de0b4790740f",
+      "input_lines": 337,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          337
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/worlds/NONHUMAN_MONSTER_SIDE_2026-10-14.md",
+      "heading": "## Monster-side reconciliation: identities, claims and actual aftermath (B236, 2026-11-04)",
+      "body": "F1. Complete content review covers MF1–MF8, MH1–MH5, MD1–MD7, ME1–ME7, ML1–ML7, MB1–MB12, MC1–MC5, MS1–MS24 and MSS1–MSS5. Keep a reusable enemy template, generated encounter instance and returning named resident distinct. Bestiary rank is not political leadership; attack_count30 is not thirty persistent minds; targetable wall is not a person; listed age/power variants do not establish an evolution chain. A selected returning neighbor needs real actor identity, wounds, stock, history and fighter/dialogue binding. Ordinary anonymous repeated encounters can retain their legacy semantics without claiming population simulation or erasing an actual resident's aftermath.\n\nF2. The hunter chain has separate issuer, beneficiary, contractor, target claim, evidence, locating means, contact and settlement. Power or office alone grants no perfect locator, universally effective attack or matching-level reinforcement. Closing one issuer's case ends that case's eligibility, not every jurisdiction's evidence; later reports need actual recipients. Disguise, body shift, citizenship, negotiated service and affection change their own facts without a global allegiance flip. An actually sourced locator, compulsory mandate, source correction or powerful countermeasure can work by its mechanism; the ordinary funded-search example is not a universal ban on exceptional means under AD38.\n\nF3. Lair fees, worker costs, prize stock/custody, salvage, XP and kill/source conversion are independent operations. The illustrative two-customer ledger yields +3 only from its actual receipts. A new visitor is not a timer-generated purse; anonymous loot is not automatically a living neighbor's pelt. Conversely real renewable production, legitimate repeated challenges, source creation and genuine kill-to-energy can remain profitable under AD22. Prevent duplicate settlement and fabricated suppliers, not actual useful gains. Housing/core reach, institutional land title and observation of occupants remain different; sharing a building does not grant every resident's knowledge or body control.\n\nF4. The documented frog/dragonfly global-effect callback hazard is a historical source finding, not a newly reproduced current defect or completed repair. Existing fighter arrays already contradicted the older single-fighter claim; arrays alone do not prove generic actor-aware poison, reward routing, surrender/capture or body-fit attacks. Select actual target and effect consumer before reusing a callback as a player power. A new original wolf-rat incident does not retroactively assign the human quest's crimes, unlocks or earned rewards to that individual. A source lore statement about expulsion/hunger is not implemented habitat capacity or permission to add hunger death.\n\nF5. Preserve quiet resident, useful service, nonlethal trial, repair and relocation routes beside severe selected premises. Actual independent workers/autonomous fixtures can support concurrent jobs where their channels and reservations permit; the one-body warning is not a blanket ban on genuine parallel mechanisms. Historical freeze, one-realm/prestige and1366-primary statements do not govern current clock, campaign or desktop direction. The five suggestions and proposed schemas remain proposals under AD32; AD36/AD43 govern a selected slice and AD42 keeps human review optional. No linked source/primary book, code behavior, native start, migration, UI or save proof was freshly verified here.",
+      "before_sha256": "021763d5d5cc1deb78d33c5689e1e693506e499ecba1b755a570de0b4790740f",
+      "after_sha256": "4047b4d06bea35a2632d1a5c20eb87ae0052a57fb85c2743d5805e2d21e4ec52"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 965
+}

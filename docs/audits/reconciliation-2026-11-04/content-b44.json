@@ -1,0 +1,125 @@
+{
+  "schema": 1,
+  "batch": "B44",
+  "title": "Fate predecessor and shard completion chronology with retained correction overlays",
+  "at": "2026-11-04T19:56:39.380241+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/CHECKPOINT.md",
+      "ids": [
+        "33 predecessor pages",
+        "993/1481/3864 shard inputs",
+        "21 whole-manifest no-input dispositions",
+        "append-only note corrections"
+      ],
+      "classification": "fresh full source-reader checkpoint review",
+      "owners": [
+        "docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve original seed/cache restoration history and later shard completion/correction claims separately. Retained counts reconcile arithmetically to6371, with21 no-input dispositions separate; no raw-note recount or primary canon authentication performed. Keep separate continuities, unresolved transclusions, attribution/inference corrections and display repair history.",
+      "evidence": "All four pending Fate checkpoints freshly read in bounded nontruncated output after an overbroad display was discarded. Fallout was already reviewed via complete prior semantic union and receives no new credit here.",
+      "reopen": "For a selected mechanic inspect exact note/correction and primary source era; do not restart predecessor queue or treat cache restoration as reading.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "644c52a59e60f7eeb02a12dab89be4f75359a1af6c0f99b8de567fa6924f33a0",
+      "input_lines": 26,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          26
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/r2-2026-10-13/shard-a/CHECKPOINT.md",
+      "ids": [
+        "33 predecessor pages",
+        "993/1481/3864 shard inputs",
+        "21 whole-manifest no-input dispositions",
+        "append-only note corrections"
+      ],
+      "classification": "fresh full source-reader checkpoint review",
+      "owners": [
+        "docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/r2-2026-10-13/shard-a/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve original seed/cache restoration history and later shard completion/correction claims separately. Retained counts reconcile arithmetically to6371, with21 no-input dispositions separate; no raw-note recount or primary canon authentication performed. Keep separate continuities, unresolved transclusions, attribution/inference corrections and display repair history.",
+      "evidence": "All four pending Fate checkpoints freshly read in bounded nontruncated output after an overbroad display was discarded. Fallout was already reviewed via complete prior semantic union and receives no new credit here.",
+      "reopen": "For a selected mechanic inspect exact note/correction and primary source era; do not restart predecessor queue or treat cache restoration as reading.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "1bb42c010c4fbd6c5d92e609983679af57502db9750fed58cd4ec50c398f58ee",
+      "input_lines": 31,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          31
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/r2-2026-10-13/shard-b/CHECKPOINT.md",
+      "ids": [
+        "33 predecessor pages",
+        "993/1481/3864 shard inputs",
+        "21 whole-manifest no-input dispositions",
+        "append-only note corrections"
+      ],
+      "classification": "fresh full source-reader checkpoint review",
+      "owners": [
+        "docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/r2-2026-10-13/shard-b/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve original seed/cache restoration history and later shard completion/correction claims separately. Retained counts reconcile arithmetically to6371, with21 no-input dispositions separate; no raw-note recount or primary canon authentication performed. Keep separate continuities, unresolved transclusions, attribution/inference corrections and display repair history.",
+      "evidence": "All four pending Fate checkpoints freshly read in bounded nontruncated output after an overbroad display was discarded. Fallout was already reviewed via complete prior semantic union and receives no new credit here.",
+      "reopen": "For a selected mechanic inspect exact note/correction and primary source era; do not restart predecessor queue or treat cache restoration as reading.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "9c209f8dd7a227c7700f4741d0d360ce840d69c4b09f5a35c448f7bc596b5aae",
+      "input_lines": 18,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          18
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/r2-2026-10-13/shard-c/CHECKPOINT.md",
+      "ids": [
+        "33 predecessor pages",
+        "993/1481/3864 shard inputs",
+        "21 whole-manifest no-input dispositions",
+        "append-only note corrections"
+      ],
+      "classification": "fresh full source-reader checkpoint review",
+      "owners": [
+        "docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/r2-2026-10-13/shard-c/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve original seed/cache restoration history and later shard completion/correction claims separately. Retained counts reconcile arithmetically to6371, with21 no-input dispositions separate; no raw-note recount or primary canon authentication performed. Keep separate continuities, unresolved transclusions, attribution/inference corrections and display repair history.",
+      "evidence": "All four pending Fate checkpoints freshly read in bounded nontruncated output after an overbroad display was discarded. Fallout was already reviewed via complete prior semantic union and receives no new credit here.",
+      "reopen": "For a selected mechanic inspect exact note/correction and primary source era; do not restart predecessor queue or treat cache restoration as reading.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "677ba19829d3ce7b866c7e02fecc9072dc5c89c5c5227f1d5805800f37a04600",
+      "input_lines": 25,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          25
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/CHECKPOINT.md",
+      "heading": "## Later shard completion routing, 2026-11-04 (B44)",
+      "body": "The predecessor’s33 completed pages and6338 remaining line are initial round history. Later r2-2026-10-13 shard-a/b/c checkpoints report993,1481 and3864 retained inputs, respectively; together with33 predecessor inputs these counts arithmetically reconcile to6371. Shard-c separately reports21 whole-manifest no-input dispositions. This is checkpoint-content reconciliation, not an independent raw-ledger recount or renewed source-reading receipt. Follow the exact shard summaries and correction overlays, retaining ambiguous identities, inferred consumption, mistaken tension labels and unresolved transclusions. Cache restoration proves recovered bytes, while reading, accurate secondary paraphrase, primary-canon qualification and gameplay integration remain separate.",
+      "before_sha256": "644c52a59e60f7eeb02a12dab89be4f75359a1af6c0f99b8de567fa6924f33a0",
+      "after_sha256": "a308d4f79f81db643b3995c34a42496370c00a9390b10131aa0e872e56bbf3b0"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1539
+}

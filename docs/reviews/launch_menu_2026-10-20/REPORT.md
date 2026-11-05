@@ -55,3 +55,10 @@ Validation on the restored source: `npm run build` PASS; `npm test` **2394/2394 
 Fresh-origin rebuilt browser PASS: no Beginning controls at 1920×1080, 1800×1040 or 1536×864; original styles and old launch font; onionv credit; PLAY visible and keyboard-usable. PLAY enters ordinary Village without the optional-system grant. Save/reload and returning PLAY work, zero page errors. [Receipt](restored-receipt.json), [visually inspected screenshot](restored.png). Tests use disposable contexts; personal saves remain untouched. Broader Gothic UI work is preserved, not revalidated or merged by this restoration.
 
 Current frozen preview: http://127.0.0.1:19233/, `/tmp/oops-launch-restored-20261020`, exec session 12023. Earlier 19232/57584 screens are superseded. No commit/push/merge; human visual acceptance remains separate.
+
+
+## Content reconciliation, 2026-11-04 (B169)
+
+C1–C3, first-candidate checks and the complete final restoration were read. The user’s original-screen/direct-PLAY restoration supersedes the visible radio-card menu, custom launch stylesheet and first previews; a separate public start menu remains deferred. Retain rejected candidate evidence as history. The helper’s forced hidden select tests existing optional-system mechanics, not a visible choice UI, and no selection by itself grants a start. Native Save/reload proof is distinct from literal Export/Import, which was not exercised in this task.
+
+Current index source retains direct PLAY, onionv attribution, reference credits and final edited guinea-pig derivative. No new browser/keyboard/geometry proof follows that source read, and old loopback ports, exec IDs and temporary frozen paths are not live availability claims. The later October 21 owner holds subsequent counter/signature/corner-link changes. Current desktop direction and AD42 govern any future verification or optional human review; this record does not reopen its rejected public menu or authorize a new prototype.

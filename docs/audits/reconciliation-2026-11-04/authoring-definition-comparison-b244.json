@@ -1,0 +1,51 @@
+{
+  "scope": "Artifact comparison only; seven JSON blocks parsed, no pack compiler/runtime execution.",
+  "inputs": [
+    {
+      "path": "docs/worlds/NONHUMAN_BODY_AUTHORING_2026-10-14.md",
+      "sha256": "642f16e130253d49793cf3f43d4cd2eaed3a0bf0919931606b9ab2464ca3512e",
+      "lines": 1182
+    },
+    {
+      "path": "docs/worlds/NONHUMAN_START_SPECS_2026-10-14.md",
+      "sha256": "88b787eb932cca917e8a65c846307ddee8c47479a88c5618c8e8a6445f1599b8",
+      "lines": 429
+    }
+  ],
+  "authoring_json_blocks": 4,
+  "start_spec_json_blocks": 3,
+  "shared_template_ref": [
+    "village.bodies.hound",
+    1
+  ],
+  "hound_added_functions_in_start_spec": [
+    "carry.mouth",
+    "read"
+  ],
+  "differing_top_level_fields": [
+    "defeat",
+    "functions",
+    "intake",
+    "lifespan",
+    "rest"
+  ],
+  "blade_unique_item_reference": "village.bodies.practice_blade.sample_object",
+  "pack_headers": [
+    [
+      "village.bodies",
+      1
+    ],
+    [
+      "village.bodies",
+      1
+    ],
+    [
+      "village.bodies",
+      1
+    ],
+    [
+      "village.bodies",
+      1
+    ]
+  ]
+}

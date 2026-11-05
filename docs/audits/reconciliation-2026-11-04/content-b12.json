@@ -1,0 +1,621 @@
+{
+  "schema": 1,
+  "batch": "B12",
+  "title": "Cross-world planning, livelihood chronology and bounded repair evidence",
+  "at": "2026-11-04T19:40:56.177651+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/cheat-cosmology-gaps-2026-10-10/CHECKPOINT_M.md",
+      "ids": [
+        "Section M",
+        "33 pairs",
+        "28 backing combinations",
+        "25 Outside entries",
+        "22 evidence keys",
+        "O1–O5"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/cheat-cosmology-gaps-2026-10-10/MEETINGS_REPORT.md; docs/CHEAT_COSMOLOGY.md; docs/CHEATS_BY_WORLD.md"
+      ],
+      "disposition": "Historical documentation delivery; crossover results are proposals, not canon feats. Preserve this dated checkpoint and its report-level gaps. It neither schedules old packets nor overrides current direction. Later receipts can supersede earlier pending status only for their exact inputs and proof scope.",
+      "mechanism_and_interactions": "The report compares cheat backings and crossover pairs, separating carrier from activation, eligibility, contact and retention; it checks source anti-feats for Fourth Wall, Cicada and Gluttony, plus soulbound-flask and Paradise exceptions. The catalogue has 71 eligible data rows despite a heading count of 70. The checkpoint reports citation and preservation checks, while some source claims and crossover outcomes remain conditional.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports 33 meetings, coverage and source/path checks; underlying references were not revalidated here and no runtime proof is claimed.",
+      "reopen": "If a crossover is selected, resolve admission, foreign reach, reset order, bonds/theft and source locators in its scenario.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          37
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S004.json"
+      ],
+      "prior_input_sha256": "d56d9de34781a902751b848a7d4dcae67ba588a9345982209204860984dbf3dc",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "d56d9de34781a902751b848a7d4dcae67ba588a9345982209204860984dbf3dc",
+      "input_lines": 37
+    },
+    {
+      "path": "docs/gm/dispatch/cheats-sfx-implementation-2026-10-12/CHECKPOINT.md",
+      "ids": [
+        "C3",
+        "C4",
+        "G1–G5",
+        "AU3",
+        "AU7"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/cheats-sfx-implementation-2026-10-12/LAPTOP_LAYOUT_STEERING.md; docs/gm/dispatch/cheats-sfx-implementation-2026-10-12/NEXT_AUTHORING_CYCLE.md; src/customization_ui.js; src/structured_pack_runtime.js"
+      ],
+      "disposition": "Historical UI/candidate milestones are recorded, but the later audit pause supersedes the earlier next-action sequence. Preserve this dated checkpoint and its report-level gaps. It neither schedules old packets nor overrides current direction. Later receipts can supersede earlier pending status only for their exact inputs and proof scope.",
+      "mechanism_and_interactions": "The record distinguishes a closed finite customization UI chain from the still-open authoring horizon. Earlier C3 work connected equipment/item bindings, configuration, cancellation, crafting and persistence through a candidate; later laptop steering reopened presentation, requiring full laptop-screen use before authoring continues. Optional-activity inspection found pack-local row values but no native reward or cancellation API, so a form alone would not complete a connected activity loop.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports candidate tests and browser evidence for earlier C3; later layout work is explicitly paused pending separate UI audit.",
+      "reopen": "On resumption, reconcile the named UI audit with LAPTOP_LAYOUT_STEERING.md and inspect current activity adapter before freezing the laptop gate.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          34
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S004.json"
+      ],
+      "prior_input_sha256": "dfe9466c3313f02b1f7aff0733221ae00447efd269b259dcf20aadf0dbc7e284",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "dfe9466c3313f02b1f7aff0733221ae00447efd269b259dcf20aadf0dbc7e284",
+      "input_lines": 34
+    },
+    {
+      "path": "docs/gm/dispatch/connection-detail-2026-10-12/CHECKPOINT.md",
+      "ids": [
+        "35 C/E/X families",
+        "36 leaves",
+        "six joined probes",
+        "five packets",
+        "U1–U9",
+        "CD-P1",
+        "CD-P2/P3",
+        "J06"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/connection-detail-2026-10-12/REPORT.md; docs/gm/dispatch/connection-detail-2026-10-12/packets/; existing UI and World1 owners"
+      ],
+      "disposition": "Finite planning assignment completed with report and validation; runtime selection, source changes and gameplay acceptance remain separate. Preserve this dated checkpoint and its report-level gaps. It neither schedules old packets nor overrides current direction. Later receipts can supersede earlier pending status only for their exact inputs and proof scope.",
+      "mechanism_and_interactions": "This planning lane maps connection/detail families to source seams and future packets, including joined probes, dependencies and native-consumer/save boundaries. The final report adds explicit persistence gates and source fingerprints after review; it does not implement a consumer or mutate runtime state. Existing live UI and World1 owners retain their separate authority, so the planning map does not transfer their paths.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports manifest/hash checks, structural validation and independent planning review; no engine, browser, save or build check.",
+      "reopen": "If selected, reserve CD-P1, refresh mutable inputs and prove one actual consumer with rebuilt browser and persistence evidence as applicable.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          34
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S004.json"
+      ],
+      "prior_input_sha256": "48f25f74cfa3165aa4460833e73cc5d2e3b78f916ddcf7bc79f75f7b82f11bce",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "48f25f74cfa3165aa4460833e73cc5d2e3b78f916ddcf7bc79f75f7b82f11bce",
+      "input_lines": 34
+    },
+    {
+      "path": "docs/gm/dispatch/crafting-screen-2026-10-13/CHECKPOINT.md",
+      "ids": [
+        "C1–C9",
+        "Vivid regression",
+        "1366×768",
+        "5/10/All",
+        "C9"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "src/crafting_detail.js; styles/crafting_detail.css; docs/gm/dispatch/crafting-screen-2026-10-13/GOAL.md; Constraints"
+      ],
+      "disposition": "Finite technical implementation completed in its candidate with the listed polish and scope gaps retained; no commit reported. Preserve this dated checkpoint and its report-level gaps. It neither schedules old packets nor overrides current direction. Later receipts can supersede earlier pending status only for their exact inputs and proof scope.",
+      "mechanism_and_interactions": "The crafting detail change makes list selection reveal details and moves crafting to an explicit button; blocked reasons and missing rows use blocked color, with grouped 5/10/All actions. The record reports a visual check at 1366×768 and a full check script. Detail scrolling clips the XP line at that size; component/equipment row pickers remain in-row and equipment crafts still lack a receipt.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports C1–C9, Vivid regression and npm suite passing, plus a visual check; current shared integration and later UI acceptance are not established.",
+      "reopen": "If reselected, verify current integration and decide whether clipped XP line or equipment receipt is in scope.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          23
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S004.json"
+      ],
+      "prior_input_sha256": "c7416069ca8409fb3a224d8e044b1e2a690e07c5b062cb6d79132d139faf1664",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "c7416069ca8409fb3a224d8e044b1e2a690e07c5b062cb6d79132d139faf1664",
+      "input_lines": 23
+    },
+    {
+      "path": "docs/gm/dispatch/cross-world-rulebook-expansion-2026-10-12/CHECKPOINT.md",
+      "ids": [
+        "36 families",
+        "six joined examples",
+        "12 accepted rules",
+        "Section Cross-world audit precedent"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/CROSS_WORLD_DETAIL_REVIEW.md; docs/RULES_FROM_SCRATCH.md#cross-world-audit-precedent; docs/gm/dispatch/cross-world-rulebook-expansion-2026-10-12/REPORT.md"
+      ],
+      "disposition": "Finite documentation tranche complete; no new mechanics accepted, and future world-specific director/runtime gates remain distinct. Preserve this dated checkpoint and its report-level gaps. It neither schedules old packets nor overrides current direction. Later receipts can supersede earlier pending status only for their exact inputs and proof scope.",
+      "mechanism_and_interactions": "The reference packet organizes cross-world mechanics into families, joined examples, source-admission workflow and consumer worksheets. It preserves existing rulebook text and adds a named precedent section plus review report. Its central boundary is that mechanism examples and evidence maps guide later world-specific selection; they do not establish source truth, canon or a playable implementation.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports preservation, link and artifact validation; explicitly no engine inspection, tests, build or browser behavior.",
+      "reopen": "A future selected world needs its source/premise, exceptions and actual native consumer qualified under a new bounded scope.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          12
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S004.json"
+      ],
+      "prior_input_sha256": "4e9ceb8d51b8c08a402860b84ee4bea15cd5dd1333db2f54ce61026f9ac0237d",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "4e9ceb8d51b8c08a402860b84ee4bea15cd5dd1333db2f54ce61026f9ac0237d",
+      "input_lines": 12
+    },
+    {
+      "path": "docs/gm/dispatch/dependable-local-livelihood-2026-10-12/CHECKPOINT.md",
+      "ids": [
+        "E1–E24",
+        "G6",
+        "108/108",
+        "14 browser checks",
+        "56→66",
+        "Mara",
+        "Sella"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/dependable-local-livelihood-2026-10-12/REPORT.md; ACCEPTANCE_BACKLOG.md; src/structured_pack_runtime.js"
+      ],
+      "disposition": "The checkpoint reports an isolated technical route, but source changed afterward; its own note requires requalification on rebuilt inputs. Preserve this dated checkpoint and its report-level gaps. It neither schedules old packets nor overrides current direction. Later receipts can supersede earlier pending status only for their exact inputs and proof scope.",
+      "mechanism_and_interactions": "A Reedbank repair livelihood reuses structured beginnings, native stock/items, simulation jobs, money, actor knowledge and travel. The proposed cycle buys a kit, repairs and delivers a basket/crate, learns braced joinery, then later encounters a history-dependent offer; a colleague’s bounded contribution spends her stock/attention and pays separately. Browser closure pauses work and return reads delivered history. Later source edits added pre-start disclosure and native quote requirements.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical report claims 108 checks and 14 browser checks, including persistence; the final source delta is not requalified in this checkpoint.",
+      "reopen": "Rebuild and re-exercise the changed pre-Begin disclosure/quote path before treating the slice as currently qualified.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          19
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S004.json"
+      ],
+      "prior_input_sha256": "12e287da71f4fe145f6f0e447bc753424c0998a3ab5931c2c69bcc83d691affd",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "12e287da71f4fe145f6f0e447bc753424c0998a3ab5931c2c69bcc83d691affd",
+      "input_lines": 19
+    },
+    {
+      "path": "docs/gm/dispatch/derived-snapshots-2026-10-14/offline/CHECKPOINT.md",
+      "ids": [
+        "14 current-behavior findings",
+        "13 save-owner groups",
+        "11 gaps",
+        "OT1–OT10",
+        "BR6"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/OFFLINE_TIME_AND_BRANCH_CLOCK_AUDIT_2026-10-14.md; derived-snapshots/offline report owner"
+      ],
+      "disposition": "Read-only audit complete; recommendations are proposals, not implementation tasks or current behavior guarantees. Preserve this dated checkpoint and its report-level gaps. It neither schedules old packets nor overrides current direction. Later receipts can supersede earlier pending status only for their exact inputs and proof scope.",
+      "mechanism_and_interactions": "The offline-time and branch-clock audit groups current behavior by save owner and identifies gaps, distinguishing read/run verification from inference. Its inspected tests cover expansion engine, content packs, structured-pack runtime, village life and absorb E1. It did not use browser, build or real save interaction, so the report maps owners and risks rather than proving background timing or persistence roundtrips.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports 51 relevant tests passing; explicitly leaves closed-browser timing, rebuilt/native play and save roundtrip open.",
+      "reopen": "For a selected offline/branch-clock claim, inspect the report and qualify the named native persistence journey.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S004.json"
+      ],
+      "prior_input_sha256": "0aea18a3708cc897b97d67d8102f3f832b586dc2668a15939f45b635e3f5c9b9",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "0aea18a3708cc897b97d67d8102f3f832b586dc2668a15939f45b635e3f5c9b9",
+      "input_lines": 13
+    },
+    {
+      "path": "docs/gm/dispatch/derived-snapshots-2026-10-14/saveshape/CHECKPOINT.md",
+      "ids": [
+        "F1–F4",
+        "P1–P5",
+        "M1–M8",
+        "R1–R5",
+        "T1–T5",
+        "S1–S5",
+        "61 fields"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/PROFILE_AND_BRANCH_SAVE_SHAPE_2026-10-14.md; docs/gm/dispatch/derived-snapshots-2026-10-14/saveshape/CHECKPOINT.md (no separate validation artifact supplied)"
+      ],
+      "disposition": "Finite read-only audit and migration proposal complete; no implementation or persistence acceptance follows. Preserve this dated checkpoint and its report-level gaps. It neither schedules old packets nor overrides current direction. Later receipts can supersede earlier pending status only for their exact inputs and proof scope.",
+      "mechanism_and_interactions": "The save-shape lane measures serialized storage and proposes profile/branch records plus an ordered migration. A RAM-only serializer probe measured 61 top-level fields and export size; this is sizing evidence, not a durable browser roundtrip. Several assigned input files were absent, so the lane used present neighboring owners and recorded the gap. All schema and migration recommendations remain inferred.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports seven test files/49 tests plus RAM probe; no private saves, browser origins or persistence changes accessed.",
+      "reopen": "Any migration requires a selected owner, full current schema inputs and actual save/reload/export/import verification.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          10
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S004.json"
+      ],
+      "prior_input_sha256": "2062f5834ff88b7a2ae1f5ce724f69a1fcb047c67e0ee5209f45e15dc6fb6c1e",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "2062f5834ff88b7a2ae1f5ce724f69a1fcb047c67e0ee5209f45e15dc6fb6c1e",
+      "input_lines": 10
+    },
+    {
+      "path": "docs/gm/dispatch/dnd-world-2026-10-11/CHECKPOINT.md",
+      "ids": [
+        "SRD 5.2.1",
+        "SRD 5.1",
+        "A1",
+        "PS01–PS03",
+        "S00–S14",
+        "15 families"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/worlds/dnd/FOUNDATION.md; SOURCE_CONTRACT.md; COVERAGE_MAP.md; FIRST_SLICE.md; SOURCE_MANIFEST.json"
+      ],
+      "disposition": "Research/design foundation complete; setting/profile and gameplay remain proposals, with no code or source acquisition beyond the stated PDFs. Preserve this dated checkpoint and its report-level gaps. It neither schedules old packets nor overrides current direction. Later receipts can supersede earlier pending status only for their exact inputs and proof scope.",
+      "mechanism_and_interactions": "The D&D foundation proposes Forgotten Realms/SRD 5.2.1 with Phandalin as a first region, while keeping edition profiles separate. It maps source claims, coverage and a first slice with starting lives, action leaves and engine gaps. Three official PDFs were downloaded and parsed, but only selected sections were inspected; a wiki digest and Lost Mine chapter remained unread/unavailable. Old Warlock/Wish leads are preserved as bounded leads.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports local source/hash checks and finite planning validation, but no rebuild, code tests, browser behavior or save journey.",
+      "reopen": "Before selecting a start, qualify its edition-specific rules and source chapter, then establish native route and persistence evidence.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          23
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S004.json"
+      ],
+      "prior_input_sha256": "a1c3f8294218382f49dc62f9debe31e317888ac84cb1d2a306e491697e27efb0",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "a1c3f8294218382f49dc62f9debe31e317888ac84cb1d2a306e491697e27efb0",
+      "input_lines": 23
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/CHECKPOINT.md",
+      "ids": [
+        "49 selected records",
+        "12 engine contracts",
+        "16 cross-system cases",
+        "eight packets",
+        "173 specified-not-run cases",
+        "A1–A5"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/dual-gm-2026-10-11/expansion/REPORT.md; VALIDATION; REMAINING_MANIFEST.md; root integration owner"
+      ],
+      "disposition": "Finite planning tranche closed; proposals and unrun cases do not create gameplay authority or close earlier source/audit owners. Preserve this dated checkpoint and its report-level gaps. It neither schedules old packets nor overrides current direction. Later receipts can supersede earlier pending status only for their exact inputs and proof scope.",
+      "mechanism_and_interactions": "The expansion tranche joins source leaves, authored start candidates, engine contracts, cross-system cases and implementation packets while keeping inherited claims and exact source bindings separately qualified. Its 49 selected records and 173 specified-not-run cases are planning coverage, not play. Source readers inspected bounded ranges, not whole books. T2 and T3 remain separate, as do isolated worktree completion and root merge/integration.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports artifact validation and no runtime test/build/browser evidence.",
+      "reopen": "If implementation is selected, use a bounded packet, refresh hashes, reserve exact runtime paths, then prove native behavior and persistence.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S004.json"
+      ],
+      "prior_input_sha256": "f9fd445e755fccdfd4e9ae0a161ee6e0aafd51cfe57356e70cf2b416629d0bf5",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "f9fd445e755fccdfd4e9ae0a161ee6e0aafd51cfe57356e70cf2b416629d0bf5",
+      "input_lines": 17
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/audits/native-proof/CHECKPOINT.md",
+      "ids": [
+        "F1",
+        "F2",
+        "F3",
+        "C11",
+        "P1",
+        "A5",
+        "18541",
+        "18531"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/dual-gm-2026-10-11/expansion/audits/native-proof/REPORT.md; REPAIR_PACKETS.md; status.json; isolated audit checkout"
+      ],
+      "disposition": "Finite audit complete with three reproduced issues and repair packets; no repairs or integration were authorized. Preserve this dated checkpoint and its report-level gaps. It neither schedules old packets nor overrides current direction. Later receipts can supersede earlier pending status only for their exact inputs and proof scope.",
+      "mechanism_and_interactions": "The isolated production audit reproduced three defects: panel detachment, unvisited installed-pack save blockage, and calendar-invalid Chronicle state after a native timer. A temporary rebuilt production transfer and diagnostic bypass were separately exercised; the bypass did not modify mechanics. Tests covered native temporary transfer, depletion/recovery, travel, failure and save compatibility. The audit left source/schema repairs to separate authorization and distinguished diagnostic evidence from ordinary entry.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports build, focused tests and browser/save cases on an isolated candidate; original production defects remain historical findings, not current-state rechecks.",
+      "reopen": "Before repair, verify current source/pack hashes and obtain a distinct runtime path reservation; do not reuse old bundle as current evidence.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S004.json"
+      ],
+      "prior_input_sha256": "337e5f370798561bf6f7a8ffc0145bda5aa041c805e4f6ab769b993c9239967b",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "337e5f370798561bf6f7a8ffc0145bda5aa041c805e4f6ab769b993c9239967b",
+      "input_lines": 15
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/audits/source-v1/CHECKPOINT.md",
+      "ids": [
+        "58 chapters",
+        "3,418 displayed blocks",
+        "1,033 occurrence rows",
+        "275 source contexts",
+        "383 claims",
+        "102 index rows",
+        "149 dispositions"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/dual-gm-2026-10-11/expansion/audits/source-v1/REPORT.md; ignored private INPUTS/READ_COVERAGE/ENTITY_FUNCTIONS/RECONCILIATION/REMAINING_MANIFEST"
+      ],
+      "disposition": "Finite first-volume reading/extraction return complete; this does not close later volumes or establish native consumer behavior. Preserve this dated checkpoint and its report-level gaps. It neither schedules old packets nor overrides current direction. Later receipts can supersede earlier pending status only for their exact inputs and proof scope.",
+      "mechanism_and_interactions": "The A1 source audit records full chapter-body reader receipts and occurrence/context extraction, with reconciliation and claim/index crosswalks. Structural checks bind ranges and original/frozen hashes, but extraction is explicitly distinct from semantic reading and a source context from gameplay proof. Four later supplied volumes remain unaudited in this return; selected consumers and detail packets remain future qualification work.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports source receipt/locator validation and no runtime, build, save or publication changes.",
+      "reopen": "For any selected claim, inspect its exact private receipt and source edition, then separately qualify the actual game consumer.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S004.json"
+      ],
+      "prior_input_sha256": "066088e2f5c09251be003bb6339fccd33abef4026cb20d2302e46beea57c7f43",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "066088e2f5c09251be003bb6339fccd33abef4026cb20d2302e46beea57c7f43",
+      "input_lines": 11
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/continuation/CHECKPOINT.md",
+      "ids": [
+        "15 technical gates",
+        "394 source tests",
+        "P5_REPORT",
+        "P5_INPUTS",
+        "p02/p03",
+        "53.4s/72.8s",
+        "NEXT_UNIT"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/dual-gm-2026-10-11/expansion/continuation/P5_REPORT.md; P5_INPUTS; P5_PROOF; NEXT_UNIT"
+      ],
+      "disposition": "Finite technical edition slice completed in candidate; not whole-world completion, human acceptance, or shared integration. Preserve this dated checkpoint and its report-level gaps. It neither schedules old packets nor overrides current direction. Later receipts can supersede earlier pending status only for their exact inputs and proof scope.",
+      "mechanism_and_interactions": "The isolated early-edition candidate passes 15 technical gates and reports natural browser journeys, native combat recovery, development/renewal/rest and save/import continuity. New starts use native compatibility and snapshot receipts; pending state precedes publication. It preserves source/build hashes and separates test-bed results from director fiction acceptance and shared integration. Remaining full-source, variant and excluded-start work stays with prior owners.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports candidate test/build/browser/persistence evidence; shared source remains read-only and root integration is still a separate gate.",
+      "reopen": "For later delivery, inspect current candidate and integration owners; do not treat isolated proof as shared build qualification.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S004.json"
+      ],
+      "prior_input_sha256": "23863f6c43f3261a38ef0eab53e36fc489b3501aa79a5315e248d0f8cc1f61d4",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "23863f6c43f3261a38ef0eab53e36fc489b3501aa79a5315e248d0f8cc1f61d4",
+      "input_lines": 13
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/continuation/audit-review/CHECKPOINT.md",
+      "ids": [
+        "34 A1 corrections",
+        "58 source ranges",
+        "journey18/90",
+        "A5 revision3",
+        "three repair inputs"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/dual-gm-2026-10-11/expansion/continuation/audit-review/REVIEW.md; REVIEW.json; ignored audits/join-review/"
+      ],
+      "disposition": "Finite audit-join review released with zero required finite-review issues; it grants no repair authority. Preserve this dated checkpoint and its report-level gaps. It neither schedules old packets nor overrides current direction. Later receipts can supersede earlier pending status only for their exact inputs and proof scope.",
+      "mechanism_and_interactions": "This review join maps all 34 A1 corrections, validates source/range bindings, reviews journey families and classifies the final native-proof issues into three bounded repair inputs. The review is explicitly read-only: it does not alter source, code, packs, builds or saves, and it does not rerun gameplay proof. Its purpose is to preserve traceability between earlier audits and possible later repairs.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports hash/range and mapping checks only; no runtime repair or proof rerun.",
+      "reopen": "If inputs change, review affected joins only; repair requires a separately authorized runtime scope.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          5
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S004.json"
+      ],
+      "prior_input_sha256": "accb85cfee97a6aecb12a667560431742b30e18f9a0b46265a3cf64be831c94e",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "accb85cfee97a6aecb12a667560431742b30e18f9a0b46265a3cf64be831c94e",
+      "input_lines": 5
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/implementation/CHECKPOINT.md",
+      "ids": [
+        "MICRO-P1",
+        "G8-006",
+        "Vivid regression",
+        "390/768",
+        "18531",
+        "F3"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "src/components/levelable_component.js; tests/micro_p1_xp.test.js; tests/micro_p1_browser.cjs; MICRO-P1.patch; candidate report"
+      ],
+      "disposition": "Finite isolated implementation is ready for director review and distinct shared integration; no patch was applied to original runtime. Preserve this dated checkpoint and its report-level gaps. It neither schedules old packets nor overrides current direction. Later receipts can supersede earlier pending status only for their exact inputs and proof scope.",
+      "mechanism_and_interactions": "MICRO-P1 corrects capped Combat XP storage by guarding non-finite input while preserving flags, order, uncapped routes and parent transfer. The candidate reports rebuilt production, focused/full checks and fresh-origin browser/save/import proof; diagnostic cap preview is separate from production. Adjacent factor aggregation still rounds 1.1232 to 1.12 at first reload, while exact XP and flat milestones pass. Patch application was checked against an old HEAD but not applied to shared source.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports candidate tests/build/browser/save evidence; original shared source was still faulty at final inspection and remains unqualified by the candidate.",
+      "reopen": "Integration requires current base reconciliation, guarded application by owner, rebuild and repeat of the relevant production journey including factor boundary.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          12
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S004.json"
+      ],
+      "prior_input_sha256": "84872898fed7211b607c0c4b6e21fc8e4f3fca0fd4b76d3a2d33d59ce810f4aa",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "84872898fed7211b607c0c4b6e21fc8e4f3fca0fd4b76d3a2d33d59ce810f4aa",
+      "input_lines": 12
+    },
+    {
+      "path": "docs/gm/dispatch/dependable-local-livelihood-2026-10-12/ACCEPTANCE_BACKLOG.md",
+      "ids": [
+        "H1",
+        "V1",
+        "V2",
+        "V3"
+      ],
+      "classification": "fresh full historical owner review",
+      "owners": [
+        "docs/gm/dispatch/dependable-local-livelihood-2026-10-12/ACCEPTANCE_BACKLOG.md"
+      ],
+      "disposition": "Later Oct13 final rebuilt-input primary/secondary milestone receipt narrows the earlier checkpoint requalification warning. Preserve remaining browser variants, local-lane scope and finite stock. Current behavior not reverified.",
+      "evidence": "Entire owner read against checkpoint semantic receipt; source/runtime not reverified.",
+      "reopen": "Reconcile current inputs/ownership on future selected change; preserve exact failure cases and publication/compatibility policy.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "3bf73e7f7e6efbe8c919c776a4d6a3b133c9f6b8833bf388aa625392929882c3",
+      "input_lines": 12,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          12
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/audits/native-proof/REPAIR_PACKETS.md",
+      "ids": [
+        "P1-UI/F1",
+        "P1-ABSENT-UNVISITED/F2",
+        "P1-JOINED-CALENDAR/F3"
+      ],
+      "classification": "fresh full historical owner review",
+      "owners": [
+        "docs/gm/dispatch/dual-gm-2026-10-11/expansion/audits/native-proof/REPAIR_PACKETS.md"
+      ],
+      "disposition": "Retain specific remount lifecycle, installed-but-unvisited provenance and compatible joined-clock publication repairs as historical proposals. Do not fabricate visits, discard unknown data, disable validation or tick unrelated worlds. No repair implemented or current defect reproduced.",
+      "evidence": "Entire owner read against checkpoint semantic receipt; source/runtime not reverified.",
+      "reopen": "Reconcile current inputs/ownership on future selected change; preserve exact failure cases and publication/compatibility policy.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "8aa43c1e2d1157be6bb8e7023216f98c7bbd4e5e8e4ac5033c2e88f54944d274",
+      "input_lines": 29,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          29
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/dependable-local-livelihood-2026-10-12/ACCEPTANCE_BACKLOG.md",
+      "heading": "## Chronology reconciliation, 2026-11-04 (B12)",
+      "body": "The checkpoint’s earlier source-change warning and this later October 13 final-input milestone receipt describe different input states. Preserve the later exact primary/secondary proof claim without renewing it for today’s checkout; V1–V3 still delimit unplayed variants and excluded scope. Human taste review remains optional under current AD42. Finite means, independent NPC contribution, durable publication and disclosed pre-Begin scope remain the useful consumer checks.",
+      "before_sha256": "3bf73e7f7e6efbe8c919c776a4d6a3b133c9f6b8833bf388aa625392929882c3",
+      "after_sha256": "ae711ccda1ce3604cd69fb8ed78d26ec3500a6bdafa2d39b67652621c950e307"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/audits/native-proof/REPAIR_PACKETS.md",
+      "heading": "## Reconciliation status, 2026-11-04 (B12)",
+      "body": "F1–F3 are retained reproduced defects on their original isolated inputs and candidate repair constraints. The later read-only join classified these packets; it did not implement them. Neither stale candidate hashes nor a diagnostic bypass establish a current ordinary-entry defect. If selected later, first inspect the current mount, registry-provenance and time-publication owners; retain no-fabricated-visit, no-data-loss, current observer/clock and durable-before-visible failure cases. This content reconciliation authorizes no runtime repair. Human fiction review is separate optional feedback under AD42; any actual persistence-policy decision still follows current owner authority.",
+      "before_sha256": "8aa43c1e2d1157be6bb8e7023216f98c7bbd4e5e8e4ac5033c2e88f54944d274",
+      "after_sha256": "cc1793b0929fff927bfdc97bf5fd4fdff3a1ff305c6d93e3589b446154188d4b"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1871
+}

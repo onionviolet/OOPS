@@ -13,3 +13,10 @@ Kenshi's game runtime is native C++, but its Forgotten Construction Set editor i
 [Findings](FINDINGS.md) contains source record IDs and binary offsets; [coverage](COVERAGE.json) separates decoded from read and executable from authored behavior. [Implementation packets](IMPLEMENTATION_PACKETS.md) are original proposals for the experience/foundation GMs. None is an accepted decision or implemented gameplay.
 
 No launch, save inspection, gameplay edit, commit or uninstall was performed by this worker. Native AI, needs, combat, world-state evaluation and save serialization remain unread. Steam's manifest lists soundtrack depot 468550; audio was deliberately excluded and no gameplay DLC coverage is claimed.
+
+
+## Content and coverage reconciliation, 2026-11-04 (B174)
+
+This report, full coverage JSON and P1–P5 were read.59558 decoded typed records across four individual layers and exact EOF checks are structural data recovery, not complete mod load-order/removal semantics or native AI/needs/combat/save execution. FCS managed reader recovery is distinct from native C++ gameplay. Patched hunger values differ from base, so even authored balance cannot be inferred from one layer alone. Source copying and zero worker consumers do not authorize present uninstall.
+
+Retain practical origin circumstances, food/work/storage linkage, priority/window/unloaded policies, temporary protection ending with an actual contact, and person-status-driven institution changes. Proposed apprentice wages and shared work, expiring service versus durable friendship, institution truth versus who knows it, and coarse absent routine boundary checks should reuse current stock/job/actor/knowledge owners if selected. They do not require per-tick distant simulation or a universal hunger/survival penalty. Authored unloaded mode is not a recovered save-compaction algorithm. Old first-milestone, blanket existing-save and “verification deferral” wording is historical under current direction/AD36/AD43. No native game, private source or YAIR consumer was reverified.

@@ -120,3 +120,10 @@ Gameplay narration direction stays in these owners; representation chat retains
 visual/composition questions and its exclusive record. Cheat chat owns concrete
 base-cheat access/design in its exclusive record. No shared-source edit, voice
 asset, implementation brief dispatch or hidden secret truth added here.
+
+
+## Content reconciliation B141, 2026-11-04
+
+The full format comparison and OD13 continuation were reviewed. The one-realm/one-prestige delivery constraint and 1366x768 proposal are historical, superseded by the later scope and viewport direction. O2 and A1 remain hypotheses, not a mandatory scene-first prototype, required portrait policy or new engine. Current [DESIGN](../DESIGN.md) selects functional task composition and prose-first reading while permitting a deliberately useful map, diagram or expressive moment. Strong means can bypass spatial obstacles rather than being disabled to protect a view (AD32, AD38, AD40).
+
+OD13's narration direction is distinct from the older format recommendations. Preserve NR1-NR5: different speakers and records may know different things, an actual truth-reading means can be exact within scope, and discovering one false statement does not certify all other claims. Optional unreliability does not make save failures, comfort settings or action commitments unreliable by default. A talking cheat's personality is not proof of omniscience, obedience or control. Source inspiration remains separately qualified; no linked source, scene renderer or real journey was newly verified by reading this assessment.

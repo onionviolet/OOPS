@@ -216,3 +216,12 @@ records this tranche's section-reviewed versus filename-indexed coverage and
 corrections. Apply the topic playbook's core-rule pass to affected seams rather
 than rerunning every old audit. No worker dispatch, messages, commit or runtime
 scope follows from updating this prompt.
+
+
+## Content reconciliation B260
+
+Full execution-brief content reviewed. Its October 18 recovery note already makes the October 15 active chat and reservation table historical. Those IDs, UI R6 and Qud checkpoints are discovery pointers, not present writer locks or an instruction to message/interrupt anyone. This pass continues in the [existing reconciliation record](audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md) and its explicit content inventory; no second backlog or new world-detail execution is created.
+
+P7's 1366 desktop target is superseded by the current [UI owner](UI_RULES.md) and later task-specific user corrections. Human review is optional under AD42; retain its absence as a state, without using “human acceptance” or an old failed/unrun gate to block authorized document maintenance. P2's first-milestone sequencing statement is historical because [the October 24 direction](USER_VISION.md#first-milestone-and-scope-check-2026-10-24) removed that gate. P5's first demonstrated consumer requirement is consistent with AD51; representative/outlier reasoning is not a requirement to implement a second world before a useful seam.
+
+P5's instruction to recommend shared-skill edits separately bounded that old assignment. The current user's explicit request to update reconcile-project supplied that scope; it does not authorize arbitrary global instruction edits. P3's indexed-only / unread distinction continues to matter: filename routing is not content coverage, and an unchanged hash does not supply missing reading. P3A's provenance/worktree comparisons remain scoped records, not authority to merge, retire, recreate or delete a checkout. No stale process, worker, model, private save, source or integration claim was verified by preserving a historical pointer. The actual content folds and original input identities live in the current batch ledgers, and scope completion remains distinct from batch completion. No consequential user question is created merely because the template contains a question stage.

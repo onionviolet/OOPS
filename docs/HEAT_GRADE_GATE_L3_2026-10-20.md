@@ -1,5 +1,7 @@
 # Heat grade gate, first slice (L3), 2026-10-20
 
+**Content review B3, 2026-11-04:** full task record and gaps reviewed; [GDP21/GDP26/GDP30 owner fold](GEAR_DEPTH_BLACKSMITHING_CHEMISTRY_ENERGY_POWERS_CONSIDERATIONS_2026-10-20.md#gdp21gdp26gdp30-reconciliation-2026-11-04) traces the current recipe/status/display/transaction seam. Current focused heat tests pass. The displayed duration remains descriptive in the instant recipe; no timed fuel job or new reserve was inferred. Original browser evidence and the unexercised Import/reload paths keep their own scope (AD32/AD36/AD43).
+
 Task record for GDP21, GDP26 and GDP30 from the gear-depth research doc.
 Rules applied: MR1, MR4 (quote spends nothing), AR3 (one authority), AR7
 (quote, then revalidate), AR12, AD5, AD38, UR40.

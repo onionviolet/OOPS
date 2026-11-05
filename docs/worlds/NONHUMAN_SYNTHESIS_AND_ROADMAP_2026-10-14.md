@@ -362,3 +362,59 @@ Additional uncovered integration uncertainty: which command boundary removes all
 **SHOWN artifact completion:** this document provides a one-page plain-language answer, 15 engine rows plus fourteen scoped lane joins, a dependency graph, 25 ordered slice proposals, 21 first-suggestion reconciliations, 24 CF entries, 18 DU entries, ten gaps and fourteen deferred scopes. All five optional reports were integrated after arrival; partial round-8 start specs remain qualified. All new proposals retain Default + Dial + Reasonably per world.
 
 **UNKNOWN/unverified:** every proposed runtime, numerical size/rate, source recheck, migration, performance, browser and persistence gate. This lane performed document inspection and artifact consistency/link checks only. No runtime/source/test/dist/owner/sibling changes, build, gameplay, user-save access, download, purchase, commit, push or publication. Technical proof of each selected slice and Weibao's playable acceptance remain open; roadmap completion is not gameplay completion.
+
+
+## Content reconciliation B222, 2026-11-04
+
+The entire E/LA dependency table, graph,25slice rows,21first-suggestion joins, CF1–CF24, DU1–DU18, G1–G10 and DS1–DS14 were read. The exact table is more detailed than the graph’s selected main chains; neither is an executed runtime dependency graph. The introduction’s G1–G6 shorthand does not limit the actual ten gap rows. The original lane explicitly skimmed tables and attributed sibling source claims; its complete synthesis and this review do not establish complete semantic reading of every sibling, code owner or primary text. B218–B220 separately review the abstraction, clocks and engine-spec bodies (AD32/AD36).
+
+The Oct18 reuse qualification already warns against turning the first repair into a current claim that body/typed-start seams are absent. Keep the25rows as proposals and the local LA codes as routing labels, not new accepted rule codes or today’s build sequence. Current Klein/LOTM full journey and Harry route direction qualify the older HP/D&D/Paradise ordering; the retired realm/prestige milestone and1366-primary target are not renewed by CF7/CF20/DS14. Human play/taste is optional review under AD42. A useful current recognition read need not wait for the proposed general body compiler, complete hound start or all source catalogues.
+
+Retain the conflict register’s actual distinctions: human cosmetic scaffold versus physical body; form admission versus anatomy shortcut; body owner versus holder/controller; retained XP versus current applicability; provider task execution versus imaginary pooled hands; source guaranteed allegiance versus present task agreement; produced part versus duplicated existing body; reference-aware durable kin versus rolling chatter. A real guaranteed loyal actor need not acquire invented betrayal, and source-supplied free capability need not gain a balance tax. Different-source versioned claims, command handlers and body/year/policy schema numbers remain separate. No one version or serialized field shape is selected by this roadmap.
+
+Roadmap edges mean the selected operation needs that contract, not every feature in a large predecessor row. CF2’s native bite proof belongs to its proposed full beast slice, not every noncombat body or ordinary relationship extension. LA4 need not add mortality when only projecting an existing clock; a source-qualified mission is not necessarily a universal body-rental service. G0’s complete old-save and UI fixture set must be scoped through current AD36 and accepted compatibility decisions for the actual changed consumer. AD51 allows a seam for known concrete needs and validates reuse with a different world; fixed example-count gates do not prohibit useful first consumers.
+
+G1–G10/DS1–DS14 preserve operational and source residue, not newly required work for all worlds. Important unresolved joins are provider/support disappearance and export-only retention of unsupported references; a closed document graph does not settle them. Later authority and actual evidence may qualify their historical absent/unexecuted wording, so inspect current owners before rebuilding a supposed missing feature. B222 changes no priority, registers no endpoint, chooses no world start, launches no runtime lane and proves no gameplay or persistence.
+
+
+## Historical lane returns reconciled into the roadmap (B232, 2026-11-04)
+
+F1. Eighteen additional complete lane-checkpoint reads are reconciled here as historical research returns. None supplies fresh runtime, book, browser, migration or installed-game proof. Their document/link/count checks retain their original scope. Existing bodies and output histories remain preserved. Current AD36/AD42/AD43/AD51, the retired first-milestone gate, current desktop targets/prose-first direction and released foundation reservations qualify older implementation instructions. Human review is optional, not a new mandatory acceptance blocker.
+
+H1. authoring: Four parsed example JSON blocks, twelve checklist items, seventeen lint rules and fourteen fixture groups establish artifact shape, not a registered body compiler. Function/slot closure and template/instance revision agreement remain useful selected-consumer checks; old all-start admission and schema gaps need current-source qualification.
+
+H2. bonds: Nine bond kinds, eighteen considerations and the N5 death walk retain directed trust, seat/control and title/custody distinctions. Part29 corrected part20; Rill remains a local fixture rather than an arbitrary party member. Partner cleanup needs actual participant dependencies and surviving task settlements, not universal loss penalties.
+
+H3. cheats: CN-S/G/A/I/SB/E/UI/V/C/P/F inventories distinguish holder capability, observation and status-window presentation. Historical CH1 possession and blocker claims were already qualified; they are not new current behavior evidence or a license to expose hidden knowledge.
+
+H4. engine: The source-grounded F/B findings already corrected cosmetic/physical form, existing fighter arrays, stationary Tern admission, reedling support and nonhuman inheritance. Proposed fork3/simulation7 allocations are not current migration decisions. A then-negative test search is not proof of no present coverage.
+
+H5. implications: Ten touch groups, nine joins, eight save entries and ten verification slices are a proposed integration plan. Five caps and fifteen effort estimates were inferred, not measured budgets. The old foundation ownership and R1 hardening references need current ownership, not a renewed hold.
+
+H6. kin: Eleven counted NK families retain contributor/raiser/household/continuity distinctions and five future verification cases. Document completion does not implement heirs, body-safe family retention, migration or full-envelope persistence. Canon and translation qualifications remain attached to the source claims.
+
+H7. majority: Fourteen survey rows, eight original worlds and six crossing walks do not establish global demographics. N37 credential staleness and N38 habitat support require actual local terms and changed body/context; passage, support, recognition and work admission remain distinct.
+
+H8. making: Ten MF findings and fifteen MK routes preserve tool, site, ingredient and process requirements, effective manipulator roles and native versus proposed alternatives. The effective role resolver, generalized NPC executor and timed/offline settlement were future work; descriptive recipe time is not automatic authorization to convert instant crafting into jobs.
+
+H9. micro: The 120 body details explicitly split 109 text-only rows from eleven proposed result rows. Pure texture must not covertly award goods, wear or progression; result rows need the real settlement owner. Frequency/privacy/return-report settings remain proposals, not a new compulsory meter or cue engine.
+
+H10. minds: Seven knowledge profiles keep native animal and native monster distinct. MN-S1–32, MN1–18 and eight evidence entries are proposal coverage, not proof of replica interior continuity, binding scope or soul identity. Preserve the primary-source and continuity gaps rather than substitute a universal mind model.
+
+H11. monsterside: Eight MF findings, hunter/escalation/ecology/lair/enemy/crossing palettes and MS1–24 retain selected-world detection and defeat conditions. Research completion does not create a live pursuit system, validate offline balance or authorize an unconditional hostile-world penalty.
+
+H12. overarching: The identity/continuity frame and twenty OV considerations are proposals. Its closing snapshot said cheats and implementation implications were absent; their completed checkpoint files are now present and reviewed here. That corrects the availability snapshot without claiming full review of their reports. Partial sibling snapshots and the old one-realm/prestige milestone do not become current scope.
+
+H13. progression: Sixty-four unique skill definitions across fifteen body kinds produce 960 applicability cells, not 960 implemented consumers or tests. Knowledge, motor/sensory practice and physiological adaptation remain distinct. Fourteen succession rows cover fifteen kinds through one shared row; the corrected matrix selector was an artifact-check issue, not a runtime defect.
+
+H14. senses: The six source findings, seventeen SU considerations and five SS suggestions specify body/perception/reach and panel context. The source-located age-label mismatch was not fixed by this report. Historical staging claims are attributed to that lane, not this reconciliation. Current desktop/prose-first direction replaces the old 1366 gate.
+
+H15. society: Seven statuses, fourteen world types, seven ownership events and five recognition channels are separate dimensions. The old exchange/code reads and official web cross-checks are attributed historical evidence. Complete civil codes and all prices are not prerequisites to a bounded current fixture, and coercion does not imply consent or affection.
+
+H16. startspecs: Three resolved proposed starts and thirty first-hour beats carry 23 implementer plus 23 future browser checks. Parsed eighteen-field examples are not compiler acceptance. Source code definitions and qualified HP/private Paradise summaries do not establish tested native starts, general physiology or revival. Original default terms are not canon laws.
+
+H17. synthesis: The twenty requested reports were not all read at full table/data depth by the historical synthesis author; the checkpoint explicitly says those were skimmed. The 80-edge main graph was structurally checked, not rendered or proof that all roadmap dependencies form an executable DAG. Later cheats/frame/comic/abstraction returns were outside that assigned corpus, not missing forever.
+
+H18. transform: Twelve TF kinds and sixteen TX considerations separate control, carrier, continuity and rollback. Dossier and secondary-source qualification remains; no raw-book authentication follows. Precommit abort and postcommit compensation need different actual settlement rather than snapshot refund or erased aftermath.
+
+F2. These checkpoints are supporting evidence for the existing roadmap and their named report owners, not a competing runtime queue. Reports whose full bodies remain unread keep that status in the intake ledger. The once-absent cheats/implications outputs are available; their presence and completed returns do not authenticate every report claim. Carry a useful unresolved condition into the selected consumer when it becomes relevant, without requiring all proposed bodies, civil codes, world comparisons or offline systems before an authorized early slice.

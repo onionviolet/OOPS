@@ -1,0 +1,2801 @@
+<!doctype html>
+<html lang="en" data-visualize-standalone>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com https://persistent.oaistatic.com/plugins/visualize/; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Yair Foundations Worlds Atlas</title>
+<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
+
+</head>
+<body>
+<iframe id="codex-visualization" sandbox="allow-scripts" referrerpolicy="no-referrer" title="Yair Foundations Worlds Atlas" data-srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot; data-visualize-standalone&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#x27;none&#x27;; script-src &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; &#x27;wasm-unsafe-eval&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com https://persistent.oaistatic.com/plugins/visualize/; style-src &#x27;unsafe-inline&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;&quot;&gt;
+&lt;title&gt;Yair Foundations Worlds Atlas&lt;/title&gt;
+&lt;style&gt;:root {
+  color-scheme: light dark;
+  background-color: var(
+    --background,
+    var(--color-background-primary, light-dark(rgb(255 255 255), rgb(24 24 24)))
+  ) !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: var(
+    --color-background-primary,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --card: color-mix(in oklab, var(--foreground) 5%, var(--background));
+  --card-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --popover: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255), rgb(45 45 45))
+  );
+  --popover-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --primary: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --primary-foreground: var(
+    --color-text-inverse,
+    light-dark(rgb(255 255 255), rgb(13 13 13))
+  );
+  --secondary: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%))
+  );
+  --secondary-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: var(
+    --color-text-secondary,
+    light-dark(rgb(26 28 31 / 49.4%), rgb(255 255 255 / 49.8%))
+  );
+  --accent: var(
+    --color-background-info,
+    light-dark(rgb(229 242 255), rgb(13 39 63))
+  );
+  --accent-foreground: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --destructive: var(
+    --color-text-warning,
+    light-dark(rgb(226 85 7), rgb(255 133 73))
+  );
+  --border: var(
+    --color-border-secondary,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+  --input: var(
+    --color-border-primary,
+    light-dark(
+      rgb(26 28 31 / 11.8%),
+      color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+    )
+  );
+  --ring: var(
+    --color-ring-primary,
+    light-dark(rgb(51 156 255), rgb(131 195 255 / 76%))
+  );
+  --font-size-base: var(--font-text-md-size, 16px);
+  --blue: light-dark(rgb(51 156 255), rgb(51 156 255));
+  --orange: light-dark(rgb(226 85 7), rgb(251 106 34));
+  --green: light-dark(rgb(0 162 64), rgb(64 201 119));
+  --red: light-dark(rgb(224 46 42), rgb(255 103 100));
+  --purple: light-dark(rgb(146 79 247), rgb(173 123 249));
+  --yellow: light-dark(rgb(255 195 0), rgb(255 210 64));
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+  --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans:
+    -apple-system-body, ui-sans-serif, -apple-system, system-ui, &quot;Segoe UI&quot;,
+    Helvetica, &quot;Apple Color Emoji&quot;, Arial, sans-serif, &quot;Segoe UI Emoji&quot;,
+    &quot;Segoe UI Symbol&quot;;
+  --font-mono:
+    ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, &quot;Liberation Mono&quot;,
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --icon-size: 16px;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --corner-shape: round;
+  --radius: var(--border-radius-lg, 8px);
+  --radius-sm: calc(var(--radius) * 0.5);
+  --radius-md: calc(var(--radius) * 0.75);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 2);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url(&quot;data:image/svg+xml,%3Csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; viewBox=&#x27;0 0 17 17&#x27;%3E%3Cpath d=&#x27;M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z&#x27;/%3E%3C/svg%3E&quot;);
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+}
+
+:root[data-theme=&quot;light&quot;] {
+  color-scheme: light;
+}
+
+:root[data-theme=&quot;dark&quot;] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html &gt; body {
+  /* Preserve MCP aliases for older inline renderers without creating :root cycles. */
+  --color-background-primary: var(
+    --background,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --color-text-primary: var(
+    --foreground,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --color-border-secondary: var(
+    --border,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+
+  margin: 0;
+  padding: var(--visualize-paint-gutter, 0px);
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans) !important;
+  -webkit-font-smoothing: antialiased;
+  font-size: var(--font-size-base);
+  line-height: calc(var(--font-size-base) * 1.625);
+  font-weight: var(--font-weight-normal);
+}
+
+.cursor-interaction {
+  cursor: var(--cursor-interaction, pointer);
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: var(--cursor-interaction, pointer);
+  text-decoration: none;
+  text-underline-offset: 2px;
+  font-weight: inherit;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+.table {
+  font-family: var(--font-sans);
+}
+
+h1 {
+  font-size: calc(var(--font-size-base) * 1.5);
+  line-height: 1.3333333333;
+}
+
+h2 {
+  font-size: calc(var(--font-size-base) * 1.25);
+  line-height: 1.4;
+}
+h3 {
+  font-size: calc(var(--font-size-base) * 1.125);
+  line-height: 1.5555555556;
+}
+h4 {
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+}
+h5,
+h6 {
+  font-size: var(--font-size-base);
+  line-height: calc(var(--font-size-base) * 1.625);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+b,
+strong,
+th {
+  font-weight: 600;
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  corner-shape: var(--corner-shape);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+pre,
+pre code {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.table {
+  width: 100%;
+  color: var(--foreground);
+  font: inherit;
+  text-align: start;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: calc(var(--font-size-base) * 0.875);
+  line-height: calc(var(--font-size-base) * 1.625);
+  font-family: var(--font-sans);
+}
+
+.table :is(th, td) {
+  padding-block: 10px;
+  padding-inline: 0 24px;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+  vertical-align: top;
+  border-bottom-color: color-mix(in srgb, var(--foreground) 5%, transparent);
+}
+.table :is(th, td):not(:last-child) {
+  padding-inline-end: calc(var(--font-size-base) * 1.5);
+}
+
+.table-responsive &gt; .table :is(th, td) {
+  overflow-wrap: break-word;
+}
+
+.table :is(th, td):last-child {
+  padding-inline-end: 0;
+}
+
+.table :is(caption, thead th) {
+  font-weight: 600;
+}
+
+.table thead :is(th, td) {
+  border-bottom-color: var(--border-strong, var(--input));
+  padding-block: calc(var(--font-size-base) / 2);
+  line-height: var(--font-size-base);
+}
+
+.table tbody tr:last-child :is(th, td) {
+  border-bottom: 0;
+}
+.table tbody :is(th, td) {
+  padding-block: calc(var(--font-size-base) * 0.625);
+}
+
+.table.table-sm :is(th, td) {
+  padding-block: 8px;
+}
+
+.table.table-sm :is(th, td):not(:last-child) {
+  padding-inline-end: 16px;
+}
+
+.table :is(.text-end, [align=&quot;right&quot;]) {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.table :is(.text-center, [align=&quot;center&quot;]) {
+  text-align: center;
+}
+
+.table .text-nowrap {
+  white-space: nowrap;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  corner-shape: var(--corner-shape);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+.widget {
+  min-width: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  box-shadow: 0 0 0 0.5px var(--border-strong, var(--border));
+  color: var(--foreground);
+  background: var(--background);
+}
+
+#widget &gt; :not(.card, .widget, .progress) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  border: 1px solid var(--border);
+  corner-shape: var(--corner-shape);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+  font-family: var(--font-sans);
+  padding: 5px 12px;
+  border-color: color-mix(
+    in oklab,
+    light-dark(var(--primary-foreground), var(--foreground)) 5%,
+    transparent
+  );
+  border-radius: var(--radius-2xl);
+  color: light-dark(var(--primary-foreground), var(--foreground));
+  background: light-dark(var(--foreground), var(--popover));
+  box-shadow: 0 8px 18px rgb(15 23 42 / 20%);
+  letter-spacing: -0.15px;
+  font-size: calc(var(--font-size-base) * 14 / 16);
+  font-size: round(nearest, calc(var(--font-size-base) * 14 / 16), 1px);
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+hr {
+  width: 100%;
+  height: 1px;
+  margin-block: 6px;
+  border: 0;
+  background: var(--border);
+}
+
+.nav {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 4px;
+}
+
+.progress {
+  display: flex;
+  height: 8px;
+  margin-block: calc((var(--line-height-normal, 1.5em) - 8px) / 2);
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+}
+
+.progress-bar:only-child {
+  border-radius: var(--radius-full);
+}
+
+.progress-bar {
+  height: 100%;
+  flex-shrink: 0;
+  border: 0;
+  background: var(--viz-series-1);
+}
+
+.viz-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  color: color-mix(in srgb, var(--foreground) 40%, var(--muted-foreground));
+  background: color-mix(in srgb, var(--foreground) 5%, transparent);
+  font-family: var(--font-sans);
+  font-size: calc(var(--font-size-base) * 14 / 16);
+  font-size: round(nearest, calc(var(--font-size-base) * 14 / 16), 1px);
+  font-weight: var(--font-weight-normal);
+  line-height: 1;
+}
+
+small,
+.text-small {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls &gt; .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls &gt; .form-label &gt; :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.nav-link,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+/* Match inline alignment without overriding a containing flex or grid layout. */
+.btn,
+.nav-link,
+.form-control,
+.form-select,
+.form-range,
+.form-check {
+  vertical-align: middle;
+}
+
+.btn,
+.nav-link {
+  --btn-size: calc(12px + 2 * var(--control-spacing, 12px));
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  corner-shape: var(--corner-shape);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: inherit;
+  font-family: var(--font-sans);
+  height: fit-content;
+  min-height: var(--btn-size);
+  padding-inline: var(--control-spacing, 12px);
+  border-color: transparent;
+  border-radius: var(--radius-full);
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 5%, transparent);
+  font-size: calc(var(--font-size-base) * 14 / 16);
+  font-size: round(nearest, calc(var(--font-size-base) * 14 / 16), 1px);
+  font-weight: var(--font-weight-normal);
+  line-height: 18px;
+}
+
+.btn {
+  border-color: var(--border);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+}
+
+/* Codex Button size=&quot;compact&quot;; appearance stays with the button variant. */
+.btn-sm {
+  --btn-size: 24px;
+  padding-inline: 8px;
+  font-size: calc(var(--font-size-base) * 12 / 16);
+  font-size: round(nearest, calc(var(--font-size-base) * 12 / 16), 1px);
+  line-height: 16px;
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: var(--cursor-interaction, pointer);
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover {
+  background: light-dark(
+    color-mix(in srgb, var(--foreground) 5.5%, transparent),
+    color-mix(in srgb, var(--foreground) 8%, transparent)
+  );
+}
+
+.nav-link:not(:disabled):not([aria-disabled=&quot;true&quot;]):hover {
+  background: color-mix(in srgb, var(--foreground) 10%, transparent);
+}
+
+.btn-primary {
+  border-color: var(--border);
+  color: var(--primary-foreground);
+  background: var(--foreground);
+  background-clip: border-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: border-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--muted-foreground);
+  background: light-dark(
+    color-mix(in srgb, var(--foreground) 5.5%, transparent),
+    color-mix(in srgb, var(--foreground) 8%, transparent)
+  );
+}
+
+.nav-pills .nav-link {
+  min-width: 0;
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.nav-justified .nav-link {
+  flex: 1 1 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.nav-pills .nav-link.active {
+  color: var(--foreground);
+  background: var(--muted);
+}
+
+/* Shared preview chrome; product styles stay inside each variant. */
+.viz-dotted-background {
+  background-image: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--foreground) 14%, transparent) 0.8px,
+    transparent 0.8px
+  );
+  background-position: center;
+  background-size: 16px 16px;
+}
+
+.viz-carousel {
+  position: relative;
+  min-width: 0;
+}
+
+.viz-carousel:has(&gt; .viz-carousel-controls) {
+  min-height: calc(60px + var(--viz-carousel-picker-height, 0px));
+  padding-bottom: 60px;
+}
+
+.viz-carousel &gt; [data-variant][hidden] {
+  display: none !important;
+}
+
+.viz-carousel &gt; [data-variant] {
+  isolation: isolate;
+}
+
+.viz-carousel-controls {
+  --viz-carousel-hover: light-dark(
+    color-mix(in srgb, var(--foreground) 5.4%, transparent),
+    color-mix(in srgb, var(--foreground) 7.8%, transparent)
+  );
+  position: absolute;
+  z-index: 2;
+  bottom: 8px;
+  left: 50%;
+  display: flex;
+  width: max-content;
+  /* Leave room for the host&#x27;s design-controls launcher at the trailing edge. */
+  max-width: calc(100% - 96px);
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-sans);
+  /* Match the settings dropdown chrome independently of the content font size. */
+  font-size: 13px;
+  font-weight: var(--font-weight-normal);
+  line-height: 18px;
+  transform: translateX(-50%);
+  user-select: none;
+}
+
+/* Keep authored mockup button styles out of the shared carousel chrome. */
+.viz-carousel-controls button,
+.viz-carousel-picker &gt; summary {
+  display: flex !important;
+  height: auto !important;
+  min-height: 30px;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px;
+  padding: 0 6px !important;
+  -webkit-app-region: no-drag;
+  border: 0 !important;
+  border-radius: 14px !important;
+  color: inherit !important;
+  background: transparent !important;
+  font: inherit !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.viz-carousel-controls &gt; button,
+.viz-carousel-picker &gt; summary {
+  position: relative;
+  isolation: isolate;
+}
+
+.viz-carousel-controls &gt; button {
+  --icon-size: 16px;
+  width: 30px !important;
+  padding: 0 !important;
+}
+
+.viz-carousel-picker &gt; summary {
+  padding-inline: 12px !important;
+}
+
+.viz-carousel-controls .viz-carousel-caret {
+  width: 14px;
+  height: 14px;
+  flex: none;
+  margin: 0;
+  color: inherit;
+  transform: rotate(180deg);
+}
+
+.viz-carousel-controls &gt; button &gt; svg,
+.viz-carousel-controls .viz-carousel-caret,
+.viz-carousel-count {
+  opacity: 0.5;
+}
+
+.viz-carousel-controls &gt; button::before,
+.viz-carousel-picker &gt; summary::before {
+  position: absolute;
+  z-index: -1;
+  inset: 3px;
+  border-radius: 12px;
+  content: &quot;&quot;;
+  pointer-events: none;
+}
+
+.viz-carousel-controls &gt; button:hover::before,
+.viz-carousel-picker &gt; summary:hover::before {
+  background: var(--viz-carousel-hover);
+}
+
+.viz-carousel-controls &gt; button,
+.viz-carousel-controls [data-lucide],
+.viz-carousel-controls .lucide {
+  flex-shrink: 0;
+}
+
+.viz-carousel-picker {
+  min-width: 0;
+}
+
+.viz-carousel-picker &gt; summary {
+  min-width: 0;
+  list-style: none;
+}
+
+.viz-carousel-picker &gt; summary::-webkit-details-marker {
+  display: none;
+}
+
+.viz-carousel-count {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.viz-carousel-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.viz-carousel-options {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 4px);
+  left: 0;
+  display: flex;
+  max-height: 240px;
+  flex-direction: column;
+  gap: 2px;
+  overflow: auto;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--background);
+  box-shadow: 0 4px 12px light-dark(rgb(0 0 0 / 6%), rgb(0 0 0 / 25%));
+}
+
+.viz-carousel-options &gt; button {
+  border-radius: max(0px, calc(var(--radius-lg) - 5px)) !important;
+  width: 100% !important;
+  min-height: 28px;
+  justify-content: flex-start !important;
+  padding: 4px 8px !important;
+  font-size: var(--font-size-small) !important;
+  text-align: start;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.viz-carousel-options &gt; [aria-current=&quot;true&quot;],
+.viz-carousel-options &gt; button:hover {
+  background: var(--viz-carousel-hover) !important;
+}
+
+.btn:disabled,
+.nav-link:disabled,
+.nav-link[aria-disabled=&quot;true&quot;] {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  corner-shape: var(--corner-shape);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  height: calc(12px + 2 * var(--control-spacing, 12px));
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  padding-inline: calc(4px + var(--control-spacing, 12px) / 2);
+  border-color: var(--input);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--popover) 96%, transparent);
+  font-size: calc(var(--font-size-base) * 14 / 16);
+  font-size: round(nearest, calc(var(--font-size-base) * 14 / 16), 1px);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.4285714286;
+}
+.form-control:is(
+  [type=&quot;file&quot;],
+  [type=&quot;date&quot;],
+  [type=&quot;datetime-local&quot;],
+  [type=&quot;month&quot;],
+  [type=&quot;week&quot;],
+  [type=&quot;color&quot;]
+) {
+  height: calc(12px + 2 * var(--control-spacing, 12px));
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  line-height: 18px;
+}
+.form-control:is(
+  [type=&quot;date&quot;],
+  [type=&quot;datetime-local&quot;],
+  [type=&quot;month&quot;],
+  [type=&quot;week&quot;]
+) {
+  padding-inline: var(--control-spacing, 12px);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type=&quot;file&quot;] {
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+  padding: 0;
+}
+
+.form-control[type=&quot;file&quot;]::file-selector-button {
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+  min-height: calc(10px + 2 * var(--control-spacing, 12px));
+  padding-inline: var(--control-spacing, 12px);
+  margin-inline-end: var(--control-spacing, 12px);
+}
+
+.form-control[type=&quot;file&quot;]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type=&quot;color&quot;] {
+  width: 40px;
+  height: calc(12px + 2 * var(--control-spacing, 12px));
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+  corner-shape: var(--corner-shape);
+}
+
+textarea.form-control {
+  height: auto;
+  resize: vertical;
+  min-height: 96px;
+  padding: 8px 10px;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: none;
+}
+.form-control:disabled {
+  color: var(--muted-foreground);
+  background: color-mix(in srgb, var(--foreground) 5%, transparent);
+  opacity: 1;
+}
+.form-control[aria-invalid=&quot;true&quot;] {
+  border-color: var(--red);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--red) 20%, transparent);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: fit-content;
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  margin: 0;
+  /* The secondary icon role is 14px at compact density and 16px at web density. */
+  --icon-size: calc(10px + var(--control-spacing, 12px) / 2);
+  /* Settings dropdowns retain a 12px inset and a 4px text-to-chevron gap. */
+  padding: 0 calc(16px + var(--icon-size)) 0 12px;
+  outline: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  corner-shape: var(--corner-shape);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(
+      45deg,
+      transparent calc(50% - 0.6px),
+      var(--muted-foreground) calc(50% - 0.6px) calc(50% + 0.6px),
+      transparent calc(50% + 0.6px)
+    ),
+    linear-gradient(
+      135deg,
+      transparent calc(50% - 0.6px),
+      var(--muted-foreground) calc(50% - 0.6px) calc(50% + 0.6px),
+      transparent calc(50% + 0.6px)
+    );
+  background-position:
+    calc(100% - 12px - var(--icon-size) / 2) 50%,
+    calc(100% - 12px - var(--icon-size) * 0.18) 50%;
+  background-repeat: no-repeat;
+  background-size: calc(var(--icon-size) * 0.32) calc(var(--icon-size) * 0.32);
+  cursor: var(--cursor-interaction, default);
+  font-size: calc(var(--font-size-base) * 14 / 16);
+  font-size: round(nearest, calc(var(--font-size-base) * 14 / 16), 1px);
+  font-weight: var(--font-weight-normal);
+  line-height: 18px;
+}
+
+.form-select :is(option, optgroup) {
+  color: var(--popover-foreground);
+  background-color: var(--popover);
+}
+
+.form-select :is(option, optgroup):disabled {
+  color: var(--muted-foreground);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: light-dark(
+    color-mix(in srgb, var(--foreground) 5.5%, transparent),
+    color-mix(in srgb, var(--foreground) 8%, transparent)
+  );
+}
+
+.form-select:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+.form-select:disabled {
+  opacity: 0.4;
+}
+
+.form-check {
+  display: flex;
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;] {
+  corner-shape: round;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  width: calc(10px + var(--control-spacing, 12px) / 2);
+  height: calc(10px + var(--control-spacing, 12px) / 2);
+  border-color: var(--border-strong, var(--input));
+  border-radius: calc(var(--radius-sm) / 2);
+  background-color: transparent;
+  color: var(--foreground);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type=&quot;checkbox&quot;]:is(:checked, :indeterminate) {
+  border-color: var(--border-strong, var(--input));
+  background-color: color-mix(in srgb, var(--popover) 96%, transparent);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type=&quot;checkbox&quot;]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: &quot;&quot;;
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+  background-color: var(--foreground);
+}
+.form-check:not(.form-switch)
+  .form-check-input[type=&quot;checkbox&quot;]:indeterminate::before {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 65%;
+  height: 6.65%;
+  margin: auto;
+  border-radius: var(--radius-full);
+  background: var(--foreground);
+  mask: none;
+  content: &quot;&quot;;
+}
+
+.form-check-input[type=&quot;radio&quot;] {
+  border-radius: var(--radius-full);
+  width: 16px;
+  height: 16px;
+  border: 0;
+  box-shadow: inset 0 0 0 1px var(--input);
+}
+
+.form-check-input[type=&quot;radio&quot;]:checked {
+  border: 0;
+  background: radial-gradient(
+    circle,
+    var(--primary-foreground) 0 3px,
+    var(--foreground) 3px
+  );
+  box-shadow: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;]:focus-visible {
+  border-color: var(--ring);
+  outline: none;
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+.form-check:not(.form-switch) .form-check-input[type=&quot;radio&quot;]:disabled,
+.form-check:not(.form-switch)
+  .form-check-input[type=&quot;radio&quot;]:disabled
+  + .form-check-label {
+  opacity: 0.5;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+  content: &quot;&quot;;
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+  border-color: #fff;
+  background: #fff;
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--blue);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+  outline: none;
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  accent-color: var(--primary);
+  height: calc(12px + 2 * var(--control-spacing, 12px));
+  min-height: calc(12px + 2 * var(--control-spacing, 12px));
+  outline: none;
+  border-radius: var(--radius-full);
+  color: var(--foreground);
+  background: transparent;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  background: var(--form-range-track, var(--border));
+  height: 2px;
+  border-radius: var(--radius-full);
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  margin-top: -9px;
+  border-color: transparent;
+  background: currentColor;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Outline the native track and thumb, preserving the larger input hit area. */
+.form-range:focus-visible::-webkit-slider-runnable-track {
+  outline: 2px auto Highlight;
+  outline-color: -webkit-focus-ring-color;
+}
+
+.form-range::-moz-range-track {
+  background: var(--form-range-track, var(--border));
+  height: 2px;
+  border-radius: var(--radius-full);
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  border-color: transparent;
+  background: currentColor;
+  box-shadow: var(--shadow-sm);
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  outline: 2px solid Highlight;
+  outline-offset: 2px;
+}
+
+.form-range:disabled {
+  opacity: 1;
+  cursor: default;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+  [aria-pressed=&quot;true&quot;],
+  [aria-selected=&quot;true&quot;],
+  .is-selected
+) {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--blue);
+}
+
+.btn.viz-tile:is([aria-pressed=&quot;true&quot;], [aria-selected=&quot;true&quot;], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible,
+.nav-link:focus-visible {
+  outline-offset: 2px;
+  outline: none;
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.viz-carousel-controls :is(button, summary):focus-visible {
+  outline: 2px solid var(--ring) !important;
+  outline-offset: 2px !important;
+}
+
+/* Web recipes are the default, including on renderers without inline style queries. */
+@supports (border-radius: if(style(--corner-shape: round): 1px; else: 2px)) {
+  /* Match the host&#x27;s proportional text-sm scale at every text preference. */
+  .tooltip,
+  .viz-badge,
+  .btn,
+  .nav-link,
+  .form-control,
+  .form-select {
+    font-size: if(
+      style(--corner-shape: round): round(
+          nearest,
+          calc(var(--font-size-base) * 14 / 16),
+          1px
+        );
+        else: round(nearest, calc(var(--font-size-base) * 13 / 14), 1px)
+    );
+  }
+
+  .btn-sm {
+    font-size: if(
+      style(--corner-shape: round): round(
+          nearest,
+          calc(var(--font-size-base) * 12 / 16),
+          1px
+        );
+        else: round(nearest, calc(var(--font-size-base) * 12 / 14), 1px)
+    );
+  }
+
+  .btn,
+  .nav-link,
+  .form-select {
+    border-radius: if(
+      style(--corner-shape: round): var(--radius-full); else: var(--radius-lg)
+    );
+  }
+
+  .form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;] {
+    border-radius: if(
+      style(--corner-shape: round): calc(var(--radius-sm) / 2);
+        else: calc(var(--radius-lg) * 0.4)
+    );
+  }
+
+  .tooltip {
+    font-weight: if(
+      style(--corner-shape: round): 600; else: var(--font-weight-normal)
+    );
+  }
+}
+
+@media (pointer: coarse) {
+  .viz-carousel:has(&gt; .viz-carousel-controls) {
+    min-height: calc(76px + var(--viz-carousel-picker-height, 0px));
+    padding-bottom: 76px;
+  }
+
+  .btn,
+  .nav-link,
+  .viz-carousel-controls button,
+  .viz-carousel-picker &gt; summary,
+  .form-control,
+  .form-select {
+    --btn-size: 44px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Keep small-screen WebKit from zooming when a text field receives focus. */
+  .form-control,
+  .form-select {
+    font-size: max(16px, calc(var(--font-size-base) * 14 / 16));
+    font-size: max(
+      16px,
+      round(nearest, calc(var(--font-size-base) * 14 / 16), 1px)
+    );
+  }
+  .form-control:is(
+    [type=&quot;file&quot;],
+    [type=&quot;date&quot;],
+    [type=&quot;datetime-local&quot;],
+    [type=&quot;month&quot;],
+    [type=&quot;week&quot;],
+    [type=&quot;time&quot;],
+    [type=&quot;color&quot;]
+  ) {
+    height: 44px;
+    min-height: 44px;
+    font-size: max(16px, calc(var(--font-size-base) * 14 / 16));
+    font-size: max(
+      16px,
+      round(nearest, calc(var(--font-size-base) * 14 / 16), 1px)
+    );
+  }
+
+  .form-control[type=&quot;file&quot;]::file-selector-button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .form-control-color[type=&quot;color&quot;] {
+    width: 44px;
+    height: 44px;
+  }
+
+  .form-control:is(
+    [type=&quot;date&quot;],
+    [type=&quot;datetime-local&quot;],
+    [type=&quot;month&quot;],
+    [type=&quot;time&quot;],
+    [type=&quot;week&quot;]
+  ) {
+    min-width: 0;
+    max-width: 100%;
+    padding-block: 8px;
+  }
+
+  .form-check {
+    min-height: 44px;
+    padding-inline: 15px;
+  }
+
+  .form-check-input {
+    position: relative;
+  }
+
+  .form-check-input::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 44px;
+    height: 44px;
+    content: &quot;&quot;;
+    transform: translate(-50%, -50%);
+  }
+
+  .form-check-label {
+    display: inline-flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .form-range {
+    height: 44px;
+    touch-action: pan-y;
+  }
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget &gt; svg {
+  width: 100%;
+}
+
+/* Model-authored chart rules can otherwise stretch icons after these styles load. */
+svg.lucide {
+  display: block;
+  width: var(--icon-size) !important;
+  height: var(--icon-size) !important;
+  flex: none;
+  margin: 0 !important;
+  stroke-width: 1.6;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+
+html&gt;body{padding:0}&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script type=&quot;application/json&quot; id=&quot;codex-visualization-widget-state&quot;&gt;__CODEX_VISUALIZATION_WIDGET_STATE__&lt;/script&gt;
+&lt;script&gt;(() =&gt; {
+  const root = document.documentElement;
+  const mediaQuery = globalThis.matchMedia(&quot;(prefers-color-scheme: dark)&quot;);
+  const apply = Reflect.apply;
+  const isArray = Array.isArray;
+  const hasOwn = Object.hasOwn;
+  const parentWindow = globalThis.parent;
+  const stringify = JSON.stringify;
+  const parse = JSON.parse;
+  const encode = TextEncoder.prototype.encode.bind(new TextEncoder());
+  const initialStateElement = document.getElementById(
+    &quot;codex-visualization-widget-state&quot;,
+  );
+  const initialGlobals = parse(initialStateElement?.textContent ?? &quot;{}&quot;);
+  initialStateElement?.remove();
+  /** @type {Record&lt;string, unknown&gt; | null} */
+  let state = initialGlobals.widgetState ?? null;
+  const statePersistence = initialGlobals.statePersistence ?? &quot;none&quot;;
+  let nextStateRequestId = 0;
+  /** @type {Map&lt;number, { resolve: () =&gt; void; reject: (error: Error) =&gt; void; timeout: ReturnType&lt;typeof globalThis.setTimeout&gt;; serializedState: string }&gt;} */
+  const pendingStateWrites = new Map();
+  const persistenceError = () =&gt;
+    Object.assign(
+      new Error(&quot;The host could not persist the widget state update&quot;),
+      {
+        code: -32000,
+        data: { code: &quot;widget_state_persistence_failed&quot;, retryable: false },
+      },
+    );
+  /**
+   * @param {object} prototype
+   * @param {string} property
+   */
+  const getPrototypeGetter = (prototype, property) =&gt; {
+    // oxlint-disable-next-line typescript/unbound-method -- invoked through captured Reflect.apply
+    const getter = Object.getOwnPropertyDescriptor(prototype, property)?.get;
+    if (getter == null) {
+      throw new Error(`Missing ${property} getter`);
+    }
+    return getter;
+  };
+  const getMessageData = getPrototypeGetter(MessageEvent.prototype, &quot;data&quot;);
+  const getMessagePorts = getPrototypeGetter(MessageEvent.prototype, &quot;ports&quot;);
+  const getMessageSource = getPrototypeGetter(MessageEvent.prototype, &quot;source&quot;);
+  // oxlint-disable-next-line typescript/unbound-method -- captured before the untrusted fragment runs
+  const addHostMessageListener = MessagePort.prototype.addEventListener;
+  // oxlint-disable-next-line typescript/unbound-method -- captured before the untrusted fragment runs
+  const postHostMessage = MessagePort.prototype.postMessage;
+  // oxlint-disable-next-line typescript/unbound-method -- captured before the untrusted fragment runs
+  const startHostPort = MessagePort.prototype.start;
+  // oxlint-disable-next-line typescript/unbound-method -- captured before the untrusted fragment runs
+  const stopMessagePropagation = Event.prototype.stopImmediatePropagation;
+  /** @type {MessagePort | null} */
+  let hostPort = null;
+  const postToHost = (type, payload) =&gt; {
+    if (hostPort != null) {
+      apply(postHostMessage, hostPort, [{ type, ...payload }]);
+    }
+  };
+  const openExternal = ({ href }) =&gt; {
+    if (globalThis.navigator.userActivation?.isActive === true) {
+      postToHost(&quot;open-external&quot;, { href });
+    }
+  };
+  const sendFollowUpMessage = ({ context, prompt, title }) =&gt; {
+    if (globalThis.navigator.userActivation?.isActive === true) {
+      postToHost(&quot;follow-up&quot;, { context, prompt, title });
+    }
+    return Promise.resolve();
+  };
+  /**
+   * @param {Record&lt;string, unknown&gt; | ((previous: Record&lt;string, unknown&gt; | null) =&gt; Record&lt;string, unknown&gt;)} next
+   * @returns {Promise&lt;void&gt;}
+   */
+  const setWidgetState = async (next) =&gt; {
+    const nextState = typeof next === &quot;function&quot; ? next(state) : next;
+    if (
+      nextState == null ||
+      typeof nextState !== &quot;object&quot; ||
+      isArray(nextState)
+    ) {
+      throw new TypeError(&quot;Widget state must be a JSON object&quot;);
+    }
+    const inputState = stringify(
+      nextState,
+      (_key, /** @type {unknown} */ value) =&gt; {
+        if (
+          typeof value === &quot;undefined&quot; ||
+          typeof value === &quot;function&quot; ||
+          typeof value === &quot;symbol&quot; ||
+          (typeof value === &quot;number&quot; &amp;&amp; !Number.isFinite(value))
+        ) {
+          throw new TypeError(&quot;Widget state must be a JSON object&quot;);
+        }
+        return value;
+      },
+    );
+    const parsedState = parse(inputState);
+    if (
+      parsedState == null ||
+      typeof parsedState !== &quot;object&quot; ||
+      isArray(parsedState)
+    ) {
+      throw new TypeError(&quot;Widget state must be a JSON object&quot;);
+    }
+    const storedState = {
+      modelContent: null,
+      privateContent: null,
+      ...parsedState,
+    };
+    const serializedState = stringify(storedState);
+    if (encode(serializedState).length &gt; 16 * 1024) {
+      throw new TypeError(
+        &quot;Widget state must be a JSON object of at most 16 KiB&quot;,
+      );
+    }
+    if (
+      hasOwn(storedState, &quot;imageIds&quot;) &amp;&amp;
+      (!isArray(storedState.imageIds) ||
+        storedState.imageIds.some(
+          (/** @type {unknown} */ id) =&gt; typeof id !== &quot;string&quot;,
+        ))
+    ) {
+      throw new TypeError(&quot;Widget state imageIds must be an array of strings&quot;);
+    }
+    if (storedState.imageIds?.length &gt; 0) {
+      throw Object.assign(
+        new TypeError(&quot;Visualization state does not support image attachments&quot;),
+        { code: -32602, data: { code: &quot;images_unsupported&quot; } },
+      );
+    }
+    state = storedState;
+    globalThis.openai.widgetState = state;
+    globalThis.dispatchEvent(
+      new CustomEvent(&quot;openai:set_globals&quot;, {
+        detail: { globals: { widgetState: state } },
+      }),
+    );
+    if (statePersistence === &quot;none&quot;) {
+      throw persistenceError();
+    }
+    const id = ++nextStateRequestId;
+    return new Promise((resolve, reject) =&gt; {
+      const timeout = globalThis.setTimeout(() =&gt; {
+        pendingStateWrites.delete(id);
+        reject(persistenceError());
+      }, 30_000);
+      pendingStateWrites.set(id, { resolve, reject, timeout, serializedState });
+      postToHost(&quot;widget-state-write&quot;, { id, state: serializedState });
+    });
+  };
+  const syncTheme = () =&gt; {
+    const theme = mediaQuery.matches ? &quot;dark&quot; : &quot;light&quot;;
+    root.dataset.theme = theme;
+    globalThis.openai = {
+      ...globalThis.openai,
+      openExternal,
+      sendFollowUpMessage,
+      setWidgetState,
+      theme,
+      visualizationStyleVariables: {},
+      visualizationTheme: theme,
+      widgetState: state,
+      statePersistence,
+      stateModelContext: &quot;none&quot;,
+    };
+    globalThis.dispatchEvent(
+      new CustomEvent(&quot;openai:set_globals&quot;, {
+        detail: { globals: globalThis.openai },
+      }),
+    );
+  };
+  const sendHeight = () =&gt; {
+    postToHost(&quot;height&quot;, {
+      height: Math.ceil(
+        Math.max(
+          document.body.scrollHeight,
+          document.body.getBoundingClientRect().height,
+        ),
+      ),
+    });
+  };
+
+  globalThis.addEventListener(
+    &quot;message&quot;,
+    (event) =&gt; {
+      const data = apply(getMessageData, event, []);
+      const ports = apply(getMessagePorts, event, []);
+      const source = apply(getMessageSource, event, []);
+      if (
+        hostPort != null ||
+        source !== parentWindow ||
+        typeof data !== &quot;object&quot; ||
+        data?.type !== &quot;codex-visualization-initialize&quot; ||
+        !isArray(ports) ||
+        ports.length !== 1
+      ) {
+        return;
+      }
+      apply(stopMessagePropagation, event, []);
+      const nextHostPort = ports[0];
+      try {
+        apply(addHostMessageListener, nextHostPort, [
+          &quot;message&quot;,
+          (event) =&gt; {
+            const data = apply(getMessageData, event, []);
+            if (typeof data === &quot;object&quot; &amp;&amp; data?.type === &quot;measure&quot;) {
+              sendHeight();
+            } else if (
+              typeof data === &quot;object&quot; &amp;&amp;
+              data?.type === &quot;widget-state-result&quot;
+            ) {
+              /** @type {unknown} */
+              const id = data.id;
+              if (typeof id !== &quot;number&quot;) {
+                return;
+              }
+              const pending = pendingStateWrites.get(id);
+              if (pending != null) {
+                pendingStateWrites.delete(id);
+                globalThis.clearTimeout(pending.timeout);
+                if (data.ok === true) {
+                  pending.resolve();
+                } else {
+                  pending.reject(persistenceError());
+                }
+              }
+            }
+          },
+        ]);
+        apply(startHostPort, nextHostPort, []);
+      } catch {
+        return;
+      }
+      hostPort = nextHostPort;
+      for (const [id, { serializedState }] of pendingStateWrites) {
+        postToHost(&quot;widget-state-write&quot;, { id, state: serializedState });
+      }
+      sendHeight();
+    },
+    { capture: true },
+  );
+  document.currentScript?.remove();
+  mediaQuery.addEventListener(&quot;change&quot;, syncTheme);
+  globalThis.addEventListener(&quot;click&quot;, (event) =&gt; {
+    if (event.defaultPrevented) {
+      return;
+    }
+    let element = null;
+    if (event.target instanceof globalThis.Element) {
+      element = event.target;
+    } else if (event.target instanceof globalThis.Node) {
+      element = event.target.parentElement;
+    }
+    const link = element?.closest(&quot;a[href]&quot;);
+    const href = link?.getAttribute(&quot;href&quot;);
+    if (href == null) {
+      return;
+    }
+    if (href.startsWith(&quot;#&quot;)) {
+      let id;
+      try {
+        id = decodeURIComponent(href.slice(1));
+      } catch {
+        return;
+      }
+      const target = id.length === 0 ? root : document.getElementById(id);
+      if (
+        target == null ||
+        globalThis.navigator.userActivation?.isActive !== true
+      ) {
+        return;
+      }
+      event.preventDefault();
+      postToHost(&quot;scroll-to&quot;, {
+        top: target.getBoundingClientRect().top + globalThis.scrollY,
+      });
+      return;
+    }
+    event.preventDefault();
+    openExternal({ href });
+  });
+  new ResizeObserver(sendHeight).observe(document.body);
+  syncTheme();
+})();
+&lt;/script&gt;
+&lt;div id=&quot;yair-foundations-worlds-atlas&quot;&gt;
+  &lt;style&gt;
+    #yair-foundations-worlds-atlas { display:grid; gap:calc(var(--font-size-base) * 1); }
+    #yair-foundations-worlds-atlas .atlas-title { display:grid; gap:calc(var(--font-size-base) * .25); }
+    #yair-foundations-worlds-atlas .atlas-detail { display:grid; gap:calc(var(--font-size-base) * .5); }
+    #yair-foundations-worlds-atlas .atlas-fields { display:grid; grid-template-columns:auto minmax(0,1fr); gap:calc(var(--font-size-base) * .5); margin:0; }
+    #yair-foundations-worlds-atlas dd { margin:0; overflow-wrap:anywhere; }
+    #yair-foundations-worlds-atlas code { overflow-wrap:anywhere; }
+    #yair-foundations-worlds-atlas .atlas-name { display:inline; }
+    #yair-foundations-worlds-atlas .atlas-owner { display:block; }
+    @media(max-width:480px) { #yair-foundations-worlds-atlas .atlas-fields { grid-template-columns:1fr; } }
+  &lt;/style&gt;
+  &lt;div class=&quot;atlas-title&quot;&gt;
+    &lt;h2&gt;YAIR: foundations, worlds and gaps&lt;/h2&gt;
+    &lt;span class=&quot;text-small text-muted&quot;&gt;4 November 2026 · owner-based snapshot + selected source traces · product journeys not replayed here&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;viz-controls&quot; role=&quot;group&quot; aria-label=&quot;Atlas views&quot;&gt;
+    &lt;button class=&quot;btn&quot; type=&quot;button&quot; data-view=&quot;foundations&quot; aria-pressed=&quot;true&quot;&gt;Foundations&lt;/button&gt;
+    &lt;button class=&quot;btn&quot; type=&quot;button&quot; data-view=&quot;worlds&quot; aria-pressed=&quot;false&quot;&gt;Worlds&lt;/button&gt;
+    &lt;button class=&quot;btn&quot; type=&quot;button&quot; data-view=&quot;gaps&quot; aria-pressed=&quot;false&quot;&gt;Gaps&lt;/button&gt;
+    &lt;button class=&quot;btn&quot; type=&quot;button&quot; data-view=&quot;actions&quot; aria-pressed=&quot;false&quot;&gt;Next work&lt;/button&gt;
+    &lt;button class=&quot;btn&quot; type=&quot;button&quot; data-view=&quot;leverage&quot; aria-pressed=&quot;false&quot;&gt;Later worlds&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;section class=&quot;atlas-detail&quot; aria-label=&quot;Selected area&quot; aria-live=&quot;polite&quot;&gt;
+    &lt;h3&gt;&lt;/h3&gt;
+    &lt;span class=&quot;atlas-footing&quot;&gt;&lt;/span&gt;
+    &lt;dl class=&quot;atlas-fields&quot;&gt;&lt;/dl&gt;
+    &lt;div class=&quot;viz-row atlas-related&quot; role=&quot;group&quot; aria-label=&quot;Connected areas&quot;&gt;&lt;/div&gt;
+    &lt;details class=&quot;atlas-evidence&quot;&gt;&lt;summary&gt;Evidence owners and scope&lt;/summary&gt;&lt;div&gt;&lt;/div&gt;&lt;/details&gt;
+  &lt;/section&gt;
+  &lt;div class=&quot;table-responsive&quot;&gt;
+    &lt;table class=&quot;table table-sm&quot; aria-label=&quot;Areas and recorded footing&quot;&gt;
+      &lt;thead&gt;&lt;tr&gt;&lt;th scope=&quot;col&quot;&gt;Area&lt;/th&gt;&lt;th scope=&quot;col&quot;&gt;Recorded footing / proposal&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+      &lt;tbody&gt;&lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;
+  &lt;details class=&quot;atlas-catalogue&quot;&gt;
+    &lt;summary&gt;World mechanisms · 24 catalogue entries&lt;/summary&gt;
+    &lt;div&gt;&lt;/div&gt;
+  &lt;/details&gt;
+  &lt;span class=&quot;text-small text-muted&quot;&gt;U: existing foundation families · G: gap families · E/FN: proposed leverage · A: recommendations, with current owners retained&lt;/span&gt;
+  &lt;script type=&quot;application/json&quot; class=&quot;atlas-data&quot;&gt;{&quot;snapshot&quot;: &quot;yair-refined-2026-11-04-207c1452e637&quot;, &quot;captured&quot;: &quot;2026-11-04T20:00:45.449198+00:00&quot;, &quot;foundations&quot;: [{&quot;id&quot;: &quot;U01&quot;, &quot;name&quot;: &quot;Identity&quot;, &quot;state&quot;: &quot;Used; joins developing&quot;, &quot;now&quot;: &quot;Life, body, actor and world-instance owners exist. Retained-place display now has a joined fixture receipt.&quot;, &quot;gap&quot;: &quot;Identity must stay consistent through source arrival, body changes, parallel instances and return.&quot;, &quot;next&quot;: &quot;Carry resolved identity and the retained task into the next real lead operation.&quot;, &quot;source&quot;: [&quot;docs/systems/README.md:30–50&quot;, &quot;docs/gm/dispatch/foundation-place-identity-2026-11-04/CHECKPOINT.md&quot;], &quot;links&quot;: [&quot;G3&quot;, &quot;G5&quot;, &quot;G8&quot;], &quot;layer&quot;: &quot;State&quot;}, {&quot;id&quot;: &quot;U02&quot;, &quot;name&quot;: &quot;Bodies &amp; harm&quot;, &quot;state&quot;: &quot;Used; broader aftermath partial&quot;, &quot;now&quot;: &quot;Body and condition owners work in selected loops. L2b health publication has a later AD43 closure receipt.&quot;, &quot;gap&quot;: &quot;Earned ordinary combat, durable injury, witness and broader aftermath remain separate from that fixture.&quot;, &quot;next&quot;: &quot;Use the next consuming encounter to check injury and aftermath; retain the completed health slice.&quot;, &quot;source&quot;: [&quot;docs/systems/README.md:44,76&quot;, &quot;docs/gm/dispatch/refinement-audits-2026-10-31/L2B_COMBAT_HEALTH_RECEIPT.md:3–17&quot;], &quot;links&quot;: [&quot;G4&quot;, &quot;G7&quot;], &quot;layer&quot;: &quot;State&quot;}, {&quot;id&quot;: &quot;U03&quot;, &quot;name&quot;: &quot;Starts&quot;, &quot;state&quot;: &quot;Partly wired&quot;, &quot;now&quot;: &quot;Book beginnings register through shared composition; first-hour/start routes have current source assessments.&quot;, &quot;gap&quot;: &quot;A developer opening does not establish all ordinary lives, means or a coherent first session.&quot;, &quot;next&quot;: &quot;Tie a selected start to one useful pursuit and its next action.&quot;, &quot;source&quot;: [&quot;docs/systems/README.md:89&quot;, &quot;src/book_world_beginning_registration.js&quot;], &quot;links&quot;: [&quot;G3&quot;, &quot;G7&quot;], &quot;layer&quot;: &quot;World life&quot;}, {&quot;id&quot;: &quot;U04&quot;, &quot;name&quot;: &quot;Generation&quot;, &quot;state&quot;: &quot;Used in selected consumers&quot;, &quot;now&quot;: &quot;Seeded generation and stable-address tooling are present; world definitions and authoring have existing owners.&quot;, &quot;gap&quot;: &quot;Revision, seed and encountered-identity consistency across new consumers remain world-specific.&quot;, &quot;next&quot;: &quot;Keep actual instance/seed identity in the next cross-world or alternate-life consumer.&quot;, &quot;source&quot;: [&quot;docs/systems/README.md:45&quot;, &quot;docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:18–40&quot;], &quot;links&quot;: [&quot;G5&quot;, &quot;G7&quot;], &quot;layer&quot;: &quot;State&quot;}, {&quot;id&quot;: &quot;U05&quot;, &quot;name&quot;: &quot;Time &amp; jobs&quot;, &quot;state&quot;: &quot;Used; clocks mixed&quot;, &quot;now&quot;: &quot;Native jobs and clocks are used. AD52/ACR now governs repeated activities and compressed life periods.&quot;, &quot;gap&quot;: &quot;Calendar duties, reset policies and compressed work keep local laws and consequential choices; adopting rules does not implement every activity form.&quot;, &quot;next&quot;: &quot;Connect the next real duty/lesson/appointment to the existing clock.&quot;, &quot;source&quot;: [&quot;docs/systems/README.md:39,50&quot;, &quot;docs/ACTIVITY_ABSTRACTION_RULES.md&quot;, &quot;docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:32&quot;], &quot;links&quot;: [&quot;G2&quot;, &quot;G7&quot;], &quot;layer&quot;: &quot;Execution&quot;}, {&quot;id&quot;: &quot;U06&quot;, &quot;name&quot;: &quot;Knowledge&quot;, &quot;state&quot;: &quot;Mixed; recent joined proof&quot;, &quot;now&quot;: &quot;Observer knowledge and consequences have a conversation fixture receipt: later answers, interruption and retained Notebook records.&quot;, &quot;gap&quot;: &quot;New ordinary/canon consumers and wider recognition are not certified by the synthetic route.&quot;, &quot;next&quot;: &quot;Use a learned fact or method to change a later lead-world action.&quot;, &quot;source&quot;: [&quot;docs/systems/README.md:42&quot;, &quot;docs/gm/dispatch/foundation-conversations-2026-11-04/CHECKPOINT.md&quot;, &quot;src/cast_topic_talk.js:22–31,74–85&quot;], &quot;links&quot;: [&quot;G2&quot;, &quot;G3&quot;, &quot;G4&quot;, &quot;G5&quot;], &quot;layer&quot;: &quot;World life&quot;}, {&quot;id&quot;: &quot;U07&quot;, &quot;name&quot;: &quot;Learning &amp; powers&quot;, &quot;state&quot;: &quot;Used; adoption uneven&quot;, &quot;now&quot;: &quot;Skills/XP exist; progression gates and ability paths have relatively few recorded consumers.&quot;, &quot;gap&quot;: &quot;Acquired faculty, known method, practiced control and currently supported means can diverge.&quot;, &quot;next&quot;: &quot;N2: demonstrate one meaningful method-versus-means distinction in the next Klein/Harry operation.&quot;, &quot;source&quot;: [&quot;docs/systems/README.md:31–35&quot;, &quot;docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:30&quot;, &quot;docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:135–153&quot;], &quot;links&quot;: [&quot;G2&quot;, &quot;G5&quot;, &quot;G7&quot;], &quot;layer&quot;: &quot;Execution&quot;}, {&quot;id&quot;: &quot;U08&quot;, &quot;name&quot;: &quot;Social &amp; institutions&quot;, &quot;state&quot;: &quot;Wired; uneven depth&quot;, &quot;now&quot;: &quot;People, dialogue, homes and institutions now have bounded dated assessments; local ties and ranks have consumers.&quot;, &quot;gap&quot;: &quot;Several families are thin or partly wired; some state-owner and native-journey traces remain unestablished.&quot;, &quot;next&quot;: &quot;Make one duty, relationship or service term change an actual choice.&quot;, &quot;source&quot;: [&quot;docs/systems/README.md:77–89&quot;, &quot;docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:27&quot;], &quot;links&quot;: [&quot;G2&quot;, &quot;G3&quot;, &quot;G7&quot;], &quot;layer&quot;: &quot;World life&quot;}, {&quot;id&quot;: &quot;U09&quot;, &quot;name&quot;: &quot;Materials &amp; economy&quot;, &quot;state&quot;: &quot;Working slices; portability uneven&quot;, &quot;now&quot;: &quot;Inventory, custody, shops, escrow, lineage and selected HP/LOTM preparations exist. Village/Frontier still dominate generic craft use.&quot;, &quot;gap&quot;: &quot;R5 supply bindings remain narrow; a resource count is not an identity/lineage-bearing workpiece.&quot;, &quot;next&quot;: &quot;Carry the actual item or material lineage through the next operation when it needs physical identity.&quot;, &quot;source&quot;: [&quot;docs/SYSTEMS_REGISTER.md:21–42&quot;, &quot;docs/systems/README.md:58–68&quot;, &quot;docs/gm/dispatch/refinement-audits-2026-10-31/R5_IMPLEMENTATION_RECEIPT.md:35–40&quot;, &quot;docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:186–198&quot;], &quot;links&quot;: [&quot;G2&quot;, &quot;G5&quot;, &quot;G7&quot;], &quot;layer&quot;: &quot;Execution&quot;}, {&quot;id&quot;: &quot;U10&quot;, &quot;name&quot;: &quot;Cast agency&quot;, &quot;state&quot;: &quot;Local routines; broader scope open&quot;, &quot;now&quot;: &quot;Generated residents, local lives, cast conversations and scheduled actions have existing seams.&quot;, &quot;gap&quot;: &quot;A general independent institution/ecology simulation is not established by the selected routes.&quot;, &quot;next&quot;: &quot;Default: add agency that a selected pursuit actually observes or depends on.&quot;, &quot;source&quot;: [&quot;docs/systems/README.md:77–88&quot;, &quot;docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:28&quot;], &quot;links&quot;: [&quot;G4&quot;, &quot;G7&quot;], &quot;layer&quot;: &quot;World life&quot;}, {&quot;id&quot;: &quot;U11&quot;, &quot;name&quot;: &quot;Actions &amp; settlement&quot;, &quot;state&quot;: &quot;Used; new paid-work fixture proof&quot;, &quot;now&quot;: &quot;Quote/commit/job settlement exists. Paid interruption now has 40 focused checks and 36 native browser assertions reported across two lead hosts.&quot;, &quot;gap&quot;: &quot;That proves the binary authored policy and host integration, not staged consumption, continuous support or source-qualified canonical work.&quot;, &quot;next&quot;: &quot;Use the paid-work seam in the next real lead operation, with its actual local spend/support law.&quot;, &quot;source&quot;: [&quot;docs/systems/README.md:39&quot;, &quot;docs/gm/dispatch/foundation-paid-work-2026-11-04/CHECKPOINT.md&quot;, &quot;docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:176–211&quot;], &quot;links&quot;: [&quot;G2&quot;, &quot;G4&quot;, &quot;G8&quot;], &quot;layer&quot;: &quot;Execution&quot;}, {&quot;id&quot;: &quot;U12&quot;, &quot;name&quot;: &quot;Crossing&quot;, &quot;state&quot;: &quot;Routes exist; pack use partial&quot;, &quot;now&quot;: &quot;Continuation and carrying have selected routes; world-pack state hooks and latest-history carry are in source.&quot;, &quot;gap&quot;: &quot;Generic reveal remains a command with no ordinary gameplay caller found; laws and carriage remain local.&quot;, &quot;next&quot;: &quot;When a selected encounter needs pack history, connect its writer and retained reader through return.&quot;, &quot;source&quot;: [&quot;src/world_pack_registry.js:41–55&quot;, &quot;src/continuation_state.js:121–130&quot;, &quot;docs/SYSTEMS_REGISTER.md:37&quot;], &quot;links&quot;: [&quot;G5&quot;, &quot;G7&quot;], &quot;layer&quot;: &quot;Across worlds&quot;}, {&quot;id&quot;: &quot;U13&quot;, &quot;name&quot;: &quot;Reset &amp; continuation&quot;, &quot;state&quot;: &quot;Used; reset families differ&quot;, &quot;now&quot;: &quot;Lives/continuation work. MoL has a visitor route and a separate bounded Zorian reset/retention experiment.&quot;, &quot;gap&quot;: &quot;No universal rewind policy follows from one life or fixture; reset scope and information carriers differ.&quot;, &quot;next&quot;: &quot;Validate a declared reset boundary before applying it to a different loop case.&quot;, &quot;source&quot;: [&quot;docs/systems/README.md:43&quot;, &quot;docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:50&quot;, &quot;docs/worlds/mother-of-learning/ZORIAN_S0_S1_STAGE_RECORD_2026-11-03.md&quot;], &quot;links&quot;: [&quot;G4&quot;, &quot;G5&quot;, &quot;G7&quot;], &quot;layer&quot;: &quot;Across worlds&quot;}, {&quot;id&quot;: &quot;U14&quot;, &quot;name&quot;: &quot;Persistence&quot;, &quot;state&quot;: &quot;Core active; joins still growing&quot;, &quot;now&quot;: &quot;Core saves and latest-history carry exist; retained-place and pending-source jobs now have named joined fixture proof.&quot;, &quot;gap&quot;: &quot;Proof is bundle/route-specific. It does not establish a clean aggregate on all current dirty inputs or every missing/changed-source recovery path.&quot;, &quot;next&quot;: &quot;Keep exact committed definitions and add recovery coverage when a selected operation introduces that pressure.&quot;, &quot;source&quot;: [&quot;docs/systems/README.md:41&quot;, &quot;docs/gm/dispatch/foundation-place-identity-2026-11-04/CHECKPOINT.md&quot;, &quot;docs/gm/dispatch/foundation-paid-work-2026-11-04/CHECKPOINT.md&quot;], &quot;links&quot;: [&quot;G5&quot;, &quot;G8&quot;], &quot;layer&quot;: &quot;Across worlds&quot;}, {&quot;id&quot;: &quot;U15&quot;, &quot;name&quot;: &quot;UI &amp; inspection&quot;, &quot;state&quot;: &quot;Usable surfaces; session depth uneven&quot;, &quot;now&quot;: &quot;Desktop panels and native ports exist; conversation/Notebook/place labels recently gained retained-route proof.&quot;, &quot;gap&quot;: &quot;A reachable panel is not a continuous understandable session. Some clusters remain unassessed and inspector coverage is uneven.&quot;, &quot;next&quot;: &quot;Show current pursuit, actual cost, blocker, alternative and retained consequence on the selected route.&quot;, &quot;source&quot;: [&quot;docs/systems/README.md:47–50,76–103&quot;, &quot;docs/gm/dispatch/foundation-conversations-2026-11-04/CHECKPOINT.md&quot;, &quot;docs/gm/dispatch/foundation-place-identity-2026-11-04/CHECKPOINT.md&quot;, &quot;docs/audits/UI_CAPABILITY_GAPS_2026-10-30.md&quot;], &quot;links&quot;: [&quot;G3&quot;, &quot;G7&quot;, &quot;G8&quot;], &quot;layer&quot;: &quot;Player experience&quot;}], &quot;worlds&quot;: [{&quot;id&quot;: &quot;W1&quot;, &quot;name&quot;: &quot;Lord of the Mysteries&quot;, &quot;state&quot;: &quot;Lead journey + mechanism slices&quot;, &quot;now&quot;: &quot;KJ3AC records the bounded route through English volume 1 chapter 64; some newer seams have consumer-specific proof.&quot;, &quot;gap&quot;: &quot;Full novel, ordinary lives, repeated faculties, supplies, later combat and source/pack joins remain uneven.&quot;, &quot;next&quot;: &quot;Keep Klein first: finish the active foundational join, then build the next actual mechanism and display.&quot;, &quot;source&quot;: [&quot;docs/gm/dispatch/refinement-audits-2026-10-31/KJ3AC_IMPLEMENTATION_RECEIPT.md&quot;, &quot;PROJECT.md&quot;, &quot;docs/gm/dispatch/foundation-paid-work-2026-11-04/CHECKPOINT.md&quot;], &quot;links&quot;: [&quot;U06&quot;, &quot;U07&quot;, &quot;U09&quot;, &quot;U11&quot;], &quot;layer&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;W2&quot;, &quot;name&quot;: &quot;Harry Potter&quot;, &quot;state&quot;: &quot;Four recorded lead windows&quot;, &quot;now&quot;: &quot;W1–W4 reach the chapter-5 shops/vault/wand sequence; separate school/trade/preparation lives also exist.&quot;, &quot;gap&quot;: &quot;School-year depth, later curriculum, ordinary-life breadth and exact institution timing are not complete.&quot;, &quot;next&quot;: &quot;Use the selected next window to connect calendar, demonstrated method, instrument and access.&quot;, &quot;source&quot;: [&quot;docs/gm/dispatch/refinement-audits-2026-10-31/HP_WHOLE_WORLD_PLAN_2026-11-03.md&quot;, &quot;docs/gm/dispatch/refinement-audits-2026-10-31/HP_WINDOW4_RECEIPT.md&quot;, &quot;src/book_world_beginning_registration.js&quot;], &quot;links&quot;: [&quot;U05&quot;, &quot;U07&quot;, &quot;U08&quot;, &quot;U09&quot;], &quot;layer&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;W3&quot;, &quot;name&quot;: &quot;Mother of Learning&quot;, &quot;state&quot;: &quot;Visitor route + lead experiment&quot;, &quot;now&quot;: &quot;Visitor/lore work exists; the Zorian S0/S1 owner records bounded reset, foreknowledge and replay work with separate limits.&quot;, &quot;gap&quot;: &quot;Lead replay, native locations/actors, ordinary life and reset portability are not equivalent completion claims.&quot;, &quot;next&quot;: &quot;Use one declared retention/reset or teaching contrast when selected; no universal loop engine claim.&quot;, &quot;source&quot;: [&quot;docs/systems/README.md&quot;, &quot;docs/worlds/mother-of-learning/ZORIAN_S0_S1_STAGE_RECORD_2026-11-03.md&quot;, &quot;docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:49–50&quot;], &quot;links&quot;: [&quot;U05&quot;, &quot;U06&quot;, &quot;U07&quot;, &quot;U13&quot;], &quot;layer&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;W4&quot;, &quot;name&quot;: &quot;Reincarnation Paradise&quot;, &quot;state&quot;: &quot;Bounded runtime; breadth unrefreshed&quot;, &quot;now&quot;: &quot;Earlier delivery owners record mission/hub work and selected carriage/settlement.&quot;, &quot;gap&quot;: &quot;Current ordinary-route breadth and delivered artifact were not re-exercised here.&quot;, &quot;next&quot;: &quot;Use one preparation → mission → cargo return loop as a future contrast.&quot;, &quot;source&quot;: [&quot;docs/gm/book-world-completion-2026-10-06/DELIVERY.md&quot;, &quot;docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:54&quot;], &quot;links&quot;: [&quot;U09&quot;, &quot;U11&quot;, &quot;U12&quot;], &quot;layer&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;W5&quot;, &quot;name&quot;: &quot;Reverend Insanity&quot;, &quot;state&quot;: &quot;Registered bounded lives&quot;, &quot;now&quot;: &quot;Source registers novice and keeper starts around actual living Gu and upkeep/refinement.&quot;, &quot;gap&quot;: &quot;This does not establish the whole economy, progression or Fang Yuan campaign.&quot;, &quot;next&quot;: &quot;Deepen a selected actual tool’s ownership, feeding and transfer consequences.&quot;, &quot;source&quot;: [&quot;src/book_world_beginning_registration.js&quot;, &quot;docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:53&quot;], &quot;links&quot;: [&quot;U07&quot;, &quot;U09&quot;, &quot;U11&quot;], &quot;layer&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;W6&quot;, &quot;name&quot;: &quot;Shadow Slave&quot;, &quot;state&quot;: &quot;Registered bounded lives&quot;, &quot;now&quot;: &quot;Source registers Memory apprentice, original trial and divergent company starts.&quot;, &quot;gap&quot;: &quot;Canonical whole-world coverage and broader progression are not proved by those registrations.&quot;, &quot;next&quot;: &quot;Test an actual supported ability/tool and its restriction in a useful operation.&quot;, &quot;source&quot;: [&quot;src/book_world_beginning_registration.js&quot;, &quot;docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:80&quot;], &quot;links&quot;: [&quot;U07&quot;, &quot;U09&quot;, &quot;U10&quot;, &quot;U11&quot;], &quot;layer&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;W7&quot;, &quot;name&quot;: &quot;Dungeons &amp; Dragons&quot;, &quot;state&quot;: &quot;Bounded Phandalin runtime&quot;, &quot;now&quot;: &quot;main.js imports the Phandalin domain; older planning-only labels are insufficient.&quot;, &quot;gap&quot;: &quot;Edition/rules-profile breadth, world depth and current natural journey were not verified here.&quot;, &quot;next&quot;: &quot;A selected rules profile could test targets, duration, concentration/rest and different rule resolution.&quot;, &quot;source&quot;: [&quot;src/main.js:7&quot;, &quot;src/dnd_phandalin_domain.js&quot;, &quot;docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:51&quot;], &quot;links&quot;: [&quot;U05&quot;, &quot;U07&quot;, &quot;U11&quot;], &quot;layer&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;W8&quot;, &quot;name&quot;: &quot;Primordial Saint Sect&quot;, &quot;state&quot;: &quot;Bounded footing in earlier inventory&quot;, &quot;now&quot;: &quot;The existing atlas records a domain foothold; this pass does not upgrade its runtime proof.&quot;, &quot;gap&quot;: &quot;Campaign depth, current reachability and human use remain unassessed.&quot;, &quot;next&quot;: &quot;Use its current owner before proposing more cultivation infrastructure.&quot;, &quot;source&quot;: [&quot;src/book_world_primordial_domain.js&quot;, &quot;docs/reports/PROGRESS_ATLAS_2026-11-04.md&quot;], &quot;links&quot;: [&quot;U07&quot;, &quot;U08&quot;], &quot;layer&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;W9&quot;, &quot;name&quot;: &quot;Village / own world&quot;, &quot;state&quot;: &quot;Main usable base; depth uneven&quot;, &quot;now&quot;: &quot;Crafting, economy, home, people and original-world loops have existing owners and consumers.&quot;, &quot;gap&quot;: &quot;A lived home and independent histories require connected daily work, relationships, travel and return.&quot;, &quot;next&quot;: &quot;Use the same proven transactions while authoring the original world’s own laws and livelihoods.&quot;, &quot;source&quot;: [&quot;docs/systems/README.md&quot;, &quot;PROJECT.md&quot;], &quot;links&quot;: [&quot;U08&quot;, &quot;U09&quot;, &quot;U10&quot;, &quot;U12&quot;], &quot;layer&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;W10&quot;, &quot;name&quot;: &quot;Frontier &amp; Mistglass&quot;, &quot;state&quot;: &quot;Retained test beds&quot;, &quot;now&quot;: &quot;Selected mechanism, crafting and combat fixtures remain useful.&quot;, &quot;gap&quot;: &quot;Their existence does not demonstrate book-world depth or portability.&quot;, &quot;next&quot;: &quot;Retain their test-bed role; put new depth in selected book worlds and menus.&quot;, &quot;source&quot;: [&quot;docs/VISION_DIGEST.md&quot;, &quot;docs/systems/README.md&quot;], &quot;links&quot;: [&quot;U07&quot;, &quot;U09&quot;, &quot;U11&quot;], &quot;layer&quot;: &quot;&quot;}], &quot;gaps&quot;: [{&quot;id&quot;: &quot;G1&quot;, &quot;name&quot;: &quot;Source → delivered app&quot;, &quot;state&quot;: &quot;Delivery identity unknown&quot;, &quot;now&quot;: &quot;Current source and dated app-adoption records are separate.&quot;, &quot;gap&quot;: &quot;PROJECT release wording is stale relative to recorded chat activity; no installed artifact was inspected here.&quot;, &quot;next&quot;: &quot;At a selected delivery checkpoint compare the actual app artifact to its intended build.&quot;, &quot;source&quot;: [&quot;PROJECT.md:53–55&quot;], &quot;links&quot;: [&quot;U14&quot;, &quot;U15&quot;], &quot;layer&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;G2&quot;, &quot;name&quot;: &quot;Means → action → useful result&quot;, &quot;state&quot;: &quot;High-value connection gap&quot;, &quot;now&quot;: &quot;Mechanism engines and bounded receipts exist.&quot;, &quot;gap&quot;: &quot;R5 supply/bindings and B8 campaign/shot consumers remain limited in their receipts; story facts can advance without the full mechanism.&quot;, &quot;next&quot;: &quot;Use the next actual lead action to acquire means, pay cost and produce a later use.&quot;, &quot;source&quot;: [&quot;docs/gm/dispatch/refinement-audits-2026-10-31/R5_IMPLEMENTATION_RECEIPT.md&quot;, &quot;docs/gm/dispatch/refinement-audits-2026-10-31/B8_IMPLEMENTATION_RECEIPT.md&quot;, &quot;docs/gm/dispatch/refinement-audits-2026-10-31/KJ3AC_IMPLEMENTATION_RECEIPT.md&quot;], &quot;links&quot;: [&quot;U05&quot;, &quot;U06&quot;, &quot;U07&quot;, &quot;U09&quot;, &quot;U11&quot;], &quot;layer&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;G3&quot;, &quot;name&quot;: &quot;Panel → continuing pursuit&quot;, &quot;state&quot;: &quot;Session integration&quot;, &quot;now&quot;: &quot;Recent conversation and retained-place repairs have fixture proof.&quot;, &quot;gap&quot;: &quot;Goal, cost, blocker, alternative and resume path still need a coherent ordinary session beyond those fixtures.&quot;, &quot;next&quot;: &quot;Check one selected session at rebuilt 1920×1080, including save/resume.&quot;, &quot;source&quot;: [&quot;docs/gm/dispatch/foundation-conversations-2026-11-04/CHECKPOINT.md&quot;, &quot;docs/gm/dispatch/foundation-place-identity-2026-11-04/CHECKPOINT.md&quot;, &quot;docs/audits/UI_CAPABILITY_GAPS_2026-10-30.md&quot;], &quot;links&quot;: [&quot;U01&quot;, &quot;U03&quot;, &quot;U06&quot;, &quot;U08&quot;, &quot;U15&quot;], &quot;layer&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;G4&quot;, &quot;name&quot;: &quot;Action → consistent aftermath&quot;, &quot;state&quot;: &quot;Health closure; broader joins open&quot;, &quot;now&quot;: &quot;L2b health and paid-work settlement have later named fixture closure receipts.&quot;, &quot;gap&quot;: &quot;Injury/witness aftermath is separate. Continuous/staged support and mixed reservation/spend can exceed the new binary policy.&quot;, &quot;next&quot;: &quot;Choose the actual support and spend boundaries for a consuming operation; use L2c when injury or witnessed aftermath is involved.&quot;, &quot;source&quot;: [&quot;docs/gm/dispatch/refinement-audits-2026-10-31/L2B_COMBAT_HEALTH_RECEIPT.md:3–17&quot;, &quot;docs/gm/dispatch/foundation-paid-work-2026-11-04/CHECKPOINT.md&quot;, &quot;docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:186–198&quot;], &quot;links&quot;: [&quot;U02&quot;, &quot;U06&quot;, &quot;U10&quot;, &quot;U11&quot;, &quot;U13&quot;], &quot;layer&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;G5&quot;, &quot;name&quot;: &quot;Foundation → different real consumer&quot;, &quot;state&quot;: &quot;Portability gap&quot;, &quot;now&quot;: &quot;Shared machinery spans domains, but some consumers remain narrowly world-shaped.&quot;, &quot;gap&quot;: &quot;Pack save has a writer but no ordinary reveal caller; a second world can demand different semantics.&quot;, &quot;next&quot;: &quot;Test a selected different consumer and retain its costs/laws; avoid building a whole new world just to run a contrast fixture.&quot;, &quot;source&quot;: [&quot;docs/systems/README.md&quot;, &quot;src/world_pack_registry.js&quot;, &quot;docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:42–59&quot;], &quot;links&quot;: [&quot;U01&quot;, &quot;U04&quot;, &quot;U07&quot;, &quot;U09&quot;, &quot;U12&quot;, &quot;U13&quot;, &quot;U14&quot;], &quot;layer&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;G6&quot;, &quot;name&quot;: &quot;Parallel work → combined behavior&quot;, &quot;state&quot;: &quot;Integration risk&quot;, &quot;now&quot;: &quot;Primary contains extensive concurrent dirty work.&quot;, &quot;gap&quot;: &quot;Commit/worktree counts do not tell us which behavior is missing or correctly combined; no new worktree audit ran.&quot;, &quot;next&quot;: &quot;Use the current owners and pinned candidate; merge/review actual hunks only when integration is selected.&quot;, &quot;source&quot;: [&quot;docs/gm/dispatch/foundation-conversations-2026-11-04/CHECKPOINT.md&quot;, &quot;docs/gm/dispatch/foundation-place-identity-2026-11-04/CHECKPOINT.md&quot;, &quot;docs/gm/dispatch/foundation-paid-work-2026-11-04/CHECKPOINT.md&quot;, &quot;docs/gm/SHARED_WORKTREE_PRACTICE.md&quot;], &quot;links&quot;: [&quot;U11&quot;, &quot;U14&quot;, &quot;U15&quot;], &quot;layer&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;G7&quot;, &quot;name&quot;: &quot;Opening → lived world&quot;, &quot;state&quot;: &quot;Depth gap&quot;, &quot;now&quot;: &quot;LOTM/HP have bounded developer journeys; other worlds have partial loops, registrations or plans.&quot;, &quot;gap&quot;: &quot;Campaign progress does not establish ordinary lives, institutions, regions, later powers or all livelihoods.&quot;, &quot;next&quot;: &quot;Deepen one continuing loop in the selected campaign; preserve longer horizons without treating every world as a prerequisite.&quot;, &quot;source&quot;: [&quot;docs/gm/dispatch/refinement-audits-2026-10-31/KJ3AC_IMPLEMENTATION_RECEIPT.md&quot;, &quot;docs/gm/dispatch/refinement-audits-2026-10-31/HP_WINDOW4_RECEIPT.md&quot;, &quot;docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:61–96&quot;], &quot;links&quot;: [&quot;U03&quot;, &quot;U04&quot;, &quot;U05&quot;, &quot;U07&quot;, &quot;U08&quot;, &quot;U09&quot;, &quot;U10&quot;, &quot;U12&quot;, &quot;U13&quot;, &quot;U15&quot;], &quot;layer&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;G8&quot;, &quot;name&quot;: &quot;Recorded proof → current joined build&quot;, &quot;state&quot;: &quot;Evidence boundary&quot;, &quot;now&quot;: &quot;Conversation/place and both-host paid-work fixtures have named proof. The broad run had failures followed by serial/focused recovery.&quot;, &quot;gap&quot;: &quot;No clean full-suite result for all latest dirty inputs is claimed; two hosts sharing a fixture do not prove different world laws.&quot;, &quot;next&quot;: &quot;Use the next real consumer’s pinned candidate and appropriate combined gate, keeping each receipt scope separate.&quot;, &quot;source&quot;: [&quot;docs/gm/dispatch/foundation-conversations-2026-11-04/CHECKPOINT.md:63–73&quot;, &quot;docs/gm/dispatch/foundation-place-identity-2026-11-04/CHECKPOINT.md&quot;, &quot;docs/gm/dispatch/foundation-paid-work-2026-11-04/CHECKPOINT.md&quot;, &quot;docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:176–211&quot;], &quot;links&quot;: [&quot;U01&quot;, &quot;U11&quot;, &quot;U14&quot;, &quot;U15&quot;], &quot;layer&quot;: &quot;&quot;}], &quot;leverage&quot;: [{&quot;id&quot;: &quot;E1&quot;, &quot;name&quot;: &quot;LOTM → COI&quot;, &quot;state&quot;: &quot;Proposed reuse&quot;, &quot;now&quot;: &quot;Knowledge, custody, supported progression and source-qualified operations.&quot;, &quot;gap&quot;: &quot;Shared setting still has different support and advancement laws.&quot;, &quot;next&quot;: &quot;Withdraw borrowed support while preserving independently held progress.&quot;, &quot;source&quot;: [&quot;docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:48&quot;], &quot;links&quot;: [&quot;U06&quot;, &quot;U07&quot;, &quot;U09&quot;], &quot;layer&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;E2&quot;, &quot;name&quot;: &quot;HP ↔ Mother of Learning&quot;, &quot;state&quot;: &quot;Proposed contrast&quot;, &quot;now&quot;: &quot;Teaching, demonstrated competence, access and practical preparation.&quot;, &quot;gap&quot;: &quot;A school shell does not write curriculum, local magic, society or useful lessons.&quot;, &quot;next&quot;: &quot;Make the same learned-operation seam change a real task under different local rules.&quot;, &quot;source&quot;: [&quot;docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:49&quot;], &quot;links&quot;: [&quot;U05&quot;, &quot;U07&quot;, &quot;U08&quot;, &quot;U09&quot;], &quot;layer&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;E3&quot;, &quot;name&quot;: &quot;MoL → Perfect Run / Re:Zero&quot;, &quot;state&quot;: &quot;Proposed reset contrast&quot;, &quot;now&quot;: &quot;Declared restored domains, retained knowledge and replay bookkeeping.&quot;, &quot;gap&quot;: &quot;Different triggers, carriers and who retains information; source qualification still matters.&quot;, &quot;next&quot;: &quot;Restore one declared physical domain and check the qualified observer-retention policy.&quot;, &quot;source&quot;: [&quot;docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:50&quot;], &quot;links&quot;: [&quot;U05&quot;, &quot;U06&quot;, &quot;U13&quot;, &quot;U14&quot;], &quot;layer&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;E4&quot;, &quot;name&quot;: &quot;D&amp;D → tabletop settings&quot;, &quot;state&quot;: &quot;Proposed profile reuse&quot;, &quot;now&quot;: &quot;Targets, conditions, duration, rest and explicit rules profiles.&quot;, &quot;gap&quot;: &quot;Edition and setting remain separate; full world content is still substantial.&quot;, &quot;next&quot;: &quot;Change one profile-dependent resolution while leaving unrelated world laws intact.&quot;, &quot;source&quot;: [&quot;docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:51&quot;], &quot;links&quot;: [&quot;U05&quot;, &quot;U07&quot;, &quot;U11&quot;], &quot;layer&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;E5&quot;, &quot;name&quot;: &quot;Making → FMA / Witch Hat&quot;, &quot;state&quot;: &quot;Proposed; bounded study exists&quot;, &quot;now&quot;: &quot;Physical preparation, material identity, constructed design, activation and settlement.&quot;, &quot;gap&quot;: &quot;Magical grammars differ; copying a design, understanding it and operating it are different.&quot;, &quot;next&quot;: &quot;Retain a real workpiece and distinguish inspection from spending/activation.&quot;, &quot;source&quot;: [&quot;docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:52,135–153&quot;, &quot;docs/gm/dispatch/foundation-paid-work-2026-11-04/CHECKPOINT.md&quot;], &quot;links&quot;: [&quot;U06&quot;, &quot;U07&quot;, &quot;U09&quot;, &quot;U11&quot;], &quot;layer&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;E6&quot;, &quot;name&quot;: &quot;RI → cultivation cases&quot;, &quot;state&quot;: &quot;Proposed living-tool reuse&quot;, &quot;now&quot;: &quot;Owned living tools, resource/time accounting, refinement and ongoing support.&quot;, &quot;gap&quot;: &quot;Gu/aperture laws do not become generic cultivation rules.&quot;, &quot;next&quot;: &quot;Transfer one supported living tool without duplication or lost upkeep.&quot;, &quot;source&quot;: [&quot;docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:53&quot;], &quot;links&quot;: [&quot;U07&quot;, &quot;U09&quot;, &quot;U11&quot;], &quot;layer&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;E7&quot;, &quot;name&quot;: &quot;Paradise → mission worlds&quot;, &quot;state&quot;: &quot;Proposed return contrast&quot;, &quot;now&quot;: &quot;Preparation/services, separate footprints, cargo and return settlement.&quot;, &quot;gap&quot;: &quot;Reward law, privileges, support and clocks remain local.&quot;, &quot;next&quot;: &quot;Return one exact carried item with cost and support aftermath.&quot;, &quot;source&quot;: [&quot;docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:54&quot;], &quot;links&quot;: [&quot;U09&quot;, &quot;U11&quot;, &quot;U12&quot;, &quot;U14&quot;], &quot;layer&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;E8&quot;, &quot;name&quot;: &quot;Worm → hidden-power worlds&quot;, &quot;state&quot;: &quot;Longer-term stress test&quot;, &quot;now&quot;: &quot;Observer recognition, institution responses, rivals and provider-dependent tools.&quot;, &quot;gap&quot;: &quot;Public classification is not actual capability; each power still needs its mechanism.&quot;, &quot;next&quot;: &quot;Change what an observer knows without changing underlying power.&quot;, &quot;source&quot;: [&quot;docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:55&quot;], &quot;links&quot;: [&quot;U06&quot;, &quot;U07&quot;, &quot;U08&quot;, &quot;U10&quot;], &quot;layer&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;E9&quot;, &quot;name&quot;: &quot;HP → Percy Jackson / Earthsea&quot;, &quot;state&quot;: &quot;Weaker resemblance hypothesis&quot;, &quot;now&quot;: &quot;Admission, schedules, teaching, duties and access.&quot;, &quot;gap&quot;: &quot;Local culture and signature mechanics remain large; a renamed lesson button proves little.&quot;, &quot;next&quot;: &quot;Use a genuinely different institutional rule through the shared seam.&quot;, &quot;source&quot;: [&quot;docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:56&quot;], &quot;links&quot;: [&quot;U05&quot;, &quot;U07&quot;, &quot;U08&quot;], &quot;layer&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;E10&quot;, &quot;name&quot;: &quot;Threat/recovery → Hunger Games&quot;, &quot;state&quot;: &quot;Proposed survival contrast&quot;, &quot;now&quot;: &quot;Resources, announced danger, workable exits and retained aftermath.&quot;, &quot;gap&quot;: &quot;AD50 is project direction, not a canon claim; politics, ecology and ordinary lives still need authoring.&quot;, &quot;next&quot;: &quot;Make one threat have supported responses and a consequential recovery route.&quot;, &quot;source&quot;: [&quot;docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:57&quot;], &quot;links&quot;: [&quot;U02&quot;, &quot;U09&quot;, &quot;U10&quot;, &quot;U13&quot;], &quot;layer&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;FN1–FN6&quot;, &quot;name&quot;: &quot;Naruto / Witch Hat → core contracts&quot;, &quot;state&quot;: &quot;Bounded studies; receiving use first&quot;, &quot;now&quot;: &quot;Separate carrier/source, known method, trained control, constructed work and actual activation.&quot;, &quot;gap&quot;: &quot;Selected OCR windows do not qualify every inheritance, drawing or distributed-worker rule.&quot;, &quot;next&quot;: &quot;Apply one distinction to the next Klein/Harry ability or paid preparation; no need to build these worlds first.&quot;, &quot;source&quot;: [&quot;docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:135–153&quot;, &quot;docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:70–71&quot;], &quot;links&quot;: [&quot;U01&quot;, &quot;U06&quot;, &quot;U07&quot;, &quot;U09&quot;, &quot;U11&quot;], &quot;layer&quot;: &quot;&quot;}], &quot;actions&quot;: [{&quot;id&quot;: &quot;A1&quot;, &quot;name&quot;: &quot;Next real lead operation&quot;, &quot;state&quot;: &quot;Next · N2, existing campaign owner&quot;, &quot;now&quot;: &quot;Recent conversation, place, health and paid-work pieces now have bounded proof.&quot;, &quot;gap&quot;: &quot;A shared fixture is not yet a source-qualified useful lead action.&quot;, &quot;next&quot;: &quot;Have the next already-owned Klein/Harry practical operation distinguish method, competence, current means, cost and a useful consequence.&quot;, &quot;source&quot;: [&quot;docs/gm/dispatch/foundation-paid-work-2026-11-04/CHECKPOINT.md&quot;, &quot;docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:30&quot;, &quot;docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:203–211&quot;], &quot;links&quot;: [&quot;G2&quot;, &quot;G3&quot;, &quot;G7&quot;, &quot;G8&quot;], &quot;layer&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;A2&quot;, &quot;name&quot;: &quot;Exact workpiece, when needed&quot;, &quot;state&quot;: &quot;Same slice · M21/M25&quot;, &quot;now&quot;: &quot;Material identity/lineage already has an owner; counted-stock fixture proof is narrower.&quot;, &quot;gap&quot;: &quot;A sample count does not prove which actual ingredient, page, tool or prepared object was changed or delivered.&quot;, &quot;next&quot;: &quot;Carry the exact item key/lineage through preparation and receiving use; one incompatible/lookalike contrast where relevant.&quot;, &quot;source&quot;: [&quot;docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:186–205&quot;, &quot;docs/SYSTEMS_REGISTER.md&quot;], &quot;links&quot;: [&quot;G2&quot;, &quot;G4&quot;, &quot;G5&quot;], &quot;layer&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;A3&quot;, &quot;name&quot;: &quot;A continuing duty or lesson&quot;, &quot;state&quot;: &quot;Next relevant pursuit · N4/ACR&quot;, &quot;now&quot;: &quot;Clocks, jobs, institutions and activity-abstraction direction exist.&quot;, &quot;gap&quot;: &quot;Compression must keep actual means, consequential choices, payment/delivery and observer knowledge; rules adoption is not implementation.&quot;, &quot;next&quot;: &quot;Make the selected duty/lesson change a later choice; compress routine repetition at the appropriate local grain.&quot;, &quot;source&quot;: [&quot;docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:32&quot;, &quot;docs/ACTIVITY_ABSTRACTION_RULES.md&quot;, &quot;docs/systems/README.md&quot;], &quot;links&quot;: [&quot;G3&quot;, &quot;G4&quot;, &quot;G7&quot;], &quot;layer&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;A4&quot;, &quot;name&quot;: &quot;Ordinary history and return&quot;, &quot;state&quot;: &quot;When selected use needs it&quot;, &quot;now&quot;: &quot;World-pack save/carry is wired and the reveal API exists.&quot;, &quot;gap&quot;: &quot;No ordinary reveal caller or retained person-view reader was found in src; avoid duplicating existing per-actor knowledge.&quot;, &quot;next&quot;: &quot;Connect the world-instance history needed by a real encounter and prove its retained return/reload result.&quot;, &quot;source&quot;: [&quot;src/world_pack_registry.js&quot;, &quot;src/continuation_state.js&quot;, &quot;docs/SYSTEMS_REGISTER.md:37&quot;], &quot;links&quot;: [&quot;G5&quot;, &quot;G7&quot;, &quot;G8&quot;], &quot;layer&quot;: &quot;&quot;}, {&quot;id&quot;: &quot;A5&quot;, &quot;name&quot;: &quot;Different-law second consumer&quot;, &quot;state&quot;: &quot;Later · qualified contrast&quot;, &quot;now&quot;: &quot;E2/E3/E4/E5 offer shared-capability stress tests; two existing hosts have paid-work integration proof.&quot;, &quot;gap&quot;: &quot;A different panel is not a different law. Reuse still leaves local content, mechanisms and lifecycle to qualify.&quot;, &quot;next&quot;: &quot;Prove one relevant semantic difference with less duplicated core work; rerun affected donor behavior.&quot;, &quot;source&quot;: [&quot;docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:42–96,176–211&quot;], &quot;links&quot;: [&quot;G5&quot;, &quot;G7&quot;, &quot;G8&quot;], &quot;layer&quot;: &quot;&quot;}], &quot;inventory&quot;: [{&quot;name&quot;: &quot;S1 Fact rules (`rules.js`)&quot;, &quot;maturity&quot;: &quot;Used in play&quot;, &quot;line&quot;: 30}, {&quot;name&quot;: &quot;S2 Progression gates&quot;, &quot;maturity&quot;: &quot;Wired, thin (4 gates)&quot;, &quot;line&quot;: 31}, {&quot;name&quot;: &quot;S3 Ascension paths, abilities and powers&quot;, &quot;maturity&quot;: &quot;Wired, thin (2 worlds)&quot;, &quot;line&quot;: 32}, {&quot;name&quot;: &quot;S4 Skills, XP, overflow, rust&quot;, &quot;maturity&quot;: &quot;Used in play, proposal rows&quot;, &quot;line&quot;: 33}, {&quot;name&quot;: &quot;S5 Titles and faction rank&quot;, &quot;maturity&quot;: &quot;Used in play, proposal content&quot;, &quot;line&quot;: 34}, {&quot;name&quot;: &quot;S6 Clearance&quot;, &quot;maturity&quot;: &quot;Wired, thin (1 world)&quot;, &quot;line&quot;: 35}, {&quot;name&quot;: &quot;S7 Domain registry&quot;, &quot;maturity&quot;: &quot;Used in play (54 calls)&quot;, &quot;line&quot;: 36}, {&quot;name&quot;: &quot;S8 World packs&quot;, &quot;maturity&quot;: &quot;Partly wired (loader yes; save slice yes, one writer `reveal`, no gameplay trigger yet)&quot;, &quot;line&quot;: 37}, {&quot;name&quot;: &quot;S9 Book-world hosts&quot;, &quot;maturity&quot;: &quot;Used in play&quot;, &quot;line&quot;: 38}, {&quot;name&quot;: &quot;S10 Simulation: commands, jobs&quot;, &quot;maturity&quot;: &quot;Used in play&quot;, &quot;line&quot;: 39}, {&quot;name&quot;: &quot;S11 Expansion engine&quot;, &quot;maturity&quot;: &quot;Used in play&quot;, &quot;line&quot;: 40}, {&quot;name&quot;: &quot;S12 Save envelope, migrations&quot;, &quot;maturity&quot;: &quot;Used in play&quot;, &quot;line&quot;: 41}, {&quot;name&quot;: &quot;S13 Knowledge, observation, sealed truth&quot;, &quot;maturity&quot;: &quot;Mixed&quot;, &quot;line&quot;: 42}, {&quot;name&quot;: &quot;S14 Lives, heirs, continuation&quot;, &quot;maturity&quot;: &quot;Used in play&quot;, &quot;line&quot;: 43}, {&quot;name&quot;: &quot;Body, health, conditions&quot;, &quot;maturity&quot;: &quot;Used in play (S14 word)&quot;, &quot;line&quot;: 44}, {&quot;name&quot;: &quot;S15 Seeded generation&quot;, &quot;maturity&quot;: &quot;Used in play&quot;, &quot;line&quot;: 45}, {&quot;name&quot;: &quot;S16 Tags (with MIE section 2)&quot;, &quot;maturity&quot;: &quot;Wired, thin&quot;, &quot;line&quot;: 46}, {&quot;name&quot;: &quot;S17 UI ports, panels and layout (with CPSU section 4)&quot;, &quot;maturity&quot;: &quot;Used in play&quot;, &quot;line&quot;: 47}, {&quot;name&quot;: &quot;S18 Debug, cheat and inspector views&quot;, &quot;maturity&quot;: &quot;Used in play (dev)&quot;, &quot;line&quot;: 48}, {&quot;name&quot;: &quot;Cheats (data cards)&quot;, &quot;maturity&quot;: &quot;Data contract, a few live cards&quot;, &quot;line&quot;: 49}, {&quot;name&quot;: &quot;S19 Clocks and recurring windows&quot;, &quot;maturity&quot;: &quot;Mixed&quot;, &quot;line&quot;: 50}, {&quot;name&quot;: &quot;Items and inventory keys (L1)&quot;, &quot;maturity&quot;: &quot;Used in play&quot;, &quot;line&quot;: 58}, {&quot;name&quot;: &quot;Craft engine and Village crafting runtime (L3, L4)&quot;, &quot;maturity&quot;: &quot;Used in play (Village and Frontier)&quot;, &quot;line&quot;: 59}, {&quot;name&quot;: &quot;Recipes, slots, substitution (5a-5e)&quot;, &quot;maturity&quot;: &quot;Mixed: 5a, 5b Tested just; 5c Used in play&quot;, &quot;line&quot;: 60}, {&quot;name&quot;: &quot;Crafted products and mixtures&quot;, &quot;maturity&quot;: &quot;Used in play&quot;, &quot;line&quot;: 61}, {&quot;name&quot;: &quot;Material lineage, treatment, heirlooms (L6)&quot;, &quot;maturity&quot;: &quot;Used in play (rat-material chain, kit, heirlooms)&quot;, &quot;line&quot;: 62}, {&quot;name&quot;: &quot;Gear and workshop&quot;, &quot;maturity&quot;: &quot;Used in play (`base.frontier` alone)&quot;, &quot;line&quot;: 63}, {&quot;name&quot;: &quot;Weapon runes and inscription&quot;, &quot;maturity&quot;: &quot;Used in play (Rune bench, Frontier); weapon-rune inscription beyond the affix reroll is proposal&quot;, &quot;line&quot;: 64}, {&quot;name&quot;: &quot;Consumables and effects&quot;, &quot;maturity&quot;: &quot;no map word&quot;, &quot;line&quot;: 65}, {&quot;name&quot;: &quot;World-pack potion slices (HP, LOTM)&quot;, &quot;maturity&quot;: &quot;Used in play (HP slice; LOTM doses, brewing is proposal)&quot;, &quot;line&quot;: 66}, {&quot;name&quot;: &quot;Economy: money, shops, trade, custody, escrow (L8)&quot;, &quot;maturity&quot;: &quot;Used in play&quot;, &quot;line&quot;: 67}, {&quot;name&quot;: &quot;Quality, spoilage, gates, lineage of beings&quot;, &quot;maturity&quot;: &quot;no map word&quot;, &quot;line&quot;: 68}, {&quot;name&quot;: &quot;Combat, encounters, pursuit&quot;, &quot;maturity&quot;: &quot;Mixed (2026-11-04): combat core wired, encounter content demo-only. Producer `src/combat_math.js`; state `src/models/combat.js` (imported by `src/main.js`); UI `src/ui/combat_display.js`; test `tests/combat_log.test.js`. Evidence: read source + focused tests pass (28 files, 234 tests, 2026-11-04); native journey not reached. Uncommitted in-flux files in primary: `src/tempo_fight.js`, `src/combat_situation_ui.js`&quot;, &quot;line&quot;: 76}, {&quot;name&quot;: &quot;People, companions, bonds, character sheet&quot;, &quot;maturity&quot;: &quot;Mixed (2026-11-04): generated people and village lives wired from `src/main.js`; companion roster reaches UI only via `src/ui_extras.js`. Producer `src/generated_people.js`, `src/npc_lives.js`, `src/companion_roster.js`; state owner `src/npc_lives.js` (village lives); UI `src/generated_people_ui.js`; test `tests/generated_people.test.js`. Evidence: read source + focused tests pass (2026-11-04); native journey not reached&quot;, &quot;line&quot;: 77}, {&quot;name&quot;: &quot;Talk and dialogue&quot;, &quot;maturity&quot;: &quot;Wired, thin (2026-11-04): producer `src/talk_dialogue_host.js`, imported only by `src/display.js` (UI); `src/cast_topic_talk.js` feeds `src/book_world_lotm_cast_host.js`; state owner unknown (not traced); test `tests/talk_view.test.js`. Evidence: read source + focused test pass (2026-11-04); native journey not reached&quot;, &quot;line&quot;: 78}, {&quot;name&quot;: &quot;Sites, ruins, maps, exploration&quot;, &quot;maturity&quot;: &quot;Partly wired (2026-11-04): authored sites (`src/authored_site.js`, state via `applyAuthoredState`) reach UI `src/authored_site_ui.js` from `src/main.js`; drainage site `src/drainage_site_domain.js` is wired through `src/native_tool_domains.js`; `src/site_projects.js` is consumed by home and field-workshop code only. Test `tests/authored_site.test.js`. Evidence: read source + focused tests pass (2026-11-04); native journey not reached&quot;, &quot;line&quot;: 79}, {&quot;name&quot;: &quot;Homes and bases&quot;, &quot;maturity&quot;: &quot;Partly wired (2026-11-04): producer `src/home_domain.js` (imported by `src/main.js`), state `src/home_model.js`, UI `src/home_panel.js` and `src/home_furniture_panel.js`; test `tests/home_domain.test.js`. Evidence: read source + focused tests pass (2026-11-04); native journey not reached (`scripts/playtest/home-system.mjs` exists, not run)&quot;, &quot;line&quot;: 85}, {&quot;name&quot;: &quot;Organizations and institutions&quot;, &quot;maturity&quot;: &quot;Wired, thin (2026-11-04): producer `src/organization_view.js`, UI only from `src/management/ui.js`; faction rank `src/faction_rank.js` has 7 importers; state owner unknown (not traced); test `tests/organization_view.test.js`. Evidence: read source + focused test pass (2026-11-04); native journey not reached&quot;, &quot;line&quot;: 86}, {&quot;name&quot;: &quot;Gathering, nature and seasons&quot;, &quot;maturity&quot;: &quot;Partly wired (2026-11-04): harvest wired (`src/harvest.js`, 13 importers; UI `src/harvest_ui.js`); gathering model `src/gathering_model.js` feeds `src/gathering_panel.js` from `src/crafting_domain.js`; state owner `src/gatherings.js`; tests `tests/gatherings.test.js`, `tests/harvest.test.js`. Seasons owner unknown: no season module, `season` appears in about 12 files. Evidence: read source + focused tests pass (2026-11-04); native journey not reached&quot;, &quot;line&quot;: 87}, {&quot;name&quot;: &quot;Research and study&quot;, &quot;maturity&quot;: &quot;Wired, thin (2026-11-04): producer `src/research_view.js` (with `src/research_content.js`), UI `src/research_home.js` via `src/ui_extras.js`; state owner unknown (not traced); tests `tests/research_view.test.js`, `tests/village_study.test.js`; `src/research_home.js` has no test. Evidence: read source + focused tests pass (2026-11-04); native journey not reached&quot;, &quot;line&quot;: 88}, {&quot;name&quot;: &quot;First hour, intro, starts&quot;, &quot;maturity&quot;: &quot;Partly wired (2026-11-04): producer `src/first_hour.js` mounted from `src/main.js`; starts via `src/start_probe_ui.js` and start content (`src/fresh_life_start.js`, `src/warm_hand_start_content.js`, `src/foundation_start_content.js`), all imported by `src/main.js`; state owner `src/start_records.js` (not traced further); tests `tests/first_hour.test.js`, `tests/start_records.test.js`. Evidence: read source + focused tests pass (2026-11-04); native journey not reached&quot;, &quot;line&quot;: 89}, {&quot;name&quot;: &quot;`steam_*` (19, 1270)&quot;, &quot;maturity&quot;: &quot;no map word&quot;, &quot;line&quot;: 97}, {&quot;name&quot;: &quot;`cohort_battle*` (5, 259)&quot;, &quot;maturity&quot;: &quot;no map word&quot;, &quot;line&quot;: 98}, {&quot;name&quot;: &quot;`causal_story*`, `causal_situations` (9, 2352)&quot;, &quot;maturity&quot;: &quot;no map word&quot;, &quot;line&quot;: 99}, {&quot;name&quot;: &quot;`vessel_*` (7, 140)&quot;, &quot;maturity&quot;: &quot;no map word&quot;, &quot;line&quot;: 100}, {&quot;name&quot;: &quot;`pocket_*` (6, 1001)&quot;, &quot;maturity&quot;: &quot;no map word&quot;, &quot;line&quot;: 101}, {&quot;name&quot;: &quot;`mistglass_*` (6, 184)&quot;, &quot;maturity&quot;: &quot;no map word&quot;, &quot;line&quot;: 102}, {&quot;name&quot;: &quot;`lore_history*`, `lore_practice*` (6, 1018)&quot;, &quot;maturity&quot;: &quot;no map word&quot;, &quot;line&quot;: 103}], &quot;candidates&quot;: [{&quot;name&quot;: &quot;W1 LOTM&quot;, &quot;mechanism&quot;: &quot;Pathway progression through potions and acting; interpretation and investigation as practical work&quot;, &quot;test&quot;: &quot;Prepare a qualified operation, acquire/use its faculty, apply evidence in a later service; distinguish digestion from memorizing a method&quot;, &quot;source&quot;: &quot;docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:68&quot;}, {&quot;name&quot;: &quot;W2 Harry Potter&quot;, &quot;mechanism&quot;: &quot;Individual wand relationship, learned spell execution and school life; possession and answering are distinct&quot;, &quot;test&quot;: &quot;Try a wand before buying it; subsequently use the actually held compatible instrument in a learned task&quot;, &quot;source&quot;: &quot;docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:69&quot;}, {&quot;name&quot;: &quot;W3 Naruto&quot;, &quot;mechanism&quot;: &quot;Inherited bodily faculties alongside trainable techniques, control exercises, sealing, puppetry and clone-supported practice&quot;, &quot;test&quot;: &quot;Distinguish an acquired eye/body source from a copied method; compare the same technique before and after trained control; qualify a worker&#x27;s experience return&quot;, &quot;source&quot;: &quot;docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:70&quot;}, {&quot;name&quot;: &quot;W4 Witch Hat Atelier&quot;, &quot;mechanism&quot;: &quot;Drawn Casting Seals using special tools; apprenticeship and control of magical knowledge&quot;, &quot;test&quot;: &quot;Construct and inspect one physical spell design, then use its actual result; investigate how changing a drawing changes its operation&quot;, &quot;source&quot;: &quot;docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:71&quot;}, {&quot;name&quot;: &quot;W5 Fullmetal Alchemist&quot;, &quot;mechanism&quot;: &quot;Learned staged transformation of actual matter; arrays, specialization and source-specific exchange&quot;, &quot;test&quot;: &quot;Rework a supported material into a useful repair/part, with explicit inputs and receiving function; compare an unsupported target&quot;, &quot;source&quot;: &quot;docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:72&quot;}, {&quot;name&quot;: &quot;W6 Hunter x Hunter&quot;, &quot;mechanism&quot;: &quot;Personally structured Nen abilities; activation requirements differ from breakable vows&quot;, &quot;test&quot;: &quot;Author one target/setup condition, keep a continuing requirement live, then separately model a chosen vow and its sourced stake&quot;, &quot;source&quot;: &quot;docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:73&quot;}, {&quot;name&quot;: &quot;W7 Jujutsu Kaisen&quot;, &quot;mechanism&quot;: &quot;Innate techniques, vows, bounded spaces and distinct adaptation mechanisms&quot;, &quot;test&quot;: &quot;Show an inherited technique, trained use and a supported condition; qualify a concrete domain rule rather than a generic damage zone&quot;, &quot;source&quot;: &quot;docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:74&quot;}, {&quot;name&quot;: &quot;W8 Bleach&quot;, &quot;mechanism&quot;: &quot;Personal weapon relationship/releases; spiritual perception differs from physical contact&quot;, &quot;test&quot;: &quot;Develop/use one qualified release through its actual relationship and means; compare seeing a spiritual actor with being able to affect it&quot;, &quot;source&quot;: &quot;docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:75&quot;}, {&quot;name&quot;: &quot;W9 Mother of Learning&quot;, &quot;mechanism&quot;: &quot;Repeated learning with retained knowledge; technical preparation, facilities and autonomous workers&quot;, &quot;test&quot;: &quot;Reuse known technique under a changed current condition; deliver a remote worker&#x27;s discovery; separately test a qualified reset domain&quot;, &quot;source&quot;: &quot;docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:76&quot;}, {&quot;name&quot;: &quot;W10 The Perfect Run&quot;, &quot;mechanism&quot;: &quot;A protagonist-specific checkpoint/return mechanism among diverse individual powers&quot;, &quot;test&quot;: &quot;Compare retained knowledge with restored physical state, and qualify who receives a memory through which route&quot;, &quot;source&quot;: &quot;docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:77&quot;}, {&quot;name&quot;: &quot;W11 Re:Zero&quot;, &quot;mechanism&quot;: &quot;Asymmetric knowledge from return events alongside spirit contracts and ordinary support work&quot;, &quot;test&quot;: &quot;Let one actor prepare from retained information while another acts on the current history; a visitor has no automatic reset power&quot;, &quot;source&quot;: &quot;docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:78&quot;}, {&quot;name&quot;: &quot;W12 Reverend Insanity&quot;, &quot;mechanism&quot;: &quot;Living Gu as owned/support-dependent tools; refinement and aperture-linked resource life&quot;, &quot;test&quot;: &quot;Obtain/feed/use one actual Gu, then transfer or interrupt support without duplicating it or inventing a universal starvation timer&quot;, &quot;source&quot;: &quot;docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:79&quot;}, {&quot;name&quot;: &quot;W13 Shadow Slave&quot;, &quot;mechanism&quot;: &quot;Aspect/Flaw coupling, Memories and guarded transitions/rest&quot;, &quot;test&quot;: &quot;Use a chosen supported ability on a real task while its specific restriction changes another decision; compare guarded recovery&quot;, &quot;source&quot;: &quot;docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:80&quot;}, {&quot;name&quot;: &quot;W14 Worm&quot;, &quot;mechanism&quot;: &quot;Different operational powers behind public classifications; maker-bound technical work&quot;, &quot;test&quot;: &quot;A qualified observer revises a classification; a device works or degrades according to its actual maker/support law&quot;, &quot;source&quot;: &quot;docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:81&quot;}, {&quot;name&quot;: &quot;W15 The Wandering Inn&quot;, &quot;mechanism&quot;: &quot;Work/social roles, Classes and Skills, including team and place relationships&quot;, &quot;test&quot;: &quot;Perform a real method before recognition, route growth through a consolidated role, or test a team technique&#x27;s participant requirement&quot;, &quot;source&quot;: &quot;docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:82&quot;}, {&quot;name&quot;: &quot;W16 Ars Magica&quot;, &quot;mechanism&quot;: &quot;Technique/Form magic, seasonal laboratory work, magical materials and tradition-specific Warping&quot;, &quot;test&quot;: &quot;Design one effect in a pinned rules profile; progress a laboratory project; track an exposure and that tradition&#x27;s actual consequence&quot;, &quot;source&quot;: &quot;docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:83&quot;}, {&quot;name&quot;: &quot;W17 D&amp;D&quot;, &quot;mechanism&quot;: &quot;Explicit rules-profile actions, targets, durations, concentration and rest interacting with setting life&quot;, &quot;test&quot;: &quot;Resolve a selected effect under one edition, interrupt its actual support, and preserve elapsed duration across save/load&quot;, &quot;source&quot;: &quot;docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:84&quot;}, {&quot;name&quot;: &quot;W18 Reincarnation Paradise&quot;, &quot;mechanism&quot;: &quot;Mission preparation, services, footprints and consequential return&quot;, &quot;test&quot;: &quot;Buy a service that changes a mission approach, then settle the actual carried cargo and account&quot;, &quot;source&quot;: &quot;docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:85&quot;}, {&quot;name&quot;: &quot;W19 Super Supportive&quot;, &quot;mechanism&quot;: &quot;Service obligations, class trade/affixation, wordchain benefits/debt and deliberate authority work&quot;, &quot;test&quot;: &quot;Bind or transfer a qualified class under real terms; use a benefit and later meet the named obligation&quot;, &quot;source&quot;: &quot;docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:86&quot;}, {&quot;name&quot;: &quot;W20 You Are Summoned&quot;, &quot;mechanism&quot;: &quot;Summoned jobs, home return/commit and different carry categories/clocks&quot;, &quot;test&quot;: &quot;Finish one job and commit its supported growth at home while cargo and penalties follow their actual carrier policy&quot;, &quot;source&quot;: &quot;docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:87&quot;}, {&quot;name&quot;: &quot;W21 Wish Upon the Stars&quot;, &quot;mechanism&quot;: &quot;Compensated wishes constrained by current means; renown and rank interact with growth&quot;, &quot;test&quot;: &quot;Quote one feasible effect, payer and compensation, then settle an actual transferred benefit and donor cost&quot;, &quot;source&quot;: &quot;docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:88&quot;}, {&quot;name&quot;: &quot;W22 Godclads&quot;, &quot;mechanism&quot;: &quot;Installed conceptual mechanisms paired with counter-effects and actual vented burden&quot;, &quot;test&quot;: &quot;Use one bounded effect and discharge its cost into an actual receiver; a contradiction changes the result rather than just comparing strength&quot;, &quot;source&quot;: &quot;docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:89&quot;}, {&quot;name&quot;: &quot;W23 Mistborn&quot;, &quot;mechanism&quot;: &quot;Burned fuel, stored attributes and transferred powers as different toolkits&quot;, &quot;test&quot;: &quot;Research one store/spend case: accept a current deficit to receive a later benefit, with actual metal/carrier/owner rules&quot;, &quot;source&quot;: &quot;docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:90&quot;}, {&quot;name&quot;: &quot;W24 Cradle&quot;, &quot;mechanism&quot;: &quot;Trained body/core configurations, Path-specific techniques and material/ambient support&quot;, &quot;test&quot;: &quot;Research one bodily advancement protocol or allocation between distinct cores, showing its actual constraint and later use&quot;, &quot;source&quot;: &quot;docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:91&quot;}]}&lt;/script&gt;
+  &lt;script&gt;
+  (() =&gt; {
+    const root = document.getElementById(&#x27;yair-foundations-worlds-atlas&#x27;);
+    const data = JSON.parse(root.querySelector(&#x27;.atlas-data&#x27;).textContent);
+    const views = [&#x27;foundations&#x27;,&#x27;worlds&#x27;,&#x27;gaps&#x27;,&#x27;actions&#x27;,&#x27;leverage&#x27;];
+    const nav = [...root.querySelectorAll(&#x27;[data-view]&#x27;)];
+    const body = root.querySelector(&#x27;tbody&#x27;);
+    const title = root.querySelector(&#x27;.atlas-detail h3&#x27;);
+    const footing = root.querySelector(&#x27;.atlas-footing&#x27;);
+    const fields = root.querySelector(&#x27;.atlas-fields&#x27;);
+    const related = root.querySelector(&#x27;.atlas-related&#x27;);
+    const evidence = root.querySelector(&#x27;.atlas-evidence div&#x27;);
+    const byId = new Map(views.flatMap(view=&gt;data[view].map(row=&gt;[row.id,{view,row}])));
+    let view = &#x27;foundations&#x27;;
+    let choices = {foundations:&#x27;U11&#x27;,worlds:&#x27;W1&#x27;,gaps:&#x27;G2&#x27;,actions:&#x27;A1&#x27;,leverage:&#x27;E2&#x27;};
+    const apply = saved =&gt; {
+      const state = saved?.modelContent;
+      if(state?.snapshot !== data.snapshot || !views.includes(state.view)) return false;
+      if(!views.every(key=&gt;data[key].some(row=&gt;row.id===state.choices?.[key]))) return false;
+      view=state.view; choices={...state.choices}; return true;
+    };
+    const save = () =&gt; {
+      const result = window.openai?.setWidgetState?.({modelContent:{snapshot:data.snapshot,view,choices:{...choices}},privateContent:null});
+      result?.catch?.(()=&gt;{});
+    };
+    const select = (nextView,id,refocus=false) =&gt; {
+      view=nextView; choices[view]=id; render(); save();
+      if(refocus) body.querySelector(`button[data-row=&quot;${id}&quot;]`)?.focus({preventScroll:true});
+    };
+    const render = () =&gt; {
+      nav.forEach(button=&gt;button.setAttribute(&#x27;aria-pressed&#x27;,String(button.dataset.view===view)));
+      const row=data[view].find(item=&gt;item.id===choices[view]);
+      title.textContent=`${row.id} · ${row.name}`; footing.textContent=row.state;
+      fields.replaceChildren();
+      for(const [label,value] of [[&#x27;Have&#x27;,row.now],[&#x27;Gap / limit&#x27;,row.gap],[&#x27;Next useful outcome&#x27;,row.next]]) {
+        const dt=document.createElement(&#x27;dt&#x27;); dt.textContent=label;
+        const dd=document.createElement(&#x27;dd&#x27;); dd.textContent=value; fields.append(dt,dd);
+      }
+      related.replaceChildren();
+      for(const id of row.links) {
+        const target=byId.get(id); if(!target) continue;
+        const button=document.createElement(&#x27;button&#x27;); button.className=&#x27;btn btn-ghost&#x27;; button.type=&#x27;button&#x27;;
+        button.textContent=id; button.setAttribute(&#x27;aria-label&#x27;,`Open ${id}: ${target.row.name}`);
+        button.dataset.tooltip=target.row.name;
+        button.addEventListener(&#x27;click&#x27;,()=&gt;{select(target.view,id);nav.find(b=&gt;b.dataset.view===view).focus({preventScroll:true});});
+        related.append(button);
+      }
+      evidence.replaceChildren();
+      for(const source of row.source) { const line=document.createElement(&#x27;code&#x27;); line.className=&#x27;atlas-owner text-small&#x27;;line.textContent=source;evidence.append(line); }
+      body.replaceChildren();
+      for(const item of data[view]) {
+        const tr=document.createElement(&#x27;tr&#x27;);
+        const th=document.createElement(&#x27;th&#x27;);th.scope=&#x27;row&#x27;;
+        const button=document.createElement(&#x27;button&#x27;);button.className=&#x27;btn btn-ghost&#x27;;button.type=&#x27;button&#x27;;
+        button.textContent=item.id;button.dataset.row=item.id;button.setAttribute(&#x27;aria-label&#x27;,`Select ${item.id}: ${item.name}`);
+        button.setAttribute(&#x27;aria-pressed&#x27;,String(item.id===row.id));button.addEventListener(&#x27;click&#x27;,()=&gt;select(view,item.id,true));
+        const name=document.createElement(&#x27;span&#x27;);name.className=&#x27;atlas-name&#x27;;name.textContent=item.name;
+        th.append(button,name);const td=document.createElement(&#x27;td&#x27;);td.textContent=item.state;tr.append(th,td);body.append(tr);
+      }
+      root.querySelector(&#x27;.atlas-catalogue&#x27;).hidden=view!==&#x27;worlds&#x27;&amp;&amp;view!==&#x27;leverage&#x27;;
+    };
+    const catalogue=root.querySelector(&#x27;.atlas-catalogue div&#x27;);
+    for(const item of data.candidates) {
+      const entry=document.createElement(&#x27;details&#x27;);const summary=document.createElement(&#x27;summary&#x27;);summary.textContent=item.name;
+      const mechanism=document.createElement(&#x27;p&#x27;);mechanism.textContent=item.mechanism;
+      const use=document.createElement(&#x27;p&#x27;);use.textContent=item.test;
+      const source=document.createElement(&#x27;code&#x27;);source.className=&#x27;text-small&#x27;;source.textContent=item.source;
+      entry.append(summary,mechanism,use,source);catalogue.append(entry);
+    }
+    nav.forEach(button=&gt;button.addEventListener(&#x27;click&#x27;,()=&gt;{view=button.dataset.view;render();save();}));
+    window.addEventListener(&#x27;openai:set_globals&#x27;,event=&gt;{if(apply(event.detail?.globals?.widgetState)) render();});
+    apply(window.openai?.widgetState);render();
+  })();
+  &lt;/script&gt;
+&lt;/div&gt;
+
+&lt;script src=&quot;https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  if (window.FloatingUIDOM == null) {
+    return;
+  }
+  const { autoUpdate, computePosition, flip, offset, shift, size } =
+    window.FloatingUIDOM;
+  const tooltipPlacements = new Set([&quot;top&quot;, &quot;right&quot;, &quot;bottom&quot;, &quot;left&quot;]);
+  const tooltipId = `codex-visualization-tooltip-${
+    window.crypto?.randomUUID?.() ?? Date.now().toString(36)
+  }`;
+  const tooltipGap = 5;
+  const hoverDelay = 700;
+  const skipDelay = 300;
+  let activeTrigger = null;
+  let pendingTrigger = null;
+  let tooltip = null;
+  let openTimeout = null;
+  let autoUpdateCleanup = null;
+  let positionRequest = 0;
+  let skipDelayUntil = 0;
+  let lastPointerWasTouch = false;
+  let pinnedByTouch = false;
+
+  const getTrigger = (event) =&gt; {
+    for (const target of event.composedPath()) {
+      if (target?.nodeType === Node.ELEMENT_NODE) {
+        const trigger = target.closest(&quot;[data-tooltip]&quot;);
+        if (trigger) return trigger;
+      }
+    }
+    return null;
+  };
+  const containsTarget = (trigger, target) =&gt;
+    target?.nodeType != null &amp;&amp; trigger.contains(target);
+  const getContent = (trigger) =&gt;
+    trigger.getAttribute(&quot;data-tooltip&quot;)?.trim() ?? &quot;&quot;;
+  const getPlacement = (trigger) =&gt; {
+    const placement = trigger.getAttribute(&quot;data-tooltip-placement&quot;);
+    return tooltipPlacements.has(placement) ? placement : &quot;top&quot;;
+  };
+  const getTooltip = () =&gt; {
+    if (tooltip == null) {
+      tooltip = document.createElement(&quot;div&quot;);
+      tooltip.id = tooltipId;
+      tooltip.className = &quot;tooltip&quot;;
+      tooltip.setAttribute(&quot;role&quot;, &quot;tooltip&quot;);
+    }
+    return tooltip;
+  };
+  const setDescribedBy = (trigger, described) =&gt; {
+    const ids = new Set(
+      (trigger.getAttribute(&quot;aria-describedby&quot;) ?? &quot;&quot;)
+        .split(/\s+/)
+        .filter(Boolean),
+    );
+    if (described) {
+      ids.add(tooltipId);
+    } else {
+      ids.delete(tooltipId);
+    }
+    if (ids.size === 0) {
+      trigger.removeAttribute(&quot;aria-describedby&quot;);
+    } else {
+      trigger.setAttribute(&quot;aria-describedby&quot;, [...ids].join(&quot; &quot;));
+    }
+  };
+  const clearOpenTimeout = () =&gt; {
+    if (openTimeout != null) {
+      window.clearTimeout(openTimeout);
+      openTimeout = null;
+    }
+    pendingTrigger = null;
+  };
+  const closeTooltip = (activateSkipDelay = true) =&gt; {
+    clearOpenTimeout();
+    pinnedByTouch = false;
+    positionRequest += 1;
+    autoUpdateCleanup?.();
+    autoUpdateCleanup = null;
+    if (activeTrigger == null) {
+      return;
+    }
+    setDescribedBy(activeTrigger, false);
+    activeTrigger = null;
+    tooltip?.remove();
+    if (activateSkipDelay) {
+      skipDelayUntil = Date.now() + skipDelay;
+    }
+  };
+  const updatePosition = (trigger, floating) =&gt; {
+    const request = ++positionRequest;
+    void computePosition(trigger, floating, {
+      middleware: [
+        offset(tooltipGap),
+        flip({ padding: tooltipGap }),
+        shift({ padding: tooltipGap }),
+        size({
+          padding: tooltipGap,
+          apply({ availableHeight, availableWidth, elements }) {
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-width&quot;,
+              `${Math.max(0, availableWidth)}px`,
+            );
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-height&quot;,
+              `${Math.max(0, availableHeight)}px`,
+            );
+          },
+        }),
+      ],
+      placement: getPlacement(trigger),
+      strategy: &quot;fixed&quot;,
+    })
+      .then(({ x, y }) =&gt; {
+        if (activeTrigger !== trigger || request !== positionRequest) {
+          return;
+        }
+        const scale = window.devicePixelRatio || 1;
+        floating.style.transform = `translate(${Math.round(x * scale) / scale}px, ${Math.round(y * scale) / scale}px)`;
+        floating.style.visibility = &quot;visible&quot;;
+      })
+      .catch(() =&gt; {
+        if (activeTrigger === trigger &amp;&amp; request === positionRequest) {
+          closeTooltip(false);
+        }
+      });
+  };
+  const openTooltip = (trigger) =&gt; {
+    const content = getContent(trigger);
+    if (!trigger.isConnected || content.length === 0) {
+      return;
+    }
+    clearOpenTimeout();
+    if (activeTrigger === trigger) {
+      return;
+    }
+    closeTooltip();
+    const floating = getTooltip();
+    floating.textContent = content;
+    floating.style.visibility = &quot;hidden&quot;;
+    floating.style.transform = &quot;translate(0, 0)&quot;;
+    document.body.appendChild(floating);
+    activeTrigger = trigger;
+    setDescribedBy(trigger, true);
+    autoUpdateCleanup = autoUpdate(trigger, floating, () =&gt; {
+      updatePosition(trigger, floating);
+    });
+  };
+  const requestOpen = (trigger, immediate = false) =&gt; {
+    if (
+      getContent(trigger).length === 0 ||
+      activeTrigger === trigger ||
+      pendingTrigger === trigger
+    ) {
+      return;
+    }
+    clearOpenTimeout();
+    pendingTrigger = trigger;
+    const delay =
+      immediate || activeTrigger != null || Date.now() &lt; skipDelayUntil
+        ? 0
+        : hoverDelay;
+    if (delay === 0) {
+      openTooltip(trigger);
+      return;
+    }
+    openTimeout = window.setTimeout(() =&gt; {
+      openTimeout = null;
+      pendingTrigger = null;
+      openTooltip(trigger);
+    }, delay);
+  };
+  const handlePointerOpen = (event) =&gt; {
+    if (event.pointerType === &quot;touch&quot;) {
+      return;
+    }
+    const trigger = getTrigger(event);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    requestOpen(trigger);
+  };
+  const handlePointer = (event) =&gt; {
+    lastPointerWasTouch =
+      event.type === &quot;pointerdown&quot; &amp;&amp; event.pointerType === &quot;touch&quot;;
+  };
+  const handleTouchClick = (event) =&gt; {
+    const isTouch = event.pointerType === &quot;touch&quot; || lastPointerWasTouch;
+    lastPointerWasTouch = false;
+    if (!isTouch || event.detail === 0) {
+      return;
+    }
+    const trigger = getTrigger(event);
+    if (
+      trigger == null ||
+      !trigger.isConnected ||
+      getContent(trigger).length === 0 ||
+      (pinnedByTouch &amp;&amp; activeTrigger === trigger)
+    ) {
+      if (pinnedByTouch) {
+        closeTooltip();
+      }
+      return;
+    }
+    openTooltip(trigger);
+    pinnedByTouch = activeTrigger === trigger;
+    window.setTimeout(() =&gt; {
+      if (activeTrigger === trigger &amp;&amp; !trigger.isConnected) {
+        closeTooltip(false);
+      }
+    }, 0);
+  };
+  const handleLeave = (event) =&gt; {
+    if (pinnedByTouch) {
+      return;
+    }
+    const trigger = getTrigger(event);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handleFocusIn = (event) =&gt; {
+    const trigger = getTrigger(event);
+    if (trigger?.matches(&quot;:focus-visible&quot;)) {
+      requestOpen(trigger, true);
+    }
+  };
+  const handleKeyDown = (event) =&gt; {
+    if (event.key === &quot;Escape&quot;) {
+      closeTooltip();
+    }
+  };
+  const handleContextMenu = (event) =&gt; {
+    lastPointerWasTouch = false;
+    const trigger = getTrigger(event);
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handlers = {
+    pointerover: handlePointerOpen,
+    pointerdown: handlePointer,
+    pointercancel: handlePointer,
+    click: handleTouchClick,
+    pointerout: handleLeave,
+    focusin: handleFocusIn,
+    focusout: handleLeave,
+    keydown: handleKeyDown,
+    contextmenu: handleContextMenu,
+  };
+  const roots = new Map();
+  const handledEvents = new WeakSet();
+  const handleEvent = (event) =&gt; {
+    if (handledEvents.has(event)) return;
+    handledEvents.add(event);
+    handlers[event.type](event);
+  };
+  const discoverRoots = (node) =&gt; {
+    if (node.shadowRoot) listen(node.shadowRoot);
+    for (const element of node.querySelectorAll(&quot;*&quot;)) {
+      if (element.shadowRoot) listen(element.shadowRoot);
+    }
+  };
+  const listen = (root) =&gt; {
+    if (roots.has(root)) return;
+    for (const type of Object.keys(handlers)) root.addEventListener(type, handleEvent);
+    const observer = new window.MutationObserver((records) =&gt; {
+      for (const { addedNodes } of records) {
+        for (const node of addedNodes) {
+          if (node.nodeType === Node.ELEMENT_NODE) discoverRoots(node);
+        }
+      }
+      for (const [root, cleanup] of roots) {
+        if (root.host &amp;&amp; !root.host.isConnected) {
+          cleanup();
+          roots.delete(root);
+        }
+      }
+      if (activeTrigger &amp;&amp; !activeTrigger.isConnected) closeTooltip(false);
+    });
+    observer.observe(root, { childList: true, subtree: true });
+    roots.set(root, () =&gt; {
+      observer.disconnect();
+      for (const type of Object.keys(handlers)) root.removeEventListener(type, handleEvent);
+    });
+    discoverRoots(root);
+  };
+  const destroy = () =&gt; {
+    closeTooltip(false);
+    lastPointerWasTouch = false;
+    for (const cleanup of roots.values()) cleanup();
+    roots.clear();
+    tooltip = null;
+  };
+
+  // Events between children of one shadow root never reach the document.
+  listen(document);
+  window.addEventListener(&quot;pagehide&quot;, destroy, { once: true });
+})();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-tabs&quot;&gt;
+(() =&gt; {
+  const selector = &#x27;.nav[role=&quot;tablist&quot;] [role=&quot;tab&quot;]&#x27;;
+  const disabled = &#x27;:disabled,[aria-disabled=&quot;true&quot;]&#x27;;
+  const selectTab = (selected) =&gt; {
+    const panelId = selected.getAttribute(&quot;aria-controls&quot;);
+    for (const tab of selected.closest(&#x27;[role=&quot;tablist&quot;]&#x27;).querySelectorAll(&#x27;[role=&quot;tab&quot;]&#x27;)) {
+      const active = tab === selected;
+      tab.classList.toggle(&quot;active&quot;, active);
+      tab.setAttribute(&quot;aria-selected&quot;, String(active));
+      const id = tab.getAttribute(&quot;aria-controls&quot;);
+      const panel = id &amp;&amp; document.getElementById(id);
+      if (panel != null) {
+        panel.hidden = id !== panelId;
+        if (!panel.hidden &amp;&amp; selected.id) {
+          panel.setAttribute(&quot;aria-labelledby&quot;, selected.id);
+        }
+      }
+    }
+  };
+  const interact = (event) =&gt; {
+    const tab = event.target?.closest?.(selector);
+    if (event.defaultPrevented || tab == null || tab.matches(disabled)) {
+      return;
+    }
+    if (event.type === &quot;click&quot;) {
+      selectTab(tab);
+      return;
+    }
+    const tabs = Array.from(
+      tab.closest(&#x27;[role=&quot;tablist&quot;]&#x27;).querySelectorAll(&#x27;[role=&quot;tab&quot;]&#x27;),
+    ).filter((candidate) =&gt; !candidate.matches(disabled));
+    const current = tabs.indexOf(tab);
+    let next;
+    if (event.key === &quot;ArrowRight&quot; || event.key === &quot;ArrowDown&quot;) {
+      next = (current + 1) % tabs.length;
+    } else if (event.key === &quot;ArrowLeft&quot; || event.key === &quot;ArrowUp&quot;) {
+      next = (current + tabs.length - 1) % tabs.length;
+    } else if (event.key === &quot;Home&quot;) {
+      next = 0;
+    } else if (event.key === &quot;End&quot;) {
+      next = tabs.length - 1;
+    } else {
+      return;
+    }
+    event.preventDefault();
+    tabs[next].focus();
+    selectTab(tabs[next]);
+  };
+
+  for (const list of document.querySelectorAll(&#x27;.nav[role=&quot;tablist&quot;]&#x27;)) {
+    const selected =
+      list.querySelector(&#x27;[role=&quot;tab&quot;][aria-selected=&quot;true&quot;]&#x27;) ??
+      list.querySelector(&#x27;[role=&quot;tab&quot;].active&#x27;) ??
+      list.querySelector(&#x27;[role=&quot;tab&quot;]&#x27;);
+    if (selected != null) {
+      selectTab(selected);
+    }
+  }
+  document.addEventListener(&quot;click&quot;, interact);
+  document.addEventListener(&quot;keydown&quot;, interact);
+  window.addEventListener(&quot;pagehide&quot;, () =&gt; {
+    document.removeEventListener(&quot;click&quot;, interact);
+    document.removeEventListener(&quot;keydown&quot;, interact);
+  }, { once: true });
+})();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-carousel&quot;&gt;
+  (() =&gt; {
+    for (const root of document.querySelectorAll(&quot;.viz-carousel&quot;)) {
+      const panels = Array.from(
+        root.querySelectorAll(&quot;:scope &gt; [data-variant]&quot;),
+      );
+      if (panels.length === 0) {
+        continue;
+      }
+      root.setAttribute(&quot;role&quot;, &quot;group&quot;);
+      panels.forEach((panel, index) =&gt; {
+        panel.hidden = index !== 0;
+        panel.setAttribute(&quot;role&quot;, &quot;group&quot;);
+        if (!panel.hasAttribute(&quot;aria-label&quot;)) {
+          panel.setAttribute(&quot;aria-label&quot;, panel.dataset.variant);
+        }
+      });
+      root.dataset.activeVariant = panels[0].dataset.variant;
+      if (panels.length === 1) {
+        continue;
+      }
+
+      const controls = document.createElement(&quot;div&quot;);
+      controls.className = &quot;viz-carousel-controls&quot;;
+      // Portable copy of the settings dropdown&#x27;s legacy glyph; no 14px icon-package preset matches it.
+      // https://github.com/openai/openai/blob/master/codex/codex-apps/webview/src/icons/chevron.svg
+      controls.innerHTML = `
+      &lt;button type=&quot;button&quot; class=&quot;viz-carousel-previous cursor-interaction&quot;&gt;&lt;i data-lucide=&quot;chevron-left&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+      &lt;details class=&quot;viz-carousel-picker&quot;&gt;
+        &lt;summary class=&quot;cursor-interaction&quot;&gt;
+          &lt;span class=&quot;viz-carousel-count tabular-nums&quot;&gt;&lt;/span&gt;
+          &lt;span class=&quot;viz-carousel-name&quot;&gt;&lt;/span&gt;
+          &lt;svg class=&quot;viz-carousel-caret&quot; width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 20 21&quot; fill=&quot;none&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;&gt;
+            &lt;path d=&quot;M15.2793 7.71101C15.539 7.45131 15.961 7.45131 16.2207 7.71101C16.4804 7.97071 16.4804 8.39272 16.2207 8.65242L10.4707 14.4024C10.211 14.6621 9.78902 14.6621 9.52932 14.4024L3.77932 8.65242L3.69436 8.54792C3.52385 8.28979 3.55205 7.93828 3.77932 7.71101C4.00659 7.48374 4.3581 7.45554 4.61623 7.62605L4.72073 7.71101L10 12.9903L15.2793 7.71101Z&quot; fill=&quot;currentColor&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;0.6&quot; /&gt;
+          &lt;/svg&gt;
+        &lt;/summary&gt;
+        &lt;div class=&quot;viz-carousel-options&quot;&gt;&lt;/div&gt;
+      &lt;/details&gt;
+      &lt;button type=&quot;button&quot; class=&quot;viz-carousel-next cursor-interaction&quot;&gt;&lt;i data-lucide=&quot;chevron-right&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/button&gt;`;
+      const previous = controls.querySelector(&quot;.viz-carousel-previous&quot;);
+      const next = controls.querySelector(&quot;.viz-carousel-next&quot;);
+      const picker = controls.querySelector(&quot;.viz-carousel-picker&quot;);
+      const summary = picker.querySelector(&quot;summary&quot;);
+      const count = controls.querySelector(&quot;.viz-carousel-count&quot;);
+      const name = controls.querySelector(&quot;.viz-carousel-name&quot;);
+      const options = controls.querySelector(&quot;.viz-carousel-options&quot;);
+      const status = document.createElement(&quot;span&quot;);
+      status.className = &quot;sr-only&quot;;
+      status.setAttribute(&quot;role&quot;, &quot;status&quot;);
+      status.setAttribute(&quot;aria-live&quot;, &quot;polite&quot;);
+      status.setAttribute(&quot;aria-atomic&quot;, &quot;true&quot;);
+      previous.setAttribute(
+        &quot;aria-label&quot;,
+        root.dataset.previousLabel ?? &quot;Previous variant&quot;,
+      );
+      next.setAttribute(&quot;aria-label&quot;, root.dataset.nextLabel ?? &quot;Next variant&quot;);
+
+      let active = 0;
+      let mousePointerId = null;
+      let summaryPointerHandled = false;
+      summary.addEventListener(&quot;pointerdown&quot;, (event) =&gt; {
+        summaryPointerHandled =
+          event.pointerType === &quot;mouse&quot; &amp;&amp; event.button === 0 &amp;&amp; !event.ctrlKey;
+        if (!summaryPointerHandled) {
+          return;
+        }
+        event.preventDefault();
+        summary.focus({ preventScroll: true });
+        picker.open = !picker.open;
+        mousePointerId = picker.open ? event.pointerId : null;
+      });
+      summary.addEventListener(&quot;click&quot;, (event) =&gt; {
+        if (summaryPointerHandled &amp;&amp; event.detail &gt; 0) {
+          event.preventDefault();
+        }
+      });
+      const choices = panels.map((panel, index) =&gt; {
+        const choice = document.createElement(&quot;button&quot;);
+        choice.type = &quot;button&quot;;
+        choice.className = &quot;cursor-interaction&quot;;
+        choice.textContent = panel.dataset.variant;
+        choice.addEventListener(&quot;click&quot;, () =&gt; {
+          select(index);
+          summary.focus();
+        });
+        choice.addEventListener(&quot;pointerup&quot;, (event) =&gt; {
+          if (
+            picker.open &amp;&amp;
+            event.pointerType === &quot;mouse&quot; &amp;&amp;
+            event.button === 0 &amp;&amp;
+            event.pointerId === mousePointerId
+          ) {
+            choice.click();
+          }
+        });
+        options.appendChild(choice);
+        return choice;
+      });
+      const select = (index) =&gt; {
+        const changed = active !== index;
+        active = index;
+        panels.forEach((panel, position) =&gt; {
+          panel.hidden = position !== active;
+          choices[position].setAttribute(
+            &quot;aria-current&quot;,
+            String(position === active),
+          );
+        });
+        root.dataset.activeVariant = panels[active].dataset.variant;
+        count.textContent = `${active + 1} / ${panels.length}`;
+        name.textContent = panels[active].dataset.variant;
+        picker.open = false;
+        mousePointerId = null;
+        if (changed) {
+          status.textContent = `${count.textContent}: ${name.textContent}`;
+        }
+      };
+      previous.addEventListener(&quot;click&quot;, () =&gt;
+        select((active + panels.length - 1) % panels.length),
+      );
+      next.addEventListener(&quot;click&quot;, () =&gt;
+        select((active + 1) % panels.length),
+      );
+      picker.addEventListener(&quot;keydown&quot;, (event) =&gt; {
+        if (event.key === &quot;Escape&quot; &amp;&amp; picker.open) {
+          event.preventDefault();
+          picker.open = false;
+          mousePointerId = null;
+          summary.focus();
+          return;
+        }
+        if (event.altKey || event.ctrlKey || event.metaKey) {
+          return;
+        }
+        const index = choices.indexOf(document.activeElement);
+        let nextIndex;
+        if (event.key === &quot;ArrowDown&quot;) {
+          nextIndex = index &lt; 0 ? active : (index + 1) % choices.length;
+        } else if (event.key === &quot;ArrowUp&quot;) {
+          nextIndex = index &lt; 0 ? active : (index + choices.length - 1) % choices.length;
+        } else if (picker.open &amp;&amp; event.key === &quot;Home&quot;) {
+          nextIndex = 0;
+        } else if (picker.open &amp;&amp; event.key === &quot;End&quot;) {
+          nextIndex = choices.length - 1;
+        } else {
+          return;
+        }
+        event.preventDefault();
+        picker.open = true;
+        choices[nextIndex].focus();
+      });
+      picker.addEventListener(&quot;focusout&quot;, (event) =&gt; {
+        if (!picker.contains(event.relatedTarget)) {
+          picker.open = false;
+          mousePointerId = null;
+        }
+      });
+      const dismiss = (event) =&gt; {
+        if (!summary.contains(event.target)) {
+          mousePointerId = null;
+        }
+        if (!picker.contains(event.target)) {
+          picker.open = false;
+        }
+      };
+      const endPointerSelection = () =&gt; {
+        mousePointerId = null;
+      };
+      const sizePicker = () =&gt; {
+        root.style.setProperty(
+          &quot;--viz-carousel-picker-height&quot;,
+          `${picker.open ? options.offsetHeight : 0}px`,
+        );
+      };
+      picker.addEventListener(&quot;toggle&quot;, sizePicker);
+      window.addEventListener(&quot;resize&quot;, sizePicker);
+      document.addEventListener(&quot;pointerdown&quot;, dismiss);
+      document.addEventListener(&quot;pointerup&quot;, endPointerSelection);
+      document.addEventListener(&quot;pointercancel&quot;, endPointerSelection);
+      window.addEventListener(&quot;blur&quot;, endPointerSelection);
+      window.addEventListener(
+        &quot;pagehide&quot;,
+        () =&gt; {
+          document.removeEventListener(&quot;pointerdown&quot;, dismiss);
+          document.removeEventListener(&quot;pointerup&quot;, endPointerSelection);
+          document.removeEventListener(&quot;pointercancel&quot;, endPointerSelection);
+          window.removeEventListener(&quot;blur&quot;, endPointerSelection);
+          window.removeEventListener(&quot;resize&quot;, sizePicker);
+        },
+        { once: true },
+      );
+      root.append(controls, status);
+      select(0);
+    }
+  })();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-lucide&quot; async src=&quot;https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  const initialize = () =&gt; {
+    globalThis.lucide?.createIcons({ attrs: { width: 16, height: 16 } });
+  };
+  if (globalThis.lucide != null) {
+    initialize();
+    return;
+  }
+  document
+    .getElementById(&quot;codex-visualization-lucide&quot;)
+    ?.addEventListener(&quot;load&quot;, initialize, { once: true });
+})();
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+
+<script>(() => {
+  const frame = document.getElementById("codex-visualization");
+  if (!(frame instanceof HTMLIFrameElement)) {
+    return;
+  }
+  const isShare = document.documentElement.classList.contains(
+    "visualization-share-root",
+  );
+  let viewportHeight = globalThis.innerHeight;
+  let sizeFingerprint = null;
+  let sizeWriteTimeout;
+  let lastSize = null;
+  let pendingSize = null;
+  const storageKey = `codex:visualization-widget-state-v2:${JSON.stringify([
+    globalThis.location.pathname,
+    globalThis.location.search,
+  ])}`;
+  const sizeStorageKey = `${storageKey}:share-size-v1`;
+  const parseState = (serializedState) => {
+    if (
+      typeof serializedState !== "string" ||
+      new TextEncoder().encode(serializedState).length > 16 * 1024
+    ) {
+      throw new TypeError(
+        "Widget state must be a JSON object of at most 16 KiB",
+      );
+    }
+    /** @type {unknown} */
+    const state = JSON.parse(serializedState);
+    if (
+      state == null ||
+      typeof state !== "object" ||
+      Array.isArray(state) ||
+      ("imageIds" in state &&
+        (!Array.isArray(state.imageIds) || state.imageIds.length > 0))
+    ) {
+      throw new TypeError("Widget state must be a JSON object");
+    }
+    const storedState = { modelContent: null, privateContent: null, ...state };
+    const canonicalState = JSON.stringify(
+      storedState,
+      (_key, /** @type {unknown} */ value) => {
+        if (typeof value === "number" && !Number.isFinite(value)) {
+          throw new TypeError("Widget state must contain finite numbers");
+        }
+        return value;
+      },
+    );
+    if (new TextEncoder().encode(canonicalState).length > 16 * 1024) {
+      throw new TypeError(
+        "Widget state must be a JSON object of at most 16 KiB",
+      );
+    }
+    return storedState;
+  };
+  let storage = null;
+  let state = null;
+  try {
+    const localStorage = globalThis.localStorage;
+    const probeKey = `${storageKey}:probe`;
+    localStorage.setItem(probeKey, "1");
+    localStorage.removeItem(probeKey);
+    storage = localStorage;
+    const savedState = storage.getItem(storageKey);
+    if (savedState != null) {
+      try {
+        state = parseState(savedState);
+      } catch {
+        // Invalid saved state does not disable future writes.
+      }
+    }
+  } catch {
+    storage = null;
+  }
+  const persistSize = () => {
+    globalThis.clearTimeout(sizeWriteTimeout);
+    if (pendingSize == null) {
+      return;
+    }
+    try {
+      storage?.setItem(sizeStorageKey, pendingSize);
+    } catch {
+      // A denied or full cache must not affect the visualization.
+    }
+    pendingSize = null;
+  };
+  if (isShare) {
+    globalThis.addEventListener("pagehide", persistSize);
+  }
+  const initialGlobals = {
+    widgetState: state,
+    statePersistence: storage == null ? "none" : "local",
+  };
+
+  const channel = new MessageChannel();
+  channel.port1.addEventListener("message", (event) => {
+    const data = event.data;
+    if (typeof data !== "object" || data == null) {
+      return;
+    }
+    if (data.type === "widget-state-write") {
+      if (!Number.isSafeInteger(data.id) || data.id <= 0) {
+        return;
+      }
+      let ok = false;
+      try {
+        if (storage != null) {
+          const state = parseState(data.state);
+          storage.setItem(storageKey, JSON.stringify(state));
+          ok = true;
+        }
+      } catch {
+        // Storage denial, quota limits, and invalid state return a failed receipt.
+      }
+      channel.port1.postMessage({
+        type: "widget-state-result",
+        id: data.id,
+        ok,
+      });
+      return;
+    }
+    if (data.type === "height") {
+      const height = data.height;
+      if (
+        typeof height !== "number" ||
+        !Number.isFinite(height) ||
+        height < 0
+      ) {
+        return;
+      }
+      if (height <= 10_000) {
+        const width = isShare && storage != null ? frame.clientWidth : null;
+        frame.style.height = Math.ceil(height) + "px";
+        if (isShare && storage != null) {
+          const size = JSON.stringify({
+            fingerprint: sizeFingerprint,
+            width,
+            viewportHeight: globalThis.innerHeight,
+            dark: globalThis.matchMedia("(prefers-color-scheme: dark)").matches,
+            scale: globalThis.devicePixelRatio,
+            height: Math.ceil(height),
+          });
+          if (size !== lastSize) {
+            lastSize = size;
+            pendingSize = size;
+            globalThis.clearTimeout(sizeWriteTimeout);
+            sizeWriteTimeout = globalThis.setTimeout(persistSize, 100);
+          }
+        }
+      }
+      if (isShare) {
+        // Keep unusually tall content accessible without accepting an unbounded height.
+        if (height > 10_000 && Number.parseFloat(frame.style.height) === 0) {
+          frame.style.removeProperty("height");
+        }
+        frame.scrolling = height > 10_000 ? "auto" : "no";
+        document.documentElement.classList.add("visualization-share-ready");
+      }
+      return;
+    }
+    if (data.type === "scroll-to") {
+      const top = data.top;
+      if (
+        typeof top === "number" &&
+        Number.isFinite(top) &&
+        top >= 0 &&
+        globalThis.navigator.userActivation?.isActive === true
+      ) {
+        globalThis.scrollTo({
+          top: Math.ceil(
+            globalThis.scrollY + frame.getBoundingClientRect().top + top,
+          ),
+        });
+      }
+      return;
+    }
+    if (data.type === "open-external") {
+      const rawHref = data.href;
+      if (typeof rawHref !== "string") {
+        return;
+      }
+      let href;
+      try {
+        const url = new URL(rawHref, document.baseURI);
+        if (url.protocol !== "https:") {
+          return;
+        }
+        href = url.href;
+      } catch {
+        return;
+      }
+      if (globalThis.navigator.userActivation?.isActive === true) {
+        const anchor = document.createElement("a");
+        anchor.href = href;
+        anchor.rel = "noopener noreferrer";
+        anchor.target = "_blank";
+        document.body.appendChild(anchor);
+        anchor.click();
+        anchor.remove();
+      }
+      return;
+    }
+    if (data.type === "follow-up") {
+      const prompt = data.prompt;
+      if (
+        typeof prompt !== "string" ||
+        globalThis.navigator.userActivation?.isActive !== true
+      ) {
+        return;
+      }
+      const title = data.title;
+      globalThis.prompt(typeof title === "string" ? title : prompt, prompt);
+    }
+  });
+  channel.port1.start();
+  const srcdoc = frame.dataset.srcdoc;
+  if (srcdoc == null) {
+    return;
+  }
+  globalThis.addEventListener("resize", () => {
+    const height = Number.parseFloat(frame.style.height);
+    if (!isShare && (!Number.isFinite(height) || height <= viewportHeight)) {
+      frame.style.removeProperty("height");
+    }
+    viewportHeight = globalThis.innerHeight;
+    channel.port1.postMessage({ type: "measure" });
+  });
+  frame.addEventListener(
+    "load",
+    () => {
+      frame.contentWindow?.postMessage(
+        { type: "codex-visualization-initialize" },
+        "*",
+        [channel.port2],
+      );
+    },
+    { once: true },
+  );
+  // Match the trusted bootstrap element, not the same text in an authored title.
+  const frameHtml = srcdoc.replace(
+    '<script type="application/json" id="codex-visualization-widget-state">__CODEX_VISUALIZATION_WIDGET_STATE__<\/script>',
+    () =>
+      '<script type="application/json" id="codex-visualization-widget-state">' +
+      JSON.stringify(initialGlobals).replaceAll("<", "\\u003c") +
+      "<\/script>",
+  );
+  if (isShare && storage != null) {
+    // Fingerprint the rendered document, including restored widget state, without
+    // storing its content. This is a layout cache, not a security identity.
+    let hash = 5381;
+    for (let index = 0; index < frameHtml.length; index += 1) {
+      hash = (hash * 33 + frameHtml.charCodeAt(index)) % 4_294_967_296;
+    }
+    sizeFingerprint = hash.toString(36);
+    try {
+      const size = JSON.parse(storage.getItem(sizeStorageKey) ?? "null");
+      if (
+        size?.fingerprint === sizeFingerprint &&
+        size.width === frame.clientWidth &&
+        size.viewportHeight === globalThis.innerHeight &&
+        size.dark ===
+          globalThis.matchMedia("(prefers-color-scheme: dark)").matches &&
+        size.scale === globalThis.devicePixelRatio &&
+        typeof size.height === "number" &&
+        Number.isFinite(size.height) &&
+        size.height >= 0 &&
+        size.height <= 10_000
+      ) {
+        frame.style.height = size.height + "px";
+      }
+    } catch {
+      // Ignore missing or invalid cache entries and measure the live frame.
+    }
+  }
+  frame.srcdoc = frameHtml;
+  delete frame.dataset.srcdoc;
+})();
+</script>
+</body>
+</html>

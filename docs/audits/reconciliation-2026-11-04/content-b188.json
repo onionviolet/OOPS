@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "batch": "B188",
+  "title": "Dials, resolver corrections and meter evidence",
+  "at": "2026-11-04T22:46:49.889150+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/WORLD_DIALS_AND_INTERPRETER_CONSIDERATIONS_2026-10-19.md",
+      "ids": [
+        "WDI1–WDI65",
+        "L1–L5",
+        "E1–E5",
+        "M1–M4",
+        "B7",
+        "B93"
+      ],
+      "classification": "Dials/interpreter root palette with corrected feasibility findings and bounded meter receipt",
+      "owners": [
+        "docs/WORLD_DIALS_AND_INTERPRETER_CONSIDERATIONS_2026-10-19.md",
+        "docs/DOMAIN_RULES.md"
+      ],
+      "disposition": "Later WDI41–45 qualify initial missing-profile/closed-facts and ordering claims. Preserve current target/base limitation at B93 scope, dormant profile vs executed consumer, state owner vs renderer and observer-safe explanations. M3 no-save-shape receipt supersedes WDI55 migration assumption, without pixel/persistence proof.",
+      "evidence": "Fresh full read 1–end including returns, M3 results, WDI61–65 and B7/B93 dispositions. No fresh code, test/browser, external game data, original lane or private-source review.",
+      "reopen": "Selected rule target, fact admission or real meter consumer; inspect current code and affected default locks/receipts. No held lane dispatch or second-world implementation embargo.",
+      "input_sha256": "d54341249ba9d0495cff3f7d8317188c64e1f3365307076974350be7829247d9",
+      "input_lines": 312,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          312
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/WORLD_DIALS_AND_INTERPRETER_CONSIDERATIONS_2026-10-19.md",
+      "heading": "## Full dials-palette reconciliation, 2026-11-04",
+      "body": "Use WDI41–WDI45 and B93 to qualify WDI1–WDI3: pack profiles/modules and injected fact types already existed; layer ordering and explicit exemptions differ from merely placing a cheat higher. A profile with no resolver can be dormant. An exported grammar or receipt shape does not establish an executed command, and exact rational arithmetic alone does not prove whole-consumer determinism. Preserve the named target-isolation/base/receipt issues at their inspected input rather than declaring a newly reproduced runtime failure.\n\nWDI55 assumed saved fields for the first new meter; the later M3 result explicitly renders existing spirituality/strain state with no save change. Its code/tests and DOM readings do not close its own hidden-pane pixel and native save/reload/import gaps. WDI49 examples are behavior families, not laws that every digestion/lifespan track is monotone. WDI50 threshold consequences, WDI53 every-change logging, WDI54 dormant cross-world treatment and WDI61 one condition shape are proposals to fit actual mechanisms and owners, not universal resource rules (AD5, AD38). Hidden causes stay hidden even when a meter can explain an observed change.\n\nKeep WDI61–WDI65 source distinctions: conditions on body/item/place can have different lifecycles; known unavailable verbs differ from undiscovered ones; creation-point budgets are optional world ideas; a consumer lint is not semantic completeness. The old FND5 second-world requirement is qualified by AD51, and old own-worktree lane language by AD41. Shared design can start from known needs and a first real consumer, with another distinct world validating it. No source acquisition, registry redesign, local AI interpreter, current lease or new implementation priority follows from this review.",
+      "before_sha256": "d54341249ba9d0495cff3f7d8317188c64e1f3365307076974350be7829247d9",
+      "after_sha256": "8941704599b5efdbda397ac9f9e51ad50de5ddb76acd5014fc8699dc6d0fc361"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1102
+}

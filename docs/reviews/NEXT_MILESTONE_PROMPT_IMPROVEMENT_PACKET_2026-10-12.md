@@ -160,3 +160,10 @@ No commits, pushes, publishing, automation, new source acquisition, engine migra
 Ask only material taste/scope/compatibility questions. At most five ranked current priorities. Preserve deferred possibilities without turning their omission into rejection. If a genuine ownership/dependency blocker remains, state its exact gate and required human action, while completing independent reversible planning.
 
 Finish your answer with the complete replacement execution prompt. It must be usable when I return it with “Execute this prompt,” subject to current repository authority and real ownership recovery. I should not need to reconstruct its objective, paste this packet again or manually combine fragments of your answer.
+
+
+## Historical prompt reconciliation, 2026-11-04 (B168)
+
+The full packet, four output instructions, proposed C-a–C-d candidates, Q1–Q6 ladder and all evidence/ownership boundaries were read. Its first-person prompt and “copy into a normal chat” instructions are historical draft text, not a request to launch/send/execute now. Preserve its original bytes and source-relative context. Current PROJECT, lead-life owners and AD42 qualify the retired one-realm/one-prestige gate, workshop-first suggestion, fixed two-start scope, older paused/held coordinator state and human-acceptance stop. LOTM/Klein lead-first and Harry alongside remain current; this packet does not select a replacement milestone.
+
+Useful distinctions remain: an action, loop, changing arc, continuity, coherent world and interacting worlds need different evidence. A longer import timeout is not faster import; lossy biography is not an exact receipt/archive; an NPC-produced product needs an actual useful consumer; a finite-means refusal is not a fabricated positive route. Recover actual present ownership and relevant existing proof rather than re-running the old Foundation campaign. Do not infer live leases from this old branch/hash/thread or require every body/world/NPC combination before one authorized slice. No external prompting guide, source-book fact, raw review dependency, private edition or runtime journey was newly verified.

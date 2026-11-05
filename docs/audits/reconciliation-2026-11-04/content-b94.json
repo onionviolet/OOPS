@@ -1,0 +1,89 @@
+{
+  "schema": 1,
+  "batch": "B94",
+  "title": "Genetics/hero-start plan and folded body-lineage roster",
+  "at": "2026-11-04T20:46:34.900466+00:00",
+  "head": "a4bebe24faffd52190c7e93bdc6d3fff91fa145c",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/GENETICS_AND_HERO_START_PLAN_2026-10-17.md",
+      "ids": [
+        "GHS1–GHS114",
+        "GHS41a",
+        "S1–S5",
+        "Q1–Q4"
+      ],
+      "classification": "multi-round implementation proposal superseded in launch scope",
+      "owners": [
+        "docs/GENETICS_AND_HERO_START_PLAN_2026-10-17.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "GHS1–GHS114 remain an implementation proposal, not a scheduled S1–S5 campaign. Later user direction in USER_VISION “Restore the original loading screen and defer the start menu, 2026-10-20” supersedes GHS16–GHS19/GHS26’s public launch picker and the stale R22a queue question. Current complete new_game_beginning.js hides the authoring Beginning section except localhost start_probe, retaining simple PLAY. Preserve the future menu design without treating it as a current prerequisite or asking to reconfirm a settled deferral. The old one-milestone framing and 1366 floor are historical; current focus, AD41/AD42 and desktop UI rules govern. This review does not reopen gameplay or build order. Keep the plan’s actual distinctions: body/controller/owner and frozen parent event; expressed effects versus latent cause and observer claim; expression versus development stage; capability grants versus levelable multipliers; one continuing self versus a new child; adopted records versus biological inheritance; item custody versus bond/attunement/held power; office succession versus deed titles; copied understanding versus bodily fit. GHS66–GHS69 already correct the earlier single-bonus-path assumption. Field defaults in GHS45/GHS99/GHS106 do not guarantee migration-free validation or identical saved locks. Existing sources must be inspected before adding heritage, heredity, power or title stores. GHS23’s proposed stages need an adapter to the actual knowledge owner, not a parallel stage vocabulary. Original source surveys are design references with stated tiers; whole canon/source/runtime completion is not established here. Qualify illustrative limits and costs by world mechanism: GHS54 population-mean drift/inbreeding costs and GHS75 pushback are not mandatory balancing; GHS87 unique counts and respawn belong to the selected source’s actual continuity, not anti-restart rules for every life; GHS89 warning/pause is a proposed risk policy, not guaranteed warning for unknowable harm. GHS91 slot examples and GHS92 identity eligibility need source-qualified mechanisms and exceptions. GHS96 resetting only body scope and GHS97 carry list are selected continuation policies, not universal reset laws overriding AD11 or bindings. Discovery tests can change a body only when their method actually does so, while a record alone changes knowledge. The later GHS112–GHS114 corrections govern named clocks, physiology versus comfort, useful retained skill and current-state persistence. Preserve useful options without requiring inherited prestige, population simulation, a universal flaw or a second implemented world first.",
+      "evidence": "Complete original plan read in five bounded ranges; complete current new_game_beginning.js and named USER_VISION deferral inspected, without claiming full vision/source reading.",
+      "reopen": "Only a later selected body/start/power slice reopens exact proposal rows; public start menu remains deferred.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "c1706a728e1a793764a78bb6d70a9516e0ecae369e3327046e9a0fb3d0afa71f",
+      "input_lines": 476,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          476
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/PLAN.md",
+      "ids": [
+        "B1–B18",
+        "folded status",
+        "October 18 core-rule application"
+      ],
+      "classification": "completed proposal-wave routing history",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/PLAN.md",
+        "docs/GENETICS_AND_HERO_START_PLAN_2026-10-17.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "The B1–B18 roster is a folded historical wave, not workers to relaunch. Its own October 18 marker routes future selections to the GHS plan and leaves B2 tests NOT RUN. Keep the original source/brief/test inputs and their IDs as history; a finished proposal return does not prove implemented body modification or CV1. B94 now qualifies the receiving GHS plan by the later simple-PLAY/start-menu deferral and current accepted direction. No hereditary prestige, gender migration or population model becomes a prerequisite.",
+      "evidence": "Complete original roster and its later current-use/core-rule markers read.",
+      "reopen": "Read each remaining lane source/test body independently; do not relaunch folded workers or infer implemented mechanics.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "a70a6acdbadc1b03fcea94572011ec7466f1696f32f1d37551300d0d31970751",
+      "input_lines": 85,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          85
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/GENETICS_AND_HERO_START_PLAN_2026-10-17.md",
+      "heading": "## Current-use reconciliation B94, 2026-11-04",
+      "body": "GHS1–GHS114 remain an implementation proposal, not a scheduled S1–S5 campaign. Later user direction in USER_VISION “Restore the original loading screen and defer the start menu, 2026-10-20” supersedes GHS16–GHS19/GHS26’s public launch picker and the stale R22a queue question. Current complete new_game_beginning.js hides the authoring Beginning section except localhost start_probe, retaining simple PLAY. Preserve the future menu design without treating it as a current prerequisite or asking to reconfirm a settled deferral. The old one-milestone framing and 1366 floor are historical; current focus, AD41/AD42 and desktop UI rules govern. This review does not reopen gameplay or build order.\n\nKeep the plan’s actual distinctions: body/controller/owner and frozen parent event; expressed effects versus latent cause and observer claim; expression versus development stage; capability grants versus levelable multipliers; one continuing self versus a new child; adopted records versus biological inheritance; item custody versus bond/attunement/held power; office succession versus deed titles; copied understanding versus bodily fit. GHS66–GHS69 already correct the earlier single-bonus-path assumption. Field defaults in GHS45/GHS99/GHS106 do not guarantee migration-free validation or identical saved locks. Existing sources must be inspected before adding heritage, heredity, power or title stores. GHS23’s proposed stages need an adapter to the actual knowledge owner, not a parallel stage vocabulary. Original source surveys are design references with stated tiers; whole canon/source/runtime completion is not established here.\n\nQualify illustrative limits and costs by world mechanism: GHS54 population-mean drift/inbreeding costs and GHS75 pushback are not mandatory balancing; GHS87 unique counts and respawn belong to the selected source’s actual continuity, not anti-restart rules for every life; GHS89 warning/pause is a proposed risk policy, not guaranteed warning for unknowable harm. GHS91 slot examples and GHS92 identity eligibility need source-qualified mechanisms and exceptions. GHS96 resetting only body scope and GHS97 carry list are selected continuation policies, not universal reset laws overriding AD11 or bindings. Discovery tests can change a body only when their method actually does so, while a record alone changes knowledge. The later GHS112–GHS114 corrections govern named clocks, physiology versus comfort, useful retained skill and current-state persistence. Preserve useful options without requiring inherited prestige, population simulation, a universal flaw or a second implemented world first.",
+      "before_sha256": "c1706a728e1a793764a78bb6d70a9516e0ecae369e3327046e9a0fb3d0afa71f",
+      "after_sha256": "ef66bc37830c0e827743930c6d74b05bb1275157d08359f8343b6393f1bc4790"
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/PLAN.md",
+      "heading": "## Reconciliation B94, 2026-11-04",
+      "body": "The B1–B18 roster is a folded historical wave, not workers to relaunch. Its own October 18 marker routes future selections to the GHS plan and leaves B2 tests NOT RUN. Keep the original source/brief/test inputs and their IDs as history; a finished proposal return does not prove implemented body modification or CV1. B94 now qualifies the receiving GHS plan by the later simple-PLAY/start-menu deferral and current accepted direction. No hereditary prestige, gender migration or population model becomes a prerequisite.",
+      "before_sha256": "a70a6acdbadc1b03fcea94572011ec7466f1696f32f1d37551300d0d31970751",
+      "after_sha256": "73c043509c38d626aeb2add2adb7672793c1df10e37f2e56378e9de532ae4bf9"
+    },
+    {
+      "path": "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+      "heading": "## Hero-start plan reconciliation B94, 2026-11-04",
+      "body": "GHS1–GHS114 remain an implementation proposal, not a scheduled S1–S5 campaign. Later user direction in USER_VISION “Restore the original loading screen and defer the start menu, 2026-10-20” supersedes GHS16–GHS19/GHS26’s public launch picker and the stale R22a queue question. Current complete new_game_beginning.js hides the authoring Beginning section except localhost start_probe, retaining simple PLAY. Preserve the future menu design without treating it as a current prerequisite or asking to reconfirm a settled deferral. The old one-milestone framing and 1366 floor are historical; current focus, AD41/AD42 and desktop UI rules govern. This review does not reopen gameplay or build order.\n\nKeep the plan’s actual distinctions: body/controller/owner and frozen parent event; expressed effects versus latent cause and observer claim; expression versus development stage; capability grants versus levelable multipliers; one continuing self versus a new child; adopted records versus biological inheritance; item custody versus bond/attunement/held power; office succession versus deed titles; copied understanding versus bodily fit. GHS66–GHS69 already correct the earlier single-bonus-path assumption. Field defaults in GHS45/GHS99/GHS106 do not guarantee migration-free validation or identical saved locks. Existing sources must be inspected before adding heritage, heredity, power or title stores. GHS23’s proposed stages need an adapter to the actual knowledge owner, not a parallel stage vocabulary. Original source surveys are design references with stated tiers; whole canon/source/runtime completion is not established here.\n\nQualify illustrative limits and costs by world mechanism: GHS54 population-mean drift/inbreeding costs and GHS75 pushback are not mandatory balancing; GHS87 unique counts and respawn belong to the selected source’s actual continuity, not anti-restart rules for every life; GHS89 warning/pause is a proposed risk policy, not guaranteed warning for unknowable harm. GHS91 slot examples and GHS92 identity eligibility need source-qualified mechanisms and exceptions. GHS96 resetting only body scope and GHS97 carry list are selected continuation policies, not universal reset laws overriding AD11 or bindings. Discovery tests can change a body only when their method actually does so, while a record alone changes knowledge. The later GHS112–GHS114 corrections govern named clocks, physiology versus comfort, useful retained skill and current-state persistence. Preserve useful options without requiring inherited prestige, population simulation, a universal flaw or a second implemented world first.",
+      "before_sha256": "bb7cfee55adec7949715cbddda96e1b1edfceaa5be7a3c587df64b1ee74c2c00",
+      "after_sha256": "66934ab02f1246bcedc49989222b3f4ad053a91e42ee3a163160529e8adcb2bf"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1320
+}

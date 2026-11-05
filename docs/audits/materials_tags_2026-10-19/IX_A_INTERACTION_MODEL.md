@@ -181,3 +181,8 @@ Default: do E0 first, because it proves the claim with no engine edit and is the
 
 - Q1: Should the toy pack become a real example law beside `frontier.brew`, or stay a test fixture? Default: test fixture first, because MR32 asks for a reader before a maker.
 - Q2: Which worlds use strata at all? Default: none until a world declares tiers (IX5 dial), since a world without tiers uses one stratum and pays nothing.
+
+
+## Reconciliation B92, 2026-11-04
+
+Preserve R1–R4, B1–B6, PT1–PT12 and E0–E5 as proposals and dated scratch evidence. Correct PT8: its unrestricted monotonic claim conflicts with the same proposal’s gap-2 inert rule, so scope monotonicity to interacting gaps or choose a different authored law. Correct PT7: disjoint reactants do not by themselves commute if one row produces a reactant of the other; exclude product-to-reactant dependencies too. PT5 is bounded single-pass execution, not proof of a chemical fixed point. Current craft_resolver.js selected ranges 108–237 show explicit consumed-material directions/order and thermal control already implemented, including hardness read for thermal tier. Thus old order-of-addition impossibility and no consumed-tag interaction claims are overbroad: selected adjacent-material tag directions exist; arbitrary per-lot kinetics, concentration or a relation compiler are not thereby proven. Current scalar combinations include unmixed refusal, not universal mass-weighted averaging. Existing arithmetic reaction rows still use amount extents and catalyst/station queries. Scratch timing is historical toy scale, not current native performance or integration proof; budget and E0 remain unselected.

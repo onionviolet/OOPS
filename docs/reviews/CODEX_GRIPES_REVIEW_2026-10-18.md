@@ -190,3 +190,10 @@ No agents launched, messages sent, instructions edited, gameplay tests run,
 commits made, or active UI lanes changed. The next acceptance step for these
 proposals would be a scoped implementation and behavioral trial. They remain
 proposals until authorized.
+
+
+## Content reconciliation, 2026-11-04 (B167)
+
+F1–F5/A1–A5 and the separate focus symptom were read. Preserve this as a bounded historical feedback synthesis: its selected chat turns do not measure frequency across all chats, agent delivery statements do not independently verify artifacts, and app focus root cause remains unproven. No original chat logs or unrelated personal/course sources were reopened. Current exact outgoing wording review and background-only operation already govern their named actions; this report does not establish a universal host interception hook or authorize messages.
+
+The useful execution questions remain the requested artifact’s weight, the original visible outcome, unique unresolved findings with their closing observations, and source-sized budget accounting without shrinking a requested whole-book read. Current PROJECT’s short-summary convention supersedes the old 1442-line burden. Later UI rounds have their own finite proofs and reversals, independently reviewed in B149–B151; neither their count nor this feedback report certifies the entire current UI. The [Claude feedback companion](CLAUDE_CHAT_GRIPES_AND_NEXT_STEPS_2026-10-18.md) independently corroborates whole-screen composition while retaining its different sample and source locators. Do not merge away that provenance or turn the combined samples into a measured rate. Shared-account token attribution and budget enforcement keep their stated uncertainty. Current AD42 makes human review optional. No new process controller, broad audit restart, app setting change or implementation order is selected.

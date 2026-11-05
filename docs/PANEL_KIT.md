@@ -78,7 +78,7 @@ Use this template per panel; record each result and evidence separately. A K7 pa
 | K3 Keyboard | F6 advances, Shift+F6 returns, visible panels only, visible focus ring |
 | K4 Settings | Described sort control grouped under People you know in This browser; name choice stored in `yairpg.display.v1` and applied to marked rows; no page errors |
 | K5 Frame | `html[data-world]`, nonempty page/accent tokens, kit accent matches world accent; separately exercise Player Appearance precedence |
-| K6 Fit | Rebuilt fresh-origin browser at 1920x1080 and 1440x900 (1366x768 retired 2026-10-19); visible panel headers reachable, text contrast >=4.5:1, no panel or page horizontal overflow |
+| K6 Fit | Rebuilt fresh-origin browser at 1920x1080 and the current laptop/text targets in [UI_RULES](UI_RULES.md); visible panel headers reachable, text contrast >=4.5:1, no panel or page horizontal overflow |
 | K7 Docs | Four required sections and API name, UI owner link, CH1-CH10 with all required card fields and allowed roles |
 | Discovery | No name anywhere before discovery; live reveal once; discovered-but-unavailable reason; reduced-motion final state |
 | Restore | Save/reload and literal-file import preserve discovery without replaying cues; browser display preferences remain browser-owned |
@@ -131,3 +131,12 @@ relevant inspection, transfer or dependency route is selected. Done requires the
 named native scenario at the desktop target with larger text and keyboard return;
 persistence follows changed actual state. No replacement inspector or new kit API
 implemented here.
+
+
+## Content reconciliation B299: contract status and selected panel evidence
+
+The full original 133-line kit was reviewed. Descriptor/registry/navigation contracts, ten cheat-screen proposals, K1–K7 and PK1–PK12 have different status. K7 verifies document/card shape; it does not establish discovery, focus, live navigation, runtime ownership, a rebuilt journey or user visual judgment. Gate-qualified proposal is not permission to call every PK or cheat card implemented. Actual persisted discovery and present eligibility remain separate from browser-owned placement/sort preferences. A loaded known panel does not emit a new arrival cue or gain a source.
+
+Keep the useful gesture and subject rules: one actual intended subject, stable focus, exact-copy stock, present quote revalidation, historical receipt identity, and Back returning to the prior filter/selection. Opening inspection differs from stopping native work. A setting, empty-state label, count, silhouette, accessible name or style cannot expose an undiscovered panel or source. Known unavailable panels may give their supported specific reason. Current prose-first optional illustration does not require a new portrait, icon or decorative shell for every quiet effect.
+
+K6 is refreshed to current [UI rules](UI_RULES.md) targets rather than the older1440height. That is a checklist correction, not fresh viewport evidence. Per-panel selected checks use AD36 and the relevant AD43 result; proposed K-style examples do not demand duplicate suites or proof of every adjacent panel. AD42 keeps human taste separate and optional. The old Foundation/C0 naming and screen-field proposals do not reopen a foundation phase or assign runtime writers; current source and actual consumer decide activation. No renderer, panel API, gameplay, save field or native browser proof changed here.

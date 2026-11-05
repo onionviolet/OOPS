@@ -1,0 +1,130 @@
+{
+  "schema": 1,
+  "batch": "B60",
+  "title": "Exploration, body and learning: disproved gaps and exact follow-through proof",
+  "at": "2026-11-04T20:07:09.686460+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/OTHER_SYSTEMS_DEPTH_CORE_AUDIT.md",
+      "ids": [
+        "I1–I7",
+        "F1–F7",
+        "E/B/L",
+        "OSD1–OSD10",
+        "A1–A5"
+      ],
+      "classification": "audit and selected follow-through; fresh full content review",
+      "owners": [
+        "docs/audits/OTHER_SYSTEMS_DEPTH_CORE_AUDIT.md"
+      ],
+      "disposition": "Preserve exploration/body/learning reuse and actual consequence depth, actor-keyed condition vs body/expression policy, physical record vs learned method vs transient feedback, source/world/clock/knowledge distinctions. E missing-link and L outside-use gaps were disproved at named existing Cyoria routes; no replacement engines justified. Three-chat dispatch header is historical, not current liveness.53 snapshot tests remain their original scope; static route-wear comment mismatch not native speed proof.",
+      "evidence": "Entire source read in bounded ranges; clipped B tail/L opening retrieved separately. Historical tests/build/browser/JSON proof not rerun or renewed for current shared checkout.",
+      "reopen": "Use actual selected consumer/current source and exact remaining source/route/clock gap. No old chats, broad domain engine, source acquisition, runtime repair or unrelated suite restarted.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "a362c4dc428ea87eb0e662b9dee062b5b4e08bf4462f2666fe2c33cbe92ac10c",
+      "input_lines": 344,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          344
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/other-systems-depth-2026-10-26/exploration/CHECKPOINT.md",
+      "ids": [
+        "F1–F4",
+        "IR1–IR3",
+        "EM1–EM5"
+      ],
+      "classification": "audit and selected follow-through; fresh full content review",
+      "owners": [
+        "docs/gm/dispatch/other-systems-depth-2026-10-26/exploration/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve earned stock/guest route with test-stepped time, withdrawal/no payout/sample research and exact deadline tests. Final sequential B/L review closed E integration without central glue. Rejected old fixture, MCP path limit and loading timeout remain harness history. No success-pickup/all-approach/natural-pace proof or new site implementation.",
+      "evidence": "Entire source read in bounded ranges; clipped B tail/L opening retrieved separately. Historical tests/build/browser/JSON proof not rerun or renewed for current shared checkout.",
+      "reopen": "Use actual selected consumer/current source and exact remaining source/route/clock gap. No old chats, broad domain engine, source acquisition, runtime repair or unrelated suite restarted.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "53e574bd0aa993e2cacf628bbac4b5383ef37848c77356a0654f4560f6d9310b",
+      "input_lines": 64,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          64
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/other-systems-depth-2026-10-26/body/CHECKPOINT.md",
+      "ids": [
+        "B1–B3",
+        "B2a–B2c"
+      ],
+      "classification": "audit and selected follow-through; fresh full content review",
+      "owners": [
+        "docs/gm/dispatch/other-systems-depth-2026-10-26/body/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve five-line rich-frame binding/revision projection correction while smaller native stat frame deliberately stays separate. Natural entry/enrollment vs supplied stock care fixture vs synthetic binding-loss test are distinct. HP recovery does not clear strain; support loss suppresses expression but keeps clock/history. Exact due/expiry batch/reload cases found no runtime defect. Later E top/continuation closes stale B2 pending review, without new combined browser proof.",
+      "evidence": "Entire source read in bounded ranges; clipped B tail/L opening retrieved separately. Historical tests/build/browser/JSON proof not rerun or renewed for current shared checkout.",
+      "reopen": "Use actual selected consumer/current source and exact remaining source/route/clock gap. No old chats, broad domain engine, source acquisition, runtime repair or unrelated suite restarted.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "091fb7740dcd7c6bb42584d4fa8e21ab64c8b6dd78abb3182762306a9e9ddf32",
+      "input_lines": 72,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          72
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/other-systems-depth-2026-10-26/learning/CHECKPOINT.md",
+      "ids": [
+        "F1–F3",
+        "D1–D4",
+        "A1–A2",
+        "LC1–LC9"
+      ],
+      "classification": "audit and selected follow-through; fresh full content review",
+      "owners": [
+        "docs/gm/dispatch/other-systems-depth-2026-10-26/learning/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve actual pending-control completion/mastery then outside household lamp use with real held device/charge/attention and no copied personal mana. No new runtime was needed. Supplied prior stock/history is fixture proof, not fresh-life pace. Exact source-expiry refusal/refund and literal persistence are pinned old evidence; later candidate/ownership search selected coverage-limit alternative rather than invented new task.",
+      "evidence": "Entire source read in bounded ranges; clipped B tail/L opening retrieved separately. Historical tests/build/browser/JSON proof not rerun or renewed for current shared checkout.",
+      "reopen": "Use actual selected consumer/current source and exact remaining source/route/clock gap. No old chats, broad domain engine, source acquisition, runtime repair or unrelated suite restarted.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "1fa6dc86450345102fd5910f1d4b382bead51c2539419da9eb5013d288b51509",
+      "input_lines": 73,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          73
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/OTHER_SYSTEMS_DEPTH_CORE_AUDIT.md",
+      "heading": "## Follow-through content reconciliation, 2026-11-04 (B60)",
+      "body": "The opening three-working-chats statement records the original dispatch, not present liveness. Their final checkpoints now supply exact dispositions: E disproved the missing site link through an earned/test-stepped withdrawal and sample-research route; L disproved the missing outside-learning consumer at a supplied pending-control/device fixture; B corrected rich-frame support projection and verified its named strain/care cases. E’s later sequential review closes the earlier pending B/L integration with no central glue. This does not manufacture a new feature, earned acquisition for L’s supplied prerequisites, whole-body/world depth or a current combined browser result. Preserve OSD1–OSD10, real consumer/knowledge/custody/clock differences and source-qualified local examples. Current AD51 designs shared seams from known sources before second-world validation; ACR preserves activity choices and real outcomes without demanding a universal learning/ecology engine.",
+      "before_sha256": "a362c4dc428ea87eb0e662b9dee062b5b4e08bf4462f2666fe2c33cbe92ac10c",
+      "after_sha256": "5dfe5d06b45a81eff912269d6b9a75edb5d34ca88c544dfee4cb2eaf1fe10880"
+    },
+    {
+      "path": "docs/gm/dispatch/other-systems-depth-2026-10-26/body/CHECKPOINT.md",
+      "heading": "## Later sequential-review qualification, 2026-11-04 (B60)",
+      "body": "The final B2 “E review pending” sentence is its historical stage. The current opening and E’s later sequential integration section record that review closed on matching owned/dependency inputs, with no central patch. Preserve the earlier E-bundle/pre-B1 mismatch as a real historical input limit, not a reason to rerun unchanged B1 proof or claim a newly rebuilt combined browser route. B1 remains its pinned native care fixture; B2 adds current-at-the-time engine projection/expiry cases, not implemented possession or generalized carrier transitions. This reconciliation adds no runtime, build or test evidence.",
+      "before_sha256": "091fb7740dcd7c6bb42584d4fa8e21ab64c8b6dd78abb3182762306a9e9ddf32",
+      "after_sha256": "9f9df771880cc3589ccb9d37adcc84d6fa2c07152dfe1e19cd1be617e42ff4e7"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1413
+}

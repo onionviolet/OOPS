@@ -1,0 +1,111 @@
+{
+  "schema": 1,
+  "batch": "B287",
+  "title": "Harvest and procedural plans: delivered subset, actual native proof and retained palette",
+  "at": "2026-11-05T00:50:41.345291+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/harvest-modules-2026-10-14/PLAN.md",
+      "ids": [
+        "HM1–HM12",
+        "HV1/HV2",
+        "Current rule qualification October18"
+      ],
+      "classification": "Historical harvest plan with explicit later consumer/rule qualification",
+      "owners": [
+        "docs/gm/dispatch/harvest-modules-2026-10-14/PLAN.md",
+        "docs/gm/dispatch/harvest-modules-2026-10-14/hv1/REPORT.md",
+        "docs/MAKING_RULES.md"
+      ],
+      "disposition": "Read all 61 original lines. Preserve both whole/selective/auto routes, quality/freshness/stock distinctions and living-surrender-versus-specimen boundary. Actual later report qualifies design-level freshness/cap, broad HM scope and no-carcass source snapshot; fold final evidence and limits into plan.",
+      "evidence": "Current-rule qualification already states original absence is pre-slice and technical caps are not biological law. Report was read separately in this batch; no runtime or current integration inferred from its branch delivery.",
+      "reopen": "For a selected new consumer inspect current harvest owner and integration. No new species, balancing or Frontier/Mistglass depth is launched.",
+      "input_sha256": "e3f0509a750bfbc5963711df79c1ebae209533e11e06c6c11a5e0380d37f89c9",
+      "input_lines": 61,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          61
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/harvest-modules-2026-10-14/hv1/REPORT.md",
+      "ids": [
+        "F1–F6",
+        "D1–D5",
+        "V1–V9",
+        "R1/R2",
+        "Five supported rat species",
+        "Final stage commits and excluded generated outputs"
+      ],
+      "classification": "Isolated graded-harvest delivery with natural and source-only branches labeled",
+      "owners": [
+        "docs/gm/dispatch/harvest-modules-2026-10-14/PLAN.md",
+        "docs/gm/dispatch/harvest-modules-2026-10-14/hv1/REPORT.md"
+      ],
+      "disposition": "Read all 71 original lines. Preserve exact supported drops versus independent guardian bone/unsupported beasts, canonical/legacy key behavior, actual mixed-grade recipe expenditure, retained handling history, source-only one-hit/overkill/stress cases and natural route. Fold supply increase, free overflow shortcut, completeness-use gap and no merge/current-server inference into plan.",
+      "evidence": "Report records natural 17-kill access, manual/whole/cancel/pending/final/literal-import routes, real two-tail comparison and mixed six-pelt leather. Final suite1380 total/1377 pass/0 fail/3 TODO, not1380 passes; 13 focused source tests separate. Each browser phase/final presentation refresh keeps its own hash. No private profiles, scripts, screenshot or source opened here.",
+      "reopen": "Actual current source/consumer and selected task are needed for new gameplay claims. Keep native long-combat overflow, appraisal/grade requests/corpse sale/food-quality, mobile and human balance limits explicit.",
+      "input_sha256": "7050281f13b667f8f971f095e526b111fd4b176b6113fa722f18660b8e3cff50",
+      "input_lines": 71,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          71
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/PLAN.md",
+      "ids": [
+        "P1–P28/P30–P40",
+        "CR1–CR6",
+        "WR1–WR4",
+        "Shared-file conflict rows",
+        "GX1–GX5 round2",
+        "Current-use qualification"
+      ],
+      "classification": "Original multi-lane plan with integrated versus documentation/cancelled subset qualification",
+      "owners": [
+        "docs/gm/dispatch/procgen-2026-10-13/PLAN.md",
+        "docs/gm/dispatch/procgen-2026-10-13/STATUS.md",
+        "docs/PROCEDURAL_AND_GENERAL_OPPORTUNITIES_2026-10-16.md"
+      ],
+      "disposition": "Read all 93 original lines, every slice/conflict/round2 row. Preserve 49 listed P/CR/WR entries and absent P29 numbering as original identifiers. Current-use banner already routes P1–P4/G1/GX5/P34 integrations and B1–B3 limits; fold finite code delivery versus wide docs palette/current variance direction. No report/source behind rows newly read.",
+      "evidence": "Initial outcome column describes intended play; most rows are explicitly docs only. Current STATUS and opportunity owner were previously fully read (B145), not newly reread/verified by this batch. Branch/ports/writers/local seed unification are historical coordination, not live ownership or proof of every named stream.",
+      "reopen": "Use current selected world and explicit unstated-source variance policy; do not recreate cancelled duplicate WR lanes or dispatch all named generation domains.",
+      "input_sha256": "5260d602fd70d71f33dcc8151766a90c793030f1bed9658e4b3e96aad23900d7",
+      "input_lines": 93,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          93
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/harvest-modules-2026-10-14/PLAN.md",
+      "heading": "## Content reconciliation B287: final HV1 scope and actual harvest limits",
+      "body": "The full [HV1 report](hv1/REPORT.md) qualifies HM1–HM12. Five supported rat templates replace only their owned tail/fang/pelt rolls; guardian bone remains independent, unsupported beasts keep their old behavior, and wall rats have no added pelt. Take-one consumes that carcass and explicitly leaves the rest. Plain legacy goods remain valid; canonical graded keys preserve quality/completeness, while pre-HV1 pending damage retains no invented earlier hits. Actual dead specimens or other supported shed/material sources remain distinct from a surrendered living actor.\n\nThe reported natural journey earns ordinary field/craftsman access and reaches 17 kills, then exercises selective/whole processing, cancellation, pending/completed reload and literal import. Its relatively cleaner and messier kills demonstrate whole versus damaged tails; both pelts were damaged. Pristine one-hit pelt, heavy overkill/scraps and 10,000-kill runs are source tests, not natural play. The actual six-pelt recipe consumes one quality70 plus five quality75 inputs and produces quality75 leather through quantity weighting/rounding. Later F4/F5/F6 corrections address real Butchering XP/unlock, lost completeness on reload and read-only projection log floods. Each earlier journey and final presentation refresh keeps its exact candidate identity rather than inheriting the latest bundle by implication.\n\nPreserve material differences that later consumers actually read. Completeness is stored but generic recipes accept scraps at the same item count; quality affects supported value/material readers. This does not implement appraisal tiers, grade-constrained asks, corpse sale, food-quality effects or biological potency from size/variant. Four played-hour aging lowers handling quality without silently deleting stock. The 24-lot cap is an engineering default; finished parts are retained, default overflow leaves an explicitly counted incoming body, and opt-in overflow whole-processing is an exceptional shortcut with no extra played minutes. That shortcut and the large rat-part supply increase remain visible balance choices, not measured fair economy or universal free-processing rules.\n\nFinal historical checks report 13 focused tests, build and a full suite of 1,380 total with 1,377 passes, zero failures and three existing TODOs. They do not establish all natural overflow branches or current shared integration. Five stage commits and an isolated review server were reported, with no merge/push and generated files unstaged; neither today's live server nor current branch adoption is reverified here. Current desktop/text requirements qualify old 1366/1600 evidence, and human review remains separate under AD42. Broader plants/ore/magical bodies/preservation/helpers remain useful HV2 possibilities, not a new expansion or balancing task.",
+      "before_sha256": "e3f0509a750bfbc5963711df79c1ebae209533e11e06c6c11a5e0380d37f89c9",
+      "after_sha256": "495ecb4d9b85a312c7a8410abec18381c86219e2b4406e7fbd270a17afb7903a"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/PLAN.md",
+      "heading": "## Content reconciliation B287: finite generation delivery and wider design rows",
+      "body": "The full original 93-line plan has been read, including every P/CR/WR slice, conflict row and GX round. Its 49 main-table entries retain original codes: P1–P28 and P30–P40, CR1–CR6 and WR1–WR4. There is no P29 row to fabricate. Most rows are documentation proposals; an outcome described as something Weibao can play is intended scope, not proof of implementation. The current-use banner already distinguishes integrated P1–P4 and G1/GX5/P34 from separate B1–B3 and human-review limits, later documentation folds and cancelled duplicate WR work. Keep that qualification rather than treating the original roster as current assignments.\n\nUseful source-to-play distinctions remain: seeded loot/trade/craft draws versus an entire deterministic game; generated potions and appearance knowledge versus physical effects; generated people versus independent motives/resources; authored storylets versus actual causal aftermath; and a remembered traveler request versus universal story generation. P5–P40/CR/WR topics preserve a broad palette of source-world laws, creation, institutions, perspectives, bodies, promises, time, lore and authoring tools. They do not make every example a required subsystem, a new truth roll or a mandatory life simulator for every NPC.\n\nCurrent variance fills what the source leaves unstated and keeps authored/canonical facts intact; the variation key and amount are local dials. Current book-world/menu priority, NPC-depth direction, desktop/text rules and explicit compatibility decision qualify earlier blanket wave2 scheduling or detailed Frontier expansion. Reuse a current selected consumer and exact source law. Historical root-merge ownership, worktree/port tables, local seed helpers and instructions to resume old workers are coordination history, not permission to launch new lanes or proof that today's callers use every named stream. No linked report, primary source, runtime, save or player journey is newly verified by this plan review.",
+      "before_sha256": "5260d602fd70d71f33dcc8151766a90c793030f1bed9658e4b3e96aad23900d7",
+      "after_sha256": "3f7c2425bf854d860d1475fd3e2a759fd1ab6e2421ec94ae7622cc76452de893"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 855
+}

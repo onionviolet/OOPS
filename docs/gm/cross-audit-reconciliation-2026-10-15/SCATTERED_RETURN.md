@@ -52,3 +52,8 @@ Representative consumer byte hashes:
 | `engine-perf/scripts/simfuzz/run.mjs` (absent main) | `21ac58ad2fce6fe3e4ffb75a90e8a72ed09462b8683c677a1dcd7efa827ec37b` |
 
 F11: unavailable original worktrees and deleted private/untracked payloads remain unavailable unless an extant archive/snapshot supplies them. Git and an alias report alone cannot recover their exact bytes. No audit finding here establishes a new implementation priority.
+
+
+## Current presence versus historical integration findings, 2026-11-04 (B76)
+
+The six representative paths described as absent above now exist in the primary checkout: lever_practice_supply, check_resolver, craft_cues, the RT fixture helper, village_traveler_asks and simfuzz/run. This read-only presence observation prevents reuse of the October 15 absence claims as current status; it does not compare bytes to the isolated candidates, establish complete integration or rerun their behavior. LP2/LP3 combined provenance, seeded stock/skip-travel limits, TA1 revisions, SIMFUZZ repros and unavailable private/untracked originals remain distinct. Use later actual receiving owners and current consumers for implementation claims, preserving the original hashes and narrow source windows as history. AD32/AD36 select no restore, merge, repair or new gameplay queue here.

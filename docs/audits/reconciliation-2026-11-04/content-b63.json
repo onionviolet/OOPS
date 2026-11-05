@@ -1,0 +1,165 @@
+{
+  "schema": 1,
+  "batch": "B63",
+  "title": "Each-rule consideration and actual later owner follow-through",
+  "at": "2026-11-04T20:12:51.313343+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/RULES_CONSIDERATION_2026-10-26.md",
+      "ids": [
+        "F1–F10",
+        "G1–G25",
+        "U1–U13",
+        "H1–H8",
+        "P1–P4",
+        "R1"
+      ],
+      "classification": "fresh full content and chronology reconciliation",
+      "owners": [
+        "docs/audits/RULES_CONSIDERATION_2026-10-26.md",
+        "docs/gm/dispatch/non-ui-rules-follow-through-2026-10-26/RECEIPT.md"
+      ],
+      "disposition": "Full547line synthesis preserves rule-text consideration vs actual consumer proof, repaired worker truncation, screenshot vs runtime limits and broad UI scope. Its final unapplied-fold statement is historical: later non-UI receipt records H1–H5/H8 and non-UI H6, selected current GTR11/ABR11/GR15 text corroborates. UI round4 links broader U9–13 and explicitly supersedes pixel immobility and obsolete lane prerequisites. No new runtime defect established.",
+      "evidence": "Complete file content freshly read in bounded ranges; current GTR11/ABR11/GR15 and UI audit245–279 selected owner sections inspected. Historical checks not rerun, underlying all-rule bodies/source-media/runtime not recertified.",
+      "reopen": "Reopen actual changed mechanism/authority or missing demonstrated consumer evidence in its existing owner; no universal new gate, acceptance question, runtime repair or dispatch.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "b1209498e02ff3ef0e882d16a6c54d3a8c235a7f394aa9073f533e3150ba3d3a",
+      "input_lines": 547,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          547
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/rules-consideration-2026-10-26/CHECKPOINT.md",
+      "ids": [
+        "25 register rows/543 primary+93 supplemental historical map",
+        "U1–U13",
+        "H1–H8/P1–P4"
+      ],
+      "classification": "fresh full content and chronology reconciliation",
+      "owners": [
+        "docs/audits/RULES_CONSIDERATION_2026-10-26.md",
+        "docs/gm/dispatch/non-ui-rules-follow-through-2026-10-26/RECEIPT.md"
+      ],
+      "disposition": "Historical coordinator receipt covers finite source-consideration, not current full register or runtime. Worker truncation repaired in coordinator, not retroactively worker coverage. Its pending-fold/UI statements are superseded by later owner follow-through at named scope; usage movement never attributable spend.",
+      "evidence": "Complete file content freshly read in bounded ranges; current GTR11/ABR11/GR15 and UI audit245–279 selected owner sections inspected. Historical checks not rerun, underlying all-rule bodies/source-media/runtime not recertified.",
+      "reopen": "Reopen actual changed mechanism/authority or missing demonstrated consumer evidence in its existing owner; no universal new gate, acceptance question, runtime repair or dispatch.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "913d5dc7139925ed92a277c68a08ee7690b9fcfeb72d457a46a14f433b9a9bfd",
+      "input_lines": 48,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          48
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/rules-consideration-2026-10-26/MAKING_SITES_ABSORPTION.md",
+      "ids": [
+        "MR1–MR36",
+        "SR1–SR24",
+        "WA1–WA21",
+        "Coordinator reconciliation"
+      ],
+      "classification": "fresh full content and chronology reconciliation",
+      "owners": [
+        "docs/audits/RULES_CONSIDERATION_2026-10-26.md",
+        "docs/gm/dispatch/non-ui-rules-follow-through-2026-10-26/RECEIPT.md"
+      ],
+      "disposition": "Preserve bounded extraction distinctions: private sealed source inspection permitted, named fixtures allowed, preview immutability not universal gate, straightforward authority correction no fresh approval. Later coordinator qualifications govern stronger raw worker natural-route/acceptance phrases. Its original WA extent does not cover later WA additions.",
+      "evidence": "Complete file content freshly read in bounded ranges; current GTR11/ABR11/GR15 and UI audit245–279 selected owner sections inspected. Historical checks not rerun, underlying all-rule bodies/source-media/runtime not recertified.",
+      "reopen": "Reopen actual changed mechanism/authority or missing demonstrated consumer evidence in its existing owner; no universal new gate, acceptance question, runtime repair or dispatch.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "c21f7ef897e4b916853b9ee8a5b1fe32bc2aaa1b320f34fab75c64c1106fc3f4",
+      "input_lines": 45,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          45
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/rules-consideration-2026-10-26/DOMAINS_GATES_ABILITIES.md",
+      "ids": [
+        "BHR1–30/CBR1–30",
+        "PIR14–25",
+        "GTR1–35",
+        "ECR1–33/SLR1–43/PIR1–13 unread",
+        "ABR1–22 unread",
+        "Coordinator reconciliation"
+      ],
+      "classification": "fresh full content and chronology reconciliation",
+      "owners": [
+        "docs/audits/RULES_CONSIDERATION_2026-10-26.md",
+        "docs/gm/dispatch/non-ui-rules-follow-through-2026-10-26/RECEIPT.md"
+      ],
+      "disposition": "Preserve explicitly partial original extraction: full review of this note does not supply unread underlying ECR/SLR/PIR/ABR/checklist source. Coordinator synthesis repairs those ranges separately; do not expand worker coverage or carry its costly-alternatives/passive-accrual shorthand beyond later actual-mechanism corrections.",
+      "evidence": "Complete file content freshly read in bounded ranges; current GTR11/ABR11/GR15 and UI audit245–279 selected owner sections inspected. Historical checks not rerun, underlying all-rule bodies/source-media/runtime not recertified.",
+      "reopen": "Reopen actual changed mechanism/authority or missing demonstrated consumer evidence in its existing owner; no universal new gate, acceptance question, runtime repair or dispatch.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "49373fd661545718d8c315ed6d9dfa37e6a9b96d2d6a8c3d24f57acfc7ffdf9f",
+      "input_lines": 104,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          104
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/non-ui-rules-follow-through-2026-10-26/RECEIPT.md",
+      "ids": [
+        "H1–H8",
+        "T1",
+        "PRF/FND/R1 boundaries"
+      ],
+      "classification": "fresh full content and chronology reconciliation",
+      "owners": [
+        "docs/audits/RULES_CONSIDERATION_2026-10-26.md",
+        "docs/gm/dispatch/non-ui-rules-follow-through-2026-10-26/RECEIPT.md"
+      ],
+      "disposition": "Later non-UI receipt records actual owner corrections, preserves proposals and precisely limits source-only adapter trace: completion support check is not continuous interval enforcement; general-runtime forfeit branch does not remove structured-adapter refund restriction. Authored costs not source law; old coverage map deliberately frozen. Historical tests/source hashes/publication statements not freshly renewed by reading.",
+      "evidence": "Complete file content freshly read in bounded ranges; current GTR11/ABR11/GR15 and UI audit245–279 selected owner sections inspected. Historical checks not rerun, underlying all-rule bodies/source-media/runtime not recertified.",
+      "reopen": "Reopen actual changed mechanism/authority or missing demonstrated consumer evidence in its existing owner; no universal new gate, acceptance question, runtime repair or dispatch.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "a3da15a31129eeb7d5cf8a1e529b989c3611aa59ce6930d56f10000961483b08",
+      "input_lines": 106,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          106
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/RULES_CONSIDERATION_2026-10-26.md",
+      "heading": "## Later owner follow-through reconciled, 2026-11-04 (B63)",
+      "body": "The final “unapplied” sentence above is the October 26 consideration snapshot. The [non-UI follow-through receipt](../gm/dispatch/non-ui-rules-follow-through-2026-10-26/RECEIPT.md#disposition-of-the-selected-folds) records H1–H5/H8 and non-UI H6 as applied owner corrections, retaining proposal status. Selected current GTR11, ABR11 and GR15 text corroborates admission versus ongoing support, actual commitment boundaries and event-time knowledge; no runtime trace/test was rerun here. H7 and UI H6 follow the [UI audit round 4](UI_DESIGN_CORE_AUDIT.md#round-4-2026-10-26-broader-ordinary-play-interactions), which routes U9–U13’s broader scope and supersedes universal pixel immobility and obsolete tooltip-lane prerequisites. This is bounded follow-through, not a fresh interface-wide completion claim. Original worker gaps, coordinator repair, code map hashes and original IDs remain history. Current AD51 governs shared-seam design/second-world validation; FND5 remains proposed. Do not repeat old acceptance questions or turn this review into new gameplay work.",
+      "before_sha256": "b1209498e02ff3ef0e882d16a6c54d3a8c235a7f394aa9073f533e3150ba3d3a",
+      "after_sha256": "4d78018659191fb25bd6cb365e28f309028c15d306ae47e01ee40fcb7b05eaae"
+    },
+    {
+      "path": "docs/gm/dispatch/rules-consideration-2026-10-26/CHECKPOINT.md",
+      "heading": "## Later disposition pointer, 2026-11-04 (B63)",
+      "body": "This checkpoint preserves the completed finite consideration and original coverage/usage observations. Its pending-fold wording is superseded at the scoped content level by the [later synthesis follow-through](../../../audits/RULES_CONSIDERATION_2026-10-26.md#later-owner-follow-through-reconciled-2026-11-04-b63). Coordinator-repaired spans remain distinct from the partial worker reading, and the frozen map is not a current semantic/behavioral register. No new tests, browser route, implementation, acceptance or commit follows from this pointer.",
+      "before_sha256": "913d5dc7139925ed92a277c68a08ee7690b9fcfeb72d457a46a14f433b9a9bfd",
+      "after_sha256": "bf5206d1dd794d6deffd4958717fabc9aed053c58d1f3a8d85fea7087f981f82"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1409
+}

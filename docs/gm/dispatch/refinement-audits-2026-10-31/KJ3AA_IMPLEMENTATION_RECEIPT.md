@@ -1,5 +1,7 @@
 # KJ3AA implementation receipt: Anna's astrolabe and dream divination, the first paid session and Sunday night (kjw17)
 
+Historical receipt for the Nov 3 bundle below. The Nov 4 [M21/M22/M25 follow-through](../foundation-method-use-2026-11-04/CHECKPOINT.md) changes five selected command contracts and proves those operations from a named shortened entry. It does not refresh this earlier whole-window journey, source read or installed state.
+
 2026-11-03. Window kjw17, the first of the ch55-84 arc (A2a). **Agent-verified, not human-reviewed (AD43).** Content and pack data only: no `src/`, `dist/` or test edits. Not installed, no personal save touched. Depth: medium for the arc (default mix of [DEPTH_DIAL_PROPOSAL](DEPTH_DIAL_PROPOSAL.md); Weibao has recorded no pick), first uses of B4, B5/R1, B6 and R9 built deep.
 
 Proof bundle: `private/proof-bundles/master-bundle-65a3b122/` (bundle.js sha256 `65a3b12270499bad226b9e2955dabe73553cd0202a43dab71a2ccd72aa3189d3`, matches), a clean `node build.js` of master `44d0adb05` in a throwaway worktree (master carries B1-B6, R1, R9, L1, L2, B10). Native runs copied the packs (`cp -R`), never the symlink. Pack sha256 `8b7ada2b…`, revision `cast-reviewed-kj3aa-6f8aa61cc1b2eabc` (carries KJ3F-KJ3AA, 986 acts). Seed: the KJ3Z completed checkpoint (clock 15384, money 787, pool 0/3 strain 3, Divination Club). Brief: `private/kj-briefs-2026-11-02/BRIEF_kjw17.md`. Private files: `private/kj3aa-ch55-2026-11-03/`. Predecessor: [KJ3Z](KJ3Z_IMPLEMENTATION_RECEIPT.md).

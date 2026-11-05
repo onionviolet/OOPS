@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "batch": "B229",
+  "title": "All bond types, support offers, linked seats and dependency-loss contracts",
+  "at": "2026-11-04T23:28:54.444135+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/worlds/NONHUMAN_BONDS_AND_PARTIES_2026-10-14.md",
+      "ids": [
+        "BF1–BF10",
+        "BKD1–BKD9",
+        "BS1–BS8",
+        "BP1–BP6",
+        "BR1–BR6",
+        "BI1–BI6",
+        "BD1–BD18",
+        "BDS1–BDS5",
+        "N5deathwalk"
+      ],
+      "classification": "Historical local NPC/party source audit and proposed support/pair-seat contracts",
+      "owners": [
+        "docs/worlds/NONHUMAN_BONDS_AND_PARTIES_2026-10-14.md",
+        "docs/worlds/world-depth-2026-10-13/29_RELATIONSHIP_PREREQUISITES.md",
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "disposition": "Preserve actualproviderfunction/authority/willingness/capacity/resource/learner, no pooledanatomy frombond. Viewpointchoice notpossession. Rilllocalnonparty/finitepin versusnewpair, Liobracedcontest versusarbitraryparty; historicalconstraints notfreshcensus. Actorowneddeathcleanup notallparticipantdependencyrelease. Currentauthorityqualifies approval/worktree/count/viewport wording.",
+      "evidence": "Full187linebodyread1–65/66–130/131–end, alltables/deathwalk/NPCparity andfinalgaps. No currentRill/Lio/source/privatecanon/browser/proofs opened or executed.",
+      "reopen": "Selectedrealjointoperation orpairfocus: bind eachactor/body/knowledge/stock/authority, occupiedinterval/learning/beneficiary, actualcommand andfailure/supportloss route. Preserveactualhistoricalcontentidentity andtest currentconsumer ratherthannewgeneralensemblefirst.",
+      "input_sha256": "70164231f3aa53b1c934c6e8a4ad466dd23434703f6b710fd78fc246aec704a7",
+      "input_lines": 187,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          187
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/worlds/NONHUMAN_BONDS_AND_PARTIES_2026-10-14.md",
+      "heading": "## Content reconciliation B229, 2026-11-04",
+      "body": "All nine BKD types, BF/BS/BP/BR/BI/BD/BDS rows and the partner-loss walk were reviewed. The strongest reusable contract is a scoped support offer with a real provider, body/function, method, channel, time/capacity, payer, beneficiary and settlement. Recipient-to-provider trust does not establish provider-to-recipient willingness. Legal authority, trained response, free agreement and actual compulsion can each support different actions without creating affection. A bond label alone does not supply anatomy, shared skills, broadcast knowledge or a control lease (AD32/AD38).\n\nLending hands is delegated execution when another person performs the step; shared bodily executive control is a different mechanism. A translated intention, an intermediary’s delivered wording and the actual listener’s understanding are distinct. Viewpoint or player input focus can change between independent protagonists without changing either mind/controller. BP4 keeps each actor’s evidence separate even when the player remembers both viewpoints; a real shared channel can carry exactly its supported slice. Shared knowledge or XP may be stronger where a source supplies it, without an invented synchrony tax or forced betrayal.\n\nHistorical NPC examples retain exact scope: Rill’s local workshop route, participant reservations, two lessons and finite pin are not a general pet-travel/ensemble system. BF7’s nonparty condition requires its current content/compatibility decision before reuse, not deletion merely because a general roster exists. Lio’s paid braced contest has bounded body/gear/withdrawal behavior, not arbitrary party combat. Neither row proves every current NPC uses a generalized resolver. Old owner-approval language routes ownership and meaningful compatibility decisions; it does not create a renewed permission ceremony when current user scope already authorizes a concrete change. B229 itself authorizes no runtime change.\n\nBD11/BF10 identify a real design question: actor-owned lifespan cleanup may not release every job, guard, carrier, lease or grant that refers to that partner as support. A selected dependent route must settle actual performed work and remaining duties after loss, revocation or disconnection. Departure, injury, disappearance, dismissal and death differ; the survivor learns through an actual channel and remains at a real location/custody state. Return, re-summoning, replacement and restoration need their own identity/anchor terms. Breakup does not erase wages, borrowed items or history. Do not invent a rescuer, teleport or body swap refund to hide missing support.\n\nB215’s full social palette and B218–B228’s body/clock/recognition/making/economy reviews retain complementary owners without creating another friendship store. Current broad scope retires the realm/prestige gate; current desktop/prose-first targets replace1366-primary. AD51 permits needed seams before arbitrary example quotas, AD52 allows supported long/idle/compressed activity, and AD42 makes human taste optional review. No support resolver, pair start, seat switch, arbitrary party, loss cleanup, source contract, command, test or persistence proof was implemented or run here.",
+      "before_sha256": "70164231f3aa53b1c934c6e8a4ad466dd23434703f6b710fd78fc246aec704a7",
+      "after_sha256": "904315747a1fc79b20a1e9efab5a480b998b74564351765f47e21199cd55347a"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 988
+}

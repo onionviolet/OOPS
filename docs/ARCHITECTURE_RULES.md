@@ -55,7 +55,7 @@ is a host layer, not one of these: it wraps the same web build.
 | --- | --- | --- |
 | AR14 | **Every runtime lane brief names the seam it lands through** and links this file. A lane that needs a seam that does not exist extends the registry; it does not add an ad hoc join | Parallel lanes each wiring their own feature into `main.js` |
 | AR15 | **Extraction rounds reserve their files.** A round that moves code out of `main.js`, `save_files.js` or `display.js` records a writer reservation in its checkpoint. Other lanes in those files wait or work on a branch and merge after | Refactor and feature lanes overwriting each other in the hottest files |
-| AR16 | **Run the architecture check before calling runtime work done.** Once `scripts/check_architecture.mjs` exists, it is part of the gate with build, `npm test` and the browser check | Rules that decay because nothing enforces them |
+| AR16 | **Run the architecture check before calling runtime work done.** `npm run check:arch` runs the existing `scripts/check_architecture.mjs` and is part of the gate with build, `npm test` and the browser check (AD36/AD43) | Rules that decay because nothing enforces them |
 
 ## Original status, 2026-10-16 (historical)
 

@@ -1,0 +1,321 @@
+{
+  "schema": 1,
+  "batch": "B124",
+  "title": "Complete comic-body source packet and actual genetic-owner corrections",
+  "at": "2026-11-04T21:21:37.463087+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b17/REPORT.md",
+      "ids": [
+        "F1–F3",
+        "R1–R4",
+        "source/owner/proof limits"
+      ],
+      "classification": "Historical bounded comic-body research and original proposal palette",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b17/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Historical finalK3arrival supersedesinitialcheckpointabsence; K6intentionallystopped duplicateW18. RootonlypartlyappliedCBcorrections; CC/G77remainingclaimsneedboundedproposalwording. No sourceclock/fullserial/fullissue/gameplay renewed. Retirefirstmilestone/humanhardgate assumptions undercurrentdirection.",
+      "evidence": "Fresh full document body read, all source ledgers/correction/new-row/stand-in tables included. Historical web/source-tier claims are read as receipts, not renewed external facts or transitive primary-source reading.",
+      "reopen": "Selected adaptation needs exact continuity/era and qualified actual source windows; original body slice needs current command/observer/persistence owners. Preserve unused ideas and source limits.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "bd880df37256f1a915ec324dd42193b24fcd9cb93ef0acd19b14b6c086f5ace5",
+      "input_lines": 110,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          110
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b17/CORRECTIONS.md",
+      "ids": [
+        "CB1–CB15",
+        "CC1–CC6",
+        "G77a–e"
+      ],
+      "classification": "Historical bounded comic-body research and original proposal palette",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b17/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Fullcorrectivematrixkeeps congenitalexpression separate, acquireddoesnotsettleheredity, healingfunctionsindependent, copy/drain/borrowdifferent, mantle/bodydistinct and editorialchronology notbodytime. Exactmeansnotcompulsorywrong. Scopeallclaimsasboundedpublisher/narrative/examples, notuniversalfranchisebiology. Currentrootnotallcorrectionsapplieddespitetablelabel.",
+      "evidence": "Fresh full document body read, all source ledgers/correction/new-row/stand-in tables included. Historical web/source-tier claims are read as receipts, not renewed external facts or transitive primary-source reading.",
+      "reopen": "Selected adaptation needs exact continuity/era and qualified actual source windows; original body slice needs current command/observer/persistence owners. Preserve unused ideas and source limits.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "ab04cea0da5b84fb1685342ac348d6e350b8c9aa52ecf84c05293eec0c8ef15a",
+      "input_lines": 61,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          61
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b17/NEW_ROWS.md",
+      "ids": [
+        "CB16–CB23"
+      ],
+      "classification": "Historical bounded comic-body research and original proposal palette",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b17/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Eightcomparisoncandidatesnotreservedglobalruntimeoracceptedcanon. Externalprovider/tissue/interface, compositecontrol, divergentduplicates, form/matter, constructedkin, dependentlayers, administeredbodyoutcome anddesignedpurpose eachuseactualexistingowners. Noautofacultyfromtissue/identityfromDNA/reproductiveobedience. Allmapsinferred.",
+      "evidence": "Fresh full document body read, all source ledgers/correction/new-row/stand-in tables included. Historical web/source-tier claims are read as receipts, not renewed external facts or transitive primary-source reading.",
+      "reopen": "Selected adaptation needs exact continuity/era and qualified actual source windows; original body slice needs current command/observer/persistence owners. Preserve unused ideas and source limits.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "bb3cf774441df265d4493ccd1def731ecb62ae9ea29d91eaf8c49404e5e5258d",
+      "input_lines": 37,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          37
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b17/SRC_marvel-comics.md",
+      "ids": [
+        "M01–M13",
+        "local evidence gate"
+      ],
+      "classification": "Historical bounded comic-body research and original proposal palette",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b17/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "HistoricalindexedversusfetchedpublisherandboundedpriorPowerGridwiki retained; noissueinterior. Failedfull-dumproutedoesnoteraseotherlocalsecondaryevidence. In-worldclaimvsneutralnarration keepsoriginuncertain. Scopelearning/copy/harm,repair/aging,body/partner andhandbookrating independently. NoexternalURLfreshness/primaryfetchrenewed.",
+      "evidence": "Fresh full document body read, all source ledgers/correction/new-row/stand-in tables included. Historical web/source-tier claims are read as receipts, not renewed external facts or transitive primary-source reading.",
+      "reopen": "Selected adaptation needs exact continuity/era and qualified actual source windows; original body slice needs current command/observer/persistence owners. Preserve unused ideas and source limits.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "e221b605af55dcb2870fe7b4bb22de04be13d1d4b8abad1a4279db23e9f529cb",
+      "input_lines": 62,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          62
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b17/SRC_dc-comics.md",
+      "ids": [
+        "D01–D06",
+        "local evidence gate"
+      ],
+      "classification": "Historical bounded comic-body research and original proposal palette",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b17/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "PublisherexamplesnotallDCcontinuities. Storedenergyvsrecharge separatesindoorsfromzeroreserve, editorialneworiginvsphysicalmutation, compositeoccupants/control andshape/phasing distinct. No generaloffspring/healinglaw. No freshweborissue read.",
+      "evidence": "Fresh full document body read, all source ledgers/correction/new-row/stand-in tables included. Historical web/source-tier claims are read as receipts, not renewed external facts or transitive primary-source reading.",
+      "reopen": "Selected adaptation needs exact continuity/era and qualified actual source windows; original body slice needs current command/observer/persistence owners. Preserve unused ideas and source limits.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "275ddc52c1d9dd3a59c22e55753179de6e95d8eeb7304c0e8532d46faa3c4e83",
+      "input_lines": 43,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          43
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b17/SRC_worm.md",
+      "ids": [
+        "W01–W03",
+        "CC1 inherited lead"
+      ],
+      "classification": "Historical bounded comic-body research and original proposal palette",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b17/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Threehistoricalnarrativewindowsincludingin-worldgenerationalresearch retain evidence-layerdifference. Externalprovider/interface/fuel notDNAinheritance, traumaactivationnotemotionfuel, onevialoutcomenotallrecipients. Countermeasureclassesnottruepowerceiling, prognosisnotcertified. Prosenotcomicmedium. No new rawsource/fullserialverification.",
+      "evidence": "Fresh full document body read, all source ledgers/correction/new-row/stand-in tables included. Historical web/source-tier claims are read as receipts, not renewed external facts or transitive primary-source reading.",
+      "reopen": "Selected adaptation needs exact continuity/era and qualified actual source windows; original body slice needs current command/observer/persistence owners. Preserve unused ideas and source limits.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "02cb013a49f543001798b3bcfb0eb80e554b994684ad08717072a23747656514",
+      "input_lines": 57,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          57
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b17/SRC_godclads.md",
+      "ids": [
+        "GC01",
+        "contribution limits"
+      ],
+      "classification": "Historical bounded comic-body research and original proposal palette",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b17/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Synopsislevelonly engineeredpurpose/acquiredimmortality/legacy; no resurrectionfuel, heredity/repair/agencylaw fromwordheir. Wrong SB8reference actuallypointsprocedureorgan; chosenlife/designedpurpose standsinSB9. Correctlinkwitholdtextretainedexactledger. No chapterread/externalrenewal.",
+      "evidence": "Fresh full document body read, all source ledgers/correction/new-row/stand-in tables included. Historical web/source-tier claims are read as receipts, not renewed external facts or transitive primary-source reading.",
+      "reopen": "Selected adaptation needs exact continuity/era and qualified actual source windows; original body slice needs current command/observer/persistence owners. Preserve unused ideas and source limits.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "cf86c54b213fae59446db20aa34d5fa00d301f305f1ce459bad6e32a0c527fbb",
+      "input_lines": 35,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          35
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b17/STAND_INS.md",
+      "ids": [
+        "SB1–SB10",
+        "knowledge/lived effects",
+        "future gates"
+      ],
+      "classification": "Historical bounded comic-body research and original proposal palette",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b17/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Tenoriginalunselectedbodiesstaypublicpalette, notrenamedfranchiseorregisteredMaskedCity. Actualcivilianwork, donor/carrier/agency/reserve/channel/inheritance distinctions andlocalcostincludingnone. Potentialnotstoredfuel, copiedtemplatenotfuturelearning, repairnotrestoredself, implantnotheritableunlessactualtemplateprocedure. Currentdesktop/humanreviewqualifiesold1366 gate; noimplementationselected.",
+      "evidence": "Fresh full document body read, all source ledgers/correction/new-row/stand-in tables included. Historical web/source-tier claims are read as receipts, not renewed external facts or transitive primary-source reading.",
+      "reopen": "Selected adaptation needs exact continuity/era and qualified actual source windows; original body slice needs current command/observer/persistence owners. Preserve unused ideas and source limits.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "d118a9c3346999cc054b98b192426c24be966ef3c86d051863a465f2ce5d9a42",
+      "input_lines": 49,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          49
+        ]
+      ]
+    },
+    {
+      "path": "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+      "ids": [
+        "G75–G80 selected",
+        "fold corrections table"
+      ],
+      "classification": "Selected genetic owner comparison/proposal rows only",
+      "owners": [
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b17/REPORT.md"
+      ],
+      "disposition": "ExistingfoldappliesselectedCB1/4/7/8/9/12/13 butCC1–5andG77a–dretainoverclaims. Correctnarrowlyasproposalswithoriginalwordingintaskledger; newCB16–23retainedinlinkedpacketnotduplicatedtable. ABreadinessgovernedAD51B114, rankviewnotuniversalpowertruth. Restoflargeownerremainsunreviewed.",
+      "evidence": "Fresh1405–1496and1510–1533 selectedrangesread, nofullownercredit.",
+      "reopen": "Fullownerresidue stillneedsindependentcoverage; selectedcomicroute requiresactualsource/means/ownerproof.",
+      "read_mode": "fresh_selected_content_read",
+      "full": false,
+      "ranges": [
+        [
+          1405,
+          1496
+        ],
+        [
+          1510,
+          1533
+        ]
+      ],
+      "input_sha256": "ea5e5aa86deea020d8fe86967db33e409af0f4a9d4c8db4e6627d6a63bf968a0",
+      "input_lines": 1818
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b17/REPORT.md",
+      "heading": "## Comic-body reconciliation B124, 2026-11-04",
+      "body": "All eight underlying B17 bodies now read: REPORT/CORRECTIONS/NEW_ROWS/four source cards/STAND_INS. Preserve M01–M13/D01–D06/W01–W03/GC01 evidence tiers: indexed/fetched publisher text, prior secondary wiki, bounded narrative and in-world research, or synopsis. Reading these receipts does not renew URLs, read issues/serials or qualify every continuity. Failed dump acquisition is route-specific, not proof no other source exists. Prose comparisons remain prose, not comic-medium laws. K3’s final arrival supersedes earlier pending status; K6 was intentionally stopped as W18 overlap, not a worker to relaunch.\n\nThe genetic owner had applied only selected CB corrections; its blanket “corrections applied” label did not settle CC/G77. B124 directly qualifies CC1–CC5 and G77a–d as scoped proposal/texture, retaining exact old/new wording in the batch ledger. Handbook descriptors are not automatically institutional guesses; detection names its signal, origin recall its actual access/means, identity resolution its channels, and trigger forecasts remain unverified canon analogies rather than guaranteed stress countdowns. Scar repair, tailoring, category mistakes and a famous child’s appearance/pursuit are conditional actual events, not automatic facts. SRC_godclads’ SB8 reference is corrected to SB9, the designed-purpose/chosen-life stand-in; SB8 remains the administered-body procedure.\n\nCB16–CB23 and SB1–SB10 remain linked candidates, not new accepted rules or copied runtime systems. Keep external provider/tissue, body/person/control, template/local memory, physical shape/matter interaction, construction/kinship, support dependency and agency separate. Exact powerful means can work without mandatory failure or universal costs. Current [PROJECT](../../../../../PROJECT.md), AD42 and AD51 in [RULES_INDEX](../../../../RULES_INDEX.md) govern retired milestone, optional review and reasonable shared-seam design. No new world order, source acquisition or implementation is selected; raw primary sources and underlying comic sibling packets remain independent review inputs.",
+      "before_sha256": "bd880df37256f1a915ec324dd42193b24fcd9cb93ef0acd19b14b6c086f5ace5",
+      "after_sha256": "ae128c753d1e71f534f5cfcad9c4822c12eec4bb1afcb5c533a1f70ff9677f75"
+    },
+    {
+      "path": "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+      "heading": "## Comic-body corrections B124, 2026-11-04",
+      "body": "The complete [B17 return](gm/dispatch/body-lineage-2026-10-14/b17/REPORT.md#comic-body-reconciliation-b124-2026-11-04) now has actual-content review. Its earlier fold applied selected CB lines, while CC1–CC5 and G77a–d still overpromised. Those rows are now directly qualified as proposals with actual means, coverage and conditional texture; exact old/new wording is preserved in [B124](audits/reconciliation-2026-11-04/content-b124.json). Keep CB16–CB23/eight source comparisons and ten original stand-ins in their linked owner rather than duplicate them as accepted specifications. Source-body read does not grant fresh external, issue/serial or gameplay proof. Current AD42/AD51 supersedes old milestone/two-implemented-case/human hard gates; no world or body slice is launched.",
+      "before_sha256": "ea5e5aa86deea020d8fe86967db33e409af0f4a9d4c8db4e6627d6a63bf968a0",
+      "after_sha256": "b9ee7f64cf14d9a4bed8d98e6617dfc1f4c383255627ef08ab2181ff3adf5b59"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1238,
+  "post_record_amendments": [
+    {
+      "path": "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+      "from": "| CC1 | Power-rating window | Official handbook stats or threat ratings for bodies and powers | Ratings are bureaucratic guesses; comic CA3 rank ladder |",
+      "to": "| CC1 | Power-rating window | Dated handbook dimensions or institutional threat estimates within their declared scope | A published descriptor and an observer estimate differ; neither implies a universal body ceiling (comic CA3) |",
+      "reason": "Reviewed B17 owner correction; exact superseded wording retained here as history, no runtime/accepted-rule change."
+    },
+    {
+      "path": "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+      "from": "| CC2 | Mutant detector | Senses latent carriers (CB1, CB2) at a distance | Who builds such a device, and for what (PG5 purity movements) |",
+      "to": "| CC2 | Marker or signal detector | Reads the particular active/latent signal its actual means supports; unknown outside that scope | Range, masking, reference and intended use differ; no signal is not proof of no lineage (PG5) |",
+      "reason": "Reviewed B17 owner correction; exact superseded wording retained here as history, no runtime/accepted-rule change."
+    },
+    {
+      "path": "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+      "from": "| CC3 | Origin recall | Shows how any body got its powers | Retcons change the answer (CB14) |",
+      "to": "| CC3 | Origin enquiry or recall | Retrieves accessible records/traces; genuine causal sight may establish more when its mechanism supports it | Changed accounts, actual origin and remembered evidence differ; continuity follows comic CA5, with no automatic memory rewrite |",
+      "reason": "Reviewed B17 owner correction; exact superseded wording retained here as history, no runtime/accepted-rule change."
+    },
+    {
+      "path": "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+      "from": "| CC4 | Mask-piercer | Sees the person under the costume | The most dangerous knowledge in a hero world |",
+      "to": "| CC4 | Mask-piercer | Resolves the face, body or identity channels its actual means can read | Seeing a face does not alone establish name, possessor, lineage or every disguise; comic CA7 owns recognition |",
+      "reason": "Reviewed B17 owner correction; exact superseded wording retained here as history, no runtime/accepted-rule change."
+    },
+    {
+      "path": "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+      "from": "| CC5 | Trigger forecaster | Who is close to a trigger event | An ethical trap: do you help, warn or exploit? |",
+      "to": "| CC5 | Trigger enquiry or forecast | Observes distress with uncertainty; genuine causal forecasting is an original or separately qualified route | Stress is not a guaranteed power countdown; help, warning and other choices use actual knowledge and means |",
+      "reason": "Reviewed B17 owner correction; exact superseded wording retained here as history, no runtime/accepted-rule change."
+    },
+    {
+      "path": "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+      "from": "- A healing factor removes scars that would have told a story (BC7, LQ11).",
+      "to": "- A supported repair template may remove, retain or recreate a scar; its absence alone does not settle the prior event (BC7, LQ11).",
+      "reason": "Reviewed B17 owner correction; exact superseded wording retained here as history, no runtime/accepted-rule change."
+    },
+    {
+      "path": "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+      "from": "- A costume that fits only one body makes a mantle hard to pass on (MP2).",
+      "to": "- A particular costume may need tailoring, adjustment or replacement after a body change; mantle succession follows its own rule (MP2).",
+      "reason": "Reviewed B17 owner correction; exact superseded wording retained here as history, no runtime/accepted-rule change."
+    },
+    {
+      "path": "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+      "from": "- Power-rating windows round people into categories; edge cases get\n  misfiled (SI3, CN8).",
+      "to": "- A particular rating can misclassify an edge case; retain its source, date, dimensions and use conditions, while exact supported readers remain possible (SI3, CN8).",
+      "reason": "Reviewed B17 owner correction; exact superseded wording retained here as history, no runtime/accepted-rule change."
+    },
+    {
+      "path": "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+      "from": "- Children of famous heroes carry the face and the target (MH1, CL6).",
+      "to": "- A famous hero’s child may resemble them or attract a pursuer with an actual motive and information; appearance, inherited faculty, known kinship and targeting remain separate (MH1, CL6).",
+      "reason": "Reviewed B17 owner correction; exact superseded wording retained here as history, no runtime/accepted-rule change."
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b17/SRC_godclads.md",
+      "from": "[SB8](STAND_INS.md)",
+      "to": "[SB9](STAND_INS.md)",
+      "reason": "Reviewed B17 owner correction; exact superseded wording retained here as history, no runtime/accepted-rule change."
+    }
+  ]
+}

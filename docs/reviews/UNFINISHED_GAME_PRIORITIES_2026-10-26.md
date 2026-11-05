@@ -1,5 +1,7 @@
 # Unfinished game work and next priorities, 2026-10-26
 
+**Content review B4, 2026-11-04:** original ranked items, F5–F12 and the later “Next order” section reviewed. Its later A5-done entry supersedes the opening recommendation to finish A5; the procedural-making audit now records a later F1/F2 repair too. Existing PROJECT.md and selected campaign/mechanism owners govern order (AD32/AD44); old Q18 readiness, branch/remote/PID and artifact notes are not live authorization. [Current content-batch dispositions](../audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md#content-review-batches-24) retain the connected-making, entry and useful UI ideas without relaunching the old queue.
+
 Scope: bounded review of current master, registered worktrees, current project direction and selected delivery/coverage owners. This is a prioritization proposal, not an exhaustive feature audit or new direction. Rules: AD32, AD36, AD41–AD43; world completion S00–S14 is proposed. Sealed truths remain undisclosed.
 
 ## Baseline

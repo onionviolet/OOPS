@@ -101,3 +101,21 @@ test('disabled reasons stay linear on a panel with thousands of disabled buttons
         assert.ok(large < Math.max(small, 0.5) * 40, `200 buttons ${small.toFixed(1)} ms, 2000 buttons ${large.toFixed(1)} ms`);
     } finally {Object.assign(globalThis, saved);}
 });
+
+test('an explicitly linked summary reason is reused without moving or deleting its node',()=>{
+ const saved={document:globalThis.document,MutationObserver:globalThis.MutationObserver},dom=createDom();
+ dom.loadHTML('<body><section id="root"><div id="summary"><span id="blocker">Study the method first.</span></div><div id="actions"></div></section></body>');
+ globalThis.document=dom.document;globalThis.MutationObserver=class{observe(){}disconnect(){}};let decoration;
+ try{
+  const root=document.getElementById('root'),summary=document.getElementById('summary'),text=document.getElementById('blocker'),b=document.createElement('button');
+  b.disabled=true;b.title='Study the method first.';b.setAttribute('aria-describedby','blocker');document.getElementById('actions').append(b);
+  decoration=decorateActionComponents(root);decoration.refresh();
+  assert.equal(text.parentElement,summary);assert.equal(text.tabIndex,0);assert.equal(b.getAttribute('aria-describedby'),'blocker');
+  assert.equal([...root.querySelectorAll('.ui-disabled-reason')].filter(n=>!n.hidden).length,0);
+  const borrowed=decorateActionComponents(document.getElementById('actions'));borrowed.refresh();decoration.refresh();assert.equal(root.querySelector('.ui-disabled-reason').hidden,true,'nested decorators reuse the explicit explanation outside their own subtree');borrowed.destroy();
+  b.title='Recover reserve first.';decoration.refresh();
+  assert.equal(text.parentElement,summary);assert.equal(text.textContent,'Study the method first.');assert(!text.hasAttribute('tabindex'));
+  assert.equal(root.querySelector('.ui-disabled-reason').textContent,'Recover reserve first.');assert.equal(root.querySelector('.ui-disabled-reason').hidden,false);
+  b.disabled=false;decoration.refresh();assert.equal(text.parentElement,summary);assert(!b.hasAttribute('aria-describedby'));
+ }finally{decoration?.destroy();Object.assign(globalThis,saved);}
+});

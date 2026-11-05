@@ -52,3 +52,8 @@ UI rulebook and its path rule did not point at SUI or RPT; the rules index and
 
 UIV5 (compare visible text across save and import) is a check, not a rule, so it
 is not in this packet; it stays on the round 7 LATER list.
+
+
+## Current status reconciled, 2026-11-04 (B72)
+
+The later “proposed, in use” status at the top is the operative distinction for this packet, not a fresh all-sixteen approval stop. [CHOICES item 4](../gm/dispatch/sonnet-wave-2026-10-30/CHOICES.md) applied defaults with panel dials while preserving proposal status; silence is not human acceptance (AD32). Current UI_RULES and RULES_INDEX still distinguish UR1–UR75 standing from UR76–UR82/UIV proposals in use. The November 4 UI/prose update explicitly preserves those unrelated statuses. P8/P10/P11/P6 overlap previously binding scene/Reports obligations at their stated domain scope; the old RPT1–RPT12 sentence does not remove later RPT13–RPT14. UIV5 remains an auxiliary visible-text persistence check, not a missing binding rule to invent. Keep P1–P16’s detailed recommendations and original adoption mechanism as history; no broad acceptance, new route budget, mandatory human review or runtime implementation follows from this review. Actual new behavior uses current owners and AD36/AD42/AD43.

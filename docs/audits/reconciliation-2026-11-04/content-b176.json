@@ -1,0 +1,159 @@
+{
+  "schema": 1,
+  "batch": "B176",
+  "title": "Local-AI real-task and repair trials with exact intervention boundaries",
+  "at": "2026-11-04T22:31:27.368352+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/reviews/local-ai-work-2026-10-25/real-task/REPORT.md",
+      "ids": [
+        "F1–F3/H1–H5"
+      ],
+      "classification": "Historical local-model/workflow execution trial with intervention receipts",
+      "owners": [
+        "docs/reviews/LOCAL_AI_WORK_AUDIT_2026-10-25.md",
+        "docs/reviews/local-ai-work-2026-10-25/real-task/REPORT.md"
+      ],
+      "disposition": "Initialmax-tokensfailure, controlleddirectgeneration accepted15assertions byprimary notworker, warmstate/route/context/thinking/execution allchanged. Ninefieldcontract notten, configuredtoolcounts nothealth. Ownlatestpointer supersedes unqualifiedHarnessnotready.",
+      "evidence": "Fresh complete report read including allstagecounts, failures, primaryinterventions, exclusions andlaterpointers. Rawwire/events/generatedcode/config/privatebackups/currentmodels/toolhealthnotopened or rerun by association; no benchmark or installedsettingsinspection.",
+      "reopen": "Reuse exact historicaltask/evidence only, currentconfig/toolroute mustbeverified for aseparatelyselectedjob; nounrequestedsettingsedit/replay/modeldownload/delegation.",
+      "input_sha256": "1a495ae37e7fdbdaa94e1b0828cdb2a4398c0850ee8f06eb7705c562b0d604f4",
+      "input_lines": 102,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          102
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/local-ai-work-2026-10-25/harness-fixed/REPORT.md",
+      "ids": [
+        "H6–H9"
+      ],
+      "classification": "Historical local-model/workflow execution trial with intervention receipts",
+      "owners": [
+        "docs/reviews/LOCAL_AI_WORK_AUDIT_2026-10-25.md",
+        "docs/reviews/local-ai-work-2026-10-25/harness-fixed/REPORT.md"
+      ],
+      "disposition": "Persistentoffmappinghistoricaltwo controls43vs0reasonchars;zero emittedreasoning notinaccessibleinternalcompute. Relayunchangedbody/controlfieldsummarywrongcorrectedpreserved. Correctartifact15/15 but ninthstep supervisorabort despiteexit0;8steps9requestsnotstrictrequestcap.",
+      "evidence": "Fresh complete report read including allstagecounts, failures, primaryinterventions, exclusions andlaterpointers. Rawwire/events/generatedcode/config/privatebackups/currentmodels/toolhealthnotopened or rerun by association; no benchmark or installedsettingsinspection.",
+      "reopen": "Reuse exact historicaltask/evidence only, currentconfig/toolroute mustbeverified for aseparatelyselectedjob; nounrequestedsettingsedit/replay/modeldownload/delegation.",
+      "input_sha256": "fda04198aa33ce0a1e88c632607c1e8cf5c87e1f454d019c6cff53bb5cbbdf7a",
+      "input_lines": 79,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          79
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/local-ai-work-2026-10-25/harness-finished/REPORT.md",
+      "ids": [
+        "H10–H13"
+      ],
+      "classification": "Historical local-model/workflow execution trial with intervention receipts",
+      "owners": [
+        "docs/reviews/LOCAL_AI_WORK_AUDIT_2026-10-25.md",
+        "docs/reviews/local-ai-work-2026-10-25/harness-finished/REPORT.md"
+      ],
+      "disposition": "Priorintermediate14/15duplicateIDloss preserved, fixedcheckerrejectsbadscript. Finalworkerverified utilitynormalcompleted6steps7requests111.255warm scopedtask notgeneralautonomy; skillYAMLparsednotPyvalidatorpassed.",
+      "evidence": "Fresh complete report read including allstagecounts, failures, primaryinterventions, exclusions andlaterpointers. Rawwire/events/generatedcode/config/privatebackups/currentmodels/toolhealthnotopened or rerun by association; no benchmark or installedsettingsinspection.",
+      "reopen": "Reuse exact historicaltask/evidence only, currentconfig/toolroute mustbeverified for aseparatelyselectedjob; nounrequestedsettingsedit/replay/modeldownload/delegation.",
+      "input_sha256": "5f492ac0eb8c445ae40671554dbd8f4da58c8d40d16c7d35c84083e0535a17e2",
+      "input_lines": 77,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          77
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/local-ai-work-2026-10-25/code-fix-final/REPORT.md",
+      "ids": [
+        "C1–C4"
+      ],
+      "classification": "Historical local-model/workflow execution trial with intervention receipts",
+      "owners": [
+        "docs/reviews/LOCAL_AI_WORK_AUDIT_2026-10-25.md",
+        "docs/reviews/local-ai-work-2026-10-25/code-fix-final/REPORT.md"
+      ],
+      "disposition": "RealinvalidUTF8sourcepatch+regression9tests integratedexact but neededprimarybriefcorrection, same-sessionfunctionalrepair andcloseprompt. narrowcheckerpassbrokeexistingmocktest, tailmaskedexit then&&correct. 282.704includesbrief vs236.557excludes notnettime saving. Oldmissingfieldreasoningnotcurrentsettings.",
+      "evidence": "Fresh complete report read including allstagecounts, failures, primaryinterventions, exclusions andlaterpointers. Rawwire/events/generatedcode/config/privatebackups/currentmodels/toolhealthnotopened or rerun by association; no benchmark or installedsettingsinspection.",
+      "reopen": "Reuse exact historicaltask/evidence only, currentconfig/toolroute mustbeverified for aseparatelyselectedjob; nounrequestedsettingsedit/replay/modeldownload/delegation.",
+      "input_sha256": "06986c4a77d923a576cf9b735bc0884bce8e399031fb30739b07e00a01d877c8",
+      "input_lines": 62,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          62
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/local-ai-work-2026-10-25/workflow-improvement-final/REPORT.md",
+      "ids": [
+        "I1–I4"
+      ],
+      "classification": "Historical local-model/workflow execution trial with intervention receipts",
+      "owners": [
+        "docs/reviews/LOCAL_AI_WORK_AUDIT_2026-10-25.md",
+        "docs/reviews/local-ai-work-2026-10-25/workflow-improvement-final/REPORT.md"
+      ],
+      "disposition": "verifyhelperfailfaststatuses/hashbinding/invalidbyte/timeout/literalargv independenttested7,not sandboxpermission. Replayone-linesimplerpatch remainedcandidate notoverwritingacceptedprojectfix; fixtureerrorandboundedcontinuationnotfreshoneshot. Wirescope11only.",
+      "evidence": "Fresh complete report read including allstagecounts, failures, primaryinterventions, exclusions andlaterpointers. Rawwire/events/generatedcode/config/privatebackups/currentmodels/toolhealthnotopened or rerun by association; no benchmark or installedsettingsinspection.",
+      "reopen": "Reuse exact historicaltask/evidence only, currentconfig/toolroute mustbeverified for aseparatelyselectedjob; nounrequestedsettingsedit/replay/modeldownload/delegation.",
+      "input_sha256": "8109e3ab1cc13a882404748bcf6a8633cf80237f070418c1679ee75aa8aaa1c3",
+      "input_lines": 63,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          63
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/local-ai-work-2026-10-25/fresh-code-fix/REPORT.md",
+      "ids": [
+        "N1–N3; instrumentation corrections"
+      ],
+      "classification": "Historical local-model/workflow execution trial with intervention receipts",
+      "owners": [
+        "docs/reviews/LOCAL_AI_WORK_AUDIT_2026-10-25.md",
+        "docs/reviews/local-ai-work-2026-10-25/fresh-code-fix/REPORT.md"
+      ],
+      "disposition": "NewPIDpredicate mocksnotrealOSsignals; freshdifferenttask7steps8requestsonehumanmessage0followups93.925normalfinish. FourregressionsoldASTunchanged10tests exactlocallyapplied, no claimgeneralreliability. Persona-shadowing and broadsuffixauditmistakes explicitlycorrected, startupcontextsnotrepairprompt. Binaryfixturehelpertests distinctno modelusageinPIDtask.",
+      "evidence": "Fresh complete report read including allstagecounts, failures, primaryinterventions, exclusions andlaterpointers. Rawwire/events/generatedcode/config/privatebackups/currentmodels/toolhealthnotopened or rerun by association; no benchmark or installedsettingsinspection.",
+      "reopen": "Reuse exact historicaltask/evidence only, currentconfig/toolroute mustbeverified for aseparatelyselectedjob; nounrequestedsettingsedit/replay/modeldownload/delegation.",
+      "input_sha256": "85f3a145782c84105709c825b0057db97ea218e09d83527662086b2fb8fc00c6",
+      "input_lines": 62,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          62
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/reviews/LOCAL_AI_WORK_AUDIT_2026-10-25.md",
+      "heading": "## Detailed trial reconciliation, 2026-11-04 (B176)",
+      "body": "The full real-task, harness-fixed, harness-finished, code-fix-final, workflow-improvement-final and fresh-code-fix reports were read, including their failed intermediate attempts and instrumentation corrections. Preserve the progression rather than describing every later result as either original failure or general unattended success. The first Harness task ended max-tokens with no artifact; direct code generation then passed15 independent assertions after primary execution. Settings replay produced correct artifacts but was supervisor-aborted at the step boundary despite process exit0. The final bounded inventory task did run its fixed checker and finish normally, six steps/seven requests, at111.255 warm seconds. A preceding script passed its own revised tests but failed the unchanged duplicate-list edge oracle14/15; that failed artifact remains retained.\n\nThe actual launcher code fix was useful and locally integrated, with a meaningful old-source/new-regression failure and9 focused tests, but needed a corrected primary brief, functional repair after breaking a mock and a close-out prompt. The follow-on same-defect replay produced a smaller candidate and normal bounded continuation; it did not replace the adopted project patch or qualify a held-out task. The later PID-liveness task was a separate fresh success: one human message, zero follow-ups, seven steps/eight requests, first verification pass and normal completion at93.925 seconds, with four meaningful new regressions and10 lane tests. Mocked process operations do not signal real agents. That is one supported no-follow-up case, not a reliability rate.\n\nKeep intervention and verification ownership exact: code-only direct recovery leaves execution/testing with primary; a worker-run fixed checker is different from primary independent assessment; a durable conversation is not file rollback. Step counts differ from backend requests and a reactive ninth-step termination is not a strict request-admission controller. Backend off controls and unchanged-body relay observed zero emitted reasoning for the named tasks, not inaccessible internal computation. The first reasoning-field counter and later persona-shadowing speculation were corrected from retained evidence; do not revive them as established causes. Reported latency excludes substantial setup/review and mixes warm/context/scaffolding conditions, so no causal runner ranking, token saving or net human-time saving follows.\n\nThe tested verification helper records actual command statuses and input/output hashes, rejects changed sources, stops later checks on failure and exposes bounded diagnostics; it grants no permissions or sandbox guarantee. Shell pipelines can hide earlier failure, so the final required check statuses matter. Fixture helper tests do not prove every model uses the helper, and YAML/frontmatter parsing is not a passed Python skill validator. Registry counts are configured facts, not installed/probed tool health. Old model digests/settings/PIDs/ports are historical, not current configuration advice or authority to edit another project’s skill. No inference, replay, tool probe, live model/settings lookup, raw wire/private backup access, installation or new agent was performed.",
+      "before_sha256": "dcc3d072e9675e537bf1ab926b22682eb0116b14003a606348da23132fe637e5",
+      "after_sha256": "f041a10475154d4fc420e55f272226b5df1bb27f5f07bf8e74e41b5926f16439"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1111
+}

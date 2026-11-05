@@ -1,0 +1,590 @@
+{
+  "schema": 1,
+  "batch": "B21",
+  "title": "Missed-work provenance and lossless repeated-visit acceptance",
+  "at": "2026-11-04T19:44:48.258878+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/feature-wave/features/society/CHECKPOINT.md",
+      "ids": [
+        "INC-P3",
+        "wave interface1",
+        "cursor schema1",
+        "26 command IDs",
+        "expeditionRegistry"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "src/feature_expansion_society.js, src/feature_expansion_society_host.js, src/feature_expansion_work_plan.js; Features owner for remaining UI/People/native publisher joins."
+      ],
+      "disposition": "Historical source delivery and static/import checks are reported; cursor validation, integrations and all gameplay/save/failure/director routes remained unverified. Later resume records an unrelated Backlog eager-registration failure after earlier full registry import failure. Keep exact paid actor/stock/knowledge and durable publication findings in incumbent owners. Leaf pending joins are historical relative to parent source receipts; no present lease or fresh gameplay proof follows. Existing useful palettes/history are retained in place.",
+      "mechanism_and_interactions": "Finite funded resident/home-work plans use current simulation jobs, controllers, common clock and native publisher; enrollment seeds finite resident/funding stock once. Explicit spawn, directed knowledge, paired resource/recipient effects, reservations, claim transfer, live completion and cancellation refunds support Hessa's funded repair, Orr's independent repair, and Vale's separate apprenticeship/demonstration. Cursor schema1 validates retained definitions and exact accepted receipts, pausing at unsupported contact/stock/busy/native travel; it reserves only the next real command.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint statements reviewed within the assigned source span only; reports/artifacts and current source/runtime were not independently inspected. Any passed check cited here is a claim in that checkpoint, not a contemporary verification.",
+      "reopen": "Verify the integrated rebuilt route across contact, finite stock, busy/native travel, accepted work pause/cancel/refund, and persistence; checkpoint says those gates remain open.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          25
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S014.json"
+      ],
+      "prior_input_sha256": "8fbd96e446d5e031c73f643f19e3a563e41ea165d2dd82e35656c20ed1946b77",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "8fbd96e446d5e031c73f643f19e3a563e41ea165d2dd82e35656c20ed1946b77",
+      "input_lines": 25
+    },
+    {
+      "path": "docs/gm/feature-wave/ink/CHECKPOINT.md",
+      "ids": [
+        "inkjs2.4.0",
+        "story21",
+        "save10",
+        "revision3",
+        "32 scope",
+        "64 receipts",
+        "19 runtime_activation false"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/feature-wave/ink/REFINEMENT_ADMISSION and voice-cues/REVIEW; Features owns integration/build; existing Backlog/native action owners supply nested actions."
+      ],
+      "disposition": "Source/native/UI/save/current-build objective is reported complete and source released; static checks and source-map comparisons passed. Gameplay/main-story and save/reload acceptance remain explicitly deferred, so integrated story behavior is unverified. Keep exact paid actor/stock/knowledge and durable publication findings in incumbent owners. Leaf pending joins are historical relative to parent source receipts; no present lease or fresh gameplay proof follows. Existing useful palettes/history are retained in place.",
+      "mechanism_and_interactions": "Ink uses inkjs2.4.0, story revision3 and legacy wrapper2 with independent native-instance/mission records, 32 scopes and 64 receipts. A pure native plan and optional staged joined-clock bridge feed one existing durable publisher; callbacks have no reward authority. Actual Backlog native actions own rights/source/duty; nested/chain commands own services, contract, local outcome, extraction, settlement and changed revisit. Nineteen bounded dossier/source-voice rows and 38 proposals were reviewed, with all 19 runtime_activation=false.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint statements reviewed within the assigned source span only; reports/artifacts and current source/runtime were not independently inspected. Any passed check cited here is a claim in that checkpoint, not a contemporary verification.",
+      "reopen": "Exercise actual story continuation, nested Backlog transitions, durable settlement, save/reload and changed revisits on the current rebuilt game; source-map identity alone does not prove play.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S014.json"
+      ],
+      "prior_input_sha256": "87cee19bba49f9ef12bec6c81f46c406279394b5ded6d29a5ae83dc4ba531d3e",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "87cee19bba49f9ef12bec6c81f46c406279394b5ded6d29a5ae83dc4ba531d3e",
+      "input_lines": 17
+    },
+    {
+      "path": "docs/gm/feature-wave/legibility/CHECKPOINT.md",
+      "ids": [
+        "projection2",
+        "16 exports",
+        "FINAL_ADMISSION",
+        "LATER_ACCEPTANCE.md"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "src/action_legibility.js, src/action_legibility_ui.js, styles/action_legibility.css; existing shared list/native menus/callback/publisher; FINAL_ADMISSION and LATER_ACCEPTANCE.md."
+      ],
+      "disposition": "Finite source/native/UI/current-build implementation is reported delivered, implemented-unverified. Static syntax/import/CSS/link checks and final bundle/source-map matching are reported; behavior, save and director gates remain deferred. Keep exact paid actor/stock/knowledge and durable publication findings in incumbent owners. Leaf pending joins are historical relative to parent source receipts; no present lease or fresh gameplay proof follows. Existing useful palettes/history are retained in place.",
+      "mechanism_and_interactions": "Legibility projection2 exposes 16 exports. It distinguishes quoted/nominal terms, frozen work/cancellation and retained accounts; addressed observer recognition/suspicion/correction keeps old accounts and witnesses separate. Qualified carrier changes do not infer inheritance of body/controller/soul/source/mastery/stock/authority/burden. Recovery requires actual preview plus exact displayed token. Known hub/mission/chain projectors use actual clock, extraction stages, settlement and changed revisit accounts; no new state, reward, clock, RNG, enrollment or identity engine.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint statements reviewed within the assigned source span only; reports/artifacts and current source/runtime were not independently inspected. Any passed check cited here is a claim in that checkpoint, not a contemporary verification.",
+      "reopen": "Current rebuilt browser acceptance should cover private versus heard knowledge, corrections, token freshness, scarce/cancelled work, unsupported carrier changes, settlement/revisit and keyboard focus; none is claimed exercised.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          19
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S014.json"
+      ],
+      "prior_input_sha256": "7ec23f0c841750b25e9a418794a6ad259b84c8899b96a5e5f17026d7ffbabb4d",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "7ec23f0c841750b25e9a418794a6ad259b84c8899b96a5e5f17026d7ffbabb4d",
+      "input_lines": 19
+    },
+    {
+      "path": "docs/gm/feature-wave/repositories/CHECKPOINT.md",
+      "ids": [
+        "30 rows",
+        "9 mechanism families",
+        "28 commands",
+        "SOURCE_MATRIX",
+        "COVERAGE"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/feature-wave/repositories/SOURCE_MATRIX, COVERAGE, ADMISSION/IMPLEMENTATION_MATRIX and SOURCE_RELEASE/INTEGRATION; Features shared integrator."
+      ],
+      "disposition": "Historical source/native/UI/save/build delivery and hash/map parity are reported; cold registry imports were static only. Behavioral game action and save/acceptance gates remain deferred; source/build completion is not behavior verification. Keep exact paid actor/stock/knowledge and durable publication findings in incumbent owners. Leaf pending joins are historical relative to parent source receipts; no present lease or fresh gameplay proof follows. Existing useful palettes/history are retained in place.",
+      "mechanism_and_interactions": "Repository absorption reports 30 rows classified 9 adopted, 15 covered, 4 not applicable and 2 rejected; nine mechanism families are described as closed in admission/matrix. Seven source modules and 28 commands connect one actor/power/site/controller, two situations, one source and three native OtherItems. Named consumers include lantern/material/witness/funded teaching/pump/return, next-step/stock projections, material substitution and tested-method/witnessed-function continuation. No generic graph/carrier/clock/stock/reward engine is claimed.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint statements reviewed within the assigned source span only; reports/artifacts and current source/runtime were not independently inspected. Any passed check cited here is a claim in that checkpoint, not a contemporary verification.",
+      "reopen": "If reselected, verify present shared consumers and run actual behavior/persistence acceptance; checkpoint explicitly says no behavioral game action was executed.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S014.json"
+      ],
+      "prior_input_sha256": "da5e6e76a7e8732bf0a7fb8187b228c72f23f4ee5d69600cfd21c1d7de2d8cf9",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "da5e6e76a7e8732bf0a7fb8187b228c72f23f4ee5d69600cfd21c1d7de2d8cf9",
+      "input_lines": 11
+    },
+    {
+      "path": "docs/gm/game-absorption-2026-10-06/CHECKPOINT.md",
+      "ids": [
+        "GD-01",
+        "e77080593d4b",
+        "370 local-source entries",
+        "37 vendors"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/game-absorption-2026-10-06/DELIVERY.md, ../audit-absorption-2026-10-07/CHECKPOINT.md, BUILD.json, ACCEPTANCE_BACKLOG.md."
+      ],
+      "disposition": "Current source/native/UI/compatible-reader/current-build is reported delivered, implemented-unverified; original builder's old lease no longer blocks. Actual player/save/failure/director acceptance is explicitly deferred in ACCEPTANCE_BACKLOG.md. Keep exact paid actor/stock/knowledge and durable publication findings in incumbent owners. Leaf pending joins are historical relative to parent source receipts; no present lease or fresh gameplay proof follows. Existing useful palettes/history are retained in place.",
+      "mechanism_and_interactions": "Receiver acquired four released leaves and completed a bounded integration: nine moving inputs applied, native body/absence validator repaired, native items/stock/save inventory/display and registry/facts/popped reservation/cancellation/Here/evidence/comparison joins were made, then bundle e77080593d4b rebuilt with 370 local-source entries and 37 vendors matching served bytes.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint statements reviewed within the assigned source span only; reports/artifacts and current source/runtime were not independently inspected. Any passed check cited here is a claim in that checkpoint, not a contemporary verification.",
+      "reopen": "Play and verify the actual player/save/failure/director routes on the matching current build; the record says they remain deferred.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          5
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S014.json"
+      ],
+      "prior_input_sha256": "9f1e2cd1d2948ad02ef5f9dd7b7589050d7a59cc2cb82e154927d8ffe15969f8",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "9f1e2cd1d2948ad02ef5f9dd7b7589050d7a59cc2cb82e154927d8ffe15969f8",
+      "input_lines": 5
+    },
+    {
+      "path": "docs/gm/home-social-base-2026-10-07/CHECKPOINT.md",
+      "ids": [
+        "53 declarative commands",
+        "three finite plans",
+        "nine actual item IDs"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/home-social-base-2026-10-07/DELIVERY.md, COVERAGE.json, ACCEPTANCE_BACKLOG.md; shared Features integration owns out-of-scope shared joins."
+      ],
+      "disposition": "Combined source/native/UI/compatible-reader/current-build wave is reported delivered but implemented-unverified. Build/source-map and static checks are reported; constructors, gameplay, browser, save/reload/import/failure/keyboard/regression/director suites were deferred. Keep exact paid actor/stock/knowledge and durable publication findings in incumbent owners. Leaf pending joins are historical relative to parent source receipts; no present lease or fresh gameplay proof follows. Existing useful palettes/history are retained in place.",
+      "mechanism_and_interactions": "Combined home/world/Proto23/base wave adds 53 declarative commands, three finite plans, nine item IDs and a three-place Proto23 visitor branch; bounded ended-visit compaction, physical drying/drafting furnishings, returned-notebook consumers, outings/recaps, comparisons and household plans are integrated. Acquired retort conserves two output families with obstruction/collection/disposal. Existing home opening/geography is preserved.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint statements reviewed within the assigned source span only; reports/artifacts and current source/runtime were not independently inspected. Any passed check cited here is a claim in that checkpoint, not a contemporary verification.",
+      "reopen": "Check any later selected loop against the named acceptance backlog and current fingerprints; no full source-world parity or behavior proof is claimed.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S014.json"
+      ],
+      "prior_input_sha256": "43ec31f29c0471dc536f0dafd2569ae647e88284a3fdd372fa719af459a63d20",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "43ec31f29c0471dc536f0dafd2569ae647e88284a3fdd372fa719af459a63d20",
+      "input_lines": 13
+    },
+    {
+      "path": "docs/gm/home-social-base-2026-10-07/base/CHECKPOINT.md",
+      "ids": [
+        "field.assembly",
+        "ten commands",
+        "one situation",
+        "EVIDENCE.json"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "src/home_furnishing_content.js, src/home_furnishing_facts.js, src/home_furnishing_host.js; INTERFACE.md, EVIDENCE.json; parent root integration."
+      ],
+      "disposition": "Leaf source is complete but implemented-unverified; syntax/import/definition compilation passed historically. Shared/native/UI/reader/publisher joins and integrated rebuild plus behavioral/save/failure gates remain root work. Keep exact paid actor/stock/knowledge and durable publication findings in incumbent owners. Leaf pending joins are historical relative to parent source receipts; no present lease or fresh gameplay proof follows. Existing useful palettes/history are retained in place.",
+      "mechanism_and_interactions": "Furnishings leaf implements paid survey/rights at owned native Shack field.assembly, physically supplied drying rack/drafting bench, and actual green/dry offcut and held mature Cyorian notebook consumers. Ten commands/one situation use pure precise validators/context/commit/presentation. New leaf has no room/person/item IDs, schema/domain, physiology, publisher or clock; original costs/prose/balance are reversible proposals.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint statements reviewed within the assigned source span only; reports/artifacts and current source/runtime were not independently inspected. Any passed check cited here is a claim in that checkpoint, not a contemporary verification.",
+      "reopen": "Parent must fingerprint current leaves, join popped-job reservation at completion support and prove actual furnishing/notebook consumer and persistence routes.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S014.json"
+      ],
+      "prior_input_sha256": "8ac2de9d1a3301da9c4eaae2e24aeee0b50f9fd1a78dd2f7aca190a039867cfe",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "8ac2de9d1a3301da9c4eaae2e24aeee0b50f9fd1a78dd2f7aca190a039867cfe",
+      "input_lines": 11
+    },
+    {
+      "path": "docs/gm/home-social-base-2026-10-07/proto23/CHECKPOINT.md",
+      "ids": [
+        "e93a8cd617932fb698ff889b968a32f9a20d48f3",
+        "a43e55e2eeb455f1c1ae589e3fc074a588813fe6cd57cfba827dcf923f3755d5",
+        "WORLD_BRIEF",
+        "IMPLEMENTATION_PACKET"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/worlds/proto23/ world brief/packet and docs/gm/home-social-base-2026-10-07/proto23/{SOURCE_RECEIPT.json,WORLD_DEPTH_READBACK.json,DEPTH_AUDIT.md}; root owns gameplay/shared integration."
+      ],
+      "disposition": "Finite read-only source audit and packet are complete. No source-game execution, timed estimate, full-game parity or exact license grant is claimed; implementation and later behavioral/save/import/failure/keyboard/director acceptance were deferred. Keep exact paid actor/stock/knowledge and durable publication findings in incumbent owners. Leaf pending joins are historical relative to parent source receipts; no present lease or fresh gameplay proof follows. Existing useful palettes/history are retained in place.",
+      "mechanism_and_interactions": "Bounded Proto23 source/depth audit privately pinned official HTML and inspected source map/setup/knowledge/furniture/storage/vendor/job recipes, current registry, player/location/group counts, then supplied source-qualified WORLD_BRIEF and IMPLEMENTATION_PACKET. It keeps source truth separate from original branch/procedure/tuning, and independent visitor distinct from source pupil/deed.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint statements reviewed within the assigned source span only; reports/artifacts and current source/runtime were not independently inspected. Any passed check cited here is a claim in that checkpoint, not a contemporary verification.",
+      "reopen": "If implementing, qualify the source and exercise current integrated native behavior; recorded source pin/readback is historical and counts may have changed.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S014.json"
+      ],
+      "prior_input_sha256": "b01e246f244153e47ae3062e0d0ac6da8a0ab50360896de75bb1e09c56858a64",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "b01e246f244153e47ae3062e0d0ac6da8a0ab50360896de75bb1e09c56858a64",
+      "input_lines": 11
+    },
+    {
+      "path": "docs/gm/home-social-base-2026-10-07/proto23-native/CHECKPOINT.md",
+      "ids": [
+        "29 declarative commands",
+        "proto23Village schema1",
+        "expansion11",
+        "proto23AcceptedJob",
+        "proto23Host"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "src/proto23_world_{ids,content,actions,state,host,native}.js, docs/worlds/proto23/, INTERFACE.md, ACCEPTANCE_BACKLOG.md; root shared registry/native/publisher."
+      ],
+      "disposition": "Leaf source is reported complete, implemented-unverified; syntax/import/definition/link/static references passed. Shared registry/main/native/UI/publisher/current build and actual same-body/revisit/persistence journeys remain root integration/acceptance work. Keep exact paid actor/stock/knowledge and durable publication findings in incumbent owners. Leaf pending joins are historical relative to parent source receipts; no present lease or fresh gameplay proof follows. Existing useful palettes/history are retained in place.",
+      "mechanism_and_interactions": "Six Proto23 leaves implement 29 declarative commands, two original residents, two capacity-one stations and four counted native items. State/native owners include proto23Village schema1 under expansion11, proto23_village_native, inventories.proto23_world, proto23Native and activation/request plans; validators cover source/instance/continuity/era/body, jobs, lesson routes, claims, purse/attention, finite stock, fixture/notebook custody, knowledge and endpoint. Unsupported absence freezes on common played clock; world_visit_history compacts ended rows.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint statements reviewed within the assigned source span only; reports/artifacts and current source/runtime were not independently inspected. Any passed check cited here is a claim in that checkpoint, not a contemporary verification.",
+      "reopen": "Join proto23AcceptedJob and proto23Host at generic admission, rebuild and exercise read/instruction/furnish/material/return/revisit plus compatible-state journeys.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S014.json"
+      ],
+      "prior_input_sha256": "7e56a40c97309c2d4229e4368debc5e9a4ad378622c8c9c50b2ae1fc362e2747",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "7e56a40c97309c2d4229e4368debc5e9a4ad378622c8c9c50b2ae1fc362e2747",
+      "input_lines": 15
+    },
+    {
+      "path": "docs/gm/home-social-base-2026-10-07/social/CHECKPOINT.md",
+      "ids": [
+        "CC-P01",
+        "promise.meet_help",
+        "crush_social.household_preparation",
+        "crush_social.household_known_use"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "src/crush_social_content.js, crush_social_facts.js, crush_social_host.js, crush_social_views.js, promise_ui.js; DELIVERY.md, SOURCE_AUDIT.md, ACCEPTANCE_BACKLOG.md; root owns mount/publisher/reader joins."
+      ],
+      "disposition": "Owned source is reported complete, implemented-unverified, with syntax/import/definition/link checks. Notebook discovery/native panel mount and combined publisher/reader/current-build joins belong to root; gameplay/save/failure/regression/keyboard/director checks remain unrun. Keep exact paid actor/stock/knowledge and durable publication findings in incumbent owners. Leaf pending joins are historical relative to parent source receipts; no present lease or fresh gameplay proof follows. Existing useful palettes/history are retained in place.",
+      "mechanism_and_interactions": "Social leaf selects CC-P01/P02/P03/P05: after actual promise.meet_help, optional patient/quick/refused cart check with both participants and disclosed preference, later report, separately accepted kit collaboration; known Lio time comparison; two finite household plans ending before automatic report/lesson/right; qualified return recap. Eight Tamsin commands use actual body/contact predicates and exact receipt validator; pure facts do not import, and no private/frozen outcome is read as knowledge.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint statements reviewed within the assigned source span only; reports/artifacts and current source/runtime were not independently inspected. Any passed check cited here is a claim in that checkpoint, not a contemporary verification.",
+      "reopen": "Complete native panel mounting/Notebook discovery and integrated combined publisher/reader proof, then exercise accepted/refused/cancelled work and persistence on current build.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S014.json"
+      ],
+      "prior_input_sha256": "b568cb9eb1a167a39f977226c74ceb08d593991be2324783199f84e54e00bc0b",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "b568cb9eb1a167a39f977226c74ceb08d593991be2324783199f84e54e00bc0b",
+      "input_lines": 17
+    },
+    {
+      "path": "docs/gm/home-social-base-2026-10-07/visits/CHECKPOINT.md",
+      "ids": [
+        "96/128 lifetime-arrival refusal",
+        "world_visit_history.js",
+        "six source paths"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "src/world_visit_history.js; DELIVERY.md, EVIDENCE.json, ACCEPTANCE_BACKLOG.md; parent root integration."
+      ],
+      "disposition": "Source implementation and six syntax/import checks are reported complete, implemented-unverified. The six source paths and docs were released to root; gameplay/build/save/reload/failure/director gates remain explicitly unestablished. Keep exact paid actor/stock/knowledge and durable publication findings in incumbent owners. Leaf pending joins are historical relative to parent source receipts; no present lease or fresh gameplay proof follows. Existing useful palettes/history are retained in place.",
+      "mechanism_and_interactions": "Visit repair replaces 96/128 lifetime-arrival refusal with compatible bounded ended-row compaction while retaining actual instances/native owners, active body, per-instance clocks/return knowledge, claims, paid history and frozen obligations. It validates original state, synchronizes all instance clocks, retains active/first-two/latest-ended/reference/current-contract rows, applies original bounded room, then validates retained rows; pure preview clones and staged commit compacts before strict carrier snapshot.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint statements reviewed within the assigned source span only; reports/artifacts and current source/runtime were not independently inspected. Any passed check cited here is a claim in that checkpoint, not a contemporary verification.",
+      "reopen": "Root should verify fingerprints and test active/ended retention, per-instance clock/knowledge, claims/contracts, carrier snapshot, save/reload and failure paths in integrated play.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S014.json"
+      ],
+      "prior_input_sha256": "ab24e51c1e3018169c192aec875b6795643e5bca96bd7689f0aaf7e41b3f3fe8",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "ab24e51c1e3018169c192aec875b6795643e5bca96bd7689f0aaf7e41b3f3fe8",
+      "input_lines": 9
+    },
+    {
+      "path": "docs/gm/life-sim-experience-2026-10-07/CHECKPOINT.md",
+      "ids": [
+        "XP1.2",
+        "recordv1",
+        "schema6",
+        "HEIR_HOST_CANDIDATE.patch"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/life-sim-experience-2026-10-07/REPORT.md, proof-c/proof-b/proof-heir; HEIR_HOST_CANDIDATE.patch and candidate_main.mjs; foundation owns save/record/NPC, experience owns listed modules."
+      ],
+      "disposition": "Historical browser/test evidence reports C and B playable in isolated candidates and a separate heir candidate; shared heir integration is still not landed. Earlier schema6 rejection expectation is stale; current gates must distinguish candidate proof from shared behavior. Keep exact paid actor/stock/knowledge and durable publication findings in incumbent owners. Leaf pending joins are historical relative to parent source receipts; no present lease or fresh gameplay proof follows. Existing useful palettes/history are retained in place.",
+      "mechanism_and_interactions": "Experience lane reports C and full playable B isolated candidate, while shared heir save-host remains an unmerged review patch. Youth native XP1.2 excludes loading repair; reflections, elder teaching, final-year warning, old-age freeze/grave/epitaph and existing feeds interact with a pure heir builder using fresh baseline, learned method, grave/biography, calendar/RNG and opaque NPC/options retention. No automatic chronicle-note ingestion or unified compact-record mount is claimed.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint statements reviewed within the assigned source span only; reports/artifacts and current source/runtime were not independently inspected. Any passed check cited here is a claim in that checkpoint, not a contemporary verification.",
+      "reopen": "Coordinator must review and transfer/apply heir host patch to shared main, rebuild and verify combined journey/save route; also resolve stale schema6 expectation without treating isolated proof as integrated support.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S014.json"
+      ],
+      "prior_input_sha256": "fd06a46b76a61578903ad9014db48e2bd85ea4c7399402d7693d114142899586",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "fd06a46b76a61578903ad9014db48e2bd85ea4c7399402d7693d114142899586",
+      "input_lines": 13
+    },
+    {
+      "path": "docs/gm/life-sim-foundation-2026-10-07/CHECKPOINT.md",
+      "ids": [
+        "life_record schema1",
+        "recent64/year200",
+        "4MiB",
+        "npc_lives schema1",
+        "16-news cap",
+        "schema5-11"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "src/save_files.js, save/record/NPC portions of main.js, life_record*.js, npc_lives*.js; REPORT.md, E_BROWSER.json, F_BROWSER_PRIMARY.json, OLD_IMPORT.json, ACCEPTANCE_BACKLOG.md."
+      ],
+      "disposition": "E/F bounded slices are reported playable-complete with focused/browser evidence; however fixture encoder failed in one script and corrected old schema11 import passed separately. No full regression or actual world-travel proof; broader household/travel and heir integration remain later gates. Keep exact paid actor/stock/knowledge and durable publication findings in incumbent owners. Leaf pending joins are historical relative to parent source receipts; no present lease or fresh gameplay proof follows. Existing useful palettes/history are retained in place.",
+      "mechanism_and_interactions": "Foundation E adds optional life_record schema1 with recent64/year200 compaction and conservative shared-origin4MiB save guard, preserving expansion schema5-11 and avoiding biography transplantation. F adds dormant npc_lives schema1 for one finite household, birth-year ages, saved coarse marriage/birth/death schedule and 16-news cap; existing combat/trader NPCs remain untouched.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint statements reviewed within the assigned source span only; reports/artifacts and current source/runtime were not independently inspected. Any passed check cited here is a claim in that checkpoint, not a contemporary verification.",
+      "reopen": "For any continuation, verify current shared source and broader household/travel/save behavior; do not rely on the failed fixture run as passing or infer world travel from E/F.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S014.json"
+      ],
+      "prior_input_sha256": "0d587a14ed4c96304fb126ac4cbb58149689a81fd0146285c26f9cf95b0be881",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "0d587a14ed4c96304fb126ac4cbb58149689a81fd0146285c26f9cf95b0be881",
+      "input_lines": 13
+    },
+    {
+      "path": "docs/gm/missed-work-audit/CHECKPOINT.md",
+      "ids": [
+        "REPORT.md",
+        "FINDINGS.json",
+        "four findings",
+        "SOURCE_SNAPSHOT.json"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/missed-work-audit/REPORT.md, FINDINGS.json, SOURCE_SNAPSHOT.json; dispatcher continuation docs/gm/dispatch/AUDIT_REMAINDER_2026_10_06.md."
+      ],
+      "disposition": "Finite audit is complete and writer scope released. Report/findings, path/link/evidence checks are reported; no gameplay/suite/build/browser/save/source-library operation ran. Repair admission and deferred behavior/director gates belong to dispatcher/integrator. Keep exact paid actor/stock/knowledge and durable publication findings in incumbent owners. Leaf pending joins are historical relative to parent source receipts; no present lease or fresh gameplay proof follows. Existing useful palettes/history are retained in place.",
+      "mechanism_and_interactions": "Missed-work audit inspected requirements, handoffs, queue/build/workflow and source snapshots. Four findings were saved: dropped artifact integration, missing Hank warning reception, lossy eight-row source-contract provenance, stale current recovery/routing. Dispatcher had already added artifact integration to active continuation; audit did not implement gameplay or reopen book reading.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint statements reviewed within the assigned source span only; reports/artifacts and current source/runtime were not independently inspected. Any passed check cited here is a claim in that checkpoint, not a contemporary verification.",
+      "reopen": "If findings are reselected, inspect dispatcher readback/current recovery routing and repair status; this checkpoint says the audit itself made no shared changes.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          21
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S014.json"
+      ],
+      "prior_input_sha256": "d3116bd9969688c4c12455e8a1b971178e7fa5501250b8146c27fa1f45f01da9",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "d3116bd9969688c4c12455e8a1b971178e7fa5501250b8146c27fa1f45f01da9",
+      "input_lines": 21
+    },
+    {
+      "path": "docs/gm/multi-world-paths-2026-10-07/CHECKPOINT.md",
+      "ids": [
+        "nine world domains",
+        "1,153 simulation commands",
+        "REGISTRY_READBACK.json",
+        "BUILD_READBACK.json"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/multi-world-paths-2026-10-07/AUDIT.md, REGISTRY_READBACK.json, BUILD_READBACK.json; links in PROJECT/IDEA_INDEX/MULTIVERSE_STRUCTURES."
+      ],
+      "disposition": "Documentation-only audit is reported complete; registry cold import and existing bundle/map readback matched. Proposed gameplay remains unselected; all gameplay/unit/browser/save/reload/import/failure/regression/director gates remain deferred and are not passed by the audit. Keep exact paid actor/stock/knowledge and durable publication findings in incumbent owners. Leaf pending joins are historical relative to parent source receipts; no present lease or fresh gameplay proof follows. Existing useful palettes/history are retained in place.",
+      "mechanism_and_interactions": "Multiple-worlds audit traces actual native command dispatch/UI/travel and registry/build evidence, finding nine destinations, three concrete cross-world growth/material examples and retained/unsupported boundaries; 1,153 simulation commands and destination counts are explicitly not full campaign coverage. It links proposed considerations and reconciles obsolete one-world/missing-integration wording without new gameplay.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint statements reviewed within the assigned source span only; reports/artifacts and current source/runtime were not independently inspected. Any passed check cited here is a claim in that checkpoint, not a contemporary verification.",
+      "reopen": "No audit work remains in this record. Any selected future feature needs named owners and its own rebuilt playable/persistence evidence; do not infer broad world coverage from counts.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          18
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S014.json"
+      ],
+      "prior_input_sha256": "bd38a2ac343c47599875ed33c9a351ffdf676f7398c65ed9f7f7504ba4b1f428",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "bd38a2ac343c47599875ed33c9a351ffdf676f7398c65ed9f7f7504ba4b1f428",
+      "input_lines": 18
+    },
+    {
+      "path": "docs/gm/missed-work-audit/REPORT.md",
+      "ids": [
+        "MW-01–MW-04"
+      ],
+      "classification": "fresh full historical audit/acceptance review",
+      "owners": [
+        "docs/gm/missed-work-audit/REPORT.md"
+      ],
+      "disposition": "Four original findings distinguish dropped artifact joining, actor-specific warning reception, lossy exported provenance and stale recovery pointers. B9 later parent source/build adoption supersedes original pending integration at exact receipt scope; do not present old missing bundle imports as current defect. Provenance projection loss is not loss of reading/dossiers or 19-world activation.",
+      "evidence": "Entire source read; prior checkpoint semantic receipt inspected. Current runtime and original source locators not reverified.",
+      "reopen": "Use current source/parent evidence and relevant selected failure cases; no old repairs/workers automatically restarted.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "54ff46c6b806864abbb24122f18dbe2a20463e93e27bda4acf771e49179a7edf",
+      "input_lines": 55,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          55
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/home-social-base-2026-10-07/visits/ACCEPTANCE_BACKLOG.md",
+      "ids": [
+        "families1–5"
+      ],
+      "classification": "fresh full historical audit/acceptance review",
+      "owners": [
+        "docs/gm/home-social-base-2026-10-07/visits/ACCEPTANCE_BACKLOG.md"
+      ],
+      "disposition": "Preserve repeated travel past old lifetime caps without erased active/first/latest/referenced history, all per-instance clocks, actual ownership and once settlement. Validate before pruning; refuse indispensable full references rather than erase them. Limits are storage policy, not solo-player total-arrival design cap.",
+      "evidence": "Entire source read; prior checkpoint semantic receipt inspected. Current runtime and original source locators not reverified.",
+      "reopen": "Use current source/parent evidence and relevant selected failure cases; no old repairs/workers automatically restarted.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "6c20705bb291a5882f0fe8907980f08837ba71078c1f3b94769c11f87c9dc9d4",
+      "input_lines": 13,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/missed-work-audit/REPORT.md",
+      "heading": "## Historical disposition reconciliation, 2026-11-04 (B21)",
+      "body": "MW-01–MW-04 are findings on the October 6 snapshot. Later remainder parent source/build adoption and receipt reconciliation are retained in the B9 ledger of LOOSE_DOCUMENT_RECONCILIATION_2026-11-04; they qualify progress beyond the original queued-but-pending artifact paragraph without proving current gameplay. Do not carry the old absent-import/bundle list forward as a present defect without checking current source. Keep the useful receiver constraints: an actor needs an actual received report, a source-contract projection must preserve available provenance without inventing book hashes for originals, and current recovery fields should route to incumbent owners rather than old writer IDs. The original audit never required rereading nineteen books or activating nineteen worlds. Behavioral acceptance remains scoped to the actual selected consumers under AD36/AD43.",
+      "before_sha256": "54ff46c6b806864abbb24122f18dbe2a20463e93e27bda4acf771e49179a7edf",
+      "after_sha256": "fef3f21b340aef185ccda2a8da962f85274067fb288075badb0f8da398f189b0"
+    },
+    {
+      "path": "docs/gm/home-social-base-2026-10-07/visits/ACCEPTANCE_BACKLOG.md",
+      "heading": "## Retention qualification, 2026-11-04 (B21)",
+      "body": "The old 96/128 lifetime-arrival boundaries are fixture targets for the compaction repair, not an accepted limit on how often the solo player may return (AD22). Preserve actual active/first/latest/indispensably referenced visits and all separate instance/claim/job/knowledge clocks; pruning retained rows grants no new reward, knowledge or mission completion. Keep validation-before-compaction, no-mutation quote and failed-publication cases. The historical implementation-first deferral does not exempt future selected changes from AD36/AD43; choose the current relevant persistence fixtures instead of treating every old schema as a new universal suite.",
+      "before_sha256": "6c20705bb291a5882f0fe8907980f08837ba71078c1f3b94769c11f87c9dc9d4",
+      "after_sha256": "66cd517ee04b9344709d75cb33ca38fec8f608d4a6c649ea5a90a0e1203538ab"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1727
+}

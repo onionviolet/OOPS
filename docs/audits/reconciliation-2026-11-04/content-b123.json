@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "batch": "B123",
+  "title": "Complete equipment-dimensions palette and chronological delivery record",
+  "at": "2026-11-04T21:19:56.604524+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/EQUIPMENT_STAT_DIMENSIONS_CONSIDERATIONS_2026-10-20.md",
+      "ids": [
+        "ESD1–ESD16",
+        "L1–L5",
+        "L2/L3/toughness receipts",
+        "P1",
+        "shared wearer",
+        "status F1–F4",
+        "coordinated G1–G5",
+        "B122"
+      ],
+      "classification": "Full palette owner and chronological implementation/evidence sequence",
+      "owners": [
+        "docs/EQUIPMENT_STAT_DIMENSIONS_CONSIDERATIONS_2026-10-20.md",
+        "docs/audits/GEAR_STAT_READERS_CENSUS_2026-10-20.md"
+      ],
+      "disposition": "Close previous261–366partial with full1–currentbodyread. Preserve simultaneousflat/percent/weight layers andworlddefinedquality, mechanismsources before random, canonicalinstanceidentity, resolvedcrafttime versusrender, explicit exclusive sets/sourceinspection. ESD6notrequirednewcostperbenefit; sourceexceptionsmayremoveburden. ESD7examplesnotuniversalphysicsagainstworldlaw. ESD16workmanship/rarity/concreteeffects separateproposedpresentationnotacceptedglobalrank. L2/L3headers andolderopenitems supersededbyownfollowupwhereexact; finalG1–G5completiondoesnotexhaustpaletteorqualifynaturalacquisition. HistoricalnormalizationdropsunknownIDs/clampsranges mustnotbemistakenforstrictfuturecompatibility; selectednewdefinitionneedsownpolicy. CurrentsourceB122confirmsreadernotfreshnativeproof. Existingearlierfullsuitefailuresandisolatedpassesremaininputscoped.",
+      "evidence": "Fresh complete ownerbody via ranges1–44 previously visible;45–120,121–200,201–260 nowread;261–366B122andnewB122notealreadyreadwritten. No new linkedresearch/web/source-book/integrationreportreading or tests/browser rerun.",
+      "reopen": "Selected remainingpalette/workmanship/quality/durabilitypolicyrequires currentowner/inputproof; no launch from LATER/DELEGATE table. Underlying deliveryreceipt content independently unreviewed where not already covered.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "8b474fe6b6b8af580ed0d310f97b7b9b7f002c51c5db5f2d583d0e8858900a16",
+      "input_lines": 371,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          371
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/EQUIPMENT_STAT_DIMENSIONS_CONSIDERATIONS_2026-10-20.md",
+      "heading": "## Full-owner reconciliation B123, 2026-11-04",
+      "body": "Complete ESD1–ESD16/L1–L5, all L2/L3/toughness/P1/shared-wearer records, October21 status and later coordinated completion read. B122’s previous selected-range limitation is now closed for this owner; underlying research/integration reports are not granted transitive reading credit. Treat the order as history: follow-up native crafting/import qualifies L3’s earlier unit-only header; shared/P1 work qualifies L2’s no-combat/no-enemy/ignored-reader snapshot; final G1–G5 completion qualifies the earlier in-progress workshop/sockets/tooltip/drop statements. Keep exact source/bundle/test/fixture/natural-encounter limitations and failed runs rather than blending them into one current pass.\n\nPreserve simultaneous stat dimensions, cause/source legibility, instance-specific affixes, resolution at real craft/drop time and world-specific quality. ESD6’s costs wording does not require every beneficial stat to receive a compensating penalty. ESD7’s physical examples depend on actual material/world mechanisms, not universal damage-type permission rules. ESD16’s workmanship, rarity and concrete effects are separate proposed signals; its example grade ladder is not an accepted global quality verdict. Existing 0.5/0.75 floors/caps and toughness formula are implemented native defaults, not all-world laws. Local overrides and unusually effective means remain possible under AD5/AD38.\n\nThe historical L3 normalization drops unknown affix IDs and clamps values; that description is not proof that a new active schema/definition can be silently discarded or repriced safely. A selected extension needs its actual loader, historical rule/definition and compatibility decision. No stored totals does not prove every behavior-changing definition revision harmless. Current B122 source confirms selected defensive/penetration consumers, not a fresh rebuilt encounter or every gear source. No old route, natural cadence, external source scout or full integration receipt was rerun here. Later actor/world palettes remain useful and unselected, with no new Frontier-depth priority or runtime implementation.",
+      "before_sha256": "8b474fe6b6b8af580ed0d310f97b7b9b7f002c51c5db5f2d583d0e8858900a16",
+      "after_sha256": "d7678f45099f3833093b05b49c4745695088d161b2e49f18cd921c45ac618f5f"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1238
+}

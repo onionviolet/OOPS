@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "batch": "B146",
+  "title": "Material contracts and complete generation-rule owner",
+  "at": "2026-11-04T21:56:48.182869+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/PROCEDURAL_MATERIALS_AND_ALCHEMY_AUDIT_2026-10-13.md",
+      "ids": [
+        "F1-F7",
+        "C1-C4",
+        "P1-P15",
+        "R1-R9",
+        "A1-A5"
+      ],
+      "classification": "Historical source audit and still-useful material/process/product design owner",
+      "owners": [
+        "docs/PROCEDURAL_MATERIALS_AND_ALCHEMY_AUDIT_2026-10-13.md",
+        "docs/CRAFTING_ENGINE.md",
+        "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md"
+      ],
+      "disposition": "Read full findings, five-record/pure resolver contract, fictional example, dose routes, deeper systems and risks. Missing-pipeline findings predate current mixture/native modules and crafting owner receipts. Preserve constituent/trace identity, exact versus functional selectors, meaningful process order and actual effect receivers. Old-save guarantee and retired milestone/viewport do not govern current work.",
+      "evidence": "Fresh full text, full current mixture_native module and current crafting owner 1-36. Named source shows buy/mix/use/learn/repeat/cancel/advance and durable-before-publish plan, but not a new integrated effect/stacking/browser failure proof. Historical 21 tests checked existing rollback/balm, not generated-potion delivery.",
+      "reopen": "Select one actual material law/route receiver and inspect its current plan, inventory reconstruction, effect timing and failure/import proof. Do not build a second resolver or revive all A1-A5 as missing.",
+      "input_sha256": "c3618194661ed293f35963f37196db2f100dd4d148a96abb56347dec92da3648",
+      "input_lines": 149,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          149
+        ]
+      ]
+    },
+    {
+      "path": "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md",
+      "ids": [
+        "GR1-GR17",
+        "SB1-SB45 namespaces",
+        "MC1-MC28 references",
+        "CG1-CG12",
+        "GC1-GC28 references",
+        "GCR1-GCR6",
+        "OG1-OG6",
+        "GA1-GA10",
+        "GI1-GI8",
+        "G1-G6 returns",
+        "C1-C5",
+        "GW5",
+        "G-a-G-f"
+      ],
+      "classification": "Standing GR contract with separate proposed palettes and historical conformance claims",
+      "owners": [
+        "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md",
+        "docs/RNG_ENCOUNTERS_AND_SOURCE_DEVELOPMENT.md",
+        "docs/RULES_INDEX.md"
+      ],
+      "disposition": "Read complete owner, lane returns, corrections and later GR adoption. GR1-17 remain adopted defaults under core rules; SB/GC/GCR/GA/MC examples not blanket adopted. Existing C1-C5 qualify old roots, no known preview leak, canon as conditional expectation and incomplete explain receipts. Current router and Ground Rules link fix G-c/G-e; no new universal scope or source-count claims.",
+      "evidence": "Fresh full text, selected current rules router/register and CX4 GW5 link. Current main seededRecipe plus seeded_streams proxy and misc context corrected B145 recipe-method-only inference. Mixture source imports gen_kit. No full kit/API/conformance sweep, fresh source canon or runtime tests.",
+      "reopen": "Use meaningful existing checks under AD36 for the selected generator, its actual committed causes, revision and observer; no global migration or second-implemented-consumer embargo.",
+      "input_sha256": "04976b37f0a4debd82095867ce703c7285996e3cda3eca811b24c4bddcee2adf",
+      "input_lines": 361,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          361
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/PROCEDURAL_MATERIALS_AND_ALCHEMY_AUDIT_2026-10-13.md",
+      "heading": "## Content reconciliation B146, 2026-11-04",
+      "body": "All F/C/P/R/A rows and the worked fictional example were reviewed. Preserve the five distinct records and the owning law's real consumer: material definition, owned amounts, ordered process, resolved product and observer knowledge. Exact ritual identity and functional substitution can coexist; an unknown property may be tried without knowledge becoming permission to change truth. Trace constituents and small hazards survive UI rounding, while units, density, dose and route remain explicit. Inert leftovers and a useful off-formula product need not be destroyed merely because a named recipe failed.\n\nF3-F7 are historical source findings, not a current absence of generated-potion work. Current `mixture_native.js` has staged buy/mix/use/learn/repeat/cancel/advance operations, saved products and observed methods, retained exact inputs and a commit that writes before publishing. The [crafting owner](CRAFTING_ENGINE.md) also records later bounded native harvest/craft/use and persistence evidence. Those observations do not freshly prove every current stat receiver, exposure stack, natural acquisition, compatible import or failed-save rollback across all owners (AD36, AR6).\n\nThe retired one-realm milestone, 1366 target and universal old-save guarantee are superseded by current direction and SAVES. P5 mass accounting describes the selected material law; a source-supported creation/transformation mechanism can have different inputs and outputs. P8's repeated identical observation restriction is not a universal ban on learning through practice. Skill may actually alter material state when its mechanism does so; it must not secretly improve truth merely for owning a skill label. Runtime solver bounds are computational limits, not fictional effect ceilings. No resolver, source acquisition or new A1-A5 wave was implemented (AD5, AD22, AD32, AD38).",
+      "before_sha256": "c3618194661ed293f35963f37196db2f100dd4d148a96abb56347dec92da3648",
+      "after_sha256": "38eac91f0b2558e674714f97e8810760fe80a6ccacc8586cbda26652cb688a69"
+    },
+    {
+      "path": "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md",
+      "heading": "## Content reconciliation B146, 2026-11-04",
+      "body": "Read the entire owner, including GR adoption, G1-G6 returns, root corrections and GW5. GR1-GR17 retain their standing status under core rules. The auxiliary SB/MC/CG/GC/GCR/OG/GA/GI proposals are not adopted by proximity. Apply AD36 to select meaningful existing tests for the touched generator; a listed seed sweep, golden and persistence invariant is not permission to manufacture duplicate suites or rerun equivalent unchanged evidence. AD51 permits a shared seam for known cross-world needs with the first consumer, followed by second-world validation/revision.\n\nThe later C1-C5 corrections govern the early shortcuts: preserve merged roots rather than inventing migration, no preview leak was established by the historical audit, canon events are conditional expectations rather than forcibly restored pins, explain top shares do not equal a complete odds resolver, and overlay-v1 does not implement all pin/bias features. G-c's router now names this rulebook plus procgen STATUS, and G-e's Ground Rules GW5 link now resolves inside the repo. These named document gaps are superseded; historical random counts and unmerged states remain dated.\n\nGR3/4/10 are read with GW5: hidden detail already used by a cause cannot be regenerated as if uncommitted. Actual observation/learning commands write knowledge; a read-only projection must not create discovery merely by being rendered. Existing natural changes, transformation, retcon and actual rewind can change their permitted truth domains while preserving the causal history required by their mechanism. A counterpart's inherited root does not inherit knowledge or another actor's relationship for free (GR5, GR15, AD38).\n\nKeep the early comic ratings, names, mantles, status-quo repair, pity, retry, drift and top-three retention as local proposals. Ratings can be exact where supported, duplicate names need not imply shared identity, and authored rarity need not guarantee every rare event. A valid fallback cannot erase already committed causal constraints; an unsatisfied case can remain an explicit source/authoring gap. Bound stored explanations according to their real gameplay readers rather than deleting needed history. A debug lens does not publish sealed truth to the director.\n\nThe B145 recipe inference was corrected after following the actual caller: native `use_recipe` applies `seededRecipe` with the saved craft stream; its proxy replaces quality rolls, including nested `getResult` calls. Raw class fallbacks alone do not establish a surviving native quality defect. This pass performed no new RNG migration, conformance test, source-canon verification or native/persistence journey (AD32, AD36, AR6).",
+      "before_sha256": "04976b37f0a4debd82095867ce703c7285996e3cda3eca811b24c4bddcee2adf",
+      "after_sha256": "f47644b2bf8c86c03e38d34b6eae773b3703d2d2c5ef4bb46e369f824f7d5edc"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1200
+}

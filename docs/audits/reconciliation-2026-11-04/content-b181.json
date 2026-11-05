@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "batch": "B181",
+  "title": "Complete nested triage and dialogue owner bodies",
+  "at": "2026-11-04T22:36:50.160220+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/IDEAS_NESTED_TRIAGE_2026-10-26.md",
+      "ids": [
+        "all inventory-range rows",
+        "RP1–RP9/SP1–SP3",
+        "30card routes/12institutions",
+        "F1–F9",
+        "alllimits"
+      ],
+      "classification": "Frozen nested coverage crosswalk report, not inherited semantic review",
+      "owners": [
+        "docs/audits/IDEAS_NESTED_TRIAGE_2026-10-26.md",
+        "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md"
+      ],
+      "disposition": "Fullreportnowreadbeyondinitialranges.619rows/116bullets137occurrences/30cards334codes explicit notuniquefeaturesor sourcebodiesread. Routinggapclosure notmechanicscompletion; everyrowownerassertionuntilindependentreview. CurrentpackregistryB138overridesdatedF2absence; fullB160–166 dedupshardsconfirmselectedlaterrepairscopes. CurrentleadprioritynotP/Qoldordering, no newtickets fromaliases. TTKS-Bcodesoriginalidentitynotnoveltysourceacquire.",
+      "evidence": "Fresh whole106line report/alltables read, not619crosswalkJSONrecords/334locatorcontents/30cardbodies. Source/card/dedupowners alreadyindependentlyscopedbefore; rawmetadatahashneednotimplysemantics.",
+      "reopen": "Review named originalbodies atactualscope. Preserve groupedfamily/memberIDs and do not promote historicalcoveredroutes tofullimplementation.",
+      "input_sha256": "32b43333add5cb97d94436f280ef611121799651cac4fded142199a9486daa54",
+      "input_lines": 106,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          106
+        ]
+      ]
+    },
+    {
+      "path": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+      "ids": [
+        "allsceneauthoring/observer/lifecycle/settlementsections",
+        "D1–D6",
+        "futureRuna packet",
+        "B68fold"
+      ],
+      "classification": "Dialogue contract proposal with frozen source snapshot and later draft reconciliation",
+      "owners": [
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+        "docs/UI_RULES.md",
+        "docs/DOMAIN_RULES.md"
+      ],
+      "disposition": "Freshfullbody185lines nowreviewed. Preserve actualspeakerknowledge/channel/language/intent/cost/consequence, livedidentitynotautomaticsocialrecognition, exitvscancel work, acceptedterms atomicallynative. D1–6historicalnotnewabsence; laterfoundationselectedtalk/methodreceipt counterexamplebutnotallgenericbridgeproved. Wordquota/branchquota/artificialdelay/uniquenessrewardnotmandatory; actual repeatedinteractioncanchangetruthbymechanism. No uservoicechange/allworldloresrequirement/newdelegation.",
+      "evidence": "Fresh entire185linebodyalltables/sampleprompt/fingerprinthistory/B68qualification read. B153finalfoundationreceiptandB175sourcecausal/relay reports independentlyreviewed. No fiveworlddossierbody/primaryvoicepass/runtimefuzz/canon orprivatehistoryreviewinherited.",
+      "reopen": "For a selected current scene freeze only relevant source/situation/quote; retain proposalvoice versuscanon and actualnativeproof. No scene dispatch or code changes now.",
+      "input_sha256": "3281bb9d7e0da5dc7a8e53c98b91676bc022c19a9886cff9ac0067c52079fa6f",
+      "input_lines": 185,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          185
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/IDEAS_NESTED_TRIAGE_2026-10-26.md",
+      "heading": "## Full-content crosswalk reconciliation, 2026-11-04 (B181)",
+      "body": "The entire report, all inventory spans, RP/SP ranges, card/institution groups, F1–F9 and verification limits were read. Closing an old routing exclusion is not closing underlying mechanics.619rows,116bullets,137path occurrences,30cards and334code locators remain different denominators, with repeated aliases rather than new tickets. This body review does not read every crosswalk JSON row, card, institution or palette source by association. Later current intake owns appended material and independent semantic receipts; do not use a frozen hash to upgrade unreviewed owner assertions.\n\nF2’s no-pack-save inference is dated: independently reviewed current registry/save hooks and named reveal-writer gap supersede it at that seam, without proving natural gameplay or all world persistence. F1 rendering, F3 crack, F4 HP and F5 cheat claims retain exact finite consumer scope; broader formula, damage, institution and cheat families are not thereby complete. The full dedup shard/follow-up reading in B160–B166 confirms why older open R51/runner/merge text must not restart repaired work, while suspect panel/clone/bulk questions still need current inputs. The old P/Q selection and source-card status do not outrank current Klein/HP/mechanism sequencing. Preserve useful family members and historical labels; do not duplicate tickets, invent missing numbered parts or delete old reports/cards.",
+      "before_sha256": "32b43333add5cb97d94436f280ef611121799651cac4fded142199a9486daa54",
+      "after_sha256": "dba01547b444fd393944f6fc3d70b135c27ed199e889c0a0c037f2a85622d25e"
+    },
+    {
+      "path": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+      "heading": "## Full scene-contract reconciliation, 2026-11-04 (B181)",
+      "body": "The full scene structure, observer flow, voice, interruption/return, lifecycle, result-owner and native-fit sections, D1–D6, frozen writer packet and B68 fold were read. Preserve one actual speaker/listener/channel and their own means, motives, language, rights, knowledge and remembered commitments. Observing an effect is not knowing its cause, tool, capacity or allegiance. A changed body, infant/tree profile or parallel recollection does not grant adult language, owned property, recognition or another person’s affection. Genuine foreknowledge and extraordinary communication follow their actual means, as B68 already qualifies.\n\nMenus reserve nobody, start no deadline and create no memory. Paid actions revalidate current terms and publish material/social consequences together; closing text is distinct from canceling committed work. Refusal, accepted default, interruption and later return have different history. Preserve actual stock, loans, partially consumed work and unique settlement outside pruned display prose. Repeated dialogue may remain available; a real repeated interaction can change familiarity through its supported mechanism, while merely rendering or replaying a completed receipt must not mint rewards. Consent/coercion/support and any cost follow actual world mechanisms, not a compulsory balancing tax or universal alternatives rule. Cosmetic warmth/texture needs no stat reward.\n\nD1–D6 and the source-fit table describe October3 inspected inputs, not an established present six-defect backlog. Later independently reviewed conversation/method and causal/relay receipts provide bounded consumer evidence; they do not prove every general conversation graph, observer ledger, speaker schedule or arbitrary source detector. The Runa packet’s local numbers, sample voice, old model choice, file reservations and parent ID remain proposals/history, not permission to dispatch or write that world now. Final source-character prose needs the relevant settled local voice/situation, not completion of every world. Current AD36/AD43 and optional human review govern later delivery; no source passage, raw dossier, runtime scene or new dialogue was implemented in this reconciliation.",
+      "before_sha256": "3281bb9d7e0da5dc7a8e53c98b91676bc022c19a9886cff9ac0067c52079fa6f",
+      "after_sha256": "2db0567e8e7e74c4df8b620b211f938ae58888a29b41b1d8f2c5e4f4d738e8f9"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1102,
+  "post_record_amendments": [
+    {
+      "path": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+      "from": "Menus reserve nobody, start no deadline and create no memory.",
+      "to": "Menus reserve nobody, start no deadline and create no memory. These applications follow AD36/AD38 and UR63.",
+      "reason": "Checker requires authority on the same line as accepted-default contractual wording; cite existing AD36/AD38/UR63, no new adoption."
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 # Engine foundation and game identity thread, 2026-10-16
 
+**Content review B2, 2026-11-04:** saved outputs, GN1–GN9, loop discussion and open decisions reviewed. OOPS naming is already resolved by the linked USER_VISION identity entry; the old name vote is historical. The selected review/rule files are tracked now. Later checkpoint sections supersede M3-stopped/M4-planned labels, and the [ER12 fold](../research/OWN_ENGINE_KERNEL_DESIGN_2026-10-14.md#foundation-review-reconciliation-2026-11-04) replaces the numerical rewrite trigger with demonstrated mismatch/cost. No old branch reservation or core-loop question becomes a current launch gate (AD32/AD36/AD45).
+
 One place to resume this thread and dig deeper. It collects what Weibao asked,
 what was saved where, what is still open, and the parts of the discussion that
 only lived in chat until now. Findings and proposals are Claude's, not accepted

@@ -1,0 +1,163 @@
+{
+  "schema": 1,
+  "batch": "B295",
+  "title": "Archived reference READMEs: source lineage, timers and narrative scope",
+  "at": "2026-11-05T00:59:59.809840+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "classification": "Copied third-party README/reference provenance, not a YAIR plan or verified current dependency",
+      "owners": [
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "reopen": "Preserve archived source and attribution. Read actual selected source/runtime/license owner if a concrete reuse need appears; no updates, installs, network/service activity or upstream PRs authorized by this README.",
+      "path": "docs/gm/dispatch/engine-runtime-2026-10-14/ER4/sources/cookie-mirror/README.md",
+      "ids": [
+        "Six mirror update stages",
+        "Source/original attribution",
+        "Font/DataDir adjustments",
+        "Upstream PR invitation"
+      ],
+      "disposition": "Read all62 original lines, including images/sounds/translations/code/fonts update commands and DataDir rewrite. These are mirror-maintainer instructions, not research source semantics, permission to refresh the pinned snapshot or a request to send an upstream PR. Preserve author/original-game link and archive bytes.",
+      "evidence": "No mirror scripts/game source/image/font or download command executed. An offsite DataDir adjustment describes mirror support, not a local offline guarantee or selected YAIR service.",
+      "input_sha256": "89a12c4606f5992921daa5e544d4877d973f8a99b0201d6ffd4a52ad558bc715",
+      "input_lines": 62,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          62
+        ]
+      ]
+    },
+    {
+      "classification": "Copied third-party README/reference provenance, not a YAIR plan or verified current dependency",
+      "owners": [
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "reopen": "Preserve archived source and attribution. Read actual selected source/runtime/license owner if a concrete reuse need appears; no updates, installs, network/service activity or upstream PRs authorized by this README.",
+      "path": "docs/gm/dispatch/engine-runtime-2026-10-14/ER4/sources/progressknight/README.md",
+      "ids": [
+        "Description/career choices",
+        "Age/prestige narrative",
+        "Three play URLs"
+      ],
+      "disposition": "Read all19 original lines. Retain author/game provenance and described career/skill/expense/age/optional-prestige inspiration. Descriptive text does not establish exact engine semantics, current hosted edition or adopted YAIR hunger/death/reset law.",
+      "evidence": "No site/source/save read by proxy. Old game description does not revive one-prestige milestone or force every starting life through poverty/age.",
+      "input_sha256": "0d30d98102d61567712b3a10c6e0bf3c2b2bc8ae29247b6a0c0fac2a5b8311f6",
+      "input_lines": 19,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          19
+        ]
+      ]
+    },
+    {
+      "classification": "Copied third-party README/reference provenance, not a YAIR plan or verified current dependency",
+      "owners": [
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "reopen": "Preserve archived source and attribution. Read actual selected source/runtime/license owner if a concrete reuse need appears; no updates, installs, network/service activity or upstream PRs authorized by this README.",
+      "path": "docs/gm/dispatch/engine-runtime-2026-10-14/ER4/sources/trimps/Playfab/README.md",
+      "ids": [
+        "Client SDK overview",
+        "TLS prerequisites",
+        "Support/API links",
+        "Apache2 notice"
+      ],
+      "disposition": "Read all37 original lines. Identify as bundled external Client API SDK documentation, not Trimps whole gameplay/source-system audit. Preserve attribution/license pointer and old prerequisites as source snapshot; no cloud binding, network account feature or present platform-support conclusion.",
+      "evidence": "No actual SDK/client/game code, license file or service called. The README copyright/license statement is attributed provenance, not renewed qualification of all bundled files.",
+      "input_sha256": "3a411f9ace1043c9c60ae2a1759a76266ef7ee1261f293f1e64131459ad89e18",
+      "input_lines": 37,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          37
+        ]
+      ]
+    },
+    {
+      "classification": "Copied third-party README/reference provenance, not a YAIR plan or verified current dependency",
+      "owners": [
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "reopen": "Preserve archived source and attribution. Read actual selected source/runtime/license owner if a concrete reuse need appears; no updates, installs, network/service activity or upstream PRs authorized by this README.",
+      "path": "docs/gm/dispatch/engine-runtime-2026-10-14/ER4/sources/upstream/README.md",
+      "ids": [
+        "Miktaew official/dev lineage",
+        "Static-server/source-build route",
+        "master/gh-pages distinction",
+        "Verify_Game_Objects limits",
+        "Mod attribution"
+      ],
+      "disposition": "Read all32 original lines. Preserve upstream attribution and useful source-versus-hosted branch distinction; static content validation is explicitly partial. Old esbuild/source-entry/live-server advice is historical and does not replace fork current commands or authorize bundle edits/branch fetch.",
+      "evidence": "Copied README source, not an upstream website/current build check. No console validation or personal save export; mod attribution is already preserved by project owners.",
+      "input_sha256": "a81eff6ba29ef7b52453987c392c93824de98f2542993041ce62d0922a2c4f8e",
+      "input_lines": 32,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          32
+        ]
+      ]
+    },
+    {
+      "classification": "Copied third-party README/reference provenance, not a YAIR plan or verified current dependency",
+      "owners": [
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "reopen": "Preserve archived source and attribution. Read actual selected source/runtime/license owner if a concrete reuse need appears; no updates, installs, network/service activity or upstream PRs authorized by this README.",
+      "path": "docs/gm/dispatch/engine-runtime-2026-10-14/ER4/sources/upstream/resources/js/HackTimer/README.md",
+      "ids": [
+        "Background timer aim",
+        "Before-other-JS ordering",
+        "NPM/Bower1.1.0/registry example"
+      ],
+      "disposition": "Read all32 original lines and registry JSON. Timer-throttling workaround instructions belong to this copied dependency; running background callbacks does not prove canonical clock, elapsed-wall-time replay or safe native/offline outcomes. No latest-version/install recommendation inferred.",
+      "evidence": "No dependency fetch/install, browser background run or real scheduler semantics reviewed. Historical latest-version string and registry examples remain as archived source.",
+      "input_sha256": "375212d305fe9af53826ee1cca347d3d2b24f4ff91a1bdeca3d8f6b69c7ace72",
+      "input_lines": 32,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          32
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/ENGINE_EXPANSION.md",
+      "heading": "## Content reconciliation B295: archived source READMEs and current engine evidence",
+      "body": "Five copied ER4 source READMEs were fully reviewed: [Cookie mirror](gm/dispatch/engine-runtime-2026-10-14/ER4/sources/cookie-mirror/README.md), [Progress Knight](gm/dispatch/engine-runtime-2026-10-14/ER4/sources/progressknight/README.md), [PlayFab SDK](gm/dispatch/engine-runtime-2026-10-14/ER4/sources/trimps/Playfab/README.md), [upstream YAIRPG](gm/dispatch/engine-runtime-2026-10-14/ER4/sources/upstream/README.md) and [HackTimer](gm/dispatch/engine-runtime-2026-10-14/ER4/sources/upstream/resources/js/HackTimer/README.md). They are retained archive/reference provenance, not loose project audits or new execution plans. Reviewing them supplies no new game-source/body reading, library adoption or current installed/hosted/version proof.\n\nKeep the useful distinctions. Upstream source/master and hosted/gh-pages can differ; a content validator is partial and does not prove the built journey. Timer callbacks continuing in a hidden tab do not establish supported simulated-time transitions, boundary stops, explicit offline policy or paid outcome equivalence. A bundled client SDK is not a gameplay mechanism or a chosen cloud-save/account route. Progress Knight's described career/expense/age/prestige loop is a source of ideas, not a universal YAIR hunger, mortal ending or reset rule.\n\nThe mirror's image/sound/translation/font refresh, offsite DataDir adjustment and PR invitation are instructions for that upstream mirror, not authorization to modify pinned research inputs or contact anyone. Old dependency versions/registry snippets, TLS/platform prerequisites and editor/static-server/source-entry commands are historical documentation, not a present recommendation. Preserve authors, original links, source snapshots and licensing notices through their actual owners. Nothing is fetched, installed, updated, exported, executed or submitted by this content review.",
+      "before_sha256": "e405fdb248cd88da1d285f01ab5d632decaace9a0b80386d354ec8f5f9dd17b7",
+      "after_sha256": "96f5ba32e90657eb96229472511d0d5c7c91c36ee52e85315dfcc8290f144447"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 830,
+  "next_path_correction": {
+    "from": [
+      "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/round-16-inventory-whole-plan.md"
+    ],
+    "to": [
+      "docs/GRANULAR_SYSTEMS_AND_INTERACTIONS.md",
+      "docs/MAKING_RULES.md"
+    ],
+    "reason": "Replace guessed UI continuation filename with observed remaining inventory owners."
+  },
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B289, continuous execution 2026-11-04 |",
+      "to": "| B295, continuous execution 2026-11-04 |",
+      "reason": "Advance active pointer through B295; no new full-register reading credit."
+    }
+  ]
+}

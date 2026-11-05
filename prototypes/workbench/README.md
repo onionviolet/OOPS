@@ -30,3 +30,8 @@ For the native route run `node prototypes/workbench/check-native-character.mjs <
 and `node prototypes/workbench/check-native-effects.mjs <fresh-origin>/` after building.
 [UIC15–UIC22](../../docs/reviews/UI_CHARACTER_DIRECTION_2026-10-26.md#uic15uic22-faithful-current-shell-rerun-2026-10-26)
 own the source map, fixture provenance, captured bundle and proposal limits.
+
+
+## Retained study sources
+
+The [study index](studies/README.md) links the functional-home, equipment, native-home and two synthetic LOTM comparisons. Their source, generated-QA input and dated evidence are versioned; rebuilt output stays local. The separate [progress atlas](../progress-atlas/README.md) now has its own maintained home. [Artifact policy](../../docs/tools/LOCAL_ARTIFACTS.md) records local evidence and recovery locations.

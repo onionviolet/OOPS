@@ -17,7 +17,7 @@ the coverage checklist, review gates and durable saving.
 
 | Owner | What it keeps | Used here as |
 | --- | --- | --- |
-| [World absorption rules](WORLD_ABSORPTION_RULES.md) WA1-WA53 | Source to pack to proof | The implementation half of a pass |
+| [World absorption rules](WORLD_ABSORPTION_RULES.md) WA (current range in owner) | Source to pack to proof | The implementation half of a pass |
 | [Source deep dive playbook](research/SOURCE_DEEP_DIVE_PLAYBOOK.md) | Reading once, evidence modes | The reading half of a pass |
 | [Topic expansion audit playbook](audits/TOPIC_EXPANSION_AUDIT_PLAYBOOK.md), [world core kit playbook](worlds/WORLD_CORE_KIT_AUDIT_PLAYBOOK.md) | Rounds, lanes, triggers | Round and lane mechanics |
 | [Agent usage rules](AGENT_USAGE_RULES.md) AU1-AU15 | Budgets, readers, model routing | Cost bounds |
@@ -97,7 +97,7 @@ source-grounded reason; unavailable source is unknown, not proven absence.
 | --- | --- | --- | --- |
 | WPR30 | **Build the thinnest complete loop, then layer.** A slice covers one signature loop with its items, people and clock, proven by journey before the next layer. Layers follow the coverage rows. | A world may need two loops for its signature mechanic | Many shallow details with no playable loop |
 | WPR31 | **Mechanism over item list.** A recurring detail becomes a shared mechanism (a gate, a clock, a role, a cost) with data rows per world (WA1, WA5, AD38). | A truly unique mechanic gets a local module the pack names | A hundred one-off scripts |
-| WPR32 | **Prove every layer by play.** Rebuild, play the changed behavior from a fresh origin in a browser at the accepted viewport, and when persistence changes, save, reload and import. Label anything else implemented-unverified (AGENTS verification, WA19). | Reuse unchanged passing evidence | "Done" without a played journey |
+| WPR32 | **Prove every layer by play.** Apply the common runtime delivery floor [AD43](RULES_INDEX.md#definition-of-done-the-floor-ad43), including rebuilt browser play at the accepted viewport and persistence proof when changed. AD36 owns check selection and evidence reuse; unexercised behavior remains implemented-unverified (WA19). | Reuse unchanged passing evidence | "Done" without a played journey |
 
 ## How to run a pass (checklist)
 

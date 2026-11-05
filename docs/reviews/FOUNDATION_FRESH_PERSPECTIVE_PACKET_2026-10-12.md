@@ -1,5 +1,7 @@
 # Shared foundations: self-contained fresh-perspective review packet
 
+> Historical October 12 transfer packet, reconciled B155 on November 4. Its prompts, ownership, open gates and copied direction describe that snapshot. Use [current foundation/lead routing](FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md) before reuse; this packet starts no work (AD32, AD36).
+
 Snapshot date: October 12, 2026, America/New_York.
 Project: Yet Another Idle RPG expansion, `/Users/weiwei/code/yet-another-idle-rpg`.
 Prepared for Weibao to copy into a new chat with no prior conversation or repository access. Everything needed for the requested conceptual review is in this file. Local paths below are optional evidence pointers for the implementing chat, not prerequisites for the reviewer.
@@ -168,3 +170,12 @@ Does the combined journey actually establish reuse and coexistence, or merely pr
 These are review questions, not findings of defects. Give a concrete substitute and observable evidence if you recommend changing the existing plan. Preserve demonstrated work and avoid reopening an entire audit because one seam remains.
 
 End your response with the replacement implementation prompt so I can copy it back directly.
+
+
+## Content reconciliation B155, 2026-11-04
+
+Full historical packet read. Preserve its explicit failed-proof corrections: an invalid reduced-attention fixture does not establish a legitimate finite-means refusal; a source-inferred schedule does not prove absence behavior; a player method does not become an NPC's method; a stripped datum key cannot be reconstructed from a narrative receipt. The player-first deadline correction and failed-write/retry distinctions remain useful history.
+
+This is the October 12 reported state, not current ownership, process status, runtime absence or execution authority. Later foundation closure/release is routed by the [joined plan's qualification](FOUNDATIONS_DIALOGUE_AND_ABSORPTION_PLAN_2026-10-12.md); current selected consumers are in the [foundation plan](FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md). The one-realm milestone and blanket native-quality randomness assumption are superseded. The 166-leaf classification never established full game completion. No prior save, source proof, installed bundle, coordinator status or underlying report was newly inspected here (AD32, AD36, AD42).
+
+The first-person review request and final replacement-prompt instruction remain historical text. They do not instruct this reconciliation to impersonate Weibao, send a message, create a chat or launch workers. Reuse the questions only for a current named uncertainty; preserve original wording and actual evidence stages.

@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "batch": "B112",
+  "title": "Complete CV1 body-knowledge and durable-discovery specification",
+  "at": "2026-11-04T21:04:53.970954+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b15/CV1_SPEC.md",
+      "ids": [
+        "F1a–F1n",
+        "D1–D6",
+        "projection rules 1–6",
+        "typed observation/lens contracts"
+      ],
+      "classification": "complete unselected projection specification with qualified evidence/persistence boundaries",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b15/REPORT.md",
+        "docs/GENETICS_AND_HERO_START_PLAN_2026-10-17.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b15/CV1_SPEC.md"
+      ],
+      "disposition": "Full F1a–F1n and D1–D6 review preserves CV1 as an unselected known-body projection on a supported existing status-card holder. It is not acquisition of a second dormant card, a hidden-fact scanner, a gene/concentration model or an automatic capability grant. The narrow proposed B2 observation adapter and biography are compatible consumers, not a general epistemology/registry requirement. Explicit holder/observer/body/world/clock/means binding and distinct enable/observation events remain necessary at the selected route; an unavailable B2 fallback is not the promised useful result. Keep admission before grouping/sorting/counting/deltas and evidence IDs internal to the adapter. Category/range/exact describes precision, seen/understood learning, and confidence/attribution certainty; none substitutes for the others. Two copies of a report are correlated evidence, an unsupported negative is not measured zero, and learned memory/access permission differ. Retain contradictory reading IDs and needed old bases without truth-based stale flags. Snapshot as-of, actual continuously supplied live reading, witnessed invalidation and public condition expiry need their own producers; render/hover cannot discover, consume or refresh them. Compare only compatible known body/model/unit/clock records. A finite sentinel/regex matrix can validate its selected boundary, not prove zero disclosure for every possible secret or new field. Preserve free durable enable on one detached envelope before install/reveal/focus and idempotent retry/restore. The old F1l generic render-before-save claim is qualified by B84/B110’s later generic host source; CV1’s own joined B2/lens validator, fault behavior and native route remain unverified. Optional nested extension/defaults do not prove whole envelope compatibility or old-reader downgrade safety. Retention/compaction may remove superseded inactive views only while preserving active inquiry evidence and dedupe identity. The 512-byte lens/4KiB body targets are engineering estimates, not caps or permission to truncate valid knowledge. Device tab preference has its own owner and cannot grant gameplay discovery. Keep real keyboard/focus/scroll, effects-off and current desktop/text targets; old 1366-only layout and 560px breakpoint are proposals, not universal gates. No CARDS body, UI implementation or new behavior was reviewed by this spec alone.",
+      "evidence": "All 349 original lines read in four complete bounded spans, including exact schema, observation admission/order, UI semantics, compatibility and completion. Current generic-host evidence reused only at B84/B110 recorded scope; no original CARDS/source/browser claims expanded.",
+      "reopen": "Only a selected actual body-lens route warrants current validator/producer/consumer, native fault, observer and literal persistence evidence. Preserve candidate choices without building or declaring acceptance.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "bc7ca213dd6d6943936347fa3416f766ca8ebeeb65c6458c1b562f74027b501a",
+      "input_lines": 349,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          349
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b15/REPORT.md",
+      "heading": "## Full CV1-spec reconciliation B112, 2026-11-04",
+      "body": "Full F1a–F1n and D1–D6 review preserves CV1 as an unselected known-body projection on a supported existing status-card holder. It is not acquisition of a second dormant card, a hidden-fact scanner, a gene/concentration model or an automatic capability grant. The narrow proposed B2 observation adapter and biography are compatible consumers, not a general epistemology/registry requirement. Explicit holder/observer/body/world/clock/means binding and distinct enable/observation events remain necessary at the selected route; an unavailable B2 fallback is not the promised useful result.\n\nKeep admission before grouping/sorting/counting/deltas and evidence IDs internal to the adapter. Category/range/exact describes precision, seen/understood learning, and confidence/attribution certainty; none substitutes for the others. Two copies of a report are correlated evidence, an unsupported negative is not measured zero, and learned memory/access permission differ. Retain contradictory reading IDs and needed old bases without truth-based stale flags. Snapshot as-of, actual continuously supplied live reading, witnessed invalidation and public condition expiry need their own producers; render/hover cannot discover, consume or refresh them. Compare only compatible known body/model/unit/clock records. A finite sentinel/regex matrix can validate its selected boundary, not prove zero disclosure for every possible secret or new field.\n\nPreserve free durable enable on one detached envelope before install/reveal/focus and idempotent retry/restore. The old F1l generic render-before-save claim is qualified by B84/B110’s later generic host source; CV1’s own joined B2/lens validator, fault behavior and native route remain unverified. Optional nested extension/defaults do not prove whole envelope compatibility or old-reader downgrade safety. Retention/compaction may remove superseded inactive views only while preserving active inquiry evidence and dedupe identity. The 512-byte lens/4KiB body targets are engineering estimates, not caps or permission to truncate valid knowledge. Device tab preference has its own owner and cannot grant gameplay discovery. Keep real keyboard/focus/scroll, effects-off and current desktop/text targets; old 1366-only layout and 560px breakpoint are proposals, not universal gates. No CARDS body, UI implementation or new behavior was reviewed by this spec alone.",
+      "before_sha256": "93985454b5ba7c2e7d5fd6efa69a0ea76fadc46b75de83126975c62ea6729a21",
+      "after_sha256": "243cd47859306026d374f5e34f72c1e7f8613e4c415ccf490e614dc4764aec7e"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1245
+}

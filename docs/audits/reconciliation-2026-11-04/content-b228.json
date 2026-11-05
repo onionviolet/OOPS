@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "batch": "B228",
+  "title": "Nonhuman rights, custody, testimony, service pricing and body-debt content",
+  "at": "2026-11-04T23:28:17.171366+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md",
+      "ids": [
+        "F1–F9",
+        "LP1–LP7",
+        "14worldtypes",
+        "OW1–OW7",
+        "RC1–RC5",
+        "sixservice/sixlivelihoodgroups",
+        "RF1–RF6",
+        "SL1–SL16",
+        "S1–S5"
+      ],
+      "classification": "Historical fictional social/economic design palette with source-attributed institutional examples",
+      "owners": [
+        "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md",
+        "docs/ECONOMY_AND_TRADE_CONSIDERATIONS_2026-10-18.md",
+        "docs/RIVALS_IDENTITIES_AND_FATE.md",
+        "docs/worlds/NONHUMAN_MAJORITY_WORLDS_2026-10-14.md"
+      ],
+      "disposition": "Preserve composablerights/jurisdiction/time/actualclaim different frombodyowner/controller/holder/regard. Tradegate isonecommandnotalltradeabsence; ambientrumornotactualpropagation; authoredhorseobediencenotgeneralconsent. Serviceuse/payer/beneficiary/agentstock/lease/debt/support separate. Retainboundedsecondary/MTLcanonlimits, no reallegallawassertion orcurrentruntimecensus.",
+      "evidence": "Entire370linebodyread1–85/86–170/171–255/256–end. Alltablesandcase/proposedstate/gap paragraphs read; no realworldlegalresearch, externalpages/sourcebooks/currentcode orprivatecaptures opened.",
+      "reopen": "Selectedlocalservice/claim/recognition operation, actualissuer/participant/channel/customer/input/quoteandsettlement, receivingconsequenceandcurrentcompatibility. Neededcanonrights/editiononlytheconsumedrule; do notrequirecompletecivilcodefororiginalfixture.",
+      "input_sha256": "e6ea28af1d371e10da22bde7e5a8ec3f1d78b0e5d4695b5bb65277d969affecc",
+      "input_lines": 370,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          370
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md",
+      "heading": "## Content reconciliation B228, 2026-11-04",
+      "body": "All F, LP, OW, RC, RF and SL rows, service/livelihood tables and source-qualified institutional comparisons were read. The palette’s seven status categories are composable local claims/rights, not a global moral, intelligence or biological enum. body.ownerId, a loan’s holder, legal title, executive control, a person’s willingness and affectionate regard answer different questions. An asserted or enforceable claim can coexist with the subject’s disagreement, and a material custody transfer can work without creating a mind-control or love effect (AD32/AD38).\n\nPreserve actual event differences: emancipation, escape, adjudicated title and termination of a magical bond are different outcomes; inherited objects, memories, personal trust and continuing obligations have different recipients. Finding a dormant sentient item does not itself settle title or create a replacement copy. Coercive premises can constrain acts through a supported rule without calling the result voluntary consent or imposing invented backlash. Scope of travel/work/channel agreement is narrower than sale, invasive repair, reproduction or borrowing a purse. Player premise choice and character agreement are separate.\n\nEvidence is audience-local: deliberate behavior, shared convention, a credential, specialized sensing and a witnessed transition support different claims. A copied signal can show communication without exclusive identity, and a correction may not reach every recipient of a false rumor. The proposed rumor chain needs an actual reporter, reachable recipient and later consumer. F6 ambient chatter is not that network; F7 regional reputation or price margin does not prove universal observer knowledge, fear, law or disguise recognition. B201/B215/B218 retain later scoped memory/recognition evidence without implementing every proposed reader here.\n\nService prices can follow actual usage, inclusive provision, subsidy, agreed sharing or local discrimination. A larger fee alone cannot cure physical nonfit. Risk-sensitive pricing requires an actually known relevant hazard rather than hidden identity. An agent holds the agreed stock/funds and returns its actual receipt/unspent balance; inability to count coins need not erase earnings or magically grant expertise. The six livelihood groups are proposed buyers/consumers, not provisioned jobs. Body support, optional advancement and money debt are distinct; refusing an unaccepted offer creates no invented contract. A creditor’s shell title does not automatically extend to the occupant or every future body.\n\nSupplied lore examples retain their institutional era, edition and secondary/MTL bounds; this review authenticates no civil code or current source. The finite exchange’s two-hands gate is one historical operation, not proof every trade route is unavailable. A horse script is not a general agency system. Current broader scope, Klein/LOTM/Harry direction, desktop/prose-first targets and AD42/AD51 qualify the old milestone, world-order and viewport/gate wording. B187/B226/B227 retain actual economy, crossing and making distinctions. No rights system, rumor network, body debt, price rule, lease, quote, command or native/persistence behavior was implemented or tested here.",
+      "before_sha256": "e6ea28af1d371e10da22bde7e5a8ec3f1d78b0e5d4695b5bb65277d969affecc",
+      "after_sha256": "07eddd20d230dd2fecc826e21c4dd39f9dcdc13ecb5041ccbc283c8e98912bae"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 989
+}

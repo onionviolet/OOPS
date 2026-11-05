@@ -1,0 +1,482 @@
+{
+  "schema": 1,
+  "batch": "B50",
+  "title": "Taiwu transaction/carryover evidence, Siralim serializer leaves and retired intake",
+  "at": "2026-11-04T19:58:51.240273+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/sapiens/CHECKPOINT.md",
+      "ids": [
+        "A01",
+        "A03",
+        "A04",
+        "A02",
+        "A05",
+        "A08",
+        "A09",
+        "A12",
+        "P01",
+        "P03",
+        "P04",
+        "ASPECTS"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/sapiens/ and private ~/.codex/research/fs-sapiens extracts; native bridge is the missing supplier for save encoding, flush and recovery."
+      ],
+      "disposition": "Partial static dossier delivery; the recorded validation checks structure, hashes and JSON, not gameplay. Priority proposals extend P01/P03/P04 and remain proposals. Preserve actual frontend/backend/caller/settlement distinctions and later selected partial closures. Retired Six Ages1 intake is not requeued; removal eligibility/request remains separate from observed removal. Old one-realm/one-prestige and source-pass build order are superseded by live direction. Existing named report/unread owners retain useful ideas.",
+      "mechanism_and_interactions": "A01/A03 Lua questions were answered from installed build 19991669; A04 reached a native bridge/database boundary. Twelve aspect rows and selected flows were preserved. This is structural/source coverage; no game launch, saves or implementation occurred.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports selected Lua reads and explicitly excludes native engine, UI, saves and several systems. No independent source inspection here.",
+      "reopen": "For any selected continuation, use named ASPECTS gaps; native save/UI behavior remains unproved.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          27
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S045.json"
+      ],
+      "prior_input_sha256": "a711861f37c6bd684b0b2d9c47cbb74b356c98e3ae887aaa5c5b0bd5ddcefed0",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "a711861f37c6bd684b0b2d9c47cbb74b356c98e3ae887aaa5c5b0bd5ddcefed0",
+      "input_lines": 27
+    },
+    {
+      "path": "docs/research/sapiens/aspects-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "A01",
+        "A03",
+        "A04"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/sapiens/CHECKPOINT.md"
+      ],
+      "disposition": "Subordinate partial checkpoint; it points to the main Sapiens checkpoint for validation and unread limits. Preserve actual frontend/backend/caller/settlement distinctions and later selected partial closures. Retired Six Ages1 intake is not requeued; removal eligibility/request remains separate from observed removal. Old one-realm/one-prestige and source-pass build order are superseded by live direction. Existing named report/unread owners retain useful ideas.",
+      "mechanism_and_interactions": "The twelve aspect rows and inventory were delivered; A01/A03 were covered and A04 remained partial at the native boundary.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Only this five-line summary was assigned; detailed mechanisms and validation reside in the linked checkpoint, not this span.",
+      "reopen": "Consult the named main checkpoint if the aspect coverage boundary matters.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          5
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S045.json"
+      ],
+      "prior_input_sha256": "3fd88d4015ad340598b2c46028b150590369a8b0fa426486de9307948989de7c",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "3fd88d4015ad340598b2c46028b150590369a8b0fa426486de9307948989de7c",
+      "input_lines": 5
+    },
+    {
+      "path": "docs/research/scroll-of-taiwu/CHECKPOINT.md",
+      "ids": [
+        "P1–P7",
+        "COMMON"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/scroll-of-taiwu/ and private /Users/weiwei/.codex/research/taiwu/ extracts"
+      ],
+      "disposition": "Research delivery passed its payload and structural checks, while semantic and runtime coverage is explicitly partial. Seven packets remain proposals; no owner changes were authorized. Preserve actual frontend/backend/caller/settlement distinctions and later selected partial closures. Retired Six Ages1 intake is not requeued; removal eligibility/request remains separate from observed removal. Old one-realm/one-prestige and source-pass build order are superseded by live direction. Existing named report/unread owners retain useful ideas.",
+      "mechanism_and_interactions": "Taiwu bounded static research counted technique/building/legacy constructors and read selected backend, schema and encyclopedia material. It separately records legacy point award timing, information transfer, book-trade custody/settlement, career progress/unlock/learned/cooldown, inheritance and force-cap mechanisms; frontend valuation/order, general relation policies, UI and runtime remain open.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports static method reads/counts and explicitly says no game tests, persistence checks or save access.",
+      "reopen": "If resumed, follow the exact frontend legacy order/transfer gaps before generalizing carryover; no runtime or save compatibility evidence.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          42
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S045.json"
+      ],
+      "prior_input_sha256": "943e5840d89871c85761aee152ce8f24a6623211fd707f5324019aaf469bcb47",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "943e5840d89871c85761aee152ce8f24a6623211fd707f5324019aaf469bcb47",
+      "input_lines": 42
+    },
+    {
+      "path": "docs/research/scroll-of-taiwu/aspects-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "AU1",
+        "AU2",
+        "AU3",
+        "AU4",
+        "AU5",
+        "AU6",
+        "AU7",
+        "D1–D3"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/scroll-of-taiwu/aspects-2026-10-14/ and private taiwu-2-aspects extracts"
+      ],
+      "disposition": "Bounded aspect delivery; claims remain proposals. It extends prior trade evidence but leaves frontend guards/valuation, full migrations/listeners, all-row semantics and runtime acceptance open. Preserve actual frontend/backend/caller/settlement distinctions and later selected partial closures. Retired Six Ages1 intake is not requeued; removal eligibility/request remains separate from observed removal. Old one-realm/one-prestige and source-pass build order are superseded by live direction. Existing named report/unread owners retain useful ideas.",
+      "mechanism_and_interactions": "Aspect follow-up traces frontend selection/formatting into backend monthly phases; save headers, version marks, compression, SQLite, CRC, upgrade dispatch, backup restore and optional end-month save; information circulation; backend book-trade settlement; career progress/unlock/learned/cooldown. It distinguishes metadata inventory from new mechanism coverage.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint describes static source traces and validation; no process start, save/database access or gameplay proof.",
+      "reopen": "Follow AU1/AU2/AU4 as named; do not treat backend settlement or container tracing as full transaction, migration or runtime proof.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          35
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S045.json"
+      ],
+      "prior_input_sha256": "47e007e36b9bed59525fb905d9d1b03c722d59d55b6f3ec80041421dec4fecca",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "47e007e36b9bed59525fb905d9d1b03c722d59d55b6f3ec80041421dec4fecca",
+      "input_lines": 35
+    },
+    {
+      "path": "docs/research/scroll-of-taiwu/pass-2026-10-14-deep/CHECKPOINT.md",
+      "ids": [
+        "U1",
+        "U2",
+        "U3",
+        "U4",
+        "U5",
+        "U6",
+        "U7",
+        "U8"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/scroll-of-taiwu/pass-2026-10-14-deep/ and private taiwu-2 extracts"
+      ],
+      "disposition": "Bounded source delivery with explicit unread rows; no owner changes or accepted decisions. Selected direct transfer does not close transitive listeners or cross-archive behavior. Preserve actual frontend/backend/caller/settlement distinctions and later selected partial closures. Retired Six Ages1 intake is not requeued; removal eligibility/request remains separate from observed removal. Old one-realm/one-prestige and source-pass build order are superseded by live direction. Existing named report/unread owners retain useful ideas.",
+      "mechanism_and_interactions": "Deep pass traced weighted goal selection/pathfinding/revalidation, concrete study actions, protection/revenge, marriage/faction/crime, birth/bequest, normal legacy frontend order, direct transfer handlers, GlobalConfig study defaults, force caps and selected adventure transitions. Five .twes packages reached EOF, but that is a selected script subset.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports reused matching source hashes and static reads; runtime, saves, tests and broad semantic coverage excluded.",
+      "reopen": "U1 is next: pair lesson/exchange mutation handlers with exact main-route conditions. Runtime/UI/persistence and remaining systems stay open.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          38
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S045.json"
+      ],
+      "prior_input_sha256": "3e8c2e1011811f934e0e36fe4ac96075e7ce20f3458d73aea4f146a1de4ed463",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "3e8c2e1011811f934e0e36fe4ac96075e7ce20f3458d73aea4f146a1de4ed463",
+      "input_lines": 38
+    },
+    {
+      "path": "docs/research/scroll-of-taiwu/pass-2026-10-14-systems/CHECKPOINT.md",
+      "ids": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06",
+        "R07",
+        "R08",
+        "R09",
+        "R10",
+        "U1",
+        "U2",
+        "U3",
+        "U4",
+        "U5",
+        "U6",
+        "U7",
+        "U8",
+        "AU1",
+        "AU2",
+        "AU3",
+        "AU4",
+        "AU5",
+        "AU6",
+        "AU7",
+        "N01",
+        "N02",
+        "N03",
+        "N04",
+        "N05",
+        "N06",
+        "N07",
+        "N08",
+        "N09",
+        "N10",
+        "N11",
+        "N12",
+        "N13",
+        "N14"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/scroll-of-taiwu/pass-2026-10-14-systems/; owner gaps are bounded search findings, not proof of absence"
+      ],
+      "disposition": "Delivery validation passed for static artifact structure; source/runtime coverage remains partial. No source-owner edits, game execution, personal saves or acceptance gates were claimed. Preserve actual frontend/backend/caller/settlement distinctions and later selected partial closures. Retired Six Ages1 intake is not requeued; removal eligibility/request remains separate from observed removal. Old one-realm/one-prestige and source-pass build order are superseded by live direction. Existing named report/unread owners retain useful ideas.",
+      "mechanism_and_interactions": "Systems sweep added 25 complete static types and 15 mechanism sections, relating tables, domain families, modules, consumers and owner routing. It reconciles prior R/U/AU gaps and adds N01–N14. Selected sell helper, caravan travel/risk/arrival and genetics/making/treatment/party/map/artifact leaves extend prior coverage without closing broad families.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint distinguishes completed static extraction and crosswalks from unread rows; N14 runtime/personal data remains excluded.",
+      "reopen": "N01 command guards/debits/callbacks is named highest payoff; other exact N gaps remain source questions, not new gameplay gates.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          68
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S045.json"
+      ],
+      "prior_input_sha256": "7856ab0707acc057b6513606031bfc3e51104cf7b2a0c8669b3a16b38e9faf93",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "7856ab0707acc057b6513606031bfc3e51104cf7b2a0c8669b3a16b38e9faf93",
+      "input_lines": 68
+    },
+    {
+      "path": "docs/research/siralim-ultimate/CHECKPOINT.md",
+      "ids": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "U1",
+        "U2",
+        "U3",
+        "U4",
+        "U5",
+        "U6",
+        "U7",
+        "U8",
+        "SU-P01",
+        "SU-P02",
+        "SU-P03"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/siralim-ultimate/ and private ~/.codex/research/mw-siralim/ extracts"
+      ],
+      "disposition": "Read-only research delivery; proposals are not accepted gameplay. Fifteen of sixteen native targets returned bodies, but one timeout and U1–U8 gaps remain explicit. Preserve actual frontend/backend/caller/settlement distinctions and later selected partial closures. Retired Six Ages1 intake is not requeued; removal eligibility/request remains separate from observed removal. Old one-realm/one-prestige and source-pass build order are superseded by live direction. Existing named report/unread owners retain useful ideas.",
+      "mechanism_and_interactions": "Siralim bounded native analysis decoded named functions, realm/pool properties, fusion, trait, save setup and localization; actual save Step timed out. It distinguishes complete localization indexing from semantic reading and file-copy setup from crash-safe recovery.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical dossier validation and pinned installed-file hashes are reported; no game launch, save read, YAIRPG test or persistence roundtrip.",
+      "reopen": "Use selected U4 helper/control-flow regions for save completion; runtime/UI/recovery remain prohibited/unproved.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          41
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S045.json"
+      ],
+      "prior_input_sha256": "0e38d5b4fe39bc618d072c7f6e85f1038222ead9b03dd03c8cca00689211f4ba",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "0e38d5b4fe39bc618d072c7f6e85f1038222ead9b03dd03c8cca00689211f4ba",
+      "input_lines": 41
+    },
+    {
+      "path": "docs/research/siralim-ultimate/pass-2026-10-14-systems/CHECKPOINT.md",
+      "ids": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "U1",
+        "U2",
+        "U3",
+        "U4",
+        "U5",
+        "U6",
+        "U7",
+        "U8",
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06",
+        "R07",
+        "R08",
+        "R09",
+        "R10",
+        "R11",
+        "R12",
+        "R13",
+        "R14",
+        "R15",
+        "R16",
+        "R17",
+        "R18"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/siralim-ultimate/pass-2026-10-14-systems/ and private ds-siralim-ultimate extracts"
+      ],
+      "disposition": "Delivery complete within bounds; the old broad U rows remain open/partial where only a leaf was read. U8 runtime route was prohibited, not a claim that persistent societies are absent. Preserve actual frontend/backend/caller/settlement distinctions and later selected partial closures. Retired Six Ages1 intake is not requeued; removal eligibility/request remains separate from observed removal. Old one-realm/one-prestige and source-pass build order are superseded by live direction. Existing named report/unread owners retain useful ideas.",
+      "mechanism_and_interactions": "Follow-up paired creature/project/decoration serializer fields and added selected knowledge, project, economy, personality, fusion, cooking, home, patron, guild, prophecy, collection, trial, event and combat evidence. It keeps whole-save completion, broad database semantics, native UI and runtime separate from those leaves.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Reported validation covers files, links, returned bodies and hashes; no game/Windows launch, save roundtrip or gameplay test.",
+      "reopen": "R01 rank-reader caller join is next static unit. For any adoption, use live owners and selected browser/persistence proof; no human gate is required.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          63
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S045.json"
+      ],
+      "prior_input_sha256": "293c26b792a65e67333b7350b9781be874d3e86293f480864c44c8321b4d7ba4",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "293c26b792a65e67333b7350b9781be874d3e86293f480864c44c8321b4d7ba4",
+      "input_lines": 63
+    },
+    {
+      "path": "docs/research/six-ages/CHECKPOINT.md",
+      "ids": [
+        "App881420",
+        "2278010"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/six-ages-2/REPORT.md; dated correction at docs/gm/dispatch/life-sim-sources-2026-10-07/history/six-ages-identity-correction/six-ages-1-intake/REPORT.md"
+      ],
+      "disposition": "Retired intake; explicitly not a blocker and must not be requeued. Preserve actual frontend/backend/caller/settlement distinctions and later selected partial closures. Retired Six Ages1 intake is not requeued; removal eligibility/request remains separate from observed removal. Old one-realm/one-prestige and source-pass build order are superseded by live direction. Existing named report/unread owners retain useful ideas.",
+      "mechanism_and_interactions": "The assigned title was corrected from Six Ages 1/app881420 to Six Ages 2: Lights Going Out/app2278010; no source was copied or audited.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Five-line checkpoint records assignment correction only; it provides no source audit evidence.",
+      "reopen": "No pending check for this retired title; keep Six Ages 2 as the owner.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          5
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S045.json"
+      ],
+      "prior_input_sha256": "79e66559f72896497fbf9c6645ca0466e9e54437e603cf65aa6e5d95aceff98d",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "79e66559f72896497fbf9c6645ca0466e9e54437e603cf65aa6e5d95aceff98d",
+      "input_lines": 5
+    },
+    {
+      "path": "docs/research/six-ages-2/CHECKPOINT.md",
+      "ids": [
+        "app2278010"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/six-ages-2/INTAKE, FINDINGS, COVERAGE, DLC_COVERAGE and IMPLEMENTATION_PACKETS (as named); parent Steam uninstall evidence supplier not identified by path"
+      ],
+      "disposition": "Bounded pass complete; uninstall is a parent follow-up, not a claim already completed. Preserve actual frontend/backend/caller/settlement distinctions and later selected partial closures. Retired Six Ages1 intake is not requeued; removal eligibility/request remains separate from observed removal. Old one-realm/one-prestige and source-pass build order are superseded by live direction. Existing named report/unread owners retain useful ideas.",
+      "mechanism_and_interactions": "Finite Six Ages 2 pass records a per-file source/copy hash receipt and retained managed/native symbol and selected native slices; parent still owns evidence of uninstall. Arbitrary scenes and native save format remain unread without being blockers for this bounded pass.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint describes hash verification before audit reads, but no source details in this span; it explicitly disclaims uninstall completion.",
+      "reopen": "Parent must record actual Steam uninstall evidence; arbitrary scene/save-format gaps remain outside the finite pass.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S045.json"
+      ],
+      "prior_input_sha256": "7b8ec11b24272a981a1ff16cede1ef7455d363b4f4a8a13255cda12890373ab7",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "7b8ec11b24272a981a1ff16cede1ef7455d363b4f4a8a13255cda12890373ab7",
+      "input_lines": 7
+    },
+    {
+      "path": "docs/research/soulash-2/CHECKPOINT.md",
+      "ids": [
+        "0.9.19.7",
+        "v0.10.x"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/soulash-2/FINDINGS.json, REPORT.md, COVERAGE.json, INTAKE.json, IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "Finite bounded data audit complete; proposals unaccepted/unimplemented. No current-retail source or gameplay qualification. Preserve actual frontend/backend/caller/settlement distinctions and later selected partial closures. Retired Six Ages1 intake is not requeued; removal eligibility/request remains separate from observed removal. Old one-realm/one-prestige and source-pass build order are superseded by live direction. Existing named report/unread owners retain useful ideas.",
+      "mechanism_and_interactions": "Soulash 2 audit concerns an older public Windows demo ZIP (version 0.9.19.7), with linked JSON traces and executable header inspection; the executable was not run/decompiled. Current retail v0.10.x is creator-documentation-only in this record.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint reports archive hash/inventory and four JSON traces, while distinguishing data/header inspection from execution and current retail evidence.",
+      "reopen": "No further work for this packet; current retail claims require a separate source basis if selected.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S045.json"
+      ],
+      "prior_input_sha256": "72fc3c3a244668cd1aab7e2ce77cc7b585ea4c24294ef2dd0b8b6da0f8770259",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "72fc3c3a244668cd1aab7e2ce77cc7b585ea4c24294ef2dd0b8b6da0f8770259",
+      "input_lines": 9
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/scroll-of-taiwu/CHECKPOINT.md",
+      "heading": "## Later selected source work and scope, 2026-11-04 (B50)",
+      "body": "The later aspects/deep/systems checkpoints extend selected frontend normal-legacy completion order, direct information transfer, backend book trade, career and other consumers beyond the initial next-read paragraph. They still leave main-route admission, transitive listeners, valuation/guards, full migrations and runtime/save behavior partial; source mutation handlers are not universal carryover proof. Route to those exact later U/AU/N rows before repeating old source work. The final one-realm/one-prestige line is an October14 snapshot superseded by USER_VISION’s October24 scope direction, not a current required gate.",
+      "before_sha256": "943e5840d89871c85761aee152ce8f24a6623211fd707f5324019aaf469bcb47",
+      "after_sha256": "4e6a3c19ea9b4568a6e81b3243f157bbc911cedcc13756f29cf370c9e6d1871a"
+    },
+    {
+      "path": "docs/research/siralim-ultimate/CHECKPOINT.md",
+      "heading": "## Later serializer and consumer leaves, 2026-11-04 (B50)",
+      "body": "pass-2026-10-14-systems/CHECKPOINT.md adds selected creature/project/decoration serializer fields and knowledge, economy, fusion, home and other bounded consumers. Use its R01–R18 routes before treating every original U row as wholly untraced. Whole-save completion, async durability/recovery and broad semantic/native behavior remain unproved; a serializer leaf does not close the timed-out giant save function. A future selected question should follow an exact helper/caller rather than repeat broad extraction or infer missing societies from the no-runtime scope.",
+      "before_sha256": "0e38d5b4fe39bc618d072c7f6e85f1038222ead9b03dd03c8cca00689211f4ba",
+      "after_sha256": "2c5ccf90b661a04b0fd2ab00dc93a978c76eded13a59127b1e7ce1e7d7277bb2"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1485
+}

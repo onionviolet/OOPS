@@ -1,0 +1,107 @@
+{
+  "schema": 1,
+  "batch": "B201",
+  "title": "Complete rival catalogue and trace current bounded memory consumer",
+  "at": "2026-11-04T22:56:21.569865+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/RIVALS_IDENTITIES_AND_FATE.md",
+      "ids": [
+        "35 archetypes",
+        "Young-master branching dispute",
+        "Ten identity layers",
+        "Six villain routes/thirteen targets",
+        "Reserve/anchor luck",
+        "Rival chronicle",
+        "Five proof stages",
+        "TG1–TG5",
+        "B67"
+      ],
+      "classification": "Rival/identity/fate root palette with later cause-driven direction",
+      "owners": [
+        "docs/RIVALS_IDENTITIES_AND_FATE.md",
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "disposition": "Preserve recurrent actor identity and distinct leverage/claims/knowledge/ownership; later TG direction qualifies forced costs, anti-farm and ordinary observation limits. Original no-rival implementation and first-milestone statements historical; current source supplies bounded road-rival memory/appraisal, not general autonomous society or fate theft.",
+      "evidence": "Fresh full doc read. Also read full current rival_memory.js and selected actual finish/start caller ranges, captured separately. No new test, persistence/browser journey, primary reference, private save, patent/legal-status verification or all-caller audit.",
+      "reopen": "Selected persistent actor/outcome/observation/appropriation consumer; trace current publication and actual observation/means before generalization.",
+      "supporting_reads": [
+        {
+          "path": "src/native_battle.js",
+          "ranges": [
+            [
+              17,
+              43
+            ]
+          ],
+          "full": false,
+          "input_sha256": "4b4e7262350d9b049b04cdd8ef03aa9e157acbe17085773f8f0094c03b94ee35",
+          "input_lines": 83
+        },
+        {
+          "path": "src/tempo_fight_domain.js",
+          "ranges": [
+            [
+              52,
+              75
+            ]
+          ],
+          "full": false,
+          "input_sha256": "ddbaa45516af15e1ad82c0add3cc057bd81f7aebcfe59de3451b88963089c5e9",
+          "input_lines": 182
+        }
+      ],
+      "input_sha256": "4877ce991c32bda81ef187a6dd9f07eb8d39e56d6c37e38ec9ce4c215a3fa9f7",
+      "input_lines": 407,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          407
+        ]
+      ]
+    },
+    {
+      "path": "src/rival_memory.js",
+      "ids": [
+        "RIVAL_FACTS",
+        "RIVAL_DIALS",
+        "rivalHistory",
+        "rivalMemoryEffects",
+        "appraisalMeans",
+        "hiddenMargin",
+        "rivalBrief",
+        "rivalCombatant"
+      ],
+      "classification": "Current bounded road-rival history, appraisal projection and combat parameter derivation",
+      "owners": [
+        "docs/RIVALS_IDENTITIES_AND_FATE.md"
+      ],
+      "disposition": "Saved player actor facts count contests/player outcomes; native finish also sets lastResult, while next tempo start consumes derived body/goals/perception. Hidden margin applies independently of appraisal visibility. Per-rival general memory/paid autonomous learning, all observers and all endings not established.",
+      "evidence": "Fresh full49line source read. Selected native_battle17–43 and tempo_fight_domain52–75 callers read. Arithmetic/local defaults source only; no behavioral or save test run.",
+      "reopen": "Selected next road-contest or generalized actor-memory change; verify exact producer/publication/read path and real outcome, including failure/restore as applicable.",
+      "input_sha256": "40d585ec1639f187957bc26e87cd56b9e95ce0a1a3208c7f7f8481bf88153214",
+      "input_lines": 49,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          49
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/RIVALS_IDENTITIES_AND_FATE.md",
+      "heading": "## Complete rival palette and bounded current-source reconciliation, 2026-11-04",
+      "body": "Read all archetypes, identity/appropriation tables, reserve/anchor examples, rival chronicle and TG1–TG5. The opening no-rival-gameplay and first-realm/prestige text is historical, not today’s absence proof or required gate. Current rival_memory.js has a bounded road-rival consumer: contest counts/player outcomes live in player actor facts; the selected native finish also records lastResult, and the inspected tempo start derives the rival body/goals/perception from that history. The real attack margin applies whether appraised or not. This source trace qualifies the old blanket absence without proving natural recurrence, every outcome/failed write or native persistence in a new journey (AD32, AD36, AD43).\n\nThat small numeric history is not a general NPC memory/decision/evidence network. It does not prove paid offscreen learning, every observer’s report route, multiple rivals or arbitrary identity theft. Keep actual talent, recognized office, perceived alias, lawful claim, custody, source/fuel and metaphysical favor separate. Copy/move/lease/share/redirect/destroy have different donor/recipient effects; defeat does not automatically transfer every possession, organ, title or opportunity. A surviving or returned body and a successor retain distinct identity. Temporary combat reset must not reverse durable life aftermath.\n\nTG1–TG5 preserve later cause-driven direction. Rivals can remain weaker, settle, cooperate or leave. Adaptation can use exceptional information or free means where their actual source supports it; the early compulsory tradeoff or finite-payer examples are not universal balancing laws (AD5, AD38). Coherent finite ownership and once-only publication do not forbid an authored renewable fortune engine (AD22). Actual hidden dangers need not reveal every protection in advance. Reserve/anchor odds, prototype cast limits and proof rankings are examples, not a new queue. Historical source previews, synopses and talk overviews remain bounded references; no fresh source, legal clearance or whole-world qualification was performed.",
+      "before_sha256": "4877ce991c32bda81ef187a6dd9f07eb8d39e56d6c37e38ec9ce4c215a3fa9f7",
+      "after_sha256": "3656c8ec28088a911a46415fd6bd0a28daff5e891198322b710d82811fa2e196"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1089
+}

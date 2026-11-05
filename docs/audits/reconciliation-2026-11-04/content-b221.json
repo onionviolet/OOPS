@@ -1,0 +1,175 @@
+{
+  "schema": 1,
+  "batch": "B221",
+  "title": "UI inspection and attribute checkpoints, map correction and frozen fixture scope",
+  "at": "2026-11-04T23:21:41.032853+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R5_CHECKPOINT.md",
+      "ids": [
+        "R5 inspection/nav"
+      ],
+      "classification": "Historical UI candidate checkpoint, user correction or fixture evidence note",
+      "owners": [
+        "docs/gm/dispatch/ui-foundation-2026-10-15/R5_CHECKPOINT.md"
+      ],
+      "disposition": "Source-fidelity and defaultinspection distinct; finalboundedcandidate implementedsavedtechnicalchecks withoutchoosingdefault. Olderreportsemptyneeds correctedbylatercandidate buthumanreview optionalAD42.",
+      "evidence": "Fullshortbodyread with no truncation. No associatedsource/capture/browser/fixture orlinkedlargerreportread/executed now. Fileidentity only scoped to this actual body.",
+      "reopen": "Follow actual latest owner and scopedproofbeforeselected UI behaviorclaim; old visiblebrowser/history/server URLs grant no foregroundaction or test rerun.",
+      "input_sha256": "d8f49305d25df31f97c632fcc7ed539e50f218168733fd567a46747a80dfaa28",
+      "input_lines": 13,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R8_CHECKPOINT.md",
+      "ids": [
+        "R8 D8–D12/sixfitcases/18pairs"
+      ],
+      "classification": "Historical UI candidate checkpoint, user correction or fixture evidence note",
+      "owners": [
+        "docs/gm/dispatch/ui-foundation-2026-10-15/R8_CHECKPOINT.md"
+      ],
+      "disposition": "Twoauthorizedread-onlylanes returnedunappliedproposals; runtimeownerretainedsource. Native12statsfit/tab/shieldcase andsourcechecks distinct from18comparisonload/nativepixel/zeroerrors. Noactualnew targeting/appraisal.",
+      "evidence": "Fullshortbodyread with no truncation. No associatedsource/capture/browser/fixture orlinkedlargerreportread/executed now. Fileidentity only scoped to this actual body.",
+      "reopen": "Follow actual latest owner and scopedproofbeforeselected UI behaviorclaim; old visiblebrowser/history/server URLs grant no foregroundaction or test rerun.",
+      "input_sha256": "0555df24068ca6dc45afaee78b3b818d9c8ce58df3e5957058be52a45249e0db",
+      "input_lines": 15,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R10_CHECKPOINT.md",
+      "ids": [
+        "R10 35keys+3XPfactors"
+      ],
+      "classification": "Historical UI candidate checkpoint, user correction or fixture evidence note",
+      "owners": [
+        "docs/gm/dispatch/ui-foundation-2026-10-15/R10_CHECKPOINT.md"
+      ],
+      "disposition": "12legacyrowsnotfullattributes;35keys+3personalXPfactors not38independentworkingbonuses. SourcepatternfromApothicnotimportedformulas; dormantfieldsnotactiveeffects. Honestlocalscrollnotfontshrink. Workersreleasedhistorically notnewcurrentownership.",
+      "evidence": "Fullshortbodyread with no truncation. No associatedsource/capture/browser/fixture orlinkedlargerreportread/executed now. Fileidentity only scoped to this actual body.",
+      "reopen": "Follow actual latest owner and scopedproofbeforeselected UI behaviorclaim; old visiblebrowser/history/server URLs grant no foregroundaction or test rerun.",
+      "input_sha256": "026aee0a4490bff7ca5f3da6309215a09726a75d06939dba99d85494fa2474af",
+      "input_lines": 13,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/map-correction.prompt.md",
+      "ids": [
+        "User map/representation correction"
+      ],
+      "classification": "Historical UI candidate checkpoint, user correction or fixture evidence note",
+      "owners": [
+        "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/map-correction.prompt.md"
+      ],
+      "disposition": "Specificusercorrection main outcome map/spatialstyle,notmathledger. Keepcounts/lensesasannotations andworld/area/localdifferentstyles; representedarrangementnotnewtravelexecution. Currentviewports/Nov4optionalart qualifyoldtarget.",
+      "evidence": "Fullshortbodyread with no truncation. No associatedsource/capture/browser/fixture orlinkedlargerreportread/executed now. Fileidentity only scoped to this actual body.",
+      "reopen": "Follow actual latest owner and scopedproofbeforeselected UI behaviorclaim; old visiblebrowser/history/server URLs grant no foregroundaction or test rerun.",
+      "input_sha256": "e41fd75ef7839231600619f5af363ba2d0993ef6657bbf67ca9f8940cc3ea391",
+      "input_lines": 14,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          14
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit.last.md",
+      "ids": [
+        "Stage1F1–F5/628suite"
+      ],
+      "classification": "Historical UI candidate checkpoint, user correction or fixture evidence note",
+      "owners": [
+        "docs/gm/dispatch/cheat-status-window-2026-10-13/runs/audit.last.md"
+      ],
+      "disposition": "Fivefailure/contractgapscoexistwith628passingtests. Offscreenreveal/day3travel/savepublish seedednative distinct from sourceweaksemantics.40m37.4snatural fallback observation andmanualclaimunspendablepoint recommendation notaccepteddesign orcurrentstatus.",
+      "evidence": "Fullshortbodyread with no truncation. No associatedsource/capture/browser/fixture orlinkedlargerreportread/executed now. Fileidentity only scoped to this actual body.",
+      "reopen": "Follow actual latest owner and scopedproofbeforeselected UI behaviorclaim; old visiblebrowser/history/server URLs grant no foregroundaction or test rerun.",
+      "input_sha256": "0abe624324778158e8333ec2a88ddd885904827debe52f7c6b4325d543ccc857",
+      "input_lines": 13,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/cheat-status-window-2026-10-13/runs/r1/regressions/vivid-proto23-flow-2026-10-13/checks/fixtures/README.md",
+      "ids": [
+        "Precombat/fought fixture2025657de8b67c59"
+      ],
+      "classification": "Historical UI candidate checkpoint, user correction or fixture evidence note",
+      "owners": [
+        "docs/gm/dispatch/cheat-status-window-2026-10-13/runs/r1/regressions/vivid-proto23-flow-2026-10-13/checks/fixtures/README.md"
+      ],
+      "disposition": "Frozenfixture7lines fullyread, exactoldbundle/earnedstate route andsizes; directlocalStorageinjection describes disposabletesttransport not ordinaryfreshplay/personaldataauthority. Preserveoldfixtureifnewbuildrequiresnewproof.",
+      "evidence": "Fullshortbodyread with no truncation. No associatedsource/capture/browser/fixture orlinkedlargerreportread/executed now. Fileidentity only scoped to this actual body.",
+      "reopen": "Follow actual latest owner and scopedproofbeforeselected UI behaviorclaim; old visiblebrowser/history/server URLs grant no foregroundaction or test rerun.",
+      "input_sha256": "1d75045bb430e715e98dc9052747a10c720b2f1fee1e362765323e94f8357a8d",
+      "input_lines": 7,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/vivid-proto23-flow-2026-10-13/checks/fixtures/README.md",
+      "ids": [
+        "Precombat/fought fixture duplicateREADME"
+      ],
+      "classification": "Historical UI candidate checkpoint, user correction or fixture evidence note",
+      "owners": [
+        "docs/gm/dispatch/vivid-proto23-flow-2026-10-13/checks/fixtures/README.md"
+      ],
+      "disposition": "Samefullbody instructions as nestedregressioncopy; retainboth historicalpathlocators. Twoidenticalnotes do not establish twoindependenttests orsourcecoverage; nofixture/rawsaveopened.",
+      "evidence": "Fullshortbodyread with no truncation. No associatedsource/capture/browser/fixture orlinkedlargerreportread/executed now. Fileidentity only scoped to this actual body.",
+      "reopen": "Follow actual latest owner and scopedproofbeforeselected UI behaviorclaim; old visiblebrowser/history/server URLs grant no foregroundaction or test rerun.",
+      "input_sha256": "1d75045bb430e715e98dc9052747a10c720b2f1fee1e362765323e94f8357a8d",
+      "input_lines": 7,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/map-correction.prompt.md",
+      "heading": "## Content reconciliation B221, 2026-11-04",
+      "body": "The complete correction was reviewed as an attributed user change: spatial/map representation is the main question; numeric counts and lenses may annotate it. Preserve scale, actual known anchors, fog/discovery, subjects/resources, travel choice/time, perception and build effort separately. A schematic room grouping is not evidence of navigable coordinates, a runtime pathfinding model or known hidden residents. Different representations can fit local place, area and world without asking a universal either/or question (AD5/AD32).\n\nCurrent desktop targets, independent panes and prose-first task composition qualify the old1366-primary mockup instruction. Nov4 direction keeps art optional; this historical map request does not require a pictured scene, restore the stopped home experiment or launch a visible browser. Counts can remain useful annotations where genuinely admitted; unknown facts cannot enter counts, labels or alternate map views. This checkpoint read does not claim the downstream map research/mockups were fully read or the representation implemented. Follow the incumbent Around you/map owner and current task record for selected behavior and scoped proof.",
+      "before_sha256": "e41fd75ef7839231600619f5af363ba2d0993ef6657bbf67ca9f8940cc3ea391",
+      "after_sha256": "f78243dd1e105ca79e72c31dd9a3b521c89e805d8afef1844ab64f13a21d1922"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 996
+}

@@ -527,3 +527,10 @@ medium has no row, fall back to the next simpler medium, ending in text.
 
 Animation style, UI-touching powers, shattering panels and fourth-wall
 effects continue in [presentation and the fourth wall](../PRESENTATION_AND_FOURTH_WALL.md).
+
+
+## Infinite-debt trace reconciliation, 2026-11-04 (B168)
+
+The [odd-power trace](../reviews/ODD_POWERS_POLYJUICE_NOITA_TRACE_2026-10-13.md) preserves the corrected request: infinite debt was intended; infinite depth remains a separate interesting proposal. Keep O1–O5 as a palette, not an executable universal grammar. Infinite principal, indefinitely accruing finite debt and recursive obligation are different mechanisms. Collection speed, reach, authority, transfer, inheritance, dispute and forgiveness follow the actual claim/power; an infinite balance does not by itself imply infinite collection. An extraordinary means can explicitly supply those properties without invented balancing taxes.
+
+Transferable, forgotten, inherited or retroactive debt requires an actual effect and applicable local law. Literal word magic can make wording causal in its own world; elsewhere an adjective describes the mechanism. Preserve carrier, trigger, effect and resulting history as distinct. Polyjuice-like body functions, personal identity and each observer’s recognition differ; actual dose, expiry and equipment fit matter when their mechanism makes them relevant. Noita-like material identity, amount and delivery route likewise differ from a generic effect label. A pocket’s endless depth does not automatically supply access, traversal or contact. These are retained ideas, not new HP canon or a general implemented adjective engine. This receiving section was maintained without claiming full review of the E8F body.

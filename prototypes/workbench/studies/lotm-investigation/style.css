@@ -1,0 +1,64 @@
+#lotm-case{--ink:#c6ebec;--muted:#99adbf;--line:#576b92;--navy:#080d28;--teal:#123c51;--gold:#f6cc81;--paper:#e9d6b2;--brown:#342c2b;--text:14px;color:var(--ink);font:var(--text)/1.5 Menlo,Consolas,monospace;color-scheme:dark}
+#lotm-case *{box-sizing:border-box}
+#lotm-case button,#lotm-case select{font:inherit;color:inherit;background:#15253e;border:1px solid var(--line);padding:6px 10px;border-radius:0;min-height:32px}
+#lotm-case button:hover{background:#24415d}#lotm-case button:focus-visible,#lotm-case select:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+#lotm-case button[aria-disabled=true]{opacity:.65}#lotm-case button[aria-pressed=true]{border-color:var(--gold);color:var(--gold)}
+#lotm-case .study-tools{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:12px;background:#131927;border-bottom:1px solid var(--line)}
+#lotm-case .study-tools label{display:flex;align-items:center;gap:6px}#lotm-case .study-label{color:var(--gold);letter-spacing:.08em}
+#lotm-case .fixture-label{color:var(--muted);font-size:12px}
+#lotm-case .game-shell{background:var(--navy);min-height:690px;padding:12px}
+#lotm-case .game-top{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:10px 12px;border:1px solid var(--line);background:linear-gradient(90deg,#091132,#14404d)}
+#lotm-case .game-top strong{color:var(--gold);letter-spacing:.07em;font-weight:500}#lotm-case h2,#lotm-case h3,#lotm-case p{margin:0}#lotm-case h2{font:500 1.3em/1.4 Georgia,serif}#lotm-case h3{font:500 1em/1.4 Menlo,monospace;color:var(--gold);margin-bottom:9px}
+#lotm-case .game-grid{display:grid;grid-template-columns:minmax(170px,.85fr) minmax(0,3.4fr) minmax(180px,1fr);gap:10px;margin-top:10px}
+#lotm-case .region{border:1px solid var(--line);background:linear-gradient(120deg,#101b39,#103146);padding:12px;min-width:0}
+#lotm-case .reports{background:linear-gradient(120deg,#382c50,#18132f)}
+#lotm-case .reports ol{margin:0;padding-left:18px}#lotm-case .reports li{padding:8px 0;border-bottom:1px solid #6c58764d}
+#lotm-case .player-name{font-family:Georgia,serif;font-size:1.3em;color:var(--gold)}
+#lotm-case .stat{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid #54678566}
+#lotm-case .vital{height:5px;background:linear-gradient(90deg,#98c3cf,#d8a7cf);margin:9px 0 18px}
+#lotm-case .muted{color:var(--muted)}#lotm-case .stack{display:grid;gap:12px}#lotm-case .spaced{margin-top:16px}#lotm-case .small{font-size:.86em}
+#lotm-case .center{display:grid;align-content:start;gap:10px;min-width:0}#lotm-case .panel-top{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#lotm-case .subject-list{display:grid;gap:1px}#lotm-case .subject-list button{width:100%;text-align:left;background:transparent;border:0;border-top:1px solid #54678566;padding:12px 2px}
+#lotm-case .subject-list button:hover{background:#ffffff0a}#lotm-case .subject-list button span{display:block;color:var(--muted);font-size:.86em}
+#lotm-case .task-title{color:var(--gold);margin-bottom:7px}#lotm-case .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+#lotm-case .commit{background:#27514e;border-color:#8cbfb0}#lotm-case .notice{min-height:45px;padding:10px 12px;background:#1e3044;border-left:3px solid var(--gold)}
+#lotm-case .steps{padding:0;margin:10px 0;list-style:none}#lotm-case .steps li{padding:4px 0;color:var(--muted)}#lotm-case .steps li.done{color:#a6d3b9}
+#lotm-case .scene-frame{width:100%;max-width:760px;margin-inline:auto;position:relative;background:#222c38;overflow:hidden;border:1px solid #70758a}
+#lotm-case canvas{display:block;width:100%;height:auto;image-rendering:pixelated;aspect-ratio:640/384}
+#lotm-case .hotspot{position:absolute;transform:translate(-50%,-50%);color:var(--paper);background:#172338ed;border:1px solid #d8bd87;box-shadow:0 3px #1118;max-width:39%;white-space:normal}
+#lotm-case .scene-caption{position:absolute;left:12px;top:10px;padding:5px 8px;background:#141a26e8;color:var(--paper);border:1px solid #a39278;font-family:Georgia,serif}
+#lotm-case .scene-footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:8px 10px;background:#161d30}
+#lotm-case .walk-grid{grid-template-columns:minmax(0,4fr) minmax(220px,1fr)}
+#lotm-case .walk-toolbar{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;align-items:center;background:#332d31;color:var(--paper);border:2px solid #93816a;padding:10px}
+#lotm-case .walk-toolbar button{color:var(--paper);background:#423c3c;border-color:#93816a}
+#lotm-case .dpad{display:flex;gap:5px;align-items:center;flex-wrap:wrap}#lotm-case .dpad button{min-width:36px}
+#lotm-case .walk-note{font-family:Georgia,serif;color:var(--paper)}#lotm-case .walk-inventory{display:flex;gap:8px;flex-wrap:wrap;padding:10px;border:2px solid #93816a;background:#332d31;color:var(--paper)}
+#lotm-case [hidden]{display:none!important}
+@media(min-width:1450px){#lotm-case .game-shell{min-height:865px}#lotm-case .game-grid{grid-template-columns:minmax(200px,1fr) minmax(0,3.8fr) minmax(240px,1.1fr)}#lotm-case .walk-grid{grid-template-columns:minmax(0,4fr) minmax(260px,1fr)}}
+@media(max-width:760px){#lotm-case .game-grid{grid-template-columns:minmax(0,1fr)}#lotm-case .player{display:none}#lotm-case .reports{min-height:120px}#lotm-case .panel-top{grid-template-columns:1fr}#lotm-case .game-top{align-items:flex-start;flex-direction:column}#lotm-case .game-shell{min-height:1100px}#lotm-case .hotspot{font-size:12px;padding:4px;min-height:28px}}
+#lotm-case .case-grid{display:grid;grid-template-columns:minmax(160px,.8fr) minmax(0,3.4fr) minmax(195px,1.1fr);gap:10px;margin-top:10px}
+#lotm-case .game-shell{min-height:930px}#lotm-case .case-main{display:grid;align-content:start;gap:10px;min-width:0}
+#lotm-case .case-sidebar{display:grid;align-content:start;gap:10px;min-width:0}
+#lotm-case .case-visual{display:grid;grid-template-columns:minmax(0,1fr) minmax(180px,.6fr);gap:10px;align-items:start}
+#lotm-case .scene-frame{max-width:none;width:100%}#lotm-case canvas{aspect-ratio:640/400}
+#lotm-case .case-task{min-height:190px}#lotm-case .case-task p{margin-top:7px}
+#lotm-case .case-actions{display:grid;gap:7px;margin-top:12px}#lotm-case .action-line{display:grid;gap:2px}#lotm-case .action-line button{text-align:left}
+#lotm-case .hint{font-size:.86em;color:#bdd0d6}#lotm-case .evidence-list{display:grid;gap:10px;margin-top:12px}
+#lotm-case .evidence-entry{border-left:2px solid #789887;padding-left:9px}#lotm-case .evidence-entry .tag{font-size:.82em;color:var(--gold)}
+#lotm-case .tagged{font-size:.85em;color:#adcad2}#lotm-case .case-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+#lotm-case .case-chip{background:#151f38;padding:3px 7px;border:1px solid #61728b}
+#lotm-case .threat-line{padding:10px;background:#3e2638;border-left:3px solid #dd937e}
+#lotm-case .case-map{position:relative;min-width:0}#lotm-case .hotspot{font-size:12px;padding:4px 6px;min-height:26px;max-width:45%;background:#102535ed}
+#lotm-case .hotspot[aria-pressed=true]{outline:2px solid #e8d2a1}#lotm-case .case-top{font-family:Georgia,serif;letter-spacing:.05em}
+#lotm-case .cutaway .game-top{background:linear-gradient(100deg,#111c2a,#183d42);border-color:#a38c62}
+#lotm-case .cutaway .region{background:linear-gradient(120deg,#172a33,#19202f);border-color:#78858a}
+#lotm-case .cutaway h3{font-family:Georgia,serif;letter-spacing:.05em}#lotm-case .cutaway .case-task{border:1px solid #a38c62;background:linear-gradient(125deg,#26383d,#182332)}
+#lotm-case .cutaway .reports{background:linear-gradient(140deg,#2e2940,#151d2e)}
+#lotm-case .movement{display:flex;gap:5px;flex-wrap:wrap;align-items:center;padding:8px;background:#1c3037;border:1px solid #a38c62}
+#lotm-case .movement button{min-width:34px}#lotm-case .scene-caption{font-size:12px;left:7px;top:7px}
+#lotm-case .case-board{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#lotm-case .case-board .evidence-entry{background:#111b2e;padding:10px;border-left-color:#b99969}
+#lotm-case .case-board .link-line{grid-column:1/-1;font-family:Georgia,serif;color:#d3c09a;padding:8px;border-top:1px dashed #8b937e}
+#lotm-case .reports ol{font-size:.9em}#lotm-case .subject-list button{padding:8px 2px}
+@media(max-width:1300px){#lotm-case .case-visual{grid-template-columns:1fr}#lotm-case .scene-frame{max-width:660px}#lotm-case .game-shell{min-height:1250px}}
+@media(max-width:760px){#lotm-case .case-grid{grid-template-columns:1fr}#lotm-case .case-board{grid-template-columns:1fr}#lotm-case .game-shell{min-height:1800px}}

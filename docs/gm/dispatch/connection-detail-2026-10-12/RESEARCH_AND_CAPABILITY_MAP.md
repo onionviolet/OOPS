@@ -115,3 +115,10 @@ interpretation as distinct attributed keys/receipts, or reserve a precise select
 knowledge-revision adapter. The historical observation remains available; current
 belief must not be inferred from the highest old stage after contradicting evidence.
 This is a source constraint, not a claim that characters never change their minds.
+
+
+## Current controller and knowledge seam, 2026-11-04 (B82)
+
+The tiny recipe’s step 4 and “Additional exact dependency” describe the October 12 absence of a beginning controller loop. Current beginStructuredCampaign now explicitly initializes each declared controller whose actual actor exists, after beginning effects/events; duplicate initialization is rejected. The selected simulation scheduler resolves the registered controller at its due time, checks candidate eligibility and uses the existing startCommand owner. Thus controller declaration plus valid beginning admission has a real enrollment path; the original recipient installation recipe still has no fresh execution proof, and arbitrary declarations do not supply stock, body, consent, knowledge or a useful command. Do not add a second enrollment/dispatch mechanism solely to repair this stale source claim.
+
+U9’s rank comparison remains in the selected effects owner: a lower-stage update cannot replace a higher-stage entry, while equal-stage content can replace it. Distinct observations and revised beliefs need appropriate cause/key/receipt semantics; the old strongest stage is not automatic current truth. A 32-memory display bound does not expire live promises. Preserve U1–U8’s source/actor/body/custody/clock/publication distinctions and the unrun recipe’s exact delivery-versus-installation limit. This is source evidence only; no tests, native game, source-page fetch or persistence run occurred. Current AD32/AD36/AD42/AD43 govern selection/proof and optional feedback, without resuming old workers or adding a runtime queue.

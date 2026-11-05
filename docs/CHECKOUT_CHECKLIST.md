@@ -1,8 +1,10 @@
 # Checkout checklist
 
+> **Current use:** this is historical play/check navigation, not a current mandatory queue or app-state audit. Use [PROJECT](../PROJECT.md#current-focus), selected live owners and [B278 qualifications](#content-reconciliation-b278) before acting on older routes or gates.
+
 ## Latest release play checks, 2026-10-22
 
-The [current PROJECT routing](../PROJECT.md#current-delivery-routing-checked-2026-10-22)
+The [current PROJECT routing](../PROJECT.md#current-focus)
 and [release report](gm/dispatch/inventory-overhaul-2026-10-21/REPORT.md) supersede
 older build/publication labels below. `HEAD` now refers to primary `master`;
 the earlier `codex/gameplay-foundations` definition records the October 20 build.
@@ -113,7 +115,7 @@ PLAYTEST.md), then tick it here.
 
 ## E. Agent and tooling deliveries
 
-- [ ] CK32 **AI playtest harness, first slice (PT45)** (HEAD e5459c565, unpushed): `node scripts/playtest/run.mjs --self-test` · a scripted bot with four gap detectors and fault injection · "DONE and verified on 2026-10-20"; the ranked next steps are a proposal · [harness doc](AI_PLAYTEST_HARNESS_CONSIDERATIONS_2026-10-20.md), [scripts/playtest/README.md](../scripts/playtest/README.md) · yes
+- [ ] CK32 **AI playtest harness, first slice (PT45)** (HEAD e5459c565, unpushed): `node scripts/playtest/run.mjs --self-test` · a scripted bot with five gap detectors and fault injection · "DONE and verified on 2026-10-20"; the ranked next steps are a proposal · [harness doc](AI_PLAYTEST_HARNESS_CONSIDERATIONS_2026-10-20.md), [scripts/playtest/README.md](../scripts/playtest/README.md) · yes
 - [ ] CK33 **Frozen player build (EL18) and hang guard (EL46)** (HEAD 09fe5e36d to bab1dda77, unpushed): `npm run desktop:snapshot`, then `npm run desktop` · the "New build ready" notice and recovery page; hidden checks pass, not yet seen in a visible window; the owner row still says "LATER" · [Electron host, agent access](ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md) · yes
 - [ ] CK34 **Perf gate baseline (P1)** (HEAD): `node scripts/perf/gate.mjs --base <commit>` · "The standing gate reports FAIL, from budget drift" (5 of 26 checks); "Decision for Weibao: none needed" · [P1 baseline](reviews/P1_BASELINE_2026-10-19.md), [perf README](../scripts/perf/README.md) · yes
 - [ ] CK35 **Domain rules conformance scan** (HEAD): read the doc · 16 rows, 2 fixed; "DRC10's visible button not browser-checked (implemented-unverified)" · [conformance scan](audits/DOMAIN_RULES_CONFORMANCE_2026-10-19.md) · yes
@@ -194,3 +196,18 @@ New since the sweep above:
 Takeaway: 11 *Unrun* rows (about 25 wave folders), mostly from before the
 fresh-origin browser rule. They are cheapest to retire with a bot pass (the PT45 harness, CK32) before they
 cost you play time; *You* rows are where your sessions matter.
+
+
+## Content reconciliation B278
+
+Full196original lines reviewed: CK1–51, build/state/bot-checkable definitions, all six surface families, every open-decision row and every dated wave gate/backlog row. Preserve this as the October20sweep plus October22release supersessions, not today's mandatory play queue, installation state or comprehensive gap census. Its own latest section already qualifies CK3/CK6/CK19/CK32/CK33/CK36/CK44at their selected scopes. The retained older labels are history, and a tick is still recorded user acceptance in the original checklist, not a mark to add for this documentation review.
+
+Current [PROJECT](../PROJECT.md#current-focus) and its [release state](../PROJECT.md#release-state) own present direction/delivery. The obsolete PROJECT routing fragment is repaired to its existing current-focus anchor. Branch names, historical HEAD labels, unpublished source status, an app snapshot and an actually adopted installed bundle are different identities. A branch's existence or a merged source commit alone does not tell which bundle a user is running. No remote, app, preview, normal window, Chrome save, snapshot, process or specific writer was inspected here. CK24/CK25/CK28and Start here's private-save import/reset instructions were not executed or renewed by reading them. A disposable-origin check is not authority to use the player's actual file.
+
+AD42makes human review optional for ordinary technical continuation; do not treat every You row, “nothing human-accepted,” old cosmetic question or open taste box as a current blocker. Distinct explicit user sequencing conditions, such as CK43's quoted wait-for-play request, retain their exact recorded referent until later actual direction changes them. This review does not launch that slice or ask the user again. A recorded still-open preference is not consent, but reading an old questionnaire does not create a new question stage. Current AD36/AD43and each selected task's route apply; the11Unrun/rough25folder takeaway is a dated count, not authority to run every world's suites or call them closed after one generic harness pass.
+
+CK32miscounts the harness as four detectors. The current selected run.mjs declaration lists errors, stuck, roundtrip, determinism and ui: five; the source row is corrected with old wording preserved in the amendment. This is a source-enumeration check, not a new self-test. The [B256harness qualification](AI_PLAYTEST_HARNESS_CONSIDERATIONS_2026-10-20.md#content-reconciliation-b256) separately preserves missing/errored UI measurements, build-stamp scope and first-load-note semantics. CK31's first-load additions/idempotence do not certify correct game meaning, and CK34's failed budget remains its actual measured outcome. No test count or old perf gate was renewed.
+
+CK7's Lio-only browser result is not every defeat/structured-death path. CK9probe, CK11private optional campaign, CK36loader hash and CK37JSON roundtrip each retain their own route/consumer/persistence limits. Known selected P4/gear/home/MFreader proofs do not prove every old native variant, natural acquisition, whole-world scope or installed compatibility. The R22/R21source reports reviewed in B249–255retain mixed input windows, export leakage, unshown Stances and hand-toggled combat-return qualifications rather than blanket layout acceptance. Age/height/placement and UI-card questions should be interpreted through current UI/PIR/direction owners; mobile stays deferred.
+
+No checkboxes, user approval, actual source behavior or old backlog state were silently closed. The content and exact path/source pointers remain useful navigation; their underlying reports and historical bytes keep independent review and proof records. This pass adds no gameplay, source download, private-save transfer, test/build/browser run, visible app or commit.

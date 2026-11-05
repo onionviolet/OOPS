@@ -1,5 +1,7 @@
 # Core engine and runtime considerations, 2026-10-16
 
+**Content review B2, 2026-11-04:** G1–G13, E1–E12, N1–N8 and MX1–MX12 reviewed, including the later qualifications. The [ER12 owner fold](../research/OWN_ENGINE_KERNEL_DESIGN_2026-10-14.md#foundation-review-reconciliation-2026-11-04) keeps loading, routing, boundary-time, disclosure and lifecycle consequences distinct. Proposed manifest fields are not a requirement to finish a kernel before the next playable slice; the registry does not implement the entire proposed manifest. Reference-game facts retain their original read/stated labels, without fresh source qualification (AD32/AD36/AD51).
+
 Current continuation, updated 2026-10-16: [modular brief MP1–MP10](../gm/dispatch/modular-seams-2026-10-16/BRIEF.md)
 owns the next sequence. Its conditional hardening supersedes this historical
 note's suggested all-fields M2.5 bundle. M3 remains stopped; future C/N fields

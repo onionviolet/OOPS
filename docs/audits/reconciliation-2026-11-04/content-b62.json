@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "batch": "B62",
+  "title": "Rules-reconciliation chronology and resolved maintenance findings",
+  "at": "2026-11-04T20:11:45.516233+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/RULES_RECONCILIATION_AUDIT_2026-10-30.md",
+      "ids": [
+        "F1–F10",
+        "O1–O22",
+        "A1–A4",
+        "L1–L7/Q1–Q3",
+        "RFX1–RFX8",
+        "RRV1–RRV6",
+        "DLINT1–DLINT3",
+        "OWN1–OWN4"
+      ],
+      "classification": "full historical audit reconciled against later rounds and current selected owners",
+      "owners": [
+        "docs/audits/RULES_RECONCILIATION_AUDIT_2026-10-30.md",
+        "docs/AGENT_USAGE_RULES.md",
+        "docs/RULES_INDEX.md"
+      ],
+      "disposition": "Preserve six-round chronology. Initial nonexistent-UIV5 claim corrected by RFX1: auxiliary check, not binding rule. Luna default dispute resolved by later round4 and current AU5/path rule low. Round3 checker/link/range defects followed by rounds4–6 source repairs; O1–O22 are not wholesale adopted. L1 tiering specifically authorized. Dated LSD source classification keeps proposal and accepted cast-life direction distinct. Historical zero-warning/lint reports are snapshot proof, not current shared-tree result.",
+      "evidence": "All325lines freshly read in bounded ranges. Current AU5, research/player-ui path snippets and existing checker/test definitions inspected for low effort, RPT ranges, mixed/auxiliary families, dated proposal-source guard and missing/reversed definition failures. No tests rerun or current all-rule semantics inferred.",
+      "reopen": "Selected real drift or semantic conflict reopens relevant existing owner/checker; no mandatory global alias rewrite, new SEAL codes, runtime work or delegation from old proposals.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "d653a7ab841e346cdb705dcdf776b9dd7a37433d062db887f7011297fe51b4a3",
+      "input_lines": 325,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          325
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/RULES_RECONCILIATION_AUDIT_2026-10-30.md",
+      "heading": "## Continuous content reconciliation, 2026-11-04 (B62)",
+      "body": "Read the six rounds as a chronology. F3’s claim that UIV5 was never defined is corrected by RFX1: it is an auxiliary check, not a binding rule. F6/Q1/RRV2 no longer ask for a repeated decision: round 4 and current AU5/research path text agree on Luna low for bounded authorized delegation. RRV3–RRV5’s source defects were followed by the recorded checker/link/range repairs; current selected checker/test definitions retain mixed-family, missing/reversed-range, owner-relative-link and explicitly classified proposal-source handling. Those source observations do not rerun the historical tests. O1–O22 remain selectively applied proposals and domain applications, rather than a wholesale adoption or permission to collapse rule meaning. L1’s recorded tiering authorization is narrower than all consolidation ideas. Historical green lint/zero-warning results describe their snapshots; current shared-tree checks and AD36/AD42/AD43 govern new claims. Preserve the dated LSD source and stable route, original IDs and later corrections; no new rules, runtime queue, mandatory human gate, worktree retirement or commit follows from this review.",
+      "before_sha256": "d653a7ab841e346cdb705dcdf776b9dd7a37433d062db887f7011297fe51b4a3",
+      "after_sha256": "cecc53bbc1f41fc643595ea8a3cc205199fc28025abf8cd0c97e7061c1c0f86d"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1412
+}

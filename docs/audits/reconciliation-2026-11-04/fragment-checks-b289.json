@@ -1,0 +1,19 @@
+{
+  "scope": "New local heading-fragment links in B284–B289 folds only; no semantic/runtime proof.",
+  "checked": 2,
+  "missing": [],
+  "checks": [
+    {
+      "batch": 285,
+      "source": "docs/gm/cross-audit-reconciliation-2026-10-15/SEMANTIC_T11_EXTRA_AUDITS_C.md",
+      "target": "../../USER_VISION.md#prose-first-visuals-and-hall-interaction-2026-11-04",
+      "exists": true
+    },
+    {
+      "batch": 286,
+      "source": "docs/gm/dispatch/new-game-audits-2026-10-07/README.md",
+      "target": "../../../../PROJECT.md#current-focus",
+      "exists": true
+    }
+  ]
+}

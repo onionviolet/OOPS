@@ -26,3 +26,8 @@ No schema bump. Older saves hold none of the new ids; Tingen saves load unchange
 
 ## Unblocks
 B2-B6 that read a held source or pool: the divination-supply BE case (read `lotm.beSeer.supported`), the M10 resist check (needs a held source), and ability briefs that gate on the source (source id `book.lotm.be_seer`; abilitySourceOf mapping is theirs to extend).
+
+
+## Later evidence qualification B98, 2026-11-04
+
+B1’s source/state tests and build are historical, including four then-failing full-suite cases. Its state JSON roundtrip was not native import proof. Later KJ3P addendum records the first native drink/stabilize run on B10 bytes with 17 acts and export/import assertions, superseding the original no-native-gate claim only for that slice; no whole floor, current bundle or all cognition/use coverage follows. See [KJ3P’s addendum](KJ3P_IMPLEMENTATION_RECEIPT.md#addendum-b10-fixed-native-proof-passed-2026-11-03).

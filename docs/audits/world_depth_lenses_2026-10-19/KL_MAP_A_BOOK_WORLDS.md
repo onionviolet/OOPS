@@ -246,3 +246,8 @@ Ranking reason (INFERRED): rank 1 reuses the richest ledgers at zero reading cos
 - Whether any live code outside the two `book_world_*` families implements a lens; I read file headers (F4).
 - No dial registry, resolver or pack profile file was opened; KL1 statuses rest on card and doc text.
 - Every claim in this file is a proposal for lane design, not source truth.
+
+
+## Reconciliation B90, 2026-11-04
+
+Retain KL1–KL12 and KMA1–KMA7 with their own source tiers: institutional versus mechanical ladders, separate rank/class axes, gate events, formula structure, evidence status and independent world profiles. Older no-LOTM-runtime and paused-world status claims are historical, superseded by later source and closure receipts; do not reopen runtime or research from this map. Prose-derived counts and unauthenticated editions remain qualified. The five independent novel profiles retain distinct costs; the B5 observable power-bill trace is not a universal cost dial. No private source or sealed truth is reproduced. These are dated lens proposals, not accepted build scope. Full review of these maps does not fill their explicitly unread cards, ledgers, reader notes, primary texts or code. A missing sidecar file and a silent sampled ledger are not absence of the underlying capability or source mechanic. Zero additional raw-source words still requires analytical work; historical invocation envelopes are estimates, not current authorization.

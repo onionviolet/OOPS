@@ -1,0 +1,160 @@
+{
+  "schema": 1,
+  "batch": "B156",
+  "title": "Research usage, local-model trials, content attribution and static census",
+  "at": "2026-11-04T22:10:27.914683+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/reviews/BOOK_RESEARCH_USAGE_AUDIT_2026-10-16.md",
+      "ids": [
+        "F1-F5",
+        "A1-A4",
+        "C1-C4",
+        "L1-L2",
+        "518 responses",
+        "rounds 2-3",
+        "AU1-AU15"
+      ],
+      "classification": "Historical measured usage audit with later whole-book workflow correction",
+      "owners": [
+        "docs/reviews/BOOK_RESEARCH_USAGE_AUDIT_2026-10-16.md",
+        "docs/AGENT_USAGE_RULES.md"
+      ],
+      "disposition": "Read all metrics, attribution limits, truncation, delegation and revised source-sized workflow. Preserve cached input as subset, observed shared meter versus task traffic, visible-span recovery, full-body coverage and finite source/response budget. Round 3 supersedes exploratory four-reader cap as full-book default; archived permission/topology does not authorize current delegation.",
+      "evidence": "Fresh full text only, not private metrics/session logs or live account/allowance. No independent sum of 518 response IDs or new savings/model benchmark. Report itself leaves account-meter attribution unresolved.",
+      "reopen": "A separately selected actual source pass uses current AU/host instructions and measured pilot; no re-reading full source or new benchmark merely to prove this old audit.",
+      "input_sha256": "e432ade49af85b95bce748e60daf61c6503a40f53ea657499ebb4ddceba6fbcd",
+      "input_lines": 79,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          79
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/LOCAL_AI_WORK_AUDIT_2026-10-25.md",
+      "ids": [
+        "F1-F4",
+        "O1-O6",
+        "two-request probe",
+        "C1-C3",
+        "real task",
+        "harness repair",
+        "normal completion",
+        "code fix",
+        "workflow replay",
+        "fresh trial"
+      ],
+      "classification": "Dated local-AI task-fit and successive bounded trial report",
+      "owners": [
+        "docs/reviews/LOCAL_AI_WORK_AUDIT_2026-10-25.md",
+        "docs/research/LOCAL_AI_MODEL_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "disposition": "Read all original route recommendations and later actual-task/harness/code trials. Later successful normal completion and fresh code fix supersede initial unqualified real-task/Harness state, with earlier failures and settings differences preserved. No current hardware/version/profile/disk guarantee, model ranking, unattended reliability or broad source-trust inference.",
+      "evidence": "Fresh full text only. Installed tags, Ollama/runner versions, disk state and source/config were not inspected now; no inference/API requests or external Harness mutations. 2 easy synthetic probes, 15 assertion real-task scopes and later one-off supervised/fresh fixes retain their own input identities.",
+      "reopen": "For a real selected task verify effective route, permissions, source/model/settings and independently accepted output; use existing deterministic tools for checkable inventory work. No automatic routing, download or config changes.",
+      "input_sha256": "8bebf37cc0f2e0a4b759dd37ff55cc193a3fc936576daf523712bd866a6b9cdc",
+      "input_lines": 97,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          97
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/LUNA_WORLD_CONTENT_ASSESSMENT_2026-10-20.md",
+      "ids": [
+        "F1-F5",
+        "11 reviewed packs",
+        "9 seer tests",
+        "excluded 40 tests",
+        "model attribution"
+      ],
+      "classification": "Historical small-sample content quality and delivery attribution assessment",
+      "owners": [
+        "docs/reviews/LUNA_WORLD_CONTENT_ASSESSMENT_2026-10-20.md",
+        "PROJECT.md",
+        "docs/AGENT_USAGE_RULES.md"
+      ],
+      "disposition": "Read full assessment, detailed errors and repair status. Preserve corrected model provenance and draft-review-repair evidence, without inferring exclusive authorship or controlled ranking. Old HP no-runtime/LOTM narrow prototype state is superseded by current selected lead receipts; historical open Export/travel gaps remain candidate-scoped, not blanket current absence.",
+      "evidence": "Fresh full text, not model rollouts/raw wiki corpora/current runtime. Historical 9 tests cover engine/envelope; unrelated 40-test result explicitly excluded. No fresh primary source or all-pack repaired-claim verification.",
+      "reopen": "Use one representative actual source uncertainty and current model fit/host instructions, not a universal model ban or relaunch of all pack reviews.",
+      "input_sha256": "6b0cfc55ce5bb083e9b40b30770d15807389d53702a3c1943c2a6d57c9d9d331",
+      "input_lines": 27,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          27
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/GENERATOR_CENSUS_2026-10-26.md",
+      "ids": [
+        "8 detector rows",
+        "reader",
+        "seed sweep",
+        "golden",
+        "save/reload",
+        "budget",
+        "source hash"
+      ],
+      "classification": "Static name-signal census with explicit detector exclusions",
+      "owners": [
+        "docs/reviews/GENERATOR_CENSUS_2026-10-26.md",
+        "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md"
+      ],
+      "disposition": "Read entire table and qualifications. Yes means detector co-occurrence, no means missing signal under named-export detector, not call-graph reader, actual passing test or absent capability. Preserve source hash and static scope; strict mode not universal accepted gate.",
+      "evidence": "Fresh full text only; checker/source not run or inspected. No new behavioral conformance credit and no inferred all-generator denominator.",
+      "reopen": "A selected generator needs actual caller/test/receipt inspection; do not mechanically create missing golden/budget tests solely to flip these detector cells.",
+      "input_sha256": "246c8a3d6ef9076311fb82044e0fed4c290f0fb4bb5d7d6a56d37294192d6ca1",
+      "input_lines": 16,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          16
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/reviews/BOOK_RESEARCH_USAGE_AUDIT_2026-10-16.md",
+      "heading": "## Content reconciliation B156, 2026-11-04",
+      "body": "The whole usage report and rounds 2-3 were read. Preserve the accounting boundary: cached input is already included in input, reasoning output is already included in output, and cumulative snapshots are not summed like unique per-response usage. Repeated traffic is not distinct source tokens or a subscription-charge calculation. The observed shared meter jump does not isolate this task from concurrent account activity, and no exact attribution or savings percentage is established.\n\nThe useful reading practice is bounded visible source, omitted-span recovery, complete prepared shards, one durable notes delivery and honest unread/ambiguous residue. Round 3 explicitly replaces the exploratory cap with a finite source-sized plan for an actual requested full book. Model/child/topology examples are historical workflow, not current spawn authority. Current AU and host instructions govern a future authorized run. This reconciliation reread no novel/session log, measured no allowance and started no benchmark, reader or quota controller (AD32, AD36, AD37).",
+      "before_sha256": "e432ade49af85b95bce748e60daf61c6503a40f53ea657499ebb4ddceba6fbcd",
+      "after_sha256": "83aa407f281fcd88267dcc91110165f8edc7442ee9f6b386a5318c046b90da67"
+    },
+    {
+      "path": "docs/reviews/LOCAL_AI_WORK_AUDIT_2026-10-25.md",
+      "heading": "## Content reconciliation B156, 2026-11-04",
+      "body": "Read the full audit and every follow-through section. Later real-task repair, normal Harness finish and bounded code-fix trials supersede the opening lack of representative-task proof at those exact scopes. Preserve their failed first attempts, changed settings, independent checks and distinction between a correct artifact and normal agent completion. One fresh no-follow-up success is evidence for that task, not a general autonomous reliability rate or model/runner ranking.\n\nHardware, installed models, formats, runtime versions, disk/residency, launcher profiles and persistent settings are dated observations; verify only what a selected actual task needs. A model listing is not an enabled tool route, a narrow prompt is not filesystem confinement, and a client timeout is not demonstrated server cancellation. Use checkable scripts/parsers for deterministic inventories, and qualify source extraction against real contradictory/ambiguous spans before trusting semantic promotion. This pass makes no local request, installs nothing and changes no external Harness configuration (AD32, AD36, AD37).\n\nKeep local policy/playtest observations player-visible and detector truth separate; text action-choice speed is not desktop usability proof. Retain one bounded job, independent output acceptance and measured review cost instead of expanding an overnight queue from historical trial success. Current project delivery and source standards remain with their incumbent owners.",
+      "before_sha256": "8bebf37cc0f2e0a4b759dd37ff55cc193a3fc936576daf523712bd866a6b9cdc",
+      "after_sha256": "dcc3d072e9675e537bf1ab926b22682eb0116b14003a606348da23132fe637e5"
+    },
+    {
+      "path": "docs/reviews/LUNA_WORLD_CONTENT_ASSESSMENT_2026-10-20.md",
+      "heading": "## Content reconciliation B156, 2026-11-04",
+      "body": "Full assessment read. Preserve its actual attribution correction and useful draft → source-aware review → repair pattern. Eleven reviewed packs and three examined detailed reviews are a sample, not a controlled model comparison or proof that every repaired claim now matches primary canon. Model IDs establish logged provenance for particular sessions, not exclusive authorship of shared folders (AD32, AD37).\n\nF5's HP-no-runtime and early LOTM prototype state is historical relative to the current lead receipts in PROJECT. Neither the old nine-test engine slice nor the excluded forty-test small-feature run establishes current browser/Export/travel or full-world coverage. No source-model trial, primary canon reading, live rollout audit or native test was performed here. Use current selected source/consumer evidence rather than a universal model-quality conclusion or re-auditing all worlds.",
+      "before_sha256": "6b0cfc55ce5bb083e9b40b30770d15807389d53702a3c1943c2a6d57c9d9d331",
+      "after_sha256": "b680d4a760bc9909442a2213d04e6f2f1a2e689feff2993f7a7b0072b66cf76e"
+    },
+    {
+      "path": "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md",
+      "heading": "## Static census evidence application B156, 2026-11-04",
+      "body": "The entire [October 26 generator census](reviews/GENERATOR_CENSUS_2026-10-26.md) was read. Its eight rows are named-export/name-co-occurrence signals on the recorded hash, with explicit exclusions. A reader=yes is not a call graph or native consumer, and seed-sweep/golden/save=yes is not an executed passing result. A no cell can reflect detector shape or naming rather than an absent test. Preserve this distinction when applying GR12/GR16 and AD36; strict detector mode is optional, not a new universal gate. Inspect the selected real generator/caller and meaningful invariant before adding or repeating checks.",
+      "before_sha256": "e80debffce14908eda33a0bb31e2521251145a0ce87f079ad46bd088877f0ed6",
+      "after_sha256": "87bae77ba357864d0e2a7d7a4ade283f860a26d7c4a97ccdc639cd4680118430"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1181
+}

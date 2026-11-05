@@ -324,3 +324,8 @@ silently declared implemented. Applying owner edits, selecting a world/era,
 checking a newly selected canon mechanism and authoring gameplay remain open.
 Future UI claims need rebuilt 1366x768 laptop evidence; changed persistence
 needs save/reload/export/literal import. None is a gate for this proposal draft.
+
+
+## Complete tension-content reconciliation, 2026-11-04 (B80)
+
+Full content review now covers T1–T7’s 42 local-type rows, W01–W37’s partial/overlapping fits, G1–G3 and their six dials/GA1–GA5 review scopes, and the tailored F1–F18 owner lines. Each keeps its documentary/source-mediated limit; this is not fresh canon verification of C1’s source material. Existing root folds have already routed C6/C11’s design material, while exact paste-line application and runtime consumers remain independently evidenced. Preserve the differentiating cases: dated backup versus continuing mind, current-iteration cooperation versus recalled prior consent, surviving actor versus new heir relation, evolved body versus descendant, group promotion versus duplicated member, actual tether loss versus narrative grief, and supported care after a release. Ordinary work or loyalty does not need an output quota, betrayal balance or compulsory wound. The one-realm/one-prestige cap and 1366 viewport are retired; current multi-world direction, current desktop targets, AD36/AD43 proof and optional AD42 feedback govern selected work. The authoring lenses remain proposals under AD32, not adoption of 37 worlds, mandatory new systems, new source acquisition or runtime authorization.

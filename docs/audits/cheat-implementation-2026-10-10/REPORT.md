@@ -287,3 +287,27 @@ dials with the home world kept as it is today. Two things only he can do:
   and death-menu regression.
 - **The heir rework.** It changes current gameplay ("inherit what was
   left"), which needs his go.
+
+
+## Cheat-audit reconciliation B132, 2026-11-04
+
+Full F1–F8/SF1–SF8/build1–10/A1–A5/O1–O15/MC1–MC12 and the October19 correction read. That correction already supersedes no-cheat/no-heir-caller headlines. Selected current source confirms cheat card/state validators, eight authored module definitions, actual planCheatAction logic and the live heir-builder import/call with card-specific carry. This is source evidence, not a fresh actual acquisition, dispatcher, save, installed app or native floor pass for every family. Granting a valid card alone still runs no hooks. Preserve positive capability semantics; signed costs/conditions need their real owners rather than negative grants by default. Existing card-specific carry does not settle every body/world/currency inheritance rule.
+
+The279-test baseline,62 native random calls,512-minute bound,0.8s/33s timings, tested purity owners and no-sealed-file statement are October10 observations. They do not describe current totals, installed behavior or universal performance. Named native streams and particular mechanisms have later source owners. No old all-owner fixture or scratch experiment was rerun. A same-input deterministic fork predicts only its actual model under the same choices, definition versions, full saved stream state/overrides, clock and external inputs. Omitting a seed/call, native subsystem, observer-hidden event or outside action can change the result. Repeating one cloned model is not world-wide prophecy or evidence that reseeding one cursor makes every plausible forecast independent. Strong exact foresight remains possible where its actual means supports it; no mandatory failure or self-certifying grade is imposed.
+
+Keep replaceable seams, truthful family limits, actual input receipts, optional source-qualified costs and growing/transferable cheats as useful ideas. O2 data-first does not prohibit a necessary reviewed handler; O7 reserved hooks are not callable support; O10 tests passing does not prove every consumer/native/save contract or make any rewrite safe. Current accepted decisions live in USER_VISION/rules owners/index as routed by [PROJECT](../../../PROJECT.md), not PROJECT alone (O11). AD42 optional human review and AD51 reasonable shared design in [RULES_INDEX](../../RULES_INDEX.md) qualify process assumptions; mobile remains deferred. The ten-step Village/sign-in-first order and final choices are historical proposals, not current priorities or a request to stop for approval. Source/library/frame/compatibility work remains scoped to a selected operation. Preserve all original history and the four independently unreviewed reader reports.
+
+
+## Reader D uptake B134, 2026-11-04
+
+The full [risk/purity reader](readers/D_risk_and_purity.md#purity-report-reconciliation-b134-2026-11-04) is now independently reviewed, closing that underlying text input rather than relying on this synthesis. Preserve unenrolled-owner and scratch-evidence limits. Different fork nonces may legitimately yield the same result; exact supported foresight need not be forced wrong. Zero real writes constrains detached simulation, while declared real costs/observations can use their actual durable owner. A common writer is not whole-system atomicity proof. Timings, native random counts, schema lists and365-day extrapolation remain historical. No scratch test suite or fresh native prediction was run.
+
+
+## Reader A uptake B135, 2026-11-04
+
+The full [primitive inventory](readers/A_code_primitives.md#primitive-use-reconciliation-b135-2026-11-04) is independently reviewed, alongside B133 ReaderB and B134 ReaderD. ReaderC remains a separate unreviewed input; this synthesis does not grant its633-line feasibility reading. Current selected card/heir source and named-stream peek/call/encounter helpers qualify the old no-owner/no-heir/no-peek/all-native-unseeded claims without declaring every family built. Preserve scenario versus life snapshots, actual transfer/reset/cost owners, event versus discovery and source-versus-native proof. All old source/grep/schema/primitive labels retain their date and scope; no runtime check was rerun.
+
+
+## Reader C uptake B136, 2026-11-04
+
+The full [633-line feasibility reader](readers/C_feasibility.md#feasibility-use-reconciliation-b136-2026-11-04) is independently reviewed. Together with B133–B135, all four underlying reader texts now have actual-content dispositions, not transitive synthesis credit. Preserve each original source/test/scratch scope. The old first-slice order and one-prestige question are historical; actual card owner shapes/current streams and consumer proof govern a selected operation. Appraisal/disclosure/payment are real acts, old known-record browsing is a projection, and source/body/technique/stock/currency do not merge merely because one card promises them. Native delivery remains separate; no family implementation or suite was rerun.

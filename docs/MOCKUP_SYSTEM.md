@@ -205,3 +205,28 @@ it is labelled screenshot evidence. Other studies retain their existing mirrored
 fixture protocol. The native bootstrap waits for save ownership before PLAY and
 skips native import-probe instances; its isolated CSP permits the native worker.
 These are mockup hosting details, not changes to the production save controller.
+
+
+## Content reconciliation B141, 2026-11-04
+
+All MW rules, protocol, historical study details and later native-character correction were reviewed. Use the last applicable native route: recipe and launch are archived, the old character view is a sketch, native-character has one live instance with layout switching, and its simultaneous interactive compare is disabled. The gallery is matched screenshot evidence, not command mirroring. MW6 permits the isolated native startup documented later; it does not permit personal saves or production storage.
+
+Preserve MW8's two axes. A fresh input hash cannot prove a complete dependency manifest or a faithful populated task, and a frozen old capture can remain useful history while being stale. A native rebuild proves identity, then affected keyboard, action, return and persistence journeys need their scoped evidence. The 15-second banner detects declared drift while open; it is neither automatic rebuilding nor an unattended monitor. No command replay should occur when applying a fixture snapshot; selection, inspection and geometry changes stay distinct from gameplay examination. Exported review JSON is synthetic review material, not an importable game save or an approved UI selection (AD32, AD36, AD42). No new study was built or served.
+
+
+## UI core comparison scope B150, 2026-11-04
+
+Scoped actual review of [UI core rounds 8-19](audits/UI_DESIGN_CORE_AUDIT.md#round-8-2026-10-29-general-overhaul-options-and-cleanup). The household and investigation comparisons use a synthetic model shared across three views; their matching results establish toy-model parity, not native economy, source lore, spatial combat or save compatibility. Their current-panels view is a labelled sketch, not a fresh native-shell baseline. Keep equal state/commands/art when comparing form, and separate movement inputs from actual world-time or spatial-outcome semantics (MW1-MW8, AD32, AD36).
+
+The recorded RI review later includes muted playback with timestamped samples, superseding its earlier not-played limitation for that historical round. It does not establish engine, collision, AI, audio, asset rights, hours or deeper system completeness, and this reconciliation did not replay it. Included allowance percentages, prototype ports/PIDs and frozen-app identifiers remain dated, not current budget or process authority.
+
+Useful retained opportunities are a clear shared projection/quote/command/result boundary, actual subject/footprint metadata when spatial mechanics are selected, and reuse tested on an edited room and second layout before world-scale estimates. Proposed representation registry, scene slots, universal figure primitive, motif packs, gallery tests and bundle split are conditional tools; none blocks a simpler selected consumer under AD51. Later direction lets task form and decoration evolve together rather than requiring a universal infrastructure-first sequence. Keep the historical populated fight/knowledge/navigation defects in their named owners and evidence stages; an attractive comparison does not close them, and a renderer change alone does not alter actual actor knowledge or jobs.
+
+
+## Operation-specific comparisons B151, 2026-11-04
+
+The full [UI core audit through round 34](audits/UI_DESIGN_CORE_AUDIT.md#content-reconciliation-b151-2026-11-04) adds useful comparison boundaries. Distinguish presentation swap, implementation refactor and actual in-world replacement. A shared review renderer may reuse read/quote/commit interaction while each native owner retains its own operation, identity, uncertainty and settlement. Do not label two UI clicks atomic when the native slot is empty between pack and install.
+
+Hold comparison baselines equal: unworn item calculations on both sides differ from actual worn character outcomes; acquisition price differs from local installation cost; compatibility differs from possession, access and readiness. An item consumed elsewhere invalidates its review rather than silently substituting another instance. Tool repair, immediate part exchange, room upgrade and irreversible material treatment need their own actual progress/cancellation consequences. Prototype DOM bridges and whole-context serialization remain disposable until direct native ports and narrow owner identities are selected (AD32, AD36, AD38, AD51).
+
+Later direction rejected the pictured-home experiment and then removed the prose-duplicating room/fog vignette. Preserve those trials and exact limits as history, rather than re-running them as mandatory prerequisites or treating their frozen bytes as current style approval. Functional housing, useful independent panes and prose-first tasks are the current defaults. A new diagram or deliberate artwork can still serve a selected task. Freshness, native fidelity, observed interaction, literal persistence and human taste remain separate dimensions; no all-panel conversion or universal review wizard is implied.

@@ -1,0 +1,119 @@
+{
+  "schema": 1,
+  "batch": "B45",
+  "title": "Secondary note-quality findings and archive-completion evidence scope",
+  "at": "2026-11-04T19:56:51.330820+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fma-full/CHECKPOINT.md",
+      "ids": [
+        "fma_SOURCES.json",
+        "NOTES.jsonl",
+        "READ_LEDGER.jsonl",
+        "fma_EMPTY_INPUT_AUDIT.json",
+        "fma_NONCHARACTER_AUDIT.json",
+        "SUPPLEMENT_NOTES.jsonl",
+        "SUPPLEMENT_LEDGER.jsonl",
+        "fma_DEPENDENCIES.json"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "Frozen fma_SOURCES.json manifest (directory not established by this checkpoint); worker NOTES.jsonl, READ_LEDGER.jsonl, SUPPLEMENT_NOTES.jsonl, SUPPLEMENT_LEDGER.jsonl and fma_DEPENDENCIES.json are named suppliers. No runtime consumer assigned."
+      ],
+      "disposition": "Historical reading and scope-repair checkpoint reports complete: 558 selected payloads fully read, 23 theme pages and 39 missing-payload rows metadata-only, plus 141 unique supplement records resolved with overlap represented once. Integrity and ledger validation are reported, but wiki material is secondary evidence, not canon authentication or gameplay proof. Preserve selected-body reading vs metadata-only scope dispositions and overlap credit. FMA40-row note sample findings remain actual note-quality issues in their review owner, not proof of universal source failure or a completed repair. No raw payload reread, primary-canon authentication or current gameplay integration inferred.",
+      "mechanism_and_interactions": "The reader reconciles selected archive text with revision/hash/range ledgers, separately adjudicates theme pages and missing-payload/noncharacter candidates, then links prior selected reads instead of double-counting them. Supplement scope includes bounded full-body reads and metadata-only portal/appearance-index triage; Blue Squad has a leader, hostage-taking cell and denied release demand, with no special power described. Adaptations remain distinct; mappings are proposals, and the Char wrapper renders supplied avatar/name/rank fields only.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Assigned checkpoint reports hashes, lengths, ranges, note-ledger parity and zero pending scope-repair candidates. This shard inspected only the checkpoint, not those underlying payloads or validators.",
+      "reopen": "If a specific mapping is selected, inspect its cited revision/ranges and qualify against the intended adaptation and actual game consumer; do not promote the archive review to canon or runtime validation.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          30
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S040.json"
+      ],
+      "prior_input_sha256": "181a598cda3bc86c43af12336cbb6078dda1a332af8cf448d4cb539dcf574773",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "181a598cda3bc86c43af12336cbb6078dda1a332af8cf448d4cb539dcf574773",
+      "input_lines": 30
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fma-full/r2-2026-10-13/review/CHECKPOINT.md",
+      "ids": [
+        "Random(20261013)",
+        "Melissa",
+        "Ouroboros",
+        "Period",
+        "Aquroya"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/power-systems/wiki-digests/full-dumps/workers/fma-full/NOTES.jsonl and SUPPLEMENT_NOTES.jsonl are implicated parent notes; this checkpoint names no repair assignee."
+      ],
+      "disposition": "Historical review says the sample and supplement checks completed, but records findings for parent-note repair rather than making those repairs itself. The batch order deviated from strict manifest order; receipts and hash/range checks remain, and the reviewer says no gameplay or canon-authentication gate was exercised. Preserve selected-body reading vs metadata-only scope dispositions and overlap credit. FMA40-row note sample findings remain actual note-quality issues in their review owner, not proof of universal source failure or a completed repair. No raw payload reread, primary-canon authentication or current gameplay integration inferred.",
+      "mechanism_and_interactions": "The parent review checks supplement revision/hash/length and prior-proof links, plus a 40-row sample of retained selected payloads. It flags continuity left blank, unsupported generic media/flag claims and incorrect Envy/Manga and Klaus locators. Specific repairs distinguish the 2003 overview from a general Homunculus-origin rule, identify missing Ouroboros mark-removal attribution/method, May Chang control limits, Paninya limb tradeoff sourcing and Lan Fan wound wording.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. The review checkpoint states integrity/manual-reading results and concrete discrepancies; no parent notes or source pages were independently checked in this shard.",
+      "reopen": "For any reused claim, inspect its source locator and continuity field in the named note, correct unsupported assertions with the appropriate adaptation evidence, and retain the sequencing deviation in audit history.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          23
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S040.json"
+      ],
+      "prior_input_sha256": "6a26651d286c2612aaa45288709448ca4d780975f67c72c220e00724bc476c96",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "6a26651d286c2612aaa45288709448ca4d780975f67c72c220e00724bc476c96",
+      "input_lines": 23
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/frieren-full/CHECKPOINT.md",
+      "ids": [
+        "WikiTeam Internet Archive snapshot dated 2023-12-12",
+        "frieren_SOURCES.json",
+        "read_file"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/power-systems/wiki-digests/full-dumps/workers/frieren-full/READ_LEDGER.jsonl; NOTES.jsonl; SUMMARY.md; frieren_SCOPE_AUDIT.json; frieren_NONCHARACTER_AUDIT.json; frieren_EMPTY_INPUT_AUDIT.json"
+      ],
+      "disposition": "Historical checkpoint reports all 134 retained inputs completed, with matching ledger and note row counts, and scope gates adjudicated after the final ordinal. These are process/completion claims only; this span supplies no Frieren mechanics or gameplay result. Preserve selected-body reading vs metadata-only scope dispositions and overlap credit. FMA40-row note sample findings remain actual note-quality issues in their review owner, not proof of universal source failure or a completed repair. No raw payload reread, primary-canon authentication or current gameplay integration inferred.",
+      "mechanism_and_interactions": "This is a bounded archive-reading workflow: read each retained manifest payload in ordinal order, record it in READ_LEDGER.jsonl and NOTES.jsonl, then adjudicate named scope gates from their private audits. Its boundary excludes post-snapshot manga chapters and anime material; the checkpoint delegates bounded outcomes and residual source limits to SUMMARY.md.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint states counts and last completed payload hash/length verification; underlying notes, source rows, audits and summary were not inspected in this shard.",
+      "reopen": "A specific content claim requires its note and cited archive revision/range; use SUMMARY.md for the actual bounded audit outcomes and preserve the 2023-12-12 snapshot boundary.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          14
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S040.json"
+      ],
+      "prior_input_sha256": "9802fa523b7e675eb8ea9f60edc893e9629b1696aa6e9a9e1d4354dcbc095d3a",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "9802fa523b7e675eb8ea9f60edc893e9629b1696aa6e9a9e1d4354dcbc095d3a",
+      "input_lines": 14
+    }
+  ],
+  "folds": [],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1536
+}

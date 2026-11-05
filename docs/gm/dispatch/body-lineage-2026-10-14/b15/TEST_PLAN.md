@@ -144,3 +144,8 @@ an old body's inspection permissions forward (AD6–AD9/AD38). A version or
 source-qualified stale report remains an attributed claim, not a new reading of
 today's truth. Developer labels/counters must not reveal sealed fact counts.
 No particular cheat, body feature or new rendering system is authorized here.
+
+
+## Reconciliation B95, 2026-11-04
+
+S1–S12, N1–N9, P1–P9 and L1–L3 remain NOT RUN. Preserve knowledge precision/scope/confidence/stage distinctions, attributed conflicting reports, known versus hidden change, body/clock/unit binding, durable enable, native useful reading, source delivery and no truth-based ordering/count leak. A passing synthetic canary tests that sentinel only; it does not certify all secrets. Private native saves must retain necessary opaque state while public reports remain observer-projected; secrecy is not encryption or truncation. Device tab preference does not enable a gameplay lens and is not proven by game-file import. Generic cheat-host commit-before-refresh inspection in B84 is not CV1’s own validator, first enable, rollback, native acquisition, persistence or leak proof. Historical card counts are catalogue-fixture expectations, not a new current inventory. Keep C0/CH1/R1 prerequisites scoped to the actual selected receiver.

@@ -1,5 +1,7 @@
 # Acceptance prep, 2026-10-19
 
+**Content review B4, 2026-11-04:** all three slice records, O1–O5 and R1–R3 reviewed. AD42 makes the original human-play request optional feedback, not a technical gate. The [economy owner](../ECONOMY_AND_TRADE_CONSIDERATIONS_2026-10-18.md#acceptance-prep-ecx1ecl2-reconciliation-2026-11-04) retains the deliberate unsaved debug-ledger semantics; the [combat owner](../COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md#acceptance-prep-cbl-reconciliation-2026-11-04) distinguishes defeat evidence and corrects the “CBL4 display” shorthand, since CBL4 is the subdue/yield proposal. Original fixtures, browser gaps and taste questions remain; old generated-file/server notes are not current cleanup instructions (AD32/AD36).
+
 Pre-run of three merged slices so Weibao's play pass is short. **Human acceptance of all
 three stays OPEN.** This is agent evidence, not acceptance. Source was not edited.
 
@@ -24,7 +26,7 @@ Console: no errors recorded in the pane. `private_packs/manifest.json` returned 
 
 ## 1. M4 lamplight (PF52)
 
-Owner: [CHECKPOINT M4 round](gm/dispatch/modular-seams-2026-10-16/CHECKPOINT.md#m4-round-lamplight-2026-10-19).
+Owner: [CHECKPOINT M4 round](../gm/dispatch/modular-seams-2026-10-16/CHECKPOINT.md#m4-round-lamplight-2026-10-19).
 
 **Steps I took** (setup: fresh hero, then edited the stored save to unlock village trader, Nearby cave and Cave depths, 5000 money, strong skills so wolf rats do not end the visit; reload):
 1. Village trade, bought Oil lamp and Lamp oil. Purse went 5000 to 3900 (display 110C spent). The lamp has no auto-use button.
@@ -53,7 +55,7 @@ Owner: [CHECKPOINT M4 round](gm/dispatch/modular-seams-2026-10-16/CHECKPOINT.md#
 
 ## 2. ECX1 + ECL2 money seam and debug ledger
 
-Owner: [economy considerations, ECX1 and ECL2 evidence](ECONOMY_AND_TRADE_CONSIDERATIONS_2026-10-18.md). Commits 43d2e0c8b, merge ff781c6ef.
+Owner: [economy considerations, ECX1 and ECL2 evidence](../ECONOMY_AND_TRADE_CONSIDERATIONS_2026-10-18.md). Commits 43d2e0c8b, merge ff781c6ef.
 
 **Steps I took** (`?test_hooks=1`, which exposes `simulationTestHooks.project('economy')` after PLAY):
 1. Imported save loaded: ledger had one baseline row `load +3900`.
@@ -76,7 +78,7 @@ Owner: [economy considerations, ECX1 and ECL2 evidence](ECONOMY_AND_TRADE_CONSID
 
 ## 3. CBL1/CBL3 defeat publisher
 
-Owner: [combat considerations, CBL3 evidence](COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md). Commits c40c51a6f, 037fde3e3.
+Owner: [combat considerations, CBL3 evidence](../COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md). Commits c40c51a6f, 037fde3e3.
 
 **Steps I took** (cleared storage, new hero, unlocked Nearby cave only, auto-return-to-bed off, reload):
 1. New hero's save had no `defeat` slice and `total_deaths 0`.

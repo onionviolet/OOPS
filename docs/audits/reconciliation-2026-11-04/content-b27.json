@@ -1,0 +1,309 @@
+{
+  "schema": 1,
+  "batch": "B27",
+  "title": "Research briefs, Academagia source corrections and mapped-versus-played scope",
+  "at": "2026-11-04T19:48:09.294527+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/MINECRAFT_MODPACK_SCOUT_2026-10-14-brief.md",
+      "ids": [
+        "Create",
+        "Botania",
+        "Ars Nouveau",
+        "Hex Casting",
+        "Thaumcraft",
+        "FTB Quests",
+        "Better Questing",
+        "Hardcore Questing Mode",
+        "Patchouli",
+        "KubeJS",
+        "CraftTweaker"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/MINECRAFT_MODPACK_SCOUT_2026-10-14-brief.md; prior scout referenced but not path-named here."
+      ],
+      "disposition": "Historical research assignment; recommendations did not authorize implementation, acquisition, installation or execution. The requested accessibility comparison must distinguish pack manifests from actual quest/script data and source code from prebuilt jars. Preserve actual report depth and exact research bounds; an old research brief/purchase route is not executed work or present authorization. No current prices/install/frontiers verified. Later passive interpretation can correct an earlier source anomaly without claiming a runtime reproduction.",
+      "mechanism_and_interactions": "The proposed Minecraft scout distinguishes mod mechanics from pack-authored progression and authoring tools. It asks for quest dependency/alternative/repeatability, actual-item provenance versus completion flags, manuals/research, differentiated materials/tools and automation, with concrete accessible payload paths. That specificity goes beyond generic crafting, recipes, queues or NPC memory already present in the brief. Minecraft is a donor; no runtime dependency or new world is implied.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Assignment text only; no candidate pack/mod files or claims from the requested future report inspected.",
+      "reopen": "If resumed, inspect primary repo/pack artifacts and exact edition paths; establish whether quest graphs and scripts are downloadable without launching Minecraft.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          19
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S021.json"
+      ],
+      "prior_input_sha256": "c9649ded6a5cdc617a8cfa8ac806fca7c2ceb21d598e69a99953f2379672600d",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "c9649ded6a5cdc617a8cfa8ac806fca7c2ceb21d598e69a99953f2379672600d",
+      "input_lines": 19
+    },
+    {
+      "path": "docs/research/SCIFI_AND_JOJO_PLAN_2026-10-10.md",
+      "ids": [
+        "JoJo",
+        "M1",
+        "M2",
+        "M3",
+        "M4",
+        "M5",
+        "S24",
+        "SF1",
+        "SF2",
+        "SF3",
+        "SF4",
+        "SF5",
+        "T1 to T10",
+        "K24",
+        "K9",
+        "K22",
+        "K3",
+        "K21",
+        "I18"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/jojo-audit-2026-10-11/REPORT.md (linked current audit report); sci-fi feeds docs/DEEP_CONCEPTS.md."
+      ],
+      "disposition": "Historical plan revised by an authorization notice on 2026-10-11: JoJo expanded audit authorized and its report owns execution; sci-fi portion remains undispatched. The old site-access question and route assumptions are superseded for JoJo by that notice, not evidence of current authorization for sci-fi. Preserve actual report depth and exact research bounds; an old research brief/purchase route is not executed work or present authorization. No current prices/install/frontiers verified. Later passive interpretation can correct an earlier source anomaly without claiming a runtime reproduction.",
+      "mechanism_and_interactions": "JoJo’s proposed audit separates rule-shaped Stand effects, laws/counters, fan premises, revision cross-checks and synthesis; time, causality, conditions, object/place binding, range/power and shared damage have distinct questions. Sci-fi splits into concept weapons, civilization scale, games, local novels and fan premises, connected to power implication tests, selves, cheat cosmology, economy and information. The plan explicitly says a JoJo wiki digest is not verified canon and separates authorization for JoJo from the unchanged sci-fi plan.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Plan and its internal update inspected only; no JoJo report or sci-fi source dossier inspected. Historical wiki access claims not refreshed.",
+      "reopen": "Consult the linked JoJo report for actual coverage; dispatch sci-fi only under later direction, then qualify each lane’s source and canon evidence.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          83
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S021.json"
+      ],
+      "prior_input_sha256": "f8d7630eb7fdb1f2db7152c1b06a9fd5d23a896e0bb5f1baa85f83f0c9225527",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "f8d7630eb7fdb1f2db7152c1b06a9fd5d23a896e0bb5f1baa85f83f0c9225527",
+      "input_lines": 83
+    },
+    {
+      "path": "docs/research/academagia/CHECKPOINT.md",
+      "ids": [
+        "P2",
+        "P4",
+        "Steam app 533480"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/academagia/CHECKPOINT.md; proposed later pass would need exact tuning decision P2 or P4."
+      ],
+      "disposition": "Historical partial web research checkpoint, superseded in depth by later source/decompile and aspect passes. Purchase price, Steam silence, build details and proposed route are dated and not current offers or authorization. Preserve actual report depth and exact research bounds; an old research brief/purchase route is not executed work or present authorization. No current prices/install/frontiers verified. Later passive interpretation can correct an earlier source anomaly without claiming a runtime reproduction.",
+      "mechanism_and_interactions": "This early Academagia web checkpoint describes community-derived roll/exam formulas and thin adventure coverage. It proposes a conditional download/decompile route only if P2 or P4 is accepted: managed assemblies for exact formulas, or BCS mod tools for adventure/event data. It explicitly distinguishes wiki inference from exact source data and reports no purchased/installed game, launch, gameplay or YAIRPG edit.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint claims only; the web pages and underlying game binaries/tools were not inspected for this shard.",
+      "reopen": "Use later Academagia source checkpoints for what was actually decoded; do not act on historical purchase advice or treat wiki silence as proof of content absence.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          20
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S021.json"
+      ],
+      "prior_input_sha256": "8f09beef156f1ec662cf9a5200182165587638b55291d9e90e434990dfc823ac",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "8f09beef156f1ec662cf9a5200182165587638b55291d9e90e434990dfc823ac",
+      "input_lines": 20
+    },
+    {
+      "path": "docs/research/academagia/aspects-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "A01–A12",
+        "A01",
+        "A03",
+        "A04",
+        "D1",
+        "D2",
+        "D3",
+        "48 roots",
+        "112 tables",
+        "StoryActorLink",
+        "RepositorySerializer",
+        "GameInfo",
+        "CustomSerializer"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/academagia/aspects-2026-10-14/; private references linked via PRIVATE_REFERENCE_INDEX.md."
+      ],
+      "disposition": "Historical partial source research with passive structural checks. The report, proposed packets and extracted references are research artifacts, not accepted gameplay or native acceptance. Later execution would require a separate authorized route. Preserve actual report depth and exact research bounds; an old research brief/purchase route is not executed work or present authorization. No current prices/install/frontiers verified. Later passive interpretation can correct an earlier source anomaly without claiming a runtime reproduction.",
+      "mechanism_and_interactions": "The aspect pass reports bounded source traces across dialogue, save, NPC schedule/adaptation, research reserves, and pheme knowledge/opposition/delay/absorb/deflection. It distinguishes 48 initialized roots from separately serialized systems, documents a delete-before-pack route without exercising it, and retains private text corpora with contextual IDs rather than publishing prose. It marks speakers, dynamic resolvers, newspaper delivery, complete combat and live UI/runtime behavior as unresolved; a schema or count is not proof of active content.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint statements reviewed; no source assemblies, corpus, save/cache, or verification artifacts independently inspected here.",
+      "reopen": "For selected future work, follow exact listed source owners: resolve speaker attribution, native UI behavior, migrations/recovery, and active article consumers without inferring from table counts.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          38
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S021.json"
+      ],
+      "prior_input_sha256": "76e0c1ac54cf7060228b3b8f5c60e0e035cbc0baac9acdbf96d1e05b4836e6fe",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "76e0c1ac54cf7060228b3b8f5c60e0e035cbc0baac9acdbf96d1e05b4836e6fe",
+      "input_lines": 38
+    },
+    {
+      "path": "docs/research/academagia/pass-2026-10-14-systems/CHECKPOINT.md",
+      "ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5",
+        "DS01/02/04/05/07/09/10/11/15",
+        "UNREAD.md",
+        "FAMILY_MAP",
+        "MERIT_MATRIX",
+        "ResolveStrategyEx"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/academagia/pass-2026-10-14-systems/UNREAD.md, FAMILY_MAP and REPORT.md; source owners include CombatAndDuel, Rimbal and ResolveStrategyEx."
+      ],
+      "disposition": "Historical partial source research. Selected flows and passive checks are reported complete, but the broader engine/content model, native verification and YAIRPG acceptance remain explicitly open. Proposals do not authorize owner edits or implementation. Preserve actual report depth and exact research bounds; an old research brief/purchase route is not executed work or present authorization. No current prices/install/frontiers verified. Later passive interpretation can correct an earlier source anomaly without claiming a runtime reproduction.",
+      "mechanism_and_interactions": "The systems pass delivers fifteen bounded source-flow dossiers and an inventory routing 320 rows across systems, namespaces, tables, UI and dependencies. It partly closes inherited compound questions without calling them fully closed, and keeps source anomalies distinct from reproduced runtime defects. Unread combat/duel, mood/effect interpretation, dynamic resolution, combined patch profiles, narrative semantics, native UI, saves and gameplay each retain separate owners and gaps.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint claims reviewed only; no dossiers, inventories, source code or VERIFICATION.json independently inspected.",
+      "reopen": "Choose a named unresolved flow and follow stable source IDs through consumer/state; preserve variant boundaries and do not promote passive source findings to played behavior.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          40
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S021.json"
+      ],
+      "prior_input_sha256": "fbca45eca3fd5bbdf9ce6388accf0f263132c8fd9624aa4dd71fa472a56ba87f",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "fbca45eca3fd5bbdf9ce6388accf0f263132c8fd9624aa4dd71fa472a56ba87f",
+      "input_lines": 40
+    },
+    {
+      "path": "docs/research/GAME_ABSORPTION_SCOUT_2026-10-14-brief.md",
+      "ids": [
+        "uncoded accepted-direction snapshot",
+        "existing-adoption supplied summary",
+        "requested outputs1–5"
+      ],
+      "classification": "historical unexecuted research brief; fresh full content review",
+      "owners": [
+        "docs/research/GAME_ABSORPTION_SCOUT_2026-10-14-brief.md"
+      ],
+      "disposition": "Keep exact named incremental consumers, prior source/version gaps and donor-mechanism vs implementation distinctions. October14 one-realm/one-prestige gate is superseded by Oct24 direction. Today/queued/source-adoption counts are dated supplied summary, not current evidence or launch authority.",
+      "evidence": "Entire brief freshly read after no-ID prior receipt rejection; did not perform its web research instructions.",
+      "reopen": "Use current live owners and exact named source question if a new research pass is selected; preserve discovery.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "bc3f8c688c2b65deb86ff394ff41db7d7577d95a106ad6daebb84b2786e020f6",
+      "input_lines": 35,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          35
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/academagia/decompile-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "GetDeletedObjects/List<Guid>",
+        "source-compatible vs intended-deletion",
+        "partial unread table"
+      ],
+      "classification": "historical passive-source checkpoint; fresh full content review",
+      "owners": [
+        "docs/research/academagia/decompile-2026-10-14/CHECKPOINT.md"
+      ],
+      "disposition": "Later adventure pass corrects unconditional cast concern: shipped List<Guid> source path returns null; retain intended-deletion vs source-compatible profiles. Separate mapped mechanics from narrative semantics, dynamic resolution, selected runtime/cache and actual playable reachability. Do not repeat completed binary decoding or infer all institutions from two named club chains.",
+      "evidence": "Entire both checkpoints read, no installed assembly/game execution or current source-body requalification.",
+      "reopen": "Current selected source/profile question needs exact payload/path/consumer; no runtime experiment or acquisition authorized by this reconciliation.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "101e733189df54f647d15720b5363d8ffe59760a6976ec6c20082b7752997c30",
+      "input_lines": 32,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          32
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/academagia/pass-2026-10-14-adventures/CHECKPOINT.md",
+      "ids": [
+        "GetDeletedObjects/List<Guid>",
+        "source-compatible vs intended-deletion",
+        "partial unread table"
+      ],
+      "classification": "historical passive-source checkpoint; fresh full content review",
+      "owners": [
+        "docs/research/academagia/pass-2026-10-14-adventures/CHECKPOINT.md"
+      ],
+      "disposition": "Later adventure pass corrects unconditional cast concern: shipped List<Guid> source path returns null; retain intended-deletion vs source-compatible profiles. Separate mapped mechanics from narrative semantics, dynamic resolution, selected runtime/cache and actual playable reachability. Do not repeat completed binary decoding or infer all institutions from two named club chains.",
+      "evidence": "Entire both checkpoints read, no installed assembly/game execution or current source-body requalification.",
+      "reopen": "Current selected source/profile question needs exact payload/path/consumer; no runtime experiment or acquisition authorized by this reconciliation.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "0e4f6abfef6008c95aa17d6c2709f8dc6d75e0aff6e18ff4a5286e0cbfcc0b79",
+      "input_lines": 36,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          36
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/academagia/decompile-2026-10-14/CHECKPOINT.md",
+      "heading": "## Later source interpretation, 2026-11-04 (B27)",
+      "body": "The later adventures checkpoint and PATCH_MERGING trace refine the first unread row: for the shipped List<Guid> path, GetDeletedObjects returns null, so an unconditional invalid-cast failure is not established. Preserve the earlier intended-deletion count model as a labelled comparison, and the later source-compatible no-deletion mapping as separate passive evidence. Neither selects the actual runtime patch/cache profile or proves playable reachability. No launch or cache experiment was performed here; unrelated merit/duel/UI/narrative gaps remain open.",
+      "before_sha256": "101e733189df54f647d15720b5363d8ffe59760a6976ec6c20082b7752997c30",
+      "after_sha256": "24deb4281a68aaf9cfe3e4272f70ed2225d7f1302a91bc906706cdb38af5ef1a"
+    },
+    {
+      "path": "docs/research/GAME_ABSORPTION_SCOUT_2026-10-14-brief.md",
+      "heading": "## Historical brief qualification, 2026-11-04 (B27)",
+      "body": "This is a saved October14 research request, not a new dispatch. Its one-realm/one-prestige required milestone was retired by USER_VISION’s October24 scope direction. Preserve the useful incremental-consumer questions and source/version caveats; refresh current priorities and dossier coverage before any newly selected pass. Existing adoption counts and “today’s” queues remain dated supplied evidence, not present capabilities or installation authority.",
+      "before_sha256": "bc3f8c688c2b65deb86ff394ff41db7d7577d95a106ad6daebb84b2786e020f6",
+      "after_sha256": "7ee92b3aecf086f6845f7576e830718f22ad61ee453921717dc5a5038bc64d42"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1688
+}

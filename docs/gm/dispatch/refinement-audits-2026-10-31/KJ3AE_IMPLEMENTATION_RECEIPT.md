@@ -76,4 +76,4 @@ Not run: full `npm test`, a build of the repo `dist/`, 14/21 px captures, human 
 
 ## Next
 
-kjw22 from ch69 P082 or ch70 P001 (Daffodil Street, the shuddering lady, then Melissa's dress and the Tris report, ch70-72 to Sealed Artifact 2-049). Required start state: clock 19926, money 684, pool 3/0, Daffodil Street flat, `book.lotm.kj3ae.thread.lady.shudder.open`, `silver.blanks.bought.two`, `amulets.planned.for.siblings`.
+B3 repeat use is now allowed up to a dial of 3 ([calibration](B3_EXHAUSTION_CALIBRATION_RECEIPT.md), below floor); make the glances native. kjw22 from ch69 P082 or ch70 P001 (Daffodil Street, the shuddering lady, then Melissa's dress and the Tris report, ch70-72 to Sealed Artifact 2-049). Required start state: clock 19926, money 684, pool 3/0, Daffodil Street flat, `book.lotm.kj3ae.thread.lady.shudder.open`, `silver.blanks.bought.two`, `amulets.planned.for.siblings`.

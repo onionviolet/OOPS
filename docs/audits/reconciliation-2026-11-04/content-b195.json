@@ -1,0 +1,153 @@
+{
+  "schema": 1,
+  "batch": "B195",
+  "title": "Superseded fragments, reader contract and seeded UI evidence",
+  "at": "2026-11-04T22:51:18.374071+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/reviews/plan-rule-reconciliation-2026-10-18/SUPERSEDED_TEXT.md",
+      "ids": [
+        "PCR1–PCR7 removed fragments",
+        "G4/G8/G17",
+        "GHS26/GHS27/GHS39/GHS40"
+      ],
+      "classification": "Historical removed-text archive, bounded reader charter or evidence reproduction note",
+      "owners": [
+        "docs/reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md"
+      ],
+      "disposition": "Preserve verbatim archive, including old proposal status, conservation/currency/fluency overreach, commit-helper reset instructions and dated stopped/unwired text; use later owning corrections rather than restoring fragments.",
+      "evidence": "Fresh full text read. No commands in archived fragments, worker dispatch, screenshots, raw private payload, original primary sources, seeded save or browser proof executed/inspected.",
+      "reopen": "Specific provenance or coverage disagreement at the current owner. Preserve archive and original IDs; inspect actual later authority/input rather than restoring superseded text.",
+      "input_sha256": "0407dff36c4b1f8d41bd89aa0d3e2d32d4971e14240d5e7ee02fc31fe90be6c3",
+      "input_lines": 211,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          211
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/plan-rule-reconciliation-2026-10-18/ROUND2_SUPERSEDED_TEXT.md",
+      "ids": [
+        "PA2-F2–PA2-F10 removed fragments",
+        "TA-A1r/TA-A1h/TA-A1f"
+      ],
+      "classification": "Historical removed-text archive, bounded reader charter or evidence reproduction note",
+      "owners": [
+        "docs/reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md"
+      ],
+      "disposition": "Preserve former sealed-file read prohibition, blanket secret-clue/anti-farm limits, hidden-route impossibility and paused-campaign text as removed history, not current instructions.",
+      "evidence": "Fresh full text read. No commands in archived fragments, worker dispatch, screenshots, raw private payload, original primary sources, seeded save or browser proof executed/inspected.",
+      "reopen": "Specific provenance or coverage disagreement at the current owner. Preserve archive and original IDs; inspect actual later authority/input rather than restoring superseded text.",
+      "input_sha256": "6068fd338df831b355fcb3c8f8db5987c0ebc7537ceb2f4b0896d327f2431398",
+      "input_lines": 117,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          117
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/plan-rule-reconciliation-2026-10-18/ROUND3_SUPERSEDED_TEXT.md",
+      "ids": [
+        "Round3 removed UI/body/world fragments",
+        "CRP4/CRP5"
+      ],
+      "classification": "Historical removed-text archive, bounded reader charter or evidence reproduction note",
+      "owners": [
+        "docs/reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md"
+      ],
+      "disposition": "Preserve removed integrated-candidate viewport/stage statements, narrow body target, conversion ban and opaque-ID-only secret-storage claim; public sealing and actual current compatibility remain separate.",
+      "evidence": "Fresh full text read. No commands in archived fragments, worker dispatch, screenshots, raw private payload, original primary sources, seeded save or browser proof executed/inspected.",
+      "reopen": "Specific provenance or coverage disagreement at the current owner. Preserve archive and original IDs; inspect actual later authority/input rather than restoring superseded text.",
+      "input_sha256": "857255b29918e615b88018ba9149d7f3519996f179125c2b3572bfea9412e29a",
+      "input_lines": 43,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          43
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/READER_BRIEF.md",
+      "ids": [
+        "Historical Snnn reader contract",
+        "Udddd delimiters",
+        "assigned ranges/evidence_lines"
+      ],
+      "classification": "Historical removed-text archive, bounded reader charter or evidence reproduction note",
+      "owners": [
+        "docs/reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md"
+      ],
+      "disposition": "Historical finite worker contract, not current authorization to spawn or stop. Assigned content and evidence lines are required; prepared hashes/counts/part boundaries do not confer full review.",
+      "evidence": "Fresh full text read. No commands in archived fragments, worker dispatch, screenshots, raw private payload, original primary sources, seeded save or browser proof executed/inspected.",
+      "reopen": "Specific provenance or coverage disagreement at the current owner. Preserve archive and original IDs; inspect actual later authority/input rather than restoring superseded text.",
+      "input_sha256": "6f08d62c5fc35f7547473ae06f2d023e2744ee59101cd511b5b5d89c3d57abd7",
+      "input_lines": 30,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          30
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/ui-density-2026-10-13/README.md",
+      "ids": [
+        "Build/state/zoom/fixture reproduction contract",
+        "F5 scripted PLAY workaround"
+      ],
+      "classification": "Historical removed-text archive, bounded reader charter or evidence reproduction note",
+      "owners": [
+        "docs/UI_DENSITY_AND_ORIGINAL_COMPARISON_AUDIT_2026-10-13.md"
+      ],
+      "disposition": "Historical evidence recipe distinguishes comparable seeded UI states from naturally earned progress. Emulated zoom needed synthetic PLAY; fixtures omitted Meditation to avoid original-loader failure. Ports and hardcoded private temporary paths are not current services.",
+      "evidence": "Fresh full text read. No commands in archived fragments, worker dispatch, screenshots, raw private payload, original primary sources, seeded save or browser proof executed/inspected.",
+      "reopen": "Specific provenance or coverage disagreement at the current owner. Preserve archive and original IDs; inspect actual later authority/input rather than restoring superseded text.",
+      "input_sha256": "ae173428333f2ec44eb95713da3fa704475018fb356c2fc39583802be3128d61",
+      "input_lines": 37,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          37
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md",
+      "heading": "## Superseded-text and reader-contract reconciliation, 2026-11-04",
+      "body": "Full reading of SUPERSEDED_TEXT, ROUND2_SUPERSEDED_TEXT and ROUND3_SUPERSEDED_TEXT preserves the removed wording as history. Their initial proposal statuses are not current authority; neither are blanket conservation, body-only fluency, forced frozen-time costs, secret-clue bans, internal sealed-file reading bans, anti-farm rules or narrow viewport gates. PCR/PA2 and later live owners explain those corrections. The preserved reset/commit/resume fragments are not execution instructions (AD32, AD36).\n\nThe round5 READER_BRIEF is a historical finite extraction contract, not current approval to spawn workers or stop this reconciliation. Its important content controls remain useful: read the assigned source through its actual delimiters, recover omitted spans, retain exact IDs/ranges/input identity, and distinguish a promised output from delivery. Hashes, preparation counts and transport-part endings establish none of that semantic coverage. No underlying Snnn/raw source is newly reviewed by reading this charter; existing semantic receipts retain their own scope.\n\nUseful original variants remain in the archive rather than being deleted, restored as live rules or silently called accepted. This pass does not implement any formerly proposed migration, market, traveler, training-world or UI change.",
+      "before_sha256": "f2990dea8625739e673d36a23f419d7e6139ed89df0072b9653c01e65df4ce65",
+      "after_sha256": "bfdeb36f947fc6020cbd14db36f3a43308c1c3e66b1984bca82189614f81e421"
+    },
+    {
+      "path": "docs/UI_DENSITY_AND_ORIGINAL_COMPARISON_AUDIT_2026-10-13.md",
+      "heading": "## Evidence-recipe content reconciliation, 2026-11-04",
+      "body": "The evidence-directory README describes comparable seeded UI fixtures: post-elder routing followed by 29 common inventory stacks, 5000 money, unlock flags and XP in 14 skills. These states support the dated density comparison, not naturally earned progress or all original save-loader behavior. Meditation was omitted because its injected reward crashed the original loader, and the emulated 150% PLAY route required an artificial scripted click. Keep those exclusions/workarounds when interpreting the figures.\n\nThe named ports, scratch worktrees and hardcoded fixture paths are historical reproduction inputs, not currently verified services or permission to recreate a profile. The report identifies a measured bundle; its newer-than-source timestamps alone are not a source-content equivalence proof or a fresh rebuilt result. No screenshot, measurement JSON, private save or driver was rerun here. Current desktop and text-size owners govern a selected UI change, while this archive preserves its original viewport/zoom comparisons and evidence limits (AD32, AD36, AD43).",
+      "before_sha256": "533fea57967594cf516efa8ac101f50ae7b66cc8169dc17d227ef16cdf798f5f",
+      "after_sha256": "9987142425f973010febb1179039c27a2045e248ce9693df265add676448ed6d"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1089,
+  "post_record_amendments": [
+    {
+      "path": "docs/reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md",
+      "from": "Useful original variants remain in the archive rather than being deleted, restored as live rules or silently called accepted.",
+      "to": "Useful original variants remain in the archive rather than being deleted, restored as live rules or silently called accepted. Authority remains with the current owners under AD32.",
+      "reason": "Same-line AD32 citation for the non-adoption distinction, required by document checker; no authority change."
+    }
+  ]
+}

@@ -264,3 +264,16 @@ retains current owner links rather than changing their acceptance or priorities.
 - Runtime build, product tests, game journeys, app installation, release, merge, commit and push: NOT RUN for this assessment. Named product successes are attributed to their own receipts and bundles.
 
 Reference artifacts: `work/progress-atlas-refined-2026-11-04/atlas-data.json`, `inputs-start.json`, `inputs-close.json`, `visual-checks.json` and the local document-check logs. The inline map is a dated explanatory snapshot, not an automatically refreshed project service.
+
+## Evening refresh, 2026-11-04 (HEAD `f15a37f90`)
+
+Bounded delta read against the earlier snapshot: commits since `aef3cb1f8` (KJ3AD, KJ3AE, R6 sealed records, release reconciliation), the KJ3AE receipt and the release reconciliation. No build, suite, gameplay replay or interactive-view regeneration ran; the frozen `prototypes/progress-atlas/` view keeps its 15:00 snapshot. The working tree still has about 470 status entries from other writers, including uncommitted LOTM divination/UI and editorial work.
+
+| Code | Observation | Consequence and next check |
+|---|---|---|
+| F6 | Klein's endpoint moved from KJ3AC (ch64) to KJ3AE (ch69 P082). KJ3AE adds content and pack data; its receipt marks R5 rites, the redirected luck ritual and both B3 Spirit Vision uses as facts, with the ritual kit unstocked (G5). | Campaign distance is again outrunning mechanism depth (G2, A1). Each further content-only window adds facts the mechanism lane must later replace. Next check: before kjw22, name which of B3/R5 it uses and whether that window waits for native support. |
+| F7 | Release reconciliation records PROJECT's L2b below-floor line and release paragraph as stale (RP1, RP2) and selects corrections; F3 above made the same call. | Resolved in the selected release, subject to that record. Installed app remains unverified (G1 unchanged). |
+| F8 | PROJECT still states 28 slices / 431 stages while the endpoint is KJ3AE. | Stale subtotal, not a completion measure either way. Owner: the campaign tracker; PROJECT should link rather than restate it. |
+| F9 | Private book packs are absent from the public export (release record). | A fresh public install cannot reach the book campaigns; delivery of the lead journeys is local-only. Relevant when Weibao wants a shareable build. |
+
+Unchanged: U01–U15, W2–W10, G1/G3–G8 and A1–A5 keep their earlier wording. The strongest next work is still A1, now sharpened by F6.

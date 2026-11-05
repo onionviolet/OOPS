@@ -62,3 +62,8 @@
 | I84 | Byte compaction and UI limits are not fixed solo-player replay restrictions. | COMMON.md Standing direction and `docs/worlds/world-depth-2026-10-13/22_FEATURES_AS_CHEATS.md:1369-1380` distinguish world adjectives from global “once” limits. Keep replay options, receipts and declared fidelity; handle storage growth with measured compaction/export choices. |
 
 No owner document was changed. No broad implementation, migration, hidden-field conversion or release is authorized by these findings. Current source/browser/human gates retain their owning records.
+
+
+## Direction and measurement qualification, 2026-11-04 (B16)
+
+I82/I83 cite an October 14 PROJECT snapshot. The later October 24 direction in USER_VISION retired the one-realm/one-prestige required milestone; those old citations cannot restore it or make the broad vision deferred. Preserve the narrower useful principle: select the adapter needed for the current playable slice, with actual end/estate/optional-prestige owners and explicit transaction choice. The synthetic byte figures include stated fixture assumptions and are not full-world archive capacity or exact-resume proof. Retain the all-origin-key plus backup budget, receipt fidelity, live command guards, once settlement and durable-before-visible publication constraints. This review did not remeasure storage or validate current serializer lines. T9 planner QA’s named BACKLOG.md supplier was absent during this batch; its checkpoint evidence remains a historical claim, not proof of that missing artifact.

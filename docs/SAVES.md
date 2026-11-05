@@ -13,8 +13,10 @@ Owner of **what a save holds** and **what was promised about old saves**. Create
 
 ## 1. What a save is
 
-**One storage key per life, one JSON envelope.** The browser holds the live envelope as a
-single `localStorage` string; Export wraps the same JSON as base64 with a marker prefix.
+**One active save key per release channel, one JSON envelope.** The live and dev channels use
+`save data` and `dev save data`; continuation may carry several lives within that envelope,
+with separate archive/authority keys described below. The browser stores the active envelope
+as one `localStorage` string; Export wraps the JSON as base64 with a marker prefix.
 
 | Part | What it is | Owner |
 |---|---|---|
@@ -136,7 +138,7 @@ of what those searches surfaced, not a proof that every persistence change has a
 | 2026-10-30 | Cheat core round 2 | Derived presentation, no saved field changed | A | commit `812aef9b6` |
 | 2026-11-04 | Rune bench recarve exchange (`pledges`) | No saved field or schema change: the credit for a replaced strip is derived from the worn strip's own runes, charges and clock. Old saves load and quote identically. Exercised: fresh origin, reload, Export, literal Import at 1920x1080 and 1536x864 (14, 21 px) | A | `src/exchange_ledger.js`, `tests/exchange_bench_browser.mjs` |
 | 2026-11-04 | **World-pack state (`world_packs` slice)** | New optional key; absent loads empty and writes nothing; an older build ignores and drops it on its next save (lossy downgrade, stated); histories survive a crossing, resume and restart (OD5). Full text in section 6d | A | Weibao's 2026-11-04 sequencing approval (relayed in the task brief); [6d](#6d-world-pack-state-slice-2026-11-04-compatibility-decision); `src/world_pack_registry.js`, `src/continuation_state.js` |
-| not dated | Book pack revisions and save deltas | Per-pack sections with revision chain; a proposal in the lead-life systems design, code is tested but unwired | P | LSD142-LSD143 in [RULES_INDEX](RULES_INDEX.md) router; `src/world_pack_save.js` |
+| not dated | Book pack revisions and save deltas | Earlier lead-life design proposal; save/load wiring and its remaining gameplay-writer gap are now recorded in section 6d. No migration step is registered | P (historical proposal) | LSD142-LSD143 in [RULES_INDEX](RULES_INDEX.md) router; `src/world_pack_save.js`; [later slice decision](#6d-world-pack-state-slice-2026-11-04-compatibility-decision) |
 
 Reading the ledger: a row with Auth `A` restates what that lane did; it does not widen the
 2026-10-17 and 2026-10-18 decisions and is not a promise to future lanes. The default new rows
@@ -154,7 +156,9 @@ Restating existing decisions, with their dials:
    all restore it (FLR5 in [GROUND_RULES](GROUND_RULES.md), AR6, AR10).
 3. **Import must not damage the stored save.** Default: validate and preflight before the
    one write; a failure leaves the old bytes (`importSaveFile`; A1-C1).
-4. **Newer saves are refused by older game versions** and by older readers of opt-in schemas.
+4. **Unsupported game versions and opt-in schemas are refused by their readers.**
+   This is not a promise that every newer build save is rejected by an older build:
+   section 6d records a supported-envelope downgrade that ignores then drops the pack slice.
 5. **User saves stay private and untouched** by agents (AGENTS Safety). Fixtures are
    synthetic; see `tests/fixtures/`.
 
@@ -231,3 +235,19 @@ Saved fields added, all optional on `motherOfLearning` (the validator accepts th
 - Code map: [S12](systems/PROGRESSION_WORLD_STATE.md#s12-persistence); world packs [S8](systems/PROGRESSION_WORLD_STATE.md).
 - Historical engineering review (proposed E1 to E10, A1 to A4): [ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11](ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md).
 - Rules: [AR6, AR10](ARCHITECTURE_RULES.md), [MR33](MAKING_RULES.md), [FLR5](GROUND_RULES.md), router row "Saves and persistence" in [RULES_INDEX](RULES_INDEX.md).
+
+
+## Content reconciliation B138, 2026-11-04
+
+The whole persistence owner and historical engineering review were read. The summary now distinguishes active release keys from lives carried inside an envelope, unsupported-version/schema rejection from a supported but lossy downgrade, and the wired pack slice from its earlier unwired proposal. Prior wording is retained in the B138 amendment ledger.
+
+Current source inspection confirms `save data`/`dev save data`, `importSaveFile` validation/preflight before guarded publication, the shared-origin UTF-16 budget including other keys, and the registered `world_packs` save/load hooks. The searched `src` JavaScript contains no external `revealWorldPackPerson` or `world_packs` reveal caller; that remains a named gameplay-uptake gap, not an absent save writer. This is bounded source evidence, not a new runtime, loader, full-suite or browser proof.
+
+Preserve the distinction between a slice's deliberate compatibility choice and new product authority. G1's actual loader coverage, G3's exact-field rejection, G4's schema-2 test weakness and G5/G6 completeness remain open at their documented scope. A test-hook reveal/one-pack crossing receipt cannot close all world fact, edge, exception, pack revision or real-action persistence. The early engineering targets are proposals, with mobile and host migration still deferred unless selected; personal saves stay untouched (AD32, AD36, AR6).
+
+
+## Historical chest-adapter finding B143, 2026-11-04
+
+The entire [October 4 engine checkpoint](ENGINE_GM_CHECKPOINT.md) was reviewed. Its proposed next adapter said native chest transfers bypassed the durable/custody path. Current named source qualifies that absence claim: `data/storage.js` routes deposit/withdraw through its bound handler; `main.js` binds `commitNativeStorage`, checks an accessible open chest, stages both inventory owners and publishes through `persistExpansion`; `native_storage_transaction.js` checks request sequence/counts, validates the whole selected batch and returns a staged player/chest ownership plan. Companion stock has its separate actual custody-loan path.
+
+This is source-wiring evidence, not proof that every import, failed save, loan, equipped item, archive or enrolled authority path is atomic. Keep those checks with the selected operation rather than reopening an already-present chest adapter. The old checkpoint's bundle, synthetic profiles, optional schema3 decision, 199-test pre-correction and 75-test post-correction evidence retain their own inputs; no current browser, persistence failure, benchmark, server or process state was verified here (AD32, AD36, AR6).

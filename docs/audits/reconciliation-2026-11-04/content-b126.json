@@ -1,0 +1,160 @@
+{
+  "schema": 1,
+  "batch": "B126",
+  "title": "Complete lazy NPC-body, event-time lineage and storage-budget packet",
+  "at": "2026-11-04T21:24:50.467491+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b7/LEVELS.md",
+      "ids": [
+        "L1–L4",
+        "L0–L3 bundles",
+        "B2 path alignment"
+      ],
+      "classification": "Historical lazy-body and lineage design with scoped current checks",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b7/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Demand summaries do not grant relationship access. Explicit resolved-none coverage differs from an empty unresolved list. Stable body/person/instance mapping and separate anatomy/identity/address remain; B2 native schema is not a universal NPC schema.",
+      "evidence": "Fresh complete body read, including schemas/dependency matrices/arithmetic code. Selected current generated_people1–44/main imports+save site/save_files235–268 inspected; actual USER_VISION2504–2538 recovered after old locators drifted. Table arithmetic recomputed, not benchmarked.",
+      "reopen": "Selected NPC/body operation needs actual identity/model/claim/clock/loader/command owners. Preserve optional sparse design without making broad population simulation a prerequisite.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "aa646430bdf209d1dce875cb47d94ef0bb253f8d33069d841955e42407d7708a",
+      "input_lines": 101,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          101
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b7/TRIGGERS.md",
+      "ids": [
+        "T01–T14",
+        "AT1–AT5"
+      ],
+      "classification": "Historical lazy-body and lineage design with scoped current checks",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b7/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Actual admission, observation, work, creation and transfer have separate event owners. Resolve dependency-complete truth before the paid quote; publish actual observer evidence after its owning write. Rendering/load do not adopt or age bodies. Engineering work caps are not fictional child/trait limits. All native/failure tests remain unrun.",
+      "evidence": "Fresh complete body read, including schemas/dependency matrices/arithmetic code. Selected current generated_people1–44/main imports+save site/save_files235–268 inspected; actual USER_VISION2504–2538 recovered after old locators drifted. Table arithmetic recomputed, not benchmarked.",
+      "reopen": "Selected NPC/body operation needs actual identity/model/claim/clock/loader/command owners. Preserve optional sparse design without making broad population simulation a prerequisite.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "129b7586cf9f13b393aa96eaae4dd8539127b3bccb3aec40127d4aa6363f496b",
+      "input_lines": 89,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          89
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b7/CONSISTENCY.md",
+      "ids": [
+        "C1–C7",
+        "GN1–GN12",
+        "BD1–BD9",
+        "M1–M5",
+        "AC1–AC5"
+      ],
+      "classification": "Historical lazy-body and lineage design with scoped current checks",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b7/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Shared latent anchors constrain demand order but do not implement a joint solver. Incomplete prehistory stays incomplete; contradictions stop the selected operation rather than inventing ancestors. Carrier, expression, acquired training, legal adoption and explicit retroactive powers differ. Claims remain separate from truth. Conditional migration needs actual loaders. Historical P4 branch-only status is superseded at selected current integrated source.",
+      "evidence": "Fresh complete body read, including schemas/dependency matrices/arithmetic code. Selected current generated_people1–44/main imports+save site/save_files235–268 inspected; actual USER_VISION2504–2538 recovered after old locators drifted. Table arithmetic recomputed, not benchmarked.",
+      "reopen": "Selected NPC/body operation needs actual identity/model/claim/clock/loader/command owners. Preserve optional sparse design without making broad population simulation a prerequisite.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "5d476e68bc08d73c8f940521766aa28368470bcb3801449aa524f78054aa27e3",
+      "input_lines": 216,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          216
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b7/BUDGET.md",
+      "ids": [
+        "B0–B15",
+        "B1–B5 sections",
+        "reproduction code"
+      ],
+      "classification": "Historical lazy-body and lineage design with scoped current checks",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b7/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Recomputed row/claim/ASCII export/lineage arithmetic matches all printed values. B1–B4 are total allowances. Lazy phenotype leaves capsule/snapshot costs; sparse10k plus lineage still exceeds the hypothetical guard. Current guard counts complete origin UTF-16 plus keys/other keys, separately from browser quota. Targets are not population limits or valid-save rejection. No actual serializer, Unicode, heap, quota or performance measurement.",
+      "evidence": "Fresh complete body read, including schemas/dependency matrices/arithmetic code. Selected current generated_people1–44/main imports+save site/save_files235–268 inspected; actual USER_VISION2504–2538 recovered after old locators drifted. Table arithmetic recomputed, not benchmarked.",
+      "reopen": "Selected NPC/body operation needs actual identity/model/claim/clock/loader/command owners. Preserve optional sparse design without making broad population simulation a prerequisite.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "18aa68f45e7f51eeb3055c81f3f94592c898268fc8389b711838aafb065e5313",
+      "input_lines": 157,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          157
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b7/REPORT.md",
+      "ids": [
+        "F1a–F5b",
+        "R1–R5",
+        "V1–V3",
+        "O1–O3"
+      ],
+      "classification": "Historical lazy-body and lineage design with scoped current checks",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b7/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Current primary imports generatedPeople and saves its snapshot; selected current revision allows3–5 with origin requirements, superseding absent/exactly-three language. This does not implement generic population/genetics. Current named streams qualify old integration uncertainty. Retired milestone, Frontier fixture-only direction, current desktop and optional AD42 human review govern old recommendations. No new source/native proof.",
+      "evidence": "Fresh complete body read, including schemas/dependency matrices/arithmetic code. Selected current generated_people1–44/main imports+save site/save_files235–268 inspected; actual USER_VISION2504–2538 recovered after old locators drifted. Table arithmetic recomputed, not benchmarked.",
+      "reopen": "Selected NPC/body operation needs actual identity/model/claim/clock/loader/command owners. Preserve optional sparse design without making broad population simulation a prerequisite.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "c91cf70e8ca084e9971f2f16ede34aeabca7f05418587f9d63c12014fda68153",
+      "input_lines": 88,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          88
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b7/REPORT.md",
+      "heading": "## Lazy-body reconciliation B126, 2026-11-04",
+      "body": "Full LEVELS/TRIGGERS/CONSISTENCY/BUDGET/REPORT read, preserving L/T/C/B and GN1–GN12/BD1–BD9/AT/AC cases. Demand bundles are simulation working sets, not relationship ranks or disclosure permission. A hidden job can require private body truth without introducing an NPC; friends receive only actual evidence. Explicit resolved-none coverage differs from an unmaterialized empty collection. Stable person/body/instance identity and typed descent/adoption/teaching/office matter more than matching labels. Parent/child latent anchors and event-time capsules preserve earlier constraints; their specification does not implement a joint solver. Unknown prehistory stays unknown, and contradictions stop the selected operation without inventing a parent or rerolling prior truth. Observer learning stage, confidence and actual support remain distinct.\n\nCurrent source qualifies F3/M2’s historical branch-only/exactly-three traveler statements: main imports generatedPeople and serializes its snapshot; generated_people supports revision-aware3–5 travelers with origin requirements for the larger set. That is neither broad population support nor generated body/genetics proof. Existing streams are integrated as inspected in B111/B114; body demand must not reuse name/personality cursors. Old USER_VISION2055–2068/2080–2082 locators have moved; actual body-age/adult-appearance direction was read at2504–2538. Keep its meaning rather than relying on unrelated text now at old lines.\n\nRecomputed B8–B15 row/evidence/base64/lineage arithmetic matches every displayed value. These are ASCII planning allowances, not measured records. B1–B4 are total row sizes; lineage snapshots cost bytes even while phenotype is lazy. Current save_files counts complete shared-origin UTF-16 size, keys/other-key overhead and a4MiB guard separately from browser quota. No automatic10k fit, codec speed, Unicode encoding identity, save throughput or memory proof follows. Targets cannot justify deleting fixed truth, claims/custody or creation history and are not valid-save rejection limits. Reserve settlement capacity for selected work; file export does not enlarge browser storage.\n\nCurrent [PROJECT](../../../../../PROJECT.md), AD42 and AD51 in [RULES_INDEX](../../../../RULES_INDEX.md) govern retired milestone, optional human review and shared-seam design. Authored one-person operations can remain narrow; no demand to build every NPC or parent graph before another selected slice. Migration/model/schema/capsule/observer/native gates remain specified, not performed here. No runtime schema, storage backend, population admission, private save or gameplay operation changed.",
+      "before_sha256": "c91cf70e8ca084e9971f2f16ede34aeabca7f05418587f9d63c12014fda68153",
+      "after_sha256": "e15230ed3919696c169da32a933d8f7a9eae8b82d87d834deedc07fc7ff1dc90"
+    },
+    {
+      "path": "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+      "heading": "## Lazy NPC-body reconciliation B126, 2026-11-04",
+      "body": "The full [B7 return](gm/dispatch/body-lineage-2026-10-14/b7/REPORT.md#lazy-body-reconciliation-b126-2026-11-04) preserves demand-driven detail, separate disclosure, explicit resolved-none coverage and frozen creation/parent inputs. Friendship or deeper simulation does not reveal private anatomy. Current generated-traveler integration supersedes branch-only/exactly-three status without proving general body/genetics support. B8–B15 arithmetic matches hypothetical allowances; actual full-envelope/Unicode/storage/performance proof remains absent. Lazy phenotype does not make lineage history free. Current AD42/AD51 and retired milestone apply; no large-population/body implementation is selected.",
+      "before_sha256": "8c25ebcc812a29e894d4b8423649d8b6fc2a7a29e1bab2a1ebbaeb1023ea1b74",
+      "after_sha256": "0a2081de63cd6c24da6498e3c94f3bc20c07b981a4ed189f6ecb89d9a4e334e7"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1238
+}

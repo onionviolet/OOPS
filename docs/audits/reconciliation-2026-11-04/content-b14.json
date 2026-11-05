@@ -1,0 +1,768 @@
+{
+  "schema": 1,
+  "batch": "B14",
+  "title": "Generator identity, canonical expectations and compatibility palettes",
+  "at": "2026-11-04T19:41:28.035625+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/game-source-research-2026-10-06/CHECKPOINT.md",
+      "ids": [
+        "ACS",
+        "Qud",
+        "Steam API",
+        "RimWorld",
+        "ToME",
+        "Elin",
+        "ITRTG",
+        "Rogue",
+        "Streets",
+        "Keeper",
+        "Phaser",
+        "Godot"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/game-source-research-2026-10-06/{DEEPER_RESEARCH.md,DEPTH_QUEUE.json,DLC_COVERAGE.json,RECONCILIATION.json,VALIDATION_DEPTH.json}; current integration owner not specified."
+      ],
+      "disposition": "Completed historical research/dispatcher checkpoint; live chat snapshots are dated observations, not evidence of current process state or source coverage beyond named receipts. Historical research/install/branch observations remain dated. Counts and extracted ranges do not establish full semantic reading, canonical truth, current installation or shared runtime integration. Existing reports retain the proposals; no old launch/cleanup prompt executed.",
+      "mechanism_and_interactions": "Dispatch maintains nine-game/ACS research, 31 ACS findings, 15 paths, three packets, two DLC traces, and source boundaries; 16 supplemental pins matched, Steam metadata covers 21 products. Engine topics include state/commands, time/absence, save/transitions, authoring/observability and spatial/presentation. Phaser/Godot and Village comparison remain proposals.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports source/read boundaries and zero mismatches for 16 pins; no engine selected/prototype or contemporary integration proof.",
+      "reopen": "Resolve a newly authorized, specifically named source or implementation dependency after checking current owner and inputs; do not restart completed passes.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S006.json"
+      ],
+      "prior_input_sha256": "c19ffc720b39970c164d190f870b288cc3110d68fb90229823fc5408d58f32a2",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "c19ffc720b39970c164d190f870b288cc3110d68fb90229823fc5408d58f32a2",
+      "input_lines": 13
+    },
+    {
+      "path": "docs/gm/dispatch/gen-rules-2026-10-14/g1/CHECKPOINT.md",
+      "ids": [
+        "P1",
+        "P3",
+        "FNV",
+        "mix32"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/gen-rules-2026-10-14/g1/{REPORT.md}; src/gen_kit.js; E1/P1 owns live roots/storage and save-envelope integration."
+      ],
+      "disposition": "Historical committed pure kit and passing tests on isolated gen/g1-kit; not merged, live-ported, built, or gameplay accepted. Historical research/install/branch observations remain dated. Counts and extracted ranges do not establish full semantic reading, canonical truth, current installation or shared runtime integration. Existing reports retain the proposals; no old launch/cleanup prompt executed.",
+      "mechanism_and_interactions": "G1 added pure addressed generator kit retaining P1 uint32/FNV/mix32 conventions with second hash lane, full UTF-16 input and canonical addressed draws. Seven xorshift sites remain untouched; P3 example is a proposal.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. 27 focused and 661 full-suite tests reported; no build/native/browser/save proof.",
+      "reopen": "Root review and separately authorized live generator port; verify current branch integration and E1/P1 save contract before use.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          29
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S006.json"
+      ],
+      "prior_input_sha256": "6feb5a322817ce1ff3ca467a4c298a2434996aee585b9a51d47e68c6f4a2fc6a",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "6feb5a322817ce1ff3ca467a4c298a2434996aee585b9a51d47e68c6f4a2fc6a",
+      "input_lines": 29
+    },
+    {
+      "path": "docs/gm/dispatch/gen-rules-2026-10-14/g2/CHECKPOINT.md",
+      "ids": [
+        "G2",
+        "C36-C37",
+        "37 matrix rows",
+        "SB17",
+        "SB18-SB26",
+        "A5",
+        "G1",
+        "G3",
+        "P15",
+        "P18",
+        "P32/P34"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/gen-rules-2026-10-14/g2/{CONFORMANCE.md,SUBTLE_BUGS.md,MORE.md,REPORT.md}; A5 owns replay harness/ratchets; G1 addressed picks; G3 overlay; P15 pool lint; P18 story QA; P32/P34 history."
+      ],
+      "disposition": "Docs-only proposal audit; later source snapshots are pinned, not interchangeable; root integration/SB17 compatibility unresolved. Historical research/install/branch observations remain dated. Counts and extracted ranges do not establish full semantic reading, canonical truth, current installation or shared runtime integration. Existing reports retain the proposals; no old launch/cleanup prompt executed.",
+      "mechanism_and_interactions": "G2 mapped 63 Math.random references at B, then 27 at H/L with new starts/anchor sites C36-C37. Conformance matrix distinguishes replay/harness, pool, story QA and history-retention suppliers; locale probe corrected. SB18-SB26 and ranked fixes are proposals, not code.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. 242 citation ranges and source-site inventory checks reported; existing tests read, not run. No gameplay/distribution/browser/import proof.",
+      "reopen": "Integrator must decide SB17 compatibility and authorize migrations; refresh moving source from an exact revision and test named failure cases.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          53
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S006.json"
+      ],
+      "prior_input_sha256": "c98be93c00e4f054539eda5ad8b1225fc4cfd915ca55afa3d6366112b3eeb946",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "c98be93c00e4f054539eda5ad8b1225fc4cfd915ca55afa3d6366112b3eeb946",
+      "input_lines": 53
+    },
+    {
+      "path": "docs/gm/dispatch/gen-rules-2026-10-14/g3/CHECKPOINT.md",
+      "ids": [
+        "G3",
+        "G1",
+        "A2",
+        "P15",
+        "P22",
+        "P32",
+        "GR15",
+        "MC13-MC18",
+        "MC19-MC28",
+        "G5",
+        "G6",
+        "SB23"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/gen-rules-2026-10-14/g3/{TABLES,OVERLAYS,WORKED,PIPELINE,MORE,REPORT}.md; G1 API and A2 module remain actual suppliers to recheck."
+      ],
+      "disposition": "Proposal-only design lane; no runtime/implementation claims. Later appeared sources correct initial unknowns without granting merge or ownership. Historical research/install/branch observations remain dated. Counts and extracted ranges do not establish full semantic reading, canonical truth, current installation or shared runtime integration. Existing reports retain the proposals; no old launch/cleanup prompt executed.",
+      "mechanism_and_interactions": "G3 proposes typed tables/overlays, material selectors, frozen/unseen/committed migrations and budgets. Narrow adapters reflect missing A2 output/module at first read; later G1 appeared and was read only. Root Round 2 additions MC19-MC28 preserve saved explain contributors and invalidated-pin fallback.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. 13 JSON blocks and selector/exclusion/arithmetic/budget assertions reported. No native/build/browser/persistence checks.",
+      "reopen": "Root reviews ranked slices; inspect current G1/A2 contracts and implement only under a separate owner assignment.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          40
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S006.json"
+      ],
+      "prior_input_sha256": "d397d82b269564778477540e9f3420ecf839f9c3470350cd3b2bc95fadbf76a3",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "d397d82b269564778477540e9f3420ecf839f9c3470350cd3b2bc95fadbf76a3",
+      "input_lines": 40
+    },
+    {
+      "path": "docs/gm/dispatch/gen-rules-2026-10-14/g4/CHECKPOINT.md",
+      "ids": [
+        "P10",
+        "CW",
+        "CWS",
+        "CL",
+        "AX",
+        "CW10",
+        "CG1-CG12",
+        "SB"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/gen-rules-2026-10-14/g4/REPORT.md and other named lane artifacts; world-kit owner retains CW/CWS/CL/AX"
+      ],
+      "disposition": "Docs proposal lane; source examples are not verified canon or selected implementations; source ranges are deliberately partial. Historical research/install/branch observations remain dated. Counts and extracted ranges do not establish full semantic reading, canonical truth, current installation or shared runtime integration. Existing reports retain the proposals; no old launch/cleanup prompt executed.",
+      "mechanism_and_interactions": "G4 added source-bounded anime/comic profile proposals and worked tables, based on three Worm passages, MHA glossary, Ward synopsis and bounded Big Two assertions. Four comic digests were blocked leads; CW/CWS/CL/AX remain with world kit.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Counts, local links, JSON sketches and source-bound samples checked; no runtime/build/browser/save proof.",
+      "reopen": "Coordinator review, then separately qualify chosen source/world and acquire consumer authorization; do not generalize bounded passages to full series.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          35
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S006.json"
+      ],
+      "prior_input_sha256": "ffa876cf2a8d0831baa4b397cbff1b8f9dfc56c7709fc9eaee11bfc76f17522e",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "ffa876cf2a8d0831baa4b397cbff1b8f9dfc56c7709fc9eaee11bfc76f17522e",
+      "input_lines": 35
+    },
+    {
+      "path": "docs/gm/dispatch/gen-rules-2026-10-14/g5/CHECKPOINT.md",
+      "ids": [
+        "G5",
+        "G1",
+        "G3",
+        "G6",
+        "GC1-GC14",
+        "GC15-GC28"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/gen-rules-2026-10-14/g5/{HOOKS,CATALOG,HONESTY,MORE,REPORT}.md; current generator/status-window owners and coordinator storage decision."
+      ],
+      "disposition": "Docs-only inferred proposals; G1 commit is a read-only reference, not integrated into current checkout. Historical research/install/branch observations remain dated. Counts and extracted ranges do not establish full semantic reading, canonical truth, current installation or shared runtime integration. Existing reports retain the proposals; no old launch/cleanup prompt executed.",
+      "mechanism_and_interactions": "G5 proposes acquired GC1/GC3 lens beside a pending decision in status window; GC15-GC28 extend existing hooks. It inspected live status/storylet/cheat sources and later confirmed G1 commit, while noting it was not current HEAD. Shared category pins and rational bias need coordinator reconciliation.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. 14 validations, roundtrips/grants and held-state JSON reported; no build/runtime/browser/persistence or native acceptance.",
+      "reopen": "Coordinator chooses follow-up after rechecking G1/G3/G6 and actual save owner; run fresh-origin desktop and persistence gates for any implementation.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          48
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S006.json"
+      ],
+      "prior_input_sha256": "d54cbd13f4603bad112d4c4f4258de187428d37f859dbc1b8fcc2dc9f52e9b86",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "d54cbd13f4603bad112d4c4f4258de187428d37f859dbc1b8fcc2dc9f52e9b86",
+      "input_lines": 48
+    },
+    {
+      "path": "docs/gm/dispatch/gen-rules-2026-10-14/g6/CHECKPOINT.md",
+      "ids": [
+        "OG1",
+        "P13",
+        "A1",
+        "MoL"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/gen-rules-2026-10-14/g6/{ADDRESS_SPACE,PINS_AND_CANON,MIGRATION,RISKS,MORE,REPORT}.md; MoL runtime/state owner and A1 supplier require current recheck."
+      ],
+      "disposition": "Docs proposal; no runtime edits or implementation authority. A1 output absent at initial inspection. Historical research/install/branch observations remain dated. Counts and extracted ranges do not establish full semantic reading, canonical truth, current installation or shared runtime integration. Existing reports retain the proposals; no old launch/cleanup prompt executed.",
+      "mechanism_and_interactions": "G6 finds a single address-read interface plausible but OG1 literal equivalences unsafe: canon expectations, historical facts, reserved identities, resolved draws and mutable state differ. Continuity salt should vary declared domains while preserving loop baselines; MoL visitor branch stays continuous; migration adds lookup metadata over existing IDs.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. 16 detached assertions and document citation/table counts reported. No code/build/browser/private-save testing.",
+      "reopen": "Root reconciles G1/G3/G5 and later A1; decide whether to authorize a bounded runtime slice with canon/state/RNG-specific fixtures.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          31
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S006.json"
+      ],
+      "prior_input_sha256": "8aa7049b422cbb28ca313b3e1c295773bcde75d2a9a52d57ef20c80c017d2058",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "8aa7049b422cbb28ca313b3e1c295773bcde75d2a9a52d57ef20c80c017d2058",
+      "input_lines": 31
+    },
+    {
+      "path": "docs/gm/dispatch/harry-potter-craft-research-2026-10-12/CHECKPOINT.md",
+      "ids": [
+        "HP",
+        "TT",
+        "PJ",
+        "B2/B3/B6",
+        "CC2016",
+        "ER",
+        "AO3",
+        "HPMOR"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/harry-potter-craft-research-2026-10-12/REPORT.md and SPECIAL_RULES_AND_EVERYDAY_CONSEQUENCES.md; private research owners named in checkpoint; cross-world rulebook receiver owns transferred section."
+      ],
+      "disposition": "Research/design outputs and proposals, not accepted canon or gameplay; later follow-ups supersede specific earlier gaps only. Historical research/install/branch observations remain dated. Counts and extracted ranges do not establish full semantic reading, canonical truth, current installation or shared runtime integration. Existing reports retain the proposals; no old launch/cleanup prompt executed.",
+      "mechanism_and_interactions": "HP craft research follow-ups produced proposed crossing/branch/spellcraft/everyday-consequence contracts, later a cross-world detail review, and a bounded fan-source catalog. Revision history distinguishes initial no-CC-read from later named snippets; selected Chinese chapters and HPMOR EPUB were acquired, indexed/read only in stated bounds.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Hashes/SQLite/preparation and bounded source checks reported. Whole books/exports and full source/canon qualification remain absent; no runtime/browser/save proof.",
+      "reopen": "Use named source gaps and private ledgers if authorized; implementation needs separate frozen recipe/branch/host parameters and runtime owner.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S006.json"
+      ],
+      "prior_input_sha256": "74c534427a1ed198014d37aca2e5ada4a3f7ce1ba388831b878d75cd2713be4b",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "74c534427a1ed198014d37aca2e5ada4a3f7ce1ba388831b878d75cd2713be4b",
+      "input_lines": 15
+    },
+    {
+      "path": "docs/gm/dispatch/harry-potter-world-2026-10-11/CHECKPOINT.md",
+      "ids": [
+        "HP",
+        "B1-B7",
+        "HPMOR",
+        "TT",
+        "Polyjuice"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/harry-potter-world-2026-10-11/REPORT.md; private world-audit and source-preparation manifests; dispatcher owns assignment/dispatch; root owns expanded-CN report."
+      ],
+      "disposition": "Bounded source audit and evolving proposals; later follow-ups extend, not erase, core-reading/edition gaps. No implementation authority. Historical research/install/branch observations remain dated. Counts and extracted ranges do not establish full semantic reading, canonical truth, current installation or shared runtime integration. Existing reports retain the proposals; no old launch/cleanup prompt executed.",
+      "mechanism_and_interactions": "World audit separated seven prepared novels and 2016 script, origins/eras/body families, source conflicts, proposed routes and engine seams. Follow-up researched three CN openings, partial/full RR candidates and AO3 indexed metadata; HPMOR EPUB was prepared/indexed but not fully read. Opening, numeric/clock/body policies remain proposals.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Preparation hashes/integrity and locators checked; whole books, all fan exports and game/toolkit observations remain incomplete. No gameplay proof.",
+      "reopen": "If continued, build exact B1-B7 chapter inventory/read plan and reconcile edition/source gaps; implementation needs separate assignment.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          19
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S006.json"
+      ],
+      "prior_input_sha256": "086dee3f6c94db93622c4999c9cd0d2025cc62890b9a6ac72ced12d22a78ab1a",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "086dee3f6c94db93622c4999c9cd0d2025cc62890b9a6ac72ced12d22a78ab1a",
+      "input_lines": 19
+    },
+    {
+      "path": "docs/gm/dispatch/harvest-modules-2026-10-14/hv1/CHECKPOINT.md",
+      "ids": [
+        "HM4",
+        "HM6",
+        "Butchering",
+        "five species"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/harvest-modules-2026-10-14/hv1/{REPORT.md,BROWSER_EVIDENCE*,FINAL_REFRESH*}; src/harvest.js; private proof profiles."
+      ],
+      "disposition": "Authorized historical implementation delivery on isolated branch; tests/build/browser evidence reported, but integration and human taste/balance remain separate. Historical research/install/branch observations remain dated. Counts and extracted ranges do not establish full semantic reading, canonical truth, current installation or shared runtime integration. Existing reports retain the proposals; no old launch/cleanup prompt executed.",
+      "mechanism_and_interactions": "HV1 delivered harvest module from 10,000-kill source stress/replay to native/browser journey: sword, 15-kill clear, unlock, graded leather, whole/tail-only/cancel/auto, XP, reload and export/import. Later repairs bind browser claims to final bundle and separate advanced paths.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. 13 focused and 1377/1380 full tests, build and desktop browser/persistence journey reported; source stress is not 10,000 native kills. Generated dist intentionally uncommitted.",
+      "reopen": "Integrator must establish current merge/integration state; advanced native paths and human balance remain open per report/backlog.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S006.json"
+      ],
+      "prior_input_sha256": "ebb2899c6c70d4c72f6ca518be59b66ff8f1a25300b03b1027652f08bc6a791d",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "ebb2899c6c70d4c72f6ca518be59b66ff8f1a25300b03b1027652f08bc6a791d",
+      "input_lines": 17
+    },
+    {
+      "path": "docs/gm/dispatch/harvest-modules-2026-10-14/hv2/CHECKPOINT.md",
+      "ids": [
+        "HV1",
+        "M9",
+        "P8",
+        "P6",
+        "CR1",
+        "HM"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/harvest-modules-2026-10-14/hv2/{MODEL,WORLDS,SKILLS,CHEATS,REPORT,BACKLOG}.md; HV1 report/code at cited commit."
+      ],
+      "disposition": "Docs proposal with source-baseline correction; no claim HV2 is compatible or code delivered. Historical research/install/branch observations remain dated. Counts and extracted ranges do not establish full semantic reading, canonical truth, current installation or shared runtime integration. Existing reports retain the proposals; no old launch/cleanup prompt executed.",
+      "mechanism_and_interactions": "HV2 proposes model/world/skills/cheats extensions. Initial HV1 branch/report absent was corrected on recheck: exact src/harvest.js and report found at de15c662; M9 records selective discard, missing finished-lot provenance/freshness and immediate auto overflow.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Document links/count checks reported; no source changes, tests, browser, native or persistence verification in HV2.",
+      "reopen": "Runtime owner must select a compatible extension and test lot provenance/freshness/overflow scenarios; recheck actual current HV1 integration.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S006.json"
+      ],
+      "prior_input_sha256": "368205abea89e89e67e4d219dc207a5c87c8960fadfc89005671c1d6539f5815",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "368205abea89e89e67e4d219dc207a5c87c8960fadfc89005671c1d6539f5815",
+      "input_lines": 13
+    },
+    {
+      "path": "docs/gm/dispatch/held-systems-2026-10-10/CHECKPOINT.md",
+      "ids": [
+        "E1-E45",
+        "K1-K3",
+        "P1-P6",
+        "T1-T20",
+        "S271",
+        "S276",
+        "S322",
+        "S328",
+        "S330",
+        "S332",
+        "RI-c0201-03",
+        "RI-c0204-04"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/held-systems-2026-10-10/{FINDINGS.md,PROPOSALS.md}; current code owners inspected in report, not modified."
+      ],
+      "disposition": "Research/design delivery only. Candidate/title remains unresolved; proposals await user selection/acceptance and any implementation authorization. Historical research/install/branch observations remain dated. Counts and extracted ranges do not establish full semantic reading, canonical truth, current installation or shared runtime integration. Existing reports retain the proposals; no old launch/cleanup prompt executed.",
+      "mechanism_and_interactions": "Held-systems packet preserves uncertain remembered title and source-specific evidence. It proposes enemy family meet/read/counter/transfer distinctions, instance/authority/influence/knowledge schema and phased slices; generic code hooks are not existing APIs. Royal Road direct 403 ended that route; indexed passages are not full chapters.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Inventory/link/JSON/document checks and read-only code inspection reported; no runtime, build, gameplay or save proof.",
+      "reopen": "A supplied later scene or concrete remembered scene may distinguish title; implementation requires chosen slice and consumer-specific browser/persistence proof.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          45
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S006.json"
+      ],
+      "prior_input_sha256": "6a7fc29db562407f4960925625a0f19607b579133a21eb6d38bbe3e4369e68a1",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "6a7fc29db562407f4960925625a0f19607b579133a21eb6d38bbe3e4369e68a1",
+      "input_lines": 45
+    },
+    {
+      "path": "docs/gm/dispatch/idea-expansion-2026-10-11/CHECKPOINT.md",
+      "ids": [
+        "S00-S14",
+        "PLAN-P0",
+        "VFX"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/idea-expansion-2026-10-11/{DETAIL_LEDGER.json,VALIDATION.json,engine/JOIN_REVIEW.md,review/INTEGRATION_REVIEW.md}; PLAN-P0 is selection route."
+      ],
+      "disposition": "Finite planning return completed; cards/cases are proposed or specified, not executed or accepted gameplay. Historical research/install/branch observations remain dated. Counts and extracted ranges do not establish full semantic reading, canonical truth, current installation or shared runtime integration. Existing reports retain the proposals; no old launch/cleanup prompt executed.",
+      "mechanism_and_interactions": "Root integrated seven internal-agent lanes into 179 cards, 693 specified-not-run cases, 140 input paths and 14 VFX mappings. Source/world/start qualification, unread family details, native reproduction/migration gates and rebuilt browser/save proof remain distinct; 396-artifact intake was not exhausted.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Hashes and structural/source-contract/combined checks reported; no code/commit, native proof or broad intake adjudication.",
+      "reopen": "Select a precise world/feature revision, then fresh-check its source and writer state and freeze consumer packet before any implementation.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          25
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S006.json"
+      ],
+      "prior_input_sha256": "51e1137f3c57a4b5374571fdce2428aba73134f6e93250da0e616c56d0afe820",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "51e1137f3c57a4b5374571fdce2428aba73134f6e93250da0e616c56d0afe820",
+      "input_lines": 25
+    },
+    {
+      "path": "docs/gm/dispatch/library-games-2026-10-09/CHECKPOINT.md",
+      "ids": [
+        "Theory of Magic",
+        "Bitburner",
+        "Kill the Lich",
+        "Steam app3848900"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/library-games-2026-10-09/{CHECKPOINT.md,REPORT.md,STEAM_STATE.json,VALIDATION.json}; dispatch checkpoint points to authoritative research checkpoint."
+      ],
+      "disposition": "Completed three source audits; installation lane incomplete and must not be described as installed or removed. Historical research/install/branch observations remain dated. Counts and extracted ranges do not establish full semantic reading, canonical truth, current installation or shared runtime integration. Existing reports retain the proposals; no old launch/cleanup prompt executed.",
+      "mechanism_and_interactions": "Three bounded public-source audits delivered; five dossiers were acquisition-only. Steam install/audit/uninstall wave stopped at an unobserved install request; URI acknowledged but no installed manifest. Native inspection failed ScreenCaptureKit -3811.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Source audit and state receipts are historical; no current install state verified by this content pass.",
+      "reopen": "Only reconcile existing app3848900 dialog/state when separately authorized; no repeated request implied.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S006.json"
+      ],
+      "prior_input_sha256": "6a59cd0c69dfc486321cb127b0ac51ebec149208bd5767d5e706393b21bad83b",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "6a59cd0c69dfc486321cb127b0ac51ebec149208bd5767d5e706393b21bad83b",
+      "input_lines": 7
+    },
+    {
+      "path": "docs/gm/dispatch/life-sim-sources-2026-10-07/CHECKPOINT.md",
+      "ids": [
+        "Six Ages 2",
+        "app2278010",
+        "app881420",
+        "app1468810",
+        "SA2-P1–P3",
+        "SA2-P4–P5"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/life-sim-sources-2026-10-07/{CHECKPOINT.md,VALIDATION.json,UNINSTALL.json,HANDOFF.md}; private Six Ages 2 source owner."
+      ],
+      "disposition": "Historical source audit delivered; removal and Tale acquisition remain unverified/open. Historical research/install/branch observations remain dated. Counts and extracted ranges do not establish full semantic reading, canonical truth, current installation or shared runtime integration. Existing reports retain the proposals; no old launch/cleanup prompt executed.",
+      "mechanism_and_interactions": "Life-sim source lane corrected target to Six Ages 2 and retired app881420 as blocker. Retained inputs hash-match, managed/native/Lua reads support six chains; six original packets plus SA2-P1-P5 released. Uninstall shell exit 0 did not establish removal; Tale remained blocked on missing install metadata.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Hash/read receipts checked; exact bytecode outcomes, probabilities, save encoding unread; manifest still present in latest receipt.",
+      "reopen": "Await explicit dialog confirmation then inspect install manifest/log once; Tale resumes only on finalized source arrival after user metadata fix.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S006.json"
+      ],
+      "prior_input_sha256": "8143d9125b012d11ad8cdebb46d2ebd8bd720708bd9bc592f57863252e659bd6",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "8143d9125b012d11ad8cdebb46d2ebd8bd720708bd9bc592f57863252e659bd6",
+      "input_lines": 9
+    },
+    {
+      "path": "docs/gm/dispatch/lncrawl-polite-fork-2026-10-10/CHECKPOINT.md",
+      "ids": [
+        "Fanqie",
+        "FanFicFare",
+        "Adobe Source Han Sans SC"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "/Users/weiwei/code/lncrawl-polite/{README_POLITE.md,src,tests}; this checkpoint/report in YAIRPG."
+      ],
+      "disposition": "Local implementation committed in separate /Users/weiwei/code/lncrawl-polite fork; no upstream publication or live acquisition claim. Historical research/install/branch observations remain dated. Counts and extracted ranges do not establish full semantic reading, canonical truth, current installation or shared runtime integration. Existing reports retain the proposals; no old launch/cleanup prompt executed.",
+      "mechanism_and_interactions": "Isolated polite crawler fork implements transport/CLI and Fanqie normal-web adapter, outline font decoding and durable resume/update receipts; 362 PUA glyphs mapped and two cached inputs decode. Network acquisition was not exercised; one raw GitHub robots refusal was recorded without retry.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. 31 offline tests, lint, CLI help and stable hashes reported; live Fanqie acquisition absent.",
+      "reopen": "Optional next proof: separately selected free public Fanqie page, respecting robots/refusal state and existing data root.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          54
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S006.json"
+      ],
+      "prior_input_sha256": "a4b88461fa4b101f12173873969cb4d6efe86f5be21231777720ff68d734905f",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "a4b88461fa4b101f12173873969cb4d6efe86f5be21231777720ff68d734905f",
+      "input_lines": 54
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/CHECKPOINT.md",
+      "ids": [
+        "BW1",
+        "JJK",
+        "JOJO",
+        "RZ",
+        "TEN",
+        "L1-L9",
+        "L10"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/lore-timelines-2026-10-11/{REPORT.md,COMPLETION_MATRIX*,VALIDATION*,DELIVERY*}; private per-world ledgers under lore-timelines.../gm/."
+      ],
+      "disposition": "Research/design tranche completed at represented ranges, not whole franchise/alternate-body qualification or accepted canon. Later delivery receipts supersede earlier review stage only for named corrections. Historical research/install/branch observations remain dated. Counts and extracted ranges do not establish full semantic reading, canonical truth, current installation or shared runtime integration. Existing reports retain the proposals; no old launch/cleanup prompt executed.",
+      "mechanism_and_interactions": "Five-world report retains different editions and coverage: BW1 five editions; JJK opening/partial evidence; JOJO 23 prior rows/synopses plus bounded sources; RZ mixed inherited and targeted reads; TEN Japanese baseline plus alternate bodies. Lore review repaired causal joins, knowledge channels, attribution and continuity IDs; source gaps stay exact.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Independent world reviews and artifact/hash/locator checks reported; source gaps and runtime acceptance explicitly unrun.",
+      "reopen": "Any deeper primary ranges require fresh bounded assignment; selected implementation needs source/native baseline and success/failure/delay/knowledge/persistence proof.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S006.json"
+      ],
+      "prior_input_sha256": "bce9e2ab892691889fc912427324b97a8b34216cb2a9701104b12fb0ca8ede8b",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "bce9e2ab892691889fc912427324b97a8b34216cb2a9701104b12fb0ca8ede8b",
+      "input_lines": 17
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/bw1/CHECKPOINT.md",
+      "ids": [
+        "BW1",
+        "REV-BW1-01"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/lore-timelines-2026-10-11/bw1/ private ledgers and revised artifacts; integrator/reviewer is consumer."
+      ],
+      "disposition": "Revised L4 research return delivered; runtime/source-library/save/commit work not performed; reviewer should inspect revised artifacts before acceptance. Historical research/install/branch observations remain dated. Counts and extracted ranges do not establish full semantic reading, canonical truth, current installation or shared runtime integration. Existing reports retain the proposals; no old launch/cleanup prompt executed.",
+      "mechanism_and_interactions": "BW1’s five supplied editions yield 53 events/knowledge records, 14 proposals and 12 continuity qualifications. Review repair adds explicit effect records and consumed-state joins, distinguishes ordering-only edges, and leaves independent-plan knowledge unknown.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Evidence and locator qualifications are carried privately; no runtime or canon acceptance.",
+      "reopen": "Inspect revised artifacts for review; any independent-plan fact requires additional source evidence, not inference from event order.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          5
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S006.json"
+      ],
+      "prior_input_sha256": "e764aebd8b8c0e36dd1cfd374690c271ab4d57757ddf00bf9c26991aee978421",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "e764aebd8b8c0e36dd1cfd374690c271ab4d57757ddf00bf9c26991aee978421",
+      "input_lines": 5
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/jjk/CHECKPOINT.md",
+      "ids": [
+        "W2",
+        "JJK"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/lore-timelines-2026-10-11/jjk/ private gm artifacts and public dispatch/jjk; independent reviewer is next consumer."
+      ],
+      "disposition": "Repair returned and ownership released; no new source range, full-series claim or gameplay delivery. Historical research/install/branch observations remain dated. Counts and extracted ranges do not establish full semantic reading, canonical truth, current installation or shared runtime integration. Existing reports retain the proposals; no old launch/cleanup prompt executed.",
+      "mechanism_and_interactions": "Narrow repair replaces generic relationships with concrete effect bindings and knowledge acquisition records; temporal, metadata and unknown joins remain qualified. Twelve private rendered snapshots now have exact locator receipts.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Artifact checks reported; no runtime gates or full-series verification.",
+      "reopen": "Reviewer checks corrected bindings; more primary evidence required for temporal/unknown joins or broader series claims.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S006.json"
+      ],
+      "prior_input_sha256": "fec5df65e9f1e6457288d0cc2830505c8777fa47b5a1533959c2f0f266f7a657",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "fec5df65e9f1e6457288d0cc2830505c8777fa47b5a1533959c2f0f266f7a657",
+      "input_lines": 11
+    },
+    {
+      "path": "docs/gm/dispatch/gen-rules-2026-10-14/g6/MIGRATION.md",
+      "ids": [
+        "MG1–MG5",
+        "G6-CD1–G6-CD4"
+      ],
+      "classification": "proposal palette; fresh full content review",
+      "owners": [
+        "docs/gm/dispatch/gen-rules-2026-10-14/g6/MIGRATION.md"
+      ],
+      "disposition": "Preserve additive alias adoption over real legacy keys, exact frozen commitments, detached validation, stable draw contracts, independent continuous visitor semantics and selected reset compatibility. MG5 adoption order and HP authoring-only statement are dated proposals, not current priorities.",
+      "evidence": "All 314 lines across both documents read; old source line claims not reverified.",
+      "reopen": "Select current consumer and compatibility authority before implementation; recheck exact source contracts and relevant durable-failure cases.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "382df30ba3b9422b197ddd96e9877207818016c39808d1cddc93d64780ce89e0",
+      "input_lines": 127,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          127
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/gen-rules-2026-10-14/g6/PINS_AND_CANON.md",
+      "ids": [
+        "PC1–PC6",
+        "OG1",
+        "GA5",
+        "GA6",
+        "SB23"
+      ],
+      "classification": "proposal palette; fresh full content review",
+      "owners": [
+        "docs/gm/dispatch/gen-rules-2026-10-14/g6/PINS_AND_CANON.md"
+      ],
+      "disposition": "Retain typed source/history/law/reservation/expectation/cheat authority, exact revision tombstones, no unpin reroll, partial-order clock mapping, observed vs resolved vs mutable facts, and continuous visitor vs selected reset distinctions. HP roster source snapshot is historical, not present world capability.",
+      "evidence": "All 314 lines across both documents read; old source line claims not reverified.",
+      "reopen": "Select current consumer and compatibility authority before implementation; recheck exact source contracts and relevant durable-failure cases.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "67696f76219ad2f08499d6f0327332cace6a7a421add37866982d83fc7d6114f",
+      "input_lines": 187,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          187
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/gen-rules-2026-10-14/g6/MIGRATION.md",
+      "heading": "## Current routing qualification, 2026-11-04 (B14)",
+      "body": "The source snapshots, missing-supplier statements, authoring-only labels and MG5 adoption order above belong to October 14 proposal history. They do not set today’s build order or current world capability; PROJECT.md and accepted direction govern selected lead development. Preserve the useful distinctions: actual legacy keys and commitments remain owned by their native stores; aliases do not reconstruct missing history; frozen observations are not current health or stock; pin removal does not reroll or execute a reset; continuity and selected reset adapters remain separate. Any future adoption reconciles the current save owner, reader compatibility, addressed-draw contract and durable publication before selecting a bounded change. No schema, loop, pin store or HP runtime was implemented by this reconciliation.",
+      "before_sha256": "382df30ba3b9422b197ddd96e9877207818016c39808d1cddc93d64780ce89e0",
+      "after_sha256": "8d3ec4a4dd96ee73e68e42db7163b3bdf2550e913e726ec011f220e1c63f0dea"
+    },
+    {
+      "path": "docs/gm/dispatch/gen-rules-2026-10-14/g6/PINS_AND_CANON.md",
+      "heading": "## Current routing qualification, 2026-11-04 (B14)",
+      "body": "The source snapshots, missing-supplier statements, authoring-only labels and MG5 adoption order above belong to October 14 proposal history. They do not set today’s build order or current world capability; PROJECT.md and accepted direction govern selected lead development. Preserve the useful distinctions: actual legacy keys and commitments remain owned by their native stores; aliases do not reconstruct missing history; frozen observations are not current health or stock; pin removal does not reroll or execute a reset; continuity and selected reset adapters remain separate. Any future adoption reconciles the current save owner, reader compatibility, addressed-draw contract and durable publication before selecting a bounded change. No schema, loop, pin store or HP runtime was implemented by this reconciliation.",
+      "before_sha256": "67696f76219ad2f08499d6f0327332cace6a7a421add37866982d83fc7d6114f",
+      "after_sha256": "c7ce156786aaef23e5bcfdfb06896f3934f99e67453a43764b5c539eb0274b37"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1849
+}

@@ -1,0 +1,148 @@
+{
+  "schema": 1,
+  "batch": "B170",
+  "title": "Runtime defect recovery and joined-master evidence",
+  "at": "2026-11-04T22:24:54.415265+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/reviews/UNCOMMITTED_RUNTIME_REVIEW_2026-10-25.md",
+      "ids": [
+        "U1–U4; all check rows/exclusions"
+      ],
+      "classification": "Historical review, generated graph or integration receipt",
+      "owners": [
+        "docs/reviews/UNCOMMITTED_RUNTIME_REVIEW_2026-10-25.md",
+        "docs/gm/dispatch/master-reconciliation-2026-10-26/CHECKPOINT.md"
+      ],
+      "disposition": "Original four reproduced defects retain exactdirtyinput and overlappingtests scope. Later owningcheckpoint324–340/446–450 repairsU1/U2/U4 with57focused andnamednative scopes, nonzero rust penalty stillfixture. U3 current testbody imports pathwayDoses/flagOf notmissingassessors/loss constants, so original module-link mismatch supersededsourcelevel withoutnewtests.",
+      "evidence": "Fresh entire input read including later sections. Selected cultivation checkpoint recovery ranges and current entire short LOTM pathway-row test read separately; no tests/build/browser or sourcecorpus reexecuted. Referenced underlying lane payloads, private snapshots and raw chats not read by association.",
+      "reopen": "Keep original failure/proofidentity and current-owner qualification; reproduce a surviving present defect before separately selected runtime work.",
+      "input_sha256": "e5dd146be324f72043e484062a42d3dc6859ea2a3f6c94726a308be70be6a830",
+      "input_lines": 91,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          91
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/PARALLEL_RUNS_OUTCOMES_2026-10-26.md",
+      "ids": [
+        "all13group outcomes;24/61chatcounts;10of13summary;three nextsteps"
+      ],
+      "classification": "Historical review, generated graph or integration receipt",
+      "owners": [
+        "docs/reviews/PARALLEL_RUNS_OUTCOMES_2026-10-26.md",
+        "docs/gm/dispatch/master-reconciliation-2026-10-26/CHECKPOINT.md"
+      ],
+      "disposition": "Wholemasterintegration/build/tests noteverylane completed or everyoldjourney rerun. Current source/project owners and later parity/cultivationA5qualify originalopenlist;10of13heterogeneouscount notworldcompletionpercentage. Preserve G3/G4dependency and sourcegaps without makingoldordercurrent. No directrawsessionreads/newbookcoverage.",
+      "evidence": "Fresh entire input read including later sections. Selected cultivation checkpoint recovery ranges and current entire short LOTM pathway-row test read separately; no tests/build/browser or sourcecorpus reexecuted. Referenced underlying lane payloads, private snapshots and raw chats not read by association.",
+      "reopen": "Keep original failure/proofidentity and current-owner qualification; reproduce a surviving present defect before separately selected runtime work.",
+      "input_sha256": "4e8371d5f2d5bd442bc87f769ff758b44ee672c383c92231cc3cf5a712fda8c0",
+      "input_lines": 40,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          40
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/CYCLE_LEDGER_2026-10-26.md",
+      "ids": [
+        "C01/C02/C03;205baselineedges"
+      ],
+      "classification": "Historical review, generated graph or integration receipt",
+      "owners": [
+        "docs/reviews/CYCLE_LEDGER_2026-10-26.md",
+        "docs/gm/dispatch/master-reconciliation-2026-10-26/CHECKPOINT.md"
+      ],
+      "disposition": "Snapshot groupsizes122+81+2=205edges, not205modules norcurrentcyclecensus. SuggestedD2owners notactualleases. No runtime source reorder/baselinereset justified by generatedgraph.",
+      "evidence": "Fresh entire input read including later sections. Selected cultivation checkpoint recovery ranges and current entire short LOTM pathway-row test read separately; no tests/build/browser or sourcecorpus reexecuted. Referenced underlying lane payloads, private snapshots and raw chats not read by association.",
+      "reopen": "Keep original failure/proofidentity and current-owner qualification; reproduce a surviving present defect before separately selected runtime work.",
+      "input_sha256": "5fdc7967ad489428563e8be1d402b67995b2f43369a2039f4e687d5155850597",
+      "input_lines": 11,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/master-reconciliation-2026-10-26/CHECKPOINT.md",
+      "ids": [
+        "receipt; branch dispositions;all combinedchecks;loss checks;landing/laterrelease"
+      ],
+      "classification": "Historical review, generated graph or integration receipt",
+      "owners": [
+        "docs/gm/dispatch/master-reconciliation-2026-10-26/CHECKPOINT.md",
+        "docs/gm/dispatch/master-reconciliation-2026-10-26/CHECKPOINT.md"
+      ],
+      "disposition": "Read fullowneractualcombinedfixturehash3486suite/selecteddesktopjourneysvsnotalllanejourneys. QAfiltermissingfixtures initialfailures repairedprecisely, absentvszeroNPCXPcomparisonlimited. LaterAPP_ADOPTIONlinkoverridesinitiallocalonlyboundaryasreportedrelease, nofreshreleaseproof. No secrets orprivatearchives read.",
+      "evidence": "Fresh entire input read including later sections. Selected cultivation checkpoint recovery ranges and current entire short LOTM pathway-row test read separately; no tests/build/browser or sourcecorpus reexecuted. Referenced underlying lane payloads, private snapshots and raw chats not read by association.",
+      "reopen": "Keep original failure/proofidentity and current-owner qualification; reproduce a surviving present defect before separately selected runtime work.",
+      "input_sha256": "2c25305dd22355996b8b177af9e7516801c7186182e8121b7340109d93c33eb7",
+      "input_lines": 133,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          133
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/cultivation-absorption-2026-10-24/CHECKPOINT.md",
+      "ids": [
+        "Independent review U1/U2/U4 recovery",
+        "Sonnet verify-only pass"
+      ],
+      "classification": "Selected later repair evidence; large checkpoint remainder open",
+      "owners": [
+        "docs/gm/dispatch/cultivation-absorption-2026-10-24/CHECKPOINT.md",
+        "docs/reviews/UNCOMMITTED_RUNTIME_REVIEW_2026-10-25.md"
+      ],
+      "disposition": "U1/U2/U4 original defects have later scoped repaired/tested/native receipts. Preserve narrow exact-copy reservedpointpolicy, ordinaryrewind and failed-write/postdurable distinctions. Only these recoverysections read, no wholecheckpointcoverage.",
+      "evidence": "Fresh lines324–341 and446–450 read in full. Earlier rg output clipped and is not general content coverage. Namednative logs/privateproof not opened, no rerun.",
+      "reopen": "Review remaining checkpoint body for fullcoverage; selected repairreceipt does not prove currentruntime orallcultivationsystems.",
+      "full": false,
+      "ranges": [
+        [
+          324,
+          341
+        ],
+        [
+          446,
+          450
+        ]
+      ],
+      "input_sha256": "36238140f31b2f052ff1cd9957d4ba78507f21908888389fc5d31ba6694284d8",
+      "input_lines": 515
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/reviews/UNCOMMITTED_RUNTIME_REVIEW_2026-10-25.md",
+      "heading": "## Later-owner reconciliation, 2026-11-04 (B170)",
+      "body": "U1–U4 and the entire original verification table were read. Preserve all four original reproductions at their October 25 dirty-input identity: the tracked diff hash excluded untracked contents, focused runs overlap, and none was a frozen whole-game/browser proof. The later [cultivation recovery section](../gm/dispatch/cultivation-absorption-2026-10-24/CHECKPOINT.md#independent-review-u1u2u4-recovery), read directly, records U2’s semantic merge/reference-formulation pilots and U1/U4’s reproduced-before-repair regressions, 57 focused checks and named native pilots. The later verify-only section independently found those repairs present and edited no runtime. Do not restore entire old files or repeat these fixes from the initial audit alone.\n\nU1’s repaired policy preserves ordinary rewind and external custody: free initial/checkpoint/cycle points remain usable without recreating the exported copy, and only a particular point reserving that departed copy is unavailable until replaced. Native baggage proof covers actual earned/seasoned copy transfer, return-point debits, reciprocal custody and literal imports; intentional cycle/reserved/malformed variants retain focused command tests. U4’s failed writer restores records and native penalty owners while post-durable errors retain the committed choice. The nonzero two-level rust rollback is explicitly a native-domain fixture, not weeks of ordinary idle acquisition; the actual preference quota/reload/disable/import pilot is separate.\n\nU3’s exact copied-test module-link mismatch is also superseded at the inspected source seam: current tests/lotm_pathway_rows.test.js imports pathwayDoses/flagOf and no longer requests LOTM_ASSESSORS or LOTM_LOSS_CAUSES. This source comparison is not a newly passing test or complete pathway proof. The later master integration receipt records its own combined build/suite/journeys, not all lane-native reruns. No current runtime repair, test/build/browser run, private proof/save access or release was performed by this reconciliation.",
+      "before_sha256": "e5dd146be324f72043e484062a42d3dc6859ea2a3f6c94726a308be70be6a830",
+      "after_sha256": "362c38df363d1781888ad0c7971db824ab878115751a8fa4248a5d994a210f41"
+    },
+    {
+      "path": "docs/reviews/PARALLEL_RUNS_OUTCOMES_2026-10-26.md",
+      "heading": "## Content reconciliation, 2026-11-04 (B170)",
+      "body": "All group outcomes, session-count provenance, limitations and three proposed next steps were read alongside the complete [master integration owner](../gm/dispatch/master-reconciliation-2026-10-26/CHECKPOINT.md). “All reached master” means the recorded integration covered source/tests/text and passed its joined checks; it does not mean every lane finished gameplay or every original native route was rerun. The 10-of-13 grouping mixes reports, tooling, local foundations and gameplay, so it is not a completion percentage for systems, worlds or the full request. No raw session logs or book payloads were newly read here.\n\nKeep the actual named proof: joined3486-test bundle, selected native desktop/persistence routes, explicitly generated fixtures, initial omitted-QA-fixture failure and subsequent repair, and limited absent-versus-zero NPC XP comparison. The master receipt’s later release pointer qualifies its initial local-only boundary; no current push/app verification follows. G3’s unwired process leaves and dependent G4 contracts remain distinct from G1/G2’s connected consumers; later selected-source parity and A5 receipts elsewhere qualify dated next-step wording rather than reopening the whole wave. Current lead priorities govern selection. The cycle ledger is a dated205-baseline-edge partition, not a current census or permission to refactor/reset baselines. No workers, source acquisition, runtime work or release action was launched.",
+      "before_sha256": "4e8371d5f2d5bd442bc87f769ff758b44ee672c383c92231cc3cf5a712fda8c0",
+      "after_sha256": "6ad04296b46d41439e3a9bae21cd8c3eea1a75e9b8f02c99f6a761a26e35b290"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1135
+}

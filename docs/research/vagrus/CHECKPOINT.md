@@ -40,3 +40,8 @@ The shared snapshot at its exact INSTALL_STATE.json timestamp shows Vagrus still
 No assigned work remains. The install is no longer needed for this source pass; Weibao may remove it when he chooses. No launch, personal saves/settings access, YAIR source edit, build, commit, push or uninstall occurred.
 
 Whole narrative/DLC access, runtime event cadence/priority, re-recruitment exceptions, difficulty boundaries, final UI behavior, save roundtrips, performance and balance remain unverified or opaque as COVERAGE specifies. No generational heir-transfer or offline loop was established. These limits do not become inferred game facts. Any selected YAIR packet needs separate implementation authorization and the normal rebuilt fresh-origin browser/save gates; no gameplay acceptance is claimed here.
+
+
+## Later event and market trace routing, 2026-11-04 (B52)
+
+The later pass-2026-10-14/CHECKPOINT.md adds selected event readiness/location/faction/crew/flag gates, category priority/cadence/cooldown/closure and market stock/import/blend/restock/marginal-quote paths beyond the original source snapshot. Its G1–G6 still retain companion incoming/reset exceptions, all quest/DLC outcomes, complete graph/controller, tuning/routes and runtime/entitlement/persistence gaps. Use those exact paths before calling every original event-priority or economy question wholly untraced. Generic add/remove methods, table counts and static price curves do not establish authored reachability or a best live trade route. No donor play, Province War registration or YAIRPG implementation was performed here.

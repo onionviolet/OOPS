@@ -1,0 +1,182 @@
+{
+  "schema": 1,
+  "batch": "B7",
+  "title": "Repeatable core-audit procedures and live-owner distinctions",
+  "at": "2026-11-04T19:28:45.855239+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/COMBAT_CORE_AUDIT.md",
+      "ids": "C1/C2 triggers, CBC1–CBC43, CBX1–CBX5, CBL1–CBL10; complete procedure/history",
+      "owners": [
+        "docs/COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md",
+        "docs/DOMAIN_RULES.md#combat-rules"
+      ],
+      "classification": "compatible review procedure; canonical-owner routing",
+      "disposition": "Keep reflect/rescue related outcomes, actual tracker means and publication-once constraints in the combat palette. Trigger tables are scoped review hints, not automatic runtime/lane authority. Old CBR path is a retained compatibility stub.",
+      "evidence": "Full audit text; current CBR stub and canonical rule routing read. No new combat, reflect or rescue runtime proof.",
+      "reopen": "Review the selected C1/C2 seam when its actual outcome/owner changes; do not infer current L2b status from this old procedure.",
+      "input_sha256": "73eb3ce00ec0053296c6ab56bbdd7aeb8f0432a840996c0f13daa9fba5103f2c",
+      "input_lines": 60,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          60
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/CHEAT_CORE_AUDIT.md",
+      "ids": "K1–K6, IM1–IM46, D4, October 30 parked checkpoint",
+      "owners": [
+        "docs/CHEAT_LIBRARY.md",
+        "docs/USER_VISION.md#base-cheat-versus-other-cheats-cheat-work-deferred-long-term-2026-10-30"
+      ],
+      "classification": "stale grant-hook observation; deferred scope preserved",
+      "disposition": "Fold IM36–IM46 and separate faculty/card/carrier/voice consequences into the library. The parked applyStartGrants wiring observation is stale at the source seam: main imports/calls it with selected snapshot grants. Preserve no fresh ring-voice or premise journey proof; further cheat and heir work stays deferred.",
+      "evidence": "Full audit; USER_VISION Oct 30 deferral; cheat_cards applyStartGrants, main start consumer and growthTrack source read. Source-wired, not browser-verified here.",
+      "reopen": "Reopen a specifically selected card/grant/UI consumer; no dormant-heir or broad cheat wave.",
+      "input_sha256": "dc45d9c60be93f92ca96f975683988c2bdb3e85819118927c5bdc95e40f2e6dd",
+      "input_lines": 74,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          74
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/COMPANIONS_CORE_AUDIT.md",
+      "ids": "C1–C16 triggers/procedure/fold history, GC3/HD7/CM and composed helper case",
+      "owners": [
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "classification": "compatible optional workflow; consumer/evidence qualification",
+      "disposition": "Preserve actual actor/custody/body-clock/delegated-policy and separate companion knowledge. Fold pure captions versus saved emitted cues and uncertain rate proposals into the palette. Historical launcher/session/commit procedure does not dispatch workers or authorize commits for this reconciliation.",
+      "evidence": "Full procedure; root C11–C16 correction and core-rule sections read. No companion journey, reference-source or runtime field revalidation.",
+      "reopen": "Review a selected helper, cue, custody or body/clock seam; keep C1–C16 source and CM identities.",
+      "input_sha256": "b5f5599d28d78f3fdb993163bb7e72f7a3b9e826cc278d711dfa5187c6fd07f3",
+      "input_lines": 132,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          132
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/WORLD_CORE_KIT_CORE_AUDIT.md",
+      "ids": "W1–W37 history, NX11, KF1–KF3, KL21 ranges; complete procedure",
+      "owners": [
+        "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md",
+        "docs/worlds/WORLD_CORE_KIT_2026-10-14.md"
+      ],
+      "classification": "historical baseline and successor routing; no universal bundle",
+      "disposition": "Continue in the existing successor owner without restarting IDs or creating another dated root. The 0/288 readiness count, climate prototype and early viewport/Import observations are historical. Preserve provenance/observer/implementation distinctions, KF texture dial and actual useful local case.",
+      "evidence": "Full audit; existing successor opening, KF1–KF3 and KL21 scope inspected; no per-world requalification of all cards/288 cells.",
+      "reopen": "Review the selected world/kit parts when their actual source or consumer changes; no mandatory whole-kit minimum.",
+      "input_sha256": "870fe4b3dc2a2fb2fa3c0ed2b01c748c2f31f6ddb0edfd5fbe66d4f216ee2118",
+      "input_lines": 96,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          96
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/WORLD_DIALS_AND_INTERPRETER_CORE_AUDIT.md",
+      "ids": "L1/L2, MQ-A/MQ-B, IX/DG rounds, WDI1–WDI60 routing",
+      "owners": [
+        "docs/WORLD_DIALS_AND_INTERPRETER_CONSIDERATIONS_2026-10-19.md",
+        "docs/CRAFTING_ENGINE.md",
+        "docs/WORLD_RULE_GRAMMARS_AND_DERIVED_DETAIL_2026-10-19.md"
+      ],
+      "classification": "resolver-role correction and compatible domain differences",
+      "disposition": "Keep facts, tags, property laws, meter semantics and actual consumers separate. Correct the bundled live-resolver implication: effect_dsl is an inert authoring contract; rule_modules and check_rule_pack have narrower roles. Preserve WDI46–WDI60 rather than inventing a universal bar schema or second resource owner.",
+      "evidence": "Full audit; WDI46–WDI60; current source headers/imports of effect_dsl/rule_modules/check_rule_pack. No claim all proposals are executed or all stored fields are consumed.",
+      "reopen": "Reopen a selected rule/pack/meter consumer and its own settlement/disclosure, without reviving held L3–L5 or older budgets.",
+      "input_sha256": "b80c30946ca4aebf3ae19d2fa9076cc0bab6410323cfd08be305be10ec7a3ec1",
+      "input_lines": 77,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          77
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/TOPIC_EXPANSION_AUDIT_PLAYBOOK.md",
+      "ids": "full steps, lessons, core-rule pass, commit-tool caveat, supersession method",
+      "owners": [
+        "docs/audits/TOPIC_EXPANSION_AUDIT_PLAYBOOK.md",
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/SUPERSESSION_GROUPS.md"
+      ],
+      "classification": "compatible optional method; preserve execution boundaries",
+      "disposition": "The later optional-lanes and scoped-authority paragraph governs older fixed-launch instructions. Reconciliation reads existing material and folds deltas; it need not invent an expansion round, source campaign or new USER_VISION decision. Preserve explicit supersession groups and changed-relation review; hashes establish input identity, not semantic clearance.",
+      "evidence": "Entire playbook read. No launcher/commit helper executed, Git index reset, worktree retirement or existing group marked semantically reviewed by hash.",
+      "reopen": "Use current owners and selected content claims; if using a supersession helper inspect its current group membership and relationship evidence first.",
+      "input_sha256": "8e17dea26a8808d0039ce3e3d41c76fa4587245740317a62f9ebde20f31d65ed",
+      "input_lines": 120,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          120
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md",
+      "heading": "## Core-audit content reconciliation, B7, 2026-11-04",
+      "body": "Reviewed the entire repeatable combat audit (C1/C2, CBC/CBX/CBL and its composed case). Keep two related reflect/rescue outcomes distinct while publishing each actual defeat/reward once through its real owner. Tracking and escape work through faculties, distance, body and available means, not a label permission list. These existing CBR/AD38 consequences constrain the selected outcome path; they do not add a new combat framework or make every historical battle a current gate (AD32/AD36).\n\nCanonical CBR1–CBR30 live in DOMAIN_RULES; COMBAT_RULES is a compatibility stub. Old lane, viewport and compatibility evidence retains its date. Reopen the affected C1/C2 consumer when its actual rule/state/receiver changes; no runtime pass or worker was launched. Current live combat receipts retain their own status, including concurrent work not reverified here. [Full input/disposition](audits/reconciliation-2026-11-04/content-b7.json).",
+      "before_sha256": "7c720c46f82ac8f9bf67454c696f4fc51d1e8bd9adcdc323c33def00cadb73d9",
+      "after_sha256": "7805efea8d571c175674816c85e18274c51b94dee56dd3ada32225a6365ecf96"
+    },
+    {
+      "path": "docs/CHEAT_LIBRARY.md",
+      "heading": "## IM36–IM46 core-audit reconciliation, B7, 2026-11-04",
+      "body": "The complete cheat core audit adds useful IM36–IM46 distinctions: enduring faculty stages versus body reserves, kind-specific readouts/voice versus actual authority, source-qualified entry warnings, optional card-grant routes, and heir-as-start versus automatic succession. Preserve all as scoped ideas and recorded implementations, not a fresh cheat build queue (AD32/AD29).\n\nThe October 30 statement that applyStartGrants still needs a PLAY hook is stale at this source seam: cheat_cards.js exports it, and main imports/calls it with selected start snapshot grants after seeding the beginning. That proves wiring at the producer/consumer, not an earned ring-elder route, successful native persistence or the unreliable voice in a rebuilt browser. The growthTrack source derives its display from inputs; source presence does not refresh IM37–IM39's older visual proof.\n\nWeibao's Oct 30 direction keeps further cheat work long-term and heirs deferred except as distinct starts. IM36's dormant code is not a gap that must be activated. Keep IM40 scaling, IM41 lore, IM42 warnings, IM43 trade methods, IM45 start rules and IM46 extended talk with their real source/carrier/crossing/economy/talk owners. No new schema, broad grant wave or body/world permission list follows. [Batch evidence](audits/reconciliation-2026-11-04/content-b7.json).",
+      "before_sha256": "b0f54066b88bba8d9aa850951525a1de667ef348c1853aad9decae3ae75068b2",
+      "after_sha256": "76b5cb35fc7a9d2aef5a434d1abbe712d4482ea0c322e6291effae28e8a9539e"
+    },
+    {
+      "path": "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md",
+      "heading": "## C1–C16 core-audit reconciliation, B7, 2026-11-04",
+      "body": "Full repeatable-audit review preserves the existing C1–C16 lane identities, CM1–CM12 and root corrections. A helper's location, available faculty/body clock, custody, knowledge and delegated policy are separate facts. Remote participation needs an actual mechanism; an inactive ordinary world is not free labor. Companion knowledge is not automatically player knowledge (AD6/AD16/AD38).\n\nKeep GC3/HD7 qualified by C13 F3: a caption computed from current state can be transient, but an emitted history/cue needs replay/deduplication identity. C9/C10's different line-rate proposals remain alternatives for a selected situation, not measured or universal limits. Light/sound observation channels do not establish generic thought reading; reveal depth needs actual means and observer scope. Current memory/storage/clock capacities were not rebenchmarked by this review.\n\nThe audit's launch/session/commit steps are historical workflow examples. This reconciliation authorizes neither fresh child agents nor a new animal/social simulation. Reopen the affected helper/cue/custody consumer and retain useful care/crafting/teaching ideas without activating every layer L00–L07. [Batch source/disposition](audits/reconciliation-2026-11-04/content-b7.json).",
+      "before_sha256": "d24a356ef11d4b7c687ac60f8b54b28e01cb3d9adcc703dc38a4546858e054f7",
+      "after_sha256": "0f2f39186bf2267b1596ed9da59351de5b356a4e6deb7267f79bc6c5f25093cf"
+    },
+    {
+      "path": "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md",
+      "heading": "## Kit-procedure content reconciliation, B7, 2026-11-04",
+      "body": "Full review of the repeatable core audit preserves W1–W37, NX/KF/KL/KR and original card/source identities. This existing successor continues the original kit; future reconciliation extends its current owner and existing codes rather than creating another dated root merely because a batch ended. The original 0/288 readiness baseline and early climate/prototype results remain historical, not current whole-project coverage (AD32/AD36).\n\nKF1–KF3 remain the useful distinctions: texture is a palette selected by an actual life/choice; origin records provenance while destination mechanisms decide operation; one real route/access/use/site aftermath needs its actual clock, custody and consumer. Separate source support, observer knowledge, code presence and route proof. Institutional labels in KL21 must not silently become universal combat ranks or shared unit conversions. Later source pressures can revise an early seam under AD45/AD51.\n\nNo threshold across all K1–K34 or every world is added by this review. Preserve useful thin cards and deeper lane evidence with their original ranges; the native world/lead plans and AD43 govern the selected slice. No W-lane, prototype integration or whole-world build was launched. [Batch record](../audits/reconciliation-2026-11-04/content-b7.json).",
+      "before_sha256": "baeb0951742c416d33e7ace1a365fc8a56b54e595ae361227cf9d84352841f41",
+      "after_sha256": "0eafbbdba8c2e8d9efe1cbf7b5ce430abb939a0aadcfed492de92e1618bafa5f"
+    },
+    {
+      "path": "docs/WORLD_DIALS_AND_INTERPRETER_CONSIDERATIONS_2026-10-19.md",
+      "heading": "## Dial-core procedure reconciliation, B7, 2026-11-04",
+      "body": "Full review of the dials/interpreter core audit preserves L/MQ/IX/DG and WDI identities without reviving held lanes. Its combined live-resolver description needs qualification: effect_dsl.js is explicitly an inert authoring contract without evaluator/RNG/inventory/save hooks; rule_modules.js supplies admission/matching and named resolution, while check_rule_pack validates a particular pack shape. Exported shapes do not establish a selected world command's executed effects (AD32/AD38).\n\nKeep WDI46–WDI60's mechanisms distinct: pool, accumulator and clock-like progress have different producers, support, thresholds and consequences. Health-as-another-resource needs actual body/death-reader binding, not a label swap. Meter visibility is observer-qualified; change explanations cannot reveal a hidden source. Use the existing state owner that fits the mechanism; a shared renderer need not impose a universal resource law or duplicate energy/vitals state.\n\nA selected meter/grammar needs its real command, settlement, usable effect and relevant save/return, with local law and actual source revision. WDI53 receipts and WDI59 inspection remain scoped proposals, not a demand to spam every log or run an all-world inspector suite. AD51 permits reasonable shared design while another world validates/revises it; WDI60 is a slice sequencing proposal, not an independent ban on design. [Batch record](audits/reconciliation-2026-11-04/content-b7.json).",
+      "before_sha256": "48de0a371f8d6e2655366c699f7ebf7da1d18fe1f5ff1c2bc7514d38b803ce81",
+      "after_sha256": "cecf3d4a551cb410804704591e835c3cd92664b1210ef05e3fdcfe3467ef625d"
+    },
+    {
+      "path": "docs/audits/TOPIC_EXPANSION_AUDIT_PLAYBOOK.md",
+      "heading": "## Continuous content reconciliation, 2026-11-04",
+      "body": "When the request is to reconcile existing audits/plans/ideas/maps, review their actual content and fold resolved claims into current owners. An expansion round, new raw-source campaign or child-agent dispatch is not implied. The later optional-lanes/current-authorization qualification above governs the older fixed-launch examples; current host/project instructions govern model, budget, writer and execution routes (AD32/AD36/AD41).\n\nKeep one explicit disposition per original claim/range, with source revision, owner/consumer or missing supplier, evidence reached and remaining check. Historical grouping can remove a duplicate control role without discarding distinct findings, proposals or failed proof. A matching hash or terminal lane label does not itself establish semantic review or current gameplay. Existing supersession membership and relationship receipts remain scoped; unlisted appended material is later intake.\n\nIn continuous work, save reviewed ranges and the next pending content in the existing register/task record, then proceed to the next batch without seeking another launch approval. Do not update USER_VISION with agent inferences as new user direction or record a content fold as mechanic acceptance. Preserve originals unless an actual qualified merge warrants a stub; deletion, publishing, spending and implementation keep their own authorization. [B7 review record](reconciliation-2026-11-04/content-b7.json).",
+      "before_sha256": "8e17dea26a8808d0039ce3e3d41c76fa4587245740317a62f9ebde20f31d65ed",
+      "after_sha256": "5523dd86732307105fad80459355b6c939169ff9c42e5fc00db0d688de2ec7c7"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions, not hash-inferred reading or renewed historical behavior proof.",
+  "remaining_without_content_review": 1932
+}

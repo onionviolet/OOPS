@@ -1669,3 +1669,29 @@ The same-session instruction selected native adapters, not326 independent specs.
 - IM35: Merger reconciles exact M4 overlaps and runs the combined full integration gate once on the combined candidate. Level Sol, effort medium, done check: merged input identity, full suite and rebuilt desktop checks. D4 kept the exact failed pre-repair full-suite receipt plus targeted repairs and did not rerun the full suite. Human discovery/pacing acceptance is separate.
 
 IM27 is now delivered for its bounded native mechanisms, with the above authority corrections. IM28's broad reference powers remain source-policy proposals, reconciled explicitly rather than silently labeled built. Exact commands, gaps and the final verified source identity are in the [original checkpoint](gm/dispatch/cheats-2026-10-25/CHECKPOINT.md).
+
+
+## IM36–IM46 core-audit reconciliation, B7, 2026-11-04
+
+The complete cheat core audit adds useful IM36–IM46 distinctions: enduring faculty stages versus body reserves, kind-specific readouts/voice versus actual authority, source-qualified entry warnings, optional card-grant routes, and heir-as-start versus automatic succession. Preserve all as scoped ideas and recorded implementations, not a fresh cheat build queue (AD32/AD29).
+
+The October 30 statement that applyStartGrants still needs a PLAY hook is stale at this source seam: cheat_cards.js exports it, and main imports/calls it with selected start snapshot grants after seeding the beginning. That proves wiring at the producer/consumer, not an earned ring-elder route, successful native persistence or the unreliable voice in a rebuilt browser. The growthTrack source derives its display from inputs; source presence does not refresh IM37–IM39's older visual proof.
+
+Weibao's Oct 30 direction keeps further cheat work long-term and heirs deferred except as distinct starts. IM36's dormant code is not a gap that must be activated. Keep IM40 scaling, IM41 lore, IM42 warnings, IM43 trade methods, IM45 start rules and IM46 extended talk with their real source/carrier/crossing/economy/talk owners. No new schema, broad grant wave or body/world permission list follows. [Batch evidence](audits/reconciliation-2026-11-04/content-b7.json).
+
+
+## Card 13 reconciliation B121, 2026-11-04
+
+The complete [Equivalence Ledger spike](audits/EQUIVALENCE_LEDGER_SPIKE_2026-10-23.md#price-spike-reconciliation-b121-2026-11-04) and card13 body are now read. Preserve the issuer tariff, known recipe path, anchor provenance, exact-item transaction, carrier/account and visible-fee idea as a proposal. The historical “cannot mint value” and “clearly worse than selling to a merchant” sentences are not established invariants: a recipe DAG does not cover market/ledger cycles, and actual merchant demand/quotes and path costs vary. Zero-fee exact round trips may break even. Its promise is a selected tariff mechanism, not a proof that market price equals making cost or that material emission has no backing requirement.
+
+Before a selected implementation, recover the exact pin inputs (22 names printed versus24 claimed), define supported quality/identity/source/recognition and learned-path scope, and reconcile issuer emission/stock/currency ownership. Recomputed prices do not waive compatibility for existing credit or paid/frozen quotes. Preserve local powerful/free variants where their mechanism supports them; no universal market-spread penalty is imposed. Existing card-specific carry paths qualify the old blanket IM7 absence without deciding card13’s own carrier/reset policy. No S0/S1/S2 build was selected or executed, and full-library coverage is not claimed.
+
+
+## Historical cheat-audit reconciliation B132, 2026-11-04
+
+The full [October10 synthesis](audits/cheat-implementation-2026-10-10/REPORT.md#cheat-audit-reconciliation-b132-2026-11-04) is now reviewed. Its own October19 note and selected current card/module/action/heir source supersede blanket no-cheat/no-heir-caller status. Keep card schema, actual handler, player acquisition/use, durable persistence, observer projection and native evidence distinct: a valid card or hook string is not executed gameplay. Card-specific carry already exists, without certifying every transfer. Old first-slice order, random-call counts, timings and279 tests remain history, not active gates. Useful family ideas stay available, with no new implementation or universal costs. Full library coverage is not claimed by this scoped fold.
+
+
+## Family-feasibility reconciliation B136, 2026-11-04
+
+The complete [feasibility catalogue](audits/cheat-implementation-2026-10-10/readers/C_feasibility.md#feasibility-use-reconciliation-b136-2026-11-04) preserves families1–22 and simulator modes as proposed variants, without a mandatory fourteen-rank build order. Reuse actual card/command/resource/claim/knowledge/stream owners; its illustrative expansion.cheats/cards schema is not the current native owner. Distinguish known-record browsing, actual new observation, paid forecast, override and source acquisition. Exact/free means, no-penalty quests and lawful powerful loop variants remain possible. Carried learned knowledge is not forcibly forgotten, companions have their own actual knowledge, and unknown private changes do not create visible stale clues. Snapshot/cost/cause identity and actual consumer/native evidence remain necessary for selected delivery. Current AD42/AD51/AD52 and retired milestone govern; no family or whole-library completion is claimed.

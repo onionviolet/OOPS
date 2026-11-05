@@ -5,6 +5,8 @@ import {applyNamedIdentity, namingState} from './naming_act.js';
 import {registerGearMaterials} from './gear_native_content.js';
 import {registerFieldWorksItems} from './field_works_content.js';
 import {readMaterialLineage, heirloomText} from './material_lineage.js';
+import {lotmDivinationItems} from './lotm_anna_session_items.js';
+import {registerOptionalItems,restoreOptionalItems} from './optional_item_catalogue.js';
 import {domainRegistry} from './domain_registry.js';
 import {current_game_time} from './game_time.js';
 import {calendarMinutes} from './world_rhythm.js';
@@ -4680,19 +4682,17 @@ registerGearMaterials({templates:item_templates,ItemComponent});
 registerFieldWorksItems({item_templates,OtherItem});
 registerFortItems({item_templates, book_stats, Book, BookData, Material});
 setup_ids();
-// Air workshop proposal: optional templates must not enrich absent-edition saves.
-// Actual item instantiation registers its availability when workshop goods arrive.
-for(const [name,description,value] of systemsWorkshopItems){
-    item_templates[name]=new OtherItem({id:name,name,description,value});
-    delete availabilities.item[name];
-}
+// Optional catalogs retain their world data and share native registration.
+const workshopItemCatalogue=systemsWorkshopItems.map(([id,description,value])=>({id,name:id,description,value}));
+for(const catalogue of [lotmDivinationItems,workshopItemCatalogue])registerOptionalItems(catalogue,{templates:item_templates,OtherItem,availability:availabilities.item});
 
-// The loader restores optional availability before reading saved flags. Only
-// supported workshop names are admitted, after the expansion edition validated.
-function restoreSystemsWorkshopAvailability(save){
+// Restore supported optional metadata before reading saved flags. The public
+// workshop-named export remains an alias for the existing native loader caller.
+function restoreOptionalItemAvailability(save){
+    const ports={templates:item_templates,availability:availabilities.item};
+    restoreOptionalItems(save,lotmDivinationItems,ports);
     if(!save.expansion?.actors.player.facts['systems_workshop.joined'])return;
-    for(const [name] of systemsWorkshopItems)if(Object.hasOwn(save.availabilities?.item||{},name))
-        availabilities.item[name] ||= item_templates[name]._getBasicAvailabilityComponent();
+    restoreOptionalItems(save,workshopItemCatalogue,ports);
 }
 
 registerDomicileItems(item_templates, OtherItem);
@@ -4705,7 +4705,7 @@ configureInventoryItems({fromKey:getItemFromKey,keyFromTemplate:(id,quality)=>
 
 export {
     item_templates,
-    restoreSystemsWorkshopAvailability,
+    restoreOptionalItemAvailability as restoreSystemsWorkshopAvailability,
     item_log,
     Item, OtherItem, UsableItem,
     Armor, Shield, Weapon, Cape, Artifact, Book, Tool,

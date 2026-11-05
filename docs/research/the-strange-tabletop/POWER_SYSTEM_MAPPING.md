@@ -16,3 +16,8 @@ All mappings are INFERRED routing proposals. The source claims and evidence clas
 | Synchronized clocks F18 | K8/K15/K17/K28 | western M7: event order and retained receipt analogy only | nested worlds and start/branch integration: source clock relation versus chosen simulation/absence policy | P13 |
 
 The Strange is an especially good reference for retaining a traveler while changing local expression. It is less direct evidence for YAIRPG's deep careers, long-term autonomous residents or stacked independent power systems. Its focus mechanism alone does not establish an idle learning model. Those remain with the existing owners and source-specific dossiers.
+
+
+## Routing versus source and native proof, 2026-11-04 (B88)
+
+The [report’s MWTS-P01–P07 and D/C qualifications](REPORT.md) preserve the actual distinction behind these rows: translation adapts one continuing traveler, passage carries through, local expression/gear abeyance/operating law/received context/social rights and shared Pools are separate. Do not turn that reference into profile-branch cloning, automatic healing, a universal imported-power ban, synchronized YAIR absence clocks or cypher quotas. F01–F18 remain bounded source findings in their existing evidence owner; this map is inferred routing and supplies no full commercial-rule, game or source-body recheck. Current one-realm/viewport history is superseded by live project authority, with optional AD42 feedback. No E8 rewrite, world launch or native implementation is selected (AD32/AD36).

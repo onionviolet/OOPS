@@ -1,5 +1,7 @@
 # Economy, trade, money and property core audit (repeatable)
 
+**Content review B6, 2026-11-04:** full E1/E2 trigger, owner/run-log and composed-case content reviewed. The [economy-palette fold](../ECONOMY_AND_TRADE_CONSIDERATIONS_2026-10-18.md#repeatable-economy-audit-content-reconciliation-2026-11-04) preserves belief-based quotes, currency shape, custody and partial service settlement. Canonical ECR text is linked directly; the old stub remains for compatibility. Trigger tables do not independently authorize fresh lanes or a compulsory economy in every life (AD32/AD36).
+
 Saved 2026-10-18 with the first run. A standing procedure for re-auditing money,
 prices, merchants, selling and buying, currencies, credit, institutions, wealth
 exposure, property and carryover of wealth. One instance of the
@@ -13,7 +15,7 @@ priority or turns deferred work into a gate (AGENTS.md).
 | Owner | Role |
 |---|---|
 | [Economy palette](../ECONOMY_AND_TRADE_CONSIDERATIONS_2026-10-18.md) | Root palette, rounds appended (ECC, ECX, ECL codes) |
-| [Economy rules](../ECONOMY_RULES.md) | Rulebook ECR1–ECR33, accepted 2026-10-18 (see RULES_INDEX), registered there |
+| [Economy rules](../DOMAIN_RULES.md#economy-rules) | ECR1–ECR33, accepted 2026-10-18 (AD32; see [RULES_INDEX](../RULES_INDEX.md)); old ECONOMY_RULES stub retained |
 | [Markets palette](../gm/dispatch/procgen-2026-10-13/p11/REQUESTS_AND_MARKETS.md) | N1–N10 and M1–M28 (rounds 1–5); extended, not replaced |
 | [OD11 cross-world value](../worlds/MULTIVERSE_STRUCTURES.md#od11-local-economies-and-cross-world-value-2026-10-15) | EC1–EC5 |
 | [First run dispatch](../gm/dispatch/economy-2026-10-18/) | Lane outputs E1 and E2 |

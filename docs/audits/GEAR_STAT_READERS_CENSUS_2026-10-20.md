@@ -200,3 +200,14 @@ silently ignored unless a consumer is written at each of these:
 - Whether any shipped saved NPC currently wears an item whose stats include the new dimensions is unknown; the NPC path (P9) is wired for it.
 - Live routes (traced after the first pass): ordinary fights run `new Combat(...)` with the hero against enemies (`main.js:4697`), so they use P2/P4. The scripted native duel/party contests also build a `Combat` (`native_battle_host.js:35`, special combat) but route each strike through `commitNativeBattleStrike` or `commitPartyBattleAction` with `readNativeFighter` snapshots (`:46`), so B1/B2 damage is what applies there. Mara and Lio are `Enemy` objects (`:31`). So GSR1 affects the scripted contests, not ordinary fights. B3/B4 routes were not traced the same way.
 - Packaged build (`dist/bundle.js`) was not read; this audit is source only.
+
+
+## Reader-census reconciliation B122, 2026-11-04
+
+Full W/I/P/B/D tables, GSR1–GSR10, checklist and final limits read. The historical one-sum statement concerns the traced person stat aggregation, not every non-stat accessory, source, world or item effect. Its final paragraph already narrows live ordinary Combat versus scripted strike paths and supersedes D7’s initial unread-totals limitation. Preserve those read boundaries and original code identities.
+
+Current selected source now passes full stats to mitigateCombatDamageFromStats in all four named B1–B4 callsites and Enemy.takeDamage; shared rollCombatStrike calls effectiveCritChance with target resistance. GSR1/2/3’s blanket ignored-reader/no-enemy-consumer statements are superseded at those seams. The helper also receives attacker armor_penetration and applies flat armor bypass, so GSR10’s all-inert characterization is no longer true for that stat. This does not qualify every producer, NPC/world, live encounter or display. Current labels still distinguish unused mana-efficiency/heat protection from an actual consumed stat.
+
+Selected durability bind still wraps attack/defense/shield getters, not getStats (GSR4); selected isWearingArmor still keys on nonzero defense (GSR7). These remain scoped design/implementation findings, not authorization to alter wear or armor-XP policy. Structured/native same-garment double counting (GSR5) is an unresolved identity question here, not a proved duplicate summation. Jewelry scaling, hidden-source display, all current loadouts and every non-stat effect were not re-audited.
+
+The [equipment owner](../EQUIPMENT_STAT_DIMENSIONS_CONSIDERATIONS_2026-10-20.md#p1-implementation-receipt-2026-10-20) already records later P1/shared-wearer work, then coordinated G1–G5 completion after its earlier in-progress snapshot. Preserve reported test/failure/fixture/natural-acquisition limits by input; no new test/browser pass is inferred from source calls or linked receipt titles. No duplicate stat engine, new gear mechanic, source acquisition or balance change was made.

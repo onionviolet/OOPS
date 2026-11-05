@@ -21,3 +21,10 @@ The useful reference is the connection of resource provenance, workshop conversi
 ## Audit gate
 
 The finite source gate is met: the actual public ZIP and version were verified, selected JSON was parsed and linked by IDs, member hashes are recorded, and the native/retail boundary is explicit. No game execution, decompilation, full JSON read, UI playtest, save check, installation, purchase or gameplay edit occurred. A future native/retail study would need its own scope; it is not a prerequisite to use these four data observations as inspiration.
+
+
+## Content and coverage reconciliation, 2026-11-04 (B174)
+
+F1–F4, the entire coverage JSON and O1–O4 including their later review were read. The frozen0.9.19.7 demo’s16 selected JSON members are distinct from most archive entries and later retail/devlog features. Gather results, daily buildings and direct processing are different authored routes; units, worker scope, runtime loader, unlock enforcement and resource subtraction remain unknown. Historical creator devlogs are not freshly consulted primary sources or recovered retail implementation.
+
+The packet’s own review supersedes its O1-first recommendation: O1/O3 were recorded as already shipped, O2 selected as the bounded D1 alloy slice and O4 deferred. Do not commission a duplicate timber/practice wave or call every old packet an untouched gap. Preserve actual input/output stock, useful downstream material use, valid action before practice XP and distinct conversion-property choices. O4’s “cycling never creates free value” is a proposed balance choice, not a standing conservation law: conserved quantities and local valuation differ, and real mechanisms can allow profitable cycles or improvements without forced compensating losses. Existing appraisal, material and economy owners govern. Current direction retires the one-realm/one-prestige prerequisite. No exact demo values, elemental cycle or new world/ability system was imported.

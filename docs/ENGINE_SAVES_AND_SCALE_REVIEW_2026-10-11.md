@@ -251,3 +251,12 @@ Sources checked:
 
 Documentation only. No host created, dependency installed, native build run,
 save migrated or app published. These details remain proposed acceptance work.
+
+
+## Content reconciliation B138, 2026-11-04
+
+[SAVES](SAVES.md) owns persistence policy and its later compatibility ledger. E1-E10 remain useful engineering considerations; they do not restore a universal old-save migration guarantee or require every listed historical fixture before unrelated work. The October 17/18 decisions permit a stated reset/drop or content-id retirement, while new state still needs its scoped Save/reload/Export/Import proof. A guarded final write or one Web Lock does not establish rollback across every live owner, archive or enrolled authority key.
+
+Preserve E4's semantic history contract: disposable display logs differ from evidence consumed by inheritance, obligations and powers. E5/E7 catch-up needs declared clocks, remaining elapsed time and causal ordering; aggregation follows actual equivalent outcomes and AD52's meaningful intervention. The 4 MiB guard is shared-origin UTF-16 accounting, not a browser capacity promise. Relevant source was checked; no new storage-failure or catch-up run occurred.
+
+T/P/O options and all linked platform claims remain dated research. The existing desktop/browser delivery and desktop-first priority do not require a Tauri spike, Rust/TypeScript/ECS rewrite, worker, IndexedDB move or mobile qualification. Measure a selected workload before choosing its fix, including bridge and serialization cost. Portability ideas L1-L17 remain useful when a host is selected: complete assets, explicit transfer, independent host storage, cancellation, process death, suspend policy, writer ownership and deliberate conflicts. Packaging alone is not gameplay proof, and this pass installed or launched nothing.

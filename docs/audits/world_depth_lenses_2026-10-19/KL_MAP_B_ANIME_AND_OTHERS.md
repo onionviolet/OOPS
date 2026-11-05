@@ -209,3 +209,8 @@ None of these selects build scope or reorders the standing UI priority (KR21-10)
 - Sealed secrets: none met, none touched.
 
 Everything above is a proposal. Nothing here changes a standing priority or turns deferred work into a gate.
+
+
+## Reconciliation B90, 2026-11-04
+
+Retain the corrections to memory leads: JJK/Naruto institutional rank is not combat power; Bleach numbering, Naruto elements and Fate parameter ladders remain unverified at this map’s sampled scope. HxH adjacency efficiencies do not turn its Specialist exception into a percentage; FMA process and energy claims remain continuity-bound and provisional. Shared staged-process shapes are design candidates, not proof that every stage compiles without engine work. Frontier, HP and D&D delta rows inherit the cited lane’s proof limits, not a fresh code/source review. Old SRD absence/count and held-sidecar statements require their later owning receipts, not blanket present-tense reuse. These are dated lens proposals, not accepted build scope. Full review of these maps does not fill their explicitly unread cards, ledgers, reader notes, primary texts or code. A missing sidecar file and a silent sampled ledger are not absence of the underlying capability or source mechanic. Zero additional raw-source words still requires analytical work; historical invocation envelopes are estimates, not current authorization.

@@ -21,3 +21,8 @@ All recommendations are PROPOSALS. No runtime implementation or accepted decisio
 Final validation: PASS. Twelve exact keys, source/owner paths, local document links, three deeper systems, 24 touches and required artifacts checked by `python3 -I ~/.codex/research/asp-text/tools/verify_artifacts.py`. This is document/static validation, not gameplay or save-roundtrip proof.
 
 Disk used: asp-text work area 3004 KiB; this output folder 148 KiB. No game or downloaded program executed.
+
+
+## Milestone qualification, 2026-11-04 (B31)
+
+The one-realm/one-prestige milestone sentence is October14 history, superseded by USER_VISION’s October24 scope direction. Preserve each title’s precise static/public/server/bytecode and runtime evidence limits; do not treat a missing server body or a catalogue-only sibling as shared complete coverage. This reconciliation selects no acquisition, account action, research pass or gameplay implementation.

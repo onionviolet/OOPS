@@ -1,5 +1,7 @@
 # Owner docs audit: one home per topic, 2026-10-30
 
+**Current routing, 2026-11-04:** F2/L1’s missing front door now exists at [systems/README](../systems/README.md). Use its links to rulebooks, representations and code maps before creating another owner. The [copy style sheet](../ui/COPY_STYLE_SHEET.md) is the later UI/log prose palette; DESIGN retains visual direction. Other L-items and historical worker states below are not declared complete by this note.
+
 Weibao asked two things. Which topics besides UI design need one file that covers them, and does every in-depth system need its own file? This audit records the answer and a "more to consider" round. Everything here is a proposal (AD32). Evidence comes from the working tree on 2026-10-30: file listings, greps of owner docs and source clusters. No code was read beyond file headers.
 
 ## Reading
@@ -70,3 +72,10 @@ The answer is no, not one file per system. Every in-depth system needs one front
 | L3. Inspector column follow-through: systems marked "none" in L1 get a dev readout backlog entry, as the combat plan's M7 does | haiku to list, sonnet to scope | low | A list of systems without an inspector, each with a one-line readout proposal in its owner |
 | L4. Performance owner, when perf work next comes up: fold the 2026-10-14 review and the perf scenarios into one owner | sonnet | medium | One doc names budgets, scenarios and the gate command; the dated review is linked as history |
 | L5. A sound owner, deferred by default until audio work starts, since there is nothing to own yet | sonnet | low | One doc names the sound settings, cues and their owners |
+
+
+## Full-content reconciliation, 2026-11-04 (B178)
+
+All F1–F5, A1–A4 and L1–L5 were read, together with the entire systems front door and BALANCE owner. F2/L1’s missing index is no longer absent; this report’s own opening correction already routes to it. Saves, balance, visual/voice and generation owners have their existing homes, not active “sonnet writing” leases from this October30 snapshot. Distinct rulebook, representation, code map, palette and inspector layers do not require a fifth competing specification per system.
+
+A prefix mention count, absent code-map section or “none” inspector cell identifies unmapped documentation/inspection in that snapshot, not missing gameplay or proof of no owner anywhere. The index’s later Nov4 selected source/test rows and earlier maturity labels retain their own inputs and native-unreached limits; they do not establish all families freshly verified. An inspector backlog or save-ledger enforcement test is a separate proposal, not a new universal gate. Existing SAVES/architecture/AD36 govern actual persistence changes, and current source/canon/target owner governs each dial. Performance and audio owners stay trigger-based rather than work to launch now. Do not create or delete documents just to normalize this old count.

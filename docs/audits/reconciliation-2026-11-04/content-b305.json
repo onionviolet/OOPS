@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "batch": "B305",
+  "title": "Intro-flow rounds8–17: identity preferences, branch history and actual causal conditions",
+  "at": "2026-11-05T01:20:23.093244+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/INTRO_FLOW_CONSIDERATIONS_2026-10-13.md",
+      "full": false,
+      "ranges": [
+        [
+          663,
+          1333
+        ]
+      ],
+      "prior_review_ranges": [
+        [
+          1,
+          662
+        ]
+      ],
+      "prior_review_ledger": "docs/audits/reconciliation-2026-11-04/content-b304.json",
+      "original_content_sha256": "f06234a298b1f7544694ace806fd77b32f9b99cd8705a5d8cade69c2a799a5be",
+      "original_content_lines": 2200,
+      "ids": [
+        "NS1–10/OM1–8/VM1–8",
+        "PN1–10/IX0–5/BW1–8/PX1–7",
+        "TA1–7/TB1–10/TU1–6/TX1–8",
+        "AH1–12/BR1–15",
+        "DV1–12/OT1–10/MX1–4",
+        "OV1–12/CV1–12",
+        "MT1–10/SP1–10/GE1–7",
+        "LD1–10/OL1–10/NX1–5",
+        "MP1–10/SV1–7/IAU1–6",
+        "FH1–8/EH1–7/VA1–6"
+      ],
+      "classification": "Fresh selected original663–1333 content, combined first1333 covered; remaining original1334–2200 unread",
+      "owners": [
+        "docs/INTRO_FLOW_CONSIDERATIONS_2026-10-13.md",
+        "docs/WORLD_ENTRY_RULES.md",
+        "docs/LEAD_LIFE_RULES.md",
+        "docs/TIMELINES_AND_DIVERGENCE.md"
+      ],
+      "disposition": "Read all original663–1333 through round17, every identity/branch/derivedtime/motive/substitute/metaplayer/earlyhardship row. Confirm full original2200line prefix SHA unchanged sinceB304. Preserve all source/local/default distinctions and exact archivedtests, with currentAD44/AD51/AD52/sourcecompatibility qualifying oldprototype universalrules. Fold conditionalforcedcanon, noautomaticNPCofflinelife, nohiddenfactsfromlowconfidence/firstobservation, and real actor/custody/time requirements into owner. No fullfilecredit.",
+      "evidence": "Old640/649test/coordinatorchecks are attributed puremodule input evidence, not playablebranch or completehistory. Sourcepilot33events5anchors lackspositivefixedrole proof. Metadata57works/35games and126unknowns are localdatedroutes, not actualsourcecoverage. Laterrounds18–28remainopen; heading navigation is not contentreview.",
+      "reopen": "Continue original1334–2200 and check prefix identity before fullclosure. Scope1233 notclaimed; exact covered union1–1333 only. No reader/source/worker or branch/migration/runtime action authorized by preserved dispatches.",
+      "input_sha256": "c45de70884f5f885d4482809a50fb5e472333476f874eb869afafdc1496baadc",
+      "input_lines": 2219
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/INTRO_FLOW_CONSIDERATIONS_2026-10-13.md",
+      "heading": "## Content reconciliation B305: original rounds8–17, remaining later rounds open",
+      "body": "Original663–1333 were fully reviewed through round17, with original1–662 covered by B304. The entire original2,200-line prefix still matches B304's hash; append-only reconciliation has not changed these historical proposals. Original1334–2200, rounds18 onward and later follow-through, remain open. Source test counts, named workers and dispatch statements in these ranges are attributed history, not newly executed work or a live roster.\n\nNS/OM/PN/IX/BW/PX separate a None experience preference, a world's actual identity law, a remote vessel, an independently minded copy and an earlier character who is a different person. A preference cannot silently erase source-supported clones, other inhabitants or recorded history. NS3's copies-as-new-people and its backup-body parenthetical need the actual independent-mind/control mechanism; equal memories or label alone does not settle personal identity. NS4 empty-seat, NS5 inheritance, NS7 mindless-avatar and the default source-world fresh copy remain proposed model choices. The user's little-special-interaction/ordinary-NPC lean does not require detailed NPC lives or automatic off-screen marriage/death; accepted clocks/absence and current cast-depth direction apply. Actor property and beliefs remain theirs unless an actual supported transfer/channel exists.\n\nTA/AH/BR/TB/TU/TX preserve source continuity, chosen premise, world/instance/life identity, real epoch/window and observed history. A canon horizon is an evidence limit, not permission to assert unread future canon from invented motive. New source can refine an uncommitted unknown or explicitly rebase selected state; it cannot silently replace an already used snapshot. A source revision, an anchor cache, branch override list and a full playable save are different artifacts. A derived snapshot is only as complete as the modeled owners/events; it does not automatically preserve actual body, wages, custody, native quests, private NPC knowledge or pending publication. Cheap storage, compact exports and guaranteed dormant recovery are unmeasured proposals, with old-save guarantees qualified by current compatibility direction.\n\nDV/OV/CV distinguish cause, state change, source evidence and revelation order. A fixed/resisted prototype result is not a proof that a world can force an event without actual means or a named correction mechanism. In a selected developer canon run, the admitted canon policy has its own scope; ordinary lives and divergent state retain their actual causes. Low source confidence makes an author claim uncertain, not an in-world object easier to break or a motive cheaper. Lazy detail cannot let first observation choose a contradictory earlier history, scheduled occurrence, person's identity or previously implied supply. Seeded unstated variation remains qualified by source and committed causes, and physical occurrence is separate from someone receiving its account.\n\nMT/SP/LD/OL keep actual motive, reason, means, consent, source/body/location/stock and elapsed action as the basis of a response. An exhausted or satisfied motive need not regenerate a feud. A substitute needs an actual fitting actor and recruitment/arrival, not an automatic stranger or free unique faculty to save a plot. Overlapping roles and cross-world recruits require supported control/travel/custody. Lower rungs need not be worse in every respect; two-rung minimum, pressure, delay, offscreen-count budget and mandatory retry/escalation are examples rather than standing law. A unique source may genuinely leave no substitute. Player pressure is not automatic acceptance or compulsory ordinary-life role assignment; a specific run-mode constraint retains its own authority.\n\nOT/BR/VM do not enable closed-browser production, villain jobs, passive growth or events merely because a wall-time delta exists. Active-life, inactive-world, stored-time and simulated NPC boundaries require the selected policy and returned time. Actual player-important choice stops, publication failure and old pending intervals retain their owners. Source checks saying no general catch-up then do not prove present absence, and old source clocks are not all-world age. A return can show no change. No extra anti-farming/anti-cheat rule, strict-run label or source tax is selected from these options.\n\nMP/SV/IAU are proposed presentation/storage/authoring joins, not one required profile/branch database or migration before every small consumer. A title/after-death menu does not define actual diegetic memory or reset entitlement. Whole-profile, branch and record exports differ in ownership and compatibility. Framework validation, a frozen seed, derived equality and a smoke import do not make every source-world start playable. Lanes/catalogs/126 UNKNOWNs and 640/649-test prototype returns retain their dated scope. Source-pilot lessons explicitly lacked a positive fixed-law/substitution case, so no complete motive, runtime clock or role resolver follows from them. Full source and actual consumer requirements attach to the selected operation, not every optional authoring field.\n\nFH/EH/VA preserve an engaging first action and legitimate slow/cozy/harsh/strong openings without mandatory infancy clicks, an artificial small loss or a forced first relationship. Universal lost-item recovery, every-bleak-start escape, automatic early-death unlocks and low-cost protection are proposals, not promises every source/harsh mode fulfills. Summarized repetition keeps consequential choice/history under AD52 rather than rewarding sheer click count. Seed variety changes unstated detail, not known canon or actual earlier deeds. No start is generated, private source read, NPC history invented, save changed, worker resumed or new implementation gate created by this partial review.",
+      "before_sha256": "c45de70884f5f885d4482809a50fb5e472333476f874eb869afafdc1496baadc",
+      "after_sha256": "2bb0f04714b77244a2806fcee09d5a471ce98508ad8ba9ca5403dff53df2db4c"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 813,
+  "post_record_amendments": [
+    {
+      "path": "docs/INTRO_FLOW_CONSIDERATIONS_2026-10-13.md",
+      "from": "accepted clocks/absence and current cast-depth direction apply.",
+      "to": "existing clock/absence owners and current cast-depth direction apply.",
+      "reason": "Later four-group closeout: clarify evidence/adoption scope without changing original review identity."
+    }
+  ]
+}

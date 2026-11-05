@@ -64,3 +64,10 @@ constitution records imply no accepted biological limit. No sealed truth was
 included and no external canon research was needed for this source-local spec.
 Root integration into genetics/IDEA_INDEX remains with the dispatch owner; B2
 writes only its lane and grants no runtime implementation authority.
+
+
+## Current-use reconciliation B110, 2026-11-04
+
+B2 F1–F5 source tables are bounded October 14 observations, not current whole-tree absence claims. Preserve separate four-field bio serialization versus added-body record, identity/address versus anatomy, disabled additive race/height data versus replaced owned buckets, actual native combat/pursuit/craft versus similarly named helper hosts, parked versus controlled body and codec versus real-loader proof. Current public start picker is deferred (B94), so its creation-route suggestions are not an active UI assignment. B8’s later parent-chain correction routes Body & recovery to Notebook → Practice, superseding B2’s old Local actions instruction. No currently missing pronoun/body/stealth subsystem is concluded from old term searches alone.
+
+B2 A1–A5 rank implementation size and dependencies, not product priority. A1 identity/address projection and A2 optional record could form a small selected unit; A3/A4 world effects/UI and A5 five-family quirks are distinct larger joins. This does not require full genetics, treatment economy, migration of every old save, a public start menu or all-body support. Detailed GHS B94/B95 and actual future consumer govern; all proposed test/native gates remain NOT RUN unless exact later evidence is found. Optional human taste feedback is not a hard execution blocker.

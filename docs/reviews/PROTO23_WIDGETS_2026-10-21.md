@@ -44,3 +44,10 @@ Browser handoff for the rebuilt fresh-origin pass:
 The component preview path is present in source. Whether it renders and responds
 as intended at the target viewport remains unverified until the rebuilt browser
 pass; source inspection is not runtime proof.
+
+
+## Content reconciliation B157, 2026-11-04
+
+Read CRL31 and the full preview handoff. The opening combined-baseline qualification supersedes the bottom unrun-root-browser language for its captured inputs. Preserve the actual defect and repair: validate optional source rows inside their entry boundary, so one malformed label does not abort healthy Find/navigation. This presentation containment does not replace native command, save or transaction failure handling.
+
+The existing customization preview is a real component-style consumer with draft/active isolation; it is not another editor or proof that Apply saved every theme. Native adjacent controls should retain the active profile until commitment. Historical browser closure stays with the baseline receipt, not a new current Find/Ctrl+K or contrast test. No optional widget, loader or theme code was changed (AD32, AD36, AD42).

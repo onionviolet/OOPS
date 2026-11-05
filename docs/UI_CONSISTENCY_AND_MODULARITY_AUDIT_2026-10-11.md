@@ -132,3 +132,12 @@ All implementation gates are unrun. The audit verifies the public opening and
 the named source boundaries only. Private-pack, combat, crafting, long-running
 job, renewal, save/reload/import and progressed-world journeys remain required
 for any later change affecting them. No user save should be used as a fixture.
+
+
+## Content reconciliation B138, 2026-11-04
+
+F1-F6 and D1-D5 were reviewed in full. Preserve the distinction between the old fresh public opening compilation, source-only Notebook/progressed-panel findings and unrun A1-A5 gates. The 390 px observation is historical; laptop clipping and large-text reachability remain legitimate desktop questions. Mobile optimization and the full 390/768/1440/1920 matrix are not new universal gates under the current desktop-first direction.
+
+The useful design is a single layout owner moving eligible views, with stable focus, selection, scroll, recovery and one authoritative command path. A moved or duplicated view must not create an extra timer, reward, clock advance or location permission. Observer-safe picker/search/counts and recoverable hidden controls apply before rendering, not merely to tooltips. Preference storage/export scope should be stated rather than silently equated with gameplay persistence.
+
+The old original-default and universal docking proposal yields to [DESIGN](../DESIGN.md) and [UI rules](UI_RULES.md): functional task composition, useful independent panes and prose-first presentation. This is no new layout specification or framework migration. Current rules may already cover a finding without proving its particular runtime consumer fixed. Reopen with one rebuilt selected desktop route and its actual missing behavior; no capture, progressed route or persistence result was newly verified here (AD32, AD36, AD42).

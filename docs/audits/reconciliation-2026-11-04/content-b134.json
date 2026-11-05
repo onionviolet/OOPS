@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "batch": "B134",
+  "title": "Purity and risk reader: exact tested coverage and corrected fork invariants",
+  "at": "2026-11-04T21:37:29.868454+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/cheat-implementation-2026-10-10/readers/D_risk_and_purity.md",
+      "ids": [
+        "scenarios A–F",
+        "R1–R22",
+        "heir pipeline",
+        "guardrails1–5",
+        "scratch scripts"
+      ],
+      "classification": "Historical experiment report; retain proof boundaries and selected invariant corrections",
+      "owners": [
+        "docs/audits/cheat-implementation-2026-10-10/readers/D_risk_and_purity.md",
+        "docs/audits/cheat-implementation-2026-10-10/REPORT.md",
+        "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md"
+      ],
+      "disposition": "Complete245linesread. Preserve deep-frozen versus before/afterhash distinction and five unenrolled paths, including failedD admission notpurityfailure. Scratchoutputs not recovered/testsrerun; shown isoriginalreporter label. 279baseline/62nativecalls/117console/512boundaries/timings/schema5/no-sealed/no-workers/sourceabsence dated. All-reseeded onefixture divergence not everypair/nonce required; deterministic outcomes maymatch. Exact model replay not Rule6violation, powerfulforecastallowed. Forkcomputationno writes doesnot mean whole paidcheataction cannotstore realcost/disclosedreading. Singlewriter source notautomaticcrossowner atomicproof. 525600 is365-dayextrapolation notuniversal/native360calendar. Heirno-call obsoleteB132; narrowlegacysnapshot vs generalretainedworldnotcomplete. Validator/key/source/schema currentmustselectednotreuseR1asnewvulnerabilityproof. No broadnewtestfixture/worker/mobile/nativehardening authorization.",
+      "evidence": "Fresh full245-line text including all experiment methods/tables, scratch locators, unsupported owner coverage and recommended tests. Existing B132 current card/heir source and B122 named native draw helper observations inform qualifications; no scratch scripts/output/purity experiment or historical suite rerun.",
+      "reopen": "A selected simulator operation needs exact current admitted owner paths, real stream/clock/model inputs and tests protecting its actual output/cost/persistence/disclosure boundary. Preserve untested owners and old logs as historical gaps.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "57d7d7e7f446738f4320736d26240c2c74ec1476033109250538f2f7259242c7",
+      "input_lines": 245,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          245
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/cheat-implementation-2026-10-10/readers/D_risk_and_purity.md",
+      "heading": "## Purity-report reconciliation B134, 2026-11-04",
+      "body": "Full scenariosA–F/R1–R22/heir/guardrails read. Preserve deep-frozen input testing: before/after hashes miss a write restored to its old value, while frozen inputs can expose writes in exercised paths. Five receiving owners were unenrolled, so their early returns did not prove their active paths pure. Failed scenarioD admission is an unavailable fixture, not a demonstrated mutation. Static nested-call inspection remained incomplete. Old scratch scripts/logs were not recovered or rerun here; original SHOWN labels describe the reporter’s evidence, not new execution. The279-test baseline,512-boundary horizon,62 random sites,117 console calls, timings/schema allowlists/no-sealed/no-worker claims retain their October10 identity.\n\nCorrect two proposed invariants before reuse. Different fork nonces need isolated correctly keyed draws, but need not produce different final outcomes in every pair: deterministic events, ignored draws or equal supported outcomes can agree. Reseeding all three legacy locations changed one sampled fixture; that is not a proof of every present stream or a requirement to randomize a lawful exact prediction. R7’s exact foresight is not inherently a Rulebook6 conflict; actual means may read exactly within scope. Rulebook6 permits error, it does not require every reader to be wrong. Current [Rulebook](../../../RULES_FROM_SCRATCH.md#the-rulebook-accepted-2026-10-10), AD32/AD38 in [rules index](../../../RULES_INDEX.md) and current [PROJECT](../../../../PROJECT.md) govern.\n\n“Real save untouched/zero writes” applies to detached fork computation, not the entire paid cheat session. An authorized real action may persist its declared charge, admitted observation and receipt through its owning transaction; the fork must not publish simulated stock/deaths/discoveries/world mutations. Compare only those intended real deltas and preserve unrelated state/streams. A single writer or clone does not by itself prove cross-owner rollback, actual loader compatibility or post-write publication safety. Scope payload/definition/native closure inputs and inspect all paths touched by the selected operation; no universal fixture covering every owner is prerequisite to unrelated work.\n\nR18’s525,600-minute horizon is a365-day extrapolation, not every world’s year; the native calendar has360 days. Worker portability is an inference from the tested modules, not proof all registry callbacks/native globals are serializable. Source bodies, return-boundary counts and timing under another probe do not establish current performance. B132’s actual heir/card-carry source supersedes no-caller/no-carry headlines without proving retained world/time/estate for every route. Keep seed/definition/cost/observer/persistence proof conditional and protect secrets through actual discovery, including valid powerful foresight. Mobile and new hardening remain outside this selected documentation pass; no runtime test, source edit or worker launch occurred.",
+      "before_sha256": "57d7d7e7f446738f4320736d26240c2c74ec1476033109250538f2f7259242c7",
+      "after_sha256": "826414cba036b2fb53e96dda2565b1d50d95b88316825069a8ef8268286d442e"
+    },
+    {
+      "path": "docs/audits/cheat-implementation-2026-10-10/REPORT.md",
+      "heading": "## Reader D uptake B134, 2026-11-04",
+      "body": "The full [risk/purity reader](readers/D_risk_and_purity.md#purity-report-reconciliation-b134-2026-11-04) is now independently reviewed, closing that underlying text input rather than relying on this synthesis. Preserve unenrolled-owner and scratch-evidence limits. Different fork nonces may legitimately yield the same result; exact supported foresight need not be forced wrong. Zero real writes constrains detached simulation, while declared real costs/observations can use their actual durable owner. A common writer is not whole-system atomicity proof. Timings, native random counts, schema lists and365-day extrapolation remain historical. No scratch test suite or fresh native prediction was run.",
+      "before_sha256": "1eeefe722beca5aa0122805408c00c8620fd36d8a5a88e0663f6a6e574523b67",
+      "after_sha256": "b221d2a059d6a0d86fa9067cb4111755462ba34321032ed6b420cac831b6d670"
+    },
+    {
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "heading": "## Fork-contract reconciliation B134, 2026-11-04",
+      "body": "The complete [purity reader](audits/cheat-implementation-2026-10-10/readers/D_risk_and_purity.md#purity-report-reconciliation-b134-2026-11-04) supplies two useful qualifications to selected future simulator checks. Assert no real mutation/draw/publication from detached fork computation; an actual paid reading may still commit only its declared charge, admitted information and receipt. Different nonces must have appropriate isolated keys, but equal final outcomes can be valid, so unconditional outcome divergence is not an invariant. Deep-frozen tests cover only enrolled exercised paths, not early-return owners or all host callbacks. Preserve exact/current state, stream, definition, clock and policy identities; old scratch timing/365-day extrapolation is not a universal forecast horizon. No generic worker, all-owner fixture or native prediction was implemented or tested here.",
+      "before_sha256": "c72d245bd4299c4dccd5f192bb6e663b47a2cd8c22c5f66c43fcc12c94d88eb5",
+      "after_sha256": "1ee559e8e57728b7cedb0599e1cab447927c98f4a9b6dc318b53c5a5a339a945"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1228
+}

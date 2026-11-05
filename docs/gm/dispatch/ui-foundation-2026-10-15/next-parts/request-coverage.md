@@ -114,3 +114,12 @@ partial or missing item now sits. Paraphrased; no sealed content.
 Iterate and fine-tune R14 (WR99); planning only for Part 9 (WR90) and sites; send Codex executors and
 use the questions workflow to settle things (NP Round 7 dispatch); complexity welcome with cost managed,
 CX1–CX8 accepted; save conventions as standing rules (UV:4145); long-standing mockup system (UV:5).
+
+
+## Content reconciliation: scope, evidence and current uptake (B251, 2026-11-04)
+
+F1. Complete116-line review covers all99 WR rows and their source/status definitions. COVERED means an owning round/Part and done check existed at the trace date, sometimes delivered as separately labelled dlv; it does not prove implementation, product adoption or browser verification. The table explicitly predates Round15 placements. Stable WR IDs preserve request provenance, including WR83's map/representation correction and WR90's no-implementation Part9 scope. Line locators are dated pointers, not current positions or evidence that this reconciliation reread every quoted USER_VISION span.
+
+F2. Later concrete reports qualify the trace without deleting it: WR11's no-combat-fixture sentence cannot describe all subsequent evidence because R3/R7 and later board/inventory reports record scoped synthetic combat. R16 changes the old zero-secondary-fit shape; R18 trades a visible row for real category/filter/count benefits; R21–R22c alter chrome, status home and crowded fight presentation. Passing those slices does not implement the whole99-request horizon. WR13→WR78 supersession narrows the proposed disclosure policy rather than automatically revoking compatibility facts or establishing learned-stat gameplay.
+
+F3. WR86 handed-off MISSING is an ownership/content-review gap, not proof CHEAT_LIBRARY lacks the requested types; WR93's bought-map rules-only state does not prove every information acquisition route is absent. WR98 being covered by this table proves a trace exists, not that all user requests are fulfilled. Preserve the real unresolved producer/consumer/proof question in the current owning task. Process quotations about helpers, complexity and mockups are dated provenance, not current spawn or implementation authority. Under AD32 proposals keep their status, AD36/AD43 keep proof scoped and AD42 keeps human review optional.

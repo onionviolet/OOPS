@@ -1866,3 +1866,6 @@ body:has(#main_content #location_related_div[data-component-theme="luminous"][da
  --world-accent: #d2b072; --world-rule: color-mix(in srgb, #d2b072 55%, transparent);
  --world-glyph: "☾"; --world-epithet: "Tingen · fog, gaslight and church bells";
 }
+
+/* The active borrowed header can wrap or resize with typography. */
+#center_mode_content { scroll-padding-block-start: calc(var(--ui-expanded-heading-clearance, 0px) + var(--ui-space-2)); }

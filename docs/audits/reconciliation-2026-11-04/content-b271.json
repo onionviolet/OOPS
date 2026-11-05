@@ -1,0 +1,113 @@
+{
+  "schema": 1,
+  "batch": "B271",
+  "title": "Book UI landing inputs, card knowledge and floor-code correction",
+  "at": "2026-11-05T00:25:20.789598+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/book-ui-wave-2026-10-30/LANDING_RECEIPT.md",
+      "ids": [
+        "13lanes/tips",
+        "sevenconflictfiles/registrations",
+        "4797/4789/8",
+        "83focused",
+        "bf42ec9f9/46ab02375/c51c427de436",
+        "RC1–7"
+      ],
+      "classification": "Historical lane integration or fixture/browser receipt with input-specific floor gaps",
+      "owners": [
+        "docs/UI_RULES.md",
+        "docs/gm/dispatch/book-ui-wave-2026-10-30/LANDING_RECEIPT.md"
+      ],
+      "disposition": "Preserve historical landed integration, all mixed-input gates, below-floor rows and retained uncommitted build ownership. The full suite preceded final lane tips; focused tests and rules/arch ran on later inputs, while the bundle preceded later master merges. A recorded baseline failure comparison supports only those reproduced failures on those inputs, not all environmental attribution or a fresh passing full landing suite. No current git/remote/bundle/native gameplay state verified.",
+      "evidence": "Complete65line landing,50line pathway-card checkpoint and20line trial receipt delivered. Current GROUND_RULES FLR rows inspected; targeted names only from three card/host files, no full-source or runtime absence proof. No tests/build/browser/current process/remote/private media verification.",
+      "reopen": "Use actual current host and selected route before closing a floor gap; preserve differing test/build/tip identities and original-private data boundaries, and inspect remaining linked lane bodies independently.",
+      "input_sha256": "ee3d117cfa40a072a7440564ee165e9629a82e803a99c0995e50046a82f96bc9",
+      "input_lines": 65,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          65
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/book-ui-wave-2026-10-30/PATHWAY_CARD_CHECKPOINT.md",
+      "ids": [
+        "R1–5/R7",
+        "sevenrequirementfamilies",
+        "knowledgelevels1–5",
+        "realhostproofstates+syntheticsecondworld",
+        "7focused/17focusedafterfix",
+        "4728/4720/5",
+        "notwired/partialroutes/lineargraph"
+      ],
+      "classification": "Historical lane integration or fixture/browser receipt with input-specific floor gaps",
+      "owners": [
+        "docs/UI_RULES.md",
+        "docs/gm/dispatch/book-ui-wave-2026-10-30/PATHWAY_CARD_CHECKPOINT.md"
+      ],
+      "disposition": "Preserve actual proof-page/browser/CSS fixes and explicit missing game-shell route/consumer. Correct floor-code interpretation through current GROUND_RULES: FLR2 is route, FLR3 shown, FLR4 used. Real host-view fixtures and public/private art-hook captures are not a naturally reached host integration. Raw full-suite arithmetic leaves3statuses unspecified here; do not invent skipped/TODO or call the full suite green. Four environmental explanations are inference in this checkpoint. No current source search proved all indirect mounts absent, and no current host route was played.",
+      "evidence": "Complete65line landing,50line pathway-card checkpoint and20line trial receipt delivered. Current GROUND_RULES FLR rows inspected; targeted names only from three card/host files, no full-source or runtime absence proof. No tests/build/browser/current process/remote/private media verification.",
+      "reopen": "Use actual current host and selected route before closing a floor gap; preserve differing test/build/tip identities and original-private data boundaries, and inspect remaining linked lane bodies independently.",
+      "input_sha256": "d4cf90a184fbc03bb1b8569dbc711e29ea17e8166e1f2944db827d9dce00a3cc",
+      "input_lines": 50,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          50
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/book-ui-wave-2026-10-30/evidence/ss/RECEIPT.md",
+      "ids": [
+        "build2f7d405f",
+        "naturaloriginaltrialroute",
+        "sevenbrowserchecks",
+        "4/4and39/39slices",
+        "WCO1belowfloor",
+        "panelautoswitch/genericreasondefects"
+      ],
+      "classification": "Historical lane integration or fixture/browser receipt with input-specific floor gaps",
+      "owners": [
+        "docs/UI_RULES.md",
+        "docs/gm/dispatch/book-ui-wave-2026-10-30/evidence/ss/RECEIPT.md"
+      ],
+      "disposition": "Preserve fresh-origin native route within this explicitly original Second Trial profile, with rebuilt browser and saved ladder/gate proof. That route is not full source-canon/whole-world or every ordinary start. Pre-edit MCP walk is separately weaker UI evidence; full npm was still running then, not a live job or pass now. WCO1carry-list/crossings-view join remains separately below floor in that receipt. Auto-switch and duplicated generic refusal are specific observed defects, not permission to redesign the UI during this review.",
+      "evidence": "Complete65line landing,50line pathway-card checkpoint and20line trial receipt delivered. Current GROUND_RULES FLR rows inspected; targeted names only from three card/host files, no full-source or runtime absence proof. No tests/build/browser/current process/remote/private media verification.",
+      "reopen": "Use actual current host and selected route before closing a floor gap; preserve differing test/build/tip identities and original-private data boundaries, and inspect remaining linked lane bodies independently.",
+      "input_sha256": "b8ed00b8f64fbd8ebad0da5d5e8f47fdbaf88f2cf432da0b910fe6308adc3660",
+      "input_lines": 20,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          20
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/UI_RULES.md",
+      "heading": "### Book UI receipt qualifications B271",
+      "body": "Full [13lane landing receipt](gm/dispatch/book-ui-wave-2026-10-30/LANDING_RECEIPT.md), [pathway-card checkpoint](gm/dispatch/book-ui-wave-2026-10-30/PATHWAY_CARD_CHECKPOINT.md) and [original-trial receipt](gm/dispatch/book-ui-wave-2026-10-30/evidence/ss/RECEIPT.md) were reviewed. Landing source, built artifacts, focused tests and a complete gameplay floor are distinct. The4797test suite ran before final lane tips; later83focused checks/arch/rules do not become a rerun of that suite. The c51c427de436bundle predates later master merges; dist/index remained uncommitted and partly held by another writer. Baseline-paired cast failures, the committed-versus-rebuilt stylesheet manifest and later lane CSS fixes preserve their actual input differences. No current commit, install, push, writer or bundle was revalidated.\n\nThe pathway card is a world-neutral read/render model with a real LOTM host-view proof page plus a synthetic second world. Its1920screens at14/21px and measured private art loading support that harness, not a native mounted game-shell journey. No art or private screenshot was opened or republished here. Current prose-first presentation keeps illustrations optional, not a required placeholder/portrait/glyph slot for every pane. The knownness ladder must not expose a hidden requirement's existence or count through anonymous locked rows unless the character actually knows that much; levels/families are a display model, not a source of knowledge (AR8, ABR19, PIR5). Route costs stay with actual known host actions; purchase/divination families in a model do not imply authored routes.\n\nThe checkpoint's floor labels are transposed: under [GROUND_RULES](GROUND_RULES.md#delivery-floor-flr1-flr6-accepted-as-ad43), FLR2 is Route, FLR3 Shown and FLR4 Used. Its own missing host mount/game-shell route/duplicate plan and linear-only graph limits remain explicit historical scope. The4728total/4720pass/5fail leaves three statuses unspecified in that paragraph; do not silently invent TODO/skipped values or treat the suite as all green. Seven card tests are within the17focused post-fix total, not24independent checks. The four remaining “environmental” failure explanations are explicitly inference there. A targeted current name search did not establish every indirect mount or present route; old no-mount text alone cannot prove current absence.\n\nThe original-trial receipt names a rebuilt bundle, fresh Beginning route, actual result consumer and save/reload/Export/Import. Preserve that finite authored original mode rather than call it a source-canon whole-life path. Its pre-edit MCP walk and reported post-edit desktop run remain separate evidence. The full suite was still running at the report timestamp and is not a live process or a pass now. WCO1carry-list/crossings-view remains separately unproved by that receipt, with observed unwanted centre auto-switch and duplicate generic refusal. Neither a successful ladder nor an unwired carry projection proves the other. Current AD36/AD42/AD43, actual file ownership and selected route govern further work; no runtime/UI change, host patch, build, test or new acceptance gate was selected.",
+      "before_sha256": "b4ab6ee4942f0d58e9cb81fb593a5a1218605b94be08bba059d1262a174ae238",
+      "after_sha256": "3f943d6b885029f867ce390e8b02ce2c4f1dcadada6a14e936b2dbf8d6d2eb1e"
+    },
+    {
+      "path": "docs/gm/dispatch/book-ui-wave-2026-10-30/PATHWAY_CARD_CHECKPOINT.md",
+      "heading": "## Content reconciliation B271",
+      "body": "Full checkpoint reviewed with the13lane landing receipt and original-trial receipt. Preserve the authored requirement families, real-host proof-page states, synthetic second-world distinction, sparse authored routes and private-data boundaries. Current [floor definitions](../../../GROUND_RULES.md#delivery-floor-flr1-flr6-accepted-as-ad43) identify FLR2 as Route, FLR3 as Shown and FLR4 as Used; the earlier “FLR2 consumer / FLR4 browser” wording is a label error, not new floor authority. The actual disclosed missing host mount/game-shell proof remains distinct from a passing isolated card renderer.\n\nThe full-suite paragraph's4728total/4720pass/5fail does not account for three statuses in this record; their classification is unknown here. The17focused post-token-fix checks include the seven card cases. Environmental explanations remain inference, and no full suite was rerun here. Current prose-first direction keeps artwork optional. A locked row/family/count must not reveal the existence or shape of an actually unknown requirement merely because the read model can enumerate it (AR8, ABR19). A no-save-state card needs no new save slice; a later selected change to host state/commands still carries its own real persistence obligations. No private art/screenshot or current native host integration was inspected by proxy.",
+      "before_sha256": "d4cf90a184fbc03bb1b8569dbc711e29ea17e8166e1f2944db827d9dce00a3cc",
+      "after_sha256": "dec263bca340861ef374c9bb60489b620fcbb1faa82f3e1b75dcfc5e92845a4d"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 881
+}

@@ -60,3 +60,12 @@ reader errors found and fixed, and new gaps (public: ids and counts only).
 
 **"Yes to the volume 1 reading plan"** (optionally with a token cap, for example "up to 9
 million haiku tokens"). Without it, reading stops at the 15-shard default bound.
+
+
+## Content reconciliation B294: approval chronology and qualification scope
+
+The complete 62-line plan was reviewed. Its opening records conditional October27 approval and a passed protocol-v2 gate; that later state supersedes the generic final yes-needed wording. Preserve the quoted old approval prompt as history, not a requirement to ask Weibao again. This content review grants no new source-reader dispatch or budget. Actual ongoing qualification resumes from its own current [reading status](READING_STATUS.md) and exact private checkpoint if that work is selected, rather than from these old 1–24/25–213 counts.
+
+Keep the exact source scope: the specified Chinese first-volume edition and 213 chapter bodies, excluding the volume note, later volumes, sequel and adaptations. The original 63 remaining shards at up to three chapters fit the 189 remaining chapters; six ten-shard waves plus three is the same63, not a second reader count. Measured body characters, per-shard protocol tokens, retry estimates, stronger-model samples and excluded coordinator work measure different costs. The old concurrency/model/usage-window defaults and 110%-estimate stop rule do not describe today's live workers or allowance.
+
+Per-shard lint and amount checks, one-in-three five-locator sampling, ten-percent row review, glossary rebuild and registry merge serve different validation roles. They do not independently prove every primary passage was read, correct every source conflict or qualify later whole-life coverage. A private output path, schema-shaped rows and a passed launch gate are not completed source reading or implemented protagonist play. Preserve source edition/cutoff and unresolved citation questions at their actual owner, keep sealed truth out of public outputs, and do not turn this bounded source plan into a default player start or new full-volume task.

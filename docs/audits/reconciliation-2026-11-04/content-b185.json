@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "batch": "B185",
+  "title": "Finish expired batch schedule, all decisions and gate failures",
+  "at": "2026-11-04T22:41:20.508528+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/batch-reading-2026-10-27/NOV1_SCHEDULE.md",
+      "ids": [
+        "merge/39plans",
+        "8ranks/stagesA–D",
+        "T1–T5",
+        "Go1–4",
+        "SA1–5/PI1–4/R1–4/WR1–5",
+        "alllaterapprovals"
+      ],
+      "classification": "Historical evolving source-reading plan and execution/gate receipt",
+      "owners": [
+        "docs/gm/dispatch/batch-reading-2026-10-27/NOV1_SCHEDULE.md",
+        "docs/gm/dispatch/protagonist-life-2026-10-27/READING_STATUS.md"
+      ],
+      "disposition": "Full199lines beyondopeningexpirednotice. LaterrecordedStageA/subsequentapprovedruns overrideinitialnothingsent, but oldgophrases notpresentauthority. Gatefailures/collectvsresubmit andWR4resumegatebug retained; runceilingsvslabeltheoreticalbounds distinct. Near1needsresolution constructionnotquality;7datedanchors168rootsnotfulltimeline; inventoryemptycells notmissingmechanics. Medium/high/changeddensities/glossaryleak/repair-C affectcomparisonnotgeneralmodelranking. 88name/39auto56other inconsistentdenominator preservedquestionnottrustedexactpartition. No actualpricescredits/models/keys/runlogs verified now.",
+      "evidence": "Fresh full1–108 and109–199read alltablesandlateWRsections. B179fullREADING_STATUSlaterqualificationsalreadyread. No rawsourcePDF/EPUB/privateoutputs/Keychain/API/pricepage/inference tool or driverstate read/executed.",
+      "reopen": "If future selectedreading recoverexactinput/sourceversion/requestplan/currentapprovedcap andactualreceipts; expiredschedulecannotresume paidruns, bypassgates orchangeuserdirection.",
+      "input_sha256": "e5517d787b83bcc741ad55158df888e5e7d684f11ba8b7b45302e3f2e23a19dc",
+      "input_lines": 199,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          199
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/batch-reading-2026-10-27/NOV1_SCHEDULE.md",
+      "heading": "## Full schedule and execution reconciliation, 2026-11-04 (B185)",
+      "body": "The complete schedule, ranks, stagesA–D, T1–T5, quoted go phrases and all SA/PI/R/WR execution sections were read. This document’s opening “nothing submitted” is historical after its own later approved/submitted runs, and its Nov1 timing window has passed. Later READlNG_STATUS records qualify the old waiting/gate/census state at their exact scope. Preserve the quoted approvals as provenance; they are not new permission to read keys, submit/relaunch paid requests, change price/model limits or restart old PIDs. No current credit, expiry, allowance, API/model capability or run status was checked.\n\nKeep merge metrics honest. Registry ID resolution near1 was explained as near1 by construction, not source correctness. Seven stated-date roots and many unanchored scenes do not establish a complete global chronology. Empty affordance cells and indexed rows are discovery coverage, not missing mechanics. The opening88ambiguous-name count versus39automatic/56other figures does not form a verified disjoint partition; do not convert it into a new exact identity census without its actual retained inputs. Proposed overlay review remains distinct from a high resolve rate, with uncertain person/place/family merges preserved.\n\nBudget estimates, per-label worst-case bounds, run measured ceilings and collected spend are different quantities. Old theoretical bounds assume their stated request/input/output/price configuration; later128K changes do not retroactively validate earlier cost comparisons. The $106potential total was explicitly above the credit, with staged measured-spend sizing, not authorization to spend that total. Keep failed StageA and subsequent first-gate outcomes, truncations/parse failures, glossary contamination and compared denominators intact. A repaired lint row does not establish factual truth; high effort yielding more rows does not prove better substance. WR5’s supported/partial/unsupported/trivial sample remains bounded, not a general model ranking or speed claim.\n\nWR3/WR4 matter operationally: collecting already-submitted work differs from resubmission; a resume that skipped an already-collected failing gate was an actual reported driver error, later repaired, not evidence the earlier stage passed. The source reports’ output/thinking explanation is attributed to their retained observations, not a new wire measurement here. Current actual source-read/quality/scene/readiness needs remain with their owners. No gate was bypassed, data regraded, private source opened, inference launched or reading priority changed during this reconciliation.",
+      "before_sha256": "e5517d787b83bcc741ad55158df888e5e7d684f11ba8b7b45302e3f2e23a19dc",
+      "after_sha256": "10b0e362565cc9d40f9369c7f4eceb736559d940a32bbdd5da6e374ca61e9201"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1102
+}

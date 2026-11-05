@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "batch": "B72",
+  "title": "UI acceptance packet: proposals in use versus later narrow standing updates",
+  "at": "2026-11-04T20:21:19.668190+00:00",
+  "head": "4cdc0772b65d413e4989e327502910140b2a15eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/UI_RULES_ACCEPTANCE_PACKET_2026-10-29.md",
+      "ids": [
+        "P1–P16",
+        "UR76–UR82",
+        "UIV1–UIV4/UIV6/UIV7",
+        "UIX1/UIX5/UIX7",
+        "UIV5 check"
+      ],
+      "classification": "fresh full proposal packet and later status reconciliation",
+      "owners": [
+        "docs/audits/UI_RULES_ACCEPTANCE_PACKET_2026-10-29.md",
+        "docs/UI_RULES.md",
+        "docs/RULES_INDEX.md"
+      ],
+      "disposition": "P1–16 preserved as proposed-in-use under CHOICES4, not unimplemented awaitingallnewyes nor formalblanketacceptance. CurrentUI_RULES/index retain standingUR1–75 and separate UR76–82/UIVproposalstatuses; Nov4 UI/prose adoption explicitly leaves unrelatedstatuses unchanged. SUI/RPTalreadybinding scopes distinct, laterRPT13/14 not reset topacket original12. UIV5auxiliarycheck remains checknotrule. Proposed counts/two-users/appidentity defaults not new universalruntime/human gate.",
+      "evidence": "All54packetlines freshly read; current UI62/109–133/152/184 and index49/105 plus CHOICES4 exactstatus text inspected. No humanacceptance inferredfromsilence or freshUI runtime/prototype check.",
+      "reopen": "Actual explicit lateradoption or selectedUIcontract change, maintaining exactscope/provenance/currentowner; no repeated blanketapprovalquestion or new implementationdispatch.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "49bef255b6462475d86902cec71bb135f0162243c4cbaf7da01126d2d01d75dc",
+      "input_lines": 54,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          54
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/UI_RULES_ACCEPTANCE_PACKET_2026-10-29.md",
+      "heading": "## Current status reconciled, 2026-11-04 (B72)",
+      "body": "The later “proposed, in use” status at the top is the operative distinction for this packet, not a fresh all-sixteen approval stop. [CHOICES item 4](../gm/dispatch/sonnet-wave-2026-10-30/CHOICES.md) applied defaults with panel dials while preserving proposal status; silence is not human acceptance (AD32). Current UI_RULES and RULES_INDEX still distinguish UR1–UR75 standing from UR76–UR82/UIV proposals in use. The November 4 UI/prose update explicitly preserves those unrelated statuses. P8/P10/P11/P6 overlap previously binding scene/Reports obligations at their stated domain scope; the old RPT1–RPT12 sentence does not remove later RPT13–RPT14. UIV5 remains an auxiliary visible-text persistence check, not a missing binding rule to invent. Keep P1–P16’s detailed recommendations and original adoption mechanism as history; no broad acceptance, new route budget, mandatory human review or runtime implementation follows from this review. Actual new behavior uses current owners and AD36/AD42/AD43.",
+      "before_sha256": "49bef255b6462475d86902cec71bb135f0162243c4cbaf7da01126d2d01d75dc",
+      "after_sha256": "06dba62ab83ab50d509b44b81acd666f85c6c92360c21edf2dda317001dcd92d"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1369
+}

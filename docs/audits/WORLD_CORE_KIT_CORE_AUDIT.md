@@ -1,5 +1,7 @@
 # World core kit core audit (repeatable)
 
+**B7 current continuation, 2026-11-04:** extend the existing [successor owner](../worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md#kit-procedure-content-reconciliation-b7-2026-11-04), retaining source-local IDs, original readiness baselines and scope. Old dated-successor/launcher examples do not restart the palette, authorize lanes or create a complete-kit gate (AD32/AD36).
+
 Saved 2026-10-14 at Weibao's request: "save this core auditing for long term
 repeating". A standing procedure for re-auditing what each world needs to play
 in depth, down to every little detail. It is one instance of the general

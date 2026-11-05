@@ -70,3 +70,10 @@ access, proprietary-source re-extraction, commit, push or publication occurred.
 No migration, crash recovery, offline inheritance or native bloodline behavior
 was verified. Sealed truths were neither needed nor disclosed. Root owns any
 integration into genetics, IDEA_INDEX or other live owners.
+
+
+## Current-use reconciliation B107, 2026-11-04
+
+Preserve B3-A01–B3-A23 (including A11a) as dated source/authority observations. Estate handover, kin label, parentage, taught mastery, power-composition lineage and a continued self are distinct. Current complete buildLifeHeirSave still creates fresh expansion and selected estate/history, but now explicitly calls carryCheats and preserves inheritance_law/discovery_codex. Selected complete carryCheats 117–165 has card-specific cross-life handling, so A16’s “does not explicitly copy previous cheats” and any blanket no-faculty-carry claim are stale. This closes that narrow absence, not generic soul/blood transmission or retained-world population/stock continuity. Old one-realm/prestige authority is retired; native defeat, old-age end and supported succession remain distinct. No current native/atomic crash-safe heir proof is added.
+
+The final report/checkpoint records completed documentation, not implemented G30 or running workers. Its own recommendations already preserve a candidate and separate actual estate from missing lineage/continuity. Root genetics section 992–995 already links the return and keeps alternatives; B107 adds the current cheat-carry correction and retired-milestone/current-rule qualification, rather than duplicate the full schema. Original source checks, document-link checks and five unrun gates retain their dates and scopes. Preserve all five files/history in place; no worker relaunch, new source reading, successor creation or prestige selection follows.

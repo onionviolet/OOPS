@@ -1,0 +1,84 @@
+{
+  "schema": 1,
+  "batch": "B294",
+  "title": "Lead engine checkpoints and volume plan: approved follow-ups versus actual consumers",
+  "at": "2026-11-05T00:59:06.326065+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/ENGINE_LANES_CHECKPOINT.md",
+      "ids": [
+        "PL-E0/PL-B1/PL-E2/PL-E3/PL-E1/PL-H1",
+        "CAE-E2",
+        "Three approved follow-ups",
+        "3563suite and earlier mid-edit failure"
+      ],
+      "classification": "Dated engine-ready/tooling implementations explicitly below runtime floor, with later approved follow-through",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/ENGINE_LANES_CHECKPOINT.md",
+        "docs/gm/dispatch/protagonist-life-2026-10-27/PLAN.md",
+        "docs/LEAD_LIFE_GUIDE.md"
+      ],
+      "disposition": "Read all46 original lines and every initial/approved-follow-up row. Later commits supersede not-built/needs-yes for heir snapshot, trader opt-in and beatLedger, but no consumer call/native browser/persisted beat evidence inferred. Fold input-bound test, headless/re-derived state and current source-versus-floor distinctions into checkpoint.",
+      "evidence": "PL-E1 callsite still no game-supplied worldSeed; chronicle label falls back without UI caller; beatLedger has no commit consumer. PL-H1 headless re-derivation and non-1.3 rows do not prove persisted playable lead route. Historical full suites include other sessions uncommitted inputs; no current rebuild/test/browser in this pass.",
+      "reopen": "Use current lead/developer-route owner for actual implementation status; do not redispatch lanes or re-ask the three already approved save/wiring choices from old stop rows.",
+      "input_sha256": "d901e5b66279ddf3b7d1504bb2f9d17dbd0dcc0cbfba1564bbb2a2e91ebb57f1",
+      "input_lines": 46,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          46
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/VOLUME1_READING_PLAN.md",
+      "ids": [
+        "Conditional approval and passed v2 gate",
+        "Chapters1–24/25–213",
+        "63shards/7waves",
+        "AU/WA/WPR audit sampling",
+        "Six stop conditions",
+        "Historical yes-needed footer"
+      ],
+      "classification": "Approved bounded historical source-reading plan, not a live launch or current source-qualification receipt",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/VOLUME1_READING_PLAN.md",
+        "docs/gm/dispatch/protagonist-life-2026-10-27/READING_STATUS.md",
+        "docs/AGENT_USAGE_RULES.md"
+      ],
+      "disposition": "Read all62 original lines. Preserve exact213chapter Chinese volume/edition/body-versus-note exclusion, scoped checkpoint counts, shard/sample/merge rules and estimated protocol budget. Top approved+gate-passed status supersedes bottom generic yes-needed footer. Fold actual primary reads versus samples/lint and historical budget/reader slots into plan.",
+      "evidence": "63remaining shards cover189chapters; six10-shard waves plusone3-shard wave agree. Estimated tokens count reader protocol, not just excerpt size; coordinator excluded. Plan estimates/sample cadence do not prove actual completed source reading, current model usage or all-chapter full-life runtime. No private source/shard read or new reader launched.",
+      "reopen": "For existing authorized reading use actual latest private checkpoint/READING_STATUS and source qualification owner, preserving unresolved citations. This task remains document reconciliation and does not resume source acquisition/readers.",
+      "input_sha256": "77f258ab26748fd66202ad336b3e53a969f460bd102248f3da556a7290e631e7",
+      "input_lines": 62,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          62
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/ENGINE_LANES_CHECKPOINT.md",
+      "heading": "## Content reconciliation B294: approved work and engine-ready limits",
+      "body": "The full 46-line checkpoint was reviewed, including the follow-up table and final corrected test result. The three initial save/wiring stop questions were subsequently approved and given commits here. Preserve the initial states as history; do not ask again whether those already selected follow-ups were authorized. The later heir snapshot, runtime trader argument and optional ledger are source additions, not necessarily actual UI or gameplay consumers. The record still says no game supplies worldSeed, no UI calls the predecessor-label helper and no consumer commits beatLedger. Those are dated consumer limits, not fresh present-code absence findings.\n\nHeadless PL-H1 day stepping, elder dialogue and re-derived beat equality do not prove verbs driving actual world beats, saved mid-window progression or a fresh-origin browser journey. Export/import of a ledger with no producer is distinct from meaningful persisted run continuation. Its rows were not in lead-run/1.3 shape and the named bystander smoke was unrun. The later 3,563-test green result follows the fixed validate-before-normalize issue; preserve the mid-edit failure and exact tested input rather than calling it independent failure or new passing evidence. Earlier suites overlap and include unrelated shared dirty files; generated build outputs were not committed with the lanes.\n\nAD43 keeps source edit, focused/full tests, build, shown/used consumer and relevant persistence evidence distinct. All implemented-below-floor labels describe that checkpoint's incomplete proof, not an instruction to rebuild or declare today's whole lead system incomplete without its later owners. AD42 keeps human review separate and optional. Current lead developer build-through and ordinary/alternative-start scope retain their existing authority. No old lane, branch, commit, save decision or private reader is restarted by this review.",
+      "before_sha256": "d901e5b66279ddf3b7d1504bb2f9d17dbd0dcc0cbfba1564bbb2a2e91ebb57f1",
+      "after_sha256": "3db836ee2f9c6e55ebfa1584641f908207f83c29e3aa8f0aa7ecc13a9e00e759"
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/VOLUME1_READING_PLAN.md",
+      "heading": "## Content reconciliation B294: approval chronology and qualification scope",
+      "body": "The complete 62-line plan was reviewed. Its opening records conditional October27 approval and a passed protocol-v2 gate; that later state supersedes the generic final yes-needed wording. Preserve the quoted old approval prompt as history, not a requirement to ask Weibao again. This content review grants no new source-reader dispatch or budget. Actual ongoing qualification resumes from its own current [reading status](READING_STATUS.md) and exact private checkpoint if that work is selected, rather than from these old 1–24/25–213 counts.\n\nKeep the exact source scope: the specified Chinese first-volume edition and 213 chapter bodies, excluding the volume note, later volumes, sequel and adaptations. The original 63 remaining shards at up to three chapters fit the 189 remaining chapters; six ten-shard waves plus three is the same63, not a second reader count. Measured body characters, per-shard protocol tokens, retry estimates, stronger-model samples and excluded coordinator work measure different costs. The old concurrency/model/usage-window defaults and 110%-estimate stop rule do not describe today's live workers or allowance.\n\nPer-shard lint and amount checks, one-in-three five-locator sampling, ten-percent row review, glossary rebuild and registry merge serve different validation roles. They do not independently prove every primary passage was read, correct every source conflict or qualify later whole-life coverage. A private output path, schema-shaped rows and a passed launch gate are not completed source reading or implemented protagonist play. Preserve source edition/cutoff and unresolved citation questions at their actual owner, keep sealed truth out of public outputs, and do not turn this bounded source plan into a default player start or new full-volume task.",
+      "before_sha256": "77f258ab26748fd66202ad336b3e53a969f460bd102248f3da556a7290e631e7",
+      "after_sha256": "42f0678560aa43b395d9d98a867309da354f05d110f0cdfcf96484910f2799d3"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 835
+}

@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "batch": "B59",
+  "title": "Implementation-practice audit: accepted floor, source adoption and obsolete process gates",
+  "at": "2026-11-04T20:06:01.178766+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md",
+      "ids": [
+        "IPC1–IPC87",
+        "Q1–Q18",
+        "PRF1–PRF8",
+        "FLR1–FLR6",
+        "FND1–FND5",
+        "Rounds1–8"
+      ],
+      "classification": "repeatable audit, historical proposal/adoption/queue owner; fresh full content review",
+      "owners": [
+        "docs/audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md",
+        "docs/gm/dispatch/carry-out-queue-2026-10-26/PRIMARY_ADOPTION.md",
+        "docs/GROUND_RULES.md",
+        "docs/RULES_INDEX.md"
+      ],
+      "disposition": "Preserve sample-based failure patterns vs frequency claims; AD43 floor accepted separately from proposed PRF/FND; late primary adoption supersedes branch-only stages for selected Q tools. Current source confirms BUILD_OUT preview path exists, with live asset links not immutable release. Current AGENTS/CLAUDE managed global pointers supersede Q14 repeated full-copy observation without proving client-load/token savings. IPC60 two-world-before-new-construct proposal is qualified by accepted AD51 design shared seam then second-world validation; do not revive arbitrary waiting gate. IPC85 commit default cannot grant current commit authority. Heuristic lint/census/receipt shape are not semantic completeness or proof all loose ideas fulfilled.",
+      "evidence": "All484 lines read in bounded ranges; clipped IPC36–40/IPC56–59/Q4–Q8 spans separately retrieved. build.js full source read, current managed pointer sections and GROUND_RULES proposal/floor labels inspected. No old log corpus re-read, new build, MCP/browser test, tool installation or adoption performed.",
+      "reopen": "Use existing primary adoption/current register and exact chosen consumer for implementation. Preserve unselected Q/IPC ideas and current code/proof distinction; current user authorization governs commit/dispatch and live owners govern priority.",
+      "read_mode": "fresh_full_content_read",
+      "supporting_inputs": [
+        {
+          "path": "build.js",
+          "sha256": "e8f17e17b2a2a9dbf4fc5005333431f6e345ebe5be9acb21ba38b9b6b9b426e1",
+          "scope": "full source inspection only; no build executed"
+        }
+      ],
+      "input_sha256": "e4cf195d0ed40f282d828dc27156b5ddac15614b0f850c0882eb3b08fcbd7d68",
+      "input_lines": 484,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          484
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/IMPLEMENTATION_PRACTICE_CORE_AUDIT.md",
+      "heading": "## Current authority and adoption reconciliation, 2026-11-04 (B59)",
+      "body": "Read the full round chronology: Round7 and PRIMARY_ADOPTION advance selected Q1/Q2/Q3/Q6/Q7/Q8 beyond Round6’s branch-only/blocked stage. Their lint/census/ledger fields still do not prove semantic quality or every saved idea’s fulfillment. Current build.js contains the BUILD_OUT bundle/HTML path and live-asset-link preview route; this is source presence, not a new concurrent-build/browser receipt or immutable package. Current AGENTS/CLAUDE carry generated global agreement pointers, so Q14’s repeated full-text-copy description is historical; this review measured no current client-load/token saving. AD43’s floor is accepted, PRF/FND remains proposed. Accepted AD51 supersedes IPC60/FND5 if read as requiring two implemented worlds before designing a shared seam: design from known sources, then a second world validates/revises it; local laws remain local. AD52 separately governs compressed activity choices/costs/knowledge/clocks. IPC85’s suggested report commit cannot supply authorization; this reconciliation remains local/uncommitted. Old Q waiting/worker/model fields and proposed rulebook order are history, not a new dispatch, adoption vote or prerequisite to current lead work.",
+      "before_sha256": "e4cf195d0ed40f282d828dc27156b5ddac15614b0f850c0882eb3b08fcbd7d68",
+      "after_sha256": "dd1bc1cf5b5d5246f84309c0c55cd520f9497a02556a762f39ec4fd4e3b480b3"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1417
+}

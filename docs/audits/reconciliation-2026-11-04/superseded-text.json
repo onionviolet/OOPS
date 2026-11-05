@@ -1,0 +1,53 @@
+{
+  "note": "Exact pre-edit text, preserved as historical wording, not current authority.",
+  "entries": [
+    {
+      "source": "PROJECT.md",
+      "original_line": 20,
+      "text": "2. **Batched reading before Nov 1.** Readers record everything the text states and invent nothing; gaps are worked out afterward. The promo credit expires Nov 1 and each batch runs on Weibao's go ([schedule](docs/gm/dispatch/batch-reading-2026-10-27/NOV1_SCHEDULE.md)).",
+      "superseded_by": "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md"
+    },
+    {
+      "source": "docs/VISION_DIGEST.md",
+      "original_line": 15,
+      "text": "- **Complete LOTM through Klein's full journey first.** Use Klein as the developer playthrough for contiguous arcs from the opening to the first novel's ending, using later-mechanic audits to inform early contracts. Ordinary player entry uses lore-grounded, low-spoiler starts ([direction](USER_VISION.md#lotm-first-through-kleins-full-journey-2026-11-01), [campaign plan](gm/dispatch/refinement-audits-2026-10-31/LOTM_KLEIN_FULL_JOURNEY_PLAN.md)). Other worlds remain part of the broader vision.",
+      "superseded_by": "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md"
+    },
+    {
+      "source": "docs/LEAD_LIFE_GUIDE.md",
+      "original_line": 570,
+      "text": "**When LOTM teaches a reusable lesson:** classify it as world data, an existing shared renderer, an adapter to an existing mechanism, or a new shared seam justified by two real consumers. State exactly what is shared and what remains world-specific. A second-world fixture tests the claim; it does not authenticate that world's lore or force all worlds onto the shape. A late source exception can still require a versioned refactor under AD45.",
+      "superseded_by": "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md"
+    },
+    {
+      "source": "docs/RULES_INDEX.md",
+      "original_line": 99,
+      "text": "| Adding or absorbing any mechanic, or \"send out and work on\" a mechanic | MAW stages 0–7, AD36, AD38, AR11–AR16 | [Systems register](SYSTEMS_REGISTER.md) first (which system and degree fits), then the [mechanic absorption workflow](gm/MECHANIC_ABSORPTION_WORKFLOW.md); [all saved references implementation](gm/dispatch/reference-mechanics-2026-10-25/CHECKPOINT.md) |",
+      "superseded_by": "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md"
+    },
+    {
+      "source": "docs/RULES_INDEX.md",
+      "original_line": 113,
+      "text": "| A new world or book adaptation | AD44 (lead-first playthrough is the main line), CLR1–CLR13, SUI1–SUI19 and RPT1–RPT14 (cast-lives defaults; RPT13: the world ships its Reports voice), LSD1–LSD475 (top-down lead-life systems, proposed; read via the [lead-life guide](LEAD_LIFE_GUIDE.md); accepted lines in [LEAD_LIFE_RULES](LEAD_LIFE_RULES.md)), WA54–WA60 (UI/engine contracts, coordinated sharing and qualified lore/context/result tests), Rulebook 2–3, AD1–AD5, MR11–MR15, SR1–SR3; WA1–WA24 for turning the source into a pack (WA22–WA24: every mention placed, dated whereabouts, forward anchors); WA25–WA41 (accepted, adjustable), WA48–WA50 (accepted: whole-source seams, gap register, dated character records) and proposed WA42–WA47 for lead runs (classed actions, loops, untaken options, shard gates, conflicts, stats, allies, codifying, environment, events, fills, talks, two-layer state, extraction scope, relationships, tiers, hand-off); WER1–WER17 for how players enter it | [Rulebook precedent](RULES_FROM_SCRATCH.md#cross-world-audit-precedent-special-rules-and-little-details-2026-10-12), [completion standard](WORLD_COMPLETION_STANDARD.md), source research; WA8/WA12 distinguish source, knowledge and built coverage; floors allow selected slices; run order from source to past canon: [deep world workflow](DEEP_WORLD_WORKFLOW_2026-10-19.md) (proposal) |",
+      "superseded_by": "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md"
+    },
+    {
+      "source": "docs/gm/dispatch/refinement-audits-2026-10-31/OWN_HOLDINGS_PLAN_2026-11-03.md",
+      "original_line": 3,
+      "text": "Proposal under AD32; nothing built. Follows A1-A4 of [HP_O1_O2_RECEIPT](HP_O1_O2_RECEIPT.md). Rules: AD44, AD46, AD51, AR1-AR16, AR3, UR (display only), AD36, AD43. Default, dial and reason below replace an either/or question (AD5).",
+      "superseded_by": "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md"
+    },
+    {
+      "source": "docs/LEAD_LIFE_GUIDE.md",
+      "original_line": 73,
+      "text": "**The lead's run as a feature harness** (LSD226-LSD230, proposal). The run buys features, not\nstep counts. A feature counts as part of the game when it reads no \"is the lead\" flag, ships\na failure path and a refused path, and runs on a second world's fixture. Until then it is a\nbook-specific feature. Plot armour is a constraint, not a stat (LSD228).",
+      "superseded_by": "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md"
+    },
+    {
+      "source": "docs/gm/WRITEUP_REGISTER.md",
+      "original_line": 46,
+      "text": "1. **Inventory.** `git log --since=<last pass> --name-status -- docs | grep '^A'` plus\n   the dispatch folders. Every new writeup missing from section 4 gets a row.",
+      "superseded_by": "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md"
+    }
+  ]
+}

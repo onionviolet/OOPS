@@ -1,0 +1,122 @@
+{
+  "schema": 1,
+  "batch": "B260",
+  "title": "Reconciliation brief, implementer contract and connected gathering palette",
+  "at": "2026-11-05T00:09:03.160710+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/AUDIT_PROGRESS_AND_REFINEMENT_PROMPT_2026-10-15.md",
+      "ids": [
+        "P1–7",
+        "P3A/P3B",
+        "P5A",
+        "P6A/P6B",
+        "dispatch/recovery qualification"
+      ],
+      "classification": "Historical workflow/template or connected content palette",
+      "owners": [
+        "docs/AUDIT_PROGRESS_AND_REFINEMENT_PROMPT_2026-10-15.md"
+      ],
+      "disposition": "Preserve original text and append exact current-authority, scope and evidence qualifications; retain useful workflow and connected resource ideas without automatic dispatch.",
+      "evidence": "Entire document delivered and reviewed. No external pages, worker/process state, runtime source table or natural gameplay reverified.",
+      "reopen": "Select only an authorized bounded task under current direction and actual producer/state/consumer; retain historical evidence scope and unresolved mechanism details.",
+      "input_sha256": "36a057229d0a1a00223296ce76e55f9d261386b220f3c7a2841f741525648ccf",
+      "input_lines": 218,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          218
+        ]
+      ]
+    },
+    {
+      "path": "docs/GAME_IMPLEMENTER_TEMPLATE.md",
+      "ids": [
+        "task packet",
+        "five implementation responsibilities",
+        "return format",
+        "model route",
+        "capacity/succession",
+        "autonomous goals"
+      ],
+      "classification": "Historical workflow/template or connected content palette",
+      "owners": [
+        "docs/GAME_IMPLEMENTER_TEMPLATE.md"
+      ],
+      "disposition": "Preserve original text and append exact current-authority, scope and evidence qualifications; retain useful workflow and connected resource ideas without automatic dispatch.",
+      "evidence": "Entire document delivered and reviewed. No external pages, worker/process state, runtime source table or natural gameplay reverified.",
+      "reopen": "Select only an authorized bounded task under current direction and actual producer/state/consumer; retain historical evidence scope and unresolved mechanism details.",
+      "input_sha256": "17cd677eb866c2bd670fbdd602afd1e864e1474240efa3928a730c44eb1cc426",
+      "input_lines": 98,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          98
+        ]
+      ]
+    },
+    {
+      "path": "docs/GATHERING_AND_RESOURCE_USES.md",
+      "ids": [
+        "five resource families",
+        "five resource distinctions",
+        "five character situations",
+        "willow/apprentice outing",
+        "five further considerations"
+      ],
+      "classification": "Historical workflow/template or connected content palette",
+      "owners": [
+        "docs/GATHERING_AND_RESOURCE_USES.md"
+      ],
+      "disposition": "Preserve original text and append exact current-authority, scope and evidence qualifications; retain useful workflow and connected resource ideas without automatic dispatch.",
+      "evidence": "Entire document delivered and reviewed. No external pages, worker/process state, runtime source table or natural gameplay reverified.",
+      "reopen": "Select only an authorized bounded task under current direction and actual producer/state/consumer; retain historical evidence scope and unresolved mechanism details.",
+      "input_sha256": "80c00373e08110f72165b2523e826336d7a85a2ff38d36187f1ca954014873af",
+      "input_lines": 95,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          95
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/AUDIT_PROGRESS_AND_REFINEMENT_PROMPT_2026-10-15.md",
+      "heading": "## Content reconciliation B260",
+      "body": "Full execution-brief content reviewed. Its October 18 recovery note already makes the October 15 active chat and reservation table historical. Those IDs, UI R6 and Qud checkpoints are discovery pointers, not present writer locks or an instruction to message/interrupt anyone. This pass continues in the [existing reconciliation record](audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md) and its explicit content inventory; no second backlog or new world-detail execution is created.\n\nP7's 1366 desktop target is superseded by the current [UI owner](UI_RULES.md) and later task-specific user corrections. Human review is optional under AD42; retain its absence as a state, without using “human acceptance” or an old failed/unrun gate to block authorized document maintenance. P2's first-milestone sequencing statement is historical because [the October 24 direction](USER_VISION.md#first-milestone-and-scope-check-2026-10-24) removed that gate. P5's first demonstrated consumer requirement is consistent with AD51; representative/outlier reasoning is not a requirement to implement a second world before a useful seam.\n\nP5's instruction to recommend shared-skill edits separately bounded that old assignment. The current user's explicit request to update reconcile-project supplied that scope; it does not authorize arbitrary global instruction edits. P3's indexed-only / unread distinction continues to matter: filename routing is not content coverage, and an unchanged hash does not supply missing reading. P3A's provenance/worktree comparisons remain scoped records, not authority to merge, retire, recreate or delete a checkout. No stale process, worker, model, private save, source or integration claim was verified by preserving a historical pointer. The actual content folds and original input identities live in the current batch ledgers, and scope completion remains distinct from batch completion. No consequential user question is created merely because the template contains a question stage.",
+      "before_sha256": "36a057229d0a1a00223296ce76e55f9d261386b220f3c7a2841f741525648ccf",
+      "after_sha256": "f6d0ade8e1803fa46afc5b3573d630975c7a0daa94a186ef954d24f5134d7a99"
+    },
+    {
+      "path": "docs/GAME_IMPLEMENTER_TEMPLATE.md",
+      "heading": "## Content reconciliation B260",
+      "body": "Full template reviewed as a reusable historical role contract. The assigning GM coordinates design and reviews implementation within human-authorized direction; it cannot take Weibao's creative/product acceptance authority or promote a worker's proposal. “Gate passed” remains scoped to actual owned checks. AD43 is the runtime gameplay floor; a docs-only or read-only task uses relevant document checks and does not inherit a mandatory browser/persistence route from an empty GATE field. PRF remains a proposed aid, as the packet itself says.\n\nThe same file gives Luna medium for readers, Luna high as an implementation proposal and an old wave-specific implementation-first deferral. These are contextual routing/receipt history, not a reason to override current host/user instructions, AU policy, assigned model/effort or current verification stages. The bottom TRAILBLAZE sentence does not resume that exploratory wave or defer suites for a new task. No current tool/model capability was looked up and the old external guidance link was not verified here.\n\nCapacity/succession authorization is bounded by current host rules. This template does not independently authorize a subagent, a user-visible new chat, a message to another chat/person, or a new management tier. A checkpoint, uncertain mutation and exclusive writer transfer are still useful if a currently authorized successor is actually needed. No agents were launched, no packets dispatched, and no general commit or push authority follows. Preserve shared paths from their live bytes and run the project's applicable zero-loss checks when integration is selected.",
+      "before_sha256": "17cd677eb866c2bd670fbdd602afd1e864e1474240efa3928a730c44eb1cc426",
+      "after_sha256": "980568461f1e0e6c57bae8dcb4306dd9bebc7428248e45e4fde8a0b72fad2850"
+    },
+    {
+      "path": "docs/GATHERING_AND_RESOURCE_USES.md",
+      "heading": "## Content reconciliation B260",
+      "body": "Full content reviewed, including every resource family, method/use distinction, character link, willow outing and later refinement. Preserve the native source table as the explicitly dated October 2 inspection at its recorded commit. It proves declarations at those inputs, not today's playable collection, actor contract, finite ecology, planting or closed-browser simulation. The willow/sap/apprentice scene remains an original connected proposal; its costs, agreed shares, custody, lesson and later return each need their actual owner rather than a party multiplier or a journal-only completion.\n\nThe earlier “medium-sized native scene first,” prestige wording and “accepted center action menu primary” are historical sequencing/presentation context. Current [PROJECT](../PROJECT.md), [direction](USER_VISION.md#first-milestone-and-scope-check-2026-10-24), [UI_RULES](UI_RULES.md) and [domain owners](DOMAIN_RULES.md) govern selection and presentation. This palette selects no Village expansion, extra world or implementation gate. Any shared gathering/resource seam can serve the selected book-world consumer under AD51; it need not deepen the Village first.\n\nThe specialization row's “if one use or build always wins, vary the task” is an optional way to create useful choices, not forced balance or a reason to nerf a genuinely dominant means (AD28, AD38). Rarity, quality and suitability stay separate; no blanket freshness/transport tax is required. Access permission, known route and actual physical capability are also distinct: lacking a legitimate right does not by itself make a physically supported act impossible, while theft, trespass and social consequences need real mechanisms and witnesses. Recording/copying information does not consume the original by default; special transfers can differ by actual means.\n\nA promise/loan is a participant-scoped settlement, not proof that the apprentice automatically performed work or received a share. A tended patch needs an actual growth/stock clock and a usable output/reader. The proposed route marker, cutting and earned routine likewise retain named effects and stop conditions. These useful ideas remain in this owner with their original uncertainty; no collection controller, content item, scheduler, save change or natural-journey proof was added.",
+      "before_sha256": "80c00373e08110f72165b2523e826336d7a85a2ff38d36187f1ca954014873af",
+      "after_sha256": "949bbd1676323aff1e297ef337cf591c3b694ae0fab3a526deea49ff59865819"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 909,
+  "post_record_amendments": [
+    {
+      "path": "docs/GATHERING_AND_RESOURCE_USES.md",
+      "from": "its costs, accepted shares, custody, lesson",
+      "to": "its costs, agreed shares, custody, lesson",
+      "reason": "B260 lint terminology correction; original wording and failed output retained, no product authority change."
+    }
+  ]
+}

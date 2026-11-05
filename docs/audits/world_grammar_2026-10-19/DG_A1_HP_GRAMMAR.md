@@ -221,3 +221,8 @@ INFERRED label.
 | Grammar record format on the world profile (DG9) | Strong | Held | Needs the profile and dial format decision |
 
 Everything above is a proposal. It stays under the sealed-secret rule: no secret truth appears here.
+
+
+## Reconciliation B91, 2026-11-04
+
+Preserve G1.1–G8.4, GC1–GC12 and G-A–G-H with their original provenance. Derivable means a bounded note locator supports an authored structure, not full recipes, spell grammar or runtime implementation. Same hue has recipe/stage/modality context; diagnosis and improved instructions are attributed claims, improved cue is not proven potency, and repair does not restore lost contents. Acquired/read/practiced/executed are knowledge states, not interchangeable physical components of casting. Wandless/tool exceptions and recipe-local hard steps remain local, not universal gates. No private notes or raw novels were reread here; OCR/edition, missing quantities and source-set limits remain open.

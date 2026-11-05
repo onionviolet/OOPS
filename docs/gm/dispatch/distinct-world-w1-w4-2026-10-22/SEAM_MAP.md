@@ -28,3 +28,8 @@ passing evidence for this task. Heavy native/suite work uses
 The checkpoint's six desktop cases are still required for changed controls.
 A prebuilt/staged app or another chat's helper probe does not satisfy those
 checks. No private player saves are needed for these disposable journeys.
+
+
+## Later W1–W4 delivery reconciled, 2026-11-04 (B81)
+
+The [checkpoint’s completed final gate](CHECKPOINT.md#completed-final-gate) supersedes this initial missing-join map at the selected scope. Its actual content records W1’s two material preparations, earned fitting and precise results; W2’s earned office, funded delegation and successor-reviewed handover; W3’s two retained historical origins with present ownership/observer/brace consumer; and W4’s ambient versus paid-dose intake, committed reserve and practiced quality. Historical stock/XP/opening fixtures remain declared. The final isolated candidate records its own rebuild, full suite, desktop matrix and ten literal persistence states after primary-source drift and fixture failures. Current selected lore validation also recognizes a narrow Mistglass world.initialize receipt and retained per-world histories, so “Village/P3/P4 only” is not a current universal absence claim. That source observation and this receipt reading do not refresh current gameplay/input parity. Actual body replacement stayed source-test coverage; foreign-world inertness had native proof. Old reservations, preview address, test wrapper and one-realm milestone are history. Current AD36/AD42/AD43 and desktop authority govern new claims; no new W implementation or app adoption is selected.

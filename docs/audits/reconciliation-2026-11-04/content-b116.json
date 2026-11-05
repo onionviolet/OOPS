@@ -1,0 +1,156 @@
+{
+  "schema": 1,
+  "batch": "B116",
+  "title": "Complete investigation pairs, breadcrumbs, diagnosticians and event shapes",
+  "at": "2026-11-04T21:11:29.294260+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b13/PAIRS.md",
+      "ids": [
+        "LA1–LA12"
+      ],
+      "classification": "Historical investigation palette and delivery proposal",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b13/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Preserve mixed causes, useful action before certainty and actual consequences rather than diagnosis by label. First witnessed lesson is not first practice, tolerance not injury-free endurance, persistent diet-built constitution not fake, negative scope not universal absence, resemblance not descent/recognition. Controlled performance/statistical anomaly supports narrow inference, not unique mechanism or intent. Correcting a claim does not undo transferred property or trained mastery.",
+      "evidence": "Fresh full body read including tables and code/commitment shapes; clipped header recovered explicitly. Historical source/code tests not rerun.",
+      "reopen": "For a selected enquiry, inspect current cast, means, command, claim and useful consequence owners; qualify actual pending/completed/corrected persistence and disclosures.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "9f92680e74c045b0d157f7e079b40cd1f786549fefceddf0f396b70e486a13ad",
+      "input_lines": 93,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          93
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b13/BREADCRUMBS.md",
+      "ids": [
+        "BC1–BC9"
+      ],
+      "classification": "Historical investigation palette and delivery proposal",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b13/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "All observations bind actual occurrence, witness/channel and coverage. Warmth, animal/plant response, marks, scent, healing, dreams and familiarity do not identify hidden cause. Copied accounts share lineage; memory freezes before comparison. Actual recurring exposures differ from replay. No truth-driven clue counter, retroactive injuries/visits or broad player knowledge from NPC-only sighting.",
+      "evidence": "Fresh full body read including tables and code/commitment shapes; clipped header recovered explicitly. Historical source/code tests not rerun.",
+      "reopen": "For a selected enquiry, inspect current cast, means, command, claim and useful consequence owners; qualify actual pending/completed/corrected persistence and disclosures.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "ab6a6b8b37075ddfc3626ec07e13b047c60aba5b715b3f794d47f937a6398caf",
+      "input_lines": 65,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          65
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b13/DIAGNOSTICIANS.md",
+      "ids": [
+        "DT1–DT7",
+        "DX1–DX5"
+      ],
+      "classification": "Historical investigation palette and delivery proposal",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b13/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Titles do not supply means; apparatus/operator/power/schema/channel differ from willingness and access. Negative, unavailable, refused, blocked, out-of-range and inconclusive outcomes differ. Keep world truth, raw observation, interpretation, belief and legal recognition distinct. Existing basis records cannot accept arbitrary confidence/protocol fields without admission; bounded claim adapter is possible. People rows need actual provider/introduced-subject or received-report support. No exact means random failure by fiat.",
+      "evidence": "Fresh full body read including tables and code/commitment shapes; clipped header recovered explicitly. Historical source/code tests not rerun.",
+      "reopen": "For a selected enquiry, inspect current cast, means, command, claim and useful consequence owners; qualify actual pending/completed/corrected persistence and disclosures.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "03b64fdd0b69b0e8ba2c460cc522bd544b29e763edc802386f3a617ed4480e0a",
+      "input_lines": 49,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          49
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b13/EVENT_SHAPES.md",
+      "ids": [
+        "ES1–ES8",
+        "21 LA/BC bindings",
+        "SD1–SD6",
+        "J1–J3",
+        "G1–G5"
+      ],
+      "classification": "Historical investigation palette and delivery proposal",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b13/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Compiler input is not admitted drop-in data; P3 nested metadata not broad E2 cast API. Card draws schedule opportunity, do not create diagnosis/cure/truth. Preserve known admission before weights, quiet branch, pure previews, frozen identities/noisy results only where mechanism needs noise, actual communication and dated record outside feed pruning. Reoffer needs real occurrence; timeout does not diagnose/spend/escalate by itself. Three journeys specified not played.",
+      "evidence": "Fresh full body read including tables and code/commitment shapes; clipped header recovered explicitly. Historical source/code tests not rerun.",
+      "reopen": "For a selected enquiry, inspect current cast, means, command, claim and useful consequence owners; qualify actual pending/completed/corrected persistence and disclosures.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "11c6b6987492e4ef91e9d2ee3382cc9adb0dc4a1be0878b0c7bf4bf6f2912b6b",
+      "input_lines": 122,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          122
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b13/REPORT.md",
+      "ids": [
+        "F1–F5",
+        "D1–D5",
+        "A1–A5",
+        "proof limits"
+      ],
+      "classification": "Historical investigation palette and delivery proposal",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b13/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Final storylet integration supersedes initial absence, without establishing current served bytes. Historical source hashes/bounds are not new runtime or transitive reading. LA1+BC4 and LA6+BC6 unselected options, not current queue. Retired one-realm/one-prestige line is historical; current PROJECT/AD42 direction governs, human review optional. No primary external/canon/private-save/native proof in this packet.",
+      "evidence": "Fresh full body read including tables and code/commitment shapes; clipped header recovered explicitly. Historical source/code tests not rerun.",
+      "reopen": "For a selected enquiry, inspect current cast, means, command, claim and useful consequence owners; qualify actual pending/completed/corrected persistence and disclosures.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "899f4705ca3a77fa2390a21ea08d71ee505d9e81ef1026897eda2496be4f8706",
+      "input_lines": 59,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          59
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b13/REPORT.md",
+      "heading": "## Investigation-use reconciliation B116, 2026-11-04",
+      "body": "Full LA1–LA12, BC1–BC9, DT1–DT7/DX1–DX5, ES1–ES8, SD1–SD6, J1–J3 and report read. Preserve mixed causes and useful action before certainty. Evidence, diagnosis, causal mechanism, culpable intent and legal recognition remain distinct; scoped negative/inconclusive evidence is not universal absence. First witnessed practice is not first-ever practice, familiar marks are not ancestry, and a correction neither erases competence nor automatically reverses a settled transfer. Every tell needs an actual occurrence, witness/channel and known coverage. Copied reports are one source chain; freeze recalled details before comparison, preserve disagreement and corrections, and keep active evidence outside feed pruning.\n\n[EVENT_SHAPES](EVENT_SHAPES.md) is compiler/planning input, not newly admitted effects or a general cast API. Its final storylet-arrival readback supersedes initial absence. A deck selects a delivery opportunity, not body truth, diagnosis, cure or NPC disclosure. Actual means, subject identity, quoted protocol, noisy outcome where supported, care/work consequence and communication need their owners. No random failure for an exact means, truth-specific price/sort leak or timeout autodiagnosis. People/Notebook requires a real provider; writing an arbitrary knowledge key does not create a row. Keep richer evidence admission explicit or use the declared bounded separate-key adapter.\n\nThe old one-realm/one-prestige sequencing sentence is history, superseded by current [PROJECT](../../../../../PROJECT.md); human review is optional under AD42 in [RULES_INDEX](../../../../RULES_INDEX.md). The five ranked suggestions are unselected palette, not new priority or a demand to implement every test. Current desktop/laptop direction qualifies fixed 1366 wording. Historical source SHA/locator checks and peer reports do not prove current APIs, served bytes or this pass reading all dependencies. All three journeys remain specified, not played by this review. No source/canon/private-save or runtime verification was added.",
+      "before_sha256": "899f4705ca3a77fa2390a21ea08d71ee505d9e81ef1026897eda2496be4f8706",
+      "after_sha256": "a9f7491f9bc3d072fc6f73ca3592e8fd2ed32b3d1a41305bb1d71ad210e73cc2"
+    },
+    {
+      "path": "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+      "heading": "## Diagnostic palette reconciliation B116, 2026-11-04",
+      "body": "The complete [B13 investigation packet](gm/dispatch/body-lineage-2026-10-14/b13/REPORT.md#investigation-use-reconciliation-b116-2026-11-04) preserves LA/BC investigations and ES/DT/SD delivery designs. Treat clues as observed evidence with actual means and coverage, not hidden-cause labels. Mixed causes, useful care/work before certainty, conflicting claims and independent reference routes remain available; a legal certificate is another consumer. Event delivery, tests, intervention and communication have separate receipts and owners. The former one-prestige sequencing line is retired; these suggested slices do not change current priorities, and AD42 human review remains optional.",
+      "before_sha256": "2fcde7bf4eb0d759524fa7cdee1d3545697c4c7634b9945453c472d92db594cd",
+      "after_sha256": "eb30b040d31fe15833536125df610b6438d5f46b1a179dcfcd2ab429fc131a7e"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1245
+}

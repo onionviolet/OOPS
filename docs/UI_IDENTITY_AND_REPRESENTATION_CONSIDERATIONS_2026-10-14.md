@@ -90,7 +90,7 @@ For each question the player asks, the cheapest view that answers it well:
 - **UC2.** DU1 and DU7 belong together. Restyling file by file repeats UF2; a token pass first makes the Proto23 skin one change and keeps Classic, Workspace and per-world frames consistent.
 - **UC3.** Proto23 license is unresolved (UI owner, 2026-10-13): copy the shape language, not its code or assets. Its values above are design measurements.
 - **UC4.** Dense square rows at 14 px still need comfortable reading at 1366×768. Keep Proto23 density inside panels and breathing room between groups (UI owner P4).
-- **UC5.** Mirror panel must stay observer-safe: unknown stats show `???` (Proto23 already does "rank: ???"), hidden traits stay counted, never named.
+- **UC5.** Mirror panel must stay observer-safe: show an unknown state only where the observer knows a field is relevant. Hidden traits are neither named nor counted unless that count itself has been learned; filter the projection before labels, counts and rendering (UR52, UR72).
 
 **LATER / DELEGATE**
 
@@ -105,3 +105,12 @@ For each question the player asks, the cheapest view that answers it well:
 | Q4 | Confirm Proto23 frame language (DU1, DU3) as the default look? | Token pass, then skin |
 | Q5 | Build order: log fix (DU4) and back rule (DU5) first, then tokens and skin (DU7, DU1), then the scene/focus panel? | That order |
 | Q6 | Which panels left you with no way back? | Fix those first under DU5 |
+
+
+## Content reconciliation B140, 2026-11-04
+
+UF/PX/NB/RP/DU/UC/UL and Q4-Q6 were read. The later [foundation direction](UI_FOUNDATION_DESIGN_ROUND_2026-10-15.md) answers the old Q4-Q6, including that Q6 was an unrecognizable existing Back control rather than a proven missing command. Historical log burial, style counts and source mounting were findings on the old served bundle. They do not prove the current game still has those exact defects, or that the full later scene surface works.
+
+UC5's instruction to count hidden traits was unsafe and is corrected in place: labels, counts, omitted fields and unknown states all derive from observer-permitted information. The source cannot expose a secret merely by replacing its name with question marks. Focus portraits/glyphs and memory lines likewise need actual known identities, observations and history; they do not read an NPC's true mood or intentions for free (UR52, UR72, AD32).
+
+PX11's automatic Mac fallback and UC3's no-code wording are dated. Current UI_RULES selects internal MS Gothic while requiring actual rendered-face/fallback evidence; the later Proto23 direction allows scoped reuse, with attribution and publication still separately handled. The 1366 floor is retired, mobile remains deferred, and NB1-NB9 are research leads rather than a fresh external-source review. Preserve the functional You/Focus/log relationship, visible return, stable commands and shared tokens; no exact CSS values, known marker counts or universal scene shape were adopted here.

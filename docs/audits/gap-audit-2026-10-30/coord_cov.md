@@ -122,3 +122,12 @@ Almost every idea reached an owner line, so this list is short. Items marked "lo
 - UI look rules P1-P16 and figure gallery (CHOICES #4; awaiting him).
 - Upcoming strip from curfews and anchored events (sw-bridge, TRACKED); gatherings bridge must not name a seat's body (G14, TRACKED).
 - Old workshop freeze: page responds in 0-1 ms (done, `5b9a449bb`).
+
+
+## Coordinator-inventory reconciliation B131, 2026-11-04
+
+All84 rows, D1–D7 and UI list read. Seven-chat scope is exact; [coord_cov2](coord_cov2.md) separately covers the two missing coordinators, not a reread of all raw chats. DONE/TRACKED and code/grep counts do not prove gameplay, source semantics or current owner state. Keep dormant LSD proposals available without imposing every design-only code as backlog or duplicating guide/index specifications. Historical coauthor trailers remain recorded history; no commit rewriting or new trailers are requested. Old Nov1 reading plans, expired allowance dates and launched-worker statements are not current deadlines/usage or permission to restart work.
+
+D2’s optional lead aid/future marker remains a proposal with ordinary alternatives and player-known output. Current AD52 activity abstractions and existing lead-life owners govern actual scope, cost, clock and intervention. D5’s file merge is not semantic reading or free qualified gameplay; B100–102 already independently reviewed selected HP receipts. D1’s zero/exchange row counts cannot identify an actual exchange mechanism by themselves; its unresolved operation is preserved in [rite intake](../../gm/dispatch/sonnet-wave-2026-10-30/ideas/sw-rites.md), without equating bank conversion, material barter and ritual request/result. D4 dated supervisor/location binding still needs exact selected proof, not an inferred DONE from another round.
+
+The proposed lost travel ideas are already present in [maps TP4/TP7](../../representations/MAPS_AND_TRAVEL.md#travel-pacing-proposals-2026-10-30), including go-when-ready and fixed-seed near/far lodging comparison; [time TC23–26](../../representations/TIME_AND_CHRONICLE.md#travel-time-on-time-surfaces-proposals-2026-10-30) preserves leave-by/windows/aftermath. Do not duplicate them as new missing asks. Their automation/offline assumptions require their actual clock/command owner, and the station/source qualification remains open at its named authored route. Current [PROJECT](../../../PROJECT.md) and AD32/AD42/AD51/AD52 in [rules index](../../RULES_INDEX.md) govern priorities and proposal/proof distinctions, not these old suggested next steps.

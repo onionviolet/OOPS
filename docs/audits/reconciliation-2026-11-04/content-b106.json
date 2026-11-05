@@ -1,0 +1,104 @@
+{
+  "schema": 1,
+  "batch": "B106",
+  "title": "Ideaboard scale plan and both P1 measurement reports",
+  "at": "2026-11-04T20:58:34.790812+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/IDEABOARD_SCALE_PLAN_2026-10-19.md",
+      "ids": [
+        "S1–S13",
+        "P1–P8",
+        "R1–R11",
+        "Q1–Q4 and answers",
+        "LC1–LC13"
+      ],
+      "classification": "historical scale plan with superseded premises and retained options",
+      "owners": [
+        "docs/IDEABOARD_SCALE_PLAN_2026-10-19.md",
+        "PROJECT.md",
+        "docs/ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "disposition": "Preserve all S1–S13, P1–P8, R1–R11, Q1–Q4, user answers and LC1–LC13 as dated planning/authority history. The first-realm/prestige gate is retired, human acceptance is optional under AD42 and current LOTM/HP choices supersede the unanswered next-world/Skyrim proposal. Section 8 already rejects pausing runtime proposals; old worker/model defaults yield to current AU5/host rules. “Every idea somewhere” is explicitly linked to a proposal, so R1 must not promote it into accepted scope or deny the user’s broader ambition. A world’s different local mechanism can justify local code; no pack-only implementation mandate was accepted by Q4. Procedural/overlaid authoring, shared verbs and causal lazy detail remain useful candidates; nothing authorizes runtime text calls, source expansion, an agent fleet or a rewrite. Correct the obsolete “no loader” and “no generated journeys” priorities at their actual scope. Complete current world_pack_registry.js calls loadWorldPacks for MoL/HP/HP lead, exposes packNative and registers world_packs state/projection; the inspected book-beginning consumer reads packNative and registers HP lead/domain. The current registry also has optional per-life played/revealed state, so its older definition-only header is not its complete behavior. Current generator flags and B100/B101 receipts demonstrate selected world-parametric runners; they do not prove arbitrary world conversion or every signature loop. The single-target village rule resolver remains a narrower source limitation (B93). Counts of lines/files/worlds and mention-based unlock ranks are historical proxies, not current capability or cost measures. Read both P1 reports together. The first gate distinguishes low Node simulation-step cost from high browser busy/storage work and leaves whole tick unresolved. The later bounded 18-run matrix/profile qualifies that uncertainty: about 40/140/350 ms per game-minute browser script cost versus about 0.1/2.6/5.4 ms Node steps, with facts aggregation/panels a candidate hotspot. Those are different scopes, not a contradiction or a new run here. Three repeat gates, 18 matrix runs, noisy DOM/long tasks and limited profiles are separate measurements; viewport-insensitive at these sampled fixtures is not all layouts/input/paint. Repeated whole-save write volume is distinct from quota use and write latency. Synthetic 68 actors do not prove 128 actors, real late game or the actual away path; estimates for catch-up cannot settle its behavior. Guard usage must include the real envelope/backups/encoding, not the old raw-file size. Proposed performance budgets are not accepted gates and cannot be reset merely to pass. No Worker/Wasm/storage migration or benchmark rerun is selected by this reconciliation.",
+      "evidence": "Complete original 402-line body read in four bounded ranges; original later P1/user-answer sections retained. Added front current-use pointer. Full current world_pack_registry.js, beginning consumer 1–37, generator options and resolver target inspected only for named absence claims.",
+      "reopen": "Current queue selects a measured scaling consumer or specific contradiction; do not build the historical P1–P8 sequence or treat human acceptance as a hard stop.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "45c2d50ce1c22609a8093fc76e599c44d1eb1727307821067c257bbb64f67eab",
+      "input_lines": 404,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          404
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/P1_BASELINE_2026-10-19.md",
+      "ids": [
+        "F1–F4",
+        "three-repeat gate",
+        "G1–G3"
+      ],
+      "classification": "historical performance measurement at distinct scopes",
+      "owners": [
+        "docs/IDEABOARD_SCALE_PLAN_2026-10-19.md",
+        "docs/reviews/P1_BASELINE_2026-10-19.md"
+      ],
+      "disposition": "Read both P1 reports together. The first gate distinguishes low Node simulation-step cost from high browser busy/storage work and leaves whole tick unresolved. The later bounded 18-run matrix/profile qualifies that uncertainty: about 40/140/350 ms per game-minute browser script cost versus about 0.1/2.6/5.4 ms Node steps, with facts aggregation/panels a candidate hotspot. Those are different scopes, not a contradiction or a new run here. Three repeat gates, 18 matrix runs, noisy DOM/long tasks and limited profiles are separate measurements; viewport-insensitive at these sampled fixtures is not all layouts/input/paint. Repeated whole-save write volume is distinct from quota use and write latency. Synthetic 68 actors do not prove 128 actors, real late game or the actual away path; estimates for catch-up cannot settle its behavior. Guard usage must include the real envelope/backups/encoding, not the old raw-file size. Proposed performance budgets are not accepted gates and cannot be reset merely to pass. No Worker/Wasm/storage migration or benchmark rerun is selected by this reconciliation.",
+      "evidence": "Complete original measurement report read, including fixture/input identities, execution counts, timing/profiling caveats and unmeasured paths. No new benchmarks or hidden raw notes read.",
+      "reopen": "Only an actual selected bottleneck requires representative current measurement; no repeated equivalent suite or automatic profiling task here.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "76de0f0715b6f8c8a8337e960d45fa419b74442f9a14da17d7a00a41e680c4b1",
+      "input_lines": 58,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          58
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/P1_BASELINE_AND_BUDGETS_2026-10-19.md",
+      "ids": [
+        "18-run matrix",
+        "per-tick/save/render tables",
+        "CPU profile",
+        "verdicts",
+        "proposed budgets"
+      ],
+      "classification": "historical performance measurement at distinct scopes",
+      "owners": [
+        "docs/IDEABOARD_SCALE_PLAN_2026-10-19.md",
+        "docs/reviews/P1_BASELINE_AND_BUDGETS_2026-10-19.md"
+      ],
+      "disposition": "Read both P1 reports together. The first gate distinguishes low Node simulation-step cost from high browser busy/storage work and leaves whole tick unresolved. The later bounded 18-run matrix/profile qualifies that uncertainty: about 40/140/350 ms per game-minute browser script cost versus about 0.1/2.6/5.4 ms Node steps, with facts aggregation/panels a candidate hotspot. Those are different scopes, not a contradiction or a new run here. Three repeat gates, 18 matrix runs, noisy DOM/long tasks and limited profiles are separate measurements; viewport-insensitive at these sampled fixtures is not all layouts/input/paint. Repeated whole-save write volume is distinct from quota use and write latency. Synthetic 68 actors do not prove 128 actors, real late game or the actual away path; estimates for catch-up cannot settle its behavior. Guard usage must include the real envelope/backups/encoding, not the old raw-file size. Proposed performance budgets are not accepted gates and cannot be reset merely to pass. No Worker/Wasm/storage migration or benchmark rerun is selected by this reconciliation.",
+      "evidence": "Complete original measurement report read, including fixture/input identities, execution counts, timing/profiling caveats and unmeasured paths. No new benchmarks or hidden raw notes read.",
+      "reopen": "Only an actual selected bottleneck requires representative current measurement; no repeated equivalent suite or automatic profiling task here.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "03f179d771048da085d8e97c9b7b6332278327ce0ecdbf1073b85d86c6ef3100",
+      "input_lines": 135,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          135
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/IDEABOARD_SCALE_PLAN_2026-10-19.md",
+      "heading": "## Current-use reconciliation B106, 2026-11-04",
+      "body": "Preserve all S1–S13, P1–P8, R1–R11, Q1–Q4, user answers and LC1–LC13 as dated planning/authority history. The first-realm/prestige gate is retired, human acceptance is optional under AD42 and current LOTM/HP choices supersede the unanswered next-world/Skyrim proposal. Section 8 already rejects pausing runtime proposals; old worker/model defaults yield to current AU5/host rules. “Every idea somewhere” is explicitly linked to a proposal, so R1 must not promote it into accepted scope or deny the user’s broader ambition. A world’s different local mechanism can justify local code; no pack-only implementation mandate was accepted by Q4. Procedural/overlaid authoring, shared verbs and causal lazy detail remain useful candidates; nothing authorizes runtime text calls, source expansion, an agent fleet or a rewrite.\n\nCorrect the obsolete “no loader” and “no generated journeys” priorities at their actual scope. Complete current world_pack_registry.js calls loadWorldPacks for MoL/HP/HP lead, exposes packNative and registers world_packs state/projection; the inspected book-beginning consumer reads packNative and registers HP lead/domain. The current registry also has optional per-life played/revealed state, so its older definition-only header is not its complete behavior. Current generator flags and B100/B101 receipts demonstrate selected world-parametric runners; they do not prove arbitrary world conversion or every signature loop. The single-target village rule resolver remains a narrower source limitation (B93). Counts of lines/files/worlds and mention-based unlock ranks are historical proxies, not current capability or cost measures.\n\nRead both P1 reports together. The first gate distinguishes low Node simulation-step cost from high browser busy/storage work and leaves whole tick unresolved. The later bounded 18-run matrix/profile qualifies that uncertainty: about 40/140/350 ms per game-minute browser script cost versus about 0.1/2.6/5.4 ms Node steps, with facts aggregation/panels a candidate hotspot. Those are different scopes, not a contradiction or a new run here. Three repeat gates, 18 matrix runs, noisy DOM/long tasks and limited profiles are separate measurements; viewport-insensitive at these sampled fixtures is not all layouts/input/paint. Repeated whole-save write volume is distinct from quota use and write latency. Synthetic 68 actors do not prove 128 actors, real late game or the actual away path; estimates for catch-up cannot settle its behavior. Guard usage must include the real envelope/backups/encoding, not the old raw-file size. Proposed performance budgets are not accepted gates and cannot be reset merely to pass. No Worker/Wasm/storage migration or benchmark rerun is selected by this reconciliation.",
+      "before_sha256": "45c2d50ce1c22609a8093fc76e599c44d1eb1727307821067c257bbb64f67eab",
+      "after_sha256": "f86de4e076da22a49d0818cc3c48ced031cb5f33c2551b4b612afe46ec723997"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1266
+}

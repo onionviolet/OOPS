@@ -1,0 +1,402 @@
+{
+  "schema": 1,
+  "batch": "B37",
+  "title": "Community-source follow-ups, Naev residual consumers and finite multiworld synthesis",
+  "at": "2026-11-04T19:53:53.466009+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/minecraft/tfc-chains-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "A03",
+        "A01",
+        "A04"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/minecraft/tfc-chains-2026-10-14/CHECKPOINT.md; required game-lane and aspect artifacts, private recipe/type and guide tables, structural inventory."
+      ],
+      "disposition": "Bounded source research delivery, not implementation or acceptance. The checkpoint distinguishes read/source evidence from native testing and lists explicit unread dependencies and persistence gaps. Retain static/native/public-media distinctions, exact read windows and current-compatibility gaps. Twelve aspect rows and indexed mission/event/table counts do not establish semantic completeness. No old demo/source acquisition or adopted mechanism inferred; donor-specific paths remain proposals under current activity/local-world rules.",
+      "mechanism_and_interactions": "The TFC source slice completed six bounded feature questions, with A03 covered and A01/A04 partial. It reused local traces for barrel, lye pot, leather/drying, pit heating and knapping/mold/assembly, while dependency behavior, animal systems and native interruption/UI/save behavior remained outside scope.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. The checkpoint reports artifact/hash checks and source traces, but expressly claims no native test or acceptance.",
+      "reopen": "If reselected, inspect the named dependency and native barrel/pot/kiln interruption, UI, save/reload and full save migration; these were not proven.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          19
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S031.json"
+      ],
+      "prior_input_sha256": "6e4940e51e6f4b1f7f69404af96b30eece5e0af63a4187c26f9b863629e4dc9a",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "6e4940e51e6f4b1f7f69404af96b30eece5e0af63a4187c26f9b863629e4dc9a",
+      "input_lines": 19
+    },
+    {
+      "path": "docs/research/minecraft/tfc-chains-2026-10-14/aspects-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "A03",
+        "A01",
+        "A04"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/minecraft/tfc-chains-2026-10-14/aspects-2026-10-14/CHECKPOINT.md"
+      ],
+      "disposition": "Aspect documentation delivered with partial coverage; no native or whole-mod completion claim. Retain static/native/public-media distinctions, exact read windows and current-compatibility gaps. Twelve aspect rows and indexed mission/event/table counts do not establish semantic completeness. No old demo/source acquisition or adopted mechanism inferred; donor-specific paths remain proposals under current activity/local-world rules.",
+      "mechanism_and_interactions": "The grouped TFC aspect dossier has all twelve rows; A03 is covered and A01/A04 partial. The checkpoint points to its parent for unread items and evidence.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. This brief checkpoint summarizes status and points to a parent checkpoint; underlying details were not part of this assigned span.",
+      "reopen": "Use the parent checkpoint for named dependency and native-play gaps before making broader claims.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          3
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S031.json"
+      ],
+      "prior_input_sha256": "3f830f8c4108ab9817a25f2ee099b779db63255c1442ea21f0101ec1792b886b",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "3f830f8c4108ab9817a25f2ee099b779db63255c1442ea21f0101ec1792b886b",
+      "input_lines": 3
+    },
+    {
+      "path": "docs/research/modding-tree/aspects-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "A01"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/modding-tree/aspects-2026-10-14/CHECKPOINT.md"
+      ],
+      "disposition": "Partial static research; all recommendations remain proposals and no dependent runtime work is authorized by this historical record. Retain static/native/public-media distinctions, exact read windows and current-compatibility gaps. Twelve aspect rows and indexed mission/event/table counts do not establish semantic completeness. No old demo/source acquisition or adopted mechanism inferred; donor-specific paths remain proposals under current activity/local-world rules.",
+      "mechanism_and_interactions": "The Modding Tree aspect dossier records twelve rows, three deeper systems, ranked proposal packets and small touches. It identifies gaps in full community semantics/licenses, arbitrary-mod dialogue, runtime save/offline arithmetic and desktop accessibility/layout.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Document validation passed, but the checkpoint explicitly distinguishes it from gameplay/save-roundtrip proof.",
+      "reopen": "If a proposal is selected, resolve its exact source gap and obtain consumer/runtime evidence rather than treating this dossier as adoption.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          22
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S031.json"
+      ],
+      "prior_input_sha256": "7b3c2e13ad568398c7388b37557ecadeee4f6acea23d89b4caaf48092303d5f6",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "7b3c2e13ad568398c7388b37557ecadeee4f6acea23d89b4caaf48092303d5f6",
+      "input_lines": 22
+    },
+    {
+      "path": "docs/research/multi-realm-muds/CHECKPOINT.md",
+      "ids": [
+        "A01"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/multi-realm-muds/CHECKPOINT.md; REPORT, findings, implementation packets, source ledger and aspect artifacts."
+      ],
+      "disposition": "Bounded public-document deliverable finished, but checkpoint status is partial and explicitly not server implementation, live play or server audit. Retain static/native/public-media distinctions, exact read windows and current-compatibility gaps. Twelve aspect rows and indexed mission/event/table counts do not establish semantic completeness. No old demo/source acquisition or adopted mechanism inferred; donor-specific paths remain proposals under current activity/local-world rules.",
+      "mechanism_and_interactions": "The MUD public-document audit sampled RetroMUD and 3 Kingdoms guides/help, then traced bounded travel/retention, learning/admission and builder themes into proposals. It preserves ambiguity around contradictory transport/reincarnation guidance and does not infer arbitrary guild switching or complete cross-realm carrier rules.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. The checkpoint names the source basis and checks; server serializers/formulas, full areas/guilds, companions, dialogue, native UI and persistence remain unavailable or unresolved.",
+      "reopen": "Any consumer needs the named server/source gaps resolved; no live travel or save/import proof was performed.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          40
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S031.json"
+      ],
+      "prior_input_sha256": "dfa27c8706212013fd9f5a631ced0ba4e50f167234f2e41749c48864c6919c7a",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "dfa27c8706212013fd9f5a631ced0ba4e50f167234f2e41749c48864c6919c7a",
+      "input_lines": 40
+    },
+    {
+      "path": "docs/research/multi-realm-muds/aspects-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "A01",
+        "A12"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/multi-realm-muds/aspects-2026-10-14/CHECKPOINT.md"
+      ],
+      "disposition": "Partial grouped aspect coverage; twelve rows do not amount to twelve server audits. Retain static/native/public-media distinctions, exact read windows and current-compatibility gaps. Twelve aspect rows and indexed mission/event/table counts do not establish semantic completeness. No old demo/source acquisition or adopted mechanism inferred; donor-specific paths remain proposals under current activity/local-world rules.",
+      "mechanism_and_interactions": "All A01–A12 rows have explicit dispositions for both games, limited to public-document coverage.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Delivered artifact list and scope boundary are stated; detailed evidence and gaps reside in the parent checkpoint, not this span.",
+      "reopen": "Consult the parent checkpoint before claims beyond public-document coverage.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S031.json"
+      ],
+      "prior_input_sha256": "76828d56c387501b23080ad38b90ae4683d6c971958f5598d75b6f0d06bfb1e6",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "76828d56c387501b23080ad38b90ae4683d6c971958f5598d75b6f0d06bfb1e6",
+      "input_lines": 7
+    },
+    {
+      "path": "docs/research/multiverse-idle/CHECKPOINT.md",
+      "ids": [
+        "A01",
+        "P01",
+        "P04",
+        "P14",
+        "P03"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/multiverse-idle/CHECKPOINT.md; six game-lane outputs, evidence and four aspect files."
+      ],
+      "disposition": "Historical public-media research complete; executable/native gaps remain open and no owner direction changed. Retain static/native/public-media distinctions, exact read windows and current-compatibility gaps. Twelve aspect rows and indexed mission/event/table counts do not establish semantic completeness. No old demo/source acquisition or adopted mechanism inferred; donor-specific paths remain proposals under current activity/local-world rules.",
+      "mechanism_and_interactions": "The Multiverse Idle UI lane completed public-media review, screenshots and aspect documentation, but the screenshots did not establish actual map/world-selector behavior, parallel simulation, offline calculation or save migration. The checkpoint recommends later isolated demo evidence if selected.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Validation is document/media structure only; no game/demo download, launch, purchase, save roundtrip or YAIRPG prototype proof occurred.",
+      "reopen": "If selected, obtain direct media or isolated demo/source evidence for named gaps and prove any YAIRPG action at the required desktop viewport and persistence route.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          26
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S031.json"
+      ],
+      "prior_input_sha256": "e0336e935e3c3fe8c51f576dec4c64f2046d833804dfddd2e4cba7577ffb7d9f",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "e0336e935e3c3fe8c51f576dec4c64f2046d833804dfddd2e4cba7577ffb7d9f",
+      "input_lines": 26
+    },
+    {
+      "path": "docs/research/naev/CHECKPOINT.md",
+      "ids": [
+        "P10",
+        "A01"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/naev/CHECKPOINT.md; report, findings, packets, tooling, system digests and aspect artifacts."
+      ],
+      "disposition": "Bounded source research delivered; partial status keeps whole-game reading and runtime gates open; no owner/code adoption or gameplay claim. Retain static/native/public-media distinctions, exact read windows and current-compatibility gaps. Twelve aspect rows and indexed mission/event/table counts do not establish semantic completeness. No old demo/source acquisition or adopted mechanism inferred; donor-specific paths remain proposals under current activity/local-world rules.",
+      "mechanism_and_interactions": "The Naev lane indexed mission/event headers and XML, then traced bounded mission/event dispatch, scene claims, access, personal knowledge versus Flow support, bioship growth, a supply-to-service aftermath, sampled traffic/AI, dialogue sequencing, save omissions, economy and deadlines. The census is not exhaustive reading.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. The checkpoint reports a pinned mirror and document validation, while identifying untested claim/reload edges, dialogue, AI, save migration, UI/accessibility and canonical-host parity.",
+      "reopen": "Any selected consumer needs the named source gap plus rebuilt desktop and persistence proof; the mirror pin is not a canonical-head claim.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          38
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S031.json"
+      ],
+      "prior_input_sha256": "5589aa453c29246676d5a5e671ccd13cfd7f7117e709d47845eb1da0e578e7c4",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "5589aa453c29246676d5a5e671ccd13cfd7f7117e709d47845eb1da0e578e7c4",
+      "input_lines": 38
+    },
+    {
+      "path": "docs/research/naev/aspects-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "P10",
+        "A01"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/naev/aspects-2026-10-14/CHECKPOINT.md"
+      ],
+      "disposition": "Partial aspect record; it confirms documentation validation, not runtime results or complete source coverage. Retain static/native/public-media distinctions, exact read windows and current-compatibility gaps. Twelve aspect rows and indexed mission/event/table counts do not establish semantic completeness. No old demo/source acquisition or adopted mechanism inferred; donor-specific paths remain proposals under current activity/local-world rules.",
+      "mechanism_and_interactions": "The Naev aspect checkpoint repeats the bounded research scope: mission/event headers and XML were indexed, selected system interactions traced, and proposal artifacts delivered, while whole-game coverage and all runtime gates remained open.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. The source span describes selected reading, validation and explicit gaps; it labels the mission-guard anomaly as inferred pending reproduction.",
+      "reopen": "Resolve selected source questions and separately prove runtime/UI/persistence before promoting claims.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          38
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S031.json"
+      ],
+      "prior_input_sha256": "5589aa453c29246676d5a5e671ccd13cfd7f7117e709d47845eb1da0e578e7c4",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "5589aa453c29246676d5a5e671ccd13cfd7f7117e709d47845eb1da0e578e7c4",
+      "input_lines": 38
+    },
+    {
+      "path": "docs/research/modding-tree/CHECKPOINT.md",
+      "ids": [
+        "uncoded selected source-comparison scope",
+        "named unread/proof boundaries"
+      ],
+      "classification": "fresh full uncoded checkpoint review",
+      "owners": [
+        "docs/research/modding-tree/CHECKPOINT.md"
+      ],
+      "disposition": "Later prestige-community pass closes named Rewritten/Communitree/Profectus requirements comparison, not boards, vendor-license audit, many-author history, runtime or latest host parity. Earlier optional follow-up is superseded only at those selected seams.",
+      "evidence": "Entire checkpoint read, including full Naev residual table; historical donor source/measurement/runtime not reverified.",
+      "reopen": "Future selection uses named later report/unread row and current consumer; no repeated broad source setup or game execution.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "ed66e1fa63092461b65c2ea338cdf0f6bdbfc01d068f9db6930b598d0142e4c7",
+      "input_lines": 25,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          25
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/modding-tree/pass-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "uncoded selected source-comparison scope",
+        "named unread/proof boundaries"
+      ],
+      "classification": "fresh full uncoded checkpoint review",
+      "owners": [
+        "docs/research/modding-tree/pass-2026-10-14/CHECKPOINT.md"
+      ],
+      "disposition": "Later prestige-community pass closes named Rewritten/Communitree/Profectus requirements comparison, not boards, vendor-license audit, many-author history, runtime or latest host parity. Earlier optional follow-up is superseded only at those selected seams.",
+      "evidence": "Entire checkpoint read, including full Naev residual table; historical donor source/measurement/runtime not reverified.",
+      "reopen": "Future selection uses named later report/unread row and current consumer; no repeated broad source setup or game execution.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "9627e6b2ee951173865d32d4a2317532dbc224c65b2289f0edad9e12adc94246",
+      "input_lines": 23,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          23
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/multiworld-synthesis-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "uncoded selected source-comparison scope",
+        "named unread/proof boundaries"
+      ],
+      "classification": "fresh full uncoded checkpoint review",
+      "owners": [
+        "docs/research/multiworld-synthesis-2026-10-14/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve finite seven-package synthesis and 84 original source cells with partial statuses; audits of 35 SHOWN/35 inference rows do not certify complete donor systems or select ten implementation proposals. Exact native/source/asset gaps remain.",
+      "evidence": "Entire checkpoint read, including full Naev residual table; historical donor source/measurement/runtime not reverified.",
+      "reopen": "Future selection uses named later report/unread row and current consumer; no repeated broad source setup or game execution.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "f4e84a41ab225d24efa12ed5a30377ce5a58454f21e030f7ca6f5cecb1195230",
+      "input_lines": 25,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          25
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/multiworld-synthesis-2026-10-14/aspects-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "uncoded selected source-comparison scope",
+        "named unread/proof boundaries"
+      ],
+      "classification": "fresh full uncoded checkpoint review",
+      "owners": [
+        "docs/research/multiworld-synthesis-2026-10-14/aspects-2026-10-14/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve finite seven-package synthesis and 84 original source cells with partial statuses; audits of 35 SHOWN/35 inference rows do not certify complete donor systems or select ten implementation proposals. Exact native/source/asset gaps remain.",
+      "evidence": "Entire checkpoint read, including full Naev residual table; historical donor source/measurement/runtime not reverified.",
+      "reopen": "Future selection uses named later report/unread row and current consumer; no repeated broad source setup or game execution.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "64151d0a47843f1d1ae369298705c3e87dd0c954bfccd9fcbffba67a31dbe6b5",
+      "input_lines": 5,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          5
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/naev/pass-2026-10-14-systems/CHECKPOINT.md",
+      "ids": [
+        "C1–C4",
+        "R01–R28",
+        "DS06",
+        "DS08"
+      ],
+      "classification": "fresh full uncoded checkpoint review",
+      "owners": [
+        "docs/research/naev/pass-2026-10-14-systems/CHECKPOINT.md"
+      ],
+      "disposition": "C1–C4 retain fifteen bounded traces and R01–R28 exact consumer gaps. Selected fleet/capture/repair/optimizer/mining/effects/gate and tree/respec subquestions close at source scope; ordinary jumps, full AI/economy/save/runtime remain partial.",
+      "evidence": "Entire checkpoint read, including full Naev residual table; historical donor source/measurement/runtime not reverified.",
+      "reopen": "Future selection uses named later report/unread row and current consumer; no repeated broad source setup or game execution.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "1a594b4eb5ba2102a8e8df834ea0410a34ac706c961ae9bc37fc0879378d072e",
+      "input_lines": 53,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          53
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/modding-tree/CHECKPOINT.md",
+      "heading": "## Later comparison closure, 2026-11-04 (B37)",
+      "body": "pass-2026-10-14/CHECKPOINT.md completes the named Rewritten, Communitree grouping/section/activation and Profectus requirements/layer comparison. The older optional follow-up remains history for those seams. Profectus boards, exhaustive feature/vendor libraries, actual many-author contribution history, latest official-host parity and runtime pacing/UI/save/offline behavior remain distinct gaps. Do not equate a pinned shallow-clone structure with a proven collaborative workflow or copy a new runtime into YAIRPG. Retain selected incremental ideas in the existing pass packets, with current AD52 governing any later repeated-activity consumer.",
+      "before_sha256": "ed66e1fa63092461b65c2ea338cdf0f6bdbfc01d068f9db6930b598d0142e4c7",
+      "after_sha256": "b617396dcc1ec85149ccd13f9f63616b4660716ca7ec4a4cc52dd2f14a838277"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1573
+}

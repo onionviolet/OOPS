@@ -1,0 +1,262 @@
+{
+  "schema": 1,
+  "batch": "B175",
+  "title": "Old source-delivery maps and exact behavioral boundaries",
+  "at": "2026-11-04T22:30:31.594893+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/story-life-2026-10-07/RECONCILIATION.json",
+      "ids": [
+        "three causal_story before/current hashes;68694413;writerstatus"
+      ],
+      "classification": "Historical source-delivery coverage or bounded recovery evidence",
+      "owners": [
+        "docs/gm/story-life-2026-10-07/DELIVERY.md"
+      ],
+      "disposition": "Threeleafsource-map/commithash matches do notfreezecombinedruntimeorgrantwriterlease. Scene match notplayedloop.",
+      "evidence": "Fresh entireJSON/Markdown body read includingallrows/constants/requiredbindings/nonclaims and laterqualification. No originalsource/privateproof/buildmanifest/release/runtime reexecution or transitiveprimarysource review.",
+      "reopen": "Preserve exact selectedsource claim and remaining floor; follow currentincumbentowner before any separatelyselectedimplementation or evidence renewal.",
+      "input_sha256": "ccb827ae5fdb258ecba12256ef2f346270646d4172135a620b4e52b610e83f64",
+      "input_lines": 26,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          26
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/story-life-2026-10-07/DELIVERY.md",
+      "ids": [
+        "sixcommands/threewatchbranches;modelminute19;actualbrowserlimits"
+      ],
+      "classification": "Historical source-delivery coverage or bounded recovery evidence",
+      "owners": [
+        "docs/gm/story-life-2026-10-07/DELIVERY.md"
+      ],
+      "disposition": "Modelwatch/refund/receivedaccount/laterconversation notDOM/nativepublicationproof. Somefreshmeeting/manualsave observed butentirenewactionloop/import unrun. Initialenrollmentnotdeadline; hiddencontrolsactualreceivedauthority. Oldbrowserunavailableoneeventnotcurrenttoolblock.",
+      "evidence": "Fresh entireJSON/Markdown body read includingallrows/constants/requiredbindings/nonclaims and laterqualification. No originalsource/privateproof/buildmanifest/release/runtime reexecution or transitiveprimarysource review.",
+      "reopen": "Preserve exact selectedsource claim and remaining floor; follow currentincumbentowner before any separatelyselectedimplementation or evidence renewal.",
+      "input_sha256": "a19d73807bdccd7181236ab0358f4bf3613b08cd35af2ac8ee76a508a99b4d20",
+      "input_lines": 26,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          26
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/audit-absorption-2026-10-07/COVERAGE.json",
+      "ids": [
+        "fiveintakefamilies;GD/knownroutes/ACS3;registrycounts"
+      ],
+      "classification": "Historical source-delivery coverage or bounded recovery evidence",
+      "owners": [
+        "docs/gm/audit-absorption-2026-10-07/DELIVERY.md"
+      ],
+      "disposition": "Finite5familiesnot2374metadatawholecontent;21commands/17modules notnativecompleted. Latermatchingdelivery exact370sourcebundle vsoldcoverage cc379891return scope. Countersandwriterstate historical.",
+      "evidence": "Fresh entireJSON/Markdown body read includingallrows/constants/requiredbindings/nonclaims and laterqualification. No originalsource/privateproof/buildmanifest/release/runtime reexecution or transitiveprimarysource review.",
+      "reopen": "Preserve exact selectedsource claim and remaining floor; follow currentincumbentowner before any separatelyselectedimplementation or evidence renewal.",
+      "input_sha256": "da22256bf7b12fe0b8cf6e9844442c90fd5319ae0774a9297bd0f97b1541562d",
+      "input_lines": 33,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          33
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/audit-absorption-2026-10-07/DELIVERY.md",
+      "ids": [
+        "GD01/knownroutes/ACS-P01–03;alllimits"
+      ],
+      "classification": "Historical source-delivery coverage or bounded recovery evidence",
+      "owners": [
+        "docs/gm/audit-absorption-2026-10-07/DELIVERY.md"
+      ],
+      "disposition": "Actualassaynegativeevidence/control/washedkit,sourcebasedknownroutes,old/newduration cooling,oneballmWeak90publicationandthreepersondutyassent distinct. Alloriginalexecution tests deferredthen meansbelowcurrentfloor noteverlastingdeferral. No allsourceparity or currentlease.",
+      "evidence": "Fresh entireJSON/Markdown body read includingallrows/constants/requiredbindings/nonclaims and laterqualification. No originalsource/privateproof/buildmanifest/release/runtime reexecution or transitiveprimarysource review.",
+      "reopen": "Preserve exact selectedsource claim and remaining floor; follow currentincumbentowner before any separatelyselectedimplementation or evidence renewal.",
+      "input_sha256": "65f7a56227d4207001edd8a44ca8f8f5bd83c360f18c5357d5e11f2294b81d61",
+      "input_lines": 19,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          19
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/combat_fit/COVERAGE.json",
+      "ids": [
+        "ToMEP1/KeeperRLP3/RogueLegacyP2;rootbindings"
+      ],
+      "classification": "Historical source-delivery coverage or bounded recovery evidence",
+      "owners": [
+        "docs/gm/audit-implementation/remainder/DELIVERY.md"
+      ],
+      "disposition": "Source-authored actual harnessfit/body/guard/trainedrope vsinnatebalancequote separate. Existing vsnew sourcegrant retained. Parentdeliverysupersedesjoinpendingatnamedsourcelevel;no playerproof orglobal thresholds.",
+      "evidence": "Fresh entireJSON/Markdown body read includingallrows/constants/requiredbindings/nonclaims and laterqualification. No originalsource/privateproof/buildmanifest/release/runtime reexecution or transitiveprimarysource review.",
+      "reopen": "Preserve exact selectedsource claim and remaining floor; follow currentincumbentowner before any separatelyselectedimplementation or evidence renewal.",
+      "input_sha256": "2f7940fb1fa64370ff8f97c7d6f4d31c1fecd3f9bcc152a4726da9b81f35d67e",
+      "input_lines": 32,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          32
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/consequences/COVERAGE.json",
+      "ids": [
+        "RimWorldP2/P3/KeeperRLP4;constants;deferredgates"
+      ],
+      "classification": "Historical source-delivery coverage or bounded recovery evidence",
+      "owners": [
+        "docs/gm/audit-implementation/remainder/DELIVERY.md"
+      ],
+      "disposition": "Temporaryfrictionvsrealpromise,5/3/1/1localcrop,finitecollectorindependentbody/credit/agenda/traderesponse andnoactualcombatprofile. Constantslocaloriginalnotsourcecanon/generalAI; newbehaviorfalse.",
+      "evidence": "Fresh entireJSON/Markdown body read includingallrows/constants/requiredbindings/nonclaims and laterqualification. No originalsource/privateproof/buildmanifest/release/runtime reexecution or transitiveprimarysource review.",
+      "reopen": "Preserve exact selectedsource claim and remaining floor; follow currentincumbentowner before any separatelyselectedimplementation or evidence renewal.",
+      "input_sha256": "cfdc373584adedf3ec564f9f93286ef03b5556c85e1438ee25aec40ebe7372ce",
+      "input_lines": 36,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          36
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/combat_objectives/COVERAGE.json",
+      "ids": [
+        "ToMEP2/RogueLegacyP1/P4/ITRTGP3;allconsumers"
+      ],
+      "classification": "Historical source-delivery coverage or bounded recovery evidence",
+      "owners": [
+        "docs/gm/audit-implementation/remainder/DELIVERY.md"
+      ],
+      "disposition": "Maintainedguardupkeepattemptincludingmiss,exactrope/physicalcharge/settlement,consentedfittingrecoveryrecipeuse,conductonlyactualsuccessfulcommitvsrender/preview. atmost3 finitefixturelocalnotglobaloncerule. Parentbindingssource laterdeliverednotexecuted.",
+      "evidence": "Fresh entireJSON/Markdown body read includingallrows/constants/requiredbindings/nonclaims and laterqualification. No originalsource/privateproof/buildmanifest/release/runtime reexecution or transitiveprimarysource review.",
+      "reopen": "Preserve exact selectedsource claim and remaining floor; follow currentincumbentowner before any separatelyselectedimplementation or evidence renewal.",
+      "input_sha256": "028d70746c8db6a44baf7ce91ef32c36da22e595388b519dcdb4f03646d2d378",
+      "input_lines": 39,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          39
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/DELIVERY.md",
+      "ids": [
+        "19new/22total;6lanes;CausalP1–5/MW01–04;5acceptancefamilies"
+      ],
+      "classification": "Historical source-delivery coverage or bounded recovery evidence",
+      "owners": [
+        "docs/gm/audit-implementation/remainder/DELIVERY.md"
+      ],
+      "disposition": "Source/native/UIcompatiblebuild delivery distinct fromgameplay/nativeconstructors/tests/importallunrunthen. Sharedpublicationoneowner/sourcebody/knowledge,existingoldsessioncompat scopes notcurrentlyguaranteedmigration. CurrentAD43requiresactualfloor beforedone. No new broadremoval/futureworldresearch.",
+      "evidence": "Fresh entireJSON/Markdown body read includingallrows/constants/requiredbindings/nonclaims and laterqualification. No originalsource/privateproof/buildmanifest/release/runtime reexecution or transitiveprimarysource review.",
+      "reopen": "Preserve exact selectedsource claim and remaining floor; follow currentincumbentowner before any separatelyselectedimplementation or evidence renewal.",
+      "input_sha256": "a401f71e33d3fa61956c26c0c2dbd67e5d0ca8891bcfb4639c752397cc5dd9da",
+      "input_lines": 44,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          44
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/relay/COVERAGE.json",
+      "ids": [
+        "fivefamilies:replacement/trope/small/texture/recognition"
+      ],
+      "classification": "Historical source-delivery coverage or bounded recovery evidence",
+      "owners": [
+        "docs/gm/feature-wave/features/book-world-subtleties/relay/DELIVERY.md"
+      ],
+      "disposition": "Samepeopleofficeactualcustody/refusal,creditcorrectionvsfalsebelief,texturewithoutforcedreward. No secondbody/soulcontroller/publisher. Nativejoinpending workerlevelnot allparentlater.",
+      "evidence": "Fresh entireJSON/Markdown body read includingallrows/constants/requiredbindings/nonclaims and laterqualification. No originalsource/privateproof/buildmanifest/release/runtime reexecution or transitiveprimarysource review.",
+      "reopen": "Preserve exact selectedsource claim and remaining floor; follow currentincumbentowner before any separatelyselectedimplementation or evidence renewal.",
+      "input_sha256": "0796878e13a180bb893e4ae13547a0caddc92da9ed4e2120d1c56f15ff413fc7",
+      "input_lines": 32,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          32
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/relay/DELIVERY.md",
+      "ids": [
+        "24commands/4items;sourcehashes;no behavioralchecks"
+      ],
+      "classification": "Historical source-delivery coverage or bounded recovery evidence",
+      "owners": [
+        "docs/gm/feature-wave/features/book-world-subtleties/relay/DELIVERY.md"
+      ],
+      "disposition": "Finiteoriginalsource release noUI/gameplaytests despite syntax/import/ID/callbackchecks. Nativekitconsumerexisting, fourrememberedbranches notgenericsocialsim. Parentownsjoinrelease historicalnotpresentlease.",
+      "evidence": "Fresh entireJSON/Markdown body read includingallrows/constants/requiredbindings/nonclaims and laterqualification. No originalsource/privateproof/buildmanifest/release/runtime reexecution or transitiveprimarysource review.",
+      "reopen": "Preserve exact selectedsource claim and remaining floor; follow currentincumbentowner before any separatelyselectedimplementation or evidence renewal.",
+      "input_sha256": "93624ad5943ac05fa16d480b276eee599bc45d1a4055e7386f33ae1343f5dd4c",
+      "input_lines": 14,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          14
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/story-life-2026-10-07/DELIVERY.md",
+      "heading": "## Content and coverage reconciliation, 2026-11-04 (B175)",
+      "body": "This complete delivery and three-leaf RECONCILIATION.json were read. Old-before bundle-source matches, checkpoint68694413 correspondence and scene equality are source recovery evidence; they are not a frozen combined-runtime identity or present writer lease. The model’s three watch/cancel/refund/delivery/account/conversation paths at minute19 are not DOM or durable-native publication proof. Actual browser observations covered opening/meeting/scenes/manual save and restoration, while the complete new-action loop and timed import remained unexercised. Preserve that distinction and the original browser-route failure history without declaring current tools blocked.\n\nRetain six once-completed local commands, separate player/courier attention and free packing sites, actual received closure before conversation, and hidden-source/consent filtering before quote. Enrollment itself starts no delivery deadline, and a same-subject panel refresh reads current body/save authority. Old schema/role/port/peer release states do not impose new compatibility requirements or active reservations. Current AD36/AD43 govern any future behavior claim, and AD42 makes human review optional. No personal save, source scene, preview or proof script was reopened.",
+      "before_sha256": "a19d73807bdccd7181236ab0358f4bf3613b08cd35af2ac8ee76a508a99b4d20",
+      "after_sha256": "00412da1a4bfa0d868349dc75794896699f989f124f19dac11baea2f2068cf61"
+    },
+    {
+      "path": "docs/gm/audit-absorption-2026-10-07/DELIVERY.md",
+      "heading": "## Content and coverage reconciliation, 2026-11-04 (B175)",
+      "body": "This complete delivery and COVERAGE.json were read. Five explicitly selected intake families, four targeted semantic receipts,21 commands and a matching370-source build are distinct from semantic reading of2374 metadata paths or every source/book/game. The source/native/UI/build objective was explicitly implemented-unverified; browser queued did not establish controls exercised. Historical worker releases, endpoint and registry counts do not create current leases, running previews or whole-game progress.\n\nPreserve each connected mechanism: finite assay stock and durable negative evidence before control comparison; only discovered known routes; cooling’s frozen roll and failure/retry versus old4/new5-minute hook; supported balm with scrape-only removal and preserved existing effects; and actual three-person duty assent, funding, booking, refusal/cancel/stopped/settled accounts. These cases reuse one native publisher and existing actors/clock, not parallel truth owners. Local numbers/fiction remain original reversible choices. Compatibility/source validation is not executed Import. The old implementation-first verification deferral records what was not run then; it does not waive current AD36/AD43 when a future runtime slice is claimed complete. No source, browser, save, installation or outside research was renewed.",
+      "before_sha256": "65f7a56227d4207001edd8a44ca8f8f5bd83c360f18c5357d5e11f2294b81d61",
+      "after_sha256": "e9ef74f3917c9162b6fc42bbb27e3a544613b102a984339bc3ea3348a1604e89"
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/DELIVERY.md",
+      "heading": "## Content and coverage reconciliation, 2026-11-04 (B175)",
+      "body": "This full parent delivery plus the combat-fit, consequences and combat-objectives coverage JSON were read. Parent source bindings and matching282-source build supersede those workers’ join-pending state at source level, while every receipt still explicitly leaves unit/model/gameplay/browser/persistence/failure/keyboard checks unrun. Nineteen additional/22total candidate source deliveries are not22played mechanics, complete worlds or source-novel parity. Current AD43 applies to future completion; old deferral language remains historical evidence.\n\nKeep the actual distinctions in the proposed behaviors: source/body/custody-supported original/rigid/flexible harnesses; one earned self-guard reservation versus innate balance/trained rope; upkeep before each incoming attempt including miss; exact reusable rope and unspent versus consumed physical preparation; consented fitting recovery/handoff/recipe/use; and conduct based on successful committed starts, never preview/load/failed publication. Temporary friction does not erase a real promise. Local crop branch yields and funded collector route are original examples; no collector attack option is supported without an actual profile. Local three-attempt bounds are not universal limits.\n\nCausal survival/freedom/goal/protection/anchor outcomes, source provenance, received co-located evidence and optional enrollment retain separate owners. Source-profile preservation does not activate all world campaigns. No global hunger/death/reward law, generic NPC attack, anti-exploit policy or repeated reward emerges from these fixtures. Old schema/typed-reader choices are exact historical compatibility evidence, not a new migration gate. No current source modules, private saves, raw source books or runtime build/journey were examined through these reports.",
+      "before_sha256": "a401f71e33d3fa61956c26c0c2dbd67e5d0ca8891bcfb4639c752397cc5dd9da",
+      "after_sha256": "da763b539071f0959c9c147fa8fa8af79e3d675b5faa406c8d54edac8b0056c9"
+    },
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/relay/DELIVERY.md",
+      "heading": "## Content and coverage reconciliation, 2026-11-04 (B175)",
+      "body": "This complete source delivery and five-family COVERAGE.json were read. Preserve one actual office and the same living people, exact badge custody/compatible fit/repair/return, existing kit/parcel consumers, funded ordinary work/refusal, credit attribution/correction/compensation and later observer accounts. Bent-spoon/tea/case/joke texture can be worthwhile without a forced reward. Generic replacement/recognition is delegated to the actual Backlog mechanism, not a second soul/body/identity/publisher engine.\n\nTwenty-four commands/four items, syntax/cold imports/registration/duplicate-ID/callback checks are source evidence only. Parent native/UI/save/context joins and behavioral gates were explicitly unrun in this worker; file release does not prove a live player journey. Honest versus false credit and observed correction require each actor’s actual knowledge. Refusal does not automatically cause a bully/escalation chain. Native costs and stock remain real local owners; original voice/balance choices are proposals. Current AD42 makes human review optional and current AD43 owns future runtime completion. No active lease, source acquisition, preview relaunch or gameplay work is selected.",
+      "before_sha256": "93624ad5943ac05fa16d480b276eee599bc45d1a4055e7386f33ae1343f5dd4c",
+      "after_sha256": "327b0b144a5724919e8afe9cd96ed54864419ece4126b610cedd5217fb3bc02f"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1117
+}

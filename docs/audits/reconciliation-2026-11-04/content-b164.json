@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "batch": "B164",
+  "title": "Test and central-source audit shards without forced semantic unification",
+  "at": "2026-11-04T22:19:56.595371+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/T.md",
+      "ids": [
+        "T-F1–F23; negative-result notes"
+      ],
+      "classification": "Historical source/test audit with explicit selected-body coverage",
+      "owners": [
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/SYNTHESIS.md",
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/FOLLOWUP_CHECKPOINT.md"
+      ],
+      "disposition": "Preserve test-only/source-native distinction and intended inert pilots, but qualify current away/world-pack/claim reader state with later independently reviewed owners, not original import census. L1/L3/L4 and issue pass supersede exact helper, baseline, stale-todo and headless failure rows. Different optional-family paths still deserve independent regressions; deriving count from tested data can erase useful authored expectation. No tests deleted/moved/skipped, fixtures relocated, helper abstractions selected or new universal test/browser gate.",
+      "evidence": "Fresh full shard including every finding, exclusions and negative checks. B160 full follow-up/lane receipts, B159 current away-bank source and B138/B137 named current registry/scorecard evidence qualify historical source claims. Original hundreds of source/test assertions, scripts, fixtures and data tables not newly read through this report.",
+      "reopen": "Preserve useful specific failure and contract questions; establish present consumer and reproducer before a selected code change.",
+      "input_sha256": "9601154a1234a51989a6a4034b32e37a00439c61fca81e05372e09c70daef79a",
+      "input_lines": 136,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          136
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/S2.md",
+      "ids": [
+        "S2-F1–F22; clean checks"
+      ],
+      "classification": "Historical source/test audit with explicit selected-body coverage",
+      "owners": [
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/SYNTHESIS.md",
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/FOLLOWUP_CHECKPOINT.md"
+      ],
+      "disposition": "Only world IDs differ overstates even this audit own listed calendar guard/owner/state/message differences; L2 enumerated nine preserved differences for one extracted pair, not all five equivalent stacks. L1 deliberately kept type/default/order/depth/hash semantics distinct. HOME_WORLD constant proposal cannot make Frontier universal home. Exact calendar constants cannot force every world/body clock into360dayyear. Old private-source citation metadata is not runtime filesystem dependency or raw-prose leak. No current code defect reproduced.",
+      "evidence": "Fresh full shard including every finding, exclusions and negative checks. B160 full follow-up/lane receipts, B159 current away-bank source and B138/B137 named current registry/scorecard evidence qualify historical source claims. Original hundreds of source/test assertions, scripts, fixtures and data tables not newly read through this report.",
+      "reopen": "Preserve useful specific failure and contract questions; establish present consumer and reproducer before a selected code change.",
+      "input_sha256": "2d6fbcae108074099b8fdfad54117a341402ba6f6c65ca82bc08f50bdb275361",
+      "input_lines": 174,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          174
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/SYNTHESIS.md",
+      "heading": "## T/S2 content follow-through, 2026-11-04 (B164)",
+      "body": "T-F1–F23 and S2-F1–F22 were read with their complete negative checks and sampled-body exclusions. Historical static importer reachability, direct test-name references and line-count baselines do not establish today’s runtime coverage. B159’s current away-bank source supersedes T’s blanket test-only away-ledger statement; current registry and claim/native owner evidence remains separately scoped. Static source presence still does not prove gameplay or every supported import, and test-only infrastructure can remain a deliberate inert pilot. No “no direct test” census is promoted to no testing at all.\n\nS2-F2’s “only world ID tables differ” is too strong: its own findings and L2’s full extraction report identify different validation guards, state/activation namespaces, owner counts, messages and calendar contracts. The later shared base covered the named MoL/Paradise pair while preserving nine differences; it did not merge all five stacks. L1 preserved return-type, argument-order, default, error, equality, JSON-depth and encoding differences instead of silently choosing one behavior. A common helper name is not a shared semantic contract. Likewise, proposed Frontier HOME constants and a shared 360-day calendar cannot silently impose one home or clock law on every world/body. Source citation metadata in a shipped data table is not by itself a runtime dependency on private files or a raw-prose breach.\n\nL3/L4 and the later issue pass qualify named ratchet, helper, todo, crafting-stub and village-route findings. Keep meaningful independent optional-family regressions even when their assertion shape repeats. Test-count literals can express an authored finite contract; changing each to data.length would sometimes become a tautology and changing each to a floor can hide missing content. Decide from the invariant rather than mechanically removing duplication. Fixture moves, browser test regrouping/skipping, replay canonicalization, helper extraction and source deletions are not selected here. Reusing unchanged semantic receipts is different from trusting an old import graph or a suite count. No runtime checks were rerun or behavior edits made by this reconciliation.",
+      "before_sha256": "b243c4b098fa1d5be74544f4d54d438e8658f088c6368520d8de092a7f5c2d52",
+      "after_sha256": "5ba19686e856b8c63c95f42d7929f2200cc2248ab4db6e028d2331e06092af2e"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1152
+}

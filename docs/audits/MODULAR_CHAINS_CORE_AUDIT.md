@@ -1,5 +1,7 @@
 # Modular production chains core audit
 
+**Content review B3, 2026-11-04:** all PC1–PC5 triggers, round records and the composed interruption/custody case reviewed. The [chain-owner fold](../MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md#field-and-staged-chain-reconciliation-2026-11-04) retains stage clocks, lot progress and distinct receivers. Original trigger tables are review/navigation hints; a new doc does not authorize every lane or a universal chain engine. No old reference-source or runtime pass was repeated (AD32/AD36/AD38).
+
 Repeatable audit for the topic "modularity from harvesting and extraction through crafting, use and salvage, plus procedural rules". Method: [topic expansion audit playbook](TOPIC_EXPANSION_AUDIT_PLAYBOOK.md). Root palette: [modular production chains](../MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md).
 
 ## Owners to check first

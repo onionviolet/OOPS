@@ -7,7 +7,7 @@ Weibao: "alot of stuff just turned into webs for representaiton, are those even 
 ## Short answer
 
 - **A web suits the question "what is this thing connected to, in words I can read at once?" when the lines carry labels, and little else.** Where the edges are labelled (people web, walk map, family tree) the plain figure answered most questions by eye (people web 0 steps, walk map 0, family tree 1 of 2 questions). Where edges are unlabelled (knowledge board, study map, fight ring) every answer needed a hover or click in every form.
-- **A table with an inspector halves the reading load.** First-paint words on the same data: figure about 126, table about 66, matrix about 80, sentences about 110 (measured, mean over 7 fixtures). The table needs one click per source to reach links, the same as a hover card.
+- **A table with an inspector halves the reading load.** First-paint means across seven retained fixtures: interactive figure126, plain figure99, table66, matrix80, sentences110. The table cuts about48% against the interactive figure and34% against plain figure (retained artifact readback; see B129). The table needs one click per source to reach links, the same as a hover card.
 - **The matrix cost the most steps, or tied for most, on all 16 questions** (33 against 17 for the table, among the figure, table and matrix). Default: offer it only for pairwise questions ("who knows whom"), as an alternate.
 - **No measured gain justifies replacing a figure with a table or matrix.** The big form wins already landed on master from other lanes (body by part table, fight versus row, departures board, home chips). So this lane ships the interaction layer and a form switch, and replaces nothing (task 5 allowed "at most two where the gain is large"; none qualified).
 
@@ -34,7 +34,7 @@ Other ring or web views not on `figure.js` are outside this lane.
 
 ## 2. Measurement
 
-Method (scripted, `scripts/form_fit_measure.mjs`, 1920x1080, effects off, headless Chrome, 7 gallery fixtures, 16 questions, 40 facts):
+Method (scripted, `scripts/form_fit_measure.mjs`, 1920x1080, effects off, headless Chrome, 7 gallery fixtures and16 questions; the retained measurement artifact contains29 facts per form, qualifying the original40-fact report):
 
 - A fact counts as seen when one visible element holds all of its fragments (for a relation, both ends or the answer word plus its owner). Steps are the hovers and clicks the minimal scripted path needs. Words are the words in the elements that held the facts, and on the first paint.
 - **Route kind: gallery fixtures, not live game routes (FLR2).** Fresh-player timing was not measured. "Steps" and "words" are structural proxies for effort: **measured as proxies, inferred as to what a person would feel.** The plain-figure column also assumes a native tooltip costs one hover and lets the eye trace a line for free; that is inferred and flatters the plain figure.
@@ -55,11 +55,11 @@ Steps for all questions in the view / mean words in the answering element / mean
 
 What it says:
 
-- F1 (measured). The plain figure reaches its answers at 0 steps through edge labels, by the eye following the line to the right person; that was 15 of the 40 facts, mostly in the people web, walk map and family tree. Where labels are absent, the plain figure needs a hover in every case.
+- F1 (measured). The plain figure reaches its answers at 0 steps through edge labels, by the eye following the line to the right person; that was15 eye-traced facts out of29 in the retained artifact (the original prose reported40), mostly in the people web, walk map and family tree. Where labels are absent, the plain figure needs a hover in every case.
 - F2 (measured). The interaction layer costs more steps than the plain figure in the table because the plain column assumes eye-tracing is free; it buys a card that names the whole neighbourhood in words (one hover per person, not per line) and makes the answer readable without tracing. This is its job: accuracy of the answer, not fewer clicks.
 - F3 (measured). The table halves the first-paint text. It is a good form when the question is a list or a sort ("who has the most links", "which are guessed"). It shows shape poorly.
 - F4 (measured). The matrix needs a click per marked cell; a row with four links cost four steps. It answers "is there a link between A and B" well and little else.
-- F5 (measured). Sentences read at 0 steps but at 1.5 to 3 times the words of the table's answer on 6 of 7 views. Default role: the text form and screen readers.
+- F5 (measured). Sentences read at0 steps and use more answer words than the table on six of seven views; only walks and fights reach1.5–3 times in the retained measurement artifact. Making uses fewer answer words. (B129.) Default role: the text form and screen readers.
 - F6 (inferred). Walk times, family heirs and the fight ring's "who is striking me" are answered best by the existing non-web defaults (departures board, "Who would inherit" first, versus row). The figures behind them are the alternates.
 - F7 (inferred). A dependency chain such as the study map is a layered left-to-right DAG, not a web; the labelled-edge advantage disappears there. It waits on the generic graph layout `rep-abilities` is adding to `figure.js`.
 
@@ -138,3 +138,14 @@ Level: S small, M medium, L large. Done check is what proves the item.
 - Default for any figure with edges: the figure with the interaction layer, and a Table next to it. Condition for the table to lead: more than about 10 points, or the question is a sort or filter ("who is most owed"). Condition for plain sentences: screen reader or text-effects-off preference, which the text form already covers.
 - Default when edges carry no labels: add a label to the edge in the spec builder first; if the label would crowd the drawing, the card is the substitute.
 - Matrix: offered where the question is pairwise ("does A know B"), as an alternate; the figure or table leads.
+
+
+## Form-fit reconciliation B129, 2026-11-04
+
+Full inventory, F1–F7, verdicts, interaction/form spec and A/N/L proposals read. The retained [measure.json](evidence/form-fit-2026-10-30/measure.json) has80 records, sixteen questions for each of five forms. Summing its facts gives29 per form, while the old method/F1 prose said40. Its numeric fields, route and input SHA are recorded in [B129](reconciliation-2026-11-04/content-b129.json); question/fixture semantics and capture scripts/images were not independently re-audited. This is a discrepancy in the retained artifact versus narrative, not a rerun of the original Chrome measurement.
+
+Across seven fixtures first-paint means are99.43 plain figure,126.43 interactive figure,66 table,80 matrix and110.29 sentences. Thus the table cuts about48% against interactive figure and34% against plain figure, not a universal halving. Sentences use more answer words in six views but their ratio is within1.5–3 only for walks and fights; making uses fewer than the table. The script’s minimal paths and free eye-tracing are structural proxies, not player reading time or a proof of comprehension. The raw artifact is unchanged; exact original/corrected narrative is preserved in the ledger.
+
+Current selected source still calls mountFormSwitch in People, Knows and Study. That is wiring evidence, not fresh served bytes or floor proof. Keep the original earned People route separate from Knowledge/Study’s unit/gallery-only below-floor state, and preserve gallery versus live screenshots, fixed model/wording limits and pin-reset/overlap/matrix-sort gaps. No inference that historical worker reservations or pending graph-layout work remain current. AD42 optional review, AD46 task/world form and current prose-first direction in [VISION_DIGEST](../VISION_DIGEST.md) govern use. Default figure-plus-table, roughly10 points, forced hover and sentences-only-for-screen-reader are contextual proposals rather than universal requirements.
+
+Redaction must precede neighborhood/filter/count/comparison; a generic graph library is not permission to include private nodes, future ranks, hidden kin or unknown result reasons. Known costs/results and real source-model scope remain available in whichever form is selected. A new form cannot supply missing harm, heir, research or transmission mechanics. Do not make every graph/alternate or a human timing note a prerequisite to unrelated work. No UI implementation, layout replacement, reference-game verification or renewed native acceptance was performed here.

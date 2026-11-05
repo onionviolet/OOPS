@@ -1,0 +1,167 @@
+{
+  "schema": 1,
+  "batch": "B131",
+  "title": "Coordinator coverage and road/rite intake: preserved ideas, actual owners and stale status",
+  "at": "2026-11-04T21:32:13.475660+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/gap-audit-2026-10-30/coord_cov.md",
+      "ids": [
+        "84 coordinator rows",
+        "D1–D7",
+        "UI list"
+      ],
+      "classification": "Historical coordinator/idea intake; actual-content dispositions and retained gaps",
+      "owners": [
+        "docs/audits/gap-audit-2026-10-30/coord_cov.md",
+        "docs/audits/gap-audit-2026-10-30/coord_cov2.md",
+        "docs/gm/dispatch/sonnet-wave-2026-10-30/ideas/sw-rites.md",
+        "docs/gm/dispatch/sonnet-wave-2026-10-30/ideas/sw-road.md",
+        "docs/representations/MAPS_AND_TRAVEL.md"
+      ],
+      "disposition": "Seven-chat extract does not cover the other two coordinators; the second file supplies their distinct pass. Grep/code-count DONE or TRACKED means scoped evidence, not native completion. Keep dormant LSD proposals, optional lead aid/off-default future marker and volume/canon/claim concepts. Travel lost ideas already appear as TP4/TP7, so no duplicate missing ask. Old merge/reading/worker/usage dates do not launch work. Historical coauthor trailers stay history, no rewrite. Exchange requirement remains ambiguous versus currency/material/ritual operations, preserve as scoped review candidate.",
+      "evidence": "Fresh complete body read. Dense clipped coordinator ranges recovered. Current maps249–275 already contains TP4/TP7; time390–416 confirms TC23–26; current cities1–25 retains authored station/access route. No full original chat, book paragraphs, private packs or old worker execution verified.",
+      "reopen": "For a selected idea inspect its exact original source/operation and current owner/receipt. Preserve ambiguous or unnamed ideas without inventing decisions or launching dated lanes.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "6fa0194957a82626d9c6cfdbe8b77f7064737dce4e74ee16ddfd8568a91ff485",
+      "input_lines": 124,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          124
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/gap-audit-2026-10-30/coord_cov2.md",
+      "ids": [
+        "81 coordinator rows",
+        "D1–D5 dropped list",
+        "at-risk list",
+        "UI summary"
+      ],
+      "classification": "Historical coordinator/idea intake; actual-content dispositions and retained gaps",
+      "owners": [
+        "docs/audits/gap-audit-2026-10-30/coord_cov.md",
+        "docs/audits/gap-audit-2026-10-30/coord_cov2.md",
+        "docs/gm/dispatch/sonnet-wave-2026-10-30/ideas/sw-rites.md",
+        "docs/gm/dispatch/sonnet-wave-2026-10-30/ideas/sw-road.md",
+        "docs/representations/MAPS_AND_TRAVEL.md"
+      ],
+      "disposition": "Source/tests/commit/absence-from-modified-list cannot prove floor, adoption or remote state. 4455/4476 is not a clean full-suite pass. Earlier missing shapes/Today/slot limiter fields qualified by B118–130 later owners. Pixel baseline or heuristic load trigger not mandatory rewrite. Missing unconventional option has no recovered wording, so do not fabricate it from later directions. Current background rule and live rule status govern, no silent acceptance or expired allowance authority.",
+      "evidence": "Fresh complete body read. Dense clipped coordinator ranges recovered. Current maps249–275 already contains TP4/TP7; time390–416 confirms TC23–26; current cities1–25 retains authored station/access route. No full original chat, book paragraphs, private packs or old worker execution verified.",
+      "reopen": "For a selected idea inspect its exact original source/operation and current owner/receipt. Preserve ambiguous or unnamed ideas without inventing decisions or launching dated lanes.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "2e5ff8b0aae5f822fe25731e40298fce3f26006aafaee2a2640823814bb7c72a",
+      "input_lines": 115,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          115
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/sonnet-wave-2026-10-30/ideas/sw-rites.md",
+      "ids": [
+        "slices1–6",
+        "GM42/GM46/WA53 folds",
+        "unread groups",
+        "method grouping"
+      ],
+      "classification": "Historical coordinator/idea intake; actual-content dispositions and retained gaps",
+      "owners": [
+        "docs/audits/gap-audit-2026-10-30/coord_cov.md",
+        "docs/audits/gap-audit-2026-10-30/coord_cov2.md",
+        "docs/gm/dispatch/sonnet-wave-2026-10-30/ideas/sw-rites.md",
+        "docs/gm/dispatch/sonnet-wave-2026-10-30/ideas/sw-road.md",
+        "docs/representations/MAPS_AND_TRAVEL.md"
+      ],
+      "disposition": "Append-only original history retained. Structural sibling sample14 of54 is not semantic reading; 184 groups/103 later ladder/40 unusable and29+8 unread remain dated disjoint counts. Correct code/volume locator syntax cannot prove source meaning. Published-id/invariant tests better than fixed counts. Group per-volume methods without erasing evidence/revisions. Original28-id advice is a context-specific throughput observation, not universal quota or forced reader relaunch. All-unwired statement is dated; actual M22 and selected consumers have their own proof.",
+      "evidence": "Fresh complete body read. Dense clipped coordinator ranges recovered. Current maps249–275 already contains TP4/TP7; time390–416 confirms TC23–26; current cities1–25 retains authored station/access route. No full original chat, book paragraphs, private packs or old worker execution verified.",
+      "reopen": "For a selected idea inspect its exact original source/operation and current owner/receipt. Preserve ambiguous or unnamed ideas without inventing decisions or launching dated lanes.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "560c5018bff652806293962bfb8a2ae10d6a9a85ca2921ecc532ef37cc030ac6",
+      "input_lines": 48,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          48
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/sonnet-wave-2026-10-30/ideas/sw-road.md",
+      "ids": [
+        "slices1–8",
+        "L1–L11",
+        "source/number improvements"
+      ],
+      "classification": "Historical coordinator/idea intake; actual-content dispositions and retained gaps",
+      "owners": [
+        "docs/audits/gap-audit-2026-10-30/coord_cov.md",
+        "docs/audits/gap-audit-2026-10-30/coord_cov2.md",
+        "docs/gm/dispatch/sonnet-wave-2026-10-30/ideas/sw-rites.md",
+        "docs/gm/dispatch/sonnet-wave-2026-10-30/ideas/sw-road.md",
+        "docs/representations/MAPS_AND_TRAVEL.md"
+      ],
+      "disposition": "Keep real route stop/service/ticket/agency, explicit unstated fare/duration/hours and local institution/currency owners. A percentage claim is not missing numeric zero; exact amount needs named base. First departure does not imply last-train schedule. Seven-o-clock labelI remains inferred, not direct canon; wrong paragraph examples justify semantic verification. Station remains authored in current code, not resolved by source counts. Merit conversion may be unavailable; no mandatory fungibility or one global rate. Hazard presence and intervention need actual source/clock/consumer; no creature from an ability label.",
+      "evidence": "Fresh complete body read. Dense clipped coordinator ranges recovered. Current maps249–275 already contains TP4/TP7; time390–416 confirms TC23–26; current cities1–25 retains authored station/access route. No full original chat, book paragraphs, private packs or old worker execution verified.",
+      "reopen": "For a selected idea inspect its exact original source/operation and current owner/receipt. Preserve ambiguous or unnamed ideas without inventing decisions or launching dated lanes.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "a4303464831e40872900e090278adbbe8f40474a1b3e3862f7942c9bd7ffbb01",
+      "input_lines": 45,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          45
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/gap-audit-2026-10-30/coord_cov.md",
+      "heading": "## Coordinator-inventory reconciliation B131, 2026-11-04",
+      "body": "All84 rows, D1–D7 and UI list read. Seven-chat scope is exact; [coord_cov2](coord_cov2.md) separately covers the two missing coordinators, not a reread of all raw chats. DONE/TRACKED and code/grep counts do not prove gameplay, source semantics or current owner state. Keep dormant LSD proposals available without imposing every design-only code as backlog or duplicating guide/index specifications. Historical coauthor trailers remain recorded history; no commit rewriting or new trailers are requested. Old Nov1 reading plans, expired allowance dates and launched-worker statements are not current deadlines/usage or permission to restart work.\n\nD2’s optional lead aid/future marker remains a proposal with ordinary alternatives and player-known output. Current AD52 activity abstractions and existing lead-life owners govern actual scope, cost, clock and intervention. D5’s file merge is not semantic reading or free qualified gameplay; B100–102 already independently reviewed selected HP receipts. D1’s zero/exchange row counts cannot identify an actual exchange mechanism by themselves; its unresolved operation is preserved in [rite intake](../../gm/dispatch/sonnet-wave-2026-10-30/ideas/sw-rites.md), without equating bank conversion, material barter and ritual request/result. D4 dated supervisor/location binding still needs exact selected proof, not an inferred DONE from another round.\n\nThe proposed lost travel ideas are already present in [maps TP4/TP7](../../representations/MAPS_AND_TRAVEL.md#travel-pacing-proposals-2026-10-30), including go-when-ready and fixed-seed near/far lodging comparison; [time TC23–26](../../representations/TIME_AND_CHRONICLE.md#travel-time-on-time-surfaces-proposals-2026-10-30) preserves leave-by/windows/aftermath. Do not duplicate them as new missing asks. Their automation/offline assumptions require their actual clock/command owner, and the station/source qualification remains open at its named authored route. Current [PROJECT](../../../PROJECT.md) and AD32/AD42/AD51/AD52 in [rules index](../../RULES_INDEX.md) govern priorities and proposal/proof distinctions, not these old suggested next steps.",
+      "before_sha256": "6fa0194957a82626d9c6cfdbe8b77f7064737dce4e74ee16ddfd8568a91ff485",
+      "after_sha256": "468b9ecff83ff480f22f97a6b1ac985098287d6eb311df9d020be3790a65c10c"
+    },
+    {
+      "path": "docs/audits/gap-audit-2026-10-30/coord_cov2.md",
+      "heading": "## Coordinator-inventory reconciliation B131, 2026-11-04",
+      "body": "All81 rows and dropped/at-risk/summary lists read. This pass completes the textual supplemental inventory, not raw coordinator transcripts. Source presence, test titles, merge claims or absence from a start-modified list cannot establish native floor, app adoption, unchanged source or remote push. In particular4455/4476 is a failing full-suite result; the row’s inferred cleared status is not clean baseline proof. Existing later UI/capability/form/direction owners reviewed in B118–130 qualify blanket no-empty-state/accessibility/shape/Today/default-limiter gaps. Exact current deficiency remains per selected feature.\n\n[TP4/TP7 already preserve the two named travel ideas](../../representations/MAPS_AND_TRAVEL.md#travel-pacing-proposals-2026-10-30); do not add duplicate proposals. O3/Today now also has later direction/queue coverage, not only the old round8 paragraph. The unnamed unconventional option has not been recovered here, so later desk/outliner alternatives cannot be asserted to be its original wording. Keep that uncertainty as history. Current book_world_lotm_cities still marks the station and access cab as authored proposals; a source verification question is preserved in [road intake](../../gm/dispatch/sonnet-wave-2026-10-30/ideas/sw-road.md). A code locator or a cited first departure does not authenticate every district/fare/duration.\n\nDates/usage stop lines, model names, running workers, frozen-app hashes, pushes, library/tool availability and split-bundle estimates retain their original dates. They do not launch new work or override current direction. No historical commit rewrite, silent proposal acceptance, automatic app adoption or push was performed. Native proof remains distinct from source, tests, packaged/installed state and optional human review under AD42 in [RULES_INDEX](../../RULES_INDEX.md).",
+      "before_sha256": "2e5ff8b0aae5f822fe25731e40298fce3f26006aafaee2a2640823814bb7c72a",
+      "after_sha256": "8a1bd64a026e892ef46e50a59225fbd0ac8cfd78a800acd74d557d0bcf233b08"
+    },
+    {
+      "path": "docs/gm/dispatch/sonnet-wave-2026-10-30/ideas/sw-rites.md",
+      "heading": "## 2026-11-04, content reconciliation B131",
+      "body": "ACCOUNT FOR NOW: the complete48-line intake and coordinator D1 are now read. Preserve all prior entries/fold markers. Structural sibling-field sampling is not semantic source reading; syntactically valid locators can still point to the wrong operation. Exact published IDs, volume/source scope, observed outcome versus inferred effect and real method/performer/scale/agent distinctions remain useful. Group repeated methods by actual identity while retaining per-volume evidence and definition differences; do not merge rows merely because their labels match. Old all-unwired/worker-capacity/chunk-size statements are dated, not current integration/allowance facts or relaunch instructions.\n\nLATER / retained question: [coordinator D1](../../../../audits/gap-audit-2026-10-30/coord_cov.md#coordinator-inventory-reconciliation-b131-2026-11-04) reports an exchange adapter without a tracked follow-up, but does not supply exact operation IDs/context. Preserve that gap without claiming that currency conversion, material barter or ritual equivalence are one mechanism. MC88 in the [engine/UI dependency map](../../refinement-audits-2026-10-31/ENGINE_UI_DEPENDENCY_MAP.md) names a typed ritual request/price/recipient/result, with selected host/source proof still scoped. Level: source/consumer reconciliation; effort unknown until exact rows are recovered. Done check: identify the actual operation/source window and issuer, input custody, recipient, declared result and current consumer; record whether covered, distinct, or still an unselected proposal. No source acquisition or gameplay implementation is launched.",
+      "before_sha256": "560c5018bff652806293962bfb8a2ae10d6a9a85ca2921ecc532ef37cc030ac6",
+      "after_sha256": "8984067e6bbc8d7a3140b4ef1d1ebb884cd1e7a66c21115130ca189a52b66017"
+    },
+    {
+      "path": "docs/gm/dispatch/sonnet-wave-2026-10-30/ideas/sw-road.md",
+      "heading": "## 2026-11-04, content reconciliation B131",
+      "body": "ACCOUNT FOR NOW: the complete45-line intake now has actual-content review. Preserve sampled route/source evidence, unstated numbers and all L1–L11 ideas. A first departure does not establish a full service window or last train; labelI remains inferred even when another row provides an approximate anchor. A percentage needs its actual base/recipient, not a fabricated amount. Absence of a conversion rate can be the correct world state; Merit does not become freely fungible money from a common table shape. Institution access, persona recognition and known evidence remain actual local mechanisms.\n\nLATER / retained source question: [coordinator coverage](../../../../audits/gap-audit-2026-10-30/coord_cov2.md#coordinator-inventory-reconciliation-b131-2026-11-04) flags the Tingen station as an unqueued qualification. Current book_world_lotm_cities still labels station/district placement and the25-minute access cab as authored. Level: selected source/route check; effort unknown until the exact window is selected. Done check: compare the actual source passage and route consumer, preserving evidence separately for station existence, district, access means, duration, fare and hours; keep reasonable unsupported fills explicitly authored rather than remove useful travel automatically. No new reading wave, route change or private-pack edit is selected.",
+      "before_sha256": "a4303464831e40872900e090278adbbe8f40474a1b3e3862f7942c9bd7ffbb01",
+      "after_sha256": "2776d15cf8e6941b9220e8ef174244dbbff3209ec2f57d2d8c451de78b05e7c1"
+    },
+    {
+      "path": "docs/representations/MAPS_AND_TRAVEL.md",
+      "heading": "## Coordinator travel-idea reconciliation B131, 2026-11-04",
+      "body": "The complete [coordinator inventories](../audits/gap-audit-2026-10-30/coord_cov2.md#coordinator-inventory-reconciliation-b131-2026-11-04) name planning/go-when-ready and a fixed-seed near/far lodging comparison as possibly dropped. TP4/TP7 above already retain those ideas; no duplicate proposal or recovered raw-chat claim is needed. Keep TC23–26 leave-by/window/aftermath in the time owner. TP6’s away-travel sentence is a proposal, not proof that browser closure advances the native world: current away-bank behavior banks elapsed time and explicitly spends actual clock progress, while a selected autonomous routine needs its own authority. Preserve quoted route/window knowledge, actual means, cost, interruption and arrival consequences under AD52 in [RULES_INDEX](../RULES_INDEX.md). No timing calibration or automatic travel was implemented here.",
+      "before_sha256": "51cf8704c1bfa9c3e3b446a9cbaf9575d26c178da3bb0c1007321963f1c957d5",
+      "after_sha256": "541027b73e7e4d3da477f0385c022244b7cb32cd0bb94b914760ba41de03356e"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1233
+}

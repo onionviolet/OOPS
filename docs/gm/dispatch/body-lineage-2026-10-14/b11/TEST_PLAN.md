@@ -144,3 +144,8 @@ projection/render alone must not fabricate observations, draw results or XP.
 Interrupt/cancel/reversal settles actual performed work and the same body/edit
 identity, rather than universally refunding all effects (AR7/AR8, MR1/MR29).
 No new fixtures were generated and no new implementation was selected.
+
+
+## Reconciliation B95, 2026-11-04
+
+P01–P13, X01–X12, N01–N07/U01–U02 and R01–R10 remain NOT RUN. Keep exact unit custody/escrow, frozen cause/result, performed-work cancellation, same body/edit settlement, trained-source preservation, current-state literal import and useful packing downstream action. Somatic versus engineered germline versus inherited snapshot remain distinct; pure conception/allele fixtures are not native birth. Source-note unread sample provenance stays unknown. Prototype load triples, 10000 outcome bands, fee/duration and cap-one benefit belong to this selected candidate model, not universal body rules or a reason to refuse superior supported means. A paid-vial route does not prove hunt/stabilization, and forced positive draws remain seeded proof. The named fixture list was proposed, not created. Use current AD41 write ownership and required gates when a slice is authorized, not an automatic isolated-worktree or all-scenarios prerequisite.

@@ -1,0 +1,235 @@
+{
+  "schema": 1,
+  "batch": "B160",
+  "title": "Dedup synthesis, execution reports and later repair chronology",
+  "at": "2026-11-04T22:17:26.229696+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/SYNTHESIS.md",
+      "ids": [
+        "X1–X10; 12 shard scope/coverage rows"
+      ],
+      "classification": "Historical dedup audit or bounded follow-up evidence",
+      "owners": [
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/SYNTHESIS.md",
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/FOLLOWUP_CHECKPOINT.md"
+      ],
+      "disposition": "Keep audit findings as historical verified/suspected source claims. Follow-up records supersede original repair/merge status at named scopes; original shards and sampled bodies remain independently unread. No repository-wide dedup, deletion, code unification, renaming, new acceptance confirmation or dispatch authority.",
+      "evidence": "Fresh full report read, including later sections, exclusions, exact check failures and unexercised paths. Linked original shard bodies, runtime sources, commits, private saves, screenshots and suites not read or rerun by association.",
+      "reopen": "Reproduce a named surviving issue against current owning source only when its implementation or structural work is selected. Preserve scoped historical evidence.",
+      "input_sha256": "f72576869fd2a8acb40376cb4c20821a42b1b789c2ea558cfd55f417dc2bf8aa",
+      "input_lines": 59,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          59
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/FOLLOWUP_CHECKPOINT.md",
+      "ids": [
+        "L1–L6; trial/merge; issue pass"
+      ],
+      "classification": "Historical dedup audit or bounded follow-up evidence",
+      "owners": [
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/SYNTHESIS.md",
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/FOLLOWUP_CHECKPOINT.md"
+      ],
+      "disposition": "Later merged and issue-pass sections override original pending-merge/status rows. Preserve exact 2235/2236 with R51 failure, later 17 frozen-clock runs, runner5/5 and cafe first-fill scopes. Save/reload/import, Paradise full restore and later cafe epoch remain gaps; no current rerun or fresh integration proof.",
+      "evidence": "Fresh full report read, including later sections, exclusions, exact check failures and unexercised paths. Linked original shard bodies, runtime sources, commits, private saves, screenshots and suites not read or rerun by association.",
+      "reopen": "Reproduce a named surviving issue against current owning source only when its implementation or structural work is selected. Preserve scoped historical evidence.",
+      "input_sha256": "1d29176bb8c5e887108981735fb8bc9fcb0da43af1a7ec11a7aeef4f9f7d07e0",
+      "input_lines": 56,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          56
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/FIXES_DOCS.md",
+      "ids": [
+        "all edit rows and left-for-later list"
+      ],
+      "classification": "Historical dedup audit or bounded follow-up evidence",
+      "owners": [
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/SYNTHESIS.md",
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/FOLLOWUP_CHECKPOINT.md"
+      ],
+      "disposition": "Dated edits and uncommitted status are historical; later L6/checkpoint qualifies remaining M3, queue and anchor claims. Old CLAUDE 1500-line PROJECT summary and acceptance-confirmation request do not become current instructions. No bulk deletion or mass line-number rewriting.",
+      "evidence": "Fresh full report read, including later sections, exclusions, exact check failures and unexercised paths. Linked original shard bodies, runtime sources, commits, private saves, screenshots and suites not read or rerun by association.",
+      "reopen": "Reproduce a named surviving issue against current owning source only when its implementation or structural work is selected. Preserve scoped historical evidence.",
+      "input_sha256": "3c98065c595db4f91e455431a1f364ab54bcb48082f2e16f4ea774c7c985a983",
+      "input_lines": 27,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          27
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/FIXES_RUNTIME.md",
+      "ids": [
+        "S4-F6/F7/F9; T-F20; three repair sections"
+      ],
+      "classification": "Historical dedup audit or bounded follow-up evidence",
+      "owners": [
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/SYNTHESIS.md",
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/FOLLOWUP_CHECKPOINT.md"
+      ],
+      "disposition": "Preserve cafe source-regression evidence versus initially unrun browser and later checkpoint first-fill proof. Glassmaking deletion is historical evidence, not new authorization to remove files or restore via git checkout. Repeat-search alternate consumer contradicts missing-panel-is-missing-feature inference. Seven-host UR2 violation explicitly suspected, not established absence of promotion.",
+      "evidence": "Fresh full report read, including later sections, exclusions, exact check failures and unexercised paths. Linked original shard bodies, runtime sources, commits, private saves, screenshots and suites not read or rerun by association.",
+      "reopen": "Reproduce a named surviving issue against current owning source only when its implementation or structural work is selected. Preserve scoped historical evidence.",
+      "input_sha256": "4b4293e6f6580b4b6e2b7a616e61ca87d378ed18a6e48946e1d9e51d3e82c121",
+      "input_lines": 30,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          30
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/L1_REPORT.md",
+      "ids": [
+        "X1/X3; helper drifts; S4-F10; checks/gaps"
+      ],
+      "classification": "Historical dedup audit or bounded follow-up evidence",
+      "owners": [
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/SYNTHESIS.md",
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/FOLLOWUP_CHECKPOINT.md"
+      ],
+      "disposition": "Byte-equivalent extraction is distinct from argument/order/default/depth/type semantics. Keep deliberate gen-kit import-free constraint and UTF16 hash variant, divergent combat models/readouts and helper meanings; no unify-by-name. Sampled codemod, failing baseline and no browser are exact limits; later trial smoke not every migrated UI path.",
+      "evidence": "Fresh full report read, including later sections, exclusions, exact check failures and unexercised paths. Linked original shard bodies, runtime sources, commits, private saves, screenshots and suites not read or rerun by association.",
+      "reopen": "Reproduce a named surviving issue against current owning source only when its implementation or structural work is selected. Preserve scoped historical evidence.",
+      "input_sha256": "9f3117ffeba74499814ca92b9904259fc5c595438fe61770a8f2078dc957c99c",
+      "input_lines": 44,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          44
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/L2_REPORT.md",
+      "ids": [
+        "X2; nine divergences; S2-F13; six future stacks"
+      ],
+      "classification": "Historical dedup audit or bounded follow-up evidence",
+      "owners": [
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/SYNTHESIS.md",
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/FOLLOWUP_CHECKPOINT.md"
+      ],
+      "disposition": "Preserve world-specific namespace/owner/message/calendar/metadata contracts and optional campaign versus unbound distinction. Golden old-native export differs from synthetic Paradise active path; no Paradise full-save restore. Later checkpoint fixes recognition metadata. Ranked extraction estimates and do-next language do not select current work.",
+      "evidence": "Fresh full report read, including later sections, exclusions, exact check failures and unexercised paths. Linked original shard bodies, runtime sources, commits, private saves, screenshots and suites not read or rerun by association.",
+      "reopen": "Reproduce a named surviving issue against current owning source only when its implementation or structural work is selected. Preserve scoped historical evidence.",
+      "input_sha256": "7d60f1b1825f990c8390842acf78df3e30eb120f2c68776404e984abf8d6f2d3",
+      "input_lines": 52,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          52
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/L3_REPORT.md",
+      "ids": [
+        "X4; five changes; remaining SCC; checks"
+      ],
+      "classification": "Historical dedup audit or bounded follow-up evidence",
+      "owners": [
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/SYNTHESIS.md",
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/FOLLOWUP_CHECKPOINT.md"
+      ],
+      "disposition": "Historical ratchet repair, deliberately reviewed baseline reset and cycle reduction do not prove zero cycles or current baselines. Flag is recorded procedure, not permission to bypass a future failing gate. Trade injection only source/test coverage until joined trial smoke, not complete trade or persistence proof.",
+      "evidence": "Fresh full report read, including later sections, exclusions, exact check failures and unexercised paths. Linked original shard bodies, runtime sources, commits, private saves, screenshots and suites not read or rerun by association.",
+      "reopen": "Reproduce a named surviving issue against current owning source only when its implementation or structural work is selected. Preserve scoped historical evidence.",
+      "input_sha256": "83cb9df92c68b6b9c4fae447562d956c7f08f850a9ba1cc3c57a12db1a9b4faa",
+      "input_lines": 27,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          27
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/L4_REPORT.md",
+      "ids": [
+        "T-F5/F6/F7/F8/F9–F23; stub/harness/todo decisions"
+      ],
+      "classification": "Historical dedup audit or bounded follow-up evidence",
+      "owners": [
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/SYNTHESIS.md",
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/FOLLOWUP_CHECKPOINT.md"
+      ],
+      "disposition": "Retain stub API fix versus runtime browser compatibility assumption, exact10 native-loader/two mini-DOM migrations and deliberate nonidentical stubs left. Reduced test count removed stale todos, not lost passing coverage. Later checkpoint resolves village route with shared back bar/Equip/TreeWalker, not game behavior defect.",
+      "evidence": "Fresh full report read, including later sections, exclusions, exact check failures and unexercised paths. Linked original shard bodies, runtime sources, commits, private saves, screenshots and suites not read or rerun by association.",
+      "reopen": "Reproduce a named surviving issue against current owning source only when its implementation or structural work is selected. Preserve scoped historical evidence.",
+      "input_sha256": "2dff14aa935dc7efd27151f77f5886d2cda9e19bab68eaac390ecb562bf4b506",
+      "input_lines": 39,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          39
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/L6_REPORT.md",
+      "ids": [
+        "six edit groups; X10; checks/leftovers"
+      ],
+      "classification": "Historical dedup audit or bounded follow-up evidence",
+      "owners": [
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/SYNTHESIS.md",
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/FOLLOWUP_CHECKPOINT.md"
+      ],
+      "disposition": "Source-game offline claim versus OOPS seam separated; historical OOPS no-import claim superseded by current bank source B159, not all source-game questions solved. Frozen source line cites can remain valid historical locators. Counts manifests/reports/directories are different denominators and not current ownership or world completion. Historical World1 end/pause note is not current lease.",
+      "evidence": "Fresh full report read, including later sections, exclusions, exact check failures and unexercised paths. Linked original shard bodies, runtime sources, commits, private saves, screenshots and suites not read or rerun by association.",
+      "reopen": "Reproduce a named surviving issue against current owning source only when its implementation or structural work is selected. Preserve scoped historical evidence.",
+      "input_sha256": "daeaf6ccb4f30c412d269acd93c03e36097055f0d83b5b84143221c266a77de9",
+      "input_lines": 19,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          19
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/SYNTHESIS.md",
+      "heading": "## Content reconciliation, 2026-11-04 (B160)",
+      "body": "The entire synthesis, FIXES_DOCS/FIXES_RUNTIME, L1–L4/L6 reports and [follow-up checkpoint](FOLLOWUP_CHECKPOINT.md) were read. The original twelve shard bodies are separate inputs, not newly reviewed through this synthesis. Keep VERIFIED versus SUSPECTED, sampled/grep-only versus body review, and source defects versus exercised behavior distinct. Historical counts, architecture baselines, cached file sizes, line locators and acquisition/manifests are dated inputs, not current inventories.\n\nThe follow-up records supersede the original suggested queue at their exact scope: equivalent leaf/hash extraction, one native-binding stack, ratchet/cycle/trade injection, test harness and headless stub fixes, doc corrections and recorded integration. Deliberately different helper return types, defaults, depth limits, argument orders, clock/hash variants and combat calculation/readout semantics were left distinct. Duplication alone does not establish a shared behavior contract. The gen-kit import-free test was a named constraint; native recipe seeded Proxy handling is separately qualified in B145, not a blanket ambient-RNG verdict. The repeat-search alternative consumer also prevents equating an unmounted obsolete panel with absent gameplay.\n\nLater checkpoint sections record merged work and subsequent R51/runner/cafe/profile fixes, qualifying earlier unmerged and baseline-failure statements. The combined trial still had one R51 failure before the later scoped repair; cafe proof covered first fill, not epoch refresh, and Paradise full active restore remained unexercised. No fresh full suite, current architecture census, current UI acceptance or all migrated-path proof was obtained here. Current live rule owners settle authority; this old acceptance-confirmation question does not require Weibao to restate established decisions. Snapshot/dispatch bulk removal, sealed-ID changes, seven panel relocations and future clone extraction are not authorized by this read. Preserve their useful proposals and history without deleting evidence or dispatching their suggested order.",
+      "before_sha256": "f72576869fd2a8acb40376cb4c20821a42b1b789c2ea558cfd55f417dc2bf8aa",
+      "after_sha256": "015d493b1ccbf0663d99fab857d7936a9d344751f44d7f002dc3ff452dad1d91"
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/FOLLOWUP_CHECKPOINT.md",
+      "heading": "## Content reconciliation, 2026-11-04 (B160)",
+      "body": "All lane scopes, results, trial integration, merge record, issue pass and remaining exclusions were read alongside the five available L1–L4/L6 reports and earlier fix reports. Original pending merge language is historical: this checkpoint itself records the authorized October 19 merge, then later R51 stub-clock, runner-route, cafe first-fill and profile-data corrections. Those records preserve their own branch/input and check scopes; they are not reruns on today’s dirty shared checkout. Earlier crafting checkVisibility failure was a DOM-stub limitation; later village visibility failure was repaired through the actual shared back/Equip route and TreeWalker, not a new gameplay rule.\n\nKeep the literal integration limits: initial trial 2235 passes of 2236 with R51 failure, later 17 scoped R51 runs, runner 5/5 and two cafe first fills. No blanket Paradise active-save restore, later cafe epoch refresh, natural acquisition or current Save/reload/Import claim follows. L1’s codemod was sampled, and a joined loading/purchase smoke does not exercise every migrated helper consumer. L2 retained nine world divergences and synthetic-versus-real-save provenance; its ranked other stacks remain proposals.\n\nHistorical worktree/thread/branch records and the quoted request for parallel workers do not create present leases or delegation authority. B159’s current away-bank source qualifies L6’s historical no-import OOPS statement, while its source-game offline question remains separately located. Current desktop direction and AD42 govern future viewport and review requirements. Preserve unresolved proposal/history rows; do not delete bulk evidence, move panels, reset baselines or reopen an old process solely from this checkpoint.",
+      "before_sha256": "1d29176bb8c5e887108981735fb8bc9fcb0da43af1a7ec11a7aeef4f9f7d07e0",
+      "after_sha256": "80947c8d400ecb9587ef004b352acd70271bc58a1d92863db73b5320887060e3"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1161
+}

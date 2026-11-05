@@ -1,0 +1,173 @@
+{
+  "schema": 1,
+  "at": "2026-11-04T18:54:08.720787+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "scope": "15 source documents, full content; supporting owners reviewed at the sections named in dispositions. No source-corpus or gameplay acceptance expansion.",
+  "entries": [
+    {
+      "batch": "B2",
+      "path": "docs/reviews/FOUNDATION_CONSIDERATIONS_2026-10-16.md",
+      "input_sha256": "cb07f52efec4530a530430321ceac0d516c3bc41c85d12bfbb05a4f32e3edfae",
+      "input_lines": 119,
+      "reviewed_input_range": [
+        1,
+        119
+      ],
+      "evidence": "Full source document read; source assertions qualified against named owners/current seams; historical tests not rerun by implication."
+    },
+    {
+      "batch": "B2",
+      "path": "docs/reviews/CORE_ENGINE_AND_RUNTIME_CONSIDERATIONS_2026-10-16.md",
+      "input_sha256": "62000b5d5b2e191659d1c3632020b2391d220991901834e2343e7bbe8b7498a5",
+      "input_lines": 245,
+      "reviewed_input_range": [
+        1,
+        245
+      ],
+      "evidence": "Full source document read; source assertions qualified against named owners/current seams; historical tests not rerun by implication."
+    },
+    {
+      "batch": "B2",
+      "path": "docs/reviews/RAPID_ITERATION_CONSIDERATIONS_2026-10-16.md",
+      "input_sha256": "07e4a61cd04a9e048e16dbc10e09d5443dc7e57afca811d18e8e79fb34ae244b",
+      "input_lines": 57,
+      "reviewed_input_range": [
+        1,
+        57
+      ],
+      "evidence": "Full source document read; source assertions qualified against named owners/current seams; historical tests not rerun by implication."
+    },
+    {
+      "batch": "B2",
+      "path": "docs/reviews/MODULARITY_AND_REWRITE_ASSESSMENT_2026-10-16.md",
+      "input_sha256": "139d52aadfd543187d0749b0f983e6ba6a282858455d5b680dec981fc27ae844",
+      "input_lines": 222,
+      "reviewed_input_range": [
+        1,
+        222
+      ],
+      "evidence": "Full source document read; source assertions qualified against named owners/current seams; historical tests not rerun by implication."
+    },
+    {
+      "batch": "B2",
+      "path": "docs/reviews/UI_ENGINE_MODULARITY_2026-10-21.md",
+      "input_sha256": "3a8cec3cd03f4bf17bc92de92defe9c08d5b8451e2bf5439230f01eea5ff9497",
+      "input_lines": 41,
+      "reviewed_input_range": [
+        1,
+        41
+      ],
+      "evidence": "Full source document read; source assertions qualified against named owners/current seams; historical tests not rerun by implication."
+    },
+    {
+      "batch": "B2",
+      "path": "docs/reviews/MODULARITY_IMPLEMENTATION_2026-10-21.md",
+      "input_sha256": "2b85ee00e64c60192c7d89fe22146bd257576cc7a21e9f1120eed1756a2f2e01",
+      "input_lines": 62,
+      "reviewed_input_range": [
+        1,
+        62
+      ],
+      "evidence": "Full source document read; source assertions qualified against named owners/current seams; historical tests not rerun by implication."
+    },
+    {
+      "batch": "B2",
+      "path": "docs/reviews/ENGINE_AND_IDENTITY_THREAD_2026-10-16.md",
+      "input_sha256": "4efd3548e81763d3111f4bb497b5ec01a29a39394569b9333d4b83984bf2694d",
+      "input_lines": 125,
+      "reviewed_input_range": [
+        1,
+        125
+      ],
+      "evidence": "Full source document read; source assertions qualified against named owners/current seams; historical tests not rerun by implication."
+    },
+    {
+      "batch": "B3",
+      "path": "docs/HEAT_GRADE_GATE_L3_2026-10-20.md",
+      "input_sha256": "22097e398bfd7ceb83249620e8e7e663cb05f5af6419a27178de71a7ee1ff1d0",
+      "input_lines": 85,
+      "reviewed_input_range": [
+        1,
+        85
+      ],
+      "evidence": "Full source document read; source assertions qualified against named owners/current seams; historical tests not rerun by implication."
+    },
+    {
+      "batch": "B3",
+      "path": "docs/PHYSICAL_FIELD_LAYER_DESIGN_2026-10-23.md",
+      "input_sha256": "1cb4a5beba8f7ec8e7951be2b4382e7f5bffa469383a8402d5066805adeaafdc",
+      "input_lines": 118,
+      "reviewed_input_range": [
+        1,
+        118
+      ],
+      "evidence": "Full source document read; source assertions qualified against named owners/current seams; historical tests not rerun by implication."
+    },
+    {
+      "batch": "B3",
+      "path": "docs/audits/MODULAR_CHAINS_CORE_AUDIT.md",
+      "input_sha256": "84abee411f60eaa85042c92a449fbf41c5220072b7a29af49b65f465a2c87969",
+      "input_lines": 50,
+      "reviewed_input_range": [
+        1,
+        50
+      ],
+      "evidence": "Full source document read; source assertions qualified against named owners/current seams; historical tests not rerun by implication."
+    },
+    {
+      "batch": "B3",
+      "path": "docs/audits/PROCEDURAL_MAKING_AUDIT_2026-10-26.md",
+      "input_sha256": "8033b9179e700c493cb67ea2338db4348fbc5678ef2d7203b7a0e371d0463861",
+      "input_lines": 107,
+      "reviewed_input_range": [
+        1,
+        107
+      ],
+      "evidence": "Full source document read; source assertions qualified against named owners/current seams; historical tests not rerun by implication."
+    },
+    {
+      "batch": "B4",
+      "path": "docs/reviews/ACCEPTANCE_PREP_2026-10-19.md",
+      "input_sha256": "bd455fa6b7caccdf874f3a116e33f412403aba9b9194046b7593d90c49758251",
+      "input_lines": 103,
+      "reviewed_input_range": [
+        1,
+        103
+      ],
+      "evidence": "Full source document read; source assertions qualified against named owners/current seams; historical tests not rerun by implication."
+    },
+    {
+      "batch": "B4",
+      "path": "docs/reviews/PLAY_QUEUE_2026-10-24.md",
+      "input_sha256": "abe4f912b1d842a5bf11e34a435c9771f59a5fdfd35a3b91b6e94e2b45c61ad4",
+      "input_lines": 125,
+      "reviewed_input_range": [
+        1,
+        125
+      ],
+      "evidence": "Full source document read; source assertions qualified against named owners/current seams; historical tests not rerun by implication."
+    },
+    {
+      "batch": "B4",
+      "path": "docs/reviews/UNFINISHED_GAME_PRIORITIES_2026-10-26.md",
+      "input_sha256": "fc2a6bb67c6e492ca6640cf898cfcbf6bfd3d6aef78b58bce2297739024c364e",
+      "input_lines": 56,
+      "reviewed_input_range": [
+        1,
+        56
+      ],
+      "evidence": "Full source document read; source assertions qualified against named owners/current seams; historical tests not rerun by implication."
+    },
+    {
+      "batch": "B4",
+      "path": "docs/reviews/WORLD_SLICE_EFFORT_AND_ABSTRACTION_2026-11-01.md",
+      "input_sha256": "48bae818f97c0a090872525648d5d97eb732f436d6839ef86e6ccf77f5a4c47f",
+      "input_lines": 98,
+      "reviewed_input_range": [
+        1,
+        98
+      ],
+      "evidence": "Full source document read; source assertions qualified against named owners/current seams; historical tests not rerun by implication."
+    }
+  ]
+}

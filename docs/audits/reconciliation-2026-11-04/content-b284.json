@@ -1,0 +1,152 @@
+{
+  "schema": 1,
+  "batch": "B284",
+  "title": "Cross-audit registers: finite closure, source scope and useful method joins",
+  "at": "2026-11-05T00:47:37.434354+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "classification": "Historical semantic reconciliation/index return; source scope bounded by its own body",
+      "owners": [
+        "docs/gm/cross-audit-reconciliation-2026-10-15/README.md",
+        "docs/gm/cross-audit-reconciliation-2026-10-15/RECONCILIATION.md"
+      ],
+      "reopen": "Continue remaining intake; follow current selected owner for concrete missing behavior. No source, linked-private-receipt or current runtime review credit by proxy.",
+      "path": "docs/gm/cross-audit-reconciliation-2026-10-15/SEMANTIC_T11_EXTRA_AUDITS_B.md",
+      "ids": [
+        "11 source coverage rows",
+        "194 source-local finding labels",
+        "Six material joins",
+        "F/P code collisions remain path-local"
+      ],
+      "disposition": "Read all 80 original lines. Preserve exact 988-line/194-record historical review claim, selected heir/body/status/cosmology/book-source/foundation joins and qualifications. This body enumerates labels and summarizes joins; its private per-record contents and 11 underlying reports are not newly read by this pass.",
+      "evidence": "Coverage-table arithmetic 988 source lines and 194 finding counts agrees; arithmetic is not semantic proof. Five repeated MOL P1/P2 labels remain distinct rows. M01–M33 hypotheses and E01–E22 varying qualifications do not select a collision rule.",
+      "input_sha256": "ecf5925a80747a228bf50b9027b72aab2a6a4b9a50d0f35fa1bc5232d7eedf82",
+      "input_lines": 80,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          80
+        ]
+      ]
+    },
+    {
+      "classification": "Historical semantic reconciliation/index return; source scope bounded by its own body",
+      "owners": [
+        "docs/gm/cross-audit-reconciliation-2026-10-15/README.md",
+        "docs/gm/cross-audit-reconciliation-2026-10-15/RECONCILIATION.md"
+      ],
+      "reopen": "Continue remaining intake; follow current selected owner for concrete missing behavior. No source, linked-private-receipt or current runtime review credit by proxy.",
+      "path": "docs/gm/cross-audit-reconciliation-2026-10-15/SEMANTIC_T11_ROOT_INDEXES.md",
+      "ids": [
+        "Intro D1–D7/C1–C11/V1–V5/P1–P10",
+        "E8B family/source/delivery/pricing/composition",
+        "Historical UI MANIFEST exclusions"
+      ],
+      "disposition": "Read all 22 lines. Preserve repaired final import versus initial false PASS; E8B true-cost is local and zero-sacrifice literal vows remain possible. Manifest binary inspection excludes Apply/audio/persistence/full-shift and establishes no fresh image/runtime review.",
+      "evidence": "Three-source read is attributed to predecessor. Current intro, E8B and manifest bodies/private receipt not newly read here.",
+      "input_sha256": "208cbf603cfdede65b10475c0de85b8cdee0fcb1713f57102308174bfe6c586a",
+      "input_lines": 22,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          22
+        ]
+      ]
+    },
+    {
+      "classification": "Historical semantic reconciliation/index return; source scope bounded by its own body",
+      "owners": [
+        "docs/gm/cross-audit-reconciliation-2026-10-15/README.md",
+        "docs/gm/cross-audit-reconciliation-2026-10-15/RECONCILIATION.md"
+      ],
+      "reopen": "Continue remaining intake; follow current selected owner for concrete missing behavior. No source, linked-private-receipt or current runtime review credit by proxy.",
+      "path": "docs/gm/cross-audit-reconciliation-2026-10-15/SEMANTIC_OTHER_INVENTORY_INDEXES.md",
+      "ids": [
+        "Eight-source table/397 record counts",
+        "34 cheat families",
+        "C1–C10/G1–G15/Q1–Q10",
+        "Qud 38 S/U rows",
+        "Depth7 then-current pointer"
+      ],
+      "disposition": "Read all 22 original lines. Preserve row-level labels and stated omissions; research adoption statuses are dossier claims, not implemented YAIR behavior, and Qud capture/navigation/read states remain distinct. Depth7 is that return’s then-current route, not a fresh latest-depth claim.",
+      "evidence": "Eight index bodies and 397 records are historical scope. The table’s source line counts total 605 but do not prove direct game source or private exports were read. No linked acquisition or IL/game-source action.",
+      "input_sha256": "c6f2c632d2f557019667c0164af0b29c882e940bb5b5dfaf5208a04cfd66cf59",
+      "input_lines": 22,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          22
+        ]
+      ]
+    },
+    {
+      "classification": "Historical semantic reconciliation/index return; source scope bounded by its own body",
+      "owners": [
+        "docs/gm/cross-audit-reconciliation-2026-10-15/README.md",
+        "docs/gm/cross-audit-reconciliation-2026-10-15/RECONCILIATION.md"
+      ],
+      "reopen": "Continue remaining intake; follow current selected owner for concrete missing behavior. No source, linked-private-receipt or current runtime review credit by proxy.",
+      "path": "docs/gm/cross-audit-reconciliation-2026-10-15/README.md",
+      "ids": [
+        "DA1–DA4",
+        "UA1–UA3",
+        "Retired 31-source automatic queue",
+        "Closure versus reading remainder"
+      ],
+      "disposition": "Read all 31 original lines. Preserve finite reconciliation closure and exact remaining archive-equivalence/panel/UI acceptance limits. Fold distinction between closed audit units and this new project-wide content intake into incumbent README; no old audit queue restarted.",
+      "evidence": "The README explicitly says no active unit remains in its finite set; it separately routes partial/uncaptured reading. Follow-through proof is three synthetic Craft 1 sequences, not broad campaign evidence.",
+      "input_sha256": "f617a72606909fdb9e1d7ccdbe60f353ed65c87bd6d1101b93f5d91fecd50e92",
+      "input_lines": 31,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          31
+        ]
+      ]
+    },
+    {
+      "classification": "Historical semantic reconciliation/index return; source scope bounded by its own body",
+      "owners": [
+        "docs/gm/cross-audit-reconciliation-2026-10-15/README.md",
+        "docs/gm/cross-audit-reconciliation-2026-10-15/RECONCILIATION.md"
+      ],
+      "reopen": "Continue remaining intake; follow current selected owner for concrete missing behavior. No source, linked-private-receipt or current runtime review credit by proxy.",
+      "path": "docs/gm/cross-audit-reconciliation-2026-10-15/RECONCILIATION.md",
+      "ids": [
+        "F1–F22",
+        "D1–D4",
+        "A1–A5",
+        "10×6 scope comparison matrix",
+        "12,368 paths/5,984 Markdown/2,146 lexical candidates/40,542 ID matches"
+      ],
+      "disposition": "Read all 155 original lines, including every finding/matrix/method/action row and later corrections. Preserve actual heir/Lin/LIQ1/QA/story/kit-consumer supersessions, source-only versus native variants, archive counterpart versus original-byte identity, and capture-to-semantic correction. Later README closure qualifies old proposed shared edits, ranked queue and viewport.",
+      "evidence": "Dated source/receipt comparison, not fresh runtime proof. LOTM planned-unimplemented and R6/1366 labels are snapshot-specific, not current absence or target. Original queue counts are lexical locators; 8 unavailable worktree-private states remain unrecovered rather than inferred restored.",
+      "input_sha256": "b6816c169000d1b24f087f03d0e34ee69ae49b1800f03514910ef4adcf48adee",
+      "input_lines": 155,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          155
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/cross-audit-reconciliation-2026-10-15/README.md",
+      "heading": "## Content reconciliation B284: closed audit scope and current intake",
+      "body": "The full [original register](RECONCILIATION.md), [extra-audit return B](SEMANTIC_T11_EXTRA_AUDITS_B.md), [root-index return](SEMANTIC_T11_ROOT_INDEXES.md) and [other-index return](SEMANTIC_OTHER_INVENTORY_INDEXES.md) have been read in this project-wide pass. This is content review of those documents, not a second read of their underlying books, games, private receipts or linked reports. The older finite DA/UA closure remains closed. Reading remaining loose material under the November 4 request does not revive the retired automatic 31-source audit queue or make a historical conditional design a new implementation requirement.\n\nPreserve the original register's useful chain from correction to current authority, actual caller and bounded evidence. Its F1–F22 rows distinguish delivered heir/Lin/skill/mixture/story consumers from stale absence; actual local means from superseded universal surcharges; already answered LIQ1 and continuation direction from stale questions; valid seeded-native QA and retries from the retired natural-only failed-closed rule; source integration from copied report aliases; and available archive counterparts from byte-equivalent recovery of missing original trees. Its old proposed shared-owner edits and A1–A5 queue must be read with the later closure above, not used as fresh dispatch. LOTM plan-only and R6 unfinished labels, old source hashes, queue totals and 1366×768 target are dated snapshots. Use current project/domain authority for present claims.\n\nThe B return preserves 11 source rows, 988 historical source lines and 194 path-local finding records. Its six joins keep heir leftovers separate from broad genealogy, M01–M33 cosmology hypotheses separate from chosen local collision rules, mixed status-window fixes separate from unexercised sleep, source-repaired book findings separate from gameplay/persistence, and terse absorption receipts separate from their detailed reports. A label list is not a new per-finding semantic read of the private receipt. Repeated F/P identifiers, including the five MOL P1/P2 labels, retain source and row identity.\n\nThe three root indexes retain direct-versus-variant start lineage, a repaired import following the original false PASS, local pricing versus free exceptional vows, and UI manifest exclusions. The eight other indexes retain 397 individually recorded rows, including navigation-only versus captured versus selectively read Qud source and native-unverified system coverage. Their adoption statuses and 48-directory routing count are reported inventory states, not current implementation or full-source coverage. The depth7 pointer was current for that return; no new latest-depth inspection is supplied here. No linked class body, source book, private pack, screenshot, save or gameplay proof is newly reviewed by these joins.\n\nPreserve ideas and historical failures in place. Full-text receipt/index review and actual implementation review are different dispositions. This pass creates no new audit authority, private-source exposure, runtime work, deletion, relocation or external action.",
+      "before_sha256": "f617a72606909fdb9e1d7ccdbe60f353ed65c87bd6d1101b93f5d91fecd50e92",
+      "after_sha256": "e6f21ad39327b3f4826a0f3422867899473ff26905378749337913747a803b6f"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 860
+}

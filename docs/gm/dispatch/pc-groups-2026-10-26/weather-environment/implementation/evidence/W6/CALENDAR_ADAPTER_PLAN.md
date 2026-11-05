@@ -7,3 +7,8 @@ Reuse one private visitor binding helper for `resolveWorldCalendar` and sourceCa
 Payload: worldId, instanceId, profileId, profileRevision, at, minuteWithinDay, seasonId, minutesPerHour, hoursPerDay. W5 may explicitly select its known schema fields and obtain source spec units from the payload; strict validators must not implicitly accept unrelated extra fields. Season mappings are source table definitions, never inferred from the adapter. Native minute coordinate is at, date labels remain projection only.
 
 Planned checks: current and historical projection match existing display, local midnight, freeze/reentry, invalid/missing active visit/instance/world/definition/revision/unit, future coordinate rejection, root clock change has no effect while instance elapsed is fixed, byte-identical state before/after, unknown season stays null. Actual source integration remains W5 adoption responsibility and cannot be claimed by adapter tests.
+
+
+## Content reconciliation B214, 2026-11-04
+
+The complete adapter plan separates historical source-calendar projection from advancing time or claiming source readiness. Coordinate, active instance, profile, revision and local units come from the actual validated owner; a display label or home/root clock is not substitute evidence. An explicit past coordinate cannot exceed retained elapsed. Unknown season remains unknown, and a strict W5 schema must select compatible fields rather than accepting new payload fields implicitly. MoL/Paradise visitors and HP opening-at/root conventions stay distinct. These are proposed export/validation and planned tests, not verified current exports or W5 integration (AD32/AD36/AD51). A concrete supported caller justifies extending the adapter; no all-world clock schema is required first.

@@ -160,3 +160,12 @@ Documentation/source synthesis. No runtime, gameplay or new book-read proof. Fin
 | `npm run check:docs` | FAIL: 14 diagnostics in existing shared Library Index and Progress Atlas edits; zero diagnostics in this pass's two files. Those unrelated paths were preserved. |
 | Primary web checks | Official Witch Hat English/Japanese introductions support the drawn-seal/tool premise; official Naruto coverage supports Sharingan's clan label. Detailed grammar, inheritance and transplant laws retain their qualification gaps. Local source notes remain attributed rather than promoted by this check. |
 | Runtime build/tests/browser | Not run: this pass changes planning documents, with no runtime behavior claim. |
+
+
+## Content reconciliation B154, 2026-11-04
+
+The full F/N/B/W/R/M catalogue and targeted-study update were reviewed. F9 and N1's blocked-conversation recommendation are historical inspections; the [foundation plan](FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md) now routes its integration, paid-work result and selected M21/M22/M25 receiving proof. N2's learned-method/means contrast has a bounded Anna operation consumer under that receipt; it is not an untouched generic framework task. The unused ability-record acquisition flattening remains explicitly unreproduced/unchanged, not a defect fixed by that different consumer (AD32, AD36).
+
+Preserve the strongest distinctions: carrier/transmission need not be genetics; reserve, output and control need different actual readers; a copied working physical design need not grant its correct explanation; knowing a method does not invent its current tool/source; legal ownership, practical control and recognition can disagree. Biological descent does not automatically grant taught technique or institution access. A local physical grammar is not a universal drawing interpreter, and visually similar seals/arrays do not imply shared magical law (AD38, AD51).
+
+B1-B18/W1-W24 are pressures and candidate receiving actions, not verified all-source mechanics, completed worlds or a priority ranking. The official premise checks, secondary digests, bounded source notes, unknown-revision Mistborn lead and targeted Naruto/Witch Hat windows retain their different evidence levels. One observed survivor sample is not a random probability, and a local conservation law does not forbid teaching, copying or free production elsewhere. Source canon, theoretical implementation fit and native delivery remain separate. No new web/source reading, acquisition, worker, world sequence or runtime change occurred here.

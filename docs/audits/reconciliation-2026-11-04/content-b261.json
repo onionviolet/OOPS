@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "batch": "B261",
+  "title": "Direction summary live-boundary repair with exact history",
+  "at": "2026-11-05T00:10:33.156594+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/DIRECTION_SUMMARY.md",
+      "ids": [
+        "OD1–25 discussion rows",
+        "AN1/TBANK",
+        "CA and fresh-life answers",
+        "SB1–3",
+        "GW1/GW3",
+        "dated book-world/LOTM planning"
+      ],
+      "classification": "Direction navigation with a stale live milestone and dated dispatch claims",
+      "owners": [
+        "docs/DIRECTION_SUMMARY.md",
+        "PROJECT.md",
+        "docs/VISION_DIGEST.md"
+      ],
+      "disposition": "Review full summary, correct SB2 retired milestone in place, qualify dated current queues with live owner pointers, preserve exact superseded wording and all useful discussion history.",
+      "evidence": "All 286 original lines delivered in two chunks. PROJECT lines1–90 and full current digest reread for authority; no runtime, current-source census, process or thread verification.",
+      "reopen": "Use current focus and selected owner for a new task; follow dated answers for intent with subsequent qualifications rather than revive old queues.",
+      "input_sha256": "01f6154ac52c729e2d214afe79663607de5534c4486556790e300efce6651b0b",
+      "input_lines": 286,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          286
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/DIRECTION_SUMMARY.md",
+      "heading": "## Content reconciliation B261 and superseded navigation history",
+      "body": "All 286 pre-edit lines were reviewed, including every OD/AN/TBANK row, SB boundary, answered-cheat qualification, prototype comparison and dated lane handoff. The summary correctly separates direction, proposals and runtime evidence in many places, but SB2 still repeated a milestone explicitly retired in its current owners. SB2 is corrected in place; the removed text is retained verbatim below. No new direction was decided. Current [PROJECT](../PROJECT.md#current-focus), [vision digest](VISION_DIGEST.md), [rules index](RULES_INDEX.md) and selected task owners were rechecked for the correction. Their latest direction includes LOTM-first/Klein, Harry's developer route alongside it, AD42 optional human review, AD51 shared seams and AD52 long-play compression. A new navigation pointer qualifies this file's older “current” queue sections rather than treating them as live dispatch.\n\nRetain OD1–25/AN1/TBANK and the CA answers with their original owner links. Their “exact mechanics open” language is not evidence that later mechanisms remain absent; their narrow defaults do not adopt all adjacent schemas or engineering proposals. CP1–CP7 chat IDs, UI ownership, Soldier's paused state, Frontier-first recommendation and October 15 HP/LOTM comparison are dated records. None was probed as a live lock, renewed pause or current build-order authority. The comparison's own later book-world correction already supersedes Frontier-next, and current PROJECT is the sequence owner. Current developer routes remain distinct from ordinary low-spoiler player starts and from whole-world coverage.\n\nThe old-save exception and content-ID retirement are scope-specific decisions, not a waiver of present-state persistence or permission to discard unrelated saves. Navigation statements about defeat, runtime fields, serializer counts, tested lamps, thread launches or implementation remain evidence at their recorded dates. No native route, current source schema, running process or thread status was verified by this read. The original reciprocal-return, body/history/date, known risk, knowledge-limited recap and optional goal distinctions are preserved. The table's rows do not force one world model, universal resource price or guaranteed escape.\n\nSuperseded SB2 text, retained as history:\n\n```text\n- **SB2:** preserve vanilla play, private saves and sealed discoveries.\n  The first milestone remains one realm and one prestige layer. Earlier direction discussions did not authorize runtime work. Later bounded\n  CP1–CP7 implementation is assigned specifically to the cheat chat; no broader\n  rewrite, extra wave, personal-save migration or commit is implied.\n```\n\nThe former lead-in read “Updated 2026-10-29. Navigation summary of accepted direction, not a new specification or proof of implemented gameplay.” This date is retained here as the prior navigation checkpoint, not a current runtime verification date.",
+      "before_sha256": "01f6154ac52c729e2d214afe79663607de5534c4486556790e300efce6651b0b",
+      "after_sha256": "bd948d8e52a3d7928dc54700981877dcc50984f6f251dfc87dc5c0466678400a"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 908,
+  "post_record_amendments": [
+    {
+      "path": "docs/DIRECTION_SUMMARY.md",
+      "from": "- **SB2:** preserve vanilla play, private saves and sealed discoveries.\n  The first milestone remains one realm and one prestige layer. Earlier direction discussions did not authorize runtime work. Later bounded\n  CP1–CP7 implementation is assigned specifically to the cheat chat; no broader\n  rewrite, extra wave, personal-save migration or commit is implied.\n- **SB3:**",
+      "to": "- **SB2:** preserve vanilla play, private saves and sealed discoveries.\n  The one-realm/one-prestige milestone is retired by [the October 24 direction](USER_VISION.md#first-milestone-and-scope-check-2026-10-24).\n  Current authorized work follows [PROJECT](../PROJECT.md#current-focus) and its actual writer/checkpoint; the dated CP1–CP7 assignment below is history, not a present reservation or general runtime/commit authorization.\n- **SB3:**",
+      "reason": "B261 replace stale live milestone/navigation in place; exact old SB2 and lead-in wording preserved in appended history; original review input unchanged. Locator includes following SB3 to distinguish the live block from the verbatim archived copy; no archived wording was changed."
+    },
+    {
+      "path": "docs/DIRECTION_SUMMARY.md",
+      "from": "Updated 2026-10-29. Navigation summary of accepted direction, not a new\nspecification or proof of implemented gameplay.",
+      "to": "Navigation refreshed 2026-11-04 after full content review. [PROJECT current focus](../PROJECT.md#current-focus), [VISION_DIGEST](VISION_DIGEST.md) and the [rules index](RULES_INDEX.md) govern new work; the dated discussions and assignments below remain history. This summary supplies no new specification or proof of implemented gameplay.",
+      "reason": "B261 replace stale live milestone/navigation in place; exact old SB2 and lead-in wording preserved in appended history; original review input unchanged."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B252, continuous execution 2026-11-04 |",
+      "to": "| B261, continuous execution 2026-11-04 |",
+      "reason": "Advance active pointer through B261; no new full-register reading credit."
+    }
+  ]
+}

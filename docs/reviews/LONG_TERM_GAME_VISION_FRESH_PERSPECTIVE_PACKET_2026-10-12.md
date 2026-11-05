@@ -1,5 +1,7 @@
 # Long-term game vision: self-contained fresh-perspective packet
 
+> Historical October 12 transfer packet, reconciled B155 on November 4. Its prompts, ownership, open gates and copied direction describe that snapshot. Use [current foundation/lead routing](FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md) before reuse; this packet starts no work (AD32, AD36).
+
 Snapshot: October 12, 2026, America/New_York.
 Project: Yet Another Idle RPG expansion, `/Users/weiwei/code/yet-another-idle-rpg`.
 Purpose: Weibao will copy this entire file into a fresh chat with no context, get a stronger overall design/review prompt, then bring that result back. This is broader than finishing the current Foundation phase.
@@ -210,3 +212,12 @@ The following is the rulebook text from the current owner, preserved so the fres
 ## 11. Final instruction
 
 Use the supplied context to improve the overall design/review prompt, preserving authority distinctions and the full horizon. Your replacement prompt should make the returning chat examine evidence and priorities across the whole project, rather than just finish the current NPC proof or generate more unconnected ideas. End with that self-contained prompt.
+
+
+## Content reconciliation B155, 2026-11-04
+
+The full sixteen-domain map, distinctions, reported state, reproduced rulebook and final prompt were read. Preserve the breadth: ordinary and extraordinary lives, original and adapted worlds, independent people, local laws, late useful skills, actual technology/institution uptake and several continuing-life horizons. A new visible system or broad conceptual analogy does not establish its causal joins. Texture can remain experience/content without a new meter (AD32, AD38, AD40).
+
+This October 12 snapshot is not current priority or runtime state. The one-realm/one-prestige gate is retired; current Klein-first/Harry-alongside, AD51 abstraction, AD52 activity and later UI/prose direction apply. The old open-NPC, coordinator/pause, no-current-app and unseeded-native claims remain attributed history. The copied rulebook is preserved verbatim, including its old source-relative link and superseded UI wording; [the live rulebook](../RULES_FROM_SCRATCH.md) owns qualifications. An observation can be exact where its actual means support it, no universal mortality or anti-farming law follows, and legitimate copying differs from accidental publication.
+
+The packet's imperative to create a replacement prompt is source material, not a fresh user request. No packet was sent, no new review/campaign/framework initiated, and no primary source, current runtime or private state was verified here. Current owners resolve established preferences without another broad vote.

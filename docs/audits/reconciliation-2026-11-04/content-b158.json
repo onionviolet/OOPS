@@ -1,0 +1,120 @@
+{
+  "schema": 1,
+  "batch": "B158",
+  "title": "Earlier rules, release-state and shared-document reconciliations",
+  "at": "2026-11-04T22:12:33.031636+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/reviews/WORLD_RULES_AUDIT_2026-10-25.md",
+      "ids": [
+        "F1-F8",
+        "eight contract cases",
+        "teacher journey",
+        "denial/retry",
+        "14 guidance paths"
+      ],
+      "classification": "Applied historical documentation repair with explicit released ownership",
+      "owners": [
+        "docs/reviews/WORLD_RULES_AUDIT_2026-10-25.md",
+        "docs/RULES_INDEX.md",
+        "docs/WORLD_PASS_RULES.md"
+      ],
+      "disposition": "Read all authority, findings, applied changes, provenance and actual validation. Preserve finite world horizon, actual working consumer, primary-checkout default, proportionate check reuse, compatibility deferral and no mandatory human gate. Old rejected write and later approved retry are completed historical events, not a current approval obstacle or permission grant.",
+      "evidence": "Fresh full text only, no current14-file semantic compliance audit or actual live-agent behavior trial. 754 references and23/41 rule counts retain old input. Source walkthroughs explicitly not browser evidence; global/personal skill repair excluded from original scope.",
+      "reopen": "A demonstrated current caller conflict uses live direction/owner and targeted doc change; no automatic WPR expansion, isolated worktree, repeated tests, installer or design-before-runtime prohibition.",
+      "input_sha256": "8256e9b7cf85b133c33e40d852ef7a9ad294995460d43500de682d2b36c41d60",
+      "input_lines": 161,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          161
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/OVERARCHING_RECONCILIATION_2026-10-23.md",
+      "ids": [
+        "F1-F5",
+        "proposed order",
+        "lifecycle",
+        "world entry",
+        "read-only limits"
+      ],
+      "classification": "Historical ranked status and integration assessment",
+      "owners": [
+        "docs/reviews/OVERARCHING_RECONCILIATION_2026-10-23.md",
+        "PROJECT.md",
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md"
+      ],
+      "disposition": "Read full five findings and proposed completions. Preserve separate built/verified/published/adopted states, row-to-current-consumer mapping, actual cap/overflow boundary, lineage input and clock ownership. All old current build/LOTM entry/O4/O5/kin-state assertions are dated leads, not newly proved missing adapters or current priority.",
+      "evidence": "Fresh full text only. No live app/remote, actual listed source or execution receipts reread here. Earlier B118/B143 and current campaign/foundation work have separately scoped evidence, not a blanket closure for F1-F5.",
+      "reopen": "Select one consequential current source/consumer mismatch and qualify exact inputs before marking old finding open or fixed. No universal migration or all-world audit mandate.",
+      "input_sha256": "c82fea8f0f5af618d65f035bde371daed220df53d1e9d8ef5519edaaca6c871e",
+      "input_lines": 103,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          103
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/SHARED_DOCS_RECONCILIATION_2026-10-22.md",
+      "ids": [
+        "F1-F6",
+        "11 inspected tracks",
+        "eight chats",
+        "759 source hashes",
+        "V1-V4",
+        "CK46-CK50"
+      ],
+      "classification": "Historical shared-doc routing and zero-loss receipt on a captured release",
+      "owners": [
+        "docs/reviews/SHARED_DOCS_RECONCILIATION_2026-10-22.md",
+        "PROJECT.md",
+        "docs/gm/WRITEUP_REGISTER.md"
+      ],
+      "disposition": "Read every correction, inspected-track/chat row, source identity, concurrent drift and remaining boundaries. Preserve initial759 hash match separately from later cultivation edits/build. Published ancestry, source recovery26 IDs, doc coverage41 profiles, actual native delivery and human pacing are not interchangeable. Current opening routes are historical pointers, not today latest app/owner declarations.",
+      "evidence": "Fresh full receipt only. No reread of eight chats, raw source captures, private assets, remote commit or current player app.2516 tests and83 links/15-doc before-images are historical scope; not a current zero-loss or behavior run.",
+      "reopen": "Use current PROJECT/rules/writeup register and domain receipts; only affected consumer/input changes justify a new release check. No transfer, commit or publication performed.",
+      "input_sha256": "91183117da2bf9da4e9c1efe7d50a8d414e427affb64a89842f9ef5730f950b0",
+      "input_lines": 122,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          122
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/reviews/WORLD_RULES_AUDIT_2026-10-25.md",
+      "heading": "## Content reconciliation B158, 2026-11-04",
+      "body": "The entire applied-rules audit and provenance were read. The original repair already rejects several recurring process errors: universal worktrees, repeating unchanged focused evidence, a universal separate rule-behavior gate, forced expansion rounds, an obsolete one-realm gate and human play as a prerequisite for technical verification. Keep that direction with current AD36/41/42/43 and the live owners, rather than restating this dated audit as a new rulebook (AD32).\n\nF1/F7/F8 preserve useful implementation joins: finite selected world horizon, actual command/consumer/invariant, disclosed known commitment, cancellation/settlement and a useful return route. Old-save deferral permits a stated policy, not silent reinterpretation of current pending terms. Source-level walkthroughs did not test UI, agents or every rule consumer. The earlier automatic write denial and separately approved retry are resolved history, with source/docs ownership released; they do not require repeating an approval flow for this authorized reconciliation. No old process inquiry, rejected command or runtime task was retried.",
+      "before_sha256": "8256e9b7cf85b133c33e40d852ef7a9ad294995460d43500de682d2b36c41d60",
+      "after_sha256": "4a3d0b9a5aa41b43e35c3ffaa59b6ab231711f81f78e0986d2af266f110fdfaa"
+    },
+    {
+      "path": "docs/reviews/OVERARCHING_RECONCILIATION_2026-10-23.md",
+      "heading": "## Content reconciliation B158, 2026-11-04",
+      "body": "F1-F5 and all evidence limits were reviewed. Preserve the central distinctions: an import is source wiring, a current compiled bundle is not an installed app, a branch receipt is not combined input proof, a rule has a particular resolver/consumer, and an intentional local clock policy is not general offline accrual. A kin producer, transfer law, retained skill and result recipient need their actual joins (AD32, AD36, AD38).\n\nThe adoption build, O4/O5, LOTM localhost entry, switching flag and kin fallback were October 23 observations. Later current campaign/foundation/owner receipts qualify their use; this report supplies questions rather than today's missing-work queue. It neither certifies those old findings fixed nor requires repeating every old route. Broader chemistry, party/cargo and whole-world content remain separately selected scope, with current lead order governed by PROJECT. No new app, source, branch or remote state was verified here.",
+      "before_sha256": "c82fea8f0f5af618d65f035bde371daed220df53d1e9d8ef5519edaaca6c871e",
+      "after_sha256": "89f87aabb2b14907614b6bf1f20f26743a773d231f5631f573397b65794f784d"
+    },
+    {
+      "path": "docs/reviews/SHARED_DOCS_RECONCILIATION_2026-10-22.md",
+      "heading": "## Content reconciliation B158, 2026-11-04",
+      "body": "The full shared-doc receipt, all inspected tracks/chat references and V1-V4 were read. Preserve the important time boundary: the initial 759/759 source-input match was followed by another writer's real cultivation/UI/build changes. Matching the earlier manifest does not certify those later bytes. Likewise, public release ancestry, installed served-file identity, recovered media26/26, proposed profile41 rows and an81-test diagnostic all describe different outputs.\n\nIts opening current-route anchors, release names, live chats and ownership were correct claims for that historical inspection, not current app/worker facts. Current PROJECT, RULES_INDEX, writeup register and selected execution owners route new work. The 2516-test/browser/Electron proof was reused from a named release and was not rerun by either that document audit or this reconciliation. Human taste is optional feedback under AD42; technical evidence keeps its original input identity. No old source pause, publication instruction, all-world gate or personal-save transfer is revived (AD32, AD36, AD41).",
+      "before_sha256": "91183117da2bf9da4e9c1efe7d50a8d414e427affb64a89842f9ef5730f950b0",
+      "after_sha256": "e1c6ff925e64a556ad30615c69572f3b27264f3347d0afb24eef8fd6f2eae6b2"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1173
+}

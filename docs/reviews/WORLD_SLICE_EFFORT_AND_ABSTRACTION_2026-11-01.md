@@ -1,5 +1,11 @@
 # World slices, alternate starts and activity abstraction
 
+**Activity-focused follow-up, 2026-11-04:** [AC1–AC18 and SI1–SI12 in the scope owner](../SUBSYSTEM_SCOPE_LADDERS_2026-10-16.md#activity-compression-audit-choices-and-interactions-2026-11-04) audit progress bars, batches, standing orders and other compressed activities, the choices that stay useful and their cross-system consequences. This is the user's clarified meaning of abstraction; the technical follow-up below remains a separate historical code-boundary review. Proposals retain AD32 status and select no new build order.
+
+**Cross-world follow-up, 2026-11-04:** the [world abstraction audit](WORLD_ABSTRACTION_AUDIT_2026-11-04.md) compares shared mechanisms with compressed play, inspects current adapters and records concrete interruption, clock and campaign-scope limits. It adds proposals and focused evidence, not a new implementation priority or acceptance of the estimates below.
+
+**Content review B4, 2026-11-04:** full F1/E1–E5/O1–O3/S1/A1 and verification reviewed. The [scope-ladder owner fold](../SUBSYSTEM_SCOPE_LADDERS_2026-10-16.md#routine-abstraction-and-effort-reconciliation-2026-11-04) carries the activity/knowledge/failure constraints and the later Nov 3 repetition/variance direction. Hour/month bands remain unbenchmarked historical judgments, not current estimates or a new world priority. No JJK, ordinary-start or investigation engine was implemented or source-qualified by this fold (AD32/AD44).
+
 2026-11-01. Requested comparison and reconciliation, not runtime authorization or a priority change. LOTM-first remains current direction in [PROJECT](../../PROJECT.md). Estimates below are engineering judgment from a bounded source inspection, not measured throughput, a delivery promise or primary-canon qualification.
 
 ## Request and authority
@@ -96,3 +102,8 @@ Verification on 2026-11-01:
 - Documentation edited; runtime not changed or tested, not committed, not human-reviewed. Estimates remain unbenchmarked. No rules-index or registered-code change.
 
 The remaining implementation gate is selecting and delivering a bounded slice through the existing FLR1–FLR6 floor, not approving this report.
+
+
+## Later activity authority and long-play clarification, 2026-11-04 (B61)
+
+AD52/ACR1–ACR14 now adopts the reusable activity principles; A1’s exact investigation envelope, examples, numbers and implementation shape remain proposals. USER_VISION’s later long-play clarification and ACR1 explicitly preserve long growth, sustained pursuits and time enjoyed in a place: compressing repetitive handling and delivering a small slice do not require short campaigns, world stays or rapid mastery. This adds no target duration or compulsory slow grind and does not validate E1–E5 effort estimates. Keep AD51’s shared-software seam separate from compressed player activity, and preserve actual costs, consequences, clocks, knowledge and world differences.

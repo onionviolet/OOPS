@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "batch": "B71",
+  "title": "Impossibilities audit: partial fixes versus remaining mechanism work",
+  "at": "2026-11-04T20:20:56.901962+00:00",
+  "head": "4cdc0772b65d413e4989e327502910140b2a15eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/IMPOSSIBILITIES_2026-10-30.md",
+      "ids": [
+        "IP1–IP15",
+        "built/secondbatch/ownerqueue",
+        "cold/held/notchanged docs"
+      ],
+      "classification": "fresh full proposal and selected current-source reconciliation",
+      "owners": [
+        "docs/audits/IMPOSSIBILITIES_2026-10-30.md",
+        "src/craft_resolver.js",
+        "src/craft_sources.js",
+        "src/home_school_offices.js",
+        "src/tools_domain.js"
+      ],
+      "disposition": "Preserve source-edit/focused-test/browserreport distinctions; label-only rows remain notmechanism. Currentselectedsource retains IP1lawlimits, IP2actualearlycharge and nextreadyextension, IP3shortfall reasons, IP5onceperactor training, IP6callerbudget≤100000, IP7authoredrushfee. Comment about stamina/food/crew does not prove automaticbudget/inworldsupport wiring. IP4still refuses unfittingmeans at sampledsource. IP9once facts should not become repeatable by blanketcommand replacement; IP15durable commitments not safe totruncate solelybecause guarded. Old reservation/delegation/commit statements are historical.",
+      "evidence": "Complete60line report freshly read; exactselectedsource spans and definitions inspected. No tests/browser/persistence rerun, alloncecommandfamily audited or stronger global readiness inferred.",
+      "reopen": "Selected actual operation/consumer to prove missing substitutemeans/repeat/refill/favour/retainedhistory behavior; no blanketremove-limits, lowriskapprovalquestion, source edit or current runtimequeue.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "3aff76e2682f5a27764f538c7af9d374a6b84b679d2064a654fc746301e6afe6",
+      "input_lines": 60,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          60
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/IMPOSSIBILITIES_2026-10-30.md",
+      "heading": "## Partial-fix and current-source reconciliation, 2026-11-04 (B71)",
+      "body": "The built/second-batch tables and later queue describe different depths, not 15 fully delivered mechanics. Selected current source retains law-specific batch/step limits (IP1), the school extra-session charge and extension from the existing next-ready time (IP2), actual shortfall reasons (IP3), once-per-actor training reads (IP5), caller-supplied harvest budget with a 100000 technical guard (IP6), and the explicitly authored rush fee (IP7). IP6’s comment about stamina/food/crew does not itself bind those means to raising the caller budget or settle their costs. IP4’s sampled unfitting-means branch still refuses; no coarse result was newly implemented or source-qualified. Original focused/browser results retain their dates and panel/fixture limits; this review ran no behavior checks.\n\nReason changes in IP5/IP10/IP11/IP14 do not implement reread yield, partial fill, favors or patron-scaled pay. IP9 should distinguish a unique historical fact/one-time settlement from a new supported repeat batch; a blanket repeatable default cannot replay unique identity, title or reward. IP15’s save-size rationale does not prove every truncated entry is disposable: durable promises, ownership and settled claims need their actual retained owner even if display history is bounded. Existing AD5/AD22/AD36/AD38 govern supported limits and proportional proof. Old lane ownership, dispatch and pending design notes are history, not current writer reservations, a new approval gate or permission to change runtime.",
+      "before_sha256": "3aff76e2682f5a27764f538c7af9d374a6b84b679d2064a654fc746301e6afe6",
+      "after_sha256": "b2e0fc523df4d2874d1c7fe5f0b223f351baaaa9040abfd92302a3459bcd2240"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1370
+}

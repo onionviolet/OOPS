@@ -7,3 +7,8 @@ Current `PROJECT.md` and the cited `USER_VISION.md` ranges constrain sequencing:
 The F21 weaponcraft join routes WC/RN authoring to the non-ING primary palette and focused lens work to its REVEAL companion. The similarly named sibling palette remains a parallel source with distinctive rows not yet shown folded. Preserve distinctions among trained and innate capability, cheat, function, learning, source, cost and carrier until any authorized fold is documented.
 
 The index is navigation. Its linked dossiers, research, books, game canon and runtime were not reread or verified here. The historical windows 54–63, 87–90 and 107–110 receive zero new semantic credit and remain represented only by the inherited receipt. No adoption, source qualification, gameplay, or human acceptance follows from this index pass.
+
+
+## Later direction and palette routing, 2026-11-04 (B75)
+
+The quoted one-realm/one-prestige milestone describes this receipt’s older direction snapshot. Weibao retired it on October 24; current PROJECT/USER_VISION preserve deeper existing systems, several paths and mechanically distinct worlds, with actual selected slices sequenced. F21’s older weaponcraft routes are followed by the retained supersession stubs and canonical [weaponcraft/rune owner](../../WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md); B56 records their exact identity/history limits. Neither correction changes the historical index input, source pins or proposal status. Human review is optional under AD42, and this note supplies no underlying code/canon review (AD32/AD36).

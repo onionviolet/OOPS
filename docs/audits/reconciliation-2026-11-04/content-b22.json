@@ -1,0 +1,285 @@
+{
+  "schema": 1,
+  "batch": "B22",
+  "title": "Released miniworld and macro planning, Frontier source closure and held execution",
+  "at": "2026-11-04T19:45:28.945627+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/world-completion-2026-10-06/CHECKPOINT.md",
+      "ids": [
+        "base.frontier"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/world-completion-2026-10-06/DELIVERY.md, WORLD_DEFINITION_OF_DONE.md, COVERAGE.json, EVIDENCE.json, BUILD.json, ENGINE_GAPS.md, ACCEPTANCE_BACKLOG.md."
+      ],
+      "disposition": "The finite source/native/UI/compatible-state/current-build objective is reported complete as implemented-unverified. The record explicitly defers gameplay/save/failure/keyboard/director acceptance; it does not claim those gates passed. Keep historical planning holds, finite source/build closure and current execution authority separate. Old named workers/goals are not live leases; inspect current owners on a future selected change. Existing reports retain useful dependency findings, with actual behavior proof still scoped.",
+      "mechanism_and_interactions": "The expanded home-world delivery connects native travel/access/time and lot escrow with joined opening, fresh registry-aware source/native/body/tool facts, accepted native victory contribution and one-use reservation/refund, mature careers/material/control/inquiry/insight, funded willing Jun work/report/handoff, endings and return. Simulation4 adds selected frozen completion support and reservation-return semantics while preserving old schemas/jobs/expansion/realm meanings; absent realm support freezes new decisions without changing legitimate prepaid clocks.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint reports static source/build/map and serving evidence for a named bundle; it says no browser/gameplay controls were exercised. Not current runtime verification.",
+      "reopen": "The external acceptance phase owns generated journey/director review and deferred gameplay, save, failure, keyboard and regression scenarios.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S016.json"
+      ],
+      "prior_input_sha256": "bf317937cba826b9e5429833558b6f6125035b5b05f8382bc53e256e1d99f469",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "bf317937cba826b9e5429833558b6f6125035b5b05f8382bc53e256e1d99f469",
+      "input_lines": 13
+    },
+    {
+      "path": "docs/gm/world-implementation/CHECKPOINT.md",
+      "ids": [
+        "P1–P5",
+        "MW01–MW04"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md, RUN.json, docs/gm/audit-implementation/remainder/DELIVERY.md, COVERAGE.md, BUILD.md, ACCEPTANCE_BACKLOG.md; Engine owns shared integration."
+      ],
+      "disposition": "Historical source/native/UI/build delivery is explicitly implemented-unverified. The checkpoint reports static checks and completed isolated work, while gameplay/unit/browser/save/failure/regression/keyboard/director checks remain deferred. Keep historical planning holds, finite source/build closure and current execution authority separate. Old named workers/goals are not live leases; inspect current owners on a future selected change. Existing reports retain useful dependency findings, with actual behavior proof still scoped.",
+      "mechanism_and_interactions": "The selected audited remainder added admitted world candidates and causal artifacts while preserving native owners: optional audit/cause additions, battle/native-causal proposals, and forfeit support coexist with old work plans, frozen jobs, one shared clock/publisher and the existing opening/prestige. Unsupported bodies disable causal human operations; no implicit enrollment or stock refill is claimed.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports source/syntax/import/definition/link/compiler/build/map checks and three reviews; no behavioral acceptance ran.",
+      "reopen": "Any future selection must use the named acceptance backlog for playable, persistence, failure, regression, keyboard and director proof; no present merge/runtime status follows from this historical record.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S016.json"
+      ],
+      "prior_input_sha256": "926047da4adbbbc13a77292bf7ab261480fdf3716bc031391e64158022f7b038",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "926047da4adbbbc13a77292bf7ab261480fdf3716bc031391e64158022f7b038",
+      "input_lines": 9
+    },
+    {
+      "path": "docs/gm/world-implementation/abilities/CHECKPOINT.md",
+      "ids": [
+        "frontier.brace_control",
+        "frontier.trail_reading",
+        "frontier.timber_judgment",
+        "frontier.shared_inquiry",
+        "S2",
+        "S3"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/world-implementation/abilities/SKILL_RETURN.md, COVERAGE.md, REQUIREMENTS.md and INTERFACE.md S3; native registry, main/context/action bindings and Notebook Practice are named consumers."
+      ],
+      "disposition": "Historical source/native integration and matching build completed, but generated-state gameplay and save/failure checks remain deferred. Import/registration/build evidence is reported separately from gameplay/human acceptance. Keep historical planning holds, finite source/build closure and current execution authority separate. Old named workers/goals are not live leases; inspect current owners on a future selected change. Existing reports retain useful dependency findings, with actual behavior proof still scoped.",
+      "mechanism_and_interactions": "Four skills add nineteen commands, four method powers/sources and one nonlethal consenting press encounter, reusing existing Equilibrium/Perception/Woodworking XP. Native unlock is staged in a completed lesson before later XP work; no new XP, stock, clock, discovery or persistence owner is added. Integration feedback repaired metadata aliases and visible cost/cancellation descriptions; Engine reports native registration/context/results/UI consumers and progressive Practice/skill/technique disclosure.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports syntax/import/definition registry checks and Engine build/source-map/hash evidence; no gameplay/unit/browser/save/reload/failure/regression check ran.",
+      "reopen": "The return lists generated-state discovery/acquisition/use/mastery/scarcity/participant/source/custody/cancellation/revisit/reload/failed-publication/keyboard gates for later authorized acceptance.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          21
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S016.json"
+      ],
+      "prior_input_sha256": "80a84774b844492c387e07ea0180ce81866a205354a01e6d51ab669f95e02b23",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "80a84774b844492c387e07ea0180ce81866a205354a01e6d51ab669f95e02b23",
+      "input_lines": 21
+    },
+    {
+      "path": "docs/gm/world-implementation/depth/micro/CHECKPOINT.md",
+      "ids": [
+        "ME02",
+        "SG01–SG03"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/world-implementation/depth/micro/REPORT.md, WORKED_CASES.md, COMPONENT_AND_EFFECT_CONTRACTS.md, ENGINE_REQUIREMENTS.md, SOURCE_GAPS.md; canonical plan remains master-owned."
+      ],
+      "disposition": "The six-report planning assignment is complete for master/director review, but runtime implementation remains held. Proposed fiction/numbers are not accepted design, and source authenticity/full runtime compatibility are not claimed. Keep historical planning holds, finite source/build closure and current execution authority separate. Old named workers/goals are not live leases; inspect current owners on a future selected change. Existing reports retain useful dependency findings, with actual behavior proof still scoped.",
+      "mechanism_and_interactions": "Micro depth planning contains five linked cases, proposed component/effect contracts, engine requirements, source gaps and canonical-plan amendments. Naruto and Mother of Learning inputs are bounded; actual source qualifications remain explicitly limited. Contract/API review corrected ME02 to identify createInventoryKey as a method on exported Item, not a standalone export.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports document arithmetic/conservation/API/fingerprint/link checks and three reviews; no runtime/source edits or game tests/build/browser/save checks ran.",
+      "reopen": "Exact Naruto qualification, physiology/specimen/lot/host constraints, action ordering and native battlefield/body/adulthood/project/clock publication remain implementation prerequisites.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          108
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S016.json"
+      ],
+      "prior_input_sha256": "d2fbf3cd9f2fb0e2330c70f81ed18e68723895e58645e73de4bcd841c6dd01cb",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "d2fbf3cd9f2fb0e2330c70f81ed18e68723895e58645e73de4bcd841c6dd01cb",
+      "input_lines": 108
+    },
+    {
+      "path": "docs/gm/world-implementation/engine/HOLD_CHECKPOINT_2026_10_04.md",
+      "ids": [
+        "INTERFACE.md"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/world-implementation/engine/HOLD_CHECKPOINT_2026_10_04.md; INTERFACE.md was explicitly absent and is not a delivered supplier; assigning master owns plan review and later selection."
+      ],
+      "disposition": "Hold checkpoint states direct instruction superseded the expanded implementation dispatch: plan first, parallel work after review. It documents no new expanded worker, shared runtime edit or catalogue integration. Keep historical planning holds, finite source/build closure and current execution authority separate. Old named workers/goals are not live leases; inspect current owners on a future selected change. Existing reports retain useful dependency findings, with actual behavior proof still scoped.",
+      "mechanism_and_interactions": "The Engine lane is held at planning stage: shared runtime/native/UI/save work awaits a concrete plan review. An interrupted Glasshouse follow-on has only an initial seven-input fingerprint and paused host goal; no settling_rack source or interface exists. Existing built Frontier/observation commands are described as built-unverified.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint reports inspected inputs and matching baseline fingerprints, with no new behavioral tests/save/import checks; reported status is time-bound.",
+      "reopen": "Resume only after plan review and authorization, then select interfaces/consumers and reconcile held Glasshouse scope; current permission to implement cannot be inferred from this old hold record.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S016.json"
+      ],
+      "prior_input_sha256": "c6c535a7bfb9d0c64d90fe016f28ef46f23c05d2766a5cedd5eb58dffab68181",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "c6c535a7bfb9d0c64d90fe016f28ef46f23c05d2766a5cedd5eb58dffab68181",
+      "input_lines": 15
+    },
+    {
+      "path": "docs/gm/world-implementation/frontier-runtime/CHECKPOINT.md",
+      "ids": [
+        "INC-P1",
+        "Simulation4"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/world-implementation/frontier-runtime/DELIVERY.md, COVERAGE.json, BUILD.json and acceptance owners; native travel, registry, source/body/tool, contribution, career and return surfaces are named consumers."
+      ],
+      "disposition": "The assigned code/native/UI/build goal is reported delivered, but new gameplay remains implemented-unverified and behavior/director acceptance remains pending. Static registration/build evidence is not world-complete proof. Keep historical planning holds, finite source/build closure and current execution authority separate. Old named workers/goals are not live leases; inspect current owners on a future selected change. Existing reports retain useful dependency findings, with actual behavior proof still scoped.",
+      "mechanism_and_interactions": "Frontier runtime delivery registers commands and opt-in people, maps parent IDs to steps/endings/adapters, and connects travel/access/time, escrow, source/body/tool facts, accepted victory contribution and one-use consumer/refund, work/careers/materials, funded Jun activity and retained endings/return. Simulation4 adds selected frozen completion support/reservation returns while absent-state defaults and old-build rejection preserve older semantics.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports syntax/import/definition/registry/build/sourcemap/serving checks and a matching bundle; unit/browser/gameplay/save-failure/regression/keyboard/director checks were deferred.",
+      "reopen": "The acceptance backlog owns generated behavioral/save/failure/keyboard/regression/director journeys; no full world-complete or present human acceptance is established.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S016.json"
+      ],
+      "prior_input_sha256": "951f8981f7786f6a1865c9a677fc8b05c35f4d3eba04c8e42ac4ba1bc53245b6",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "951f8981f7786f6a1865c9a677fc8b05c35f4d3eba04c8e42ac4ba1bc53245b6",
+      "input_lines": 15
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/absorption-incorporation/CHECKPOINT.md",
+      "ids": [
+        "E01–E09",
+        "O01–O05"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/world-implementation/second-pass/absorption-incorporation/RECONCILIATION.json, ENGINE_PACKETS.md, REPORT.md, appendix-validation.json; canonical owners and Engine own later selection."
+      ],
+      "disposition": "Documentation reconciliation is complete with reported static validation and all assigned reviews released. Packets remain proposals for later Engine selection; the checkpoint expressly bars inferring gameplay or implementation authorization. Keep historical planning holds, finite source/build closure and current execution authority separate. Old named workers/goals are not live leases; inspect current owners on a future selected change. Existing reports retain useful dependency findings, with actual behavior proof still scoped.",
+      "mechanism_and_interactions": "The finite absorption-incorporation pass reconciles bank/fork/gap findings into a coverage map and ranks five engine packets with conditional alternatives. It preserves the established Frontier and skills scope and assigns no runtime, body, time, death, private-save or source/library work. Gap review and canonical owner alignment are report-level coordination mechanisms.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports owner/input/output fingerprint and link/anchor/JSON checks, but no new runtime/gameplay proof; it recounts historical source/build artifacts.",
+      "reopen": "Engine selection must freeze exact packet consumers/files/version/removal and preserve deferred gameplay/save/failure/keyboard/regression/director gates; do not restart generic bank/book review.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S016.json"
+      ],
+      "prior_input_sha256": "ec31e6912609bfda07b9b9e6e51e63c715c84c01f8c83b844045045c54df7d7f",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "ec31e6912609bfda07b9b9e6e51e63c715c84c01f8c83b844045045c54df7d7f",
+      "input_lines": 11
+    },
+    {
+      "path": "docs/gm/trailblaze/world-instances/CHECKPOINT.md",
+      "ids": [
+        "uncoded revision6 finite source objective"
+      ],
+      "classification": "fresh full content read; prior receipt lacked source-local codes",
+      "owners": [
+        "docs/gm/trailblaze/world-instances/REPORT.md"
+      ],
+      "disposition": "Preserve explicit finite planning/source integration closure, exact source coverage limits, prior release and separate parent native/build/gameplay responsibilities. Old token/agent/lease/hold status is history, not current authority. No original book reading or runtime resumed.",
+      "evidence": "Entire uncoded checkpoint freshly read after reuse validator rejected missing IDs; historical claims not rerun.",
+      "reopen": "Future selected consumer must use live owners and exact current compatibility/native facts; no remaining work in this historical finite assignment is invented.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "b2beba1be6a50948973b390af5e33c45f44ff962e90887b638ca2030116c6e84",
+      "input_lines": 29,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          29
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/world-implementation/depth/macro/CHECKPOINT.md",
+      "ids": [
+        "uncoded revision3 final macro planning"
+      ],
+      "classification": "fresh full content read; prior receipt lacked source-local codes",
+      "owners": [
+        "docs/gm/world-implementation/depth/macro/REPORT.md"
+      ],
+      "disposition": "Preserve explicit finite planning/source integration closure, exact source coverage limits, prior release and separate parent native/build/gameplay responsibilities. Old token/agent/lease/hold status is history, not current authority. No original book reading or runtime resumed.",
+      "evidence": "Entire uncoded checkpoint freshly read after reuse validator rejected missing IDs; historical claims not rerun.",
+      "reopen": "Future selected consumer must use live owners and exact current compatibility/native facts; no remaining work in this historical finite assignment is invented.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "084a73c1c7fc2e21aaf8b22820f63506c66d77058c21f229203c51b4a03b990a",
+      "input_lines": 11,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ]
+    }
+  ],
+  "folds": [],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1718
+}

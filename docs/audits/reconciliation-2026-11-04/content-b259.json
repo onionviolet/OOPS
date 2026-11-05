@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "batch": "B259",
+  "title": "Complete domain-owner review and mechanism qualifications",
+  "at": "2026-11-05T00:08:11.390096+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/DOMAIN_RULES.md",
+      "ids": [
+        "BHR1–34",
+        "CBR1–30",
+        "ECR1–33",
+        "SLR1–43",
+        "PIR1–25",
+        "cross-audit and dated additions"
+      ],
+      "classification": "Adopted domain defaults with scoped later extensions and dated implementation claims",
+      "owners": [
+        "docs/DOMAIN_RULES.md",
+        "docs/ABILITY_RULES.md",
+        "docs/ABUSE_AND_LIMITS.md"
+      ],
+      "disposition": "Complete prior partial PIR-only review by reading the rest; preserve original codes and append existing-authority applications for costs, carriers, observation, transfer and historical queues.",
+      "evidence": "Current original lines 1–165,166–340,341–480 now delivered; 481–551 read B258 and appended552–559 now delivered. No runtime, source-law, transaction or browser verification.",
+      "reopen": "When a selected runtime task claims compliance, inspect its actual producer/state/consumer and meaningful failure case; do not turn this document pass into a full-domain runtime certification.",
+      "input_sha256": "9f8e24a5fcbbf1598433ef592f589afaacb9614b7bea6198a835e3f5ae9af57e",
+      "input_lines": 558,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          558
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/DOMAIN_RULES.md",
+      "heading": "### Domain-owner content reconciliation B259",
+      "body": "The remaining domain content has now been read: BHR1–34, CBR1–30, ECR1–33 and SLR1–43, with PIR1–25 and the B258 qualification. This completes the file's content-review coverage; it is not proof that its rules are implemented. The October 18 adoption covers the then-distilled defaults; BHR31–34 cite their own November 1 instruction, and SLR40–43 cite their October 21 clarification. Neither blanket adoption nor those dated additions automatically adopts future appended proposals. Rule-specific source/authority owners and world exceptions remain operative.\n\nBHR2–3, BHR19 and BHR31–34 already separate carriers, finished cure, maintained support, knowledge and social history. Apply them to the [affliction palette's chronology](AFFLICTIONS_AND_WEAPON_PROPERTIES_CONSIDERATIONS_2026-11-03.md#content-reconciliation-b257) and [ability mechanism distinctions](ABILITY_RULES.md#content-reconciliation-b256): a bench-owned track is not automatically a shared Condition-panel projection; sharing an exposure input does not merge distinct effects or units; a longevity anchor need not supply resurrection. BHR11/CBR23 disclose known risk through actual means, not the hidden identity or guaranteed future result of an unknown condition. BHR6 exact own shown numbers remains compatible with unrevealed truth and diagnosis uncertainty. BHR22's “free regrowth loops” warning cannot impose an invented resource price where the mechanism permits free healing (AD5, AD38).\n\nCBR20's living/bonded weapon condition default does not remove ordinary material wear when the item really has a blade or body that wears; BHR4 and CBR19 supply its actual repair kind and aftermath. CBR26's stock requirement refers to resources the chosen policy actually consumes, not mandatory consumables for every idle fight. CBR29's law/memory response needs actual witnesses, evidence, means and local institutions under AD6/AD25; it is not an omniscient global body-count penalty. None of these applications select combat changes or alter its known outcomes and recovery settings.\n\nThe ECR19 October 19 note already resolves the recap wording through AD17: the destination stays recorded while the displayed loss is knowledge-limited. Its “pending acceptance review” wording is not a reason to ask the user again before ordinary owner maintenance applying that existing direction. ECR21's November 3 explanatory proposal is not a new universal authorization for lethal debt outcomes; current recovery/forewarning and source-specific consequences govern. ECR10's “today refresh deletes sold goods” and ECR16's “seam exists since October 19” are dated implementation claims, not a present-source inspection. No buyback, trade settlement, purse range or stock-retention behavior was retested here. ECR26's baseline-income default composes ECR31's ability to live without commerce rather than requiring a job gate for every life.\n\nSLR13 already limits conservation to actual transfer; apply the same means qualification to SLR36's taken-memory shorthand, as SLR37's existing cross-audit paragraph does. SLR5/SLR28/SLR34 distinguish repeated observation, mistaken practice and continuing fluency; no bare replay is proof of new understanding. SLR32's seeded breakthrough default remains compatible with AD22's low-priority anti-cheat stance in [Abuse and limits](ABUSE_AND_LIMITS.md#content-reconciliation-b256); it does not authorize tamper or achievement enforcement. The body/skills/combat “first slice” and palette rankings are historical proposed queues, not current priority or fresh dispatch. No new body, money, learning or presence store, migration, test mandate or product decision was added by this review.",
+      "before_sha256": "9f8e24a5fcbbf1598433ef592f589afaacb9614b7bea6198a835e3f5ae9af57e",
+      "after_sha256": "4465d40c978f6f3150704e9ff0f4340d77bef1a9c98659ce90c735af12b2a0f4"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 912
+}

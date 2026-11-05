@@ -1,0 +1,17 @@
+import {readFileSync,writeFileSync} from 'node:fs';
+import {resolve,dirname} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {createHash} from 'node:crypto';
+const here=dirname(fileURLToPath(import.meta.url)),repo=resolve(here,'../../../..');
+const read=f=>readFileSync(resolve(here,f),'utf8');
+const markup=read('markup.html'),css=read('style.css'),js=read('scene.js');
+writeFileSync(resolve(here,'index.html'),`<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LOTM scene comparison</title><link rel="stylesheet" href="style.css"></head><body style="margin:0;background:#080d28">${markup}<script src="scene.js"></script></body></html>\n`);
+const inline=resolve(here,'inline-fragment.html');
+writeFileSync(inline,`${markup}\n<style>\n${css}\n</style>\n<script>\n${js}\n</script>\n`);
+const hash=p=>createHash('sha256').update(readFileSync(p)).digest('hex');
+const sources=['markup.html','style.css','scene.js','build.mjs'].map(f=>`prototypes/workbench/studies/lotm-scene/${f}`);
+const owners=['DESIGN.md','docs/UI_RULES.md','docs/MOCKUP_SYSTEM.md','docs/gm/dispatch/refinement-audits-2026-10-31/FIRST_ARC_IMPLEMENTATION_RECEIPT.md'];
+const sourceHashes=Object.fromEntries([...sources,...owners].map(f=>[f,hash(resolve(repo,f))]));
+const outputHashes=Object.fromEntries(['index.html','style.css','scene.js'].map(f=>[f,hash(resolve(here,f))]));
+writeFileSync(resolve(here,'INPUTS.json'),JSON.stringify({schema:1,fidelity:'sketch',description:'One synthetic state model, three independently interactive representations. No native gameplay integration.',sourceHashes,outputHashes,inlineHash:hash(inline)},null,2)+'\n');
+console.log('Built LOTM comparison and inline preview; no native bundle changed.');

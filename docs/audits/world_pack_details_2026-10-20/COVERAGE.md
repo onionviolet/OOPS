@@ -32,3 +32,8 @@
 | Skyrim / WG26 | Deprioritized/inactive preserved. SU1 effect/slot remains unresolved or explicitly original; study destruction differs from craft reservation and borrowed boots. | [Packet detail](../../worlds/skyrim/IMPLEMENTATION_PACKET.md#detail-audit-destructive-knowledge-and-owned-artifacts-2026-10-20) |
 
 No row's document correction implies source-canon authentication, selected implementation, runtime acceptance or a world-completion upgrade.
+
+
+## Coverage interpretation, 2026-11-04 (B66)
+
+The [root reconciliation](REPORT.md#continuous-content-reconciliation-2026-11-04-b66) preserves WG1–WG26 and lane-specific source limits. “All scopes have a disposition” is the dated audit denominator, not every source/file read or all worlds implemented. Consult current local direction and actual route receipts before treating old pending status as current. Source evidence qualifies source claims; original local scenario values remain labelled authored. No parked world is selected or proposal adopted by this matrix (AD32).

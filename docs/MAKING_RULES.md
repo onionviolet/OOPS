@@ -113,3 +113,14 @@ A task may reset/drop old state and records that choice. New state still needs
 Save/reload/Export/Import; current references must remain internally consistent.
 MR36's 1366×768 target was retired on 2026-10-19: new UI evidence uses the
 1920×1080 primary and the other current targets in [UI_RULES](UI_RULES.md).
+
+
+## Content reconciliation B296: scope of the existing making rules
+
+All MR1–MR36 and both existing application overrides were reviewed against the full [granular owner](GRANULAR_SYSTEMS_AND_INTERACTIONS.md). This is application of the existing rules under AD38, not new product rules or adoption of every linked palette example. Truth and observer knowledge remain separate; actual mechanisms, exact conserved inputs and real downstream readers decide what a made thing does. A blind experiment may work without a prediction, and preview remains read-only and observer-safe.
+
+Read MR14's directional compatibility together with MR1/MR6/MR11 and AD38: actual imported source/body/material/environment mechanisms determine behavior. Unknown development coverage or a missing explicit tag is not a fictional prohibition when the modeled means reasonably work. Keep unsupported integration honestly developer-labelled, and keep inert/active outcomes local rather than erasing ownership/knowledge. MR20's declared magical input is its actual supported capacity/cost policy, not a universal extra fee on an intrinsically free faculty. MR26's sourced scarcity/timing describes its ordinary canon case; exceptions retain their actual source or in-world reason and cost, without inventing a balancing tax.
+
+MR22 distinguishes replaying the same observation/settlement from another meaningful attempt, paid practice, teaching or demonstration. A genuine repeat craft can earn its supported native practice/output; loading or repeatedly inspecting one result cannot grant that attempt again. MR18/MR19 comfort/depth modes use the same applicable resolver and actual maker knowledge, not a separate easier law or a compulsory novelty tax. MR23 shares applicable mechanism/accounting while the particular maker's tools, body, source, access and world still matter.
+
+The existing October18 text already protects performed stages, spent inputs, held stock and intermediates through interruption. It also explicitly qualifies MR30/MR33's old-content/old-save guarantees by current compatibility direction. Do not revive an all-historical-save migration requirement from the table; current selected state still needs consistent references and actual current-format save/reload/import proof when affected. MR34's deterministic checks and MR35's canon-boundary checks use AD36's relevant evidence selection, not a new unrelated runtime suite for a documentation pass. MR36 follows the existing AD43 floor and current desktop/text targets. No new MR code, runtime/save behavior, compatibility policy, source law or acceptance is created by this review.

@@ -1,5 +1,7 @@
 # Refinement priorities after the October 30 work
 
+**Current sequencing:** the ranked proposals below retain their October 31 scope. [PROJECT current focus](../../PROJECT.md#current-focus), the Klein campaign plan and Harry’s later developer-route plan govern selected work; this audit is not a replacement queue. See the [reconciliation dispositions](LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md) before reopening a formerly missing host or shared seam.
+
 Review requested by Weibao on 2026-10-31: what should we consider next, including the refinement left on the table? These are proposals and observations, not new direction or authorization to dispatch. They supplement the [master playability plan](../MASTER_PLAYABILITY_PLAN_2026-10-25.md), which remains the planning owner; current status and acceptance still belong to the linked lane records. Desktop target: 1920×1080; mobile remains deferred. AD5, AD6–AD8, AD32, AD38, AD41–AD46, DSG11 and WA48–WA50 apply.
 
 ## Reading the evidence
@@ -112,3 +114,12 @@ Weibao dispatched a `gpt-6.1-terra` max UI auditor and a `gpt-6.1-sol` medium cr
 - **F5 and F10 sharpened:** distinct same-text events still collapse in the pure return grouping. The Mother of Learning access readout can expire a proposed pass while the move host checks possession; the proposal's particular term is not established canon.
 - **F13 and F14 narrowed:** ordinary unknown simple inventory items already warn and skip in the current loader, while equipped and special references need separate tests. A second parameter target is currently rejected, so WDI44 is a future generalization risk, not a demonstrated active cross-target failure.
 - **UI and reconciled owners:** the rebuilt lead, seeded fight and HP school samples exposed additional navigation, local-clock, action wording and discovery-boundary gaps. The systems front door now links the consolidated rune palette instead of its retired donor stub. See the receipts for current versus historical evidence and untried routes.
+
+
+## Full refinement reconciliation, 2026-11-04 (B183)
+
+F1–F15, A1–A5, every ranked follow-up and the independent-auditor amendment were read. The amendment strengthens F7 from old capture/source concern to an isolated rebuilt seeded reproduction of HP disagreement, withdrawal wording and focus loss; final settlement/healing, held-away equality and an earned encounter remained unexercised. SRR2’s injury-publication question is source-level and distinct. F6’s synthetic absent-asker witnessed-memory result and actual UI caller strengthen a disclosure concern without constituting a played private-factor leak. Distinct same-word events in F5 remain separate from one occurrence projected twice. Preserve these exact evidence classes instead of treating every item as merely suspected or fully verified.
+
+The report itself narrows F13: unknown simple carried inventory already warns/skips, while equipped/special references need their own tests. F14’s second dial target is rejected, so cross-target mixing is a future generalization pressure, not an active reproduced failure. F9’s aggregated worst-moment default supersedes old per-strike-only memory, without proving every witness’s channel. Code, partial fixtures, pure probes and earned journeys keep their separate input identities. Old local/remote refs, missing host mounts, reading-account snapshots and installed-app states are not current observations.
+
+Keep useful opportunities for meaningful return, observed world knowledge, real access/debt, contextual progression and actual making outputs. Current Klein-first/Harry-alongside sequencing governs the dated A1–A5 ranking. Nov1 functional Proto23 housing and Nov4 prose-first independent panes supersede any assumption that H2 pictured housing or a diagram is a general upgrade; forms remain per task/world proposals. Existing separate floor owners determine surviving requirements, not a new universal audit, second-world, timer, glossary or UI-redesign gate. No fresh screenshot, pure probe, runtime test or native route was run.

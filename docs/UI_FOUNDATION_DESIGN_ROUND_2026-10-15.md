@@ -207,3 +207,12 @@ Under Weibao's [spacing/color/combat refinement](USER_VISION.md#proto23-shell-sp
 ## R3 execution evidence, 2026-10-15
 
 The fresh actual-ID UI owner delivered the structural shared-grid revision, source-derived palette roles/bar grouping, directional native combat facts and usable actual150% inventory. [R3 report](gm/dispatch/ui-foundation-2026-10-15/R3_REPORT.md) owns measurements, preserved native flows, frozen demo/comparison and known deviations. Root rechecked source/served parity and the frozen artifact manifest. Global rank remains a separately scoped proposal. R3 technical delivery does not imply visual acceptance or change the default. Runtime writes are released to root; no next lane is dispatched.
+
+
+## Content reconciliation B139, 2026-11-04
+
+Read FD/OA, the baseline clarification and all later S1-S3/C1/V1/R2/R3 returns. The early live PID, missing report and focus failure are superseded by this file's own foundation delivery update. Later native shell/refinement receipts remain distinct from C1's grouping and the earlier skin. Their full-suite counts explicitly retain two inherited failures and three TODOs; a later passing browser slice does not turn those suites into a clean baseline.
+
+Proto23 composition and the requested shell remain recorded direction (AD32, UR12), while exact widths, fixed geometry, universal Projects promotion, every-surface panel-kit conversion and the proposed OA1 CSS ban are not silently promoted to current universal rules. Current [DESIGN](../DESIGN.md) and [UI rules](UI_RULES.md) govern task-specific forms, functional housing, independent panes and prose-first presentation. The target paragraph still naming 1366x768 is historical evidence scope; current desktop/laptop proof uses the selected viewport and readable larger text, not that retired floor.
+
+Preserve M1's distinct inspect/leave/stop semantics: leaving a view does not by itself cancel work, and an expanded view shares commands, state and known-only eligibility. Saved player layout choices and released source remain meaningful within their stated identities, not fresh writer reservations. Human review is optional under AD42; no acceptance, changed default, source copy, old queued dispatch or current source parity is inferred by this reconciliation.

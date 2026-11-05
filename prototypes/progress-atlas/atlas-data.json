@@ -1,0 +1,1324 @@
+{
+  "snapshot": "yair-refined-2026-11-04",
+  "captured": "2026-11-04T20:00:45.449198+00:00",
+  "foundations": [
+    {
+      "id": "U01",
+      "name": "Identity",
+      "state": "Used; joins developing",
+      "now": "Life, body, actor and world-instance owners exist. Retained-place display now has a joined fixture receipt.",
+      "gap": "Identity must stay consistent through source arrival, body changes, parallel instances and return.",
+      "next": "Carry resolved identity and the retained task into the next real lead operation.",
+      "source": [
+        "docs/systems/README.md:30–50",
+        "docs/gm/dispatch/foundation-place-identity-2026-11-04/CHECKPOINT.md"
+      ],
+      "links": [
+        "G3",
+        "G5",
+        "G8"
+      ],
+      "layer": "State"
+    },
+    {
+      "id": "U02",
+      "name": "Bodies & harm",
+      "state": "Used; broader aftermath partial",
+      "now": "Body and condition owners work in selected loops. L2b health publication has a later AD43 closure receipt.",
+      "gap": "Earned ordinary combat, durable injury, witness and broader aftermath remain separate from that fixture.",
+      "next": "Use the next consuming encounter to check injury and aftermath; retain the completed health slice.",
+      "source": [
+        "docs/systems/README.md:44,76",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/L2B_COMBAT_HEALTH_RECEIPT.md:3–17"
+      ],
+      "links": [
+        "G4",
+        "G7"
+      ],
+      "layer": "State"
+    },
+    {
+      "id": "U03",
+      "name": "Starts",
+      "state": "Partly wired",
+      "now": "Book beginnings register through shared composition; first-hour/start routes have current source assessments.",
+      "gap": "A developer opening does not establish all ordinary lives, means or a coherent first session.",
+      "next": "Tie a selected start to one useful pursuit and its next action.",
+      "source": [
+        "docs/systems/README.md:89",
+        "src/book_world_beginning_registration.js"
+      ],
+      "links": [
+        "G3",
+        "G7"
+      ],
+      "layer": "World life"
+    },
+    {
+      "id": "U04",
+      "name": "Generation",
+      "state": "Used in selected consumers",
+      "now": "Seeded generation and stable-address tooling are present; world definitions and authoring have existing owners.",
+      "gap": "Revision, seed and encountered-identity consistency across new consumers remain world-specific.",
+      "next": "Keep actual instance/seed identity in the next cross-world or alternate-life consumer.",
+      "source": [
+        "docs/systems/README.md:45",
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:18–40"
+      ],
+      "links": [
+        "G5",
+        "G7"
+      ],
+      "layer": "State"
+    },
+    {
+      "id": "U05",
+      "name": "Time & jobs",
+      "state": "Used; clocks mixed",
+      "now": "Native jobs and clocks are used. AD52/ACR now governs repeated activities and compressed life periods.",
+      "gap": "Calendar duties, reset policies and compressed work keep local laws and consequential choices; adopting rules does not implement every activity form.",
+      "next": "Connect the next real duty/lesson/appointment to the existing clock.",
+      "source": [
+        "docs/systems/README.md:39,50",
+        "docs/ACTIVITY_ABSTRACTION_RULES.md",
+        "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:32"
+      ],
+      "links": [
+        "G2",
+        "G7"
+      ],
+      "layer": "Execution"
+    },
+    {
+      "id": "U06",
+      "name": "Knowledge",
+      "state": "Mixed; recent joined proof",
+      "now": "Observer knowledge and consequences have a conversation fixture receipt: later answers, interruption and retained Notebook records.",
+      "gap": "New ordinary/canon consumers and wider recognition are not certified by the synthetic route.",
+      "next": "Use a learned fact or method to change a later lead-world action.",
+      "source": [
+        "docs/systems/README.md:42",
+        "docs/gm/dispatch/foundation-conversations-2026-11-04/CHECKPOINT.md",
+        "src/cast_topic_talk.js:22–31,74–85"
+      ],
+      "links": [
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+      ],
+      "layer": "World life"
+    },
+    {
+      "id": "U07",
+      "name": "Learning & powers",
+      "state": "Used; adoption uneven",
+      "now": "Skills/XP exist; progression gates and ability paths have relatively few recorded consumers.",
+      "gap": "Acquired faculty, known method, practiced control and currently supported means can diverge.",
+      "next": "N2: demonstrate one meaningful method-versus-means distinction in the next Klein/Harry operation.",
+      "source": [
+        "docs/systems/README.md:31–35",
+        "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:30",
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:135–153"
+      ],
+      "links": [
+        "G2",
+        "G5",
+        "G7"
+      ],
+      "layer": "Execution"
+    },
+    {
+      "id": "U08",
+      "name": "Social & institutions",
+      "state": "Wired; uneven depth",
+      "now": "People, dialogue, homes and institutions now have bounded dated assessments; local ties and ranks have consumers.",
+      "gap": "Several families are thin or partly wired; some state-owner and native-journey traces remain unestablished.",
+      "next": "Make one duty, relationship or service term change an actual choice.",
+      "source": [
+        "docs/systems/README.md:77–89",
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:27"
+      ],
+      "links": [
+        "G2",
+        "G3",
+        "G7"
+      ],
+      "layer": "World life"
+    },
+    {
+      "id": "U09",
+      "name": "Materials & economy",
+      "state": "Working slices; portability uneven",
+      "now": "Inventory, custody, shops, escrow, lineage and selected HP/LOTM preparations exist. Village/Frontier still dominate generic craft use.",
+      "gap": "R5 supply bindings remain narrow; a resource count is not an identity/lineage-bearing workpiece.",
+      "next": "Carry the actual item or material lineage through the next operation when it needs physical identity.",
+      "source": [
+        "docs/SYSTEMS_REGISTER.md:21–42",
+        "docs/systems/README.md:58–68",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/R5_IMPLEMENTATION_RECEIPT.md:35–40",
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:186–198"
+      ],
+      "links": [
+        "G2",
+        "G5",
+        "G7"
+      ],
+      "layer": "Execution"
+    },
+    {
+      "id": "U10",
+      "name": "Cast agency",
+      "state": "Local routines; broader scope open",
+      "now": "Generated residents, local lives, cast conversations and scheduled actions have existing seams.",
+      "gap": "A general independent institution/ecology simulation is not established by the selected routes.",
+      "next": "Default: add agency that a selected pursuit actually observes or depends on.",
+      "source": [
+        "docs/systems/README.md:77–88",
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:28"
+      ],
+      "links": [
+        "G4",
+        "G7"
+      ],
+      "layer": "World life"
+    },
+    {
+      "id": "U11",
+      "name": "Actions & settlement",
+      "state": "Used; new paid-work fixture proof",
+      "now": "Quote/commit/job settlement exists. Paid interruption now has 40 focused checks and 36 native browser assertions reported across two lead hosts.",
+      "gap": "That proves the binary authored policy and host integration, not staged consumption, continuous support or source-qualified canonical work.",
+      "next": "Use the paid-work seam in the next real lead operation, with its actual local spend/support law.",
+      "source": [
+        "docs/systems/README.md:39",
+        "docs/gm/dispatch/foundation-paid-work-2026-11-04/CHECKPOINT.md",
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:176–211"
+      ],
+      "links": [
+        "G2",
+        "G4",
+        "G8"
+      ],
+      "layer": "Execution"
+    },
+    {
+      "id": "U12",
+      "name": "Crossing",
+      "state": "Routes exist; pack use partial",
+      "now": "Continuation and carrying have selected routes; world-pack state hooks and latest-history carry are in source.",
+      "gap": "Generic reveal remains a command with no ordinary gameplay caller found; laws and carriage remain local.",
+      "next": "When a selected encounter needs pack history, connect its writer and retained reader through return.",
+      "source": [
+        "src/world_pack_registry.js:41–55",
+        "src/continuation_state.js:121–130",
+        "docs/SYSTEMS_REGISTER.md:37"
+      ],
+      "links": [
+        "G5",
+        "G7"
+      ],
+      "layer": "Across worlds"
+    },
+    {
+      "id": "U13",
+      "name": "Reset & continuation",
+      "state": "Used; reset families differ",
+      "now": "Lives/continuation work. MoL has a visitor route and a separate bounded Zorian reset/retention experiment.",
+      "gap": "No universal rewind policy follows from one life or fixture; reset scope and information carriers differ.",
+      "next": "Validate a declared reset boundary before applying it to a different loop case.",
+      "source": [
+        "docs/systems/README.md:43",
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:50",
+        "docs/worlds/mother-of-learning/ZORIAN_S0_S1_STAGE_RECORD_2026-11-03.md"
+      ],
+      "links": [
+        "G4",
+        "G5",
+        "G7"
+      ],
+      "layer": "Across worlds"
+    },
+    {
+      "id": "U14",
+      "name": "Persistence",
+      "state": "Core active; joins still growing",
+      "now": "Core saves and latest-history carry exist; retained-place and pending-source jobs now have named joined fixture proof.",
+      "gap": "Proof is bundle/route-specific. It does not establish a clean aggregate on all current dirty inputs or every missing/changed-source recovery path.",
+      "next": "Keep exact committed definitions and add recovery coverage when a selected operation introduces that pressure.",
+      "source": [
+        "docs/systems/README.md:41",
+        "docs/gm/dispatch/foundation-place-identity-2026-11-04/CHECKPOINT.md",
+        "docs/gm/dispatch/foundation-paid-work-2026-11-04/CHECKPOINT.md"
+      ],
+      "links": [
+        "G5",
+        "G8"
+      ],
+      "layer": "Across worlds"
+    },
+    {
+      "id": "U15",
+      "name": "UI & inspection",
+      "state": "Usable surfaces; session depth uneven",
+      "now": "Desktop panels and native ports exist; conversation/Notebook/place labels recently gained retained-route proof.",
+      "gap": "A reachable panel is not a continuous understandable session. Some clusters remain unassessed and inspector coverage is uneven.",
+      "next": "Show current pursuit, actual cost, blocker, alternative and retained consequence on the selected route.",
+      "source": [
+        "docs/systems/README.md:47–50,76–103",
+        "docs/gm/dispatch/foundation-conversations-2026-11-04/CHECKPOINT.md",
+        "docs/gm/dispatch/foundation-place-identity-2026-11-04/CHECKPOINT.md",
+        "docs/audits/UI_CAPABILITY_GAPS_2026-10-30.md"
+      ],
+      "links": [
+        "G3",
+        "G7",
+        "G8"
+      ],
+      "layer": "Player experience"
+    }
+  ],
+  "worlds": [
+    {
+      "id": "W1",
+      "name": "Lord of the Mysteries",
+      "state": "Lead journey + mechanism slices",
+      "now": "KJ3AC records the bounded route through English volume 1 chapter 64; some newer seams have consumer-specific proof.",
+      "gap": "Full novel, ordinary lives, repeated faculties, supplies, later combat and source/pack joins remain uneven.",
+      "next": "Keep Klein first: finish the active foundational join, then build the next actual mechanism and display.",
+      "source": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3AC_IMPLEMENTATION_RECEIPT.md",
+        "PROJECT.md",
+        "docs/gm/dispatch/foundation-paid-work-2026-11-04/CHECKPOINT.md"
+      ],
+      "links": [
+        "U06",
+        "U07",
+        "U09",
+        "U11"
+      ],
+      "layer": ""
+    },
+    {
+      "id": "W2",
+      "name": "Harry Potter",
+      "state": "Four recorded lead windows",
+      "now": "W1–W4 reach the chapter-5 shops/vault/wand sequence; separate school/trade/preparation lives also exist.",
+      "gap": "School-year depth, later curriculum, ordinary-life breadth and exact institution timing are not complete.",
+      "next": "Use the selected next window to connect calendar, demonstrated method, instrument and access.",
+      "source": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/HP_WHOLE_WORLD_PLAN_2026-11-03.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/HP_WINDOW4_RECEIPT.md",
+        "src/book_world_beginning_registration.js"
+      ],
+      "links": [
+        "U05",
+        "U07",
+        "U08",
+        "U09"
+      ],
+      "layer": ""
+    },
+    {
+      "id": "W3",
+      "name": "Mother of Learning",
+      "state": "Visitor route + lead experiment",
+      "now": "Visitor/lore work exists; the Zorian S0/S1 owner records bounded reset, foreknowledge and replay work with separate limits.",
+      "gap": "Lead replay, native locations/actors, ordinary life and reset portability are not equivalent completion claims.",
+      "next": "Use one declared retention/reset or teaching contrast when selected; no universal loop engine claim.",
+      "source": [
+        "docs/systems/README.md",
+        "docs/worlds/mother-of-learning/ZORIAN_S0_S1_STAGE_RECORD_2026-11-03.md",
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:49–50"
+      ],
+      "links": [
+        "U05",
+        "U06",
+        "U07",
+        "U13"
+      ],
+      "layer": ""
+    },
+    {
+      "id": "W4",
+      "name": "Reincarnation Paradise",
+      "state": "Bounded runtime; breadth unrefreshed",
+      "now": "Earlier delivery owners record mission/hub work and selected carriage/settlement.",
+      "gap": "Current ordinary-route breadth and delivered artifact were not re-exercised here.",
+      "next": "Use one preparation → mission → cargo return loop as a future contrast.",
+      "source": [
+        "docs/gm/book-world-completion-2026-10-06/DELIVERY.md",
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:54"
+      ],
+      "links": [
+        "U09",
+        "U11",
+        "U12"
+      ],
+      "layer": ""
+    },
+    {
+      "id": "W5",
+      "name": "Reverend Insanity",
+      "state": "Registered bounded lives",
+      "now": "Source registers novice and keeper starts around actual living Gu and upkeep/refinement.",
+      "gap": "This does not establish the whole economy, progression or Fang Yuan campaign.",
+      "next": "Deepen a selected actual tool’s ownership, feeding and transfer consequences.",
+      "source": [
+        "src/book_world_beginning_registration.js",
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:53"
+      ],
+      "links": [
+        "U07",
+        "U09",
+        "U11"
+      ],
+      "layer": ""
+    },
+    {
+      "id": "W6",
+      "name": "Shadow Slave",
+      "state": "Registered bounded lives",
+      "now": "Source registers Memory apprentice, original trial and divergent company starts.",
+      "gap": "Canonical whole-world coverage and broader progression are not proved by those registrations.",
+      "next": "Test an actual supported ability/tool and its restriction in a useful operation.",
+      "source": [
+        "src/book_world_beginning_registration.js",
+        "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:80"
+      ],
+      "links": [
+        "U07",
+        "U09",
+        "U10",
+        "U11"
+      ],
+      "layer": ""
+    },
+    {
+      "id": "W7",
+      "name": "Dungeons & Dragons",
+      "state": "Bounded Phandalin runtime",
+      "now": "main.js imports the Phandalin domain; older planning-only labels are insufficient.",
+      "gap": "Edition/rules-profile breadth, world depth and current natural journey were not verified here.",
+      "next": "A selected rules profile could test targets, duration, concentration/rest and different rule resolution.",
+      "source": [
+        "src/main.js:7",
+        "src/dnd_phandalin_domain.js",
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:51"
+      ],
+      "links": [
+        "U05",
+        "U07",
+        "U11"
+      ],
+      "layer": ""
+    },
+    {
+      "id": "W8",
+      "name": "Primordial Saint Sect",
+      "state": "Bounded footing in earlier inventory",
+      "now": "The existing atlas records a domain foothold; this pass does not upgrade its runtime proof.",
+      "gap": "Campaign depth, current reachability and human use remain unassessed.",
+      "next": "Use its current owner before proposing more cultivation infrastructure.",
+      "source": [
+        "src/book_world_primordial_domain.js",
+        "docs/reports/PROGRESS_ATLAS_2026-11-04.md"
+      ],
+      "links": [
+        "U07",
+        "U08"
+      ],
+      "layer": ""
+    },
+    {
+      "id": "W9",
+      "name": "Village / own world",
+      "state": "Main usable base; depth uneven",
+      "now": "Crafting, economy, home, people and original-world loops have existing owners and consumers.",
+      "gap": "A lived home and independent histories require connected daily work, relationships, travel and return.",
+      "next": "Use the same proven transactions while authoring the original world’s own laws and livelihoods.",
+      "source": [
+        "docs/systems/README.md",
+        "PROJECT.md"
+      ],
+      "links": [
+        "U08",
+        "U09",
+        "U10",
+        "U12"
+      ],
+      "layer": ""
+    },
+    {
+      "id": "W10",
+      "name": "Frontier & Mistglass",
+      "state": "Retained test beds",
+      "now": "Selected mechanism, crafting and combat fixtures remain useful.",
+      "gap": "Their existence does not demonstrate book-world depth or portability.",
+      "next": "Retain their test-bed role; put new depth in selected book worlds and menus.",
+      "source": [
+        "docs/VISION_DIGEST.md",
+        "docs/systems/README.md"
+      ],
+      "links": [
+        "U07",
+        "U09",
+        "U11"
+      ],
+      "layer": ""
+    }
+  ],
+  "gaps": [
+    {
+      "id": "G1",
+      "name": "Source → delivered app",
+      "state": "Delivery identity unknown",
+      "now": "Current source and dated app-adoption records are separate.",
+      "gap": "PROJECT release wording is stale relative to recorded chat activity; no installed artifact was inspected here.",
+      "next": "At a selected delivery checkpoint compare the actual app artifact to its intended build.",
+      "source": [
+        "PROJECT.md:53–55"
+      ],
+      "links": [
+        "U14",
+        "U15"
+      ],
+      "layer": ""
+    },
+    {
+      "id": "G2",
+      "name": "Means → action → useful result",
+      "state": "High-value connection gap",
+      "now": "Mechanism engines and bounded receipts exist.",
+      "gap": "R5 supply/bindings and B8 campaign/shot consumers remain limited in their receipts; story facts can advance without the full mechanism.",
+      "next": "Use the next actual lead action to acquire means, pay cost and produce a later use.",
+      "source": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/R5_IMPLEMENTATION_RECEIPT.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/B8_IMPLEMENTATION_RECEIPT.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3AC_IMPLEMENTATION_RECEIPT.md"
+      ],
+      "links": [
+        "U05",
+        "U06",
+        "U07",
+        "U09",
+        "U11"
+      ],
+      "layer": ""
+    },
+    {
+      "id": "G3",
+      "name": "Panel → continuing pursuit",
+      "state": "Session integration",
+      "now": "Recent conversation and retained-place repairs have fixture proof.",
+      "gap": "Goal, cost, blocker, alternative and resume path still need a coherent ordinary session beyond those fixtures.",
+      "next": "Check one selected session at rebuilt 1920×1080, including save/resume.",
+      "source": [
+        "docs/gm/dispatch/foundation-conversations-2026-11-04/CHECKPOINT.md",
+        "docs/gm/dispatch/foundation-place-identity-2026-11-04/CHECKPOINT.md",
+        "docs/audits/UI_CAPABILITY_GAPS_2026-10-30.md"
+      ],
+      "links": [
+        "U01",
+        "U03",
+        "U06",
+        "U08",
+        "U15"
+      ],
+      "layer": ""
+    },
+    {
+      "id": "G4",
+      "name": "Action → consistent aftermath",
+      "state": "Health closure; broader joins open",
+      "now": "L2b health and paid-work settlement have later named fixture closure receipts.",
+      "gap": "Injury/witness aftermath is separate. Continuous/staged support and mixed reservation/spend can exceed the new binary policy.",
+      "next": "Choose the actual support and spend boundaries for a consuming operation; use L2c when injury or witnessed aftermath is involved.",
+      "source": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/L2B_COMBAT_HEALTH_RECEIPT.md:3–17",
+        "docs/gm/dispatch/foundation-paid-work-2026-11-04/CHECKPOINT.md",
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:186–198"
+      ],
+      "links": [
+        "U02",
+        "U06",
+        "U10",
+        "U11",
+        "U13"
+      ],
+      "layer": ""
+    },
+    {
+      "id": "G5",
+      "name": "Foundation → different real consumer",
+      "state": "Portability gap",
+      "now": "Shared machinery spans domains, but some consumers remain narrowly world-shaped.",
+      "gap": "Pack save has a writer but no ordinary reveal caller; a second world can demand different semantics.",
+      "next": "Test a selected different consumer and retain its costs/laws; avoid building a whole new world just to run a contrast fixture.",
+      "source": [
+        "docs/systems/README.md",
+        "src/world_pack_registry.js",
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:42–59"
+      ],
+      "links": [
+        "U01",
+        "U04",
+        "U07",
+        "U09",
+        "U12",
+        "U13",
+        "U14"
+      ],
+      "layer": ""
+    },
+    {
+      "id": "G6",
+      "name": "Parallel work → combined behavior",
+      "state": "Integration risk",
+      "now": "Primary contains extensive concurrent dirty work.",
+      "gap": "Commit/worktree counts do not tell us which behavior is missing or correctly combined; no new worktree audit ran.",
+      "next": "Use the current owners and pinned candidate; merge/review actual hunks only when integration is selected.",
+      "source": [
+        "docs/gm/dispatch/foundation-conversations-2026-11-04/CHECKPOINT.md",
+        "docs/gm/dispatch/foundation-place-identity-2026-11-04/CHECKPOINT.md",
+        "docs/gm/dispatch/foundation-paid-work-2026-11-04/CHECKPOINT.md",
+        "docs/gm/SHARED_WORKTREE_PRACTICE.md"
+      ],
+      "links": [
+        "U11",
+        "U14",
+        "U15"
+      ],
+      "layer": ""
+    },
+    {
+      "id": "G7",
+      "name": "Opening → lived world",
+      "state": "Depth gap",
+      "now": "LOTM/HP have bounded developer journeys; other worlds have partial loops, registrations or plans.",
+      "gap": "Campaign progress does not establish ordinary lives, institutions, regions, later powers or all livelihoods.",
+      "next": "Deepen one continuing loop in the selected campaign; preserve longer horizons without treating every world as a prerequisite.",
+      "source": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3AC_IMPLEMENTATION_RECEIPT.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/HP_WINDOW4_RECEIPT.md",
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:61–96"
+      ],
+      "links": [
+        "U03",
+        "U04",
+        "U05",
+        "U07",
+        "U08",
+        "U09",
+        "U10",
+        "U12",
+        "U13",
+        "U15"
+      ],
+      "layer": ""
+    },
+    {
+      "id": "G8",
+      "name": "Recorded proof → current joined build",
+      "state": "Evidence boundary",
+      "now": "Conversation/place and both-host paid-work fixtures have named proof. The broad run had failures followed by serial/focused recovery.",
+      "gap": "No clean full-suite result for all latest dirty inputs is claimed; two hosts sharing a fixture do not prove different world laws.",
+      "next": "Use the next real consumer’s pinned candidate and appropriate combined gate, keeping each receipt scope separate.",
+      "source": [
+        "docs/gm/dispatch/foundation-conversations-2026-11-04/CHECKPOINT.md:63–73",
+        "docs/gm/dispatch/foundation-place-identity-2026-11-04/CHECKPOINT.md",
+        "docs/gm/dispatch/foundation-paid-work-2026-11-04/CHECKPOINT.md",
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:176–211"
+      ],
+      "links": [
+        "U01",
+        "U11",
+        "U14",
+        "U15"
+      ],
+      "layer": ""
+    }
+  ],
+  "leverage": [
+    {
+      "id": "E1",
+      "name": "LOTM → COI",
+      "state": "Proposed reuse",
+      "now": "Knowledge, custody, supported progression and source-qualified operations.",
+      "gap": "Shared setting still has different support and advancement laws.",
+      "next": "Withdraw borrowed support while preserving independently held progress.",
+      "source": [
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:48"
+      ],
+      "links": [
+        "U06",
+        "U07",
+        "U09"
+      ],
+      "layer": ""
+    },
+    {
+      "id": "E2",
+      "name": "HP ↔ Mother of Learning",
+      "state": "Proposed contrast",
+      "now": "Teaching, demonstrated competence, access and practical preparation.",
+      "gap": "A school shell does not write curriculum, local magic, society or useful lessons.",
+      "next": "Make the same learned-operation seam change a real task under different local rules.",
+      "source": [
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:49"
+      ],
+      "links": [
+        "U05",
+        "U07",
+        "U08",
+        "U09"
+      ],
+      "layer": ""
+    },
+    {
+      "id": "E3",
+      "name": "MoL → Perfect Run / Re:Zero",
+      "state": "Proposed reset contrast",
+      "now": "Declared restored domains, retained knowledge and replay bookkeeping.",
+      "gap": "Different triggers, carriers and who retains information; source qualification still matters.",
+      "next": "Restore one declared physical domain and check the qualified observer-retention policy.",
+      "source": [
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:50"
+      ],
+      "links": [
+        "U05",
+        "U06",
+        "U13",
+        "U14"
+      ],
+      "layer": ""
+    },
+    {
+      "id": "E4",
+      "name": "D&D → tabletop settings",
+      "state": "Proposed profile reuse",
+      "now": "Targets, conditions, duration, rest and explicit rules profiles.",
+      "gap": "Edition and setting remain separate; full world content is still substantial.",
+      "next": "Change one profile-dependent resolution while leaving unrelated world laws intact.",
+      "source": [
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:51"
+      ],
+      "links": [
+        "U05",
+        "U07",
+        "U11"
+      ],
+      "layer": ""
+    },
+    {
+      "id": "E5",
+      "name": "Making → FMA / Witch Hat",
+      "state": "Proposed; bounded study exists",
+      "now": "Physical preparation, material identity, constructed design, activation and settlement.",
+      "gap": "Magical grammars differ; copying a design, understanding it and operating it are different.",
+      "next": "Retain a real workpiece and distinguish inspection from spending/activation.",
+      "source": [
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:52,135–153",
+        "docs/gm/dispatch/foundation-paid-work-2026-11-04/CHECKPOINT.md"
+      ],
+      "links": [
+        "U06",
+        "U07",
+        "U09",
+        "U11"
+      ],
+      "layer": ""
+    },
+    {
+      "id": "E6",
+      "name": "RI → cultivation cases",
+      "state": "Proposed living-tool reuse",
+      "now": "Owned living tools, resource/time accounting, refinement and ongoing support.",
+      "gap": "Gu/aperture laws do not become generic cultivation rules.",
+      "next": "Transfer one supported living tool without duplication or lost upkeep.",
+      "source": [
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:53"
+      ],
+      "links": [
+        "U07",
+        "U09",
+        "U11"
+      ],
+      "layer": ""
+    },
+    {
+      "id": "E7",
+      "name": "Paradise → mission worlds",
+      "state": "Proposed return contrast",
+      "now": "Preparation/services, separate footprints, cargo and return settlement.",
+      "gap": "Reward law, privileges, support and clocks remain local.",
+      "next": "Return one exact carried item with cost and support aftermath.",
+      "source": [
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:54"
+      ],
+      "links": [
+        "U09",
+        "U11",
+        "U12",
+        "U14"
+      ],
+      "layer": ""
+    },
+    {
+      "id": "E8",
+      "name": "Worm → hidden-power worlds",
+      "state": "Longer-term stress test",
+      "now": "Observer recognition, institution responses, rivals and provider-dependent tools.",
+      "gap": "Public classification is not actual capability; each power still needs its mechanism.",
+      "next": "Change what an observer knows without changing underlying power.",
+      "source": [
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:55"
+      ],
+      "links": [
+        "U06",
+        "U07",
+        "U08",
+        "U10"
+      ],
+      "layer": ""
+    },
+    {
+      "id": "E9",
+      "name": "HP → Percy Jackson / Earthsea",
+      "state": "Weaker resemblance hypothesis",
+      "now": "Admission, schedules, teaching, duties and access.",
+      "gap": "Local culture and signature mechanics remain large; a renamed lesson button proves little.",
+      "next": "Use a genuinely different institutional rule through the shared seam.",
+      "source": [
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:56"
+      ],
+      "links": [
+        "U05",
+        "U07",
+        "U08"
+      ],
+      "layer": ""
+    },
+    {
+      "id": "E10",
+      "name": "Threat/recovery → Hunger Games",
+      "state": "Proposed survival contrast",
+      "now": "Resources, announced danger, workable exits and retained aftermath.",
+      "gap": "AD50 is project direction, not a canon claim; politics, ecology and ordinary lives still need authoring.",
+      "next": "Make one threat have supported responses and a consequential recovery route.",
+      "source": [
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:57"
+      ],
+      "links": [
+        "U02",
+        "U09",
+        "U10",
+        "U13"
+      ],
+      "layer": ""
+    },
+    {
+      "id": "FN1–FN6",
+      "name": "Naruto / Witch Hat → core contracts",
+      "state": "Bounded studies; receiving use first",
+      "now": "Separate carrier/source, known method, trained control, constructed work and actual activation.",
+      "gap": "Selected OCR windows do not qualify every inheritance, drawing or distributed-worker rule.",
+      "next": "Apply one distinction to the next Klein/Harry ability or paid preparation; no need to build these worlds first.",
+      "source": [
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:135–153",
+        "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:70–71"
+      ],
+      "links": [
+        "U01",
+        "U06",
+        "U07",
+        "U09",
+        "U11"
+      ],
+      "layer": ""
+    }
+  ],
+  "actions": [
+    {
+      "id": "A1",
+      "name": "Next real lead operation",
+      "state": "Next · N2, existing campaign owner",
+      "now": "Recent conversation, place, health and paid-work pieces now have bounded proof.",
+      "gap": "A shared fixture is not yet a source-qualified useful lead action.",
+      "next": "Have the next already-owned Klein/Harry practical operation distinguish method, competence, current means, cost and a useful consequence.",
+      "source": [
+        "docs/gm/dispatch/foundation-paid-work-2026-11-04/CHECKPOINT.md",
+        "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:30",
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:203–211"
+      ],
+      "links": [
+        "G2",
+        "G3",
+        "G7",
+        "G8"
+      ],
+      "layer": ""
+    },
+    {
+      "id": "A2",
+      "name": "Exact workpiece, when needed",
+      "state": "Same slice · M21/M25",
+      "now": "Material identity/lineage already has an owner; counted-stock fixture proof is narrower.",
+      "gap": "A sample count does not prove which actual ingredient, page, tool or prepared object was changed or delivered.",
+      "next": "Carry the exact item key/lineage through preparation and receiving use; one incompatible/lookalike contrast where relevant.",
+      "source": [
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:186–205",
+        "docs/SYSTEMS_REGISTER.md"
+      ],
+      "links": [
+        "G2",
+        "G4",
+        "G5"
+      ],
+      "layer": ""
+    },
+    {
+      "id": "A3",
+      "name": "A continuing duty or lesson",
+      "state": "Next relevant pursuit · N4/ACR",
+      "now": "Clocks, jobs, institutions and activity-abstraction direction exist.",
+      "gap": "Compression must keep actual means, consequential choices, payment/delivery and observer knowledge; rules adoption is not implementation.",
+      "next": "Make the selected duty/lesson change a later choice; compress routine repetition at the appropriate local grain.",
+      "source": [
+        "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:32",
+        "docs/ACTIVITY_ABSTRACTION_RULES.md",
+        "docs/systems/README.md"
+      ],
+      "links": [
+        "G3",
+        "G4",
+        "G7"
+      ],
+      "layer": ""
+    },
+    {
+      "id": "A4",
+      "name": "Ordinary history and return",
+      "state": "When selected use needs it",
+      "now": "World-pack save/carry is wired and the reveal API exists.",
+      "gap": "No ordinary reveal caller or retained person-view reader was found in src; avoid duplicating existing per-actor knowledge.",
+      "next": "Connect the world-instance history needed by a real encounter and prove its retained return/reload result.",
+      "source": [
+        "src/world_pack_registry.js",
+        "src/continuation_state.js",
+        "docs/SYSTEMS_REGISTER.md:37"
+      ],
+      "links": [
+        "G5",
+        "G7",
+        "G8"
+      ],
+      "layer": ""
+    },
+    {
+      "id": "A5",
+      "name": "Different-law second consumer",
+      "state": "Later · qualified contrast",
+      "now": "E2/E3/E4/E5 offer shared-capability stress tests; two existing hosts have paid-work integration proof.",
+      "gap": "A different panel is not a different law. Reuse still leaves local content, mechanisms and lifecycle to qualify.",
+      "next": "Prove one relevant semantic difference with less duplicated core work; rerun affected donor behavior.",
+      "source": [
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md:42–96,176–211"
+      ],
+      "links": [
+        "G5",
+        "G7",
+        "G8"
+      ],
+      "layer": ""
+    }
+  ],
+  "inventory": [
+    {
+      "name": "S1 Fact rules (`rules.js`)",
+      "maturity": "Used in play",
+      "line": 30
+    },
+    {
+      "name": "S2 Progression gates",
+      "maturity": "Wired, thin (4 gates)",
+      "line": 31
+    },
+    {
+      "name": "S3 Ascension paths, abilities and powers",
+      "maturity": "Wired, thin (2 worlds)",
+      "line": 32
+    },
+    {
+      "name": "S4 Skills, XP, overflow, rust",
+      "maturity": "Used in play, proposal rows",
+      "line": 33
+    },
+    {
+      "name": "S5 Titles and faction rank",
+      "maturity": "Used in play, proposal content",
+      "line": 34
+    },
+    {
+      "name": "S6 Clearance",
+      "maturity": "Wired, thin (1 world)",
+      "line": 35
+    },
+    {
+      "name": "S7 Domain registry",
+      "maturity": "Used in play (54 calls)",
+      "line": 36
+    },
+    {
+      "name": "S8 World packs",
+      "maturity": "Partly wired (loader yes; save slice yes, one writer `reveal`, no gameplay trigger yet)",
+      "line": 37
+    },
+    {
+      "name": "S9 Book-world hosts",
+      "maturity": "Used in play",
+      "line": 38
+    },
+    {
+      "name": "S10 Simulation: commands, jobs",
+      "maturity": "Used in play",
+      "line": 39
+    },
+    {
+      "name": "S11 Expansion engine",
+      "maturity": "Used in play",
+      "line": 40
+    },
+    {
+      "name": "S12 Save envelope, migrations",
+      "maturity": "Used in play",
+      "line": 41
+    },
+    {
+      "name": "S13 Knowledge, observation, sealed truth",
+      "maturity": "Mixed",
+      "line": 42
+    },
+    {
+      "name": "S14 Lives, heirs, continuation",
+      "maturity": "Used in play",
+      "line": 43
+    },
+    {
+      "name": "Body, health, conditions",
+      "maturity": "Used in play (S14 word)",
+      "line": 44
+    },
+    {
+      "name": "S15 Seeded generation",
+      "maturity": "Used in play",
+      "line": 45
+    },
+    {
+      "name": "S16 Tags (with MIE section 2)",
+      "maturity": "Wired, thin",
+      "line": 46
+    },
+    {
+      "name": "S17 UI ports, panels and layout (with CPSU section 4)",
+      "maturity": "Used in play",
+      "line": 47
+    },
+    {
+      "name": "S18 Debug, cheat and inspector views",
+      "maturity": "Used in play (dev)",
+      "line": 48
+    },
+    {
+      "name": "Cheats (data cards)",
+      "maturity": "Data contract, a few live cards",
+      "line": 49
+    },
+    {
+      "name": "S19 Clocks and recurring windows",
+      "maturity": "Mixed",
+      "line": 50
+    },
+    {
+      "name": "Items and inventory keys (L1)",
+      "maturity": "Used in play",
+      "line": 58
+    },
+    {
+      "name": "Craft engine and Village crafting runtime (L3, L4)",
+      "maturity": "Used in play (Village and Frontier)",
+      "line": 59
+    },
+    {
+      "name": "Recipes, slots, substitution (5a-5e)",
+      "maturity": "Mixed: 5a, 5b Tested just; 5c Used in play",
+      "line": 60
+    },
+    {
+      "name": "Crafted products and mixtures",
+      "maturity": "Used in play",
+      "line": 61
+    },
+    {
+      "name": "Material lineage, treatment, heirlooms (L6)",
+      "maturity": "Used in play (rat-material chain, kit, heirlooms)",
+      "line": 62
+    },
+    {
+      "name": "Gear and workshop",
+      "maturity": "Used in play (`base.frontier` alone)",
+      "line": 63
+    },
+    {
+      "name": "Weapon runes and inscription",
+      "maturity": "Used in play (Rune bench, Frontier); weapon-rune inscription beyond the affix reroll is proposal",
+      "line": 64
+    },
+    {
+      "name": "Consumables and effects",
+      "maturity": "no map word",
+      "line": 65
+    },
+    {
+      "name": "World-pack potion slices (HP, LOTM)",
+      "maturity": "Used in play (HP slice; LOTM doses, brewing is proposal)",
+      "line": 66
+    },
+    {
+      "name": "Economy: money, shops, trade, custody, escrow (L8)",
+      "maturity": "Used in play",
+      "line": 67
+    },
+    {
+      "name": "Quality, spoilage, gates, lineage of beings",
+      "maturity": "no map word",
+      "line": 68
+    },
+    {
+      "name": "Combat, encounters, pursuit",
+      "maturity": "Mixed (2026-11-04): combat core wired, encounter content demo-only. Producer `src/combat_math.js`; state `src/models/combat.js` (imported by `src/main.js`); UI `src/ui/combat_display.js`; test `tests/combat_log.test.js`. Evidence: read source + focused tests pass (28 files, 234 tests, 2026-11-04); native journey not reached. Uncommitted in-flux files in primary: `src/tempo_fight.js`, `src/combat_situation_ui.js`",
+      "line": 76
+    },
+    {
+      "name": "People, companions, bonds, character sheet",
+      "maturity": "Mixed (2026-11-04): generated people and village lives wired from `src/main.js`; companion roster reaches UI only via `src/ui_extras.js`. Producer `src/generated_people.js`, `src/npc_lives.js`, `src/companion_roster.js`; state owner `src/npc_lives.js` (village lives); UI `src/generated_people_ui.js`; test `tests/generated_people.test.js`. Evidence: read source + focused tests pass (2026-11-04); native journey not reached",
+      "line": 77
+    },
+    {
+      "name": "Talk and dialogue",
+      "maturity": "Wired, thin (2026-11-04): producer `src/talk_dialogue_host.js`, imported only by `src/display.js` (UI); `src/cast_topic_talk.js` feeds `src/book_world_lotm_cast_host.js`; state owner unknown (not traced); test `tests/talk_view.test.js`. Evidence: read source + focused test pass (2026-11-04); native journey not reached",
+      "line": 78
+    },
+    {
+      "name": "Sites, ruins, maps, exploration",
+      "maturity": "Partly wired (2026-11-04): authored sites (`src/authored_site.js`, state via `applyAuthoredState`) reach UI `src/authored_site_ui.js` from `src/main.js`; drainage site `src/drainage_site_domain.js` is wired through `src/native_tool_domains.js`; `src/site_projects.js` is consumed by home and field-workshop code only. Test `tests/authored_site.test.js`. Evidence: read source + focused tests pass (2026-11-04); native journey not reached",
+      "line": 79
+    },
+    {
+      "name": "Homes and bases",
+      "maturity": "Partly wired (2026-11-04): producer `src/home_domain.js` (imported by `src/main.js`), state `src/home_model.js`, UI `src/home_panel.js` and `src/home_furniture_panel.js`; test `tests/home_domain.test.js`. Evidence: read source + focused tests pass (2026-11-04); native journey not reached (`scripts/playtest/home-system.mjs` exists, not run)",
+      "line": 85
+    },
+    {
+      "name": "Organizations and institutions",
+      "maturity": "Wired, thin (2026-11-04): producer `src/organization_view.js`, UI only from `src/management/ui.js`; faction rank `src/faction_rank.js` has 7 importers; state owner unknown (not traced); test `tests/organization_view.test.js`. Evidence: read source + focused test pass (2026-11-04); native journey not reached",
+      "line": 86
+    },
+    {
+      "name": "Gathering, nature and seasons",
+      "maturity": "Partly wired (2026-11-04): harvest wired (`src/harvest.js`, 13 importers; UI `src/harvest_ui.js`); gathering model `src/gathering_model.js` feeds `src/gathering_panel.js` from `src/crafting_domain.js`; state owner `src/gatherings.js`; tests `tests/gatherings.test.js`, `tests/harvest.test.js`. Seasons owner unknown: no season module, `season` appears in about 12 files. Evidence: read source + focused tests pass (2026-11-04); native journey not reached",
+      "line": 87
+    },
+    {
+      "name": "Research and study",
+      "maturity": "Wired, thin (2026-11-04): producer `src/research_view.js` (with `src/research_content.js`), UI `src/research_home.js` via `src/ui_extras.js`; state owner unknown (not traced); tests `tests/research_view.test.js`, `tests/village_study.test.js`; `src/research_home.js` has no test. Evidence: read source + focused tests pass (2026-11-04); native journey not reached",
+      "line": 88
+    },
+    {
+      "name": "First hour, intro, starts",
+      "maturity": "Partly wired (2026-11-04): producer `src/first_hour.js` mounted from `src/main.js`; starts via `src/start_probe_ui.js` and start content (`src/fresh_life_start.js`, `src/warm_hand_start_content.js`, `src/foundation_start_content.js`), all imported by `src/main.js`; state owner `src/start_records.js` (not traced further); tests `tests/first_hour.test.js`, `tests/start_records.test.js`. Evidence: read source + focused tests pass (2026-11-04); native journey not reached",
+      "line": 89
+    },
+    {
+      "name": "`steam_*` (19, 1270)",
+      "maturity": "no map word",
+      "line": 97
+    },
+    {
+      "name": "`cohort_battle*` (5, 259)",
+      "maturity": "no map word",
+      "line": 98
+    },
+    {
+      "name": "`causal_story*`, `causal_situations` (9, 2352)",
+      "maturity": "no map word",
+      "line": 99
+    },
+    {
+      "name": "`vessel_*` (7, 140)",
+      "maturity": "no map word",
+      "line": 100
+    },
+    {
+      "name": "`pocket_*` (6, 1001)",
+      "maturity": "no map word",
+      "line": 101
+    },
+    {
+      "name": "`mistglass_*` (6, 184)",
+      "maturity": "no map word",
+      "line": 102
+    },
+    {
+      "name": "`lore_history*`, `lore_practice*` (6, 1018)",
+      "maturity": "no map word",
+      "line": 103
+    }
+  ],
+  "candidates": [
+    {
+      "name": "W1 LOTM",
+      "mechanism": "Pathway progression through potions and acting; interpretation and investigation as practical work",
+      "test": "Prepare a qualified operation, acquire/use its faculty, apply evidence in a later service; distinguish digestion from memorizing a method",
+      "source": "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:68"
+    },
+    {
+      "name": "W2 Harry Potter",
+      "mechanism": "Individual wand relationship, learned spell execution and school life; possession and answering are distinct",
+      "test": "Try a wand before buying it; subsequently use the actually held compatible instrument in a learned task",
+      "source": "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:69"
+    },
+    {
+      "name": "W3 Naruto",
+      "mechanism": "Inherited bodily faculties alongside trainable techniques, control exercises, sealing, puppetry and clone-supported practice",
+      "test": "Distinguish an acquired eye/body source from a copied method; compare the same technique before and after trained control; qualify a worker's experience return",
+      "source": "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:70"
+    },
+    {
+      "name": "W4 Witch Hat Atelier",
+      "mechanism": "Drawn Casting Seals using special tools; apprenticeship and control of magical knowledge",
+      "test": "Construct and inspect one physical spell design, then use its actual result; investigate how changing a drawing changes its operation",
+      "source": "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:71"
+    },
+    {
+      "name": "W5 Fullmetal Alchemist",
+      "mechanism": "Learned staged transformation of actual matter; arrays, specialization and source-specific exchange",
+      "test": "Rework a supported material into a useful repair/part, with explicit inputs and receiving function; compare an unsupported target",
+      "source": "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:72"
+    },
+    {
+      "name": "W6 Hunter x Hunter",
+      "mechanism": "Personally structured Nen abilities; activation requirements differ from breakable vows",
+      "test": "Author one target/setup condition, keep a continuing requirement live, then separately model a chosen vow and its sourced stake",
+      "source": "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:73"
+    },
+    {
+      "name": "W7 Jujutsu Kaisen",
+      "mechanism": "Innate techniques, vows, bounded spaces and distinct adaptation mechanisms",
+      "test": "Show an inherited technique, trained use and a supported condition; qualify a concrete domain rule rather than a generic damage zone",
+      "source": "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:74"
+    },
+    {
+      "name": "W8 Bleach",
+      "mechanism": "Personal weapon relationship/releases; spiritual perception differs from physical contact",
+      "test": "Develop/use one qualified release through its actual relationship and means; compare seeing a spiritual actor with being able to affect it",
+      "source": "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:75"
+    },
+    {
+      "name": "W9 Mother of Learning",
+      "mechanism": "Repeated learning with retained knowledge; technical preparation, facilities and autonomous workers",
+      "test": "Reuse known technique under a changed current condition; deliver a remote worker's discovery; separately test a qualified reset domain",
+      "source": "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:76"
+    },
+    {
+      "name": "W10 The Perfect Run",
+      "mechanism": "A protagonist-specific checkpoint/return mechanism among diverse individual powers",
+      "test": "Compare retained knowledge with restored physical state, and qualify who receives a memory through which route",
+      "source": "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:77"
+    },
+    {
+      "name": "W11 Re:Zero",
+      "mechanism": "Asymmetric knowledge from return events alongside spirit contracts and ordinary support work",
+      "test": "Let one actor prepare from retained information while another acts on the current history; a visitor has no automatic reset power",
+      "source": "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:78"
+    },
+    {
+      "name": "W12 Reverend Insanity",
+      "mechanism": "Living Gu as owned/support-dependent tools; refinement and aperture-linked resource life",
+      "test": "Obtain/feed/use one actual Gu, then transfer or interrupt support without duplicating it or inventing a universal starvation timer",
+      "source": "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:79"
+    },
+    {
+      "name": "W13 Shadow Slave",
+      "mechanism": "Aspect/Flaw coupling, Memories and guarded transitions/rest",
+      "test": "Use a chosen supported ability on a real task while its specific restriction changes another decision; compare guarded recovery",
+      "source": "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:80"
+    },
+    {
+      "name": "W14 Worm",
+      "mechanism": "Different operational powers behind public classifications; maker-bound technical work",
+      "test": "A qualified observer revises a classification; a device works or degrades according to its actual maker/support law",
+      "source": "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:81"
+    },
+    {
+      "name": "W15 The Wandering Inn",
+      "mechanism": "Work/social roles, Classes and Skills, including team and place relationships",
+      "test": "Perform a real method before recognition, route growth through a consolidated role, or test a team technique's participant requirement",
+      "source": "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:82"
+    },
+    {
+      "name": "W16 Ars Magica",
+      "mechanism": "Technique/Form magic, seasonal laboratory work, magical materials and tradition-specific Warping",
+      "test": "Design one effect in a pinned rules profile; progress a laboratory project; track an exposure and that tradition's actual consequence",
+      "source": "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:83"
+    },
+    {
+      "name": "W17 D&D",
+      "mechanism": "Explicit rules-profile actions, targets, durations, concentration and rest interacting with setting life",
+      "test": "Resolve a selected effect under one edition, interrupt its actual support, and preserve elapsed duration across save/load",
+      "source": "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:84"
+    },
+    {
+      "name": "W18 Reincarnation Paradise",
+      "mechanism": "Mission preparation, services, footprints and consequential return",
+      "test": "Buy a service that changes a mission approach, then settle the actual carried cargo and account",
+      "source": "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:85"
+    },
+    {
+      "name": "W19 Super Supportive",
+      "mechanism": "Service obligations, class trade/affixation, wordchain benefits/debt and deliberate authority work",
+      "test": "Bind or transfer a qualified class under real terms; use a benefit and later meet the named obligation",
+      "source": "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:86"
+    },
+    {
+      "name": "W20 You Are Summoned",
+      "mechanism": "Summoned jobs, home return/commit and different carry categories/clocks",
+      "test": "Finish one job and commit its supported growth at home while cargo and penalties follow their actual carrier policy",
+      "source": "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:87"
+    },
+    {
+      "name": "W21 Wish Upon the Stars",
+      "mechanism": "Compensated wishes constrained by current means; renown and rank interact with growth",
+      "test": "Quote one feasible effect, payer and compensation, then settle an actual transferred benefit and donor cost",
+      "source": "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:88"
+    },
+    {
+      "name": "W22 Godclads",
+      "mechanism": "Installed conceptual mechanisms paired with counter-effects and actual vented burden",
+      "test": "Use one bounded effect and discharge its cost into an actual receiver; a contradiction changes the result rather than just comparing strength",
+      "source": "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:89"
+    },
+    {
+      "name": "W23 Mistborn",
+      "mechanism": "Burned fuel, stored attributes and transferred powers as different toolkits",
+      "test": "Research one store/spend case: accept a current deficit to receive a later benefit, with actual metal/carrier/owner rules",
+      "source": "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:90"
+    },
+    {
+      "name": "W24 Cradle",
+      "mechanism": "Trained body/core configurations, Path-specific techniques and material/ambient support",
+      "test": "Research one bodily advancement protocol or allocation between distinct cores, showing its actual constraint and later use",
+      "source": "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md:91"
+    }
+  ]
+}

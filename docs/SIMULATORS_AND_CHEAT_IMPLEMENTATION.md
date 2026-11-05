@@ -847,3 +847,13 @@ the full browser check.
   still useful; it can point to the one stat or person that changes it.
 - **Idle fit.** Dreams are a natural offline activity: set intent, sleep,
   read the report on return.
+
+
+## Prediction-scope reconciliation B132, 2026-11-04
+
+The complete [cheat synthesis](audits/cheat-implementation-2026-10-10/REPORT.md#cheat-audit-reconciliation-b132-2026-11-04) and the selected Why this engine can really predict/grades paragraphs were read. Exact replay is conditional on the actual supported model, all saved stream roots/cells/salts/calls, definition/input identity, clock, assumed choices and external actions. A cloned living-world result is not automatically the whole native future. The old native-unseeded list and measured horizon costs are dated; selected native decisions now have named-stream helpers, while any broader forecast still needs its own current coverage proof. Preserve knowledge-limited projection, exceptional true-reading means and actual costs without a compulsory inaccurate result. A foresight grade, same-seed repeat or old purity test cannot certify all consumers. No simulator/prediction/browser run or full owner reading is claimed here.
+
+
+## Fork-contract reconciliation B134, 2026-11-04
+
+The complete [purity reader](audits/cheat-implementation-2026-10-10/readers/D_risk_and_purity.md#purity-report-reconciliation-b134-2026-11-04) supplies two useful qualifications to selected future simulator checks. Assert no real mutation/draw/publication from detached fork computation; an actual paid reading may still commit only its declared charge, admitted information and receipt. Different nonces must have appropriate isolated keys, but equal final outcomes can be valid, so unconditional outcome divergence is not an invariant. Deep-frozen tests cover only enrolled exercised paths, not early-return owners or all host callbacks. Preserve exact/current state, stream, definition, clock and policy identities; old scratch timing/365-day extrapolation is not a universal forecast horizon. No generic worker, all-owner fixture or native prediction was implemented or tested here.

@@ -1,0 +1,203 @@
+{
+  "schema": 1,
+  "batch": "B68",
+  "title": "Local brainstorm dialogue bodies: observation, transmission, refusal and purposeful repetition",
+  "at": "2026-11-04T20:18:14.231350+00:00",
+  "head": "4cdc0772b65d413e4989e327502910140b2a15eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/dlg-absence.md",
+      "ids": [
+        "dlg-absence:1–12"
+      ],
+      "classification": "fresh full dialogue machine-draft body review",
+      "owners": [
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+        "docs/DEEP_WORLD_WORKFLOW_2026-10-19.md"
+      ],
+      "disposition": "1/5/10: bark/attention/criticalchoice comfort, not retentiontelemetry mandate.2/7/8: actual transmission/elapsed changes, no forced rumor decay or novel return content.3/6/11: fitting original voice/refusal, no forced friendliness/source copying.4: knowledge source may foreknow; lackknowledge not necessarily refusal.9: actual interruption/return;12: legible known commitment, not revealing all permanent consequences.",
+      "evidence": "All84 numbered bodies freshly read, compared against dialogue owner21–124 and DWF87–94 actual text. No native runtime/machine-generation/source-media behavior run; absence claims remain unconfirmed.",
+      "reopen": "Selected scene/actor/observer and actual transmission/commitment/return consumer, with meaningful existing checks. No generic linter, quota, guaranteed alternative, forced decay, visible secret meter or AI prerequisite.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "7558e5e9027d2ed45bb5a524ce83560a210f3792f25bdb83e7707803d700acb1",
+      "input_lines": 62,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          62
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/dlg-fidelity.md",
+      "ids": [
+        "dlg-fidelity:1–12"
+      ],
+      "classification": "fresh full dialogue machine-draft body review",
+      "owners": [
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+        "docs/DEEP_WORLD_WORKFLOW_2026-10-19.md"
+      ],
+      "disposition": "1/10/12: selected voice/era/motive evidence with original expression, no generatedcanon or clearance conclusion.2/6: actual perobserver knowledge and sealed channel, not blanket futuretopic refusal.3/7/8: cause/history not universal degrade/variance knob.4/9/11: fitting refusal/bark/branch return with no fixed50casequota/barklimit/tree depth.5: internal provenance useful, not mandatory player-facing tags.",
+      "evidence": "All84 numbered bodies freshly read, compared against dialogue owner21–124 and DWF87–94 actual text. No native runtime/machine-generation/source-media behavior run; absence claims remain unconfirmed.",
+      "reopen": "Selected scene/actor/observer and actual transmission/commitment/return consumer, with meaningful existing checks. No generic linter, quota, guaranteed alternative, forced decay, visible secret meter or AI prerequisite.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "535c69accadf1563ddce133a23190b9fcea5546c85e114e82ebdf4b2cbc63316",
+      "input_lines": 38,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          38
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/dlg-legibility.md",
+      "ids": [
+        "dlg-legibility:1–12"
+      ],
+      "classification": "fresh full dialogue machine-draft body review",
+      "owners": [
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+        "docs/DEEP_WORLD_WORKFLOW_2026-10-19.md"
+      ],
+      "disposition": "1/2/3/8/10/11: provenance/confidence and available reasons only where learned; truthicons/allknownfacts/trustbar/rumormap cannot expose hidden truth.4/5/6/12: heard/changed/interrupted/closed state with actual cause, no forced fade/banner/animation.7: distinct prose/speaker identity can share fonts, no onefontperperson.9: technical responsiveness distinct from inworld response time.",
+      "evidence": "All84 numbered bodies freshly read, compared against dialogue owner21–124 and DWF87–94 actual text. No native runtime/machine-generation/source-media behavior run; absence claims remain unconfirmed.",
+      "reopen": "Selected scene/actor/observer and actual transmission/commitment/return consumer, with meaningful existing checks. No generic linter, quota, guaranteed alternative, forced decay, visible secret meter or AI prerequisite.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "3d6f85c3b00d6d4418989aa7c5c9487c825174bb528930a83382cc3a3f27ed83",
+      "input_lines": 38,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          38
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/dlg-longplay.md",
+      "ids": [
+        "dlg-longplay:1–12"
+      ],
+      "classification": "fresh full dialogue machine-draft body review",
+      "owners": [
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+        "docs/DEEP_WORLD_WORKFLOW_2026-10-19.md"
+      ],
+      "disposition": "1/2/6: optional causal memory/rumor/return changes, no fixedforget/expiry/offlineevent.3/5/7: semantic voice/repetition quality not minimumvarietyquota.4/10: refusal/relationship consequences through history, no mandatory dynamicthreshold or guaranteedprogress.8/9/11: actual information/delivery can stay private or unresolved; no automatic networkspread/mooddeadline/truthreveal.12: preserve meaningful choices with declared automationpolicy.",
+      "evidence": "All84 numbered bodies freshly read, compared against dialogue owner21–124 and DWF87–94 actual text. No native runtime/machine-generation/source-media behavior run; absence claims remain unconfirmed.",
+      "reopen": "Selected scene/actor/observer and actual transmission/commitment/return consumer, with meaningful existing checks. No generic linter, quota, guaranteed alternative, forced decay, visible secret meter or AI prerequisite.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "b62209e03ee0f5422c39f7a89d74960a44a0de79ed5fa25ca9282871afcfff9f",
+      "input_lines": 38,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          38
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/dlg-reuse.md",
+      "ids": [
+        "dlg-reuse:1–12"
+      ],
+      "classification": "fresh full dialogue machine-draft body review",
+      "owners": [
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+        "docs/DEEP_WORLD_WORKFLOW_2026-10-19.md"
+      ],
+      "disposition": "1/7: reusable projection/operation seam perAD51, distinct world motives/outcomes not universaltags/emotionengine.2: rumor need not mutate at crossing.3/5/6/12: same actor/carrier/history distinct counterpartrecognition.4: ambient frequency context-specific.8: admitted observer facts not rawregistrytruth; synthetic test not private-save injection.9: false-report disproof updates only informed beliefs.10: resume actual paid/closed state.11: NPC may genuinelyrefuse, no compulsory alternative.",
+      "evidence": "All84 numbered bodies freshly read, compared against dialogue owner21–124 and DWF87–94 actual text. No native runtime/machine-generation/source-media behavior run; absence claims remain unconfirmed.",
+      "reopen": "Selected scene/actor/observer and actual transmission/commitment/return consumer, with meaningful existing checks. No generic linter, quota, guaranteed alternative, forced decay, visible secret meter or AI prerequisite.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "a391308da37d732e8a358478dc7e7cbf340adaf11b549a0fdbe72f045eea5b75",
+      "input_lines": 38,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          38
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/dlg-verify.md",
+      "ids": [
+        "dlg-verify:1–12"
+      ],
+      "classification": "fresh full dialogue machine-draft body review",
+      "owners": [
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+        "docs/DEEP_WORLD_WORKFLOW_2026-10-19.md"
+      ],
+      "disposition": "1/7: actual admitted knowledge positive/negative cases, no source of omniscience.2/9: actual channel/copyhistory, not universal travel-speed/decay.3/4/11/12: selected repeatedrequest/retainedmemory/interruption/onceonlysettlement meaningful tests.5/6: speaker/task/priority evidence.8: reject imposed artificialminimumlatency.10: useful/intentional greeting/menu cycles valid; test reachableexit and uniqueeffect not universal DAG.",
+      "evidence": "All84 numbered bodies freshly read, compared against dialogue owner21–124 and DWF87–94 actual text. No native runtime/machine-generation/source-media behavior run; absence claims remain unconfirmed.",
+      "reopen": "Selected scene/actor/observer and actual transmission/commitment/return consumer, with meaningful existing checks. No generic linter, quota, guaranteed alternative, forced decay, visible secret meter or AI prerequisite.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "5cfcf23917f01ee4737371e3eeef2e124d85a0160d0e56d3b879e83e363ed186",
+      "input_lines": 62,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          62
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/dlg-volume.md",
+      "ids": [
+        "dlg-volume:1–12"
+      ],
+      "classification": "fresh full dialogue machine-draft body review",
+      "owners": [
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+        "docs/DEEP_WORLD_WORKFLOW_2026-10-19.md"
+      ],
+      "disposition": "1/5/12: distinct voice/semanticpurpose, no50percent-vocabulary/minlinecount/fixedbranchcap.2/7: reuse existing knowledge/memoryowner; measure actual burden, no parallel DB.3/9: optional bark/autonomy policy, no randomgeneration prerequisite.4/10: source/actualchannelfit distinct authoredvoice.6: legibledecline/exit, actualhostility can haveconsequences.8: finitepreparedfact/voicepacket not inventedcommunityworkforce.11: translation requires actual means/cost/languageaccess, no UI toggle granting fluency.",
+      "evidence": "All84 numbered bodies freshly read, compared against dialogue owner21–124 and DWF87–94 actual text. No native runtime/machine-generation/source-media behavior run; absence claims remain unconfirmed.",
+      "reopen": "Selected scene/actor/observer and actual transmission/commitment/return consumer, with meaningful existing checks. No generic linter, quota, guaranteed alternative, forced decay, visible secret meter or AI prerequisite.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "6946fb78cd6c06da28bbc328f97e558c482ad44ade847b960efb6448fede62a3",
+      "input_lines": 62,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          62
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+      "heading": "## Dialogue draft bodies reconciled, 2026-11-04 (B68)",
+      "body": "All 84 item bodies in the seven dialogue draft lenses were reviewed; [original file/ordinal dispositions](../audits/reconciliation-2026-11-04/content-b68.json) retain the proposals. The existing scene, evidence, voice, interruption and consequence sections already supply their principal owners; draft “missing” assertions are not verified defects. Preserve meaningful knowledge, return, refusal, interruption and once-only settlement cases. Rumor timing follows the actual channel, including supported fast communication, not a universal walking-speed limit; rumor need not decay or mutate merely because time/world changed. A speaker may know a future event through real foreknowledge, genuinely refuse without an alternative, or retain silence/private beliefs. Public confidence/provenance is not an omniscient truth icon, trust meter, complete mind inspection or hidden-consequence preview. Repeated greetings/menu cycles can be intentional; test useful exit and unique settlement rather than banning graph cycles. No mandatory artificial reaction delay, vocabulary/line/branch quota, source-copying, translation toggle granting fluency or random AI speech follows. Useful internal provenance and original voice samples remain optional selected authoring checks under AD32/AD36.",
+      "before_sha256": "6c9f867d703be28f0d406a18db260fe33c831299fd2eeaf18d49bf1016ea2be5",
+      "after_sha256": "3281bb9d7e0da5dc7a8e53c98b91676bc022c19a9886cff9ac0067c52079fa6f"
+    },
+    {
+      "path": "docs/DEEP_WORLD_WORKFLOW_2026-10-19.md",
+      "heading": "## DWF87–DWF94 body-review qualifications, 2026-11-04 (B68)",
+      "body": "The [character](audits/reconciliation-2026-11-04/content-b67.json) and [dialogue](audits/reconciliation-2026-11-04/content-b68.json) bodies now have actual ordinal dispositions, distinct from DWF82’s original title-only triage. DWF89’s travel shorthand means actual supported information-channel timing: a messenger, local testimony, instrument or supernatural communication can differ. No universal walking cap or compulsory rumor decay follows; repeated persuasion may have actual changed evidence, while identical unique settlement does not replay. DWF91 tests the selected identity/carrier/world and supported trait/title compatibility, not a universal mutuallyexclusive-trait list. DWF92’s canary checks its sentinel and inspected path; absence of that string cannot prove every secret stayed out of every prompt/output. DWF93’s voice swap is a useful sample, not a mandate that every short line uniquely identify a speaker. DWF87’s compression preserves durable promises, custody, identity and admitted knowledge; it does not erase long-play history or enforce forgetting. These remain scoped proposals/check opportunities under AD32/AD36, not implemented validators or new gameplay gates.",
+      "before_sha256": "dd6723f239c4457a1352f5e265914a45d364b1636c1be42d126dda3266bf12bf",
+      "after_sha256": "dbefbd8d75278650caf31f3d61ce8829e82c485161beccbfd90ddc25c0bb9750"
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/TRIAGE.md",
+      "heading": "## Dialogue bodies reviewed, 2026-11-04 (B68)",
+      "body": "B68 freshly read all seven dialogue files, 84 item bodies, and folded their useful scene/knowledge/return/settlement distinctions into the dialogue owner. [Ordinal dispositions](../reconciliation-2026-11-04/content-b68.json) distinguish proposals from draft absence assertions and preserve intentional cycles, actual fast communication, refusal, voice and knowledge limits. Character plus dialogue body coverage is now 14 files/168 items. The seven world files remain unread at body level in this continuous pass; title triage does not supply them (AD32).",
+      "before_sha256": "95cba906864a12730ec05f4504dbafc46557f5b3cef6868846e038b27b0409ca",
+      "after_sha256": "24b8e94155b4c10350f8b7e394a021efe93b05745c81e70c1c354228873ea97a"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1379
+}

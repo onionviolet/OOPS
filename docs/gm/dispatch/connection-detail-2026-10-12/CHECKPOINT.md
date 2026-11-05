@@ -32,3 +32,8 @@ save/reload/import gates; fixed. Independent final planning review passes; struc
 No runtime tests/build/browser/performance/save operations run. No gameplay claim.
 
 Finite planning gate closed after final document readback. Next action, if later selected: reserve CD-P1 from current world/native owners and recheck its current interface, then prove one real local consumer with rebuilt native/save evidence. No further work is required in this assignment; no runtime selection is authorized by this checkpoint.
+
+
+## Later content/source reconciliation, 2026-11-04 (B82)
+
+The [capability map correction](RESEARCH_AND_CAPABILITY_MAP.md#current-controller-and-knowledge-seam-2026-11-04-b82) supersedes the narrow historical missing-controller-enrollment statement with current producer/scheduler source inspection. The original planning result, failed-and-repaired structural checks and inherited evidence stay dated. No historical child/active-chat reservation or next-packet suggestion is a current dispatch. The current request selects content reconciliation; no runtime build, install, source acquisition or new implementation follows (AD32/AD36).

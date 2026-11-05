@@ -7286,3 +7286,44 @@ He then said: “Fetch them” (the free next-wave rulebooks). Recorded as his a
 ## Long-term horizon, world enablement and complexity (2026-11-04)
 
 Weibao (2026-11-04): asked for "worlds that should be high priority to help address other gaps", for interesting new systems such as Witch Hat Atelier to be considered, for world difficulty to rest on "complexity of features, depth, power level and difficulty of implementation and more", then to "visualize all our foundational stuff and create long term of stuff to do", to "consider what worlds once implemented will allow other worlds be easier to implement", and "we shouldnt underestimate complexity of worlds too". He also deferred the partly-held and not-held tabletop settings. Recorded as direction for sequencing and estimation; the horizon is a proposal in [playability plan round 12](MASTER_PLAYABILITY_PLAN_2026-10-25.md#round-12-long-term-horizon-world-enablement-and-complexity-floor-2026-11-04-proposals). He then answered "Approved" to the question whether to approve the five sequencing changes marked in the horizon (S8 pack save, H2 rewind, the Hunger Games slice, the making donor, the D&D d20 layer), and asked what to do about the earlier foundation gaps. Approval covers sequencing those mechanism slices after the current LOTM-first work; it does not accept the horizon as a whole, lift the one-deep-world-at-a-time line (WR9), authorize downloading Witch Hat Atelier, or change the standing priorities.
+
+## UI and prose defaults, subtle details and whimsy (2026-11-04)
+
+Weibao:
+
+> Sure, update and reconcile the existing UI design and prose rules accordingly, including subtle details and whimsy. Keep them as defaults with room for different worlds and future improvements.
+
+> Whimsy in UI, Character is chracter, ui nad flavor is ui and flavor, other stuff to consider< consider how YAIR and proto and the others work? consider our audit accross the the discord for ideas to? general trends? Reddit's game dev and stuff guideliens?
+
+Recorded direction: update the existing design/prose owners with task-centered composition, editorial roles, paced detail, trustworthy specificity, usable small controls and relevant journey checks. UI/narrator/flavor whimsy is separate from characterization: a character keeps their own personality, motives, competence, knowledge and speech; presentation tone does not make them comic or change their actions. Decorative pleasure can stand on its own without a gameplay bonus. Keep defaults, world/scene/player dials, reasons and room to refactor. Reuse qualified YAIR/Proto23/Discord lessons and treat online design guidance and Reddit discussions as evidence or hypotheses, not automatic project authority.
+
+Adoption scope: the existing DSG3/5/13 and UR53/57/60/62/64/66/70–74 applications in [DESIGN](../DESIGN.md) and [UI_RULES](UI_RULES.md), restated in AD40. The earlier P1–P5 and UPX design principles are incorporated to that bounded extent; their example copy, proposed engines/metadata, all-world work, individual UI treatments and implementation follow-ups are not adopted wholesale. Bulk local-AI drafting remains a later option, not a prerequisite for clear and appealing current UI copy. No runtime rewrite, new character simulation, commit or push follows from this documentation instruction. [Reconciliation and source qualification](audits/UI_DESIGN_CORE_AUDIT.md#round-29-2026-11-04-adopted-ui-prose-defaults-and-character-separation).
+
+## Activity abstraction rules and long-term playstyles (2026-11-04)
+
+Weibao clarified: “I meant abstractions as in abstracting something like investigation into a progress bar type thing instead of somethign else?” He requested an audit of other activities, interesting choices and subtle interactions, then broadened it across worlds: “Okay taking this into consideration, lets consider areas of abstraction accros most if not all worlds”. After those findings he instructed: “turn findings into rules accordingly, and then” reconcile-project, followed by “Then consider long term ideas like gameplay, types of palystyles, and much more?”
+
+Recorded direction: turn the activity-compression and cross-world findings into standing rules and reconcile their consumers, then consider longer-term gameplay/playstyles. The agent-authored rule statement is [ACR1–ACR14](ACTIVITY_ABSTRACTION_RULES.md), restated as AD52: compress repeated work, preserve consequential choices and character, apply actual means/local laws, show truthful progress, retain useful outcomes and stage-specific costs, advance declared clocks, preserve knowledge/chance/history, use actual workers/support and distinguish ordinary-life coverage from developer canon policy. The exact rule wording is adjustable under AD32; the user requested rule conversion, not a review of these exact sentences. This extends the Nov 3 repeated-work direction and is separate from AD51's shared-software seams.
+
+Adoption scope: the operating principles mapped from AC1–AC18, SI1–SI12, XC1–XC10 and XD1–XD8 in the [activity owner](SUBSYSTEM_SCOPE_LADDERS_2026-10-16.md). Optional forms and local exceptions do not become a quota of implemented systems. Individual world examples, numeric policies, field lists, fixtures, detailed UI and implementation order remain proposals. Later [LPS1–LPS14 / LPI1–LPI8 gameplay and playstyle ideas](research/GAMEPLAY_LOOPS_AND_WORLD_IDEAS_2026-10-26.md#long-term-playstyles-and-compressed-life-2026-11-04) are explicitly outside this dated adoption. No runtime feature, new world order, commit or push was requested by this documentation instruction. [Reconciliation record](gm/PROJECT_LOG_2026-10-29.md#activity-abstraction-rule-adoption-and-later-playstyle-round-2026-11-04).
+
+## Long play, cross-world pursuits and quests (2026-11-04)
+
+Weibao: “More to consider for long term gameplay and different playstyles, especially how they interact across worlds? Expand on the ideas and subtle interactions, then save and reconcile accordingly. The play length doesnt have to be short, proto23 and yair is so long after all, consider other stuff and more? Quests? other stuff?” He also requested reconcile-project “since we thought about these before”.
+
+Recorded direction: expand long-term gameplay, interacting playstyles across worlds, quests and subtle consequences using earlier work, and save/reconcile in the existing owners. Play length need not be short. Convenience from activity abstraction and small delivery slices does not impose short total campaigns, short world stays or rapid mastery. Proto23 and YAIR are his motivating examples, not newly measured duration benchmarks. This clarifies ACR1/AD52 without adding a target playtime, mandatory slow progression or a new build order.
+
+Agent expansions remain proposals under AD32: [LPI9–LPI28 and six worked combinations](research/GAMEPLAY_LOOPS_AND_WORLD_IDEAS_2026-10-26.md#long-play-interacting-worlds-and-quest-ecology-2026-11-04), and [P12 M19–M30](gm/dispatch/procgen-2026-10-13/p12/MORE.md#m19m30-long-play-and-quests-across-worlds-2026-11-04). These extend LPS1–LPS14/LPI1–LPI8, earlier causal quest structures and cross-world owners; saving them is neither blanket adoption nor implementation. Current LOTM-first, HP selection, ordinary-life coverage boundaries and optional-pursuit direction remain. No commit, push, acquisition or runtime work is authorized by this documentation request.
+
+
+## Prose-first visuals and hall interaction, 2026-11-04
+
+Weibao:
+
+> Prose probably doesnt need visuals right? just stuff like actions and progress bars, so no need for visua;s on  'from the ritua;' unless there is some better way to consider these?Can we audit and improve the hall scene next, with more distinctive UI, creative prose and subtle details from the Discord audit? Keep characters unchanged and update any rule gaps.
+
+Follow-up:
+
+> button feedback, interaction and more? similar stuff?
+
+Default: prose can stand on its own. Distinctive UI starts with usable actions, state, progress where its meaning is supported, button feedback and interaction. A prose vignette is optional when deliberately useful, not a requirement to make each passage look different. Retire the current “From the ritual” treatment in this slice. Keep creative prose and characters’ established traits/voices. This refines existing AD40/DSG5 and does not prohibit diagrams, decorative pleasure or a better justified world-specific treatment.

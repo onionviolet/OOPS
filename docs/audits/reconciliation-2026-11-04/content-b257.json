@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "batch": "B257",
+  "title": "Affliction chronology, HP consumer proof and edition boundaries",
+  "at": "2026-11-05T00:06:26.433087+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/AFFLICTIONS_AND_WEAPON_PROPERTIES_CONSIDERATIONS_2026-11-03.md",
+      "ids": [
+        "AFW1–42",
+        "AFW-R4-1–7",
+        "AFW-N1–4",
+        "AFW-L1–5",
+        "rounds 1–4"
+      ],
+      "classification": "Chronological implementation receipt plus proposed mechanism/source palette",
+      "owners": [
+        "docs/AFFLICTIONS_AND_WEAPON_PROPERTIES_CONSIDERATIONS_2026-11-03.md"
+      ],
+      "disposition": "Keep original rounds; qualify opening below-floor/no-save wording with later HP consumer, retain distinct corrosion gap and exact browser/calibration/edition limits.",
+      "evidence": "Full file delivered in two chunks 1–135 and 136–290 (actual 256 lines). Linked JSON receipt fully read; selected current source matches inspected, no new tests, browser, source acquisition or medical verification.",
+      "reopen": "When selecting a consumer, verify current producer/state/reader and edition-specific source; prove natural acquisition and complete recovery separately from the stored-save one-week fixture.",
+      "input_sha256": "2a90b4d52c5bfcf682ec801fedd4a6bb61aff26520a849b0d42592fdad3a792f",
+      "input_lines": 256,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          256
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/afflictions-2026-11-03/receipt.json",
+      "ids": [
+        "all 10 checks",
+        "errors/viewport/origin"
+      ],
+      "classification": "Historical fixture browser receipt; not exact-current-build proof",
+      "owners": [
+        "docs/AFFLICTIONS_AND_WEAPON_PROPERTIES_CONSIDERATIONS_2026-11-03.md"
+      ],
+      "disposition": "Preserve historical receipt and route qualifications in owning affliction palette; do not extend it to full recovery or natural sample acquisition.",
+      "evidence": "All JSON content read; no screenshot inspected or historical check rerun.",
+      "reopen": "A new behavior claim needs identified current inputs and its actual natural/fixture route.",
+      "input_sha256": "4e74e18e903393b25d4f6e136d3650d791b3fd9a451e39923e3e0cb745cfd0fc",
+      "input_lines": 17,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/AFFLICTIONS_AND_WEAPON_PROPERTIES_CONSIDERATIONS_2026-11-03.md",
+      "heading": "## Content reconciliation B257",
+      "body": "All four source/implementation rounds, AFW1–42, AFW-R4-1–7, AFW-N1–4 and AFW-L1–5 were read. The opening “no world enrols / no save slice / below floor” describes round 1, not the later HP bench. Likewise AFW-N2's no-slice statement is qualified by round 2's saved track and older-until compatibility; it is not a task to add a second affliction save owner. The Rusting/corrosion consumer remains a separate proposal. The six-test round-1 count, 42-test round-2 report, 20,000-recovery calibration and 40-seed test are distinct evidence sets, not cumulative proof or new runs here.\n\nThe linked [browser receipt](gm/dispatch/afflictions-2026-11-03/receipt.json) was read in full. It records a fresh headless origin, a staged mishap, one hospital admission, one played week still at stage 3, Save/reload and literal Import, with no page errors and the stated 1920 target. It does not demonstrate the entire multi-week recovery distribution, a natural animal-hair acquisition route, disease exposure/onset, terminal-stage handling, native corrosion combat or every Condition-panel reader. The report itself discloses the stored-save species substitution, shared Condition-panel gap and omitted full suite. Its receipt contains no exact bundle/source identity, so it cannot certify today's changed checkout.\n\nTargeted current matches show hp_brewing_state still imports the affliction module, settles a track separately from legacy until, projects the stage, validates the condition, and provides seekCare; hp_animal_features labels its stages and numbers original. These selected matches support an existing consumer and authored-number distinction, not a new browser or migration validation. A current sample-generation branch also appears in that search; this does not establish a naturally reached animal-sample journey or close the historical browser gap by inference.\n\nPreserve all source palettes while keeping edition and mechanism identity. The document itself holds both SRD 5.1 and 5.2.1 references, PF1 and PF2, legacy/remastered records, and third-party PF1 material. A selected row must identify its actual printing, publisher and source locator rather than combine exhaustion, critical triggers, immunities or affliction stages under a single d20 label. “Already partly in stances” is a comparison lead, not proof that those weapon properties reach combat. PF2's valued conditions and property limits are calibration examples, not universal fixed 1–4 ranges, material immunities, costs or terminal outcomes for every world (AD5, AD38, AD49).\n\nRound 4's “wikis are effectively the books / no mechanics missing” is broader than the collected evidence: selected reproduced records do not prove every rulebook mechanic, GM procedure or edition is covered. Keep the useful record-first lookup route, without declaring complete book equivalence or ordering acquisition. The medical explanations and real-disease calibration are unverified research leads here; this pass supplies no health guidance or new source validation. AFW35's evolving resistance needs its own causal world model, not an automatic punishment for every remedy use. Future selected work belongs to the named body/condition, combat/durability, knowledge and HP owners; no new mechanics, source downloads, gate or reader dispatch was authorized by preserving these ideas.",
+      "before_sha256": "2a90b4d52c5bfcf682ec801fedd4a6bb61aff26520a849b0d42592fdad3a792f",
+      "after_sha256": "0b52c65e9d64352c8e6d0dbcb519b2b145635af84bdbc66a259cb91905ef80ad"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 914
+}

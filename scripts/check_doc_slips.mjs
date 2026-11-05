@@ -16,7 +16,7 @@ const filespec = ['--', 'docs', 'PROJECT.md', 'AGENTS.md'];
 const runDiff = (cached) => {
   const command = ['diff', ...(cached ? ['--cached'] : []), '--no-ext-diff', '--unified=0'];
   if (base) command.push(base);
-  return execFileSync('git', [...command, ...filespec], {cwd: root, encoding: 'utf8'});
+  return execFileSync('git', [...command, ...filespec], {cwd: root, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024});
 };
 const diffs = [runDiff(false), runDiff(true)];
 const additions = new Map();

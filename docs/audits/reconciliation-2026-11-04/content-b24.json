@@ -1,0 +1,202 @@
+{
+  "schema": 1,
+  "batch": "B24",
+  "title": "Granularity, dependency strategy and bounded item/power/region proposals",
+  "at": "2026-11-04T19:46:43.492036+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/world-implementation/second-pass/items/CHECKPOINT.md",
+      "ids": [
+        "IT11",
+        "IT12",
+        "IT13"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "FINDINGS.json and DEPENDENCIES.md in docs/gm/world-implementation/second-pass/items; existing alchemy, medicine-manual, Book, ActiveEffect, stock, crafting, job, and Glasshouse systems are named support/consumers."
+      ],
+      "disposition": "Expanded item-family planning is complete and statically checked. New fiction and numerical policies remain proposals; source progress and master coordination do not authorize runtime work. Retain positive existing functions, precise source windows and static-risk qualifications. These historical recommendations do not add a gate or make a blanket world rule. No source-body, runtime or human acceptance renewed; useful findings remain in incumbent report/dependency owners.",
+      "mechanism_and_interactions": "The follow-up extends five item families: IT11 pill outcome carriers, IT12 active artifacts/deployed consumables, and IT13 containers/manuals/access objects, alongside materials/tools/apparatus and living/unique stock. Targeted alchemy, medicine-manual, Book, and ActiveEffect inspection found positive current support. Ordinary restorative pills can reuse existing timed-effect content; the proposal does not require a new class or universal toxicity rule. Native stock/crafting/job/Glasshouse findings remain in scope.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. The checkpoint reports positive support from targeted source inspection and a static follow-up check of required fields, 13 unique IDs, 77 evidence references, local targets/anchors, whitespace, and final readback. It explicitly says gameplay, bundle, import, and save acceptance were not established.",
+      "reopen": "Selected item rows need native/compatibility and gameplay/save/failure/return checks; historical RI analytical evidence remains qualified and no new canon claim was made.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S018.json"
+      ],
+      "prior_input_sha256": "bdb6d01a81873dcf3ec69ef8b9d5a2485efa6b2153ea1016df51c0d6e6be704e",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "bdb6d01a81873dcf3ec69ef8b9d5a2485efa6b2153ea1016df51c0d6e6be704e",
+      "input_lines": 17
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/missing-feature-audit/CHECKPOINT.md",
+      "ids": [
+        "MF-GAP-01–10",
+        "E01–E09",
+        "O01–O05",
+        "AC01–AC12",
+        "FNA17"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "REPORT.md, FEATURE_COVERAGE.json, FINDINGS.json, PACKETS.md, appendix-validation.json, and supporting appendices in docs/gm/world-implementation/second-pass/missing-feature-audit; Incorporation owns canonical admission and Engine owns shared runtime/native/UI/save/build integration."
+      ],
+      "disposition": "Finite static closeout passed. Its priorities and packets are planning recommendations; the checkpoint retains source, registered, build, executed, and director evidence as separate states and does not establish a new gameplay gate. Retain positive existing functions, precise source windows and static-risk qualifications. These historical recommendations do not add a gate or make a blanket world rule. No source-body, runtime or human acceptance renewed; useful findings remain in incumbent report/dependency owners.",
+      "mechanism_and_interactions": "The finite audit organizes 35 feature families, with proposed gap work for 26 and no new feature gap for nine; ten stable MF-GAP families route later packets and five priorities are distinguished from conditional work. Priorities connect Frontier closure, conserved objects/functions, funded reciprocal resident work, mature method/counter functions, and a selected native destination with retained return. It credits existing skill/Practice, commands, finite programs, custody/publication, party guard, and fork adoption, while leaving policy choices unselected.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. The checkpoint reports static JSON/ID/trace/link/anchor/hash and input-drift checks, with a historical build hash explicitly no longer matching changed source. No current build, unit/game/browser, save/failure/regression/performance, or director check ran.",
+      "reopen": "Canonical admission must recheck mutable owners; selected feature packets need current native/build and behavioral/save/failure/keyboard evidence. Current skill/Glasshouse/fork gameplay gates remain deferred.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          37
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S018.json"
+      ],
+      "prior_input_sha256": "c3783e9d95fe2d2be57c857dd2d89d0f89a6c97d78a5a93bf417ec1d60b0eb49",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "c3783e9d95fe2d2be57c857dd2d89d0f89a6c97d78a5a93bf417ec1d60b0eb49",
+      "input_lines": 37
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/powers/CHECKPOINT.md",
+      "ids": [
+        "POW01–POW05",
+        "MOL-C002-06/07",
+        "MOL-C031-04",
+        "MOL-C062-03/06/07",
+        "MOL-C074-01",
+        "MOL-C089-04",
+        "MOL-C092-01",
+        "OE16",
+        "OE07"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "FINDINGS.json, REPORT.md, and DEPENDENCIES.md in docs/gm/world-implementation/second-pass/powers; body/power/energy/realm-boundary and simulation owners are inspected interfaces, while assigning master owns plan reconciliation."
+      ],
+      "disposition": "Checked planning delivery complete, with no gameplay implementation. Source observations are limited to eight chapters in ten windows and supplied editions; primary authenticity/current publication verification was outside scope. Proposed simplifications remain static design inferences. Retain positive existing functions, precise source windows and static-risk qualifications. These historical recommendations do not add a gate or make a blanket world rule. No source-body, runtime or human acceptance renewed; useful findings remain in incumbent report/dependency owners.",
+      "mechanism_and_interactions": "The powers audit records five prioritized findings and three covered notes while retaining existing Micro cost dimensions. Its targeted supplied-source windows distinguish narrated outcomes from character explanations. MoL examples cover counter/physical aftermath, a character-specific shell/flesh explanation, enhancement, autonomous copies, shared fuel/advice, matter-bodied copy experience, anchoring/control/inheritance, and old-body anchor failure with continued stabilization. Shadow examples cover independent movement with one consciousness/soul/pool, armor versus weapon, conditional sustain, and a missing condition rather than faculty deletion. These are bounded examples, not universal mechanics.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. The checkpoint records chapter/member hashes and targeted paragraph windows as actually read, plus document checks for five findings, 30 evidence references, and 22 code/planning ranges. Native bodies/forms/evolution/possession, persistence, counters, browser, saves, failure, regression, and human acceptance remained unrun.",
+      "reopen": "Selected proposals require native compatibility and positive/changed-support/conservation/order/retry/stale/failure/return cases; current source authenticity, broader book coverage, numerical balance, persistence, and runtime acceptance remain unresolved.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          88
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S018.json"
+      ],
+      "prior_input_sha256": "eb42d3bbc62462834bfe33a9a06fe625bd51da04ef2aac4850aa14c48082c02e",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "eb42d3bbc62462834bfe33a9a06fe625bd51da04ef2aac4850aa14c48082c02e",
+      "input_lines": 88
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/regions/CHECKPOINT.md",
+      "ids": [
+        "REG02",
+        "REG07"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "REPORT.md, FINDINGS.json, DEPENDENCIES.md in docs/gm/world-implementation/second-pass/regions; existing gathering, actor production, calendar/weather, observation/knowledge, and native graph are the named supports/consumers; assigning master owns canonical plan/RUN."
+      ],
+      "disposition": "Planning is complete and the report set is statically checked. The Fallout example is qualified as an original continuation; no new source-specific penalty, numerical balance, schema, or world is accepted. REG02 is a static order risk and REG07 a potential projection misuse, not reproduced live defects. Retain positive existing functions, precise source windows and static-risk qualifications. These historical recommendations do not add a gate or make a blanket world rule. No source-body, runtime or human acceptance renewed; useful findings remain in incumbent report/dependency owners.",
+      "mechanism_and_interactions": "The regions audit proposes finite-node native admission/publication, seasonal-check ordering, producer versus harvestable stock, one bounded cross-patch habitat cause, directed egress/cargo, funded competitors with conserved promotion, dated evidence instead of current hidden values, selective viability, and sparse purposeful resolution. It credits skill-scaled gathering, real actor production, deterministic calendar/weather, observation/knowledge, and native graph support, while preserving exceptions for superior or genuinely inexhaustible sources.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. The checkpoint reports JSON/field/ID/evidence-range/local-link/anchor/table/whitespace/readback checks and reconciled shared-document drift. All 14 behavioral cases plus native/save/failure/keyboard/human acceptance remained unrun; no runtime or token benchmark was captured.",
+      "reopen": "Selected regional loops need current-owner admission and the listed behavioral cases, including native/save/failure/keyboard coverage; current implementation behavior and any numerical balance remain unverified.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          36
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S018.json"
+      ],
+      "prior_input_sha256": "1283c37e76520a634cad900832d0e661d628c6a0bee8c9d96ba98d823bc69515",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "1283c37e76520a634cad900832d0e661d628c6a0bee8c9d96ba98d823bc69515",
+      "input_lines": 36
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/granularity-expansion/CHECKPOINT.md",
+      "ids": [
+        "uncoded revision3 granularity expansion",
+        "six cases/eight contracts/five conditional packages"
+      ],
+      "classification": "fresh full uncoded planning checkpoint review",
+      "owners": [
+        "docs/gm/world-implementation/second-pass/granularity-expansion/REPORT.md",
+        "docs/gm/world-implementation/second-pass/granularity-expansion/CONSUMER_CONTRACTS.md"
+      ],
+      "disposition": "Preserve completed finite planning, optional per-world taxonomies, actual consumer dependencies and exact source/integration vs built/played proof. Proposed granularity levels are palettes, not mandatory completeness ladder.",
+      "evidence": "Entire checkpoint freshly read because prior receipt lacked source-local IDs; no game execution.",
+      "reopen": "Future selected consumer uses current direction and owners; no new audit lane or implementation scheduled.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "414dae6b65361e4b062d01f22050587f1570422703b881e99566f8a115562bad",
+      "input_lines": 48,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          48
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/integration/CHECKPOINT.md",
+      "ids": [
+        "uncoded revision2 strategy",
+        "28-node dependency proposal"
+      ],
+      "classification": "fresh full uncoded planning checkpoint review",
+      "owners": [
+        "docs/gm/world-implementation/second-pass/integration/REPORT.md",
+        "docs/gm/world-implementation/second-pass/integration/ROLLOUT.md"
+      ],
+      "disposition": "Preserve proposed opt-in package route, actual directed travel/physical-stock and cooperative source/visitor limits; no 19-world launch barrier or automatic broad Engine dependency. Old review hold and five waves are historical, not current build order.",
+      "evidence": "Entire checkpoint freshly read because prior receipt lacked source-local IDs; no game execution.",
+      "reopen": "Future selected consumer uses current direction and owners; no new audit lane or implementation scheduled.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "cbda28516754c11c2f00f0177e92de47202d0ea8bf3c61f6d74fe3e228596351",
+      "input_lines": 29,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          29
+        ]
+      ]
+    }
+  ],
+  "folds": [],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1705
+}

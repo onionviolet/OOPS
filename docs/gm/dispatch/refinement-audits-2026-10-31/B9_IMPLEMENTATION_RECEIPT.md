@@ -52,3 +52,8 @@ Touched core files: `src/book_world_lotm_cast_host.js` (one import, one closure,
 - The zh/en chapter alignment is an inference from the sampled locators, true for ch17-24 here; other stretches may drift (use `chapterOffset`).
 - Waits still split at unsettled beat times (`nextCastBeatTime` is unchanged), and day settlement will still carry `.801` onward when the clock reaches them, with its report and knowledge writes. Only the time reservation is lifted.
 - kjw4 itself is unbuilt; the unnarrated clock gap (dawn at 3793 versus Sunday morning) is a content matter for it.
+
+
+## Source-reach qualification B99, 2026-11-04
+
+Retain the time-reservation diagnosis and selected chapter 17–24 alignment as bounded historical evidence. Full current canon_source_reach.js reads only the furthest locator among completed acts and applies a numeric chapter offset; it does not validate source-edition alignment, contiguous played coverage or the actual event effects. Thus “read past” is a reservation approximation for qualified monotone content, not proof every earlier canon scene was lived. Never promote maximum locator into exhaustive campaign completion or mechanism coverage. Day settlement may still emit report/knowledge later, so double effects and chronology remain relevant selected-consumer questions. No runtime change or new regression is authorized here.

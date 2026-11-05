@@ -1,5 +1,7 @@
 # Acceptance backlog, 2026-10-11
 
+> Historical October 11 snapshot. Later R15 integration reports natural journey/persistence evidence; see the B15 reconciliation below before interpreting “all unrun” or “remaining gate.”
+
 All cases below are **unrun**. Build/import/declaration checks are not gameplay or persistence proof. The live GM prompt Autonomous iteration step 3 defers gameplay/browser/save/regression suites; the assignment requires preserving this backlog when that applies. Shared integration and Weibao's acceptance remain separate gates. Run on a fresh isolated candidate origin using only generated saves after the phase permits.
 
 ## Required connected journey
@@ -36,3 +38,8 @@ Natural play is the required reachability gate. A registry declaration or direct
 | P7 | Keyboard/focus and Here-panel reattachment across native activities/location changes; all known costs/reasons readable, NPC-private motives/future truth absent. Human play confirms pacing/usefulness and accepts or revises proposed numbers/host/fiction |
 
 One remaining authoritative gameplay gate is the combined fresh-origin natural journey with its save/reload/import and failure cases, when the live phase permits it. Shared-source integration and director acceptance are separate, unassigned outcomes.
+
+
+## Later evidence reconciliation, 2026-11-04 (B15)
+
+The opening all-unrun statement and closing remaining-gate paragraph describe October 11. The later R15 integration recorded in CHECKPOINT.md points to rounds/r15/g6/REPORT.md and reports natural native journey plus persistence for all ten families after four blocker fixes. Retain both input-specific histories: this later claim supersedes blanket candidate-only status, but does not prove every refusal, failure injection or variant listed here, nor current-checkout behavior. Preserve exact payer, stock, rights, once-settlement, mandate, loan and durable-publication checks. Future selected work qualifies relevant remaining variants against current source and exact R15 receipts. Human pacing/fiction feedback is optional review under current AD42, distinct from agent verification.

@@ -1,0 +1,271 @@
+{
+  "origin": "http://127.0.0.1:62225/",
+  "cases": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "variant": "baseline",
+      "geometry": {
+        "page": [
+          1920,
+          1080
+        ],
+        "viewport": [
+          1920,
+          1080
+        ],
+        "font": "14px",
+        "inventory": 30,
+        "services": []
+      },
+      "focus": {
+        "active": true,
+        "outline": "none"
+      },
+      "hover": "rgb(48, 73, 108)",
+      "attemptDelta": 1,
+      "result": "Made 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP) 1 of 1 native attempts succeeded.",
+      "themeSwitchPreservedSave": true,
+      "scene": "▱ Hearth · 0 played minutes of fuel · vent open\nPrepaid hearth fuel0/20 · empty\nฅ(=･ω･=)ฅ\n\nMoss · curious · bond 10/100. Moss watches you from the doorway.\n\nMoss · habits and history\nPlain bed · Active here\nRagwork blanket · Active here\nFitted hearth · Active here\nLocal home comfort · Active here\nYour known home. The picture follows the current hearth and animal state; its layout is illustrative.",
+      "status": "passed"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "variant": "signal",
+      "geometry": {
+        "page": [
+          1920,
+          1080
+        ],
+        "viewport": [
+          1920,
+          1080
+        ],
+        "font": "14px",
+        "inventory": 30,
+        "services": []
+      },
+      "focus": {
+        "active": true,
+        "outline": "none"
+      },
+      "hover": "rgb(48, 73, 108)",
+      "attemptDelta": 1,
+      "result": "Made 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP) 1 of 1 native attempts succeeded.",
+      "themeSwitchPreservedSave": true,
+      "scene": "▱ Hearth · 0 played minutes of fuel · vent open\nPrepaid hearth fuel0/20 · empty\nฅ(=･ω･=)ฅ\n\nMoss · curious · bond 10/100. Moss watches you from the doorway.\n\nMoss · habits and history\nPlain bed · Active here\nRagwork blanket · Active here\nFitted hearth · Active here\nLocal home comfort · Active here\nYour known home. The picture follows the current hearth and animal state; its layout is illustrative.",
+      "status": "passed"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "variant": "folio",
+      "geometry": {
+        "page": [
+          1920,
+          1080
+        ],
+        "viewport": [
+          1920,
+          1080
+        ],
+        "font": "14px",
+        "inventory": 30,
+        "services": []
+      },
+      "focus": {
+        "active": true,
+        "outline": "none"
+      },
+      "hover": "rgb(48, 73, 108)",
+      "attemptDelta": 1,
+      "result": "Made 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP) 1 of 1 native attempts succeeded.",
+      "themeSwitchPreservedSave": true,
+      "scene": "▱ Hearth · 0 played minutes of fuel · vent open\nPrepaid hearth fuel0/20 · empty\nฅ(=･ω･=)ฅ\n\nMoss · curious · bond 10/100. Moss watches you from the doorway.\n\nMoss · habits and history\nPlain bed · Active here\nRagwork blanket · Active here\nFitted hearth · Active here\nLocal home comfort · Active here\nYour known home. The picture follows the current hearth and animal state; its layout is illustrative.",
+      "status": "passed"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "variant": "baseline",
+      "geometry": {
+        "page": [
+          1920,
+          1080
+        ],
+        "viewport": [
+          1920,
+          1080
+        ],
+        "font": "21px",
+        "inventory": 30,
+        "services": []
+      },
+      "focus": {
+        "active": true,
+        "outline": "none"
+      },
+      "hover": "rgb(48, 73, 108)",
+      "attemptDelta": 1,
+      "result": "Made 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP) 1 of 1 native attempts succeeded.",
+      "themeSwitchPreservedSave": true,
+      "scene": "▱ Hearth · 0 played minutes of fuel · vent open\nPrepaid hearth fuel0/20 · empty\nฅ(=･ω･=)ฅ\n\nMoss · curious · bond 10/100. Moss watches you from the doorway.\n\nMoss · habits and history\nPlain bed · Active here\nRagwork blanket · Active here\nFitted hearth · Active here\nLocal home comfort · Active here\nYour known home. The picture follows the current hearth and animal state; its layout is illustrative.",
+      "status": "passed"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "variant": "signal",
+      "geometry": {
+        "page": [
+          1920,
+          1080
+        ],
+        "viewport": [
+          1920,
+          1080
+        ],
+        "font": "21px",
+        "inventory": 30,
+        "services": []
+      },
+      "focus": {
+        "active": true,
+        "outline": "none"
+      },
+      "hover": "rgb(48, 73, 108)",
+      "attemptDelta": 1,
+      "result": "Made 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP) 1 of 1 native attempts succeeded.",
+      "themeSwitchPreservedSave": true,
+      "scene": "▱ Hearth · 0 played minutes of fuel · vent open\nPrepaid hearth fuel0/20 · empty\nฅ(=･ω･=)ฅ\n\nMoss · curious · bond 10/100. Moss watches you from the doorway.\n\nMoss · habits and history\nPlain bed · Active here\nRagwork blanket · Active here\nFitted hearth · Active here\nLocal home comfort · Active here\nYour known home. The picture follows the current hearth and animal state; its layout is illustrative.",
+      "status": "passed"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "variant": "folio",
+      "geometry": {
+        "page": [
+          1920,
+          1080
+        ],
+        "viewport": [
+          1920,
+          1080
+        ],
+        "font": "21px",
+        "inventory": 30,
+        "services": []
+      },
+      "focus": {
+        "active": true,
+        "outline": "none"
+      },
+      "hover": "rgb(48, 73, 108)",
+      "attemptDelta": 1,
+      "result": "Made 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP) 1 of 1 native attempts succeeded.",
+      "themeSwitchPreservedSave": true,
+      "scene": "▱ Hearth · 0 played minutes of fuel · vent open\nPrepaid hearth fuel0/20 · empty\nฅ(=･ω･=)ฅ\n\nMoss · curious · bond 10/100. Moss watches you from the doorway.\n\nMoss · habits and history\nPlain bed · Active here\nRagwork blanket · Active here\nFitted hearth · Active here\nLocal home comfort · Active here\nYour known home. The picture follows the current hearth and animal state; its layout is illustrative.",
+      "status": "passed"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "variant": "baseline",
+      "geometry": {
+        "page": [
+          1536,
+          864
+        ],
+        "viewport": [
+          1536,
+          864
+        ],
+        "font": "14px",
+        "inventory": 30,
+        "services": []
+      },
+      "focus": {
+        "active": true,
+        "outline": "none"
+      },
+      "hover": "rgb(48, 73, 108)",
+      "attemptDelta": 1,
+      "result": "Made 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP) 1 of 1 native attempts succeeded.",
+      "themeSwitchPreservedSave": true,
+      "scene": "▱ Hearth · 0 played minutes of fuel · vent open\nPrepaid hearth fuel0/20 · empty\nฅ(=･ω･=)ฅ\n\nMoss · curious · bond 10/100. Moss watches you from the doorway.\n\nMoss · habits and history\nPlain bed · Active here\nRagwork blanket · Active here\nFitted hearth · Active here\nLocal home comfort · Active here\nYour known home. The picture follows the current hearth and animal state; its layout is illustrative.",
+      "status": "passed"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "variant": "signal",
+      "geometry": {
+        "page": [
+          1536,
+          864
+        ],
+        "viewport": [
+          1536,
+          864
+        ],
+        "font": "14px",
+        "inventory": 30,
+        "services": []
+      },
+      "focus": {
+        "active": true,
+        "outline": "none"
+      },
+      "hover": "rgb(48, 73, 108)",
+      "attemptDelta": 1,
+      "result": "Made 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP) 1 of 1 native attempts succeeded.",
+      "themeSwitchPreservedSave": true,
+      "scene": "▱ Hearth · 0 played minutes of fuel · vent open\nPrepaid hearth fuel0/20 · empty\nฅ(=･ω･=)ฅ\n\nMoss · curious · bond 10/100. Moss watches you from the doorway.\n\nMoss · habits and history\nPlain bed · Active here\nRagwork blanket · Active here\nFitted hearth · Active here\nLocal home comfort · Active here\nYour known home. The picture follows the current hearth and animal state; its layout is illustrative.",
+      "status": "passed"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "variant": "folio",
+      "geometry": {
+        "page": [
+          1536,
+          864
+        ],
+        "viewport": [
+          1536,
+          864
+        ],
+        "font": "14px",
+        "inventory": 30,
+        "services": []
+      },
+      "focus": {
+        "active": true,
+        "outline": "none"
+      },
+      "hover": "rgb(48, 73, 108)",
+      "attemptDelta": 1,
+      "result": "Made 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP) 1 of 1 native attempts succeeded.",
+      "themeSwitchPreservedSave": true,
+      "scene": "▱ Hearth · 0 played minutes of fuel · vent open\nPrepaid hearth fuel0/20 · empty\nฅ(=･ω･=)ฅ\n\nMoss · curious · bond 10/100. Moss watches you from the doorway.\n\nMoss · habits and history\nPlain bed · Active here\nRagwork blanket · Active here\nFitted hearth · Active here\nLocal home comfort · Active here\nYour known home. The picture follows the current hearth and animal state; its layout is illustrative.",
+      "status": "passed"
+    }
+  ],
+  "errors": [],
+  "route": "Current frozen native shell, named mid-cook fixture; real native commands, disposable contexts",
+  "bundleSha256": "a830035ce10fb7f7186e6647c94cb1e4b8105177ccad4a5a74cc2a93b2280691",
+  "status": "failed",
+  "failure": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.choice_craft')\u001b[22m\n\u001b[2m    - locator resolved to <div tabindex=\"0\" role=\"button\" aria-disabled=\"false\" data-native-keyboard=\"true\" data-native-choice=\"location\" onclick=\"openCraftingWindow()\" class=\"location_choices choice_craft\">…</div>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <button type=\"button\" aria-current=\"false\" title=\"Crafting · Alt+C\" data-panel-path=\"crafting\">Crafting</button> from <section tabindex=\"-1\" role=\"region\" data-panel-kit=\"1\" data-pinned=\"false\" class=\"workspace-module\" data-panel-role=\"actions\" aria-label=\"Center views\" data-module=\"pane-navigation\" data-composition-parked=\"false\">…</section> subtree intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <button type=\"button\">Open local controls</button> from <section tabindex=\"-1\" data-pinned=\"false\" class=\"workspace-module\" data-module=\"current-work\" data-composition-parked=\"false\">…</section> subtree intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <button type=\"button\" aria-current=\"false\" title=\"Crafting · Alt+C\" data-panel-path=\"crafting\">Crafting</button> from <section tabindex=\"-1\" role=\"region\" data-panel-kit=\"1\" data-pinned=\"false\" class=\"workspace-module\" data-panel-role=\"actions\" aria-label=\"Center views\" data-module=\"pane-navigation\" data-composition-parked=\"false\">…</section> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    13 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <button type=\"button\" aria-current=\"false\" title=\"Crafting · Alt+C\" data-panel-path=\"crafting\">Crafting</button> from <section tabindex=\"-1\" role=\"region\" data-panel-kit=\"1\" data-pinned=\"false\" class=\"workspace-module\" data-panel-role=\"actions\" aria-label=\"Center views\" data-module=\"pane-navigation\" data-composition-parked=\"false\">…</section> subtree intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <button type=\"button\">Open local controls</button> from <section tabindex=\"-1\" data-pinned=\"false\" class=\"workspace-module\" data-module=\"current-work\" data-composition-parked=\"false\">…</section> subtree intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <button type=\"button\" aria-current=\"false\" title=\"Crafting · Alt+C\" data-panel-path=\"crafting\">Crafting</button> from <section tabindex=\"-1\" role=\"region\" data-panel-kit=\"1\" data-pinned=\"false\" class=\"workspace-module\" data-panel-role=\"actions\" aria-label=\"Center views\" data-module=\"pane-navigation\" data-composition-parked=\"false\">…</section> subtree intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <button type=\"button\" aria-current=\"false\" title=\"Crafting · Alt+C\" data-panel-path=\"crafting\">Crafting</button> from <section tabindex=\"-1\" role=\"region\" data-panel-kit=\"1\" data-pinned=\"false\" class=\"workspace-module\" data-panel-role=\"actions\" aria-label=\"Center views\" data-module=\"pane-navigation\" data-composition-parked=\"false\">…</section> subtree intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <button type=\"button\" aria-current=\"false\" title=\"Crafting · Alt+C\" data-panel-path=\"crafting\">Crafting</button> from <section tabindex=\"-1\" role=\"region\" data-panel-kit=\"1\" data-pinned=\"false\" class=\"workspace-module\" data-panel-role=\"actions\" aria-label=\"Center views\" data-module=\"pane-navigation\" data-composition-parked=\"false\">…</section> subtree intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <button type=\"button\">Open local controls</button> from <section tabindex=\"-1\" data-pinned=\"false\" class=\"workspace-module\" data-module=\"current-work\" data-composition-parked=\"false\">…</section> subtree intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <button type=\"button\" aria-current=\"false\" title=\"Crafting · Alt+C\" data-panel-path=\"crafting\">Crafting</button> from <section tabindex=\"-1\" role=\"region\" data-panel-kit=\"1\" data-pinned=\"false\" class=\"workspace-module\" data-panel-role=\"actions\" aria-label=\"Center views\" data-module=\"pane-navigation\" data-composition-parked=\"false\">…</section> subtree intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n    at /Users/weiwei/code/yet-another-idle-rpg/prototypes/workbench/check-native-character.mjs:16:35"
+}

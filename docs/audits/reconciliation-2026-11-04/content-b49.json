@@ -1,0 +1,382 @@
+{
+  "schema": 1,
+  "batch": "B49",
+  "title": "RimWorld versioned consumer evidence and Remnant mapping progress",
+  "at": "2026-11-04T19:58:15.024562+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/remnant-2/pass-2026-10-15-deep/CHECKPOINT.md",
+      "ids": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "A01-A12",
+        "MWA-P02/P06",
+        "P03/P04/P05/P09",
+        "K codes"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/remnant-2/pass-2026-10-15-deep/REPORT.md, FINDINGS.json, SYSTEMS, TOOLING and CHECKPOINT.md; future YAIRPG implementation owner is not named here."
+      ],
+      "disposition": "Historical static dossier with substantial but explicit partials; proposals map to existing MWA/P/K references and did not change accepted owners or implementation priority. No game, executable, save, UI, gameplay or persistence acceptance was claimed. Preserve1.6/1.7/version/build distinctions, raw definitions vs effective loader/consumer state and parent/companion overlapping evidence. Remnant parent already links later deep pass, so retain that route without another competing plan. No current donor runtime or prior source proof renewed; historical Village P01 wording cannot change current lead-development priority.",
+      "mechanism_and_interactions": "Static Remnant II research decrypted two archives and recovered hybrid mappings/native VariableValue serialization; a bounded failing slice improved from 0 to 160/161 packages without logged object errors, while one animation/audio record remained unread. Native generation tracing covered quest selection, chance, tags, usage caps, rarity weights, saved QuestFailCount adjustment, root lifecycle, mode/award/one-shot filters and required-tile failure; SpawnTable.GenerateWithSeed is a separate selection layer. Wider selected data, menu/world-rule and event-tree reads remain unplayed and non-additive. Third-party save-format reading is separate from native migration/recovery.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports pinned installed build and shipping hash, REA/native decompilation receipts, mapping/read counts, selected data/event checks and artifact/hash validations. These are historical static research claims, not independently rechecked here; no game or save was accessed.",
+      "reopen": "If selected, begin at the named unread routes: exact animation serializer/version provenance; remaining mapping consumers; tile solver/retry/failure propagation; seed inputs/order; entitlement callers; reroll carrier cleanup and save-failure path; external dialogue reachability; craft settlement/rounding; native migration/recovery. Recheck unstable build and prove UI/gameplay/persistence separately.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          67
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S044.json"
+      ],
+      "prior_input_sha256": "b4d2d785a667467221ee27dea09fb20ebe0b4af4d277f5a728c9a875de2a9943",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "b4d2d785a667467221ee27dea09fb20ebe0b4af4d277f5a728c9a875de2a9943",
+      "input_lines": 67
+    },
+    {
+      "path": "docs/research/rimworld/CHECKPOINT.md",
+      "ids": [
+        "1.6.4871 rev573",
+        "1.6.9676.17433",
+        "three ranked original packets"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/rimworld/IMPLEMENTATION_PACKETS.md; source identity/coverage/findings in docs/research/rimworld/INTAKE.json, FINDINGS.json, COVERAGE.json and REPORT.md."
+      ],
+      "disposition": "Finite source research closed for the named paths and three proposals, which remain proposals. Static export/source review is distinct from runtime, generated-save, play, failure, build, browser or implementation acceptance; no install, game launch or personal save/profile access. Preserve1.6/1.7/version/build distinctions, raw definitions vs effective loader/consumer state and parent/companion overlapping evidence. Remnant parent already links later deep pass, so retain that route without another competing plan. No current donor runtime or prior source proof renewed; historical Village P01 wording cannot change current lead-development priority.",
+      "mechanism_and_interactions": "Bounded RimWorld source audit used exported C# and reviewed five paths across code/definitions; the resulting packets reuse body/material/quality/stock/social/save owners for kit reserve, temporary pair-specific social friction with persistent promises, and a frost-sensitive herb plot. Version labels are distinct: payload Version.txt says 1.6.4871 rev573, filename says rev588, and .NET AssemblyVersion is 1.6.9676.17433.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint states ILSpy export, bounded semantic review, validation of source/hash references and final static readback. No current source or runtime was reinspected in this shard.",
+      "reopen": "Any later implementation must refresh live owners and source hashes, then run its own selected build, generated-save/play/failure/director and persistence gates; exhaustive code/DLC review is outside the finished five-path source scope.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S044.json"
+      ],
+      "prior_input_sha256": "32cebd72dc997d2df23e556feab97d5ea066dd446a7370e0e7f74b216b00e61a",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "32cebd72dc997d2df23e556feab97d5ea066dd446a7370e0e7f74b216b00e61a",
+      "input_lines": 17
+    },
+    {
+      "path": "docs/research/rimworld/aspects-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "A01-A12",
+        "1.7.4979 rev109",
+        "30 small touches"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/rimworld/aspects-2026-10-14/CHECKPOINT.md and its ASPECTS/SYSTEM_INVENTORY/DEEPER_SYSTEMS outputs; COMMON is a read instruction/input, not an established local COMMON.md output. Parent REPORT/COVERAGE/INTAKE retain prior evidence."
+      ],
+      "disposition": "The installed-snapshot research artifact is complete while native behavior, exhaustive source and runtime claims remain partial. Current 1.7 findings cannot be silently substituted for prior 1.6 paths; numeric Steam build comparison to the prior DMG is unavailable. Preserve1.6/1.7/version/build distinctions, raw definitions vs effective loader/consumer state and parent/companion overlapping evidence. Remnant parent already links later deep pass, so retain that route without another competing plan. No current donor runtime or prior source proof renewed; historical Village P01 wording cannot change current lead-development priority.",
+      "mechanism_and_interactions": "Installed RimWorld snapshot changed to unstable 1.7.4979 rev109 with a new DLL hash; targeted ILSpy re-export covered dialogue, architecture, persistence and selected consumers. Six private data modules yielded 14,084 raw Def nodes across 254 families and 8,223 English direct-child text rows. Selected traces include generated social exchanges/actionable faction dialogs, lifecycle, XML serialization/staged references/compatibility dispatch/safe-file rotation/autosave, plus dialogue/quest expansion. Counts and inventories do not prove effective activation or complete consumers.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports pinned current DLL, targeted re-export, private hashes/validation and no game, save, config, loader, recovered-code build or YAIRPG acceptance. This shard did not inspect those artifacts.",
+      "reopen": "For a selected question, recheck the unstable DLL, read an exact unread row such as converter bodies, complete dialogue/quest closure, DLC consumers or clocks, and distinguish static records from loader/runtime/UI/save proof.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          35
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S044.json"
+      ],
+      "prior_input_sha256": "48f91cecc96ebeb76320a91b14c2489b346197d2b3985f0acee038fbd3988780",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "48f91cecc96ebeb76320a91b14c2489b346197d2b3985f0acee038fbd3988780",
+      "input_lines": 35
+    },
+    {
+      "path": "docs/research/rimworld/feature-pass-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "six requested rows",
+        "30 small touches"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/rimworld/feature-pass-2026-10-14/CHECKPOINT.md; FEATURES, COMMON and ASPECTS are named read inputs, not established files within this output folder. Selected runtime consumer is unassigned."
+      ],
+      "disposition": "Bounded static source answers and proposals delivered; no game, installer scripts, recovered-code compilation, save access, YAIRPG build/browser or runtime tests. Feature-answer completion does not mean whole-game behavior or full prior five-path reconfirmation. Preserve1.6/1.7/version/build distinctions, raw definitions vs effective loader/consumer state and parent/companion overlapping evidence. Remnant parent already links later deep pass, so retain that route without another competing plan. No current donor runtime or prior source proof renewed; historical Village P01 wording cannot change current lead-development priority.",
+      "mechanism_and_interactions": "Feature pass source-read blockers, bills, stock target/count/storage, research/techprints/bench, passion/saturation/children/books and body/genetics/health fields; prior jobs path was expanded while four other paths were endpoint samples. Raw definitions and text were preserved privately without resolving effective XML inheritance, loader behavior or all dialogue/quest/save consumers. Feature answers were declared complete only for six bounded questions; aspect work stayed partial.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint reports source identity match, ILSpy export, copied-file/hash/JSON/link checks and explicitly bounded source samples; no underlying source or artifact was freshly checked here.",
+      "reopen": "If selected, trace the relevant actual callers and runtime consumer: complete quest/dialogue grammar, BackCompatibility/autosaver/corrupt-save behavior, effective XML load/patch, specified DLC consumer or native UI. Recheck prior paths only for an explicit reconfirmation need.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          30
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S044.json"
+      ],
+      "prior_input_sha256": "2b7463809755e7edb055f899c49cd7cb63c201e04a5e14a4eb568ac98efe7276",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "2b7463809755e7edb055f899c49cd7cb63c201e04a5e14a4eb568ac98efe7276",
+      "input_lines": 30
+    },
+    {
+      "path": "docs/research/rimworld/feature-pass-2026-10-14/aspects-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "six requested rows",
+        "30 small touches"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/rimworld/feature-pass-2026-10-14/aspects-2026-10-14/ASPECTS.md, SYSTEM_INVENTORY.md, DEEPER_SYSTEMS.md and parent feature-pass CHECKPOINT.md."
+      ],
+      "disposition": "Aspect artifacts and structural validation were reported complete for their bounded deliverable; the aspect pass remained partial and no runtime or accepted design followed. This is a companion checkpoint, not independent proof beyond the shared six-question source work. Preserve1.6/1.7/version/build distinctions, raw definitions vs effective loader/consumer state and parent/companion overlapping evidence. Remnant parent already links later deep pass, so retain that route without another competing plan. No current donor runtime or prior source proof renewed; historical Village P01 wording cannot change current lead-development priority.",
+      "mechanism_and_interactions": "This aspect companion repeats the bounded feature pass: selected source paths and raw private definition/text counts support scoped A01/A03/A04 coverage, while raw rows remain unresolved. Native UI/behavior, complete quest consumers, save conversion/recovery and effective XML loader outcomes were not read or exercised. Its partial status is consistent with the feature checkpoint, not a separate gameplay result.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical summary repeats source/export/hash and structure checks, with no game/save/compile/build/browser/runtime proof; this reader did not re-open the artifacts.",
+      "reopen": "Use the parent feature-pass unread table for any selected bounded trace; do not count this duplicate checkpoint as new source or runtime coverage.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          30
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S044.json"
+      ],
+      "prior_input_sha256": "2b7463809755e7edb055f899c49cd7cb63c201e04a5e14a4eb568ac98efe7276",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "2b7463809755e7edb055f899c49cd7cb63c201e04a5e14a4eb568ac98efe7276",
+      "input_lines": 30
+    },
+    {
+      "path": "docs/research/rimworld/pass-2026-10-14-deep/CHECKPOINT.md",
+      "ids": [
+        "A01-A12",
+        "P01 Village mixing"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/rimworld/pass-2026-10-14-deep/REPORT.md"
+      ],
+      "disposition": "Six bounded deep research questions and digests delivered; all proposals remain unaccepted. PARTIAL means named semantic/runtime gaps remain, not pending extraction. Current 1.7 does not prove effective activation, native play, save recovery, full old 1.6 reconfirmation, or full-game claims; P01 Village mixing remains selected. Preserve1.6/1.7/version/build distinctions, raw definitions vs effective loader/consumer state and parent/companion overlapping evidence. Remnant parent already links later deep pass, so retain that route without another competing plan. No current donor runtime or prior source proof renewed; historical Village P01 wording cannot change current lead-development priority. Current routing correction: lib-rimworld-deep and ds-rimworld name private work roots, not alternate public dossier folders; use the actual existing pass owner here.",
+      "mechanism_and_interactions": "Pinned 1.7 deep pass traces gravship/layer transfer, inheritance/expression, growth/learning admission, belief/roles/ritual, study/knowledge/containment, bill production settlement, and storyteller scheduling/eligibility/weights/history/population. Corrections distinguish map abandonment, germline/implant/expression, study givers, auto-work reasons, ShouldDoNow pause mutation, stock-count overloads, incident cache scope and population intent from threat budget. Raw inventories exceed semantic consumer coverage.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports independently pinned DLL, copied XML, targeted source traces, private evidence and validation. It explicitly reports no game, loader, user config/save, recovered-code build, runtime edit/test or YAIRPG acceptance.",
+      "reopen": "For any chosen slice, use exact U1-U12 row and recheck unstable source; prove selected activation/consumer and native UI/save/play behavior separately. Historical 1.6 reconfirmation, converter bodies, complete callers and recovery remain open as listed.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          35
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S044.json"
+      ],
+      "prior_input_sha256": "af9f0f06cfad3736f8a10cdb5612cd0fc001888f1ea1d63454f3e5a9d23aed00",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "prior_owner_mentions": [
+        "docs/research/lib-rimworld-deep/ system digests, A01-A12/inventory/deeper-system files, private work root ~/.codex/research/lib-rimworld-deep/; YAIRPG owner/current direction remains external and must be refreshed."
+      ],
+      "input_sha256": "af9f0f06cfad3736f8a10cdb5612cd0fc001888f1ea1d63454f3e5a9d23aed00",
+      "input_lines": 35
+    },
+    {
+      "path": "docs/research/rimworld/pass-2026-10-14-deep/aspects-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "U1-U12"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/rimworld/pass-2026-10-14-deep/aspects-2026-10-14/CHECKPOINT.md"
+      ],
+      "disposition": "Navigation/summary artifact with partial aspects; it is not additional mechanism validation or acceptance beyond the parent checkpoint. Preserve1.6/1.7/version/build distinctions, raw definitions vs effective loader/consumer state and parent/companion overlapping evidence. Remnant parent already links later deep pass, so retain that route without another competing plan. No current donor runtime or prior source proof renewed; historical Village P01 wording cannot change current lead-development priority. Current routing correction: lib-rimworld-deep and ds-rimworld name private work roots, not alternate public dossier folders; use the actual existing pass owner here.",
+      "mechanism_and_interactions": "This short aspect checkpoint indexes twelve aspect keys and six deep system digests extending an earlier 1.7 pass. It explicitly sends detailed done/next/unread status to the parent lane checkpoint; native UI/gameplay, effective activation and exhaustive consumers remain unproven.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical six-line checkpoint reviewed; it points to private raw material and parent gap ledger but reports no runtime acceptance.",
+      "reopen": "Read exact U1-U12 parent row only if a future question selects it; no separate aspect work is claimed pending.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          6
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S044.json"
+      ],
+      "prior_input_sha256": "f86199762ef57476f9c7676fcf12bba558d7a9594ac8b9e300384918a397cc49",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "prior_owner_mentions": [
+        "docs/research/rimworld/pass-2026-10-14-deep/aspects-2026-10-14/ASPECTS.md, SYSTEM_INVENTORY.md and DEEPER_SYSTEMS.md; parent deep pass retains six system digests."
+      ],
+      "input_sha256": "f86199762ef57476f9c7676fcf12bba558d7a9594ac8b9e300384918a397cc49",
+      "input_lines": 6
+    },
+    {
+      "path": "docs/research/rimworld/pass-2026-10-14-systems/CHECKPOINT.md",
+      "ids": [
+        "P01-P25"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/rimworld/pass-2026-10-14-systems/REPORT.md"
+      ],
+      "disposition": "Bounded static research and routing completed; proposals remain unaccepted and YAIRPG implementation/gameplay proof is explicitly outside the lane. U01-U20 retains native/runtime, exhaustive consumer and prior-version gaps; current P01 Village mixing is not replaced. Preserve1.6/1.7/version/build distinctions, raw definitions vs effective loader/consumer state and parent/companion overlapping evidence. Remnant parent already links later deep pass, so retain that route without another competing plan. No current donor runtime or prior source proof renewed; historical Village P01 wording cannot change current lead-development priority. Current routing correction: lib-rimworld-deep and ds-rimworld name private work roots, not alternate public dossier folders; use the actual existing pass owner here.",
+      "mechanism_and_interactions": "The 1.7 systems pass maps 15 system sections, 363 inventory/route entries including 254 raw Def families, and selected source routes across combat/body, substances, family/romance, mental states, animal training/commands, titles/permits, economy/trade, travel, factions, ecology, power, XML and quests. It preserves 42 prior unread rows and distinguishes indexed taxonomy from semantic coverage, raw templates from resolved content, and source mechanisms from global simulation claims. Thirty small touches and eight ranked proposals remain bounded outputs.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports pinned current DLL, 68 successful targeted exports, private source/data/hashes, artifact and route checks; no game/runtime/config/save/build/browser/YAIRPG acceptance.",
+      "reopen": "Select one named unread row and recheck unstable build; trace the owning real consumer, loader or settlement route. Do not infer whole-game activation, economy, clocks/RNG, corruption recovery or YAIRPG delivery from inventories or selected methods.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          43
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S044.json"
+      ],
+      "prior_input_sha256": "ab341663612468a66e568f45ddb0568d7c14d281c795df4a207dc3b8f81cfe3a",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "prior_owner_mentions": [
+        "docs/research/ds-rimworld/ SYSTEMS, FAMILY_MAP.json, INVENTORY.md, VALIDATION.json and U01-U20 unread ledger; private work root ~/.codex/research/ds-rimworld/."
+      ],
+      "input_sha256": "ab341663612468a66e568f45ddb0568d7c14d281c795df4a207dc3b8f81cfe3a",
+      "input_lines": 43
+    },
+    {
+      "path": "docs/research/rogue-legacy/CHECKPOINT.md",
+      "ids": [
+        "five connected semantic gameplay traces",
+        "FNA",
+        "C#",
+        "four original candidates"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/rogue-legacy/FINDINGS.json, COVERAGE.json, YAIR_INPUTS.json, REPORT.md, IMPLEMENTATION_PACKETS.md and VALIDATION.json; implementation must use current native save publisher after refreshing owners."
+      ],
+      "disposition": "Finite read/synthesis task closed when its validation receipt passed, but not the whole repository/game and not YAIR implementation. Live NetHack fieldcraft changed during the read and affected consumers were reread; later drift is separately called out. Original vanilla continuity and private saves remain protected. Preserve1.6/1.7/version/build distinctions, raw definitions vs effective loader/consumer state and parent/companion overlapping evidence. Remnant parent already links later deep pass, so retain that route without another competing plan. No current donor runtime or prior source proof renewed; historical Village P01 wording cannot change current lead-development priority.",
+      "mechanism_and_interactions": "Pinned original Rogue Legacy C#/FNA source was reviewed in five connected traces: successor/traits/classes; manor/retention; equipment/runes/spells; procedural room/objective/boss progression; and combat/status/AI/aftermath. Findings integrate 29 claims and semantically cover 4,986 unique lines in 33 of 290 C# files. Three readers supplied gear, rooms/combat and YAIR evidence, and four candidate implementation packets were ranked. This is source-level mechanism evidence only; runtime install/buildability and play remain separate.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint reports pinned source/input hashes, integrated reader notes and final validation. No current consumer or game/build/browser/unit/save/failure/director test was examined here.",
+      "reopen": "A selected packet needs refreshed live owners and compatibility declaration, then separate implementation/build/browser/generated-save/failure proof; do not equate completed five source traces with whole-game or playable acceptance.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          23
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S044.json"
+      ],
+      "prior_input_sha256": "16c3bf662cb72eb9d635c71a3e88163dff6e08cff80b0338a38e1e6f6b40445f",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "16c3bf662cb72eb9d635c71a3e88163dff6e08cff80b0338a38e1e6f6b40445f",
+      "input_lines": 23
+    },
+    {
+      "path": "docs/research/rune-factory-5/CHECKPOINT.md",
+      "ids": [
+        "P19",
+        "P01",
+        "12-key aspect artifact"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/rune-factory-5/CHECKPOINT.md owns G1–G6 exact limits and retained snapshot routing; no FEATURES.md supplier is established here."
+      ],
+      "disposition": "Bounded static feature scout completed with artifact validation; PARTIAL is the final evidence state. Native game/save checks were unavailable by scope, and proposals do not authorize gameplay implementation. Preserve1.6/1.7/version/build distinctions, raw definitions vs effective loader/consumer state and parent/companion overlapping evidence. Remnant parent already links later deep pass, so retain that route without another competing plan. No current donor runtime or prior source proof renewed; historical Village P01 wording cannot change current lead-development priority.",
+      "mechanism_and_interactions": "Static Rune Factory 5 scout combined source-built Il2CppDumper metadata, UnityPy master data and selected English/schedule extraction, five feature answers, ranked proposals and material/skill joins. Metadata yields declarations, not native behavior; extracted binary English event content needs a reconstructed ScriptWork/AdvMain command parser for paid/failure branches. SkillManager native callers, level unlock consumers, helper destination/feedback and save wire format/migration are exact gaps. Inventory and preserved tables do not establish runtime consumers.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint reports successful metadata/data extraction, five feature answers, hashes and artifact/link/JSON checks only; no game, Windows executable, save, native body reconstruction or runtime proof.",
+      "reopen": "If a proposal is selected, reconstruct the exact native caller/command/save path and prove helper feedback and migration/roundtrip through a rebuilt game; source declarations and extracted text are insufficient.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          29
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S044.json"
+      ],
+      "prior_input_sha256": "ad66c6ca599446663bc7fc1f5370ad4b18e340a8fd01ee37e0b6c966299dbd4e",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "ad66c6ca599446663bc7fc1f5370ad4b18e340a8fd01ee37e0b6c966299dbd4e",
+      "input_lines": 29
+    },
+    {
+      "path": "docs/research/rune-factory-5/aspects-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "A01/A04"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/rune-factory-5/aspects-2026-10-14/ASPECTS.md, SYSTEM_INVENTORY.md, DEEPER_SYSTEMS.md and ../CHECKPOINT.md."
+      ],
+      "disposition": "Brief partial navigation record; it adds no native mechanism or separate validation beyond parent checkpoint. Preserve1.6/1.7/version/build distinctions, raw definitions vs effective loader/consumer state and parent/companion overlapping evidence. Remnant parent already links later deep pass, so retain that route without another competing plan. No current donor runtime or prior source proof renewed; historical Village P01 wording cannot change current lead-development priority.",
+      "mechanism_and_interactions": "The Rune Factory aspect checkpoint confirms the twelve aspect and required inventory/deeper-system artifact shapes, but explicitly says A01/A04 remain partial pending binary command/native save logic. Exact G1-G6 gaps and resume paths belong to the parent feature-scout checkpoint; no game or save was opened.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical four-line checkpoint reviewed; no game/save opened and no runtime or persistence acceptance claimed.",
+      "reopen": "Use parent G1-G6 only for a selected future trace; do not treat aspect artifact completeness as closure of binary command or native save behavior.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          4
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S044.json"
+      ],
+      "prior_input_sha256": "3760fdca362ce7e97cf4a8a7b2ec0ca1c036845d025710b899b42f0ca5ceb4ab",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "3760fdca362ce7e97cf4a8a7b2ec0ca1c036845d025710b899b42f0ca5ceb4ab",
+      "input_lines": 4
+    }
+  ],
+  "folds": [],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1496
+}

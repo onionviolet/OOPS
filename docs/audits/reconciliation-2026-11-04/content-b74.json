@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "batch": "B74",
+  "title": "Initial tool audit and later repair/current-readiness chronology",
+  "at": "2026-11-04T20:22:16.906352+00:00",
+  "head": "4cdc0772b65d413e4989e327502910140b2a15eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/TOOLSETS_AUDIT_2026-10-21.md",
+      "ids": [
+        "F1–F5",
+        "T1–T20",
+        "A1–A5",
+        "historicalprobe/catalogmatrix"
+      ],
+      "classification": "fresh full initial audit reconciled with later actual reports",
+      "owners": [
+        "docs/TOOL_REGISTRY.md",
+        "docs/audits/TOOLSETS_AUDIT_2026-10-21.md"
+      ],
+      "disposition": "Initialauditcounts/sessiontools/source-only/unregisteredstatuses are historical, followed by actualregistrywrapper/repair/update/config receipts. CurrentdefaultREAdependency missing narrowerthan uninstalled/nevertrialled. Separate savedobject/attachment/original/derivative/frame dimensions; Corc26target recovery not sample37missing. Preserve specializedasset/managed/native analysis identity, scopedhealth vs target, rootnestedtest/DOMgeometry boundaries; pertoolpresence not new auth or proof.",
+      "evidence": "Full124lines read, initial clippedF2/F3 span retrieved28–42. B73fullfollowthrough/liveowner and showpresence read; B64finiteCorc recovery report read. No offlinecatalog/health/native/browser/privateaccount tests rerun.",
+      "reopen": "Named actualsource/toolquestion with existingroute and exactevidence, preserving priorcustomprojects; no speculativetoolinstall/upgrade/provider/collector/reaMCP setup.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "2c6a68a908edd66c1b1be0ce37b4a3e6bb9a1a0f2d8cc7fd9df7aed6b19fd8f4",
+      "input_lines": 124,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          124
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/TOOLSETS_AUDIT_2026-10-21.md",
+      "heading": "## Later execution and current readiness, 2026-11-04 (B74)",
+      "body": "A1/A3 were followed by the recorded [registry implementation](toolsets_2026-10-21/IMPLEMENTATION.md), then [Cpp2IL repair, REA update and project config](toolsets_2026-10-21/CPP2IL_REA_AND_CHAT_ACCESS.md). Those supersede initial source-only/unregistered/failing-cache snapshots at their stated scope. The [current presence observation](../TOOL_REGISTRY.md#current-presence-check-2026-11-04-b73) now reports the default REA dependency missing; neither “never installed” nor the old successful update alone describes current readiness. Required paths for the selected pinned/Cpp2IL routes are present, without a renewed health/target claim. F1’s sample missing count remains distinct from the later completed finite Corc 26-ID recovery, context-only attachments, original/derivative bytes and actual media reading. A2’s full collector acceptance does not follow from a relay or offline integrity receipt. Preserve T1–T20’s specialized semantic/provider/asset limitations and A4’s proportional evidence; use current npm-test limiter instructions rather than old queue examples. No new tool setup, account access, source collection or generic platform is selected (AD32/AD36).",
+      "before_sha256": "2c6a68a908edd66c1b1be0ce37b4a3e6bb9a1a0f2d8cc7fd9df7aed6b19fd8f4",
+      "after_sha256": "7040f8cf8b8d7d8610bda4241a750edba1b614314c127ff32740f10030a5c814"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1365
+}

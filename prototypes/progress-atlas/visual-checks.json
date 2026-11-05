@@ -1,0 +1,21 @@
+{
+  "checks": [
+    "48 system records and 24 catalogue entries",
+    "foundations: all 15 records match meaning/gap/next/evidence",
+    "worlds: all 10 records match meaning/gap/next/evidence",
+    "gaps: all 8 records match meaning/gap/next/evidence",
+    "actions: all 5 records match meaning/gap/next/evidence",
+    "leverage: all 11 records match meaning/gap/next/evidence",
+    "foundation-to-gap navigation and corrected health closure",
+    "keyboard selection and replacement focus",
+    "incompatible snapshot ignored",
+    "compatible selection restored",
+    "full donor catalogue retained",
+    "all five views fit light 736px",
+    "all five views fit light 320px",
+    "all five views fit dark 736px",
+    "all five views fit dark 320px",
+    "no page errors"
+  ],
+  "errors": []
+}

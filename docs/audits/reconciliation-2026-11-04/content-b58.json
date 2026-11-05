@@ -1,0 +1,129 @@
+{
+  "schema": 1,
+  "batch": "B58",
+  "title": "Maps and travel: actual legs contract, merge chronology and declared away clocks",
+  "at": "2026-11-04T20:04:25.288943+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/representations/MAPS_AND_TRAVEL.md",
+      "ids": [
+        "MT1–MT6",
+        "MT-D1–MT-D5",
+        "MT-F1–MT-F4",
+        "MT2-1–MT2-12",
+        "MT2-F1–MT2-F3",
+        "TP1–TP7",
+        "L11 integration"
+      ],
+      "classification": "representation proposal and historical implementation owner; fresh full content review",
+      "owners": [
+        "docs/representations/MAPS_AND_TRAVEL.md",
+        "docs/gm/dispatch/ui-refactor-wave-2026-10-29/MERGE_RECEIPT.md"
+      ],
+      "disposition": "Preserve known-place/lead/map-artifact/observer provenance, time vs geometry, route vs schedule view and actual movement consumer. Round2 departures board supersedes default-open rings; late merge restores report_in guard and host to/minutes. Current source confirms two host arrays carry to, both renderers read legs and bridge fallback remains. TP6 away-progress is a proposal needing actual clock/absence support under ACR8, not closed-app promise. Old MT-F1/current-next-slice/model assignments are history, not new dispatch or present reproduced defect.",
+      "evidence": "All301 source lines read. Entire97-line merge receipt read. Current travel_legs_bridge.js fully read, host move producers and board/map leg-consumer lines inspected; no native browser/build/walk/persistence proof renewed.",
+      "reopen": "Current runtime owner qualifies actual walk landing/recentring and observer-safe board at selected desktop viewport. Fallback removal/popout/schedules/transport/away progression remains separately selected implementation, not this docs task.",
+      "read_mode": "fresh_full_content_read",
+      "supporting_current_source_snapshots": [
+        {
+          "path": "src/read_models/travel_legs_bridge.js",
+          "sha256": "ed7fd54b6f02d8f1512fac1a2bc450087d9c0c1b7412fdab86beb7699d24b58f",
+          "scope": "entire source read; remaining label fallback"
+        },
+        {
+          "path": "src/book_world_lotm_host.js",
+          "sha256": "8e69d2099b58945fce2399abc9ed89196cd19bd355d968ac33478cf50a2183d4",
+          "scope": "selected move projection producers only, not full host"
+        },
+        {
+          "path": "src/ui/walk_board.js",
+          "sha256": "c1653dafbaed6e622b6fbb3054c210eed0b91514ee5a0683b6b60f79cef520c6",
+          "scope": "legs consumer line only"
+        },
+        {
+          "path": "src/ui/walk_map.js",
+          "sha256": "8848b8fb993d569d0497cff96a602bdb6967339287b9be65de0e55b2dcda3e7a",
+          "scope": "legs consumer line only"
+        }
+      ],
+      "input_sha256": "ed546e62b26ffba22d2e4a786ef927c6466f2e2be0a56647c9974d57c941512d",
+      "input_lines": 301,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          301
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-refactor-wave-2026-10-29/MERGE_RECEIPT.md",
+      "ids": [
+        "representation rows1–21",
+        "RCT1/RCT2",
+        "L13 bridges",
+        "late fix",
+        "post-merge browser/floor"
+      ],
+      "classification": "historical integration receipt; fresh full content review",
+      "owners": [
+        "docs/gm/dispatch/ui-refactor-wave-2026-10-29/MERGE_RECEIPT.md"
+      ],
+      "disposition": "Preserve merged shared primitive/bridges and exact test/build/browser input scope. RCT2 seat-pair convention was empty at this snapshot, not coverage proof. Later eight unpatched script PASS bullets supersede earlier7/8 view-reach tally only; do not infer every receiver/floor gate or current app qualification. Source fix restores report_in guard beside to/minutes fields. Private font filtering and baseline failures stay qualified.",
+      "evidence": "All97 lines read in two bounded source ranges; no historical tests/browser/build rerun.",
+      "reopen": "Current receipt owner handles selected native/UI acceptance and actual baseline reproduction; no old patch copied or model/wave restarted.",
+      "read_mode": "fresh_full_content_read",
+      "supporting_current_source_snapshots": [
+        {
+          "path": "src/read_models/travel_legs_bridge.js",
+          "sha256": "ed7fd54b6f02d8f1512fac1a2bc450087d9c0c1b7412fdab86beb7699d24b58f",
+          "scope": "entire source read; remaining label fallback"
+        },
+        {
+          "path": "src/book_world_lotm_host.js",
+          "sha256": "8e69d2099b58945fce2399abc9ed89196cd19bd355d968ac33478cf50a2183d4",
+          "scope": "selected move projection producers only, not full host"
+        },
+        {
+          "path": "src/ui/walk_board.js",
+          "sha256": "c1653dafbaed6e622b6fbb3054c210eed0b91514ee5a0683b6b60f79cef520c6",
+          "scope": "legs consumer line only"
+        },
+        {
+          "path": "src/ui/walk_map.js",
+          "sha256": "8848b8fb993d569d0497cff96a602bdb6967339287b9be65de0e55b2dcda3e7a",
+          "scope": "legs consumer line only"
+        }
+      ],
+      "input_sha256": "2b1b80291fed01e2d7451650b28b1d598e02243689fc3729ba0da4e90842bcf4",
+      "input_lines": 97,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          97
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/representations/MAPS_AND_TRAVEL.md",
+      "heading": "## Current source and chronology reconciliation, 2026-11-04 (B58)",
+      "body": "Round2’s departures board is the later default; the open-ring default and every-walk MT-F1 finding remain original-snapshot history. The merge receipt’s late fix records restoring report_in gating alongside host to/minutes fields. Current source inspection confirms both named move arrays carry to, board/map consume legs, and the bridge still retains its compatibility label fallback. This proves the current source contract only; no fresh walk landing/recentring/browser floor was exercised, and this task removes no fallback. The opening pop-out assignment/model labels are dated proposals, not current dispatch. TP6’s “away” must declare supported clock/absence behavior under ACR8; it does not promise closed-app progression. Preserve observed/rumoured/map-artifact provenance and witness-limited schedules under SR7–SR9/ACR5/9/10; compressed travel may spend real time without exposing hidden people or inventing city geometry.",
+      "before_sha256": "ed546e62b26ffba22d2e4a786ef927c6466f2e2be0a56647c9974d57c941512d",
+      "after_sha256": "e498f807ccf9e6d5a3809f7ac07a931e19af5cd78f6240812f48da5930d528ff"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-refactor-wave-2026-10-29/MERGE_RECEIPT.md",
+      "heading": "## Receipt chronology qualification, 2026-11-04 (B58)",
+      "body": "The later bullet records all eight updated proof scripts passing unpatched at1920×1080, so the final seven-of-eight reach tally is an earlier stage rather than the latest script-reach count. Preserve the exact late report_in/source-field repair and historical unit/browser inputs without promoting script reach to complete receiver/floor proof or current checkout behavior. RCT2’s declared seat-pair check was empty at the recorded snapshot. Current source field presence and historical script claims remain separate from newly rebuilt walk landing, observer privacy, persistence and other feature acceptance.",
+      "before_sha256": "2b1b80291fed01e2d7451650b28b1d598e02243689fc3729ba0da4e90842bcf4",
+      "after_sha256": "65120d985133f26586d029cf38ef295bdf1d55fceee6a68bdecf044c00c0aaa7"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1418
+}

@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "batch": "B298",
+  "title": "Means and appraisal: full palette, knowledge lifecycle and protective-stop exception",
+  "at": "2026-11-05T01:06:03.529954+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/MEANS_AND_APPRAISAL.md",
+      "ids": [
+        "MN1–MN14",
+        "AP0–AP9",
+        "All target/channel/mode/output/schema axes",
+        "LS1–LS18",
+        "IMP1–IMP10/first-slice",
+        "ML1–ML5",
+        "AA1–AA15",
+        "G1–G3",
+        "CRL35/36/40 lifecycle fold"
+      ],
+      "classification": "Full illustrative means/appraisal palette grounded in accepted means direction, with later knowledge/safety qualifications",
+      "owners": [
+        "docs/MEANS_AND_APPRAISAL.md",
+        "docs/UI_RULES.md",
+        "docs/DOMAIN_RULES.md"
+      ],
+      "disposition": "Read all547 original lines, every ladder/axis/domain/subtlety/implementation/lifecycle row and all expanded social/place/escalation examples. Preserve user palette-not-spec instruction; grade, scope, reliability, timing, audience and local means matter more than a universal AP hierarchy. Fold harmful literal readings of no-means outcomes, automatic loot/loan obligations, historic read functions and UI failure leaks into owner without adopting proposed interfaces.",
+      "evidence": "The means principle is accepted direction; specific AP/MN/IMP/ML tables remain examples. AA10 later explicitly permits accepted protective stops to inspect actual consequences without a fictional sensing prerequisite; ordinary policy remains knowledge-limited. CRL35 separates passive hover/source XP example from intentional native examination. No code, canon source or current appraisal implementation verified.",
+      "reopen": "For a selected action use current source/target/body/world/observer owners and real command/projection route. No new appraisal engine, compulsory costs/counters, migration/global ledger, NPC chain or first-slice dispatch is selected.",
+      "input_sha256": "2e2ed2d16be449049727bd9b76df1bbd31c353a3a7c6685e06b4fb0df947b0f1",
+      "input_lines": 547,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          547
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/MEANS_AND_APPRAISAL.md",
+      "heading": "## Content reconciliation B298: actual means and illustrative appraisal scope",
+      "body": "All original 547 lines were reviewed, including MN1–MN14, AP0–AP9, every axis/LS/IMP/ML/AA row, proposed first slice and final observation-lifecycle fold. Weibao's opening instruction controls the tables: they are illustrative palettes, not complete permission lists or fixed ladders. The means principle is direction; the particular proposed fields/functions, AP hierarchy, NPC budgets, disclosure mode, costs and first-slice sequence are not newly adopted by this review.\n\nAn actual body, ordinary sight, speech, walking, rest or accessible evidence is already a means where its mechanism works. The right-hand no-means examples do not make unlisted methods impossible or guarantee detection because a tracker merely exists. Finding a target, identifying it, reaching it, communicating, affecting it and persuading someone are separate links with actual scope and timing. Consent may remove opposition without supplying an absent channel or revealing a fact beyond its supported scope. Declared innate/free/overwhelming faculties need no invented fee, forced weakness, concealment contest or rarity ceiling. A borrowed resource has the terms actually agreed, which can be free; an automatic favor/debt is not required just because an archive is borrowed.\n\nThe AP ladder's includes-lower and own-rank ceiling wording describes one example, qualified by its explicit skipped-level specialists and opening user instruction. Depth, precision, subject coverage, reliability, freshness, range, notice and target compatibility can vary independently. An accurate poison read need not reveal skills or personal identity; an advanced general means may exceed a specialist. AP8 costly/AP9 rare are example dials. Unknown/blank/error styling cannot identify a hidden cause, level, skill count or sealed source unless the observer knows that much. AP4's three-dot/unknown-list example is not permission to reveal undiscovered ability slots. Current world/observer mechanism decides each output, with no universal exact-versus-vague-number preference.\n\nKeep source-supported history separate from present estimates. Lost live access can leave a dated remembered reading; material age, observation time and current expertise are different clocks. Transfer can preserve knowledge of the same lot, while mixing/processing can change what the old estimate applies to. A later capability can enable a new examination or labelled retrospective inference, not rewrite an earlier receipt or let an old automatic decision know the future. Displaying a stored known projection is not the intentional examination command proposed by IMP3/IMP4. Hover, focus, resize, rendering and restored view do not implicitly consume, draw, award XP or write a new reading. The selected intentional action owns its actual supported cost and learned result.\n\nThe existing AA10 exception matters: ordinary configured routines use supported information, while CBR27/BHR18 protective stops may inspect actual consequences without an invented sensing requirement. Their public explanation stays observer-safe and the pause does not certify a diagnosis or exact future. Keep that exception when applying AA13's color/order/sound channels and AA14's historical receipt identity. No UI tint, tooltip, list length, sort, sound or callback becomes a secret oracle. Narrator/player-supported experience and an NPC's independently received or perceived account remain distinct under AA15.\n\nMeans that are people retain their own goals, errors, consent and resources. The escalation chain is a causal example, not inevitable replacement enemies: each report, motive, route and supported response needs an actor and means. A missing messenger can create a clue if someone actually detects it, not automatic omniscience. Defeat does not automatically grant all objects/powers/rights listed as means-loot; actual custody, survival, transfer and source law decide. Removing one channel may break a particular canon event without deleting other independent causes or forcing a new role-holder. Local dead zones, source travel, costs, loss/relearning and schema mismatch use their actual world/body mechanism rather than a universal suppression rule.\n\nA diegetic system/Notebook can be lost or impaired through its supported fiction; this does not itself erase player control, save/export, inspection history or unrelated functioning senses. UI means and actual character faculties have different owners. IMP2's one-can function and IMP3's one-read function remain possible interfaces, not proof that current rules lack an evaluator or need a new global ontology. Old native-tooltip-as-universal-AP3, old-save defaults and the proposed tracking/lens demonstration retain their snapshot/scope. Current compatibility, desktop/prose-first UI and exact consumer evidence govern selected work. No canon truth, current runtime behavior, new appraisal/migration field or extra gate is verified or selected here.",
+      "before_sha256": "2e2ed2d16be449049727bd9b76df1bbd31c353a3a7c6685e06b4fb0df947b0f1",
+      "after_sha256": "a510ea0bc203650b80088271f213270b7e33bec0842f4954108b553bdd0938b8"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 826
+}

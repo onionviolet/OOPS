@@ -1,0 +1,126 @@
+{
+  "schema": 1,
+  "batch": "B205",
+  "title": "Complete rules register/router and correct adopted scene-rule labels",
+  "at": "2026-11-04T23:00:22.551653+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/RULES_INDEX.md",
+      "ids": [
+        "31rule-set register rows",
+        "Router",
+        "AD1–AD52",
+        "AD36workflow",
+        "FLR1–FLR6",
+        "T1–T7",
+        "Retired/overlap/prefix/index-change contracts"
+      ],
+      "classification": "Current authority router, adopted-direction restatements and mixed-status domain register",
+      "owners": [
+        "docs/RULES_INDEX.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Full register/router read confirms source decisions outrank summaries, status per range and six-line floor scoped to runtime. Existing ACR adoption is bounded; WA/DSG/UI proposals keep explicit status. Correct current AR16 command route and GDP extent; direct authority lookup corrects B204 SUI13–19 mistake without new adoption.",
+      "evidence": "Fresh full1–end index read. Exact USER_VISION/lead-rule/handoff ranges directly read to resolve SUI ambiguity, captured as partial supporting reads; no full user-vision or handoff credit. No runtime compliance, checker internals or external statistics verified.",
+      "reopen": "Changed accepted direction/rule codes or concrete current routing defect; follow actual source decision and preserve original identifiers/history, not new proposal promotion.",
+      "supporting_reads": [
+        {
+          "path": "docs/USER_VISION.md",
+          "ranges": [
+            [
+              6808,
+              6822
+            ]
+          ],
+          "full": false,
+          "input_sha256": "1adcd5a139e19ccafdd10855d15d26ec17c5a4d132a5a4551331e905a28db8a9",
+          "input_lines": 7329
+        },
+        {
+          "path": "docs/LEAD_LIFE_RULES.md",
+          "ranges": [
+            [
+              43,
+              56
+            ]
+          ],
+          "full": false,
+          "input_sha256": "f2a992ac166e3d5a67be87211bac296b0e42c10f3cab0101ed2c55fab7947932",
+          "input_lines": 109
+        },
+        {
+          "path": "docs/gm/dispatch/protagonist-life-2026-10-27/COORDINATOR_HANDOFF_2026-10-28.md",
+          "ranges": [
+            [
+              207,
+              224
+            ]
+          ],
+          "full": false,
+          "input_sha256": "8aaba8a07d1ae900f109c16039da0709a6a9f31228be8caff9e109b292c388b2",
+          "input_lines": 325
+        }
+      ],
+      "input_sha256": "fd9baf992486a89072df101a7050a7498231ae8089100ecc99347257b9478434",
+      "input_lines": 453,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          453
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+      "heading": "### B205 authority correction: adopted scene defaults",
+      "body": "The full RULES_INDEX read exposed a meaningful B204 reviewer mistake. UI_RULES retained proposed headers for SUI13–SUI19, but USER_VISION lines 6811–6814, LEAD_LIFE_RULES §B and the coordinator’s actual CL281 list record the existing October 28 adoption of SUI1–SUI19. Those exact supporting ranges were read; their entire source files were not newly reviewed. The two headers and B204 disposition now match that direction. The amendment ledger preserves both stale wording and the incorrect initial interpretation. UR76–UR82/UIV and other proposed ranges keep their own statuses under AD32. This is correction from existing user authority, not a new rule adoption or gameplay change.\n\nThe index’s architecture route also retained a stale command-availability condition after B178 corrected AR16; route it to the existing check:arch command. Its gear-depth router named GDP1–GDP39 although the fully read owner now continues through GDP46. Correct that range as proposal routing without enlarging implementation scope. Current rule/receipt/direction checks remain document checks, not certification of every linked rule’s runtime behavior.",
+      "before_sha256": "3e50f1e44d200f311ed7905c8862fc8035ac5080ecf7d1ed4c3b167b64999602",
+      "after_sha256": "bb0b375eee7f9ca35bef2d57b7dac0cbd9faac1dee20b27df8086ae097636d94"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1089,
+  "post_record_amendments": [
+    {
+      "path": "docs/RULES_INDEX.md",
+      "from": "AR16's architecture command when available in the active checkout",
+      "to": "`npm run check:arch` (AR16, AD36/AD43)",
+      "reason": "Refresh router to existing architecture command and complete reviewed GDP range; no new gate, code or adoption."
+    },
+    {
+      "path": "docs/RULES_INDEX.md",
+      "from": "(GDP1–GDP39, proposal)",
+      "to": "(GDP1–GDP46, proposal)",
+      "reason": "Refresh router to existing architecture command and complete reviewed GDP range; no new gate, code or adoption."
+    },
+    {
+      "path": "docs/RULES_INDEX.md",
+      "from": "| Cast-lives rules | CLR1–CLR13, SUI1–SUI19, RPT1–RPT14 | CLR, SUI and RPT1–RPT12 accepted as binding defaults 2026-10-28 (Weibao's \"Sure\" to the batched list, CL281); RPT13–RPT14 standing 2026-10-30 (his \"make long standing rules\") | Lead-life lanes: briefs, publication class, fold-loss, coordinator review (CLR); scene UI (SUI); what the cast writes into Reports (RPT) | [Lead-life rules F](LEAD_LIFE_RULES.md#f-lane-rules-clr1-clr13) (CLR), [UI rules, scene and report](UI_RULES.md#scene-and-report-rules-sui-rpt) (SUI, RPT), [lead-life guide](LEAD_LIFE_GUIDE.md) (reading aid: matrix, order, contradictions; proposal) |",
+      "to": "| Cast-lives rules | CLR1–CLR13, SUI1–SUI19, RPT1–RPT14 | CLR, SUI and RPT1–RPT12 accepted as binding defaults 2026-10-28 (Weibao's \"Sure\" to the batched list, CL281); RPT13–RPT14 standing 2026-10-30 (his \"make long standing rules\") | Lead-life lanes: briefs, publication class, fold-loss, coordinator review and AD51-qualified first consumer seam (CLR); scene UI (SUI); what the cast writes into Reports (RPT) | [Lead-life rules F](LEAD_LIFE_RULES.md#f-lane-rules-clr1-clr13) (CLR), [UI rules, scene and report](UI_RULES.md#scene-and-report-rules-sui-rpt) (SUI, RPT), [lead-life guide](LEAD_LIFE_GUIDE.md) (reading aid: matrix, order, contradictions; proposal) |",
+      "reason": "Keep registered CLR router description consistent with corrected CLR7."
+    },
+    {
+      "path": "docs/RULES_INDEX.md",
+      "from": "| Lead-life rules | none | Accepted lines only, created 2026-10-29; defaults, open to change with a better idea | The accepted direction for a protagonist's life: lead-first, forced canon run as a default, windows over hours, mechanisms first, per-world canon resistance, optional main goal; how a rule changes | [LEAD_LIFE_RULES](LEAD_LIFE_RULES.md) |",
+      "to": "| Lead-life rules | none | Accepted lines only, created 2026-10-29; defaults, open to change with a better idea | The accepted direction for a protagonist's life: lead-first developer route, ordinary/alternative coverage, forced canon run as a run-mode default, windows over hours, mechanisms first, per-world canon resistance, optional main goal; how a rule changes | [LEAD_LIFE_RULES](LEAD_LIFE_RULES.md) |",
+      "reason": "Reflect current developer/player scope in accepted owner register; no new direction."
+    },
+    {
+      "path": "docs/RULES_INDEX.md",
+      "from": "| A book-world adaptation or protagonist developer route | AD44 (lead-first playthrough is the main line), CLR1–CLR13, SUI1–SUI19 and RPT1–RPT14 (cast-lives defaults; RPT13: the world ships its Reports voice), LSD1–LSD475 (top-down lead-life systems, proposed; read via the [lead-life guide](LEAD_LIFE_GUIDE.md); accepted lines in [LEAD_LIFE_RULES](LEAD_LIFE_RULES.md)), WA54–WA60 (UI/engine contracts, coordinated sharing and qualified lore/context/result tests), Rulebook 2–3, AD1–AD5, MR11–MR15, SR1–SR3; WA1–WA24 for turning the source into a pack (WA22–WA24: every mention placed, dated whereabouts, forward anchors); WA25–WA41 (accepted, adjustable), WA48–WA50 (accepted: whole-source seams, gap register, dated character records) and proposed WA42–WA47 for lead runs (classed actions, loops, untaken options, shard gates, conflicts, stats, allies, codifying, environment, events, fills, talks, two-layer state, extraction scope, relationships, tiers, hand-off); WER1–WER17 for how players enter it | [Rulebook precedent](RULES_FROM_SCRATCH.md#cross-world-audit-precedent-special-rules-and-little-details-2026-10-12), [completion standard](WORLD_COMPLETION_STANDARD.md), source research; WA8/WA12 distinguish source, knowledge and built coverage; floors allow selected slices; run order from source to past canon: [deep world workflow](DEEP_WORLD_WORKFLOW_2026-10-19.md) (proposal) |",
+      "to": "| A book-world adaptation or protagonist developer route | AD44 (lead-first developer build-through; ordinary/alternative starts retain separate scope), AD51 (first useful shared seam; another world validates), CLR1–CLR13, SUI1–SUI19 and RPT1–RPT14 (cast-lives defaults; RPT13: the world ships its Reports voice), LSD1–LSD475 (top-down lead-life systems, proposed; read via the [lead-life guide](LEAD_LIFE_GUIDE.md); accepted lines in [LEAD_LIFE_RULES](LEAD_LIFE_RULES.md)), WA54–WA60 (UI/engine contracts, coordinated sharing and qualified lore/context/result tests), Rulebook 2–3, AD1–AD5, MR11–MR15, SR1–SR3; WA1–WA24 for turning the source into a pack (WA22–WA24: every mention placed, dated whereabouts, forward anchors); WA25–WA41 (accepted, adjustable), WA48–WA50 (accepted: whole-source seams, gap register, dated character records) and proposed WA42–WA47 for lead runs (classed actions, loops, untaken options, shard gates, conflicts, stats, allies, codifying, environment, events, fills, talks, two-layer state, extraction scope, relationships, tiers, hand-off); WER1–WER17 for how players enter it | [Rulebook precedent](RULES_FROM_SCRATCH.md#cross-world-audit-precedent-special-rules-and-little-details-2026-10-12), [completion standard](WORLD_COMPLETION_STANDARD.md), source research; WA8/WA12 distinguish source, knowledge and built coverage; floors allow selected slices; run order from source to past canon: [deep world workflow](DEEP_WORLD_WORKFLOW_2026-10-19.md) (proposal) |",
+      "reason": "Propagate current developer scope and AD51 first-consumer application into actual book-world router."
+    },
+    {
+      "path": "docs/RULES_INDEX.md",
+      "from": "| Lead-life rules | none | Accepted lines only, created 2026-10-29; defaults, open to change with a better idea | The accepted direction for a protagonist's life: lead-first developer route, ordinary/alternative coverage, forced canon run as a run-mode default, windows over hours, mechanisms first, per-world canon resistance, optional main goal; how a rule changes | [LEAD_LIFE_RULES](LEAD_LIFE_RULES.md) |",
+      "to": "| Lead-life rules | none | Accepted lines only (AD44, AD51), created 2026-10-29; defaults, open to change with a better idea | The accepted direction for a protagonist's life: lead-first developer route, ordinary/alternative coverage, forced canon run as a run-mode default, windows over hours, mechanisms first, per-world canon resistance, optional main goal; how a rule changes | [LEAD_LIFE_RULES](LEAD_LIFE_RULES.md) |",
+      "reason": "Add existing authority codes on changed accepted-owner register row, as required by document lint."
+    }
+  ]
+}

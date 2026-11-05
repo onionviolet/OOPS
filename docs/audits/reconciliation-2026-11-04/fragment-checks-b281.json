@@ -1,0 +1,37 @@
+{
+  "scope": "New local heading-fragment links in B278–B281 folds only; no semantic/runtime proof.",
+  "checked": 5,
+  "missing": [],
+  "checks": [
+    {
+      "batch": 278,
+      "source": "docs/CHECKOUT_CHECKLIST.md",
+      "target": "../PROJECT.md#current-focus",
+      "exists": true
+    },
+    {
+      "batch": 278,
+      "source": "docs/CHECKOUT_CHECKLIST.md",
+      "target": "../PROJECT.md#release-state",
+      "exists": true
+    },
+    {
+      "batch": 278,
+      "source": "docs/CHECKOUT_CHECKLIST.md",
+      "target": "AI_PLAYTEST_HARNESS_CONSIDERATIONS_2026-10-20.md#content-reconciliation-b256",
+      "exists": true
+    },
+    {
+      "batch": 279,
+      "source": "docs/ENGINE_EXPANSION.md",
+      "target": "../PROJECT.md#current-focus",
+      "exists": true
+    },
+    {
+      "batch": 280,
+      "source": "docs/ENGINE_EXPANSION.md",
+      "target": "#content-reconciliation-b279-earlier-engine-contracts-and-dated-evidence",
+      "exists": true
+    }
+  ]
+}

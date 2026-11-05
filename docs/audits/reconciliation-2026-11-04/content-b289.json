@@ -1,0 +1,130 @@
+{
+  "schema": 1,
+  "batch": "B289",
+  "title": "Creation/resource and consolidation audits: material identity, real consumers and retained references",
+  "at": "2026-11-05T00:52:37.382565+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "classification": "Historical source audit and explicit proposal/dependency map",
+      "owners": [
+        "docs/CRAFTING_ENGINE.md",
+        "docs/gm/dispatch/procgen-2026-10-13/PLAN.md"
+      ],
+      "reopen": "Trace current selected consumer and publication/identity/time owner before execution. Preserve native progress and local mechanisms; no runtime changes, schema assignment, source acquisition or old lane restart.",
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/LIVE_AUDIT.md",
+      "ids": [
+        "P6 F1–F14",
+        "Moving HEAD and exact source pins"
+      ],
+      "disposition": "Read all 22 original lines. Retain real recipe/component/equipment/food/treatment/home/farm/technique consumers versus arbitrary generated composition, per-instance integration and new verb requirements. The exact Springsteel technique seam is actual source-era support, not general alloy science; P2 then-in-progress status is qualified by later P8/P38/P39.",
+      "evidence": "Source-only entrypoint/selected consumer inspection; no rebuilt/native/primary chemistry evidence. Active wear or starvation is not required to justify repair/food use. Fold useful native fit and identity distinctions into crafting owner.",
+      "input_sha256": "e60a6daf03ba7cc1b9a9d99cd0d53625b7fb327a8ed8ed35df21644d89b048c5",
+      "input_lines": 22,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          22
+        ]
+      ]
+    },
+    {
+      "classification": "Historical source audit and explicit proposal/dependency map",
+      "owners": [
+        "docs/CRAFTING_ENGINE.md",
+        "docs/gm/dispatch/procgen-2026-10-13/PLAN.md"
+      ],
+      "reopen": "Trace current selected consumer and publication/identity/time owner before execution. Preserve native progress and local mechanisms; no runtime changes, schema assignment, source acquisition or old lane restart.",
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p8/LIVE_AUDIT.md",
+      "ids": [
+        "P8 F1–F16",
+        "Ordinary/living atlas and generation-contract inherited scope"
+      ],
+      "disposition": "Read all 32 original lines. Preserve tool gate versus technique/performance, quality versus assay, local authored yields versus deposits/ecology, existing market saturation versus embodied supply, seasonal work versus gathering enforcement risk, paid replantable crops and actual cargo reservation. Actual later harvest report qualifies old no-carcass observation.",
+      "evidence": "SHOWN/STATED/INFERRED scopes explicit; no native reproduction of seasonal gap, newly researched material law or linked atlas-source credit. Legitimate repeat harvest differs from duplicate settlement.",
+      "input_sha256": "447fb94fb263d55f0c6cbb810018f2e4e4479a604bad6abedd9bfbbce8628c6b",
+      "input_lines": 32,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          32
+        ]
+      ]
+    },
+    {
+      "classification": "Historical source audit and explicit proposal/dependency map",
+      "owners": [
+        "docs/CRAFTING_ENGINE.md",
+        "docs/gm/dispatch/procgen-2026-10-13/PLAN.md"
+      ],
+      "reopen": "Trace current selected consumer and publication/identity/time owner before execution. Preserve native progress and local mechanisms; no runtime changes, schema assignment, source acquisition or old lane restart.",
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p38/SOURCE_AUDIT.md",
+      "ids": [
+        "P38 F1–F7/F7b",
+        "Generated people same-name boundary",
+        "F8 P2",
+        "F9 P34 S2–S4",
+        "F10 workflow/source contradictions"
+      ],
+      "disposition": "Read all 57 original lines. Preserve all store rows, consumed-product exposure refs, source identity versus public handle, authoritative directions/current versus historical knowledge, tentative pin/eviction capacity hazards and native-envelope graph/backup fit. Source-visible integration of P2 qualified old unmerged reports; changing P34 stages are not release or natural proof.",
+      "evidence": "Current-source class of ambiguous names and potential capacity failure are explicitly not reproduced bugs. Four-MiB guard uses UTF-16/other keys, not raw file bytes alone; proposal does not establish chunk storage/quarantine. No new source/runtime execution.",
+      "input_sha256": "f391cfdae2283ab90646a3fbd5da696b20b456aa92b7acc49aefc9e8c29bf34b",
+      "input_lines": 57,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          57
+        ]
+      ]
+    },
+    {
+      "classification": "Historical source audit and explicit proposal/dependency map",
+      "owners": [
+        "docs/CRAFTING_ENGINE.md",
+        "docs/gm/dispatch/procgen-2026-10-13/PLAN.md"
+      ],
+      "reopen": "Trace current selected consumer and publication/identity/time owner before execution. Preserve native progress and local mechanisms; no runtime changes, schema assignment, source acquisition or old lane restart.",
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p39/SOURCE_AUDIT.md",
+      "ids": [
+        "P39 F1–F8",
+        "C1–C6",
+        "BJ/BK seams",
+        "P40 later refresh"
+      ],
+      "disposition": "Read all 35 original lines. Retain exact product observations rather than ingredient-wide assay; same ratio at different scale not stack identity; no implicit dilute/graph UI; one-job late scheduling not batch-equivalent catch-up; source merge not rebuilt main proof. Preserve CR alias correction and explicit cooperative-yield distinction. P40 reports remain attributed synthetic evidence.",
+      "evidence": "P2 16 focused/637 full overlap, not cumulative or new tests. Registry and eager listed-pack fetch are existing source seams, not automatic descriptor/lazy-loader implementation. No private source, linked franchise source or current browser reviewed.",
+      "input_sha256": "ee40f56104f86cf475079cbe683186eef092182265df54d6a79facdc3c706e1e",
+      "input_lines": 35,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          35
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/CRAFTING_ENGINE.md",
+      "heading": "## Content reconciliation B289: procedural creation, resources and retained identity",
+      "body": "The full [P6 creation audit](gm/dispatch/procgen-2026-10-13/p6/LIVE_AUDIT.md), [P8 resource audit](gm/dispatch/procgen-2026-10-13/p8/LIVE_AUDIT.md), [P38 source audit](gm/dispatch/procgen-2026-10-13/p38/SOURCE_AUDIT.md) and [P39 source audit](gm/dispatch/procgen-2026-10-13/p39/SOURCE_AUDIT.md) supply selected source-era support and real extension pressures. Every row was read, including P38 F7b and its P34 refresh; linked code and source atlases are not newly reviewed by this fold. Their moving HEADs/dirty hashes identify snapshots, not current ownership or live behavior.\n\nP6 F1–F14 retain useful native entry points: recipe chance/quality and exact material substitution; authored equipment, food and treatments; one Springsteel profile with a real technique effect; body-fit/worn-stat definitions; reversible actual apparatus; wear/repair; home fixtures; played crop growth; and learned versus executable techniques. Catalogue filling is not a recipe generator, template lookup does not admit arbitrary instance metadata, and a notebook is not personal fuel. A generated output must reach its actual equipment/food/treatment/work consumer. Broader ratios, process graphs, inks, enchantments, body adapters and persistent structure need only the selected actual implementation, without forcing wear or hunger into ordinary play.\n\nP8 F1–F16 distinguish equipped tool presence from useful tool/technique performance, quality from a material assay, authored regional yield from a finite deposit or ecology, existing saturation from actual merchant cargo, and seasons on jobs from the separately checked gathering path. The latter is a source risk, not a newly reproduced defect. A harvested crop may be exhausted while a plot can be replanted; a newly paid harvest or lawful source remains possible. Stored item size is not automatically pack mass. Shipment manifests already exercise real reservation/cancel ownership. The earlier no-partitioned-carcass observation is qualified by the later [HV1 report and fold](gm/dispatch/harvest-modules-2026-10-14/PLAN.md), whose unsupported species/consumers remain explicit. No blanket bone-as-metal chemistry or actual renewable tapping follows from an authored exception.\n\nP38/P39 retain exact mixture identity and retention. Profiles, process, ordered fractions, scale/mass and revision distinguish products; similar dose is not stack equivalence. Exact-product observation is not an ingredient-wide hidden-property assay or every NPC's body response. Long hidden-composition keys need observer-safe handles rather than public truth leakage. A consumed vial can still be referenced by its active exposure; retention follows actual effects, jobs, methods, holders and obligations, not merely current inventory count. One hero oral law, whole-pack input and one due job do not establish every route/body/amount/actor adapter or catch-up equivalence. Schedule/standing-order extensions must preserve actual remaining work and returned time.\n\nThe source-era mixture plan writes one validated owner/stock/money envelope before publication. Attach new consequential receipts to that transaction, not a later independent write. Native and actor money/stock remain their actual owners. Refs qualify world/instance/actor and direction; equal names in household/generated/simulation providers do not establish one identity. Saved future birth/marriage/death rows are scheduled facts, not already lived events. Current knowledge overwrites and lossy memories cannot reconstruct contradictory claims or full prior conversations. Preserve enough cause/basis when that consumer needs it, without replacing every small fact with a universal ledger.\n\nP34's evolving retained history raised concrete bounded questions: array-ref query support, all-request pins, closed-event references still checked after open-only pinning, eviction of operation lookup protection and differing-payload retry, native delta coverage and literal S2 versus S4 parent inheritance. These are selected source hazards with caller-dependent consequences, not reproduced current save failures. Pins should preserve actionable obligations and release only through their owning consumer; decorative refs need not pin an entire visit forever. The proposed consolidation schemas/queries/budgets are not implemented merely because P38/P39 recommend them. Whole-envelope/backup fit matters; the old four-MiB UTF-16-origin guard is not a free-standing file-size promise or evidence of atomic chunks/quarantine.\n\nLater P38/P39 main ancestry/import observations qualify P6/P8 earlier unmerged wording for that date, while served rebuilt integration stays separate. P39 correctly distinguishes a 512-boundary remainder from cooperative CPU yielding: synchronously draining it is not a frame budget. Its P40 refresh attributes synthetic receipt-eviction, target-delta, locale-order and late-poll findings without claiming another reproduction. Preserve source findings, conditional failure scenarios and current owner routing, not duplicate standalone engines. Existing registry/listed-pack fetch does not establish an automatic descriptor system or lazy world loading. The original P26–P29 crafting aliases were replaced by CR1–CR4; story P26–P28 remain distinct and no P29 report is invented. No current code, schema, runtime/persistence test or primary material/source law is newly verified here.",
+      "before_sha256": "6369d4937cc6f339d0ad4c7a33967afab3780da04c3c6d25f9c185538d16211d",
+      "after_sha256": "4d8ef9ea8eaadab5d5b8a658257185e548e8e426c1291edac4fa8acc492569e8"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 846,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B283, continuous execution 2026-11-04 |",
+      "to": "| B289, continuous execution 2026-11-04 |",
+      "reason": "Advance active pointer through B289; no new full-register reading credit."
+    }
+  ]
+}

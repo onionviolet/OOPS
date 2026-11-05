@@ -1,0 +1,157 @@
+{
+  "schema": 1,
+  "batch": "B272",
+  "title": "C5 checkpoint inventory and bounded triage/tooling receipts",
+  "at": "2026-11-05T00:26:48.452013+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/codex-parallel-2026-10-25/C5_CHECKPOINT_INVENTORY.md",
+      "ids": [
+        "26checkpoint rows",
+        "mtime/Git union/cutoff",
+        "supersession examples",
+        "commands/limits"
+      ],
+      "classification": "Historical dispatch/inventory/triage/tooling receipt with bounded evidence",
+      "owners": [
+        "docs/gm/dispatch/codex-parallel-2026-10-25/C5_CHECKPOINT_INVENTORY.md",
+        "docs/audits/IDEAS_TRIAGE_2026-10-26.md",
+        "docs/gm/dispatch/carry-out-queue-2026-10-26/primary-adoption/RECEIPT.md"
+      ],
+      "disposition": "Preserve dated discovery and row-level proof boundaries; fold C5 assignment scope/current-owner qualifications into the inventory itself.",
+      "evidence": "All54/13/18/18original-line bodies delivered; C5 initial middle truncation recovered22–32. No linked checkpoint/adoption/report/source body credited as read, no historical current-state or test/runtime verification.",
+      "reopen": "Use independently reviewed owners and current task inputs before making a consequential integration or gameplay claim; continue actual body review of remaining inventory.",
+      "input_sha256": "33c88898198acccb793976df55ab79ade5f37ddfe089c508806f56f140dadad7",
+      "input_lines": 54,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          54
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/codex-parallel-2026-10-25/C5_reconcile.md",
+      "ids": [
+        "fourtasksteps",
+        "historicalwriters/890paths",
+        "fourreaderallowance",
+        "output/noGitmutation"
+      ],
+      "classification": "Historical dispatch/inventory/triage/tooling receipt with bounded evidence",
+      "owners": [
+        "docs/gm/dispatch/codex-parallel-2026-10-25/C5_CHECKPOINT_INVENTORY.md",
+        "docs/audits/IDEAS_TRIAGE_2026-10-26.md",
+        "docs/gm/dispatch/carry-out-queue-2026-10-26/primary-adoption/RECEIPT.md"
+      ],
+      "disposition": "Retain historical dispatch, not current agents/worktree authority. Qualify obsolete PROJECT append and old live-state references via inventory uptake.",
+      "evidence": "All54/13/18/18original-line bodies delivered; C5 initial middle truncation recovered22–32. No linked checkpoint/adoption/report/source body credited as read, no historical current-state or test/runtime verification.",
+      "reopen": "Use independently reviewed owners and current task inputs before making a consequential integration or gameplay claim; continue actual body review of remaining inventory.",
+      "input_sha256": "e3230adaf0a59aa6f60d2275294695c1dc5909b1b9e312fc98c58eb9ee532ade",
+      "input_lines": 13,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/carry-out-queue-2026-10-26/runs/q18-ideas-triage.last.md",
+      "ids": [
+        "20rankedpackets",
+        "12sourcechecks",
+        "one-fileglobalstatus",
+        "97e2e45a"
+      ],
+      "classification": "Historical dispatch/inventory/triage/tooling receipt with bounded evidence",
+      "owners": [
+        "docs/gm/dispatch/codex-parallel-2026-10-25/C5_CHECKPOINT_INVENTORY.md",
+        "docs/audits/IDEAS_TRIAGE_2026-10-26.md",
+        "docs/gm/dispatch/carry-out-queue-2026-10-26/primary-adoption/RECEIPT.md"
+      ],
+      "disposition": "Preserve original Q18 return; fold exact spot-check/document-vs-runtime and shared-dirty-state limits into the reviewed triage owner.",
+      "evidence": "All54/13/18/18original-line bodies delivered; C5 initial middle truncation recovered22–32. No linked checkpoint/adoption/report/source body credited as read, no historical current-state or test/runtime verification.",
+      "reopen": "Use independently reviewed owners and current task inputs before making a consequential integration or gameplay claim; continue actual body review of remaining inventory.",
+      "input_sha256": "e928c0b1c4535e15ccf6aab62eaad6bab1cbc16532e510f46bab05260403ea8e",
+      "input_lines": 18,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          18
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/carry-out-queue-2026-10-26/primary-adoption/RECEIPT.md",
+      "ids": [
+        "31ec6116build",
+        "3226fullsuite/finalfocused",
+        "toolingpageproof",
+        "workingtreeadoptiononly"
+      ],
+      "classification": "Historical dispatch/inventory/triage/tooling receipt with bounded evidence",
+      "owners": [
+        "docs/gm/dispatch/codex-parallel-2026-10-25/C5_CHECKPOINT_INVENTORY.md",
+        "docs/audits/IDEAS_TRIAGE_2026-10-26.md",
+        "docs/gm/dispatch/carry-out-queue-2026-10-26/primary-adoption/RECEIPT.md"
+      ],
+      "disposition": "Keep browser/tooling proof distinct from gameplay, final full suite, installed state and user review; append qualification in receipt owner.",
+      "evidence": "All54/13/18/18original-line bodies delivered; C5 initial middle truncation recovered22–32. No linked checkpoint/adoption/report/source body credited as read, no historical current-state or test/runtime verification.",
+      "reopen": "Use independently reviewed owners and current task inputs before making a consequential integration or gameplay claim; continue actual body review of remaining inventory.",
+      "input_sha256": "bb001498267b10a9e99547af519b33a23ba1ded7516e3bb7cb724618190d47d5",
+      "input_lines": 18,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          18
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/codex-parallel-2026-10-25/C5_CHECKPOINT_INVENTORY.md",
+      "heading": "## Content reconciliation B272",
+      "body": "All26summary rows and the complete C5 inventory method/commands were read, alongside the full [C5 assignment](C5_reconcile.md). The inventory deliberately distinguishes mtime discovery, Git-path history and owner-recorded evidence. It is an October25snapshot, not a present source/process/worktree census. Mtime is not an authoring date; a path/commit list does not establish live implementation, integration, app adoption or current playback. Reading these26summary rows does not credit the linked checkpoint bodies as read by this pass. They retain their independent inventory dispositions.\n\nKeep the specific supersession logic: later R3/O4integration resolves the older combined-integration reservation, engine-bindings backlog transfers to W1–W4rather than a second active owner, home/household/potion receipts qualify older uncommitted/pending wording, and Q1/Q2component limits do not replace the later lives/regions record. Those are dated lineage claims, not freshly inspected commits, retired worktrees or currently adopted bundles. Native export-function/import-function proof stays distinct from literal file controls; app snapshot staging differs from adoption. Unplayed combat, old-age, alternate cargo, alternate chain-good, moved-box and source-law cases remain their own scoped gaps, not an inferred failure of every lane.\n\nThe assignment's named live writers, four-reader authorization, about890dirty paths, branch integration plan and retirement candidates belong to that dispatch. They neither prove current workers are live nor authorize new agents, messaging, merge, commit, pruning or deletion in this docs-only goal. Its request for a dated PROJECT append is superseded by the current PROJECT shape rule: replace affected current-state lines and retain history in the log. No PROJECT change is needed for this review, and no row becomes a new standing priority. Existing AD41/shared-owner practice and AD36/AD42/AD43 apply; optional human review is not a repeated mandatory acceptance gate. The actual old source/test/run evidence was not rerun here.\n\nThe full [Q18 return](../carry-out-queue-2026-10-26/runs/q18-ideas-triage.last.md) and [primary tooling receipt](../carry-out-queue-2026-10-26/primary-adoption/RECEIPT.md) were also read in B272. Q18's12source spot-checks and top20packets do not establish all packet consumers or whole-project content coverage. Its global one-file condition was unmet because the shared tree already had unrelated changes; that does not mean the owned one-file delivery failed or justify cleaning another writer's paths. Primary tooling/page browser proof, a3226suite on its earlier inputs and later focused isolated-build check remain tooling evidence, not new gameplay or installed delivery.",
+      "before_sha256": "33c88898198acccb793976df55ab79ade5f37ddfe089c508806f56f140dadad7",
+      "after_sha256": "76cf57463887ba35f1fc027e40f06fa6e3f09448edf748c9242d3f1cb79e879d"
+    },
+    {
+      "path": "docs/audits/IDEAS_TRIAGE_2026-10-26.md",
+      "heading": "## Q18 return scope reconciliation B272",
+      "body": "The full [Q18 return receipt](../gm/dispatch/carry-out-queue-2026-10-26/runs/q18-ideas-triage.last.md) has now been read separately from this triage body. Its12built-claim source spot-checks are exactly that scope, not implementation proof for all20ranked packets or every requested ledger. Coverage/path/whitespace/rules checks establish document structure, not missing consumer joins or current runtime behavior. The return's224line description is dated file-size wording, not a content denominator or a reason to drop appended material. Its “one-file status unmet” refers to pre-existing shared checkout changes; preserve those and judge task-owned changes against their baseline. No commit, cleanup, packet dispatch or new game result follows from this receipt qualification.",
+      "before_sha256": "79bf5d543d893808bccec052c7e8e0931b48ed95af4c45a2ac7265566ab358e1",
+      "after_sha256": "955ee78c865d5f78ef043ba8d84c5a43095ea91060d711f096edbcdb02179cca"
+    },
+    {
+      "path": "docs/gm/dispatch/carry-out-queue-2026-10-26/primary-adoption/RECEIPT.md",
+      "heading": "## Content reconciliation B272",
+      "body": "Full receipt content reviewed. Keep route:natural/browser-verified within its expressly stated tooling/page-delivery scope; the label does not establish new gameplay or a named-world journey. The3226full-suite result and final isolated-build change's focused/browser recheck are different input scopes, not a full final-suite rerun. Diff-scoped review is agent review, not user acceptance, and primary working-tree adoption is separate from a commit, merge, push or installed-app replacement. The linked adoption body's exact evidence remains its own source; it was not fully read by proxy in this batch. No tool page was opened or rebuilt here.",
+      "before_sha256": "bb001498267b10a9e99547af519b33a23ba1ded7516e3bb7cb724618190d47d5",
+      "after_sha256": "761a57dee61926ca0f342e6187ec9ec7ed326659d048975116f33e38cb8cd735"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 877,
+  "post_record_amendments": [
+    {
+      "path": "docs/audits/IDEAS_TRIAGE_2026-10-26.md",
+      "from": "The return's226versus224line description reflects its dated file-size wording",
+      "to": "The return's224line description is dated file-size wording",
+      "reason": "B272 correct receipt attribution: Q18 itself gives224lines;226was an earlier inventory input length, not a second number in the return. Original receipt unchanged."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B267, continuous execution 2026-11-04 |",
+      "to": "| B272, continuous execution 2026-11-04 |",
+      "reason": "Advance active pointer through B272; no new full-register reading credit."
+    }
+  ]
+}

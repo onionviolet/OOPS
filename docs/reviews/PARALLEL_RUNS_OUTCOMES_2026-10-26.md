@@ -38,3 +38,10 @@ All of it reached master. The [master reconciliation](../gm/dispatch/master-reco
 1. LOTM A5 staged rite: done 2026-10-26, see [priorities](UNFINISHED_GAME_PRIORITIES_2026-10-26.md).
 2. G3 integration: wire one process leaf (agitation is smallest) into one real book-world consumer. This unblocks G4.
 3. G1 I1: named-method quote/commit parity and the quantity forecast.
+
+
+## Content reconciliation, 2026-11-04 (B170)
+
+All group outcomes, session-count provenance, limitations and three proposed next steps were read alongside the complete [master integration owner](../gm/dispatch/master-reconciliation-2026-10-26/CHECKPOINT.md). “All reached master” means the recorded integration covered source/tests/text and passed its joined checks; it does not mean every lane finished gameplay or every original native route was rerun. The 10-of-13 grouping mixes reports, tooling, local foundations and gameplay, so it is not a completion percentage for systems, worlds or the full request. No raw session logs or book payloads were newly read here.
+
+Keep the actual named proof: joined3486-test bundle, selected native desktop/persistence routes, explicitly generated fixtures, initial omitted-QA-fixture failure and subsequent repair, and limited absent-versus-zero NPC XP comparison. The master receipt’s later release pointer qualifies its initial local-only boundary; no current push/app verification follows. G3’s unwired process leaves and dependent G4 contracts remain distinct from G1/G2’s connected consumers; later selected-source parity and A5 receipts elsewhere qualify dated next-step wording rather than reopening the whole wave. Current lead priorities govern selection. The cycle ledger is a dated205-baseline-edge partition, not a current census or permission to refactor/reset baselines. No workers, source acquisition, runtime work or release action was launched.

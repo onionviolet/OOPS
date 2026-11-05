@@ -1,0 +1,11 @@
+{
+  "source_commit": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "path": "PROJECT.md",
+  "scope": "Superseded owner text retained verbatim; not new direction or proof of authorship/acceptance.",
+  "removed_nonblank_lines": [
+    "2. **Batched reading before Nov 1.** Readers record everything the text states and invent nothing; gaps are worked out afterward. The promo credit expires Nov 1 and each batch runs on Weibao's go ([schedule](docs/gm/dispatch/batch-reading-2026-10-27/NOV1_SCHEDULE.md)).",
+    "3. **Book worlds and menus get the depth.** Frontier and Mistglass stay playable test beds with no new depth; prose quality is a later local-AI job ([direction](docs/USER_VISION.md#book-worlds-and-menus-first-frontier-and-mistglass-as-test-beds-2026-10-26)).",
+    "- **Desktop/laptop UI first**; mobile is deferred unless Weibao asks ([UI priority](docs/USER_VISION.md#standing-ui-priority-2026-10-13), [UI rules](docs/UI_RULES.md)).",
+    "- **Different lives per setting**, not profession names alone ([direction](docs/USER_VISION.md#different-lives-and-implementable-book-world-features-2026-10-21))."
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "scope": "New local heading-fragment links in B296–B301 folds only; no semantic/runtime proof.",
+  "checked": 7,
+  "missing": [],
+  "checks": [
+    {
+      "batch": 297,
+      "source": "docs/HIGH_TIER_POWER_CONSIDERATIONS_2026-10-23.md",
+      "target": "../PROJECT.md#current-focus",
+      "exists": true
+    },
+    {
+      "batch": 299,
+      "source": "docs/LEAD_LIFE_RULES.md",
+      "target": "RULES_INDEX.md#accepted-direction-rules-ad",
+      "exists": true
+    },
+    {
+      "batch": 299,
+      "source": "docs/LEAD_LIFE_RULES.md",
+      "target": "USER_VISION.md#reasonable-things-get-abstracted-2026-11-03",
+      "exists": true
+    },
+    {
+      "batch": 299,
+      "source": "docs/LEAD_LIFE_RULES.md",
+      "target": "USER_VISION.md#protagonist-playthroughs-as-the-developer-build-through-2026-11-03",
+      "exists": true
+    },
+    {
+      "batch": 299,
+      "source": "docs/LEAD_LIFE_RULES.md",
+      "target": "USER_VISION.md#harry-potter-protagonist-playthrough-starts-2026-11-03",
+      "exists": true
+    },
+    {
+      "batch": 300,
+      "source": "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+      "target": "WORLD_ENTRY_RULES.md#developer-build-through-and-coverage-beyond-the-lead-2026-11-03",
+      "exists": true
+    },
+    {
+      "batch": 301,
+      "source": "docs/REFERENCE_RESEARCH.md",
+      "target": "../PROJECT.md#current-focus",
+      "exists": true
+    }
+  ]
+}

@@ -421,3 +421,19 @@ Option 1 alone may not fit the crafting window. Measure after.
   - Interaction latency and rendering cost were not measured.
 - **Proto23:** compared at its opening screen and in source only. Its content differs, so no T2-T6 match exists.
 - **Taste:** theme and world identity were judged only for legibility and hierarchy. The world palette switch (`data-world-theme` warm/cool) was not exercised across worlds.
+
+
+## Evidence-recipe content reconciliation, 2026-11-04
+
+The evidence-directory README describes comparable seeded UI fixtures: post-elder routing followed by 29 common inventory stacks, 5000 money, unlock flags and XP in 14 skills. These states support the dated density comparison, not naturally earned progress or all original save-loader behavior. Meditation was omitted because its injected reward crashed the original loader, and the emulated 150% PLAY route required an artificial scripted click. Keep those exclusions/workarounds when interpreting the figures.
+
+The named ports, scratch worktrees and hardcoded fixture paths are historical reproduction inputs, not currently verified services or permission to recreate a profile. The report identifies a measured bundle; its newer-than-source timestamps alone are not a source-content equivalence proof or a fresh rebuilt result. No screenshot, measurement JSON, private save or driver was rerun here. Current desktop and text-size owners govern a selected UI change, while this archive preserves its original viewport/zoom comparisons and evidence limits (AD32, AD36, AD43).
+
+
+## Full density-audit reconciliation, 2026-11-04
+
+Retain the audit’s actual comparison rather than treating original as uniformly superior: the old fixed frame overflowed and lacked native action focus, while the fork’s fit/reflow and action keyboard support improved. The fork’s measured allocation/chrome/ordering nevertheless obscured useful actions in those seeded states. Trade comparison also distinguishes the original Accept control needing scroll at 1366 from its visible total; it does not claim the old transaction was entirely on screen. M7 sampled stable anchors, while opening Find work changed scroll. Those are different observations, not a contradiction.
+
+F10 withdrew detached-label language; S5 found only four hidden focus stops, not a demonstrated cost from all hidden DOM. M1 counts controls rather than meaningful decisions, and M12’s partial log-row count cannot establish every message lost or a complete channel policy. Emulated zoom is not browser-menu zoom, computed outline is not visual focus validation, and tab counting is not a screen-reader test. Keep failed natural crafting access, seeded progression, unplayed packs/worlds/themes and unmeasured latency explicit (AD32, AD36).
+
+A1–A5 numeric geometry/row/Tab targets and B1–B5 proposals are dated recommendations, not today’s build queue or universal one-screen/no-scroll laws. Current prose-first task composition, independent panes, desktop text sizes and world differences govern selected work. Keep the useful outcome: actual work, cost/pay/stop, trade sides/total, combat response/retreat and readable result should be reachable together as the task needs, with supported full-name/detail access. Later UI receipts qualify only their exact candidate and route; this reading does not renew those proofs, restore old Workspace composition or add mobile optimization. External reference rows retain their Source/Observed/Snippet/Community labels; no current external facts or new implementation were verified.

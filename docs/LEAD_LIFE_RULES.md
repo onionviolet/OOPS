@@ -78,8 +78,10 @@ and leave the LSD doc's line as history.
 
 - Cite the row (section and first words) and the LSD lines it applies in a lane brief or
   checkpoint; "accepted" appears only with a quote, an AD code or a dated USER_VISION entry (AD32).
-- A change to a row updates USER_VISION, PROJECT.md's summary and this file together, and keeps
-  superseded wording as dated history.
+- A direction change updates USER_VISION and this file, and the affected PROJECT.md summary
+  when its current focus or standing priority changes; keep superseded wording as dated history.
+  An application clarification follows existing authority and updates affected owners/router without
+  inventing new user direction or changing unrelated priorities.
 - The guide's drift round (section 8) reruns at each wave checkpoint.
 
 ## F. Lane rules, CLR1-CLR13
@@ -94,7 +96,7 @@ Source: moved 2026-10-29 from the cast-lives card, codes and wording unchanged. 
 | CLR4 | Absent means silent: a missing field is unknown, never "no" | WA8, schema 1.4 note |
 | CLR5 | Fills come from the role's mechanism, labelled `fill` with a basis, and pass the forward-anchor lint | WA24, WA38 |
 | CLR6 | **Map, fold or gap, with the fold-loss test**: a fold keeps choices, inputs and outputs, time and order, who was there, place, outcomes and what was noticed; a lossy fold is a gap and becomes build work | New (CL162, CL171-CL177) |
-| CLR7 | Fix a gap at the cheapest layer; a new verb needs a second case | FND5, IPC60, AD38 |
+| CLR7 | Fix a gap at the cheapest useful layer. Design a shared seam for the first actual consumer when known worlds justify it; a second different world validates or revises it, not a precondition (AD51) | FND5, IPC60, AD38, AD51 |
 | CLR8 | **One record set, several drivers**: the NPC lead, the bot playthrough and the player seat run the same records and commands; where two disagree, one is wrong | New (CL160, CL168); LP10 |
 | CLR9 | **Codex lanes never commit; the coordinator reviews the diff, runs the focused test and one data spot check, and commits each lane's own paths** (lane ownership policy; host filesystem capabilities do not change it) | New (CL119, CL127); IPC29 | <!-- slip-ok: Restates the existing integration or lane ownership requirement, not a new universal world constraint. -->
 | CLR10 | Name the seam and the one location authority; no second store or clock | AR3, AR14, IPC12 |
@@ -107,3 +109,14 @@ Source: moved 2026-10-29 from the cast-lives card, codes and wording unchanged. 
 Under AD44 and Weibao’s [explicit instruction](USER_VISION.md#top-down-book-life-workflow-clarification-2026-11-01), use the [guide’s procedure](LEAD_LIFE_GUIDE.md) for this and future book lives. Design against the full known trajectory, check consequential later pressures at each arc’s preflight and acceptance, and build forward through complete playable arcs. Trace the selected pressure through actual state, observer/UI, commands, settlement and recovery; keep unknowns and later refactor triggers in the owning plan. This does not prebuild every future ability or make one world’s mechanisms universal.
 
 **Developer/player distinction, 2026-11-01:** Weibao clarified that Be Klein is a developer route for now. AD44 remains the world-development and verification method; it does not select the ordinary player’s identity or knowledge. [Low-spoiler entry requirements](WORLD_ENTRY_RULES.md#developer-route-and-low-spoiler-player-starts-2026-11-01) govern the planned ordinary starts.
+
+
+## Content reconciliation B299: AD51 and developer build-through scope
+
+The complete original 109-line rulebook was reviewed. The old CLR7 row said a new verb needs a second case. [AD51](RULES_INDEX.md#accepted-direction-rules-ad) and Weibao's [later direction](USER_VISION.md#reasonable-things-get-abstracted-2026-11-03) qualify that wording: design the first useful shared mechanism when justified by known worlds, then validate/revise with another actual world. CLR7 and the rules register/router are updated accordingly, with the exact previous row preserved in this task's amendment history. This changes application of existing direction, not its authority, selection of a mechanism or current build order.
+
+The existing top-down direction accounts for the known whole trajectory while delivering complete bounded arcs; it does not require prebuilding every later faculty. The [November3 clarification](USER_VISION.md#protagonist-playthroughs-as-the-developer-build-through-2026-11-03) keeps each protagonist route as a developer build-through for ordinary and alternative lives, not the default player identity, knowledge or entire-world denominator. The [Harry selection](USER_VISION.md#harry-potter-protagonist-playthrough-starts-2026-11-03) adds his route alongside Klein while retaining LOTM-first and mechanism ownership. Forced-canon defaults belong to that selected run mode; ordinary lives do not inherit all locks or a compulsory main quest.
+
+Preserve CLR6's fold-loss test: choices, inputs/outputs, time/order, participants/place, outcome and noticed evidence survive a useful compression; lossy coverage stays a gap. The delegated grains/steps resolution and SUI1–SUI19/RPT binding defaults already have their stated authority. The remaining LSD fields, formulae, kernel/schema rounds and implementation sequence are proposals except for explicitly listed later uptake. A batched yes does not adopt material appended afterward. Current AD52 preserves meaningful choices/local consequences while compressing repeated work; long play remains welcome.
+
+Publication class, absent-versus-false, actual source paragraph, one location/state owner, natural-versus-fixture proof and no autonomous lane commits remain applicable. Old model/reader methods, schema1.5 later-option text and overnight coordination records do not launch new workers or grant current commit rights. The maintenance-check wording is clarified so actual direction changes propagate through their owners, while a routine application correction updates affected rules/router without fabricating new user direction or changing unrelated PROJECT priorities. No runtime source, primary novel, current campaign coverage or player journey was verified by this rulebook pass.

@@ -1,0 +1,21 @@
+{
+  "description": "Frozen native source/style identity, before browser comparison; local font assets separately supplied. Not installed app.",
+  "sha256": {
+    "src/main.js": "718ed4528c0120457a01081fe8354a0ba3a31021834bc9176efc0318d7cee8b1",
+    "src/display.js": "846d1a50f0c2eeec329aec2abd64b0da469640b83360cafd2c13a85862ef8979",
+    "src/proto23_shell.js": "90c14f8d4221d788e196ddc0fdb494ba2f1dd3c43c5f6c012ed6774130e740c9",
+    "src/customization_profiles.js": "c6cd7e65355aba8c1ae7f65bbdb0248484cdcfc9423bb97ea123e6ff606170af",
+    "src/component_themes.js": "95dda53349bd4fa0491ea91d8d895528f13c3b8bbe9253f79e274948b7dfeab1",
+    "src/panel_kit.js": "cc06cec525598db8c30271a776da914a7e097baeae449a795b361782c7d9eb43",
+    "src/quiet_place_detail.js": "acc92a20c5572d61c603f48cac7bd3f6a51deabf29942433cd10b7b213983aad",
+    "src/palette_feedback.js": "b7a55dacc595b9b512882956024047ad8c8a7bca27716f753b8c9122a87801b3",
+    "src/palette_feedback_domain.js": "523eda73336c402f3b445f4416477e2903057b691ee995b400cafec47739df2f",
+    "src/settled_text_effects.js": "4b7528f01de4dd2246945514b035b67768b26d71a029b8e99f7b5cd89fd8740c",
+    "src/household_scene.js": "e49b300ca65fcec00c08b96e7a4450a548f80fac3826fd186c7d30267d0d7031",
+    "src/craft_cues.js": "5f802f9a7937bbe2faf114ca5a6caec4185198f72accd2a374ab98905e1ebeb9",
+    "src/crafting_detail.js": "1d3f2f1cb2917a4c0456ddfa298ee68abf41731ed5dc2724cb253cfd46ee8fb2",
+    "styles/ui_tokens.css": "185ce6cb122eb00477837dbab7034104de334e27f05f8da47f226c5fd2d98505",
+    "styles/shell_layout.css": "c114835c8955ea66cb1183479ea10aec93698e27253ac32de046f8d3e415715f",
+    "styles/component_themes.css": "7c80e2f1f9968f6eeb706014459f8cead0697b21b47b3df3cc1ebe796e97aec0"
+  }
+}

@@ -95,3 +95,8 @@ After the last master merge, `tests/lotm_districts.test.js` test 8 failed: `sw-w
 ## Floor state
 
 Implemented and agent-verified at the unit level; **partly below the AD43 floor**: the post-merge browser pass above reached 7 of 8 views at 1920x1080 (the fight card was not reached); the other features rely on their branch evidence plus unit and contract tests. Each branch's own browser evidence is in `docs/representations/evidence/`.
+
+
+## Receipt chronology qualification, 2026-11-04 (B58)
+
+The later bullet records all eight updated proof scripts passing unpatched at1920×1080, so the final seven-of-eight reach tally is an earlier stage rather than the latest script-reach count. Preserve the exact late report_in/source-field repair and historical unit/browser inputs without promoting script reach to complete receiver/floor proof or current checkout behavior. RCT2’s declared seat-pair check was empty at the recorded snapshot. Current source field presence and historical script claims remain separate from newly rebuilt walk landing, observer privacy, persistence and other feature acceptance.

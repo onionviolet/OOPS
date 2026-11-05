@@ -462,3 +462,12 @@ The exact-title scan was independently repeated over the isolated archive. Stati
 Recorded durations are the elapsed wall time around each child `node --test` invocation, rounded to milliseconds. All paths used HEAD source from isolated archive copies; dirty test contents were not executed. Shard A’s duplicate invocation means the first observed timing for `foundation_interaction_policy.test.js` is listed. Run-to-run variability and concurrent shard load limit these figures to rough per-file cost indicators.
 
 No test or source file was edited. This document is the only requested output.
+
+
+## Complete audit and C4 outcome reconciliation, 2026-11-04
+
+Read the entire 380-file table and M/R proposals, then the full C4 checkpoint and relocation mapping. C4 supplies the actual outcome: M1 consolidated lifecycle cases, M2/R3 chose system-specific host suites, R1–R6 moved eligible cases, and two dirty world-adaptation moves stayed deferred. Its mapping records 390 original registration bodies from 46 base files retained once with imports, fixture closures and runner discovery reviewed. That is the dated consolidation proof, not a fresh assertion audit of all current tests or permission to recreate retired wave filenames (AD32, AD36).
+
+Keep invariants rather than file-count targets. Deterministic nonce versus paid practice, ordinary requests versus named-object custody, loader versus manifest/registry/save, and declared layout sizing versus incidental shape protect different behavior. No exact duplicate titles and no established candidate in a sampled semantic scan do not prove global absence of redundancy. A slow file or failed command with overwritten diagnostics is not dead-test evidence; the audit proposed no deletions.
+
+C4’s valid baseline passed 2877; the first final run retained its2876/2877 source-extraction timeout, then a named guard repair and relevant checks preceded the final2877/2877 at e9c547605. Initial listen-EPERM was an invalid environment. Root-file reduction372→360 and observed419.58→122.94seconds are different facts; varying concurrent load prevents a controlled speedup claim. Headless subdirectory files remained outside that npm glob, so those old audit failures were not closed by the full-suite count. The later landing owns primary integration, while this checkpoint preserves the lane’s earlier no-master-integration boundary. No tests, helpers, runtime, fixtures or current process/branch state changed in this reconciliation.

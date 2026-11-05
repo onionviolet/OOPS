@@ -1,0 +1,296 @@
+{
+  "schema": 1,
+  "batch": "B109",
+  "title": "Remaining body-lineage checkpoint content and late-arrival corrections",
+  "at": "2026-11-04T21:01:23.488153+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b10/CHECKPOINT.md",
+      "ids": [
+        "SO1–SO12",
+        "72/37/35 world dispositions",
+        "C1–C9"
+      ],
+      "classification": "historical completed documentation checkpoint with substantive qualifications",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/PLAN.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b10/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Keep 72 exact slugs, 37 concrete notes and 35 explicit matrix-only gaps separate; 864 cells/nine chains are documentary coverage, not all source mechanisms. Recent death versus ancient remains, consent/cruelty and copying/conservation remain world-qualified. Paused-world status is historical. Each WORLD/CHAINS body still needs its own intake read; no source-library expansion is triggered.",
+      "evidence": "Complete checkpoint body including final sibling refreshes/QA/fingerprints read. Underlying reports/spec/card/source bodies are not credited by these narrative receipts.",
+      "reopen": "Continue independent reading of remaining deliverables. Do not revive old waits/workers, impose proposed numeric gates or treat links/check counts as semantic adoption.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "b5454444c144ea14a483d1d27be090c54ae678093da48fca0de3640cfd345e11",
+      "input_lines": 14,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          14
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b11/CHECKPOINT.md",
+      "ids": [
+        "steps 1–4",
+        "B2/B6 late arrivals",
+        "capacity/outcome checks"
+      ],
+      "classification": "historical completed documentation checkpoint with substantive qualifications",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/PLAN.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b11/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Preserve later B6 readback overriding the initial absent SAMPLES/REPORT snapshot, typed source qualification and shared archive/fresh-body lifecycle. Outcome tables/exact draw arithmetic and locator hashes are document checks, not actual assays/application/birth or storage. A proposed rest route avoids granting a body faculty simply to recover; it was not implemented by the checkpoint. B95 separately read its unrun TEST_PLAN, not the complete AUDIT/SPEC.",
+      "evidence": "Complete checkpoint body including final sibling refreshes/QA/fingerprints read. Underlying reports/spec/card/source bodies are not credited by these narrative receipts.",
+      "reopen": "Continue independent reading of remaining deliverables. Do not revive old waits/workers, impose proposed numeric gates or treat links/check counts as semantic adoption.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "db3bd852c6e0c87bda33f9b128384fc3a460066d7291ea99020351ec54dca970",
+      "input_lines": 35,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          35
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b12/CHECKPOINT.md",
+      "ids": [
+        "32 MI/MG/MB/MH/MP rows",
+        "29 gaps",
+        "FL001–FL072/216 lines"
+      ],
+      "classification": "historical completed documentation checkpoint with substantive qualifications",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/PLAN.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b12/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Retain microconsumer mapping and degree-specific proposed effects, but 29 partial/missing rows are dated bounded negative searches, not current absence. Seventy-two phase sets/216 short flavor lines do not prove the linked mechanics or grant extra state/XP. MI6/MG6/MP3 first-slice ranking is a candidate and integration depends on selected actual B2 consumers. Parser correction and 93 locator checks are document integrity only.",
+      "evidence": "Complete checkpoint body including final sibling refreshes/QA/fingerprints read. Underlying reports/spec/card/source bodies are not credited by these narrative receipts.",
+      "reopen": "Continue independent reading of remaining deliverables. Do not revive old waits/workers, impose proposed numeric gates or treat links/check counts as semantic adoption.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "1337a5144ecd895e01b6bff65b777eaa447e3c7b52bc8a468a76cad6b0d8c933",
+      "input_lines": 37,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          37
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b13/CHECKPOINT.md",
+      "ids": [
+        "LA1–LA12",
+        "BC1–BC9",
+        "DT1–DT7",
+        "ES1–ES8",
+        "SD1–SD6"
+      ],
+      "classification": "historical completed documentation checkpoint with substantive qualifications",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/PLAN.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b13/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Later source refresh explicitly supersedes initial no-storylets: P3 definitions/deck/UI/imports arrived in the shared tree. Preserve observation timing, independent versus correlated evidence, partial/negative/inconclusive results, diagnosis means and error costs. Three specified journeys/five future gates are unplayed. Actual knowledge-stage overwrite and proposed evidence corrections need their own consumers, not an automatic new diagnosis engine.",
+      "evidence": "Complete checkpoint body including final sibling refreshes/QA/fingerprints read. Underlying reports/spec/card/source bodies are not credited by these narrative receipts.",
+      "reopen": "Continue independent reading of remaining deliverables. Do not revive old waits/workers, impose proposed numeric gates or treat links/check counts as semantic adoption.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "87169d85f86ad50d11ebc74d57e982536d2534ac7758828998132e9b760d38b7",
+      "input_lines": 23,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          23
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b14/CHECKPOINT.md",
+      "ids": [
+        "30+10 rows",
+        "E01–E41",
+        "P3 source arrival"
+      ],
+      "classification": "historical completed documentation checkpoint with substantive qualifications",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/PLAN.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b14/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Final 41 shapes exceed the initial at-least-25 target, with original 30 plus ten added conceptual rows; these are distinct denominators. P3 final source arrival supersedes early absence, and unflagged blocking versus nonblocking decisions remain distinguished. Keep known-change versus hidden change, correlation, permission/memory, real clocks and repeated occurrences. No seed/card/row count establishes played outcomes or global social simulation.",
+      "evidence": "Complete checkpoint body including final sibling refreshes/QA/fingerprints read. Underlying reports/spec/card/source bodies are not credited by these narrative receipts.",
+      "reopen": "Continue independent reading of remaining deliverables. Do not revive old waits/workers, impose proposed numeric gates or treat links/check counts as semantic adoption.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "d131d4cecd13909d517feedd76dcb3bc38a7381d760eda8d7cdf9374a19c69ed",
+      "input_lines": 46,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          46
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b15/CHECKPOINT.md",
+      "ids": [
+        "CV1–CV12",
+        "CA1–CA10",
+        "22 payload checks",
+        "S/N/P/L unrun"
+      ],
+      "classification": "historical completed documentation checkpoint with substantive qualifications",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/PLAN.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b15/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Twenty-two strict cards validated/granted/JSON-roundtripped at source level do not execute their inert hooks or enable a useful body lens. Final B12–B14 readback supersedes initial missing reports; no broad social/NPC implementation prerequisite follows. Keep observer-known staleness, permission versus memory, conflict records and durable enable. B95 already read the full unrun acceptance matrix; generic host durability does not close CV1-specific proof.",
+      "evidence": "Complete checkpoint body including final sibling refreshes/QA/fingerprints read. Underlying reports/spec/card/source bodies are not credited by these narrative receipts.",
+      "reopen": "Continue independent reading of remaining deliverables. Do not revive old waits/workers, impose proposed numeric gates or treat links/check counts as semantic adoption.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "22a84eeecf0fa02161040d0f88bfe95e6e3cc1167680073d62a3b0dfcf39885f",
+      "input_lines": 44,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          44
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b16/CHECKPOINT.md",
+      "ids": [
+        "two scheduled refreshes",
+        "C1–C23",
+        "23 nodes/57 edges"
+      ],
+      "classification": "historical completed documentation checkpoint with substantive qualifications",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/PLAN.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b16/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Final two timed refreshes read all B1–B15 reports, superseding initial report-pending snapshots. Historical waiting instructions/timestamps are not current schedules to resume. Acyclic graph, 23 nodes/57 edges and source hashes describe proposal dependencies, not build order or implementation. B7 optional reuse for authored family UI/pure forecasts remains important; no population simulation gate is created. Source edits and later accepted direction may change individual edges without invalidating all retained ideas.",
+      "evidence": "Complete checkpoint body including final sibling refreshes/QA/fingerprints read. Underlying reports/spec/card/source bodies are not credited by these narrative receipts.",
+      "reopen": "Continue independent reading of remaining deliverables. Do not revive old waits/workers, impose proposed numeric gates or treat links/check counts as semantic adoption.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "2cfa6d2cba3a1871c981fdca0c7067d7cd4fa2ebccf826738ba95ee66711dd92",
+      "input_lines": 33,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          33
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b17/CHECKPOINT.md",
+      "ids": [
+        "CB1–CB23",
+        "CC1–CC6",
+        "G77",
+        "SB1–SB10"
+      ],
+      "classification": "historical completed documentation checkpoint with substantive qualifications",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/PLAN.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b17/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Keep digest/failed-dump/indexed-publisher/primary-passage tiers and exact comic evidence gaps. Later K3 report arrival supersedes initial absence for that named return; K1/K4/K5 checkpoint-only statuses and K6 duplicate are dated snapshots, not live reservations. Eight added patterns and ten original stand-ins are proposals, not canon or implemented source. Existing-row reconciliation and no-prefix-collision checks do not prove shared-owner adoption.",
+      "evidence": "Complete checkpoint body including final sibling refreshes/QA/fingerprints read. Underlying reports/spec/card/source bodies are not credited by these narrative receipts.",
+      "reopen": "Continue independent reading of remaining deliverables. Do not revive old waits/workers, impose proposed numeric gates or treat links/check counts as semantic adoption.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "1feaa530d8685a1afa07f6b9d32ad66f91da27a1ae2aac540420e5d3aad56174",
+      "input_lines": 46,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          46
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b18/CHECKPOINT.md",
+      "ids": [
+        "AB1–AB12",
+        "CA1–CA10",
+        "12 source fingerprints"
+      ],
+      "classification": "historical completed documentation checkpoint with substantive qualifications",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/PLAN.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b18/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Preserve named-stream existing-family versus unsupported body namespaces, positive source grants versus costs, faculty booleans versus development and same-key stage replacement. B84 separately reviewed CODE_MAP; current B107 corrects older blanket absence of card-specific heir carry. Estate/genealogy/soul remain different, and the five proposed interfaces/minimal set do not implement them. Hash/locator stability and late B15/W18 arrival are exact historical doc/source evidence, not current runtime joins.",
+      "evidence": "Complete checkpoint body including final sibling refreshes/QA/fingerprints read. Underlying reports/spec/card/source bodies are not credited by these narrative receipts.",
+      "reopen": "Continue independent reading of remaining deliverables. Do not revive old waits/workers, impose proposed numeric gates or treat links/check counts as semantic adoption.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "076f8184eaa8808da659c6f2c0c7f74d22dad9fc89a0b7c90126279b7f78f806",
+      "input_lines": 15,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b2/CHECKPOINT.md",
+      "ids": [
+        "steps 1–5",
+        "SG split",
+        "G24/G25",
+        "formulas/bytes"
+      ],
+      "classification": "historical completed documentation checkpoint with substantive qualifications",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/PLAN.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b2/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Keep replace-owned-bonus semantics, exact legacy address/age spellings and concrete pursuit consumer instead of invented generic stealth. The 660/1320 byte sample and multiplier arithmetic describe a sample, not a full save/quota or native stat proof. Current-state persistence still matters while historical legacy migration is optional; no new body record, source enrollment or trait grant is made by reading a proposal. B95 independently read the full NOT RUN test matrix; other B2 source/spec/migration bodies retain their own coverage.",
+      "evidence": "Complete checkpoint body including final sibling refreshes/QA/fingerprints read. Underlying reports/spec/card/source bodies are not credited by these narrative receipts.",
+      "reopen": "Continue independent reading of remaining deliverables. Do not revive old waits/workers, impose proposed numeric gates or treat links/check counts as semantic adoption.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "fac0284d331c0eea4b1a1efbb54da5b6a1b0bc2c69f1cd02f8a89f24c75ffeca",
+      "input_lines": 56,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          56
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/PLAN.md",
+      "heading": "## Remaining-checkpoint reconciliation B109, 2026-11-04",
+      "body": "All B1–B18 checkpoint bodies now have explicit dispositions (B3 in B107, B1/B4–B9 in B108, remaining checkpoints here). This closes only checkpoint bodies, not the linked reports, matrices, source cards, proposals or tests.\n\nKeep 72 exact slugs, 37 concrete notes and 35 explicit matrix-only gaps separate; 864 cells/nine chains are documentary coverage, not all source mechanisms. Recent death versus ancient remains, consent/cruelty and copying/conservation remain world-qualified. Paused-world status is historical. Each WORLD/CHAINS body still needs its own intake read; no source-library expansion is triggered.\n\nPreserve later B6 readback overriding the initial absent SAMPLES/REPORT snapshot, typed source qualification and shared archive/fresh-body lifecycle. Outcome tables/exact draw arithmetic and locator hashes are document checks, not actual assays/application/birth or storage. A proposed rest route avoids granting a body faculty simply to recover; it was not implemented by the checkpoint. B95 separately read its unrun TEST_PLAN, not the complete AUDIT/SPEC.\n\nRetain microconsumer mapping and degree-specific proposed effects, but 29 partial/missing rows are dated bounded negative searches, not current absence. Seventy-two phase sets/216 short flavor lines do not prove the linked mechanics or grant extra state/XP. MI6/MG6/MP3 first-slice ranking is a candidate and integration depends on selected actual B2 consumers. Parser correction and 93 locator checks are document integrity only.\n\nLater source refresh explicitly supersedes initial no-storylets: P3 definitions/deck/UI/imports arrived in the shared tree. Preserve observation timing, independent versus correlated evidence, partial/negative/inconclusive results, diagnosis means and error costs. Three specified journeys/five future gates are unplayed. Actual knowledge-stage overwrite and proposed evidence corrections need their own consumers, not an automatic new diagnosis engine.\n\nFinal 41 shapes exceed the initial at-least-25 target, with original 30 plus ten added conceptual rows; these are distinct denominators. P3 final source arrival supersedes early absence, and unflagged blocking versus nonblocking decisions remain distinguished. Keep known-change versus hidden change, correlation, permission/memory, real clocks and repeated occurrences. No seed/card/row count establishes played outcomes or global social simulation.\n\nTwenty-two strict cards validated/granted/JSON-roundtripped at source level do not execute their inert hooks or enable a useful body lens. Final B12–B14 readback supersedes initial missing reports; no broad social/NPC implementation prerequisite follows. Keep observer-known staleness, permission versus memory, conflict records and durable enable. B95 already read the full unrun acceptance matrix; generic host durability does not close CV1-specific proof.\n\nFinal two timed refreshes read all B1–B15 reports, superseding initial report-pending snapshots. Historical waiting instructions/timestamps are not current schedules to resume. Acyclic graph, 23 nodes/57 edges and source hashes describe proposal dependencies, not build order or implementation. B7 optional reuse for authored family UI/pure forecasts remains important; no population simulation gate is created. Source edits and later accepted direction may change individual edges without invalidating all retained ideas.\n\nKeep digest/failed-dump/indexed-publisher/primary-passage tiers and exact comic evidence gaps. Later K3 report arrival supersedes initial absence for that named return; K1/K4/K5 checkpoint-only statuses and K6 duplicate are dated snapshots, not live reservations. Eight added patterns and ten original stand-ins are proposals, not canon or implemented source. Existing-row reconciliation and no-prefix-collision checks do not prove shared-owner adoption.\n\nPreserve named-stream existing-family versus unsupported body namespaces, positive source grants versus costs, faculty booleans versus development and same-key stage replacement. B84 separately reviewed CODE_MAP; current B107 corrects older blanket absence of card-specific heir carry. Estate/genealogy/soul remain different, and the five proposed interfaces/minimal set do not implement them. Hash/locator stability and late B15/W18 arrival are exact historical doc/source evidence, not current runtime joins.\n\nKeep replace-owned-bonus semantics, exact legacy address/age spellings and concrete pursuit consumer instead of invented generic stealth. The 660/1320 byte sample and multiplier arithmetic describe a sample, not a full save/quota or native stat proof. Current-state persistence still matters while historical legacy migration is optional; no new body record, source enrollment or trait grant is made by reading a proposal. B95 independently read the full NOT RUN test matrix; other B2 source/spec/migration bodies retain their own coverage.",
+      "before_sha256": "dee8eafebe713596235c82bf1ecf6c60577fd71a3afd1833629abbcd664400d7",
+      "after_sha256": "13cf81506e50938e333ae64ded36e4ef9edb7b1196ab4f762a1d7e5b40631971"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1247
+}

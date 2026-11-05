@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "batch": "B93",
+  "title": "Fact vocabulary, resolver feasibility and vitals survey",
+  "at": "2026-11-04T20:45:33.168148+00:00",
+  "head": "a4bebe24faffd52190c7e93bdc6d3fff91fa145c",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/world_dials_2026-10-19/L1_FACT_VOCABULARY.md",
+      "ids": [
+        "sections 1–12",
+        "N1–N5",
+        "C1–C8",
+        "S1",
+        "Q1–Q7"
+      ],
+      "classification": "qualified governance and resolver/meter feasibility proposals",
+      "owners": [
+        "docs/audits/world_dials_2026-10-19/L1_FACT_VOCABULARY.md",
+        "docs/WORLD_DIALS_AND_INTERPRETER_CONSIDERATIONS_2026-10-19.md"
+      ],
+      "disposition": "Retain the proposed registry fields, lifecycle, observer split, N1–N5 and C1–C8 with explicit implementation limits. MQ-A/B92 already settles L1 Q1/Q2: input.mass is fictional-mass (1000 per pack, 2000-reference dose), not inferred grams; procedure.process is the Village enumeration, with a separate frontier operation list. A {name:type} adapter cannot by itself enforce enum membership, units, revision locks, producer coverage or observer scope. S1’s claimed behavior neutrality therefore needs those actual checks; factRefs also changes the lock contract and is not a free no-format-change addition. N2’s asserted check:rules content corpus was only inference, not an existing checker capability. N5’s second-mechanism-fact requirement must not force dummy facts when designated identity is the real mechanism. Truth/knowledge means actual actor belief or understanding may affect a mechanism; labels alone do not confer authority. Keep unknown facts unknown and explanations projected. Registry, snapshot, migration and all-owner claims remain proposals, not new universal gates.",
+      "evidence": "Complete original document read; selected rule_modules.js predicates/exports/target literals and simulation_contracts.js vital allow-lists inspected for the named current claims. Owner return sections 135–204 and 267–281 read, not whole owner.",
+      "reopen": "A selected consumer needs current source, saved-lock/receipt compatibility and actual verification; no registry, new pool, migration or worktree is authorized by these proposals.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "5d1efe49222f3eee863baf6e32818afade9c81242e2cf72709482ac145e0583f",
+      "input_lines": 354,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          354
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/world_dials_2026-10-19/L2_RESOLVER_FEASIBILITY.md",
+      "ids": [
+        "WR3/WR8/heredity",
+        "E1–E5",
+        "T1–T10",
+        "R1–R8",
+        "sections 1–12"
+      ],
+      "classification": "qualified governance and resolver/meter feasibility proposals",
+      "owners": [
+        "docs/audits/world_dials_2026-10-19/L2_RESOLVER_FEASIBILITY.md",
+        "docs/WORLD_DIALS_AND_INTERPRETER_CONSIDERATIONS_2026-10-19.md"
+      ],
+      "disposition": "Retain WR3/WR8/heredity examples, E1–E5, T1–T10 and R1–R8 as a source-level feasibility proposal. Current targeted rule_modules.js inspection still shows five default facts, injected fact types, one target, village.mix@2 literals and the original conflict message; this narrow source limitation remains, not a new failing runtime test. No module means no substitution policy only because the domain matcher supplies the refusal; absence of a module alone is not a general gate. Band specificity chooses an edge winner but must state the intended interval; facts support not/all/any predicates, not arbitrary numeric curves. Parameter suggestions are not capabilities until the body consumer grants them. Stateless resolver edits can still change saved consumer locks/receipts, so verify default equivalence before claiming no compatibility impact. AD51 allows designing from known world needs before a second implemented world; current AD41 does not require a new worktree. Keep actual target isolation, base and receiver checks when a slice is selected, without dispatching it here.",
+      "evidence": "Complete original document read; selected rule_modules.js predicates/exports/target literals and simulation_contracts.js vital allow-lists inspected for the named current claims. Owner return sections 135–204 and 267–281 read, not whole owner.",
+      "reopen": "A selected consumer needs current source, saved-lock/receipt compatibility and actual verification; no registry, new pool, migration or worktree is authorized by these proposals.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "637c5ab4be9e40bcc49dbf74cc6c170a728f812af938e9cea24e708501947787",
+      "input_lines": 270,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          270
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/world_dials_2026-10-19/M1_VITALS_READERS.md",
+      "ids": [
+        "M1-1–M1-3",
+        "M3 first-slice proposal",
+        "reader counts and three gates"
+      ],
+      "classification": "qualified governance and resolver/meter feasibility proposals",
+      "owners": [
+        "docs/audits/world_dials_2026-10-19/M1_VITALS_READERS.md",
+        "docs/WORLD_DIALS_AND_INTERPRETER_CONSIDERATIONS_2026-10-19.md"
+      ],
+      "disposition": "Preserve M1-1–M1-3 as a dated reader survey, not an exhaustive present-day count or a two-edit effort guarantee. Current selected simulation_contracts.js still restricts vital effects and saved vital keys to health/stamina, but this does not prove all consumers, native sync, capacity/death rules or save behavior support a new key. Pool, accumulator, capacity and incapacitation semantics require their real owners. Energy-backed spirituality/strain meters are presentation over existing state and did not inherently add saved fields; this supersedes WDI55’s earlier assumed first-meter migration. The owner’s later M3 paragraph records code/tests and DOM values with explicit pixel/native persistence gaps; M1 alone does not close them. No fresh build/browser or meter acceptance is claimed.",
+      "evidence": "Complete original document read; selected rule_modules.js predicates/exports/target literals and simulation_contracts.js vital allow-lists inspected for the named current claims. Owner return sections 135–204 and 267–281 read, not whole owner.",
+      "reopen": "A selected consumer needs current source, saved-lock/receipt compatibility and actual verification; no registry, new pool, migration or worktree is authorized by these proposals.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "b3f0671a61b4d6c9b69ceb2aa2a788c9c2cc1e82dbacc085befd75a156be150e",
+      "input_lines": 45,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          45
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/world_dials_2026-10-19/L1_FACT_VOCABULARY.md",
+      "heading": "## Reconciliation B93, 2026-11-04",
+      "body": "Retain the proposed registry fields, lifecycle, observer split, N1–N5 and C1–C8 with explicit implementation limits. MQ-A/B92 already settles L1 Q1/Q2: input.mass is fictional-mass (1000 per pack, 2000-reference dose), not inferred grams; procedure.process is the Village enumeration, with a separate frontier operation list. A {name:type} adapter cannot by itself enforce enum membership, units, revision locks, producer coverage or observer scope. S1’s claimed behavior neutrality therefore needs those actual checks; factRefs also changes the lock contract and is not a free no-format-change addition. N2’s asserted check:rules content corpus was only inference, not an existing checker capability. N5’s second-mechanism-fact requirement must not force dummy facts when designated identity is the real mechanism. Truth/knowledge means actual actor belief or understanding may affect a mechanism; labels alone do not confer authority. Keep unknown facts unknown and explanations projected. Registry, snapshot, migration and all-owner claims remain proposals, not new universal gates.",
+      "before_sha256": "5d1efe49222f3eee863baf6e32818afade9c81242e2cf72709482ac145e0583f",
+      "after_sha256": "1386aebe8db2a3931c5f2608c2778028c6df50246ddbc6cad91ad603b90f03e0"
+    },
+    {
+      "path": "docs/audits/world_dials_2026-10-19/L2_RESOLVER_FEASIBILITY.md",
+      "heading": "## Reconciliation B93, 2026-11-04",
+      "body": "Retain WR3/WR8/heredity examples, E1–E5, T1–T10 and R1–R8 as a source-level feasibility proposal. Current targeted rule_modules.js inspection still shows five default facts, injected fact types, one target, village.mix@2 literals and the original conflict message; this narrow source limitation remains, not a new failing runtime test. No module means no substitution policy only because the domain matcher supplies the refusal; absence of a module alone is not a general gate. Band specificity chooses an edge winner but must state the intended interval; facts support not/all/any predicates, not arbitrary numeric curves. Parameter suggestions are not capabilities until the body consumer grants them. Stateless resolver edits can still change saved consumer locks/receipts, so verify default equivalence before claiming no compatibility impact. AD51 allows designing from known world needs before a second implemented world; current AD41 does not require a new worktree. Keep actual target isolation, base and receiver checks when a slice is selected, without dispatching it here.",
+      "before_sha256": "637c5ab4be9e40bcc49dbf74cc6c170a728f812af938e9cea24e708501947787",
+      "after_sha256": "0f6842f1dbeee466ca5e1be69c205b6cb2953b577647ab0de747dda5c873b1bb"
+    },
+    {
+      "path": "docs/audits/world_dials_2026-10-19/M1_VITALS_READERS.md",
+      "heading": "## Reconciliation B93, 2026-11-04",
+      "body": "Preserve M1-1–M1-3 as a dated reader survey, not an exhaustive present-day count or a two-edit effort guarantee. Current selected simulation_contracts.js still restricts vital effects and saved vital keys to health/stamina, but this does not prove all consumers, native sync, capacity/death rules or save behavior support a new key. Pool, accumulator, capacity and incapacitation semantics require their real owners. Energy-backed spirituality/strain meters are presentation over existing state and did not inherently add saved fields; this supersedes WDI55’s earlier assumed first-meter migration. The owner’s later M3 paragraph records code/tests and DOM values with explicit pixel/native persistence gaps; M1 alone does not close them. No fresh build/browser or meter acceptance is claimed.",
+      "before_sha256": "b3f0671a61b4d6c9b69ceb2aa2a788c9c2cc1e82dbacc085befd75a156be150e",
+      "after_sha256": "523fe6744f7b72f879d531e0c0a2336bab4a0f3efa9d63724481f1bff612abe2"
+    },
+    {
+      "path": "docs/WORLD_DIALS_AND_INTERPRETER_CONSIDERATIONS_2026-10-19.md",
+      "heading": "## Governance and meter reconciliation B93, 2026-11-04",
+      "body": "Retain the proposed registry fields, lifecycle, observer split, N1–N5 and C1–C8 with explicit implementation limits. MQ-A/B92 already settles L1 Q1/Q2: input.mass is fictional-mass (1000 per pack, 2000-reference dose), not inferred grams; procedure.process is the Village enumeration, with a separate frontier operation list. A {name:type} adapter cannot by itself enforce enum membership, units, revision locks, producer coverage or observer scope. S1’s claimed behavior neutrality therefore needs those actual checks; factRefs also changes the lock contract and is not a free no-format-change addition. N2’s asserted check:rules content corpus was only inference, not an existing checker capability. N5’s second-mechanism-fact requirement must not force dummy facts when designated identity is the real mechanism. Truth/knowledge means actual actor belief or understanding may affect a mechanism; labels alone do not confer authority. Keep unknown facts unknown and explanations projected. Registry, snapshot, migration and all-owner claims remain proposals, not new universal gates.\n\nRetain WR3/WR8/heredity examples, E1–E5, T1–T10 and R1–R8 as a source-level feasibility proposal. Current targeted rule_modules.js inspection still shows five default facts, injected fact types, one target, village.mix@2 literals and the original conflict message; this narrow source limitation remains, not a new failing runtime test. No module means no substitution policy only because the domain matcher supplies the refusal; absence of a module alone is not a general gate. Band specificity chooses an edge winner but must state the intended interval; facts support not/all/any predicates, not arbitrary numeric curves. Parameter suggestions are not capabilities until the body consumer grants them. Stateless resolver edits can still change saved consumer locks/receipts, so verify default equivalence before claiming no compatibility impact. AD51 allows designing from known world needs before a second implemented world; current AD41 does not require a new worktree. Keep actual target isolation, base and receiver checks when a slice is selected, without dispatching it here.\n\nPreserve M1-1–M1-3 as a dated reader survey, not an exhaustive present-day count or a two-edit effort guarantee. Current selected simulation_contracts.js still restricts vital effects and saved vital keys to health/stamina, but this does not prove all consumers, native sync, capacity/death rules or save behavior support a new key. Pool, accumulator, capacity and incapacitation semantics require their real owners. Energy-backed spirituality/strain meters are presentation over existing state and did not inherently add saved fields; this supersedes WDI55’s earlier assumed first-meter migration. The owner’s later M3 paragraph records code/tests and DOM values with explicit pixel/native persistence gaps; M1 alone does not close them. No fresh build/browser or meter acceptance is claimed.",
+      "before_sha256": "cecf3d4a551cb410804704591e835c3cd92664b1210ef05e3fdcfe3467ef625d",
+      "after_sha256": "d54341249ba9d0495cff3f7d8317188c64e1f3365307076974350be7829247d9"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1323
+}

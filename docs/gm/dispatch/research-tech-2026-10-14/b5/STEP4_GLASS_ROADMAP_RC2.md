@@ -43,3 +43,8 @@ Stop for unaccepted step 3; unreleased shared writer; unreviewed merged base; un
 
 High-capability Codex executor, high effort for the native planner/receipt and cheat capability joins; medium for layout after those contracts pass. Integrator reviews the compatibility and disclosure evidence. One executor with one named integrator/reviewer; no parallel shared-file writers implied. Weibao owns fiction, pacing, balance and feel acceptance.
 
+
+
+## Later authorization and current workflow, 2026-11-04 (B88)
+
+The parent TECHNOLOGY_AND_PROGRESSION now explicitly records later authorization to prepare all four B5 prompts; CN14’s older write-only-after-acceptance wording no longer blocks their preparation. This packet remains a conditional execution proposal, not an implementation dispatch. Its preceding playable gate is separate from optional human feedback under AD42; current AD36/AD43 proof and AD41’s primary-checkout default supersede blanket human/worktree stops. Retain the actual learned glass → held material → useful vessel consumer, scoped acquired RC2 versus native core stats, real quantities/access and preserved pin/handler meaning. A planner graph, demo receipt or card schema does not execute stock/work or reveal all truth. The old one-realm cap and 1366 target are retired; current world focus, desktop targets, compatibility and live writer ownership govern selected work. No runtime/source acquisition or new model/reviewer/commit is authorized here (AD32).

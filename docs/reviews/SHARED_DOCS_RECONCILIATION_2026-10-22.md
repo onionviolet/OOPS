@@ -120,3 +120,10 @@ Other chats' pre-existing uncommitted book-world, workflow, acquisition and
 cleanup work is preserved. These local shared-doc changes are available to
 future chats using this checkout; they are not committed or published by this
 task. A separate checkout sees them only after an authorized transfer/integration.
+
+
+## Content reconciliation B158, 2026-11-04
+
+The full shared-doc receipt, all inspected tracks/chat references and V1-V4 were read. Preserve the important time boundary: the initial 759/759 source-input match was followed by another writer's real cultivation/UI/build changes. Matching the earlier manifest does not certify those later bytes. Likewise, public release ancestry, installed served-file identity, recovered media26/26, proposed profile41 rows and an81-test diagnostic all describe different outputs.
+
+Its opening current-route anchors, release names, live chats and ownership were correct claims for that historical inspection, not current app/worker facts. Current PROJECT, RULES_INDEX, writeup register and selected execution owners route new work. The 2516-test/browser/Electron proof was reused from a named release and was not rerun by either that document audit or this reconciliation. Human taste is optional feedback under AD42; technical evidence keeps its original input identity. No old source pause, publication instruction, all-world gate or personal-save transfer is revived (AD32, AD36, AD41).

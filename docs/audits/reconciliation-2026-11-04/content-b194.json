@@ -1,0 +1,175 @@
+{
+  "schema": 1,
+  "batch": "B194",
+  "title": "Foundation round reconciliations and actual terminal chain state",
+  "at": "2026-11-04T22:50:18.109520+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r10/RECONCILIATION_NOTES.md",
+      "ids": [
+        "R10 F1–F4"
+      ],
+      "classification": "Historical prompt-reconciliation or chain/checkpoint evidence",
+      "owners": [
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md"
+      ],
+      "disposition": "Separate natural balance vs acquired grip/rope; predecessor exact release, one ready uncovered leaf, immutable total budget; review prose is no source/gameplay proof.",
+      "evidence": "Fresh full body read. No underlying chat response/screenshot, transfer JSON, private profile, worker log, current branch/remote or process inspection. Review setting High3of3 is observed setting, not a verified model name.",
+      "reopen": "Only selected current foundation consumer or exact receipt discrepancy; inspect current ownership/input before any resumption. Historical commands/approvals do not authorize execution here.",
+      "input_sha256": "38bc98651b8c4c4e4019d86cdff8ce4f2f8532fc8fa3042ee4231b8b48881d07",
+      "input_lines": 6,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          6
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r11/RECONCILIATION_NOTES.md",
+      "ids": [
+        "R11 F1–F4"
+      ],
+      "classification": "Historical prompt-reconciliation or chain/checkpoint evidence",
+      "owners": [
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md"
+      ],
+      "disposition": "Correct nativePatch, authorized narrow local-life action, final-chain recovery timing; R10 snapshots unavailable and never reconstructed.",
+      "evidence": "Fresh full body read. No underlying chat response/screenshot, transfer JSON, private profile, worker log, current branch/remote or process inspection. Review setting High3of3 is observed setting, not a verified model name.",
+      "reopen": "Only selected current foundation consumer or exact receipt discrepancy; inspect current ownership/input before any resumption. Historical commands/approvals do not authorize execution here.",
+      "input_sha256": "2aa3f6604eb422a9da4f22c454d1f3eb6c3f6e6114dfa2138d8ea2bc4886d572",
+      "input_lines": 6,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          6
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r12/RECONCILIATION_NOTES.md",
+      "ids": [
+        "R12 F1–F3"
+      ],
+      "classification": "Historical prompt-reconciliation or chain/checkpoint evidence",
+      "owners": [
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md"
+      ],
+      "disposition": "Identified-object container clock locator distinct from capability expiry/Eda loan; applicability and existing consumer first; no generic inventory framework.",
+      "evidence": "Fresh full body read. No underlying chat response/screenshot, transfer JSON, private profile, worker log, current branch/remote or process inspection. Review setting High3of3 is observed setting, not a verified model name.",
+      "reopen": "Only selected current foundation consumer or exact receipt discrepancy; inspect current ownership/input before any resumption. Historical commands/approvals do not authorize execution here.",
+      "input_sha256": "a9701c2b39c4d6098c02d21c92f32ab1f1690f0488079d9cc383d027c8a30edf",
+      "input_lines": 5,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          5
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r13/RECONCILIATION_NOTES.md",
+      "ids": [
+        "R13 F1–F3"
+      ],
+      "classification": "Historical prompt-reconciliation or chain/checkpoint evidence",
+      "owners": [
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md"
+      ],
+      "disposition": "Facilities/support/allocation evidence distinct; correct purse1020 to102 with zero paid; source-only FA18 does not prove natural paid journey.",
+      "evidence": "Fresh full body read. No underlying chat response/screenshot, transfer JSON, private profile, worker log, current branch/remote or process inspection. Review setting High3of3 is observed setting, not a verified model name.",
+      "reopen": "Only selected current foundation consumer or exact receipt discrepancy; inspect current ownership/input before any resumption. Historical commands/approvals do not authorize execution here.",
+      "input_sha256": "c1291b87fbfa64f3e33db75083d980a521ff4caf5c619cd887af58b6eac484fb",
+      "input_lines": 5,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          5
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r14/RECONCILIATION_NOTES.md",
+      "ids": [
+        "R14 F1–F3"
+      ],
+      "classification": "Historical prompt-reconciliation or chain/checkpoint evidence",
+      "owners": [
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md"
+      ],
+      "disposition": "Recovery applicability, actual independent finding review and technical verification separate from human assessment; zero attempts does not renew allowance.",
+      "evidence": "Fresh full body read. No underlying chat response/screenshot, transfer JSON, private profile, worker log, current branch/remote or process inspection. Review setting High3of3 is observed setting, not a verified model name.",
+      "reopen": "Only selected current foundation consumer or exact receipt discrepancy; inspect current ownership/input before any resumption. Historical commands/approvals do not authorize execution here.",
+      "input_sha256": "8a27179d884cdc23a274f3345d5d8aa13eabaff9243904f742b8cead509bd9ab",
+      "input_lines": 5,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          5
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r12/CHECKPOINT_BEFORE_R12.md",
+      "ids": [
+        "R12 prelaunch checkpoint"
+      ],
+      "classification": "Historical prompt-reconciliation or chain/checkpoint evidence",
+      "owners": [
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md"
+      ],
+      "disposition": "Temporary writer/transfer and chain-horizon snapshot; FA18 implemented-unverified with native error stop, zero payment and natural use/export/import still open; R8 fail-closed and R10 unavailable state retained.",
+      "evidence": "Fresh full body read. No underlying chat response/screenshot, transfer JSON, private profile, worker log, current branch/remote or process inspection. Review setting High3of3 is observed setting, not a verified model name.",
+      "reopen": "Only selected current foundation consumer or exact receipt discrepancy; inspect current ownership/input before any resumption. Historical commands/approvals do not authorize execution here.",
+      "input_sha256": "aebe4ad779c31ab06a3fb66bb539ed95ab0ff9e4b3c3437d1c410b98cd419faf",
+      "input_lines": 5,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          5
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+      "ids": [
+        "R15 final history"
+      ],
+      "classification": "Historical prompt-reconciliation or chain/checkpoint evidence",
+      "owners": [
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md"
+      ],
+      "disposition": "Final dated stopped/deadline and ended incomplete W1 supersede initial active launch/watch. Four merged snapshots have distinct counts/builds; W1 exact tip had tests but unmerged and all15sectiongatesopen at that date. No current branch/process/remote inference.",
+      "evidence": "Fresh full body read. No underlying chat response/screenshot, transfer JSON, private profile, worker log, current branch/remote or process inspection. Review setting High3of3 is observed setting, not a verified model name.",
+      "reopen": "Only selected current foundation consumer or exact receipt discrepancy; inspect current ownership/input before any resumption. Historical commands/approvals do not authorize execution here.",
+      "input_sha256": "3c8986eb4ad834688c6a400f3e39afd6ef72e03bf43956116d2baf3a28da8c27",
+      "input_lines": 67,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          67
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+      "heading": "## Round-note and terminal-state content reconciliation, 2026-11-04",
+      "body": "Full review of R10–R14 reconciliation notes, the pre-R12 checkpoint and this R15 checkpoint preserves their corrections before reusing the prompts. Review setting High3of3 was observed, while the model name was not displayed. Full copied replies/screenshots are reported artifacts, not inspected source or played outcomes here. The notes correct real distinctions: natural balance versus acquired grip/rope; identified-object container boundaries versus capability expiry or the Eda loan; actual facility allocation versus plausible station names; and 102 coins/zero paid versus the erroneous 1020. None creates a generic inventory, support or recovery framework (AD32, AD36).\n\nPre-R12’s error-stopped natural action and retained profile do not prove payment, useful food or changed positive import. R10 post-attempt state was unavailable and was not reconstructed; R8 fail-closed remains history. Zero attempts used does not grant another allowance, and exact predecessor release cannot be inferred from a proposed handoff. Later R15 integrations supersede earlier pending states only for their named groups and snapshots. Preserve the 618/621/628/634 test counts separately and the initial CH1 interrupted gate before its successful retry.\n\nThe final October 14 entries override the initial active/watch instructions: the coordinator stopped, W1 ended incomplete with all 15 section gates open and its exact tested tip unmerged at that check. These are dated statements, not current blockers, live processes or renewed merge/push/resume authority. The original recovery routes, useful open leaves and worker evidence remain intact. No profile, private companion, live worker, remote state, test or gameplay was accessed by this documentation review.",
+      "before_sha256": "3c8986eb4ad834688c6a400f3e39afd6ef72e03bf43956116d2baf3a28da8c27",
+      "after_sha256": "080983fc25ea67c96c21e5966a34ec36ecf106d454f958c2762585c9b0d4e6cc"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1095
+}

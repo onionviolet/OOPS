@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "batch": "B274",
+  "title": "Comic medium, world mechanisms and full-read supersession",
+  "at": "2026-11-05T00:30:22.707604+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/COMIC_WORLDS_AND_MEDIUM_CONSIDERATIONS_2026-10-14.md",
+      "ids": [
+        "CW1–10",
+        "CL1–18",
+        "CK1–22",
+        "CS1–17",
+        "CO1–10",
+        "CI1–11",
+        "CA1–10",
+        "K1–6statuses",
+        "all parallel-round mapping rows",
+        "RS1–10",
+        "RS11–26full-read notice only"
+      ],
+      "classification": "Multi-round medium/world palette with local-code mapping and reported source-read supersession",
+      "owners": [
+        "docs/COMIC_WORLDS_AND_MEDIUM_CONSIDERATIONS_2026-10-14.md",
+        "docs/UI_RULES.md",
+        "docs/DOMAIN_RULES.md"
+      ],
+      "disposition": "Read all original tables/rounds and closing notice. Preserve medium/law/knowledge and source-version distinctions; qualify mechanical shortcuts, universal class assumptions and older acquisition-status text without promoting linked findings or new laws.",
+      "evidence": "All388original lines delivered1–115/116–245/246–420 without truncation. No linked research report/private dossier/chapter/source page, current site status or runtime implementation newly verified.",
+      "reopen": "Use file-qualified local IDs and current owners for a selected mechanism, verify exact continuity/source/observer/consumer, and read the linked remaining inventoried findings bodies separately; no new acquisition or replay of completed old readers.",
+      "input_sha256": "c43ee9ec0aa0ad703baef8ce9a3be503537803fc8e28aa1655431786efa96e23",
+      "input_lines": 388,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          388
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/COMIC_WORLDS_AND_MEDIUM_CONSIDERATIONS_2026-10-14.md",
+      "heading": "## Content reconciliation B274",
+      "body": "Full388original lines reviewed: CW1–10, CL1–18, CK1–22, CS1–17, CO1–10, CI1–11, CA1–10, all six lane-status rows, every parallel-round mapping, RS1–10 and the closing RS11–26full-read notice. Those CW/CLcodes are local to this file and collide intentionally with different kit codes; cite file plus code rather than merge them by spelling. ICX13–16already avoids the registered complexity-family collision. The existing mapping table routes shared rows to kit/intro owners while retaining distinctive medium/tradition ideas here; it is not a new rule register.\n\nThe final RS11–26notice explicitly supersedes RS10's source-acquisition block and qualifies the earlier three-chapter-only state. It reports four consecutive readers,255available story chapters plus an announcement, and a boundary ending with an unresolved confrontation. Preserve that as a reported available-source completion, not a finished published story or a fresh reading by this pass. RS1–9retain their original sample locators; the linked full consideration bodies, private dossier and actual chapters were not read by proxy. The one-book transport/browser exception was bounded to that acquisition and grants no general source-download or robots-policy exception here. The old inactive label, catalogue totals, private-copy absence and403are dated observations, not current website claims. K6was stopped as duplicate of W18, not a missing deliverable to restart; other lane reports need their own content coverage.\n\nThe strongest structural distinction remains CO1: presentation skin, observer perception and an actual power changing world law are different operations. A caption/thought/cover/recap style cannot grant private mind access, future truth, actual retcon or physical travel. CK1's descriptor ranks, CK9's forecast and CS6's meanwhile view still need the observer's actual source/means; a new log kind or panel border supplies none. Retcon/reboot, a software/schema migration, an ordinary reload and an alternate history also remain different changes with different saved/causal aftermath. Current [UI_RULES](UI_RULES.md) keeps prose usable and illustrations optional; this palette does not mandate grid cards, silent missing feedback, public cliffhangers, typeface per species or an industry-style skin on every world.\n\nCWtraditions and CList habits are comparison leads, with MEMORY explicitly unchecked for most early rows. “Comic worlds:on,” all-public status windows, majority-powered populations, no aging, every arc stronger, automatic rogues return and a5–7%return statistic are not source-qualified world laws or required runtime rates. Revivals, status-quo pull and player anchoring need actual causes and permitted history changes. Preserve true earned impact; do not erase a deed, memory or city simply because an industry habit suggests a reset. A source can also genuinely restore canon or overwrite history when that real mechanism applies. CL8“writer power” cannot replace actual causes with a silent arbitrary stat fluctuation. CK19's finite buffer is one survival variant, not required depletion of every absolute conditional protection (AD5, AD38).\n\nCA3's ladders can share a presentation while keeping ordinal rank, institutional standing, threat classification, source qualification and actual power distinct. CI6/CA7“two identities” is a useful public/secret example, not a fixed two-persona schema for every actor. CA6's watchers, sponsors, fame and polls do not automatically become one interchangeable resource; each actual producer, beneficiary, support term and response stays explicit. CL18's audience link does not itself turn recognition into paid power. CK15's vacant mantle cannot by label transfer gear, expertise, enemies, private records or universal legitimacy; use [SLR40–43](DOMAIN_RULES.md#titles-skills-and-effect-causes-2026-10-21) and actual succession/custody/evidence consumers.\n\nCI10's “additive fields with defaults” is not a compatibility decision proved for every proposed law. A retrospective fact, paused world, pending job, source loss or revived actor may change semantics even without a new field. No general versioned fact store, homeostasis scheduler, universal identity pair, return/escalation timer or cross-world event engine is selected. Existing actor/event/clock/knowledge/transaction owners serve a selected consumer under AD51; a second different world validates the seam rather than becomes a prerequisite. Off-panel training uses actual eligible time, means, stop policies and kept results under AD52; montage cannot manufacture elapsed work or imply inactive worlds always advance. A recurring foe may stay beaten, retire or return through its own means rather than automatic escalation.\n\nThe early “reload never rerolls” shorthand must not become new anti-cheat authority beyond current AD22/save integrity and the selected randomness policy. Direct-franchise publication/private-art boundaries remain with current project owners, not a new licensing conclusion from this review. No source acquisition, subagent, world selection, skin, scheduler, schema, renderer, test or native gameplay proof was added. Every useful lens, action-cheat, ordinary-life/tradition variant, source gap and original proposal remains in its owner with its original status.",
+      "before_sha256": "c43ee9ec0aa0ad703baef8ce9a3be503537803fc8e28aa1655431786efa96e23",
+      "after_sha256": "97c1ce976d4db9d360500eab7276a066ef0273207d03b8b3d7c8e8ee2f4b2822"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 875
+}

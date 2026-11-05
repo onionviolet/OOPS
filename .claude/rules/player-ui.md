@@ -33,6 +33,8 @@ current effects and useful calculations. Trace claims to actual consumers and
 known state. Keep implementation notes in developer docs and reuse the owning
 subject's meaning across surfaces.
 
+UI/prose reconciliation (2026-11-04, AD40): apply existing UR53/57/60/62/64/66/70–74 and DESIGN DSG3/5/13 for task composition, editorial roles, cadence, usable targets/focus and truthful feedback. UI/narrator/flavor whimsy does not assign a character personality, motive, knowledge or behavior. Keep world/scene/player dials and decorative freedom; risk-scaled journey checks stay under AD36, with no bulk prose or all-world redesign gate.
+
 For a small fix, start at the checklist at the top of docs/UI_RULES.md. UR76–UR82 and
 UIV1–UIV4, UIV6, UIV7 are proposed, in use as the default (CHOICES item 4, 2026-10-30);
 cite them as proposed.

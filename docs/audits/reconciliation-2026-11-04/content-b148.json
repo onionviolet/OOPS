@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "batch": "B148",
+  "title": "Full cross-world matrix and D&D ruling provenance",
+  "at": "2026-11-04T21:59:58.930592+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/CROSS_WORLD_DETAIL_ROUND2_MATRIX_2026-11-03.md",
+      "ids": [
+        "16 worlds x CW01-CW36",
+        "C/P/N grid",
+        "all 576 body cells",
+        "D&D CW12 label"
+      ],
+      "classification": "Reader-derived authored-document matrix, not world/runtime completeness",
+      "owners": [
+        "docs/audits/CROSS_WORLD_DETAIL_ROUND2_MATRIX_2026-11-03.md",
+        "docs/audits/CROSS_WORLD_DETAIL_PASS_2026-11-03.md"
+      ],
+      "disposition": "Read all 705 lines including every per-world cell. Independently reconciled 576 body statuses against the grid and 280/258/38 totals; no mismatch. All 538 nonempty locators currently resolve to nonempty lines, which does not verify their semantic claims. Full D&D ruling owner is proposed; correct D&D CW12 shown label so it does not promote a proposed application to primary-source fact.",
+      "evidence": "Fresh complete matrix plus full D&D RULINGS_LEDGER. matrix-check-b148.json pins pre-amend input and structural arithmetic; labels before correction: 434 proposed, one qualified proposed, 58 shown, 36 stated, 9 inferred, 38 missing. Underlying 16 world corpora/primary sources not read by association.",
+      "reopen": "Requalify an actual selected cell against its current local paragraph and admitted primary source; N remains absence in bounded excerpt, not proof of nonexistent mechanic. Do not rank worlds or claim percentage implementation.",
+      "input_sha256": "af3349078f4637d47df6c2334de94abc05228f48f60e6f102397e815d3c5384a",
+      "input_lines": 705,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          705
+        ]
+      ]
+    },
+    {
+      "path": "docs/worlds/dnd/RULINGS_LEDGER.md",
+      "ids": [
+        "RL01-RL28",
+        "D/A/Y classifications",
+        "ST2",
+        "PS01-PS06",
+        "record contract",
+        "coverage boundary"
+      ],
+      "classification": "Frozen proposed first-fixture ruling set with source locators and authored policy",
+      "owners": [
+        "docs/worlds/dnd/RULINGS_LEDGER.md",
+        "docs/worlds/dnd/FIRST_SLICE.md",
+        "docs/WORLD_COMPLETION_STANDARD.md"
+      ],
+      "disposition": "Read complete 60 dense lines, all 28 proposed records. Preserve rule/application/YAIR-policy distinctions, specific repair alternatives, funded settlement, commitment/revision identity and actual witness/means. Do not promote any row to accepted SRD/global policy or implemented behavior. Frozen original records retained; add scope note only.",
+      "evidence": "Fresh full ledger, no private registry/excerpts or SRD pages opened, no new official-rule interpretation or engine test. Its underlying locators support proposal provenance rather than proving authored wages, durations, DC applications, no-penalty cancellation or runtime binding.",
+      "reopen": "For selected D&D work inspect exact admitted SRD passage, local current implementation and authored rulings before changing a contract; keep current source alternatives, runtime state and product authority distinct.",
+      "input_sha256": "be178bee35825baf87db18ff5974b74f3ee5685ef877b14495ce37b6e89e6f5c",
+      "input_lines": 60,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          60
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/CROSS_WORLD_DETAIL_ROUND2_MATRIX_2026-11-03.md",
+      "heading": "## Content reconciliation B148, 2026-11-04",
+      "body": "The complete matrix and every per-world CW01-CW36 row were read. Independent structural recomputation found 16 worlds, 36 families, 576 cells and 280 C / 258 P / 38 N, with zero grid/body status mismatches. All 538 supplied locators currently reach a nonempty line. [The check record](reconciliation-2026-11-04/matrix-check-b148.json) retains the pre-correction input hash and original label counts. These checks establish arithmetic/routing, not the meaning or primary-source accuracy of 538 statements.\n\nThe full D&D ruling ledger explicitly makes every RL01-RL28 a proposed revision-1 application/policy. Its CW12 locator must not appear as an unqualified shown rule; that label is corrected to proposed, leaving its C status intact because this matrix measures documented coverage. Other shown/stated labels remain the inherited reader's labels and were not freshly verified. A local authored proposal, observed source effect, source explanation and actual native consumer remain separate evidence stages (AD32, AD36).\n\nDo not turn N cells into blanket source/world absences or automatic new mechanics, and do not rank worlds by the amount of authored prose. CW02/CW06/CW18/CW26/CW32/CW34 identify possible questions; a single template line can route a question while failing to qualify a local contract. The November 3 owner retains all useful detail leads, affected gaps and source limits. This review did not read every linked world document, any primary game/book source, or any new runtime/secret state.",
+      "before_sha256": "af3349078f4637d47df6c2334de94abc05228f48f60e6f102397e815d3c5384a",
+      "after_sha256": "737f0bcb0abe1b7b464f47ab723d0dd68e3348605048a8f8a8fb0c58a42eb148"
+    },
+    {
+      "path": "docs/audits/CROSS_WORLD_DETAIL_PASS_2026-11-03.md",
+      "heading": "## Matrix reconciliation B148, 2026-11-04",
+      "body": "The separate [round-2 matrix](CROSS_WORLD_DETAIL_ROUND2_MATRIX_2026-11-03.md) has now been read in full, independently of the summary. Its 576 status cells agree with its grid and 280/258/38 totals; all 538 locator lines are currently nonempty. That closes the matrix-text reading and arithmetic task, not the underlying primary-source or per-world semantic qualification. Most labels still describe authored proposals.\n\nReading the complete D&D ruling owner found a concrete provenance correction: CW12 cited an all-proposed fixture ledger but labelled it shown. The matrix label is corrected without changing C, since C measures documented family coverage. The ledger's spell-rule locators, authored repair application, wages, choices and actor consequences remain distinct. No fresh SRD interpretation or runtime proof follows. Other cells still require their own actual source/owner reading when selected; prior content review limits and G12 excerpt-residue remain explicit (AD32, AD36).",
+      "before_sha256": "1d916f99d5cbcdc4ed2408850f0e27a7cc5f1e3cbaff7d2692a98cecf6ec131d",
+      "after_sha256": "b1e9951615934ea9e70c7ac457d67a7fb3b93f74d29c73fd896dab42dee17fe8"
+    },
+    {
+      "path": "docs/worlds/dnd/RULINGS_LEDGER.md",
+      "heading": "## Content reconciliation B148, 2026-11-04",
+      "body": "All 28 records and the contract were read. The frozen revision-1 rows remain proposed; no answer, source hash, prior receipt or implied approval is rewritten here. Source-rule references, an application to the original ST2 situation and a YAIR policy are separate. A known underlying cantrip rule does not make the local job terms, receiver motive, payment amount, travel delay or response consequence canonical or implemented (AD32).\n\nPreserve the useful alternatives: a spell repair, qualified mundane repair, replacement, borrowed container or refusal can meet different parts of the actual transport task. Inspection does not accept a job, a focus is not a blanket component exemption, a bed is not completed rest, and a repair does not grant unrelated mastery. Actual actor means, witness information, reserved provider/funds, changed circumstances and the one settlement matter. The fixed times, rewards, retry policy and model-free route are this authored fixture's choices; they do not redefine every D&D start, spell, institution or world mechanic.\n\nA new selected ruling needs the actual admitted passage and a recorded local choice rather than silent agent improvisation. This reconciliation opens neither the private source registry nor the SRD text, supplies no new rule interpretation and runs no gameplay. The old runtime-open list retains its dated evidence boundary; current D&D development status belongs to its selected checkpoint, not an inferred completion or permanent ban from this proposal.",
+      "before_sha256": "be178bee35825baf87db18ff5974b74f3ee5685ef877b14495ce37b6e89e6f5c",
+      "after_sha256": "c30be9fc94c63e22e274bc3e4d07de493f344a1fcdf5f7d0a5ed6b3e77e9830c"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1198,
+  "post_record_amendments": [
+    {
+      "path": "docs/audits/CROSS_WORLD_DETAIL_ROUND2_MATRIX_2026-11-03.md",
+      "from": "| CW12 | C | dnd/RULINGS_LEDGER.md:30 | shown |",
+      "to": "| CW12 | C | dnd/RULINGS_LEDGER.md:30 | proposed (fixture application; underlying rule has a separate source locator) |",
+      "reason": "B148 full actual ruling-ledger review: every RL record is proposed; do not promote its authored fixture application to shown primary-source fact."
+    }
+  ]
+}

@@ -545,3 +545,8 @@ and saved exact owner folds. No shared rulebook, runtime, installed app, save,
 commit or publication changed. Check commands and results live in the checkpoint.
 Open: the proposed folds and UI behavior repairs have not been applied; no
 consumer-wide behavior or human-feel acceptance is implied by this review.
+
+
+## Later owner follow-through reconciled, 2026-11-04 (B63)
+
+The final “unapplied” sentence above is the October 26 consideration snapshot. The [non-UI follow-through receipt](../gm/dispatch/non-ui-rules-follow-through-2026-10-26/RECEIPT.md#disposition-of-the-selected-folds) records H1–H5/H8 and non-UI H6 as applied owner corrections, retaining proposal status. Selected current GTR11, ABR11 and GR15 text corroborates admission versus ongoing support, actual commitment boundaries and event-time knowledge; no runtime trace/test was rerun here. H7 and UI H6 follow the [UI audit round 4](UI_DESIGN_CORE_AUDIT.md#round-4-2026-10-26-broader-ordinary-play-interactions), which routes U9–U13’s broader scope and supersedes universal pixel immobility and obsolete tooltip-lane prerequisites. This is bounded follow-through, not a fresh interface-wide completion claim. Original worker gaps, coordinator repair, code map hashes and original IDs remain history. Current AD51 governs shared-seam design/second-world validation; FND5 remains proposed. Do not repeat old acceptance questions or turn this review into new gameplay work.

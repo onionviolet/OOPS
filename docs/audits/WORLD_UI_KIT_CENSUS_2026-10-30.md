@@ -40,3 +40,8 @@ above load from private packs, so which are reachable depends on the installed p
 | First | Fill the unchecked rows: one fresh life per installed world, six cells each. | Haiku through the MCP, half a session. Done: no unchecked cell. |
 | Second | K1 patch to `floor-wire`, then a LOTM voice row for finished work (flavour plus pay and what it unlocks). | Sonnet low. Done: a finished errand shows a voiced line at 1920. |
 | Third | K2 and K3 as world-neutral readers. | Sonnet medium, one session each. |
+
+
+## Census scope and later selected producer, 2026-11-04 (B64)
+
+Retain the October 30 cells as observations of their named bundle/routes. K1’s universal “finished commands publish no receipt” wording predates the selected current LOTM persist producer, which passes published records through logMessage, and the [UI audit round 32](UI_DESIGN_CORE_AUDIT.md#round-32-2026-11-04-aftermath-as-an-occurrence-and-creative-prose), which records selected early-arc occurrence-report delivery. Neither proves the original probationer paid-errand route or all life profiles now emit the right Reports line. Keep that route-specific question distinct from broader producer absence; K2/K3 and unchecked worlds are not newly certified. DSG19/M5’s user request for basic world usability remains, while this exact six-cell kit, old worker suggestions and census completion plan remain proposed implementation choices under AD32. No fresh browser run, cross-world parity result or new dispatch follows.

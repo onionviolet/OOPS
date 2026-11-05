@@ -79,3 +79,8 @@ Next parts, in order: (1) wire the panel domain and the beginnings entry (two sh
 Own-holdings display for the other non-native lives (from O1/O2 A1): [plan](OWN_HOLDINGS_PLAN_2026-11-03.md), proposal; P1 built, P2 in progress.
 
 Whole-world window map (book 1 windows W1-W10, gap placement, books 2-7 coarse): [HP_WHOLE_WORLD_PLAN](HP_WHOLE_WORLD_PLAN_2026-11-03.md), proposal. Open item 1 above is answered there: eight of nine book-1 shards are grade B with lint pass, `hp1c011` is C with lint fail.
+
+
+## Current-use reconciliation B102, 2026-11-04
+
+Full probe read closes any prior sampled residue. Its old missing profile/crosswalk/panel and waiting-for-W1 route are superseded by G1/G1b/G2/W1–W4 and B100/B101 dispositions, not current work to relaunch. “Portable” based on absent world-name strings is a candidate seam, not semantic proof. Locally held/previously read sources remove acquisition needs, not review/model/time cost. Later whole-world map and repair settle header-grade placement at structural scope. G6’s original “window 3” is outdated: actual wand consumer is W4/ch5. G10 receiving/carrier facts remain distinct from delivery simulation; G11 tier labels are not all scheduled full lives; G12 does not infer a trained skill from a descriptive label. Current accepted direction and file ownership govern any next work, with no fresh session or source pass launched here.

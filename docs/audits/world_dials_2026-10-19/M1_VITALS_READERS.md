@@ -43,3 +43,8 @@ above are the whole restriction.
 Do not widen the vitals allow-lists for the first slice. LOTM spirituality and strain already live
 in the energy record, so M3 renders them as meters with no new saved field and no migration. A first
 true new vital (a mana pool, or HP remapping) is the point to decide the save migration.
+
+
+## Reconciliation B93, 2026-11-04
+
+Preserve M1-1–M1-3 as a dated reader survey, not an exhaustive present-day count or a two-edit effort guarantee. Current selected simulation_contracts.js still restricts vital effects and saved vital keys to health/stamina, but this does not prove all consumers, native sync, capacity/death rules or save behavior support a new key. Pool, accumulator, capacity and incapacitation semantics require their real owners. Energy-backed spirituality/strain meters are presentation over existing state and did not inherently add saved fields; this supersedes WDI55’s earlier assumed first-meter migration. The owner’s later M3 paragraph records code/tests and DOM values with explicit pixel/native persistence gaps; M1 alone does not close them. No fresh build/browser or meter acceptance is claimed.

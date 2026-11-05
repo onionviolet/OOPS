@@ -278,3 +278,12 @@ S3 `claude/s3-hp-potion-b624c8` `docs/gm/dispatch/hp-polyjuice-2026-10-22/MORE_T
 - G8 (S3): staged additions, glass-reaction cue, donor-presence consent, clothes misfit,
   diversion route, dev-only truth inspector (L1-L8 in the S3 round).
 - G9 (all): human play acceptance for all three journeys is open.
+
+
+## Content reconciliation B145, 2026-11-04
+
+All PG/GN dispositions, prior corrections, site focus and later S1-S3 gap notes were reviewed. Keep F1-F4: extend real funded request owners, preserve prior hidden causes, distinguish renewable source nodes from finite shipments/owned stock, and recognize that abstract generated graphs are still generated layouts. Palette ranking is not current queue authority; the chosen Klein/Harry mechanisms and applicable AD33/SR4 deferrals retain their actual scopes.
+
+The early AXR1/second-consumer-only extraction wording is qualified by AD51: known cross-world needs justify a shared seam with the first consumer, then a materially different consumer validates or revises it. This does not demand one universal source-node, currency, naming or projection store when existing authoritative owners and adapters fit. Three chance categories do not require three draws; a deterministic title or document can follow actual facts. A report of free production or profitable repetition is not itself a bug where supported means allow it (AD5, AD22, AD38).
+
+GN tools remain conditional on a real selected question. A safe developer inspector does not expose sealed truth to the director, data-only packs still need admission and references, branch creation differs from undo, and a recap reports actual settled work rather than inventing away accrual. The old gen_kit Proposal header is still present in the selected source read, but this documentation task changes no code. Historical S1-S3 worktree state, poison prevention versus shortening, prepared venom, separate HP product carrier, transformation receiver, knowledge leak and literal Import gaps require their actual later owners before being called open or fixed today. Neither old 1366 testing nor mandatory human acceptance is a current extra gate (AD32, AD36, AD42).

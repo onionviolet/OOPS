@@ -1,0 +1,84 @@
+{
+  "schema": 1,
+  "batch": "B8",
+  "title": "Prior content evidence and supersession boundaries",
+  "at": "2026-11-04T19:33:19.583574+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md",
+      "ids": "PCR1–PCR16, PA2-F/C/L, PA3-F/C/L, H01–H15, R5-F1–R5-F5; all five rounds",
+      "classification": "historical content-review evidence with multiple explicitly different scopes",
+      "owners": [
+        "docs/audits/TOPIC_EXPANSION_AUDIT_PLAYBOOK.md",
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/PLAN_INVENTORY.json"
+      ],
+      "disposition": "Preserve all historical corrections, relationship distinctions, failures and prior limited authorization. Round 5 records actual full-content review of 519 formerly ungrouped inputs; earlier 519/735 unread snapshots are historical. Do not import 589 labels as new current reading or whole-repository coverage. Inspect per-record semantic receipts and current input before reusing that work; current runtime/canon proof remains separate.",
+      "evidence": "Full 395-line report read in bounded chunks, including missing middle spans; exact current native checker output and sampled S001/native review metadata inspected. No old worker allocation, paid reading, publication or runtime suite repeated.",
+      "reopen": "Read changed or weakly supported source/receipt records afresh. Reuse an unchanged substantive disposition only after inspecting its semantic notes and original coverage.",
+      "input_sha256": "f2990dea8625739e673d36a23f419d7e6139ed89df0072b9653c01e65df4ce65",
+      "input_lines": 395,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          395
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/plan-rule-reconciliation-2026-10-18/SUPERSESSION_GROUPS.md",
+      "ids": "SG01–SG09, November 1 navigation supplement and Round4 historical-control qualification",
+      "classification": "compatible control-level reuse with historical counts superseded within its scope",
+      "owners": [
+        "docs/audits/TOPIC_EXPANSION_AUDIT_PLAYBOOK.md",
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/ROUND4_REVIEW.json"
+      ],
+      "disposition": "All SG families retain their exact limited execution-control role. Old unresolved SG09/519-unmapped paragraphs precede the later qualified relationship and Round5 content work. Matching hashes allow skipping duplicate control review, not source qualification, unique content review or current behavior. Preserve SG09 multi-supplier relationship inputs and all old failure/partial states.",
+      "evidence": "Full 51-line ledger; all nine current group-state outputs and all relationship/semantic-limit text inspected. No member body implicitly marked read.",
+      "reopen": "Changed member reopens that input; changed owner/supplier reopens the relationship; new sibling/selected unique clause needs actual review.",
+      "input_sha256": "8948d77c5960e6b3e0d9170e1464737a448e838d486d53bef127da80db79d63f",
+      "input_lines": 51,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          51
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/plan-rule-reconciliation-2026-10-18/SUPERSESSION_GROUPS.json",
+      "ids": "SG01–SG09; 189 explicit retained members and 27 SG09 relationship inputs",
+      "classification": "structured relationship catalog; no member-body clearance",
+      "owners": [
+        "docs/audits/TOPIC_EXPANSION_AUDIT_PLAYBOOK.md",
+        "docs/reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md"
+      ],
+      "disposition": "Reviewed all group identities, kind/owner/relationship/semantic limits and dependency counts; the native checker validates every membership/path/fingerprint. Current all-nine unchanged_control_skip states apply to duplicate execution-control review. They do not satisfy this task by themselves and do not renew any historical lease, source or gameplay claim. Catalog and original fingerprints remain unchanged.",
+      "evidence": "All group semantic fields printed/read; current read-only plan_review_status.py --check validates all 778 catalog inventory records and reports 189 unchanged grouped controls, 589 section-reviewed, zero ungrouped indexed-only in that frozen inventory. Its counts are not the new project-wide inventory.",
+      "reopen": "Recheck the actual changed relationship/member or selected unmet clause; do not promote raw hash matches into semantic content review.",
+      "input_sha256": "7eb95924f88be90c7fabbeb639a58ddaa13d239cba124a475bddf21a7aab7811",
+      "input_lines": 1063,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          1063
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/TOPIC_EXPANSION_AUDIT_PLAYBOOK.md",
+      "heading": "## Reusing substantive historical content review, B8, 2026-11-04",
+      "body": "The full prior plan/rule reconciliation report and supersession ledger separate three things: historical control relationships, actual full-record content reviews, and source/gameplay proof. Its Round5 documents a 519-record semantic pass; the current native checker validates that frozen inventory as 589 section-reviewed and 189 unchanged grouped controls. These are its old collection's labels, not current whole-project completion or fresh reading credit (AD32/AD36).\n\nFor this continuing content task, inspect each prior semantic disposition, original IDs, mechanism/consumer and remaining check before reusing it. Require its read ranges to cover the original record, match its source identity and retain the original evidence state. A group hash or preparation receipt is insufficient. Changed inputs, missing spans, weak/substituted evidence or a consequential conflict with current direction need new reads. Mark genuine reuse separately from a fresh whole-source read; do not silently refresh old test dates.\n\nCurrent matching control groups remain useful for navigation and preventing obsolete leases/launches. Their unique specification, source, edition, failure and runtime gaps remain selectable. This continuation executes no old agent/spending/publication approval. [B8 source/disposition record](reconciliation-2026-11-04/content-b8.json).",
+      "before_sha256": "5523dd86732307105fad80459355b6c939169ff9c42e5fc00db0d688de2ec7c7",
+      "after_sha256": "a37f4f49e06f9b00a14941c9adb42d1c2c55978a121713627053db5a67b2a26b"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1930
+}

@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "batch": "B70",
+  "title": "World-gap audit: frozen scope, source-qualified variants and actual local consequences",
+  "at": "2026-11-04T20:20:24.538860+00:00",
+  "head": "4cdc0772b65d413e4989e327502910140b2a15eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/WORLD_SUBTLE_GAPS_2026-10-20.md",
+      "ids": [
+        "WG1–WG26",
+        "WGP1–WGP4",
+        "WGX1–WGX6",
+        "G1/G2/G3/G4 source scopes and runner-ups",
+        "BC/FT/FR/FM/ML/CN-G3-1–3",
+        "G4-D1–D3/E1–E2/F1–F3/S1–S3/X1–X6",
+        "Rounds2–4/addendum"
+      ],
+      "classification": "fresh full audit content reconciled with its root corrections and current authority",
+      "owners": [
+        "docs/audits/WORLD_SUBTLE_GAPS_2026-10-20.md",
+        "docs/audits/world_pack_details_2026-10-20/REPORT.md",
+        "docs/WORLD_COMPLETION_STANDARD.md"
+      ],
+      "disposition": "All596lines reviewed including appendices and later institutional passes. Root correction/round2 qualify stale no-native/zero-source/unchangedbuild inference and overrequired mechanisms. Preserve source-qualified runners-up and separate version/era/author extension/unknown; keyword notfound not absence, secondarywindow not canon. WGX labels not everyworld requirements. Actual means/scope can have no wear, friction, missedreading, forcedpenalty, defaultrefill or imposedcomplication. Current completion standard preserves finite region vs wholeworld, actualchangedinputs and optionalAD42 feedback. Laterround4addendum supersedes prior MoL/HP/ShadowSlave nothadpass at its bounded window scope.",
+      "evidence": "Fresh complete596line read in bounded ranges; truncated EldenG4-E1/E2 retrieved454–468. Completionstandard1–62 and full B66root/lanereports inspected. No donor primarybooks/sourcewindows or current allworld/runtimeinventory reread, no new gameplay proof.",
+      "reopen": "Actual selectedoperation/world with exact source/edition/mechanism/observer/clock/consumer and relevant missingproof. No blanket allworldscope completiongate, mandatory C-levelupgrade, newsource/reader/implementation wave.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "e9c5d86db3356af4e2c5fe8391b909ec9a7bda3d91c15fdd69669e868f34d90b",
+      "input_lines": 596,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          596
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/WORLD_SUBTLE_GAPS_2026-10-20.md",
+      "heading": "## Full content reconciliation and local variants, 2026-11-04 (B70)",
+      "body": "The full original sweep, appended group returns and rounds 2–4/addendum were read, preserving WG1–WG26, WGP1–WGP4, WGX1–WGX6, source-local runner-ups and G4-X1–X6. Use the existing [pack-detail correction](world_pack_details_2026-10-20/REPORT.md#continuous-content-reconciliation-2026-11-04-b66) and current local owners before acting on older no-native/no-source or pending-play summaries. An unrelated build change does not invalidate unchanged relevant evidence; this is not a new C-level census. C4 concerns a frozen represented scope; C5’s director feedback is optional under AD42. Group keyword searches and explicitly unread source bodies remain limited, not proof of absence or fresh canon authentication. The round-4 addendum supplies the later bounded MoL/HP/Shadow Slave/COI pass, correcting the preceding not-yet-pass sentence without claiming full-source coverage.\n\nWG proposals do not impose universal complications: calibration needs an actual differing mechanism, a poor reading needs supported source/method limits, and aftermath requires an actor/cause rather than a balancing tax. Broad perception, ambient power, contract and monetary assertions marked for source confirmation stay at that evidence level; faculty, technique, body, era and alternate means can differ. A narrower selected noncombat loop need not acquire full physiology, sea logistics, two daily jobs, a public-profile combat reader or a society simulator. Frozen absence does not itself prove a missing season; declared present-time/instance/service clocks decide actual expiry. Current food/comfort direction is not overridden by an old hunger or overnight done-check example (AD5/AD38).\n\nWGX/G4-X rows are compatible variants, not six required systems per world. A split/merge follows actual material and certification semantics, rather than universal weakest-quality chemistry. Sold goods may be consumed, transformed or sold without guaranteed buyback or named purchaser. Reservations protect the allocated claim, not necessarily all shared stock. Merchant float needs an actual replenishment source; no daily coin creation follows. Ordinary work may improve familiarity without compulsory new strain, and a favor retains its actual creditor/unit/terms without mandatory money conversion. These options, measured evidence limits and useful history remain preserved under AD32/AD36; no new authority, world selection, source acquisition or runtime implementation is implied.",
+      "before_sha256": "e9c5d86db3356af4e2c5fe8391b909ec9a7bda3d91c15fdd69669e868f34d90b",
+      "after_sha256": "3542dc426c5b8ef5a1e6d997ecea88fd5064ef5ed5aa0d74097bdcd9224b0128"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1371
+}

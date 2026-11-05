@@ -1,0 +1,40 @@
+{
+  "note": "Exact replaced text from B2–B6, retained as history rather than current authority.",
+  "entries": [
+    {
+      "source": "docs/systems/PROGRESSION_WORLD_STATE.md",
+      "text": "  **No existing gate sets it and nothing reads `gate.overflow`** (grep: no\n  `.overflow` consumer outside this file). The live overflow behavior is in S4.",
+      "replacement": "  `chain_inspector.js` reads this metadata for author inspection; it does not\n  settle overflow. Live XP overflow behavior has its separate owner in S4.\n  The earlier no-reader statement is preserved in the reconciliation history."
+    },
+    {
+      "source": "docs/audits/BODY_HEALTH_CORE_AUDIT.md",
+      "text": "| [Body and health rules](../BODY_AND_HEALTH_RULES.md) | Rulebook BHR1–BHR30, accepted 2026-10-18 (see RULES_INDEX), registered there |",
+      "replacement": "| [Body and health rules](../DOMAIN_RULES.md#body-and-health-rules) | BHR1–BHR30 accepted 2026-10-18; BHR31–BHR34 standing defaults requested 2026-11-01 (current RULES_INDEX); old BODY_AND_HEALTH_RULES stub retained |"
+    },
+    {
+      "source": "docs/audits/ECONOMY_CORE_AUDIT.md",
+      "text": "| [Economy rules](../ECONOMY_RULES.md) | Rulebook ECR1–ECR33, accepted 2026-10-18 (see RULES_INDEX), registered there |",
+      "replacement": "| [Economy rules](../DOMAIN_RULES.md#economy-rules) | ECR1–ECR33, accepted 2026-10-18 (see RULES_INDEX); old ECONOMY_RULES stub retained |"
+    },
+    {
+      "source": "docs/reviews/ACCEPTANCE_PREP_2026-10-19.md",
+      "text": "Owner: [CHECKPOINT M4 round](gm/dispatch/modular-seams-2026-10-16/CHECKPOINT.md#m4-round-lamplight-2026-10-19).",
+      "disposition": "Corrected the relative path; receipt content retained."
+    },
+    {
+      "source": "docs/reviews/ACCEPTANCE_PREP_2026-10-19.md",
+      "text": "Owner: [economy considerations, ECX1 and ECL2 evidence](ECONOMY_AND_TRADE_CONSIDERATIONS_2026-10-18.md). Commits 43d2e0c8b, merge ff781c6ef.",
+      "disposition": "Corrected the relative path; receipt content retained."
+    },
+    {
+      "source": "docs/reviews/ACCEPTANCE_PREP_2026-10-19.md",
+      "text": "Owner: [combat considerations, CBL3 evidence](COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md). Commits c40c51a6f, 037fde3e3.",
+      "disposition": "Corrected the relative path; receipt content retained."
+    },
+    {
+      "source": "docs/gm/WRITEUP_REGISTER.md",
+      "text": "| [Loose-document reconciliation](../audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md) | Project-wide intake, scoped owner fixes and retain/fold/pointer workflow | Documentation reconciled at the selected ranges; remaining candidates explicitly metadata-routed, not claim-reviewed | This register, IDEA_INDEX and current domain owners | 2026-11-04 | No deletion, new gameplay or blanket proposal adoption selected | Use the linked inventory and reviewed-range ledger; review remaining claims through their incumbent owners when selected. Done check for this pass: skill validation, document/rules/link checks and input-drift accounting; historical gameplay receipts retain their dates. |",
+      "disposition": "Updated this task row to B2–B6; earlier source remains in the input baseline."
+    }
+  ]
+}

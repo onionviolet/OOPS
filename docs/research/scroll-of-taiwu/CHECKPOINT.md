@@ -40,3 +40,8 @@ Start from REPORT.md, this unread table and TOOLING.md. Work root: `/Users/weiwe
 Disk used in work area: 18,347,823 bytes (about 17.5 MiB), including copied CN/EN encyclopedia text and static decompilation. No installs or clones. No game processes launched, save reads, staging, commits or pushes. Coordinator owns any integration and commit.
 
 Acceptance reconciliation: desktop/laptop first, all reasonable fitting alternatives reachable, no imported fixed once-only limits, one realm/one prestige layer preserved. Research does not turn succession or full population simulation into a required gate. No sealed YAIRPG secrets designed or disclosed.
+
+
+## Later selected source work and scope, 2026-11-04 (B50)
+
+The later aspects/deep/systems checkpoints extend selected frontend normal-legacy completion order, direct information transfer, backend book trade, career and other consumers beyond the initial next-read paragraph. They still leave main-route admission, transitive listeners, valuation/guards, full migrations and runtime/save behavior partial; source mutation handlers are not universal carryover proof. Route to those exact later U/AU/N rows before repeating old source work. The final one-realm/one-prestige line is an October14 snapshot superseded by USER_VISION’s October24 scope direction, not a current required gate.

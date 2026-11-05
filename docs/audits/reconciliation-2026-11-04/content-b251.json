@@ -1,0 +1,123 @@
+{
+  "schema": 1,
+  "batch": "B251",
+  "title": "Crowded-UI considerations,99-request trace and post-build audit prompt: complete review",
+  "at": "2026-11-04T23:57:41.834124+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R14_FOLLOWUP_CONSIDERATIONS.md",
+      "ids": [
+        "F1–F15/A1–A6/G1–G10/C1–C5/L1–L6",
+        "K1–K5/D1–D3/S1–S5/O1–O5",
+        "E1–E7/A7–A8/G11–G13/P1–P2/X1–X4/V17–V21",
+        "icons Round5 F16–F20",
+        "menus Round5 F16–F20/B1–B3/K6–K8/M8–M9/Q1–Q3/N1–N2",
+        "final reconciliation"
+      ],
+      "classification": "Full historical consideration/request trace/audit brief; code collisions, coverage and execution scope qualified",
+      "owners": [
+        "docs/gm/dispatch/ui-foundation-2026-10-15/R14_FOLLOWUP_CONSIDERATIONS.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "F1. Complete325-line review covers every finding/palette and both different sections headed Round5. Their F16–F20 codes collide locally, so cite the icons/UI-to-UI heading versus menus/equal-cells heading; do not merge or silently renumber them. SEEN, SOURCE and RECALLED examples retain their provenance. Unequal/DEV SEEDED source and R14 screenshot states compare hierarchy, not feature equivalence, natural progression, hover behavior or current runtime. A font dependency was an untested risk, not a reproduced failure. The final reconciliation already supersedes the blanket bottom-strip rule with UR54's task-based placement.\n\nF2. Retain the useful early crowd/log questions but qualify with later actual reports: R20/R22/R22b/R22c supply scoped board, event identity, colors and countable occurrences; R18 explicitly prices labelled tabs at one visible row21px; R21 changes bars/control boxes. Their dated evidence does not imply every future panel needs equal cells, one fixed identity glyph or the old global footer. Existing vs current layout, live vs recorded event, inspection vs retargeting and proper-name versus duplicate species identity stay separate. No new enemy mechanic follows from a frame/name effect or an idle screenshot.\n\nF3. The later knowledge constraints correctly narrow earlier E1/E2 use of xp_value/true stats/seeded error: hidden model values are not character observations. Kill counts alone do not prove particular attacks/special effects were seen. A range of observed damage is a sample under actual conditions, not an infallible bound on future damage or proof exact base stats were solved. Own exact stats, all dimmed future attributes, ??? existence rows and visible special-tag effects are proposed disclosure policies; actual means/known existence must supply them. An undiscovered branch/person/condition cannot leak merely because a placeholder seems harmless. Real exact appraisal remains possible through its actual source under AD38.\n\nF4. One observed projection should supply known fact/body/effect meaning across cards, hover, reports and references. Label direction and units; relative role-color separation is not the same as text/background contrast. Seeded observed/boss fixtures do not authenticate native knowledge gain, general enemy statuses or allies. Warmth/gear/contact, locked slot, displayed rank and hidden true source retain their real producers. Under AD32 E-ladder, stat modes, embedded gear, symmetric effect rows, Pursuits and layout experiments remain proposals unless separately selected. Current desktop/prose-first/optional-art direction, AD36/AD43 and AD42 optional review govern selected uptake; no new workers or gameplay are launched.",
+      "evidence": "Entire input delivered: R14 follow-up1–155/156–325, request trace116 and post-build prompt100 whole. Source links, USER_VISION line spans and screenshots not freshly reread.",
+      "reopen": "Selected current UI/audit consumer changes; preserve stable WR/local IDs, actual source scope and current authority rather than restart historic gates/dispatch.",
+      "input_sha256": "4980c196056e71f3ae900b8c78efe774d2d45e1106ad8e0b53237363db5898f9",
+      "input_lines": 325,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          325
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/request-coverage.md",
+      "ids": [
+        "WR01–WR99",
+        "status definition before placements",
+        "process statements"
+      ],
+      "classification": "Full historical consideration/request trace/audit brief; code collisions, coverage and execution scope qualified",
+      "owners": [
+        "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/request-coverage.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "F1. Complete116-line review covers all99 WR rows and their source/status definitions. COVERED means an owning round/Part and done check existed at the trace date, sometimes delivered as separately labelled dlv; it does not mean implemented, accepted or browser-verified. The table explicitly predates Round15 placements. Stable WR IDs preserve request provenance, including WR83's map/representation correction and WR90's no-implementation Part9 scope. Line locators are dated pointers, not current positions or evidence that this reconciliation reread every quoted USER_VISION span.\n\nF2. Later concrete reports qualify the trace without deleting it: WR11's no-combat-fixture sentence cannot describe all subsequent evidence because R3/R7 and later board/inventory reports record scoped synthetic combat. R16 changes the old zero-secondary-fit shape; R18 trades a visible row for real category/filter/count benefits; R21–R22c alter chrome, status home and crowded fight presentation. Passing those slices does not implement the whole99-request horizon. WR13→WR78 supersession narrows the proposed disclosure policy rather than automatically revoking compatibility facts or establishing learned-stat gameplay.\n\nF3. WR86 handed-off MISSING is an ownership/content-review gap, not proof CHEAT_LIBRARY lacks the requested types; WR93's bought-map rules-only state does not prove every information acquisition route is absent. WR98 being covered by this table proves a trace exists, not that all user requests are fulfilled. Preserve the real unresolved producer/consumer/proof question in the current owning task. Process quotations about helpers, complexity and mockups are dated provenance, not current spawn or implementation authority. Under AD32 proposals keep their status, AD36/AD43 keep proof scoped and AD42 keeps human review optional.",
+      "evidence": "Entire input delivered: R14 follow-up1–155/156–325, request trace116 and post-build prompt100 whole. Source links, USER_VISION line spans and screenshots not freshly reread.",
+      "reopen": "Selected current UI/audit consumer changes; preserve stable WR/local IDs, actual source scope and current authority rather than restart historic gates/dispatch.",
+      "input_sha256": "aa88a75dfe891c46ed6949301b3a8367186137ddda6812fd793ac4dd524a690c",
+      "input_lines": 116,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          116
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/POST_BUILD_UI_AUDIT_PROMPT.md",
+      "ids": [
+        "UIL2/4/7/8/9 start gate",
+        "three target list",
+        "evidence/state/measure/count/look/reference prompts",
+        "seven questions",
+        "output/limits/done"
+      ],
+      "classification": "Full historical consideration/request trace/audit brief; code collisions, coverage and execution scope qualified",
+      "owners": [
+        "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/POST_BUILD_UI_AUDIT_PROMPT.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "F1. Full100-line review treats this as a saved future audit brief, not an active assignment. Its start gate to verify committed UIL2/4/7/8/9 is the historical selected audit's gate; it does not stop the current authorized project-wide content reconciliation or grant a build, new agent, source expansion or commit. Actual current scope and AD36/AD43 determine the necessary checks. Reuse the incumbent UI_CORE_AUDIT with continuing IDs rather than creating a parallel audit or restarting numbered findings.\n\nF2. The explicit target list has three desktop sizes:1920×1080,about1800×1040 and1536×864 at14/21px; the final all-four-targets phrase is stale after retiring1366×768. Use the current live UI target owner if executing, rather than quietly resurrecting a fourth size. Measure union of actual visible content, useful rows, font, scroll ownership, decision facts, flow and return, not raw summed overlapping boxes or page bounds alone. B248's slack-map tradeoffs illustrate why geometry is insufficient. Mockups/source references preserve provenance and do not replace rebuilt consumer behavior.\n\nF3. Choose the actual audit round's unique screenshot directory rather than reuse fixed ui-core-audit-r1 for later rounds and overwrite history. Audit provenance/status belongs in the existing audit/register/task record; the old blanket append-a-line-to-USER_VISION instruction does not turn an agent report into new user direction. Inspect current owner practice before touching that shared authority. Proposed restructures keep default/dial/reason and actual task/return, with fewer duplicated facts permitted while useful evidence remains available. Current prose-first/optional-art direction supplies taste context; no artwork or two competing layout controllers is required. Under AD32 this brief adopts no proposals, and AD42 keeps human review optional. Linked source bodies and gate history were not freshly verified by reading the prompt.",
+      "evidence": "Entire input delivered: R14 follow-up1–155/156–325, request trace116 and post-build prompt100 whole. Source links, USER_VISION line spans and screenshots not freshly reread.",
+      "reopen": "Selected current UI/audit consumer changes; preserve stable WR/local IDs, actual source scope and current authority rather than restart historic gates/dispatch.",
+      "input_sha256": "84106f0bfdf5a3ff2a93c0cd471cab6643c7bffede3fe71f0aaaaeef7fa6c577",
+      "input_lines": 100,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          100
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R14_FOLLOWUP_CONSIDERATIONS.md",
+      "heading": "## Content reconciliation: scope, evidence and current uptake (B251, 2026-11-04)",
+      "body": "F1. Complete325-line review covers every finding/palette and both different sections headed Round5. Their F16–F20 codes collide locally, so cite the icons/UI-to-UI heading versus menus/equal-cells heading; do not merge or silently renumber them. SEEN, SOURCE and RECALLED examples retain their provenance. Unequal/DEV SEEDED source and R14 screenshot states compare hierarchy, not feature equivalence, natural progression, hover behavior or current runtime. A font dependency was an untested risk, not a reproduced failure. The final reconciliation already supersedes the blanket bottom-strip rule with UR54's task-based placement.\n\nF2. Retain the useful early crowd/log questions but qualify with later actual reports: R20/R22/R22b/R22c supply scoped board, event identity, colors and countable occurrences; R18 explicitly prices labelled tabs at one visible row21px; R21 changes bars/control boxes. Their dated evidence does not imply every future panel needs equal cells, one fixed identity glyph or the old global footer. Existing vs current layout, live vs recorded event, inspection vs retargeting and proper-name versus duplicate species identity stay separate. No new enemy mechanic follows from a frame/name effect or an idle screenshot.\n\nF3. The later knowledge constraints correctly narrow earlier E1/E2 use of xp_value/true stats/seeded error: hidden model values are not character observations. Kill counts alone do not prove particular attacks/special effects were seen. A range of observed damage is a sample under actual conditions, not an infallible bound on future damage or proof exact base stats were solved. Own exact stats, all dimmed future attributes, ??? existence rows and visible special-tag effects are proposed disclosure policies; actual means/known existence must supply them. An undiscovered branch/person/condition cannot leak merely because a placeholder seems harmless. Real exact appraisal remains possible through its actual source under AD38.\n\nF4. One observed projection should supply known fact/body/effect meaning across cards, hover, reports and references. Label direction and units; relative role-color separation is not the same as text/background contrast. Seeded observed/boss fixtures do not authenticate native knowledge gain, general enemy statuses or allies. Warmth/gear/contact, locked slot, displayed rank and hidden true source retain their real producers. Under AD32 E-ladder, stat modes, embedded gear, symmetric effect rows, Pursuits and layout experiments remain proposals unless separately selected. Current desktop/prose-first/optional-art direction, AD36/AD43 and AD42 optional review govern selected uptake; no new workers or gameplay are launched.",
+      "before_sha256": "4980c196056e71f3ae900b8c78efe774d2d45e1106ad8e0b53237363db5898f9",
+      "after_sha256": "f75ce8b2854a07f86b50ab68acca77ef2eef9b3281f7aaece6b901df24eb7650"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/request-coverage.md",
+      "heading": "## Content reconciliation: scope, evidence and current uptake (B251, 2026-11-04)",
+      "body": "F1. Complete116-line review covers all99 WR rows and their source/status definitions. COVERED means an owning round/Part and done check existed at the trace date, sometimes delivered as separately labelled dlv; it does not prove implementation, product adoption or browser verification. The table explicitly predates Round15 placements. Stable WR IDs preserve request provenance, including WR83's map/representation correction and WR90's no-implementation Part9 scope. Line locators are dated pointers, not current positions or evidence that this reconciliation reread every quoted USER_VISION span.\n\nF2. Later concrete reports qualify the trace without deleting it: WR11's no-combat-fixture sentence cannot describe all subsequent evidence because R3/R7 and later board/inventory reports record scoped synthetic combat. R16 changes the old zero-secondary-fit shape; R18 trades a visible row for real category/filter/count benefits; R21–R22c alter chrome, status home and crowded fight presentation. Passing those slices does not implement the whole99-request horizon. WR13→WR78 supersession narrows the proposed disclosure policy rather than automatically revoking compatibility facts or establishing learned-stat gameplay.\n\nF3. WR86 handed-off MISSING is an ownership/content-review gap, not proof CHEAT_LIBRARY lacks the requested types; WR93's bought-map rules-only state does not prove every information acquisition route is absent. WR98 being covered by this table proves a trace exists, not that all user requests are fulfilled. Preserve the real unresolved producer/consumer/proof question in the current owning task. Process quotations about helpers, complexity and mockups are dated provenance, not current spawn or implementation authority. Under AD32 proposals keep their status, AD36/AD43 keep proof scoped and AD42 keeps human review optional.",
+      "before_sha256": "aa88a75dfe891c46ed6949301b3a8367186137ddda6812fd793ac4dd524a690c",
+      "after_sha256": "9649bcf997b715ab643457064a57103f78616ba4e8264bc8b0cb1697478b783c"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/POST_BUILD_UI_AUDIT_PROMPT.md",
+      "heading": "## Content reconciliation: scope, evidence and current uptake (B251, 2026-11-04)",
+      "body": "F1. Full100-line review treats this as a saved future audit brief, not an active assignment. Its start gate to verify committed UIL2/4/7/8/9 is the historical selected audit's gate; it does not stop the current authorized project-wide content reconciliation or grant a build, new agent, source expansion or commit. Actual current scope and AD36/AD43 determine the necessary checks. Reuse the incumbent UI_CORE_AUDIT with continuing IDs rather than creating a parallel audit or restarting numbered findings.\n\nF2. The explicit target list has three desktop sizes:1920×1080,about1800×1040 and1536×864 at14/21px; the final all-four-targets phrase is stale after retiring1366×768. Use the current live UI target owner if executing, rather than quietly resurrecting a fourth size. Measure union of actual visible content, useful rows, font, scroll ownership, decision facts, flow and return, not raw summed overlapping boxes or page bounds alone. B248's slack-map tradeoffs illustrate why geometry is insufficient. Mockups/source references preserve provenance and do not replace rebuilt consumer behavior.\n\nF3. Choose the actual audit round's unique screenshot directory rather than reuse fixed ui-core-audit-r1 for later rounds and overwrite history. Audit provenance/status belongs in the existing audit/register/task record; the old blanket append-a-line-to-USER_VISION instruction does not turn an agent report into new user direction. Inspect current owner practice before touching that shared authority. Proposed restructures keep default/dial/reason and actual task/return, with fewer duplicated facts permitted while useful evidence remains available. Current prose-first/optional-art direction supplies taste context; no artwork or two competing layout controllers is required. Under AD32 this brief adopts no proposals, and AD42 keeps human review optional. Linked source bodies and gate history were not freshly verified by reading the prompt.",
+      "before_sha256": "84106f0bfdf5a3ff2a93c0cd471cab6643c7bffede3fe71f0aaaaeef7fa6c577",
+      "after_sha256": "48d22a65e833e8e7d40dc2e67fa1adcd2fcf84441be55f9ca7d642289c205ea5"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 923,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/request-coverage.md",
+      "from": "it does not mean implemented, accepted or browser-verified.",
+      "to": "it does not prove implementation, product adoption or browser verification.",
+      "reason": "B252 lint: avoid ambiguous acceptance wording in historical coverage/owner explanation; initial failed output retained."
+    }
+  ]
+}

@@ -19,7 +19,7 @@ All nine shards were read by claude-haiku-5-5 on 2026-10-28. Chapter titles belo
 | hp1c005 | 5-6 | 14 | B, pass | |
 | hp1c007 | 7-8 | 12 | B, pass | |
 | hp1c009 | 9-10 | 14 | B, pass | |
-| hp1c011 | 11-12 | 12 | **C, lint fail** | Failure reason not recorded in the header or in `hp1c011_m13_review.json` (empty list). Re-read or repair before window 8 |
+| hp1c011 | 11-12 | 12 | **B, lint pass after repair** | [Repair receipt](HP_HP1C011_REPAIR_RECEIPT.md): missing weight and two price amounts repaired; source hash unchanged. Original C-grade history retained there; this is structural grade, not full semantic review. |
 | hp1c013 | 13-14 | 25 | B, pass | |
 | hp1c015 | 15-16 | 25 | B, pass | |
 | hp1c017 | 17 | 7 | B, pass | Name accuracy 0.976 |
@@ -39,7 +39,7 @@ A window is one playable slice with its own done check (AD43 floor: rebuilt bund
 | W5 | hp1c005, ch6 | Platform and the train | G5 school-year calendar | calendar by order and events, no invented year | Proposed |
 | W6 | hp1c007 | The Sorting, first days, the potions master | G9 Sorting with a locked alternative | locked-option row at a canon choice | Proposed |
 | W7 | hp1c009 | Flying lesson, midnight duel, Halloween | house points (Merit shape), troll | institution currency, danger without a power flag | Proposed |
-| W8 | hp1c011 | Quidditch, the mirror, the library | none new | repair the C-grade shard first | Blocked on re-read or repair of hp1c011 (reason unknown) |
+| W8 | hp1c011 | Quidditch, the mirror, the library | none new | repair the C-grade shard first | Proposed; structural shard blocker cleared by [repair receipt](HP_HP1C011_REPAIR_RECEIPT.md). Semantic source review and native W8 remain unproved |
 | W9 | hp1c013 | The stone, the egg, the forest detention (as the shard orders them) | none new | long-arc clue ledger | Proposed. 25 scenes, may split |
 | W10 | hp1c015-017 | Trapdoor to the end of term | none new | multi-actor climax with a canon outcome | Proposed |
 
@@ -72,7 +72,7 @@ Pressures are my reading of the series from general knowledge, not from the shar
 
 | Claim | Evidence reached | Gap |
 | --- | --- | --- |
-| Shard chapters, scene counts, grades | Read from the nine `hp1c0*m_header.json` files this session | The header grade is not a human read; spot checks 0; hp1c011 lint failure reason not found |
+| Shard chapters, scene counts, grades | Read from the nine `hp1c0*m_header.json` files this session | The header grade is not a semantic read; spotChecked remains 0; hp1c011’s three structural defects and later B grade are recorded in the repair receipt |
 | W3 done | [Receipt](HP_WINDOW3_RECEIPT.md): 12 of 12 acts native, reload and Import digests match | Agent-verified, not human-reviewed; not committed; tracked dist not rebuilt |
 | W2 done | [Receipt](HP_WINDOW2_RECEIPT.md): 15 of 15 acts native, reload and Import digests match | Agent-verified, not human-reviewed; not committed; tracked dist not rebuilt |
 | W1 done | [Receipt](HP_WINDOW1_RECEIPT.md): 8 of 8 acts native, reload and Import digests match | Agent-verified, not human-reviewed; not committed; tracked dist not rebuilt |
@@ -89,6 +89,45 @@ ACCOUNT FOR NOW:
 - The G3 narration decision is needed before W3, not after.
 
 LATER / DELEGATE:
-- Repair or re-read hp1c011 (Sonnet, high effort, done check: lint pass and grade B).
+- hp1c011 structural repair is recorded complete in the linked receipt; select any remaining semantic review for W8’s actual source question.
 - Spot-check one scene per remaining shard by hand (cheap, local, haiku can list candidates; a person or Sonnet judges).
 - A sizing pass for books 2-7 once W5 is through the school gates.
+
+
+## Window and holdings reconciliation B100, 2026-11-04
+
+The W1–W4 rows retain named-candidate native evidence and source limits; “Done” means the recorded slice, not all-world or whole-book completion. Later fixes supersede only their exact earlier open cases.
+
+Keep eight native acts and selected literal-file persistence on the named isolated build; later O1/O2 repairs supersede shell Village figures/calendar failure for that candidate. Free accidental effect is not a learned method; hissing sensory ambiguity and attributed scar explanation remain observer-scoped. Existing school/trade/hash checks prove their selected inputs, not every world or installed app. Role-tier text, new place IDs, tracked-name residue and private content remain explicit. Human review, mobile, installed app and tracked dist are distinct states, not automatically missing AD43 floor requirements when an isolated candidate was rebuilt and tested.
+
+Preserve chapter-3/4 split and actor-owned choices, received/withheld letters versus no physical delivery item/host, no inferred expenses on Harry and unexplained speech. Replaying W1 through W2’s larger pack is valid named chain evidence, while old arc.done assertions cannot be rerun unchanged and do not imply compatibility failure. Fill durations do not verify the multiweek or weekday labels. The no-delivery-owner claim was a dated scoped search, not current repo-wide absence.
+
+Keep told instruction versus checked fact and inference, Hagrid’s choices versus Harry’s, real carrier observation versus unit-only delivery model, item/gift facts versus custody and no chapter-1 omniscience. The initial leak back-test found only player knowledge, so it was vacuous for NPC-to-NPC leakage until W4 created actual other-holder stores. A reader fixture does not prove a delivery host or deadline. Previous windows’ replay is documented at the named larger candidate, not a fresh pass here.
+
+Preserve one smallest-unit purse per actual holder, denomination ladder versus exchange rate, vault/coat/shop custody and item transfer. Wand use/answering/possession are independently timed, not full spell competence or a universal allegiance law. Fame evidence is holder-specific; participant membership is a necessary bound, not proof every participant perceived or learned every private event. W4 adds actual NPC-store back-tests, but explicitly not general rumor or NPC-to-NPC cognition. Vault total/withdrawal/unstated prices are fill; 11 Galleons is a candidate result, not canon wealth. A later source-fixed amount needs compatible revision of the affected model/future with played transactions preserved or an explicit reset decision, not silent overwrite of established purse history. Existing owl/gift facts do not establish a carried owl item/delivery mechanism.
+
+Retain display-only world-keyed veil and local clock binding, not deletion or transfer of the native hero inventory/body. Profile-hash change causing structured recovery was corrected by keeping the weekday flag in the binding; no saved field is not proof every pack identity is unaffected. First-day Saturday display does not close later windows’ unsourced calendar drift. The HP-specific own vitals, live item reader and other-world registrations were separate follow-ups, not universal shell completion.
+
+P1 generalizes static notices to state readers and retains raw holdings at their incumbent resource/inventory owners. Empty/throwing-reader fallback is explicit behavior, not proof that failed reading means no possessions. P1’s original no-real-life-reader gap is superseded for school/trade by P2 and for the HP lead by W4. Screenshot identity for the old HP lead is exact at its candidate; unregistered-path neutrality elsewhere was source/test inference, not all-world byte comparison.
+
+P2 exercises real school/trade purse/debt units and native-stock item readers, repair timing and sale, with selected save/reload/literal import. This supersedes O1/O2’s open school/trade display leak and P1’s first-consumer gap. Units are life resources, not one global denomination conversion or native purse spend; reachable external native vendors were explicitly not audited. Real clock stepping resolved the initial harness miss; preserve it as harness history, not a repaired game defect. Other-world registrations, installed app and human review remain separate.
+
+
+## Planning-source reconciliation B101, 2026-11-04
+
+Full owner review closes its prior selected-range residue. Preserve W1–W4 exact receipts and B100 qualifications; W5–W10 and later books remain plans. Header grade B/lint/name accuracy with zero spot-checks is structural, not a semantic read or source qualification. The C-grade hp1c011 problem is unresolved, not repaired by relabeling; later book pressures are general-knowledge leads. “Reading cost $0 because on disk” and “map costs nothing” mean no acquisition cost at most, not zero reading/model/time effort. A shard basename does not define chapter boundaries. A small early map can expose downstream shared seams without requiring complete detailed plans or changing the lead priority. Current user direction controls HP work beside LOTM, not a fresh implicit worker dispatch.
+
+Default LOTM generator/compiler output identity is a bounded regression proof; a generator-output comparison excludes the hand-added runner checks by design. HP stub/selector/compile tests initially did not prove native execution. G1b later resolves the named no-HP crosswalk path, and W1–W4 supply selected native HP consumers. Keep explicit world/panel/prefix/district inputs; no zero-LOTM-strings test proves all semantics portable or all future world support.
+
+Preserve 26 touched ids proposed new with zero mapped as complete routing for that slice, not 26 existing actors/places. Name-matching original school/trade people into canon identities remains invalid. In-memory semantic hash identity differs from CLI provenance files that include script hashes. Later W1–W4 pack mappings supersede zero-mapped status only for touched entities; lead aliases, all-canon catalogue and real private CLI-writing route are not automatically closed.
+
+Preserve pack namespace/lookup distinction, empty arc fallback, child/guardian state and held source without power. Initial uncalled-domain/unoffered-start/no-browser gaps are superseded for selected W1 native registration, not all starts/worlds. W4 supplies the later owned purse/item consumer. The authored morning clock and world/calendar binding remain qualified; no source grant automatically creates technique/mastery. Original school/trade fingerprint proof applies to its captured inputs, not arbitrary current shared tree.
+
+
+## Later-repair qualification B102, 2026-11-04
+
+This later repair supersedes the whole-world owner’s C-grade/unknown-cause blocker and B101’s carried unresolved wording. Missing routine weight and amounts 50 pence/1 sickle were repaired in m/m13 derivatives, source hash unchanged, backups retained; structural lint/grade B now recorded. Plain premerge zh-locator defects were not repaired and are not the graded variant. Three spot checks do not make the full shard semantically read; header spotChecked remains 0 and W8 has no native proof here. No raw source or private checks rerun by reconciliation.
+
+Narration without lead observation does not write the lead notebook; later instruction/recollection/inference needs actual basis. No act/knowledge in a skipped narration span does not mean nothing happened in world history. A spectator card is an optional different seat, not player omniscience. Participant presence is not sufficient proof of perception/disclosure and lexical leak scans cover only listed terms. The original player-only back-test could not validate nonexistent NPC-side stores; W4 later adds selected holder stores and guard/back-test without a universal rumor/event system. Its prospective world_events use is not a later established host.
+
+Full probe read closes any prior sampled residue. Its old missing profile/crosswalk/panel and waiting-for-W1 route are superseded by G1/G1b/G2/W1–W4 and B100/B101 dispositions, not current work to relaunch. “Portable” based on absent world-name strings is a candidate seam, not semantic proof. Locally held/previously read sources remove acquisition needs, not review/model/time cost. Later whole-world map and repair settle header-grade placement at structural scope. G6’s original “window 3” is outdated: actual wand consumer is W4/ch5. G10 receiving/carrier facts remain distinct from delivery simulation; G11 tier labels are not all scheduled full lives; G12 does not infer a trained skill from a descriptive label. Current accepted direction and file ownership govern any next work, with no fresh session or source pass launched here.

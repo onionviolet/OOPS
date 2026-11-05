@@ -48,4 +48,11 @@ These remain proposals, not additional delivered campaigns. Their ingredients ca
 | Personal intrusion | Dreams, possession, memory challenges, inner demons or a source backlash have specific access to body/mind/source state. They need their own recovery and agency policies. |
 | Multi-stage world event | Omen, gathering, arrival, conflict and reconstruction develop on declared boundaries. Earlier intervention changes later public/local opportunities and consequences. |
 
-The next authored enemy can select a few of these dimensions. A universal bestiary, narrative generator, lethal world simulation, cross-world pursuit, full native party battle, automatic prestige and unrestricted history reversal are unfinished. First milestone remains one realm and one prestige layer, with vanilla continuity preserved.
+The next authored enemy can select a few of these dimensions. A universal bestiary, narrative generator, lethal world simulation, cross-world pursuit, full native party battle, automatic prestige and unrestricted history reversal are unfinished. The earlier one-realm/one-prestige milestone is retired; current scope follows PROJECT and the selected owner, with vanilla continuity preserved (AD32, AD43).
+
+
+## Content reconciliation B144, 2026-11-04
+
+The complete encounter owner was reviewed. Trigger, locator, access, contact and settlement remain independently useful authoring dimensions. A guaranteed arrival is not guaranteed victory, omniscient perception, lethality or an arbitrary response deadline. Removing a mark blocks future detections through that mark; it need not erase an earlier valid lead or witnessed departure. A declared exceptional locator may bypass ordinary cover without every ordinary pursuer reading true player state (AD5, AD38).
+
+The four original proofs retain their scoped voluntary/nonlethal descriptions and historical evidence. No new current native execution or automatic-hostile/group-combat adapter was verified here. The final one-realm/one-prestige milestone wording is replaced because that gate was retired; it cannot exclude selected wider development. Future families are palettes, not a whole-world generator dispatch or evidence that every event needs a hidden price, escape route or escalation. Actual world/source means, actor motives, clocks, custody and history decide; powerful solutions may end a pursuit instead of generating a replacement penalty (AD22, AD32, AD43).

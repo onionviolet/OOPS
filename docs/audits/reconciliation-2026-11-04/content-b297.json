@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "batch": "B297",
+  "title": "High-tier power: later source corrections, real domains and local source-law limits",
+  "at": "2026-11-05T01:04:44.866700+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/HIGH_TIER_POWER_CONSIDERATIONS_2026-10-23.md",
+      "ids": [
+        "HTP1–HTP54",
+        "HTA1–47/HTB1–87/HTC1–45 attributed lane scope",
+        "Six locator corrections/WT1–WT10",
+        "Round1 and revised orders",
+        "Consolidated kit HTP43–52"
+      ],
+      "classification": "Full proposed high-tier capability/architecture map with later scoped source-dive and locator corrections",
+      "owners": [
+        "docs/HIGH_TIER_POWER_CONSIDERATIONS_2026-10-23.md",
+        "docs/LEAD_LIFE_GUIDE.md",
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "disposition": "Read all206 original lines, both build orders and every correction/kit/gap row. Later HT31/33/34/53/54 correct unwired trial, calendar arithmetic versus real owned clock, rungs-not-data-only and ordinary promotion timing versus earned knowledge. Preserve exact partial source-dive/cutoff scope and local exceptional powers. Fold source-family overgeneralization, current non-Frontier priority, optional body/control/rank mechanisms and proposed schema/order into owner.",
+      "evidence": "Historical code/saved/recall labels and three lane reports remain different source strength. LaneA4500words/LaneB10000words40windows/LaneCsavedowners do not establish whole-source coverage or a fresh read by this pass. HTP25/26 earlier recall/unread blanket text is qualified by later specific dives/remaininggaps; exact labels/corrections retained. No private source or lane report newly read.",
+      "reopen": "For a selected high-tier consumer use current lead/world/engine source and exact qualified rule. No runtime rung/source research, new shared-kit prerequisite, fixed power cap or old Frontier proof lane is launched.",
+      "input_sha256": "60b6930ae733a9168d90b6221c662716c4aa393f03d00d52f1510c401be34eda",
+      "input_lines": 206,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          206
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/HIGH_TIER_POWER_CONSIDERATIONS_2026-10-23.md",
+      "heading": "## Content reconciliation B297: corrected high-tier map and current use",
+      "body": "The full original 206-line owner was reviewed, including HTP1–HTP54, both build orders, the three attributed dives and same-day locator refinements. Keep the chronology rather than using the first table as today's source audit. HTP31 corrects the unwired trial claim; HTP33 distinguishes calendar arithmetic from an owned-place clock; HTP34 corrects Seq7 as data-only because per-rung state/readers were missing; HTP53 then HTP54 qualify promotion time with an ordinary member lacking the acting method versus a digestion/soundness assessment earned by means. Those source distinctions do not create a universal elapsed-time gate or a new automatic promotion.\n\nThe earlier HTP25/26 blanket recall/unread descriptions are qualified by the later selected dives, without turning their windows into whole-arc reading. Lane A's approximately 4,500 words, lane B's approximately 10,000 words/40 windows and lane C's saved-owner-only comparison are different evidence. Six corrected locators and the timing-estimate warning retain exact scoped precedence. Death-line missing details mean not found in the searched evidence, not canon-wide nonexistence. The separate later chapter/blocked-source wishlist is a preserved question list, not permission to launch readers, fetch digests or fabricate missing acts as canon.\n\nKeep the valuable mechanism distinctions: a rung is not its actual newly supported verb; owned place/terrain/produce/rights and local elapsed time need actual consumers; body age, place hazards and outside history can use different clocks; a ranked faculty/item is not the practitioner's own rank; controlled bodies, autonomous companions and ordinary party support need different control/identity/means; actual audience reaction or evidence is different from a personal acting counter. A hidden tier is not public just because a profile table exists. Registry domain and territory field retain their different meanings. Present code/source/world owners determine which seams already work, not these old ceiling snapshots.\n\nDo not generalize a unique-item example to an entire family. A world-unique specific Gu, conserved characteristic, exact entrusted object, ordinary artifact or Memory follows its own source identity, custody and renewal rules; a unique registry does not make every Sealed Artifact or Memory a singleton. A new resource/ingredient layer does not automatically authorize lower-to-higher currency conversion. Physical conservation/aggregation can be a mechanism without a simulated hostile agent; institutional attention needs actual observers, knowledge and means. Compare the actual effect and target law, with any equalization an explicit local dial, rather than auto-converting all ranks or banning reasonable conversions.\n\nHigh power may retire a former scarcity or hazard. Lower-tier services remain useful where their actual mechanism matters; they are not compulsory errands or a reason to invent matching opposition. Ingredient/feeding, upkeep and life-span changes remain source/world-specific, not global numerical taxes or proof that a larger cap always needs a new subsystem. The three-to-four-wave RI estimate and mostly-data expectation are planning judgments, not measured cost or admission law. A meaningful high-tier result must have its selected actual consumer; reuse can be narrow and does not require all HTP43–HTP52 first.\n\nThe original realm/prestige gate is retired, current [project focus](../PROJECT.md#current-focus) puts depth in book worlds/menus, and Frontier/Mistglass remain test beds. Old Frontier-home-first recommendations, B2 writer reservations, runtime-unassigned world labels, schema defaults and named module headers do not set today's queue or authorizations. Preserve all ordinary/exceptional routes as possibilities while following current lead and world owners. Current compatibility direction governs selected state changes and current-format persistence still needs proof. This pass creates no source rule, runtime implementation, source acquisition, new gate or user acceptance.",
+      "before_sha256": "60b6930ae733a9168d90b6221c662716c4aa393f03d00d52f1510c401be34eda",
+      "after_sha256": "ae91e0a988ff243f3f3bc9dfcff6217c62c4391853805341be93471d573471e9"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 827
+}

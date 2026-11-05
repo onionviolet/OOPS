@@ -1,0 +1,395 @@
+{
+  "schema": 1,
+  "batch": "B28",
+  "title": "Donor-source audits, corrected interpretations and exact semantic gaps",
+  "at": "2026-11-04T19:48:21.140286+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/amazing-cultivation-simulator/CHECKPOINT.md",
+      "ids": [
+        "ACS",
+        "Revision 5",
+        "ACS-P02"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/amazing-cultivation-simulator/REPORT.md; docs/research/amazing-cultivation-simulator/DEEPER_RESEARCH.md; docs/research/amazing-cultivation-simulator/DLC_COVERAGE.json"
+      ],
+      "disposition": "Historical static research and DLC supplement delivered; proposals unselected, all fiction/numbers remain proposals, and runtime/build/save/reload/import/director gates remain deferred. Later receipt says follow-up scope/coordination delivered but recipient adoption/execution is separate. No present acceptance is implied. Preserve bounded static question closure vs full-source/native gaps. Availability/counts/encoded data are not semantic coverage or runtime proof. Existing reports retain original proposal IDs and precise consumer questions; no source acquisition or donor game launched. Older missing-YAIR-function statements stay superseded where later owner receipts already qualify their presence.",
+      "mechanism_and_interactions": "The finite source research and DLC supplement report static traced families, with exact pinned assembly evidence. It distinguishes dialogue/managed traces from whole-game coverage, says generic relationship code does not establish romance, and reports simulation deadlines without universal offline policy. Five selected families contain 15 finite subtraces; three original packets remain proposals, with one redundant shower-stop packet discarded after eligibility inspection. DLC adds Wudang Yin/Yang retained progression/consumer and Bamboo environment-qualified fishing/reaction/danger.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. The checkpoint claims source-backed static traces and validation, not observed gameplay or current owner state. It explicitly keeps full DLC mechanics, pet/institution/advanced paths, and later playable/persistence proof open.",
+      "reopen": "If selected, refresh source pins/current owners and implement only a selected packet under actual writer authority; then run its own gameplay, save/reload/import and director checks. The checkpoint names ACS-P02 contextual medicine consumer first, but no selection is authorized here.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          23
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S022.json"
+      ],
+      "prior_input_sha256": "60b68a0d50ae1319c7ff122c1bf9d6c5ecde2750c9759a554a6b2df27cfdfef2",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "60b68a0d50ae1319c7ff122c1bf9d6c5ecde2750c9759a554a6b2df27cfdfef2",
+      "input_lines": 23
+    },
+    {
+      "path": "docs/research/amazing-cultivation-simulator/aspects-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "A01-A12"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/amazing-cultivation-simulator/aspects-2026-10-14/ASPECTS.md; docs/research/amazing-cultivation-simulator/aspects-2026-10-14/VALIDATION.json; future source owner is unnamed"
+      ],
+      "disposition": "Required deliverables and structural checks are reported present; PARTIAL specifically reflects semantic and runtime gaps, not a missing extraction process. No gameplay, save roundtrip, installation, or human acceptance was performed or claimed. Preserve bounded static question closure vs full-source/native gaps. Availability/counts/encoded data are not semantic coverage or runtime proof. Existing reports retain original proposal IDs and precise consumer questions; no source acquisition or donor game launched. Older missing-YAIR-function statements stay superseded where later owner receipts already qualify their presence.",
+      "mechanism_and_interactions": "Static backfill recovers 3,179 C# files and decodes 64 wrapped inputs; three selected deeper traces and an inventory accompany A01-A12. Structural graph coverage is 19 graphs/187 nodes, with visibility and execute scripts counted, but counts do not establish story closure. The unread table preserves dialogue branches/consumers, advanced cultivation, production debits, Fengshui geometry, migration/corruption/scheduler cases, onboarding/layout, and runtime/save boundaries.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports static artifact/hash/link checks only. It explicitly says most writing, most types, complete production/spatial rules, every migration/failure and actual UI/gameplay remain unread or unexercised.",
+      "reopen": "For a selected question, follow the named route: one decoded dialogue branch through domain effects, or a specific advanced-cultivation priority; native/runtime and persistence require a separate authorized builder.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          38
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S022.json"
+      ],
+      "prior_input_sha256": "0ae8d827c544bf927b63f7898ee7ffbdc4a703f290cf03969c1c1f96e705a38c",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "0ae8d827c544bf927b63f7898ee7ffbdc4a703f290cf03969c1c1f96e705a38c",
+      "input_lines": 38
+    },
+    {
+      "path": "docs/research/ani-idle/CHECKPOINT.md",
+      "ids": [
+        "Rebirth",
+        "SavedGame"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/ani-idle/REPORT.md and COVERAGE.json; VERIFICATION.json is explicitly private, not a public dossier path."
+      ],
+      "disposition": "Bounded static audit and copy/hash verification completed; no game/editor execution, save access, YAIR source/build mutation or install removal was performed. An uninstall request was sent by parent, but dialog confirmation was unobserved, so removal status is not verified. Preserve bounded static question closure vs full-source/native gaps. Availability/counts/encoded data are not semantic coverage or runtime proof. Existing reports retain original proposal IDs and precise consumer questions; no source acquisition or donor game launched. Older missing-YAIR-function statements stay superseded where later owner receipts already qualify their presence.",
+      "mechanism_and_interactions": "Static reading covered fight scheduling/manual intervention, rest/incident branching, reward/XP/death, directed equipment crafting, recurring quest/stat checks, dungeon sequencing, inventory protections and SavedGame save/load/new-game bodies. Rebirth is described as an equipment modifier operation, not offline/character prestige. Exact values, scene wiring and runtime remain open.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports 42 recovered scripts and anchors with hashes; conclusions are selected-source claims, not current runtime behavior. Storefront-only acquisition status was superseded by verified installed build/copy, but final uninstall outcome remains unverified.",
+      "reopen": "Any future design use needs exact data/scene/runtime questions answered and current evidence; uninstall requires observing the confirmation/result rather than treating the sent request as completion.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S022.json"
+      ],
+      "prior_input_sha256": "eeb13ae5df2a78d9e71a26af66cb635a969d634e5337dcf513d19d22b60b4b0f",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "eeb13ae5df2a78d9e71a26af66cb635a969d634e5337dcf513d19d22b60b4b0f",
+      "input_lines": 13
+    },
+    {
+      "path": "docs/research/ars-nouveau/CHECKPOINT.md",
+      "ids": [
+        "LP1",
+        "N1-N9",
+        "PROPOSAL"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/ars-nouveau/REPORT.md; docs/research/ars-nouveau/private/CALL_FLOWS_AND_HELPERS.md; LP1 assignment is named but implementation owner remains existing modular-chain owner"
+      ],
+      "disposition": "Complete for the named static question and deliverables; seven YAIR mappings remain proposals. No implementation, build, game runtime or human acceptance. Preserve bounded static question closure vs full-source/native gaps. Availability/counts/encoded data are not semantic coverage or runtime proof. Existing reports retain original proposal IDs and precise consumer questions; no source acquisition or donor game launched. Older missing-YAIR-function statements stay superseded where later owner receipts already qualify their presence.",
+      "mechanism_and_interactions": "Static source pass traces glyph acquisition, ordered resolution/augmentation/validation, mana and Source use, utility effects, familiar support, and selected specialized-worker loops. It reports 85 glyphs with 5 forms, 67 effects and 13 augments plus exact recipe/unlock consumers; these counts are retained data, not complete semantics. Existing modular-chain owner retains authority, while selected helper save/cancel/overflow, effects/rituals, external Minecraft routes, real protection-mod integration and offline settlement remain open.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports pinned detached source and static checks. It names precise unverified external and runtime boundaries and does not equate source coverage to observed play.",
+      "reopen": "If a narrower question is selected, recheck live owners/processes and use N1-N9; any adoption needs separate implementation, browser and persistence proof.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          23
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S022.json"
+      ],
+      "prior_input_sha256": "c7a2974ccf3048eee967d666a04be4f052459dfbe2da94061d1637de7c9ff5d5",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "c7a2974ccf3048eee967d666a04be4f052459dfbe2da94061d1637de7c9ff5d5",
+      "input_lines": 23
+    },
+    {
+      "path": "docs/research/arx-libertatis/CHECKPOINT.md",
+      "ids": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "LP1",
+        "PROPOSAL"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/arx-libertatis/REPORT.md; docs/research/arx-libertatis/COVERAGE.json; implementation owner not assigned in checkpoint"
+      ],
+      "disposition": "Source-only named question completed with pinned clone and private tables; no gameplay implementation or human acceptance. No data/game access or purchase/installation was performed. Preserve bounded static question closure vs full-source/native gaps. Availability/counts/encoded data are not semantic coverage or runtime proof. Existing reports retain original proposal IDs and precise consumer questions; no source acquisition or donor game launched. Older missing-YAIR-function statements stay superseded where later owner receipts already qualify their presence.",
+      "mechanism_and_interactions": "Static chain follows rune learning/book discovery, gesture, ordered recipe, player/NPC dispatch, spending/refusal/upkeep, light, telekinetic reach, levitation collision, fields/removal, script events and rune/precast serialization. It notes a hidden book record despite an empty recognition recipe, correcting an initial table assumption. Eight proposal mappings and four touches remain separate from implementation; commercial entity/level scripts, full text, combat classes and active-effect persistence remain gaps.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint reports static source records and no game installation/launch. Current-account ownership is explicitly unverified; selected semantics do not establish full game or persistence behavior.",
+      "reopen": "For selected work, first resolve commercial data and exact acquisition/door/portal or active-effect persistence route; then name a consumer and separately authorize runtime/persistence proof.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          16
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S022.json"
+      ],
+      "prior_input_sha256": "16cd2aad27d76b4c5d7d45b85bc74766d749f24664ad283c85c2389c9af35846",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "16cd2aad27d76b4c5d7d45b85bc74766d749f24664ad283c85c2389c9af35846",
+      "input_lines": 16
+    },
+    {
+      "path": "docs/research/battle-brothers/CHECKPOINT.md",
+      "ids": [
+        "PROPOSAL",
+        "Tale of Immortal prerequisite"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/battle-brothers/REPORT.md; docs/research/battle-brothers/COVERAGE.json; future integration route: current life-sim integrators (not individually named)"
+      ],
+      "disposition": "Finite extraction and bounded source audit are complete, but not whole-game coverage or playable acceptance. Proposals have future gates; no implementation authorization follows. Existing install remained installed; no game launch/save mutation/build/commit occurred. Preserve bounded static question closure vs full-source/native gaps. Availability/counts/encoded data are not semantic coverage or runtime proof. Existing reports retain original proposal IDs and precise consumer questions; no source acquisition or donor game launched. Older missing-YAIR-function statements stay superseded where later owner receipts already qualify their presence.",
+      "mechanism_and_interactions": "Bounded Battle Brothers extraction covers selected methods with 44 findings, eight proposals and 24 touches. The checkpoint corrects that background arrays are offsets added to base ranges, not decoder errors simply because offsets descend. It distinguishes scoped level-gated swordmaster aging and corpse revival from universal autonomous ancient-world revival; company management does not establish player kingdom founding/succession. Live YAIR commissions/helpers, social conditions, regional reputation and Village family/news supersede stale absence claims.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports source/reconstruction bounds and retained private raw material, but no native persistence/crash-safety, full combat balance, runtime DLC entitlement or universal calendar aging review.",
+      "reopen": "If selected, route proposal through current life-sim integrators and inspect current owners; qualify unresolved source joins and prove rebuilt browser/save behavior separately.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          23
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S022.json"
+      ],
+      "prior_input_sha256": "583e0bdc92f0e15de89ff2b1c91fd09ac319f0fe5f9b24b33aefa0c2bec60bf6",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "583e0bdc92f0e15de89ff2b1c91fd09ac319f0fe5f9b24b33aefa0c2bec60bf6",
+      "input_lines": 23
+    },
+    {
+      "path": "docs/research/bitburner/CHECKPOINT.md",
+      "ids": [
+        "six connected chains",
+        "six findings",
+        "six ranked proposals",
+        "26 original touches"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/bitburner/REPORT.md; docs/research/bitburner/INTAKE.json; implementation consumer is not identified in this checkpoint"
+      ],
+      "disposition": "Finite assigned pass and artifact/hash/range validation complete; no source edits, builds, launches, saves, install changes or commits. Ownership transferred to parent. Preserve bounded static question closure vs full-source/native gaps. Availability/counts/encoded data are not semantic coverage or runtime proof. Existing reports retain original proposal IDs and precise consumer questions; no source acquisition or donor game launched. Older missing-YAIR-function statements stay superseded where later owner receipts already qualify their presence.",
+      "mechanism_and_interactions": "The Bitburner checkpoint claims six connected static chains and six findings, but does not enumerate their mechanisms in this assigned span. It records a stable public repository pin and retained inspected source/context files with hashes; proposals remain unaccepted and unimplemented. This source checkpoint is only enough to route to the report, not to infer the contents of those chains.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Only checkpoint-level summary was assigned; mechanisms, consumer joins and proposal details are not stated here, and source/runtime was not inspected in this shard.",
+      "reopen": "If proposals are selected, read the linked report and exact source evidence, then identify a live consumer before any implementation; current gameplay is not established.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S022.json"
+      ],
+      "prior_input_sha256": "76c1826caef7cc14f7e6fadb76f751d1874d305e43f8ce67e1fc07661d6593d2",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "76c1826caef7cc14f7e6fadb76f751d1874d305e43f8ce67e1fc07661d6593d2",
+      "input_lines": 11
+    },
+    {
+      "path": "docs/research/bitburner/aspects-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "A01-A12",
+        "COMMON",
+        "ASPECTS",
+        "PROPOSALS",
+        "INVENTORY ONLY"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/bitburner/aspects-2026-10-14/CHECKPOINT.md is the actual grouped lane checkpoint; named per-game REPORT/DEEPER_SYSTEMS/SYSTEM_INVENTORY suppliers belong to seven assigned aspects folders, not a separate invented grouped report."
+      ],
+      "disposition": "PARTIAL denotes remaining semantic/access gaps, not a missing output matrix. All proposals remain unaccepted; no gameplay/build claim. No install/launch/personal save or source/gameplay edit occurred. Preserve bounded static question closure vs full-source/native gaps. Availability/counts/encoded data are not semantic coverage or runtime proof. Existing reports retain original proposal IDs and precise consumer questions; no source acquisition or donor game launched. Older missing-YAIR-function statements stay superseded where later owner receipts already qualify their presence.",
+      "mechanism_and_interactions": "All seven dossier output shapes are reported delivered, with bounded static coverage: message/scene conditions and retention, architecture/time boundaries, and save representation/migration/failure boundaries. Three public cultivation builds were acquired statically without execution; Melvor executable/data bodies were unavailable and prior findings remain historical. The unread table preserves distinct gaps across Bitburner, CivIdle, open-idle-games, Theory of Magic, Trimps/Antimatter, cultivation-idlers and Melvor, rather than treating the grouped lane as complete. A later UI packet target is 1440x900; its dated one-realm/one-prestige assertion is stale against current direction.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports schema/path/hash validation and explicit inaccessible/unread families. Since it is historical and contains a now-superseded first-milestone statement, present scope must follow current owners rather than that line.",
+      "reopen": "A named next consumer/source question should use existing inventory and precise gaps; Melvor needs a reachable public body or supplied public snapshot, not account/install workarounds. Any selected implementation needs its own live-owner and runtime proof.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          39
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S022.json"
+      ],
+      "prior_input_sha256": "69e5ad55c6f7bd9d1cd8d460ad6ed8e8733f3f404716615b0a71b7438499be3c",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "69e5ad55c6f7bd9d1cd8d460ad6ed8e8733f3f404716615b0a71b7438499be3c",
+      "input_lines": 39
+    },
+    {
+      "path": "docs/research/bitlife/CHECKPOINT.md",
+      "ids": [
+        "P1",
+        "PROPOSAL"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/bitlife/REPORT.md; docs/research/bitlife/FINDINGS.json; current owner must be re-read before implementation"
+      ],
+      "disposition": "Fifteen findings, five packets and fifteen touches are historical research proposals only, with no accepted decision, implementation or gameplay verification. Documentation validation passed; failed/denied wiki route stopped after one attempt and no bypass was used. Preserve bounded static question closure vs full-source/native gaps. Availability/counts/encoded data are not semantic coverage or runtime proof. Existing reports retain original proposal IDs and precise consumer questions; no source acquisition or donor game launched. Older missing-YAIR-function statements stay superseded where later owner receipts already qualify their presence.",
+      "mechanism_and_interactions": "Bounded local reading covers four named life-simulation modules plus helpers; it compares official BitLife public pages/search extracts, selected peers and earlier local lanes. The exact event/RNG/annual order, action budget, ribbon priority, karma, estate transfer/tax and paid-pack matrix remain unread; no install/account/gameplay or internal-source access occurred. Alter Life is ambiguous rather than a verified peer, and BitLife store prices/challenge schedules are intentionally unverified. Existing estate logic supersedes an older one-lesson comparison.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint limits wiki evidence to search extracts with no revision IDs; exact current formulas/platform behavior remain unverified, and four local modules do not represent a whole-engine audit.",
+      "reopen": "For a selected packet, re-read current owners and acquire only a permitted source route for the exact named uncertainty; any implementation needs fresh-origin desktop and relevant persistence proof.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          46
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S022.json"
+      ],
+      "prior_input_sha256": "a67773f93b337420f79f6fcedf2a348465f862a8eae143ae0be014a93345c16c",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "a67773f93b337420f79f6fcedf2a348465f862a8eae143ae0be014a93345c16c",
+      "input_lines": 46
+    },
+    {
+      "path": "docs/research/book-of-hours/CHECKPOINT.md",
+      "ids": [
+        "House of Light",
+        "DLC_HOL",
+        "PROPOSAL"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/book-of-hours/REPORT.md; docs/research/book-of-hours/COVERAGE.json; root is named future selection/integration owner"
+      ],
+      "disposition": "Finite source research complete for declared bounded scope; five proposals remain original/unaccepted/unimplemented. Root owns future selection/integration; gameplay/browser/unit/save/reload/failure/regression/director gates remain deferred. Preserve bounded static question closure vs full-source/native gaps. Availability/counts/encoded data are not semantic coverage or runtime proof. Existing reports retain original proposal IDs and precise consumer questions; no source acquisition or donor game launched. Older missing-YAIR-function statements stay superseded where later owner receipts already qualify their presence.",
+      "mechanism_and_interactions": "Selected static chains cover cataloguing/repair, mastery/rescue/failure, skill and wisdom/soul progression, useful ink/History, assistant/room/workstation, malady cure, weather/calendar/Numa, incidents/consultation/tutoring, House of Light casket conflict/remedy, address/invitation/postage/arrival, meals/engagement, directed friendship/mistrust, manuscript qualification, institute commitment/deadlock/ending, interpreter/persistence and finite decks. The checkpoint explicitly separates installed/source-accessible House of Light from mostly unread bonus PDFs/localisations, and counts from semantic coverage.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Source pin/export/hash receipts and selected source ranges are reported; no rebuilt behavior or save validation is claimed. Hidden installed edition/bonus metadata has no official API confirmation; entitlement/activation not asserted.",
+      "reopen": "For a selected question, use the pinned raw/export inputs and reviewed locators, and read one actual incident or commitment/withdrawal exception with prereqs, costs, state, consumer and failure aftermath; refresh owners before implementation.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S022.json"
+      ],
+      "prior_input_sha256": "d890c2761cba6e27b9107126aca46a47ff62bf0988076666513933372953d872",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "d890c2761cba6e27b9107126aca46a47ff62bf0988076666513933372953d872",
+      "input_lines": 15
+    },
+    {
+      "path": "docs/research/caves-of-qud/aspects-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "A01–A12",
+        "D1",
+        "D2",
+        "D3",
+        "U1",
+        "U2",
+        "U3",
+        "U4",
+        "U5",
+        "U6",
+        "U7",
+        "U8",
+        "U9",
+        "U10"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/caves-of-qud/aspects-2026-10-14/ASPECTS.md and VALIDATION.json; private bf-caves-of-qud input retains source hashes. No implementation owner assigned."
+      ],
+      "disposition": "PARTIAL means bounded static evidence with named semantic/native gaps, not a missing matrix row. No game launch, save access, source edit, build, implementation, commit or push. No new installation selected. Preserve bounded static question closure vs full-source/native gaps. Availability/counts/encoded data are not semantic coverage or runtime proof. Existing reports retain original proposal IDs and precise consumer questions; no source acquisition or donor game launched. Older missing-YAIR-function statements stay superseded where later owner receipts already qualify their presence.",
+      "mechanism_and_interactions": "Static Qud aspects backfill parses 44 Base XML files with declared normalization and counts 5,205 object declarations; it removes a copied-versus-indexed RPM locator from evidence after validation caught the mismatch, while RPM remains discovered/indexed, not decoded. D1 covers conversation permission/effects, D2 save envelope/recovery, D3 saved tutorial context. The unread table separates dialogue/quest/mod handlers, migrations/corruption/autosave, legacy-load uncertainty, AI/economy consumers, Sifrah activation, DLC loading/entitlement, UI, platform services, build parity and runtime implementation.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports bounded type/XML coverage and private hash validation; it expressly disclaims runtime/native UI, save behavior, entitlement/loading and broad semantic coverage. Its one realm/one prestige line is superseded by current owner.",
+      "reopen": "For deeper work, verify private hashes and installed input fingerprint, select one named U-gap and inspect exact consumer; do not treat build ID or inventory counts as package parity or runtime proof.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          34
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S022.json"
+      ],
+      "prior_input_sha256": "baa17457b540d81a919c639db70b793ffa481da6ffa16ffab6848446bdea6a1c",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "baa17457b540d81a919c639db70b793ffa481da6ffa16ffab6848446bdea6a1c",
+      "input_lines": 34
+    }
+  ],
+  "folds": [],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1677
+}

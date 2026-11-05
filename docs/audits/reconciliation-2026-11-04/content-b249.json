@@ -1,0 +1,285 @@
+{
+  "schema": 1,
+  "batch": "B249",
+  "title": "Twelve complete UI result reports: real outcomes, later leaks and synthetic proof limits",
+  "at": "2026-11-04T23:55:30.375435+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R3_REPORT.md",
+      "ids": [
+        "R3A–R3E; measured geometry/colors; all verification rows; RK1–RK3; release"
+      ],
+      "classification": "Full technical UI report; measured results, synthetic controls, mixed gates and later chronology qualified",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Full report distinguishes source/R2/R3 composition across unequal game states, native14/17.5/21 text and actual item rectangles from six DOM nodes. Source native17.6px is not the candidate21px baseline; no pixel-identity claim. Display-only overcap fixture is not attainable native overcap. Final source refresh followed disclosed adjacent main/continuation drift.1786 pass/two failures/three TODOs is not all green; final12 focused and affected browser checks cover later refinements, not a new full suite. Rank remains scoped proposal; no population ranking or universal AP/EP percentage. Current AD42 qualifies old mandatory human gate.",
+      "evidence": "Entire current report delivered in bounded reads: R3 in1–140/141–231, R12 whole, then three/three/four full report groups. No linked screenshot/raw artifact/test/source/server freshly executed or inspected.",
+      "reopen": "Selected current UI consumer: consult exact candidate/input and distinguish original report evidence from current regression proof. Historical queued suggestions/merge asks do not restart workers or grant commits.",
+      "input_sha256": "b3de053bcb425864a03acde85cb923416ed503b8c896c816dfdd1496b4f53215",
+      "input_lines": 231,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          231
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R12_REPORT.md",
+      "ids": [
+        "F1–F5; C1–C9; all check rows; R1–R5"
+      ],
+      "classification": "Full technical UI report; measured results, synthetic controls, mixed gates and later chronology qualified",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Full report records rejected two-center-column experiment, five-line detail at21px, pinned Craft, same-station known exact related uses and base-duration versus bonus-adjusted detail. Six attempts used twelve chunks with one failed/two-consumed/+2.3XP and five successful/+9.2XP receipts; attempt count is not output guarantee. Running clock continues during inspection without an inspection-triggered spend. One R11 hover run failed unresolved despite no shell edit; later clean runs alone do not retrospectively prove it unrelated. No save cycle, natural recipe acquisition or non-Village/category coverage claimed.",
+      "evidence": "Entire current report delivered in bounded reads: R3 in1–140/141–231, R12 whole, then three/three/four full report groups. No linked screenshot/raw artifact/test/source/server freshly executed or inspected.",
+      "reopen": "Selected current UI consumer: consult exact candidate/input and distinguish original report evidence from current regression proof. Historical queued suggestions/merge asks do not restart workers or grant commits.",
+      "input_sha256": "3a95960b1373ba8f20940d9df7cd168bf1626e38ca11359349444a45ce5e62e0",
+      "input_lines": 77,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          77
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R13_REPORT.md",
+      "ids": [
+        "S1–S5/C1–C7; all checks; DD1–DD4; BO1–BO6"
+      ],
+      "classification": "Full technical UI report; measured results, synthetic controls, mixed gates and later chronology qualified",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Initial22 checks precede a later26-check dedupe refresh. The candidate changed in place; no independent pre-dedupe frozen runtime survives, only retained screenshots. DD1 removes repeated People/Things only in Proto23 layout; global and contextual Stats routes are retained deliberately. Dirty1788/two-fail suite differs from passing isolated HEAD+foundation+R13 slice. Long Settings still scrolls; local Back/grid restoration is bounded, not every-world UI proof. Read later dedupe rather than leave R13-1 as an unresolved duplicate.",
+      "evidence": "Entire current report delivered in bounded reads: R3 in1–140/141–231, R12 whole, then three/three/four full report groups. No linked screenshot/raw artifact/test/source/server freshly executed or inspected.",
+      "reopen": "Selected current UI consumer: consult exact candidate/input and distinguish original report evidence from current regression proof. Historical queued suggestions/merge asks do not restart workers or grant commits.",
+      "input_sha256": "60cf7e10100672f4c369eff65152816b83ab8ee245dc08d012afbfa68d2f6426",
+      "input_lines": 89,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          89
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R14_REPORT.md",
+      "ids": [
+        "P1/B5; state/navigation/readiness matrix; final parity; P2"
+      ],
+      "classification": "Full technical UI report; measured results, synthetic controls, mixed gates and later chronology qualified",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Actual readiness shares native projection and pays row-height for readable status.18 scenes per build and13 enabled plus one disabled route are scoped matrix coverage;64 screenshot pairs are not64 natural gameplay paths. Aborted180-second run is diagnostic; final completed matrices use30 native ticks. Clean export1773pass/zero fail/threeTODO excludes dirty continuation/clock work and does not repair that dirty suite. Full parity covers four selected served assets, not all565 R3 sources. Future inventory tabs remain outside R14.",
+      "evidence": "Entire current report delivered in bounded reads: R3 in1–140/141–231, R12 whole, then three/three/four full report groups. No linked screenshot/raw artifact/test/source/server freshly executed or inspected.",
+      "reopen": "Selected current UI consumer: consult exact candidate/input and distinguish original report evidence from current regression proof. Historical queued suggestions/merge asks do not restart workers or grant commits.",
+      "input_sha256": "7b04c82022b024fb805cc86cf7efe2c4a8113f0f376370c47a07650d7a6d7dc6",
+      "input_lines": 43,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          43
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R15_REPORT.md",
+      "ids": [
+        "place-tag projection and six files; all check rows; side finding"
+      ],
+      "classification": "Full technical UI report; measured results, synthetic controls, mixed gates and later chronology qualified",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "The original checkpoint exclusion of main is superseded by final report explicitly adding placeTypes read/imports. Four positive browser targets versus four failing frozen-R14 controls demonstrate that selected regression.850 written/parsed styles proves the checked stylesheet parse, not a universal CSS/runtime contract.2055pass/threefail/threeTODO keeps two cheat failures and unrelated branding contract issue attributed. Stage1 open type only; no all-type, palette, natural or persistence claim. Favorite locations are gameplay-save state, unlike browser layout prefs.",
+      "evidence": "Entire current report delivered in bounded reads: R3 in1–140/141–231, R12 whole, then three/three/four full report groups. No linked screenshot/raw artifact/test/source/server freshly executed or inspected.",
+      "reopen": "Selected current UI consumer: consult exact candidate/input and distinguish original report evidence from current regression proof. Historical queued suggestions/merge asks do not restart workers or grant commits.",
+      "input_sha256": "60180b9418d2e7666337bcaefce53d191937f0277e3301b6fbd12df172142cfc",
+      "input_lines": 57,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          57
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R16_REPORT.md",
+      "ids": [
+        "R16a–R16c/NX33; checks; GU1/GU2/GU3/GU4/GU6; F1–F4"
+      ],
+      "classification": "Full technical UI report; measured results, synthetic controls, mixed gates and later chronology qualified",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Default keeps stored presentation choices; stable-moment measurement/companion latching protects pending controls.0.6ms timing uses500 DOM clones and measures only You/Focus, not500 simulated items or world throughput. M3 reaches gather/craft/use then its outdated inline-use harness stops; do not call full M3 completed. Duplicate crafting mounts required scoped test selectors, not product fallback. Focus invariant supersedes zero-secondary-row shape assertion.2072pass/threefail/threeTODO remains mixed; actual Skills-in-combat and real fight-to-idle restore are not browser-proven. Pane-discovery tab shift remains a real historical gap.",
+      "evidence": "Entire current report delivered in bounded reads: R3 in1–140/141–231, R12 whole, then three/three/four full report groups. No linked screenshot/raw artifact/test/source/server freshly executed or inspected.",
+      "reopen": "Selected current UI consumer: consult exact candidate/input and distinguish original report evidence from current regression proof. Historical queued suggestions/merge asks do not restart workers or grant commits.",
+      "input_sha256": "b0a48b6cbd97eeca15ea33dc9401302d2f047493dbb6732c5fa0be0a36562f42",
+      "input_lines": 105,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          105
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R18_REPORT.md",
+      "ids": [
+        "nine change rows; all checks; F1–F4/O1–O3; row tradeoff"
+      ],
+      "classification": "Full technical UI report; measured results, synthetic controls, mixed gates and later chronology qualified",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Native category filter was genuinely overridden by shell display CSS. Same no-value row moved from descending0/12 to11/12, supporting that scoped hidden-value sort fix.2065pass/zero fail/threeTODO belongs to clean branch, not shared tree. Known-empty, stack/item units, Favorites overlap and browser-local preference are separate. One visible row was explicitly sacrificed at21px, confirming B248 rather than introducing a newly discovered hidden cost. Trade regional-price sorting and stable resort/item-key selection remain outside; committed branch not merged.",
+      "evidence": "Entire current report delivered in bounded reads: R3 in1–140/141–231, R12 whole, then three/three/four full report groups. No linked screenshot/raw artifact/test/source/server freshly executed or inspected.",
+      "reopen": "Selected current UI consumer: consult exact candidate/input and distinguish original report evidence from current regression proof. Historical queued suggestions/merge asks do not restart workers or grant commits.",
+      "input_sha256": "02fbc1194dcad8726f1697c6c0ddb671d0f1051ef7069216372224f584168359",
+      "input_lines": 74,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          74
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R21B_REPORT.md",
+      "ids": [
+        "HR1/HR3–HR6/HR8/HR9; all checks; F1–F2"
+      ],
+      "classification": "Full technical UI report; measured results, synthetic controls, mixed gates and later chronology qualified",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Full report supplies actual9 checks including fresh Beginning, old custom/mid-creation identity, file export/import renamed hero and classic route. Beginning selection moved before PLAY; helper updates preserve actual CH1 opt-in.2086 source tests pass but CH1 H3–H6 still fail with missing awakened home, and the creation-panel markup remains inert rather than deleted. Top nav-over-start CSS issue is explicitly deferred. Original user retirement direction does not authorize deleting historical source or changing loaded biography.",
+      "evidence": "Entire current report delivered in bounded reads: R3 in1–140/141–231, R12 whole, then three/three/four full report groups. No linked screenshot/raw artifact/test/source/server freshly executed or inspected.",
+      "reopen": "Selected current UI consumer: consult exact candidate/input and distinguish original report evidence from current regression proof. Historical queued suggestions/merge asks do not restart workers or grant commits.",
+      "input_sha256": "9dece6c9bdc76c9031cd13b35e713fde2886bc007a56a5a3deca6b0fb2efcf78",
+      "input_lines": 48,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          48
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R21C_REPORT.md",
+      "ids": [
+        "six change rows; two check updates; all gates; open items"
+      ],
+      "classification": "Full technical UI report; measured results, synthetic controls, mixed gates and later chronology qualified",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Actual report now supports technical home repair, not only the earlier plan:6/6 awakening at44s with message/one reveal, reload/import, saved spec1 migration and2086pass. First layout squeezed stat sheet to1px and was corrected; final top-row increase about95px remains a tradeoff. Comfortable default/open compact choice is superseded by R22b user-selected compact default. Non-parity shell still parks the panel. Later R22b leak failure qualifies this report's clean leak-lint result rather than proving all later candidates clean.",
+      "evidence": "Entire current report delivered in bounded reads: R3 in1–140/141–231, R12 whole, then three/three/four full report groups. No linked screenshot/raw artifact/test/source/server freshly executed or inspected.",
+      "reopen": "Selected current UI consumer: consult exact candidate/input and distinguish original report evidence from current regression proof. Historical queued suggestions/merge asks do not restart workers or grant commits.",
+      "input_sha256": "716b47695eb57037f4775e81a689810b92573c7c2bebfaf81d9974b6dec000f1",
+      "input_lines": 62,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          62
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R22_REPORT.md",
+      "ids": [
+        "event/letter/direction/×N/palette changes; seeded check; all gates/gaps"
+      ],
+      "classification": "Full technical UI report; measured results, synthetic controls, mixed gates and later chronology qualified",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Event snapshot and per-actor/target equivalence preserve countability; defeat never collapses in this candidate.55/27 seeded-event comparisons use multisets because same-tick ordering interleaves even on baseline: not exact deterministic line-order proof. Custom roles have unit contrast but no live custom-palette browser proof in R22.2090pass/three skipped coexist with seven rule-link problems also on clean HEAD; do not call every gate green. Logs not saved; no persistence claim. Later R22c introduces a scoped by-kind display alternative with distinct occurrences.",
+      "evidence": "Entire current report delivered in bounded reads: R3 in1–140/141–231, R12 whole, then three/three/four full report groups. No linked screenshot/raw artifact/test/source/server freshly executed or inspected.",
+      "reopen": "Selected current UI consumer: consult exact candidate/input and distinguish original report evidence from current regression proof. Historical queued suggestions/merge asks do not restart workers or grant commits.",
+      "input_sha256": "5d881b24b99fb17636bd7537165b80b3bae49c23499a4471968d22d1e064ff39",
+      "input_lines": 71,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          71
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R22B_REPORT.md",
+      "ids": [
+        "SU1–SU8/SU11; B1–B8; all gates/leak finding"
+      ],
+      "classification": "Full technical UI report; measured results, synthetic controls, mixed gates and later chronology qualified",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Actual B1–B8 results qualify the planned one-column aim: MacBook21px uses two columns while rows fit. Kind colors and selected white text/left rule preserve contrast; compact default is explicit user direction.2112pass/threeTODO and CH1 H1–H6 pass do not close dormant-export leak: lint finds system-quests, Quest system and status-window on this candidate and its base. R21c's earlier pass is not applicable to changed later inputs. Report does not establish which later change introduced it. Spec3 once-show migration was subsequently corrected for moved placements in R22c.",
+      "evidence": "Entire current report delivered in bounded reads: R3 in1–140/141–231, R12 whole, then three/three/four full report groups. No linked screenshot/raw artifact/test/source/server freshly executed or inspected.",
+      "reopen": "Selected current UI consumer: consult exact candidate/input and distinguish original report evidence from current regression proof. Historical queued suggestions/merge asks do not restart workers or grant commits.",
+      "input_sha256": "be9da54aa1e52e7fbaf739a9d9daa42ab5a783fa7864d9d2c1c0e8e5e7bace7b",
+      "input_lines": 68,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          68
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R22C_REPORT.md",
+      "ids": [
+        "FC11/FC12/FC13/FC2–FC7/FC14/FC17; spec2 fix; D1–D7; gaps"
+      ],
+      "classification": "Full technical UI report; measured results, synthetic controls, mixed gates and later chronology qualified",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Full report now supports actual changes/checks beyond checkpoint plan: names/optional letters, current-wave row/log links, by-kind ×N with separate named occurrences, Target/Encounter and idle detail beside actions. Fix preserves moved spec2 layouts; spec1 remains deliberately dropped.2112pass and inherited behavior do not prove Skills/Stances in combat (no discovered Skills fixture). Usable→idle return was checked by manually clearing fight flag, not native exit. Dormant-export leak remains open. Browser-local seen styling does not create durable discovery/reward history; report says not merged/pushed.",
+      "evidence": "Entire current report delivered in bounded reads: R3 in1–140/141–231, R12 whole, then three/three/four full report groups. No linked screenshot/raw artifact/test/source/server freshly executed or inspected.",
+      "reopen": "Selected current UI consumer: consult exact candidate/input and distinguish original report evidence from current regression proof. Historical queued suggestions/merge asks do not restart workers or grant commits.",
+      "input_sha256": "876c9cc24b957ea1843c499164bd2314b2238ee0f54185a3c33d34d8b55265b3",
+      "input_lines": 63,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          63
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/UI_RULES.md",
+      "heading": "## UI-report reconciliation: actual receipts and remaining gaps (B249, 2026-11-04)",
+      "body": "F1. Twelve complete UI report reads now supplement B247's checkpoints. R21b/c/R22/R22b/c have actual technical result reports, so their earlier saved-before-edit checkpoints no longer imply no result existed. This is attributed dated evidence, not current code/browser proof. Historical no-merge/no-push and released reservations remain scoped; none is reactivated. AD36/AD43 keep source, focused tests, whole-suite, frozen assets, rebuilt journey, native acquisition and persistence distinct. AD42 qualifies old human review as optional rather than the last mandatory authoritative gate.\n\nF2. Preserve the meaningful technical failures and input windows. R3's final12 focused/affected desktop and save checks follow disclosed adjacent-source drift; the broader1786pass/twofail/threeTODO run predates final refinements. R12's one R11 hover failure was explicitly unresolved; R14's later clean interaction run does not establish its cause. R13's22-check result predates dedupe26; the runtime was refreshed in place without a separate frozen pre-dedupe build. R14's1773pass/zero fail clean export excludes unrelated dirty inputs and checks four selected served assets, not R3's entire565-source window. R15/R16 mixed suites retain baseline failures. A report's pass counts do not establish the untouched shared tree is clean.\n\nF3. R16's500-row DOM clone probe measured only You/Focus and at most0.6ms for five forced measures; it is not500-item save/simulation performance proof. The M3 harness stopped after an obsolete inline-use locator despite earlier gather/craft/use, so the whole M3 journey is not closed there. Multiple real crafting-detail mounts justified scoped selectors rather than hiding a product failure. Focus tests now protect visible-focus-or-Attributes fallback instead of a stale zero-secondary-stat shape. Skills/Stances during a real fight and actual fight-to-idle return remain explicitly unshown in the relevant R16/R22c fixtures.\n\nF4. Native recipe attempt count is not guaranteed output. R12's twelve chunks/six attempts include one failed spend and five successful receipt deltas; its known exact related uses stay within one station and base effect duration differs from bonus-adjusted detail. R18's real category CSS fix and same-row shown-value sorting control coexist with the documented one-row21px cost. Trade regional-price sort, stable-moment resort and item-key selection remain outside that claim. A favorite location is gameplay-save data; layout/category/seen choices are browser-local. A save/import check on one origin does not prove those local preferences travel with a gameplay export.\n\nF5. R21c actually records6/6 awakening/home/reload/import checks and a one-time browser-spec migration after correcting a first layout that crushed the stat sheet. R22b later records H1–H6 passing and a separate dormant-export leak failure on its own candidate and base: exported strings exposed system-quests, Quest system and status-window. R22c retains the leak as open. Do not reuse R21c's older clean leak result on those changed inputs, infer the later culprit without evidence, or turn a dormant share/export defect into a claim every live UI leaked. Current actual selected disclosure/compatibility owners decide the affected route.\n\nF6. R22's seeded event comparisons use multisets because same-tick order already varies on baseline; they do not prove byte-identical line ordering. Its custom palette is unit-checked but not live-browser verified; R22b later supplies a scoped light-palette check. R22c's selected by-kind display grouping retains named individual occurrences and current-wave links, qualifying the earlier strict per-opponent display limitation without merging histories or changing actual events. Its Usable-to-idle check toggled a fight flag manually, not a natural exit. Under AD32 old layout/skin/grouping options remain scoped choices, and current desktop14/21px/prose-first/optional-art direction governs selected changes. No new runtime, primary-source, install, commit or player acceptance was established.",
+      "before_sha256": "cc6653ec10204ddd3f6c2e29900cc68472e1cea102bb52453367ddffdd58f573",
+      "after_sha256": "54e38f9abeb168a03f461da58d0e35ce08e7146532b48edfe3cc4bd365cc1f96"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 930
+}

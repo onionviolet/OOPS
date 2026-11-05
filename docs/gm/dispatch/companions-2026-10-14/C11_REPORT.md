@@ -48,3 +48,8 @@ sealed-file reading was needed for these proposals.
 | C11-Q2 | Selecting a canon mechanism needs its exact era, edition or chapter. C1's synopsis-only candidates, uncertain companion continuity, MTL aliases and actor-specific revival/crossing limits remain unresolved at their existing scope. |
 | C11-Q3 | G1 needs an authored fictional condition and transmission/clearance rule; G2 needs actual grant authority and supported care fallback; G3 needs an observed agency transition and understood review channel. These procedures specify proposals, not delivered consumers. |
 | C11-Q4 | Future selected gameplay needs rebuild and fresh-origin 1366x768 laptop exercise; changed persistence needs save/reload/export/literal import. Human feel and acceptance remain distinct. Mobile optimisation, another realm/prestige layer and general offline replay stay deferred. No playable acceptance is claimed by C11. |
+
+
+## Later direction and full body review, 2026-11-04 (B80)
+
+The [tension owner reconciliation](TENSION_DEFAULTS.md#complete-tension-content-reconciliation-2026-11-04-b80) records actual complete body review, complementing B79’s selected procedure range. C11-Q4’s old 1366 target and realm/prestige deferral are historical scope, not a current project cap; use current desktop direction and selected implementation scope. Human review remains optional under AD42. Original row counts/checks attest this proposal packet’s structure, not underlying canon, live gameplay, source-owner application or a new full test run (AD32/AD36).

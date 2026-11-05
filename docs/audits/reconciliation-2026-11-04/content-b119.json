@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "batch": "B119",
+  "title": "Done-chat audit: dated extraction scope, resolved defaults and retained risks",
+  "at": "2026-11-04T21:15:11.859301+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/DONE_CHATS_AUDIT_2026-10-30.md",
+      "ids": [
+        "F1–F12",
+        "O1–O10",
+        "A1–A5",
+        "dated correction table"
+      ],
+      "classification": "Historical chat-digest audit with selective current owner checks",
+      "owners": [
+        "docs/audits/DONE_CHATS_AUDIT_2026-10-30.md",
+        "docs/GAME_MASTER_PROMPT.md",
+        "docs/tools/GAME_MCP_LIMITS.md",
+        "docs/USER_VISION.md"
+      ],
+      "disposition": "Digest-based scope49Claudechats excludesCodex/fulltranscripts; preserve extraction limits, real-break versus unproved load-cause distinction and shared-index/process failures as history. F4/O2 default limiter already current package command4workers/rawroute; no new suite/hook/config requested. F6/O5 worktree support already present via checkout helper and limits ledger; no new symlink/worker launch. F12/O10 exact direction now in USER_VISION6907–6909. Nov1expiry/quotas/branch-ahead/pinned-origin/readcounts/notdoneworldrows were dated, not current urgency/status. O1/O7 priorities/ownership are agent proposals; current PROJECT and concurrent foundation M21/M22/M25 own scope. No silence-as-approval for hook,push,outgoing text or unaccepteddecisions; no cherry-pick/pin/push from audit. Retain player defects and specific content gaps for reproduction, not blanket current proof.",
+      "evidence": "Fresh full128-line audit content read. Current package.json9–10, slot_run1–30, full checkout.mjs, game_mcp import/worker/checkout guards and exact USER_VISION/ABILITIES direction heading inspected. Selected GAME_MCP_LIMITS worktree-resolution row read; no game launch, external fetch, live allowance or full chat reread.",
+      "reopen": "For a selected defect inspect its actual current owner and reproduce named failure; verify external/pinned state only if authorized relevant task needs it. Original digest claims and prior test counts remain dated.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "8f1ec2469fc7b5652117d45cc23bae02d9fe82075a7bee5757f75cbb80890a6b",
+      "input_lines": 128,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          128
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/DONE_CHATS_AUDIT_2026-10-30.md",
+      "heading": "## Current-use reconciliation B119, 2026-11-04",
+      "body": "Full F1–F12/O1–O10/A1–A5 and correction table read. The audit sampled extracted first prompts, recaps and last replies from 49 Claude chats through its stated October 30 window; it did not read full transcripts or Codex chats. Preserve that evidence boundary. Its distinction between real test breaks and attributed load failures remains useful: an isolated pass or high load does not establish every failed test’s cause. Shared-index movement, overlapping writers, wrong-PID process termination and lost edits remain historical warnings, not newly observed incidents.\n\nSeveral proposed actions are already reflected in actual owners. Current package.json routes npm test through slot_run with four workers, one suite slot and a bounded load wait; test:raw exists. F4/O2 no longer justify another default-limiter edit, and no config hook is selected here. Current game_mcp imports resolveCheckout and forks the selected worktree worker; checkout.mjs validates the repository and links absent shared inputs, as recorded in [GAME_MCP_LIMITS](../tools/GAME_MCP_LIMITS.md). F6/O5’s primary-only limitation is superseded at that named seam, not a fresh browser or floor pass. F12/O10’s exact instruction is now present in [USER_VISION](../USER_VISION.md#consider-similar-ideas-for-each-idea-where-relevant-2026-10-30); no duplicate direction record is needed.\n\nThe Nov1 credit deadline is past this review date. Quotas, sharded-read counts, 211-commit divergence, origin/pinned-app state and chapter coverage numbers are historical observations, not current facts or renewed urgency. O1/O7’s wave order and proposed ownership do not override current [PROJECT](../../PROJECT.md), AD51 shared-seam direction or the selected foundation writer’s M21/M22/M25 work. Do not duplicate its selected S9/foundation/checkpoint edits. Read-model-only and missing-consumer claims require per-feature current receipts, not blanket closure or blanket absence. F9’s defects and F10’s content gaps remain useful reproduction candidates, not all newly verified defects. No acquisition, source-reading wave, worktree launch, cherry-pick, hook installation, pinned-origin change or push is authorized by this report. A5’s silence/default language does not supply approval for a consequential action or an unaccepted proposal. Original history stays in place.",
+      "before_sha256": "8f1ec2469fc7b5652117d45cc23bae02d9fe82075a7bee5757f75cbb80890a6b",
+      "after_sha256": "8eed26491ad855a6eba0eab23e90af918a9595c838219542089136fc6cbf5191"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1242
+}

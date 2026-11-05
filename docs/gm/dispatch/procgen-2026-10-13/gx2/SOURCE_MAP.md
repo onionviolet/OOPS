@@ -38,3 +38,8 @@
 | R8 | P7 world naming request versus person-only live grammar; CL codes reused for comic laws, kit lenses and crafting codex | Qualify every crosswalk by owner and namespace; person culture sight and generated world naming are separate options. |
 
 No external canon claims were needed. Illustrative original powers in the catalogue are INFERRED proposals, not attributed franchise abilities. Future canon adapters must use P7/P9/P10 source locators and shown/stated/inferred labels before claiming fidelity.
+
+
+## Current selected stream seam, 2026-11-04 (B77)
+
+F2’s no-intervention statement is the October 14 source snapshot. Current seeded_streams exposes armStreamCall and peekStreamDecision; a loaded-dice call is retained on its owning stream, resolution stores its exact decision override, and ordinary receipt history remains bounded. The selected cheat action producer arms the loot call and the fate-ledger branch records a peek. This source reading does not implement or verify every Pin/Reroll/Bias/Steal/Blind option, caller, transaction or UI route. Pure unitDecision still differs from ensureStreams initialization and keyedUnit/log mutation; streamSeed can create a missing owner through ensureStreams. Keep the original F1–F19/R1–R8 locators and input fingerprints as history, refreshing only selected dependencies for actual behavior claims. Knowledge versus truth, real decision sequence, domain-specific cursors, evictable display receipts and secret-route boundaries remain material (AD32/AD36). No deferred cheat work or runtime proof is resumed.

@@ -232,3 +232,8 @@ These are proposed dispositions, not requests to implement every family.
 
 Documentation delivery is complete. Gameplay, fit, persistence and director
 acceptance remain unimplemented/unrun, not failed. No mobile gate is introduced.
+
+
+## Current authority and owner reconciliation, 2026-11-04 (B86)
+
+All MP/DV/SZ/CH rows and reference/evidence boundaries were read, preserving the useful distinctions rather than turning a map into required spatial simulation or a chart into a new world sensor. Current desktop/laptop direction supersedes 1366-primary examples, and AD42 makes human review optional; actual new visible behavior retains AD36/AD43 proof. Root’s old “U7 added/running” paragraph is followed by the completed proposal/report snapshot, not proof these renderers or chart consumers shipped. Reference source dates/editions, indexed versus full text, source versus native inspection and failed-fetch limits remain historical; none was refreshed here. Selected supported maps/travel and data views keep their existing owners; no universal rung hierarchy, new panel, sampler, save schema, external research or runtime wave is selected (AD32).

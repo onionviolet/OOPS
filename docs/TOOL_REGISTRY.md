@@ -118,3 +118,8 @@ For a changed launcher, run `python3 -m unittest discover -s scripts/toolsets/te
 The repo-local playtest runner is optional and available only in revisions that include `scripts/playtest/run.mjs`; scoped `doctor` reports it missing on older/default checkouts.
 
 For candidate UI and data libraries (docking, virtual lists, graph layout, save diffing), see the [GitHub and web scout](research/GITHUB_AND_WEB_SCOUT_2026-10-30.md); these are proposals, not registered tools.
+
+
+## Current presence check, 2026-11-04 (B73)
+
+A read-only `show` check found `rea` not ready because its declared `/Users/weiwei/code/rea/node_modules` dependency is missing. This qualifies the earlier immediate-shell-access and current-verification wording: the October 21 update/provider/MCP checks remain historical evidence, not a fresh working installation. `show cpp2il` and `show rea-pinned` found their required paths present; no version/health probe, provider/server launch or target analysis was run, so those observations establish presence only. Preserve the distinct updated versus patched-pinned analysis identities; no automatic fallback or transfer of repaired projects is implied. The existing launcher reports the missing default dependency correctly. No dependency installation, tool update, config change, remote access or source recovery is selected by this reconciliation (AD32/AD36).

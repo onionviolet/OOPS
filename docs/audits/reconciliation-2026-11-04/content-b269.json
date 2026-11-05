@@ -1,0 +1,221 @@
+{
+  "schema": 1,
+  "batch": "B269",
+  "title": "Named life outcomes, fate variants and causal release chronology",
+  "at": "2026-11-05T00:22:20.379283+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/causal-endings/evidence/COMBAT_LIFE_AUDIT.md",
+      "ids": [
+        "all capability rows",
+        "six durable chains",
+        "five integrator joins",
+        "40input scope",
+        "checks/release"
+      ],
+      "classification": "Historical source/qualitative audit or chronological pre-release checkpoint",
+      "owners": [
+        "docs/gm/causal-endings/evidence/COMBAT_LIFE_AUDIT.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "disposition": "Full content reviewed, preserve distinct physical/life/ending/knowledge scopes and original-source status; fold chronology/current-authority qualifications into actual authoring owner. Repair confirmed archived checkpoint hrefs with exact old targets retained.",
+      "evidence": "Complete52/54/37line bodies delivered; combat initial output truncation recovered by explicit18–25. No current-source census, external source/thread verification, live process or runtime checks.",
+      "reopen": "Read any remaining inventoried underlying model/packet/source bodies independently. A selected named outcome needs actual producer, state, native consumer, support lifecycle and relevant failure/persistence proof under current authority.",
+      "input_sha256": "de45bdc95f36968e9cd0e8013ea75b3d042f74fa3b6c4547d566c22cb84c0099",
+      "input_lines": 52,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          52
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/causal-endings/evidence/TROPE_THEORYCRAFT_AUDIT.md",
+      "ids": [
+        "V-local/C/P/O/U",
+        "ten public rows",
+        "author guidance",
+        "five original scenario families",
+        "player progression/disposition"
+      ],
+      "classification": "Historical source/qualitative audit or chronological pre-release checkpoint",
+      "owners": [
+        "docs/gm/causal-endings/evidence/TROPE_THEORYCRAFT_AUDIT.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "disposition": "Full content reviewed, preserve distinct physical/life/ending/knowledge scopes and original-source status; fold chronology/current-authority qualifications into actual authoring owner. Repair confirmed archived checkpoint hrefs with exact old targets retained.",
+      "evidence": "Complete52/54/37line bodies delivered; combat initial output truncation recovered by explicit18–25. No current-source census, external source/thread verification, live process or runtime checks.",
+      "reopen": "Read any remaining inventoried underlying model/packet/source bodies independently. A selected named outcome needs actual producer, state, native consumer, support lifecycle and relevant failure/persistence proof under current authority.",
+      "input_sha256": "3b5ab09d324d97edbbba3f1a69d543e6b85914e683bfa21650083ad1ed35ab32",
+      "input_lines": 54,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          54
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/causal-endings/evidence/CHECKPOINT_BEFORE_SOURCE_RELEASE_2026_10_06.md",
+      "ids": [
+        "revision5ACTIVE→final released",
+        "20requirements/five packets",
+        "three variants/five people",
+        "internal source/research worker tables",
+        "source/refinement/proof exclusions"
+      ],
+      "classification": "Historical source/qualitative audit or chronological pre-release checkpoint",
+      "owners": [
+        "docs/gm/causal-endings/evidence/CHECKPOINT_BEFORE_SOURCE_RELEASE_2026_10_06.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "disposition": "Full content reviewed, preserve distinct physical/life/ending/knowledge scopes and original-source status; fold chronology/current-authority qualifications into actual authoring owner. Repair confirmed archived checkpoint hrefs with exact old targets retained.",
+      "evidence": "Complete52/54/37line bodies delivered; combat initial output truncation recovered by explicit18–25. No current-source census, external source/thread verification, live process or runtime checks.",
+      "reopen": "Read any remaining inventoried underlying model/packet/source bodies independently. A selected named outcome needs actual producer, state, native consumer, support lifecycle and relevant failure/persistence proof under current authority.",
+      "input_sha256": "0caf5d538255415327b5d5a5ed20ab260e547c39deec083eec478e76037234cf",
+      "input_lines": 37,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          37
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/causal-endings/evidence/COMBAT_LIFE_AUDIT.md",
+      "heading": "## Content reconciliation B269",
+      "body": "All52original lines reviewed, including every capability row, six durable chains and all five demanded joins. The audit freezes October6source, not present gameplay. Its40matching inputs are an initial/final inspection pair, with later-discovered dependencies captured separately; they do not freeze the dirty checkout. Source-supported fixed elder/Mara/Lio/sluice cases are different from arbitrary named hostility. A People list or target field is not a producer for a legal hostile action. The inspected one-HP floor, session helper status and fighter.is_alive activity flag do not establish persistent death, capture or inheritance.\n\nThe useful ownership boundaries remain: body injury, simulation life, native availability, sessions/jobs, stock/power/title/claim and observer knowledge are separate. A life primitive cannot alone settle every dependent consumer or choose an ending. Conversely, provider loss cannot undo completed history or automatically invalidate frozen work that no longer needs support. Apply current AR7/ABR11 at the actual remaining-support/commitment boundary, with actual partial/failure settlement. “Lawful ownership” here means the selected operation's modeled custody/transfer terms; a missing social right alone cannot prohibit a physically supported theft (AD38). No automatic inheritance or universal death→loot conversion follows from an outcome label.\n\nThe draft Paradise registration/host absence is explicitly earlier than its parent's future work. The later [book-world checkpoint/coverage uptake](../../../ENGINE_AUTHORING.md#book-world-checkpoint-and-five-row-coverage-uptake-b267) records a later finite implementation/build state, still with unrun behavior. Preserve that chronology rather than repeat the absence as a current defect or infer that the later build proves arbitrary lethal NPC targeting. The mortal chronicle deadline and historical total_deaths counter are also distinct operations, not a universal player-death publisher. Current AD42/AD43 governs proof stages; no mandatory director approval is introduced. No current code, private source, life join, combat route, save-failure scenario or browser result was reverified.",
+      "before_sha256": "de45bdc95f36968e9cd0e8013ea75b3d042f74fa3b6c4547d566c22cb84c0099",
+      "after_sha256": "e11f0d419d18fe600cacabc43d480f6ccbf3ccbfab79f079edb606c637fdf091"
+    },
+    {
+      "path": "docs/gm/causal-endings/evidence/TROPE_THEORYCRAFT_AUDIT.md",
+      "heading": "## Content reconciliation B269",
+      "body": "Every evidence-class definition, all ten public-discussion rows, author-guidance comparison, five original scenario families, adjacent options and proposed player progression were read. Preserve C/P/O/V-local/U distinctions. Ten community threads are neither a fandom consensus nor authenticated franchise mechanics; a primary author's nonabsolute design advice does not require costs, weaknesses or counters for every powerful entity. The original prototype permission in this record does not source-qualify a book claim, select a new world now or dispatch its five packets.\n\nThe scenarios preserve genuinely different protections: survival, body restoration, outcome/office, recognition, future anchor and causal independence are not one luck score or rank ladder. Future strength predicted for a person does not itself supply an actual retrocausal intervention. An absolute conditional protection can remain absolute where its actual condition and reach hold (AD5, AD38). Source loss, severance, a prior wound, lost office and completed aftermath need separate lifecycle outcomes, as BHR31–34 and SLR40–43 now also describe. A conflict between anchors needs the selected topology/identity/precedence and affected history; equal labels do not cancel them automatically.\n\nThe prototype's “repeat attacks should not farm” language guards accidental replay of a single commitment, not a universal prohibition on actual repeated expenditures, new observations, replenished protection or intentional powers (AD22, AD38). Repetition can yield new evidence when the observed mechanism really supplies it; a failed attack is not by itself full knowledge of its hidden source. A changed future does not force universal amnesia or make every unrelated forecast wrong. A lost title/mandate likewise does not erase learned skill or magically make every witness recognize a successor. No global fate meter, guaranteed satisfying alternate victory, omniscient reaction, universal source price or source-independent rescue was selected. The proposed progression and mystery examples remain optional original authoring, with knowledge-limited public results.\n\nThe linked sources were not reopened or newly verified. Preserve actual source acquisition, reading, inference and community interpretation as separate evidence, and retain hidden original-world truth behind its discovery route. This review neither calls a model nor creates a new reading/research goal, test or runtime consumer.",
+      "before_sha256": "3b5ab09d324d97edbbba3f1a69d543e6b85914e683bfa21650083ad1ed35ab32",
+      "after_sha256": "eee3ec65adc80c8cdf3ff8a08d8a5a95bd492896f6ffba590eb0090d5ab1aef2"
+    },
+    {
+      "path": "docs/gm/causal-endings/evidence/CHECKPOINT_BEFORE_SOURCE_RELEASE_2026_10_06.md",
+      "heading": "## Content reconciliation B269",
+      "body": "Full checkpoint read chronologically. Its opening revision5ACTIVE/child reservations and no-build assignment precede the ending explicit complete/released/no-pending-state close. They are historical task states, not evidence of live children, process ownership or a current writer. Do not restart the old root/children, static checks,36minute proof scenario or integration instructions from this saved-before-release filename. This read started no worker or process.\n\nPreserve the distinct boundaries:20stable requirements and five packets are analysis scope; optional causalStories1/expansion11, five native people and three original variants are the selected implementation proposal at that date. Existing bags/body/stats/purses/knowledge/job/clock owners and the opt-in current-resolution descriptor avoid a second scheduler or publisher. These declared contracts do not prove a finished native, source/model, browser or durable-save journey. The later exact role release and source receipts do not retrospectively upgrade unrun tests/builds or approve product direction. Current AD36/AD42/AD43, actual host permissions and actual current ownership govern selected work.\n\nThe final direction qualification is important: conditional survival can be absolute without an invented finite budget, while future predicted rank alone is not causal immunity. Keep physical result, goal outcome and actual finality distinct. V-local excerpts, community interpretation and original variants stay separately qualified. This record points to source-exception, matrix/model/case/packet/report bodies; none is credited as read here by that pointer. Relative links in this archived checkpoint were written as though it lived in the parent directory; confirmed local targets are repaired in place, with every original href retained in the batch amendments. The repair changes navigation, not the historical worker state or its accepted scope.",
+      "before_sha256": "0caf5d538255415327b5d5a5ed20ab260e547c39deec083eec478e76037234cf",
+      "after_sha256": "ca5f6bca019abea44bece5e5d38503d18216e546bbde8033d0853e3af592d0f4"
+    },
+    {
+      "path": "docs/ENGINE_AUTHORING.md",
+      "heading": "### Causal outcome and fate-audit uptake B269",
+      "body": "The complete [combat/life source audit](gm/causal-endings/evidence/COMBAT_LIFE_AUDIT.md#content-reconciliation-b269), [trope/theorycraft sample](gm/causal-endings/evidence/TROPE_THEORYCRAFT_AUDIT.md#content-reconciliation-b269) and [pre-release checkpoint](gm/causal-endings/evidence/CHECKPOINT_BEFORE_SOURCE_RELEASE_2026_10_06.md#content-reconciliation-b269) have been reviewed. Fixed nonlethal fights, an authored life primitive, native availability and actual death/capture/transfer/ending are distinct producer/consumer chains. A session activity flag or total_deaths counter is not persistent mortality. Keep remaining-support invalidation separate from admission and completed history, with source-specific actual transfers rather than automatic corpse rewards.\n\nEarlier draft Paradise absence is a dated snapshot, qualified by the later finite source/build checkpoint discussed above; neither supplies current arbitrary named targeting or native lethal proof. The ten-thread sample remains community evidence and five original scenario families, not canon or consensus. Absolute conditional protection need not receive an invented charge pool, and predicted future rank alone does not establish a future anchor. The checkpoint's final release supersedes its early ACTIVE child table as history; current processes were not probed or restarted. No linked long-form model, matrix, report or source exception was reviewed by proxy, and no gameplay/save/browser check or implementation follows from this document uptake.",
+      "before_sha256": "efbd7c9f4d59031702807b2fc670d6090b1773167a49a898ddbc67c8caf5bf81",
+      "after_sha256": "9f17e853311be5713b2115a0c009172154614fa17c46fefa27677d2443ee6d0e"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 891,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/causal-endings/evidence/CHECKPOINT_BEFORE_SOURCE_RELEASE_2026_10_06.md",
+      "from": "](../dispatch/AUDIT_REMAINDER_2026_10_06.md)",
+      "to": "](../../dispatch/AUDIT_REMAINDER_2026_10_06.md)",
+      "reason": "B269 resolve archived checkpoint link from its actual evidence-directory location; old href retained and content/proof unchanged."
+    },
+    {
+      "path": "docs/gm/causal-endings/evidence/CHECKPOINT_BEFORE_SOURCE_RELEASE_2026_10_06.md",
+      "from": "](INTERFACE.md)",
+      "to": "](../INTERFACE.md)",
+      "reason": "B269 resolve archived checkpoint link from its actual evidence-directory location; old href retained and content/proof unchanged."
+    },
+    {
+      "path": "docs/gm/causal-endings/evidence/CHECKPOINT_BEFORE_SOURCE_RELEASE_2026_10_06.md",
+      "from": "](REPORT.md)",
+      "to": "](../REPORT.md)",
+      "reason": "B269 resolve archived checkpoint link from its actual evidence-directory location; old href retained and content/proof unchanged."
+    },
+    {
+      "path": "docs/gm/causal-endings/evidence/CHECKPOINT_BEFORE_SOURCE_RELEASE_2026_10_06.md",
+      "from": "](CURRENT_CAPABILITIES.md)",
+      "to": "](../CURRENT_CAPABILITIES.md)",
+      "reason": "B269 resolve archived checkpoint link from its actual evidence-directory location; old href retained and content/proof unchanged."
+    },
+    {
+      "path": "docs/gm/causal-endings/evidence/CHECKPOINT_BEFORE_SOURCE_RELEASE_2026_10_06.md",
+      "from": "](ACTION_OUTCOME_MATRIX.md)",
+      "to": "](../ACTION_OUTCOME_MATRIX.md)",
+      "reason": "B269 resolve archived checkpoint link from its actual evidence-directory location; old href retained and content/proof unchanged."
+    },
+    {
+      "path": "docs/gm/causal-endings/evidence/CHECKPOINT_BEFORE_SOURCE_RELEASE_2026_10_06.md",
+      "from": "](CAUSAL_MODEL.md)",
+      "to": "](../CAUSAL_MODEL.md)",
+      "reason": "B269 resolve archived checkpoint link from its actual evidence-directory location; old href retained and content/proof unchanged."
+    },
+    {
+      "path": "docs/gm/causal-endings/evidence/CHECKPOINT_BEFORE_SOURCE_RELEASE_2026_10_06.md",
+      "from": "](ENDING_MODEL.md)",
+      "to": "](../ENDING_MODEL.md)",
+      "reason": "B269 resolve archived checkpoint link from its actual evidence-directory location; old href retained and content/proof unchanged."
+    },
+    {
+      "path": "docs/gm/causal-endings/evidence/CHECKPOINT_BEFORE_SOURCE_RELEASE_2026_10_06.md",
+      "from": "](WORKED_CASES.md)",
+      "to": "](../WORKED_CASES.md)",
+      "reason": "B269 resolve archived checkpoint link from its actual evidence-directory location; old href retained and content/proof unchanged."
+    },
+    {
+      "path": "docs/gm/causal-endings/evidence/CHECKPOINT_BEFORE_SOURCE_RELEASE_2026_10_06.md",
+      "from": "](IMPLEMENTATION_PACKETS.md)",
+      "to": "](../IMPLEMENTATION_PACKETS.md)",
+      "reason": "B269 resolve archived checkpoint link from its actual evidence-directory location; old href retained and content/proof unchanged."
+    },
+    {
+      "path": "docs/gm/causal-endings/evidence/CHECKPOINT_BEFORE_SOURCE_RELEASE_2026_10_06.md",
+      "from": "](SOURCE_SNAPSHOT.json)",
+      "to": "](../SOURCE_SNAPSHOT.json)",
+      "reason": "B269 resolve archived checkpoint link from its actual evidence-directory location; old href retained and content/proof unchanged."
+    },
+    {
+      "path": "docs/gm/causal-endings/evidence/CHECKPOINT_BEFORE_SOURCE_RELEASE_2026_10_06.md",
+      "from": "](COVERAGE.json)",
+      "to": "](../COVERAGE.json)",
+      "reason": "B269 resolve archived checkpoint link from its actual evidence-directory location; old href retained and content/proof unchanged."
+    },
+    {
+      "path": "docs/gm/causal-endings/evidence/CHECKPOINT_BEFORE_SOURCE_RELEASE_2026_10_06.md",
+      "from": "](VALIDATION.json)",
+      "to": "](../VALIDATION.json)",
+      "reason": "B269 resolve archived checkpoint link from its actual evidence-directory location; old href retained and content/proof unchanged."
+    },
+    {
+      "path": "docs/gm/causal-endings/evidence/CHECKPOINT_BEFORE_SOURCE_RELEASE_2026_10_06.md",
+      "from": "](evidence/TROPE_THEORYCRAFT_AUDIT.md)",
+      "to": "](TROPE_THEORYCRAFT_AUDIT.md)",
+      "reason": "B269 resolve archived checkpoint link from its actual evidence-directory location; old href retained and content/proof unchanged."
+    },
+    {
+      "path": "docs/gm/causal-endings/evidence/CHECKPOINT_BEFORE_SOURCE_RELEASE_2026_10_06.md",
+      "from": "](evidence/DIRECTION_REVISION_2026_10_06.md)",
+      "to": "](DIRECTION_REVISION_2026_10_06.md)",
+      "reason": "B269 resolve archived checkpoint link from its actual evidence-directory location; old href retained and content/proof unchanged."
+    },
+    {
+      "path": "docs/gm/causal-endings/evidence/CHECKPOINT_BEFORE_SOURCE_RELEASE_2026_10_06.md",
+      "from": "](evidence/FATE_FOLLOWUP_SNAPSHOT.json)",
+      "to": "](FATE_FOLLOWUP_SNAPSHOT.json)",
+      "reason": "B269 resolve archived checkpoint link from its actual evidence-directory location; old href retained and content/proof unchanged."
+    },
+    {
+      "path": "docs/gm/causal-endings/evidence/CHECKPOINT_BEFORE_SOURCE_RELEASE_2026_10_06.md",
+      "from": "](evidence/FATE_FOLLOWUP_VALIDATION.json)",
+      "to": "](FATE_FOLLOWUP_VALIDATION.json)",
+      "reason": "B269 resolve archived checkpoint link from its actual evidence-directory location; old href retained and content/proof unchanged."
+    }
+  ]
+}

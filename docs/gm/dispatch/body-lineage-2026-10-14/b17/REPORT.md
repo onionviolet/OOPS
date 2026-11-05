@@ -108,3 +108,12 @@ one body/action/observer route with compatibility decisions, rebuild and exercis
 it on a fresh desktop origin at 1366x768, then save/reload/import if persistence
 changes. Mobile stays deferred. Director fiction and balance acceptance remains
 separate. This research does not close that gameplay gate.
+
+
+## Comic-body reconciliation B124, 2026-11-04
+
+All eight underlying B17 bodies now read: REPORT/CORRECTIONS/NEW_ROWS/four source cards/STAND_INS. Preserve M01–M13/D01–D06/W01–W03/GC01 evidence tiers: indexed/fetched publisher text, prior secondary wiki, bounded narrative and in-world research, or synopsis. Reading these receipts does not renew URLs, read issues/serials or qualify every continuity. Failed dump acquisition is route-specific, not proof no other source exists. Prose comparisons remain prose, not comic-medium laws. K3’s final arrival supersedes earlier pending status; K6 was intentionally stopped as W18 overlap, not a worker to relaunch.
+
+The genetic owner had applied only selected CB corrections; its blanket “corrections applied” label did not settle CC/G77. B124 directly qualifies CC1–CC5 and G77a–d as scoped proposal/texture, retaining exact old/new wording in the batch ledger. Handbook descriptors are not automatically institutional guesses; detection names its signal, origin recall its actual access/means, identity resolution its channels, and trigger forecasts remain unverified canon analogies rather than guaranteed stress countdowns. Scar repair, tailoring, category mistakes and a famous child’s appearance/pursuit are conditional actual events, not automatic facts. SRC_godclads’ SB8 reference is corrected to SB9, the designed-purpose/chosen-life stand-in; SB8 remains the administered-body procedure.
+
+CB16–CB23 and SB1–SB10 remain linked candidates, not new accepted rules or copied runtime systems. Keep external provider/tissue, body/person/control, template/local memory, physical shape/matter interaction, construction/kinship, support dependency and agency separate. Exact powerful means can work without mandatory failure or universal costs. Current [PROJECT](../../../../../PROJECT.md), AD42 and AD51 in [RULES_INDEX](../../../../RULES_INDEX.md) govern retired milestone, optional review and reasonable shared-seam design. No new world order, source acquisition or implementation is selected; raw primary sources and underlying comic sibling packets remain independent review inputs.

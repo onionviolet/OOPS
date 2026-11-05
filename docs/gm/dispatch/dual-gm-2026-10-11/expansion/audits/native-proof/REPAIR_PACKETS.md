@@ -27,3 +27,8 @@ Acceptance: current/legacy active and completed fixtures with enrolled chronicle
 ## Handoff gate
 
 A future explicit repair assignment can reserve these exact areas against live owners. The A5 audit authorizes none of those writes. Director fiction/pacing acceptance, current combined-source integration and any new additive compatibility policy remain separate gates. Broader source completeness, mature journeys and VFX plans remain owned by the existing A1/A2/A3/A4/P8 lanes.
+
+
+## Reconciliation status, 2026-11-04 (B12)
+
+F1–F3 are retained reproduced defects on their original isolated inputs and candidate repair constraints. The later read-only join classified these packets; it did not implement them. Neither stale candidate hashes nor a diagnostic bypass establish a current ordinary-entry defect. If selected later, first inspect the current mount, registry-provenance and time-publication owners; retain no-fabricated-visit, no-data-loss, current observer/clock and durable-before-visible failure cases. This content reconciliation authorizes no runtime repair. Human fiction review is separate optional feedback under AD42; any actual persistence-policy decision still follows current owner authority.

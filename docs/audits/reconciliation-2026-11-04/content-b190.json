@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "batch": "B190",
+  "title": "Complete world-kit successor and corrected depth lenses",
+  "at": "2026-11-04T22:47:54.220253+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md",
+      "ids": [
+        "KW1–KW6",
+        "FK1–FK10",
+        "GW1",
+        "KN1–KN12",
+        "KU1–KU6",
+        "KF1–KF3",
+        "KL1–KL12",
+        "KR21-1–KR21-10",
+        "KL21-C1–KL21-C16",
+        "B7",
+        "B90"
+      ],
+      "classification": "Continuing world-kit root, topic-wave folds and per-world lens corrections",
+      "owners": [
+        "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md",
+        "docs/audits/WORLD_CORE_KIT_CORE_AUDIT.md"
+      ],
+      "disposition": "Keep later FK/KF/KL corrections over earlier generic event-engine, mandatory texture, shared-cost and rank leads. Readiness and source/card coverage remain dated/scoped. Proposals and former candidate orders do not override current lead-world/UI direction or AD51.",
+      "evidence": "Fresh full read 1–end in bounded ranges, including every round and later B7/B90 dispositions. Underlying cards, source ledgers, game exports, external rules, private texts and runtime were not reread.",
+      "reopen": "Selected world law or actual route/access/use/site aftermath; choose only relevant lenses and inspect exact current owner/consumer and source continuity.",
+      "input_sha256": "9b29c7d45843048679385fdd9ad7b2ef363fcd32c034c9da028c3283703366d1",
+      "input_lines": 390,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          390
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md",
+      "heading": "## Complete successor-root reconciliation, 2026-11-04",
+      "body": "Rounds 16–21 carry corrections forward, rather than adding independent launch instructions. FK2 limits the four event slots to our audit contract, not a proven common engine; FK3 dates the 0/288 baseline; KF1 makes KN/KU texture optional. The old numbered suggestions, P01/MWA-P02/Frontier candidates and source-read envelopes do not set current priority, authorize paid reading or dispatch workers. AD51 qualifies FK4’s older two-real-callers-before-landing formulation: known needs and a first actual consumer can establish a seam, with a distinct world validating and revising it. Current desktop/prose-first owners govern composition, rather than old required-drawer or 1366×768 wording.\n\nPreserve source law, represented daily life, knowledge, actual implementation and played consequences separately. KL21’s corrected institutional ranks, independent axes, gate events and per-instance terms supersede the initial memory leads. The five independent novel profiles do not share a universal power bill; an observable trace differs from actual consumption. Similar process/graph shapes are reuse candidates, not proof they compile or preserve every world’s meaning without engine work. Prose counts, thin-card samples and unauthenticated editions keep their explicit limits (AD32, AD38).\n\nKeep KW dialogue/event/save questions, KN ordinary-life texture and KU law-to-daily-life/full-preparation comparisons as useful palettes. A proverb, complaint or historical source claim is observer knowledge, not automatic truth. Law removing a familiar need can be a valid world difference, and profitable/failure-free mechanisms need no invented friction. This complete root reading does not review every linked card, lane or source. No grid re-score, runtime, fresh research or new playable slice is claimed.",
+      "before_sha256": "9b29c7d45843048679385fdd9ad7b2ef363fcd32c034c9da028c3283703366d1",
+      "after_sha256": "8a0b4915b151c7d41037a5d87dc21c99134a1b8d671ba09b9460c5797f7a27b9"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1102
+}

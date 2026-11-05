@@ -214,3 +214,12 @@ Floor (AD43) for this request:
 | DRC12 | Lane hash | Seeded carcass job: below floor | Every held control names its cause | As above | No persistence change | Agent-verified, not human-reviewed |
 
 Status: P06, P08, P09 and DRC11 done at the floor. P07 and P10 needed no change. DRC12 is browser-verified but implemented, below floor until an earned carcass route runs.
+
+
+## Full checkpoint reconciliation, 2026-11-04 (B182)
+
+All UIV1/F1–F3, P02–P10, floor tables and verification failures were read, completing the earlier B118 partial ranges. Preserve natural versus fixture proof: DRC11 reaches the earned mentor route, while DRC12 demonstrates reasons on a seeded carcass job and remains below FLR2. The initial3499-pass slice and later3504/3505 run have different inputs; CN11 passing alone does not make that later combined suite clean. Old source-committed versus next-shared-rebuild notes, bundle hashes, ownership and ports retain their dates. No current release or preview availability follows.
+
+Keep successful negative findings and limited observations: P04 measured fractional text leading but changed nothing; P07 word-plus-glyph signals needed no repair; P10 did not reproduce a return problem and therefore added no recap UI. Sparse perf fixtures did not justify shrinking Reports. A module title on title/aria-label is full-name access in the tested route, not a screen-reader comprehension pass. Motion full/reduced/off/OS measurements and known-versus-untried drink copy retain their specific consumers and fixture/font cells.
+
+The old exact harvest-reason handoff still has a narrow source-level gap at the inspected current seam: main.js has harvestBlockReason, but native_resources_domain’s panel/read projection supplies readiness booleans without that reason, and harvest_ui’s disabled processing branch still uses the generic OCCUPIED list. No fresh player-state failure or gameplay defect is claimed, and no source was edited. If a selected UI slice needs it, carry that existing public reason through the existing frame rather than compute another readiness policy in the renderer. Retain current native owner, knowledge and focus behavior; earn a carcass for any new natural-route claim. Current AD36/AD43 and AD42 govern later verification and optional human review; no blanket decorator, density redesign or extra return-note framework was launched.

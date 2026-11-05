@@ -1,0 +1,586 @@
+{
+  "schema": 1,
+  "batch": "B19",
+  "title": "Paid observation and cargo, optional-owner publication and resolved retort findings",
+  "at": "2026-11-04T19:43:57.088163+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/village-study-2026-10-09/CHECKPOINT.md",
+      "ids": [
+        "Part 1",
+        "Part 2",
+        "Career schema 1 → 2"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "src/village_career.js, village_career_ui.js, main.js, items.js, save_files.js; report and acceptance backlog in village-study dispatch"
+      ],
+      "disposition": "Historical implementation and assigned gates reported complete, with test/build/browser and normal-timer evidence. Balance, fiction, pacing and menu readability remain human feedback; the proposed bonus is not acceptance. The record describes schema migration and generated schema-1 compatibility, not current runtime proof. Preserve source-era paid ownership, actor/body, clock and one-publisher constraints; old deferred checks do not grant a present AD43 exemption. No old writer/process lease revived. Source/build-only states remain distinct from native behavior.",
+      "mechanism_and_interactions": "Village patrol study separates known (native six-minute reading), practiced (five meditation minutes), and executable (a new full patrol with loaned lantern/baton); Tessa offers the notes at Dependable. A successful full patrol pays 50 base plus proposed 10 report bonus; early departure pays nothing, and first successful use adds one life entry. Career owns practice/issuance/use; native books own knowledge.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports two browser routes, persistence/import cases, and timer-specific checks; not independently rerun here.",
+      "reopen": "If reselected, inspect present code and test patrol readiness, early departure, native reading/practice, migration and payout against current owners.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          61
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S012.json"
+      ],
+      "prior_input_sha256": "b61bbc92ba2dfc3f32c1725792d488a7416a11f684e951d6792e24a09ba001f7",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "b61bbc92ba2dfc3f32c1725792d488a7416a11f684e951d6792e24a09ba001f7",
+      "input_lines": 61
+    },
+    {
+      "path": "docs/gm/dispatch/vivid-proto23-flow-2026-10-13/CHECKPOINT.md",
+      "ids": [
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "I6",
+        "I7",
+        "I8",
+        "I9",
+        "I10",
+        "R11",
+        "Vivid"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/vivid-proto23-flow-2026-10-13/CHECKPOINT.md; source owners named as display.js and minimal main.js hook"
+      ],
+      "disposition": "Historical gate reports 11 items passing with one baseline test failure, then a post-gate contrast repair and full check rerun passing. Several reveal/animation/keyboard/level/zoom behaviors and human taste on Vivid bars, vitals, reveal and coin float remain explicitly unverified/open. Preserve source-era paid ownership, actor/body, clock and one-publisher constraints; old deferred checks do not grant a present AD43 exemption. No old writer/process lease revived. Source/build-only states remain distinct from native behavior.",
+      "mechanism_and_interactions": "The checkpoint describes a UI/flow slice: notebook/people/routes reveal and level/keyboard feedback, settled effects and discovery were sequenced; a later contrast repair changed Vivid bar value text to dark #0b1030 and lighter tracks after the original gate measured fill against panel rather than text against fill.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical check/build claims are in the assigned checkpoint; no browser artifact or current source examined here.",
+      "reopen": "For any future UI selection, rebuild and inspect the populated desktop result, including text-to-fill contrast and the deferred behaviors.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          29
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S012.json"
+      ],
+      "prior_input_sha256": "28334e763cad89aff96b45cfbf8f64cce0ccc5bbeeb95fb1d7f3bac0f2a8ffad",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "28334e763cad89aff96b45cfbf8f64cce0ccc5bbeeb95fb1d7f3bac0f2a8ffad",
+      "input_lines": 29
+    },
+    {
+      "path": "docs/gm/dispatch/wider-gameplay-2026-10-11/CHECKPOINT.md",
+      "ids": [
+        "P04",
+        "P05",
+        "E1-E4",
+        "D1-D5",
+        "C1"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "Isolated wider-gameplay candidate; INPUTS.json, VERIFICATION and REPORT; root integration owner"
+      ],
+      "disposition": "An isolated candidate reports 416 tests, build matching seven changed files and final browser groups passing. Shared integration, director acceptance and wider ability/death/dungeon families stay in backlog; no commit, push or integration was authorized in that historical checkpoint. Preserve source-era paid ownership, actor/body, clock and one-publisher constraints; old deferred checks do not grant a present AD43 exemption. No old writer/process lease revived. Source/build-only states remain distinct from native behavior.",
+      "mechanism_and_interactions": "The required journey links natural preparation, site entry, ability or ordinary approach, lasting outcome and finite reward/extraction, with retreat/injury/treatment and an explicitly signalled lethal route to ended-life archive plus independent new character. Ordinary native defeat remains unconsciousness. Private P04 and earlier packs were included; actively edited P05 excluded.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint claims historical test/build/browser proof against a pinned candidate; current checkout integration is not established.",
+      "reopen": "If selected again, inspect the live candidate/integration and verify the chosen natural journey and archive/restart boundary on rebuilt browser.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S012.json"
+      ],
+      "prior_input_sha256": "87e5671a6a788dba225a27127b49c3e27a5c65fac49d19eabdd20b31ef27b1ae",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "87e5671a6a788dba225a27127b49c3e27a5c65fac49d19eabdd20b31ef27b1ae",
+      "input_lines": 15
+    },
+    {
+      "path": "docs/gm/dispatch/workflow-foundation-audit-2026-10-12/CHECKPOINT.md",
+      "ids": [
+        "F1-F5",
+        "R/D/I/V/H",
+        "ASSIGNMENT",
+        "VALIDATION"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "workflow-foundation-audit dispatch REPORT.md, WORKFLOW_MAP.md, TOOLING_DECISION.md, NEXT_PACKET.md and VALIDATION; shared runtime owner not assigned here"
+      ],
+      "disposition": "Audit is reported complete with hashes, routing coverage and narrow JSON/link/source-path checks. The next packet remains proposal-only; runtime integration, build and combined browser/persistence proof were not run, and the checkpoint prohibits automatic successor/implementation. Preserve source-era paid ownership, actor/body, clock and one-publisher constraints; old deferred checks do not grant a present AD43 exemption. No old writer/process lease revived. Source/build-only states remain distinct from native behavior.",
+      "mechanism_and_interactions": "This finite workflow audit produced report, workflow map, tooling decision, next packet and four bounded evidence returns. It proposed a Lin native/Ink finite request→real stock→staff_supply consumer and preserved incumbent native/Ink tooling; no synthetic suppression/calendar/economy add-on was proposed.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical document/hash checks are reported; no runtime or consumer was inspected in this reader pass.",
+      "reopen": "Any future implementation needs human selection and refreshed ownership, then real request→stock→staff_supply consumer and browser/persistence proof.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S012.json"
+      ],
+      "prior_input_sha256": "27a93c8653a7e7a81d97e4fe3278baa232ba56417fcf38f56a434d17c4bcff8e",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "27a93c8653a7e7a81d97e4fe3278baa232ba56417fcf38f56a434d17c4bcff8e",
+      "input_lines": 13
+    },
+    {
+      "path": "docs/gm/dispatch/world1-expansion-2026-10-11/CHECKPOINT.md",
+      "ids": [
+        "p05",
+        "18 commands",
+        "repeat3"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "Isolated world1-completion candidate; VERIFICATION.json and original expansion REMAINING_MANIFEST; shared integration not claimed"
+      ],
+      "disposition": "Checkpoint reports source tests, build, focused tests, native UI groups and food/save/import journeys. It explicitly avoids broad native-branch or whole-world/director claims; fiction/balance/pacing, combined integration and wider units remain open. Preserve source-era paid ownership, actor/body, clock and one-publisher constraints; old deferred checks do not grant a present AD43 exemption. No old writer/process lease revived. Source/build-only states remain distinct from native behavior.",
+      "mechanism_and_interactions": "The connected expansion delivered a private fresh-campaign p05 provisioning chain of 18 commands, timed repeat3 control with native transactions and stop/recheck conditions, plus time/input/progress projection and changing-countdown focus. Existing p04 characters retain content/inventory; only empty p05 availability is registered, with no automatic migration.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Evidence is historical and tied to named candidate/build; current runtime behavior is not established here.",
+      "reopen": "If resumed, reconcile live source ownership and prove selected p05 flow on a fresh campaign; retain explicit p04 compatibility and no automatic migration.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S012.json"
+      ],
+      "prior_input_sha256": "a21c5432b56ede3a99330af7c5659d340589b31332d11d7f41d88aff9731b1b7",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "a21c5432b56ede3a99330af7c5659d340589b31332d11d7f41d88aff9731b1b7",
+      "input_lines": 11
+    },
+    {
+      "path": "docs/gm/dispatch/world1-full-completion-2026-10-11/coverage/CHECKPOINT.md",
+      "ids": [
+        "W1-FULL-U01",
+        "W1-FULL-SOURCE-POST319",
+        "W1-FULL-AUDIT396",
+        "V2-V5"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "coverage/COVERAGE.json and private DETAIL_LEDGER.json, build_ledger.py, NEXT_UNITS.md; root coordinator"
+      ],
+      "disposition": "Read-only coverage projection is complete; source gaps (A1 V2–V5, unavailable post319 source, per-idea extraction beyond 179 parent rows) remain explicit. This records inventory/projection consistency only; implementation, browser, director and qualification remain unadjudicated. Preserve source-era paid ownership, actor/body, clock and one-publisher constraints; old deferred checks do not grant a present AD43 exemption. No old writer/process lease revived. Source/build-only states remain distinct from native behavior.",
+      "mechanism_and_interactions": "COVERAGE.json projects a private whole-horizon ledger of 3,575 mixed accounting rows across S00–S14, retaining 1,033 direct-audit occurrence IDs. The checkpoint explicitly says these are not feature counts and qualification parents need reviewed observable children; the recommended next work is U01/U02 plus source qualification under live reservation.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint states exact pinned inputs and inventory/projection validation, not gameplay evidence.",
+      "reopen": "Coordinator must join live candidate evidence to matching requirements and inspect consumers before treating dated gap descriptions as current.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S012.json"
+      ],
+      "prior_input_sha256": "f4a01862dc5e80157a21a99207a04a6a1891ea538a1b39eb651398383a1256c3",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "f4a01862dc5e80157a21a99207a04a6a1891ea538a1b39eb651398383a1256c3",
+      "input_lines": 13
+    },
+    {
+      "path": "docs/gm/engine/observation-channels/CHECKPOINT.md",
+      "ids": [
+        "openRealmObservationClock",
+        "closeRealmObservationClock",
+        "nextRealmActivityBoundary",
+        "expireRealmObservation"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "src/observation_channels.js, src/pocket_observation.js and NATIVE_INTEGRATION.md; root owns shared native/save/registry/UI/build"
+      ],
+      "disposition": "Finite code plus native integration packet are reported delivered, implemented-unverified. Only syntax/import and link checks ran; planners, cases, browser, save and build did not. Root's travel/pocket-entry guard and actual native body correspondence remain integration gates. Preserve source-era paid ownership, actor/body, clock and one-publisher constraints; old deferred checks do not grant a present AD43 exemption. No old writer/process lease revived. Source/build-only states remain distinct from native behavior.",
+      "mechanism_and_interactions": "Observation channels combine a paid shelf/private-research instruction path, a crafted player device using owned template/logs/kit/stamina, then a finite outside activation. Same-clock sampling can produce a zero-fuel notice; source/power/body/anchor support and typed view differ from physical door. Manual close, expiry or support loss closes the edge while preserving evidence. Replay is read-only; one claim per lease; retained activations/receipts have stated caps.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint contains source hashes and contract claims, but no behavior proof was run.",
+      "reopen": "Root integration must preserve actual body correspondence, paid activation enrollment, clock cutoff and truthful observation support in native travel/save paths.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S012.json"
+      ],
+      "prior_input_sha256": "1d24d146d76bbd5b19b2404423030ac76fe6a58788efc06e6907fb14f14d3ec6",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "1d24d146d76bbd5b19b2404423030ac76fe6a58788efc06e6907fb14f14d3ec6",
+      "input_lines": 13
+    },
+    {
+      "path": "docs/gm/engine/realm-cargo/CHECKPOINT.md",
+      "ids": [
+        "buildNativePocketCargo",
+        "Integration contract"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "src/realm_cargo.js, src/native_realm_traveler.js, INTEGRATION.md; root owns route context and shared host"
+      ],
+      "disposition": "Finite pure contract and narrow traveler integration are reported complete but implemented-unverified; syntax/import passed only. The checkpoint expressly leaves route-context wiring and selected lender grant/return-obligation publication to root; no gameplay, save or browser proof. Preserve source-era paid ownership, actor/body, clock and one-publisher constraints; old deferred checks do not grant a present AD43 exemption. No old writer/process lease revived. Source/build-only states remain distinct from native behavior.",
+      "mechanism_and_interactions": "Cargo contracts use exact native stock references, complete owned/loan cargo manifests, lender consent/permission proposal and deterministic purpose/route/endpoint passage gate. Current custody stays simulation-owned; native integration rereads actual stock and rejects missing, stale or loan cargo. Same-key worn/bag ambiguity fails closed pending actual allocations; helper does not enroll consent.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical source review and syntax/import claims only; no scenario proof.",
+      "reopen": "Root must consume helper allow/reasons and cargoComplete guards, then test actual cargo/custody and lender grant/return path if selected.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S012.json"
+      ],
+      "prior_input_sha256": "967e106a856d601c9b3ad5ff600629b79062ee991709e9c6d513bed15784eab3",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "967e106a856d601c9b3ad5ff600629b79062ee991709e9c6d513bed15784eab3",
+      "input_lines": 15
+    },
+    {
+      "path": "docs/gm/engine/realm-clock/CHECKPOINT.md",
+      "ids": [
+        "openRealmObservationClock",
+        "closeRealmObservationClock",
+        "nextRealmActivityBoundary",
+        "expireRealmObservation",
+        "syncRealmClock"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "realm-clock README and native root owners realm_state.js, expansion_engine.js, save/main/UI; observation adapter scope remains separate"
+      ],
+      "disposition": "Phase 2 is reported implemented-unverified, with writers released to root and no behavior probes/tests/build. Root still must wire paid open/close, UI support/clock, travel/pocket guards and build; no migration or full frozen native simulation is claimed. Preserve source-era paid ownership, actor/body, clock and one-publisher constraints; old deferred checks do not grant a present AD43 exemption. No old writer/process lease revived. Source/build-only states remain distinct from native behavior.",
+      "mechanism_and_interactions": "Clock phase supplies pure activity/lease planning and adapters. Enrollment follows staged paid activation; prior support sync precedes cutoff and resident-controller decisions. Joss activation unions current observation support with actual visit; the player's location remains unchanged. Root selected joined-clock absolute paid jobs to settle due work while local elapsed/new decisions freeze without presence/support.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint supplies fingerprints and API contract, not executed gameplay evidence.",
+      "reopen": "Verify paid activation, cutoff, location/body preservation, travel closure and due-job settlement in root's rebuilt browser/persistence route.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S012.json"
+      ],
+      "prior_input_sha256": "67458d92e48cf74de3e664dc465d4672e2f4f4b869feb0d4e150fb84d0cb1afd",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "67458d92e48cf74de3e664dc465d4672e2f4f4b869feb0d4e150fb84d0cb1afd",
+      "input_lines": 11
+    },
+    {
+      "path": "docs/gm/engine-extension-2026-10-08/CHECKPOINT.md",
+      "ids": [
+        "portableCarrierPolicy"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/engine-extension-2026-10-08/{REPORT.md, COMPONENTS.md, HOST_INVENTORY.json, SCHEMA.md, MIGRATION.md, VALIDATION.json}; PROJECT and north-star remain external owners"
+      ],
+      "disposition": "Seven-question study completed with structural/document checks; runtime registry completeness and gameplay remain untested. Proposed card formats, budgets, operation guarantees and backend choices were not accepted decisions; next implementation selection belongs to Weibao. Preserve source-era paid ownership, actor/body, clock and one-publisher constraints; old deferred checks do not grant a present AD43 exemption. No old writer/process lease revived. Source/build-only states remain distinct from native behavior.",
+      "mechanism_and_interactions": "Read-only engine study inventories components/cards and sequences proposed migration. It finds staged/durable owners should be preserved; 4 MiB guard, biography compaction and random-event guarantees already exist, while portableCarrierPolicy is prose, instance schema supports only freeze/played minutes, and the heir builder has test imports but no production caller in the reviewed snapshot.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical input snapshot and structural validation reported; no current source/API or runtime validation here.",
+      "reopen": "Before any implementation, reread live assignment/PROJECT/AGENTS, inspect actual consumers and prove selected preparation rule with browser and persistence gates.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S012.json"
+      ],
+      "prior_input_sha256": "7fde0cd036b930bf69f6f8594f84be6061bcec758a0a694b0751cc112125d491",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "7fde0cd036b930bf69f6f8594f84be6061bcec758a0a694b0751cc112125d491",
+      "input_lines": 13
+    },
+    {
+      "path": "docs/gm/feature-wave/backlog/CHECKPOINT.md",
+      "ids": [
+        "Backlog1",
+        "Backlog2",
+        "BL-01",
+        "AMENDMENT_BUILD_ADMISSION.json",
+        "AMENDMENT_COVERAGE"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "Backlog dispatch AMENDMENT_BUILD_ADMISSION.json and AMENDMENT_COVERAGE; existing Features integrator and native publisher/clock/UI consumers"
+      ],
+      "disposition": "Amendment/source admission and build hash are reported; syntax/import/registration checks passed. The record repeatedly labels gameplay implemented-unverified: no unit/browser/save/failure/director checks. Backlog1 remains supported; explicit opening opts Backlog2; later behavior gates remain deferred. Preserve source-era paid ownership, actor/body, clock and one-publisher constraints; old deferred checks do not grant a present AD43 exemption. No old writer/process lease revived. Source/build-only states remain distinct from native behavior.",
+      "mechanism_and_interactions": "Backlog preserves eight proof families and nested expansion7. Replacement/relay uses actual Eda office/two-seal duty while body, debt, source, mastery and property remain hers; qualification consumes native body/progression and precedes publication. Transit reuses native movement, shared-clock stage, durable publisher and player-known carrier view; 96 visit capacity reserves return space, ended visits persist, and lazy backlogActions avoid a cold import cycle.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports source and bundle-hash admission, not behavior proof; no current build inspected.",
+      "reopen": "Keep native alive/vital/seal guards, publisher preflight, clock reconciliation and opening-version compatibility under any later selected gameplay verification.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          31
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S012.json"
+      ],
+      "prior_input_sha256": "a61399b71366e19de89d5d29838f40430b61d183d740e5dc5010b2d5d6cdd4e1",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "a61399b71366e19de89d5d29838f40430b61d183d740e5dc5010b2d5d6cdd4e1",
+      "input_lines": 31
+    },
+    {
+      "path": "docs/gm/feature-wave/features/CHECKPOINT.md",
+      "ids": [
+        "nestedCampaign1",
+        "Backlog2",
+        "ACCEPTANCE_BACKLOG"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "Current Features DELIVERY.md, COVERAGE.json, BUILD.json, continued-life checkpoint and nested-campaign ACCEPTANCE_BACKLOG.md"
+      ],
+      "disposition": "Current pointer marks this delivery historical and points to later book-world agency delivery. Source/native/UI/save/build are described as implemented-unverified. Unit/browser/gameplay/save/import/reload/failure/keyboard/regression/director checks are explicitly deferred in the assigned checkpoint. Preserve source-era paid ownership, actor/body, clock and one-publisher constraints; old deferred checks do not grant a present AD43 exemption. No old writer/process lease revived. Source/build-only states remain distinct from native behavior.",
+      "mechanism_and_interactions": "Historical Features delivery joins objects, mature methods, native teams/society, Tidemark, Backlog proofs and nested campaigns through existing owners. The checkpoint says native domains stage after reward preflight, then a durable publisher writes and validates the envelope before publishing people/items/equipment/XP/vitals/quests/locations/cursors; absent optional namespaces do not enroll on load/render.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Only historical bundle/source and import/compiler claims are in record; no behavior proof established.",
+      "reopen": "If newly selected, follow current Features owner and acceptance backlog; test reward preflight, durable publication and exact optional namespace compatibility on rebuilt browser.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S012.json"
+      ],
+      "prior_input_sha256": "662722b016ac79767b8b4e3f863c3139e414b467a137dcabc5ca852117a13e49",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "662722b016ac79767b8b4e3f863c3139e414b467a137dcabc5ca852117a13e49",
+      "input_lines": 11
+    },
+    {
+      "path": "docs/gm/feature-wave/features/CHECKPOINT_INITIAL_WAVE_48e8a7514ff2.md",
+      "ids": [
+        "Tidemark",
+        "Ink",
+        "48e8a7514ff2"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "DELIVERY.md, COVERAGE.json, BUILD.json, SUCCESSION.json and RELEASE.json; Features root owns shared integration"
+      ],
+      "disposition": "Historical source/native/UI/save/build delivered as implemented-unverified; syntax/import, compiler and build checks reported. Unit/browser/gameplay/save/reload and director checks are deferred. A later direct steering points to a different active coordinator/feature refinement, not proof of behavior. Preserve source-era paid ownership, actor/body, clock and one-publisher constraints; old deferred checks do not grant a present AD43 exemption. No old writer/process lease revived. Source/build-only states remain distinct from native behavior.",
+      "mechanism_and_interactions": "Initial feature wave integrated functional objects, mature methods, native team objectives, society itineraries, optional Tidemark, Backlog proofs and pinned Ink. Existing expansion5 remains, optional namespaces do not enroll on load/render, opted destination/backlog/Ink/workPlans require6, and native battle3 validates with1/2 retained. Later Ink tag fix rebuilt the same frozen bundle receipt.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical receipts and checks described; no current merge or play evidence in this span.",
+      "reopen": "For a selected follow-up, check current owner and test deferred generated-origin, team, itinerary, Tidemark revisit and Ink cursor cases.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          21
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S012.json"
+      ],
+      "prior_input_sha256": "20f57bda6162615243bd44f11ea713bd8d173827e9a4347570255c20e4e9cd14",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "20f57bda6162615243bd44f11ea713bd8d173827e9a4347570255c20e4e9cd14",
+      "input_lines": 21
+    },
+    {
+      "path": "docs/gm/feature-wave/features/CHECKPOINT_REFINEMENT_11aaa9cbfc69.md",
+      "ids": [
+        "nestedCampaign1",
+        "Backlog2",
+        "scopedInk2",
+        "11aaa9cbfc69"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "Features DELIVERY.md, COVERAGE.json, BUILD.json, nested-campaign ACCEPTANCE_BACKLOG.md; source queues own specialists"
+      ],
+      "disposition": "Checkpoint reports source/build/import/compiler admission, but specifically defers all unit, browser, gameplay, save/import/reload, failure, keyboard, regression and director checks. Five later acceptance gates own generated-save behavior/conservation/mission/chain/durability/UI review. Preserve source-era paid ownership, actor/body, clock and one-publisher constraints; old deferred checks do not grant a present AD43 exemption. No old writer/process lease revived. Source/build-only states remain distinct from native behavior.",
+      "mechanism_and_interactions": "Refinement retains existing feature owners and adds Eda/Orrin/Bera office/relay/reference scenes, nested passages, shared clock guards and one durable publisher. The publisher stages both native domains after reward preflight and validates the full envelope before publishing; existing 5/6/absent compatibility remains while explicit nestedCampaign1 requires7, office requires Backlog2 and scoped narratives require wrapper2.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical current-build hashes and static checks reported, no gameplay evidence.",
+      "reopen": "Use acceptance backlog against current bundle to verify native publication, compatibility gates, passage/clock and generated-save conservation.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S012.json"
+      ],
+      "prior_input_sha256": "7e787eef7ba3cba44693eab0b70267c420d7ac0eddd1834f525292db590d0faa",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "7e787eef7ba3cba44693eab0b70267c420d7ac0eddd1834f525292db590d0faa",
+      "input_lines": 11
+    },
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/CHECKPOINT.md",
+      "ids": [
+        "PR01-08",
+        "nestedCampaign1",
+        "Backlog2",
+        "scopedInk2"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "Current Features checkpoint, DELIVERY.md, COVERAGE.json, BUILD.json, nested-campaign ACCEPTANCE_BACKLOG.md"
+      ],
+      "disposition": "Finite code/build goal reported delivered, implemented-unverified. No gameplay/unit/browser/save/failure/keyboard/regression/director test ran; Hunter and 19-world parity remain unclaimed. Further work is deferred acceptance or newly selected scope. Preserve source-era paid ownership, actor/body, clock and one-publisher constraints; old deferred checks do not grant a present AD43 exemption. No old writer/process lease revived. Source/build-only states remain distinct from native behavior.",
+      "mechanism_and_interactions": "Book-world subtlety delivery assembles 19 roster rows with source references, edition/era limits, rules/recognition/topologies/deep chains, and four profile modules/19 voice rows. Selected office/relay/reference consumers use real native body/progression, conserved office duty and independent reports. Nested hub/destinations/missions/chains join through native save publication and carrier/shared-clock guards; divergences from PR01–08 remain explicit.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical assembly/build claims only, no raw source or runtime requalification in this span.",
+      "reopen": "If selected, exercise the actual office and nested-world flows with current source and persistence; preserve explicit source-world divergences and do not infer parity.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S012.json"
+      ],
+      "prior_input_sha256": "6b4a3b34875d96c2353cd9e1df5a8cf4fa2b3b1c776c2eeef45a2add77bda045",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "6b4a3b34875d96c2353cd9e1df5a8cf4fa2b3b1c776c2eeef45a2add77bda045",
+      "input_lines": 9
+    },
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/RETORT_REVIEW.md",
+      "ids": [
+        "original P1",
+        "original two P2",
+        "leaf repair",
+        "finite shared-join review",
+        "acceptance 1–5"
+      ],
+      "classification": "historical integration owner; fresh full content review",
+      "owners": [
+        "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/RETORT_REVIEW.md"
+      ],
+      "disposition": "Full chronology already resolves original trader-preservation/body/bench findings in source and qualifies combined bundle. Preserve actual ownership/capacity, negative held costs vs future effects and original refundable-fuel choice. Five actual behavioral families remain unrun in this receipt; do not reopen resolved source defects from earlier paragraphs.",
+      "evidence": "Entire source read, including separately retrieved clipped retort hash span. Historical code/build evidence not rerun or renewed.",
+      "reopen": "Use current owners and selected actual consumer before runtime changes; retain exact acceptance/failure boundaries, optional human feedback under AD42.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "360d7c68f8cf7104ed94a2cdca255dc0a24821651ac74236146ec4057d374bb3",
+      "input_lines": 120,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          120
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/engine/realm-cargo/INTEGRATION.md",
+      "ids": [
+        "schema1",
+        "nine exports",
+        "revision2",
+        "revision3"
+      ],
+      "classification": "historical integration owner; fresh full content review",
+      "owners": [
+        "docs/gm/engine/realm-cargo/INTEGRATION.md"
+      ],
+      "disposition": "Later revision3 source review supersedes earlier missing immediate owned-only host binding at exact snapshot. Keep ambiguous identical-key loan allocations explicit, real lender consent distinct from shape/knowledge, full current manifest and material guards. Dropped guards become future delayed/cached/permission concern, not demonstrated synchronous failure.",
+      "evidence": "Entire source read, including separately retrieved clipped retort hash span. Historical code/build evidence not rerun or renewed.",
+      "reopen": "Use current owners and selected actual consumer before runtime changes; retain exact acceptance/failure boundaries, optional human feedback under AD42.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "65bd849b4ffaab273c23d3875162762ecdba00e41b4a1ac42b5091b52739567d",
+      "input_lines": 99,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          99
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/engine/realm-cargo/INTEGRATION.md",
+      "heading": "## Chronology reconciliation, 2026-11-04 (B19)",
+      "body": "Read the full revision chain before carrying a missing-host claim forward: revision3 source review records the immediate, zero-duration, owned-only host joining beyond the earlier revision2 handback. It does not prove borrowed cargo, timed/cached passages, lender consent or native behavior. Keep actual container/key/slot/material identity and full-manifest checks; consent shape or observed text cannot issue lender permission. Carrying exact guards through delayed resolution/permission publication remains a future consumer constraint rather than a reproduced failure in that synchronous source snapshot. Current AD36/AD43 applies on selected implementation; the historical implementation-first deferral is not a standing testing exemption.",
+      "before_sha256": "65bd849b4ffaab273c23d3875162762ecdba00e41b4a1ac42b5091b52739567d",
+      "after_sha256": "48bbced9cc57f5f200587b1deee6d5ad1daea2fb269d5c30f8b85602e0491638"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1760
+}

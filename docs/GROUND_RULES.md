@@ -51,7 +51,7 @@ A runtime slice missing a line is "implemented, below floor", never "done". Cont
 | FND2 | **Every runtime receipt states its change surface:** core-owner files touched, new cycle edges (zero), registration lines paid for. | AR13 |
 | FND3 | **An extraction round names the baseline number it lowers** and proves no behavior change by the same journey. | AR9, AR15 |
 | FND4 | **Stack questions route to the ranked table** (TS10-TS17); reopen only with new measurement or Weibao's direction. | AD39 |
-| FND5 | **The content DSL grows only by a second consumer** from a second world; otherwise add rows over existing verbs. | AR11, WA1, WA5, WA20 |
+| FND5 | **Design a reasonable shared seam from known world needs; a second, different world validates or revises it.** Extend existing verbs where they fit, and keep actual world differences local. This proposed prompt follows accepted AD51 and is not a two-implemented-world prerequisite. | AD51, AR11, WA1, WA5, WA20 |
 
 ## Process (accepted)
 
@@ -75,3 +75,8 @@ Accepted 2026-10-16 as P9Z40 (Weibao: "I like these rules"), confirmed under cor
 | CX6 | **Honest coverage.** Background, inspectable and playable are distinct (P9K4). Unfinished content is not disguised as a fictional lock. | Does every travel button resolve to real play? |
 | CX7 | **One slice at a time.** Finish a playable slice before widening (AGENTS.md). | Can Weibao play the last slice now? |
 | CX8 | **Deferral register.** Every deferred feature records its reopen trigger. | Does each LATER item say what evidence reopens it? |
+
+
+## FND5 authority reconciliation B105, 2026-11-04
+
+Full digest read separates accepted authority/FLR/process/CX from proposed PRF/FND prompts. FND5’s old sentence, “The content DSL grows only by a second consumer from a second world; otherwise add rows over existing verbs,” conflicted with later accepted AD51 if treated as a prerequisite. Its summary and existing rules-register description now follow AD51: design from known reasonable shared world needs, then validate/revise with a second different world, keeping differences local. No new accepted rule/code or additional gate is created. Blank proposed fields do not halt authorized work. FLR route can be a named fixture; human review, installed state, mobile and tracked-dist replacement are not universal technical floor requirements. Content sampling inherits the proven mechanism’s scope, never proof of changed semantics or every scenario.

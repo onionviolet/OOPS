@@ -245,3 +245,12 @@ G8 likewise now points to existing `rt_slice1` native exports and performance
 fixtures. Their documented seeded-native provenance is not natural acquisition
 proof; the next consumer should extend a named missing scenario rather than build
 a replacement library by default.
+
+
+## Content reconciliation, 2026-11-04 (B159)
+
+All G1–G32, four rounds and follow-through were read. Preserve these composed failure scenarios at their existing domain owners. G5 records Weibao’s content-ID compatibility direction; proposal tables and suggested order do not adopt every effect resolver, global clock schema, watch policy, fixture expansion or UI field. Existing tag/fixture and unknown-risk corrections supersede earlier absence claims. Ordinary versus extraordinary frozen processes follow actual mechanisms; personal/body/space clocks are not universally one clock. Bank credit alone is not frozen-world practice, and a legitimate causal chain has no invented in-world technical cap.
+
+The round-3 heading “today” describes October 18 inspected inputs. Current src/away_bank_domain.js calls computeAway to bank elapsed time, avoids duplicate furnace credit and spends through fastForward, deducting actual root-clock progress and retaining unspent credit at a boundary. That supersedes blanket “pure, unwired” / “test hook only” absence at this named seam. It does not establish arbitrary unattended routines, dual-clock frozen practice, universal stop safety or fresh Save/reload/Import proof. G27’s endpoint/simultaneous-barrier case remains a useful future settlement question, not an inferred current defect. G28 keeps intermediate-product ownership distinct from atomic trade; G29 keeps resolution/publication boundaries; G30 keeps impossible, unknown and unimplemented answers distinct without a permission list.
+
+The historical rule-order failure is already qualified as repaired by this report’s own follow-through. Current desktop direction and AD42 qualify old 1366 floor and human acceptance wording. No new runtime work, source audit of every cited module or mandatory next-slice bundle is selected.

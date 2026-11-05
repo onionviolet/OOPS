@@ -12,6 +12,15 @@ This card summarizes [UI rules](../UI_RULES.md). UI_RULES.md stays the authority
 - Group by player task and keep direct paths (UR21, UR51). Permanent chrome needs a current player need (UR50).
 - Before changing a YAIR choice toward Proto23, find its recorded reason (UR49).
 
+## Prose, small details and whimsy ([current defaults](../UI_RULES.md#ui-prose-and-subtle-detail-reconciliation-2026-11-04))
+
+- Compose the current situation, choices, commitment and aftermath; preserve useful desktop panes. Prose can stand alone; start distinctive UI with actions, actual progress and interaction feedback. Add a spatial cue only when deliberately useful, without an art/joke quota (DSG5, UR46/63).
+- Atmosphere, controls, inspection, Reports and dialogue have distinct jobs. UI/flavor can be whimsical while characters keep their own personalities and voices (DSG3/13, UR70/72/73).
+- Default: review generic padding, repeated template rhythm and forced jokes in context; these do not prove AI authorship. Keep world/character voice and useful uncertainty. Settled reports say what happened through their owning content row; deliberate short quotations follow SUI1/RPT10 (UR70/73/74, RPT3).
+- Let novelty, repetition and stakes tune prose/effects. Decoration can be enjoyable without a gameplay bonus; real effect claims need their owner (UR62/64/72).
+- Check actual hit areas, neighboring spacing, visible focus, text/fallback and complete messages where affected. Clear active sticky headers using measured geometry and test requested headings/controls after native scroll at larger text. Tokens establish consistency, not rendered usability (UR53/60/66/74).
+- Keep the current action’s meaning and known uncertainty beside its quote or nearby inspection route; separate intended action from settled result. Keep costs/units/baselines, failure category and next move clear (UR70/71). Sample relevant normal/repeated/blocked/settled states under AD36; no new universal matrix (UR57/71/73).
+
 ## While you build: what to use ([section](../UI_RULES.md#while-you-build-one-look-one-way-to-move))
 
 - Tokens only, no local radius, font, raw color or `style.cssText` (UR6). Spacing from the scale, `--ui-space-1` to `-7` (UR65). Controls use `--ui-control-sm/md/lg` (UR66), stacking uses `--ui-layer-*` (UR67), text uses the type roles and no fake bold on Gothic (UR68). The contract test catches literals.
@@ -21,9 +30,9 @@ This card summarizes [UI rules](../UI_RULES.md). UI_RULES.md stays the authority
 - One center-mode controller: bottom Back labelled with the real previous place, plus Esc, restores scroll, selection, tabs (UR9, UR22, UR23).
 - Label by destination or outcome (UR10). Keep status, current work and the full-height log (UR11). Moving a feature leaves a log line and a dot (UR13).
 - Disclosure by task frequency (UR42). Hover is a peek; pinned or keyboard route for anything actionable or long (UR43). Esc closes the top transient surface, focus returns to the opener (UR53).
-- Inspection is free, actions are explicit (UR35). Show only observer-safe facts, no invented values (UR36, UR40, UR47).
+- Default: inspection is free, actions are explicit. Review running work at its exact job status; keep Stop separate and preserve the reviewed subject through refresh/settlement (UR35). Show only observer-safe facts, no invented values (UR36, UR40, UR47).
 - Navigation stays still while things tick or are discovered (UR52). Save errors stay visible; Save, Export and Import stay distinct (UR55).
-- Meters say which question they answer (UR61). Effects never hide facts, move controls or change RNG (UR38, UR62).
+- Default: meters say which question they answer; do not infer an admitted total from a later quote (UR61). Effects never hide facts, move controls or change RNG (UR38, UR62).
 - Logs are readable streams, not cards (UR44). Summaries keep individual identity and a route to detail (UR56, UR64).
 - Empty states say how to fill them (UR32). Shortcuts are discoverable (UR31).
 

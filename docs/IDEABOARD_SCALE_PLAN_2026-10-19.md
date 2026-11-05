@@ -1,5 +1,7 @@
 # Ideaboard scale plan (proposal, 2026-10-19)
 
+**Historical planning input, reconciled 2026-11-04:** [PROJECT](../PROJECT.md) owns current order and [AD51](RULES_INDEX.md#accepted-direction-rules-ad) owns shared-seam direction. The one-realm/prestige gate is retired, human review is optional (AD42), and the later P1 measurements below distinguish engine steps from browser facts/panel work. Pack-loader and generated-runner absence claims are superseded at the selected source/consumer scope in B106 below. No old P1–P8 queue is relaunched.
+
 Weibao asked for a fresh look at implementing everything on the ideaboard and
 reaching the scale he wants, and more. This is a planning note. Everything here
 is a **proposal**; nothing is accepted until he says so (AD32), no runtime code
@@ -400,3 +402,12 @@ Not decided: Weibao may still pick Naruto or another world; P1–P3 do not depen
 | LC11 | Review the next LOTM1 span a slice needs | Sonnet medium, bounded shards | Coverage file shows the span reviewed with claims integrated |
 | LC12 | LOTM pack draft from the ledger (WAC12) | Sonnet scaffold, Opus reviews the law encoding | Pack lints with only WA4 law gaps |
 | LC13 | Native consumer for engine A1/A2 via the Seer feature | Opus design, Sonnet build | Seer action refuses and succeeds by conditions in a rebuilt browser with save, reload, import |
+
+
+## Current-use reconciliation B106, 2026-11-04
+
+Preserve all S1–S13, P1–P8, R1–R11, Q1–Q4, user answers and LC1–LC13 as dated planning/authority history. The first-realm/prestige gate is retired, human acceptance is optional under AD42 and current LOTM/HP choices supersede the unanswered next-world/Skyrim proposal. Section 8 already rejects pausing runtime proposals; old worker/model defaults yield to current AU5/host rules. “Every idea somewhere” is explicitly linked to a proposal, so R1 must not promote it into accepted scope or deny the user’s broader ambition. A world’s different local mechanism can justify local code; no pack-only implementation mandate was accepted by Q4. Procedural/overlaid authoring, shared verbs and causal lazy detail remain useful candidates; nothing authorizes runtime text calls, source expansion, an agent fleet or a rewrite.
+
+Correct the obsolete “no loader” and “no generated journeys” priorities at their actual scope. Complete current world_pack_registry.js calls loadWorldPacks for MoL/HP/HP lead, exposes packNative and registers world_packs state/projection; the inspected book-beginning consumer reads packNative and registers HP lead/domain. The current registry also has optional per-life played/revealed state, so its older definition-only header is not its complete behavior. Current generator flags and B100/B101 receipts demonstrate selected world-parametric runners; they do not prove arbitrary world conversion or every signature loop. The single-target village rule resolver remains a narrower source limitation (B93). Counts of lines/files/worlds and mention-based unlock ranks are historical proxies, not current capability or cost measures.
+
+Read both P1 reports together. The first gate distinguishes low Node simulation-step cost from high browser busy/storage work and leaves whole tick unresolved. The later bounded 18-run matrix/profile qualifies that uncertainty: about 40/140/350 ms per game-minute browser script cost versus about 0.1/2.6/5.4 ms Node steps, with facts aggregation/panels a candidate hotspot. Those are different scopes, not a contradiction or a new run here. Three repeat gates, 18 matrix runs, noisy DOM/long tasks and limited profiles are separate measurements; viewport-insensitive at these sampled fixtures is not all layouts/input/paint. Repeated whole-save write volume is distinct from quota use and write latency. Synthetic 68 actors do not prove 128 actors, real late game or the actual away path; estimates for catch-up cannot settle its behavior. Guard usage must include the real envelope/backups/encoding, not the old raw-file size. Proposed performance budgets are not accepted gates and cannot be reset merely to pass. No Worker/Wasm/storage migration or benchmark rerun is selected by this reconciliation.

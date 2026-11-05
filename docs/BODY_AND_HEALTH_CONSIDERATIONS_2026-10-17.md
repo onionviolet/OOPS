@@ -205,3 +205,26 @@ clock or generic resolver. LATER: one synthetic composed case at that seam,
 strong cross-domain agent, medium effort when selected; done by relevant source
 checks and a useful rebuilt desktop journey with current-state persistence.
 No runtime change or new implementation priority in this round.
+
+
+## Repeatable body-audit content reconciliation, 2026-11-04
+
+Full review of the [body core audit](audits/BODY_HEALTH_CORE_AUDIT.md), including triggers, B1/B2 outputs, run history, BHC38's composed care boundary and the selected October 26 follow-through. Canonical BHR text is in DOMAIN_RULES; the old BODY_AND_HEALTH_RULES file is a compatibility pointer. Current RULES_INDEX also includes BHR31–BHR34's standing longevity/support defaults requested Nov 1, beyond the original audit's BHR1–BHR30 range. The audit route now names that current owner without discarding its earlier rule history (AD32).
+
+Keep the composed case's distinct consequences: the true condition may affect function before the patient knows its cause; the shown stop reason must not fabricate a diagnosis. Care/support clocks and job settlement have different owners, and the chosen routine policy decides whether a supported alternative runs. Completed care, stored remedy, maintained support and a later report are different lifecycle events. A body transformation does not by itself rewrite remembered expertise, another observer's recognition or obligations.
+
+The field layer reviewed in B3 has a current injected actor-stat harm adapter, not a general body-owner exposure pipeline. Preserve its bounded local policy and the explicit receiving-owner gap. No new generic injury engine, lethal setting, tolerance consolidation or whole-world care proof is selected by this fold. Reopen the affected B1/B2/BHC38 case for the selected body/support or interrupted-work consumer; its earlier checkpoints retain their own journey and persistence scope.
+
+
+## Body palette and mechanism content reconciliation, 2026-11-04
+
+Read BHC1–BHC38 and all action, constraint, correction and later-slice tables together. Round 2 replaces the early potion permission framing: stored power, ambient supply, patron reach, chemistry and bodily reserves work through their actual mechanisms (AD38). BHC10/BHC36 conservation and cost language does not create a universal healing tax or forbid free regrowth where its mechanism provides it. Transmission needs an actual carrier and compatible process; BHC18 is a proposed default, not a universal body-only restriction. A warning can disclose known risk without revealing a hidden cause or guaranteeing every danger is known.
+
+Body-instance injury, mind/soul conditions, expertise, recognition, diagnosis claims and obligations retain their own owners. Restoring function, removing a cause, consuming a remedy, maintaining support and settling interrupted work are different events. The later BHC38 and repeatable-audit fold already carry that boundary, the current DOMAIN_RULES owner and BHR31–BHR34. Keep BHX/BHF history, including Famine and proposed shared defeat/tolerance/projection work; this reading does not rerun those old findings or prove general engines exist. Apply AD36/AD43 to the selected change and its real persistence impact. Old proposed checks and 1366×768 examples add no universal gate and do not replace the current desktop target.
+
+
+## Combat-owner defeat-route correction, 2026-11-04
+
+The combat palette’s CBX1 corrects BHC31’s historical three-route count: its October 18 survey also included the saved road duel, party battle and sluice battle, whose terminal states did not all call kill_player. This is a dated integration warning, not a fresh count of current routes. Later CBL1/CBL3 receipts describe native and selected saved-battle/structured-death publication; they explicitly leave BHL7 injury and additional outcomes separate. A terminal win, withdrawal or companion stepping out is not automatically a player defeat.
+
+For a selected injury consumer, trace the actual player outcome and its durable publication/rollback once across the affected producers. Do not infer that adding a publisher already implemented injuries or that every terminal state should increment a loss counter. Keep BHC31/BHL7’s original identities and the combat owner’s more specific correction together (AD32, AD36).

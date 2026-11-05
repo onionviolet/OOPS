@@ -1,0 +1,367 @@
+{
+  "origin": "http://127.0.0.1:53345/",
+  "cases": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "variant": "baseline",
+      "geometry": {
+        "page": [
+          1920,
+          1080
+        ],
+        "viewport": [
+          1920,
+          1080
+        ],
+        "font": "14px",
+        "inventory": 30,
+        "services": []
+      },
+      "focus": {
+        "active": true,
+        "outline": "none"
+      },
+      "hover": "rgb(48, 73, 108)",
+      "attemptDelta": 1,
+      "result": "Made 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP) 1 of 1 native attempts succeeded.",
+      "themeSwitchPreservedSave": true,
+      "scene": "▱ Hearth · 0 played minutes of fuel · vent open\nPrepaid hearth fuel0/20 · empty\nฅ(=･ω･=)ฅ\n\nMoss · curious · bond 10/100. Moss watches you from the doorway.\n\nMoss · habits and history\nPlain bed · Active here\nRagwork blanket · Active here\nFitted hearth · Active here\nLocal home comfort · Active here\nYour known home. The picture follows the current hearth and animal state; its layout is illustrative.",
+      "status": "passed"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "variant": "signal",
+      "geometry": {
+        "page": [
+          1920,
+          1080
+        ],
+        "viewport": [
+          1920,
+          1080
+        ],
+        "font": "14px",
+        "inventory": 30,
+        "services": []
+      },
+      "focus": {
+        "active": true,
+        "outline": "none"
+      },
+      "hover": "rgb(48, 73, 108)",
+      "attemptDelta": 1,
+      "result": "Made 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP) 1 of 1 native attempts succeeded.",
+      "themeSwitchPreservedSave": true,
+      "scene": "▱ Hearth · 0 played minutes of fuel · vent open\nPrepaid hearth fuel0/20 · empty\nฅ(=･ω･=)ฅ\n\nMoss · curious · bond 10/100. Moss watches you from the doorway.\n\nMoss · habits and history\nPlain bed · Active here\nRagwork blanket · Active here\nFitted hearth · Active here\nLocal home comfort · Active here\nYour known home. The picture follows the current hearth and animal state; its layout is illustrative.",
+      "status": "passed"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "variant": "folio",
+      "geometry": {
+        "page": [
+          1920,
+          1080
+        ],
+        "viewport": [
+          1920,
+          1080
+        ],
+        "font": "14px",
+        "inventory": 30,
+        "services": []
+      },
+      "focus": {
+        "active": true,
+        "outline": "none"
+      },
+      "hover": "rgb(48, 73, 108)",
+      "attemptDelta": 1,
+      "result": "Made 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP) 1 of 1 native attempts succeeded.",
+      "themeSwitchPreservedSave": true,
+      "scene": "▱ Hearth · 0 played minutes of fuel · vent open\nPrepaid hearth fuel0/20 · empty\nฅ(=･ω･=)ฅ\n\nMoss · curious · bond 10/100. Moss watches you from the doorway.\n\nMoss · habits and history\nPlain bed · Active here\nRagwork blanket · Active here\nFitted hearth · Active here\nLocal home comfort · Active here\nYour known home. The picture follows the current hearth and animal state; its layout is illustrative.",
+      "status": "passed"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "variant": "baseline",
+      "geometry": {
+        "page": [
+          1920,
+          1080
+        ],
+        "viewport": [
+          1920,
+          1080
+        ],
+        "font": "21px",
+        "inventory": 30,
+        "services": []
+      },
+      "focus": {
+        "active": true,
+        "outline": "none"
+      },
+      "hover": "rgb(48, 73, 108)",
+      "attemptDelta": 1,
+      "result": "Made 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP) 1 of 1 native attempts succeeded.",
+      "themeSwitchPreservedSave": true,
+      "scene": "▱ Hearth · 0 played minutes of fuel · vent open\nPrepaid hearth fuel0/20 · empty\nฅ(=･ω･=)ฅ\n\nMoss · curious · bond 10/100. Moss watches you from the doorway.\n\nMoss · habits and history\nPlain bed · Active here\nRagwork blanket · Active here\nFitted hearth · Active here\nLocal home comfort · Active here\nYour known home. The picture follows the current hearth and animal state; its layout is illustrative.",
+      "status": "passed"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "variant": "signal",
+      "geometry": {
+        "page": [
+          1920,
+          1080
+        ],
+        "viewport": [
+          1920,
+          1080
+        ],
+        "font": "21px",
+        "inventory": 30,
+        "services": []
+      },
+      "focus": {
+        "active": true,
+        "outline": "none"
+      },
+      "hover": "rgb(48, 73, 108)",
+      "attemptDelta": 1,
+      "result": "Made 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP) 1 of 1 native attempts succeeded.",
+      "themeSwitchPreservedSave": true,
+      "scene": "▱ Hearth · 0 played minutes of fuel · vent open\nPrepaid hearth fuel0/20 · empty\nฅ(=･ω･=)ฅ\n\nMoss · curious · bond 10/100. Moss watches you from the doorway.\n\nMoss · habits and history\nPlain bed · Active here\nRagwork blanket · Active here\nFitted hearth · Active here\nLocal home comfort · Active here\nYour known home. The picture follows the current hearth and animal state; its layout is illustrative.",
+      "status": "passed"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "variant": "folio",
+      "geometry": {
+        "page": [
+          1920,
+          1080
+        ],
+        "viewport": [
+          1920,
+          1080
+        ],
+        "font": "21px",
+        "inventory": 30,
+        "services": []
+      },
+      "focus": {
+        "active": true,
+        "outline": "none"
+      },
+      "hover": "rgb(48, 73, 108)",
+      "attemptDelta": 1,
+      "result": "Made 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP) 1 of 1 native attempts succeeded.",
+      "themeSwitchPreservedSave": true,
+      "scene": "▱ Hearth · 0 played minutes of fuel · vent open\nPrepaid hearth fuel0/20 · empty\nฅ(=･ω･=)ฅ\n\nMoss · curious · bond 10/100. Moss watches you from the doorway.\n\nMoss · habits and history\nPlain bed · Active here\nRagwork blanket · Active here\nFitted hearth · Active here\nLocal home comfort · Active here\nYour known home. The picture follows the current hearth and animal state; its layout is illustrative.",
+      "status": "passed"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "variant": "baseline",
+      "geometry": {
+        "page": [
+          1536,
+          864
+        ],
+        "viewport": [
+          1536,
+          864
+        ],
+        "font": "14px",
+        "inventory": 30,
+        "services": []
+      },
+      "focus": {
+        "active": true,
+        "outline": "none"
+      },
+      "hover": "rgb(48, 73, 108)",
+      "attemptDelta": 1,
+      "result": "Made 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP) 1 of 1 native attempts succeeded.",
+      "themeSwitchPreservedSave": true,
+      "scene": "▱ Hearth · 0 played minutes of fuel · vent open\nPrepaid hearth fuel0/20 · empty\nฅ(=･ω･=)ฅ\n\nMoss · curious · bond 10/100. Moss watches you from the doorway.\n\nMoss · habits and history\nPlain bed · Active here\nRagwork blanket · Active here\nFitted hearth · Active here\nLocal home comfort · Active here\nYour known home. The picture follows the current hearth and animal state; its layout is illustrative.",
+      "status": "passed"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "variant": "signal",
+      "geometry": {
+        "page": [
+          1536,
+          864
+        ],
+        "viewport": [
+          1536,
+          864
+        ],
+        "font": "14px",
+        "inventory": 30,
+        "services": []
+      },
+      "focus": {
+        "active": true,
+        "outline": "none"
+      },
+      "hover": "rgb(48, 73, 108)",
+      "attemptDelta": 1,
+      "result": "Made 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP) 1 of 1 native attempts succeeded.",
+      "themeSwitchPreservedSave": true,
+      "scene": "▱ Hearth · 0 played minutes of fuel · vent open\nPrepaid hearth fuel0/20 · empty\nฅ(=･ω･=)ฅ\n\nMoss · curious · bond 10/100. Moss watches you from the doorway.\n\nMoss · habits and history\nPlain bed · Active here\nRagwork blanket · Active here\nFitted hearth · Active here\nLocal home comfort · Active here\nYour known home. The picture follows the current hearth and animal state; its layout is illustrative.",
+      "status": "passed"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "variant": "folio",
+      "geometry": {
+        "page": [
+          1536,
+          864
+        ],
+        "viewport": [
+          1536,
+          864
+        ],
+        "font": "14px",
+        "inventory": 30,
+        "services": []
+      },
+      "focus": {
+        "active": true,
+        "outline": "none"
+      },
+      "hover": "rgb(48, 73, 108)",
+      "attemptDelta": 1,
+      "result": "Made 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP) 1 of 1 native attempts succeeded.",
+      "themeSwitchPreservedSave": true,
+      "scene": "▱ Hearth · 0 played minutes of fuel · vent open\nPrepaid hearth fuel0/20 · empty\nฅ(=･ω･=)ฅ\n\nMoss · curious · bond 10/100. Moss watches you from the doorway.\n\nMoss · habits and history\nPlain bed · Active here\nRagwork blanket · Active here\nFitted hearth · Active here\nLocal home comfort · Active here\nYour known home. The picture follows the current hearth and animal state; its layout is illustrative.",
+      "status": "passed"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "variant": "baseline",
+      "geometry": {
+        "page": [
+          1536,
+          864
+        ],
+        "viewport": [
+          1536,
+          864
+        ],
+        "font": "21px",
+        "inventory": 30,
+        "services": []
+      },
+      "focus": {
+        "active": true,
+        "outline": "none"
+      },
+      "hover": "rgb(48, 73, 108)",
+      "attemptDelta": 1,
+      "result": "Made 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP) 1 of 1 native attempts succeeded.",
+      "themeSwitchPreservedSave": true,
+      "scene": "▱ Hearth · 0 played minutes of fuel · vent open\nPrepaid hearth fuel0/20 · empty\nฅ(=･ω･=)ฅ\n\nMoss · curious · bond 10/100. Moss watches you from the doorway.\n\nMoss · habits and history\nPlain bed · Active here\nRagwork blanket · Active here\nFitted hearth · Active here\nLocal home comfort · Active here\nYour known home. The picture follows the current hearth and animal state; its layout is illustrative.",
+      "status": "passed"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "variant": "signal",
+      "geometry": {
+        "page": [
+          1536,
+          864
+        ],
+        "viewport": [
+          1536,
+          864
+        ],
+        "font": "21px",
+        "inventory": 30,
+        "services": []
+      },
+      "focus": {
+        "active": true,
+        "outline": "none"
+      },
+      "hover": "rgb(48, 73, 108)",
+      "attemptDelta": 1,
+      "result": "Made 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP) 1 of 1 native attempts succeeded.",
+      "themeSwitchPreservedSave": true,
+      "scene": "▱ Hearth · 0 played minutes of fuel · vent open\nPrepaid hearth fuel0/20 · empty\nฅ(=･ω･=)ฅ\n\nMoss · curious · bond 10/100. Moss watches you from the doorway.\n\nMoss · habits and history\nPlain bed · Active here\nRagwork blanket · Active here\nFitted hearth · Active here\nLocal home comfort · Active here\nYour known home. The picture follows the current hearth and animal state; its layout is illustrative.",
+      "status": "passed"
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "variant": "folio",
+      "geometry": {
+        "page": [
+          1536,
+          864
+        ],
+        "viewport": [
+          1536,
+          864
+        ],
+        "font": "21px",
+        "inventory": 30,
+        "services": []
+      },
+      "focus": {
+        "active": true,
+        "outline": "none"
+      },
+      "hover": "rgb(48, 73, 108)",
+      "attemptDelta": 1,
+      "result": "Made 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP) 1 of 1 native attempts succeeded.",
+      "themeSwitchPreservedSave": true,
+      "scene": "▱ Hearth · 0 played minutes of fuel · vent open\nPrepaid hearth fuel0/20 · empty\nฅ(=･ω･=)ฅ\n\nMoss · curious · bond 10/100. Moss watches you from the doorway.\n\nMoss · habits and history\nPlain bed · Active here\nRagwork blanket · Active here\nFitted hearth · Active here\nLocal home comfort · Active here\nYour known home. The picture follows the current hearth and animal state; its layout is illustrative.",
+      "status": "passed"
+    }
+  ],
+  "errors": [],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ],
+  "httpFailures": [
+    {
+      "url": "http://127.0.0.1:53345/built/native-character/private_packs/manifest.json",
+      "status": 404
+    }
+  ],
+  "route": "Current frozen native shell, named mid-cook fixture; real native commands, disposable contexts",
+  "bundleSha256": "da32191acbd8786502e439fb4487780517fda9df8aff1e32c943576db10e9675",
+  "nativeComparison": "Layout switching; simultaneous native mirroring explicitly unavailable",
+  "status": "passed"
+}

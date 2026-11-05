@@ -1,0 +1,91 @@
+{
+  "schema": 1,
+  "batch": "B90",
+  "title": "World-depth lens maps and source-bound cross-world shapes",
+  "at": "2026-11-04T20:42:40.057843+00:00",
+  "head": "a4bebe24faffd52190c7e93bdc6d3fff91fa145c",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/world_depth_lenses_2026-10-19/KL_MAP_A_BOOK_WORLDS.md",
+      "ids": [
+        "KL1–KL12",
+        "KMA1–KMA7",
+        "F1–F4"
+      ],
+      "classification": "historical lens proposals with qualified source and capability gaps",
+      "owners": [
+        "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md",
+        "docs/audits/world_depth_lenses_2026-10-19/KL_MAP_A_BOOK_WORLDS.md"
+      ],
+      "disposition": "Retain KL1–KL12 and KMA1–KMA7 with their own source tiers: institutional versus mechanical ladders, separate rank/class axes, gate events, formula structure, evidence status and independent world profiles. Older no-LOTM-runtime and paused-world status claims are historical, superseded by later source and closure receipts; do not reopen runtime or research from this map. Prose-derived counts and unauthenticated editions remain qualified. The five independent novel profiles retain distinct costs; the B5 observable power-bill trace is not a universal cost dial. No private source or sealed truth is reproduced.",
+      "evidence": "Complete original file read in bounded ranges; original source tiers, sample limits, corrections and proposed next lanes inspected. These are dated lens proposals, not accepted build scope. Full review of these maps does not fill their explicitly unread cards, ledgers, reader notes, primary texts or code. A missing sidecar file and a silent sampled ledger are not absence of the underlying capability or source mechanic. Zero additional raw-source words still requires analytical work; historical invocation envelopes are estimates, not current authorization.",
+      "reopen": "Only a selected source or implementation question warrants reopening its exact unread range; no automatic research/build lane.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "bd76420e89397fb7fd8a03ad2fa4d2b442d2ad148c860cf66b6721f3d785cb41",
+      "input_lines": 248,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          248
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/world_depth_lenses_2026-10-19/KL_MAP_B_ANIME_AND_OTHERS.md",
+      "ids": [
+        "KL1–KL12",
+        "F1–F3",
+        "world sections 1–6",
+        "delta section 7",
+        "cross-world shapes 8",
+        "ranked steps 9",
+        "unread 10"
+      ],
+      "classification": "historical lens proposals with qualified source and capability gaps",
+      "owners": [
+        "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md",
+        "docs/audits/world_depth_lenses_2026-10-19/KL_MAP_B_ANIME_AND_OTHERS.md"
+      ],
+      "disposition": "Retain the corrections to memory leads: JJK/Naruto institutional rank is not combat power; Bleach numbering, Naruto elements and Fate parameter ladders remain unverified at this map’s sampled scope. HxH adjacency efficiencies do not turn its Specialist exception into a percentage; FMA process and energy claims remain continuity-bound and provisional. Shared staged-process shapes are design candidates, not proof that every stage compiles without engine work. Frontier, HP and D&D delta rows inherit the cited lane’s proof limits, not a fresh code/source review. Old SRD absence/count and held-sidecar statements require their later owning receipts, not blanket present-tense reuse.",
+      "evidence": "Complete original file read in bounded ranges; original source tiers, sample limits, corrections and proposed next lanes inspected. These are dated lens proposals, not accepted build scope. Full review of these maps does not fill their explicitly unread cards, ledgers, reader notes, primary texts or code. A missing sidecar file and a silent sampled ledger are not absence of the underlying capability or source mechanic. Zero additional raw-source words still requires analytical work; historical invocation envelopes are estimates, not current authorization.",
+      "reopen": "Only a selected source or implementation question warrants reopening its exact unread range; no automatic research/build lane.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "95490c584c074850d06d7c459aff7ee2ee79da9c34e4b2c6f22865332dac7b6d",
+      "input_lines": 211,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          211
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/world_depth_lenses_2026-10-19/KL_MAP_A_BOOK_WORLDS.md",
+      "heading": "## Reconciliation B90, 2026-11-04",
+      "body": "Retain KL1–KL12 and KMA1–KMA7 with their own source tiers: institutional versus mechanical ladders, separate rank/class axes, gate events, formula structure, evidence status and independent world profiles. Older no-LOTM-runtime and paused-world status claims are historical, superseded by later source and closure receipts; do not reopen runtime or research from this map. Prose-derived counts and unauthenticated editions remain qualified. The five independent novel profiles retain distinct costs; the B5 observable power-bill trace is not a universal cost dial. No private source or sealed truth is reproduced. These are dated lens proposals, not accepted build scope. Full review of these maps does not fill their explicitly unread cards, ledgers, reader notes, primary texts or code. A missing sidecar file and a silent sampled ledger are not absence of the underlying capability or source mechanic. Zero additional raw-source words still requires analytical work; historical invocation envelopes are estimates, not current authorization.",
+      "before_sha256": "bd76420e89397fb7fd8a03ad2fa4d2b442d2ad148c860cf66b6721f3d785cb41",
+      "after_sha256": "1705904b71de1d0845edc158ee3cec87446e4fd69a481fbebc4d1cb493720af3"
+    },
+    {
+      "path": "docs/audits/world_depth_lenses_2026-10-19/KL_MAP_B_ANIME_AND_OTHERS.md",
+      "heading": "## Reconciliation B90, 2026-11-04",
+      "body": "Retain the corrections to memory leads: JJK/Naruto institutional rank is not combat power; Bleach numbering, Naruto elements and Fate parameter ladders remain unverified at this map’s sampled scope. HxH adjacency efficiencies do not turn its Specialist exception into a percentage; FMA process and energy claims remain continuity-bound and provisional. Shared staged-process shapes are design candidates, not proof that every stage compiles without engine work. Frontier, HP and D&D delta rows inherit the cited lane’s proof limits, not a fresh code/source review. Old SRD absence/count and held-sidecar statements require their later owning receipts, not blanket present-tense reuse. These are dated lens proposals, not accepted build scope. Full review of these maps does not fill their explicitly unread cards, ledgers, reader notes, primary texts or code. A missing sidecar file and a silent sampled ledger are not absence of the underlying capability or source mechanic. Zero additional raw-source words still requires analytical work; historical invocation envelopes are estimates, not current authorization.",
+      "before_sha256": "95490c584c074850d06d7c459aff7ee2ee79da9c34e4b2c6f22865332dac7b6d",
+      "after_sha256": "e73813cbd7ab50e5bb65da6487e524df657af1a69208d442ecb8d65fd1496eee"
+    },
+    {
+      "path": "docs/worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md",
+      "heading": "### Round 21 reconciliation B90, 2026-11-04",
+      "body": "Retain KL1–KL12 and KMA1–KMA7 with their own source tiers: institutional versus mechanical ladders, separate rank/class axes, gate events, formula structure, evidence status and independent world profiles. Older no-LOTM-runtime and paused-world status claims are historical, superseded by later source and closure receipts; do not reopen runtime or research from this map. Prose-derived counts and unauthenticated editions remain qualified. The five independent novel profiles retain distinct costs; the B5 observable power-bill trace is not a universal cost dial. No private source or sealed truth is reproduced.\n\nRetain the corrections to memory leads: JJK/Naruto institutional rank is not combat power; Bleach numbering, Naruto elements and Fate parameter ladders remain unverified at this map’s sampled scope. HxH adjacency efficiencies do not turn its Specialist exception into a percentage; FMA process and energy claims remain continuity-bound and provisional. Shared staged-process shapes are design candidates, not proof that every stage compiles without engine work. Frontier, HP and D&D delta rows inherit the cited lane’s proof limits, not a fresh code/source review. Old SRD absence/count and held-sidecar statements require their later owning receipts, not blanket present-tense reuse.\n\nThese are dated lens proposals, not accepted build scope. Full review of these maps does not fill their explicitly unread cards, ledgers, reader notes, primary texts or code. A missing sidecar file and a silent sampled ledger are not absence of the underlying capability or source mechanic. Zero additional raw-source words still requires analytical work; historical invocation envelopes are estimates, not current authorization.",
+      "before_sha256": "0eafbbdba8c2e8d9efe1cbf7b5ce430abb939a0aadcfed492de92e1618bafa5f",
+      "after_sha256": "9b29c7d45843048679385fdd9ad7b2ef363fcd32c034c9da028c3283703366d1"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1332
+}

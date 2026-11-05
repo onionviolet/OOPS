@@ -1,5 +1,7 @@
 # Implementation rule checks, 2026-10-16
 
+**Content review B5, 2026-11-04:** full F/O/RG and evidence sections reviewed. The [verification-owner fold](../ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md#rule-linked-verification-content-reconciliation-2026-11-04) preserves the counterexamples and optional focused-runner scope. RG5’s old failures and all counts are dated evidence, not current release status. AD36/AD43 and current desktop direction govern selected checks; no duplicate full-suite or universal compliance gate is introduced.
+
 Request: "can we make it check whether the implementation actually follows the
 rules too? Is it worth doing so much checks?" Includes a more-to-consider pass.
 This is an implementation receipt and recommendation, not a new standing

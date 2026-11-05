@@ -1,4 +1,4 @@
-import {renderLotmTaskSummary} from './ui/lotm_task_summary.js';
+import {lotmTaskSummary,renderLotmTaskSummary} from './ui/lotm_task_summary.js';
 import {definePanel} from './panel_kit.js';
 import {expandWorkspaceModule,setWorkspaceModuleTitle} from './workspace_layout.js';
 import {createMeterBar} from './meter_bar.js';
@@ -42,7 +42,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
   }
  };
  const seatObserver=new MutationObserver(applySeatFilter);seatObserver.observe(panel,{childList:true,subtree:true});
- const run=(fn,done)=>{const focused=panel.contains(document.activeElement)?document.activeElement?.dataset?.lotm:null;try{fn();if(done!==undefined)notice.textContent=typeof done==='function'?done():done;}catch(e){notice.textContent=e.message;}signature='';render();if(focused)restoreControl(focused);};
+ const run=(fn,done)=>{const focused=panel.contains(document.activeElement)?document.activeElement?.dataset?.lotm:null;try{fn();if(done!==undefined)notice.textContent=typeof done==='function'?done():done;}catch(e){notice.textContent=e.message;}signature='';render();if(focused&&!restoreControl(focused))panel.querySelector('#lotm-current-task-title')?.focus({preventScroll:true});};
  // COV7 / UR42: a button reads as a short verb phrase. Cost and time ride in a chip after it, a bracketed risk note moves to
  // the hover text, and an over-long phrase is cut at eight words with the whole line kept in the title.
  const button=(label,token,onclick,disabled,reason)=>{const s=shortActionLabel(label);const b=node('button',s.text);if(s.chip){const c=node('span',` · ${s.chip}`);c.className='action-chip';b.append(c);}b.type='button';b.dataset.lotm=token;b.disabled=!!disabled;const title=[reason,s.note,s.cut?label:''].filter(Boolean).join(' · ');if(title)b.title=title;b.onclick=onclick;return b;};
@@ -53,7 +53,12 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
  const showTabOf=b=>{const off=b.closest('[data-tab-off]');const key=off&&Object.keys(tabBlocks).find(k=>tabBlocks[k]===off);const tab=key&&WORKROOM_TABS.find(t=>t.blocks.includes(key));if(tab)tabsUi.select(tab.id);};
  const findControl=(id,{focusAction=false}={})=>{const b=[...panel.querySelectorAll('[data-lotm]')].find(n=>n.dataset.lotm===id);if(!b)return false;for(let a=b.parentElement;a&&a!==panel;a=a.parentElement)if(a.tagName==='DETAILS')a.open=true;showTabOf(b);const r=b.parentElement;r.tabIndex=-1;(focusAction&&!b.disabled?b:r).focus();r.scrollIntoView({block:'nearest'});return true;};
  const findWork=id=>{const status=[...panel.querySelectorAll('[data-lotm-job]')].find(n=>n.dataset.lotmJob===id);if(!status)return false;showTabOf(status);status.focus();status.scrollIntoView({block:'nearest'});return true;};
- const restoreControl=id=>{if(findControl(id,{focusAction:true}))return;const next=id.startsWith('wait.until.')&&actions.querySelector('button[data-lotm^="wait.until."]');if(next)findControl(next.dataset.lotm,{focusAction:true});};
+ const restoreControl=id=>{
+  if(findControl(id,{focusAction:true}))return true;
+  const next=id.startsWith('wait.until.')&&actions.querySelector('button[data-lotm^="wait.until."]');if(next)return findControl(next.dataset.lotm,{focusAction:true});
+  const job=[...panel.querySelectorAll('[data-lotm-job-command]')].find(n=>n.dataset.lotmJobCommand===id);if(job){showTabOf(job);job.focus();job.scrollIntoView({block:'nearest'});return true;}
+  return false;
+ };
 
  // Brewing bench (DWF128): one picked formula at a time, never a button per formula. Surface: a disclosure inside the place service (UR42).
  function renderBench(v){
@@ -122,6 +127,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
   const signatureView=v.waits?{...v,waits:v.waits.map(({label,duration,...rest})=>rest)}:v;
   const next=JSON.stringify([signatureView,notice.textContent,selected,choosing]);if(next===signature)return;signature=next;
   const focused=document.activeElement,focusId=panel.contains(focused)?focused?.dataset?.lotm||(focused?.hasAttribute?.('data-panel-row')?focused.querySelector('[data-lotm]')?.dataset?.lotm:null):null;
+  const headingFocused=panel.contains(focused)&&focused?.id==='lotm-current-task-title';
   const taskFocus=panel.contains(focused)?['lotmTaskLink','lotmTaskWaitLink','lotmTaskWorkLink','lotmJob'].map(key=>[key,focused?.dataset?.[key]]).find(([,id])=>id):null;
   waitButtons.clear();
   path.replaceChildren();work.replaceChildren();bench.replaceChildren();actions.replaceChildren();walks.replaceChildren();notebook.replaceChildren();
@@ -227,7 +233,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
    const refund=j.cancellation==='refund',returns=refund&&j.refundsInputs;
    const label=returns?'Stop (reserved inputs returned)':refund?'Stop work':'Stop (cost not returned)';
    const consequence=returns?'Reserved inputs were returned; elapsed time stays spent.':refund?'The work stopped; elapsed time stays spent.':'What this work cost is gone.';
-   const jobStatus=node('p',`${j.label} · ${j.left} min left`);jobStatus.dataset.lotmJob=j.id;jobStatus.tabIndex=-1;
+   const jobStatus=node('p',`${j.label} · ${j.left} min left`);jobStatus.dataset.lotmJob=j.id;if(j.commandId)jobStatus.dataset.lotmJobCommand=j.commandId;jobStatus.tabIndex=-1;
    jobsHome.append(row(jobStatus,...(j.cancellable?[
     button(label,'cancel',()=>run(()=>cancel(j.id),`You stopped. ${consequence}`),false,returns?'Stopping returns the reserved inputs; elapsed time stays spent.':refund?'Stopping ends this work; elapsed time stays spent.':'Stopping forfeits what this spent.'),
     node('span',returns?'Stopping returns reserved inputs; elapsed time stays spent.':refund?'Stopping keeps elapsed time spent.':'Stopping keeps the paid cost spent.')]:[])));
@@ -237,7 +243,8 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
    commonActions.append(node('h3','Common actions'),node('p','Wait here while the day continues. A local decision can interrupt the wait.'));
    for(const a of v.waits){const b=button(a.label,a.id,()=>run(()=>{const r=act(a.id);notice.textContent=r.interrupted?`Wait interrupted after ${r.minutes} min. ${r.reason}`:`You waited ${r.minutes} min here.`;}),!a.eligible,a.reasons.join(' '));waitButtons.set(a.id,b);commonActions.append(row(b,...(!a.eligible?[node('span',a.reasons.join(' '))]:[])));}
   }
-  if(v.arc)actions.prepend(renderLotmTaskSummary(v,{findControl,findWork}));
+  const renderObjectAction=a=>row(button(a.label,a.id,()=>run(()=>act(a.id),()=>read(selected).jobs.length?`Started: ${shortActionLabel(a.label).text}. See In progress for time and stopping terms.`:'Action settled. See Last result for its consequence.'),!a.eligible,a.reasons.join(' ')));
+  if(v.arc)actions.prepend(renderLotmTaskSummary(v,{findControl,findWork,renderAction:renderObjectAction}));
   for(const stock of v.stockViews||[]){
    const supplies=node('section');supplies.dataset.lotmStock='true';supplies.append(node('h3',stock.title));
    for(const r of stock.rows)supplies.append(node('p',`${r.label}: ${r.amount??'unknown'}`));
@@ -248,9 +255,16 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
    for(const seat of meeting.seats)room.append(node('p',`${seat.label}: ${seat.connected?'connected':'connection lost'}`));
    actions.append(room);
   }
-  if(v.objectActs?.length){
+  const summary=lotmTaskSummary(v);
+  // The current command lives beside its quote; in-flight work has its own
+  // status/Stop controls. Keep other native object actions in their disclosure.
+  const otherObjectActs=(v.objectActs||[]).filter(a=>summary?.targetId!==a.id&&!v.jobs.some(j=>j.commandId===a.id&&j.id===summary?.workId));
+  if(otherObjectActs.length){
    const objects=node('details');objects.open=true;objects.dataset.lotmObjectActs='';objects.append(node('summary','Things at hand'));
-   for(const a of v.objectActs)objects.append(row(node('p',a.description),button(a.label,a.id,()=>run(()=>act(a.id),()=>read(selected).jobs.length?`Started: ${shortActionLabel(a.label).text}. See In progress for time and stopping terms.`:'Action settled. See Last result for its consequence.'),!a.eligible,a.reasons.join(' ')),...(!a.eligible?[node('span',a.reasons.join(' '))]:[])));
+   for(const a of otherObjectActs){
+    const reason=[...new Set(a.reasons||[])].join(' ');
+    objects.append(node('p',a.description),renderObjectAction(a),...(!a.eligible?[node('span',reason)]:[]));
+   }
    actions.append(objects);
   }
   if(v.inferences?.length){
@@ -339,12 +353,12 @@ export function createLotmPanel({read,act,cancel,move,enroll,home}){
    if(v.records.length>6){const earlier=node('details');earlier.append(node('summary',`Earlier notes (${v.records.length-6})`));for(const r of v.records.slice(0,-6))earlier.append(node('p',r.text));notebook.append(earlier);}
   }
   tabsUi.update(v);
-  if(focusId&&!focused.isConnected)restoreControl(focusId);
+  if(focusId&&!focused.isConnected&&!restoreControl(focusId))panel.querySelector('#lotm-current-task-title')?.focus({preventScroll:true});
   // A review link is navigation, not the native command it points at. Retain
   // that exact target across refresh; never transfer a pending click to a new task.
-  if(taskFocus&&!focused.isConnected){
-   const [attr,id]=taskFocus;
-   const same=[...panel.querySelectorAll('[data-lotm-task-link],[data-lotm-task-wait-link],[data-lotm-task-work-link],[data-lotm-job]')].find(n=>n.dataset[attr]===id);
+  if((taskFocus||headingFocused)&&!focused.isConnected){
+   const [attr,id]=taskFocus||[];
+   const same=taskFocus&&[...panel.querySelectorAll('[data-lotm-task-link],[data-lotm-task-wait-link],[data-lotm-task-work-link],[data-lotm-job]')].find(n=>n.dataset[attr]===id);
    (same||panel.querySelector('#lotm-current-task-title'))?.focus({preventScroll:true});
   }
  }

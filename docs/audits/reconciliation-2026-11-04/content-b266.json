@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "batch": "B266",
+  "title": "Full relationship producer-reader audit and representation boundaries",
+  "at": "2026-11-05T00:17:22.165833+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/core-foundations-2026-10-14/a4/AUDIT.md",
+      "ids": [
+        "A4-F1–5",
+        "A4-S1–7",
+        "A4-W01–32 and wrapper call sites",
+        "A4-R1–13",
+        "A4-P1–11",
+        "search exclusions",
+        "read contract and example"
+      ],
+      "classification": "Historical exhaustive-in-scope public source audit with unwired read adapter",
+      "owners": [
+        "docs/gm/dispatch/core-foundations-2026-10-14/a4/AUDIT.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "disposition": "Read every row and helper locator, preserve correction of write-only claim, fold distinct owners/ranges/knowledge/receipt/validator semantics and exact exclusion limits into audit and authoring owner.",
+      "evidence": "All243lines delivered in1–125/126–270 with no truncation. No current-source census, branch integration, linked report test or native/browser/save execution.",
+      "reopen": "Select the actual current relationship/reputation producer and consumer before fixing a demonstrated behavior or wiring the detached reader; retain source-specific shapes and observer projection.",
+      "input_sha256": "d71cab710bba9a65b0a6deaac91456fe3fe4fff3b43d1d4dcb2c4daec5c76c66",
+      "input_lines": 243,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          243
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/core-foundations-2026-10-14/a4/AUDIT.md",
+      "heading": "## Content reconciliation B266",
+      "body": "Full body reviewed: A4-F1–5, A4-S1–7, all A4-W01–32 producer rows and wrapper call sites, A4-R1–13, A4-P1–11, search exclusions and the complete detached-read contract/example. Its October 14 public-source snapshot is the scope of SHOWN, not a fresh inspection of every current caller. “Exhaustive” is bounded to those source files, search terms, aliases and exclusions; dynamic private rules/plugins and native behavior explicitly remain unknown. Preserve the correction of the broad write-only relationship claim without upgrading it to a general social simulation or evidence that every named gate was played.\n\nA4-F2's42matches in32files count effect declaration lines. A wrapper may create many command instances, and direct memory helpers, transition resets, generic persistence and literal prose are separate categories. The table does not count runtime writes or independent native consumers. A4-F3's no literal authored relationship predicate is not absence of all consequences: chronicle ties/trust, memory gates, consistency protection and player-qualified views already have distinct roles in the inventory. The dated findings are leads for a selected current trace, not a reason to rewrite every relationship owner.\n\nA4-S2's shared cause/actor/target/axis receipt and A4-S6's non-idempotent chronicle helper are different semantics. A future combined-grant operation must decide whether two same-axis effects are one repeated publication or separate actual causes; neither blanket duplicate suppression nor summing all store values is established. Its existing caller and transaction owner decide real settlement. Chronicle's bounded life/counterpart tie and simulation's directed edge keep their own ranges, carriers, provenance and reset policies. A source-qualified read adapter does not invent consent, reciprocal affection or the observer's knowledge. Two32entry memory windows can present64retained entries without becoming one complete social history.\n\nThe proposed reader is stricter about memory payload shape than the inspected simulation store. Because the adapter was unwired, that does not establish a saved-game import defect or authorize a migration/repair/clamp. If selected as a consumer later, test actual supported historical records at that boundary and choose an explicit compatibility policy. Missing axes remain unknown rather than numerical zero; a false source-presence fact records that absence in the selected input, not proof the observer knows the absence. Real stored zero/false are distinct from missing values. Internal fact projection still requires observer-qualified UI before disclosure.\n\nRegional reputation remains a separate mechanism from individual trust, consent, membership, office or institution access. A4-P5's1000limit is in a price read, not a store-wide cap; negative totals still reach conditions/inheritance despite the inspected positive-only display. Number.isInteger and safe-integer checks are distinct validation bounds, not a reproduced current overflow. Case-distinct seed region keys are not identity evidence and must not be automatically merged. Native totals, saved restoration, inherited standing and trade margins each require their real current reader when selected. The separate standing/membership palette is still a linked design owner, not a new module authorized here. No underlying source/test/report was reread by proxy, no current integration or browser behavior was established, and no relationship schema, consumer or migration changed.",
+      "before_sha256": "d71cab710bba9a65b0a6deaac91456fe3fe4fff3b43d1d4dcb2c4daec5c76c66",
+      "after_sha256": "3157912eb356b960d0868cb2eaf2a82bbe62540f20dba8b4d3834c745e4ca4e1"
+    },
+    {
+      "path": "docs/ENGINE_AUTHORING.md",
+      "heading": "### Relationship audit detail uptake B266",
+      "body": "The full [A4 relationship audit](gm/dispatch/core-foundations-2026-10-14/a4/AUDIT.md#content-reconciliation-b266), beyond its checkpoint, has now been reviewed: all source-owner, producer/helper, reader and reputation tables plus the read-adapter contract. Its corrected write-only finding and declaration-versus-writer distinction are retained. Chronicle life ties and simulation directed edges keep different meanings and ranges; a detached internal view is not observer-safe disclosure, consent or a merged store. Same-axis receipt deduplication needs the actual cause semantics; the audit does not establish that every separate effect should be summed or suppressed.\n\nThe proposed strict-memory reader was unwired in that snapshot, so its stricter validation is not proof that normal save imports fail. Two retained windows are not a full history. Missing data remains unknown; explicit zero/false stays known at the internal fact layer. Regional reputation's trade-read cap, negative totals, restoration and case-distinct seed keys do not define universal social score bounds or membership. These are historical source traces and useful selected-consumer checks, not fresh runtime or integration proof. The underlying tables and remaining linked reports retain their exact reading scope.",
+      "before_sha256": "5475d98d39e770cbb0797c69c4b75039e7dea70163c2ce0373d2b5d0d75a7b11",
+      "after_sha256": "3a65f66a9831c94f179196c22e331dc3c8b1c3c5629f7bef856c460986a2b883"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 897
+}

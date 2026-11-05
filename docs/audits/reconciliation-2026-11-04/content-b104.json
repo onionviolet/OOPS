@@ -1,0 +1,149 @@
+{
+  "schema": 1,
+  "batch": "B104",
+  "title": "Baseline/migration history and UI/Discord absorption audits",
+  "at": "2026-11-04T20:56:28.566455+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/BASELINE_AUDIT.md",
+      "ids": [
+        "baseline systems",
+        "save contract",
+        "offline limitation",
+        "smoke proof"
+      ],
+      "classification": "historical baseline or bounded UI/reference audit with successor corrections",
+      "owners": [
+        "docs/BASELINE_AUDIT.md",
+        "docs/V06_MIGRATION.md"
+      ],
+      "disposition": "Retain the v0.5/Jade Hollow audit as historical source/integration evidence. It is explicitly retired, not a current cultivation, save/import, timer/offline or race implementation specification. Its additive cultivation schema and item-clearing rebirth are not present authorization to alter saves or replay the prototype. V06_MIGRATION records the later adopted foundation and loader/codec proof; current save owners govern actual behavior. No missing offline earnings or elapsed-time limitation is inferred for current code from this old inspected upstream path.",
+      "evidence": "Complete original body and all later qualifications read. Selected current Corc recovery/deeper-review owner 125–136 and rule-fold recovery note inspected; no private media, old runtime or web reference reread.",
+      "reopen": "Only a named changed native consumer/source question or current defect reopens checks; preserve old proof and useful ideas without acquisition, broad parity work or save changes.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "01810381b42a01c9f23672c06e7872b1c593de1d40096ebe1002568c2834eac5",
+      "input_lines": 49,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          49
+        ]
+      ]
+    },
+    {
+      "path": "docs/V06_MIGRATION.md",
+      "ids": [
+        "adopted migration",
+        "compatibility",
+        "superseded candidate",
+        "acceptance/proof"
+      ],
+      "classification": "historical baseline or bounded UI/reference audit with successor corrections",
+      "owners": [
+        "docs/V06_MIGRATION.md",
+        "docs/PLAYTEST.md"
+      ],
+      "disposition": "Read the adopted migration and explicitly superseded candidate-only plan together. The top records the authorized shared v0.6 integration with recoverable prior fork checkpoint and bounded codec/real-loader/rollback/persistence evidence. The lower “shared not switched” and pending integration instructions are preserved prior history, not current work. Thirty-two tests and selected generated/Unicode fixtures are historical slice proof, not all legacy formats/current tree/upstream balance. Current old-save migration deferral does not delete existing protections; selected new state still needs its compatibility decision and persistence. Human review is optional under AD42, and the old one-realm/one-prestige milestone is retired. Do not recreate or remove old worktrees from this report.",
+      "evidence": "Complete original body and all later qualifications read. Selected current Corc recovery/deeper-review owner 125–136 and rule-fold recovery note inspected; no private media, old runtime or web reference reread.",
+      "reopen": "Only a named changed native consumer/source question or current defect reopens checks; preserve old proof and useful ideas without acquisition, broad parity work or save changes.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "ee156e4c803e66a7ce6ec6f1205f3f4dbd2ae8b7c3b44e48f15b1b530d92f7a4",
+      "input_lines": 67,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          67
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/UI_CAPABILITY_GAPS_2026-10-30.md",
+      "ids": [
+        "CG1–CG9",
+        "capability checklist",
+        "Nov 4 recheck"
+      ],
+      "classification": "historical baseline or bounded UI/reference audit with successor corrections",
+      "owners": [
+        "docs/audits/UI_CAPABILITY_GAPS_2026-10-30.md",
+        "docs/gm/dispatch/book-ui-wave-2026-10-30/PLAN.md"
+      ],
+      "disposition": "Read CG1–CG9 and the Nov 4 recheck together. CG1 group browsing, CG2 cross-world filtering, CG5 compare/wording and CG7 opening presentation have later scoped fixes; CG6 was withdrawn because Options follows the user’s requested placement. The earlier checklist/routing “missing compare” is superseded by that compare-table receipt, not an active absent-feature claim. CG2 reachableFrom is current-map-piece filtering, not a visited/learned record: unmet same-world locations remain open. CG7 is presentation tied to enabled Next step, not a universal crossing eligibility gate. CG3’s corrected loading-screen evidence and old sparse playable state remain dated; current lead focus has extensive later slices and cannot be declared empty from this snapshot. Waiting with no admitted job/event is not itself proof idle earnings or a digest producer is absent. Fresh-known-discovery, actual job return, time labels and other reload sites need their own exact consumers. General game-pattern analogies are reference recollection/inference, not newly source-verified facts or required parity. Browser captures/MCP text and source tests retain separate proof scopes; no new UI run occurs here.",
+      "evidence": "Complete original body and all later qualifications read. Selected current Corc recovery/deeper-review owner 125–136 and rule-fold recovery note inspected; no private media, old runtime or web reference reread.",
+      "reopen": "Only a named changed native consumer/source question or current defect reopens checks; preserve old proof and useful ideas without acquisition, broad parity work or save changes.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "c04e8f7c9d6f1969aa9907f87e247b0baec3c94c707dc44473e8d3209b7d8344",
+      "input_lines": 84,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          84
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/DISCORD_ABSORPTION_CHECK_2026-10-21.md",
+      "ids": [
+        "F1–F5",
+        "53/90/194 denominators",
+        "A1–A3",
+        "later recovery"
+      ],
+      "classification": "historical baseline or bounded UI/reference audit with successor corrections",
+      "owners": [
+        "docs/audits/DISCORD_ABSORPTION_CHECK_2026-10-21.md",
+        "docs/research/proto23/CORC_MEDIA_AND_DESIGN_2026-10-20.md"
+      ],
+      "disposition": "Preserve F1–F5, 53 finite palette entries, 90 PFA rows and 194 routing codes as their separate denominators. Routed/captured content is not complete semantic research or current implementation; seeded native receipts are not natural acquisition or present combined-build proof. The old 26-ID Corc gap is superseded by the current media owner’s dated recovery: all 26 exact target attachments recovered, with deeper CRL27–CRL34 file review, while unrelated context/media/audio/current source-game behavior retain limits. It was not 26 gameplay screenshots. No recollection of an old hash comparison demonstrates current drift/defect. Keep the named content extensions and alternatives in their owners without an all-Discord parity gate or another download/dispatch. Current rules and AD42 qualify optional human taste review; actual new gameplay/UI still needs its own rebuilt proof.",
+      "evidence": "Complete original body and all later qualifications read. Selected current Corc recovery/deeper-review owner 125–136 and rule-fold recovery note inspected; no private media, old runtime or web reference reread.",
+      "reopen": "Only a named changed native consumer/source question or current defect reopens checks; preserve old proof and useful ideas without acquisition, broad parity work or save changes.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "744820040c968425b503f97dda7605e773a648dba864ec1e26d0cee0ffc7afd5",
+      "input_lines": 85,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          85
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/BASELINE_AUDIT.md",
+      "heading": "## Historical-use reconciliation B104, 2026-11-04",
+      "body": "Retain the v0.5/Jade Hollow audit as historical source/integration evidence. It is explicitly retired, not a current cultivation, save/import, timer/offline or race implementation specification. Its additive cultivation schema and item-clearing rebirth are not present authorization to alter saves or replay the prototype. V06_MIGRATION records the later adopted foundation and loader/codec proof; current save owners govern actual behavior. No missing offline earnings or elapsed-time limitation is inferred for current code from this old inspected upstream path.",
+      "before_sha256": "01810381b42a01c9f23672c06e7872b1c593de1d40096ebe1002568c2834eac5",
+      "after_sha256": "eb5488f77d67eb5b5517a306cf84492d9645f5e9e1e87cb2b7b903b2cc0f1430"
+    },
+    {
+      "path": "docs/V06_MIGRATION.md",
+      "heading": "## Historical-use reconciliation B104, 2026-11-04",
+      "body": "Read the adopted migration and explicitly superseded candidate-only plan together. The top records the authorized shared v0.6 integration with recoverable prior fork checkpoint and bounded codec/real-loader/rollback/persistence evidence. The lower “shared not switched” and pending integration instructions are preserved prior history, not current work. Thirty-two tests and selected generated/Unicode fixtures are historical slice proof, not all legacy formats/current tree/upstream balance. Current old-save migration deferral does not delete existing protections; selected new state still needs its compatibility decision and persistence. Human review is optional under AD42, and the old one-realm/one-prestige milestone is retired. Do not recreate or remove old worktrees from this report.",
+      "before_sha256": "ee156e4c803e66a7ce6ec6f1205f3f4dbd2ae8b7c3b44e48f15b1b530d92f7a4",
+      "after_sha256": "b6018034a960455611fac34382d1f1a142e6ea5a78ded11717cecc195b3c21f5"
+    },
+    {
+      "path": "docs/audits/UI_CAPABILITY_GAPS_2026-10-30.md",
+      "heading": "## Current-use reconciliation B104, 2026-11-04",
+      "body": "Read CG1–CG9 and the Nov 4 recheck together. CG1 group browsing, CG2 cross-world filtering, CG5 compare/wording and CG7 opening presentation have later scoped fixes; CG6 was withdrawn because Options follows the user’s requested placement. The earlier checklist/routing “missing compare” is superseded by that compare-table receipt, not an active absent-feature claim. CG2 reachableFrom is current-map-piece filtering, not a visited/learned record: unmet same-world locations remain open. CG7 is presentation tied to enabled Next step, not a universal crossing eligibility gate. CG3’s corrected loading-screen evidence and old sparse playable state remain dated; current lead focus has extensive later slices and cannot be declared empty from this snapshot. Waiting with no admitted job/event is not itself proof idle earnings or a digest producer is absent. Fresh-known-discovery, actual job return, time labels and other reload sites need their own exact consumers. General game-pattern analogies are reference recollection/inference, not newly source-verified facts or required parity. Browser captures/MCP text and source tests retain separate proof scopes; no new UI run occurs here.",
+      "before_sha256": "c04e8f7c9d6f1969aa9907f87e247b0baec3c94c707dc44473e8d3209b7d8344",
+      "after_sha256": "1d5940fa5e8eb8854c6e92da79e7fdad7031c3fbab260802d423aa77c208286a"
+    },
+    {
+      "path": "docs/audits/DISCORD_ABSORPTION_CHECK_2026-10-21.md",
+      "heading": "## Recovery and coverage reconciliation B104, 2026-11-04",
+      "body": "Preserve F1–F5, 53 finite palette entries, 90 PFA rows and 194 routing codes as their separate denominators. Routed/captured content is not complete semantic research or current implementation; seeded native receipts are not natural acquisition or present combined-build proof. The old 26-ID Corc gap is superseded by the current media owner’s dated recovery: all 26 exact target attachments recovered, with deeper CRL27–CRL34 file review, while unrelated context/media/audio/current source-game behavior retain limits. It was not 26 gameplay screenshots. No recollection of an old hash comparison demonstrates current drift/defect. Keep the named content extensions and alternatives in their owners without an all-Discord parity gate or another download/dispatch. Current rules and AD42 qualify optional human taste review; actual new gameplay/UI still needs its own rebuilt proof.",
+      "before_sha256": "744820040c968425b503f97dda7605e773a648dba864ec1e26d0cee0ffc7afd5",
+      "after_sha256": "aa27102c0900b99709fdb67d544a3735c59b160b7ff0ac995b228a90e1f9ad96"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1276
+}

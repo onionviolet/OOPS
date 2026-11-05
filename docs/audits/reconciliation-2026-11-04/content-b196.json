@@ -1,0 +1,182 @@
+{
+  "schema": 1,
+  "batch": "B196",
+  "title": "Complete writeup register and distinguish stale routing from decisions",
+  "at": "2026-11-04T22:52:01.710349+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "ids": [
+        "Process sections1–7",
+        "Register rows",
+        "Decisions1–5",
+        "Pass1–4",
+        "Adoption5b",
+        "Nov3–4 appended topic entries"
+      ],
+      "classification": "Proposal workflow, dated register and historical adoption/routing log",
+      "owners": [
+        "docs/gm/WRITEUP_REGISTER.md",
+        "PROJECT.md",
+        "docs/RULES_INDEX.md"
+      ],
+      "disposition": "Read complete register, not all linked reports. Preserve Read/Routed/Decided/Building/Done and scope of dated adoption; agents cannot adopt proposals. Qualify known stale foundation active pointer and world-map missing-UI claim from later already-reviewed owners. Other dated rows require actual owner checks before dispatch.",
+      "evidence": "Fresh full read 1–end. Current dispositions use already-read B153 final foundation receipt and B184 all-five-round map, not uninspected current runtime. Linked source/canon/current-process/remote and all-row integration not verified.",
+      "reopen": "Selected row/current owner contradiction or actual new writing intake. Row coverage/status does not substitute for content/body review and no next-action cell authorizes execution.",
+      "input_sha256": "4090bcdd9a8c3546ab87afb03428ee43b93cf9cf2a980b3f19f951bb15a79aae",
+      "input_lines": 272,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          272
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "heading": "## Full register content reconciliation, 2026-11-04",
+      "body": "The register’s states describe different events. Read or Routed does not mean decided, implemented, integrated or published; Done is scoped to the named card/routing task. Section 5b’s dated working adoption does not absorb later rows or overturn later instructions. The observed child-chat workflow and proposed daily/weekly consolidation are history/process ideas, not scheduled automations or authorization to message, commit, publish or spawn workers (AD32, AD36).\n\nFull reading of the table and appended topic entries does not review every linked report. Preserve their original rounds and use the receiving owners: B184’s complete world-rules-map review retains the author’s own correction that the UI shipping list already exists; B153’s released method-use checkpoint supersedes the progress row’s active wording at M21/M22/M25 scope. Its final method/recipient/paper proof does not close all method families or source arrival. Other old slice rankings, held budgets, prototype gaps and New labels retain their dates until the selected owner supplies a scoped correction.\n\nEarlier pass logs and fixed five-question dispositions remain intact. Do not ask again for resolved lead/date direction, treat the old original-world ranks as a global queue, or use a missing row as evidence a mechanism is absent. The project-wide inventory remains the content-coverage owner, including partial files; this register is the routing/status front door. No gameplay, independent acceptance vote, new automation or source reading follows from this maintenance.",
+      "before_sha256": "4090bcdd9a8c3546ab87afb03428ee43b93cf9cf2a980b3f19f951bb15a79aae",
+      "after_sha256": "134fb3d27b6b59df3ad90115ace90d565108228a18a5c7762223300aa1b7632a"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1089,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "M21/M22/M25 remains with its active checkpoint.",
+      "to": "M21/M22/M25 has a later released method-use receipt, scoped to its named command, native paper and recipient; see B153 in the reconciliation record.",
+      "reason": "Refresh exact stale routing from reviewed B153/B184 owner receipts, or current task batch pointer; preserve original text as history."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "Main gap: no single list of what a new world ships for UI. Proposal only (AD32); extends the 2026-10-30 reconciliation audit.",
+      "to": "The initial missing-UI-list claim was withdrawn in the map’s own later correction; existing DSG19 and its selected consumer remain the route. Proposal only (AD32); extends the 2026-10-30 reconciliation audit.",
+      "reason": "Refresh exact stale routing from reviewed B153/B184 owner receipts, or current task batch pointer; preserve original text as history."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "B190, continuous execution 2026-11-04",
+      "to": "B196, continuous execution 2026-11-04",
+      "reason": "Refresh exact stale routing from reviewed B153/B184 owner receipts, or current task batch pointer; preserve original text as history."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B196, continuous execution 2026-11-04 |",
+      "to": "| B219, continuous execution 2026-11-04 |",
+      "reason": "Advance current continuous reconciliation pointer through B219; no new full-register reading credit or change to original B196 input."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B219, continuous execution 2026-11-04 |",
+      "to": "| B224, continuous execution 2026-11-04 |",
+      "reason": "Advance continuous pointer through B224; no new full-register reading credit."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B224, continuous execution 2026-11-04 |",
+      "to": "| B225, continuous execution 2026-11-04 |",
+      "reason": "Advance active pointer through B225; no new full-register reading credit."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B225, continuous execution 2026-11-04 |",
+      "to": "| B234, continuous execution 2026-11-04 |",
+      "reason": "Advance active pointer through B234; no new full-register reading credit."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B234, continuous execution 2026-11-04 |",
+      "to": "| B235, continuous execution 2026-11-04 |",
+      "reason": "Advance active pointer through B235; no new full-register reading credit."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B235, continuous execution 2026-11-04 |",
+      "to": "| B243, continuous execution 2026-11-04 |",
+      "reason": "Advance active pointer through B243; no new full-register reading credit."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B243, continuous execution 2026-11-04 |",
+      "to": "| B248, continuous execution 2026-11-04 |",
+      "reason": "Advance active pointer through B248; no new full-register reading credit."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B248, continuous execution 2026-11-04 |",
+      "to": "| B252, continuous execution 2026-11-04 |",
+      "reason": "Advance active pointer through B252; no new full-register reading credit."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B252, continuous execution 2026-11-04 |",
+      "to": "| B261, continuous execution 2026-11-04 |",
+      "reason": "Advance active pointer through B261; no new full-register reading credit."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B261, continuous execution 2026-11-04 |",
+      "to": "| B267, continuous execution 2026-11-04 |",
+      "reason": "Advance active pointer through B267; no new full-register reading credit."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B267, continuous execution 2026-11-04 |",
+      "to": "| B272, continuous execution 2026-11-04 |",
+      "reason": "Advance active pointer through B272; no new full-register reading credit."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B272, continuous execution 2026-11-04 |",
+      "to": "| B277, continuous execution 2026-11-04 |",
+      "reason": "Advance active pointer through B277; no new full-register reading credit."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B277, continuous execution 2026-11-04 |",
+      "to": "| B283, continuous execution 2026-11-04 |",
+      "reason": "Advance active pointer through B283; no new full-register reading credit."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B283, continuous execution 2026-11-04 |",
+      "to": "| B289, continuous execution 2026-11-04 |",
+      "reason": "Advance active pointer through B289; no new full-register reading credit."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B289, continuous execution 2026-11-04 |",
+      "to": "| B295, continuous execution 2026-11-04 |",
+      "reason": "Advance active pointer through B295; no new full-register reading credit."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B295, continuous execution 2026-11-04 |",
+      "to": "| B301, continuous execution 2026-11-04 |",
+      "reason": "Advance active pointer through B301; no new full-register reading credit."
+    }
+  ],
+  "review_corrections": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from_owners": [
+        "docs/gm/WRITEUP_REGISTER.md",
+        "docs/PROJECT.md",
+        "docs/RULES_INDEX.md"
+      ],
+      "to_owners": [
+        "docs/gm/WRITEUP_REGISTER.md",
+        "PROJECT.md",
+        "docs/RULES_INDEX.md"
+      ],
+      "reason": "Correct review-record typo: current state owner is root PROJECT.md, not nonexistent docs/PROJECT.md. No extra source reading inferred."
+    }
+  ]
+}

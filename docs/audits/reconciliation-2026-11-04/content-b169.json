@@ -1,0 +1,131 @@
+{
+  "schema": 1,
+  "batch": "B169",
+  "title": "Branding, Dock icon and rejected launch-menu chronology",
+  "at": "2026-11-04T22:23:50.783009+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/reviews/OOPS_BRANDING_2026-10-16.md",
+      "ids": [
+        "initial branding; rename; Oct17 reapplication"
+      ],
+      "classification": "Historical identity/UI/desktop delivery with later supersession",
+      "owners": [
+        "docs/reviews/OOPS_BRANDING_2026-10-16.md",
+        "docs/reviews/launch_menu_2026-10-21/REPORT.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "OOPSselected identity settled; lateronionv and creator-specific signatures supersede originalWeibaoauthor field. Initial1366capture not Oct17receipt; reapplication prose records separateinput/evidence. Retain upstreamattribution/saveIDs historicalYAIRandremote rename, no live remotecheck or newrename authority.",
+      "evidence": "Fresh entire report including later user corrections, failures and limits. Current index.html94–140 plus branding rg hits, combat_display249–272 and desktop/main20–47 read; no entire runtimefile review. No screenshots/sourceimages/privateapplicationdata/liveprocess/remote read or browser/native run.",
+      "reopen": "Use current direction and selected source/build if further UI/icon work is requested; no recreation of old previews or authoring choices.",
+      "input_sha256": "e316b7572e221a8b7b23e3692f34930a69afedfaebcd59ca30b3a60274652865",
+      "input_lines": 31,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          31
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/DESKTOP_ICON_2026-10-25.md",
+      "ids": [
+        "icon source/host; all checks and failed attempts"
+      ],
+      "classification": "Historical identity/UI/desktop delivery with later supersession",
+      "owners": [
+        "docs/reviews/OOPS_BRANDING_2026-10-16.md",
+        "docs/reviews/launch_menu_2026-10-21/REPORT.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Runtime window/Dock icon was named route, not Finder/package/signing claim. Liveprocessinspector action historicalnotcurrentpermission. Old UR69/74failure historicalcurrentrulespass, nofullsuite rerun. CurrentdesktopappIconpath pointsPNGbut runningappOSlooknotchecked.",
+      "evidence": "Fresh entire report including later user corrections, failures and limits. Current index.html94–140 plus branding rg hits, combat_display249–272 and desktop/main20–47 read; no entire runtimefile review. No screenshots/sourceimages/privateapplicationdata/liveprocess/remote read or browser/native run.",
+      "reopen": "Use current direction and selected source/build if further UI/icon work is requested; no recreation of old previews or authoring choices.",
+      "input_sha256": "5190fd3691cffd8e9bd942320bbab0d2c59f9e5470c2d220c60ae3d0d4dc4884",
+      "input_lines": 45,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          45
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/launch_menu_2026-10-20/REPORT.md",
+      "ids": [
+        "C1–C3; full checks; restored originalPLAY"
+      ],
+      "classification": "Historical identity/UI/desktop delivery with later supersession",
+      "owners": [
+        "docs/reviews/OOPS_BRANDING_2026-10-16.md",
+        "docs/reviews/launch_menu_2026-10-21/REPORT.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Lateruserrestorationoverrides firstcardcandidate and preview, publicstartmenu remainsdeferred. Nativeoptionalmechanics testsforcedhiddenfixture notvisiblepickerproof. ExistingSave/reloadnotExportImport; visualhumanoptional,current19233notassumedalive.",
+      "evidence": "Fresh entire report including later user corrections, failures and limits. Current index.html94–140 plus branding rg hits, combat_display249–272 and desktop/main20–47 read; no entire runtimefile review. No screenshots/sourceimages/privateapplicationdata/liveprocess/remote read or browser/native run.",
+      "reopen": "Use current direction and selected source/build if further UI/icon work is requested; no recreation of old previews or authoring choices.",
+      "input_sha256": "f67b9484b8b9a3d231b9579c1b56c2bdbbe8ff391c92ba90243de0ddf1301964",
+      "input_lines": 57,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          57
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/launch_menu_2026-10-21/REPORT.md",
+      "ids": [
+        "LUI1–LUI4; all creator-signature/source substitutions"
+      ],
+      "classification": "Historical identity/UI/desktop delivery with later supersession",
+      "owners": [
+        "docs/reviews/OOPS_BRANDING_2026-10-16.md",
+        "docs/reviews/launch_menu_2026-10-21/REPORT.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Visitorimagewaswebsitevisitsnotcombatcounter. Creatorcat→distinctguineapigSVG→wronggeneratedPNG→correcteditedsource+transparentderivative chronological, latestwins. Do notrestorewrongPNGorclaimapplicationprovenancefromearlysuggestion. Currentcombatshielddisplay hasr.blockwithout2345; sourcefindingobsoleteatnamedseam, noactualfightverified. Supportlinkspending historicalnotnewlookup/sending. Noimageediting/currentvisualcheck.",
+      "evidence": "Fresh entire report including later user corrections, failures and limits. Current index.html94–140 plus branding rg hits, combat_display249–272 and desktop/main20–47 read; no entire runtimefile review. No screenshots/sourceimages/privateapplicationdata/liveprocess/remote read or browser/native run.",
+      "reopen": "Use current direction and selected source/build if further UI/icon work is requested; no recreation of old previews or authoring choices.",
+      "input_sha256": "a93f9239bbe84283cc43c9f68d79127f3391758e6a3d8f6cb773ba41a196a751",
+      "input_lines": 65,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          65
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/reviews/OOPS_BRANDING_2026-10-16.md",
+      "heading": "## Identity delivery reconciliation, 2026-11-04 (B169)",
+      "body": "This report, the October 25 desktop-icon report and both October 20/21 launch reports were read completely, including all later corrections. OOPS identity is settled; the remote rename is a historical authorized action, not a pending decision or permission to rename/push again. October 17 reapplication supersedes the initial source-edit state, but the initial 1366 screenshot/JSON does not become proof of that later reapplication. Its later prose has its own input identity and limitations.\n\nLater user direction replaces the original displayed Weibao with onionv and preserves each creator’s own identity: Miktaew’s cat, onionv’s edited guinea pig and 23html’s literal credit. Current index source shows that final attribution and the transparent edited-image derivative, not the intermediate SVG or wrongly selected generated PNG. Source observation is not a new visual or accessibility pass. Current favicon and desktop host point at the PNG; the old local SVG description is original implementation history. The desktop report’s runtime Window/Dock icon scope is distinct from Finder bundle identity, packaging/signing and a currently observed OS appearance. No live player inspector or personal image/app data was reopened. Historical rule-registration failures do not describe today’s passing rules check. Preserve upstream attribution and historical source-world/save identifiers.",
+      "before_sha256": "e316b7572e221a8b7b23e3692f34930a69afedfaebcd59ca30b3a60274652865",
+      "after_sha256": "e955ea95b700f29f4159f0c8222629d88077e5d073feaaedfa049f888596bdc2"
+    },
+    {
+      "path": "docs/reviews/launch_menu_2026-10-20/REPORT.md",
+      "heading": "## Content reconciliation, 2026-11-04 (B169)",
+      "body": "C1–C3, first-candidate checks and the complete final restoration were read. The user’s original-screen/direct-PLAY restoration supersedes the visible radio-card menu, custom launch stylesheet and first previews; a separate public start menu remains deferred. Retain rejected candidate evidence as history. The helper’s forced hidden select tests existing optional-system mechanics, not a visible choice UI, and no selection by itself grants a start. Native Save/reload proof is distinct from literal Export/Import, which was not exercised in this task.\n\nCurrent index source retains direct PLAY, onionv attribution, reference credits and final edited guinea-pig derivative. No new browser/keyboard/geometry proof follows that source read, and old loopback ports, exec IDs and temporary frozen paths are not live availability claims. The later October 21 owner holds subsequent counter/signature/corner-link changes. Current desktop direction and AD42 govern any future verification or optional human review; this record does not reopen its rejected public menu or authorize a new prototype.",
+      "before_sha256": "f67b9484b8b9a3d231b9579c1b56c2bdbbe8ff391c92ba90243de0ddf1301964",
+      "after_sha256": "c71f63c0e99db0cb4a638b5c01fd815b1492c6d293490511f584b5bba66f128c"
+    },
+    {
+      "path": "docs/reviews/launch_menu_2026-10-21/REPORT.md",
+      "heading": "## Content reconciliation, 2026-11-04 (B169)",
+      "body": "All LUI1–LUI4 and every later signature/image/corner-link correction were read. Preserve the chronology rather than restoring an intermediate candidate: the removed badge counted website visits, Miktaew’s cat belongs to him, and onionv’s final signature uses his edited source with a transparent derivative. The generated aviator PNG was explicitly the wrong choice. The original edited source is preserved; the cutout is a derivative, not byte-identical photo preservation. Current index source shows the final transparent image, source/support links and separate creator credits. No image was opened or edited and no current rendering or external destination was verified in this reconciliation.\n\nLUI4’s literal 2345 shield suffix is no longer present at the inspected current src/ui/combat_display.js249–272 seam: the shield branch renders r.block and a block-strength title. This supersedes the source-level suffix observation at that seam; it does not prove current shield fight, percentage correctness, browser font fallback or every combat readout. No new combat fix was made. The missing Proto23 Ko-fi and old asynchronous question remain historical unresolved source details, not permission to contact anyone, guess a recipient or launch a search now. Existing native/runtime checks retain their bundle and scope; later markup-only checks reused unchanged JavaScript evidence without claiming a new full suite. Ports/previews/old ownership and human taste gates are historical; current AD42 makes human review optional.",
+      "before_sha256": "a93f9239bbe84283cc43c9f68d79127f3391758e6a3d8f6cb773ba41a196a751",
+      "after_sha256": "068a0d08619c8b0e2fdd5e9d2eef492778de89a3b06ed071854d988e29eeecd2"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1140
+}

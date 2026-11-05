@@ -174,3 +174,12 @@ adjectives are the knobs it turns. Abuse limits are just adjectives too:
 
 - Q1 Edited saves: per world, all possible. Low priority; it's his save.
 - Q2 Heat from time powers: per world, all possible.
+
+
+## Content reconciliation B256
+
+Full content review preserves F1–10, T1–12, every per-system example, funny-abuse ideas and the adjective palette. The opening “Fixed / impossible or pointless” treatment and the dev/edited-history exclusions are earlier proposals qualified by the user's own later wording in this document and AD22: personal save editing and repeat play are low priority, and anti-cheat, tamper labels, competing-live-copy enforcement or achievement exclusion are not required work. Save integrity still matters. F8's duplicate settlement protection prevents accidentally paying one committed operation twice; it does not outlaw intentionally repeatable in-world rewards or authorized copying mechanisms.
+
+F1/F2 determinism and trial stakes, F3/F4/F5 branch identity, F6 checksums, F7 offline caps and F9 branch timing each need their actual owning mechanism before use. They are not proven implementations or universal save policies. A checksum detects byte changes, not the player's motive or a fictional crime. Replay/import and branch rules may legitimately differ, and no migration is authorized by this reconciliation. The concluding “only unedited, non-dev history” line remains an optional proposal, not an adopted filter.
+
+T1–12 are available consequences when an in-world supplier has the means and reason. T2's “every repeatable power charges” and the claim that the world counters discoveries “in time” do not mandate a surcharge, cooldown, omniscient heat, escalation or punishment for every effective method (AD5, AD38). Free or undetected use can fit a world. Ghosts, generated selves, rewind anchors and jurisdiction examples retain world-specific exceptions rather than fixing personhood, life count or legal reach for all worlds. No implementation, anti-cheat work or balancing gate was selected.

@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "batch": "B254",
+  "title": "Released A1/A2 checkpoint: full target corrections, preference ownership and merged-input scope",
+  "at": "2026-11-05T00:01:19.171739+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/GRIPES_A1_A2_CHECKPOINT.md",
+      "ids": [
+        "A1/UIL9 and A2/AYF",
+        "M1–M5",
+        "budget/ownership/dispatch",
+        "final release",
+        "post-release qualification",
+        "Oct19 integration re-verification",
+        "single-target merged rerun"
+      ],
+      "classification": "Full chronological technical checkpoint with explicit user target correction and current ownership limits",
+      "owners": [
+        "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/GRIPES_A1_A2_CHECKPOINT.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "F1. Complete180-line read covers the selected A1/UIL9 inventory and A2/AYF nearby-service scope, M1–M5, parallel ownership/budget, dispatch steering, released final candidate, post-release qualification, integration re-verification and later single-target merge rerun. These A1/A2 IDs refer to the UI gripe review, not ability/claim rows. Old generated-agent/model/6–9% allowance/11% ceiling and source reservations are historical execution data, not current budget, instruction to spawn or runtime permission. The explicit file release means no fresh lock survives; old PID/session/link and queued browser are not live handles checked here.\n\nF2. The checkpoint itself distinguishes four target/font cases from four viewport sizes: original1920/1366 at14/21px, not MacBook/1536 coverage. It later records those extra cases unrun, followed by Weibao's1920-single-target correction for this track. Honor that specific correction rather than reopening retired1366 work or forcing generic target matrices onto its historical acceptance. The merged-tip rerun records1920/14px fresh contexts only. Earlier21px evidence retains its own input identity and can be reused only where relevant inputs are unchanged under AD36; a later2258/2258 source suite does not automatically renew every earlier browser/viewport result.\n\nF3. Browser-local gutter/placement/resize preferences require their own reload/context/reset owner checks. Game Export/Import proves only state serialized there; a mistaken test must not force layout keys into gameplay persistence. Inspection, service use/return and active transaction are different operations. No admitted connected-route projection meant Ways out was deferred, rather than inventing exits, danger or quotes. Known actor/service presentation needs actual disclosed producer facts, while real source-supported movement/arrival may be added through a separately selected consumer. Current prose-first nearby context does not require equal generic cards or a second wide prose column.\n\nF4. Preserve the later actual corrections: unguarded checkVisibility in the headless DOM was replaced with the owning reveal projection; a stale test demanding fixed You width was corrected for legitimate stacked composition rather than shrinking the product to satisfy an old assertion. Source tests, headless DOM, browser journeys, integrated bundle, merge base and save/file transport remain separate. The old universal check:rule-behavior line is qualified by current AD36's optional focused route, not an additional gate on every task. Seeded fixtures do not demonstrate natural acquisition. Under AD32 unused proposals stay proposals, and AD42 keeps human visual/play review optional; no commit/push, runtime, installed-state or current process proof is renewed by this read.",
+      "evidence": "Entire180-line input delivered in ranges1–120,121–180. No old PID/session/browser/server or linked result artifact was freshly checked.",
+      "reopen": "Selected actual inventory/nearby-service or preferences consumer changes; respect track-specific target correction, current source identity and true serialization owner. No historical worker restart.",
+      "input_sha256": "2fba404ff27c3c7080440b05243de6bbb97df5636c74765e298377f7422b3abf",
+      "input_lines": 180,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          180
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/GRIPES_A1_A2_CHECKPOINT.md",
+      "heading": "## Released-checkpoint reconciliation: target and preference scope (B254, 2026-11-04)",
+      "body": "F1. Complete180-line read covers the selected A1/UIL9 inventory and A2/AYF nearby-service scope, M1–M5, parallel ownership/budget, dispatch steering, released final candidate, post-release qualification, integration re-verification and later single-target merge rerun. These A1/A2 IDs refer to the UI gripe review, not ability/claim rows. Old generated-agent/model/6–9% allowance/11% ceiling and source reservations are historical execution data, not current budget, instruction to spawn or runtime permission. The explicit file release means no fresh lock survives; old PID/session/link and queued browser are not live handles checked here.\n\nF2. The checkpoint itself distinguishes four target/font cases from four viewport sizes: original1920/1366 at14/21px, not MacBook/1536 coverage. It later records those extra cases unrun, followed by Weibao's1920-single-target correction for this track. Honor that specific correction rather than reopening retired1366 work or forcing generic target matrices onto its historical acceptance. The merged-tip rerun records1920/14px fresh contexts only. Earlier21px evidence retains its own input identity and can be reused only where relevant inputs are unchanged under AD36; a later2258/2258 source suite does not automatically renew every earlier browser/viewport result.\n\nF3. Browser-local gutter/placement/resize preferences require their own reload/context/reset owner checks. Game Export/Import proves only state serialized there; a mistaken test must not force layout keys into gameplay persistence. Inspection, service use/return and active transaction are different operations. No admitted connected-route projection meant Ways out was deferred, rather than inventing exits, danger or quotes. Known actor/service presentation needs actual disclosed producer facts, while real source-supported movement/arrival may be added through a separately selected consumer. Current prose-first nearby context does not require equal generic cards or a second wide prose column.\n\nF4. Preserve the later actual corrections: unguarded checkVisibility in the headless DOM was replaced with the owning reveal projection; a stale test demanding fixed You width was corrected for legitimate stacked composition rather than shrinking the product to satisfy an old assertion. Source tests, headless DOM, browser journeys, integrated bundle, merge base and save/file transport remain separate. The old universal check:rule-behavior line is qualified by current AD36's optional focused route, not an additional gate on every task. Seeded fixtures do not demonstrate natural acquisition. Under AD32 unused proposals stay proposals, and AD42 keeps human visual/play review optional; no commit/push, runtime, installed-state or current process proof is renewed by this read.",
+      "before_sha256": "2fba404ff27c3c7080440b05243de6bbb97df5636c74765e298377f7422b3abf",
+      "after_sha256": "bf53f5ccc176b7cb6658222e849222c93ea355d17c88d1eb0b28a6f23ad9dd2c"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 920
+}

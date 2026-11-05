@@ -83,3 +83,8 @@ records UR59–UR64, the complete CRL routing, authority/index updates, checks a
 observed recovery-chat start. The earlier audit's no-new-work status describes
 its original assessment; it does not override this later instruction. Recovery
 completion remains owned by the separate packet.
+
+
+## Recovery and coverage reconciliation B104, 2026-11-04
+
+Preserve F1–F5, 53 finite palette entries, 90 PFA rows and 194 routing codes as their separate denominators. Routed/captured content is not complete semantic research or current implementation; seeded native receipts are not natural acquisition or present combined-build proof. The old 26-ID Corc gap is superseded by the current media owner’s dated recovery: all 26 exact target attachments recovered, with deeper CRL27–CRL34 file review, while unrelated context/media/audio/current source-game behavior retain limits. It was not 26 gameplay screenshots. No recollection of an old hash comparison demonstrates current drift/defect. Keep the named content extensions and alternatives in their owners without an all-Discord parity gate or another download/dispatch. Current rules and AD42 qualify optional human taste review; actual new gameplay/UI still needs its own rebuilt proof.

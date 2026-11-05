@@ -1,0 +1,457 @@
+{
+  "schema": 1,
+  "batch": "B35",
+  "title": "Donor-source retention chronology, KoL rule-page follow-up and server limits",
+  "at": "2026-11-04T19:52:42.024819+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/kenshi/second-pass/CHECKPOINT.md",
+      "ids": [
+        "O1"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/kenshi/second-pass/REPORT.md, BACKLOG.md and INPUT_SNAPSHOT.json"
+      ],
+      "disposition": "Finite documentation/source delivery complete, but proposals are not accepted or implemented; no final database merge or native gameplay proof. Preserve exact source/fixture/native/server boundaries and source-era installation observations. No present install/removal/account state reverified. Existing reports retain useful proposals and source limits without universal mechanism, runtime or license assumptions.",
+      "mechanism_and_interactions": "Second Kenshi pass integrates 31 findings, 30 touches, eight ranked proposals and a Red Basin world card from retained private copies. Validation covered record/offset pairs, field assertions, hashes and counts; shipped tips/editor defaults may lag native behavior.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint statements reviewed only within assigned labeled spans; reported checks were not independently rerun and no contemporary runtime behavior or full source qualification was established.",
+      "reopen": "Native combat, needs, AI, recruitment, raid scheduling, world-state evaluation, overrides and serializer remain gaps; harsh-world policy is a separate decision.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          25
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S029.json"
+      ],
+      "prior_input_sha256": "5d32cfd482fb8b1c0a12bb276dbcf5bafc5d7408c61e76c7120d9d598c8077fa",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "5d32cfd482fb8b1c0a12bb276dbcf5bafc5d7408c61e76c7120d9d598c8077fa",
+      "input_lines": 25
+    },
+    {
+      "path": "docs/research/kingdom-hearts/CHECKPOINT.md",
+      "ids": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "D7",
+        "D8",
+        "U1",
+        "U2",
+        "U3",
+        "U4",
+        "U5",
+        "U6",
+        "U7",
+        "U8",
+        "P01",
+        "P02",
+        "P03"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/kingdom-hearts/REPORT.md, SYSTEM_INVENTORY.md, SOURCE_LEDGER.md and system digests"
+      ],
+      "disposition": "Research lane remains partial despite finite artifacts; proposals are not accepted and there is no YAIR integration or gameplay acceptance. Historical one-realm milestone language is stale against current direction. Preserve exact source/fixture/native/server boundaries and source-era installation observations. No present install/removal/account state reverified. Existing reports retain useful proposals and source limits without universal mechanism, runtime or license assumptions.",
+      "mechanism_and_interactions": "KH1/KH2 documented formats and selected data were extracted; bounded KH2 rooms/events/messages decoded while KH1 schema stayed distinct. Checkpoint separates indexed content from unread native evaluators, save format, AI traps, dialogue predicates and remaining tables; other collection titles were only present in installation.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint statements reviewed only within assigned labeled spans; reported checks were not independently rerun and no contemporary runtime behavior or full source qualification was established.",
+      "reopen": "Continuation needs a named native-consumer question; full save, source semantics and gameplay remain unproven.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          43
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S029.json"
+      ],
+      "prior_input_sha256": "aa8b8871dd73778420ad9de7c3b61a7f2bf2eb635087ff161593764c568eba75",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "aa8b8871dd73778420ad9de7c3b61a7f2bf2eb635087ff161593764c568eba75",
+      "input_lines": 43
+    },
+    {
+      "path": "docs/research/kingdom-hearts/aspects-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "A01"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/kingdom-hearts/CHECKPOINT.md"
+      ],
+      "disposition": "Partial coverage breadth, not missing dossier structure; no independent restart or shared-owner edit needed. Preserve exact source/fixture/native/server boundaries and source-era installation observations. No present install/removal/account state reverified. Existing reports retain useful proposals and source limits without universal mechanism, runtime or license assumptions.",
+      "mechanism_and_interactions": "Aspect checkpoint says A01–A12 entries and inventories exist; covered means bounded format/mechanism reading, not whole-game or native acceptance. It delegates concrete evidence and unread U1–U8 gaps to the parent checkpoint.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint statements reviewed only within assigned labeled spans; reported checks were not independently rerun and no contemporary runtime behavior or full source qualification was established.",
+      "reopen": "Native UI/save, AI, dialogue, Gummi/KH1 details and other titles remain partial or unread per parent owner.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          6
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S029.json"
+      ],
+      "prior_input_sha256": "a09e78bb74776afd272cab641c1a5b0fc688e60b41f649c44ea13fb2c6503eae",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "a09e78bb74776afd272cab641c1a5b0fc688e60b41f649c44ea13fb2c6503eae",
+      "input_lines": 6
+    },
+    {
+      "path": "docs/research/kingdom-of-loathing/aspects-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "A01",
+        "A03",
+        "A04"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/kingdom-of-loathing/aspects-2026-10-14/CHECKPOINT.md and prior parent checkpoint for twelve blocked path-rule rows; validation script is private ~/.codex/research/asp-text/tools/verify_artifacts.py, not a supplied public VALIDATION.json."
+      ],
+      "disposition": "Artifact validation passed, not runtime implementation or accepted design. Old milestone wording here is stale under current project direction. Preserve exact source/fixture/native/server boundaries and source-era installation observations. No present install/removal/account state reverified. Existing reports retain useful proposals and source limits without universal mechanism, runtime or license assumptions.",
+      "mechanism_and_interactions": "Aspect dossier adds fixed A01–A12 keys, inventory, deeper systems, proposals/touches, with raw reads at dialogue and persistence seams. Server/NPC AI, full dialogue/clans/PvP/item catalog, path prose, desktop runtime, pacing and account save/offline remain unverified.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint statements reviewed only within assigned labeled spans; reported checks were not independently rerun and no contemporary runtime behavior or full source qualification was established.",
+      "reopen": "No natural persistence, offline parity, authoritative server behavior or full late-system qualification.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          22
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S029.json"
+      ],
+      "prior_input_sha256": "1732f71db820d322e637af8bbb1c053eec0a14022509ed56269a57443a186a0f",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "1732f71db820d322e637af8bbb1c053eec0a14022509ed56269a57443a186a0f",
+      "input_lines": 22
+    },
+    {
+      "path": "docs/research/kingdom-of-loathing/pass-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "P7",
+        "SHARED_GRAMMAR"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/kingdom-of-loathing/pass-2026-10-14/REPORT.md, SHARED_GRAMMAR.md and PATH_RULES.md"
+      ],
+      "disposition": "Partial source pass; packets and P7 remain proposals, not implementation authority. Data scripts and dated pages do not prove live server behavior. Preserve exact source/fixture/native/server boundaries and source-era installation observations. No present install/removal/account state reverified. Existing reports retain useful proposals and source limits without universal mechanism, runtime or license assumptions.",
+      "mechanism_and_interactions": "KoL lane tabulated 57 enum entries and 51 special paths with restrictions, unique mechanics, rewards, reuse/add split and evidence labels; selected 44 rule pages fed a shared grammar/consumer digest. Twelve detailed pages and nested strategies remain unread; current server rewards/legality excluded.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint statements reviewed only within assigned labeled spans; reported checks were not independently rerun and no contemporary runtime behavior or full source qualification was established.",
+      "reopen": "Use a different archive/source route for missing pages; no live gameplay, server or YAIR persistence/UI proof.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          37
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S029.json"
+      ],
+      "prior_input_sha256": "eda0ef63d5a64298c23fc423f8c7190284c35fc6a21157cb8f708a91156609d3",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "eda0ef63d5a64298c23fc423f8c7190284c35fc6a21157cb8f708a91156609d3",
+      "input_lines": 37
+    },
+    {
+      "path": "docs/research/kittens-game/CHECKPOINT.md",
+      "ids": [
+        "P01",
+        "P02",
+        "P04"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/kittens-game/REPORT.md and private work extracts/HASHES.txt"
+      ],
+      "disposition": "Feature questions and dossier shape complete while whole-game audit remains partial. Proposals remain with existing owners; no implementation or user-save work. Preserve exact source/fixture/native/server boundaries and source-era installation observations. No present install/removal/account state reverified. Existing reports retain useful proposals and source limits without universal mechanism, runtime or license assumptions.",
+      "mechanism_and_interactions": "Kittens Game answered four bounded questions using source paths and controlled headless fixtures, including five price and five technology fixtures. It lacks naturally earned build/craft progression, save/reload/import/corruption, broad offline parity, combat planning/autonomy, late systems and complete narrative/mod semantics.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint statements reviewed only within assigned labeled spans; reported checks were not independently rerun and no contemporary runtime behavior or full source qualification was established.",
+      "reopen": "Do not infer natural progression, persistence, account behavior or late-game correctness from source and controlled fixtures.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          21
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S029.json"
+      ],
+      "prior_input_sha256": "012ce93d0558d16e144e0d3e2bc1c6e8dc28a7cc66b80caf87c68d0ce0a7d453",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "012ce93d0558d16e144e0d3e2bc1c6e8dc28a7cc66b80caf87c68d0ce0a7d453",
+      "input_lines": 21
+    },
+    {
+      "path": "docs/research/legends-of-idleon/aspects-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "A01",
+        "G1",
+        "G5"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/legends-of-idleon/aspects-2026-10-14/VALIDATION.json and ../CHECKPOINT.md"
+      ],
+      "disposition": "Artifact validation is distinct from gameplay and full-source qualification; no successor or implementation was dispatched. Preserve exact source/fixture/native/server boundaries and source-era installation observations. No present install/removal/account state reverified. Existing reports retain useful proposals and source limits without universal mechanism, runtime or license assumptions.",
+      "mechanism_and_interactions": "Idleon aspect pass records fixed keys, source-unit index, deeper reads, proposals and validation. It leaves dialogue branches, server save/migrations, full W7, deity display/effect mapping, optimal roster, current UI and settlement open; next step is coordinator selection of a named gap or proposal.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint statements reviewed only within assigned labeled spans; reported checks were not independently rerun and no contemporary runtime behavior or full source qualification was established.",
+      "reopen": "Runtime/server behavior needs separately scoped evidence; historical no-play text is not a current approval gate.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          21
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S029.json"
+      ],
+      "prior_input_sha256": "ee54a1127853523a3459b805f43dd20aee202f39cfcf1c9a9f76c5ee864cc451",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "ee54a1127853523a3459b805f43dd20aee202f39cfcf1c9a9f76c5ee864cc451",
+      "input_lines": 21
+    },
+    {
+      "path": "docs/research/increlution/CHECKPOINT.md",
+      "ids": [
+        "A1–A5",
+        "F2/F3/F21",
+        "F7/F14",
+        "F11",
+        "F19/F20"
+      ],
+      "classification": "fresh full checkpoint review after missing-ID prior receipt",
+      "owners": [
+        "docs/research/increlution/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve finite selected source/fixture chains and exact semantic limits. Historical retention/installed/removal eligibility is not a new operation or present live state. Source counters, declarative content and controlled fixtures are distinct from native execution and natural reachability.",
+      "evidence": "Entire checkpoint freshly read; original donor runtime or current installed/account/save state not inspected.",
+      "reopen": "Future selected packet uses current owner and exact remaining consumer; no uninstall, extraction, source acquisition or runtime initiated.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "13e8093d850608c61b0b3ab42f76ef0611fa50afa9b521344abeeee170419467",
+      "input_lines": 49,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          49
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/keeperrl/CHECKPOINT.md",
+      "ids": [
+        "K1/K2",
+        "K3",
+        "K4"
+      ],
+      "classification": "fresh full checkpoint review after missing-ID prior receipt",
+      "owners": [
+        "docs/research/keeperrl/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve finite selected source/fixture chains and exact semantic limits. Historical retention/installed/removal eligibility is not a new operation or present live state. Source counters, declarative content and controlled fixtures are distinct from native execution and natural reachability.",
+      "evidence": "Entire checkpoint freshly read; original donor runtime or current installed/account/save state not inspected.",
+      "reopen": "Future selected packet uses current owner and exact remaining consumer; no uninstall, extraction, source acquisition or runtime initiated.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "9544ae970c3afb59a552bc0fd7205bbc244a94caa2952977fba32d78b7df63fa",
+      "input_lines": 19,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          19
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/kenshi/CHECKPOINT.md",
+      "ids": [
+        "uncoded finite source checkpoint",
+        "exact source/semantic/runtime boundaries"
+      ],
+      "classification": "fresh full checkpoint review after missing-ID prior receipt",
+      "owners": [
+        "docs/research/kenshi/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve finite selected source/fixture chains and exact semantic limits. Historical retention/installed/removal eligibility is not a new operation or present live state. Source counters, declarative content and controlled fixtures are distinct from native execution and natural reachability.",
+      "evidence": "Entire checkpoint freshly read; original donor runtime or current installed/account/save state not inspected.",
+      "reopen": "Future selected packet uses current owner and exact remaining consumer; no uninstall, extraction, source acquisition or runtime initiated.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "3c1d3e5268fe2975094df887ded73b815e416f348999546c5cda57e32958a773",
+      "input_lines": 9,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/kill-the-lich-idle/CHECKPOINT.md",
+      "ids": [
+        "uncoded installed/public acquisition chronology"
+      ],
+      "classification": "fresh full checkpoint review after missing-ID prior receipt",
+      "owners": [
+        "docs/research/kill-the-lich-idle/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve public fallback, installed comparison and final observed removal receipt in order. Final verified-manifest-absent/log-success supersedes earlier removal-unverified paragraph historically. Cloud load enabled vs commented normal cloud save remains static wiring, not live cloud behavior; license variants remain separate.",
+      "evidence": "Entire checkpoint freshly read; original donor runtime or current installed/account/save state not inspected.",
+      "reopen": "Future selected packet uses current owner and exact remaining consumer; no uninstall, extraction, source acquisition or runtime initiated.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "c62014d22c9f28fb1f1f7aac615baac8ea0ad019c54f31034b8d12a4b939171d",
+      "input_lines": 33,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          33
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/king-of-dragon-pass/CHECKPOINT.md",
+      "ids": [
+        "uncoded finite source checkpoint",
+        "exact source/semantic/runtime boundaries"
+      ],
+      "classification": "fresh full checkpoint review after missing-ID prior receipt",
+      "owners": [
+        "docs/research/king-of-dragon-pass/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve finite selected source/fixture chains and exact semantic limits. Historical retention/installed/removal eligibility is not a new operation or present live state. Source counters, declarative content and controlled fixtures are distinct from native execution and natural reachability.",
+      "evidence": "Entire checkpoint freshly read; original donor runtime or current installed/account/save state not inspected.",
+      "reopen": "Future selected packet uses current owner and exact remaining consumer; no uninstall, extraction, source acquisition or runtime initiated.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "2e0e3e30211eeb0376c7f10580cbe7bcb98ddd5601730bdc80e8499a4c27b50b",
+      "input_lines": 9,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/kingdom-of-loathing/CHECKPOINT.md",
+      "ids": [
+        "P1–P5"
+      ],
+      "classification": "fresh full checkpoint review after missing-ID prior receipt",
+      "owners": [
+        "docs/research/kingdom-of-loathing/CHECKPOINT.md"
+      ],
+      "disposition": "Later pass-2026-10-14 selected 44 rule pages and tabulated 57 enum entries/51 special paths, superseding blanket wiki-not-read status at exact selected-page scope; 12 detailed pages/nested strategies and live server remain gaps.",
+      "evidence": "Entire checkpoint freshly read; original donor runtime or current installed/account/save state not inspected.",
+      "reopen": "Future selected packet uses current owner and exact remaining consumer; no uninstall, extraction, source acquisition or runtime initiated.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "b4edea8ccde0bf7d89f351a9d45e6fc554f523e67300248041d368a2e08a91cc",
+      "input_lines": 13,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/kittens-game/aspects-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "uncoded finite source checkpoint",
+        "exact source/semantic/runtime boundaries"
+      ],
+      "classification": "fresh full checkpoint review after missing-ID prior receipt",
+      "owners": [
+        "docs/research/kittens-game/aspects-2026-10-14/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve finite selected source/fixture chains and exact semantic limits. Historical retention/installed/removal eligibility is not a new operation or present live state. Source counters, declarative content and controlled fixtures are distinct from native execution and natural reachability.",
+      "evidence": "Entire checkpoint freshly read; original donor runtime or current installed/account/save state not inspected.",
+      "reopen": "Future selected packet uses current owner and exact remaining consumer; no uninstall, extraction, source acquisition or runtime initiated.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "42189b4b8f87bc14491ed702cbbcf1d300c7f359412ac96c62428574566c4a04",
+      "input_lines": 4,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          4
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/legends-of-idleon/CHECKPOINT.md",
+      "ids": [
+        "uncoded finite source checkpoint",
+        "exact source/semantic/runtime boundaries"
+      ],
+      "classification": "fresh full checkpoint review after missing-ID prior receipt",
+      "owners": [
+        "docs/research/legends-of-idleon/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve finite selected source/fixture chains and exact semantic limits. Historical retention/installed/removal eligibility is not a new operation or present live state. Source counters, declarative content and controlled fixtures are distinct from native execution and natural reachability.",
+      "evidence": "Entire checkpoint freshly read; original donor runtime or current installed/account/save state not inspected.",
+      "reopen": "Future selected packet uses current owner and exact remaining consumer; no uninstall, extraction, source acquisition or runtime initiated.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "e55925ecd9e742da3b0c70a5ee032b0fed60c4e644f4ad121fae030d229bcbe2",
+      "input_lines": 25,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          25
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/kingdom-of-loathing/CHECKPOINT.md",
+      "heading": "## Later selected path-rule coverage, 2026-11-04 (B35)",
+      "body": "The October13 blanket wiki-not-read statement is baseline history. pass-2026-10-14/CHECKPOINT.md records selected reading of 44 rule pages and a 57-enum/51-special-path table with restrictions, distinguishing mechanics, rewards and evidence labels. Preserve the twelve detailed-page/nested-strategy gaps and the separation of KoLmafia client data, dated rule text and current authoritative server legality/rewards. The later selected-page evidence does not prove every path, live account behavior or save/offline semantics. No account or server operation was performed in this reconciliation.",
+      "before_sha256": "b4edea8ccde0bf7d89f351a9d45e6fc554f523e67300248041d368a2e08a91cc",
+      "after_sha256": "5fb10b13a6ba7bf81674a595e0391167be20be7d484ab3d5550cbcb5720af257"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1594
+}

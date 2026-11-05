@@ -1,0 +1,38 @@
+#lotm-study{--ink:#c6ebec;--muted:#99adbf;--line:#576b92;--navy:#080d28;--teal:#123c51;--gold:#f6cc81;--paper:#e9d6b2;--brown:#342c2b;--text:14px;color:var(--ink);font:var(--text)/1.5 Menlo,Consolas,monospace;color-scheme:dark}
+#lotm-study *{box-sizing:border-box}
+#lotm-study button,#lotm-study select{font:inherit;color:inherit;background:#15253e;border:1px solid var(--line);padding:6px 10px;border-radius:0;min-height:32px}
+#lotm-study button:hover{background:#24415d}#lotm-study button:focus-visible,#lotm-study select:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+#lotm-study button[aria-disabled=true]{opacity:.65}#lotm-study button[aria-pressed=true]{border-color:var(--gold);color:var(--gold)}
+#lotm-study .study-tools{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:12px;background:#131927;border-bottom:1px solid var(--line)}
+#lotm-study .study-tools label{display:flex;align-items:center;gap:6px}#lotm-study .study-label{color:var(--gold);letter-spacing:.08em}
+#lotm-study .fixture-label{color:var(--muted);font-size:12px}
+#lotm-study .game-shell{background:var(--navy);min-height:690px;padding:12px}
+#lotm-study .game-top{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:10px 12px;border:1px solid var(--line);background:linear-gradient(90deg,#091132,#14404d)}
+#lotm-study .game-top strong{color:var(--gold);letter-spacing:.07em;font-weight:500}#lotm-study h2,#lotm-study h3,#lotm-study p{margin:0}#lotm-study h2{font:500 1.3em/1.4 Georgia,serif}#lotm-study h3{font:500 1em/1.4 Menlo,monospace;color:var(--gold);margin-bottom:9px}
+#lotm-study .game-grid{display:grid;grid-template-columns:minmax(170px,.85fr) minmax(0,3.4fr) minmax(180px,1fr);gap:10px;margin-top:10px}
+#lotm-study .region{border:1px solid var(--line);background:linear-gradient(120deg,#101b39,#103146);padding:12px;min-width:0}
+#lotm-study .reports{background:linear-gradient(120deg,#382c50,#18132f)}
+#lotm-study .reports ol{margin:0;padding-left:18px}#lotm-study .reports li{padding:8px 0;border-bottom:1px solid #6c58764d}
+#lotm-study .player-name{font-family:Georgia,serif;font-size:1.3em;color:var(--gold)}
+#lotm-study .stat{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid #54678566}
+#lotm-study .vital{height:5px;background:linear-gradient(90deg,#98c3cf,#d8a7cf);margin:9px 0 18px}
+#lotm-study .muted{color:var(--muted)}#lotm-study .stack{display:grid;gap:12px}#lotm-study .spaced{margin-top:16px}#lotm-study .small{font-size:.86em}
+#lotm-study .center{display:grid;align-content:start;gap:10px;min-width:0}#lotm-study .panel-top{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#lotm-study .subject-list{display:grid;gap:1px}#lotm-study .subject-list button{width:100%;text-align:left;background:transparent;border:0;border-top:1px solid #54678566;padding:12px 2px}
+#lotm-study .subject-list button:hover{background:#ffffff0a}#lotm-study .subject-list button span{display:block;color:var(--muted);font-size:.86em}
+#lotm-study .task-title{color:var(--gold);margin-bottom:7px}#lotm-study .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+#lotm-study .commit{background:#27514e;border-color:#8cbfb0}#lotm-study .notice{min-height:45px;padding:10px 12px;background:#1e3044;border-left:3px solid var(--gold)}
+#lotm-study .steps{padding:0;margin:10px 0;list-style:none}#lotm-study .steps li{padding:4px 0;color:var(--muted)}#lotm-study .steps li.done{color:#a6d3b9}
+#lotm-study .scene-frame{width:100%;max-width:760px;margin-inline:auto;position:relative;background:#222c38;overflow:hidden;border:1px solid #70758a}
+#lotm-study canvas{display:block;width:100%;height:auto;image-rendering:pixelated;aspect-ratio:640/384}
+#lotm-study .hotspot{position:absolute;transform:translate(-50%,-50%);color:var(--paper);background:#172338ed;border:1px solid #d8bd87;box-shadow:0 3px #1118;max-width:39%;white-space:normal}
+#lotm-study .scene-caption{position:absolute;left:12px;top:10px;padding:5px 8px;background:#141a26e8;color:var(--paper);border:1px solid #a39278;font-family:Georgia,serif}
+#lotm-study .scene-footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:8px 10px;background:#161d30}
+#lotm-study .walk-grid{grid-template-columns:minmax(0,4fr) minmax(220px,1fr)}
+#lotm-study .walk-toolbar{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;align-items:center;background:#332d31;color:var(--paper);border:2px solid #93816a;padding:10px}
+#lotm-study .walk-toolbar button{color:var(--paper);background:#423c3c;border-color:#93816a}
+#lotm-study .dpad{display:flex;gap:5px;align-items:center;flex-wrap:wrap}#lotm-study .dpad button{min-width:36px}
+#lotm-study .walk-note{font-family:Georgia,serif;color:var(--paper)}#lotm-study .walk-inventory{display:flex;gap:8px;flex-wrap:wrap;padding:10px;border:2px solid #93816a;background:#332d31;color:var(--paper)}
+#lotm-study [hidden]{display:none!important}
+@media(min-width:1450px){#lotm-study .game-shell{min-height:865px}#lotm-study .game-grid{grid-template-columns:minmax(200px,1fr) minmax(0,3.8fr) minmax(240px,1.1fr)}#lotm-study .walk-grid{grid-template-columns:minmax(0,4fr) minmax(260px,1fr)}}
+@media(max-width:760px){#lotm-study .game-grid{grid-template-columns:minmax(0,1fr)}#lotm-study .player{display:none}#lotm-study .reports{min-height:120px}#lotm-study .panel-top{grid-template-columns:1fr}#lotm-study .game-top{align-items:flex-start;flex-direction:column}#lotm-study .game-shell{min-height:1100px}#lotm-study .hotspot{font-size:12px;padding:4px;min-height:28px}}

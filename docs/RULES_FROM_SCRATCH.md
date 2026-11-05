@@ -363,3 +363,14 @@ acceptance cases. The six reference examples are specified-not-run. Source
 review, authored contract, code, rebuild, fresh-origin gameplay, save/reload/import
 and Weibao's acceptance remain distinct. This documentation expansion changes
 no runtime and adds no world mechanic to the accepted twelve rules.
+
+
+## Design-defaults history reconciliation B142, 2026-11-04
+
+The entire [archived audit](DESIGN_DEFAULTS_AUDIT.md) and this owner were reviewed. Keep that archive unchanged. Its initial proposed table is followed by Weibao's later applied refinements: knowledge needs a carrier, signature/absence count caps and humble-home caps were removed, body differences are world-specific, and fate follows the selected source. Its dated list of then-current decisions cannot restore the retired one-realm milestone, block selected death/rewind routes or freeze the old original-panel arrangement. Present direction is routed through USER_VISION, the digest, PROJECT and the accepted AD/rulebook owners (AD32, AD35).
+
+Rules 5/6 preserve distinct transfer and observation. An actual carrier can retain memory without forced rediscovery; relevance and accuracy in a destination may still change. What an observer sees *can* be wrong, but an actual exact sensor, truthful source or omniscient mechanism need not be deliberately degraded. Do not turn uncertainty into compulsory noise or a universal anti-cheat rule. In-fiction duplication, gain-preserving rewind or costless powerful means can be valid; accidental double publication, corrupted saves and unselected mixing of reset domains remain engineering defects (AD5, AD22, AD38).
+
+The heir inherits what was actually left, with title jurisdiction, claim, physical access, knowledge and another person's agency separate. The old half-reputation/lesson-paper receipt is its scoped historical implementation, not a universal inheritance fraction or proof of all land/debt/contested claims. Rule 7's age/end sentence does not require mortality where the world grants immortality, and the offline table is a palette qualified by the later OD direction and current actual clock consumer. The old rule-8 separate-window restriction is already superseded by this owner's update and UI_RULES; current task forms retain vanilla play without freezing presentation.
+
+CP1-CP5 and the detail record remain review aids. A reported cause, physical result, learned account, recipient response and later institutional event need their actual links; strong means can legitimately bypass them. Acquiring, reading, practicing, executing, teaching and reproducing may be distinct questions without becoming compulsory stages. Source gaps remain unknown, not forbidden; fixed counts, new resistance costs and compulsory rituals are not added to fill a row. An archived lint pass checks added wording, not authority or all old content. No source-canon, new runtime, persistence or world-completeness claim was verified here.

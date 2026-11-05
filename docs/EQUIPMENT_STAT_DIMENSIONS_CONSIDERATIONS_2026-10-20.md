@@ -364,3 +364,17 @@ recipe/storage/persistence boundaries. Final2440/2440 tests, build/architecture/
 rules/36 rule-behavior checks and23 rebuilt browser checks pass. Fixture access
 and test stock are explicit; natural acquisition pacing and human taste remain
 separate. The broader equipment palettes are not declared exhausted.
+
+
+## Reader-census reconciliation B122, 2026-11-04
+
+The full [L1 reader census](audits/GEAR_STAT_READERS_CENSUS_2026-10-20.md#reader-census-reconciliation-b122-2026-11-04) is now reconciled to the status sequence above and selected current source: B1–B4/Enemy use shared defensive stats, shared strikes use target critical resistance, and armor penetration has an actual flat-armor consumer. This preserves rather than duplicates the existing P1/G1–G5 delivery receipts. Durability getStats scaling and defense-based armor-XP recognition remain scoped policy findings; no new mechanics are selected. Current source is not fresh desktop/native/acquisition proof, and neither fixture success nor coordinated completion exhausts the broader palette. This review reads only261–366 of this owner, so its early palette remains independently unreviewed in coverage accounting.
+
+
+## Full-owner reconciliation B123, 2026-11-04
+
+Complete ESD1–ESD16/L1–L5, all L2/L3/toughness/P1/shared-wearer records, October21 status and later coordinated completion read. B122’s previous selected-range limitation is now closed for this owner; underlying research/integration reports are not granted transitive reading credit. Treat the order as history: follow-up native crafting/import qualifies L3’s earlier unit-only header; shared/P1 work qualifies L2’s no-combat/no-enemy/ignored-reader snapshot; final G1–G5 completion qualifies the earlier in-progress workshop/sockets/tooltip/drop statements. Keep exact source/bundle/test/fixture/natural-encounter limitations and failed runs rather than blending them into one current pass.
+
+Preserve simultaneous stat dimensions, cause/source legibility, instance-specific affixes, resolution at real craft/drop time and world-specific quality. ESD6’s costs wording does not require every beneficial stat to receive a compensating penalty. ESD7’s physical examples depend on actual material/world mechanisms, not universal damage-type permission rules. ESD16’s workmanship, rarity and concrete effects are separate proposed signals; its example grade ladder is not an accepted global quality verdict. Existing 0.5/0.75 floors/caps and toughness formula are implemented native defaults, not all-world laws. Local overrides and unusually effective means remain possible under AD5/AD38.
+
+The historical L3 normalization drops unknown affix IDs and clamps values; that description is not proof that a new active schema/definition can be silently discarded or repriced safely. A selected extension needs its actual loader, historical rule/definition and compatibility decision. No stored totals does not prove every behavior-changing definition revision harmless. Current B122 source confirms selected defensive/penetration consumers, not a fresh rebuilt encounter or every gear source. No old route, natural cadence, external source scout or full integration receipt was rerun here. Later actor/world palettes remain useful and unselected, with no new Frontier-depth priority or runtime implementation.

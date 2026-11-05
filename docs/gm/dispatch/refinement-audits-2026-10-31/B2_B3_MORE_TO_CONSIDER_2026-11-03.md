@@ -18,3 +18,8 @@ Round 1, proposals only (nothing here is accepted; no code changed). Evidence re
 - **L1 Pathway-and-sequence band table** (D1/R1). Sonnet high, medium effort; done when a Seq 9 sailor hostile and Old Neil both read a band from it and a test shows a fight window refused without one.
 - **L2 Digestion and acting method** (O1). Sonnet high plus a text pass; done when the source passages are cited and the advancement gate reads them.
 - **L3 Failure card for the drink** (R2). Content-only after X1; done when the untaken-option card exists with a locator.
+
+
+## Reconciliation B98, 2026-11-04
+
+Retain pathway/source/pool/residue/look reuse and use-based development as proposals. Clown at Sequence 8 is advancement within the Seer pathway, not a second pathway; local source identity and version still matter. A shared 240-minute residue chosen from unrelated precedents is not source calibration, and scaling a stated 230-pound formula to 5 pounds is not a canon anchor. Generic source/pathway tables do not prove each person’s actual sheet, capabilities, body, held means or observer knowledge, nor justify blocking every fight until a universal table. One original hostile’s functioning record proves its slice only. Reuse actual faculty development/mastery seams after current source inspection; no new global meter or automatic development implementation is established.

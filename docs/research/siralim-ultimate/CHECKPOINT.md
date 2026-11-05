@@ -39,3 +39,8 @@ Highest-payoff continuation: join the 30-way `scr_GetRaceArrayByRealm` output to
 ## Delivery boundary
 
 Coordinator may commit this output directory and route its proposals; this lane did not stage or commit it. Top three: SU-P01 useful local encounter grammar, SU-P02 source/lifetime/usability inspector, SU-P03 explicit retained-carrier travel preview. Full native proof, playable YAIRPG adoption, rebuilt desktop acceptance and any affected persistence roundtrip remain separate work for a selected live owner.
+
+
+## Later serializer and consumer leaves, 2026-11-04 (B50)
+
+pass-2026-10-14-systems/CHECKPOINT.md adds selected creature/project/decoration serializer fields and knowledge, economy, fusion, home and other bounded consumers. Use its R01–R18 routes before treating every original U row as wholly untraced. Whole-save completion, async durability/recovery and broad semantic/native behavior remain unproved; a serializer leaf does not close the timed-out giant save function. A future selected question should follow an exact helper/caller rather than repeat broad extraction or infer missing societies from the no-runtime scope.

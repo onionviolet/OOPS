@@ -185,3 +185,12 @@ app boundary. The only additional served-page correction routes icons to the
 existing local font; the description bundle is unchanged. Logo/icon publication
 excludes the dirty description implementation. The separate rules-consideration
 chat has completed its linked proposal report.
+
+
+## Content and adoption reconciliation, 2026-11-04 (B172)
+
+The full rules/source comparison, selected implementation, final receipt and complete APP_ADOPTION owner were read. The initial documentation-only boundary is historical after the explicit implementation round; the initial normal-app deferral is historical after the later adoption. All39 attribute meanings, trait projections and keyboard inspection have their named finite source/browser fixture evidence, not a rewrite of all world-authored descriptions. DEV SEEDED trait/family fixtures do not establish natural acquisition; dormant/suppressed states retain focused projection evidence. Current UR70–75 and later Nov4 prose applications remain the live owners. Original pinned upstream/other-game references are historical precedent, not freshly consulted web sources or proof of every current magic mechanic.
+
+Keep release dimensions separate. APP_ADOPTION records the86-file frozen candidate and normal app/web-bundle match, plus3218 tests and native separate-profile checks. The description implementation could be present locally in the adopted app while the Git publication included only four logo/offline-font paths; seven unrelated local commits and dirty description pointers were excluded and preserved. That scope is intentional, not evidence the whole description implementation was published. No historical authority here permits another commit/push, app restart, live inspector or user-profile access.
+
+Preserve the failed first aggregate-storage assertion: later individual persisted-key and opaque-save-byte comparisons against the closed333-file verified backup are the report’s authoritative preservation check. The native fixture never entered the player’s profile. The offline failure was repaired by the existing local icon-font stylesheet; the resulting desktop offline rerun is distinct from broader network independence. PNG decode/window-Dock wiring is not a visually observed Dock screenshot. The separate rules chat produced proposals only and was already completed, not a new dispatch. No image, raw private comparison, current installed app, remote Git state or runtime test was inspected anew in this reconciliation.

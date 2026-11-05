@@ -1,0 +1,52 @@
+{
+  "scope": "Known task-authored notes and authority-code amendment; original reviewed inputs/ledgers unchanged, no new substantive reading credit.",
+  "entries": [
+    {
+      "path": "docs/audits/CHEAT_CORE_AUDIT.md",
+      "original_recorded_closeout_sha256": "dc45d9c60be93f92ca96f975683988c2bdb3e85819118927c5bdc95e40f2e6dd",
+      "added_note": "**B7 current-source correction, 2026-11-04:** the final parked note below predates the current PLAY-path call to `applyStartGrants`. The [library fold](../CHEAT_LIBRARY.md#im36im46-core-audit-reconciliation-b7-2026-11-04) distinguishes source wiring from unrefreshed premise/voice/browser proof. The later cheat/heir deferrals still govern (AD32/AD29); no new cheat work is selected.",
+      "current_sha256": "3a2682ec7f1473b2e8aea8951f28c1031bcb0205dd80f242dbd53c5fa8474b3b",
+      "proof": "Removing only the inspected task-authored note yields the exact prior recorded output bytes."
+    },
+    {
+      "path": "docs/audits/COMPANIONS_CORE_AUDIT.md",
+      "original_recorded_closeout_sha256": "b5f5599d28d78f3fdb993163bb7e72f7a3b9e826cc278d711dfa5187c6fd07f3",
+      "added_note": "**B7 current continuation, 2026-11-04:** [palette fold](../COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md#c1c16-core-audit-reconciliation-b7-2026-11-04) retains the C1\u2013C16 findings and cue/knowledge/clock distinctions. Current reconciliation can run in the primary chat; the old launch/commit procedure is conditional on actual authorization, not an instruction to create workers for every review (AD32/AD36).",
+      "current_sha256": "b896483896021b9a574fd7e68651e87ae9efc82caa7cd547880e6c7ba30ad1c2",
+      "proof": "Removing only the inspected task-authored note yields the exact prior recorded output bytes."
+    },
+    {
+      "path": "docs/audits/WORLD_CORE_KIT_CORE_AUDIT.md",
+      "original_recorded_closeout_sha256": "870fe4b3dc2a2fb2fa3c0ed2b01c748c2f31f6ddb0edfd5fbe66d4f216ee2118",
+      "added_note": "**B7 current continuation, 2026-11-04:** extend the existing [successor owner](../worlds/WORLD_CORE_KIT_SUCCESSOR_2026-10-14.md#kit-procedure-content-reconciliation-b7-2026-11-04), retaining source-local IDs, original readiness baselines and scope. Old dated-successor/launcher examples do not restart the palette, authorize lanes or create a complete-kit gate (AD32/AD36).",
+      "current_sha256": "839af50756c73792ab872cec35b77bb4bc735c1e2e067d20f933f37898af6f0a",
+      "proof": "Removing only the inspected task-authored note yields the exact prior recorded output bytes."
+    },
+    {
+      "path": "docs/audits/WORLD_DIALS_AND_INTERPRETER_CORE_AUDIT.md",
+      "original_recorded_closeout_sha256": "b80c30946ca4aebf3ae19d2fa9076cc0bab6410323cfd08be305be10ec7a3ec1",
+      "added_note": "**B7 scope correction, 2026-11-04:** the bundled resolver row below is a historical shorthand. Current `effect_dsl.js` is an inert authoring contract; the [dial-owner fold](../WORLD_DIALS_AND_INTERPRETER_CONSIDERATIONS_2026-10-19.md#dial-core-procedure-reconciliation-b7-2026-11-04) preserves the distinct resolver, pack-validation and executed-consumer roles. Held lanes stay held under AD32/AD36.",
+      "current_sha256": "4b633100a2a6a85ccb8c4c6a7c245a3220c57a72966a178db3dab8fcc6d8db1a",
+      "proof": "Removing only the inspected task-authored note yields the exact prior recorded output bytes."
+    },
+    {
+      "path": "docs/gm/dispatch/minigames-2026-10-11/ACCEPTANCE_BACKLOG.md",
+      "original_recorded_closeout_sha256": "870d7f1442cfea3d77e6dff6c72d4e011857a1b2c88275ffe089c300323ae98a",
+      "added_note": "> Historical October 11 snapshot. Later R15 integration reports natural journey/persistence evidence; see the B15 reconciliation below before interpreting \u201call unrun\u201d or \u201cremaining gate.\u201d",
+      "current_sha256": "9a12411fdd3c16dc6e7d05f620d117377d63e0dae0734a04ecbc85cbba44fe5a",
+      "proof": "Removing only the inspected task-authored note yields the exact prior recorded output bytes."
+    },
+    {
+      "path": "docs/research/cultivation-idlers/CHECKPOINT.md",
+      "original_recorded_closeout_sha256": "a354515e40de44ed553dfaef5bfb550b81bd3019b1328f525e402f52e399b94e",
+      "added_note": "> Later source work closes the Path obfuscation/page-only blocker and the pending CivIdle source pass. See the B29 reconciliation below; the original October13 snapshot follows for history.",
+      "current_sha256": "04b8dc34174bf91b98701f982df0d70cc1007865e022174f760b0f327d89684c",
+      "proof": "Removing only the inspected task-authored note yields the exact prior recorded output bytes."
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/ACCEPTANCE_BACKLOG.md",
+      "amendment": "content-b9.json post_record_amendments",
+      "current_sha256": "8fc107b4cfb053dbca66b4b4dad7ea82c73c649bb25e11252f062fdce6a4b8ec"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "batch": "B224",
+  "title": "All fifteen nonhuman play profiles and transition/experience dials",
+  "at": "2026-11-04T23:24:07.984340+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/worlds/NONHUMAN_STARTS_PLAY_2026-10-14.md",
+      "ids": [
+        "V1–V9",
+        "BK1–BK15",
+        "NP1–NP14",
+        "NT1–NT10",
+        "threecontinuitywalks",
+        "NU1–NU9",
+        "ND1–ND8",
+        "NS1–NS5"
+      ],
+      "classification": "Original body-specific playable promise palette with dated source anchors",
+      "owners": [
+        "docs/worlds/NONHUMAN_STARTS_PLAY_2026-10-14.md",
+        "docs/worlds/NONHUMAN_STARTS_ENGINE_REQUIREMENTS_2026-10-14.md",
+        "docs/worlds/NONHUMAN_CLOCKS_LIFESPANS_AND_SEASONS_2026-10-14.md"
+      ],
+      "disposition": "Preserve eachprofiledistinctivefunctions/usefulloop/socialcustody/recovery and currentprooflimits. Ten-minuteoutlines realattentiontargets notnativeelapsedpaydays. Distinguishordinarychildstage/supernaturalvariant and multiplebody/independentpartner/fullbodycost. Qualifyonepurse/noheal/noinfiniteforms localproposalnotuniversalban. No newstartpriority orgeneralbodyenginegate.",
+      "evidence": "Complete382linebodyread1–85/86–170/171–255/256–335/336–end, everyprofileandcrosscuttingrow, anchor/closuretables. Sourcecode/currentavailability andassociatedprimarycanon notreread; no gameplayfixture executed.",
+      "reopen": "Currentselectedoriginalstart only: actuallyadmittedopening/knownsource/functions/inputs, performerandreceivingconsumer, legitimateaccess/payperiod, distinctivepositiveandmissingmeans/recovery paths, exactcause/stock/knowledge retention.",
+      "input_sha256": "c05ca963641e8adf78bcd0f6ee8005c135636305482db94b30bf8bdd2620a9c3",
+      "input_lines": 382,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          382
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/worlds/NONHUMAN_STARTS_PLAY_2026-10-14.md",
+      "heading": "## Content reconciliation B224, 2026-11-04",
+      "body": "Every BK1–BK15 profile, NP/NT/NU/ND row, continuity walk and suggestion was read. The first-ten-minute outlines target real player attention, not ten native minutes or completion of an existing120-minute fieldwork job or15-minute delivery search. The report’s own V3/V4/V5/V6/V8 anchors name locked housing, field, mill, trader or tools; each new alternate origin needs its actual admission, not silent unlock by a narrative outline. Five distinctive faculties are this lane’s requested comparison format, not a new universal release quota. Ordinary childhood is a human stage with stage-shaped verbs; supernatural five-verb alternatives need a separately supported premise (AD32/AD36).\n\nPreserve each useful play distinction: rooted reach is not walking; a gel’s non-sentient feeler is not a new independent person; spectral signal is not all-seeing lore; a spirit’s offered clay shell is not automatically Tern; a sentient blade remains its unique physical item across holder changes; a place-body has actual footprint and occupants rather than ownership of visitor minds. Construct parts change capacity, not learned expertise. Brood knowledge follows its actual link, and an independent familiar can choose local work without sharing its partner’s purse. Advisor communication and host execution have different recipients. These useful routes remain viable without forcing human form, compulsory worship or generic strange-body penalties.\n\nSeveral profile defaults need their stated world dials. BK9’s one purse is its proposed colony accounting, not a prohibition on separately owned stores or independently minded members. NT6’s no accidental swap heal protects transaction identity; genuinely restorative transformation, replenishment or independent body reserves can work by the selected mechanism. BK14’s bounded known-form library is that prototype scope, not a universal ban on a stronger imitation faculty. Retained knowledge can be directly executable when the actual means provide it, without adding a mandatory awkwardness grind. ND2 explicitly permits coercive or replacing control premises without inventing affection, guaranteed detection or backlash. A local legal title, personal consent, control authority and regard remain distinct facts.\n\nNP/NT keep known communication conventions, current body/method support, actual provider time, paid work settlement and observer histories. Settled routine communication need not become repeated charades; a helper executes with their real means rather than lending imaginary hands. A readout can show current job/progress/support and known next action without manufacturing an exact ETA or hidden state. Player pause/save/import/accessibility remain usable through body changes. Current prose-first independent panes and desktop targets replace the old1366-primary specification; art and body dashboards remain optional.\n\nThe old realm/prestige first milestone is retired, and NS1–NS5 rank proposed tests rather than current world priorities. E1/E2/E14 name actual needed ownership/function/compatibility contracts for a selected route; they do not impose the entire unselected body engine before every current method or relationship view. AD51 qualifies generalized-abstraction thresholds and AD52 supports both sustained play and useful compression. Existing source anchors, absent/offline states and cost estimates are dated evidence, not a new current runtime census. No start, body faculty, agreement, item, recovery route or persistence behavior was implemented or exercised here.",
+      "before_sha256": "c05ca963641e8adf78bcd0f6ee8005c135636305482db94b30bf8bdd2620a9c3",
+      "after_sha256": "2242ddf15e6bf81616d776302ed317e54abebef781589449f066e79acb562f18"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 993,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B219, continuous execution 2026-11-04 |",
+      "to": "| B224, continuous execution 2026-11-04 |",
+      "reason": "Advance continuous pointer through B224; no new full-register reading credit."
+    }
+  ]
+}

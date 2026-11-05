@@ -327,3 +327,33 @@ Weibao, 2026-10-30: "Might need a depth and nuance pass in the future, incorpora
 | CBD17 | **Place and conditions.** Terrain, light, weather, footing, reach and range as moves and modifiers, chosen by the place, not by a fixed table | Sonnet, M | One fixture place changes which moves are offered and their odds |
 | CBD18 | **Fights that are not physical.** Spiritual, mental and social duels (a curse contest, a debate, a staring match) on the same tempo frame with their own harm kinds | Opus or Sonnet, L | One non-physical contest runs on the frame with its own vocabulary and settles a real stake |
 | CBD19 | **Fights in the world's voice.** Report lines for blows, coats, yields and broken terms come from the per-world report voice table (`ui-identity` M4) | Sonnet, S | A LOTM fight and a fallback-world fight write differently worded but equally useful lines |
+
+
+## Acceptance-prep CBL reconciliation, 2026-11-04
+
+Content-reviewed [the October 19 prep's CBL1/CBL3 and O2/O5](reviews/ACCEPTANCE_PREP_2026-10-19.md). Its native defeat route and later this owner's saved-battle fixture are distinct evidence; neither proves every saved battle, structured death, injury consumer or natural journey. Current source still registers the `defeat` state/projection separately from its event publishers; no new battle or failed-write journey was run in this documentation pass (AD36/AD43).
+
+The prep and older CBL3 prose call a missing outcome display “CBL4”. The actual CBL4 row names subdue stance and enemy yield, so do not turn that shorthand into evidence that CBL4 is an outcome panel. Keep an outcome-display gap with the combat representation/read-model owner when a selected task needs it; retain CBL4's original mechanic identity and scope. BHL7 injury and other outcomes keep their own producer and consumer requirements.
+
+AD42 makes human play optional feedback. The prep's open taste questions remain useful, but its R3 wording is not a technical gate or permission to resume runtime work. Preserve the original receipt and its missing browser paths; a later source edit or unit pass cannot backdate their proof.
+
+
+## Core-audit content reconciliation, B7, 2026-11-04
+
+Reviewed the entire repeatable combat audit (C1/C2, CBC/CBX/CBL and its composed case). Keep two related reflect/rescue outcomes distinct while publishing each actual defeat/reward once through its real owner. Tracking and escape work through faculties, distance, body and available means, not a label permission list. These existing CBR/AD38 consequences constrain the selected outcome path; they do not add a new combat framework or make every historical battle a current gate (AD32/AD36).
+
+Canonical CBR1–CBR30 live in DOMAIN_RULES; COMBAT_RULES is a compatibility stub. Old lane, viewport and compatibility evidence retains its date. Reopen the affected C1/C2 consumer when its actual rule/state/receiver changes; no runtime pass or worker was launched. Current live combat receipts retain their own status, including concurrent work not reverified here. [Full input/disposition](audits/reconciliation-2026-11-04/content-b7.json).
+
+
+## Domain-scan reconciliation B118, 2026-11-04
+
+The full [DRC audit](audits/DOMAIN_RULES_CONFORMANCE_2026-10-19.md#current-use-reconciliation-b118-2026-11-04) retains DRC2/3/4’s original closure receipts without renewing them. Selected current source still routes health-zero through a parent_location combat-zone test (DRC15), while defeat cause validation admits kind/place/by only (DRC14). These remain scoped findings for a selected fix, not authorization to change wake behavior, save schema or gameplay during documentation reconciliation. No runtime tests or fresh browser checks were run.
+
+
+## Full combat-palette reconciliation, 2026-11-04
+
+The initial gap paragraph and CBX route survey predate CBL1/CBL3. Their later receipts establish a publisher and selected saved-battle/structured-death publication at those inputs; they do not implement BHL7 injury, CBL4 subdue, every outcome or every browser journey. The CBL3 browser paragraph names a party-open fixture and a Mara duel result; preserve its stated route/result rather than treating that wording as three separately played battles. B118 and acceptance-prep keep current source limits separate from those historical runs (AD32, AD36, AD43).
+
+CBD1–CBD4/CBD10 are source-level typed damage/protection work. The .5 protection floor, 3× weakness ceiling, material guesses and skill multipliers are local proposals/policies, not universal bans on immunity, overwhelming power or a world’s own vocabulary (AD5, AD38). CBD8 remains its distinct avoid-versus-mitigate question; typed damage alone does not close it. CBD5–CBD19 retain their consumer/reopen triggers and are not automatically selected because an old predecessor merged.
+
+Separate actual harm/outcome/cause, visible facts, witnessed agreement, detected breach, attribution and enforcement. A spar’s stated rule cannot physically guarantee harmlessness without the mechanism to enforce it, and breaking a term need not impose a cost when no actor or mechanism can respond. Fleeing, improvisation, morale, pursuit and survival depend on actual means; CBC11’s poorer improvisation, CBC18’s absent construct morale and CBC28’s compulsory escape cost are defaults, not category laws. Keep optional nonviolent lives and paid idle policies without forcing repeated manual timing. Human review remains optional under AD42. No runtime or new build queue was selected.

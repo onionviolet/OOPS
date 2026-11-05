@@ -1,0 +1,321 @@
+{
+  "schema": 1,
+  "batch": "B214",
+  "title": "Seeded-world and UI checkpoints, cohort/calendar plans and finite family history",
+  "at": "2026-11-04T23:13:46.977097+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/audit-absorption-2026-10-07/RECONCILIATION.md",
+      "ids": [
+        "Five families/four integration returns;21 commands"
+      ],
+      "classification": "Historical bounded checkpoint or implementation proposal",
+      "owners": [
+        "docs/gm/audit-absorption-2026-10-07/RECONCILIATION.md"
+      ],
+      "disposition": "Registry/build and served bytes establish implemented-unverified integration only; all gameplay/save/failure/browser gates were explicitly unrun. Bootstrap2374paths/11reads is intake, not full coverage.",
+      "evidence": "Full short body read in a bounded combined output with no truncation. Referenced reports/source/builds/JSON/artifacts not reopened or executed in B214.",
+      "reopen": "Compare exact historical input against its later owner only when a current selected consumer needs it; historical next-step, port, writer and test claims grant no current launch or verification.",
+      "input_sha256": "a6a37db98faf5c0c9ffce5830e1a72338deb9eb6ac53e90863c34a0b17011ebc",
+      "input_lines": 7,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p1/CHECKPOINT.md",
+      "ids": [
+        "P1 seeded core;8 focused/629 suite"
+      ],
+      "classification": "Historical bounded checkpoint or implementation proposal",
+      "owners": [
+        "docs/gm/dispatch/procgen-2026-10-13/p1/CHECKPOINT.md"
+      ],
+      "disposition": "Retain seeded-native pending fight/loot/lineup/trader and exact saved encounters/turns. Root derives once from saved expansion RNG; pre-expansion fallback1 does not change legacy RNG. Old branch ready-to-integrate is not current integration status.",
+      "evidence": "Full short body read in a bounded combined output with no truncation. Referenced reports/source/builds/JSON/artifacts not reopened or executed in B214.",
+      "reopen": "Compare exact historical input against its later owner only when a current selected consumer needs it; historical next-step, port, writer and test claims grant no current launch or verification.",
+      "input_sha256": "46ba38638ab78d3ab0af1f9591a4f77923c87fbfd457e3b7a3f35c91efc49457",
+      "input_lines": 11,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p2/CHECKPOINT.md",
+      "ids": [
+        "P2 A1–A4/N1–N14/S1–S2"
+      ],
+      "classification": "Historical bounded checkpoint or implementation proposal",
+      "owners": [
+        "docs/gm/dispatch/procgen-2026-10-13/p2/CHECKPOINT.md"
+      ],
+      "disposition": "Retain16focused/637suite, actual paid mixing journey, pending/consumed-source restore and expiry/cancel/shortage. Natural and seeded-native labels distinct; native gather/chest-trade/offline and seed-integration backlog remain scoped, proposed balance not binding.",
+      "evidence": "Full short body read in a bounded combined output with no truncation. Referenced reports/source/builds/JSON/artifacts not reopened or executed in B214.",
+      "reopen": "Compare exact historical input against its later owner only when a current selected consumer needs it; historical next-step, port, writer and test claims grant no current launch or verification.",
+      "input_sha256": "d069154e888877dd9790e4f7916e16cf78a71e57a9bca33794f70f786dcdc6c2",
+      "input_lines": 9,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p4/CHECKPOINT.md",
+      "ids": [
+        "P4 people;12focused/633suite"
+      ],
+      "classification": "Historical bounded checkpoint or implementation proposal",
+      "owners": [
+        "docs/gm/dispatch/procgen-2026-10-13/p4/CHECKPOINT.md"
+      ],
+      "disposition": "Two natural arrivals, one discovered trait, actual bread/reward/settled resident and restore do not prove third departure/return or native hourly action transition. Optional generated travelers not authored household/faction/population AI.",
+      "evidence": "Full short body read in a bounded combined output with no truncation. Referenced reports/source/builds/JSON/artifacts not reopened or executed in B214.",
+      "reopen": "Compare exact historical input against its later owner only when a current selected consumer needs it; historical next-step, port, writer and test claims grant no current launch or verification.",
+      "input_sha256": "21742e2b95cbcaa2c886121e0a5facb9cfd9682bd08ae347bb91301a01229f55",
+      "input_lines": 7,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R4_CHECKPOINT.md",
+      "ids": [
+        "R4 release;12prototype cases"
+      ],
+      "classification": "Historical bounded checkpoint or implementation proposal",
+      "owners": [
+        "docs/gm/dispatch/ui-foundation-2026-10-15/R4_CHECKPOINT.md"
+      ],
+      "disposition": "Actual-runtime disposable inspection prototypes and recommendedO2 were unselected, not production acceptance. Historical visible delivery/ports neither opened now nor current permission for visible UI.",
+      "evidence": "Full short body read in a bounded combined output with no truncation. Referenced reports/source/builds/JSON/artifacts not reopened or executed in B214.",
+      "reopen": "Compare exact historical input against its later owner only when a current selected consumer needs it; historical next-step, port, writer and test claims grant no current launch or verification.",
+      "input_sha256": "eaa91f5f8db0968cf61fb00de2100ecf07b8d9e8b09e688019bb34448eaa8e25",
+      "input_lines": 7,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R6_CHECKPOINT.md",
+      "ids": [
+        "R6 log/inspection/local tabs"
+      ],
+      "classification": "Historical bounded checkpoint or implementation proposal",
+      "owners": [
+        "docs/gm/dispatch/ui-foundation-2026-10-15/R6_CHECKPOINT.md"
+      ],
+      "disposition": "Retain10focused and synthetic/native UI checks; original-to-R6 automated selector reentry unverified after timeout. No mechanics/clock/save engine change. Reversible composition experiment not new standing layout.",
+      "evidence": "Full short body read in a bounded combined output with no truncation. Referenced reports/source/builds/JSON/artifacts not reopened or executed in B214.",
+      "reopen": "Compare exact historical input against its later owner only when a current selected consumer needs it; historical next-step, port, writer and test claims grant no current launch or verification.",
+      "input_sha256": "41be83018780f4cbfa2a6452807c1799a2251b3721c303c244a7ffb5db18c3e2",
+      "input_lines": 8,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R7_CHECKPOINT.md",
+      "ids": [
+        "R7 sixcases/24matchedcomparisons/10focused"
+      ],
+      "classification": "Historical bounded checkpoint or implementation proposal",
+      "owners": [
+        "docs/gm/dispatch/ui-foundation-2026-10-15/R7_CHECKPOINT.md"
+      ],
+      "disposition": "Preserve exact source-map/vendor/localasset input binding and19protected-runtime-file comparisons. Native save/export/import character/inventory/books and public-DOM partial/unknown opponents are bounded, not full-game/performance certification. Human review optional under laterAD42.",
+      "evidence": "Full short body read in a bounded combined output with no truncation. Referenced reports/source/builds/JSON/artifacts not reopened or executed in B214.",
+      "reopen": "Compare exact historical input against its later owner only when a current selected consumer needs it; historical next-step, port, writer and test claims grant no current launch or verification.",
+      "input_sha256": "80d7bdea728614ba92dc1eacaf14d9c2df090d3038492711c453bb0e5ec75b5c",
+      "input_lines": 11,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R9_CHECKPOINT.md",
+      "ids": [
+        "R9 opponent cards/12matchedpairs"
+      ],
+      "classification": "Historical bounded checkpoint or implementation proposal",
+      "owners": [
+        "docs/gm/dispatch/ui-foundation-2026-10-15/R9_CHECKPOINT.md"
+      ],
+      "disposition": "Real present-opponent cards and responsive composition are UI scope, not new attack targeting/appraisal. Final12comparisons/images/zeroerrors not full combat correctness. VisibleIAB history does not authorize foreground use now.",
+      "evidence": "Full short body read in a bounded combined output with no truncation. Referenced reports/source/builds/JSON/artifacts not reopened or executed in B214.",
+      "reopen": "Compare exact historical input against its later owner only when a current selected consumer needs it; historical next-step, port, writer and test claims grant no current launch or verification.",
+      "input_sha256": "dff9aceb207f5277c1079c5bf73075bc2d04858c6aeec97885365aef16479370",
+      "input_lines": 7,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/pc-groups-2026-10-26/weather-environment/implementation/evidence/W1/PLAN.md",
+      "ids": [
+        "W1 cohort receipt/remainder/drift"
+      ],
+      "classification": "Historical bounded checkpoint or implementation proposal",
+      "owners": [
+        "docs/gm/dispatch/pc-groups-2026-10-26/weather-environment/implementation/evidence/W1/PLAN.md"
+      ],
+      "disposition": "Exact native-key cohort identity and fractional debt are proposed local contract, not universal lot schema or wall-clock behavior. Planned counterexamples and failure tests are not passing evidence.",
+      "evidence": "Full short body read in a bounded combined output with no truncation. Referenced reports/source/builds/JSON/artifacts not reopened or executed in B214.",
+      "reopen": "Compare exact historical input against its later owner only when a current selected consumer needs it; historical next-step, port, writer and test claims grant no current launch or verification.",
+      "input_sha256": "07df13fdd54bd2cd085c40d9ff8d37a4a094cc17b77d366b4a1a3b1ae3c20b79",
+      "input_lines": 9,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/pc-groups-2026-10-26/weather-environment/implementation/evidence/W6/CALENDAR_ADAPTER_PLAN.md",
+      "ids": [
+        "W6 sourceCalendarAt proposal"
+      ],
+      "classification": "Historical bounded checkpoint or implementation proposal",
+      "owners": [
+        "docs/gm/dispatch/pc-groups-2026-10-26/weather-environment/implementation/evidence/W6/CALENDAR_ADAPTER_PLAN.md"
+      ],
+      "disposition": "Historical projection bound to validated activevisit/instance/profile/definition/revision, not arbitrarycalendarlabel/rootfallback. Adapter tests do not prove W5 source adoption. HP clock convention remains separately owned.",
+      "evidence": "Full short body read in a bounded combined output with no truncation. Referenced reports/source/builds/JSON/artifacts not reopened or executed in B214.",
+      "reopen": "Compare exact historical input against its later owner only when a current selected consumer needs it; historical next-step, port, writer and test claims grant no current launch or verification.",
+      "input_sha256": "f5bf9e539ee1b6b4207604184563d34eb873fdcde22c4d9a0218077881586b91",
+      "input_lines": 9,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/feature-wave/features/nested-campaign/continued-life/BOOK_CHECKPOINT_BEFORE_11aaa9cbfc69.md",
+      "ids": [
+        "19roster/142references/4profiles/19voices"
+      ],
+      "classification": "Historical bounded checkpoint or implementation proposal",
+      "owners": [
+        "docs/gm/feature-wave/features/nested-campaign/continued-life/BOOK_CHECKPOINT_BEFORE_11aaa9cbfc69.md"
+      ],
+      "disposition": "Source-qualified registry and original-scene analogies do not activate19native book adaptations. Original office/relay consumers remain original. Finite code/build goals explicitly implemented-unverified; no gameplay/unit/browser/restore/failure tests ran.",
+      "evidence": "Full short body read in a bounded combined output with no truncation. Referenced reports/source/builds/JSON/artifacts not reopened or executed in B214.",
+      "reopen": "Compare exact historical input against its later owner only when a current selected consumer needs it; historical next-step, port, writer and test claims grant no current launch or verification.",
+      "input_sha256": "53d81b0382d878525da2252aa5aa83174b032c7d7c3f1960b25799e8f5b88399",
+      "input_lines": 9,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/feature-wave/features/nested-campaign/continued-life/NESTED_CHECKPOINT_BEFORE_11aaa9cbfc69.md",
+      "ids": [
+        "Nested11aaa9cbfc69;5deferredgates"
+      ],
+      "classification": "Historical bounded checkpoint or implementation proposal",
+      "owners": [
+        "docs/gm/feature-wave/features/nested-campaign/continued-life/NESTED_CHECKPOINT_BEFORE_11aaa9cbfc69.md"
+      ],
+      "disposition": "Definitions/native bindings/sharedpublisher/compactreceipt/knownroutes exist at dated input, but source-only reviews do not establish played ordinary/hostile/refusal routes. Fullseals discarded beforewrite and scope-retained local freeze do not prove persistence tests ran.",
+      "evidence": "Full short body read in a bounded combined output with no truncation. Referenced reports/source/builds/JSON/artifacts not reopened or executed in B214.",
+      "reopen": "Compare exact historical input against its later owner only when a current selected consumer needs it; historical next-step, port, writer and test claims grant no current launch or verification.",
+      "input_sha256": "68a9ae6fc657cc85c97cae205a167147bb72148001c94de18de457764565e75f",
+      "input_lines": 9,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/life-sim-foundation-2026-10-07/PASS_F_PROPOSAL.md",
+      "ids": [
+        "Finite household proposal"
+      ],
+      "classification": "Historical bounded checkpoint or implementation proposal",
+      "owners": [
+        "docs/gm/life-sim-foundation-2026-10-07/PASS_F_PROPOSAL.md"
+      ],
+      "disposition": "Preserve originalsource-informed finite family/annualschedule/publicnews idea. Proposed scripted yearly events are not autonomous ties or generalized offlinesocialsimulation;32people/16news are local fixture bounds not universal friend/population limits.",
+      "evidence": "Full short body read in a bounded combined output with no truncation. Referenced reports/source/builds/JSON/artifacts not reopened or executed in B214.",
+      "reopen": "Compare exact historical input against its later owner only when a current selected consumer needs it; historical next-step, port, writer and test claims grant no current launch or verification.",
+      "input_sha256": "0bb7a9970d1189afa3915eec1b2458a611fda225b0b0faf44040787bce99e072",
+      "input_lines": 9,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/pc-groups-2026-10-26/weather-environment/implementation/evidence/W1/PLAN.md",
+      "heading": "## Content reconciliation B214, 2026-11-04",
+      "body": "This full plan was reviewed as a proposed local cohort/clock contract. Distinct receipts on exact native keys preserve different ages even for equal-name food; inventory count stays quantity authority. Stillness age, accumulated fractional debt, orderly release fee and lapse conversion are different values and transitions. The four-minute counterexample, fee boundary, uneven-step comparison, partial withdrawal/redeposit and failed durable nativePatch are planned discriminating checks, not recorded passing evidence. Optional missing remainder/priorAge means legacy zero or retained history, without reconstructing unrecorded aging. Do not promote this hearthShelf encoding to a universal lot schema or derive wall elapsed from it (AD32/AD36). Later W3 process-custody/source contracts need their own actual consumer evidence.",
+      "before_sha256": "07df13fdd54bd2cd085c40d9ff8d37a4a094cc17b77d366b4a1a3b1ae3c20b79",
+      "after_sha256": "253b3d552699036393ccf840e3a60625ef2c97a24eae5709fb37d0a55657596f"
+    },
+    {
+      "path": "docs/gm/dispatch/pc-groups-2026-10-26/weather-environment/implementation/evidence/W6/CALENDAR_ADAPTER_PLAN.md",
+      "heading": "## Content reconciliation B214, 2026-11-04",
+      "body": "The complete adapter plan separates historical source-calendar projection from advancing time or claiming source readiness. Coordinate, active instance, profile, revision and local units come from the actual validated owner; a display label or home/root clock is not substitute evidence. An explicit past coordinate cannot exceed retained elapsed. Unknown season remains unknown, and a strict W5 schema must select compatible fields rather than accepting new payload fields implicitly. MoL/Paradise visitors and HP opening-at/root conventions stay distinct. These are proposed export/validation and planned tests, not verified current exports or W5 integration (AD32/AD36/AD51). A concrete supported caller justifies extending the adapter; no all-world clock schema is required first.",
+      "before_sha256": "f5bf9e539ee1b6b4207604184563d34eb873fdcde22c4d9a0218077881586b91",
+      "after_sha256": "3ca91c6d94fc8d444f2a20b1b95168de90e7a5c8971ad01738860e5aecea43b0"
+    },
+    {
+      "path": "docs/gm/life-sim-foundation-2026-10-07/PASS_F_PROPOSAL.md",
+      "heading": "## Content reconciliation B214, 2026-11-04",
+      "body": "Retain this finite household palette as a source-informed proposal. A deterministic authored birth/marriage/death/news schedule across calendar years differs from autonomous friendship generation, per-minute work and general browser-closed social catch-up. B211’s full relationship audit specifically corrects the inference that the yearly news tick creates ties. Existing social/clock owners should receive a selected future mechanism, with observer delivery and causal consequences kept distinct. The local32-person/16-news limits describe a bounded initial fixture, not universal population or friend caps; family expansion and other worlds remain reachable (AD22/AD32). Proposed large-versus-yearly catch-up and import checks are not passing results established by this document or this review.",
+      "before_sha256": "0bb7a9970d1189afa3915eec1b2458a611fda225b0b0faf44040787bce99e072",
+      "after_sha256": "2490dfcc23bb72602f88b3a989a9cc2344fa5985e59f7d735dc3a7f162a650da"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1036
+}

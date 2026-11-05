@@ -1,0 +1,330 @@
+{
+  "schema": 1,
+  "batch": "B174",
+  "title": "Four source-coverage records and original combat/life/material ideas",
+  "at": "2026-11-04T22:29:17.049962+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/path-of-achra/COVERAGE.json",
+      "ids": [
+        "F1–F5/P1–P5",
+        "COVERAGE.json"
+      ],
+      "classification": "Historical bounded source coverage and original proposal set",
+      "owners": [
+        "docs/research/path-of-achra/REPORT.md",
+        "docs/research/path-of-achra/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "3234packentries/126tokenrenderings fullybyteconsumed not126semanticallyreadbuildablescripts;5paths989lines. Frontinsertedeffectorder vs100clocksearchlimit distinct,no chaincapinferred. Invocationcharge/recharge/deathguard/movevswait contracts useful. Later packetreview P2adoptnow is selectionproposalnotnewuseracceptance;P4localdrop notworldlaw. Oldmilestoneretired.",
+      "evidence": "Fresh entireJSON/Markdown read including everycoverage/notrun/unreadfield, mechanismtable, packetexclusions andlaterreviewstatus. ActualsourceFindings/rawpayload/renderings/decompiledmethods/devlogs notreread or executed. No current YAIRcodebehavior newlyinferred.",
+      "reopen": "Preserve source-localIDs/versions/limits and originalpossibilities. Select from currentincumbentconsumer before runtimework; nouninstall/acquisition or repeat oldclosedqueue.",
+      "input_sha256": "f895ecbd8920d977b180e627d4a910a55c797753749c770f90ac57d8edd3d984",
+      "input_lines": 32,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          32
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/path-of-achra/REPORT.md",
+      "ids": [
+        "F1–F5/P1–P5",
+        "REPORT.md"
+      ],
+      "classification": "Historical bounded source coverage and original proposal set",
+      "owners": [
+        "docs/research/path-of-achra/REPORT.md",
+        "docs/research/path-of-achra/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "3234packentries/126tokenrenderings fullybyteconsumed not126semanticallyreadbuildablescripts;5paths989lines. Frontinsertedeffectorder vs100clocksearchlimit distinct,no chaincapinferred. Invocationcharge/recharge/deathguard/movevswait contracts useful. Later packetreview P2adoptnow is selectionproposalnotnewuseracceptance;P4localdrop notworldlaw. Oldmilestoneretired.",
+      "evidence": "Fresh entireJSON/Markdown read including everycoverage/notrun/unreadfield, mechanismtable, packetexclusions andlaterreviewstatus. ActualsourceFindings/rawpayload/renderings/decompiledmethods/devlogs notreread or executed. No current YAIRcodebehavior newlyinferred.",
+      "reopen": "Preserve source-localIDs/versions/limits and originalpossibilities. Select from currentincumbentconsumer before runtimework; nouninstall/acquisition or repeat oldclosedqueue.",
+      "input_sha256": "2739b18bc95c01a4ac84f5c11e3b7afc8f8d9fe3d056147c3efc03bbedd5dafb",
+      "input_lines": 15,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/path-of-achra/IMPLEMENTATION_PACKETS.md",
+      "ids": [
+        "F1–F5/P1–P5",
+        "IMPLEMENTATION_PACKETS.md"
+      ],
+      "classification": "Historical bounded source coverage and original proposal set",
+      "owners": [
+        "docs/research/path-of-achra/REPORT.md",
+        "docs/research/path-of-achra/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "3234packentries/126tokenrenderings fullybyteconsumed not126semanticallyreadbuildablescripts;5paths989lines. Frontinsertedeffectorder vs100clocksearchlimit distinct,no chaincapinferred. Invocationcharge/recharge/deathguard/movevswait contracts useful. Later packetreview P2adoptnow is selectionproposalnotnewuseracceptance;P4localdrop notworldlaw. Oldmilestoneretired.",
+      "evidence": "Fresh entireJSON/Markdown read including everycoverage/notrun/unreadfield, mechanismtable, packetexclusions andlaterreviewstatus. ActualsourceFindings/rawpayload/renderings/decompiledmethods/devlogs notreread or executed. No current YAIRcodebehavior newlyinferred.",
+      "reopen": "Preserve source-localIDs/versions/limits and originalpossibilities. Select from currentincumbentconsumer before runtimework; nouninstall/acquisition or repeat oldclosedqueue.",
+      "input_sha256": "34db2496aac9e350a2bd2ab91e28a4b78ecfc37293dc686d907e84c61666581c",
+      "input_lines": 21,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          21
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/cultist-simulator/COVERAGE.json",
+      "ids": [
+        "F1–F7/P1–P5",
+        "COVERAGE.json"
+      ],
+      "classification": "Historical bounded source coverage and original proposal set",
+      "owners": [
+        "docs/research/cultist-simulator/REPORT.md",
+        "docs/research/cultist-simulator/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "618decompiledCs/61locators/7chains notwholeengine/sourceoriginal. Prerequisitenotspend,unequaldecay/transformation andcommitteddesiremutation useful; endingselector notwholeoldcharacterinheritance. Source newRandomnotrecommendedpolicy. No universalobligationstrain/deathlaw or oldsavegatefrompacketboilerplate.",
+      "evidence": "Fresh entireJSON/Markdown read including everycoverage/notrun/unreadfield, mechanismtable, packetexclusions andlaterreviewstatus. ActualsourceFindings/rawpayload/renderings/decompiledmethods/devlogs notreread or executed. No current YAIRcodebehavior newlyinferred.",
+      "reopen": "Preserve source-localIDs/versions/limits and originalpossibilities. Select from currentincumbentconsumer before runtimework; nouninstall/acquisition or repeat oldclosedqueue.",
+      "input_sha256": "651027e4c9913f4735af9f620ed3e7c47c0af54e6c0baf3a007dd66620ddfb03",
+      "input_lines": 36,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          36
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/cultist-simulator/REPORT.md",
+      "ids": [
+        "F1–F7/P1–P5",
+        "REPORT.md"
+      ],
+      "classification": "Historical bounded source coverage and original proposal set",
+      "owners": [
+        "docs/research/cultist-simulator/REPORT.md",
+        "docs/research/cultist-simulator/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "618decompiledCs/61locators/7chains notwholeengine/sourceoriginal. Prerequisitenotspend,unequaldecay/transformation andcommitteddesiremutation useful; endingselector notwholeoldcharacterinheritance. Source newRandomnotrecommendedpolicy. No universalobligationstrain/deathlaw or oldsavegatefrompacketboilerplate.",
+      "evidence": "Fresh entireJSON/Markdown read including everycoverage/notrun/unreadfield, mechanismtable, packetexclusions andlaterreviewstatus. ActualsourceFindings/rawpayload/renderings/decompiledmethods/devlogs notreread or executed. No current YAIRcodebehavior newlyinferred.",
+      "reopen": "Preserve source-localIDs/versions/limits and originalpossibilities. Select from currentincumbentconsumer before runtimework; nouninstall/acquisition or repeat oldclosedqueue.",
+      "input_sha256": "ea03fc3f344fcbf658fcd08bf37ed5c3ede1d202c69a43fc9aa7a7d0f94bea7c",
+      "input_lines": 13,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/cultist-simulator/IMPLEMENTATION_PACKETS.md",
+      "ids": [
+        "F1–F7/P1–P5",
+        "IMPLEMENTATION_PACKETS.md"
+      ],
+      "classification": "Historical bounded source coverage and original proposal set",
+      "owners": [
+        "docs/research/cultist-simulator/REPORT.md",
+        "docs/research/cultist-simulator/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "618decompiledCs/61locators/7chains notwholeengine/sourceoriginal. Prerequisitenotspend,unequaldecay/transformation andcommitteddesiremutation useful; endingselector notwholeoldcharacterinheritance. Source newRandomnotrecommendedpolicy. No universalobligationstrain/deathlaw or oldsavegatefrompacketboilerplate.",
+      "evidence": "Fresh entireJSON/Markdown read including everycoverage/notrun/unreadfield, mechanismtable, packetexclusions andlaterreviewstatus. ActualsourceFindings/rawpayload/renderings/decompiledmethods/devlogs notreread or executed. No current YAIRcodebehavior newlyinferred.",
+      "reopen": "Preserve source-localIDs/versions/limits and originalpossibilities. Select from currentincumbentconsumer before runtimework; nouninstall/acquisition or repeat oldclosedqueue.",
+      "input_sha256": "37555d89b22c97401d3bf2d08b72aa153731c91757ac7b908f067d4342fa0299",
+      "input_lines": 13,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/kenshi/COVERAGE.json",
+      "ids": [
+        "F1–F5/P1–P5",
+        "COVERAGE.json"
+      ],
+      "classification": "Historical bounded source coverage and original proposal set",
+      "owners": [
+        "docs/research/kenshi/REPORT.md",
+        "docs/research/kenshi/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "59558decodedrecordsexactEOF notfullmodloadprecedence/nativeAI. Patchedvsbasehunger data distinction retained withoutvalidatingruntime. Contractexpiryservice notfriendship; actorstatusinstitutiontruthobserverknowledge separate; unloadedAI authoreddata notschedulerproof. Realjobclock/purse/custodyownersreuse, no forcedhunger/allNPCtick. Currentmilestone/oldsaveauthorityqualifiespacketintro.",
+      "evidence": "Fresh entireJSON/Markdown read including everycoverage/notrun/unreadfield, mechanismtable, packetexclusions andlaterreviewstatus. ActualsourceFindings/rawpayload/renderings/decompiledmethods/devlogs notreread or executed. No current YAIRcodebehavior newlyinferred.",
+      "reopen": "Preserve source-localIDs/versions/limits and originalpossibilities. Select from currentincumbentconsumer before runtimework; nouninstall/acquisition or repeat oldclosedqueue.",
+      "input_sha256": "d0d6fe6065473e39769f9dabce33b3a3ce59c61f161b5c44febbef2defd9b1ec",
+      "input_lines": 36,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          36
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/kenshi/REPORT.md",
+      "ids": [
+        "F1–F5/P1–P5",
+        "REPORT.md"
+      ],
+      "classification": "Historical bounded source coverage and original proposal set",
+      "owners": [
+        "docs/research/kenshi/REPORT.md",
+        "docs/research/kenshi/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "59558decodedrecordsexactEOF notfullmodloadprecedence/nativeAI. Patchedvsbasehunger data distinction retained withoutvalidatingruntime. Contractexpiryservice notfriendship; actorstatusinstitutiontruthobserverknowledge separate; unloadedAI authoreddata notschedulerproof. Realjobclock/purse/custodyownersreuse, no forcedhunger/allNPCtick. Currentmilestone/oldsaveauthorityqualifiespacketintro.",
+      "evidence": "Fresh entireJSON/Markdown read including everycoverage/notrun/unreadfield, mechanismtable, packetexclusions andlaterreviewstatus. ActualsourceFindings/rawpayload/renderings/decompiledmethods/devlogs notreread or executed. No current YAIRcodebehavior newlyinferred.",
+      "reopen": "Preserve source-localIDs/versions/limits and originalpossibilities. Select from currentincumbentconsumer before runtimework; nouninstall/acquisition or repeat oldclosedqueue.",
+      "input_sha256": "e7c37f172700bb7fa87be4026839afb0711396de063671f7cf22a30e864d2830",
+      "input_lines": 15,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/kenshi/IMPLEMENTATION_PACKETS.md",
+      "ids": [
+        "F1–F5/P1–P5",
+        "IMPLEMENTATION_PACKETS.md"
+      ],
+      "classification": "Historical bounded source coverage and original proposal set",
+      "owners": [
+        "docs/research/kenshi/REPORT.md",
+        "docs/research/kenshi/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "59558decodedrecordsexactEOF notfullmodloadprecedence/nativeAI. Patchedvsbasehunger data distinction retained withoutvalidatingruntime. Contractexpiryservice notfriendship; actorstatusinstitutiontruthobserverknowledge separate; unloadedAI authoreddata notschedulerproof. Realjobclock/purse/custodyownersreuse, no forcedhunger/allNPCtick. Currentmilestone/oldsaveauthorityqualifiespacketintro.",
+      "evidence": "Fresh entireJSON/Markdown read including everycoverage/notrun/unreadfield, mechanismtable, packetexclusions andlaterreviewstatus. ActualsourceFindings/rawpayload/renderings/decompiledmethods/devlogs notreread or executed. No current YAIRcodebehavior newlyinferred.",
+      "reopen": "Preserve source-localIDs/versions/limits and originalpossibilities. Select from currentincumbentconsumer before runtimework; nouninstall/acquisition or repeat oldclosedqueue.",
+      "input_sha256": "7900e5e98e703f497b0bddc0ac6a7ed279c0ddcdc05de25b5bd69a3ab5e02d0f",
+      "input_lines": 13,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/soulash-2/COVERAGE.json",
+      "ids": [
+        "F1–F4/O1–O4",
+        "COVERAGE.json"
+      ],
+      "classification": "Historical bounded source coverage and original proposal set",
+      "owners": [
+        "docs/research/soulash-2/REPORT.md",
+        "docs/research/soulash-2/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "Demo0.9.19.7frozen16selectedmembers notretail0.10xbehavior;devlogs creatorhistoricaldescription notcompiledruntime. Building/direct/gatherconversions differ, units/workerandnativegrant/spendunknown. OwnreviewclosesO1/O3existingselectsD1O2notnewO1wave. O4materialcycleconservationnotuniversalno-profitlaw;no forcedaffinityloss whenactualmeanssupportgain.",
+      "evidence": "Fresh entireJSON/Markdown read including everycoverage/notrun/unreadfield, mechanismtable, packetexclusions andlaterreviewstatus. ActualsourceFindings/rawpayload/renderings/decompiledmethods/devlogs notreread or executed. No current YAIRcodebehavior newlyinferred.",
+      "reopen": "Preserve source-localIDs/versions/limits and originalpossibilities. Select from currentincumbentconsumer before runtimework; nouninstall/acquisition or repeat oldclosedqueue.",
+      "input_sha256": "2a1647f736ccb30005fb86f79173dc24314b127224c038b76a2cb8b2f32fef17",
+      "input_lines": 36,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          36
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/soulash-2/REPORT.md",
+      "ids": [
+        "F1–F4/O1–O4",
+        "REPORT.md"
+      ],
+      "classification": "Historical bounded source coverage and original proposal set",
+      "owners": [
+        "docs/research/soulash-2/REPORT.md",
+        "docs/research/soulash-2/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "Demo0.9.19.7frozen16selectedmembers notretail0.10xbehavior;devlogs creatorhistoricaldescription notcompiledruntime. Building/direct/gatherconversions differ, units/workerandnativegrant/spendunknown. OwnreviewclosesO1/O3existingselectsD1O2notnewO1wave. O4materialcycleconservationnotuniversalno-profitlaw;no forcedaffinityloss whenactualmeanssupportgain.",
+      "evidence": "Fresh entireJSON/Markdown read including everycoverage/notrun/unreadfield, mechanismtable, packetexclusions andlaterreviewstatus. ActualsourceFindings/rawpayload/renderings/decompiledmethods/devlogs notreread or executed. No current YAIRcodebehavior newlyinferred.",
+      "reopen": "Preserve source-localIDs/versions/limits and originalpossibilities. Select from currentincumbentconsumer before runtimework; nouninstall/acquisition or repeat oldclosedqueue.",
+      "input_sha256": "49d9b52cf04fe2648fffd7622f45247eb26f53d43e312b0605677f5ed36b7985",
+      "input_lines": 23,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          23
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/soulash-2/IMPLEMENTATION_PACKETS.md",
+      "ids": [
+        "F1–F4/O1–O4",
+        "IMPLEMENTATION_PACKETS.md"
+      ],
+      "classification": "Historical bounded source coverage and original proposal set",
+      "owners": [
+        "docs/research/soulash-2/REPORT.md",
+        "docs/research/soulash-2/IMPLEMENTATION_PACKETS.md"
+      ],
+      "disposition": "Demo0.9.19.7frozen16selectedmembers notretail0.10xbehavior;devlogs creatorhistoricaldescription notcompiledruntime. Building/direct/gatherconversions differ, units/workerandnativegrant/spendunknown. OwnreviewclosesO1/O3existingselectsD1O2notnewO1wave. O4materialcycleconservationnotuniversalno-profitlaw;no forcedaffinityloss whenactualmeanssupportgain.",
+      "evidence": "Fresh entireJSON/Markdown read including everycoverage/notrun/unreadfield, mechanismtable, packetexclusions andlaterreviewstatus. ActualsourceFindings/rawpayload/renderings/decompiledmethods/devlogs notreread or executed. No current YAIRcodebehavior newlyinferred.",
+      "reopen": "Preserve source-localIDs/versions/limits and originalpossibilities. Select from currentincumbentconsumer before runtimework; nouninstall/acquisition or repeat oldclosedqueue.",
+      "input_sha256": "0eee8b6d24648d6bf920b8c197d948dd643a32e8470ede1c993165aa66ee4e91",
+      "input_lines": 22,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          22
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/path-of-achra/REPORT.md",
+      "heading": "## Content and coverage reconciliation, 2026-11-04 (B174)",
+      "body": "F1–F5/COVERAGE and P1–P5 including the later proposal review were read. Full byte consumption for126 compiled-script renderings does not mean buildable reconstructed GDScript or126 scripts semantically audited; the reported semantic read is five paths with989 union lines. Clock-search’s100-iteration bound is not a pending-effect-chain limit. Front insertion, apply/remove order, living healer/target guards, missing-HP cap and move-versus-wait hooks remain distinct source observations, not played timing. No retail/DLC parity, Godot rebuild, private rendering reread or native save proof follows.\n\nPreserve proposed pending-order visibility, earned charge gain/spend/recovery, repeat-duration versus replacement, conditional heal and movement consequences. Their October7 review already puts P1/P3/P5 later, P2 in a then-ranked schema-dependent selection and P4 out of that scope. “Adopt-now” in an agent review is not a new user acceptance; the local drop is not a prohibition on later actual mechanisms. Current direction retires the one-realm/one-prestige gate and retains valid powerful chains without invented caps or costs. No new combat/schema work is selected.",
+      "before_sha256": "2739b18bc95c01a4ac84f5c11e3b7afc8f8d9fe3d056147c3efc03bbedd5dafb",
+      "after_sha256": "0e737483432b66a0d7e44fe55062b58e6112f6543ea7efe2efdc2ded3000b697"
+    },
+    {
+      "path": "docs/research/cultist-simulator/REPORT.md",
+      "heading": "## Content and coverage reconciliation, 2026-11-04 (B174)",
+      "body": "All seven-chain coverage fields, this report and P1–P5 were read.618 decompiled C# files and61 reviewed locators do not establish original project source, whole-engine semantics or all campaigns. Eligibility versus actual consumption, fatigue/illness/work’s different transformations, persistent desire mutation and ending-dependent next origins are useful distinct mechanisms. A copied/extracted source pass is not a game launch, present installation or permission to uninstall. Save/ending internals and most content remain unread.\n\nKeep the original packet distinctions: one opted commitment competes with ordinary resources; rest and treatment can have different consequences; a temporary preparation has real competing consumers; strain belongs to the actual vow; an ending can still offer a home-life choice after paid costs. These do not impose a universal corruption/upkeep meter, bodily decline, copied legacy or source Random policy. Current world-specific death/continuation and old-save direction govern rather than historical boilerplate; current-state settlement and round trips remain meaningful. Original death/legacy questions and offscreen policy stay with their owners. No new implementation or source/payload reading was launched.",
+      "before_sha256": "ea03fc3f344fcbf658fcd08bf37ed5c3ede1d202c69a43fc9aa7a7d0f94bea7c",
+      "after_sha256": "483f9b4d6f1624ac4e0c5f9567654d6a58cb0667ed3285d6714341ff359cd6f8"
+    },
+    {
+      "path": "docs/research/kenshi/REPORT.md",
+      "heading": "## Content and coverage reconciliation, 2026-11-04 (B174)",
+      "body": "This report, full coverage JSON and P1–P5 were read.59558 decoded typed records across four individual layers and exact EOF checks are structural data recovery, not complete mod load-order/removal semantics or native AI/needs/combat/save execution. FCS managed reader recovery is distinct from native C++ gameplay. Patched hunger values differ from base, so even authored balance cannot be inferred from one layer alone. Source copying and zero worker consumers do not authorize present uninstall.\n\nRetain practical origin circumstances, food/work/storage linkage, priority/window/unloaded policies, temporary protection ending with an actual contact, and person-status-driven institution changes. Proposed apprentice wages and shared work, expiring service versus durable friendship, institution truth versus who knows it, and coarse absent routine boundary checks should reuse current stock/job/actor/knowledge owners if selected. They do not require per-tick distant simulation or a universal hunger/survival penalty. Authored unloaded mode is not a recovered save-compaction algorithm. Old first-milestone, blanket existing-save and “verification deferral” wording is historical under current direction/AD36/AD43. No native game, private source or YAIR consumer was reverified.",
+      "before_sha256": "e7c37f172700bb7fa87be4026839afb0711396de063671f7cf22a30e864d2830",
+      "after_sha256": "624dbd1c9695ae4756a0a681c6fc70eb1dd28ea0fe1014db9eaaf1baecd7e64f"
+    },
+    {
+      "path": "docs/research/soulash-2/REPORT.md",
+      "heading": "## Content and coverage reconciliation, 2026-11-04 (B174)",
+      "body": "F1–F4, the entire coverage JSON and O1–O4 including their later review were read. The frozen0.9.19.7 demo’s16 selected JSON members are distinct from most archive entries and later retail/devlog features. Gather results, daily buildings and direct processing are different authored routes; units, worker scope, runtime loader, unlock enforcement and resource subtraction remain unknown. Historical creator devlogs are not freshly consulted primary sources or recovered retail implementation.\n\nThe packet’s own review supersedes its O1-first recommendation: O1/O3 were recorded as already shipped, O2 selected as the bounded D1 alloy slice and O4 deferred. Do not commission a duplicate timber/practice wave or call every old packet an untouched gap. Preserve actual input/output stock, useful downstream material use, valid action before practice XP and distinct conversion-property choices. O4’s “cycling never creates free value” is a proposed balance choice, not a standing conservation law: conserved quantities and local valuation differ, and real mechanisms can allow profitable cycles or improvements without forced compensating losses. Existing appraisal, material and economy owners govern. Current direction retires the one-realm/one-prestige prerequisite. No exact demo values, elemental cycle or new world/ability system was imported.",
+      "before_sha256": "49d9b52cf04fe2648fffd7622f45247eb26f53d43e312b0605677f5ed36b7985",
+      "after_sha256": "52299f46909be16e37e5131529c0b6a90f71a5639bdaa5e8b40f4e25fbdcdcb4"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1123
+}

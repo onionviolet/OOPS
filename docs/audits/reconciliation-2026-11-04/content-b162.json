@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "batch": "B162",
+  "title": "World and review audit shards, suspicion and coverage limits",
+  "at": "2026-11-04T22:18:42.522201+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/D3.md",
+      "ids": [
+        "D3-F1–F15"
+      ],
+      "classification": "Historical mixed-scope audit shard; actual findings reviewed",
+      "owners": [
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/SYNTHESIS.md",
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/D3.md"
+      ],
+      "disposition": "Keep local namespace collisions separate from registered rule codes and secret ID routes, missing planned paths separate from falsely cited evidence, repeated names separate from world-scoped ID collisions and source counts separate from delivered command reachability. D3-F1 unsupported one-in-three-reader estimate is not a measured rate. Retain snapshot locators and unique card/lane material; no mass template extraction or world-name renaming. L6 and current B159 qualify old heir/away claims; suspected private-pack absence and E2–E6 implementation remain unconfirmed.",
+      "evidence": "Fresh entire report including every finding, source scope, clean-check claims, sampled/skipped list and not-changed section. B161 directly read current acceptance record, confirmation and registered namespace owner. B159 directly read current away bank. Linked corpora, screenshots, sources, manifests and machine counts not independently rechecked through shard.",
+      "reopen": "Inspect the exact current seam if selected; no new gate, deletion or dispatch follows this historical finding.",
+      "input_sha256": "a132b5b2f2b9c0f39d6e469ecb76dd19dd0f02746dd2f275940eef3962b5c1d3",
+      "input_lines": 205,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          205
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/D4.md",
+      "ids": [
+        "D4-F1–F22; cross-area checks"
+      ],
+      "classification": "Historical mixed-scope audit shard; actual findings reviewed",
+      "owners": [
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/SYNTHESIS.md",
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/D4.md"
+      ],
+      "disposition": "D4-F2 missing acceptance claim is wrong per current owning vision and D1/D2; retain historical contradiction and explicit correction. Coverage inventories are different scoped snapshots and SG03 drift calls for relationship review, not semantic skip by hash. Passing isolated cheat tests does not resolve prior suite failure. Current commit-helper question requires actual current source before use, no reset authorized. Later M3/fixes and current bank supersede old status. Preserve verbatim prompt provenance and later amendments, old screenshots/ephemeral roots without claiming now absent or fresh proof.",
+      "evidence": "Fresh entire report including every finding, source scope, clean-check claims, sampled/skipped list and not-changed section. B161 directly read current acceptance record, confirmation and registered namespace owner. B159 directly read current away bank. Linked corpora, screenshots, sources, manifests and machine counts not independently rechecked through shard.",
+      "reopen": "Inspect the exact current seam if selected; no new gate, deletion or dispatch follows this historical finding.",
+      "input_sha256": "a7de16cf18ecfbfa84ddfa8617e23f5ef14204fc138910790618e9162d780a62",
+      "input_lines": 199,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          199
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/D4.md",
+      "heading": "## Content reconciliation and F2 correction, 2026-11-04 (B162)",
+      "body": "D4-F1–F22, cross-area checks and the complete coverage/skip lists were read. F2’s claim that USER_VISION had no acceptance entry is wrong. The [owning acceptance record](../../USER_VISION.md#proposal-rulebooks-accepted-2026-10-18), read directly in B161, records the October 18 user instruction and October 19 confirmation, and explicitly identifies D4-F2 as mistaken. D1-F21 and D2-F4 already cited that record. Core-rule-qualified standing defaults are established; do not revert their register status or ask Weibao to repeat the acceptance. F2’s observation that old proposal labels could drift is separate from its incorrect inference about missing authority. Original wording remains dated audit history.\n\nLater follow-up reports resolve named M3, heir, branding, harness, cafe and registry/ratchet claims at exact scopes; B159’s current bank source qualifies blanket unwired-away statements. Their presence does not certify every current consumer or eliminate every original concern. Isolated cheat-test success is not proof that the earlier suite/environment failure is repaired. The 748/778 inventories and 141/120 unchanged-control counts are differently scoped and dated; original skip claims require the actual semantic relationship receipt and current input identity, not a hash-only shortcut. This reconciliation’s inventory records its own explicit reading boundaries.\n\nPreserve useful distinctions: source-copy prompt links versus executable relative links, immutable capture versus post-capture annotation, source path existence versus behavior, untracked warnings versus absent files, and opaque hidden causes versus observable recap. A former commit-helper reset finding is a warning to inspect its current implementation before use, not authority to run reset or change shared staged work. Snapshot/bulk deletion, seven panel relocations, screenshot removal, mass code renaming and a replacement audit universe are not selected. Screenshots and large receipt payloads listed in this shard remain separately unread unless their own current reconciliation records say otherwise.",
+      "before_sha256": "a7de16cf18ecfbfa84ddfa8617e23f5ef14204fc138910790618e9162d780a62",
+      "after_sha256": "c8d601d1c5b1bf9fcdc0f11e00b6cf163a3128161bab29545a0d06b943f4789c"
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/SYNTHESIS.md",
+      "heading": "## D3/D4 content follow-through, 2026-11-04 (B162)",
+      "body": "D3’s fifteen and D4’s twenty-two findings were read in full with their stated scan, sample and excluded-body coverage. D3’s 983 multiply-defined codes were not 983 confirmed semantic collisions; only about fifteen examples were compared. Its “one in three readers” estimate was not a measured usability result. Repeated NPC display names are not an established world-qualified ID defect. A missing proposed file is different from an evidence claim naming a missing test, and a private-pack absence inference cannot be settled by public-tree grep alone. Preserve secret IDs/routes without exposing underlying truth or choosing a new registry scheme here.\n\nD3’s cards/template and recovery-copy findings preserve a useful maintenance concern, but duplicate bytes do not permit discarding unique world deltas, chronology or evidence. Frozen source-line citations may still identify a historical build even when they no longer locate live symbols. Existing L6 follow-through and separately reviewed current owners qualify named stale claims; this read does not certify every world, primary source, leaked-secret path, full-save restoration or current command count. D4-F2’s acceptance-record error is now explicitly corrected in [its own report](D4.md#content-reconciliation-and-f2-correction-2026-11-04-b162). Both shards retain their original evidence and exclusions, and neither becomes a new implementation queue.",
+      "before_sha256": "6c0b28638eb87afd001a7bd56142b10e8ba830ced474f7001e557d8b72557d24",
+      "after_sha256": "af3611054be9e434d2d5c995dc1da9f9c040c24ab2da8dbd00a6aed30dd8a8f6"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1157
+}

@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "batch": "B198",
+  "title": "Complete subsystem ladders through current activity-rule adoption",
+  "at": "2026-11-04T22:53:43.978788+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/SUBSYSTEM_SCOPE_LADDERS_2026-10-16.md",
+      "ids": [
+        "SSD1–SSD110 scoped codes",
+        "AC1–AC18",
+        "SI1–SI12",
+        "R1–R5",
+        "XC1–XC10",
+        "XD1–XD8"
+      ],
+      "classification": "Older scope palette plus later activity-compression audit and cross-world continuation",
+      "owners": [
+        "docs/SUBSYSTEM_SCOPE_LADDERS_2026-10-16.md",
+        "docs/ACTIVITY_ABSTRACTION_RULES.md"
+      ],
+      "disposition": "Later AD52/ACR adoption qualifies original proposal-only language at operating-principle scope. Keep ladders/models, optional forms and specific fixtures/numbers distinct from standing principles. Preserve actual means, result lifecycle, observer-safe progress, shared stock, independent clocks and long play.",
+      "evidence": "Fresh full read through latest end, including content beyond old inventory line count and every AC/SI/XC/XD row. Original surveys, code, temporary fingerprints, all-world briefs and runtime not reread.",
+      "reopen": "Selected repeated activity or scope/detail change: use current ACR principles and actual world/result consumer; no eighteen-feature quota or all-world implementation.",
+      "input_sha256": "8b150075398a88c09d4a302304bb84e8b21a936d3a8bcb0707ca0cf5c46b06ae",
+      "input_lines": 432,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          432
+        ]
+      ]
+    },
+    {
+      "path": "docs/ACTIVITY_ABSTRACTION_RULES.md",
+      "ids": [
+        "ACR1–ACR14",
+        "Bounded AC/SI/XC/XD adoption",
+        "Long-play clarification"
+      ],
+      "classification": "Standing activity-compression rule owner with explicit bounded adoption",
+      "owners": [
+        "docs/ACTIVITY_ABSTRACTION_RULES.md",
+        "docs/SUBSYSTEM_SCOPE_LADDERS_2026-10-16.md",
+        "docs/RULES_INDEX.md"
+      ],
+      "disposition": "Read current rule owner directly. Operating principles are standing under AD52; agent-authored wording adjustable and example fields/numbers/playstyle extensions not blanket adopted. Compression reduces handling without limiting total play; software abstraction AD51 separate.",
+      "evidence": "Fresh full text read. Quoted user direction and current rule text establish document authority, not gameplay delivery; no code/test/browser verification.",
+      "reopen": "Selected compressed activity: preserve real means, stages, support, knowledge, chance, clocks, identity and actual result use under AD36/43. No rule changes in this batch.",
+      "input_sha256": "849f72bc8892142dd6d9a32ce77262e0abf658f597d16750ddbfb28320649047",
+      "input_lines": 37,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          37
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/SUBSYSTEM_SCOPE_LADDERS_2026-10-16.md",
+      "heading": "## Complete ladders and bounded activity-adoption reconciliation, 2026-11-04",
+      "body": "Read SSD scope ladders through the full AC/SI and XC/XD continuations, then ACR1–ACR14 directly. The current AD52 adoption makes the mapped operating principles standing, while each activity, example, numerical budget, fixture and later playstyle idea keeps its conditional status. Earlier proposal-only headers describe their original rounds; they do not undo that bounded adoption. ACR1 explicitly supports long growth and sustained play: compression reduces repeated handling, not how long the player may enjoy a life.\n\nSSD10 rungs describe implementation models, not a compulsory player progression or universal cost ordering. Different views retain named individuals, established custody, causes and learned knowledge. SSD71’s pool analogy and closed-form away projection do not prove ecological equivalence, safe batching across condition boundaries or a shared primitive already exists. SSD58’s exchange.js pointer is the historical clerk parcel seam, not general native trade authority, as ECX10 already records. Old first-slice rankings, active UI/loader names, per-holding named-animal budgets and second-consumer wording do not select today’s work; AD51 governs actual shared design.\n\nAC/SI/XC/XD preserve the important distinctions: a chosen plan has no stock by itself; detail changes are not extra competence; usable result, delivery and pay can occur separately; a worker’s knowledge needs a reporting route; support loss settles actual stages once; a decision prompt does not stop all clocks. Independent passive processes and helpers need their own means, without a universal one-job limit. A power can remove a chore without replacement busywork. Progress expresses known effort/coverage rather than omniscient success, and the developer canon route does not certify ordinary lives. No code, source acquisition, world-wide rollout or new pacing benchmark was produced here (AD32, AD36, AD43).",
+      "before_sha256": "8b150075398a88c09d4a302304bb84e8b21a936d3a8bcb0707ca0cf5c46b06ae",
+      "after_sha256": "49ec39dd31f71de3d264dddeec068801124325839aae60db223298a77ca07542"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1089
+}

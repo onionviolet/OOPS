@@ -1,0 +1,164 @@
+{
+  "schema": 1,
+  "batch": "B256",
+  "title": "Ability mechanisms, personal limits and playtest evidence contracts",
+  "at": "2026-11-05T00:05:36.625478+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/ABILITY_RULES.md",
+      "ids": [
+        "ABR1–22",
+        "ABM1–11",
+        "AB1–37"
+      ],
+      "classification": "Dated rule/proposal palette and evidence qualifications",
+      "owners": [
+        "docs/ABILITY_RULES.md"
+      ],
+      "disposition": "Preserve full original content and append specific authority, source, consumer and proof corrections in the owner.",
+      "evidence": "Full document delivered and reviewed; harness initial middle truncation covered by explicit lines 139–205 read. Selected current source searches and excerpts scoped in owner; no tests, benchmark, book verification or browser run.",
+      "reopen": "Use the appended content disposition when selecting an implementation; resolve named source or consumer gaps on actual current inputs, without importing historical reservations or proposed gates.",
+      "input_sha256": "616ae3efc2c3a8248baa8229f5f77a9132e3630413823a06f675f78f330b3e61",
+      "input_lines": 339,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          339
+        ]
+      ]
+    },
+    {
+      "path": "docs/ABUSE_AND_LIMITS.md",
+      "ids": [
+        "F1–10",
+        "T1–12",
+        "Parts 1–4",
+        "adjective families/Q1–2"
+      ],
+      "classification": "Dated rule/proposal palette and evidence qualifications",
+      "owners": [
+        "docs/ABUSE_AND_LIMITS.md"
+      ],
+      "disposition": "Preserve full original content and append specific authority, source, consumer and proof corrections in the owner.",
+      "evidence": "Full document delivered and reviewed; harness initial middle truncation covered by explicit lines 139–205 read. Selected current source searches and excerpts scoped in owner; no tests, benchmark, book verification or browser run.",
+      "reopen": "Use the appended content disposition when selecting an implementation; resolve named source or consumer gaps on actual current inputs, without importing historical reservations or proposed gates.",
+      "input_sha256": "4a3cdce7fce485e30cb92d7d009b38a6e7e787b8b814b13ac41c3f6ef41947ec",
+      "input_lines": 176,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          176
+        ]
+      ]
+    },
+    {
+      "path": "docs/AI_PLAYTEST_HARNESS_CONSIDERATIONS_2026-10-20.md",
+      "ids": [
+        "PT1–112",
+        "PTF1–6",
+        "three rounds/checklist"
+      ],
+      "classification": "Dated rule/proposal palette and evidence qualifications",
+      "owners": [
+        "docs/AI_PLAYTEST_HARNESS_CONSIDERATIONS_2026-10-20.md"
+      ],
+      "disposition": "Preserve full original content and append specific authority, source, consumer and proof corrections in the owner.",
+      "evidence": "Full document delivered and reviewed; harness initial middle truncation covered by explicit lines 139–205 read. Selected current source searches and excerpts scoped in owner; no tests, benchmark, book verification or browser run.",
+      "reopen": "Use the appended content disposition when selecting an implementation; resolve named source or consumer gaps on actual current inputs, without importing historical reservations or proposed gates.",
+      "input_sha256": "0730951e40b9e3e510d3631f6081afa70b2c48dd4a146cbe3694bd812662b06e",
+      "input_lines": 320,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          320
+        ]
+      ]
+    },
+    {
+      "path": "scripts/playtest/README.md",
+      "ids": [
+        "five detectors/faults",
+        "floor runner/roundtrip/output"
+      ],
+      "classification": "Dated rule/proposal palette and evidence qualifications",
+      "owners": [
+        "scripts/playtest/README.md"
+      ],
+      "disposition": "Preserve full original content and append specific authority, source, consumer and proof corrections in the owner.",
+      "evidence": "Full document delivered and reviewed; harness initial middle truncation covered by explicit lines 139–205 read. Selected current source searches and excerpts scoped in owner; no tests, benchmark, book verification or browser run.",
+      "reopen": "Use the appended content disposition when selecting an implementation; resolve named source or consumer gaps on actual current inputs, without importing historical reservations or proposed gates.",
+      "input_sha256": "42ee071adc4fa2d2cfa31fd0eeab558ef8383baa695633e2277e2e410d9b989e",
+      "input_lines": 55,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          55
+        ]
+      ]
+    },
+    {
+      "path": "docs/tools/GAME_MCP_LIMITS.md",
+      "ids": [
+        "known limits",
+        "C2 native access",
+        "B1 receipt",
+        "E4 M10 tool contract"
+      ],
+      "classification": "Current documentation owner read as support; not live tool proof",
+      "owners": [
+        "docs/tools/GAME_MCP_LIMITS.md",
+        "docs/AI_PLAYTEST_HARNESS_CONSIDERATIONS_2026-10-20.md"
+      ],
+      "disposition": "Read all 105 lines to qualify the older all-missing EL16 checklist. Preserve tool limitations and distinguish documented capability from a new run.",
+      "evidence": "All 105 lines delivered in bounded read 1–125; no tool started or test run.",
+      "reopen": "Preflight actual supported routes and selected checkout before a new playtest; separate headless saved-state mirror evidence from browser transient interaction.",
+      "input_sha256": "d701119ba369b5487453bca3bb302cacc6b6300fede7ce8c06bf80b61732bc33",
+      "input_lines": 105,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          105
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/ABILITY_RULES.md",
+      "heading": "## Content reconciliation B256",
+      "body": "Full review of ABR1–22, ABM1–11 and AB1–37 preserves this as the stated proposed rulebook and source/work palette. AB11 is explicitly below floor; a scoped current import search found only its catalogue and test importing the ledger, which supports the absence of a registered gameplay consumer in that search, not a fresh execution or proof that every possible dynamic caller is absent. Its nine historical tests were not rerun. The October 25 per-world table remains a dated snapshot. Round 1 AB10 says Naruto held text is missing; Round 2 AB12 supplies a held secondary dump and revisions. Use the later qualified source record rather than re-listing that older acquisition gap; acquisition is separate from primary-source verification.\n\nABR14 already qualifies authored stamina/spirituality costs and source requirements. Apply that qualification also to ABM3/ABM9 and the LOTM table's proposed conversion: one cost vocabulary does not mean all mechanisms in a world must spend the same resource, or that an observed use necessarily advances digestion. Source-qualified causes decide both. ABR18's new domains/verbs is a useful depth check, not permission to deny a source-defined rank whose actual change is quantitative. AB15 conservation is a candidate mechanism with world-specific suppliers and destinations, not a universal law imposed on every power, title or wand mastery. AB27/AB30 suggest one exposure input with distinct readers; that does not establish identical accumulation units, thresholds or counters across body tolerance and Warping.\n\nKeep AB31's crisis analogy separate from its quoted Ars Magica thresholds and AD50's project direction. The analogy does not certify permanent outcomes, guaranteed exit counts or successful restoration in another world. AB34's longevity anchor does not by analogy supply AB17's resurrection-after-death behavior. All to-check cells, claimed source mathematics and transplant exceptions retain their original qualifications; this pass did not reopen the books or validate wiki claims. No adaptation registration, cost conversion, persistence migration, bulk-reader dispatch or alternate-world priority was selected. AD51 permits a useful seam with its first known consumer; the second case validates reuse rather than becoming an embargo.",
+      "before_sha256": "616ae3efc2c3a8248baa8229f5f77a9132e3630413823a06f675f78f330b3e61",
+      "after_sha256": "d8d559d997e3c2e687f749b1332e2fc153e4129bf769677c1c786f37ce375bbe"
+    },
+    {
+      "path": "docs/ABUSE_AND_LIMITS.md",
+      "heading": "## Content reconciliation B256",
+      "body": "Full content review preserves F1–10, T1–12, every per-system example, funny-abuse ideas and the adjective palette. The opening “Fixed / impossible or pointless” treatment and the dev/edited-history exclusions are earlier proposals qualified by the user's own later wording in this document and AD22: personal save editing and repeat play are low priority, and anti-cheat, tamper labels, competing-live-copy enforcement or achievement exclusion are not required work. Save integrity still matters. F8's duplicate settlement protection prevents accidentally paying one committed operation twice; it does not outlaw intentionally repeatable in-world rewards or authorized copying mechanisms.\n\nF1/F2 determinism and trial stakes, F3/F4/F5 branch identity, F6 checksums, F7 offline caps and F9 branch timing each need their actual owning mechanism before use. They are not proven implementations or universal save policies. A checksum detects byte changes, not the player's motive or a fictional crime. Replay/import and branch rules may legitimately differ, and no migration is authorized by this reconciliation. The concluding “only unedited, non-dev history” line remains an optional proposal, not an adopted filter.\n\nT1–12 are available consequences when an in-world supplier has the means and reason. T2's “every repeatable power charges” and the claim that the world counters discoveries “in time” do not mandate a surcharge, cooldown, omniscient heat, escalation or punishment for every effective method (AD5, AD38). Free or undetected use can fit a world. Ghosts, generated selves, rewind anchors and jurisdiction examples retain world-specific exceptions rather than fixing personhood, life count or legal reach for all worlds. No implementation, anti-cheat work or balancing gate was selected.",
+      "before_sha256": "4a3cdce7fce485e30cb92d7d009b38a6e7e787b8b814b13ac41c3f6ef41947ec",
+      "after_sha256": "a2359e726bf873d9fd4c290b9ae50c9f715f8eafd4052d79f1d66d04c00adc33"
+    },
+    {
+      "path": "docs/AI_PLAYTEST_HARNESS_CONSIDERATIONS_2026-10-20.md",
+      "heading": "## Content reconciliation B256",
+      "body": "PT1–112 and PTF1–6 have been content-reviewed as a dated first-slice receipt plus proposed work palette. The first-slice DONE statements refer to October 20 inputs, not a pass on today's shared checkout. Local model tags, hardware, serving backends, memory estimates, speeds and capacity limits remain historical or explicitly unverified; no installation check, benchmark, external recommendation or overnight model run occurred here. PT91's cores-minus-two pool is not permission to occupy the shared machine. Current agent and machine ownership governs any future execution.\n\nEL16 is no longer wholly absent: the [current tool owner](tools/GAME_MCP_LIMITS.md) documents sessions, native panel/select access, export/reload, compact observations, frozen manifests and supported quote access. Its quote route is finite and headless visibility is approximate. This does not close every PT36–42 contract item, the model-driver checklist, or a rebuilt browser UI gate. The tools page was fully read, not a tool launch. PT52's bidirectional coverage applies to selected gameplay operations; settings, inspection and purely presentational controls need not invent simulation commands, and observer-hidden or API-only internal operations need not reveal controls. Keep a declared action/observation scope.\n\nA scoped current source read of [run.mjs](../scripts/playtest/run.mjs) lines 45–85 and 178–193 plus targeted matches qualifies PT4/PT9/PT75/PT85: canonical saves are hashed, but findings, error text, UI snippets and changed/added save paths also enter reports. Hashing save payloads alone does not certify a report as safe to publish. Review those output fields and screenshots for sealed content before moving summaries into public docs. The build stamp records HEAD and a dirty boolean for src/index/styles, not the exact changed source bytes or every dependency; a historical stamp does not pin the tested build.\n\nThe same source excerpt shows uiPass returns silently if uiCheck throws. Thus a ui verdict without failures can include an unmeasured screen; it is not proof that every selected screen was checked. PT100 gates checks on changed observation hashes, which likewise does not cover geometry-only changes or async rendering without a changed hash. Preserve an explicit executed/skipped/failed count when this detector is next selected, rather than adding a new universal release gate now. PT20/PT79 treat added fields as notes, including non-default additions; stable first-load changes still need semantic triage (PTF2/PTF3), because idempotence alone cannot establish their correctness. PT108's seeded lane rules do not make an external model deterministic without recording model, prompt, options and selected choices. Different answer shapes and time tiers remain different policies. No old finding was marked fixed, no new playtest was run, and the current desktop owner governs target sizes.",
+      "before_sha256": "0730951e40b9e3e510d3631f6081afa70b2c48dd4a146cbe3694bd812662b06e",
+      "after_sha256": "d397c8f09cc31190ef0c8e1c315d52d6e440c72a7602abfb50c62d0096193c15"
+    },
+    {
+      "path": "scripts/playtest/README.md",
+      "heading": "## Content reconciliation B256",
+      "body": "The design and DONE entries above are historical scope, not a fresh pass from this reconciliation. Full README content was reviewed alongside PT1–112. The report's hash-based save summary does not eliminate other output text: current run.mjs renders finding details, error text, UI snippets and changed/added paths. Inspect those fields and screenshots for sealed content before publishing a summary. The HEAD plus dirty-source boolean is not an exact input manifest. A missing or errored uiCheck currently returns without a finding, so a passing UI verdict alone does not show that every screen was measured. Added first-load data being a note and a stable second reload establish neither intended semantics nor a repaired PTF2/PTF3. These are named limitations for the next selected harness change; no runner or detector was changed or executed here. [Content disposition](../../docs/AI_PLAYTEST_HARNESS_CONSIDERATIONS_2026-10-20.md#content-reconciliation-b256) preserves the proposed ideas and remaining checks.",
+      "before_sha256": "42ee071adc4fa2d2cfa31fd0eeab558ef8383baa695633e2277e2e410d9b989e",
+      "after_sha256": "ec1fa6dd8690e5f20c2edeae37ff84153ce1df2a7f987942cc3d6e42d8e3c8a7"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 915
+}

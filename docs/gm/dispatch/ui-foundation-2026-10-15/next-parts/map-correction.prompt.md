@@ -12,3 +12,10 @@ Then propose for YAIR, as options with defaults plus dials (no either/or questio
 (local place, area around, world), how it fits the existing center-mode controller, Back/Esc, 1366×768 at 14/21px,
 the log column (never shrink it), sealed places (no leaks), procedural/other worlds, and Proto23 baseline. Update your
 mockups to show map styles instead of (or alongside) the ledger. Keep COMMON rules and your file/scratch scope.
+
+
+## Content reconciliation B221, 2026-11-04
+
+The complete correction was reviewed as an attributed user change: spatial/map representation is the main question; numeric counts and lenses may annotate it. Preserve scale, actual known anchors, fog/discovery, subjects/resources, travel choice/time, perception and build effort separately. A schematic room grouping is not evidence of navigable coordinates, a runtime pathfinding model or known hidden residents. Different representations can fit local place, area and world without asking a universal either/or question (AD5/AD32).
+
+Current desktop targets, independent panes and prose-first task composition qualify the old1366-primary mockup instruction. Nov4 direction keeps art optional; this historical map request does not require a pictured scene, restore the stopped home experiment or launch a visible browser. Counts can remain useful annotations where genuinely admitted; unknown facts cannot enter counts, labels or alternate map views. This checkpoint read does not claim the downstream map research/mockups were fully read or the representation implemented. Follow the incumbent Around you/map owner and current task record for selected behavior and scoped proof.

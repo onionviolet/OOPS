@@ -11,3 +11,8 @@ B3, IMPLEMENTED_UNVERIFIED future join: T3 resolver-trace input/display slot is 
 D1, deferred: mobile, in-fiction knowledge lenses, policy rewrites, new automation, offline/catch-up behavior, rich lots, source history, new save domains and director taste acceptance are outside T2. Nothing here accepts those proposals.
 
 D2, persistence interpretation: exact bytes are compared around inspection inside each loaded state, and at literal-file Import/Export. Existing native load normalization changes other fields when producing a later save; whole-envelope equality across normalization is not claimed. Chain/stock/simulation/stream state and next draw are exact across reload/import.
+
+
+## Historical proof reconciliation, 2026-11-04 (B11)
+
+These boundaries belong to the exact lane/base in the linked report. T2’s absent T3 trace is a base-era fact; the later T3 checkpoint records its own isolated technical completion, not current primary-checkout integration. Preserve the distinction between naturally earned and seeded prerequisites, source-tested and timed native paths, and literal-file identity versus load normalization. Missing developer trace stays absent and must never be recomputed by inspection or exposed as player knowledge. Under current AD42, human fiction/balance/taste feedback is optional review, separate from agent verification. This reconciliation supplies no new runtime or merge evidence.

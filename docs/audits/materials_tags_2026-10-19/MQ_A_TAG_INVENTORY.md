@@ -205,3 +205,8 @@ All proposals; none is selected build scope (WDI40).
 1. What is the canonical op list long term, given the Village `steep, boil` and the frontier `steep, boil, grind` (Q2 above)?
 2. Which kind name should change to free `origin` or `provenance` (step 4)?
 3. How often should the unread-tag report run (step 1)?
+
+
+## Reconciliation B92, 2026-11-04
+
+Preserve tag kinds/reader distinctions, V1–V7 and Q1/Q2 units/process-owner findings as dated scoped evidence. Current thermal code reads hardness, so TQ19/V6 and an exact unread-list acceptance test must not continue claiming hardness has no reader. Current catalogue axes have unit, combination and omission policy; inspect a selected consumer rather than assuming all scalar properties average or omitted values always mean measured zero. Stored tags remain outside product identity, but current validateBatchProduct re-resolves and compares the whole product, including tags. Changing thresholds under the same law revision may reject an old product; storage alone does not establish freeze-on-reveal or migration compatibility. Retain the law and material revisions needed for validation. Different domain process enums are not automatically competing ownership or a mandate to merge; adapt at the actual shared consumer. Parent-only grouping tags need no forced rename/deletion. Original inventories exclude item boolean maps, much source data and shipped reachability, so their counts are not project-wide current totals.

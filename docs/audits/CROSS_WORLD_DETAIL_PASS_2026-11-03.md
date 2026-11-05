@@ -1,6 +1,6 @@
 # Cross-world detail pass (2026-11-03, proposal)
 
-Status: agent audit. Findings and rankings are proposals (AD32); nothing here is accepted, implemented or browser-verified. Method: a breadth pass on one lens (WI1 in [06_CROSS_WORLD](worlds/world-depth-2026-10-13/06_CROSS_WORLD.md)) using the 36 families in [CROSS_WORLD_DETAIL_REVIEW](gm/CROSS_WORLD_DETAIL_REVIEW.md). Evidence is a citation census (which docs name which CW code), not a content read of every world. A family that is never cited can still be covered under local wording; the census says only that no world has bound it by code.
+Status: agent audit. Findings and rankings are proposals (AD32); nothing here is accepted, implemented or browser-verified. Method: a breadth pass on one lens (WI1 in [06_CROSS_WORLD](../worlds/world-depth-2026-10-13/06_CROSS_WORLD.md)) using the 36 families in [CROSS_WORLD_DETAIL_REVIEW](../gm/CROSS_WORLD_DETAIL_REVIEW.md). Evidence is a citation census (which docs name which CW code), not a content read of every world. A family that is never cited can still be covered under local wording; the census says only that no world has bound it by code.
 
 ## Pass 1: general (where the 36 families are bound)
 
@@ -156,7 +156,7 @@ Method: grep of the six mystery and cultivation institution docs (LOTM, Shadow S
 | R3 workshop scale and waste (CW18) | **Reframed: a dial, not a hole.** 3 covered, 8 partial, 5 not found | `src/hp_preparation.js:25,40,66` sets `waste: 0` and labels it "(ORIGINAL)"; `src/craft_process_thermal.js:134` routes degraded output to residue; Fallout scrap-down is FO1 (world-depth 04:11); Elden Ring declares throughput and residue (elden-ring/MODULE_CATALOGUE.md:68, reader) |
 | CW04 care (cultivation) | **Confirmed for the source docs, answered by authored content.** In the 16 new worlds CW04 is 12 covered, 4 partial, 0 not found | TTKS-I:203 says hospitals or healers were "not seen" and B5's clinic role is kit proposals alone (shown); a Shadow Slave healers row is tagged [S] (sealed-check, WA11) in SS-I and is cited by its ID (F10) with no text; LOTM-I:215 lists hospitals as missing from that pass. `src/status_care_content.js` is original Village care |
 
-Proposed dispositions (defaults, with a dial and a reason, AD5): R1 for mystery worlds is "source gap, no scene read; borrow the generic repair action until a sourced scene exists", dial = a world's start that makes repair a livelihood. R2 is "not applicable until a start changes body size", dial = nonhuman starts. R3 is "waste 0 by default, labelled authored", dial = a world whose craft leaves a byproduct the player must dispose of.
+Proposed dispositions (AD5, AD32, AD38): R1 stays a source gap where no repair scene was read; a generic authored action is a separately labelled proposal, not borrowed canon. R2 is relevant when the represented body, equipment or household task consumes fit/function, including ordinary bodies; defer an unrepresented task rather than declaring all unchanged bodies inapplicable. R3 records the actual known process output or an explicit authored/source-gap choice; zero waste is valid when supported, rather than a presumed universal default. A selected repair livelihood, unusual body or meaningful byproduct can deepen the corresponding local contract.
 
 ### 2. Worlds round 1 skipped: dispositions
 
@@ -377,3 +377,23 @@ These do not replace G1-G7. G1 (binding existing locators into the LOTM ledger) 
 - **LATER / INSPECT (sonnet; low; done: a yes or no per J8 field with a locator in `status_care_content.js`):** whether it already carries the J8 fields before authoring them.
 - **LATER (haiku; low; done: 6 more SD rows with ledger checks):** extend cluster 4 from the Paradise facilities doc and the COI institutions doc, which have gap tables but no F-rows.
 - **Suggestions (not gates):** save the 30-line brief-overlap script beside `plan_review_status.py` once Weibao's current UI work lets that folder be touched.
+
+
+## Content reconciliation B147, 2026-11-04
+
+The full report was read, including both rounds, SD1-SD60, all contradictions/questions and its evidence limits. It is a document-coverage audit. Its own corrections already reject citation count as content coverage, reader totals as proof, and template wording as local world detail. A non-empty locator is not a verified claim; no part of the separate 705-line matrix or its underlying readers/sources gains read credit here. “Selected” in the early cluster table is an agent recommendation, not runtime selection (AD32, AD36).
+
+Keep namespaces explicit: this report's CW01-CW36 families, comic CW1-CW17 and reference XWC1-XWC6 cases are different. H numbers in this dated audit also stay local to their own labels; do not silently map them to later foundation H labels by number. No mass rename, generator, family-subsystem census or count-based maturity score is needed to preserve that distinction.
+
+Several supposed hard-feature absences are already qualified by later owners and scoped reconciliation: actual away-bank settlement, portable cast-builder parameters, canon panel source import, pack save/load hooks, cheat data/core and known-state readers have named evidence. An importer, test or a menu can still fall short of a played consumer. The [foundation owner](../reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md) and selected world checkpoint own current work; the original floor-reader's suggestion to add one aggregate receipt cannot manufacture absent earned journeys. Neither old module counts nor 431 selected stages are a full campaign denominator.
+
+Preserve J1/J2/J5/J8-J11 as useful joins: observer-specific evidence, actual custody/access/method, batch/portion/label identity, care scope, interruption aftermath, price provenance and competing actor motives. One policy field is not proof of implemented clock behavior, and one shared record is not automatically the right owner for every local law. Ordinary fit/furnishings and repair can matter without a nonhuman start; absent source evidence does not authorize borrowing a generic repair action as canon. Waste may be zero where the actual method supports it, not simply because the audit lacks a row (AD38, AD51).
+
+SD rows remain leads at their reported shown/stated/proposed/inferred level, including wiki and kit-based claims. A phrase-zero is not absence, and price/date/credential details need their exact edition and context before use. D&D, source acquisition/coverage, archive merges and excerpt-based anime gaps remain separate work, not automatically dispatched by G/Q rows. Different worlds' institutional bans are not contradictions. Refusal, coercion and protection follow actual agents and admitted means; no universal consent tax, complaint penalty or magical obligation is introduced. Two broken root-relative source links are repaired with original targets retained in the amendment ledger.
+
+
+## Matrix reconciliation B148, 2026-11-04
+
+The separate [round-2 matrix](CROSS_WORLD_DETAIL_ROUND2_MATRIX_2026-11-03.md) has now been read in full, independently of the summary. Its 576 status cells agree with its grid and 280/258/38 totals; all 538 locator lines are currently nonempty. That closes the matrix-text reading and arithmetic task, not the underlying primary-source or per-world semantic qualification. Most labels still describe authored proposals.
+
+Reading the complete D&D ruling owner found a concrete provenance correction: CW12 cited an all-proposed fixture ledger but labelled it shown. The matrix label is corrected without changing C, since C measures documented family coverage. The ledger's spell-rule locators, authored repair application, wages, choices and actor consequences remain distinct. No fresh SRD interpretation or runtime proof follows. Other cells still require their own actual source/owner reading when selected; prior content review limits and G12 excerpt-residue remain explicit (AD32, AD36).

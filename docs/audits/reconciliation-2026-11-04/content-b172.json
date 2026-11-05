@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "batch": "B172",
+  "title": "Description implementation and narrowly scoped app/logo release",
+  "at": "2026-11-04T22:26:38.839481+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/reviews/ui-descriptions-2026-10-25/REPORT.md",
+      "ids": [
+        "F1/F2/D1/E1; implementation round;UR70–75;final/lateradoption"
+      ],
+      "classification": "Historical implementation/adoption/publication evidence",
+      "owners": [
+        "docs/reviews/ui-descriptions-2026-10-25/REPORT.md",
+        "docs/reviews/ui-descriptions-2026-10-25/APP_ADOPTION.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Initialdocs-onlyboundary supersededselectedimplementation, then lateradoption; examplesnotnecessarilyexactshippedcopy. All39attribute/traitcoverage boundednotallworldauthoredtext; DEVSEEDED/naturalprivacyscope distinct. CurrentURexpandedNov4ownerdirection no reissue. Sourcepinnedupstreamnotlatestweb. NonewHTML/runtime/code/bundle/savedstateedit.",
+      "evidence": "Fresh complete report read including final checks, failures and later supersession. Referenced image/manifest/privateprofile/content, originalpinnedupstream/officialwebreferences and runningappnotread orrerun through receipt.",
+      "reopen": "Currentruntime/app claims require currentexactcandidate owner; no newpublication/adoption/source/UIwork selected.",
+      "input_sha256": "7f8186e255d4ffe9dde32196d217b168402d29859a5fb33273eb8a5cad0dc436",
+      "input_lines": 187,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          187
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/ui-descriptions-2026-10-25/APP_ADOPTION.md",
+      "ids": [
+        "86frozenfiles;333backupfiles;3218suite;4pathpublication;separatechat"
+      ],
+      "classification": "Historical implementation/adoption/publication evidence",
+      "owners": [
+        "docs/reviews/ui-descriptions-2026-10-25/REPORT.md",
+        "docs/reviews/ui-descriptions-2026-10-25/APP_ADOPTION.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Distinguish localdescriptionimplementationadopted vs onlylogo/offlinefontpublication fourpaths; sevenlocalcommits excludedandguardedmergeretained. Firstallstoragefingerprintfailed, individualkeys+saveopaquehash authoritativehistoricalcheck. Playerprofilepreservationactualclosedbackupvsno fixture imported; nativeDEVSEEDEDtraitsnotnaturalprogress. Currentapp/remote notverified and past action notnewpermission.",
+      "evidence": "Fresh complete report read including final checks, failures and later supersession. Referenced image/manifest/privateprofile/content, originalpinnedupstream/officialwebreferences and runningappnotread orrerun through receipt.",
+      "reopen": "Currentruntime/app claims require currentexactcandidate owner; no newpublication/adoption/source/UIwork selected.",
+      "input_sha256": "4d65a7dd858f4719729f5a632b53385275fa5365c537ffc1d6696314f867b352",
+      "input_lines": 81,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          81
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/reviews/ui-descriptions-2026-10-25/REPORT.md",
+      "heading": "## Content and adoption reconciliation, 2026-11-04 (B172)",
+      "body": "The full rules/source comparison, selected implementation, final receipt and complete APP_ADOPTION owner were read. The initial documentation-only boundary is historical after the explicit implementation round; the initial normal-app deferral is historical after the later adoption. All39 attribute meanings, trait projections and keyboard inspection have their named finite source/browser fixture evidence, not a rewrite of all world-authored descriptions. DEV SEEDED trait/family fixtures do not establish natural acquisition; dormant/suppressed states retain focused projection evidence. Current UR70–75 and later Nov4 prose applications remain the live owners. Original pinned upstream/other-game references are historical precedent, not freshly consulted web sources or proof of every current magic mechanic.\n\nKeep release dimensions separate. APP_ADOPTION records the86-file frozen candidate and normal app/web-bundle match, plus3218 tests and native separate-profile checks. The description implementation could be present locally in the adopted app while the Git publication included only four logo/offline-font paths; seven unrelated local commits and dirty description pointers were excluded and preserved. That scope is intentional, not evidence the whole description implementation was published. No historical authority here permits another commit/push, app restart, live inspector or user-profile access.\n\nPreserve the failed first aggregate-storage assertion: later individual persisted-key and opaque-save-byte comparisons against the closed333-file verified backup are the report’s authoritative preservation check. The native fixture never entered the player’s profile. The offline failure was repaired by the existing local icon-font stylesheet; the resulting desktop offline rerun is distinct from broader network independence. PNG decode/window-Dock wiring is not a visually observed Dock screenshot. The separate rules chat produced proposals only and was already completed, not a new dispatch. No image, raw private comparison, current installed app, remote Git state or runtime test was inspected anew in this reconciliation.",
+      "before_sha256": "7f8186e255d4ffe9dde32196d217b168402d29859a5fb33273eb8a5cad0dc436",
+      "after_sha256": "ebe6be745237e41c9287b8002364394e63c7782ef5f32ab24cb614c112dc73f8"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1130
+}

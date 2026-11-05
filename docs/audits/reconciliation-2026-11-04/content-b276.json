@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "batch": "B276",
+  "title": "Complete world/game cheat catalogue and donor-source correction",
+  "at": "2026-11-05T00:33:45.509542+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/CHEATS_BY_WORLD.md",
+      "ids": [
+        "all71pre-game rows",
+        "all56game rows/32world labels",
+        "U/G/shown/stated/inference flags",
+        "trimmedalternates",
+        "F1–8"
+      ],
+      "classification": "Derived-note power/source catalogue with player-layer distinctions and two factual summary slips",
+      "owners": [
+        "docs/CHEATS_BY_WORLD.md",
+        "docs/BOOKSHELF_INSPIRATION.md",
+        "docs/DOMAIN_RULES.md"
+      ],
+      "disposition": "Read all cells; preserve unusual powers and scope limits, correct71row count and B01early-inference donor qualifier in place, retaining original snippets and exact source input identity.",
+      "evidence": "Full268lines delivered1–145/146–310 with initial second-chunk truncation recovered203–226and227–234. Text counts71earlier rows and56game rows/32labelschecked; not a source or runtime validation. No linked dossier/chapter/game data reread.",
+      "reopen": "For a selected power use exact held source/version/scene and actual holder/carrier/support/operation/beneficiary/consumer; distinguish possible original adaptation from demonstrated source law.",
+      "input_sha256": "af20bcc0af3e317c4a632ac0f713d310b6bd0fb764fa874ce6175cc0df0fa488",
+      "input_lines": 268,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          268
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/CHEATS_BY_WORLD.md",
+      "heading": "## Content reconciliation B276",
+      "body": "Full268original lines reviewed: all71pre-game table rows, all56game rows across32world labels, every source/backing/limits cell, trimmed-alternative list and F1–8implications. Text counting confirms56/32for the game section; the opening70count was off by one against its71rows. The opening now describes rows, not a promise of71distinct independent powers; combined abilities, variants and overlapping holders still need their own source-specific semantics. Original count wording is preserved in the explicit amendment. No chapter, extracted game data, source dossier or current game version was reread by proxy.\n\nThe bookshelf B01row overstates donor retention: its actual [B01source owner](BOOKSHELF_INSPIRATION.md#inspected-reference-cases) says this is the protagonist's early conclusion, not proof of every later case. That cell is corrected in place with original wording retained in the batch amendment. All U/G/notes-silent evidence distinctions still matter. “Silent therefore can be taken somehow” is an original possibility, not evidence of an actual canonical theft/revocation route. A single witnessed seal, transfer, regeneration failure or inherited body does not prove unrepeatability or a universal copying prohibition. Preserve exact source quantities when qualified; do not infer extra rules, costs, donors, possession or future ranks from a catalogue/name.\n\nRevocation, depletion, expiry, destruction, custody loss, suppressed expression, a completed body change and resetting a player profile are separate. A source ending can cease maintained support without undoing completed acquisition or granting a new source automatically. Conversely a moved object or name does not carry its monument, location law, personal compatibility, faculty, fuel, charge, permission or external account library. Current BHR31–34and SLR40–43in [DOMAIN_RULES](DOMAIN_RULES.md) own that support/causal distinction; a parent patron label alone decides none of it. Free creation, free summons or no ongoing price can fit a world (AD5, AD38); coordination cost and finite recharge examples are not mandatory balancing taxes.\n\nThe later game section already makes a valuable correction to the earlier backing table: a player/profile/session facility is not automatically an in-world soul, Concept or actor-held cheat just because the game uses fantasy terminology. Source-file retention, external blueprint libraries, incident directors, debug roll overrides, settings, legacy selectors and ordinary save reload stay at their actual layer unless an explicitly authored means turns them into character capabilities. An in-fiction record, carrier body and operation eligibility are separate too. In-game and player-layer rows can inspire an original adaptation without proving that the source grants that power to its playable actor.\n\nKeep field/sample/version limits: demo-only mechanics and original-versus-QuestProgress Knight are different sources; a seed recipe is algorithm/version bound; native code/default values do not establish launched behavior; caster attribution is not necessarily continuing field support; three script grants are not three usable charges; a category draw is not a promised eligible event; incoming automated supplies are not already delivered inventory. Source reserve, support removal, effects already achieved and death/revival consequences need their actual owning consumers. No summoning item, descriptor, manual or learned recipe alone makes an eligible target/body/site appear.\n\nF4/F7remain especially useful: an heir, Architect layout, reset, reincarnation, legacy deed and ordinary loader retain different records; estimated production, tick simulation and acceleration reserve are different absence policies. Current AD22/AD49/AD51/AD52and selected local source/calibration boundaries govern reuse, without inventing universalanti-profit limits or applying another game's offline death/food policy to OOPS. The older HPbrief rollback default, “new owner has no method,” game caps and recharge numbers remain their bounded source/proposal snapshots, not global cross-world laws. All unusual powers, source questions and original variants remain preserved. No runtime cheat, transfer, source download, test, version migration or newly verified game mechanic was selected.",
+      "before_sha256": "af20bcc0af3e317c4a632ac0f713d310b6bd0fb764fa874ce6175cc0df0fa488",
+      "after_sha256": "42d4a0808515edbe3b288753baaed62cd2c6244a9354eccbb62cd4a229282e06"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 873,
+  "post_record_amendments": [
+    {
+      "path": "docs/CHEATS_BY_WORLD.md",
+      "from": "These are 70 more cheat-like powers from our notes, beyond the 25",
+      "to": "These are 71 derived-note rows of additional cheat-like powers, beyond the 25",
+      "reason": "B276 correct document row count and preserve B01source-owner uncertainty; original source input and snippets retained."
+    },
+    {
+      "path": "docs/CHEATS_BY_WORLD.md",
+      "from": "| B01 | Download panel | Copies a skill or body talent on contact | System | The donor keeps theirs |",
+      "to": "| B01 | Download panel | Copies a skill or body talent on contact | System | Early protagonist inference: donor retains; later cases unverified |",
+      "reason": "B276 correct document row count and preserve B01source-owner uncertainty; original source input and snippets retained."
+    }
+  ]
+}

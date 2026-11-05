@@ -39,3 +39,8 @@ The failed baseline suite was stopped after the three fixture-architecture failu
 The records browser initially raced import navigation. Its fixed wait uses the actual `domcontentloaded` event instead of a fixed delay. A diagnostic rerun completed the functional checks but failed the zero-console-error assertion on missing local font files; the final strict run supplied those fonts. No private font, pack, export or screenshot is published. Public installations without those fonts use CSS fallbacks; exact fallback typography was not certified by the final strict run.
 
 [Verification identity](release-reconciliation-2026-11-04/verification.json) pins the source/test inputs and records command results. Full logs and synthetic saves remain in local private release evidence. This is agent-verified, not human-reviewed. The installed app, ordinary campaign entry and the ongoing loose-document collection remain outside this release gate. Publication targets `origin/master` with the exact commit containing this record; live remote Git is authoritative for its current published identity.
+
+
+## Follow-through: remaining four groups
+
+The [four-group integration](FOUR_GROUP_INTEGRATION_2026-11-04.md) records the later user-authorized runtime join, completed documentation snapshot, maintained prototypes and local artifact retention. This earlier release retains its original commit/input/proof scope.

@@ -1,0 +1,163 @@
+{
+  "schema": 1,
+  "batch": "B107",
+  "title": "Bloodline/succession audit, complete design and alternatives",
+  "at": "2026-11-04T20:59:57.842870+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b3/AUDIT.md",
+      "ids": [
+        "B3-A01–B3-A23",
+        "B3-A11a",
+        "F1–F3"
+      ],
+      "classification": "unselected succession design and bounded historical source/reference review",
+      "owners": [
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/GENETICS_AND_HERO_START_PLAN_2026-10-17.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b3/AUDIT.md"
+      ],
+      "disposition": "Preserve B3-A01–B3-A23 (including A11a) as dated source/authority observations. Estate handover, kin label, parentage, taught mastery, power-composition lineage and a continued self are distinct. Current complete buildLifeHeirSave still creates fresh expansion and selected estate/history, but now explicitly calls carryCheats and preserves inheritance_law/discovery_codex. Selected complete carryCheats 117–165 has card-specific cross-life handling, so A16’s “does not explicitly copy previous cheats” and any blanket no-faculty-carry claim are stale. This closes that narrow absence, not generic soul/blood transmission or retained-world population/stock continuity. Old one-realm/prestige authority is retired; native defeat, old-age end and supported succession remain distinct. No current native/atomic crash-safe heir proof is added.",
+      "evidence": "Complete original file read, including full design schema/acceptance and all five reference lenses. Current full life_experience_host.js and selected carryCheats function inspected for A16 drift; original proprietary dossiers/raw source/browser were not reread.",
+      "reopen": "A selected succession/carrier consumer can reopen exact world/source/save questions; no current prestige milestone or all-legacy/human gate is imposed.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "e5229e758207b542538162cdd6fd5d1ffa223b9a246224551d8ec2a90c9a0e9f",
+      "input_lines": 73,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          73
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b3/DESIGN.md",
+      "ids": [
+        "G30.01–G30.10",
+        "G30.02a–g",
+        "G30-V1–V5"
+      ],
+      "classification": "unselected succession design and bounded historical source/reference review",
+      "owners": [
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/GENETICS_AND_HERO_START_PLAN_2026-10-17.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b3/DESIGN.md"
+      ],
+      "disposition": "G30.01–G30.10 preserve declared transmission timing, immutable donor/child event versus later somatic training, separate concentration/function/memory/curse/standing/trial/estate carriers, funded escrow and useful heir action. The 0.8 coefficient, two functions, range 2/4, six-coin trial and practice minutes are illustrative, not biological/canon rules or mandatory weakening/caps. Preserve actual means for partial/categorical effects, adopted/same-soul/cheat variants and unsupported-source exceptions. lineage_legacy is a proposed relation/receipt owner, not an admitted slice or a reason to duplicate current body/source/inventory records. Stable person/body/time refs, frozen offers, idempotent successor settlement and unresolved escrow remain useful selected-consumer requirements. Old migration matrix is optional under current compatibility direction, current-state persistence/failure boundaries remain; G30-V1–V5 are unrun proposed checks and human review is optional. Retiring the milestone does not authorize G30 implementation.",
+      "evidence": "Complete original file read, including full design schema/acceptance and all five reference lenses. Current full life_experience_host.js and selected carryCheats function inspected for A16 drift; original proprietary dossiers/raw source/browser were not reread.",
+      "reopen": "A selected succession/carrier consumer can reopen exact world/source/save questions; no current prestige milestone or all-legacy/human gate is imposed.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "2188b1e02802a807f7f69325e3505fef6b820ed931d270382b4cfa67cf200f07",
+      "input_lines": 272,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          272
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b3/ALTERNATIVES.md",
+      "ids": [
+        "G30.11–G30.14",
+        "G30-O1–O5",
+        "G30-R1–R5"
+      ],
+      "classification": "unselected succession design and bounded historical source/reference review",
+      "owners": [
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/GENETICS_AND_HERO_START_PLAN_2026-10-17.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b3/ALTERNATIVES.md"
+      ],
+      "disposition": "G30-O1–O5 and R1–R5 keep adopted kin, school, soul, relic/covenant and heirless persistent-world routes. Reference press/wiki/source dossiers carry different scopes: frozen successor offers are not all-file crash safety, political prestige is not idle reset, inheritance-event conduct is not genetic transmission, and one retained legacy hero is not a biological child. Legacy of a Thousand Suns reset remains unverified. No 3/8 mentoring, three-heir lottery, one-reroll rule or 0.8 coefficient transfers as universal law. No reference game/source was freshly opened here. Comparison can use the same work problem while allowing real differences; it is not a current mandatory milestone choice or forced balance.",
+      "evidence": "Complete original file read, including full design schema/acceptance and all five reference lenses. Current full life_experience_host.js and selected carryCheats function inspected for A16 drift; original proprietary dossiers/raw source/browser were not reread.",
+      "reopen": "A selected succession/carrier consumer can reopen exact world/source/save questions; no current prestige milestone or all-legacy/human gate is imposed.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "b5d9e46f099646f01709e47c2353d8ff66f129602c5b0c21f9b0e3ef00acf463",
+      "input_lines": 209,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          209
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b3/REPORT.md",
+      "ids": [
+        "F1–F4",
+        "R1–R5",
+        "G30-V1–V5"
+      ],
+      "classification": "unselected succession design and bounded historical source/reference review",
+      "owners": [
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/GENETICS_AND_HERO_START_PLAN_2026-10-17.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b3/REPORT.md"
+      ],
+      "disposition": "The final report/checkpoint records completed documentation, not implemented G30 or running workers. Its own recommendations already preserve a candidate and separate actual estate from missing lineage/continuity. Root genetics section 992–995 already links the return and keeps alternatives; B107 adds the current cheat-carry correction and retired-milestone/current-rule qualification, rather than duplicate the full schema. Original source checks, document-link checks and five unrun gates retain their dates and scopes. Preserve all five files/history in place; no worker relaunch, new source reading, successor creation or prestige selection follows.",
+      "evidence": "Complete original file read, including full design schema/acceptance and all five reference lenses. Current full life_experience_host.js and selected carryCheats function inspected for A16 drift; original proprietary dossiers/raw source/browser were not reread.",
+      "reopen": "A selected succession/carrier consumer can reopen exact world/source/save questions; no current prestige milestone or all-legacy/human gate is imposed.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "b9a3dbb1940013995a4cbbbd59108f080fed7bfed74a79100f8f3fbefb99a4c7",
+      "input_lines": 72,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          72
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b3/CHECKPOINT.md",
+      "ids": [
+        "steps 1–5",
+        "docs delivered",
+        "G30-V1–V5 open"
+      ],
+      "classification": "unselected succession design and bounded historical source/reference review",
+      "owners": [
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+        "docs/GENETICS_AND_HERO_START_PLAN_2026-10-17.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b3/CHECKPOINT.md"
+      ],
+      "disposition": "The final report/checkpoint records completed documentation, not implemented G30 or running workers. Its own recommendations already preserve a candidate and separate actual estate from missing lineage/continuity. Root genetics section 992–995 already links the return and keeps alternatives; B107 adds the current cheat-carry correction and retired-milestone/current-rule qualification, rather than duplicate the full schema. Original source checks, document-link checks and five unrun gates retain their dates and scopes. Preserve all five files/history in place; no worker relaunch, new source reading, successor creation or prestige selection follows.",
+      "evidence": "Complete original file read, including full design schema/acceptance and all five reference lenses. Current full life_experience_host.js and selected carryCheats function inspected for A16 drift; original proprietary dossiers/raw source/browser were not reread.",
+      "reopen": "A selected succession/carrier consumer can reopen exact world/source/save questions; no current prestige milestone or all-legacy/human gate is imposed.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "832fa4f170fde04a5b0cf78c607b12b2556219d34db5752fdd736f5957a2acb5",
+      "input_lines": 15,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+      "heading": "## G30 lane reconciliation B107, 2026-11-04",
+      "body": "Preserve B3-A01–B3-A23 (including A11a) as dated source/authority observations. Estate handover, kin label, parentage, taught mastery, power-composition lineage and a continued self are distinct. Current complete buildLifeHeirSave still creates fresh expansion and selected estate/history, but now explicitly calls carryCheats and preserves inheritance_law/discovery_codex. Selected complete carryCheats 117–165 has card-specific cross-life handling, so A16’s “does not explicitly copy previous cheats” and any blanket no-faculty-carry claim are stale. This closes that narrow absence, not generic soul/blood transmission or retained-world population/stock continuity. Old one-realm/prestige authority is retired; native defeat, old-age end and supported succession remain distinct. No current native/atomic crash-safe heir proof is added.\n\nG30.01–G30.10 preserve declared transmission timing, immutable donor/child event versus later somatic training, separate concentration/function/memory/curse/standing/trial/estate carriers, funded escrow and useful heir action. The 0.8 coefficient, two functions, range 2/4, six-coin trial and practice minutes are illustrative, not biological/canon rules or mandatory weakening/caps. Preserve actual means for partial/categorical effects, adopted/same-soul/cheat variants and unsupported-source exceptions. lineage_legacy is a proposed relation/receipt owner, not an admitted slice or a reason to duplicate current body/source/inventory records. Stable person/body/time refs, frozen offers, idempotent successor settlement and unresolved escrow remain useful selected-consumer requirements. Old migration matrix is optional under current compatibility direction, current-state persistence/failure boundaries remain; G30-V1–V5 are unrun proposed checks and human review is optional. Retiring the milestone does not authorize G30 implementation.\n\nG30-O1–O5 and R1–R5 keep adopted kin, school, soul, relic/covenant and heirless persistent-world routes. Reference press/wiki/source dossiers carry different scopes: frozen successor offers are not all-file crash safety, political prestige is not idle reset, inheritance-event conduct is not genetic transmission, and one retained legacy hero is not a biological child. Legacy of a Thousand Suns reset remains unverified. No 3/8 mentoring, three-heir lottery, one-reroll rule or 0.8 coefficient transfers as universal law. No reference game/source was freshly opened here. Comparison can use the same work problem while allowing real differences; it is not a current mandatory milestone choice or forced balance.\n\nThe final report/checkpoint records completed documentation, not implemented G30 or running workers. Its own recommendations already preserve a candidate and separate actual estate from missing lineage/continuity. Root genetics section 992–995 already links the return and keeps alternatives; B107 adds the current cheat-carry correction and retired-milestone/current-rule qualification, rather than duplicate the full schema. Original source checks, document-link checks and five unrun gates retain their dates and scopes. Preserve all five files/history in place; no worker relaunch, new source reading, successor creation or prestige selection follows.",
+      "before_sha256": "66934ab02f1246bcedc49989222b3f4ad053a91e42ee3a163160529e8adcb2bf",
+      "after_sha256": "f860b7f781329ff6627ad4b42b1c7e02678306519a96c6d548fadfef0abc6148"
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b3/REPORT.md",
+      "heading": "## Current-use reconciliation B107, 2026-11-04",
+      "body": "Preserve B3-A01–B3-A23 (including A11a) as dated source/authority observations. Estate handover, kin label, parentage, taught mastery, power-composition lineage and a continued self are distinct. Current complete buildLifeHeirSave still creates fresh expansion and selected estate/history, but now explicitly calls carryCheats and preserves inheritance_law/discovery_codex. Selected complete carryCheats 117–165 has card-specific cross-life handling, so A16’s “does not explicitly copy previous cheats” and any blanket no-faculty-carry claim are stale. This closes that narrow absence, not generic soul/blood transmission or retained-world population/stock continuity. Old one-realm/prestige authority is retired; native defeat, old-age end and supported succession remain distinct. No current native/atomic crash-safe heir proof is added.\n\nThe final report/checkpoint records completed documentation, not implemented G30 or running workers. Its own recommendations already preserve a candidate and separate actual estate from missing lineage/continuity. Root genetics section 992–995 already links the return and keeps alternatives; B107 adds the current cheat-carry correction and retired-milestone/current-rule qualification, rather than duplicate the full schema. Original source checks, document-link checks and five unrun gates retain their dates and scopes. Preserve all five files/history in place; no worker relaunch, new source reading, successor creation or prestige selection follows.",
+      "before_sha256": "b9a3dbb1940013995a4cbbbd59108f080fed7bfed74a79100f8f3fbefb99a4c7",
+      "after_sha256": "b6b471496d58aa0fdd1780fab0e544cd2fded870289d4ccdb968e7f820216bb5"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1264
+}

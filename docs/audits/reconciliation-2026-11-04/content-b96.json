@@ -1,0 +1,113 @@
+{
+  "schema": 1,
+  "batch": "B96",
+  "title": "Ritual, persistent-lore and historical-support source audits",
+  "at": "2026-11-04T20:48:01.652757+00:00",
+  "head": "a4bebe24faffd52190c7e93bdc6d3fff91fa145c",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/HISTORICAL_BORROWING_AND_PROJECTION_AUDIT.md",
+      "ids": [
+        "HB1–HB6",
+        "HB-N1–HB-N5",
+        "V-HB1–V-HB5",
+        "L-HB1–L-HB5"
+      ],
+      "classification": "bounded source audit already integrated, preserve exact source and proposal boundaries",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/LEAD_WORLD_ENGINE_SLICE_BRIEF.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/ENGINE_UI_DEPENDENCY_MAP.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/HISTORICAL_BORROWING_AND_PROJECTION_AUDIT.md"
+      ],
+      "disposition": "HB1–HB6, HB-N1–HB-N5, V-HB1–V-HB5 and L-HB1–L-HB5 are already substantively folded into the existing lead brief and dependency map. Retain distinct original/snapshot/manifestation/controller/occupant/holder/payer, attempted use versus upkeep/allocation/duration, support graph versus containment and per-output aftermath. Nested upstream drain is qualified source evidence, not an exact slot formula; no daily quota, arbitrary container grouping, universal food/healing persistence or all-history simulator follows. The report explicitly records 31490 exposed/reserved words against a 30000 ceiling, a 1490 overrun: preserve that method error, not a precedent for expanding reading. Later full rereads repair clipped coverage only for listed spans. Community questions are leads, not canon. This reconciliation reads the report, not private extracts or external discussions; original chapter/paragraph and edition limits remain.",
+      "evidence": "Complete report body read, including repaired Hall output spans. Receiving lead brief 77–126 and dependency map historical routing inspected; their existing semantic folds were confirmed, not merely metadata links. No underlying primary or private evidence reread.",
+      "reopen": "Reopen only a selected concrete operation/source gap or a changed owner contract; existing early uptake does not authorize late powers, new source reading or alter the active M22 writer scope.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "c32f90d1f72612137fc2cf82561b651e9964a0763b45efd8099e1be5c25c046c",
+      "input_lines": 77,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          77
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/HALL_MAUSOLEUM_AND_PERSISTENT_LORE_AUDIT.md",
+      "ids": [
+        "HT1–HT6",
+        "RM1–RM6",
+        "LD1–LD6",
+        "HM-N1–HM-N5"
+      ],
+      "classification": "bounded source audit already integrated, preserve exact source and proposal boundaries",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/LEAD_WORLD_ENGINE_SLICE_BRIEF.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/ENGINE_UI_DEPENDENCY_MAP.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/HALL_MAUSOLEUM_AND_PERSISTENT_LORE_AUDIT.md"
+      ],
+      "disposition": "HT1–HT6, RM1–RM6, LD1–LD6 and HM-N1–HM-N5 are already folded in the lead brief. Preserve actual disclosure recipients versus private cognition; observed effect versus proposed experiment; intended forgetting versus executed memory change; target/view/channel/means/reach/destination; renewed suppression versus cure; and entry/copy/access/language/comprehension/claim/interpretation/action. Later evidence revises beliefs without rewriting earlier text, dates, acquisition or source attribution. A narrative camera is not the character observer, and a UI click is not the human player’s in-world thought. Fourteen disjoint source chapters and selected diary examples are not all diary/card/notebook coverage. No new raw source or private verification receipt is read here, and no source-certified runtime mechanism is inferred from candidate seam names.",
+      "evidence": "Complete report body read, including repaired Hall output spans. Receiving lead brief 77–126 and dependency map historical routing inspected; their existing semantic folds were confirmed, not merely metadata links. No underlying primary or private evidence reread.",
+      "reopen": "Reopen only a selected concrete operation/source gap or a changed owner contract; existing early uptake does not authorize late powers, new source reading or alter the active M22 writer scope.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "17d520a92374331f18e5f77990a30cbe56d29a5ec8f3d68e9679dd3e48a81633",
+      "input_lines": 108,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          108
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/TAROT_GATHERING_AND_RITUAL_SCENE_AUDIT.md",
+      "ids": [
+        "TG1–TG6",
+        "NL1–NL6",
+        "CB1–CB6",
+        "TR-N1–TR-N5"
+      ],
+      "classification": "bounded source audit already integrated, preserve exact source and proposal boundaries",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/LEAD_WORLD_ENGINE_SLICE_BRIEF.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/ENGINE_UI_DEPENDENCY_MAP.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/TAROT_GATHERING_AND_RITUAL_SCENE_AUDIT.md"
+      ],
+      "disposition": "TG1–TG6, NL1–NL6, CB1–CB6 and TR-N1–TR-N5 already have the receiving brief’s implementation uptake. Preserve exchange agreement/procurement/shipment/acknowledgment/formula delivery; session presence versus body/material movement; ritual preparation/response/transfer/consumption/use/payment/closure; recipient knowledge versus a narrated private reaction. The explicit bad shortcut remains rejected: burning a symbol does not pay a debt, finding a wallet does not own its contents, a reward does not prove creditor payment, and a material gift does not grant rank. Responding actor availability differs from symbolic timing; advice, confidence estimates and unknown contact are not universal success/risk predicates. Source exposure/caps and missing summoning setup stay as originally qualified. No all-ritual schema or full late-power gate follows.",
+      "evidence": "Complete report body read, including repaired Hall output spans. Receiving lead brief 77–126 and dependency map historical routing inspected; their existing semantic folds were confirmed, not merely metadata links. No underlying primary or private evidence reread.",
+      "reopen": "Reopen only a selected concrete operation/source gap or a changed owner contract; existing early uptake does not authorize late powers, new source reading or alter the active M22 writer scope.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "3745f276b8555092c013ff8924d24763ef79e0b59e56f9b0b1e1965ada5f690b",
+      "input_lines": 106,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          106
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/LEAD_WORLD_ENGINE_SLICE_BRIEF.md",
+      "heading": "## Source-audit reconciliation B96, 2026-11-04",
+      "body": "Existing TR/HM/HB uptake already preserves the substantive findings; no replacement specification or duplicate queue is needed. The source reports remain evidence owners and their proposed checks remain unexecuted by this reconciliation.\n\nHB1–HB6, HB-N1–HB-N5, V-HB1–V-HB5 and L-HB1–L-HB5 are already substantively folded into the existing lead brief and dependency map. Retain distinct original/snapshot/manifestation/controller/occupant/holder/payer, attempted use versus upkeep/allocation/duration, support graph versus containment and per-output aftermath. Nested upstream drain is qualified source evidence, not an exact slot formula; no daily quota, arbitrary container grouping, universal food/healing persistence or all-history simulator follows. The report explicitly records 31490 exposed/reserved words against a 30000 ceiling, a 1490 overrun: preserve that method error, not a precedent for expanding reading. Later full rereads repair clipped coverage only for listed spans. Community questions are leads, not canon. This reconciliation reads the report, not private extracts or external discussions; original chapter/paragraph and edition limits remain.\n\nHT1–HT6, RM1–RM6, LD1–LD6 and HM-N1–HM-N5 are already folded in the lead brief. Preserve actual disclosure recipients versus private cognition; observed effect versus proposed experiment; intended forgetting versus executed memory change; target/view/channel/means/reach/destination; renewed suppression versus cure; and entry/copy/access/language/comprehension/claim/interpretation/action. Later evidence revises beliefs without rewriting earlier text, dates, acquisition or source attribution. A narrative camera is not the character observer, and a UI click is not the human player’s in-world thought. Fourteen disjoint source chapters and selected diary examples are not all diary/card/notebook coverage. No new raw source or private verification receipt is read here, and no source-certified runtime mechanism is inferred from candidate seam names.\n\nTG1–TG6, NL1–NL6, CB1–CB6 and TR-N1–TR-N5 already have the receiving brief’s implementation uptake. Preserve exchange agreement/procurement/shipment/acknowledgment/formula delivery; session presence versus body/material movement; ritual preparation/response/transfer/consumption/use/payment/closure; recipient knowledge versus a narrated private reaction. The explicit bad shortcut remains rejected: burning a symbol does not pay a debt, finding a wallet does not own its contents, a reward does not prove creditor payment, and a material gift does not grant rank. Responding actor availability differs from symbolic timing; advice, confidence estimates and unknown contact are not universal success/risk predicates. Source exposure/caps and missing summoning setup stay as originally qualified. No all-ritual schema or full late-power gate follows.\n\nDo not interpret the dated “selected document slice” wording as a fresh limitation on later user-authorized work. Current task ownership and later direction govern the selected consumer. This reconciliation adds no runtime reservation and preserves the active M21/M22/M25 writer’s edits.",
+      "before_sha256": "1fdebaacbf539dd0e955d2d06a27454c761d8d9065c45fd5a3f231d3d62a6099",
+      "after_sha256": "db4f0965beaa7191422d609adefd1787b6f2a16f43c131563453a69ffa451334"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1314,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/LEAD_WORLD_ENGINE_SLICE_BRIEF.md",
+      "from": "This reconciliation adds no runtime reservation and preserves the active M21/M22/M25 writer’s edits.",
+      "to": "This reconciliation adds no runtime reservation and preserves M21/M22/M25 edits; the later released method-use checkpoint, reviewed in B153, qualifies that historical active-writer wording at its exact scope.",
+      "reason": "Replace stale active-writer pointer with already reviewed final released-method receipt, without inferring current runtime or closure of this candidate."
+    }
+  ]
+}

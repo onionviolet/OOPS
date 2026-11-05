@@ -54,3 +54,12 @@ Open: sealed-ID fix (L5 proposal), unapplied queue rows (L6), other clone stacks
 Still open for Weibao: sealed-ID fix, unapplied queue rows, other clone stacks, S4-F9 panels,
 X9/X10 bulk.
 
+
+
+## Content reconciliation, 2026-11-04 (B160)
+
+All lane scopes, results, trial integration, merge record, issue pass and remaining exclusions were read alongside the five available L1–L4/L6 reports and earlier fix reports. Original pending merge language is historical: this checkpoint itself records the authorized October 19 merge, then later R51 stub-clock, runner-route, cafe first-fill and profile-data corrections. Those records preserve their own branch/input and check scopes; they are not reruns on today’s dirty shared checkout. Earlier crafting checkVisibility failure was a DOM-stub limitation; later village visibility failure was repaired through the actual shared back/Equip route and TreeWalker, not a new gameplay rule.
+
+Keep the literal integration limits: initial trial 2235 passes of 2236 with R51 failure, later 17 scoped R51 runs, runner 5/5 and two cafe first fills. No blanket Paradise active-save restore, later cafe epoch refresh, natural acquisition or current Save/reload/Import claim follows. L1’s codemod was sampled, and a joined loading/purchase smoke does not exercise every migrated helper consumer. L2 retained nine world divergences and synthetic-versus-real-save provenance; its ranked other stacks remain proposals.
+
+Historical worktree/thread/branch records and the quoted request for parallel workers do not create present leases or delegation authority. B159’s current away-bank source qualifies L6’s historical no-import OOPS statement, while its source-game offline question remains separately located. Current desktop direction and AD42 govern future viewport and review requirements. Preserve unresolved proposal/history rows; do not delete bulk evidence, move panels, reset baselines or reopen an old process solely from this checkpoint.

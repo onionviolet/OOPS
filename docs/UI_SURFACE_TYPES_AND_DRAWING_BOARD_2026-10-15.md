@@ -96,3 +96,12 @@ Historical queue wording: Q8 previously said "Triage lane after S1" and Q9
 superseded those early slice references, then the later Shell instruction placed
 that bounded variant between NAV and TRIAGE. Earlier consideration text above
 is preserved as the dated analysis that led to the accepted placement rules.
+
+
+## Content reconciliation B140, 2026-11-04
+
+The complete ST/TR/AP/MA/ML proposal and later Q7-Q9 adoption were read. [USER_VISION](USER_VISION.md#format-portraits-and-view-decisions-2026-10-14) explicitly confirms the surface types, keep/rehome/drawing-board/retire triage and Village apothecary with unchanged internal ids (AD32, UR12). Do not demote this actual instruction to an unanswered proposal, or infer current runtime delivery from the old queued status.
+
+Preserve the useful distinction between routine action, local service, consequential start, confirmation, obligation, reference, settings, prototype and ambient report. Specific seven-row limits, universal modal forms, compulsory staffed stations and every-world service shape remain local design choices. A home or unattended usable tool can be a valid workstation without a keeper; ownership, access and actual means decide. Threshold terms must remain readable and known-only; a locked-tab count can leak content just as a name can. A start disclosure states commitments without revealing unearned institutional structure.
+
+TR3 parks presentation for redesign while preserving working gameplay; TR4 names no ready deletion candidate and is not deletion authority. Q8/Q9 retain their scoped save/id intent, with SAVES and the later compatibility decision governing any newly selected state change. Old NAV/Shell/TRIAGE queue reservations are historical, human review is optional under AD42, and this pass executed no drawer move, apothecary conversion or runtime check.

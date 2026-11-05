@@ -72,3 +72,10 @@ Checks this turn: source hooks, CSS font declaration, private asset size and Git
 ignore status, current direction, and existing reports. No build, tests, browser
 journey, preference changes, runtime edits, commit or push. Current-tab origin,
 bundle, active profile, loaded font and saved geometry remain unverified.
+
+
+## Content reconciliation B157, 2026-11-04
+
+Read the diagnostic and authorization in full. Its opening qualification governs F1's obsolete nondefault Gothic claim and earlier delivery status. Source/font declaration, asset presence, actual rendered face, active saved profile and real app adoption are distinct. A saved geometry override can explain a difference without diagnosing an unobserved player window. Source extraction remains different from every reference interaction being delivered or preferred.
+
+The usage percentage, helper budget, reserved paths and process inventory were task-local observations. They authorize no current reader, app access, publication or revival of held work. Human taste and natural pacing remain feedback under AD42, not blocking technical progress. This pass checked no live app, font, source asset or current allowance (AD32, AD36).

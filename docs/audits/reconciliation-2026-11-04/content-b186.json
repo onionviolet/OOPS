@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "batch": "B186",
+  "title": "World structure, persistence and body mechanisms",
+  "at": "2026-11-04T22:45:58.077318+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/worlds/MULTIVERSE_STRUCTURES.md",
+      "ids": [
+        "OD5",
+        "OD11",
+        "EC1–EC5",
+        "GW4",
+        "B103 reconciliation"
+      ],
+      "classification": "Cosmology and crossing palette with scoped implementation history",
+      "owners": [
+        "docs/worlds/MULTIVERSE_STRUCTURES.md",
+        "docs/WORLD_ENTRY_RULES.md"
+      ],
+      "disposition": "Separate cosmology, represented extent, persistence and visit identity. Preserve profitable commerce and knowledge-to-production distinctions; no mandatory scarcity or ten-world launch queue.",
+      "evidence": "Fresh full read including October 7 implemented-unverified note and B103 retired-milestone correction. No source/runtime, external canon or saved-world exercise.",
+      "reopen": "Selected crossing/return consumer: verify actual instance identity, retained custody and destination mechanisms.",
+      "input_sha256": "f2465bcedb04ad84b12d51ecb7cdbdbb51d9afe6acaa8da776e0e1b66e89e395",
+      "input_lines": 224,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          224
+        ]
+      ]
+    },
+    {
+      "path": "docs/BODY_AND_HEALTH_CONSIDERATIONS_2026-10-17.md",
+      "ids": [
+        "BHC1–BHC38",
+        "BHA1–BHA8",
+        "BHN1–BHN8",
+        "BHL1–BHL8",
+        "BHX1–BHX5",
+        "BHF1–BHF5"
+      ],
+      "classification": "Body palette, historical corrections and rule-owner follow-through",
+      "owners": [
+        "docs/BODY_AND_HEALTH_CONSIDERATIONS_2026-10-17.md",
+        "docs/DOMAIN_RULES.md"
+      ],
+      "disposition": "Separate body-instance facts, diagnosis knowledge, recognition and treatment/support clocks. Later mechanisms supersede potion whitelists. Generic conservation, transmission and required costs are proposed defaults rather than universal laws.",
+      "evidence": "Fresh full read in bounded ranges; recovered 121–end after truncated output. Historical Famine, tolerance, defeat and aging findings not rerun. No clinical recommendation or gameplay proof.",
+      "reopen": "Selected body/support/transmission or interrupted-work consumer; inspect current authorities and code before treating historical gaps as present defects.",
+      "input_sha256": "0088035775be7e0ec549529023c1b36b1beec766fdbeff27a455780f0a54e223",
+      "input_lines": 216,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          216
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/worlds/MULTIVERSE_STRUCTURES.md",
+      "heading": "## Structure and persistence content reconciliation, 2026-11-04",
+      "body": "OD5 separates what a cosmos is, how much is represented, what persists, and which instance a return reaches. A represented town can belong to a real planet; an expedition can become residence without resetting goods, people, obligations or history. Cosmology options and the proposed five records remain a palette, not a mandatory schema or ten-world delivery queue. Titles, local authority, usable means, coverage and personal power are different facts.\n\nOD11 EC1–EC5 and GW4 preserve profitable commerce and selling-centric powers. Knowing, proving, teaching, making one product, maintaining supply and using it are different capabilities. Automatic scarcity taxes, forced demand collapse or universal bottlenecks would add rules this palette does not establish (AD5, AD38). Imported mechanisms depend on actual requirements and the destination, rather than franchise rank. Keep worked compositions and source-cutoff alternatives. The October 7 source/build note remains implemented-unverified in its own scope; B103 already retires the historical prestige gate. No crossing, return or whole-world simulation was exercised here.",
+      "before_sha256": "f2465bcedb04ad84b12d51ecb7cdbdbb51d9afe6acaa8da776e0e1b66e89e395",
+      "after_sha256": "c4fecbdf6c6a1c3ca83b8001236e5f05b32f3ebf67d7a3fc04743cebb4ff9893"
+    },
+    {
+      "path": "docs/BODY_AND_HEALTH_CONSIDERATIONS_2026-10-17.md",
+      "heading": "## Body palette and mechanism content reconciliation, 2026-11-04",
+      "body": "Read BHC1–BHC38 and all action, constraint, correction and later-slice tables together. Round 2 replaces the early potion permission framing: stored power, ambient supply, patron reach, chemistry and bodily reserves work through their actual mechanisms (AD38). BHC10/BHC36 conservation and cost language does not create a universal healing tax or forbid free regrowth where its mechanism provides it. Transmission needs an actual carrier and compatible process; BHC18 is a proposed default, not a universal body-only restriction. A warning can disclose known risk without revealing a hidden cause or guaranteeing every danger is known.\n\nBody-instance injury, mind/soul conditions, expertise, recognition, diagnosis claims and obligations retain their own owners. Restoring function, removing a cause, consuming a remedy, maintaining support and settling interrupted work are different events. The later BHC38 and repeatable-audit fold already carry that boundary, the current DOMAIN_RULES owner and BHR31–BHR34. Keep BHX/BHF history, including Famine and proposed shared defeat/tolerance/projection work; this reading does not rerun those old findings or prove general engines exist. Apply AD36/AD43 to the selected change and its real persistence impact. Old proposed checks and 1366×768 examples add no universal gate and do not replace the current desktop target.",
+      "before_sha256": "0088035775be7e0ec549529023c1b36b1beec766fdbeff27a455780f0a54e223",
+      "after_sha256": "e25e19fc4fdcd9c8b925b87df780b92a0e7a867a2c97e151637577aa7898843d"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1102
+}

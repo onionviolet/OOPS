@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "batch": "B57",
+  "title": "Tooling proposal execution history and actual-content coverage correction",
+  "at": "2026-11-04T20:02:59.441206+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/RECONCILIATION_TOOLING_PROPOSAL_2026-10-31.md",
+      "ids": [
+        "F1–F12",
+        "P1–P5",
+        "O4–O8",
+        "O4A–O4D",
+        "O5A–O5B",
+        "SK1",
+        "Rounds1–8",
+        "SG09/MC135–MC179"
+      ],
+      "classification": "historical tooling proposal and subsequent execution owner; fresh full content review",
+      "owners": [
+        "docs/audits/RECONCILIATION_TOOLING_PROPOSAL_2026-10-31.md",
+        "docs/gm/WRITEUP_REGISTER.md",
+        "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md"
+      ],
+      "disposition": "Retain chronology: proposed helpers then actual generic skill/six authorized archived retirements; O4/O5 selected guide/delta-map corrections; L2b source freshness not native floor; SG09 navigation then actual control-semantic review. Original189control/519indexed-only counts are frozen-snapshot history, superseded for native content review by Round5 and current inspected reuse. Keep per-clause drift vs whole-file append, actual evidence vs valid format and incumbent UI fidelity vs portable byte freshness separate. No worktree deletion, paused lane restart, package trial or new runtime gate authorized here.",
+      "evidence": "All423 source lines read in bounded chunks; clipped O6/O7 table span separately retrieved. Old inventories/tests/source/build claims not rerun or backdated. Current native content receipts inspected separately in B8–B55.",
+      "reopen": "Use current task inventory for remaining actual-content scope, native semantic/control receipt for exact old records, and current runtime owner for gameplay. Whole-document review does not establish every linked artifact or source route.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "361101d59cab0d8cf41d2dff05b49f861c8ad66631a5a6d17079d28b2eb3bd57",
+      "input_lines": 423,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          423
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/RECONCILIATION_TOOLING_PROPOSAL_2026-10-31.md",
+      "heading": "## Project-wide content reconciliation, 2026-11-04 (B57)",
+      "body": "Rounds4–8 retain their exact historical census/coverage meanings. Later PLAN_RULE_RECONCILIATION Round5 supplies substantive full original-record reviews for the519 previously ungrouped paths; the native checker snapshot read in B8 now reports589 section-reviewed and189 grouped controls. Current B8–B55 inspected semantic receipts, checked complete original read ranges and unchanged inputs, and explicitly separated reused review from fresh reading. Coordinator replacement receipts R001_S011 and R002_S015 were included by embedded shard identity, not skipped because their filenames differ. This advances documentary content dispositions without certifying primary canon, current runtime, complete guide/map scope or any new worktree retirement. The current loose-document inventory still carries unread and partial-owner residue; its broader population is distinct from the historical778-record denominator. Valid byte/format checks remain necessary evidence bookkeeping, not semantic reading or a universal gameplay gate.",
+      "before_sha256": "361101d59cab0d8cf41d2dff05b49f861c8ad66631a5a6d17079d28b2eb3bd57",
+      "after_sha256": "2b5a25e9c98c30d7a5ab9b86125333483367e13c6c69195f1bf7996c4f2b699a"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1420
+}

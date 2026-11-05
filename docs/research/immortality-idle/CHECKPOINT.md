@@ -45,3 +45,8 @@ No download or decompile needed: the full source is public. A follow-up would re
 ## Remaining gates
 
 The packets are proposals. Any build needs Weibao's authorization, a migration or compatibility decision for persistence, and rebuilt desktop browser evidence per AGENTS.md.
+
+
+## Later assigned static follow-up, 2026-11-04 (B34)
+
+pass-2026-10-14/CHECKPOINT.md completes the finite F11/F12 follow-up, including all 109 activity logic records, selected hell trial/gate/boss and battle resolution, and family technique generation/refinement/archive/save/reset paths. The older five-activity sample and unread battle entry are baseline history, not the latest coverage state. Keep activity prose/components, broad display/catalogue comparison, pantheon and remaining helpers, exact current upstream/version, runtime/UI and save behavior distinct. Do not repeat the completed named static pass or treat it as full-game semantic coverage.

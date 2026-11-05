@@ -204,3 +204,12 @@ existing UI docs/candidate and customization dispatch retain their current
 owners. Only this report/evidence area was written. The next authorized owner
 should reconcile F1–F9 with laptop steering and freeze the finite A1/A2 gate;
 the original rules/content authoring scope remains separate and retained.
+
+
+## Content reconciliation B139, 2026-11-04
+
+F1-F9, D1-D4, W1-W8 and A1-A5 were reviewed. The strongest reusable findings concern the combined artifact: retain ordinary actions beside actual work, preserve editing draft ownership across independent views, make theme changes readable at the component level, and keep selection/focus/return context. A candidate's successful patrol start does not prove finished work, earnings, audible sound, Apply or persistence. Generic offscreen counts are not broken-control counts. The original snapshot and two frozen candidates remain separate evidence identities.
+
+The [current design owner](../DESIGN.md) now supplies prose-first task composition, whimsy and editorial cadence (AD40, AD45); these older proposals do not select a new wave. W1-W8 remain useful examples, not compulsory art or engine support. Actual settled craft, known acquaintance, item history, local weather and actual return outcomes can motivate presentation. Purely decorative atmosphere can exist without implying an owned object or effect; it need not award a stat. Repeated familiar results should quieten without losing meaningful changes. Strong events may be expressive while factual save errors and controls stay readable.
+
+Mobile remains deferred. Old paused status, source reservations and proposed first-comparison order are history; AD42 makes visual review optional. No old candidate was rebuilt, no audio was heard and no new result was inferred from a linked image or test count.

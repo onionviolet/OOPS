@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "at": "2026-11-04T19:03:14.979028+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "entries": [
+    {
+      "batch": "B5",
+      "path": "docs/audits/PROGRESSION_GATE_INVENTORY_2026-10-23.md",
+      "input_sha256": "89e4b4663898e6a67671aa45f310b5745cfeb4a9d89fc27f11369268934f6134",
+      "input_lines": 105,
+      "reviewed_input_range": [
+        1,
+        105
+      ]
+    },
+    {
+      "batch": "B5",
+      "path": "docs/PROGRESSION_GATE_OVERFLOW_2026-10-23.md",
+      "input_sha256": "7e03afaba4c9bd5e4ddf7c5ba14d443b95220f99cfff7495362185ad3c385c54",
+      "input_lines": 158,
+      "reviewed_input_range": [
+        1,
+        158
+      ]
+    },
+    {
+      "batch": "B5",
+      "path": "docs/reviews/RULE_IMPLEMENTATION_CHECKS_2026-10-16.md",
+      "input_sha256": "99125aa02d029ab9015133991f94f720746eaa20492d11abc708464f55fe9076",
+      "input_lines": 179,
+      "reviewed_input_range": [
+        1,
+        179
+      ]
+    },
+    {
+      "batch": "B6",
+      "path": "docs/audits/BODY_HEALTH_CORE_AUDIT.md",
+      "input_sha256": "f6a9af39d07e2d610ac75e9ff1585fc106354ccf66bc36ca1a527a8d1ddf8c5e",
+      "input_lines": 68,
+      "reviewed_input_range": [
+        1,
+        68
+      ]
+    },
+    {
+      "batch": "B6",
+      "path": "docs/audits/ECONOMY_CORE_AUDIT.md",
+      "input_sha256": "a2ec9befd23d73797aa29c70a72de7510ff224987a7862872e5e737bca08e7e2",
+      "input_lines": 63,
+      "reviewed_input_range": [
+        1,
+        63
+      ]
+    }
+  ]
+}

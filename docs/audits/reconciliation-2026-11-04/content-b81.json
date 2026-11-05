@@ -1,0 +1,109 @@
+{
+  "schema": 1,
+  "batch": "B81",
+  "title": "Distinct-world seam delivery and older workflow-map authority drift",
+  "at": "2026-11-04T20:30:34.658305+00:00",
+  "head": "4cdc0772b65d413e4989e327502910140b2a15eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/distinct-world-w1-w4-2026-10-22/SEAM_MAP.md",
+      "ids": [
+        "W1–W4",
+        "nativeentry/failure/checkpointers"
+      ],
+      "classification": "fresh full workflow/seam map and actual checkpoint chronology",
+      "owners": [
+        "docs/gm/dispatch/distinct-world-w1-w4-2026-10-22/SEAM_MAP.md",
+        "docs/gm/dispatch/distinct-world-w1-w4-2026-10-22/CHECKPOINT.md",
+        "docs/RULES_INDEX.md"
+      ],
+      "disposition": "Initial30linemissingjoinmap superseded at boundedtasklevel by lateractualcheckpoint W1materials/earnedfitting/W2fundedofficeandhandover/W3historyinitialization/W4distinctintakeprecisework evidence. Currentlore validator includes narrowworldinitialize and perworldhistories, so Village-only universalclaim stale. Paths/testnames not freshpassingproof.",
+      "evidence": "Full30/255/34line selecteddocuments freshly read in boundedoutputs. Currentlore_history_state sampledvalidation references show specificworldinitialize/perworldhistory support. No historicalsuite/native/preview/inputparity rerun; unrelatedLOTMconcurrent work preserved.",
+      "reopen": "Currentselectedactualscope/sourceconsumer with existingchecks, not hypothetical wholeframework gates; no runtimeimplementation/worker/visiblepreview/process actions.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "84dde615017b2fbe19195c6d9eba708a00401b220e38214450262bde3f4fa1fd",
+      "input_lines": 30,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          30
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/distinct-world-w1-w4-2026-10-22/CHECKPOINT.md",
+      "ids": [
+        "F1–F2/Q1",
+        "W1–W4",
+        "acceptedhandoff/nativejourneys",
+        "combineddrift/isolatedfinalgate"
+      ],
+      "classification": "fresh full workflow/seam map and actual checkpoint chronology",
+      "owners": [
+        "docs/gm/dispatch/distinct-world-w1-w4-2026-10-22/CHECKPOINT.md",
+        "docs/gm/dispatch/distinct-world-w1-w4-2026-10-22/CHECKPOINT.md",
+        "docs/RULES_INDEX.md"
+      ],
+      "disposition": "Full255line chronologypreserves initialpendingcoordination resolvedacknowledgement, source/seededstock/naturalearnedsteps and currentformatpersistence, staleprimarybundle/fixtureloading failures correctedisolated2547test/1283input/10state/36rulecheckcandidate.19pathprimaryparity datednotcurrentallfiles. Nativeforeigninertness vs sourceonlybodyreplacement distinct. Releasedreservations/historicalpreviewnotcurrentrunningprocess/normalappadoption; onerealmretired.",
+      "evidence": "Full30/255/34line selecteddocuments freshly read in boundedoutputs. Currentlore_history_state sampledvalidation references show specificworldinitialize/perworldhistory support. No historicalsuite/native/preview/inputparity rerun; unrelatedLOTMconcurrent work preserved.",
+      "reopen": "Currentselectedactualscope/sourceconsumer with existingchecks, not hypothetical wholeframework gates; no runtimeimplementation/worker/visiblepreview/process actions.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "70e3c6b8240ec991a9cd2c893dfae9a76993ad61a48ce5a0ab246b2fce254b7a",
+      "input_lines": 255,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          255
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/workflow-foundation-audit-2026-10-12/WORKFLOW_MAP.md",
+      "ids": [
+        "workflow13stages",
+        "selectedmicro/meso/servicejoin",
+        "O1–O4"
+      ],
+      "classification": "fresh full workflow/seam map and actual checkpoint chronology",
+      "owners": [
+        "docs/gm/dispatch/workflow-foundation-audit-2026-10-12/WORKFLOW_MAP.md",
+        "docs/gm/dispatch/distinct-world-w1-w4-2026-10-22/CHECKPOINT.md",
+        "docs/RULES_INDEX.md"
+      ],
+      "disposition": "DatedpausedWorld1/currentowner/nativeInk absent statement not currentglobalstatus. OldspecificInkformat/compiler/sourceoffsets not stabletoday; sourceconsequencejoint architecture remains useful: preview/retainedtokens/atomicnativecursor/knowledge. Source/C-levelreadcoverage/issueclosure/behaviorproof separate. Do not revivecoordination/pausedgoal fromstaticmap; currentusernewcontent authorization only.",
+      "evidence": "Full30/255/34line selecteddocuments freshly read in boundedoutputs. Currentlore_history_state sampledvalidation references show specificworldinitialize/perworldhistory support. No historicalsuite/native/preview/inputparity rerun; unrelatedLOTMconcurrent work preserved.",
+      "reopen": "Currentselectedactualscope/sourceconsumer with existingchecks, not hypothetical wholeframework gates; no runtimeimplementation/worker/visiblepreview/process actions.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "42708306e0b2be9eb3a03f8e16c87ad7a9f1badb7bc98d7ea093d162898555ae",
+      "input_lines": 34,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          34
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/distinct-world-w1-w4-2026-10-22/SEAM_MAP.md",
+      "heading": "## Later W1–W4 delivery reconciled, 2026-11-04 (B81)",
+      "body": "The [checkpoint’s completed final gate](CHECKPOINT.md#completed-final-gate) supersedes this initial missing-join map at the selected scope. Its actual content records W1’s two material preparations, earned fitting and precise results; W2’s earned office, funded delegation and successor-reviewed handover; W3’s two retained historical origins with present ownership/observer/brace consumer; and W4’s ambient versus paid-dose intake, committed reserve and practiced quality. Historical stock/XP/opening fixtures remain declared. The final isolated candidate records its own rebuild, full suite, desktop matrix and ten literal persistence states after primary-source drift and fixture failures. Current selected lore validation also recognizes a narrow Mistglass world.initialize receipt and retained per-world histories, so “Village/P3/P4 only” is not a current universal absence claim. That source observation and this receipt reading do not refresh current gameplay/input parity. Actual body replacement stayed source-test coverage; foreign-world inertness had native proof. Old reservations, preview address, test wrapper and one-realm milestone are history. Current AD36/AD42/AD43 and desktop authority govern new claims; no new W implementation or app adoption is selected.",
+      "before_sha256": "84dde615017b2fbe19195c6d9eba708a00401b220e38214450262bde3f4fa1fd",
+      "after_sha256": "ab300554577e7a5577b163f459379682ac5a5aeac161c6bc559bceb98cd4ddf8"
+    },
+    {
+      "path": "docs/gm/dispatch/workflow-foundation-audit-2026-10-12/WORKFLOW_MAP.md",
+      "heading": "## Later authority and historical reservations, 2026-11-04 (B81)",
+      "body": "This October 12 map preserves its source offsets, compiler/source versions, paused-owner and isolated-candidate observations. Later [finite world closure](../../cross-audit-reconciliation-2026-10-15/CLOSURE_RETURN_WORLDS.md) records resumption/ended candidate and stage-specific successors; neither an old pause nor candidate proof becomes today’s writer reservation or current combined gameplay. Keep its useful source → proposal → actual owner/consumer → atomic cursor/material settlement → observer-safe presentation distinctions. The selected Lin/staff service is not a region-wide economy or autonomous population simulator, and the reported Ink binding gap needs current source before being called absent now. Current USER_VISION/rule owners govern product authority; reversible authorized tuning need not become a human sign-off gate, and AD42 makes feel review optional. The current content request authorizes reconciliation, not an old paused runtime goal, stale dispatcher or automatic new integration wave (AD32/AD36).",
+      "before_sha256": "42708306e0b2be9eb3a03f8e16c87ad7a9f1badb7bc98d7ea093d162898555ae",
+      "after_sha256": "bf8aa879cc915483db4b5ace7fe0afe89fd21c1b0bd6563243fc31b0443f3e77"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1349
+}

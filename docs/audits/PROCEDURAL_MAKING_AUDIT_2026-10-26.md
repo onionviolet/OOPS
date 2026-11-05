@@ -1,5 +1,7 @@
 # Procedural crafting, brewing and adjacent making: inventory and audit
 
+**Content review B3, 2026-11-04:** I1–I14/F1–F7/PC1–PC6, follow-up rounds and the later repair note reviewed in full. The [crafting-owner fold](../CRAFTING_ENGINE.md#procedural-making-audit-reconciliation-2026-11-04) records F1/F2 as source-repaired and currently focused-tested, while desktop/persistence floor evidence remains separate. Other inventory freedoms, lifecycle boundaries and later PC rounds are preserved without declaring them universally implemented (AD32/AD36/AD43).
+
 2026-10-26. Request: “inventory our procedural crafting and brewing and more, and audit?” with sharpen and more-to-consider. This is a source inventory, focused verification and proposal pass. No gameplay edits, release, installation, commit or push. Existing dirty work and personal saves were preserved.
 
 ## Result and authority

@@ -342,3 +342,8 @@ serializer and failed-publication tests do not substitute for it. No authoritati
 playable acceptance gate remains for this documentation task; a later selected
 runtime slice owes its applicable existing AD43 evidence. Natural acquisition,
 pacing and other systems outside the named files remain unexamined here.
+
+
+## Follow-through content reconciliation, 2026-11-04 (B60)
+
+The opening three-working-chats statement records the original dispatch, not present liveness. Their final checkpoints now supply exact dispositions: E disproved the missing site link through an earned/test-stepped withdrawal and sample-research route; L disproved the missing outside-learning consumer at a supplied pending-control/device fixture; B corrected rich-frame support projection and verified its named strain/care cases. E’s later sequential review closes the earlier pending B/L integration with no central glue. This does not manufacture a new feature, earned acquisition for L’s supplied prerequisites, whole-body/world depth or a current combined browser result. Preserve OSD1–OSD10, real consumer/knowledge/custody/clock differences and source-qualified local examples. Current AD51 designs shared seams from known sources before second-world validation; ACR preserves activity choices and real outcomes without demanding a universal learning/ecology engine.

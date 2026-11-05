@@ -30,3 +30,8 @@ REPORT, FINDINGS, IMPLEMENTATION_PACKETS, SMALL_TOUCHES (24), TOOLING, three sys
 Next pending item: coordinator reviews ranked proposals and links the dated payload correction. No worker is holding repo source ownership. Resume only the named evidence gap under the applicable authorization; do not restart completed extraction blindly.
 
 Disk used: private work area approximately 187 MiB before final small notes/hash receipts; exact byte total in VALIDATION.json. Installed payload not duplicated. Raw tables, type map and tooling stay outside git.
+
+
+## Later consumer traces, 2026-11-04 (B34)
+
+The initial type/data-only unread table is dated. The later aspects, pass-2026-10-14-deep and pass-2026-10-14-systems checkpoints retain selected native breakthrough admission/payment/wave/result/recovery, NPC XP/realm and trigger/schedule/work/fortune consumers. Use their exact bounded coverage before calling these functions wholly untraced. They still leave alternate callers, full payer/refund/callback/custody settlement, autonomous paid training, lifespan/next-life, broad catalogues and save/runtime behavior unqualified. Data mutation alone does not establish an independent NPC’s funded decision loop, and absence of a dedicated aging field is not a whole-engine absence proof.

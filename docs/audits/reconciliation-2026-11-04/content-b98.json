@@ -1,0 +1,236 @@
+{
+  "schema": 1,
+  "batch": "B98",
+  "title": "Early Seer mechanism receipts and their later native consumers",
+  "at": "2026-11-04T20:49:47.749142+00:00",
+  "head": "a4bebe24faffd52190c7e93bdc6d3fff91fa145c",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/B1_IMPLEMENTATION_RECEIPT.md",
+      "ids": [
+        "B1",
+        "M2/M3",
+        "checks/gaps/unblocks"
+      ],
+      "classification": "dated implementation evidence or follow-up proposal, successor-aware disposition",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/B1_IMPLEMENTATION_RECEIPT.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/BOOK_ABSORPTION_WORKFLOW.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/MECHANISM_BACKLOG.md"
+      ],
+      "disposition": "B1’s source/state tests and build are historical, including four then-failing full-suite cases. Its state JSON roundtrip was not native import proof. Later KJ3P addendum records the first native drink/stabilize run on B10 bytes with 17 acts and export/import assertions, superseding the original no-native-gate claim only for that slice; no whole floor, current bundle or all cognition/use coverage follows.",
+      "evidence": "Complete original receipt/proposal body read, including all later addenda, exact checks and explicit gaps. Later KJ3P/KJ3AA receipts are documentary evidence, not a new native run or raw primary read.",
+      "reopen": "Use the current mechanism owner and exact candidate receipt for any remaining native/consumer gap; do not rerun historical failures or alter active method/session work from this reconciliation.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "ec7e6014df17b718210223d5cb652b113dd79a3f7866e6c176fb657d2ba2b266",
+      "input_lines": 28,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          28
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/B2_IMPLEMENTATION_RECEIPT.md",
+      "ids": [
+        "B2",
+        "M4",
+        "observer table/defaults/native gap"
+      ],
+      "classification": "dated implementation evidence or follow-up proposal, successor-aware disposition",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/B2_IMPLEMENTATION_RECEIPT.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/BOOK_ABSORPTION_WORKFLOW.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/MECHANISM_BACKLOG.md"
+      ],
+      "disposition": "Keep concealed look, observer identity lookup, conditional return and source qualification separate. Adding a cast observer grants the ability to see through that method, not a witnessed observation or an automatic remark. Later bundles containing B2 do not prove the old observer view’s native wiring. Original focused tests/build/no-native are preserved, with no new eye duration or universal observer whitelist.",
+      "evidence": "Complete original receipt/proposal body read, including all later addenda, exact checks and explicit gaps. Later KJ3P/KJ3AA receipts are documentary evidence, not a new native run or raw primary read.",
+      "reopen": "Use the current mechanism owner and exact candidate receipt for any remaining native/consumer gap; do not rerun historical failures or alter active method/session work from this reconciliation.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "7efdea484bf59614f4032740974b9e60246839bcd17be279e5d94ac790fb6d4d",
+      "input_lines": 26,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          26
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/B3_IMPLEMENTATION_RECEIPT.md",
+      "ids": [
+        "B3",
+        "M6",
+        "switch/exhaustion/native gap"
+      ],
+      "classification": "dated implementation evidence or follow-up proposal, successor-aware disposition",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/B3_IMPLEMENTATION_RECEIPT.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/BOOK_ABSORPTION_WORKFLOW.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/MECHANISM_BACKLOG.md"
+      ],
+      "disposition": "Keep switch state, exhaustion, visibility and pool cost separate. One cost per switch-on is not the source’s continuous-drain mechanism; the 720-minute fallback, sleep clearing and exhaustion refusal are labeled model decisions. Source tests/build do not close native, display or practice-development gaps. KJ3P explicitly keeps B3 fallback facts, and KJ3AA does not use Spirit Vision, so neither is evidence of a fully wired B3 route.",
+      "evidence": "Complete original receipt/proposal body read, including all later addenda, exact checks and explicit gaps. Later KJ3P/KJ3AA receipts are documentary evidence, not a new native run or raw primary read.",
+      "reopen": "Use the current mechanism owner and exact candidate receipt for any remaining native/consumer gap; do not rerun historical failures or alter active method/session work from this reconciliation.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "dc7012bf0010009bef3684a436430336c964050e68b42aacdcd54179bd3c7f52",
+      "input_lines": 32,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          32
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/B4_B5_R1_IMPLEMENTATION_RECEIPT.md",
+      "ids": [
+        "B4/B5/R1",
+        "method gate",
+        "energy step costs"
+      ],
+      "classification": "dated implementation evidence or follow-up proposal, successor-aware disposition",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/B4_B5_R1_IMPLEMENTATION_RECEIPT.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/BOOK_ABSORPTION_WORKFLOW.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/MECHANISM_BACKLOG.md"
+      ],
+      "disposition": "The original below-floor/no-native receipt is followed by KJ3AA’s first selected native use: ordered method lesson/readiness and one paid dream-divination energy cost on its named bundle. This does not prove continuous drain, every listed method, failed order, all observers or potion acting. R1 acting remains separate. The old rules-index failure is a dated failure; current B92 rules checks pass without certifying the runtime candidate. The active M22 writer owns further method/session changes.",
+      "evidence": "Complete original receipt/proposal body read, including all later addenda, exact checks and explicit gaps. Later KJ3P/KJ3AA receipts are documentary evidence, not a new native run or raw primary read.",
+      "reopen": "Use the current mechanism owner and exact candidate receipt for any remaining native/consumer gap; do not rerun historical failures or alter active method/session work from this reconciliation.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "73a6d4d71b92a2423719fd091a807b629cf6fa2b2eb3d17772ae0eb81b110728",
+      "input_lines": 24,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          24
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3P_IMPLEMENTATION_RECEIPT.md",
+      "ids": [
+        "kjw6",
+        "17 acts",
+        "B10 failure/addendum",
+        "B2/B3 fallbacks"
+      ],
+      "classification": "dated implementation evidence or follow-up proposal, successor-aware disposition",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3P_IMPLEMENTATION_RECEIPT.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/BOOK_ABSORPTION_WORKFLOW.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/MECHANISM_BACKLOG.md"
+      ],
+      "disposition": "The initial boot failure and pack rollback are preserved history; the later B10 addendum supersedes them with an exact candidate native pass. Read top and addendum together: 17 acts, B1 ingestion/stabilization and selected export/import, not pixel captures/full suite/rebuilt current checkout or integrated B2/B3 states. Explicit withheld information and source private reactions remain observer-scoped. Original generic registry consumers other than energies remain untested.",
+      "evidence": "Complete original receipt/proposal body read, including all later addenda, exact checks and explicit gaps. Later KJ3P/KJ3AA receipts are documentary evidence, not a new native run or raw primary read.",
+      "reopen": "Use the current mechanism owner and exact candidate receipt for any remaining native/consumer gap; do not rerun historical failures or alter active method/session work from this reconciliation.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "2bb98cc2f8ffc7d63aea3c66f63ebe3544083c249297e5788b196302d86d1953",
+      "input_lines": 101,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          101
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3AA_IMPLEMENTATION_RECEIPT.md",
+      "ids": [
+        "kjw17",
+        "21 acts",
+        "B4/B5/R1",
+        "B6/R9",
+        "R2/B2/B3/R5/acting fallbacks"
+      ],
+      "classification": "dated implementation evidence or follow-up proposal, successor-aware disposition",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3AA_IMPLEMENTATION_RECEIPT.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/BOOK_ABSORPTION_WORKFLOW.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/MECHANISM_BACKLOG.md"
+      ],
+      "disposition": "Retain exact proof bundle/pack, predecessor checkpoint, 21 intents, two boots/one literal import and the stated no-repeat-reload/no-captures limits. Native method sequence, one dream use and Anna payment were proved at this candidate’s slice, not every mechanism case. Cogitation refill is an explicit model assumption; 799 versus source-implied 797 and halfpence/share mismatch remain historical unresolved at this receipt, not silently corrected or current final-money claims. The real withheld dream differs from the disclosed account; burned notes do not erase remembered knowledge. Existing later runtime writers may supersede these gaps; no current-state assertion from this dated report.",
+      "evidence": "Complete original receipt/proposal body read, including all later addenda, exact checks and explicit gaps. Later KJ3P/KJ3AA receipts are documentary evidence, not a new native run or raw primary read.",
+      "reopen": "Use the current mechanism owner and exact candidate receipt for any remaining native/consumer gap; do not rerun historical failures or alter active method/session work from this reconciliation.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "47fe8d0d510dce83bbb5ebf2e993f1d68db292967b8e8286ac9f43910395e4ba",
+      "input_lines": 82,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          82
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/B2_B3_MORE_TO_CONSIDER_2026-11-03.md",
+      "ids": [
+        "X1–X2",
+        "R1–R2",
+        "D1–D2",
+        "O1–O2",
+        "L1–L3"
+      ],
+      "classification": "dated implementation evidence or follow-up proposal, successor-aware disposition",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/B2_B3_MORE_TO_CONSIDER_2026-11-03.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/BOOK_ABSORPTION_WORKFLOW.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/MECHANISM_BACKLOG.md"
+      ],
+      "disposition": "Retain pathway/source/pool/residue/look reuse and use-based development as proposals. Clown at Sequence 8 is advancement within the Seer pathway, not a second pathway; local source identity and version still matter. A shared 240-minute residue chosen from unrelated precedents is not source calibration, and scaling a stated 230-pound formula to 5 pounds is not a canon anchor. Generic source/pathway tables do not prove each person’s actual sheet, capabilities, body, held means or observer knowledge, nor justify blocking every fight until a universal table. One original hostile’s functioning record proves its slice only. Reuse actual faculty development/mastery seams after current source inspection; no new global meter or automatic development implementation is established.",
+      "evidence": "Complete original receipt/proposal body read, including all later addenda, exact checks and explicit gaps. Later KJ3P/KJ3AA receipts are documentary evidence, not a new native run or raw primary read.",
+      "reopen": "Use the current mechanism owner and exact candidate receipt for any remaining native/consumer gap; do not rerun historical failures or alter active method/session work from this reconciliation.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "c4754baef728b3c3ac8775d99a58b8ef48d969026d6ac63d337dc769c153d29e",
+      "input_lines": 20,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          20
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/BOOK_ABSORPTION_WORKFLOW.md",
+      "heading": "## Early-mechanism evidence reconciliation B98, 2026-11-04",
+      "body": "B98 reads the actual B1–B5/R1 receipts, B2/B3 follow-up proposal and their selected KJ3P/KJ3AA consumers. Existing early gap probes remain history, not current missing-code inventories.\n\nB1’s source/state tests and build are historical, including four then-failing full-suite cases. Its state JSON roundtrip was not native import proof. Later KJ3P addendum records the first native drink/stabilize run on B10 bytes with 17 acts and export/import assertions, superseding the original no-native-gate claim only for that slice; no whole floor, current bundle or all cognition/use coverage follows.\n\nKeep concealed look, observer identity lookup, conditional return and source qualification separate. Adding a cast observer grants the ability to see through that method, not a witnessed observation or an automatic remark. Later bundles containing B2 do not prove the old observer view’s native wiring. Original focused tests/build/no-native are preserved, with no new eye duration or universal observer whitelist.\n\nKeep switch state, exhaustion, visibility and pool cost separate. One cost per switch-on is not the source’s continuous-drain mechanism; the 720-minute fallback, sleep clearing and exhaustion refusal are labeled model decisions. Source tests/build do not close native, display or practice-development gaps. KJ3P explicitly keeps B3 fallback facts, and KJ3AA does not use Spirit Vision, so neither is evidence of a fully wired B3 route.\n\nThe original below-floor/no-native receipt is followed by KJ3AA’s first selected native use: ordered method lesson/readiness and one paid dream-divination energy cost on its named bundle. This does not prove continuous drain, every listed method, failed order, all observers or potion acting. R1 acting remains separate. The old rules-index failure is a dated failure; current B92 rules checks pass without certifying the runtime candidate. The active M22 writer owns further method/session changes.\n\nThe initial boot failure and pack rollback are preserved history; the later B10 addendum supersedes them with an exact candidate native pass. Read top and addendum together: 17 acts, B1 ingestion/stabilization and selected export/import, not pixel captures/full suite/rebuilt current checkout or integrated B2/B3 states. Explicit withheld information and source private reactions remain observer-scoped. Original generic registry consumers other than energies remain untested.\n\nRetain exact proof bundle/pack, predecessor checkpoint, 21 intents, two boots/one literal import and the stated no-repeat-reload/no-captures limits. Native method sequence, one dream use and Anna payment were proved at this candidate’s slice, not every mechanism case. Cogitation refill is an explicit model assumption; 799 versus source-implied 797 and halfpence/share mismatch remain historical unresolved at this receipt, not silently corrected or current final-money claims. The real withheld dream differs from the disclosed account; burned notes do not erase remembered knowledge. Existing later runtime writers may supersede these gaps; no current-state assertion from this dated report.\n\nRetain pathway/source/pool/residue/look reuse and use-based development as proposals. Clown at Sequence 8 is advancement within the Seer pathway, not a second pathway; local source identity and version still matter. A shared 240-minute residue chosen from unrelated precedents is not source calibration, and scaling a stated 230-pound formula to 5 pounds is not a canon anchor. Generic source/pathway tables do not prove each person’s actual sheet, capabilities, body, held means or observer knowledge, nor justify blocking every fight until a universal table. One original hostile’s functioning record proves its slice only. Reuse actual faculty development/mastery seams after current source inspection; no new global meter or automatic development implementation is established.",
+      "before_sha256": "09b9189eb70e4e087b89437ed93cd9d666b758875237fbd287d20d2054af6cb4",
+      "after_sha256": "891b5637158acc70794b331605ce8bafd1fd2cd991362cd9e15f09ba666cc8fa"
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/B1_IMPLEMENTATION_RECEIPT.md",
+      "heading": "## Later evidence qualification B98, 2026-11-04",
+      "body": "B1’s source/state tests and build are historical, including four then-failing full-suite cases. Its state JSON roundtrip was not native import proof. Later KJ3P addendum records the first native drink/stabilize run on B10 bytes with 17 acts and export/import assertions, superseding the original no-native-gate claim only for that slice; no whole floor, current bundle or all cognition/use coverage follows. See [KJ3P’s addendum](KJ3P_IMPLEMENTATION_RECEIPT.md#addendum-b10-fixed-native-proof-passed-2026-11-03).",
+      "before_sha256": "ec7e6014df17b718210223d5cb652b113dd79a3f7866e6c176fb657d2ba2b266",
+      "after_sha256": "8489ec02ad5ee864c760bcc72b7759009d46f5ce76c498b56fe4e6e4efd73b19"
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/B4_B5_R1_IMPLEMENTATION_RECEIPT.md",
+      "heading": "## Later evidence qualification B98, 2026-11-04",
+      "body": "The original below-floor/no-native receipt is followed by KJ3AA’s first selected native use: ordered method lesson/readiness and one paid dream-divination energy cost on its named bundle. This does not prove continuous drain, every listed method, failed order, all observers or potion acting. R1 acting remains separate. The old rules-index failure is a dated failure; current B92 rules checks pass without certifying the runtime candidate. The active M22 writer owns further method/session changes. See [KJ3AA](KJ3AA_IMPLEMENTATION_RECEIPT.md) for the later candidate and explicit limits.",
+      "before_sha256": "73a6d4d71b92a2423719fd091a807b629cf6fa2b2eb3d17772ae0eb81b110728",
+      "after_sha256": "4b05eaa9d861857f7360d28a81d52b46d9b4c763f5bd453978e68da613d97269"
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/B2_B3_MORE_TO_CONSIDER_2026-11-03.md",
+      "heading": "## Reconciliation B98, 2026-11-04",
+      "body": "Retain pathway/source/pool/residue/look reuse and use-based development as proposals. Clown at Sequence 8 is advancement within the Seer pathway, not a second pathway; local source identity and version still matter. A shared 240-minute residue chosen from unrelated precedents is not source calibration, and scaling a stated 230-pound formula to 5 pounds is not a canon anchor. Generic source/pathway tables do not prove each person’s actual sheet, capabilities, body, held means or observer knowledge, nor justify blocking every fight until a universal table. One original hostile’s functioning record proves its slice only. Reuse actual faculty development/mastery seams after current source inspection; no new global meter or automatic development implementation is established.",
+      "before_sha256": "c4754baef728b3c3ac8775d99a58b8ef48d969026d6ac63d337dc769c153d29e",
+      "after_sha256": "5d3bffc6008d58b92b9b2240773375de0553630f19b1e7818c6c59fd993cf450"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1305
+}

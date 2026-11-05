@@ -58,3 +58,10 @@ MAKING_RULES MR9, CHEAT_LIBRARY IM2, GENETICS_AND_HERO_START_PLAN GHS97, LIFE_SI
 ## Not changed
 
 Death final by default (LORE_AND_CONTINUITY), MR6/MR7, WER10/11 and the other rules the sweep found already in default-dial-reason form.
+
+
+## Partial-fix and current-source reconciliation, 2026-11-04 (B71)
+
+The built/second-batch tables and later queue describe different depths, not 15 fully delivered mechanics. Selected current source retains law-specific batch/step limits (IP1), the school extra-session charge and extension from the existing next-ready time (IP2), actual shortfall reasons (IP3), once-per-actor training reads (IP5), caller-supplied harvest budget with a 100000 technical guard (IP6), and the explicitly authored rush fee (IP7). IP6’s comment about stamina/food/crew does not itself bind those means to raising the caller budget or settle their costs. IP4’s sampled unfitting-means branch still refuses; no coarse result was newly implemented or source-qualified. Original focused/browser results retain their dates and panel/fixture limits; this review ran no behavior checks.
+
+Reason changes in IP5/IP10/IP11/IP14 do not implement reread yield, partial fill, favors or patron-scaled pay. IP9 should distinguish a unique historical fact/one-time settlement from a new supported repeat batch; a blanket repeatable default cannot replay unique identity, title or reward. IP15’s save-size rationale does not prove every truncated entry is disposable: durable promises, ownership and settled claims need their actual retained owner even if display history is bounded. Existing AD5/AD22/AD36/AD38 govern supported limits and proportional proof. Old lane ownership, dispatch and pending design notes are history, not current writer reservations, a new approval gate or permission to change runtime.

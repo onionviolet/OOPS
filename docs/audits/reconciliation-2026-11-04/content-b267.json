@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "batch": "B267",
+  "title": "Finite book-world coverage and authoring-recovery proof limits",
+  "at": "2026-11-05T00:18:03.330861+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/book-world-completion-2026-10-06/CHECKPOINT.md",
+      "ids": [
+        "revision7",
+        "94actions",
+        "static/build/source-map proof",
+        "constructor DOM limitation",
+        "guide recovery",
+        "released ownership"
+      ],
+      "classification": "Finite historical book-world implementation/build receipt, behavior explicitly unverified",
+      "owners": [
+        "docs/ENGINE_AUTHORING.md",
+        "docs/gm/book-world-completion-2026-10-06/CHECKPOINT.md"
+      ],
+      "disposition": "Read all selected content; preserve distinct five-row scope, source/era/route qualifications, exact build-versus-behavior boundary and guide recovery pointers in authoring owner.",
+      "evidence": "Full15line checkpoint and full71line JSON delivered. JSON parses, unique ordered row IDs1–5 and35+59=94 checked; arithmetic/structure are not source qualification or gameplay proof. No linked delivery, recovery body, current process, constructor or browser execution reverified.",
+      "reopen": "Review remaining actual linked/inventoried bodies separately. Any new campaign claim needs its current source/consumer/route and relevant persistence/failure evidence; do not restart retained old servers or workers from the receipt.",
+      "input_sha256": "a5b06835c06feb756da64862b21aacd7f1b743d57b60e6431e2c8005b7396dfd",
+      "input_lines": 15,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/book-world-completion-2026-10-06/COVERAGE.json",
+      "ids": [
+        "rows1–5",
+        "revision2/schema1",
+        "verification/status/build fingerprint",
+        "all registry/new-action counts"
+      ],
+      "classification": "Finite historical book-world implementation/build receipt, behavior explicitly unverified",
+      "owners": [
+        "docs/ENGINE_AUTHORING.md",
+        "docs/gm/book-world-completion-2026-10-06/COVERAGE.json"
+      ],
+      "disposition": "Read all selected content; preserve distinct five-row scope, source/era/route qualifications, exact build-versus-behavior boundary and guide recovery pointers in authoring owner.",
+      "evidence": "Full15line checkpoint and full71line JSON delivered. JSON parses, unique ordered row IDs1–5 and35+59=94 checked; arithmetic/structure are not source qualification or gameplay proof. No linked delivery, recovery body, current process, constructor or browser execution reverified.",
+      "reopen": "Review remaining actual linked/inventoried bodies separately. Any new campaign claim needs its current source/consumer/route and relevant persistence/failure evidence; do not restart retained old servers or workers from the receipt.",
+      "input_sha256": "79fcd66a9b8418a9cb053eb3d86145cc2f78769d430b0ac8b05a32866c5fcdfb",
+      "input_lines": 71,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          71
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/ENGINE_AUTHORING.md",
+      "heading": "### Book-world checkpoint and five-row coverage uptake B267",
+      "body": "Full [book-world checkpoint](gm/book-world-completion-2026-10-06/CHECKPOINT.md) revision7 and all five rows of [coverage](gm/book-world-completion-2026-10-06/COVERAGE.json) revision2 were reviewed. They record October7 source/native/UI/compatible-state/current-build work as implemented-unverified. Native/model constructor, gameplay, unit, browser, save/reload/import, failure, regression, keyboard and director checks are explicitly unrun there. Ink diagnostics, syntax, locators, served bundle/source maps and static link/anchor recovery are different proof from executing a native constructor or playing a journey. In particular the model import encountered a DOM requirement; the receipt did not repair that by asserting native instantiation.\n\nAll five rows remain finite, distinct outcomes. Row2's “runtime absent” is its earlier baseline, not its resulting implementation status or a current-source absence claim. Its selected era still needed pinning in the cited source cell. A completed dossier and24profiles do not source-qualify every proposed Cyoria price, term, engineer route or later novel mechanism. The selected Cyoria life is an independent retained-human non-mage, not Zorian's protagonist path, and the Paradise/Goa branch is likewise finite original side-branch work. Neither establishes whole-book/whole-world or19world completion.\n\nThe recorded35Paradise+59MOL actions do total94, but1153commands/52controllers/23conditions/nine worlds/13encounters/56sources are aggregate registry counts, not whole-world gameplay denominators. The335local maps and37vendors qualify that build's correspondence, not present source parity. Build ebf951d62861, old preview ports/session IDs/PIDs, source reservations and released workers are historical references; none was probed as live now. No duplicate server, worker, successor or automatic acceptance run was started.\n\nThe checkpoint also preserves an important authoring-history recovery: an earlier guide overwrite with evidence JSON was reportedly restored from exact literal edits before book interfaces were appended. Its recovery/BEFORE_CANONICAL pointers should stay intact. Reading this receipt neither independently repeats that byte recovery nor credits the full restored guide or linked delivery/evidence bodies as read. The current review preserves original record identity, rather than replacing authoring content with this new evidence summary.\n\nOld one-prestige and mandatory director-phase language is qualified by [the retired milestone](USER_VISION.md#first-milestone-and-scope-check-2026-10-24), AD42 optional human review and current AD36/AD43 verification stages. Do not promote deferred checks to passes, or treat an old implementation-first exception as a new general waiver. Current selected task and source/consumer evidence determine further work; this uptake adds no runtime, integration, test or campaign dispatch.",
+      "before_sha256": "3a65f66a9831c94f179196c22e331dc3c8b1c3c5629f7bef856c460986a2b883",
+      "after_sha256": "f3100ab15a376160f7cd8901ae76ec770234e9ad7996a6c87204541d437b43c9"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 895,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B261, continuous execution 2026-11-04 |",
+      "to": "| B267, continuous execution 2026-11-04 |",
+      "reason": "Advance active pointer through B267; no new full-register reading credit."
+    }
+  ]
+}

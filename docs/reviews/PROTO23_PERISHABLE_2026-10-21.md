@@ -73,3 +73,10 @@ records. No player save should be used.
 Source and unit evidence do not establish that browser journey or human play
 acceptance. No full suite, build, browser run, commit or push was performed in
 this lane.
+
+
+## Content reconciliation B157, 2026-11-04
+
+Full observation and compatibility receipt read. The existing opening note records the later root browser/persistence closure and gear lineage slice; the original bottom handoff is historical. Keep specimen birth/true elapsed condition distinct from an observer's dated skill-qualified estimate. New inspections append without rewriting prior uncertainty; old absent observation history does not invent earlier readings. Free observation is this actual route, not a new skill grant.
+
+Selected lot/start/cancel identity, later processed-material chest split/return and general product aging are separate capabilities. A later lineage adapter does not prove all finished inventory stacks retain individual age, or every item spoils. The 60/30/10-minute bands are local authored estimates; no universal clock, perception penalty or upkeep follows. No specimen source, estimate, unit/native test or current save was newly exercised here (AD32, AD36, AR6).

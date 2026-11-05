@@ -145,3 +145,8 @@ Avoid re-adding links already present. Use qualified codes when merging, especia
 P:BK versus R29:BK, P:BF versus B:BF, and B:BS versus H:BS. Every map recommendation
 is reviewable documentation; no link insertion selects mechanics or expands a
 current playable milestone.
+
+
+## Later root and procedure content reconciled, 2026-11-04 (B79)
+
+The root palette’s “Lane returns C6 and C8” already folds OM1–OM13’s ownership split and F1–F18/G1–G3, and its later C11–C16 return routes the completed [tension procedures](TENSION_DEFAULTS.md#g1-g3-short-procedures-with-world-dials). G1–G3 therefore no longer mean absent design procedures: the actual later text provides evidence/transmission-based quarantine, care-preserving competing-grant resolution, and communication/agency/standing-term review when a pet becomes sapient. Their source/world dials and GA1–GA5 scopes remain proposed, not implemented or canon-qualified wholesale. Missing selected execution remains distinct from missing design. Preserve support/obedience/regard, body/controller, custody/title, surviving actor/new heir edge and accessible memory/durable history distinctions. Root running-lane statements are dated history. The one-realm milestone and 1366 viewport are retired; current desktop authority and AD36/AD42/AD43 govern selected delivery, with optional human review. Original IDs, aliases and compatible variants stay; no duplicate pet registry, new acceptance question, worker dispatch or runtime slice follows (AD32).

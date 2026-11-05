@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "batch": "B154",
+  "title": "Full mechanism donor catalogue and later receiving work",
+  "at": "2026-11-04T22:07:01.777528+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md",
+      "ids": [
+        "F5-F9",
+        "N1-N5",
+        "B1-B18",
+        "W1-W24",
+        "R1-R5",
+        "M9-M18",
+        "targeted-study follow-through"
+      ],
+      "classification": "Qualified mechanism research inventory with superseded execution recommendations",
+      "owners": [
+        "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md",
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md"
+      ],
+      "disposition": "Read complete donor catalogue including all 24 signatures, two worked research designs and later Naruto/Witch Hat study update. Preserve local transmission versus genetics, syntax versus physical means/activation, law-specific conservation, reserve/output/control and sample versus probability distinctions. N1 blocked and N2-next recommendations predate later foundation integration and method-use result; no new build queue.",
+      "evidence": "Fresh full text only. Official web premise checks and later OCR study are attributed historical evidence, not newly verified primary pages, catalogue holdings, acquisition inventory or whole-source reading. Current F6 unused acquisition branch remains source-only/unreproduced as explicitly retained by B153 receipt.",
+      "reopen": "Use current foundation/lead checkpoint, select a concrete receiving consumer and requalify its actual source and law. R4/R5 and later donors remain bounded research candidates, not dispatched agents or acquisition.",
+      "input_sha256": "9427cc800c139a33a6e3b17b8e27e46af2679150bd4c7e193f1096822888e184",
+      "input_lines": 162,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          162
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md",
+      "heading": "## Content reconciliation B154, 2026-11-04",
+      "body": "The full F/N/B/W/R/M catalogue and targeted-study update were reviewed. F9 and N1's blocked-conversation recommendation are historical inspections; the [foundation plan](FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md) now routes its integration, paid-work result and selected M21/M22/M25 receiving proof. N2's learned-method/means contrast has a bounded Anna operation consumer under that receipt; it is not an untouched generic framework task. The unused ability-record acquisition flattening remains explicitly unreproduced/unchanged, not a defect fixed by that different consumer (AD32, AD36).\n\nPreserve the strongest distinctions: carrier/transmission need not be genetics; reserve, output and control need different actual readers; a copied working physical design need not grant its correct explanation; knowing a method does not invent its current tool/source; legal ownership, practical control and recognition can disagree. Biological descent does not automatically grant taught technique or institution access. A local physical grammar is not a universal drawing interpreter, and visually similar seals/arrays do not imply shared magical law (AD38, AD51).\n\nB1-B18/W1-W24 are pressures and candidate receiving actions, not verified all-source mechanics, completed worlds or a priority ranking. The official premise checks, secondary digests, bounded source notes, unknown-revision Mistborn lead and targeted Naruto/Witch Hat windows retain their different evidence levels. One observed survivor sample is not a random probability, and a local conservation law does not forbid teaching, copying or free production elsewhere. Source canon, theoretical implementation fit and native delivery remain separate. No new web/source reading, acquisition, worker, world sequence or runtime change occurred here.",
+      "before_sha256": "9427cc800c139a33a6e3b17b8e27e46af2679150bd4c7e193f1096822888e184",
+      "after_sha256": "a7c8cc6401d4749ab1c6b72dd0d6fba9c57058460329eb930369ada89ab432df"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1188
+}

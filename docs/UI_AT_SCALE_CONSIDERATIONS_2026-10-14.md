@@ -1844,3 +1844,8 @@ their appropriate panel rather than one fixed place.
 |---|---|---|---|
 | ID6 | **Player setting for where details open**, with beside the source as the default | Sonnet, S | Setting persists through save, reload and import; default unchanged for existing layouts |
 | ID7 | **Prove it with screens, not words.** Capture current and docked-left layouts on the same seeded route at 1920x1080 with `--shots` and put them side by side for Weibao | Sonnet, S | Two screenshots of the same op, plus the playtest bot's ui detector passing on both builds |
+
+
+## U7 map/data-view content folded, 2026-11-04 (B86)
+
+The completed [U7 palette/report](gm/dispatch/ui-at-scale-2026-10-14/MAPS_AND_CHARTS.md) follows the earlier running-lane note. Retain U7:MP1–MP8/DV1–DV9 as proposed refinements to NV4/MO6/MW1/IN2: semantic rungs preserve selected identity and need not be continuous geometry; route, clue and prerequisite edges differ; grouping/legends/totals use the same observer-qualified evidence. Quantity formatting preserves stock, gross/usable output, inflow/outflow, transfer and net change, with actual units, clock, sample window and gaps. A purchase is not production; zero stock growth can coexist with useful output or waste. A quoted steady rate is not measured elapsed productivity or closed-app progress. Remote histories retain receipt age and compatible clocks instead of adding unrelated currencies/XP. A chart earns space for a real temporal/choice question; a compact value/rate can suffice. New history sampling, rungs, layout and atlas remain proposals under AD32, with current desktop targets and AD36/AD42/AD43 proof; no analytics or map prerequisite is added.

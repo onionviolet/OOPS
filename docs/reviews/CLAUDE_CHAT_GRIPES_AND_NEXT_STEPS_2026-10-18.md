@@ -152,3 +152,12 @@ then A4 after the accepted play gate. A5 is a separate scoped feature.
 Only this report was created. Checked local Markdown targets, evidence anchors
 and whitespace. No browser build, gameplay test, agent dispatch, message, commit,
 push, source-library modification or runtime change was performed.
+
+
+## Content reconciliation, 2026-11-04 (B167)
+
+All E1–E10, F1–F5/A1–A5, source/sample qualifications and done checks were read. Keep 140 filtered text candidates distinct from verified human complaints, and this bounded local sample distinct from complete chat history. The existing Codex companion’s corroboration is useful without erasing source differences. Local A1/A2 here name UI proposals; engine A1/A2 in E10/F4 name the shounen conditions/claims deliveries and retain that owning path. Bare repeated codes are not interchangeable.
+
+Preserve actual feedback: useful whole-screen relationships, independent panels, readable text and Reports, native populated comparisons and the complete inspect/acquire/return/act/result service flow. Empty frames, a narrower box, a test count or round completion alone do not answer that complaint. Simple selling and layered repair can coexist with deeper situational mechanisms; collectors, decreasing prices and imposed costs are not universal obligations. Current desktop/prose-first owners and the later UI core rounds qualify this report’s old layout/UIL ordering and 1366 wording. Human review is optional under current AD42, and old “after UI play gate” prose does not veto the current lead direction.
+
+B159 directly reads current away_bank_domain: elapsed time can be banked and spent through actual native fastForward, with unused credit retained at a boundary. That qualifies this report’s October 18 no-offline-policy observation at that named seam, not arbitrary unattended routines, every return digest or frozen-world practice. Current selected lead/HP and engine delivery owners govern execution; this historical A1–A5 ranking does not launch a new wave. No raw chats, new runtime journey, agent dispatch or user message occurred during this reconciliation.

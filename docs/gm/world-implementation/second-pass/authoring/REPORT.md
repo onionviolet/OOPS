@@ -13,3 +13,8 @@ Content compatibility and source correction belong in the same review packet wit
 Dynamic actors already have cause-based IDs, frozen templates, role selectors and explicit spawn aliases. Write a concrete recipe around those mechanisms instead of copying a fixed NPC adapter for every helper. Use Frontier's funded helper and paid inspection as first authoring examples; the held Short Measure draft remains useful but has known stock/travel gaps. Book-specific mechanisms still require their reviewed evidence and selected host capability. See AUTH07.
 
 Checks here cover report JSON, local links/anchors, evidence ranges, whitespace, fingerprints and readback. No code, build, game suite, browser, save or benchmark ran. Runtime/token savings are unmeasured. Director review, master integration and later permitted playable checks remain separate gates. [CHECKPOINT](CHECKPOINT.md) records inputs and terminal writer/process state.
+
+
+## Planning-history qualification, 2026-11-04 (B23)
+
+The opening runtime hold and proposed next preflight are the October 4 planning assignment, not today’s execution authority. AUTH01–AUTH08 remain useful source-era findings: definition shape does not prove native binding, composed registries need explicit activation intent, participant/response/expiry paths need truthful diagnostics, and prose/source corrections cannot rewrite paid frozen commitments. Preserve the incumbent executor/publisher and cause-based actor recipes; these findings do not require a new interpreter or universally mandatory package mechanism. Current code and owners must establish which specific gaps remain when one consumer is selected. This reconciliation implements none of these proposals.

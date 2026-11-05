@@ -1,0 +1,173 @@
+{
+  "schema": 1,
+  "batch": "B102",
+  "title": "HP shard repair, review fixes and narration/intake owners",
+  "at": "2026-11-04T20:54:12.699546+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/HP_HP1C011_REPAIR_RECEIPT.md",
+      "ids": [
+        "hp1c011",
+        "01111 weight",
+        "two price-amount rows",
+        "before/after/spot checks"
+      ],
+      "classification": "later repair/qualified narration or historical intake superseded by selected delivery",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/HP_HP1C011_REPAIR_RECEIPT.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/HP_WHOLE_WORLD_PLAN_2026-11-03.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/OWN_HOLDINGS_PLAN_2026-11-03.md"
+      ],
+      "disposition": "This later repair supersedes the whole-world owner’s C-grade/unknown-cause blocker and B101’s carried unresolved wording. Missing routine weight and amounts 50 pence/1 sickle were repaired in m/m13 derivatives, source hash unchanged, backups retained; structural lint/grade B now recorded. Plain premerge zh-locator defects were not repaired and are not the graded variant. Three spot checks do not make the full shard semantically read; header spotChecked remains 0 and W8 has no native proof here. No raw source or private checks rerun by reconciliation.",
+      "evidence": "Complete original report/note/probe read. Existing successor receipts were read B100/B101; no primary source or historical test rerun. Whole-world table/header/backlog hunks updated to the already recorded structural repair; original history retained in receipts and B101 inputs.",
+      "reopen": "Only exact remaining semantic, diagnostic, registration or native consumer gap warrants a new selected change. Structural repair does not trigger a full reread or create gameplay proof.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "668ec32222c158906fdebd67db92818fb65a137d3443c5e4a3504d615142bc82",
+      "input_lines": 39,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          39
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/HP_REVIEW_FIXES_A_RECEIPT.md",
+      "ids": [
+        "F1–F4",
+        "F6",
+        "focused checks/gaps"
+      ],
+      "classification": "later repair/qualified narration or historical intake superseded by selected delivery",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/HP_REVIEW_FIXES_A_RECEIPT.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/HP_WHOLE_WORLD_PLAN_2026-11-03.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/OWN_HOLDINGS_PLAN_2026-11-03.md"
+      ],
+      "disposition": "Retain parsing canonical inventory ids from JSON rather than key string shape, registration idempotence, one projection call, diagnostic pack warning and explicit empty-district refusal. Second registration after a portless first still lacks refreshed ports. Logging validation errors may need observer/private-data discipline; this receipt does not certify every public diagnostic. Focused tests passed historically with no rebuild/browser, so these fixes do not inherit the prior window’s native proof on changed inputs. New native validation belongs to the actual changed consumer.",
+      "evidence": "Complete original report/note/probe read. Existing successor receipts were read B100/B101; no primary source or historical test rerun. Whole-world table/header/backlog hunks updated to the already recorded structural repair; original history retained in receipts and B101 inputs.",
+      "reopen": "Only exact remaining semantic, diagnostic, registration or native consumer gap warrants a new selected change. Structural repair does not trigger a full reread or create gameplay proof.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "808879390a64365afd8cfe491b6e3d7e0554e6a6313acf13bbc13bfef6675462",
+      "input_lines": 17,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/HP_REVIEW_FIX_B_RECEIPT.md",
+      "ids": [
+        "neutral labels",
+        "fixed snapshot hash",
+        "id slug/save residue"
+      ],
+      "classification": "later repair/qualified narration or historical intake superseded by selected delivery",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/HP_REVIEW_FIX_B_RECEIPT.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/HP_WHOLE_WORLD_PLAN_2026-11-03.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/OWN_HOLDINGS_PLAN_2026-11-03.md"
+      ],
+      "disposition": "Display names were neutralized while stable relationship/item IDs remain for saved/private joins. Do not rename slugs or claim all tracked canon residue is gone. Fixed literal sourceSnapshot hash and no checked pack-content hash prove neither content identity nor regenerated saved notes; existing saves retain old wording as acknowledged. Private overriding labels were not read/tested in this receipt. Focused tests/rules pass is not rebuilt native content delivery.",
+      "evidence": "Complete original report/note/probe read. Existing successor receipts were read B100/B101; no primary source or historical test rerun. Whole-world table/header/backlog hunks updated to the already recorded structural repair; original history retained in receipts and B101 inputs.",
+      "reopen": "Only exact remaining semantic, diagnostic, registration or native consumer gap warrants a new selected change. Structural repair does not trigger a full reread or create gameplay proof.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "fe010c71d778719e2e2b048488f6da9cc6f8bbb7b46c56335c97a7f4adfe5bb9",
+      "input_lines": 10,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          10
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/HP_G3_NARRATION_NOTE_2026-11-03.md",
+      "ids": [
+        "G3/G8",
+        "default/dials",
+        "back-test 1–3"
+      ],
+      "classification": "later repair/qualified narration or historical intake superseded by selected delivery",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/HP_G3_NARRATION_NOTE_2026-11-03.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/HP_WHOLE_WORLD_PLAN_2026-11-03.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/OWN_HOLDINGS_PLAN_2026-11-03.md"
+      ],
+      "disposition": "Narration without lead observation does not write the lead notebook; later instruction/recollection/inference needs actual basis. No act/knowledge in a skipped narration span does not mean nothing happened in world history. A spectator card is an optional different seat, not player omniscience. Participant presence is not sufficient proof of perception/disclosure and lexical leak scans cover only listed terms. The original player-only back-test could not validate nonexistent NPC-side stores; W4 later adds selected holder stores and guard/back-test without a universal rumor/event system. Its prospective world_events use is not a later established host.",
+      "evidence": "Complete original report/note/probe read. Existing successor receipts were read B100/B101; no primary source or historical test rerun. Whole-world table/header/backlog hunks updated to the already recorded structural repair; original history retained in receipts and B101 inputs.",
+      "reopen": "Only exact remaining semantic, diagnostic, registration or native consumer gap warrants a new selected change. Structural repair does not trigger a full reread or create gameplay proof.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "289c968763e44067aceb64fe258c284897933d1b2a82c07ef3b1566c60d796fe",
+      "input_lines": 40,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          40
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/HP_LEAD_RUN_START_2026-11-03.md",
+      "ids": [
+        "G1–G12",
+        "seam probe",
+        "W1 proposal",
+        "G1 reconciliation",
+        "open items"
+      ],
+      "classification": "later repair/qualified narration or historical intake superseded by selected delivery",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/HP_LEAD_RUN_START_2026-11-03.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/HP_WHOLE_WORLD_PLAN_2026-11-03.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/OWN_HOLDINGS_PLAN_2026-11-03.md"
+      ],
+      "disposition": "Full probe read closes any prior sampled residue. Its old missing profile/crosswalk/panel and waiting-for-W1 route are superseded by G1/G1b/G2/W1–W4 and B100/B101 dispositions, not current work to relaunch. “Portable” based on absent world-name strings is a candidate seam, not semantic proof. Locally held/previously read sources remove acquisition needs, not review/model/time cost. Later whole-world map and repair settle header-grade placement at structural scope. G6’s original “window 3” is outdated: actual wand consumer is W4/ch5. G10 receiving/carrier facts remain distinct from delivery simulation; G11 tier labels are not all scheduled full lives; G12 does not infer a trained skill from a descriptive label. Current accepted direction and file ownership govern any next work, with no fresh session or source pass launched here.",
+      "evidence": "Complete original report/note/probe read. Existing successor receipts were read B100/B101; no primary source or historical test rerun. Whole-world table/header/backlog hunks updated to the already recorded structural repair; original history retained in receipts and B101 inputs.",
+      "reopen": "Only exact remaining semantic, diagnostic, registration or native consumer gap warrants a new selected change. Structural repair does not trigger a full reread or create gameplay proof.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "de5ee6185a22eff4563038e5bc7296d79e9e93d56877578d724110b85b226341",
+      "input_lines": 81,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          81
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/HP_WHOLE_WORLD_PLAN_2026-11-03.md",
+      "heading": "## Later-repair qualification B102, 2026-11-04",
+      "body": "This later repair supersedes the whole-world owner’s C-grade/unknown-cause blocker and B101’s carried unresolved wording. Missing routine weight and amounts 50 pence/1 sickle were repaired in m/m13 derivatives, source hash unchanged, backups retained; structural lint/grade B now recorded. Plain premerge zh-locator defects were not repaired and are not the graded variant. Three spot checks do not make the full shard semantically read; header spotChecked remains 0 and W8 has no native proof here. No raw source or private checks rerun by reconciliation.\n\nNarration without lead observation does not write the lead notebook; later instruction/recollection/inference needs actual basis. No act/knowledge in a skipped narration span does not mean nothing happened in world history. A spectator card is an optional different seat, not player omniscience. Participant presence is not sufficient proof of perception/disclosure and lexical leak scans cover only listed terms. The original player-only back-test could not validate nonexistent NPC-side stores; W4 later adds selected holder stores and guard/back-test without a universal rumor/event system. Its prospective world_events use is not a later established host.\n\nFull probe read closes any prior sampled residue. Its old missing profile/crosswalk/panel and waiting-for-W1 route are superseded by G1/G1b/G2/W1–W4 and B100/B101 dispositions, not current work to relaunch. “Portable” based on absent world-name strings is a candidate seam, not semantic proof. Locally held/previously read sources remove acquisition needs, not review/model/time cost. Later whole-world map and repair settle header-grade placement at structural scope. G6’s original “window 3” is outdated: actual wand consumer is W4/ch5. G10 receiving/carrier facts remain distinct from delivery simulation; G11 tier labels are not all scheduled full lives; G12 does not infer a trained skill from a descriptive label. Current accepted direction and file ownership govern any next work, with no fresh session or source pass launched here.",
+      "before_sha256": "6028abea35aa0d97645a7dfa1138559d24f8b926348aab5be6e25f0a52b5fc36",
+      "after_sha256": "82739876d90bdfeb06e91c7897e947b1563f8edfbd71c24cae151b91f368198d"
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/OWN_HOLDINGS_PLAN_2026-11-03.md",
+      "heading": "## Review-fix qualification B102, 2026-11-04",
+      "body": "Retain parsing canonical inventory ids from JSON rather than key string shape, registration idempotence, one projection call, diagnostic pack warning and explicit empty-district refusal. Second registration after a portless first still lacks refreshed ports. Logging validation errors may need observer/private-data discipline; this receipt does not certify every public diagnostic. Focused tests passed historically with no rebuild/browser, so these fixes do not inherit the prior window’s native proof on changed inputs. New native validation belongs to the actual changed consumer.\n\nDisplay names were neutralized while stable relationship/item IDs remain for saved/private joins. Do not rename slugs or claim all tracked canon residue is gone. Fixed literal sourceSnapshot hash and no checked pack-content hash prove neither content identity nor regenerated saved notes; existing saves retain old wording as acknowledged. Private overriding labels were not read/tested in this receipt. Focused tests/rules pass is not rebuilt native content delivery.",
+      "before_sha256": "42314c6811012f2f791773aa5f271376d574ff61bf67df0d0062986cac8448c8",
+      "after_sha256": "e62bea7df9ec7f58f90d17e21669190d0fd3326fb0a33ff1c66721ac2f90b17e"
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/HP_LEAD_RUN_START_2026-11-03.md",
+      "heading": "## Current-use reconciliation B102, 2026-11-04",
+      "body": "Full probe read closes any prior sampled residue. Its old missing profile/crosswalk/panel and waiting-for-W1 route are superseded by G1/G1b/G2/W1–W4 and B100/B101 dispositions, not current work to relaunch. “Portable” based on absent world-name strings is a candidate seam, not semantic proof. Locally held/previously read sources remove acquisition needs, not review/model/time cost. Later whole-world map and repair settle header-grade placement at structural scope. G6’s original “window 3” is outdated: actual wand consumer is W4/ch5. G10 receiving/carrier facts remain distinct from delivery simulation; G11 tier labels are not all scheduled full lives; G12 does not infer a trained skill from a descriptive label. Current accepted direction and file ownership govern any next work, with no fresh session or source pass launched here.",
+      "before_sha256": "de5ee6185a22eff4563038e5bc7296d79e9e93d56877578d724110b85b226341",
+      "after_sha256": "79eb3cd4b00f782027987e48b9ee0b09e6b93ac3cad546bbbc16631b80a8bbcd"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1285
+}

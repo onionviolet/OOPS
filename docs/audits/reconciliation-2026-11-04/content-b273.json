@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "batch": "B273",
+  "title": "Complete bookshelf evidence and selected-proof chronology",
+  "at": "2026-11-05T00:29:11.455441+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/BOOKSHELF_INSPIRATION.md",
+      "ids": [
+        "B01–B21",
+        "74title tables56+18",
+        "three additional comparisons",
+        "five feature families/world profiles",
+        "scenarioA–E",
+        "all five detailed absorption sections",
+        "source-question table",
+        "A/C/Dimplementation follow-through"
+      ],
+      "classification": "Bounded shelf/source dossier plus original palette and later selected proof record",
+      "owners": [
+        "docs/BOOKSHELF_INSPIRATION.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "disposition": "Read every source/title/scenario row; preserve exact premise depth and distinctive variants, qualify retired milestone and earlier unselected/recommendation wording with final A/C/Dselection and current priorities.",
+      "evidence": "All373original lines delivered1–125/126–250/251–410 without truncation. No external shelf/source/account check, full-novel reading, current source/consumer audit or browser/test run.",
+      "reopen": "Use original source questions when an exact mechanic is selected, and actual current native owners/route for an implementation claim; do not restart the historical candidate ordering or treat all74titles as read books.",
+      "input_sha256": "83a6c03cdfd42bb0c2d7edde8a274e7e8e5769f6f5737a55552f2d48657c0c12",
+      "input_lines": 373,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          373
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/BOOKSHELF_INSPIRATION.md",
+      "heading": "## Content reconciliation B273",
+      "body": "Full373original lines reviewed: all B01–B21source rows and their qualifiers, both complete shelf tables, three additional comparisons, five feature families, five world profiles, every A–Escenario card, all acquisition/information/institution/collaboration tables and the final implementation follow-through. The October3snapshot is74title identities,21bounded premise cases and two chapters of B01, not74novels read or present shelf/account state. P/M/C/T levels, partial synopses and title-only gaps stay distinct. Mirror/book-franchise labels are not primary-source qualification, and shelf presence is not favorite status or endorsement. No signed-in account, source page or private book was revisited here.\n\nThe final follow-through changes the interpretation of the earlier recommendation/“all unselected” paragraphs: the user selected reversible original A/C/Dproofs, with runtime and playtest owners linked at that date. Keep that historical selection without calling every candidate merely unselected, and without upgrading the selected proofs to all sources/families or a fresh current-runtime pass. B's conflicting-history content and E's specific roundtrip card retain their original selection boundaries; later caused-visitor and world-binding records in [ENGINE_AUTHORING](ENGINE_AUTHORING.md#content-reconciliation-b263) can inform a selected overlap, but a similar mechanism is not automatically the same complete card. Their current source/route needs inspection if material.\n\nEvery first-realm/one-prestige prerequisite is superseded by [the October24direction](USER_VISION.md#first-milestone-and-scope-check-2026-10-24). The original Frontier-school/town-first recommendations do not select new Frontier depth under current book-world/test-bed priorities. Preserve all five original world profiles and cross-world asymmetry; Klein/Harry/current mechanism sequencing stays with [PROJECT](../PROJECT.md#current-focus). Current AD42 makes human review optional, and AD36/AD43 stage verification by actual changed behavior. The research gate list is not a new universal failed-save/comparison suite for every content row.\n\nThe strongest reusable details remain mechanism distinctions: copied procedure versus installed mastery versus actual body faculty; copy versus transfer/destructive extraction; an independent holder versus contextual power prose; a forecast/report versus actual event; office/access versus skill/fuel/recognition; paid specialist/project work versus pooled consciousness; and contact versus physical passage. Keep each actual producer, carrier, ongoing supplier, chosen beneficiary and result consumer. One gained label or blueprint does not materialize a facility, source, currency or body. Knownness, supported previews and explicit commitment remain separate: inspecting a registry row cannot reveal its secret donor power or draw a hidden outcome, while a separate authored diagnostic method can have its actual price/observation effects.\n\nB01's donor-retention statement is explicitly the protagonist's early inference, not a demonstrated universal copy policy. B03/B04remembered predictions do not guarantee every forecast, B13does not establish a teaching rebate, and B16does not establish the history represented by a simulation reward. Preserve those source questions rather than fill them from titles or tropes. A changed cause affects its actual forecast dependencies; it need not erase every remembered belief. Trade, appropriation, legitimate office and physical acquisition also follow actual means, without treating social permission as a universal capability gate (AD38).\n\nInstitutional entry, home projects and collaborator examples remain optional and distinct from an entire academy, political system, ecology, population or clone network. Their specific costs, clocks, custody, partial contributions, return delivery and settlement need actual owners, not a generic relationship score or assumed teacher participation. Current AD51 allows a shared seam with a known useful consumer; a second unrelated source/world validates reuse instead of delaying every prototype. Current AD52 supports long play and compressed repetition without erasing choice, scarce allocation, earned strength or durable aftermath. No universal drawback, slot count, equal-power rank or forced counter was imposed. The21source premises, exact novel gaps, useful ordinary-life variants and detailed scenarios remain preserved; no new acquisition, runtime, source-reading wave or test was selected.",
+      "before_sha256": "83a6c03cdfd42bb0c2d7edde8a274e7e8e5769f6f5737a55552f2d48657c0c12",
+      "after_sha256": "8ca7e28dac83631b0c3dd32949b429e911ad525c349f10460151c6c83d7e8bcd"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 876
+}

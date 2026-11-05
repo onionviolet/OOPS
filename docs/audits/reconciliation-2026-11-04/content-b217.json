@@ -1,0 +1,252 @@
+{
+  "schema": 1,
+  "batch": "B217",
+  "title": "Procgen integration chronology and all nineteen determinism findings",
+  "at": "2026-11-04T23:17:39.769883+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p3/CHECKPOINT.md",
+      "ids": [
+        "P3 V1–V18;14cards/fourdecks"
+      ],
+      "classification": "Historical finite delivery checkpoint or unexecuted planning scope",
+      "owners": [
+        "docs/gm/dispatch/procgen-2026-10-13/p3/CHECKPOINT.md"
+      ],
+      "disposition": "Final normal-timer native evidence supersedes failed mocked-clock probes. Six-card natural journey and later clock0–46/restore48 are distinct snapshots; local source/build/native gates not wholeE2/primaryintegration. P1seedjoin later integration record qualifies olddeferred.",
+      "evidence": "Full short body read. WR1 REPORT.md absence directly observed by wc path check; no search beyond exact path or claim all WR1 ideas absent. All linked test/build/artifact evidence remains attributed, not rerun.",
+      "reopen": "At a selected current consumer, inspect exact later integration/proof owner and inputs; do not restart terminal plans or old branch instructions.",
+      "input_sha256": "c1983f5aaa747cf3c33ce34b4a5ca60649b38f515f1db3f8820e93bec3ab155b",
+      "input_lines": 15,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p17/CHECKPOINT.md",
+      "ids": [
+        "P17 D1–D5/P12/P14 joins"
+      ],
+      "classification": "Historical finite delivery checkpoint or unexecuted planning scope",
+      "owners": [
+        "docs/gm/dispatch/procgen-2026-10-13/p17/CHECKPOINT.md"
+      ],
+      "disposition": "Docs-only narrative metaphysics: recognized pattern, historical receipt, claim and belief/legacy separate; API/schemaoffer notadopted universal record. Direct docs-only assignment overrides generic runtime/worktree/commit steps.",
+      "evidence": "Full short body read. WR1 REPORT.md absence directly observed by wc path check; no search beyond exact path or claim all WR1 ideas absent. All linked test/build/artifact evidence remains attributed, not rerun.",
+      "reopen": "At a selected current consumer, inspect exact later integration/proof owner and inputs; do not restart terminal plans or old branch instructions.",
+      "input_sha256": "7817c338f7a9c754656dc8c0f27b6ddb12a83b81d2dca95f1dc229146e8edfbe",
+      "input_lines": 15,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p32/CHECKPOINT.md",
+      "ids": [
+        "P32 AM/AN/AO;17arithmeticcases"
+      ],
+      "classification": "Historical finite delivery checkpoint or unexecuted planning scope",
+      "owners": [
+        "docs/gm/dispatch/procgen-2026-10-13/p32/CHECKPOINT.md"
+      ],
+      "disposition": "LOD/continuity/content sizing/playlogs all proposals. Static49links/23locators/17recomputed cases do not measure CPU/savebytes/nativeplay orauthenticatecanon. MainmissingP2/P4 onlydatedinspection, laterintegrationmustqualify.",
+      "evidence": "Full short body read. WR1 REPORT.md absence directly observed by wc path check; no search beyond exact path or claim all WR1 ideas absent. All linked test/build/artifact evidence remains attributed, not rerun.",
+      "reopen": "At a selected current consumer, inspect exact later integration/proof owner and inputs; do not restart terminal plans or old branch instructions.",
+      "input_sha256": "e0dc93444386aad75ac84deeeef5d9a5ba0017ee74ace8a4af1cd1ba3b037c93",
+      "input_lines": 17,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p37/CHECKPOINT.md",
+      "ids": [
+        "P37 BH1–20;57profileroutes"
+      ],
+      "classification": "Historical finite delivery checkpoint or unexecuted planning scope",
+      "owners": [
+        "docs/gm/dispatch/procgen-2026-10-13/p37/CHECKPOINT.md"
+      ],
+      "disposition": "Original factorytemplates, shape/switch catalogs and233links document completeness notchosenruntime/API/nativeproof. P2branchchecks inheritednotrerun;storyvsCRfolderaliasesdistinct.",
+      "evidence": "Full short body read. WR1 REPORT.md absence directly observed by wc path check; no search beyond exact path or claim all WR1 ideas absent. All linked test/build/artifact evidence remains attributed, not rerun.",
+      "reopen": "At a selected current consumer, inspect exact later integration/proof owner and inputs; do not restart terminal plans or old branch instructions.",
+      "input_sha256": "7b754b179f85c74670453a780a64fe63b2f2bbb0e9dedcbbfe2193b669be6fdc",
+      "input_lines": 13,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p38/CHECKPOINT.md",
+      "ids": [
+        "P38 entity/receipt/retention/migration"
+      ],
+      "classification": "Historical finite delivery checkpoint or unexecuted planning scope",
+      "owners": [
+        "docs/gm/dispatch/procgen-2026-10-13/p38/CHECKPOINT.md"
+      ],
+      "disposition": "Records entityrefs/storeauthority/retention/duplicates as proposal contracts. P2alreadyancestorofmain atlaterread; movingP34spines notcurrentrelease. Preserve unknownschema/rawbytes policies onlywhenactualownerdelivers.",
+      "evidence": "Full short body read. WR1 REPORT.md absence directly observed by wc path check; no search beyond exact path or claim all WR1 ideas absent. All linked test/build/artifact evidence remains attributed, not rerun.",
+      "reopen": "At a selected current consumer, inspect exact later integration/proof owner and inputs; do not restart terminal plans or old branch instructions.",
+      "input_sha256": "552a7b8d32846e9caa69e817c51e0c37b04d5510a51cd0e97e5f54d9ee4e77ec",
+      "input_lines": 15,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p39/CHECKPOINT.md",
+      "ids": [
+        "P39 158rows/25reports/waves"
+      ],
+      "classification": "Historical finite delivery checkpoint or unexecuted planning scope",
+      "owners": [
+        "docs/gm/dispatch/procgen-2026-10-13/p39/CHECKPOINT.md"
+      ],
+      "disposition": "SLICESrowcounts/MermaidDAG/budgetarithmetic not runtime/performance. Corrects mainwave1alreadyintegrated andP29CR4alias;P34sourceworknotS5nativeproof. Retiredrealm/viewport rankandwavesnotcurrentqueue.",
+      "evidence": "Full short body read. WR1 REPORT.md absence directly observed by wc path check; no search beyond exact path or claim all WR1 ideas absent. All linked test/build/artifact evidence remains attributed, not rerun.",
+      "reopen": "At a selected current consumer, inspect exact later integration/proof owner and inputs; do not restart terminal plans or old branch instructions.",
+      "input_sha256": "9df83d7fdae1596c5a54fd541aadff9aee24f24afe9ad8446abd9957b1e7e8d8",
+      "input_lines": 13,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p40/CHECKPOINT.md",
+      "ids": [
+        "P40 BL1–12;19records/21futurecases"
+      ],
+      "classification": "Historical finite delivery checkpoint or unexecuted planning scope",
+      "owners": [
+        "docs/gm/dispatch/procgen-2026-10-13/p40/CHECKPOINT.md"
+      ],
+      "disposition": "17scannerselfchecks/eightsyntheticobservations are not fixes/nativeproof. Currenttravelerpins limit F11naturalreachability. Advisorylintcountsreviewpositionsnotdefectcount;no retroactivegate.",
+      "evidence": "Full short body read. WR1 REPORT.md absence directly observed by wc path check; no search beyond exact path or claim all WR1 ideas absent. All linked test/build/artifact evidence remains attributed, not rerun.",
+      "reopen": "At a selected current consumer, inspect exact later integration/proof owner and inputs; do not restart terminal plans or old branch instructions.",
+      "input_sha256": "669b31c57bf5e0d41dc2f3801e7fcb9595425e86849366274466ae883b9f298f",
+      "input_lines": 17,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/wr1/CHECKPOINT.md",
+      "ids": [
+        "WR1 WC/OV proposed scope"
+      ],
+      "classification": "Historical finite delivery checkpoint or unexecuted planning scope",
+      "owners": [
+        "docs/gm/dispatch/procgen-2026-10-13/wr1/CHECKPOINT.md"
+      ],
+      "disposition": "Historical INPROGRESS checkpoint lists onlypreparation and plannedchecks. Direct current path check found no WR1 REPORT.md, so no completed WR1 deliverable can be inferred from thischeckpoint. Keep scoped idea intent, no workerrestart/portreservation.",
+      "evidence": "Full short body read. WR1 REPORT.md absence directly observed by wc path check; no search beyond exact path or claim all WR1 ideas absent. All linked test/build/artifact evidence remains attributed, not rerun.",
+      "reopen": "At a selected current consumer, inspect exact later integration/proof owner and inputs; do not restart terminal plans or old branch instructions.",
+      "input_sha256": "cfed0336079a8deb4d2e8de4dcb62b7cb2f1c7a7d9c24b30726825623b66f414",
+      "input_lines": 13,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/integration/CHECKPOINT.md",
+      "ids": [
+        "P1–P4 wave1;seedunification;679suite/19browser"
+      ],
+      "classification": "Historical finite delivery checkpoint or unexecuted planning scope",
+      "owners": [
+        "docs/gm/dispatch/procgen-2026-10-13/integration/CHECKPOINT.md"
+      ],
+      "disposition": "HistoricalintegrationmergedP1/P4/P2/P3 intointegrationbranch;P2/P4rootseedunified whileP3deckcursorslocal.673then679suite separatetips,19browserthenposttip-smoke distinct. Nothingpendinginlane but rootmerge was next, not provedprimarylandedbythischeckpoint.",
+      "evidence": "Full short body read. WR1 REPORT.md absence directly observed by wc path check; no search beyond exact path or claim all WR1 ideas absent. All linked test/build/artifact evidence remains attributed, not rerun.",
+      "reopen": "At a selected current consumer, inspect exact later integration/proof owner and inputs; do not restart terminal plans or old branch instructions.",
+      "input_sha256": "d5bb0caa15fb98576af069245f2dcb67a608714b007372a441c947ecb6b6bbe0",
+      "input_lines": 15,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p40/FINDINGS.md",
+      "ids": [
+        "C1–C4",
+        "F01–F19",
+        "BL1–BL12",
+        "AP1–AP8"
+      ],
+      "classification": "Historical static/synthetic determinism and disclosure audit with explicit controls",
+      "owners": [
+        "docs/gm/dispatch/procgen-2026-10-13/p40/FINDINGS.md",
+        "docs/gm/dispatch/procgen-2026-10-13/p40/TEST_CASES.md"
+      ],
+      "disposition": "Preserve real named counterexamples and control rows; no current defect or fix inferred from19findings/eightpassingobservations. Native seededRecipe alreadyqualifiesrawfallbacks; JSONroundtripnotinsertionloss, authoredsametimeorderdeliberate, logicalrewindnottransactionrollback, futureversionrejectcontrolremain. Fold exactcounterexamples and latent/natural limits.",
+      "evidence": "Entire49-line dense body read with all19rows, source refresh/branchbase contradictions and control/probe qualifications; no truncation. Underlying scripts/JSON/source not executed/read now.",
+      "reopen": "Before repairing selected finding, bind current owner and reproduce exact material invariant; distinguish synthetic accepted-helper input from naturally reachable state, preserve prior hash semantics and intentional clock/RNG policies.",
+      "input_sha256": "919d6ef65ccc26c78d71121c48ca374c4dff7be9775d0c9120fcff2a98d062e5",
+      "input_lines": 49,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          49
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p40/FINDINGS.md",
+      "heading": "## Content reconciliation B217, 2026-11-04",
+      "body": "All nineteen F rows, C1–C4 and BL coverage were read. The strongest historical counterexamples are specific: F09’s queued mixture yields one batch at clock9 versus three through3/6/9; F11’s retained terminal event historyRef can outlive its pin; F06 chooses causal target from the first inventory delta. Their original proofs are source/synthetic at recorded inputs, not current reproduced natural defects. The ordinary traveler’s additional pins limit F11 reachability, and a detached rejected plan is not established live-save corruption. Eight passing probes reproduced eight observations; they did not fix or native-play them (AD32/AD36).\n\nPreserve the audit’s controls and distinctions. F02 already states native seededRecipe/random callbacks, so raw helper defaults do not establish the native defect mistakenly inferred in B145. F13’s future-version error can be masked, yet rejection still precedes storage writes. F14’s transaction abort differs from diegetic rewind retaining RNG/receipts; do not restore RNG globally as a supposed correction. Ordinary JSON roundtrip preserves the relevant key order; Map/Set admission is latent if introduced, and canonical mixture IDs intentionally encode ordered fields. F08 explicitly retains authored array order inside source-event phases rather than universally sorting narratives by ID. Floating arithmetic alone does not demonstrate cross-engine divergence.\n\nF04’s locale-dependent machine-ID ordering, F15’s leading-surrogate collision and F16’s unchecked interval width identify narrow domains to reproduce against current consumers. Do not regenerate retained truths/people or silently change selected draw distributions; any changed hash/order interpretation needs an explicit supported revision. F12’s raw audiences/datasets/history are source-inspected disclosure risks, not a newly observed secret leak by this review. Keep actual admitted detail/count/order/accessibility/DOM consequences under the same observer boundary. P40’s21 future cases, scanner tests and wide-name proposed specimens do not close browser/persistence/performance gates. Current desktop targets and later source repairs govern a selected continuation; B217 runs none.",
+      "before_sha256": "919d6ef65ccc26c78d71121c48ca374c4dff7be9775d0c9120fcff2a98d062e5",
+      "after_sha256": "72ab4b1a5dfa01e75b8a4304b31bafc752f9256814f93ad513a8d76129f1ea7f"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/integration/CHECKPOINT.md",
+      "heading": "## Content reconciliation B217, 2026-11-04",
+      "body": "The full integration checkpoint and P3/P17/P32/P37–P40/WR1 short checkpoints were reviewed. The integrated P2/P4 seed-root join and retained P3 local cursors qualify old branch snapshots saying mixture/people modules are absent or unseeded in main. P39 and P40 themselves record later merged-main inspection. Preserve the integration branch’s exact673then679tests,19browser checks and post-tip smoke as separate scopes; root merge still described the next step in this particular checkpoint. Old ports, frozen candidates and isolated writer names are historical, not live reservations (AD32/AD36/AD41).\n\nP17/P32/P37/P38/P39/P40 documentation closure does not establish their proposed shared schema, simulation fidelity, cost estimate, CPU/save-size performance or playable story consumers. P39’s158slice rows and P40’s19observations/21future cases retain their different denominators. WR1’s checkpoint remains a preparation record marked IN PROGRESS, and its exact REPORT.md path is currently missing. That establishes an absent completion artifact at this path, not a global absence of weapon ideas or permission to resume its old dispatch. Retain the weapon scope through existing owners when selected. No new runtime test, build, browser, merge, commit or writer transfer was performed.",
+      "before_sha256": "d5bb0caa15fb98576af069245f2dcb67a608714b007372a441c947ecb6b6bbe0",
+      "after_sha256": "9512dff935a9ae0eb14c0a6bf00392ba493accb58e64f36bcc53fcea9bf9e63b"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1013
+}

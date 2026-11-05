@@ -82,3 +82,10 @@ Not defects found; these are the places where a change to one owner moves anothe
 
 - No felt-outcome target is written for combat length, price levels, income per hour or XP per hour. For a selected tuning slice, propose a per-world range and observable comparison with a reason. Reversible prototype defaults need no separate sign-off; agent proposals remain adjustable under AD32 and Weibao's direction and feedback govern.
 - The hunger doc says PROJECT.md records the hunger proposal; a search of PROJECT.md found no hunger or pacing line (2026-10-30), so that cross-reference is stale.
+
+
+## Dial-index content reconciliation, 2026-11-04 (B178)
+
+All five dial groups, X1–X7 interactions and gaps were read. Keep actual source implementation, selected formula shape, proposed values and a felt-outcome target separate. The index’s October30/31 observations are not a fresh audit of every named constant/caller or current numeric acceptance. A5% chip floor,50% protection/damage floor, weakness cap, ten-gain target, trader margin, saturation rule or mandatory hunger drain cannot silently become a law of every world; actual local physiology, mechanisms, options and source/canon calibration govern. Strong protection or immunity need not be weakened solely to keep combat interesting. Profitable crafting/trade is already distinguished from accidental duplication.
+
+Retain X1–X7 as useful selected-consumer questions: item/component-derived protection versus price, real defender layer order, hunger/cap/overflow and correct clock, one reconciled trade quote, crafting XP/income feedback, per-world fallbacks and actual parameter-target separation. WDI44’s second-target warning is a dated source observation, not a reproduced present defect. Proposed hunger/weather modules being executable does not make every number adopted. No new tuning target, global economy law or benchmark is required by this read. If a later selected tuning change affects saved state, record its actual compatibility decision and preserve current-state integrity. No numeric source or game behavior was changed.

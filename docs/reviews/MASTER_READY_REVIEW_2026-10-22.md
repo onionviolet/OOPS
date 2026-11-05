@@ -103,3 +103,10 @@ Later app delivery, 2026-10-22: the user's requested app update is completed in
 including a narrow natural-clock quote fix, 2,591 passing tests and actual
 normal-profile adoption/restart. The previous app-adoption deferral above is
 historical for the initial publication run.
+
+
+## Publication chronology reconciliation, 2026-11-04 (B168)
+
+F1–F4, every verification limitation, planned delivery, publication result and later app-delivery amendment were read. The publication-result section supersedes the planned push; the adoption amendment supersedes the initial app deferral at its named scope. Both are historical reported evidence, not a present remote/app check or standing permission to commit/push this reconciliation. Local-only excluded files were intentional, not an incomplete publication. Recovery snapshots and original indexes remain untouched.
+
+Keep input boundaries exact: the combined candidate’s native journeys and matrix, the Polyjuice harness’s separate disposable build, first missing-font/private-fixture capture and corrected final font matrix are different receipts. The first Polyjuice run’s 21 console asset errors are not zero console errors; its zero page-error claim is separate. Long twenty-one-day stew completion was not rerun. W3/W4 history-bearing evidence stays private and is reported only by route/status. Source/build/browser, installed-app adoption/restart and human taste are distinct. No linked save, private archive, screenshot, current remote or application was inspected in this read, and no fresh runtime verification is claimed.

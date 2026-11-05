@@ -1,0 +1,659 @@
+{
+  "schema": 1,
+  "batch": "B20",
+  "title": "Office, native passage and nested-campaign receiver consolidation",
+  "at": "2026-11-04T19:44:19.804735+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/CHECKPOINT_INTEGRATION_HISTORY.md",
+      "ids": [
+        "BOOK_WORLD_SUBTLETY_2026_10_05.md",
+        "NESTED_WORLDS_AND_DEEP_TROPE_CHAINS_2026_10_05.md",
+        "Acceptance_BACKLOG.md"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "features root; docs/gm/feature-wave/features/nested-campaign/ACCEPTANCE_BACKLOG.md; source module owners are in this checkpoint"
+      ],
+      "disposition": "Chronology moves from an initial integration plan with gameplay deferred to a later source-integrated build and UI audit. Reviews repaired source-level issues, but no behavior or persistence acceptance was run; the current record explicitly leaves five playable gates. Preserve source integration/review fixes separately from their unrun receiver cases. Stale pending leaf joins can be superseded only at later parent receipt scope, without implying native behavior. Current AD36/AD43 replaces historical blanket test deferral; no repairs or source passes restarted.",
+      "mechanism_and_interactions": "Integrated host composes backlog carriers, Ink, recognition and native nested domains. Actual office/carrier previews and commits wrap publication; Backlog guards movement/extraction, while scoped Ink and Legibility expose earned reports. Nested world tracks body, cargo, clocks, work, missions, chains and settlements; full seals remain transient, compact receipts persist.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint reports source/build correspondence and static link/readbacks. It expressly reports no gameplay tests; this review did not inspect current runtime.",
+      "reopen": "Parent-owned rebuilt browser and behavioral/save gates, especially complete passage/revisit/settlement and failure paths.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          29
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S013.json"
+      ],
+      "prior_input_sha256": "1eb30a6c42e84af160c9f2ce415b1ff9eb14285d577463d9d372c362147bad7d",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "1eb30a6c42e84af160c9f2ce415b1ff9eb14285d577463d9d372c362147bad7d",
+      "input_lines": 29
+    },
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/native-qualification/CHECKPOINT.md",
+      "ids": [
+        "INTEGRATION.md",
+        "DELIVERY.json",
+        "subtlety.reference_desk"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "Features parent; INTEGRATION.md and DELIVERY.json name exact APIs; shared registry/UI/save/Ink integration belongs to parent"
+      ],
+      "disposition": "Released bridge/desk modules with syntax/import/static checks. Existing shared Ink relayIds TDZ affects alternate standalone entry; engine-first admission is the established path. Behavior, save, failure and keyboard checks remain deferred. Preserve source integration/review fixes separately from their unrun receiver cases. Stale pending leaf joins can be superseded only at later parent receipt scope, without implying native behavior. Current AD36/AD43 replaces historical blanket test deferral; no repairs or source passes restarted.",
+      "mechanism_and_interactions": "Bridge derives an office snapshot from before-state, staged Backlog plan and fresh native body/XP/stock/equipment/vitals. Preview and commit use the same planner/guard; publication protects direct and Ink routes. Reference desk compares actual Eda/Orrin/Bera and earned reports, with zero-cost native simulation and causal discussion context.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical source checkpoint and static checks only; no behavior/native-save proof.",
+      "reopen": "Parent integration and actual office preview/commit, publication and persistence behavior.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S013.json"
+      ],
+      "prior_input_sha256": "a529d3a7b72b3afea4bbd48971fdf40dc42559377c0d44088e67d742e47371b6",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "a529d3a7b72b3afea4bbd48971fdf40dc42559377c0d44088e67d742e47371b6",
+      "input_lines": 9
+    },
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/recognition/CHECKPOINT.md",
+      "ids": [
+        "Mother of Learning",
+        "LOTM",
+        "COI",
+        "Shadow Slave",
+        "subtlety.reference_desk",
+        "evidenceIndex"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "recognition/INTEGRATION and DELIVERY; Features parent supplies native context and actual scene/commands/build"
+      ],
+      "disposition": "Static profile and source-hash checks reported complete; parent alone owns scene/native/UI/persistence integration. Full source-world chains remain dispositions, separate from runtime chains. Preserve source integration/review fixes separately from their unrun receiver cases. Stale pending leaf joins can be superseded only at later parent receipt scope, without implying native behavior. Current AD36/AD43 replaces historical blanket test deferral; no repairs or source passes restarted.",
+      "mechanism_and_interactions": "Four immutable source-qualified profiles feed twelve pure recognition rules, topology and phased-chain dispositions. Evidence is deduplicated by profile evidenceIndex. Optional original relay desk requires actual observer/body/controller/badge/right/registry/history and calls bookRecognitionSceneView or recognizeBookWorld; profiles alone do not activate worlds.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports static correspondence and source-input hash validation; no semantic rereading or runtime proof in this pass.",
+      "reopen": "If integrated, prove parent consumer joins and qualify source extent; do not infer playable activation from profile delivery.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S013.json"
+      ],
+      "prior_input_sha256": "ebe5e891ce184209412f893509341f7d286959ff6ff7faab253ad9e22424775c",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "ebe5e891ce184209412f893509341f7d286959ff6ff7faab253ad9e22424775c",
+      "input_lines": 11
+    },
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/relay/CHECKPOINT.md",
+      "ids": [
+        "subtlety.relay_office",
+        "backlog.registry.eda/orrin/bera",
+        "backlog.registry.seal_steward",
+        "INTEGRATION.json"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "Parent shared registry/native/UI/envelope/scheduler; relay INTEGRATION.json and DELIVERY.md"
+      ],
+      "disposition": "Twenty-four commands and four native items are source-complete with static admission checks, but implemented-unverified. Parent must join facts, returns, templates, envelope validation, Notebook routes and one durable publisher. Preserve source integration/review fixes separately from their unrun receiver cases. Stale pending leaf joins can be superseded only at later parent receipt scope, without implying native behavior. Current AD36/AD43 replaces historical blanket test deferral; no repairs or source passes restarted.",
+      "mechanism_and_interactions": "Relay adds counted material, custody, parcel, credit, wage and remembered-encounter consumers over existing Backlog people and seal-steward office. Existing Backlog owns identity, office, seals, source/mastery/fuel/debt and recognition; ordinary work/refusal and native recovery remain distinct.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical static/source checks; no gameplay, save, failure or keyboard proof.",
+      "reopen": "Verify all named parent joins in rebuilt play and persistence when selected.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S013.json"
+      ],
+      "prior_input_sha256": "5145986ed87cfd2a15e36d05f60f26ec5105a5979b780d3261a85f5eca3d56e2",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "5145986ed87cfd2a15e36d05f60f26ec5105a5979b780d3261a85f5eca3d56e2",
+      "input_lines": 9
+    },
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/roster/CHECKPOINT.md",
+      "ids": [
+        "Paradise",
+        "PR01–PR08",
+        "COVERAGE.json",
+        "INTEGRATION.md",
+        "DELIVERY.json"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "Features parent; SOURCE_REVIEW.md, INTEGRATION.md, COVERAGE.json and DELIVERY.json"
+      ],
+      "disposition": "Static checks reported; all delivered mechanics are implemented-unverified. Paradise completion is confirmed by source owner, while MTL findings remain unqualified for primary canon and timing/role boundaries remain. Preserve source integration/review fixes separately from their unrun receiver cases. Stale pending leaf joins can be superseded only at later parent receipt scope, without implying native behavior. Current AD36/AD43 replaces historical blanket test deferral; no repairs or source passes restarted.",
+      "mechanism_and_interactions": "Eight immutable world/era/entry/replacement/trope/small-life/recognition profiles accompany inert scene specifications, topology and five-phase graphs. Eda/Orrin/Bera office evaluator is staged for parent preview/commit; seven source-world bindings and eight optional roster registrations remain gaps.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical static checks and reviewed-source extent are reported, not independently reopened here.",
+      "reopen": "Parent integration plus source qualification for selected entries and actual behavior/persistence proof.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S013.json"
+      ],
+      "prior_input_sha256": "4fae4d8c0293d9576d3fc19f6bd829177ca0de130675ef895158fcb163426855",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "4fae4d8c0293d9576d3fc19f6bd829177ca0de130675ef895158fcb163426855",
+      "input_lines": 9
+    },
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/situated/CHECKPOINT.md",
+      "ids": [
+        "INTEGRATION.json",
+        "Labyrinth",
+        "Mother of Learning",
+        "LOTM",
+        "Worm"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "INTEGRATION.json lists generic native owners and source-specific gaps; root owns nested hub/destinations/chains"
+      ],
+      "disposition": "Pure mechanics and source-fit outputs are delivered, but no world, scene, command, save or clock is registered. All new mechanics are implemented-unverified; source-specific distinctions and unknowns remain. Preserve source integration/review fixes separately from their unrun receiver cases. Stale pending leaf joins can be superseded only at later parent receipt scope, without implying native behavior. Current AD36/AD43 replaces historical blanket test deferral; no repairs or source passes restarted.",
+      "mechanism_and_interactions": "Four source profiles and bounded scene specs provide admission rules, observer-qualified recognition and known-scene projection. Role handover requires living willing incumbent and institution authorization; it does not replace protagonists, revive actors, install powers or transfer stock. Parent runtime owns actual passages and retained aftermath.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical syntax/import/immutability/hash/link checks only; no gameplay or source library mutation.",
+      "reopen": "Parent must integrate and exercise the actual passage/aftermath consumer; retain separate Labyrinth source endings.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S013.json"
+      ],
+      "prior_input_sha256": "67f1ef0289a095ec660f1b360b7126738b486c6a2f2cbf4b7be46bcae869a8a0",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "67f1ef0289a095ec660f1b360b7126738b486c6a2f2cbf4b7be46bcae869a8a0",
+      "input_lines": 13
+    },
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/ui-review/CHECKPOINT.md",
+      "ids": [
+        "REVIEW revision 3",
+        "Backlog",
+        "Ink",
+        "People",
+        "nested_return_stay"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "Root source integrator; REVIEW.json fingerprints and parent build/acceptance backlog"
+      ],
+      "disposition": "Bounded static review has no open source findings. It did not execute app actions, previews, commits, Ink continuation, gameplay, save or failure behavior; parent retains those gates. Preserve source integration/review fixes separately from their unrun receiver cases. Stale pending leaf joins can be superseded only at later parent receipt scope, without implying native behavior. Current AD36/AD43 replaces historical blanket test deferral; no repairs or source passes restarted.",
+      "mechanism_and_interactions": "Read-only review found four root repairs: Backlog sends exact rendered token; Ink separates player hub-credit fee from provider reservation and combines typed costs; chain records retain cause/basis and known speaker labels; People no longer infer meetings or registry locations from mentions. Duplicate binding was removed.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical readback and ESM link report only; no app execution or current bundle proof.",
+      "reopen": "Parent's behavioral, persistence, keyboard and director gates remain; source audit closure is not acceptance.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S013.json"
+      ],
+      "prior_input_sha256": "71ba89816e0fddb7e23c299ee02ef92c8fa23228b4cd882ffdaaab3464fb7342",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "71ba89816e0fddb7e23c299ee02ef92c8fa23228b4cd882ffdaaab3464fb7342",
+      "input_lines": 11
+    },
+    {
+      "path": "docs/gm/feature-wave/features/destination/CHECKPOINT.md",
+      "ids": [
+        "Tidemark",
+        "INC-P5",
+        "RESUME_DELIVERY.json"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "Features GM and parent Glasshouse validator; Tidemark source modules and RESUME_DELIVERY.json"
+      ],
+      "disposition": "Checkpoint begins in implementation then reports a bounded source repair/review. Static imports and changed-source syntax pass, but combined registry had an unrelated eager Backlog registration failure; gameplay remains implemented-unverified. Preserve source integration/review fixes separately from their unrun receiver cases. Stale pending leaf joins can be superseded only at later parent receipt scope, without implying native behavior. Current AD36/AD43 replaces historical blanket test deferral; no repairs or source passes restarted.",
+      "mechanism_and_interactions": "Original harbor destination uses same native body/bag/custody via explicit Village chart; local tides advance only during active physical visit, with absence frozen. Pumping and counterweight operation coexist. Residents, locations, shop, stock, repair and calendar have distinct native owners. Later repairs restrict public actions, gate quest progress to committed local facts and preserve trader closure in durable state.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical design/source and syntax claims; no gameplay, save or failure check.",
+      "reopen": "Resolve parent registry integration and exercise active-visit clock, quest/task and durable restore paths.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          21
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S013.json"
+      ],
+      "prior_input_sha256": "1dc3aa3ff374f6c330eb74349ac0ce9650760bf922d687c9f84e5d30a7d83d25",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "1dc3aa3ff374f6c330eb74349ac0ce9650760bf922d687c9f84e5d30a7d83d25",
+      "input_lines": 21
+    },
+    {
+      "path": "docs/gm/feature-wave/features/nested-campaign/CHECKPOINT.md",
+      "ids": [
+        "nestedCampaign1",
+        "expansion8",
+        "ACCEPTANCE_BACKLOG.md",
+        "BUILD"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "Current DELIVERY.md, COVERAGE.json, BUILD.json and ACCEPTANCE_BACKLOG.md; Features root"
+      ],
+      "disposition": "Current checkpoint reports source/build delivery as implemented-unverified; internal scopes released. Five playable gates remain, with unit/browser/gameplay/save/import/reload/failure/keyboard/regression/director checks unrun. Preserve source integration/review fixes separately from their unrun receiver cases. Stale pending leaf joins can be superseded only at later parent receipt scope, without implying native behavior. Current AD36/AD43 replaces historical blanket test deferral; no repairs or source passes restarted.",
+      "mechanism_and_interactions": "Nested host joins body/cargo, local clocks and frozen absence, refundable work, exact rendered-token routing, received records, staged publication and visit capacity. Personal passage requires settled same-world history, current contractor, no contract and actual landing; retained native jobs/tools/shelf conserve resources and support refusal/accounts.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical build/source correspondence stated, no behavior or persistence proof.",
+      "reopen": "Complete named acceptance backlog, including actual passage/revisit and save/failure cases, before claiming playable completion.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S013.json"
+      ],
+      "prior_input_sha256": "7c67a598b9fc24f1cc376872a2fac3f2f89d074a6f7261eb9a4562d4f83f4981",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "7c67a598b9fc24f1cc376872a2fac3f2f89d074a6f7261eb9a4562d4f83f4981",
+      "input_lines": 9
+    },
+    {
+      "path": "docs/gm/feature-wave/features/nested-campaign/chains/CHECKPOINT.md",
+      "ids": [
+        "three authored chains",
+        "62 commands",
+        "six resident controllers"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "INTEGRATION.json, DESCRIPTIONS.md, COVERAGE.json, DELIVERY.md; Features root"
+      ],
+      "disposition": "Worker scope complete and released; integration and behavior acceptance are not claimed. Root retains global source/native/UI/save/clock joins and final build. Preserve source integration/review fixes separately from their unrun receiver cases. Stale pending leaf joins can be superseded only at later parent receipt scope, without implying native behavior. Current AD36/AD43 replaces historical blanket test deferral; no repairs or source passes restarted.",
+      "mechanism_and_interactions": "Three authored chains compile with native nested definitions; return reports use settled history, early repairs/decisions are acknowledged without replay, abstention leaves remote state unchanged, and foreman teaching uses their own body/source/kit/rope/credit rather than player state.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint names compilation/integration context, not gameplay proof.",
+      "reopen": "Parent integration and actual chain consumer, persistence and behavior gates.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S013.json"
+      ],
+      "prior_input_sha256": "5da5863a6a1cb31e0a6053d5f3bdcae068f749ff2fb2214b19d846089f175066",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "5da5863a6a1cb31e0a6053d5f3bdcae068f749ff2fb2214b19d846089f175066",
+      "input_lines": 7
+    },
+    {
+      "path": "docs/gm/feature-wave/features/nested-campaign/continued-life/CHECKPOINT.md",
+      "ids": [
+        "CL-NR-01",
+        "expansion8",
+        "nestedCampaign1",
+        "schema8",
+        "ACCEPTANCE_BACKLOG.md"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "DELIVERY.md, DELIVERY.json, BUILD and ACCEPTANCE_BACKLOG.md; root owns shared joins"
+      ],
+      "disposition": "Root delivered source/UI/save/build as implemented-unverified. Reviewer repaired preview-return bug and read back source, but no action or gameplay test ran; only deferred acceptance gates remain. Preserve source integration/review fixes separately from their unrun receiver cases. Stale pending leaf joins can be superseded only at later parent receipt scope, without implying native behavior. Current AD36/AD43 replaces historical blanket test deferral; no repairs or source passes restarted.",
+      "mechanism_and_interactions": "Three personal passages depend on settled same-world history, contractor/body/cargo/landing/job/source/native/capacity guards without new contracts or reset. Life commands connect Lin/Brin/Ivo, funded material jobs and native tool/shelf consumers; existing reservations, refunds, clock, stock and publisher own changes.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical source readback/build correspondence; no unit/browser/gameplay/save/reload/import/failure checks.",
+      "reopen": "Exercise departure/return, changed revisit, work/refusal/refund/funding and persistence/failure routes.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S013.json"
+      ],
+      "prior_input_sha256": "f9db2169568f9bb45be811f5b6cd4577eead8ce3b01badd5f6ad9a7a5f2b4657",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "f9db2169568f9bb45be811f5b6cd4577eead8ce3b01badd5f6ad9a7a5f2b4657",
+      "input_lines": 9
+    },
+    {
+      "path": "docs/gm/feature-wave/features/nested-campaign/continued-life/WORLD_IMPLEMENTATION_CHECKPOINT_REV13.md",
+      "ids": [
+        "revision13",
+        "revision12",
+        "RECONCILIATION.json",
+        "ADOPTION_BUILD",
+        "SKILLS_BUILD",
+        "Engine packets"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "frontier-runtime checkpoint, delivery/coverage/build; second-pass absorption-incorporation reconciliation and validation"
+      ],
+      "disposition": "Checkpoint records static incorporation complete and handoff-ready, while runtime remains Engine-owned and behavioral/save/failure gates deferred. Historical snapshots and later build correspondence are distinct. Preserve source integration/review fixes separately from their unrun receiver cases. Stale pending leaf joins can be superseded only at later parent receipt scope, without implying native behavior. Current AD36/AD43 replaces historical blanket test deferral; no repairs or source passes restarted.",
+      "mechanism_and_interactions": "Revision13 closes mapped Frontier parents/steps/endings with adapters and coverage; source/bank/fork findings feed bounded Engine packets. Later adoption integrates four methods/19 commands and selected IDs while preserving Frontier IDs and conditional branches. These are planning and build maps, not new runtime mechanisms.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical static JSON/link/hash/readback receipts only; no runtime or new source audit here.",
+      "reopen": "Select a concrete packet with actual callers/files and compatibility decisions before implementation; do not restart generic audits.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          21
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S013.json"
+      ],
+      "prior_input_sha256": "73c5a68562a1f53c94fd4e3e0b1ce96c9e2e11459cc8f4529155e0b5552f80a0",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "73c5a68562a1f53c94fd4e3e0b1ce96c9e2e11459cc8f4529155e0b5552f80a0",
+      "input_lines": 21
+    },
+    {
+      "path": "docs/gm/feature-wave/features/nested-campaign/continued-life/review/CHECKPOINT.md",
+      "ids": [
+        "CL-NR-01",
+        "REVIEW.json",
+        "925a21cf39e3a55bb41e30e67f2f43d58cf02f2e42cc30361ca19baecf146bf2"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "REVIEW.json and Features root; continued-life acceptance backlog"
+      ],
+      "disposition": "Bounded source review reports zero open findings after repair; lexical/static readback is not an exercised action. No evaluator, preview, gameplay, save or failure test ran; current play remains implemented-unverified. Preserve source integration/review fixes separately from their unrun receiver cases. Stale pending leaf joins can be superseded only at later parent receipt scope, without implying native behavior. Current AD36/AD43 replaces historical blanket test deferral; no repairs or source passes restarted.",
+      "mechanism_and_interactions": "Reviewer isolated copied preview fragments in commitNestedCommand that blocked mission-arrival continuation; root removed them and restored the direct else-if path. It also read back body identity/controller guard, life version, command/facts/router and refundable-job joins.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical exact source hash/readback and static checks; no bundle build or runtime behavior proof by reviewer.",
+      "reopen": "Parent must test actual personal return and work/refusal/refund/material funding plus persistence/failure gates.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S013.json"
+      ],
+      "prior_input_sha256": "24278a7f1f7e3d4d40ee8132edaaae3d17c3a4d856a7e886cbc04ee3c48f4423",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "24278a7f1f7e3d4d40ee8132edaaae3d17c3a4d856a7e886cbc04ee3c48f4423",
+      "input_lines": 11
+    },
+    {
+      "path": "docs/gm/feature-wave/features/nested-campaign/continued-life/worker/CHECKPOINT.md",
+      "ids": [
+        "schema8",
+        "version1",
+        "17 command definitions",
+        "INTEGRATION.json"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "Features root; INTEGRATION.json, DESCRIPTIONS.md, DELIVERY.md"
+      ],
+      "disposition": "Source complete within exclusive reservation, but all action/gameplay/evaluator/story/save tests remain deferred; no shared native/save/UI/build edits by worker. Preserve source integration/review fixes separately from their unrun receiver cases. Stale pending leaf joins can be superseded only at later parent receipt scope, without implying native behavior. Current AD36/AD43 replaces historical blanket test deferral; no repairs or source passes restarted.",
+      "mechanism_and_interactions": "Worker provides immutable command definitions with native body/alive support, finite demands, paid native jobs, output consumers, texture/refusal/accounts, and schema8 preview/commit/validator/presentation exports. Root must supply route controls, current-token routing, refundable reservations and admission.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical source delivery only; no playable acceptance.",
+      "reopen": "Verify root admission and exact shared joins, then gameplay/save checks.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S013.json"
+      ],
+      "prior_input_sha256": "f0f65dcbb510e20adb66b7b9e469a733aa7b68535836862720769ae8e1a48117",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "f0f65dcbb510e20adb66b7b9e469a733aa7b68535836862720769ae8e1a48117",
+      "input_lines": 7
+    },
+    {
+      "path": "docs/gm/feature-wave/features/nested-campaign/native-review/CHECKPOINT.md",
+      "ids": [
+        "native-revision/completion-preflight mismatch",
+        "REVIEW.json"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "Features root; REVIEW.json; nested native/carrier modules"
+      ],
+      "disposition": "Source findings were repaired and read back; no behavioral acceptance claim. Static syntax/import checks passed, with main app bootstrap and action/save/browser tests deliberately not run. Preserve source integration/review fixes separately from their unrun receiver cases. Stale pending leaf joins can be superseded only at later parent receipt scope, without implying native behavior. Current AD36/AD43 replaces historical blanket test deferral; no repairs or source passes restarted.",
+      "mechanism_and_interactions": "Audit found native staging changed revision after completion preflight, invalidating live native context. Root reordered preflight before staging. Carrier repairs preserve recollection evidence and bind only an active edge-applicable mission to the exact request.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical bounded read-only source audit and static checks, not passage execution.",
+      "reopen": "Exercise passage/revisit, extraction wait, native publication/save restore and funding in parent gates.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S013.json"
+      ],
+      "prior_input_sha256": "d076e87eb6d9a6ae929db37792e3e3b4bd84933da6b34bbb4d10cf421eff627e",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "d076e87eb6d9a6ae929db37792e3e3b4bd84933da6b34bbb4d10cf421eff627e",
+      "input_lines": 13
+    },
+    {
+      "path": "docs/gm/feature-wave/features/nested-campaign/source-fit/CHECKPOINT.md",
+      "ids": [
+        "SOURCE_FIT.json",
+        "sid26/27",
+        "sid2/3",
+        "sid1"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "SOURCE_FIT.json; Features parent and nested content/host/native owners"
+      ],
+      "disposition": "Revision2 source-fit release completed with source locators and hashes, but original canon/publication/translation remains unqualified. Parent joins and matched build plus gameplay/persistence gates remain. Preserve source integration/review fixes separately from their unrun receiver cases. Stale pending leaf joins can be superseded only at later parent receipt scope, without implying native behavior. Current AD36/AD43 replaces historical blanket test deferral; no repairs or source passes restarted.",
+      "mechanism_and_interactions": "Source-fit maps eight distinctions to source spans and current content/host/native/chain consumers. Early service-district footprint and printed opening chapters are distinguished. Entry/residence/roles/destinations and prototype economy are declared divergences; native owners track people, inventory, XP, equipment, location, stock, quests/calendar while host manages passage, clocks and settlement.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical selected-span reading and static JSON/link/hash checks; no whole-book reread or playable acceptance.",
+      "reopen": "Use only if selected: integrate shared callsites and prove durable-before-native publication, UI/save/clock consumers and matched build.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S013.json"
+      ],
+      "prior_input_sha256": "0b06b78743f594ea146da3536b7b88cedced04c092f6cb9c24e361b87dc14c50",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "0b06b78743f594ea146da3536b7b88cedced04c092f6cb9c24e361b87dc14c50",
+      "input_lines": 11
+    },
+    {
+      "path": "docs/gm/feature-wave/features/objects/CHECKPOINT.md",
+      "ids": [
+        "INC-P2",
+        "expansion5",
+        "simulation3-4",
+        "feature_objects.miri",
+        "tidemark.counterweight"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "Parent Features integrates exports; INTEGRATION.json and DELIVERY.md"
+      ],
+      "disposition": "Finite source-ready lane with static syntax/import/item/completion checks. Parent integration still needs facts, registry/native registration, command/UI/save admission and rebuild; gameplay remains implemented-unverified. Combined registry had a separate missing Tidemark counterweight model. Preserve source integration/review fixes separately from their unrun receiver cases. Stale pending leaf joins can be superseded only at later parent receipt scope, without implying native behavior. Current AD36/AD43 replaces historical blanket test deferral; no repairs or source passes restarted.",
+      "mechanism_and_interactions": "Objects add conserved owned/loan wear, repair and refit; wet/sound/matched material and native kit circuit; persistent braced/sealed joint dries over functional 6/4/2-minute intervals. Discovery, paid acquisition and native XP stay distinct, using existing expansion/simulation owners absent by default.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical static checks, no gameplay/save/failure proof.",
+      "reopen": "Resolve combined registry dependency if selected, then exercise wear/material/drying and persistence consumers.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S013.json"
+      ],
+      "prior_input_sha256": "3ca56ee501e6f2de0bdd4871df1f456a76e3815e1d1a9ebbf050b7008d761331",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "3ca56ee501e6f2de0bdd4871df1f456a76e3815e1d1a9ebbf050b7008d761331",
+      "input_lines": 9
+    },
+    {
+      "path": "docs/gm/feature-wave/features/powers/CHECKPOINT.md",
+      "ids": [
+        "optional schema3",
+        "Lio",
+        "native_battle_contracts.js",
+        "INTEGRATION.json",
+        "DELIVERY.md"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "Parent canonical registry/native/UI/save/build; INTEGRATION.json and DELIVERY.md"
+      ],
+      "disposition": "Successor lane completed and released after syntax and in-memory ESM link checks. Integration still needs definitions/items, contexts, host, dispatch/enrollment/cancellation/resume and dedicated combat slots. No gameplay/save/failure/browser proof; implemented-unverified. Preserve source integration/review fixes separately from their unrun receiver cases. Stale pending leaf joins can be superseded only at later parent receipt scope, without implying native behavior. Current AD36/AD43 replaces historical blanket test deferral; no repairs or source passes restarted.",
+      "mechanism_and_interactions": "Combat lane routes schema3 validation through native envelope; resume checks exact session/sequence/action/seed and non-busy context. Vital snapshots and saved NPC bodies are checked; exhausted attack power is not double-reduced; Lio waits for another guard and releases if unable to pay. Projection does not refresh display.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical static checks only; no runtime or persistence probing.",
+      "reopen": "Complete parent-owned joins while keeping schema3 out of generic simulation/duel routes, then exercise combat and persistence gates.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S013.json"
+      ],
+      "prior_input_sha256": "a9b4bb7c58b560291ff59a44dcfecc824a0f458590b672bb8b9897860a9030fe",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "a9b4bb7c58b560291ff59a44dcfecc824a0f458590b672bb8b9897860a9030fe",
+      "input_lines": 11
+    },
+    {
+      "path": "docs/gm/feature-wave/features/nested-campaign/ACCEPTANCE_BACKLOG.md",
+      "ids": [
+        "acceptance1–5"
+      ],
+      "classification": "shared historical receiver owner; fresh full content read",
+      "owners": [
+        "docs/gm/feature-wave/features/nested-campaign/ACCEPTANCE_BACKLOG.md"
+      ],
+      "disposition": "Preserve conserved office/carrier qualification and independent received reports, complete body/cargo paid passage, explicit contract vs personal revisit, once issuer settlement, finite actual NPC means, support invalidation and failed-publication no partial visibility. Historical old-schema list is exact original proof gap, not universal migration suite.",
+      "evidence": "Entire backlog read; semantic notes from all 18 checkpoint records inspected with matched original complete ranges. No behavioral test renewed.",
+      "reopen": "When a selected slice touches these consumers, use current facts and owners, relevant failure/receiver cases and current verification rules. Do not revive every old lane or full-world gate.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "9688117f1a02fbd4517680dba62c8c19ad0285ddd663ab09c83d960a5c3f60eb",
+      "input_lines": 9,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/feature-wave/features/nested-campaign/ACCEPTANCE_BACKLOG.md",
+      "heading": "## Cross-lane content reconciliation, 2026-11-04 (B20)",
+      "body": "The opening deferral records the historical wave, not a standing current AD43 exemption. The source review repairs in native qualification, UI, personal return and completion preflight remain resolved at their original source snapshots; they do not close the five receiver families here. Keep the important interactions together: actual office rights do not transfer body/debt/mastery; a received report is knowledge rather than an inferred meeting; paid same-body/full-cargo passage differs from observation; a personal revisit does not enroll a new contract or refill old means; completion uses current actor/source/support before durable publication. Select relevant existing cases against current owners under AD36/AD43 rather than restarting every old schema or source lane. AD42 leaves human presentation/fiction feedback optional and distinct from agent verification. No native journey or source-world parity was proved by this reconciliation.",
+      "before_sha256": "9688117f1a02fbd4517680dba62c8c19ad0285ddd663ab09c83d960a5c3f60eb",
+      "after_sha256": "2625ad82a4b4133a155c67df24279ed4734eeabd5d42cb702497668fc569e2eb"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1742
+}

@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "batch": "B285",
+  "title": "Every extra-audit C claim: retained mechanisms, proof scopes and later art direction",
+  "at": "2026-11-05T00:48:56.199611+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/cross-audit-reconciliation-2026-10-15/SEMANTIC_T11_EXTRA_AUDITS_C.md",
+      "ids": [
+        "T11XC-0001–T11XC-0086",
+        "S1–S10",
+        "Five partial OWNER pins",
+        "S1/S2 duplicate provenance",
+        "Status F1–F14/H1–H6/D1–D3/T1–T9/Q1–Q3",
+        "Cosmology F1–F8 and catalog rows",
+        "CH1 B1 closure",
+        "Combat-life target–limits",
+        "GD-01/02/GD-D01–D05"
+      ],
+      "classification": "Full 86-record semantic return over ten dated report pins; later authority qualifies current-use claims",
+      "owners": [
+        "docs/gm/cross-audit-reconciliation-2026-10-15/SEMANTIC_T11_EXTRA_AUDITS_C.md",
+        "docs/CHEAT_COSMOLOGY.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Read every record and all 631 original lines in bounded chunks. Preserve duplicate draft lineage without independent evidence credit; grouped ranges are not expanded into newly read underlying IDs. Keep proposed mechanics, historical native/source gaps, old suite interruption and closed B1 branch separate. Fold useful carrier/trigger/effect/lasting consequence distinctions into cosmology owner and chronology qualifications into this report.",
+      "evidence": "Current VISION_DIGEST lines 35–49 and USER_VISION lines 3368–3395 read for precise portrait-versus-optional-art chronology; UI_RULES selected current lines found by scoped search. October14 portrait leaning was unconfirmed then, while November4 current prose-first illustration is optional. The old PROJECT1278/UI_RULES109-line owner pins are partial snapshots, not current full-owner review. No underlying source/runtime/gameplay or private receipts read by proxy.",
+      "supporting_input_snapshots": [
+        {
+          "path": "docs/VISION_DIGEST.md",
+          "sha256": "fff54d5746d0587f87dfbdc8fe2c4e71473b8b7298d93cc447efebe349aeb916",
+          "ranges": [
+            [
+              35,
+              49
+            ]
+          ],
+          "full": false
+        },
+        {
+          "path": "docs/USER_VISION.md",
+          "sha256": "1adcd5a139e19ccafdd10855d15d26ec17c5a4d132a5a4551331e905a28db8a9",
+          "ranges": [
+            [
+              3368,
+              3395
+            ]
+          ],
+          "full": false
+        }
+      ],
+      "reopen": "Use current selected source and exact owner for a concrete consumer. Preserve all original 86 records as historical evidence; no old status question, missing adapter or audit defect is automatically reopened.",
+      "input_sha256": "f5102d9083b5511b48368550f829229be14371835a8eda99a3902d89ed54a27c",
+      "input_lines": 631,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          631
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/cross-audit-reconciliation-2026-10-15/SEMANTIC_T11_EXTRA_AUDITS_C.md",
+      "heading": "## Content reconciliation B285: full claim review and chronology",
+      "body": "Every T11XC-0001–0086 record, all ten report pins and all five bounded owner pins above were read. This is a full read of this 631-line return, not of its underlying primary sources, private pack or current runtime. S1/S2 equal hashes identify duplicate report provenance; they do not prove two independent reviews. Their matched bytes and the later pinned owner references remain historical, including the 1,278-line PROJECT and 109-line UI_RULES snapshots.\n\nT11XC-0001–0018 preserve status-window persistence-after-failure, missed awakening on time jumps, incomplete held-state validation, focus/placement and stage-contract findings as dated claims. Normal-route persistence or contrast passes do not cancel a failed write path or certify useful placement. H1–H6 and D/T/Q proposals do not add standing gates. The F7 natural-play statement and CH1 first-win source-only label describe different scoped evidence and must not be merged into a new natural first-win pass. T11XC-0048–0054 record final B1 whitelist closure after the initial blocked state; that closure does not certify unexercised sleep/first-win branches or human taste.\n\nThe recurring portrait sentence records the October14 leaning accurately as history. It is not a current requirement to ask again before omitting illustration: the later [prose-first clarification](../../USER_VISION.md#prose-first-visuals-and-hall-interaction-2026-11-04) and current [UI rules](../../UI_RULES.md) make deliberate illustration optional, while actual task/state/feedback remains primary. Current desktop/laptop and 14/21px requirements qualify old viewport/gate language; neither creates a new full-art or portrait policy from this audit.\n\nT11XC-0020–0035 retain separate carrier/backing, activation means, trigger, lasting effect, record reliability and local time policy. A transported object need not transport its monument/support; a lasting body change need not expire with its trigger. Reread/rechannel/weakened/blocked labels, optional card fields and diegetic player facilities are proposal vocabulary, not a selected universal schema or world law. Source contradictions stay unresolved until their exact source scope resolves them. These useful distinctions are folded into the cosmology owner below its existing content.\n\nT11XC-0036–0047 distinguish isolated Air P1–P4 adapters, paid/fixture outings, scoped true-death/life storage and a separately revised private candidate from merge/install/current behavior. Preserve the reported later A–E native snapshot and final suite pass while retaining earlier worker timeouts, proposed default-off pacing numbers, local hunger/weather/durability semantics and deferred Xeus/renown ideas. No broad current offline/death policy follows from those report labels.\n\nT11XC-0055–0070 distinguish fixed nonlethal elder/Mara/party/sluice sessions, native faint/recovery, optional mortal end, simulation life primitives, selected availability/support cleanup and separate transfer/custody. The frozen Paradise non-admission statement is historical and is qualified by later deliveries; it is not a fresh absence finding. T11XC-0071–0074 report no missing Air source hunk or port, and an interrupted 1–55 test run remains incomplete despite a build pass. T11XC-0075–0079 keep Brogue's bounded implemented-unverified assay, SPD source-ready substrate gap and five unselected deeper questions distinct from a 2,374-path manifest. T11XC-0080–0086 retain the exact reserve/accepted-versus-completed, compatibility, consent/reservation, earned-choice and publisher scope of a frozen no-actionable-source-defect review; syntax/cold import and reinspection after drift do not establish gameplay. No underlying artifact, source or browser proof is renewed here.",
+      "before_sha256": "f5102d9083b5511b48368550f829229be14371835a8eda99a3902d89ed54a27c",
+      "after_sha256": "6cbb3f5d4214c291c4ef931be45c27e28e1625b0576f9b482b079ac0947da8c5"
+    },
+    {
+      "path": "docs/CHEAT_COSMOLOGY.md",
+      "heading": "## Content reconciliation B285: retained game-carrier distinctions",
+      "body": "The full [extra-audit C return](gm/cross-audit-reconciliation-2026-10-15/SEMANTIC_T11_EXTRA_AUDITS_C.md), T11XC-0020–0035, preserves useful analysis for selected cheat/world joins. Carrier arrival, activation requirements, trigger, effect and lasting consequence may have different backing. A carried implement can still need a local monument, target, fuel, source or permission; an already-made body change can outlast the world-law trigger that made it. Neither universal expiry on departure nor universal portability follows. A remembered record may be false or version-stale. Reload, continuing life, an authored reset and game-specific elapsed catch-up are separate mechanisms.\n\nRetain soul/body/item/system/world/patron/knowledge/concept vocabulary and works/reread/rechannel/weakened/blocked outcomes as optional per-function analysis, not a mandatory global card schema or collision rule. Player/account/snapshot/run-seed/design-library support is not automatically a faculty carried by the character. The actual selected source and producer/state/consumer decide which support crosses a boundary and what remains afterward. Unknown backing remains an explicit source question rather than an invented fee, counter or fictional prohibition. The underlying game/source reports were not reread by this fold; the return's bounded dossier and thin-source qualifications remain. No source truth, runtime adapter or new research wave is selected.",
+      "before_sha256": "3978e2e4081b499ef55f6d2e7b4f16f6d36087b6bf3bd4e8923c9a4ed59261cc",
+      "after_sha256": "6fb7275390553629c191956e487c3bc2e4776b7c93b5a21f808f5bb5b353df3b"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 859,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/cross-audit-reconciliation-2026-10-15/SEMANTIC_T11_EXTRA_AUDITS_C.md",
+      "from": "the exact reserve/accepted-versus-completed, compatibility, consent/reservation",
+      "to": "the exact reserve/job-admission-versus-completion, compatibility, consent/reservation",
+      "reason": "Clarify job admission versus completion; lint mistook the old hyphenated phrase for product acceptance."
+    }
+  ]
+}

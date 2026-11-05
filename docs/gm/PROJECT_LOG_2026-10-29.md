@@ -2351,9 +2351,200 @@ The Klein line now names the KJ3AB endpoint (Monday 4:04 p.m. at the flat after 
 
 The Klein line now names the KJ3AC endpoint (Tuesday 7:58 a.m. at the Blackthorn office after Monday at the Divination Club and the warrant for Tris, English v1 ch62 P001 through ch64 P088; 13 acts, 31 slices, 481 stages; native on the master bundle `4c9c0c2b`, purse 817, pool 1/3). KJ3AB keeps Monday at home and the third gathering. First native uses of the C1 client registry (Glacis, Joyce), the Anna settle and one B3 Spirit Vision cycle. Agent-verified, not human-reviewed.
 
+## 2026-11-04: Loose-document reconciliation
+
+Under Weibao's request to update reconcile-project and reconcile loose audits, plans, ideas and maps, synchronized existing direction into its stale consumers. PROJECT's expired “Batched reading before Nov 1” focus is historical; the Nov 3 selection of Harry's developer route beside Klein now occupies that focus line. Reading results remain with READING_STATUS; no completed reading, current credit expiry or new spending authority is inferred. The digest now links the same existing HP direction.
+
+LEAD_LIFE_GUIDE §10 formerly described a “new shared seam justified by two real consumers”. AD51 and the Nov 3 USER_VISION wording instead allow reasonable shared design up front; a second world validates or revises it. The rules router now distinguishes common world work from book-specific lead/source work and scopes MAW to research plus implementation. These are maintenance under existing direction, not new rule codes, world priorities or gameplay authorization.
+
+[Execution record and remaining coverage](../audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md); [exact replaced text](../audits/reconciliation-2026-11-04/superseded-text.json). Original audits and evidence remain in place. No document was deleted or relocated.
+
+## 2026-11-04: UI prose defaults and independent characterization
+
+Weibao authorized updating/reconciling existing UI design, prose, subtle-detail and whimsy rules as defaults, with room for worlds and improvement (AD40; [exact words](../USER_VISION.md#ui-and-prose-defaults-subtle-details-and-whimsy-2026-11-04)). Folded the principles into existing DSG/UR codes and updated their routing/quick references. UI/flavor whimsy does not change character personality, motives, knowledge, competence or behavior. Current copy guidance applies now; bulk local-AI drafting remains later. No runtime change, mandatory new framework, new rule family, commit or push. Audit round 29 records provenance, adopted/proposed boundaries and checks.
+
+Superseded wording below is verbatim history from the selected rows, not current rules. Replaced clauses retain their original code in their live owner.
+
+### DESIGN.md · DSG3
+
+```markdown
+| DSG3 | **Whimsical and unpretentious in words, vivid in colour, quiet in hierarchy.** Text is short and concrete; colour carries roles (danger, money, bond, knowledge, progress), never decoration alone, and every coloured fact also has a word (UR37). | A world may pick a darker or lighter register of voice (DSG13). | The tone of the [vision digest](docs/VISION_DIGEST.md#what-oops-is); colour roles keep a reskin from changing what red means. |
+```
+
+### DESIGN.md · DSG5
+
+```markdown
+| DSG5 | **Restructure before decorating.** A representation earns a better shape, home or split before it earns ornament; what exists is a draft unless it is genuinely good. | Flourish (DSG12) stays small until a representation is settled. | Weibao, round 13: "dont feel too attached to current ways" ([round 13](docs/audits/UI_DESIGN_CORE_AUDIT.md#round-13-2026-10-30-visual-distinctiveness-and-flair)); AD45. |
+```
+
+### DESIGN.md · DSG13
+
+```markdown
+| DSG13 | **Report voice** | Reports lines that a world names get its own flavour plus the useful part (consequence or next step) from [world_report_voice.js](src/world_report_voice.js), in three grains, most specific first: a place row for a named locality, the world's general row for any other arrival or newly opened place there (flavour drawn per place, useful part naming that world's real way to move), else today's generic line. Rows key on the world id, so a generic family never voices a world it was not written for. | A world can voice a place, its arrivals or a kind, or leave them generic; the useful part is never dropped for flavour. | Weibao asked for "flavour or specific useful text" (PLAN M4). RPT1-RPT14 bind (RPT13: every enterable world ships its voice; RPT14: seen flavour, real controls): perceived only, subject first, no canon labels or future, deterministic wording. Flavour carries no sealed truth outside its discovery route. |
+```
+
+### docs/UI_RULES.md · UR53
+
+```markdown
+| UR53 | **Transient surfaces have an explicit dismissal and focus contract.** Menus and popovers work by pointer and keyboard. Esc closes the top one before navigating Back, focus returns to the opener, and an outside click dismisses without activating what is underneath. Opening and closing has no gameplay effect and follows the existing simulation policy | Accidental commands, stacked overlays trapping input, and menu refresh interrupting play |
+```
+
+### docs/UI_RULES.md · UR57
+
+```markdown
+| UR57 | **Review the full journey in changing state.** Exercise finding, switching, inspecting, acting, returning and resuming, including full discovered routes, large text, unavailable targets and relevant failure recovery. Record click or key cost, lost context and useful visible content. Screenshots and counts alone do not prove findability or acceptance | A clean opening frame hiding repeated navigation friction or broken return behavior |
+```
+
+### docs/UI_RULES.md · UR60
+
+```markdown
+| UR60 | **Compose typography, color and frames by reading role.** Shared tokens cover compact labels, numeric comparisons, longer prose, task regions, selection and quiet decoration. MS Gothic is the selected internal default, including prose and controls (2026-10-21 direction); verify the rendered face and per-glyph fallback. The earlier optional compact-font candidate is historical. Preserve the original launch direction and player or module overrides. Keep full known names accessible, labels on quiet readable backing, and commands stable at actual 14 and 21 px desktop text. Density, glow and world styling are dials whose cost is legibility and distraction | Copying colors without composition, claiming a font loaded from its CSS name, borders crossing values, or shortening a label until its meaning is lost |
+```
+
+### docs/UI_RULES.md · UR62
+
+```markdown
+| UR62 | **Local reactions follow the actual subject and settled occurrence.** Bind hit, repair, recovery, work completion, weather, household and sound cues to the owner's public state or receipt and the subject's lifetime. On replacement, load or revisit, reconcile transient cues without replaying rewards or attaching A's pulse to B. The little actor may move while its controls stay still. Motion, sound, humor and intensity are optional dials with static and text equivalents. Tell a settled animation from a real paused response; bodily competence, serious outcomes and supported sensing decide what expression fits | Fake rescue opportunities, effects deciding gameplay, a scene exposing hidden state, or a forced gag taking away a working method |
+```
+
+### docs/UI_RULES.md · UR64
+
+```markdown
+| UR64 | **Condense repeated presentation without flattening meaningful change.** Define grouping identity, occurrence count, retention or detail window and preference and reset owner. Keep changed outcomes, subjects and important transitions distinguishable, preserve the actual gameplay result, and explain any bounded retained display history. New discovery, recent gain and remembered-versus-current change are different cues. Keep a stable route to available detail and a useful return summary, preserving focus, scroll and follow, and known membership. Quiet recurring feedback rather than replaying a backlog of effects | A repeat counter hiding a new consequence, “new” badges pretending to track XP, unbounded detail rebuilds, or a compact log implying an archive it does not keep |
+```
+
+### docs/UI_RULES.md · UR66
+
+```markdown
+| UR66 | **Controls take one of three heights.** `--ui-control-sm` (20 px at 14 px text) for panel headers, tabs and inline tools; `--ui-control-md` (28 px) for ordinary buttons, selects and nav; `--ui-control-lg` (42 px) for routine action rows. Heights scale with text like UR65. The contract test catches literal heights on control selectors | Twelve control heights in one screen, and 18 px header targets on a trackpad |
+```
+
+### docs/UI_RULES.md · UR70
+
+```markdown
+| UR70 | **Lead with meaning and practical effect.** Default to one or two short sentences explaining what the subject represents and what it changes for the character. A trait may describe how it manifests in the body, habits or experience; a stat explains what increasing it helps. Use concrete verbs and restrained world-appropriate voice. Longer narrative belongs in a deliberate reading surface. | A tooltip opening with “Native current-player attribute” or atmosphere that never explains what the trait does |
+```
+
+### docs/UI_RULES.md · UR71
+
+```markdown
+| UR71 | **Give mechanics a supporting layer.** Follow the description with relevant current effects, conditions, costs, drawbacks or duration, then a labelled calculation/source breakdown when useful. Retain exact useful numbers and formulas through UR42/43 disclosure; short descriptions need not reproduce the entire calculation. Spell out unfamiliar ratings and distinguish power, damage and target-specific chances under UR40. | A formula replacing the explanation, or narrative removing the information needed to choose |
+```
+
+### docs/UI_RULES.md · UR72
+
+```markdown
+| UR72 | **Describe actual behavior with its conditions.** Trace effect wording to the owning consumer and observer-permitted state. Distinguish present effects, dormant or conditional effects, uncertain knowledge and unimplemented uses in player terms. Narrative can express the character's known belief, clearly qualified; it cannot establish an effect or reveal a sealed truth. | Copying a source's magic claim into a stat with no working magic consumer, or describing an inactive trait as already helping |
+```
+
+### docs/UI_RULES.md · UR73
+
+```markdown
+| UR73 | **Write for the player, with useful detail density.** Default to familiar names and meaningful comparisons. Internal source categories, stored-field caveats, pipeline terminology and tracing notes belong in developer documentation unless they explain a concrete player consequence. Omit repetitive neutral rows and empty-modifier messages by default; retain an explicit value or neutral comparison when it helps the current question. Engine refusals are developer text (Weibao 2026-10-30: "belongs to another world" is meaningless and detracts): an action the engine can only refuse with another world, actor or body, or with the unnamed fallback "required knowledge, means or circumstances", is hidden (UR82), not explained. `src/player_reasons.js` lists those strings, the shared decorator filters them, dev mode shows them under a dev label, and `tests/player_reasons.test.js` fails on an unregistered "belongs to another" refusal. A command that should show while locked gives its rule a `reason` naming the missing thing. | Repeating Unit/points/Base/Before multipliers/×1 on every hover, or exposing implementation warnings as flavor text |
+```
+
+### docs/UI_RULES.md · UR74
+
+```markdown
+| UR74 | **Keep one meaning across surfaces and check the words against play.** Reuse the owning subject's description and public effect projection across hover, pinned inspection, lists and reference views; shorten by disclosure rather than writing conflicting copies. For changed copy, check the active case and a relevant conditional, inactive or unknown case. Runtime delivery follows AD36 with rebuilt desktop evidence; document-only rules do not establish rewritten or playable tooltips. | A trait card, tooltip and effect list disagreeing, or a prose rule being reported as a shipped UI repair |
+```
+
+### docs/RULES_INDEX.md · AD40
+
+```markdown
+| AD40 | **Carry useful reference UI families and small details into future design**, especially progress/resource bars, message-condensing options, coloring and playful interaction details. Adapt them to OOPS's accepted shell and actual mechanisms. Later same-day direction selects typography/component-style/glow, then full retained palette implementation with Luna subagents, audit and root repairs. The next instruction authorizes a finite solo completion pass, self-audit and repairs. The 2026-10-21 instruction folds the Discord design guide into standing UR59–UR64; later direction selects internal Gothic by default, visible delivery and reuse of completed work before lesser-agent gap implementation. The later matched desktop comparison authorizes fitting UI repairs and creator/support/cat details, preserving deliberate OOPS differences under UR49. The following instruction requires coordinated local main Electron delivery of released combined work, visible adoption/restart proof, and an explicit inventory-overhaul coverage boundary. The next instruction selects the inventory overhaul and fitting gaps for implementation, latest combined Electron delivery, scoped merge and push. The 2026-10-25 description request selects effect-first narrative with supporting calculations under UR70–UR75; the subsequent request selects current tooltip/trait implementation and a bounded other-game comparison ([direction](USER_VISION.md#description-rules-selected-for-implementation-2026-10-26)). Concrete treatments retain required agent-side visual/play evidence; human taste/feel review is optional feedback under AD42. Unresolved reference claims do not become native facts. | [Inventory implementation/publication](USER_VISION.md#inventory-overhaul-and-combined-publication-2026-10-21); [Matched comparison direction](USER_VISION.md#matched-proto23-desktop-comparison-and-fitting-ui-fixes-2026-10-21); [Reference-guide fold](USER_VISION.md#discord-design-guide-and-missing-media-recovery-2026-10-21); [Initial request](USER_VISION.md#small-contextual-ui-details-for-future-work-2026-10-20); [full implementation request](USER_VISION.md#full-retained-ui-and-engine-palette-implementation-2026-10-20); [reusable palette](THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#small-contextual-bars-and-everyday-interface-details-2026-10-20) |
+```
+
+### PROJECT.md · UI standing priority
+
+```markdown
+- **Desktop/laptop UI first**; mobile is deferred unless Weibao asks ([UI priority](docs/USER_VISION.md#standing-ui-priority-2026-10-13), [UI rules](docs/UI_RULES.md)).
+```
+
+
+## Activity abstraction rule adoption and later playstyle round, 2026-11-04
+
+Authority: Weibao requested “turn findings into rules accordingly” and reconcile-project, then long-term gameplay/playstyle ideas. [Exact request and bounded interpretation](../USER_VISION.md#activity-abstraction-rules-and-long-term-playstyles-2026-11-04). New ACR1–ACR14 / AD52 own the principles; individual examples and the subsequently drafted LPS/LPI ideas retain their proposal status under AD32. This is ordinary authorized documentation maintenance, not runtime delivery.
+
+| Selected ID / locator | Classification and owner → consumer | Disposition and remaining evidence |
+|---|---|---|
+| AC1–AC18 / activity-compression round | Compatible applications; ACR1–ACR14 → selected world/domain consumer and lead-life guide | Principle conversion recorded; activity examples, world placement and checks remain conditional. No feature quota or new implementation. |
+| SI1–SI12 / cross-activity interactions | Principles adopted in ACR2/5–11/13–14 → costs, clocks, knowledge, result, persistence and run-mode consumers | Distinct consequences retained; no added universal test gate. Actual domain effects remain to be proven when changed. |
+| XC1–XC10 / cross-world forms | Compatible optional forms; ACR1/12/14 → world planners and activity designers | Registered rules own applicability, while examples remain palette entries. No universal dashboard or ten-subsystem requirement. |
+| XD1–XD8 / changing detail | Contextual operating principles; ACR2–5/7–13 → plans, projections, workers and result consumers | Principle adoption recorded; numeric conditions and UI treatments remain local. |
+| R1 / earlier activity-audit scope correction | Corrected scope, retained in activity owner → technical review and guide | Gameplay compression is the present rule subject. Historical shared-code audit is retained separately. |
+| R2 / technical-audit F1 source drift | Historical source correction → concurrent interruption implementation/proof owner | This adoption adds no new implementation/test claim; earlier source-only correction and historical 35-test result retain their original scopes. Staged consumption and runtime proof remain distinct. |
+| R3 / optional forms versus universal engine | Compatible variant → ACR1/12 and scope owner | No new universal engine or per-world activity quota; no software rewrite follows. |
+| R4 / decision prompt versus safe pause | Timing qualification → ACR8 and actual clock/hazard owners | Rule preserves distinction; implementation remains per selected consumer. |
+| R5 / operation name versus actual effect | Integration/evidence boundary → ACR2/6 and actual result consumers | A report or progress bar is not proof of the named domain behavior. |
+| LPS1–LPS14 / LPI1–LPI8 | Later gameplay proposals → existing gameplay palette and IDEA_INDEX | Outside adoption; no selected playstyle, new class system or rollout. |
+
+Reconciled the rule register/router and reserved prefix, source direction/digest, one PROJECT standing-priority line, activity palette status and lead-life procedure; registered the later gameplay round in IDEA_INDEX. Unmapped residue: all-world implementation coverage, numeric pacing and play feel, source qualification of future world examples, runtime/persistence/UI proof. No runtime edits, build, full suite, browser, save changes, commit or push by this task.
+
+Superseded summary/procedure wording below is preserved as dated history. Its underlying historical findings and tests have not been reverified.
+
+### PROJECT.md standing-priority line before AD52
+
+```markdown
+- **Different lives per setting**, not profession names alone ([direction](docs/USER_VISION.md#different-lives-and-implementable-book-world-features-2026-10-21)).
+```
+
+### LEAD_LIFE_GUIDE.md activity paragraphs before AD52
+
+```markdown
+**Activity compression examples (2026-11-04, proposals under AD32):** the [scope owner's AC1–AC18 / SI1–SI12 audit](SUBSYSTEM_SCOPE_LADDERS_2026-10-16.md#activity-compression-audit-choices-and-interactions-2026-11-04) maps repeated work to study blocks, batches, route summaries and standing orders. It preserves method/budget choices, actual outputs, support loss and independent clocks. Use the applicable examples for a selected repeated route; this is not a new required checklist or a claim that those activities are implemented. Investigation remains low priority; campaign order is unchanged.
+
+The [cross-world continuation, XC1–XC10 / XD1–XD8](SUBSYSTEM_SCOPE_LADDERS_2026-10-16.md#cross-world-activity-patterns-and-changing-detail-2026-11-04), adds reusable forms of play, illustrative world applications and contextual detail choices. It covers reusable preparation plans, compatible parallel work and powers that can remove chores. These remain proposals under AD32, not additional campaign gates.
+```
+
+### Verification of the rule conversion and later idea round
+
+Input: dirty primary checkout at HEAD `aef3cb1f81008e1eb815e57a703974d2447079eb`; pre-edit owner text saved at `/tmp/oops-activity-rules-before-2026-11-04.json`. This identifies the base and preservation comparison, not a clean runtime artifact.
+
+- `npm run check:rules`: PASS, 31 register rows, 52 AD codes, 1017 relative links; one warning for the new untracked ACTIVITY_ABSTRACTION_RULES.md. Receipt metadata PASS (23 checked, 317 explicit legacy paths skipped); direction sync PASS. These checks validate documentation/metadata, not gameplay behavior.
+- `node --test tests/project_md_shape.test.js`: PASS, 2 tests. PROJECT remains a bounded current-state summary without dated section headings.
+- Fresh-text preservation: prior text retained in all nine existing owners except the intended PROJECT line, two lead-guide paragraphs and rules-index range/prefix edits. Superseded PROJECT/guide wording is recorded above. New rule, playstyle and gameplay-theme definitions each appear once in order (ACR1–ACR14, LPS1–LPS14, LPI1–LPI8).
+- New relative links and heading anchors: 31 checked, passed; literal fenced historical text excluded from live-link validation. Whitespace checks, including explicit checking of the untracked rulebook and scoped `git diff --check`, passed.
+- `npm run check:docs`: diagnostics remain on 20 lines outside the ten task paths, zero on task paths. Output: `/tmp/oops-activity-rules-doc-check-2026-11-04.txt`; rules output: `/tmp/oops-activity-rules-check-2026-11-04.txt`. Repository-wide doc lint is not clean.
+
+State: rules and design documents edited and checked, agent-verified, not human-reviewed for exact wording. No runtime feature is implemented by this task. Code build, gameplay, persistence, installed state and play feel were not exercised; no staging, commit or push. Existing runtime changes belong to other work.
+
+
+## Long-play clarification, cross-world pursuits and quests, 2026-11-04
+
+Authority: [Weibao's wording](../USER_VISION.md#long-play-cross-world-pursuits-and-quests-2026-11-04) requests more long-term/cross-world/playstyle/quest consideration and says total play length need not be short. Recorded the clarification in ACR1/AD52, USER_VISION/digest and the existing PROJECT priority. No short-play requirement had been established; the earlier short-session examples remain compatible options rather than total-length ceilings.
+
+The [gameplay continuation](../research/GAMEPLAY_LOOPS_AND_WORLD_IDEAS_2026-10-26.md#long-play-interacting-worlds-and-quest-ecology-2026-11-04) contains LPI9–LPI28, six worked combinations and a delta ledger to earlier O/LPS/LPI, procedural-story, P12, multiverse and cross-world-detail owners. The [P12 continuation](dispatch/procgen-2026-10-13/p12/MORE.md#m19m30-long-play-and-quests-across-worlds-2026-11-04) extends M1–M18 with M19–M30 without creating a competing quest owner. New specific designs remain proposals under AD32 and outside the prior AD52 adoption. No gameplay implementation, new queue or new standing code was added.
+
+Selected source: saved project design/authority owners on dirty primary HEAD `aef3cb1f81008e1eb815e57a703974d2447079eb`. Pre-edit text: `/tmp/oops-long-play-before-2026-11-04.json`. Existing Proto23/YAIR research was referenced as saved context, not newly timed or played. Original source/test receipts, quest API assumptions and cross-world document scores were not reverified. Remaining proof gaps: actual selected-world producer/state/consumer wiring, current runtime generated-quest scope, source-specific compatibility and clocks, total pacing, persistence and human play feel.
+
+### Superseded PROJECT and rule-summary wording before the clarification
+
+```markdown
+- **Different lives per setting**, not profession names alone ([direction](docs/USER_VISION.md#different-lives-and-implementable-book-world-features-2026-10-21)); repeated activities follow [ACR1–ACR14 / AD52](docs/ACTIVITY_ABSTRACTION_RULES.md), preserving choices, consequences and local differences as detail changes.
+
+| ACR1 | **Compress repeated work around a chosen plan and useful consequence.** Use a session, batch, route leg, recurring order, encounter policy or period plan where it fits. | Choose the unit per activity, life and world; combine or omit forms. Familiar work gains convenience without forcing each setting through the same ten activity types. |
+
+| AD52 | **Compress repetitive gameplay while retaining its decisions and consequences.** Weibao requested 2026-11-04 that the activity and cross-world findings become rules. Standing defaults are ACR1–ACR14: choose plans and useful outcomes, retain actual means/local laws, let detail vary without a click bonus, preserve character and consequential choices, show observer-safe progress, settle real results/costs/clocks/knowledge and use actual workers/support. Persist committed work, preserve established identities, let effective means remove chores and distinguish developer canon policy from ordinary lives. Dial: compressed unit, detail and supported activities per world, life and situation. Reason: convenient repeated play should preserve what makes the world and choices matter. Specific examples, new mechanisms, pacing values, all-world rollout and later playstyle ideas remain proposals under AD32; AD51 separately owns shared software seams. | [USER_VISION](USER_VISION.md#activity-abstraction-rules-and-long-term-playstyles-2026-11-04); [ACR owner](ACTIVITY_ABSTRACTION_RULES.md) |
+```
+
+### Checks and remaining evidence for the long-play round
+
+- `npm run check:rules`: PASS, 31 register rows, 52 AD codes, 1021 relative links; one warning for the existing untracked ACTIVITY_ABSTRACTION_RULES.md. Receipt metadata PASS (23 checked, 317 explicit legacy paths skipped); direction sync PASS. This does not prove gameplay or semantic coverage of every old proposal.
+- `node --test tests/project_md_shape.test.js`: PASS, 2 tests. No full runtime suite or build was needed for this documentation pass.
+- Fresh-snapshot preservation: prior text retained in all nine edited owners except the three intended ACR1/AD52/PROJECT statements preserved above. All 29 new relative links and heading anchors checked; LPI9–LPI28 and M19–M30 each defined once, contiguous after the preceding ranges. Explicit whitespace and scoped `git diff --check` passed; fenced literal history was excluded from live-link validation.
+- `npm run check:docs`: exit 1, 25 diagnostics outside the nine task paths, zero on these paths after this round's wording correction. Output: `/tmp/oops-long-play-docs-2026-11-04.txt`; rule-check output: `/tmp/oops-long-play-rules-2026-11-04.txt`. Repository-wide doc lint remains unclean.
+
+State: requested length clarification recorded, design/quest expansion saved and reconciled, agent-verified documentation; later specific gameplay ideas remain proposals under AD32. No current gameplay, all-world viability, save round trip, installed state, total playtime or human play-feel proof. No runtime source edits, agents, acquisitions, staging, commit or push in this round.
+
 ## 2026-11-04: PROJECT.md endpoint line replaced (kjw20)
 
 The Klein line now names the KJ3AD endpoint (Tuesday 9 p.m. at the flat after the Beyonder records and the Theosophy Order, English v1 ch65 P001 through ch66 P047; 15 acts, 32 slices, 496 stages; native on the master bundle `4c9c0c2b`, purse 807, pool 1/2). KJ3AC keeps Glacis's and Joyce's paid sessions, the calling and the warrant for Tris. Agent-verified, not human-reviewed.
+
+
+## 2026-11-04: prose-first hall clarification
+
+[Weibao clarified](../USER_VISION.md#prose-first-visuals-and-hall-interaction-2026-11-04) that prose probably does not need visuals and specifically questioned “From the ritual,” favoring actions/progress and button/interaction feedback. DSG5, the UI-rule application, digest and PROJECT’s existing UI line now reflect that default. The prior room/fog vignette was an agent-selected application, not a universal requirement; its valid historical screenshots/geometry proof remain evidence of that build, while the vignette is retired. Optional, deliberately useful diagrams/reading treatments remain possible. No new world priority, runtime feature gate or ban on decorative pleasure is introduced. Characters remain independent of UI/narrator whimsy.
 
 ## 2026-11-04: PROJECT.md endpoint line replaced (kjw21)
 
@@ -2363,3 +2554,8 @@ The Klein line now names the KJ3AE endpoint (Wednesday 8 p.m. on Daffodil Street
 ## 2026-11-04 release reconciliation
 
 The release pass replaces PROJECT’s stale L2b and publication summaries. Previous wording: “Existing combat L2b remains below floor in its own queue.” The November 4 closure receipt supersedes this for its named health-publication fixture, with broader combat and legacy limits retained. Previous release paragraph: “Published master is `5dcd2240c` (Luminous Gothic default); the normal app serves frozen `v0.6-e7f0aa4029ca` ([adoption receipt](dispatch/luminous-adopt-2026-10-29/APP_ADOPTION.md)). Work since then is local until Weibao says to push.” Live origin was `aef3cb1f8`; Weibao requested “reconcile-project and push?” in this chat. [Release record](../audits/RELEASE_RECONCILIATION_2026-11-04.md) owns validation, exclusions and publication results. No installed-app claim follows.
+
+
+## 2026-11-04 four-group integration closeout
+
+The [integration record](../audits/FOUR_GROUP_INTEGRATION_2026-11-04.md) owns the joined release and maintained artifact homes. [Exact superseded PROJECT lines](../audits/four-group-integration-2026-11-04/superseded-project-lines.json) preserve all four nonblank summary lines replaced since `f15a37f90`, including the earlier local-AI prose wording. Their authority/status is historical; current USER_VISION and owning rules govern. The preservation record establishes neither authorship nor new acceptance.

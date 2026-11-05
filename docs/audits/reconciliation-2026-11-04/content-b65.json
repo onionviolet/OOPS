@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "batch": "B65",
+  "title": "Corc UI release chronology, fixture scope and local publication evidence",
+  "at": "2026-11-04T20:14:43.614919+00:00",
+  "head": "4cdc0772b65d413e4989e327502910140b2a15eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/reviews/CORC_UI_2026-10-21.md",
+      "ids": [
+        "F1–F17",
+        "reload readiness/glyph bearing",
+        "combined gear/resize/local calendar",
+        "final visitor journey"
+      ],
+      "classification": "fresh full historical delivery review",
+      "owners": [
+        "docs/reviews/CORC_UI_2026-10-21.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Later visitor retained-instance journey closes earlier natural-visitor browser gap only for its actual supplied prior-progress fixture and named passage/save/import route; no natural onboarding/pacing or exhaustive crossworld parity. Font original bearings/fixed advance/private derivatives, actual rendered face, native gear facts, measured size, public calendar/climate and shared station owners preserved. Readiness timeout repaired harness actionability, not proven loader defect. Later release supersedes earlier uncommitted/UI-only snapshots at named scope; local git confirms report commits83bbba0ff/3ce24d9cb, not live remote push or current install/process.",
+      "evidence": "All366lines freshly read in bounded ranges; release identity JSON read and git log for this path observed two actual local commits. Historical2443test/683source/native matrix reports read, not rerun; no images/process/user saves opened.",
+      "reopen": "Current changed UI/source inputs or named parity question require own rebuilt evidence; no reopening historical review windows/PIDs, font install/distribution, authorizing new commit or requiring human sign-off.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "3675bb76be94a68d62746c4ccc9193bfa73ef2263b91ed5b12cc72f192d75ee9",
+      "input_lines": 366,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          366
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/reviews/CORC_UI_2026-10-21.md",
+      "heading": "## Chronology and evidence scope reconciled, 2026-11-04 (B65)",
+      "body": "The final visitor section supersedes the earlier unplayed visitor gate for its declared retained-instance fixture: supplied prior progress, actual native exit/re-entry, Save/reload and Export/literal Import. It does not prove natural first onboarding, acquisition pacing, all worlds or exact reference parity. Preserve F1–F17’s distinctions: actual native facts and public time/climate readers, private font availability/rights, fixed glyph advance versus bearing repair, measured responsive minimums, and source-owned transactions remain separate. The reload investigation supports readiness-helper repair rather than a reproduced stuck game loader. Local path history now contains 83bbba0ff and 3ce24d9cb, so earlier uncommitted paragraphs are historical stage records; this review did not verify a current remote push or installed artifact. Historical PIDs/review windows are not current processes or instructions to open them. AD42 makes human taste review optional, while actual changed UI claims retain AD36/AD43 evidence requirements. Original receipts keep their input hashes and dates; none was rerun by this content review.",
+      "before_sha256": "3675bb76be94a68d62746c4ccc9193bfa73ef2263b91ed5b12cc72f192d75ee9",
+      "after_sha256": "1add463fd602b03baa38d68ac2921cb732cb3cfda2f9479c350e6a4da02e6803"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1404
+}

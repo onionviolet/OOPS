@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "batch": "B279",
+  "title": "Engine expansion: delivered slices, historical gates and actor packet",
+  "at": "2026-11-05T00:41:44.510450+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/ENGINE_EXPANSION.md",
+      "full": false,
+      "ranges": [
+        [
+          1,
+          722
+        ]
+      ],
+      "ids": [
+        "Original opening delivery inserts",
+        "Packages A–E",
+        "PF01–PF26 and five cross-cutting families",
+        "Five engine boundaries",
+        "Persistent-peer packet and five evidence gates"
+      ],
+      "classification": "Chronological implementation snapshots, creative contracts and unexecuted engineering proposals; partial owner review",
+      "owners": [
+        "docs/ENGINE_EXPANSION.md",
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/RULES_INDEX.md",
+        "PROJECT.md"
+      ],
+      "disposition": "Read original lines 1–722 in full, including explicit recovery of truncated outputs. Preserve all dated evidence and proposed packets. Fold distinctions between selected local deliveries, broader unimplemented contracts, obsolete milestone/human gates and current seam policy into this owner. Original lines 723–1856 remain unread; no full-file credit.",
+      "evidence": "Document-content reconciliation only. October 1–5 source/test/browser counts are dated author reports, not rerun checks. Input includes feature-wave implemented-unverified delivery and later FiniteFrontier selected consumers above the older October 1 title; opening order cannot establish a single latest runtime snapshot. No linked source, private source book or browser proof read by proxy.",
+      "reopen": "Continue original lines 723–1856, reconcile later receipts before a full-owner closeout; runtime claims require current source and scoped behavior proof.",
+      "input_sha256": "c5af6b8cac3b712cdf9fe9d491a55e46a7c79801c8612188d2d4f7f9a86641ad",
+      "input_lines": 1856
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/ENGINE_EXPANSION.md",
+      "heading": "## Content reconciliation B279: earlier engine contracts and dated evidence",
+      "body": "The content pass covers the original lines 1–722, not the remaining encounter/formulation packets or later follow-through. [Current focus](../PROJECT.md#current-focus), the [rules index](RULES_INDEX.md) and later delivery sections govern use of these older records. The one-realm/one-prestige prerequisite repeated in the October 1–2 narrative was retired on October 24. Human review is optional under AD42 unless a more specific user condition applies. AD51 permits extracting the first useful consumer seam; the old two-feature abstraction rule is not a universal embargo. These corrections preserve the old proposals and evidence rather than silently rewriting their dates.\n\nThe opening entries report different scopes. The feature-wave bundle was explicitly implemented-unverified for behavior, save, failure and keyboard evidence. The FiniteFrontier skill slice reports four original skill families with paid teaching, native skill consumers and meaningful later use, not every technique or a full source-world adaptation. Its compatibility versions are per increment. The older Village acquisition/Rat-step, Glasshouse viewing lease, fixed Lio/Mara party and chronicle deliveries do not establish all actor controllers, general NPC equipment, native multi-party inventory or all A–E contracts. Later receipts must qualify earlier absence claims before those claims become a current backlog. Historical test counts and worktree reservations grant no new proof or write ownership.\n\nKeep the useful contracts: complete item identity and actual donor/recipient ownership; acquisition, native XP, learned knowledge, preparedness and executable power as distinct states; actor-specific resources and evidence; durable life separate from combat cleanup and the legacy unconsciousness counter; and preserved claims/causes beyond pruned journal text. A paid final action may succeed with no effort remaining afterward. Viewing a remote room is separate from entering it or moving cargo; borrowed-source refusal in one example does not ban loans elsewhere. Hidden events and the caused visitor remain disclosed only through their discovery routes. Field fixtures of 64 actors/192 jobs and the selected original A/C/D bookshelf examples do not prove population simulation or complete adaptations.\n\nPF01–PF26 and the cross-cutting audit rows map foundations to missing consumers. Their vocabulary is useful coverage accounting, not permission to mark every genre implemented or select all five packages. Native Meditation does not become every world's fuel; namespaced world IDs alone do not implement travel. Preserve separate travel, interruption, body/life ending, optional prestige and historical reversal plans with actual cargo, local aftermath, clocks, pending commitments and destination validation. Canonical timelines do not erase recorded choices; amnesia does not erase undiscovered true state. Optional puzzles and assisted/idle practice remain domain choices, not a compulsory manual minigame for every battle. Exact stock prices, copy slots, sampling rates, actor budgets and the proposed 80–90% automation ratio remain local examples or hypotheses.\n\nThe persistent-peer packet is a dated investigation at its named source base. It correctly distinguishes already persisted NPC bags/XP from missing equipment/hydration and live actor bindings; neither its proposed schema4 nor its exact apprentice endowment, 64-exchange limit, 16-transition budget or five-action policy is a current schema assignment or world law. Its durable pre-publication transaction, no-job wake, returned catch-up, no hidden player-state peeking, one-time claim and late-callback isolation requirements remain useful when an actual consumer needs them. Retain all five proposed evidence gates, including ordinary combat regression, generated migration/import fixtures, failed writes, bounded profiling and rebuilt player journeys. The prepared packet's investigation does not satisfy those gameplay gates, and this reconciliation does not dispatch it.",
+      "before_sha256": "c5af6b8cac3b712cdf9fe9d491a55e46a7c79801c8612188d2d4f7f9a86641ad",
+      "after_sha256": "55aaf6dc40609cacb291ec859a0548314e87fa6c8ba71d82ec556d101f555fed"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 870
+}

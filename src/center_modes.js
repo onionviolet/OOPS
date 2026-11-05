@@ -48,6 +48,19 @@ export function centerModes() {
     const surfaces = {crafting: 'crafting_window', trade: 'trade_div', storage: 'storage_div', mixing: 'village_mixing_panel'};
     const titles={crafting:'Crafting',trade:'Trade',storage:'Storage',mixing:'Village mixing counter'};
     const nativeHeadings=new Map();
+    // The borrowed header shares the scrollport. Its actual wrapped height,
+    // rather than a font-specific offset, clears native scroll/focus targets.
+    let insetHeading=null;
+    const syncHeadingInset=()=>{
+        const value=`${Math.ceil(insetHeading?.getBoundingClientRect().height||0)}px`;
+        if(content.style.getPropertyValue('--ui-expanded-heading-clearance')!==value)content.style.setProperty('--ui-expanded-heading-clearance',value);
+    };
+    const headingResize=new ResizeObserver(syncHeadingInset);
+    const bindHeadingInset=mode=>{
+        const next=modeHeading(mode)||null;
+        if(next!==insetHeading){headingResize.disconnect();insetHeading=next;if(next)headingResize.observe(next);}
+        syncHeadingInset();
+    };
     function modeHeading(mode) {
         if(!surfaces[mode])return views.get(mode)?.node.querySelector('.expanded-panel-heading');
         let heading=nativeHeadings.get(mode);
@@ -81,6 +94,7 @@ export function centerModes() {
         for(const [key,view] of views)view.node.classList.toggle('center-mode-hidden',key!==mode);
         const native = !Object.hasOwn(surfaces, mode)&&!views.has(mode);
         actions.classList.toggle('center-mode-hidden', !native); actions.style.display = native ? 'block' : 'none';
+        bindHeadingInset(mode);
         if (changed) {
             const saved=positions.get(mode);
             if(saved) {for(const [n,open]of saved.groups)if(n.isConnected)n.open=open;for(const [cls,open]of saved.dropdowns){const n=cls&&content.querySelector('.'+cls);n?.classList.toggle('location_choice_dropdown_expanded',open);}for(const [n,top,left]of saved.scroll)if(n.isConnected){n.scrollTop=top;n.scrollLeft=left;}}

@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "batch": "B215",
+  "title": "Full relationship palette, recognition, stage/custom and bond-power exceptions",
+  "at": "2026-11-04T23:14:49.250780+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/worlds/world-depth-2026-10-13/29_RELATIONSHIP_PREREQUISITES.md",
+      "ids": [
+        "RQ1–15/SH1–10/A1–5",
+        "RZ/RFM/RI/RAU/RCL/RUI/RHE/RPW1–8",
+        "CQ1–CQ32",
+        "DV1–DV25",
+        "BK1–BK23",
+        "B211"
+      ],
+      "classification": "Extended social/world design palette with attributed direction and historical source facts",
+      "owners": [
+        "docs/worlds/world-depth-2026-10-13/29_RELATIONSHIP_PREREQUISITES.md",
+        "docs/worlds/world-depth-2026-10-13/30_LIFE_STAGES_AND_CUSTOM.md",
+        "docs/MEANS_AND_APPRAISAL.md"
+      ],
+      "disposition": "Finish prior tail-only owner coverage with full body. Preserve independent regard/agency/legal/custody/identity clocks, custom stage rights and cause-based repeatability. Qualify literal universal defaults in recognition, source costs, negotiation and adoption status. Header proposal label does not revoke attributed user direction, nor do quotations automatically adopt every surrounding row. Historical numbers/source absence and RPW order are not fresh current state.",
+      "evidence": "Full367-line body read in1–75/76–145/146–220/221–300/301–end. Every original row and allthreeaddenda, finalB211fold read. No primary lore/addendum source/rules implementation or current runtime/source census reopened.",
+      "reopen": "Selected social operation only: identify actual observer channels, recognition basis, direction, authority/consent, physical participants and settlement, with exact source/world and saved causal history. Use detailed stage/custom owner for further source-qualified behavior.",
+      "input_sha256": "302ac5646828898366f73746fd4ca85a2948f301ab04a1172ea5583b3117e10b",
+      "input_lines": 367,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          367
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/worlds/world-depth-2026-10-13/29_RELATIONSHIP_PREREQUISITES.md",
+      "heading": "## Content reconciliation B215, 2026-11-04",
+      "body": "The whole palette is now read, including CQ1–CQ32, DV1–DV25 and BK1–BK23 beyond the original94-row subtotal. That subtotal counts the earlier RQ/SH/A/eight-family body, not the later additions or complete current document. The opening proposal label describes the palette; it does not withdraw explicitly attributed human direction, and a quotation does not adopt every adjacent proposed mechanism. Preserve the recorded body-age/adult-appearance constraint and its attribution without promoting other CQ/DV/BK rows into standing decisions. Current product authority stays with USER_VISION and the owning rulebook/index (AD32).\n\nThe useful stage model is several independent rights: bodily stage, apparent age, institution role, legal capacity, household/care obligations and destination recognition. A rite, kin term, cohort graduation, inherited title or memory package does not supply all of them. Preserve effective dates and former custom as history rather than rewriting past claims when an institution changes. Match compulsory care, actual provider time and beneficiary/custodian/operator roles through their real owners; disabled adult care and elder care do not imply childlike agency. RPW4’s aggregate shorthand is a historical route; select the particular book/world/participant source before making a claim.\n\nRecognition and perception defaults need mechanisms: CQ2/DV12 familiarity may help recognition without guaranteeing a replacement is caught, and appearance does not always determine a first reaction when another admitted sense identifies the person. DV8’s glamour-versus-trust distinction describes one default, not a prohibition on a sourced effect that changes trust by its actual mechanism. A revealed claim, reliable reading and hidden truth remain distinct. DV24’s debug setting does not itself unseal truths for player disclosure. DV16’s chance to investigate is a useful proposal, not proof every hidden price has an available revealing method. Keep reports and flawed present memory separate from the historical receipt (AD38).\n\nBK2’s trained combination art may need shared practice; a fitting instantly coordinated method can work through other actual means. BK6’s lasting wound is a possible local consequence, not a forced penalty preventing a genuinely free or cleanly released bond. BK7’s negotiation scene does not universally forbid a meaningful persuasion roll, and BK21’s trusted-secret default does not ban purchase, discovery, theft or independent derivation where mechanisms permit them. Declared vows and social pressure differ from enforced magical terms. Teaching lineage, affiliation and recognized style do not automatically transfer the learned method or establish a capable recipient. These are default/dial/reason qualifications under AD5/AD38, with solo-play repeatability under AD22.\n\nB211’s directed reader, retention and absence-clock corrections remain. Replace old1366-primary wording with current desktop task composition when actually selected, retain player notes as player notes rather than character knowledge, and keep compression/convenience compatible with long play (AD52). No universal social-store merge, all-world authoring schema, arbitrary anti-reroll gate or automated social deployment was added. This full-content review proves no new relationship, age/custom, disguise or bond-power runtime behavior.",
+      "before_sha256": "302ac5646828898366f73746fd4ca85a2948f301ab04a1172ea5583b3117e10b",
+      "after_sha256": "c8411f09ec1203f7df5811f7a909791f72f06b3c1399b13c74f703444992b69d"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1036
+}

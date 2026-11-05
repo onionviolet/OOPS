@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "batch": "B220",
+  "title": "Full nonhuman engine source corrections and proposed migration boundaries",
+  "at": "2026-11-04T23:20:57.429759+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/worlds/NONHUMAN_STARTS_ENGINE_SPEC_2026-10-14.md",
+      "ids": [
+        "F1–F9",
+        "B1–B21",
+        "nineillustrativerecords",
+        "T1–T10",
+        "S1–S12",
+        "P1–P9",
+        "R1–R6/Q1–Q4"
+      ],
+      "classification": "Historical source audit and unselected full-body schema/migration implementation proposal",
+      "owners": [
+        "docs/worlds/NONHUMAN_STARTS_ENGINE_SPEC_2026-10-14.md",
+        "docs/worlds/NONHUMAN_ABSTRACTIONS_NEEDED_2026-10-14.md",
+        "docs/worlds/NONHUMAN_CLOCKS_LIFESPANS_AND_SEASONS_2026-10-14.md"
+      ],
+      "disposition": "Keep actualsourcecorrections: main_character tags nothero_id, multiplefightersalreadyexist, Ternnative travelgatealreadyexists, humanScaffoldadmitsphysicalreedling, heirenvelope notitselfhuman. Wholefork3/simulation7proposal distinct fromNov3read-onlybodybindingvariant; finalversionsnotallocated. B20testabsence historicalsearch, nofreshcurrentabsence. Protectexactbody/nativeparkedvitals/control/stock/support versus metadata.",
+      "evidence": "Full430-linebodyreadin1–85/86–175/176–270/271–360/361–end, alltables, ninerecords, proposedAPI/version/savefixtures andnineplansteps. Underlyingruntime/reader/sourcecode/tests notreread orrun.",
+      "reopen": "Beforeselectedimplementation choose current minimalcontract/compatibility from actual consumers and versionconstants, trace directwriters/commandandrestore, retain unaffectednativebehavior and qualifycurrenttestinventory. This proposal neither reservesversions norrequiresgeneralbodyenginebeforecurrentworldwork.",
+      "input_sha256": "9ee7ba5d35fa38be94468e84429cd594b65d308d33828149b2323ff575d7691c",
+      "input_lines": 430,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          430
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/worlds/NONHUMAN_STARTS_ENGINE_SPEC_2026-10-14.md",
+      "heading": "## Content reconciliation B220, 2026-11-04",
+      "body": "All F1–F9, B1–B21, nine illustrative records, T1–T10, S1–S12 and P1–P9 were reviewed. Preserve the original corrections instead of reverting to initial absence claims: combat already has fighter arrays; singleton publication/routing is the relevant gap, and main_character tags differ from hero_id. Tern already blocks ordinary travel through its existing native action route, while authorized restore/realm relocation has different semantics. Human native scaffold can coexist with physical reedling. The heir function transfers estate into a supplied envelope and does not itself construct a human body. Historical source/test locators are not a fresh current census (AD32/AD36).\n\nThe proposed full nested-body schema, fork3, simulation7/body-only mode and later bodies registry are one unselected compatibility design. B218’s Nov3 supplement instead proposes a derived legacy native bodyBinding with no migration for that read. These are different scopes, not two simultaneous authorities: select the smallest actual consumer contract, then allocate any version from current constants. No new body schema, service enrollment, global fork bump or N-body migration is required merely because this specification exists. A no-body controller, aggregate brood view and material body record remain distinct; their illustrative common notation is not proof all pass the same body validator.\n\nProtect the physical/economic boundaries if a migration is actually selected: explicit nonhuman form outranks cosmetic race; parked reedling homeBody is not the currently controlled clay body; active Tern host lacks its own duplicate body because that same record moved; spent clay reserve stays spent; body title/control does not move goods, source ownership, method knowledge or XP. Missing-body compatibility applies only to a proven legacy scaffold, not every unknown modern actor. Unknown inert fields preserve information without becoming executable functions. Mixed-start all-form admission is a historical inspected limitation to reproduce against the current selected-start path before changing it.\n\nSource functions and actual means remain distinct from method mastery, literacy, taught language, permission, item custody and world/material admission. Function queries should not silently delete every form restriction or convert a carried sentient blade into a humanoid rider. Ordinary NPC and player mechanisms can share a resolver while actor detail, channels and supported anatomy differ. Nonhuman practical play needs a real useful loop and receiving action; hiding human buttons or registering a template does not supply it. Proposed readonly APIs are not existing callable exports.\n\nB20’s missing dedicated tests was a bounded Oct14 search, and even this report labels browser/historical evidence unknown; B220 does not renew that absence or infer the tests are still missing. Keep full-envelope old/new content and failed-publication checks for actual persistent changes, with post-durable display failure distinguished from abort before durability as in B170/B203. Current AD51 qualifies example-count gates, AD42 makes human review optional, and current desktop/prose-first targets replace1366-primary. Current broader scope retires any old first-world/prestige gate. No runtime, migration, test, build, browser, save or import was executed here.",
+      "before_sha256": "9ee7ba5d35fa38be94468e84429cd594b65d308d33828149b2323ff575d7691c",
+      "after_sha256": "6561bdc55afcda7c336663b59584f5d8e7877b9a56bc6465453934c40686d58e"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1003
+}

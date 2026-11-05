@@ -1,0 +1,225 @@
+{
+  "schema": 1,
+  "batch": "B99",
+  "title": "Money, firearms, canon reach and ritual/records delivery receipts",
+  "at": "2026-11-04T20:50:52.882757+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/B6_R9_IMPLEMENTATION_RECEIPT.md",
+      "ids": [
+        "B6/R9",
+        "fees/favor/derived view",
+        "native scratch overlay",
+        "symlink incident"
+      ],
+      "classification": "historical mechanism delivery evidence with explicit native and consumer limits",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/B6_R9_IMPLEMENTATION_RECEIPT.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/BOOK_ABSORPTION_WORKFLOW.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/MECHANISM_BACKLOG.md"
+      ],
+      "disposition": "Retain one purse, qualified quote basis, derived service/referral totals and refusal/unknown-fee distinction. Native proof used a scratch 8-pence/net-7 assumed act, not Anna’s later stated transaction or a shipped row. KJ3AA subsequently proves its 12-pence payment, while C1 supplies the deferred 1.5 share plus 0.5 tip model with separate reachability gaps. Full floor was not met by “except rules”; headless scratch and export/reload are their own proof, unknown/refusal paths were source-tested only. Preserve the accidental live-pack symlink overlay incident and restored-content/hash-change distinction; future isolated copies must not mutate the live pack through that link.",
+      "evidence": "Complete original receipt and all addenda read. B9 named current uncertainty checked against complete canon_source_reach.js; no other complete runtime-source review, no test rerun or new behavior proof.",
+      "reopen": "Current runtime owner selects exact source/consumer/failure/persistence gap and later receipt; this review preserves history without launching gameplay or changing shared pack.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "cef71a520702ded525e196d1e11522040123fa64c4616a17255782a95eaf6191",
+      "input_lines": 31,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          31
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/B8_IMPLEMENTATION_RECEIPT.md",
+      "ids": [
+        "B8",
+        "practice/ammunition/hit chance",
+        "evidence table",
+        "G17 gaps"
+      ],
+      "classification": "historical mechanism delivery evidence with explicit native and consumer limits",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/B8_IMPLEMENTATION_RECEIPT.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/BOOK_ABSORPTION_WORKFLOW.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/MECHANISM_BACKLOG.md"
+      ],
+      "disposition": "Retain carried versus loaded rounds, one spent round per actual shot, practice history and shared band readers. Scratch range acts and same-origin save/reload prove that fixture, not source-reachable practice, a gunfight resolveShot consumer, literal import, enemy state or armor/silver interaction. The 0/50/250/1000 notch curve is proposed; approval after over 1000 rounds does not establish a universal permanent mastery ceiling. Six chambers is a selected model, other source mechanisms remain possible. The receipt’s full-suite failures remain dated observations with attribution limits; no current cause/repair recertification.",
+      "evidence": "Complete original receipt and all addenda read. B9 named current uncertainty checked against complete canon_source_reach.js; no other complete runtime-source review, no test rerun or new behavior proof.",
+      "reopen": "Current runtime owner selects exact source/consumer/failure/persistence gap and later receipt; this review preserves history without launching gameplay or changing shared pack.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "17d8fca50ca5fc5066a91871703a55343e6dcfa3f429402d594b970e451a1721",
+      "input_lines": 23,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          23
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/B9_IMPLEMENTATION_RECEIPT.md",
+      "ids": [
+        "B9",
+        "zh/en beat crosswalk",
+        "sourceReach",
+        "limits"
+      ],
+      "classification": "historical mechanism delivery evidence with explicit native and consumer limits",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/B9_IMPLEMENTATION_RECEIPT.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/BOOK_ABSORPTION_WORKFLOW.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/MECHANISM_BACKLOG.md"
+      ],
+      "disposition": "Retain the time-reservation diagnosis and selected chapter 17–24 alignment as bounded historical evidence. Full current canon_source_reach.js reads only the furthest locator among completed acts and applies a numeric chapter offset; it does not validate source-edition alignment, contiguous played coverage or the actual event effects. Thus “read past” is a reservation approximation for qualified monotone content, not proof every earlier canon scene was lived. Never promote maximum locator into exhaustive campaign completion or mechanism coverage. Day settlement may still emit report/knowledge later, so double effects and chronology remain relevant selected-consumer questions. No runtime change or new regression is authorized here.",
+      "evidence": "Complete original receipt and all addenda read. B9 named current uncertainty checked against complete canon_source_reach.js; no other complete runtime-source review, no test rerun or new behavior proof.",
+      "reopen": "Current runtime owner selects exact source/consumer/failure/persistence gap and later receipt; this review preserves history without launching gameplay or changing shared pack.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "45d27e7f6d718ce55c9b74f126a896d2325ca3c03566b35daa371f83beec4890",
+      "input_lines": 54,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          54
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/C1_G3_G4_IMPLEMENTATION_RECEIPT.md",
+      "ids": [
+        "C1/G3/G4",
+        "client registry",
+        "pay lines",
+        "commission stages",
+        "gaps"
+      ],
+      "classification": "historical mechanism delivery evidence with explicit native and consumer limits",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/C1_G3_G4_IMPLEMENTATION_RECEIPT.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/BOOK_ABSORPTION_WORKFLOW.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/MECHANISM_BACKLOG.md"
+      ],
+      "disposition": "Retain exact denomination conversion, grain-rounded deferred share/tip, staged pay/commission once and one purse. Anna +12 then -2 yields +10, but the existing 799 checkpoint/pending fact was not retroactively settled by helper code; save upgrade/current route must be explicit. Typed facts surviving native serialization are not effects being performed by a native earning/paying route. PayView display, actual institution funding, week anchors and commission delivery remain their own joins. Glacis/Joyce cut and referrer are expressly unverified per paragraph. No-schema-bump does not itself establish changed client/owed-state compatibility.",
+      "evidence": "Complete original receipt and all addenda read. B9 named current uncertainty checked against complete canon_source_reach.js; no other complete runtime-source review, no test rerun or new behavior proof.",
+      "reopen": "Current runtime owner selects exact source/consumer/failure/persistence gap and later receipt; this review preserves history without launching gameplay or changing shared pack.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "fc35191cda306fefdba7dde096f9678e8b44e179d9458f422877f708cec60fc5",
+      "input_lines": 41,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          41
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/R2_IMPLEMENTATION_RECEIPT.md",
+      "ids": [
+        "R2/U4",
+        "grain dial",
+        "fee/change",
+        "purse persistence"
+      ],
+      "classification": "historical mechanism delivery evidence with explicit native and consumer limits",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/R2_IMPLEMENTATION_RECEIPT.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/BOOK_ABSORPTION_WORKFLOW.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/MECHANISM_BACKLOG.md"
+      ],
+      "disposition": "Retain exact halfpenny grain and change conservation at the one purse, default-off behavior elsewhere and denomination versus exchange distinction. The headless runner is an in-process DOM, not rendered Chrome; serializer/button-path evidence does not establish desktop pixels or a combined actual exchange/bank route. Rounding fees upward/nonzero and credits downward are proposed policies, not canon numeric laws inferred from coin size. Source-stated fees and payment terms still govern. Whole-number unchanged loading is narrow compatibility evidence, not all downstream money consumers. Current rules PASS does not retroactively make this old candidate meet all gates.",
+      "evidence": "Complete original receipt and all addenda read. B9 named current uncertainty checked against complete canon_source_reach.js; no other complete runtime-source review, no test rerun or new behavior proof.",
+      "reopen": "Current runtime owner selects exact source/consumer/failure/persistence gap and later receipt; this review preserves history without launching gameplay or changing shared pack.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "0cb52bfcec37b171459d9d32f8175dcd13420f2093fb213c4ad0806c575501f5",
+      "input_lines": 36,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          36
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/R5_IMPLEMENTATION_RECEIPT.md",
+      "ids": [
+        "R5/U3",
+        "row/means/host trace",
+        "spirit-call",
+        "checks/gaps"
+      ],
+      "classification": "historical mechanism delivery evidence with explicit native and consumer limits",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/R5_IMPLEMENTATION_RECEIPT.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/BOOK_ABSORPTION_WORKFLOW.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/MECHANISM_BACKLOG.md"
+      ],
+      "disposition": "Retain the difference between actual imports and comments, staged means consumed at start versus completion, layout placements and once-only backlash. Historical probe disagreement must be resolved by exact source snapshot; a comment named in a grep is not an importer. Fixture spirit-call wiring is not source binding for the cited English scenes or all rites/summons. In-process DOM buttons, state persistence and fixture stock grants do not prove target-viewport pixels, real supply or actual pack route. owner_needed spirituality and empty owner effects stay missing consumers, not a completed rite. Summons shape normalization, free order, lapse/abandon and missing-kit reasons remain scoped gaps; selected completion cannot be inferred from six registered rows.",
+      "evidence": "Complete original receipt and all addenda read. B9 named current uncertainty checked against complete canon_source_reach.js; no other complete runtime-source review, no test rerun or new behavior proof.",
+      "reopen": "Current runtime owner selects exact source/consumer/failure/persistence gap and later receipt; this review preserves history without launching gameplay or changing shared pack.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "e10a721230748a9af37891b0f99e503edfa8e34d7bb450d168883454d7e0d008",
+      "input_lines": 43,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          43
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/R6_IMPLEMENTATION_RECEIPT.md",
+      "ids": [
+        "R6",
+        "FLR1–FLR6",
+        "initial/integration rounds",
+        "binding/rebinding gaps"
+      ],
+      "classification": "historical mechanism delivery evidence with explicit native and consumer limits",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/R6_IMPLEMENTATION_RECEIPT.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/BOOK_ABSORPTION_WORKFLOW.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/MECHANISM_BACKLOG.md"
+      ],
+      "disposition": "Read both rounds: later integration supersedes initial no-registration/no-UI status with real host binding and a 1920x1080 synthetic browser pass, including save/reload/Export/Import for that fixture. It fixes the incorrect custodian/place and uses noncircular actual prior evidence. Real earned note route, private-pack rebinding, useful downstream link, unknown-clearance display and real-pack persistence remain open as recorded; the two offered fact-only/actual routes are not automatically equivalent. Older-build reproduction supports a separate large-pack issue, not proof of its cause or present build failure. Keep below-floor classification; no floor is closed merely by a page list or definition count.",
+      "evidence": "Complete original receipt and all addenda read. B9 named current uncertainty checked against complete canon_source_reach.js; no other complete runtime-source review, no test rerun or new behavior proof.",
+      "reopen": "Current runtime owner selects exact source/consumer/failure/persistence gap and later receipt; this review preserves history without launching gameplay or changing shared pack.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "fa2d7ff1ab9c88e10f81e06c34791f0a7e522b77fd517979752213c2c1c33526",
+      "input_lines": 58,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          58
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/BOOK_ABSORPTION_WORKFLOW.md",
+      "heading": "## Mechanism-receipt reconciliation B99, 2026-11-04",
+      "body": "Current proof must retain the distinction between source edits, fixture DOM, rendered browser, real earned route and full campaign composition. The following dispositions preserve the original receipts and later source qualifications without claiming a fresh runtime pass.\n\nRetain one purse, qualified quote basis, derived service/referral totals and refusal/unknown-fee distinction. Native proof used a scratch 8-pence/net-7 assumed act, not Anna’s later stated transaction or a shipped row. KJ3AA subsequently proves its 12-pence payment, while C1 supplies the deferred 1.5 share plus 0.5 tip model with separate reachability gaps. Full floor was not met by “except rules”; headless scratch and export/reload are their own proof, unknown/refusal paths were source-tested only. Preserve the accidental live-pack symlink overlay incident and restored-content/hash-change distinction; future isolated copies must not mutate the live pack through that link.\n\nRetain carried versus loaded rounds, one spent round per actual shot, practice history and shared band readers. Scratch range acts and same-origin save/reload prove that fixture, not source-reachable practice, a gunfight resolveShot consumer, literal import, enemy state or armor/silver interaction. The 0/50/250/1000 notch curve is proposed; approval after over 1000 rounds does not establish a universal permanent mastery ceiling. Six chambers is a selected model, other source mechanisms remain possible. The receipt’s full-suite failures remain dated observations with attribution limits; no current cause/repair recertification.\n\nRetain the time-reservation diagnosis and selected chapter 17–24 alignment as bounded historical evidence. Full current canon_source_reach.js reads only the furthest locator among completed acts and applies a numeric chapter offset; it does not validate source-edition alignment, contiguous played coverage or the actual event effects. Thus “read past” is a reservation approximation for qualified monotone content, not proof every earlier canon scene was lived. Never promote maximum locator into exhaustive campaign completion or mechanism coverage. Day settlement may still emit report/knowledge later, so double effects and chronology remain relevant selected-consumer questions. No runtime change or new regression is authorized here.\n\nRetain exact denomination conversion, grain-rounded deferred share/tip, staged pay/commission once and one purse. Anna +12 then -2 yields +10, but the existing 799 checkpoint/pending fact was not retroactively settled by helper code; save upgrade/current route must be explicit. Typed facts surviving native serialization are not effects being performed by a native earning/paying route. PayView display, actual institution funding, week anchors and commission delivery remain their own joins. Glacis/Joyce cut and referrer are expressly unverified per paragraph. No-schema-bump does not itself establish changed client/owed-state compatibility.\n\nRetain exact halfpenny grain and change conservation at the one purse, default-off behavior elsewhere and denomination versus exchange distinction. The headless runner is an in-process DOM, not rendered Chrome; serializer/button-path evidence does not establish desktop pixels or a combined actual exchange/bank route. Rounding fees upward/nonzero and credits downward are proposed policies, not canon numeric laws inferred from coin size. Source-stated fees and payment terms still govern. Whole-number unchanged loading is narrow compatibility evidence, not all downstream money consumers. Current rules PASS does not retroactively make this old candidate meet all gates.\n\nRetain the difference between actual imports and comments, staged means consumed at start versus completion, layout placements and once-only backlash. Historical probe disagreement must be resolved by exact source snapshot; a comment named in a grep is not an importer. Fixture spirit-call wiring is not source binding for the cited English scenes or all rites/summons. In-process DOM buttons, state persistence and fixture stock grants do not prove target-viewport pixels, real supply or actual pack route. owner_needed spirituality and empty owner effects stay missing consumers, not a completed rite. Summons shape normalization, free order, lapse/abandon and missing-kit reasons remain scoped gaps; selected completion cannot be inferred from six registered rows.\n\nRead both rounds: later integration supersedes initial no-registration/no-UI status with real host binding and a 1920x1080 synthetic browser pass, including save/reload/Export/Import for that fixture. It fixes the incorrect custodian/place and uses noncircular actual prior evidence. Real earned note route, private-pack rebinding, useful downstream link, unknown-clearance display and real-pack persistence remain open as recorded; the two offered fact-only/actual routes are not automatically equivalent. Older-build reproduction supports a separate large-pack issue, not proof of its cause or present build failure. Keep below-floor classification; no floor is closed merely by a page list or definition count.",
+      "before_sha256": "891b5637158acc70794b331605ce8bafd1fd2cd991362cd9e15f09ba666cc8fa",
+      "after_sha256": "cccc2e4c4a8b90a52677e55a519d6308da51b2e890cadd2df94772e4686c063f"
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/B9_IMPLEMENTATION_RECEIPT.md",
+      "heading": "## Source-reach qualification B99, 2026-11-04",
+      "body": "Retain the time-reservation diagnosis and selected chapter 17–24 alignment as bounded historical evidence. Full current canon_source_reach.js reads only the furthest locator among completed acts and applies a numeric chapter offset; it does not validate source-edition alignment, contiguous played coverage or the actual event effects. Thus “read past” is a reservation approximation for qualified monotone content, not proof every earlier canon scene was lived. Never promote maximum locator into exhaustive campaign completion or mechanism coverage. Day settlement may still emit report/knowledge later, so double effects and chronology remain relevant selected-consumer questions. No runtime change or new regression is authorized here.",
+      "before_sha256": "45d27e7f6d718ce55c9b74f126a896d2325ca3c03566b35daa371f83beec4890",
+      "after_sha256": "79fe36fff4e169205671f1a9c22db4ac3c15d06f66acf67c2810715efeb3a3ea"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1298
+}

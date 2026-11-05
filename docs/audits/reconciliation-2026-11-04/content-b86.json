@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "batch": "B86",
+  "title": "Maps and charts: real edge meanings, evidence-qualified rates and later owner folding",
+  "at": "2026-11-04T20:35:51.363856+00:00",
+  "head": "bb15d10db98df55c08e8b6d2678b08a2f7babec8",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/ui-at-scale-2026-10-14/MAPS_AND_CHARTS.md",
+      "ids": [
+        "F1–F3/RM1–RM10/RD1–RD7/R1–R5",
+        "MP1–MP8/SZ1–SZ5",
+        "DV1–DV9/CH1–CH6",
+        "A1–A5/Q1–Q5"
+      ],
+      "classification": "fresh full maps/charts content review and scoped parent-owner fold",
+      "owners": [
+        "docs/gm/dispatch/ui-at-scale-2026-10-14/MAPS_AND_CHARTS.md",
+        "docs/UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md",
+        "docs/representations/MAPS_AND_TRAVEL.md"
+      ],
+      "disposition": "Preserve sourceedition/document-vs-native proof, symbolicgraphvsgeometry/rumorvsroutevsprerequisite semantics, zoomnotknowledge, actualbody/routequote/knownmeans. Chartsuse stock/inflow/outflow/net/transfer/clock/window/observedvsquotedvsforecast, explicitzeros/negatives/gaps/nocommensuratesum. Source-onlyreferencecontrolgaps conditional selectedexactbehavior, no nativeexternalgame or accessibilityproof fromtextsketch. Currentviewport/AD42 overrideoldtargets/signoff.",
+      "evidence": "All234/62lines freshlyread in boundedoutputs. ParentNV4/IN2/MW1/MO6 and units/earlyU7status selectedsections inspected; B58legsource/currentmapcontract retained. No externalpage/PDF/game/media refresh, chart/history sampler or browserbehaviorverification.",
+      "reopen": "Selectedactualmap/travel/resourcequestion with known evidence/clock/units and truthfulrelevantconsumer; exactexternalcontrol needsedition-sourcecheck only if adopted. No mandatorymapengine/charts/fullanalytics or newcollection/sampler.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "14a985b81bd4b787fec3955749469a1f7830530bedb4275d4d8b7ac8013e586d",
+      "input_lines": 234,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          234
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-at-scale-2026-10-14/U7_REPORT.md",
+      "ids": [
+        "W1–W2/F1–F4/S1–S16/C1–C2/Q1–Q3"
+      ],
+      "classification": "fresh full maps/charts content review and scoped parent-owner fold",
+      "owners": [
+        "docs/gm/dispatch/ui-at-scale-2026-10-14/MAPS_AND_CHARTS.md",
+        "docs/UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md",
+        "docs/representations/MAPS_AND_TRAVEL.md"
+      ],
+      "disposition": "62linereceipt properlyscope map/analyticsproposals and actualhistoricalsourcepage/readlimitations. Nativechart/sparkline/renderer/controls notproven bysourcevocabulary/indexedmanual/failedfetch. EarlierrootrunningU7history supersededreportdocscompletion, not anyacceptedUIimplementation.",
+      "evidence": "All234/62lines freshlyread in boundedoutputs. ParentNV4/IN2/MW1/MO6 and units/earlyU7status selectedsections inspected; B58legsource/currentmapcontract retained. No externalpage/PDF/game/media refresh, chart/history sampler or browserbehaviorverification.",
+      "reopen": "Selectedactualmap/travel/resourcequestion with known evidence/clock/units and truthfulrelevantconsumer; exactexternalcontrol needsedition-sourcecheck only if adopted. No mandatorymapengine/charts/fullanalytics or newcollection/sampler.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "7bc0fdbea042fe8c52d3390f819b5293f4a546447771e03f7715181e5ef573aa",
+      "input_lines": 62,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          62
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/ui-at-scale-2026-10-14/MAPS_AND_CHARTS.md",
+      "heading": "## Current authority and owner reconciliation, 2026-11-04 (B86)",
+      "body": "All MP/DV/SZ/CH rows and reference/evidence boundaries were read, preserving the useful distinctions rather than turning a map into required spatial simulation or a chart into a new world sensor. Current desktop/laptop direction supersedes 1366-primary examples, and AD42 makes human review optional; actual new visible behavior retains AD36/AD43 proof. Root’s old “U7 added/running” paragraph is followed by the completed proposal/report snapshot, not proof these renderers or chart consumers shipped. Reference source dates/editions, indexed versus full text, source versus native inspection and failed-fetch limits remain historical; none was refreshed here. Selected supported maps/travel and data views keep their existing owners; no universal rung hierarchy, new panel, sampler, save schema, external research or runtime wave is selected (AD32).",
+      "before_sha256": "14a985b81bd4b787fec3955749469a1f7830530bedb4275d4d8b7ac8013e586d",
+      "after_sha256": "6f77c950a625b8abeb29d4b51b3a2dbfe284c743668084c86dd6a48d3e7ba9f4"
+    },
+    {
+      "path": "docs/UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md",
+      "heading": "## U7 map/data-view content folded, 2026-11-04 (B86)",
+      "body": "The completed [U7 palette/report](gm/dispatch/ui-at-scale-2026-10-14/MAPS_AND_CHARTS.md) follows the earlier running-lane note. Retain U7:MP1–MP8/DV1–DV9 as proposed refinements to NV4/MO6/MW1/IN2: semantic rungs preserve selected identity and need not be continuous geometry; route, clue and prerequisite edges differ; grouping/legends/totals use the same observer-qualified evidence. Quantity formatting preserves stock, gross/usable output, inflow/outflow, transfer and net change, with actual units, clock, sample window and gaps. A purchase is not production; zero stock growth can coexist with useful output or waste. A quoted steady rate is not measured elapsed productivity or closed-app progress. Remote histories retain receipt age and compatible clocks instead of adding unrelated currencies/XP. A chart earns space for a real temporal/choice question; a compact value/rate can suffice. New history sampling, rungs, layout and atlas remain proposals under AD32, with current desktop targets and AD36/AD42/AD43 proof; no analytics or map prerequisite is added.",
+      "before_sha256": "466e464bbb609f271947815e39f0c1ad266bc99db479bb3c099e316382f6e3be",
+      "after_sha256": "ba1869f4294e2e6b977efb72416d0c32ebdd8687b406bf5b966837e3138e1619"
+    },
+    {
+      "path": "docs/representations/MAPS_AND_TRAVEL.md",
+      "heading": "## U7 map semantics retained, 2026-11-04 (B86)",
+      "body": "The [older map/chart palette](../gm/dispatch/ui-at-scale-2026-10-14/MAPS_AND_CHARTS.md) contributes compatible U7:MP1–MP8 distinctions without replacing this owner’s later departures-board source contract. Preserve selected target and return across map/list/rung changes, distinguish schematic connections from measured geometry, and label clue/report/prerequisite links separately from executable travel legs. Known geography, current occupants, sensed space, physical reach, legal access and control authority are separate facts; purchased maps or remote zoom do not supply all of them. A travel quote uses the actual actor/body/load/means and rechecks operation eligibility. Aggregates, unknown-node counts, labels, filters and legends cannot disclose more than their admitted source evidence. These remain proposed representation applications under AD32; no new route, world geometry, map acquisition, browser proof or replacement of the B58 compatibility-fallback decision occurred.",
+      "before_sha256": "e498f807ccf9e6d5a3809f7ac07a931e19af5cd78f6240812f48da5930d528ff",
+      "after_sha256": "51cf8704c1bfa9c3e3b446a9cbaf9575d26c178da3bb0c1007321963f1c957d5"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1340
+}

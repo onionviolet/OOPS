@@ -1,0 +1,288 @@
+{
+  "schema": 1,
+  "batch": "B23",
+  "title": "Authoring closure, activation diagnostics and functional status palettes",
+  "at": "2026-11-04T19:46:14.996596+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/world-implementation/second-pass/bases/CHECKPOINT.md",
+      "ids": [
+        "BAS01-05",
+        "MC05",
+        "ME07"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "REPORT.md, FINDINGS.json, DEPENDENCIES.md in bases; canonical plan/RUN belongs to assigning master."
+      ],
+      "disposition": "Completed planning packet; proposals remain unaccepted and implementation held. Historical hold/release and static source implications stay dated. Later bounded adoption supersedes research-only status at source/build scope only. Literal source labels such as SHA256/HTTP200 are provenance tokens, not registered design rules. Existing report/dependency owners preserve useful proposals.",
+      "mechanism_and_interactions": "Bases checkpoint reports five proposed findings, BAS01-05, including a rented/staffed worksite, funded order, actual delivery, and retained aftermath as a qualification. It preserves prior foundations and leaves payment, rights, continuation, route, and peer-source qualifications bounded. The assigning master owns canonical plan/RUN; Engine/Ability/Original work remains held for director review. Static artifact validation does not establish gameplay.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. JSON/evidence/link/whitespace checks passed per checkpoint. Runtime, browser, save/import/failure and benchmark were not run. Remaining: master reconciliation, user selections, later implementation/playable gates.",
+      "reopen": "See the specific remaining gates above; no contemporary runtime correctness or full source-canon qualification follows.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          28
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S017.json"
+      ],
+      "prior_input_sha256": "2d6e88a8971e8a5a356c60967c949046806e1fad08495b9c86697a559733c418",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "2d6e88a8971e8a5a356c60967c949046806e1fad08495b9c86697a559733c418",
+      "input_lines": 28
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/combat/CHECKPOINT.md",
+      "ids": [
+        "CB01–CB10",
+        "CB11–CB14"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "Combat REPORT/FINDINGS/DEPENDENCIES and STATUS_AND_SMALL_INTERACTIONS.md; body/object/field owners and per-observer information remain distinct."
+      ],
+      "disposition": "Planning supplement with proposed cases and static policy consequences; no new gameplay established. Historical hold/release and static source implications stay dated. Later bounded adoption supersedes research-only status at source/build scope only. Literal source labels such as SHA256/HTTP200 are provenance tokens, not registered design rules. Existing report/dependency owners preserve useful proposals.",
+      "mechanism_and_interactions": "Combat supplement adds CB11-CB14: condition lifecycle, functional restrictions/preparation, small physical causes, and readable prepared responses. Existing conditions include reapplication replacing expiry/cause and resetting tick scheduling, with expiry winning a tick tie; the checkpoint explicitly calls effects static reasoning, not observed failures. Suggested crossing qualification uses cargo custody/free hand, footing, continuing exposure, preparation benefit, and paid remedy/withdrawal. It selects no universal roster, counter, immunity, death/reset rule, schema, or balance.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Document gate passed; game import/build/unit/browser/save/failure checks are unrun. Remaining: master/director review and later permitted generated-state behavior checks.",
+      "reopen": "See the specific remaining gates above; no contemporary runtime correctness or full source-canon qualification follows.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          36
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S017.json"
+      ],
+      "prior_input_sha256": "162241a1516f50ad0e3eefb21332a4e37a0527ca50746ecb68f9fea836e4c859",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "162241a1516f50ad0e3eefb21332a4e37a0527ca50746ecb68f9fea836e4c859",
+      "input_lines": 36
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/engine-absorption/CHECKPOINT.md",
+      "ids": [
+        "P1",
+        "HTTP200"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "REPORT.md, FINDINGS.json, DEPENDENCIES.md, CASES.md, PLAN_PACKETS.md; Engine owns any later integration."
+      ],
+      "disposition": "Completed source comparison and planning packet; candidate absorption is not adoption. Historical hold/release and static source implications stay dated. Later bounded adoption supersedes research-only status at source/build scope only. Literal source labels such as SHA256/HTTP200 are provenance tokens, not registered design rules. Existing report/dependency owners preserve useful proposals.",
+      "mechanism_and_interactions": "Engine absorption comparison ranks extending current systems, CDDA and Inform patterns, optional Ink, and conditional spatial queries. It supplies nine findings, dependency contracts and fixtures, while preserving Short Measure and a distinct source-world pair. The lane pins upstream references and corrects a rot attribution; it copied no engine code, assets, narrative corpus, or package. No runtime/schema/UI/save integration occurred here, and mapped methods remain proposed pending assigning-master and director review.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Static source/fixture/doc checks passed; no game import/build/browser/save/failure or human acceptance. Remaining: canonical plan reconciliation, selected implementation packet, later playable and compatibility gates.",
+      "reopen": "See the specific remaining gates above; no contemporary runtime correctness or full source-canon qualification follows.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          29
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S017.json"
+      ],
+      "prior_input_sha256": "5beeb0ade2d52eb3942e14659b6d1174d9779d76387511fc0058ae94a19e80ee",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "5beeb0ade2d52eb3942e14659b6d1174d9779d76387511fc0058ae94a19e80ee",
+      "input_lines": 29
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/experience/CHECKPOINT.md",
+      "ids": [
+        "S3",
+        "S2",
+        "S1",
+        "SHA256"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "src/skill_discovery.js; Engine INTERFACE, SKILLS_DELIVERY.md, SKILLS_BUILD.json; Ability retains family-to-owner projection."
+      ],
+      "disposition": "Earlier proposals plus later bounded source implementation/build delivery; playable behavior remains implemented-unverified. Historical hold/release and static source implications stay dated. Later bounded adoption supersedes research-only status at source/build scope only. Literal source labels such as SHA256/HTTP200 are provenance tokens, not registered design rules. Existing report/dependency owners preserve useful proposals.",
+      "mechanism_and_interactions": "Experience checkpoint contains two chronologies. Earlier audit statically found Glasshouse attention selecting People while its panel belongs to Here, and proposed refinements to action terms, accessible reasons, condition lifecycle, recaps, trial/item use, attributed history, filtering, and blockers. A later explicitly bounded exception implemented six pure discovery projections in skill_discovery.js and records Engine registration/build receipts; that proves source/build correspondence only. Generated-state gameplay, browser, save/failure, keyboard, and director acceptance remain unrun.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Syntax, ESM, registration and build receipts are reported for exact source/bundle; no generated-state/browser/save/failure/keyboard or human checks. Remaining: those behavioral gates and director acceptance.",
+      "reopen": "See the specific remaining gates above; no contemporary runtime correctness or full source-canon qualification follows.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          34
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S017.json"
+      ],
+      "prior_input_sha256": "f71b9c75534c4da5abc632ee4f37d0778b0997a04c6bf3853f93e0b498bccfae",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "f71b9c75534c4da5abc632ee4f37d0778b0997a04c6bf3853f93e0b498bccfae",
+      "input_lines": 34
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/fork-network-absorption/CHECKPOINT.md",
+      "ids": [
+        "FNA01–FNA05",
+        "SHA256",
+        "FNA01"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "ADOPTION.md, ADOPTION_INPUTS.json, ADOPTION_BUILD.json; crafting_visibility.js and display/main/trade/crafting visibility owners."
+      ],
+      "disposition": "Chronology changes from research-only to a later bounded adopted source/build slice; no playable acceptance claimed. Historical hold/release and static source implications stay dated. Later bounded adoption supersedes research-only status at source/build scope only. Literal source labels such as SHA256/HTTP200 are provenance tokens, not registered design rules. Existing report/dependency owners preserve useful proposals.",
+      "mechanism_and_interactions": "Fork-network checkpoint first documents static discovery/comparison across two fork networks and related repositories, retaining conditional candidates without importing gameplay. Its later revision records an explicitly authorized bounded adoption: crafting_visibility.js projects stock/station/custody/busy/knowledge without RNG, rewards, stock mutation, or writes; selected visibility/input guard fixes were integrated and rebuilt. The adoption preserves IDs and adds no save schema/reward/world/prestige. Static server/build and source correspondence are distinct from gameplay; browser, save/failure, regression, keyboard and director gates remain deferred.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Later checkpoint claims bounded source/build/index/style/bundle/static HTTP checks; gameplay/browser/save/failure/regression/keyboard/director gates were not run. Remaining: generated behavior and acceptance.",
+      "reopen": "See the specific remaining gates above; no contemporary runtime correctness or full source-canon qualification follows.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          64
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S017.json"
+      ],
+      "prior_input_sha256": "7488cf3f7f1cd969b049ea9f92ba923f27e9f8f5a42c1faf178038882fc575ba",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "7488cf3f7f1cd969b049ea9f92ba923f27e9f8f5a42c1faf178038882fc575ba",
+      "input_lines": 64
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/foundations/CHECKPOINT.md",
+      "ids": [
+        "EF06"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "REPORT.md, FINDINGS.json, DEPENDENCIES.md; assigning master owns canonical plan/RUN; later implementation owners are not authorized by this artifact."
+      ],
+      "disposition": "Planning audit complete; findings are not approval or gameplay implementation. Historical hold/release and static source implications stay dated. Later bounded adoption supersedes research-only status at source/build scope only. Literal source labels such as SHA256/HTTP200 are provenance tokens, not registered design rules. Existing report/dependency owners preserve useful proposals.",
+      "mechanism_and_interactions": "Foundations audit identifies nine findings across planners/publication, instance authority, source lifecycle, physical/native accounting, clock/order, settlement, native writes, compatibility, and derived state. EF06 confirms an existing phase gap. It records no new schema, enrollment, reset/death rule, formula, or accepted balance. The report is a static planning artifact; dependencies and deferred cases are assigned for later work.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. JSON/evidence/dependency/link/whitespace checks passed. Import/build, regression, browser/save/failure, benchmarks and source-library work did not run. Remaining: master review and later authorized playable/save/human gates.",
+      "reopen": "See the specific remaining gates above; no contemporary runtime correctness or full source-canon qualification follows.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          33
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S017.json"
+      ],
+      "prior_input_sha256": "8abcad32e9e4282456f3edaffe25998f2b0e3e79b3debd77f2fd6a962470ee48",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "8abcad32e9e4282456f3edaffe25998f2b0e3e79b3debd77f2fd6a962470ee48",
+      "input_lines": 33
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/authoring/CHECKPOINT.md",
+      "ids": [
+        "uncoded revision3 authoring closure",
+        "eight findings/five bundles"
+      ],
+      "classification": "fresh full uncoded checkpoint review",
+      "owners": [
+        "docs/gm/world-implementation/second-pass/authoring/REPORT.md"
+      ],
+      "disposition": "Preserve native effect/definition closure, explicit activation, compiler participant/branch diagnostics, source-correction compatibility and retained actor recipes. Old runtime hold/current writer fields describe original scope only.",
+      "evidence": "Entire 60-line checkpoint including source range/fingerprint table read; no source/build proof renewed.",
+      "reopen": "Use live selection/owners before implementing any proposal.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "e7d7bff10b7958d9809ec7b508d8780fa4f976486e78a44fe0422f46916630b9",
+      "input_lines": 58,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          58
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/authoring/REPORT.md",
+      "ids": [
+        "AUTH01–AUTH08"
+      ],
+      "classification": "proposal owner; fresh full content review",
+      "owners": [
+        "docs/gm/world-implementation/second-pass/authoring/REPORT.md"
+      ],
+      "disposition": "Keep definition-shape vs native consumer reconstruction, provisioned registry enrollment closure, explicit participant/response/expiry projections, source-prose vs frozen commitments and cause-based actor recipes. No new interpreter required by this audit; runtime hold is source-era only.",
+      "evidence": "Entire source read; old source lines not reverified and no current behavioral failure reproduced.",
+      "reopen": "Future selected consumer binds current native/simulation projection, paid remedy/body/clock policy and relevant failure cases; do not apply old source patches blindly.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "3c81cddd7004a28a87a81b525ee4de231fafb413461340c011516a15720244e8",
+      "input_lines": 15,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/combat/STATUS_AND_SMALL_INTERACTIONS.md",
+      "ids": [
+        "CB11–CB14",
+        "five families",
+        "minimum status contract"
+      ],
+      "classification": "proposal owner; fresh full content review",
+      "owners": [
+        "docs/gm/world-implementation/second-pass/combat/STATUS_AND_SMALL_INTERACTIONS.md"
+      ],
+      "disposition": "Preserve actual affected function/body/clock/source/knowledge, beneficial as well as harmful support, real hands/cargo/objects, expiry vs tick/reapplication and independent-source policy distinctions. Static possible dose/tick consequence is not a reproduced active-scene defect. Selected crossing proposal does not require universal status roster.",
+      "evidence": "Entire source read; old source lines not reverified and no current behavioral failure reproduced.",
+      "reopen": "Future selected consumer binds current native/simulation projection, paid remedy/body/clock policy and relevant failure cases; do not apply old source patches blindly.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "6060d16d9dd841450cc976d9fa8dc94910c503261e8d04c1027095756375d1df",
+      "input_lines": 40,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          40
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/world-implementation/second-pass/authoring/REPORT.md",
+      "heading": "## Planning-history qualification, 2026-11-04 (B23)",
+      "body": "The opening runtime hold and proposed next preflight are the October 4 planning assignment, not today’s execution authority. AUTH01–AUTH08 remain useful source-era findings: definition shape does not prove native binding, composed registries need explicit activation intent, participant/response/expiry paths need truthful diagnostics, and prose/source corrections cannot rewrite paid frozen commitments. Preserve the incumbent executor/publisher and cause-based actor recipes; these findings do not require a new interpreter or universally mandatory package mechanism. Current code and owners must establish which specific gaps remain when one consumer is selected. This reconciliation implements none of these proposals.",
+      "before_sha256": "3c81cddd7004a28a87a81b525ee4de231fafb413461340c011516a15720244e8",
+      "after_sha256": "80c3e1d748320a78f830a10c951ed6114ab008c54b6d870882be6d21c7ccf678"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1711
+}

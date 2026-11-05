@@ -1,0 +1,225 @@
+{
+  "schema": 1,
+  "batch": "B152",
+  "title": "Procedural lens crosswalk, detailed RNG audit and five lane checkpoints",
+  "at": "2026-11-04T22:04:49.883299+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/gx2/RECONCILIATION.md",
+      "ids": [
+        "E1 seven operations",
+        "kit CL1-CL15",
+        "comic CK1-CK22",
+        "GL1-GL20",
+        "owner crosswalk"
+      ],
+      "classification": "Cross-owner proposal reconciliation with explicit read/intervention distinctions",
+      "owners": [
+        "docs/gm/dispatch/procgen-2026-10-13/gx2/RECONCILIATION.md",
+        "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md",
+        "docs/CHEAT_LIBRARY.md"
+      ],
+      "disposition": "Read every E1/CL/CK and domain mapping, not bare owner labels. Preserve root/cursor, forecast/causal truth, real observation versus intervention and identity versus a renamed traveler. No automatic costs, secrets bypass, runtime host or per-day quota inferred. Strong truth-changing variants remain separate actual capabilities rather than a prohibited class.",
+      "evidence": "Fresh full text only. Prior source snapshot and linked catalogs retain their own limits; no new primary franchise claim, source body, native host or source APIs verified here.",
+      "reopen": "Select one actual lens/action, current model/observer/caller and declared state effect. Use owner-qualified CL/CK/GL codes and actual quote/receipt rather than a global new hook bus.",
+      "input_sha256": "e1e0dfeffd2ef651122f6eb3fd41c3d2ed22d27f11654ba0ff01dd94421ce984",
+      "input_lines": 73,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          73
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/gx4/AUDIT.md",
+      "ids": [
+        "A1-A7",
+        "P1 exported helpers",
+        "adjacent RNGs",
+        "wave-1 projections",
+        "saved records",
+        "registration",
+        "test census",
+        "27 references"
+      ],
+      "classification": "Historical detailed source audit with latent fallback and transaction caveats",
+      "owners": [
+        "docs/gm/dispatch/procgen-2026-10-13/gx4/AUDIT.md",
+        "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md",
+        "docs/RNG_ENCOUNTERS_AND_SOURCE_DEVELOPMENT.md"
+      ],
+      "disposition": "Read full source inventory and all projection, save, transaction, test and unseeded sections. Audit already distinguishes seeded native Proxy from raw latent quality fallback, supporting B145 correction. Preserve no-cursor versus byte-pure distinction, true state execution versus observer deliberation, root versus mutable cursor versus recipe revision, and same algorithm compatibility. Exact counts and file lines remain dated.",
+      "evidence": "Fresh full audit only, no attached snapshot JSON or tests executed. Current wrapper source inspected in B146; current population schema/cast and appearance/spine progress in B126/B145 supersede some old absence/three-people rows. Module/table count does not imply replay or native file picker proof.",
+      "reopen": "Inspect a selected current call chain and effectful helpers before a port. Keep receipt retention separate from authoritative outcomes and preserve frozen terms/seed behavior or record an explicit compatibility change.",
+      "input_sha256": "0f020f92b2dea2eca0e7fd2e5a26c3c857e1fbba1f95919c2d50c892c9d3de3f",
+      "input_lines": 152,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          152
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/gx1/CHECKPOINT.md",
+      "ids": [
+        "A1-A4",
+        "V1-V3",
+        "13 profiles",
+        "K readback"
+      ],
+      "classification": "Historical lane checkpoint and explicit verification boundary",
+      "owners": [
+        "docs/gm/dispatch/procgen-2026-10-13/gx1/CHECKPOINT.md",
+        "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md"
+      ],
+      "disposition": "Docs complete; 13 profile/domain/title-presence counts are structural, not full issue/canon/gameplay proof. Later K completion supersedes initial missing-output state; stopped duplicate K6 is not a relaunch. Old viewport, milestone, ports and writer status are historical.",
+      "evidence": "Fresh full checkpoint text; linked bodies, JSON artifacts, primary source and former tests/browser runs are not new reading or executed proof. No current process/port/branch assertion.",
+      "reopen": "Retain historical evidence and use the selected current owner for any real continuation. No worker, merge, commit, server or old acceptance gate launched.",
+      "input_sha256": "8f417e9cfbc2c921efb70a0a058e809f0afb3bcfd2544a7a1f74119de6f90561",
+      "input_lines": 31,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          31
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/gx2/CHECKPOINT.md",
+      "ids": [
+        "midpoint",
+        "completion",
+        "GL1-GL20",
+        "81 links",
+        "21 anchors"
+      ],
+      "classification": "Historical lane checkpoint and explicit verification boundary",
+      "owners": [
+        "docs/gm/dispatch/procgen-2026-10-13/gx2/CHECKPOINT.md",
+        "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md"
+      ],
+      "disposition": "Completion supersedes active/resume header. Main ancestry and source hashes were historical inspected state; five recommendations and unreserved ports are proposal-only. No runtime, native or independent sealed fairness proof.",
+      "evidence": "Fresh full checkpoint text; linked bodies, JSON artifacts, primary source and former tests/browser runs are not new reading or executed proof. No current process/port/branch assertion.",
+      "reopen": "Retain historical evidence and use the selected current owner for any real continuation. No worker, merge, commit, server or old acceptance gate launched.",
+      "input_sha256": "8d2996e5743898c853d292b7c4ca5c0ed57526879f2272f259b3823910305b1b",
+      "input_lines": 31,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          31
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/gx3/CHECKPOINT.md",
+      "ids": [
+        "GS1-GS14",
+        "GO1-GO7",
+        "M1-M10",
+        "64 links"
+      ],
+      "classification": "Historical lane checkpoint and explicit verification boundary",
+      "owners": [
+        "docs/gm/dispatch/procgen-2026-10-13/gx3/CHECKPOINT.md",
+        "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md"
+      ],
+      "disposition": "All specs delivered, structural checks only. Later current away-bank settlement qualifies old separate-worktree/unwired claim, not every absence policy. Preserves actual source ownership and no new writer/port reservation.",
+      "evidence": "Fresh full checkpoint text; linked bodies, JSON artifacts, primary source and former tests/browser runs are not new reading or executed proof. No current process/port/branch assertion.",
+      "reopen": "Retain historical evidence and use the selected current owner for any real continuation. No worker, merge, commit, server or old acceptance gate launched.",
+      "input_sha256": "2c155aaa9625f87e83d97df7f2a622abb5cd1cbbf19d8f4a2fd5ba7398885613",
+      "input_lines": 30,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          30
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/gx4/CHECKPOINT.md",
+      "ids": [
+        "A1-A7",
+        "GA1-GA8",
+        "source drift",
+        "five slices"
+      ],
+      "classification": "Historical lane checkpoint and explicit verification boundary",
+      "owners": [
+        "docs/gm/dispatch/procgen-2026-10-13/gx4/CHECKPOINT.md",
+        "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md"
+      ],
+      "disposition": "Docs proposal complete, explicitly no code/test/native/browser run. Snapshot drift and current HEAD changes were recorded, not stable whole-tree proof. Preserve old algorithms/keys/frozen values; no broad port now.",
+      "evidence": "Fresh full checkpoint text; linked bodies, JSON artifacts, primary source and former tests/browser runs are not new reading or executed proof. No current process/port/branch assertion.",
+      "reopen": "Retain historical evidence and use the selected current owner for any real continuation. No worker, merge, commit, server or old acceptance gate launched.",
+      "input_sha256": "b89260f830de57a902eae1587ca9b57e4eaf86cc397cd5baf4e936366fb8e15e",
+      "input_lines": 13,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/gx5/CHECKPOINT.md",
+      "ids": [
+        "N1-N14",
+        "S1-S3",
+        "appearance schema 1",
+        "five draws"
+      ],
+      "classification": "Historical lane checkpoint and explicit verification boundary",
+      "owners": [
+        "docs/gm/dispatch/procgen-2026-10-13/gx5/CHECKPOINT.md",
+        "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md"
+      ],
+      "disposition": "Historical technical appearance slice earned natural and seeded-native proof on its named isolated bundle; optional first-new-acquisition enrollment, no retroactive old-product enrollment and fixed fieldcraft unaffected. Later integration recorded B145 supersedes original root integration open, without renewing all edge/taste proof.",
+      "evidence": "Fresh full checkpoint text; linked bodies, JSON artifacts, primary source and former tests/browser runs are not new reading or executed proof. No current process/port/branch assertion.",
+      "reopen": "Retain historical evidence and use the selected current owner for any real continuation. No worker, merge, commit, server or old acceptance gate launched.",
+      "input_sha256": "8c951cd287908c71e8fc9935e0a8c87c31bc4e5dbb5783e563cb1495e0edb4a3",
+      "input_lines": 11,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/gx2/RECONCILIATION.md",
+      "heading": "## Content reconciliation B152, 2026-11-04",
+      "body": "The full operation/lens/comic and domain crosswalk was reviewed. Preserve owner-qualified CL namespaces: kit lens, comic law and crafting codex are not the same IDs. Observation, forecast, disclosure blocking, pending decision manipulation and actual past-truth change have different consumers. A status card or recorded grant does not implement any of them, and a hidden UI alone does not implement Blind (AD32, AD38).\n\nPacket restrictions on rerolling owned mixtures or settled effects describe its proposed pending-decision adapter. A separately admitted retrospective rewrite, loop, copying or fate mechanism may change its actual domain; no universal ban or compulsory luck debt follows. Exact forecasts require their real dependencies, and an actual future-binding power can preserve a future by its mechanism. Basic known-record display remains ordinary UI, while a mind-reading or exact-knowledge means can reveal the truth it genuinely reaches. Stacked capabilities retain their actual scopes and can combine valid information without being granted unrelated omniscience.\n\nCurrent viewport, AD42 human-review status, AD51 shared-seam direction and later merged appearance/story/cheat consumers qualify old source/queue assumptions. Bare proposal ports and two-consumer examples are neither reserved file areas nor a broad refactor gate. Linked owner bodies, source canon and actual native routes were not newly verified by this crosswalk read.",
+      "before_sha256": "e1e0dfeffd2ef651122f6eb3fd41c3d2ed22d27f11654ba0ff01dd94421ce984",
+      "after_sha256": "bf3a4b2877e4ad13cd900827a5a6d040596bbb5be18fd5c8841d611681b777e1"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/gx4/AUDIT.md",
+      "heading": "## Content reconciliation B152, 2026-11-04",
+      "body": "A1-A7 were read completely. Retain its distinctions: stable root, mutable cursor, keyed derivation, saved resolved output and rolling receipt log are different owners. A keyed helper can avoid advancing a cursor while still appending receipts or initializing streams; that is not byte-pure preview. An instance specification called seed is not automatically PRNG entropy. Pure draw wrappers may omit a saved cell salt unless the caller passes the correct context; exact future predictions therefore need the real consuming resolver (AD32, AD36, AR6).\n\nThis audit already records native seededRecipe versus unbound recipe fallback, confirming the caller correction to B145. Its original 27-reference/ten-transition census and line locations are dated. Later merged kit/appearances/spine and population revisions qualify its absent/wave-1/exactly-three rows; no current global count or conformance proof is inferred. All listed tests were inspected, not executed by this audit. A Node encoded-file test does not exercise the native file picker or prove full native Import.\n\nPhysical execution may read actual world truth, while decision explanations, hints, sort/count, prices, accessibility and exported summaries need the relevant observer projection. A discovered event is not permission to dump its whole internal frozen effects/receipts. Ordinary hidden-trait counts were a local design, not a universal disclosure default. Preserve committed outcomes and frozen response terms beyond a rolling diagnostic log; revisioning must not reinterpret old products through changed laws without the chosen compatibility policy. A selected port reuses the authoritative owners rather than copying inventory/people/history into GA2.",
+      "before_sha256": "0f020f92b2dea2eca0e7fd2e5a26c3c857e1fbba1f95919c2d50c892c9d3de3f",
+      "after_sha256": "57181112806897d271ab9d633fa430e84387faebd765bb06e27fb1d2e669353d"
+    },
+    {
+      "path": "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md",
+      "heading": "## Procedural helper audit application B152, 2026-11-04",
+      "body": "The full [GX4 source audit](gm/dispatch/procgen-2026-10-13/gx4/AUDIT.md) and [GX2 crosswalk](gm/dispatch/procgen-2026-10-13/gx2/RECONCILIATION.md), plus five lane checkpoints, were reviewed. Useful checks for a selected generator: cursor-neutral is not automatically mutation-free, a rolling receipt log is not durable truth, a saved seed is not a complete table/algorithm revision contract, and an observer-safe display cannot be obtained by showing every field of a discovered event. Track actual committed outcomes, supported observer knowledge and required causal history in their existing owners (GR1-GR5, GR10, GR15, AD36).\n\nThe old source audit correctly distinguishes native Proxy-seeded recipe commits from unbound recipe fallback. Preserve the current caller contract rather than rebuilding R3-1 from method names alone. Local helper and record snapshots need exact current-source checks before a port; no one generic envelope should replace existing combat, job, inventory or continuation authorities. Tests that cover import serialization, native file selection, failed publication and a real consumer answer different questions.\n\nGX1-GX4 complete documentation, not gameplay. GX5 records a bounded earned appearance route on its own bundle and later has a separate integration receipt. Structural profile/title/link counts, zero-secret manual review and source hashes do not certify complete canon, every future leak or whole-world floor. Old human gates, 1366 targets, proposed ports and lane reservations are history. Known shared needs may be designed with the first consumer under AD51, then validated by a different consumer; no new implementation or universal migration is selected.",
+      "before_sha256": "f47644b2bf8c86c03e38d34b6eae773b3703d2d2c5ef4bb46e369f824f7d5edc",
+      "after_sha256": "e80debffce14908eda33a0bb31e2521251145a0ce87f079ad46bd088877f0ed6"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1190
+}

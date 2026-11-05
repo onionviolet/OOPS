@@ -1,0 +1,204 @@
+{
+  "schema": 1,
+  "batch": "B173",
+  "title": "Life-sim source coverage JSON, wrong-app tombstone and ten idea packets",
+  "at": "2026-11-04T22:27:44.138403+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/six-ages/COVERAGE.json",
+      "ids": [
+        "retired app881420; unread/all; zerochains"
+      ],
+      "classification": "Historical source coverage, identity tombstone or original mechanic packet",
+      "owners": [
+        "docs/research/six-ages-2/REPORT.md"
+      ],
+      "disposition": "Wrong-appidentity tombstone notactiveblocker/no sourceaudit. Preserve no requeue/resume, supersededByapp2278010. No JSONrewrite/delete.",
+      "evidence": "Fresh entire JSON/Markdown body read, including every unread/exclusion and packetacceptance/compatibility field. No originalinstalled/privatepayload, manuals, disassembly, individualsceneprograms, sourceFindings orscreenshotsread by association.",
+      "reopen": "Keep distinct game identity, originalID and source/manual/native/proposal boundaries; currentowner determines any selected reused mechanic. No acquisition/uninstall/runtime action.",
+      "input_sha256": "9cacca5ad29cf29fb5a4d75ce00d1bd361b9448254e224f343c1359037b6b6eb",
+      "input_lines": 26,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          26
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/six-ages/REPORT.md",
+      "ids": [
+        "identitycorrection/historyroute"
+      ],
+      "classification": "Historical source coverage, identity tombstone or original mechanic packet",
+      "owners": [
+        "docs/research/six-ages-2/REPORT.md"
+      ],
+      "disposition": "Preserve exact tombstone anddatedintake, not redundantgarbage. No fullSixAges1read or sourceacquisition.",
+      "evidence": "Fresh entire JSON/Markdown body read, including every unread/exclusion and packetacceptance/compatibility field. No originalinstalled/privatepayload, manuals, disassembly, individualsceneprograms, sourceFindings orscreenshotsread by association.",
+      "reopen": "Keep distinct game identity, originalID and source/manual/native/proposal boundaries; currentowner determines any selected reused mechanic. No acquisition/uninstall/runtime action.",
+      "input_sha256": "79e66559f72896497fbf9c6645ca0466e9e54437e603cf65aa6e5d95aceff98d",
+      "input_lines": 5,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          5
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/six-ages-2/COVERAGE.json",
+      "ids": [
+        "SA2-F1–F6;6namednative methods;unread6groups"
+      ],
+      "classification": "Historical source coverage, identity tombstone or original mechanic packet",
+      "owners": [
+        "docs/research/six-ages-2/REPORT.md"
+      ],
+      "disposition": "Two managedassemblyexports/nativeasmtime coverage notallinterpretedsemantics;6methods notallnativesave/mortality/scenes. No runtimeacceptance.",
+      "evidence": "Fresh entire JSON/Markdown body read, including every unread/exclusion and packetacceptance/compatibility field. No originalinstalled/privatepayload, manuals, disassembly, individualsceneprograms, sourceFindings orscreenshotsread by association.",
+      "reopen": "Keep distinct game identity, originalID and source/manual/native/proposal boundaries; currentowner determines any selected reused mechanic. No acquisition/uninstall/runtime action.",
+      "input_sha256": "249defe99dba033c223aace0391da1c68aeb0343216fd91e76afbee662ca3009",
+      "input_lines": 30,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          30
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/six-ages-2/REPORT.md",
+      "ids": [
+        "F1–F3; sixchains;build12712255"
+      ],
+      "classification": "Historical source coverage, identity tombstone or original mechanic packet",
+      "owners": [
+        "docs/research/six-ages-2/REPORT.md"
+      ],
+      "disposition": "Source copy/hash/extraction reported bounded; retainedprivatebytes notcurrententitlement/uninstallauthority. Advisors/forecast/neglect lifecycleuseful but primarygame exactnativeprobabilities unrecovered.",
+      "evidence": "Fresh entire JSON/Markdown body read, including every unread/exclusion and packetacceptance/compatibility field. No originalinstalled/privatepayload, manuals, disassembly, individualsceneprograms, sourceFindings orscreenshotsread by association.",
+      "reopen": "Keep distinct game identity, originalID and source/manual/native/proposal boundaries; currentowner determines any selected reused mechanic. No acquisition/uninstall/runtime action.",
+      "input_sha256": "f011febc7421ece93adce3d7601e7abcb7214bc0a8e7369e059e326a33a3f56b",
+      "input_lines": 13,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/six-ages-2/IMPLEMENTATION_PACKETS.json",
+      "ids": [
+        "SA2-P1–SA2-P5"
+      ],
+      "classification": "Historical source coverage, identity tombstone or original mechanic packet",
+      "owners": [
+        "docs/research/six-ages-2/REPORT.md"
+      ],
+      "disposition": "Five proposals preserve identityacrossroles,forecastbeforeallocation/skilledrepair,coarsecontactandyearlyaftermath. Commoncompatibilitytemplate historicaloldsaveoverride, currentstatepersists. dueAt shouldactualjobowner notnewclock. No mandatoryneglectpenalty/unapproveddeathlaw/currentqueuedispatch.",
+      "evidence": "Fresh entire JSON/Markdown body read, including every unread/exclusion and packetacceptance/compatibility field. No originalinstalled/privatepayload, manuals, disassembly, individualsceneprograms, sourceFindings orscreenshotsread by association.",
+      "reopen": "Keep distinct game identity, originalID and source/manual/native/proposal boundaries; currentowner determines any selected reused mechanic. No acquisition/uninstall/runtime action.",
+      "input_sha256": "887bc01d781247a9fc78d30999f6f5e6fdd2cdf8bbc92795d95c60e9ea5d29c5",
+      "input_lines": 59,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          59
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/king-of-dragon-pass/COVERAGE.json",
+      "ids": [
+        "F1–F6;1760recordboundaries;unread6groups"
+      ],
+      "classification": "Historical source coverage, identity tombstone or original mechanic packet",
+      "owners": [
+        "docs/research/king-of-dragon-pass/REPORT.md"
+      ],
+      "disposition": "Finite structural/nativeentrypass not1760sceneprogramread orfulloutcome/saveformat. Uninstallgate historicalparentownednotpermissionnow.",
+      "evidence": "Fresh entire JSON/Markdown body read, including every unread/exclusion and packetacceptance/compatibility field. No originalinstalled/privatepayload, manuals, disassembly, individualsceneprograms, sourceFindings orscreenshotsread by association.",
+      "reopen": "Keep distinct game identity, originalID and source/manual/native/proposal boundaries; currentowner determines any selected reused mechanic. No acquisition/uninstall/runtime action.",
+      "input_sha256": "3909db593397404406be07a4544ea6d6d5a29c255a3099ea44040d1312b84760",
+      "input_lines": 25,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          25
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/king-of-dragon-pass/REPORT.md",
+      "ids": [
+        "F1–F3;5manualchains/6thenginechain"
+      ],
+      "classification": "Historical source coverage, identity tombstone or original mechanic packet",
+      "owners": [
+        "docs/research/king-of-dragon-pass/REPORT.md"
+      ],
+      "disposition": "Manualmeaning/nativebounded dispatch notruntimeauthoritativeprobabilities. Obligationtruth/publicgossipdistinct; no allNPCsimulate orhumanagecanonborrow.",
+      "evidence": "Fresh entire JSON/Markdown body read, including every unread/exclusion and packetacceptance/compatibility field. No originalinstalled/privatepayload, manuals, disassembly, individualsceneprograms, sourceFindings orscreenshotsread by association.",
+      "reopen": "Keep distinct game identity, originalID and source/manual/native/proposal boundaries; currentowner determines any selected reused mechanic. No acquisition/uninstall/runtime action.",
+      "input_sha256": "8b9ad0e3986fe0a69625efc37b7b6aca1673f925d4d4105d5e97bde3498cc4d1",
+      "input_lines": 13,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/king-of-dragon-pass/IMPLEMENTATION_PACKETS.json",
+      "ids": [
+        "P1–P5;priority;foundationcaveat"
+      ],
+      "classification": "Historical source coverage, identity tombstone or original mechanic packet",
+      "owners": [
+        "docs/research/king-of-dragon-pass/REPORT.md"
+      ],
+      "disposition": "Preserve knownadvisoravailability and substitute,opposingdebtnetting/independentbelief,apprenticearrivaleventandsupportbeforedeath,compactaftereventreference. No universalnettinglaw/forcedseasons/compactionof exactcustody. No actualsavealgorithmrecoveredandrankingnotcurrentpriority.",
+      "evidence": "Fresh entire JSON/Markdown body read, including every unread/exclusion and packetacceptance/compatibility field. No originalinstalled/privatepayload, manuals, disassembly, individualsceneprograms, sourceFindings orscreenshotsread by association.",
+      "reopen": "Keep distinct game identity, originalID and source/manual/native/proposal boundaries; currentowner determines any selected reused mechanic. No acquisition/uninstall/runtime action.",
+      "input_sha256": "f3083bd14fbc7b8c19b2246de2f5b27d7c6862dbe9cbca1af5a668eae5dc3422",
+      "input_lines": 68,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          68
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/six-ages-2/REPORT.md",
+      "heading": "## Source-coverage and packet reconciliation, 2026-11-04 (B173)",
+      "body": "This report, full COVERAGE.json and all SA2-P1–P5 packets were read alongside the Six Ages1 tombstone and King of Dragon Pass report/coverage/packets. App2278010 and app881420 remain distinct. The retired wrong-title intake records no copied/read source and is not an active acquisition blocker; retain its tombstone and history instead of deleting it or requeueing Six Ages1. The sourcecopy/export/hash claims identify the historical finite pass, not present entitlement, installed availability or authority to uninstall. Private payloads and six named native method bodies were not reopened in this reconciliation. Scene bytecode, detailed skill/mortality rules, full succession/ventures and save encoding remain explicitly unread.\n\nPreserve SA2-P1’s same person across age/role/availability changes; P2’s forecast before actual allocation and distinct reserve; P3’s skilled helper, repair terms and interruption settlement; P4’s coarse unseen periods/contact with one resolution; P5’s event cleanup and meaningful yearly aftermath. These are original proposed consumers, not accepted franchise mechanics or a universal neglect/aging penalty. Reuse existing actor, job, calendar, stock and history owners when a matching slice is selected; a proposed dueAt field does not call for a second job clock. Long-interval versus split-interval equivalence is a useful precise failure case, not proof every NPC needs per-tick simulation.\n\nPacket compatibility/exclusion boilerplate is historical scope. Current old-save direction can permit reset, while newly built current state still needs its actual round trip; “no unapproved true death” does not establish a universal world mortality law. Exact private source probabilities and canon interpretations remain unknown. Related King of Dragon Pass proposals overlap on preparation, helper availability and aftermath, but retain their distinct source identity and IDs; no combined new subsystem or original experience/foundation GM lease was created.",
+      "before_sha256": "f011febc7421ece93adce3d7601e7abcb7214bc0a8e7369e059e326a33a3f56b",
+      "after_sha256": "05de36c0bc51f86c89553382e44f4e9999b63e54d0a0a98591dd45718d5379cf"
+    },
+    {
+      "path": "docs/research/king-of-dragon-pass/REPORT.md",
+      "heading": "## Source-coverage and packet reconciliation, 2026-11-04 (B173)",
+      "body": "The full report, coverage JSON and P1–P5 packets were read. Five manual mechanic chains and a sixth bounded native dispatch/counter chain are different evidence. Validating1760 record boundaries does not mean decoding or reading1760 scene programs, their costs, probabilities or advisor text. The claimed finite source pass is not complete reconstruction, gameplay acceptance or a recovered save-compaction algorithm. Its historical copied files/build/uninstall readiness are not today’s installation state or permission to remove anything. No proprietary payload, native instructions, manuals or raw source was reopened here.\n\nKeep the proposals’ useful joins: P1 forecasts before preparation and records actual later conditions; P2 an away artisan cannot serve locally and a genuine substitute differs; P3 precise signed obligation and public gossip remain separate, with one collection publication; P4 pending apprentice/support/mentor reaction can matter before any death; P5 eligibility, committed choice and later outcome are separately identified, with aftermath retaining participants and cause. Netting opposing favors is a local proposed obligation rule, not a universal currency/debt law. Lossy yearly memory cannot replace exact custody, commitments or an available history-reading power. Existing Home/contact/weather/job/history owners are candidates for reuse, not missing by filename.\n\nThe original priority order and experience-GM handoff are historical proposals. Current lead-first direction and actual consumer scope govern selection. World-specific time, aging, decline and replacement remain dials with mechanisms; no clan simulator, mandatory death/reset, fixed native aging threshold or new scheduler is adopted. Preserve both this packet family and the distinct Six Ages2 ideas with their evidence boundaries. No implementation, acquisition, uninstall, new agent or source publication was performed.",
+      "before_sha256": "8b9ad0e3986fe0a69625efc37b7b6aca1673f925d4d4105d5e97bde3498cc4d1",
+      "after_sha256": "0c15b0e07cfd02e1085653ff836e6192b9f25b91a09c1094f790b6c5f5883655"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1127
+}

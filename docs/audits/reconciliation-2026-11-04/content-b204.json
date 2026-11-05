@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "batch": "B204",
+  "title": "Complete UI rule owner and preserve mixed authority and current prose defaults",
+  "at": "2026-11-04T22:59:04.413091+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/UI_RULES.md",
+      "ids": [
+        "UR1–UR82 scoped statuses",
+        "UIV1–UIV7 scoped statuses",
+        "SUI1–SUI19",
+        "RPT1–RPT14",
+        "Nov4 prose/interaction/editorial",
+        "BF105–BF119 applications",
+        "B139/B149"
+      ],
+      "classification": "Standing UI owner with explicitly proposed extensions, scoped applications and historical evidence",
+      "owners": [
+        "docs/UI_RULES.md",
+        "DESIGN.md",
+        "docs/RULES_INDEX.md"
+      ],
+      "disposition": "Full current owner review corrected after direct adoption lookup: SUI1–SUI19 binding defaults, their two proposed headers stale. UR76–UR82/UIV proposed-in-use statuses remain distinct. Preserve prose-first task/job/focus and observer/command semantics without new runtime or widget gates.",
+      "evidence": "Fresh full read 1–end every rule table and example including all later application folds. Underlying source, reference pages, screenshots, current browser and saved-layout codec not newly read. Prior B149–B151 UI-core review remains separately scoped.",
+      "reopen": "Selected UI change at current targets/text sizes with actual public data, job identity and native command/result; choose relevant risk-scaled checks under AD36/43, preserve historical wording and preference owner.",
+      "input_sha256": "ccb447ac1032e7799c9e032e7a8f6cc15a19528500c4f39cb7b696920af9100f",
+      "input_lines": 472,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          472
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/UI_RULES.md",
+      "heading": "## Full UI-owner reconciliation, 2026-11-04",
+      "body": "Full reading preserves the owner’s mixed statuses: the general scene/report introduction does not erase the explicit proposed SUI13–SUI19 rows, and the proposed/in-use UR76–UR82/UIV defaults are not silently promoted by this application note (AD32). Existing user direction can already authorize an appropriate main-surface home under UR2/AD42; a new vote is not required merely because a receiving surface gains supported content. AD51 qualifies historical second-consumer phrasing where it governs shared software, without adopting a new report category or primitive.\n\nThe current prose-first clarification and UR35/53/57/60–74 retain the concrete task: known explanation and actual quote before commitment, real job review separate from Stop, focus/selection preserved through work and settlement, rendered sticky-header clearance at the current text size, and meaningful state feedback. A percentage needs a real supported measure. Illustration, whimsical expression and literary richness are dials, not required layers; narrator expression does not supply a character’s personality, knowledge or acts. Historical observation wording and ephemeral stream rows have different retention, and reloading is not a fresh report event.\n\nKnown unavailable actions need their actual admitted blocker; undiscovered content and engine-invalid fallback diagnostics follow their separate projection rules. SUI7’s continuing windows do not impose a universal safe pause, and RPT4 read-time names must preserve what was known then. Craft1 distinguishes browser-delivered activations rather than promising all physical key-repeat suppression. BF examples are authored applications, not proven prices, offices, starts, phased accounting or ordinary-life planners. Current desktop/text targets govern selected evidence; historical screen-use statistics and file/geometry/test counts are not renewed measurements here. No rule code, proposal status, runtime behavior or universal conformance matrix was added (AD36, AD43).",
+      "before_sha256": "ccb447ac1032e7799c9e032e7a8f6cc15a19528500c4f39cb7b696920af9100f",
+      "after_sha256": "1e6b3d07f43baceb2421158fb282302806d5ead57befd8fb76cc6744b023939e"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1089,
+  "post_record_amendments": [
+    {
+      "path": "docs/UI_RULES.md",
+      "from": "Scoped review of [UI core rounds 1-7](audits/UI_DESIGN_CORE_AUDIT.md#round-1-2026-10-22), lines 1-441; later rounds remain to be reviewed.",
+      "to": "Scoped review of [UI core rounds 1-7](audits/UI_DESIGN_CORE_AUDIT.md#round-1-2026-10-22), lines 1-441; later rounds were outside B149 and have their subsequent B150/B151 dispositions in the reconciliation record.",
+      "reason": "Qualify old pending-review statement by subsequent actual B150/B151 content receipts; preserve B149 original scope."
+    },
+    {
+      "path": "docs/UI_RULES.md",
+      "from": "| Code | Rule (proposed, extends SUI1-SUI12) |",
+      "to": "| Code | Rule (binding defaults adopted 2026-10-28, AD32; extends SUI1-SUI12) |",
+      "reason": "Correct stale SUI13–SUI19 proposal labels and reviewer misclassification from directly read USER_VISION6811–6814 and LEAD_LIFE_RULES43–54; no new adoption."
+    },
+    {
+      "path": "docs/UI_RULES.md",
+      "from": "| Code | Rule (proposed, extends SUI1-SUI16) |",
+      "to": "| Code | Rule (binding defaults adopted 2026-10-28, AD32; extends SUI1-SUI16) |",
+      "reason": "Correct stale SUI13–SUI19 proposal labels and reviewer misclassification from directly read USER_VISION6811–6814 and LEAD_LIFE_RULES43–54; no new adoption."
+    },
+    {
+      "path": "docs/UI_RULES.md",
+      "from": "Full reading preserves the owner’s mixed statuses: the general scene/report introduction does not erase the explicit proposed SUI13–SUI19 rows, and the proposed/in-use UR76–UR82/UIV defaults are not silently promoted by this application note (AD32).",
+      "to": "Reviewer correction after checking USER_VISION’s October 28 batched-default adoption and LEAD_LIFE_RULES §B: SUI1–SUI19 are binding defaults. The SUI13–SUI19 proposed table headers were stale, and B204 initially misread them as current. Those headers now match the recorded adoption under AD32; the original wording and mistaken review are preserved in the amendment ledger. Separate proposed/in-use UR76–UR82/UIV defaults retain their statuses.",
+      "reason": "Correct stale SUI13–SUI19 proposal labels and reviewer misclassification from directly read USER_VISION6811–6814 and LEAD_LIFE_RULES43–54; no new adoption."
+    }
+  ],
+  "review_corrections": [
+    {
+      "path": "docs/UI_RULES.md",
+      "from_disposition": "Full current owner read retains per-row proposed/in-use vs standing statuses; later prose-first and inspector/job/focus/scroll details apply without universal artwork or widget matrices. Distinguish known unavailable vs unseen vs internal-invalid and read-only navigation vs actual command. No status promotion or additional UI runtime work.",
+      "to_disposition": "Full current owner review corrected after direct adoption lookup: SUI1–SUI19 binding defaults, their two proposed headers stale. UR76–UR82/UIV proposed-in-use statuses remain distinct. Preserve prose-first task/job/focus and observer/command semantics without new runtime or widget gates.",
+      "reason": "Reviewer initially privileged stale local labels over explicit existing user adoption; read authoritative recorded direction and corrected headers/review."
+    }
+  ]
+}

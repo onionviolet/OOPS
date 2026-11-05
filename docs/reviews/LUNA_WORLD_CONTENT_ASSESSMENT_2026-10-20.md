@@ -25,3 +25,10 @@ A preliminary 40-test small-feature slice also passed before Weibao clarified th
 Attribution pointers, local session history: Sonnet engine session `327c12c6-3c1f-43f9-a647-f07b7791e0c5`; native join `766936d5-3502-481d-a8fc-81ff3c01af95`. Representative Luna synthesis/repair rollout IDs: One Piece `01a13de9-127a-7ef1-aea2-21bc5012aa11` / `01a13df6-cf82-7643-91b1-51f4356f76b5`; FMA `01a13856-2223-7360-8577-ae99c22b1a10` / `01a13884-038c-7a21-a917-09b52aaff768`; Fate `01a13dbb-4522-7111-84bb-d0f999f9aa80` / `01a13dc9-0204-76c0-87ba-39d569ef9ca6`. IDs establish logged model provenance, not exclusive authorship of every line in a concurrently edited folder.
 
 No new runtime defect is claimed. No visual or human-play acceptance was performed. The shared dirty work remains untouched apart from this new report.
+
+
+## Content reconciliation B156, 2026-11-04
+
+Full assessment read. Preserve its actual attribution correction and useful draft → source-aware review → repair pattern. Eleven reviewed packs and three examined detailed reviews are a sample, not a controlled model comparison or proof that every repaired claim now matches primary canon. Model IDs establish logged provenance for particular sessions, not exclusive authorship of shared folders (AD32, AD37).
+
+F5's HP-no-runtime and early LOTM prototype state is historical relative to the current lead receipts in PROJECT. Neither the old nine-test engine slice nor the excluded forty-test small-feature run establishes current browser/Export/travel or full-world coverage. No source-model trial, primary canon reading, live rollout audit or native test was performed here. Use current selected source/consumer evidence rather than a universal model-quality conclusion or re-auditing all worlds.

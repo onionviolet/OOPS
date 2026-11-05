@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "batch": "B212",
+  "title": "Full 597-row adoption ledger and weak semantic joins",
+  "at": "2026-11-04T23:12:22.943529+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/game-research-adoption-reaudit-2026-10-14/REPORT.md",
+      "ids": [
+        "A0001–A0597",
+        "26 negative entries",
+        "77-route dossier index",
+        "U01–U20 routing",
+        "R1–R7",
+        "G1–G4"
+      ],
+      "classification": "Historical source adoption crosswalk; current content review identifies weak joins",
+      "owners": [
+        "docs/research/game-research-adoption-reaudit-2026-10-14/REPORT.md",
+        "docs/research/game-research-adoption-reaudit-2026-10-14/UNPARK_PACKETS.md",
+        "docs/gm/dispatch/foundation-method-use-2026-11-04/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve historical classifications and row IDs but explicitly qualify generic symbol overlap and inconsistent repeated representations. 43 landed/328 partial/203 untouched are row-entry counts at old source identity, not present feature coverage, absence, acceptance or direct absorption provenance. Later physical-note/method delivery and cultivation/map contracts qualify old blanket readings without rescoring unrelated proposals.",
+      "evidence": "Entire811-line current report read, all597 row bodies, 77-route census, historical negative table, source snapshot binding and open evidence. Bounded ranges1–95,96–145,146–225,then50-line chunks226–765 and766–end delivered without truncation. Underlying JSON ledger, primary games, cited runtime modules and UNPARK_PACKETS bodies not read or executed in B212.",
+      "reopen": "When selecting a particular proposal, trace the exact original candidate and current command, actual participants/means/cause, receiving result and proof. Collapse repeated representations only for semantic comparison while retaining their stable historical row IDs. Do not recalculate old classifications from current files or claim a full current runtime census.",
+      "input_sha256": "c0336cf4ea3bdf9eb7476b5b6a53551392da75171792e183e3605fbf213f0b9a",
+      "input_lines": 811,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          811
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/game-research-adoption-reaudit-2026-10-14/REPORT.md",
+      "heading": "## Content reconciliation B212, 2026-11-04",
+      "body": "All A0001–A0597 bodies, the dossier index, all 26 historical negative entries and G1–G4 were read. Retain 597 as reference-row entries at the recorded source identity, including repeated proposal representations. The 43 landed/328 partial/20 parked/1 rejected/2 not-applicable/203 untouched counts are not a current implementation percentage or unique-feature count. A landed entry only describes its selected source consumer; untouched explicitly means not traced, not proved absent. Original dossier bytes, JSON ledger and source games were not reread in B212 (AD32/AD36).\n\nSeveral partial joins do not establish meaningful adoption of the proposed behavior. For example A0201’s inter-actor project offer, A0298’s wounded stranger/help/response, and A0303’s captive workplace/service consequence cite heir/estate functions without tracing the requested interaction. A0418’s save compression cites combat/objective functions, which does not prove compression or a compatible decoder. Treat these as unestablished exact joins, retaining their original historical label rather than relying on it as evidence of the proposed consumer. A nearby symbol and generic overlap paragraph are locators for further inspection. They are not direct absorption provenance.\n\nRepeated representations can disagree: LP3 A0216 is untouched while A0224 is partial; Groundhog P1 A0191 is untouched while A0196 is partial; KoL P1 A0332 is untouched while A0340 is partial. Similarity alone does not decide whether the longer representation changes scope. Preserve both IDs and compare the complete candidate and actual consumer before reusing a classification. This review neither harmonizes them by word matching nor invents a fresh code inspection.\n\nLater scoped evidence qualifies broad historical readings. B153’s final Foundation method-use checkpoint records a bounded physical paper/recipient/method path; A0054 and A0147 cannot now support a blanket claim that no such consumer exists, while their full workshop-note and teaching proposals remain separately scoped. B203’s cultivation checkpoint and B208’s KJ2 uptake likewise prevent A0174/A0183 from becoming present-tense universal absence claims about Gu identity/control/care/activation. No automatic rescore to landed follows: exact source identity, candidate semantics, connected use and persistence still matter.\n\nKeep source-law and consumer questions distinct: toolkit energy/recycling is not proved by mixture composition; a retained ward is not the ongoing singer; a gifted faction item differs from continuing service eligibility; an heir does not automatically inherit another person’s consent; generated composition need not impose universal conservation or a warmup tax. Yarn lookahead’s premature effects remain a defect question, Evennia’s timer is a deployment mismatch for the selected browser-local host, and the wrong Six Ages identity stays retired. These do not exclude rich dialogue, schedules or other reasonable worlds (AD22/AD32/AD51). Prepared U packets and former ranked slices are proposals, not a new build queue. Current broad scope, desktop targets, activity-compression direction and optional human review qualify old milestone/viewport/taste gates. Useful ideas and their original source/proof gaps stay preserved.",
+      "before_sha256": "c0336cf4ea3bdf9eb7476b5b6a53551392da75171792e183e3605fbf213f0b9a",
+      "after_sha256": "12d87ad9f088df7291ffe5f0b2d277fdd73efdd25932977d9bce56525d7417c1"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1049
+}

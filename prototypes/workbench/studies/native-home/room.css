@@ -1,0 +1,12 @@
+/* Prototype-local scene. Existing native panels and shell styles are untouched. */
+#native_home_scene{border:1px solid var(--ui-hairline,#647dd4);background:var(--ui-navy,#000533);padding:8px;margin:8px 0;font:inherit}
+#native_home_scene .room-heading{display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}
+#native_home_scene .room-picture{position:relative;max-width:660px;margin:8px auto;background:#182c34}
+#native_home_scene canvas{display:block;width:100%;height:auto;image-rendering:pixelated}
+#native_home_scene .room-object{position:absolute;transform:translate(-50%,-50%);padding:5px 8px;font:inherit;font-size:var(--ui-type-body,14px);color:#e5d5af;background:#172b38ed;border:1px solid #aa9470;max-width:42%}
+#native_home_scene .room-object:focus-visible{outline:3px solid #f1ce87;outline-offset:2px}
+#native_home_scene .room-object:hover{background:#33535c}
+#native_home_scene .room-note{font-size:var(--ui-type-small,12px);margin:4px 0}
+#native_home_scene [role=status]{margin:4px 0;min-height:1.4em}
+#native_home_return{position:relative;z-index:2;margin-left:8px;font:inherit}
+[data-home-visual-target]{outline:2px solid #e3c78b;outline-offset:3px}

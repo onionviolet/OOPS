@@ -1,0 +1,117 @@
+{
+  "schema": 1,
+  "batch": "B78",
+  "title": "Generation proposal reports: retained variants and current authority overrides",
+  "at": "2026-11-04T20:27:37.140412+00:00",
+  "head": "4cdc0772b65d413e4989e327502910140b2a15eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/gx2/REPORT.md",
+      "ids": [
+        "F1–F6",
+        "L1–L5",
+        "GL1–GL20/18rankedoptions",
+        "G1–G5"
+      ],
+      "classification": "fresh full generation proposal report content review",
+      "owners": [
+        "docs/gm/dispatch/procgen-2026-10-13/gx2/REPORT.md",
+        "docs/gm/dispatch/procgen-2026-10-13/gx2/SOURCE_MAP.md"
+      ],
+      "disposition": "Observation vs intervention/acquisition vs learnedexperiment/currenttruth vs oldknowledge and actualconditionaldraw semantics retained. Future18options not automaticqueue/sharedallcheats. Currentloaded-dice source narrowerthanfullgenericlenses. G4oldviewportsretired; S1two-route/independentreviewer detailedproposals not universalacceptedsecretgate. Technicalcurrentfloor not mandatoryhumanapproval.",
+      "evidence": "Freshcomplete72/65/129reportlines in bounded nonclipped outputs after prior clippedattempt; source-map B77 scopes separate. SelectedcurrentPROJECTvision/focus/standingpriority text inspected; completecurrent RNG source alreadyreadB77. No linkedcatalog/profile bodies or historicalchecks/runtimeclaims recertified.",
+      "reopen": "Actualselectedoperation/profileconsumer and source-qualified currentauthority, proportionalexistingchecks and actualrebuiltjourney whenruntimeauthorized. No stalepriority/milestone/viewport/humansignoff/portreservation or newcheat/sourcewave.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "4f72300ca6b2282ad7ecca6620ed079c1f76304b65a091f0c1b9d39f7d4def31",
+      "input_lines": 72,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          72
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/gx3/REPORT.md",
+      "ids": [
+        "F1–F5",
+        "S1–S14",
+        "GS1–GS14/GO1–GO7/M1–M10",
+        "G1–G5"
+      ],
+      "classification": "fresh full generation proposal report content review",
+      "owners": [
+        "docs/gm/dispatch/procgen-2026-10-13/gx3/REPORT.md",
+        "docs/gm/dispatch/procgen-2026-10-13/gx3/SOURCE_MAP.md"
+      ],
+      "disposition": "Preserve cosmetictexture canhave no reward; paidfirsts/custody/patina/lotvariance/LOD/era/return summaries actualcause/knowledge distinct. Oldone-realm milestone retired; literal-Import/current-format proof separatelegacycompatdecision. No wholeframework prerequisite, no invented awayactivity/catchup from calculator. Currentdesktop/human/selectedworldauthority govern.",
+      "evidence": "Freshcomplete72/65/129reportlines in bounded nonclipped outputs after prior clippedattempt; source-map B77 scopes separate. SelectedcurrentPROJECTvision/focus/standingpriority text inspected; completecurrent RNG source alreadyreadB77. No linkedcatalog/profile bodies or historicalchecks/runtimeclaims recertified.",
+      "reopen": "Actualselectedoperation/profileconsumer and source-qualified currentauthority, proportionalexistingchecks and actualrebuiltjourney whenruntimeauthorized. No stalepriority/milestone/viewport/humansignoff/portreservation or newcheat/sourcewave.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "8aae5adfc29c6b1affe67273bb2914d57492a9162284bf265788bf5bcafd9f91",
+      "input_lines": 65,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          65
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/REPORT.md",
+      "ids": [
+        "profileinventory/B-S-Ltiers",
+        "F1–F8",
+        "W1–W14",
+        "S1–S5",
+        "D1–D5/G1–G5"
+      ],
+      "classification": "fresh full generation proposal report content review",
+      "owners": [
+        "docs/gm/dispatch/procgen-2026-10-13/p9/REPORT.md",
+        "docs/gm/dispatch/procgen-2026-10-13/p9/SOURCE_MAP.md"
+      ],
+      "disposition": "Fullprofilemenu not allprofilebodies readorcanon/gameplay. Wfieldssemanticproposals subsetactualconsumer not universal schema; preserve forms(identity/matter/grant/living), title/knowledge/source/era/carrier and actualrewardfunding. OldHP-firstlocalrecommendations not override currentLOTMfocus. Profiles/digests frozen secondary/sourcewindow scopes frommap; no newfullbook/pausedworldresumption. W14layoutdisabled oldpacket scope not globalarchitecturelaw.",
+      "evidence": "Freshcomplete72/65/129reportlines in bounded nonclipped outputs after prior clippedattempt; source-map B77 scopes separate. SelectedcurrentPROJECTvision/focus/standingpriority text inspected; completecurrent RNG source alreadyreadB77. No linkedcatalog/profile bodies or historicalchecks/runtimeclaims recertified.",
+      "reopen": "Actualselectedoperation/profileconsumer and source-qualified currentauthority, proportionalexistingchecks and actualrebuiltjourney whenruntimeauthorized. No stalepriority/milestone/viewport/humansignoff/portreservation or newcheat/sourcewave.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "b257986094135e6b83779875987334f46a611c5c99134243992e9116ed5b519e",
+      "input_lines": 129,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          129
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/gx2/REPORT.md",
+      "heading": "## Current authority and scoped proposal preservation, 2026-11-04 (B78)",
+      "body": "Original IDs, ranked variants and explicit proposal status remain. The selected current stream source now includes loaded-dice call/override and fate-ledger peek paths, as the SOURCE_MAP B77 note records; that does not close generic lens acquisition, domain prediction, intervention, transaction or browser gates. Keep observation separate from truth intervention, deterministic mixture facts from new random draws, and actually acquired knowledge from fixture-granted capabilities. S1’s independent review/two-route design is a scoped proposal, not a universal secret quota. Current desktop direction uses 1920×1080 with relevant laptop/floor evidence; the old 1366×768 examples are retired. AD36/AD43 govern actual changed runtime proof, and AD42 makes human taste feedback optional. Preserve explicit compatibility decisions and saved original input/evidence identities. Proposed ports, filenames, branch names and worker/root duties are history, not current reservations, dispatch or commit authority (AD32). No runtime/source acquisition was performed here.",
+      "before_sha256": "4f72300ca6b2282ad7ecca6620ed079c1f76304b65a091f0c1b9d39f7d4def31",
+      "after_sha256": "06a5b3be0810e8570ab1ed2444631d66c2b8612be1f4b210329350f5c8a141b3"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/gx3/REPORT.md",
+      "heading": "## Current authority and scoped proposal preservation, 2026-11-04 (B78)",
+      "body": "Original IDs, ranked variants and explicit proposal status remain. The one-realm/one-prestige milestone named above was retired on October 24; it is not a remaining dependency. Keep harmless cosmetic texture distinct from rewarded operations, durable firsts/commitments from display history, and actual elapsed settlement from a return summary. A clock calculator or a packet cannot create away-world activity. Source-instance/lot/era/LOD seams remain separately selected variants, rather than a whole-framework prerequisite. Current desktop direction uses 1920×1080 with relevant laptop/floor evidence; the old 1366×768 examples are retired. AD36/AD43 govern actual changed runtime proof, and AD42 makes human taste feedback optional. Preserve explicit compatibility decisions and saved original input/evidence identities. Proposed ports, filenames, branch names and worker/root duties are history, not current reservations, dispatch or commit authority (AD32). No runtime/source acquisition was performed here.",
+      "before_sha256": "8aae5adfc29c6b1affe67273bb2914d57492a9162284bf265788bf5bcafd9f91",
+      "after_sha256": "043bec3ceb847d25c4c2081b546d5a3bbc7ce4b5fa61c5bd5eb5dbc4c1e5c67c"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/REPORT.md",
+      "heading": "## Current authority and scoped proposal preservation, 2026-11-04 (B78)",
+      "body": "Original IDs, ranked variants and explicit proposal status remain. The HP/D&D-first five-slice ranking is historical local planning, not a change to the current LOTM-first full-journey focus. General canon-world priorities and local slice selection are distinct. B/S/L tiers preserve each source family’s analytical/secondary/conditional depth; this report/menu review does not read all profile bodies or raw books. W1–W14 are consumed semantic options, not universal save fields. W14’s disabled layout is this packet’s bounded scope, not a ban on future authored or generated geography. Current desktop direction uses 1920×1080 with relevant laptop/floor evidence; the old 1366×768 examples are retired. AD36/AD43 govern actual changed runtime proof, and AD42 makes human taste feedback optional. Preserve explicit compatibility decisions and saved original input/evidence identities. Proposed ports, filenames, branch names and worker/root duties are history, not current reservations, dispatch or commit authority (AD32). No runtime/source acquisition was performed here.",
+      "before_sha256": "b257986094135e6b83779875987334f46a611c5c99134243992e9116ed5b519e",
+      "after_sha256": "ec234e1d77d5d3813277dea6c07f3ca2fa8b7cc9f17dd5f61f0d361f61add438"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1353
+}

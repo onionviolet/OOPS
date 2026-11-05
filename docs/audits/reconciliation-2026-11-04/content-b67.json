@@ -1,0 +1,235 @@
+{
+  "schema": 1,
+  "batch": "B67",
+  "title": "Local brainstorm character bodies: identity, memory, custody and unsupported defaults",
+  "at": "2026-11-04T20:17:15.568863+00:00",
+  "head": "4cdc0772b65d413e4989e327502910140b2a15eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/char-absence.md",
+      "ids": [
+        "char-absence:1–12"
+      ],
+      "classification": "fresh full machine-draft item-body review; unconfirmed proposals",
+      "owners": [
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md",
+        "docs/RIVALS_IDENTITIES_AND_FATE.md",
+        "docs/DEEP_WORLD_WORKFLOW_2026-10-19.md"
+      ],
+      "disposition": "1/2/7/10/12: memory, bond and exhaustion are selected mechanism/clock proposals, not compulsory decay.3/11: rival growth/relevance follows causes and can end, no level scaling.4/8: crowd/event detail only as consequential.5/6: actual supported action/information, no unrequested closed-app activity or instant global reputation.9: custody/save once-only meaningful invariant, no demonstrated desync.",
+      "evidence": "All12numbered bodies freshly read, not just titles. Compared with companionD1–10/I1–5/V1–5, rivalchronicle231–269 and DWF82/87–94 selected current text. No underlying runtime defect/absence, newmedia/source or localmodel behavior verified.",
+      "reopen": "Selected actual actor/operation with worldclock, carrier, observer and source/consumer evidence; no universal decay/scaling/offline/migration/cleanup requirement.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "5e82f027a0cd7b7a99b65eca19c72e1b8dc97840b135bf594fdbe4b95943b95d",
+      "input_lines": 38,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          38
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/char-fidelity.md",
+      "ids": [
+        "char-fidelity:1–12"
+      ],
+      "classification": "fresh full machine-draft item-body review; unconfirmed proposals",
+      "owners": [
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md",
+        "docs/RIVALS_IDENTITIES_AND_FATE.md",
+        "docs/DEEP_WORLD_WORKFLOW_2026-10-19.md"
+      ],
+      "disposition": "1/5/8/12: source-law/cultural alignment preserves actual changed history, no mandatory periodic canon reset/crowd simulator.2/4/9: original expressive voice and provenance useful, no mandatory source citation in every player tooltip or legal conclusion.3/10: observer-safe UI/prompts, not encrypting agent-readable saves or fresh raw-save audit.6: rival persistence useful selected regression.7: actual observable clues, no omniscient loyalty meter.11: distinct authored personalities remain useful optional content.",
+      "evidence": "All12numbered bodies freshly read, not just titles. Compared with companionD1–10/I1–5/V1–5, rivalchronicle231–269 and DWF82/87–94 selected current text. No underlying runtime defect/absence, newmedia/source or localmodel behavior verified.",
+      "reopen": "Selected actual actor/operation with worldclock, carrier, observer and source/consumer evidence; no universal decay/scaling/offline/migration/cleanup requirement.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "7230ef616e5681758f9d08b6e07fe7b25de8e314d90a085d6aac629f3b350ab2",
+      "input_lines": 38,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          38
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/char-longplay.md",
+      "ids": [
+        "char-longplay:1–12"
+      ],
+      "classification": "fresh full machine-draft item-body review; unconfirmed proposals",
+      "owners": [
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md",
+        "docs/RIVALS_IDENTITIES_AND_FATE.md",
+        "docs/DEEP_WORLD_WORKFLOW_2026-10-19.md"
+      ],
+      "disposition": "1/3/7: existing grief/retirement/return and rival closure owners, no missing-system proof.2/5/9: variable crowd detail and retained memory/performance measured if selected, no universal cap.4/6/12: personality growth and goals can change, no fixed trait cap or compulsory away morale decay.8: custody distinct party join/leave.10: carrier/history determines successor memory/reputation, not automatic inheritance.11: alliance can change through actual circumstances, no forced story-beat or combat-only switch.",
+      "evidence": "All12numbered bodies freshly read, not just titles. Compared with companionD1–10/I1–5/V1–5, rivalchronicle231–269 and DWF82/87–94 selected current text. No underlying runtime defect/absence, newmedia/source or localmodel behavior verified.",
+      "reopen": "Selected actual actor/operation with worldclock, carrier, observer and source/consumer evidence; no universal decay/scaling/offline/migration/cleanup requirement.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "13ddbaeb57ce09bc8d4bcfd9397d4a002685dc40cc459b6ab38b45d4db52b70e",
+      "input_lines": 38,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          38
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/char-reuse.md",
+      "ids": [
+        "char-reuse:1–12"
+      ],
+      "classification": "fresh full machine-draft item-body review; unconfirmed proposals",
+      "owners": [
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md",
+        "docs/RIVALS_IDENTITIES_AND_FATE.md",
+        "docs/DEEP_WORLD_WORKFLOW_2026-10-19.md"
+      ],
+      "disposition": "1/2: stable actor identity, body/controller/carrier and destination recognition distinct; no universal preserve-all/reset schema.3/8: world-specific readable density/style, not fixed NPCcount.4: reject balance/rubberband default.5/6: actual memory carriers and personal/worldclock.7: language/communication meaningful selected means.9: no automatic decay.10: jurisdiction/evidence not global karma transfer.11: foreign item not invalid merely absent local catalogue, no forced conversion.12: refusal/independent goal valid outcome, no forced companion compliance.",
+      "evidence": "All12numbered bodies freshly read, not just titles. Compared with companionD1–10/I1–5/V1–5, rivalchronicle231–269 and DWF82/87–94 selected current text. No underlying runtime defect/absence, newmedia/source or localmodel behavior verified.",
+      "reopen": "Selected actual actor/operation with worldclock, carrier, observer and source/consumer evidence; no universal decay/scaling/offline/migration/cleanup requirement.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "35a54808c38b1ac4460345fee8023b2ba23d4bb0b1d2f374657eddc609ed05a0",
+      "input_lines": 38,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          38
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/char-verify.md",
+      "ids": [
+        "char-verify:1–12"
+      ],
+      "classification": "fresh full machine-draft item-body review; unconfirmed proposals",
+      "owners": [
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md",
+        "docs/RIVALS_IDENTITIES_AND_FATE.md",
+        "docs/DEEP_WORLD_WORKFLOW_2026-10-19.md"
+      ],
+      "disposition": "1/3/4/7/12: useful selected life-state/identity/custody/rival cases, source invariants instead of invented absent-linter claims.2/5:72hour/maxpopulation stress not universal gate.6/9/10: no assumed decay, omniscient public decision log or universal mutuallyexclusive traits.8: current compatibility decision not mandatory oldsave migration.11: offline30day event sweep only if declared clock/away policy supports it.",
+      "evidence": "All12numbered bodies freshly read, not just titles. Compared with companionD1–10/I1–5/V1–5, rivalchronicle231–269 and DWF82/87–94 selected current text. No underlying runtime defect/absence, newmedia/source or localmodel behavior verified.",
+      "reopen": "Selected actual actor/operation with worldclock, carrier, observer and source/consumer evidence; no universal decay/scaling/offline/migration/cleanup requirement.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "dd8d12ed0673c878131795135e7a2b1866009d7a33cc172c62f9373e930555c1",
+      "input_lines": 38,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          38
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/char-legibility.md",
+      "ids": [
+        "char-legibility:1–12"
+      ],
+      "classification": "fresh full machine-draft item-body review; unconfirmed proposals",
+      "owners": [
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md",
+        "docs/RIVALS_IDENTITIES_AND_FATE.md",
+        "docs/DEEP_WORLD_WORKFLOW_2026-10-19.md"
+      ],
+      "disposition": "1/7/8: readable known identity/return/context and crowd targeting without revealing hidden importance.2/4/9/12: motives/personality/culture via actual observer evidence, no omniscient dossier/trust score.3/5/10: public actual fatigue/custody/jurisdiction useful, no compulsory icon/splitview/tag layout.6: recap actual supported elapsed events, not invented paused-time changes.11: durable life/retirement identity integrity, not harddeleting history as default.",
+      "evidence": "All12numbered bodies freshly read, not just titles. Compared with companionD1–10/I1–5/V1–5, rivalchronicle231–269 and DWF82/87–94 selected current text. No underlying runtime defect/absence, newmedia/source or localmodel behavior verified.",
+      "reopen": "Selected actual actor/operation with worldclock, carrier, observer and source/consumer evidence; no universal decay/scaling/offline/migration/cleanup requirement.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "7857a700830a41b4d86b37d37b473f69101d374b5ac4ae8a79d93e3c32d5cf06",
+      "input_lines": 62,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          62
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/char-volume.md",
+      "ids": [
+        "char-volume:1–12"
+      ],
+      "classification": "fresh full machine-draft item-body review; unconfirmed proposals",
+      "owners": [
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md",
+        "docs/RIVALS_IDENTITIES_AND_FATE.md",
+        "docs/DEEP_WORLD_WORKFLOW_2026-10-19.md"
+      ],
+      "disposition": "1/2/3/5/6: measure selected cast/crowd/voice/name burden, no fixed roster cap/mobile quota or generic absence claim.4/7: actual clock/goals/resources, no forced absence decay or rival scaling.8: autonomous item use needs declared custody/authorization.9: existing route/carrier/crossing rules, not universal new transfer policy.10: retain durable identity/commitments through summary compression, not lossy archival.11: commercialrelease legalcheck speculative outside this task, no clearance claim.12: charactercreator retained as optional unselected idea, no inferred user demand.",
+      "evidence": "All12numbered bodies freshly read, not just titles. Compared with companionD1–10/I1–5/V1–5, rivalchronicle231–269 and DWF82/87–94 selected current text. No underlying runtime defect/absence, newmedia/source or localmodel behavior verified.",
+      "reopen": "Selected actual actor/operation with worldclock, carrier, observer and source/consumer evidence; no universal decay/scaling/offline/migration/cleanup requirement.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "a428860cc15c070a267ec986c6f8fdfcd0db584bffb384fcbb0660a4e8d76040",
+      "input_lines": 62,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          62
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/TRIAGE.md",
+      "ids": [
+        "DWF82/DWF87–DWF94",
+        "survivors/routed/dropped"
+      ],
+      "classification": "fresh full triage and reviewed-body scope correction",
+      "owners": [
+        "docs/audits/local_churn_2026-10-20/TRIAGE.md",
+        "docs/DEEP_WORLD_WORKFLOW_2026-10-19.md"
+      ],
+      "disposition": "Original only-title review retained as history; char7files84bodies now actually reviewed with per-file ordinal dispositions. Triage8of250 novelty estimate not semantic validation/allbodyreading. Accessibility/readability is not categorically deferred by mobile priority; optional ideas retained without selection. Remaining14dialogue/world files still need actual bodies.",
+      "evidence": "Full43line triage freshly read and sevencharacter outputs read completely; DWF87–94 current owner text inspected.",
+      "reopen": "Continue remaining dialogue/world bodies before claiming full queue content review; no rerun/dispatch/localmodel quota.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "6bd7fd2826179ff74491a75162918c0510f8431b1b1f12dbfa888b7732eca3ea",
+      "input_lines": 43,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          43
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md",
+      "heading": "## Local brainstorm character-body reconciliation, 2026-11-04 (B67)",
+      "body": "The seven [character draft lenses](audits/local_churn_2026-10-20/TRIAGE.md#character-bodies-reviewed-2026-11-04-b67), items 1–12 each, have now had their bodies read. Preserve useful memory/custody/communication/personality cases as optional applications of existing D7–D10, I1–I5 and V1–V5. A long relationship may change through real experience; no fixed personality cap, compulsory morale/loyalty decay, automatic successor inheritance or invented paused-time activity follows. Memory summaries preserve durable identity, promises, owned items and knowledge carriers; a foreign catalogue omission does not demand conversion of carried goods. Public clues need actual observation, not a hidden-motive/loyalty reveal or mandatory tooltip citation. Companion independence includes refusal and lawful separate ownership; it need not resolve into compliance. New UI layouts, caps, fixtures and a character creator remain proposals under AD32. No runtime absence/defect was established by the drafts.",
+      "before_sha256": "0f2f39186bf2267b1596ed9da59351de5b356a4e6deb7267f79bc6c5f25093cf",
+      "after_sha256": "9cec07bed72e9255b97ced9bc4875c885f2a8e364563bd8ce1c9fd3482192154"
+    },
+    {
+      "path": "docs/RIVALS_IDENTITIES_AND_FATE.md",
+      "heading": "## Local brainstorm rival continuity reconciliation, 2026-11-04 (B67)",
+      "body": "Character draft ordinals are retained in the [body-review ledger](audits/reconciliation-2026-11-04/content-b67.json). Their rival-growth, re-entry, alliance and memory suggestions fit the existing chronicle when actual actor goals, time, resources, witnessed information and committed aftermath supply them. An old rival may remain weaker, retire, cooperate or end the dispute; no player-level rubber band, endless hostility, mandatory immunity/counter or forced encounter follows. Costs and tradeoffs arise where the actual mechanism supplies them, including supported free means under AD5/AD38. Durable life state is separate from temporary combat reset; successor and returned actor identity are not interchangeable. No new rival simulator, old-save migration or implemented behavior is claimed.",
+      "before_sha256": "169716153e21ddc645c0834b7318a33aada6522cd2aa53a79cf2e2f5f6a549f1",
+      "after_sha256": "4877ce991c32bda81ef187a6dd9f07eb8d39e56d6c37e38ec9ce4c215a3fa9f7"
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/TRIAGE.md",
+      "heading": "## Character bodies reviewed, 2026-11-04 (B67)",
+      "body": "The original title-only triage above remains dated history. B67 freshly read all seven character output files, all 84 numbered item bodies; [per-file ordinals and actual dispositions](../reconciliation-2026-11-04/content-b67.json) preserve useful applications and reject unsupported universal defaults. The remaining dialogue/world bodies have not gained coverage from this batch. “About 8 new” was a novelty estimate, not verified runtime defects or acceptance. The drop grouping does not imply accessibility/readability is deferred with mobile: desktop usability retains its own current UI authority. Character creation, crowd/detail tools and provenance ideas stay preserved as optional proposals under AD32, rather than being erased or silently selected.",
+      "before_sha256": "6bd7fd2826179ff74491a75162918c0510f8431b1b1f12dbfa888b7732eca3ea",
+      "after_sha256": "95cba906864a12730ec05f4504dbafc46557f5b3cef6868846e038b27b0409ca"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1388
+}

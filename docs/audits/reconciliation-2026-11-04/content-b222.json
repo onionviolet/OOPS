@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "batch": "B222",
+  "title": "Full nonhuman dependency roadmap, conflicts and deferred-scope accounting",
+  "at": "2026-11-04T23:22:26.948934+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/worlds/NONHUMAN_SYNTHESIS_AND_ROADMAP_2026-10-14.md",
+      "ids": [
+        "E1–E15",
+        "LA1–LA14",
+        "25slices",
+        "21suggestioncrosswalks",
+        "CF1–CF24",
+        "DU1–DU18",
+        "G1–G10",
+        "DS1–DS14",
+        "Oct18reusequalification"
+      ],
+      "classification": "Historical document-synthesis dependency roadmap with scoped source attributions",
+      "owners": [
+        "docs/worlds/NONHUMAN_SYNTHESIS_AND_ROADMAP_2026-10-14.md",
+        "docs/worlds/NONHUMAN_STARTS_ENGINE_REQUIREMENTS_2026-10-14.md",
+        "docs/GENETICS_AND_HERO_START_PLAN_2026-10-17.md",
+        "PROJECT.md"
+      ],
+      "disposition": "Preserve route-specificdependencytable/mainchaingraph/overlapboundary and laterqualification; proposed25slices notcurrentpriorityqueue. Retiredrealm/viewport/human gates andsecondconsumer thresholdqualified. Alllatearrivalsincorporatedinto synthesis doesnotprovefulltablebodies/primarysource or operationalcontracts. G1–G10actualgapcount notG1–G6intro shorthand. Avoid inheritedglobalbodyengineblockers.",
+      "evidence": "Entire364linebodyread1–95/96–180/181–270/271–end, completeMermaid, all25denseplanrows, conflicts/duplicates/gaps/deferrals. Originalreportitself says tablesskimmed; thisreviewdoesnotexpandits sourcecoverage orrereadall21siblingreports. B218–220separatelyfullreadthreeowners.",
+      "reopen": "Currentselectedworldconsumer only; trace necessary edge/owningmechanism ratherthanrequiringentirepredecessorfeaturepack, refreshactualsource/versions andusecurrentpriority/floor. Retain unselectedideaswiththeirsource/proofgaps.",
+      "input_sha256": "3c06038e4a5dd58bfa60052ff33a1debd62133772100ea8e0d403da40e58676a",
+      "input_lines": 364,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          364
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/worlds/NONHUMAN_SYNTHESIS_AND_ROADMAP_2026-10-14.md",
+      "heading": "## Content reconciliation B222, 2026-11-04",
+      "body": "The entire E/LA dependency table, graph,25slice rows,21first-suggestion joins, CF1–CF24, DU1–DU18, G1–G10 and DS1–DS14 were read. The exact table is more detailed than the graph’s selected main chains; neither is an executed runtime dependency graph. The introduction’s G1–G6 shorthand does not limit the actual ten gap rows. The original lane explicitly skimmed tables and attributed sibling source claims; its complete synthesis and this review do not establish complete semantic reading of every sibling, code owner or primary text. B218–B220 separately review the abstraction, clocks and engine-spec bodies (AD32/AD36).\n\nThe Oct18 reuse qualification already warns against turning the first repair into a current claim that body/typed-start seams are absent. Keep the25rows as proposals and the local LA codes as routing labels, not new accepted rule codes or today’s build sequence. Current Klein/LOTM full journey and Harry route direction qualify the older HP/D&D/Paradise ordering; the retired realm/prestige milestone and1366-primary target are not renewed by CF7/CF20/DS14. Human play/taste is optional review under AD42. A useful current recognition read need not wait for the proposed general body compiler, complete hound start or all source catalogues.\n\nRetain the conflict register’s actual distinctions: human cosmetic scaffold versus physical body; form admission versus anatomy shortcut; body owner versus holder/controller; retained XP versus current applicability; provider task execution versus imaginary pooled hands; source guaranteed allegiance versus present task agreement; produced part versus duplicated existing body; reference-aware durable kin versus rolling chatter. A real guaranteed loyal actor need not acquire invented betrayal, and source-supplied free capability need not gain a balance tax. Different-source versioned claims, command handlers and body/year/policy schema numbers remain separate. No one version or serialized field shape is selected by this roadmap.\n\nRoadmap edges mean the selected operation needs that contract, not every feature in a large predecessor row. CF2’s native bite proof belongs to its proposed full beast slice, not every noncombat body or ordinary relationship extension. LA4 need not add mortality when only projecting an existing clock; a source-qualified mission is not necessarily a universal body-rental service. G0’s complete old-save and UI fixture set must be scoped through current AD36 and accepted compatibility decisions for the actual changed consumer. AD51 allows a seam for known concrete needs and validates reuse with a different world; fixed example-count gates do not prohibit useful first consumers.\n\nG1–G10/DS1–DS14 preserve operational and source residue, not newly required work for all worlds. Important unresolved joins are provider/support disappearance and export-only retention of unsupported references; a closed document graph does not settle them. Later authority and actual evidence may qualify their historical absent/unexecuted wording, so inspect current owners before rebuilding a supposed missing feature. B222 changes no priority, registers no endpoint, chooses no world start, launches no runtime lane and proves no gameplay or persistence.",
+      "before_sha256": "3c06038e4a5dd58bfa60052ff33a1debd62133772100ea8e0d403da40e58676a",
+      "after_sha256": "f4aa9fe9332a370e3b843a8e86391e40bf2837ed980af3b64121ef023dc04c4c"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 995
+}

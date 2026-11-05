@@ -28,3 +28,12 @@ Acceptance: two fresh generated builds choose different preparations, see matchi
 ## Creative decision remaining
 
 Select whether this peer-rescue/crossing premise should be the first playable event. If selected, approve the desired consequence severity: recoverable setbacks initially, or a clearly previewed possibility of permanent death. Exact names, skill thresholds, costs and odds can then be reversible prototype choices tuned through play. No implementation is initiated by saving this proposal.
+
+
+## Content reconciliation: retained ideas and current scope (B242, 2026-11-04)
+
+F1. Full review retains the broken-crossing rescue palette: securing the route versus extracting the traveler, actual knowledge/kit/strength/time, graded recovery and a later scene that reads the recorded result. Bought preparation can substitute for personal craft mastery. Comparable effort is a proposed prototype comparison, not mandatory equalization of genuinely superior powers under AD22/AD38. A real deadline scheduler is needed only where a selected event has an actual deadline; saving the premise does not create one.
+
+F2. Commit must revalidate the quoted means and preserve actual inputs/outcome/history across pending and settled saves. Fixed event identity/draws prevent replaying one resolution as new rewards, while a genuine selected time/fate mechanic can define a different replay policy. Prior supply commitment, later injury and route repair are separate effects. The first occurrence waiting for the player is local proposed behavior, not a claim about all events or current global absence policy.
+
+F3. The Oct1 question about selecting the first playable event is historical; current campaign/task owners govern build order. It does not insert a rescue event ahead of Klein or Harry, demand a new approval for routine already-authorized prototype choices, or silently select permanent peer death. AD42 makes human review optional; AD36/AD43 govern selected proof. Under AD32 this premise and severity remain proposals, with no new runtime, save namespace or source claim established here.

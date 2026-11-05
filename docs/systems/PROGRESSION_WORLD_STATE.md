@@ -131,8 +131,9 @@ closes?, closeReason?, overflow?:{policy, reason}, dials?:{name:{default}}}`.
   (`progression_gates.js:41-42`). Revocation itself is not enforced by this file
   (inference: the caller must re-evaluate; GTR13).
 - **Overflow.** `overflow` is validated only (`progression_gates.js:43-44`).
-  **No existing gate sets it and nothing reads `gate.overflow`** (grep: no
-  `.overflow` consumer outside this file). The live overflow behavior is in S4.
+  `chain_inspector.js` reads this metadata for author inspection; it does not
+  settle overflow. Live XP overflow behavior has its separate owner in S4.
+  The earlier no-reader statement is preserved in the reconciliation history.
 
 **Consumers today.** 4 gates, 4 importers of the module:
 `book_world_primordial_credit.js:53,61` (CAP_GATE, FIRST_GATE),
@@ -433,15 +434,21 @@ flags, facts, validators and a `definePath` descriptor (`book_world_lotm_pathway
 numbers: header says every authored value is a proposal (WPR5).
 
 **How to plug in.** For a new pathway in Tingen: add a row, ids, and use the factory.
-For a new world, copy the file set and follow S7 and S10. Register definitions in
-`book_world_definitions.js`, state validator in the world's envelope validator, and
-one `configureX` call from `main.js` (AR1).
+For a new world, start with the existing typed commands, stock, knowledge, jobs and
+world-local data/policies (AD51, S7/S10). Add a domain owner or adapter where a
+demonstrated mechanism differs; register its state/validation through the existing
+lifecycle when it owns state. A data-only extension needs no copied host file set
+or new composition-root registration. Existing world laws remain with their owners.
 
 **Gotchas.**
 - **Exact-field envelope.** `validateLotmState` demands exactly the keys in `lotmEnvelopeFields` and `schema===1 && definitionRevision===1 && sourceSnapshot===... && sourceHash===LOTM_SOURCE_HASH` (`book_world_lotm_state.js:16,28-29`). Mother of Learning does the same (`book_world_mol_state.js:23-24`). Change any of those and every older save of that world is refused ("Preserve this save for its matching reader").
 - **Saved jobs must equal admitted definitions.** For every saved job the validator finds the command and asserts actor, revision, cancellation, `costs` and `effects` are identical (`book_world_lotm_state.js:35-38`; Mol `:41`). Editing a command's costs, effects or duration breaks saves that hold that job in flight, even if you did not bump anything.
 - **Prefix ownership.** Anything with the world's prefix in facts, resources, sources or completed commands is rejected when the slice is absent (`:21-26`).
 - A world's job cannot run while another world's visit is active (`:33`).
+
+**Selected current degree, 2026-11-04.** The [M21/M22/M25 receipt](../gm/dispatch/foundation-method-use-2026-11-04/CHECKPOINT.md) tracks a learned-method readiness check, actual named paper, recipient advice and later fee through the existing LOTM lead host. Optional native item catalog registration/restoration is shared by the workshop and LOTM document; their data and applicability stay local. Narrator text can come from admitted place-action data, and explicitly linked blocker text is reused by the shared accessible-control decorator. Exact source/route/build evidence remains with that receipt.
+
+Navigation correction: the old S9 advice, “For a new world, copy the file set and follow S7 and S10,” predates AD51 and is retained here as superseded history. The current guidance above follows the accepted shared-seam direction; this correction adds no world implementation or delivery claim.
 
 **Owner docs.** [LOTM_SEER_SLICE_LAWS](../worlds/LOTM_SEER_SLICE_LAWS_2026-10-19.md), [BOOK_WORLD_ENTRY_MATRIX](../worlds/BOOK_WORLD_ENTRY_MATRIX.md), [CAMPAIGN_FRAMEWORK](../worlds/CAMPAIGN_FRAMEWORK.md).
 
@@ -477,7 +484,7 @@ others in the `operations` set.
 
 **Degrees of flexibility.**
 - **Costs reserve existing means.** Item, resource, vital must be negative or an expression; types allowed: item, resource, vital, transfer, custody, energy (`:112-120`). Outcome debits must be reserved as costs.
-- **Timed jobs.** `duration` > 0 makes a job that completes at `due`; `cancellation` picks refund or forfeit of reserved costs. Paid-forfeit completion needs `completionFailure` plus group rules (`:131-137`).
+- **Timed jobs.** `duration` > 0 makes a job that completes at `due`; `cancellation` picks refund or forfeit of reserved costs. Completion support uses the matching `completionFailure` policy, validated by declared policy rather than a group-name exception. `definePlaceActs` defaults to refund and accepts explicit forfeit; `compileStructuredAbilities` preserves either supported policy. The native job owner settles paid inputs once and withholds unfinished effects. [Paid-work scope and lead-host evidence](../gm/dispatch/foundation-paid-work-2026-11-04/CHECKPOINT.md) qualify the current degree; partial workpiece stages remain domain work.
 - **Weighted outcomes** with distributions resolved at accept time and stored in the job (`outcomeId`, `roll`).
 - **Sites** have capacity and per-job reservations (`:143-144`, validator `:300`).
 - **Programs** repeat a command N times, pausing when support is lost (`simulation.js:351`, validator `:317`).
@@ -888,3 +895,15 @@ receipt and cargo grant remain in `planStructuredSelection`/`beginStructuredCamp
 there is no new save slice. Saved D7 definitions and commands remain exact. This is
 a public entry presentation seam, not a world-law permission list or travel system.
 Evidence: [E3 checkpoint](../gm/dispatch/hp-arrival-2026-10-25/CHECKPOINT.md).
+
+
+## Gate-inventory caller qualification, 2026-11-04
+
+Full content review of the [gate inventory](../audits/PROGRESSION_GATE_INVENTORY_2026-10-23.md) and [overflow GTO/GTL6/D3 record](../PROGRESSION_GATE_OVERFLOW_2026-10-23.md). This supplement updates selected S1/S2/S4 consequences, not the entire guide's code census or maturity statements (AD32/AD36).
+
+- S1/S2: current `evaluateRule` retains `known` separately from `met`; the old raw `Requires <fact> <op> <value>` fallback is replaced with plain-language text. Observer admission remains a caller obligation. `evaluateGate` separates `authorReasons`/shown hints, whereas boolean `meets` deliberately returns a truth gate rather than an observer view.
+- The inventory's `field_works_projection.js` row needs qualification: its adapter still masks reasons beginning `Requires `, while current fallback text begins `Needs `. The actual reason can pass through that mask. No synthetic hidden-fact command/UI journey was run, so reachability of a disclosure is still missing proof. Reopen on that real caller; verify both unknown and legitimately known conditions before changing the projection. Readable wording alone does not make a threshold public.
+- S2: `chain_inspector.js` reads descriptor overflow as author-side metadata. That does not implement overflow settlement or every costed workaround. Its named inspected gate does not imply inspector coverage of all gate definitions.
+- S4: per-gain banking has a current component → `skill_overflow` state/projection consumer. Mistglass event conversion has a separate host-join → technique-state chain. Native crafting/settlement caps and max-level/locked-skill wording keep their own scope. Focused gate/overflow tests passed, not a rebuilt native journey.
+
+These are distinct design/execution boundaries: physical ability, knowledge, visibility, credential, allowed policy and actual world law need not share one boolean or one state owner. Preserve the inventory's original row locators and untraced sites; no all-gate migration is selected by this content review.

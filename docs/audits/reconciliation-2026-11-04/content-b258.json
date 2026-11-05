@@ -1,0 +1,111 @@
+{
+  "schema": 1,
+  "batch": "B258",
+  "title": "Around You adoption boundaries, heard knowledge and loop history",
+  "at": "2026-11-05T00:07:26.845867+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/AROUND_YOU_SUBJECT_ACTIONS_CONSIDERATIONS_2026-10-18.md",
+      "ids": [
+        "S1–5",
+        "AY1–33",
+        "AT1–12",
+        "ST1–5",
+        "ID1–11",
+        "LP1–12",
+        "AI1–5",
+        "TF1–8"
+      ],
+      "classification": "Nine-round palette with later distilled-rule adoption and superseded milestone",
+      "owners": [
+        "docs/DOMAIN_RULES.md",
+        "docs/AROUND_YOU_SUBJECT_ACTIONS_CONSIDERATIONS_2026-10-18.md"
+      ],
+      "disposition": "Preserve every round and original ID; fold adoption boundary, supersessions, knowledge/migration gaps and retired milestone into domain owner and local correction pointer.",
+      "evidence": "All 381 original lines delivered in three chunks. Current PIR section 481–551 and moved stub read. No current NPC reward scan, runtime route or browser proof.",
+      "reopen": "When a specific interaction slice is chosen, follow current PIR/UI/time/continuation owners and verify its actual supplier, state and consumer; do not dispatch the historical queue.",
+      "input_sha256": "47bbe5578c1e2eea85e4fca34e8f5cb4408cf5de39dfdfa9caf5753e75b93248",
+      "input_lines": 381,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          381
+        ]
+      ]
+    },
+    {
+      "path": "docs/PRESENCE_AND_INTERACTION_RULES.md",
+      "ids": [
+        "moved stub"
+      ],
+      "classification": "Compatibility pointer to DOMAIN_RULES",
+      "owners": [
+        "docs/DOMAIN_RULES.md"
+      ],
+      "disposition": "Keep stub and links; use the adopted PIR section in DOMAIN_RULES as owner.",
+      "evidence": "Full three-line stub read.",
+      "reopen": "Maintain the existing pointer if the owning section moves.",
+      "input_sha256": "cc9496d7c55f725f4e0b010f9693c41f9b6232c52ce2a913411fbd98d09b9608",
+      "input_lines": 3,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "path": "docs/DOMAIN_RULES.md",
+      "ids": [
+        "PIR1–25",
+        "presence section adoption and Not covered here"
+      ],
+      "classification": "Selected owning section read; other domain sections remain open",
+      "owners": [
+        "docs/DOMAIN_RULES.md"
+      ],
+      "disposition": "PIR section reconciled with full source palette; rest of domain rulebook is not credited as read.",
+      "evidence": "Only lines 481–551 fully read; earlier heading/term search was routing, not content review.",
+      "reopen": "Review lines 1–480 before crediting full-domain coverage.",
+      "full": false,
+      "ranges": [
+        [
+          481,
+          551
+        ]
+      ],
+      "input_sha256": "d049c877b02b8bae05a098e7a968b82b59ab3ecb87ff5755ec6ceb4813462b79",
+      "input_lines": 551
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/AROUND_YOU_SUBJECT_ACTIONS_CONSIDERATIONS_2026-10-18.md",
+      "heading": "## Content reconciliation B258",
+      "body": "Full review covers S1–5, AY1–33, AT1–12, ST1–5, ID1–11, LP1–12, AI1–5 and TF1–8 across all nine rounds. The original “proposals until Weibao says so” header predates the October 18 adoption recorded in [DOMAIN_RULES, Presence and interaction](DOMAIN_RULES.md#presence-and-interaction-rules). The old PRESENCE_AND_INTERACTION_RULES file is a link-preserving moved stub, not a competing rulebook. PIR1–25 are standing defaults under their recorded adoption; that does not automatically adopt every loop, map, migration or research suggestion in these rounds. PIR's Not covered here explicitly preserves separate owners for those features. No new acceptance is inferred here.\n\nKeep the actual revisions: AY14 supersedes AY1's nothing-new disability; AY26 excludes changing greetings/flavor from AY15's fingerprint; AY27 changes AY17's new-first order to an optional dial; AY25 keeps a list dot and an Actions count. Current PIR9/PIR10 further qualify “always Talk / never grey”: actual access, communication means and knowable eligibility decide contact, while hearing a line before is not itself a reason to disable it. AY32's “cannot fire falsely” is a design aim, not a guarantee proved by a hint label; provider eligibility, observation and heard state still need to be correct. Locked-topic previews and dot counts may not disclose unknown content (PIR5/PIR9). S5's explicit second activation is distinct from free selection, not permission for inspection or a moving list to trigger an unintended verb.\n\nAY18's proposal to seed every available line as heard in older saves was never proof that those lines were heard. Keep that historical compatibility suggestion distinct from character knowledge, eligibility and actual recorded observations. Any selected migration needs an explicit compatibility decision and an honest unknown/imported-baseline policy, without silently manufacturing a witnessed conversation. AY22's item-lock and reward-idempotence claims are dated source observations; no current reward scan was run here. Repetition remains a valid in-world action where mechanisms permit, not automatic license to replay a one-time settlement.\n\nLP3 and round 7's one-prestige-layer gate were retired by the October 24 direction in [USER_VISION](USER_VISION.md#first-milestone-and-scope-check-2026-10-24). Do not revive them. AI3's blanket passive progress does not make every discovery, dangerous commitment or conversation unattended; use the actual passive means and the current long-play/compression direction (AD52). ID6/PIR19 protect attended choices without banning an authored routine from carrying an already settled exchange where that mechanism fits. Neither AI5's first playtest nor an old open-question number can settle direction by itself. A local presentation preference in ST4 does not defer the broader world/map vision.\n\nTF's short answer is a proposed capability ladder. Continuation direction and source-owned mechanisms are not proof that arbitrary dated jumps, multiple checkpoints, event nudges or knowledge-aware stop policies have shipped. Known event claims may become stale; stopping at a claimed date does not promise the event will occur there. AT1's Ways out needs an actual admitted route supplier before retiring movement controls, as the later A1/A2 track also records. Shared quote/revalidation, current presence, travel settlement and stop conditions belong to existing owners, not a second scheduler or invented danger preview. Keep world-loop, personal-loop and cross-world movement separate. The old 1366 floor, screenshots needed from other games and source line numbers remain historical; current desktop targets and the selected task's later user corrections govern fresh evidence. This review adds no runtime, migration, research or new UI gate.",
+      "before_sha256": "47bbe5578c1e2eea85e4fca34e8f5cb4408cf5de39dfdfa9caf5753e75b93248",
+      "after_sha256": "6a237076cc30bf351b39fb72f9271558a3b14f62956a061339f933781a60a5d4"
+    },
+    {
+      "path": "docs/DOMAIN_RULES.md",
+      "heading": "### Around You source-palette reconciliation B258",
+      "body": "The full nine-round [Around You palette](AROUND_YOU_SUBJECT_ACTIONS_CONSIDERATIONS_2026-10-18.md#content-reconciliation-b258) has been reconciled with PIR1–25. Its original proposal header does not demote the October 18 adoption recorded above. Adoption covers the distilled PIR defaults, not all adjacent loop, map, old-save seeding or research suggestions. Preserve AY1→AY14, AY15→AY26 and AY17→AY27 refinements, and apply the current PIR9/PIR10 means/access qualification to the older absolute Talk wording. A dot/hint is not itself proof of truthful eligibility. AY18's proposed all-available-lines-as-heard migration is not evidence of a character's actual hearing history; any future selected migration must keep that distinction explicit under PIR5/PIR14/PIR23. No migration or runtime fix is claimed here.\n\nLP3's first-milestone prestige gate is superseded by [the October 24 user direction](USER_VISION.md#first-milestone-and-scope-check-2026-10-24). PIR's separate-owners boundary for maps, looping, event subjects and plans remains intact, with AD52 governing long-play compression. No empty route table, absent person, inferred schedule, unknown topic or old source locator becomes a current gameplay fact through this document pass.",
+      "before_sha256": "d049c877b02b8bae05a098e7a968b82b59ab3ecb87ff5755ec6ceb4813462b79",
+      "after_sha256": "9f8e24a5fcbbf1598433ef592f589afaacb9614b7bea6198a835e3f5ae9af57e"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 912,
+  "post_record_amendments": [
+    {
+      "path": "docs/AROUND_YOU_SUBJECT_ACTIONS_CONSIDERATIONS_2026-10-18.md",
+      "from": "Accepted continuation direction and source-owned mechanisms are not proof",
+      "to": "Continuation direction and source-owned mechanisms are not proof",
+      "reason": "B260 lint terminology correction; original wording and failed output retained, no product authority change."
+    }
+  ]
+}

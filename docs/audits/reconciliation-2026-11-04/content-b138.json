@@ -1,0 +1,136 @@
+{
+  "schema": 1,
+  "batch": "B138",
+  "title": "Save-scale engineering and UI modularity content reconciliation",
+  "at": "2026-11-04T21:47:03.153791+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md",
+      "ids": [
+        "E1-E10",
+        "A1-A4",
+        "T1-T10",
+        "O1-O5",
+        "C1-C5",
+        "P1-P3",
+        "L1-L17"
+      ],
+      "classification": "Historical engineering recommendations, not a migration order",
+      "owners": [
+        "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md",
+        "docs/SAVES.md"
+      ],
+      "disposition": "Read every engineering, platform and portability proposal. Preserve consequential publication, semantic history retention, split catch-up, measured workload, native lifecycle and cross-platform adapter boundaries. Apply later old-save deferral and desktop-first scope; no new language, backend, typed-boundary, mobile or packaging gate is selected.",
+      "evidence": "Fresh full text only; old technical source links and platform capabilities were not refreshed. Current save_files 229-280 confirms guarded import, origin-wide UTF-16 budget and durable skip contract; this is source evidence, not fresh failure injection or app lifecycle proof.",
+      "reopen": "A selected bottleneck, host target or persistence operation calls for current official tooling verification and one scoped comparison or failure route.",
+      "input_sha256": "6e974b6f5d10dbe6bb3673e3a9a6b03f3b163db18bdb394ab5c1225547e3f4ec",
+      "input_lines": 253,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          253
+        ]
+      ]
+    },
+    {
+      "path": "docs/UI_CONSISTENCY_AND_MODULARITY_AUDIT_2026-10-11.md",
+      "ids": [
+        "F1-F6",
+        "D1-D5",
+        "A1-A5"
+      ],
+      "classification": "Historical opening-browser findings plus unselected modular workspace design",
+      "owners": [
+        "docs/UI_CONSISTENCY_AND_MODULARITY_AUDIT_2026-10-11.md",
+        "docs/UI_RULES.md",
+        "DESIGN.md"
+      ],
+      "disposition": "Read all findings, lifecycle, persistence, recovery, accessibility and sequence proposals. Preserve laptop clipping and action hierarchy evidence, source-only progressed-panel risks, singular command ownership and safe movable views. Later desktop-first functional/prose direction qualifies mobile test matrices and original-default claims; do not call all UI defects closed or launch docking.",
+      "evidence": "Fresh full markdown only; linked captures and JSON were not independently read or rerun. Existing opening compilation is not release/native/persistence proof. Selected current DESIGN/UI_RULES lines confirm task hierarchy and current desktop direction, without full-file review credit.",
+      "reopen": "Reproduce one selected actual desktop problem on a rebuilt populated route; extend the incumbent layout owner rather than adding a new one.",
+      "input_sha256": "c8ca0c9a5181706fc0c45c9415007552f63a33bb19e6a33e97d08689776b81b4",
+      "input_lines": 134,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          134
+        ]
+      ]
+    },
+    {
+      "path": "docs/SAVES.md",
+      "ids": [
+        "sections 1-7",
+        "G1-G8",
+        "6a-6d",
+        "compatibility-decisions ledger"
+      ],
+      "classification": "Current persistence owner with dated code claims and inconsistent summary lines",
+      "owners": [
+        "docs/SAVES.md",
+        "docs/systems/PROGRESSION_WORLD_STATE.md"
+      ],
+      "disposition": "Read all save structure, migration, authority, historical compatibility, gaps and new pack slice evidence. Correct one-key-per-life, blanket downgrade refusal and lingering unwired-pack row against the owners own 6d and current source. Retain old-save deferral, new-state roundtrip, failed-import byte preservation, scoped pack writer and all unproved loader cases.",
+      "evidence": "Full text read; selected current main keys/writer sites, all 56 lines world_pack_registry, save_files 229-280 and reveal caller search. No gameplay reveal caller found outside registry in searched src JS. No private saves, live storage, native run or broad validator audit. Original 6d tests/browser remain historical scoped receipts.",
+      "reopen": "Exercise a selected real gameplay reveal writer or named loader failure using synthetic fixtures; do not treat one command-hook pack receipt as whole-world persistence coverage.",
+      "input_sha256": "eee926dc8e469c100c47d29b0586253ce9febb1655f9a55180aff1724caf2d2d",
+      "input_lines": 233,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          233
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md",
+      "heading": "## Content reconciliation B138, 2026-11-04",
+      "body": "[SAVES](SAVES.md) owns persistence policy and its later compatibility ledger. E1-E10 remain useful engineering considerations; they do not restore a universal old-save migration guarantee or require every listed historical fixture before unrelated work. The October 17/18 decisions permit a stated reset/drop or content-id retirement, while new state still needs its scoped Save/reload/Export/Import proof. A guarded final write or one Web Lock does not establish rollback across every live owner, archive or enrolled authority key.\n\nPreserve E4's semantic history contract: disposable display logs differ from evidence consumed by inheritance, obligations and powers. E5/E7 catch-up needs declared clocks, remaining elapsed time and causal ordering; aggregation follows actual equivalent outcomes and AD52's meaningful intervention. The 4 MiB guard is shared-origin UTF-16 accounting, not a browser capacity promise. Relevant source was checked; no new storage-failure or catch-up run occurred.\n\nT/P/O options and all linked platform claims remain dated research. The existing desktop/browser delivery and desktop-first priority do not require a Tauri spike, Rust/TypeScript/ECS rewrite, worker, IndexedDB move or mobile qualification. Measure a selected workload before choosing its fix, including bridge and serialization cost. Portability ideas L1-L17 remain useful when a host is selected: complete assets, explicit transfer, independent host storage, cancellation, process death, suspend policy, writer ownership and deliberate conflicts. Packaging alone is not gameplay proof, and this pass installed or launched nothing.",
+      "before_sha256": "6e974b6f5d10dbe6bb3673e3a9a6b03f3b163db18bdb394ab5c1225547e3f4ec",
+      "after_sha256": "b120166d404c86f08eac2228db8ae9a29796ea84d0d05cdf07488b4ab1ceebf0"
+    },
+    {
+      "path": "docs/UI_CONSISTENCY_AND_MODULARITY_AUDIT_2026-10-11.md",
+      "heading": "## Content reconciliation B138, 2026-11-04",
+      "body": "F1-F6 and D1-D5 were reviewed in full. Preserve the distinction between the old fresh public opening compilation, source-only Notebook/progressed-panel findings and unrun A1-A5 gates. The 390 px observation is historical; laptop clipping and large-text reachability remain legitimate desktop questions. Mobile optimization and the full 390/768/1440/1920 matrix are not new universal gates under the current desktop-first direction.\n\nThe useful design is a single layout owner moving eligible views, with stable focus, selection, scroll, recovery and one authoritative command path. A moved or duplicated view must not create an extra timer, reward, clock advance or location permission. Observer-safe picker/search/counts and recoverable hidden controls apply before rendering, not merely to tooltips. Preference storage/export scope should be stated rather than silently equated with gameplay persistence.\n\nThe old original-default and universal docking proposal yields to [DESIGN](../DESIGN.md) and [UI rules](UI_RULES.md): functional task composition, useful independent panes and prose-first presentation. This is no new layout specification or framework migration. Current rules may already cover a finding without proving its particular runtime consumer fixed. Reopen with one rebuilt selected desktop route and its actual missing behavior; no capture, progressed route or persistence result was newly verified here (AD32, AD36, AD42).",
+      "before_sha256": "c8ca0c9a5181706fc0c45c9415007552f63a33bb19e6a33e97d08689776b81b4",
+      "after_sha256": "219343edd2862bd6ef55c624e941695f3052b0578e96e79c2dfa0d5b773af3e4"
+    },
+    {
+      "path": "docs/SAVES.md",
+      "heading": "## Content reconciliation B138, 2026-11-04",
+      "body": "The whole persistence owner and historical engineering review were read. The summary now distinguishes active release keys from lives carried inside an envelope, unsupported-version/schema rejection from a supported but lossy downgrade, and the wired pack slice from its earlier unwired proposal. Prior wording is retained in the B138 amendment ledger.\n\nCurrent source inspection confirms `save data`/`dev save data`, `importSaveFile` validation/preflight before guarded publication, the shared-origin UTF-16 budget including other keys, and the registered `world_packs` save/load hooks. The searched `src` JavaScript contains no external `revealWorldPackPerson` or `world_packs` reveal caller; that remains a named gameplay-uptake gap, not an absent save writer. This is bounded source evidence, not a new runtime, loader, full-suite or browser proof.\n\nPreserve the distinction between a slice's deliberate compatibility choice and new product authority. G1's actual loader coverage, G3's exact-field rejection, G4's schema-2 test weakness and G5/G6 completeness remain open at their documented scope. A test-hook reveal/one-pack crossing receipt cannot close all world fact, edge, exception, pack revision or real-action persistence. The early engineering targets are proposals, with mobile and host migration still deferred unless selected; personal saves stay untouched (AD32, AD36, AR6).",
+      "before_sha256": "eee926dc8e469c100c47d29b0586253ce9febb1655f9a55180aff1724caf2d2d",
+      "after_sha256": "0ed04824ed3cd5c0354b39816c0720e08dca1fcc48256b4682c441a389f7f1b4"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1220,
+  "post_record_amendments": [
+    {
+      "path": "docs/SAVES.md",
+      "from": "**One storage key per life, one JSON envelope.** The browser holds the live envelope as a\nsingle `localStorage` string; Export wraps the same JSON as base64 with a marker prefix.",
+      "to": "**One active save key per release channel, one JSON envelope.** The live and dev channels use\n`save data` and `dev save data`; continuation may carry several lives within that envelope,\nwith separate archive/authority keys described below. The browser stores the active envelope\nas one `localStorage` string; Export wraps the JSON as base64 with a marker prefix.",
+      "reason": "B138 actual content reconciliation against current save keys, the registered pack hooks and this owner section 6d; retain original input identity and old text."
+    },
+    {
+      "path": "docs/SAVES.md",
+      "from": "4. **Newer saves are refused by older game versions** and by older readers of opt-in schemas.",
+      "to": "4. **Unsupported game versions and opt-in schemas are refused by their readers.**\n   This is not a promise that every newer build save is rejected by an older build:\n   section 6d records a supported-envelope downgrade that ignores then drops the pack slice.",
+      "reason": "B138 actual content reconciliation against current save keys, the registered pack hooks and this owner section 6d; retain original input identity and old text."
+    },
+    {
+      "path": "docs/SAVES.md",
+      "from": "| not dated | Book pack revisions and save deltas | Per-pack sections with revision chain; a proposal in the lead-life systems design, code is tested but unwired | P | LSD142-LSD143 in [RULES_INDEX](RULES_INDEX.md) router; `src/world_pack_save.js` |",
+      "to": "| not dated | Book pack revisions and save deltas | Earlier lead-life design proposal; save/load wiring and its remaining gameplay-writer gap are now recorded in section 6d. No migration step is registered | P (historical proposal) | LSD142-LSD143 in [RULES_INDEX](RULES_INDEX.md) router; `src/world_pack_save.js`; [later slice decision](#6d-world-pack-state-slice-2026-11-04-compatibility-decision) |",
+      "reason": "B138 actual content reconciliation against current save keys, the registered pack hooks and this owner section 6d; retain original input identity and old text."
+    }
+  ]
+}

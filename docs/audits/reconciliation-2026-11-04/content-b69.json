@@ -1,0 +1,203 @@
+{
+  "schema": 1,
+  "batch": "B69",
+  "title": "Local brainstorm world bodies: complete queue content review without invented world gates",
+  "at": "2026-11-04T20:19:19.929291+00:00",
+  "head": "4cdc0772b65d413e4989e327502910140b2a15eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/world-absence.md",
+      "ids": [
+        "world-absence:1–12"
+      ],
+      "classification": "fresh full world machine-draft item-body review",
+      "owners": [
+        "docs/DEEP_WORLD_WORKFLOW_2026-10-19.md",
+        "docs/UI_RULES.md",
+        "docs/WORLD_COMPLETION_STANDARD.md"
+      ],
+      "disposition": "1/2/3/4: semanticexperience/voice/pacing/sensory leads, no mandatory10hour/50line/week/channel playtestquota or literal sourcecopy.5/7: real agency/history/consequence not forced returntonarrative.6: NPCsocialdrama optional funded selectedactors, not allworld simulator.8: onboarding usability validdesktopidea not newhumanreleasegate.9/12: resourcegrowth/poststorypursuit worlddials, no forced equalbalance/retentionhooks.10: readability/accessibility independently relevant.11: named failureboundary preserving priorstate, no swallowingcorruptstate justkeepgoing.",
+      "evidence": "All84numbered world draft bodies freshly read. Compared with DWF1–8/twohorizons, DWF87–94/packdetail493–520 and UI31–42 actualselectedtext. No underlying allworld/source/runtime absence claims authenticated; no new behavioral tests/media/research.",
+      "reopen": "Selectedworld/operation with actualsource/consumer/clock/observedgap; no universal simulator, contentquota, economicnormalization, newapproval/migration/soakgate.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "0eb9e6a4be1e6128ec536d3006592d46dbb82b69bae57b223a40e502b4c4322c",
+      "input_lines": 62,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          62
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/world-fidelity.md",
+      "ids": [
+        "world-fidelity:1–12"
+      ],
+      "classification": "fresh full world machine-draft item-body review",
+      "owners": [
+        "docs/DEEP_WORLD_WORKFLOW_2026-10-19.md",
+        "docs/UI_RULES.md",
+        "docs/WORLD_COMPLETION_STANDARD.md"
+      ],
+      "disposition": "1/2/5/6/8/11: exactsource/edition/era/authored/inferred provenance, existingrules, no universal deviationrubric/hierarchy/fillpolicy or styletoolprovingcanon.3/7: observerchannels and discoveryroutes, not singlemilestonevisibilityflag or encryption.4: attribution manifest reuse not separateDB.9: unfinished arcs can stayopen or originalcontinuationlabelled.10: reject accesspermissionlist/anti-exploitboundary when actual meansworks.12: explicitcompatibilitydecision not mandatory migration.",
+      "evidence": "All84numbered world draft bodies freshly read. Compared with DWF1–8/twohorizons, DWF87–94/packdetail493–520 and UI31–42 actualselectedtext. No underlying allworld/source/runtime absence claims authenticated; no new behavioral tests/media/research.",
+      "reopen": "Selectedworld/operation with actualsource/consumer/clock/observedgap; no universal simulator, contentquota, economicnormalization, newapproval/migration/soakgate.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "bf4753025ca23011d5b0bedc797030ffaf61fb914f8f53f3101bf9d269141128",
+      "input_lines": 62,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          62
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/world-legibility.md",
+      "ids": [
+        "world-legibility:1–12"
+      ],
+      "classification": "fresh full world machine-draft item-body review",
+      "owners": [
+        "docs/DEEP_WORLD_WORKFLOW_2026-10-19.md",
+        "docs/UI_RULES.md",
+        "docs/WORLD_COMPLETION_STANDARD.md"
+      ],
+      "disposition": "1/3/4/8/9/12: actualdesktoptext/selection/quietdetail/knownreason/staticnoncolor meaning good applications ofUIowners.2: truthful loading/saveerror state not invented progress/ETA.5: deliberate readingspeed optional no assumed animatedtext.6: maplabelpressure when mapselected.7: portrait knownbody/identity with actualassetrights/source not obligatory artwork.10: location/time/return realstate distinct optional animation.11: playercopy no rawIDs meaningful, localizationrollout separateproposal.",
+      "evidence": "All84numbered world draft bodies freshly read. Compared with DWF1–8/twohorizons, DWF87–94/packdetail493–520 and UI31–42 actualselectedtext. No underlying allworld/source/runtime absence claims authenticated; no new behavioral tests/media/research.",
+      "reopen": "Selectedworld/operation with actualsource/consumer/clock/observedgap; no universal simulator, contentquota, economicnormalization, newapproval/migration/soakgate.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "d82ee7f88947805beec1416e74bc0f6fdcfa1837b31892eef2f7200c1918926f",
+      "input_lines": 38,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          38
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/world-longplay.md",
+      "ids": [
+        "world-longplay:1–12"
+      ],
+      "classification": "fresh full world machine-draft item-body review",
+      "owners": [
+        "docs/DEEP_WORLD_WORKFLOW_2026-10-19.md",
+        "docs/UI_RULES.md",
+        "docs/WORLD_COMPLETION_STANDARD.md"
+      ],
+      "disposition": "1/5/6/9/12: preserve committedhistory/agency/consistentcontent and durabledata; compression no loss of obligations/identity.2/4/8: localdeclaredcauses/time not autoregeneration/paused recovery/eventvariation/socialevolution.3/10/11: reuse existinggaps/quests/overflow and usefulnewhorizons optional, not endless novelcontent or compulsory raise stakes.7: reject universal diminishingreturns/antipower balance. Longstay remainsvalid underACR1, no forced campaignlength.",
+      "evidence": "All84numbered world draft bodies freshly read. Compared with DWF1–8/twohorizons, DWF87–94/packdetail493–520 and UI31–42 actualselectedtext. No underlying allworld/source/runtime absence claims authenticated; no new behavioral tests/media/research.",
+      "reopen": "Selectedworld/operation with actualsource/consumer/clock/observedgap; no universal simulator, contentquota, economicnormalization, newapproval/migration/soakgate.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "a4a7d0cf8c3c0e4ef58f46cbc8d3d1474c435f2dbf546e36848d8c30cd602448",
+      "input_lines": 38,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          38
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/world-reuse.md",
+      "ids": [
+        "world-reuse:1–12"
+      ],
+      "classification": "fresh full world machine-draft item-body review",
+      "owners": [
+        "docs/DEEP_WORLD_WORKFLOW_2026-10-19.md",
+        "docs/UI_RULES.md",
+        "docs/WORLD_COMPLETION_STANDARD.md"
+      ],
+      "disposition": "1/2/4/7: AD51 knownsourcefirst sharedseam with world-owned laws/clock/carriers, no universal itemweight/timezone or generic dialogueengine.3/5: extraction/assetpipeline optional existingtoolreuse, mediaavailability not semanticproof.6: unequalworldresources/combatallowed, no globalbalancevalidationgate.8: conflict recordededition/continuity/authority, no mandatory playercanonpicker.9/12: scopedprofile/actualclock load not genericyearsoak/performancebudget.10: UIexisting accessibilitymeaning validdesktop.11: compatibilitydecision not universalmigration.",
+      "evidence": "All84numbered world draft bodies freshly read. Compared with DWF1–8/twohorizons, DWF87–94/packdetail493–520 and UI31–42 actualselectedtext. No underlying allworld/source/runtime absence claims authenticated; no new behavioral tests/media/research.",
+      "reopen": "Selectedworld/operation with actualsource/consumer/clock/observedgap; no universal simulator, contentquota, economicnormalization, newapproval/migration/soakgate.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "0a4b7d7bbee265e150d55d1162735e2dac296ffafab760e2e94fce05dc1cc526",
+      "input_lines": 50,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          50
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/world-verify.md",
+      "ids": [
+        "world-verify:1–12"
+      ],
+      "classification": "fresh full world machine-draft item-body review",
+      "owners": [
+        "docs/DEEP_WORLD_WORKFLOW_2026-10-19.md",
+        "docs/UI_RULES.md",
+        "docs/WORLD_COMPLETION_STANDARD.md"
+      ],
+      "disposition": "1/3/8/12: existingvalidation/seed/identity/asset checks with meaningful invalidfixtures, no inferred missing tools/allfile schema universal.2/7: namedriskprofile no10kturn/CIbudgetgate.4: exit/usefulintentional readonlydialogue valid not everychoice effects.5: sourcegame strings intentionallyoriginal, diff notcanonproof.6: reject worldcompletionpolicy blockingplayerprogress/everyprerequisitemandatory.9: mechanismconsumers/counterexample not allactionsXobjects crossproduct.10/11: selectedregression/failurepublication with syntheticfixtures; preserve private saves/explicitcompatibility.",
+      "evidence": "All84numbered world draft bodies freshly read. Compared with DWF1–8/twohorizons, DWF87–94/packdetail493–520 and UI31–42 actualselectedtext. No underlying allworld/source/runtime absence claims authenticated; no new behavioral tests/media/research.",
+      "reopen": "Selectedworld/operation with actualsource/consumer/clock/observedgap; no universal simulator, contentquota, economicnormalization, newapproval/migration/soakgate.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "e10811f6e47c00b5da15b24165135535c0357756fe82d9702c780678dcd4df4a",
+      "input_lines": 62,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          62
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/out/world-volume.md",
+      "ids": [
+        "world-volume:1–12"
+      ],
+      "classification": "fresh full world machine-draft item-body review",
+      "owners": [
+        "docs/DEEP_WORLD_WORKFLOW_2026-10-19.md",
+        "docs/UI_RULES.md",
+        "docs/WORLD_COMPLETION_STANDARD.md"
+      ],
+      "disposition": "1/3/5/9: measurable pilot/cost/reuse/profile useful ifselected; no entity/playhourminimum or projectedmeasuredsavings.2/6/11: ownership/samplevoice/factreview useful, no persegmentmandatorytrackerornewreviewer.4: no rights/legalclearance conclusion or commercialrelease scope implied.7: currentuserfeedback/owners, optionalhumanreview.8: localizationreadiness optional proposal distinct from rawcodecleanup.10: proceduralvs authored chosenby actualworld not requiredgenerator.12: existingarchitecturechecks/nameddebt instead of inventednewaudit.",
+      "evidence": "All84numbered world draft bodies freshly read. Compared with DWF1–8/twohorizons, DWF87–94/packdetail493–520 and UI31–42 actualselectedtext. No underlying allworld/source/runtime absence claims authenticated; no new behavioral tests/media/research.",
+      "reopen": "Selectedworld/operation with actualsource/consumer/clock/observedgap; no universal simulator, contentquota, economicnormalization, newapproval/migration/soakgate.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "926c86bf741b138b8bc0923ebd2aea8db80a93b65a7a3a4d2b3728f45a2644a5",
+      "input_lines": 38,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          38
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/DEEP_WORLD_WORKFLOW_2026-10-19.md",
+      "heading": "## World draft bodies and completed local queue review, 2026-11-04 (B69)",
+      "body": "The seven [world draft lenses](audits/reconciliation-2026-11-04/content-b69.json), items 1–12 each, now have body-level dispositions alongside B67’s character and B68’s dialogue work. All 21 saved draft files/252 bodies were read in this continuous review; this supersedes only the queue’s title-level coverage limit, not source/canon/runtime proof. Preserve optional experience, onboarding, readable noncolor meaning, long-play history, bounded cost/profile and meaningful failure-case ideas in their current owners. Draft absence claims are unconfirmed. Reject universal entity/playtime/branch quotas, equal cross-world balance, mandatory diminishing returns, automatic paused-world regeneration, forced new mysteries, compulsory fullworld prerequisites and permissions that prevent working means. A completed arc can stay complete, an unfinished one can remain unresolved, and long world stays remain valid under ACR1. Shared software follows AD51 and world-owned laws/carriers, not universal weight/timezone fields. Loading/progress/error copy must reflect actual state; no fabricated ETA or swallowing invalid publication. Raw ID copy can be corrected independently of a full localization rollout; desktop readability/accessibility is not deferred merely because mobile is. Existing source attribution, authority, compatibility and proportional proof owners remain, with proposals under AD32 and checks under AD36.",
+      "before_sha256": "dbefbd8d75278650caf31f3d61ce8829e82c485161beccbfd90ddc25c0bb9750",
+      "after_sha256": "bf18230c98b091241c2ad6a414d7189aa65ab4c38a56234d66cfd610241e200c"
+    },
+    {
+      "path": "docs/audits/local_churn_2026-10-20/TRIAGE.md",
+      "heading": "## All saved draft bodies reviewed, 2026-11-04 (B69)",
+      "body": "The original “titles alone” statement remains the October 20 history. B67/B68/B69 now freshly reviewed all 21 saved output files and all 252 numbered item bodies, retaining per-file/ordinal dispositions and useful variants. [World body dispositions](../reconciliation-2026-11-04/content-b69.json) complete this finite queue; no rawsource reading, proven runtime defect, newfeature adoption or localmodel quality verdict follows. The old eight-novel-leads estimate is not a verified novelty count for these bodies. Companion/rival/dialogue/deep-world owners now carry the material qualifications; originals stay available. This closes body reading of this queue, while unrelated inventories and partial receiving owners remain open. No model rerun, successor, deletion or gameplay wave is selected (AD32/AD36).",
+      "before_sha256": "24b8e94155b4c10350f8b7e394a021efe93b05745c81e70c1c354228873ea97a",
+      "after_sha256": "93a1c801b409a7bd3dadc847a9ff5d7f51012d1d424e736d39331d63212ae0fe"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1372
+}

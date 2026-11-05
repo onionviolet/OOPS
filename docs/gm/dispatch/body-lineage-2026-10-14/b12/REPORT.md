@@ -134,3 +134,12 @@ refers to this inspected file snapshot, not to a build.
 | `src/techniques.js` | `e723f95c5c3c24376597d82c7c3a5786d060fc90911d21a208a314f81ebb9735` |
 | `src/trade.js` | `77cd7fcfcfb3add65d7cd4bc92d6b3f154133e9e6d17236a072a3fc3ef92640b` |
 | `src/weather.js` | `dd04eef6a8d917cca9ef3f5ed0cb1aef880dbd74ac762429fabb4529f577d02b` |
+
+
+## Micro-body reconciliation B115, 2026-11-04
+
+Full [HOOKS](HOOKS.md), [NO_CONSUMER](NO_CONSUMER.md), [FLAVOUR_LINES](FLAVOUR_LINES.md) and REPORT read. Preserve all 32 rows, 13 historical consumer families, 29 partial/missing joins and FL001–FL072, not a new implementation backlog. Reading work/XP/played practice, attack input/hit chance, resource chance/cycle time and markup above one/full price stay distinct. Same resolved rates must feed preview, actual work and known ETA; frozen paid jobs retain their quote. No generic text renderer, XP award or dialogue endpoint supplies missing physiology, agency or an observation.
+
+D2’s independent entropy root/SHA daily derivation is an unselected alternative. [B18 AB11](../b18/INTERFACES.md#ab11-seeded-draw) and B111 identify an existing keyed stream service; reuse its admitted families and saved root first, with permanent cause/outcome authority outside bounded logs. A deliberate different provider requires explicit compatibility and preserved old outputs, not silent remapping. Local day/body epoch/revision and async-key checks remain useful; no render initializes entropy or rerolls a saved day. A1 remains MI6 reading + MG6 reading/sleep + MP3, not B16’s smaller MI6-only option; optional Meditation is excluded from A1’s defined first scope.
+
+Every flavour line needs its actual event, means, phase and known baseline, beyond merely having a multiplier: wiping, water, repeated sentence, tracks, trader response, fitted tool, hand change and room objects cannot be invented from factor values. Three wording families are cosmetic, not three implemented worlds; use ordinary fallback and suppress unsupported clauses. The catalogue remains original proposal prose with no new source-world verification. Current desktop/laptop direction and optional human review under AD42 in [RULES_INDEX](../../../../RULES_INDEX.md) qualify old fixed-viewport/G8 gate wording. Historical source locators and hash table remain history, not current absence proof, API proof or this pass reading every source. All G1–G7 implementation checks remain unperformed by this review.

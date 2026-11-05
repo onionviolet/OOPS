@@ -1,0 +1,385 @@
+{
+  "schema": 1,
+  "batch": "B31",
+  "title": "Factorio recovery scope, free-text evidence and historical source-adoption routing",
+  "at": "2026-11-04T19:50:54.443453+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/everyday-paths-ui-2026-10-15/CHECKPOINT.md",
+      "ids": [
+        "D2–D4",
+        "P1–P5",
+        "F7–F9",
+        "P6–P10",
+        "T1–T4",
+        "FP1–FP5",
+        "FT1",
+        "FT2",
+        "FT3",
+        "FT4",
+        "EP1–EP5",
+        "RF",
+        "CG",
+        "LA",
+        "UX",
+        "DS",
+        "NP"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/everyday-paths-ui-2026-10-15/mockups/ and docs/research/everyday-paths-ui-2026-10-15/PATH_PROPOSALS.md"
+      ],
+      "disposition": "Historical research/mockup delivery, with subsequent interaction studies extending earlier paper-only work. No gameplay or shared-owner change; proposal identifiers are not accepted decisions. Keep exact native helper asymmetries, decompiler ABI limits and mockup-vs-game distinction. Source-only differences are not donor runtime bugs; bounded ideas are not selected implementation. No old worker, extraction or source acquisition resumed.",
+      "mechanism_and_interactions": "Interactive mockups make fishing reaches, mining faces and farm blocks directly selectable; target, skill, sensing/control and method alter inspector text, blocked reasons and previews. Investigation and delegation retain the chosen context and responsibility. Earlier path concepts (P1–P10, FP1–FP5, EP1–EP5) remain unselected proposals; later D2–D4 supersede older generic manual-first/automation-ladder wording. The checkpoint reports 36 scenario combinations and targeted interactions checked in a mockup at 1366×768, while native donor parity, rebuilt YAIR, persistence and acceptance remain unproven.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint claims mockup captures and interaction checks; this shard did not inspect the mockup or donor source. No native parity, YAIR browser, persistence or human acceptance evidence is claimed.",
+      "reopen": "If a candidate is later selected, inspect its donor interaction and prove the chosen behavior in rebuilt YAIR with persistence as applicable; the checkpoint names no selected candidate.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          41
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S025.json"
+      ],
+      "prior_input_sha256": "8bf1fe8bc460272f999b3ea41cf98b6d049dc7e4a2aab9d31bc2a18de3b5b7b4",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "8bf1fe8bc460272f999b3ea41cf98b6d049dc7e4a2aab9d31bc2a18de3b5b7b4",
+      "input_lines": 41
+    },
+    {
+      "path": "docs/research/factorio/native/readers/logistics-heat/CHECKPOINT.md",
+      "ids": [
+        "HeatBuffer",
+        "HeatEnergySource",
+        "100741abc",
+        "10073ec44",
+        "101559374"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/factorio/native/readers/logistics-heat/REPORT.md and docs/research/factorio/native/readers/quality-spoilage/FINDINGS.json"
+      ],
+      "disposition": "Completed and released bounded arm64 logistics/heat reading. Whole semantic coverage, x86_64, complete callee network, original types/comments and buildable C++ were not claimed. Keep exact native helper asymmetries, decompiler ABI limits and mockup-vs-game distinction. Source-only differences are not donor runtime bugs; bounded ideas are not selected implementation. No old worker, extraction or source acquisition resumed.",
+      "mechanism_and_interactions": "The completed reader tied 43 generated C bodies to 11 native claims and 12 installed snapshot/API selections. It found extraction limits that matter to interpretation: electric partial C omits the clamp, HeatBuffer long casts appear as floating loads/stores, and HeatEnergySource’s conditional extraction void signature misses boolean w0, so instruction evidence takes precedence. For spoilage-related helpers, canGiveProducts forwards the ingredient spoil scalar unchanged; canGiveItemProduct showed no product-offset read/addition, while giveProducts adds product+0x34. This helper asymmetry is not itself a runtime bug claim.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports frozen hashes, instruction/C line locators, installed hashes and validation; no fresh source or runtime proof was performed in this shard.",
+      "reopen": "Trigger helper, Item::spoil internals, unknown virtual consumers and gameplay/browser/save acceptance remain outside this reader’s proof.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S025.json"
+      ],
+      "prior_input_sha256": "87d89ddb2b445733e293636f12a5139e8dbe7e5b33feb1f6bd60628bd34f1248",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "87d89ddb2b445733e293636f12a5139e8dbe7e5b33feb1f6bd60628bd34f1248",
+      "input_lines": 11
+    },
+    {
+      "path": "docs/research/factorio/native/readers/quality-spoilage/CHECKPOINT.md",
+      "ids": [
+        "100741abc",
+        "101559374",
+        "10073ec44"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/factorio/native/readers/quality-spoilage/REPORT.md and docs/research/factorio/native/readers/quality-spoilage/FINDINGS.json"
+      ],
+      "disposition": "Completed/released native-to-installed reading, with caller/interface integration retained by parent. Trigger helper, Item::spoil internals and unknown virtual consumers remain open; no playable acceptance. Keep exact native helper asymmetries, decompiler ABI limits and mockup-vs-game distinction. Source-only differences are not donor runtime bugs; bounded ideas are not selected implementation. No old worker, extraction or source acquisition resumed.",
+      "mechanism_and_interactions": "The bounded quality/spoilage reading covers 11 complete arm64 bodies and one scoped helper, with native entry/C/body hashes and installed/API locators. A key interaction is asymmetric: canGiveProducts forwards ingredient spoil unchanged; canGiveItemProduct has no product-offset read/addition in its 129 instructions; giveProducts adds product+0x34. The helper-level contrast is verified by the checkpoint but is not reported as a runtime bug. Native expiry may convert material, clear a stack or dispatch an egg trigger.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports exact frozen views, hashes and instruction counts; no native body or live runtime was re-read here.",
+      "reopen": "Parent needs caller/interface integration and the named expiry/trigger internals before claiming broader behavior; browser, save and failure acceptance stay deferred.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          18
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S025.json"
+      ],
+      "prior_input_sha256": "191b6c036b1848b97094fd7ca547d2929185433ee17ed1e753ea49115ff843fe",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "191b6c036b1848b97094fd7ca547d2929185433ee17ed1e753ea49115ff843fe",
+      "input_lines": 18
+    },
+    {
+      "path": "docs/research/far-field-tropes-2026-10-08/CHECKPOINT.md",
+      "ids": [
+        "P01"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/far-field-tropes-2026-10-08/REPORT.md and docs/research/far-field-tropes-2026-10-08/PROPOSALS.md"
+      ],
+      "disposition": "Documentation and ideation delivered; proposals remain unaccepted and no gameplay implementation was authorized. Source limits and ranking uncertainty are explicit. Keep exact native helper asymmetries, decompiler ABI limits and mockup-vs-game distinction. Source-only differences are not donor runtime bugs; bounded ideas are not selected implementation. No old worker, extraction or source acquisition resumed.",
+      "mechanism_and_interactions": "This far-field research catalogued genre families and 36 trope entries with four variants each, alongside 24 original ideas and eight ranked candidates. The checkpoint describes P01 as an NPC-originated invitation, a shared task and discussion of compatible futures, but does not establish a chosen implementation. Its source method distinguishes documentary mechanics from installed-game audits and full-novel reading; strict popularity ranking was not supported by the purposive sample.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint reports bounded source/document work and local validation; underlying reports and sources were not reread for this shard.",
+      "reopen": "A future implementation assignment needs fresh source review and playable/persistence proof; recheck live direction before claiming novelty.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S025.json"
+      ],
+      "prior_input_sha256": "bc20432625f9df63de520bfbec0966feb26408ea65f17533c1ace5e7e42bc096",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "bc20432625f9df63de520bfbec0966feb26408ea65f17533c1ace5e7e42bc096",
+      "input_lines": 17
+    },
+    {
+      "path": "docs/research/game-discovery-2026-10-06/CHECKPOINT.md",
+      "ids": [
+        "GD-01",
+        "GD-02",
+        "ACS31",
+        "15finite",
+        "GM01a112fe-13f6-7493-89c7-db0f42123ff6",
+        "GM01a113f0-a07e-72a3-bb2f-6af475c2ce94"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/game-discovery-2026-10-06/DEEPER_RESEARCH.md and docs/research/game-discovery-2026-10-06/DEEPER_QUEUE.json"
+      ],
+      "disposition": "Research follow-up delivered; no new standing research objective, source/native/build ownership or implementation authority. Human coordination note is reported sent, but receiver acceptance is not claimed. Keep exact native helper asymmetries, decompiler ABI limits and mockup-vs-game distinction. Source-only differences are not donor runtime bugs; bounded ideas are not selected implementation. No old worker, extraction or source acquisition resumed.",
+      "mechanism_and_interactions": "The completed save-only follow-up broadens cross-game mechanism/dependency/failure/late-exception/DLC comparison and parks five distinct questions; none is source-ready or dispatched. The user’s clarification makes scouting genre-open, so the five rows are only one subset, not the whole direction. Existing finite Brogue/Shattered research and ACS/Taiwu-related evidence are linked to their owners rather than re-read/imported. Separate later assignments cover book-lore synthesis and world completion; this checkpoint claims neither runtime ownership nor acceptance.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint states bounded source reuse and ownership/status observations; underlying source dossiers and current integration were not inspected here.",
+      "reopen": "A coordinator may select one unresolved path against current live coverage; gameplay, browser, save roundtrip, failure, regression and director gates were deferred.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S025.json"
+      ],
+      "prior_input_sha256": "19b13ccae0dc27ffaedbc7e821baa9c55c6170cd570aa7f191926c61b8202ea6",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "19b13ccae0dc27ffaedbc7e821baa9c55c6170cd570aa7f191926c61b8202ea6",
+      "input_lines": 15
+    },
+    {
+      "path": "docs/research/factorio/CHECKPOINT.md",
+      "ids": [
+        "uncoded bounded research/recovery checkpoint",
+        "source/read/unread/evidence scope"
+      ],
+      "classification": "fresh full uncoded checkpoint review",
+      "owners": [
+        "docs/research/factorio/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve full-native objective as historically unfinished, exact canonical acquisition/reader scope and instruction-vs-decompiler ABI uncertainty. Current named writer/session fields are old observations. Later retort shared-join review supersedes earlier pending source integration at its original combined-build scope; no gameplay proof.",
+      "evidence": "Entire source freshly read; no native binary/game/source program executed, no process state or current installation checked.",
+      "reopen": "Future selected question uses exact live owners/input and named source/consumer gap; no historical process or whole-corpus pass relaunched.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "d142122f68f029f9cee259384f6b70eac412c3789eff37e6276f79a2675b2f90",
+      "input_lines": 7,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/factorio/native/CHECKPOINT.md",
+      "ids": [
+        "uncoded bounded research/recovery checkpoint",
+        "source/read/unread/evidence scope"
+      ],
+      "classification": "fresh full uncoded checkpoint review",
+      "owners": [
+        "docs/research/factorio/native/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve full-native objective as historically unfinished, exact canonical acquisition/reader scope and instruction-vs-decompiler ABI uncertainty. Current named writer/session fields are old observations. Later retort shared-join review supersedes earlier pending source integration at its original combined-build scope; no gameplay proof.",
+      "evidence": "Entire source freshly read; no native binary/game/source program executed, no process state or current installation checked.",
+      "reopen": "Future selected question uses exact live owners/input and named source/consumer gap; no historical process or whole-corpus pass relaunched.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "aa1b58b142fc55e8e0306d1eff648fe01021cfe661d872ff2de8691191d2d2d9",
+      "input_lines": 17,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/factorio/native/readers/cross-architecture/CHECKPOINT.md",
+      "ids": [
+        "uncoded bounded research/recovery checkpoint",
+        "source/read/unread/evidence scope"
+      ],
+      "classification": "fresh full uncoded checkpoint review",
+      "owners": [
+        "docs/research/factorio/native/readers/cross-architecture/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve full-native objective as historically unfinished, exact canonical acquisition/reader scope and instruction-vs-decompiler ABI uncertainty. Current named writer/session fields are old observations. Later retort shared-join review supersedes earlier pending source integration at its original combined-build scope; no gameplay proof.",
+      "evidence": "Entire source freshly read; no native binary/game/source program executed, no process state or current installation checked.",
+      "reopen": "Future selected question uses exact live owners/input and named source/consumer gap; no historical process or whole-corpus pass relaunched.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "75d94393d79b9d903995b8d29d4d4290029dea0e0d88acb779986cfd5216b85e",
+      "input_lines": 9,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/factorio/native/readers/production-early/CHECKPOINT.md",
+      "ids": [
+        "uncoded bounded research/recovery checkpoint",
+        "source/read/unread/evidence scope"
+      ],
+      "classification": "fresh full uncoded checkpoint review",
+      "owners": [
+        "docs/research/factorio/native/readers/production-early/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve full-native objective as historically unfinished, exact canonical acquisition/reader scope and instruction-vs-decompiler ABI uncertainty. Current named writer/session fields are old observations. Later retort shared-join review supersedes earlier pending source integration at its original combined-build scope; no gameplay proof.",
+      "evidence": "Entire source freshly read; no native binary/game/source program executed, no process state or current installation checked.",
+      "reopen": "Future selected question uses exact live owners/input and named source/consumer gap; no historical process or whole-corpus pass relaunched.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "515f572718aff5cabe63d1408ff04c99d69bc3c24145044c87b5ddce9ff2af61",
+      "input_lines": 13,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/free-text-worlds-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "uncoded bounded research/recovery checkpoint",
+        "source/read/unread/evidence scope"
+      ],
+      "classification": "fresh full uncoded checkpoint review",
+      "owners": [
+        "docs/research/free-text-worlds-2026-10-14/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve distinct static/public/bytecode/server evidence per game, full disassembly vs six traces, incomplete archive exclusion and exact unread consumer gaps. One-realm/one-prestige milestone wording is superseded by Oct24 direction.",
+      "evidence": "Entire source freshly read; no native binary/game/source program executed, no process state or current installation checked.",
+      "reopen": "Future selected question uses exact live owners/input and named source/consumer gap; no historical process or whole-corpus pass relaunched.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "4ce6a0d74acbcf83ad4c76045945c919eea762836e7cce44b130c465f79dac15",
+      "input_lines": 29,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          29
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/free-text-worlds-2026-10-14/aspects-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "uncoded bounded research/recovery checkpoint",
+        "source/read/unread/evidence scope"
+      ],
+      "classification": "fresh full uncoded checkpoint review",
+      "owners": [
+        "docs/research/free-text-worlds-2026-10-14/aspects-2026-10-14/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve distinct static/public/bytecode/server evidence per game, full disassembly vs six traces, incomplete archive exclusion and exact unread consumer gaps. One-realm/one-prestige milestone wording is superseded by Oct24 direction.",
+      "evidence": "Entire source freshly read; no native binary/game/source program executed, no process state or current installation checked.",
+      "reopen": "Future selected question uses exact live owners/input and named source/consumer gap; no historical process or whole-corpus pass relaunched.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "7ea8402107173b7b7b126c3f669d7f441894e14acf12abb7ca75c37eef32c45b",
+      "input_lines": 23,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          23
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/game-research-adoption-audit-2026-10-13/CHECKPOINT.md",
+      "ids": [
+        "uncoded bounded research/recovery checkpoint",
+        "source/read/unread/evidence scope"
+      ],
+      "classification": "fresh full uncoded checkpoint review",
+      "owners": [
+        "docs/research/game-research-adoption-audit-2026-10-13/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve completed bounded source-adoption audit and private-locator finding without broad search, replacement export or implementation. Its World1 pause and five choices belong to October13 history, not current priority/authority; later proposal selection remains separate.",
+      "evidence": "Entire source freshly read; no native binary/game/source program executed, no process state or current installation checked.",
+      "reopen": "Future selected question uses exact live owners/input and named source/consumer gap; no historical process or whole-corpus pass relaunched.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "8423a5da26e64613ed96de6aa201f8f161aadac9c1ac4f54c0dfc46e38ee68dd",
+      "input_lines": 17,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/factorio/CHECKPOINT.md",
+      "heading": "## Retort chronology qualification, 2026-11-04 (B31)",
+      "body": "The native recovery and retort references above record the October7 acquisition snapshot, including historical writer/session observations. RETORT_REVIEW.md under the native-usage owner later records resolved trader/body/bench source findings and a finite shared-join review matched to combined bundle cc3798910c48. That advances source/build correspondence beyond the earlier readback without proving funded native play, receiver stalls, stored/sold recovery or save/failure behavior. Whole two-architecture semantic recovery remains a separate partial objective; no historical worker was resumed or checked live by this reconciliation.",
+      "before_sha256": "d142122f68f029f9cee259384f6b70eac412c3789eff37e6276f79a2675b2f90",
+      "after_sha256": "ef15e753dcf8534b304a1e2f6584c651407a64c937413ee257c9f735aac95e54"
+    },
+    {
+      "path": "docs/research/free-text-worlds-2026-10-14/CHECKPOINT.md",
+      "heading": "## Milestone qualification, 2026-11-04 (B31)",
+      "body": "The one-realm/one-prestige milestone sentence is October14 history, superseded by USER_VISION’s October24 scope direction. Preserve each title’s precise static/public/server/bytecode and runtime evidence limits; do not treat a missing server body or a catalogue-only sibling as shared complete coverage. This reconciliation selects no acquisition, account action, research pass or gameplay implementation.",
+      "before_sha256": "4ce6a0d74acbcf83ad4c76045945c919eea762836e7cce44b130c465f79dac15",
+      "after_sha256": "c613b66760a81c118828eebc18a1f023aa9c41b8c79f2339f66b11659e898cc8"
+    },
+    {
+      "path": "docs/research/free-text-worlds-2026-10-14/aspects-2026-10-14/CHECKPOINT.md",
+      "heading": "## Milestone qualification, 2026-11-04 (B31)",
+      "body": "The one-realm/one-prestige milestone sentence is October14 history, superseded by USER_VISION’s October24 scope direction. Preserve each title’s precise static/public/server/bytecode and runtime evidence limits; do not treat a missing server body or a catalogue-only sibling as shared complete coverage. This reconciliation selects no acquisition, account action, research pass or gameplay implementation.",
+      "before_sha256": "7ea8402107173b7b7b126c3f669d7f441894e14acf12abb7ca75c37eef32c45b",
+      "after_sha256": "08118dab633d83fe06616e399be16ff1f9cf97a3f4d50c1bcc7d50e47e581a0f"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1637
+}

@@ -1,0 +1,16 @@
+{
+  "batch": "B243",
+  "normal_command": "npm run check:docs",
+  "normal_result": "ENOBUFS: child-process default output buffer exceeded while reading shared git diff; no lint result",
+  "fallback_command": [
+    "node",
+    "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-doc-slip-buffer-ubein4_x.mjs"
+  ],
+  "original_path": "scripts/check_doc_slips.mjs",
+  "original_sha256": "9f315e6b1979bbaeac8413dde565d4db68b42b47e5c7a52c84bc700641cd393f",
+  "fallback_sha256": "a21a19a03e20b774378c02fe165c775e7ddd5af2d6af7a41988600013ae36e24",
+  "only_change": "Two execFileSync option objects gain maxBuffer64MiB; lint rules and selected input paths unchanged; repository checker untouched.",
+  "exit_code": 0,
+  "stdout": "Doc slip check: no new hits\n",
+  "stderr": ""
+}

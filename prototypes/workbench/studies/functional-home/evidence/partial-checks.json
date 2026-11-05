@@ -1,0 +1,79 @@
+{
+  "checks": [
+    "native cottage furnishing multipliers shown from owner functions",
+    "layout switch preserves native homes, inventory, money, clock, sleep",
+    "native store command conserves one carried/residence log",
+    "native take command restores the carried log",
+    "native sleep start, one actual tick, sleep stop",
+    "native restoration pays 20 coins/5 logs, advances 30 min, changes capacity",
+    "missing materials disable native-linked work and refuse without payment",
+    "packing native blanket removes the displayed active effect",
+    {
+      "width": 1920,
+      "height": 1080,
+      "text": 14,
+      "geometry": {
+        "width": 1920,
+        "height": 1080,
+        "root": 1084,
+        "font": "14px"
+      }
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "text": 21,
+      "geometry": {
+        "width": 1920,
+        "height": 1080,
+        "root": 1069,
+        "font": "21px"
+      }
+    },
+    {
+      "width": 1800,
+      "height": 1040,
+      "text": 14,
+      "geometry": {
+        "width": 1800,
+        "height": 1040,
+        "root": 964,
+        "font": "14px"
+      }
+    },
+    {
+      "width": 1800,
+      "height": 1040,
+      "text": 21,
+      "geometry": {
+        "width": 1800,
+        "height": 1040,
+        "root": 949,
+        "font": "21px"
+      }
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "text": 14,
+      "geometry": {
+        "width": 1536,
+        "height": 864,
+        "root": 759.125,
+        "font": "14px"
+      }
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "text": 21,
+      "geometry": {
+        "width": 1536,
+        "height": 864,
+        "root": 749.78125,
+        "font": "21px"
+      }
+    }
+  ],
+  "errors": []
+}

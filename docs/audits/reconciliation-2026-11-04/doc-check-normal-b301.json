@@ -1,0 +1,9 @@
+{
+  "batch": "B301 before checkpoint update",
+  "command": "npm run check:docs",
+  "checker_sha256": "3fe5d3ca25215754f2766f7b6439e19038a6b601d8dfc1993a4e22f2c4dd6169",
+  "exit_code": 1,
+  "stdout": "\n> check:docs\n> node scripts/check_doc_slips.mjs\n\n",
+  "stderr": "docs/REFERENCE_RESEARCH.md:97: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line\ndocs/reports/PROGRESS_ATLAS_REFINED_2026-11-04.md:274: absolute rule word has no default, dial, exception, or reason in this row or paragraph\ndocs/reviews/crafting-reference-2026-11-04/REPORT.md:107: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line\n",
+  "scope": "Normal shared-repository check; concurrent files may appear. Own register authority wording corrected in B299."
+}

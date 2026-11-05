@@ -1,0 +1,61 @@
+{
+  "scope": "New local heading-fragment links in B268\u2013B272 folds; inline heading links normalized to their visible text. No semantic/runtime proof.",
+  "checked": 9,
+  "missing": [],
+  "checks": [
+    {
+      "batch": 268,
+      "source": "docs/gm/dispatch/core-foundations-2026-10-14/a1/PLAN.md",
+      "target": "../../../../USER_VISION.md#first-milestone-and-scope-check-2026-10-24",
+      "exists": true
+    },
+    {
+      "batch": 268,
+      "source": "docs/gm/dispatch/core-foundations-2026-10-14/a1/PLAN.md",
+      "target": "../a4/AUDIT.md#content-reconciliation-b266",
+      "exists": true
+    },
+    {
+      "batch": 268,
+      "source": "docs/ENGINE_AUTHORING.md",
+      "target": "gm/dispatch/core-foundations-2026-10-14/a1/PLAN.md#content-reconciliation-b268",
+      "exists": true
+    },
+    {
+      "batch": 269,
+      "source": "docs/gm/causal-endings/evidence/COMBAT_LIFE_AUDIT.md",
+      "target": "../../../ENGINE_AUTHORING.md#book-world-checkpoint-and-five-row-coverage-uptake-b267",
+      "exists": true
+    },
+    {
+      "batch": 269,
+      "source": "docs/ENGINE_AUTHORING.md",
+      "target": "gm/causal-endings/evidence/COMBAT_LIFE_AUDIT.md#content-reconciliation-b269",
+      "exists": true
+    },
+    {
+      "batch": 269,
+      "source": "docs/ENGINE_AUTHORING.md",
+      "target": "gm/causal-endings/evidence/TROPE_THEORYCRAFT_AUDIT.md#content-reconciliation-b269",
+      "exists": true
+    },
+    {
+      "batch": 269,
+      "source": "docs/ENGINE_AUTHORING.md",
+      "target": "gm/causal-endings/evidence/CHECKPOINT_BEFORE_SOURCE_RELEASE_2026_10_06.md#content-reconciliation-b269",
+      "exists": true
+    },
+    {
+      "batch": 271,
+      "source": "docs/UI_RULES.md",
+      "target": "GROUND_RULES.md#delivery-floor-flr1-flr6-accepted-as-ad43",
+      "exists": true
+    },
+    {
+      "batch": 271,
+      "source": "docs/gm/dispatch/book-ui-wave-2026-10-30/PATHWAY_CARD_CHECKPOINT.md",
+      "target": "../../../GROUND_RULES.md#delivery-floor-flr1-flr6-accepted-as-ad43",
+      "exists": true
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "schema": 1,
+  "batch": "B143",
+  "title": "Retired expansion prototype and original engine checkpoint",
+  "at": "2026-11-04T21:52:31.476452+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/EXPANSION_DESIGN.md",
+      "ids": [
+        "Jade Hollow steps 1-5",
+        "Remembered breath",
+        "Steady hands",
+        "spirit archive",
+        "shared/world namespaces",
+        "acceptance"
+      ],
+      "classification": "Retired September 30 prototype with useful design history",
+      "owners": [
+        "docs/EXPANSION_DESIGN.md",
+        "docs/RULES_FROM_SCRATCH.md"
+      ],
+      "disposition": "Read entire original slice, reset policy, source-discovery limits and proposed next worlds. Retain explicit October 1 retirement. Rates, caps, once-per-life meridian and nonstacking legacy describe the old prototype, not current rule or selected reset. Preserve distinct source/world mechanisms and real cross-system return ideas without reviving the retired namespace.",
+      "evidence": "Fresh full text only. Vault lists and publisher/author links were not reread or used for new personal preference or canon claims. No current source or browser proof for the retired slice.",
+      "reopen": "Reopen a concrete retained idea only through its current world/mechanic owner, not as restoration of Jade Hollow or forced spirit-archive next world.",
+      "input_sha256": "aea806f30a84353b6e660a4442429ebd4a714b7d392b4139885f07093fc9e174",
+      "input_lines": 44,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          44
+        ]
+      ]
+    },
+    {
+      "path": "docs/ENGINE_GM_CHECKPOINT.md",
+      "ids": [
+        "revision 5",
+        "remembered promise",
+        "WE01",
+        "WE02",
+        "native chest adapter",
+        "technical baseline",
+        "512-boundary contract"
+      ],
+      "classification": "Historical engine execution and performance receipt with superseded next-adapter absence",
+      "owners": [
+        "docs/ENGINE_GM_CHECKPOINT.md",
+        "docs/SAVES.md",
+        "docs/ENGINE_GM_NEXT_CHECKPOINT.md"
+      ],
+      "disposition": "Read full checkpoint including interleaved technical baseline chronology. Preserve exact optional schema3, named proof/build identities and pre/post optimization workloads; 199 before correction versus 75 after remains scoped. Sole-writer/process, world holds, four-chat budget and old human gate are historical. Current chest source has bound staged publication, qualifying old bypass claim.",
+      "evidence": "Full text; entire current data/storage.js and native_storage_transaction.js, selected main 2026-2056 show binding, access checks, stageNativeStorageTransfer and persistExpansion chest owner. No fresh failure/import/native proof or all custody paths audit. Historical performance medians and p95 are not current benchmarks.",
+      "reopen": "If selecting chest reliability, verify actual current failed publication/import across owners using synthetic fixtures; do not revive old PIDs, broad profile mandate or missing-adapter claim.",
+      "input_sha256": "3dc193efec27e042aa6121a84fcf63f8de10ebd7cd249d1da38455bd7a81762c",
+      "input_lines": 55,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          55
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/EXPANSION_DESIGN.md",
+      "heading": "## Content reconciliation B143, 2026-11-04",
+      "body": "The complete September 30 proposal was reviewed. The retirement notice above controls use. Preserve the original rates, deliberate short trial, selector freeze, reset boundary and replacement legacy as historical design choices; they are not current cultivation law, fixed numerical caps or a new prestige contract. The original spirit-archive next world and two-build acceptance are unselected proposals, with broader world order and current floor owned elsewhere (AD32, AD43).\n\nUseful retained ideas are separate world-state ownership, mechanically distinct destinations and an exchange that changes an existing consumer rather than merely renaming one pool. Returning for knowledge or an inscription still needs an actual carrier and local usable means. The saved discovery-list titles are leads, not proof of favorite books, complete source access or current adaptation selection. No vault/source re-acquisition, retired feature restoration, schema change or new prototype was performed.",
+      "before_sha256": "aea806f30a84353b6e660a4442429ebd4a714b7d392b4139885f07093fc9e174",
+      "after_sha256": "401b19b84c6e3ab750bbf72d88b5cbac8a35a3d8292bc932454e90ab48629119"
+    },
+    {
+      "path": "docs/SAVES.md",
+      "heading": "## Historical chest-adapter finding B143, 2026-11-04",
+      "body": "The entire [October 4 engine checkpoint](ENGINE_GM_CHECKPOINT.md) was reviewed. Its proposed next adapter said native chest transfers bypassed the durable/custody path. Current named source qualifies that absence claim: `data/storage.js` routes deposit/withdraw through its bound handler; `main.js` binds `commitNativeStorage`, checks an accessible open chest, stages both inventory owners and publishes through `persistExpansion`; `native_storage_transaction.js` checks request sequence/counts, validates the whole selected batch and returns a staged player/chest ownership plan. Companion stock has its separate actual custody-loan path.\n\nThis is source-wiring evidence, not proof that every import, failed save, loan, equipped item, archive or enrolled authority path is atomic. Keep those checks with the selected operation rather than reopening an already-present chest adapter. The old checkpoint's bundle, synthetic profiles, optional schema3 decision, 199-test pre-correction and 75-test post-correction evidence retain their own inputs; no current browser, persistence failure, benchmark, server or process state was verified here (AD32, AD36, AR6).",
+      "before_sha256": "b077d796ea444660ef09fe6ccd624b4f38d7d07530bcad2717c33aa76aa37aa8",
+      "after_sha256": "db1840361fe27ad0becdbd4b065bcee631addf7990688e367c400c029fe284c2"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1207
+}

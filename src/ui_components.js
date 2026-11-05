@@ -37,7 +37,10 @@ export function decorateActionComponents(root) {
                 liveNotes.add(note);
                 if(button.nextSibling!==note)button.after(note);
                 // UIV1: a row that already prints this reason is the description; no duplicate note.
-                const shown=reason?(indexOf(button.parentElement).get(reason)||[]).find(n=>n!==note&&n.parentElement===button.parentElement&&!n.hidden):null;
+                // An explicitly associated explanation can live in the task summary.
+                // Reuse its text without moving or owning that other view's node.
+                const linked=reason?(button.getAttribute('aria-describedby')||'').split(/\s+/).map(id=>document.getElementById(id)).find(n=>n!==note&&n&&!n.hidden&&n.textContent.trim()===reason):null;
+                const shown=linked||(reason?(indexOf(button.parentElement).get(reason)||[]).find(n=>n!==note&&n.parentElement===button.parentElement&&!n.hidden):null);
                 if(shown&&!shown.id)shown.id=`ui-disabled-${++reasonSequence}`;
                 const visible=reason&&!shown?note:shown;
                 if(note.hidden!==(!reason||!!shown))note.hidden=!reason||!!shown;if(note.textContent!==reason)retext(note,reason);
@@ -48,14 +51,14 @@ export function decorateActionComponents(root) {
                 if(visible)focusable.set(button,visible);else focusable.delete(button);
                 const ids=(button.getAttribute('aria-describedby')||'').split(/\s+/).filter(id=>id&&id!==note.id&&id!==previous?.id);
                 if(visible)ids.push(visible.id);
-                const described=ids.join(' ');
+                const described=[...new Set(ids)].join(' ');
                 if(described!==button.getAttribute('aria-describedby')){
                     if(described)button.setAttribute('aria-describedby',described);else button.removeAttribute('aria-describedby');
                 }
             }
         }
         for(const note of root.querySelectorAll('.ui-disabled-reason'))if(!liveNotes.has(note))note.remove();
-        observer.observe(root,{subtree:true,childList:true,attributes:true,attributeFilter:['disabled','hidden','title','data-disabled-reason']});
+        observer.observe(root,{subtree:true,childList:true,attributes:true,attributeFilter:['disabled','hidden','title','data-disabled-reason','aria-describedby']});
     }
     const observer=new MutationObserver(()=>{if(!queued){queued=true;queueMicrotask(refresh);}});
     refresh();return {refresh,destroy:()=>observer.disconnect()};

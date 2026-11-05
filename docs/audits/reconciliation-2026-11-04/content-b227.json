@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "batch": "B227",
+  "title": "All nonhuman making routes, method roles, facilities and trade consumers",
+  "at": "2026-11-04T23:27:30.322213+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/worlds/NONHUMAN_MAKING_AND_BUILDING_2026-10-14.md",
+      "ids": [
+        "MF1–MF10",
+        "MK1–MK15",
+        "G1–G5",
+        "fiveslotmeanings",
+        "MT1–MT5",
+        "MH1–MH6",
+        "MV1–MV8",
+        "MK-S1–16",
+        "MK-C1–10",
+        "MK-A1–5"
+      ],
+      "classification": "Historical source-inspected making seams and original method/product/facility palette",
+      "owners": [
+        "docs/worlds/NONHUMAN_MAKING_AND_BUILDING_2026-10-14.md",
+        "docs/MAKING_RULES.md",
+        "docs/CRAFTING_ENGINE.md",
+        "docs/GATHERING_AND_RESOURCE_USES.md"
+      ],
+      "disposition": "Keep product/physicalmethod/executor/sitecapa/fit/custody andreceivinguse separate. ExactCoccoon/TreeSap substitutions explicit, heatnotfullforging unlessactualmethod suppliesroles. Currentactualinstantsmeltingrule B192qualification local. Gshapesnotnewclasses; proposedbodymaking no mandatorymanipulator/comforttax/extraengine. Importantonlyknownselectedconsumer, sourcesnotreread.",
+      "evidence": "Full340linebodyread1–80/81–165/166–250/251–end; everycodedrow/sourcefinding/slot/home/trade/texture/suggestion reviewed. Referencedsource/actualrecipes/nativejobs/privatecanon notreread or executed. No newscientific/bio/realmedicalclaims.",
+      "reopen": "Forselectedproduct/method inspect actualregisteredrecipe/transaction/producer andusefulrecipient, fullkeys/exactversusfunctionalbinding, actualrolecontribution/reservedcapacity/supportloss/finishedautonomousstage andnativepersistence.",
+      "input_sha256": "f8b9757809c42b29a50054ceca5770975ee652f931da9608cce4ed2bad3d44f5",
+      "input_lines": 340,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          340
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/worlds/NONHUMAN_MAKING_AND_BUILDING_2026-10-14.md",
+      "heading": "## Content reconciliation B227, 2026-11-04",
+      "body": "All fifteen MK routes, MF1–MF10, five G shapes, slot meanings, MT/MH/MV tables and MK-S/MK-C/MK-A rows were reviewed. The useful seam is a product plus actual method roles, rather than human hands as an unexamined prerequisite. Heat, atmosphere, force, grip, fine control, attention and learned procedure can have different suppliers. A complete magical faculty can supply several at once; an ordinary hot breath need not. Five G shapes describe behaviors, not five new required classes or a replacement crafting engine (AD32/AD36/AD38).\n\nRetain exact-versus-functional ingredient identity. Existing Silk cloth taking Coccoon does not make spider thread an admitted Coccoon, and secretion called resin is not automatically Tree sap. An authored compatible alternate process can reach the same useful output without rewriting an old recipe or granting its unlock. The frame’s assembly seat is a component socket, not another worker slot. A tentacle count or two gripping structures does not manufacture extra benches, real tools or simultaneous fine-control capacity. Body fitting, reserved reusable apparatus, assembly sockets, job-phase site capacity and resident/service occupancy are five different meanings of slot.\n\nNative making can remain useful alongside earned manipulators or hired help. A mouth/jig method, produced secretion, grown fixture and commissioned artisan have distinct actual executors and learning recipients; directing design does not automatically give manual craft XP. Conversely a supported teaching/transfer faculty can genuinely change what the recipient knows. MK13 is an execution/settlement overlay and MK14 is a pipeline, not unrelated new engines. Real spontaneous generation, sunlight, free power or permanent conjuration is allowed where the chosen mechanism supplies it; empty metadata does not establish that supplier. The palette already rejects a universal mass law and exotic-body tax (AD22/AD38).\n\nMethod-specific interruption matters: an autonomous curing joint can continue after its maker leaves, while active weaving may lose its worker. Settle performed work, retained inputs and remaining commitments; preserve post-durable output despite a display failure, as qualified by B170/B203. MH facilities have actual rights, occupancy, footprint and used services. A useful rest/comfort effect need not create a universal comfort score, daily upkeep bill, pictured-home experiment or simulated flood ecology. Client-owned metal is not the artisan’s sale stock, and sentient body-item repair keeps one actual identity.\n\nMF source assertions remain dated and local. B192 already distinguishes the current instant-smelting descriptive minutes from a new timed system; this report’s timed process examples do not silently change that owner. B218–B226 qualify body/clock/crossing/source evidence without proving this making resolver. Known-texture cues derive from actual admitted state; they do not grant hidden chemistry, new XP, unperformed work or a random yield draw. Current desktop/prose-first targets replace1366-primary, current broader scope retires the old milestone, and AD51/AD52/AD42 govern scoped reuse, supported activity and optional human review. No method, recipe, body output, facility, trade contract, command or persistence behavior was implemented or exercised here.",
+      "before_sha256": "f8b9757809c42b29a50054ceca5770975ee652f931da9608cce4ed2bad3d44f5",
+      "after_sha256": "9119130f3a1705747eabc25788974a0510f0949b46390f4111f0afdc2ab80a6b"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 990
+}

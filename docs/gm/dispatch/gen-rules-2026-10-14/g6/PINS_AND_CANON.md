@@ -185,3 +185,8 @@ occur. Actual event: durable occurrence/effects, with separate witness knowledge
 Pinning an already resolved name is redundant; retconning it needs a named
 mechanism, new revision and residue. Ordinary supported changes to mutable
 state need their action receipts, not a retroactive retcon of the old draw.
+
+
+## Current routing qualification, 2026-11-04 (B14)
+
+The source snapshots, missing-supplier statements, authoring-only labels and MG5 adoption order above belong to October 14 proposal history. They do not set today’s build order or current world capability; PROJECT.md and accepted direction govern selected lead development. Preserve the useful distinctions: actual legacy keys and commitments remain owned by their native stores; aliases do not reconstruct missing history; frozen observations are not current health or stock; pin removal does not reroll or execute a reset; continuity and selected reset adapters remain separate. Any future adoption reconciles the current save owner, reader compatibility, addressed-draw contract and durable publication before selecting a bounded change. No schema, loop, pin store or HP runtime was implemented by this reconciliation.

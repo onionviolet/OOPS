@@ -1,0 +1,73 @@
+{
+  "scope": "Only local heading-fragment links introduced in B253\u2013B261 owner folds; no source or behavior proof.",
+  "checked": 11,
+  "missing": [],
+  "checks": [
+    {
+      "batch": 256,
+      "source": "scripts/playtest/README.md",
+      "target": "../../docs/AI_PLAYTEST_HARNESS_CONSIDERATIONS_2026-10-20.md#content-reconciliation-b256",
+      "exists": true
+    },
+    {
+      "batch": 258,
+      "source": "docs/AROUND_YOU_SUBJECT_ACTIONS_CONSIDERATIONS_2026-10-18.md",
+      "target": "DOMAIN_RULES.md#presence-and-interaction-rules",
+      "exists": true
+    },
+    {
+      "batch": 258,
+      "source": "docs/AROUND_YOU_SUBJECT_ACTIONS_CONSIDERATIONS_2026-10-18.md",
+      "target": "USER_VISION.md#first-milestone-and-scope-check-2026-10-24",
+      "exists": true
+    },
+    {
+      "batch": 258,
+      "source": "docs/DOMAIN_RULES.md",
+      "target": "AROUND_YOU_SUBJECT_ACTIONS_CONSIDERATIONS_2026-10-18.md#content-reconciliation-b258",
+      "exists": true
+    },
+    {
+      "batch": 258,
+      "source": "docs/DOMAIN_RULES.md",
+      "target": "USER_VISION.md#first-milestone-and-scope-check-2026-10-24",
+      "exists": true
+    },
+    {
+      "batch": 259,
+      "source": "docs/DOMAIN_RULES.md",
+      "target": "AFFLICTIONS_AND_WEAPON_PROPERTIES_CONSIDERATIONS_2026-11-03.md#content-reconciliation-b257",
+      "exists": true
+    },
+    {
+      "batch": 259,
+      "source": "docs/DOMAIN_RULES.md",
+      "target": "ABILITY_RULES.md#content-reconciliation-b256",
+      "exists": true
+    },
+    {
+      "batch": 259,
+      "source": "docs/DOMAIN_RULES.md",
+      "target": "ABUSE_AND_LIMITS.md#content-reconciliation-b256",
+      "exists": true
+    },
+    {
+      "batch": 260,
+      "source": "docs/AUDIT_PROGRESS_AND_REFINEMENT_PROMPT_2026-10-15.md",
+      "target": "USER_VISION.md#first-milestone-and-scope-check-2026-10-24",
+      "exists": true
+    },
+    {
+      "batch": 260,
+      "source": "docs/GATHERING_AND_RESOURCE_USES.md",
+      "target": "USER_VISION.md#first-milestone-and-scope-check-2026-10-24",
+      "exists": true
+    },
+    {
+      "batch": 261,
+      "source": "docs/DIRECTION_SUMMARY.md",
+      "target": "../PROJECT.md#current-focus",
+      "exists": true
+    }
+  ]
+}

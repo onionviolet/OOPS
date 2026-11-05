@@ -148,3 +148,8 @@ A runnable form would be a test reading `spells.json` and asserting M1 to M4 exp
 - Whether 5.1 filed Cure Wounds under evocation (MEMORY only).
 - Combat and making rulebooks in full (CBR, MR); only router rows were read.
 - Sealed secrets: none involved.
+
+
+## Reconciliation B91, 2026-11-04
+
+Preserve F1–F5, ten traces, relation rows, seven golden cases and M1–M5 as a dated proposal with corrections. Current selected effect_dsl.js ranges 1–22 and 129–148 still show the inert, exact-key, edition/attribution-pinned contract; a sidecar remains a proposed way to preserve it, not evidence of an implemented consumer. Current spells.json 1005–1023 already types Hold Person as humanoid: close that narrow data-inspection gap, without claiming evaluator enforcement. M4’s listed level-3 average 28 and level-5 average 36 do not refute increasing damage with level; different scaling shapes suggest a question but are not the stated counterexample. Do not encode an expected-fail test on that unsupported conclusion. The tier-gap table and memory-only Dispel comparison are design suggestions, not an SRD-derived mixing law or a demonstrated source match. School labels and doesWhat hints do not supply effects. Full-list denominator 340, 6 percent coverage, work estimates and historical pack counts are not current verified totals; supplied text was not read. Preserve attribution and unknown semantics; no schema/runtime change or fresh gameplay proof.

@@ -1,0 +1,73 @@
+{
+  "scope": "Local heading-fragment links introduced in B262\u2013B267 folds only; no semantic/runtime proof.",
+  "checked": 11,
+  "missing": [],
+  "checks": [
+    {
+      "batch": 262,
+      "source": "docs/DIRECTION_SYNTHESIS.md",
+      "target": "../PROJECT.md#current-focus",
+      "exists": true
+    },
+    {
+      "batch": 262,
+      "source": "docs/DIRECTION_SYNTHESIS.md",
+      "target": "DIRECTION_SUMMARY.md#standing-boundaries",
+      "exists": true
+    },
+    {
+      "batch": 262,
+      "source": "docs/DIRECTION_SYNTHESIS.md",
+      "target": "USER_VISION.md#first-milestone-and-scope-check-2026-10-24",
+      "exists": true
+    },
+    {
+      "batch": 262,
+      "source": "docs/DEEP_CONCEPTS.md",
+      "target": "ABILITY_RULES.md#content-reconciliation-b256",
+      "exists": true
+    },
+    {
+      "batch": 263,
+      "source": "docs/ENGINE_AUTHORING.md",
+      "target": "USER_VISION.md#first-milestone-and-scope-check-2026-10-24",
+      "exists": true
+    },
+    {
+      "batch": 264,
+      "source": "docs/ENEMY_PROTAGONISTS.md",
+      "target": "ENGINE_AUTHORING.md#content-reconciliation-b263",
+      "exists": true
+    },
+    {
+      "batch": 264,
+      "source": "docs/ENEMY_PROTAGONISTS.md",
+      "target": "USER_VISION.md#first-milestone-and-scope-check-2026-10-24",
+      "exists": true
+    },
+    {
+      "batch": 264,
+      "source": "docs/FITTING_CHARACTERS_AND_TIMES.md",
+      "target": "../PROJECT.md#current-focus",
+      "exists": true
+    },
+    {
+      "batch": 264,
+      "source": "docs/FITTING_CHARACTERS_AND_TIMES.md",
+      "target": "USER_VISION.md#first-milestone-and-scope-check-2026-10-24",
+      "exists": true
+    },
+    {
+      "batch": 266,
+      "source": "docs/ENGINE_AUTHORING.md",
+      "target": "gm/dispatch/core-foundations-2026-10-14/a4/AUDIT.md#content-reconciliation-b266",
+      "exists": true
+    },
+    {
+      "batch": 267,
+      "source": "docs/ENGINE_AUTHORING.md",
+      "target": "USER_VISION.md#first-milestone-and-scope-check-2026-10-24",
+      "exists": true
+    }
+  ]
+}

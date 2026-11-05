@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "batch": "B278",
+  "title": "Complete checkout map and historical gate qualifications",
+  "at": "2026-11-05T00:38:01.939111+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/CHECKOUT_CHECKLIST.md",
+      "ids": [
+        "CK1–51",
+        "build/state/bot-checkable definitions",
+        "Start here",
+        "A–Ffamilies",
+        "all dated wave gate rows",
+        "11Unrun/25folder takeaway"
+      ],
+      "classification": "Historical user play/check navigation with dated release supersessions and proof/authority traps",
+      "owners": [
+        "docs/CHECKOUT_CHECKLIST.md",
+        "PROJECT.md",
+        "docs/AI_PLAYTEST_HARNESS_CONSIDERATIONS_2026-10-20.md"
+      ],
+      "disposition": "Read every row; preserve useful routes and exact user-acceptance meaning, qualify old release/branch/private-save/human-gate instructions and correct obsolete PROJECT anchor plus five-detector count.",
+      "evidence": "All196original lines delivered; initial middle truncation recovered85–130. Current run.mjs DETECTORS declaration inspected and has five entries. No suite/self-test, browser, private save, installed app, branch/remote or current linked backlog verification.",
+      "reopen": "For a selected play check inspect its actual owner, current input bundle and precise route; distinguish optional human feedback from a specific unwaived user condition, and never infer full completion from this navigation sweep.",
+      "input_sha256": "d420d85365514456033898c5c6c69daa797fdef9bdb60f39073ffd097617af36",
+      "input_lines": 196,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          196
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/CHECKOUT_CHECKLIST.md",
+      "heading": "## Content reconciliation B278",
+      "body": "Full196original lines reviewed: CK1–51, build/state/bot-checkable definitions, all six surface families, every open-decision row and every dated wave gate/backlog row. Preserve this as the October20sweep plus October22release supersessions, not today's mandatory play queue, installation state or comprehensive gap census. Its own latest section already qualifies CK3/CK6/CK19/CK32/CK33/CK36/CK44at their selected scopes. The retained older labels are history, and a tick is still recorded user acceptance in the original checklist, not a mark to add for this documentation review.\n\nCurrent [PROJECT](../PROJECT.md#current-focus) and its [release state](../PROJECT.md#release-state) own present direction/delivery. The obsolete PROJECT routing fragment is repaired to its existing current-focus anchor. Branch names, historical HEAD labels, unpublished source status, an app snapshot and an actually adopted installed bundle are different identities. A branch's existence or a merged source commit alone does not tell which bundle a user is running. No remote, app, preview, normal window, Chrome save, snapshot, process or specific writer was inspected here. CK24/CK25/CK28and Start here's private-save import/reset instructions were not executed or renewed by reading them. A disposable-origin check is not authority to use the player's actual file.\n\nAD42makes human review optional for ordinary technical continuation; do not treat every You row, “nothing human-accepted,” old cosmetic question or open taste box as a current blocker. Distinct explicit user sequencing conditions, such as CK43's quoted wait-for-play request, retain their exact recorded referent until later actual direction changes them. This review does not launch that slice or ask the user again. A recorded still-open preference is not consent, but reading an old questionnaire does not create a new question stage. Current AD36/AD43and each selected task's route apply; the11Unrun/rough25folder takeaway is a dated count, not authority to run every world's suites or call them closed after one generic harness pass.\n\nCK32miscounts the harness as four detectors. The current selected run.mjs declaration lists errors, stuck, roundtrip, determinism and ui: five; the source row is corrected with old wording preserved in the amendment. This is a source-enumeration check, not a new self-test. The [B256harness qualification](AI_PLAYTEST_HARNESS_CONSIDERATIONS_2026-10-20.md#content-reconciliation-b256) separately preserves missing/errored UI measurements, build-stamp scope and first-load-note semantics. CK31's first-load additions/idempotence do not certify correct game meaning, and CK34's failed budget remains its actual measured outcome. No test count or old perf gate was renewed.\n\nCK7's Lio-only browser result is not every defeat/structured-death path. CK9probe, CK11private optional campaign, CK36loader hash and CK37JSON roundtrip each retain their own route/consumer/persistence limits. Known selected P4/gear/home/MFreader proofs do not prove every old native variant, natural acquisition, whole-world scope or installed compatibility. The R22/R21source reports reviewed in B249–255retain mixed input windows, export leakage, unshown Stances and hand-toggled combat-return qualifications rather than blanket layout acceptance. Age/height/placement and UI-card questions should be interpreted through current UI/PIR/direction owners; mobile stays deferred.\n\nNo checkboxes, user approval, actual source behavior or old backlog state were silently closed. The content and exact path/source pointers remain useful navigation; their underlying reports and historical bytes keep independent review and proof records. This pass adds no gameplay, source download, private-save transfer, test/build/browser run, visible app or commit.",
+      "before_sha256": "d420d85365514456033898c5c6c69daa797fdef9bdb60f39073ffd097617af36",
+      "after_sha256": "0bfa6588222bbc88848e2bba7da12cf17f20dfcb0a9c7cafc67a4fa9fd5abf75"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 871,
+  "post_record_amendments": [
+    {
+      "path": "docs/CHECKOUT_CHECKLIST.md",
+      "from": "# Checkout checklist\n\n",
+      "to": "# Checkout checklist\n\n> **Current use:** this is historical play/check navigation, not a current mandatory queue or app-state audit. Use [PROJECT](../PROJECT.md#current-focus), selected live owners and [B278 qualifications](#content-reconciliation-b278) before acting on older routes or gates.\n\n",
+      "reason": "B278 qualify archived navigation and repair actual owner anchor/detector count; original input and wording retained."
+    },
+    {
+      "path": "docs/CHECKOUT_CHECKLIST.md",
+      "from": "../PROJECT.md#current-delivery-routing-checked-2026-10-22",
+      "to": "../PROJECT.md#current-focus",
+      "reason": "B278 qualify archived navigation and repair actual owner anchor/detector count; original input and wording retained."
+    },
+    {
+      "path": "docs/CHECKOUT_CHECKLIST.md",
+      "from": "a scripted bot with four gap detectors and fault injection",
+      "to": "a scripted bot with five gap detectors and fault injection",
+      "reason": "B278 qualify archived navigation and repair actual owner anchor/detector count; original input and wording retained."
+    }
+  ]
+}

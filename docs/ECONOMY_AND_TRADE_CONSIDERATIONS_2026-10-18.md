@@ -338,3 +338,40 @@ filtered by game minute.
 The [RI comparison, round 2](research/RI_CROSS_GAME_MECHANICS_COMPARISON_2026-10-31.md#round-2-the-gu-portfolio-and-the-world-economy-2026-10-31) owns X1–X12, G10–G14 and a proposed connected care-and-work trial. This applies ECR2–ECR9, ECR12–ECR18, ECR20–ECR23 and ECR26/ECR30; it adds no economy rules. In that world's proposed loop, cash received, due obligations, optional expected sales, usable food lots, participant availability and injury downtime answer different questions. A living set can produce the means of its upkeep; starting refinement can tie up those same means. A margin estimate is not physical stock, liquidity before the next meal or an enforceable contract.
 
 Account for those dependencies through the existing stock, transaction, command, energy and knowledge owners when an RI slice is selected. Preserve intended profitable engines/arbitrage and resolve prices through one quote, rather than adding a universal balancing tax or requiring a regional logistics simulator for ordinary trade. Later work and its reopen triggers remain in that report. No shared runtime or rulebook change in this pass.
+
+
+## Acceptance-prep ECX1/ECL2 reconciliation, 2026-11-04
+
+Content-reviewed [the October 19 prep's money/ledger section and O3/O4](reviews/ACCEPTANCE_PREP_2026-10-19.md) against ECX1/ECL2 and current `economy_domain.js`. The live purse is authoritative money; the debug ledger is a bounded session projection, with load/new-game baseline rows excluded from faucet/sink totals. Its registry domain has no saved ledger slice. Ledger reset after reload is deliberate here, not evidence of lost purse state (AD32, ECR15/ECR16).
+
+Keep saved-purse staging distinct from publication: the native rollback binding drops rows from rolled-back changes, while successful live publication records the actual change. Current world-grain checks are a later local arithmetic policy and must not be inferred from the prep's older unchanged-arithmetic statement. This source read does not certify every activity, stipend, reward, inheritance or storage-failure path listed as unexercised in the prep.
+
+No player ledger UI, persistent audit history or new currency model is selected by this fold. Reopen an O3/O4 path when the selected command actually touches its money publication or rollback. Human review of pricing remains optional feedback under AD42, separate from the named technical evidence.
+
+
+## Repeatable economy-audit content reconciliation, 2026-11-04
+
+Full review of the [economy core audit](audits/ECONOMY_CORE_AUDIT.md): E1/E2 trigger scope, ECC/ECX/ECL history and the belief-based quote/deferred-service case. Canonical ECR1–ECR33 live in DOMAIN_RULES; ECONOMY_RULES remains a compatibility pointer. The audit's first-run subagent arrangement is history, not an instruction to dispatch fresh workers (AD32/AD36).
+
+Preserve the useful case distinctions at the quote/settlement owner: a buyer's limited belief can set a speculative price without revealing a hidden property; currency divisibility is local arithmetic, not valuation; custody, spend, reservation and returned value are separate; a partial deferred service settles actual performed work once, while ordinary atomic trade stays atomic. Wealth carryover follows the currency's stated life/time horizon and actual transition owner, not a global bank default.
+
+Reopen E1 for the selected money/transaction/rollback seam, E2 for that selected world's source/era, or the affected ECC section for a shared custody/valuation change. This content review does not create an economy requirement for every life, update historical balances/prices or requalify the source references. ECX1/ECL2's earlier acceptance-prep fold above separately records current ledger semantics.
+
+
+## Domain-scan reconciliation B118, 2026-11-04
+
+The full [domain conformance scan](audits/DOMAIN_RULES_CONFORMANCE_2026-10-19.md#current-use-reconciliation-b118-2026-11-04) now qualifies DRC7/13 against ECX1/ECL2 and selected current purse/trade source. A bounded session debug ledger is present; this does not prove merchant purse conservation or a persistent finite economy. Current trader refresh additionally retains explicitly kept keys through shop_locks, so DRC6 is narrower than total absence of retention. General sold-origin buyback remains unproved by that preference mechanism. Dated source locators and balances are not current live proof.
+
+
+## Equivalence-tariff reconciliation B121, 2026-11-04
+
+The complete [equivalence spike](audits/EQUIVALENCE_LEDGER_SPIKE_2026-10-23.md#price-spike-reconciliation-b121-2026-11-04) preserves a proposed issuer tariff distinct from market valuation. Its 4–7× markup argument does not rule out every buy/craft/sell margin, and recipe acyclicity does not cover the complete market/ledger graph. Actual costs, quality, success/yield, fuel, quotes and saturation remain necessary for a selected comparison. Floor/ceil round trips should be non-increasing, allowing exact equality at zero fee. No live economy prices or balance were changed; pin-input discrepancy, learned-path reach and price-revision compatibility remain explicit before implementation.
+
+
+## Full economy-palette reconciliation, 2026-11-04
+
+ECC1–ECC37, ECX1–ECX10 and ECL1–ECL5 remain distinct from the markets palette and its separately scoped codes. ECX6 supersedes a universal currency-pair rate: a reference basket is a design anchor; actual changer terms, spreads, beliefs and local means determine quotes. ECC8 is a proposed income floor where monetary work fits, not compulsory commerce in every world. ECC12 knowledge losing value as it spreads, ECC20 requiring a new sink, and ECC25 conserving transfers do not forbid valuable widespread knowledge, profitable authored engines or a mechanism that creates money (AD5, AD22, AD27, AD38). Name the actual source or recipient instead of inventing a balancing tax.
+
+The October 19 ECX1/ECL2 receipt supersedes the earlier claim that the money seam/domain is absent. Its last-500 session ledger excludes baseline rows from flow totals and is deliberately not saved. The preserved golden route and later seeded browser trade have different sale figures and inputs; do not merge them into one result. Later acceptance-prep and B118 folds qualify current arithmetic and retained preference keys without proving all merchant budgets, general sold-origin buyback or a finite economy. ECC36 and the old build order remain historical proposals where later work already supplied a domain.
+
+Legal ownership, custody, use, identity-bound accounts, expected proceeds, due debts and food available before a meal answer different questions. ECC37 keeps known quote terms separate from hidden truth and settles only genuine performed work/reservations; it does not make ordinary trade partially committed. Preserve source silence versus institutional absence, comic/nonhuman economies and RI living-capital dependencies. No prices, balances, private saves, runtime or implementation priority changed here; dated approval and push wording is history, not renewed authority.

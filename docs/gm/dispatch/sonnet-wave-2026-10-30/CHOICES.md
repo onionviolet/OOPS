@@ -28,3 +28,8 @@ One place for every open question to Weibao. At most five are active. Each has a
 - Body-model default: answered, HP stays overall and part damage matters where a rule reads it ([USER_VISION](../../../USER_VISION.md#injuries-overall-hp-plus-part-damage-where-it-matters-2026-10-30)).
 
 - **bk-hp Q1 (backlog):** Should a first-year charm fizzle? Default: yes, 40% at one drill falling 10 points per extra drill (HP adapter dial), with a visible "it fizzled" line and no lost material. Dial: world-wide chance, or per charm; or none for a gentler start.
+
+
+## Queue-use reconciliation B120, 2026-11-04
+
+Full active/backlog/answered entries and HP Q1 read against the current [vision digest](../../../VISION_DIGEST.md) and [gap audit](../../../audits/GAP_AUDIT_2026-10-30.md#gap-use-reconciliation-b120-2026-11-04). This is an October 30 proposal queue, not evidence of later answers. Existing current priorities and AD51 supersede the old mandatory floor-wave order/GM40 fork; do not dispatch new lanes or pause selected book mechanisms from these defaults. Keep source-qualified stated versus inferred costs, timing, ordinary no-cost exceptions and per-world differences. The HP40% fizzle and ten-point drill values remain proposed examples, not canon or a current calibrated result. Exact current rule-index status governs WA51–WA53; silence is not recorded acceptance. Old reading/download/config/push requests grant no new action here. B119 records that the limiter/worktree/F12 direction gaps have later owner resolution; other questions require the relevant actual later decision or exact delivery proof before being marked answered. Preserve all original proposed options and values as history.

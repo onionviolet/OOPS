@@ -2,6 +2,8 @@
 
 2026-10-14. **PROPOSAL ONLY.** Extend P15 [T4 repetition](../p15/RUNTIME_TEXT.md#t4-deterministic-admission-and-repetition) and [MORE](../p15/MORE.md) humor/translation discussion, D9 pacing and P14 history. This proposes semantic recurrence, not another prose generator or a reward system. [P28](../p28/CHECKPOINT.md) owns explicit taste/learning; [P25](../p25/CHECKPOINT.md) owns presentation.
 
+**Current boundary, 2026-11-04 (AD40):** [accepted UI/prose direction](../../../../USER_VISION.md#ui-and-prose-defaults-subtle-details-and-whimsy-2026-11-04) separates whimsical UI/narrator/flavor from characterization. Characters retain their own personality, motives, competence, knowledge and speech. A narrator's joke is not a character action or belief. This qualifies the examples below; the proposed gag metadata, lifecycle, actor behavior and runtime follow-ups remain proposals. Live editorial defaults are in [DESIGN](../../../../../DESIGN.md) and [UI_RULES](../../../../UI_RULES.md).
+
 ## Z1.1: humor has a cause and an audience
 
 Humor can come from incongruity, dramatic irony within known information, understatement, over-preparation, a reversal of expectations, character contrast, literal procedure or recognition of an earlier harmless mishap. A joke should fit the speaker, listener, setting and moment. A serious world can contain comic relief without turning all threats into parody. Comedy need not be Western sarcasm or modern memes; no random catchphrase borrowed from canon.

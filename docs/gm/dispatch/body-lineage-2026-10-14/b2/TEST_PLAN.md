@@ -124,3 +124,8 @@ assumption with current UI_RULES targets: 1920×1080, the actual MacBook viewpor
 surface. Keep body/faculty carrier and clock explicit (AD11/AD13/AD16).
 Browser-local layout preferences need reload/context evidence in their actual
 owner; a game Export/Import does not prove preferences it does not serialize.
+
+
+## Reconciliation B95, 2026-11-04
+
+M01–M08, D01–D08, Q01–Q12, P01–P10 and U01–U05 are specified NOT RUN cases. Preserve the meaningful failure invariants: independent identity/address/physical fields, no accidental healing or enrollment, no cumulative modifiers, exact owned costs and rollback, real downstream body consumers, literal-file import and hidden-effect-safe projection. Prototype percentages/profile tables, health floors and ordinary pursuit examples are pinned scenarios, not all-world physiology or immunity to stronger means. Legacy conversion rows are optional under current compatibility direction. Fresh creation does not authorize reviving the deferred public start picker. Historical viewport/font assumptions yield to current UI rules; browser-local presentation has its own persistence owner. No test, fixture or body feature was executed by this review.

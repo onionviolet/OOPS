@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "batch": "B142",
+  "title": "Archived design-constraint audit and twelve-rule owner",
+  "at": "2026-11-04T21:51:31.094471+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/DESIGN_DEFAULTS_AUDIT.md",
+      "ids": [
+        "constraints 1-24",
+        "parallel counterparts",
+        "luck",
+        "change log",
+        "doc slip lint"
+      ],
+      "classification": "Explicitly archived completed correction history",
+      "owners": [
+        "docs/RULES_FROM_SCRATCH.md",
+        "docs/RULES_INDEX.md"
+      ],
+      "disposition": "Read all 24 constraints, smaller cases, applied changes, skipped runtime work and lint qualification. Preserve archive intact. Applied change log overrides early proposed reframes: knowledge requires carrier, count caps and humble-home requirements removed, body differences allowed, fate world-specific. Old actual-accepted list and historical locations are not current policy.",
+      "evidence": "Full text review only, not a new scan of all cited owners or verification of every original rewrite. Current selected cheat/heir consumers were separately inspected in earlier batches. Lint explicitly heuristic/new-line scoped, not acceptance proof.",
+      "reopen": "A named resurfacing constraint should be compared with live Rulebook and recorded user direction; do not rerun all historical rewrites or reopen already completed audit.",
+      "input_sha256": "2aeefeafc5c9922a1374871433d592a82def0294d94fe77c6ed7949903e49bb5",
+      "input_lines": 220,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          220
+        ]
+      ]
+    },
+    {
+      "path": "docs/RULES_FROM_SCRATCH.md",
+      "ids": [
+        "Rulebook 1-12",
+        "heir",
+        "knowledge carrier",
+        "body distinctions",
+        "fate table",
+        "idle/offline",
+        "CP1-CP5",
+        "detail record",
+        "causal consequence",
+        "source admission"
+      ],
+      "classification": "Direction owner plus proposed source-review method and historical build boundary",
+      "owners": [
+        "docs/RULES_FROM_SCRATCH.md",
+        "docs/RULES_INDEX.md",
+        "docs/SAVES.md"
+      ],
+      "disposition": "Read entire rulebook, answers, later direction updates and extended cross-world detail practice. Preserve actual carrier, world laws, outliers, inheritance of what was left and micro-to-macro causal joins. Clarify observation can be exact, no universal cost or mortality, lawful duplication versus accidental publication, old UI wording superseded and current direction authority. No hidden truth or new world law added.",
+      "evidence": "Fresh full text. Old source fate summaries were not freshly verified and later full-source bodies remain separate. Historical heir build and proposed review schemas do not certify current native consumer or complete claims/debts inheritance.",
+      "reopen": "A selected world detail needs its exact source, real consumer, causal cut, sole state and scoped proof. Keep review aid distinct from engine schema and recorded direction distinct from proposals.",
+      "input_sha256": "42b3dd3fd7d7c5f391de309a1b5f2efc3874dbf07f66c549f78dff9464d91193",
+      "input_lines": 365,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          365
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/RULES_FROM_SCRATCH.md",
+      "heading": "## Design-defaults history reconciliation B142, 2026-11-04",
+      "body": "The entire [archived audit](DESIGN_DEFAULTS_AUDIT.md) and this owner were reviewed. Keep that archive unchanged. Its initial proposed table is followed by Weibao's later applied refinements: knowledge needs a carrier, signature/absence count caps and humble-home caps were removed, body differences are world-specific, and fate follows the selected source. Its dated list of then-current decisions cannot restore the retired one-realm milestone, block selected death/rewind routes or freeze the old original-panel arrangement. Present direction is routed through USER_VISION, the digest, PROJECT and the accepted AD/rulebook owners (AD32, AD35).\n\nRules 5/6 preserve distinct transfer and observation. An actual carrier can retain memory without forced rediscovery; relevance and accuracy in a destination may still change. What an observer sees *can* be wrong, but an actual exact sensor, truthful source or omniscient mechanism need not be deliberately degraded. Do not turn uncertainty into compulsory noise or a universal anti-cheat rule. In-fiction duplication, gain-preserving rewind or costless powerful means can be valid; accidental double publication, corrupted saves and unselected mixing of reset domains remain engineering defects (AD5, AD22, AD38).\n\nThe heir inherits what was actually left, with title jurisdiction, claim, physical access, knowledge and another person's agency separate. The old half-reputation/lesson-paper receipt is its scoped historical implementation, not a universal inheritance fraction or proof of all land/debt/contested claims. Rule 7's age/end sentence does not require mortality where the world grants immortality, and the offline table is a palette qualified by the later OD direction and current actual clock consumer. The old rule-8 separate-window restriction is already superseded by this owner's update and UI_RULES; current task forms retain vanilla play without freezing presentation.\n\nCP1-CP5 and the detail record remain review aids. A reported cause, physical result, learned account, recipient response and later institutional event need their actual links; strong means can legitimately bypass them. Acquiring, reading, practicing, executing, teaching and reproducing may be distinct questions without becoming compulsory stages. Source gaps remain unknown, not forbidden; fixed counts, new resistance costs and compulsory rituals are not added to fill a row. An archived lint pass checks added wording, not authority or all old content. No source-canon, new runtime, persistence or world-completeness claim was verified here.",
+      "before_sha256": "42b3dd3fd7d7c5f391de309a1b5f2efc3874dbf07f66c549f78dff9464d91193",
+      "after_sha256": "ab36694453934aeb61c5fc783d6cd97d2d025d7cc3537a69cba10252fd3e83da"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1209
+}

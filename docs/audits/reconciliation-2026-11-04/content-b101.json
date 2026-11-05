@@ -1,0 +1,194 @@
+{
+  "schema": 1,
+  "batch": "B101",
+  "title": "HP portability receipts and full window/holdings owner review",
+  "at": "2026-11-04T20:53:03.767761+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/HP_G1_PORTABILITY_RECEIPT.md",
+      "ids": [
+        "G1",
+        "checks a–d",
+        "three open seams"
+      ],
+      "classification": "portability delivery or fully reviewed planning owner with qualified successors",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/HP_WHOLE_WORLD_PLAN_2026-11-03.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/OWN_HOLDINGS_PLAN_2026-11-03.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/HP_G1_PORTABILITY_RECEIPT.md"
+      ],
+      "disposition": "Default LOTM generator/compiler output identity is a bounded regression proof; a generator-output comparison excludes the hand-added runner checks by design. HP stub/selector/compile tests initially did not prove native execution. G1b later resolves the named no-HP crosswalk path, and W1–W4 supply selected native HP consumers. Keep explicit world/panel/prefix/district inputs; no zero-LOTM-strings test proves all semantics portable or all future world support.",
+      "evidence": "Complete current document read, including the original owner bodies, inherited qualifications and B100 fold where present. Prior partial coverage is replaced by explicit full body coverage, not by received owner notes.",
+      "reopen": "Only a selected remaining world/route or import defect warrants focused source/runtime work; retain source/history and do not infer acquisition/model cost, fresh worker status or whole-world completion.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "f83943faa934fde39cc3d9c8e2d031f349b7490a78f68ad1ca6cd5a4777a3432",
+      "input_lines": 15,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/HP_G1B_CROSSWALK_RECEIPT.md",
+      "ids": [
+        "G1b",
+        "checks a–d",
+        "three gaps"
+      ],
+      "classification": "portability delivery or fully reviewed planning owner with qualified successors",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/HP_WHOLE_WORLD_PLAN_2026-11-03.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/OWN_HOLDINGS_PLAN_2026-11-03.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/HP_G1B_CROSSWALK_RECEIPT.md"
+      ],
+      "disposition": "Preserve 26 touched ids proposed new with zero mapped as complete routing for that slice, not 26 existing actors/places. Name-matching original school/trade people into canon identities remains invalid. In-memory semantic hash identity differs from CLI provenance files that include script hashes. Later W1–W4 pack mappings supersede zero-mapped status only for touched entities; lead aliases, all-canon catalogue and real private CLI-writing route are not automatically closed.",
+      "evidence": "Complete current document read, including the original owner bodies, inherited qualifications and B100 fold where present. Prior partial coverage is replaced by explicit full body coverage, not by received owner notes.",
+      "reopen": "Only a selected remaining world/route or import defect warrants focused source/runtime work; retain source/history and do not infer acquisition/model cost, fresh worker status or whole-world completion.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "d129a03a7fc72ed71d3f229dace81bdb6da4502327f57bddeb05f05e2608826a",
+      "input_lines": 17,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/HP_G2_PROFILE_RECEIPT.md",
+      "ids": [
+        "G2/G4/G11",
+        "pack-id collision",
+        "checks/decisions/gaps"
+      ],
+      "classification": "portability delivery or fully reviewed planning owner with qualified successors",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/HP_WHOLE_WORLD_PLAN_2026-11-03.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/OWN_HOLDINGS_PLAN_2026-11-03.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/HP_G2_PROFILE_RECEIPT.md"
+      ],
+      "disposition": "Preserve pack namespace/lookup distinction, empty arc fallback, child/guardian state and held source without power. Initial uncalled-domain/unoffered-start/no-browser gaps are superseded for selected W1 native registration, not all starts/worlds. W4 supplies the later owned purse/item consumer. The authored morning clock and world/calendar binding remain qualified; no source grant automatically creates technique/mastery. Original school/trade fingerprint proof applies to its captured inputs, not arbitrary current shared tree.",
+      "evidence": "Complete current document read, including the original owner bodies, inherited qualifications and B100 fold where present. Prior partial coverage is replaced by explicit full body coverage, not by received owner notes.",
+      "reopen": "Only a selected remaining world/route or import defect warrants focused source/runtime work; retain source/history and do not infer acquisition/model cost, fresh worker status or whole-world completion.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "daaebd452304fbef1d98027b1bb0e6c5959e79a17310786c02f40f24a898f36a",
+      "input_lines": 25,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          25
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/HP_WHOLE_WORLD_PLAN_2026-11-03.md",
+      "ids": [
+        "W1–W10",
+        "G1b/G3/G7/holdings",
+        "nine shard headers",
+        "books 2–7",
+        "B100 fold"
+      ],
+      "classification": "portability delivery or fully reviewed planning owner with qualified successors",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/HP_WHOLE_WORLD_PLAN_2026-11-03.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/OWN_HOLDINGS_PLAN_2026-11-03.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/HP_WHOLE_WORLD_PLAN_2026-11-03.md"
+      ],
+      "disposition": "Full owner review closes its prior selected-range residue. Preserve W1–W4 exact receipts and B100 qualifications; W5–W10 and later books remain plans. Header grade B/lint/name accuracy with zero spot-checks is structural, not a semantic read or source qualification. The C-grade hp1c011 problem is unresolved, not repaired by relabeling; later book pressures are general-knowledge leads. “Reading cost $0 because on disk” and “map costs nothing” mean no acquisition cost at most, not zero reading/model/time effort. A shard basename does not define chapter boundaries. A small early map can expose downstream shared seams without requiring complete detailed plans or changing the lead priority. Current user direction controls HP work beside LOTM, not a fresh implicit worker dispatch.",
+      "evidence": "Complete current document read, including the original owner bodies, inherited qualifications and B100 fold where present. Prior partial coverage is replaced by explicit full body coverage, not by received owner notes.",
+      "reopen": "Only a selected remaining world/route or import defect warrants focused source/runtime work; retain source/history and do not infer acquisition/model cost, fresh worker status or whole-world completion.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "67f1e829b648c1c64733fdcaeb3e9a587bd5b3b35a5a814e862c4be7978cedf6",
+      "input_lines": 113,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          113
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/OWN_HOLDINGS_PLAN_2026-11-03.md",
+      "ids": [
+        "P1–P4",
+        "default/dial/reason",
+        "evidence rows",
+        "consequences/writer"
+      ],
+      "classification": "portability delivery or fully reviewed planning owner with qualified successors",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/HP_WHOLE_WORLD_PLAN_2026-11-03.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/OWN_HOLDINGS_PLAN_2026-11-03.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/OWN_HOLDINGS_PLAN_2026-11-03.md"
+      ],
+      "disposition": "Full owner review closes prior selected-range residue. Its original static-registry/only-HP-lead “today” rows are dated diagnosis, superseded by P1 live readers, P2 school/trade and P3 five Gu/Shadow Slave registrations. B100 also confirms W4’s later HP purse/item reader. Display-only veil does not repair model-side spend or provide life-owned vitals, which remain P4. Actor-current-world binding and a declared native-carry case remain useful; raw labels require observer admission. “No new reading, no paid calls” cannot erase the actual bounded owner/source inspection necessary for a new life. No new agent or global display rewrite is selected.",
+      "evidence": "Complete current document read, including the original owner bodies, inherited qualifications and B100 fold where present. Prior partial coverage is replaced by explicit full body coverage, not by received owner notes.",
+      "reopen": "Only a selected remaining world/route or import defect warrants focused source/runtime work; retain source/history and do not infer acquisition/model cost, fresh worker status or whole-world completion.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "e3380d6f165ec69822bee2964878f2653c8890b912e9aa9666cc50f661dd6405",
+      "input_lines": 39,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          39
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/HP_HOLDINGS_P3_RECEIPT.md",
+      "ids": [
+        "P3",
+        "five-life holdings table",
+        "checks 1–9",
+        "A1–A4"
+      ],
+      "classification": "portability delivery or fully reviewed planning owner with qualified successors",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/HP_WHOLE_WORLD_PLAN_2026-11-03.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/OWN_HOLDINGS_PLAN_2026-11-03.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/HP_HOLDINGS_P3_RECEIPT.md"
+      ],
+      "disposition": "Full receipt now read beyond the earlier verification-row sample. Preserve five distinct owners and unit semantics: energy is not currency, badges and stones have actual item holdings, native-stock filters are world-specific. Apprentice/trial/company selected literal imports passed; keeper chores-only import passed, while academy start-plus-minute and keeper-after-buy imports timed out even with registration disabled. That control narrows causality but does not diagnose the import failure or certify unaffected behavior. No prior screenshots per life, two font sizes, fresh Village browser or installed app proof is added by this review. P3’s partial acceptance remains exactly qualified, with shared registration hunks isolated at any authorized commit.",
+      "evidence": "Complete current document read, including the original owner bodies, inherited qualifications and B100 fold where present. Prior partial coverage is replaced by explicit full body coverage, not by received owner notes.",
+      "reopen": "Only a selected remaining world/route or import defect warrants focused source/runtime work; retain source/history and do not infer acquisition/model cost, fresh worker status or whole-world completion.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "685eb29127f9a41066146968104b9cd57c103c4b323a6d87c82c02a4971803d1",
+      "input_lines": 42,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          42
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/HP_WHOLE_WORLD_PLAN_2026-11-03.md",
+      "heading": "## Planning-source reconciliation B101, 2026-11-04",
+      "body": "Full owner review closes its prior selected-range residue. Preserve W1–W4 exact receipts and B100 qualifications; W5–W10 and later books remain plans. Header grade B/lint/name accuracy with zero spot-checks is structural, not a semantic read or source qualification. The C-grade hp1c011 problem is unresolved, not repaired by relabeling; later book pressures are general-knowledge leads. “Reading cost $0 because on disk” and “map costs nothing” mean no acquisition cost at most, not zero reading/model/time effort. A shard basename does not define chapter boundaries. A small early map can expose downstream shared seams without requiring complete detailed plans or changing the lead priority. Current user direction controls HP work beside LOTM, not a fresh implicit worker dispatch.\n\nDefault LOTM generator/compiler output identity is a bounded regression proof; a generator-output comparison excludes the hand-added runner checks by design. HP stub/selector/compile tests initially did not prove native execution. G1b later resolves the named no-HP crosswalk path, and W1–W4 supply selected native HP consumers. Keep explicit world/panel/prefix/district inputs; no zero-LOTM-strings test proves all semantics portable or all future world support.\n\nPreserve 26 touched ids proposed new with zero mapped as complete routing for that slice, not 26 existing actors/places. Name-matching original school/trade people into canon identities remains invalid. In-memory semantic hash identity differs from CLI provenance files that include script hashes. Later W1–W4 pack mappings supersede zero-mapped status only for touched entities; lead aliases, all-canon catalogue and real private CLI-writing route are not automatically closed.\n\nPreserve pack namespace/lookup distinction, empty arc fallback, child/guardian state and held source without power. Initial uncalled-domain/unoffered-start/no-browser gaps are superseded for selected W1 native registration, not all starts/worlds. W4 supplies the later owned purse/item consumer. The authored morning clock and world/calendar binding remain qualified; no source grant automatically creates technique/mastery. Original school/trade fingerprint proof applies to its captured inputs, not arbitrary current shared tree.",
+      "before_sha256": "67f1e829b648c1c64733fdcaeb3e9a587bd5b3b35a5a814e862c4be7978cedf6",
+      "after_sha256": "17170e593a3aee3d1161afda6eb315455809fffbd595f874e6699d33c74568ac"
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/OWN_HOLDINGS_PLAN_2026-11-03.md",
+      "heading": "## Full-owner reconciliation B101, 2026-11-04",
+      "body": "Full owner review closes prior selected-range residue. Its original static-registry/only-HP-lead “today” rows are dated diagnosis, superseded by P1 live readers, P2 school/trade and P3 five Gu/Shadow Slave registrations. B100 also confirms W4’s later HP purse/item reader. Display-only veil does not repair model-side spend or provide life-owned vitals, which remain P4. Actor-current-world binding and a declared native-carry case remain useful; raw labels require observer admission. “No new reading, no paid calls” cannot erase the actual bounded owner/source inspection necessary for a new life. No new agent or global display rewrite is selected.\n\nFull receipt now read beyond the earlier verification-row sample. Preserve five distinct owners and unit semantics: energy is not currency, badges and stones have actual item holdings, native-stock filters are world-specific. Apprentice/trial/company selected literal imports passed; keeper chores-only import passed, while academy start-plus-minute and keeper-after-buy imports timed out even with registration disabled. That control narrows causality but does not diagnose the import failure or certify unaffected behavior. No prior screenshots per life, two font sizes, fresh Village browser or installed app proof is added by this review. P3’s partial acceptance remains exactly qualified, with shared registration hunks isolated at any authorized commit.",
+      "before_sha256": "e3380d6f165ec69822bee2964878f2653c8890b912e9aa9666cc50f661dd6405",
+      "after_sha256": "42314c6811012f2f791773aa5f271376d574ff61bf67df0d0062986cac8448c8"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1288
+}

@@ -1,0 +1,351 @@
+{
+  "schema": 1,
+  "batch": "B247",
+  "title": "Fifteen early UI returns: stable event identity, native suppliers and real verification states",
+  "at": "2026-11-04T23:51:41.980572+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R3_CHECKPOINT.md",
+      "ids": [
+        "R3 final release/parity/source window"
+      ],
+      "classification": "Full historical UI checkpoint/consideration content; final receipts, planned gates and released ownership separated",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "The return explicitly releases runtime writes and keeps the queue held. Five-region composition,24 journey/8 parity/9 supplemental groups and final refreshed565-source/13-asset parity are dated technical receipts, not current candidate/server proof.1786 pass with two inherited failures/three TODOs is not an all-green suite. Two changed sources after the first evidence window were disclosed and affected checks rerun; do not reuse the earlier window as if unchanged.",
+      "evidence": "Entire input delivered in one of three bounded five-file reads. No linked report, frozen candidate, source screenshot or current UI/runtime proof renewed.",
+      "reopen": "Selected current UI consumer changes; inspect exact emit/projection/command/layout owner and applicable current evidence. Do not restart dated workers, ports or review/merge asks.",
+      "input_sha256": "16ba4bbe208133dc9d4ccb5fb1245e057064e0d73585a74d4fc0dca21aa0c72b",
+      "input_lines": 28,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          28
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R5_SOURCE_CONSIDERATIONS.md",
+      "ids": [
+        "F1–F5/C1–C5"
+      ],
+      "classification": "Full historical UI checkpoint/consideration content; final receipts, planned gates and released ownership separated",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "The pinned Proto23 UI source/captures distinguish hover descriptions, enemy/player/world/item ranks, actual native components, clock/weather projection and DEV SEEDED fight. Screenshots do not prove natural progression. Item composition/tooltips already existed; no duplicate item model or copied fight/weather system is justified. Negative modifiers/units remain visible, and recorded log text cannot be enriched from current hidden state. Hover-then-pin remained a recommendation.",
+      "evidence": "Entire input delivered in one of three bounded five-file reads. No linked report, frozen candidate, source screenshot or current UI/runtime proof renewed.",
+      "reopen": "Selected current UI consumer changes; inspect exact emit/projection/command/layout owner and applicable current evidence. Do not restart dated workers, ports or review/merge asks.",
+      "input_sha256": "363b379f2b2ea37be41d407a45f6900c9d270f99de9f1a744f1b1fcaa1420b85",
+      "input_lines": 27,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          27
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R6_CONSIDERATIONS.md",
+      "ids": [
+        "F1–F5/C1–C5"
+      ],
+      "classification": "Full historical UI checkpoint/consideration content; final receipts, planned gates and released ownership separated",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "The source central views inspire existing peer routes, not permanently revealed global buttons. Typed item/skill/milestone payloads preserve known IDs and earned descriptions at emission; untyped old text is not retrospectively matched to a similarly named current item. Existing public numeric readout is compatibility, not universal in-world appraisal. Smart follow is not Freeze. Expanded stat/reference/rail and lossless log grouping remained scoped future options.",
+      "evidence": "Entire input delivered in one of three bounded five-file reads. No linked report, frozen candidate, source screenshot or current UI/runtime proof renewed.",
+      "reopen": "Selected current UI consumer changes; inspect exact emit/projection/command/layout owner and applicable current evidence. Do not restart dated workers, ports or review/merge asks.",
+      "input_sha256": "daa49eb9faeffd29ce6b6795bb561bb73b191b1815f022d08caee3e4c776e939",
+      "input_lines": 27,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          27
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R11_CHECKPOINT.md",
+      "ids": [
+        "adaptive secondary stats/integration/release"
+      ],
+      "classification": "Full historical UI checkpoint/consideration content; final receipts, planned gates and released ownership separated",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Adaptive stable-order secondary rows use the R10 reader and measured remaining You space without reducing text or sorting by changing values. Full Attributes stays available. Recipe/Climb experiment is separate from UI incorporation. The explicit later handoff releases six UI paths; old root ownership is not a current lock and no receiving process was launched by that handoff.",
+      "evidence": "Entire input delivered in one of three bounded five-file reads. No linked report, frozen candidate, source screenshot or current UI/runtime proof renewed.",
+      "reopen": "Selected current UI consumer changes; inspect exact emit/projection/command/layout owner and applicable current evidence. Do not restart dated workers, ports or review/merge asks.",
+      "input_sha256": "34d4e34fa95a31cf93c8484eeaa66a9964abefee4b7e9127706ed0060d252aad",
+      "input_lines": 18,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          18
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R12_CHECKPOINT.md",
+      "ids": [
+        "five recipe clarity operations/acceptance/progress"
+      ],
+      "classification": "Full historical UI checkpoint/consideration content; final receipts, planned gates and released ownership separated",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Have/need, attempts rather than guaranteed output, existing known effects and same-station known related recipes feed the native guarded Craft. Back restores selected recipe/list scroll; inspection spends no time/stock and unknown materials remain unnamed in ARIA.16 focused tests and20 journey groups are attributed evidence; one intermittent R11 regression remained unresolved. Persistence untouched does not supply a new round-trip claim.",
+      "evidence": "Entire input delivered in one of three bounded five-file reads. No linked report, frozen candidate, source screenshot or current UI/runtime proof renewed.",
+      "reopen": "Selected current UI consumer changes; inspect exact emit/projection/command/layout owner and applicable current evidence. Do not restart dated workers, ports or review/merge asks.",
+      "input_sha256": "ffb6360487cab636dcbd428c088dbb63124ca6d7555685039b936fc16176e280",
+      "input_lines": 57,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          57
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R13_CHECKPOINT.md",
+      "ids": [
+        "S1–S5/five scope steps/technical close"
+      ],
+      "classification": "Full historical UI checkpoint/consideration content; final receipts, planned gates and released ownership separated",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "The source-signature omission hid idle place context, and cramped shared center caused lost inventory and duplicate backs. The scoped fix used one task-region rule, visible-list focus, one return and native area-progress text. Trip loot/XP tally remained deferred. A technical-close checkpoint links its report but does not freshly reprove current layout or resurrect that old grid as immutable design.",
+      "evidence": "Entire input delivered in one of three bounded five-file reads. No linked report, frozen candidate, source screenshot or current UI/runtime proof renewed.",
+      "reopen": "Selected current UI consumer changes; inspect exact emit/projection/command/layout owner and applicable current evidence. Do not restart dated workers, ports or review/merge asks.",
+      "input_sha256": "8c48257679e0ae9e19c44d993c5c0f772ff7e49b28122668f9c92a600160d0b2",
+      "input_lines": 52,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          52
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R14_CHECKPOINT.md",
+      "ids": [
+        "P1/B5/matrix/technical close"
+      ],
+      "classification": "Full historical UI checkpoint/consideration content; final receipts, planned gates and released ownership separated",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "List readiness reflects native attempt counts and known blocked summaries without recipe selection or a new state store.64 matched pairs and full-suite pass are attributed to that candidate/report; current build parity was not checked here. Source reservation was released. Subsequent P2/category/navigation work was a ranking, not a new dispatch or adopted priority.",
+      "evidence": "Entire input delivered in one of three bounded five-file reads. No linked report, frozen candidate, source screenshot or current UI/runtime proof renewed.",
+      "reopen": "Selected current UI consumer changes; inspect exact emit/projection/command/layout owner and applicable current evidence. Do not restart dated workers, ports or review/merge asks.",
+      "input_sha256": "73b4429110a722eb42246f4826c8faa3706c90957531c20f640f944cc0f90dcd",
+      "input_lines": 19,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          19
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R15_CHECKPOINT.md",
+      "ids": [
+        "combat-place descriptor/technical close"
+      ],
+      "classification": "Full historical UI checkpoint/consideration content; final receipts, planned gates and released ownership separated",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Focusable native place type tags restore a hidden combat descriptor using native descriptions and effects. Deferred effects-on-you/date/opponent/log work remains separate. The early scope said no main.js edit, but the technical close explicitly records one main read field/import plus new projection; the final path list qualifies the original reservation. Checks chosen in a plan are not all independently evidenced passed by this short close.",
+      "evidence": "Entire input delivered in one of three bounded five-file reads. No linked report, frozen candidate, source screenshot or current UI/runtime proof renewed.",
+      "reopen": "Selected current UI consumer changes; inspect exact emit/projection/command/layout owner and applicable current evidence. Do not restart dated workers, ports or review/merge asks.",
+      "input_sha256": "2ba93a23c12b65b44d0f4bf8d793a4c3d3d5363aa9b4ec171f7d96eadfd6ecbd",
+      "input_lines": 46,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          46
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R16_CHECKPOINT.md",
+      "ids": [
+        "R16a–R16c/default/density/composition/release"
+      ],
+      "classification": "Full historical UI checkpoint/consideration content; final receipts, planned gates and released ownership separated",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Shell default preserves stored presentation choice; density changes chrome rather than font, and context yield preserves manual choices/stable controls. Browser-local presentation choice is distinct from game save. Source reservations and launch ports are historical/released. An initial scoped main/display/save exclusion and later listed actual module paths preserve attribution; no current process or lock inferred.",
+      "evidence": "Entire input delivered in one of three bounded five-file reads. No linked report, frozen candidate, source screenshot or current UI/runtime proof renewed.",
+      "reopen": "Selected current UI consumer changes; inspect exact emit/projection/command/layout owner and applicable current evidence. Do not restart dated workers, ports or review/merge asks.",
+      "input_sha256": "7ae5e1ce3b8874e179dd508c4beaa76c9580cabcbfbf6ce8a6991aa91f90464b",
+      "input_lines": 60,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          60
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R18_CHECKPOINT.md",
+      "ids": [
+        "eight inventory policies/technical close"
+      ],
+      "classification": "Full historical UI checkpoint/consideration content; final receipts, planned gates and released ownership separated",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Counts are native category stack counts independent of search; Favorites overlap deliberately. Known-empty and empty-search states differ. Clear resets category/search, value sort uses shown value with unsellables last in both directions, and browser-local category preference is not gameplay export. Technical close says committed on its own branch, not merged or pushed. Stable-moment sorting/item-key selection and unknown-item policy were deferred.",
+      "evidence": "Entire input delivered in one of three bounded five-file reads. No linked report, frozen candidate, source screenshot or current UI/runtime proof renewed.",
+      "reopen": "Selected current UI consumer changes; inspect exact emit/projection/command/layout owner and applicable current evidence. Do not restart dated workers, ports or review/merge asks.",
+      "input_sha256": "6def79b8e95700cc23cf415b18ab63477f857173beadc5cb79b5a32c5b8aead5",
+      "input_lines": 53,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          53
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R21B_CHECKPOINT.md",
+      "ids": [
+        "UR18 start record/four-step plan/reservation"
+      ],
+      "classification": "Full historical UI checkpoint/consideration content; final receipts, planned gates and released ownership separated",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "This saved-before-edit record contains the user-selected retirement of the creation panel and a proposed Beginning-host/default-hero implementation. Preserve loaded custom biography and fresh-game once-only opening. It is not a completion report; later R21c says its base includes R21b merged, which supports dated integration lineage but not a fresh end-to-end beginning test. Old reservation does not grant current ownership.",
+      "evidence": "Entire input delivered in one of three bounded five-file reads. No linked report, frozen candidate, source screenshot or current UI/runtime proof renewed.",
+      "reopen": "Selected current UI consumer changes; inspect exact emit/projection/command/layout owner and applicable current evidence. Do not restart dated workers, ports or review/merge asks.",
+      "input_sha256": "34905b17e56b0e77c52bc9d3ba4cfe4874f704ff9c1288c4e5ca0564ebf1fc40",
+      "input_lines": 51,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          51
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R21C_CHECKPOINT.md",
+      "ids": [
+        "status-window home/source facts/three-step plan"
+      ],
+      "classification": "Full historical UI checkpoint/consideration content; final receipts, planned gates and released ownership separated",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "The checkpoint diagnoses awakened CH1 being parked because no spec home was supplied and records H3–H6 timeout on older candidates. Proposed spec/layout preference migration unhides the legitimate awakened panel once, while dormant presence stays absent. This is a plan; later R22 names an R21c-merged base, not proof of every H gate or current source behavior. Game-save and browser layout version remain different.",
+      "evidence": "Entire input delivered in one of three bounded five-file reads. No linked report, frozen candidate, source screenshot or current UI/runtime proof renewed.",
+      "reopen": "Selected current UI consumer changes; inspect exact emit/projection/command/layout owner and applicable current evidence. Do not restart dated workers, ports or review/merge asks.",
+      "input_sha256": "e53dd7decdf6876ef1e9a222c1af9fdcd617dee4496ed1ee1adbc7099593dd5b",
+      "input_lines": 43,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          43
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R22_CHECKPOINT.md",
+      "ids": [
+        "combat log facts/five-step plan"
+      ],
+      "classification": "Full historical UI checkpoint/consideration content; final receipts, planned gates and released ownership separated",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Emit-time actor/target/side/slot/letter/outcome snapshots and a single opponent-letter authority support counted adjacent grouping, timestamps and custom-palette contrast. The plan preserves text/RNG/order and classic original text. Knowledge gates and log persistence were deferred; grouping must not leak present hidden identity or merge incompatible histories. Saved-before-edit assertions are not completed tests.",
+      "evidence": "Entire input delivered in one of three bounded five-file reads. No linked report, frozen candidate, source screenshot or current UI/runtime proof renewed.",
+      "reopen": "Selected current UI consumer changes; inspect exact emit/projection/command/layout owner and applicable current evidence. Do not restart dated workers, ports or review/merge asks.",
+      "input_sha256": "d1b6e11e4aefd2b142ec401e690b6d4acd4123e6dc36d3289a2a84657111fdf3",
+      "input_lines": 54,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          54
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R22B_CHECKPOINT.md",
+      "ids": [
+        "SU1–SU8/SU11/board failure/gates"
+      ],
+      "classification": "Full historical UI checkpoint/consideration content; final receipts, planned gates and released ownership separated",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Planned opponent companion panel, selected target facts, shared per-kind hue and compact status window respond to empty space without shifting pending actions. Browser spec2-to3 layout migration preserves placements; not game-save migration. Later R22c names its1cee63d31 base, which is dated branch lineage, not merge/proof of this planned gate set. Its SU namespace is local, not nonhuman SU.",
+      "evidence": "Entire input delivered in one of three bounded five-file reads. No linked report, frozen candidate, source screenshot or current UI/runtime proof renewed.",
+      "reopen": "Selected current UI consumer changes; inspect exact emit/projection/command/layout owner and applicable current evidence. Do not restart dated workers, ports or review/merge asks.",
+      "input_sha256": "e66010635ea0b6b26dc7e4771bac7d6628a1bdaabb6b0c82140c3285c3d4c5ce",
+      "input_lines": 35,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          35
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R22C_CHECKPOINT.md",
+      "ids": [
+        "FC11–FC13/FC2–FC7/FC14/FC17"
+      ],
+      "classification": "Full historical UI checkpoint/consideration content; final receipts, planned gates and released ownership separated",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Names/optional letters, bidirectional same-wave hover links and counted same-kind collapse need distinct occurrence identities. Selected-item detail and action context coexist; combat Usable tab restores the idle choice. Inventory seen marks are browser-local, not durable rewards. User asked to see this before merging; checkpoint remains a scope/failure plan and does not establish approval, merge or current behavior. Encounter tally was deferred.",
+      "evidence": "Entire input delivered in one of three bounded five-file reads. No linked report, frozen candidate, source screenshot or current UI/runtime proof renewed.",
+      "reopen": "Selected current UI consumer changes; inspect exact emit/projection/command/layout owner and applicable current evidence. Do not restart dated workers, ports or review/merge asks.",
+      "input_sha256": "1e1a6d3cd9d9bb63cadac75765bb1cdf96d21783e2e5fb013e387510a70e1d2f",
+      "input_lines": 26,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          26
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/UI_RULES.md",
+      "heading": "## Historical UI-return reconciliation: suppliers, identity and proof (B247, 2026-11-04)",
+      "body": "F1. Fifteen complete historical UI checkpoint/consideration reads (B247) retain the original evidence in place. R3/R11/R14–R16 explicitly released writes; their old reservations/ports are not current live processes. R12 records16 focused tests/20 journey groups with one unresolved intermittent R11 regression; R3 records inherited failures/TODOs alongside passes and a refreshed post-drift source window. R18 says committed on its branch, not merged/pushed. R21b/c/R22/R22b/c are saved-before-edit plans; later merged-base/branch references establish dated lineage, not completion of all proposed gates. AD36/AD43 keep these proof states separate and AD42 keeps human review optional.\n\nF2. Preserve the source-fit lessons: existing native item components, item comparison, effects and clock projection should be surfaced through their actual suppliers; a Proto23 screenshot or UI callback does not establish natural progression, a new fight engine, component assembly, a perk registry or copied weather mechanics. Enemy threat, personal progression, institutional/world rank, quality/rarity and material tier are different measures. Existing renderer numbers do not make universal built-in in-world appraisal accepted. Under AD32 hover/pin/rail recommendations and source-inspired interaction choices remain scoped proposals unless separately selected by current direction.\n\nF3. Item/skill/milestone/combat reports need the producer's actual identity and known payload at event emission. Untyped old item text is not matched retrospectively to today's bag, and later rename/seat switch cannot change an event's subject. Combat grouping retains occurrence count, actor/target and meaningful result distinctions, with accessible wording rather than color alone. Smart follow is not Freeze; collapsed history is not new durable event storage. Any source/target snapshot remains observer-qualified, and cosmetic grouping/reinspection does not replay XP, discovery or output.\n\nF4. Native recipe uses/have/need, attempts versus guaranteed outputs, known result effects and same-station links belong to the native quote/guard and the selected task. Back restores actual selection/list scroll; inspection spends no game time or stock. Inventory category counts are native stacks independent of search, Favorites overlap is intentional, and known-empty differs from empty search. Value sorting follows displayed known value; hidden unsellable base value is not a legal sort oracle. Browser-local category/layout/seen state is different from gameplay save or once-only reward identity.\n\nF5. Current desktop1920/Mac context, actual14/21px, prose-first independent panes and optional art qualify historical1366-first/17.5/21-only targets and old grid arrangements. Keep task/quote/blocker/commit/return and current work reachable, manual arrangement stable, and text size intact. Source-signature/init order, hidden-module routes, actual place tags and awakened panel home are distinct concrete UI seams; reducing chrome or adding a companion panel does not repair missing producer facts. Status visibility is granted by actual awakening, not by layout preference, and losing/hiding its panel is not losing the source itself. AD32 keeps scoped layout experiments as proposals rather than a permanent global five-region mandate; no new runtime or browser proof was added here.",
+      "before_sha256": "084cebc7beb8a4ed45c8335a43f9978544c4390ad0f390a6864e3f0aba4cdbd2",
+      "after_sha256": "6fbef6dab5e4d35dd4c19a748321ce958397c0ccdb6ae35638ecd909fb0789e3"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 936
+}

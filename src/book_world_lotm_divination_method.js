@@ -24,7 +24,7 @@ export function beDivMethodFacts(state,ctx,{enrolled}){
  const out={},seer={};beSeerFacts(state,seer,{enrolled,flag:()=>false});
  const kn=state.simulation?.knowledge?.player||{};
  for(const m of BE_DIV_METHODS){
-  const learned=!!enrolled&&!!kn[beDivMethodKey(m)];
+  const learned=!!enrolled&&kn[beDivMethodKey(m)]?.stage==='understood';
   out[`${BE_DIV_PREFIX}${m}.learned`]=learned;out[`${BE_DIV_PREFIX}${m}.real`]=learned&&seer['lotm.beSeer.supported']===true;
  }
  return out;

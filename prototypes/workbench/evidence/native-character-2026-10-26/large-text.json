@@ -1,0 +1,50 @@
+{
+  "bundleSha256": "da32191acbd8786502e439fb4487780517fda9df8aff1e32c943576db10e9675",
+  "largeText": [
+    {
+      "size": 14,
+      "hereRoute": "passed",
+      "saveStatus": {
+        "ownsSave": true,
+        "restoring": false,
+        "writeBlocked": ""
+      },
+      "detail": 502,
+      "body": 366,
+      "bodyScroll": 737,
+      "recipeFont": "14px",
+      "inventoryFont": "14px"
+    },
+    {
+      "size": 21,
+      "hereRoute": "passed",
+      "saveStatus": {
+        "ownsSave": true,
+        "restoring": false,
+        "writeBlocked": ""
+      },
+      "detail": 306,
+      "body": 114,
+      "bodyScroll": 891,
+      "recipeFont": "21px",
+      "inventoryFont": "21px"
+    }
+  ],
+  "homeActors": [
+    {
+      "variant": "baseline",
+      "text": "ฅ(=･ω･=)ฅ",
+      "scene": "ฅ(=･ω･=)ฅ\n\nMoss · curious · bond 10/100. Moss watches you from the doorway.\n\nMoss · habits and history"
+    },
+    {
+      "variant": "signal",
+      "text": "ฅ(=･ω･=)ฅ",
+      "scene": "ฅ(=･ω･=)ฅ\n\nMoss · curious · bond 10/100. Moss watches you from the doorway.\n\nMoss · habits and history"
+    },
+    {
+      "variant": "folio",
+      "text": "ฅ(=･ω･=)ฅ",
+      "scene": "ฅ(=･ω･=)ฅ\n\nMoss · curious · bond 10/100. Moss watches you from the doorway.\n\nMoss · habits and history"
+    }
+  ]
+}

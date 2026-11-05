@@ -146,3 +146,10 @@ packet-preservation comparisons, task-hunk whitespace/conflict checks and
 are documentation. Existing baseline link failures outside changed hunks are
 not silently relabelled as introduced failures. No runtime test, rebuild,
 browser play, acquisition, worker/chat dispatch, staging, commit, merge or push.
+
+
+## Content reconciliation, 2026-11-04 (B159)
+
+F1–F12, every preserved replacement fragment, QRC1–QRC5 and QRL1/QRL2 were read. Keep this as the bounded October 18 routing receipt: seven queue structures, selected owner sections and 748 filename/text scans are different coverage classes. The 135 wording matches were explicitly candidates, not defects. Neither these counts nor report hashes grant semantic review of unread queue packets, 748 bodies or later current implementations. [The superseded-text companion](QUEUE_PLAN_SUPERSEDED_2026-10-18.md) preserves literal historical fragments and remains unchanged.
+
+Retain the useful dependency distinctions: completed Foundation versus incomplete FA versus paused whole-world horizon; infrastructure source versus native consumer and played proof; external-game-relative locators versus repository links; and old owner records versus live leases. A later incomplete horizon does not reopen every older gate, and an older finite pass does not close the larger horizon. Historical ports, thread IDs, acquisition inventory, M3/M4 status and queue ordering do not dispatch work now. Current PROJECT, direction and specific delivery owners supersede those snapshots. Current AD42 makes human review optional; current desktop UI direction owns viewport and text choices. Underlying queue bodies, leaf reports and source acquisitions still require their own bounded review. No tooling follow-up or runtime wave was launched.

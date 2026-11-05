@@ -27,3 +27,8 @@ Validation: six JSON files parse; finding labels/evidence fields pass; all local
 Work area: `/Users/weiwei/.codex/research/free-text-worlds/`. At final check: 252 MiB allocated, 257,395,944 file bytes; 50 extract artifacts including HASHES.txt, 49 entries hashed. Full disassembly is about 4.48 million listing lines and was not fully read. The stopped full ZIP is incomplete and must not be unpacked as a valid archive. `tools/inspect_urr.py`, `tools/select_urr.py` and `tools/capture.py` support mechanical resumption; TOOLING records one isolated venv install and all dead ends.
 
 Writer boundary held: only this output directory changed by this lane in the repo. No owner, index, runtime, tests, dist or Province War writes; no git add/commit/push. [Province War referral](IMPLEMENTATION_PACKETS.md#proposed-owner-edits-and-referrals) is for its coordinator to register, not an edit to that project.
+
+
+## Milestone qualification, 2026-11-04 (B31)
+
+The one-realm/one-prestige milestone sentence is October14 history, superseded by USER_VISION’s October24 scope direction. Preserve each title’s precise static/public/server/bytecode and runtime evidence limits; do not treat a missing server body or a catalogue-only sibling as shared complete coverage. This reconciliation selects no acquisition, account action, research pass or gameplay implementation.

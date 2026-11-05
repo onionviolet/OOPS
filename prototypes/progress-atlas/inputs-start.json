@@ -1,0 +1,33 @@
+{
+  "captured_at": "2026-11-04T19:47:06.332839+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "inputs": {
+    "docs/GROUND_RULES.md": "b633460ffe376bafa6374e8f1e6d1d233f608ab894eee74582b084878afe86e1",
+    "docs/VISION_DIGEST.md": "fe821cd9a8fbc0e04f84090a5d247f614523f7a9093753a5b7d6592d8380eb94",
+    "PROJECT.md": "a2502597c256c076bd616d29d281f325904848dd422e7bdb10ef3b5c6d23e172",
+    "docs/SYSTEMS_REGISTER.md": "62a0c103312e71c6b9399bd3fc74fa6ec35398aff0a8df1ba242176ea0891262",
+    "docs/systems/README.md": "a5df2d189d261ac1f16e2a2e6e60687978c9daff5f4f29b3b4e314c57342bab0",
+    "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md": "e5a93db5b1fe95ab362949b8f7ed1b3b4f21b77bcdad44866dc31a8fb90f5a21",
+    "docs/reports/PROGRESS_ATLAS_2026-11-04.md": "6b87d0efa530e4a34c001b06bd9ee113b1a62a5fa6bf160953d015c0dfe2bde2",
+    "docs/audits/PROGRESS_EVIDENCE_MAP_2026-11-04.md": "751d804db07b5a0d1019fcc7f646632d89c625f412c9cd1a242d683f4a75c95f",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/IMPLEMENTATION_TRACKER.md": "fe66f3cc582e115aad9aae0c773191dc6ea3276a765e895eaae977eaff0cda9e",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/MECHANISM_BACKLOG.md": "a2dd94c4ebabae2db37a8e9c990f0e9b4b3124d261e7187b75c323ea7e1cec27",
+    "docs/gm/dispatch/foundation-conversations-2026-11-04/CHECKPOINT.md": "1e14e742ec34b9471585c4ffcd6e8a5eb692cc599b483c3a496d4ce05932d6a3",
+    "docs/gm/dispatch/foundation-place-identity-2026-11-04/CHECKPOINT.md": "9e2250a3352e082675688823b125afe45330b3e961ce13605dc2a0d7e8392c9b",
+    "docs/gm/dispatch/foundation-paid-work-2026-11-04/CHECKPOINT.md": "bfe09302ede8a32ac6d052710cf5bbeb6dbca5e82f6896ff41cea3dcd76cb6f9",
+    "docs/reviews/WORLD_MECHANISM_DONORS_2026-11-04.md": "9427cc800c139a33a6e3b17b8e27e46af2679150bd4c7e193f1096822888e184",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/L2B_COMBAT_HEALTH_RECEIPT.md": "1d8fef726f9542471f0dc2b02b2d7500c527abac4afe4faa4f07562c9a8586de",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/R5_IMPLEMENTATION_RECEIPT.md": "e10a721230748a9af37891b0f99e503edfa8e34d7bb450d168883454d7e0d008",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/B8_IMPLEMENTATION_RECEIPT.md": "17d8fca50ca5fc5066a91871703a55343e6dcfa3f429402d594b970e451a1721",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3AC_IMPLEMENTATION_RECEIPT.md": "f6eefa26579b5c6c7ed514c1e507efe79d89ebf748b4032535a858fb264df8e2",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/HP_WINDOW4_RECEIPT.md": "2501a3d4eacd8e537a93b4bdff8562544fcaee07e73e91e2ef22bd62b56023a8",
+    "src/world_pack_registry.js": "ae8d400f7bd83793100b65ec8fd6daa3ef25ae27292a502c665d82aa0ef1c875",
+    "src/continuation_state.js": "62c7d6abe7380a6dfd4d2d887038f50a54052e3bfd4b0bd38491892def48bf19",
+    "src/book_world_beginning_registration.js": "42dbcf04bf816a3b6ec72a17027df96efe2269369bce85500c99695ec4f3e5f4",
+    "src/cast_topic_talk.js": "51e27c244125d617b18dbedfb9234d4d8a2da97a631b816729506459a961b3b0",
+    "src/structured_ability_runtime.js": "387aabb4cdafc77852b3c7af16674d6c1ea46776c730aaea8e5f15e6c0e6da9d",
+    "src/place_acts.js": "c3925087656cd3fdea194faa3ddf0f812fb276644d186db65d5f9fc6fa943c18",
+    "src/book_world_lotm_host.js": "8e69d2099b58945fce2399abc9ed89196cd19bd355d968ac33478cf50a2183d4",
+    "src/main.js": "3774610d4868b272452182cf8dc94418f0d6604fc9a0b413f580ec6604fa8cb6"
+  }
+}

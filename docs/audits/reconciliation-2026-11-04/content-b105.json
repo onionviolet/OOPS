@@ -1,0 +1,203 @@
+{
+  "schema": 1,
+  "batch": "B105",
+  "title": "Rule redirect preservation and startup/workflow authority",
+  "at": "2026-11-04T20:57:29.119019+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/BODY_AND_HEALTH_RULES.md",
+      "ids": [
+        "BHR moved stub"
+      ],
+      "classification": "intentional compatibility pointer, preserve in place",
+      "owners": [
+        "docs/DOMAIN_RULES.md#body-and-health-rules",
+        "docs/RULES_INDEX.md"
+      ],
+      "disposition": "All three lines reviewed: intentional moved-owner stub retains old links and original BHR codes. Current DOMAIN_RULES heading exists. Keep the pointer, do not delete or duplicate its rulebook. This full stub read grants no full DOMAIN_RULES review.",
+      "evidence": "Complete three-line stub and owning heading existence inspected; no runtime or whole rule-family semantic coverage inferred.",
+      "reopen": "Only an actual broken redirect or changed canonical owner needs repair.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "c578097e468a39bf8363b5853e4c71ebb8a6e94e52b41ab3608a830bce1a5397",
+      "input_lines": 3,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "path": "docs/COMBAT_RULES.md",
+      "ids": [
+        "CBR moved stub"
+      ],
+      "classification": "intentional compatibility pointer, preserve in place",
+      "owners": [
+        "docs/DOMAIN_RULES.md#combat-rules",
+        "docs/RULES_INDEX.md"
+      ],
+      "disposition": "All three lines reviewed: intentional moved-owner stub retains old links and original CBR codes. Current DOMAIN_RULES heading exists. Keep the pointer, do not delete or duplicate its rulebook. This full stub read grants no full DOMAIN_RULES review.",
+      "evidence": "Complete three-line stub and owning heading existence inspected; no runtime or whole rule-family semantic coverage inferred.",
+      "reopen": "Only an actual broken redirect or changed canonical owner needs repair.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "c0f2c0f1a44d1f82d252e13a704f1df81adecf4b15ed50e3f6fed7b7bca08007",
+      "input_lines": 3,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "path": "docs/ECONOMY_RULES.md",
+      "ids": [
+        "ECR moved stub"
+      ],
+      "classification": "intentional compatibility pointer, preserve in place",
+      "owners": [
+        "docs/DOMAIN_RULES.md#economy-rules",
+        "docs/RULES_INDEX.md"
+      ],
+      "disposition": "All three lines reviewed: intentional moved-owner stub retains old links and original ECR codes. Current DOMAIN_RULES heading exists. Keep the pointer, do not delete or duplicate its rulebook. This full stub read grants no full DOMAIN_RULES review.",
+      "evidence": "Complete three-line stub and owning heading existence inspected; no runtime or whole rule-family semantic coverage inferred.",
+      "reopen": "Only an actual broken redirect or changed canonical owner needs repair.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "2fd70247cd1ff84c49a55e16ac036481f299f30ef11f387e6dce04d5f9d2fa15",
+      "input_lines": 3,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "path": "docs/PRESENCE_AND_INTERACTION_RULES.md",
+      "ids": [
+        "PIR moved stub"
+      ],
+      "classification": "intentional compatibility pointer, preserve in place",
+      "owners": [
+        "docs/DOMAIN_RULES.md#presence-and-interaction-rules",
+        "docs/RULES_INDEX.md"
+      ],
+      "disposition": "All three lines reviewed: intentional moved-owner stub retains old links and original PIR codes. Current DOMAIN_RULES heading exists. Keep the pointer, do not delete or duplicate its rulebook. This full stub read grants no full DOMAIN_RULES review.",
+      "evidence": "Complete three-line stub and owning heading existence inspected; no runtime or whole rule-family semantic coverage inferred.",
+      "reopen": "Only an actual broken redirect or changed canonical owner needs repair.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "cc9496d7c55f725f4e0b010f9693c41f9b6232c52ce2a913411fbd98d09b9608",
+      "input_lines": 3,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "path": "docs/SKILL_AND_LEARNING_RULES.md",
+      "ids": [
+        "SLR moved stub"
+      ],
+      "classification": "intentional compatibility pointer, preserve in place",
+      "owners": [
+        "docs/DOMAIN_RULES.md#skill-and-learning-rules",
+        "docs/RULES_INDEX.md"
+      ],
+      "disposition": "All three lines reviewed: intentional moved-owner stub retains old links and original SLR codes. Current DOMAIN_RULES heading exists. Keep the pointer, do not delete or duplicate its rulebook. This full stub read grants no full DOMAIN_RULES review.",
+      "evidence": "Complete three-line stub and owning heading existence inspected; no runtime or whole rule-family semantic coverage inferred.",
+      "reopen": "Only an actual broken redirect or changed canonical owner needs repair.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "ac81db46050093628c51d3dd654aa8e9e70d5fe47b73a8d8d2c869af27e72674",
+      "input_lines": 3,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "path": "docs/AGENT_USAGE_RULES.md",
+      "ids": [
+        "AU1–AU15",
+        "source coverage/stopping",
+        "illustrative 37-shard plan",
+        "instruction-only enforcement"
+      ],
+      "classification": "standing workflow or mixed-status digest with authority correction",
+      "owners": [
+        "docs/AGENT_USAGE_RULES.md",
+        "docs/RULES_INDEX.md"
+      ],
+      "disposition": "AU1–AU15 are standing cost/coverage workflow, not proof of host-enforced quota or measured savings. Preserve one finite shared plan, pilot included, exact unread/truncated spans, fresh short source extractors, cheap supported routing, repair reservations and source/usage/context distinctions. Full-book plan versus exploratory envelope are different scopes. Original cached traffic/account-meter jump and missing launcher are historical audit observations; no new current installation/usage claim or running-worker action follows. Current host restrictions apply to delegation. This reconciliation’s finite document intake does not acquire/read the raw novel corpus or spawn workers; reviewing a source report never upgrades its underlying primary coverage.",
+      "evidence": "Complete current original body read. Ground digest FND5 and its existing register description corrected from inspected AD51/AR11; reviewed new hunk text explicitly. Original older inputs remain in intake/history, no underlying broad audit credit.",
+      "reopen": "Only changed user/host direction or a specific workflow contradiction reopens these summaries; no global quota controller, worker wave or new gate is installed.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "7bc4bd4b2930d2b27ce8eec33f525904922b25bb72ebc577dcd67881adb85f42",
+      "input_lines": 44,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          44
+        ]
+      ]
+    },
+    {
+      "path": "docs/GROUND_RULES.md",
+      "ids": [
+        "accepted authority/process",
+        "PRF1–PRF8 proposed",
+        "FLR1–FLR6 accepted",
+        "FND1–FND5 proposed",
+        "CX1–CX8 accepted"
+      ],
+      "classification": "standing workflow or mixed-status digest with authority correction",
+      "owners": [
+        "docs/GROUND_RULES.md",
+        "docs/RULES_INDEX.md"
+      ],
+      "disposition": "Full digest read separates accepted authority/FLR/process/CX from proposed PRF/FND prompts. FND5’s old sentence, “The content DSL grows only by a second consumer from a second world; otherwise add rows over existing verbs,” conflicted with later accepted AD51 if treated as a prerequisite. Its summary and existing rules-register description now follow AD51: design from known reasonable shared world needs, then validate/revise with a second different world, keeping differences local. No new accepted rule/code or additional gate is created. Blank proposed fields do not halt authorized work. FLR route can be a named fixture; human review, installed state, mobile and tracked-dist replacement are not universal technical floor requirements. Content sampling inherits the proven mechanism’s scope, never proof of changed semantics or every scenario.",
+      "evidence": "Complete current original body read. Ground digest FND5 and its existing register description corrected from inspected AD51/AR11; reviewed new hunk text explicitly. Original older inputs remain in intake/history, no underlying broad audit credit.",
+      "reopen": "Only changed user/host direction or a specific workflow contradiction reopens these summaries; no global quota controller, worker wave or new gate is installed.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "15226b8e070f07cdd3235460d65c00715c089bd0d1410b3c2576ff2df900add7",
+      "input_lines": 77,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          77
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/GROUND_RULES.md",
+      "heading": "## FND5 authority reconciliation B105, 2026-11-04",
+      "body": "Full digest read separates accepted authority/FLR/process/CX from proposed PRF/FND prompts. FND5’s old sentence, “The content DSL grows only by a second consumer from a second world; otherwise add rows over existing verbs,” conflicted with later accepted AD51 if treated as a prerequisite. Its summary and existing rules-register description now follow AD51: design from known reasonable shared world needs, then validate/revise with a second different world, keeping differences local. No new accepted rule/code or additional gate is created. Blank proposed fields do not halt authorized work. FLR route can be a named fixture; human review, installed state, mobile and tracked-dist replacement are not universal technical floor requirements. Content sampling inherits the proven mechanism’s scope, never proof of changed semantics or every scenario.",
+      "before_sha256": "15226b8e070f07cdd3235460d65c00715c089bd0d1410b3c2576ff2df900add7",
+      "after_sha256": "2cea999a968627c57136a877a9676ef50560a1043f9fdc31f71e16beaf6423cb"
+    },
+    {
+      "path": "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+      "heading": "### Standing workflow and redirect disposition B105",
+      "body": "AU1–AU15 are standing cost/coverage workflow, not proof of host-enforced quota or measured savings. Preserve one finite shared plan, pilot included, exact unread/truncated spans, fresh short source extractors, cheap supported routing, repair reservations and source/usage/context distinctions. Full-book plan versus exploratory envelope are different scopes. Original cached traffic/account-meter jump and missing launcher are historical audit observations; no new current installation/usage claim or running-worker action follows. Current host restrictions apply to delegation. This reconciliation’s finite document intake does not acquire/read the raw novel corpus or spawn workers; reviewing a source report never upgrades its underlying primary coverage.\n\nFive full moved-rule stubs retain their links and canonical DOMAIN_RULES headings; their rulebook content remains separate coverage. No deletions or replacement rulebook are needed.",
+      "before_sha256": "5a14cb7d61017914e7da6bd0b30149d31ba31d5d19fb3182f354e2abe9cd3459",
+      "after_sha256": "e894531036b6dbcf0b53713b84b733161f55e44b9d47c0bfa16fafc61529faaa"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1269
+}

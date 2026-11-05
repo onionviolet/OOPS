@@ -1,0 +1,155 @@
+{
+  "schema": 1,
+  "batch": "B299",
+  "title": "Panel, lead-life and site rules: current first seam, developer scope and desktop proof",
+  "at": "2026-11-05T01:07:56.183285+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/PANEL_KIT.md",
+      "ids": [
+        "Descriptor fields/roles",
+        "K1–K7/discovery/restore",
+        "CH1–CH10",
+        "PK1–PK12",
+        "NAV implementation"
+      ],
+      "classification": "Panel contract/proposal and actual navigation seam receipt, with later scoped extension ideas",
+      "owners": [
+        "docs/PANEL_KIT.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Read all133 original lines, every field/role/check/PK row. Preserve truthful discovery/eligibility, no repeated arrival on reconstruction, browser preference versus save fact, exact subject/gesture and return ownership. K7 is doc/card structure only; PK/CH proposals are not adopted or runtime. Refresh K6 older1440target to currentUI_RULES without renewing proof.",
+      "evidence": "Accepted-by-gate proposal label does not prove user taste acceptance or a complete native panel. NAV report linked as dated evidence; current runtime/source not reread by proxy. Current desktop/reading targets and optional human review qualify old acceptance text.",
+      "reopen": "Use actual selected panel source/public model, current viewport/text requirements and existing commands for future work. No new icon/art quota, cheat C0 foundation wave or panel API chosen.",
+      "input_sha256": "1161500a407fa355c10e7d5e24ab0ed86d57aecbc60fb8dc695eee961059915c",
+      "input_lines": 133,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          133
+        ]
+      ]
+    },
+    {
+      "path": "docs/LEAD_LIFE_RULES.md",
+      "ids": [
+        "A accepted direction rows",
+        "B batched CLR/SUI/RPT scope",
+        "C delegated grain/fold resolution",
+        "D proposals excluded",
+        "E checks",
+        "CLR1–CLR13",
+        "G top-down/developer clarification"
+      ],
+      "classification": "Accepted direction owner with stale CLR7 second-case gate and incomplete latest developer-scope uptake",
+      "owners": [
+        "docs/LEAD_LIFE_RULES.md",
+        "docs/RULES_INDEX.md",
+        "docs/LEAD_LIFE_GUIDE.md"
+      ],
+      "disposition": "Read all109 original lines, every direction/default/proposal/CLR row and laterGclarification. Correct CLR7 under current AD51, preserve original row as history/amendment, clarify existing direction versus implementation-maintenance update discipline, and propagate into register/router. Fold Nov3developer route/Harry parallel scope without changing PROJECT priorities or adopting LSD proposals.",
+      "evidence": "Current RULES_INDEX AD51 and USER_VISION7248–7260 read for exact later authority; secondworldvalidatesnotprecondition. Existing PROJECTHarry/Klein focus seen, not fresh campaignproof. SUI1–19alreadybinding defaults underbatchedyes, not merely proposals; Dstillunselected schema/kernel lists no blanket adoption.",
+      "reopen": "Implement only current selected lead/ordinary-life consumer. No new commit/delegation authority, reader/task resumption, runtime test or full-world qualification from rulebook reading.",
+      "input_sha256": "f2a992ac166e3d5a67be87211bac296b0e42c10f3cab0101ed2c55fab7947932",
+      "input_lines": 109,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          109
+        ]
+      ]
+    },
+    {
+      "path": "docs/SITE_AND_EXPLORATION_RULES.md",
+      "ids": [
+        "SR1–SR24",
+        "Applying without another design interview",
+        "Domain owner list"
+      ],
+      "classification": "Standing site principles already consistent with actual means, scoped knowledge and selected consumers",
+      "owners": [
+        "docs/SITE_AND_EXPLORATION_RULES.md",
+        "docs/MEANS_AND_APPRAISAL.md",
+        "docs/MAKING_RULES.md"
+      ],
+      "disposition": "Read all79 original lines and every rule/prevents row. Retain lead/entrance/survey/method distinctions, maps as dated scoped claims, validated firsttravel directions, custody versus access/ownership, intrinsic versus external support, and restoration purpose. No change needed: SR23 already ties shared infrastructure to actual consumers without a universal second-case gate.",
+      "evidence": "Design constraints only; no automatic selection/adoption of linked dungeon/ecology/library proposals. Same substantive distinctions confirmed against B296/B298. No actual site/map/secret/runtime or source reviewed by this file.",
+      "reopen": "Choose coherent reversible selected-site behavior using existing authority. No generic geology/ecology/theology prerequisite, forced restoration/loot, caretaker debt or fresh source check invented.",
+      "input_sha256": "00fe8a22839a62326077f68cd9b94e4716e065e21f87536a32f16e8cc5aac3ca",
+      "input_lines": 79,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          79
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/PANEL_KIT.md",
+      "heading": "## Content reconciliation B299: contract status and selected panel evidence",
+      "body": "The full original 133-line kit was reviewed. Descriptor/registry/navigation contracts, ten cheat-screen proposals, K1–K7 and PK1–PK12 have different status. K7 verifies document/card shape; it does not establish discovery, focus, live navigation, runtime ownership, a rebuilt journey or user visual judgment. Gate-qualified proposal is not permission to call every PK or cheat card implemented. Actual persisted discovery and present eligibility remain separate from browser-owned placement/sort preferences. A loaded known panel does not emit a new arrival cue or gain a source.\n\nKeep the useful gesture and subject rules: one actual intended subject, stable focus, exact-copy stock, present quote revalidation, historical receipt identity, and Back returning to the prior filter/selection. Opening inspection differs from stopping native work. A setting, empty-state label, count, silhouette, accessible name or style cannot expose an undiscovered panel or source. Known unavailable panels may give their supported specific reason. Current prose-first optional illustration does not require a new portrait, icon or decorative shell for every quiet effect.\n\nK6 is refreshed to current [UI rules](UI_RULES.md) targets rather than the older1440height. That is a checklist correction, not fresh viewport evidence. Per-panel selected checks use AD36 and the relevant AD43 result; proposed K-style examples do not demand duplicate suites or proof of every adjacent panel. AD42 keeps human taste separate and optional. The old Foundation/C0 naming and screen-field proposals do not reopen a foundation phase or assign runtime writers; current source and actual consumer decide activation. No renderer, panel API, gameplay, save field or native browser proof changed here.",
+      "before_sha256": "1161500a407fa355c10e7d5e24ab0ed86d57aecbc60fb8dc695eee961059915c",
+      "after_sha256": "72e56ee598ee5bc55e22af8157bfd0deb129ddddabcabf9cd75590b0ad42c918"
+    },
+    {
+      "path": "docs/LEAD_LIFE_RULES.md",
+      "heading": "## Content reconciliation B299: AD51 and developer build-through scope",
+      "body": "The complete original 109-line rulebook was reviewed. The old CLR7 row said a new verb needs a second case. [AD51](RULES_INDEX.md#accepted-direction-rules-ad) and Weibao's [later direction](USER_VISION.md#reasonable-things-get-abstracted-2026-11-03) qualify that wording: design the first useful shared mechanism when justified by known worlds, then validate/revise with another actual world. CLR7 and the rules register/router are updated accordingly, with the exact previous row preserved in this task's amendment history. This changes application of existing direction, not its authority, selection of a mechanism or current build order.\n\nThe existing top-down direction accounts for the known whole trajectory while delivering complete bounded arcs; it does not require prebuilding every later faculty. The [November3 clarification](USER_VISION.md#protagonist-playthroughs-as-the-developer-build-through-2026-11-03) keeps each protagonist route as a developer build-through for ordinary and alternative lives, not the default player identity, knowledge or entire-world denominator. The [Harry selection](USER_VISION.md#harry-potter-protagonist-playthrough-starts-2026-11-03) adds his route alongside Klein while retaining LOTM-first and mechanism ownership. Forced-canon defaults belong to that selected run mode; ordinary lives do not inherit all locks or a compulsory main quest.\n\nPreserve CLR6's fold-loss test: choices, inputs/outputs, time/order, participants/place, outcome and noticed evidence survive a useful compression; lossy coverage stays a gap. The delegated grains/steps resolution and SUI1–SUI19/RPT binding defaults already have their stated authority. The remaining LSD fields, formulae, kernel/schema rounds and implementation sequence are proposals except for explicitly listed later uptake. A batched yes does not adopt material appended afterward. Current AD52 preserves meaningful choices/local consequences while compressing repeated work; long play remains welcome.\n\nPublication class, absent-versus-false, actual source paragraph, one location/state owner, natural-versus-fixture proof and no autonomous lane commits remain applicable. Old model/reader methods, schema1.5 later-option text and overnight coordination records do not launch new workers or grant current commit rights. The maintenance-check wording is clarified so actual direction changes propagate through their owners, while a routine application correction updates affected rules/router without fabricating new user direction or changing unrelated PROJECT priorities. No runtime source, primary novel, current campaign coverage or player journey was verified by this rulebook pass.",
+      "before_sha256": "f2a992ac166e3d5a67be87211bac296b0e42c10f3cab0101ed2c55fab7947932",
+      "after_sha256": "de5d96af3cadbf6c4525d60421c4d83822759352cc4a6a421e5382d99038dee3"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 823,
+  "post_record_amendments": [
+    {
+      "path": "docs/LEAD_LIFE_RULES.md",
+      "from": "| CLR7 | Fix a gap at the cheapest layer; a new verb needs a second case | FND5, IPC60, AD38 |",
+      "to": "| CLR7 | Fix a gap at the cheapest useful layer. Design a shared seam for the first actual consumer when known worlds justify it; a second different world validates or revises it, not a precondition (AD51) | FND5, IPC60, AD38, AD51 |",
+      "reason": "Reconcile old second-case gate with the explicit November3 AD51 direction; no new rule code."
+    },
+    {
+      "path": "docs/LEAD_LIFE_RULES.md",
+      "from": "- A change to a row updates USER_VISION, PROJECT.md's summary and this file together, and keeps\n  superseded wording as dated history.",
+      "to": "- A direction change updates USER_VISION and this file, and the affected PROJECT.md summary\n  when its current focus or standing priority changes; keep superseded wording as dated history.\n  An application clarification follows existing authority and updates affected owners/router without\n  inventing new user direction or changing unrelated priorities.",
+      "reason": "Align maintenance with existing authority and project instruction: PROJECT changes for changed focus/standing priorities, not every application edit."
+    },
+    {
+      "path": "docs/PANEL_KIT.md",
+      "from": "| K6 Fit | Rebuilt fresh-origin browser at 1920x1080 and 1440x900 (1366x768 retired 2026-10-19); visible panel headers reachable, text contrast >=4.5:1, no panel or page horizontal overflow |",
+      "to": "| K6 Fit | Rebuilt fresh-origin browser at 1920x1080 and the current laptop/text targets in [UI_RULES](UI_RULES.md); visible panel headers reachable, text contrast >=4.5:1, no panel or page horizontal overflow |",
+      "reason": "Replace superseded1440target with live desktop/laptop/text owner; no new browser evidence."
+    },
+    {
+      "path": "docs/RULES_INDEX.md",
+      "from": "| Cast-lives rules | CLR1–CLR13, SUI1–SUI19, RPT1–RPT14 | CLR, SUI and RPT1–RPT12 accepted as binding defaults 2026-10-28 (Weibao's \"Sure\" to the batched list, CL281); RPT13–RPT14 standing 2026-10-30 (his \"make long standing rules\") | Lead-life lanes: briefs, publication class, fold-loss, coordinator review (CLR); scene UI (SUI); what the cast writes into Reports (RPT) | [Lead-life rules F](LEAD_LIFE_RULES.md#f-lane-rules-clr1-clr13) (CLR), [UI rules, scene and report](UI_RULES.md#scene-and-report-rules-sui-rpt) (SUI, RPT), [lead-life guide](LEAD_LIFE_GUIDE.md) (reading aid: matrix, order, contradictions; proposal) |",
+      "to": "| Cast-lives rules | CLR1–CLR13, SUI1–SUI19, RPT1–RPT14 | CLR, SUI and RPT1–RPT12 accepted as binding defaults 2026-10-28 (Weibao's \"Sure\" to the batched list, CL281); RPT13–RPT14 standing 2026-10-30 (his \"make long standing rules\") | Lead-life lanes: briefs, publication class, fold-loss, coordinator review and AD51-qualified first consumer seam (CLR); scene UI (SUI); what the cast writes into Reports (RPT) | [Lead-life rules F](LEAD_LIFE_RULES.md#f-lane-rules-clr1-clr13) (CLR), [UI rules, scene and report](UI_RULES.md#scene-and-report-rules-sui-rpt) (SUI, RPT), [lead-life guide](LEAD_LIFE_GUIDE.md) (reading aid: matrix, order, contradictions; proposal) |",
+      "reason": "Keep registered CLR router description consistent with corrected CLR7."
+    },
+    {
+      "path": "docs/RULES_INDEX.md",
+      "from": "| Lead-life rules | none | Accepted lines only, created 2026-10-29; defaults, open to change with a better idea | The accepted direction for a protagonist's life: lead-first, forced canon run as a default, windows over hours, mechanisms first, per-world canon resistance, optional main goal; how a rule changes | [LEAD_LIFE_RULES](LEAD_LIFE_RULES.md) |",
+      "to": "| Lead-life rules | none | Accepted lines only, created 2026-10-29; defaults, open to change with a better idea | The accepted direction for a protagonist's life: lead-first developer route, ordinary/alternative coverage, forced canon run as a run-mode default, windows over hours, mechanisms first, per-world canon resistance, optional main goal; how a rule changes | [LEAD_LIFE_RULES](LEAD_LIFE_RULES.md) |",
+      "reason": "Reflect current developer/player scope in accepted owner register; no new direction."
+    },
+    {
+      "path": "docs/RULES_INDEX.md",
+      "from": "| A book-world adaptation or protagonist developer route | AD44 (lead-first playthrough is the main line), CLR1–CLR13, SUI1–SUI19 and RPT1–RPT14 (cast-lives defaults; RPT13: the world ships its Reports voice), LSD1–LSD475 (top-down lead-life systems, proposed; read via the [lead-life guide](LEAD_LIFE_GUIDE.md); accepted lines in [LEAD_LIFE_RULES](LEAD_LIFE_RULES.md)), WA54–WA60 (UI/engine contracts, coordinated sharing and qualified lore/context/result tests), Rulebook 2–3, AD1–AD5, MR11–MR15, SR1–SR3; WA1–WA24 for turning the source into a pack (WA22–WA24: every mention placed, dated whereabouts, forward anchors); WA25–WA41 (accepted, adjustable), WA48–WA50 (accepted: whole-source seams, gap register, dated character records) and proposed WA42–WA47 for lead runs (classed actions, loops, untaken options, shard gates, conflicts, stats, allies, codifying, environment, events, fills, talks, two-layer state, extraction scope, relationships, tiers, hand-off); WER1–WER17 for how players enter it | [Rulebook precedent](RULES_FROM_SCRATCH.md#cross-world-audit-precedent-special-rules-and-little-details-2026-10-12), [completion standard](WORLD_COMPLETION_STANDARD.md), source research; WA8/WA12 distinguish source, knowledge and built coverage; floors allow selected slices; run order from source to past canon: [deep world workflow](DEEP_WORLD_WORKFLOW_2026-10-19.md) (proposal) |",
+      "to": "| A book-world adaptation or protagonist developer route | AD44 (lead-first developer build-through; ordinary/alternative starts retain separate scope), AD51 (first useful shared seam; another world validates), CLR1–CLR13, SUI1–SUI19 and RPT1–RPT14 (cast-lives defaults; RPT13: the world ships its Reports voice), LSD1–LSD475 (top-down lead-life systems, proposed; read via the [lead-life guide](LEAD_LIFE_GUIDE.md); accepted lines in [LEAD_LIFE_RULES](LEAD_LIFE_RULES.md)), WA54–WA60 (UI/engine contracts, coordinated sharing and qualified lore/context/result tests), Rulebook 2–3, AD1–AD5, MR11–MR15, SR1–SR3; WA1–WA24 for turning the source into a pack (WA22–WA24: every mention placed, dated whereabouts, forward anchors); WA25–WA41 (accepted, adjustable), WA48–WA50 (accepted: whole-source seams, gap register, dated character records) and proposed WA42–WA47 for lead runs (classed actions, loops, untaken options, shard gates, conflicts, stats, allies, codifying, environment, events, fills, talks, two-layer state, extraction scope, relationships, tiers, hand-off); WER1–WER17 for how players enter it | [Rulebook precedent](RULES_FROM_SCRATCH.md#cross-world-audit-precedent-special-rules-and-little-details-2026-10-12), [completion standard](WORLD_COMPLETION_STANDARD.md), source research; WA8/WA12 distinguish source, knowledge and built coverage; floors allow selected slices; run order from source to past canon: [deep world workflow](DEEP_WORLD_WORKFLOW_2026-10-19.md) (proposal) |",
+      "reason": "Propagate current developer scope and AD51 first-consumer application into actual book-world router."
+    },
+    {
+      "path": "docs/RULES_INDEX.md",
+      "from": "| Lead-life rules | none | Accepted lines only, created 2026-10-29; defaults, open to change with a better idea | The accepted direction for a protagonist's life: lead-first developer route, ordinary/alternative coverage, forced canon run as a run-mode default, windows over hours, mechanisms first, per-world canon resistance, optional main goal; how a rule changes | [LEAD_LIFE_RULES](LEAD_LIFE_RULES.md) |",
+      "to": "| Lead-life rules | none | Accepted lines only (AD44, AD51), created 2026-10-29; defaults, open to change with a better idea | The accepted direction for a protagonist's life: lead-first developer route, ordinary/alternative coverage, forced canon run as a run-mode default, windows over hours, mechanisms first, per-world canon resistance, optional main goal; how a rule changes | [LEAD_LIFE_RULES](LEAD_LIFE_RULES.md) |",
+      "reason": "Add existing authority codes on changed accepted-owner register row, as required by document lint."
+    }
+  ]
+}

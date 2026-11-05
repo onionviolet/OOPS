@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "batch": "B139",
+  "title": "UI experience and foundation delivery chronology",
+  "at": "2026-11-04T21:48:07.809594+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/UI_EXPERIENCE_AUDIT_2026-10-12.md",
+      "ids": [
+        "F1-F9",
+        "D1-D4",
+        "W1-W8",
+        "A1-A5"
+      ],
+      "classification": "Historical multi-candidate opening and interaction audit with thematic palette",
+      "owners": [
+        "docs/UI_EXPERIENCE_AUDIT_2026-10-12.md",
+        "docs/UI_RULES.md",
+        "DESIGN.md"
+      ],
+      "disposition": "Read all findings, exact candidate compilation boundaries, arrangements, whimsy and interaction proposals. Preserve combined-interface hierarchy, independent editing surfaces, useful scroll ownership, factual save errors and actual-history-based texture. Linked visual artifacts remain separate, and no old source reservation, paused status or taste gate controls current execution.",
+      "evidence": "Full text review only. The report itself separates rebuilt public snapshot from two inspected frozen candidates, actual patrol start from settlement, and generic control inventory from broken-control count. No new image, audio, preference apply or gameplay check.",
+      "reopen": "Use a named current populated route for any reproduced defect; apply current prose-first/editorial direction and AD42 rather than launching the old A1-A5 wave.",
+      "input_sha256": "903963c5fdd08b3a03a9db9c9391bf101ce10e16a7abb795e10422b9e53a3937",
+      "input_lines": 206,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          206
+        ]
+      ]
+    },
+    {
+      "path": "docs/UI_FOUNDATION_DESIGN_ROUND_2026-10-15.md",
+      "ids": [
+        "Q4-Q6",
+        "FD1-FD3",
+        "OA1-OA8",
+        "F1-F3",
+        "D1",
+        "A1",
+        "M1",
+        "S1-S3",
+        "C1",
+        "V1",
+        "SV1-SV5",
+        "R2",
+        "R3"
+      ],
+      "classification": "Direction-bearing historical design owner with successive technical returns",
+      "owners": [
+        "docs/UI_FOUNDATION_DESIGN_ROUND_2026-10-15.md",
+        "docs/UI_RULES.md",
+        "DESIGN.md"
+      ],
+      "disposition": "Read complete history through R3. Later foundation delivery supersedes the live PID/no report/failing focus snapshot; C1/V1/R2/R3 have distinct source and proof scopes, inherited suite failures and no inferred visual acceptance. Preserve explicit Proto23 grouping and shell request, exact-layout flexibility, native owners and saved-layout choices. Old queues and 1366 acceptance are not current direction.",
+      "evidence": "Fresh full text review, no linked report, screenshot, frozen viewer, runtime or PID was newly inspected. 1764/1766/1768 passing counts retain the same two inherited failures and three TODOs, not a clean-suite claim. Current desktop direction is sourced from already inspected DESIGN and digest.",
+      "reopen": "Read the actual current consumer and receipt when changing its behavior. No global migration, new writer, UI framework, contract ratchet or old held queue is launched.",
+      "input_sha256": "2dd34996685332b8b6f64e7c97e3a15f99476daef9f4a91d1a750fe2a9f01a6c",
+      "input_lines": 209,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          209
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/UI_EXPERIENCE_AUDIT_2026-10-12.md",
+      "heading": "## Content reconciliation B139, 2026-11-04",
+      "body": "F1-F9, D1-D4, W1-W8 and A1-A5 were reviewed. The strongest reusable findings concern the combined artifact: retain ordinary actions beside actual work, preserve editing draft ownership across independent views, make theme changes readable at the component level, and keep selection/focus/return context. A candidate's successful patrol start does not prove finished work, earnings, audible sound, Apply or persistence. Generic offscreen counts are not broken-control counts. The original snapshot and two frozen candidates remain separate evidence identities.\n\nThe [current design owner](../DESIGN.md) now supplies prose-first task composition, whimsy and editorial cadence (AD40, AD45); these older proposals do not select a new wave. W1-W8 remain useful examples, not compulsory art or engine support. Actual settled craft, known acquaintance, item history, local weather and actual return outcomes can motivate presentation. Purely decorative atmosphere can exist without implying an owned object or effect; it need not award a stat. Repeated familiar results should quieten without losing meaningful changes. Strong events may be expressive while factual save errors and controls stay readable.\n\nMobile remains deferred. Old paused status, source reservations and proposed first-comparison order are history; AD42 makes visual review optional. No old candidate was rebuilt, no audio was heard and no new result was inferred from a linked image or test count.",
+      "before_sha256": "903963c5fdd08b3a03a9db9c9391bf101ce10e16a7abb795e10422b9e53a3937",
+      "after_sha256": "358e737b685997f26de80ba3f1e2a6d6b83e87dd11bcc6388713756419f09ec6"
+    },
+    {
+      "path": "docs/UI_FOUNDATION_DESIGN_ROUND_2026-10-15.md",
+      "heading": "## Content reconciliation B139, 2026-11-04",
+      "body": "Read FD/OA, the baseline clarification and all later S1-S3/C1/V1/R2/R3 returns. The early live PID, missing report and focus failure are superseded by this file's own foundation delivery update. Later native shell/refinement receipts remain distinct from C1's grouping and the earlier skin. Their full-suite counts explicitly retain two inherited failures and three TODOs; a later passing browser slice does not turn those suites into a clean baseline.\n\nProto23 composition and the requested shell remain recorded direction (AD32, UR12), while exact widths, fixed geometry, universal Projects promotion, every-surface panel-kit conversion and the proposed OA1 CSS ban are not silently promoted to current universal rules. Current [DESIGN](../DESIGN.md) and [UI rules](UI_RULES.md) govern task-specific forms, functional housing, independent panes and prose-first presentation. The target paragraph still naming 1366x768 is historical evidence scope; current desktop/laptop proof uses the selected viewport and readable larger text, not that retired floor.\n\nPreserve M1's distinct inspect/leave/stop semantics: leaving a view does not by itself cancel work, and an expanded view shares commands, state and known-only eligibility. Saved player layout choices and released source remain meaningful within their stated identities, not fresh writer reservations. Human review is optional under AD42; no acceptance, changed default, source copy, old queued dispatch or current source parity is inferred by this reconciliation.",
+      "before_sha256": "2dd34996685332b8b6f64e7c97e3a15f99476daef9f4a91d1a750fe2a9f01a6c",
+      "after_sha256": "3dd52cb26faee4e6d47db77def30d154422feb064bab399ecbd873ac298ae2d7"
+    },
+    {
+      "path": "docs/UI_RULES.md",
+      "heading": "## Historical audit applications B139, 2026-11-04",
+      "body": "Application notes, not new UR codes or product authority (AD32, AD36, AD40, AD42). The fully reviewed [UI experience audit](UI_EXPERIENCE_AUDIT_2026-10-12.md) and [foundation design chronology](UI_FOUNDATION_DESIGN_ROUND_2026-10-15.md) preserve useful consumer checks for UR12, UR52, UR60 and UR64: judge the combined populated interface, not one isolated editor; keep the current action, running work, payout/stop terms and factual save status recoverable together; preserve shared drafts across independent editing surfaces; retain focus, selection, scroll and return context through native refresh and view changes. A view change and a work cancellation are different operations.\n\nDecorative and narrative examples may follow known place, item, acquaintance or settled-result history, while purely atmospheric details need no gameplay reward. Quiet repeated familiar output and retain meaningful changes; imagery is deliberate rather than attached to every passage revision. Theme, search, picker, counts and empty states must use the actor-qualified projection before rendering. These applications follow the current DESIGN owner and desktop-first scope, not the old fixed sizes, paused queues or proposed mobile wave. Historical image comparisons, patrol starts, inherited test failures and unrun preferences/audio remain bounded to their original receipts. No current UI behavior was tested here.",
+      "before_sha256": "52cd062f3b68bda02a768f851473f1d17457606514d24d36714b2aaa156d1c79",
+      "after_sha256": "0e65cc2c4fcce11d34425a60415875e9ea303dc9510e5411d1fb6b72d47e21a7"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1217
+}

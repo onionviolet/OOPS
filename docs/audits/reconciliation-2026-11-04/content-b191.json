@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "batch": "B191",
+  "title": "Complete combat palette and carry defeat correction into body owner",
+  "at": "2026-11-04T22:48:46.934068+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md",
+      "ids": [
+        "CBC1–CBC43",
+        "CBX1–CBX5",
+        "CBL1–CBL10",
+        "CBD1–CBD19",
+        "B7",
+        "B118"
+      ],
+      "classification": "Combat root palette with later publisher receipts and typed-protection work",
+      "owners": [
+        "docs/COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md",
+        "docs/BODY_AND_HEALTH_CONSIDERATIONS_2026-10-17.md",
+        "docs/DOMAIN_RULES.md"
+      ],
+      "disposition": "Later CBL1/CBL3 receipts supersede absent-publisher gap but do not implement injury, subdue or all outcomes. Preserve source-level typed protection and unresolved learned disclosure. Fold historical CBX1 correction into body owner while keeping branch enumeration distinct from actual loss publication and later scope.",
+      "evidence": "Fresh full read every section 1–end, including source-only typed protection, queued nuance, acceptance-prep correction and B118. No fresh code/tests/browser or underlying C1/C2/source comparator read.",
+      "reopen": "Selected defeat/body consumer, typed damage, learned opponent fact or stakes/coating action. Inspect actual current source before reusing route counts or proposed mechanics.",
+      "input_sha256": "22425694a67c9df0d723fc5bb185432b34bba3fc815c0d3e4d26ecc55bd3eb7e",
+      "input_lines": 350,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          350
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md",
+      "heading": "## Full combat-palette reconciliation, 2026-11-04",
+      "body": "The initial gap paragraph and CBX route survey predate CBL1/CBL3. Their later receipts establish a publisher and selected saved-battle/structured-death publication at those inputs; they do not implement BHL7 injury, CBL4 subdue, every outcome or every browser journey. The CBL3 browser paragraph names a party-open fixture and a Mara duel result; preserve its stated route/result rather than treating that wording as three separately played battles. B118 and acceptance-prep keep current source limits separate from those historical runs (AD32, AD36, AD43).\n\nCBD1–CBD4/CBD10 are source-level typed damage/protection work. The .5 protection floor, 3× weakness ceiling, material guesses and skill multipliers are local proposals/policies, not universal bans on immunity, overwhelming power or a world’s own vocabulary (AD5, AD38). CBD8 remains its distinct avoid-versus-mitigate question; typed damage alone does not close it. CBD5–CBD19 retain their consumer/reopen triggers and are not automatically selected because an old predecessor merged.\n\nSeparate actual harm/outcome/cause, visible facts, witnessed agreement, detected breach, attribution and enforcement. A spar’s stated rule cannot physically guarantee harmlessness without the mechanism to enforce it, and breaking a term need not impose a cost when no actor or mechanism can respond. Fleeing, improvisation, morale, pursuit and survival depend on actual means; CBC11’s poorer improvisation, CBC18’s absent construct morale and CBC28’s compulsory escape cost are defaults, not category laws. Keep optional nonviolent lives and paid idle policies without forcing repeated manual timing. Human review remains optional under AD42. No runtime or new build queue was selected.",
+      "before_sha256": "22425694a67c9df0d723fc5bb185432b34bba3fc815c0d3e4d26ecc55bd3eb7e",
+      "after_sha256": "5f35d41fec7b33adf70b101bb6d0feb5823482347b53c49353f3a2c4db808898"
+    },
+    {
+      "path": "docs/BODY_AND_HEALTH_CONSIDERATIONS_2026-10-17.md",
+      "heading": "## Combat-owner defeat-route correction, 2026-11-04",
+      "body": "The combat palette’s CBX1 corrects BHC31’s historical three-route count: its October 18 survey also included the saved road duel, party battle and sluice battle, whose terminal states did not all call kill_player. This is a dated integration warning, not a fresh count of current routes. Later CBL1/CBL3 receipts describe native and selected saved-battle/structured-death publication; they explicitly leave BHL7 injury and additional outcomes separate. A terminal win, withdrawal or companion stepping out is not automatically a player defeat.\n\nFor a selected injury consumer, trace the actual player outcome and its durable publication/rollback once across the affected producers. Do not infer that adding a publisher already implemented injuries or that every terminal state should increment a loss counter. Keep BHC31/BHL7’s original identities and the combat owner’s more specific correction together (AD32, AD36).",
+      "before_sha256": "e25e19fc4fdcd9c8b925b87df780b92a0e7a867a2c97e151637577aa7898843d",
+      "after_sha256": "e1a2f4df7884149564cfd7cb7e1b68f504591907733861d6703c00b2df290bc6"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1102
+}

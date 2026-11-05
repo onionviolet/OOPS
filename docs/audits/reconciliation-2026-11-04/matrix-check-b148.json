@@ -1,0 +1,22 @@
+{
+  "input_sha256": "af3349078f4637d47df6c2334de94abc05228f48f60e6f102397e815d3c5384a",
+  "worlds": 16,
+  "families": 36,
+  "body_cells": 576,
+  "counts": {
+    "P": 258,
+    "N": 38,
+    "C": 280
+  },
+  "labels": {
+    "proposed": 434,
+    "-": 38,
+    "stated": 36,
+    "inferred": 9,
+    "shown": 58,
+    "proposed (my grep correction: tool fitting alone, no body-fit or furnishings)": 1
+  },
+  "grid_body_mismatches": [],
+  "locator_shape_or_nonempty_issues": [],
+  "scope": "Count/status/locator structure only. All matrix text read separately; underlying locator semantics not granted by this check."
+}

@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "batch": "B122",
+  "title": "Gear-reader census: current consumers versus historical gaps",
+  "at": "2026-11-04T21:19:17.520059+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/GEAR_STAT_READERS_CENSUS_2026-10-20.md",
+      "ids": [
+        "W1–W8",
+        "I1–I8",
+        "P1–P9",
+        "B1–B4",
+        "D1–D9",
+        "GSR1–GSR10",
+        "silent-ignore checklist"
+      ],
+      "classification": "Historical bounded source census; selective current consumer corrections",
+      "owners": [
+        "docs/audits/GEAR_STAT_READERS_CENSUS_2026-10-20.md",
+        "docs/EQUIPMENT_STAT_DIMENSIONS_CONSIDERATIONS_2026-10-20.md"
+      ],
+      "disposition": "All202linesread inclfinalrefinements: D7initialbodyunread supersededfinaltotalsread,ordinaryCombatvs scriptedroutes distinct. Current actual sharedmitigation andcritresistance consumers supersedeGSR1/2/3blanketabsences; currentarmorpenetration explicitlypassed soGSR10inertclaimfalseforthatstat. Sourcepresence notnativeproof; owneralreadyhaslaterP1/sharedwearer/finalG1–G5receipts withfixturelimits. Preserve GSR4weargetStatsnotwrapped andGSR7getDefensearmorXP ascurrentselectedsourcefindings, policyunselected. GSR5samegarmentdoublecountunknownnotproven; nonstataccessoryeffects outsideone-sumclaim. No fullcurrent allsources/artifacts/loadout/tooltiptest.",
+      "evidence": "Fresh full census. Selected actual callsites in native_battle58/party100/causal328/feature324,331/enemies193, combat_math33–53/75–86, fullgear_dimensions, durability68–90, person394–402. Owner261–366 read incllatercoordinatedintegrationclaim; no underlyingintegrationreceipt/native/test rerun.",
+      "reopen": "Selected new stat must trace actual producer/aggregation/consumer/observer/display/save and localpolicy; historicalgap notrequirefixwithoutcurrentreproduction.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "35c59124433a01281f705b2302b1871dda7ec9532016222ffb9757f08cc08477",
+      "input_lines": 202,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          202
+        ]
+      ]
+    },
+    {
+      "path": "docs/EQUIPMENT_STAT_DIMENSIONS_CONSIDERATIONS_2026-10-20.md",
+      "ids": [
+        "P1 implementation receipt",
+        "shared person/creature",
+        "Oct21 current status F1–F4",
+        "later coordinated completion"
+      ],
+      "classification": "Selected owner status sequence, remaining palette body open",
+      "owners": [
+        "docs/EQUIPMENT_STAT_DIMENSIONS_CONSIDERATIONS_2026-10-20.md",
+        "docs/audits/GEAR_STAT_READERS_CENSUS_2026-10-20.md"
+      ],
+      "disposition": "Later P1/sharedwearer supersedeoldignoredreaders. LatercoordinatedG1–G5completion supersedesearlierinprogressgearwork/missing sockets snapshot, notproofallpaletteexhausted. Preserve reported2363/2364failure vs2298/2298/2440/2440distinctinputs, recordedfixture/naturalencounterlimits. Noequating missingearlierfileswithcurrentabsence; present sourcecorroboratesnamed damage/critreads, nofreshbehavior.",
+      "evidence": "Fresh261–366 exactrangesread, originalearlypalette1–260notfullreviewed. No followlinktransitivecredit.",
+      "reopen": "Full1–260paletteandanyrelevantunderlyingexactreceiptneedindependentcontentreview; ordinaryenemyacquisitionpacingremainsqualifiedbyrecordedlimits.",
+      "read_mode": "fresh_selected_content_read",
+      "full": false,
+      "ranges": [
+        [
+          261,
+          366
+        ]
+      ],
+      "input_sha256": "b635481d8f78607f2475e1e810c8beac9db7a71961556a81b2390c54dd28d5d0",
+      "input_lines": 366
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/GEAR_STAT_READERS_CENSUS_2026-10-20.md",
+      "heading": "## Reader-census reconciliation B122, 2026-11-04",
+      "body": "Full W/I/P/B/D tables, GSR1–GSR10, checklist and final limits read. The historical one-sum statement concerns the traced person stat aggregation, not every non-stat accessory, source, world or item effect. Its final paragraph already narrows live ordinary Combat versus scripted strike paths and supersedes D7’s initial unread-totals limitation. Preserve those read boundaries and original code identities.\n\nCurrent selected source now passes full stats to mitigateCombatDamageFromStats in all four named B1–B4 callsites and Enemy.takeDamage; shared rollCombatStrike calls effectiveCritChance with target resistance. GSR1/2/3’s blanket ignored-reader/no-enemy-consumer statements are superseded at those seams. The helper also receives attacker armor_penetration and applies flat armor bypass, so GSR10’s all-inert characterization is no longer true for that stat. This does not qualify every producer, NPC/world, live encounter or display. Current labels still distinguish unused mana-efficiency/heat protection from an actual consumed stat.\n\nSelected durability bind still wraps attack/defense/shield getters, not getStats (GSR4); selected isWearingArmor still keys on nonzero defense (GSR7). These remain scoped design/implementation findings, not authorization to alter wear or armor-XP policy. Structured/native same-garment double counting (GSR5) is an unresolved identity question here, not a proved duplicate summation. Jewelry scaling, hidden-source display, all current loadouts and every non-stat effect were not re-audited.\n\nThe [equipment owner](../EQUIPMENT_STAT_DIMENSIONS_CONSIDERATIONS_2026-10-20.md#p1-implementation-receipt-2026-10-20) already records later P1/shared-wearer work, then coordinated G1–G5 completion after its earlier in-progress snapshot. Preserve reported test/failure/fixture/natural-acquisition limits by input; no new test/browser pass is inferred from source calls or linked receipt titles. No duplicate stat engine, new gear mechanic, source acquisition or balance change was made.",
+      "before_sha256": "35c59124433a01281f705b2302b1871dda7ec9532016222ffb9757f08cc08477",
+      "after_sha256": "b37ce75869d716aaeeb61efad7dc317e112d6528b42edf3bc9d1d7a236161644"
+    },
+    {
+      "path": "docs/EQUIPMENT_STAT_DIMENSIONS_CONSIDERATIONS_2026-10-20.md",
+      "heading": "## Reader-census reconciliation B122, 2026-11-04",
+      "body": "The full [L1 reader census](audits/GEAR_STAT_READERS_CENSUS_2026-10-20.md#reader-census-reconciliation-b122-2026-11-04) is now reconciled to the status sequence above and selected current source: B1–B4/Enemy use shared defensive stats, shared strikes use target critical resistance, and armor penetration has an actual flat-armor consumer. This preserves rather than duplicates the existing P1/G1–G5 delivery receipts. Durability getStats scaling and defense-based armor-XP recognition remain scoped policy findings; no new mechanics are selected. Current source is not fresh desktop/native/acquisition proof, and neither fixture success nor coordinated completion exhausts the broader palette. This review reads only261–366 of this owner, so its early palette remains independently unreviewed in coverage accounting.",
+      "before_sha256": "b635481d8f78607f2475e1e810c8beac9db7a71961556a81b2390c54dd28d5d0",
+      "after_sha256": "8b474fe6b6b8af580ed0d310f97b7b9b7f002c51c5db5f2d583d0e8858900a16"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1238
+}

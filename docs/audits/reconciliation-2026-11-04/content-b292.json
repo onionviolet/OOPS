@@ -1,0 +1,106 @@
+{
+  "schema": 1,
+  "batch": "B292",
+  "title": "Tooling and kernel experiments: exact trial scope and production-contract gaps",
+  "at": "2026-11-05T00:57:15.377418+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/foundation-completion-2026-10-12/research/TOOLING_AUDITION.md",
+      "ids": [
+        "T1–T5",
+        "A1–A4",
+        "Same-scene author audition",
+        "Version/notices boundary"
+      ],
+      "classification": "Historical compiler admission/diagnostic audition and unrun editor alternatives",
+      "owners": [
+        "docs/ENGINE_AUTHORING.md",
+        "docs/gm/dispatch/foundation-completion-2026-10-12/research/TOOLING_AUDITION.md"
+      ],
+      "disposition": "Read all32 original lines. Keep exact artifact/compiler pin and useful invalid-response diagnostics distinction, unrun optional Inky, source-document-only Yarn/Twine alternatives and no migration selection. Fold same-input compiler/admission versus host/cursor/persistence/author-productivity gate into authoring owner.",
+      "evidence": "A1–A4 disposable trials were historical compiler checks; 124528byte equality/zero diagnostics do not prove Lin behavior. Package2.4.0 versus upstream compatibility table ending2.3.0 is scoped local evidence, not a current version recommendation. Bounded application-path absence is not global app absence; no app/source/license fetched here.",
+      "reopen": "Select a real author edit before diagnostics or editor work. Exact current package/compiler/input and copied license/notices need inspection for future adoption; no new install, comparative audition or runtime migration selected.",
+      "input_sha256": "1fe320e26b2a9dc1b799bff8b3fdd1146c375a46395cb6fcc406d8815062802f",
+      "input_lines": 32,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          32
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/engine-runtime-2026-10-14/ER7/README.md",
+      "ids": [
+        "Scratch-only reproduction",
+        "Three actors/workers/saves runs",
+        "Provenance helper exclusions"
+      ],
+      "classification": "Archived reproduction instructions with no new run or native/durability claim",
+      "owners": [
+        "docs/ENGINE_EXPANSION.md",
+        "docs/gm/dispatch/engine-runtime-2026-10-14/ER7/README.md"
+      ],
+      "disposition": "Read all17 original lines and every shell command. Preserve separate scratch-only measurements, pinned manifests, own outputs/environment and no repo imports. Do not execute historical npm install/benchmark commands or treat copied instructions as new results.",
+      "evidence": "Elapsed Node microbenchmarks explicitly do not prove browser durability/gameplay; measured Node22.23.3 is historical. No reproduction or original log inspection in this content pass.",
+      "reopen": "Only reproduce if a selected present performance uncertainty needs it; use actual relevant runtime/transaction/native evidence for production claims.",
+      "input_sha256": "9f0f91902c4ca6a67911740c58d2dbadd2fa1279e06f3803dd207473fa7fb596",
+      "input_lines": 17,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/engine-runtime-2026-10-14/ER14/spike/README.md",
+      "ids": [
+        "Kernel/adapter/three fixture modules",
+        "Boundary ordering/command IDs",
+        "Content-addressed chunks and manifest",
+        "Split equality and hunger counterexample",
+        "Omitted production contracts"
+      ],
+      "classification": "Disposable synthetic kernel proof with explicit durability/migration/browser limits",
+      "owners": [
+        "docs/ENGINE_EXPANSION.md",
+        "docs/gm/dispatch/engine-runtime-2026-10-14/ER14/spike/README.md"
+      ],
+      "disposition": "Read all52 original lines. Retain local dependency/boundary/order and readonly import measurement scope, trusted-function versus sandbox distinction, command idempotency versus job slots, explicit storage outside command transaction and no fsync. Fold state-newer-than-save failure, incomplete dependency declarations and narrow split/replay evidence into engine owner.",
+      "evidence": "Headless synthetic proposal, no runtime integration. Exact split equality only for stated default-off hunger/weather/fixed context; enabled-hunger float counterexample retained. No migration/future-field preservation/native choice barriers/writer lock/browser persistence/GC. No check.mjs or benchmark rerun.",
+      "reopen": "A selected engine consumer must prove its missing current production contracts; no replacing native publisher, chunked browser storage or universal kernel adopted from this spike.",
+      "input_sha256": "4173ee468d0f144686bc493b727cb8a6408d9eb401eaf83a1574d963859fe6fa",
+      "input_lines": 52,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          52
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/ENGINE_AUTHORING.md",
+      "heading": "## Content reconciliation B292: Lin author tooling and diagnostic scope",
+      "body": "The full [Lin tooling audition](gm/dispatch/foundation-completion-2026-10-12/research/TOOLING_AUDITION.md) retains useful T1–T5/A1–A4 findings without selecting a new authoring stack. Its installed compiler exactly reproduced the then-current 124,528-byte artifact with zero diagnostics; the unknown-response trial exposed a generic error while syntax/missing-divert already had a file/line. A narrow real edit can justify scene/response context, preserving stable IDs, unique choice tags, observer-safe fields and admission allowlists. This is observed diagnostic friction, not measured faster authoring or proof of native Lin consent/stock/transaction behavior.\n\nThe project-local INCLUDE rejection and pin/format checks govern that historical recipe. An editor supporting includes does not change admission. The local inkjs2.4.0 pin and older upstream compatibility-table endpoint are distinct evidence, not a new version upgrade task. Inky was an unrun optional editor trial and one absent Applications path did not prove global absence. Yarn/Twine documentation supplied design comparisons, not a browser bridge, persisted-cursor migration or selected license-qualified dependency. The same-scene author-time/host-edit/branch-visibility audition was future work. Reuse native consequence and current-format cursor/persistence authority instead of a second dialogue writer. Exact compiler/runtime notices and upstream attribution remain with their owner; no install, external source copy, compiler rerun or author-productivity claim is made by this fold.",
+      "before_sha256": "9668c854560ee09dad066e864f300ec426c13027f36fab5921d2aa67f994693d",
+      "after_sha256": "0043f6f20cc5fb232732a8cb82d7dfa1376f589d04657407ebb7cb1a010d1554"
+    },
+    {
+      "path": "docs/ENGINE_EXPANSION.md",
+      "heading": "## Content reconciliation B292: benchmark reproduction and kernel durability limits",
+      "body": "The full [ER7 reproduction README](gm/dispatch/engine-runtime-2026-10-14/ER7/README.md) and [ER14 spike README](gm/dispatch/engine-runtime-2026-10-14/ER14/spike/README.md) are archived experiment evidence. Their shell/install/benchmark instructions are not requests to execute again. ER7 runs isolated Node actors/workers/save microbenchmarks without repository imports, not browser durability or gameplay. A changed host/runtime or present performance question needs its own measured relevant input, not a new timestamp on old instructions.\n\nER14 has one synthetic advance owner, declared dependency/event/sequence ordering and per-operation rollback on trusted fixture functions. It is not a sandbox or arbitrary production plugin host. Command idempotency is distinct from unique job slots. Most importantly, command success and explicit storage are separate: failed save may leave live state newer than the stored snapshot. Filesystem temporary rename without fsync and memory-manifest failure preservation do not establish the production durable-save-before-publication contract or browser storage atomicity. Loading validates referenced chunks before publication, while declared reverse dependencies cannot detect omitted declarations. Incremental-save byte reporting still reads all referenced chunks.\n\nExact split/replay evidence is local to fixed fixture/content/seeds/commands and the stated default-off hunger/weather/home-world context. The enabled-hunger floating-point counterexample remains a counterexample rather than being hidden by the narrow pass. Native pause/choice/life barriers, changing world/season context, stock-backed meals, calendar publication, browser writer authority/import, bounded receipt/replay/GC and migrations/future-field preservation were explicitly omitted. No benchmark, dependency, source copy, browser, kernel migration, save format or production replacement is selected by this review. Preserve the experiments as references for an actual chosen consumer, with their measured and omitted contracts separate.",
+      "before_sha256": "d10c206f173d5003f3fe3ffef2913cbba2adcac7d5cd49f574b4cd351e225c87",
+      "after_sha256": "e405fdb248cd88da1d285f01ab5d632decaace9a0b80386d354ec8f5f9dd17b7"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 839
+}

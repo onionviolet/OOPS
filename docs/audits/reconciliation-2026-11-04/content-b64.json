@@ -1,0 +1,153 @@
+{
+  "schema": 1,
+  "batch": "B64",
+  "title": "Discord recovery boundaries, headless visibility and world-kit snapshot drift",
+  "at": "2026-11-04T20:14:07.226954+00:00",
+  "head": "4cdc0772b65d413e4989e327502910140b2a15eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/DISCORD_RESEARCH_AND_UI_STATUS_2026-10-21.md",
+      "ids": [
+        "F1–F4"
+      ],
+      "classification": "fresh full report content reconciled with later scoped evidence",
+      "owners": [
+        "docs/audits/DISCORD_RESEARCH_AND_UI_STATUS_2026-10-21.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Preserve finite Corc26/YAIR166 acquisition vs exhaustive thread/media depth,53row adaptation vs universal parity, private-font dependencies and current-snapshot proof limits. AD42 makes human visual feedback optional, not a mandatory delivery gate. Do not repeat completed downloads or source-media reading by implication.",
+      "evidence": "All selected report lines freshly read. Corc finite recovery report inspected; headless DOM267–282/CSS121–135/README40–58 and runner delegation selected source inspected. World census compared with current LOTM persist/logMessage producer and UI audit round32 occurrence summary; no raw recovered media opened, browser/test rerun or exact old errand reproduced.",
+      "reopen": "A named current reference/UI/runtime question with actual owner/consumer and exact inputs; no repeat acquisition, blanket parity claim, mandatory human sign-off, runtime edit or visible process.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "2bc727026f4013d0ccf42c0e0e69c363a0450575cf6fc2dbbd2b23381a6a94da",
+      "input_lines": 17,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/discord_absorption_2026-10-21/RULE_FOLD.md",
+      "ids": [
+        "D1–D3",
+        "UR59–UR64/CRL1–CRL26"
+      ],
+      "classification": "fresh full report content reconciled with later scoped evidence",
+      "owners": [
+        "docs/audits/discord_absorption_2026-10-21/RULE_FOLD.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Dispatch-start snapshot is followed by finite recovery report26/26, not still pending acquisition. Guide adoption bounded to recorded UR/CRL scope;36mapped tests did not verify new guidance wholesale. Old human-judgment wording qualified by AD42. No new chat/recovery/runtime instructed.",
+      "evidence": "All selected report lines freshly read. Corc finite recovery report inspected; headless DOM267–282/CSS121–135/README40–58 and runner delegation selected source inspected. World census compared with current LOTM persist/logMessage producer and UI audit round32 occurrence summary; no raw recovered media opened, browser/test rerun or exact old errand reproduced.",
+      "reopen": "A named current reference/UI/runtime question with actual owner/consumer and exact inputs; no repeat acquisition, blanket parity claim, mandatory human sign-off, runtime edit or visible process.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "ff85c360224fc3d54b4eb4ef093479b438d8d64168eb104978e271dcd39436dc",
+      "input_lines": 15,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/corc-missing-media-2026-10-21/REPORT.md",
+      "ids": [
+        "E1–E4",
+        "F30–F34"
+      ],
+      "classification": "fresh full report content reconciled with later scoped evidence",
+      "owners": [
+        "docs/gm/dispatch/corc-missing-media-2026-10-21/REPORT.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Finite26ID recovery and historical local integrity receipt retained; sourceURL byte preservation not publisher historical identity.27objects includes derivative, two originals share HTML, context-only IDs not missing targets. Inert HTML/save/font preserved boundaries. Font attachment not licensing/shipped proof; tentative background-tab artifact not offline progression; personal media not gameplay evidence.",
+      "evidence": "All selected report lines freshly read. Corc finite recovery report inspected; headless DOM267–282/CSS121–135/README40–58 and runner delegation selected source inspected. World census compared with current LOTM persist/logMessage producer and UI audit round32 occurrence summary; no raw recovered media opened, browser/test rerun or exact old errand reproduced.",
+      "reopen": "A named current reference/UI/runtime question with actual owner/consumer and exact inputs; no repeat acquisition, blanket parity claim, mandatory human sign-off, runtime edit or visible process.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "cc0fb6d5e275872b53a06173feae6d7106a4fa6b287ac0e139571b3ffd808526",
+      "input_lines": 32,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          32
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/headless_check_visibility_2026-10-21/REPORT.md",
+      "ids": [
+        "Diagnosis/change/verification",
+        "checkVisibility modeled subset"
+      ],
+      "classification": "fresh full report content reconciled with later scoped evidence",
+      "owners": [
+        "docs/audits/headless_check_visibility_2026-10-21/REPORT.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Historical isolated candidate API fix/test and concurrency evidence retained. Current selected DOM/CSS/runner/README still expose delegated box-state subset; direct DOM inline fallback is narrower than stylesheet runner. No geometry/opacity/content-visibility/native visual fidelity established; old queue wrapper is historical, not current npm test procedure.",
+      "evidence": "All selected report lines freshly read. Corc finite recovery report inspected; headless DOM267–282/CSS121–135/README40–58 and runner delegation selected source inspected. World census compared with current LOTM persist/logMessage producer and UI audit round32 occurrence summary; no raw recovered media opened, browser/test rerun or exact old errand reproduced.",
+      "reopen": "A named current reference/UI/runtime question with actual owner/consumer and exact inputs; no repeat acquisition, blanket parity claim, mandatory human sign-off, runtime edit or visible process.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "2727c5e33ee01914e778d44b3db7b2aee8bb0edf21219a50449b329847df7099",
+      "input_lines": 25,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          25
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/WORLD_UI_KIT_CENSUS_2026-10-30.md",
+      "ids": [
+        "M5/DSG19",
+        "K1–K3",
+        "six-cell world matrix"
+      ],
+      "classification": "fresh full report content reconciled with later scoped evidence",
+      "owners": [
+        "docs/audits/WORLD_UI_KIT_CENSUS_2026-10-30.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Preserve snapshot-specific observed/generic/missing/unchecked distinctions and private-pack reachability. Later selected LOTM producer and UI aftermath receipt show settled record publication, so original K1 is not current universal no-report claim; original probationer errand still needs exact route proof before closed. K2/K3 and unchecked rows not declared fixed. Basic UI direction does not convert census proposal into new universal implementation gate or dispatch.",
+      "evidence": "All selected report lines freshly read. Corc finite recovery report inspected; headless DOM267–282/CSS121–135/README40–58 and runner delegation selected source inspected. World census compared with current LOTM persist/logMessage producer and UI audit round32 occurrence summary; no raw recovered media opened, browser/test rerun or exact old errand reproduced.",
+      "reopen": "A named current reference/UI/runtime question with actual owner/consumer and exact inputs; no repeat acquisition, blanket parity claim, mandatory human sign-off, runtime edit or visible process.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "1a19068b3c1e2f8bd15a3a8e5b2662682527443868eaa0d7161ca224382cfad4",
+      "input_lines": 42,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          42
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/discord_absorption_2026-10-21/RULE_FOLD.md",
+      "heading": "## Later finite recovery and review semantics, 2026-11-04 (B64)",
+      "body": "D1 is a dispatch/start snapshot. The [recovery report](../../gm/dispatch/corc-missing-media-2026-10-21/REPORT.md) subsequently records all 26 requested IDs recovered and no unresolved target; context attachments remain outside that denominator. This reading does not rerun private-file integrity or establish exhaustive source-media/game behavior. D2/D3 retain the recorded guide scope and stable code mappings, while later UI owner extensions retain their own authority. Human visual/play feedback is optional under AD42; agent-side rebuilt evidence remains required for actual changed UI claims. The old recovery dispatch is not a request to create another chat or download the set again.",
+      "before_sha256": "ff85c360224fc3d54b4eb4ef093479b438d8d64168eb104978e271dcd39436dc",
+      "after_sha256": "9e49bdb0646d347101c52af71a477c9eee300bc5ca913a17a77e80c8f7b96475"
+    },
+    {
+      "path": "docs/audits/WORLD_UI_KIT_CENSUS_2026-10-30.md",
+      "heading": "## Census scope and later selected producer, 2026-11-04 (B64)",
+      "body": "Retain the October 30 cells as observations of their named bundle/routes. K1’s universal “finished commands publish no receipt” wording predates the selected current LOTM persist producer, which passes published records through logMessage, and the [UI audit round 32](UI_DESIGN_CORE_AUDIT.md#round-32-2026-11-04-aftermath-as-an-occurrence-and-creative-prose), which records selected early-arc occurrence-report delivery. Neither proves the original probationer paid-errand route or all life profiles now emit the right Reports line. Keep that route-specific question distinct from broader producer absence; K2/K3 and unchecked worlds are not newly certified. DSG19/M5’s user request for basic world usability remains, while this exact six-cell kit, old worker suggestions and census completion plan remain proposed implementation choices under AD32. No fresh browser run, cross-world parity result or new dispatch follows.",
+      "before_sha256": "1a19068b3c1e2f8bd15a3a8e5b2662682527443868eaa0d7161ca224382cfad4",
+      "after_sha256": "ece0ff27fa0043b73b1cc028063be905728714547b695cc0bc4c57459d7d5e22"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1405
+}

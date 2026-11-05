@@ -1,0 +1,86 @@
+{
+  "schema": 1,
+  "batch": "B83",
+  "title": "Start/branch and MoL integration maps: native authority and later bounded joins",
+  "at": "2026-11-04T20:32:30.544812+00:00",
+  "head": "4cdc0772b65d413e4989e327502910140b2a15eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/START_AND_BRANCH_INTEGRATION_MAP_2026-10-14.md",
+      "ids": [
+        "IR1/F1–F9",
+        "IR2/O1–O2/D1",
+        "IR3/D2–D3",
+        "IR4/D4",
+        "IR8/R1–R5",
+        "A1–A6/S1–S5"
+      ],
+      "classification": "fresh full start/branch and book-world integration map content",
+      "owners": [
+        "docs/research/START_AND_BRANCH_INTEGRATION_MAP_2026-10-14.md",
+        "docs/SAVES.md",
+        "docs/LEAD_LIFE_GUIDE.md"
+      ],
+      "disposition": "Preserve purecanon graphdefinitions vs mutable native authority, two-phase durableorigin, exactrecipebodyitemXP mapping, receivedknowledge vs revealcoordinate, distinctclocks and onceonlydeltas. Onebranchouterprofile/migration proposalnot universalgate for allcurrentworldruntime; retiredmilestone/1366/UIoldlayout notcurrentauthority. RawWTsnapshot not save/registry/admittedstate, no currentreservation fromOct14. Branchswitch/OT/reset deepercontracts separate.",
+      "evidence": "Full111/60line maps covered; clippedIR8/Asection retrieved70–99 and MoL snapshotrow27–33. CurrentselectedMol nativewrapper/contentregistration exports inspected. EarlierB60route content remains datedreported proof, not newgameplay or source-canon certification. NoWTcopy/import/save/build/test/runtimeedit.",
+      "reopen": "Actualselectedbranch/start/world operation with currentacceptedauthority, actual producer/consumer/sourceidentity and applicableexistingproof. No schema/profile/migration rollout, newfrozenbranch, interfaceorpriority change.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "46330abb6152de4cb49b61c205f9baf80041d910f3ae33db92e0d4a96143949a",
+      "input_lines": 111,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          111
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/book-world-completion-2026-10-06/INTEGRATION_MAP.md",
+      "ids": [
+        "MOL6leafinterface/requiredexports",
+        "sharedregistry/context/scheduler/vitals/custody/save/UIjoins",
+        "6riskboundaries",
+        "subsequentsourcedefinitionreview"
+      ],
+      "classification": "fresh full start/branch and book-world integration map content",
+      "owners": [
+        "docs/gm/book-world-completion-2026-10-06/INTEGRATION_MAP.md",
+        "docs/SAVES.md",
+        "docs/LEAD_LIFE_GUIDE.md"
+      ],
+      "disposition": "Oct6initialrequiredjoinmap explicitlyrootreportedprogress notcurrentunintegratedcampaign; namedline/schema/module/counts frozenhistory. CurrentselectedregisterMolItems and nativewrapper export realregistration/envelope/read/stage/sharednative owner, no allconsumer/fullproof renewed. B60laterCyoriaroutes reported earnedhatch/paidlearning/device/expiry, not novelparity or source-loop. Preserve receivedknowledge/nativeactor/stock/sourcepower/exposure/singlebody/clock/publication distinctions; datavalidationnotruntime/canon.",
+      "evidence": "Full111/60line maps covered; clippedIR8/Asection retrieved70–99 and MoL snapshotrow27–33. CurrentselectedMol nativewrapper/contentregistration exports inspected. EarlierB60route content remains datedreported proof, not newgameplay or source-canon certification. NoWTcopy/import/save/build/test/runtimeedit.",
+      "reopen": "Actualselectedbranch/start/world operation with currentacceptedauthority, actual producer/consumer/sourceidentity and applicableexistingproof. No schema/profile/migration rollout, newfrozenbranch, interfaceorpriority change.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "a39e03a3f80ff4b2c1528d2445e542c8a48e836dc2b2783d4bfaf81d81cc0ccd",
+      "input_lines": 60,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          60
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/START_AND_BRANCH_INTEGRATION_MAP_2026-10-14.md",
+      "heading": "## Current-scope reconciliation, 2026-11-04 (B83)",
+      "body": "IR1–IR4/IR8, F1–F9, O1/O2, D1–D4 and A1–A6 retain their original typed-adapter and full-state ownership proposals. A pure canon snapshot is not a native save; a reveal coordinate is not receipt by an observer; source chapters/windows are not automatically elapsed minutes. The proposed outer one-branch profile and legacy wrapper are one future compatibility design, not prerequisites for unrelated current world/arc delivery. Existing accepted compatibility decisions and actual save owners still govern. Do not overwrite moving main from the old start-records worktree or infer current writer locks from R1–R5. The one-realm/prestige milestone and 1366-primary target are retired; current PROJECT/rule direction, desktop/laptop targets and AD36/AD42/AD43 govern new selected work. Keep branch switching, broader offline credit and ownership-aware reset distinct, without claiming their implementation or starting a new wave (AD32).",
+      "before_sha256": "46330abb6152de4cb49b61c205f9baf80041d910f3ae33db92e0d4a96143949a",
+      "after_sha256": "cf1152ca46fcc7c27a2421d7e7705260902350a4e10ab423f439a8218cbda656"
+    },
+    {
+      "path": "docs/gm/book-world-completion-2026-10-06/INTEGRATION_MAP.md",
+      "heading": "## Later integration and current selected routing, 2026-11-04 (B83)",
+      "body": "This initial required-join map is an October 6 source snapshot; its later root-reported joins and source-definition review already qualify the original pending wording. Current selected item registration invokes registerMolItems, and book_world_mol_native exports the shared native owner’s calendar, quest projection, envelope validation and bindings. Those source observations prevent treating the initial six-leaf/line/schema layout as today’s missing interface, but do not certify every current join. Later [exploration/body/learning reconciliation](../../audits/reconciliation-2026-11-04/content-b60.json) preserves actual scoped Cyoria/hatch/device/expiry routes and their fixture/earned/source-test limits, without novel parity, every origin or the canonical loop. Retain exact stock/custody, active-body, source/method/fuel, observer knowledge, declared instance clock and durable-before-publication boundaries. Neither a registry import nor a source dossier certifies current rebuilt gameplay. Old writer reservations and future acceptance examples select no new implementation, migration, test rerun or source acquisition (AD32/AD36/AD42).",
+      "before_sha256": "a39e03a3f80ff4b2c1528d2445e542c8a48e836dc2b2783d4bfaf81d81cc0ccd",
+      "after_sha256": "98efc3fe86c253e1e5ac2f459d0ebee6f43427fe570c5e68d08bbb79d131f66d"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1346
+}

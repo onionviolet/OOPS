@@ -33,3 +33,8 @@ Give a concise, substantive research synthesis, about 1800–2600 words, with th
 5. Direct links to primary sources where available: developer pages, official manuals/devlogs, public repositories, actual source files, official store descriptions. Separate documented mechanics from your inferred adaptation. Community sources can supplement exact details with their status disclosed. Never fabricate source access or current version coverage. State unresolved questions and which exact source question a deeper dive should answer. Please use web search and cite evidence, not recollection alone.
 
 Preserve discovery: do not include puzzle solutions, story twists or secret truths. Describe mechanisms at a structural level. Recommend transferable mechanics, not copying plots or assets. Do not mistake research coverage for absorbed gameplay.
+
+
+## Historical brief qualification, 2026-11-04 (B27)
+
+This is a saved October14 research request, not a new dispatch. Its one-realm/one-prestige required milestone was retired by USER_VISION’s October24 scope direction. Preserve the useful incremental-consumer questions and source/version caveats; refresh current priorities and dossier coverage before any newly selected pass. Existing adoption counts and “today’s” queues remain dated supplied evidence, not present capabilities or installation authority.

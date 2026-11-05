@@ -26,7 +26,7 @@ modification, soul-carrier or reproduction formula is certified here.
 The useful body question is whether an engineered role dictates what the
 person must become. A designed instinct, coercive master, later choice and
 newly acquired faculty are different layers. [CB23](NEW_ROWS.md) and
-[SB8](STAND_INS.md) develop that question as original proposals.
+[SB9](STAND_INS.md) develop that question as original proposals.
 
 CB8 cannot import a universal healing factor from the word immortality.
 CB10 cannot infer a clone from the word brothers, or genetic inheritance

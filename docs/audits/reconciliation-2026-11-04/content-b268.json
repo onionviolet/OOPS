@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "batch": "B268",
+  "title": "Complete consolidation plan and lossless read/adapter distinctions",
+  "at": "2026-11-05T00:20:38.319841+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/core-foundations-2026-10-14/a1/PLAN.md",
+      "ids": [
+        "A1-D1–7/D8",
+        "A1-F6–14",
+        "74import rows",
+        "eight adapter moves/H1–24",
+        "A1-C1/C2",
+        "RD1–6",
+        "M2.1–6",
+        "six M11 seams",
+        "seven W6 joins",
+        "M3.1/M3.2/M4.1/M4.2/M5.1/M11.1",
+        "A1-A1–5"
+      ],
+      "classification": "Unrun consolidation proposal with existing October18 reuse boundary and dated source census",
+      "owners": [
+        "docs/gm/dispatch/core-foundations-2026-10-14/a1/PLAN.md",
+        "docs/ARCHITECTURE_RULES.md",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "disposition": "Read all detailed contracts/tables, preserve exact history and IDs, fold useful source-order/read-shape/compatibility distinctions into existing engine-authoring owner without launching the proposed program.",
+      "evidence": "All735lines delivered in six bounded chunks1–120/121–240/241–360/361–480/481–600/601–760. Table count25+49=74confirmed by text scan only. No linked source/test body implicitly reread or runtime/API/version claim reverified.",
+      "reopen": "Follow the current domain registry and selected consumer; consult the exact old rows as history and verify actual present callers, state versions, order and meaningful failure case before a scoped extraction.",
+      "input_sha256": "b1dd4e824e55af53ab5c50a014547966852ec62418065d144008979e7d44ea63",
+      "input_lines": 735,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          735
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/core-foundations-2026-10-14/a1/PLAN.md",
+      "heading": "## Content reconciliation B268",
+      "body": "All735original lines reviewed, including A1-D1–7/D8, A1-F6–14, every74row import entry, named exceptions, both boundary-loop inventories, the full registry sketch, eight adapter moves/H1–24, schema/import stages, A1-C1/C2, RD1–6, M2.1–6, six monolith seams, seven W6 joins, six later angles and five ranked changes. The ledger really contains25simulation.js and49simulation_effects.js import rows. That table arithmetic validates the document's count, not current source dependency completeness or behavior.\n\nThe opening and closing October18 qualifications already resolve the plan's main reuse boundary: current domain_registry/AR1–16 and later M1–M3 evidence own implemented seams; this October14 design is not a second live specification. Its proposed runtime registry, hook contract, global save_format/save_versions, migration chain, old worktree order and first-milestone references remain unselected history. Reuse the existing owner, with AD51 allowing the first known useful consumer and a second world validating/revising it. The [October24 milestone retirement](../../../../USER_VISION.md#first-milestone-and-scope-check-2026-10-24), AD41 primary checkout and current [UI targets](../../../../UI_RULES.md) qualify the old one-realm/one-prestige, worktree-per-change and1366/1600desktop wording. Old soldier pause and named lane reservations need actual current authority if material, not this snapshot.\n\nA1-F8/F9/F10 preserve an important distinction: no literal destination ID does not mean no world coupling. Imported callbacks, enriched inputs, effect-time relocation/custody logic, group/prefix guards and the outer scheduler each carry semantics. Moving a list of fact providers alone cannot establish an adapter extraction. Keep current call/overwrite/input order and actual short-circuit and transaction boundaries during a behavior-preserving move. The discovered next-boundary versus due-check/controller asymmetry is not automatically a confirmed defect, and preserving it for parity is not a new permanent design rule. Tightening it would be a separate selected behavioral change with its actual failure case.\n\nA1-D2's registry/load permutation test concerns duplicate registration and declared ordering, not arbitrary commutation of causal state changes or alphabetic provider merges. Read/write conflict diagnostics without values can still reveal sealed provider/key existence; keep author diagnostics private or use the established opaque IDs, without publishing a key census to the player. A registry's presence is not enrollment, custody, actor knowledge or rights. An immediately evaluated preview is not a stale commit authorization; each actual boundary revalidates its own continuing support under AR7/ABR11.\n\nThe six RD proposals retain useful separate meanings. A person view needs actual body/controller/native identity and a consistent input frame; relationship sources keep direction, ranges and knowledge; capabilities keep competence/source/fuel/expression; requirement evaluators are not bodily conditions; a common action list is not one executor; a battle read shape is not universal combat grammar. Do not erase legacy fractional requirements in a boolean wrapper, turn missing into known zero, double-apply two views of one effect, or silently persist a projection. The proposed `readPerson`, `readMeans` and other APIs are sketches, not current exported functions. The full [A4 audit](../a4/AUDIT.md#content-reconciliation-b266) separately preserves source-qualified relationship findings.\n\nA1-F11/F12 already show5–11 are owner/reader admission states, not a linear5→11migration. Expansion, simulation, native envelope, retirement, pack and definition/rules revisions are separate version domains. The plan's A1-C1 compatibility choice and proposed global runner cannot override the later explicit old-save deferral. For a selected structural extraction preserve its chosen supported behavior; a new feature need not restore every old format or build a shadow migration runner first. Original bytes, exact-content suspension, generic parking, retention and ordinary persistence still use their actual owners and compatibility decisions. A metadata version cannot itself prove that a frozen commitment is readable or settle it twice.\n\nM2's lexical RNG/import/panel counts are dated measurements with explicit unknowns; they do not establish gameplay determinism, every panel's kit coverage or current acceptance ceilings. Exact adapter classification is more informative than a filename heuristic, but no current rescan or ratchet rebasing occurred. Line removal and zero-world-import goals are review signals subordinate to actual mechanism/consumer benefit, not reasons to minify or block feature work. Differential fixtures can protect a selected extraction; their ordered causes, pending jobs and external native effects must match applicable inputs. This does not mandate a second production executor or a universal new suite. No registry, migration, source extraction, test, build, branch integration or runtime behavior was changed or newly verified.",
+      "before_sha256": "b1dd4e824e55af53ab5c50a014547966852ec62418065d144008979e7d44ea63",
+      "after_sha256": "b4e357dd1ef339e6cbc2ae4d0cba437fd7a4b6cd41381f291c2bc5be7f303287"
+    },
+    {
+      "path": "docs/ENGINE_AUTHORING.md",
+      "heading": "### Consolidation plan detail uptake B268",
+      "body": "The complete [A1 consolidation plan](gm/dispatch/core-foundations-2026-10-14/a1/PLAN.md#content-reconciliation-b268), including its74import rows, both scheduler inventories and RD1–6/M2/M11 proposals, has been reviewed. Its own October18 boundary already routes to the implemented domain_registry and later modular evidence; it does not require another registry, global save format or re-extraction. Preserve source-level order and native/effect/support joins for a selected structural move; an apparent next-boundary/due-filter asymmetry remains a dated observation until its behavior is investigated, not a universal rule or current defect claim.\n\nThe proposed read shapes correctly distinguish fractional requirements from bodily conditions, internal truth from observer UI, source/fuel from competence and read unification from executor/store merger. Keep those distinctions when an actual consumer needs a seam (AD51), without creating all six APIs in advance. Save schemas5–11 in the snapshot are not a linear migration chain. Current compatibility decisions, AD36/AD41/AD42 and current viewport owners supersede old worktree, migration, human-review and milestone gates. Lexical counts,74table rows and a list of historical tests do not supply current source or runtime proof. Detailed scope and original IDs remain in the plan.",
+      "before_sha256": "f3100ab15a376160f7cd8901ae76ec770234e9ad7996a6c87204541d437b43c9",
+      "after_sha256": "efbd7c9f4d59031702807b2fc670d6090b1773167a49a898ddbc67c8caf5bf81"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 894,
+  "review_metadata_corrections": [
+    {
+      "path": "docs/gm/dispatch/core-foundations-2026-10-14/a1/PLAN.md",
+      "field": "disposition/owners",
+      "old_disposition": "Read all detailed contracts/tables, preserve exact history and IDs, fold useful source-order/read-shape/compatibility distinctions into current architecture owner without launching the proposed program.",
+      "new_disposition": "Read all detailed contracts/tables, preserve exact history and IDs, fold useful source-order/read-shape/compatibility distinctions into existing engine-authoring owner without launching the proposed program.",
+      "reason": "Correct the prose routing label to the actual recorded ENGINE_AUTHORING uptake; original source input/ranges and folds unchanged."
+    }
+  ]
+}

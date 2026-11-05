@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "batch": "B183",
+  "title": "Finish refinement priorities and complete ordinary-HP engine/UI plan",
+  "at": "2026-11-04T22:39:31.100717+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/REFINEMENT_PRIORITIES_2026-10-31.md",
+      "ids": [
+        "F1–F15",
+        "A1–A5",
+        "O/additionalthreads",
+        "independentauditorfollowthrough"
+      ],
+      "classification": "Dated refinement proposals with later independent evidence; full body reviewed",
+      "owners": [
+        "docs/audits/REFINEMENT_PRIORITIES_2026-10-31.md",
+        "docs/MASTER_PLAYABILITY_PLAN_2026-10-25.md",
+        "PROJECT.md"
+      ],
+      "disposition": "Freshfull116linebodybeyondselectedF7/priority. LatestindependentUIseededHP/withdrawalfocusreproduction strongerthanoriginalsourcebutnotfinalsettlement/healing/earnedroute. SRR1syntheticabsentasker memory notplayableprivacyproof. F5sameworddeduppurevslineoccurrence remainsdistinct; F13unknownsimpleloaderalreadywarnskipnotallreferences. F14secondtargetrejected futuregeneralizationnotactivecrossleak. Nov1functionalhomeandNov4prosefirst overrideoldpicturedhomeproposal; currentleadHPsequencegoverns notA1–5rank.",
+      "evidence": "Fresh entirebodyallinitialround2/laterauditor sectionsread. B178digest/architecture and B149–151fullUIcorealreadyread. No linkedcapture/auditreceipt/runtimeprobe/normalapp/remote/Git rereadthroughsummary; selectedsourceclaimsremainattributed.",
+      "reopen": "Use currentnamedowner and usefulfailurecase whenselected; noneofthese15rowscreatesnewglobalgates orimplementationwave.",
+      "input_sha256": "876e62efdbeac8ea4844e7c9e8befed8ded2ce76af5bd844a22acc9dcfab9474",
+      "input_lines": 116,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          116
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/HP_UI_ENGINE_PLAN.md",
+      "ids": [
+        "F1–F4",
+        "LR2-H1–H3/LR3-H1–H2",
+        "alltasktables",
+        "B1–B5/I1–I3",
+        "FN1–FN6uptake"
+      ],
+      "classification": "Full ordinary-life HP UI/mechanism palette; separate lead route and source-qualification gaps",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/HP_UI_ENGINE_PLAN.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/HP_WHOLE_WORLD_PLAN_2026-11-03.md",
+        "docs/LEAD_LIFE_GUIDE.md"
+      ],
+      "disposition": "Freshcomplete121longlineplanalllate-source/tables/brief. Keepordinaryschool/trade andHarryroute differentlives/proofs; laterselectedlead noteraseordinaryideas/proveassessedrepair. Source256census32read224shortwindow/1948metadata notcomplete7books. AllLRstatementsnarrowT/S/exactera notuniversaltransfer/detection/assent/conjurelaw. Lifetime/nutrition/authorityexception gapsremain. HPquantityincreasecanvalidnotmasslaw; knowledge/access/shareauthority distinct. Sourcecosttimetabletaxauthorednotcanon, no genericresource/rankengine. Fullknowntrajectorydesign upfront AD51 no two-worldembargo, currentoldsavechoice qualifiespreservealloldboilerplate.",
+      "evidence": "Fresh wholeplanincludinglatestFNuptake andalloldchecks. Earlier qualifiedresearch/HPwindowreceipts independentlyreviewed but no rawsevennovels/PDF/sourceimages/privatepackage/primarynewpass orcurrentruntime. NewliteralImport/screens/focus notinferredfromdesign.",
+      "reopen": "OnlycurrentselectedHPconsumer qualifiesactualsupplier/job/instrument/recipient/persistence; preserveexistingordinarypane andleadroute owners, sourceunknowns and belowfloorgates. No lane dispatch/newmechanism.",
+      "input_sha256": "44d6a6b9afec46f14dce9e5df5580971566178ed7c9b7fbee0e42eb4097fd077",
+      "input_lines": 121,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          121
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/REFINEMENT_PRIORITIES_2026-10-31.md",
+      "heading": "## Full refinement reconciliation, 2026-11-04 (B183)",
+      "body": "F1–F15, A1–A5, every ranked follow-up and the independent-auditor amendment were read. The amendment strengthens F7 from old capture/source concern to an isolated rebuilt seeded reproduction of HP disagreement, withdrawal wording and focus loss; final settlement/healing, held-away equality and an earned encounter remained unexercised. SRR2’s injury-publication question is source-level and distinct. F6’s synthetic absent-asker witnessed-memory result and actual UI caller strengthen a disclosure concern without constituting a played private-factor leak. Distinct same-word events in F5 remain separate from one occurrence projected twice. Preserve these exact evidence classes instead of treating every item as merely suspected or fully verified.\n\nThe report itself narrows F13: unknown simple carried inventory already warns/skips, while equipped/special references need their own tests. F14’s second dial target is rejected, so cross-target mixing is a future generalization pressure, not an active reproduced failure. F9’s aggregated worst-moment default supersedes old per-strike-only memory, without proving every witness’s channel. Code, partial fixtures, pure probes and earned journeys keep their separate input identities. Old local/remote refs, missing host mounts, reading-account snapshots and installed-app states are not current observations.\n\nKeep useful opportunities for meaningful return, observed world knowledge, real access/debt, contextual progression and actual making outputs. Current Klein-first/Harry-alongside sequencing governs the dated A1–A5 ranking. Nov1 functional Proto23 housing and Nov4 prose-first independent panes supersede any assumption that H2 pictured housing or a diagram is a general upgrade; forms remain per task/world proposals. Existing separate floor owners determine surviving requirements, not a new universal audit, second-world, timer, glossary or UI-redesign gate. No fresh screenshot, pure probe, runtime test or native route was run.",
+      "before_sha256": "876e62efdbeac8ea4844e7c9e8befed8ded2ce76af5bd844a22acc9dcfab9474",
+      "after_sha256": "93bc27c40f4741d07636128743833fb40aed873c2d10b937c0a9d886ec355c73"
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/HP_UI_ENGINE_PLAN.md",
+      "heading": "## Full plan reconciliation, 2026-11-04 (B183)",
+      "body": "The complete plan, F1–F4, known-trajectory table, LR2/LR3 rows, every task/contract table, B1–B5/I1–I3 and FN uptake were read. Preserve this ordinary school/adult-trade palette separately from Harry’s selected developer route and own-holdings receipts. The later lead route does not erase useful ordinary lives or prove the assessed-pane extension’s specific tutor/contribution/Import journey. Source-implemented extension, older D7/E3 proof, later school sample and current window proof retain different bounds. The census/read/short-window and1948-locator counts are not a seven-book semantic completion claim, and absence in a bounded search does not establish a school-fee canon law.\n\nKeep late-source qualifications exact without importing the underlying plot: custody, instrument affinity and usable means differ; detected activity, attributed actor, recipient and sanction differ; distinct binding instruments do not share one assent/penalty law. Transport, transformation and actual quantity increase need their own providers/input/output/consumer, and transaction integrity is not universal mass conservation. Learned information, entry/access and supported dissemination authority can change separately, with occurrence versus disclosure era preserved. LR2/LR3 remaining channels, exceptions, lifetime, nutrition, enforcement and algorithm gaps stay unknown rather than filled from franchise memory. No private novel, prepared source package or PDF image was opened here.\n\nThe proposed Today/Work/Belongings/Reference composition keeps actual teacher, body/tool/target, local purse, chemistry, calendar and task-return context; current prose-first direction makes illustrative rendering optional. Shared stable identity/custody/knowledge/jobs can be designed for known needs under AD51 and validated later, without adopting LOTM ranks or building a second complete world first. Pending terms and specific selected base compatibility remain real contracts, while blanket old-save-preservation wording is qualified by current compatibility direction. Precise source/gameplay gates remain with the selected consumer; old coordinator holds, budget ceiling and serialized brief are not present lease/dispatch authority. FN1–FN6 add cross-world contract pressures without importing another world’s tools or laws. No new source-read, UI/runtime edit, Import proof or implementation wave was performed.",
+      "before_sha256": "44d6a6b9afec46f14dce9e5df5580971566178ed7c9b7fbee0e42eb4097fd077",
+      "after_sha256": "26a2620773ab2c6e6c24bb073354907dbadadec5fccb4420711dbf26fbef3aeb"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1102
+}

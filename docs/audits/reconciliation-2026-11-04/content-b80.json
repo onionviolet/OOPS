@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "batch": "B80",
+  "title": "Companion tension defaults: complete world-type variants and owner-line content",
+  "at": "2026-11-04T20:29:36.289485+00:00",
+  "head": "4cdc0772b65d413e4989e327502910140b2a15eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/companions-2026-10-14/TENSION_DEFAULTS.md",
+      "ids": [
+        "T1–T7 × CV/CU/WS/DC/TL/TW (42rows)",
+        "W01–W37",
+        "G1–G3/Gsixworlddials/GA1–GA5",
+        "F1–F18 tailoredownerlines",
+        "S1–S6"
+      ],
+      "classification": "complete actual content coverage after B79 procedure section",
+      "owners": [
+        "docs/gm/dispatch/companions-2026-10-14/TENSION_DEFAULTS.md",
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "disposition": "Fullbody covered: six lenses overlapping/applicabilitylimited, not sixcampaigns/universalrules;37fits source-mediated not freshlycanon. Retain sevenpairedtensions, partialbackups/iterationclock/actualmemory/currentcooperation/sourcecompulsion/newheir/reproductionvsevolution/groupmemberconservation/care/handoff. ExactFownerlines proposednotautomaticallyapplied, F16oldsourcecorrectionnotcurrentcodeaudit. Rootlaterfold notmissingdesign. Retiredmilestone/viewport and broaderrealmdeferral not currentgate; no compulsorybondwound/betrayal/loyaltyscore/jobquota/offlineaging.",
+      "evidence": "Complete original file covered by B79exact204–237 plus fresh1–203/238–end complementary reads on unchanged file. EveryT/W/G/Frow content inspected; no C1source/privatebook/23owner wholesale reread or runtime proof.",
+      "reopen": "World-specificselectedactor/terms/operation with exactsource/era/currentconsumers; legacycompatibility and optionalAD42feedback governedbycurrentowners. No universaladoption/standalonepetengine or schema.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "f9f309c3d244148589135eee2e8d76db08f13dbaa1255e4417fdbc378e1cfb9b",
+      "input_lines": 326,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          326
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/companions-2026-10-14/C11_REPORT.md",
+      "ids": [
+        "C11-A1–A4/S1–S8/V1–V3/Q1–Q4"
+      ],
+      "classification": "fresh full companion tension delivery report review",
+      "owners": [
+        "docs/gm/dispatch/companions-2026-10-14/TENSION_DEFAULTS.md",
+        "docs/gm/dispatch/companions-2026-10-14/C11_REPORT.md"
+      ],
+      "disposition": "Historical42row/37fit/procedure/pasteline docsdelivery not runtime/canonverification or currentownerapplication. Source/companioncontinuity/MTLalias gaps conditional selectedscope. Old1366/realmdeferral/human wording follow currentauthority. Originalno-runtime/commit preserved.",
+      "evidence": "Full50line reportfreshread; fullactualtensionbody reviewed across B79/B80 rather than tablecount-only inference.",
+      "reopen": "Actual selectedprocedure/sourceconsumer; no recheckingallworlds or runninghistoricalworkers automatically.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "3b93581051bcc166a1ab023fac06893f1c54ec22b6a0e17c5c690235c9551676",
+      "input_lines": 50,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          50
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/companions-2026-10-14/TENSION_DEFAULTS.md",
+      "heading": "## Complete tension-content reconciliation, 2026-11-04 (B80)",
+      "body": "Full content review now covers T1–T7’s 42 local-type rows, W01–W37’s partial/overlapping fits, G1–G3 and their six dials/GA1–GA5 review scopes, and the tailored F1–F18 owner lines. Each keeps its documentary/source-mediated limit; this is not fresh canon verification of C1’s source material. Existing root folds have already routed C6/C11’s design material, while exact paste-line application and runtime consumers remain independently evidenced. Preserve the differentiating cases: dated backup versus continuing mind, current-iteration cooperation versus recalled prior consent, surviving actor versus new heir relation, evolved body versus descendant, group promotion versus duplicated member, actual tether loss versus narrative grief, and supported care after a release. Ordinary work or loyalty does not need an output quota, betrayal balance or compulsory wound. The one-realm/one-prestige cap and 1366 viewport are retired; current multi-world direction, current desktop targets, AD36/AD43 proof and optional AD42 feedback govern selected work. The authoring lenses remain proposals under AD32, not adoption of 37 worlds, mandatory new systems, new source acquisition or runtime authorization.",
+      "before_sha256": "f9f309c3d244148589135eee2e8d76db08f13dbaa1255e4417fdbc378e1cfb9b",
+      "after_sha256": "c9fa4e65ec60e4624212f7acc766c6a002233dd18fd4e03fcf87b81c6c22eeb1"
+    },
+    {
+      "path": "docs/gm/dispatch/companions-2026-10-14/C11_REPORT.md",
+      "heading": "## Later direction and full body review, 2026-11-04 (B80)",
+      "body": "The [tension owner reconciliation](TENSION_DEFAULTS.md#complete-tension-content-reconciliation-2026-11-04-b80) records actual complete body review, complementing B79’s selected procedure range. C11-Q4’s old 1366 target and realm/prestige deferral are historical scope, not a current project cap; use current desktop direction and selected implementation scope. Human review remains optional under AD42. Original row counts/checks attest this proposal packet’s structure, not underlying canon, live gameplay, source-owner application or a new full test run (AD32/AD36).",
+      "before_sha256": "3b93581051bcc166a1ab023fac06893f1c54ec22b6a0e17c5c690235c9551676",
+      "after_sha256": "044e95ace8b33bdcfcd6b3ed1dab7d1811cec9e2cc71213586bc511b5ced0c2e"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1352
+}

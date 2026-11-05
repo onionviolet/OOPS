@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "batch": "B255",
+  "title": "R21 numeric layout comparison and non-additive slack",
+  "at": "2026-11-05T00:04:05.650386+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/r21/slack-before/slack-map.md",
+      "ids": [
+        "24 cases × six region rows",
+        "frame/used/slack/overflow",
+        "fresh/populated/combat",
+        "14/21 px"
+      ],
+      "classification": "Historical numeric browser evidence; retained with measurement qualifications",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Full numeric body reviewed and compared with the paired table. Preserve originals; fold actual gains, remaining overflow, omitted modules and non-additive slack limitation into UI evidence owner.",
+      "evidence": "All 146 lines delivered for each table; before 1–80 in prior checkpoint and 81–146 now, after 1–146 now. No new screenshots, runtime test or current-browser verification.",
+      "reopen": "When using these numbers for a new layout claim, rebuild at current targets and measure reachable controls and disjoint regions on identical fixtures; do not reuse aggregate slack share as a bounded occupancy ratio.",
+      "input_sha256": "ce0829d95bdca4e1cf054d6122eace9e9b206f6b4178bebec5b50e81da517c46",
+      "input_lines": 146,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          146
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/r21/slack-after/slack-map.md",
+      "ids": [
+        "24 cases × six region rows",
+        "frame/used/slack/overflow",
+        "fresh/populated/combat",
+        "14/21 px"
+      ],
+      "classification": "Historical numeric browser evidence; retained with measurement qualifications",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Full numeric body reviewed and compared with the paired table. Preserve originals; fold actual gains, remaining overflow, omitted modules and non-additive slack limitation into UI evidence owner.",
+      "evidence": "All 146 lines delivered for each table; before 1–80 in prior checkpoint and 81–146 now, after 1–146 now. No new screenshots, runtime test or current-browser verification.",
+      "reopen": "When using these numbers for a new layout claim, rebuild at current targets and measure reachable controls and disjoint regions on identical fixtures; do not reuse aggregate slack share as a bounded occupancy ratio.",
+      "input_sha256": "43514cfdffc6a67fd44e278258bb104320717bfa8db156b629de0830b84ac340",
+      "input_lines": 146,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          146
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/UI_RULES.md",
+      "heading": "### R21 numeric evidence qualification (reconciliation B255)",
+      "body": "The R21 [before](gm/dispatch/ui-foundation-2026-10-15/evidence/r21/slack-before/slack-map.md) and [after](gm/dispatch/ui-foundation-2026-10-15/evidence/r21/slack-after/slack-map.md) tables each retain 144 measured rows across three seeded states, four sizes and 14/21 px. These are historical measurements, not a rebuilt current-browser check. At 1920/14 the player frame falls 315→287 and inventory/actions rise 673→730; at 1920/21 inventory rises 559→588 and populated rows 14→15, while belongings overflow falls 345→282. At 1536/21 populated inventory rises 387→416, rows 8→12 and overflow 545→423. Character overflow 99 at 1920/21, 112 at 1536/21, and populated Focus overflow 160 at 1536/21 remain. Removing or moving visible modules changes the measured content too: the after table omits Skills and log tools, and omits separate inventory tools at the smaller 21 px cases. It cannot establish that every former control remains reachable.\n\nThe aggregate Slack share is not a bounded fraction of disjoint free area: populated 1920/14 reports 979 px slack inside a 730 px actions frame (1.34), Mac/14 899/690 (1.30), and 1536/14 509/495 (1.03). Nested or alternate modules must be accounted for before using this metric as a utilization target. After 1366/21 populated actions still have local overflow 86 and records overflow 71 despite aggregate slack 117. All reported page dimensions match their cases, which does not erase pane overflow. Log width stays 501/468/444/394 while its frame grows 29 px; the larger blank log is not evidence that width was reclaimed. Preserve these tables and the separate R21/R22 reports rather than treating the numeric delta as proof of control behavior, accessibility, save portability or current viewport acceptance. The retired 1366 case remains historical evidence under the current desktop direction.",
+      "before_sha256": "abb5444569530726b109d9540544314ec02328a5e32e6458e93469a0d78cd681",
+      "after_sha256": "b4ab6ee4942f0d58e9cb81fb593a5a1218605b94be08bba059d1262a174ae238"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 918
+}

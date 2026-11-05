@@ -1,0 +1,217 @@
+{
+  "schema": 1,
+  "batch": "B66",
+  "title": "World-pack detail audit: root corrections, partial source scope and conditional depth",
+  "at": "2026-11-04T20:15:30.679358+00:00",
+  "head": "4cdc0772b65d413e4989e327502910140b2a15eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/world_pack_details_2026-10-20/REPORT.md",
+      "ids": [
+        "WPD-F1–F5",
+        "WPD-N1–N5",
+        "13sidecar IDs"
+      ],
+      "classification": "fresh full report content with lane/root coverage distinctions",
+      "owners": [
+        "docs/audits/world_pack_details_2026-10-20/REPORT.md",
+        "docs/audits/world_pack_details_2026-10-20/COVERAGE.md",
+        "docs/audits/WORLD_SUBTLE_GAPS_2026-10-20.md"
+      ],
+      "disposition": "Bounded risk-based audit, not full21world/all-file/canon review. HP256rows32read224windows and exactly2edits are historical private source-window receipt, not new primary authentication. Preserve source conditions vs authored local values, mechanisms vs allowed material lists and local future depth. Later life/LOTM receipts supersede exact pending route snapshots only with their own inputs; do not impose global new source/preimplementation gate.",
+      "evidence": "All seven report/checkpoint/lane documents read completely in bounded outputs; clipped rootREPORT finalsection retrieved35–49. Current JJKpacket parked header/persistence and selected LOTMinitiation historical/laterlocator text inspected. No underlying raw wiki/novel/privatecensus source reopened or gameplay proof renewed.",
+      "reopen": "Actual selectedworld operation/sourceclaim or changedowner opens its localsource/consumer/proof gap; no audit-wide implementationqueue, gate, newdelegation or canonupgrade.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "916539d6b98ac7ed5e6c57373eab01a5415461f53bf4142b5a800db950f6c973",
+      "input_lines": 49,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          49
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/world_pack_details_2026-10-20/COVERAGE.md",
+      "ids": [
+        "WG1–WG26"
+      ],
+      "classification": "fresh full report content with lane/root coverage distinctions",
+      "owners": [
+        "docs/audits/world_pack_details_2026-10-20/REPORT.md",
+        "docs/audits/world_pack_details_2026-10-20/COVERAGE.md",
+        "docs/audits/WORLD_SUBTLE_GAPS_2026-10-20.md"
+      ],
+      "disposition": "26scope dispositions preserve original/original-world/source/adaptation differences and local owners; metadata matrix not fullcanon/world implementation coverage. Existing JJK park confirmed current packet. Inactive game-world rows remain hold, conceptualfamily not newworld, original price/outcome not canonassertion. Retain conditional mechanics and inherited locators.",
+      "evidence": "All seven report/checkpoint/lane documents read completely in bounded outputs; clipped rootREPORT finalsection retrieved35–49. Current JJKpacket parked header/persistence and selected LOTMinitiation historical/laterlocator text inspected. No underlying raw wiki/novel/privatecensus source reopened or gameplay proof renewed.",
+      "reopen": "Actual selectedworld operation/sourceclaim or changedowner opens its localsource/consumer/proof gap; no audit-wide implementationqueue, gate, newdelegation or canonupgrade.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "d03fa75c65daa25e3cb01c71e453ae312bb2f871cca12d0742a842e5bd143781",
+      "input_lines": 34,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          34
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/world_pack_details_2026-10-20/CHECKPOINT.md",
+      "ids": [
+        "L1–L4",
+        "21briefs+5WGfamilies",
+        "38owners/HP2records"
+      ],
+      "classification": "fresh full report content with lane/root coverage distinctions",
+      "owners": [
+        "docs/audits/world_pack_details_2026-10-20/REPORT.md",
+        "docs/audits/world_pack_details_2026-10-20/COVERAGE.md",
+        "docs/audits/WORLD_SUBTLE_GAPS_2026-10-20.md"
+      ],
+      "disposition": "Historical finite audit complete, fourLuna workers/root repairs and429links bounded; source-window work distinct from novel/whole-payload reading. Budget/account movement not attributable cost. Historical reservations not live writer claims; no replay of workers or runtime wave.",
+      "evidence": "All seven report/checkpoint/lane documents read completely in bounded outputs; clipped rootREPORT finalsection retrieved35–49. Current JJKpacket parked header/persistence and selected LOTMinitiation historical/laterlocator text inspected. No underlying raw wiki/novel/privatecensus source reopened or gameplay proof renewed.",
+      "reopen": "Actual selectedworld operation/sourceclaim or changedowner opens its localsource/consumer/proof gap; no audit-wide implementationqueue, gate, newdelegation or canonupgrade.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "957fc72388e4a210b869c631052121e895da270e94d7abdb320aa23903c44ff9",
+      "input_lines": 56,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          56
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/world_pack_details_2026-10-20/L1.md",
+      "ids": [
+        "WPD-L1-01–03",
+        "WPD-L1-Q1–Q4",
+        "root refinement"
+      ],
+      "classification": "fresh full report content with lane/root coverage distinctions",
+      "owners": [
+        "docs/audits/world_pack_details_2026-10-20/REPORT.md",
+        "docs/audits/world_pack_details_2026-10-20/COVERAGE.md",
+        "docs/audits/WORLD_SUBTLE_GAPS_2026-10-20.md"
+      ],
+      "disposition": "OnePiece/FMA/Fate secondary-review corrections retained, primaryscene gaps scoped to selected actual source claims; cargo medicine branch and doctrine/source ambiguities not globalcanon. Later full1536x864/currentformat rootqualification governs narrow original persistence wording. No payload reopen.",
+      "evidence": "All seven report/checkpoint/lane documents read completely in bounded outputs; clipped rootREPORT finalsection retrieved35–49. Current JJKpacket parked header/persistence and selected LOTMinitiation historical/laterlocator text inspected. No underlying raw wiki/novel/privatecensus source reopened or gameplay proof renewed.",
+      "reopen": "Actual selectedworld operation/sourceclaim or changedowner opens its localsource/consumer/proof gap; no audit-wide implementationqueue, gate, newdelegation or canonupgrade.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "474f0e93ff4a1c508e9fb5911f27eb4faa918d7eca289f90d53e9ad6d382636c",
+      "input_lines": 36,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          36
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/world_pack_details_2026-10-20/L2.md",
+      "ids": [
+        "WPD-L2-01–03",
+        "HxH/Frieren/MHA",
+        "root refinement"
+      ],
+      "classification": "fresh full report content with lane/root coverage distinctions",
+      "owners": [
+        "docs/audits/world_pack_details_2026-10-20/REPORT.md",
+        "docs/audits/world_pack_details_2026-10-20/COVERAGE.md",
+        "docs/audits/WORLD_SUBTLE_GAPS_2026-10-20.md"
+      ],
+      "disposition": "Exam preview not complete license, one plant observation not universal spell rule, original rescue/fare/effect need authorship label not invented primarysource gate. Nen constructs/wide generations/MHA specialpower cases conditional. Prior source corrections read through secondary notes, not newly confirmed canon.",
+      "evidence": "All seven report/checkpoint/lane documents read completely in bounded outputs; clipped rootREPORT finalsection retrieved35–49. Current JJKpacket parked header/persistence and selected LOTMinitiation historical/laterlocator text inspected. No underlying raw wiki/novel/privatecensus source reopened or gameplay proof renewed.",
+      "reopen": "Actual selectedworld operation/sourceclaim or changedowner opens its localsource/consumer/proof gap; no audit-wide implementationqueue, gate, newdelegation or canonupgrade.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "5f48f888ccc4425524a69262e1ab58ac4c1379edbe67d4dabf617e17e7fcb062",
+      "input_lines": 33,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          33
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/world_pack_details_2026-10-20/L3.md",
+      "ids": [
+        "BlackClover/DemonSlayer/ChainsawMan",
+        "Q1–Q4",
+        "root refinement"
+      ],
+      "classification": "fresh full report content with lane/root coverage distinctions",
+      "owners": [
+        "docs/audits/world_pack_details_2026-10-20/REPORT.md",
+        "docs/audits/world_pack_details_2026-10-20/COVERAGE.md",
+        "docs/audits/WORLD_SUBTLE_GAPS_2026-10-20.md"
+      ],
+      "disposition": "Root supersedes draft mandatorymana signal/twodailyloops additions with conditional selected-world interactions; singlecontract not wholeeconomy. Authored encounter/prices/outcomes distinct from actual sourceclaims. Newstate currentformat roundtrip distinct from oldsave migration.",
+      "evidence": "All seven report/checkpoint/lane documents read completely in bounded outputs; clipped rootREPORT finalsection retrieved35–49. Current JJKpacket parked header/persistence and selected LOTMinitiation historical/laterlocator text inspected. No underlying raw wiki/novel/privatecensus source reopened or gameplay proof renewed.",
+      "reopen": "Actual selectedworld operation/sourceclaim or changedowner opens its localsource/consumer/proof gap; no audit-wide implementationqueue, gate, newdelegation or canonupgrade.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "609522d8765667316cbee2f1a56c76703218cad5e04138d551f982256ecfb50d",
+      "input_lines": 39,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          39
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/world_pack_details_2026-10-20/L4.md",
+      "ids": [
+        "B1–B5",
+        "J1–J5",
+        "Q1–Q4",
+        "explicit JJK unread ranges",
+        "root refinement"
+      ],
+      "classification": "fresh full report content with lane/root coverage distinctions",
+      "owners": [
+        "docs/audits/world_pack_details_2026-10-20/REPORT.md",
+        "docs/audits/world_pack_details_2026-10-20/COVERAGE.md",
+        "docs/audits/WORLD_SUBTLE_GAPS_2026-10-20.md"
+      ],
+      "disposition": "Preserve explicit unread JJK brief1–31/75–230/255–480 rather than fullbriefcredit. Compatible means, actual perceived vs indirect inference and sourcecondition distinctions retained. Currentpacket still PARKED. Existing compatibilitydeferral not freshapprovalgate for everynewstate; no generic aftermath/bystander simulator.",
+      "evidence": "All seven report/checkpoint/lane documents read completely in bounded outputs; clipped rootREPORT finalsection retrieved35–49. Current JJKpacket parked header/persistence and selected LOTMinitiation historical/laterlocator text inspected. No underlying raw wiki/novel/privatecensus source reopened or gameplay proof renewed.",
+      "reopen": "Actual selectedworld operation/sourceclaim or changedowner opens its localsource/consumer/proof gap; no audit-wide implementationqueue, gate, newdelegation or canonupgrade.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "ddfa0daa8f1990d991e30a4e0cf089721ab6a52ca0fb5114b68c033af71acffb",
+      "input_lines": 43,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          43
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/world_pack_details_2026-10-20/REPORT.md",
+      "heading": "## Continuous content reconciliation, 2026-11-04 (B66)",
+      "body": "Preserve the root review’s corrections over the earlier lane shorthand: L3’s mana-signal/day-night additions are conditional on selected interactions, L2’s original prices/rescue/utility effects do not require invented primary-canon evidence, and L4’s existing compatibility deferral does not ask for fresh approval on every new state. L4’s listed unread JJK brief ranges remain unread in that lane; this full review of its report does not supply them. WPD-F1’s three HP windows, two census edits and read/read-window counts keep their original input identity and scope; raw novel/wiki/census sources were not reopened here. WG1–WG26 are bounded dispositions with local remainders, not full-file/world completion or a current implementation queue. Current JJK packet still records its parked build. WPD-N3’s old LOTM prototype gaps are route/input-specific history: later named receipts may close their own journeys without certifying every life, current build or source-law catalogue. AD42 keeps human play/fiction feedback optional; AD36/AD43 govern actual changed behavior proof. Useful sample/lot/time, custody versus knowledge, method versus permission and clock distinctions remain with the linked local owners.",
+      "before_sha256": "916539d6b98ac7ed5e6c57373eab01a5415461f53bf4142b5a800db950f6c973",
+      "after_sha256": "8c15cdaa931d1232971288b412df27069e094f10d3dc20826d879aa48c2fc4d9"
+    },
+    {
+      "path": "docs/audits/world_pack_details_2026-10-20/COVERAGE.md",
+      "heading": "## Coverage interpretation, 2026-11-04 (B66)",
+      "body": "The [root reconciliation](REPORT.md#continuous-content-reconciliation-2026-11-04-b66) preserves WG1–WG26 and lane-specific source limits. “All scopes have a disposition” is the dated audit denominator, not every source/file read or all worlds implemented. Consult current local direction and actual route receipts before treating old pending status as current. Source evidence qualifies source claims; original local scenario values remain labelled authored. No parked world is selected or proposal adopted by this matrix (AD32).",
+      "before_sha256": "d03fa75c65daa25e3cb01c71e453ae312bb2f871cca12d0742a842e5bd143781",
+      "after_sha256": "1304780453900ec033c953b083f5b52db72898223317d51266ca1ca088ef9fc9"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1397
+}

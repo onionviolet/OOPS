@@ -1780,3 +1780,24 @@ Execution evidence and exact limits: [D2 checkpoint](gm/dispatch/engine-modulari
 | Trace simulation/effect host cycles by actual operations rather than moving an omnibus context | Sol / large, bounded slices | Each extracted operation has two real consumers and no extra clock/save/transaction authority |
 | Re-run startup/tick/serialization measurements when host load is below core count | Luna / small | Same fixture hashes and browser route, matched load, before/after medians plus exact bytes |
 | Inventory world-pack registry Map methods before proposing immutable adapters | Luna / small read-only scan | Every mutation and lookup caller classified; preserve iteration/identity or document explicit compatibility choice |
+
+
+## Rapid-iteration content reconciliation, 2026-11-04
+
+Folded the [rapid-iteration F1–F6/O1–O8](reviews/RAPID_ITERATION_CONSIDERATIONS_2026-10-16.md) and [foundation K1–K9/C1–C8](reviews/FOUNDATION_CONSIDERATIONS_2026-10-16.md) concerns after full document review. Their old 0.25-second build, 30-second suite, per-minute CPU rates and branch/untracked counts are historical observations, not current timings. The later measured stack section in this owner retains its own dated fixtures and failures; this pass ran no new performance benchmark (AD32/AD36/AD39).
+
+- F3/F6 and O2/O3/O5: `scripts/headless/runner.mjs`, `scenario.mjs`, `scenarios.mjs` and `src/scenario_facade.js` now exist. The [runner owner](../scripts/headless/README.md) names supported operations and limitations. Existence does not close every scenario, whole-game replay or headless/browser-parity claim.
+- F5/O1: standing rule files and the selected review are tracked now; the old request to commit them is not a fresh authorization or current blocker. No merge or remote status was inferred from the old branch names.
+- O4: reuse AD36/AD43's existing stages, with desktop 1920×1080 as the primary UI target. The old 1366×768 proposal is historical scenario evidence, not today's target or an added three-tier universal gate.
+- F4/O6–O8: preserve the useful separation of setup cost, simulation planning, validation, serialization/storage and render cost. Profile the selected journey before choosing memoization, worker/WASM, persistence timing or seed sweeps. A fast isolated function or zero-layout headless fixture does not measure end-to-end desktop performance.
+
+The [ER12 reconciliation](research/OWN_ENGINE_KERNEL_DESIGN_2026-10-14.md#foundation-review-reconciliation-2026-11-04) keeps the useful loading/clock/lifecycle constraints without reinstating an all-services M2.5 bundle. Reopen a performance proposal when a current measured bottleneck in an authorized consumer changes the decision.
+
+
+## Rule-linked verification content reconciliation, 2026-11-04
+
+Full content review of [implementation-check F1–F5/O1–O2 and RG1–RG5](reviews/RULE_IMPLEMENTATION_CHECKS_2026-10-16.md). `check_rule_behavior.mjs` remains an optional router into existing knowledge, transaction, save and navigation tests. Its current scope labels explicitly qualify old-save and browser/keyboard claims. The old 23-test receipt and RG5's two failures are observations of that recorded tree; neither a current failure nor a current clean suite was inferred here (AD36).
+
+Retain the useful regression lessons at their real consumer: compare all rejected inputs and draw/knowledge state; include replaced active quest instances in rollback ownership; retain the current view when Back's stop callback fails; keep observers distinct in the same world. Pure/helper tests, controller tests, source call-site inspection and built native interaction each prove different layers. Existing AD36/AD43 own when those layers are required, with the current desktop target from AD34. No compliance percentage, duplicate full-suite wrapper or mandatory new browser harness follows from this fold.
+
+Reopen RG5 by reproducing its named cheat/start/clock scenario when that task is selected. Reopen RG1–RG4 when their actual caller changes. No mutable source, regression test or tool routing was changed by this documentation review.

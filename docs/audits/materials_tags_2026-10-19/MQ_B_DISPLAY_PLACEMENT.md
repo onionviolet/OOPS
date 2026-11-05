@@ -199,3 +199,8 @@ Fixtures (above) are built inside each step as its first sub-task; UV8, UV9 and 
 - Real Local actions entry counts on a populated save (the fixture list was the sole source).
 - The `.claude/rules` and RULES_INDEX router were read at the rows cited; other AD lines were not.
 - Keeper names, source content and per-world dials are not specified here.
+
+
+## Reconciliation B92, 2026-11-04
+
+Preserve UV1–UV14, X1–X9, the twelve fixture candidates and unknown/known-empty/filter-empty distinctions. Forecasts require an observer projection, inspected odds do not consume draws, lot grouping keeps exact selection, old event wording remains historical, and last-seen information does not replenish stock. These proposals ran no browser and establish no current layout, populated action budget or gather journey. Old UR58 count and 1366 floor are historical; use current UI rules, desktop/laptop targets and accepted direction for a selected slice. Hover/pin and panel choices follow current owners rather than inheriting an October blanket approval request. No generic forced source depletion, keeper, hazard or renewal cause follows from an example. Keep keyboard/text equivalents and focus stability with desktop accessibility; mobile optimization remains deferred.

@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "batch": "B213",
+  "title": "Prepared unpark slices and preservation closeout",
+  "at": "2026-11-04T23:12:57.850960+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/game-research-adoption-reaudit-2026-10-14/UNPARK_PACKETS.md",
+      "ids": [
+        "U01–U20",
+        "U16a–c",
+        "U18a–e",
+        "C1–C5",
+        "shared gate"
+      ],
+      "classification": "Proposed bounded mechanism slices, not implementation authorization",
+      "owners": [
+        "docs/research/game-research-adoption-reaudit-2026-10-14/UNPARK_PACKETS.md",
+        "docs/research/game-research-adoption-reaudit-2026-10-14/REPORT.md",
+        "docs/ABUSE_AND_LIMITS.md"
+      ],
+      "disposition": "Preserve all20 proposals and independent leaves with concrete selected-consumer gates. Qualify U14 universal money/conservation wording, U17 arbitrary-JS/two-needs thresholds and old viewport as scoped design choices rather than standing restrictions. SourceReady false remains upstream question, not global shipping gate. Later delivery must be compared to exact proposal before new implementation.",
+      "evidence": "Full240-line body read including all20 packets, C1–5 and common proof conditions. No original pinned source caller, runtime module, private save or packet execution performed.",
+      "reopen": "Select current actual consumer under current priorities; use known unmet need and mechanism-specific costs/compatibility, compare current implementation and only then choose focused delivery.",
+      "input_sha256": "b3d3cdfd7005afaf02e3ef1f00066b1b893641d9aa8563c8883aee88bd76152d",
+      "input_lines": 240,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          240
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/deep-detail-reaudit-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "delivery",
+        "ownership",
+        "preservation",
+        "KoL copy correction",
+        "restart"
+      ],
+      "classification": "Terminal historical depth-audit/preservation checkpoint",
+      "owners": [
+        "docs/research/deep-detail-reaudit-2026-10-14/CHECKPOINT.md",
+        "docs/research/deep-detail-reaudit-2026-10-14/REPORT.md"
+      ],
+      "disposition": "Keep terminal audit closure distinct from open semantic reading/gameplay/adoption; KoL obsolete-path first copy corrected before final verification. Snapshot-preserve script is non-overwriting and must not rerun merely to restate delivery. Historical active owners are not current locks. B211 already folds full report limits, no duplicate checkpoint fold needed.",
+      "evidence": "Full24-line checkpoint read. VALIDATION/DEEP_SAVES/private manifest contents and copying scripts were not inspected/executed here.",
+      "reopen": "Only a concrete artifact defect justifies affected preservation validation; a new semantic source pass is a distinct selected task, not automatic restart of completed copy work.",
+      "input_sha256": "dd93fa7e6ffe3805bdfdee61f66100cb3ff0919051d06bc5703c099f1c948970",
+      "input_lines": 24,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          24
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/game-research-adoption-reaudit-2026-10-14/UNPARK_PACKETS.md",
+      "heading": "## Content reconciliation B213, 2026-11-04",
+      "body": "All U01–U20, U16a–c, U18a–e and C1–C5 were reviewed. Keep useful bounded tests: held batch continuity versus independent crafting, origin-qualified key versus lookalike/custody, specific modified copy versus generic rarity, supported absence versus a derived XP estimate, tool function versus possession, retained gift versus continuing institution service, live song versus constructed ward, and follower consent versus inherited estate. Different leaves stay independent; one stance or one nested return does not close all proposed behavior. B212 qualifies the parent ledger’s generic source joins and repeated representations; it supplies no new runtime evidence (AD32/AD36).\n\nU14’s “cannot generate free money” wording is a proposed local shaping fixture, not a general ban on profitable transformation, trade or a world-supported material source. State actual source, quantity, value, recipient and consumer under the selected mechanism; no universal conservation tax or forced opposite-affinity loss follows. Likewise U17’s two-unmet-needs threshold and excluded arbitrary JavaScript describe its proposed parser slice, not new universal design authority or anti-cheat rules. AD51 permits a seam for a concrete known consumer, with a different world validating reuse; AD22 keeps solo-play freedom subject to save integrity.\n\nThe common 1440-primary/1366 fit wording is historical; selected current UI work follows current desktop targets and prose-first task composition. SourceReady false in U01/U03/U04/U11/U15 remains an exact upstream reading gap for that proposed absorption, not an embargo on independent current functionality. Existing consumer evidence, including later Foundation method use, must be compared against the actual candidate before building another path. AD52 allows supported compression and long play; earned convenience need not become a compulsory chore. No historical packet launches workers, creates a worktree, changes a priority, grants a commit, or requires renewed human taste approval as a blocker under AD42. No code, primary source or runtime proof was refreshed in B213.",
+      "before_sha256": "b3d3cdfd7005afaf02e3ef1f00066b1b893641d9aa8563c8883aee88bd76152d",
+      "after_sha256": "5eafcccb370c274b2dbd0db4f3738163b4b545d10cc4a63cdd026860fc2089f6"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1049
+}

@@ -79,6 +79,7 @@ const rows = [
     ['record-row', 'in-world', 'A record read or requested by this character through admitted means.'],
     ['object-acts', 'in-world', 'Things at hand the character can act on here.'],
     ['job', 'in-world', 'Current work performed by this character.'],
+    ['job-command', 'in-world', 'The current work’s command identity restores focus within this life.'],
     ['path', 'in-world', 'Current pathway information.'],
     ['ladder', 'in-world', 'This character’s pathway ladder as a figure.'],
     ['ladder-text', 'in-world', 'This character’s pathway ladder in words.'],

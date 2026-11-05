@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "batch": "B184",
+  "title": "Finish all five rounds of the world implementation rules map",
+  "at": "2026-11-04T22:40:22.851795+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/WORLD_IMPLEMENTATION_RULES_MAP_2026-11-04.md",
+      "ids": [
+        "map9stages/20families",
+        "F1–F21",
+        "A1–A5/L1–L15",
+        "rounds1–5/corrections"
+      ],
+      "classification": "Multi-round rules map with superseded claims and scoped source/enforcement proof",
+      "owners": [
+        "docs/audits/WORLD_IMPLEMENTATION_RULES_MAP_2026-11-04.md",
+        "docs/RULES_INDEX.md",
+        "DESIGN.md",
+        "docs/SAVES.md"
+      ],
+      "disposition": "Freshall201lines. Ownround2withdrawsF1UIsectionabsent andF7entryabsence, A1twoexistingownerlinks notnewkit; round3confirmspathloadF10 strongerthanround2suspect. Round4F16no savepath supersededcurrentB138hook+revealgap, no serializerwork. F11/F17voicerows current9matchkeysstillnoGuShadowDnd andtestLOCATIONSshapebutcurrententerabilitynottracedso sourcecoveragegap notwholeworldUIabsence. SUI/UIVwholeconsumerswereunmapped, no allrulesreconciled. BroadA3oneanswerstatusproposalnotcurrentuserrequest/blanket160adoption.",
+      "evidence": "Freshbody1–105 and106–201entire. Currentworld_report_voice1–55,164–180 andall9key/matchlines; testsworld_look92–102fullspecificcoveragebody plusselectedassertionsread. No tests/gameMCP/pathrulelive-loading/HTMLartifact/sourcecensus rerun; B138currentregistryandB178rules independentlyscoped.",
+      "reopen": "Use actualstart+crossingproducer for selectedcoveragework andexistingDSG19/RPT13/entryowners; no newvoicewriter/kittemplate/acceptancevote/checksuite authorized.",
+      "input_sha256": "f94dac0d2ed20b7cc6a6d8ad8a7f6a8da9360387a89f26fa13a5792fcbbd26c6",
+      "input_lines": 201,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          201
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/WORLD_IMPLEMENTATION_RULES_MAP_2026-11-04.md",
+      "heading": "## Full five-round reconciliation, 2026-11-04 (B184)",
+      "body": "All five rounds, F1–F21, A1–A5/L1–L15 and the original diagram were read. Later corrections win within this report: F1’s “no UI section/checklist” claim is withdrawn because S13 and DSG19 already existed; A1 became two links. F7 is narrowed by existing WER13 and low-spoiler start guidance. F2 progresses from glob-only suspicion to the report’s named live rule-loading observation in F10; this reconciliation did not rerun that harness. A diagram is a router, not a mandatory research→book→protagonist waterfall for original worlds or settled feature rows. Current corrected RULES_INDEX owns those trigger distinctions.\n\nF16’s blanket no-pack-save-path observation is superseded by the independently reviewed current registry save/validate/load hooks and named reveal writer. That does not establish natural gameplay reveal or all per-world persistence, and it does not call for a duplicate serializer. Save contracts already have AR6 and the SAVES owner even without a new “save rule” code family; code-count totals do not measure enforcement or missing gameplay. The explanatory HTML/private artifact and headless text probes retain their original scope, not current game layout or full rules compliance.\n\nA selected current source check still shows nine explicit world_report_voice family keys/matches and a coverage test driven by exported literal *_LOCATIONS table shapes. Those inspected matchers contain no Shadow/Gu/Phandalin family; this preserves the narrow voice-coverage concern without claiming current start/crossing reachability or every displayed line was exercised. A test’s green historical result can coexist with unmapped actual producers. If selected, reuse current registered starts and actual crossings to define the covered population, allow stated exceptions and trace the real report consumer. No runtime voices, test or new registry was changed.\n\nPreserve mixed authority and unmapped residue. UR76–UR82 proposed-in-use, specific standing WA lines, selected Nov4 prose defaults and other proposals are not one blanket accepted set. A3’s suggested grouped question does not require a fresh vote on already established direction, nor does registration adopt unresolved groups. SUI/RPT/UIV and launch consumers explicitly untraced by round5 remain separately reviewable; panel/route counts, census cells and file-name scans are not universal kit proof. Existing system-card briefs can be inline, and no new form, seventh kit question, template, rulebook, code rename or global gate is selected here.",
+      "before_sha256": "f94dac0d2ed20b7cc6a6d8ad8a7f6a8da9360387a89f26fa13a5792fcbbd26c6",
+      "after_sha256": "3a3b0acc1afe7997d893cfebc1859841614eab7eed5176745e7e3c58adef69da"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1102,
+  "post_record_amendments": [
+    {
+      "path": "docs/audits/WORLD_IMPLEMENTATION_RULES_MAP_2026-11-04.md",
+      "from": "Preserve mixed authority and unmapped residue.",
+      "to": "Preserve mixed authority under AD32 and unmapped residue.",
+      "reason": "Put AD32 on the exact paragraph distinguishing accepted and unresolved proposal status, satisfying document checker without new adoption."
+    }
+  ]
+}

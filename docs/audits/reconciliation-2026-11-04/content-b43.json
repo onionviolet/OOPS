@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "batch": "B43",
+  "title": "Fallout edition boundaries and chronological source-reader authority",
+  "at": "2026-11-04T19:56:01.297925+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fallout-full/CHECKPOINT.md",
+      "ids": [
+        "E8C",
+        "Stealth Boy",
+        "Power armor",
+        "K-9",
+        "Mentats",
+        "Psycho",
+        "Jet",
+        "Fallout 2",
+        "Fallout Tactics: Brotherhood of Steel",
+        "Hit Points",
+        "Action Points",
+        "Damage Resistance",
+        "Fallout 3",
+        "Steal",
+        "Traps",
+        "Critical Chance",
+        "Poison Resistance",
+        "Radiation Resistance",
+        "Miria",
+        "Sequence"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/power-systems/wiki-digests/full-dumps/workers/fallout-full/CHECKPOINT.md; the checkpoint names fallout_SOURCES.json, READ_LEDGER.jsonl, and NOTES.jsonl as source manifest and outputs. No runtime consumer is assigned.",
+        "docs/research/power-systems/wiki-digests/full-dumps/workers/fallout-full/CHECKPOINT.md; specific edition/model child pages are named as dependencies but their paths are not supplied in this span.",
+        "docs/research/power-systems/wiki-digests/full-dumps/workers/fallout-full/READ_LEDGER.jsonl and NOTES.jsonl; checkpoint is the historical receipt, not a runtime consumer. For Fate shards, SUMMARY.md and correction/scope-disposition files retain named qualifications."
+      ],
+      "disposition": "Assigned lines contain a dated 2026-10-13 priority-pause annotation at the front, plus undated earlier queue authorization and progress through row86. Document order alone does not date that authorization after the pause, so it supplies no evidence that the pause was reversed. These retained progress entries are historical receipts; no current restart, aggregate/source-request status or runtime/build/save authority follows. | Historical documentation delivery reports completed reads for full pages and retained mechanic spans, generally with frozen-manifest hash matches. Entries explicitly mark limited retained spans, dependency pages, text inconsistencies, scope-review flags and source-version conflicts. Completion describes checkpointed digest coverage; it does not independently verify the wiki claims, canon, current project rules or implemented behavior. | Historical content evidence only; do not treat checkpoint assertions as accepted design, current gates, source canon, or runtime proof. All three supplier semantic portions inspected for this complete source union, including explicitly uncoded continuation. Preserve edition-specific summaries and unresolved child-page dependencies. Undated authorization lower in a chronological log does not reverse the dated priority pause. A generic supplier reference to Fate is navigation from a neighboring receipt, not additional Fallout evidence. No raw source reading or current restart granted.",
+      "mechanism_and_interactions": "The checkpoint aggregates Fallout wiki work across moral Karma, faction reputation/access, skills and quest checks, radiation/FEV variants, equipment and weapons, access tools, and facility power/control. It repeatedly separates source types, editions, actors, observed effects, hypotheses, and unknown thresholds; examples include Fallout 76 faction ranks as access progression, strain-specific FEV routes/effects, and power-control components with unresolved limits. It reports reading full retained pages or only assigned biography spans, with manifest/hash checks and ledger/note outputs; these are checkpoint claims, not inspected source evidence. | The historical worker checkpoint records a wiki-digest pass preserving edition boundaries: Stealth Boy has base camouflage, side effects, and distinct Mark II/III, Phantom and Railroad variants; power armor is a frame/core/part system with edition-specific training and vehicle-like use, while AT-0M scanning/mind field is tabletop-only. Drug summaries distinguish base effects, strains/recipes, addiction, withdrawal and treatment; Jet’s production-origin conflict remains unresolved. Fallout stat and combat summaries separate classic, later-game and tabletop formulas, including classic sequential DT/DR, New Vegas DR/DT and later nonlinear mitigation. Skills can gate specific actions or authored dialogue, while overview pages often omit formulas or defer to edition-specific child pages. These are recorded source summaries, not implemented game mechanics. | Historical checkpoint notes summarize Fallout mechanics across editions: SPECIAL/derived-stat distinctions, XP and level benefits, combat modifiers, drugs/healing, ammunition, gear bonuses and quest routes. Preserve edition-specific behavior, including documented bugs and unresolved conflicting claims; child-page formulas and transclusions remain dependencies. Actor-specific knowledge and local town/faction reactions are kept separate from global law, reputation or player-visible information.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Directly read the complete assigned checkpoint span. Its claims include frozen-manifest character/hash/revision checks and paraphrased ledger notes; underlying wiki payloads, manifest, ledger, and notes were not inspected in this shard. No contemporary runtime evidence was reviewed. | Only the assigned historical checkpoint lines were reviewed. Its read/hash statements and mechanic summaries are reported evidence, not direct inspection of underlying wiki pages, the frozen manifest, source canon or current runtime. | Assigned historical checkpoint span read by reader. Reported paired-note/hash/length/chunk checks are not independent inspection of underlying payloads or notes, canon authentication, current runtime or integration proof.",
+      "reopen": "Respect the live priority owner before any separate source resumption; the undated queue authorization is not proof of a post-pause reversal. To use a selected source claim, inspect its manifest, note and payload, then separately select world/edition consumers and runtime proof. | If a summary is reused, inspect its specific edition/model source page and resolve its recorded dependency or conflict, including the Jet origin disagreement, incomplete Fallout 76 formulas and scope-review flags. Then establish the selected world mechanism and consumer independently. | Consult the specific original manifest/payload/note and any append-only correction before reusing a claim; preserve edition/continuity and source hierarchy. Any selected mechanic needs its actual consumer and separate runtime/persistence evidence.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          369
+        ],
+        [
+          370,
+          745
+        ],
+        [
+          746,
+          1030
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S037.json",
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S038.json",
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S039.json"
+      ],
+      "prior_input_sha256": "2b4482a1ca41da5683a05a0d59eba70c7a2ff7f9ceaad584618a5984e743d9f6",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "2b4482a1ca41da5683a05a0d59eba70c7a2ff7f9ceaad584618a5984e743d9f6",
+      "input_lines": 1030
+    }
+  ],
+  "folds": [],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1543
+}

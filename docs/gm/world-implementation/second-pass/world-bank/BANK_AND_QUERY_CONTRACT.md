@@ -51,3 +51,8 @@ Whole-bank review and bounded active simulation are different work. Enrollment s
 Minimal route: claim-format adapters, pure projection, explicit activation intent, instance resolver and diagnostics feeding existing planners/publisher. Wider rewrite: separate graph database, general psychology engine and new inventory/save interpreter. The latter adds ownership/migration work without a demonstrated acceptance benefit for these fixtures. Use it only after a named scale/function failure justifies it.
 
 No latency, memory, token or recall savings measurements were obtained. A later permitted benchmark should separate cold reference lookup, closure/projection, hot actor decision, active scheduler cost and publication size across increasing bank and active-actor counts. Report omissions and function fidelity alongside speed. File/word counts and indexed retrieval alone cannot establish savings or complete gameplay.
+
+
+## Scope and evidence qualification, 2026-11-04 (B26)
+
+The inspected schema/service absence and held planning stage above are October 4 snapshots, not present capability claims or an instruction to build this entire bank first. Preserve the conceptual separation of reference, authored policy, actual state, attributed evidence and derived view, with semantic receipt criteria beyond hashes. A selected action needs complete relevant support and safe observer projection, not every bank record. Revision-bound indexes are replaceable navigation; they do not become another source of truth. Current accepted direction and native owners decide which concrete adapter is needed, while AD51 governs shared-foundation/lead validation sequencing. No query service, schema migration or performance saving was implemented or measured here.

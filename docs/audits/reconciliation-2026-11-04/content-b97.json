@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "batch": "B97",
+  "title": "Difficult-concept palette and campaign absorption workflow",
+  "at": "2026-11-04T20:49:01.782477+00:00",
+  "head": "a4bebe24faffd52190c7e93bdc6d3fff91fa145c",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/DIFFICULT_CONCEPT_ABSORPTION_PALETTE.md",
+      "ids": [
+        "D-C1–D-C2",
+        "GC1–GC5",
+        "HC1–HC10",
+        "X-C1–X-C4",
+        "NC1–NC30",
+        "NE1–NE3",
+        "CE1–CE3"
+      ],
+      "classification": "cross-world proposal palette with tiered source evidence",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/DIFFICULT_CONCEPT_ABSORPTION_PALETTE.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/LEAD_WORLD_ENGINE_SLICE_BRIEF.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/ENGINE_UI_DEPENDENCY_MAP.md"
+      ],
+      "disposition": "Retain D-C1/D-C2, GC1–GC5, HC1–HC10, X-C1–X-C4, NC1–NC30, NE1–NE3 and CE1–CE3 as a reusable question palette with explicit T/Q/S/P/D source labels. Three short primary windows qualify only their actual exposition/statements; neither all-source coverage nor observed shutdown/restart, complete temporal travel or soul ontology follows. Source-qualified prior audit reuse remains at its original range; publication snippets, wiki/community leads and hypothetical comparisons are not primary scene proof. Shared clocks, control, memory, disclosure, custody and per-output aftermath are useful distinctions without a universal magic schema or every-theoretical-pair test. D-C2’s wait-for-demonstrated-consumers phrasing is qualified by later AD51: design a reasonable shared seam from known world sources first, then validate/revise with another world. This does not impose an implemented-two-world embargo. Existing broad/niche/cross-book folds already preserve the substantive uptake in the lead brief and family map.",
+      "evidence": "Complete three-round palette read, repairing clipped final CE/discovery spans. Existing receiving broad/niche/cross-book sections inspected; current AD51 digest checked. No primary text/web read.",
+      "reopen": "A selected operation with consequential uncertainty reopens its exact source range/composition, not an automatic thirty-book audit.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "c1c13ce34f5a8204e7f2bb1e62b7b39ce90fb118b3a360506ff2c0ec8d2aaa9d",
+      "input_lines": 144,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          144
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/BOOK_ABSORPTION_WORKFLOW.md",
+      "ids": [
+        "pipeline 1–5",
+        "T1–T8",
+        "M/D/P/R/C/$/H/I/B",
+        "ordinary-time table",
+        "standing-check table"
+      ],
+      "classification": "mixed accepted direction, proposed execution workflow and dated evidence",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/BOOK_ABSORPTION_WORKFLOW.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/LOTM_KLEIN_FULL_JOURNEY_PLAN.md",
+        "PROJECT.md"
+      ],
+      "disposition": "The title’s blanket “nothing here is accepted” is qualified by its own later AD48 paragraph: separate capable runtime implementers and mechanism-led delivery are accepted direction; the exact pipeline, cadence, depth levels, thresholds, estimates and standing-check proposals are not blanket adopted. Current PROJECT/VISION_DIGEST supersede “build ch23 next” and the old ch32 gate as present queue instructions. Keep authoring/native proof serial where checkpoints actually depend, source-fixed seams eligible for parallel work under current ownership and authorization, and mechanism+display leading its consumers. A 140M-token upper bound is not a forecast; historical boot/import timings and 20MB/twice-time thresholds are provisional, not a demonstrated performance cause or universal chunking gate. Canon-stage reachability and calibrated source amounts remain distinct from stage-count progress and adjustable ordinary-time depth. Preserve T1–T8 and M/D/P/R/C/$/H/I/B dispositions: generated-string checks must inspect built data; stable fact keys and actual actor/seat joins; durable retrievable bundle identity; currency/holder/fee scope; literal current-candidate review import; handoff ledgers and single pack writer. T7 is marked built, so keep its helper history rather than request it anew, without certifying it by this review. Locator existence is structural: a valid paragraph can still be the wrong evidence, as the ch66 income correction demonstrates. One previous-checkpoint runner path does not establish equivalent bytes, joined uninterrupted campaign or all-hop replay. Content-only rule/build cadence is a proposal and cannot replace AD36/AD43 runtime/consumer proof. Old private proof bundle and running-probe state are historical, not current bytes/workers. No commit, reader dispatch, source expansion or chain replay is authorized by reviewing this workflow.",
+      "evidence": "Complete workflow read in bounded ranges after clipped combined output; current focus and standing campaign/AD51 digest inspected. Original private probe/cast/runner files not reread.",
+      "reopen": "Only the current campaign owner selects future mechanisms, depth, proof and dispatch under live authorization. Do not act on stale next-window/worker claims.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "c34d2ea6c1602e89622067ef8cacdea33e3cb8910315a6cb8f8f4dac37bb066f",
+      "input_lines": 106,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          106
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/DIFFICULT_CONCEPT_ABSORPTION_PALETTE.md",
+      "heading": "## Reconciliation B97, 2026-11-04",
+      "body": "Retain D-C1/D-C2, GC1–GC5, HC1–HC10, X-C1–X-C4, NC1–NC30, NE1–NE3 and CE1–CE3 as a reusable question palette with explicit T/Q/S/P/D source labels. Three short primary windows qualify only their actual exposition/statements; neither all-source coverage nor observed shutdown/restart, complete temporal travel or soul ontology follows. Source-qualified prior audit reuse remains at its original range; publication snippets, wiki/community leads and hypothetical comparisons are not primary scene proof. Shared clocks, control, memory, disclosure, custody and per-output aftermath are useful distinctions without a universal magic schema or every-theoretical-pair test. D-C2’s wait-for-demonstrated-consumers phrasing is qualified by later AD51: design a reasonable shared seam from known world sources first, then validate/revise with another world. This does not impose an implemented-two-world embargo. Existing broad/niche/cross-book folds already preserve the substantive uptake in the lead brief and family map.",
+      "before_sha256": "c1c13ce34f5a8204e7f2bb1e62b7b39ce90fb118b3a360506ff2c0ec8d2aaa9d",
+      "after_sha256": "81f0fdc549dc688e24b15c27d174ba18c03bd4833b88cabcddac2855982f12e1"
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/BOOK_ABSORPTION_WORKFLOW.md",
+      "heading": "## Current-use reconciliation B97, 2026-11-04",
+      "body": "The title’s blanket “nothing here is accepted” is qualified by its own later AD48 paragraph: separate capable runtime implementers and mechanism-led delivery are accepted direction; the exact pipeline, cadence, depth levels, thresholds, estimates and standing-check proposals are not blanket adopted. Current PROJECT/VISION_DIGEST supersede “build ch23 next” and the old ch32 gate as present queue instructions. Keep authoring/native proof serial where checkpoints actually depend, source-fixed seams eligible for parallel work under current ownership and authorization, and mechanism+display leading its consumers. A 140M-token upper bound is not a forecast; historical boot/import timings and 20MB/twice-time thresholds are provisional, not a demonstrated performance cause or universal chunking gate. Canon-stage reachability and calibrated source amounts remain distinct from stage-count progress and adjustable ordinary-time depth.\n\nPreserve T1–T8 and M/D/P/R/C/$/H/I/B dispositions: generated-string checks must inspect built data; stable fact keys and actual actor/seat joins; durable retrievable bundle identity; currency/holder/fee scope; literal current-candidate review import; handoff ledgers and single pack writer. T7 is marked built, so keep its helper history rather than request it anew, without certifying it by this review. Locator existence is structural: a valid paragraph can still be the wrong evidence, as the ch66 income correction demonstrates. One previous-checkpoint runner path does not establish equivalent bytes, joined uninterrupted campaign or all-hop replay. Content-only rule/build cadence is a proposal and cannot replace AD36/AD43 runtime/consumer proof. Old private proof bundle and running-probe state are historical, not current bytes/workers. No commit, reader dispatch, source expansion or chain replay is authorized by reviewing this workflow.",
+      "before_sha256": "c34d2ea6c1602e89622067ef8cacdea33e3cb8910315a6cb8f8f4dac37bb066f",
+      "after_sha256": "09b9189eb70e4e087b89437ed93cd9d666b758875237fbd287d20d2054af6cb4"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1312
+}

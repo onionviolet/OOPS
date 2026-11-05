@@ -1,5 +1,7 @@
 # Play queue, 2026-10-24
 
+**Content review B4, 2026-11-04:** P1–P6 steps, verdicts and exclusions reviewed. This is a historical optional play/taste queue, not current build order or default player entry (AD42/AD44; [PROJECT](../../PROJECT.md#current-focus)). Its `git archive HEAD` command captures execution-time HEAD rather than pinning the named old proof build; identify the chosen candidate before relying on those old steps. P4’s “one pathway per life” describes that recorded route, not a universal ban on source-supported exceptions. Current ordinary starts use WER, while the Klein/HP developer routes have separate coverage. Detailed ideas remain here; no old route or timing was replayed.
+
 Weibao asked for a short list of finished slices to play, each with exact steps
 (action A1 from the "how to implement all of our ideas" answer). Purpose: turn
 "agent-verified" into accepted, adjusted or rejected by the only player.

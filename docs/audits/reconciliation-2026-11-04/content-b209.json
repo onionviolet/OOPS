@@ -1,0 +1,297 @@
+{
+  "schema": 1,
+  "batch": "B209",
+  "title": "Early Foundation review corrections and transfer checkpoints",
+  "at": "2026-11-04T23:07:57.345818+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/RECONCILIATION_NOTES.md",
+      "ids": [
+        "Initial horizon/review adoption"
+      ],
+      "classification": "Historical review correction or transfer checkpoint",
+      "owners": [
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/HORIZON.md"
+      ],
+      "disposition": "Retain the historical continuing horizon, distinct technical/blocked/taste states, and no inferred gameplay rerun; current task gains no new successor or specialist authority.",
+      "evidence": "Full short body read. R3 output truncation recovered by separate complete read. Underlying captures, source, saves, bundles and browser paths not rerun.",
+      "reopen": "Only when comparing this exact dated round against its own report/backlog and immutable input; resolve current execution state from later owners, not historical next-step directives.",
+      "input_sha256": "448adf13f1bd7fd53910144a976d4f250aa29a8bfa2af2ff54da194ea7003d22",
+      "input_lines": 9,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/execution/CHECKPOINT_PRE_R4_CLOSURE.md",
+      "ids": [
+        "R3 to R4 transfer; FA06–09"
+      ],
+      "classification": "Historical review correction or transfer checkpoint",
+      "owners": [
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/HORIZON.md"
+      ],
+      "disposition": "R3 paid failure then success and native literal imports are scoped positive receipts; SOURCE-only quota branches and FA07 remain open. Prior source binding reused only for unchanged feature inputs. Named historical frozen ports are not live server inventory.",
+      "evidence": "Full short body read. R3 output truncation recovered by separate complete read. Underlying captures, source, saves, bundles and browser paths not rerun.",
+      "reopen": "Only when comparing this exact dated round against its own report/backlog and immutable input; resolve current execution state from later owners, not historical next-step directives.",
+      "input_sha256": "cd806d9dea423d0d577c469d4b1e7f37c2b0f2afdd0a4c21b2dcb75d8c2c3f02",
+      "input_lines": 11,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/execution/CHECKPOINT_PRE_R5_CLOSURE.md",
+      "ids": [
+        "R4 FA09; R5 FA10"
+      ],
+      "classification": "Historical review correction or transfer checkpoint",
+      "owners": [
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/HORIZON.md"
+      ],
+      "disposition": "Six paid jobs and eight checkpoint comparisons do not prove exact stamina debit/refund. Earlier transported Save files are not genuine Export. Guided preparation differs from procedure reading; old sandbox stock is not natural acquisition.",
+      "evidence": "Full short body read. R3 output truncation recovered by separate complete read. Underlying captures, source, saves, bundles and browser paths not rerun.",
+      "reopen": "Only when comparing this exact dated round against its own report/backlog and immutable input; resolve current execution state from later owners, not historical next-step directives.",
+      "input_sha256": "eedfe1c72c8d0ebe451452612319523ea02b0c6637c2a1f43cd4361906f5f517",
+      "input_lines": 9,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r2/RECONCILIATION_NOTES.md",
+      "ids": [
+        "R2 authority correction"
+      ],
+      "classification": "Historical review correction or transfer checkpoint",
+      "owners": [
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/HORIZON.md"
+      ],
+      "disposition": "Reviewer cannot revoke authorized continuation; finite acquisition attempt exhaustion leaves the route incomplete without inventing supply or stopping independent work. R1 native proof was still open at capture.",
+      "evidence": "Full short body read. R3 output truncation recovered by separate complete read. Underlying captures, source, saves, bundles and browser paths not rerun.",
+      "reopen": "Only when comparing this exact dated round against its own report/backlog and immutable input; resolve current execution state from later owners, not historical next-step directives.",
+      "input_sha256": "54ed54f6bb695fe19b461097e0bffc8697f390221ca201510850c91106550772",
+      "input_lines": 7,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/RECONCILIATION_NOTES.md",
+      "ids": [
+        "R3 atomicity/reuse"
+      ],
+      "classification": "Historical review correction or transfer checkpoint",
+      "owners": [
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/HORIZON.md"
+      ],
+      "disposition": "Every-mutation language means material semantic boundaries, not unbounded permutations. Preserve finite paid failures and legitimate supplies; no arbitrary replenishment. Complete response retained despite excess length.",
+      "evidence": "Full short body read. R3 output truncation recovered by separate complete read. Underlying captures, source, saves, bundles and browser paths not rerun.",
+      "reopen": "Only when comparing this exact dated round against its own report/backlog and immutable input; resolve current execution state from later owners, not historical next-step directives.",
+      "input_sha256": "9fedafd0aaa55fed461d12d2c62211ed9f8658a10ceb93238dbc9bbab00e190a",
+      "input_lines": 9,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r4/RECONCILIATION_NOTES.md",
+      "ids": [
+        "R4 F1–F3"
+      ],
+      "classification": "Historical review correction or transfer checkpoint",
+      "owners": [
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/HORIZON.md"
+      ],
+      "disposition": "Garbled recipe corrected against source, compatibility decision within narrow authority, and useful protected-kit use restored. Reviewer observations are live-verification targets, not facts established by review.",
+      "evidence": "Full short body read. R3 output truncation recovered by separate complete read. Underlying captures, source, saves, bundles and browser paths not rerun.",
+      "reopen": "Only when comparing this exact dated round against its own report/backlog and immutable input; resolve current execution state from later owners, not historical next-step directives.",
+      "input_sha256": "1b0fba72f846594c49a280a38a9f54df0af495a41fa8bc0222e30303a01008da",
+      "input_lines": 9,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r5/RECONCILIATION_NOTES.md",
+      "ids": [
+        "R5 F1–F3"
+      ],
+      "classification": "Historical review correction or transfer checkpoint",
+      "owners": [
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/HORIZON.md"
+      ],
+      "disposition": "Rebuild requirement restored; guided comparison establishes preparation, separate reading establishes procedure. Consequential input drift checks do not require complete rescans on each write. R4 exact stamina remains open.",
+      "evidence": "Full short body read. R3 output truncation recovered by separate complete read. Underlying captures, source, saves, bundles and browser paths not rerun.",
+      "reopen": "Only when comparing this exact dated round against its own report/backlog and immutable input; resolve current execution state from later owners, not historical next-step directives.",
+      "input_sha256": "00bd6c8c5b743afb6df450b06fadf02c5991b48b789eacae965ea17877f9b545",
+      "input_lines": 9,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r6/RECONCILIATION_NOTES.md",
+      "ids": [
+        "R6 F1–F3"
+      ],
+      "classification": "Historical review correction or transfer checkpoint",
+      "owners": [
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/HORIZON.md"
+      ],
+      "disposition": "Visible GPT-6 selection is particular to this review. No successor self-transfer; served-byte URL binding and bounded round closure retained, with existing automatic-step/shortage policy to trace.",
+      "evidence": "Full short body read. R3 output truncation recovered by separate complete read. Underlying captures, source, saves, bundles and browser paths not rerun.",
+      "reopen": "Only when comparing this exact dated round against its own report/backlog and immutable input; resolve current execution state from later owners, not historical next-step directives.",
+      "input_sha256": "9e384f9cd9abf98a6bd3d3f11ca94499f8db9bccd9a0cfdff1f3aa4c374a3b71",
+      "input_lines": 9,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r7/RECONCILIATION_NOTES.md",
+      "ids": [
+        "R7 F1–F5"
+      ],
+      "classification": "Historical review correction or transfer checkpoint",
+      "owners": [
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/HORIZON.md"
+      ],
+      "disposition": "Fourteen focused checks included in 88 affected, not additive. Budget 63 of 100, not 100 used. One total pre-play ceiling, no additive categories after spending; unavailable native positive remains open despite SOURCE sufficiency.",
+      "evidence": "Full short body read. R3 output truncation recovered by separate complete read. Underlying captures, source, saves, bundles and browser paths not rerun.",
+      "reopen": "Only when comparing this exact dated round against its own report/backlog and immutable input; resolve current execution state from later owners, not historical next-step directives.",
+      "input_sha256": "8e771faaa3efa3eb55b6acb50823b08260a3eeed61274e3607f5df0b7ee8ddcc",
+      "input_lines": 7,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r8/RECONCILIATION_NOTES.md",
+      "ids": [
+        "R8 F1–F6"
+      ],
+      "classification": "Historical review correction or transfer checkpoint",
+      "owners": [
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/HORIZON.md"
+      ],
+      "disposition": "Final reload seven groups exact differs from Export adding cached common rarity; six other groups exact, causal getter link inference only. No final literal-import or whole-character-export equality. Agents may inspect sealed design while public disclosure stays limited.",
+      "evidence": "Full short body read. R3 output truncation recovered by separate complete read. Underlying captures, source, saves, bundles and browser paths not rerun.",
+      "reopen": "Only when comparing this exact dated round against its own report/backlog and immutable input; resolve current execution state from later owners, not historical next-step directives.",
+      "input_sha256": "1a1dc7732d8b000694732b3c836464d498a4a8a9a1c5e73e5ef5443cfd66b3e4",
+      "input_lines": 8,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r9/RECONCILIATION_NOTES.md",
+      "ids": [
+        "R9 F1–F5"
+      ],
+      "classification": "Historical review correction or transfer checkpoint",
+      "owners": [
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/HORIZON.md"
+      ],
+      "disposition": "Model label not visible, so no GPT-6 verification. R8 timeout exact blocked operation lost; 108/100 plus conservative 35 debit remains FAIL_CLOSED. Saved-state equality permits no replay to erase costs; reservations historical.",
+      "evidence": "Full short body read. R3 output truncation recovered by separate complete read. Underlying captures, source, saves, bundles and browser paths not rerun.",
+      "reopen": "Only when comparing this exact dated round against its own report/backlog and immutable input; resolve current execution state from later owners, not historical next-step directives.",
+      "input_sha256": "43f1116cc73dab26cc21dfcb12bc0523840401462a7979d88f49f95f6a721876",
+      "input_lines": 7,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r12/CHECKPOINT_BEFORE_R13_TRANSFER.md",
+      "ids": [
+        "R12 FA19; FA20 handoff"
+      ],
+      "classification": "Historical review correction or transfer checkpoint",
+      "owners": [
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+        "docs/gm/dispatch/foundation-adoption-next-2026-10-13/HORIZON.md"
+      ],
+      "disposition": "Twenty-two SOURCE checks and applicability assessment do not establish a native consumer: identified one is paused World1, public definitions have zero containers. No native play/build/persistence occurred. R8 fail-closed, R10 loss and R11 error stop remain distinct inherited limits.",
+      "evidence": "Full short body read. R3 output truncation recovered by separate complete read. Underlying captures, source, saves, bundles and browser paths not rerun.",
+      "reopen": "Only when comparing this exact dated round against its own report/backlog and immutable input; resolve current execution state from later owners, not historical next-step directives.",
+      "input_sha256": "992ce16bdc4cf4f2337d0978614bde1862b953f39240edeb108934ab5d54f2e6",
+      "input_lines": 7,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md",
+      "heading": "## Content reconciliation B209, 2026-11-04",
+      "body": "The root review notes, R2–R9 review corrections, pre-R4/pre-R5 checkpoints and R12 pre-R13 transfer were read in full. Keep their exact negative evidence with the earlier rounds: R4 useful paid routines and eight restoration comparisons did not measure exact native stamina debit/refund; a transported Save is not a genuine Export. R5 guided comparison established preparation rather than procedure reading. R7 focused checks were included in affected checks. R8 final normal reload equality across seven groups differs from Export adding cached weapon rarity, with the getter cause only inferred; it supplies no final literal-import or whole-character-export equality. R9 explicitly preserves the R8 over-budget FAIL_CLOSED and the missing exact timeout operation. No historical cost is erased through reacquisition or replay.\n\nR12 established public SOURCE applicability only: its identified exposure consumer was in paused World1 and public structured definitions had zero containers. Twenty-two contract checks do not make that native path played or complete. Keep R8 fail-closed, R10 lost snapshot/no reconstruction and R11 error stop separate, as in the later final checkpoint. The early documents identify model selection only where visibly checked; High 3of3 alone does not establish the model. Historical next-round launches, transfers, specialist permissions, preview ports and account ceilings grant no current execution or writer reservation. Under AD32/AD36/AD42, reviewer prose establishes neither product authority nor current behavior, and optional human review does not invalidate the bounded agent evidence. No original save, browser, private capture or runtime source was reverified here.",
+      "before_sha256": "080983fc25ea67c96c21e5966a34ec36ecf106d454f958c2762585c9b0d4e6cc",
+      "after_sha256": "b2a4404da30fc1b6a590473fc3166aee58d5b5459892c489ffef6bb8c2babaaf"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1065
+}

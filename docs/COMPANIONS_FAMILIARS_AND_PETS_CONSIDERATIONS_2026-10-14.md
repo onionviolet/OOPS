@@ -1629,3 +1629,22 @@ Later case: one already-supported helper pauses or settles an interrupted job,
 retaining stock and its own known facts across current-state persistence. Strong
 cross-domain agent, medium only when selected; done through real delegated
 commands and a useful rebuilt journey. The core audit owns rerun routing.
+
+
+## C1–C16 core-audit reconciliation, B7, 2026-11-04
+
+Full repeatable-audit review preserves the existing C1–C16 lane identities, CM1–CM12 and root corrections. A helper's location, available faculty/body clock, custody, knowledge and delegated policy are separate facts. Remote participation needs an actual mechanism; an inactive ordinary world is not free labor. Companion knowledge is not automatically player knowledge (AD6/AD16/AD38).
+
+Keep GC3/HD7 qualified by C13 F3: a caption computed from current state can be transient, but an emitted history/cue needs replay/deduplication identity. C9/C10's different line-rate proposals remain alternatives for a selected situation, not measured or universal limits. Light/sound observation channels do not establish generic thought reading; reveal depth needs actual means and observer scope. Current memory/storage/clock capacities were not rebenchmarked by this review.
+
+The audit's launch/session/commit steps are historical workflow examples. This reconciliation authorizes neither fresh child agents nor a new animal/social simulation. Reopen the affected helper/cue/custody consumer and retain useful care/crafting/teaching ideas without activating every layer L00–L07. [Batch source/disposition](audits/reconciliation-2026-11-04/content-b7.json).
+
+
+## Local brainstorm character-body reconciliation, 2026-11-04 (B67)
+
+The seven [character draft lenses](audits/local_churn_2026-10-20/TRIAGE.md#character-bodies-reviewed-2026-11-04-b67), items 1–12 each, have now had their bodies read. Preserve useful memory/custody/communication/personality cases as optional applications of existing D7–D10, I1–I5 and V1–V5. A long relationship may change through real experience; no fixed personality cap, compulsory morale/loyalty decay, automatic successor inheritance or invented paused-time activity follows. Memory summaries preserve durable identity, promises, owned items and knowledge carriers; a foreign catalogue omission does not demand conversion of carried goods. Public clues need actual observation, not a hidden-motive/loyalty reveal or mandatory tooltip citation. Companion independence includes refusal and lawful separate ownership; it need not resolve into compliance. New UI layouts, caps, fixtures and a character creator remain proposals under AD32. No runtime absence/defect was established by the drafts.
+
+
+## Companion map and G1–G3 follow-through, 2026-11-04 (B79)
+
+The [C6 map reconciliation](gm/dispatch/companions-2026-10-14/OWNER_MAP.md#later-root-and-procedure-content-reconciled-2026-11-04-b79) verifies the existing root fold and actual later C11 procedure text. G1–G3 have proposed design treatment; selection and demonstrated execution remain open. G1 distinguishes suspected exposure from infection and actual transmission/care/reunion; G2 preserves necessary support while incompatible grants are resolved; G3 separates observed communication, mind/agency, local rights and reviewed permissions, retaining history and care without treating old obedience as retrospective consent. Six world-type dials and GA1–GA5 keep local law, clock, body/control, custody, information and ending terms distinct. This note reads only that selected C11 section, not all of its world fits or every nonhuman/source owner. No hunger death, automatic away aging, universal grief wound, new pet schema or mandatory director gate is added (AD32/AD36/AD42).

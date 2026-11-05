@@ -1,0 +1,522 @@
+{
+  "schema": 1,
+  "batch": "B30",
+  "title": "Dwarf Fortress native research chronology and donor evidence retention",
+  "at": "2026-11-04T19:50:20.504493+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/discworld-mud/CHECKPOINT.md",
+      "ids": [
+        "P1 to P5"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/discworld-mud/CHECKPOINT.md; docs/research/discworld-mud/REPORT.md (named as next evidence target)"
+      ],
+      "disposition": "P1–P5 remain unaccepted. The checkpoint proposed opening named wiki pages through the user’s own browser and separately reading public mudlib source subject to license; these are historical suggestions, not current blockers or permission to bypass access controls. Preserve original edition/native evidence and exact unread range boundaries. Historical removal requests, installed state and actor/process observations remain dated. Selected cleanup/call path is not general refund, restoration or persistence proof; existing report/trace owners retain the actual findings.",
+      "mechanism_and_interactions": "A partial Discworld MUD source pass read roughly 45 official help pages plus selected reference material. It left life restock price, taskmaster chance and XP cost formulas, rents/fees, day/night/weather, canon NPC behavior and event persistence unanswered; no character was created or logged in.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Only the checkpoint was assigned; listed reads and failures are historical claims, and no underlying report or source was inspected here. No execution or game-side proof.",
+      "reopen": "A later selected question needs primary evidence for its exact formula or behavior; wiki/source reading remains separate from gameplay and any implementation.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S024.json"
+      ],
+      "prior_input_sha256": "e2920ea224df5fbfa7793270f4d3f2792e6a82c926b15543edf4b3d00c04ae23",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "e2920ea224df5fbfa7793270f4d3f2792e6a82c926b15543edf4b3d00c04ae23",
+      "input_lines": 13
+    },
+    {
+      "path": "docs/research/discworld-mud/aspects-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "A01-A12"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/discworld-mud/aspects-2026-10-14/REPORT.md; VALIDATION.json; neighboring grouped checkpoints are linked in source"
+      ],
+      "disposition": "Partial despite delivered artifacts. Proposals remain proposals; no runtime implementation or decision. A stale one-realm milestone sentence in this historical checkpoint is superseded by later project direction and is not a present gate. Preserve original edition/native evidence and exact unread range boundaries. Historical removal requests, installed state and actor/process observations remain dated. Selected cleanup/call path is not general refund, restoration or persistence proof; existing report/trace owners retain the actual findings.",
+      "mechanism_and_interactions": "The aspects pass organized A01–A12, inventory signals, three deeper system reads, source locators, five proposal packets and small touches. It states gaps in modern dialogue, driver serialization/migration/crash transaction, full effect/shop/transport consumers, runtime AI/offline/pacing and desktop usability; a save call alone does not prove bytes or atomicity.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. The checkpoint reports document/schema/link validation only. No runtime, save roundtrip, desktop or current-source proof was inspected.",
+      "reopen": "For a chosen mechanic, trace its actual consumer and persistence path and exercise the relevant scenario; do not infer rewards or atomicity from text or a save call.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          24
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S024.json"
+      ],
+      "prior_input_sha256": "50299b690e39f8fb05eaad2e34a052aaff89bf17b9d132380dd05aabed0981e0",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "50299b690e39f8fb05eaad2e34a052aaff89bf17b9d132380dd05aabed0981e0",
+      "input_lines": 24
+    },
+    {
+      "path": "docs/research/discworld-mud/pass-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "P1-P8"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/discworld-mud/pass-2026-10-14/REPORT.md; SOURCE_LEDGER.md; UNREAD.md"
+      ],
+      "disposition": "Partial; P1–P8 stay unaccepted. Five archive pages and modern primary evidence for numerical gaps were the documented next steps. Historical code and current help are distinct evidence, not interchangeable coverage. Preserve original edition/native evidence and exact unread range boundaries. Historical removal requests, installed state and actor/process observations remain dated. Selected cleanup/call path is not general refund, restoration or persistence proof; existing report/trace owners retain the actual findings.",
+      "mechanism_and_interactions": "Historical v20.0 Discworld distribution and selected wiki/help sources describe taskmaster/skill costs, teaching, death/ghosts, language learning, housing and guild frameworks. A correction separates current help learning-from-failure from the old core’s early return before award, and seven ordinary roots from language classification. Exact modern odds, prices, broad event persistence and several native consumers remain unverified.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports selected static reading and artifact checks; no live game, modern code, or current behavior test occurred in this record.",
+      "reopen": "Only resume a named missing page/formula/consumer using a changed legitimate route or supplied capture; retain distinction between old code, current help and untested play.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          33
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S024.json"
+      ],
+      "prior_input_sha256": "71cdf98eb92463e338b0c14248b621ab6149ff295a29d54a65e600e68b98dc52",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "71cdf98eb92463e338b0c14248b621ab6149ff295a29d54a65e600e68b98dc52",
+      "input_lines": 33
+    },
+    {
+      "path": "docs/research/dwarf-fortress/aspects-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "A01-A12"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/dwarf-fortress/aspects-2026-10-14/ASPECTS.md; JSON; VALIDATION.json; TOOLING.md"
+      ],
+      "disposition": "All required outputs delivered but PARTIAL for named evidence gaps. Its validation is source/artifact integrity; native pseudocode and graphics declarations do not establish gameplay or desktop usability. Preserve original edition/native evidence and exact unread range boundaries. Historical removal requests, installed state and actor/process observations remain dated. Selected cleanup/call path is not general refund, restoration or persistence proof; existing report/trace owners retain the actual findings.",
+      "mechanism_and_interactions": "The backfill rebuilt readable text/Lua and executable inputs, reviewed all 64 vanilla-text object files plus selected generator/config/native evidence, and used static native queries for text-loader/save-failure/load-abort bodies. Inventory breadth is not semantic completeness; serializer success/migration, AI/jobs/combat/economy, full catalogs, UI/tutorial/audio and actual play/save flows remain open.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports manifest/hash agreement, selected static reads and artifact checks, not independently repeated here. It explicitly forbids/omits gameplay acceptance.",
+      "reopen": "Continue only for a named native or source question; any runtime or persistence claim needs its own authorized rebuilt play and save/reload/import evidence.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          34
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S024.json"
+      ],
+      "prior_input_sha256": "e87f079bb7e01feb781e39c994671d85809e2be2c29b0a611b8fd4d8eab1415a",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "e87f079bb7e01feb781e39c994671d85809e2be2c29b0a611b8fd4d8eab1415a",
+      "input_lines": 34
+    },
+    {
+      "path": "docs/research/dwarf-fortress/emergence-2026-10-15/round-2/audit/CHECKPOINT.md",
+      "ids": [
+        "TRACE F4"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/dwarf-fortress/emergence-2026-10-15/round-2/audit/REPORT.md; TRACE; FINDINGS.json; UNREAD.json"
+      ],
+      "disposition": "Independent audit delivered as a partial selected pass. It explicitly distinguishes definition cleanup from actor-state reversal and does not claim general refund or whole-engine behavior. Preserve original edition/native evidence and exact unread range boundaries. Historical removal requests, installed state and actor/process observations remain dated. Selected cleanup/call path is not general refund, restoration or persistence proof; existing report/trace owners retain the actual findings.",
+      "mechanism_and_interactions": "Round 2 adds item-power definitions and producer/registration chain, a mythical identity template, selected material-operation windows, and native injury mutation analysis. Selected cancellation helpers and item/job cleanup were read, but exact helper fields include analyst interpretation; syndrome expiry/reversion, item binding, refunds, persistence and NPC decisions remain open.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Static instruction/pointer checks are reported, with no target execution. Full source/callgraph and game behavior remain unverified.",
+      "reopen": "Resume only a named unread lifecycle/consumer path; test any selected runtime behavior separately rather than treating decompiler traces as acceptance.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S024.json"
+      ],
+      "prior_input_sha256": "fc9666b9436e9fe785d754c266f912665b27dc172d125c51e72c72e7553dce6c",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "fc9666b9436e9fe785d754c266f912665b27dc172d125c51e72c72e7553dce6c",
+      "input_lines": 9
+    },
+    {
+      "path": "docs/research/endless-ascent/CHECKPOINT.md",
+      "ids": [
+        "F1",
+        "F2",
+        "F3",
+        "A1"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/endless-ascent/REPORT; INTAKE; FINDINGS; COVERAGE; IMPLEMENTATION_PACKETS; VERIFICATION.json"
+      ],
+      "disposition": "Bounded pass complete; wider source recovery or proposals are new scope, not hidden acceptance gates. Final uninstall request was sent by parent but removal was explicitly not verified. Preserve original edition/native evidence and exact unread range boundaries. Historical removal requests, installed state and actor/process observations remain dated. Selected cleanup/call path is not general refund, restoration or persistence proof; existing report/trace owners retain the actual findings.",
+      "mechanism_and_interactions": "The bounded Endless Ascent audit checked metadata and 26 selected x64 method ranges, distinguishing declarations/stubs from bodies. It observed completion-funded ASCENSIONS but established no character prestige/reset or idle progression layer; completion graph, scene bindings, consumable effects, checkpoint retention and pacing remain gaps.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Private verification and hashes are reported, with a failed no-TTY ReadKey run disclosed; no game launch, save access or uninstall confirmation.",
+      "reopen": "If a mechanic is selected, inspect the dossier and source receipts then verify actual gameplay. Do not treat ASCENSIONS as prestige without a demonstrated reset consumer.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S024.json"
+      ],
+      "prior_input_sha256": "fb58333d1e9564040ec739b1610d0147430e1a5f4743622219ce52be2599d515",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "fb58333d1e9564040ec739b1610d0147430e1a5f4743622219ce52be2599d515",
+      "input_lines": 17
+    },
+    {
+      "path": "docs/research/deep-detail-reaudit-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "uncoded bounded research checkpoint",
+        "exact coverage/unread/retention receipts"
+      ],
+      "classification": "fresh full uncoded research checkpoint review",
+      "owners": [
+        "docs/research/deep-detail-reaudit-2026-10-14/REPORT.md"
+      ],
+      "disposition": "Preserve completed finite targeted research/copy work, exact input and semantic-range qualifications, original report/findings and packet proposals. Old liveness, installation/removal eligibility, source retention and operation observations are history, not new operations or present behavior proof.",
+      "evidence": "Entire checkpoint freshly read because source-local IDs were absent in prior semantic receipt. No binary, Lua, game or donor source execution; no native capture repeated.",
+      "reopen": "Use latest matching retained input and exact named unread consumer on a future selected question; no broad source scan, old capture or uninstall repeated.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "dd93fa7e6ffe3805bdfdee61f66100cb3ff0919051d06bc5703c099f1c948970",
+      "input_lines": 24,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          24
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/disco-elysium/CHECKPOINT.md",
+      "ids": [
+        "uncoded bounded research checkpoint",
+        "exact coverage/unread/retention receipts"
+      ],
+      "classification": "fresh full uncoded research checkpoint review",
+      "owners": [
+        "docs/research/disco-elysium/REPORT.md"
+      ],
+      "disposition": "Preserve completed finite targeted research/copy work, exact input and semantic-range qualifications, original report/findings and packet proposals. Old liveness, installation/removal eligibility, source retention and operation observations are history, not new operations or present behavior proof.",
+      "evidence": "Entire checkpoint freshly read because source-local IDs were absent in prior semantic receipt. No binary, Lua, game or donor source execution; no native capture repeated.",
+      "reopen": "Use latest matching retained input and exact named unread consumer on a future selected question; no broad source scan, old capture or uninstall repeated.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "c02faecd7748568c74ce1b826154c5970aadacf098a4e50a1c864d5a441237ab",
+      "input_lines": 26,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          26
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/dwarf-fortress/CHECKPOINT.md",
+      "ids": [
+        "uncoded bounded research checkpoint",
+        "exact coverage/unread/retention receipts"
+      ],
+      "classification": "fresh full uncoded research checkpoint review",
+      "owners": [
+        "docs/research/dwarf-fortress/REPORT.md"
+      ],
+      "disposition": "Original raw/Lua pass is finite; later aspects and emergence rounds add selected native traces without closing full C++ engine/serialization/AI coverage. Source/DLC availability and whole corpus size do not establish semantic completion.",
+      "evidence": "Entire checkpoint freshly read because source-local IDs were absent in prior semantic receipt. No binary, Lua, game or donor source execution; no native capture repeated.",
+      "reopen": "Use latest matching retained input and exact named unread consumer on a future selected question; no broad source scan, old capture or uninstall repeated.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "d3b1112f42aa457f280f1b82bc105f51dadd6fd0996fc8eb45eeba7bf66ea377",
+      "input_lines": 17,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/dwarf-fortress/emergence-2026-10-15/audit/CHECKPOINT.md",
+      "ids": [
+        "uncoded bounded research checkpoint",
+        "exact coverage/unread/retention receipts"
+      ],
+      "classification": "fresh full uncoded research checkpoint review",
+      "owners": [
+        "docs/research/dwarf-fortress/emergence-2026-10-15/audit/REPORT.md"
+      ],
+      "disposition": "Preserve selected bounded native consumer progression through rounds2–5: effect definition cleanup differs from actor-state reversal, source contribution reset differs from undoing all state, containment removal differs from floor registration, output factory cleanup differs from consumed-source refund. Partial cumulative unread partitions remain; no engine-wide refund-absence or whole-engine claim.",
+      "evidence": "Entire checkpoint freshly read because source-local IDs were absent in prior semantic receipt. No binary, Lua, game or donor source execution; no native capture repeated.",
+      "reopen": "Use latest matching retained input and exact named unread consumer on a future selected question; no broad source scan, old capture or uninstall repeated.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "7c45ecd487c26691f7a6d39efb6782cb9f76393bb3edc3d2f0ce40f37e7755eb",
+      "input_lines": 15,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/dwarf-fortress/emergence-2026-10-15/extraction/CHECKPOINT.md",
+      "ids": [
+        "uncoded bounded research checkpoint",
+        "exact coverage/unread/retention receipts"
+      ],
+      "classification": "fresh full uncoded research checkpoint review",
+      "owners": [
+        "docs/research/dwarf-fortress/emergence-2026-10-15/extraction/REPORT.md"
+      ],
+      "disposition": "Preserve selected bounded native consumer progression through rounds2–5: effect definition cleanup differs from actor-state reversal, source contribution reset differs from undoing all state, containment removal differs from floor registration, output factory cleanup differs from consumed-source refund. Partial cumulative unread partitions remain; no engine-wide refund-absence or whole-engine claim.",
+      "evidence": "Entire checkpoint freshly read because source-local IDs were absent in prior semantic receipt. No binary, Lua, game or donor source execution; no native capture repeated.",
+      "reopen": "Use latest matching retained input and exact named unread consumer on a future selected question; no broad source scan, old capture or uninstall repeated.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "1cbd5177af7c591826c875caa0714ce6b4fc1a41440775522465ad56bab50f38",
+      "input_lines": 26,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          26
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/dwarf-fortress/emergence-2026-10-15/round-2/extraction/CHECKPOINT.md",
+      "ids": [
+        "uncoded bounded research checkpoint",
+        "exact coverage/unread/retention receipts"
+      ],
+      "classification": "fresh full uncoded research checkpoint review",
+      "owners": [
+        "docs/research/dwarf-fortress/emergence-2026-10-15/round-2/extraction/REPORT.md"
+      ],
+      "disposition": "Preserve selected bounded native consumer progression through rounds2–5: effect definition cleanup differs from actor-state reversal, source contribution reset differs from undoing all state, containment removal differs from floor registration, output factory cleanup differs from consumed-source refund. Partial cumulative unread partitions remain; no engine-wide refund-absence or whole-engine claim.",
+      "evidence": "Entire checkpoint freshly read because source-local IDs were absent in prior semantic receipt. No binary, Lua, game or donor source execution; no native capture repeated.",
+      "reopen": "Use latest matching retained input and exact named unread consumer on a future selected question; no broad source scan, old capture or uninstall repeated.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "15a25f590851f78c3007a008f6d4579aa1fead40ab5257a2e69856ffc7459a29",
+      "input_lines": 15,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/dwarf-fortress/emergence-2026-10-15/round-3/audit/CHECKPOINT.md",
+      "ids": [
+        "uncoded bounded research checkpoint",
+        "exact coverage/unread/retention receipts"
+      ],
+      "classification": "fresh full uncoded research checkpoint review",
+      "owners": [
+        "docs/research/dwarf-fortress/emergence-2026-10-15/round-3/audit/REPORT.md"
+      ],
+      "disposition": "Preserve selected bounded native consumer progression through rounds2–5: effect definition cleanup differs from actor-state reversal, source contribution reset differs from undoing all state, containment removal differs from floor registration, output factory cleanup differs from consumed-source refund. Partial cumulative unread partitions remain; no engine-wide refund-absence or whole-engine claim.",
+      "evidence": "Entire checkpoint freshly read because source-local IDs were absent in prior semantic receipt. No binary, Lua, game or donor source execution; no native capture repeated.",
+      "reopen": "Use latest matching retained input and exact named unread consumer on a future selected question; no broad source scan, old capture or uninstall repeated.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "f6750287a72f8b0fa2d4cee787796e350355eeb77eda1ccdcc6c31cd7aff616a",
+      "input_lines": 9,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/dwarf-fortress/emergence-2026-10-15/round-3/extraction/CHECKPOINT.md",
+      "ids": [
+        "uncoded bounded research checkpoint",
+        "exact coverage/unread/retention receipts"
+      ],
+      "classification": "fresh full uncoded research checkpoint review",
+      "owners": [
+        "docs/research/dwarf-fortress/emergence-2026-10-15/round-3/extraction/REPORT.md"
+      ],
+      "disposition": "Preserve selected bounded native consumer progression through rounds2–5: effect definition cleanup differs from actor-state reversal, source contribution reset differs from undoing all state, containment removal differs from floor registration, output factory cleanup differs from consumed-source refund. Partial cumulative unread partitions remain; no engine-wide refund-absence or whole-engine claim.",
+      "evidence": "Entire checkpoint freshly read because source-local IDs were absent in prior semantic receipt. No binary, Lua, game or donor source execution; no native capture repeated.",
+      "reopen": "Use latest matching retained input and exact named unread consumer on a future selected question; no broad source scan, old capture or uninstall repeated.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "f3d83058c84aed537283de1f9607057d6dfcfeb4129bfade1d2f54bdd67511a9",
+      "input_lines": 15,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/dwarf-fortress/emergence-2026-10-15/round-4/audit/CHECKPOINT.md",
+      "ids": [
+        "uncoded bounded research checkpoint",
+        "exact coverage/unread/retention receipts"
+      ],
+      "classification": "fresh full uncoded research checkpoint review",
+      "owners": [
+        "docs/research/dwarf-fortress/emergence-2026-10-15/round-4/audit/REPORT.md"
+      ],
+      "disposition": "Preserve selected bounded native consumer progression through rounds2–5: effect definition cleanup differs from actor-state reversal, source contribution reset differs from undoing all state, containment removal differs from floor registration, output factory cleanup differs from consumed-source refund. Partial cumulative unread partitions remain; no engine-wide refund-absence or whole-engine claim.",
+      "evidence": "Entire checkpoint freshly read because source-local IDs were absent in prior semantic receipt. No binary, Lua, game or donor source execution; no native capture repeated.",
+      "reopen": "Use latest matching retained input and exact named unread consumer on a future selected question; no broad source scan, old capture or uninstall repeated.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "1ab5b04a4778358977f8cb7f3f8e722e676496e9c9c2d4447acf628b555d05a4",
+      "input_lines": 9,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/dwarf-fortress/emergence-2026-10-15/round-4/extraction/CHECKPOINT.md",
+      "ids": [
+        "uncoded bounded research checkpoint",
+        "exact coverage/unread/retention receipts"
+      ],
+      "classification": "fresh full uncoded research checkpoint review",
+      "owners": [
+        "docs/research/dwarf-fortress/emergence-2026-10-15/round-4/extraction/REPORT.md"
+      ],
+      "disposition": "Preserve selected bounded native consumer progression through rounds2–5: effect definition cleanup differs from actor-state reversal, source contribution reset differs from undoing all state, containment removal differs from floor registration, output factory cleanup differs from consumed-source refund. Partial cumulative unread partitions remain; no engine-wide refund-absence or whole-engine claim.",
+      "evidence": "Entire checkpoint freshly read because source-local IDs were absent in prior semantic receipt. No binary, Lua, game or donor source execution; no native capture repeated.",
+      "reopen": "Use latest matching retained input and exact named unread consumer on a future selected question; no broad source scan, old capture or uninstall repeated.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "9212065916bb759841f1de5a9dc57dbd31188fb0db9552f2eaea755354c2002e",
+      "input_lines": 13,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/dwarf-fortress/emergence-2026-10-15/round-5/audit/CHECKPOINT.md",
+      "ids": [
+        "uncoded bounded research checkpoint",
+        "exact coverage/unread/retention receipts"
+      ],
+      "classification": "fresh full uncoded research checkpoint review",
+      "owners": [
+        "docs/research/dwarf-fortress/emergence-2026-10-15/round-5/audit/REPORT.md"
+      ],
+      "disposition": "Preserve selected bounded native consumer progression through rounds2–5: effect definition cleanup differs from actor-state reversal, source contribution reset differs from undoing all state, containment removal differs from floor registration, output factory cleanup differs from consumed-source refund. Partial cumulative unread partitions remain; no engine-wide refund-absence or whole-engine claim.",
+      "evidence": "Entire checkpoint freshly read because source-local IDs were absent in prior semantic receipt. No binary, Lua, game or donor source execution; no native capture repeated.",
+      "reopen": "Use latest matching retained input and exact named unread consumer on a future selected question; no broad source scan, old capture or uninstall repeated.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "38a4cfe6ecebed081d00a538c329f914183f3561bc63e91b1509e1a150a23335",
+      "input_lines": 7,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/dwarf-fortress/emergence-2026-10-15/round-5/extraction/CHECKPOINT.md",
+      "ids": [
+        "uncoded bounded research checkpoint",
+        "exact coverage/unread/retention receipts"
+      ],
+      "classification": "fresh full uncoded research checkpoint review",
+      "owners": [
+        "docs/research/dwarf-fortress/emergence-2026-10-15/round-5/extraction/REPORT.md"
+      ],
+      "disposition": "Preserve selected bounded native consumer progression through rounds2–5: effect definition cleanup differs from actor-state reversal, source contribution reset differs from undoing all state, containment removal differs from floor registration, output factory cleanup differs from consumed-source refund. Partial cumulative unread partitions remain; no engine-wide refund-absence or whole-engine claim.",
+      "evidence": "Entire checkpoint freshly read because source-local IDs were absent in prior semantic receipt. No binary, Lua, game or donor source execution; no native capture repeated.",
+      "reopen": "Use latest matching retained input and exact named unread consumer on a future selected question; no broad source scan, old capture or uninstall repeated.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "54bd8e60e21cfdff58c99cd58b383a1854e00b364de470068f8ca8eb4f9d30f7",
+      "input_lines": 5,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          5
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/elin/CHECKPOINT.md",
+      "ids": [
+        "uncoded bounded research checkpoint",
+        "exact coverage/unread/retention receipts"
+      ],
+      "classification": "fresh full uncoded research checkpoint review",
+      "owners": [
+        "docs/research/elin/REPORT.md"
+      ],
+      "disposition": "Preserve completed finite targeted research/copy work, exact input and semantic-range qualifications, original report/findings and packet proposals. Old liveness, installation/removal eligibility, source retention and operation observations are history, not new operations or present behavior proof.",
+      "evidence": "Entire checkpoint freshly read because source-local IDs were absent in prior semantic receipt. No binary, Lua, game or donor source execution; no native capture repeated.",
+      "reopen": "Use latest matching retained input and exact named unread consumer on a future selected question; no broad source scan, old capture or uninstall repeated.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "5624b49e0cbcba636778025428e36f7896d3964c7b3e0e423a84a4ba80b694b1",
+      "input_lines": 15,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/dwarf-fortress/CHECKPOINT.md",
+      "heading": "## Later bounded native research, 2026-11-04 (B30)",
+      "body": "The original October7 no-native-recovery paragraph is its own snapshot. Later aspects-2026-10-14 and emergence-2026-10-15 checkpoints preserve selected native analysis through round5: healing consumers, active-effect timing/source cleanup, reservation/count/output paths, cancellation containment and exception cleanup. Read the matching round’s REPORT/TRACE and cumulative COVERAGE/UNREAD before selecting more work; the earlier absence statement is not today’s complete coverage inventory. These partial passes still do not establish whole-engine AI, general consumed-source refund, transformation reversal, output-placement rollback or native save/play behavior. Definition-memory cleanup, active-instance removal, source contribution reset and actual actor-state restoration remain distinct. Do not repeat completed native capture or infer a universal missing refund from a local path.",
+      "before_sha256": "d3b1112f42aa457f280f1b82bc105f51dadd6fd0996fc8eb45eeba7bf66ea377",
+      "after_sha256": "77a4ff183eff27266eb1f4768d0f4745471f03ed11fd7e1c2bb5ee2f36b17922"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1649
+}

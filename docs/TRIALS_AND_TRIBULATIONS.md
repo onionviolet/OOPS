@@ -231,3 +231,16 @@ trials. Persisted trial state needs a migration.
   for someone else.
 - **Trials as relationships.** A patron's test is also a conversation;
   passing changes how they treat you.
+
+
+## Content reconciliation B303: trial mechanisms, source scope and genuine consequences
+
+The full original 233-line palette was reviewed. Weibao's world-dependent intensity and all-supported-possibilities answers are recorded, not new questions. The NovelConcept/DeathaDay table attributes twelve feature groups to existing local notes; the other eleven franchise/myth rows are explicitly recall leads. This pass rereads neither primary chapters nor those notes. A table of remembered trials cannot establish exact threshold, true-name, title, ritual or return law for another world.
+
+Trigger, pending obligation, actual trial entry, place/time context, examiner, participants, target, result and afterward are different owners. Source-backed body/soul/item/territory attachment decides whether a pending threat travels or remains. Delay-not-cancel, none-free bypass, threshold danger, more severe repeats and diminishing reward are illustrative local policies, including the possibility of true cancellation or free protection by actual means. A powerful faculty need not acquire a new tax to keep a trial interesting. Simulated histories can produce an authored real consequence, but their fictional events do not become actual campaign history or crime evidence merely because a trial displays them.
+
+A partial clear, survival, distinction, refusal and terminal result need their actual declared effects. The never-pointless wording is a design aspiration, not an automatic lesson/XP/title reward for every failed or unseen event. A retry is a new source-legal attempt; displaying or resettling an old clear does not pay again. An examiner's judgment, audience, bribe, insurance and remembered strategy need real actors, knowledge and resources. They do not make every institution corrupt, every trial adaptive or the player personally judged by development-only state.
+
+A place-rule layer or shared trial engine can supply selected plumbing, without forcing a riddle, mental examination, exam and physical arena through identical spatial/combat semantics. Existing pledges and progression consumers qualify the old missing-queue/menu/space assertions through [the high-tier corrections](HIGH_TIER_POWER_CONSIDERATIONS_2026-10-23.md) and [gate owner](PROGRESSION_GATE_RULES.md). Their existence does not prove this whole palette or all native/persistence behavior. Existing source/destination, actual body/cargo, chosen response windows and owner publication remain necessary for a selected real consumer.
+
+Wait/auto-run/harsh forced-trial options do not silently change current world clocks, character-important pause or closed-browser policy. A written away-growth or penalty possibility is not a request for offline processing or caretaker debt. Personal/raw intensity uses the fictional character's supported in-game records, not Weibao's actual personal life. Recognition/replay/trial disclosures remain subject to each actual observer and sealed route. Current book-world/menu priority, compatibility and delivery floor govern new work; no universal trial migration, live queue, source truth, offline behavior or new Frontier slice is selected or verified here.

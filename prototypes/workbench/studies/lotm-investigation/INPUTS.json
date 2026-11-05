@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "fidelity": "sketch",
+  "description": "One synthetic state model, three independently interactive representations. No native gameplay integration.",
+  "sourceHashes": {
+    "prototypes/workbench/studies/lotm-investigation/markup.html": "6b4f5835f228c2ebdbfa01d3c4d212fff0273e260da2cc3b5989b9aa05ae26f4",
+    "prototypes/workbench/studies/lotm-investigation/style.css": "0834df8ec26db3ebce08da20a6a0ed2ef83629c5ec50ed235f2d3257fc6de27a",
+    "prototypes/workbench/studies/lotm-investigation/scene.js": "93e1db81f61fbb573d7f55f87bb992d5e7108dca373260b01ca83242b5683c2c",
+    "prototypes/workbench/studies/lotm-investigation/build.mjs": "53d3711e6c07ace36c89a79ae9d52f59313aedda10bc2f6be7d795a625c7e86c",
+    "DESIGN.md": "38d841729280903a92daf92c4bd7f8001c135f2555798fbcf98374effb582143",
+    "docs/UI_RULES.md": "0db351e38d1e8ce22bf78ccffd252f09f0eae5dd03a28530ff2fd20dc243217d",
+    "docs/MOCKUP_SYSTEM.md": "f72a7ca16a7cb1c2b9dd1dd6f1ec745a97cca8f21a04760bd1aff1f81ab5a11d",
+    "docs/gm/dispatch/refinement-audits-2026-10-31/FIRST_ARC_IMPLEMENTATION_RECEIPT.md": "fa11dc01769b57a402ea2e83e2a6dc710989240b47b18c3c26f5ec38d4aae32b"
+  },
+  "outputHashes": {
+    "index.html": "2d8138e4973a079e3e679d9597f01ed0d4d19d2578d9fef0613fc0396f526134",
+    "style.css": "0834df8ec26db3ebce08da20a6a0ed2ef83629c5ec50ed235f2d3257fc6de27a",
+    "scene.js": "93e1db81f61fbb573d7f55f87bb992d5e7108dca373260b01ca83242b5683c2c"
+  },
+  "inlineHash": "5e23ae8ba9d5001d3afc2bda2d9ad429ff040c58a9cde182412eded0a16dbc44"
+}

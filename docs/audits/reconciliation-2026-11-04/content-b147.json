@@ -1,0 +1,109 @@
+{
+  "schema": 1,
+  "batch": "B147",
+  "title": "Cross-world detail audit and full source-neutral reference",
+  "at": "2026-11-04T21:58:15.339473+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/CROSS_WORLD_DETAIL_PASS_2026-11-03.md",
+      "ids": [
+        "F1-F12",
+        "R1-R10",
+        "J1-J11",
+        "G1-G14",
+        "H1-H15",
+        "Q1-Q5",
+        "X1-X23 references",
+        "SD1-SD60",
+        "rounds 1-2"
+      ],
+      "classification": "Citation census and reader synthesis with explicit source/proof limits",
+      "owners": [
+        "docs/audits/CROSS_WORLD_DETAIL_PASS_2026-11-03.md",
+        "docs/gm/CROSS_WORLD_DETAIL_REVIEW.md",
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md"
+      ],
+      "disposition": "Read complete report, all 60 detail examples, competing interpretations, reader corrections, hard-feature/ranking and verification sections. Coverage is authored-text presence, not native completeness or source verification; template and excerpt absence require real reading. Qualify old zero-import claims through earlier current-source reconciliation. Correct two broken reference links and unsuitable repair/fit/waste default paragraph without changing source claims.",
+      "evidence": "Fresh full report plus full source-neutral reference; matrix cells, reader returns, primary franchise texts and institution docs are not credited as read. Named earlier B120/B132/B138/B141/B143/B145 current consumer checks have their own scoped ledgers. Numerical 576/280/258/38 and reader counts remain reported, not independently recounted.",
+      "reopen": "Read the 705-line round-2 matrix and actual relevant world source/owner before promoting any cell or filling a proposed absence. Keep namespaces local, no new research, worker or implementation wave.",
+      "input_sha256": "cab670408fe64d791a8d92b2e2c83af15036c051475c37f55541aa3f3860e98c",
+      "input_lines": 379,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          379
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/CROSS_WORLD_DETAIL_REVIEW.md",
+      "ids": [
+        "RW1-RW5",
+        "SA1-SA6",
+        "CW01-CW36",
+        "XWC1-XWC6",
+        "integration worksheet",
+        "input read boundaries"
+      ],
+      "classification": "Proposed authoring reference with adopted review direction and hypothetical causal probes",
+      "owners": [
+        "docs/gm/CROSS_WORLD_DETAIL_REVIEW.md",
+        "docs/RULES_FROM_SCRATCH.md",
+        "docs/WORLD_COMPLETION_STANDARD.md"
+      ],
+      "disposition": "Read all 36 family rows, six full examples, causal cuts, admission labels and input/coverage limits. Preserve actual micro-to-macro consumers, particular recipient fit, alternate strong solutions and explicit unmodeled history. Families are not mandatory world mechanisms, code fields, compulsory new records or a full-world percentage denominator.",
+      "evidence": "Fresh entire reference only, not its linked worked inputs/primary novels. Every XWC example remains specified-not-run. Codes CW01-CW36 differ from comic CW1-CW17 and XWC1-XWC6 examples; no mass renumber needed for this read.",
+      "reopen": "Bind one selected actual local detail to existing world owner, source/era, means, consequence, observer, causal cut and scoped proof; retain unselected useful families without invented not-applicable claims.",
+      "input_sha256": "a1486f1556789efe55bb920ef0870a53411155dd8003224d98a1b9490c012662",
+      "input_lines": 194,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          194
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/CROSS_WORLD_DETAIL_PASS_2026-11-03.md",
+      "heading": "## Content reconciliation B147, 2026-11-04",
+      "body": "The full report was read, including both rounds, SD1-SD60, all contradictions/questions and its evidence limits. It is a document-coverage audit. Its own corrections already reject citation count as content coverage, reader totals as proof, and template wording as local world detail. A non-empty locator is not a verified claim; no part of the separate 705-line matrix or its underlying readers/sources gains read credit here. “Selected” in the early cluster table is an agent recommendation, not runtime selection (AD32, AD36).\n\nKeep namespaces explicit: this report's CW01-CW36 families, comic CW1-CW17 and reference XWC1-XWC6 cases are different. H numbers in this dated audit also stay local to their own labels; do not silently map them to later foundation H labels by number. No mass rename, generator, family-subsystem census or count-based maturity score is needed to preserve that distinction.\n\nSeveral supposed hard-feature absences are already qualified by later owners and scoped reconciliation: actual away-bank settlement, portable cast-builder parameters, canon panel source import, pack save/load hooks, cheat data/core and known-state readers have named evidence. An importer, test or a menu can still fall short of a played consumer. The [foundation owner](../reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md) and selected world checkpoint own current work; the original floor-reader's suggestion to add one aggregate receipt cannot manufacture absent earned journeys. Neither old module counts nor 431 selected stages are a full campaign denominator.\n\nPreserve J1/J2/J5/J8-J11 as useful joins: observer-specific evidence, actual custody/access/method, batch/portion/label identity, care scope, interruption aftermath, price provenance and competing actor motives. One policy field is not proof of implemented clock behavior, and one shared record is not automatically the right owner for every local law. Ordinary fit/furnishings and repair can matter without a nonhuman start; absent source evidence does not authorize borrowing a generic repair action as canon. Waste may be zero where the actual method supports it, not simply because the audit lacks a row (AD38, AD51).\n\nSD rows remain leads at their reported shown/stated/proposed/inferred level, including wiki and kit-based claims. A phrase-zero is not absence, and price/date/credential details need their exact edition and context before use. D&D, source acquisition/coverage, archive merges and excerpt-based anime gaps remain separate work, not automatically dispatched by G/Q rows. Different worlds' institutional bans are not contradictions. Refusal, coercion and protection follow actual agents and admitted means; no universal consent tax, complaint penalty or magical obligation is introduced. Two broken root-relative source links are repaired with original targets retained in the amendment ledger.",
+      "before_sha256": "cab670408fe64d791a8d92b2e2c83af15036c051475c37f55541aa3f3860e98c",
+      "after_sha256": "f80ad7c19b736ac0105bc50aedb3fa51ad1a0ce480260d117907bb6b7cbc60a7"
+    },
+    {
+      "path": "docs/gm/CROSS_WORLD_DETAIL_REVIEW.md",
+      "heading": "## Cross-world audit application B147, 2026-11-04",
+      "body": "The complete reference, CW01-CW36 and XWC1-XWC6 were read alongside the [November 3 detail audit](../audits/CROSS_WORLD_DETAIL_PASS_2026-11-03.md). Preserve the audit's useful distinction between citation coverage, template coverage, local authored detail, qualified source and actual native consumers. A reader calling a cell covered does not promote its source status or deliver its proposed mechanics. The separate round-2 matrix remains to be read.\n\nUse these families to inspect a selected represented join, not to require one subsystem, record, numerical limit or resource cost per family. Ordinary furniture fit, repair or household life may matter for an ordinary body; relevance follows the chosen task, not a mandatory nonhuman threshold. Unknown source behavior stays unknown until qualified, with original proposals labelled as such. Zero waste, free production, exact observation, unlimited retention or strong bypasses can be valid when the admitted means support them (AD5, AD32, AD38).\n\nThe six examples preserve causal cuts: a repair need not restore contents, successful manufacture need not treat this recipient, face recognition need not grant a work order, overlapping time need not invent stock, a message need not guarantee consent, and a frozen apprentice does not finish work. Their explicitly stronger alternative mechanisms remain possible. No example is source lore, current engine proof or a universal restriction. Existing local IDs and primary owners remain; new CW citations and shared template text do not replace actual content review (AD36, AD51, AD52).",
+      "before_sha256": "a1486f1556789efe55bb920ef0870a53411155dd8003224d98a1b9490c012662",
+      "after_sha256": "9f43238adf948de54dce07498f41687e9a68523ec5178781af133b6cdcbd2628"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1199,
+  "post_record_amendments": [
+    {
+      "path": "docs/audits/CROSS_WORLD_DETAIL_PASS_2026-11-03.md",
+      "from": "](worlds/world-depth-2026-10-13/06_CROSS_WORLD.md)",
+      "to": "](../worlds/world-depth-2026-10-13/06_CROSS_WORLD.md)",
+      "reason": "B147 actual content review: fix verified missing local links or qualify unsupported repair/fit/waste defaults; preserve original text/input."
+    },
+    {
+      "path": "docs/audits/CROSS_WORLD_DETAIL_PASS_2026-11-03.md",
+      "from": "](gm/CROSS_WORLD_DETAIL_REVIEW.md)",
+      "to": "](../gm/CROSS_WORLD_DETAIL_REVIEW.md)",
+      "reason": "B147 actual content review: fix verified missing local links or qualify unsupported repair/fit/waste defaults; preserve original text/input."
+    },
+    {
+      "path": "docs/audits/CROSS_WORLD_DETAIL_PASS_2026-11-03.md",
+      "from": "Proposed dispositions (defaults, with a dial and a reason, AD5): R1 for mystery worlds is \"source gap, no scene read; borrow the generic repair action until a sourced scene exists\", dial = a world's start that makes repair a livelihood. R2 is \"not applicable until a start changes body size\", dial = nonhuman starts. R3 is \"waste 0 by default, labelled authored\", dial = a world whose craft leaves a byproduct the player must dispose of.",
+      "to": "Proposed dispositions (AD5, AD32, AD38): R1 stays a source gap where no repair scene was read; a generic authored action is a separately labelled proposal, not borrowed canon. R2 is relevant when the represented body, equipment or household task consumes fit/function, including ordinary bodies; defer an unrepresented task rather than declaring all unchanged bodies inapplicable. R3 records the actual known process output or an explicit authored/source-gap choice; zero waste is valid when supported, rather than a presumed universal default. A selected repair livelihood, unusual body or meaningful byproduct can deepen the corresponding local contract.",
+      "reason": "B147 actual content review: fix verified missing local links or qualify unsupported repair/fit/waste defaults; preserve original text/input."
+    }
+  ]
+}

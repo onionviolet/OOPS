@@ -1,0 +1,484 @@
+{
+  "schema": 1,
+  "batch": "B18",
+  "title": "Historical native recovery, installation requests and source-fit boundaries",
+  "at": "2026-11-04T19:43:17.030534+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/start-sources-2026-10-14/sources/CHECKPOINT.md",
+      "ids": [
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/START_AS_X_SOURCE_CATALOG_2026-10-14.md and this checkpoint; no gameplay consumer or implementation owner is assigned here."
+      ],
+      "disposition": "Historical research/catalog delivery only. Counts and metadata checks do not establish source-body reading, accepted design, or gameplay. Several exact-fit gaps and memory-only claims are explicitly listed. Retain historical recovery, isolated candidate and source-fit scope; no old process lease, installation/removal status or current runtime claim renewed. Existing named dossier/acceptance owners retain useful findings, rather than a duplicate new plan.",
+      "mechanism_and_interactions": "This lane completed a metadata catalog: C1 maps 33 required sections to 2–6 candidate works each; C2 records 96 placements across 57 works with differing evidence quality; C3 ranks ten read-next works and seven local follow-ups. It explicitly distinguishes metadata sightings from reading, memory labels from verified metadata, and selected start-kind evidence from full-book dossiers.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. The checkpoint reports catalog validation and limited metadata discovery; the underlying catalog and sources were not part of this assigned span.",
+      "reopen": "If a work is selected, resolve its named evidence gaps from the actual source and choose a world consumer; this record authorizes neither acquisition nor implementation.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          26
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S010.json"
+      ],
+      "prior_input_sha256": "ee21c7796f76ffdceeb1faf5250e87e6580f42fb254ed6f6a4ca8536415ac656",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "ee21c7796f76ffdceeb1faf5250e87e6580f42fb254ed6f6a4ca8536415ac656",
+      "input_lines": 26
+    },
+    {
+      "path": "docs/gm/dispatch/starts-talents-continuity-2026-10-11/CHECKPOINT.md",
+      "ids": [
+        "P06",
+        "P02–P05",
+        "179",
+        "34"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "Private candidate P06/manifest and DETAIL_LEDGER/IMPLEMENTATION_QUEUE; REPORT, RECONCILIATION, VERIFICATION and ACCEPTANCE_BACKLOG own the reported evidence and limits. Root is named integrator."
+      ],
+      "disposition": "Historical isolated delivery with reported rebuilt/native proof, but director fiction/balance/pacing review and explicit combined integration handoff remain. Later queue families still need selected source/native adapters; this is not a whole-world completion claim. Retain historical recovery, isolated candidate and source-fit scope; no old process lease, installation/removal status or current runtime claim renewed. Existing named dossier/acceptance owners retain useful findings, rather than a duplicate new plan.",
+      "mechanism_and_interactions": "The connected slice adds a private P06 and manifest while retaining 179 prior cards by hashed reference and adding 34 cards; selected first-join/four later packets carry dependencies. The checkpoint reports ambient-predicate selection after review caught inert timers, unconditional expiry, inaccessible decisions and stale NPC observation. Native journeys exercised timed choices, aftermath, persistence/import and malformed/missing-pack rejection.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint summarizes hashes, tests, rebuild and native journeys; this shard did not inspect artifacts or current integration.",
+      "reopen": "A future integration must reconcile the frozen candidate with current shared owners and selected source/native adapters; human taste review is optional under current AD42.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S010.json"
+      ],
+      "prior_input_sha256": "6818d3431d230e6a89da6db9de56e097d5836811a9e48444fa0803b53d37ddf3",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "6818d3431d230e6a89da6db9de56e097d5836811a9e48444fa0803b53d37ddf3",
+      "input_lines": 17
+    },
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/CHECKPOINT.md",
+      "ids": [
+        "Factorio 2.0.77",
+        "Steam23347942",
+        "ARM",
+        "Intel"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "Factorio completion/acquisition files and native-usage checkpoint; named writers are factorio_native_continuation and factorio_recovery_review. Retort review owns its separate acceptance limits."
+      ],
+      "disposition": "Historical routing checkpoint: selected native/source work is delivered or acquired in bounded portions, but coherent hash/merge, Intel/resource/ownership/final-corpus work remains. No current combined-build, gameplay, browser/save/import or whole-game recovery claim. Retain historical recovery, isolated candidate and source-fit scope; no old process lease, installation/removal status or current runtime claim renewed. Existing named dossier/acceptance owners retain useful findings, rather than a duplicate new plan.",
+      "mechanism_and_interactions": "The checkpoint separates five finite source GMs from the later unfinished both-architecture decompile/usage goal. ARM and Intel initial streams and later canonical flow/Heat views have bounded counts and acquisition evidence; retort mechanics in historical build e77080593d4b use native engine/UI/inventory/body/clock/publisher, while its gameplay remains implemented-unverified.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Only checkpoint claims were reviewed; linked acquisition, native source, and browser evidence were not independently inspected.",
+      "reopen": "Close the listed native corpus/ownership/repair gates under their owners; retort requires rebuilt current browser and persistence/failure/regression proof before gameplay is verified.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S010.json"
+      ],
+      "prior_input_sha256": "934dc99ab48c68a51e98e8a912091a933cd11cc4aae0a96b429b748537b3f9d7",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "934dc99ab48c68a51e98e8a912091a933cd11cc4aae0a96b429b748537b3f9d7",
+      "input_lines": 13
+    },
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/CHECKPOINT.md",
+      "ids": [
+        "ARM",
+        "Intel",
+        "NLH-02/03",
+        "Heat",
+        "Retort"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "Native/private assignment and acquisition files; RETORT_REVIEW.md owns retort gaps; factorio_native_continuation is native writer and factorio_recovery_review owns acceptance."
+      ],
+      "disposition": "The same full authorized recovery goal remains unfinished. Selected flow/Heat evidence advances specific rows but does not prove whole-engine semantics; retort remains implemented-unverified with browser, gameplay and save/import checks deferred. Retain historical recovery, isolated candidate and source-fit scope; no old process lease, installation/removal status or current runtime claim renewed. Existing named dossier/acceptance owners retain useful findings, rather than a duplicate new plan.",
+      "mechanism_and_interactions": "The recovery uses separate native/private, backend-variant, cross-architecture-reader and acceptance owners. Initial ARM/Intel exports are closed; flow chunks 1851–1853 qualify selected Splitter/Inserter cases, and Heat views qualify observed storage while retaining ABI/return unknowns. Retort source/build is distinct from gameplay verification; generated C views may expand beyond serialized function ranges.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint states exact acquisition/readback claims; actual artifacts and current runtime were not inspected in this shard.",
+      "reopen": "Continue exact ownership, ABI, failure, Intel and final corpus/reader gates; independently exercise retort in a rebuilt browser with save/reload/import and failure boundaries.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S010.json"
+      ],
+      "prior_input_sha256": "ab86c13d4138bedcba5a9ff5efe3255b96d9873234509f14ed12913d9efa6c7b",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "ab86c13d4138bedcba5a9ff5efe3255b96d9873234509f14ed12913d9efa6c7b",
+      "input_lines": 17
+    },
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/resume-history/2026-10-07-daemon-review/docs/gm/dispatch/steam-wave-2026-10-06/CHECKPOINT.md",
+      "ids": [
+        "Factorio 2.0.77",
+        "Steam23347942",
+        "ARM",
+        "Intel",
+        "e77080593d4b"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "native-usage/CHECKPOINT.md and Factorio acquisition artifacts; native_finish3 and factorio_acceptance are named owners in this historical snapshot."
+      ],
+      "disposition": "Historical resume state, superseded by later checkpoints in neighboring records. The original task snapshot calls retort implemented-unverified and explicitly defers acceptance; the paused heartbeat does not mean the larger goal is complete. Retain historical recovery, isolated candidate and source-fit scope; no old process lease, installation/removal status or current runtime claim renewed. Existing named dossier/acceptance owners retain useful findings, rather than a duplicate new plan.",
+      "mechanism_and_interactions": "This preserved earlier checkpoint closes finite source GMs but reports the full decompile/use goal still active. It distinguishes closed initial ARM/Intel streams and canonical-flow progress from remaining native repairs; retort uses the acquired historical bundle but lacks gameplay/browser/save/failure/regression proof.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical claims only; no retained artifacts or current process state checked.",
+      "reopen": "Use later owner checkpoints for current historical progression; this record alone leaves final corpus, semantic closure and retort acceptance unresolved.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S010.json"
+      ],
+      "prior_input_sha256": "4d2f1cdd7b37bba4b3770364649b07417059652a864b2038f2feb421e3afad49",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "4d2f1cdd7b37bba4b3770364649b07417059652a864b2038f2feb421e3afad49",
+      "input_lines": 13
+    },
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/resume-history/2026-10-07-daemon-review/docs/gm/dispatch/steam-wave-2026-10-06/native-usage/CHECKPOINT.md",
+      "ids": [
+        "ARM",
+        "Intel",
+        "NLH-02/03",
+        "Retort",
+        "68694413"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "Native assignment and actual artifacts listed in the checkpoint; root acceptance and RETORT_REVIEW.md own separate review."
+      ],
+      "disposition": "This is an earlier point-in-time resume: required canonical rows and corpus/ownership/ABI work remain open here, and retort is implemented-unverified. Do not treat subsequent shards’ completion claims as proof within this record. Retain historical recovery, isolated candidate and source-fit scope; no old process lease, installation/removal status or current runtime claim renewed. Existing named dossier/acceptance owners retain useful findings, rather than a duplicate new plan.",
+      "mechanism_and_interactions": "The earlier resume records closed initial streams and added diagnostic flow findings, including guarded Splitter tables and recovered Inserter bytes, while canonical rows still needed saving/review at that point. It separates native body/ASM coverage from expanded generated C views. Retort bundle/source delivery remains separate from gameplay acceptance.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports private artifacts and historical readback; no artifact contents/current source were inspected here.",
+      "reopen": "Historical next step was to review flow2, emit canonical rows, continue native repair and independently inspect source/DLC/use requirements; retort needs its deferred browser and persistence proof.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S010.json"
+      ],
+      "prior_input_sha256": "d19b4cdd49691f79a2349d9d6620aeab27cea7d8ce36ac75f5f1275e91d30b74",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "d19b4cdd49691f79a2349d9d6620aeab27cea7d8ce36ac75f5f1275e91d30b74",
+      "input_lines": 15
+    },
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/resume-history/2026-10-07-daemon-review/docs/research/factorio/CHECKPOINT.md",
+      "ids": [
+        "ARM",
+        "Intel",
+        "Heat",
+        "Retort",
+        "2.0.77",
+        "Steam23347942"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/factorio/{REPORT.md,CHECKPOINT.md} and native checkpoint; RETORT_RESUME_READBACK.json and RETORT_REVIEW.md; Factorio native/acceptance owners."
+      ],
+      "disposition": "The checkpoint explicitly keeps retort proposals separate from verified gameplay: browser/save/import/failure/regression/director checks remain deferred. Native recovery remains incomplete; installed DLC presence does not establish active profile or entitlement. Retain historical recovery, isolated candidate and source-fit scope; no old process lease, installation/removal status or current runtime claim renewed. Existing named dossier/acceptance owners retain useful findings, rather than a duplicate new plan.",
+      "mechanism_and_interactions": "The finite installed-source/API review is complete, distinct from full native recovery. ARM/Intel acquisitions, canonical flow, and known Heat ABI/ownership gates have separately reported states. Retort plan reuses paid stock, two physical receivers, output obstruction, collection/disposal and finite plan through existing inventory/body/clock/publisher; reservation/refundable unburned fuel are stronger authored policies.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint summarizes dated source/build and proposed mechanic evidence; no linked report, source or runtime was inspected.",
+      "reopen": "For retort, exercise the named inventory/body/clock/publisher interactions in a rebuilt browser and persistence/failure paths; for native work, close corpus/ABI/ownership gates without conflating installed-file presence with activation.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S010.json"
+      ],
+      "prior_input_sha256": "26db2f57e6144f0defd77c21dc9853d9b60416aebfb2dba129ff6040ac32257b",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "26db2f57e6144f0defd77c21dc9853d9b60416aebfb2dba129ff6040ac32257b",
+      "input_lines": 13
+    },
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/resume-history/2026-10-07-heat-acquisition/docs/gm/dispatch/steam-wave-2026-10-06/CHECKPOINT.md",
+      "ids": [
+        "Factorio 2.0.77",
+        "Steam23347942",
+        "ARM",
+        "Intel",
+        "e77080593d4b"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "native-usage checkpoint and acquisition artifacts; factorio_native_continuation / factorio_recovery_review own native and acceptance; RETORT_RESUME_READBACK.json owns retort readback."
+      ],
+      "disposition": "Historical routing snapshot: completed finite source review does not close native recovery. It defers browser, gameplay, save and failure/regression proof for retort and makes no current combined-build claim. Retain historical recovery, isolated candidate and source-fit scope; no old process lease, installation/removal status or current runtime claim renewed. Existing named dossier/acceptance owners retain useful findings, rather than a duplicate new plan.",
+      "mechanism_and_interactions": "The full native goal is resumed with closed initial ARM/Intel streams and acquired canonical flow, while hash/merge/ABI/resource/section repair, ownership and final corpus acquisition remain. Retort is source/build delivered in the historical bundle but its gameplay is explicitly implemented-unverified.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint statements only; linked artifacts and current combined source were not inspected.",
+      "reopen": "The later owner must close remaining native gates; retort needs rebuilt-browser and persistence/failure checks before a verified gameplay claim.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S010.json"
+      ],
+      "prior_input_sha256": "1ee35b3848cf51cf33e7df73528e7f231772cbf2fe63c8c7a75d182a92b36b82",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "1ee35b3848cf51cf33e7df73528e7f231772cbf2fe63c8c7a75d182a92b36b82",
+      "input_lines": 13
+    },
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/resume-history/2026-10-07-heat-acquisition/docs/gm/dispatch/steam-wave-2026-10-06/native-usage/CHECKPOINT.md",
+      "ids": [
+        "ARM",
+        "Intel",
+        "NLH-02/03",
+        "Heat",
+        "Retort"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "Factorio native assignment/acquisition; RETORT_RESUME_READBACK.json and RETORT_REVIEW.md; continuation owns native/private data and recovery_review acceptance."
+      ],
+      "disposition": "The full recovery is unfinished despite acquired canonical rows; cause-specific repairs, ownership and final audit remain. Retort is implemented-unverified; gameplay/browser/save/reload/import/failure/regression and director acceptance were deferred. Retain historical recovery, isolated candidate and source-fit scope; no old process lease, installation/removal status or current runtime claim renewed. Existing named dossier/acceptance owners retain useful findings, rather than a duplicate new plan.",
+      "mechanism_and_interactions": "The continuation checkpoint reports both initial streams closed, then selected canonical Splitter/Inserter closure and retort source readback against a historical immutable bundle. Retort relies on native engine/UI/inventory/body/clock/publisher; ten shared/story files changed in that historical period, so no current combined-build conclusion was made.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Claims are checkpoint summaries, not independently checked artifacts or current runtime evidence.",
+      "reopen": "Close native repair/final-audit gates and separately rebuild/experience retort including persistence and failure cases; historical immutable bundle identity cannot establish current combined behavior.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S010.json"
+      ],
+      "prior_input_sha256": "6ad1048f5f752b713344ca74753283bb8c6d9e2655ae06fdb4ec246ea2f2558e",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "6ad1048f5f752b713344ca74753283bb8c6d9e2655ae06fdb4ec246ea2f2558e",
+      "input_lines": 13
+    },
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/resume-history/2026-10-07-heat-acquisition/docs/research/factorio/CHECKPOINT.md",
+      "ids": [
+        "ARM",
+        "Intel",
+        "Heat",
+        "Retort",
+        "2.0.77"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "Factorio native assignment and root acceptance; RETORT_RESUME_READBACK.json; source/API report checkpoint."
+      ],
+      "disposition": "Historical research checkpoint only; source/build use for retort remains implemented-unverified and browser/gameplay/save acceptance is deferred. Base and installed DLC are not equivalent to activation. Retain historical recovery, isolated candidate and source-fit scope; no old process lease, installation/removal status or current runtime claim renewed. Existing named dossier/acceptance owners retain useful findings, rather than a duplicate new plan.",
+      "mechanism_and_interactions": "This short resume distinguishes completed finite installed-source/API review from unfinished full native decompile/use. It reports selected flow2 and canonical Splitter/Inserter closure with ARM counts, while Heat ABI, Intel unwind, retries, instruction ownership and final repaired-corpus qualification remain. Retort readback retains four leaves in historical build e77080593d4b.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Summary claims only; no linked source or acceptance evidence independently checked.",
+      "reopen": "Use named native recovery/acceptance owners for remaining corpus gates; selected retort use needs rebuilt browser and persistence proof, and actual activation remains distinct.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S010.json"
+      ],
+      "prior_input_sha256": "81bde454cf72b02a340265eb3aeb8d3e979cfccf77812f19e422101bdfddc439",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "81bde454cf72b02a340265eb3aeb8d3e979cfccf77812f19e422101bdfddc439",
+      "input_lines": 7
+    },
+    {
+      "path": "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/CHECKPOINT.md",
+      "ids": [
+        "SC01–SC10",
+        "R1–R4"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/{DESIGN.md,SYSTEMS_MAP.md,DETAIL_LEDGER.json,PACKETS.md,REPORT.md}; parent owns selection."
+      ],
+      "disposition": "Planning and document validation are reported complete, not gameplay or source-fidelity completion. Runtime, source fidelity and human review remain open; parent may select a specific candidate/contract for separately authorized implementation. Retain historical recovery, isolated candidate and source-fit scope; no old process lease, installation/removal status or current runtime claim renewed. Existing named dossier/acceptance owners retain useful findings, rather than a duplicate new plan.",
+      "mechanism_and_interactions": "The requested finite planning expansion covers ten families, 36 leaves, 59 variants and 7 joins, preserving predecessor IDs. Bounded source mapping repaired R1–R4; design/source map/ledger/packets/report hold planning output. The record explicitly excludes runtime changes and new lore acceptance.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports independent readback and validation; artifacts were not reopened in this shard.",
+      "reopen": "A chosen candidate needs source qualification and an actual consumer/runtime owner; do not infer mechanics or completion from expansion counts.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          31
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S010.json"
+      ],
+      "prior_input_sha256": "cd3918e30faa3a561d136ea6071bc01a58b2d156458c67b94f2ab87d2110585c",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "cd3918e30faa3a561d136ea6071bc01a58b2d156458c67b94f2ab87d2110585c",
+      "input_lines": 31
+    },
+    {
+      "path": "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/continuation/CHECKPOINT.md",
+      "ids": [
+        "C4",
+        "C5",
+        "55 commands",
+        "SC"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "EDITION.json, REPORT.md, ACCEPTANCE_BACKLOG.md and evidence/IDENTITY.json; root owns candidate/continuation; incumbent private-pack owner owns source adapter."
+      ],
+      "disposition": "Historical isolated edition is locally verified by reported tests/build/native journeys; C5 is human-only. Shared integration, source-qualified private-pack binding and human fiction/numbers/pacing remain separate gates; local Frontier irrigation/dispatch is not private book-world completion. Retain historical recovery, isolated candidate and source-fit scope; no old process lease, installation/removal status or current runtime claim renewed. Existing named dossier/acceptance owners retain useful findings, rather than a duplicate new plan.",
+      "mechanism_and_interactions": "The selected C4 local edition binds 8 requirements across 30 selected leaves and 6 excluded leaves. Its original fictional work ledger has 55 commands (54 player, one NPC) and two local actors, reusing simulation state, clock, resources, inventory, knowledge, sources, claims, seeded stream and durable native publication rather than another save/clock engine. The checkpoint reports earned quest/reward/title, kit refit/dispatch, deterioration/preservation, cache/wager, NPC and persistence journeys.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint summarizes local proof and ownership, but no evidence artifact or current shared integration was inspected.",
+      "reopen": "Before any broader claim, verify current shared integration and exact source-qualified claim/event/authority/recipient/prerequisite/carrier binding plus native/save proof; human review is optional feedback under AD42.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S010.json"
+      ],
+      "prior_input_sha256": "e6cf916951c06b547eb68a8dae6399954131f94eaefe1e74bd999d1dbf9bcc1f",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "e6cf916951c06b547eb68a8dae6399954131f94eaefe1e74bd999d1dbf9bcc1f",
+      "input_lines": 17
+    },
+    {
+      "path": "docs/gm/dispatch/topic-wave-2026-10-14/p01/CHECKPOINT.md",
+      "ids": [
+        "P01",
+        "NEXT_SLICE_P01"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "NEXT_SLICE_P01.md, REPORT.md, PREFLIGHT.md and evidence/proof.json; root owns integration."
+      ],
+      "disposition": "Historical lane reports build, focused tests and browser groups complete on its candidate; no merge/push, root integration or human taste acceptance. Mobile is deferred, and the checkpoint grants no next slice. Retain historical recovery, isolated candidate and source-fit scope; no old process lease, installation/removal status or current runtime claim renewed. Existing named dossier/acceptance owners retain useful findings, rather than a duplicate new plan.",
+      "mechanism_and_interactions": "P01 technical slice adds mixing feedback on the named branch/base, preserving the original stop reproduction. Work row uses current admission and adds zero save fields; four cards and Mix fit at the top for 1366×768 and 1600×1000. Reported browser groups cover native Save/reload/Export/literal Import with exact card texts; responsive-law-change variant remains source-only.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. The checkpoint’s evidence claims are reviewed here, not independently rerun; exact candidate/browser is historical.",
+      "reopen": "If integrated, verify present merged/rebuilt desktop behavior and persistence; responsive-law-change stays unverified source-only unless selected.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          23
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S010.json"
+      ],
+      "prior_input_sha256": "e0d34e31c1f5995a8178b1907120758e42b6b3603f82ce753871e2238e77c962",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "e0d34e31c1f5995a8178b1907120758e42b6b3603f82ce753871e2238e77c962",
+      "input_lines": 23
+    },
+    {
+      "path": "docs/gm/dispatch/steam-installs-2026-10-09/CHECKPOINT.md",
+      "ids": [
+        "uncoded: six bounded readers",
+        "uncoded: retained-copy/removal distinction",
+        "uncoded: Eldyn reachability"
+      ],
+      "classification": "historical research dispatch; fresh full read because prior receipt had no original IDs",
+      "owners": [
+        "docs/gm/dispatch/steam-installs-2026-10-09/REPORT.md",
+        "docs/gm/dispatch/steam-installs-2026-10-09/STATUS.json"
+      ],
+      "disposition": "Six bounded acquisition/source and retention checks completed historically; uninstall URI requests do not prove removal. Eldyn reachability failure proves neither shutdown nor mechanics. Preserve dossier gaps and protected installed titles; no installation, dialog interaction or source pass resumed.",
+      "evidence": "Entire checkpoint freshly read; missing prior IDs triggered explicit fresh route rather than promotion.",
+      "reopen": "Only a future selected installed-source need warrants live installation evidence; no present access blocker prevents this documentary disposition.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "131df539b701466184fbfbc6f6fa8002d483ea281e9b8b9a91a635787c1dc455",
+      "input_lines": 25,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          25
+        ]
+      ]
+    }
+  ],
+  "folds": [],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1775
+}

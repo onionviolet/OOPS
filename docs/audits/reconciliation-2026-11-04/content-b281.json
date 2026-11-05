@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "batch": "B281",
+  "title": "Deep-engine selection and missing P1 receipt join",
+  "at": "2026-11-05T00:43:46.483724+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "classification": "Dated selected pilot coordination and scoped execution evidence",
+      "owners": [
+        "docs/ENGINE_EXPANSION.md",
+        "docs/gm/dispatch/deep-engine-2026-10-20/CHECKPOINT.md"
+      ],
+      "reopen": "Use current source and selected task for new work; do not redispatch historical chats or renew runtime proof from this reading.",
+      "path": "docs/gm/dispatch/deep-engine-2026-10-20/CHECKPOINT.md",
+      "ids": [
+        "P1–P5 dispatch/dependencies",
+        "Current delivery October 21",
+        "Adjacent FF3 notice"
+      ],
+      "disposition": "Read all 44 original lines. Later current-delivery paragraph supersedes dispatch/preparation rows and allowance ceiling. P1/P2/P3/P5 released; P4 stopped then explicitly renewed. Fold P1 outcome and dated dispatch limits into existing engine owner; preserve exact chat IDs and release routing as history.",
+      "evidence": "Dispatch/startup checks establish chat creation, not delivery; later receipt routing explicitly qualifies them. Old two-lane/five-chat limits and 26–31% allowance are not current task permissions or live usage.",
+      "input_sha256": "f230b012013049a8838db68708c5cbe5dc7ce8158ac36274540c1fda16a36926",
+      "input_lines": 44,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          44
+        ]
+      ]
+    },
+    {
+      "classification": "Dated selected pilot coordination and scoped execution evidence",
+      "owners": [
+        "docs/ENGINE_EXPANSION.md",
+        "docs/gm/dispatch/deep-engine-2026-10-20/CHECKPOINT.md"
+      ],
+      "reopen": "Use current source and selected task for new work; do not redispatch historical chats or renew runtime proof from this reading.",
+      "path": "docs/gm/dispatch/deep-engine-2026-10-20/P1_STATUS.md",
+      "ids": [
+        "F1/F2",
+        "B1–B4",
+        "P2 item factory handoff",
+        "F3 baseline control",
+        "Generated-output recovery"
+      ],
+      "disposition": "Read all 62 original lines including source-only/provisional integration split, full-suite failure/control, natural-route exclusions and accidental generated-output recovery. Fold exact shared defensive-stat seam and scoped consumer coverage into engine owner; source release is not blanket suite/human acceptance.",
+      "evidence": "Receipt reports 42 focused passes, source-only and provisional browser/persistence proof, and 2363/2364 full suite with one reproduced baseline crafting failure. P2 required registration hunk is already reported integrated by later engine P2 receipt. No new code/test/browser/artifact inspection here.",
+      "input_sha256": "1adae69570dc742e13936c2aa7013de485b5ae01572bedd4c3545bf32e7edbe9",
+      "input_lines": 62,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          62
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/ENGINE_EXPANSION.md",
+      "heading": "## Content reconciliation B281: P1 combat consumer receipt joined",
+      "body": "The full [P1 status](gm/dispatch/deep-engine-2026-10-20/P1_STATUS.md) supplies the missing final pilot detail; the full [dispatch checkpoint](gm/dispatch/deep-engine-2026-10-20/CHECKPOINT.md) explicitly qualifies its original startup table. P1 reports a shared effective defender-input seam for damage_taken, min_damage_share and crit_resistance across B1 native duel, B2 redirected party ally, B3 causal strike and B4 feature battle, retaining each consumer's local body, stamina, consent, floor, cap and outcome policy. Actual Hero equip/remove and Enemy equipment-key/factory snapshots were exercised with synthetic inputs; this is narrower than every stat in every battle or a natural creature campaign.\n\nKeep P1's source-only and provisional-registration browser cases separate. The provisional P2 item-factory handoff was required for explicit equipment-key enemies, and the later P2 receipt already reports it integrated. P1's own 42 focused passes and rebuilt 1920×1080 current-format persistence proof coexist with its 2,363/2,364 full-suite result and reproduced baseline Sinew multi-stack crafting failure. Later combined P2 results qualify that earlier failure; no fresh suite was run by this reconciliation. Natural equipped Direwolf access, ordinary acquisition/crafting, encounter cadence and human judgment were expressly not established by the synthetic cases. P1's accidental shared generated build was reported hash-restored with no net output change, not hidden or treated as a delivered bundle.\n\nThe old dispatch's actual five chat receipts establish creation/startup only; final releases come from the lane records. The historical 26–31% allowance, two concurrent lanes, sole-writer reservations and FF3 not-yet-present notice do not assign today's usage, writers or new work. Preserve them as dated coordination history. No chats, agents, runtime changes, commits or pushes are launched by this join.",
+      "before_sha256": "3efa1a1278c9baf8bee509abc4c828e4d8e699ce49400eb3d1f116e0071382b9",
+      "after_sha256": "453bf3c3e9cc1087b0ed1876de03dd0282816cd5b5ce37d4a17613e92f29e495"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 869
+}

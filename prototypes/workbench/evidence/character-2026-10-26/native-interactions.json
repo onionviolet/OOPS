@@ -1,0 +1,217 @@
+{
+  "bundleSha256": "c452c60fc0026aa8a8e2ee46b3a2a67901c90126146934c24f945ad5b335ac6c",
+  "route": "named mid fixture, native commands; per-case new browser context",
+  "cases": [
+    {
+      "mode": "full",
+      "focus": {
+        "focused": true,
+        "outline": "none"
+      },
+      "hover": {
+        "background": "rgb(40, 61, 93)",
+        "shadow": "oklab(0.862265 0.0131941 0.150729 / 0.133027) 0px 0px 2.90997px 0px"
+      },
+      "press": {
+        "active": true,
+        "background": "rgb(46, 70, 105)",
+        "shadow": "rgb(255, 201, 74) 0px 0px 0px 1px inset"
+      },
+      "attemptDelta": 1,
+      "effect": {
+        "shown": true,
+        "text": "Craft settled: Roasted rat meat ×1 from 1 attempt.",
+        "animations": [
+          {
+            "target": "path",
+            "frames": [
+              [
+                "strokeDasharray",
+                "strokeDashoffset"
+              ],
+              [
+                "strokeDasharray",
+                "strokeDashoffset"
+              ]
+            ]
+          },
+          {
+            "target": "path",
+            "frames": [
+              [
+                "strokeDasharray",
+                "strokeDashoffset"
+              ],
+              [
+                "strokeDasharray",
+                "strokeDashoffset"
+              ]
+            ]
+          },
+          {
+            "target": "DIV",
+            "frames": [
+              [
+                "transform",
+                "opacity"
+              ],
+              [
+                "transform",
+                "opacity"
+              ],
+              [
+                "transform",
+                "opacity"
+              ],
+              [
+                "transform",
+                "opacity"
+              ]
+            ]
+          }
+        ]
+      },
+      "resultText": "base-value order; equal values use stable item identity. Extra outputs from a committed batch stay in inventory.\n\nKnown producers and uses\nRat meat chunks\nProduces an input\nRoasted purified rat meat\nShares a known material\nResult details\n\nProposed up to 1 attempt (request: 1): 2 Rat meat chunks. Native skill limits can stop earlier; this preview reserves nothing.\n\nCraft 1\n5\n10\nAll\n\nSession goal: 1 of 1 attempts · 1 successes · 1 useful outputs. Goal finished. This intent survives navigation and clears on loading a save. It reserves nothing.\n\nClear goal\n\nMade 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP) 1 of 1 native attempts succeeded."
+    },
+    {
+      "mode": "reduced",
+      "focus": {
+        "focused": true,
+        "outline": "none"
+      },
+      "hover": {
+        "background": "rgb(48, 73, 108)",
+        "shadow": "color(srgb 1 0.788235 0.290196 / 0.32) 0px 0px 7px 0px"
+      },
+      "press": {
+        "active": true,
+        "background": "rgb(48, 73, 108)",
+        "shadow": "rgb(255, 201, 74) 0px 0px 0px 1px inset"
+      },
+      "attemptDelta": 1,
+      "effect": {
+        "shown": true,
+        "text": "Craft settled: Roasted rat meat ×1 from 1 attempt.",
+        "animations": [
+          {
+            "target": "DIV",
+            "frames": [
+              [
+                "opacity"
+              ],
+              [
+                "opacity"
+              ],
+              [
+                "opacity"
+              ]
+            ]
+          }
+        ]
+      },
+      "resultText": "base-value order; equal values use stable item identity. Extra outputs from a committed batch stay in inventory.\n\nKnown producers and uses\nRat meat chunks\nProduces an input\nRoasted purified rat meat\nShares a known material\nResult details\n\nProposed up to 1 attempt (request: 1): 2 Rat meat chunks. Native skill limits can stop earlier; this preview reserves nothing.\n\nCraft 1\n5\n10\nAll\n\nSession goal: 1 of 1 attempts · 1 successes · 1 useful outputs. Goal finished. This intent survives navigation and clears on loading a save. It reserves nothing.\n\nClear goal\n\nMade 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP) 1 of 1 native attempts succeeded."
+    },
+    {
+      "mode": "off",
+      "focus": {
+        "focused": true,
+        "outline": "none"
+      },
+      "hover": {
+        "background": "rgb(48, 73, 108)",
+        "shadow": "none"
+      },
+      "press": {
+        "active": true,
+        "background": "rgb(48, 73, 108)",
+        "shadow": "rgb(255, 201, 74) 0px 0px 0px 1px inset"
+      },
+      "attemptDelta": 1,
+      "effect": {
+        "shown": false,
+        "text": "",
+        "animations": []
+      },
+      "resultText": "base-value order; equal values use stable item identity. Extra outputs from a committed batch stay in inventory.\n\nKnown producers and uses\nRat meat chunks\nProduces an input\nRoasted purified rat meat\nShares a known material\nResult details\n\nProposed up to 1 attempt (request: 1): 2 Rat meat chunks. Native skill limits can stop earlier; this preview reserves nothing.\n\nCraft 1\n5\n10\nAll\n\nSession goal: 1 of 1 attempts · 1 successes · 1 useful outputs. Goal finished. This intent survives navigation and clears on loading a save. It reserves nothing.\n\nClear goal\n\nMade 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP) 1 of 1 native attempts succeeded."
+    },
+    {
+      "mode": "os-reduced",
+      "focus": {
+        "focused": true,
+        "outline": "none"
+      },
+      "hover": {
+        "background": "rgb(48, 73, 108)",
+        "shadow": "color(srgb 1 0.788235 0.290196 / 0.32) 0px 0px 7px 0px"
+      },
+      "press": {
+        "active": true,
+        "background": "rgb(48, 73, 108)",
+        "shadow": "rgb(255, 201, 74) 0px 0px 0px 1px inset"
+      },
+      "attemptDelta": 1,
+      "effect": {
+        "shown": true,
+        "text": "Craft settled: Roasted rat meat ×1 from 1 attempt.",
+        "animations": [
+          {
+            "target": "DIV",
+            "frames": [
+              [
+                "opacity"
+              ],
+              [
+                "opacity"
+              ],
+              [
+                "opacity"
+              ]
+            ]
+          }
+        ]
+      },
+      "resultText": "base-value order; equal values use stable item identity. Extra outputs from a committed batch stay in inventory.\n\nKnown producers and uses\nRat meat chunks\nProduces an input\nRoasted purified rat meat\nShares a known material\nResult details\n\nProposed up to 1 attempt (request: 1): 2 Rat meat chunks. Native skill limits can stop earlier; this preview reserves nothing.\n\nCraft 1\n5\n10\nAll\n\nSession goal: 1 of 1 attempts · 1 successes · 1 useful outputs. Goal finished. This intent survives navigation and clears on loading a save. It reserves nothing.\n\nClear goal\n\nMade 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP) 1 of 1 native attempts succeeded."
+    }
+  ],
+  "errors": [
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "op": -1,
+      "kind": "console",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    }
+  ],
+  "failedRequests": [
+    {
+      "status": 404,
+      "url": "http://127.0.0.1:57753/private_packs/manifest.json"
+    },
+    {
+      "status": 404,
+      "url": "http://127.0.0.1:57753/private_packs/manifest.json"
+    },
+    {
+      "status": 404,
+      "url": "http://127.0.0.1:57753/private_packs/manifest.json"
+    },
+    {
+      "status": 404,
+      "url": "http://127.0.0.1:57753/private_packs/manifest.json"
+    }
+  ],
+  "status": "passed"
+}

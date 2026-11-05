@@ -159,3 +159,10 @@ operation remains from this pass. The earlier write denial is resolved by the
 approved supported retry; process liveness uncertainty is preserved without
 reinspection. Changes remain uncommitted. Further product or runtime work
 requires its own selected outcome; this audit does not open another wave.
+
+
+## Content reconciliation B158, 2026-11-04
+
+The entire applied-rules audit and provenance were read. The original repair already rejects several recurring process errors: universal worktrees, repeating unchanged focused evidence, a universal separate rule-behavior gate, forced expansion rounds, an obsolete one-realm gate and human play as a prerequisite for technical verification. Keep that direction with current AD36/41/42/43 and the live owners, rather than restating this dated audit as a new rulebook (AD32).
+
+F1/F7/F8 preserve useful implementation joins: finite selected world horizon, actual command/consumer/invariant, disclosed known commitment, cancellation/settlement and a useful return route. Old-save deferral permits a stated policy, not silent reinterpretation of current pending terms. Source-level walkthroughs did not test UI, agents or every rule consumer. The earlier automatic write denial and separately approved retry are resolved history, with source/docs ownership released; they do not require repeating an approval flow for this authorized reconciliation. No old process inquiry, rejected command or runtime task was retried.

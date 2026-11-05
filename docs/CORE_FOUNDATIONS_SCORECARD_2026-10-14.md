@@ -184,3 +184,10 @@ its current inputs before adopting A1, lowering a measured ceiling, merging A4
 or repeating a gate. No new merge/worker is authorized by this scorecard.
 [Round-2 plan review](reviews/PLAN_RULE_RECONCILIATION_2026-10-18.md#round-2-indexed-plans-prioritized-by-live-evidence-2026-10-18)
 keeps historical delivery, future readiness and active execution distinct.
+
+
+## Content reconciliation B137, 2026-11-04
+
+The full scorecard, lane returns and October 18 qualification were reviewed. U04/K4's initial unmerged status, K1's absence, U12's missing direct tests and F4's broad write-only relationship claim are already narrowed by the returns above. A1's registry proposal is already superseded by the later architecture receipts. Preserve these corrections rather than treating the first table as a current census.
+
+Read-side adapters over old and new stores (M5), named readers for new data (M6), explicit world registration and measured seam extraction remain useful implementation options. They do not require a global store merger, migration platform or monotonic source-count ratchet before the next selected consumer. A public effect may legitimately read actual world state while an actor's decision or description uses their knowledge; M12's proposed omniscient flag is not a universal access bypass. Determinism replay requires declared inputs and covered owners, not a claim that one old fixture detects every random source. Historical load, branch counts, Math.random ceilings and viewport smoke retain their own dates. Current seam selection follows AD51 and the foundation owner's scoped receipts; no old merge, test, worker or ceiling change was executed.

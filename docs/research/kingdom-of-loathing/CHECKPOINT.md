@@ -11,3 +11,8 @@
 **Future value:** no decompile needed. KoL is server-side and KoLmafia's data already encodes the mechanics. A better next pass is an archived wiki snapshot or signed-in browser route for path rule text, plus a data-only script tabulating each path's distinguishing rule. KoLmafia data may be cited with attribution; game text belongs to Asymmetric and stays out of git.
 
 Proposals P1 to P5 are unaccepted.
+
+
+## Later selected path-rule coverage, 2026-11-04 (B35)
+
+The October13 blanket wiki-not-read statement is baseline history. pass-2026-10-14/CHECKPOINT.md records selected reading of 44 rule pages and a 57-enum/51-special-path table with restrictions, distinguishing mechanics, rewards and evidence labels. Preserve the twelve detailed-page/nested-strategy gaps and the separation of KoLmafia client data, dated rule text and current authoritative server legality/rewards. The later selected-page evidence does not prove every path, live account behavior or save/offline semantics. No account or server operation was performed in this reconciliation.

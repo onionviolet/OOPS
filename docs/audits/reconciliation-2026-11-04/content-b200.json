@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "batch": "B200",
+  "title": "Complete book-world gap audit and final integration chronology",
+  "at": "2026-11-04T22:55:13.298991+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/BOOK_WORLD_GAPS_2026-11-03.md",
+      "ids": [
+        "X1–X35",
+        "H1–H12",
+        "BF30–BF57 scoped rows",
+        "S1–S11",
+        "Institution gap table",
+        "10.1 module dispositions",
+        "Two10.2sections",
+        "Section11 integration/prune"
+      ],
+      "classification": "Per-world source/design/module audit, later mechanism pairings and dated integration history",
+      "owners": [
+        "docs/audits/BOOK_WORLD_GAPS_2026-11-03.md",
+        "docs/worlds/BOOK_WORLD_FEATURE_GAPS_2026-10-15.md",
+        "docs/SAVES.md"
+      ],
+      "disposition": "Later10.1/11 correct zero-import/dead/unwired claims and AD50 integration. Keep tooling/native/reveal-writer/journey distinctions, source held/rows/merge/qualified window independent, title/edition/world boundaries and real growth owners. Rankings/second-world questions do not adopt a queue or new implementation embargo.",
+      "evidence": "Fresh full read all sections, world/reader tables and final X35/residue. Original library assets, source/canon, source graph, branch/process status, private outputs and exact old suite not rerun. Current source evidence belongs to earlier named reviewed owners, not this read.",
+      "reopen": "Selected exact book-world consumer or source/edition contradiction; inspect current source and compare later owner receipts before changing a library claim, dispatching, wiring or retiring anything.",
+      "input_sha256": "6b5ba73ae663e59c6eecafee7484263cb1dfb0ebfc8d24e549138a9139a4e807",
+      "input_lines": 393,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          393
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/BOOK_WORLD_GAPS_2026-11-03.md",
+      "heading": "## Complete book-gap audit reconciliation, 2026-11-04",
+      "body": "Read sections 1–11 in chronology, including both 10.2 subsections and final integration/residue. Sections 10.1/11 supersede the original zero-import queue: canon_pull_panel has a side-effect import, price/invention modules serve tooling, and pack-save wiring has its bounded reveal-writer closure without a proven gameplay writer. X16’s original missing AD50 closes locally at its recorded input. X30 explicitly leaves its final full-run result unread; the earlier baseline-matched failures and later focused passes are not a clean final full-suite claim. X35’s in-progress UI run and pruning/branch counts are dated, not live leases or permission to remove anything (AD32, AD36).\n\nLibrary holdings, container chapter ranges, emitted rows, merged outputs, edition identity and a qualified close-read window are different evidence. X11’s converted Book 4 versus unread-by-that-pass can be compatible scopes rather than necessarily the same stale-file claim. No-gap container coverage is not full-source correctness, and no catalogue record does not mean a local capture is unheld. Preserve the five distinct novel titles/profiles, both easily confused simulator captures, machine-translation/OCR limits and source growth as dated gaps. Register-or-discard wording does not authorize deletion. No acquisition, conversion or book text was undertaken here.\n\nModule/keyword counts do not rank world maturity or show a callable producer. The G8 table itself has power-mastery consumers in HP and another LOTM owner, so its broad introductory no-book-life integration statement must be read per row. Generic XP, faculty development, actual executions, institutional title, body/heritage and rust policy answer different questions; no universal tier, decay or affinity meter follows. The later H7 partial receipt qualifies earlier open/no-match wording without proving all rival paths. Suggested pairings remain hypotheses; one contrasting world can validate several relevant seams without manufacturing a different world per test (AD51).\n\nKeep table-top setting deferral and five marked sequencing approvals at their explicit scope. Old ranking scores, ‘none new’ seam shorthand, proposed institutions stubs and the anchor_snapshots suggestion do not override the actual continuation owner or current Klein/HP sequence. A retained per-world save, source-linked operation and useful ordinary-life journey each need their own consumer/evidence. The final preservation commits establish neither adoption nor all-source review; private excluded artifacts and unfinished evidence remain traceable. No runtime, current branch/remote verification, whole-source qualification or cleanup was performed.",
+      "before_sha256": "6b5ba73ae663e59c6eecafee7484263cb1dfb0ebfc8d24e549138a9139a4e807",
+      "after_sha256": "7880859cfa079a6324e4db510b5d4bc5bd8d7d0e2ef779ff07e85448fb1ef927"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1089
+}

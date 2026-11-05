@@ -1,0 +1,181 @@
+{
+  "schema": 1,
+  "batch": "B178",
+  "title": "Complete small partial owners and current architecture/front-door contracts",
+  "at": "2026-11-04T22:33:51.411599+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/RECONCILE_PROJECT_SCOPE_ASSESSMENT_2026-11-04.md",
+      "ids": [
+        "F1–F4; fourstageproposal"
+      ],
+      "classification": "Live owner/index or historical workflow assessment; full body reviewed",
+      "owners": [
+        "docs/audits/RECONCILE_PROJECT_SCOPE_ASSESSMENT_2026-11-04.md",
+        "docs/RULES_INDEX.md"
+      ],
+      "disposition": "Earlierassessmentnotpendingrequestedskillchange; currentexecutionfollowthroughalreadyownsintake/coverage actualcontent. Preserveoriginalproposal no resettingtasktoassessment orallmetadatacompletion.",
+      "evidence": "Fresh entirebodyread, includingalltables/lastsections. SystemsREADME75–99andBALANCE68–84recoveredaftercombinedoutputtruncation. Current owner references/source/test results remain attributed, no transitivecode/docprimarysource reading orruntime compliance proof.",
+      "reopen": "Keep currentauthority/ownership and exactcoverage; follow actualselectedconsumer for surviving gap. No new rulebook/runtime/tuning/dispatch chosen.",
+      "input_sha256": "48120f8e831f6fdbb747aeb5e2f24983196c8348a9eac59182ae75b546f18a3e",
+      "input_lines": 33,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          33
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/OWNER_DOCS_AUDIT_2026-10-30.md",
+      "ids": [
+        "F1–F5;A1–A4;L1–L5"
+      ],
+      "classification": "Live owner/index or historical workflow assessment; full body reviewed",
+      "owners": [
+        "docs/audits/OWNER_DOCS_AUDIT_2026-10-30.md",
+        "docs/RULES_INDEX.md"
+      ],
+      "disposition": "F2/L1frontdoor nowexistsfull121bodyread; snapshot writingstatesnotliveworkers. Onehomeperfactnotfifthnewdocpersystem; none mappednotmissinggameplay. L2newledgerenforcementtest/L3inspectorlist/L4perf/L5soundnotautomaticimplementationgates.",
+      "evidence": "Fresh entirebodyread, includingalltables/lastsections. SystemsREADME75–99andBALANCE68–84recoveredaftercombinedoutputtruncation. Current owner references/source/test results remain attributed, no transitivecode/docprimarysource reading orruntime compliance proof.",
+      "reopen": "Keep currentauthority/ownership and exactcoverage; follow actualselectedconsumer for surviving gap. No new rulebook/runtime/tuning/dispatch chosen.",
+      "input_sha256": "f7ff8493a4dfca014797d9ed4a856deff55fee708242032a3e536967634d2f70",
+      "input_lines": 74,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          74
+        ]
+      ]
+    },
+    {
+      "path": "docs/VISION_DIGEST.md",
+      "ids": [
+        "allpillars/tastecalls/retiredgates"
+      ],
+      "classification": "Live owner/index or historical workflow assessment; full body reviewed",
+      "owners": [
+        "docs/VISION_DIGEST.md",
+        "docs/RULES_INDEX.md"
+      ],
+      "disposition": "Freshcurrentfull51linesread; keepcompactnoauditappend. FullLOTM/KleinfirstHarryalongside,leadjourneycontract/AD51/52/prosefirst/longplay qualify alloldqueues. No new direction or currentmechanicsclaimed.",
+      "evidence": "Fresh entirebodyread, includingalltables/lastsections. SystemsREADME75–99andBALANCE68–84recoveredaftercombinedoutputtruncation. Current owner references/source/test results remain attributed, no transitivecode/docprimarysource reading orruntime compliance proof.",
+      "reopen": "Keep currentauthority/ownership and exactcoverage; follow actualselectedconsumer for surviving gap. No new rulebook/runtime/tuning/dispatch chosen.",
+      "input_sha256": "fff54d5746d0587f87dfbdc8fe2c4e71473b8b7298d93cc447efebe349aeb916",
+      "input_lines": 51,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          51
+        ]
+      ]
+    },
+    {
+      "path": "docs/ARCHITECTURE_RULES.md",
+      "ids": [
+        "AR1–AR16;crossdomainapplications/status/cycleproposal"
+      ],
+      "classification": "Live owner/index or historical workflow assessment; full body reviewed",
+      "owners": [
+        "docs/ARCHITECTURE_RULES.md",
+        "docs/RULES_INDEX.md"
+      ],
+      "disposition": "Fullstandingrulesread notfreshconformanceaudit. AR1netzero reasoned1linereset notarbitrarybypass,AR3/7reactions+stages,AR8truthvswatchlist andAR11secondcasevalidation underAD51notembargo. Existingbaselinecycles notzero. AR16oncecheckexists nowstaleconditionnamedcommandwillbecorrected withoutnewgate.",
+      "evidence": "Fresh entirebodyread, includingalltables/lastsections. SystemsREADME75–99andBALANCE68–84recoveredaftercombinedoutputtruncation. Current owner references/source/test results remain attributed, no transitivecode/docprimarysource reading orruntime compliance proof.",
+      "reopen": "Keep currentauthority/ownership and exactcoverage; follow actualselectedconsumer for surviving gap. No new rulebook/runtime/tuning/dispatch chosen.",
+      "input_sha256": "663e02f44c750c0c0c99ed2033ce88785abcf20a01f4295528618f0b0e9e862a",
+      "input_lines": 106,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          106
+        ]
+      ]
+    },
+    {
+      "path": "docs/systems/README.md",
+      "ids": [
+        "crosscutting;S1–S19;MIE;CPSU;representationonly;7clusters;gaps"
+      ],
+      "classification": "Live owner/index or historical workflow assessment; full body reviewed",
+      "owners": [
+        "docs/systems/README.md",
+        "docs/RULES_INDEX.md"
+      ],
+      "disposition": "Wholefrontdoorreadincludingrecoveredmiddle. Linkmaturitysnapshotsnotauthority/currentallnativeproof; latestNov4focused234testsandselectedsource rowsareownerreported, notthisrerun/allrowscertified. 41of48noneinspectors not41missingfeatures; sourcecountsrankingnotbuildorder. Source/tablekindparallelworlddifferencespreserve.",
+      "evidence": "Fresh entirebodyread, includingalltables/lastsections. SystemsREADME75–99andBALANCE68–84recoveredaftercombinedoutputtruncation. Current owner references/source/test results remain attributed, no transitivecode/docprimarysource reading orruntime compliance proof.",
+      "reopen": "Keep currentauthority/ownership and exactcoverage; follow actualselectedconsumer for surviving gap. No new rulebook/runtime/tuning/dispatch chosen.",
+      "input_sha256": "a5df2d189d261ac1f16e2a2e6e60687978c9daff5f4f29b3b4e314c57342bab0",
+      "input_lines": 121,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          121
+        ]
+      ]
+    },
+    {
+      "path": "docs/BALANCE.md",
+      "ids": [
+        "fivegroups;all dialrows;X1–X7;gaps"
+      ],
+      "classification": "Live owner/index or historical workflow assessment; full body reviewed",
+      "owners": [
+        "docs/BALANCE.md",
+        "docs/RULES_INDEX.md"
+      ],
+      "disposition": "Fullindexread includingactualconstants/reasons/status. Implementeddefaultnotacceptednumber/sourceproofcurrent; chip5%armor50%weakness3x/10gains etc local inherited/proposalshape notuniversalneedimmune/costlaw. Perworldactualbasket/canonAD49governs. ParameterWDI44warningdatednotcurrentreproduceddefect. No automaticnewfeltoutcome targets/newtuningbenchmark.",
+      "evidence": "Fresh entirebodyread, includingalltables/lastsections. SystemsREADME75–99andBALANCE68–84recoveredaftercombinedoutputtruncation. Current owner references/source/test results remain attributed, no transitivecode/docprimarysource reading orruntime compliance proof.",
+      "reopen": "Keep currentauthority/ownership and exactcoverage; follow actualselectedconsumer for surviving gap. No new rulebook/runtime/tuning/dispatch chosen.",
+      "input_sha256": "8f3f827244aae2ef24d75c0b62c9af2168dba7e887dd4b7d1a98fb7673ba97b2",
+      "input_lines": 84,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          84
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/OWNER_DOCS_AUDIT_2026-10-30.md",
+      "heading": "## Full-content reconciliation, 2026-11-04 (B178)",
+      "body": "All F1–F5, A1–A4 and L1–L5 were read, together with the entire systems front door and BALANCE owner. F2/L1’s missing index is no longer absent; this report’s own opening correction already routes to it. Saves, balance, visual/voice and generation owners have their existing homes, not active “sonnet writing” leases from this October30 snapshot. Distinct rulebook, representation, code map, palette and inspector layers do not require a fifth competing specification per system.\n\nA prefix mention count, absent code-map section or “none” inspector cell identifies unmapped documentation/inspection in that snapshot, not missing gameplay or proof of no owner anywhere. The index’s later Nov4 selected source/test rows and earlier maturity labels retain their own inputs and native-unreached limits; they do not establish all families freshly verified. An inspector backlog or save-ledger enforcement test is a separate proposal, not a new universal gate. Existing SAVES/architecture/AD36 govern actual persistence changes, and current source/canon/target owner governs each dial. Performance and audio owners stay trigger-based rather than work to launch now. Do not create or delete documents just to normalize this old count.",
+      "before_sha256": "f7ff8493a4dfca014797d9ed4a856deff55fee708242032a3e536967634d2f70",
+      "after_sha256": "799908f700ce158c1e496a1591fdd6cd184ae63c9455a7767b28b846963ad86d"
+    },
+    {
+      "path": "docs/systems/README.md",
+      "heading": "## Front-door content reconciliation, 2026-11-04 (B178)",
+      "body": "All cross-cutting, S1–S19, MIE/CPSU, representation-only, seven cluster and ranked-gap rows were read. This is navigation across existing layers, not another rulebook or execution queue. “None” and “no map word” retain their documented snapshot meaning. Registry-call counts, world/route/file counts and41-of48 absent inspectors are not player capability scores. The later Nov4 selected source/test annotations are useful scoped receipts with native journey explicitly unreached, not evidence that this reconciliation reran234 tests or certified every row.\n\nThe entire current vision digest and architecture rules were independently read in B178. LOTM/Klein lead-first with Harry alongside, shared mechanisms under AD51, activity compression/long play under AD52 and prose-first independent panes govern dated priorities. A second world validates a seam rather than forbidding shared design until two consumers ship. Old “file still being edited” or branch/thread/preview records do not reserve files. B175’s complete causal/relay and absorption source receipts preserve candidate consumer/producer history without filling every missing code-map or proving playable integration. No new inspector, source wave, rulebook, owner duplication or runtime gap repair is selected.",
+      "before_sha256": "a5df2d189d261ac1f16e2a2e6e60687978c9daff5f4f29b3b4e314c57342bab0",
+      "after_sha256": "9d872823ada6215165b43912ecd96b5ae4037c4f207b4e67922c69267a075152"
+    },
+    {
+      "path": "docs/BALANCE.md",
+      "heading": "## Dial-index content reconciliation, 2026-11-04 (B178)",
+      "body": "All five dial groups, X1–X7 interactions and gaps were read. Keep actual source implementation, selected formula shape, proposed values and a felt-outcome target separate. The index’s October30/31 observations are not a fresh audit of every named constant/caller or current numeric acceptance. A5% chip floor,50% protection/damage floor, weakness cap, ten-gain target, trader margin, saturation rule or mandatory hunger drain cannot silently become a law of every world; actual local physiology, mechanisms, options and source/canon calibration govern. Strong protection or immunity need not be weakened solely to keep combat interesting. Profitable crafting/trade is already distinguished from accidental duplication.\n\nRetain X1–X7 as useful selected-consumer questions: item/component-derived protection versus price, real defender layer order, hunger/cap/overflow and correct clock, one reconciled trade quote, crafting XP/income feedback, per-world fallbacks and actual parameter-target separation. WDI44’s second-target warning is a dated source observation, not a reproduced present defect. Proposed hunger/weather modules being executable does not make every number adopted. No new tuning target, global economy law or benchmark is required by this read. If a later selected tuning change affects saved state, record its actual compatibility decision and preserve current-state integrity. No numeric source or game behavior was changed.",
+      "before_sha256": "8f3f827244aae2ef24d75c0b62c9af2168dba7e887dd4b7d1a98fb7673ba97b2",
+      "after_sha256": "209440298fd0b8d44a80378e8df3cd3b7d09b2e9d6bec89e385b7918f15ccf38"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1102,
+  "post_record_amendments": [
+    {
+      "path": "docs/ARCHITECTURE_RULES.md",
+      "from": "**Run the architecture check before calling runtime work done.** Once `scripts/check_architecture.mjs` exists, it is part of the gate with build, `npm test` and the browser check",
+      "to": "**Run the architecture check before calling runtime work done.** `npm run check:arch` runs the existing `scripts/check_architecture.mjs` and is part of the gate with build, `npm test` and the browser check (AD36/AD43)",
+      "reason": "Replace stale future-existence condition with the existing command, preserving AR16 gate and its current AD36/AD43 scope; old text retained here."
+    }
+  ]
+}

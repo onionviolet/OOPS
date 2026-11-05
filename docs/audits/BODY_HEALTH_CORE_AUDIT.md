@@ -1,5 +1,7 @@
 # Body and health core audit (repeatable)
 
+**Content review B6, 2026-11-04:** full trigger/owner/run-log and composed-case content reviewed. The [body-palette fold](../BODY_AND_HEALTH_CONSIDERATIONS_2026-10-17.md#repeatable-body-audit-content-reconciliation-2026-11-04) preserves truth versus diagnosis, actual body/support clocks and interrupted-work settlement. The owner row now names canonical BHR1–BHR34 with the later standing-default scope; the original first-run range remains historical. No B1/B2 worker or generic body engine is dispatched (AD32/AD36).
+
 Saved 2026-10-17 with the first run. A standing procedure for re-auditing bodies,
 vitality, injury, illness, poison, needs, healing, medicine, recovery, aging
 effects and body change. One instance of the
@@ -13,7 +15,7 @@ priority or turns deferred work into a gate (AGENTS.md).
 | Owner | Role |
 |---|---|
 | [Body and health palette](../BODY_AND_HEALTH_CONSIDERATIONS_2026-10-17.md) | Root palette, rounds appended (BHC codes) |
-| [Body and health rules](../BODY_AND_HEALTH_RULES.md) | Rulebook BHR1–BHR30, accepted 2026-10-18 (see RULES_INDEX), registered there |
+| [Body and health rules](../DOMAIN_RULES.md#body-and-health-rules) | BHR1–BHR30 accepted 2026-10-18; BHR31–BHR34 standing defaults requested 2026-11-01 (AD32; current [RULES_INDEX](../RULES_INDEX.md)); old BODY_AND_HEALTH_RULES stub retained |
 | [Part 35](../worlds/world-depth-2026-10-13/35_HEALTH_INJURY_ILLNESS_DEATH.md) | Earlier palette (H35 codes); extended, not replaced |
 | [First run dispatch](../gm/dispatch/body-health-2026-10-17/) | Lane outputs B1 and B2 |
 | Sibling owners | Hunger and needs, genetics plan GHS44/GHS86, genetics and brood, nonhuman body docs, tools palette, making rules |

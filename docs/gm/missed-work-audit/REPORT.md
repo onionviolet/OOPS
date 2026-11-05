@@ -53,3 +53,8 @@ Gameplay/unit/browser/save/reload/import/failure/keyboard/regression/director ga
 ## Return and ownership
 
 Root chat01a112a2 owns only this audit directory. Internal `/root/requirement_audit` and `/root/source_handoff_audit` completed and released read-only scopes; root checked the returned evidence. No shared source/canonical/build edits, suites, browser, saves, library writes, commits, push, publication or automation occurred. Dispatcher01a112a0 may relay this finished return to the current shared integrator01a10fe7. Current source/child/process/release state must be checked before implementation, and historical build hashes must not be reused as proof of a changed wave.
+
+
+## Historical disposition reconciliation, 2026-11-04 (B21)
+
+MW-01–MW-04 are findings on the October 6 snapshot. Later remainder parent source/build adoption and receipt reconciliation are retained in the B9 ledger of LOOSE_DOCUMENT_RECONCILIATION_2026-11-04; they qualify progress beyond the original queued-but-pending artifact paragraph without proving current gameplay. Do not carry the old absent-import/bundle list forward as a present defect without checking current source. Keep the useful receiver constraints: an actor needs an actual received report, a source-contract projection must preserve available provenance without inventing book hashes for originals, and current recovery fields should route to incumbent owners rather than old writer IDs. The original audit never required rereading nineteen books or activating nineteen worlds. Behavioral acceptance remains scoped to the actual selected consumers under AD36/AD43.

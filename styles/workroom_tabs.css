@@ -6,3 +6,7 @@
 .workroom-moved { font-size: var(--ui-type-small); line-height: var(--ui-line-small); display: flex; align-items: center; gap: var(--ui-space-2); padding: var(--ui-space-1) var(--ui-space-2); border-left: var(--ui-space-hairline) solid var(--ui-accent); color: var(--ui-text-muted, var(--ui-text)); font-style: italic; }
 .workroom-moved::before { content: "New"; font-style: normal; color: var(--ui-accent); }
 .workroom-moved button { margin-left: auto; font-style: normal; }
+
+/* The real action remains beside its current meaning and quote. */
+.lotm-task-action { display: flex; flex-wrap: wrap; gap: var(--ui-space-2); margin-block: var(--ui-space-2); }
+.lotm-task-action button { max-width: 100%; white-space: normal; }

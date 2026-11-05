@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "batch": "B223",
+  "title": "Nonhuman protagonist mechanisms, source distinctions and actual absorption stages",
+  "at": "2026-11-04T23:23:20.055037+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/worlds/NONHUMAN_PROTAGONIST_MECHANICS_2026-10-14.md",
+      "ids": [
+        "TM1–TM7",
+        "TG1–TG6",
+        "OS01–OS19",
+        "NM1–NM12",
+        "E1–E15map",
+        "S1–S5"
+      ],
+      "classification": "Secondary located-reading synthesis, public-metadata comparisons and original mechanism palette",
+      "owners": [
+        "docs/worlds/NONHUMAN_PROTAGONIST_MECHANICS_2026-10-14.md",
+        "docs/research/START_AS_X_SOURCE_CATALOG_2026-10-14.md",
+        "docs/worlds/NONHUMAN_STARTS_ENGINE_REQUIREMENTS_2026-10-14.md"
+      ],
+      "disposition": "Preserve case/edition/time and stage/cost/agency distinctions; no protagonistexceptionfrombodylabel oruniversalabsorptionlaw. SameTensurasynthesistwopathsnotindependentevidence,membercollectionIDsnotchapterordinals,nonlocalsynopses/excerptsnotfull source. Retiredmilestone/currentbodyenginegatequalified, no sourceacquisition.",
+      "evidence": "Full214linebodyreadin1–70/71–140/141–end. AllsevenTMcases, contradictionregister,nineteencomparisons,twelvepatterns,full dependencytableandfive suggestions delivereduntruncated. No linkedoriginalsource, wiki/currentpage orprivatecanontextopened; publicclaims are reported as historical evidenceonly.",
+      "reopen": "Select originalorcanonmechanism, exactcontinuity/era andconsumedfields, then readonlynamedsourceuncertainty if needed. Actualprovider/payer/body/knownmethod/custody andusefulconsumer must distinguish acquisition, analysis, expression, mastery andsharing.",
+      "input_sha256": "ff1b1bb26a4faa3a2ad40d395493ca817eb62f2a2dded03c97ee90c5a8f90428",
+      "input_lines": 214,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          214
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/worlds/NONHUMAN_PROTAGONIST_MECHANICS_2026-10-14.md",
+      "heading": "## Content reconciliation B223, 2026-11-04",
+      "body": "All TM1–TM7/TG1–TG6, OS01–OS19, NM1–NM12 and the E map were reviewed. This is a mechanics palette built from attributed readings and bounded public metadata, not a renewed primary-source pass. TD and TS contain matching synthesis text, not two independent reads. Tensura member1–304 locators are collection IDs with separately qualified main/bonus provenance, not printed chapter ordinals. The Japanese WN baseline, later wiki/LN generalizations and source-stage changes stay distinct. Public synopsis/excerpt findings for nonlocal comparisons do not resolve exact formulas, ordinary rights, physiology or whole-story behavior. OS10’s unidentified referent stays unidentified (AD32/AD36).\n\nPreserve the practical stages while allowing source-backed shortcuts: acquisition/custody, analysis/isolation, storage/manufacture, expression and learned execution may be different operations. A strong faculty can legitimately join stages or remove a cost by its actual mechanism. No need to force all five into every creature, to make full memories universally unavailable, or to treat an intake result as trained expertise. Timeless storage, automatic sharing, naming-related allegiance, evolution, political office and continuing-person identity each need their particular source/profile, not a generic consumption label.\n\nTM3/TG2 preserve payer/subsidy and case-specific consequences rather than assuming all similar naming is free, costly, dominating or transformative. TM4 keeps advice, permitted automation, executive control and independent personhood separate, while ordinary UI controls need no fictional spirit. TM5’s particular late body/power event is not the definition of every prestige or awakening. NM8’s institutions and NM11’s shared selves/companions are independent: society does not establish shared consciousness, and pooled supply does not duplicate one physical object.\n\nTM7/NM7 and the local body-entry comparisons retain observer-specific evidence and local institutional reasons. A title, demonstrated output or familiar face can support a mistaken belief without disclosing a controller or private truth. Host awareness, repaired anatomy, restored person, inherited memory and usable skill remain separate consequences. Known body effects and participant/realm permission are not interchangeable. No force-return-to-human rule, compulsory strange-body nerf, universal human hostility or unselected starvation timer follows from the palette.\n\nThe old realm/prestige milestone is retired. E-map dependencies apply to actually selected functions and consumers, not a requirement to build the full body engine before every original productive method or current world slice. B218–B222 qualify the old body/clock/control/schema roadmap and current AD51; AD52 supports useful routines and long play. A chosen new power/result still needs an actual receiving consumer and scoped native/persistence evidence. B223 changes no priority, downloads no source, exposes no authored secret and implements no absorption/body mechanism.",
+      "before_sha256": "ff1b1bb26a4faa3a2ad40d395493ca817eb62f2a2dded03c97ee90c5a8f90428",
+      "after_sha256": "53448ab533b5d25a4473bf6be0206c87b9487db69acd96c6dd4c9e4bcf40f0ab"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 994
+}

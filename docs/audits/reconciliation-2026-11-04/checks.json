@@ -1,0 +1,32 @@
+{
+  "at": "2026-11-04T16:40:41.377947+00:00",
+  "document_lint": {
+    "exit": 1,
+    "diagnostics": [
+      "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md:1264: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line",
+      "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md:1291: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line",
+      "docs/audits/UI_DESIGN_CORE_AUDIT.md:1386: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line",
+      "docs/audits/UI_DESIGN_CORE_AUDIT.md:1450: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line",
+      "docs/research/LIBRARY_INDEX.md:731: absolute rule word has no default, dial, exception, or reason in this row or paragraph",
+      "docs/research/LIBRARY_INDEX.md:904: absolute rule word has no default, dial, exception, or reason in this row or paragraph",
+      "docs/research/LIBRARY_INDEX.md:906: absolute rule word has no default, dial, exception, or reason in this row or paragraph",
+      "docs/research/LIBRARY_INDEX.md:908: absolute rule word has no default, dial, exception, or reason in this row or paragraph",
+      "docs/research/LIBRARY_INDEX.md:909: absolute rule word has no default, dial, exception, or reason in this row or paragraph",
+      "docs/research/LIBRARY_INDEX.md:910: absolute rule word has no default, dial, exception, or reason in this row or paragraph",
+      "docs/research/LIBRARY_INDEX.md:931: absolute rule word has no default, dial, exception, or reason in this row or paragraph",
+      "docs/research/LIBRARY_INDEX.md:932: absolute rule word has no default, dial, exception, or reason in this row or paragraph",
+      "docs/research/LIBRARY_INDEX.md:996: absolute rule word has no default, dial, exception, or reason in this row or paragraph",
+      "docs/research/LIBRARY_INDEX.md:997: absolute rule word has no default, dial, exception, or reason in this row or paragraph",
+      "docs/reports/PROGRESS_ATLAS_2026-11-04.md:148: absolute rule word has no default, dial, exception, or reason in this row or paragraph",
+      "docs/reports/PROGRESS_ATLAS_2026-11-04.md:359: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line",
+      "docs/reports/PROGRESS_ATLAS_2026-11-04.md:363: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line",
+      "docs/reports/PROGRESS_ATLAS_2026-11-04.md:378: absolute rule word has no default, dial, exception, or reason in this row or paragraph"
+    ],
+    "task_path_hits": []
+  },
+  "selected_anchors": {
+    "count": 5,
+    "unresolved": []
+  },
+  "note": "Other checks are recorded with executed results in the task record; no gameplay was run."
+}

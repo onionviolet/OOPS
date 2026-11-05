@@ -1,5 +1,7 @@
 # Q18 ideas triage, 2026-10-26
 
+**Current routing, 2026-11-04:** P01–P20 remain the original ranked action proposals, with their dated dependencies. They do not override [PROJECT current focus](../../PROJECT.md#current-focus) or relaunch finished Q-lanes. [Nested triage](IDEAS_NESTED_TRIAGE_2026-10-26.md) retains the deeper IDs; the [current reconciliation](LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md) separates later intake from that prior coverage.
+
 State: source-spot-checked. Proposals for coordinator review, not dispatch or acceptance. Read-only primary inspection at `master` / `97e2e45a302ee5b0c53f4bff0f2a3dcce242d1dc`; live dirty inputs are not a frozen playable candidate. Q18 owns only this new file. No server started on reserved port 5218.
 
 ## Ranked top 20, then the remaining ledger rows
@@ -222,3 +224,19 @@ V1. Coverage/line check: PASS after restoring explicit grouped names: 103 invent
 V2. `git diff --no-index --check /dev/null docs/audits/IDEAS_TRIAGE_2026-10-26.md`: no whitespace diagnostics; exit 1 for the new-file difference. Independent trailing-whitespace/conflict-marker scan: PASS. `npm run check:rules`: PASS, 25 register rows, 43 AD codes, 144 relative links; warnings for pre-existing untracked linked `docs/GROUND_RULES.md` and `docs/reviews/ui-descriptions-2026-10-25/REPORT.md`. No rule definitions registered or changed. No full suite appropriate for this read-only audit (AD36).
 
 V3. `git status --porcelain=v1 -uall`: own report is untracked/new; final status has 1,078 entries including 39 dirty tracked paths; unrelated dirty tracked files and untracked artifacts existed before work and remain. Other queue receipts appeared concurrently. The initial full-status tool output was truncated, so an exact all-path before/after equality is **not proven**. This lane's executed writes targeted only this report; no other path was edited by Q18. The user's global-only-status condition is unmet because of the existing shared checkout, not waived or “cleaned” by this audit. No commit; branch/head at inspection: `master` / `97e2e45a302ee5b0c53f4bff0f2a3dcce242d1dc`.
+
+
+## Complete Q18 action-triage reconciliation, 2026-11-04
+
+Read the entire P01–P20 table, remaining family rows, C1–C5 scope, S01–S12 spot checks and V1–V3 limits. This is content review of the triage, not fresh review of every original inventory/card/source body. Its dependency-ready action can be a source/diagnostic step while implementation remains unsupported. Queue names, running labels, predecessor dependencies and ranked M1–M5 order are dated; they do not override current lead-world focus or dispatch a lane (AD32, AD36, AD41).
+
+Later receiving-owner dispositions qualify specific rows. B182 preserves the bounded UI results and the remaining generic harvest-reason seam; B170 narrows U3’s old import mismatch through its current test and retains U1/U2/U4 repair chronology. B161/B162 correct the dedup missing-acceptance claim from actual direction, while equality/callback/default differences remain separate. B187 records the existing session money authority/ledger, so DRC7/13 is not a new request to invent one; preference-key retention does not prove DRC6 general sold-origin buyback. B118’s DRC14/15 findings remain scoped to their inspected code. No current runtime failure is inferred from these references.
+
+Keep the original unmet breadth distinct: two HP spell uses do not prove ten charms; a held formula/primer does not prove usable technique; finite revision stock is not renewable supply; a ritual grade/preview is not consumed-risk aftermath; a storage model does not prove cross-surface identity; source-specific scaffolding does not qualify a world. EL6’s sampled naming mismatch leaves generated aliases open, and EL7’s full margin depends on its actual graph/quotes/yields, not recipe acyclicity alone. Preserve all original codes and optional/future world variants.
+
+IPC tooling pilots, extra fast checks, rulebooks, checkJs, sidebars and repeatable process ideas remain proposals, not extra universal gates. AD51 qualifies old second-consumer embargoes; current compatibility and AD43 apply at selected changed state. V3 expressly did not prove global path equality after truncated status, so do not turn this historical one-file audit into a clean-tree claim. No runtime, natural acquisition, current process, private state or new acceptance was verified here (AD32).
+
+
+## Q18 return scope reconciliation B272
+
+The full [Q18 return receipt](../gm/dispatch/carry-out-queue-2026-10-26/runs/q18-ideas-triage.last.md) has now been read separately from this triage body. Its12built-claim source spot-checks are exactly that scope, not implementation proof for all20ranked packets or every requested ledger. Coverage/path/whitespace/rules checks establish document structure, not missing consumer joins or current runtime behavior. The return's224line description is dated file-size wording, not a content denominator or a reason to drop appended material. Its “one-file status unmet” refers to pre-existing shared checkout changes; preserve those and judge task-owned changes against their baseline. No commit, cleanup, packet dispatch or new game result follows from this receipt qualification.

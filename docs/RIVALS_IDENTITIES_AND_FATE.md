@@ -400,3 +400,17 @@ support-to-opposition would be a separate causal slice with a declared trigger
 and actual effect. These are implementation proposals, not dispatched workers,
 mandatory gates for unrelated work or a replacement AI framework. Do not introduce
 a new system where existing event/pursuit/actor owners can handle the chosen case.
+
+
+## Local brainstorm rival continuity reconciliation, 2026-11-04 (B67)
+
+Character draft ordinals are retained in the [body-review ledger](audits/reconciliation-2026-11-04/content-b67.json). Their rival-growth, re-entry, alliance and memory suggestions fit the existing chronicle when actual actor goals, time, resources, witnessed information and committed aftermath supply them. An old rival may remain weaker, retire, cooperate or end the dispute; no player-level rubber band, endless hostility, mandatory immunity/counter or forced encounter follows. Costs and tradeoffs arise where the actual mechanism supplies them, including supported free means under AD5/AD38. Durable life state is separate from temporary combat reset; successor and returned actor identity are not interchangeable. No new rival simulator, old-save migration or implemented behavior is claimed.
+
+
+## Complete rival palette and bounded current-source reconciliation, 2026-11-04
+
+Read all archetypes, identity/appropriation tables, reserve/anchor examples, rival chronicle and TG1–TG5. The opening no-rival-gameplay and first-realm/prestige text is historical, not today’s absence proof or required gate. Current rival_memory.js has a bounded road-rival consumer: contest counts/player outcomes live in player actor facts; the selected native finish also records lastResult, and the inspected tempo start derives the rival body/goals/perception from that history. The real attack margin applies whether appraised or not. This source trace qualifies the old blanket absence without proving natural recurrence, every outcome/failed write or native persistence in a new journey (AD32, AD36, AD43).
+
+That small numeric history is not a general NPC memory/decision/evidence network. It does not prove paid offscreen learning, every observer’s report route, multiple rivals or arbitrary identity theft. Keep actual talent, recognized office, perceived alias, lawful claim, custody, source/fuel and metaphysical favor separate. Copy/move/lease/share/redirect/destroy have different donor/recipient effects; defeat does not automatically transfer every possession, organ, title or opportunity. A surviving or returned body and a successor retain distinct identity. Temporary combat reset must not reverse durable life aftermath.
+
+TG1–TG5 preserve later cause-driven direction. Rivals can remain weaker, settle, cooperate or leave. Adaptation can use exceptional information or free means where their actual source supports it; the early compulsory tradeoff or finite-payer examples are not universal balancing laws (AD5, AD38). Coherent finite ownership and once-only publication do not forbid an authored renewable fortune engine (AD22). Actual hidden dangers need not reveal every protection in advance. Reserve/anchor odds, prototype cast limits and proof rankings are examples, not a new queue. Historical source previews, synopses and talk overviews remain bounded references; no fresh source, legal clearance or whole-world qualification was performed.

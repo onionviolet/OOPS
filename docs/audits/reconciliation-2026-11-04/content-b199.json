@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "batch": "B199",
+  "title": "Complete lead-world brief through full-journey and source-pressure uptake",
+  "at": "2026-11-04T22:54:27.017939+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/LEAD_WORLD_ENGINE_SLICE_BRIEF.md",
+      "ids": [
+        "D1–D6",
+        "R1–R2",
+        "LR2-L1–L3",
+        "LR3-L1–L2",
+        "UT-N1–N5",
+        "TR-N1–N5",
+        "HM-N1–N5",
+        "HB-N1–N5",
+        "I1–I5",
+        "PC1–PC5/PC-A–PC-E",
+        "F1–F5",
+        "A1–A4",
+        "FN1–FN6 uptake",
+        "B96"
+      ],
+      "classification": "Historical document candidate, later full-journey proposal and source-mechanism receiving owner",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/LEAD_WORLD_ENGINE_SLICE_BRIEF.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/LOTM_KLEIN_FULL_JOURNEY_PLAN.md"
+      ],
+      "disposition": "Full-journey execution routing supersedes old document opening order/allowance stops. Keep source-era and T/S evidence local, remote perception/acquisition/control/position distinct; support/payer/agency, physical carrier/memory/disclosure, response/consumption/delivery/payment separate. No inherited late-power implementation gates.",
+      "evidence": "Fresh full read through final B96 fold, recovering clipped LR3 row and following lines. Private chapter extracts, packs, exact current source hashes and runtime were not reopened. B153 later method-use release only qualifies its actual named scope, not this destruction candidate or all LR families.",
+      "reopen": "Next current source situation touching one actual producer/consumer. Qualify that source/era and real operation, retain compatibility and observer boundaries; no historical ceiling, specific document or full second world must gate unrelated authorized work.",
+      "input_sha256": "db4f0965beaa7191422d609adefd1787b6f2a16f43c131563453a69ffa451334",
+      "input_lines": 293,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          293
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/LEAD_WORLD_ENGINE_SLICE_BRIEF.md",
+      "heading": "## Complete lead-brief reconciliation, 2026-11-04",
+      "body": "Read the historical document candidate, every LR/UT/TR/HM/HB uptake, I/PC recommendations, source/compatibility packet and later FN/B96 additions. Current full-journey routing supersedes the early destruction candidate’s opening order and old allowance/lease stops. Preserve the candidate’s unresolved actual carrier/scene identity without relocating it to make a convenient opening or claiming that a later method-use receipt proves this destruction loop. B153 records the later M21/M22/M25 release at its actual native command/paper/recipient scope; it is not a universal document, source-arrival or late-power completion claim (AD32, AD36, AD43).\n\nKeep the source pressures usable at their real consumer: perception, initial acquisition, established command and movement have different reach; body appearance does not establish agency; a holder need not be a payer or benefit recipient; a support link differs from containment. Current observation, attributed memory, interpreted claim, delivered information and hazardous acquisition have different lifecycles. An inspector redraw is no new exposure, and destroying one carrier neither erases remembered content nor forbids every later recovery mechanism. Disclosure follows actual recipients rather than narrator knowledge. Unknown numbers, sequel/edition boundaries, proposed experiments and practical-scene gaps remain unknown.\n\nSeparate ritual agreement, preparation, response, consumption, transfer, acknowledgment, use, payment and closure where their actual terms differ. A symbol or claimed rank does not replace physical custody or enforcement. A lasting completed change may outlive temporary support; exact per-output aftermath remains local. AD51 permits reasonable shared design before another implemented world, with its differences validating/revising the seam. No complete projection engine, global range law, all-history simulator or thirty-book research wave is a prerequisite for the next real consumer. The existing full-life target still needs source/route/functional/continuity coverage rather than one blended percentage, and compressed routine work follows current ACR principles without losing significant choices or long play. No runtime, private source, new budget or implementation assignment was changed here.",
+      "before_sha256": "db4f0965beaa7191422d609adefd1787b6f2a16f43c131563453a69ffa451334",
+      "after_sha256": "540423f1129966fbdf5729e07fa7a967bcb7933e23b5f6f372732370c10aa1c2"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1089,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/LEAD_WORLD_ENGINE_SLICE_BRIEF.md",
+      "from": "This reconciliation adds no runtime reservation and preserves the active M21/M22/M25 writer’s edits.",
+      "to": "This reconciliation adds no runtime reservation and preserves M21/M22/M25 edits; the later released method-use checkpoint, reviewed in B153, qualifies that historical active-writer wording at its exact scope.",
+      "reason": "Replace stale active-writer pointer with already reviewed final released-method receipt, without inferring current runtime or closure of this candidate."
+    }
+  ]
+}

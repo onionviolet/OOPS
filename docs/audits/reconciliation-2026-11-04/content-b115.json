@@ -1,0 +1,136 @@
+{
+  "schema": 1,
+  "batch": "B115",
+  "title": "Complete micro-body hooks, missing joins and 216-line palette",
+  "at": "2026-11-04T21:10:38.740152+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b12/HOOKS.md",
+      "ids": [
+        "C01–C13",
+        "MI1–MI10",
+        "MG1–MG6",
+        "MB1–MB7",
+        "MH1–MH5",
+        "MP1–MP4",
+        "D1–D3"
+      ],
+      "classification": "Historical micro-body palette and implementation proposal",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b12/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Keep state/trigger/consumer distinct; reading progress is not Literacy XP or Watchcraft time, attack_points is not direct hit probability, gathering chance is not duration, markup above one is not full price. Frozen quotes and shared preview/execution must agree. Local clock, async-key freshness, zero/neutral profile and exact transition cursor are meaningful contracts. D2 independent WebCrypto/SHA root is an unselected alternative qualified by B18/B111 existing named-stream service; no silent output remap if selected history ever exists. Old source absence is bounded historical inspection, not current all-world absence.",
+      "evidence": "Fresh full body read, all tables, code seed contract, 72 line sets and final proof limitations included. Historical source behavior not rerun.",
+      "reopen": "When a selected micro effect is authorized, inspect current state/cause/action/clock owners and qualify exact native/persistence/observer outcomes; retain unused palette.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "fe389e6ae573384978885c984d8539191a2889d78af8e2e188ce83bb0ca3307b",
+      "input_lines": 287,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          287
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b12/NO_CONSUMER.md",
+      "ids": [
+        "F1–F3",
+        "29 P/N rows",
+        "D1–D2"
+      ],
+      "classification": "Historical micro-body palette and implementation proposal",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b12/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Preserve 29 named missing joins, versus three narrow reusable MI6/MG3/MP3 examples. Generic logging/XP/quotes do not implement locks, dreams, kinship, diagnosis, persuasion or directional wind. Specific smell/conceal/persona routes remain distinct. Missing model imposes no default penalty, source-specific exceptional mechanisms remain possible. No new whole-repo source absence claim.",
+      "evidence": "Fresh full body read, all tables, code seed contract, 72 line sets and final proof limitations included. Historical source behavior not rerun.",
+      "reopen": "When a selected micro effect is authorized, inspect current state/cause/action/clock owners and qualify exact native/persistence/observer outcomes; retain unused palette.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "fefaff95f315f24262b684e9504c4e5f5127f9d9a4e418762105d01d4a5d50c7",
+      "input_lines": 81,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          81
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b12/FLAVOUR_LINES.md",
+      "ids": [
+        "FL001–FL072",
+        "F1–F3 wording families"
+      ],
+      "classification": "Historical micro-body palette and implementation proposal",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b12/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "All 72 sets/216 variants fully read: original wording, three cosmetic families not three implemented worlds. Actual object/action/phase/baseline must support each statement, including second reading, sweat/wiping, water, tracks, trader reaction, new hand, fitted tool, named scar/room and usual comparison. Resolved factor alone cannot prove those events. Use ordinary fallback, phase/dedupe and observer means. Duration applied once, wording adds no second effect; pending rows not launchable content.",
+      "evidence": "Fresh full body read, all tables, code seed contract, 72 line sets and final proof limitations included. Historical source behavior not rerun.",
+      "reopen": "When a selected micro effect is authorized, inspect current state/cause/action/clock owners and qualify exact native/persistence/observer outcomes; retain unused palette.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "eeca6f45600bb9ce74a11cbd4deaee9144b815db26021f6c98b2c2e4c8b7874e",
+      "input_lines": 234,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          234
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b12/REPORT.md",
+      "ids": [
+        "F1–F5",
+        "A1–A5",
+        "G1–G8",
+        "source locator receipt"
+      ],
+      "classification": "Historical micro-body palette and implementation proposal",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b12/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "A1 is MI6 reading + MG6 sleep/reading + MP3; optional meditation excluded in its first selected proposal. B16 MI6-only alternative must not rename it. Existing body schema remains proposed, current APIs/admission require inspection. G8 human review optional under AD42; numbers/fiction remain unaccepted. Historical SHA table identifies source reads, not current tests or our transitive reading. No native source/seed/persistence run by this documentation review.",
+      "evidence": "Fresh full body read, all tables, code seed contract, 72 line sets and final proof limitations included. Historical source behavior not rerun.",
+      "reopen": "When a selected micro effect is authorized, inspect current state/cause/action/clock owners and qualify exact native/persistence/observer outcomes; retain unused palette.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "1863e890fa679ba8a94227a596451712691dc233413a76412a7cf25f814d991f",
+      "input_lines": 136,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          136
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b12/REPORT.md",
+      "heading": "## Micro-body reconciliation B115, 2026-11-04",
+      "body": "Full [HOOKS](HOOKS.md), [NO_CONSUMER](NO_CONSUMER.md), [FLAVOUR_LINES](FLAVOUR_LINES.md) and REPORT read. Preserve all 32 rows, 13 historical consumer families, 29 partial/missing joins and FL001–FL072, not a new implementation backlog. Reading work/XP/played practice, attack input/hit chance, resource chance/cycle time and markup above one/full price stay distinct. Same resolved rates must feed preview, actual work and known ETA; frozen paid jobs retain their quote. No generic text renderer, XP award or dialogue endpoint supplies missing physiology, agency or an observation.\n\nD2’s independent entropy root/SHA daily derivation is an unselected alternative. [B18 AB11](../b18/INTERFACES.md#ab11-seeded-draw) and B111 identify an existing keyed stream service; reuse its admitted families and saved root first, with permanent cause/outcome authority outside bounded logs. A deliberate different provider requires explicit compatibility and preserved old outputs, not silent remapping. Local day/body epoch/revision and async-key checks remain useful; no render initializes entropy or rerolls a saved day. A1 remains MI6 reading + MG6 reading/sleep + MP3, not B16’s smaller MI6-only option; optional Meditation is excluded from A1’s defined first scope.\n\nEvery flavour line needs its actual event, means, phase and known baseline, beyond merely having a multiplier: wiping, water, repeated sentence, tracks, trader response, fitted tool, hand change and room objects cannot be invented from factor values. Three wording families are cosmetic, not three implemented worlds; use ordinary fallback and suppress unsupported clauses. The catalogue remains original proposal prose with no new source-world verification. Current desktop/laptop direction and optional human review under AD42 in [RULES_INDEX](../../../../RULES_INDEX.md) qualify old fixed-viewport/G8 gate wording. Historical source locators and hash table remain history, not current absence proof, API proof or this pass reading every source. All G1–G7 implementation checks remain unperformed by this review.",
+      "before_sha256": "1863e890fa679ba8a94227a596451712691dc233413a76412a7cf25f814d991f",
+      "after_sha256": "e072a3a6fc45083b713887b1ad0a61cc38ecceb0f306ab5889205b9ed5b72dd2"
+    },
+    {
+      "path": "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+      "heading": "## Micro-body palette reconciliation B115, 2026-11-04",
+      "body": "The full [B12 packet](gm/dispatch/body-lineage-2026-10-14/b12/REPORT.md#micro-body-reconciliation-b115-2026-11-04) preserves the 32-row mechanism palette, explicit missing joins and 72 phase sets/216 wording variants. Keep actual effect, observed sensation, diagnosis and NPC response separate. Resolved rates do not authorize fictional events in prose. Its independent daily RNG proposal is qualified by the existing named-stream owner; retain frozen causes/results and exact body/local-clock keys. Connected MI6+MG6+MP3 remains an unselected candidate, with no compulsory penalties, new broad simulation, migrated random traits or mandatory human gate under AD42.",
+      "before_sha256": "f860b7f781329ff6627ad4b42b1c7e02678306519a96c6d548fadfef0abc6148",
+      "after_sha256": "2fcde7bf4eb0d759524fa7cdee1d3545697c4c7634b9945453c472d92db594cd"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1245
+}

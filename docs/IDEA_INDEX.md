@@ -1,5 +1,7 @@
 # Game idea index
 
+[Project-wide loose-document reconciliation, 2026-11-04](audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md): discovered-input inventory, selected owner corrections and retained historical/proposal routing. [WRITEUP_REGISTER](gm/WRITEUP_REGISTER.md) remains the follow-up owner. Metadata-routed material is distinguished from reviewed sections; this adds no build order or blanket adoption.
+
 [Writeup register and follow-up workflow, 2026-10-27](gm/WRITEUP_REGISTER.md): status, next action and open decisions for every research writeup and dispatch report; start here to find what to follow up.
 
 [Roblox adaptation audit, 2026-10-26](research/ROBLOX_ANIME_SCOUT_2026-10-26.md): F1-F34 screen including distinct Re:Zero incrementals, Reverend Insanity projects, Shadow Slave and other anime/novel adaptations; source-labelled evidence, existing-system crosswalk and O1-O12 proposals. Round 2 revises the initial ranking toward maintained powers, composed methods and branching continuity. Desk research; no runtime dispatch.
@@ -7,6 +9,10 @@
 [RI cross-game mechanics comparison, 2026-10-31](research/RI_CROSS_GAME_MECHANICS_COMPARISON_2026-10-31.md): fourteen game/mod references; latest [round 2](research/RI_CROSS_GAME_MECHANICS_COMPARISON_2026-10-31.md#round-2-the-gu-portfolio-and-the-world-economy-2026-10-31) connects Gu upkeep, work, combinations, refinement, stock, services and cash timing (X1–X12), with a revised connected P1 trial. Source-spot-checked research with documented external additions, no implementation or priority change; complements the separately owned [fan-mod scout](research/REVEREND_INSANITY_MOD_SCOUT_2026-10-31.md).
 
 [Gameplay loops and world ideas, 2026-10-26](research/GAMEPLAY_LOOPS_AND_WORLD_IDEAS_2026-10-26.md): Proto23 and other saved game-loop research, thirteen book-world source families, original-world/test-bed ideas, shared-system audit ideas, OOPS's proposed moment/session/life loops and five concrete next-slice candidates. A readable guide to existing owners and proposals, not another build queue.
+
+[Long-term playstyles and compressed life, 2026-11-04](research/GAMEPLAY_LOOPS_AND_WORLD_IDEAS_2026-10-26.md#long-term-playstyles-and-compressed-life-2026-11-04): combinable pursuits, changing involvement, long-term goals, strange lives and cross-world consequences. Later proposals, separate from the standing [activity rules ACR1–ACR14](ACTIVITY_ABSTRACTION_RULES.md) adopted under AD52; no new rollout order.
+
+[Long play, interacting worlds and quest ecology, 2026-11-04](research/GAMEPLAY_LOOPS_AND_WORLD_IDEAS_2026-10-26.md#long-play-interacting-worlds-and-quest-ecology-2026-11-04): LPI9–LPI28 extend earlier playstyles with long horizons, cross-world projects, mixed careers, recurring cast and return/aftermath; [P12 M19–M30](gm/dispatch/procgen-2026-10-13/p12/MORE.md#m19m30-long-play-and-quests-across-worlds-2026-11-04) extends existing quest structures. Long-play scope follows the user's clarification; specific new designs remain proposals, not another queue.
 
 [Ideas left inventory, 2026-10-25](audits/IDEAS_LEFT_INVENTORY_2026-10-25.md): D5 proposal crosswalk, remaining audit/world/chat ideas and ranked next playable slices; existing owner codes retained.
 

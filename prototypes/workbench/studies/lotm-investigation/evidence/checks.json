@@ -1,0 +1,169 @@
+{
+  "checks": [
+    "panels: undiscovered evidence and threat not rendered",
+    "panels: evidence -> inference -> focus -> vision under retaliation -> containment",
+    "panels: switching preserves exact state",
+    "panels: insufficient spirituality refuses without spending",
+    "panels: shelter reduces retaliation and protects withdrawal",
+    "panels: ammunition, retaliation, final settlement",
+    {
+      "mode": "panels",
+      "width": 1920,
+      "text": 14,
+      "scrollHeight": 1080
+    },
+    {
+      "mode": "panels",
+      "width": 1920,
+      "text": 21,
+      "scrollHeight": 1080
+    },
+    {
+      "mode": "panels",
+      "width": 1536,
+      "text": 14,
+      "scrollHeight": 990
+    },
+    {
+      "mode": "panels",
+      "width": 1536,
+      "text": 21,
+      "scrollHeight": 1031
+    },
+    {
+      "mode": "panels",
+      "width": 1024,
+      "text": 14,
+      "scrollHeight": 1340
+    },
+    {
+      "mode": "panels",
+      "width": 1024,
+      "text": 21,
+      "scrollHeight": 1373
+    },
+    "hybrid: undiscovered evidence and threat not rendered",
+    "hybrid: evidence -> inference -> focus -> vision under retaliation -> containment",
+    "hybrid: switching preserves exact state",
+    "hybrid: insufficient spirituality refuses without spending",
+    "hybrid: shelter reduces retaliation and protects withdrawal",
+    "hybrid: ammunition, retaliation, final settlement",
+    {
+      "mode": "hybrid",
+      "width": 1920,
+      "text": 14,
+      "scrollHeight": 1080
+    },
+    {
+      "mode": "hybrid",
+      "width": 1920,
+      "text": 21,
+      "scrollHeight": 1080
+    },
+    {
+      "mode": "hybrid",
+      "width": 1536,
+      "text": 14,
+      "scrollHeight": 990
+    },
+    {
+      "mode": "hybrid",
+      "width": 1536,
+      "text": 21,
+      "scrollHeight": 1031
+    },
+    {
+      "mode": "hybrid",
+      "width": 1024,
+      "text": 14,
+      "scrollHeight": 1340
+    },
+    {
+      "mode": "hybrid",
+      "width": 1024,
+      "text": 21,
+      "scrollHeight": 1373
+    },
+    "walk: undiscovered evidence and threat not rendered",
+    "walk: evidence -> inference -> focus -> vision under retaliation -> containment",
+    "walk: switching preserves exact state",
+    "walk: insufficient spirituality refuses without spending",
+    "walk: shelter reduces retaliation and protects withdrawal",
+    "walk: ammunition, retaliation, final settlement",
+    {
+      "mode": "walk",
+      "width": 1920,
+      "text": 14,
+      "scrollHeight": 1080
+    },
+    {
+      "mode": "walk",
+      "width": 1920,
+      "text": 21,
+      "scrollHeight": 1080
+    },
+    {
+      "mode": "walk",
+      "width": 1536,
+      "text": 14,
+      "scrollHeight": 990
+    },
+    {
+      "mode": "walk",
+      "width": 1536,
+      "text": 21,
+      "scrollHeight": 1031
+    },
+    {
+      "mode": "walk",
+      "width": 1024,
+      "text": 14,
+      "scrollHeight": 1340
+    },
+    {
+      "mode": "walk",
+      "width": 1024,
+      "text": 21,
+      "scrollHeight": 1392
+    },
+    "walk: keyboard, E/Esc and presentation movement time",
+    "workbench: mirrored evidence with no replayed command"
+  ],
+  "outcomes": [
+    {
+      "spirit": 1,
+      "hp": 9,
+      "turn": 5,
+      "outcome": "contained",
+      "evidence": [
+        "latch",
+        "witness",
+        "residue"
+      ]
+    },
+    {
+      "spirit": 1,
+      "hp": 9,
+      "turn": 5,
+      "outcome": "contained",
+      "evidence": [
+        "latch",
+        "witness",
+        "residue"
+      ]
+    },
+    {
+      "spirit": 1,
+      "hp": 9,
+      "turn": 5,
+      "outcome": "contained",
+      "evidence": [
+        "latch",
+        "witness",
+        "residue"
+      ]
+    }
+  ],
+  "errors": [],
+  "review": "agent-verified sketch, not native gameplay or human-reviewed"
+}

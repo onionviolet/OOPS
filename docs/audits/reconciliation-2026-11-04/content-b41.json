@@ -1,0 +1,344 @@
+{
+  "schema": 1,
+  "batch": "B41",
+  "title": "Secondary-source reading receipts, correction history and shard routing",
+  "at": "2026-11-04T19:55:07.163220+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/power-systems/web-fiction/CHECKPOINT.md",
+      "ids": [
+        "Coiling Dragon",
+        "ISSTH",
+        "Renegade Immortal",
+        "Mother of Learning",
+        "Cradle",
+        "E8",
+        "E8B",
+        "E8C",
+        "E8D"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/power-systems/web-fiction/SERIES.json, REPORT.md and SOURCES.md; proposed E8/E8B/E8C/E8D integrations have no assigned owner in this checkpoint."
+      ],
+      "disposition": "Historical research delivery complete; proposals remain proposals. Evidence boundaries include partial LOTM/Renegade Immortal review, indexed secondary summaries, a remembered-only Mount Hua rule, and limited Cradle Q&A rather than its full survey. Those limits were retained in the deliverables, not promoted to canon. Reuse applies to the checkpoint/palette content, not its raw wiki payloads. Preserve source snapshot cutoff, selected-payload vs article coverage and append-only correction/attribution distinctions. No primary-canon or aggregate integration proof inferred; no source reader or cache acquisition resumed.",
+      "mechanism_and_interactions": "The lane compared power mechanics across 16 main titles, separate ISSTH/Renegade Immortal coverage, two bridge notes and five system-novel subtypes. It tagged claims to 46 mechanics and 46 source records, then ranked 15 proposals and compared 19-design vows/contracts. The summary reports sources consulted (local derived dossiers, public indexed summaries, limited direct pages and platform descriptions) separately from memory-only Mount Hua details and model inferences. No runtime or E8 integration was done.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. The checkpoint reports claim-to-source IDs, source labels and document validation; underlying dossiers and cited sources were not inspected in this reader pass. Its research claims are historical and source-bounded.",
+      "reopen": "Any direct recreation must select an edition/era and verify the chosen mechanic against the cited scene or rule; no gameplay consumer or integration is established.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          40
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S035.json"
+      ],
+      "prior_input_sha256": "e1a4803db1deffb4656bc2afdf74f6f7ac06b6ee448f3ef790dc7d7c58f6c202",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "e1a4803db1deffb4656bc2afdf74f6f7ac06b6ee448f3ef790dc7d7c58f6c202",
+      "input_lines": 40
+    },
+    {
+      "path": "docs/research/power-systems/western/CHECKPOINT.md",
+      "ids": [
+        "E8",
+        "E8B",
+        "E8C",
+        "E8D"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/power-systems/western/SERIES.json, REPORT.md, SOURCES.md and VALIDATION.json; shared E8 owners are prospective consumers, not changed here."
+      ],
+      "disposition": "Research deliverables and validations are reported complete. All new uses remain proposals; remembered-only evidence was excluded from the top 15. Existing overlap such as vow collisions and geis is described as refinement, with folklore, historical vows, editions and continuities kept distinct. Reuse applies to the checkpoint/palette content, not its raw wiki payloads. Preserve source snapshot cutoff, selected-payload vs article coverage and append-only correction/attribution distinctions. No primary-canon or aggregate integration proof inferred; no source reader or cache acquisition resumed.",
+      "mechanism_and_interactions": "The Western survey covers 28 subjects, ten axes, eight path parts and 17 E8D vow slots, with two proposed mechanics per subject and labeled gag/abuse examples. Its report ranks 15 additions and compares cross-series contracts; source records distinguish author Q&A, game rules, comic pages, returned pages, indexed excerpts and reused reviewed dossiers. Dresden Soulfire recovery is remembered-only; HWFWM thresholds remain unverified; Guide tactics have a bounded author-serial excerpt, not an infallible victory rule.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint reports reproducible assembly/validation and input-hash stability; no underlying sources, gameplay or shared E8 owners were inspected in this pass.",
+      "reopen": "For an exact adaptation, choose the source era and verify the named mechanic against the relevant scene or edition-specific rule, especially the stated open details.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          37
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S035.json"
+      ],
+      "prior_input_sha256": "9325e3b8a122631c1e9c7f223160e358d735dfcacb88574833faff9bd2ecbcf1",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "9325e3b8a122631c1e9c7f223160e358d735dfcacb88574833faff9bd2ecbcf1",
+      "input_lines": 37
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/CHECKPOINT.md",
+      "ids": [
+        "JJK",
+        "FMA",
+        "DCC",
+        "Shadow",
+        "Fate",
+        "HxH",
+        "HP",
+        "Skyrim",
+        "Fallout",
+        "Elden Ring",
+        "Bleach",
+        "CSM"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/power-systems/wiki-digests/CHECKPOINT.md and its named full-dumps ledgers, audits, worker checkpoints and SUCCESSOR_HANDOFF.md; the aggregate successor owns integration, while individual workers own isolated folders."
+      ],
+      "disposition": "This record repeatedly marks semantic completeness and integration as open despite large indexing/read counts. Later entries supersede stale counts and worker status; source caches remain private and immutable, while no runtime, E8/E9, save, build, commit or publication work is claimed. Holds and paused workers describe historical routing, not present authority. Reuse applies to the checkpoint/palette content, not its raw wiki payloads. Preserve source snapshot cutoff, selected-payload vs article coverage and append-only correction/attribution distinctions. No primary-canon or aggregate integration proof inferred; no source reader or cache acquisition resumed.",
+      "mechanism_and_interactions": "The full-dump program separates archive integrity, indexing/scope heuristics, selected-payload read receipts, semantic note accuracy, parent source review and aggregate integration. Scope queues can include dependencies and empty/overlapping candidates; they do not count as reading. Checkpoint chronology records repairs (Ruby fingerprint, JJK clauses), additional headings, restored pages, worker qualification/ownership, private-cache loss and hash-verified restoration, changing disk/download gates, and a successor handoff. Historical Shadow integration is separate from the still-active aggregate full-reading task.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Only the assigned checkpoint was read. Its dated snapshots and references report hashes, ledgers, repairs and ownership but do not establish present queue state or independently verify source semantics.",
+      "reopen": "Use the current ledgers and worker owners before any resumption; semantic review, scope/dependency classification, note accuracy and cross-series integration remain distinct gates in the final assigned lines.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          84
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S035.json"
+      ],
+      "prior_input_sha256": "3d11d8719e3ffe8751452e5932bab7f579e55a4354e84af717347d18545da0b4",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "3d11d8719e3ffe8751452e5932bab7f579e55a4354e84af717347d18545da0b4",
+      "input_lines": 84
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/black-clover-full/CHECKPOINT.md",
+      "ids": [
+        "Black Clover",
+        "Baal",
+        "UNMASKED",
+        "MASKED"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/power-systems/wiki-digests/full-dumps/workers/black-clover-full/NOTES.jsonl, READ_LEDGER.jsonl and SUMMARY.md; the checkpoint points to NOTE_CORRECTIONS.md."
+      ],
+      "disposition": "Assigned range and named scope gates are reported complete for a dated WikiTeam IA secondary snapshot, not primary canon authentication or later manga coverage. Receipt/hash reconciliation is a reading-integrity claim, not proof every note is semantically accurate. Reuse applies to the checkpoint/palette content, not its raw wiki payloads. Preserve source snapshot cutoff, selected-payload vs article coverage and append-only correction/attribution distinctions. No primary-canon or aggregate integration proof inferred; no source reader or cache acquisition resumed.",
+      "mechanism_and_interactions": "The offline Black Clover reader reports all 1,102 retained manifest inputs read, with selected-payload receipts; 164 audit adjudications and two restored List of Characters copies are separately described. Character full bodies underwent metadata-verified scope review, not additional full-body semantic reading. An append-only correction says the Kenpachi holder-count page cites MASKED, while the earlier continuity label mistakenly included UNMASKED; another causal note was corrected.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint reports verified selected payloads and final reconciliation; no underlying note, source page or correction ledger was inspected here.",
+      "reopen": "For use in a game mechanic, inspect the cited source-era page and corrected note; the record itself does not claim canon validation or gameplay integration.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          21
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S035.json"
+      ],
+      "prior_input_sha256": "65de7e6931051f90c4f19510ff7ce4677cfe194d8cffdd8c401179ace25759dd",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "65de7e6931051f90c4f19510ff7ce4677cfe194d8cffdd8c401179ace25759dd",
+      "input_lines": 21
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/shard-a/CHECKPOINT.md",
+      "ids": [
+        "JJK",
+        "Bleach",
+        "Fate",
+        "Kenpachi",
+        "UNMASKED",
+        "MASKED",
+        "Shin'etsu Kisaragi",
+        "Shinigami",
+        "Central 46",
+        "IMMANENT GOD BLUES"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/shard-a/NOTES.jsonl, READ_LEDGER.jsonl, NOTE_CORRECTIONS.md and SUMMARY.md."
+      ],
+      "disposition": "The assigned shard range is historically reported complete for a WikiTeam3 snapshot ending 2023-12-27. Corrections preserve original JSONL while changing how claims should be read; they do not authenticate primary canon or later material. Reuse applies to the checkpoint/palette content, not its raw wiki payloads. Preserve source snapshot cutoff, selected-payload vs article coverage and append-only correction/attribution distinctions. No primary-canon or aggregate integration proof inferred; no source reader or cache acquisition resumed.",
+      "mechanism_and_interactions": "Bleach shard A reports 731 assigned retained inputs complete, with matching payload read hashes/counts. Its append-only corrections constrain interpretation: Kenpachi holder count cites MASKED despite an erroneous UNMASKED continuity label; the Shin'etsu warning phrase is cross-page inference; anime-only identification for Ririn/Kurodo/Noba came from prior context; Central 46 accusation-source disclosure was overstated; and several supposed contradictions are context, attribution or source-coverage issues rather than within-page conflicts.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports receipt alignment and explicitly names corrections; no shard notes, receipts, or raw archive passages were independently inspected here.",
+      "reopen": "For reuse, apply the correction distinctions and source-era limit; no current game integration or primary-canon check is established.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          53
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S035.json"
+      ],
+      "prior_input_sha256": "2d003df9ac05397efdd3757423e8e357c4c134a27f68d91dc684a1bd9da6d74a",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "2d003df9ac05397efdd3757423e8e357c4c134a27f68d91dc684a1bd9da6d74a",
+      "input_lines": 53
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/shard-b/CHECKPOINT.md",
+      "ids": [
+        "JJK",
+        "Bleach",
+        "Fate",
+        "The Demi-Hollow",
+        "Hadō"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/shard-b/NOTES.jsonl, READ_LEDGER.jsonl, SUMMARY.md and PROOF/CORRECTION notes referenced by that owner."
+      ],
+      "disposition": "Historical assigned-range completion is reported after reconciliation. The source is a dated secondary wiki snapshot; corrections refine note classification but do not authenticate canon or cover post-snapshot material. Reuse applies to the checkpoint/palette content, not its raw wiki payloads. Preserve source snapshot cutoff, selected-payload vs article coverage and append-only correction/attribution distinctions. No primary-canon or aggregate integration proof inferred; no source reader or cache acquisition resumed.",
+      "mechanism_and_interactions": "Bleach shard B reports ordinals 732–1462 complete with 731 matching receipts/notes and later hash/length/chunk reconciliation. The checkpoint corrects an initial resume mismatch by establishing that 22 rows covered 732–753 and ordinal 754 was next; the stale queue line was a missed worker update. Additional corrections downgrade several “contradictions” to coverage limits, compatible claims, attribution ambiguity or qualified statements, while identifying concrete within-page wording conflicts separately.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint chronology and reported audits were read; no manifest, notes or source pages were opened in this pass.",
+      "reopen": "When using shard B claims, follow its correction classifications and manifest order; current integration and primary-source validation are not established.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          61
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S035.json"
+      ],
+      "prior_input_sha256": "69ca919d757c8d3b9ba6660285a7f49319666f19e672a55a8bfb810759c2b0d4",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "69ca919d757c8d3b9ba6660285a7f49319666f19e672a55a8bfb810759c2b0d4",
+      "input_lines": 61
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/shard-c/CHECKPOINT.md",
+      "ids": [
+        "JJK",
+        "Bleach",
+        "Fate",
+        "WikiTeam3"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/shard-c/NOTES.jsonl, READ_LEDGER.jsonl, AUDIT_READ_LEDGER.jsonl, SUMMARY.md and PROOF_RECONCILIATION.json."
+      ],
+      "disposition": "Assigned reading and scope-audit work are reported complete for the 2023-12-27 secondary snapshot. The checkpoint explicitly disclaims primary-canon authentication and beyond-snapshot coverage; receipt proof does not erase method deviations or imply accepted game mechanics. Reuse applies to the checkpoint/palette content, not its raw wiki payloads. Preserve source snapshot cutoff, selected-payload vs article coverage and append-only correction/attribution distinctions. No primary-canon or aggregate integration proof inferred; no source reader or cache acquisition resumed.",
+      "mechanism_and_interactions": "Bleach shard C reports all 731 retained inputs plus 35 separate scope-audit payloads complete: 14 named-section gaps, 19 restored noncharacter pages and two empty selections. It records hash/length reconciliation and instructs readers to apply PROOF_CORRECTIONS.jsonl over append-only originals. A disclosed method deviation says ordinals 1463–1524 sometimes grouped chunks and used system Python; later inputs used the research environment and one bounded chunk per output.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint reports hash/length reconciliation and names its method deviation; underlying receipts, corrections, audits and sources were not independently inspected.",
+      "reopen": "For source-derived mechanics, consult the summary/corrections and qualify against primary canon and the intended continuity; no runtime integration is claimed.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          40
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S035.json"
+      ],
+      "prior_input_sha256": "1b8f9f2ec9c72ed8e0981516e675f4b9edefec1c69a09001b354986705b6b5ab",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "1b8f9f2ec9c72ed8e0981516e675f4b9edefec1c69a09001b354986705b6b5ab",
+      "input_lines": 40
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/csm-full/CHECKPOINT.md",
+      "ids": [
+        "JJK",
+        "Bleach",
+        "Fate",
+        "Chainsaw Man",
+        "Devil",
+        "Fiend",
+        "Hybrid"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/power-systems/wiki-digests/full-dumps/workers/csm-full/NOTES.jsonl, READ_LEDGER.jsonl, SUMMARY.md and ERRATA.md; private archive payloads are under the named research-wiki cache route."
+      ],
+      "disposition": "The assigned offline reading is reported complete for a WikiTeam IA snapshot through 2023-11-27; Part 2 material after that date is out of scope. It remains a dated secondary wiki, not canon authentication. No game-side mechanism or integration is claimed. Reuse applies to the checkpoint/palette content, not its raw wiki payloads. Preserve source snapshot cutoff, selected-payload vs article coverage and append-only correction/attribution distinctions. No primary-canon or aggregate integration proof inferred; no source reader or cache acquisition resumed.",
+      "mechanism_and_interactions": "The Chainsaw Man reader reports 204/204 retained manifest inputs plus three restored concept pages (Devil, Fiend, Hybrid) read and verified, with 207 paired notes/receipts over 348 bounded chunks. The three concept pages were restored because character-infobox scope detection had excluded them; frozen supplement labels remain unchanged while receipts establish the read. An ERRATA corrects one row-176 source attribution without rewriting append-only notes.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint reports verified payload hashes/lengths, note pairing and contiguous chunks; underlying notes, errata, archive or mechanics were not inspected here.",
+      "reopen": "Any later source claim must respect the snapshot cutoff and corrected attribution, then be checked against primary material and a chosen game consumer.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          37
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S035.json"
+      ],
+      "prior_input_sha256": "ca91df2b7946624890945848e613e46b679f06244026b50ef748d5e190abc4ea",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "ca91df2b7946624890945848e613e46b679f06244026b50ef748d5e190abc4ea",
+      "input_lines": 37
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/CHECKPOINT.md",
+      "ids": [
+        "2193 retained inputs",
+        "14/19/2 scope repair groups",
+        "zero-note root snapshot"
+      ],
+      "classification": "fresh full historical source-reader router review",
+      "owners": [
+        "docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/CHECKPOINT.md",
+        "docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/shard-a/CHECKPOINT.md",
+        "docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/shard-b/CHECKPOINT.md",
+        "docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/shard-c/CHECKPOINT.md"
+      ],
+      "disposition": "Root zero-notes/pending2193 is initial queue setup. Later A/B/C checkpoints report731 retained inputs each and C reports35 scope payloads with method/correction qualifications. Preserve secondary2023 cutoff, selected payload vs original article, disclosed method deviations and corrected note accuracy; no raw reading or canon validation repeated.",
+      "evidence": "Entire root checkpoint freshly read; all shard semantic receipts inspected with unchanged checkpoint input/full-range proof. Did not inspect raw wiki notes/payloads or independently recount source reading.",
+      "reopen": "For a selected mechanic use exact shard note/correction and pinned primary scene/continuity; no automatic rereading or aggregate-completion inference.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "937b571ee326741b40553e578da7f0a127878c5b4be1d1e684d7199c0e312ece",
+      "input_lines": 29,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          29
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/CHECKPOINT.md",
+      "heading": "## Later shard receipt routing, 2026-11-04 (B41)",
+      "body": "The zero-note/pending2193 line and open-scope heading above are initial queue history. The later shard-a, shard-b and shard-c checkpoints each report731 retained inputs read; shard-c separately reports35 scope-audit payloads, with correction overlays and a disclosed early chunking/environment deviation. Route to those exact shard notes, summaries and corrections instead of restarting the initial root queue. This reconciliation inspected checkpoint content, not raw wiki payloads or every note’s accuracy, and did not independently re-count their reading. Dated secondary-source reading, accurate paraphrase, primary-canon qualification and actual gameplay integration remain separate evidence states. Snapshot cutoff and selected-payload/original-article distinctions still apply.",
+      "before_sha256": "937b571ee326741b40553e578da7f0a127878c5b4be1d1e684d7199c0e312ece",
+      "after_sha256": "6b0844d3d1f27b44463dc80f42aae2eb1636885117c8c9bdb5757a1285c8f8dc"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1547
+}

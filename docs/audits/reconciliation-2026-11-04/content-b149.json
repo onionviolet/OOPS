@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "batch": "B149",
+  "title": "UI core audit rounds 1-7 with explicit remaining coverage",
+  "at": "2026-11-04T22:01:03.801865+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/UI_DESIGN_CORE_AUDIT.md",
+      "full": false,
+      "ranges": [
+        [
+          1,
+          441
+        ]
+      ],
+      "ids": [
+        "UIA1-UIA19",
+        "UR65-UR69 history",
+        "DL1-DL10",
+        "L1-L10",
+        "UIS1-UIS14",
+        "UIC1-UIC22",
+        "UIV1-UIV7",
+        "rounds 1-7"
+      ],
+      "classification": "Selected full rounds of a growing multi-round UI owner; later rounds remain unread",
+      "owners": [
+        "docs/audits/UI_DESIGN_CORE_AUDIT.md",
+        "docs/UI_RULES.md",
+        "docs/MOCKUP_SYSTEM.md"
+      ],
+      "disposition": "Read all rounds 1-7, not the remainder. Preserve later corrections within this range: hidden Gear disclosure is not waste, source dock placement did not prove automatic whole-screen replacement, width was not proved by different disclosure screenshots, round 4 supersedes one-pixel immobility and duplicate preview boxes, full native comparison supersedes sparse sketches. Source and historical evidence scopes retained.",
+      "evidence": "Fresh contiguous lines 1-441. UI core currently extends beyond intake 1360 lines through new round 34; no full-file reading claim. No capture, artifact, raw source, current app or runtime test was newly verified. Historical 2557 suite, six desktop/edge cases, 12 native cases and freshness proofs remain attached to own candidate inputs.",
+      "reopen": "Continue actual content at line 442 through the current end, including later overriding UI direction and delivery. Owner note does not close later ranges or linked reports.",
+      "input_sha256": "f249be760a234e9dd46a9a13e520682f658cdebcc2de5569dad308941aa87e59",
+      "input_lines": 1647
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/UI_RULES.md",
+      "heading": "## UI core rounds 1-7 application B149, 2026-11-04",
+      "body": "Scoped review of [UI core rounds 1-7](audits/UI_DESIGN_CORE_AUDIT.md#round-1-2026-10-22), lines 1-441; later rounds remain to be reviewed. Preserve the corrections within that scope rather than reopening the earliest diagnosis: a closed Gear disclosure's hidden content is not lost region space, a dock declaration does not prove automatic center replacement, and screenshots with different disclosures do not establish a width cause. Round 4 replaces universal one-pixel immobility with preservation of the actual task, selected subject, pending choice, work/log access, focus, scroll and return. Deliberately expanded tasks and UR69 may reflow (AD32, AD36, UR41, UR43, UR52, UR69).\n\nHover/focus preview, explicit selection and commitment remain different operations. A second preview must not overwrite a pending choice or cover its focused controls. The historical empty-slot and title-only blocker findings need their current consumer checked, not a newly invented global layout. Reports filtering must check actually visible rows and preserve occurrence history; a green control-state assertion alone once missed an overriding display rule. General repeat merging and long-play grammar were not delivered by that repair.\n\nThe later full native comparison in rounds 5-6 supersedes a sparse shell's fidelity claim while retaining both as dated studies. A successful token/geometry test or matching source hash cannot certify actual font crispness, the installed app, every service or unseen transition. Scaled captures and derived geometry retain their stated limits; decorative tokens require actual consuming styles and a computed-value check where the result is claimed. The old L/UIS/UIV ordering, source reservations, proposed model choices and human taste gates are not fresh runtime dispatch or mandatory approval (AD41, AD42).",
+      "before_sha256": "0e65cc2c4fcce11d34425a60415875e9ea303dc9510e5411d1fb6b72d47e21a7",
+      "after_sha256": "ccb447ac1032e7799c9e032e7a8f6cc15a19528500c4f39cb7b696920af9100f"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1197,
+  "post_record_amendments": [
+    {
+      "path": "docs/UI_RULES.md",
+      "from": "Scoped review of [UI core rounds 1-7](audits/UI_DESIGN_CORE_AUDIT.md#round-1-2026-10-22), lines 1-441; later rounds remain to be reviewed.",
+      "to": "Scoped review of [UI core rounds 1-7](audits/UI_DESIGN_CORE_AUDIT.md#round-1-2026-10-22), lines 1-441; later rounds were outside B149 and have their subsequent B150/B151 dispositions in the reconciliation record.",
+      "reason": "Qualify old pending-review statement by subsequent actual B150/B151 content receipts; preserve B149 original scope."
+    }
+  ]
+}

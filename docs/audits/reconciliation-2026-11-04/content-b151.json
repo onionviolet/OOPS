@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "batch": "B151",
+  "title": "UI core complete through round 34, functional housing and prose-first application",
+  "at": "2026-11-04T22:03:14.528589+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/UI_DESIGN_CORE_AUDIT.md",
+      "ids": [
+        "rounds 1-34",
+        "PT37-PT80",
+        "EU1-EU5",
+        "NE1-NE3",
+        "AP1-AP4",
+        "HC1-HC3",
+        "DC1-DC5",
+        "HL1-HL6"
+      ],
+      "read_mode": "fresh_contiguous_range_union",
+      "classification": "Complete current 1647-line multi-round audit, with direction and delivery distinct",
+      "owners": [
+        "docs/audits/UI_DESIGN_CORE_AUDIT.md",
+        "docs/MOCKUP_SYSTEM.md",
+        "DESIGN.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Completed actual full text review: B149 1-441, B150 442-1032, current 1033-1647, identical input SHA across all reads. Later functional-home direction supersedes pictured home; later hall instruction removes room/fog vignettes while retaining measured sticky-header clearance and prose-first native-action composition. Preserve specific furniture/tool/gear mechanics, actual command/quote/status lifetimes, independent character voice, and scoped source/content/report changes.",
+      "evidence": "Fresh continued range union, no transitive linked-report credit. Current input equals B149/B150 SHA f249be760a234e9dd46a9a13e520682f658cdebcc2de5569dad308941aa87e59. Historical prototype/native counts retain separate bundle, prepared/earned input and reload versus literal Import limits. No images, primary passages, external design standards, video, current UI or source code newly inspected in this final range.",
+      "reopen": "Use current DESIGN/UI_RULES and selected campaign receipt. Underlying checkpoints, prototypes, source passages and pending older UIF/L2b defects remain separate review/proof tasks; full audit reading does not certify full interface or installed app.",
+      "input_sha256": "f249be760a234e9dd46a9a13e520682f658cdebcc2de5569dad308941aa87e59",
+      "input_lines": 1647,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          1647
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/UI_DESIGN_CORE_AUDIT.md",
+      "heading": "## Content reconciliation B151, 2026-11-04",
+      "body": "The complete audit through round 34 was read in contiguous ranges under one unchanged input identity: B149 lines 1-441, B150 lines 442-1032 and B151 lines 1033-1647. Later direction governs earlier recommendations. Round 11 supersedes the Neutral-default observation; round 22 stops the pictured-home expansion; round 29 adopts bounded prose/UI defaults without adopting all UR76-UR82/UIV/DSG proposals; round 34 removes the room/fog vignettes introduced in round 33 while retaining measured sticky-header clearance. Current [DESIGN](../../DESIGN.md), UI_RULES and the selected campaign checkpoint own the result (AD32, AD40, AD45).\n\nPreserve the useful native distinctions in PT51-PT66. Furniture pack/install is staged, with an actual empty-slot interval and no invented installation cost; catalogue compatibility does not mean carried stock or supplier access. The intermediate capacity/removal guard cannot be bypassed by a temporary duplicate benefit. Tool repair is timed and conditional, with reservation/cancel and outcome; gear swap is immediate under its native contract, retains identity/condition and returns degraded parts. Unworn base-value comparisons are not final worn character combat stats. The synthetic tool-shaped renderer probe is not actual tool integration, while the later prepared native adapter has its own separate proof. Native reload checks are not a literal Import check.\n\nThe latest editorial rounds preserve actual action, quote, known uncertainty, active job, interruption and settled occurrence. Inspection is not Stop; a remaining-work display does not justify a percentage without a known admitted total. A settled report should describe that occurrence rather than repeat an imperative preview, while original retained observations stay historical. Future response text must not leak into the current wait/listen preview. Ephemeral Reports scrollback and durable Notebook observations have different restore contracts. Source-specific original prose, a useful action layout and deliberate artwork are all available; no picture, animation, joke, lexical-ban or forced cheerfulness quota follows.\n\nRound 34's direct command uses native quote/revalidation and actual pending/status semantics; the blocker association keeps one knowable reason accessible without publishing private causes. Its shared-decorator work and another foundation lane's evidence remain separate. The sampled hall, prepared room, shopping and heading tests do not certify every ordinary start, whole campaign, source fidelity, all-screen accessibility or installed app. Old draft costs, budgets, PIDs, writer reservations, gates and roadmap order remain dated. All linked images, source passages, prototypes and receipts keep their original proof identities; none was newly exercised by reading this audit.",
+      "before_sha256": "f249be760a234e9dd46a9a13e520682f658cdebcc2de5569dad308941aa87e59",
+      "after_sha256": "5906fb33f798782c44b1b127d83c4213ab5048ce05ef459b66960dbed3f892fe"
+    },
+    {
+      "path": "docs/MOCKUP_SYSTEM.md",
+      "heading": "## Operation-specific comparisons B151, 2026-11-04",
+      "body": "The full [UI core audit through round 34](audits/UI_DESIGN_CORE_AUDIT.md#content-reconciliation-b151-2026-11-04) adds useful comparison boundaries. Distinguish presentation swap, implementation refactor and actual in-world replacement. A shared review renderer may reuse read/quote/commit interaction while each native owner retains its own operation, identity, uncertainty and settlement. Do not label two UI clicks atomic when the native slot is empty between pack and install.\n\nHold comparison baselines equal: unworn item calculations on both sides differ from actual worn character outcomes; acquisition price differs from local installation cost; compatibility differs from possession, access and readiness. An item consumed elsewhere invalidates its review rather than silently substituting another instance. Tool repair, immediate part exchange, room upgrade and irreversible material treatment need their own actual progress/cancellation consequences. Prototype DOM bridges and whole-context serialization remain disposable until direct native ports and narrow owner identities are selected (AD32, AD36, AD38, AD51).\n\nLater direction rejected the pictured-home experiment and then removed the prose-duplicating room/fog vignette. Preserve those trials and exact limits as history, rather than re-running them as mandatory prerequisites or treating their frozen bytes as current style approval. Functional housing, useful independent panes and prose-first tasks are the current defaults. A new diagram or deliberate artwork can still serve a selected task. Freshness, native fidelity, observed interaction, literal persistence and human taste remain separate dimensions; no all-panel conversion or universal review wizard is implied.",
+      "before_sha256": "2c2ed5d5da1480e760b5f193cfff0d8faf79caa1e97c124b042f6d06baa09b44",
+      "after_sha256": "f403ca7abe359d37656f2891a0eda380b4730b8d31ff3da6ffa7a1b30a9db8e0"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1197
+}

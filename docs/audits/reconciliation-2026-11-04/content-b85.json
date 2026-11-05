@@ -1,0 +1,115 @@
+{
+  "schema": 1,
+  "batch": "B85",
+  "title": "Combat fit/objective maps: later source integration and distinct paid settlement contracts",
+  "at": "2026-11-04T20:34:34.204651+00:00",
+  "head": "bb15d10db98df55c08e8b6d2678b08a2f7babec8",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/audit-implementation/remainder/combat_fit/PATCH_MAP.md",
+      "ids": [
+        "10commands/2items",
+        "gripready-reserved-spent-expired",
+        "schema3/4vs5",
+        "fitprofile/quote/hook/finish",
+        "5deferredgroups"
+      ],
+      "classification": "fresh full combat integration-map content plus later root source-phase record",
+      "owners": [
+        "docs/gm/audit-implementation/remainder/CHECKPOINT.md",
+        "docs/gm/audit-implementation/remainder/ACCEPTANCE_BACKLOG.md",
+        "docs/gm/audit-implementation/remainder/combat_fit/PATCH_MAP.md"
+      ],
+      "disposition": "Preserve exactstagedmodulefields/source/body/custody/time/renewal support, no previewspend/doubleadjust/RNG, gearvsbody/skill distinction, samephysicalrope reservation owner and paidgriponeguardnotglobalonce. Initialawaitingrootconsumption stale currentselectedadmissionquote/finish source joins present and laterrootcheckpointsourcecomplete. Allhooks/runtime/persistence stillnotrecertified.",
+      "evidence": "All59/78/13line docs freshlyread; clippedfitexactmodule retrieved26–34. Currentselected feature_expansion_battle89–109/232–255 shows schema5 admission, quote and settlement consumers forbothhookfamilies. No everyhook/bodybranchsemantic reread or newunit/browser/persistence/failureproof.",
+      "reopen": "Specificcurrentconsumer/behavioralevidence gap whenactualcombatworkselected; no restartALL19sourcemilestone, newcombatdispatch or reinterpretationas allgamecomplete.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "e77b72d9c79058f721b49dfed3bc1220ccdf926c0983d3d6b86ad6e6af2babee",
+      "input_lines": 59,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          59
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/combat_objectives/ROOT_PATCH_MAP.md",
+      "ids": [
+        "combat_objectives.v1",
+        "10commands/4items",
+        "recovery/supplyattempt/history/physicalcharge",
+        "maintained2attemptguard/16receipts",
+        "4forbiddencommandIDs/ordinary_supply",
+        "sharedfitnamespace"
+      ],
+      "classification": "fresh full combat integration-map content plus later root source-phase record",
+      "owners": [
+        "docs/gm/audit-implementation/remainder/CHECKPOINT.md",
+        "docs/gm/audit-implementation/remainder/ACCEPTANCE_BACKLOG.md",
+        "docs/gm/audit-implementation/remainder/combat_objectives/ROOT_PATCH_MAP.md"
+      ],
+      "disposition": "Keep objectiverecovery/ordinarysupply/physicalguard/maintainedguard distinct. Termsconditionalvoluntarycommission not gamewideprohibition or anti-exploit. Exactcustody/ownerfitting/same-rope return, consumed/unspentcharge and success/violation/withdrawal semantics onceonly. Existing source joins presentatselectedadmission/quote/finish, not newnativejourney/fullfloor or allunheardfailurecases. Oldschema frozen/no cumulativeheadergates.",
+      "evidence": "All59/78/13line docs freshlyread; clippedfitexactmodule retrieved26–34. Currentselected feature_expansion_battle89–109/232–255 shows schema5 admission, quote and settlement consumers forbothhookfamilies. No everyhook/bodybranchsemantic reread or newunit/browser/persistence/failureproof.",
+      "reopen": "Specificcurrentconsumer/behavioralevidence gap whenactualcombatworkselected; no restartALL19sourcemilestone, newcombatdispatch or reinterpretationas allgamecomplete.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "8f71d6f7565cd9ec488353d1ae657ae7396e8fbaffc69992f2442ca099cfb351",
+      "input_lines": 78,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          78
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/CHECKPOINT.md",
+      "ids": [
+        "ALL19/MW01–MW04/P1–P5",
+        "revision6/sourcephase",
+        "new5battle/forfeit/causalfirst",
+        "5acceptancefamilies"
+      ],
+      "classification": "fresh full combat integration-map content plus later root source-phase record",
+      "owners": [
+        "docs/gm/audit-implementation/remainder/CHECKPOINT.md",
+        "docs/gm/audit-implementation/remainder/ACCEPTANCE_BACKLOG.md",
+        "docs/gm/audit-implementation/remainder/CHECKPOINT.md"
+      ],
+      "disposition": "Historicalfiniteimplementation-first objective source/nativeUIbuild delivered butexplicitimplementedunverified. Sourceworkerrelease and exactbundlecounts not currentfullruntimeproof. BroaderACSfollowupoutside19, optionalnewdomains onlyexplicitcommit. Currentoneprestige/vanilla references do not revive retiredfirstmilestone; AD42humanreviewoptional and actualproof scoped.",
+      "evidence": "All59/78/13line docs freshlyread; clippedfitexactmodule retrieved26–34. Currentselected feature_expansion_battle89–109/232–255 shows schema5 admission, quote and settlement consumers forbothhookfamilies. No everyhook/bodybranchsemantic reread or newunit/browser/persistence/failureproof.",
+      "reopen": "Specificcurrentconsumer/behavioralevidence gap whenactualcombatworkselected; no restartALL19sourcemilestone, newcombatdispatch or reinterpretationas allgamecomplete.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "001d8df683e01543ba2d5eefbd72c930ac1a87b0e4aa3b493854d8ffeb994c13",
+      "input_lines": 13,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/audit-implementation/remainder/combat_fit/PATCH_MAP.md",
+      "heading": "## Later integration and proof scope, 2026-11-04 (B85)",
+      "body": "The [root source-phase checkpoint](../CHECKPOINT.md) supersedes this worker’s initial awaiting-root status for the finite remainder source objective. Selected current feature_expansion_battle source calls fit admission, uses its quote, and finishes its module before settlement/session removal; both fit and objective namespaces participate in schema 5. That source observation does not certify every hook or execute a new combat journey. Preserve exact current source/body/gear/custody and completion cause, the grip preparation’s reservation/spend/expiry boundaries, one final quote, and the objective owner’s same-rope reservation/return. A once-settled preparation is not a lifetime-use limit, gear fit is not new body/mastery, and source suppression blocks supported use without deleting the permanent source. The five deferred groups retain behavioral/failure/persistence gaps, with optional human feedback under AD42 and current AD36/AD43 proof. No old worker reservation or source-complete statement dispatches new runtime work (AD32).",
+      "before_sha256": "e77b72d9c79058f721b49dfed3bc1220ccdf926c0983d3d6b86ad6e6af2babee",
+      "after_sha256": "db83b840122c1f62842564db38c25e4a08f1cb6d929dfb0813031733831bf973"
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/combat_objectives/ROOT_PATCH_MAP.md",
+      "heading": "## Later shared consumers reconciled, 2026-11-04 (B85)",
+      "body": "The [root checkpoint](../CHECKPOINT.md) records the later finite source integration rather than a still-unconsumed worker map. Current selected battle admission invokes objective initialization with staged spend, action preview consumes the objective quote, and finish settles the objective effects through the shared executor. This is bounded source evidence, not new play or proof of every recovery/supply/guard branch. Keep recovery custody/handoff/recipe, voluntary commission compliance, maintained per-attempt upkeep and one physical charge separate from fit’s grip/maneuver namespace. The four disclosed supply restrictions are that accepted commission’s authored terms, not global forbidden abilities or anti-exploit policy. Ordinary no-preparation/recovery routes, old encounter shapes and actual reserved rope return keep their own contracts. Current AD32/AD36/AD42/AD43 distinguish source-phase completion, required behavior proof and optional feel review; no second combat executor, scheduler, source pass or new dispatch follows.",
+      "before_sha256": "8f71d6f7565cd9ec488353d1ae657ae7396e8fbaffc69992f2442ca099cfb351",
+      "after_sha256": "16120ec5c0c68f8eb0408ca095bdc8e025b1a306d6ed41df6e1478b0aca9f8d0"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1342
+}

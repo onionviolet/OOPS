@@ -1,0 +1,430 @@
+{
+  "schema": 1,
+  "batch": "B34",
+  "title": "Cultivation donor consumer progress and retained autonomy/continuity gaps",
+  "at": "2026-11-04T19:52:06.917414+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/idle-reincarnator/CHECKPOINT.md",
+      "ids": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "G1",
+        "G2",
+        "G3a",
+        "G3b",
+        "G3c",
+        "G4",
+        "G5"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/idle-reincarnator/REPORT.md, FINDINGS.json and named G1-G5 evidence gaps; implementation consumers are not established by this checkpoint."
+      ],
+      "disposition": "Historical partial research delivery with static artifacts and explicit gaps; no gameplay, implementation, runtime acceptance or uniqueness proof. The requested reset/realm premise remains qualified, and the lane dispatched no implementation. Retain exact static chain closure and remaining caller/payment/custody/save gaps. Descriptors do not prove another reset or paid autonomous cultivation. Later source consumers narrow earlier untraced labels only at the exact bounded path; no broad absence or runtime result inferred.",
+      "mechanism_and_interactions": "Static extraction traced Idle Reincarnator’s lifecycle, carry, regions, slots, unlocks, resource handlers, age/death, offline behavior and save format; these are source-research outputs, not OOPS mechanics. The checkpoint says no ascension handler or Divinity wallet/serializer was found, and warns descriptors do not establish a third reset. Binary scenes/resources, full story branches, technology combinations, broad content semantics and runtime/save behavior remain unverified. The corrected finding-count checker error was bookkeeping, not source failure.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. The checkpoint reports static artifact validation, PCK MD5 and decoded-buffer/hash checks. No gameplay, UI, save/reload/import or current source behavior was exercised; the private findings/report were not part of this assigned span.",
+      "reopen": "Any later selected reset or realm question needs the exact live handler/consumer and separately authorized runtime evidence; broad binary resources, full story continuity and build combinations remain open.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          39
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S028.json"
+      ],
+      "prior_input_sha256": "d176c36ef7e08a1e070e688b39d0ce83aa7060c309c13659f4ad3cc88caad32a",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "d176c36ef7e08a1e070e688b39d0ce83aa7060c309c13659f4ad3cc88caad32a",
+      "input_lines": 39
+    },
+    {
+      "path": "docs/research/idle-reincarnator/aspects-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "A01-A12",
+        "G1",
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/idle-reincarnator/aspects-2026-10-14/ and its report/VALIDATION.json are named; this checkpoint does not identify a live OOPS implementation consumer."
+      ],
+      "disposition": "Historical partial research packet delivered; its static coverage is bounded and it claims neither full mechanics nor gameplay. No successor or implementation was dispatched. Retain exact static chain closure and remaining caller/payment/custody/save gaps. Descriptors do not prove another reset or paid autonomous cultivation. Later source consumers narrow earlier untraced labels only at the exact bounded path; no broad absence or runtime result inferred.",
+      "mechanism_and_interactions": "The aspect packet records twelve fixed-key aspects, a complete discovered source-unit index, selected deeper reads and read-only reuse/extraction of NGU TextAssets, plus source/build identity comparisons. It explicitly leaves binary scene/resource semantics, end-to-end story/formula coverage, mod dependency/save-thread consistency and offline/FPS/hazard/save execution unresolved. A frame-coupled expenditure is labeled inference, not a proven behavior.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical validation is reported in VALIDATION.json; no independent artifact readback, launch, save test or runtime verification is included in this assigned checkpoint.",
+      "reopen": "For a selected gap, continue from the exact A01-A12 locators and inspect actual consumers; do not treat source declarations, inventory or the checkpoint’s frame-coupling inference as executed behavior.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          20
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S028.json"
+      ],
+      "prior_input_sha256": "8279935953e576e2e00223acd1499c14f3a7ef92cd324226dc0c79f43a5abb6f",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "8279935953e576e2e00223acd1499c14f3a7ef92cd324226dc0c79f43a5abb6f",
+      "input_lines": 20
+    },
+    {
+      "path": "docs/research/idle-social-engine-scout-2026-10-06/CHECKPOINT.md",
+      "ids": [
+        "ES-03",
+        "ES-04"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/idle-social-engine-scout-2026-10-06/QUD_REAUDIT.md, traces/QUD_LIQUIDS.md, traces/QUD_BODY.md and FOLLOW_UP_REFERENCES.md; the checkpoint assigns root aggregation."
+      ],
+      "disposition": "Finite research and saved follow-ups are reported complete. New traces support selected source joins, not whole-game, latest-edition or gameplay qualification; carrier/gripper ideas remain unselected and unimplemented. Retain exact static chain closure and remaining caller/payment/custody/save gaps. Descriptors do not prove another reset or paid autonomous cultivation. Later source consumers narrow earlier untraced labels only at the exact bounded path; no broad absence or runtime result inferred.",
+      "mechanism_and_interactions": "The scout re-audited Qud 2.0.211.56 and added bounded liquid/fuel/function and managed-body/equipment/removal traces, with three follow-up references. It distinguishes already-present native feats, cooling, lessons, equipment/body support and status care from the new research ideas; earlier missing-foundation claims were retired after source reconciliation. The full exported corpus, every fluid/body/campaign, latest edition and Pets remain outside coverage; no new rank or implementation packet was added.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports reverified assembly hash/evidence ranges and document gates; gameplay, native UI, saves, builds and regression/director checks were not run.",
+      "reopen": "If a mechanic is selected, verify its named native compatibility and playable acceptance with the integrator; remaining full-corpus, campaign, edition and Pets coverage is not established here.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S028.json"
+      ],
+      "prior_input_sha256": "bfbd62da901801342b047643e14a045cafb2c39994708301de070299e1cdd8cb",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "bfbd62da901801342b047643e14a045cafb2c39994708301de070299e1cdd8cb",
+      "input_lines": 15
+    },
+    {
+      "path": "docs/research/idling-to-rule-the-gods/CHECKPOINT.md",
+      "ids": [
+        "NTC"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/idling-to-rule-the-gods/FINDINGS.json, COVERAGE.json, YAIR_AUDIT.json and IMPLEMENTATION_PACKETS.md; implementation belongs to a future live integration owner, not named here."
+      ],
+      "disposition": "The finite source/export and handoff are reported complete; implementation packets remain proposals. No runtime, personal save, browser or gameplay evidence was produced. Retain exact static chain closure and remaining caller/payment/custody/save gaps. Descriptors do not prove another reset or paid autonomous cultivation. Later source consumers narrow earlier untraced labels only at the exact bounded path; no broad absence or runtime result inferred.",
+      "mechanism_and_interactions": "The ITRTG static export fed five progression traces: clone/time, ordinary NTC/rebirth and focused creation, rebirth and pet traces. The checkpoint says root corrected clone allocation versus completion, base Mighty Statue versus its separate upgrade, duplicate initializer/pet renderer, and completed-claim versus early-finish flag. Existing jobs, occupations, finite goals, feats and reports are listed as present, while proposals remain unselected. Whole-game, dependency, platform, dungeon, equipment, multiplier and save-atomicity coverage remains qualified.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint reports a pinned Steam build/export and validation artifacts. No gameplay/build/browser/save/reload or failure check was run; supporting child reports were summarized, not re-opened in this shard.",
+      "reopen": "A selected implementation must refresh shared interfaces and separately prove the rebuilt playable route and persistence; this checkpoint does not close whole-game or save atomicity.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S028.json"
+      ],
+      "prior_input_sha256": "04ffba122960c4787557f175de5a3a0494d5e3836c499aa94786a315b8961dc2",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "04ffba122960c4787557f175de5a3a0494d5e3836c499aa94786a315b8961dc2",
+      "input_lines": 13
+    },
+    {
+      "path": "docs/research/immortal-life/aspects-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "A01",
+        "A02",
+        "A04",
+        "A05",
+        "A06",
+        "A07",
+        "A08",
+        "A09",
+        "A11",
+        "A12",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/immortal-life/aspects-2026-10-14/EVIDENCE.md, SYSTEM_INVENTORY and VALIDATION.json; no OOPS implementation consumer is named."
+      ],
+      "disposition": "Partial aspect packet and validation artifacts delivered; selected data/native evidence does not close gameplay or full settlement. No implementation authorization follows. Retain exact static chain closure and remaining caller/payment/custody/save gaps. Descriptors do not prove another reset or paid autonomous cultivation. Later source consumers narrow earlier untraced labels only at the exact bounded path; no broad absence or runtime result inferred.",
+      "mechanism_and_interactions": "This companion packet recovered 1,261 dialogue graphs and selected native graph/command, save and system slices, plus alchemy control, cooking matching/completion and smelting ledgers. It keeps configured values apart from costs actually paid and names missing consumers for breakthrough, NPC progression, roommate custody, fortune, and resource settlement. Save durability, migration, autosave/offline behavior, external mod support and all runtime/persistence acceptance remain open.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports graph/native/document validation and explicitly reports no launch, personal save, or playable acceptance. Selected native methods are not an exercised game chain.",
+      "reopen": "For any chosen slice, resolve the exact admission/debit/result/custody and persistence consumers named in its gap row, then obtain fresh rebuilt desktop and save-route evidence.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          34
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S028.json"
+      ],
+      "prior_input_sha256": "614affea5868ddad95c40919789bca664b76e4f407e3043aadfb96586661dccb",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "614affea5868ddad95c40919789bca664b76e4f407e3043aadfb96586661dccb",
+      "input_lines": 34
+    },
+    {
+      "path": "docs/research/immortal-life/pass-2026-10-14-deep/CHECKPOINT.md",
+      "ids": [
+        "D2"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/immortal-life/pass-2026-10-14-deep/REPORT.md, FINDINGS and named gap table; no future runtime owner is assigned here."
+      ],
+      "disposition": "Research packet complete to its selected static boundary, with the checkpoint explicitly partial on unresolved mechanics. No implementation or playable acceptance claimed. Retain exact static chain closure and remaining caller/payment/custody/save gaps. Descriptors do not prove another reset or paid autonomous cultivation. Later source consumers narrow earlier untraced labels only at the exact bounded path; no broad absence or runtime result inferred.",
+      "mechanism_and_interactions": "The deep pass statically traced selected breakthrough admission/payment/wave/success and defeat/injury/recovery branches, plus NPC XP/realm mutations, schedules, work, favor and roommate-day/event consumers. Authored trigger rows include NPC advancement commands, but no paid autonomous training or lifespan/carryover mechanism was established. TriggerManager update/dispatch, alternate entry routes, universal refunds, generated relationships, roommate custody, broad catalogues and runtime/save behavior remain open.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports selected native/data evidence and an unsuccessful supplementary TriggerManager import; it records no gameplay or save exercise. Evidence is historical and not independently rechecked.",
+      "reopen": "If extending a selected mechanic, inspect the exact missing trigger/alternate caller, payment/refund or custody boundary; age, next life and paid NPC autonomy remain unestablished, not proven absent.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          35
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S028.json"
+      ],
+      "prior_input_sha256": "30ccea995211200febee54f2aed27461cd4091c83265f8276bbb9cd174a4dfb0",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "30ccea995211200febee54f2aed27461cd4091c83265f8276bbb9cd174a4dfb0",
+      "input_lines": 35
+    },
+    {
+      "path": "docs/research/immortal-life/pass-2026-10-14-systems/CHECKPOINT.md",
+      "ids": [
+        "G01",
+        "G02",
+        "G03",
+        "G04",
+        "G05",
+        "G06",
+        "G07",
+        "G08",
+        "G09",
+        "U01",
+        "U02",
+        "U03",
+        "U04",
+        "U05",
+        "U06",
+        "U07",
+        "U08",
+        "U09",
+        "U10",
+        "U11",
+        "U12",
+        "U13",
+        "U14",
+        "U15",
+        "U16",
+        "U17",
+        "U18",
+        "U19",
+        "U20",
+        "U21",
+        "U22",
+        "U23",
+        "U24",
+        "U25",
+        "U26",
+        "U27",
+        "U28",
+        "U29",
+        "U30",
+        "U31",
+        "U32",
+        "U33",
+        "U34"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/immortal-life/pass-2026-10-14-systems/REPORT.md, FAMILY_MAP, VALIDATION.json and per-system U01-U34 gap routes; no implementation integrator is named."
+      ],
+      "disposition": "Delivered static research to its stated boundary, not exhaustive mechanics or runtime. Prior gap rows are reconciled selectively; no new source-game or YAIRPG acceptance is claimed. Retain exact static chain closure and remaining caller/payment/custody/save gaps. Descriptors do not prove another reset or paid autonomous cultivation. Later source consumers narrow earlier untraced labels only at the exact bounded path; no broad absence or runtime result inferred.",
+      "mechanism_and_interactions": "The systems sweep connects selected data, native services and save owners across fifteen systems: delegation clocks/results, trigger scheduling/count retention, effect decrement, fortune getters and selected production/housing/trade/pet/combat paths. It explicitly leaves payer costs, callback/crash settlement, UI admission and many system consumers open. The U01-U34 table separates crop, plant, silk, cocoonery, honey, jobs, workshop, housing, shops, exchange, storage, delegation, pets, buffs, fishing, autonomy, relationships, roommate, lifespan, breakthrough, dialogue, triggers, economy, knowledge, cooking, alchemy, smelting, combat, content, formats, save, modding, clocks and runtime gaps.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports three successful Ghidra runs and research artifacts; explicit exclusions include gameplay, source/build changes, personal saves, and commit/push. No playable or persistence proof.",
+      "reopen": "A future slice should follow its exact U-row consumer chain and settlement boundary. Full catalogue, many callbacks/economies, save durability, offline behavior and desktop/runtime remain unqualified.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          66
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S028.json"
+      ],
+      "prior_input_sha256": "c553155d0899ba361be3743917626e6c403b94b09e35d83815390fe734b752ce",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "c553155d0899ba361be3743917626e6c403b94b09e35d83815390fe734b752ce",
+      "input_lines": 66
+    },
+    {
+      "path": "docs/research/immortality-idle/aspects-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "A01-A12",
+        "G1",
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/immortality-idle/aspects-2026-10-14/ and its ASPECTS/TOOLING/VALIDATION references; no live implementation consumer is assigned."
+      ],
+      "disposition": "Partial research packet delivered with named gaps; only assigned aspect directories were written historically, and no research result authorizes runtime edits. Retain exact static chain closure and remaining caller/payment/custody/save gaps. Descriptors do not prove another reset or paid autonomous cultivation. Later source consumers narrow earlier untraced labels only at the exact bounded path; no broad absence or runtime result inferred.",
+      "mechanism_and_interactions": "The aspect checkpoint reports priority dialogue/architecture/save reading, inventory, deeper-system accounts, ranked proposals, packets and tooling, with raw evidence retained privately. Its concrete limits are conversation and full pantheon/follower/pet/economy coverage, classic/old builds, farm batch parity/yield behavior, and rendered desktop/focus plus save import. It claims no implementation or playable acceptance; the aspect directory’s structural validation is not runtime evidence.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports fixed-key/JSON/link/hash validation, explicitly limited to artifact delivery; gameplay and persistence remain unrun.",
+      "reopen": "For a selected gap, follow the corresponding aspect/system source row; verify farm parity by execution and desktop/save behavior with actual runtime evidence rather than static validation.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          24
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S028.json"
+      ],
+      "prior_input_sha256": "6a57e798f2f60cfdf99c9195275960ff6a9f4645f12111772c13f09f5ee38831",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "6a57e798f2f60cfdf99c9195275960ff6a9f4645f12111772c13f09f5ee38831",
+      "input_lines": 24
+    },
+    {
+      "path": "docs/research/immortality-idle/pass-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "F11",
+        "F12"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/immortality-idle/pass-2026-10-14/ reports/findings/proposal packets and the named hash ledger; a future integration owner is not assigned."
+      ],
+      "disposition": "The finite F11/F12 follow-up is reported complete; “complete” is limited to that assignment and does not clear older lane gaps. No implementation authorization or gameplay acceptance is inferred. Retain exact static chain closure and remaining caller/payment/custody/save gaps. Descriptors do not prove another reset or paid autonomous cultivation. Later source consumers narrow earlier untraced labels only at the exact bounded path; no broad absence or runtime result inferred.",
+      "mechanism_and_interactions": "The assigned follow-up statically read trial/gate and hell-boss definitions, combat resolution, technique generation/refinement/archive/save/reset paths, and all 109 activity logic records. It spot-checked crown reward and hell UI distinctions, while preserving unread activity prose/components, complete display/catalog comparisons, pantheon and several helper systems, and gameplay/UI/persistence. The pinned clone did not establish latest upstream.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports source identities, counts and JSON validation. It states no source-game run or save access and qualifies the latest-source fetch as incomplete.",
+      "reopen": "Any selected mechanic still needs its presentation and persistence consumers plus actual play/save evidence; refresh source if latest upstream matters. Unread pantheon/helper systems remain separate boundaries.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          23
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S028.json"
+      ],
+      "prior_input_sha256": "7b054d74a185115187d65284c786ea6b70988718ceda9f9e71c9773d7a2e51f2",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "7b054d74a185115187d65284c786ea6b70988718ceda9f9e71c9773d7a2e51f2",
+      "input_lines": 23
+    },
+    {
+      "path": "docs/research/immortal-life/CHECKPOINT.md",
+      "ids": [
+        "uncoded finite source checkpoint",
+        "named unread consumer families"
+      ],
+      "classification": "fresh full parent source-checkpoint review",
+      "owners": [
+        "docs/research/immortal-life/CHECKPOINT.md"
+      ],
+      "disposition": "Later deep/aspect/system checkpoints extend selected native breakthrough admission/payment/result and NPC/trigger consumers beyond this initial type/data-only boundary; universal alternate caller/refund/paid autonomy/lifespan/save gaps remain.",
+      "evidence": "Entire parent checkpoint freshly read; later unchanged semantic receipts inspected with full original range union. No donor runtime, source program or native binary executed.",
+      "reopen": "Use later per-consumer coverage before reselecting an older gap; do not restart completed extraction/full source reads.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "d9e3921ec47a100e3001c055df720cc3ecdffc3dd5c56b2863d016a799af6906",
+      "input_lines": 32,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          32
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/immortality-idle/CHECKPOINT.md",
+      "ids": [
+        "uncoded finite source checkpoint",
+        "named unread consumer families"
+      ],
+      "classification": "fresh full parent source-checkpoint review",
+      "owners": [
+        "docs/research/immortality-idle/CHECKPOINT.md"
+      ],
+      "disposition": "Later assigned F11/F12 pass reads all 109 activity logic records and selected hell/battle/family-technique consumers, superseding earlier 5-of-109 logic sample and unread-battle baseline at its exact scope. Activity prose, pantheon/helpers, mirror provenance/version and runtime/UI/save gaps remain.",
+      "evidence": "Entire parent checkpoint freshly read; later unchanged semantic receipts inspected with full original range union. No donor runtime, source program or native binary executed.",
+      "reopen": "Use later per-consumer coverage before reselecting an older gap; do not restart completed extraction/full source reads.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "d7816c27e1181216d57cb39cff6b376f48842883865fa3654ea35356fb3db665",
+      "input_lines": 47,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          47
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/immortal-life/CHECKPOINT.md",
+      "heading": "## Later consumer traces, 2026-11-04 (B34)",
+      "body": "The initial type/data-only unread table is dated. The later aspects, pass-2026-10-14-deep and pass-2026-10-14-systems checkpoints retain selected native breakthrough admission/payment/wave/result/recovery, NPC XP/realm and trigger/schedule/work/fortune consumers. Use their exact bounded coverage before calling these functions wholly untraced. They still leave alternate callers, full payer/refund/callback/custody settlement, autonomous paid training, lifespan/next-life, broad catalogues and save/runtime behavior unqualified. Data mutation alone does not establish an independent NPC’s funded decision loop, and absence of a dedicated aging field is not a whole-engine absence proof.",
+      "before_sha256": "d9e3921ec47a100e3001c055df720cc3ecdffc3dd5c56b2863d016a799af6906",
+      "after_sha256": "b2abfdf62d470fba2902321da40a2b6a84f8df1d03b2940426247e131a93db98"
+    },
+    {
+      "path": "docs/research/immortality-idle/CHECKPOINT.md",
+      "heading": "## Later assigned static follow-up, 2026-11-04 (B34)",
+      "body": "pass-2026-10-14/CHECKPOINT.md completes the finite F11/F12 follow-up, including all 109 activity logic records, selected hell trial/gate/boss and battle resolution, and family technique generation/refinement/archive/save/reset paths. The older five-activity sample and unread battle entry are baseline history, not the latest coverage state. Keep activity prose/components, broad display/catalogue comparison, pantheon and remaining helpers, exact current upstream/version, runtime/UI and save behavior distinct. Do not repeat the completed named static pass or treat it as full-game semantic coverage.",
+      "before_sha256": "d7816c27e1181216d57cb39cff6b376f48842883865fa3654ea35356fb3db665",
+      "after_sha256": "5d0a1818760f6189a9930bacd6f191cacc70aa3a3b2468c7b1eec53b4d56081d"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1609
+}

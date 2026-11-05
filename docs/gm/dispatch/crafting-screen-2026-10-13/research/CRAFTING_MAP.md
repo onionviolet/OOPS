@@ -109,3 +109,8 @@ Tabbable in the window: 7 category divs, 2 subpage divs, the filter checkbox, `#
 | After craft | list scrollTop kept (20 → 20), window stays open, row class refreshed, focus on `BODY`, no selection concept, receipt overlay at 348-421 over the rows, log line in Reports |
 
 Screenshots: `current_open_woodworking.png`, `current_hover_ready.png`, `current_hover_missing.png`, `current_after_craft.png` (this folder).
+
+
+## Later checkpoint and current selected source, 2026-11-04 (B87)
+
+F1/F3’s no-detail state predates the [completed crafting checkpoint](../CHECKPOINT.md): it delivered list/detail and explicit select → Craft for its named item slice. Current display/detail source still uses an explicit model, inline blocked reason and command handlers; unknown material labels and accessory-derived station tiers have also evolved. This is source evidence, not a current all-recipe keyboard, knowledge or layout verdict. F5 is specifically stale at the receipt producer: current work_ledger_system chooses a settled success from actual output count, allowing partial output with zero whole successes. F6 is stale at the selected native path: use_recipe includes equipment in the staged transaction wrapper, and the equipment branch invokes settleWorkLedgerCraft after actual additions/removals. No new craft/browser/failure/persistence run was performed here. Preserve the old one-save-edit fixture, source-reference limits and measured 1366 geometry as history; they do not prove natural acquisition, current rendering or source-game behavior. Current desktop direction/AD36/AD42/AD43 apply to new claims. No new crafting/settings/runtime work is selected (AD32).

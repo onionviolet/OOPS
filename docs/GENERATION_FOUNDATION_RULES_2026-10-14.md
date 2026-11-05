@@ -359,3 +359,30 @@ A world-time credit does not itself freeze a world. Current `computeAway` has
 one positive elapsed rate; a dual-clock plan must name the missing integration.
 
 See also (2026-10-19): [World dials and interpreter considerations](WORLD_DIALS_AND_INTERPRETER_CONSIDERATIONS_2026-10-19.md) on how world details turn dials and whether generation tables read them through one resolver. Proposal only.
+
+
+## Content reconciliation B146, 2026-11-04
+
+Read the entire owner, including GR adoption, G1-G6 returns, root corrections and GW5. GR1-GR17 retain their standing status under core rules. The auxiliary SB/MC/CG/GC/GCR/OG/GA/GI proposals are not adopted by proximity. Apply AD36 to select meaningful existing tests for the touched generator; a listed seed sweep, golden and persistence invariant is not permission to manufacture duplicate suites or rerun equivalent unchanged evidence. AD51 permits a shared seam for known cross-world needs with the first consumer, followed by second-world validation/revision.
+
+The later C1-C5 corrections govern the early shortcuts: preserve merged roots rather than inventing migration, no preview leak was established by the historical audit, canon events are conditional expectations rather than forcibly restored pins, explain top shares do not equal a complete odds resolver, and overlay-v1 does not implement all pin/bias features. G-c's router now names this rulebook plus procgen STATUS, and G-e's Ground Rules GW5 link now resolves inside the repo. These named document gaps are superseded; historical random counts and unmerged states remain dated.
+
+GR3/4/10 are read with GW5: hidden detail already used by a cause cannot be regenerated as if uncommitted. Actual observation/learning commands write knowledge; a read-only projection must not create discovery merely by being rendered. Existing natural changes, transformation, retcon and actual rewind can change their permitted truth domains while preserving the causal history required by their mechanism. A counterpart's inherited root does not inherit knowledge or another actor's relationship for free (GR5, GR15, AD38).
+
+Keep the early comic ratings, names, mantles, status-quo repair, pity, retry, drift and top-three retention as local proposals. Ratings can be exact where supported, duplicate names need not imply shared identity, and authored rarity need not guarantee every rare event. A valid fallback cannot erase already committed causal constraints; an unsatisfied case can remain an explicit source/authoring gap. Bound stored explanations according to their real gameplay readers rather than deleting needed history. A debug lens does not publish sealed truth to the director.
+
+The B145 recipe inference was corrected after following the actual caller: native `use_recipe` applies `seededRecipe` with the saved craft stream; its proxy replaces quality rolls, including nested `getResult` calls. Raw class fallbacks alone do not establish a surviving native quality defect. This pass performed no new RNG migration, conformance test, source-canon verification or native/persistence journey (AD32, AD36, AR6).
+
+
+## Procedural helper audit application B152, 2026-11-04
+
+The full [GX4 source audit](gm/dispatch/procgen-2026-10-13/gx4/AUDIT.md) and [GX2 crosswalk](gm/dispatch/procgen-2026-10-13/gx2/RECONCILIATION.md), plus five lane checkpoints, were reviewed. Useful checks for a selected generator: cursor-neutral is not automatically mutation-free, a rolling receipt log is not durable truth, a saved seed is not a complete table/algorithm revision contract, and an observer-safe display cannot be obtained by showing every field of a discovered event. Track actual committed outcomes, supported observer knowledge and required causal history in their existing owners (GR1-GR5, GR10, GR15, AD36).
+
+The old source audit correctly distinguishes native Proxy-seeded recipe commits from unbound recipe fallback. Preserve the current caller contract rather than rebuilding R3-1 from method names alone. Local helper and record snapshots need exact current-source checks before a port; no one generic envelope should replace existing combat, job, inventory or continuation authorities. Tests that cover import serialization, native file selection, failed publication and a real consumer answer different questions.
+
+GX1-GX4 complete documentation, not gameplay. GX5 records a bounded earned appearance route on its own bundle and later has a separate integration receipt. Structural profile/title/link counts, zero-secret manual review and source hashes do not certify complete canon, every future leak or whole-world floor. Old human gates, 1366 targets, proposed ports and lane reservations are history. Known shared needs may be designed with the first consumer under AD51, then validated by a different consumer; no new implementation or universal migration is selected.
+
+
+## Static census evidence application B156, 2026-11-04
+
+The entire [October 26 generator census](reviews/GENERATOR_CENSUS_2026-10-26.md) was read. Its eight rows are named-export/name-co-occurrence signals on the recorded hash, with explicit exclusions. A reader=yes is not a call graph or native consumer, and seed-sweep/golden/save=yes is not an executed passing result. A no cell can reflect detector shape or naming rather than an absent test. Preserve this distinction when applying GR12/GR16 and AD36; strict detector mode is optional, not a new universal gate. Inspect the selected real generator/caller and meaningful invariant before adding or repeating checks.

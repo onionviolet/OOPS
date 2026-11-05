@@ -1,0 +1,125 @@
+{
+  "schema": 1,
+  "batch": "B92",
+  "title": "Material inventories, interaction model and display proposals",
+  "at": "2026-11-04T20:44:17.056405+00:00",
+  "head": "a4bebe24faffd52190c7e93bdc6d3fff91fa145c",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/materials_tags_2026-10-19/IX_A_INTERACTION_MODEL.md",
+      "ids": [
+        "R1–R4",
+        "B1–B6",
+        "PT1–PT12",
+        "E0–E5",
+        "T-a–T-d"
+      ],
+      "classification": "historical material mechanism and UI proposals with current source corrections",
+      "owners": [
+        "docs/audits/materials_tags_2026-10-19/IX_A_INTERACTION_MODEL.md",
+        "docs/CRAFTING_ENGINE.md"
+      ],
+      "disposition": "Preserve R1–R4, B1–B6, PT1–PT12 and E0–E5 as proposals and dated scratch evidence. Correct PT8: its unrestricted monotonic claim conflicts with the same proposal’s gap-2 inert rule, so scope monotonicity to interacting gaps or choose a different authored law. Correct PT7: disjoint reactants do not by themselves commute if one row produces a reactant of the other; exclude product-to-reactant dependencies too. PT5 is bounded single-pass execution, not proof of a chemical fixed point. Current craft_resolver.js selected ranges 108–237 show explicit consumed-material directions/order and thermal control already implemented, including hardness read for thermal tier. Thus old order-of-addition impossibility and no consumed-tag interaction claims are overbroad: selected adjacent-material tag directions exist; arbitrary per-lot kinetics, concentration or a relation compiler are not thereby proven. Current scalar combinations include unmixed refusal, not universal mass-weighted averaging. Existing arithmetic reaction rows still use amount extents and catalyst/station queries. Scratch timing is historical toy scale, not current native performance or integration proof; budget and E0 remain unselected.",
+      "evidence": "Complete original body read. Selected current craft_resolver.js 108–237 and craft_materials.js 89–110,146–180 inspected for named drift; no whole source or runtime proof.",
+      "reopen": "Only selected mechanism or UI slice needs code/consumer/retained-law and rebuilt desktop evidence. No dispatch, schema rewrite or performance gate selected by this reconciliation.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "3db61a04fd1db9cbedb609918234f33365cbf84053fc92bd829ed1b6cc0c7e4c",
+      "input_lines": 183,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          183
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/materials_tags_2026-10-19/MQ_A_TAG_INVENTORY.md",
+      "ids": [
+        "TQ1–TQ15",
+        "NX1–NX14",
+        "V1–V7",
+        "Q1–Q2",
+        "sections 1–9"
+      ],
+      "classification": "historical material mechanism and UI proposals with current source corrections",
+      "owners": [
+        "docs/audits/materials_tags_2026-10-19/MQ_A_TAG_INVENTORY.md",
+        "docs/CRAFTING_ENGINE.md"
+      ],
+      "disposition": "Preserve tag kinds/reader distinctions, V1–V7 and Q1/Q2 units/process-owner findings as dated scoped evidence. Current thermal code reads hardness, so TQ19/V6 and an exact unread-list acceptance test must not continue claiming hardness has no reader. Current catalogue axes have unit, combination and omission policy; inspect a selected consumer rather than assuming all scalar properties average or omitted values always mean measured zero. Stored tags remain outside product identity, but current validateBatchProduct re-resolves and compares the whole product, including tags. Changing thresholds under the same law revision may reject an old product; storage alone does not establish freeze-on-reveal or migration compatibility. Retain the law and material revisions needed for validation. Different domain process enums are not automatically competing ownership or a mandate to merge; adapt at the actual shared consumer. Parent-only grouping tags need no forced rename/deletion. Original inventories exclude item boolean maps, much source data and shipped reachability, so their counts are not project-wide current totals.",
+      "evidence": "Complete original body read. Selected current craft_resolver.js 108–237 and craft_materials.js 89–110,146–180 inspected for named drift; no whole source or runtime proof.",
+      "reopen": "Only selected mechanism or UI slice needs code/consumer/retained-law and rebuilt desktop evidence. No dispatch, schema rewrite or performance gate selected by this reconciliation.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "fafc53e1e738e7def448f99e8301382fb32f24469ef76f9d20b1ca11bfc28df4",
+      "input_lines": 207,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          207
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/materials_tags_2026-10-19/MQ_B_DISPLAY_PLACEMENT.md",
+      "ids": [
+        "UV1–UV14",
+        "X1–X9",
+        "12 fixture candidates",
+        "ranked steps 1–5"
+      ],
+      "classification": "historical material mechanism and UI proposals with current source corrections",
+      "owners": [
+        "docs/audits/materials_tags_2026-10-19/MQ_B_DISPLAY_PLACEMENT.md",
+        "docs/CRAFTING_ENGINE.md"
+      ],
+      "disposition": "Preserve UV1–UV14, X1–X9, the twelve fixture candidates and unknown/known-empty/filter-empty distinctions. Forecasts require an observer projection, inspected odds do not consume draws, lot grouping keeps exact selection, old event wording remains historical, and last-seen information does not replenish stock. These proposals ran no browser and establish no current layout, populated action budget or gather journey. Old UR58 count and 1366 floor are historical; use current UI rules, desktop/laptop targets and accepted direction for a selected slice. Hover/pin and panel choices follow current owners rather than inheriting an October blanket approval request. No generic forced source depletion, keeper, hazard or renewal cause follows from an example. Keep keyboard/text equivalents and focus stability with desktop accessibility; mobile optimization remains deferred.",
+      "evidence": "Complete original body read. Selected current craft_resolver.js 108–237 and craft_materials.js 89–110,146–180 inspected for named drift; no whole source or runtime proof.",
+      "reopen": "Only selected mechanism or UI slice needs code/consumer/retained-law and rebuilt desktop evidence. No dispatch, schema rewrite or performance gate selected by this reconciliation.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "115830655c580b47d92670a71c31972ecb794c4608ab671b32c60d165a48655b",
+      "input_lines": 201,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          201
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/materials_tags_2026-10-19/IX_A_INTERACTION_MODEL.md",
+      "heading": "## Reconciliation B92, 2026-11-04",
+      "body": "Preserve R1–R4, B1–B6, PT1–PT12 and E0–E5 as proposals and dated scratch evidence. Correct PT8: its unrestricted monotonic claim conflicts with the same proposal’s gap-2 inert rule, so scope monotonicity to interacting gaps or choose a different authored law. Correct PT7: disjoint reactants do not by themselves commute if one row produces a reactant of the other; exclude product-to-reactant dependencies too. PT5 is bounded single-pass execution, not proof of a chemical fixed point. Current craft_resolver.js selected ranges 108–237 show explicit consumed-material directions/order and thermal control already implemented, including hardness read for thermal tier. Thus old order-of-addition impossibility and no consumed-tag interaction claims are overbroad: selected adjacent-material tag directions exist; arbitrary per-lot kinetics, concentration or a relation compiler are not thereby proven. Current scalar combinations include unmixed refusal, not universal mass-weighted averaging. Existing arithmetic reaction rows still use amount extents and catalyst/station queries. Scratch timing is historical toy scale, not current native performance or integration proof; budget and E0 remain unselected.",
+      "before_sha256": "3db61a04fd1db9cbedb609918234f33365cbf84053fc92bd829ed1b6cc0c7e4c",
+      "after_sha256": "83ec0f8c1d3945f7c8ad00eed4a31bc9774ecabfece1c04ed98a6c529d04c98d"
+    },
+    {
+      "path": "docs/audits/materials_tags_2026-10-19/MQ_A_TAG_INVENTORY.md",
+      "heading": "## Reconciliation B92, 2026-11-04",
+      "body": "Preserve tag kinds/reader distinctions, V1–V7 and Q1/Q2 units/process-owner findings as dated scoped evidence. Current thermal code reads hardness, so TQ19/V6 and an exact unread-list acceptance test must not continue claiming hardness has no reader. Current catalogue axes have unit, combination and omission policy; inspect a selected consumer rather than assuming all scalar properties average or omitted values always mean measured zero. Stored tags remain outside product identity, but current validateBatchProduct re-resolves and compares the whole product, including tags. Changing thresholds under the same law revision may reject an old product; storage alone does not establish freeze-on-reveal or migration compatibility. Retain the law and material revisions needed for validation. Different domain process enums are not automatically competing ownership or a mandate to merge; adapt at the actual shared consumer. Parent-only grouping tags need no forced rename/deletion. Original inventories exclude item boolean maps, much source data and shipped reachability, so their counts are not project-wide current totals.",
+      "before_sha256": "fafc53e1e738e7def448f99e8301382fb32f24469ef76f9d20b1ca11bfc28df4",
+      "after_sha256": "193ed8c0e0d631d447a8d50fc80850f3490f48b6e9dd3dd168e51ae4aa0d7f6c"
+    },
+    {
+      "path": "docs/audits/materials_tags_2026-10-19/MQ_B_DISPLAY_PLACEMENT.md",
+      "heading": "## Reconciliation B92, 2026-11-04",
+      "body": "Preserve UV1–UV14, X1–X9, the twelve fixture candidates and unknown/known-empty/filter-empty distinctions. Forecasts require an observer projection, inspected odds do not consume draws, lot grouping keeps exact selection, old event wording remains historical, and last-seen information does not replenish stock. These proposals ran no browser and establish no current layout, populated action budget or gather journey. Old UR58 count and 1366 floor are historical; use current UI rules, desktop/laptop targets and accepted direction for a selected slice. Hover/pin and panel choices follow current owners rather than inheriting an October blanket approval request. No generic forced source depletion, keeper, hazard or renewal cause follows from an example. Keep keyboard/text equivalents and focus stability with desktop accessibility; mobile optimization remains deferred.",
+      "before_sha256": "115830655c580b47d92670a71c31972ecb794c4608ab671b32c60d165a48655b",
+      "after_sha256": "f0966ca613d13fd82cb537827588955e15e76fc7eb279d37880e8f22ff4470b6"
+    },
+    {
+      "path": "docs/CRAFTING_ENGINE.md",
+      "heading": "## Material-lane reconciliation B92, 2026-11-04",
+      "body": "Preserve R1–R4, B1–B6, PT1–PT12 and E0–E5 as proposals and dated scratch evidence. Correct PT8: its unrestricted monotonic claim conflicts with the same proposal’s gap-2 inert rule, so scope monotonicity to interacting gaps or choose a different authored law. Correct PT7: disjoint reactants do not by themselves commute if one row produces a reactant of the other; exclude product-to-reactant dependencies too. PT5 is bounded single-pass execution, not proof of a chemical fixed point. Current craft_resolver.js selected ranges 108–237 show explicit consumed-material directions/order and thermal control already implemented, including hardness read for thermal tier. Thus old order-of-addition impossibility and no consumed-tag interaction claims are overbroad: selected adjacent-material tag directions exist; arbitrary per-lot kinetics, concentration or a relation compiler are not thereby proven. Current scalar combinations include unmixed refusal, not universal mass-weighted averaging. Existing arithmetic reaction rows still use amount extents and catalyst/station queries. Scratch timing is historical toy scale, not current native performance or integration proof; budget and E0 remain unselected.\n\nPreserve tag kinds/reader distinctions, V1–V7 and Q1/Q2 units/process-owner findings as dated scoped evidence. Current thermal code reads hardness, so TQ19/V6 and an exact unread-list acceptance test must not continue claiming hardness has no reader. Current catalogue axes have unit, combination and omission policy; inspect a selected consumer rather than assuming all scalar properties average or omitted values always mean measured zero. Stored tags remain outside product identity, but current validateBatchProduct re-resolves and compares the whole product, including tags. Changing thresholds under the same law revision may reject an old product; storage alone does not establish freeze-on-reveal or migration compatibility. Retain the law and material revisions needed for validation. Different domain process enums are not automatically competing ownership or a mandate to merge; adapt at the actual shared consumer. Parent-only grouping tags need no forced rename/deletion. Original inventories exclude item boolean maps, much source data and shipped reachability, so their counts are not project-wide current totals.\n\nPreserve UV1–UV14, X1–X9, the twelve fixture candidates and unknown/known-empty/filter-empty distinctions. Forecasts require an observer projection, inspected odds do not consume draws, lot grouping keeps exact selection, old event wording remains historical, and last-seen information does not replenish stock. These proposals ran no browser and establish no current layout, populated action budget or gather journey. Old UR58 count and 1366 floor are historical; use current UI rules, desktop/laptop targets and accepted direction for a selected slice. Hover/pin and panel choices follow current owners rather than inheriting an October blanket approval request. No generic forced source depletion, keeper, hazard or renewal cause follows from an example. Keep keyboard/text equivalents and focus stability with desktop accessibility; mobile optimization remains deferred.",
+      "before_sha256": "5945995472050c6b52727d0dd6daeea3af5c4a47cb5cc101e58f2281f79ba80e",
+      "after_sha256": "6369d4937cc6f339d0ad4c7a33967afab3780da04c3c6d25f9c185538d16211d"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1326
+}

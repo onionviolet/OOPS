@@ -709,3 +709,16 @@ Verification and filing only: eight GT5U claims re-read in source (one wrong, on
 | MW7 | Link capacity with nearest-first allocation and a rationed shortage (TB21/TB13/TB14, Q7/Q8) | Sol medium / large, trigger: a world with real routes under load | Shortage shares proportionally, overload hits the weakest link with a stated cause; no owner exists yet (Q8 FL1-FL5 cover chain shape only) |
 | MW8 | Local residue ledger with smooth decay, a spread floor and stacked harms (GT13, X20) | Sol medium / large, trigger: a selected industrial world | A source raises a per-place value, decay and spread follow a declared clock (SR20), and the cure is a part, gear or distance; sweep any cap for default/dial/reason |
 | MW9 | Two-axis container (kinds and size) with per-kind overhead (TB9/TB22, Q6) | Luna low / small to propose an owner first | Q6 has no owner today; first deliverable is naming one, not code |
+
+
+## Field and staged-chain reconciliation, 2026-11-04
+
+Content-reviewed the [physical-field G7 note](PHYSICAL_FIELD_LAYER_DESIGN_2026-10-23.md) and [modular-chain audit](audits/MODULAR_CHAINS_CORE_AUDIT.md), including PC1–PC5 trigger scope and the FS1–FS9 interruption/custody constraints. This folds useful consequences into their existing chain owner; it does not select another chain engine (AD32/AD38).
+
+G7's opening absence claim precedes its own built second pass. Current source supplies `field_layer.js` state/advance, `field_layer_factory.js` quoted commands and the `fields` slice, native mixture/inventory/light/weather ports, and the `field_layer_panel.js` projection consumer. The current source panel label is “Spills and smoke”; the original longer label is historical. Focused field tests cover named local conservation, chunking and field mechanics. They do not establish browser discoverability, arbitrary-world physics or general away-time equivalence.
+
+FS1–FS9 remain useful because stopping work is not the same as undoing every physical consequence. A committed spill/fire can keep changing local material while a staffed preparation stage pauses. Keep lot-held progress, consumed inputs, recoverable containers and uncollected output separate; each selected stage uses its actual clock and settlement policy. Opening a panel or moving stock does not create another elapsed-time owner.
+
+The field adapter's current health/stamina write is injected but still writes actor stats directly. Its capped harm is this adapter's policy, not a universal consequence of AD19/AD50. A future body-owner exposure command, carried-item/home damage and negative-light reader need their actual receiving owners; the field layer must not silently acquire their state. Rain is read once for the passed interval, so changed weather during that interval remains a qualification for broader time claims. The cap/settling proof belongs to the tested local dials, not every later extension.
+
+Reopen PC1/PC3 when a selected saved product or custody transfer changes; PC4 when that stage's clock/away policy changes; PC2 when an actual rule consumer changes; PC5 for a selected world's needs. Preserve the original audit rounds and source-local IDs. A new doc alone is an intake trigger, not authorization to run all lanes or build a new world.

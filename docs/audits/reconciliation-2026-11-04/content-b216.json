@@ -1,0 +1,336 @@
+{
+  "schema": 1,
+  "batch": "B216",
+  "title": "Tool/source locators, bounded lane finals and exact native proof boundaries",
+  "at": "2026-11-04T23:16:32.093252+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/engine-runtime-2026-10-14/ER4/sources/trimps/README.md",
+      "ids": [
+        "Heading-only upstream README"
+      ],
+      "classification": "Historical bounded assignment, completion evidence or source/tool locator",
+      "owners": [
+        "docs/gm/dispatch/engine-runtime-2026-10-14/ER4/sources/trimps/README.md"
+      ],
+      "disposition": "Only a heading exists; no additional mechanic or runtime evidence in this candidate. Full file review means one heading, not full Trimps source.",
+      "evidence": "Full short file read, no output truncation. No linked report/source/JSON/corpus/runtime/process state credited as inspected in this batch.",
+      "reopen": "For its named current question only, follow the exact owner, input version and actual consumer or released artifact. Do not execute historical instructions or promote completion labels across evidence levels.",
+      "input_sha256": "a1dd7c628e619665d42c8a6aa701543acb3aca370dbef2cb08e7e95a70c96671",
+      "input_lines": 1,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/engine-runtime-2026-10-14/ER4/sources/melvor-types/README.md",
+      "ids": [
+        "Type-definition README"
+      ],
+      "classification": "Historical bounded assignment, completion evidence or source/tool locator",
+      "owners": [
+        "docs/gm/dispatch/engine-runtime-2026-10-14/ER4/sources/melvor-types/README.md"
+      ],
+      "disposition": "Official typedef families and globally exposed library types are declared; README/package install instructions do not establish runtime implementations, current versions or mod consumer execution. No install.",
+      "evidence": "Full short file read, no output truncation. No linked report/source/JSON/corpus/runtime/process state credited as inspected in this batch.",
+      "reopen": "For its named current question only, follow the exact owner, input version and actual consumer or released artifact. Do not execute historical instructions or promote completion labels across evidence levels.",
+      "input_sha256": "184c7cf6cf4d591b55b7cde4a90b25adeabd3c8bee93ee94377640e3bf743c40",
+      "input_lines": 10,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          10
+        ]
+      ]
+    },
+    {
+      "path": "docs/worlds/mha/readers-2026-10-14/README.md",
+      "ids": [
+        "ShardA689/ShardB945+23"
+      ],
+      "classification": "Historical bounded assignment, completion evidence or source/tool locator",
+      "owners": [
+        "docs/worlds/mha/readers-2026-10-14/README.md"
+      ],
+      "disposition": "Secondary2023WikiTeam evidence requires ERRATA and NOTE_CORRECTIONS/AUDIT_ADJUDICATION, not primary canon authentication. Counts not new original chapters read.",
+      "evidence": "Full short file read, no output truncation. No linked report/source/JSON/corpus/runtime/process state credited as inspected in this batch.",
+      "reopen": "For its named current question only, follow the exact owner, input version and actual consumer or released artifact. Do not execute historical instructions or promote completion labels across evidence levels.",
+      "input_sha256": "b1dba797be3b3410caea20d5ce5d789bc2463a421256d74831a29504fd111ba2",
+      "input_lines": 6,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          6
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/codex-parallel-2026-10-25/E2_register_gaps.md",
+      "ids": [
+        "E2 MAW-X8/X9 assignment"
+      ],
+      "classification": "Historical bounded assignment, completion evidence or source/tool locator",
+      "owners": [
+        "docs/gm/dispatch/codex-parallel-2026-10-25/E2_register_gaps.md"
+      ],
+      "disposition": "Historical bounded map/owner routing with source reads required; primary dirty docs read-only, missing worktree inputs not copied wholesale. Historical commit/subagent/model instructions grant no current authority.",
+      "evidence": "Full short file read, no output truncation. No linked report/source/JSON/corpus/runtime/process state credited as inspected in this batch.",
+      "reopen": "For its named current question only, follow the exact owner, input version and actual consumer or released artifact. Do not execute historical instructions or promote completion labels across evidence levels.",
+      "input_sha256": "c01c70c784f8ec0ed274d56cea41c517c06473a5b58b8e5fca8ba6f9fd14352a",
+      "input_lines": 7,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/codex-parallel-2026-10-25/runs/e2-register-gaps.last.md",
+      "ids": [
+        "E2 4a1a5da final"
+      ],
+      "classification": "Historical bounded assignment, completion evidence or source/tool locator",
+      "owners": [
+        "docs/gm/dispatch/codex-parallel-2026-10-25/runs/e2-register-gaps.last.md"
+      ],
+      "disposition": "Reported branch commit/clean check and doc tests are historical, not primary integration. Helper cross-wiring inferred, attention refillG11unlocated. No browser/build/runtime.",
+      "evidence": "Full short file read, no output truncation. No linked report/source/JSON/corpus/runtime/process state credited as inspected in this batch.",
+      "reopen": "For its named current question only, follow the exact owner, input version and actual consumer or released artifact. Do not execute historical instructions or promote completion labels across evidence levels.",
+      "input_sha256": "a000e3b034336965d5340a748d5ed66e74134bc086244d25f7493c56f116f60a",
+      "input_lines": 8,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/codex-parallel-2026-10-25/C2_mcp_coverage.md",
+      "ids": [
+        "BMC1/BLD2/BLD3 assignment"
+      ],
+      "classification": "Historical bounded assignment, completion evidence or source/tool locator",
+      "owners": [
+        "docs/gm/dispatch/codex-parallel-2026-10-25/C2_mcp_coverage.md"
+      ],
+      "disposition": "Native player routes preferred; labeled test-start affordance if no actual route, never secretly seeded ordinary progression. Historical four-agent dispatch and frozen-bundle request not current launch.",
+      "evidence": "Full short file read, no output truncation. No linked report/source/JSON/corpus/runtime/process state credited as inspected in this batch.",
+      "reopen": "For its named current question only, follow the exact owner, input version and actual consumer or released artifact. Do not execute historical instructions or promote completion labels across evidence levels.",
+      "input_sha256": "bbdee75c074c3944983e7d7202ade2e528bc85a2be9c55a77052fb2b6abd47c7",
+      "input_lines": 9,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/codex-parallel-2026-10-25/runs/c2-mcp-coverage.last.md",
+      "ids": [
+        "C2 9ddc47caf;14affected"
+      ],
+      "classification": "Historical bounded assignment, completion evidence or source/tool locator",
+      "owners": [
+        "docs/gm/dispatch/codex-parallel-2026-10-25/runs/c2-mcp-coverage.last.md"
+      ],
+      "disposition": "Entry and async transition fixes reported branch-committed, explicitly primary scripts not integrated. Focused reruns clearing sandbox/timeouts do not establish full-suite pass. Advanced cultivation/baggage/law/combat needed matchingbuild; brewing/trial/withdrawal and frozenbundle deferred.",
+      "evidence": "Full short file read, no output truncation. No linked report/source/JSON/corpus/runtime/process state credited as inspected in this batch.",
+      "reopen": "For its named current question only, follow the exact owner, input version and actual consumer or released artifact. Do not execute historical instructions or promote completion labels across evidence levels.",
+      "input_sha256": "2fe211832a47f3209d596decbac2671ac70363b852aca7b49708a85804b91447",
+      "input_lines": 8,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/codex-parallel-2026-10-25/D5_ideas_left.md",
+      "ids": [
+        "D5 extraction scope"
+      ],
+      "classification": "Historical bounded assignment, completion evidence or source/tool locator",
+      "owners": [
+        "docs/gm/dispatch/codex-parallel-2026-10-25/D5_ideas_left.md"
+      ],
+      "disposition": "Preserve every idea with existing owners and original user-word locators, no competing backlog. The old instruction requests only user messages in repo-scoped logs; no authority here to read all private sessions or spawn old four-agent lane.",
+      "evidence": "Full short file read, no output truncation. No linked report/source/JSON/corpus/runtime/process state credited as inspected in this batch.",
+      "reopen": "For its named current question only, follow the exact owner, input version and actual consumer or released artifact. Do not execute historical instructions or promote completion labels across evidence levels.",
+      "input_sha256": "a42becfc64616c18d974ab162a13a16e827687565988da3b5a77fa72e11bbf44",
+      "input_lines": 9,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/README.md",
+      "ids": [
+        "Sealed planning return/reassembly"
+      ],
+      "classification": "Historical bounded assignment, completion evidence or source/tool locator",
+      "owners": [
+        "docs/gm/dispatch/dual-gm-2026-10-11/expansion/README.md"
+      ],
+      "disposition": "Complete planning return is not world gameplay completion; initial assembly resets later joins. No rerun of unchanged assembly, and private truth or revealing criteria remain in private owners.",
+      "evidence": "Full short file read, no output truncation. No linked report/source/JSON/corpus/runtime/process state credited as inspected in this batch.",
+      "reopen": "For its named current question only, follow the exact owner, input version and actual consumer or released artifact. Do not execute historical instructions or promote completion labels across evidence levels.",
+      "input_sha256": "3fa2b5b46e746031abeef5917e7cf1a394371bedf3736660af4e679caefdaa26",
+      "input_lines": 9,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/harvest-modules-2026-10-14/hv1/proof/README.md",
+      "ids": [
+        "HV1 natural journey and source stress"
+      ],
+      "classification": "Historical bounded assignment, completion evidence or source/tool locator",
+      "owners": [
+        "docs/gm/dispatch/harvest-modules-2026-10-14/hv1/proof/README.md"
+      ],
+      "disposition": "Earned15rat journey/real6pelts differs from pure10000kill stress. Firstcraft receipt liveobserved but continuation read historical readiness file after ambiguousselector; two bundlebindings separate finalpresentation refresh from originaljourney. No patchedfixture or currentbrowserpass inferred.",
+      "evidence": "Full short file read, no output truncation. No linked report/source/JSON/corpus/runtime/process state credited as inspected in this batch.",
+      "reopen": "For its named current question only, follow the exact owner, input version and actual consumer or released artifact. Do not execute historical instructions or promote completion labels across evidence levels.",
+      "input_sha256": "303c5d0ab2b264d60b29599d98ee3851dc83eb7c694e085e79e12519e9adb561",
+      "input_lines": 9,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/manga-text/README.md",
+      "ids": [
+        "Tool-path relocation"
+      ],
+      "classification": "Historical bounded assignment, completion evidence or source/tool locator",
+      "owners": [
+        "docs/research/manga-text/README.md"
+      ],
+      "disposition": "Researchoutputs remain here; code/profile/tests moved scripts/manga_text Oct23. Stage1oldtool paths historical. Private OCRtext/panelclips are corpus outputs, not authenticated primary reading or a new acquisition request.",
+      "evidence": "Full short file read, no output truncation. No linked report/source/JSON/corpus/runtime/process state credited as inspected in this batch.",
+      "reopen": "For its named current question only, follow the exact owner, input version and actual consumer or released artifact. Do not execute historical instructions or promote completion labels across evidence levels.",
+      "input_sha256": "1c644cfafb48d0c766ca5bac24e447e89f73c84a34462acda733a4a390fc7c5f",
+      "input_lines": 9,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/qud-systems-audit-2026-10-15/GAP_AUDIT_PROPOSED_HUNK_2026-10-23.md",
+      "ids": [
+        "QUD D1/R3/G2–G5 closure proposal"
+      ],
+      "classification": "Historical bounded assignment, completion evidence or source/tool locator",
+      "owners": [
+        "docs/research/qud-systems-audit-2026-10-15/GAP_AUDIT_PROPOSED_HUNK_2026-10-23.md"
+      ],
+      "disposition": "Centralhunk explicitly unapplied in worktree, candidateuncommitted; recorded2729suite/fullapp/persistence proofs distinct from primaryintegration. G1/G7/separatorinterception/gitignoreuntracked open;D3unselected. HumanreviewoptionalunderAD42.",
+      "evidence": "Full short file read, no output truncation. No linked report/source/JSON/corpus/runtime/process state credited as inspected in this batch.",
+      "reopen": "For its named current question only, follow the exact owner, input version and actual consumer or released artifact. Do not execute historical instructions or promote completion labels across evidence levels.",
+      "input_sha256": "64c49de6a0470596c54e93989ce73cdf6477a3a758466013527312c1061a1252",
+      "input_lines": 10,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          10
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/MINECRAFT_MODPACK_SCOUT_2026-10-14-response.md",
+      "ids": [
+        "Recovered user paste/failed browser capture"
+      ],
+      "classification": "Historical bounded assignment, completion evidence or source/tool locator",
+      "owners": [
+        "docs/research/MINECRAFT_MODPACK_SCOUT_2026-10-14-response.md"
+      ],
+      "disposition": "Response complete label originally had unloadedbody and noscreenshot; later exactuserpaste recoveredwithoutresubmission, missingURLs/entitynamesremain. DirectreportinitiallyexcludedChatGPTfindings,expandedcataloglaterusedrecoveredones. Availabilitychronologydoesnotcontradict.",
+      "evidence": "Full short file read, no output truncation. No linked report/source/JSON/corpus/runtime/process state credited as inspected in this batch.",
+      "reopen": "For its named current question only, follow the exact owner, input version and actual consumer or released artifact. Do not execute historical instructions or promote completion labels across evidence levels.",
+      "input_sha256": "7f411d193701f8a2071a461abaf1349a4fb2f7679e605a0c4c4bcc3ecd608ebf",
+      "input_lines": 11,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/FINAL_ACQUISITION_PLAN.md",
+      "ids": [
+        "Five-step native acceptance plan;ARM1850/Intel84"
+      ],
+      "classification": "Historical bounded assignment, completion evidence or source/tool locator",
+      "owners": [
+        "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/FINAL_ACQUISITION_PLAN.md"
+      ],
+      "disposition": "PreparedextendedauditASTonlynotexecutedacceptance. Needexplicitfinalchunk/repairedjoins/retainedtoolsprovenance; pcode/miniprogram/suppressederrorsnotrecoveredhighlevelC. Existinghistoricalscansvalidscoped, no needrepeatunchanged. Runtime/privatewriterleaseshistoricalnotcurrentpermission.",
+      "evidence": "Full short file read, no output truncation. No linked report/source/JSON/corpus/runtime/process state credited as inspected in this batch.",
+      "reopen": "For its named current question only, follow the exact owner, input version and actual consumer or released artifact. Do not execute historical instructions or promote completion labels across evidence levels.",
+      "input_sha256": "70d60a5ebc3ea488ff50d49cb29d4110facadd47df8ac82a862895e63e7afdf4",
+      "input_lines": 11,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/harvest-modules-2026-10-14/hv1/proof/README.md",
+      "heading": "## Content reconciliation B216, 2026-11-04",
+      "body": "The full proof-routing note was reviewed. Preserve the earned native journey, six-pelt debit and real first craft receipt separately from harness recovery and later presentation-only refresh. The historical readiness file is not a second natural acquisition journey or a substitute user save. Original BROWSER_EVIDENCE and later FINAL_REFRESH bind different scopes/bytes; a later whole/reload/UI check does not repeat every original earned prerequisite. Pure10,000-kill stress and all-five-species serialized replay prove their source owner, not10,000 native combat kills or long-running browser overflow. Long native auto-fight remains in its backlog until matching evidence exists. No profile, export, image, script or browser was reopened or executed by B216 (AD32/AD36).",
+      "before_sha256": "303c5d0ab2b264d60b29599d98ee3851dc83eb7c694e085e79e12519e9adb561",
+      "after_sha256": "94185d2ff1ba6e508612d7c9a3d587e125bc495e0e1d9956afdf4f8ff98a8e78"
+    },
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/FINAL_ACQUISITION_PLAN.md",
+      "heading": "## Content reconciliation B216, 2026-11-04",
+      "body": "The entire five-step acceptance plan was read as a plan, not a completed native recovery receipt. Its extended corpus checker had AST syntax evidence only; running it and qualifying repaired Splitter/Inserter/address/ABI/merge joins remained distinct future steps. ARM through1850 and initial Intel through84 describe valid historical snapshots, not the final repaired bounds by inference. Byte identity, attempted function, generated C, resolved control flow, qualified field layout and understood semantics need different evidence. Pcode, mini-program success, suppressed errors or raised resource limits do not replace missing high-level C (AD32/AD36).\n\nRetain the no-repeat rule for unchanged evidence and refresh consequential joins only when changed. Architecture corpora/retained tool provenance are separate from installed2.0.77 API/DLC claims, experimental2.1.21 and entitlement. A whole export does not establish a buildable original C++ project or whole-binary reading. The retort’s code/native/UI/build record here explicitly remained implemented-unverified for gameplay/browser/save/failure gates. Historical writer leases, scripts and outgoing-disposition instructions grant no current launch, message or corpus mutation. Current tool registry is the entry point for any separately selected new tool work; B216 executes none.",
+      "before_sha256": "70d60a5ebc3ea488ff50d49cb29d4110facadd47df8ac82a862895e63e7afdf4",
+      "after_sha256": "ff50f166a858ea84bc9cb5a45eb2bd51562a827cab4d57d4cee2ffddf3bb10f8"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1022
+}

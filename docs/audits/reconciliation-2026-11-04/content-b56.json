@@ -1,0 +1,145 @@
+{
+  "schema": 1,
+  "batch": "B56",
+  "title": "Preserved supersession stubs and historical reconciliation method",
+  "at": "2026-11-04T20:02:16.865547+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/WEAPONCRAFTING_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md",
+      "ids": [
+        "WF/WP/RU/CS",
+        "WFI-OM/WW/SB/OV/AB/IM"
+      ],
+      "classification": "retained supersession stub; fresh full content review",
+      "owners": [
+        "docs/WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "disposition": "Keep seven-line stub, original code-family routing and git revision pointer. Canonical owner distinguishes same-idea aliases from distinct moved rows and uncoded blocks; alias title alone does not preserve every donor nuance, so original revision remains necessary. No deletion or full canonical-palette/275-row preservation audit claimed.",
+      "evidence": "All stub lines read and canonical Round4 explanation/first alias rows inspected; source revision pointer not executed as code.",
+      "reopen": "Use canonical alias/moved-row section and original revision when a particular idea is selected; review full canonical owner separately.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "67f53f3d9d227f3a09f4de8ce377aaaf8095baeb057dda98a0951e405d99a3cc",
+      "input_lines": 7,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "path": "docs/WEAPONCRAFTING_RUNES_AND_REVEAL_CONSIDERATIONS_2026-10-14.md",
+      "ids": [
+        "REV-WC/RN/OV/IM",
+        "RV/XA"
+      ],
+      "classification": "retained supersession stub; fresh full content review",
+      "owners": [
+        "docs/WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "disposition": "Keep seven-line stub, original code-family routing and git revision pointer. Canonical owner distinguishes same-idea aliases from distinct moved rows and uncoded blocks; alias title alone does not preserve every donor nuance, so original revision remains necessary. No deletion or full canonical-palette/275-row preservation audit claimed.",
+      "evidence": "All stub lines read and canonical Round4 explanation/first alias rows inspected; source revision pointer not executed as code.",
+      "reopen": "Use canonical alias/moved-row section and original revision when a particular idea is selected; review full canonical owner separately.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "125552d1fc5a3258a8e2cde58c5bae10b972d433c26d9a67b3f18fb43c6dd547",
+      "input_lines": 7,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "path": "docs/WEAPONCRAFT_RUNES_AND_MAKER_ARTS_CONSIDERATIONS_2026-10-14.md",
+      "ids": [
+        "MKR-WC/AR/RN/OM/SB/OV/IM/AB",
+        "WQ/RC"
+      ],
+      "classification": "retained supersession stub; fresh full content review",
+      "owners": [
+        "docs/WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "disposition": "Keep seven-line stub, original code-family routing and git revision pointer. Canonical owner distinguishes same-idea aliases from distinct moved rows and uncoded blocks; alias title alone does not preserve every donor nuance, so original revision remains necessary. No deletion or full canonical-palette/275-row preservation audit claimed.",
+      "evidence": "All stub lines read and canonical Round4 explanation/first alias rows inspected; source revision pointer not executed as code.",
+      "reopen": "Use canonical alias/moved-row section and original revision when a particular idea is selected; review full canonical owner separately.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "8fc59b6026ee2e51b86e41c511e85e402252e29b37412294390e4856c7bd9b42",
+      "input_lines": 7,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "path": "docs/WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md",
+      "ids": [
+        "Round4",
+        "275 donor codes",
+        "145 aliases/130 moved rows",
+        "knowledge/fidelity open owner"
+      ],
+      "classification": "selected reconciliation section; full owner still open",
+      "owners": [
+        "docs/WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "disposition": "Preserve current canonical owner, per-code aliases vs moved distinct ideas, original donor wording via git history, and open knowledge/fidelity authority. Round2 pre-rename crosswalk is superseded by later alias table. Declared275-code zero-loss check is historical, not rerun here.",
+      "evidence": "Only lines580–624 read in this batch, not complete source palette.",
+      "reopen": "Full owner and per-code semantics remain pending; do not count this section as full coverage.",
+      "read_mode": "fresh_selected_content_read",
+      "full": false,
+      "ranges": [
+        [
+          580,
+          624
+        ]
+      ],
+      "input_sha256": "3fb5f2f5dbcb709c95c422d9b5147b0f01ff47b8dc37cd3bac49f0d145f31e60",
+      "input_lines": 1081
+    },
+    {
+      "path": "docs/gm/AUDIT_RECONCILIATION_METHOD_2026-10-11.md",
+      "ids": [
+        "P1–P5",
+        "completion standard",
+        "core-rule follow-through"
+      ],
+      "classification": "historical method proposal; fresh full content review",
+      "owners": [
+        "docs/gm/AUDIT_RECONCILIATION_METHOD_2026-10-11.md",
+        "docs/gm/WRITEUP_REGISTER.md"
+      ],
+      "disposition": "Preserve idea-level IDs/provenance/owners/consequences, authority/source/behavior distinctions, compatible variants, meaningful useful depth and evidence-specific closure. Original merge/current-run and one-realm gate are dated snapshots superseded by current lead direction and Oct24 scope. Current AD42 makes human feedback optional; AD36/43 governs selected verification, not every old suite.",
+      "evidence": "All166 lines read in two bounded ranges after an overbroad combined display was discarded; no old launch/merge/runtime instruction executed.",
+      "reopen": "Use current reconcile-project workflow and live native register for current work; retain method as history, not a competing mandatory gate.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "3b81be93eed4aa63fd46e6d95f3e2f82600fc0942d7b6ba0c0525625bae65da7",
+      "input_lines": 166,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          166
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/AUDIT_RECONCILIATION_METHOD_2026-10-11.md",
+      "heading": "## Current workflow qualification, 2026-11-04 (B56)",
+      "body": "The old unresolved-merge observation, PartsA–E current-run order and one-realm/one-prestige milestone describe October11. Current PROJECT/accepted direction governs build order; USER_VISION’s October24 scope direction retired that required milestone. Preserve P1–P5’s idea-level provenance, variants, actual receiving consumers and distinct evidence states without turning all historical deferred checks into one new gate. AD36/43 governs selected verification; AD42 makes human taste/fiction feedback optional. Current project-wide intake and bounded actual-content coverage live in the loose-document reconciliation report/inventory and WRITEUP_REGISTER. Consolidation keeps useful source history and code aliases; delete-and-point is not the default.",
+      "before_sha256": "3b81be93eed4aa63fd46e6d95f3e2f82600fc0942d7b6ba0c0525625bae65da7",
+      "after_sha256": "976bb8a1b753936ef2c2321e6253b16a785fe239cb580ca95eeac268f3b1c069"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1421
+}

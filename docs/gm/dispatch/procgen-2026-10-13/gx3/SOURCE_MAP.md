@@ -43,3 +43,8 @@
 | L5 [Away ledger](../../away-ledger-2026-10-14/GOAL.md), [Offline audit](../../../../research/OFFLINE_TIME_AND_BRANCH_CLOCK_AUDIT_2026-10-14.md), [P16 idle stories](../p16/IDLE_AND_EVENT_STORIES.md) | Away calculator owns elapsed credit math; joined host owns settlement; P14/P25 own story recap presentation. GX3 proposes aggregation inputs, cap distinctions and continuity gates only. |
 
 Read snapshot hashes and static verification live in CHECKS.json. Concurrent edits can move locators. Receiving builders refresh selected contracts and active file owners before writing.
+
+
+## Source-map scope retained, 2026-11-04 (B77)
+
+F1–F5 and C1–C5 record their named source snapshot; O1–O5/L1–L5 preserve distinct owners rather than a generic texture/clock/history engine. Current selected stream source has later loaded-dice call/override support, as [GX2 now records](../gx2/SOURCE_MAP.md#current-selected-stream-seam-2026-11-04-b77), without proving the entire lens/micro/offline palette. Causal use can freeze truth before revelation; current permitted fact views differ from occurrence-time utterances. Reuse actual durability, custody, world clocks, saved cursors and observations, with AD51’s shared seam direction and AD36’s proportional evidence. Retired viewport/model/dispatch details in neighboring old packets are history; current desktop direction and optional human feedback under AD42 govern actual selected delivery. No current-source absence census or runtime proof is implied by the map reread.

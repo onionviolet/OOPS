@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "batch": "B275",
+  "title": "Complete character, party, agency and goal-continuity owner review",
+  "at": "2026-11-05T00:31:45.632776+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+      "ids": [
+        "all five interaction families",
+        "five party considerations/policies",
+        "inventory-study evidence and five refinements",
+        "five actor parts/seven trait kinds/six event families",
+        "five initial proof gates",
+        "peer-choice/resource/outcome tables",
+        "five consequence layers",
+        "hidden-strength five considerations",
+        "deliveredchronicle",
+        "DR1–5",
+        "GG1–5",
+        "OD24/goalcontinuity/pause/GW2"
+      ],
+      "classification": "Chronological character/system owner with proposed variants, selected scopes and dated playable snapshots",
+      "owners": [
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/DOMAIN_RULES.md",
+        "docs/ENGINE_AUTHORING.md",
+        "docs/DIRECTION_SYNTHESIS.md"
+      ],
+      "disposition": "Full content reviewed; preserve useful actor/inventory/social/event/goal distinctions and exact selected chronology, qualify old absence/first-proof/human/milestone text, and route bank continuity to its later answered owner.",
+      "evidence": "All611original lines delivered1–120/121–240/241–360/361–480/481–650 without truncation. No demo artifact/private save/linked source/full current runtime or browser/test state newly inspected.",
+      "reopen": "Select current actual actor/state/native/knowledge/clock/consumer and compatibility boundary before implementing one variant; verify relevant failure/persistence route without reviving every old first-proof queue.",
+      "input_sha256": "f0c628786dbe23832f0c6c4aec951068eb7cf2de13c0a5e78e3e1a7ae922ecd8",
+      "input_lines": 611,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          611
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+      "heading": "## Content reconciliation B275",
+      "body": "Full611original lines reviewed, including all autonomous-situation, teaching, interaction, party/inventory, actor/trait/event, independent-peer, law/karma, hidden-strength, delivered-chronicle, bookshelf and late OD/DR/GG/GW2sections. The many “current,” “no party,” missing serialization/item-instance and next-implementation statements are their dated October2–3inspections, not a present source census. Preserve the conversation-only inventory mockup's real demo checks without upgrading fictional members/equipment or prototype reload to native party/save integration. The later [engine authoring guide](ENGINE_AUTHORING.md#content-reconciliation-b263) documents selected native party, item-copy and actor adapters with explicit limits; neither an early absence nor a narrow later contest proves general recruitable party journeys. No current code/host/party route was exercised here.\n\nThe document itself records changing selection: earliest apprentice/storm/title proposal, narrower route-work peer proposal, endorsed hidden-strength scope, actual bounded elder/chronicle delivery and later shelf-derived A/C/Dproofs are different states. Do not call the whole file wholly unselected or treat every “first proof / next action” as today's queue. All first-realm/one-prestige requirements are superseded by [the October24direction](USER_VISION.md#first-milestone-and-scope-check-2026-10-24); human review is optional under AD42. Current [PROJECT](../PROJECT.md#current-focus), [PIR/domain defaults](DOMAIN_RULES.md#presence-and-interaction-rules), [UI_RULES](UI_RULES.md) and actual selected owners qualify old fixed center-menu/blue-panel/layout and universal old-save-migration language. No Village expansion, new cast, family/pursuit system, old proof rerun or automatic source-reading wave was selected.\n\nKeep the central distinctions: one persistent actor across changing roles; active player versus inspected member; ownership versus custody versus equipment versus access; procedure/mastery versus source/fuel/body; occurrence versus observation/report/belief versus actual response/settlement; private regard versus institutional reputation/recognition; and intent versus achieved physical/life result. A stored target, membership badge, body tag or relationship score supplies neither a valid attack nor actual consent/knowledge. Social permission and actual mechanical capability are different too: a supported theft, coercion or controlling means can act where the world permits, with its real consequences; an institution's prohibition alone is not an engine permission list (AD38). No ordinary trust value transfers every secret or private bag.\n\nStable item identity and actual actor reconstruction matter for selected copy/wear/loan/profile mechanics, but the historical warning about arbitrary native-key suffixes is not an order to add a new inventory store or migrate every old save. Read/restore order follows the actual current owner. Missing state must not silently spawn a companion, issue endowment again or grant faculty/XP. Death, disappearance, leaving/rejoining, inherited duty, rescue, capture, ordinary faint and body-return each affect their real carriers/support/claims, not automatic deletion or restoration of all social state. A fixed nonlethal encounter is not a general hostile/loot/identity-transfer system. The full [combat/life audit](gm/causal-endings/evidence/COMBAT_LIFE_AUDIT.md#content-reconciliation-b269) retains its exact historical producer/consumer chains.\n\nRepeated greetings, gifts and rematches are real repeat actions when their mechanism supports them. Prevent accidental duplicate settlement of one commitment, not every new earned favor, practice gain or replenished reward. A gift does not automatically erase an unrelated assault, while a genuinely source-qualified memory/history-changing power can differ. Likewise a scene-specific unique claim may legitimately name multiple beneficiaries or agreed shares; one settlement is not one universal recipient. Do not add arbitrary diminishing returns, relationship ceilings, prices, counters or inevitable betrayal to preserve a prototype balance (AD22, AD38).\n\nTime/agency qualifications compose: an event can occur without the player opening its menu, but distant/inactive histories do not gain arbitrary advancement from an NPC ambition label. Important-choice pauses freeze linked current-world production/deadlines unless actual permitted policy/helper/clock/means continues. A report needs a delivered information route; personal goals, an observed invitation and an accepted duty are not the same commitment. Current AD52 supports long pursuits and compressed real work without manufacturing vows, spending authority, worker resources or historical outcomes. A known remembered deadline is still a claim, not guaranteed future truth or free exact stat disclosure.\n\nThe “unused time / portability unselected” paragraphs predate the later [continuing-journey time-bank answer](DIRECTION_SYNTHESIS.md#time-bank-continuity-and-improvement-answer-2026-10-15). Broad bank continuity across lives/worlds, chosen supported use and improvable capacity/efficiency are answered; exact rates, limits, expiry, restored-history balances, source-specific conversion and implementation remain separate gaps. The pause answer does not supply a functioning scheduler/loader or actual helper. Preserve DR1–5and GG1–5as proposed consequences alongside the actual accepted pause/OD24/goal-continuity direction, without accepting every adjacent field/price or inventing a global personal-goal quest log. Native source/build/browser/save/failure and user-review claims retain their original dates and route scopes; this pass supplies documentation review only.",
+      "before_sha256": "f0c628786dbe23832f0c6c4aec951068eb7cf2de13c0a5e78e3e1a7ae922ecd8",
+      "after_sha256": "e1911d9dd5633c72e278b83c658992367b8444fffb0bb4590e279c5559c0dd47"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 874,
+  "post_record_amendments": [
+    {
+      "path": "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+      "from": "# Characters and a world that changes\n\n",
+      "to": "# Characters and a world that changes\n\n> **Current reuse:** the dated proposals, source snapshots and delivered subsets below retain their original inputs. Use [PROJECT current focus](../PROJECT.md#current-focus), current domain/UI owners and the [B275 reconciliation](#content-reconciliation-b275) for their later qualifications; this file does not itself certify today’s runtime.\n\n",
+      "reason": "B275 add current-use pointer before old live-sounding snapshots; retain every original paragraph and original review input."
+    },
+    {
+      "path": "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+      "from": "Current AD52supports long pursuits",
+      "to": "Current AD52 supports long pursuits",
+      "reason": "B277 lint: separate the AD52 rule code from following prose so its authority reference is recognized; original body and failed output retained."
+    }
+  ]
+}

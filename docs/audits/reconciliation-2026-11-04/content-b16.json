@@ -1,0 +1,774 @@
+{
+  "schema": 1,
+  "batch": "B16",
+  "title": "Source-only rule engines, design proposals and archive integration map",
+  "at": "2026-11-04T19:42:23.447442+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/parallel-book-design-2026-10-11/mother-of-learning/CHECKPOINT.md",
+      "ids": [
+        "G01–G06",
+        "D02–D07",
+        "Q gameplay criteria"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "Private docs/research/novels/mother-of-learning/world-design-2026-10-11/DESIGN.md and docs/gm/dispatch/parallel-book-design-2026-10-11/mother-of-learning/REPORT.md; future runtime requires explicit transfer to the campaign/shared integrator."
+      ],
+      "disposition": "Bounded design packet complete; proposal/C1 only, with unknowns qualified. No new selection, accepted decision or runtime implementation is claimed. Historical proof and owner references are retained at exact scope; proposals, source-only APIs and synthetic measurement are not native integration. T9-build BACKLOG.md named in checkpoint receipt is absent now, so it is a missing supplier rather than a reviewed artifact. Old first-milestone wording cannot override the later October24 direction.",
+      "mechanism_and_interactions": "The private DESIGN.md proposes eight starting-life families, six body/identity contracts, five era policies, five ordinary activity families, one opening with five approaches, seven dependencies and eight interaction joins. It is design scope only; the checkpoint reports existing 107-item supplied-edition source completion as reused rather than repeated. The proposed low-dependency opening supports A/B/C/E approaches, while personal casting and resident/random/body/era families retain separate dependencies.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports review of source dossier and live host/state/native code, but no tests, build, browser, save or import exercise. Source coverage was reused, not requalified in this lane.",
+      "reopen": "G01–G06 source/premise gaps and D02–D07 adaptation/integration work remain qualified; all gameplay criteria are specified-not-run. A future runtime owner must preserve visitor compatibility.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S008.json"
+      ],
+      "prior_input_sha256": "d0d9a7f4197ac82021043525591efe52efdb4fb98add5ab080871dcc8fa3fb64",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "d0d9a7f4197ac82021043525591efe52efdb4fb98add5ab080871dcc8fa3fb64",
+      "input_lines": 13
+    },
+    {
+      "path": "docs/gm/dispatch/parallel-book-design-2026-10-11/perfect-run/CHECKPOINT.md",
+      "ids": [
+        "PR-S1",
+        "PR-S2"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "Private docs/research/novels/perfect-run/world-design-2026-10-11/DESIGN.md, SOURCE_BINDINGS.json and CHECKS.json; public dispatch REPORT.md."
+      ],
+      "disposition": "Bounded source/design proposal ready for parent review. It is not full-series reading, a selected opening, accepted continuity, or gameplay. Historical proof and owner references are retained at exact scope; proposals, source-only APIs and synthetic measurement are not native integration. T9-build BACKLOG.md named in checkpoint receipt is absent now, so it is a missing supplier rather than a reviewed artifact. Old first-milestone wording cannot override the later October24 direction.",
+      "mechanism_and_interactions": "The proposal covers ten starting-life families, fifteen completion sections, an immediate powered/civilian opening, and history/observer retention. It records actual engine inspection and distinguishes the existing scenario rewind from a full-world historical rewind; PR-S1/PR-S2 are routes specified in the packet, not implemented behavior.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. The checkpoint reports one full opening chapter, targeted ranges in five other chapters and three companion openings; no complete-series reading or gameplay claim.",
+      "reopen": "Full acquisition/reading belongs to other lanes; core acquisition/compatibility and checkpoint exceptions need primary scenes. Any implementation needs native bindings, compatibility and fresh rebuilt powered/civilian journeys with applicable persistence proof.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S008.json"
+      ],
+      "prior_input_sha256": "8ecb4cde82b3e70db958f04524a4faee3f1b7c599f1c16c4ea30bf97011ded29",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "8ecb4cde82b3e70db958f04524a4faee3f1b7c599f1c16c4ea30bf97011ded29",
+      "input_lines": 15
+    },
+    {
+      "path": "docs/gm/dispatch/parallel-book-design-2026-10-11/reverend-insanity/CHECKPOINT.md",
+      "ids": [
+        "12 source bindings",
+        "20 proposed detail leaves"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "Private docs/research/novels/reverend-insanity/world-design-2026-10-11/DESIGN.md and BINDINGS.md; public docs/gm/dispatch/parallel-book-design-2026-10-11/reverend-insanity/REPORT.md."
+      ],
+      "disposition": "Source/design unit complete and writes released; parent review and finite opening selection are still required before any implementation assignment. Historical proof and owner references are retained at exact scope; proposals, source-only APIs and synthetic measurement are not native integration. T9-build BACKLOG.md named in checkpoint receipt is absent now, so it is a missing supplier rather than a reviewed artifact. Old first-milestone wording cannot override the later October24 direction.",
+      "mechanism_and_interactions": "This bounded held-book design compares starting lives, identity and eras, then specifies substantive practitioner play and civilian life. It names twenty proposed detail leaves and live engine seams, with five targeted source ranges totaling 130 blocks and a recorded edition fingerprint. Those mechanics remain a proposal, not a connected runtime loop.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports source-binding and packet checks, but no runtime/build/browser/save verification or director acceptance.",
+      "reopen": "Parent must review the private design against current inputs, select a bounded proposal and resolve targeted source questions before assigning runtime work.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S008.json"
+      ],
+      "prior_input_sha256": "9453de53776c1050b2a0be85a62a12ee98e43413955fd0a7109cf6faa7ae17b2",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "9453de53776c1050b2a0be85a62a12ee98e43413955fd0a7109cf6faa7ae17b2",
+      "input_lines": 11
+    },
+    {
+      "path": "docs/gm/dispatch/parallel-book-design-2026-10-11/shadow-slave/CHECKPOINT.md",
+      "ids": [
+        "source worker",
+        "completion-owner discrepancy"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "Private docs/research/novels/shadow-slave/world-design-2026-10-11/ and public docs/gm/dispatch/parallel-book-design-2026-10-11/shadow-slave/REPORT.md; source worker remains separate."
+      ],
+      "disposition": "Held-book source-grounded design packet complete for review, with proposals and all runtime gates specified-not-run; exclusive writes were released. Historical proof and owner references are retained at exact scope; proposals, source-only APIs and synthetic measurement are not native integration. T9-build BACKLOG.md named in checkpoint receipt is absent now, so it is a missing supplier rather than a reviewed artifact. Old first-milestone wording cannot override the later October24 direction.",
+      "mechanism_and_interactions": "The design treats wider starting lives, identities and eras as qualified palettes; the proposed first opening requires actual power/item/exploration means and retains civilian alternatives. It records a completion-owner discrepancy and keeps source-reading coverage unpromoted. No specific mechanic is claimed as implemented.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint summarizes source-bound design and reports no runtime, build, browser or save proof. The source-owner discrepancy is unresolved here.",
+      "reopen": "Parent must inspect the private packet and source-owner revision conflict before any implementation selection; keep source coverage qualified and obtain rebuilt desktop and persistence evidence for any later slice.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S008.json"
+      ],
+      "prior_input_sha256": "76798c8a32cfcc81ff0d34592dfad1b8f60cafc15ebb8995c6d8a8790c71bcb1",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "76798c8a32cfcc81ff0d34592dfad1b8f60cafc15ebb8995c6d8a8790c71bcb1",
+      "input_lines": 9
+    },
+    {
+      "path": "docs/gm/dispatch/parallel-book-design-2026-10-11/warlock/CHECKPOINT.md",
+      "ids": [
+        "DESIGN.md",
+        "BINDINGS.md",
+        "CHECK_RECEIPT.json"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "Private docs/research/novels/warlock/world-design-2026-10-11/DESIGN.md, BINDINGS.md and CHECK_RECEIPT.json; public docs/gm/dispatch/parallel-book-design-2026-10-11/warlock/REPORT.md."
+      ],
+      "disposition": "Authorized documentation proposal complete, with reservation released; it is not selected canon or implementation. Historical proof and owner references are retained at exact scope; proposals, source-only APIs and synthetic measurement are not native integration. T9-build BACKLOG.md named in checkpoint receipt is absent now, so it is a missing supplier rather than a reviewed artifact. Old first-milestone wording cannot override the later October24 direction.",
+      "mechanism_and_interactions": "The proposal compares starting lives, identity and eras, meaningful progression and one finite signature-system opening with a civilian alternative. The checkpoint names no concrete native consumer for that loop and explicitly says durable publication is a missing integration gate.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Receipt reportedly matches an EPUB hash/extent, selected paragraphs and live-input hashes; existing reader full coverage was reused. No gameplay/build/browser/save checks.",
+      "reopen": "Parent review and live engine drift check precede any bounded implementation. First unresolved integration gate is a real native consumer plus durable publication; later history/progression needs separate source qualification.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S008.json"
+      ],
+      "prior_input_sha256": "0e808e04bf4da080ce387ee91a56328c5fb4612d8892f764eed204e1992ffffb",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "0e808e04bf4da080ce387ee91a56328c5fb4612d8892f764eed204e1992ffffb",
+      "input_lines": 7
+    },
+    {
+      "path": "docs/gm/dispatch/parallel-book-design-2026-10-11/worm/CHECKPOINT.md",
+      "ids": [
+        "ten starting-life families",
+        "six era policies",
+        "fifteen completion sections"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "Private docs/research/novels/worm/world-design-2026-10-11/DESIGN.md, BINDINGS.md and CHECK_RECEIPT.json; public dispatch REPORT.md."
+      ],
+      "disposition": "Proposal packet complete and exclusive writes released. The checkpoint does not promote the design to selected fiction or accepted runtime behavior. Historical proof and owner references are retained at exact scope; proposals, source-only APIs and synthetic measurement are not native integration. T9-build BACKLOG.md named in checkpoint receipt is absent now, so it is a missing supplier rather than a reviewed artifact. Old first-milestone wording cannot override the later October24 direction.",
+      "mechanism_and_interactions": "The source-grounded design covers starting lives, body/identity/gender variants, era policies, power layers and ordinary/institutional work. One powered opening and a civilian alternative have decisions, costs and aftermath; an engine-binding owner names current reused surfaces and missing operations.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical receipt reports matching held-EPUB fingerprint, selected source windows, checks and private bindings. No gameplay, build or save checks were run.",
+      "reopen": "Parent must freeze role/era/source knowledge and operating parameters and assign native lifecycle/target/persistence ownership before implementation; preserve private authored details.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S008.json"
+      ],
+      "prior_input_sha256": "99e381b703dcddff146fa65f81b73cca1eaa34d6b069be44e97d602f0150f3da",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "99e381b703dcddff146fa65f81b73cca1eaa34d6b069be44e97d602f0150f3da",
+      "input_lines": 11
+    },
+    {
+      "path": "docs/gm/dispatch/proto23-vfx-2026-10-13/CHECKPOINT.md",
+      "ids": [
+        "Foundation R6",
+        "hidden→visible emission",
+        "craft-commit publication"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/proto23-vfx-2026-10-13/REPORT.md and ACCEPTANCE_BACKLOG.md; product direction remains PRESENTATION_AND_FOURTH_WALL plus PROJECT/USER_VISION."
+      ],
+      "disposition": "Historical technical implementation reports 18 focused checks, rebuild, native discovery, reduced/full evidence, renderer cancellation/replay, Save/reload and populated desktop views. It is not fully accepted: literal-file import, OS/hidden-tab/failure and extra visual gates remain open; taste acceptance is human feedback. Historical proof and owner references are retained at exact scope; proposals, source-only APIs and synthetic measurement are not native integration. T9-build BACKLOG.md named in checkpoint receipt is absent now, so it is a missing supplier rather than a reviewed artifact. Old first-milestone wording cannot override the later October24 direction.",
+      "mechanism_and_interactions": "The UI-only slice presents an earned native skill at its original threshold with a small known-name cue. Existing filtering still excludes unknown skill names/categories; the shared Stances pane and saved layouts remain, and the cue does not switch tabs or steal focus. The work joins discovery policy/feedback, renderer, settings, hidden-to-visible events, craft-commit publication and restore cancellation, while leaving native rewards, thresholds, save schema and Foundation mechanics untouched.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports source/served parity and frozen proof servers; this is historical evidence only. No current bundle or screenshots were inspected here.",
+      "reopen": "The listed import/failure/hidden-tab and additional visual gates remain. Strong panel/fourth-wall powers belong to the future VFX menu, outside this delivered slice.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          38
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S008.json"
+      ],
+      "prior_input_sha256": "93183382723323b68e85b7c735e76d88a61585e40bf85b9ff362fa0ecb6b8c90",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "93183382723323b68e85b7c735e76d88a61585e40bf85b9ff362fa0ecb6b8c90",
+      "input_lines": 38
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/b3/CHECKPOINT.md",
+      "ids": [
+        "CN10",
+        "IM2",
+        "RC1/RC2"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/research-tech-2026-10-14/b3/DESIGN.md, BUILD_PROMPT.md and REPORT.md; implementation would need a new authorized code lane with actual file ownership."
+      ],
+      "disposition": "Docs proposal complete. No source edits, tests, build, browser, save access or commit were made; shared source ownership was expressly not claimed. Historical proof and owner references are retained at exact scope; proposals, source-only APIs and synthetic measurement are not native integration. T9-build BACKLOG.md named in checkpoint receipt is absent now, so it is a missing supplier rather than a reviewed artifact. Old first-milestone wording cannot override the later October24 direction.",
+      "mechanism_and_interactions": "The proposed dev inspector is read-only and separately mounted, with scoped current-state tables and explicit unavailable comparisons. Audited seams explain why: runtime dev console is mutating; panel-kit registration participates in persistent layout/settings; native skill getters initialize absent records; UI craft receipt is session-only while Work Ledger retains craft receipts. IM2 and executable RC1/RC2 readers are absent, and IM2 is not required to show existing state.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports 38 source ranges and document/link/locator checks with rechecked source hashes. Inspector behavior and Phase A gates are specified-not-run.",
+      "reopen": "Coordinator review is needed; full CN10 belief comparison remains open pending IM2 and admitted truth readers. Any implementation needs fresh ownership recovery and browser/persistence verification.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          34
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S008.json"
+      ],
+      "prior_input_sha256": "7012ff9bd545970c66063c27916133a1a23595fea5009abaf8d435171ff11e07",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "7012ff9bd545970c66063c27916133a1a23595fea5009abaf8d435171ff11e07",
+      "input_lines": 34
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/b5/CHECKPOINT.md",
+      "ids": [
+        "B5.1–B5.4",
+        "CN14",
+        "T6/T16",
+        "T1/T13"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/research-tech-2026-10-14/b5/STEP2_ANOMALY_EVIDENCE.md, STEP3_TEACH_CUE.md, STEP4_GLASS_ROADMAP_RC2.md, STEP5_DIFFUSION.md and REPORT.md."
+      ],
+      "disposition": "Docs-only prompt/report packet complete and ready for root review. No slice is dispatched or accepted by this checkpoint. Historical proof and owner references are retained at exact scope; proposals, source-only APIs and synthetic measurement are not native integration. T9-build BACKLOG.md named in checkpoint receipt is absent now, so it is a missing supplier rather than a reviewed artifact. Old first-milestone wording cannot override the later October24 direction.",
+      "mechanism_and_interactions": "B5 delivers four conditional prompts for sequential steps 2–5. T6/T16 are merged as pure support, but their native consumer/persistence/card proof is future work; T1 versus T13 envelope names need one integrator allocation to avoid duplicate economy ledgers. Predecessor playable acceptance and explicit dispatch gate each later execution.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Citation anchors, prompt-shape, predecessor-gate, links and prose checks reportedly pass; game/source-test/build/browser/import checks are specified-not-run.",
+      "reopen": "Root must review the prompts and Q1–Q4. Any execution requires explicit dispatch, current owner/HEAD recovery and acceptance of the previous playable slice, one slice at a time.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S008.json"
+      ],
+      "prior_input_sha256": "aba601f8b5c0065e2c3fb8f95a0f7146ed5ec871a15758cedee96a6b2b68e22f",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "aba601f8b5c0065e2c3fb8f95a0f7146ed5ec871a15758cedee96a6b2b68e22f",
+      "input_lines": 15
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/slice1/CHECKPOINT.md",
+      "ids": [
+        "U40",
+        "N19",
+        "B1",
+        "B2"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/research-tech-2026-10-14/slice1/REPORT.md and browser-evidence.json; B1 owns the slice files while B2 owns tests/fixtures/rt_slice1/."
+      ],
+      "disposition": "Historical implementation checkpoint reports 16 focused tests, full suite 1,388 passed with three TODOs, build, seeded-native journeys at both sizes, level-crossing receipt stability, Village update and exact envelope reload/Import. Mobile, planner integration, new state, rewards and feed were deferred; root review/feel remained open. Historical proof and owner references are retained at exact scope; proposals, source-only APIs and synthetic measurement are not native integration. T9-build BACKLOG.md named in checkpoint receipt is absent now, so it is a missing supplier rather than a reviewed artifact. Old first-milestone wording cannot override the later October24 direction.",
+      "mechanism_and_interactions": "B1 implemented U40 craft cue and N19 Village sentence at desktop sizes 1366×768 and 1600×1000. Presentation bands are below 10 novice, 10–49 practiced, 50+ master; wording describes attention to grain/reflection without inventing material defects. The receipt captures pre-craft skill level without a save field, and the Village sentence changes on earned skill.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. These are historical claimed results; no current browser, test or build was run in this reader pass. Checkpoint says no merge or push.",
+      "reopen": "Root review and feel are the recorded gates; if reselected, establish current integration status and keep mobile/planner/reward/feed scope deferred unless separately authorized.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          31
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S008.json"
+      ],
+      "prior_input_sha256": "c9a28dbe3c56e42ecc90dd610d400161405aa9c4def3b6f9f57820d451aa6022",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "c9a28dbe3c56e42ecc90dd610d400161405aa9c4def3b6f9f57820d451aa6022",
+      "input_lines": 31
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t15/worlds/planetary.md",
+      "ids": [
+        "M68.12",
+        "CW2",
+        "M31/M64",
+        "The Hidden Science Survey"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/research-tech-2026-10-14/t15/worlds/planetary.md; target owner is not named in this span."
+      ],
+      "disposition": "Preliminary research and original proposals only; target owner has not selected an era/run. Evidence is an official collection synopsis or indexed secondary extract, not full issue reading. Historical proof and owner references are retained at exact scope; proposals, source-only APIs and synthetic measurement are not native integration. T9-build BACKLOG.md named in checkpoint receipt is absent now, so it is a missing supplier rather than a reviewed artifact. Old first-milestone wording cannot override the later October24 direction.",
+      "mechanism_and_interactions": "Planetary is a later candidate: Elijah Snow, Jakita Wagner and machine-communicating Drummer investigate hidden histories, including a wartime supercomputer with other-universe access. Machine communication is called a faculty rather than ordinary hacking. Research/archive control is explicitly inferred; three ordinary activities are original proposals, and the public sibling The Hidden Science Survey has M31/M64 revealer forms qualified to their means.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Full13-line historical candidate is available and was read; official collection synopsis/indexed secondary scope is explicitly narrower than issue reading. No runtime/source-canon verification.",
+      "reopen": "Read full issue evidence for genius antagonists/suppression and qualify the remaining proposal dimensions; select an era/run and actual consumer before any implementation.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S008.json"
+      ],
+      "prior_input_sha256": "9b369d057c43b9349f60247d77dbf054991a0f81ece7acc960e7f2e9c893c341",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "9b369d057c43b9349f60247d77dbf054991a0f81ece7acc960e7f2e9c893c341",
+      "input_lines": 13
+    },
+    {
+      "path": "docs/gm/dispatch/research-tech-2026-10-14/t9-build/CHECKPOINT.md",
+      "ids": [
+        "T16",
+        "unbound-demo"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/research-tech-2026-10-14/t9-build/REPORT.md, BACKLOG.md and verification.json; root must select any next consumer/product lane."
+      ],
+      "disposition": "Historical QA delivery reports planner 30/30, QA 334/334, full suite 992/992, exact replay and 216 benchmark profiles with admitted p95 targets passing. No build, browser, native persistence or human acceptance is claimed. Historical proof and owner references are retained at exact scope; proposals, source-only APIs and synthetic measurement are not native integration. T9-build BACKLOG.md named in checkpoint receipt is absent now, so it is a missing supplier rather than a reviewed artifact. Old first-milestone wording cannot override the later October24 direction.",
+      "mechanism_and_interactions": "The T16 planner QA packet adds bounded QA adapter/counters, independent oracle/matrix, frozen v1 fixtures, contextual synthetic lint, detached receipts and isolated smoke/sweep/benchmark CLIs. Native consumers remain unbound-demo, so those results do not establish gameplay integration.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Reported code/test/benchmark evidence belongs to isolated worktree/branch. Full test and benchmark results are historical, not freshly repeated here.",
+      "reopen": "Real-vocabulary/semantic lint and exact transient-heap evidence remain REVIEW; UI/save/product/generation integration is NOT RUN. Any next slice needs root selection.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S008.json"
+      ],
+      "prior_input_sha256": "73373fd4e3f0769daa90a5438fe0dceda4f3cfe6059fe43c4ed77818e698cb55",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "73373fd4e3f0769daa90a5438fe0dceda4f3cfe6059fe43c4ed77818e698cb55",
+      "input_lines": 11
+    },
+    {
+      "path": "docs/gm/dispatch/rulebook-engine-2026-10-14/r1/CHECKPOINT.md",
+      "ids": [
+        "R1",
+        "codex/rbe-r1-resolver",
+        "72/72",
+        "72000 addressed-check samples"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/rulebook-engine-2026-10-14/r1/CHECKPOINT.md; its REPORT.md owns the resolver API/exactness limits; root/D&D consumer integration remains unproven."
+      ],
+      "disposition": "SOURCE COMPLETE in isolated branch, with72 targeted passes and reported1828pass/3TODO full-suite result. Ownership transfers only after lane commit. Root review and a playable D&D consumer remain later merge/integration gates; no runtime, save, dist, UI, merge or push was performed. Historical proof and owner references are retained at exact scope; proposals, source-only APIs and synthetic measurement are not native integration. T9-build BACKLOG.md named in checkpoint receipt is absent now, so it is a missing supplier rather than a reviewed artifact. Old first-milestone wording cannot override the later October24 direction.",
+      "mechanism_and_interactions": "Parameterized check families share outcome/odds semantics, pure spend proposals, JSON receipts/replay, a rule-module wrapper and author read model. Conditional rerolls use a fixed prepared draw envelope; unused reroll dice remain in receipts as used:false with no cost. Five new source files, two tests and a golden fixture are separate from runtime/native UI/save integration.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical lane completion and test claims, not a current test or integrated gameplay claim. Coordinator read actual lines7–17 to resolve the reader block-boundary error.",
+      "reopen": "Recover actual lane commit/release and current owner before selected consumer integration; verify paid check/reroll/result and relevant native persistence through the real downstream consumer, rather than replaying this source-only checkpoint.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S008.json"
+      ],
+      "prior_input_sha256": "41a9d0098a513bde246f11c8a6e4e399cb40c3c0d480f0632db9ced39ac3a0bd",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "41a9d0098a513bde246f11c8a6e4e399cb40c3c0d480f0632db9ced39ac3a0bd",
+      "input_lines": 17
+    },
+    {
+      "path": "docs/gm/dispatch/rulebook-engine-2026-10-14/r2/CHECKPOINT.md",
+      "ids": [
+        "R2",
+        "effect DSL",
+        "15 conditions",
+        "20 spells",
+        "10 monsters"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/rulebook-engine-2026-10-14/r2/REPORT.md, CHECKS.json and IMPORT_TRIAL.json; branch codex/rbe-r2-effect-dsl."
+      ],
+      "disposition": "Lane implementation and focused/full tests completed on an isolated worktree and local commit, but there was no merge or push. Coordinator/director semantic review remains; agent reconciliation is not human acceptance. Historical proof and owner references are retained at exact scope; proposals, source-only APIs and synthetic measurement are not native integration. T9-build BACKLOG.md named in checkpoint receipt is absent now, so it is a missing supplier rather than a reviewed artifact. Old first-milestone wording cannot override the later October24 direction.",
+      "mechanism_and_interactions": "The R2 lane delivered an inert strict effect DSL, conditions and source-attributed records across spells/schools and monsters, plus a draft-only importer/trial. Existing runtime files were unchanged; the import drafts are not ready for use, and no save schema/persistence shape is involved.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports 93/93 focused tests, full suite 1,849 passed with three legacy TODOs, and 20/20 raw drafts schema-valid but all needing semantic correction. No gameplay, save or build/dist changes.",
+      "reopen": "Coordinator reviews the commit and 28 explicit questions; merge/integration and all runtime consumers remain unperformed.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          28
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S008.json"
+      ],
+      "prior_input_sha256": "a663d961be74b1d00b0083a8605a5193f25ab28cb729d5bc6660d77a1e4624df",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "a663d961be74b1d00b0083a8605a5193f25ab28cb729d5bc6660d77a1e4624df",
+      "input_lines": 28
+    },
+    {
+      "path": "docs/gm/dispatch/rulebook-engine-2026-10-14/r3/CHECKPOINT.md",
+      "ids": [
+        "D&D 5.2.1",
+        "ORC",
+        "Datasworn",
+        "manifest-additions"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/rulebook-engine-2026-10-14/r3/REPORT.md and private licence-records.json, selected-file-manifests.json and clone-receipts.json; shared library manifest remains unchanged."
+      ],
+      "disposition": "Research/capture lane complete with integrity checks, but full rules/schema validation and gameplay are not claimed. Rights and source coverage limits remain explicit. Historical proof and owner references are retained at exact scope; proposals, source-only APIs and synthetic measurement are not native integration. T9-build BACKLOG.md named in checkpoint receipt is absent now, so it is a missing supplier rather than a reviewed artifact. Old first-milestone wording cannot override the later October24 direction.",
+      "mechanism_and_interactions": "R3 captured six pinned shallow partial clones with sparse selected data; source manifests and licence records are private, and the proposed 12-row manifest addition was not merged. Datasworn filtering removed 17 restricted parent subtrees from a derived CC-BY subset, while the original mixed-content blob remains in the private Git object store. This is source/library preparation, not a game mechanic.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports clone pins and thousands of matching hashes plus parsing/publication checks. Notable source differences and licensing caveats are reported, not independently verified here.",
+      "reopen": "No full D&D 5.2.1 pack reconciliation or PF2e whole-compendium clearance; Datasworn may have dangling references and lacks schema validation; Cypher autonomous videogame rights are unknown. Resolve derivative boundaries before importing.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S008.json"
+      ],
+      "prior_input_sha256": "b82a709a1d1a9c0693d741af8c11c29c8cc5d626bbb37a4991d0a4842a5a2aa6",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "b82a709a1d1a9c0693d741af8c11c29c8cc5d626bbb37a4991d0a4842a5a2aa6",
+      "input_lines": 15
+    },
+    {
+      "path": "docs/gm/dispatch/rulebook-engine-2026-10-14/r4/CHECKPOINT.md",
+      "ids": [
+        "R4",
+        "SRD 5.2.1",
+        "BRP quickstart"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/rulebook-engine-2026-10-14/r4/PROFILE_DESIGN.md, REPORT.md and CHECKS.json."
+      ],
+      "disposition": "Docs-only proposal complete for coordinator review. No source, owner, save, build, gameplay or human acceptance is claimed. Historical proof and owner references are retained at exact scope; proposals, source-only APIs and synthetic measurement are not native integration. T9-build BACKLOG.md named in checkpoint receipt is absent now, so it is a missing supplier rather than a reviewed artifact. Old first-milestone wording cannot override the later October24 direction.",
+      "mechanism_and_interactions": "R4 is a proposal for profile design across current rule modules, combat math/stances, power models and traveler support; compatibility questions and options are documented, with no selected profile behavior. SRD 5.2.1 and the BRP quickstart were inspected at cited headings, while BRP full advancement was not, so its sample settlement is explicitly original.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Five documentation validation groups reportedly passed; gameplay/persistence checks were not run. Options remain open in the report.",
+      "reopen": "Coordinator must reconcile R1/R2 APIs and review/select a proposal. Any later implementation needs explicit scope and runtime/gameplay/persistence proof.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          31
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S008.json"
+      ],
+      "prior_input_sha256": "7054342df25f6050a36dd8ee83a7d3bb983f919524c373b1382840f5d45cbc28",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "7054342df25f6050a36dd8ee83a7d3bb983f919524c373b1382840f5d45cbc28",
+      "input_lines": 31
+    },
+    {
+      "path": "docs/gm/dispatch/rulebook-engine-2026-10-14/r5/CHECKPOINT.md",
+      "ids": [
+        "R5",
+        "ST2",
+        "ST1/ST3",
+        "DDC1–DDC31"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/rulebook-engine-2026-10-14/r5/REPORT.md, private/LOCATORS.json and private/VALIDATION.json."
+      ],
+      "disposition": "Bounded research delivery complete; all three requested documents and report were written, but proposal awaits root review and no runtime implementation/acceptance follows. Historical proof and owner references are retained at exact scope; proposals, source-only APIs and synthetic measurement are not native integration. T9-build BACKLOG.md named in checkpoint receipt is absent now, so it is a missing supplier rather than a reviewed artifact. Old first-milestone wording cannot override the later October24 direction.",
+      "mechanism_and_interactions": "R5 proposes a frozen ST2 D&D start dnd.st2.srd521@1, 28 proposed rulings and four styles. Its source-bound proposal used selected SRD passages; DDC1–DDC31 were found in another document as proposals, not authority. The checkpoint distinguishes captured SRD scope from inspected rule headings and does not claim full A1 coverage.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical source/arithmetic and final documentation checks passed. No runtime, build, save, browser or human acceptance; no merge/push claim.",
+      "reopen": "Full A1 still needs setting/era qualification and later contracts/implementation/native proof; ST1/ST3 remain open. Resolve proposal choices before assigning implementation.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          19
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S008.json"
+      ],
+      "prior_input_sha256": "9154933b8b6dd2d0c03080de1428a93b99fecad83d4eeced2e359da173840878",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "9154933b8b6dd2d0c03080de1428a93b99fecad83d4eeced2e359da173840878",
+      "input_lines": 19
+    },
+    {
+      "path": "docs/gm/dispatch/rulebook-engine-2026-10-14/r6/CHECKPOINT.md",
+      "ids": [
+        "R6",
+        "RB1/RB2/RB7",
+        "GR1–GR17"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/rulebook-engine-2026-10-14/r6/REPORT.md, ENGINE_PATTERNS.md and CHECKS.json; private READING_NOTES.md retains source procedures."
+      ],
+      "disposition": "Bounded research packet complete and proposal-only; no runtime, save or build changes. Next action is coordinator review, not automatic implementation. Historical proof and owner references are retained at exact scope; proposals, source-only APIs and synthetic measurement are not native integration. T9-build BACKLOG.md named in checkpoint receipt is absent now, so it is a missing supplier rather than a reviewed artifact. Old first-milestone wording cannot override the later October24 direction.",
+      "mechanism_and_interactions": "R6 is a research proposal drawing on four books and 243 preserved pages, with targeted-page inspection rather than full-book reading. Dungeon World is excluded because R3 had no delivered readiness report at R6 closure. The checkpoint separates that unresolved research dependency from all native gameplay, migration and persistence gates, which remain open.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports 17/17 documentation/source assertions; no runtime/gameplay checks. The absent R3 readiness report was the stated exclusion basis.",
+      "reopen": "A named source gap requires current anchors; any selected R6 idea needs separate scoped selection and native gameplay/persistence verification.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          25
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S008.json"
+      ],
+      "prior_input_sha256": "6b856225d733c8a4803c8fc1cdb4f2c8ad251e65c9e155edad8bde63d294c4cb",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "6b856225d733c8a4803c8fc1cdb4f2c8ad251e65c9e155edad8bde63d294c4cb",
+      "input_lines": 25
+    },
+    {
+      "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r1/CHECKPOINT.md",
+      "ids": [
+        "QBW8",
+        "QBK2",
+        "R1"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/runs-and-endings-2026-10-14/r1/REPORT.md and INTEGRATION.md; publication-status owner remains R1."
+      ],
+      "disposition": "Bounded source-check return delivered REPORT.md and INTEGRATION.md with dated claims, proposals and explicit unknowns. It is not a full-source qualification or accepted calendar/pacing design. Historical proof and owner references are retained at exact scope; proposals, source-only APIs and synthetic measurement are not native integration. T9-build BACKLOG.md named in checkpoint receipt is absent now, so it is a missing supplier rather than a reviewed artifact. Old first-milestone wording cannot override the later October24 direction.",
+      "mechanism_and_interactions": "R1 separates published frontier from private acquired/read endpoints and proposes pacing while preserving named era/calendar uncertainty. Evidence in the checkpoint says JJK Modulo chapter 25 is a sequel set in 2086, so QBW8 needs QBK2 alongside base closure; Chainsaw Man publication closure and ongoing HxH/Boruto frontiers are separately dated. Soldier and five TTKS titles have distinct captured endpoints; TTKS B3 is multi-world challenges, not one book/one world.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports official/secondary status checks and private source findings with explicit access limits; source facts were not independently web-verified in this shard.",
+      "reopen": "Unresolved current frontiers and private aggregate durations remain open; no implementation, build, save, browser or human acceptance. Keep published, captured, read and adapted frontiers distinct.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          29
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S008.json"
+      ],
+      "prior_input_sha256": "cc558076a3d312de2bfd844724c6a7cadc1a95fa38b389d859ddb85d9eca1732",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "cc558076a3d312de2bfd844724c6a7cadc1a95fa38b389d859ddb85d9eca1732",
+      "input_lines": 29
+    },
+    {
+      "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r10/CHECKPOINT.md",
+      "ids": [
+        "M201–M210",
+        "M301–M303"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/runs-and-endings-2026-10-14/r10/REPORT.md, SOURCES.md, SPOILERS.md and INTEGRATION.md; private bindings/checks under the lane and named world owners."
+      ],
+      "disposition": "Bounded research return complete for integrator review. No gameplay implementation or acceptance; existing gate status is unchanged. Historical proof and owner references are retained at exact scope; proposals, source-only APIs and synthetic measurement are not native integration. T9-build BACKLOG.md named in checkpoint receipt is absent now, so it is a missing supplier rather than a reviewed artifact. Old first-milestone wording cannot override the later October24 direction.",
+      "mechanism_and_interactions": "R10 maps 107 content/build rows to part 22 sections 8–12, including 94 world-native details, ten cross-world additions and three ranked candidates. It distinguishes proposals from canon evidence and records source-limited ordinary-day, funerary, duration and return-recognition questions. Candidate proposals may begin save-free; delivery records and canon-calendar conversion are separate extensions.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports 107 unique mapped rows, citations/link/claim/proposal checks and selected spot review. No gameplay, build, browser or save exercise.",
+      "reopen": "Coordinator must review/select and integrate. Open source claims include local funeral/day conventions, MoL death-register practice, first ordinary days and universal return-recognition tests; persistence and calendar conversion remain unverified.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S008.json"
+      ],
+      "prior_input_sha256": "656e25191258c1784ec594555fc7e97b7260d570352b6aecf37f94141c9fb8dc",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "656e25191258c1784ec594555fc7e97b7260d570352b6aecf37f94141c9fb8dc",
+      "input_lines": 15
+    },
+    {
+      "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r11/CHECKPOINT.md",
+      "ids": [
+        "K400–K415",
+        "T22/T24/T25",
+        "RN11"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/runs-and-endings-2026-10-14/r11/REPORT.md, INTEGRATION.md, OUTPUT.json and RUN.log."
+      ],
+      "disposition": "Documentation and synthetic measurement packet complete for integration review. It reports no gameplay implementation and says the first milestone direction remains unchanged. Historical proof and owner references are retained at exact scope; proposals, source-only APIs and synthetic measurement are not native integration. T9-build BACKLOG.md named in checkpoint receipt is absent now, so it is a missing supplier rather than a reviewed artifact. Old first-milestone wording cannot override the later October24 direction.",
+      "mechanism_and_interactions": "R11 measured synthetic storage samples through the unchanged helper on an isolated origin; the combined uncompacted sample failed the live storage guard, while safe compaction plus a full backup was measured. Current instance/child validation and diff restoration were asserted. This is serializer measurement, not native death/prestige/branch/escrow behavior.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports measurement, source fingerprints and static checks; no native Save/reload/import, gameplay or full cross-domain archive measurement.",
+      "reopen": "Full archive sizing and all native persistence scenarios remain unmeasured; any selected proposal needs its own authorized slice and rebuilt gameplay/persistence proof.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S008.json"
+      ],
+      "prior_input_sha256": "f8a8ce020067f5019ef0e949176780cb1d18a7f0696d032d07618a6c424b6a8c",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "f8a8ce020067f5019ef0e949176780cb1d18a7f0696d032d07618a6c424b6a8c",
+      "input_lines": 11
+    },
+    {
+      "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r2/CHECKPOINT.md",
+      "ids": [
+        "K01–K30/K39–K40",
+        "K400–K415",
+        "QBW14/QBW15",
+        "QBV1–QBV6"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/runs-and-endings-2026-10-14/r2/REPORT.md, INTEGRATION.md and INPUT_FINGERPRINTS.json; Claude/coordinator owns integration."
+      ],
+      "disposition": "Docs-only mapping and reconciliation complete for coordinator integration; it did not implement proposals or establish current runtime behavior. Historical proof and owner references are retained at exact scope; proposals, source-only APIs and synthetic measurement are not native integration. T9-build BACKLOG.md named in checkpoint receipt is absent now, so it is a missing supplier rather than a reviewed artifact. Old first-milestone wording cannot override the later October24 direction.",
+      "mechanism_and_interactions": "R2 maps 273 non-build rows plus 16 build rows across sections 8–12 and proposes contracts T6–T21. T15 separates closure, sequel, route, adaptation, dispute and distinct published/captured/read/adapted frontiers. Concurrent R1 changes were incorporated; the newer part 22 section 11 claims constrain the mapping. Run-end reset/reward and profile/clock policy remain design questions.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports source tracing, 334 unique report codes and locator/coverage/document checks. No gameplay, schema acceptance, browser or save proof.",
+      "reopen": "Coordinator must integrate selected corrections. Any build requires explicit shared-code/save ownership and rebuilt desktop, save/reload/import/compatibility/failed-write evidence; mapped proposals remain proposals.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          23
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S008.json"
+      ],
+      "prior_input_sha256": "1fa05e8021cc3a6289168fbb34633352b38b4a8f387a7ea342affedb01c84e7c",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "1fa05e8021cc3a6289168fbb34633352b38b4a8f387a7ea342affedb01c84e7c",
+      "input_lines": 23
+    },
+    {
+      "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r11/INTEGRATION.md",
+      "ids": [
+        "I00–I84"
+      ],
+      "classification": "historical integration map; fresh full content read",
+      "owners": [
+        "docs/gm/dispatch/runs-and-endings-2026-10-14/r11/INTEGRATION.md"
+      ],
+      "disposition": "Retain actual byte budget including all origin keys/backups, receipt-preserving compaction, real escrow writes, faint vs death, preview vs prestige issuance, partial branches vs full resume, pinned neutral hidden state and writer compatibility. I82/I83 PROJECT line references and first-milestone premise are superseded by Oct24 direction; preserve useful bounded-adapter principle without reinstating gate.",
+      "evidence": "Entire integration map read; measurements are original synthetic samples, current source locators not reverified.",
+      "reopen": "For selected archive/reset change remeasure exact active+backup+export footprint and current publication/compatibility owners; no present runtime result claimed.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "d6de5cb65aaba9d4fb6029f21b49cfb3df1b48b98c695f19fe175c7c4ddbf3c9",
+      "input_lines": 64,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          64
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r11/INTEGRATION.md",
+      "heading": "## Direction and measurement qualification, 2026-11-04 (B16)",
+      "body": "I82/I83 cite an October 14 PROJECT snapshot. The later October 24 direction in USER_VISION retired the one-realm/one-prestige required milestone; those old citations cannot restore it or make the broad vision deferred. Preserve the narrower useful principle: select the adapter needed for the current playable slice, with actual end/estate/optional-prestige owners and explicit transaction choice. The synthetic byte figures include stated fixture assumptions and are not full-world archive capacity or exact-resume proof. Retain the all-origin-key plus backup budget, receipt fidelity, live command guards, once settlement and durable-before-visible publication constraints. This review did not remeasure storage or validate current serializer lines. T9 planner QA’s named BACKLOG.md supplier was absent during this batch; its checkpoint evidence remains a historical claim, not proof of that missing artifact.",
+      "before_sha256": "d6de5cb65aaba9d4fb6029f21b49cfb3df1b48b98c695f19fe175c7c4ddbf3c9",
+      "after_sha256": "23a689e499bcfe8bbfbe31790fd8db1bb1f4db6da843b8912e170bb8522446f7"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1806
+}

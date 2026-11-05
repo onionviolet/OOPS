@@ -29,3 +29,8 @@ All source claims are static reading, not runtime proof. Paths are relative to t
 | D4 | [vssurvivalmod/Systems/Dialogue/VariablesModSystem.cs](https://github.com/anegostudios/vssurvivalmod/blob/849fa8cad9e392368566efc7474e73db6404a145/Systems/Dialogue/VariablesModSystem.cs) | global/player/group/entity variables; dialogueData world-save hooks |
 | A1 | [vsessentialsmod/Entity/AI/AiTaskManager.cs](https://github.com/anegostudios/vsessentialsmod/blob/06673b67318e002332b6aa8b3d0308f11d2aba99/Entity/AI/AiTaskManager.cs) | task registry, slots, scheduling and server runtime config |
 | O1 | [vssurvivalmod/Systems/Handbook/Tutorial/FirstStepsTutorial.cs](https://github.com/anegostudios/vssurvivalmod/blob/849fa8cad9e392368566efc7474e73db6404a145/Systems/Handbook/Tutorial/FirstStepsTutorial.cs) | input, collect, craft, look, grab and place steps |
+
+
+## Donor mechanism and source-depth boundaries, 2026-11-04 (B88)
+
+The [feature report](REPORT.md) supplies the semantic distinctions behind B/T/W/H/K/D/A/O locators: exact-ratio versus surplus inputs and remainder; retained lot progress with contextual rates; portable unfinished anvil work versus in-place clay; reheating versus reclaim; recipe-derived references versus actual admission blockers; and explicit assembly property policies rather than universal retained parts. These are pinned static source/report findings, with asset flags/wiki recipes/runtime still separate. Reading this map/report did not reopen donor method bodies, acquire paid assets or test the game. Preserve P1–P7 as selected-use proposals, without a universal humidity/survival simulator, mandatory second-world-before-first-use gate or retired one-realm cap. Current AD51/AD32/AD36/AD42 govern shared seams, source qualification and proof.

@@ -1,0 +1,174 @@
+{
+  "schema": 1,
+  "batch": "B157",
+  "title": "Inventory, optional widgets, specimen observations and captured UI delivery",
+  "at": "2026-11-04T22:11:27.127411+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/reviews/INVENTORY_OVERHAUL_ASSESSMENT_2026-10-21.md",
+      "ids": [
+        "F1-F3",
+        "I1-I5",
+        "31 stacks"
+      ],
+      "classification": "Historical capability assessment, later I2-I5 delivered",
+      "owners": [
+        "docs/reviews/INVENTORY_OVERHAUL_ASSESSMENT_2026-10-21.md",
+        "docs/gm/dispatch/inventory-overhaul-2026-10-21/CHECKPOINT.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Read all capability and dense-stock limits. The execution checkpoint reports I2-I5 implemented and published on a named release; table recommendations are not still missing by default. Preserve exact variants, known counts, effective structured wear/fit comparison and local atomic batch ownership. 31 stacks with 29 same-kind quality variants is a pressure fixture, not all mixed inventory.",
+      "evidence": "Full text plus full execution checkpoint; no current app, origin, image, served-file or remote commit inspection.",
+      "reopen": "Use current selected owner/source and reproduce a named actual problem; do not reopen delivered gates, broad UI scope or publication from a dated instruction.",
+      "input_sha256": "588689f765b91fef8d06614a43a1f56d9bbf244d6719fc932b2a4324448183b7",
+      "input_lines": 68,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          68
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/PROTO23_WIDGETS_2026-10-21.md",
+      "ids": [
+        "CRL31",
+        "CRL29-CRL39 preview"
+      ],
+      "classification": "Original source handoff with superseding combined-browser qualification",
+      "owners": [
+        "docs/reviews/PROTO23_WIDGETS_2026-10-21.md",
+        "docs/gm/dispatch/inventory-overhaul-2026-10-21/CHECKPOINT.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Read malformed-source containment, existing preview and full handoff. Top combined-baseline note closes its historical root browser gate; bottom unverified wording stays dated. Per-entry malformed-row isolation does not catch gameplay/persistence failures. Draft preview isolation is not saving Apply.",
+      "evidence": "Full report only; linked combined-baseline proof not reread, no new Find/Ctrl+K/browser/theme run.",
+      "reopen": "Use current selected owner/source and reproduce a named actual problem; do not reopen delivered gates, broad UI scope or publication from a dated instruction.",
+      "input_sha256": "6a06a1d30122879eb5b551ac331c8e8f43453585672e855fb175072c976e7b53",
+      "input_lines": 46,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          46
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/PROTO23_PERISHABLE_2026-10-21.md",
+      "ids": [
+        "CRL27",
+        "CRL36",
+        "CRL37",
+        "21 tests"
+      ],
+      "classification": "Historical specimen observation slice with later partial lineage join",
+      "owners": [
+        "docs/reviews/PROTO23_PERISHABLE_2026-10-21.md",
+        "docs/gm/dispatch/inventory-overhaul-2026-10-21/CHECKPOINT.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Read full scope, append-only observation fields, true aging, validation, absent old data and all unrun gates. Top baseline note supersedes bottom root gate; later gear lineage does not establish general finished-product deterioration. Age intervals local inspection dials, not universal species/world truth.",
+      "evidence": "Full text only. Historical 21 tests and later receipt references are attributed, not new current native/image/persistence proof.",
+      "reopen": "Use current selected owner/source and reproduce a named actual problem; do not reopen delivered gates, broad UI scope or publication from a dated instruction.",
+      "input_sha256": "b8d70b32882f26cec5f431c97e6ed6b3de9cfe5f1253dee174dfb1d7bca2bb76",
+      "input_lines": 75,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          75
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/PROTO23_UI_DELIVERY_CHECK_2026-10-21.md",
+      "ids": [
+        "F1-F3",
+        "implementation continuation",
+        "usage ceiling"
+      ],
+      "classification": "Initial UI diagnostic with explicit later-delivery qualification",
+      "owners": [
+        "docs/reviews/PROTO23_UI_DELIVERY_CHECK_2026-10-21.md",
+        "docs/gm/dispatch/inventory-overhaul-2026-10-21/CHECKPOINT.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Read original Gothic/default/geometry diagnostic and subsequent authorization. Opening current qualification supersedes F1 and old delivery gap, while source extraction versus actual loaded font/adoption stays distinct. Old helper permissions, usage window, process reservations and no-commit limits describe their task, not current actions.",
+      "evidence": "Full report only; actual font asset, current tab, live allowance, optional packs and installed app unverified here.",
+      "reopen": "Use current selected owner/source and reproduce a named actual problem; do not reopen delivered gates, broad UI scope or publication from a dated instruction.",
+      "input_sha256": "c4ed656b34f5c530187f3e077cc1ad1bd960ab73b03d07813cd4d21cd31b8f42",
+      "input_lines": 74,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          74
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/inventory-overhaul-2026-10-21/CHECKPOINT.md",
+      "ids": [
+        "I2-I5",
+        "2516 tests",
+        "six desktop cases",
+        "publication",
+        "normal app"
+      ],
+      "classification": "Historical combined inventory release checkpoint",
+      "owners": [
+        "docs/gm/dispatch/inventory-overhaul-2026-10-21/CHECKPOINT.md",
+        "docs/gm/dispatch/inventory-overhaul-2026-10-21/CHECKPOINT.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Read full authorized scope, exact native seams, actual clean candidate/native/Electron proof and publication. Delivered/published replaces assessment missing-I2-I5 queue at that captured release. Preserve82 served-file equality, private optional assets excluded, exact frozen bundle and no personal-save read.",
+      "evidence": "Fresh full checkpoint only. Remote/source commit, installed release and private JSON evidence were not checked now; 2516 tests are historical candidate/export checks, not a current suite run.",
+      "reopen": "Use current selected owner/source and reproduce a named actual problem; do not reopen delivered gates, broad UI scope or publication from a dated instruction.",
+      "input_sha256": "e9bcea525a2afbc2e54048e60cf27ccbb53c7a109a1fad9bd1a07b0f748b63d2",
+      "input_lines": 34,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          34
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/reviews/INVENTORY_OVERHAUL_ASSESSMENT_2026-10-21.md",
+      "heading": "## Content reconciliation B157, 2026-11-04",
+      "body": "The full assessment and [execution checkpoint](../gm/dispatch/inventory-overhaul-2026-10-21/CHECKPOINT.md) were reviewed. Its later captured release implements I2-I5 through actual native/UI consumers and records combined browser, persistence, Electron and publication proof. Keep the table as the original design/gap evidence, not a fresh four-item missing-feature queue. This reconciliation did not inspect today's app, remote branch or exact current source (AD32, AD36).\n\nPreserve I1's fixture limits: thirty-one stacks, largely quality variants of one kind, pressure-test exact selection and large-text density without proving every mixed/damaged inventory. Structured fit, condition, custody and final character effects are distinct from an item-only score. Catalogue compatibility does not grant possession/access, and multi-holder transfers need the actual owner/transaction. Existing compact proportions, expanded inspection and full Reports remain meaningful choices; an overhaul does not consume every panel or invent a second stock store. No new transfer or runtime behavior was tested here.",
+      "before_sha256": "588689f765b91fef8d06614a43a1f56d9bbf244d6719fc932b2a4324448183b7",
+      "after_sha256": "14f3a0edaa60425c760ab81c58afa1a90849532baa338ea3e52a67f801d33c9f"
+    },
+    {
+      "path": "docs/reviews/PROTO23_WIDGETS_2026-10-21.md",
+      "heading": "## Content reconciliation B157, 2026-11-04",
+      "body": "Read CRL31 and the full preview handoff. The opening combined-baseline qualification supersedes the bottom unrun-root-browser language for its captured inputs. Preserve the actual defect and repair: validate optional source rows inside their entry boundary, so one malformed label does not abort healthy Find/navigation. This presentation containment does not replace native command, save or transaction failure handling.\n\nThe existing customization preview is a real component-style consumer with draft/active isolation; it is not another editor or proof that Apply saved every theme. Native adjacent controls should retain the active profile until commitment. Historical browser closure stays with the baseline receipt, not a new current Find/Ctrl+K or contrast test. No optional widget, loader or theme code was changed (AD32, AD36, AD42).",
+      "before_sha256": "6a06a1d30122879eb5b551ac331c8e8f43453585672e855fb175072c976e7b53",
+      "after_sha256": "1a6f61dc4d6305cb9d35a5f24d5a3eb0795688f3c0cc15d62f680dad641a160e"
+    },
+    {
+      "path": "docs/reviews/PROTO23_PERISHABLE_2026-10-21.md",
+      "heading": "## Content reconciliation B157, 2026-11-04",
+      "body": "Full observation and compatibility receipt read. The existing opening note records the later root browser/persistence closure and gear lineage slice; the original bottom handoff is historical. Keep specimen birth/true elapsed condition distinct from an observer's dated skill-qualified estimate. New inspections append without rewriting prior uncertainty; old absent observation history does not invent earlier readings. Free observation is this actual route, not a new skill grant.\n\nSelected lot/start/cancel identity, later processed-material chest split/return and general product aging are separate capabilities. A later lineage adapter does not prove all finished inventory stacks retain individual age, or every item spoils. The 60/30/10-minute bands are local authored estimates; no universal clock, perception penalty or upkeep follows. No specimen source, estimate, unit/native test or current save was newly exercised here (AD32, AD36, AR6).",
+      "before_sha256": "b8d70b32882f26cec5f431c97e6ed6b3de9cfe5f1253dee174dfb1d7bca2bb76",
+      "after_sha256": "5c60e6aca72c08bb5ac9e2315ccdd2a0512d52d92e20597ed2505264b216d5c6"
+    },
+    {
+      "path": "docs/reviews/PROTO23_UI_DELIVERY_CHECK_2026-10-21.md",
+      "heading": "## Content reconciliation B157, 2026-11-04",
+      "body": "Read the diagnostic and authorization in full. Its opening qualification governs F1's obsolete nondefault Gothic claim and earlier delivery status. Source/font declaration, asset presence, actual rendered face, active saved profile and real app adoption are distinct. A saved geometry override can explain a difference without diagnosing an unobserved player window. Source extraction remains different from every reference interaction being delivered or preferred.\n\nThe usage percentage, helper budget, reserved paths and process inventory were task-local observations. They authorize no current reader, app access, publication or revival of held work. Human taste and natural pacing remain feedback under AD42, not blocking technical progress. This pass checked no live app, font, source asset or current allowance (AD32, AD36).",
+      "before_sha256": "c4ed656b34f5c530187f3e077cc1ad1bd960ab73b03d07813cd4d21cd31b8f42",
+      "after_sha256": "46232cb3b0b00bd9697ce70cf1efad93924c7d9ff5e42179c6469a06480e16e1"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1176
+}

@@ -1,0 +1,552 @@
+{
+  "schema": 1,
+  "batch": "B51",
+  "title": "Retained table evidence, exact source criteria and donor continuity distinctions",
+  "at": "2026-11-04T19:59:22.281421+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/stardew-valley/CHECKPOINT.md",
+      "ids": [
+        "P03",
+        "A01..A12"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/stardew-valley/FINDINGS.json; docs/research/stardew-valley/CHECKPOINT.md"
+      ],
+      "disposition": "Completed bounded source/data dossier; counts and decode checks do not mean semantic review of every row. Research proposals remain unaccepted and no YAIR gameplay acceptance is claimed. Preserve source-specific exact bodies vs data/text/wrapper evidence, original-source unmet criterion and later historical removal receipts. Current source/installation not reverified. Donor wait/return/reset behavior does not become universal design; existing native actor/custody/time owners and current ACR rules govern a selected adaptation.",
+      "mechanism_and_interactions": "Static Stardew pass decoded 16 XNBs to 1790 top-level rows; selected sources included friendship recipes, events/dialogue, serialization and donor UI, while the exact friendship-letter enqueue evaluator remained untraced. No game/runtime/save behavior was exercised.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Static source and structural decode claims reported; current runtime, save, and YAIR integration not inspected.",
+      "reopen": "If selected, trace morning/mail enqueue threshold and duplicate handling; broader events, migrations and native UI/save route require their named source or authorized runtime evidence.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          20
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S046.json"
+      ],
+      "prior_input_sha256": "0310c51e25392a43b00e10adc183c8315d6559fa004e2629836ca60a5142fbdf",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "0310c51e25392a43b00e10adc183c8315d6559fa004e2629836ca60a5142fbdf",
+      "input_lines": 20
+    },
+    {
+      "path": "docs/research/streets-of-rogue/CHECKPOINT.md",
+      "ids": [
+        "FINDINGS",
+        "COVERAGE",
+        "VALIDATION"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/streets-of-rogue/REPORT.md, INTAKE.json, FINDINGS.json, COVERAGE.json, VALIDATION.json"
+      ],
+      "disposition": "Research fallback completed with explicit unmet original-source criterion; no gameplay/build/save/profile/browser/test/commit/publication action occurred. Preserve source-specific exact bodies vs data/text/wrapper evidence, original-source unmet criterion and later historical removal receipts. Current source/installation not reverified. Donor wait/return/reset behavior does not become universal design; existing native actor/custody/time owners and current ACR rules govern a selected adaptation.",
+      "mechanism_and_interactions": "Fallback comparison uses two public framework/mod snapshots and nine reviewed paths; the original game assembly was unavailable, so all five original-gameplay paths remain 0/5. YAIR consumers exist for comparison directions, but no behavioral acceptance follows.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint summarizes source hashes and validation, not runtime behavior.",
+      "reopen": "Requires accessible, provenance-checked original Assembly-CSharp.dll with dependencies or pinned original gameplay reference to finish five paths; then separate runtime acceptance if selected.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S046.json"
+      ],
+      "prior_input_sha256": "a7cdbee2bad02cc792613df7e2b215f12364163f1660292e3604522be902237c",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "a7cdbee2bad02cc792613df7e2b215f12364163f1660292e3604522be902237c",
+      "input_lines": 15
+    },
+    {
+      "path": "docs/research/sucker-for-love-crush-landing/CHECKPOINT.md",
+      "ids": [
+        "P1"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/sucker-for-love-crush-landing/FINDINGS.json, REPORT.md, IMPLEMENTATION_PACKETS.md; uninstall receipt in docs/gm/dispatch/steam-installs-2026-10-09/SUCKER_UNINSTALL.json"
+      ],
+      "disposition": "Bounded source audit superseded acquisition-only dossier; eight proposals and 24 touches map to YAIR owners, with P1 prepared gift recommended but unselected. Parent later requested uninstall; final manifest-absent/log-success state supersedes an earlier unverified removal note. Preserve source-specific exact bodies vs data/text/wrapper evidence, original-source unmet criterion and later historical removal receipts. Current source/installation not reverified. Donor wait/return/reset behavior does not become universal design; existing native actor/custody/time owners and current ACR rules govern a selected adaptation.",
+      "mechanism_and_interactions": "Static GameMaker disassembly review traced typed heart history/final heart checks, conduct increments and recollection gates, place/possession errors, waiting preparation, ending flags surviving tracker recreation/save-load, gallery setup and collateral achievements. These are selected instruction bodies, not executed behavior.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Static disassembly and retained hash claims; no natural pacing, rendered UI, save/reload/import or YAIR proposal behavior exercised.",
+      "reopen": "If implementing, inspect current owners and run a rebuilt gameplay/persistence route. Historical singular point_wicked read versus plural points_wicked increment remains unresolved; route/dialogue reachability and external localization/extensions are outside audit.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          51
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S046.json"
+      ],
+      "prior_input_sha256": "d95d1e0901b3f46731240645e2677d4d0ff3acfba5cba11a793721589b540816",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "d95d1e0901b3f46731240645e2677d4d0ff3acfba5cba11a793721589b540816",
+      "input_lines": 51
+    },
+    {
+      "path": "docs/research/sunless-sea/CHECKPOINT.md",
+      "ids": [
+        "Section B",
+        "Sea"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/sunless-sea/CHECKPOINT.md and COVERAGE.md (actual public coverage supplier located during coordinator check); RETENTION.json is the named source/copy receipt. No runtime consumer assigned."
+      ],
+      "disposition": "Assigned Sea research complete and proposals unaccepted; installed state is distinct from audit completion. No uninstall attempted. Preserve source-specific exact bodies vs data/text/wrapper evidence, original-source unmet criterion and later historical removal receipts. Current source/installation not reverified. Donor wait/return/reset behavior does not become universal design; existing native actor/custody/time owners and current ACR rules govern a selected adaptation.",
+      "mechanism_and_interactions": "Recovered managed method bodies and 26 TextAssets; targeted inheritance/storylet/pressure traces were read. Source fingerprints and copied hashes matched, but story/DLC review was not exhaustive and no runtime proof occurred.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports validation and retained outputs; not independently reopened here.",
+      "reopen": "No gameplay acceptance. Future Sea selection needs chosen proposal and fresh runtime/persistence proof; do not restart completed extraction.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S046.json"
+      ],
+      "prior_input_sha256": "b674a3e2bc1071f08f59d33faa814763692f725fc0a0ede7e459895642642ab3",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "b674a3e2bc1071f08f59d33faa814763692f725fc0a0ede7e459895642642ab3",
+      "input_lines": 13
+    },
+    {
+      "path": "docs/research/sunless-skies/CHECKPOINT.md",
+      "ids": [
+        "Section B",
+        "Skies"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/sunless-skies/VALIDATION.json and dossier; matching private extraction"
+      ],
+      "disposition": "Assigned Skies dossier and validation completed; no gameplay acceptance or whole-story/DLC coverage. No install mutation/uninstall. Preserve source-specific exact bodies vs data/text/wrapper evidence, original-source unmet criterion and later historical removal receipts. Current source/installation not reverified. Donor wait/return/reset behavior does not become universal design; existing native actor/custody/time owners and current ACR rules govern a selected adaptation.",
+      "mechanism_and_interactions": "ILSpy recovered method bodies and 12 TextAssets; five tables were decoded to exact EOF, with selected traces and a partial main-config prefix. XP formula, heirloom display tag and source-versus-inference distinctions remain explicit.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical validation reports hashes/counts, not play proof.",
+      "reopen": "No gameplay acceptance; retain named formula/tag/source gaps if selected and qualify via source/consumer evidence.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S046.json"
+      ],
+      "prior_input_sha256": "d8bc4fd8b032d1f41808aa2fba361ff1b363e046bebfeb21143fa16e216dd4d8",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "d8bc4fd8b032d1f41808aa2fba361ff1b363e046bebfeb21143fa16e216dd4d8",
+      "input_lines": 13
+    },
+    {
+      "path": "docs/research/super-robot-wars/CHECKPOINT.md",
+      "ids": [
+        "P1",
+        "P2",
+        "P5"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/super-robot-wars/ checkpoint and its linked research artifacts"
+      ],
+      "disposition": "Web research complete at series/system level, but source-specific unknowns remain; P1/P2 cheapest canon-first fit and P5 deferred are historical suggestions, not accepted selection. Preserve source-specific exact bodies vs data/text/wrapper evidence, original-source unmet criterion and later historical removal receipts. Current source/installation not reverified. Donor wait/return/reset behavior does not become universal design; existing native actor/custody/time owners and current ACR rules govern a selected adaptation.",
+      "mechanism_and_interactions": "Series/system research summarizes Spirit Command and related systems; checkpoint identifies character-specific secret conditions, non-Z/V/30 mastery formulas and route charts as unverified. No game-side mechanism was implemented.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports URLs consulted and inaccessible sources; no game execution.",
+      "reopen": "If a packet is selected, obtain reliable route/secret or chart references and then define actual world consumer; no runtime gate was part of research.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S046.json"
+      ],
+      "prior_input_sha256": "20a7ca2cb0d076380294d465ef5be6a8ed76abe2e490b171f5507344d495759f",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "20a7ca2cb0d076380294d465ef5be6a8ed76abe2e490b171f5507344d495759f",
+      "input_lines": 15
+    },
+    {
+      "path": "docs/research/taiwu-ingredient-use-2026-10-15/CHECKPOINT.md",
+      "ids": [
+        "DQ1",
+        "Q1-Q5"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/taiwu-ingredient-use-2026-10-15/REPORT.md, INGREDIENT_TO_USE.md, UI_EVIDENCE.md, VALIDATION.json"
+      ],
+      "disposition": "Research complete at static-code layer, with official manufacturing images; no lot sampled or native result/use UI, stock/stat/injury pre/post, failure recovery or persistence exercised. Follow-on comparisons are proposals. Preserve source-specific exact bodies vs data/text/wrapper evidence, original-source unmet criterion and later historical removal receipts. Current source/installation not reverified. Donor wait/return/reset behavior does not become universal design; existing native actor/custody/time owners and current ACR rules govern a selected adaptation.",
+      "mechanism_and_interactions": "Static source traced ingredient selection through MakeItemType joins, frontend requests, debit, output generation and use: Material140 reaches medicine275 hit-stat calculation and medicine61 injury mutation. Selected subtype Time0 plus immediate collection/no collection-time check removes mandatory waiting queue for this path.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports source path and image inspection; no game launch or save read.",
+      "reopen": "Native UI and actual transaction outcome, failure/recovery, save/reload still need selected controlled runtime evidence.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S046.json"
+      ],
+      "prior_input_sha256": "db3a7a599165bf236d4feb31f40fe7126e044cb127de85ff5520d2d8810870a7",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "db3a7a599165bf236d4feb31f40fe7126e044cb127de85ff5520d2d8810870a7",
+      "input_lines": 11
+    },
+    {
+      "path": "docs/research/tale-of-immortal/CHECKPOINT.md",
+      "ids": [
+        "nine lenses"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/tale-of-immortal/REPORT.md, COVERAGE.json, IMPLEMENTATION_PACKETS.md; current life-sim foundation/experience integrators if later selected"
+      ],
+      "disposition": "Finite extraction/source audit completed; packets remain proposals. Current household/biography code already exists in YAIR, correcting stale north-star claim. No uninstall authorization implied. Preserve source-specific exact bodies vs data/text/wrapper evidence, original-source unmet criterion and later historical removal receipts. Current source/installation not reverified. Donor wait/return/reset behavior does not become universal design; existing native actor/custody/time owners and current ACR rules govern a selected adaptation.",
+      "mechanism_and_interactions": "Selected native readings support memory insertion/retention, ordinary-log pruning, event formula, material-rate aggregation and conditional GZip save write; direct-store recovery was partial and arrays/other allocation plus active mod overrides opaque. It is not whole-game semantic or playable coverage.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint summarizes retained source and selected native method readings; no runtime/source canon audit by this reader.",
+      "reopen": "Maintain gaps for marriage/childbirth, breakthrough payment/RNG, scheduler/offscreen, death/rescue, DLC, save bounds and others listed in COVERAGE; selected work needs fresh-origin and persistence proof.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          25
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S046.json"
+      ],
+      "prior_input_sha256": "3195048d84a10c251c2fc32922e30079789433a0b66b4de32c6c770d24e23322",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "3195048d84a10c251c2fc32922e30079789433a0b66b4de32c6c770d24e23322",
+      "input_lines": 25
+    },
+    {
+      "path": "docs/research/tale-of-immortal/aspects-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "A01-A12",
+        "A04"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/tale-of-immortal/aspects-2026-10-14/ASPECTS.md and CHECKPOINT.md"
+      ],
+      "disposition": "All fixed-key aspect artifacts and validation delivered; PARTIAL describes source/execution gaps, not missing deliverables. No implementation/play acceptance. Preserve source-specific exact bodies vs data/text/wrapper evidence, original-source unmet criterion and later historical removal receipts. Current source/installation not reverified. Donor wait/return/reset behavior does not become universal design; existing native actor/custody/time owners and current ACR rules govern a selected adaptation.",
+      "mechanism_and_interactions": "Aspect inventory covers available file/table/module families and deeper systems, but source gaps include current save codec/migrations, dialogue/effect and NPC goal consumers, semantically unread story branches, and rendered UI/save/DLC activation.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Artifact validation reported; no game launch/save/UI evidence.",
+      "reopen": "A04 requires executable/native body; interpreter/selectors require consumer bodies; runtime/save and DLC need separately authorized proof.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          24
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S046.json"
+      ],
+      "prior_input_sha256": "339a9f2cc0a5527a0a9dd8426c956488d51f8169724da45219fe8897a7062678",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "339a9f2cc0a5527a0a9dd8426c956488d51f8169724da45219fe8897a7062678",
+      "input_lines": 24
+    },
+    {
+      "path": "docs/research/tales-of-maj-eyal/CHECKPOINT.md",
+      "ids": [
+        "talent/scaling",
+        "legal action/effect",
+        "contextual AI",
+        "quest/achievement/unlock"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/tales-of-maj-eyal/REPORT.md, FINDINGS.json, IMPLEMENTATION_PACKETS.md; existing runtime owners if selected"
+      ],
+      "disposition": "Finite source research complete; three ranked packets remain unselected. Live YAIR source had concurrent hooks/schema10 acceptance, while cited Reference bundle hash was an earlier owner receipt, not current build/behavior proof. Preserve source-specific exact bodies vs data/text/wrapper evidence, original-source unmet criterion and later historical removal receipts. Current source/installation not reverified. Donor wait/return/reset behavior does not become universal design; existing native actor/custody/time owners and current ACR rules govern a selected adaptation.",
+      "mechanism_and_interactions": "Official ToME sources show connected paths for talent/scaling, legal action/effect, contextual AI, quest/achievement/unlock and material/equipment, with actual consumers and failures. Coverage is 37 selected Lua/C files and 3112 lines, not whole modules/DLC/gameplay.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical source comparison/validation reported; no runtime, UI, save, canonical/build/gameplay or install operation.",
+      "reopen": "Before runtime selection reconcile current inputs/owners; proposed behavior, failure, save/import, combat and balance remain untested. Full-game/DLC/hook/profile/RNG gaps remain.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          21
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S046.json"
+      ],
+      "prior_input_sha256": "a1840d71136f1ae9ba08f1ffb7b4d19917159b41a4923ac8e0e9370ea6255ce4",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "a1840d71136f1ae9ba08f1ffb7b4d19917159b41a4923ac8e0e9370ea6255ce4",
+      "input_lines": 21
+    },
+    {
+      "path": "docs/research/the-lands-of-eldyn/CHECKPOINT.md",
+      "ids": [
+        "F1-F5"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/the-lands-of-eldyn/REPORT.md, private AUDIT_VERIFICATION.json; uninstall/reachability receipts in dispatch folder"
+      ],
+      "disposition": "Dossier and copy gate completed, but no source-derived gameplay mechanics or runtime/UI/save proof. Parent removal request and remote check did not recover gameplay; final receipt says uninstall not verified, dialog unobserved. Preserve source-specific exact bodies vs data/text/wrapper evidence, original-source unmet criterion and later historical removal receipts. Current source/installation not reverified. Donor wait/return/reset behavior does not become universal design; existing native actor/custody/time owners and current ACR rules govern a selected adaptation.",
+      "mechanism_and_interactions": "Entire selected app-owned Electron wrapper was inspected, but gameplay is remotely delivered and absent locally; mechanic audit is therefore blocked. Five UX proposals and 22 touches reference native surfaces only.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports ASAR hashes and selected byte correspondence; no launch or save access.",
+      "reopen": "Only a provenance-checked source/reference for remote gameplay could resolve mechanics; current receipt does not establish permanent shutdown or removal.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S046.json"
+      ],
+      "prior_input_sha256": "10ae6820cbd3c3c4ecaedcf9c0011ed535381f21123fcad2ce76f3553617fc0d",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "10ae6820cbd3c3c4ecaedcf9c0011ed535381f21123fcad2ce76f3553617fc0d",
+      "input_lines": 17
+    },
+    {
+      "path": "docs/research/the-strange-tabletop/CHECKPOINT.md",
+      "ids": [
+        "A01-A12",
+        "MWTS-P02"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/the-strange-tabletop/REPORT.md, IMPLEMENTATION_PACKETS.md, SOURCES.md"
+      ],
+      "disposition": "Public-source dossier and aspect outputs complete for bounded pass, but not a full-rulebook audit or gameplay implementation. Proposals remain proposals. Preserve source-specific exact bodies vs data/text/wrapper evidence, original-source unmet criterion and later historical removal receipts. Current source/installation not reverified. Donor wait/return/reset behavior does not become universal design; existing native actor/custody/time owners and current ACR rules govern a selected adaptation.",
+      "mechanism_and_interactions": "Targeted Strange sources distinguish SHOWN/STATED/INFERRED and generic CSRD/editorial additions from Strange rules. Gaps include full focus/Pool arithmetic, artifact mismatch/degeneration rules, recursion construction/upkeep, full catalogs, companion custody rules and digital engine/save/UI.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports captured 14 public references and structural checks; no digital build/runtime.",
+      "reopen": "Further selected claims require lawful official excerpts/supplied rules; digital save/UI are tabletop non-goals for this source gap, not guessed classes.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          37
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S046.json"
+      ],
+      "prior_input_sha256": "58950e45c46d1e58255391111a8dd464d4b7f0c30b789551e84afc903aa2bbb1",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "58950e45c46d1e58255391111a8dd464d4b7f0c30b789551e84afc903aa2bbb1",
+      "input_lines": 37
+    },
+    {
+      "path": "docs/research/the-strange-tabletop/aspects-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "A01-A12"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/the-strange-tabletop/aspects-2026-10-14/ASPECTS.md and parent CHECKPOINT.md"
+      ],
+      "disposition": "All aspect rows represented; partial is source breadth limitation, not missing artifact delivery. Preserve source-specific exact bodies vs data/text/wrapper evidence, original-source unmet criterion and later historical removal receipts. Current source/installation not reverified. Donor wait/return/reset behavior does not become universal design; existing native actor/custody/time owners and current ACR rules govern a selected adaptation.",
+      "mechanism_and_interactions": "Inventory has 27 scoped subsystems; deeper reads cover travel/laws, item manifestation/support and world authorship, not full commercial rulebook/catalog or digital implementation.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint refers to lane gap table; no independent source verification.",
+      "reopen": "Use parent named unread table for exact rule gaps; preserve no digital implementation/full catalog claim.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          5
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S046.json"
+      ],
+      "prior_input_sha256": "f5dab4b3b3df9c64c033c12cccf514818694ae284fecae4c87462bfc2a260c15",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "f5dab4b3b3df9c64c033c12cccf514818694ae284fecae4c87462bfc2a260c15",
+      "input_lines": 5
+    },
+    {
+      "path": "docs/research/theory-of-magic/CHECKPOINT.md",
+      "ids": [
+        "six artifacts"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/theory-of-magic/REPORT.md, INTAKE.json; existing automation/biography/save/household owners"
+      ],
+      "disposition": "Bounded research complete with six deliverables, eight proposals and 24 touches; no implementation or user-game build claim. Parent was to integrate report. Preserve source-specific exact bodies vs data/text/wrapper evidence, original-source unmet criterion and later historical removal receipts. Current source/installation not reverified. Donor wait/return/reset behavior does not become universal design; existing native actor/custody/time owners and current ACR rules govern a selected adaptation.",
+      "mechanism_and_interactions": "Static community/original identity and source hashes were checked; existing YAIR automation/biography/save guard/household/read-progress owners were explicitly reconciled. Pacing and rendered UI were not exercised.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports hash/path validation, not gameplay evidence.",
+      "reopen": "If implementation selected, inspect current native owner and overlapping lanes, pick one packet and run fresh-origin/persistence gates.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S046.json"
+      ],
+      "prior_input_sha256": "af754eacfe52d2c5e7858af5ae49b1721e1047c45060079e5742e8261b0f8e28",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "af754eacfe52d2c5e7858af5ae49b1721e1047c45060079e5742e8261b0f8e28",
+      "input_lines": 11
+    },
+    {
+      "path": "docs/research/theory-of-magic/repass-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "P4",
+        "invigorate",
+        "defense_stance"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/theory-of-magic/repass-2026-10-14/REPORT.md, COVERAGE.json; private DECODED_CALL_FLOW"
+      ],
+      "disposition": "Static selected-chain gate complete; runtime and wider catalogue semantics remain open. It preserves explicit no-execution/no-save status and private resumable call-flow evidence. Preserve source-specific exact bodies vs data/text/wrapper evidence, original-source unmet criterion and later historical removal receipts. Current source/installation not reverified. Donor wait/return/reset behavior does not become universal design; existing native actor/custody/time owners and current ACR rules govern a selected adaptation.",
+      "mechanism_and_interactions": "Selected exact source pins trace invigorate acquisition, resource conversion, community XP, paid training completion and defense_stance threshold, including blocked cast, fine/coarse runner exception, missing cast XP, different training means and constructor-added next-spell arcana cost.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports restored hashes and source-chain review; no source/game execution.",
+      "reopen": "If extended, first read report/private decoded call flow then named remaining catalogues; runtime needs separately scoped task.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S046.json"
+      ],
+      "prior_input_sha256": "329741422a6e0860aea44e4731569db0d7d54fd08ce51bfb2b4c4bb22f8aafdb",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "329741422a6e0860aea44e4731569db0d7d54fd08ce51bfb2b4c4bb22f8aafdb",
+      "input_lines": 13
+    },
+    {
+      "path": "docs/research/stardew-valley/aspects-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "twelve aspect rows",
+        "friendship-recipe enqueue",
+        "migration/runtime boundaries"
+      ],
+      "classification": "fresh full uncoded source-checkpoint review",
+      "owners": [
+        "docs/research/stardew-valley/aspects-2026-10-14/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve learning receiver/data vs untraced schedule enqueue, bounded migration vs full recovery and source-only aspect completeness. No game or save behavior proof follows.",
+      "evidence": "Entire checkpoint freshly read; did not inspect donor saves/installs, execute backups or repeat workbook extraction.",
+      "reopen": "Future selected comparison can use existing current dossier evidence; remaining exact consumer/body question needs separately selected input, not another bulk table pass.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "0a391ea0c2e0fbb0e9a01518002f7768f525961666d13855db8f8b10718d5ea5",
+      "input_lines": 9,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/tale-of-immortal/pass-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "eleven workbooks",
+        "22 JSONs",
+        "8385 IDs/115837 values",
+        "named unread consumers"
+      ],
+      "classification": "fresh full uncoded source-checkpoint review",
+      "owners": [
+        "docs/research/tale-of-immortal/pass-2026-10-14/CHECKPOINT.md"
+      ],
+      "disposition": "Backup tables and companion-value parity are parsing proof, not current build or executable selectors. Preserve exact NPC/tribulation/aging/transfer/runtime gaps. Counterpart Immortal Life missing-directory statement is an old inspection; the current project now has reviewed source dossiers and follow-up consumers, without proving current installed state.",
+      "evidence": "Entire checkpoint freshly read; did not inspect donor saves/installs, execute backups or repeat workbook extraction.",
+      "reopen": "Future selected comparison can use existing current dossier evidence; remaining exact consumer/body question needs separately selected input, not another bulk table pass.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "cd36868d76ebf50152e85e9d52ec268d5a131b31cd614a85dec04fd18c5a2af8",
+      "input_lines": 34,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          34
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/tale-of-immortal/pass-2026-10-14/CHECKPOINT.md",
+      "heading": "## Counterpart evidence routing, 2026-11-04 (B51)",
+      "body": "The Immortal Life missing-directory row is a dated inspection, not current project availability. docs/research/immortal-life now has its original, aspects, deep and systems checkpoints, content-reviewed in B34 of the loose-document reconciliation. They supply bounded data/native consumer evidence for the comparison without closing paid autonomous training, lifespan/next-life, broad callbacks or save/runtime gaps. Use those exact source-qualified findings instead of inventing counterpart mechanics or repeating bulk workbook extraction. Tale’s backup tables still do not qualify a current installed build, native selector, payment/RNG or autonomous scheduler. No restoration, installation or source acquisition occurred here.",
+      "before_sha256": "cd36868d76ebf50152e85e9d52ec268d5a131b31cd614a85dec04fd18c5a2af8",
+      "after_sha256": "105e3db55d0c0d7bcdeb37bae85d31ed956a53f7edeb81dc45fc346b3bdd87ab"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1468
+}

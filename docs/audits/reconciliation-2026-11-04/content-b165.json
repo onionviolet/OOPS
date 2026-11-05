@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "batch": "B165",
+  "title": "Remaining source audit shards and non-equivalent contracts",
+  "at": "2026-11-04T22:20:27.318195+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/S3.md",
+      "ids": [
+        "S3-F1–F12; O1–O3"
+      ],
+      "classification": "Historical source audit; current semantic disposition",
+      "owners": [
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/SYNTHESIS.md",
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/FOLLOWUP_CHECKPOINT.md"
+      ],
+      "disposition": "Keep normalized text equality distinct from runtime equivalence. Later L1/L3 alter exact hash/helper/trade/ratchet findings, but do not certify every stack. Do not move helpers into heavy cycle-producing contracts merely from duplicated names. world-pack lint and manifest-loader schemas remain different artifacts; current registry evidence B138 qualifies historical absence without proving they are same schema. Export reachability/count is not sufficient to delete public first-slice API. Calendar/night alternatives need consumer law.",
+      "evidence": "Fresh entire report and exclusions read. L1–L4, fix reports and later checkpoint fully read B160; current registry and transaction source slices independently recorded earlier, not reexecuted here. Original code corpus, SRD JSON, full data tables, secret paths and UI/runtime not reviewed through these reports.",
+      "reopen": "For a selected surviving issue, inspect present producer, contract and consumer with a concrete failure; preserve historical row and distinct evidence scope.",
+      "input_sha256": "3076aef7cc66d6c0fc35c767193465a5750ecda9a2028b903ec16bd317582987",
+      "input_lines": 142,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          142
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/S4.md",
+      "ids": [
+        "S4-F1–F24; clean-check list"
+      ],
+      "classification": "Historical source audit; current semantic disposition",
+      "owners": [
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/SYNTHESIS.md",
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/FOLLOWUP_CHECKPOINT.md"
+      ],
+      "disposition": "Cafe defect and glassmaking history qualified by FIXES_RUNTIME plus later first-fill scope; no new deletion. F9 promotion absent explicitly suspected, label alone not authority census. F10 three hit-chance computations are not equivalent per L1 comparison. Different cottage predicates include actual additional conditions and may be different inquiries. E2 ID parser accepting/rejecting/throwing differs; do not merge blindly. F23 shrink-only cannot resolve actual injected dependency contract. No-hunger-death is not all hazardous exposure immunity.",
+      "evidence": "Fresh entire report and exclusions read. L1–L4, fix reports and later checkpoint fully read B160; current registry and transaction source slices independently recorded earlier, not reexecuted here. Original code corpus, SRD JSON, full data tables, secret paths and UI/runtime not reviewed through these reports.",
+      "reopen": "For a selected surviving issue, inspect present producer, contract and consumer with a concrete failure; preserve historical row and distinct evidence scope.",
+      "input_sha256": "5171fc6bda06cb26a92ae07fd802eb200e09cf258061d75ffba0f2fd58c35dd1",
+      "input_lines": 185,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          185
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/SYNTHESIS.md",
+      "heading": "## S3/S4 content follow-through, 2026-11-04 (B165)",
+      "body": "S3-F1–F12/O1–O3 and S4-F1–F24 were read with clean checks and explicit source/data exclusions. S3 explicitly judged duplicated behavior by normalized text rather than runtime output. L1/L3 and later follow-up qualify named equivalent hash/helper extraction, trade-host injection, unused imports and ratchet repair, not every remaining source family. Do not route a proposed shared leaf back through a heavy cyclic contract owner merely because an older shard suggests that import. World-pack coverage lint and manifest-loader schemas remain distinct contracts; current registry/save wiring supersedes historical total absence without making the schemas interchangeable.\n\nSeveral suggested unifications need substantive contract decisions. The cottage predicates include different schema, agreement and capacity conditions, so similarly named checks may answer different questions. Equipment-copy helpers return IDs, booleans or throw and may apply next-ID bounds; preserving those obligations matters. L1 compared the three hit/evade computations and found different stat, alive-count, skill, shield and encounter-hook inputs. Removing two copies as if identical could change truth or displayed odds. The local balance JSON is guarded historical data, not automatically useless because a test is its reader. Public first-slice exports and deliberate test-only APIs are not deletable solely from static reachability.\n\nThe cafe key mismatch, glassmaking deletion and repeat-search alternative consumer have exact later repair records; cafe browser proof covers first fills, not every later epoch. Proposed seven-panel promotion violation remains a suspected authority issue in S4 itself, not established by “proposal” labels or a narrow PROJECT grep. Exposure’s no-hunger-death rule does not imply immunity from every physical hazard. Future clock/daylight/constants, item-registration and injected-dependency changes need their actual consumer and world law; shrinking a baseline alone does not repair coupling. No new code refactor, panel move, item deletion, gate reset or source-wide conformity claim follows this review.",
+      "before_sha256": "5ba19686e856b8c63c95f42d7929f2200cc2248ab4db6e028d2331e06092af2e",
+      "after_sha256": "784c9e9f4dabab680844e0e46345f9c82762fd162fdd7c6d0fa5173556c7bcf0"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1150
+}

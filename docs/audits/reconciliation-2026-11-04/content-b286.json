@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "batch": "B286",
+  "title": "Reference-game proposals: actual duplicate closure and selected craft-to-technique slice",
+  "at": "2026-11-05T00:49:37.194654+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/new-game-audits-2026-10-07/README.md",
+      "ids": [
+        "F1–F3 public-source audits",
+        "O1/O2 absent-payload candidates",
+        "Five ranked targets",
+        "Five Achra/four Magic/four Soulash proposals"
+      ],
+      "classification": "Historical source-wave completion and original scouting ranks",
+      "owners": [
+        "docs/gm/dispatch/new-game-audits-2026-10-07/README.md",
+        "docs/gm/dispatch/new-game-audits-2026-10-07/PROPOSAL_REVIEW.md",
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "disposition": "Read all 37 original lines. Preserve old Achra token reconstruction, archived Magic source-map traces and Soulash demo JSON versus native executable limits. Ranks and managed/Blueprint acquisition routes are historical proposals, not current purchases/source availability or live research workers. Fold later packet review and selection chronology into wave owner.",
+      "evidence": "Reported 126 recovered Achra scripts with five semantic paths/11 renderings/989 union lines; 584 available Magic bodies/91 extracted entries are not semantic reads; Soulash 16 JSON members/35 pointers and zero native functions. No binaries, storefront or source body fetched by this pass.",
+      "reopen": "Consult incumbent game dossier and current source when a concrete research/consumer question is selected; do not restart old Factorio or absent-payload lanes.",
+      "input_sha256": "6026c0aa87dca5c104bace49f17c6e850983d99c5de9e20fdbb88589e222af27",
+      "input_lines": 37,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          37
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/new-game-audits-2026-10-07/PROPOSAL_REVIEW.md",
+      "ids": [
+        "F1/F2",
+        "14-row engine surface table",
+        "A-P1–A-P5",
+        "M-P1–M-P4",
+        "S-O1–S-O4",
+        "D1/R1/Q1"
+      ],
+      "classification": "Source-era duplicate/proposal review with later explicit packet closure/selection",
+      "owners": [
+        "docs/gm/dispatch/new-game-audits-2026-10-07/README.md",
+        "docs/gm/dispatch/new-game-audits-2026-10-07/PROPOSAL_REVIEW.md",
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "disposition": "Read all 95 original lines including Q1 correction after ranking. Correct six-duplicate inference: five duplicates plus one scope drop, with all original IDs retained. D1 combined alloy/equipped-technique slice was sent to a builder; top proposals alone are not acceptance. Preserve engine source checks versus grep inferences, scope of saved contest and no browser proof.",
+      "evidence": "Review labels V as source-read, I as inference; neither is current source proof. F1 opening says six duplicate systems but final Q1 explicitly corrects denominator. A-P1 later lacks-surface wording cannot erase opt-in contest explicitly cited in same report. Retired milestone/global human prerequisite and anti-arbitrage implication qualified by current direction.",
+      "reopen": "Use exact current owner/delivery for selected D1 outcome; this pass does not execute or verify it, change pricing or treat all other variants as rejected forever.",
+      "input_sha256": "46e756bd524f09d081ae051aff6b7a6b978f046d21497f92a34873ba48aeabf5",
+      "input_lines": 95,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          95
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/new-game-audits-2026-10-07/README.md",
+      "heading": "## Content reconciliation B286: proposal closeout and source-wave limits",
+      "body": "The full [proposal review](PROPOSAL_REVIEW.md), including its final Q1 correction, qualifies the original completion/ranking text above. All 13 packet IDs remain recoverable, but they were not all new missing systems. Q1 explicitly closes five duplicates (M-P1/M-P3/M-P4/S-O1/S-O3) plus the separate A-P4 scope drop. The opening F1 phrase calling six proposals duplicates is qualified by that correction. D1, S-O2 alloy plus M-P2 equipped technique output/fuel, was subsequently sent to a builder. That selection is narrower than the ranking or all five Achra ideas, and this review supplies no D1 delivery proof. Preserve the remaining variants as dated later possibilities, not a new queue.\n\nThe old one-realm/one-prestige milestone and mandatory playtest-before-new-wave premise no longer determine current sequencing; use current [project focus](../../../../PROJECT.md#current-focus) and domain authority. The review distinguishes source-read V from grep/inferred I, not live-browser verification. It already names an opt-in saved duel/party contest, so A-P1's later wording about waiting for a real opt-in combat surface cannot establish blanket absence. General real-time native combat and the narrow saved encounter still have different support. A-P2's saved-field migration concern remains local to its actual selected version; the historical schema number is not a new schema assignment.\n\nKeep the useful combined consumer: actually smelt a supported alloy, make an item, equip it, observe one declared technique/fuel effect, then remove it with coherent persistence. A new recipe name or stat fact alone does not deliver that loop. S-O4's proposed cycle valuation is a local economy policy, not a global anti-arbitrage law; source-supported creation or profit can work with an actual mechanism. The game must not accidentally publish the same transfer twice, which is a separate save-integrity issue.\n\nThis wave's public source evidence remains bounded: old Achra v0.4.7 recovery is not a reconstructed build or current retail; Magic source-map availability/extraction is not full-body reading; Soulash demo JSON links do not prove native enforcement or later retail devlog semantics. Erenshor/Matchless source absence, Factorio live-worker status and download routes were statements at that checkpoint, not checked current conditions or permission to acquire anything. No game dossier, executable, private source, storefront or browser is newly reviewed here, and no historical audit worker or content wave is relaunched.",
+      "before_sha256": "6026c0aa87dca5c104bace49f17c6e850983d99c5de9e20fdbb88589e222af27",
+      "after_sha256": "7d11b80128e3a1aebd44e591f9f50589ca333a2d717c8ae2b878a2c5faeca7d6"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 857
+}

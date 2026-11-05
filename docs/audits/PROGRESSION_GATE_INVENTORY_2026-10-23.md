@@ -1,5 +1,7 @@
 # Progression gate inventory, 2026-10-23
 
+**Content review B5, 2026-11-04:** full evaluator table and patterns reviewed. The [overflow owner fold](../PROGRESSION_GATE_OVERFLOW_2026-10-23.md#gate-and-overflow-content-reconciliation-2026-11-04) distinguishes GTL6 banking, D3 event conversion and remaining caps. Current plain-language rule reasons differ from the old raw-fact fallback; observer admission and the legacy field-works prefix mask still require the caller qualification in the [code map](../systems/PROGRESSION_WORLD_STATE.md#gate-inventory-caller-qualification-2026-11-04). Focused gate/overflow tests pass; no all-site or rebuilt UI audit is claimed (AD32/AD36).
+
 Read-only sweep of `src/` against [PROGRESSION_GATE_RULES.md](../PROGRESSION_GATE_RULES.md) (GTR3 kinds, GTR9 to GTR12). No source edited. Line numbers were checked with grep and short `sed` reads on 2026-10-23, so they can drift if other sessions edit `src/` today.
 
 ## 1. Method

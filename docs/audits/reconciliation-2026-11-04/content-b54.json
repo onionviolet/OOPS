@@ -1,0 +1,478 @@
+{
+  "schema": 1,
+  "batch": "B54",
+  "title": "Repaired receipt cohort: traveler requests, isolated UI delivery and Village careers",
+  "at": "2026-11-04T20:00:42.317458+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/traveler-asks-2026-10-14/ta1/CHECKPOINT.md",
+      "ids": [
+        "TA1",
+        "TA-A1",
+        "TA-A5",
+        "TA-C1",
+        "TA-C4",
+        "HV1",
+        "REV1",
+        "generationRevision:2"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/traveler-asks-2026-10-14/ta1/REPORT.md, BACKLOG.md, CHECKS.json and BROWSER_EVIDENCE.json; native consumers are trader, Village action, item/recipe/wolf-rat tables and inventory/tools/discovery."
+      ],
+      "disposition": "Historical lane delivery progressed through five stages. Stage 1–4 claims culminate in reported stage-5 build, tests, lint, exact replay and fresh natural desktop deliveries; proposed table fiction/balance remains distinct from technical proof. Need revision is retained for future renewal, not a renewal cadence implementation. Uses coordinator-repair receipt R001_S011, identified by embedded shard identity rather than old filename. Preserve revision1 frozen ask terms vs revision2 actual delivery, player-undiscovered vs unavailable source, future grade/renewal vs implemented contract, isolated UI proof vs shared rollback. Historical next-world/UI patch order is not current priority. Five-title TTKS aliases stay title/edition-qualified via existing library routing; no acquisition or new book reading performed. Current AD42/52 separates optional human feedback and activity principles from these proposals.",
+      "mechanism_and_interactions": "The asks pipeline moved from a proposed index to 12 tagged authored entries with observer-relative ready/stretch/unknown bands, effort-based fees and frozen terms. Revision 2 inherits each person’s request contract, removes delivered quantity from native inventory into person stock and records receipt/recap; revision 1 preserves its old draw address, goals and fee. Known hints require actual discovery; unknown asks expose only a generic clue.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. The checkpoint reports historical tests/build and browser paths, including rev-2 delivery, rev-1 settlement and persistence. This review did not inspect those artifacts or current runtime.",
+      "reopen": "If resumed, inspect current owners and specifically verify present table/fee behavior and any deferred renewal/grade behavior; historical evidence does not establish current integration.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          47
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/R001_S011.json"
+      ],
+      "prior_input_sha256": "f7fb05aaaa692369d32a08d469642c9cba45445dc7942a52c42aaf85152a3359",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "f7fb05aaaa692369d32a08d469642c9cba45445dc7942a52c42aaf85152a3359",
+      "input_lines": 47
+    },
+    {
+      "path": "docs/gm/dispatch/traveler-asks-2026-10-14/ta2/CHECKPOINT.md",
+      "ids": [
+        "TA1",
+        "TA2",
+        "TA-A1",
+        "Amendment 1",
+        "HV1"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/traveler-asks-2026-10-14/ta2/REPORT.md, BACKLOG.md, DOC_CHECKS.json and SOURCES; implementation owner is not assigned in this checkpoint."
+      ],
+      "disposition": "Proposal catalogue and handoff completed; runtime reachability, services, currencies and recurrence are explicitly future work. Cyoria is recommended as the next build priority, conditional on TA1 play feedback. Document checks are not gameplay validation. Uses coordinator-repair receipt R001_S011, identified by embedded shard identity rather than old filename. Preserve revision1 frozen ask terms vs revision2 actual delivery, player-undiscovered vs unavailable source, future grade/renewal vs implemented contract, isolated UI proof vs shared rollback. Historical next-world/UI patch order is not current priority. Five-title TTKS aliases stay title/edition-qualified via existing library routing; no acquisition or new book reading performed. Current AD42/52 separates optional human feedback and activity principles from these proposals.",
+      "mechanism_and_interactions": "TA2 is a documentation lane that inventories destinations/source families and authors 120 profiles with 720 table rows plus two extension examples. Each ask is labeled ready/stretch/unknown against an actual world route; unknown means player-undiscovered, and clues must not expose undiscovered sources or sealed truth. Proposed grades depend on the later HV1 item identity/quality adapter.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint reports document inventory/link checks only; underlying profile files and runtime were not examined here.",
+      "reopen": "Any selected ask needs source-qualified world route and runtime/service ownership; confirm TA1 play-feedback condition and HV1 contract before implementing grade behavior.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          22
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/R001_S011.json"
+      ],
+      "prior_input_sha256": "fad1ab0eada82e467ee060dcb757664582c044313d63a094da50fd0aa9dd73b6",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "fad1ab0eada82e467ee060dcb757664582c044313d63a094da50fd0aa9dd73b6",
+      "input_lines": 22
+    },
+    {
+      "path": "docs/gm/dispatch/traveler-asks-2026-10-14/ta3/CHECKPOINT.md",
+      "ids": [
+        "TA-C3",
+        "TA-C4",
+        "TA-L2",
+        "TA-L3",
+        "TA1",
+        "Amendment 1",
+        "HV1"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/traveler-asks-2026-10-14/ta3/KINDS.md, REPEAT.md, LENSES.md, REPORT.md, BACKLOG.md; P34/P4 contracts are named inputs, not proof of implementation."
+      ],
+      "disposition": "Read-only design proposal complete after TA1 feedback dependency; no implementation or gameplay verification. The checkpoint reports document/link consistency checks and leaves native proof to a future lane. Uses coordinator-repair receipt R001_S011, identified by embedded shard identity rather than old filename. Preserve revision1 frozen ask terms vs revision2 actual delivery, player-undiscovered vs unavailable source, future grade/renewal vs implemented contract, isolated UI proof vs shared rollback. Historical next-world/UI patch order is not current priority. Five-title TTKS aliases stay title/edition-qualified via existing library routing; no acquisition or new book reading performed. Current AD42/52 separates optional human feedback and activity principles from these proposals.",
+      "mechanism_and_interactions": "TA3 reviews the P2/GX5, P3 aftermath, G1 and GL4 seams and proposes five ranked build slices. Its contract follows ready/stretch/unknown reach, requires a real world route, permits only knowledge-appropriate clues, and pays more for stretch/unknown. Optional grade and equipment quality remain distinct and depend on HV1; no harvest producer is assumed implemented from its plan.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint claims completed source review and document checks; no underlying proposals or current source reinspection here.",
+      "reopen": "A future slice needs chosen producer/consumer, world route, grade/item contract and rebuilt desktop/persistence proof; preserve explicit proposal status.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/R001_S011.json"
+      ],
+      "prior_input_sha256": "123f3c8551fef9b0de4e7856ee93f12456a97ce7dee0b7bea01c1fdfa8787faa",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "123f3c8551fef9b0de4e7856ee93f12456a97ce7dee0b7bea01c1fdfa8787faa",
+      "input_lines": 13
+    },
+    {
+      "path": "docs/gm/dispatch/ttks-novels-2026-10-10/CHECKPOINT.md",
+      "ids": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "P25–P28",
+        "E8B_POWER_CATALOG",
+        "E8C_POWER_PATHS_AND_ANIME",
+        "Addendum 2",
+        "S1–S5"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/ttks-novels-2026-10-10/CHECKPOINT.md; declared FINDINGS/COVERAGE/ADDENDUM suppliers are historical and missing at the stated root; current title/capture routing is docs/research/LIBRARY_INDEX.md#the-five-ttks-books"
+      ],
+      "disposition": "Chronology supersedes earlier zero-coverage/active labels: Addendum final reports 20 read chapters across B2/B3, while B1/B4 remain metadata-only and B5 metadata-only. Proposals remain unaccepted; TTKS edition binding and source gaps remain. Closed/robots-disallowed routes were not retried, no reader worker or runtime work occurred. This is the checkpoint’s early intake/read stage, not the latest availability. The current library catalogue separately routes captured editions of 巫师你好，我是伪人, 一年抽取一词条，模拟的也可以？, 咒回：特级的我去死灭打宿傩了！, 全人类的继承者 and 废土边境检查官; catalogue/capture presence does not prove reading. Uses coordinator-repair receipt R001_S011, identified by embedded shard identity rather than old filename. Preserve revision1 frozen ask terms vs revision2 actual delivery, player-undiscovered vs unavailable source, future grade/renewal vs implemented contract, isolated UI proof vs shared rollback. Historical next-world/UI patch order is not current priority. Five-title TTKS aliases stay title/edition-qualified via existing library routing; no acquisition or new book reading performed. Current AD42/52 separates optional human feedback and activity principles from these proposals.",
+      "mechanism_and_interactions": "The checkpoint tracks distinct title/source qualification and chapter coverage across B1–B5. Initial stages had metadata-only books and no chapters; the addendum later read ten official unlocked Fanqie chapters each for B2/B3, then Addendum 2 resolved B5 identity but did not obtain/read its edition. B3’s vow is character-reported and its point-priced rule change is enacted; joke-vow pricing is not demonstrated. The later lens covers vows, domains, techniques and pricing; public outputs remain paraphrase.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. This checkpoint records acquisition/read receipts and checks, not a fresh source read or full-book qualification. Reported chapter evidence is bounded to 20 chapters, with B5 metadata evidence only.",
+      "reopen": "Recover exact historical title/edition/claim bindings through the current library catalogue and original manifests before reusing the20-chapter claims. The old missing-edition gate is not present acquisition authority, and no book reading or purchase is assigned here.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          207
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/R001_S011.json"
+      ],
+      "prior_input_sha256": "e2a64bcfb66134c6bc83f761efb5be97f4901b475696a7fe28c5ea2c81870298",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "e2a64bcfb66134c6bc83f761efb5be97f4901b475696a7fe28c5ea2c81870298",
+      "input_lines": 207
+    },
+    {
+      "path": "docs/gm/dispatch/ui-density-slices-2026-10-13/CHECKPOINT.md",
+      "ids": [
+        "A1",
+        "A2",
+        "A3",
+        "A5",
+        "A4",
+        "1920x1080",
+        "1366x768",
+        "1600x1000"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/ui-density-slices-2026-10-13/REPORT.md, CONSIDERATIONS_COLOR_AND_PROTO23.md and candidate-owned source paths listed in the checkpoint; integration remains with the foundation-adoption lane."
+      ],
+      "disposition": "Finite UI pass is marked complete with candidate ownership released; user taste review and real browser zoom remained open. Reported candidate proof is not shared delivery or universal approval, and a later workspace.css fingerprint is optional. Uses coordinator-repair receipt R001_S011, identified by embedded shard identity rather than old filename. Preserve revision1 frozen ask terms vs revision2 actual delivery, player-undiscovered vs unavailable source, future grade/renewal vs implemented contract, isolated UI proof vs shared rollback. Historical next-world/UI patch order is not current priority. Five-title TTKS aliases stay title/edition-qualified via existing library routing; no acquisition or new book reading performed. Current AD42/52 separates optional human feedback and activity principles from these proposals.",
+      "mechanism_and_interactions": "UI density work owns workspace layout/state/views, workspace CSS, selected display paths and narrow Current-work wiring in main.js. The checkpoint reports A1/A2/A3/A5 accepted by browser criteria, A4 emulated with real zoom unverified, and a vivid color pass. A separate foundation writer owns runtime/state/save/story/compiler integration; main.js and dist are explicit overlap seams.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint reports browser criteria and emulation only; no current bundle or screen was inspected.",
+      "reopen": "If selected, inspect current UI integration and perform the specifically open real-zoom check; do not treat candidate evidence as current shared behavior.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          33
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/R001_S011.json"
+      ],
+      "prior_input_sha256": "2ced516d070be7a946de11eb1fc160d62d51a5862238f5fed2e58e1982e574c0",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "2ced516d070be7a946de11eb1fc160d62d51a5862238f5fed2e58e1982e574c0",
+      "input_lines": 33
+    },
+    {
+      "path": "docs/gm/dispatch/ui-experience-completion-2026-10-12/CHECKPOINT.md",
+      "ids": [
+        "G1–G5",
+        "F1–F9",
+        "A1–A5",
+        "G5",
+        "World1"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/ui-experience-completion-2026-10-12/REPORT.md, UI_LEDGER, POST_CLOSE_FOUNDATION_SCOPE.json; current owner is successor foundation coordinator identified in the checkpoint."
+      ],
+      "disposition": "UI finite chain is closed; root owns wider F2/F4/F5 acceptance and later foundation rollback proof. Historical optional human taste is feedback under current AD42, while candidate proofs do not qualify later source/build changes. Uses coordinator-repair receipt R001_S011, identified by embedded shard identity rather than old filename. Preserve revision1 frozen ask terms vs revision2 actual delivery, player-undiscovered vs unavailable source, future grade/renewal vs implemented contract, isolated UI proof vs shared rollback. Historical next-world/UI patch order is not current priority. Five-title TTKS aliases stay title/edition-qualified via existing library routing; no acquisition or new book reading performed. Current AD42/52 separates optional human feedback and activity principles from these proposals.",
+      "mechanism_and_interactions": "The UI-completion lane’s candidate evidence binds source and bundle hashes, with native ownership/controller/import/stock/knowledge/traveler repairs retained. Its reported tests cover UI drivers plus a distinct foundation craft gate; storage proof in this record is durable receipt/effect suppression, not full inventory/output/XP rollback. A predecessor/successor coordinator split and retained preview are documented; unrelated authoring/mobile and World1 work remain separate.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. The checkpoint reports hash-bound historical driver/browser evidence and explicitly limits rollback claims; no present source or preview inspection performed.",
+      "reopen": "A future change should inspect only its affected seam against current source/build; full foundation acceptance and failed-storage rollback remain outside this UI receipt.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          21
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/R001_S011.json"
+      ],
+      "prior_input_sha256": "995e114ff6c432f3f798ec1ef8c509b707f1744c9b780436988e4484f0cc3331",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "995e114ff6c432f3f798ec1ef8c509b707f1744c9b780436988e4484f0cc3331",
+      "input_lines": 21
+    },
+    {
+      "path": "docs/gm/dispatch/ui-experience-completion-2026-10-12/feedback/CHECKPOINT.md",
+      "ids": [
+        "G1–G5",
+        "FEEDBACK.patch"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/ui-experience-completion-2026-10-12/feedback/REPORT.md and FEEDBACK_MANIFEST; shared integration is assigned to integrator 01a12e84-0958-7381-862a-69a174050353."
+      ],
+      "disposition": "Finite isolated feedback delivery is frozen; integration is pending surgical reconciliation and shared combined gate. Natural acquisition/pacing, human taste and audible comfort remain open as separate outcomes. Uses coordinator-repair receipt R001_S011, identified by embedded shard identity rather than old filename. Preserve revision1 frozen ask terms vs revision2 actual delivery, player-undiscovered vs unavailable source, future grade/renewal vs implemented contract, isolated UI proof vs shared rollback. Historical next-world/UI patch order is not current priority. Five-title TTKS aliases stay title/edition-qualified via existing library routing; no acquisition or new book reading performed. Current AD42/52 separates optional human feedback and activity principles from these proposals.",
+      "mechanism_and_interactions": "The feedback candidate provides a ten-path patch and reported current-bundle smoke plus native feedback matrix: actual craft receipt, work/cancel, structured/scalar settlements, save/reload/import and rejected receipt write. The record explicitly says no full native failed-storage transaction rollback was claimed. Shared combined G1–G5 remains the integrator’s gate.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint reports focused/native/browser evidence; not freshly reproduced, and it expressly disclaims complete failed-storage rollback.",
+      "reopen": "If integrated, reconcile patch against moving source and prove combined G1–G5; do not extend receipt-write rejection proof to all native side effects.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/R001_S011.json"
+      ],
+      "prior_input_sha256": "4ff714e54d32b26ce58d70dfbc178bafb71b215e2b3a052b1816b867f73ed3a7",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "4ff714e54d32b26ce58d70dfbc178bafb71b215e2b3a052b1816b867f73ed3a7",
+      "input_lines": 11
+    },
+    {
+      "path": "docs/gm/dispatch/ui-experience-completion-2026-10-12/theme/CHECKPOINT.md",
+      "ids": [
+        "F5",
+        "F7",
+        "F8",
+        "D2",
+        "A3",
+        "FOUNDATION_MANIFEST"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/ui-experience-completion-2026-10-12/theme/REPORT.md, acceptance/integration packet and candidate CANDIDATE_MANIFEST; laptop integration belongs to integrator 01a12e84-0958-7381-862a-69a174050353."
+      ],
+      "disposition": "Finite isolated theme lane is complete with no unresolved lane failure; candidate is frozen for integrator review. Human taste remains open, and no shared delivery follows from the isolated candidate. Uses coordinator-repair receipt R001_S011, identified by embedded shard identity rather than old filename. Preserve revision1 frozen ask terms vs revision2 actual delivery, player-undiscovered vs unavailable source, future grade/renewal vs implemented contract, isolated UI proof vs shared rollback. Historical next-world/UI patch order is not current priority. Five-title TTKS aliases stay title/edition-qualified via existing library routing; no acquisition or new book reading performed. Current AD42/52 separates optional human feedback and activity principles from these proposals.",
+      "mechanism_and_interactions": "The theme candidate applies neutral/arcane/workshop component profiles. Reported checks cover theme Apply and save/reload/import, expansion, keyboard and craft, palette cases, old-profile normalization, inheritance, stats overlap and zoom. CANDIDATE_MANIFEST binds source/build/proof; REDESIGN integration remains a different owner’s job.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint reports hash-bound candidate evidence; no present integration or human acceptance checked.",
+      "reopen": "Any adoption must reconcile candidate adapters against moving shared sources and pass the shared G1–G5 gate; optional previewContainer is a proposal.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          5
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/R001_S011.json"
+      ],
+      "prior_input_sha256": "dd38bcad8e6284dccc9e70922c3d1276c06f9d6e648f1c84715371b5bca85919",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "dd38bcad8e6284dccc9e70922c3d1276c06f9d6e648f1c84715371b5bca85919",
+      "input_lines": 5
+    },
+    {
+      "path": "docs/gm/dispatch/ui-modularity-2026-10-11/CHECKPOINT.md",
+      "ids": [
+        "World1",
+        "GM3→1→2"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/ui-modularity-2026-10-11/redesign-1920/CHECKPOINT.md, REPORT.md, MANIFEST.json and VERIFICATION.json; World1 successor owns shared runtime/build/PROJECT window."
+      ],
+      "disposition": "UI candidate is technically qualified in isolation, but shared integration and human visual acceptance remain open. A dedicated cheats/SFX chain is separate work and not part of this UI delivery. Uses coordinator-repair receipt R001_S011, identified by embedded shard identity rather than old filename. Preserve revision1 frozen ask terms vs revision2 actual delivery, player-undiscovered vs unavailable source, future grade/renewal vs implemented contract, isolated UI proof vs shared rollback. Historical next-world/UI patch order is not current priority. Five-title TTKS aliases stay title/edition-qualified via existing library routing; no acquisition or new book reading performed. Current AD42/52 separates optional human feedback and activity principles from these proposals.",
+      "mechanism_and_interactions": "The modularity checkpoint routes detailed redesign evidence to a separate checkpoint/report/manifest. It reports a rebuilt isolated 1920-wide workspace with direct floating/docking/resizing, persistent responsive layouts and native/observer/required-decision/save authority. Shared runtime/build/PROJECT were reserved to the World1 successor; isolated candidate and shared app had different bundles/layouts.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint refers to isolated candidate receipts; no live preview, shared source or actual user-screen identity checked.",
+      "reopen": "Before integration, reconcile original and redesign patches with moving shared inputs, rebuild and run fresh shared-origin regression; current integration authorization is not established here.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/R001_S011.json"
+      ],
+      "prior_input_sha256": "a4fd0a8090e750c663768ca08627afbe9c523a98bff07f729787b105de395eb4",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "a4fd0a8090e750c663768ca08627afbe9c523a98bff07f729787b105de395eb4",
+      "input_lines": 11
+    },
+    {
+      "path": "docs/gm/dispatch/ui-modularity-2026-10-11/redesign-1920/CHECKPOINT.md",
+      "ids": [
+        "U1–U5",
+        "UI.patch",
+        "REDESIGN.patch",
+        "GM3→1→2"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/ui-modularity-2026-10-11/redesign-1920/REPORT.md, MANIFEST.json, VERIFICATION.json, REVIEW.md and layered REDESIGN.patch; World1 successor owns shared integration."
+      ],
+      "disposition": "Isolated UI work is implemented and technically qualified; shared integration and human acceptance are still open. A later dedicated cheats/SFX GM is dispatched separately and does not transfer UI/shared ownership. Uses coordinator-repair receipt R001_S011, identified by embedded shard identity rather than old filename. Preserve revision1 frozen ask terms vs revision2 actual delivery, player-undiscovered vs unavailable source, future grade/renewal vs implemented contract, isolated UI proof vs shared rollback. Historical next-world/UI patch order is not current priority. Five-title TTKS aliases stay title/edition-qualified via existing library routing; no acquisition or new book reading performed. Current AD42/52 separates optional human feedback and activity principles from these proposals.",
+      "mechanism_and_interactions": "Revision 3’s redesign layers omnidirectional dragging, touch/keyboard movement, free floating, resize grips/dividers, snap and zoom clamps, recovery layouts and native content reflow over the original UI.patch. Reported gates include layout/movement/touch/decisions/native checks, persistence, zoom cases and an independent review that caught defects. No gameplay schema/clock/reward ownership changed.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical report records current candidate hash and specific test limits; no present shared bundle or natural user route was checked.",
+      "reopen": "After a narrow integration window, reconcile both patch layers, rebuild shared and run fresh shared-origin current-asset regression; do not copy candidate main/build wholesale.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/R001_S011.json"
+      ],
+      "prior_input_sha256": "5913a5a460cc3de6c2a553d16626c70f8205fe98226123170078dcc5c1500294",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "5913a5a460cc3de6c2a553d16626c70f8205fe98226123170078dcc5c1500294",
+      "input_lines": 17
+    },
+    {
+      "path": "docs/gm/dispatch/village-career-2026-10-09/CHECKPOINT.md",
+      "ids": [
+        "ASSIGNMENT.md",
+        "npm test",
+        "npm run build",
+        "schema-1",
+        "Mentor",
+        "Dependable worker"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/village-career-2026-10-09/REPORT.md, ACCEPTANCE_BACKLOG.md, BROWSER.json and src/village_career.js/src/village_career_ui.js; root integration owns shared files."
+      ],
+      "disposition": "Checkpoint reports finite implementation and required gates delivered despite three pre-existing suite failures reproduced on baseline. Proposal remains subject to director acceptance; branch/mentor and failure paths listed in backlog are not verified. Uses coordinator-repair receipt R001_S011, identified by embedded shard identity rather than old filename. Preserve revision1 frozen ask terms vs revision2 actual delivery, player-undiscovered vs unavailable source, future grade/renewal vs implemented contract, isolated UI proof vs shared rollback. Historical next-world/UI patch order is not current priority. Five-title TTKS aliases stay title/edition-qualified via existing library routing; no acquisition or new book reading performed. Current AD42/52 separates optional human feedback and activity principles from these proposals.",
+      "mechanism_and_interactions": "Village career adds a native career center with rank/colleague/custody state and bounded shifts; a 120-minute work period and 50-unit payment remain. Kit resolution/promotion publish guarded saves and append one career biography milestone. Historical browser proof covers patrol, payment, promotion, save/reload/import and compatibility with a pre-career active patrol; exact remaining branches are in ACCEPTANCE_BACKLOG.md.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint gives test/build/browser claims and explicitly names reproduced baseline failures and unplayed branches; no current source/runtime check.",
+      "reopen": "If resumed, inspect current integration and only then verify the backlog’s Mentor/pay/insufficient-funds/storage-failure branches; do not convert old branch state into current status.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/R001_S011.json"
+      ],
+      "prior_input_sha256": "9c0f5adb1fa44ec5612fc463f7ac332212282408818bbf2ea7786439708ffc19",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "9c0f5adb1fa44ec5612fc463f7ac332212282408818bbf2ea7786439708ffc19",
+      "input_lines": 13
+    },
+    {
+      "path": "docs/gm/dispatch/village-choices-2026-10-09/CHECKPOINT.md",
+      "ids": [
+        "schema 4",
+        "Time",
+        "Favor",
+        "Free",
+        "Tessa",
+        "Village audit"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/village-choices-2026-10-09/REPORT.md, ACCEPTANCE_BACKLOG.md, BROWSER.json, NORMAL_TIMER.json; code consumers include village career/study and save/import paths."
+      ],
+      "disposition": "Checkpoint reports implementation and full tests/browser/persistence proof complete; proposal is recorded in PROJECT.md and human fiction/balance review remains. Natural opening pacing and exceptional/mobile cases stay in backlog. Uses coordinator-repair receipt R001_S011, identified by embedded shard identity rather than old filename. Preserve revision1 frozen ask terms vs revision2 actual delivery, player-undiscovered vs unavailable source, future grade/renewal vs implemented contract, isolated UI proof vs shared rollback. Historical next-world/UI patch order is not current priority. Five-title TTKS aliases stay title/edition-qualified via existing library routing; no acquisition or new book reading performed. Current AD42/52 separates optional human feedback and activity principles from these proposals.",
+      "mechanism_and_interactions": "Village choices adds lost wages rather than paying Iona, Paid mentor default, Time/Favor/Free options, tuition accept/decline and a Tessa study alternative. Schema 4 migrates versions 1–3 additively; covered shifts, first-solo tuition and six native study minutes affect teacher memory/biography. Rejected storage prevents tuition transfer. Production HackTimer evidence distinguishes full Time shift from unpaid blocked early exit.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint reports tests, build and browser routes; no current integration inspected. Generated fixture repairs were made before passing proof.",
+      "reopen": "If selected, check present code/owners and named natural-pacing or exceptional branch; historical fixtures do not prove the current integrated build.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          10
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/R001_S011.json"
+      ],
+      "prior_input_sha256": "80cb3658163b516ff4887fc8c32c57bf3f9f88b9c1d03988f0f5565efa3f165b",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "80cb3658163b516ff4887fc8c32c57bf3f9f88b9c1d03988f0f5565efa3f165b",
+      "input_lines": 10
+    },
+    {
+      "path": "docs/gm/dispatch/village-mentor-2026-10-09/CHECKPOINT.md",
+      "ids": [
+        "ASSIGNMENT.md",
+        "Iona",
+        "Watchcraft",
+        "Mentor",
+        "schema-2",
+        "120-minute solo"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/dispatch/village-mentor-2026-10-09/REPORT.md, ACCEPTANCE_BACKLOG.md, INPUTS.json, BROWSER.json and NORMAL_TIMER_BROWSER.json; source owners are village career/UI, bounded main/save/NPC integration."
+      ],
+      "disposition": "Finite assigned implementation and gates are reported complete; future fiction/balance review is optional feedback, while natural opening pacing and travel/death/sleep/combat integration are explicitly not browser-verified. No commits/pushes were made. Uses coordinator-repair receipt R001_S011, identified by embedded shard identity rather than old filename. Preserve revision1 frozen ask terms vs revision2 actual delivery, player-undiscovered vs unavailable source, future grade/renewal vs implemented contract, isolated UI proof vs shared rollback. Historical next-world/UI patch order is not current priority. Five-title TTKS aliases stay title/edition-qualified via existing library routing; no acquisition or new book reading performed. Current AD42/52 separates optional human feedback and activity principles from these proposals.",
+      "mechanism_and_interactions": "Village Mentor slice recruits Iona, teaches five shared-patrol Watchcraft minutes at a 10-coin shared wage cost, then supports a two-hour solo stipend with teacher memory and one biography entry. Reported browser and normal HackTimer runs cover old-save load, quota rejection, partial teaching/export/import, shared payout, solo reload/import, retry, stipend and no duplicate biography.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint reports test/build and generated-save/browser/HackTimer proof; no present runtime or personal save inspection.",
+      "reopen": "If resumed, inspect current shared integration and only the listed natural pacing or cross-system interactions; do not infer them from the isolated mentor proof.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          8
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/R001_S011.json"
+      ],
+      "prior_input_sha256": "e4306f91aa97cd3c535ec7a8f1f99a03e326046892552384f09cb6032dfa32e1",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "e4306f91aa97cd3c535ec7a8f1f99a03e326046892552384f09cb6032dfa32e1",
+      "input_lines": 8
+    }
+  ],
+  "folds": [],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1435
+}

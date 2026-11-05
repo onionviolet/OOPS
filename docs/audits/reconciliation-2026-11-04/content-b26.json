@@ -1,0 +1,210 @@
+{
+  "schema": 1,
+  "batch": "B26",
+  "title": "Temporal recipes, criterion-specific reuse and scoped world-bank queries",
+  "at": "2026-11-04T19:47:34.912872+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/world-implementation/second-pass/timelines/CHECKPOINT.md",
+      "ids": [
+        "TL01–TL08"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/world-implementation/second-pass/timelines/REPORT.md; canonical plan and RUN remain master-owned."
+      ],
+      "disposition": "Historical source-based planning audit completed; acceptance cases remained proposed and unexecuted. The initial pause/held state was not converted into present authority. No runtime policy or behavior was verified. Preserve world-specific temporal policy, proposed graph variant distinctions and measured-vs-surrogate evidence. No old phase hold or proposal becomes current authority. Owner reports remain canonical for these unselected findings.",
+      "mechanism_and_interactions": "The timeline audit distinguishes world-specific temporal recipes, exposure/chapter advancement, nonlinear careers, mature aftermath, cumulative multi-world careers, and durable consequential history. These are eight proposed findings, not selected runtime policy. The checkpoint reports a supplied Mother of Learning snapshot and three targeted semantic windows, while explicitly limiting authenticity, completeness and chronology claims.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports source-member hashes and document checks; this review read only the assigned checkpoint span, not its report, book or current runtime.",
+      "reopen": "Any selected temporal profile needs current owner selection and its named acceptance cases; full book authenticity, complete chronology, runtime and UI behavior remain unestablished.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          90
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S020.json"
+      ],
+      "prior_input_sha256": "9176a3926f7fb81f40962f8fb08aafcb4e18a11a3f35b199a39e084bcfb966fb",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "9176a3926f7fb81f40962f8fb08aafcb4e18a11a3f35b199a39e084bcfb966fb",
+      "input_lines": 90
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/timelines/branching/CHECKPOINT.md",
+      "ids": [
+        "FW3",
+        "BG01–BG05"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/world-implementation/second-pass/timelines/branching/REPORT.md, CHOICE_GRAPH.json, CASES.md and CHECKS.json; coordinator owns canonical integration."
+      ],
+      "disposition": "Completed planning deliverable pending integration review. Root repairs are explicitly recorded after an independent review; final graph is not misattributed as rechecked by that reviewer. No game-engine or gameplay proof is claimed. Preserve world-specific temporal policy, proposed graph variant distinctions and measured-vs-surrogate evidence. No old phase hold or proposal becomes current authority. Owner reports remain canonical for these unselected findings.",
+      "mechanism_and_interactions": "The branching plan models Frontier and original Stillwater as distinct graphs, with separate node/edge counts, ending signatures and conditional traces. It preserves Frontier’s existing 1440-minute window and resident-sponsored four-coin control alongside alternative 2160-minute/player-paid fixtures, including resilient-public and specialist alternatives. Repair notes identify coil spending, shipment funding, teacher/payer roles and work/arrival exits.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports document graph/trace checks and source-window reuse, not executed game behavior or full source qualification.",
+      "reopen": "Coordinator selection and later execution of BG01–BG05 remain open; retain the local seven required cases and resolve which temporal/sponsorship variants enter the canonical plan.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          31
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S020.json"
+      ],
+      "prior_input_sha256": "27638206af2fe9dcfbd6c5886f5800959eef129a93b12318f9314d0bd63cb589",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "27638206af2fe9dcfbd6c5886f5800959eef129a93b12318f9314d0bd63cb589",
+      "input_lines": 31
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/token-efficiency/CHECKPOINT.md",
+      "ids": [
+        "TF01–TF06",
+        "MOL-PS036-01",
+        "C066-08",
+        "C072-03",
+        "C080-09"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/world-implementation/second-pass/token-efficiency/REPORT.md and FINDINGS.json; assigning master owns reconciliation into plan/RUN."
+      ],
+      "disposition": "Planning delivery checked and writer reservation released. Six findings are delivered for coordinator review; no new workflow is accepted, no token-savings comparison is established, and the historical measurement boundary is explicit. Preserve world-specific temporal policy, proposed graph variant distinctions and measured-vs-surrogate evidence. No old phase hold or proposal becomes current authority. Owner reports remain canonical for these unselected findings.",
+      "mechanism_and_interactions": "The efficiency report proposes selective claim bundles, scene-bound knowledge cards, targeted input selectors, criterion-specific evidence reuse and qualification of economical routes. It cites an existing pocket-realm scene as static support and reviewed MoL dossier claims; counts and byte/word measures are explicitly structural surrogates, not comparable token or billed-cost measurements.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint claims document and dossier checks; the assigned span does not include the underlying report or fresh source/runtime inspection.",
+      "reopen": "Coordinator review of TF01–TF06 is the next named action. Any efficiency claim needs a comparable measured workflow; no runtime or token-cost inference follows from this record.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          57
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S020.json"
+      ],
+      "prior_input_sha256": "0ce440674f0e185accf958f7fbacca3de84d80fbff22c2ca335e1abe30a03643",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "0ce440674f0e185accf958f7fbacca3de84d80fbff22c2ca335e1abe30a03643",
+      "input_lines": 57
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/upstream-native-feasibility/CHECKPOINT.md",
+      "ids": [
+        "F01–F09",
+        "N01–N05",
+        "R01",
+        "Q01–Q05"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/world-implementation/second-pass/upstream-native-feasibility/REPORT.md and FEASIBILITY.json; fork-network role owns broader enumeration and candidate review."
+      ],
+      "disposition": "Finite planning and document gate completed. Current planning approval does not imply source adoption or runtime implementation; four families remain integrated-built-unverified under existing delivery, while broader mechanisms stay proposed. Preserve world-specific temporal policy, proposed graph variant distinctions and measured-vs-surrogate evidence. No old phase hold or proposal becomes current authority. Owner reports remain canonical for these unselected findings.",
+      "mechanism_and_interactions": "The feasibility map compares actual upstream and fork consumers, identifies five connected native additions, one early-to-mature career and nine broad vision families, then lays out a finite sequence. It reports a development-root check for native forest/cocoon/silk deltas and unchanged examined foundations, with an unclosed Bandersnatch declaration as a source issue. Qualitative sizing and future performance remain uncertain.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checkpoint reports source fingerprints, symbol inspection and document checks; no game execution, build, import, browser, save or upstream adoption was performed for this audit.",
+      "reopen": "Existing Engine delivery still needs its later behavior/save/failure/keyboard/director acceptance. Full Frontier runtime acceptance and any broader world/time/death/prestige work remain separately held.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          39
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S020.json"
+      ],
+      "prior_input_sha256": "340d8a634b2431ad21be83d31b579c3d265edd7886149ea259f0da899e6f2ad2",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "340d8a634b2431ad21be83d31b579c3d265edd7886149ea259f0da899e6f2ad2",
+      "input_lines": 39
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/world-bank/CHECKPOINT.md",
+      "ids": [
+        "WB-R01–WB-R05"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/world-implementation/second-pass/world-bank/REPORT.md, BANK_AND_QUERY_CONTRACT.md, ACTOR_AND_RELATIONSHIP_MODEL.md, TIMELINE_ABSORPTION.md and COVERAGE_AND_CAPABILITY.json; assigning master owns canonical reconciliation."
+      ],
+      "disposition": "Checked planning delivery complete with runtime held. Recommendations and fixtures remain proposals, not accepted design or executed behavior. Evidence reused completed foundations, authoring, society and timeline outputs, with only bounded MoL dossier claims rather than new raw-source reading. Preserve world-specific temporal policy, proposed graph variant distinctions and measured-vs-surrogate evidence. No old phase hold or proposal becomes current authority. Owner reports remain canonical for these unselected findings.",
+      "mechanism_and_interactions": "The world-bank blueprint separates reference, policy, state, evidence and projection; defines scoped support closure and safe observer payloads; models causal era/branch recipes with one-time promotion; and proposes individual priors, source overrides, guarded choices and directed social opportunities. Four fixtures illustrate individuality, source/generated boundaries, era/branch transfer exclusions and inspection functions; none is shipped gameplay.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports structural/document validation and bounded source-dossier reuse; this reader did not inspect those outputs, implementation or gameplay.",
+      "reopen": "Historical next steps were assigning-master review of WB-R01–05 and selected amendments in plan/RUN. This records the old approval boundary; it adds no current mandatory human gate under AD42 or runtime authorization.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          32
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S020.json"
+      ],
+      "prior_input_sha256": "021b1948bb5a6e752ae53bb24e9ce7d6c49400364f6a8927f82df50914161bc7",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "021b1948bb5a6e752ae53bb24e9ce7d6c49400364f6a8927f82df50914161bc7",
+      "input_lines": 32
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/world-bank/BANK_AND_QUERY_CONTRACT.md",
+      "ids": [
+        "five authorities",
+        "version axes",
+        "WB-C02/06/09",
+        "closure/query/scale proposal"
+      ],
+      "classification": "proposal contract; fresh full content review",
+      "owners": [
+        "docs/gm/world-implementation/second-pass/world-bank/BANK_AND_QUERY_CONTRACT.md"
+      ],
+      "disposition": "Retain reference/policy/committed-state/evidence/projection authority split, semantic receipt criteria, complete required support closure, separate safe observer payload, revision-bound derived indexes, explicit activation and real publishers. Do not reconstruct stock from catalogues or treat asset secrecy as guaranteed. Schema and absent-service statements are historical inspected snapshots.",
+      "evidence": "All 53 lines read including request/response and scale sections. No current query implementation or performance measurement verified.",
+      "reopen": "On selected query consumer bind actual current owner/version/disclosure/native support; partition complete packets if large, rather than drop required facts or require a whole-bank rewrite.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "43785bea6b7e40836ab259a220c4c009d9dc126a34f0facfb44374f7524b1ede",
+      "input_lines": 53,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          53
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/world-implementation/second-pass/world-bank/BANK_AND_QUERY_CONTRACT.md",
+      "heading": "## Scope and evidence qualification, 2026-11-04 (B26)",
+      "body": "The inspected schema/service absence and held planning stage above are October 4 snapshots, not present capability claims or an instruction to build this entire bank first. Preserve the conceptual separation of reference, authored policy, actual state, attributed evidence and derived view, with semantic receipt criteria beyond hashes. A selected action needs complete relevant support and safe observer projection, not every bank record. Revision-bound indexes are replaceable navigation; they do not become another source of truth. Current accepted direction and native owners decide which concrete adapter is needed, while AD51 governs shared-foundation/lead validation sequencing. No query service, schema migration or performance saving was implemented or measured here.",
+      "before_sha256": "43785bea6b7e40836ab259a220c4c009d9dc126a34f0facfb44374f7524b1ede",
+      "after_sha256": "74e7f6cb3472c636e4a743bbe5ebab928898304c1ff5898490ea608a7398bb51"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1696
+}

@@ -63,7 +63,7 @@ World totals (C/P/N): dnd 8/27/1; fma 13/22/1; sky 28/8/0; fo 19/17/0; elden 23/
 | CW09 | P | world-core-kit-2026-10-14/cards/dnd.md:485 | proposed |
 | CW10 | C | dnd/RULINGS_LEDGER.md:40 | proposed |
 | CW11 | P | world-core-kit-2026-10-14/cards/dnd.md:382 | stated |
-| CW12 | C | dnd/RULINGS_LEDGER.md:30 | shown |
+| CW12 | C | dnd/RULINGS_LEDGER.md:30 | proposed (fixture application; underlying rule has a separate source locator) |
 | CW13 | P | world-core-kit-2026-10-14/cards/dnd.md:518 | proposed |
 | CW14 | C | dnd/RULINGS_LEDGER.md:32 | proposed |
 | CW15 | P | world-core-kit-2026-10-14/cards/dnd.md:710 | inferred |
@@ -703,3 +703,12 @@ World totals (C/P/N): dnd 8/27/1; fma 13/22/1; sky 28/8/0; fo 19/17/0; elden 23/
 | CW34 | P | frieren/INTERACTIONS.md:42 | proposed |
 | CW35 | C | frieren/CAMPAIGN.md:59 | proposed |
 | CW36 | P | frieren/MODULE_CATALOGUE.md:40 | proposed |
+
+
+## Content reconciliation B148, 2026-11-04
+
+The complete matrix and every per-world CW01-CW36 row were read. Independent structural recomputation found 16 worlds, 36 families, 576 cells and 280 C / 258 P / 38 N, with zero grid/body status mismatches. All 538 supplied locators currently reach a nonempty line. [The check record](reconciliation-2026-11-04/matrix-check-b148.json) retains the pre-correction input hash and original label counts. These checks establish arithmetic/routing, not the meaning or primary-source accuracy of 538 statements.
+
+The full D&D ruling ledger explicitly makes every RL01-RL28 a proposed revision-1 application/policy. Its CW12 locator must not appear as an unqualified shown rule; that label is corrected to proposed, leaving its C status intact because this matrix measures documented coverage. Other shown/stated labels remain the inherited reader's labels and were not freshly verified. A local authored proposal, observed source effect, source explanation and actual native consumer remain separate evidence stages (AD32, AD36).
+
+Do not turn N cells into blanket source/world absences or automatic new mechanics, and do not rank worlds by the amount of authored prose. CW02/CW06/CW18/CW26/CW32/CW34 identify possible questions; a single template line can route a question while failing to qualify a local contract. The November 3 owner retains all useful detail leads, affected gaps and source limits. This review did not read every linked world document, any primary game/book source, or any new runtime/secret state.

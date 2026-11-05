@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "batch": "B150",
+  "title": "UI core rounds 8-19, proposed infrastructure and comparison scope",
+  "at": "2026-11-04T22:01:54.402585+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/UI_DESIGN_CORE_AUDIT.md",
+      "full": false,
+      "ranges": [
+        [
+          442,
+          1032
+        ]
+      ],
+      "ids": [
+        "UIW1-UIW9",
+        "UIX1-UIX9",
+        "LTU1-LTU15",
+        "MDL1-MDL16",
+        "RPX1-RPX20",
+        "RIX1-RIX4",
+        "FLA1-FLA6",
+        "VSX1-VSX5",
+        "RCT1-RCT5",
+        "UIF1-UIF8",
+        "UIA-R1-UIA-R7",
+        "UFW1-UFW4",
+        "PT1-PT36",
+        "rounds 8-19"
+      ],
+      "classification": "Further complete UI audit rounds; later direction and final rounds remain unread",
+      "owners": [
+        "docs/audits/UI_DESIGN_CORE_AUDIT.md",
+        "docs/MOCKUP_SYSTEM.md",
+        "DESIGN.md"
+      ],
+      "disposition": "Read rounds 8-19 completely, recovering clipped 901-983. Keep follow-through chronology: proposal-label lint delivered scoped fixes but some Tingen rows unrun; Luminous default supersedes Neutral-default observation; RIX moved-owner claims are dated; independent audit later verifies selected combat/UI defects without all-world proof. Preserve representation palette and shared command/projection boundary; proposed renderer/registry sequencing is not a universal gate.",
+      "evidence": "Fresh range 442-1032, not full audit. Native app/evidence images, video and prototype bodies were not newly inspected. Round 19 records actual muted sampled playback superseding earlier not-played statement, not fresh playback now. 35/38 sketch checks and original allowances remain dated. Source summaries and UIA-R findings retain named candidate/failure boundaries.",
+      "reopen": "Continue at line 1033 through current end. Read actual selected linked source/receipt before marking a defect fixed or adoption live. Existing B149 separately retains lines 1-441.",
+      "input_sha256": "f249be760a234e9dd46a9a13e520682f658cdebcc2de5569dad308941aa87e59",
+      "input_lines": 1647
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/MOCKUP_SYSTEM.md",
+      "heading": "## UI core comparison scope B150, 2026-11-04",
+      "body": "Scoped actual review of [UI core rounds 8-19](audits/UI_DESIGN_CORE_AUDIT.md#round-8-2026-10-29-general-overhaul-options-and-cleanup). The household and investigation comparisons use a synthetic model shared across three views; their matching results establish toy-model parity, not native economy, source lore, spatial combat or save compatibility. Their current-panels view is a labelled sketch, not a fresh native-shell baseline. Keep equal state/commands/art when comparing form, and separate movement inputs from actual world-time or spatial-outcome semantics (MW1-MW8, AD32, AD36).\n\nThe recorded RI review later includes muted playback with timestamped samples, superseding its earlier not-played limitation for that historical round. It does not establish engine, collision, AI, audio, asset rights, hours or deeper system completeness, and this reconciliation did not replay it. Included allowance percentages, prototype ports/PIDs and frozen-app identifiers remain dated, not current budget or process authority.\n\nUseful retained opportunities are a clear shared projection/quote/command/result boundary, actual subject/footprint metadata when spatial mechanics are selected, and reuse tested on an edited room and second layout before world-scale estimates. Proposed representation registry, scene slots, universal figure primitive, motif packs, gallery tests and bundle split are conditional tools; none blocks a simpler selected consumer under AD51. Later direction lets task form and decoration evolve together rather than requiring a universal infrastructure-first sequence. Keep the historical populated fight/knowledge/navigation defects in their named owners and evidence stages; an attractive comparison does not close them, and a renderer change alone does not alter actual actor knowledge or jobs.",
+      "before_sha256": "351d4f0623bfeab516dc46bfc1a028c463b23a7bfd60661758981410f9e336c6",
+      "after_sha256": "2c2ed5d5da1480e760b5f193cfff0d8faf79caa1e97c124b042f6d06baa09b44"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1197
+}

@@ -26,3 +26,8 @@ Cross-family obligations: DND02 × DND05 × DND07 makes an origin's tools and te
 Long-term options stay available: local professional life; adventuring party; deep magical study; institution leadership; domain/property management; exceptional body/lineage; divine/patron relations; wider or planar exploration. These are development paths, not source-confirmed universal permissions. Specific exotic powers and altered premises need means, costs, source/branch labels, counters and sealed discovery owners.
 
 Completion target for this assignment is the bounded foundation packet only. Future finite editions track each leaf through source-qualified design, code, rebuilt browser behavior, persistence evidence, integration and Weibao's acceptance. Completing the table is not completing Faerûn.
+
+
+## Later ST2 qualification and finite coverage, 2026-11-04 (B88)
+
+DND00–DND15 retain the wider horizon; the [first-slice qualification](FIRST_SLICE.md#current-qualification-reconciled-2026-10-20) records a proposed SRD 5.2.1 ST2/Mending snapshot already qualified at source/design scope. Older starting-table/source requests are historical for those exact pieces, while selected setting/era, consequential exceptions, ST1/ST3 when chosen, native consumers and current-format round trips remain distinct. This map review does not read all rule tables or implement spells/D&D combat. Authored jobs/prices/contacts stay authored and do not need invented source authority. Applicable source/consumer joins preserve broad pursuits without requiring every class or all Faerûn before a useful local loop. Current AD32/AD36/AD42 govern proposal, evidence and optional director review.

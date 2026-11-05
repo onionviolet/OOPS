@@ -46,3 +46,12 @@ The browser checks in this worktree use disposable fresh origins and controlled
 native-save fixtures. They distinguish observed native actions/persistence from
 naturally earning an entire day or the guardian route. Director play/taste remains
 the remaining acceptance gate; the proposal does not redefine standing priorities.
+
+
+## Content reconciliation B144, 2026-11-04
+
+All seven loops, compatibility and evidence limits were read. Preserve the single local-life reward/state owner and joined native settlement, with calendar windows distinct from observed exposure. A courier's arrival roll, a known relay route and actual permission to travel are separate; a completed title threshold can be cosmetic without a balance bonus. Search exhaustion is finite authored stock, not an undiscovered hidden remaining-count leak.
+
+The watch hours, payout, XP exposure cap, courier probability, bread period, title thresholds and bleeding duration are this historical slice's choices. They are not universal calendar, wage, wound or anti-exploit rules. The existing active-effect owner, observed minutes and saved claims matter more than the proposed surface label. Schema-3 defaults avoid invented old history and keep stated local accounts; this does not certify all current loader paths or general old-save compatibility.
+
+The report explicitly distinguishes controlled native-save fixtures from naturally earning a full day or the guardian route. Keep that gap rather than marking the full loop proven from an opening image or test count. Current viewport direction replaces the old 1366 target and AD42 makes director review optional. No fresh source-parity, natural route, bleeding, save or browser result was established, and no loop order or new runtime wave was selected (AD32, AD36).

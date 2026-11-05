@@ -1,0 +1,132 @@
+{
+  "schema": 1,
+  "batch": "B114",
+  "title": "Complete body-lineage interface, overlap and minimal-set packet",
+  "at": "2026-11-04T21:09:46.237472+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b18/INTERFACES.md",
+      "ids": [
+        "AB1–AB12",
+        "shared boundary"
+      ],
+      "classification": "Historical interface proposal; retain with current authority qualifications",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b18/REPORT.md",
+        "docs/GENETICS_AND_HERO_START_PLAN_2026-10-17.md"
+      ],
+      "disposition": "Stable domain/body/person/life identities, distinct execution/knowledge contexts, admitted revisions and one writer per field. Separate present/awakened/active/suppressed/damaged axes; capability max/sum is not a signed-cost bus. Claims preserve disagreement, dates and known staleness without leaking private changes. Paid quote, custody and event-time contributor snapshots cannot be rewritten by later inspection. Sample metadata is not a second stock count. Existing keyed streams and permanent outcome receipts remain separate from bounded diagnostic logs. Proposed API names and line locators are historical, not newly verified current exports.",
+      "evidence": "Fresh complete content reading of this document, including code shapes/tables and final proof limits. No runtime rerun or transitive source-reading credit.",
+      "reopen": "Reopen only for a selected integration: inspect actual owner APIs, schema and consumers; preserve defined history and run relevant delivery checks.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "ff425eb293ba44fd2b8e59950f755f77dc8cf6370940e1745cdd21d8c69914ab",
+      "input_lines": 251,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          251
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b18/OVERLAPS.md",
+      "ids": [
+        "O1–O5",
+        "comic CA1–CA10",
+        "genetics CA1–CA10"
+      ],
+      "classification": "Historical interface proposal; retain with current authority qualifications",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b18/REPORT.md",
+        "docs/GENETICS_AND_HERO_START_PLAN_2026-10-17.md"
+      ],
+      "disposition": "Keep code namespaces explicit: comic versioned facts and genetic body-editor CA5 differ. Shared semantic interfaces do not merge truth/observer stores, offices with title booleans, transport with ownership, or ranks into universal power. Proposed compatible adapters need explicit schema admission. Current AD51 qualifies the old two-live-world prerequisite, including O3; known needs can inform design before implementation. Missing comic K6 was intentionally stopped as duplicate, not an unresolved missing-worker task. Historical peer reading is not this pass reading every dependency.",
+      "evidence": "Fresh complete content reading of this document, including code shapes/tables and final proof limits. No runtime rerun or transitive source-reading credit.",
+      "reopen": "Reopen only for a selected integration: inspect actual owner APIs, schema and consumers; preserve defined history and run relevant delivery checks.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "9f6613b9174d44263c727c3d3ebd600e7572b7209170f8b72675fbd66df7587a",
+      "input_lines": 61,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          61
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b18/MINIMAL_SET.md",
+      "ids": [
+        "D1–D4",
+        "M1–M4",
+        "V1–V5"
+      ],
+      "classification": "Historical interface proposal; retain with current authority qualifications",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b18/REPORT.md",
+        "docs/GENETICS_AND_HERO_START_PLAN_2026-10-17.md"
+      ],
+      "disposition": "Four staged recommendations are unselected, not current build order. Authored identity, known-body projection and deterministic card actions need no new RNG draw. Preserve selected action/clock/custody and failure invariants without requiring a general anatomy/population/soul engine. AD51 qualifies two-implemented-method/world gates for design; selected runtime still needs meaningful proof. Target desktop text and current accepted direction, not a universal 1366-only gate. Human review is optional AD42; legacy migration remains conditional if selected. Tests are specified, not run.",
+      "evidence": "Fresh complete content reading of this document, including code shapes/tables and final proof limits. No runtime rerun or transitive source-reading credit.",
+      "reopen": "Reopen only for a selected integration: inspect actual owner APIs, schema and consumers; preserve defined history and run relevant delivery checks.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "d70acd84750cebcf87de724f7a556a32327b1bf0bef6d2d6f972a918ad5bfdc4",
+      "input_lines": 54,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          54
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b18/REPORT.md",
+      "ids": [
+        "F1–F5",
+        "R1–R5",
+        "dependency status",
+        "open gates"
+      ],
+      "classification": "Historical interface proposal; retain with current authority qualifications",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b18/REPORT.md",
+        "docs/GENETICS_AND_HERO_START_PLAN_2026-10-17.md"
+      ],
+      "disposition": "Retain positive capability versus signed cost separation, historical resolver gap, source/schema admission and scoped succession limits. B107 already qualifies blanket card-carry absence, without proving generalized world retention. B111/B112 independently review selected B11/CV1 bodies; B18 dependency claims do not grant us full reading of all B6/B7/B12/W18 sources. No exported APIs/source locators/runtime were reverified by reading this report. Current direction/AD42/AD51 qualifies its selected-two-consumer and independent-human-acceptance gate language.",
+      "evidence": "Fresh complete content reading of this document, including code shapes/tables and final proof limits. No runtime rerun or transitive source-reading credit.",
+      "reopen": "Reopen only for a selected integration: inspect actual owner APIs, schema and consumers; preserve defined history and run relevant delivery checks.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "5a7c378dde4fc5e8a9640dd4e631749b99da12d2c1984dcd82ae13ea1274dc54",
+      "input_lines": 39,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          39
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b18/REPORT.md",
+      "heading": "## Interface-use reconciliation B114, 2026-11-04",
+      "body": "Full [INTERFACES](INTERFACES.md), [OVERLAPS](OVERLAPS.md), [MINIMAL_SET](MINIMAL_SET.md) and REPORT read, preserving AB1–AB12/O1–O5/D1–D4/F1–F5/R1–R5. Stable person/body/life/source-instance refs, operational axes, frozen quotes and transmission inputs, one custody count, viewer-safe dated claims and permanent outcome receipts remain useful. A universal truth registry is not a CV1 prerequisite; claims and truth keep separate owners. Namespace comic versus genetics CA codes. No renderer may infer visible staleness from private truth or initialize a stream. Existing keyed RNG service is the default; its bounded log is not settlement authority.\n\nAD51 in [RULES_INDEX](../../../../RULES_INDEX.md) qualifies the packet’s repeated two-implemented-world/method prerequisites: design a reasonable seam from known world needs, then validate/revise with a different case. Selected runtime still needs real consumers and delivery proof; these recommendations neither launch four checkpoints nor impose a new global build order. AD42 makes human review optional, and current desktop/laptop direction governs the viewport rather than a universal 1366-only floor. B107’s card-specific carry correction does not establish general retained-world/soul inheritance. Legacy migration is conditional on selection, not a new mandatory work item. Historical source locators, read lists and structural checks do not grant current API proof or this pass reading of unread dependencies. All original proposal/history remains in place.",
+      "before_sha256": "5a7c378dde4fc5e8a9640dd4e631749b99da12d2c1984dcd82ae13ea1274dc54",
+      "after_sha256": "504962e6dd2d3025abb031b88accddb4afddb6185e28eea71d2da6eed692302b"
+    },
+    {
+      "path": "docs/GENETICS_AND_HERO_START_PLAN_2026-10-17.md",
+      "heading": "## Body-interface reconciliation B114, 2026-11-04",
+      "body": "The complete [B18 interface packet](gm/dispatch/body-lineage-2026-10-14/b18/REPORT.md#interface-use-reconciliation-b114-2026-11-04) now has scoped reconciliation of AB1–AB12, comic/genetics namespace collisions, claim/truth/custody boundaries and frozen event inputs. Reuse actual owners and the existing keyed stream service. AD51 permits design from known needs before a second implemented case; the four staged recommendations remain unselected. AD42 human review is optional. No generic genome, soul transfer, population or sample engine is required by this paperwork; selected integration must establish its own current APIs, admission and delivery evidence.",
+      "before_sha256": "26542790bf2a1ddfc30c7fcd41784197de54bad80b8381e8194964ab1349d86e",
+      "after_sha256": "a4d8ff55ad79cdba30ded7cff3d9604ba1f52ef9dac5d77453d033026823ef18"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1245
+}

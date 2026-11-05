@@ -1,0 +1,6 @@
+#functional_home.equipment-comparison{padding:12px;scroll-margin-top:40px}
+#functional_home.equipment-comparison .fh-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+#functional_home.equipment-comparison label{display:grid;gap:6px;margin:8px 0}
+#functional_home.equipment-comparison .replacement-review{min-width:0;margin-top:10px}
+#functional_home.equipment-comparison table td:first-child{width:32%}
+#functional_home.equipment-comparison [data-repair-job]{margin-top:12px}

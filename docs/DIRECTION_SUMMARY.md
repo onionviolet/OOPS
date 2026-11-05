@@ -1,7 +1,6 @@
 # Current game direction
 
-Updated 2026-10-29. Navigation summary of accepted direction, not a new
-specification or proof of implemented gameplay. [USER_VISION](USER_VISION.md)
+Navigation refreshed 2026-11-04 after full content review. [PROJECT current focus](../PROJECT.md#current-focus), [VISION_DIGEST](VISION_DIGEST.md) and the [rules index](RULES_INDEX.md) govern new work; the dated discussions and assignments below remain history. This summary supplies no new specification or proof of implemented gameplay. [USER_VISION](USER_VISION.md)
 preserves original requests; [PROJECT](../PROJECT.md#accepted-decisions)
 summarizes accepted decisions. Detailed owners retain their mechanics and evidence.
 Unaccepted ideas in the [core audit](OVERARCHING_DESIGN_CORE_AUDIT_2026-10-15.md)
@@ -95,9 +94,8 @@ reading aid is the [guide](LEAD_LIFE_GUIDE.md); proposals and history are in the
   and [multiverse owner](worlds/MULTIVERSE_STRUCTURES.md) supply context;
   accepted OD5 direction allows multiple structures; exact routes remain open.
 - **SB2:** preserve vanilla play, private saves and sealed discoveries.
-  The first milestone remains one realm and one prestige layer. Earlier direction discussions did not authorize runtime work. Later bounded
-  CP1–CP7 implementation is assigned specifically to the cheat chat; no broader
-  rewrite, extra wave, personal-save migration or commit is implied.
+  The one-realm/one-prestige milestone is retired by [the October 24 direction](USER_VISION.md#first-milestone-and-scope-check-2026-10-24).
+  Current authorized work follows [PROJECT](../PROJECT.md#current-focus) and its actual writer/checkpoint; the dated CP1–CP7 assignment below is history, not a present reservation or general runtime/commit authorization.
 - **SB3:** desktop/laptop first. UI composition and implementation remain with
   the UI lane under [UI rules](UI_RULES.md); this discussion owns gameplay direction.
 
@@ -284,3 +282,23 @@ specific profile and mechanics remain authored choices where marked. The
 [discussion](gm/LOTM_INITIATION_DESIGN_DISCUSSION_2026-10-15.md#liq1-answer-canon-decides-2026-10-15)
 records the answer. No new LIQ1 question is open. No runtime ownership or
 implementation transferred; UI R4 and other lanes remain.
+
+
+## Content reconciliation B261 and superseded navigation history
+
+All 286 pre-edit lines were reviewed, including every OD/AN/TBANK row, SB boundary, answered-cheat qualification, prototype comparison and dated lane handoff. The summary correctly separates direction, proposals and runtime evidence in many places, but SB2 still repeated a milestone explicitly retired in its current owners. SB2 is corrected in place; the removed text is retained verbatim below. No new direction was decided. Current [PROJECT](../PROJECT.md#current-focus), [vision digest](VISION_DIGEST.md), [rules index](RULES_INDEX.md) and selected task owners were rechecked for the correction. Their latest direction includes LOTM-first/Klein, Harry's developer route alongside it, AD42 optional human review, AD51 shared seams and AD52 long-play compression. A new navigation pointer qualifies this file's older “current” queue sections rather than treating them as live dispatch.
+
+Retain OD1–25/AN1/TBANK and the CA answers with their original owner links. Their “exact mechanics open” language is not evidence that later mechanisms remain absent; their narrow defaults do not adopt all adjacent schemas or engineering proposals. CP1–CP7 chat IDs, UI ownership, Soldier's paused state, Frontier-first recommendation and October 15 HP/LOTM comparison are dated records. None was probed as a live lock, renewed pause or current build-order authority. The comparison's own later book-world correction already supersedes Frontier-next, and current PROJECT is the sequence owner. Current developer routes remain distinct from ordinary low-spoiler player starts and from whole-world coverage.
+
+The old-save exception and content-ID retirement are scope-specific decisions, not a waiver of present-state persistence or permission to discard unrelated saves. Navigation statements about defeat, runtime fields, serializer counts, tested lamps, thread launches or implementation remain evidence at their recorded dates. No native route, current source schema, running process or thread status was verified by this read. The original reciprocal-return, body/history/date, known risk, knowledge-limited recap and optional goal distinctions are preserved. The table's rows do not force one world model, universal resource price or guaranteed escape.
+
+Superseded SB2 text, retained as history:
+
+```text
+- **SB2:** preserve vanilla play, private saves and sealed discoveries.
+  The first milestone remains one realm and one prestige layer. Earlier direction discussions did not authorize runtime work. Later bounded
+  CP1–CP7 implementation is assigned specifically to the cheat chat; no broader
+  rewrite, extra wave, personal-save migration or commit is implied.
+```
+
+The former lead-in read “Updated 2026-10-29. Navigation summary of accepted direction, not a new specification or proof of implemented gameplay.” This date is retained here as the prior navigation checkpoint, not a current runtime verification date.

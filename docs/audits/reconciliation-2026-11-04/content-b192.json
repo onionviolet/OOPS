@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "batch": "B192",
+  "title": "Complete gear, chemistry, energy and power palette",
+  "at": "2026-11-04T22:49:17.259641+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/GEAR_DEPTH_BLACKSMITHING_CHEMISTRY_ENERGY_POWERS_CONSIDERATIONS_2026-10-20.md",
+      "ids": [
+        "GDP1–GDP46",
+        "Parts A–D",
+        "L1–L8",
+        "C1–C5",
+        "GDP38 creature receipt",
+        "Native connected slice",
+        "GDP21/GDP26/GDP30 B3 reconciliation"
+      ],
+      "classification": "Gear-depth palette with corrected mod evidence and later bounded connected slices",
+      "owners": [
+        "docs/GEAR_DEPTH_BLACKSMITHING_CHEMISTRY_ENERGY_POWERS_CONSIDERATIONS_2026-10-20.md",
+        "docs/EQUIPMENT_STAT_DIMENSIONS_CONSIDERATIONS_2026-10-20.md"
+      ],
+      "disposition": "Later returns and connected O1/GDP40/B3 receipts qualify absent bridge/heat/maker claims at their actual consumer. Keep heat gate, amount, burn rate, lasting treatment, ongoing source and learned focus distinct. Remove implied mandatory tradeoffs/conservation/decay from future use without rewriting historical proposals.",
+      "evidence": "Fresh full read 1–end every table/return/fold. Private decompiled mod notes, sources, current runtime and original browser proof were not opened. Existing B3 focused-test identity retained without rerun.",
+      "reopen": "Selected actual wear/material, heat job, commissioned energy, stat effect or salvage consumer; inspect current reader/transaction/instance identity and that world’s mechanisms.",
+      "input_sha256": "de52aac9b358c2c65edb2bbe0539bb042b477995754790b982cd7e5a7f393815",
+      "input_lines": 382,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          382
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/GEAR_DEPTH_BLACKSMITHING_CHEMISTRY_ENERGY_POWERS_CONSIDERATIONS_2026-10-20.md",
+      "heading": "## Full gear-depth palette reconciliation, 2026-11-04",
+      "body": "Read GDP1–GDP46 through their later corrections and deliveries. L6’s numeric-temperature/rate/duration evidence supersedes the early ordinal summary of Tinkers; ordinal heat grades, storage leakage and conduction on held gear remain our proposals where explicitly identified. Initial L7 missing-bridge and GDP38 locked-encounter statements have their historical scope; later native/connected checkpoints supply selected additional consumers, not proof of every structured power, battle model or creature. B3 already traces the instant native smelting consumer; descriptive burn minutes do not implement a timed process (AD32, AD36, AD43).\n\nKeep strength, hardness, toughness, workmanship, rarity, trait effects, condition, custody and instance history distinct. GDP15’s inverse toughness shortcut is a proposed authored approximation, not a universal material law. Swapping component keys must not duplicate an instance or silently discard its history. Grade can exist before an assay knows it. The properties table and one stat pipeline are design routes; actual mechanism effects can need non-stat consumers. GDP6/GDP34 do not require free powers or advantageous materials to pay an invented cost elsewhere; GDP17 salvage loss and GDP28 conversion loss fit the selected world’s real mechanisms rather than every possible source (AD5, AD38).\n\nGDP40–GDP42 preserve the useful focus correction: no marginal control benefit means no reserve/strain charge; focus does not create forge heat or oil. Physical treatment can persist after the maker rests, while a maintained effect requires its active source. Time spent recovering can close an existing hot window; a late refusal preserves unspent resources without duplicating a clock. GDP43/GDP44 keep personal versus institutional property and funded packing versus general absence/heir transitions separate. GDP45/GDP46 remain valuable later proposals with their maker-owned reserve or fuel-rate consumer, not automatic new work. Old branch statuses, compatibility wording, counts and ranked build suggestions do not establish current integration, authorize acquisition or set priority.",
+      "before_sha256": "de52aac9b358c2c65edb2bbe0539bb042b477995754790b982cd7e5a7f393815",
+      "after_sha256": "290031f28bcd69b18c12c490764cd7d497f744d3d5447c7600a84d287aea098b"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1102
+}

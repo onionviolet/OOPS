@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "batch": "B193",
+  "title": "Complete proposed kernel and bounded extraction contracts",
+  "at": "2026-11-04T22:49:41.502993+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/OWN_ENGINE_KERNEL_DESIGN_2026-10-14.md",
+      "ids": [
+        "ER12-D1–D3",
+        "ER12-K1–K12",
+        "ER12-A1–A2",
+        "ER12-M1–M2",
+        "ER12-C1–C5",
+        "ER12-X1–X8",
+        "ER12-S1–S10",
+        "ER12-F1",
+        "ER12-R1–R5",
+        "Foundation reconciliation"
+      ],
+      "classification": "Dated source baseline and inferred kernel/extraction design",
+      "owners": [
+        "docs/research/OWN_ENGINE_KERNEL_DESIGN_2026-10-14.md",
+        "docs/SAVES.md",
+        "docs/ARCHITECTURE_RULES.md"
+      ],
+      "disposition": "Preserve proposed signatures/manifests vs actual exports; one publisher, retained order/identity, consumer-qualified observer model and durable acknowledgement. Domain registration is not full manifest/rollback/independent engine. Historical source absences and graph counts need current inspection; AD51 qualifies consumer-count gates.",
+      "evidence": "Fresh full read 1–end every table, proposed TypeScript/JSON example and foundation fold. Forty-three tests are the dated original lane baseline, not a new run, benchmark or extracted-kernel proof. No new code, original sibling source or current runtime read.",
+      "reopen": "An authorized extraction with one actual consumer and observed mismatch/cost; preserve existing facades and trace current affected callers, compatibility and failure-before-publication before broadening.",
+      "input_sha256": "e8cb1474dc9cc8027cbfb5b490f53a24b3e9ccee466adb866cdd9d1b18529660",
+      "input_lines": 236,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          236
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/OWN_ENGINE_KERNEL_DESIGN_2026-10-14.md",
+      "heading": "## Complete kernel-proposal reconciliation, 2026-11-04",
+      "body": "ER12-K/A/M/C/X/S signatures and descriptors remain inferred design around the dated source baseline. A manifest’s ownership, dependency or writes list does not itself validate cross-owner invariants, provide safe incremental validation, install modules or grant access to stock. Existing registry metadata and region/host enforcement supply narrower seams described by the foundation fold, not proof of the entire reusable kernel. Graph size and missing-export claims need current inputs before reuse (AD32, AD36).\n\nKeep durable write then publication then notification distinct. A subscriber failure after a successful payment cannot safely be represented as a retryable failed payment. Unknown bytes retained opaquely are not executable state; absent required content differs from a genuinely independent optional panel. Preserve old phase/deadline/sequence ordering, live getters, actual consumed time and legacy RNG commitments before a new ordering or async backend changes behavior. A boundary-count cap is not a latency guarantee. These are selected-seam obligations, not a demand to extract the entire game or install a new state store.\n\nAD51 qualifies the old two-/three-consumer wording: use known needs and a first real consumer, with a distinct later case validating the design. A synthetic alternate module can test dependency isolation, but does not establish all-world portability or performance. Current desktop/laptop targets and AD36/AD43 govern selected behavior proof; old 1366×768 and every-step literal-file checks do not add universal gates independent of the actual change. Preserve ER12’s 43-test historical baseline and explicit open graph, lifecycle, loader, async and replay limits. No new extraction, tool adoption, engine rewrite, compatibility decision or priority was selected.",
+      "before_sha256": "e8cb1474dc9cc8027cbfb5b490f53a24b3e9ccee466adb866cdd9d1b18529660",
+      "after_sha256": "2324fe1a437d71126b5db0d2972d2672c2e714a04ff59c7be233241516664a65"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1102
+}

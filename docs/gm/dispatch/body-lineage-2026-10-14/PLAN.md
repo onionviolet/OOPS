@@ -83,3 +83,52 @@ is not a physiology switch. Old-save migration is currently deferred; all new
 selected body/start state still needs current-state persistence and useful native
 consumer proof. B2's test matrix remains NOT RUN; expected assertions are not
 accepted universal biology or current implementation evidence.
+
+
+## Reconciliation B94, 2026-11-04
+
+The B1–B18 roster is a folded historical wave, not workers to relaunch. Its own October 18 marker routes future selections to the GHS plan and leaves B2 tests NOT RUN. Keep the original source/brief/test inputs and their IDs as history; a finished proposal return does not prove implemented body modification or CV1. B94 now qualifies the receiving GHS plan by the later simple-PLAY/start-menu deferral and current accepted direction. No hereditary prestige, gender migration or population model becomes a prerequisite.
+
+
+## Checkpoint-content reconciliation B108, 2026-11-04
+
+These checkpoint bodies were reviewed independently of their underlying deliverables; full-file coverage here does not close the linked source/card/spec residue. The wave remains folded, with current GHS/accepted direction governing future selection.
+
+Final 72-note/1440-cell/461-target/zero-error receipt supersedes the earlier 70-note and one self-scan-error snapshots. These are mapping/document checks, not full primary/canon or implementation coverage. Keep the actual corrections: childbirth changing a seal is not inherited child state, and clan relics/training do not establish kin-only ancestral access. Newer supplied-edition summaries stay qualified at their own evidence scope; source-owned and fit-proposal cells must remain distinct.
+
+Retain 63 cards, 57 skipped digests and 140 labeled claims as the documented research inventory. Thirty-four lead-only cards remain unqualified; 29 bounded cards are not franchise certification. Missing raw-page caches, secondary extracts and source conflicts remain explicit. Reading this checkpoint does not read those cards, recover skipped subjects or certify the catalogue.
+
+Retain 23 version-separated reference entries and 15 borrowing proposals with existing genetics mappings. Official documentation, indexed-only snippets and player reports retain distinct evidence. No reference game was played here and no web claim is renewed now; local source dossiers were inherited at their own limits. Sims/Rogue Legacy/Stellaris/DDA versions cannot be merged into one current mechanic. Original failed-fetch switches and corrected G06 shorthand are history, not new work.
+
+Twenty reproduced documentation cards and selection/name hashes establish proposed grammar reproducibility only. They do not qualify functional handlers, live source registration, consumer semantics, native P1 or save/import. Keep seven-part shape and world-fit explanations with exact proposal status; no runtime schema is reserved or implemented. Reading this checkpoint does not read all GRAMMAR/VALIDITY/SAMPLES/SAVE_SHAPE bodies.
+
+Keep transactional promotion/conception capsules, independent observer claims and parent-snapshot cost even under lazy phenotype detail. Python budget arithmetic is not measured serialized size or capacity: 10000-NPC estimates exceeding the then-current guard are a planning scenario, not current game limit or a mandate to simulate that population. B2 native schema is not an NPC generator. Existing household/P4 bounds and consumer eligibility are scoped prior cases, not universal person/detail rules. All native/storage/migration gates remain unrun in the checkpoint.
+
+Twelve static wireframe cases and native prebuilt panel lookup are distinct from runtime implementation, changed body commands and persistence. Correct home is Notebook → Practice, with two prior visibility timeouts retained; initial Local actions placement is obsolete. Keep pinned condition strip outside its history scroller as an illustrated design, not current UI proof. Old server/PID/port stopped status is historical, not current process ownership; zoom/reader and native consumer gaps remain.
+
+Retain precise modification channels and the explicit strict-GM11/microbe/crop/FEV/primary-procedure gaps. Seven local plus outside source cards are documentary claims with secondary/direct-dump/inference distinctions; no new raw read or full report credit follows from checkpoint review. MHA factor-copying does not establish exact Nomu procedure. Earlier B4-in-progress status is historical, not live worker state; final 132-target/zero-error checks certify documents only.
+
+
+## Remaining-checkpoint reconciliation B109, 2026-11-04
+
+All B1–B18 checkpoint bodies now have explicit dispositions (B3 in B107, B1/B4–B9 in B108, remaining checkpoints here). This closes only checkpoint bodies, not the linked reports, matrices, source cards, proposals or tests.
+
+Keep 72 exact slugs, 37 concrete notes and 35 explicit matrix-only gaps separate; 864 cells/nine chains are documentary coverage, not all source mechanisms. Recent death versus ancient remains, consent/cruelty and copying/conservation remain world-qualified. Paused-world status is historical. Each WORLD/CHAINS body still needs its own intake read; no source-library expansion is triggered.
+
+Preserve later B6 readback overriding the initial absent SAMPLES/REPORT snapshot, typed source qualification and shared archive/fresh-body lifecycle. Outcome tables/exact draw arithmetic and locator hashes are document checks, not actual assays/application/birth or storage. A proposed rest route avoids granting a body faculty simply to recover; it was not implemented by the checkpoint. B95 separately read its unrun TEST_PLAN, not the complete AUDIT/SPEC.
+
+Retain microconsumer mapping and degree-specific proposed effects, but 29 partial/missing rows are dated bounded negative searches, not current absence. Seventy-two phase sets/216 short flavor lines do not prove the linked mechanics or grant extra state/XP. MI6/MG6/MP3 first-slice ranking is a candidate and integration depends on selected actual B2 consumers. Parser correction and 93 locator checks are document integrity only.
+
+Later source refresh explicitly supersedes initial no-storylets: P3 definitions/deck/UI/imports arrived in the shared tree. Preserve observation timing, independent versus correlated evidence, partial/negative/inconclusive results, diagnosis means and error costs. Three specified journeys/five future gates are unplayed. Actual knowledge-stage overwrite and proposed evidence corrections need their own consumers, not an automatic new diagnosis engine.
+
+Final 41 shapes exceed the initial at-least-25 target, with original 30 plus ten added conceptual rows; these are distinct denominators. P3 final source arrival supersedes early absence, and unflagged blocking versus nonblocking decisions remain distinguished. Keep known-change versus hidden change, correlation, permission/memory, real clocks and repeated occurrences. No seed/card/row count establishes played outcomes or global social simulation.
+
+Twenty-two strict cards validated/granted/JSON-roundtripped at source level do not execute their inert hooks or enable a useful body lens. Final B12–B14 readback supersedes initial missing reports; no broad social/NPC implementation prerequisite follows. Keep observer-known staleness, permission versus memory, conflict records and durable enable. B95 already read the full unrun acceptance matrix; generic host durability does not close CV1-specific proof.
+
+Final two timed refreshes read all B1–B15 reports, superseding initial report-pending snapshots. Historical waiting instructions/timestamps are not current schedules to resume. Acyclic graph, 23 nodes/57 edges and source hashes describe proposal dependencies, not build order or implementation. B7 optional reuse for authored family UI/pure forecasts remains important; no population simulation gate is created. Source edits and later accepted direction may change individual edges without invalidating all retained ideas.
+
+Keep digest/failed-dump/indexed-publisher/primary-passage tiers and exact comic evidence gaps. Later K3 report arrival supersedes initial absence for that named return; K1/K4/K5 checkpoint-only statuses and K6 duplicate are dated snapshots, not live reservations. Eight added patterns and ten original stand-ins are proposals, not canon or implemented source. Existing-row reconciliation and no-prefix-collision checks do not prove shared-owner adoption.
+
+Preserve named-stream existing-family versus unsupported body namespaces, positive source grants versus costs, faculty booleans versus development and same-key stage replacement. B84 separately reviewed CODE_MAP; current B107 corrects older blanket absence of card-specific heir carry. Estate/genealogy/soul remain different, and the five proposed interfaces/minimal set do not implement them. Hash/locator stability and late B15/W18 arrival are exact historical doc/source evidence, not current runtime joins.
+
+Keep replace-owned-bonus semantics, exact legacy address/age spellings and concrete pursuit consumer instead of invented generic stealth. The 660/1320 byte sample and multiplier arithmetic describe a sample, not a full save/quota or native stat proof. Current-state persistence still matters while historical legacy migration is optional; no new body record, source enrollment or trait grant is made by reading a proposal. B95 independently read the full NOT RUN test matrix; other B2 source/spec/migration bodies retain their own coverage.

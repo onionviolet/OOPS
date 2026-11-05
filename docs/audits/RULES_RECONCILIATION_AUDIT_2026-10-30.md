@@ -323,3 +323,8 @@ Post-record verification: `npm run check:docs` PASS; `git diff --check` on this 
 ## Tooling follow-through proposal (2026-10-31)
 
 The [reconciliation tooling proposal](RECONCILIATION_TOOLING_PROPOSAL_2026-10-31.md) answers Weibao's follow-up about what to make for OOPS. It separates completed structural reconciliation from connected behavioral evidence and recommends extending existing rule/evidence and receipt routes. This is a proposal under AD32, not a new rule, runtime queue or resumption of stopped lanes.
+
+
+## Continuous content reconciliation, 2026-11-04 (B62)
+
+Read the six rounds as a chronology. F3’s claim that UIV5 was never defined is corrected by RFX1: it is an auxiliary check, not a binding rule. F6/Q1/RRV2 no longer ask for a repeated decision: round 4 and current AU5/research path text agree on Luna low for bounded authorized delegation. RRV3–RRV5’s source defects were followed by the recorded checker/link/range repairs; current selected checker/test definitions retain mixed-family, missing/reversed-range, owner-relative-link and explicitly classified proposal-source handling. Those source observations do not rerun the historical tests. O1–O22 remain selectively applied proposals and domain applications, rather than a wholesale adoption or permission to collapse rule meaning. L1’s recorded tiering authorization is narrower than all consolidation ideas. Historical green lint/zero-warning results describe their snapshots; current shared-tree checks and AD36/AD42/AD43 govern new claims. Preserve the dated LSD source and stable route, original IDs and later corrections; no new rules, runtime queue, mandatory human gate, worktree retirement or commit follows from this review.

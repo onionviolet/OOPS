@@ -1,0 +1,101 @@
+{
+  "schema": 1,
+  "batch": "B153",
+  "title": "Complete foundation atlas and joined M21-M22-M25 receipt",
+  "at": "2026-11-04T22:06:08.171727+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md",
+      "ids": [
+        "F1-F4",
+        "U01-U15",
+        "K1-K34 crosswalk",
+        "E1-E10",
+        "P1-P12",
+        "C1-C7",
+        "M1-M26",
+        "FN1-FN6",
+        "L1-L4",
+        "N2",
+        "M21-M22-M25 selected delta"
+      ],
+      "classification": "Expanded foundation plan with historical hypotheses, selected follow-through and current receipt",
+      "owners": [
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md",
+        "docs/gm/dispatch/foundation-method-use-2026-11-04/CHECKPOINT.md",
+        "docs/MASTER_PLAYABILITY_PLAN_2026-10-25.md"
+      ],
+      "disposition": "Read all current plan including rounds 13-16 and selected method-use/data-driven follow-through, not initial 131-line intake. Preserve seam-specific donors, reverse adaptation, separate complexity dimensions and real consumer selection. Later integration and receiving-operation proof supersede early blocked/active observations; top current-routing sentence corrected. M19/M20/M23/M24/M26 remain distinct.",
+      "evidence": "Fresh entire expanded plan plus full method-use receipt; primary Naruto/Witch Hat windows, underlying private proof and current runtime were not reread or run. 69 distinct focused cases/33 final assertions are attributed to named checkpoint/build, not new tests or whole-campaign/native arrival proof.",
+      "reopen": "A selected next duration-sensitive, support, recovery or related-world consumer opens only its applicable gap. No framework-first agenda, all-world readiness claim or new sequence selected.",
+      "input_sha256": "bd2781f1b93b341ef4ee9c1d8511fad468795ba8a5618249ead4f3f4fb02ae08",
+      "input_lines": 238,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          238
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-method-use-2026-11-04/CHECKPOINT.md",
+      "ids": [
+        "M21",
+        "M22",
+        "M25",
+        "69 distinct focused cases",
+        "33 assertions",
+        "shared UI join",
+        "final joined result",
+        "remaining scope"
+      ],
+      "classification": "Current joined runtime receipt on named shortened canonical fixture",
+      "owners": [
+        "docs/gm/dispatch/foundation-method-use-2026-11-04/CHECKPOINT.md",
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/KJ3AA_IMPLEMENTATION_RECEIPT.md"
+      ],
+      "disposition": "Read all 84 dense lines including intermediate failures, data-driven narrator/catalog changes, direct-action writer join, final source/served identity and residue. Final joined result supersedes in-progress/interim entries. Preserve understood method versus observed fact, source/energy/tool means, exact native paper versus independently retained knowledge, co-present recipient disclosure and separate once-only payment. No universal original-paper or practice quota rule.",
+      "evidence": "Fresh full receipt only; e9acb7f10d6ada2f6b5fb4fa7c95ebe66482cceed0208ee04eacfeda616612c4 named played build. No current browser/source proof or private delivery-inputs read. Final 34 focused run plus unchanged relevant suites total 69; not a fresh 69-test run. Generated counterfactuals and shortened entry explicitly fixture-bound.",
+      "reopen": "Broader source arrival, other seats, general divination, exact acquisition provenance and M19/M20/M23/M24/M26 keep separate gates; no full suite, install, commit or push performed here.",
+      "input_sha256": "e3078a09e6d10cbeefdc96d72f078059177cb09a795b95006e07616bbbfe4edd",
+      "input_lines": 84,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          84
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md",
+      "heading": "## Content reconciliation B153, 2026-11-04",
+      "body": "The full expanded plan and [method-use receipt](../gm/dispatch/foundation-method-use-2026-11-04/CHECKPOINT.md) were reviewed, including rounds 13-16 and final joined proof. The opening current-use pointer now reflects the receiving operation's completed scoped result rather than retaining its earlier active-writer status. Earlier blocked/in-progress passages remain dated history; they do not reserve files or undo the later explicit release. This review performed no runtime work (AD32, AD36).\n\nPreserve the atlas's proper granularity: a donor mechanism can help before a whole world is complete, a second local law can revise the donor, and reuse leaves source, content, institutions, scale, interaction and proof costs. U/K coverage and E tables are explanatory, not a percentage or new build order. M8's lived texture can also be purely decorative under current DSG3/5/13; it need not manufacture a state consumer or reward. The Naruto/Witch Hat studies stay bounded attributed research and do not certify whole-source laws, exact transplant aftermath or general drawing/clone machinery (AD38, AD40, AD51).\n\nM21/M22/M25 closes the selected Anna receiving chain on its named shortened entry, not every method, body, document, customer or payment system. Understood method, acquired source, reserve and the actual paper/retained knowledge remain separate. A copied/remembered adequate information route can work without its original paper; this slice adds no original-only law. Delivered advice reaches its real recipient while private observations remain private; the later fee is a separate consumer. Real UI ownership/dedup and data-driven narrator/catalog joins have final receipt evidence rather than inheriting earlier passes.\n\nM19's support-at-boundary differs from continuous support; M20's refund/forfeit switch differs from mixed-stage consumption. M23 result sustain, M24 hung/missing/changed-source recovery and M26 different-law crossing remain unclosed by the method-use proof. The original transient-support and startup-wait qualifications remain useful. No full-world, ordinary-start, old-save migration, clean full-suite, installed-app or current primary-text verification is claimed.",
+      "before_sha256": "bd2781f1b93b341ef4ee9c1d8511fad468795ba8a5618249ead4f3f4fb02ae08",
+      "after_sha256": "b9d46f85cb31dc5722b0ab25758b6d89a5b4df2ee3099bf0da8ea05aae0945ed"
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-method-use-2026-11-04/CHECKPOINT.md",
+      "heading": "## Content reconciliation B153, 2026-11-04",
+      "body": "The entire receipt, including failed probes, interim builds, shared UI join and final result, was read. The final joined result controls the earlier in-progress status and temporary writer hold. Preserve exact evidence accounting: 69 distinct focused cases combine the final affected 34-pass run with unchanged relevant checks; 33 browser assertions belong to the final named fixture/build. Prior successes do not certify the intermediate joined duplicate-reason failure or an upstream-arrival route.\n\nThe exact native document and restored optional catalogue are stronger evidence than a resource counter, while general forgery/copy semantics, lineage and all-world inventory restoration remain outside scope. Study creates the local understood readiness without converting every seen account into competence; source suppression/empty reserve affect execution without erasing retained learning. Recipient delivery and the existing fee are separate, and already-settled older observations are not retroactively rerun (AD32, AD36, AR6).\n\nData-driven narration and two catalogue consumers demonstrate a bounded seam, not a universal scripting engine. The direct-action writer's focus, quote and blocker association retain their own contribution and passed join. Both unrelated shared-pack changes and historical whole-window proof remain preserved rather than replaced by this fixture's hash. This reconciliation reran no test, build, browser, Import or private proof read; current lead order and the receipt's explicit general-divination/acquisition/support/recovery residue remain unchanged.",
+      "before_sha256": "e3078a09e6d10cbeefdc96d72f078059177cb09a795b95006e07616bbbfe4edd",
+      "after_sha256": "d4516188e24bf4add2b0921d06eee0afb6380ea45e49f8a5071f105b90222fda"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1189,
+  "post_record_amendments": [
+    {
+      "path": "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md",
+      "from": "M21/M22/M25 remains with its active method-use writer and does not inherit those completed proofs.",
+      "to": "M21/M22/M25 now has its own [final joined method-use receipt](../gm/dispatch/foundation-method-use-2026-11-04/CHECKPOINT.md#final-joined-result-2026-11-04), with runtime writes released and fixture-specific proof; it does not inherit the conversation/repair proofs.",
+      "reason": "B153 reconciles the current-routing line against this plan and the fully reviewed final joined method-use checkpoint; old active-writer status retained here."
+    }
+  ]
+}

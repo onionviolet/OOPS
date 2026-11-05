@@ -1,0 +1,209 @@
+{
+  "schema": 1,
+  "batch": "B177",
+  "title": "Generated local-tool summaries and frozen workflow snapshots",
+  "at": "2026-11-04T22:32:32.586773+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/reviews/local-ai-work-2026-10-25/real-task/inventory.md",
+      "ids": [
+        "41 tools;31/10 kinds;20/11 probe;27 missing owner;40/38 paths"
+      ],
+      "classification": "Historical generated registry summary",
+      "owners": [
+        "docs/reviews/LOCAL_AI_WORK_AUDIT_2026-10-25.md",
+        "docs/reviews/local-ai-work-2026-10-25/real-task/REPORT.md"
+      ],
+      "disposition": "Read actualcounts/IDlists/caveats, notliveinstallation/probing/currentregistrycensus. Real-taskterseMarkdown omitsIDdetailsbydesign; same41-rowrealinputcannotshowharness-bounded duplicate-rowlistbug foundbyedgeoracle. Generatedoutputs retainedunchanged, nopromotionof failedscript.",
+      "evidence": "Fresh entire output read, including explicit configured-not-installed note. B176alltrialreports freshlyread; registryJSON/currenttoolhealth notindependentlyprocessedhere.",
+      "reopen": "Use frozeninputandindependentedgeoracle for exacthistoricalreuse; currenttoolregistryownerforlivecapability.",
+      "input_sha256": "5edc531017a29fbc251bf239d291e6be486f1fa174f7ca16bd2cc26ffb6316f8",
+      "input_lines": 11,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/local-ai-work-2026-10-25/harness-fixed/inventory.md",
+      "ids": [
+        "41 tools;31/10 kinds;20/11 probe;27 missing owner;40/38 paths"
+      ],
+      "classification": "Historical generated registry summary",
+      "owners": [
+        "docs/reviews/LOCAL_AI_WORK_AUDIT_2026-10-25.md",
+        "docs/reviews/local-ai-work-2026-10-25/harness-fixed/REPORT.md"
+      ],
+      "disposition": "Read actualcounts/IDlists/caveats, notliveinstallation/probing/currentregistrycensus. Real-taskterseMarkdown omitsIDdetailsbydesign; same41-rowrealinputcannotshowharness-bounded duplicate-rowlistbug foundbyedgeoracle. Generatedoutputs retainedunchanged, nopromotionof failedscript.",
+      "evidence": "Fresh entire output read, including explicit configured-not-installed note. B176alltrialreports freshlyread; registryJSON/currenttoolhealth notindependentlyprocessedhere.",
+      "reopen": "Use frozeninputandindependentedgeoracle for exacthistoricalreuse; currenttoolregistryownerforlivecapability.",
+      "input_sha256": "6994edaf465cff75851fe7c9aaf1cdc3bb3ef8d64f655c6085c777faed7f565c",
+      "input_lines": 35,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          35
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/local-ai-work-2026-10-25/harness-bounded/inventory.md",
+      "ids": [
+        "41 tools;31/10 kinds;20/11 probe;27 missing owner;40/38 paths"
+      ],
+      "classification": "Historical generated registry summary",
+      "owners": [
+        "docs/reviews/LOCAL_AI_WORK_AUDIT_2026-10-25.md",
+        "docs/reviews/local-ai-work-2026-10-25/harness-finished/REPORT.md"
+      ],
+      "disposition": "Read actualcounts/IDlists/caveats, notliveinstallation/probing/currentregistrycensus. Real-taskterseMarkdown omitsIDdetailsbydesign; same41-rowrealinputcannotshowharness-bounded duplicate-rowlistbug foundbyedgeoracle. Generatedoutputs retainedunchanged, nopromotionof failedscript.",
+      "evidence": "Fresh entire output read, including explicit configured-not-installed note. B176alltrialreports freshlyread; registryJSON/currenttoolhealth notindependentlyprocessedhere.",
+      "reopen": "Use frozeninputandindependentedgeoracle for exacthistoricalreuse; currenttoolregistryownerforlivecapability.",
+      "input_sha256": "e3b695d341b8ecf0e08bbf61be4a63c45340e12fb2ebfc0faef8b97ec35742ac",
+      "input_lines": 35,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          35
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/local-ai-work-2026-10-25/harness-finished/inventory.md",
+      "ids": [
+        "41 tools;31/10 kinds;20/11 probe;27 missing owner;40/38 paths"
+      ],
+      "classification": "Historical generated registry summary",
+      "owners": [
+        "docs/reviews/LOCAL_AI_WORK_AUDIT_2026-10-25.md",
+        "docs/reviews/local-ai-work-2026-10-25/harness-finished/REPORT.md"
+      ],
+      "disposition": "Read actualcounts/IDlists/caveats, notliveinstallation/probing/currentregistrycensus. Real-taskterseMarkdown omitsIDdetailsbydesign; same41-rowrealinputcannotshowharness-bounded duplicate-rowlistbug foundbyedgeoracle. Generatedoutputs retainedunchanged, nopromotionof failedscript.",
+      "evidence": "Fresh entire output read, including explicit configured-not-installed note. B176alltrialreports freshlyread; registryJSON/currenttoolhealth notindependentlyprocessedhere.",
+      "reopen": "Use frozeninputandindependentedgeoracle for exacthistoricalreuse; currenttoolregistryownerforlivecapability.",
+      "input_sha256": "123b0a095dbd464d4fd1665e36bba86e34ca92e2648a632b642f7f0c61744746",
+      "input_lines": 18,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          18
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/local-ai-work-2026-10-25/harness-bounded/local-scripts-SKILL.md",
+      "ids": [
+        "frozen local-scripts frontmatter/body",
+        "bounded inspection/verification/finish evolution"
+      ],
+      "classification": "Historical skill snapshot, not active instructions",
+      "owners": [
+        "docs/reviews/LOCAL_AI_WORK_AUDIT_2026-10-25.md",
+        "docs/reviews/local-ai-work-2026-10-25/harness-finished/REPORT.md"
+      ],
+      "disposition": "Preserve originalsnapshotverbatim, references relative to originalinstalledskillcontextnotnewrepohelperrequests. Evolution addsfixedoracle/finish,nofailmask/sourcehashbinding, thenbinaryfixturebuilderandfinishpacket; instructionguidance nothardstepadmission/security/autonomousreliability. Do not applyhistoricalonebatch/tworesponses/finalanswerrequirementtoongoingauthorizedprojectwidecontentreview. No skillseditedbythisread.",
+      "evidence": "Fresh entire20line snapshot includingfrontmatter/readme, allparagraphs/helperlinksandpermissions. No installed/source copies/helpercode loadedorrevalidated; historicalreportvalidationstateskept.",
+      "reopen": "Retain exact evidence; live skillmaintenance requires its actualowner and separatelyselectedscope.",
+      "input_sha256": "ff3a0b4075accffbeb5ba8f88909fefa6e520d39c47f5abfcc8fcb5024c352a2",
+      "input_lines": 20,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          20
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/local-ai-work-2026-10-25/harness-finished/local-scripts-SKILL.md",
+      "ids": [
+        "frozen local-scripts frontmatter/body",
+        "bounded inspection/verification/finish evolution"
+      ],
+      "classification": "Historical skill snapshot, not active instructions",
+      "owners": [
+        "docs/reviews/LOCAL_AI_WORK_AUDIT_2026-10-25.md",
+        "docs/reviews/local-ai-work-2026-10-25/harness-finished/REPORT.md"
+      ],
+      "disposition": "Preserve originalsnapshotverbatim, references relative to originalinstalledskillcontextnotnewrepohelperrequests. Evolution addsfixedoracle/finish,nofailmask/sourcehashbinding, thenbinaryfixturebuilderandfinishpacket; instructionguidance nothardstepadmission/security/autonomousreliability. Do not applyhistoricalonebatch/tworesponses/finalanswerrequirementtoongoingauthorizedprojectwidecontentreview. No skillseditedbythisread.",
+      "evidence": "Fresh entire20line snapshot includingfrontmatter/readme, allparagraphs/helperlinksandpermissions. No installed/source copies/helpercode loadedorrevalidated; historicalreportvalidationstateskept.",
+      "reopen": "Retain exact evidence; live skillmaintenance requires its actualowner and separatelyselectedscope.",
+      "input_sha256": "15390ef1e94c3ed598eb670f6e87ec4608e1737b6642d46b919aaba3194e0bb8",
+      "input_lines": 20,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          20
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/local-ai-work-2026-10-25/workflow-improvement/local-scripts-SKILL.md",
+      "ids": [
+        "frozen local-scripts frontmatter/body",
+        "bounded inspection/verification/finish evolution"
+      ],
+      "classification": "Historical skill snapshot, not active instructions",
+      "owners": [
+        "docs/reviews/LOCAL_AI_WORK_AUDIT_2026-10-25.md",
+        "docs/reviews/local-ai-work-2026-10-25/workflow-improvement-final/REPORT.md"
+      ],
+      "disposition": "Preserve originalsnapshotverbatim, references relative to originalinstalledskillcontextnotnewrepohelperrequests. Evolution addsfixedoracle/finish,nofailmask/sourcehashbinding, thenbinaryfixturebuilderandfinishpacket; instructionguidance nothardstepadmission/security/autonomousreliability. Do not applyhistoricalonebatch/tworesponses/finalanswerrequirementtoongoingauthorizedprojectwidecontentreview. No skillseditedbythisread.",
+      "evidence": "Fresh entire20line snapshot includingfrontmatter/readme, allparagraphs/helperlinksandpermissions. No installed/source copies/helpercode loadedorrevalidated; historicalreportvalidationstateskept.",
+      "reopen": "Retain exact evidence; live skillmaintenance requires its actualowner and separatelyselectedscope.",
+      "input_sha256": "72aa65d34f942ed32a600877e7653ca1e8dd68204cc64752dd50532ec947e0e6",
+      "input_lines": 20,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          20
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/local-ai-work-2026-10-25/fresh-code-fix/local-scripts-SKILL.md",
+      "ids": [
+        "frozen local-scripts frontmatter/body",
+        "bounded inspection/verification/finish evolution"
+      ],
+      "classification": "Historical skill snapshot, not active instructions",
+      "owners": [
+        "docs/reviews/LOCAL_AI_WORK_AUDIT_2026-10-25.md",
+        "docs/reviews/local-ai-work-2026-10-25/fresh-code-fix/REPORT.md"
+      ],
+      "disposition": "Preserve originalsnapshotverbatim, references relative to originalinstalledskillcontextnotnewrepohelperrequests. Evolution addsfixedoracle/finish,nofailmask/sourcehashbinding, thenbinaryfixturebuilderandfinishpacket; instructionguidance nothardstepadmission/security/autonomousreliability. Do not applyhistoricalonebatch/tworesponses/finalanswerrequirementtoongoingauthorizedprojectwidecontentreview. No skillseditedbythisread.",
+      "evidence": "Fresh entire20line snapshot includingfrontmatter/readme, allparagraphs/helperlinksandpermissions. No installed/source copies/helpercode loadedorrevalidated; historicalreportvalidationstateskept.",
+      "reopen": "Retain exact evidence; live skillmaintenance requires its actualowner and separatelyselectedscope.",
+      "input_sha256": "8644485141c5c8adf34d52a1cb779912a5fad13c43b81da26512b4d48c988acf",
+      "input_lines": 20,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          20
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/reviews/LOCAL_AI_WORK_AUDIT_2026-10-25.md",
+      "heading": "## Generated-output and skill-snapshot reconciliation, 2026-11-04 (B177)",
+      "body": "The four retained registry Markdown outputs and four local-scripts skill snapshots were read completely. All four real-input outputs show41 configured tools,31 launch/10reference,20/11 configured-probe split,27 absent explicit owners and40/38 required-path references/raw strings. Their caveats distinguish configuration from installation/probe success. The direct-recovery Markdown is intentionally terse. Identical real-input totals do not rescue the harness-bounded script’s duplicate-row loss: that defect appeared only in the fixed edge fixture and remains recorded as14/15. No current registry, executable health or installed-path existence was checked.\n\nKeep each skill snapshot frozen with its trial. Batching and reserving a finish budget evolved into fixed-checker reuse, unhidden statuses, source-hash binding, binary-fixture construction and a final-answer packet. They are instruction guidance and tested helper contracts at their named scopes, not hard admission controls or guarantees of future autonomous stopping. Links inside these copies refer to the original skill root; their presence is not a request to install/move helpers into the audit directory. Historical snapshot commands and finish instructions do not override this reconciliation’s current continuous-content-review request. No installed skill, runtime permission, model setting, helper code or original generated output was changed or executed. Preserve the snapshots and reports as evidence instead of deleting copies solely because much of their wording repeats.",
+      "before_sha256": "f041a10475154d4fc420e55f272226b5df1bb27f5f07bf8e74e41b5926f16439",
+      "after_sha256": "d31cd49017c7e08b2fe8020bbb921892762faa1b19ed42b2e6e3cae29396e24a"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1103
+}

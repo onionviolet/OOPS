@@ -1,0 +1,283 @@
+{
+  "schema": 1,
+  "batch": "B206",
+  "title": "Small dispatch bodies, checker evolution and actual no-port outcome",
+  "at": "2026-11-04T23:01:49.448869+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/carry-out-queue-2026-10-26/Q2_receipt_lint.md",
+      "ids": [
+        "Q2",
+        "IPC27/IPC30"
+      ],
+      "classification": "Receipt-lint implementation brief",
+      "owners": [
+        "docs/gm/dispatch/carry-out-queue-2026-10-26/q2-2026-10-27/RECEIPT.md"
+      ],
+      "disposition": "Folder-date selection was the original proposed contract; commands, worktree/port/model and commit instruction are historical, not executable now.",
+      "evidence": "Fresh complete body read. Named historical claims remain attributed. No commands from prompts, referenced private files, worker sessions or natural gameplay executed. Current rules run24receipts/317legacy is separately recorded, not inferred from these texts.",
+      "reopen": "Specific structural checker/source-absorption or missing report evidence question; inspect actual owning report/input. No historical dispatch/commit/delete instruction becomes current authority.",
+      "input_sha256": "a972f56f9f3ea1ad1c24e59b97a07f5fa91da7ac6b8d2976a7dd0b67b89c4d84",
+      "input_lines": 7,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/carry-out-queue-2026-10-26/runs/q2-receipt-lint.last.md",
+      "ids": [
+        "ae9fb41a5",
+        "Q2 final response"
+      ],
+      "classification": "Reported Q2 delivery",
+      "owners": [
+        "docs/gm/dispatch/carry-out-queue-2026-10-26/q2-2026-10-27/RECEIPT.md"
+      ],
+      "disposition": "Records branch commit/check claims and unrelated artifacts preserved; stale worktree links are provenance, not current checkout or installation proof.",
+      "evidence": "Fresh complete body read. Named historical claims remain attributed. No commands from prompts, referenced private files, worker sessions or natural gameplay executed. Current rules run24receipts/317legacy is separately recorded, not inferred from these texts.",
+      "reopen": "Specific structural checker/source-absorption or missing report evidence question; inspect actual owning report/input. No historical dispatch/commit/delete instruction becomes current authority.",
+      "input_sha256": "66079ab00aeb85cc4cebac35eb3669d5070b68b9c14f0cbd58864ff2d75116b4",
+      "input_lines": 5,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          5
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/carry-out-queue-2026-10-26/Q18_ideas_triage.md",
+      "ids": [
+        "Q18",
+        "Top20",
+        "five ledger families"
+      ],
+      "classification": "Historical read-only triage brief",
+      "owners": [
+        "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md"
+      ],
+      "disposition": "B197 reviewed delivered triage; global only-one-new-file condition was explicitly unproven/unmet on shared tree, not authority to clean other work. No queue dispatch from brief.",
+      "evidence": "Fresh complete body read. Named historical claims remain attributed. No commands from prompts, referenced private files, worker sessions or natural gameplay executed. Current rules run24receipts/317legacy is separately recorded, not inferred from these texts.",
+      "reopen": "Specific structural checker/source-absorption or missing report evidence question; inspect actual owning report/input. No historical dispatch/commit/delete instruction becomes current authority.",
+      "input_sha256": "478b059a66db26b2cf05331b6d829b92616cffd6613b000d64b5da443be8f461",
+      "input_lines": 7,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/codex-parallel-2026-10-25/B5_test_suite_audit.md",
+      "ids": [
+        "B5",
+        "AD36"
+      ],
+      "classification": "Historical audit-only delegation prompt",
+      "owners": [
+        "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md"
+      ],
+      "disposition": "Requested per-file committed-HEAD invariants/timing and coordinator validation, not test deletion. Historical fanout does not authorize agents now; result report remains independently reviewable.",
+      "evidence": "Fresh complete body read. Named historical claims remain attributed. No commands from prompts, referenced private files, worker sessions or natural gameplay executed. Current rules run24receipts/317legacy is separately recorded, not inferred from these texts.",
+      "reopen": "Specific structural checker/source-absorption or missing report evidence question; inspect actual owning report/input. No historical dispatch/commit/delete instruction becomes current authority.",
+      "input_sha256": "4a057ca0ce51e46fe7dc9dd7aa049ca08f6aa9c43361af29dffee7552c03f394",
+      "input_lines": 7,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/codex-parallel-2026-10-25/runs/b5-test-suite-audit.last.md",
+      "ids": [
+        "B5 report pointer"
+      ],
+      "classification": "Pointer-only final artifact",
+      "owners": [
+        "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md"
+      ],
+      "disposition": "Only a link, with no finding or completed coverage in this body. Does not establish requested full audit/timing/delegation was delivered.",
+      "evidence": "Fresh complete body read. Named historical claims remain attributed. No commands from prompts, referenced private files, worker sessions or natural gameplay executed. Current rules run24receipts/317legacy is separately recorded, not inferred from these texts.",
+      "reopen": "Specific structural checker/source-absorption or missing report evidence question; inspect actual owning report/input. No historical dispatch/commit/delete instruction becomes current authority.",
+      "input_sha256": "5d75d49c17d8259645a6690eb093ceb491b15d3496f4bd25c00d7f66ea217ce7",
+      "input_lines": 2,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/codex-parallel-2026-10-25/runs/c5-reconcile.last.md",
+      "ids": [
+        "F1–F3",
+        "U2/U3"
+      ],
+      "classification": "Dated C5 final summary",
+      "owners": [
+        "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md"
+      ],
+      "disposition": "14worktrees/157refs/1343paths and no retirement-ready worktrees belong to that inspection; later repair/retirement receipts qualify current reuse. No live status or new deletion permission.",
+      "evidence": "Fresh complete body read. Named historical claims remain attributed. No commands from prompts, referenced private files, worker sessions or natural gameplay executed. Current rules run24receipts/317legacy is separately recorded, not inferred from these texts.",
+      "reopen": "Specific structural checker/source-absorption or missing report evidence question; inspect actual owning report/input. No historical dispatch/commit/delete instruction becomes current authority.",
+      "input_sha256": "388ab902e864db7d08307e29c55f0cde5b19a1dce339b95583f645b28869ae32",
+      "input_lines": 6,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          6
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/absorb-all-2026-10-14/checks/p23-host-joins/fixtures/README.md",
+      "ids": [
+        "b0fba727 prerequisite snapshots"
+      ],
+      "classification": "Fixture provenance contract",
+      "owners": [
+        "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md"
+      ],
+      "disposition": "Immutable copied prerequisite states support isolated controls/continuation, not natural fresh-life acquisition in this run; proof outputs uniquely scoped.",
+      "evidence": "Fresh complete body read. Named historical claims remain attributed. No commands from prompts, referenced private files, worker sessions or natural gameplay executed. Current rules run24receipts/317legacy is separately recorded, not inferred from these texts.",
+      "reopen": "Specific structural checker/source-absorption or missing report evidence question; inspect actual owning report/input. No historical dispatch/commit/delete instruction becomes current authority.",
+      "input_sha256": "807d95a4edabce268eccdcd824093022247cd9f46f2d1a8c0a88b4e8c5223fcd",
+      "input_lines": 1,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/air-absorb-2026-10-13/A5-NATIVE-AUDIT.md",
+      "ids": [
+        "a5-native-audit",
+        "53dc1df158"
+      ],
+      "classification": "Historical source-absorption assignment",
+      "owners": [
+        "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md"
+      ],
+      "disposition": "Snapshot/archive/worktree locators specify inventory comparison, not current branch/process authority or permission to restore generated payloads.",
+      "evidence": "Fresh complete body read. Named historical claims remain attributed. No commands from prompts, referenced private files, worker sessions or natural gameplay executed. Current rules run24receipts/317legacy is separately recorded, not inferred from these texts.",
+      "reopen": "Specific structural checker/source-absorption or missing report evidence question; inspect actual owning report/input. No historical dispatch/commit/delete instruction becomes current authority.",
+      "input_sha256": "be50a427f0fd9c20a289b101c734249f6f6481080e00a768e4203cc2fab12713",
+      "input_lines": 7,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/air-absorb-2026-10-13/reports/a5-native-audit.md",
+      "ids": [
+        "Generated wrapper/bundle/map",
+        "six ignored probes",
+        "private manifests",
+        "incomplete suite"
+      ],
+      "classification": "Actual no-port absorption outcome",
+      "owners": [
+        "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md"
+      ],
+      "disposition": "No missing source hunk; existing ignored evidence not copied; build passed, suite interrupted after at least55 with no finalsummary, browser notrerun. No source absence/restoration or allgreenclaim.",
+      "evidence": "Fresh complete body read. Named historical claims remain attributed. No commands from prompts, referenced private files, worker sessions or natural gameplay executed. Current rules run24receipts/317legacy is separately recorded, not inferred from these texts.",
+      "reopen": "Specific structural checker/source-absorption or missing report evidence question; inspect actual owning report/input. No historical dispatch/commit/delete instruction becomes current authority.",
+      "input_sha256": "b84e418337359cbc0940f244140d5181a09701ceeb822ba76615979d7771aaac",
+      "input_lines": 34,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          34
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/carry-out-queue-2026-10-26/q2-2026-10-27/RECEIPT.md",
+      "ids": [
+        "Q2 receipt block"
+      ],
+      "classification": "Built checker receipt",
+      "owners": [
+        "docs/gm/dispatch/carry-out-queue-2026-10-26/q2-2026-10-27/RECEIPT.md"
+      ],
+      "disposition": "build n/a and fixture route mark script/test evidence, not gameplay/browser. Current77linechecker read directly to qualify old dated selection.",
+      "evidence": "Fresh complete body read. Named historical claims remain attributed. No commands from prompts, referenced private files, worker sessions or natural gameplay executed. Current rules run24receipts/317legacy is separately recorded, not inferred from these texts.",
+      "reopen": "Specific structural checker/source-absorption or missing report evidence question; inspect actual owning report/input. No historical dispatch/commit/delete instruction becomes current authority.",
+      "input_sha256": "c4a2e6b019710aa39d9521b491f74a10881c2e8f71c27dc3b7c569acd75e8c6e",
+      "input_lines": 15,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ]
+    },
+    {
+      "path": "scripts/check_receipts.mjs",
+      "ids": [
+        "lintReceipt",
+        "selectReceipts",
+        "findReceipts",
+        "--files"
+      ],
+      "classification": "Current receipt structure/admission checker",
+      "owners": [
+        "docs/gm/dispatch/carry-out-queue-2026-10-26/q2-2026-10-27/RECEIPT.md"
+      ],
+      "disposition": "Explicit fixed legacy-path set supersedes folder-date guess; explicit files bypass grandfathering and old paths withblocks are checked. Browser states need hash/non-na route. Valid field strings do not prove referenced gameplay occurred.",
+      "evidence": "Fresh complete body read. Named historical claims remain attributed. No commands from prompts, referenced private files, worker sessions or natural gameplay executed. Current rules run24receipts/317legacy is separately recorded, not inferred from these texts.",
+      "reopen": "Specific structural checker/source-absorption or missing report evidence question; inspect actual owning report/input. No historical dispatch/commit/delete instruction becomes current authority.",
+      "input_sha256": "dc1b73c22360ec5dd0dbb02031a571412c80e389d07f34a07811165c784a8500",
+      "input_lines": 77,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          77
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/carry-out-queue-2026-10-26/q2-2026-10-27/RECEIPT.md",
+      "heading": "## Current contract reconciliation, 2026-11-04",
+      "body": "Read the original Q2 brief, final message, this receipt and current check_receipts.mjs completely. The original folder-date selection has evolved: a fixed explicit legacy-path inventory controls grandfathering, legacy files with a receipt block are checked, and --files bypasses grandfathering. Non-gameplay route n/a is allowed; browser-verified/director-accepted need an actual build hash and natural or named fixture route. The current check:rules run separately reports 24 checked/317 explicit legacy skips; those are structural coverage, not every historical report or runtime behavior (AD32, AD36).\n\nThe checker validates field shape, required values and duplicate keys, not whether a build hash exists in an artifact store, a test really passed, a natural route was earned or gameplay survived import. Keep its script/fixture state built and build n/a distinct from browser proof. The branch commit and old worktree links retain provenance without requiring restoration of a retired checkout, rerunning its full suite or adopting any gameplay.",
+      "before_sha256": "c4a2e6b019710aa39d9521b491f74a10881c2e8f71c27dc3b7c569acd75e8c6e",
+      "after_sha256": "eb391fbd2b0feb7973db5e120598802f46b7a0926749a2e33b735c3fb747cc03"
+    },
+    {
+      "path": "docs/gm/dispatch/air-absorb-2026-10-13/reports/a5-native-audit.md",
+      "heading": "## No-port outcome reconciliation, 2026-11-04",
+      "body": "Read the assignment and actual absorption report together. A generated diagnostic wrapper/bundle/source map was not a missing source implementation, and existing ignored probes/private packs required no restoration at that inspection. Keep the reported build pass, interrupted suite with no final TAP summary and unrerun browser distinct; reaching test55 is not a completed55-test slice or full-suite pass. No current private payload, branch, process or installed pack was inspected here (AD32, AD36).\n\nThe old conditional suggestion to rerun a suite applies only when a later selected integration needs that exact evidence; this documentation review does not create such a gate. Preserved diagnostic snapshots must not overwrite production bundles. No port, generated-payload merge, cleanup, source acquisition or new runtime proof follows from the assignment’s archived worktree paths.",
+      "before_sha256": "b84e418337359cbc0940f244140d5181a09701ceeb822ba76615979d7771aaac",
+      "after_sha256": "6431b6cb5a6eb5e98d4f10f8c8b59a70421986688018d3024d8a11a87c7742d9"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1079
+}

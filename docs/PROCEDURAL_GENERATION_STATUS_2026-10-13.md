@@ -190,3 +190,12 @@ Folded at the request of the gameplay-foundations session after the returns were
 - **Code collisions (R3-7 grows).** P5.X vs P6.X, P7.O vs this doc's O, lane R1-Rn vs R3-n, foundation CG vs status CG, GX2 GL vs foundation GC, and GX4 GA vs foundation GA. P39's registry is the natural owner of one crosswalk. Until then, cite lane-qualified.
 - **Two lens catalogs.** GX2 (GL1-GL20) and foundation GC1-GC14 describe the same cheats. Reconcile before any lens slice ships, together with story BN and BO1 (one knowledge owner).
 - **Picks that build on live code now:** GX4.S1 (the guard, same as R3-9), GX3.S3 and P11.S1 (on P4 travelers), GX2.L3 (people sight, same as TA-L3), P8.R2-A (now the HV lanes).
+
+
+## Content reconciliation B145, 2026-11-04
+
+Read every original finding, generation family, R3 row and lane-return crosswalk. The later wave-1 and R3-10 returns supersede the opening universal absence of generated materials, names, people, appearance and story integration. Keep their scoped source and test identities: P34 partly closes B4; B1-B3 are not closed by that association. Stopped or cancelled duplicate WR lanes need no relaunch. A table summary does not count as a fresh read of each underlying packet.
+
+Both old native randomness findings are qualified by current callers. Guardian on-hit defaults to `gameRandom(STREAMS.combat, "on_hit")`. Although the three recipe class quality methods retain an unbound `random_range` fallback, native `use_recipe` wraps its selected recipe in `seededRecipe` using `gameRandom(STREAMS.craft, recipe-quality-key)`. That proxy overrides `roll_quality` and binds `getResult` to the proxy, covering its nested quality call. The initial B145 read stopped before this caller and overstated the surviving native gap; this correction preserves that history. No current native quality defect or whole-game replay proof is established. Old 60/28/27 counts remain dated (AD36, AR6).
+
+CG/GL/GS/GO/GI/GA remain palettes. Lens observation and interventions have different transactions; exact observation can disclose permitted truth, while pin/reroll changes follow their actual mechanism. Hidden causes are committed before observation where already consequential; a reveal is not permission to rewrite them. Summarizing many routine outcomes need not discard durable history or cap actual earned results. No universal new registry, all-generator replay platform or unselected appearance/fate-ledger wave is imposed (AD32, AD51, AD52).

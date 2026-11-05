@@ -1,0 +1,84 @@
+{
+  "schema": 1,
+  "batch": "B111",
+  "title": "Complete modification audit and 637-line clinic specification",
+  "at": "2026-11-04T21:04:10.051139+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b11/AUDIT.md",
+      "ids": [
+        "F1–F5",
+        "main/P2 boundaries",
+        "B2/B6 joins",
+        "primary reference comparison"
+      ],
+      "classification": "bounded historical implementation/reference audit",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b11/REPORT.md",
+        "docs/GENETICS_AND_HERO_START_PLAN_2026-10-17.md"
+      ],
+      "disposition": "F1–F5 distinguish existing body/source/packing, ordinary potion and custody APIs from an unimplemented body-edit contract. Keep original main versus P2 worktree paths and inherited test receipts separate; sibling code is not an adopted API merely because it was read. No general source/graft handler is established by metadata or an empty authoring grant. Sample receipt/provenance and consumed references must remain valid after current quantity is zero. Prior raw tails have unknown donor/time rather than invented attribution. Positive capabilities cannot become signed penalty multipliers, and an origin label cannot transmit skill. Reference mutation/genepack/serum descriptions are dated, version-specific support, not actual B11 heritable mechanics, current installed values or universal hunger/flaw law. No new external reference/source reading occurs here.",
+      "evidence": "Complete original audit read, all source/reference rows and explicit limits. Original runtime and external sources not reread or recertified.",
+      "reopen": "Only selected edit consumer/source contradiction needs exact current source/adapter review; preserve separate P2 provenance.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "f5863f949e9a6f92a74b1414f343f2f96ba45a9cc873ad4c07cac37ec608d326",
+      "input_lines": 124,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          124
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b11/SPEC.md",
+      "ids": [
+        "G53-B11.1–.11",
+        "nine command rows",
+        "archive schema",
+        "GD1/GD3/GD4",
+        "four outcomes",
+        "GM1–GM11"
+      ],
+      "classification": "complete original modification proposal with retained lifecycle/identity constraints",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b11/REPORT.md",
+        "docs/GENETICS_AND_HERO_START_PLAN_2026-10-17.md"
+      ],
+      "disposition": "Full G53-B11.1–.11 review retains the original clinic as an unselected public example. Keep the read/buy/stabilize/assay/apply/repair/rest/reverse distinctions, optional diagnosis and known blind risk, finite actual unit custody versus stock labels, held versus spent inputs and mode-specific somatic/template state. Three clinic vials/bark/phials/prices, C/M/S limits, outcome percentages, duration and body eligibility are authored local dials, not project-wide restrictions. The new sample key must pass every inventory/transfer/loader adapter; ordinary JSON key validity is insufficient. B2 revision2, body_modification_archive and named native/UI modules are proposed owners, not admitted formats or available APIs. Keep immutable template snapshots and cause/outcome/card/source bindings, exact target compare-and-swap reversal, current-body versus future-transmission removal and already-conceived descendants. A 50/75-percent allele fixture is not naturally played conception or general inheritance. Reserve a source only for its actual acquisition owner; max-one grip/one-archetype binding is the candidate’s selected function, not universal strength balancing. Preview/assay/display must not reroll, allocate a cause or expose hidden outcome through errors. Time progresses on the host scheduler with the panel closed; its own treatment job must not block its own settlement under an ambiguous “idle” check. Cancellation/refund and support-forced pause use performed work, held/spent state and exact body identity. New-life/body replacement keeps surviving referenced stock/history without activating the old body’s source. RNG readiness is a named integration question, not a missing-universal-service assumption. Current selected seeded_streams.js already supplies saved roots, scoped/keyed decisions and receipts, with admitted families; bare body.modify/body.gen families are not admitted by that registry. Prefer the existing suitable owner/family or an explicit registry change at the selected consumer. Do not add the proposed legacy entropy root merely because the October P1 integration was unconfirmed. Root initialization/receipt-writing helpers and pure unitDecision differ, so “no draw on preview” also needs state purity. Current 32-bit outcome mapping and frozen result remain a proposal until bound/tested. Legacy migration cases are optional, current state literal persistence still required. Neither a schema default nor a source-only matrix closes native procurement/use/reversal or actual heredity; no implementation or source expansion is selected.",
+      "evidence": "All 637 original lines read in eight bounded spans including JSON, capacity/outcome/transmission arithmetic, reversal/clock, UI and migration. Selected current seeded_streams.js 1–22 and 38–64 inspected for root/family/purity uncertainty; no new runtime proof.",
+      "reopen": "A later selected clinic or other body-edit consumer must bind current owners and its own source/native/failure/persistence checks. No source tree, saves or private packs changed.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "3bed77521715d22e7fe819f8c844e1ecb9dedf8f9fb23c2171d1c9b032cfd8ca",
+      "input_lines": 637,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          637
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b11/REPORT.md",
+      "heading": "## Full-specification reconciliation B111, 2026-11-04",
+      "body": "F1–F5 distinguish existing body/source/packing, ordinary potion and custody APIs from an unimplemented body-edit contract. Keep original main versus P2 worktree paths and inherited test receipts separate; sibling code is not an adopted API merely because it was read. No general source/graft handler is established by metadata or an empty authoring grant. Sample receipt/provenance and consumed references must remain valid after current quantity is zero. Prior raw tails have unknown donor/time rather than invented attribution. Positive capabilities cannot become signed penalty multipliers, and an origin label cannot transmit skill. Reference mutation/genepack/serum descriptions are dated, version-specific support, not actual B11 heritable mechanics, current installed values or universal hunger/flaw law. No new external reference/source reading occurs here.\n\nFull G53-B11.1–.11 review retains the original clinic as an unselected public example. Keep the read/buy/stabilize/assay/apply/repair/rest/reverse distinctions, optional diagnosis and known blind risk, finite actual unit custody versus stock labels, held versus spent inputs and mode-specific somatic/template state. Three clinic vials/bark/phials/prices, C/M/S limits, outcome percentages, duration and body eligibility are authored local dials, not project-wide restrictions. The new sample key must pass every inventory/transfer/loader adapter; ordinary JSON key validity is insufficient. B2 revision2, body_modification_archive and named native/UI modules are proposed owners, not admitted formats or available APIs.\n\nKeep immutable template snapshots and cause/outcome/card/source bindings, exact target compare-and-swap reversal, current-body versus future-transmission removal and already-conceived descendants. A 50/75-percent allele fixture is not naturally played conception or general inheritance. Reserve a source only for its actual acquisition owner; max-one grip/one-archetype binding is the candidate’s selected function, not universal strength balancing. Preview/assay/display must not reroll, allocate a cause or expose hidden outcome through errors. Time progresses on the host scheduler with the panel closed; its own treatment job must not block its own settlement under an ambiguous “idle” check. Cancellation/refund and support-forced pause use performed work, held/spent state and exact body identity. New-life/body replacement keeps surviving referenced stock/history without activating the old body’s source.\n\nRNG readiness is a named integration question, not a missing-universal-service assumption. Current selected seeded_streams.js already supplies saved roots, scoped/keyed decisions and receipts, with admitted families; bare body.modify/body.gen families are not admitted by that registry. Prefer the existing suitable owner/family or an explicit registry change at the selected consumer. Do not add the proposed legacy entropy root merely because the October P1 integration was unconfirmed. Root initialization/receipt-writing helpers and pure unitDecision differ, so “no draw on preview” also needs state purity. Current 32-bit outcome mapping and frozen result remain a proposal until bound/tested. Legacy migration cases are optional, current state literal persistence still required. Neither a schema default nor a source-only matrix closes native procurement/use/reversal or actual heredity; no implementation or source expansion is selected.",
+      "before_sha256": "e3ebd284bfac9fe0cb2d3eaef0757959b0f23bb046dc608da0bcf6cc53f9defc",
+      "after_sha256": "e0738c4fe9a971fa86f705c8fa83a35d30d460ef402924c9f980a2b665221528"
+    },
+    {
+      "path": "docs/GENETICS_AND_HERO_START_PLAN_2026-10-17.md",
+      "heading": "## Modification contract reconciliation B111, 2026-11-04",
+      "body": "Full G53-B11.1–.11 review retains the original clinic as an unselected public example. Keep the read/buy/stabilize/assay/apply/repair/rest/reverse distinctions, optional diagnosis and known blind risk, finite actual unit custody versus stock labels, held versus spent inputs and mode-specific somatic/template state. Three clinic vials/bark/phials/prices, C/M/S limits, outcome percentages, duration and body eligibility are authored local dials, not project-wide restrictions. The new sample key must pass every inventory/transfer/loader adapter; ordinary JSON key validity is insufficient. B2 revision2, body_modification_archive and named native/UI modules are proposed owners, not admitted formats or available APIs.\n\nKeep immutable template snapshots and cause/outcome/card/source bindings, exact target compare-and-swap reversal, current-body versus future-transmission removal and already-conceived descendants. A 50/75-percent allele fixture is not naturally played conception or general inheritance. Reserve a source only for its actual acquisition owner; max-one grip/one-archetype binding is the candidate’s selected function, not universal strength balancing. Preview/assay/display must not reroll, allocate a cause or expose hidden outcome through errors. Time progresses on the host scheduler with the panel closed; its own treatment job must not block its own settlement under an ambiguous “idle” check. Cancellation/refund and support-forced pause use performed work, held/spent state and exact body identity. New-life/body replacement keeps surviving referenced stock/history without activating the old body’s source.\n\nRNG readiness is a named integration question, not a missing-universal-service assumption. Current selected seeded_streams.js already supplies saved roots, scoped/keyed decisions and receipts, with admitted families; bare body.modify/body.gen families are not admitted by that registry. Prefer the existing suitable owner/family or an explicit registry change at the selected consumer. Do not add the proposed legacy entropy root merely because the October P1 integration was unconfirmed. Root initialization/receipt-writing helpers and pure unitDecision differ, so “no draw on preview” also needs state purity. Current 32-bit outcome mapping and frozen result remain a proposal until bound/tested. Legacy migration cases are optional, current state literal persistence still required. Neither a schema default nor a source-only matrix closes native procurement/use/reversal or actual heredity; no implementation or source expansion is selected.",
+      "before_sha256": "3a9c031dd4c7d2cf9d2b0605986b290a75ffb436e767fcb79e0dbd74b176245d",
+      "after_sha256": "1cf09b80a79d4a0bc6158410718e9e33b064b8d16d4ca64297578f160be497b0"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1245
+}

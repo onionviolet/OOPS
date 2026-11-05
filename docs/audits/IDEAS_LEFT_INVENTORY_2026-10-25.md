@@ -1,5 +1,7 @@
 # Ideas left inventory, 2026-10-25
 
+**Current routing, 2026-11-04:** this is a dated inventory with retained original IDs, not the live build order. The [nested triage](IDEAS_NESTED_TRIAGE_2026-10-26.md) preserves row-level crosswalks; [PROJECT current focus](../../PROJECT.md#current-focus) governs sequence. The [project-wide intake](LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md) accounts for later documents separately and does not refresh this inventory’s historical implementation labels.
+
 Status: D5 proposal inventory, source-crosswalk complete at this snapshot. This is a crosswalk to existing owners, not a second backlog or build authorization. Weibao keeps every idea on the table; unplayed work needs presentation, not removal ([direction](../USER_VISION.md#first-milestone-and-scope-check-2026-10-24)).
 
 Rules applied: AD5/6–8/22/32–38/41; WPR1–8/18–25/27–32; AU5/10–14; dispatch M1–M9. Docs only in the primary checkout. No commit, merge, push, runtime edit, or acceptance claim.

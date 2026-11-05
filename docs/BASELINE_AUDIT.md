@@ -47,3 +47,8 @@ Serve binds only 127.0.0.1:8123. The browser uses `dist/bundle.js`, not raw sour
 ## Baseline evidence
 
 The original prebuilt game loaded a fresh character with bread, pants, money and the Lost memory quest. Play and the village elder dialogue opened successfully. Rebuilt source loaded on the same isolated preview origin; the additive migration then loaded that upstream-shaped development save. This is a smoke baseline, not completion of upstream quests or exhaustive testing of all content.
+
+
+## Historical-use reconciliation B104, 2026-11-04
+
+Retain the v0.5/Jade Hollow audit as historical source/integration evidence. It is explicitly retired, not a current cultivation, save/import, timer/offline or race implementation specification. Its additive cultivation schema and item-clearing rebirth are not present authorization to alter saves or replay the prototype. V06_MIGRATION records the later adopted foundation and loader/codec proof; current save owners govern actual behavior. No missing offline earnings or elapsed-time limitation is inferred for current code from this old inspected upstream path.

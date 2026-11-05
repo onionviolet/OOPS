@@ -1,5 +1,7 @@
 # Foundation considerations, 2026-10-16
 
+**Content review B2, 2026-11-04:** K1–K9/C1–C8/A/L and the proposed migration-count trigger were read in full. The [ER12 owner fold](../research/OWN_ENGINE_KERNEL_DESIGN_2026-10-14.md#foundation-review-reconciliation-2026-11-04) retains their useful scope, lifecycle and clock constraints without an all-fields prerequisite. M3/M4 status comes from the checkpoint’s later resume/merge/M4 sections; the old branch/status/count claims remain historical. Current sequence comes from PROJECT.md (AD32/AD36/AD51).
+
 Current continuation, updated 2026-10-16: [modular brief MP1–MP10](../gm/dispatch/modular-seams-2026-10-16/BRIEF.md)
 owns the next sequence. Its conditional hardening supersedes this historical
 note's suggested all-fields M2.5 bundle. M3 remains stopped; future C/N fields

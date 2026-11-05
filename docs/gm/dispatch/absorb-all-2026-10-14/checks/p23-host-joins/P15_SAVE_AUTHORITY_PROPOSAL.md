@@ -21,3 +21,10 @@ Proposed integration:
 Alternative: retain current authority and expose capture/download only. Native Undo/slots and P15's complete gameplay gate remain OPEN. Neither option is claimed implemented or accepted.
 
 Q2 was raised to the coordinator because it changes boot authority and compatibility, not because another finished lane owns a file. All finished-lane integration file authority remains transferred to P00. The proposal preserves the current reader/publisher and does not invent a second gameplay engine.
+
+
+## Content reconciliation B270
+
+Full five-step authority proposal and alternatives reviewed. Keep proposed new-key enrollment, recursive journal stripping, lifetime lock namespace, explicit old-reader policy and single durable write as a design option. The record itself states capture/download is distinct from native gameplay restore. The [natural-play evidence README](../natural-play-2/README.md) separately records native Undo/reload from46428to46433and back on its own build. That is not proof of this proposed key design, atomic quota-failure handling, slots or all legacy compatibility; equally, this older no-native-Undo wording cannot establish today’s absence. The reports and current source/loader/publisher must settle a newly selected claim.
+
+No boot-authority migration is selected by this reconciliation. Q2 was a material compatibility choice for its coordinator at the time, not a standing request to ask the user again now. Current actual authority and the existing save/restore consumer determine any future work. The old1366evidence target and snapshot bound are historical settings; current AD36/AD42/AD43 and relevant UI targets govern new checks. No save, key, journal, command, test or browser result was changed here.

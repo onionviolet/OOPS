@@ -30,3 +30,8 @@ Lane: academagia-decompile. Date: 2026-10-14. Governing rules: `docs/gm/dispatch
 ## Next pending item
 
 If the coordinator continues source research, first trace Club SelectionItem paths and map root story IDs to the wiki page catalogue. Preserve the cache discrepancy and exact source build. For a future implementation decision use IMPLEMENTATION_PACKETS.md and live owners; do not treat this report as authorization. All raw artifacts remain under `/Users/weiwei/.codex/research/academagia-decompile/`.
+
+
+## Later source interpretation, 2026-11-04 (B27)
+
+The later adventures checkpoint and PATCH_MERGING trace refine the first unread row: for the shipped List<Guid> path, GetDeletedObjects returns null, so an unconditional invalid-cast failure is not established. Preserve the earlier intended-deletion count model as a labelled comparison, and the later source-compatible no-deletion mapping as separate passive evidence. Neither selects the actual runtime patch/cache profile or proves playable reachability. No launch or cache experiment was performed here; unrelated merit/duel/UI/narrative gaps remain open.

@@ -1,0 +1,125 @@
+{
+  "scope": "Existing20 full original source receipts normalized, no newly claimed reading. Original hashes/ranges retained; partial owner-section entries remain partial.",
+  "entries": [
+    {
+      "path": "docs/reviews/FOUNDATION_CONSIDERATIONS_2026-10-16.md",
+      "original_ledger": "docs/audits/reconciliation-2026-11-04/content-batches-02-04.json",
+      "original_input_sha256": "cb07f52efec4530a530430321ceac0d516c3bc41c85d12bfbb05a4f32e3edfae",
+      "scope": "field normalization of recorded full original source read"
+    },
+    {
+      "path": "docs/reviews/CORE_ENGINE_AND_RUNTIME_CONSIDERATIONS_2026-10-16.md",
+      "original_ledger": "docs/audits/reconciliation-2026-11-04/content-batches-02-04.json",
+      "original_input_sha256": "62000b5d5b2e191659d1c3632020b2391d220991901834e2343e7bbe8b7498a5",
+      "scope": "field normalization of recorded full original source read"
+    },
+    {
+      "path": "docs/reviews/RAPID_ITERATION_CONSIDERATIONS_2026-10-16.md",
+      "original_ledger": "docs/audits/reconciliation-2026-11-04/content-batches-02-04.json",
+      "original_input_sha256": "07e4a61cd04a9e048e16dbc10e09d5443dc7e57afca811d18e8e79fb34ae244b",
+      "scope": "field normalization of recorded full original source read"
+    },
+    {
+      "path": "docs/reviews/MODULARITY_AND_REWRITE_ASSESSMENT_2026-10-16.md",
+      "original_ledger": "docs/audits/reconciliation-2026-11-04/content-batches-02-04.json",
+      "original_input_sha256": "139d52aadfd543187d0749b0f983e6ba6a282858455d5b680dec981fc27ae844",
+      "scope": "field normalization of recorded full original source read"
+    },
+    {
+      "path": "docs/reviews/UI_ENGINE_MODULARITY_2026-10-21.md",
+      "original_ledger": "docs/audits/reconciliation-2026-11-04/content-batches-02-04.json",
+      "original_input_sha256": "3a8cec3cd03f4bf17bc92de92defe9c08d5b8451e2bf5439230f01eea5ff9497",
+      "scope": "field normalization of recorded full original source read"
+    },
+    {
+      "path": "docs/reviews/MODULARITY_IMPLEMENTATION_2026-10-21.md",
+      "original_ledger": "docs/audits/reconciliation-2026-11-04/content-batches-02-04.json",
+      "original_input_sha256": "2b85ee00e64c60192c7d89fe22146bd257576cc7a21e9f1120eed1756a2f2e01",
+      "scope": "field normalization of recorded full original source read"
+    },
+    {
+      "path": "docs/reviews/ENGINE_AND_IDENTITY_THREAD_2026-10-16.md",
+      "original_ledger": "docs/audits/reconciliation-2026-11-04/content-batches-02-04.json",
+      "original_input_sha256": "4efd3548e81763d3111f4bb497b5ec01a29a39394569b9333d4b83984bf2694d",
+      "scope": "field normalization of recorded full original source read"
+    },
+    {
+      "path": "docs/HEAT_GRADE_GATE_L3_2026-10-20.md",
+      "original_ledger": "docs/audits/reconciliation-2026-11-04/content-batches-02-04.json",
+      "original_input_sha256": "22097e398bfd7ceb83249620e8e7e663cb05f5af6419a27178de71a7ee1ff1d0",
+      "scope": "field normalization of recorded full original source read"
+    },
+    {
+      "path": "docs/PHYSICAL_FIELD_LAYER_DESIGN_2026-10-23.md",
+      "original_ledger": "docs/audits/reconciliation-2026-11-04/content-batches-02-04.json",
+      "original_input_sha256": "1cb4a5beba8f7ec8e7951be2b4382e7f5bffa469383a8402d5066805adeaafdc",
+      "scope": "field normalization of recorded full original source read"
+    },
+    {
+      "path": "docs/audits/MODULAR_CHAINS_CORE_AUDIT.md",
+      "original_ledger": "docs/audits/reconciliation-2026-11-04/content-batches-02-04.json",
+      "original_input_sha256": "84abee411f60eaa85042c92a449fbf41c5220072b7a29af49b65f465a2c87969",
+      "scope": "field normalization of recorded full original source read"
+    },
+    {
+      "path": "docs/audits/PROCEDURAL_MAKING_AUDIT_2026-10-26.md",
+      "original_ledger": "docs/audits/reconciliation-2026-11-04/content-batches-02-04.json",
+      "original_input_sha256": "8033b9179e700c493cb67ea2338db4348fbc5678ef2d7203b7a0e371d0463861",
+      "scope": "field normalization of recorded full original source read"
+    },
+    {
+      "path": "docs/reviews/ACCEPTANCE_PREP_2026-10-19.md",
+      "original_ledger": "docs/audits/reconciliation-2026-11-04/content-batches-02-04.json",
+      "original_input_sha256": "bd455fa6b7caccdf874f3a116e33f412403aba9b9194046b7593d90c49758251",
+      "scope": "field normalization of recorded full original source read"
+    },
+    {
+      "path": "docs/reviews/PLAY_QUEUE_2026-10-24.md",
+      "original_ledger": "docs/audits/reconciliation-2026-11-04/content-batches-02-04.json",
+      "original_input_sha256": "abe4f912b1d842a5bf11e34a435c9771f59a5fdfd35a3b91b6e94e2b45c61ad4",
+      "scope": "field normalization of recorded full original source read"
+    },
+    {
+      "path": "docs/reviews/UNFINISHED_GAME_PRIORITIES_2026-10-26.md",
+      "original_ledger": "docs/audits/reconciliation-2026-11-04/content-batches-02-04.json",
+      "original_input_sha256": "fc2a6bb67c6e492ca6640cf898cfcbf6bfd3d6aef78b58bce2297739024c364e",
+      "scope": "field normalization of recorded full original source read"
+    },
+    {
+      "path": "docs/reviews/WORLD_SLICE_EFFORT_AND_ABSTRACTION_2026-11-01.md",
+      "original_ledger": "docs/audits/reconciliation-2026-11-04/content-batches-02-04.json",
+      "original_input_sha256": "48bae818f97c0a090872525648d5d97eb732f436d6839ef86e6ccf77f5a4c47f",
+      "scope": "field normalization of recorded full original source read"
+    },
+    {
+      "path": "docs/audits/PROGRESSION_GATE_INVENTORY_2026-10-23.md",
+      "original_ledger": "docs/audits/reconciliation-2026-11-04/content-batches-05-06.json",
+      "original_input_sha256": "89e4b4663898e6a67671aa45f310b5745cfeb4a9d89fc27f11369268934f6134",
+      "scope": "field normalization of recorded full original source read"
+    },
+    {
+      "path": "docs/PROGRESSION_GATE_OVERFLOW_2026-10-23.md",
+      "original_ledger": "docs/audits/reconciliation-2026-11-04/content-batches-05-06.json",
+      "original_input_sha256": "7e03afaba4c9bd5e4ddf7c5ba14d443b95220f99cfff7495362185ad3c385c54",
+      "scope": "field normalization of recorded full original source read"
+    },
+    {
+      "path": "docs/reviews/RULE_IMPLEMENTATION_CHECKS_2026-10-16.md",
+      "original_ledger": "docs/audits/reconciliation-2026-11-04/content-batches-05-06.json",
+      "original_input_sha256": "99125aa02d029ab9015133991f94f720746eaa20492d11abc708464f55fe9076",
+      "scope": "field normalization of recorded full original source read"
+    },
+    {
+      "path": "docs/audits/BODY_HEALTH_CORE_AUDIT.md",
+      "original_ledger": "docs/audits/reconciliation-2026-11-04/content-batches-05-06.json",
+      "original_input_sha256": "f6a9af39d07e2d610ac75e9ff1585fc106354ccf66bc36ca1a527a8d1ddf8c5e",
+      "scope": "field normalization of recorded full original source read"
+    },
+    {
+      "path": "docs/audits/ECONOMY_CORE_AUDIT.md",
+      "original_ledger": "docs/audits/reconciliation-2026-11-04/content-batches-05-06.json",
+      "original_input_sha256": "a2ec9befd23d73797aa29c70a72de7510ff224987a7862872e5e737bca08e7e2",
+      "scope": "field normalization of recorded full original source read"
+    }
+  ]
+}

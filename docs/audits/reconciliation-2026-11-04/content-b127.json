@@ -1,0 +1,108 @@
+{
+  "schema": 1,
+  "batch": "B127",
+  "title": "Complete body-tool UI text audit and specification, with artifact limits",
+  "at": "2026-11-04T21:25:50.292457+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b8/CURRENT_UI.md",
+      "ids": [
+        "F1–F3",
+        "A01–A18",
+        "capture route",
+        "dispatch reconciliation"
+      ],
+      "classification": "Historical prebuilt UI audit and static body-tool proposal",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b8/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Distinguish prebuilt bundle plus live styles from rebuilt-current-source UI. Narrow source-map matches not whole dirty checkout. Notebook Practice corrected route, two hidden-ancestor timeouts not broken commands. Current selected body_ui includes Body by part/renderBodyView, so blanket no-body-figure is stale; this does not establish universal anatomy/family/genetics tools or current pixels. No screenshot/manifest reinspection in this content read.",
+      "evidence": "Fresh full textual body read including links/captions/spec tables and reported render limits. Selected current body_ui1–40, notebook body-panel mapping and body_figure1–82 inspected only. Images, HTML files, capture scripts/JSON not independently inspected or rerun.",
+      "reopen": "Selected UI operation needs own rebuilt desktop evidence and actual current projection/command/layout/persistence consumers. Retain sketches as separate artifacts needing their own review.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "b2d6f1efa71501249d292f3f81e9b28ec52acaa8d82ed244a8988f7e97506f2e",
+      "input_lines": 66,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          66
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b8/SPEC.md",
+      "ids": [
+        "G49-B8.1–3",
+        "UI1–UI6",
+        "V1–V5"
+      ],
+      "classification": "Historical prebuilt UI audit and static body-tool proposal",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b8/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Proposed reversible inspection arrangement has no API proof; preserve existing layout/focus/scroll/disclosures, useful content above footer and independent action context. Observer projection before sort/count/theme/DOM, unknown versus negative/inapplicable, ordinary known records not cheat-gated. UI3 selects comparison not irreversible successor; UI4 forecast is known-model conditional, not backend-genotype leak or child roll. Condition history not active-state list. Provider scope separate skin. Six tools not mandatory modules or one selected all-schema dependency.",
+      "evidence": "Fresh full textual body read including links/captions/spec tables and reported render limits. Selected current body_ui1–40, notebook body-panel mapping and body_figure1–82 inspected only. Images, HTML files, capture scripts/JSON not independently inspected or rerun.",
+      "reopen": "Selected UI operation needs own rebuilt desktop evidence and actual current projection/command/layout/persistence consumers. Retain sketches as separate artifacts needing their own review.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "6abb6dcfe1e1bc136f0dd911d822987a51150c33930390452fd4237aadb5a1bd",
+      "input_lines": 143,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          143
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b8/REPORT.md",
+      "ids": [
+        "F1–F3",
+        "static12case receipt",
+        "R1–R5",
+        "open gates"
+      ],
+      "classification": "Historical prebuilt UI audit and static body-tool proposal",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/b8/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Complete report read;12 static cases are reported render checks, not B8 native gameplay or fresh audit here. Six HTML sketches/images/evidence scripts/JSON remain separate unread artifacts. Historical corrected route and zero-error proof scoped to old prebuilt files. Current source Body by part qualifies broad nofigure claims, not six G49 tools. AD42 optional review/currentdesktop direction governs fixed viewport old assumptions. No wireframe buttons executed or UI source rewritten.",
+      "evidence": "Fresh full textual body read including links/captions/spec tables and reported render limits. Selected current body_ui1–40, notebook body-panel mapping and body_figure1–82 inspected only. Images, HTML files, capture scripts/JSON not independently inspected or rerun.",
+      "reopen": "Selected UI operation needs own rebuilt desktop evidence and actual current projection/command/layout/persistence consumers. Retain sketches as separate artifacts needing their own review.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "de14057ea5c1ac7b57d2422901739bc0f388358f7baf0832f2b87a10187b8c33",
+      "input_lines": 52,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          52
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b8/REPORT.md",
+      "heading": "## Body-tool UI reconciliation B127, 2026-11-04",
+      "body": "Full CURRENT_UI/SPEC/REPORT textual content read, preserving A01–A18/UI1–UI6/V1–V5. The historical prebuilt captures combine existing bundle and live styles; limited source-map matches do not establish a rebuilt dirty checkout. The two failed Body visibility attempts were ancestor/view-selection mistakes, not command failures; its corrected route did not execute body work. Selected current notebook mapping still places body_panel in Practice, and current body_ui includes a Body by part renderer. Thus the old broad absence of any body figure is superseded at that source seam, without certifying universal anatomy, lineage, forecast tools or current viewport behavior.\n\nPreserve free known-record browsing, explicit actual test/treatment/succession actions, reversible inspection entry/return, independent play context and one named reading scroll owner. A visible shell/header is not useful content visibility. Claims must be projected before sorting/counting/comparison/recommendation/theme/DOM; unknown existence stays omitted, and tested-negative/inapplicable remains scoped. UI3 comparison does not commit an heir, UI4 uses only known qualified-model inputs without rolling a child, and UI5 needs real historical records beyond active conditions. Provider capability is not cosmetic skin. Exact/free diagnostic means remain possible when supported.\n\nThe six linked HTML sketches, screenshots and evidence JSON/scripts were not separately inspected or rerendered in this textual batch. Their12-case bounds/contrast/focus checks remain B8’s reported static evidence, not new visual review or native implementation. A link/caption does not close artifact coverage. Current desktop/laptop direction and AD42 optional human review in [RULES_INDEX](../../../../RULES_INDEX.md) govern fixed-view/human wording; current [PROJECT](../../../../../PROJECT.md) governs build order. B2/B3/B7 are candidate contracts rather than a demand to implement every schema for one known-only view. No game/UI implementation, screenshot proof, theme matrix, screen reader or save/import test was added.",
+      "before_sha256": "de14057ea5c1ac7b57d2422901739bc0f388358f7baf0832f2b87a10187b8c33",
+      "after_sha256": "a313bec99fbaa509fd7f8bb70960bc065f3cf20e0abb0d50b6f127ffe84e108d"
+    },
+    {
+      "path": "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+      "heading": "## Body-tool UI reconciliation B127, 2026-11-04",
+      "body": "The complete [B8 textual packet](gm/dispatch/body-lineage-2026-10-14/b8/REPORT.md#body-tool-ui-reconciliation-b127-2026-11-04) preserves UI1–UI6 and known-only inspection, actual provider scope, conditional forecasting and explicit comparison versus commitment. Current source includes a body-part renderer; that qualifies the old broad absence without proving all six tools or current rebuilt pixels. Six HTML sketches and their images/scripts/JSON remain independent artifacts, with only dated reported static checks here. Preserve existing layout/entry/return continuity and useful content visibility. No new six-module layout, body schema or gameplay work is selected; current AD42 review is optional.",
+      "before_sha256": "0a2081de63cd6c24da6498e3c94f3bc20c07b981a4ed189f6ecb89d9a4e334e7",
+      "after_sha256": "6835326c8d411c447ef43feeeb6cae8a4148da62002082222604908885395edb"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1238
+}

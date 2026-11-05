@@ -1,5 +1,7 @@
 # World dials and interpreter core audit (repeatable)
 
+**B7 scope correction, 2026-11-04:** the bundled resolver row below is a historical shorthand. Current `effect_dsl.js` is an inert authoring contract; the [dial-owner fold](../WORLD_DIALS_AND_INTERPRETER_CONSIDERATIONS_2026-10-19.md#dial-core-procedure-reconciliation-b7-2026-11-04) preserves the distinct resolver, pack-validation and executed-consumer roles. Held lanes stay held under AD32/AD36.
+
 Saved 2026-10-19 at Weibao's request ("send out accordingly" after the dials and
 interpreter round). One instance of the
 [topic expansion audit playbook](TOPIC_EXPANSION_AUDIT_PLAYBOOK.md). Running it

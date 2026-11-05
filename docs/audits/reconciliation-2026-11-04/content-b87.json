@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "batch": "B87",
+  "title": "Crafting map: corrected partial-output receipts, equipment transaction and later detail UI",
+  "at": "2026-11-04T20:36:51.266377+00:00",
+  "head": "bb15d10db98df55c08e8b6d2678b08a2f7babec8",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/crafting-screen-2026-10-13/research/CRAFTING_MAP.md",
+      "ids": [
+        "F1–F7",
+        "availability5owners",
+        "fixture2saves/4checks",
+        "Proto23F6/F7/referencee93a8cd",
+        "1366geometrytable"
+      ],
+      "classification": "fresh full crafting evidence map and current selected source corrections",
+      "owners": [
+        "docs/gm/dispatch/crafting-screen-2026-10-13/research/CRAFTING_MAP.md",
+        "docs/UI_RULES.md",
+        "src/work_ledger_system.js"
+      ],
+      "disposition": "Actualhistoricalbrowserfixture vs naturalroute/source/inference distinctions preserved. Latercheckpointalreadyaddslistdetail/selectCraft action; currentdisplaycraftingdetail/knownmaterial/projection source evolved. Currentreceipt uses outputs>0 forpartials; nativewrapperincludes equipment, equipmentbranchsettles receipt, so F5/F6 notcurrentmissing. Filterselectedcurrentaccessorytiers narrowoldsnapshot. No currentkeyboard/focus/geometry/hidingunknownproof fromsource alone.",
+      "evidence": "All111/23line docs freshlyread. Currentmain5330–5354/5694–5733, ledger134–144 and display/detailselectedsource references inspected for transaction/settled-output/explicitdetail and accessorytiers. No donorProto23 page, oldfixture/browser/image/nativecraft or tests rerun.",
+      "reopen": "Namedactualcraft/UIroute gap usingcurrentproducer/quote/stock/receipt and freshdesktopproof whenruntimeauthorized. No oldallcraftingdefect assumptions, newmap/UXrewrite, settingsfollowup or currenttestclaim.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "a952ee071861c472ab462c73ba399fa5df86dadd3bcdc56214fe051bb9c68b69",
+      "input_lines": 111,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          111
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/crafting-screen-2026-10-13/CHECKPOINT.md",
+      "ids": [
+        "C1–C9",
+        "609historicalsuite/10vivid",
+        "listdetail/selectcraft",
+        "component/equipment/XPclipdeferred"
+      ],
+      "classification": "fresh full crafting evidence map and current selected source corrections",
+      "owners": [
+        "docs/gm/dispatch/crafting-screen-2026-10-13/CHECKPOINT.md",
+        "docs/UI_RULES.md",
+        "src/work_ledger_system.js"
+      ],
+      "disposition": "Historical13Octtechnicalslicecomplete lateritemdetail code/currentequipmentreceipt supersedesdeferredabsence; fixtureclearfield editnotearnedonboarding. ExistinghumaninteractionreviewoptionalAD42. No oldviewport/currentbuild/testcountclaim or newsettingsproject.",
+      "evidence": "All111/23line docs freshlyread. Currentmain5330–5354/5694–5733, ledger134–144 and display/detailselectedsource references inspected for transaction/settled-output/explicitdetail and accessorytiers. No donorProto23 page, oldfixture/browser/image/nativecraft or tests rerun.",
+      "reopen": "Namedactualcraft/UIroute gap usingcurrentproducer/quote/stock/receipt and freshdesktopproof whenruntimeauthorized. No oldallcraftingdefect assumptions, newmap/UXrewrite, settingsfollowup or currenttestclaim.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "c7416069ca8409fb3a224d8e044b1e2a690e07c5b062cb6d79132d139faf1664",
+      "input_lines": 23,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          23
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/crafting-screen-2026-10-13/research/CRAFTING_MAP.md",
+      "heading": "## Later checkpoint and current selected source, 2026-11-04 (B87)",
+      "body": "F1/F3’s no-detail state predates the [completed crafting checkpoint](../CHECKPOINT.md): it delivered list/detail and explicit select → Craft for its named item slice. Current display/detail source still uses an explicit model, inline blocked reason and command handlers; unknown material labels and accessory-derived station tiers have also evolved. This is source evidence, not a current all-recipe keyboard, knowledge or layout verdict. F5 is specifically stale at the receipt producer: current work_ledger_system chooses a settled success from actual output count, allowing partial output with zero whole successes. F6 is stale at the selected native path: use_recipe includes equipment in the staged transaction wrapper, and the equipment branch invokes settleWorkLedgerCraft after actual additions/removals. No new craft/browser/failure/persistence run was performed here. Preserve the old one-save-edit fixture, source-reference limits and measured 1366 geometry as history; they do not prove natural acquisition, current rendering or source-game behavior. Current desktop direction/AD36/AD42/AD43 apply to new claims. No new crafting/settings/runtime work is selected (AD32).",
+      "before_sha256": "a952ee071861c472ab462c73ba399fa5df86dadd3bcdc56214fe051bb9c68b69",
+      "after_sha256": "0d9dad33faf976ca84b22ac205d11f78bfbd7aab36bcdad104334cde6b17b81b"
+    },
+    {
+      "path": "docs/gm/dispatch/crafting-screen-2026-10-13/CHECKPOINT.md",
+      "heading": "## Current source follow-through, 2026-11-04 (B87)",
+      "body": "The [research map correction](research/CRAFTING_MAP.md#later-checkpoint-and-current-selected-source-2026-11-04-b87) reconciles the initial no-detail/partial-output/equipment gaps against later selected source. Equipment’s missing receipt is no longer a current source claim; that does not rerun this checkpoint’s C1–C9, native transaction failure or present UI geometry. The recorded Infested-field substitute remains a declared fixture, and old viewport/test totals remain tied to their bundle. Human review is optional under AD42; the old next-settings suggestion is not current runtime authorization (AD32/AD36).",
+      "before_sha256": "c7416069ca8409fb3a224d8e044b1e2a690e07c5b062cb6d79132d139faf1664",
+      "after_sha256": "8cf083ea5f435bf0de2162b05c3a6f6b54dc2ae42bd12b506d0aed5fac37a013"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1339
+}

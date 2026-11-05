@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "batch": "B263",
+  "title": "Engine authoring chronology and actual adapter boundaries",
+  "at": "2026-11-05T00:14:35.452477+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/ENGINE_AUTHORING.md",
+      "ids": [
+        "all dated bindings October2–7",
+        "I01–I39",
+        "five power models",
+        "state/transaction/registry/time/proof sections",
+        "native chest/party/skills/book consumers"
+      ],
+      "classification": "Chronological API guide and dated implementation evidence with consumer-specific limits",
+      "owners": [
+        "docs/ENGINE_AUTHORING.md",
+        "docs/ARCHITECTURE_RULES.md",
+        "docs/ABILITY_RULES.md"
+      ],
+      "disposition": "Preserve exact older APIs/versions/values; fold conflicting schema-date readings, path-versus-consumer coverage and transaction/support/verification qualifications into this authoring owner.",
+      "evidence": "All original290 lines read. Initial1–145 truncation recovered through48–112 and100–169; combined read middle truncation recovered by110–169. Remaining146–225/226–310 delivered. Scoped current schema-name search produced no matches and is not a current-source census; no runtime tests/build/browser run.",
+      "reopen": "For an actual authoring task inspect the selected current producer, state schema/loader, native adapter and consumer; reuse only applicable original evidence and compatibility policies.",
+      "input_sha256": "9655b51dc030e5881a128f267e9c4728bcf013fb8e9052401c13db107d01995b",
+      "input_lines": 290,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          290
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/ENGINE_AUTHORING.md",
+      "heading": "## Content reconciliation B263",
+      "body": "Full authoring record reviewed, including every dated October 2–7 binding, all I01–I39 coverage rows, five power models, native chest/party/skill adapters and the final Paradise/Cyoria consumers. This is a chronological API/implementation guide, not an exact current runtime census. Its embedded “current” schema statements already describe different increments: expansion5 in the base guide, expansion6 for selected feature-wave namespaces, expansion9 for reference gameplay, expansion10–11 for later book-world consumers, and several distinct simulation/nativeBattle versions. Do not choose a serializer schema, restore an old validator or downgrade a saved namespace from an isolated paragraph. Follow the actual selected state/registry/loader/native publisher and compatibility decision. No present decoder matrix or whole-source implementation audit was established here.\n\nThe I01–I39 table says an implementation path exists, while its author-supplied column and specific adapters retain missing consumers. Keep that distinction: a projection, pure planner, imported definition or selected command family is not a native journey, broad actor agency, independent world copy or universal ability handler. The earlier “no native multi-fighter conversion” and later fixed Lio/Mara contest are compatible scopes, not proof that arbitrary recruitment/rosters/combat now work. The guarded party's explicit consent, owned kit, actual redirected fighter, paid final guard and explicit resume are useful concrete boundaries. Their values and fixed roster do not become universal combat law. Likewise a received anonymous trace does not establish identity, or a source-bound view contact physical cargo access.\n\nPreserve the concrete transaction refinements: one actual publisher after durable storage, actual native stats and exact keys, held reservation returns distinct from acquisitions, no second inventory or condition duration owner, source and knowledge separate, and support checked where the operation still needs it. Admission facts and frozen entitled output are not the same as continuing body/source/contact support. The later dated sections explicitly recheck actual sample/material/remaining support and preserve old frozen semantics. Apply [AR7](ARCHITECTURE_RULES.md) and [ABR11](ABILITY_RULES.md) to the selected adapter rather than freezing every current physical result or re-evaluating admission after paying. A particular refund/forfeit, eight-minute deadline, three-trial plan or 512-boundary budget is that mechanism's recorded policy, not global fictional law or a new hard limit on player progress.\n\nThe open-consumer sections should guide a selected join, not automatically create a work queue. Internal sample/detect/notice commands intentionally omitted from generic controls are not missing player UI. Conversely, registering a command is not evidence that a fitting player action reaches it. Render/load/import purity, field-specific native projection and staged side effects each need the actual caller's implementation if a new claim is made. “Unlock and XP separate commits” describes the recorded skill adapter constraint; it is not authority to split a currently atomic operation into partially paid durable writes without inspecting that owner.\n\nHistorical implemented-unverified receipts remain exactly that at their recorded inputs. This guide does not establish that all of those gaps remain open today, nor do later builds or source-map hashes close unrun behavior, save failure, actual constructor, keyboard or natural reachability paths. Reproducible proof's broad npm-test/build/script sequence is an old workflow example; apply current AD36/AD43 stages and selected failure cases. Human review is optional under AD42, not a director gate that blocks authorized work. Old root/integrator reservations need live ownership, not this guide's role labels. Retired first-realm/one-prestige wording is superseded by [the October 24 direction](USER_VISION.md#first-milestone-and-scope-check-2026-10-24). No old deferred world/Frontier depth, model provider, schema migration, runtime change, test or browser run was selected by the review.",
+      "before_sha256": "9655b51dc030e5881a128f267e9c4728bcf013fb8e9052401c13db107d01995b",
+      "after_sha256": "f97b63e91d0e98515a764c3a733debfd7b07cca1833f1022430d7d791dd7262b"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 905
+}

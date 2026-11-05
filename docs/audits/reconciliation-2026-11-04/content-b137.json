@@ -1,0 +1,140 @@
+{
+  "schema": 1,
+  "batch": "B137",
+  "title": "Master horizon, foundations scorecard and historical engine resume",
+  "at": "2026-11-04T21:45:47.201122+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/MASTER_PLAYABILITY_PLAN_2026-10-25.md",
+      "ids": [
+        "M1-M5",
+        "MC1-MC16",
+        "LT1-LT6",
+        "DC1-DC5",
+        "ON1-ON10",
+        "ZM1-ZM6",
+        "PR1-PR6",
+        "TL1-TL8",
+        "IB1-IB5",
+        "UT1-UT6",
+        "BC1-BC9",
+        "SC1-SC6",
+        "HR1-HR6",
+        "SK1-SK7",
+        "VL1-VL7",
+        "WV1-WV12",
+        "RT1-RT3",
+        "PW1-PW2",
+        "UF1-UF7",
+        "CP1-CP9",
+        "OL1-OL5",
+        "WR1-WR10",
+        "rounds 11-13"
+      ],
+      "classification": "Historical planning horizon with later authority and readiness corrections",
+      "owners": [
+        "docs/MASTER_PLAYABILITY_PLAN_2026-10-25.md",
+        "docs/VISION_DIGEST.md",
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md"
+      ],
+      "disposition": "Read all 569 lines, including the later corrections. Preserve natural access, supply, meaningful overlap, observer-safe discovery, scale sampling, source-bound regional expansion and distinct world identity. Qualify obsolete priority queues, mandatory previous-world depth, universal transfer currencies/costs, proposed scheduling and unselected UI/rule changes. Round 13 already corrects repaired parity and pack-save zero-import claims. No runtime dispatch or acquisition follows.",
+      "evidence": "Fresh full text review, not renewed app adoption, benchmark, external game research, source canon, module maturity or native journey proof. Current digest confirms Klein-first plus Harry alongside, AD51 and AD52. Historical route and test identities stay dated.",
+      "reopen": "Use the selected live world/seam checkpoint for implementation; qualify actual current consumers and source inputs before any proposed work.",
+      "input_sha256": "b8c53e453f620b62f9efc75cdd754dab46fbdaef6ddeb5d70b068214f9ff38ff",
+      "input_lines": 569,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          569
+        ]
+      ]
+    },
+    {
+      "path": "docs/CORE_FOUNDATIONS_SCORECARD_2026-10-14.md",
+      "ids": [
+        "U01-U15",
+        "K1-K5",
+        "F1-F5",
+        "M1-M12",
+        "A1-A5",
+        "A4-F1",
+        "A4-D2",
+        "G1-G5"
+      ],
+      "classification": "Dated source audit, lane returns and already-qualified reuse boundary",
+      "owners": [
+        "docs/CORE_FOUNDATIONS_SCORECARD_2026-10-14.md",
+        "docs/reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md"
+      ],
+      "disposition": "Read the full scorecard and later returns. Its own fold supersedes unmerged streams, absent tags and missing direct travel tests; relationship readers narrow the write-only finding. October 18 already supersedes proposed unbuilt registry. Preserve read-side adapters, consumer evidence and measured coupling, without rerunning old branches or ratcheting historical counts.",
+      "evidence": "Fresh full text review only. Historical 1364 pass/3 todo, 758 lane tests and source/import counts retain their own inputs; current RNG and cheat consumers were separately scoped in B132-B136, not a fresh whole-engine census.",
+      "reopen": "Reopen one selected consumer or measured regression, inspect current source and its existing owner; do not treat 2016-style numeric snapshots as current maturity.",
+      "input_sha256": "63b24d3189dede44e00e93f01c94200fc12729fd66ae08978b711b53653d2553",
+      "input_lines": 186,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          186
+        ]
+      ]
+    },
+    {
+      "path": "docs/ENGINE_GM_NEXT_CHECKPOINT.md",
+      "ids": [
+        "revision 32",
+        "revision 33",
+        "INC-P1",
+        "S3",
+        "Glasshouse",
+        "skills integration",
+        "source coordination"
+      ],
+      "classification": "Historical engine resume with bounded source/build and deferred behavior evidence",
+      "owners": [
+        "docs/ENGINE_GM_NEXT_CHECKPOINT.md",
+        "PROJECT.md"
+      ],
+      "disposition": "Read all 35 dense lines. Existing October 18 router makes historical sole-writer, global hold, static server, source reader and session claims non-live. Preserve implemented-unverified Glasshouse/skills boundaries, explicit incompatible wrapper and optional save fields; broad reading and matching hashes do not prove runtime integration or full-world completeness.",
+      "evidence": "Fresh full text review, no server/process/branch/save inspection or old linked receipts credited as read. No secret truths reproduced. AD42 removes mandatory human review, while missing rebuilt behavior and persistence proof remain separate.",
+      "reopen": "Use the current selected owner and live assignments; perform a new bounded runtime proof only under a selected implementation task.",
+      "input_sha256": "bdddb2b266c79d6b78424dc3c40ae588e8cf9620228bb96a360dee9bc95b131c",
+      "input_lines": 35,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          35
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/MASTER_PLAYABILITY_PLAN_2026-10-25.md",
+      "heading": "## Content reconciliation B137, 2026-11-04",
+      "body": "**Current use (AD32, AD42, AD51, AD52):** this is a historical horizon and idea owner, not the current dispatch queue. [The vision digest](VISION_DIGEST.md) and PROJECT retain LOTM first through Klein, Harry alongside and mechanism-plus-display slices. WR9's previous-world three-evening prerequisite, round 6's rung/build order and the old UIV1/G3/G1 queues cannot postpone those selected routes. Round 13 already qualifies repaired named-method parity and the pack-save writer; its remaining real-consumer boundary remains meaningful. The [foundation owner](reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md) owns its later scoped progress. No current maturity is inferred from round 12's grep or module counts.\n\n**Preserved useful work:** MC3-MC8 keep natural entry distinct from fixtures, finite supply distinct from renewable practice, actual overlapping jobs, meaningful use/response, knowledge-safe lists and measured later-save performance. LT, TL, BC, SC, HR and SK remain palettes: region/rung depth needs source-supported means and consumers; real local differences can revise the shared seam. M4/WR8 second-world evidence validates or revises a seam; it is not an embargo on first-consumer abstraction (AD51). No fixed number of regions, skill branches, evenings or play minutes becomes a universal floor. AD52 also supports long play and compressed routine with consequential choices intact.\n\n**Transfer and reactions:** TL2, BC1 and WR5 do not establish universal memory, relationship, skill or cheat-point transfer. Use the actual carrier and the world's transfer/recognition terms. A relationship record does not move the other person or compel their response. TL4's Village base is a proposed preference, not every life's destination. TL5's Tingen-only digestion, HR3's mandatory greater risk and TL6's argument that free crossing must flatten worlds are not general laws. Strong means may remove costs or old problems; new pressure needs an actual agent or mechanism. TL7 is a proposed running-life dial, not permission to advance a frozen world or a fresh claim about current away-bank behavior.\n\n**Unselected operations and interfaces:** ON scheduling, keep-awake, night branches, commits/merges and external playtest throughput remain proposals, not automation or write authority. ZM's keyboard and scaling assumptions need their own actual app checks; its suggested shortcut replacement was not selected here. PR5's name lint cannot replace observer/context-aware disclosure, and public franchise knowledge versus character discovery remain distinct. UF1's invariant-layout proposal does not override the later functional housing and prose-first direction. RT/WR kill passes may bank an unsuitable idea with its reason; WR10's two-review cutoff does not authorize deletion. No new rulebook, acquisition, branch, worker or gameplay slice was launched.",
+      "before_sha256": "b8c53e453f620b62f9efc75cdd754dab46fbdaef6ddeb5d70b068214f9ff38ff",
+      "after_sha256": "7f738c795dcde5073f3e20888031a34df3b4d63e4c8c73d4025c4c96f561335c"
+    },
+    {
+      "path": "docs/CORE_FOUNDATIONS_SCORECARD_2026-10-14.md",
+      "heading": "## Content reconciliation B137, 2026-11-04",
+      "body": "The full scorecard, lane returns and October 18 qualification were reviewed. U04/K4's initial unmerged status, K1's absence, U12's missing direct tests and F4's broad write-only relationship claim are already narrowed by the returns above. A1's registry proposal is already superseded by the later architecture receipts. Preserve these corrections rather than treating the first table as a current census.\n\nRead-side adapters over old and new stores (M5), named readers for new data (M6), explicit world registration and measured seam extraction remain useful implementation options. They do not require a global store merger, migration platform or monotonic source-count ratchet before the next selected consumer. A public effect may legitimately read actual world state while an actor's decision or description uses their knowledge; M12's proposed omniscient flag is not a universal access bypass. Determinism replay requires declared inputs and covered owners, not a claim that one old fixture detects every random source. Historical load, branch counts, Math.random ceilings and viewport smoke retain their own dates. Current seam selection follows AD51 and the foundation owner's scoped receipts; no old merge, test, worker or ceiling change was executed.",
+      "before_sha256": "63b24d3189dede44e00e93f01c94200fc12729fd66ae08978b711b53653d2553",
+      "after_sha256": "e1fb7a7441bd38c941006f88693bd6fd47047abad9e6c731d47ac64bc29ace6c"
+    },
+    {
+      "path": "docs/ENGINE_GM_NEXT_CHECKPOINT.md",
+      "heading": "## Content reconciliation B137, 2026-11-04",
+      "body": "The entire historical resume was reviewed, including the skills, Frontier, Glasshouse, compatibility and reading-coordination paragraphs. The routing qualification above controls their use. Session IDs, server ports, writer reservations, branch contents and reader status are historical evidence, not present ownership or safe process targets.\n\nKeep source/build correspondence distinct from executed gameplay: the recorded Glasshouse and changed-skill boundaries explicitly lack later native journey, failure and persistence proof. The retained save compatibility decision is scoped to the named optional schemas and explicitly incompatible wrapper, not all future saves. Source-reading completion and hash readback do not supply missing runtime consumers or prove every moment of a world. AD42 makes human review optional; it does not erase unrun behavior evidence. Current work resumes from PROJECT and its selected domain checkpoint, with sealed details kept in their discovery owners. No old global hold or mandatory human gate is revived.",
+      "before_sha256": "bdddb2b266c79d6b78424dc3c40ae588e8cf9620228bb96a360dee9bc95b131c",
+      "after_sha256": "f71bf16f0907cc805ed492c795e5da80ed6bdab3adfdd8c96b2907966d451e2d"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1223
+}

@@ -32,3 +32,8 @@ Final delivery check:12 required files present, JSON parses, internal links reso
 | Immortal Life comparison | docs/research/immortal-life REPORT/FINDINGS after payload audit | Directory absent; manifest StateFlags6/SizeOnDisk0/no installed depots at inspection. No substitute mechanics invented. |
 
 Next pending item is source restoration/qualification for the NPC selector or counterpart Immortal Life evidence, not another bulk workbook pass. Resume from these rows and private hashes. Earlier lane's unrelated opaque economy/DLC/save-size branches remain outside this follow-up. No implementation is selected or authorized by these research packets.
+
+
+## Counterpart evidence routing, 2026-11-04 (B51)
+
+The Immortal Life missing-directory row is a dated inspection, not current project availability. docs/research/immortal-life now has its original, aspects, deep and systems checkpoints, content-reviewed in B34 of the loose-document reconciliation. They supply bounded data/native consumer evidence for the comparison without closing paid autonomous training, lifespan/next-life, broad callbacks or save/runtime gaps. Use those exact source-qualified findings instead of inventing counterpart mechanics or repeating bulk workbook extraction. Tale’s backup tables still do not qualify a current installed build, native selector, payment/RNG or autonomous scheduler. No restoration, installation or source acquisition occurred here.

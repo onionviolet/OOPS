@@ -1,0 +1,10 @@
+{
+  "id": "native-character",
+  "fidelity": "native",
+  "status": "stale",
+  "changed": [
+    "source: src/craft_recipes.js",
+    "source: src/craft_material_fit.js"
+  ],
+  "message": "Sources/build changed · rebuild and recheck before comparison"
+}

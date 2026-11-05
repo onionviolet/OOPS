@@ -105,3 +105,12 @@ The traveler loop lacks a scene projection; the causal-story loop has one. **Tha
 ## Next
 
 Section 4 builds M1 with M2–M3, at 1366×768. Section 5 verifies, records F1 in USER_VISION, and recommends.
+
+
+## Content reconciliation B141, 2026-11-04
+
+Parts 1-3 and all AU/CH/PI/F/M/L rows were read. F1's absent USER_VISION entry is superseded by the existing [format/view direction record](../../USER_VISION.md#format-portraits-and-view-decisions-2026-10-14); Q1-Q3 remain proposals, not adopted by this writeup. Current source also qualifies F3: `story_aftermath.js` now derives visitor presence through `generatedPeoplePresenceFacts`, `eligibleAftermath` requires a matching present person and aged known request receipt, and `aftermathPersonPresent` supplies a check. This closes the old source-absence claim at that named seam, not all native integration or behavior proof.
+
+Preserve the useful causal comparison: delivered and declined branches may reach the same later scene while retaining different purse, supply, relationship and receipt facts. A remembered fact is not permission to invent a live utterance from an absent person; actual messages or delayed accounts would need their own channel. The current presence bridge advances a context-frame projection and does not persist a second schedule. Its actual caller frame, offer/commit revalidation, away return and pending-receipt reload remain selected-route checks, not newly verified results.
+
+The old exact traveler count, Village-only history and person-owner boundaries were source snapshots. This pass does not credit a general actor bridge or book-world memory from them, nor require a new identity service for a presentation study. Actual NPC memory can have an owner beyond a single receipt; PI4's receipt-only phrase describes this prototype's event evidence, not every possible memory mechanism. Current desktop direction replaces the old 1366 target, and MW8 governs any new comparison. No prototype, new callback fix or native proof was executed here (AD32, AD36, AD42, AD51).

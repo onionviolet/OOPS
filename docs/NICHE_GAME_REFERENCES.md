@@ -75,3 +75,12 @@ Proposed shared design test: an ordinary skill reveals or enables a technique; t
 Not taken: the survivors-style combat loop, the Chinese calligraphy theme as a core default (it could suit one world), and any claim the design is proven (early test build).
 
 Suggested order if pursued: BS1 and BS2 together (one discovery mechanism plus its collection reward), then BS3 as a per-world dial. No gameplay changed.
+
+
+## Content reconciliation B301: reference evidence and selected translation
+
+The complete original 77-line reference dossier was read. ACS/Qud and the earlier shortlist carry their explicit targeted-research interest, not favorite status, purchase, direct-world selection or approval of every mechanic. Creator descriptions, visible classic interfaces, fork announcements, source repositories and actual play are different evidence. Preserve the classic Immortality edition, Idle Loops branch differences, historical Idlemancery announcement and browser-versus-retail boundaries. The old rankings are research judgments at their dates, not present product/version recommendations or live source-worker instructions.
+
+Brushsworn BS1–BS6 came from its early itch description without play. Parts-to-result, meaningful collection, chosen routine, personal chronicle and expressive UI remain ideas. A described art/music technique does not prove no asset work, cheap integration, measured performance or audible progress. Its survivors combat/theme was not selected. Unknown-result silhouettes/slots need actual observer knowledge of their existence/count; BS1 does not override MR31 or the current UI discovery rules. Collection bonuses and unlock-after-N auto mode remain proposed local policies, not mandatory rewards, a universal automation unlock or permission for closed-browser losses. Sharing/export being low priority is an agent judgment in BS4, not a permanent ban.
+
+For an actual selected comparison, trace supported prerequisite, acquisition, paid application and later useful result through a real owner, then relevant reset/persistence. Do not infer whole-game depth, all-way compatibility or finished native systems from descriptions. Current book-world/menu priority and explicit clock/body/world rules qualify old ordinary-expedition-first or mandatory-rare-route implications. No reference page, game source, site, app, account, download or runtime is newly inspected by this content pass.

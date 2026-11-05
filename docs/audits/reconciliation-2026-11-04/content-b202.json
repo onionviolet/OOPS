@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "batch": "B202",
+  "title": "Complete original UI density comparison and retain measurement limits",
+  "at": "2026-11-04T22:56:59.088340+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/UI_DENSITY_AND_ORIGINAL_COMPARISON_AUDIT_2026-10-13.md",
+      "ids": [
+        "F1–F10",
+        "M2–M12 scoped metrics",
+        "S1–S5",
+        "UCA/UXA/THM/PFW reconciliation",
+        "A1–A5",
+        "B1–B5",
+        "Evidence recipe"
+      ],
+      "classification": "Dated paired-build UI geometry audit with distinct observed/inferred/reference evidence",
+      "owners": [
+        "docs/UI_DENSITY_AND_ORIGINAL_COMPARISON_AUDIT_2026-10-13.md",
+        "docs/UI_RULES.md",
+        "DESIGN.md"
+      ],
+      "disposition": "Retain action-space, trade adjacency, feedback, focus/zoom lessons and explicit rejected leads. Figures belong to pinned seeded states/viewport; current composition and later proof govern future work. Raw DOM size is not demonstrated performance cost, all control counts not decision counts, uncertain log rows not full log census.",
+      "evidence": "Fresh full content read across bounded ranges, including source fingerprint read earlier this turn and all F/M/A/backlog/limits. Screenshots, measurement JSON, driver, reference sites and current layout not exercised. Existing B195 fixture/matching correction retained.",
+      "reopen": "Selected actual current desktop task with reproduced geometry/focus/feedback issue; use current source, target/text sizes and populated native evidence before repair. No replay of historical layout prescription or mobile gate.",
+      "input_sha256": "9987142425f973010febb1179039c27a2045e248ce9693df265add676448ed6d",
+      "input_lines": 430,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          430
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/UI_DENSITY_AND_ORIGINAL_COMPARISON_AUDIT_2026-10-13.md",
+      "heading": "## Full density-audit reconciliation, 2026-11-04",
+      "body": "Retain the audit’s actual comparison rather than treating original as uniformly superior: the old fixed frame overflowed and lacked native action focus, while the fork’s fit/reflow and action keyboard support improved. The fork’s measured allocation/chrome/ordering nevertheless obscured useful actions in those seeded states. Trade comparison also distinguishes the original Accept control needing scroll at 1366 from its visible total; it does not claim the old transaction was entirely on screen. M7 sampled stable anchors, while opening Find work changed scroll. Those are different observations, not a contradiction.\n\nF10 withdrew detached-label language; S5 found only four hidden focus stops, not a demonstrated cost from all hidden DOM. M1 counts controls rather than meaningful decisions, and M12’s partial log-row count cannot establish every message lost or a complete channel policy. Emulated zoom is not browser-menu zoom, computed outline is not visual focus validation, and tab counting is not a screen-reader test. Keep failed natural crafting access, seeded progression, unplayed packs/worlds/themes and unmeasured latency explicit (AD32, AD36).\n\nA1–A5 numeric geometry/row/Tab targets and B1–B5 proposals are dated recommendations, not today’s build queue or universal one-screen/no-scroll laws. Current prose-first task composition, independent panes, desktop text sizes and world differences govern selected work. Keep the useful outcome: actual work, cost/pay/stop, trade sides/total, combat response/retreat and readable result should be reachable together as the task needs, with supported full-name/detail access. Later UI receipts qualify only their exact candidate and route; this reading does not renew those proofs, restore old Workspace composition or add mobile optimization. External reference rows retain their Source/Observed/Snippet/Community labels; no current external facts or new implementation were verified.",
+      "before_sha256": "9987142425f973010febb1179039c27a2045e248ce9693df265add676448ed6d",
+      "after_sha256": "7d1bde019719265f6c4247837b79bbc77b80b5638f91ac8e699354d327c53a01"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1089
+}

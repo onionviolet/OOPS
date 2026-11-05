@@ -1,0 +1,63 @@
+{
+  "full_source_documents": 20,
+  "unique_source_paths": 20,
+  "link_targets": 90,
+  "missing": [],
+  "anchors": 42,
+  "bad_anchors": [],
+  "unexpected_removed_lines": [],
+  "diff_check_exit": 0,
+  "focused_tests": [
+    {
+      "command": "node --test tests/crafting_runtime.test.js tests/heat_grades.test.js tests/field_layer.test.js tests/domain_registry.test.js tests/layout_spec.test.js",
+      "passed": 52,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "command": "node --test tests/progression_gates.test.js tests/skill_overflow.test.js",
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0
+    }
+  ],
+  "scope": "Current shared dirty-tree focused tests. No build/browser/performance/source-corpus qualification. Hashes captured below cannot backdate a test-input freeze.",
+  "document_lint": {
+    "exit": 1,
+    "diagnostics": [
+      "docs/research/LIBRARY_INDEX.md:731: absolute rule word has no default, dial, exception, or reason in this row or paragraph",
+      "docs/research/LIBRARY_INDEX.md:904: absolute rule word has no default, dial, exception, or reason in this row or paragraph",
+      "docs/research/LIBRARY_INDEX.md:906: absolute rule word has no default, dial, exception, or reason in this row or paragraph",
+      "docs/research/LIBRARY_INDEX.md:908: absolute rule word has no default, dial, exception, or reason in this row or paragraph",
+      "docs/research/LIBRARY_INDEX.md:909: absolute rule word has no default, dial, exception, or reason in this row or paragraph",
+      "docs/research/LIBRARY_INDEX.md:910: absolute rule word has no default, dial, exception, or reason in this row or paragraph",
+      "docs/research/LIBRARY_INDEX.md:931: absolute rule word has no default, dial, exception, or reason in this row or paragraph",
+      "docs/research/LIBRARY_INDEX.md:932: absolute rule word has no default, dial, exception, or reason in this row or paragraph",
+      "docs/research/LIBRARY_INDEX.md:996: absolute rule word has no default, dial, exception, or reason in this row or paragraph",
+      "docs/research/LIBRARY_INDEX.md:997: absolute rule word has no default, dial, exception, or reason in this row or paragraph",
+      "docs/gm/dispatch/refinement-audits-2026-10-31/R6_IMPLEMENTATION_RECEIPT.md:11: absolute rule word has no default, dial, exception, or reason in this row or paragraph",
+      "docs/gm/dispatch/refinement-audits-2026-10-31/R6_IMPLEMENTATION_RECEIPT.md:35: absolute rule word has no default, dial, exception, or reason in this row or paragraph",
+      "docs/reports/PROGRESS_ATLAS_2026-11-04.md:148: absolute rule word has no default, dial, exception, or reason in this row or paragraph",
+      "docs/reports/PROGRESS_ATLAS_2026-11-04.md:365: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line",
+      "docs/reports/PROGRESS_ATLAS_2026-11-04.md:369: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line",
+      "docs/reports/PROGRESS_ATLAS_2026-11-04.md:384: absolute rule word has no default, dial, exception, or reason in this row or paragraph",
+      "docs/reports/PROGRESS_ATLAS_SKILL_TRIAL_2026-11-04.md:48: absolute rule word has no default, dial, exception, or reason in this row or paragraph"
+    ],
+    "task_path_hits": []
+  },
+  "preservation": {
+    "unpreserved": [],
+    "baseline_files": 32
+  },
+  "at": "2026-11-04T19:07:07.550535+00:00",
+  "rules_check": {
+    "result": "PASS",
+    "register_rows": 30,
+    "ad_codes": 51,
+    "relative_links": 1004,
+    "warnings": 0,
+    "receipts": 21,
+    "legacy_receipts_skipped": 317,
+    "direction_sync": "PASS"
+  }
+}

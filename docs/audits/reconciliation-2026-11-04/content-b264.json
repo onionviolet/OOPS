@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "batch": "B264",
+  "title": "Independent rival arcs and contextual character-fit palettes",
+  "at": "2026-11-05T00:15:42.313242+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/ENEMY_PROTAGONISTS.md",
+      "ids": [
+        "three protagonist meanings",
+        "five book comparisons/gaps",
+        "eight arc patterns",
+        "seven consequence areas",
+        "three scenarios",
+        "12 failure cases",
+        "five concurrent forms",
+        "rogue clone and acceptance questions"
+      ],
+      "classification": "Original character/system palette with dated source and implementation snapshots",
+      "owners": [
+        "docs/ENEMY_PROTAGONISTS.md",
+        "docs/ENGINE_AUTHORING.md",
+        "docs/DOMAIN_RULES.md"
+      ],
+      "disposition": "Preserve full distinctive variants and source limits, fold current-owner reuse, authority/clock/knowledge qualifications and retired sequencing into the palette itself.",
+      "evidence": "Enemy protagonists all255 lines delivered without truncation; fitting characters all251 lines delivered1–130/131–290. No external source, current whole-runtime census or new browser playtest.",
+      "reopen": "For a selected character slice use actual source, actor knowledge, current mechanisms and shared transaction/clock owners; demonstrate its specific later consequence and persistence rather than assume full population support.",
+      "input_sha256": "a424eafdfbe2640962df9fc67cecf288f4e05fc5eb970e6c427f36f58e30b9be",
+      "input_lines": 255,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          255
+        ]
+      ]
+    },
+    {
+      "path": "docs/FITTING_CHARACTERS_AND_TIMES.md",
+      "ids": [
+        "three fit questions",
+        "stage/world/role tables",
+        "pacing/fit checks",
+        "four walkthroughs",
+        "eight anti-patterns",
+        "fit card and long-play/agency/emotion sections"
+      ],
+      "classification": "Original character/system palette with dated source and implementation snapshots",
+      "owners": [
+        "docs/FITTING_CHARACTERS_AND_TIMES.md",
+        "docs/ENGINE_AUTHORING.md",
+        "docs/DOMAIN_RULES.md"
+      ],
+      "disposition": "Preserve full distinctive variants and source limits, fold current-owner reuse, authority/clock/knowledge qualifications and retired sequencing into the palette itself.",
+      "evidence": "Enemy protagonists all255 lines delivered without truncation; fitting characters all251 lines delivered1–130/131–290. No external source, current whole-runtime census or new browser playtest.",
+      "reopen": "For a selected character slice use actual source, actor knowledge, current mechanisms and shared transaction/clock owners; demonstrate its specific later consequence and persistence rather than assume full population support.",
+      "input_sha256": "899ce4bebcc5f1e018d9d784943ffa072a9f7cfa7313633ba2d1dd4bf1c9fe37",
+      "input_lines": 251,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          251
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/ENEMY_PROTAGONISTS.md",
+      "heading": "## Content reconciliation B264",
+      "body": "Full document reviewed: all five source comparisons and their gaps, eight invented arc patterns, seven consequence areas, three scenarios, five minimal additions, all12 failure cases, five concurrency forms, rogue-clone alternatives and the finite acceptance questions. Preserve the distinction between an independent arc, an exceptional capability and an actual metaphysical story role. A franchise protagonist label does not itself grant fate, invulnerability, hostility, private knowledge or a selected in-game system. The synopsis/chapter/interview evidence remains limited to its recorded scope; no linked source was reopened, authenticated or promoted to a whole-book audit.\n\nThe opening “no protagonist NPC / autonomous progression implemented” and both current-engine inspections are October 1 snapshots, not present absence findings. The later [engine authoring guide](ENGINE_AUTHORING.md#content-reconciliation-b263) already records selected stable people, spawn IDs, frozen templates, controller responses, native bindings and fixed party cases. Those records show why an all-new rival store/planner cannot be assumed necessary, while not proving a particular independent-arc scenario or general multi-Hero/shared-world parity works. Reuse actual current actor, event, knowledge, claim, command, clock and native-consumer owners before selecting new state. No current source census or natural rival journey was performed here.\n\nAll one-realm/one-prestige sequencing is superseded by [the October 24 direction](USER_VISION.md#first-milestone-and-scope-check-2026-10-24). The small peer/clone experiment is retained as a proposed comparison, not a prerequisite for current book-world lead lives or a dispatch. Current lead-life scope does not require full lives for every opponent or a universally simulated population. A narrator/director policy and an actor's own means/choices remain separate. Multiple browser copies and multiple actors also remain different: an isolated run does not acquire shared custody merely by replaying the same event definition.\n\nA changed cause invalidates the affected part of a forecast only when that dependency matters. Preserve unaffected information and distinguish uncertainty from a proven wrong forecast; no omniscient instant rival adaptation or universal forecast wipe follows from one changed fact. A stolen object, copied capability, acknowledged office, private knowledge and loyalty are separate transfers. Joint or divisible inheritances and intentional copying may create valid multiple beneficiaries under their actual mechanism; a shared opportunity's once-only settlement prevents accidental double publication, not every supported shared outcome (AD38). A dead actor needs an actual survival/return cause, not a next-scene label; new fitting causes can be authored and tested rather than forbidden by this palette's old finite examples.\n\nThe compressed offscreen jobs and milestone transitions preserve actual means, clocks, earned results and knowledge under [AD52](RULES_INDEX.md). Neither narrative importance nor player absence supplies free resources, automatic betrayal, universal revenge, forced coalition or player-matched leveling. Likewise remaining growth need not be a punishment for kindness, and the player may legitimately outgrow a rival. Hidden or distant outcomes reach the UI through actual observers or received accounts, not a public arc-status census. The LLM-proposer option remains optional and must use selected validated operations if ever chosen; this documentation neither calls a model nor launches workers. Historical runtime assertions, performance estimates and future checks remain unverified on today's inputs; human review is optional under AD42.",
+      "before_sha256": "a424eafdfbe2640962df9fc67cecf288f4e05fc5eb970e6c427f36f58e30b9be",
+      "after_sha256": "c7550316b0b260fa60222aea0a3c4b615866940e90c22e3638d8ee32d4ce5d04"
+    },
+    {
+      "path": "docs/FITTING_CHARACTERS_AND_TIMES.md",
+      "heading": "## Content reconciliation B264",
+      "body": "Full guide reviewed: the palette router, all stage/world/role tables, pacing and fit checks, four walkthroughs, eight anti-patterns, fit-card template, long-play/agency/emotion/surprise sections and agent advice. The opening user instruction is the governing use: considerations are illustrative and fit the world/character at hand. The later method and examples are proposed aids, not universal fictional laws or an extra preflight gate.\n\nCost and counter fields can truthfully be none, negligible, unknown or unavailable under the actual mechanism (AD5, AD38). “Unearned power” does not forbid a strong start, inherited gift, free outcome or god acting at negligible cost; “tier soup” does not ban ordinary people and powerful actors sharing a place. A shy healer's personality alone cannot decide whether a domain is possible. A weaker-looking act or different personality can have a reason beyond the examples. Headline pacing, foreshadow ladders, rarity/effect budgets and the fixed-anniversary Lodger sample remain taste options, not numeric limits on content or mandatory warnings that reveal sealed truth. Current [UI/prose owner](UI_RULES.md) governs presentation and optional illustration.\n\nThe Frontier row's “home, vanilla YAIR” conflates the expanded variant with its source; current [PROJECT](../PROJECT.md#current-focus) owns the separate-world proposal and selected development. Fog City inspiration is distinct from a source-qualified LOTM world. The table's theme fit does not impose sanity costs, gods, hidden-only power, mandatory missions or a ban on peaceful years on a whole setting. Source-specific courtroom/burnout and adaptive-beast examples retain their authored/inferred status rather than certify canon. Their mechanics need actual source and participants if selected; a beast's starvation, crafting resistance or a title-screen scar was not implemented here.\n\n“Worlds age” and “coming back after years should show change” require supported elapsed time and actual changed causes. Current-world, inactive-world and body clocks can differ, and inactive worlds pause by default; the guide does not authorize offscreen depletion or invent descendants. A generational change likewise needs the actual parent/history/clock and successor means. The retained first-prestige milestone sentence is superseded by [the October 24 direction](USER_VISION.md#first-milestone-and-scope-check-2026-10-24), while long play and repeated-activity abstraction follow AD52.\n\nThe fit card's proposal/selected/implemented/verified/accepted list describes different axes, not a required linear pipeline. A test cannot grant product acceptance; a user principle can govern an unimplemented capability. “Everything a proposal until accepted” cannot demote existing standing rules or later user direction, and choosing an in-scope reversible detail does not require a fresh approval step. Save a fit note where it helps a real owner, without adding one file/card per minor detail. Readable aftermath need not grant an observer the full hidden cause or leave an actionable reward after every failure. Preserve the possible emotional arcs and coherent surprise, without forcing every god, trial or meta-character into the same story.",
+      "before_sha256": "899ce4bebcc5f1e018d9d784943ffa072a9f7cfa7313633ba2d1dd4bf1c9fe37",
+      "after_sha256": "e25bee50517e12a54d57662176c987569b93b7ae892e1f15b1d2d3960b4b1bc1"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 903
+}

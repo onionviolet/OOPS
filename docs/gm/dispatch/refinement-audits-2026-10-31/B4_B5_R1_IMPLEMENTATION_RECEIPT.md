@@ -22,3 +22,8 @@ Empty pool or strain limit refuses (preview ineligible, commit throws); a non-us
 - Native run not done: the private proof bundles and cast pack are not in this worktree, and no pack row carries a divination with an energy cost yet. First content row (ch43 P063) should run the headless T4 runner and check the cost line at 1920x1080.
 - Knowledge basis needs an active situation: pass the cast situation (`LOTM_CAST_SITUATION`) as `situationId`.
 - Facts for new methods need adding to `BE_DIV_METHODS` (a throw says so).
+
+
+## Later evidence qualification B98, 2026-11-04
+
+The original below-floor/no-native receipt is followed by KJ3AA’s first selected native use: ordered method lesson/readiness and one paid dream-divination energy cost on its named bundle. This does not prove continuous drain, every listed method, failed order, all observers or potion acting. R1 acting remains separate. The old rules-index failure is a dated failure; current B92 rules checks pass without certifying the runtime candidate. The active M22 writer owns further method/session changes. See [KJ3AA](KJ3AA_IMPLEMENTATION_RECEIPT.md) for the later candidate and explicit limits.

@@ -268,3 +268,8 @@ None of these selects build scope; they wait for Weibao's go (WDI40, L3 held).
 - `scripts/check_architecture.mjs` baselines and whether `rule_modules.js` has a size cap.
 - Worktree copies under `.claude/worktrees/`; I read the main checkout, which has
   uncommitted changes elsewhere (git status at session start).
+
+
+## Reconciliation B93, 2026-11-04
+
+Retain WR3/WR8/heredity examples, E1–E5, T1–T10 and R1–R8 as a source-level feasibility proposal. Current targeted rule_modules.js inspection still shows five default facts, injected fact types, one target, village.mix@2 literals and the original conflict message; this narrow source limitation remains, not a new failing runtime test. No module means no substitution policy only because the domain matcher supplies the refusal; absence of a module alone is not a general gate. Band specificity chooses an edge winner but must state the intended interval; facts support not/all/any predicates, not arbitrary numeric curves. Parameter suggestions are not capabilities until the body consumer grants them. Stateless resolver edits can still change saved consumer locks/receipts, so verify default equivalence before claiming no compatibility impact. AD51 allows designing from known world needs before a second implemented world; current AD41 does not require a new worktree. Keep actual target isolation, base and receiver checks when a slice is selected, without dispatching it here.

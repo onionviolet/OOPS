@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "batch": "B179",
+  "title": "Complete mechanic workflow and historical reading-status owner",
+  "at": "2026-11-04T22:35:00.569981+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/MECHANIC_ABSORPTION_WORKFLOW.md",
+      "ids": [
+        "stages0–7",
+        "potion lessons",
+        "MAW-X1–MAW-X9"
+      ],
+      "classification": "Reusable workflow with historical source lessons and proposed expansion backlog",
+      "owners": [
+        "docs/gm/MECHANIC_ABSORPTION_WORKFLOW.md",
+        "docs/RULES_INDEX.md",
+        "docs/SYSTEMS_REGISTER.md"
+      ],
+      "disposition": "Fullworkflowreadbeyondstage0. Existing systemsdegree/actualhostsourcefirst, optionalresearchlanes andlocatoredclaims, ownership/compatiblepublication/scopedverification preserve. Stage4allbriefgoldens/compatibility/checkmatrix interpretedactualconsumerAD36notanotheruniversalgate. Existingtaskauthorizationcoversdocsreconcilewithoutaskinglandyes. X1mirrorproposalnotnewexternal-skillethicseditrequest, X2exportscan notproofeveryfunctionneedsregistry. AD51designseamfirstsecondcasevalidationnoembargo.",
+      "evidence": "Fresh entire137linebody/stagetables/backlogread. B178currentvision/architecture fullread and B137–146namedlatermechanicreceipts available. Notallreferencedskillcopies/toolcode/packets/sourcebookandprivateproofread.",
+      "reopen": "Apply actualselectedresearch+code task only; here no mechanismimplementation/researchlane/acquisition/agent/toolchange authorized.",
+      "input_sha256": "246b96dda6fc6c6c594e087c42f6b572591cd9d49d999678f33ada929ac6250a",
+      "input_lines": 137,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          137
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/READING_STATUS.md",
+      "ids": [
+        "allOct27–30 corrections/waves",
+        "AU2/AU7 snapshots",
+        "Luna enrich/readforward/extras/CoIscene routes",
+        "bothnextstep lines"
+      ],
+      "classification": "Historical source-reading status and limited quality evidence",
+      "owners": [
+        "docs/gm/dispatch/protagonist-life-2026-10-27/READING_STATUS.md",
+        "docs/LEAD_LIFE_GUIDE.md"
+      ],
+      "disposition": "LaterfullV1/gradeCsetaside/enrichcorrectionsoverrideoldwavetables andalreadydoneNextstep. Fullreadingclaimreportednotthisprivatecorpusinspection;gradeBaftersetaside notallomittedfactsrestored, completefieldsnottruth. 15row/step samples andpartial/wrongretained, no memoryofallbooksread/queuefinished. Counts source/fullsemantic/scene/readiness separate. AllPIDs/budgets/reset/70vs85caps/paidgo historical no currentdispatchauthority oruserdecisionchanged.",
+      "evidence": "Fresh complete85longlinefile allcorrections/table/queue/extras/lastnextstepread. Privateoutputs/driverlogs/ingest/currentprocesses/allowance/APIcredits/sourceeditions notopened orsampled; no truthbasedcanonconformanceclaim.",
+      "reopen": "If future reading selected recovercurrentbook/sourceversion/unreadspans/currentquality and budget underactualauthorization; no queue resume/kill/spend in reconciliation.",
+      "input_sha256": "be3bc2f7d2f0cb2546d09c631de6afab647bbc26b7bf3844f088f158150ceb5a",
+      "input_lines": 85,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          85
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/MECHANIC_ABSORPTION_WORKFLOW.md",
+      "heading": "## Full workflow reconciliation, 2026-11-04 (B179)",
+      "body": "All stages0–7, lessons and MAW-X1–X9 were read. Preserve fit before design at actual source/degree/consumer, original IDs and palettes, optional named research gaps, settled inputs and one publisher, and scoped verification before integration. Research/build lane tables are optional shapes under current authorization and budget, not dispatch requirements for this documentation reconciliation. A fixed three-lane pattern, advisor on every seam, old-save run or universal extra golden test would contradict the workflow’s own qualifications and AD36. Read declared validators and a meaningful failure case where the selected consumer needs them; preserve actual state/custody/quote/publish contracts.\n\nCurrent AD51 permits designing a shared seam for several known world needs with its first consumer; a second different case validates/revises it under AR11. MAW-X3/X6 are proposals for reuse with concrete consumers, not an embargo until two implementations exist. A worktree does not automatically contain another checkout’s dirty bytes, and a branch or old idle chat does not release ownership. No worktree, skill mirror, importer, browser kit or integration helper was created. Existing yes-to-commit/push requirements remain specific actions, not a permission stop before saving this already authorized documentation.\n\nMAW-X2’s export drift report would be an inventory lead, not proof every public/helper export requires a separate registry entry. X4 graded substitution and X8/X9 mapping proposals need their current actual callers and prior coverage before another implementation. The old potion findings and Haiku/wiki correction are historical source lessons, not current absence, model recommendation or source acquisition authority. Current rule owners supply source, browser, persistence and optional human review obligations; this document adds no new rulebook or runtime gate.",
+      "before_sha256": "246b96dda6fc6c6c594e087c42f6b572591cd9d49d999678f33ada929ac6250a",
+      "after_sha256": "daa355a6b059ff0f6402bb2400240e349cfd85a5b5a7c20b09b06418e8c07ec8"
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/READING_STATUS.md",
+      "heading": "## Reading-status reconciliation, 2026-11-04 (B179)",
+      "body": "The complete status owner, all October27–30 amendments, wave table, two Next-step lines and queue/extras sections were read. Later records supersede earlier snapshots: volume1 completion is reported after the old table’s waiting rows; the ten grade-C set-asides are reported done after the earlier next-step still asks to perform them. Keep the exact originals as chronology. Set-aside/lint grade repair does not mean every omitted fact was restored or source correctness proved.1768/1768 populated enrichment fields are completeness of fields, not1768 verified propositions: the15-step check retains11supported/3partial/1wrong. Likewise13of15supported pilot steps plus2partial is not perfect extraction.\n\nSource-sized read-forward, census/people/rules/texture, scenes, enrichment, whole-book merge and actual native-readiness are different outputs. The note’s “fully read” claim records the campaign’s reported scope, not this reconciliation reading the underlying novel. Large prepared lists, acquired books, four-pass completion, rows ingested or script tags do not independently prove a complete semantic/scene audit. Medium versus high-effort trial results and metadata/lint grades retain exact samples. Unregistered chapter-finder failures are not automatically missing books, and frozen extras/chapter-number corrections retain their edition context. No sealed source truth is reproduced.\n\nAll quoted PIDs/process states, account percentages, dollar balances, month resets,70/85cap suggestions and projected59hours are dated observations or proposals. An old resume/kill command or request relayed in this record is not present permission to restart workers, stop someone’s process, spend API credit or alter current allowance. Current source/version coverage, quality and actual run authorization must be recovered only for a separately selected reading task. No private corpus, driver log, current process/meter/credit state or source edition was opened here, and no paid/subscription/local-model reading was launched.",
+      "before_sha256": "be3bc2f7d2f0cb2546d09c631de6afab647bbc26b7bf3844f088f158150ceb5a",
+      "after_sha256": "0e843b9dddddf46ff18ed8be7f5c4e9d6122263296d428aa04734dbb914a5854"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1102
+}

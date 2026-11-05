@@ -352,3 +352,8 @@ and any UI. Each needs its own go (palette L3 held).
   not read).
 
 Everything above is a proposal for Weibao's review; no code, save format or priority is changed.
+
+
+## Reconciliation B93, 2026-11-04
+
+Retain the proposed registry fields, lifecycle, observer split, N1–N5 and C1–C8 with explicit implementation limits. MQ-A/B92 already settles L1 Q1/Q2: input.mass is fictional-mass (1000 per pack, 2000-reference dose), not inferred grams; procedure.process is the Village enumeration, with a separate frontier operation list. A {name:type} adapter cannot by itself enforce enum membership, units, revision locks, producer coverage or observer scope. S1’s claimed behavior neutrality therefore needs those actual checks; factRefs also changes the lock contract and is not a free no-format-change addition. N2’s asserted check:rules content corpus was only inference, not an existing checker capability. N5’s second-mechanism-fact requirement must not force dummy facts when designated identity is the real mechanism. Truth/knowledge means actual actor belief or understanding may affect a mechanism; labels alone do not confer authority. Keep unknown facts unknown and explanations projected. Registry, snapshot, migration and all-owner claims remain proposals, not new universal gates.

@@ -1,0 +1,104 @@
+{
+  "schema": 1,
+  "batch": "B159",
+  "title": "Cross-system gap scenarios and historical queue refresh",
+  "at": "2026-11-04T22:16:29.828940+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/reviews/SUBTLE_RULE_GAPS_2026-10-18.md",
+      "ids": [
+        "G1–G32",
+        "rounds 1–4",
+        "plan/rule follow-through"
+      ],
+      "classification": "Proposal palette with accepted-direction corrections and dated source observations",
+      "owners": [
+        "docs/reviews/SUBTLE_RULE_GAPS_2026-10-18.md",
+        "docs/RULES_INDEX.md",
+        "docs/GENERATION_FOUNDATION_RULES_2026-10-14.md"
+      ],
+      "disposition": "Preserve composed scenarios and existing corrections. G5 is user direction; other proposed mechanisms are not all adopted. Qualify old no-away implementation claim with current named bank source. Keep personal/world clock and pending-versus-banked settlement distinctions; bank credit alone does not freeze a world. No new universal clock schema, mandatory recap field or layout, dispatch, compatibility or 1366 gate.",
+      "evidence": "Fresh full content read across retained 1–170 and recovered 171–end. Current away_bank_domain.js fully read: computeAway bank settlement, furnace exclusion, positive bank spend through fastForward and subtraction of actual clock delta. No integration behavior newly exercised.",
+      "reopen": "Only a selected touching slice should follow G26–G32 through concrete consumer, ownership, clock settlement and disclosure evidence.",
+      "input_sha256": "a4fac1886e890340d9ca9934d8cda6456a7ea45f1f7e54b6b7c48dd8a489ff17",
+      "input_lines": 247,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          247
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/QUEUE_REFRESH_2026-10-18.md",
+      "ids": [
+        "F1–F12",
+        "QR1/QR2",
+        "QRC1–QRC5",
+        "QRL1/QRL2",
+        "748/135 scan"
+      ],
+      "classification": "Bounded historical routing reconciliation",
+      "owners": [
+        "docs/reviews/QUEUE_REFRESH_2026-10-18.md",
+        "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md"
+      ],
+      "disposition": "Retain exact distinction among structural queue inspection, section review and filename/text scan. All historical routing/counts/leases are snapshots, not new whole-project semantic credit or current dispatch. Preserve unanswered questions and distinct delivery horizons; human acceptance optional under current AD42 and viewport now current desktop owner.",
+      "evidence": "Fresh entire report including all quoted superseded fragments and round 2. Underlying seven queue payloads, 748 records, linked reports and external inventories were not read by association.",
+      "reopen": "Use named original owners and current input identities when those queue records are individually reviewed.",
+      "input_sha256": "7a3b6210dffcda99b5581723157dd35e7a684515e2c00a53847f7bfdc8be358c",
+      "input_lines": 148,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          148
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/QUEUE_PLAN_SUPERSEDED_2026-10-18.md",
+      "ids": [
+        "seven superseded path blocks"
+      ],
+      "classification": "Exact superseded-text history",
+      "owners": [
+        "docs/reviews/QUEUE_REFRESH_2026-10-18.md",
+        "docs/reviews/QUEUE_PLAN_SUPERSEDED_2026-10-18.md"
+      ],
+      "disposition": "Preserve unchanged. Disconnected JSON fragments and former PROJECT heading are historical replaced bytes, not standalone valid queue payloads or operative direction.",
+      "evidence": "Fresh all 80 lines read, including each quoted fragment and history notice. No source queue content review inferred.",
+      "reopen": "Retain history; review live payloads separately when selected.",
+      "input_sha256": "c6b6cdae36f7e782a410ac31b4356dc3c85d27ec6f3136b8d64d7a9bb65c3628",
+      "input_lines": 80,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          80
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/reviews/SUBTLE_RULE_GAPS_2026-10-18.md",
+      "heading": "## Content reconciliation, 2026-11-04 (B159)",
+      "body": "All G1–G32, four rounds and follow-through were read. Preserve these composed failure scenarios at their existing domain owners. G5 records Weibao’s content-ID compatibility direction; proposal tables and suggested order do not adopt every effect resolver, global clock schema, watch policy, fixture expansion or UI field. Existing tag/fixture and unknown-risk corrections supersede earlier absence claims. Ordinary versus extraordinary frozen processes follow actual mechanisms; personal/body/space clocks are not universally one clock. Bank credit alone is not frozen-world practice, and a legitimate causal chain has no invented in-world technical cap.\n\nThe round-3 heading “today” describes October 18 inspected inputs. Current src/away_bank_domain.js calls computeAway to bank elapsed time, avoids duplicate furnace credit and spends through fastForward, deducting actual root-clock progress and retaining unspent credit at a boundary. That supersedes blanket “pure, unwired” / “test hook only” absence at this named seam. It does not establish arbitrary unattended routines, dual-clock frozen practice, universal stop safety or fresh Save/reload/Import proof. G27’s endpoint/simultaneous-barrier case remains a useful future settlement question, not an inferred current defect. G28 keeps intermediate-product ownership distinct from atomic trade; G29 keeps resolution/publication boundaries; G30 keeps impossible, unknown and unimplemented answers distinct without a permission list.\n\nThe historical rule-order failure is already qualified as repaired by this report’s own follow-through. Current desktop direction and AD42 qualify old 1366 floor and human acceptance wording. No new runtime work, source audit of every cited module or mandatory next-slice bundle is selected.",
+      "before_sha256": "a4fac1886e890340d9ca9934d8cda6456a7ea45f1f7e54b6b7c48dd8a489ff17",
+      "after_sha256": "9d4894b6447ff836c9f376146ec7750506dc6ba80cd669dfc30d4721da13f1ac"
+    },
+    {
+      "path": "docs/reviews/QUEUE_REFRESH_2026-10-18.md",
+      "heading": "## Content reconciliation, 2026-11-04 (B159)",
+      "body": "F1–F12, every preserved replacement fragment, QRC1–QRC5 and QRL1/QRL2 were read. Keep this as the bounded October 18 routing receipt: seven queue structures, selected owner sections and 748 filename/text scans are different coverage classes. The 135 wording matches were explicitly candidates, not defects. Neither these counts nor report hashes grant semantic review of unread queue packets, 748 bodies or later current implementations. [The superseded-text companion](QUEUE_PLAN_SUPERSEDED_2026-10-18.md) preserves literal historical fragments and remains unchanged.\n\nRetain the useful dependency distinctions: completed Foundation versus incomplete FA versus paused whole-world horizon; infrastructure source versus native consumer and played proof; external-game-relative locators versus repository links; and old owner records versus live leases. A later incomplete horizon does not reopen every older gate, and an older finite pass does not close the larger horizon. Historical ports, thread IDs, acquisition inventory, M3/M4 status and queue ordering do not dispatch work now. Current PROJECT, direction and specific delivery owners supersede those snapshots. Current AD42 makes human review optional; current desktop UI direction owns viewport and text choices. Underlying queue bodies, leaf reports and source acquisitions still require their own bounded review. No tooling follow-up or runtime wave was launched.",
+      "before_sha256": "7a3b6210dffcda99b5581723157dd35e7a684515e2c00a53847f7bfdc8be358c",
+      "after_sha256": "5393d819575f3e7fb04f099f7a64ab42b12cfb2917531e3d862524512e8bce66"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1170
+}

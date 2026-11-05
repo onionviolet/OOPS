@@ -1,0 +1,104 @@
+{
+  "schema": 1,
+  "batch": "B73",
+  "title": "Tooling receipts and current default-REA presence drift",
+  "at": "2026-11-04T20:21:57.461421+00:00",
+  "head": "4cdc0772b65d413e4989e327502910140b2a15eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/toolsets_2026-10-21/IMPLEMENTATION.md",
+      "ids": [
+        "I1–I5",
+        "T1–T20"
+      ],
+      "classification": "fresh full tooling content with current nonlaunch presence check",
+      "owners": [
+        "docs/TOOL_REGISTRY.md",
+        "docs/audits/toolsets_2026-10-21/IMPLEMENTATION.md"
+      ],
+      "disposition": "Initial Cpp2ILunavailable/sourceonlyREA statuses explicitly superseded by laterrepair/update. Keep wrapper argv/cwd/environment/noautostart/evidencegrading boundaries and pertoolconditionalideas. Initial35entries/25launch/13probes not currentcounts. Historical queuedtest procedure replaced by currentnpmtest limiter; no mandatoryhuman gate.",
+      "evidence": "Both implementation/repairreports and full120line TOOL_REGISTRY freshly read. Ran only python3 scripts/toolsets.py show cpp2il/rea/rea-pinned: default rea missing /Users/weiwei/code/rea/node_modules; otherselectedrequiredpathspresent. No probe, provider/server launch, download, dependency install, target recovery or config edit.",
+      "reopen": "When actual analysis is selected, inspect exact lane/input, current requirements and relevant scopedprobe. Repair missingdependency only in separatelyselectedtooling scope; no silentfallback to pinned identity.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "bf74ad0c683a6912f86a9e99af308c848c56b1ded6962a13ea1c3d7bd7d30809",
+      "input_lines": 59,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          59
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/toolsets_2026-10-21/CPP2IL_REA_AND_CHAT_ACCESS.md",
+      "ids": [
+        "F1–F5",
+        "C1–C6",
+        "L1–L4"
+      ],
+      "classification": "fresh full tooling content with current nonlaunch presence check",
+      "owners": [
+        "docs/TOOL_REGISTRY.md",
+        "docs/audits/toolsets_2026-10-21/CPP2IL_REA_AND_CHAT_ACCESS.md"
+      ],
+      "disposition": "Cpp2ILtruncatedcache vs completeupstream vs signedprivate identity preserved; dll_empty recovery not executablemethodsemantics. REAupdated/nativefixture vs pinnedcustomanalysis distinct. stdiohandshake/effectiveconfig not freshchatinventory/auth/game method. Historicalsuccess not currentinstalleddependencyproof; freshshow finds defaultREAmissingnode_modules, no repair/install selected.",
+      "evidence": "Both implementation/repairreports and full120line TOOL_REGISTRY freshly read. Ran only python3 scripts/toolsets.py show cpp2il/rea/rea-pinned: default rea missing /Users/weiwei/code/rea/node_modules; otherselectedrequiredpathspresent. No probe, provider/server launch, download, dependency install, target recovery or config edit.",
+      "reopen": "When actual analysis is selected, inspect exact lane/input, current requirements and relevant scopedprobe. Repair missingdependency only in separatelyselectedtooling scope; no silentfallback to pinned identity.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "db5e78a5019113ae518d92788a98fa30de06e563e89d388ea2bd6b0ee434b176",
+      "input_lines": 53,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          53
+        ]
+      ]
+    },
+    {
+      "path": "docs/TOOL_REGISTRY.md",
+      "ids": [
+        "R1–R3",
+        "route/config/access/maintenance"
+      ],
+      "classification": "fresh full tooling content with current nonlaunch presence check",
+      "owners": [
+        "docs/TOOL_REGISTRY.md",
+        "docs/TOOL_REGISTRY.md"
+      ],
+      "disposition": "Liveoperationalrouter readcomplete; currentshow cpp2ilrequiredpathspresent and rea-pinnedpresent, defaultreamissingnode_modules so notready by owncontract. showpathsuccess not probe/target. Registryhistoricalversion/catalog/mcpcounts retain dates no liveauth/toolinventoryclaim. Keep fixedroutes/overrides/sourcepolicy/privateoutput and relevantprobe-only semantics; noautorun/install/registration.",
+      "evidence": "Both implementation/repairreports and full120line TOOL_REGISTRY freshly read. Ran only python3 scripts/toolsets.py show cpp2il/rea/rea-pinned: default rea missing /Users/weiwei/code/rea/node_modules; otherselectedrequiredpathspresent. No probe, provider/server launch, download, dependency install, target recovery or config edit.",
+      "reopen": "When actual analysis is selected, inspect exact lane/input, current requirements and relevant scopedprobe. Repair missingdependency only in separatelyselectedtooling scope; no silentfallback to pinned identity.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "dc046c5fa85c80221a8b5e7fff8039e3c4e62310e31e730b525d2729fad5f087",
+      "input_lines": 120,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          120
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/TOOL_REGISTRY.md",
+      "heading": "## Current presence check, 2026-11-04 (B73)",
+      "body": "A read-only `show` check found `rea` not ready because its declared `/Users/weiwei/code/rea/node_modules` dependency is missing. This qualifies the earlier immediate-shell-access and current-verification wording: the October 21 update/provider/MCP checks remain historical evidence, not a fresh working installation. `show cpp2il` and `show rea-pinned` found their required paths present; no version/health probe, provider/server launch or target analysis was run, so those observations establish presence only. Preserve the distinct updated versus patched-pinned analysis identities; no automatic fallback or transfer of repaired projects is implied. The existing launcher reports the missing default dependency correctly. No dependency installation, tool update, config change, remote access or source recovery is selected by this reconciliation (AD32/AD36).",
+      "before_sha256": "dc046c5fa85c80221a8b5e7fff8039e3c4e62310e31e730b525d2729fad5f087",
+      "after_sha256": "be7a0c38d1ed8b463680f05740993955e7b84b1cc458c6a4420c80a17b535941"
+    },
+    {
+      "path": "docs/audits/toolsets_2026-10-21/CPP2IL_REA_AND_CHAT_ACCESS.md",
+      "heading": "## Later presence drift, 2026-11-04 (B73)",
+      "body": "F1–F5 remain the historical repair/update/configuration receipt. The [current registry presence check](../../TOOL_REGISTRY.md#current-presence-check-2026-11-04-b73) now reports the default REA dependency directory missing, while pinned REA/Cpp2IL required paths are present. That is a current readiness limitation, not a reversal of the recorded successful native fixture/declaration recovery or a reason to silently substitute analysis identities. No health/target/MCP trial or install was performed here. Preserve upstream/signed-byte distinction, declaration-versus-body limits, exact source identities and scoped source authorization (AD32/AD36).",
+      "before_sha256": "db5e78a5019113ae518d92788a98fa30de06e563e89d388ea2bd6b0ee434b176",
+      "after_sha256": "dd9a500e3a51313bf12b28ade4f401b70524941e48fc4b012c3c5d10c73be93d"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1366
+}

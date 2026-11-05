@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "batch": "B163",
+  "title": "GM, dispatch and research dedup shards with preservation criteria",
+  "at": "2026-11-04T22:19:23.395173+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/D5a.md",
+      "ids": [
+        "D5a-F1–F18; helper-script negative result"
+      ],
+      "classification": "Historical structural-and-selected-content shard",
+      "owners": [
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/SYNTHESIS.md",
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/FOLLOWUP_CHECKPOINT.md"
+      ],
+      "disposition": "Preserve recovery bytes, original prompt roles and unique assignment boundaries; no delete/repoint merely because git is presumed to retain an equivalent input. Summary2high is contradicted by actual9medium/9low and synthesis already corrects it. Later browser run overrides earlier open agent gate; current AD42 qualifies human-only residual. Tracked state is not proof that a whole original dirty draft was committed. Existing L6/docs fixes supersede named queue/push/README lines only at their scopes.",
+      "evidence": "Fresh entire shard including all findings, suspect labels, negative checks, quantified scope, skipped bodies and not-changed section. Actual screenshots, source mirrors, private browser profiles, game payloads and hundreds of checkpoint bodies were not read by association; historical hashes/counts not rerun.",
+      "reopen": "Follow exact named owner and current receipt for a surviving conflict; preserve useful unique material and provenance. No bulk cleanup or dispatch from this review.",
+      "input_sha256": "ea16f1ad0605401b85387814bfd0b1626725a5b4ee1681f50940e26ad3ac397a",
+      "input_lines": 148,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          148
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/D5b.md",
+      "ids": [
+        "D5b-F1–F17; inventory and exclusions"
+      ],
+      "classification": "Historical structural-and-selected-content shard",
+      "owners": [
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/SYNTHESIS.md",
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/FOLLOWUP_CHECKPOINT.md"
+      ],
+      "disposition": "Duplicate bytes may be intentional unchanged-state or roundtrip identity evidence; cannot infer every before/after pair is mislabeled without intended behavior. Source snapshots may contain uncommitted input not reproduced by a commit SHA. Ignore rules do not remove tracked bytes, but untracking/deletion/history rewrite all remain unauthorized. Assignment/report filename absence not proof of no outcome, database LOCK not writer lease. F16 is explicitly negative, F17 unperformed secret review, not concrete defects.",
+      "evidence": "Fresh entire shard including all findings, suspect labels, negative checks, quantified scope, skipped bodies and not-changed section. Actual screenshots, source mirrors, private browser profiles, game payloads and hundreds of checkpoint bodies were not read by association; historical hashes/counts not rerun.",
+      "reopen": "Follow exact named owner and current receipt for a surviving conflict; preserve useful unique material and provenance. No bulk cleanup or dispatch from this review.",
+      "input_sha256": "b416e7458123a79e53b7597e3887582b8f2542834ac9a2ce816392d18fbc42be",
+      "input_lines": 128,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          128
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/D6.md",
+      "ids": [
+        "D6-F1–F14; structural privacy/quote checks"
+      ],
+      "classification": "Historical structural-and-selected-content shard",
+      "owners": [
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/SYNTHESIS.md",
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/FOLLOWUP_CHECKPOINT.md"
+      ],
+      "disposition": "Preserve queue proposals and old patch as history, bounded payload/source access versus live entitlement, dossier/reference/acquisition/play distinctions and separate census denominators. Duplicate roundtrip response/reconciled artifacts have distinct provenance roles; repeat VALIDATION templates cannot certify each game. Six Ages tombstone prevents wrong requeue, no deleting companion artifacts. F12 did not establish raw-prose breach, F14 engine content conflicts unverified. No new acquisition/tool choices or external/source research.",
+      "evidence": "Fresh entire shard including all findings, suspect labels, negative checks, quantified scope, skipped bodies and not-changed section. Actual screenshots, source mirrors, private browser profiles, game payloads and hundreds of checkpoint bodies were not read by association; historical hashes/counts not rerun.",
+      "reopen": "Follow exact named owner and current receipt for a surviving conflict; preserve useful unique material and provenance. No bulk cleanup or dispatch from this review.",
+      "input_sha256": "3343af258a56497c771db1d7c288d5e99821ac378496208a98dbd21277411704",
+      "input_lines": 119,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          119
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/SYNTHESIS.md",
+      "heading": "## D5a/D5b/D6 content follow-through, 2026-11-04 (B163)",
+      "body": "D5a-F1–F18, D5b-F1–F17 and D6-F1–F14 were read in full, including negative results, suspect labels and skipped bodies. Their file/byte/hash/link inventories are historical structural coverage, not semantic review of thousands of documents, screenshots, private profiles or source payloads. D5a’s “2 high” summary is already corrected by this synthesis: its actual findings are nine medium and nine low. D5b-F16 reports no duplicated fenced JSON finding; F17 explicitly leaves secret review unperformed. Do not turn either into a defect count.\n\nKeep the preservation requirements ahead of proposed deletion: an input snapshot can contain uncommitted dirty bytes that a commit SHA cannot reproduce; confirm actual recoverability and referenced validators before any future replacement. Identical before/after images can document an unchanged surface, and identical reload/import payloads can be the intended identity assertion. Neither proves every intended change worked, nor establishes mislabeling without the capture’s purpose. Verbatim outbound, failed-attempt, captured response and reconciled prompt files have different provenance roles. A repeated validation template is not separate per-game evidence. Recovery copies, unique assignment boundaries, historical tombstones and raw evidence remain intact. None of these reports authorizes untracking, moving, deleting, rewriting history or altering private profiles.\n\nLater fix/checkpoint records qualify selected stale M3, push, census, queue and browser-gate claims. Original shared-tree counts, capacity policies, model settings, active thread IDs and source/tool availability do not survive as current leases or recommendations. Database LOCK files are not writer reservations. No REPORT filename within two directory levels is not proof that a dispatched job produced no result. Source-game-relative references and frozen links retain their input context. A broad index may route useful owners, but does not close their substantive review.\n\nResearch access, entitlement, source-read coverage, dossier availability and played implementation remain separate. Roadwarden reference-only versus no direct dossier can coexist; Magical Diary’s recorded payload pass does not prove present entitlement. Report/directory/manifest/game counts have different denominators. Derived hashes and paraphrase inventories are not automatically forbidden raw prose; D6-F12 did not establish that breach, and its engine-content comparison remained unchecked. Old acquisition patches, donor rankings and tool suggestions are retained proposals, not current purchase/download/research orders. Current source acquisition and tool registry owners govern any later authorized work. No library, external sources, game payloads or private saves were opened.",
+      "before_sha256": "af3611054be9e434d2d5c995dc1da9f9c040c24ab2da8dbd00a6aed30dd8a8f6",
+      "after_sha256": "b243c4b098fa1d5be74544f4d54d438e8658f088c6368520d8de092a7f5c2d52"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1154
+}

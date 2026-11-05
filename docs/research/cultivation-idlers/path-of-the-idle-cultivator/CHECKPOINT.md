@@ -32,3 +32,8 @@ Next useful source read: trace one specialty trial's start, damage, defeat, rewa
 Work area: `~/.codex/research/path-idle-cultivator/`; disk used at completion: approximately 45 MiB before final small notes/hashes. Raw/extract hashes in `extract/HASHES.txt`; catalogue count metadata in `extract/inventory.json`.
 
 Ownership: this lane writes only `docs/research/cultivation-idlers/path-of-the-idle-cultivator/`. Parent report/checkpoint and all live owners left unchanged. Main checkout heavily dirty with concurrent lanes; no staging/commit/push. Read COMMON.md, PROJECT.md top80 and relevant USER_VISION direction before work. Desktop-first and one-realm/one-prestige remain current. No game launch, save, account, native control, runtime/build or source-library mutation.
+
+
+## Direction qualification, 2026-11-04 (B29)
+
+The closing one-realm/one-prestige current-milestone sentence is an October14 snapshot, superseded by USER_VISION’s October24 scope direction. Retain the precise static-source gaps and desktop-first direction without reinstating that retired delivery gate. This reconciliation did not execute a game or repeat the completed decoding.

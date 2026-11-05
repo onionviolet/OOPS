@@ -1,6 +1,6 @@
 # Own-holdings display for the other non-native lives (plan, proposal, 2026-11-03)
 
-Proposal under AD32; nothing built. Follows A1-A4 of [HP_O1_O2_RECEIPT](HP_O1_O2_RECEIPT.md). Rules: AD44, AD46, AD51, AR1-AR16, AR3, UR (display only), AD36, AD43. Default, dial and reason below replace an either/or question (AD5).
+Plan under AD32; P1-P3 have later scoped implementation receipts in the Parts table, while P4 remains a proposal. P3 retains its academy/keeper Import gaps and other limits; this summary does not rerun their proof. The original opening said "Proposal under AD32; nothing built" before those receipts were added. Follows A1-A4 of [HP_O1_O2_RECEIPT](HP_O1_O2_RECEIPT.md). Rules: AD44, AD46, AD51, AR1-AR16, AR3, UR (display only), AD36, AD43. Default, dial and reason below replace an either/or question (AD5).
 
 ## Evidence (read this session, not run)
 
@@ -37,3 +37,17 @@ Proposal under AD32; nothing built. Follows A1-A4 of [HP_O1_O2_RECEIPT](HP_O1_O2
 ## Cost and writer
 
 One Sonnet implementer at high effort per part, serial (P1 first; P2 and P3 touch different life files but share `own_holdings.js`, so one writer at a time). No new reading, no paid calls.
+
+
+## Full-owner reconciliation B101, 2026-11-04
+
+Full owner review closes prior selected-range residue. Its original static-registry/only-HP-lead “today” rows are dated diagnosis, superseded by P1 live readers, P2 school/trade and P3 five Gu/Shadow Slave registrations. B100 also confirms W4’s later HP purse/item reader. Display-only veil does not repair model-side spend or provide life-owned vitals, which remain P4. Actor-current-world binding and a declared native-carry case remain useful; raw labels require observer admission. “No new reading, no paid calls” cannot erase the actual bounded owner/source inspection necessary for a new life. No new agent or global display rewrite is selected.
+
+Full receipt now read beyond the earlier verification-row sample. Preserve five distinct owners and unit semantics: energy is not currency, badges and stones have actual item holdings, native-stock filters are world-specific. Apprentice/trial/company selected literal imports passed; keeper chores-only import passed, while academy start-plus-minute and keeper-after-buy imports timed out even with registration disabled. That control narrows causality but does not diagnose the import failure or certify unaffected behavior. No prior screenshots per life, two font sizes, fresh Village browser or installed app proof is added by this review. P3’s partial acceptance remains exactly qualified, with shared registration hunks isolated at any authorized commit.
+
+
+## Review-fix qualification B102, 2026-11-04
+
+Retain parsing canonical inventory ids from JSON rather than key string shape, registration idempotence, one projection call, diagnostic pack warning and explicit empty-district refusal. Second registration after a portless first still lacks refreshed ports. Logging validation errors may need observer/private-data discipline; this receipt does not certify every public diagnostic. Focused tests passed historically with no rebuild/browser, so these fixes do not inherit the prior window’s native proof on changed inputs. New native validation belongs to the actual changed consumer.
+
+Display names were neutralized while stable relationship/item IDs remain for saved/private joins. Do not rename slugs or claim all tracked canon residue is gone. Fixed literal sourceSnapshot hash and no checked pack-content hash prove neither content identity nor regenerated saved notes; existing saves retain old wording as acknowledged. Private overriding labels were not read/tested in this receipt. Focused tests/rules pass is not rebuilt native content delivery.

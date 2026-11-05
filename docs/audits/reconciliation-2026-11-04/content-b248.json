@@ -1,0 +1,179 @@
+{
+  "schema": 1,
+  "batch": "B248",
+  "title": "Six numeric UI maps: full geometry review, density gains and toolbar costs",
+  "at": "2026-11-04T23:52:29.256965+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/r16/before/slack-map.md",
+      "ids": [
+        "fresh/populated/combat ×1366x768-14/1366x768-21/1920x1080-21",
+        "player/focus/inventory/actions/log/other",
+        "54 data rows; module h/used/slack/overflow"
+      ],
+      "classification": "Full numeric UI slack-map content read; actual local tradeoffs and measurement limits",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Baseline retains large log slack while local modules overflow: populated1366/21 inventory679px, local-actions304px and Focus385px overflow coexist with449px log slack;1920/21 combat log slack834px coexists with99px shell-character and499px inventory overflow. Overall page bounds match the named viewport, not all content fitting without internal scroll.",
+      "evidence": "All56 lines in each of six tables delivered in two bounded three-file reads. Numeric comparisons use the recorded matched case/region labels; no fresh renderer or screenshot inspection.",
+      "reopen": "Selected current layout/density claim: measure actual rebuilt populated state with input/observer identity and relevant controls, not just page bounds or aggregate slack.",
+      "input_sha256": "8d2cda2d8de88b578fcacf30dbe8537ea8d4fada3c4702e5ba65e204f3c1cc0a",
+      "input_lines": 56,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          56
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/r16/after/slack-map.md",
+      "ids": [
+        "fresh/populated/combat ×1366x768-14/1366x768-21/1920x1080-21",
+        "player/focus/inventory/actions/log/other",
+        "54 data rows; module h/used/slack/overflow"
+      ],
+      "classification": "Full numeric UI slack-map content read; actual local tradeoffs and measurement limits",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Density trades chrome for content: populated1366/21 inventory rows5→6 and overflow679→600 while inventory frame311→291; scene90→60 and navigation45→33. Module overflow remains in character221, Focus188 and actions202, so no universal no-overflow claim. Populated1920 actions also lists records/skills with own overflow, and cannot be summed as independent regions without hierarchy.",
+      "evidence": "All56 lines in each of six tables delivered in two bounded three-file reads. Numeric comparisons use the recorded matched case/region labels; no fresh renderer or screenshot inspection.",
+      "reopen": "Selected current layout/density claim: measure actual rebuilt populated state with input/observer identity and relevant controls, not just page bounds or aggregate slack.",
+      "input_sha256": "1d29c362f901b7f9db7a4f43745f28a143ae4e3e34110f75f9de065576c5406a",
+      "input_lines": 56,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          56
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/r18/slack-before/slack-map.md",
+      "ids": [
+        "fresh/populated/combat ×1366x768-14/1366x768-21/1920x1080-21",
+        "player/focus/inventory/actions/log/other",
+        "54 data rows; module h/used/slack/overflow"
+      ],
+      "classification": "Full numeric UI slack-map content read; actual local tradeoffs and measurement limits",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "The R18 baseline has populated1366/21 six visible inventory rows,31px tool frame and254px belongings frame; combat has five rows,229px belongings and625px overflow. Fresh1920 inventory holds two rows with386px slack. Sparse baseline slack is not evidence a permanently enlarged toolbar is cost-free when populated.",
+      "evidence": "All56 lines in each of six tables delivered in two bounded three-file reads. Numeric comparisons use the recorded matched case/region labels; no fresh renderer or screenshot inspection.",
+      "reopen": "Selected current layout/density claim: measure actual rebuilt populated state with input/observer identity and relevant controls, not just page bounds or aggregate slack.",
+      "input_sha256": "b5dd315f2713604554ad999d0bc2633212a946f2bae55d4f7e94cfeaff673a8e",
+      "input_lines": 56,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          56
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/r18/slack-after/slack-map.md",
+      "ids": [
+        "fresh/populated/combat ×1366x768-14/1366x768-21/1920x1080-21",
+        "player/focus/inventory/actions/log/other",
+        "54 data rows; module h/used/slack/overflow"
+      ],
+      "classification": "Full numeric UI slack-map content read; actual local tradeoffs and measurement limits",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Tabs add real toolbar cost at1366/21: tools31→60px, populated belongings254→226px, visible rows6→5 and overflow600→641; combat rows5→4 and belongings229→201px.1920 populated inventory rows15→14 and overflow332→345. Category/clear/sort usability may still be worthwhile, but this geometry does not prove uniform density improvement.",
+      "evidence": "All56 lines in each of six tables delivered in two bounded three-file reads. Numeric comparisons use the recorded matched case/region labels; no fresh renderer or screenshot inspection.",
+      "reopen": "Selected current layout/density claim: measure actual rebuilt populated state with input/observer identity and relevant controls, not just page bounds or aggregate slack.",
+      "input_sha256": "6638d028ff21179a0ddbbac26b472ab2748be8ff663c659432edd7018d5c35f3",
+      "input_lines": 56,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          56
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/r20/slack-before/slack-map.md",
+      "ids": [
+        "fresh/populated/combat ×1366x768-14/1366x768-21/1920x1080-21",
+        "player/focus/inventory/actions/log/other",
+        "54 data rows; module h/used/slack/overflow"
+      ],
+      "classification": "Full numeric UI slack-map content read; actual local tradeoffs and measurement limits",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Fresh/populated metrics mostly align with the earlier R18-before geometry, but this is its own recorded candidate with some control-count differences, not proof of byte-identical baseline.1920/21 combat player/focus497px, inventory/actions491px,13 inventory rows, log width501 and log slack862 provide the local comparison.",
+      "evidence": "All56 lines in each of six tables delivered in two bounded three-file reads. Numeric comparisons use the recorded matched case/region labels; no fresh renderer or screenshot inspection.",
+      "reopen": "Selected current layout/density claim: measure actual rebuilt populated state with input/observer identity and relevant controls, not just page bounds or aggregate slack.",
+      "input_sha256": "c2361a4b31d848dfece287f38f74616360e360e0424a62efc97a4e884f173e1a",
+      "input_lines": 56,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          56
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/evidence/r20/slack-after/slack-map.md",
+      "ids": [
+        "fresh/populated/combat ×1366x768-14/1366x768-21/1920x1080-21",
+        "player/focus/inventory/actions/log/other",
+        "54 data rows; module h/used/slack/overflow"
+      ],
+      "classification": "Full numeric UI slack-map content read; actual local tradeoffs and measurement limits",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Combat redistributes height without changing the documented page bounds/log width:1920/21 player/focus497→429, inventory/actions491→559, rows13→15 and action height353→421;1366/21 rows5→6 while Focus412→387 and actions266→291. Fresh/populated states are retained. Positive Focus slack and inventory overflow remain; the table does not show every opponent/control, input stability or accessible disclosure.",
+      "evidence": "All56 lines in each of six tables delivered in two bounded three-file reads. Numeric comparisons use the recorded matched case/region labels; no fresh renderer or screenshot inspection.",
+      "reopen": "Selected current layout/density claim: measure actual rebuilt populated state with input/observer identity and relevant controls, not just page bounds or aggregate slack.",
+      "input_sha256": "9f3d90dc771ed76368a3ebb71eac133ceb16cc223908c32609f31e5cc4c809ba",
+      "input_lines": 56,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          56
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/UI_RULES.md",
+      "heading": "## Slack-map reconciliation: measured tradeoffs and geometry limits (B248, 2026-11-04)",
+      "body": "F1. Full numeric review covers all324 data rows across six R16/R18/R20 before/after slack tables: nine fresh/populated/combat cases at1366×768/14,1366×768/21 and1920×1080/21, each with player/focus/inventory/actions/log/other rows. These are dated measurement artifacts, not freshly exercised builds or screenshots. Same page bounds can coexist with substantial internal module overflow; low region slack does not mean readable content, and large sparse-log slack does not prove another pane can grow without a task tradeoff. A module list may include nested/companion content, so its heights are not automatically additive independent regions.\n\nF2. R16's populated1366/21 comparison records more visible inventory rows5→6 and less inventory overflow679→600 despite frame311→291, alongside scene90→60 and navigation45→33 reductions. Character221px, Focus188px and action202px overflow remain afterward. The density improvement is scoped rather than a no-scroll/no-overflow proof. Records/Skills also carry their own overflow in populated contexts. AD36/AD43 do not let a table of geometric changes replace the actual relevant task/keyboard/return/browser check.\n\nF3. R18 tabs have a measurable cost that the short technical-close wording alone could hide: at1366/21 tools31→60px, populated belongings254→226px, rows6→5 and overflow600→641; combat rows5→4.1920 populated rows15→14 and overflow332→345. Retain category/search/clear/known-value benefits from their actual consumer evidence while recording this tradeoff. Under AD32 the historical tabs/layout are scoped choices, not proof every added toolbar improves density or permission to silently shrink text.\n\nF4. R20 combat redistributes space:1920/21 player/focus497→429px and inventory/actions491→559px, inventory rows13→15 and action-module height353→421px. Log width stays501px and slack862px in that case.1366/21 rows5→6 and action frame266→291px. Those tables do not by themselves prove opponent countability, click stability, native fact filtering or current layout parity. R20-before similarities to R18-before are not byte-identity evidence; preserve each candidate's actual input record. Current desktop/prose-first/optional-art direction and optional human review under AD42 qualify historical viewport gates. No runtime or visual acceptance was renewed by reading these maps.",
+      "before_sha256": "6fbef6dab5e4d35dd4c19a748321ce958397c0ccdb6ae35638ecd909fb0789e3",
+      "after_sha256": "cc6653ec10204ddd3f6c2e29900cc68472e1cea102bb52453367ddffdd58f573"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 930,
+  "post_record_amendments": [
+    {
+      "path": "docs/worlds/NONHUMAN_BODY_AUTHORING_2026-10-14.md",
+      "from": "rejection/fallback occurs before accepted-life commitment rather than regenerating anatomy on import.",
+      "to": "rejection/fallback occurs before committing a life rather than regenerating anatomy on import.",
+      "reason": "B248 lint: describe start commitment without ambiguous product-acceptance wording; failed attempt retained."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B243, continuous execution 2026-11-04 |",
+      "to": "| B248, continuous execution 2026-11-04 |",
+      "reason": "Advance active pointer through B248; no new full-register reading credit."
+    }
+  ]
+}

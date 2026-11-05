@@ -10,3 +10,8 @@ October 13, 2026. Required primary same-life arc and secondary first-cycle gates
 | V3 | Every unrelated pack/private world, native quest, mobile geometry and audio comfort | Outside this finite proof. Affected native/structured save tests pass; no earlier evidence relabeled. |
 
 Declared limits: finite stock/funding, browser closure pauses, local lane return only, no outbound Village route after Begin. These are disclosed scope/proposal choices, not hidden technical promises.
+
+
+## Chronology reconciliation, 2026-11-04 (B12)
+
+The checkpoint’s earlier source-change warning and this later October 13 final-input milestone receipt describe different input states. Preserve the later exact primary/secondary proof claim without renewing it for today’s checkout; V1–V3 still delimit unplayed variants and excluded scope. Human taste review remains optional under current AD42. Finite means, independent NPC contribution, durable publication and disclosed pre-Begin scope remain the useful consumer checks.

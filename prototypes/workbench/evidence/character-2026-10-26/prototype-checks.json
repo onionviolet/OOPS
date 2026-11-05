@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "checks": [
+    "Variant preserves stock/result/selection; does not replay craft",
+    "Compare mirrors home/mood resulting state without commands",
+    "signal 1920x1080/14px inspect/press/result/home; no page overflow",
+    "folio 1920x1080/14px inspect/press/result/home; no page overflow",
+    "signal 1920x1080/21px inspect/press/result/home; no page overflow",
+    "folio 1920x1080/21px inspect/press/result/home; no page overflow",
+    "signal 1536x864/14px inspect/press/result/home; no page overflow",
+    "folio 1536x864/14px inspect/press/result/home; no page overflow",
+    "signal 1536x864/21px inspect/press/result/home; no page overflow",
+    "folio 1536x864/21px inspect/press/result/home; no page overflow",
+    "Native effect presenter executes animations at full; reduced-motion suppresses glyph motion; off retains receipt",
+    "Reload resets in-memory fixture; no storage writes"
+  ],
+  "full": {
+    "shown": true,
+    "animations": 3
+  },
+  "errors": []
+}

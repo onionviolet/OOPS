@@ -1,0 +1,192 @@
+{
+  "checks": [
+    "panels: complete errand, failure with no payment, identical state on view switch",
+    {
+      "mode": "panels",
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "scrollHeight": 1080
+    },
+    {
+      "mode": "panels",
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "scrollHeight": 1080
+    },
+    {
+      "mode": "panels",
+      "width": 1800,
+      "height": 1040,
+      "size": 14,
+      "scrollHeight": 1040
+    },
+    {
+      "mode": "panels",
+      "width": 1800,
+      "height": 1040,
+      "size": 21,
+      "scrollHeight": 1040
+    },
+    {
+      "mode": "panels",
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "scrollHeight": 925
+    },
+    {
+      "mode": "panels",
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "scrollHeight": 1033
+    },
+    {
+      "mode": "panels",
+      "width": 1024,
+      "height": 900,
+      "size": 14,
+      "scrollHeight": 900
+    },
+    {
+      "mode": "panels",
+      "width": 1024,
+      "height": 900,
+      "size": 21,
+      "scrollHeight": 1344
+    },
+    "panels: short refuses without charging",
+    "panels: closed refuses without charging",
+    "hybrid: complete errand, failure with no payment, identical state on view switch",
+    {
+      "mode": "hybrid",
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "scrollHeight": 1080
+    },
+    {
+      "mode": "hybrid",
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "scrollHeight": 1080
+    },
+    {
+      "mode": "hybrid",
+      "width": 1800,
+      "height": 1040,
+      "size": 14,
+      "scrollHeight": 1040
+    },
+    {
+      "mode": "hybrid",
+      "width": 1800,
+      "height": 1040,
+      "size": 21,
+      "scrollHeight": 1040
+    },
+    {
+      "mode": "hybrid",
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "scrollHeight": 925
+    },
+    {
+      "mode": "hybrid",
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "scrollHeight": 983
+    },
+    {
+      "mode": "hybrid",
+      "width": 1024,
+      "height": 900,
+      "size": 14,
+      "scrollHeight": 900
+    },
+    {
+      "mode": "hybrid",
+      "width": 1024,
+      "height": 900,
+      "size": 21,
+      "scrollHeight": 1344
+    },
+    "hybrid: short refuses without charging",
+    "hybrid: closed refuses without charging",
+    "walk: complete errand, failure with no payment, identical state on view switch",
+    {
+      "mode": "walk",
+      "width": 1920,
+      "height": 1080,
+      "size": 14,
+      "scrollHeight": 1080
+    },
+    {
+      "mode": "walk",
+      "width": 1920,
+      "height": 1080,
+      "size": 21,
+      "scrollHeight": 1124
+    },
+    {
+      "mode": "walk",
+      "width": 1800,
+      "height": 1040,
+      "size": 14,
+      "scrollHeight": 1040
+    },
+    {
+      "mode": "walk",
+      "width": 1800,
+      "height": 1040,
+      "size": 21,
+      "scrollHeight": 1124
+    },
+    {
+      "mode": "walk",
+      "width": 1536,
+      "height": 864,
+      "size": 14,
+      "scrollHeight": 1014
+    },
+    {
+      "mode": "walk",
+      "width": 1536,
+      "height": 864,
+      "size": 21,
+      "scrollHeight": 1124
+    },
+    {
+      "mode": "walk",
+      "width": 1024,
+      "height": 900,
+      "size": 14,
+      "scrollHeight": 1044
+    },
+    {
+      "mode": "walk",
+      "width": 1024,
+      "height": 900,
+      "size": 21,
+      "scrollHeight": 1238
+    },
+    "walk: short refuses without charging",
+    "walk: closed refuses without charging",
+    "walk: keyboard move/E/Esc, no movement time charge",
+    "shared workbench: study loads and three mirrored variants preserve learned request"
+  ],
+  "errors": [],
+  "outcome": {
+    "money": 8,
+    "bread": 0,
+    "minutes": 14,
+    "served": true,
+    "stock": 2
+  },
+  "review": "agent-verified sketch; not native gameplay, not human-reviewed"
+}

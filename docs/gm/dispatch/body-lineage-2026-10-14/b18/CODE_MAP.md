@@ -92,3 +92,8 @@ SHA-256 of read source bytes at locator refresh. These identify a local source s
 | `src/save_migration.js` | `feb8d7c31aad7a2793e75e2aa455af89f87ec101ab4e1b42cd3da2379988689f` |
 | `src/seeded_streams.js` | `db2a19d956515eab816f7df7ca13ffc11d08797de61a583811f92254c46b7610` |
 | `src/main.js` | `81a8b6130efe5560e456c25840ae6ec035666ecf92efdcd133de620183c0ba16` |
+
+
+## Current scope and selected projection seams, 2026-11-04 (B84)
+
+Retain AB1–AB12’s actual-consumer boundaries and original source fingerprints, without treating October 14 offsets or no-body-tab wording as a current UI census. The current status window mounts the shared You-sheet projection; that is a source observation, not CV1 diagnosis/bodyLens implementation. The current awakening owner is cheat_host through main’s alias and validated writer binding, as the [B16 correction](../b16/ROADMAP.md#current-authority-and-awakening-seam-2026-11-04-b84) records. Current selected knowledge effects still permit equal/higher-stage same-key replacement, requiring distinct actual observation/claim semantics for contradictions. Positive capability grants are not negative costs, contribution labels are not automatically public, generic custody/estate primitives do not settle every new carrier, and named consumers do not implement all proposed AB interfaces. AD51 governs shared seam design from known sources and second-world validation without imposing a two-implemented-world embargo. Current AD32/AD36/AD42/AD43 preserve proposal and proof scope; no new runtime or migration follows.

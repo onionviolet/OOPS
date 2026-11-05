@@ -217,3 +217,15 @@ Remembered know-how does not itself import missing tools, workforce or physical
 laws. This preserves accepted profitable opportunities while requiring an actual
 consumer, not merely increasing a factory counter. No factory/farming/cross-world
 build or new scope for the continuation executor is selected by this note.
+
+
+## Rift/subplane intake reconciliation B103, 2026-11-04
+
+[The historical rift/subplane addendum](../gm/dispatch/RIFT_AND_PLANE_RESEARCH.md) belongs with this cosmology owner. Retain route lifetime versus destination lifetime, view/presence/contact/return, branch/echo/trial versus durable world, agency versus creation/ownership and anchor damage versus interior destruction. This historical dispatcher addendum is steering/evidence seeds, not an active four-role launch or research reservation. The old one-realm/one-prestige gate is retired; current direction governs. External pages are dated references not freshly read rules here, local character theory remains attributed and no cosmology is adopted. Ordinary and exceptional comparative situations are proposed audit cases, not implemented worlds or an automatic universal topology backend.
+
+
+## Structure and persistence content reconciliation, 2026-11-04
+
+OD5 separates what a cosmos is, how much is represented, what persists, and which instance a return reaches. A represented town can belong to a real planet; an expedition can become residence without resetting goods, people, obligations or history. Cosmology options and the proposed five records remain a palette, not a mandatory schema or ten-world delivery queue. Titles, local authority, usable means, coverage and personal power are different facts.
+
+OD11 EC1–EC5 and GW4 preserve profitable commerce and selling-centric powers. Knowing, proving, teaching, making one product, maintaining supply and using it are different capabilities. Automatic scarcity taxes, forced demand collapse or universal bottlenecks would add rules this palette does not establish (AD5, AD38). Imported mechanisms depend on actual requirements and the destination, rather than franchise rank. Keep worked compositions and source-cutoff alternatives. The October 7 source/build note remains implemented-unverified in its own scope; B103 already retires the historical prestige gate. No crossing, return or whole-world simulation was exercised here.

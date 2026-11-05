@@ -1,5 +1,7 @@
 # UI and engine modularity assessment, 2026-10-21
 
+**Content review B2, 2026-11-04:** F1–F5/R1–R3 reviewed with the bounded implementation. Current spec/host source uses `workspaceRegions()` for region construction, so F2’s duplicate region list is superseded at that seam. Other native DOM/state coupling is not declared solved. The [ER12 fold](../research/OWN_ENGINE_KERNEL_DESIGN_2026-10-14.md#foundation-review-reconciliation-2026-11-04) retains the remaining consequences; old counts, milestone wording and release claims do not override current PROJECT.md direction (AD32/AD36).
+
 Later same-day follow-up: [bounded implementation and Electron status](MODULARITY_IMPLEMENTATION_2026-10-21.md) removes F2's duplicate host region-order list and adds host-import enforcement to F5's gate. Other findings retain their original assessed scope.
 
 User question: “Is the way of our UI and our engine modular and extendable and easily upgradable?”

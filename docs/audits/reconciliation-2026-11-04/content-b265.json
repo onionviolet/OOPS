@@ -1,0 +1,154 @@
+{
+  "schema": 1,
+  "batch": "B265",
+  "title": "Five core-foundation checkpoints and non-additive proof scopes",
+  "at": "2026-11-05T00:16:33.249698+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/core-foundations-2026-10-14/a1/CHECKPOINT.md",
+      "ids": [
+        "docs-only scope",
+        "74 import rows",
+        "six hashes/API rankings",
+        "11cadb30→59917616 refresh"
+      ],
+      "classification": "Finite historical source/docs/test lane checkpoint; integration unproven here",
+      "owners": [
+        "docs/ENGINE_AUTHORING.md",
+        "docs/gm/dispatch/core-foundations-2026-10-14/a1/CHECKPOINT.md"
+      ],
+      "disposition": "A1 completed its documentation lane only. Static link/locator/hash/row counts are not current implementation or semantic contract proof; the six-source refresh applied to its recorded merge. PLAN and REPORT bodies are not reviewed by reading this checkpoint, and its old review dependencies are not present locks. Preserve original receipt and map qualifications into existing engine-authoring evidence owner.",
+      "evidence": "Full checkpoint delivered and reviewed. No linked PLAN/REPORT/AUDIT body implicitly credited; no current commit/worktree/process, suite or runtime execution verified.",
+      "reopen": "Review remaining inventoried long-form lane bodies separately; inspect current integration only if selected for a consequential implementation claim, preserving old evidence inputs.",
+      "input_sha256": "f78f22be9cfa4e96fee1ef9d6c9e1482002ae4c28c76c9b4a5dd1a83a68d2136",
+      "input_lines": 44,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          44
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/core-foundations-2026-10-14/a2/CHECKPOINT.md",
+      "ids": [
+        "boolean tags",
+        "parent implication/observer filters",
+        "schema1 unknown IDs",
+        "21/21",
+        "d666e20f"
+      ],
+      "classification": "Finite historical source/docs/test lane checkpoint; integration unproven here",
+      "owners": [
+        "docs/ENGINE_AUTHORING.md",
+        "docs/gm/dispatch/core-foundations-2026-10-14/a2/CHECKPOINT.md"
+      ],
+      "disposition": "A2 is a pure tag-store proposal with explicit no-wiring scope. Retained unknown IDs supersede only this lane’s older E4 drop-on-load proposal. 21 includes17new+4existing; no gameplay/schema/browser/integration evidence. The branch commit is a historical receipt, not inspected current integration. Preserve original receipt and map qualifications into existing engine-authoring evidence owner.",
+      "evidence": "Full checkpoint delivered and reviewed. No linked PLAN/REPORT/AUDIT body implicitly credited; no current commit/worktree/process, suite or runtime execution verified.",
+      "reopen": "Review remaining inventoried long-form lane bodies separately; inspect current integration only if selected for a consequential implementation claim, preserving old evidence inputs.",
+      "input_sha256": "abc36573939c974e6666b53144f530cc706d8894811d679705f689a298f6b761",
+      "input_lines": 31,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          31
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/core-foundations-2026-10-14/a3/CHECKPOINT.md",
+      "ids": [
+        "six direct test files",
+        "124/124 focused",
+        "758/758 full",
+        "030c476b"
+      ],
+      "classification": "Finite historical source/docs/test lane checkpoint; integration unproven here",
+      "owners": [
+        "docs/ENGINE_AUTHORING.md",
+        "docs/gm/dispatch/core-foundations-2026-10-14/a3/CHECKPOINT.md"
+      ],
+      "disposition": "A3 adds direct synthetic travel/cargo/record contract tests and found no confirmed source defect. Source-only suites do not prove native route, full envelope or natural travel. Focused124 is included in full758, not additive. No merge/build/native claim. Preserve original receipt and map qualifications into existing engine-authoring evidence owner.",
+      "evidence": "Full checkpoint delivered and reviewed. No linked PLAN/REPORT/AUDIT body implicitly credited; no current commit/worktree/process, suite or runtime execution verified.",
+      "reopen": "Review remaining inventoried long-form lane bodies separately; inspect current integration only if selected for a consequential implementation claim, preserving old evidence inputs.",
+      "input_sha256": "da63765c5beec99ca526b62254796a9e7d50a8602c08425fbdd32ee149973efb",
+      "input_lines": 20,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          20
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/core-foundations-2026-10-14/a4/CHECKPOINT.md",
+      "ids": [
+        "A4-F1",
+        "A4-D1/D2",
+        "42 literal lines/32 files",
+        "15 focused/34 scoped",
+        "c6ea2cbc"
+      ],
+      "classification": "Finite historical source/docs/test lane checkpoint; integration unproven here",
+      "owners": [
+        "docs/ENGINE_AUTHORING.md",
+        "docs/gm/dispatch/core-foundations-2026-10-14/a4/CHECKPOINT.md"
+      ],
+      "disposition": "A4 corrects write-only overstatement and creates a detached source-qualified relationship view, without adding a relationship store, reverse edges, merging/precedence/sums or consent disclosure. 42 declarations are not actual runtime writer count. Scoped34 includes15focused; no browser/native-save/integration proof. The large AUDIT body remains open. Preserve original receipt and map qualifications into existing engine-authoring evidence owner.",
+      "evidence": "Full checkpoint delivered and reviewed. No linked PLAN/REPORT/AUDIT body implicitly credited; no current commit/worktree/process, suite or runtime execution verified.",
+      "reopen": "Review remaining inventoried long-form lane bodies separately; inspect current integration only if selected for a consequential implementation claim, preserving old evidence inputs.",
+      "input_sha256": "7c837164d040f4e1c7d0720d04a830cf0153e3dcc95551e44a04446ab8acd1d2",
+      "input_lines": 33,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          33
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/core-foundations-2026-10-14/a5/CHECKPOINT.md",
+      "ids": [
+        "source ratchets/baseline",
+        "48-boundary headless replay",
+        "three TODO route groups",
+        "6/9 focused and640/643 full",
+        "6fbc3193"
+      ],
+      "classification": "Finite historical source/docs/test lane checkpoint; integration unproven here",
+      "owners": [
+        "docs/ENGINE_AUTHORING.md",
+        "docs/gm/dispatch/core-foundations-2026-10-14/a5/CHECKPOINT.md"
+      ],
+      "disposition": "A5 reads a streams branch without importing/merging it. Three legacy unseeded route groups remain TODO;9tests includes6pass+3TODO,643includes640pass+3TODO. A seeded headless48boundary probe and JSON continuation are not native full-envelope/browser acceptance. Commit and clean worktree state are historical, not revalidated now. Preserve original receipt and map qualifications into existing engine-authoring evidence owner.",
+      "evidence": "Full checkpoint delivered and reviewed. No linked PLAN/REPORT/AUDIT body implicitly credited; no current commit/worktree/process, suite or runtime execution verified.",
+      "reopen": "Review remaining inventoried long-form lane bodies separately; inspect current integration only if selected for a consequential implementation claim, preserving old evidence inputs.",
+      "input_sha256": "b4c987dc17bb6d1be3001ef34875a7db3e5388261b96f26724bbaf70645f5e09",
+      "input_lines": 19,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          19
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/ENGINE_AUTHORING.md",
+      "heading": "### Core-foundation checkpoint uptake B265",
+      "body": "Five complete [A1](gm/dispatch/core-foundations-2026-10-14/a1/CHECKPOINT.md), [A2](gm/dispatch/core-foundations-2026-10-14/a2/CHECKPOINT.md), [A3](gm/dispatch/core-foundations-2026-10-14/a3/CHECKPOINT.md), [A4](gm/dispatch/core-foundations-2026-10-14/a4/CHECKPOINT.md) and [A5](gm/dispatch/core-foundations-2026-10-14/a5/CHECKPOINT.md) checkpoints were read. Preserve them as historical, distinct lane receipts. A1 is docs-only; A2 pure tag-store work; A3 direct travel tests; A4 detached relationship view and source inventory; A5 determinism ratchets/headless probes. A checkpoint's COMPLETE is scoped to its lane, not integration or current runtime coverage. Main docs were unstaged in those receipts, and source commits lived on separate branches. None of those branches, clean-tree assertions, reservations or commit contents was revalidated here.\n\nA2 retains unknown tag IDs under its explicitly recorded lane requirement, not a global change to all registries. A4's42literal lines in32files are declarations, not runtime writers. Its detached view does not infer reverse relationships, merge incompatible sources, add consent or reveal hidden dimensions. Use actual source-qualified relationship readers when selected. A3’s124focused tests are a subset of its758full count; A4’s15focused are included in34scoped; A2’s21includes17new and4existing. A5’s9contains6pass+3TODO and643contains640pass+3TODO. These suites ran at different lane inputs; no summation or all-green current build is inferred. A5 read but did not merge the seeded-stream branch, and its48boundary replay is not a native gameplay/save journey.\n\nUseful A1 consolidation, A2 unknown preservation, A3 direct travel contracts, A4 relationship-source correction and A5 unseeded-route residue remain accessible in their owners. Their linked PLAN/REPORT/AUDIT bodies were not read by proxy; the inventoried A1 PLAN and A4 AUDIT still need their own full-content review. No actor/tag migration, current integration, native browser/save proof, worker dispatch or new test run follows from this uptake. Current AD36/AD42/AD51 and actual one-writer ownership govern a later selected task.",
+      "before_sha256": "f97b63e91d0e98515a764c3a733debfd7b07cca1833f1022430d7d791dd7262b",
+      "after_sha256": "5475d98d39e770cbb0797c69c4b75039e7dea70163c2ce0373d2b5d0d75a7b11"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 898
+}

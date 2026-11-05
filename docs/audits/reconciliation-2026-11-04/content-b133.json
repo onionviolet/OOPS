@@ -1,0 +1,114 @@
+{
+  "schema": 1,
+  "batch": "B133",
+  "title": "Cheat catalogue and direct correction of unconditional knowledge carry",
+  "at": "2026-11-04T21:36:00.665656+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/cheat-implementation-2026-10-10/readers/B_doc_catalog.md",
+      "ids": [
+        "catalog1–34",
+        "Q1–Q23",
+        "owner table",
+        "C1–C10",
+        "G1–G15",
+        "open Q1–Q10"
+      ],
+      "classification": "Historical cheat catalogue and conflict audit; one current owner defect corrected",
+      "owners": [
+        "docs/audits/cheat-implementation-2026-10-10/readers/B_doc_catalog.md",
+        "docs/audits/cheat-implementation-2026-10-10/REPORT.md",
+        "docs/CHEAT_COSMOLOGY.md",
+        "docs/CHEAT_LIBRARY.md"
+      ],
+      "disposition": "Complete184linesread incl clippedfamilies13–16. Preserve mechanismfamilies, sourceversusdesign and publicoriginals without adopting sourceplot/fullfranchiseclaim. Counts45/95/71/game rows overlap/differdate, not currentunique denominator. CurrentB132source overrides Implnone/heirunreachable, B124originalstandins andactualcardstates qualifyblanketnooriginal/nohooks/noacrosslife. C3knowledgealwayssurvivesstillactualcontradictioncorrect underRulebook5. C1saveidempotenceoneevent not lifetimequota, C4purecheatsneednocost, C6exactmeansallowednotmandatedwrong. C2bothwinner modesworldlocal. C7missingfieldnotprovesafetyorunsafetyalone; actualproducer/projection contractneeded, noautomaticnewsealedfield. Recommendationstomove/supersede remainproposalsnotdeleteauthority. OldQ1/Q2/Q3/Q5answerablefromcurrentstandingownersnotnewpermissiongates.",
+      "evidence": "Fresh full catalogue body, all tables/quotes and end questions. Actual cosmology34–82/120–136 and468–475 selected, actual RULES_FROM_SCRATCH62–73/169–201 carrier/direction read. B132 independently inspected current card/heir/module source; no34families/rawsources/quotedUSER_VISIONlocators all independently reverified.",
+      "reopen": "Review remaining canonical owner bodies and source-specific claim/rule/code only for selected operation; preserve catalogue/provenance/history, no broad move/delete or default launch.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "5ec431d155b332f0883d8d7242c3d4134e48e75a0f0f1e8b28e88eb19d43ae55",
+      "input_lines": 184,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          184
+        ]
+      ]
+    },
+    {
+      "path": "docs/CHEAT_COSMOLOGY.md",
+      "ids": [
+        "backing table Knowledge",
+        "placement card",
+        "what placement shows",
+        "both-winner record"
+      ],
+      "classification": "Selected cosmology owner sections; carrier correction",
+      "owners": [
+        "docs/CHEAT_COSMOLOGY.md",
+        "docs/audits/cheat-implementation-2026-10-10/readers/B_doc_catalog.md"
+      ],
+      "disposition": "Backing table Knowledge Always travels conflictswithsameownerlaterbullet andacceptedRulebook5. Replace onlyoutside-worldcellwithactualcarrier/rulescondition, preservingrelevancedecay. Otherfranchisebackingexamples/portabilitynotfreshlyqualified. Winnerrecordretainsbothmodechoicesneitherengineglobal. Restofcosmologyunreviewed.",
+      "evidence": "Fresh selected34–82/120–136/468–475; actual accepted carrier rule fromprimaryrepoowner. No full-file/canon/source-world read.",
+      "reopen": "Full remainder stillneedscontentcoverage; selectedcarry mustidentifyactualbody/self/record/item/system/worldruleandcontinuity.",
+      "read_mode": "fresh_selected_content_read",
+      "full": false,
+      "ranges": [
+        [
+          34,
+          82
+        ],
+        [
+          120,
+          136
+        ],
+        [
+          468,
+          475
+        ]
+      ],
+      "input_sha256": "ad08834eea5e8fbd8a9503bf54ae4aab963aff9d89e23340f4edfa934b966363",
+      "input_lines": 1455
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/cheat-implementation-2026-10-10/readers/B_doc_catalog.md",
+      "heading": "## Catalogue-use reconciliation B133, 2026-11-04",
+      "body": "Full catalogue1–34/Q1–Q23/owner recommendations/C1–C10/G1–G15/open questions read. Preserve family diversity, source versus design, original/public variants, dependent-world mechanisms and quoted versus paraphrased direction. Its counts describe different dates/overlapping tables, not a current unique cheat census. The original source grep cannot sustain today’s no-card/no-heir/no-hook/no-across-life claims; B132 separately inspects current named code. B124’s original stand-ins likewise qualify blanket no original-body examples, without certifying every family. No full source-world or underlying authority-locator review is granted by reading this catalogue.\n\nC3 remains a real owner contradiction: [CHEAT_COSMOLOGY](../../../CHEAT_COSMOLOGY.md#the-key-to-portability-what-backs-a-cheat) says knowledge always travels, while its later bullet and [accepted Rulebook5](../../../RULES_FROM_SCRATCH.md#the-rulebook-accepted-2026-10-10) require an actual carrier. B133 directly fixes that cell; the original/updated text is retained in the ledger. This is a standing-rule reconciliation, not a new product decision. C1 distinguishes exactly-once settlement from lifetime lore limits. C4 permits genuinely no-cost means, and C6 permits an actually exact reader; readings can be wrong does not force every diagnosis wrong. Both winner modes remain world-specific, neither a universal tier trump. Unknowns remain supported rather than forced either/or questions.\n\nC7’s suggested sealed field is unselected schema design, not a necessary/sufficient secrecy proof. Actual producers, means, knowledge projection, normal metadata and report routes matter. Missing a field name alone neither proves a leak nor authorizes schema expansion. All current secret handling uses IDs/routes/status outside discovery. Proposed owner moves/pointers retain their rationale; no body of useful source/history was deleted or relocated. Current [PROJECT](../../../../PROJECT.md), AD32/AD42/AD51 in [rules index](../../../RULES_INDEX.md) and current source owners govern order, optional review and reasonable shared design. Old first-slice/heir/no-canon-condition questions are not new permission gates. Remaining C/G rows require actual selected-owner review before being called resolved.",
+      "before_sha256": "5ec431d155b332f0883d8d7242c3d4134e48e75a0f0f1e8b28e88eb19d43ae55",
+      "after_sha256": "e251978786905575ddb6a6e0ebd93cdc38bffb628a85f4132c8d0207467a7fce"
+    },
+    {
+      "path": "docs/CHEAT_COSMOLOGY.md",
+      "heading": "## Knowledge-carrier reconciliation B133, 2026-11-04",
+      "body": "The complete [ReaderB catalogue](audits/cheat-implementation-2026-10-10/readers/B_doc_catalog.md#catalogue-use-reconciliation-b133-2026-11-04) identified C3; selected actual text confirmed the backing table still said “Always travels” despite the later carrier bullet. The Knowledge row now follows [Rulebook5](RULES_FROM_SCRATCH.md#the-rulebook-accepted-2026-10-10): knowledge crosses through an actual carrier and its world/cheat rules, rather than an unconditional memory guarantee. Existing relevance/accuracy decay remains possible. Exact old/new wording is retained in [B133](audits/reconciliation-2026-11-04/content-b133.json).\n\nThis corrects one row, not every backing example or every cross-world memory, soul, record or body operation. The October10 both-winner record remains intact; no universal tier winner is imposed. A palette title, catalogue family or display label does not transmit actual knowledge, mastery, fuel, office or obligations. No new carrier power, migration or runtime behavior was introduced. Only selected34–82/120–136/468–475 of this owner were reviewed; the remaining body still needs independent coverage.",
+      "before_sha256": "ad08834eea5e8fbd8a9503bf54ae4aab963aff9d89e23340f4edfa934b966363",
+      "after_sha256": "5ede85345230391090def725c37554a0731b125d34397f63ff784520fced7403"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1229,
+  "post_record_amendments": [
+    {
+      "path": "docs/CHEAT_COSMOLOGY.md",
+      "from": "| Knowledge | What you know | Always travels; its relevance decays in a different world or timeline | Legendary Mechanic's game memory, the reader's foreknowledge |",
+      "to": "| Knowledge | What you know | Crosses when an actual carrier and its world/cheat rules preserve it; relevance and accuracy may change in a different world or timeline (Rulebook5) | Legendary Mechanic's game memory, the reader's foreknowledge |",
+      "reason": "Actual C3 conflict reconciled to existing Rulebook5 and same-owner carrier bullet; superseded text preserved here."
+    },
+    {
+      "path": "docs/audits/cheat-implementation-2026-10-10/readers/B_doc_catalog.md",
+      "from": "[accepted Rulebook5]",
+      "to": "[Rulebook5]",
+      "reason": "Remove redundant adoption adjective from direct rule-owner citation; standing rule text was actually read, no new adoption claim."
+    },
+    {
+      "path": "docs/audits/cheat-implementation-2026-10-10/readers/B_doc_catalog.md",
+      "from": "This is a standing-rule reconciliation, not a new product decision.",
+      "to": "This is a standing-rule reconciliation under AD32/AD38, not a new product decision.",
+      "reason": "Checker also matches accepted inside the linked heading fragment; adjacent AD authority needed on that exact line."
+    }
+  ]
+}

@@ -1,0 +1,238 @@
+{
+  "schema": 1,
+  "batch": "B33",
+  "title": "Hogwarts donor depth and HyperRogue system boundaries",
+  "at": "2026-11-04T19:51:32.701912+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/hogwarts-games/CHECKPOINT.md",
+      "ids": [
+        "F1–F15",
+        "P1–P5"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/hogwarts-games/REPORT.md and the five files in docs/research/hogwarts-games/; overlap owners named as Academagia, HP1 and HP10 research packets."
+      ],
+      "disposition": "Historical research packet complete; all packets remain proposals. Neither target was installed, launched or played. Detailed tables, complete story/companion behavior, season transitions and reception representativeness remain unresolved. No proposal has gameplay acceptance or implementation evidence. Keep data/schema/callback evidence distinct from exact native evaluator, serializer and runtime behavior. Existing follow-up reports retain selected closed subchains and remaining consumer gaps; no full decompile, current donor state, new selected proposal or source acquisition implied. Current HP lead development remains governed by live owners, not donor research order.",
+      "mechanism_and_interactions": "This bounded public-page research covered Hogwarts Mystery and Hogwarts Legacy, not game-side work. Mystery coverage joins chapters/tasks, energy recovery, adventure queue, house points, friendships, stance triangle, OWL trigger/result permanence and graduation continuity; Legacy coverage includes spell acquisition/application, class progression, companions, room stations and vivarium care outputs. Academagia, HP1 and HP10 own overlapping timetable/cohort, house-reputation and guardian-permission topics, so this lane adds evidence rather than replacing those proposals.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports source selection and document checks only. No current game build, browser, YAIRPG implementation, rebuild, persistence journey or runtime evidence was inspected here.",
+      "reopen": "If one packet is selected, resolve its named question with the bounded source route; implementation then needs fresh desktop-origin play and Save/reload/Import proof. Season leads and exact exam eligibility remain weak or unestablished.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          45
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S027.json"
+      ],
+      "prior_input_sha256": "d828299e0ac577df479521b5ac02f6e4b4afa9f0ac9e099bd5dee83f9efea547",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "d828299e0ac577df479521b5ac02f6e4b4afa9f0ac9e099bd5dee83f9efea547",
+      "input_lines": 45
+    },
+    {
+      "path": "docs/research/hogwarts-legacy/CHECKPOINT.md",
+      "ids": [
+        "D2"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/hogwarts-legacy/REPORT.md, BLUEPRINT_PASS.md, REA_TRIAL.md, COVERAGE.json and TOOLING.md; private detail is indexed by the checkpoint."
+      ],
+      "disposition": "Bounded pass completed with no further pending item inside that scope; proposals remain unaccepted. The checkpoint keeps untraced combo arithmetic, XP cadence/refunds/caps, offline timers, school grading, full AI, save semantics and runtime acceptance explicit. REA repeated the selected native result but is optional, not an independent algorithm. Keep data/schema/callback evidence distinct from exact native evaluator, serializer and runtime behavior. Existing follow-up reports retain selected closed subchains and remaining consumer gaps; no full decompile, current donor state, new selected proposal or source acquisition implied. Current HP lead development remains governed by live owners, not donor research order.",
+      "mechanism_and_interactions": "The Legacy static pass tied a selected talent PurchasePerk Blueprint call to one native three-function cost chain: first purchase passes minus one to the points updater. It also decoded selected data and consumers for spells/assignments, XP/talents, challenges/gear, care/recipes, school state, factions/enemies and puzzles. These are bounded data/consumer traces; selected databases, Blueprint/Kismet exports and one native chain do not establish full runtime behavior.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Only the checkpoint was read. Its extraction, SQLite integrity, parser, REA and document checks were not rerun; game was not launched and no user save or YAIRPG runtime was touched.",
+      "reopen": "For a selected feature, trace its specified consumer gap, such as final damage target implementation or persistence serializer, and separately prove resulting YAIRPG behavior. Do not treat this as full decompilation or gameplay proof.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          46
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S027.json"
+      ],
+      "prior_input_sha256": "fe1c88c5d4d29a2a5c9a8c1cf7a5fd9fbf29b988f940af9514c7c6036abcc056",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "fe1c88c5d4d29a2a5c9a8c1cf7a5fd9fbf29b988f940af9514c7c6036abcc056",
+      "input_lines": 46
+    },
+    {
+      "path": "docs/research/hogwarts-legacy/aspects-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "A01–A12",
+        "LP23_PENDING"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/hogwarts-legacy/aspects-2026-10-14/REPORT.md, ASPECTS.md, SYSTEM_INVENTORY.md and DEEPER_SYSTEMS.md; exact reruns route to TOOLING.md in that folder."
+      ],
+      "disposition": "Backfill finished as PARTIAL with explicit unread semantics. G1, a native save serializer question, was merely a possible next assignment; other gaps remain bounded and do not become requirements for other writers. Existing LP reports’ tests/browser claims are attributed to their lanes, not reproduced or accepted here. Keep data/schema/callback evidence distinct from exact native evaluator, serializer and runtime behavior. Existing follow-up reports retain selected closed subchains and remaining consumer gaps; no full decompile, current donor state, new selected proposal or source acquisition implied. Current HP lead development remains governed by live owners, not donor research order.",
+      "mechanism_and_interactions": "This assigned backfill reconciled research artifacts and archived schema/data rather than adding a gameplay mechanism. It reports schema coverage for 530 Ship and 633 Game tables, selected save/restore and conversation/presentation package parses, localized text joins and partial aspect/deeper-system artifacts. These inputs can route later questions, but table presence and selected hooks do not prove serializer, evaluator, tick, mod, RNG, offline-time or UI behavior.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint describes static extracts and document/data validation. No launch, serializer chain, user save, YAIRPG test/build/browser check or owner-document update was performed by this backfill.",
+      "reopen": "Only if assigned a concrete save question: inspect the native serializer/version/migration path. Do not infer persistence from labels, schemas, restore hooks or artifact checks.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          44
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S027.json"
+      ],
+      "prior_input_sha256": "85f880055d3e4ffc9a8356c36c84e9ebd33e749fa505087a6fba1a54135a7f2a",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "85f880055d3e4ffc9a8356c36c84e9ebd33e749fa505087a6fba1a54135a7f2a",
+      "input_lines": 44
+    },
+    {
+      "path": "docs/research/hogwarts-legacy/deep/CHECKPOINT.md",
+      "ids": [
+        "S1",
+        "D3",
+        "D6/D7",
+        "D11/D12"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/hogwarts-legacy/deep/REPORT.md, COVERAGE.json, NATIVE_CHAINS.md and five digests; private README indexes retained source detail."
+      ],
+      "disposition": "Static research packet delivered, not complete decompilation, played behavior, implementation or accepted direction. Some bounded subchains close at source level; gaps remain explicit and a next source-read order is suggested, not required. Historical NO uninstall status concerns incomplete retained research assets, not a current product gate. Keep data/schema/callback evidence distinct from exact native evaluator, serializer and runtime behavior. Existing follow-up reports retain selected closed subchains and remaining consumer gaps; no full decompile, current donor state, new selected proposal or source acquisition implied. Current HP lead development remains governed by live owners, not donor research order.",
+      "mechanism_and_interactions": "The deeper Legacy packet reports static traces across XP action/range/challenge consumers and cumulative thresholds, a completed-criterion guard, selected talent cadence, shield tag predicate with a Hard exception, and ordinary focus gain/spend. Other selected chains cover companion assists/navigation, schedules/conversation priority, merchants, quests, event sampling, care, ranged actions and save maps. These are source-level; final damage depends on an unresolved target virtual implementation, while AI timing, dialogue effects, offline simulation and save restoration remain open.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports selected static-source and tool evidence, but underlying source artifacts were not inspected here. No launch, user-save read/export/import, YAIRPG build/browser check or persistence proof occurred.",
+      "reopen": "For a selected formula or behavior, inspect its named unresolved consumer, especially target-side damage implementation, and qualify runtime separately. Static callbacks/data are not persistence or live-play proof.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          58
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S027.json"
+      ],
+      "prior_input_sha256": "ffc44a249ffd00fc0aed1ab608ab0c022963c9dfffd5466ce26e2c0feda5335b",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "ffc44a249ffd00fc0aed1ab608ab0c022963c9dfffd5466ce26e2c0feda5335b",
+      "input_lines": 58
+    },
+    {
+      "path": "docs/research/hyperrogue/CHECKPOINT.md",
+      "ids": [
+        "K1–K34",
+        "HR-P1/HR-P2/HR-P3"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/hyperrogue/REPORT.md, FINDINGS.json, system digests and source manifest extract/SOURCE_HASHES.txt."
+      ],
+      "disposition": "Bounded static research deliverables are complete, while whole-game and every-rule closure remain partial. HR-P1/P2/P3 await coordinator review for a future existing slice; no implementation was selected and no runtime gate was closed. Keep data/schema/callback evidence distinct from exact native evaluator, serializer and runtime behavior. Existing follow-up reports retain selected closed subchains and remaining consumer gaps; no full decompile, current donor state, new selected proposal or source acquisition implied. Current HP lead development remains governed by live owners, not donor research order.",
+      "mechanism_and_interactions": "The HyperRogue snapshot reports a pinned source read with representative law and consumer traces: candidate selection, typed borders, carried ledgers, distinct orb generation/use/exit behavior, Yendor, Hyperstone, Chaos, tactics, shmup, save/Safety and contextual help. These mechanisms are source-inspected rather than played; the orb-strategy history mismatch is only a static apparent discrepancy pending optional reproduction.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint distinguishes SHOWN source inspection, STATED declarations/help and INFERRED adaptations or defects. It reports no executable, browser, personal save, YAIRPG behavior or persistence exercise.",
+      "reopen": "A selected later slice needs the relevant source question and, for adapted behavior, fresh rebuilt desktop-origin gameplay and affected persistence proof. Representative traces do not close all-land or all-mode behavior.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          36
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S027.json"
+      ],
+      "prior_input_sha256": "8c0d27acc9365376ab66bc20381892c3694d41bf2779a147af53f0371f11c18a",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "8c0d27acc9365376ab66bc20381892c3694d41bf2779a147af53f0371f11c18a",
+      "input_lines": 36
+    },
+    {
+      "path": "docs/research/hyperrogue/aspects-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "A01–A12"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/hyperrogue/CHECKPOINT.md contains the main unread table; aspect/source references route through ASPECTS.json, SYSTEM_INVENTORY and DEEPER_SYSTEMS in that folder."
+      ],
+      "disposition": "Artifact set is present but explicitly PARTIAL. The coordinator is to review proposals; no runtime work was selected. The short checkpoint is not evidence that every aspect has an implemented or accepted mechanic. Keep data/schema/callback evidence distinct from exact native evaluator, serializer and runtime behavior. Existing follow-up reports retain selected closed subchains and remaining consumer gaps; no full decompile, current donor state, new selected proposal or source acquisition implied. Current HP lead development remains governed by live owners, not donor research order.",
+      "mechanism_and_interactions": "This aspect checkpoint is a routing summary: it says architecture and scheduling received bounded coverage, while other aspects remain partial. It identifies dialogue/rescue, AI, orb exceptions, saves/migration/recovery and optional modules as unread or incomplete areas, without specifying mechanisms beyond those boundaries.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Only this historical summary was assigned; full-text tables and private source remain outside scope. No gameplay or persistence verification is claimed.",
+      "reopen": "Use named unread owners for a future selected question; complete dialogue/rescue, AI/orb exceptions and save/migration only to the scope actually chosen.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S027.json"
+      ],
+      "prior_input_sha256": "b7d2aa3f52ebafd4d1d7815875bff815362fd6bfaa69fe78c172154f4a3d369e",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "b7d2aa3f52ebafd4d1d7815875bff815362fd6bfaa69fe78c172154f4a3d369e",
+      "input_lines": 7
+    },
+    {
+      "path": "docs/research/hyperrogue/pass-2026-10-14-systems/CHECKPOINT.md",
+      "ids": [
+        "DS04/05",
+        "DS12",
+        "HRD-P1/P2/P3"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/hyperrogue/pass-2026-10-14-systems/REPORT.md, SYSTEMS.md, FAMILY_MAP.json, INVENTORY.md, FINDINGS.json and IMPLEMENTATION_PACKETS.md; private source work area is named in checkpoint."
+      ],
+      "disposition": "Requested bounded sweep outputs delivered; research remains neither accepted design nor runtime implementation. The report preserves prior Village P01 direction and routes proposals for review; this checkpoint does not select them or authorize continuation. Historical branch/disk details are execution context, not current state claims. Keep data/schema/callback evidence distinct from exact native evaluator, serializer and runtime behavior. Existing follow-up reports retain selected closed subchains and remaining consumer gaps; no full decompile, current donor state, new selected proposal or source acquisition implied. Current HP lead development remains governed by live owners, not donor research order.",
+      "mechanism_and_interactions": "The deeper HyperRogue sweep reports 15 static system reads: escort rescue and speech, companion choice/path lifetime, attack/stuns and segmented bodies, mine evidence, heat/fire, tides, Hive traces, ambush/awakening, dice, ranged preparation, map save, WFC and tutorial lifecycle. Shared consumers and save boundaries were mapped, including heat/fire central rules, selected tide thresholds, crossbow reload/preview resolution and map graph/cell formats. It explicitly leaves per-land readers, geometry/mode products, full orb consumers, save recovery and offscreen parity partial.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Static source inspection and static validation are reported. No source-game play, YAIRPG build, desktop/browser proof, save roundtrip or director acceptance occurred. Partial rows remain partial even where selected shared readers close.",
+      "reopen": "If a proposal is selected, follow its exact unread consumer rows and prove only that slice; full land/mode/save/orb coverage is not implied. YAIRPG changes need fresh rebuilt desktop play and persistence evidence when affected.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          56
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S027.json"
+      ],
+      "prior_input_sha256": "f796ecc91e42baf4290cb1fe394a725de080c1f56190681f3c2b8b4ade646e84",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "f796ecc91e42baf4290cb1fe394a725de080c1f56190681f3c2b8b4ade646e84",
+      "input_lines": 56
+    }
+  ],
+  "folds": [],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1620
+}

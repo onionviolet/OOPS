@@ -214,3 +214,14 @@ plus `npm run check:arch`, `check:rules` (and `check:rule-behavior` if a rule ro
 Build **S0 only** now (the pure derivation module, the designer report and one test, no player-facing cheat), and
 leave the card as a proposal until IM7 and IM9 land? Default answer: yes; S0 gives a price proposer for every
 world and costs nothing player-visible.
+
+
+## Price-spike reconciliation B121, 2026-11-04
+
+Full EL1–EL7, A–E results, S0–S2 and test plan read. Keep the reported extraction and exclusions as dated research, not a current recipe census or a reproduced calculation. The printed primary pin list has 22 named entries while the table/text claim 24 plus two fallback pins. Recover the exact inputs before reproducing; do not invent missing anchors or silently change historical totals. “Category-set” prices and roughly fifty required anchors are interpretations/bounded estimates, not proven author intent or a universal anchor budget. All-recipe cheapest paths also differ from a learned-only player graph.
+
+The section 2.4 no-buy/craft/sell-profit conclusion does not follow from a 4–7× trader markup: the same spike reports paths with about 15× authored/derived ratio. That ratio alone also does not prove profit, since intermediate purchase costs, source availability, quality, success/yield, fuel, actual quote rounding, skill and saturation matter. EL7 already leaves the full simulation unrun. Acyclic recipe conversions do not prove the larger acquisition/trade/ledger graph has no profitable loop. No new actual profit or exploit is claimed here.
+
+Test 2 should require non-increasing value on a same-good round trip, with equality allowed at zero fee when units divide exactly; strictly less at every fee is false. Floor credits/ceil charges prevent rounding gains within that specified transaction, not every cross-issuer/market cycle. A cyclic solver needs explicit gain-cycle/pin/rounding behavior; one fixture settling at a pin does not establish all fixed-point convergence. Card13’s universal worse-than-merchant and cannot-mint wording is therefore qualified, not a proven world law.
+
+Recomputing an unsaved price map does not alone establish save compatibility: saved balances, learned path receipts, revised anchors/definitions and pending quotes need explicit adoption/freeze policy. Existing [B107 carry review](../GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md#g30-lane-reconciliation-b107-2026-11-04) qualified blanket no card-specific heir carry; it does not settle this card’s carrier/balance reset policy. The proposed second-currency home must follow actual current owners and AD51, not a mandatory wait-for-second-currency rule. Quality-blind tariffs, emission/stock backing, learned paths, fees and cross-issuer arbitrage remain local proposal dials. S0’s final default question is unselected work, not authorization to build a module or deepen Frontier.

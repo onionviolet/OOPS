@@ -1,0 +1,117 @@
+{
+  "schema": 1,
+  "batch": "B250",
+  "title": "Native UI audit and structural checkpoints: precise semantics and compared-input limits",
+  "at": "2026-11-04T23:56:27.518700+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R7_AUDIT.md",
+      "ids": [
+        "F1–F32",
+        "D1–D7",
+        "L1–L5"
+      ],
+      "classification": "Full UI audit/structural checkpoint; actual native semantics and amended/planned evidence separated",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Full audit traces native renderer/producers rather than dormant functions. Inspecting an opponent is not retargeting; rounded health/bar/cycle and AP/EP rating versus contextual percentage remain distinct. hero_missed event name does not identify attack direction. Native block value uses stat_value_long, so R6 narrow selector missed a real projection shape. Clear resets counters/dynamic loot as well as nodes; Stop combat log suppresses only scoped reports while combat continues, not pause/replay. Input/DPR of3600×1906 attachment is unknown; native CSS render/pinned source is separate from fitted screenshot. F30 selected-item zero-height correction/F31 mount-hook harness wait do not prove startup performance or long-run throughput. Later More panels/context changes qualify old no-catch-all recommendation.",
+      "evidence": "Entire R7 audit131 lines, R17 checkpoint71, R20 checkpoint80 and R21 checkpoint101 delivered. Linked reports/source/screenshots remain unrefreshed unless separately reviewed in this task.",
+      "reopen": "Selected actual UI projection/layout/preview consumer changes; use final scoped report and current input identity before claiming behavior or taking shared ownership.",
+      "input_sha256": "33e51dfd126ed945abf5a1ae48a75c83e70037e7d1d5b826143b2f2a4eb8bc7b",
+      "input_lines": 131,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          131
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R17_CHECKPOINT.md",
+      "ids": [
+        "spec/CSS/identity/preview/safety/projections",
+        "R17a amended close"
+      ],
+      "classification": "Full UI audit/structural checkpoint; actual native semantics and amended/planned evidence separated",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Saved structural plan later explicitly amends scope with R17a fit-ratchet fix.9/9 pixel identity compares R16+R17a versus R17+R17a, not untouched R16 versus final R17. build.js exclusion was amended by a version line. Preview has real village/current-work panels but labelled display/proto placeholders, so zero import writes/timers and fixture geometry do not prove every production panel is pure or independently mountable. Existing layout IDs/storage remain while data/spec moves. Reservation released; no new runtime ownership.",
+      "evidence": "Entire R7 audit131 lines, R17 checkpoint71, R20 checkpoint80 and R21 checkpoint101 delivered. Linked reports/source/screenshots remain unrefreshed unless separately reviewed in this task.",
+      "reopen": "Selected actual UI projection/layout/preview consumer changes; use final scoped report and current input identity before claiming behavior or taking shared ownership.",
+      "input_sha256": "f845bdd434c060c4bb68634aa203a672dc9e9c9c7feac804c417aa7a6f45f0ec",
+      "input_lines": 71,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          71
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R20_CHECKPOINT.md",
+      "ids": [
+        "UR18 record",
+        "six plan steps",
+        "status four items"
+      ],
+      "classification": "Full UI audit/structural checkpoint; actual native semantics and amended/planned evidence separated",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Full checkpoint initially plans 1/2–4/5–8/9+ board bands with native knowledge marker, stable slot order and no inspection command. Status later says implementation/report/commit complete and grouping added after8-opponent cut-off; later report owns exact final results. Native marker is inherited compatibility disclosure, not AD8 appraisal. General actor continuity/knowledge, effects and crowds remain deferred. Rules/targets/parallel reservations are historical; no live worktree, process or merge is inferred.",
+      "evidence": "Entire R7 audit131 lines, R17 checkpoint71, R20 checkpoint80 and R21 checkpoint101 delivered. Linked reports/source/screenshots remain unrefreshed unless separately reviewed in this task.",
+      "reopen": "Selected actual UI projection/layout/preview consumer changes; use final scoped report and current input identity before claiming behavior or taking shared ownership.",
+      "input_sha256": "2fb5043a2aa8debab1f91a12bbc835c25cd0d3b9cf5e1e035c93b3818e50ad42",
+      "input_lines": 80,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          80
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/R21_CHECKPOINT.md",
+      "ids": [
+        "UR18 one bar/control boxes/layout editing",
+        "MB7",
+        "seven implementation steps",
+        "gates/reservation"
+      ],
+      "classification": "Full UI audit/structural checkpoint; actual native semantics and amended/planned evidence separated",
+      "owners": [
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "This is saved-before-edit scope, not a result report. One bar relocates existing nodes/handlers; inventory and Reports boxes preserve view state/storage ownership and prevent outside-click fallthrough; width folding is stable-moment rather than tick-driven. Placement lives in per-context browser spec with reset, not gameplay export; save-state mirror is not a new last-saved timestamp. A spec-sensitive manual placement later regressed under R22b and was repaired in R22c. Old commit/merge/send instructions grant no current action authority.",
+      "evidence": "Entire R7 audit131 lines, R17 checkpoint71, R20 checkpoint80 and R21 checkpoint101 delivered. Linked reports/source/screenshots remain unrefreshed unless separately reviewed in this task.",
+      "reopen": "Selected actual UI projection/layout/preview consumer changes; use final scoped report and current input identity before claiming behavior or taking shared ownership.",
+      "input_sha256": "d775871b1237c15e504e8c9785efc06cd523d719d759f4a177735c37ca7469af",
+      "input_lines": 101,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          101
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/UI_RULES.md",
+      "heading": "## Native-audit reconciliation: exact semantics and structural proof (B250, 2026-11-04)",
+      "body": "F1. Four complete UI audit/checkpoint reads add the native semantics that names and screenshots cannot establish. R7 F1–F32 traces the active renderer: inspecting is not attack retargeting, hero_missed does not itself determine English direction, AP/EP ratings are not direct hit percentages, rounded HP is not exact bar state, and cycle is not guaranteed time-to-hit. Shield Block's compound stat_value_long needs the same actual projection as ordinary stat values. Dormant legacy formulas are not current combat defects. Native compatibility disclosure is not accepted universal appraisal under AD32; actual observer means still qualify new facts.\n\nF2. R7's Clear route resets category counts and dynamic-loot references alongside nodes. Stop combat log is presentation-scoped suppression while gameplay continues, with no replay backlog or persistent event store. Passive previews cannot intercept unrelated clicks, and stable native event subjects survive inspection/rename/context changes. A3600×1906 attachment does not establish CSS viewport/DPR; fit-image blur is not native text quality. Final selected-item zero-height and completion-hook fixes are scoped behavior/harness findings, not startup or sustained throughput measurements. Later named More panels routes qualify the earlier no-catch-all recommendation rather than freezing one historic navigation composition.\n\nF3. R17's structural identity proof deliberately uses the separately identified R17a fit-ratchet correction on both sides: R16+R17a versus R17+R17a9/9. It does not prove final code is pixel-identical to untouched R16. The initial no-build.js scope was explicitly amended for one stylesheet version line. Preview real village/current-work panels are distinct from labelled display/proto placeholders; a passing fixture/import-side-effect check is not proof every runtime panel mounts purely. Keep source data/spec, measuring host, registry and sole mover separate without introducing another layout controller. AD36/AD43 retain exact compared inputs and proof limits.\n\nF4. R20's initial band plan was extended with grouping after the eight-opponent capture cut facts off; its final report owns actual layout/results, not the original thresholds alone. R21 is a saved-before-edit one-bar/control-box/placement plan, not a passing gate record. Its stable width folding, Esc-before-Back, outside-click consumption, real moved handlers and per-context browser preference/reset remain useful contracts. Later R22c's spec2 placement fix qualifies R22b migration claims. Game-save byte comparison does not make browser-local arrangement part of the gameplay transport, and current save-state mirror does not supply a last-saved clock. AD42 keeps review optional, current desktop/prose-first direction qualifies old targets, and old reservations/commit/send requests are history rather than renewed authority.",
+      "before_sha256": "54e38f9abeb168a03f461da58d0e35ce08e7146532b48edfe3cc4bd365cc1f96",
+      "after_sha256": "abb5444569530726b109d9540544314ec02328a5e32e6458e93469a0d78cd681"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 926
+}

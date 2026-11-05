@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "batch": "B141",
+  "title": "Story-format assessment, mockup fidelity and traveler callback findings",
+  "at": "2026-11-04T21:50:26.940686+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/YAIR_FORMAT_AND_STORY_DELIVERY_2026-10-14.md",
+      "ids": [
+        "F1",
+        "O1-O5",
+        "D1-D2",
+        "R1-R5",
+        "A1",
+        "OD13",
+        "NR1-NR5"
+      ],
+      "classification": "Format hypothesis plus explicit narration direction and authoring palette",
+      "owners": [
+        "docs/YAIR_FORMAT_AND_STORY_DELIVERY_2026-10-14.md",
+        "DESIGN.md",
+        "docs/PRESENTATION_AND_FOURTH_WALL.md"
+      ],
+      "disposition": "Read complete format assessment and later OD13 implications. Preserve variable task representation, causal choices, qualified accounts, usable modest starting cheat and narrative/control separation. Retired one-realm milestone, old viewport and unselected format prototype do not constrain current work. OD13 narration was adopted, not every representation or narrator device.",
+      "evidence": "Fresh full text only. Existing source and external narrative links remain historical claims, not newly read bodies or current capability proof. Explicit direction and current DESIGN already inspected in B140.",
+      "reopen": "A selected scene or observation needs its actual means and consumer; no global prose engine, art asset or comparison prototype is a prerequisite.",
+      "input_sha256": "c2c67da9450e14f2487b7a550bf8532774c124e5f81e5fa0ad0b8e14b85aa41d",
+      "input_lines": 122,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          122
+        ]
+      ]
+    },
+    {
+      "path": "docs/MOCKUP_SYSTEM.md",
+      "ids": [
+        "MW1-MW8",
+        "CRL35",
+        "CRL38-CRL39",
+        "UIE17-UIE26",
+        "CRJ9",
+        "UIC13",
+        "UIC15-UIC22",
+        "native-character"
+      ],
+      "classification": "Standing comparison workflow with superseding native study route",
+      "owners": [
+        "docs/MOCKUP_SYSTEM.md",
+        "prototypes/workbench/REPORT.md"
+      ],
+      "disposition": "Read full workflow and later corrections. Native-character supersedes the archived initial recipe/launch studies as default; MW6 permits isolated native startup. Preserve fidelity separate from freshness, actual dependencies, equal state, result-state synchronization without replay, explicit manual clock and synthetic fresh origin. Native simultaneous mirror is not implemented; screenshot gallery is not interactive comparison.",
+      "evidence": "Fresh text only, no builder/checker run, server or current input graph inspection. Manifest matching proves declared byte identity, not full dependency coverage, current fidelity or newly verified journey. Current runtime behavior is unverified here.",
+      "reopen": "When a concrete unsettled UI decision warrants a study, reconcile current adapter inputs and rerun affected journeys; do not silently relabel sketches or launch unattended monitoring.",
+      "input_sha256": "f72a7ca16a7cb1c2b9dd1dd6f1ec745a97cca8f21a04760bd1aff1f81ab5a11d",
+      "input_lines": 207,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          207
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/format-and-character-art-2026-10-14/RECONCILIATION_PARTS_1-3.md",
+      "ids": [
+        "AU1-AU4",
+        "F1-F6",
+        "CH1-CH5",
+        "PI1-PI5",
+        "M1-M5",
+        "L1-L4"
+      ],
+      "classification": "Historical source-traced traveler comparison packet",
+      "owners": [
+        "docs/research/format-and-character-art-2026-10-14/RECONCILIATION_PARTS_1-3.md",
+        "docs/UI_FOUNDATION_DESIGN_ROUND_2026-10-15.md",
+        "docs/RELATIONSHIPS_AND_CANON_CONSIDERATIONS_2026-10-18.md"
+      ],
+      "disposition": "Read all parts 1-3 and causal trace. F1 missing direction entry is now superseded by actual USER_VISION section. F3 presence-blind callback is source-corrected in current story_aftermath; its current presence bridge and receipt audience remain distinct from browser proof or full person-owner unification. Preserve shared downstream scene with distinct branch facts, exact person identity and scoped retained history.",
+      "evidence": "Fresh full text plus entire current 35-line story_aftermath.js. eligibleAftermath requires person presence facts and actual history, aftermathPersonPresent exists, generatedPeoplePresenceFacts projects schedule from a context frame. No caller integration or runtime proof was newly established. B126 earlier current generated-people revision narrows old exact three-traveler count.",
+      "reopen": "If selecting this route, verify actual supplied presence frame, command revalidation and pending receipt across away/return/reload. No old prototype dispatch or identity-service prerequisite.",
+      "input_sha256": "8af4a8dccc10c07c7bb2815c9c085f73f495a88e8d99ea32875170808d733eea",
+      "input_lines": 107,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          107
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/YAIR_FORMAT_AND_STORY_DELIVERY_2026-10-14.md",
+      "heading": "## Content reconciliation B141, 2026-11-04",
+      "body": "The full format comparison and OD13 continuation were reviewed. The one-realm/one-prestige delivery constraint and 1366x768 proposal are historical, superseded by the later scope and viewport direction. O2 and A1 remain hypotheses, not a mandatory scene-first prototype, required portrait policy or new engine. Current [DESIGN](../DESIGN.md) selects functional task composition and prose-first reading while permitting a deliberately useful map, diagram or expressive moment. Strong means can bypass spatial obstacles rather than being disabled to protect a view (AD32, AD38, AD40).\n\nOD13's narration direction is distinct from the older format recommendations. Preserve NR1-NR5: different speakers and records may know different things, an actual truth-reading means can be exact within scope, and discovering one false statement does not certify all other claims. Optional unreliability does not make save failures, comfort settings or action commitments unreliable by default. A talking cheat's personality is not proof of omniscience, obedience or control. Source inspiration remains separately qualified; no linked source, scene renderer or real journey was newly verified by reading this assessment.",
+      "before_sha256": "c2c67da9450e14f2487b7a550bf8532774c124e5f81e5fa0ad0b8e14b85aa41d",
+      "after_sha256": "e472a92111f084ad9e0952f604e5c92bbb9eb56c12e53da4b676f49ba10472b0"
+    },
+    {
+      "path": "docs/MOCKUP_SYSTEM.md",
+      "heading": "## Content reconciliation B141, 2026-11-04",
+      "body": "All MW rules, protocol, historical study details and later native-character correction were reviewed. Use the last applicable native route: recipe and launch are archived, the old character view is a sketch, native-character has one live instance with layout switching, and its simultaneous interactive compare is disabled. The gallery is matched screenshot evidence, not command mirroring. MW6 permits the isolated native startup documented later; it does not permit personal saves or production storage.\n\nPreserve MW8's two axes. A fresh input hash cannot prove a complete dependency manifest or a faithful populated task, and a frozen old capture can remain useful history while being stale. A native rebuild proves identity, then affected keyboard, action, return and persistence journeys need their scoped evidence. The 15-second banner detects declared drift while open; it is neither automatic rebuilding nor an unattended monitor. No command replay should occur when applying a fixture snapshot; selection, inspection and geometry changes stay distinct from gameplay examination. Exported review JSON is synthetic review material, not an importable game save or an approved UI selection (AD32, AD36, AD42). No new study was built or served.",
+      "before_sha256": "f72a7ca16a7cb1c2b9dd1dd6f1ec745a97cca8f21a04760bd1aff1f81ab5a11d",
+      "after_sha256": "351d4f0623bfeab516dc46bfc1a028c463b23a7bfd60661758981410f9e336c6"
+    },
+    {
+      "path": "docs/research/format-and-character-art-2026-10-14/RECONCILIATION_PARTS_1-3.md",
+      "heading": "## Content reconciliation B141, 2026-11-04",
+      "body": "Parts 1-3 and all AU/CH/PI/F/M/L rows were read. F1's absent USER_VISION entry is superseded by the existing [format/view direction record](../../USER_VISION.md#format-portraits-and-view-decisions-2026-10-14); Q1-Q3 remain proposals, not adopted by this writeup. Current source also qualifies F3: `story_aftermath.js` now derives visitor presence through `generatedPeoplePresenceFacts`, `eligibleAftermath` requires a matching present person and aged known request receipt, and `aftermathPersonPresent` supplies a check. This closes the old source-absence claim at that named seam, not all native integration or behavior proof.\n\nPreserve the useful causal comparison: delivered and declined branches may reach the same later scene while retaining different purse, supply, relationship and receipt facts. A remembered fact is not permission to invent a live utterance from an absent person; actual messages or delayed accounts would need their own channel. The current presence bridge advances a context-frame projection and does not persist a second schedule. Its actual caller frame, offer/commit revalidation, away return and pending-receipt reload remain selected-route checks, not newly verified results.\n\nThe old exact traveler count, Village-only history and person-owner boundaries were source snapshots. This pass does not credit a general actor bridge or book-world memory from them, nor require a new identity service for a presentation study. Actual NPC memory can have an owner beyond a single receipt; PI4's receipt-only phrase describes this prototype's event evidence, not every possible memory mechanism. Current desktop direction replaces the old 1366 target, and MW8 governs any new comparison. No prototype, new callback fix or native proof was executed here (AD32, AD36, AD42, AD51).",
+      "before_sha256": "8af4a8dccc10c07c7bb2815c9c085f73f495a88e8d99ea32875170808d733eea",
+      "after_sha256": "83324f778c864c09860194193f00ed2b57c2194c3a3c86e20db2ed10dbbec24e"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1211
+}

@@ -48,3 +48,12 @@ Finish an aspect when existing claims are reconciled, material source details ha
 ## Deliver and stop
 
 Update existing world/aspect owners and detail ledgers, preserving stable IDs and qualified evidence. Link source coverage, resolved details, consequential choices, actual missing joins and the next useful action. Validate edited links and consistency. Record unread coverage and unverified gameplay honestly. Stop at the selected aspect’s finish condition or a saved dependency. A proposed next idea does not authorize its implementation.
+
+
+## Workflow reconciliation: causal detail and authorized continuation (B246, 2026-11-04)
+
+F1. Full review covers the world-detail brief, WQ1–WQ6 fine-detail loop, evidence/status vocabulary, medium-specific source treatment and aspect finish condition. This is a saved separately dispatchable workflow, not a launched research or implementation task. Its useful route is actual observed detail to local design implication to existing consumer/missing seam to proposed representation and observable acceptance; a catalogue, schema field, still image or wiki summary cannot substitute for the relevant sequence and causal evidence. Keep atmosphere/contextual information as valid dispositions without inventing a buff, quest quota or new simulation for every sentence.
+
+F2. Preserve stable idea IDs, local exceptions, source edition/era/translation, actual tools/time/actors, interruptions and later consequences. Use existing owner vocabulary to distinguish evidence-needed, design-ready, authorized, implemented-unverified, bounded proof and deferred scope. Whole-world horizon and unread residue survive a successful bounded aspect. S00–S14 and the ordinary-life prompts are coverage aids, not fourteen automatic mandatory rereads for every selected change. Current AD51 qualifies reusable-seam design; AD36/AD43 assign proof and AD42 keeps human review optional.
+
+F3. WQ5's internal questions should resolve from source/code and current direction wherever possible, not become a new questionnaire or permission ceremony. The instruction to stop at an aspect boundary limits that separately selected task's scope; the current authorized project-wide reconciliation continues into other inventory batches without new batch approval. Saving a next idea does not grant runtime/source-acquisition/publication authority. Under AD32 this workflow does not adopt local proposals or change campaign priority. Linked source/playbook bodies and runtime were not freshly reviewed by reading this brief.

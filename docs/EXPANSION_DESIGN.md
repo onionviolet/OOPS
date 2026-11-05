@@ -42,3 +42,10 @@ Next proposed world: an original spirit archive. Rule difference: actions consum
 Next depth proposals: a Hollow gardener mentor and a trial-circle custodian with competing branch rewards; Cooking tea options versus Alchemy concentrates; stance-sensitive pressure trials; technique discoveries from ordinary skill milestones; region quests that expose faction access. Keep companions, sect facilities and advanced prestige for later playable increments. Neither a custom faction nor these quests are implemented in this slice.
 
 Acceptance for each addition: two viable builds, explicit resource uses/unlocks, save/reload, concrete cross-system effects, readable UI, and user review of the resulting play. The second-world acceptance requires a distinct rule and useful two-way interaction, not merely more locations.
+
+
+## Content reconciliation B143, 2026-11-04
+
+The complete September 30 proposal was reviewed. The retirement notice above controls use. Preserve the original rates, deliberate short trial, selector freeze, reset boundary and replacement legacy as historical design choices; they are not current cultivation law, fixed numerical caps or a new prestige contract. The original spirit-archive next world and two-build acceptance are unselected proposals, with broader world order and current floor owned elsewhere (AD32, AD43).
+
+Useful retained ideas are separate world-state ownership, mechanically distinct destinations and an exchange that changes an existing consumer rather than merely renaming one pool. Returning for knowledge or an inscription still needs an actual carrier and local usable means. The saved discovery-list titles are leads, not proof of favorite books, complete source access or current adaptation selection. No vault/source re-acquisition, retired feature restoration, schema change or new prototype was performed.

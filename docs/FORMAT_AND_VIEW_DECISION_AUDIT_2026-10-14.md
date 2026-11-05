@@ -106,7 +106,7 @@ Only build order and confirmations; everything else has a default above.
 
 | Code | Question | Default if confirmed |
 | --- | --- | --- |
-| Q1 | Confirm DF1, DS1, DC1 as direction (text-led scenes, receipt-driven story, portraits optional)? | Recorded as accepted in PROJECT.md |
+| Q1 | Confirm DF1, DS1, DC1 as direction (text-led scenes, receipt-driven story, portraits optional)? | If confirmed, record the named decision in its authority owner; this question is not evidence of acceptance (AD32) |
 | Q2 | Confirm DV1 (semantic layer, Hanzi as default skin, other skins as dials)? | Hanzi stops being a style-vs-style debate |
 | Q3 | Build order: scene surface (DV3) first, then the Hanzi pocket on the same targets? | Prototype section 4 builds the traveler scene first |
 
@@ -125,3 +125,10 @@ Weibao accepted Q4 and Q5 and answered Q6 (Village mixing counter). [Foundation 
 ## Round 5: overarching design direction, 2026-10-15
 
 The [overarching design core audit](OVERARCHING_DESIGN_CORE_AUDIT_2026-10-15.md) moves above format and UI to long-standing game direction (OD1-OD8) and hands UI findings U1-U5 to the UI chat. It also flags this audit's line 109: Q1 is described as recorded in PROJECT.md, but no such entry exists (C10).
+
+
+## Content reconciliation B140, 2026-11-04
+
+All DF/DV/DC/DS/V rows and later rounds were reviewed. [The direction owner](USER_VISION.md#format-portraits-and-view-decisions-2026-10-14) explicitly keeps Q1-Q3 as proposals (AD32), while confirming the center menu and Hanzi visual preference. The old conditional Q1 result is now written conditionally; it was never evidence of adoption. Hanzi preference is not proof of the table's cost, uniqueness or comprehension rankings, and skin changes are not automatically cheap without a qualified semantic interface. Shared target IDs, knowledge-safe labels and the same native commands remain useful design.
+
+Current [DESIGN](../DESIGN.md) assesses representations by the actual task: functional housing and prose-first are current direction; useful spatial position, reach and adjacency may justify a map. No universal map or 2D conversion is required, and V11 is not a permanent ban on later authorized spatial work. DF3's 1366x768 and MC1's font assumptions are dated; UI_RULES owns current desktop sizes and actual font/fallback checks. A known label, accessible name, filter count or decorative terrain must not disclose hidden targets. Free switching is a projection operation, distinct from a new paid observation or committed journey. No layout, portrait policy, art budget or engine migration was newly selected.

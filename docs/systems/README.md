@@ -119,3 +119,10 @@ Not ranked but wide: 41 of 48 system rows have no inspector (the audit's L3 owns
 ## Update rule
 
 Default: a change that adds a system, adds an owner (rulebook, representation, code-map section, palette, inspector) or renames an owner edits this file's row in the same change; the reason is that an owner missing here is invisible to the next lane. A renamed or moved owner updates every link to it here. Dial: a palette may be left out of the row until a rulebook or a lane links it, but add a rulebook, representation or code-map section. When a gap above is filled, remove it from the ranked list. Run `npm run check:docs` for wording/provenance and `npm run check:rules` for registered-owner and front-door links before committing.
+
+
+## Front-door content reconciliation, 2026-11-04 (B178)
+
+All cross-cutting, S1–S19, MIE/CPSU, representation-only, seven cluster and ranked-gap rows were read. This is navigation across existing layers, not another rulebook or execution queue. “None” and “no map word” retain their documented snapshot meaning. Registry-call counts, world/route/file counts and41-of48 absent inspectors are not player capability scores. The later Nov4 selected source/test annotations are useful scoped receipts with native journey explicitly unreached, not evidence that this reconciliation reran234 tests or certified every row.
+
+The entire current vision digest and architecture rules were independently read in B178. LOTM/Klein lead-first with Harry alongside, shared mechanisms under AD51, activity compression/long play under AD52 and prose-first independent panes govern dated priorities. A second world validates a seam rather than forbidding shared design until two consumers ship. Old “file still being edited” or branch/thread/preview records do not reserve files. B175’s complete causal/relay and absorption source receipts preserve candidate consumer/producer history without filling every missing code-map or proving playable integration. No new inspector, source wave, rulebook, owner duplication or runtime gap repair is selected.

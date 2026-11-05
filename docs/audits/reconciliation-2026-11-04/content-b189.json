@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "batch": "B189",
+  "title": "Complete RNG, enemy faculties and source-lifecycle owner",
+  "at": "2026-11-04T22:47:28.654948+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/RNG_ENCOUNTERS_AND_SOURCE_DEVELOPMENT.md",
+      "ids": [
+        "RNG domains and probability tools",
+        "Enemy systems layers",
+        "Mechanical counter matrix",
+        "Source lifecycle and three paths",
+        "Echo-sight proof",
+        "Six bounded comparators",
+        "Five ranked proofs",
+        "B145 correction"
+      ],
+      "classification": "Historical source audit and encounter/source-development palette with later narrow caller correction",
+      "owners": [
+        "docs/RNG_ENCOUNTERS_AND_SOURCE_DEVELOPMENT.md",
+        "docs/ENGINE_EXPANSION.md",
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      ],
+      "disposition": "Retain uncertainty vs ignorance, optional pity, frozen opportunity vs paid reroll and coherent historical import. Separate faculty, decision policy, encounter projection; ancestry/awakening/control/execution/copy/transfer differ. Qualify old first-milestone/human gates and all-unimplemented claims with later standing direction and named receipts; preserve original research scope and B145 error correction.",
+      "evidence": "Fresh full read, recovered probability-tool rows after a truncated combined output. Read research table as historical attributed evidence, not fresh source verification. No original PDF, public chapter, code, private save or browser opened and no new tests.",
+      "reopen": "Selected saved encounter, source function, stock/craft, peer or regional-event consumer; trace current producers/callers and exact stream/settlement behavior before asserting an old source gap remains.",
+      "input_sha256": "00f8f4ea7c597fb7da0eee12cc4f1c8f8fc6516134d8adea3f9f09d21363c110",
+      "input_lines": 189,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          189
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/RNG_ENCOUNTERS_AND_SOURCE_DEVELOPMENT.md",
+      "heading": "## Full RNG and faculty-palette reconciliation, 2026-11-04",
+      "body": "The October 2 audit and its six bounded comparisons describe that input, not a present whole-game RNG census. Its first-realm/prestige gate is retired, and AD42 makes human review optional rather than a required completion blocker. B145 already corrects the native recipe-quality claim through the seededRecipe caller and supersedes the guardian on-hit gap at its inspected seam. Keep that reviewer correction and the initial mistaken inference in history; neither this full reading nor the old 54 tests supplies a fresh runtime result. Later scoped encounter/source deliveries must be compared at their actual consumers before an original unimplemented claim is reused (AD32, AD36, AD43).\n\nPreserve chance versus unknown information, optional reliability/pity, a committed opportunity versus a genuinely new attempt, and authored forecast/rewind powers versus coherent restoration of an earlier whole save. Local imports need not prevent intentional branch restoration (AD22). Separate streams protect intended draw independence, while incidental prose/pixels need no gameplay payout receipt. Distribution changes need their actual intended law; stochastic rounding is not automatically repeated independent trials.\n\nEnemy faculty, decision policy and encounter projection are different services. A named peer needs continuity; a disposable opponent need not carry a complete player sheet. Ordinary and extraordinary counters depend on usable means, knowledge, actual timing and world law, without compulsory weakness or finite fuel for a mechanism that does not have it (AD5, AD38). A reaction-chain implementation bound is not a universal limit on fictional power. Keep ancestry, latent eligibility, awakening, body structure, control, remembered technique and actual execution separate. Copying, transferring and grafting have different custody and donor effects.\n\nThe original Echo-sight reserve, technique counts, five ranked proofs and book examples remain proposals, not a new queue or direct-adaptation authority. The historical source table expressly limits each locator and leaves exact algorithms and broader novel rules unknown; optional acquisition is not requested here. Disabled known actions need their true blocker, while undiscovered actions follow knowledge routes. Shared design follows AD51 rather than a requirement to implement this entire encounter before designing another source consumer.",
+      "before_sha256": "00f8f4ea7c597fb7da0eee12cc4f1c8f8fc6516134d8adea3f9f09d21363c110",
+      "after_sha256": "131d5ee2c4404d26b21518667d1fff160c8b5ed3b3b1219fcab6b287cc3f885e"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1102
+}

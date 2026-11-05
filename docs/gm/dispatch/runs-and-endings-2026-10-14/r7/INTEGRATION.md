@@ -34,3 +34,8 @@ The prompt also names rows now located in later sections: RZR7 at 14.2, MM1-MM3 
 | N26 | COMMON's dated priority list omits a newer addition already in live `PROJECT.md:49-52`. | Use the live priority owner; no numbers or world mode in R7 depends on changing the roster. | Live accepted authority outranks a copied dispatch summary. |
 
 N22/N23 are gaps in proposal wording, not conflicts with accepted direction. N24-N26 reconcile clear ambiguities from live authority. No unresolved accepted-direction conflict blocks this lane. No named source-world payout adjective is selected and no sealed truth is exposed.
+
+
+## Proposal and scope reconciliation, 2026-11-04 (B17)
+
+N21’s required one-realm/one-prestige first proof belongs to the October 14 snapshot. USER_VISION’s October 24 first-milestone/scope direction retired that gate. Keep N21 as historical rationale rather than a current sequencing requirement. N3–N20 remain illustrative defaults/dials, not accepted payout law or measured game balance. Preserve the mathematical finding: per-life concavity can reward splitting; cumulative issuance removes that particular split effect without guaranteeing long-life advantage under time, hazard or speed changes. Retain finite payer quotes, explicit prestige choice, exact issued/spent history and capability carry distinctions. Current AD22 limits integrity work to real save/settlement needs; these proposals do not authorize a new anti-exploit project.

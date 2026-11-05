@@ -1,0 +1,397 @@
+{
+  "schema": 1,
+  "batch": "B210",
+  "title": "Air and Proto23 mechanisms, start integration and completion-note proof limits",
+  "at": "2026-11-04T23:09:39.653989+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/absorb-all-2026-10-14/runs/air-reaudit.prompt.md",
+      "ids": [
+        "Air original assignment"
+      ],
+      "classification": "Historical prompt or completion summary",
+      "owners": [
+        "docs/gm/dispatch/absorb-all-2026-10-14/runs/air-reaudit.prompt.md"
+      ],
+      "disposition": "Audit scope only: compare missing adapters and private JSON structurally, propose ports without editing packs; historical archived source paths are not fresh evidence.",
+      "evidence": "Full short body read; linked primary reports and artifacts are not automatically credited as read. Only Air/P23 and start integration map received separate body reads in this batch.",
+      "reopen": "Follow its exact linked owner and original input before reuse; refresh authority and real consumer evidence without executing historical commands.",
+      "input_sha256": "5836d2e30aeb79dde1f0b3fcaa5ecbcc9c2bea229f6f305c6393475d05c7fbd0",
+      "input_lines": 2,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/absorb-all-2026-10-14/runs/air-reaudit.last.md",
+      "ids": [
+        "Air F1–F3; 64 tests"
+      ],
+      "classification": "Historical prompt or completion summary",
+      "owners": [
+        "docs/gm/dispatch/absorb-all-2026-10-14/runs/air-reaudit.last.md"
+      ],
+      "disposition": "Completion summary is source-scoped 64 focused checks; useful port proposals still need native/persistence evidence, detailed report now reviewed separately.",
+      "evidence": "Full short body read; linked primary reports and artifacts are not automatically credited as read. Only Air/P23 and start integration map received separate body reads in this batch.",
+      "reopen": "Follow its exact linked owner and original input before reuse; refresh authority and real consumer evidence without executing historical commands.",
+      "input_sha256": "aafb84a6e1c677bdf737b44f6d8dd99f45c5fb8784379b76f3df2c7197ed5076",
+      "input_lines": 7,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/absorb-all-2026-10-14/runs/p23-reaudit.prompt.md",
+      "ids": [
+        "47 requested rows and broader sweep"
+      ],
+      "classification": "Historical prompt or completion summary",
+      "owners": [
+        "docs/gm/dispatch/absorb-all-2026-10-14/runs/p23-reaudit.prompt.md"
+      ],
+      "disposition": "Prepared audit requests distinguish actual mechanisms from metadata and require concrete parked triggers; packet creation never launches implementation.",
+      "evidence": "Full short body read; linked primary reports and artifacts are not automatically credited as read. Only Air/P23 and start integration map received separate body reads in this batch.",
+      "reopen": "Follow its exact linked owner and original input before reuse; refresh authority and real consumer evidence without executing historical commands.",
+      "input_sha256": "9f96cdef7c309fd2181377db175bee6a737d0d00ae40a4ebc1ac0d4e2c806d27",
+      "input_lines": 3,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/absorb-all-2026-10-14/runs/p23-reaudit.last.md",
+      "ids": [
+        "47 rows; N01–30; prepared packets"
+      ],
+      "classification": "Historical prompt or completion summary",
+      "owners": [
+        "docs/gm/dispatch/absorb-all-2026-10-14/runs/p23-reaudit.last.md"
+      ],
+      "disposition": "Summary classification and ownership validation are documentation evidence, not deployed feature coverage; detailed report now reviewed separately.",
+      "evidence": "Full short body read; linked primary reports and artifacts are not automatically credited as read. Only Air/P23 and start integration map received separate body reads in this batch.",
+      "reopen": "Follow its exact linked owner and original input before reuse; refresh authority and real consumer evidence without executing historical commands.",
+      "input_sha256": "4207d0de8f3852e5498e24995ba86a1762f1433321acd73ef5b75cbfd4ca493e",
+      "input_lines": 7,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/start-sources-2026-10-14/runs/ideas.last.md",
+      "ids": [
+        "VX/OX completion summary"
+      ],
+      "classification": "Historical prompt or completion summary",
+      "owners": [
+        "docs/gm/dispatch/start-sources-2026-10-14/runs/ideas.last.md"
+      ],
+      "disposition": "Retain absent Knight dossier, partial LOTM1 and qualified sources; document counts are not gameplay changes.",
+      "evidence": "Full short body read; linked primary reports and artifacts are not automatically credited as read. Only Air/P23 and start integration map received separate body reads in this batch.",
+      "reopen": "Follow its exact linked owner and original input before reuse; refresh authority and real consumer evidence without executing historical commands.",
+      "input_sha256": "d78cb5d5910d988360a4a656bcba8c10197fa2365a0b4865bd12ee4eb2476e35",
+      "input_lines": 5,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          5
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/start-sources-2026-10-14/runs/index.last.md",
+      "ids": [
+        "62 families; 20 proposed defaults; 11 flags"
+      ],
+      "classification": "Historical prompt or completion summary",
+      "owners": [
+        "docs/gm/dispatch/start-sources-2026-10-14/runs/index.last.md"
+      ],
+      "disposition": "MoL lessons unavailable at this dated capture. Only dev probe had cited playable evidence; all 120 link checks neither implement starts nor prove actual source coverage.",
+      "evidence": "Full short body read; linked primary reports and artifacts are not automatically credited as read. Only Air/P23 and start integration map received separate body reads in this batch.",
+      "reopen": "Follow its exact linked owner and original input before reuse; refresh authority and real consumer evidence without executing historical commands.",
+      "input_sha256": "e25c45602808c295496bbadd3f7816ef6f8b65ae1a8059bacffc1fe47be4dd4f",
+      "input_lines": 5,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          5
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/relationship-prereqs-2026-10-14/runs/audit.last.md",
+      "ids": [
+        "15 Have cells; 64 additions; Q1–Q4"
+      ],
+      "classification": "Historical prompt or completion summary",
+      "owners": [
+        "docs/gm/dispatch/relationship-prereqs-2026-10-14/runs/audit.last.md"
+      ],
+      "disposition": "Six confirmed/nine wrong includes a correct fact with wrong citation, not nine absent mechanics. Social support was understated; store merge was overstated as prerequisite. Four unresolved build choices did not block the documentation audit.",
+      "evidence": "Full short body read; linked primary reports and artifacts are not automatically credited as read. Only Air/P23 and start integration map received separate body reads in this batch.",
+      "reopen": "Follow its exact linked owner and original input before reuse; refresh authority and real consumer evidence without executing historical commands.",
+      "input_sha256": "18e203757392e82aa4ac140bf6005b93e674789e841861e738b9b9faf4b697c6",
+      "input_lines": 6,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          6
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/canon-events-2026-10-14/runs/implmap.prompt.md",
+      "ids": [
+        "IR1–4/IR8 assignment"
+      ],
+      "classification": "Historical prompt or completion summary",
+      "owners": [
+        "docs/gm/dispatch/canon-events-2026-10-14/runs/implmap.prompt.md"
+      ],
+      "disposition": "Read-only integration investigation across native creation, graph, full saves, clocks and knowledge, with inferred staged plan. Old worktree paths grant no write ownership.",
+      "evidence": "Full short body read; linked primary reports and artifacts are not automatically credited as read. Only Air/P23 and start integration map received separate body reads in this batch.",
+      "reopen": "Follow its exact linked owner and original input before reuse; refresh authority and real consumer evidence without executing historical commands.",
+      "input_sha256": "22ef834c11834dd41384ce4c0f8b569d4fb275c7afbe5b4e07cbe47fab6eeeb7",
+      "input_lines": 11,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/canon-events-2026-10-14/runs/implmap.last.md",
+      "ids": [
+        "Typed-adapter recommendation"
+      ],
+      "classification": "Historical prompt or completion summary",
+      "owners": [
+        "docs/gm/dispatch/canon-events-2026-10-14/runs/implmap.last.md"
+      ],
+      "disposition": "Source/citation inspection only, no tests/build/browser/persistence; complete native save is distinct from pure canon derivation.",
+      "evidence": "Full short body read; linked primary reports and artifacts are not automatically credited as read. Only Air/P23 and start integration map received separate body reads in this batch.",
+      "reopen": "Follow its exact linked owner and original input before reuse; refresh authority and real consumer evidence without executing historical commands.",
+      "input_sha256": "aaf925d22ebe66db7a14105580b9d1993b784e30393dcb313d7167e36b684eec",
+      "input_lines": 8,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/deep-detail-reaudit-2026-10-14/runs/reaudit.last.md",
+      "ids": [
+        "18 private dossiers; ten prompts"
+      ],
+      "classification": "Historical prompt or completion summary",
+      "owners": [
+        "docs/gm/dispatch/deep-detail-reaudit-2026-10-14/runs/reaudit.last.md"
+      ],
+      "disposition": "Preservation and artifact checks do not prove primary dossier reading depth or gameplay. Follow linked ledger for exact gaps, no current access to private dossiers inferred.",
+      "evidence": "Full short body read; linked primary reports and artifacts are not automatically credited as read. Only Air/P23 and start integration map received separate body reads in this batch.",
+      "reopen": "Follow its exact linked owner and original input before reuse; refresh authority and real consumer evidence without executing historical commands.",
+      "input_sha256": "e7fc04981a1716c493d7315a6d7d79893bbbf52d3aedea3ee09d929754c7691a",
+      "input_lines": 8,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/multiworld-research-2026-10-14/runs/mw-audit.last.md",
+      "ids": [
+        "35 SHOWN and 35 proposal checks; MWA-P01–03"
+      ],
+      "classification": "Historical prompt or completion summary",
+      "owners": [
+        "docs/gm/dispatch/multiworld-research-2026-10-14/runs/mw-audit.last.md"
+      ],
+      "disposition": "Retain useful work/result/blocker, local-law action and earned-versus-usable-power proposals. Seventy document checks do not establish UI/native/persistence acceptance; old ranking does not reset current priorities.",
+      "evidence": "Full short body read; linked primary reports and artifacts are not automatically credited as read. Only Air/P23 and start integration map received separate body reads in this batch.",
+      "reopen": "Follow its exact linked owner and original input before reuse; refresh authority and real consumer evidence without executing historical commands.",
+      "input_sha256": "eb548a84dce462f05f63b7bbb6510ab10eefae340654c577479b97fa6d5953c0",
+      "input_lines": 9,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/game-research-wave-2026-10-14/runs/adoption-reaudit.last.md",
+      "ids": [
+        "597 entries; 203 unresolved"
+      ],
+      "classification": "Historical prompt or completion summary",
+      "owners": [
+        "docs/gm/dispatch/game-research-wave-2026-10-14/runs/adoption-reaudit.last.md"
+      ],
+      "disposition": "PARTIAL is explicit despite 20 prepared packets. Preserve exact unresolved adoption traces rather than reporting all 597 as absorbed.",
+      "evidence": "Full short body read; linked primary reports and artifacts are not automatically credited as read. Only Air/P23 and start integration map received separate body reads in this batch.",
+      "reopen": "Follow its exact linked owner and original input before reuse; refresh authority and real consumer evidence without executing historical commands.",
+      "input_sha256": "440a484f9a9bf89aad31a41dbd7d790d68abf28088e2788463513fa6c1c26efc",
+      "input_lines": 10,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          10
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/game-research-wave-2026-10-14/runs/coverage-refresh.last.md",
+      "ids": [
+        "63 dossiers; 18 lanes; P1–3"
+      ],
+      "classification": "Historical prompt or completion summary",
+      "owners": [
+        "docs/gm/dispatch/game-research-wave-2026-10-14/runs/coverage-refresh.last.md"
+      ],
+      "disposition": "Dry-run queue patch was not applied; five installed flags lacked Windows executable payload, four candidates lacked lane, account ownership unverified. Counts do not establish executable access or licensed/account ownership.",
+      "evidence": "Full short body read; linked primary reports and artifacts are not automatically credited as read. Only Air/P23 and start integration map received separate body reads in this batch.",
+      "reopen": "Follow its exact linked owner and original input before reuse; refresh authority and real consumer evidence without executing historical commands.",
+      "input_sha256": "9febbb690abd4e5ddaa08cc0a38a03c501fa9d10bba3a3e0c1d605e54d141180",
+      "input_lines": 11,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/absorb-all-2026-10-14/reports/air-reaudit.md",
+      "ids": [
+        "D1–D11",
+        "P1–P4",
+        "A1/A2",
+        "R1–R3"
+      ],
+      "classification": "Historical missing-mechanism audit with private structural diff and proposed ports",
+      "owners": [
+        "docs/gm/dispatch/absorb-all-2026-10-14/reports/air-reaudit.md",
+        "docs/ARCHITECTURE_RULES.md",
+        "docs/worlds/PLAYER_CHARACTER_IDENTITY_AND_CONTROL_2026-10-13.md"
+      ],
+      "disposition": "Retain selective adaptation and dependency closure, not whole-file/archive replacement. A5 source/tooling present does not prove wider ability/expedition/life adapters present. Compilation silently ignoring metadata is a concrete historical contract gap, not proof those gates executed. Old pack identity with different bytes is incompatible despite same revision. Qualify obsolete viewport/worktree/per-lane-full-suite/human gates through current direction.",
+      "evidence": "Entire 140-line body read, including all tables, mechanisms, four full prompts, 64-test exact scope and no-build/browser limits. No archive tree/private JSON/probe/source was reopened or runtime test rerun.",
+      "reopen": "At a selected current consumer, inspect compiler registration and direct-command gates, real phases, physical participants, durable publication and exact compatibility. Determine whether later code already supplies behavior before porting.",
+      "input_sha256": "fb6fbf5b7fdcc91dc5fef5c1b39f4b5056a496ae2ade61d477c850b09ab6aafd",
+      "input_lines": 140,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          140
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/absorb-all-2026-10-14/reports/p23-reaudit.md",
+      "ids": [
+        "47 selected R01–R95 positions",
+        "N01–N30",
+        "P00/P01–P12/P14–P16/P18",
+        "F1–F4/D1–D3/V1–V3"
+      ],
+      "classification": "Reopened Proto23 mechanism palette and historical prepared work packets",
+      "owners": [
+        "docs/gm/dispatch/absorb-all-2026-10-14/reports/p23-reaudit.md",
+        "docs/ABUSE_AND_LIMITS.md",
+        "docs/ACTIVITY_ABSTRACTION_RULES.md"
+      ],
+      "disposition": "Retain real mechanisms distinguished from 19 meta rows; five defect rejections differ from R21 reopened world-specific growth. Native equivalents need reuse/verification, not a second implementation. R24 lossless lots, N18 dormant ecology, N28 slots and N29 hidden-tab intervals retain explicit triggers. No packet launches or optional prototype fixed numbers become current laws. Correct R60 packet pointer and R68 hidden-tab pointer by owner addendum.",
+      "evidence": "Complete 498-line body read in bounded ranges; dense table truncation recovered at 35–95/96–106, P14 ownership recovered384–398. Original source HTML, mod readers and JSON ledger were not read or rehashed. No new implementation proof.",
+      "reopen": "Select actual useful consumer and current native equivalent; inspect exact copy/lot/interval identity, payer/body/world and settlement, then scoped browser/restore evidence. Refresh current priorities and ownership instead of launching old packets.",
+      "input_sha256": "de59d28909df6805a7c4d4d81f8dfe9c42069dc5a2eed3894c5b9e46ac9eabb5",
+      "input_lines": 498,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          498
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/START_AND_BRANCH_INTEGRATION_MAP_2026-10-14.md",
+      "ids": [
+        "IR1–4/IR8",
+        "F1–F9",
+        "O1/O2",
+        "D1–D4",
+        "R1–R5",
+        "A1–A6",
+        "B83"
+      ],
+      "classification": "Historical source-inspected integration map, already qualified by B83",
+      "owners": [
+        "docs/research/START_AND_BRANCH_INTEGRATION_MAP_2026-10-14.md",
+        "docs/INTRO_FLOW_CONSIDERATIONS_2026-10-13.md"
+      ],
+      "disposition": "B83 already correctly qualifies retired realm gate/viewport and proposal-only profile. Retain typed adapter, native mutable authority, full-envelope preservation, observation versus reveal and source-time versus consumed clock distinctions. No new fold needed; fresh full-body read confirms the actual clock/migration/creation/failure ordering details.",
+      "evidence": "Full116-line current body read; output truncation in clock/save region recovered by47–74. Referenced source/worktree not reread, no build/test/browser or private graph access.",
+      "reopen": "Only for an authorized selected integration; fresh actual input and writer ownership, full native payload compatibility, pre-effect pause and occurrence-once evidence.",
+      "input_sha256": "cf1152ca46fcc7c27a2421d7e7705260902350a4e10ab423f439a8218cbda656",
+      "input_lines": 116,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          116
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/absorb-all-2026-10-14/reports/air-reaudit.md",
+      "heading": "## Content reconciliation B210, 2026-11-04",
+      "body": "D1–D11, the three adapter descriptions, private structural comparisons and P1–P4 were read in full. The useful finding is selective mechanism adaptation: metadata accepted by a compiler can still have no executing consumer, and a source-tree foundation can be present while a distinct authoring adapter is absent. Neither pathname presence nor successful compilation establishes held-source/counter/discovery gates. A changed pack retaining the same schema/revision still has different content identity; do not union same-ID commands, start effects or physical dependencies blindly. Preserve the original Pro baseline and archived alternatives as history. These are historical observations at the recorded input, not a fresh current-source absence finding (AD32/AD36).\n\nThe life adapter’s attempted rollback could itself throw; archive-write followed by active-save removal was not atomic publication. Keep optional true death distinct from defeat and world-dependent continuation, and preserve original bytes through supported transition failure. Discovery, phase and actual physical consequences of outings remain useful without mandatory lethal choices or a universal one-attempt limit. Per-occurrence settlement identity differs from a prohibition on another attempt (AD22).\n\nP1–P4 are historical proposals, not current assignments, commits or reservations. Their 1366×768 primary target, mandatory separate worktree, per-lane full suite and final human acceptance wording must be read through current desktop targets, AD41, AD36 and AD42. Use current viewport and prose-first task composition where selected; retain functional home mechanisms without restarting the stopped pictured-home experiment. The 64 focused SOURCE tests and no-build/no-browser/no-save limits stay exact. B210 reopened no private pack or archived source and establishes no current port completion.",
+      "before_sha256": "fb6fbf5b7fdcc91dc5fef5c1b39f4b5056a496ae2ade61d477c850b09ab6aafd",
+      "after_sha256": "1c049d880583b2c690d2b5f0f4d3057b0d55edd8fe106376f5ae8eac14fdca69"
+    },
+    {
+      "path": "docs/gm/dispatch/absorb-all-2026-10-14/reports/p23-reaudit.md",
+      "heading": "## Content reconciliation B210, 2026-11-04",
+      "body": "All 47 requested original rows, N01–N30 and every prepared packet were read. Preserve the difference between metadata with no additional mechanism and real native equivalents worth verifying/reusing. The five surviving defect rejections concern lost saves, phantom work, accidental RNG bias and duplicate/render/restore/timer side effects; R21’s native capped curve was not authority to reject other world-specific progression. Repeatable activity remains compatible with idempotent settlement of each occurrence, finite real stock and stable copies (AD22/AD32).\n\nTwo original routing slips need explicit qualification: R60 names P06 in its prose although its Packet column and P16 body own the training ladder; P06 owns the battle extension points. R68 points hidden-tab progression to N28, while N28 is slots/backups and N29 is hidden-tab intervals. Retain these original rows as history and follow P16/P06 and N29 respectively. R24 spoilage still needs lossless lot acquire/split/merge/storage/import, not an age field on a singleton template. N18 was dormant source ecology, not running offline simulation; its zero-population and causal price/gathering trigger remains useful. N28 and N29 need distinct lock/backup/undo and active-branch interval contracts, not a blanket claim that prepaid backlog proves catch-up.\n\nPreserve per-copy growing gear versus pooled template bonuses, collection versus expenditure, observed drop versus global item knowledge, actual recipe learning versus a readiness panel, cause-aware defeat records versus mortal death, and carried presentation settings versus established local preference. A related-skill dependency need not be globally acyclic; prevent recursive awards through a sound mechanism rather than banning every valid feedback graph. AD52/ACR permit activity compression while retaining long play and concurrent supported activity. Palette numbers, comfort switches and packet order are proposals, not universal world laws.\n\nThe prepared packets grant no current launch, writer reservation, commit or port. Replace their old 1366-primary, compulsory worktree, per-worker full suite and human-blocking wording with current viewport/AD41/AD36/AD42 when a task is actually selected. No original HTML, mod checkout, source tree, JSON ledger or runtime path was reverified here. The report’s documented source sweep was structural plus selected bodies, not another literal full primary-source read; B210 does not expand that evidence.",
+      "before_sha256": "de59d28909df6805a7c4d4d81f8dfe9c42069dc5a2eed3894c5b9e46ac9eabb5",
+      "after_sha256": "d8006dec7b7014cce458a26146e36c112a362576cb663fbf57955d9ddd4b0590"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1050
+}

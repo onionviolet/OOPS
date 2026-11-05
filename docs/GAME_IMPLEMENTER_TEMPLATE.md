@@ -96,3 +96,12 @@ For a new task family, first try one representative slice and let the GM review 
 ## Autonomous assigned goals
 
 Follow the master prompt's [Autonomous assigned goals](GAME_MASTER_PROMPT.md#autonomous-assigned-goals) and [Delegation and succession](GAME_MASTER_PROMPT.md#delegation-and-succession). Stop at the assigned finite result.
+
+
+## Content reconciliation B260
+
+Full template reviewed as a reusable historical role contract. The assigning GM coordinates design and reviews implementation within human-authorized direction; it cannot take Weibao's creative/product acceptance authority or promote a worker's proposal. “Gate passed” remains scoped to actual owned checks. AD43 is the runtime gameplay floor; a docs-only or read-only task uses relevant document checks and does not inherit a mandatory browser/persistence route from an empty GATE field. PRF remains a proposed aid, as the packet itself says.
+
+The same file gives Luna medium for readers, Luna high as an implementation proposal and an old wave-specific implementation-first deferral. These are contextual routing/receipt history, not a reason to override current host/user instructions, AU policy, assigned model/effort or current verification stages. The bottom TRAILBLAZE sentence does not resume that exploratory wave or defer suites for a new task. No current tool/model capability was looked up and the old external guidance link was not verified here.
+
+Capacity/succession authorization is bounded by current host rules. This template does not independently authorize a subagent, a user-visible new chat, a message to another chat/person, or a new management tier. A checkpoint, uncertain mutation and exclusive writer transfer are still useful if a currently authorized successor is actually needed. No agents were launched, no packets dispatched, and no general commit or push authority follows. Preserve shared paths from their live bytes and run the project's applicable zero-loss checks when integration is selected.

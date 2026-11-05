@@ -370,3 +370,30 @@ Lane outputs (doc only, existing cards and ledgers, no raw reading, nothing run)
 4. Shadow Slave two-axis table, TTKS cost-dial rows per book (no shared "bill"), RP F17 to F22 table (inferred bands tagged), MoL circles and exercise graph.
 5. Locator-only checks of existing notes for Bleach numbering, Fate rank and the Naruto element graph; record "not derivable from existing notes" where absent.
 Everything stays a proposal; none selects build scope (KR21-10).
+
+
+## Kit-procedure content reconciliation, B7, 2026-11-04
+
+Full review of the repeatable core audit preserves W1–W37, NX/KF/KL/KR and original card/source identities. This existing successor continues the original kit; future reconciliation extends its current owner and existing codes rather than creating another dated root merely because a batch ended. The original 0/288 readiness baseline and early climate/prototype results remain historical, not current whole-project coverage (AD32/AD36).
+
+KF1–KF3 remain the useful distinctions: texture is a palette selected by an actual life/choice; origin records provenance while destination mechanisms decide operation; one real route/access/use/site aftermath needs its actual clock, custody and consumer. Separate source support, observer knowledge, code presence and route proof. Institutional labels in KL21 must not silently become universal combat ranks or shared unit conversions. Later source pressures can revise an early seam under AD45/AD51.
+
+No threshold across all K1–K34 or every world is added by this review. Preserve useful thin cards and deeper lane evidence with their original ranges; the native world/lead plans and AD43 govern the selected slice. No W-lane, prototype integration or whole-world build was launched. [Batch record](../audits/reconciliation-2026-11-04/content-b7.json).
+
+
+### Round 21 reconciliation B90, 2026-11-04
+
+Retain KL1–KL12 and KMA1–KMA7 with their own source tiers: institutional versus mechanical ladders, separate rank/class axes, gate events, formula structure, evidence status and independent world profiles. Older no-LOTM-runtime and paused-world status claims are historical, superseded by later source and closure receipts; do not reopen runtime or research from this map. Prose-derived counts and unauthenticated editions remain qualified. The five independent novel profiles retain distinct costs; the B5 observable power-bill trace is not a universal cost dial. No private source or sealed truth is reproduced.
+
+Retain the corrections to memory leads: JJK/Naruto institutional rank is not combat power; Bleach numbering, Naruto elements and Fate parameter ladders remain unverified at this map’s sampled scope. HxH adjacency efficiencies do not turn its Specialist exception into a percentage; FMA process and energy claims remain continuity-bound and provisional. Shared staged-process shapes are design candidates, not proof that every stage compiles without engine work. Frontier, HP and D&D delta rows inherit the cited lane’s proof limits, not a fresh code/source review. Old SRD absence/count and held-sidecar statements require their later owning receipts, not blanket present-tense reuse.
+
+These are dated lens proposals, not accepted build scope. Full review of these maps does not fill their explicitly unread cards, ledgers, reader notes, primary texts or code. A missing sidecar file and a silent sampled ledger are not absence of the underlying capability or source mechanic. Zero additional raw-source words still requires analytical work; historical invocation envelopes are estimates, not current authorization.
+
+
+## Complete successor-root reconciliation, 2026-11-04
+
+Rounds 16–21 carry corrections forward, rather than adding independent launch instructions. FK2 limits the four event slots to our audit contract, not a proven common engine; FK3 dates the 0/288 baseline; KF1 makes KN/KU texture optional. The old numbered suggestions, P01/MWA-P02/Frontier candidates and source-read envelopes do not set current priority, authorize paid reading or dispatch workers. AD51 qualifies FK4’s older two-real-callers-before-landing formulation: known needs and a first actual consumer can establish a seam, with a distinct world validating and revising it. Current desktop/prose-first owners govern composition, rather than old required-drawer or 1366×768 wording.
+
+Preserve source law, represented daily life, knowledge, actual implementation and played consequences separately. KL21’s corrected institutional ranks, independent axes, gate events and per-instance terms supersede the initial memory leads. The five independent novel profiles do not share a universal power bill; an observable trace differs from actual consumption. Similar process/graph shapes are reuse candidates, not proof they compile or preserve every world’s meaning without engine work. Prose counts, thin-card samples and unauthenticated editions keep their explicit limits (AD32, AD38).
+
+Keep KW dialogue/event/save questions, KN ordinary-life texture and KU law-to-daily-life/full-preparation comparisons as useful palettes. A proverb, complaint or historical source claim is observer knowledge, not automatic truth. Law removing a familiar need can be a valid world difference, and profitable/failure-free mechanisms need no invented friction. This complete root reading does not review every linked card, lane or source. No grid re-score, runtime, fresh research or new playable slice is claimed.

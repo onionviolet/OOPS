@@ -1,5 +1,7 @@
 # Rapid iteration considerations, 2026-10-16
 
+**Content review B2, 2026-11-04:** F1–F6/O1–O8 reviewed. The [performance owner fold](../ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md#rapid-iteration-content-reconciliation-2026-11-04) distinguishes current runner/scenario source from stale unmerged/missing-tool claims and retains the useful setup/planning/storage/render cost split. Original timings, old test counts and proposed 1366×768 route remain historical evidence; no current benchmark or UI proof is asserted (AD32/AD34/AD36).
+
 Weibao: "Also consider redesigning the engine to be able to rapidly intereate and
 test thigns and more faster?" Asked after the
 [modularity assessment](MODULARITY_AND_REWRITE_ASSESSMENT_2026-10-16.md) and the

@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "batch": "B219",
+  "title": "Nonhuman clock, chapter and mixed-lifespan content review",
+  "at": "2026-11-04T23:19:52.589069+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/worlds/NONHUMAN_CLOCKS_LIFESPANS_AND_SEASONS_2026-10-14.md",
+      "ids": [
+        "CF1–CF10",
+        "nineprofiles",
+        "fiveseasonal/fivemixedclockcases",
+        "CK1–CK18",
+        "CS1–CS5",
+        "settlement/compatibility"
+      ],
+      "classification": "Historical clock source audit and proposed body/phase/chapter contracts",
+      "owners": [
+        "docs/worlds/NONHUMAN_CLOCKS_LIFESPANS_AND_SEASONS_2026-10-14.md",
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+        "docs/worlds/NONHUMAN_STARTS_ENGINE_REQUIREMENTS_2026-10-14.md"
+      ],
+      "disposition": "Preserve calendar/exposure/mortality/experiencedduration distinction, no assumed biology from enrollment, supported closedform versus actual boundary and nextbody notautomaticidentity. Qualify retiredfirstmilestone/viewport and anti-generationfarm wording. Crosslink actual W1fractionalcohort and W6projection plans without claiming they implement lifespan or chapterwork.",
+      "evidence": "Full181-linebodyreadin1–65/66–130/131–end, alltables, source-summary bounds, proposedshape/settlement/futuretests. No cited primarynovel/private summary/runtime source ortestreexecuted.",
+      "reopen": "Atselectedbody/worldprofile, obtainactualrate/era/exposure basis, relevant concurrentparticipants/obligations andsupportedchapteroutcome; verifyexacteligibleinterval, budgetresidue, causaloutputs, recipientidentity and persistence.",
+      "input_sha256": "9f5ba1817d576f9daa685b8cce0f66f41e9b2c8cccb66ee0bf5df7bb2920f60c",
+      "input_lines": 181,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          181
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/worlds/NONHUMAN_CLOCKS_LIFESPANS_AND_SEASONS_2026-10-14.md",
+      "heading": "## Content reconciliation B219, 2026-11-04",
+      "body": "The entire CF1–CF10 audit, nine body profiles, five seasonal phases, five mixed-clock cases, proposed settlement and CK/CS rows were reviewed. Preserve calendar date, biological exposure/maturity, mortality deadline and experienced duration as different readings. Enrollment bornAt is not historical birth; open mortality is not proven absence of aging; a lease expiry is not bodily lifespan; new controller/viewpoint supplies no new youth bonus or reset clock. Source summaries explicitly leave room ratios and Paradise role/era schedules qualified, not exact global mappings. No private summary or primary chapter was reread here (AD32/AD36).\n\nUseful chapter design retains actual supported domain boundaries: a summary transition is not proof every intervening minute was simulated, a seasonal label is not physiology, and a finite supported output is not every skipped year’s harvest. Homogeneous closed-form repetition needs no unresolved material boundary; finite stock, changed body/gear, support loss and commitments can break it. Equal-time old job/life ordering remains part of compatibility. Time remaining after a work-budget yield is residue to account for, not consumed time. B214’s W1 remainder/debt and W6 historical calendar adapter are related bounded plans, not evidence of this general biological clock/chapter engine.\n\nA successor/seed/new pet can be a different participant, while continuing mind or sourced restoration may preserve identity under its own carrier. Neither control switch nor inheritance supplies another person’s consent, memory, private knowledge or estate title. Keep named memories and support/care agreements beyond rolling chatter without simulating all pairs or conscripting descendants. Mourning can be meaningful play without mandatory debuffs or a deadline to forget. Current AD52 supports both long activity and useful compression; chapter availability does not require compressing every life.\n\nQualify CS4’s generation-farm exclusion as avoiding an accidental duplicate payout, not prohibiting genuinely repeatable authored lives or profitable supported reproduction under AD22. Output conservation here follows the chosen mechanism, not a universal ban on generation or free power. Current broad scope retires the old realm/prestige gate, and current desktop/prose-first composition replaces1366-primary. Existing finite reviewed absence is a scoped precedent, not proof of offline body XP, centuries of work, general social simulation or new lifespan balance. No rate, schema, chapter, migration, native clock behavior, browser or persistence proof was delivered by B219.",
+      "before_sha256": "9f5ba1817d576f9daa685b8cce0f66f41e9b2c8cccb66ee0bf5df7bb2920f60c",
+      "after_sha256": "2b49fd9b72e13c23015afcf32db1dde6bc65c5205198bc6933fc0d1facdbc6af"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1004,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B196, continuous execution 2026-11-04 |",
+      "to": "| B219, continuous execution 2026-11-04 |",
+      "reason": "Advance current continuous reconciliation pointer through B219; no new full-register reading credit or change to original B196 input."
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 # More cheats, world by world (2026-10-10)
 
 Weibao: "more cheats and more? consider each book world accordingly."
-These are 70 more cheat-like powers from our notes, beyond the 25
+These are 71 derived-note rows of additional cheat-like powers, beyond the 25
 protagonist cheats already placed in [cheat cosmology](CHEAT_COSMOLOGY.md).
 A Sonnet reader collected them on 2026-10-10 from our derived notes only;
 Claude edited them. Everything is a proposal.
@@ -162,7 +162,7 @@ taken, stolen or lost, so by default it can be, by some route.
 
 | Entry | Cheat | Does | Backing | Taken back? | Limits | Source |
 |---|---|---|---|---|---|---|
-| B01 | Download panel | Copies a skill or body talent on contact | System | The donor keeps theirs | Sunlight fuel; weather interrupts | `D/BOOKSHELF_INSPIRATION.md:27` |
+| B01 | Download panel | Copies a skill or body talent on contact | System | Early protagonist inference: donor retains; later cases unverified | Sunlight fuel; weather interrupts | `D/BOOKSHELF_INSPIRATION.md:27` |
 | B09 | Civilization collector | Copies assets when cooperation suffices | System | Notes silent | Unverified | `D/BOOKSHELF_INSPIRATION.md:35` |
 | B12 | Many selves | Specialized copies pool work | Body, concept | Notes silent | Trust and sharing unverified | `D/BOOKSHELF_INSPIRATION.md:38` |
 | B21 | Luck theft for talent | Steals luck to raise talent | System | Notes silent | Unverified | `D/BOOKSHELF_INSPIRATION.md:47` |
@@ -266,3 +266,18 @@ and reset are distinct; silence is recorded as unknown.
 - **F6 partial compatibility:** a summoning item can arrive while its monument does not. Works for transport and Blocked for activation can coexist.
 - **F7 clocks differ:** Bitburner estimates production, Melvor simulates ticks and Upload Labs stores acceleration. Auto-cultivation can use any selected policy, with its costs exposed.
 - **F8 absorption options:** regression anchors, lineage deeds, portable design records and paid ritual automation can make player conveniences diegetic. Their source limits and original variants are in [GAMES_REPORT.md](gm/dispatch/cheat-cosmology-gaps-2026-10-10/GAMES_REPORT.md).
+
+
+## Content reconciliation B276
+
+Full268original lines reviewed: all71pre-game table rows, all56game rows across32world labels, every source/backing/limits cell, trimmed-alternative list and F1–8implications. Text counting confirms56/32for the game section; the opening70count was off by one against its71rows. The opening now describes rows, not a promise of71distinct independent powers; combined abilities, variants and overlapping holders still need their own source-specific semantics. Original count wording is preserved in the explicit amendment. No chapter, extracted game data, source dossier or current game version was reread by proxy.
+
+The bookshelf B01row overstates donor retention: its actual [B01source owner](BOOKSHELF_INSPIRATION.md#inspected-reference-cases) says this is the protagonist's early conclusion, not proof of every later case. That cell is corrected in place with original wording retained in the batch amendment. All U/G/notes-silent evidence distinctions still matter. “Silent therefore can be taken somehow” is an original possibility, not evidence of an actual canonical theft/revocation route. A single witnessed seal, transfer, regeneration failure or inherited body does not prove unrepeatability or a universal copying prohibition. Preserve exact source quantities when qualified; do not infer extra rules, costs, donors, possession or future ranks from a catalogue/name.
+
+Revocation, depletion, expiry, destruction, custody loss, suppressed expression, a completed body change and resetting a player profile are separate. A source ending can cease maintained support without undoing completed acquisition or granting a new source automatically. Conversely a moved object or name does not carry its monument, location law, personal compatibility, faculty, fuel, charge, permission or external account library. Current BHR31–34and SLR40–43in [DOMAIN_RULES](DOMAIN_RULES.md) own that support/causal distinction; a parent patron label alone decides none of it. Free creation, free summons or no ongoing price can fit a world (AD5, AD38); coordination cost and finite recharge examples are not mandatory balancing taxes.
+
+The later game section already makes a valuable correction to the earlier backing table: a player/profile/session facility is not automatically an in-world soul, Concept or actor-held cheat just because the game uses fantasy terminology. Source-file retention, external blueprint libraries, incident directors, debug roll overrides, settings, legacy selectors and ordinary save reload stay at their actual layer unless an explicitly authored means turns them into character capabilities. An in-fiction record, carrier body and operation eligibility are separate too. In-game and player-layer rows can inspire an original adaptation without proving that the source grants that power to its playable actor.
+
+Keep field/sample/version limits: demo-only mechanics and original-versus-QuestProgress Knight are different sources; a seed recipe is algorithm/version bound; native code/default values do not establish launched behavior; caster attribution is not necessarily continuing field support; three script grants are not three usable charges; a category draw is not a promised eligible event; incoming automated supplies are not already delivered inventory. Source reserve, support removal, effects already achieved and death/revival consequences need their actual owning consumers. No summoning item, descriptor, manual or learned recipe alone makes an eligible target/body/site appear.
+
+F4/F7remain especially useful: an heir, Architect layout, reset, reincarnation, legacy deed and ordinary loader retain different records; estimated production, tick simulation and acceleration reserve are different absence policies. Current AD22/AD49/AD51/AD52and selected local source/calibration boundaries govern reuse, without inventing universalanti-profit limits or applying another game's offline death/food policy to OOPS. The older HPbrief rollback default, “new owner has no method,” game caps and recharge numbers remain their bounded source/proposal snapshots, not global cross-world laws. All unusual powers, source questions and original variants remain preserved. No runtime cheat, transfer, source download, test, version migration or newly verified game mechanic was selected.

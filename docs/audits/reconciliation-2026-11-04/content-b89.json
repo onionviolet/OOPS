@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "batch": "B89",
+  "title": "Price-coverage map: completed tooling and quantity traceability limits",
+  "at": "2026-11-04T20:39:14.515920+00:00",
+  "head": "a4bebe24faffd52190c7e93bdc6d3fff91fa145c",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/C3_PRICE_MAP.md",
+      "ids": [
+        "C3/L2price430",
+        "mapping/trace/band/unmapped",
+        "round3commonboundaries"
+      ],
+      "classification": "fresh full price brief/receipt and source consumer review",
+      "owners": [
+        "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c3/REPORT.md",
+        "docs/gm/dispatch/sonnet-wave-2026-10-30/LEDGER.md"
+      ],
+      "disposition": "Oldreadybrief nowhasactualC3return, sourceparser and coverageconsumer; not stillnodispatchnorzeroeconomicfeatureproof. Preserve explicitstated-vs-inferredbands/reasons, sourceparagraphreadingnot implied byregistrycrosswalk, oldLuna/hostownershipnot currentcommands. 430quantityIDsnot430pricedservices.",
+      "evidence": "All18/36line documents plus complete88line lotm_price_map.js and selectedcoverage_ledger pricejoin inspected. Parentledger14/25/147 laterreturn read. No privatebookparagraph/registryfullcorpus reread, count/regression/nativeprice journey rerun.",
+      "reopen": "Selectedactualprice/sourcecontext row or semanticfeatureconsumer with exactbook/corpus/currentamountauthority; no inflationofquantityproxyintolore/gameplaycoverage, paidreading or pricingwork.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "c7b5bdefeb874e6027bdbece43133ec20cc779a55c538653052c979c82e50f84",
+      "input_lines": 18,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          18
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c3/REPORT.md",
+      "ids": [
+        "F1–F3",
+        "v1:382/2/46→99of430",
+        "all:1199/16/184→153of1399",
+        "9focusedtests/historicalrun"
+      ],
+      "classification": "fresh full price brief/receipt and source consumer review",
+      "owners": [
+        "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c3/REPORT.md",
+        "docs/gm/dispatch/sonnet-wave-2026-10-30/LEDGER.md"
+      ],
+      "disposition": "Readactualsource-textproxy limits: conversionconstant/fixedquantitycarrier fragment not samegood/service/transaction/nativeconsumption. Rangesandvaguebandsnottraceablepointvalue; ambiguousmergedpenny intentionallygap. Historicalparsermetadata notnewsourceparagraphread. No newpricespolicy/coverage count/runtime/economyproof.",
+      "evidence": "All18/36line documents plus complete88line lotm_price_map.js and selectedcoverage_ledger pricejoin inspected. Parentledger14/25/147 laterreturn read. No privatebookparagraph/registryfullcorpus reread, count/regression/nativeprice journey rerun.",
+      "reopen": "Selectedactualprice/sourcecontext row or semanticfeatureconsumer with exactbook/corpus/currentamountauthority; no inflationofquantityproxyintolore/gameplaycoverage, paidreading or pricingwork.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "a5aef0de091a6fff15eb86f1fab47aa0992063566ab0075ed9d358d4a015df8d",
+      "input_lines": 36,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          36
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/C3_PRICE_MAP.md",
+      "heading": "## Later C3 return and coverage meaning, 2026-11-04 (B89)",
+      "body": "The [C3 receipt](c3/REPORT.md) records the implemented pure crosswalk and focused tooling checks; the parent ledger’s later C3 row supersedes the initial zero/untraceable price snapshot at that corpus identity. Current selected parser and ledger source retain the price-only quantity/carrier-fragment join. A quantity match, denomination constant or enumerated source fragment does not prove the same item/service/transaction is implemented; 430 registry quantity IDs are not 430 distinct priced services. Preserve stated ranges, inferred lexical bands, ambiguity and unmapped reasons without turning them into spendable quotes. This review read the actual brief, receipt and proxy source, not the raw book paragraphs or whole registry, and reran no counts/tests/gameplay. Old worker/host reservations and split instructions are history, not new delegation or runtime permission (AD32/AD36).",
+      "before_sha256": "c7b5bdefeb874e6027bdbece43133ec20cc779a55c538653052c979c82e50f84",
+      "after_sha256": "0eeec4314520d1a25d97fa934cdad81e14c5147f55623d16e3d8a79a7e558c6c"
+    },
+    {
+      "path": "docs/gm/dispatch/sonnet-wave-2026-10-30/codex-r3/c3/REPORT.md",
+      "heading": "## Actual-content review and unchanged evidence limits, 2026-11-04 (B89)",
+      "body": "The full receipt and current pure parser/coverage consumer were inspected. Exact whole-field parsing, preserved stated/inferred range distinctions, explicit ambiguity and corpus-gated enumerated carriers remain materially different from direct feature coverage. Historical 99/430 and 153/1399 source-text tallies retain their original inputs; no current count, source-paragraph adjudication or native transaction proof was run. A new semantic service/price claim needs its actual item, payee, actor, terms, source context and consumer; matching quantity alone cannot supply them. No priority, source-reading spend, price policy or gameplay work is selected (AD32/AD36).",
+      "before_sha256": "a5aef0de091a6fff15eb86f1fab47aa0992063566ab0075ed9d358d4a015df8d",
+      "after_sha256": "a278e79ef33de56fbf392acd7dbae51254665cebaec30b94671f1d801b44316a"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1334
+}

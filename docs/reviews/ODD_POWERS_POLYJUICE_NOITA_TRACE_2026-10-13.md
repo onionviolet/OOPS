@@ -52,3 +52,10 @@ report. No build, tests, browser play, saves, source acquisition, commits or
 publication were performed. A selected implementation would still require
 exclusive ownership, rebuilt fresh-origin gameplay and applicable
 save/reload/import evidence, followed by human fiction/balance acceptance.
+
+
+## Content reconciliation, 2026-11-04 (B168)
+
+All F1–F5/O1–O5 and proof limits were read. Infinite debt remains the intended request and infinite depth a separate retained proposal; their operative distinctions are folded into [the adjective owner](../emergent/E8F_ADJECTIVES.md#infinite-debt-trace-reconciliation-2026-11-04-b168). This preserves useful content instead of replacing the trace with a pointer. The October 13 specified-not-run Polyjuice status and public-name search are historical: later independently reviewed HP receipts and the October 22 [publication review](MASTER_READY_REVIEW_2026-10-22.md) record bounded native/persistence gates. Neither proves every impersonation contract, all body transformations or broad Noita/wand composition.
+
+Keep extracted source versus opaque native behavior, narrow assay wiring versus played results, authoring vocabulary versus actual execution and original variants versus canon distinct. Old Noita installation observations are not current machine inventory, and private PJ contracts were not reopened here. Current AD42 makes human review optional; any later selected runtime slice retains the actual source/native/persistence floor. No implementation, source acquisition or private source/save access was performed.

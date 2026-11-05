@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "batch": "B144",
+  "title": "Encounter dimensions and Village loop receipt boundaries",
+  "at": "2026-11-04T21:53:40.242176+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/ENCOUNTERS_AND_PURSUIT.md",
+      "ids": [
+        "trigger",
+        "finding",
+        "access",
+        "contact",
+        "persistence",
+        "four original proofs",
+        "12 event families"
+      ],
+      "classification": "Encounter owner mixing historical implemented scope and future event palette",
+      "owners": [
+        "docs/ENCOUNTERS_AND_PURSUIT.md",
+        "PROJECT.md",
+        "docs/COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md"
+      ],
+      "disposition": "Read all policy dimensions, four original proof descriptions, acceptance blockers and event families. Preserve independent trigger/locator/access/outcome, evidence from actual tracking means and retained prior leads, one accepted session and separately reserved participants. Retired milestone sentence corrected in place; no global forbidden lethal or cross-world scope inferred from early voluntary nonlethal proofs.",
+      "evidence": "Fresh full text only; no current source, rebuilt browser, original scene or persistence check. Claims of delivered four proofs retain their original date and not current native floor or whole controller validation.",
+      "reopen": "A selected enemy/event needs real locator evidence, means and declared guarantees with its own failure/response/settlement, not a universal controller or counter-to-every-threat rule.",
+      "input_sha256": "d54d07b7bdb3ac2f97aafd5941149e3e014ada6a11c07e954e701745e92a86d6",
+      "input_lines": 51,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          51
+        ]
+      ]
+    },
+    {
+      "path": "docs/PROTO23_VILLAGE_LIFE_LOOPS_2026-10-14.md",
+      "ids": [
+        "home/purchases",
+        "watch",
+        "weekly market",
+        "courier",
+        "relay/mentor",
+        "bleeding",
+        "search",
+        "schema 3",
+        "title feedback"
+      ],
+      "classification": "Historical loop implementation proposal and compatibility receipt, not exact Proto23 replica",
+      "owners": [
+        "docs/PROTO23_VILLAGE_LIFE_LOOPS_2026-10-14.md",
+        "docs/SAVES.md",
+        "docs/COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md"
+      ],
+      "disposition": "Read every loop, numeric dial, clock/reward owner, schema behavior and evidence exclusion. Preserve home/title actual counters, interrupted unpaid watch, actual arrival roll, learned route versus travel permission, explicit relay restart, wound duration and finite search exhaustion. Numeric caps/payouts/rolls are local implemented choices, not cross-world law or unrun natural-route proof.",
+      "evidence": "Fresh full text, no source or linked report read credit. Historical controlled native-save fixtures explicitly do not prove naturally earning an entire watch or guardian route; 1366 target and mandatory director gate superseded by current viewport and AD42.",
+      "reopen": "Reproduce a selected existing loop and its clock, absence, interruption or settlement on current inputs before changes; do not relaunch all seven loops or infer source-faithful parity.",
+      "input_sha256": "4e919334bd0e52735cf33a07e6776f222226e5e890853065146096895ae58a89",
+      "input_lines": 48,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          48
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/ENCOUNTERS_AND_PURSUIT.md",
+      "heading": "## Content reconciliation B144, 2026-11-04",
+      "body": "The complete encounter owner was reviewed. Trigger, locator, access, contact and settlement remain independently useful authoring dimensions. A guaranteed arrival is not guaranteed victory, omniscient perception, lethality or an arbitrary response deadline. Removing a mark blocks future detections through that mark; it need not erase an earlier valid lead or witnessed departure. A declared exceptional locator may bypass ordinary cover without every ordinary pursuer reading true player state (AD5, AD38).\n\nThe four original proofs retain their scoped voluntary/nonlethal descriptions and historical evidence. No new current native execution or automatic-hostile/group-combat adapter was verified here. The final one-realm/one-prestige milestone wording is replaced because that gate was retired; it cannot exclude selected wider development. Future families are palettes, not a whole-world generator dispatch or evidence that every event needs a hidden price, escape route or escalation. Actual world/source means, actor motives, clocks, custody and history decide; powerful solutions may end a pursuit instead of generating a replacement penalty (AD22, AD32, AD43).",
+      "before_sha256": "d54d07b7bdb3ac2f97aafd5941149e3e014ada6a11c07e954e701745e92a86d6",
+      "after_sha256": "41d9ccb33c2b134cc56ee5a098a5976a008b88d161eb84c94fee36275d0ea438"
+    },
+    {
+      "path": "docs/PROTO23_VILLAGE_LIFE_LOOPS_2026-10-14.md",
+      "heading": "## Content reconciliation B144, 2026-11-04",
+      "body": "All seven loops, compatibility and evidence limits were read. Preserve the single local-life reward/state owner and joined native settlement, with calendar windows distinct from observed exposure. A courier's arrival roll, a known relay route and actual permission to travel are separate; a completed title threshold can be cosmetic without a balance bonus. Search exhaustion is finite authored stock, not an undiscovered hidden remaining-count leak.\n\nThe watch hours, payout, XP exposure cap, courier probability, bread period, title thresholds and bleeding duration are this historical slice's choices. They are not universal calendar, wage, wound or anti-exploit rules. The existing active-effect owner, observed minutes and saved claims matter more than the proposed surface label. Schema-3 defaults avoid invented old history and keep stated local accounts; this does not certify all current loader paths or general old-save compatibility.\n\nThe report explicitly distinguishes controlled native-save fixtures from naturally earning a full day or the guardian route. Keep that gap rather than marking the full loop proven from an opening image or test count. Current viewport direction replaces the old 1366 target and AD42 makes director review optional. No fresh source-parity, natural route, bleeding, save or browser result was established, and no loop order or new runtime wave was selected (AD32, AD36).",
+      "before_sha256": "4e919334bd0e52735cf33a07e6776f222226e5e890853065146096895ae58a89",
+      "after_sha256": "2b7b84250ba22eaf968590fce057e66e1ccbcb07ed372d1ffa47f4246f6111a7"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1205,
+  "post_record_amendments": [
+    {
+      "path": "docs/ENCOUNTERS_AND_PURSUIT.md",
+      "from": "First milestone remains one realm and one prestige layer, with vanilla continuity preserved.",
+      "to": "The earlier one-realm/one-prestige milestone is retired; current scope follows PROJECT and the selected owner, with vanilla continuity preserved (AD32, AD43).",
+      "reason": "B144 removes superseded milestone gate from current encounter summary; retains exact prior wording here."
+    }
+  ]
+}

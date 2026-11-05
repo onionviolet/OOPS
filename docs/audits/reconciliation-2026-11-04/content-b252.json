@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "batch": "B252",
+  "title": "UI foundation root checkpoint: full chronology, released routing and proof identity",
+  "at": "2026-11-04T23:58:13.072857+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/CHECKPOINT.md",
+      "ids": [
+        "Oct18 current router",
+        "live-tree/UA2/UA3 receipts",
+        "M2/R12/R11 handoffs",
+        "shell/C1 history",
+        "S1–S3 final",
+        "historical S1 evidence and closes",
+        "R14 triage"
+      ],
+      "classification": "Full chronological UI root/checkpoint; dated current labels and later actual receipts qualified",
+      "owners": [
+        "docs/gm/dispatch/ui-foundation-2026-10-15/CHECKPOINT.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "F1. Complete278-line read covers the Oct18 router, Oct16 reconciliation, M2/R12/R11 handoffs, shell/C1/S1–S3 histories, original S1 evidence/next steps, later S1/S2 technical closes and final R14 triage. Current routing within this historical file already says older single-writer/next-round sections are chronology. Oct18 UIL8 ownership is also dated, not a current live reservation. No PID, server link or old no-worker line was probed here or treated as present process state; do not restart a server, old next round or handoff from those paragraphs. Current project/accepted-direction/runtime owners govern selected work, and this content reconciliation grants no source reservation.\n\nF2. Preserve chronological verification rather than overwrite it: initial S1 browser reruns were later explicitly closed, and Q6 was clarified as an unobvious route rather than a missing one. Incidental crafting overlap is a different reproduced defect. S1/S2/S3, C1, shell and R3/R12/R14 counts have different input identities and overlapping focused subsets, not a cumulative test total. The clean export1773pass/zero fail/threeTODO M2/R14 lineage does not repair the dirty continuation/clock suite. Contract exceptions469/638 shrinking toward211/273 is scoped literal-style accounting, not proof all UI behavior or all UR21–UR33 routes were covered. AD36/AD43 retain those distinctions.\n\nF3. Source/served parity and frozen images authenticate the stated captured candidate only. C1's Normal/revealed reference and later DEV SEEDED comparisons have separate provenance. Paused inspection preservation is not a claim running game time stops when a panel opens. S2's150% viewport emulation was explicitly not real browser zoom. Exact browser layout keys/pins/collapse and gameplay save schema have different owners, so save/import checks do not make all presentation preferences portable game state. Current14/21px desktop/prose-first/optional-art direction qualifies old CJK defaults,1366-first grids and literal footer placement without discarding useful source-fit history.\n\nF4. Later full reports in B249–B251 qualify the old future statuses: inventory tabs, status home and later crowded-log/UI composition have technical receipts; old source-only missing claims are not blanket current absence. R21c's passing leak result is qualified by R22b/c's later dormant-export leak, and hand-toggled fight return/undiscovered Stances are not natural browser proof. The useful shared center/panel/navigation APIs remain existing-owner routes, not permission for another mover/save owner. The actual old M2 commit is recorded history, not authorization to commit this reconciliation. Under AD32 proposals remain proposals; AD42 keeps human taste optional. No linked private source, runtime, browser, user save, commit or installation proof was freshly established.",
+      "evidence": "Entire278-line input delivered in ranges1–145,146–278. No PID/server check, linked private source, image or runtime test renewed.",
+      "reopen": "Selected current UI ownership/input change; use actual current owner rather than old next/reservation/PID. Preserve exact chronology and proof limits.",
+      "input_sha256": "2e4876ebc9d8a72de5b6233bfe183e73bfb8ed64823359d3215d5c69a08138b4",
+      "input_lines": 278,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          278
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/CHECKPOINT.md",
+      "heading": "## Root-checkpoint reconciliation: chronology and actual current authority (B252, 2026-11-04)",
+      "body": "F1. Complete278-line read covers the Oct18 router, Oct16 reconciliation, M2/R12/R11 handoffs, shell/C1/S1–S3 histories, original S1 evidence/next steps, later S1/S2 technical closes and final R14 triage. Current routing within this historical file already says older single-writer/next-round sections are chronology. Oct18 UIL8 ownership is also dated, not a current live reservation. No PID, server link or old no-worker line was probed here or treated as present process state; do not restart a server, old next round or handoff from those paragraphs. Current project, direction and runtime owners govern selected work, and this content reconciliation grants no source reservation.\n\nF2. Preserve chronological verification rather than overwrite it: initial S1 browser reruns were later explicitly closed, and Q6 was clarified as an unobvious route rather than a missing one. Incidental crafting overlap is a different reproduced defect. S1/S2/S3, C1, shell and R3/R12/R14 counts have different input identities and overlapping focused subsets, not a cumulative test total. The clean export1773pass/zero fail/threeTODO M2/R14 lineage does not repair the dirty continuation/clock suite. Contract exceptions469/638 shrinking toward211/273 is scoped literal-style accounting, not proof all UI behavior or all UR21–UR33 routes were covered. AD36/AD43 retain those distinctions.\n\nF3. Source/served parity and frozen images authenticate the stated captured candidate only. C1's Normal/revealed reference and later DEV SEEDED comparisons have separate provenance. Paused inspection preservation is not a claim running game time stops when a panel opens. S2's150% viewport emulation was explicitly not real browser zoom. Exact browser layout keys/pins/collapse and gameplay save schema have different owners, so save/import checks do not make all presentation preferences portable game state. Current14/21px desktop/prose-first/optional-art direction qualifies old CJK defaults,1366-first grids and literal footer placement without discarding useful source-fit history.\n\nF4. Later full reports in B249–B251 qualify the old future statuses: inventory tabs, status home and later crowded-log/UI composition have technical receipts; old source-only missing claims are not blanket current absence. R21c's passing leak result is qualified by R22b/c's later dormant-export leak, and hand-toggled fight return/undiscovered Stances are not natural browser proof. The useful shared center/panel/navigation APIs remain existing-owner routes, not permission for another mover/save owner. The actual old M2 commit is recorded history, not authorization to commit this reconciliation. Under AD32 proposals remain proposals; AD42 keeps human taste optional. No linked private source, runtime, browser, user save, commit or installation proof was freshly established.",
+      "before_sha256": "2e4876ebc9d8a72de5b6233bfe183e73bfb8ed64823359d3215d5c69a08138b4",
+      "after_sha256": "5827f2970e36679b18366abc7489971d8f6fe05ee5fb85a5b7ef0698fae29d13"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 922,
+  "post_record_amendments": [
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/CHECKPOINT.md",
+      "from": "Current project/accepted-direction/runtime owners govern selected work,",
+      "to": "Current project, direction and runtime owners govern selected work,",
+      "reason": "B252 lint: avoid ambiguous acceptance wording in historical coverage/owner explanation; initial failed output retained."
+    },
+    {
+      "path": "docs/gm/dispatch/ui-foundation-2026-10-15/next-parts/request-coverage.md",
+      "from": "it does not mean implemented, accepted or browser-verified.",
+      "to": "it does not prove implementation, product adoption or browser verification.",
+      "reason": "B252 lint: avoid ambiguous acceptance wording in historical coverage/owner explanation; initial failed output retained."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B248, continuous execution 2026-11-04 |",
+      "to": "| B252, continuous execution 2026-11-04 |",
+      "reason": "Advance active pointer through B252; no new full-register reading credit."
+    }
+  ]
+}

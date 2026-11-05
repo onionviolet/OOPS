@@ -1,0 +1,157 @@
+{
+  "schema": 1,
+  "batch": "B76",
+  "title": "Earlier finite closure, archive policy and changed scattered-source presence",
+  "at": "2026-11-04T20:25:09.018689+00:00",
+  "head": "4cdc0772b65d413e4989e327502910140b2a15eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/cross-audit-reconciliation-2026-10-15/CLOSURE_2026-10-16.md",
+      "ids": [
+        "UA1–UA3/DA1–DA5/RG1–RG4",
+        "827reportpartition/31archive/325scope/222windows/2146lexical"
+      ],
+      "classification": "fresh full native closure/archive content with scoped current presence check",
+      "owners": [
+        "docs/gm/cross-audit-reconciliation-2026-10-15/CLOSURE_2026-10-16.md",
+        "docs/gm/cross-audit-reconciliation-2026-10-15/CLOSURE_2026-10-16.md"
+      ],
+      "disposition": "FiniteOct16auditclosure not allcurrentprojectquestions or semanticreading complete. Preserve owner-heldarchiveequivalence and actualfocus/pointer/mixture evidence gaps. CurrentexplicituserNov4allcontent scope distinct retiredauto31queue; no runtime/fix/deletion implied. Optionalhumanreview no requiredblocker.",
+      "evidence": "AllfiveMarkdownbodies freshlyread. Read-only pathlib existencecheck of lever_practice_supply/check_resolver/craft_cues/rt_slice1_fixtures/village_traveler_asks/simfuzzrun found allsixpresent. No fileequivalence/sourcefullread/semanticmerge/nativejourney or originalprivatearchive recovery inferred.",
+      "reopen": "Currentexplicitcontent scope continues independently. Specific actualchangedconsumer/source/archiveevidence gap stays with originalowner; no automaticrestoration/integration/repair/dispatch/humangate.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "30a5f9f24ab39503c0aa3cf710de7016eba38b377140b3630d2782e08c12ab54",
+      "input_lines": 80,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          80
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/cross-audit-reconciliation-2026-10-15/CLOSURE_RETURN_WORLDS.md",
+      "ids": [
+        "101pathtriage/4externalgates",
+        "World1C01/C02/P1/P3/P4/P5",
+        "OriginalFrontier"
+      ],
+      "classification": "fresh full native closure/archive content with scoped current presence check",
+      "owners": [
+        "docs/gm/cross-audit-reconciliation-2026-10-15/CLOSURE_2026-10-16.md",
+        "docs/gm/cross-audit-reconciliation-2026-10-15/CLOSURE_RETURN_WORLDS.md"
+      ],
+      "disposition": "Originalpaused/resumed/endedcandidate/sharedintegration distinct. Native/frozenfixture stage not wholeworldcompletion. 101triagedpaths received zeroautomaticsemanticfullcredit. Humanacceptance state optionalcurrentAD42; oldworldpriority not new selection.",
+      "evidence": "AllfiveMarkdownbodies freshlyread. Read-only pathlib existencecheck of lever_practice_supply/check_resolver/craft_cues/rt_slice1_fixtures/village_traveler_asks/simfuzzrun found allsixpresent. No fileequivalence/sourcefullread/semanticmerge/nativejourney or originalprivatearchive recovery inferred.",
+      "reopen": "Currentexplicitcontent scope continues independently. Specific actualchangedconsumer/source/archiveevidence gap stays with originalowner; no automaticrestoration/integration/repair/dispatch/humangate.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "564c0cf8c8b37dbadd5f15de6ddc020548dfd0033b35e46742d6bba9345278e1",
+      "input_lines": 24,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          24
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/cross-audit-reconciliation-2026-10-15/SCATTERED_RETURN.md",
+      "ids": [
+        "F1–F11",
+        "LP2/LP3/RBE-R1/RT-B1/RT-B2/TA1/SIMFUZZ",
+        "micro-p1/systems/starts aliases"
+      ],
+      "classification": "fresh full native closure/archive content with scoped current presence check",
+      "owners": [
+        "docs/gm/cross-audit-reconciliation-2026-10-15/CLOSURE_2026-10-16.md",
+        "docs/gm/cross-audit-reconciliation-2026-10-15/SCATTERED_RETURN.md"
+      ],
+      "disposition": "Historicalisolation/status/hash/sourcewindow facts preserved. All6sampled formerlyabsent mainpaths nowexist, disproving reuse of absence ascurrentstate; no semanticmerge/behaviorproof fromexistence. Retain laneclaims/seededstock/skiptravel/revisionguards/customarchiveequivalence/privatebytes and fuzzreproIDs. Latergenericruntime/suppliers not source equivalence.",
+      "evidence": "AllfiveMarkdownbodies freshlyread. Read-only pathlib existencecheck of lever_practice_supply/check_resolver/craft_cues/rt_slice1_fixtures/village_traveler_asks/simfuzzrun found allsixpresent. No fileequivalence/sourcefullread/semanticmerge/nativejourney or originalprivatearchive recovery inferred.",
+      "reopen": "Currentexplicitcontent scope continues independently. Specific actualchangedconsumer/source/archiveevidence gap stays with originalowner; no automaticrestoration/integration/repair/dispatch/humangate.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "348e7f56a3ae01c0f6024503531d52f3a3acd35ce355f575e8244199583e1b3b",
+      "input_lines": 54,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          54
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/cross-audit-reconciliation-2026-10-15/WHAT_REMAINS.md",
+      "ids": [
+        "1205uncaptured/608capture/176partial/157complete",
+        "2146lexical/111registrations/8unavailable",
+        "retiredautomatic31scope"
+      ],
+      "classification": "fresh full native closure/archive content with scoped current presence check",
+      "owners": [
+        "docs/gm/cross-audit-reconciliation-2026-10-15/CLOSURE_2026-10-16.md",
+        "docs/gm/cross-audit-reconciliation-2026-10-15/WHAT_REMAINS.md"
+      ],
+      "disposition": "Originalfrozenreadinglimits distinct from finiteissueclosure/current2035intake. Explicitnewscope clause permits currentrequestcontentreview without revivingauto31or discoveringfakeissues. Preserve unreads/privatepayload limits, no closedsourcecleanclaim.",
+      "evidence": "AllfiveMarkdownbodies freshlyread. Read-only pathlib existencecheck of lever_practice_supply/check_resolver/craft_cues/rt_slice1_fixtures/village_traveler_asks/simfuzzrun found allsixpresent. No fileequivalence/sourcefullread/semanticmerge/nativejourney or originalprivatearchive recovery inferred.",
+      "reopen": "Currentexplicitcontent scope continues independently. Specific actualchangedconsumer/source/archiveevidence gap stays with originalowner; no automaticrestoration/integration/repair/dispatch/humangate.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "db570f6c7c8b688bac2a2ab7596f2a8eb8302f58f5654caf5ed52e0c5f31fe98",
+      "input_lines": 39,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          39
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/cross-audit-reconciliation-2026-10-15/REPORT_ARCHIVE.md",
+      "ids": [
+        "4covered/27superseded/31inplacearchive",
+        "T01–T11",
+        "originalrows/path scopedreopen"
+      ],
+      "classification": "fresh full native closure/archive content with scoped current presence check",
+      "owners": [
+        "docs/gm/cross-audit-reconciliation-2026-10-15/CLOSURE_2026-10-16.md",
+        "docs/gm/cross-audit-reconciliation-2026-10-15/REPORT_ARCHIVE.md"
+      ],
+      "disposition": "Archivalrouting in place preserves originals/sourceevidence/failedreturns and eachrow scope; no allsource-reading credit or unconditionalallUIcompletion. LaterR14/R12/P5 stages only namedroutes, humanfeedback optionalAD42, currentUI direction source cannotbefrozen oldrouter. No movement/deletion.",
+      "evidence": "AllfiveMarkdownbodies freshlyread. Read-only pathlib existencecheck of lever_practice_supply/check_resolver/craft_cues/rt_slice1_fixtures/village_traveler_asks/simfuzzrun found allsixpresent. No fileequivalence/sourcefullread/semanticmerge/nativejourney or originalprivatearchive recovery inferred.",
+      "reopen": "Currentexplicitcontent scope continues independently. Specific actualchangedconsumer/source/archiveevidence gap stays with originalowner; no automaticrestoration/integration/repair/dispatch/humangate.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "1095642f69870d01e79581bc3b6aa398edcdc0710310c4c7aaf17ecb96746005",
+      "input_lines": 47,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          47
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/cross-audit-reconciliation-2026-10-15/CLOSURE_2026-10-16.md",
+      "heading": "## Later project-wide intake scope, 2026-11-04 (B76)",
+      "body": "“Single current list” and zero unresolved units above refer to the frozen October 16 closure set. The explicit November 4 request now authorizes continuous actual-content review of remaining audits/plans/ideas/maps; it is new scope, not a revival of the retired automatic31 queue or proof that all earlier unread sources were clean. [Current intake and batch record](../../audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md) keeps its own denominator and exact ranges. UA/RG archive equivalence, exact consumer/focus cases and historical failed/seeded receipts retain their evidence limits; this pass does not close them by routing. AD42 makes human feedback optional, without turning source/focused-test evidence into rebuilt behavior. The in-place archive policy remains useful: preserve source IDs, original variants and proof, with current owners/explicit residuals. No report deletion, runtime restoration/integration or new source acquisition is authorized by these dated closure instructions (AD32/AD36).",
+      "before_sha256": "30a5f9f24ab39503c0aa3cf710de7016eba38b377140b3630d2782e08c12ab54",
+      "after_sha256": "7fb953e78271453eae5c6b6e25ddf196762194bec54fada1db8a0a4a759fe11d"
+    },
+    {
+      "path": "docs/gm/cross-audit-reconciliation-2026-10-15/SCATTERED_RETURN.md",
+      "heading": "## Current presence versus historical integration findings, 2026-11-04 (B76)",
+      "body": "The six representative paths described as absent above now exist in the primary checkout: lever_practice_supply, check_resolver, craft_cues, the RT fixture helper, village_traveler_asks and simfuzz/run. This read-only presence observation prevents reuse of the October 15 absence claims as current status; it does not compare bytes to the isolated candidates, establish complete integration or rerun their behavior. LP2/LP3 combined provenance, seeded stock/skip-travel limits, TA1 revisions, SIMFUZZ repros and unavailable private/untracked originals remain distinct. Use later actual receiving owners and current consumers for implementation claims, preserving the original hashes and narrow source windows as history. AD32/AD36 select no restore, merge, repair or new gameplay queue here.",
+      "before_sha256": "348e7f56a3ae01c0f6024503531d52f3a3acd35ce355f575e8244199583e1b3b",
+      "after_sha256": "3a0e51a96b0d544faa8a101e35b1b2ac40070fc8068eb3ca9031ec616088967f"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1356
+}

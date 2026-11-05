@@ -15,3 +15,8 @@ Official US-English Steam base declared catalog has ids2232370/2937200, both typ
 JSON parse,33unique findings/17paths/exact coverage, five packet references,102source/reuse locator bounds/current hashes and local document links passed. YAIR code/build unchanged; all gameplay/unit/browser/save/reload/import/failure/regression/keyboard/director checks remain deferred/unrun. No actual played acceptance claim.
 
 Resume only for a specific parent review defect or authorized named unread/native question. Recheck moving YAIR hashes before implementing any proposed packet. Root owns integration and any canonical indexing. Finite task complete; no generic watcher or repeat source scan remains.
+
+
+## Later bounded native research, 2026-11-04 (B30)
+
+The original October7 no-native-recovery paragraph is its own snapshot. Later aspects-2026-10-14 and emergence-2026-10-15 checkpoints preserve selected native analysis through round5: healing consumers, active-effect timing/source cleanup, reservation/count/output paths, cancellation containment and exception cleanup. Read the matching round’s REPORT/TRACE and cumulative COVERAGE/UNREAD before selecting more work; the earlier absence statement is not today’s complete coverage inventory. These partial passes still do not establish whole-engine AI, general consumed-source refund, transformation reversal, output-placement rollback or native save/play behavior. Definition-memory cleanup, active-instance removal, source contribution reset and actual actor-state restoration remain distinct. Do not repeat completed native capture or infer a universal missing refund from a local path.

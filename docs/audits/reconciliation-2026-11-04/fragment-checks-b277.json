@@ -1,0 +1,85 @@
+{
+  "scope": "New local heading-fragment links in B273\u2013B277 folds only; no semantic/runtime proof.",
+  "checked": 13,
+  "missing": [],
+  "checks": [
+    {
+      "batch": 273,
+      "source": "docs/BOOKSHELF_INSPIRATION.md",
+      "target": "ENGINE_AUTHORING.md#content-reconciliation-b263",
+      "exists": true
+    },
+    {
+      "batch": 273,
+      "source": "docs/BOOKSHELF_INSPIRATION.md",
+      "target": "USER_VISION.md#first-milestone-and-scope-check-2026-10-24",
+      "exists": true
+    },
+    {
+      "batch": 273,
+      "source": "docs/BOOKSHELF_INSPIRATION.md",
+      "target": "../PROJECT.md#current-focus",
+      "exists": true
+    },
+    {
+      "batch": 274,
+      "source": "docs/COMIC_WORLDS_AND_MEDIUM_CONSIDERATIONS_2026-10-14.md",
+      "target": "DOMAIN_RULES.md#titles-skills-and-effect-causes-2026-10-21",
+      "exists": true
+    },
+    {
+      "batch": 275,
+      "source": "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+      "target": "ENGINE_AUTHORING.md#content-reconciliation-b263",
+      "exists": true
+    },
+    {
+      "batch": 275,
+      "source": "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+      "target": "USER_VISION.md#first-milestone-and-scope-check-2026-10-24",
+      "exists": true
+    },
+    {
+      "batch": 275,
+      "source": "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+      "target": "../PROJECT.md#current-focus",
+      "exists": true
+    },
+    {
+      "batch": 275,
+      "source": "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+      "target": "DOMAIN_RULES.md#presence-and-interaction-rules",
+      "exists": true
+    },
+    {
+      "batch": 275,
+      "source": "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+      "target": "gm/causal-endings/evidence/COMBAT_LIFE_AUDIT.md#content-reconciliation-b269",
+      "exists": true
+    },
+    {
+      "batch": 275,
+      "source": "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+      "target": "DIRECTION_SYNTHESIS.md#time-bank-continuity-and-improvement-answer-2026-10-15",
+      "exists": true
+    },
+    {
+      "batch": 276,
+      "source": "docs/CHEATS_BY_WORLD.md",
+      "target": "BOOKSHELF_INSPIRATION.md#inspected-reference-cases",
+      "exists": true
+    },
+    {
+      "batch": 277,
+      "source": "docs/COSMIC_EVENTS.md",
+      "target": "DIRECTION_SUMMARY.md#reciprocal-return-and-intentional-loop-answers",
+      "exists": true
+    },
+    {
+      "batch": 277,
+      "source": "docs/COSMIC_EVENTS.md",
+      "target": "RULES_INDEX.md#accepted-direction-rules-ad",
+      "exists": true
+    }
+  ]
+}

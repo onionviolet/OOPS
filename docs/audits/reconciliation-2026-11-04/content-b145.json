@@ -1,0 +1,173 @@
+{
+  "schema": 1,
+  "batch": "B145",
+  "title": "Procedural status, integration receipts and generator opportunities",
+  "at": "2026-11-04T21:55:07.311225+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md",
+      "ids": [
+        "F1-F9",
+        "D1-D10",
+        "O1-O5",
+        "CG1-CG8",
+        "GL1-GL10",
+        "GS1-GS8",
+        "GO1-GO7",
+        "GI1-GI6",
+        "GA1-GA8",
+        "GX1-GX5",
+        "R3-1-R3-12",
+        "P5-P11",
+        "GX1-GX4 returns"
+      ],
+      "classification": "Dated procgen source map with superseding merged-wave and lane-return folds",
+      "owners": [
+        "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md",
+        "docs/RNG_ENCOUNTERS_AND_SOURCE_DEVELOPMENT.md",
+        "docs/PROCEDURAL_AND_GENERAL_OPPORTUNITIES_2026-10-16.md"
+      ],
+      "disposition": "Read the entire dense map and lane crosswalk. Later returns supersede no generated names/materials/appearance/spine claims and old unmerged/running rows; no universal framework or new procgen wave follows. Current selected source keeps R3-1 recipe quality default randomness present, while R3-2 guardian on-hit uses named combat stream. Preserve source provenance, prior committed truths, local generator records and namespace-qualified codes.",
+      "evidence": "Fresh full text; current selected crafting imports and three roll_quality bodies plus misc random_range default, enemies named-stream guardian row. No global RNG census, distribution test, reload/native craft or performance claim. Linked lane summaries do not grant underlying report reading credit.",
+      "reopen": "Select one actual generator/consumer and its stream/address/compatibility contract. Verify remaining B1-B3 and partial B4 only through their own current integration route.",
+      "input_sha256": "788d74ee6bbee6ce3a31bc4e09f500c760d8c6397e0a55383dd5bbfe80d0c339",
+      "input_lines": 192,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          192
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/STATUS.md",
+      "ids": [
+        "P1-P40 named rows",
+        "CR1-CR6",
+        "WR1-WR4",
+        "GX1-GX5",
+        "G1",
+        "root integration",
+        "R3-10",
+        "B1-B4"
+      ],
+      "classification": "Historical lane disposition and two distinct integration receipts",
+      "owners": [
+        "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md",
+        "docs/gm/dispatch/procgen-2026-10-13/STATUS.md"
+      ],
+      "disposition": "Read all lane outcomes and both integration notes. Wave 1 reports 679 tests/build/branch browser, R3-10 reports 853 plus GX5/P34 natural journey and partial B4 closure. Neither rebuilt main dist at that time; B1-B3 explicitly open. Stopped/cancelled duplicate WR lanes are not missing launch tasks. P12-P25 and CR1-CR6 were outside that particular fold, not nonexistent.",
+      "evidence": "Fresh full text, not branch ancestry, commit presence, raw session files or renewed browser checks. Numeric live-process/working-tree claims remain October 14 observations.",
+      "reopen": "Use historical receipt identities for comparison; inspect current owners and caller semantics before merging or resuming a selected lane. No old branch, worker, commit or push authorized.",
+      "input_sha256": "cdc823a947ec6f8cae68cdcd40c17d35287ad1bfd4a2828d8d97241bbfa9d1be",
+      "input_lines": 67,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          67
+        ]
+      ]
+    },
+    {
+      "path": "docs/PROCEDURAL_AND_GENERAL_OPPORTUNITIES_2026-10-16.md",
+      "ids": [
+        "PG1-PG15",
+        "GN1-GN13",
+        "A1-A3",
+        "F1-F4",
+        "P1-P3",
+        "AD33/SR4",
+        "October 22 modularity",
+        "S1-S3 G1-G9"
+      ],
+      "classification": "Procedural palette with explicit ruins-first qualification and later lane gap records",
+      "owners": [
+        "docs/PROCEDURAL_AND_GENERAL_OPPORTUNITIES_2026-10-16.md",
+        "docs/SITE_AND_EXPLORATION_RULES.md",
+        "docs/CRAFTING_ENGINE.md",
+        "docs/RNG_ENCOUNTERS_AND_SOURCE_DEVELOPMENT.md"
+      ],
+      "disposition": "Read full opportunity, deferral, modularity and crafting-lane sections. Preserve already-corrected real-need requests, finite shipment versus renewable stock, prior causal commitment and authored graphs still being layouts. Qualify old second-consumer design embargo by AD51, compulsory new tool/draw/cost by actual need, and dated S1-S3 lane state by current owner rather than infer integration from mere source search.",
+      "evidence": "Fresh full text plus current gen_kit 1-70 still says Proposal despite existing implementations. Current broad crafting owner only selected grep lines, not full review or resolution of its S1-S3 gaps. Existing AD33/SR4 scopes remain distinct from currently selected Klein/Harry source routes.",
+      "reopen": "A selected site/craft detail names its actual current owner, stock/custody, source and native consumer. Keep translation, procedural adjacency, broad NPC-heavy work and player-pack product deferred where not selected.",
+      "input_sha256": "9d12e1d8844e64bb39b89c334ec398f1a16dda2f244f00d699407fe48eb69023",
+      "input_lines": 280,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          280
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md",
+      "heading": "## Content reconciliation B145, 2026-11-04",
+      "body": "Read every original finding, generation family, R3 row and lane-return crosswalk. The later wave-1 and R3-10 returns supersede the opening universal absence of generated materials, names, people, appearance and story integration. Keep their scoped source and test identities: P34 partly closes B4; B1-B3 are not closed by that association. Stopped or cancelled duplicate WR lanes need no relaunch. A table summary does not count as a fresh read of each underlying packet.\n\nTwo old randomness findings now differ. Current `enemies.js` guardian on-hit defaults to `gameRandom(STREAMS.combat, \"on_hit\")`, qualifying R3-2's absence. The three inspected `crafting_recipes.js` quality methods still call imported `random_range(min,max)` without an injected source; `misc.js` defaults that function to `Math.random`. This preserves R3-1 as a selected-source finding, not a new whole-native-loop census or reproduced gameplay defect. Counts of 60/28/27 and old ratchet ceilings remain dated, and changing the seed/draw behavior needs its actual consumer contract (AD36, AR6).\n\nCG/GL/GS/GO/GI/GA remain palettes. Lens observation and interventions have different transactions; exact observation can disclose permitted truth, while pin/reroll changes follow their actual mechanism. Hidden causes are committed before observation where already consequential; a reveal is not permission to rewrite them. Summarizing many routine outcomes need not discard durable history or cap actual earned results. No universal new registry, all-generator replay platform or unselected appearance/fate-ledger wave is imposed (AD32, AD51, AD52).",
+      "before_sha256": "788d74ee6bbee6ce3a31bc4e09f500c760d8c6397e0a55383dd5bbfe80d0c339",
+      "after_sha256": "8ffb1986554dabbbf10a2475bc2e080807c55113db029a6c62e993e1f64b29ba"
+    },
+    {
+      "path": "docs/PROCEDURAL_AND_GENERAL_OPPORTUNITIES_2026-10-16.md",
+      "heading": "## Content reconciliation B145, 2026-11-04",
+      "body": "All PG/GN dispositions, prior corrections, site focus and later S1-S3 gap notes were reviewed. Keep F1-F4: extend real funded request owners, preserve prior hidden causes, distinguish renewable source nodes from finite shipments/owned stock, and recognize that abstract generated graphs are still generated layouts. Palette ranking is not current queue authority; the chosen Klein/Harry mechanisms and applicable AD33/SR4 deferrals retain their actual scopes.\n\nThe early AXR1/second-consumer-only extraction wording is qualified by AD51: known cross-world needs justify a shared seam with the first consumer, then a materially different consumer validates or revises it. This does not demand one universal source-node, currency, naming or projection store when existing authoritative owners and adapters fit. Three chance categories do not require three draws; a deterministic title or document can follow actual facts. A report of free production or profitable repetition is not itself a bug where supported means allow it (AD5, AD22, AD38).\n\nGN tools remain conditional on a real selected question. A safe developer inspector does not expose sealed truth to the director, data-only packs still need admission and references, branch creation differs from undo, and a recap reports actual settled work rather than inventing away accrual. The old gen_kit Proposal header is still present in the selected source read, but this documentation task changes no code. Historical S1-S3 worktree state, poison prevention versus shortening, prepared venom, separate HP product carrier, transformation receiver, knowledge leak and literal Import gaps require their actual later owners before being called open or fixed today. Neither old 1366 testing nor mandatory human acceptance is a current extra gate (AD32, AD36, AD42).",
+      "before_sha256": "9d12e1d8844e64bb39b89c334ec398f1a16dda2f244f00d699407fe48eb69023",
+      "after_sha256": "b9281922172d49538451cca064433ec474ceeac099bebac5e22199c932ba1f5c"
+    },
+    {
+      "path": "docs/RNG_ENCOUNTERS_AND_SOURCE_DEVELOPMENT.md",
+      "heading": "## Procedural quality and bleed findings B145, 2026-11-04",
+      "body": "Scoped source reconciliation of the fully reviewed [procedural map](PROCEDURAL_GENERATION_STATUS_2026-10-13.md), R3-1/R3-2. Current `crafting_recipes.js` imports `random_range` from `misc.js`; the inspected component, componentless equipment and equipment `roll_quality` methods call it without an injected random source. `misc.js` still defaults that argument to `Math.random`. This is a surviving source-level determinism gap for those calls, not a reproduced reload exploit or proof that every crafting path is unseeded.\n\nThe guardian on-hit method now defaults to the combat stream through `gameRandom(STREAMS.combat, \"on_hit\")`; its old unseeded-source finding is superseded at that named consumer. No whole-game random count, source change, test or browser journey was performed. A future selected fix needs the existing stream owner, intended draw order and new-state/save policy; it should preserve documented seeded inputs rather than silently installing another root or universal anti-farming rule (AD22, AD32, AD36, AR6).",
+      "before_sha256": "f35f19991ccddab2e95206e23fb8cbe215b30353da542aceddf6bad36478f801",
+      "after_sha256": "31cfa9f2c7d0c45f25da9fbf0e66ec45741b59e7b453c7e240b7d483fa56691c"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1202,
+  "post_record_amendments": [
+    {
+      "path": "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md",
+      "from": "Two old randomness findings now differ. Current `enemies.js` guardian on-hit defaults to `gameRandom(STREAMS.combat, \"on_hit\")`, qualifying R3-2's absence. The three inspected `crafting_recipes.js` quality methods still call imported `random_range(min,max)` without an injected source; `misc.js` defaults that function to `Math.random`. This preserves R3-1 as a selected-source finding, not a new whole-native-loop census or reproduced gameplay defect. Counts of 60/28/27 and old ratchet ceilings remain dated, and changing the seed/draw behavior needs its actual consumer contract (AD36, AR6).",
+      "to": "Both old native randomness findings are qualified by current callers. Guardian on-hit defaults to `gameRandom(STREAMS.combat, \"on_hit\")`. Although the three recipe class quality methods retain an unbound `random_range` fallback, native `use_recipe` wraps its selected recipe in `seededRecipe` using `gameRandom(STREAMS.craft, recipe-quality-key)`. That proxy overrides `roll_quality` and binds `getResult` to the proxy, covering its nested quality call. The initial B145 read stopped before this caller and overstated the surviving native gap; this correction preserves that history. No current native quality defect or whole-game replay proof is established. Old 60/28/27 counts remain dated (AD36, AR6).",
+      "reason": "Meaningful B145 reviewer correction: subsequently read main use_recipe and seededRecipe proxy, which seed the native path. Old reviewed record remains visible; no original input identity rewritten."
+    },
+    {
+      "path": "docs/RNG_ENCOUNTERS_AND_SOURCE_DEVELOPMENT.md",
+      "from": "Scoped source reconciliation of the fully reviewed [procedural map](PROCEDURAL_GENERATION_STATUS_2026-10-13.md), R3-1/R3-2. Current `crafting_recipes.js` imports `random_range` from `misc.js`; the inspected component, componentless equipment and equipment `roll_quality` methods call it without an injected random source. `misc.js` still defaults that argument to `Math.random`. This is a surviving source-level determinism gap for those calls, not a reproduced reload exploit or proof that every crafting path is unseeded.",
+      "to": "Scoped source reconciliation of the fully reviewed [procedural map](PROCEDURAL_GENERATION_STATUS_2026-10-13.md), R3-1/R3-2, corrected after reading the caller. Recipe classes retain an unbound `random_range` fallback, but native `main.js/use_recipe` wraps the chosen recipe in `seededRecipe` with the saved craft stream. `seeded_streams.js/seededRecipe` overrides `roll_quality` and binds `getResult` to that proxy. The earlier B145 claim of a surviving native quality gap was too broad; the inspected native path is seeded. Any other direct caller would need its own trace before being called a gameplay defect.",
+      "reason": "Meaningful B145 reviewer correction: subsequently read main use_recipe and seededRecipe proxy, which seed the native path. Old reviewed record remains visible; no original input identity rewritten."
+    }
+  ],
+  "review_corrections": [
+    {
+      "finding": "R3-1 current native recipe quality",
+      "correction": "Earlier recipe-method-only inference missed main use_recipe seededRecipe wrapper. Native inspected path is seeded; unbound fallback alone is not an established gameplay defect.",
+      "source_ranges": {
+        "src/main.js": [
+          [
+            5378,
+            5402
+          ]
+        ],
+        "src/seeded_streams.js": [
+          [
+            129,
+            135
+          ]
+        ],
+        "src/misc.js": [
+          [
+            73,
+            77
+          ]
+        ]
+      }
+    }
+  ]
+}

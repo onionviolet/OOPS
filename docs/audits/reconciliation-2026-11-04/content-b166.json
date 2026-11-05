@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "batch": "B166",
+  "title": "First source shard and complete original dedup report coverage",
+  "at": "2026-11-04T22:20:50.239831+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/S1.md",
+      "ids": [
+        "S1-F1–S1-F18",
+        "clean checks",
+        "coverage exclusions"
+      ],
+      "classification": "Historical selected-source and structural audit",
+      "owners": [
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/SYNTHESIS.md",
+        "docs/reviews/DEDUP_AUDIT_2026-10-18/FOLLOWUP_CHECKPOINT.md"
+      ],
+      "disposition": "L1/L2/L3 later receipts qualify exact primitive/hash/native-pair/cycle/ratchet proposals. Equality structural form is not universally strict superset of stringify semantics; differing activity health thresholds and custody checks may reflect actual task mechanism, not automatically inconsistent body truth. Parameterize actual contract rather than global minHealth or availability policy. Cause kind whitelist can deliberately restrict receipt role, not all new kinds valid everywhere. No spare module allowance/export deletion from parser-limited census or arbitrary authored-pay cap inferred current law.",
+      "evidence": "Fresh complete233-line shard including18 findings, clean checks and exclusions. B160 later lane/checkpoint receipts, B159 current away bank and B137 scorecard/CRAFTING reviewed independently. No original185sourcebodies/tests/secret ledger/rawsource reread by association.",
+      "reopen": "Inspect current task/owner/consumer and failure scenario only when a surviving structural or gameplay change is selected.",
+      "input_sha256": "838cd97a8ad62825425427b5264cfb9205bb2883361d75c5b1d19cb65658e40b",
+      "input_lines": 233,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          233
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/reviews/DEDUP_AUDIT_2026-10-18/SYNTHESIS.md",
+      "heading": "## S1 content follow-through and shard coverage, 2026-11-04 (B166)",
+      "body": "S1-F1–F18, every clean check and exclusion were read. All twelve original dedup shard reports, this synthesis and the named follow-up reports now have their own full-content reconciliation receipts. This is report-body coverage, not full reading or renewed verification of the thousands of source/docs/test inputs those shards scanned or sampled. Their original input identities, IDs, proposed repairs, exclusions and useful history remain preserved.\n\nS1 adds concrete contract cautions to the shared extraction findings. Structural equality is not a universal “strict superset” of JSON-stringify equality: undefined fields, key order, prototypes and supported data shapes can have deliberate validation semantics. Minimum health for strenuous combat-fit versus home activity may reasonably differ; one body mechanism does not force every task to have the same readiness threshold. Likewise, owned, held, equipped, reserved and available are different predicates. A broader cause grammar need not make every cause kind valid for every receipt. An exported hook can be a deliberate public surface, and this shard’s unused-export parser skipped later declarators. None of those scans justifies mechanical removal or accepting previously invalid state.\n\nLater L1/L2/L3 records qualify named primitive/hash extraction, one book-native pair, cycle reduction and growth enforcement. Current bank wiring qualifies the old test-only away statement, while full unattended routines and player rewind remain different questions. Old scorecard branch status and crafting wiring are separately reconciled at their owners. Frontier constants, authored pay bounds, source-pin paths and old table counts are historical or local contracts, not new universal world laws. No remaining helper rewrite, module-key trimming, unexport sweep, price restriction or compatibility migration was selected. Continue with other loose document families; the audit’s suggested order does not replace current lead/UI priorities.",
+      "before_sha256": "784c9e9f4dabab680844e0e46345f9c82762fd162fdd7c6d0fa5173556c7bcf0",
+      "after_sha256": "9b0376e6e3bb9f7ad8cb7378a8aced09c0eb17291c94c0002b1d24794a255ea7"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1149
+}

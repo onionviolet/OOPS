@@ -63,3 +63,8 @@ All ports below 20500 avoid GX4's proposed starting band, but sibling suggestion
 Changed paths: this GX3 folder only. Shared files touched: **none**. Runtime/build/browser/Save/reload/Export/Import/human checks: **NOT RUN**. Commit: **none**. Existing integration reports' counts remain their stated evidence.
 
 The next authoritative gate is root's selection/ownership binding of one concrete slice, followed by that builder's own G3/G4/G5 playable proof. Docs completion closes none of those runtime gates. [BACKLOG](BACKLOG.md) records unresolved joins without broadening any selected first slice.
+
+
+## Current authority and scoped proposal preservation, 2026-11-04 (B78)
+
+Original IDs, ranked variants and explicit proposal status remain. The one-realm/one-prestige milestone named above was retired on October 24; it is not a remaining dependency. Keep harmless cosmetic texture distinct from rewarded operations, durable firsts/commitments from display history, and actual elapsed settlement from a return summary. A clock calculator or a packet cannot create away-world activity. Source-instance/lot/era/LOD seams remain separately selected variants, rather than a whole-framework prerequisite. Current desktop direction uses 1920×1080 with relevant laptop/floor evidence; the old 1366×768 examples are retired. AD36/AD43 govern actual changed runtime proof, and AD42 makes human taste feedback optional. Preserve explicit compatibility decisions and saved original input/evidence identities. Proposed ports, filenames, branch names and worker/root duties are history, not current reservations, dispatch or commit authority (AD32). No runtime/source acquisition was performed here.

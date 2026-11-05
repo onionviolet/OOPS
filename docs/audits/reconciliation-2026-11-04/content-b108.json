@@ -1,0 +1,212 @@
+{
+  "schema": 1,
+  "batch": "B108",
+  "title": "Body-lineage checkpoint content and original research limits",
+  "at": "2026-11-04T21:00:43.058257+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b1/CHECKPOINT.md",
+      "ids": [
+        "steps 1–5",
+        "72 notes/1440 cells",
+        "Naruto/Shadow Slave corrections"
+      ],
+      "classification": "completed documentation checkpoint with substantive retained corrections and open underlying coverage",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/PLAN.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b1/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Final 72-note/1440-cell/461-target/zero-error receipt supersedes the earlier 70-note and one self-scan-error snapshots. These are mapping/document checks, not full primary/canon or implementation coverage. Keep the actual corrections: childbirth changing a seal is not inherited child state, and clan relics/training do not establish kin-only ancestral access. Newer supplied-edition summaries stay qualified at their own evidence scope; source-owned and fit-proposal cells must remain distinct.",
+      "evidence": "Complete checkpoint body and all later receipt corrections read. Linked report/card/spec bodies not newly read or credited; detailed source claims remain inherited and dated.",
+      "reopen": "Read each remaining original report/card/spec range independently when its intake turn arrives; do not relaunch finished workers, acquire sources or treat document counts as runtime/canon completion.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "a733af3a778b4480c8875a1b104382c90f07881e3e1468650fa0b257e3d806eb",
+      "input_lines": 23,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          23
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b4/CHECKPOINT.md",
+      "ids": [
+        "steps 1–4",
+        "63 cards/140 claims",
+        "34 lead-only/29 bounded cards"
+      ],
+      "classification": "completed documentation checkpoint with substantive retained corrections and open underlying coverage",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/PLAN.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b4/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Retain 63 cards, 57 skipped digests and 140 labeled claims as the documented research inventory. Thirty-four lead-only cards remain unqualified; 29 bounded cards are not franchise certification. Missing raw-page caches, secondary extracts and source conflicts remain explicit. Reading this checkpoint does not read those cards, recover skipped subjects or certify the catalogue.",
+      "evidence": "Complete checkpoint body and all later receipt corrections read. Linked report/card/spec bodies not newly read or credited; detailed source claims remain inherited and dated.",
+      "reopen": "Read each remaining original report/card/spec range independently when its intake turn arrives; do not relaunch finished workers, acquire sources or treat document counts as runtime/canon completion.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "439f3a0f7b3f1af08acc941ed93b6fa25221e028982eecf0b385bdca17e6da5c",
+      "input_lines": 20,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          20
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b5/CHECKPOINT.md",
+      "ids": [
+        "B5-G01–B5-G23",
+        "B5-M01–B5-M15",
+        "items 1–5"
+      ],
+      "classification": "completed documentation checkpoint with substantive retained corrections and open underlying coverage",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/PLAN.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b5/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Retain 23 version-separated reference entries and 15 borrowing proposals with existing genetics mappings. Official documentation, indexed-only snippets and player reports retain distinct evidence. No reference game was played here and no web claim is renewed now; local source dossiers were inherited at their own limits. Sims/Rogue Legacy/Stellaris/DDA versions cannot be merged into one current mechanic. Original failed-fetch switches and corrected G06 shorthand are history, not new work.",
+      "evidence": "Complete checkpoint body and all later receipt corrections read. Linked report/card/spec bodies not newly read or credited; detailed source claims remain inherited and dated.",
+      "reopen": "Read each remaining original report/card/spec range independently when its intake turn arrives; do not relaunch finished workers, acquire sources or treat document counts as runtime/canon completion.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "9a4c47cf89ec7af091deb92538e70d4c9f3046bae6e1f8c52eae15e0c3dbc50c",
+      "input_lines": 62,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          62
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b6/CHECKPOINT.md",
+      "ids": [
+        "steps 1–5",
+        "F1–F15",
+        "20 cards/three profiles"
+      ],
+      "classification": "completed documentation checkpoint with substantive retained corrections and open underlying coverage",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/PLAN.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b6/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Twenty reproduced documentation cards and selection/name hashes establish proposed grammar reproducibility only. They do not qualify functional handlers, live source registration, consumer semantics, native P1 or save/import. Keep seven-part shape and world-fit explanations with exact proposal status; no runtime schema is reserved or implemented. Reading this checkpoint does not read all GRAMMAR/VALIDITY/SAMPLES/SAVE_SHAPE bodies.",
+      "evidence": "Complete checkpoint body and all later receipt corrections read. Linked report/card/spec bodies not newly read or credited; detailed source claims remain inherited and dated.",
+      "reopen": "Read each remaining original report/card/spec range independently when its intake turn arrives; do not relaunch finished workers, acquire sources or treat document counts as runtime/canon completion.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "17d9c5c8901f917ea148abfb6c637b4f8d6c04b21d76ab3fcadb6c42934e2009",
+      "input_lines": 11,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b7/CHECKPOINT.md",
+      "ids": [
+        "steps 1–5",
+        "GN1–GN12/BD1–BD9",
+        "four population cases",
+        "O1–O3"
+      ],
+      "classification": "completed documentation checkpoint with substantive retained corrections and open underlying coverage",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/PLAN.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b7/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Keep transactional promotion/conception capsules, independent observer claims and parent-snapshot cost even under lazy phenotype detail. Python budget arithmetic is not measured serialized size or capacity: 10000-NPC estimates exceeding the then-current guard are a planning scenario, not current game limit or a mandate to simulate that population. B2 native schema is not an NPC generator. Existing household/P4 bounds and consumer eligibility are scoped prior cases, not universal person/detail rules. All native/storage/migration gates remain unrun in the checkpoint.",
+      "evidence": "Complete checkpoint body and all later receipt corrections read. Linked report/card/spec bodies not newly read or credited; detailed source claims remain inherited and dated.",
+      "reopen": "Read each remaining original report/card/spec range independently when its intake turn arrives; do not relaunch finished workers, acquire sources or treat document counts as runtime/canon completion.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "1c71250853bc601a36ea8c6e7714c94c5ef1f6ebd837d4263ad8f8562e629710",
+      "input_lines": 56,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          56
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b8/CHECKPOINT.md",
+      "ids": [
+        "UI1–UI6",
+        "12 static cases",
+        "source parent-chain/capture corrections"
+      ],
+      "classification": "completed documentation checkpoint with substantive retained corrections and open underlying coverage",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/PLAN.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b8/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Twelve static wireframe cases and native prebuilt panel lookup are distinct from runtime implementation, changed body commands and persistence. Correct home is Notebook → Practice, with two prior visibility timeouts retained; initial Local actions placement is obsolete. Keep pinned condition strip outside its history scroller as an illustrated design, not current UI proof. Old server/PID/port stopped status is historical, not current process ownership; zoom/reader and native consumer gaps remain.",
+      "evidence": "Complete checkpoint body and all later receipt corrections read. Linked report/card/spec bodies not newly read or credited; detailed source claims remain inherited and dated.",
+      "reopen": "Read each remaining original report/card/spec range independently when its intake turn arrives; do not relaunch finished workers, acquire sources or treat document counts as runtime/canon completion.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "5259749e4de387be68170ec781ce23f4b9307865a81ec5e595a6019ceb1fac57",
+      "input_lines": 16,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          16
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/b9/CHECKPOINT.md",
+      "ids": [
+        "GM1–GM11",
+        "GD1–GD10",
+        "22 cards/26 files",
+        "ten corrections"
+      ],
+      "classification": "completed documentation checkpoint with substantive retained corrections and open underlying coverage",
+      "owners": [
+        "docs/gm/dispatch/body-lineage-2026-10-14/PLAN.md",
+        "docs/gm/dispatch/body-lineage-2026-10-14/b9/REPORT.md",
+        "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md"
+      ],
+      "disposition": "Retain precise modification channels and the explicit strict-GM11/microbe/crop/FEV/primary-procedure gaps. Seven local plus outside source cards are documentary claims with secondary/direct-dump/inference distinctions; no new raw read or full report credit follows from checkpoint review. MHA factor-copying does not establish exact Nomu procedure. Earlier B4-in-progress status is historical, not live worker state; final 132-target/zero-error checks certify documents only.",
+      "evidence": "Complete checkpoint body and all later receipt corrections read. Linked report/card/spec bodies not newly read or credited; detailed source claims remain inherited and dated.",
+      "reopen": "Read each remaining original report/card/spec range independently when its intake turn arrives; do not relaunch finished workers, acquire sources or treat document counts as runtime/canon completion.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "7401487ee15a1465f17a5e333146197369016d5772f83341b92dcb8be8981986",
+      "input_lines": 25,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          25
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/body-lineage-2026-10-14/PLAN.md",
+      "heading": "## Checkpoint-content reconciliation B108, 2026-11-04",
+      "body": "These checkpoint bodies were reviewed independently of their underlying deliverables; full-file coverage here does not close the linked source/card/spec residue. The wave remains folded, with current GHS/accepted direction governing future selection.\n\nFinal 72-note/1440-cell/461-target/zero-error receipt supersedes the earlier 70-note and one self-scan-error snapshots. These are mapping/document checks, not full primary/canon or implementation coverage. Keep the actual corrections: childbirth changing a seal is not inherited child state, and clan relics/training do not establish kin-only ancestral access. Newer supplied-edition summaries stay qualified at their own evidence scope; source-owned and fit-proposal cells must remain distinct.\n\nRetain 63 cards, 57 skipped digests and 140 labeled claims as the documented research inventory. Thirty-four lead-only cards remain unqualified; 29 bounded cards are not franchise certification. Missing raw-page caches, secondary extracts and source conflicts remain explicit. Reading this checkpoint does not read those cards, recover skipped subjects or certify the catalogue.\n\nRetain 23 version-separated reference entries and 15 borrowing proposals with existing genetics mappings. Official documentation, indexed-only snippets and player reports retain distinct evidence. No reference game was played here and no web claim is renewed now; local source dossiers were inherited at their own limits. Sims/Rogue Legacy/Stellaris/DDA versions cannot be merged into one current mechanic. Original failed-fetch switches and corrected G06 shorthand are history, not new work.\n\nTwenty reproduced documentation cards and selection/name hashes establish proposed grammar reproducibility only. They do not qualify functional handlers, live source registration, consumer semantics, native P1 or save/import. Keep seven-part shape and world-fit explanations with exact proposal status; no runtime schema is reserved or implemented. Reading this checkpoint does not read all GRAMMAR/VALIDITY/SAMPLES/SAVE_SHAPE bodies.\n\nKeep transactional promotion/conception capsules, independent observer claims and parent-snapshot cost even under lazy phenotype detail. Python budget arithmetic is not measured serialized size or capacity: 10000-NPC estimates exceeding the then-current guard are a planning scenario, not current game limit or a mandate to simulate that population. B2 native schema is not an NPC generator. Existing household/P4 bounds and consumer eligibility are scoped prior cases, not universal person/detail rules. All native/storage/migration gates remain unrun in the checkpoint.\n\nTwelve static wireframe cases and native prebuilt panel lookup are distinct from runtime implementation, changed body commands and persistence. Correct home is Notebook → Practice, with two prior visibility timeouts retained; initial Local actions placement is obsolete. Keep pinned condition strip outside its history scroller as an illustrated design, not current UI proof. Old server/PID/port stopped status is historical, not current process ownership; zoom/reader and native consumer gaps remain.\n\nRetain precise modification channels and the explicit strict-GM11/microbe/crop/FEV/primary-procedure gaps. Seven local plus outside source cards are documentary claims with secondary/direct-dump/inference distinctions; no new raw read or full report credit follows from checkpoint review. MHA factor-copying does not establish exact Nomu procedure. Earlier B4-in-progress status is historical, not live worker state; final 132-target/zero-error checks certify documents only.",
+      "before_sha256": "73c043509c38d626aeb2add2adb7672793c1df10e37f2e56378e9de532ae4bf9",
+      "after_sha256": "dee8eafebe713596235c82bf1ecf6c60577fd71a3afd1833629abbcd664400d7"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1257
+}

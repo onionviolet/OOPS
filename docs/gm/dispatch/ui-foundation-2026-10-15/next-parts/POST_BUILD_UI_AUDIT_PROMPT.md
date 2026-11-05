@@ -98,3 +98,12 @@ lists audits.
 **Done when** the audit file has findings with evidence at all four targets and both text sizes, the
 restructure proposals and mockups, the ranked five and the LATER items with done checks, and every
 screenshot path resolves.
+
+
+## Content reconciliation: scope, evidence and current uptake (B251, 2026-11-04)
+
+F1. Full100-line review treats this as a saved future audit brief, not an active assignment. Its start gate to verify committed UIL2/4/7/8/9 is the historical selected audit's gate; it does not stop the current authorized project-wide content reconciliation or grant a build, new agent, source expansion or commit. Actual current scope and AD36/AD43 determine the necessary checks. Reuse the incumbent UI_CORE_AUDIT with continuing IDs rather than creating a parallel audit or restarting numbered findings.
+
+F2. The explicit target list has three desktop sizes:1920×1080,about1800×1040 and1536×864 at14/21px; the final all-four-targets phrase is stale after retiring1366×768. Use the current live UI target owner if executing, rather than quietly resurrecting a fourth size. Measure union of actual visible content, useful rows, font, scroll ownership, decision facts, flow and return, not raw summed overlapping boxes or page bounds alone. B248's slack-map tradeoffs illustrate why geometry is insufficient. Mockups/source references preserve provenance and do not replace rebuilt consumer behavior.
+
+F3. Choose the actual audit round's unique screenshot directory rather than reuse fixed ui-core-audit-r1 for later rounds and overwrite history. Audit provenance/status belongs in the existing audit/register/task record; the old blanket append-a-line-to-USER_VISION instruction does not turn an agent report into new user direction. Inspect current owner practice before touching that shared authority. Proposed restructures keep default/dial/reason and actual task/return, with fewer duplicated facts permitted while useful evidence remains available. Current prose-first/optional-art direction supplies taste context; no artwork or two competing layout controllers is required. Under AD32 this brief adopts no proposals, and AD42 keeps human review optional. Linked source bodies and gate history were not freshly verified by reading the prompt.

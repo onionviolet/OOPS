@@ -41,3 +41,18 @@ hooks and performance budgets (outside the standing desktop-first UI priority, o
 rules); player-driven character creation and cultural-bias items (no direction behind them,
 too vague to check); generic "testing harness", "regression suite" and "technical debt" items
 (no specific defect named).
+
+
+## Character bodies reviewed, 2026-11-04 (B67)
+
+The original title-only triage above remains dated history. B67 freshly read all seven character output files, all 84 numbered item bodies; [per-file ordinals and actual dispositions](../reconciliation-2026-11-04/content-b67.json) preserve useful applications and reject unsupported universal defaults. The remaining dialogue/world bodies have not gained coverage from this batch. “About 8 new” was a novelty estimate, not verified runtime defects or acceptance. The drop grouping does not imply accessibility/readability is deferred with mobile: desktop usability retains its own current UI authority. Character creation, crowd/detail tools and provenance ideas stay preserved as optional proposals under AD32, rather than being erased or silently selected.
+
+
+## Dialogue bodies reviewed, 2026-11-04 (B68)
+
+B68 freshly read all seven dialogue files, 84 item bodies, and folded their useful scene/knowledge/return/settlement distinctions into the dialogue owner. [Ordinal dispositions](../reconciliation-2026-11-04/content-b68.json) distinguish proposals from draft absence assertions and preserve intentional cycles, actual fast communication, refusal, voice and knowledge limits. Character plus dialogue body coverage is now 14 files/168 items. The seven world files remain unread at body level in this continuous pass; title triage does not supply them (AD32).
+
+
+## All saved draft bodies reviewed, 2026-11-04 (B69)
+
+The original “titles alone” statement remains the October 20 history. B67/B68/B69 now freshly reviewed all 21 saved output files and all 252 numbered item bodies, retaining per-file/ordinal dispositions and useful variants. [World body dispositions](../reconciliation-2026-11-04/content-b69.json) complete this finite queue; no rawsource reading, proven runtime defect, newfeature adoption or localmodel quality verdict follows. The old eight-novel-leads estimate is not a verified novelty count for these bodies. Companion/rival/dialogue/deep-world owners now carry the material qualifications; originals stay available. This closes body reading of this queue, while unrelated inventories and partial receiving owners remain open. No model rerun, successor, deletion or gameplay wave is selected (AD32/AD36).

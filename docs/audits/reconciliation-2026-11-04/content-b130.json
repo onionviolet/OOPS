@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "batch": "B130",
+  "title": "Whole-UI direction comparison with current owner and dependency corrections",
+  "at": "2026-11-04T21:29:45.765070+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/UI_DIRECTIONS_2026-10-30.md",
+      "ids": [
+        "UDF1–UDF9",
+        "A–D",
+        "cheap-ship/feature tables",
+        "Part2",
+        "CG1–CG9",
+        "capture table"
+      ],
+      "classification": "Historical UI structure comparison; retained proposals with current qualifications",
+      "owners": [
+        "docs/audits/UI_DIRECTIONS_2026-10-30.md",
+        "DESIGN.md",
+        "docs/VISION_DIGEST.md",
+        "docs/audits/UI_CAPABILITY_GAPS_2026-10-30.md"
+      ],
+      "disposition": "Full264linesread includingtwoparts/followupshapes/mocksversuslive/capabilityfold. PreserveA/B/C/D alternatives, actualtaskforms/multipathdata/independentpanels/known-cost reasons, no winneracceptedbysilence. Sessioncosts/integrationscore/existinglinecounts inferredhistoricalnotbenchmarks. 20mockboundschecks notallskin/text/effectcells/native; fewerDOMnodes comeslessmountedcontent notprovenspeed. Mobiledeferreddoesnotdeferthewholelaptopclass. B104capabilitylaternotes overrideoldCG3loadingcapture/CG6renamerejected/CG7notenginegate/CG5wordingclosed. B120awaybankwired, eventgraphanchorsnotrewindorprereqreturndigest. Waitingwithoutactivejobnotmissingearnings. No universalone-pathway/3-way fork/hubcount/30verbs/fourpins/twolevels. CurrentNov1functional/proseNov4 andAD51seamprioritygovern. No libraryadoption/versions/licensingverified/reused and no workerslaunched.",
+      "evidence": "Fresh complete textual body read, clipped direction table boundary recovered36–47. Current VISION_DIGEST/DESIGN and previously fully read B104 capability owner/B120 gap and actual bank source inform qualifications; selected command_palette known-source declarations read. No20mockimages/captureJSON/test rerun/full liveUI walk or external libraryresearch.",
+      "reopen": "A selected currentUI change must name real task/model/observer/command/layout/saving owners, preserve native independent surfaces, and demonstrate rebuilt desktop behavior. Keep older alternatives and costs as proposals.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "4cfa39ed1c5573c8b8896f518e199c833028651a2f50a1a6dfbee6cbd50db983",
+      "input_lines": 264,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          264
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/UI_DIRECTIONS_2026-10-30.md",
+      "heading": "## Whole-UI reconciliation B130, 2026-11-04",
+      "body": "Full UDF1–UDF9/A–D, cost/migration/capability/section maps, Part2 references/libraries, multi-path follow-up, capture table and CG fold read. Preserve four alternatives and task-specific examples, not a new whole-shell decision. Authoring defaults or silence do not record Weibao accepting A’s exact six hubs, B’s Today start, C’s sparse palette or D’s desk. Current [VISION_DIGEST](../VISION_DIGEST.md) and [DESIGN functional direction](../../DESIGN.md#selective-2d-exploration-2026-11-01) govern independent panels, prose-first editorial work, functional housing and selective spatial views. The desktop/laptop class is already in scope; a deferred MacBook-size check is a historical capture gap, not permission to defer laptops generally.\n\nCosts in sessions, file lengths and15-point scores are inferred old estimates. A renamed route does not by itself prove saved pin/layout/selection/keyboard compatibility or complete registry coverage. Twenty mock captures are not the complete Village/Tingen ×14/21 ×full/off matrix, all production content, contrast or readability. Lower mock controls/DOM reflect a subset of mounted content; they do not establish a native performance speedup. Existing richer shell is the baseline, not a blank slate. Current actual suppliers/commands, chosen task and data matter more than a minimum/fixed number of panels, verbs, pins or tooltip levels. Keep opportunities to learn multiple paths, branches and non-ladder systems; the old one-pathway-per-life statement is neither a universal rule nor a new accepted restriction.\n\nThe original CG fold is superseded in part by the capability owner’s later notes, independently fully reviewed in B104: CG3 used a loading/empty lead snapshot, CG6’s Settings rename was dropped by later user preference, CG7 changes concerned wording/styles rather than a new engine gate, and CG5 comparison wording was later resolved at its named scope. Do not relaunch these as fresh blanket defects. CG2’s observer filtering still needs exact selected-world evidence; hub grouping alone is insufficient. Waiting without an active earning job is not proof of missing money or an entitlement to invented work.\n\nB120 separately reviewed the gap audit and actual away_bank source: banking/spending is wired; anchor_snapshots is an event-graph derivation rather than a player-state rewind store. A factual return summary needs its own retained changes/known due work; it does not automatically require wiring that anchor module. The CG9/unreachable dependency claim must not become a mandatory new gate. Existing palette/Find functionality is already acknowledged within this audit; new lookup verbs/causal uses need actual observer-safe producers, not just more tags.\n\nReference-game patterns and relayed library versions/licences are dated leads, not newly checked facts, current tool recommendations or adoption authority. No library/asset/text was imported and no source acquisition occurred. Mock strings, diagram variants, provider skins and automated action suggestions remain proposals; search results cannot execute an irreversible action merely because Enter is convenient. Current AD42 optional review and AD51 shared seams qualify old process gates; active foundation/UI writers retain their selected scope. No live shell, runtime, package, source/visual proof or priorities were changed by this review.",
+      "before_sha256": "4cfa39ed1c5573c8b8896f518e199c833028651a2f50a1a6dfbee6cbd50db983",
+      "after_sha256": "17f92dc90e06b85cf93f6fc421d846f8eb758c5287c3b85b81aa271ca86a08e9"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1235,
+  "post_record_amendments": [
+    {
+      "path": "docs/audits/UI_DIRECTIONS_2026-10-30.md",
+      "from": "Authoring defaults or silence do not record Weibao accepting A’s exact six hubs, B’s Today start, C’s sparse palette or D’s desk.",
+      "to": "Authoring defaults or silence do not record Weibao accepting A’s exact six hubs, B’s Today start, C’s sparse palette or D’s desk. These remain proposals under AD32.",
+      "reason": "Adjacent AD32 authority for proposal/adoption distinction required by document lint."
+    },
+    {
+      "path": "docs/audits/UI_DIRECTIONS_2026-10-30.md",
+      "from": "the old one-pathway-per-life statement is neither a universal rule nor a new accepted restriction.",
+      "to": "the old one-pathway-per-life statement is neither a universal rule nor a new accepted restriction (AD32/AD51).",
+      "reason": "Authority citation belongs on the actual flagged accepted-restriction line271; previous line269 citation did not address this diagnostic."
+    }
+  ]
+}

@@ -1434,20 +1434,19 @@ against the Marvel, DC, Worm and Godclads digests.
 
 | Code | Cheat | Shows or does | Twist |
 |---|---|---|---|
-| CC1 | Power-rating window | Official handbook stats or threat ratings for bodies and powers | Ratings are bureaucratic guesses; comic CA3 rank ladder |
-| CC2 | Mutant detector | Senses latent carriers (CB1, CB2) at a distance | Who builds such a device, and for what (PG5 purity movements) |
-| CC3 | Origin recall | Shows how any body got its powers | Retcons change the answer (CB14) |
-| CC4 | Mask-piercer | Sees the person under the costume | The most dangerous knowledge in a hero world |
-| CC5 | Trigger forecaster | Who is close to a trigger event | An ethical trap: do you help, warn or exploit? |
+| CC1 | Power-rating window | Dated handbook dimensions or institutional threat estimates within their declared scope | A published descriptor and an observer estimate differ; neither implies a universal body ceiling (comic CA3) |
+| CC2 | Marker or signal detector | Reads the particular active/latent signal its actual means supports; unknown outside that scope | Range, masking, reference and intended use differ; no signal is not proof of no lineage (PG5) |
+| CC3 | Origin enquiry or recall | Retrieves accessible records/traces; genuine causal sight may establish more when its mechanism supports it | Changed accounts, actual origin and remembered evidence differ; continuity follows comic CA5, with no automatic memory rewrite |
+| CC4 | Mask-piercer | Resolves the face, body or identity channels its actual means can read | Seeing a face does not alone establish name, possessor, lineage or every disguise; comic CA7 owns recognition |
+| CC5 | Trigger enquiry or forecast | Observes distress with uncertainty; genuine causal forecasting is an original or separately qualified route | Stress is not a guaranteed power countdown; help, warning and other choices use actual knowledge and means |
 | CC6 | Legacy ledger | Who held a mantle before and who could next (CB12) | Mantles chosen by people, not by the ledger |
 
 ### G77 Subtle comic body detail
 
-- A healing factor removes scars that would have told a story (BC7, LQ11).
-- A costume that fits only one body makes a mantle hard to pass on (MP2).
-- Power-rating windows round people into categories; edge cases get
-  misfiled (SI3, CN8).
-- Children of famous heroes carry the face and the target (MH1, CL6).
+- A supported repair template may remove, retain or recreate a scar; its absence alone does not settle the prior event (BC7, LQ11).
+- A particular costume may need tailoring, adjustment or replacement after a body change; mantle succession follows its own rule (MP2).
+- A particular rating can misclassify an edge case; retain its source, date, dimensions and use conditions, while exact supported readers remain possible (SI3, CN8).
+- A famous hero’s child may resemble them or attract a pursuer with an actual motive and information; appearance, inherited faculty, known kinship and targeting remain separate (MH1, CL6).
 - An explicitly authored stasis/nonaging route can leave others aging around a
   stable body; editorial redating alone supplies no such bodily effect (CB13,
   SP5).
@@ -1781,3 +1780,58 @@ Weibao, 2026-10-15: "Fold and commit and push accordingly".
 
 Accepted direction OD6 (one continuing self) and OD12 (forgiving recovery)
 govern these rows; they stay proposals.
+
+
+## Hero-start plan reconciliation B94, 2026-11-04
+
+GHS1–GHS114 remain an implementation proposal, not a scheduled S1–S5 campaign. Later user direction in USER_VISION “Restore the original loading screen and defer the start menu, 2026-10-20” supersedes GHS16–GHS19/GHS26’s public launch picker and the stale R22a queue question. Current complete new_game_beginning.js hides the authoring Beginning section except localhost start_probe, retaining simple PLAY. Preserve the future menu design without treating it as a current prerequisite or asking to reconfirm a settled deferral. The old one-milestone framing and 1366 floor are historical; current focus, AD41/AD42 and desktop UI rules govern. This review does not reopen gameplay or build order.
+
+Keep the plan’s actual distinctions: body/controller/owner and frozen parent event; expressed effects versus latent cause and observer claim; expression versus development stage; capability grants versus levelable multipliers; one continuing self versus a new child; adopted records versus biological inheritance; item custody versus bond/attunement/held power; office succession versus deed titles; copied understanding versus bodily fit. GHS66–GHS69 already correct the earlier single-bonus-path assumption. Field defaults in GHS45/GHS99/GHS106 do not guarantee migration-free validation or identical saved locks. Existing sources must be inspected before adding heritage, heredity, power or title stores. GHS23’s proposed stages need an adapter to the actual knowledge owner, not a parallel stage vocabulary. Original source surveys are design references with stated tiers; whole canon/source/runtime completion is not established here.
+
+Qualify illustrative limits and costs by world mechanism: GHS54 population-mean drift/inbreeding costs and GHS75 pushback are not mandatory balancing; GHS87 unique counts and respawn belong to the selected source’s actual continuity, not anti-restart rules for every life; GHS89 warning/pause is a proposed risk policy, not guaranteed warning for unknowable harm. GHS91 slot examples and GHS92 identity eligibility need source-qualified mechanisms and exceptions. GHS96 resetting only body scope and GHS97 carry list are selected continuation policies, not universal reset laws overriding AD11 or bindings. Discovery tests can change a body only when their method actually does so, while a record alone changes knowledge. The later GHS112–GHS114 corrections govern named clocks, physiology versus comfort, useful retained skill and current-state persistence. Preserve useful options without requiring inherited prestige, population simulation, a universal flaw or a second implemented world first.
+
+
+## G30 lane reconciliation B107, 2026-11-04
+
+Preserve B3-A01–B3-A23 (including A11a) as dated source/authority observations. Estate handover, kin label, parentage, taught mastery, power-composition lineage and a continued self are distinct. Current complete buildLifeHeirSave still creates fresh expansion and selected estate/history, but now explicitly calls carryCheats and preserves inheritance_law/discovery_codex. Selected complete carryCheats 117–165 has card-specific cross-life handling, so A16’s “does not explicitly copy previous cheats” and any blanket no-faculty-carry claim are stale. This closes that narrow absence, not generic soul/blood transmission or retained-world population/stock continuity. Old one-realm/prestige authority is retired; native defeat, old-age end and supported succession remain distinct. No current native/atomic crash-safe heir proof is added.
+
+G30.01–G30.10 preserve declared transmission timing, immutable donor/child event versus later somatic training, separate concentration/function/memory/curse/standing/trial/estate carriers, funded escrow and useful heir action. The 0.8 coefficient, two functions, range 2/4, six-coin trial and practice minutes are illustrative, not biological/canon rules or mandatory weakening/caps. Preserve actual means for partial/categorical effects, adopted/same-soul/cheat variants and unsupported-source exceptions. lineage_legacy is a proposed relation/receipt owner, not an admitted slice or a reason to duplicate current body/source/inventory records. Stable person/body/time refs, frozen offers, idempotent successor settlement and unresolved escrow remain useful selected-consumer requirements. Old migration matrix is optional under current compatibility direction, current-state persistence/failure boundaries remain; G30-V1–V5 are unrun proposed checks and human review is optional. Retiring the milestone does not authorize G30 implementation.
+
+G30-O1–O5 and R1–R5 keep adopted kin, school, soul, relic/covenant and heirless persistent-world routes. Reference press/wiki/source dossiers carry different scopes: frozen successor offers are not all-file crash safety, political prestige is not idle reset, inheritance-event conduct is not genetic transmission, and one retained legacy hero is not a biological child. Legacy of a Thousand Suns reset remains unverified. No 3/8 mentoring, three-heir lottery, one-reroll rule or 0.8 coefficient transfers as universal law. No reference game/source was freshly opened here. Comparison can use the same work problem while allowing real differences; it is not a current mandatory milestone choice or forced balance.
+
+The final report/checkpoint records completed documentation, not implemented G30 or running workers. Its own recommendations already preserve a candidate and separate actual estate from missing lineage/continuity. Root genetics section 992–995 already links the return and keeps alternatives; B107 adds the current cheat-carry correction and retired-milestone/current-rule qualification, rather than duplicate the full schema. Original source checks, document-link checks and five unrun gates retain their dates and scopes. Preserve all five files/history in place; no worker relaunch, new source reading, successor creation or prestige selection follows.
+
+
+## Micro-body palette reconciliation B115, 2026-11-04
+
+The full [B12 packet](gm/dispatch/body-lineage-2026-10-14/b12/REPORT.md#micro-body-reconciliation-b115-2026-11-04) preserves the 32-row mechanism palette, explicit missing joins and 72 phase sets/216 wording variants. Keep actual effect, observed sensation, diagnosis and NPC response separate. Resolved rates do not authorize fictional events in prose. Its independent daily RNG proposal is qualified by the existing named-stream owner; retain frozen causes/results and exact body/local-clock keys. Connected MI6+MG6+MP3 remains an unselected candidate, with no compulsory penalties, new broad simulation, migrated random traits or mandatory human gate under AD42.
+
+
+## Diagnostic palette reconciliation B116, 2026-11-04
+
+The complete [B13 investigation packet](gm/dispatch/body-lineage-2026-10-14/b13/REPORT.md#investigation-use-reconciliation-b116-2026-11-04) preserves LA/BC investigations and ES/DT/SD delivery designs. Treat clues as observed evidence with actual means and coverage, not hidden-cause labels. Mixed causes, useful care/work before certainty, conflicting claims and independent reference routes remain available; a legal certificate is another consumer. Event delivery, tests, intervention and communication have separate receipts and owners. The former one-prestige sequencing line is retired; these suggested slices do not change current priorities, and AD42 human review remains optional.
+
+
+## Social and timing palette reconciliation B117, 2026-11-04
+
+The complete [B14 packet](gm/dispatch/body-lineage-2026-10-14/b14/REPORT.md#subtle-body-reconciliation-b117-2026-11-04) preserves 40 palette rows and 41 event recipes with scoped owners. Keep accommodation before diagnosis, positive/neutral changed-body meanings, confidence separate from competence, access separate from memory, sample/assay/arrival dates separate, and provider continuity/freed capacity tied to actual jobs. Appointments do not mutate physiology; a report does not create ecology, law or NPC knowledge. These proposals do not select a work wave, demand broad social/psychology engines first or impose new body penalties. AD42 human review is optional; selected runtime must establish its own current owners and proof.
+
+
+## Comic-body corrections B124, 2026-11-04
+
+The complete [B17 return](gm/dispatch/body-lineage-2026-10-14/b17/REPORT.md#comic-body-reconciliation-b124-2026-11-04) now has actual-content review. Its earlier fold applied selected CB lines, while CC1–CC5 and G77a–d still overpromised. Those rows are now directly qualified as proposals with actual means, coverage and conditional texture; exact old/new wording is preserved in [B124](audits/reconciliation-2026-11-04/content-b124.json). Keep CB16–CB23/eight source comparisons and ten original stand-ins in their linked owner rather than duplicate them as accepted specifications. Source-body read does not grant fresh external, issue/serial or gameplay proof. Current AD42/AD51 supersedes old milestone/two-implemented-case/human hard gates; no world or body slice is launched.
+
+
+## Generated-body grammar reconciliation B125, 2026-11-04
+
+The complete [B6 packet](gm/dispatch/body-lineage-2026-10-14/b6/REPORT.md#generated-body-reconciliation-b125-2026-11-04) now has content review and independently recomputed20-card documentation selections with zero mismatches. Preserve valid complete tuples, local-cohort rarity, real action/means, event-time transmission and separate body/source/observer/resource authorities. Fixture coverage is not population law or playable generation. Existing named streams qualify the old invalid body namespace/fallback-root proposal; permanent cause/result storage must survive rolling logs. Current AD42/AD51 and retired milestone govern any selected integration. No implementation wave, broad genome, new source kind or Frontier expansion is selected.
+
+
+## Lazy NPC-body reconciliation B126, 2026-11-04
+
+The full [B7 return](gm/dispatch/body-lineage-2026-10-14/b7/REPORT.md#lazy-body-reconciliation-b126-2026-11-04) preserves demand-driven detail, separate disclosure, explicit resolved-none coverage and frozen creation/parent inputs. Friendship or deeper simulation does not reveal private anatomy. Current generated-traveler integration supersedes branch-only/exactly-three status without proving general body/genetics support. B8–B15 arithmetic matches hypothetical allowances; actual full-envelope/Unicode/storage/performance proof remains absent. Lazy phenotype does not make lineage history free. Current AD42/AD51 and retired milestone apply; no large-population/body implementation is selected.
+
+
+## Body-tool UI reconciliation B127, 2026-11-04
+
+The complete [B8 textual packet](gm/dispatch/body-lineage-2026-10-14/b8/REPORT.md#body-tool-ui-reconciliation-b127-2026-11-04) preserves UI1–UI6 and known-only inspection, actual provider scope, conditional forecasting and explicit comparison versus commitment. Current source includes a body-part renderer; that qualifies the old broad absence without proving all six tools or current rebuilt pixels. Six HTML sketches and their images/scripts/JSON remain independent artifacts, with only dated reported static checks here. Preserve existing layout/entry/return continuity and useful content visibility. No new six-module layout, body schema or gameplay work is selected; current AD42 review is optional.

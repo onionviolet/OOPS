@@ -301,3 +301,10 @@ Agent-verified, not human-reviewed.
 ## Not decided here
 
 The CPY lines, the verb split in CPY7, the precision table in CPY5, the weights in CPY20 and the reading of the reference voices (V1-V8, G1-G14) are proposals. Slices 1 and 2 rewrote refusal lines under these proposals. The rules themselves are not accepted.
+
+
+## Runtime-log sample reconciliation, 2026-11-04 (B171)
+
+The complete [UI log capture](../reviews/UI_LOG_CAPTURE_2026-11-03.md), this owner’s F15–F20 application and selected header/reference context were read. Keep its50 lines/three headless routes as a bounded text sample: zero CPY1 words in sampled visible line bodies does not mean the whole game or every tooltip is free of developer wording. Five sampled tooltips contain the date explanation; the report’s displayed example is one distinct repeated text. Twelve undefined-kind messages still exist as text even though kind filters cannot sort them. Existing adjacent keyed repeat folding was observed, so L4 is a refinement, not a missing folding engine.
+
+The9 readable-subject/verb tense classifications are a subset of50, not the grammar distribution of all lines. Navigation chatter, duplicated craft receipts and mixed voice retain F16–F20 as concrete leads at their current producers. Existing owner dispositions already route them; this does not create a duplicate queue or endorse all CPY rules. Current UR70–74/RPT and Nov4 prose direction govern: use meaningful state, task voice, fitting whimsy and truthful historical outcomes, not a target percentage of second-person wording or punctuation. Old already-saved observations keep their original text unless an explicit scoped repair is chosen. No layout, current-runtime freshness, screen-reader or whole-log census claim follows; the full copy-sheet body remains independently reviewable.

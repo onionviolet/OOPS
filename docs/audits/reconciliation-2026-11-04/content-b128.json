@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "batch": "B128",
+  "title": "Gallery-form audit reconciled to functional and prose-first direction",
+  "at": "2026-11-04T21:27:25.849327+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/GALLERY_FORM_AUDIT_2026-10-30.md",
+      "ids": [
+        "G1–G7",
+        "GF1–GF31",
+        "DP1–DP6",
+        "housing H1–H3",
+        "people W1–W3/F1–F3/S1–S3",
+        "places G1–G3/W1–W3"
+      ],
+      "classification": "Historical gallery comparison and visual proposal palette",
+      "owners": [
+        "docs/audits/GALLERY_FORM_AUDIT_2026-10-30.md",
+        "DESIGN.md",
+        "docs/audits/UI_DESIGN_CORE_AUDIT.md"
+      ],
+      "disposition": "All243linesread incl dense31-row table and laterhousing/people/places rounds. Word-countcuts measurefixturedefaultnotnativecomprehension; hidingtextmustnotcountasprovingbetterform. Knownreferenceclaimsmeanrecalledmechanism, notfreshresearch. No new image/HTML/fixture/source reading. Laterhousingroundrejectsfloorplan, thenNov1functionalProto23/currentNov4prosefirst directionqualifyallpicks. Preserveformsassituationalpalettenotmandatoryobjectperpanel/hoveronly/inventoryhiding. Unknownslot/kin/rumorcount mustfollowactualknowledge; nofixedsevenancestorsor3-dayclockuniversal. Fusedthreatsumneedsactualtiming/means; routeglyphnottransferwhitelist. Inventedlockedroom/fittinglocation/shortlabelsnotmodeltruth. CurrentactiveUIwriterownershipunmodified.",
+      "evidence": "Fresh full textual body read; clipped GF7–GF20 recovered separately and full tail145–243 read. Current DESIGN64–87 plus already-read current VISION_DIGEST prose/defaults checked. No renewed gallery screenshots, game/UI measurements, reference game fact checks or visual acceptance.",
+      "reopen": "Selected form needs actual task decision/known model/native command and rebuilt desktop comparison including detail access, keyboard/zoom/Appearance/ordinary play. Underlying gallery/capture artifacts remain separate review candidates.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "29b3e4ac2c578eb48d116d0637eb747ab3b9cc0f85e588e4bf9aea99035e49bd",
+      "input_lines": 243,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          243
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/GALLERY_FORM_AUDIT_2026-10-30.md",
+      "heading": "## Current-use reconciliation B128, 2026-11-04",
+      "body": "Full G1–G7/GF1–GF31/DP1–DP6 and all housing/people/places variants read. Word counts are dated gallery-fixture/default-view measurements, not native play, comprehension or usability proof. The audit correctly separates cuts from hiding duplicate text and cuts against drawing-only content; neither establishes that fewer words always communicate the required decision. Its “known” reference label means the author could describe a recalled mechanism, not a newly authenticated external game audit. Screenshots, HTML/source fixtures and capture evidence were not separately reviewed here.\n\nLater direction governs use: [DESIGN selective 2D](../../DESIGN.md#selective-2d-exploration-2026-11-01) prioritizes functional Proto23-style housing and stops expansion of the pictured-home experiment. Current [vision digest](../VISION_DIGEST.md) also preserves prose-first editorial defaults and optional deliberate illustration. The original floor plan was rejected within this audit, and subsequent H1/H2/H3 picks remain proposals rather than a mandate to restart housing imagery. Keep spatial forms where position/layout/reach/adjacency serves a selected task. DP1 hidden-text, DP2 object-per-system, DP3 type voices and DP5 hidden inventory are not universal current rules; preserve useful independent panels, explicit costs/next action and reachable accessible detail. The historical ui-identity lane owned implementation files, not creative authority to accept new product direction.\n\nPreserve the useful palette: one clear task question, fewer repeated facts, world-qualified motifs, accessible text alternatives, coherent state/unit labels and comparative variants. Do not infer unknown people/kin/traits from empty slots or a traced chain from private truth. F2’s seven ancestry slots are an example, not a universal family shape; a three-day loop dial and five-minute travel blocks are local presentation choices, not shared time laws. GF7’s combined threat needs actual action timing/means rather than an unqualified sum. GF27’s ticket/tags cannot replace actual carrier, custody and world-support rules. Housing’s invented locked-room prerequisite and fitting placement, hand-shortened NEXT_ASK strings, missing pursuit distances and undrawn overlays/settled states remain explicit mock limitations.\n\nHover-only gates, unlabeled pips, fixed-size counted beds and color/position-dependent meaning need real keyboard, zoom, text and model evidence if selected. Dated word counts, two skins, all-row coverage or a stylesheet fix do not prove every production panel, data provider or player route. Keep all original variants/history in place; no new UI implementation, style change, art request, work wave or priority was selected. Current active UI/prose/foundation writers retain their own files and receipts.",
+      "before_sha256": "29b3e4ac2c578eb48d116d0637eb747ab3b9cc0f85e588e4bf9aea99035e49bd",
+      "after_sha256": "b61bb4cd3eb6f8e4beed4813f0039dd9c172d43120c80677a356edfb88ff4864"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1237,
+  "post_record_amendments": [
+    {
+      "path": "docs/audits/GALLERY_FORM_AUDIT_2026-10-30.md",
+      "from": "# Gallery form audit (2026-10-30)\n",
+      "to": "# Gallery form audit (2026-10-30)\n\nCurrent use: read the [B128 reconciliation](#current-use-reconciliation-b128-2026-11-04) before applying these dated gallery proposals. Current functional/prose direction and actual task evidence govern selection.\n",
+      "reason": "Visible current-use pointer; original audit and ideas retained in place."
+    }
+  ]
+}

@@ -1,0 +1,376 @@
+{
+  "schema": 1,
+  "batch": "B32",
+  "title": "Groundhog later-build closure and bounded native/script/translation evidence",
+  "at": "2026-11-04T19:51:22.308278+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/research/game-research-adoption-reaudit-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "A0004",
+        "A0016",
+        "A0017",
+        "GD-D01/D02/D03/D04/D05"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/game-research-adoption-reaudit-2026-10-14/REPORT.md, LEDGER.json and UNPARK_PACKETS.md; private source snapshot/scripts are under ~/.codex/research/adoption-reaudit/notes/. Receiving coordinator selects any later exact consumer trace."
+      ],
+      "disposition": "Partial research audit delivered with 597 classifications and 26 negative re-audits. Numerous exact consumers remain untraced; five pinned upstream caller/exception groups were explicitly not re-decompiled. No code, build, gameplay, or adoption proof was performed. Keep exact source-vs-runtime and field/comment-vs-native-evaluator boundaries. No Province War registration/write, proposal adoption or donor execution performed. Existing report/system/unread owners preserve useful findings without a fresh generic pass.",
+      "mechanism_and_interactions": "Classifies historical adoption claims against code/source evidence, including individually reassessed negatives, landed entries, partial capabilities and conservative untraced rows. The audit distinguishes exact delivered consumer/host binding from keyword overlap; broad partial-capability rows still need their stated missing-consumer check. Top-ten packets are ranked research proposals, not implementation authorization.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports extraction, JSON, citation/hash, and empty source/test diff checks. These are reported historical checks, not re-run here; the underlying dossiers and source were not part of the assigned fragment.",
+      "reopen": "If a packet is selected, trace the exact cited consumer/host binding at fresh HEAD, including the five upstream groups only if relevant; then use the selected owner and separate runtime evidence.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          79
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S026.json"
+      ],
+      "prior_input_sha256": "d542e24f800e016847f15558bbca13bfdc739f65685a5b178daa87aa31029a6d",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "d542e24f800e016847f15558bbca13bfdc739f65685a5b178daa87aa31029a6d",
+      "input_lines": 79
+    },
+    {
+      "path": "docs/research/groundhog-life/aspects-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "A01-A12",
+        "G1",
+        "G2",
+        "G3"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/groundhog-life/aspects-2026-10-14/CHECKPOINT.md; no implementation consumer selected."
+      ],
+      "disposition": "Documentation pass complete, with explicit source and runtime gaps. Later-mirror author/provenance/license, broad generated UI and schedule order, and rendered desktop/focus/save rollback remain open; proposal contents do not alter direction. Keep exact source-vs-runtime and field/comment-vs-native-evaluator boundaries. No Province War registration/write, proposal adoption or donor execution performed. Existing report/system/unread owners preserve useful findings without a fresh generic pass.",
+      "mechanism_and_interactions": "Delivered all twelve fixed aspect rows, file/table/module-family inventory, three deeper systems, proposals, packets and touch list. The PARTIAL status refers to provenance, generated UI/order edge cases, and unexercised render/focus/duration/import rollback, rather than missing deliverable files. No selected implementation or playable acceptance occurred.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports fixed-key/shape, JSON/link, inventory, retained hashes and artifact checks; no native behavior or persistence exercised in this assigned content.",
+      "reopen": "For a chosen proposal, first resolve the mirror provenance/license boundary and select its actual consumer; qualify only the exact UI/order or import scenario it needs.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          23
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S026.json"
+      ],
+      "prior_input_sha256": "a8a87e6717648910c3ac3e7b9e81280948efaf4f86bdb8df062801f3f5ed7138",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "a8a87e6717648910c3ac3e7b9e81280948efaf4f86bdb8df062801f3f5ed7138",
+      "input_lines": 23
+    },
+    {
+      "path": "docs/research/hearts-of-iron-iv/CHECKPOINT.md",
+      "ids": [
+        "H-D1",
+        "H-D2",
+        "H-D3",
+        "H-D4",
+        "H-G1",
+        "H-G2",
+        "H-G3",
+        "H-G4",
+        "H-G5"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/hearts-of-iron-iv/ research outputs including REPORT, FINDINGS.json, IMPLEMENTATION_PACKETS, SAVE_SHAPE and SOURCE_LEDGER; Province War later lane/owner is not specified by this fragment."
+      ],
+      "disposition": "Authorized research outputs are complete; PARTIAL describes bounded source/runtime/save gaps, not pending gameplay work. Province War and YAIRPG registration/adoption remain future owner decisions; no Province War write or implementation authority was produced. Keep exact source-vs-runtime and field/comment-vs-native-evaluator boundaries. No Province War registration/write, proposal adoption or donor execution performed. Existing report/system/unread owners preserve useful findings without a fresh generic pass.",
+      "mechanism_and_interactions": "HoI4 research delivered representative script/source chains across focus, events, missions, modifiers, technology, doctrine, equipment and AI; a comment-aware corpus census and 5,393 selected source hashes were checked. Source definitions do not establish native evaluators: save schema/migration, production/research/MTTH/queue behavior, supply/combat, full campaign semantics, runtime, and adoption remain separate gaps.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical artifact validation and selected source hashes are reported. No game launch, native evaluation, personal save inspection, project tests, or current adoption check occurred.",
+      "reopen": "Any selected packet needs the specific native/source fixture for the relevant field/formula, campaign family or owner-registration consumer; preserve save privacy and avoid upgrading script declarations into engine behavior.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          27
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S026.json"
+      ],
+      "prior_input_sha256": "caa1258deae72682b85f5c38ccfe7ea928927944e2c2d2153cbb4648fcf35afd",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "caa1258deae72682b85f5c38ccfe7ea928927944e2c2d2153cbb4648fcf35afd",
+      "input_lines": 27
+    },
+    {
+      "path": "docs/research/hearts-of-iron-iv/aspects-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "A01-A12",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/hearts-of-iron-iv/aspects-2026-10-14/ (ASPECTS, SYSTEM_INVENTORY, DEEPER_SYSTEMS, IMPLEMENTATION_PACKETS); no runtime consumer selected."
+      ],
+      "disposition": "Aspect deliverables and documentation checks completed, while native engine and serializer semantics, current save/migration, complete variant trees, live UI/tutorial/sound/performance, mod precedence/offline behavior, and any YAIRPG/Province War adoption remain open. No gameplay acceptance or runtime work claimed. Keep exact source-vs-runtime and field/comment-vs-native-evaluator boundaries. No Province War registration/write, proposal adoption or donor execution performed. Existing report/system/unread owners preserve useful findings without a fresh generic pass.",
+      "mechanism_and_interactions": "Aspect pass captured selected text/event corpora and traced event/reply/localization/presentation joins, architecture/save-version limits, and deeper special projects, operations/phases and scripted UI/text. Structural row/inventory coverage is broader than semantic/runtime proof; native interpreter/tick/combat/save behavior and all country/faction/MIO/raid/occupation semantics remain bounded.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical source-capture counts, matching selected hashes, JSON/link/output checks are reported. No native game, personal save, or YAIRPG runtime was inspected in this shard.",
+      "reopen": "Choose one native function/consumer and separately scoped disposable current-build evidence for the exact save, UI, or semantic variant before adoption.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          31
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S026.json"
+      ],
+      "prior_input_sha256": "ef2ad6cc6482a0adf87d8c705f5eff9ffb5bcebf61ed46cc66dfa2b2c45a98b6",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "ef2ad6cc6482a0adf87d8c705f5eff9ffb5bcebf61ed46cc66dfa2b2c45a98b6",
+      "input_lines": 31
+    },
+    {
+      "path": "docs/research/hearts-of-iron-iv/pass-2026-10-14-systems/CHECKPOINT.md",
+      "ids": [
+        "H-G1",
+        "H-G2",
+        "H-G3",
+        "H-G4",
+        "H-G5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "U01",
+        "U02",
+        "U03",
+        "U04",
+        "U05",
+        "U06",
+        "I005",
+        "I008",
+        "I009",
+        "I027",
+        "I030",
+        "I062",
+        "I075",
+        "I076",
+        "I094",
+        "I102",
+        "I103",
+        "I137",
+        "I147",
+        "I148",
+        "I153",
+        "I154",
+        "C01-C09"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/hearts-of-iron-iv/pass-2026-10-14-systems/ (SYSTEMS, FAMILY_MAP, FINDINGS, IMPLEMENTATION_PACKETS, REPORT); selected owner registration is deferred to coordinator."
+      ],
+      "disposition": "Assigned source-only output pass is complete; PARTIAL marks explicit unread evidence, not an implementation mandate. Research proposals may be registered by a coordinator, but no adoption/owner registration or playable/save acceptance is claimed. Keep exact source-vs-runtime and field/comment-vs-native-evaluator boundaries. No Province War registration/write, proposal adoption or donor execution performed. Existing report/system/unread owners preserve useful findings without a fresh generic pass.",
+      "mechanism_and_interactions": "Fifteen representative systems plus taxonomy/inventory were captured from source, with data fields, conditions, timers, comment-level formulas, joins, and save limits recorded. It reconciles earlier gaps: network/acclimatization and some comment formulas were extended; native production/research/MTTH, supply/search/combat, modifier aggregation, exact saves, and broad semantics remain open. Cheap closures and metadata contracts are explicitly not runtime engine proof.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Checkpoint reports source/copy/prior hashes, inventory and document validation; no game tests, build, browser play, or save/restore ran. All claims here are historical checkpoint claims, not independently repeated.",
+      "reopen": "Select an exact U01-U04 gap with a real consumer; use scoped disposable evidence for saves/native evaluators or one named semantic variant, and keep inventory-only families labeled as such.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          70
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S026.json"
+      ],
+      "prior_input_sha256": "3c283486206c1b1269f1fb5cf5cfd96f4602619e4cfa1ec46f133e24ea96a623",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "3c283486206c1b1269f1fb5cf5cfd96f4602619e4cfa1ec46f133e24ea96a623",
+      "input_lines": 70
+    },
+    {
+      "path": "docs/research/heavens-vault/aspects-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "A01-A12",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/heavens-vault/aspects-2026-10-14/ (ASPECTS, SYSTEM_INVENTORY, DEEPER_SYSTEMS, REPORT, proposals); Province War may cite existing Vagrus fit report, but no consumer is assigned here."
+      ],
+      "disposition": "Bounded aspect pass delivered; PARTIAL means explicit unread/unverified units. No accepted owner or runtime changed, and the cited Vagrus Province War fit does not authorize a Province War write or adoption. Keep exact source-vs-runtime and field/comment-vs-native-evaluator boundaries. No Province War registration/write, proposal adoption or donor execution performed. Existing report/system/unread owners preserve useful findings without a fresh generic pass.",
+      "mechanism_and_interactions": "Aspect delivery includes twelve rows, full structural inventory/index, top three deeper systems, implementation packets and touch list. It reuses prior extracts and traces selected dialogue, architecture/save, tutorial, presentation and behavior/AI code. Gaps retain full narrative/relationships/endings, language generation, river/ruin/oxygen tuning, authoring/mod/accessibility, reset/achievement semantics, native saves/crash/performance/offline behavior and unextracted assets/helpers.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical source hashes and document validation checks are reported; no native dialogue/save/persistence or YAIRPG gameplay was exercised in this shard.",
+      "reopen": "Choose one named subsystem/route and resolve its actual source or native save/UI scenario before claiming broader coverage; preserve the explicitly bounded route and asset limits.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          33
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S026.json"
+      ],
+      "prior_input_sha256": "3e208f348419542d96efb13764906ab8011977e3db578454f3691858425fd799",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "3e208f348419542d96efb13764906ab8011977e3db578454f3691858425fd799",
+      "input_lines": 33
+    },
+    {
+      "path": "docs/research/heavens-vault/repass-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "P1",
+        "B01-B32",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/research/heavens-vault/repass-2026-10-14/REPORT.md, COVERAGE.json, and ignored private branch record; no external implementation owner is missing according to this checkpoint."
+      ],
+      "disposition": "Selected static audit delivered; all six YAIR suggestions remain proposals. Exact stored pointers/conditions/tables and branch record are preserved privately, while execution semantics remain unverified. No missing external implementation was found in the checked selected occurrences. Keep exact source-vs-runtime and field/comment-vs-native-evaluator boundaries. No Province War registration/write, proposal adoption or donor execution performed. Existing report/system/unread owners preserve useful findings without a fresh generic pass.",
+      "mechanism_and_interactions": "P1 statically traced a selected helper through offer, examination, uncertain feedback, host learning, procedural timeline and later consumers. Solving chooses wording/commentary in that chain; word confirmation separately changes dictionary knowledge and its attributed record, not solved-inscription membership. Showing an object can affect subsequent offers even if kept or uncertain. Literal destinations are resolved without proving reachability or native timing.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical checks cover pointer/token identity, selected conditions/destinations/tables and hashes. No game execution, gameplay tests, or human acceptance ran here.",
+      "reopen": "If selected, verify item/phrase/dictionary/RNG inputs, tutorial queue and suspended reload callback order, dynamic comparison routes, and native presentation/navigation/persistence for the relevant branch.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S026.json"
+      ],
+      "prior_input_sha256": "794b2c55d549a2904b90f677688998719b169c33a661a95af232fc6ac4bb1a4e",
+      "prior_locator_scopes": [
+        "pinpoint ranges in receipt"
+      ],
+      "input_sha256": "794b2c55d549a2904b90f677688998719b169c33a661a95af232fc6ac4bb1a4e",
+      "input_lines": 15
+    },
+    {
+      "path": "docs/research/groundhog-life/CHECKPOINT.md",
+      "ids": [
+        "uncoded source checkpoint",
+        "exact named static follow-up"
+      ],
+      "classification": "fresh full uncoded checkpoint review",
+      "owners": [
+        "docs/research/groundhog-life/CHECKPOINT.md"
+      ],
+      "disposition": "Later Oct14 pass closes the named war/Loop Trap efficiency/auto-x/achievement-group static follow-up on the same later-build hash, not all framework/UI lines, balance, scheduling interactions, provenance/license or runtime. Parent optional 3k-line suggestion is historical, not remaining assigned work.",
+      "evidence": "Entire checkpoint read; original code/data, live game and save behavior not reverified.",
+      "reopen": "Future selection names exact remaining consumer or runtime scenario; do not repeat completed setup or named later-build read.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "dabed65b403933b0110dc9d54a366fb322c71c984f11bd850458ce718cc15eda",
+      "input_lines": 13,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/groundhog-life/pass-2026-10-14/CHECKPOINT.md",
+      "ids": [
+        "uncoded source checkpoint",
+        "exact named static follow-up"
+      ],
+      "classification": "fresh full uncoded checkpoint review",
+      "owners": [
+        "docs/research/groundhog-life/pass-2026-10-14/CHECKPOINT.md"
+      ],
+      "disposition": "Later Oct14 pass closes the named war/Loop Trap efficiency/auto-x/achievement-group static follow-up on the same later-build hash, not all framework/UI lines, balance, scheduling interactions, provenance/license or runtime. Parent optional 3k-line suggestion is historical, not remaining assigned work.",
+      "evidence": "Entire checkpoint read; original code/data, live game and save behavior not reverified.",
+      "reopen": "Future selection names exact remaining consumer or runtime scenario; do not repeat completed setup or named later-build read.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "5f04a13fb551ef63e3e325f11dab476bc0cc5e527b96c4fe6df6de61c64ca010",
+      "input_lines": 22,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          22
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/heavens-vault/CHECKPOINT.md",
+      "ids": [
+        "uncoded source checkpoint",
+        "bounded source/route gaps"
+      ],
+      "classification": "fresh full uncoded checkpoint review",
+      "owners": [
+        "docs/research/heavens-vault/CHECKPOINT.md"
+      ],
+      "disposition": "Preserve completed four-question bounded source/data pass, exact story/language/river/asset gaps and developer-vs-code distinction; later repass adds a selected translation/helper chain rather than full route necessity or all story semantics.",
+      "evidence": "Entire checkpoint read; original code/data, live game and save behavior not reverified.",
+      "reopen": "Future selection names exact remaining consumer or runtime scenario; do not repeat completed setup or named later-build read.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "59c1e3d14a132ebde3c4a2e70705b4745820aa873bd3b1c24453ea571e9b9205",
+      "input_lines": 26,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          26
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/research/groundhog-life/CHECKPOINT.md",
+      "heading": "## Later named follow-up completion, 2026-11-04 (B32)",
+      "body": "pass-2026-10-14/CHECKPOINT.md completes the named remaining war, Loop Trap efficiency, automation and achievement-group static paths on the same pinned later-build app. The older optional “about 3k lines” suggestion above is superseded for those paths, not proof of every generated UI/framework line or all late-game behavior. Provenance/license, scheduling-order/reset interactions, exact first-life duration, rendered UI and save roundtrip remain qualified. Use that follow-up’s exact source ledger for a future selected gap; no fresh download/decompile or broad reread is needed merely to recover the completed findings.",
+      "before_sha256": "dabed65b403933b0110dc9d54a366fb322c71c984f11bd850458ce718cc15eda",
+      "after_sha256": "14af5666e64b2fbeaedade6d21bb8d9e47f1ccc0d081e9b89711b05f9ef6d4d7"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1627
+}

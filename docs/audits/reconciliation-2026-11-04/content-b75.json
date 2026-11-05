@@ -1,0 +1,257 @@
+{
+  "schema": 1,
+  "batch": "B75",
+  "title": "Earlier cross-audit receipts: source ranges, obsolete milestone and proposed body joins",
+  "at": "2026-11-04T20:24:17.628568+00:00",
+  "head": "4cdc0772b65d413e4989e327502910140b2a15eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/cross-audit-reconciliation-2026-10-15/SEMANTIC_B16_MODEL_ROADMAP.md",
+      "ids": [
+        "OV1–OV7/M2/IM1–10/V1–5/S1–10/R1–5",
+        "B11A1–A3/B12A1/MI6alternative/B14A1–A5/T06"
+      ],
+      "classification": "fresh full historical semantic-receipt text review",
+      "owners": [
+        "docs/gm/cross-audit-reconciliation-2026-10-15/COVERAGE_CURRENT.md",
+        "docs/gm/cross-audit-reconciliation-2026-10-15/SEMANTIC_B16_MODEL_ROADMAP.md"
+      ],
+      "disposition": "Keep separate finitealternatives and upstreamdependencies; durableawaken ordering is inheritedsource only, not CV1publication/faultrecovery. No currentselectedbodyAPI/schema or runtimeproof.",
+      "evidence": "Each selected Markdown receipt and full25line nativecoverage text freshly read. Exact input scope/statements/limitations inspected; privateJSONcrosswalks and underlying body/source/canon/runtime files not implicitly reviewed or hash-reused.",
+      "reopen": "Read actual selected privatefinding/source spans and currentauthority/consumers before reusing their underlyingreview; no sourcecreditfromreceipt existence/count alone.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "851a7a4a1a10abdd7148937501b2bc3ecc82623ca7871616659360d69556b890",
+      "input_lines": 9,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/cross-audit-reconciliation-2026-10-15/SEMANTIC_B2_AUDIT.md",
+      "ids": [
+        "F1–F5"
+      ],
+      "classification": "fresh full historical semantic-receipt text review",
+      "owners": [
+        "docs/gm/cross-audit-reconciliation-2026-10-15/COVERAGE_CURRENT.md",
+        "docs/gm/cross-audit-reconciliation-2026-10-15/SEMANTIC_B2_AUDIT.md"
+      ],
+      "disposition": "Prior full136lineaudit claims distinctbio/address/profile/body/cost/migration seams; latermigration/test/spec receipts nowexist, so originalunreadsiblingqueue is historical. Fullnote reading supplies no underlyingbody/schema/codeconsumercoverage.",
+      "evidence": "Each selected Markdown receipt and full25line nativecoverage text freshly read. Exact input scope/statements/limitations inspected; privateJSONcrosswalks and underlying body/source/canon/runtime files not implicitly reviewed or hash-reused.",
+      "reopen": "Read actual selected privatefinding/source spans and currentauthority/consumers before reusing their underlyingreview; no sourcecreditfromreceipt existence/count alone.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "576bbb965c43407d400443e4eb8cb8b5320fb63f3f5ec91eb8c054aa8becbe5b",
+      "input_lines": 9,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/cross-audit-reconciliation-2026-10-15/SEMANTIC_B2_MIGRATION_TEST_PLAN.md",
+      "ids": [
+        "M1–M5",
+        "M01–M08/D01–D08/Q01–Q12/P01–P10/U01–U05"
+      ],
+      "classification": "fresh full historical semantic-receipt text review",
+      "owners": [
+        "docs/gm/cross-audit-reconciliation-2026-10-15/COVERAGE_CURRENT.md",
+        "docs/gm/cross-audit-reconciliation-2026-10-15/SEMANTIC_B2_MIGRATION_TEST_PLAN.md"
+      ],
+      "disposition": "Preserve43NOTRUNtestcases and absence/corruption/identity/era/carrier/nativeowner/rollback distinctions. Proposedoldsave migrationnotcurrentuniversalpolicy; currentcompatibilitydecisionseparate. HistoricalREPORTreusereceipt not newfullsourcecredit.",
+      "evidence": "Each selected Markdown receipt and full25line nativecoverage text freshly read. Exact input scope/statements/limitations inspected; privateJSONcrosswalks and underlying body/source/canon/runtime files not implicitly reviewed or hash-reused.",
+      "reopen": "Read actual selected privatefinding/source spans and currentauthority/consumers before reusing their underlyingreview; no sourcecreditfromreceipt existence/count alone.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "6f9decd116c2454eabac6a7ebcfcc17c1f3cb9a9c9d315f5d3636c1ea15766a6",
+      "input_lines": 9,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/cross-audit-reconciliation-2026-10-15/SEMANTIC_CV1_AUDIT_ROWS.md",
+      "ids": [
+        "F1a–F1n/D1/D6",
+        "selected1–70/337–349",
+        "unread71–336/D2–D5/22cards"
+      ],
+      "classification": "fresh full historical semantic-receipt text review",
+      "owners": [
+        "docs/gm/cross-audit-reconciliation-2026-10-15/COVERAGE_CURRENT.md",
+        "docs/gm/cross-audit-reconciliation-2026-10-15/SEMANTIC_CV1_AUDIT_ROWS.md"
+      ],
+      "disposition": "Boundedpartialoriginal read not fullCV1. Numericpointsvalidation not observationobjectvalidation, genericawaken durability not CV1effects/evidence. Laterreceiptsmaycoverotherparts independently, no inheritedsemanticsfrommereexistence.",
+      "evidence": "Each selected Markdown receipt and full25line nativecoverage text freshly read. Exact input scope/statements/limitations inspected; privateJSONcrosswalks and underlying body/source/canon/runtime files not implicitly reviewed or hash-reused.",
+      "reopen": "Read actual selected privatefinding/source spans and currentauthority/consumers before reusing their underlyingreview; no sourcecreditfromreceipt existence/count alone.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "7032fb3f7863199ad25228fcd284535d45ca99169696ae05e0c54bd8ee74ecf7",
+      "input_lines": 9,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/cross-audit-reconciliation-2026-10-15/SEMANTIC_T10_IDEA_INDEX.md",
+      "ids": [
+        "I01–I40/F21",
+        "selected/inheritedindexwindows"
+      ],
+      "classification": "fresh full historical semantic-receipt text review",
+      "owners": [
+        "docs/gm/cross-audit-reconciliation-2026-10-15/COVERAGE_CURRENT.md",
+        "docs/gm/cross-audit-reconciliation-2026-10-15/SEMANTIC_T10_IDEA_INDEX.md"
+      ],
+      "disposition": "Historicalnavigation not adoption/runtime. Its onerealm/prestigegate retiredOct24; oldweaponpalette routes superseded by retainedstubs/canonicalINGowner afterB56. No need to rereadlinkedcanon fromindex. Originalsource/windows frozen.",
+      "evidence": "Each selected Markdown receipt and full25line nativecoverage text freshly read. Exact input scope/statements/limitations inspected; privateJSONcrosswalks and underlying body/source/canon/runtime files not implicitly reviewed or hash-reused.",
+      "reopen": "Read actual selected privatefinding/source spans and currentauthority/consumers before reusing their underlyingreview; no sourcecreditfromreceipt existence/count alone.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "fb5b8ab550c4731c33e2904ce64d06bb70fcaa46da597e84a13932a4e4628c9a",
+      "input_lines": 9,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/cross-audit-reconciliation-2026-10-15/SEMANTIC_T11_CORE_DIRECTION_AUDITS.md",
+      "ids": [
+        "OD1–OD16/OD23–OD25",
+        "F1–F12/GW1–GW5/GW1+GW3"
+      ],
+      "classification": "fresh full historical semantic-receipt text review",
+      "owners": [
+        "docs/gm/cross-audit-reconciliation-2026-10-15/COVERAGE_CURRENT.md",
+        "docs/gm/cross-audit-reconciliation-2026-10-15/SEMANTIC_T11_CORE_DIRECTION_AUDITS.md"
+      ],
+      "disposition": "Preserve answeredvsproposed distinction, exactusersource/currentowners, no newruntimewaveorautomaticbalancingrequirement. Oldhumanacceptance state optionalAD42; primarysource/authoring/currentconsumer/persistence gaps distinct.",
+      "evidence": "Each selected Markdown receipt and full25line nativecoverage text freshly read. Exact input scope/statements/limitations inspected; privateJSONcrosswalks and underlying body/source/canon/runtime files not implicitly reviewed or hash-reused.",
+      "reopen": "Read actual selected privatefinding/source spans and currentauthority/consumers before reusing their underlyingreview; no sourcecreditfromreceipt existence/count alone.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "9edb3ec76ae95d47227ed387d46dba4c7ce36ead4a445bc7696aed820e97ec77",
+      "input_lines": 9,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/cross-audit-reconciliation-2026-10-15/SEMANTIC_T11_EXTRA_AUDITS_A.md",
+      "ids": [
+        "10pinnedbodies",
+        "P00–P12/P14–P16/P18",
+        "B11/C0/A5/Stage1cheat"
+      ],
+      "classification": "fresh full historical semantic-receipt text review",
+      "owners": [
+        "docs/gm/cross-audit-reconciliation-2026-10-15/COVERAGE_CURRENT.md",
+        "docs/gm/cross-audit-reconciliation-2026-10-15/SEMANTIC_T11_EXTRA_AUDITS_A.md"
+      ],
+      "disposition": "Actualnativejoins at namedscope vs pendingmonth/day/spoilage/multislot/combat/worldvariants retained; historicalinvalidfixtures/failures correctednoterased. B11proposal andportraitleaning notaccepted. Hash/locator validationnot semanticcanon/runtime proof.",
+      "evidence": "Each selected Markdown receipt and full25line nativecoverage text freshly read. Exact input scope/statements/limitations inspected; privateJSONcrosswalks and underlying body/source/canon/runtime files not implicitly reviewed or hash-reused.",
+      "reopen": "Read actual selected privatefinding/source spans and currentauthority/consumers before reusing their underlyingreview; no sourcecreditfromreceipt existence/count alone.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "c82c14303ea1b36a0a70572b1efdd63dcdf05647ad09fc9d8fdd3abf4b9e0bf2",
+      "input_lines": 11,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/cross-audit-reconciliation-2026-10-15/SEMANTIC_T11_AUDIT_FINDINGS.md",
+      "ids": [
+        "8pinnedaudits",
+        "format/UI/materials/repeatableprocedures/baseline"
+      ],
+      "classification": "fresh full historical semantic-receipt text review",
+      "owners": [
+        "docs/gm/cross-audit-reconciliation-2026-10-15/COVERAGE_CURRENT.md",
+        "docs/gm/cross-audit-reconciliation-2026-10-15/SEMANTIC_T11_AUDIT_FINDINGS.md"
+      ],
+      "disposition": "Preserve portraitattributioncontradiction/sourceauthorship boundary, finiteCooking/T3mixture technicalreceiptvsallUI/alchemy, repeatableauditsasprocedure. Oldfirstmilestone/humanreview/priority statuses route to currentauthority; no newruntimeproof.",
+      "evidence": "Each selected Markdown receipt and full25line nativecoverage text freshly read. Exact input scope/statements/limitations inspected; privateJSONcrosswalks and underlying body/source/canon/runtime files not implicitly reviewed or hash-reused.",
+      "reopen": "Read actual selected privatefinding/source spans and currentauthority/consumers before reusing their underlyingreview; no sourcecreditfromreceipt existence/count alone.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "72657f302436a74b616d33d4f38191a5424e68dcf8c2211ca63b0dea34cc260b",
+      "input_lines": 15,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/cross-audit-reconciliation-2026-10-15/COVERAGE_CURRENT.md",
+      "ids": [
+        "1365capture/1184full/181partial",
+        "756semantic/414full",
+        "frozencandidate941/1205",
+        "10020v2rows",
+        "independentsemanticreturns"
+      ],
+      "classification": "fresh full historical semantic-receipt text review",
+      "owners": [
+        "docs/gm/cross-audit-reconciliation-2026-10-15/COVERAGE_CURRENT.md",
+        "docs/gm/cross-audit-reconciliation-2026-10-15/COVERAGE_CURRENT.md"
+      ],
+      "disposition": "DatedOct16denominators distinct current2035intake; parserrows/captures/semanticranges not equivalent. Nativeexactremainder/sourceledger/privatefindingownersretain provenance. Readingrouter not automaticreview of allprivatejson/source scopes; no inflatedcurrentcoverage.",
+      "evidence": "Each selected Markdown receipt and full25line nativecoverage text freshly read. Exact input scope/statements/limitations inspected; privateJSONcrosswalks and underlying body/source/canon/runtime files not implicitly reviewed or hash-reused.",
+      "reopen": "Read actual selected privatefinding/source spans and currentauthority/consumers before reusing their underlyingreview; no sourcecreditfromreceipt existence/count alone.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "be53354829fc8b1e7fcfe74bffbb30da5f672947fa2d8af3d95d1871b9da629e",
+      "input_lines": 25,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          25
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/cross-audit-reconciliation-2026-10-15/SEMANTIC_T10_IDEA_INDEX.md",
+      "heading": "## Later direction and palette routing, 2026-11-04 (B75)",
+      "body": "The quoted one-realm/one-prestige milestone describes this receipt’s older direction snapshot. Weibao retired it on October 24; current PROJECT/USER_VISION preserve deeper existing systems, several paths and mechanically distinct worlds, with actual selected slices sequenced. F21’s older weaponcraft routes are followed by the retained supersession stubs and canonical [weaponcraft/rune owner](../../WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md); B56 records their exact identity/history limits. Neither correction changes the historical index input, source pins or proposal status. Human review is optional under AD42, and this note supplies no underlying code/canon review (AD32/AD36).",
+      "before_sha256": "fb5b8ab550c4731c33e2904ce64d06bb70fcaa46da597e84a13932a4e4628c9a",
+      "after_sha256": "cfb5b5bcdbf90cdba92ad1ad099334b1b77c7a409a981e523393b3ac9246429e"
+    },
+    {
+      "path": "docs/gm/cross-audit-reconciliation-2026-10-15/COVERAGE_CURRENT.md",
+      "heading": "## Historical denominator and continuous intake, 2026-11-04 (B75)",
+      "body": "This October 16 coverage snapshot and its private ledgers retain their original denominators, source hashes and exact partial scopes. B75 reviewed selected semantic Markdown returns themselves, without rereading every linked private crosswalk or source body. Captures, programmatic parser rows, semantic spans and current full-file review remain distinct. The [November 4 continuous intake](../../audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md) owns the later candidate set and batch dispositions; do not add these dated totals to that denominator or count the same inherited source window as fresh reading. B2/CV1 unread statements are scoped to their individual returns and can be complemented by later receipts only after those exact records/inputs are inspected. Generic durable awakening source order does not prove CV1-specific effect/evidence publication or fault handling. No new body schema, migration, runtime slice, mandatory human gate or proposal acceptance follows (AD32/AD36/AD42).",
+      "before_sha256": "be53354829fc8b1e7fcfe74bffbb30da5f672947fa2d8af3d95d1871b9da629e",
+      "after_sha256": "58eb5929c9aaf9ae0fbb363797143bfbc11692f4ec5f3367651aaa60ab8f6629"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1356
+}

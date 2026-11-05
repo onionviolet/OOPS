@@ -127,3 +127,12 @@ committed with this file:
 1. ~~DRC4 + DRC3~~ closed 2026-10-19 (CBL3).
 2. DRC7 + DRC13: money has no single authority or ledger (ECX1/ECL2 session).
 3. DRC6: trader refresh destroys sold goods (ECR10, ECX3).
+
+
+## Current-use reconciliation B118, 2026-11-04
+
+Full DRC1–DRC16 scan and evidence read. Its summary/top-remaining list is an October 19 snapshot, not current status. DRC1 was approved later within this same file, overriding the introductory unresolved-wording statement. DRC2/3/4 closure and DRC10 original visible-layer gap retain their dated proof. The bounded grep method never established all unlisted rules conform.
+
+DRC7’s blanket absence of a money seam/ledger is superseded by [ECX1/ECL2](../ECONOMY_AND_TRADE_CONSIDERATIONS_2026-10-18.md#ecx1-and-ecl2-evidence-2026-10-19) and selected current economy_domain source. Live named purse writes and a 500-row session debug projection exist; saved copies have a separate no-row helper. This is not a saved finite-economy ledger or a new audit of every current write. Selected native_trade_transaction still credits sale value without a merchant purse; DRC13 attribution and merchant conservation are different issues. DRC6 is qualified by current trader refresh calling shop_locks retention for explicitly kept keys in addition to conserved campaign stock. That does not prove general player-sold-origin buyback or close ECX3 globally.
+
+DRC9’s known-effect action label and DRC11/DRC12 reason fields now exist in their actual source owners. [The later Oct27 delivery receipt](../gm/dispatch/village-loop-2026-10-27/BACKLOG_UI_CHECKPOINT.md) reports earned DRC9/11 routes and four-cell reason checks, superseding its own initial no-browser entry. DRC12 remains seeded and below the AD43 floor there. No fresh browser result is claimed, and its historical full-suite failure is retained. Source plumbing is not current served-byte/desktop proof. Selected defeat validator still admits cause kind/place/by without a source key (DRC14); health-zero routing still uses parent_location at its named main call (DRC15). DRC5/8/10 residual/16 and other uninspected current seams remain scoped, not silently resolved. Keep all original findings/history; select work only from current direction.

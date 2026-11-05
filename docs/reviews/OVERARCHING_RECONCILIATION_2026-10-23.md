@@ -101,3 +101,10 @@ required merely to reconcile current claims.
 - Report-only diff whitespace check: recorded by this task after creation.
 - Existing test/browser results above are attributed to their receipts, not rerun
   or generalized to this moving checkout. No private save content was read.
+
+
+## Content reconciliation B158, 2026-11-04
+
+F1-F5 and all evidence limits were reviewed. Preserve the central distinctions: an import is source wiring, a current compiled bundle is not an installed app, a branch receipt is not combined input proof, a rule has a particular resolver/consumer, and an intentional local clock policy is not general offline accrual. A kin producer, transfer law, retained skill and result recipient need their actual joins (AD32, AD36, AD38).
+
+The adoption build, O4/O5, LOTM localhost entry, switching flag and kin fallback were October 23 observations. Later current campaign/foundation/owner receipts qualify their use; this report supplies questions rather than today's missing-work queue. It neither certifies those old findings fixed nor requires repeating every old route. Broader chemistry, party/cargo and whole-world content remain separately selected scope, with current lead order governed by PROJECT. No new app, source, branch or remote state was verified here.

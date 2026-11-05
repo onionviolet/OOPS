@@ -1,0 +1,10 @@
+{
+  "command": "npm run check:docs",
+  "exit_code": 1,
+  "findings": [
+    "docs/RULES_INDEX.md:74: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line",
+    "docs/reports/PROGRESS_ATLAS_REFINED_2026-11-04.md:274: absolute rule word has no default, dial, exception, or reason in this row or paragraph",
+    "docs/reviews/crafting-reference-2026-11-04/REPORT.md:107: acceptance claim needs a USER_VISION.md or PROJECT.md link, AD code, or quoted text on this line"
+  ],
+  "disposition": "Own register row corrected with explicit existing AD44/AD51. Other two files belong to concurrent work and are preserved; no lint-pass claim."
+}

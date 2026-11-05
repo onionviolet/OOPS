@@ -1,5 +1,7 @@
 # World implementation rules map and audit, 2026-11-04
 
+**Read the later rounds first:** Round 2 withdraws the original F1 claim that no presentation section/checklist existed and narrows F7; later rounds retain their own evidence. The [current reconciliation](LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md) also routes original-versus-book-world work through the corrected rules router. This is not blanket adoption of A1–A5 or closure of the remaining findings.
+
 **Status: proposal (AD32).** Weibao asked to visualize and audit the rules for the avenues of implementing worlds, "from UI and more". This file extends the [rules reconciliation audit](RULES_RECONCILIATION_AUDIT_2026-10-30.md) (O1-O22, RRV1-RRV6, OWN1-OWN4) and does not repeat it. It changes no rulebook, AD line or runtime. Another session has uncommitted edits in the reconciliation audit and RULES_INDEX, so this is a separate file. Evidence: **shown** = I read the line; **counted** = a `grep -o | sort -u` count of distinct codes per owner file, 2026-11-04. No sealed world content appears here, only rule sets.
 
 ## The map
@@ -197,3 +199,14 @@ Unmapped residue: SUI1-SUI19, RPT1-RPT12 and RPT14, UIV, UR78-UR82 consumers, mo
 | L13 | Decide if UR76's system card wants a shared form or stays inline in briefs | UI owner, Weibao's call if a new file | Answer recorded beside UR76 |
 | L14 | Count panels, routes and tabs on the current build through the game MCP and refresh UR77's "today" figure | Haiku via MCP, small | UR77 number dated 2026-11 or later |
 | L15 | Census rows for Phandalin and for worlds added since 2026-10-30 (folds into L1) | Haiku, small | Census lists every start the producer registers |
+
+
+## Full five-round reconciliation, 2026-11-04 (B184)
+
+All five rounds, F1–F21, A1–A5/L1–L15 and the original diagram were read. Later corrections win within this report: F1’s “no UI section/checklist” claim is withdrawn because S13 and DSG19 already existed; A1 became two links. F7 is narrowed by existing WER13 and low-spoiler start guidance. F2 progresses from glob-only suspicion to the report’s named live rule-loading observation in F10; this reconciliation did not rerun that harness. A diagram is a router, not a mandatory research→book→protagonist waterfall for original worlds or settled feature rows. Current corrected RULES_INDEX owns those trigger distinctions.
+
+F16’s blanket no-pack-save-path observation is superseded by the independently reviewed current registry save/validate/load hooks and named reveal writer. That does not establish natural gameplay reveal or all per-world persistence, and it does not call for a duplicate serializer. Save contracts already have AR6 and the SAVES owner even without a new “save rule” code family; code-count totals do not measure enforcement or missing gameplay. The explanatory HTML/private artifact and headless text probes retain their original scope, not current game layout or full rules compliance.
+
+A selected current source check still shows nine explicit world_report_voice family keys/matches and a coverage test driven by exported literal *_LOCATIONS table shapes. Those inspected matchers contain no Shadow/Gu/Phandalin family; this preserves the narrow voice-coverage concern without claiming current start/crossing reachability or every displayed line was exercised. A test’s green historical result can coexist with unmapped actual producers. If selected, reuse current registered starts and actual crossings to define the covered population, allow stated exceptions and trace the real report consumer. No runtime voices, test or new registry was changed.
+
+Preserve mixed authority under AD32 and unmapped residue. UR76–UR82 proposed-in-use, specific standing WA lines, selected Nov4 prose defaults and other proposals are not one blanket accepted set. A3’s suggested grouped question does not require a fresh vote on already established direction, nor does registration adopt unresolved groups. SUI/RPT/UIV and launch consumers explicitly untraced by round5 remain separately reviewable; panel/route counts, census cells and file-name scans are not universal kit proof. Existing system-card briefs can be inline, and no new form, seventh kit question, template, rulebook, code rename or global gate is selected here.

@@ -1,5 +1,7 @@
 # Progression gate overflow policy (GTL4)
 
+**Content review B5, 2026-11-04:** GTO1–GTO17, GTL6, D3 and all limits reviewed. The [current fold](#gate-and-overflow-content-reconciliation-2026-11-04) qualifies the historical “no code” and D3 “not yet in this checkout” statements against actual source consumers. Per-gain banking is focused-tested; the event conversion is source-traced here, without a fresh route. Other caps and proposed policies remain distinct under AD32/AD36.
+
 **Status: Proposed 2026-10-23.** Agent proposal under
 [GTR16](PROGRESSION_GATE_RULES.md) and GTC4. Nothing here is accepted direction
 or a standing priority until Weibao says so; no code was changed. Codes use the
@@ -156,3 +158,14 @@ Each needs Weibao's go-ahead; none is a required gate.
 | GTO15 | Practice depth counter past 48 minutes with save validation (`techniques.js:13` currently rejects values above 48) | sonnet | small | Old saves load unchanged; reload and import keep the counter |
 | GTO16 | Decide the offline clock policy so GTR4 "idle progress keeps accruing" is real at caps, then settle overflow for away time | designer | medium | Policy recorded; test hook `catch_up_ticks` shows banked, not lost, overflow |
 | GTO17 | Audit `can_level=false` and per-gain-cap drops for silent losses in other worlds | haiku | small | Table of each drop site with a file:line |
+
+
+## Gate and overflow content reconciliation, 2026-11-04
+
+Read this full GTO1–GTO17/GTL6/D3 record and the full [gate inventory](audits/PROGRESSION_GATE_INVENTORY_2026-10-23.md). The opening “no code” and broad “all excess lost” observations predate the GTL6 section in this file. Current `levelable_component.js` calls `settleCappedSkillGain` for its non-crafting per-gain cap; the registered `skill_overflow` owner saves nonempty per-world banks and exposes the bank view. Focused gate/overflow tests pass in batch B5; this is not new desktop or import proof (AD32/AD36/AD43).
+
+D3's “not yet in this checkout” line is stale at the source level. `SKILL_EVENT_OVERFLOW` contains the purification row, `settleInsight` owns converted practice/carry/loss, and the native Mistglass host join stages that result into `plan.state.worldAdaptation`; main imports that join. This establishes the named producer/state/consumer chain, not a freshly replayed native D3 journey or author acceptance of every proposed row. The generic bank tests do not test that whole conversion route.
+
+Keep the policy families separate: single-gain banking is not max-level mastery conversion; mirrored parent XP is not a conserving transfer; descriptor `overflow` metadata does not itself settle stock or XP. GTO1/GTO4 wording, native settlement/crafting caps, reserve overflow and further practice depth retain their distinct gaps. Reopen the selected cap at its actual settlement owner, with an explicit world row and a meaningful receiver rather than applying the frontier bank globally.
+
+The gate inventory's old raw-fact fallback is also dated: `rules.js` now produces plain-language requirements. That does not prove observer admission. `evaluateGate` keeps author reasons separate and filters shown hints by `knows`; boolean `meets` drops the known/unknown distinction, and the field-works adapter still tests the earlier `Requires ` prefix. This is a source-level mismatch worth a selected synthetic caller scenario, not a demonstrated player leak. The [progression code map](systems/PROGRESSION_WORLD_STATE.md#gate-inventory-caller-qualification-2026-11-04) owns that precise missing proof.

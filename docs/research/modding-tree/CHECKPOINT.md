@@ -23,3 +23,8 @@ galaxy.click (404), Discord (login wall), Prestige Tree Rewritten, Incrementreev
 ## Safety and future pass
 
 Shallow clones only, in session scratch. No npm, scripts, repo edits or commits by the lane. No decompile needed. Optional next pass: Prestige Tree Rewritten and The Communitree for many-author layer conventions; Profectus `game/requirements.tsx` and boards.
+
+
+## Later comparison closure, 2026-11-04 (B37)
+
+pass-2026-10-14/CHECKPOINT.md completes the named Rewritten, Communitree grouping/section/activation and Profectus requirements/layer comparison. The older optional follow-up remains history for those seams. Profectus boards, exhaustive feature/vendor libraries, actual many-author contribution history, latest official-host parity and runtime pacing/UI/save/offline behavior remain distinct gaps. Do not equate a pinned shallow-clone structure with a proven collaborative workflow or copy a new runtime into YAIRPG. Retain selected incremental ideas in the existing pass packets, with current AD52 governing any later repeated-activity consumer.

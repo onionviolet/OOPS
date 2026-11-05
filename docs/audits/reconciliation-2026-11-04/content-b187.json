@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "batch": "B187",
+  "title": "Economy palette, ledger scope and exchange beliefs",
+  "at": "2026-11-04T22:46:26.054263+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/ECONOMY_AND_TRADE_CONSIDERATIONS_2026-10-18.md",
+      "ids": [
+        "ECC1–ECC37",
+        "ECX1–ECX10",
+        "ECL1–ECL5",
+        "RI X1–X12/G10–G14 routing",
+        "B118",
+        "B121"
+      ],
+      "classification": "Economy root palette with implemented seam receipts and later owner corrections",
+      "owners": [
+        "docs/ECONOMY_AND_TRADE_CONSIDERATIONS_2026-10-18.md",
+        "docs/DOMAIN_RULES.md"
+      ],
+      "disposition": "Full palette review retains its later corrections over early absent-authority/retention claims. Distinguish basket anchor, local quote, currency units, custody and identity-bound account. Preserve intended profitable engines without compulsory commerce, scarcity or balancing tax.",
+      "evidence": "Fresh full read 1–end, including ECX1/ECL2 dated checks and later B118/B121 current-source dispositions. No new runtime inspection, pricing measurement, original research or transaction exercise.",
+      "reopen": "Selected quote, stock, buyback, purse, identity or deferred-settlement consumer; inspect current seam and qualify only its own changed behavior.",
+      "input_sha256": "57f085d99dcfd20bc93b8461cc7073c1d3d75411c0fd2689725e64f2d6d5e350",
+      "input_lines": 368,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          368
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/ECONOMY_AND_TRADE_CONSIDERATIONS_2026-10-18.md",
+      "heading": "## Full economy-palette reconciliation, 2026-11-04",
+      "body": "ECC1–ECC37, ECX1–ECX10 and ECL1–ECL5 remain distinct from the markets palette and its separately scoped codes. ECX6 supersedes a universal currency-pair rate: a reference basket is a design anchor; actual changer terms, spreads, beliefs and local means determine quotes. ECC8 is a proposed income floor where monetary work fits, not compulsory commerce in every world. ECC12 knowledge losing value as it spreads, ECC20 requiring a new sink, and ECC25 conserving transfers do not forbid valuable widespread knowledge, profitable authored engines or a mechanism that creates money (AD5, AD22, AD27, AD38). Name the actual source or recipient instead of inventing a balancing tax.\n\nThe October 19 ECX1/ECL2 receipt supersedes the earlier claim that the money seam/domain is absent. Its last-500 session ledger excludes baseline rows from flow totals and is deliberately not saved. The preserved golden route and later seeded browser trade have different sale figures and inputs; do not merge them into one result. Later acceptance-prep and B118 folds qualify current arithmetic and retained preference keys without proving all merchant budgets, general sold-origin buyback or a finite economy. ECC36 and the old build order remain historical proposals where later work already supplied a domain.\n\nLegal ownership, custody, use, identity-bound accounts, expected proceeds, due debts and food available before a meal answer different questions. ECC37 keeps known quote terms separate from hidden truth and settles only genuine performed work/reservations; it does not make ordinary trade partially committed. Preserve source silence versus institutional absence, comic/nonhuman economies and RI living-capital dependencies. No prices, balances, private saves, runtime or implementation priority changed here; dated approval and push wording is history, not renewed authority.",
+      "before_sha256": "57f085d99dcfd20bc93b8461cc7073c1d3d75411c0fd2689725e64f2d6d5e350",
+      "after_sha256": "39492adc00e2fc1ed14f7413ba521f6340286fe7f204a6c6671061cebacf6121"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1102
+}

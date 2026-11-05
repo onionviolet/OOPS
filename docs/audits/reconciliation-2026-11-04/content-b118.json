@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "batch": "B118",
+  "title": "Domain conformance audit reconciled against later money and UI owners",
+  "at": "2026-11-04T21:14:23.488064+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/DOMAIN_RULES_CONFORMANCE_2026-10-19.md",
+      "ids": [
+        "DRC1–DRC16",
+        "RC1–RC8",
+        "original fixes/evidence/top gaps"
+      ],
+      "classification": "Historical conformance findings; current selective source reconciliation",
+      "owners": [
+        "docs/audits/DOMAIN_RULES_CONFORMANCE_2026-10-19.md",
+        "docs/ECONOMY_AND_TRADE_CONSIDERATIONS_2026-10-18.md",
+        "docs/COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md",
+        "docs/gm/dispatch/village-loop-2026-10-27/BACKLOG_UI_CHECKPOINT.md"
+      ],
+      "disposition": "Original 16-row scan is bounded targeted source inspection, not a proof all rules conform. Preserve DRC1 approved AR1 wording and DRC2/3/4 reported closure, DRC10 source fix with original browser gap. Later ECX1/ECL2 evidence and current economy_domain seam supersede DRC7 blanket no money authority/ledger; session debug ledger not saved economic history. DRC13 no merchant purse in selected stage remains, faucet attribution not finite economy. Current DRC9/11/12 code plus Oct27 receipt supersede not-done source status; earned DRC9/11 receipt differs from seeded DRC12 below-floor. Current trader has selected kept-slot retention, not general sold-origin conservation. DRC14 validator still admits kind/place/by only, and DRC15 selected health-zero call still uses parent_location; retain scoped gaps. No new runtime result or full source audit.",
+      "evidence": "Fresh all129-line audit read. Selected actual source: crafting_home86–91, village_career_ui12/30–42, harvest_ui10–14 and named control calls, trader_component72–105, full9-line shop_locks, economy_domain1–65, native_trade_transaction7–18, main3894–3899/4912–4920, defeat_domain1–34. Economy owner279–317 and Oct27 selected receipt72–110/160–217 read; no tests rerun.",
+      "reopen": "For selected remaining DRC, inspect its exact current native/owner seam and evidence; no automatic implementation from this old backlog.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "06a1a81ee6d8d6dba7f5d362dcc5c6850a4c235c24d66f87301ef5cf30fbbc7d",
+      "input_lines": 129,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          129
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/village-loop-2026-10-27/BACKLOG_UI_CHECKPOINT.md",
+      "ids": [
+        "P02",
+        "P09",
+        "DRC11/DRC12 final browser pass",
+        "AD43 table"
+      ],
+      "classification": "Selected historical delivery receipt ranges only",
+      "owners": [
+        "docs/audits/DOMAIN_RULES_CONFORMANCE_2026-10-19.md",
+        "docs/gm/dispatch/village-loop-2026-10-27/BACKLOG_UI_CHECKPOINT.md"
+      ],
+      "disposition": "Later addendum supersedes initial P02 no-browser state: reported earned DRC9/11 checks and DRC12 seeded below-floor. Preserve full-suite CN11 failure and isolated pass as historical result, without diagnosing current cause or claiming a clean suite. Input outside selected ranges remains unreviewed.",
+      "evidence": "Fresh selected ranges72–110 and160–217; source corroboration only for named label/reason seams. No browser/test rerun.",
+      "reopen": "Full remaining receipt content still needs review; selected DRC12 natural carcass route remains a named historical floor gap unless later proof is inspected.",
+      "read_mode": "fresh_selected_content_read",
+      "full": false,
+      "ranges": [
+        [
+          72,
+          110
+        ],
+        [
+          160,
+          217
+        ]
+      ],
+      "input_sha256": "13cc22157eddb8f50a152e063d2e177f38b2008172791c7619c615f0f1b32c45",
+      "input_lines": 216
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/DOMAIN_RULES_CONFORMANCE_2026-10-19.md",
+      "heading": "## Current-use reconciliation B118, 2026-11-04",
+      "body": "Full DRC1–DRC16 scan and evidence read. Its summary/top-remaining list is an October 19 snapshot, not current status. DRC1 was approved later within this same file, overriding the introductory unresolved-wording statement. DRC2/3/4 closure and DRC10 original visible-layer gap retain their dated proof. The bounded grep method never established all unlisted rules conform.\n\nDRC7’s blanket absence of a money seam/ledger is superseded by [ECX1/ECL2](../ECONOMY_AND_TRADE_CONSIDERATIONS_2026-10-18.md#ecx1-and-ecl2-evidence-2026-10-19) and selected current economy_domain source. Live named purse writes and a 500-row session debug projection exist; saved copies have a separate no-row helper. This is not a saved finite-economy ledger or a new audit of every current write. Selected native_trade_transaction still credits sale value without a merchant purse; DRC13 attribution and merchant conservation are different issues. DRC6 is qualified by current trader refresh calling shop_locks retention for explicitly kept keys in addition to conserved campaign stock. That does not prove general player-sold-origin buyback or close ECX3 globally.\n\nDRC9’s known-effect action label and DRC11/DRC12 reason fields now exist in their actual source owners. [The later Oct27 delivery receipt](../gm/dispatch/village-loop-2026-10-27/BACKLOG_UI_CHECKPOINT.md) reports earned DRC9/11 routes and four-cell reason checks, superseding its own initial no-browser entry. DRC12 remains seeded and below the AD43 floor there. No fresh browser result is claimed, and its historical full-suite failure is retained. Source plumbing is not current served-byte/desktop proof. Selected defeat validator still admits cause kind/place/by without a source key (DRC14); health-zero routing still uses parent_location at its named main call (DRC15). DRC5/8/10 residual/16 and other uninspected current seams remain scoped, not silently resolved. Keep all original findings/history; select work only from current direction.",
+      "before_sha256": "06a1a81ee6d8d6dba7f5d362dcc5c6850a4c235c24d66f87301ef5cf30fbbc7d",
+      "after_sha256": "3236a5dd1652b54982c5c702273a4eaf487ca45391bb471d5a44f460c294cf19"
+    },
+    {
+      "path": "docs/ECONOMY_AND_TRADE_CONSIDERATIONS_2026-10-18.md",
+      "heading": "## Domain-scan reconciliation B118, 2026-11-04",
+      "body": "The full [domain conformance scan](audits/DOMAIN_RULES_CONFORMANCE_2026-10-19.md#current-use-reconciliation-b118-2026-11-04) now qualifies DRC7/13 against ECX1/ECL2 and selected current purse/trade source. A bounded session debug ledger is present; this does not prove merchant purse conservation or a persistent finite economy. Current trader refresh additionally retains explicitly kept keys through shop_locks, so DRC6 is narrower than total absence of retention. General sold-origin buyback remains unproved by that preference mechanism. Dated source locators and balances are not current live proof.",
+      "before_sha256": "d64c40db94721050a484bb12bf3c26d3dfa9c37c9c74aa7cfe6877cf332a5ff8",
+      "after_sha256": "72ff825235f3c71ffb7f4e721933543eaf6fdb029acbd6829663e1f523243ebf"
+    },
+    {
+      "path": "docs/COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md",
+      "heading": "## Domain-scan reconciliation B118, 2026-11-04",
+      "body": "The full [DRC audit](audits/DOMAIN_RULES_CONFORMANCE_2026-10-19.md#current-use-reconciliation-b118-2026-11-04) retains DRC2/3/4’s original closure receipts without renewing them. Selected current source still routes health-zero through a parent_location combat-zone test (DRC15), while defeat cause validation admits kind/place/by only (DRC14). These remain scoped findings for a selected fix, not authorization to change wake behavior, save schema or gameplay during documentation reconciliation. No runtime tests or fresh browser checks were run.",
+      "before_sha256": "7805efea8d571c175674816c85e18274c51b94dee56dd3ada32225a6365ecf96",
+      "after_sha256": "22425694a67c9df0d723fc5bb185432b34bba3fc815c0d3e4d26ecc55bd3eb7e"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1243
+}

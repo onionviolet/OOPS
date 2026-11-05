@@ -66,3 +66,10 @@ journeys remain in the matched-comparison report. All six cases pass search29→
 containment. Fully visible variant rows at1920/1800/1536 widths are24/23/17
 at14px and7/6/5 at21px. Source evidence establishes
 current capability boundaries; human play/visual acceptance remains open.
+
+
+## Content reconciliation B157, 2026-11-04
+
+The full assessment and [execution checkpoint](../gm/dispatch/inventory-overhaul-2026-10-21/CHECKPOINT.md) were reviewed. Its later captured release implements I2-I5 through actual native/UI consumers and records combined browser, persistence, Electron and publication proof. Keep the table as the original design/gap evidence, not a fresh four-item missing-feature queue. This reconciliation did not inspect today's app, remote branch or exact current source (AD32, AD36).
+
+Preserve I1's fixture limits: thirty-one stacks, largely quality variants of one kind, pressure-test exact selection and large-text density without proving every mixed/damaged inventory. Structured fit, condition, custody and final character effects are distinct from an item-only score. Catalogue compatibility does not grant possession/access, and multi-holder transfers need the actual owner/transaction. Existing compact proportions, expanded inspection and full Reports remain meaningful choices; an overhaul does not consume every panel or invent a second stock store. No new transfer or runtime behavior was tested here.

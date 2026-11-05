@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "batch": "B293",
+  "title": "Palette audits and final release: source defects, actual continuation and bounded completion",
+  "at": "2026-11-05T00:58:07.343201+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "owners": [
+        "docs/gm/dispatch/palette-completion-2026-10-20/REPORT.md",
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "reopen": "Use the frozen release input for historical claims and current selected UI/source for new changes; no old quota, server, reservation or mandatory human gate is revived.",
+      "path": "docs/gm/dispatch/palette-completion-2026-10-20/AUDIT.md",
+      "ids": [
+        "P1 missing game_stats",
+        "P2 exact quote/blocked stock",
+        "All26 unchecked palette rows",
+        "53row27/26 snapshot"
+      ],
+      "classification": "Historical independent source/28-test review, explicitly superseded by solo closure",
+      "disposition": "Read all53 original lines, both source findings, every one of26 open-row consumers/gaps and final gate. Preserve actual ReferenceError beforecommit versus unsupported focus-detachment diagnosis, and policy-selected stock rejection versus an invented free-subset spender. Later solo/report supplies bounded treatment closure, not this old audit.",
+      "evidence": "28focused tests did not cover native integrated All-click failure; no independent build/fullsuite/browser. Partial cold/rate/session/history/scene/digest examples were expressly narrower than palette family. Source fixes and old remaining gates retain snapshot identity.",
+      "input_sha256": "1e9f15053f967bf383c9e387c4e2a10a46470a3e170781e3f6b595d54c9f4c57",
+      "input_lines": 53,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          53
+        ]
+      ]
+    },
+    {
+      "owners": [
+        "docs/gm/dispatch/palette-completion-2026-10-20/REPORT.md",
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "reopen": "Use the frozen release input for historical claims and current selected UI/source for new changes; no old quota, server, reservation or mandatory human gate is revived.",
+      "path": "docs/gm/dispatch/palette-completion-2026-10-20/SOLO_AUDIT.md",
+      "ids": [
+        "S1–S5",
+        "Circle-radius UI violation",
+        "Harness versus source defects",
+        "Final clipped Body repair"
+      ],
+      "classification": "Later selected self-audit and repairs, separate from independent review",
+      "disposition": "Read all15 original lines. Preserve session craft intent versus saved processing routine, reserve-last-completion overflow handling, exact copy/capacity/remembered baselines, real known-skill/body expression and restore-open refresh. Compiler/browser fixture corrections are not new production bugs; preserve exact Export reward and discovery-threshold semantics.",
+      "evidence": "Explicit user continuation within30–35%historical allowance; no new agents. The record describes repairs and forwards actual final checks to REPORT/CHECKPOINT, not its own fresh tests. No human tone/balance claim.",
+      "input_sha256": "be0ab991c65e46803ab632fe2a84844545575d5c3bc1003cca9269720f83ed46",
+      "input_lines": 15,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ]
+    },
+    {
+      "owners": [
+        "docs/gm/dispatch/palette-completion-2026-10-20/REPORT.md",
+        "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      ],
+      "reopen": "Use the frozen release input for historical claims and current selected UI/source for new changes; no old quota, server, reservation or mandatory human gate is revived.",
+      "path": "docs/gm/dispatch/palette-completion-2026-10-20/REPORT.md",
+      "ids": [
+        "All53 bounded treatments",
+        "D1–D5",
+        "736input release",
+        "2390tests/36rule checks",
+        "10completion and8retained browser checks",
+        "FF3 prior candidate",
+        "G1/exclusions/post-release drift"
+      ],
+      "classification": "Frozen isolated palette release and qualified current-versus-later source identities",
+      "disposition": "Read all45 original lines, every final gate and post-verification ownership check. Full bounded palette-treatment completion supersedes old27/26 coverage, without implementing90reference examples or everymechanism. Fold actual source defects/repairs, durable versus session intent, fixture limits, reused FF3 scope, excluded later files and AD42optional review into report.",
+      "evidence": "Historical isolated build2390/2390suite,36rule checks,10recorded completion and8retained checks on finalcandidate; FF3 earlier combined hash reused with unchanged relevant inputs. Fixtures/access-ore patch and Export reward explicit. Shared dist/index not rebuilt, queuedappopening not foreground delivery; later4concurrent paths excluded. No artifact/source/browser rerun in this pass.",
+      "input_sha256": "78ad99376fdf65b9cd1d6e264d36fbf38f1993cdffc8428d6d102e72b7907119",
+      "input_lines": 45,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          45
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/palette-completion-2026-10-20/REPORT.md",
+      "heading": "## Content reconciliation B293: independent findings and final palette boundaries",
+      "body": "The full [independent audit](AUDIT.md), [later solo audit](SOLO_AUDIT.md) and final report above were read, including every old open row and the final post-verification drift notice. The independent audit's 27 checked/26 open snapshot is superseded for the 53 named bounded treatments, not erased. Its two concrete findings remain useful history: native All-click failed before commit through an unbound private stats read, and mixed available/blocked entries were rejected by the actual native selected-stock policy. A click trace did not support focus detachment as its cause; a partial usable count did not authorize silently consuming another subset. The 28 focused passes did not cover that native failure.\n\nLater S1/D1 finite craft intent retains actual paid attempts/successes/output through stock or skill interruption, then explicitly Recheck/Continue. It reserves no stock and clears on load; it is deliberately session state. S2/D2 saved processing intent is a different owner: settled completions/graded outputs, pause-after-current, exact pending carcass return and reservation of the final allowed completion against overflow. Cancelling remaining intent cannot erase completed paid work; a recipe/material boundary is not permission to repeat it. These are meaningful consumer differences, not interchangeable generic progress meters.\n\nS3/D3 history compares the same copy and capacity, distinguishes capacity growth from recovery, clears missing-copy/load baselines and dates remembered observations. Unequal processing allocations end in atomic output; they do not claim that every stage produces goods. S4/D4 body expression reads public health and already-known capability state, accumulates meaningful gains, resets on loss/load and keeps static meaning under reduced motion. Effects-off removes its optional glyphs without fabricating or hiding gameplay. S5/D5 refreshes when ownership/restore resolves without a tick. Household wood remains an actual finite paid supply, not implied furnace/cooking/ambient-light physics.\n\nKeep the final evidence identities. The isolated 736-file release and recorded 2,390-test suite/36 rule-behavior checks, ten completion checks and eight retained checks belong to their frozen inputs. Those browser groups are not eighteen distinct natural campaigns. Skills/body/home/stock were explicitly seeded, and the native route recorded an access/ore patch. Export's existing reward is captured before literal-import comparison. FF3's immediately preceding combined-candidate evidence was reused for unchanged relevant household inputs after only Body compaction; it is not a fresh final-hash rerun. Physical audibility, whole unseeded acquisition and all illustrative future mechanisms remain unclaimed.\n\nShared generated HTML/bundles were not replaced; queued app opening and a dated localhost URL do not prove today's foreground delivery or live server. The four later concurrent household/control paths are preserved and explicitly excluded from the release preview and verification, not adopted or rolled back. Historical allowance ceilings and released writers do not grant present ownership. AD42 makes human review optional; visual/play judgment remains separate from agent proof without turning G1 into a new mandatory global blocker. Current desktop/text/prose-first direction still governs new UI work. No source repair, fixture run, browser/artifact inspection, process launch, installation or gameplay acceptance is performed by this content review.",
+      "before_sha256": "78ad99376fdf65b9cd1d6e264d36fbf38f1993cdffc8428d6d102e72b7907119",
+      "after_sha256": "4a27382ecf7c1c572b0172352e8e055a7abd680f10cd931e7198763249e64be6"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 837
+}

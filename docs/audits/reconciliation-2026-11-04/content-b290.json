@@ -1,0 +1,101 @@
+{
+  "schema": 1,
+  "batch": "B290",
+  "title": "Audited-gap queue and livelihood coverage: actual costs, ownership and deferred proof",
+  "at": "2026-11-05T00:55:20.094553+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/audit-implementation/remainder/livelihood/COVERAGE.json",
+      "ids": [
+        "elin:P1",
+        "idling-to-rule-the-gods:P1",
+        "keeperrl:P2",
+        "Five later gate groups"
+      ],
+      "classification": "Three source-delivered livelihood rows with all behavior/save/native gates deferred",
+      "owners": [
+        "docs/gm/audit-implementation/remainder/livelihood/BINDINGS.md",
+        "docs/gm/audit-implementation/remainder/livelihood/RELEASE.md",
+        "docs/gm/audit-implementation/remainder/DELIVERY.md"
+      ],
+      "disposition": "Read full79-line JSON and all three producer/state/consumer rows. Also reread complete release/root-binding owners for meaningful actual-reservation, local-clock, withheld-fund, controller and native-consumer limits. Fold useful distinctions into root-binding owner; no all22/global completion inferred from ALL3.",
+      "evidence": "Coverage is a source delivery claim; existingConsumers/newSource labels and empty ownedSourceDefects do not prove code/native behavior. All five listed gate groups are explicitly deferred. Supporting release/bindings read in full this pass but no linked code read.",
+      "supporting_input_snapshots": [
+        {
+          "path": "docs/gm/audit-implementation/remainder/livelihood/BINDINGS.md",
+          "sha256": "433fb87e3e705dc5d9900104d235f73175f0a6c9ba2764ab45bd3737152f5e87",
+          "ranges": [
+            [
+              1,
+              35
+            ]
+          ],
+          "full": true
+        },
+        {
+          "path": "docs/gm/audit-implementation/remainder/livelihood/RELEASE.md",
+          "sha256": "e0efd849fa6d811b736b2e25871046a6fae26e5b2e6efef9082ca1f8a65c3b58",
+          "ranges": [
+            [
+              1,
+              13
+            ]
+          ],
+          "full": true
+        }
+      ],
+      "reopen": "If selected, use current integrator/source and exact root join; old expansion11/simulation revisions and independent writer reservations are historical. No runtime dispatch or test permission inferred.",
+      "input_sha256": "dce8e621080a859f9d838c565484df2412c51f0e32a718e846d89f8f82cafe64",
+      "input_lines": 79,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          79
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/audit-implementation/QUEUE.json",
+      "ids": [
+        "22 source-qualified packet IDs",
+        "First3/remainder19",
+        "Five connectedDeliveries",
+        "MW-01/MW-02/MW-03/MW-04",
+        "ACS later research",
+        "October18 routingReview"
+      ],
+      "classification": "Historical candidate/result queue with explicit source-only implementation state and later routing qualification",
+      "owners": [
+        "docs/gm/audit-implementation/QUEUE.json",
+        "docs/gm/audit-implementation/remainder/DELIVERY.md",
+        "docs/gm/audit-implementation/remainder/livelihood/BINDINGS.md"
+      ],
+      "disposition": "Read all318 JSON lines, every candidate, connected delivery/consumer and wider-research row. All22 latest source candidates were reported delivered while all gameplay remained implemented-unverified; empty remainingLatestCandidates is not current project completion. Preserve original source families and separate connected extra repair/recovery IDs. Fold queue interpretation into current batch owner.",
+      "evidence": "First-wave3 plus remainder19 are one finite denominator, not22 native-playtested features. Connected artifact/causal/provenance/report-route/recovery statuses explicitly behaviorVerified=false. ACS five-family31finding/15path and two source-DLC traces preserve broader unread/runtime limits. Current routingReview authorizes no new dispatch.",
+      "reopen": "Continue actual remainder coverage bodies. For future implementation recover current source/build/writer and current compatibility direction; no old source claim or routing timestamp renews historical proof.",
+      "input_sha256": "a53a1bd513802a13a46f8f2cd43434607e6d6b4db839831c728bbea426ca455e",
+      "input_lines": 318,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          318
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/audit-implementation/remainder/livelihood/BINDINGS.md",
+      "heading": "## Content reconciliation B290: livelihood result scope and parent queue",
+      "body": "The full [three-row coverage](COVERAGE.json), release and root joins were read together with the full [parent queue](../../QUEUE.json). ALL3 means the named livelihood source rows, not all audited gaps or completed player journeys. The parent queue's 22 source-delivered candidates mean its historical first three plus remainder19, not 22 native-verified features. Empty remainingLatestCandidates does not erase the explicit implemented-unverified status, connected behaviorVerified=false entries or later five-group behavioral/save/native backlog. Old current-build labels and the October18 routing qualification retain their dates.\n\nThe useful three-row contract remains concrete. Two finite Orr shifts reserve real supplied stock/coins and his own operation/body/attention/stamina/site; produced kits belong to the worker before any separately paid or permitted current-stock collection. Lio uses his actual current membership, kit, body, control and stamina, while the existing party/battle consumer sees actual occupation. A shared Orr/Vale toolkit choice reserves one actual claim and tool with separate owned means; Vale additionally needs sap and a still-wet supported bench. A historical completion receipt cannot recreate loose stock or pay for an obsolete wet-bench purpose.\n\nFunding custody differs from wages and supplies already spent. The two held coins are actual transferred means, not a mirror of native money; Orr/Vale's successful wage and fittings expenditure and Lio's full wage remain separate local rules. Cancellation plus pre-result sponsorship withdrawal is one publication plan, returning exact reservations to the proper owner. Successful toolkit gifts remain the recipient's property. Exact popped-job validation is not permission to trust a cached tool count. Recheck actual current body/source/access, declared window and permission; the four/five-minute shift admission deliberately leaves strictly more time than its duration. That is this local paid-shift policy, not a universal endpoint rule.\n\nController registration differs from enrollment or installation. Earlier spawn/enroll paths must not auto-install the new controller before actual optional admission; body/location/clock inputs remain actor-specific and come from the same staged boundary. The root binding does not create a second clock, inventory or purse and does not copy the player's location to an independently working resident. Rendering supplies known reports/legal stock-backed actions, not a private purse or sheet. Optional absent state stays inert; the old expansion11 and admission revisions are historical integration targets, not a new schema assignment.\n\nThe parent's five connected records preserve different scope: actual artifact assembly, finite original causal proofs, a paid received-report route, 19 still-unactivated source-profile provenance records, and canonical routing recovery. None is a new whole-world adaptation or proof that a source-profile row became playable. Wider ACS research/DLC notes retain their original finite coverage and explicitly unread remainder; they did not expand this runtime wave. All five livelihood gate groups were unperformed at source release. Consult the actual later integrator before treating any root join as current verified runtime. No code, source library, private save, agent, build, gameplay or publication action is performed by this fold.",
+      "before_sha256": "433fb87e3e705dc5d9900104d235f73175f0a6c9ba2764ab45bd3737152f5e87",
+      "after_sha256": "9f23a57014bac2422903e90f44c57c975cee8b65c760c2fcfc816fd3ec8d6756"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 844
+}

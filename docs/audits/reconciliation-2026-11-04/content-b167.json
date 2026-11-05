@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "batch": "B167",
+  "title": "Codex and Claude feedback reports with current direction",
+  "at": "2026-11-04T22:22:04.399137+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/reviews/CODEX_GRIPES_REVIEW_2026-10-18.md",
+      "ids": [
+        "F1–F5; A1–A5; app focus symptom"
+      ],
+      "classification": "Bounded historical user-feedback synthesis with proposals",
+      "owners": [
+        "docs/reviews/CODEX_GRIPES_REVIEW_2026-10-18.md",
+        "docs/UI_RULES.md",
+        "docs/RULES_INDEX.md"
+      ],
+      "disposition": "Keep exact-action/outcome checks and requested artifact weight. Bounded24chat sample is not failurefrequency; no raw chats re-read. Current exact outgoing wording review and background-only rules already govern, no universal host hook invented. Current short PROJECT supersedes old1442lines; original UIcomposition question has later fullcore evidence B149–151 but not all humanaccepted. Budget token attribution remains uncertain, wholebooksourcecoverage retained.",
+      "evidence": "Fresh entire report, quoted feedback, source/sample caveats, proposal done checks and negative verification read. Existing current AGENTS supplied in session; B149–151 full UI core and B159 bank source already independently read. No original chat logs/sidebar history or cited private/career/course materials opened.",
+      "reopen": "Use exact named user outcome in an authorized current task; preserve evidence/proposal/authority distinctions and avoid re-asking settled direction.",
+      "input_sha256": "af79446d4d79007e76c0c30fa89b3c5868e7bcdd395cb1ecc255ffcac3b63d52",
+      "input_lines": 192,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          192
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/CLAUDE_CHAT_GRIPES_AND_NEXT_STEPS_2026-10-18.md",
+      "ids": [
+        "E1–E10; F1–F5; A1–A5"
+      ],
+      "classification": "Bounded historical user-feedback synthesis with proposals",
+      "owners": [
+        "docs/reviews/CLAUDE_CHAT_GRIPES_AND_NEXT_STEPS_2026-10-18.md",
+        "docs/UI_RULES.md",
+        "docs/RULES_INDEX.md"
+      ],
+      "disposition": "140filtered candidates not140humancomplaints or complete history. Preserve whole-screen/servicejourney/readability/taskcontext and simpleeconomy/repairroutes alongside depth. LocalA1/A2UI proposals differ from shounenengineA1/A2; currentowner source B120 and B159 bank qualify datedengine/noaway claims. AD42 humanreviewoptional,currentlead priorities governoldRS26/UILorder. No chatreplay/newimplementation or agents.",
+      "evidence": "Fresh entire report, quoted feedback, source/sample caveats, proposal done checks and negative verification read. Existing current AGENTS supplied in session; B149–151 full UI core and B159 bank source already independently read. No original chat logs/sidebar history or cited private/career/course materials opened.",
+      "reopen": "Use exact named user outcome in an authorized current task; preserve evidence/proposal/authority distinctions and avoid re-asking settled direction.",
+      "input_sha256": "eaf13a2233a4566c6fab391ba3572deb99c020eda66c4b0703d834b2861f189c",
+      "input_lines": 154,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          154
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/reviews/CODEX_GRIPES_REVIEW_2026-10-18.md",
+      "heading": "## Content reconciliation, 2026-11-04 (B167)",
+      "body": "F1–F5/A1–A5 and the separate focus symptom were read. Preserve this as a bounded historical feedback synthesis: its selected chat turns do not measure frequency across all chats, agent delivery statements do not independently verify artifacts, and app focus root cause remains unproven. No original chat logs or unrelated personal/course sources were reopened. Current exact outgoing wording review and background-only operation already govern their named actions; this report does not establish a universal host interception hook or authorize messages.\n\nThe useful execution questions remain the requested artifact’s weight, the original visible outcome, unique unresolved findings with their closing observations, and source-sized budget accounting without shrinking a requested whole-book read. Current PROJECT’s short-summary convention supersedes the old 1442-line burden. Later UI rounds have their own finite proofs and reversals, independently reviewed in B149–B151; neither their count nor this feedback report certifies the entire current UI. The [Claude feedback companion](CLAUDE_CHAT_GRIPES_AND_NEXT_STEPS_2026-10-18.md) independently corroborates whole-screen composition while retaining its different sample and source locators. Do not merge away that provenance or turn the combined samples into a measured rate. Shared-account token attribution and budget enforcement keep their stated uncertainty. Current AD42 makes human review optional. No new process controller, broad audit restart, app setting change or implementation order is selected.",
+      "before_sha256": "af79446d4d79007e76c0c30fa89b3c5868e7bcdd395cb1ecc255ffcac3b63d52",
+      "after_sha256": "cc07e5679f60f454a45ae64f68053ab213d80d056c1dd4db0823e229e84037a4"
+    },
+    {
+      "path": "docs/reviews/CLAUDE_CHAT_GRIPES_AND_NEXT_STEPS_2026-10-18.md",
+      "heading": "## Content reconciliation, 2026-11-04 (B167)",
+      "body": "All E1–E10, F1–F5/A1–A5, source/sample qualifications and done checks were read. Keep 140 filtered text candidates distinct from verified human complaints, and this bounded local sample distinct from complete chat history. The existing Codex companion’s corroboration is useful without erasing source differences. Local A1/A2 here name UI proposals; engine A1/A2 in E10/F4 name the shounen conditions/claims deliveries and retain that owning path. Bare repeated codes are not interchangeable.\n\nPreserve actual feedback: useful whole-screen relationships, independent panels, readable text and Reports, native populated comparisons and the complete inspect/acquire/return/act/result service flow. Empty frames, a narrower box, a test count or round completion alone do not answer that complaint. Simple selling and layered repair can coexist with deeper situational mechanisms; collectors, decreasing prices and imposed costs are not universal obligations. Current desktop/prose-first owners and the later UI core rounds qualify this report’s old layout/UIL ordering and 1366 wording. Human review is optional under current AD42, and old “after UI play gate” prose does not veto the current lead direction.\n\nB159 directly reads current away_bank_domain: elapsed time can be banked and spent through actual native fastForward, with unused credit retained at a boundary. That qualifies this report’s October 18 no-offline-policy observation at that named seam, not arbitrary unattended routines, every return digest or frozen-world practice. Current selected lead/HP and engine delivery owners govern execution; this historical A1–A5 ranking does not launch a new wave. No raw chats, new runtime journey, agent dispatch or user message occurred during this reconciliation.",
+      "before_sha256": "eaf13a2233a4566c6fab391ba3572deb99c020eda66c4b0703d834b2861f189c",
+      "after_sha256": "6a8fca7908215b7170e48b48746a195ffb3a35ef173d310dd243c6f1a2557315"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1147
+}

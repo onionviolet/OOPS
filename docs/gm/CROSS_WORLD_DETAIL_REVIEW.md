@@ -192,3 +192,12 @@ The reference-level gate is finite: source-neutral inventory with explicit uncer
 The [bounded gap review](dispatch/cross-world-rulebook-expansion-2026-10-12/GAP_REVIEW.md) supplied additional recipient-fit, evidence and commitment-boundary checks; the integrator folded them into existing families rather than adding compulsory systems.
 
 No new acquisition or web research was needed: no actual franchise lore claim is made in the family tables or examples. This reference does not claim full reading, edition fidelity or complete exceptions for any source. Future direct adaptations still require their own selected primary text, source admission and private pack. Source verification gaps, runtime bindings and director acceptance belong to each world's selected details, not to an automatic cross-world adoption.
+
+
+## Cross-world audit application B147, 2026-11-04
+
+The complete reference, CW01-CW36 and XWC1-XWC6 were read alongside the [November 3 detail audit](../audits/CROSS_WORLD_DETAIL_PASS_2026-11-03.md). Preserve the audit's useful distinction between citation coverage, template coverage, local authored detail, qualified source and actual native consumers. A reader calling a cell covered does not promote its source status or deliver its proposed mechanics. The separate round-2 matrix remains to be read.
+
+Use these families to inspect a selected represented join, not to require one subsystem, record, numerical limit or resource cost per family. Ordinary furniture fit, repair or household life may matter for an ordinary body; relevance follows the chosen task, not a mandatory nonhuman threshold. Unknown source behavior stays unknown until qualified, with original proposals labelled as such. Zero waste, free production, exact observation, unlimited retention or strong bypasses can be valid when the admitted means support them (AD5, AD32, AD38).
+
+The six examples preserve causal cuts: a repair need not restore contents, successful manufacture need not treat this recipient, face recognition need not grant a work order, overlapping time need not invent stock, a message need not guarantee consent, and a frozen apprentice does not finish work. Their explicitly stronger alternative mechanisms remain possible. No example is source lore, current engine proof or a universal restriction. Existing local IDs and primary owners remain; new CW citations and shared template text do not replace actual content review (AD36, AD51, AD52).

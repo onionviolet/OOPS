@@ -1,0 +1,135 @@
+{
+  "schema": 1,
+  "batch": "B301",
+  "title": "Reference and shelf palettes: research endorsement, source limits and useful UI ideas",
+  "at": "2026-11-05T01:11:38.228913+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/NICHE_GAME_REFERENCES.md",
+      "ids": [
+        "ACS/Qud explicit research endorsement",
+        "Five initial shortlist rows",
+        "Six niche candidates/three contrasts",
+        "BS1–BS6",
+        "October2 research follow-ups"
+      ],
+      "classification": "Dated creator/interface/repository research and proposed design translations",
+      "owners": [
+        "docs/NICHE_GAME_REFERENCES.md",
+        "docs/RESEARCH_IDLE_GAMES.md",
+        "docs/UI_RULES.md"
+      ],
+      "disposition": "Read all77 original lines. Preserve research endorsement versus favorite/directadaptation, classic-versus-currentbranch/release/source distinctions, sourcefeature descriptions versus playtest and five structural comparisons. Qualify Brushsworn page-only claims, anonymousunknown placeholders, collectionbonus/defaultautomation assumptions and legacypriority language in owner.",
+      "evidence": "Research datesSept30/Oct2/Oct3/Oct20 remain exact. Primary links notrefetched and no live play/currentsoftware recommendation. BS features developer-describedearlybuild, no audibility/performance/provenauthoring benefit certified. No account/library/download action.",
+      "reopen": "Use current tool/library/sourceowner and exact bounded mechanic question for research; no monthlyautomation, broad sourcewave or genericno-work offline policy selected.",
+      "input_sha256": "b16353897aeea9e46032e04eecccd2b5dd4bd9c07b395c34b62bf2789ece513c",
+      "input_lines": 77,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          77
+        ]
+      ]
+    },
+    {
+      "path": "docs/REFERENCE_RESEARCH.md",
+      "ids": [
+        "Five fork comparison rows",
+        "Three Proto23/Chronicle/Melvor rows",
+        "Technique acquisition chain",
+        "Four lore sample rows",
+        "Five historical priorities"
+      ],
+      "classification": "Early reference/scouting dossier with now-historical architecture/priority snapshots",
+      "owners": [
+        "docs/REFERENCE_RESEARCH.md",
+        "docs/NICHE_GAME_REFERENCES.md",
+        "docs/ENGINE_EXPANSION.md"
+      ],
+      "disposition": "Read all92 original lines. Keep source/remote/hosted/fork lineage distinctions, inferred designlessons, title/firstchapter versusfullsource, genuinelydifferentpower paths and ordinarytechniqueuse. Retire liveinterpretation of JadeHollowprototype, initialupstreammergebase/scout/fixedfirstexpeditionorder and laterworldgate, preserving oldrecommendations/history.",
+      "evidence": "Ahead/behind28/27/3branchcounts and sourcepaths checkedthen, no presentremotes/currentcapability claim. Chapter9/glossary/publishersynopsis are different scope. Technique chain is an example, not compulsory ordinarysequence for allpowers. No currentcode/fetch/source/browser evidence.",
+      "reopen": "Consult current selected world/mechanism priorities and actual upstream/source/caller before reuse. Do not reimplement initialfoundations or restart retired prototype/compatibilitygates.",
+      "input_sha256": "404d014c97e8e750a55652cc39359206a2e009f3025d0890495ae42107a0e3ac",
+      "input_lines": 92,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          92
+        ]
+      ]
+    },
+    {
+      "path": "docs/ROYAL_ROAD_SHELF_INSPIRATION_2026-10-30.md",
+      "ids": [
+        "178follows/170favorites/189distinct",
+        "22held/165not holdings check",
+        "RRF1–RRF10",
+        "RUI1–RUI12",
+        "RRM1–RRM6",
+        "RRL1–RRL4",
+        "Farmer title correction"
+      ],
+      "classification": "Title-only personal-shelf inspiration and proposed UI/reader/refresh tasks",
+      "owners": [
+        "docs/ROYAL_ROAD_SHELF_INSPIRATION_2026-10-30.md",
+        "docs/GATHERING_AND_RESOURCE_USES.md",
+        "docs/MAKING_RULES.md"
+      ],
+      "disposition": "Read all87 original lines, everycluster/UI/subtlety/taskrow. Preserve sourceTtitle-onlyinference and specificfarmer-titlecorrectionwithoutnewsourceclaims. Flag189distinct versus22+165=187 unresolvedtwo-titleidentity/countdifference, no private-listreador inventedfix. Fold meaningfulUIreaders, unknowncountleaks, unselectedUR82/Frontierproposal/monthlysourceactions and body/layoutlocality into owner.",
+      "evidence": "Original signed-in shelf/holdings observation datedOct30, not verifiedcurrentfavorites/readsource. Titleclusters do not certifyactualchaptermechanics. Existingactivities/panels are source-era claims, not proofrain/dusk/yield/pathreaders exist. No novels, accounts, collections, downloads, reminders or screenshots touched.",
+      "reopen": "Resolve exacttitleidentity/denominator only if a holdings/research task requires it; for UI select existingcurrentbookworldconsumer/actualknowledge and route. Preserve privateholdingspaths without exposing catalog/secrets.",
+      "input_sha256": "1180906a8b01292278c7da88b28b0e500c1c4b9dc8608e0f4d9db5749393aecc",
+      "input_lines": 87,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          87
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/NICHE_GAME_REFERENCES.md",
+      "heading": "## Content reconciliation B301: reference evidence and selected translation",
+      "body": "The complete original 77-line reference dossier was read. ACS/Qud and the earlier shortlist carry their explicit targeted-research interest, not favorite status, purchase, direct-world selection or approval of every mechanic. Creator descriptions, visible classic interfaces, fork announcements, source repositories and actual play are different evidence. Preserve the classic Immortality edition, Idle Loops branch differences, historical Idlemancery announcement and browser-versus-retail boundaries. The old rankings are research judgments at their dates, not present product/version recommendations or live source-worker instructions.\n\nBrushsworn BS1–BS6 came from its early itch description without play. Parts-to-result, meaningful collection, chosen routine, personal chronicle and expressive UI remain ideas. A described art/music technique does not prove no asset work, cheap integration, measured performance or audible progress. Its survivors combat/theme was not selected. Unknown-result silhouettes/slots need actual observer knowledge of their existence/count; BS1 does not override MR31 or the current UI discovery rules. Collection bonuses and unlock-after-N auto mode remain proposed local policies, not mandatory rewards, a universal automation unlock or permission for closed-browser losses. Sharing/export being low priority is an agent judgment in BS4, not a permanent ban.\n\nFor an actual selected comparison, trace supported prerequisite, acquisition, paid application and later useful result through a real owner, then relevant reset/persistence. Do not infer whole-game depth, all-way compatibility or finished native systems from descriptions. Current book-world/menu priority and explicit clock/body/world rules qualify old ordinary-expedition-first or mandatory-rare-route implications. No reference page, game source, site, app, account, download or runtime is newly inspected by this content pass.",
+      "before_sha256": "b16353897aeea9e46032e04eecccd2b5dd4bd9c07b395c34b62bf2789ece513c",
+      "after_sha256": "59d4465c7ce71a1cc1d74325d528e09b48bfa4b33765e17e502e049bb8f3f911"
+    },
+    {
+      "path": "docs/REFERENCE_RESEARCH.md",
+      "heading": "## Content reconciliation B301: initial discovery roadmap as history",
+      "body": "All original 92 lines were reviewed. The September30 steering, five-priority order, Jade Hollow convenience and initial integration-base question are historical: the prototype is retired/dormant under its actual owner and later accepted multi-world/book/developer direction governs current work. The old second-world-after-one-loop sequencing does not revive the retired first-realm/prestige gate. Initial remote branch counts and upstream-dev advice are dated source comparisons, not current merge/readiness recommendations. Source availability, copied code, hosted build, actual migration and native journey remain distinct.\n\nKeep the useful discovery chain while preserving exceptions: owning instructions, understanding, actual faculties/fuel, practice and execution are different states, but an exceptional copied/innate power need not follow that order. A manual/mentor/two-route expedition is one proposed consumer, not a universal acquisition ceremony, compulsory drawback or equipment-slot limit. Strong original faculties and ordinary expertise can both matter by their mechanisms. Every adopted output needs an actual usable reader, with real costs including none, and no new global two-alternative prerequisite for every detail.\n\nThe original lore evidence is deliberately uneven: glossary vocabulary, one Myriad Races chapter, publisher/author summaries and a MoL synopsis do not qualify all source systems or confer favorite/direct-adaptation status. YAIRPG inspiration from Proto23 does not make it a Proto23 code checkout; an ally described as an untargetable damage platform does not establish full companion ownership/life. No original lore, fork source, hosted game, remote history, save or current runtime is newly read through this dossier. Current compatibility and absence/offline policy replace the old universal prototype-progress guarantee when selected work changes state; preserving this history does not restart it.",
+      "before_sha256": "404d014c97e8e750a55652cc39359206a2e009f3025d0890495ae42107a0e3ac",
+      "after_sha256": "3b5229a7397edd67a8a87b67c89540ab10286e53173ea41389c85a95c87e1eed"
+    },
+    {
+      "path": "docs/ROYAL_ROAD_SHELF_INSPIRATION_2026-10-30.md",
+      "heading": "## Content reconciliation B301: shelf counts, inferred motifs and real UI readers",
+      "body": "The full original 87-line palette was reviewed. Its October30 follows/favorites/holdings are dated observations, not current personal preferences or new chapter reading. T means title-only, and clusters also used taglines/prior knowledge; none certifies the books' precise mechanics. Preserve the specific Farmer Mage versus Battle Mage Farmer identity correction and the choice to keep both. The distinct-title total189 differs from held22 plus not-held165, which totals187. Two titles/identities remain unaccounted for by those aggregate figures; this pass did not open the private list/database or guess which rows differ. Counts are retained as historical claims with that gap explicit.\n\nRRF1–RRF10 keep useful motifs for paid ordinary jobs, making, experiments, loops, organizations, crossings, different bodies, interface powers, other lives and fan premises. A fan rule does not establish canon. RUI1–RUI12 are proposed views over actual consumers: a rain/dusk caption requires the real yield/exposure reader, a path-feed line requires actual progression, household arrows require real stock/transactions, and a tree/dungeon panel requires supported bodily means. A renamed panel or existing fishing background text does not create those mechanics. Reuse actual owner state and commands, with layout/body/task dials rather than a permanent twin-panel arrangement.\n\nUnknown journals, recipe silhouettes and lab not-yet labels cannot disclose a hidden species, recipe, slot count or secret's existence unless known by means. UR82 remains proposed under AD32, so citing it does not adopt all per-job panel behavior. A collection first/catch reward is a local idea with its own settlement, not automatic XP from display. A dragged day plan needs actual scheduler/cost/persistence support, not merely a timeline view. Routine summaries preserve real counts/losses rather than inventing nibbles or changing randomness.\n\nCurrent book-world/menu priority retires RRM1/RRL2's suggested new Frontier farming UI depth; keep the idea for an appropriate selected world. The RRL1 opening-reader list, RRM6 download routes and RRM5/RRL4 monthly account/holdings diff are later proposals, not authorization to read, acquire, refresh private accounts or schedule an automation in this reconciliation. Better source evidence, existing library coverage and actual title identity can refine future choices through their incumbent owners. No account, chapter, holdings, private source, screenshot, download, scheduler or native UI was operated by this fold.",
+      "before_sha256": "1180906a8b01292278c7da88b28b0e500c1c4b9dc8608e0f4d9db5749393aecc",
+      "after_sha256": "da2749446d329becd607dcc4c0d7792c92e430a65502f92f683f843bb467971d"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 818,
+  "post_record_amendments": [
+    {
+      "path": "docs/REFERENCE_RESEARCH.md",
+      "from": "and later accepted multi-world/book/developer direction governs current work.",
+      "to": "and current [project direction](../PROJECT.md#current-focus) governs current book/developer work.",
+      "reason": "Link current project authority explicitly rather than an uncited acceptance phrase."
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "from": "| B295, continuous execution 2026-11-04 |",
+      "to": "| B301, continuous execution 2026-11-04 |",
+      "reason": "Advance active pointer through B301; no new full-register reading credit."
+    }
+  ]
+}

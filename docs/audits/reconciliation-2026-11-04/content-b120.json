@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "batch": "B120",
+  "title": "Gap census and decision queue reconciled to current direction",
+  "at": "2026-11-04T21:16:09.943825+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/audits/GAP_AUDIT_2026-10-30.md",
+      "ids": [
+        "G1–G16",
+        "R1–R5",
+        "U1–U6",
+        "coverage matrix",
+        "seven proposed lanes"
+      ],
+      "classification": "Historical broad gap census, findings and priorities qualified",
+      "owners": [
+        "docs/audits/GAP_AUDIT_2026-10-30.md",
+        "docs/gm/dispatch/sonnet-wave-2026-10-30/CHOICES.md",
+        "docs/USER_VISION.md",
+        "docs/tools/GAME_MCP_LIMITS.md"
+      ],
+      "disposition": "Keep asked/discussed/research/build/play dimensions and original bounded grep caveat. Aggregated646/125/165/about450 rows are different scopes and built means source/tests, not native. Do not present shortfall only code when primary/evidence/UI gates remain. G15 own later resolution supersedes blanket noaway wiring; current awayBank source credits and actualclockspend, notfree benefits; anchor event-graph snapshots notplayercheckpoint. Current builderplacePrefix/district parameters supersede R3hardcodedonly; HP receipts already independently reviewed B100–102. G13background instruction nowAGENTS, no missingrecord. G12empty/accessibility and Ustats historical; currentB118/Oct27 controls give counterexamples to absence. Publicstartmenu remainsdeferred, notmissingdecisiontopush. AD52currentcompression/longplay and leadjourney prioritiesqualify oldidleunanswered/nextwave. Mergingunreadshards not semanticfreeverifiedsource. No paidreading/lane/push/newfeatureauthorized.",
+      "evidence": "Fresh full135lineaudit including ownG15resolution andsevenproposals. CurrentVISION_DIGESTfullyread; away_bank_domain1–75, build_cast_pack signature/context, currentAGENTSbackground direction and B118 selectedlaterUIproof. No originalreaderpackets/chats/privatebooks ornewUIcensusread.",
+      "reopen": "Review underlying bounded shards/ranges independently for full coverage; selected gaps need current source/owner/receipt inspection. Preserve unbuilt ideas without adopting proposed queue.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "ac4efe9a8ac50af877f673fe492f0895ba41a24a9aee0f932928b71aa1e60508",
+      "input_lines": 135,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          135
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/sonnet-wave-2026-10-30/CHOICES.md",
+      "ids": [
+        "active1–5",
+        "backlog6–13",
+        "answered entries",
+        "HPQ1"
+      ],
+      "classification": "Historical proposal/decision queue, no silent acceptance",
+      "owners": [
+        "docs/gm/dispatch/sonnet-wave-2026-10-30/CHOICES.md",
+        "docs/audits/GAP_AUDIT_2026-10-30.md"
+      ],
+      "disposition": "All30linesread. Defaults/asked/status mixtures preservedashistory, not newacceptance. AD51sharedseam fromknownneedsnowgovernsoldGM40fork. CurrentPROJECTselectedLOTM+Harrymechanismleadsoveroldfloorwave ordering. Timing/balancing valuesoriginalproposals, inferredcostsnotcanon/permanentmandatorytax, no40percentHPfizzleclaimwithoutselectedsource/implementation. WAprinciplesremainasactualrulesindexstatusnotassumedapprovedbysilence. Existingbackgroundworkstandingauthorizationdoesnotlaunchnewreading/download/automations/implementation; oldAPPautomatedturnlimitationnotcurrentenvironmentproof.",
+      "evidence": "Fresh complete30linequeue including allactive/backlog/answered/bk-hpQ1entries. No newuseranswersinferred.",
+      "reopen": "For relevant selectedquestion checklater USER_VISION/current rulesandfeatureowner; markresolvedonlyfromactualdecisionorexactdeliveryreceipt.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "30907c30e3c3c0aef992735060c4e88ff93c808b55ef25262887f918f346f1e2",
+      "input_lines": 30,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          30
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/audits/GAP_AUDIT_2026-10-30.md",
+      "heading": "## Gap-use reconciliation B120, 2026-11-04",
+      "body": "Full G1–G16/R1–R5/U1–U6, coverage table and seven proposed lanes read. Original reader counts, chats and private-book coverage are this audit’s reported inputs, not this pass’s transitive reading. Built means code/tests in that census, not played. Grep absence is bounded and may miss renamed paths; aggregate rows have different denominators and overlapping subjects. Source, adoption, UI and delivery evidence can remain open even when code exists.\n\nSeveral old gaps have later owner evidence. G15’s own resolution supersedes its opening no-away-wiring statement; selected current away_bank_domain imports computeAway and spends banked minutes through actual fastForward, subtracting actual clock progress. It does not grant all rewards without time or implement a player rewind store. Its projection can settle pending bank credit, so do not infer universal read purity from a generic architecture slogan. Event-graph anchors and full player-state checkpoints remain different mechanisms. R3’s builder now exposes placePrefix/districts with LOTM defaults; the previously independently reviewed HP delivery receipts qualify blanket no-other-book pack/runtime claims. That does not prove every book or every builder path. G13’s background-only instruction is now in current AGENTS. G12’s empty-state/accessibility absence is historical, with later named UI packets and B118 reason/label proof; it is not a new whole-UI coverage claim.\n\nCurrent [VISION_DIGEST](../VISION_DIGEST.md) preserves the deferred public start menu and ordinary low-spoiler starts, lead-first LOTM with Harry alongside, activity abstraction AD52 and long play. These govern old unanswered-idle, start-menu and proposed next-lane text. Frontier examples remain qualification fixtures, not renewed depth priority. Merging files is not free semantic verification of unread source; stale shard/credit/reader counts do not launch a reading wave. G16’s possible rename still needs its actual owner, not an automatic compatibility inference. Keep useful generators/rivals/world/social/cheat/economy ideas available without turning this audit’s ranking into accepted build order. Underlying reader packets, raw chats, private source and UI census remain independently reviewable inputs.",
+      "before_sha256": "ac4efe9a8ac50af877f673fe492f0895ba41a24a9aee0f932928b71aa1e60508",
+      "after_sha256": "afb043edba96f73820dfcd988948cb0b4afd48a98ae59635b9ddae6ddb061012"
+    },
+    {
+      "path": "docs/gm/dispatch/sonnet-wave-2026-10-30/CHOICES.md",
+      "heading": "## Queue-use reconciliation B120, 2026-11-04",
+      "body": "Full active/backlog/answered entries and HP Q1 read against the current [vision digest](../../../VISION_DIGEST.md) and [gap audit](../../../audits/GAP_AUDIT_2026-10-30.md#gap-use-reconciliation-b120-2026-11-04). This is an October 30 proposal queue, not evidence of later answers. Existing current priorities and AD51 supersede the old mandatory floor-wave order/GM40 fork; do not dispatch new lanes or pause selected book mechanisms from these defaults. Keep source-qualified stated versus inferred costs, timing, ordinary no-cost exceptions and per-world differences. The HP40% fizzle and ten-point drill values remain proposed examples, not canon or a current calibrated result. Exact current rule-index status governs WA51–WA53; silence is not recorded acceptance. Old reading/download/config/push requests grant no new action here. B119 records that the limiter/worktree/F12 direction gaps have later owner resolution; other questions require the relevant actual later decision or exact delivery proof before being marked answered. Preserve all original proposed options and values as history.",
+      "before_sha256": "30907c30e3c3c0aef992735060c4e88ff93c808b55ef25262887f918f346f1e2",
+      "after_sha256": "dd0cddeb27d06963817b50eeb23bde79416bd51720ba1d1c4ccd857aa8182d27"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1241
+}

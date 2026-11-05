@@ -118,3 +118,21 @@ direction/selected consumer can invalidate reuse even when file bytes match.
 The helper is read-only and grants no execution, publication or acceptance.
 This method replaces repeated per-checkpoint scanning with a current-owner
 check; it adds no required whole-project audit before ordinary slice work.
+
+
+## Continuous content reconciliation, 2026-11-04
+
+When the request is to reconcile existing audits/plans/ideas/maps, review their actual content and fold resolved claims into current owners. An expansion round, new raw-source campaign or child-agent dispatch is not implied. The later optional-lanes/current-authorization qualification above governs the older fixed-launch examples; current host/project instructions govern model, budget, writer and execution routes (AD32/AD36/AD41).
+
+Keep one explicit disposition per original claim/range, with source revision, owner/consumer or missing supplier, evidence reached and remaining check. Historical grouping can remove a duplicate control role without discarding distinct findings, proposals or failed proof. A matching hash or terminal lane label does not itself establish semantic review or current gameplay. Existing supersession membership and relationship receipts remain scoped; unlisted appended material is later intake.
+
+In continuous work, save reviewed ranges and the next pending content in the existing register/task record, then proceed to the next batch without seeking another launch approval. Do not update USER_VISION with agent inferences as new user direction or record a content fold as mechanic acceptance. Preserve originals unless an actual qualified merge warrants a stub; deletion, publishing, spending and implementation keep their own authorization. [B7 review record](reconciliation-2026-11-04/content-b7.json).
+
+
+## Reusing substantive historical content review, B8, 2026-11-04
+
+The full prior plan/rule reconciliation report and supersession ledger separate three things: historical control relationships, actual full-record content reviews, and source/gameplay proof. Its Round5 documents a 519-record semantic pass; the current native checker validates that frozen inventory as 589 section-reviewed and 189 unchanged grouped controls. These are its old collection's labels, not current whole-project completion or fresh reading credit (AD32/AD36).
+
+For this continuing content task, inspect each prior semantic disposition, original IDs, mechanism/consumer and remaining check before reusing it. Require its read ranges to cover the original record, match its source identity and retain the original evidence state. A group hash or preparation receipt is insufficient. Changed inputs, missing spans, weak/substituted evidence or a consequential conflict with current direction need new reads. Mark genuine reuse separately from a fresh whole-source read; do not silently refresh old test dates.
+
+Current matching control groups remain useful for navigation and preventing obsolete leases/launches. Their unique specification, source, edition, failure and runtime gaps remain selectable. This continuation executes no old agent/spending/publication approval. [B8 source/disposition record](reconciliation-2026-11-04/content-b8.json).

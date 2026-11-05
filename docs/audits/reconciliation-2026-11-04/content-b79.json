@@ -1,0 +1,106 @@
+{
+  "schema": 1,
+  "batch": "B79",
+  "title": "Companion map: compatible ownership layers and later actual gap procedures",
+  "at": "2026-11-04T20:28:47.051012+00:00",
+  "head": "4cdc0772b65d413e4989e327502910140b2a15eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/companions-2026-10-14/OWNER_MAP.md",
+      "ids": [
+        "OM1–OM13",
+        "F1–F18",
+        "G1–G3/K1–K5",
+        "LM1–LM5/LB1–LB4"
+      ],
+      "classification": "fresh full companion ownership/overlap map review",
+      "owners": [
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/companions-2026-10-14/TENSION_DEFAULTS.md"
+      ],
+      "disposition": "Retain qualifiedcollidingcodes and actor/body/role/regard/support/control/title/carry/resurrection/successor/source distinction. Mostoverlaps compatible variants, not deletion/collapse. CurrentrootalreadyfoldedC6ownership and laterC11Gprocedures, so statusrunning/gapabsence not current. Retiredonerealm gate/1366target/humanblocker overriddencurrentauthority. No universalpersonhood/loyalty/grief/hunger/defaultdecay/bodytransport frommetadata.",
+      "evidence": "All147lines freshlyread; currentroot1–30/1081–1110/1531–1541 and actualC11procedures204–237 inspected, no underlyingworldcanon/runtime recertification.",
+      "reopen": "Selectedsupport/body/actor/world operation and exactsource/currentconsumer, usingexistingowner; no pet-onlyregistry or cumulativeallproposal prerequisites.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "2bbfcb3393eed7a6dd9505201c335291726c60f595c9b657035c0eac9aae4848",
+      "input_lines": 147,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          147
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/companions-2026-10-14/C6_REPORT.md",
+      "ids": [
+        "A1–A2/F1–F4/S1–S7/V1–V4",
+        "Q1–Q3"
+      ],
+      "classification": "fresh full historical lane report review",
+      "owners": [
+        "docs/gm/dispatch/companions-2026-10-14/OWNER_MAP.md",
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md"
+      ],
+      "disposition": "54linelanecompletion/evidence remains bounded; laterrootfold/C11proceduresexist. OriginalC1–C5document inventory/testclaims not underlyingallsourcecertification. No newadoptionquestion needed for authorizeddocmaintenance; proposeddesign stillunselected/nativeunproved.",
+      "evidence": "Complete54line fresh boundedread after clippedcombinedoutput; rootlaterfold and selectedC11 content inspected.",
+      "reopen": "Exactselectedprocedure/sourceconsumer gap, preservinghumanfeedbackoptionalAD42; historicalwriterreservationsnot live.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "f8b27436f6879375fec450276154356e6fbb49d2706b82e366195344d83fa97a",
+      "input_lines": 54,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          54
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/companions-2026-10-14/TENSION_DEFAULTS.md",
+      "ids": [
+        "G1–G3",
+        "G-CV/G-CU/G-WS/G-DC/G-TL/G-TW",
+        "GA1–GA5"
+      ],
+      "full": false,
+      "ranges": [
+        [
+          204,
+          237
+        ]
+      ],
+      "classification": "selected actual procedure content reviewed; rest open",
+      "owners": [
+        "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/companions-2026-10-14/TENSION_DEFAULTS.md"
+      ],
+      "disposition": "Read actuallaterprocedures beyond roottitle/count: evidence/route-based contagion withoutclosedoutbreak; carepreserving competinggrant resolution, agency/communication/rights/sourcedcoercion distinct, oldcompliance not retrospectiveconsent. Sixworlddials plusfivegrantgroups retain care/clock/custody/information/continuation differences. No newadoption/runtime or readingcredit for otherT1–T7/37worldfits/F1–F18 proposedlines.",
+      "evidence": "Exact204–237freshread only; not fullfile or anymedical/sourcecanonverification.",
+      "reopen": "Read remainingTENSION_DEFAULTS ranges beforefullfilecredit; actualselectedmechanism needs source/consumerproof.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "f9f309c3d244148589135eee2e8d76db08f13dbaa1255e4417fdbc378e1cfb9b",
+      "input_lines": 326
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/companions-2026-10-14/OWNER_MAP.md",
+      "heading": "## Later root and procedure content reconciled, 2026-11-04 (B79)",
+      "body": "The root palette’s “Lane returns C6 and C8” already folds OM1–OM13’s ownership split and F1–F18/G1–G3, and its later C11–C16 return routes the completed [tension procedures](TENSION_DEFAULTS.md#g1-g3-short-procedures-with-world-dials). G1–G3 therefore no longer mean absent design procedures: the actual later text provides evidence/transmission-based quarantine, care-preserving competing-grant resolution, and communication/agency/standing-term review when a pet becomes sapient. Their source/world dials and GA1–GA5 scopes remain proposed, not implemented or canon-qualified wholesale. Missing selected execution remains distinct from missing design. Preserve support/obedience/regard, body/controller, custody/title, surviving actor/new heir edge and accessible memory/durable history distinctions. Root running-lane statements are dated history. The one-realm milestone and 1366 viewport are retired; current desktop authority and AD36/AD42/AD43 govern selected delivery, with optional human review. Original IDs, aliases and compatible variants stay; no duplicate pet registry, new acceptance question, worker dispatch or runtime slice follows (AD32).",
+      "before_sha256": "2bbfcb3393eed7a6dd9505201c335291726c60f595c9b657035c0eac9aae4848",
+      "after_sha256": "246ee071afb6e183e618754aba2c00e6aeca7ec8752d60b5616c5f272365bf29"
+    },
+    {
+      "path": "docs/COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md",
+      "heading": "## Companion map and G1–G3 follow-through, 2026-11-04 (B79)",
+      "body": "The [C6 map reconciliation](gm/dispatch/companions-2026-10-14/OWNER_MAP.md#later-root-and-procedure-content-reconciled-2026-11-04-b79) verifies the existing root fold and actual later C11 procedure text. G1–G3 have proposed design treatment; selection and demonstrated execution remain open. G1 distinguishes suspected exposure from infection and actual transmission/care/reunion; G2 preserves necessary support while incompatible grants are resolved; G3 separates observed communication, mind/agency, local rights and reviewed permissions, retaining history and care without treating old obedience as retrospective consent. Six world-type dials and GA1–GA5 keep local law, clock, body/control, custody, information and ending terms distinct. This note reads only that selected C11 section, not all of its world fits or every nonhuman/source owner. No hunger death, automatic away aging, universal grief wound, new pet schema or mandatory director gate is added (AD32/AD36/AD42).",
+      "before_sha256": "9cec07bed72e9255b97ced9bc4875c885f2a8e364563bd8ce1c9fd3482192154",
+      "after_sha256": "a409a47bb2d0ed47a8243ee2a347a99cfd673047e2e1f80f538785ffc1afb2f4"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1352
+}

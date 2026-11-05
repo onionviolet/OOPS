@@ -1,5 +1,7 @@
 # Physical field layer: design note (G7, proposal, 2026-10-23)
 
+**Content review B3, 2026-11-04:** full design and built second pass reviewed. The opening “no state” description precedes the built layer in this same file. The [chain-owner fold](MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md#field-and-staged-chain-reconciliation-2026-11-04) traces state, quoted transaction, native ports and current “Spills and smoke” projection. Current focused field tests pass; arbitrary-world physics, body-owner integration and general offline equivalence remain unproved. Local harm/conservation dials are not universal world laws (AD32/AD38/AD50).
+
 Status: **proposal and first slice**, not an accepted decision. Source: gap G7 in the
 [Qud parity gap audit](research/qud-systems-audit-2026-10-15/YAIR_PARITY_GAP_2026-10-23.md),
 using Qud's field and gravity traces in the

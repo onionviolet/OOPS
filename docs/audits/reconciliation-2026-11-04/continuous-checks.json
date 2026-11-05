@@ -1,0 +1,462 @@
+{
+  "last_batch": "B305",
+  "batch_ledgers": 299,
+  "review_events": {
+    "fresh": 894,
+    "reused": 435
+  },
+  "owner_folds": 491,
+  "unique_review_and_owner_paths": 1321,
+  "ledger_issues": [],
+  "new_fold_missing_links": [],
+  "omitted_private_folds": [
+    {
+      "ledger": "content-b41.json",
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/CHECKPOINT.md",
+      "scope": "Private supplier omitted from public export; fold content not checked."
+    },
+    {
+      "ledger": "content-b44.json",
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/CHECKPOINT.md",
+      "scope": "Private supplier omitted from public export; fold content not checked."
+    },
+    {
+      "ledger": "content-b47.json",
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/hxh-full/CHECKPOINT.md",
+      "scope": "Private supplier omitted from public export; fold content not checked."
+    },
+    {
+      "ledger": "content-b47.json",
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/jjk-full/CHECKPOINT.md",
+      "scope": "Private supplier omitted from public export; fold content not checked."
+    }
+  ],
+  "omitted_private_links": [
+    {
+      "owner": "docs/ENGINE_EXPANSION.md",
+      "target": "gm/dispatch/engine-runtime-2026-10-14/ER4/sources/cookie-mirror/README.md",
+      "scope": "Held local supplier excluded from publication; not a public-link verification."
+    },
+    {
+      "owner": "docs/ENGINE_EXPANSION.md",
+      "target": "gm/dispatch/engine-runtime-2026-10-14/ER4/sources/progressknight/README.md",
+      "scope": "Held local supplier excluded from publication; not a public-link verification."
+    },
+    {
+      "owner": "docs/ENGINE_EXPANSION.md",
+      "target": "gm/dispatch/engine-runtime-2026-10-14/ER4/sources/trimps/Playfab/README.md",
+      "scope": "Held local supplier excluded from publication; not a public-link verification."
+    },
+    {
+      "owner": "docs/ENGINE_EXPANSION.md",
+      "target": "gm/dispatch/engine-runtime-2026-10-14/ER4/sources/upstream/README.md",
+      "scope": "Held local supplier excluded from publication; not a public-link verification."
+    },
+    {
+      "owner": "docs/ENGINE_EXPANSION.md",
+      "target": "gm/dispatch/engine-runtime-2026-10-14/ER4/sources/upstream/resources/js/HackTimer/README.md",
+      "scope": "Held local supplier excluded from publication; not a public-link verification."
+    }
+  ],
+  "task_diff_check_exit": 0,
+  "task_diff_check_output": "",
+  "coverage": {
+    "status": "active",
+    "last_batch": "B305",
+    "at": "2026-11-05T01:20:23.093244+00:00",
+    "remaining_without_content_review": 813,
+    "candidate_count": 2156,
+    "partial_or_legacy_ranges_needing_full_coverage_check": 18,
+    "remaining_without_explicit_full_review": 831,
+    "next_suggested_paths": [
+      "docs/INTRO_FLOW_CONSIDERATIONS_2026-10-13.md:1334\u20132200"
+    ],
+    "note": "Continue actual content review. Owner-section maintenance is not full-file review; all ledger ranges retain their scope."
+  },
+  "current_input_drift": [
+    {
+      "path": "docs/CRAFTING_ENGINE.md",
+      "full_review": false,
+      "recorded_closeout": "4d8ef9ea8eaadab5d5b8a658257185e548e8e426c1291edac4fa8acc492569e8",
+      "current": "d0b099440c60f50c114333bb3b3f9b91c49b1bedf566bdc0e864182ad0fde0d3"
+    },
+    {
+      "path": "docs/IDEA_INDEX.md",
+      "full_review": false,
+      "recorded_closeout": "a128a7a107c115480b6db29bb4cdf0780e0376a803fdb813e44c060a8e02f569",
+      "current": "abc186fdac84c35820ae6c90af178ac264c0ffc7842eb9c715be02084824eb63"
+    },
+    {
+      "path": "docs/INTRO_FLOW_CONSIDERATIONS_2026-10-13.md",
+      "full_review": false,
+      "recorded_closeout": "2bb0f04714b77244a2806fcee09d5a471ce98508ad8ba9ca5403dff53df2db4c",
+      "current": "610e45b9062bb9a37441c6711df73075e1531ede5b1ccf9cefaee92498731ecd"
+    },
+    {
+      "path": "docs/USER_VISION.md",
+      "full_review": false,
+      "recorded_closeout": "218ee64e76c858264924e8faa574817425ae479e5384d4de30a96f3f60833e6f",
+      "current": "1adcd5a139e19ccafdd10855d15d26ec17c5a4d132a5a4551331e905a28db8a9"
+    },
+    {
+      "path": "docs/audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md",
+      "full_review": false,
+      "recorded_closeout": "eae61d36c9c2d3386a0e6bce7620bb48ae1b717fb6d397de7264db297c2af64c",
+      "current": "98ad0e9a9f701245072066ea0f14876e0dabd6d4eb9aea86777148a9d8ddea37"
+    },
+    {
+      "path": "docs/gm/dispatch/absorb-all-2026-10-14/checks/natural-play-2/README.md",
+      "full_review": true,
+      "recorded_closeout": "4c00e4f75d951c7c55a26202d09f58e4285defd17da8fa067a4099e94dc547c1",
+      "current": "bd900b44f2360ea64f8112d156227101b65b7c6040e701fbb4c66ee47f37f4ff"
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-conversations-2026-11-04/CHECKPOINT.md",
+      "full_review": false,
+      "recorded_closeout": "94acbf9aa721970b7aef2b10c3e09f896947a467665a9f1ed18a5da515644a75",
+      "current": "0bb60946626ce802c5e453adc490e0df8b568ebe9ddb3e536c76f74dabb04cac"
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-method-use-2026-11-04/CHECKPOINT.md",
+      "full_review": true,
+      "recorded_closeout": "d4516188e24bf4add2b0921d06eee0afb6380ea45e49f8a5071f105b90222fda",
+      "current": "9b903b9bc07a935a9b1bd4c977ff947ce3dec6a860f69fffdfaf070f788379eb"
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/CHECKPOINT.md",
+      "full_review": false,
+      "recorded_closeout": "c04bca331c4de2466681ad8993228e8f77076613e45b5c29c01e1a7b80c25feb",
+      "current": "5683044d17616a135eae9bc6cdf1a2543b7d4aba95bc5543c058787eb58170ce"
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/L2B_COMBAT_HEALTH_RECEIPT.md",
+      "full_review": false,
+      "recorded_closeout": "75b0db1eae0131f7a45eadd70001be6b34e540da94fb86ec278efc57b236eee7",
+      "current": "1d8fef726f9542471f0dc2b02b2d7500c527abac4afe4faa4f07562c9a8586de"
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/LOTM_KLEIN_FULL_JOURNEY_PLAN.md",
+      "full_review": false,
+      "recorded_closeout": "823584c2a91787834be762e991c262cfb9ec12774711c1494f5442fffc290031",
+      "current": "4d07e32527d4f1fc46e7fa97f267456f3a1874d89babeec5955bddd761564eac"
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/LOTM_POPULATED_UI_JOURNEY_RECEIPT.md",
+      "full_review": false,
+      "recorded_closeout": "2519765f3352773f8589a5c5eece29f5835963fd5087d0ebe807fd54395ba154",
+      "current": "71ff8a03f9f538d7cc0d9a968c68b3d15e816d7aa703a814681ef7e46e111cf2"
+    },
+    {
+      "path": "docs/research/GAMEPLAY_LOOPS_AND_WORLD_IDEAS_2026-10-26.md",
+      "full_review": false,
+      "recorded_closeout": "7c09c850ef1872497f16c4d8543cbd8fcc2bc17d922a9deda83d42e7db06c6d0",
+      "current": "0a1078e3cd2ea0d2c26bd621d3785e5cf94ecef2530747170be331e1921c5662"
+    },
+    {
+      "path": "docs/research/LIBRARY_INDEX.md",
+      "full_review": false,
+      "recorded_closeout": "8ad3befb6deed6b7afefee7a19dc1a104b8b84585aaeac660f7fd35ca213846a",
+      "current": "5dcfeed49598d781257c210eebcd6c50fa9948bc3282a1858386ae6ecd6edf53"
+    },
+    {
+      "path": "docs/research/SOURCE_LIBRARY_CATALOGUE.md",
+      "full_review": false,
+      "recorded_closeout": "e9da321af46f831fac802912b6c0cd7848ff6d5e833b5a176225797a98582f7f",
+      "current": "ba0b666c8c24186ad67675b0387856dd0b0eddd456a0fddfe9cfcbef1c6e4e8d"
+    },
+    {
+      "path": "docs/systems/PROGRESSION_WORLD_STATE.md",
+      "full_review": false,
+      "recorded_closeout": "67b026c931465690c6fc78187bed8e671dd23b8c0bfc245b8477c52a31df81a0",
+      "current": "69639e41b8f62cb73b49243f7d0089a88eef4445c3b7bd274474d9d95181f62b"
+    }
+  ],
+  "omitted_private_inputs": [
+    {
+      "path": "docs/gm/dispatch/engine-runtime-2026-10-14/ER4/sources/cookie-mirror/README.md",
+      "recorded_closeout": "89a12c4606f5992921daa5e544d4877d973f8a99b0201d6ffd4a52ad558bc715",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/gm/dispatch/engine-runtime-2026-10-14/ER4/sources/melvor-types/README.md",
+      "recorded_closeout": "184c7cf6cf4d591b55b7cde4a90b25adeabd3c8bee93ee94377640e3bf743c40",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/gm/dispatch/engine-runtime-2026-10-14/ER4/sources/progressknight/README.md",
+      "recorded_closeout": "0d30d98102d61567712b3a10c6e0bf3c2b2bc8ae29247b6a0c0fac2a5b8311f6",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/gm/dispatch/engine-runtime-2026-10-14/ER4/sources/trimps/Playfab/README.md",
+      "recorded_closeout": "3a411f9ace1043c9c60ae2a1759a76266ef7ee1261f293f1e64131459ad89e18",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/gm/dispatch/engine-runtime-2026-10-14/ER4/sources/trimps/README.md",
+      "recorded_closeout": "a1dd7c628e619665d42c8a6aa701543acb3aca370dbef2cb08e7e95a70c96671",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/gm/dispatch/engine-runtime-2026-10-14/ER4/sources/upstream/README.md",
+      "recorded_closeout": "a81eff6ba29ef7b52453987c392c93824de98f2542993041ce62d0922a2c4f8e",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/gm/dispatch/engine-runtime-2026-10-14/ER4/sources/upstream/resources/js/HackTimer/README.md",
+      "recorded_closeout": "375212d305fe9af53826ee1cca347d3d2b24f4ff91a1bdeca3d8f6b69c7ace72",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/local-ai-2026-10-14/round2/sources/Alexander-Ollman__qwen3.8-on-m4max__speed-readme.md",
+      "recorded_closeout": "173ebccde5d998c5d436973ca4aae61bbcaeb3c906e86009c17793d0c1e626f4",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/local-ai-2026-10-14/round2/sources/Altworld__Hemmingway-1__README.md",
+      "recorded_closeout": "fb5cafeaf04b1dd9ef79935a7b55da33096b2f634279e854d3357f07092fe375",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/local-ai-2026-10-14/round2/sources/Gryphe__Pantheon-Reasoning-26B-A4B-1.1-V2__README.md",
+      "recorded_closeout": "95753f086488679458216ead04b1a6985330d1bf1a9c862c7d2ebb204544b574",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/local-ai-2026-10-14/round2/sources/LessThanThreeAI__Qwen3.8-27B-Humanlike-Chat-GGUF__README.md",
+      "recorded_closeout": "6de8336fe32832bcc0bcd31abf7043260312ed0f91d52d37afd3834ca367788f",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/local-ai-2026-10-14/round2/sources/MRockatansky__Gemma-4-31B-Storymaxxed3-GGUF__README.md",
+      "recorded_closeout": "f9ca5f9e93a55670eb6196369e79811150322221782f14ed935d7e029ad80a5a",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/local-ai-2026-10-14/round2/sources/Naphula__Goetia-26B-A4B-v1.3-Absolute-Heretic-ARA__README.md",
+      "recorded_closeout": "a1c0f163ce23b61457a099b5ec19769293008b7dc4fd7323bb813beb35ff0852",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/local-ai-2026-10-14/round2/sources/Naphula__Goetia-26B-A4B-v1.7__README.md",
+      "recorded_closeout": "a753a23d565ec4fae86bb6d76f54eba4d119972b15e9b7409b3d97272ef77d0b",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/local-ai-2026-10-14/round2/sources/Qwen__Qwen3.5-9B__README.md",
+      "recorded_closeout": "c5f5a8c2dddab69cfbf05279235aa5fddb137939a06539c4c7637aa900fef6d0",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/local-ai-2026-10-14/round2/sources/Qwen__Qwen3.8-27B__README.md",
+      "recorded_closeout": "57e4bdb258ee1a7d2635c5174ebd4e56abe392505cdb5f8bbb356b0dc4293641",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/local-ai-2026-10-14/round2/sources/UltimateIntent__GemStrike-31B-GGUF__README.md",
+      "recorded_closeout": "98abd9140ffc5a66a18f98607661b075de37b8aba950eed13d5f4b5fd1becd44",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/local-ai-2026-10-14/round2/sources/daniel29348679__m5pro-llm-bench__speed-readme.md",
+      "recorded_closeout": "0161e32985886779033027a0c6529fd9184ec5c8e9461ad12b68369b86015646",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/local-ai-2026-10-14/round2/sources/darrellbest__Hemmingway-1-Heretic__README.md",
+      "recorded_closeout": "c998a33c89220ea5c70ba5521d6d835062294605ecd497a1100f43b2b0a58407",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/local-ai-2026-10-14/round2/sources/meta-models__Muse-Glimmer-30B-GGUF__README.md",
+      "recorded_closeout": "08d5b569fdc2abdc983c467e72c24e4ea07927a74ec1e96705d29a40dbde8dce",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/local-ai-2026-10-14/round2/sources/meta-models__Muse-Glimmer-30B__README.md",
+      "recorded_closeout": "5894e358c58f4f8425645a5b0b890468ecb3e6b049c2e941648db077c4b7df58",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/local-ai-2026-10-14/round2/sources/mlx-community__Hemmingway-1-OptiQ-4bit__README.md",
+      "recorded_closeout": "8e648fd5ec7ba3c7a7f22dcacaf6ff9c61650a8cbf171ddfd348c3044d1a5d13",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/local-ai-2026-10-14/round2/sources/mradermacher__Goetia-26B-A4B-v1.3-Absolute-Heretic-ARA-GGUF__README.md",
+      "recorded_closeout": "e418d806e2819e2469754a04c9fa18245c83d657ba1ca0fda24786012e14f03a",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/local-ai-2026-10-14/round2/sources/orcarouter__Qwen3.8-27B-Uncensored-MLX__README.md",
+      "recorded_closeout": "6f4d8ecdb6831f6d78c1b1fbf0ff0e1981521bcc3c546b0bc5f21a6a224b49b5",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/local-ai-2026-10-14/round2/sources/prism-ml__Bonsai-27B-mlx-1bit__README.md",
+      "recorded_closeout": "1b48634813a6241310348e371acffd1563f3aff5c350fa2bd79243204871ce2e",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/local-ai-2026-10-14/round2/sources/xiaoxianxian__qwen3.8-deployment__speed-readme.md",
+      "recorded_closeout": "beb59689cd2736a913b590e835b8862f8e707ba1f72f613bdfd11c0210cec969",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/COVERAGE.json",
+      "recorded_closeout": "bb15eafe3eeb12602973c40220f6f4b738406b630cbd90d26b0528c0ff5ab157",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/black-clover-full/CHECKPOINT.md",
+      "recorded_closeout": "65de7e6931051f90c4f19510ff7ce4677cfe194d8cffdd8c401179ace25759dd",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/CHECKPOINT.md",
+      "recorded_closeout": "6b0844d3d1f27b44463dc80f42aae2eb1636885117c8c9bdb5757a1285c8f8dc",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/shard-a/CHECKPOINT.md",
+      "recorded_closeout": "2d003df9ac05397efdd3757423e8e357c4c134a27f68d91dc684a1bd9da6d74a",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/shard-b/CHECKPOINT.md",
+      "recorded_closeout": "69ca919d757c8d3b9ba6660285a7f49319666f19e672a55a8bfb810759c2b0d4",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/bleach-full/shard-c/CHECKPOINT.md",
+      "recorded_closeout": "1b8f9f2ec9c72ed8e0981516e675f4b9edefec1c69a09001b354986705b6b5ab",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/csm-full/CHECKPOINT.md",
+      "recorded_closeout": "ca91df2b7946624890945848e613e46b679f06244026b50ef748d5e190abc4ea",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/dcc-full/CHECKPOINT.md",
+      "recorded_closeout": "0b4dda192420c29209c7cf273d5ed89b42d2533a82a07b5bc7a38f9f050ec8ae",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/demon-slayer-full/CHECKPOINT.md",
+      "recorded_closeout": "16a52831dbdd6f70944f7787b13d6739842879d17a1ac1d4d2752a9fcb1badb0",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/elden-full/CHECKPOINT.md",
+      "recorded_closeout": "ce05a1152b0d34f3e1c436648ce12de8de9d5dbdf75b2b531030bc835eff6c3e",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fallout-full/CHECKPOINT.md",
+      "recorded_closeout": "2b4482a1ca41da5683a05a0d59eba70c7a2ff7f9ceaad584618a5984e743d9f6",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/CHECKPOINT.md",
+      "recorded_closeout": "a308d4f79f81db643b3995c34a42496370c00a9390b10131aa0e872e56bbf3b0",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/r2-2026-10-13/shard-a/CHECKPOINT.md",
+      "recorded_closeout": "1bb42c010c4fbd6c5d92e609983679af57502db9750fed58cd4ec50c398f58ee",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/r2-2026-10-13/shard-b/CHECKPOINT.md",
+      "recorded_closeout": "9c209f8dd7a227c7700f4741d0d360ce840d69c4b09f5a35c448f7bc596b5aae",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fate-full/r2-2026-10-13/shard-c/CHECKPOINT.md",
+      "recorded_closeout": "677ba19829d3ce7b866c7e02fecc9072dc5c89c5c5227f1d5805800f37a04600",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fma-full/CHECKPOINT.md",
+      "recorded_closeout": "181a598cda3bc86c43af12336cbb6078dda1a332af8cf448d4cb539dcf574773",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/fma-full/r2-2026-10-13/review/CHECKPOINT.md",
+      "recorded_closeout": "6a26651d286c2612aaa45288709448ca4d780975f67c72c220e00724bc476c96",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/frieren-full/CHECKPOINT.md",
+      "recorded_closeout": "9802fa523b7e675eb8ea9f60edc893e9629b1696aa6e9a9e1d4354dcbc095d3a",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/hp-full/CHECKPOINT.md",
+      "recorded_closeout": "1fcecc621cc90a8d73f1b4f213b62e15cbac7ce1edbaa6a5fdba90025018d9ad",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/hxh-full/CHECKPOINT.md",
+      "recorded_closeout": "846240ef3e0993a8734022b51f952e00f9ed251008f80ebf699369e1244aeef2",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/hxh-full/r2-2026-10-13/shard-a/CHECKPOINT.md",
+      "recorded_closeout": "8c23f119a4f21cbccdaf8984793877bb251c6d2192221f933294119a4c8c1964",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/hxh-full/r2-2026-10-13/shard-b/CHECKPOINT.md",
+      "recorded_closeout": "1505a1c7caab7c70fe4af02a839ac44e6c71caa8e341ff3645a1f55c1844b3bf",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/jjk-full/CHECKPOINT.md",
+      "recorded_closeout": "7b0aef6d789767b67e780ca2fd664e3d1ecbb1d68aad411f41ced0d27d7a406d",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/mha-full/shard-a/CHECKPOINT.md",
+      "recorded_closeout": "2d818da05017b2639a470155935a460f1ea5791f8386842529e6d40e13382a53",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/mha-full/shard-b/CHECKPOINT.md",
+      "recorded_closeout": "b187d2f9049c5a690775d16c5921de92694397936bcccb52509e3e27f7fc2d37",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/one-piece-full/shard-a/CHECKPOINT.md",
+      "recorded_closeout": "fe9a7c0c7443d286b59d65b6c45ccdf5ef534ba3c50ac171c98c8b34d2f76fd2",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/one-piece-full/shard-b/CHECKPOINT.md",
+      "recorded_closeout": "42861d00a71879e427678ca21385efbe11cf1254971b20453014046eb04a8892",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/one-piece-full/shard-c/CHECKPOINT.md",
+      "recorded_closeout": "50e05692e8afe8bece35338d01beb3445f1181454a02e680ccc527fa0df268a8",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/qualifier/CHECKPOINT.md",
+      "recorded_closeout": "364d1b80cd46680b89ff3f8d3f9c37eb153057b4c0e01fc0d9d8fa821f8254b0",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/shadow-full/CHECKPOINT.md",
+      "recorded_closeout": "601be91e0d9371b8fff95295690796985c8fb3e8bfa683bafa37b3b1049e0bad",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    },
+    {
+      "path": "docs/research/power-systems/wiki-digests/full-dumps/workers/skyrim-full/CHECKPOINT.md",
+      "recorded_closeout": "83a99665d16e7e3831f9f670a91d26f08f756ea79ac2b6ad2b216f82c0cb23f6",
+      "scope": "Private input absent; historical identity retained, no new reading or byte check."
+    }
+  ],
+  "scope": "Document/range/fold presence only. Explicit post-record amendments applied to comparison, never rewritten into original inputs. Concurrent partial-owner drift retained; no runtime proof."
+}

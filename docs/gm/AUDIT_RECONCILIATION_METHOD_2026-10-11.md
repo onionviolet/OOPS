@@ -164,3 +164,8 @@ Resolve stale statuses and compatibility/viewport overrides from actual later
 owners, rather than reopening accepted direction or adopting old launch/commit
 instructions. No whole-world coverage or gameplay acceptance is claimed by a
 cross-plan document pass.
+
+
+## Current workflow qualification, 2026-11-04 (B56)
+
+The old unresolved-merge observation, PartsA–E current-run order and one-realm/one-prestige milestone describe October11. Current PROJECT/accepted direction governs build order; USER_VISION’s October24 scope direction retired that required milestone. Preserve P1–P5’s idea-level provenance, variants, actual receiving consumers and distinct evidence states without turning all historical deferred checks into one new gate. AD36/43 governs selected verification; AD42 makes human taste/fiction feedback optional. Current project-wide intake and bounded actual-content coverage live in the loose-document reconciliation report/inventory and WRITEUP_REGISTER. Consolidation keeps useful source history and code aliases; delete-and-point is not the default.

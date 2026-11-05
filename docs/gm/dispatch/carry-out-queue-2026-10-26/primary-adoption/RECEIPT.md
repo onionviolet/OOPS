@@ -16,3 +16,8 @@ This is tooling/page-delivery proof, not new gameplay. See the
 optional diagnostic matches and the broader general-rule request coverage.
 Primary working-tree adoption only; agent-verified, not human-reviewed.
 No commit, branch merge, push or installed-app replacement.
+
+
+## Content reconciliation B272
+
+Full receipt content reviewed. Keep route:natural/browser-verified within its expressly stated tooling/page-delivery scope; the label does not establish new gameplay or a named-world journey. The3226full-suite result and final isolated-build change's focused/browser recheck are different input scopes, not a full final-suite rerun. Diff-scoped review is agent review, not user acceptance, and primary working-tree adoption is separate from a commit, merge, push or installed-app replacement. The linked adoption body's exact evidence remains its own source; it was not fully read by proxy in this batch. No tool page was opened or rebuilt here.

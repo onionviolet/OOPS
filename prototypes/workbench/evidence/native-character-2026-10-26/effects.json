@@ -1,0 +1,94 @@
+{
+  "bundleSha256": "da32191acbd8786502e439fb4487780517fda9df8aff1e32c943576db10e9675",
+  "cases": [
+    {
+      "mode": "full",
+      "press": {
+        "active": true,
+        "background": "rgb(48, 73, 108)",
+        "outline": "none"
+      },
+      "attemptDelta": 1,
+      "shown": true,
+      "text": "Craft settled: Roasted rat meat ×1 from 1 attempt.",
+      "animations": [
+        {
+          "target": "path",
+          "properties": [
+            "strokeDasharray",
+            "strokeDashoffset"
+          ]
+        },
+        {
+          "target": "path",
+          "properties": [
+            "strokeDasharray",
+            "strokeDashoffset"
+          ]
+        },
+        {
+          "target": "DIV",
+          "properties": [
+            "transform",
+            "opacity"
+          ]
+        }
+      ],
+      "receipt": "Made 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP) 1 of 1 native attempts succeeded."
+    },
+    {
+      "mode": "reduced",
+      "press": {
+        "active": true,
+        "background": "rgb(48, 73, 108)",
+        "outline": "none"
+      },
+      "attemptDelta": 1,
+      "shown": true,
+      "text": "Craft settled: Roasted rat meat ×1 from 1 attempt.",
+      "animations": [
+        {
+          "target": "DIV",
+          "properties": [
+            "opacity"
+          ]
+        }
+      ],
+      "receipt": "Made 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP) 1 of 1 native attempts succeeded."
+    },
+    {
+      "mode": "off",
+      "press": {
+        "active": true,
+        "background": "rgb(48, 73, 108)",
+        "outline": "none"
+      },
+      "attemptDelta": 1,
+      "shown": false,
+      "animations": [],
+      "receipt": "Made 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP) 1 of 1 native attempts succeeded."
+    },
+    {
+      "mode": "OS-reduced",
+      "press": {
+        "active": true,
+        "background": "rgb(48, 73, 108)",
+        "outline": "none"
+      },
+      "attemptDelta": 1,
+      "shown": true,
+      "text": "Craft settled: Roasted rat meat ×1 from 1 attempt.",
+      "animations": [
+        {
+          "target": "DIV",
+          "properties": [
+            "opacity"
+          ]
+        }
+      ],
+      "receipt": "Made 1 Roasted rat meat from 2 Rat meat chunks (+9.2 XP) 1 of 1 native attempts succeeded."
+    }
+  ],
+  "errors": [],
+  "status": "passed"
+}

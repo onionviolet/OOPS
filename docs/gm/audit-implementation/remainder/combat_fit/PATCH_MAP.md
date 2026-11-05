@@ -57,3 +57,8 @@ Root calls `validateRemainderCombatFitBattle(b,state,session)` from its schema5 
 5. Director and UI: useful costs/tradeoffs, clear innate/trained provenance, ordinary alternatives, current quote versus committed native result, distinct keyboard controls and readable returned aftermath.
 
 No behavioral, unit, browser, save/reload/import/failure/regression/director gate ran. Parent must consume the full contract and rebuild before marking these rows delivered.
+
+
+## Later integration and proof scope, 2026-11-04 (B85)
+
+The [root source-phase checkpoint](../CHECKPOINT.md) supersedes this worker’s initial awaiting-root status for the finite remainder source objective. Selected current feature_expansion_battle source calls fit admission, uses its quote, and finishes its module before settlement/session removal; both fit and objective namespaces participate in schema 5. That source observation does not certify every hook or execute a new combat journey. Preserve exact current source/body/gear/custody and completion cause, the grip preparation’s reservation/spend/expiry boundaries, one final quote, and the objective owner’s same-rope reservation/return. A once-settled preparation is not a lifetime-use limit, gear fit is not new body/mastery, and source suppression blocks supported use without deleting the permanent source. The five deferred groups retain behavioral/failure/persistence gaps, with optional human feedback under AD42 and current AD36/AD43 proof. No old worker reservation or source-complete statement dispatches new runtime work (AD32).

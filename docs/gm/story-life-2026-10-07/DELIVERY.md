@@ -24,3 +24,10 @@ Actual browser observations covered the fresh vanilla opening, optional meeting,
 Expansion11 / simulation5 and optional causalStories1 retain their meanings. Older absent/enrolled states do not need the new meeting situation or a new site. New IDs require this updated reader. Existing frozen jobs, sites, source/body rules and private saves remain untouched. No personal save or source library was read or changed.
 
 Root's six source leaves are released at [exact hashes](RELEASE.json) to coordinating peer01a116c6-9556. Shared main/registry/persistence/dist/canonical files remain with that peer. A source-inspected shared Notebook attention gap is recorded in SHARED_FOLLOWUP.md; it has not been applied here. The source release is separate from playable acceptance and from a combined multi-GM build.
+
+
+## Content and coverage reconciliation, 2026-11-04 (B175)
+
+This complete delivery and three-leaf RECONCILIATION.json were read. Old-before bundle-source matches, checkpoint68694413 correspondence and scene equality are source recovery evidence; they are not a frozen combined-runtime identity or present writer lease. The model’s three watch/cancel/refund/delivery/account/conversation paths at minute19 are not DOM or durable-native publication proof. Actual browser observations covered opening/meeting/scenes/manual save and restoration, while the complete new-action loop and timed import remained unexercised. Preserve that distinction and the original browser-route failure history without declaring current tools blocked.
+
+Retain six once-completed local commands, separate player/courier attention and free packing sites, actual received closure before conversation, and hidden-source/consent filtering before quote. Enrollment itself starts no delivery deadline, and a same-subject panel refresh reads current body/save authority. Old schema/role/port/peer release states do not impose new compatibility requirements or active reservations. Current AD36/AD43 govern any future behavior claim, and AD42 makes human review optional. No personal save, source scene, preview or proof script was reopened.

@@ -1,0 +1,119 @@
+{
+  "schema": 1,
+  "batch": "B288",
+  "title": "Narrative seam audits: actual causes, knowledge, branch history and story-power evidence",
+  "at": "2026-11-05T00:51:37.158656+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "classification": "Dated source-seam audit plus proposed narrative consumer consequences",
+      "owners": [
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/PLAN.md"
+      ],
+      "reopen": "Use current selected narrative consumer and exact source/current owners. No linked branch, primary source, code or gameplay credit by proxy; no new runtime or research dispatch.",
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p13/LIVE_AUDIT.md",
+      "ids": [
+        "P13 F1–F11",
+        "Intervention/abstention validation boundaries"
+      ],
+      "disposition": "Read all 24 original lines including detached F11 table row. Keep three fixed original protections distinct from canon immunity, meaningful cause/prerequisite deltas distinct from text/biography/visit ledgers, and earlier P3/P4 absence qualified by later integrated plan.",
+      "evidence": "Audit is source-only on dirty October14 main; fixed source IDs and caps do not establish franchise law or all future canon generation. No tests/browser/new primary chapter read.",
+      "input_sha256": "d1e18ff5ba03aaea2f418e961a30a8779e566aba27ccb8540c5b2ee1f65f09a0",
+      "input_lines": 24,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          24
+        ]
+      ]
+    },
+    {
+      "classification": "Dated source-seam audit plus proposed narrative consumer consequences",
+      "owners": [
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/PLAN.md"
+      ],
+      "reopen": "Use current selected narrative consumer and exact source/current owners. No linked branch, primary source, code or gameplay credit by proxy; no new runtime or research dispatch.",
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p16/LIVE_AUDIT.md",
+      "ids": [
+        "P16 F1–F12",
+        "R1–R8",
+        "Reading/sibling scope"
+      ],
+      "disposition": "Read all 43 original lines; recovered full P16 after combined output truncated its R6–R8/receipt region. Preserve local causal closure, actual-body admission, retained paid state, generated identity promotion, local repeatability and explicit source/cutoff contradictions. Sibling checkpoint-only status and absent main paths are historical.",
+      "evidence": "SHOWN is source inspection, STATED is predecessor report and INFERRED is proposal. Selected large-owner scans and analytical profiles do not establish whole source-series reading or whole-repo absence. Novel details remain opaque; no new source acquisition.",
+      "input_sha256": "79947d0732f9e715529eeb4f3a23cd8cff23df16a59f43f8200fa38269c062ca",
+      "input_lines": 43,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          43
+        ]
+      ]
+    },
+    {
+      "classification": "Dated source-seam audit plus proposed narrative consumer consequences",
+      "owners": [
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/PLAN.md"
+      ],
+      "reopen": "Use current selected narrative consumer and exact source/current owners. No linked branch, primary source, code or gameplay credit by proxy; no new runtime or research dispatch.",
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p17/LIVE_AUDIT.md",
+      "ids": [
+        "P17 F1–F10",
+        "R1–R4"
+      ],
+      "disposition": "Read all 26 original lines. Preserve typed actual contribution/outcome producers before pruning, no mining rendered scenes/biography/feed for feats/audience, local branch/reference ownership and distinct source-law handlers. Generic title/progression effects do not qualify a book power system.",
+      "evidence": "No runtime checks. Three original finite proof profiles and192/64 capacities are not worldwide progression caps. Claimed branch deck/people delivery is not main/native evidence in this audit; later integration has its own receipt.",
+      "input_sha256": "a9c3d602ab785653fe941fe513ea0e1041ce62987deb77853ae1b8bef65dcebf",
+      "input_lines": 26,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          26
+        ]
+      ]
+    },
+    {
+      "classification": "Dated source-seam audit plus proposed narrative consumer consequences",
+      "owners": [
+        "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+        "docs/gm/dispatch/procgen-2026-10-13/PLAN.md"
+      ],
+      "reopen": "Use current selected narrative consumer and exact source/current owners. No linked branch, primary source, code or gameplay credit by proxy; no new runtime or research dispatch.",
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p26/LIVE_AUDIT.md",
+      "ids": [
+        "P26 F27–F35 continuation of P15",
+        "P3/P4 attributed return scope",
+        "Ink/P15 seam"
+      ],
+      "disposition": "Read all 19 original lines. Preserve shared admission/settlement before expression, no genre/gag overlays bypassing stale quotes, minimal real first/callback records beyond lossy feed, and source inventory versus selected semantic ranges. Later code absence cannot be inferred from this old snapshot.",
+      "evidence": "Hash manifest inventories bytes, not every-line semantic audit. Validation does not prove canon fit or complete reachability; no current source functions inferred for proposed metadata.",
+      "input_sha256": "c690a17d3075e678c19a6c1456503d635e7b070c413d35017f9e0e1cbaf8d39a",
+      "input_lines": 19,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          19
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+      "heading": "## Content reconciliation B288: four narrative audits and durable story meaning",
+      "body": "Full bodies of the [P13 audit](gm/dispatch/procgen-2026-10-13/p13/LIVE_AUDIT.md), [P16 audit](gm/dispatch/procgen-2026-10-13/p16/LIVE_AUDIT.md), [P17 audit](gm/dispatch/procgen-2026-10-13/p17/LIVE_AUDIT.md) and [P26 audit](gm/dispatch/procgen-2026-10-13/p26/LIVE_AUDIT.md) were reviewed. Their 42 source-finding rows and separate conflict/receipt notes retain source-local IDs. This is a selected owner fold, not full review of this wider palette or a new read of the linked code/books. The old dirty-main missing-path statements and P12–P15 checkpoint-only status are historical; later [plan qualification](gm/dispatch/procgen-2026-10-13/PLAN.md) already routes actual integrated subsets and remaining gates.\n\nP13 F1–F11 preserve a real canon/divergence question: an exact scene may become impossible while an independently caused event survives. Test intervention and abstention against supported actor/body/source/contact and actual prerequisites, without universal protagonist immunity, automatic role replacement or a chance roll standing in for a missing cause. A fixed original protection/closure vector is an example of meaningful local rules, not a franchise-wide destiny model. The existing finite proof ledger cannot receive arbitrary canon events merely by renaming IDs.\n\nP16 F1–F12/R1–R8 preserve different mechanisms for local causal endings, continuing life, whole-history reversal and other selves. A transition with reset/retain fields is not a branch archive; visit compaction and a lossy biography are not a playable old-self save. Generated people require identity/reference or promotion into the actual actor owner, rather than spawning a second person to obtain controller access. Preserve actual committed history, claims, RNG and support aftermath under the selected policy. A legitimate new occurrence or source-backed repeated/matter-creating power differs from paying the same commitment twice. Retain low/free-cost exceptional variants without adding balance taxes. Existing caps/offline proposals do not become universal rules. Creation context and action-bound facts freeze under their declared revision; first inspection cannot rewrite a person's baseline. Source-qualified MoL/Regressor/book-specific return/audience contradictions remain explicitly unresolved by this audit.\n\nP17 F1–F10/R1–R4 identify the producer a story-as-power consumer actually needs: damage, actual rescue, paid transfer, participant contribution, witnessed performance reach or the local principle being exercised. A marker saying effects were committed may still lack those magnitudes. Bind sufficient typed outcome and world/visit/actor/source references before pruning. A narrated feat, net wealth change, internal log line, command label or generic title/progression effect does not supply those facts, actual audience or book-specific qualification. Perceived fame, supernatural reward and objective outcome have different consumers. Player-known projection and actor knowledge remain separate from development-only truth.\n\nP26 F27–F35 continue P15's codes and retain the authoring boundary: admit a supported scene/cast and commit semantics before its prose/genre/gag expression. Stale-preview rejection and real costs cannot be bypassed by a humorous overlay. A compiler/validator checks selected structure, not canon fit, prose meaning or every reachable plan. Current knowledge values cannot reconstruct an earlier conversation or certify a world first. Keep the smallest real consequential first/callback marker needed by its consumer beyond lossy display, without retaining every decorative callback forever. Reuse the selected Ink/expression seam; no second conversation or story authority is created.\n\nAcross all four audits, observer-known event feeds, scenes and biography are useful presentation. Their eight-news, 64-recent/200-year or finite-proof capacities describe old consumers, not world limits, and their retained text cannot become reward, causality, branch or grant authority. Existing causal receipts and paid outcomes remain meaningful after text compaction; exact active references survive visit cleanup through their owner. Source-only assertions, attributed branch deliveries, synthetic/native journeys and human narrative judgment remain separate. No book/source truth, new runtime field, migration, offline behavior or audit lane is selected by saving this fold.",
+      "before_sha256": "04f5312af527d5332a111c5a9a0baac4e7974f56d1d2adc17cc9c170a0d3bbfb",
+      "after_sha256": "c448f1421f28c849a4ced1c5b723adc608cfa3666b8b3695558e3e7c88f95667"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 850
+}

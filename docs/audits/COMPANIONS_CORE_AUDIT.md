@@ -1,5 +1,7 @@
 # Companions core audit (repeatable)
 
+**B7 current continuation, 2026-11-04:** [palette fold](../COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md#c1c16-core-audit-reconciliation-b7-2026-11-04) retains the C1–C16 findings and cue/knowledge/clock distinctions. Current reconciliation can run in the primary chat; the old launch/commit procedure is conditional on actual authorization, not an instruction to create workers for every review (AD32/AD36).
+
 Saved 2026-10-14 at Weibao's request: "save as core audit to repeat in the
 future too". This is a standing procedure for re-auditing companions,
 familiars, pets, mounts, summons and every other being or thing that travels

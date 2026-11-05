@@ -71,3 +71,8 @@ Sibling work stays untouched: mol-deepen owns MoL; jjk-gaps-rules owns the JJK g
 ## Evidence and gaps
 
 Commands run: `library_coverage.py --series` for ten names; `manga_text.py summary`; a `chapter.jsonl` word count for Jujutsu_Kaisen (277 chapters, 178,137 words) and Bleach (214, 139,609); directory listings of `src`, `docs/worlds` and the HP/SS/MoL batch folders. Not done: no word count of HP, Shadow Slave or Reincarnation Paradise (their shards are estimates), no check that HP batch outputs are complete, and no `npm test`. Shard figures divide estimated words by 12,000.
+
+
+## Current-use reconciliation B103, 2026-11-04
+
+The ranking is a historical proposal, not a priority change. Current PROJECT already directs LOTM mechanisms leading Klein’s full journey while HP has actual W1–W4 consumers, so the old wait-for-MoL-slot/choose-HP question is not current scheduling authority. Preserve canon-first/AB seam rationale as optional research reasoning. File counts, OCR text, estimated shards and held chapters are not semantic source coverage or complete action/choreography/speaker access; “cheapest complete text” cannot erase JJK’s explicitly unread/low-confidence/missing pages. D&D’s old no-code shorthand is superseded by later qualified local slice receipts, not a current absence finding. Library holdings, edition/cutoff/gaps and sibling worker state need current owners before any acquisition or dispatch; nothing is fetched or reprioritized here.

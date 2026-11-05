@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "batch": "B291",
+  "title": "All remainder consumer rows and nineteen provenance records",
+  "at": "2026-11-05T00:56:30.565312+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/audit-implementation/remainder/COVERAGE.json",
+      "ids": [
+        "All19 packet rows",
+        "Six lane groups",
+        "Five additional obligations",
+        "Previous3Rows/deferred/largerWorlds closeout"
+      ],
+      "classification": "Complete historical producer/native/UI/persistence map with explicit unverified behavior",
+      "owners": [
+        "docs/gm/audit-implementation/remainder/DELIVERY.md",
+        "docs/gm/audit-implementation/remainder/COVERAGE.json",
+        "docs/gm/audit-implementation/remainder/ACCEPTANCE_BACKLOG.md"
+      ],
+      "disposition": "Read all917 original JSON lines, every packet title/state/status/source/native/UI/persistence/build/acceptance field and all connected obligations. Stale state=queued is superseded by the later integrated status for its dated source delivery, not a new implementation queue. Fold six-group scopes and exact count/consumer/evidence limits into parent delivery owner.",
+      "evidence": "Nineteen rows partition as home4/combat-objectives4/livelihood3/combat-fit3/consequences3/offers2; all19 behaviorVerified=false. Five added obligations overlap parent queue rather than independent proof. Parent delivery was reread including B175; underlying code and linked build/acceptance artifacts not newly opened.",
+      "reopen": "Continue remaining intake. For selected gameplay resolve actual current caller/build/compatibility and changed behavior; no old queued flag, build hash or module list authorizes dispatch or certifies play.",
+      "input_sha256": "91f61711769e8756fd3fefc2f3cadaf9e8619dd8da1d7e9b5754c6f9f9402c2c",
+      "input_lines": 917,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          917
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/missed-provenance/COVERAGE.json",
+      "ids": [
+        "MW-03 ALL19",
+        "Original ordinal1–19 and canonicalRowId",
+        "rowPointer/sourcePointer",
+        "Six source-class counts",
+        "Retained/unchanged/activation/retrieval flags"
+      ],
+      "classification": "Nineteen dormant source-contract provenance rows, not underlying source review or campaign activation",
+      "owners": [
+        "docs/gm/audit-implementation/remainder/DELIVERY.md",
+        "docs/gm/book-world-player-agency/contracts/CONTRACTS.json"
+      ],
+      "disposition": "Read all409 original JSON lines and every row. Preserve original order/class, retained source versus non-source flags, 19 inactive profiles and exact retrieval claims. Internal ordinal/pointer/id consistency checked; no underlying assembled-row digest resolution or primary reading inferred. Fold distinct pin/count meanings and dated activation status into delivery owner.",
+      "evidence": "Twelve supplied-novel, three game-reference, two manga/anime, one original and one bounded-publisher profile;20editionPins/172citations/126reviewedSourceRefs/39memberPins are non-equivalent historical measures. All activation=false. Same assembled-row SHA repeated19times is one input identity, not19independent confirmations. No raw source books/private source notes read.",
+      "reopen": "For exact source qualification use current source owner and actual locator/extent; do not infer full novels, actual today activation status or direct source authority from citation counts or zero member pins.",
+      "input_sha256": "5da430ffc531f7e7c85f1cc8ce4b0937cbe943a20ed7f6c67e59247c08e9ec34",
+      "input_lines": 409,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          409
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/audit-implementation/remainder/DELIVERY.md",
+      "heading": "## Content reconciliation B291: complete map and source-provenance scope",
+      "body": "The full [917-line remainder map](COVERAGE.json) and [409-line provenance map](missed-provenance/COVERAGE.json) were read row by row. All 19 packet rows partition into home4, combat objectives4, livelihood3, combat fit3, consequences3 and offers2. Each retains source/native/UI/persistence consumers, its dated build and behaviorVerified=false. Their inherited state string saying queued candidate describes the earlier intake, while the later status reports source integration at this historical closeout. Neither field grants current dispatch; no row is a newly played or persisted mechanic. The five additional obligations repeat connected parent-queue scope rather than supply independent runtime evidence.\n\nKeep the different consumer promises explicit: actual owned shifts/tool allocation; useful covered work, measuring jig and earned specialization; retained funded offers backed by actual supply; friction expiry separate from a promise and a cause-funded response; actual fit/body/source contributions to a guarded maneuver; and paid maintained brace, physical preparation and usable recovered fitting/recipe. A common main/save/UI filename in every row is not proof that these different branches were exercised. ALL19 plus the earlier three is the finite 22-source-delivery denominator. It does not close whole-world, novel parity, generic NPC behavior or the separately unrun model/browser/save/failure/keyboard work.\n\nMW-03's 19 provenance rows are also a different denominator. The classes are twelve supplied-novel profiles, three game references, two manga/anime references, one original profile and one bounded publisher reference. Their 20 edition pins, 172 citations, 126 reviewed-source references and 39 member pins count different things; one title has two edition pins. They establish neither 19 full novels nor 172 newly checked sources. Zero member pins does not mean zero available source or complete source coverage. All activation=false flags describe those contracts at that snapshot; later selected book-world development retains its own current owner and evidence.\n\nThe internal ordinals, canonical IDs and zero-based row/source pointers are consistent across all 19 rows. This is a structural check of the map, not a fresh resolution of its assembled input. Nineteen repeated copies of one assembled-row hash identify the same input, not independent corroboration. Retained original/auxiliary source fields and unchanged non-source contract fields remain distinct claims; reviewed refs and retrievalResolvesExactRow=true are the historical repair's assertions until its exact source input is inspected. No underlying assembled row, primary book, game payload, source authenticity, current contract activation or runtime consumer is newly verified by this fold. Preserve all original JSON and evidence dates in place.",
+      "before_sha256": "da763b539071f0959c9c147fa8fa8af79e3d675b5faa406c8d54edac8b0056c9",
+      "after_sha256": "4ceec8f30e36e9ff35263ce91041bc882c531559542579479a4c1e1542aa6dd6"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 842
+}

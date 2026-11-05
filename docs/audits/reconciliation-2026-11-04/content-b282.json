@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "batch": "B282",
+  "title": "Cultivation engine bindings: selected source slices and transferred browser backlog",
+  "at": "2026-11-05T00:44:47.181360+00:00",
+  "head": "f15a37f90eccd4f4b8728b5718a30292b6d6b41e",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/engine-bindings-2026-10-22/CHECKPOINT.md",
+      "ids": [
+        "E1",
+        "E2",
+        "E3",
+        "E4",
+        "E5a",
+        "E5b",
+        "E6",
+        "O4",
+        "Two W1–W4 coordination notes",
+        "Final verification and user handoff"
+      ],
+      "classification": "Completed historical narrow engine-binding task with mixed evidence and transferred backlog",
+      "owners": [
+        "docs/ENGINE_EXPANSION.md",
+        "docs/gm/dispatch/engine-bindings-2026-10-22/CHECKPOINT.md",
+        "docs/gm/dispatch/distinct-world-w1-w4-2026-10-22/CHECKPOINT.md"
+      ],
+      "disposition": "Read all 77 original lines, including interleaved progress after the coordination heading, final release and explicit user transfer. Preserve source/focused/full-suite versus actual E1/E5a browser subset, absent-default optional state, native body-swap limitation and broad W journeys still distinct. Fold into engine owner; do not reopen the closed task or duplicate W ownership.",
+      "evidence": "Historical receipt reports 2528 passing tests and native 1920×1080 mill-race sluice/history persistence only. Keeper-built payout, helpers/office, hides, body hazard and fen approaches were expressly browser-unverified at closeout; linked W checkpoint owns their later status, not assumed read or completed here. No current source/runtime tests in this pass.",
+      "reopen": "For selected work consult later W1–W4 owner and current source; old browser backlog is transferred, not a new global gate or authority for Frontier/Mistglass depth.",
+      "input_sha256": "67803e176b5c59460dd76806fbe2ae67d31468eba7805c85ce57376220e1a92a",
+      "input_lines": 77,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          77
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/ENGINE_EXPANSION.md",
+      "heading": "## Content reconciliation B282: cultivation bindings and evidence ownership",
+      "body": "The full [engine-bindings checkpoint](gm/dispatch/engine-bindings-2026-10-22/CHECKPOINT.md) supplies seven concrete first bindings, not every missing cultivation engine behavior: E1 practiced sluice reserve cost at fixed output; E2 helper person reservation with shared quote; E3 explicit process treatment read by two material output-quality paths; E4 active earning-body faculty with retained knowledge; E5a one-time history binding an actual wage/duty; E5b institutional funds/policy succession apart from personal wages/energy; and E6 guided versus probed environmental access. E3 treatment is explicitly not inherited automatically. E4's different-body case was test-only because no ordinary native body swap was present. Exact costs, output rates and source defaults describe those selected mechanisms rather than a universal recipe.\n\nThe record's final proof reports build, 2,528 tests, architecture/rules checks and one rebuilt 1920×1080 E1/E5a mill-race journey with current-format persistence. It explicitly leaves keeper-built payout, E2 gathering, E3 hides, E4 hazard, E5b pantry and E6 fen browser proof open at that closeout, along with laptop/21px cases. Do not turn the full-suite result into native coverage of those consumers. The later user instruction transfers that browser backlog to the [W1–W4 owner](gm/dispatch/distinct-world-w1-w4-2026-10-22/CHECKPOINT.md); it does not assign today's task to redo the old work. W3/W4 minimal bindings and W1/W2 modules are first slices, distinct from the broader worker/student, earned-office and intake-law journeys. Later W evidence must retain its own input/date.\n\nO4 records that closed-browser policy was not implemented in this task. That dated unresolved-policy sentence does not erase current world-clock direction or authorize a new offline mode. Optional child state is absent by default, migration invents no prior history, and malformed state must reject through its real owner. Runtime reservations were released; early source-only table labels, paused coordination and obsolete direct test commands are historical. This join changes documentation only and adds no gameplay gate, new Frontier/Mistglass depth or renewed source/test proof.",
+      "before_sha256": "453bf3c3e9cc1087b0ed1876de03dd0282816cd5b5ce37d4a17613e92f29e495",
+      "after_sha256": "d10c206f173d5003f3fe3ffef2913cbba2adcac7d5cd49f574b4cd351e225c87"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 868
+}

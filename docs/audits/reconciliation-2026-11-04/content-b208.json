@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "batch": "B208",
+  "title": "Full dependency-map contracts, MC1–MC173 and later uptake",
+  "at": "2026-11-04T23:07:16.664839+00:00",
+  "head": "b6678ea9ba4a7cf0313ce83e0c0fc6b0e5c26d5b",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/ENGINE_UI_DEPENDENCY_MAP.md",
+      "ids": [
+        "UT/TR/HM/HB",
+        "family contracts",
+        "MC1–MC173",
+        "D1–D4",
+        "ceiling integration table",
+        "KJ2 TD1–TD3"
+      ],
+      "classification": "Historical engine inspection, source-qualified feature palette and incremental routing",
+      "owners": [
+        "docs/gm/dispatch/refinement-audits-2026-10-31/ENGINE_UI_DEPENDENCY_MAP.md",
+        "docs/LEAD_LIFE_GUIDE.md",
+        "docs/WORLD_ABSORPTION_RULES.md",
+        "docs/gm/dispatch/refinement-audits-2026-10-31/LOTM_KLEIN_FULL_JOURNEY_PLAN.md"
+      ],
+      "disposition": "Retain full map, per-row exceptions and missing suppliers. MC135–173 mapping does not extend MC1–134 runtime inspection. Later KJ2 uptake supersedes blanket absent-adapter readings, while full historical borrowing/possession/rollback/dangerous reading/combat remain separately unproved. Historical allowance, coordinator and L2b states are not current universal gates. Apply AD51 to the old two-consumer extraction threshold.",
+      "evidence": "Entire body read in bounded ranges, including all 173 rows, contracts, four chains, source-hash inventory, ceiling addendum and KJ2 update. Referenced primary texts, code hashes and private packs were not read or rerun by this review. B199 supplies full lead-brief reconciliation; B153 later method delivery is separately scoped.",
+      "reopen": "At a selected source situation, compare the current incumbent producer, command, admission, settlement and receiving consumer; retain each unresolved residue and test actual operation/support loss/restore rather than treating a routing row as implementation.",
+      "input_sha256": "3c63571141c9d4f2cb1f4daa1fa91e30449c56163eeaaf3bc153496102122f6d",
+      "input_lines": 592,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          592
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/ENGINE_UI_DEPENDENCY_MAP.md",
+      "heading": "## Content reconciliation B208, 2026-11-04",
+      "body": "The complete map, MC1–MC173, D1–D4, ceiling integration table and KJ2 uptake were reviewed. The supplement closes mapping for 39 later codes; it does not extend the original runtime inspection or prove the underlying methods. Source hashes and private-window counts identify historical inputs, not newly inspected primary text or current completeness. Preserve distinctions between declared agreement and enforcement, detection and attribution, body and agency, knowledge and custody, title/control/care/activation, and resource reservation versus actual irreversible work and delivery. A restored view must not silently refund spent material or erase acquired knowledge. These are selected mechanism questions, not a new all-world schema (AD6–AD8, AD32, AD51).\n\nThe later KJ2 section qualifies earlier absence claims for native receipts, actual vendor stock/purse, placed custody, connected participants and observer-safe labels. It also explicitly leaves historical borrowing, possession, rollback, dangerous reading and combat to later consumers. B153 records a later bounded method delivery and released writers; it does not prove the earlier physical-document carrier/destruction contract in D2 or the ceiling table. Keep B199’s scene/carrier and compatibility gaps where they still apply. The old 61% allowance stop, coordinator ownership and L2b assessment describe that investigation; they neither launch work nor impose a renewed project gate. Under AD51 an existing known consumer can justify a seam; a different world validates reuse rather than universally withholding extraction until two implementations.\n\nMC169 and MC173 remain useful coverage discipline: pin situation/method/stage, trace intent through actual producer and command to result, inspect the admitted UI/control/return and failure alternative, then account for residue. Identified, specified, connected and journey-verified remain distinct denominators. No referenced runtime source, primary chapter, browser or persistence path was reverified in B208.",
+      "before_sha256": "3c63571141c9d4f2cb1f4daa1fa91e30449c56163eeaaf3bc153496102122f6d",
+      "after_sha256": "cb9465b745ccc4203b1dc3261c5a576003bd830648b3a5f71a8c907cd7fc35a8"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1077
+}

@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "batch": "B82",
+  "title": "Connection capability map: controller enrollment correction and knowledge-stage limits",
+  "at": "2026-11-04T20:31:30.363041+00:00",
+  "head": "4cdc0772b65d413e4989e327502910140b2a15eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/dispatch/connection-detail-2026-10-12/RESEARCH_AND_CAPABILITY_MAP.md",
+      "ids": [
+        "U1–U9",
+        "12domainseams",
+        "5steporiginalauthorrecipe",
+        "NPCenrollment/revisedevidencepolicy"
+      ],
+      "classification": "fresh full connection map/checkpoint and exact current consumer trace",
+      "owners": [
+        "docs/gm/dispatch/connection-detail-2026-10-12/RESEARCH_AND_CAPABILITY_MAP.md",
+        "src/structured_pack_runtime.js",
+        "src/simulation_effects.js"
+      ],
+      "disposition": "Actualbody/typedstart/source/custody/knowledge/directedmemory/funding/atomicpublisher distinctions retained. CurrentbeginStructuredCampaign nowexplicitlyenrollsactualdeclaredcontrollers afteractors/events, so originalrecipe4/additionalenrollment missingloopclaim stale. Livecontroller scheduler selectedconsumer actualdue/eligibility/startCommand exists, not provesunrunoriginalrecipe. U9stagerank constraint persists: lowerstage cannotreplacehigher, equalstage valuecanupdate; observations/beliefs needappropriateidentity. Historicalsource/APIlineoffsets/futuredefectnotcurrentproof.",
+      "evidence": "All117/34lines freshlyread. CurrentbeginStructuredCampaign52–108, effects365–382 and scheduler686–710 exactsource inspected: initialization→savedcontroller→duecommandeligibility/start path; no complete synthetic/nativejourney/test rerun.",
+      "reopen": "Actualselectedbody/start/support/knowledge/recipient consumer undercurrentauthority, properregistry/admission/funding and changedbehaviorproof. No declaring alloldCDpackets ready or rewriting liveknowledge/history.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "2af8cf9dd7c9eac471b8ad0875186d73122c6f04ebffbe82b9c1ab8613917a05",
+      "input_lines": 117,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          117
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/connection-detail-2026-10-12/CHECKPOINT.md",
+      "ids": [
+        "35families/36leaves/6probes/5packets",
+        "U1–U9",
+        "revision3/planninggate"
+      ],
+      "classification": "fresh full connection map/checkpoint and exact current consumer trace",
+      "owners": [
+        "docs/gm/dispatch/connection-detail-2026-10-12/CHECKPOINT.md",
+        "src/structured_pack_runtime.js",
+        "src/simulation_effects.js"
+      ],
+      "disposition": "Historicalfiniteplanningclosure/children/checks/sourcewindows retained; no automaticnewworker/interfaceimplementation/nativeconsumer. Currentexplicitcontenttask independent oldfiniteclosed scope. Claimedoldactivechats not currentwriterreservations. No wholecanon/media/source verification from55hashes.",
+      "evidence": "All117/34lines freshlyread. CurrentbeginStructuredCampaign52–108, effects365–382 and scheduler686–710 exactsource inspected: initialization→savedcontroller→duecommandeligibility/start path; no complete synthetic/nativejourney/test rerun.",
+      "reopen": "Actualselectedbody/start/support/knowledge/recipient consumer undercurrentauthority, properregistry/admission/funding and changedbehaviorproof. No declaring alloldCDpackets ready or rewriting liveknowledge/history.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "48f25f74cfa3165aa4460833e73cc5d2e3b78f916ddcf7bc79f75f7b82f11bce",
+      "input_lines": 34,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          34
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/dispatch/connection-detail-2026-10-12/RESEARCH_AND_CAPABILITY_MAP.md",
+      "heading": "## Current controller and knowledge seam, 2026-11-04 (B82)",
+      "body": "The tiny recipe’s step 4 and “Additional exact dependency” describe the October 12 absence of a beginning controller loop. Current beginStructuredCampaign now explicitly initializes each declared controller whose actual actor exists, after beginning effects/events; duplicate initialization is rejected. The selected simulation scheduler resolves the registered controller at its due time, checks candidate eligibility and uses the existing startCommand owner. Thus controller declaration plus valid beginning admission has a real enrollment path; the original recipient installation recipe still has no fresh execution proof, and arbitrary declarations do not supply stock, body, consent, knowledge or a useful command. Do not add a second enrollment/dispatch mechanism solely to repair this stale source claim.\n\nU9’s rank comparison remains in the selected effects owner: a lower-stage update cannot replace a higher-stage entry, while equal-stage content can replace it. Distinct observations and revised beliefs need appropriate cause/key/receipt semantics; the old strongest stage is not automatic current truth. A 32-memory display bound does not expire live promises. Preserve U1–U8’s source/actor/body/custody/clock/publication distinctions and the unrun recipe’s exact delivery-versus-installation limit. This is source evidence only; no tests, native game, source-page fetch or persistence run occurred. Current AD32/AD36/AD42/AD43 govern selection/proof and optional feedback, without resuming old workers or adding a runtime queue.",
+      "before_sha256": "2af8cf9dd7c9eac471b8ad0875186d73122c6f04ebffbe82b9c1ab8613917a05",
+      "after_sha256": "87791a28f7d536c6d06d0bedc4285d5f938c42f627cbed77ff49b571c789d814"
+    },
+    {
+      "path": "docs/gm/dispatch/connection-detail-2026-10-12/CHECKPOINT.md",
+      "heading": "## Later content/source reconciliation, 2026-11-04 (B82)",
+      "body": "The [capability map correction](RESEARCH_AND_CAPABILITY_MAP.md#current-controller-and-knowledge-seam-2026-11-04-b82) supersedes the narrow historical missing-controller-enrollment statement with current producer/scheduler source inspection. The original planning result, failed-and-repaired structural checks and inherited evidence stay dated. No historical child/active-chat reservation or next-packet suggestion is a current dispatch. The current request selects content reconciliation; no runtime build, install, source acquisition or new implementation follows (AD32/AD36).",
+      "before_sha256": "48f25f74cfa3165aa4460833e73cc5d2e3b78f916ddcf7bc79f75f7b82f11bce",
+      "after_sha256": "9329b88d852a2c5d0558e595383fc19764c10765058c5d7516813ac52938c4d6"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1348
+}

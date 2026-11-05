@@ -1,0 +1,593 @@
+{
+  "schema": 1,
+  "batch": "B10",
+  "title": "Independent life, explicit activation, care and causal integration history",
+  "at": "2026-11-04T19:40:02.027573+00:00",
+  "head": "aef3cb1f81008e1eb815e57a703974d2447079eb",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/gm/audit-implementation/remainder/review-native/CHECKPOINT.md",
+      "ids": [
+        "Causal/artifact native review"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/audit-implementation/remainder/CHECKPOINT.md"
+      ],
+      "disposition": "Closed bounded source review with exact hash scope; later source changes reopen affected coverage, and no synthetic gameplay/save or full-host proof follows. Historical source/integration claims stay scoped to their receipt. Current AD36/AD43 verification and AD42 optional human review govern any later implementation; no gameplay or canon proof renewed.",
+      "mechanism_and_interactions": "Native persistence binding, earned body marks/baseline identity, strict hand/mobile types and consenting body-change compatibility were distinct repaired source findings. Engine semantics were excluded.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical document claims reviewed; no new runtime/source-canon verification",
+      "reopen": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S002.json"
+      ],
+      "prior_input_sha256": "e296f0203d77047fc852b09c84b69afe43e466a8a81dbe9edbcaaa803192327e",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "e296f0203d77047fc852b09c84b69afe43e466a8a81dbe9edbcaaa803192327e",
+      "input_lines": 9
+    },
+    {
+      "path": "docs/gm/book-lore-to-gameplay-2026-10-06/CHECKPOINT.md",
+      "ids": [
+        "P1",
+        "P2",
+        "P3–P5"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/care-worlds-2026-10-06/CHECKPOINT.md"
+      ],
+      "disposition": "Finite synthesis complete; strongest two design packets are not selected runtime. Preserved source/edition cutoffs and current ownership snapshots remain historical, not whole-book coverage or present leases. Later care delivery U0031 records selected P1/P2 implementation scope. Historical source/integration claims stay scoped to their receipt. Current AD36/AD43 verification and AD42 optional human review govern any later implementation; no gameplay or canon proof renewed.",
+      "mechanism_and_interactions": "Five original connected proposals join material ownership, ordinary work/care, independent actor means, knowledge and supported deadlines. Material custody, actual attention tradeoffs, consent and exposure endpoint retention are necessary interfaces, not inferred plot rails.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical document claims reviewed; no new runtime/source-canon verification",
+      "reopen": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S002.json"
+      ],
+      "prior_input_sha256": "afc0c3f0fb5f67999c2526481be006cfd68f80228b4d8963dfc09452ce9c7c15",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "afc0c3f0fb5f67999c2526481be006cfd68f80228b4d8963dfc09452ce9c7c15",
+      "input_lines": 17
+    },
+    {
+      "path": "docs/gm/book-world-completion-2026-10-06/MOL_CHECKPOINT.md",
+      "ids": [
+        "MoL completion rows2–4",
+        "motherOfLearning schema1",
+        "molAcceptedJob"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/book-world-completion-2026-10-06/MOL_INTEGRATION.md"
+      ],
+      "disposition": "Selected source/native leaves and checks reported, but final root integration findings remained. Negative assessment, engineered non-mage method and local opponent/numbers are original proposals; no loop reset, lead memories or source-future restoration was implemented. Historical source/integration claims stay scoped to their receipt. Current AD36/AD43 verification and AD42 optional human review govern any later implementation; no gameplay or canon proof renewed.",
+      "mechanism_and_interactions": "Independent retained-human life distinguishes received paper knowledge, equipment capacity, learned manual control and specialist charge. Actual paid work/pass, own materials/calibration, supported local deadline, current body/cargo and transient held-lamp job context govern consumers.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical document claims reviewed; no new runtime/source-canon verification",
+      "reopen": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S002.json"
+      ],
+      "prior_input_sha256": "b0b3cbdd34eb7b6c0153bf7aa8fe2a44aae5e2143f5fbeb5cc6b0ccbb6f15c13",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "b0b3cbdd34eb7b6c0153bf7aa8fe2a44aae5e2143f5fbeb5cc6b0ccbb6f15c13",
+      "input_lines": 13
+    },
+    {
+      "path": "docs/gm/book-world-completion-2026-10-06/PARADISE_CHECKPOINT.md",
+      "ids": [
+        "Paradise depth",
+        "PARADISE_COVERAGE"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/book-world-completion-2026-10-06/PARADISE_ACCEPTANCE_BACKLOG.md"
+      ],
+      "disposition": "Final leaf release and repaired root joins supersede earlier in-progress wording within this document. Root build is explicitly not proven by that leaf release; five named behavior/return/recovery journeys remain unrun. All new chronology/numbers/branches stay authored proposals. Historical source/integration claims stay scoped to their receipt. Current AD36/AD43 verification and AD42 optional human review govern any later implementation; no gameplay or canon proof renewed.",
+      "mechanism_and_interactions": "Built bench, finite repair orders, acquired procedure, active control and learned mastery have actual rescue/craft/shelter consumers. Consenting care, conserved recovery, later paid work and attributed return remain separate routes with actual body/tool/cost guards.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical document claims reviewed; no new runtime/source-canon verification",
+      "reopen": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S002.json"
+      ],
+      "prior_input_sha256": "d16b1f65773709b78ee24b69baccb4755573b4d9a14fbaff69ad97d752a869d1",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "d16b1f65773709b78ee24b69baccb4755573b4d9a14fbaff69ad97d752a869d1",
+      "input_lines": 15
+    },
+    {
+      "path": "docs/gm/book-world-player-agency/CHECKPOINT.md",
+      "ids": [
+        "P01–P11",
+        "19 agency contracts",
+        "nethack fieldcraft"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/book-world-player-agency/ACCEPTANCE_BACKLOG.md"
+      ],
+      "disposition": "Root source/native/UI/build delivery supersedes pending leaf integration at this historical snapshot, not current gameplay proof. Arbitrary named-actor attack/replacement and broader source parity remain separate; original branch timing/rewards are not canon. Historical source/integration claims stay scoped to their receipt. Current AD36/AD43 verification and AD42 optional human review govern any later implementation; no gameplay or canon proof renewed.",
+      "mechanism_and_interactions": "Independent same-body life, optional protagonist cooperation, source-qualified local cast, material intervention and same-instance return use one publisher. Nineteen unactivated contract rows are distinct from one finite native binding and the admitted fieldcraft slice.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical document claims reviewed; no new runtime/source-canon verification",
+      "reopen": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S002.json"
+      ],
+      "prior_input_sha256": "be80d42e1b37443378d23f1b100e05d6db5553a801193f16bb6cd44fcd85fade",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "be80d42e1b37443378d23f1b100e05d6db5553a801193f16bb6cd44fcd85fade",
+      "input_lines": 11
+    },
+    {
+      "path": "docs/gm/book-world-player-agency/actions/CHECKPOINT.md",
+      "ids": [
+        "Paradise actions",
+        "38 player/13 NPC commands"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/book-world-player-agency/CHECKPOINT.md"
+      ],
+      "disposition": "Keep separate source mission/event clocks and unknown current means; authored short gates are not synchronization proof. A local account closes observation only, without granting source-world task completion/transit. Parent U0023 records later finite integration, not behavioral acceptance. Historical source/integration claims stay scoped to their receipt. Current AD36/AD43 verification and AD42 optional human review govern any later implementation; no gameplay or canon proof renewed.",
+      "mechanism_and_interactions": "Player-only chart precedes optional enrollment; independent service spends real payer materials/escrow/body support. Acquired procedure and ordinary extra-material method coexist. Physical warning/admission/evacuation alter real opportunities, while native NPC motion stays adapter-owned.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical document claims reviewed; no new runtime/source-canon verification",
+      "reopen": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S002.json"
+      ],
+      "prior_input_sha256": "be6de8833419bc12c60c90a0ec1d716cd0729b1b2a45e935b8008f3004d3b835",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "be6de8833419bc12c60c90a0ec1d716cd0729b1b2a45e935b8008f3004d3b835",
+      "input_lines": 13
+    },
+    {
+      "path": "docs/gm/book-world-player-agency/contracts/CHECKPOINT.md",
+      "ids": [
+        "19 agency contracts",
+        "BOOK_WORLD_AGENCY_CONTRACTS",
+        "getBookWorldAgencyContract",
+        "validateBookWorldAgencyContracts"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/book-world-player-agency/contracts/CONTRACTS.json"
+      ],
+      "disposition": "Alias/data integrity does not make nineteen worlds playable. Later MW-03 U0017 preserves heterogeneous provenance fields; parent U0023 retains a separate finite native-world binding. Historical source/integration claims stay scoped to their receipt. Current AD36/AD43 verification and AD42 optional human review govern any later implementation; no gameplay or canon proof renewed.",
+      "mechanism_and_interactions": "Immutable roster IDs/aliases carry independent-player/optional participation, evidence-gated knowledge, divergence and separately bound replacement terms. Every native activation flag is false and cast/place/cost/clock/publisher bindings are null.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical document claims reviewed; no new runtime/source-canon verification",
+      "reopen": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S002.json"
+      ],
+      "prior_input_sha256": "a33155d8be5784d1ba5e3d59cdde9a32ba658be8684facb056ba765a00157d04",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "a33155d8be5784d1ba5e3d59cdde9a32ba658be8684facb056ba765a00157d04",
+      "input_lines": 13
+    },
+    {
+      "path": "docs/gm/book-world-player-agency/fieldcraft-review/CHECKPOINT.md",
+      "ids": [
+        "fieldcraft review P1",
+        "nethackFieldcraftFacts",
+        "validateNethackFieldcraft"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/book-world-player-agency/review/CHECKPOINT.md"
+      ],
+      "disposition": "Two concrete historical integration defects plus source-consumer requirements, not newly reproduced current bugs. Parent U0023 reports later combined source admission and U0029 readback covers9/10 coexistence; old patch cannot be reapplied wholesale over changed shared owners. Historical source/integration claims stay scoped to their receipt. Current AD36/AD43 verification and AD42 optional human review govern any later implementation; no gameplay or canon proof renewed.",
+      "mechanism_and_interactions": "Actual completion recomputes facts centrally, so missing provider/current location/vitals/inventory makes support stale. Hard schema9 requirement conflicts with combined10; reservation-return allowlist must refund actual reserved inputs.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical document claims reviewed; no new runtime/source-canon verification",
+      "reopen": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          14
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S002.json"
+      ],
+      "prior_input_sha256": "0edab389e218e5f567a44355d63e92f8ef28d5c65f8edefc10e8e68569a587f8",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "0edab389e218e5f567a44355d63e92f8ef28d5c65f8edefc10e8e68569a587f8",
+      "input_lines": 14
+    },
+    {
+      "path": "docs/gm/book-world-player-agency/item-view/CHECKPOINT.md",
+      "ids": [
+        "projectFieldcraftItemView"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/book-world-player-agency/CHECKPOINT.md"
+      ],
+      "disposition": "Static source/import inspection did not call the projector or prove native rendering. Parent source/build receipt is later evidence of integration; observation/empty/unknown display behavior still requires actual consumer verification when selected. Historical source/integration claims stay scoped to their receipt. Current AD36/AD43 verification and AD42 optional human review govern any later implementation; no gameplay or canon proof renewed.",
+      "mechanism_and_interactions": "Read-only item display gates full-container identity and charge on actual opening, understanding and completed supported assay/maintenance evidence. Empty container reveals no prior contents; unrelated items pass through untouched.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical document claims reviewed; no new runtime/source-canon verification",
+      "reopen": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S002.json"
+      ],
+      "prior_input_sha256": "802934da75e06af6a2c1f757fe9b468b89b0058c57d8d6389ddea4d30289f005",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "802934da75e06af6a2c1f757fe9b468b89b0058c57d8d6389ddea4d30289f005",
+      "input_lines": 7
+    },
+    {
+      "path": "docs/gm/book-world-player-agency/native/CHECKPOINT.md",
+      "ids": [
+        "Paradise native adapter",
+        "footprint.native.quest"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/book-world-player-agency/CHECKPOINT.md"
+      ],
+      "disposition": "Final current-adapter hash differs from provisional source list, both retained historically. Host/action imports and root reset-before-absence behavior were pending at this leaf stage; parent U0023 is later source/build evidence, not native behavior proof. Historical source/integration claims stay scoped to their receipt. Current AD36/AD43 verification and AD42 optional human review govern any later implementation; no gameplay or canon proof renewed.",
+      "mechanism_and_interactions": "Unavailable placeholders are definitions, not enrollment/resources. Explicit durable activation initializes real native owners; exact negative requests use acquisition/revision/idempotency, distinct calendars, optional absence and scoped restore/publication.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical document claims reviewed; no new runtime/source-canon verification",
+      "reopen": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          27
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S002.json"
+      ],
+      "prior_input_sha256": "13545332f503b2470fa22916f04a91802713ffa518eb89c1f224744027673178",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "13545332f503b2470fa22916f04a91802713ffa518eb89c1f224744027673178",
+      "input_lines": 27
+    },
+    {
+      "path": "docs/gm/book-world-player-agency/review/CHECKPOINT.md",
+      "ids": [
+        "P01–P11",
+        "R01",
+        "R02"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/book-world-player-agency/CHECKPOINT.md"
+      ],
+      "disposition": "Initial defect and later completion fingerprints have different scopes. No new concrete P1/P2 finding in the inspected source does not establish final bundle or player/save behavior; later parent owns build. Historical source/integration claims stay scoped to their receipt. Current AD36/AD43 verification and AD42 optional human review govern any later implementation; no gameplay or canon proof renewed.",
+      "mechanism_and_interactions": "Bounded read-only source review repaired shop-contract mismatch and stale location cast lists, and withdrew missing-UI hypothesis after finding existing presentation. Later readback checked public duty knowledge, event opportunity gates, deadline, uncertain custody and fieldcraft coexistence.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical document claims reviewed; no new runtime/source-canon verification",
+      "reopen": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S002.json"
+      ],
+      "prior_input_sha256": "be094264a8cabea7b715e93027ae432848c6bb2091f4d6467435c36137b268c6",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "be094264a8cabea7b715e93027ae432848c6bb2091f4d6467435c36137b268c6",
+      "input_lines": 11
+    },
+    {
+      "path": "docs/gm/book-world-player-agency/source-fit/CHECKPOINT.md",
+      "ids": [
+        "opening/Goa source-fit",
+        "20 evidence rows"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/book-world-player-agency/CHECKPOINT.md"
+      ],
+      "disposition": "Narrow reader was mistakenly written to parent checkpoint and corrected into its own source-fit owner. Completed local qualification is not parent campaign completion or whole-novel reading; parent final build owns actual integrated bytes. Historical source/integration claims stay scoped to their receipt. Current AD36/AD43 verification and AD42 optional human review govern any later implementation; no gameplay or canon proof renewed.",
+      "mechanism_and_interactions": "Bounded reused MTL source fit retains exact members/hashes, era/source state, unconfirmed custody and unknown current mana. Distinct source clocks and qualified means do not grant player copies, future methods or rewards.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical document claims reviewed; no new runtime/source-canon verification",
+      "reopen": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S002.json"
+      ],
+      "prior_input_sha256": "fb2259a2d085bbfcbebfb1c277bdedc2d48bfc76cffbb414a4eb7c87bf345132",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "fb2259a2d085bbfcbebfb1c277bdedc2d48bfc76cffbb414a4eb7c87bf345132",
+      "input_lines": 7
+    },
+    {
+      "path": "docs/gm/care-worlds-2026-10-06/CHECKPOINT.md",
+      "ids": [
+        "care/consequences P1/P2",
+        "73 commands"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/care-worlds-2026-10-06/ACCEPTANCE_BACKLOG.md"
+      ],
+      "disposition": "Twelve new and twelve shared source joins, repairs and matching build are historical implementation-first delivery. No behavior/save/failure proof; other P3–P5/full-world parity remains unselected, and new local fiction/costs are proposals. Historical source/integration claims stay scoped to their receipt. Current AD36/AD43 verification and AD42 optional human review govern any later implementation; no gameplay or canon proof renewed.",
+      "mechanism_and_interactions": "Specific treatments/dressing and opted-in encounter wound watch use actual committed damage cause, native body and existing effects owner. Original paid material work, independent responses, consent and conserved material/exposure endpoints connect care to ordinary useful work.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical document claims reviewed; no new runtime/source-canon verification",
+      "reopen": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S002.json"
+      ],
+      "prior_input_sha256": "734a69bf2b99ae10f9c942cd96b69a345ef1ff966f55819b13eba8d91d6a512a",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "734a69bf2b99ae10f9c942cd96b69a345ef1ff966f55819b13eba8d91d6a512a",
+      "input_lines": 13
+    },
+    {
+      "path": "docs/gm/causal-endings/CHECKPOINT.md",
+      "ids": [
+        "Causal P1–P5",
+        "seven source modules"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/audit-implementation/remainder/CHECKPOINT.md"
+      ],
+      "disposition": "Source role released; later parent U0008 records source/native/build integration. Present strength/prediction alone does not establish the authored anchor relation, and all five behavioral/durable recovery families remain unrun. Historical source/integration claims stay scoped to their receipt. Current AD36/AD43 verification and AD42 optional human review govern any later implementation; no gameplay or canon proof renewed.",
+      "mechanism_and_interactions": "Independent native people use own stock/body/purse/source/knowledge and a shared played clock. Physical result, goal closure and finality remain separate, with actual source-supported counter operations and observer-specific receipts.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical document claims reviewed; no new runtime/source-canon verification",
+      "reopen": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          25
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S002.json"
+      ],
+      "prior_input_sha256": "f6cc7bf9ead590daf023e2c4534adfd098ce8dfaa3dd1a66ae3808272516447f",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "f6cc7bf9ead590daf023e2c4534adfd098ce8dfaa3dd1a66ae3808272516447f",
+      "input_lines": 25
+    },
+    {
+      "path": "docs/gm/causal-endings/implementation/content/CHECKPOINT.md",
+      "ids": [
+        "63 Causal commands",
+        "five controllers",
+        "causalStoryFacts",
+        "sever_job"
+      ],
+      "classification": "reused substantive historical content review; current runtime/source claims not reverified",
+      "owners": [
+        "docs/gm/causal-endings/INTEGRATION.md"
+      ],
+      "disposition": "Read facts/definitions neither enroll nor refill. Shared completion owns actual source release and one kit return, excluding generic sever_job dispatch; authored values/profiles are proposals, and no changed-definition behavior proof follows from older tests. Historical source/integration claims stay scoped to their receipt. Current AD36/AD43 verification and AD42 optional human review govern any later implementation; no gameplay or canon proof renewed.",
+      "mechanism_and_interactions": "Three explicitly activated proof profiles use independently paid/support-rechecked people and actual staged native context. A courier goal can close while later study/consent/counter operations remain possible; later operations retain historical goal closure.",
+      "evidence": "Semantic receipt inspected in this batch; prior input and complete read-range union match current bytes. Historical document claims reviewed; no new runtime/source-canon verification",
+      "reopen": "Selected current consumer needs actual owner/input recovery and its named failure/knowledge/support and persistence check; no implementation assigned here.",
+      "full": true,
+      "ranges": [
+        [
+          1,
+          15
+        ]
+      ],
+      "read_mode": "reuse_prior_full_content_review",
+      "prior_receipts": [
+        "docs/reviews/plan-rule-reconciliation-2026-10-18/round5/S002.json"
+      ],
+      "prior_input_sha256": "a12d4ddfad5e21694cc43173d44e2cea1c78840e84b7f1c7b56ed72babf9ebde",
+      "prior_locator_scopes": [
+        "Early brief supplied whole assigned read span, not pinpoint per-claim support. Coarse locator added without new reading or proof credit."
+      ],
+      "input_sha256": "a12d4ddfad5e21694cc43173d44e2cea1c78840e84b7f1c7b56ed72babf9ebde",
+      "input_lines": 15
+    },
+    {
+      "path": "docs/gm/book-world-player-agency/ACCEPTANCE_BACKLOG.md",
+      "ids": [
+        "acceptance 1–5"
+      ],
+      "classification": "historical integration/acceptance owner; fresh full content read",
+      "owners": [
+        "docs/gm/book-world-player-agency/ACCEPTANCE_BACKLOG.md"
+      ],
+      "disposition": "Preserve independent-life/contact, causal alternatives, real employer reserves, exact persistence/publication failures and earned fieldcraft recognition. Contract definition is distinct from activation. Historical implementation-first deferral is not current verification authority.",
+      "evidence": "Entire source read in B10; no runtime execution or current implementation verification.",
+      "reopen": "Use current source and relevant owner rules to select exact failure cases when a future slice changes this behavior.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "2105ac0794c5fb4fd35a53531e53b3fe87e5741780cecd8449f1fb6da84ec860",
+      "input_lines": 9,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/care-worlds-2026-10-06/ACCEPTANCE_BACKLOG.md",
+      "ids": [
+        "acceptance 1–5"
+      ],
+      "classification": "historical integration/acceptance owner; fresh full content read",
+      "owners": [
+        "docs/gm/care-worlds-2026-10-06/ACCEPTANCE_BACKLOG.md"
+      ],
+      "disposition": "Preserve exact consent/cause/material/native-body tests, finite independent worker means, received warnings vs response, care support and publication failures. Mild-wound assumptions belong to this historical slice, not all combat/worlds.",
+      "evidence": "Entire source read in B10; no runtime execution or current implementation verification.",
+      "reopen": "Use current source and relevant owner rules to select exact failure cases when a future slice changes this behavior.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "8400c8f129ba329b5e7d45aab565c785f51add159cc640f7bb1775a95cdbba1a",
+      "input_lines": 9,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/causal-endings/INTEGRATION.md",
+      "ids": [
+        "native publication",
+        "job reservation ownership",
+        "boundary ordering"
+      ],
+      "classification": "historical integration/acceptance owner; fresh full content read",
+      "owners": [
+        "docs/gm/causal-endings/INTEGRATION.md"
+      ],
+      "disposition": "Retain source-era integration recipe as history: actual actor frames, fresh facts, invalidate support before completion, reservation-owned once settlement and durable native publication. Later parent receipt supersedes pending integration only at its source/build evidence scope; no present runtime proof or instruction to apply old hooks.",
+      "evidence": "Entire source read in B10; no runtime execution or current implementation verification.",
+      "reopen": "Use current source and relevant owner rules to select exact failure cases when a future slice changes this behavior.",
+      "read_mode": "fresh_full_content_read",
+      "input_sha256": "50641e0f90a9a2f6e415fd6cafbecaa53df4a82eb692d5bb5830be82090173c1",
+      "input_lines": 74,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          74
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/gm/book-world-player-agency/ACCEPTANCE_BACKLOG.md",
+      "heading": "## Reconciliation qualification, 2026-11-04 (B10)",
+      "body": "The opening implementation-first deferral records the source-era instruction, not current verification authority. Keep these five unrun behavior families as historical acceptance evidence. Later work uses current AD36/AD43 checks at the changed seam; AD42 makes human review optional rather than an automatic runtime blocker. Select relevant generated fixtures from current persistence contracts instead of treating every historical schema as a new universal gate. Definition, enrollment, source integration, built output and observed native behavior remain distinct. Preserve the exact paid resources, actual body/contact, independent actor means, current support and durable-publication failure cases; this reconciliation reran none of them.",
+      "before_sha256": "2105ac0794c5fb4fd35a53531e53b3fe87e5741780cecd8449f1fb6da84ec860",
+      "after_sha256": "2dd0dcdd9b675088d0784a09452e6a5e62eaffca1570e5a41a80f09a68c4766c"
+    },
+    {
+      "path": "docs/gm/care-worlds-2026-10-06/ACCEPTANCE_BACKLOG.md",
+      "heading": "## Reconciliation qualification, 2026-11-04 (B10)",
+      "body": "The opening implementation-first deferral records the source-era instruction, not current verification authority. Keep these five unrun behavior families as historical acceptance evidence. Later work uses current AD36/AD43 checks at the changed seam; AD42 makes human review optional rather than an automatic runtime blocker. Select relevant generated fixtures from current persistence contracts instead of treating every historical schema as a new universal gate. Definition, enrollment, source integration, built output and observed native behavior remain distinct. Preserve the exact paid resources, actual body/contact, independent actor means, current support and durable-publication failure cases; this reconciliation reran none of them.",
+      "before_sha256": "8400c8f129ba329b5e7d45aab565c785f51add159cc640f7bb1775a95cdbba1a",
+      "after_sha256": "cb177d8e241ddf0f7246558be38edee0a172389c3776c6502e5265298ad3e5f1"
+    },
+    {
+      "path": "docs/gm/causal-endings/INTEGRATION.md",
+      "heading": "## Integration history qualification, 2026-11-04 (B10)",
+      "body": "This recipe preserves the original source release and its reservation, boundary, actor-context and publication constraints. The later parent integration receipt retained in the Round 5 reconciliation records source/native joining and build evidence beyond the earlier pending-integration paragraph. That receipt does not establish a current played journey or erase the unrun acceptance cases. Reconcile any future change against current owning code before applying this historical hook sequence; do not restore old schema or function shapes merely to match the recipe. Preserve once-only settlement under the actual live reservation, fresh actor facts and durable publication before visibility.",
+      "before_sha256": "50641e0f90a9a2f6e415fd6cafbecaa53df4a82eb692d5bb5830be82090173c1",
+      "after_sha256": "9a371d81daa46df5b9fc92a11056ce12386767221f7bb044d41afdcf991d16ef"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1897
+}

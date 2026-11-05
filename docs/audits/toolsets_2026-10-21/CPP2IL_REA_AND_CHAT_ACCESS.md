@@ -51,3 +51,8 @@ The bundled Codex client, run from this checkout, recognized both registrations 
 Eight focused launcher regressions pass after the root/default changes. Cpp2IL, updated REA and preserved REA scoped probes pass. Real Cpp2IL/ILSpy owned-game recovery, real Ghidra synthetic-function recovery, both MCP stdio sessions and the effective client config checks pass. Architecture and rules-index checks pass with the same two untracked-document warnings. Evidence JSON files bind current launcher/registry/config inputs.
 
 No gameplay source/bundle, game installation, save, source library, global client config or old analysis corpus was changed. No book acquired, authenticated export performed, optional runtime instrumentation exercised, model-backed agent evaluation run, commit created or push sent. Full YAIR gameplay tests/build and upstream REA's broad all-provider suite were not relevant substitutes for these specific checks and were not run. Fresh-chat visible MCP tools and semantic game-method recovery remain explicitly outside the verified slice.
+
+
+## Later presence drift, 2026-11-04 (B73)
+
+F1–F5 remain the historical repair/update/configuration receipt. The [current registry presence check](../../TOOL_REGISTRY.md#current-presence-check-2026-11-04-b73) now reports the default REA dependency directory missing, while pinned REA/Cpp2IL required paths are present. That is a current readiness limitation, not a reversal of the recorded successful native fixture/declaration recovery or a reason to silently substitute analysis identities. No health/target/MCP trial or install was performed here. Preserve upstream/signed-byte distinction, declaration-versus-body limits, exact source identities and scoped source authorization (AD32/AD36).

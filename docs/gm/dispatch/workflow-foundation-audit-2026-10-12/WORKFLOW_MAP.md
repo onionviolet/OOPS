@@ -32,3 +32,8 @@ Current source connects native work and staff stock; current Ink lacks the selec
 - O4 This audit GM:01a12e85-ef4b-7f81-9594-357d73d4b8ca, confirmed by app list_threads and dispatcher record. Disjoint specialists own only their evidence files until release; no other-chat message or authority request occurred.
 
 Exact wider family mapping and source references are in [JOINS_EVIDENCE](JOINS_EVIDENCE.md); native/Ink layer details are in [DIALOGUE_EVIDENCE](DIALOGUE_EVIDENCE.md). This map is a read-only audit return, not a new owner registry.
+
+
+## Later authority and historical reservations, 2026-11-04 (B81)
+
+This October 12 map preserves its source offsets, compiler/source versions, paused-owner and isolated-candidate observations. Later [finite world closure](../../cross-audit-reconciliation-2026-10-15/CLOSURE_RETURN_WORLDS.md) records resumption/ended candidate and stage-specific successors; neither an old pause nor candidate proof becomes today’s writer reservation or current combined gameplay. Keep its useful source → proposal → actual owner/consumer → atomic cursor/material settlement → observer-safe presentation distinctions. The selected Lin/staff service is not a region-wide economy or autonomous population simulator, and the reported Ink binding gap needs current source before being called absent now. Current USER_VISION/rule owners govern product authority; reversible authorized tuning need not become a human sign-off gate, and AD42 makes feel review optional. The current content request authorizes reconciliation, not an old paused runtime goal, stale dispatcher or automatic new integration wave (AD32/AD36).

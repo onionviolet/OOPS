@@ -341,3 +341,14 @@ test('folded observations expose retained recipient-owned records, without mater
  delete p.state.simulation.knowledge.player['fixture.fold.detail'];assert.deepEqual(placeActRecords(p.state,local),[]);
  assert.deepEqual(placeActRecords(p.state,local,stock),[{id:'fixture.fold.private',text:'The actual recipient account.',at:4}]);
 });
+
+
+test('a public remote action explains its existing known connection guard without inventing an unknown cause',()=>{
+ const p=setup(),row={...data.acts[0],remoteSession:'fixture.remote',publicReasons:true};
+ const key='remote.fixture.remote.ready',command={id:row.id,label:row.label,location:room,duration:2,requires:{all:[{fact:key,op:'eq',value:true,reason:'The meeting connection is no longer supported.'}]}};
+ const before=JSON.stringify(p),offer=(facts,publicReasons=true)=>quotePlaceActs(p.state,[command],{acts:[{...row,publicReasons}]},()=>({visible:true,eligible:false,reasons:['The required knowledge, means or circumstances are missing.'],duration:2}),{facts:()=>facts})[0];
+ assert.deepEqual(offer({[key]:false}).reasons,['The meeting connection is no longer supported.']);
+ assert.deepEqual(offer({}).reasons,['The required knowledge, means or circumstances are missing.']);
+ assert.deepEqual(offer({[key]:false},false).reasons,['The required knowledge, means or circumstances are missing.']);
+ assert.equal(offer({[key]:true}).eligible,false,'another blocker remains authoritative');assert.equal(JSON.stringify(p),before);
+});

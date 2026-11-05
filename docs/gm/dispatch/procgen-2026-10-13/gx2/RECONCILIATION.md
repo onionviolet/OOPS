@@ -71,3 +71,12 @@ Comic-law CL1–CL18 supplies per-world context for era, recurrence, retcon and 
 | [UI at scale](../../../../UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md) CS, revised ZN2, CF | One foreground transaction, useful independent panels and Compare remain visible. Suggested placement in cards is scoped to 1366x768, not another UI framework. Mobile deferred. |
 | [Core scorecard](../../../../CORE_FOUNDATIONS_SCORECARD_2026-10-14.md) U04/U06/U14/K3 | Its pre-merge absence/unseeded rows are historical. Split observers/stores and strict C0 execution gap still matter. Reuse read adapters before merging stores; no broad refactor prerequisite for first two lenses. |
 | [GX4 task](../GX4.md) GI1–GI6/GA1–GA8 | GX2 supplies concrete two-consumer projection/intervention requirements; GX4 owns larger registry/migration/refactor proposals. No shared source/file reservation made here. |
+
+
+## Content reconciliation B152, 2026-11-04
+
+The full operation/lens/comic and domain crosswalk was reviewed. Preserve owner-qualified CL namespaces: kit lens, comic law and crafting codex are not the same IDs. Observation, forecast, disclosure blocking, pending decision manipulation and actual past-truth change have different consumers. A status card or recorded grant does not implement any of them, and a hidden UI alone does not implement Blind (AD32, AD38).
+
+Packet restrictions on rerolling owned mixtures or settled effects describe its proposed pending-decision adapter. A separately admitted retrospective rewrite, loop, copying or fate mechanism may change its actual domain; no universal ban or compulsory luck debt follows. Exact forecasts require their real dependencies, and an actual future-binding power can preserve a future by its mechanism. Basic known-record display remains ordinary UI, while a mind-reading or exact-knowledge means can reveal the truth it genuinely reaches. Stacked capabilities retain their actual scopes and can combine valid information without being granted unrelated omniscience.
+
+Current viewport, AD42 human-review status, AD51 shared-seam direction and later merged appearance/story/cheat consumers qualify old source/queue assumptions. Bare proposal ports and two-consumer examples are neither reserved file areas nor a broad refactor gate. Linked owner bodies, source canon and actual native routes were not newly verified by this crosswalk read.

@@ -13,3 +13,8 @@ No required T3 technical gate remains open. REPORT.md and evidence/proof.json ow
 | H1 | Human judgment OPEN | Fiction, authored response, supply cost, effect balance and presentation taste await Weibao. Source/build/browser completion does not establish that acceptance. |
 
 Generated-law values remain omitted from player text and reports. Raw developer trace screenshots and golden test records are developer-only truth artifacts; do not repurpose them as in-fiction knowledge.
+
+
+## Historical proof reconciliation, 2026-11-04 (B11)
+
+These boundaries belong to the exact lane/base in the linked report. T2’s absent T3 trace is a base-era fact; the later T3 checkpoint records its own isolated technical completion, not current primary-checkout integration. Preserve the distinction between naturally earned and seeded prerequisites, source-tested and timed native paths, and literal-file identity versus load normalization. Missing developer trace stays absent and must never be recomputed by inspection or exposed as player knowledge. Under current AD42, human fiction/balance/taste feedback is optional review, separate from agent verification. This reconciliation supplies no new runtime or merge evidence.

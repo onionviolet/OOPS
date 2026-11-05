@@ -1,5 +1,7 @@
 # Cheat implementation core audit (repeatable)
 
+**B7 current-source correction, 2026-11-04:** the final parked note below predates the current PLAY-path call to `applyStartGrants`. The [library fold](../CHEAT_LIBRARY.md#im36im46-core-audit-reconciliation-b7-2026-11-04) distinguishes source wiring from unrefreshed premise/voice/browser proof. The later cheat/heir deferrals still govern (AD32/AD29); no new cheat work is selected.
+
 Saved 2026-10-23 after the first run. One instance of the
 [topic expansion audit playbook](TOPIC_EXPANSION_AUDIT_PLAYBOOK.md). Running it
 produces proposals only; it never selects build scope or changes a standing priority.

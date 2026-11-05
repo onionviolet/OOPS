@@ -1,0 +1,23 @@
+{
+  "checks": [
+    "both native reviews are mutation/draw-free; repair uncertainty and swap salvage are explicit",
+    "simultaneous review components have distinct accessible reason identities",
+    "native hand repair reserves exact material, starts timed job and leaves condition unchanged",
+    "starting timed repair invalidates the other panel’s stale swap review",
+    "native cancellation refunds reserved repair material",
+    "in-flight native repair and reservation survive reload",
+    "native repair settles once using its actual success/failure rule and clock; preview was conditional",
+    "real component swap preserves identity/condition, consumes one part, returns 31%-grade salvage and matches raw-base forecast without coin/time fee",
+    "maker-specific native fee/refusal remains visible",
+    "native incompatible replacement refuses without consuming stock",
+    "current and comparison screens share unchanged native state",
+    "native layout 1920x1080, actual 14px, no horizontal page overflow",
+    "native layout 1920x1080, actual 21px, no horizontal page overflow",
+    "native layout 1536x864, actual 14px, no horizontal page overflow",
+    "native layout 1536x864, actual 21px, no horizontal page overflow",
+    "swapped assembly survives native reload",
+    "existing workbench loads real comparison study with native mirroring disabled"
+  ],
+  "errors": [],
+  "review": "agent-verified isolated native tool repair and gear component swap prototype; not installed"
+}

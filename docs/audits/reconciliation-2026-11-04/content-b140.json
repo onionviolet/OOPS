@@ -1,0 +1,142 @@
+{
+  "schema": 1,
+  "batch": "B140",
+  "title": "Format choices, representation and surface triage",
+  "at": "2026-11-04T21:49:12.368085+00:00",
+  "head": "ea998fa0e9d83c1bd2822cd9c5eb9bda27d90d32",
+  "status": "recorded",
+  "reviews": [
+    {
+      "path": "docs/FORMAT_AND_VIEW_DECISION_AUDIT_2026-10-14.md",
+      "ids": [
+        "DF1-DF5",
+        "DV1-DV8",
+        "DC1-DC4",
+        "DS1-DS4",
+        "V1-V11",
+        "MC1-MC6",
+        "LD1-LD3",
+        "Q1-Q3",
+        "rounds 2-5"
+      ],
+      "classification": "Historical comparison and proposal register with later direction pointers",
+      "owners": [
+        "docs/FORMAT_AND_VIEW_DECISION_AUDIT_2026-10-14.md",
+        "docs/WANDERING_ZONES_AND_INSIGHT.md",
+        "DESIGN.md"
+      ],
+      "disposition": "Read all comparison rows and later corrections. Hanzi visual preference is confirmed, but ranking superiority, semantic-layer framing and exact placement are proposals, not a measured optimum. Q1 wording corrected to conditional adoption. Current viewport, font and functional/prose direction qualify old recommendations; preserve same-target views, keyboard labels and safe projection.",
+      "evidence": "Fresh full text and USER_VISION 1457-1498,3368-3450 plus DESIGN 68-87. No external competitor, font bundle, image, view prototype or native scene verified. Q1-Q3 are explicitly still proposals in the direction owner.",
+      "reopen": "Select a task-specific view with current source and observed need; investigate an actual font or geometry problem rather than adopting old rankings as proof.",
+      "input_sha256": "915ddcf2680f18eab858044333fa4e16258b3ad937a10eedd06019645cc391f9",
+      "input_lines": 127,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          127
+        ]
+      ]
+    },
+    {
+      "path": "docs/UI_IDENTITY_AND_REPRESENTATION_CONSIDERATIONS_2026-10-14.md",
+      "ids": [
+        "UF1-UF5",
+        "PX1-PX12",
+        "NB1-NB9",
+        "RP1-RP6",
+        "DU1-DU7",
+        "UC1-UC5",
+        "UL1-UL3",
+        "Q4-Q6"
+      ],
+      "classification": "Historical UI source/look analysis with unsafe hidden-count wording",
+      "owners": [
+        "docs/UI_IDENTITY_AND_REPRESENTATION_CONSIDERATIONS_2026-10-14.md",
+        "docs/UI_RULES.md",
+        "DESIGN.md"
+      ],
+      "disposition": "Read full identity, external design leads, representation and decision rows. Correct UC5 hidden traits count leak. Later source direction answers Q4-Q6, selects internal MS Gothic with fallback verification, permits scoped Proto23 reuse and retires 1366 floor. Preserve generalized focus, visible escape, native command views and truthful known person facts.",
+      "evidence": "Original served bundle explicitly was not rebuilt. Fresh markdown and named direction ranges only, not current DOM/CSS/font inspection or a new NetHack/Bitburner source read. PX11 blanket Mac fallback is historical observation, not all Macs or proof of current actual font.",
+      "reopen": "Reproduce a selected current scene/focus/navigation defect; inspect actual visible knowledge and rendered font without exposing undiscovered facts.",
+      "input_sha256": "97242afde63650cd038bd37b79aa9b2c38525d5eba09577dd2fb9bb51ed9afb2",
+      "input_lines": 107,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          107
+        ]
+      ]
+    },
+    {
+      "path": "docs/UI_SURFACE_TYPES_AND_DRAWING_BOARD_2026-10-15.md",
+      "ids": [
+        "SF1",
+        "ST1-ST9",
+        "TR1-TR4",
+        "AP1-AP5",
+        "MA1-MA4",
+        "ML1-ML3",
+        "Q7-Q9"
+      ],
+      "classification": "Historical placement/triage proposal with explicit later adoption",
+      "owners": [
+        "docs/UI_SURFACE_TYPES_AND_DRAWING_BOARD_2026-10-15.md",
+        "docs/UI_RULES.md",
+        "docs/MAKING_RULES.md"
+      ],
+      "disposition": "Read all surface taxonomy, triage, apothecary, dials and later acceptance. USER_VISION explicitly approves Q7-Q9. Preserve their authority, unchanged internal ids, parked playable features and scoped retirement candidates. No deletion, redraw, old held queue or universal keeper/modal/control-count requirement follows.",
+      "evidence": "Fresh full text and explicit USER_VISION adoption, not runtime proof of apothecary, Projects drawer, NAV or 177 surface families. Later exact layout and viewport are governed by current owners.",
+      "reopen": "Verify the selected current surface against its native owner and route; preserve working gameplay and stated compatibility when rehoming it.",
+      "input_sha256": "cd762e4607d05589c01df39026a44fafe8a80e4041572db352f614de0e840bb8",
+      "input_lines": 98,
+      "full": true,
+      "ranges": [
+        [
+          1,
+          98
+        ]
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "path": "docs/FORMAT_AND_VIEW_DECISION_AUDIT_2026-10-14.md",
+      "heading": "## Content reconciliation B140, 2026-11-04",
+      "body": "All DF/DV/DC/DS/V rows and later rounds were reviewed. [The direction owner](USER_VISION.md#format-portraits-and-view-decisions-2026-10-14) explicitly keeps Q1-Q3 as proposals (AD32), while confirming the center menu and Hanzi visual preference. The old conditional Q1 result is now written conditionally; it was never evidence of adoption. Hanzi preference is not proof of the table's cost, uniqueness or comprehension rankings, and skin changes are not automatically cheap without a qualified semantic interface. Shared target IDs, knowledge-safe labels and the same native commands remain useful design.\n\nCurrent [DESIGN](../DESIGN.md) assesses representations by the actual task: functional housing and prose-first are current direction; useful spatial position, reach and adjacency may justify a map. No universal map or 2D conversion is required, and V11 is not a permanent ban on later authorized spatial work. DF3's 1366x768 and MC1's font assumptions are dated; UI_RULES owns current desktop sizes and actual font/fallback checks. A known label, accessible name, filter count or decorative terrain must not disclose hidden targets. Free switching is a projection operation, distinct from a new paid observation or committed journey. No layout, portrait policy, art budget or engine migration was newly selected.",
+      "before_sha256": "915ddcf2680f18eab858044333fa4e16258b3ad937a10eedd06019645cc391f9",
+      "after_sha256": "47078d70c6b727c5db1b2cad51e5fb92c00195dfb952c1214c0cdf05855d6d7e"
+    },
+    {
+      "path": "docs/UI_IDENTITY_AND_REPRESENTATION_CONSIDERATIONS_2026-10-14.md",
+      "heading": "## Content reconciliation B140, 2026-11-04",
+      "body": "UF/PX/NB/RP/DU/UC/UL and Q4-Q6 were read. The later [foundation direction](UI_FOUNDATION_DESIGN_ROUND_2026-10-15.md) answers the old Q4-Q6, including that Q6 was an unrecognizable existing Back control rather than a proven missing command. Historical log burial, style counts and source mounting were findings on the old served bundle. They do not prove the current game still has those exact defects, or that the full later scene surface works.\n\nUC5's instruction to count hidden traits was unsafe and is corrected in place: labels, counts, omitted fields and unknown states all derive from observer-permitted information. The source cannot expose a secret merely by replacing its name with question marks. Focus portraits/glyphs and memory lines likewise need actual known identities, observations and history; they do not read an NPC's true mood or intentions for free (UR52, UR72, AD32).\n\nPX11's automatic Mac fallback and UC3's no-code wording are dated. Current UI_RULES selects internal MS Gothic while requiring actual rendered-face/fallback evidence; the later Proto23 direction allows scoped reuse, with attribution and publication still separately handled. The 1366 floor is retired, mobile remains deferred, and NB1-NB9 are research leads rather than a fresh external-source review. Preserve the functional You/Focus/log relationship, visible return, stable commands and shared tokens; no exact CSS values, known marker counts or universal scene shape were adopted here.",
+      "before_sha256": "97242afde63650cd038bd37b79aa9b2c38525d5eba09577dd2fb9bb51ed9afb2",
+      "after_sha256": "cdb957674ed53c1878670b7222541c5bd94f6e47328a1538b67571cb3040cf18"
+    },
+    {
+      "path": "docs/UI_SURFACE_TYPES_AND_DRAWING_BOARD_2026-10-15.md",
+      "heading": "## Content reconciliation B140, 2026-11-04",
+      "body": "The complete ST/TR/AP/MA/ML proposal and later Q7-Q9 adoption were read. [USER_VISION](USER_VISION.md#format-portraits-and-view-decisions-2026-10-14) explicitly confirms the surface types, keep/rehome/drawing-board/retire triage and Village apothecary with unchanged internal ids (AD32, UR12). Do not demote this actual instruction to an unanswered proposal, or infer current runtime delivery from the old queued status.\n\nPreserve the useful distinction between routine action, local service, consequential start, confirmation, obligation, reference, settings, prototype and ambient report. Specific seven-row limits, universal modal forms, compulsory staffed stations and every-world service shape remain local design choices. A home or unattended usable tool can be a valid workstation without a keeper; ownership, access and actual means decide. Threshold terms must remain readable and known-only; a locked-tab count can leak content just as a name can. A start disclosure states commitments without revealing unearned institutional structure.\n\nTR3 parks presentation for redesign while preserving working gameplay; TR4 names no ready deletion candidate and is not deletion authority. Q8/Q9 retain their scoped save/id intent, with SAVES and the later compatibility decision governing any newly selected state change. Old NAV/Shell/TRIAGE queue reservations are historical, human review is optional under AD42, and this pass executed no drawer move, apothecary conversion or runtime check.",
+      "before_sha256": "cd762e4607d05589c01df39026a44fafe8a80e4041572db352f614de0e840bb8",
+      "after_sha256": "0119b586db5de600540b9e752183c535d9d71b3be657ed82628d8f4887149cfb"
+    }
+  ],
+  "scope": "Reviewer supplied content dispositions. Explicit read_mode distinguishes fresh reading from inspected prior full-content review reused on unchanged inputs. No hash-inferred semantics or renewed historical behavior proof.",
+  "remaining_without_content_review": 1214,
+  "post_record_amendments": [
+    {
+      "path": "docs/UI_IDENTITY_AND_REPRESENTATION_CONSIDERATIONS_2026-10-14.md",
+      "from": "- **UC5.** Mirror panel must stay observer-safe: unknown stats show `???` (Proto23 already does \"rank: ???\"), hidden traits stay counted, never named.",
+      "to": "- **UC5.** Mirror panel must stay observer-safe: show an unknown state only where the observer knows a field is relevant. Hidden traits are neither named nor counted unless that count itself has been learned; filter the projection before labels, counts and rendering (UR52, UR72).",
+      "reason": "B140 removes hidden-count disclosure or false conditional-adoption wording; original text and reviewed input identity retained."
+    },
+    {
+      "path": "docs/FORMAT_AND_VIEW_DECISION_AUDIT_2026-10-14.md",
+      "from": "| Q1 | Confirm DF1, DS1, DC1 as direction (text-led scenes, receipt-driven story, portraits optional)? | Recorded as accepted in PROJECT.md |",
+      "to": "| Q1 | Confirm DF1, DS1, DC1 as direction (text-led scenes, receipt-driven story, portraits optional)? | If confirmed, record the named decision in its authority owner; this question is not evidence of acceptance (AD32) |",
+      "reason": "B140 removes hidden-count disclosure or false conditional-adoption wording; original text and reviewed input identity retained."
+    }
+  ]
+}
