@@ -28,6 +28,9 @@ test('an explicitly approximate scene slot does not reserve time or weaken its s
  assert.equal(reservationDecision(store,{at:0,changes:[{actor:'fixture.person',type:'resource',key:'coins',amount:-3}],read:()=>10}).allowed,false,'resource obligations remain protected');
  const exact=structuredClone(pack);delete exact.bindings.beats[0].reserveTime;
  assert.equal(reservationDecision(constraintsFromPack(exact).store,time).allowed,false,'legacy or explicit timed commitments still reserve time');
+ const refused=reservationDecision(constraintsFromPack(exact).store,time);
+ assert.equal(refused.freeMinutes,20,'the refusal names the longest wait that still fits');
+ assert.equal(reservationDecision(constraintsFromPack(exact).store,{...time,through:refused.freeMinutes}).allowed,true,'that shorter wait is allowed');
 });
 test('1,000 conditioned keys remain consistent, stable under order and unmutating',()=>{
  const streams=createStreams(31),before=JSON.stringify(streams),outcomes=[{value:'permitted',weight:1e-12},{value:'inconsistent',weight:1}];

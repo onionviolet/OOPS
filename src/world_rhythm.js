@@ -29,3 +29,14 @@ export function recurringWindow(schedule, minute, lastClaim) {
         reason: open ? "" : claimed ? "Already attended this game day. The next gathering is tomorrow."
             : `Returns in ${nextOpens - minute} game minutes.`};
 }
+
+// FD8: a recurring duty is a recurring window plus the last cycle attended. Pure over (schedule, minute, lastDone); status is
+// 'waiting' (before this cycle's window), 'due' (window open), 'late' (window shut, cycle unattended) or 'done'. Misses are read, never simulated.
+export function dutyState(schedule, minute, lastDone) {
+    const w = recurringWindow(schedule, minute, lastDone);
+    if(w.cycle === undefined) return {...w, status: 'waiting'};
+    const shut = minute % schedule.period >= schedule.closes;
+    return {...w, status: w.claimed ? 'done' : w.open ? 'due' : shut ? 'late' : 'waiting'};
+}
+// Last cycle whose window has fully shut (-1 if none).
+export const lastClosedCycle = (schedule, minute) => Math.floor(minute / schedule.period) - (minute % schedule.period >= schedule.closes ? 0 : 1);

@@ -123,3 +123,12 @@ test('Gu and Shadow Slave lives show their own essence, stones and stock live, w
     } finally { off(); configureUiPorts(null); }
     assert.equal(ownHoldingsView('book.ri.keeper.world', null), null);
 });
+
+test('purseEffect: one effect shape for native and actor purses', async () => {
+    const {purseEffect, NATIVE_PURSE, purseBalance} = await import('../src/own_holdings.js');
+    assert.deepEqual(purseEffect(480), {type: 'resource', actor: 'player', key: 'money', native: true, amount: 480});
+    assert.deepEqual(purseEffect(-5, {actor: 'player', key: 'hp.knuts'}), {type: 'resource', actor: 'player', key: 'hp.knuts', amount: -5});
+    assert.equal(purseBalance({actors: {player: {resources: {'hp.knuts': 7}}}}, {actor: 'player', key: 'hp.knuts'}), 7);
+    assert.equal(purseBalance({}, NATIVE_PURSE), undefined);
+    assert.throws(() => purseEffect(NaN), TypeError);
+});

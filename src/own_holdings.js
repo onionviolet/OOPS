@@ -44,3 +44,14 @@ export function syncOwnHoldingsNotices(root, entry) {
         const note = doc.createElement('p'); note.dataset.ownHoldingsNotice = key; note.textContent = entry[key]; host.prepend(note);
     }
 }
+
+// The one way a wage, fee or draw moves coins: a single `resource` effect on the owner's purse, whatever the world.
+// `purse` is {actor, key, native?}: Harry's is the player's pack-currency resource, Klein's is the native `money`
+// resource (pence). Same effect shape either way, so one validator and one ledger of coins; amount < 0 spends.
+export const NATIVE_PURSE = Object.freeze({actor: 'player', key: 'money', native: true});
+export function purseEffect(amount, purse = NATIVE_PURSE) {
+    if (!Number.isFinite(amount) || typeof purse?.actor !== 'string' || typeof purse.key !== 'string') throw new TypeError('A purse effect needs an amount and an actor and resource key.');
+    return {type: 'resource', actor: purse.actor, key: purse.key, ...(purse.native ? {native: true} : {}), amount};
+}
+// Current coins in a purse (read-only); native purses are read by the caller's own port, so this reads actor resources only.
+export const purseBalance = (state, purse) => purse.native ? undefined : lifeHoldings(state, purse.actor).resources[purse.key];

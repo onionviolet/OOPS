@@ -79,3 +79,10 @@ test('a walk before reporting in is refused with a reason, and works once the si
  box.p=wait(box.p,lotmWalkMinutes(L.workroom,L.docks));
  assert.equal(host.view().at,L.docks);assert.ok(validateLotmState(box.p.state));
 });
+import {lotmWalkQuote,districtCommands} from '../src/book_world_lotm_districts.js';
+test('FD7: Tingen walks quote through travel_legs as a zero-fare foot leg and keep command ids and durations',()=>{
+ const q=lotmWalkQuote(L.workroom,L.docks);
+ assert.equal(q.totalMinutes,lotmWalkMinutes(L.workroom,L.docks));assert.equal(q.totalFare,0);assert.equal(q.legs[0].means,'foot');assert.equal(q.eligible,true);
+ const c=districtCommands.find(x=>x.id==='book.lotm.walk_workroom_docks');assert.ok(c);assert.equal(c.duration,q.totalMinutes);
+ for(const w of districtCommands.filter(x=>x.id.startsWith('book.lotm.walk_')))assert.ok(w.duration>0,w.id);
+});

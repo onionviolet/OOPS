@@ -1,10 +1,10 @@
 // LP5 original proposal. Availability projects existing calendar and bench work;
 // the optional chapter fact neither owns a clock nor grants rewards.
-import {recurringWindow} from './world_rhythm.js';
+import {lessonAvailability} from './lesson.js';
 import {routeUnderstanding, TEACHER_WINDOW} from './everyday_life.js';
 
 export function teacherWindow(state, facts) {
-    const window = recurringWindow(TEACHER_WINDOW, facts.calendarMinute);
+    const {window} = lessonAvailability(TEACHER_WINDOW, facts.calendarMinute);
     const craftsman = state.actors.oldCraftsman?.facts || {};
     const order = craftsman['work.order'] || craftsman['field.partsOrder'];
     const busy = facts['village.craftsmanBusy'];

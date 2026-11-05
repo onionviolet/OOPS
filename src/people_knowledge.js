@@ -1,6 +1,5 @@
-import {castSettledPeople,currentCastBeatLedger} from './book_world_lotm_cast_host.js';
+import {peopleSources} from './people_sources.js';
 import {agreedDutyPeopleView} from './agreed_duty_host.js';
-import {molDefinitions} from './book_world_mol_content.js';
 import {worldCompletionPeopleView} from './world_completion_people.js';
 import {remainderConsequencesPeopleView} from './audit_remainder_consequences_host.js';
 import {paradiseDefinitions} from './book_world_paradise_content.js';
@@ -107,11 +106,7 @@ export function knownPeopleView(state, facts = {}) {
         const received=Object.entries(knowledge).filter(([key,r])=>(key.startsWith('book.paradise.')||key.startsWith('book.goa.'))&&r.basis?.attributedTo===person.id);
         if(received.length)append({id:person.id,name:person.label,location:'Known from your received local meeting or attributed report',details:received.map(([,r])=>r.value),accounts:personAccounts(received),memories:received.map(([id,r])=>({id,at:r.at,text:r.value}))});
     }
-    for(const person of molDefinitions.people){
-        const received=Object.entries(knowledge).filter(([key,r])=>key.startsWith('book.mol.')&&r.basis?.attributedTo===person.id);
-        if(received.length)append({id:person.id,name:person.label,location:'Known from your received Cyoria meeting or attributed report',details:received.map(([,r])=>r.value),accounts:personAccounts(received),memories:received.map(([id,r])=>({id,at:r.at,text:r.value}))});
-    }
-    for(const row of castSettledPeople(state,currentCastBeatLedger()))append(row);
+    for(const source of peopleSources())for(const row of source(state,{knowledge,personAccounts}))append(row);
     return rows;
 }
 

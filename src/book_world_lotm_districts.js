@@ -5,6 +5,7 @@
 // an errand pays and who answers an incident. Teams, split and escalation are source-stated; the officers (original,
 // unnamed roles), the endorsement fees and the errand pay are authored proposals (WPR5). Pure data and pure functions.
 import {getPrivateLotmCast} from './book_world_lotm_cast_days.js';
+import {defineRoute,quoteRoute} from './travel_legs.js';
 import {LOTM_IDS as I,LOTM_LOCATIONS as L,LOTM_PENCE as P} from './book_world_lotm_ids.js';
 // Merged with the primary checkout's parallel Q2 (2026-10-23 reconciliation): that lane's district text, vouch rows, shift and travel minutes are kept as data
 // under `alias` ('north','docks','university'); this lane's church, officer, endorsement and errand fields are the other half of each row.
@@ -68,8 +69,12 @@ const sameDist=(a,b)=>districtOfPlace(a)?.id===districtOfPlace(b)?.id;
 const hereFor=(d,home)=>d.id===home.id?`${cap(d.team)} answer here, in their own district. ${home.officerLabel[0].toUpperCase()+home.officerLabel.slice(1)} supervises you in person, and this church issues and assesses its own doses.`
  :`${cap(d.team)} answer here, not ${home.officerLabel}. A clerk of another church's team needs this district's endorsement (${d.endorsementPence} pence) before they are given work, and this church does not issue or assess another church's doses.`;
 const cap=t=>t[0].toUpperCase()+t.slice(1);
+// FD7: a walk is a one-leg foot route through the shared travel_legs seam (zero fare, no service hours); its quoted minutes are the job duration.
+export const lotmWalkRoute=(from,to)=>{const a=LOTM_PLACE_KEYS[from],b=LOTM_PLACE_KEYS[to],minutes=lotmWalkMinutes(from,to);
+ return a&&b&&minutes?defineRoute({id:`walk_${a}_${b}`,world:'lotm',legs:[{id:`walk_${a}_${b}`,from:a,to:b,means:'foot',minutes,fare:{sum:0}}]}):null;};
+export const lotmWalkQuote=(from,to,ctx={})=>{const r=lotmWalkRoute(from,to);return r?quoteRoute(r,ctx):null;};
 const walkSet=home=>Object.values(L).flatMap(from=>Object.values(L).filter(to=>to!==from).map(to=>{
- const dd=districtOfPlace(to),m=lotmWalkMinutes(from,to),text=home?hereFor(dd,districtById(home)):dd.here;
+ const dd=districtOfPlace(to),m=lotmWalkQuote(from,to).totalMinutes,text=home?hereFor(dd,districtById(home)):dd.here;
  return cmd(`walk_${LOTM_PLACE_KEYS[from]}_${LOTM_PLACE_KEYS[to]}${home?`_${home}`:''}`,`Walk to ${to} · ${m} min`,from,{alone:true,once:false,duration:m,cancellation:'none',
   effects:[know('arrived',`You reach ${to}${sameDist(from,to)?'':` (${dd.qlabel.toLowerCase()})`}. ${text} ${dd.claim}`)]});}));
 // Commands (Q2). Walking is a timed job started by the host; the host never lists the walk commands as buttons (the places list does).

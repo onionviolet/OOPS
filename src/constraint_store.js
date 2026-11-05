@@ -74,8 +74,16 @@ export function reservationDecision(store,{changes,at,through=at,settled=()=>fal
    if((compiledRows.get(row)?.produces.get(key)||(row.produces||[]).filter(e=>stateKey({...e,actor:e.actor||row.actor})===key)).some(e=>Object.hasOwn(e,'value')&&!same(next,e.value)))return {allowed:false,reason:'Not how it happened'};
   }
  }
- // A timed action must leave the actor free for an upcoming constrained step.
- if(through>at&&store.select({from:at,to:through}).some(r=>r.provenance!=='fill'&&r.reserveTime!==false&&r.what==='beat'&&r.window.to<through&&!settled(r.id)&&changes.some(c=>c.actor===r.actor)))return {allowed:false,reason:'You need to leave time for what you have planned.'};
+ // A timed action must leave the actor free for an upcoming constrained step. The refusal says how long is free, so a runner can try
+ // the shorter wait instead of guessing (FD1; the B9 runs had to probe 360, 120 and 20 minutes).
+ if(through>at){
+  const blocking=store.select({from:at,to:through}).filter(r=>r.provenance!=='fill'&&r.reserveTime!==false&&r.what==='beat'&&r.window.to<through&&!settled(r.id)&&changes.some(c=>c.actor===r.actor));
+  if(blocking.length){
+   const freeMinutes=Math.max(0,Math.min(...blocking.map(r=>r.window.to))-at);
+   // freeMinutes is for runners only: it is computed from a beat's window, so player text stays observer-safe.
+   return {allowed:false,freeMinutes,reason:'You need to leave time for what you have planned.'};
+  }
+ }
  return {allowed:true};
 }
 export function contradictedFills(store,fills){

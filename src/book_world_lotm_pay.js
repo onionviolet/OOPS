@@ -6,6 +6,7 @@
 // A figure is never invented: an amount the text does not give is `null` and cannot be paid until content states it with a basis.
 import {DENOMINATIONS,BE_GRAIN} from './book_world_lotm_be_clients.js';
 import {isGrained,penceLabel} from './currency_subunits.js';
+import {purseEffect} from './own_holdings.js';
 export const PAY_PREFIX='book.lotm.pay.';
 export const COMMISSION_PREFIX='book.lotm.commission.';
 export const WEEK_MINUTES=7*24*60;
@@ -15,7 +16,8 @@ const SITUATION='book.lotm.tingen.canon_beside';
 const ID=/^[a-z0-9_]+$/;
 const fact=(k,value)=>({type:'fact',scope:'actor',actor:'player',key:k,value});
 const note=(k,value)=>({type:'knowledge',actor:'player',key:k,stage:'seen',value,basis:{kind:'observation',attributedTo:'player',situationId:SITUATION}});
-const money=amount=>({type:'resource',actor:'player',key:'money',native:true,amount});
+// Coins move through the shared purse seam (own_holdings.purseEffect); Klein's purse is the native pence resource, so the effect and saves are unchanged.
+const money=amount=>purseEffect(amount);
 // A figure {amount,currency,basis,floor?} -> pence on the purse grain, or null (no figure). Throws on a figure that cannot be paid honestly.
 export function toPence(f){
  if(f==null||f.amount==null||f.basis==='unknown')return null;

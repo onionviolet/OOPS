@@ -4,6 +4,7 @@
 import {deepFreeze} from './basics.js';
 import {loadEventPack,frameBindings} from './world_events_pack.js';
 import {restrictionsOn} from './world_events.js';
+import {worldLight,TINGEN_LIGHT} from './world_light.js';
 import {eventKnowledgeWrites} from './world_events_knowledge.js';
 const PATH='lotm-events/events.json',LEAD='player',SETTLED='lotm.events.settledDay';
 // Dials (default, reason): the lead lives in a city with papers, boards and talk; letters, telegrams and
@@ -50,3 +51,6 @@ export function lotmEventBook({state,days,pack=loaded}){
  const byScene=new Map(days.map(d=>[d.scene,d.day])),reached=days.filter(d=>state.clock>=state.lotm.initializedAt+(d.day-1)*1440+d.from).map(d=>d.scene);
  return loadEventPack(pack,{bindings:frameBindings(pack,reached,beat=>byScene.get(beat)),leadId:LEAD});
 }
+
+// Tingen light at the lead's current minute: night and fog are a world-clock state, not event text (FD9).
+export const lotmLight=state=>worldLight((((state.clock-state.lotm.initializedAt)%1440)+1440)%1440/1440,TINGEN_LIGHT);

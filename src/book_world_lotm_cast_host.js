@@ -6,6 +6,7 @@ import {constraintsFromPack} from './constraint_pack.js';
 import {conditionedDraw,reservationDecision,contradictedFills,constraintProvenance,PROVENANCE_CODES} from './constraint_store.js';
 import {createStreams} from './seeded_streams.js';
 import {createWakeQueue} from './wake_queue.js';
+import {registerPeopleSource} from './people_sources.js';
 // L4a host seam: one location store, relative clock projection, no beat resolver.
 import {onCastLoaded,lotmCastDays,lotmCastSchedule} from './book_world_lotm_cast_days.js';
 import {createSimulationRegistry} from './simulation_contracts.js';
@@ -643,3 +644,4 @@ export function persistLotmCastPlan(plan,persist,{reset=false,publish=()=>{},wri
  for(const report of [...out.reports,...news.reports,...objectReports,...topicReports,...journeyReports,...divinationReports,...inferenceReports,...cardReports])publish(report);
  return result;
 }
+registerPeopleSource('lotm-cast',50,state=>castSettledPeople(state,currentCastBeatLedger()));

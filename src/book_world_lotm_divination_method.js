@@ -7,6 +7,7 @@
 // knowledge from any lesson, book or club act, or a row may require only `.learned` (a staged show, ch54 P041). Reason: a Seer's
 // divination is a craft that rides on the spirit, so craft without the spirit is theatre and spirit without craft is noise.
 // Pure data and two functions; no state, no clock, no save. The cost of a working step is beSeerUse() (B4).
+import {lessonEffects} from './lesson.js';
 import {beSeerFacts} from './book_world_lotm_be_seer.js';
 export const BE_DIV_METHODS=Object.freeze(['pendulum','dowsing','scrying','astrolabe','mirror','chart','tarot','numerology','dream-divination']);
 export const BE_DIV_PREFIX='actor.lotm.div.method.';
@@ -14,8 +15,7 @@ export const beDivMethodKey=m=>`book.lotm.div.method.${m}`;
 const known=m=>{if(!BE_DIV_METHODS.includes(m))throw Error(`Unknown divination method ${m}; add it to BE_DIV_METHODS with its lesson.`);return m;};
 // Effects of the lesson (a club or teacher act). `value` is the in-world account and `situationId` the act's own situation
 // (the cast situation for the BE seat), both supplied by the content act.
-export const beDivMethodLearnEffects=(m,value,situationId)=>[{type:'knowledge',actor:'player',key:beDivMethodKey(known(m)),stage:'understood',value,
- basis:{kind:'instruction',attributedTo:'player',situationId}}];
+export const beDivMethodLearnEffects=(m,value,situationId)=>lessonEffects({key:beDivMethodKey(known(m)),value,situationId});
 export const beDivMethodRequires=(m,{real=false}={})=>({fact:`${BE_DIV_PREFIX}${known(m)}.${real?'real':'learned'}`,op:'eq',value:true,
  reason:real?'You haven\'t learned this method, or you don\'t have the Seer power behind it.':'You haven\'t learned this method.'});
 // Facts for the host projection (one additive call in book_world_lotm_div_supply.js). Only a book life that holds the

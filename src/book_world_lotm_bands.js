@@ -6,16 +6,18 @@
 // reasons in docs/gm/dispatch/refinement-audits-2026-10-31/LOTM_COMBAT_DEEP_DIVE_2026-11-03.md (branch claude/gifted-bardeen-7bdcdd). Evidence 'I' = inferred.
 // Sequences 4 and below are carried open (no band) until a scene needs them (LCQ2). Shown, believed and actual strength stay separate (WA50): actual bands only.
 import {LOTM_HOSTILES} from './book_world_lotm_abilities.js';
+import {hitsToDown as coreHitsToDown,winChance as coreWinChance,contest as coreContest} from './notch_contest.js';
 export const BAND_AXES=Object.freeze(['strength','speed','toughness','endurance','perception','spirituality','force','control']);
 // The two dials. gain: one notch multiplies magnitude by this (set by LCT4: 1.5^4 is about 5 hits). logistic: steepness of a contest on the notch gap
 // (set by LCT2/LCT6: about 0.90 at +2 notches, about 0.99 at +4). Both are per-world dials; tests assert inequalities, not exact values (LCR1).
 export const BAND_DIALS=Object.freeze({gain:1.5,logistic:1.1});
 export const BAND_SCALE=Object.freeze({referenceAdult:0,signed:true,openEnded:true,unit:'notch',proposal:true,note:'Authored proposal (WPR5/AD49). The reference adult is the zero of a log scale, calibrated to stated outcomes, not a fact; axes have no maximum or minimum.'});
 // Pure notch formulas (LCD1a/LCD1b). `dials` is injectable so a world can move them.
-export const hitsToDown=(toughness,force=0,dials=BAND_DIALS)=>Math.max(1,Math.pow(dials.gain,toughness-force));
-export const winChance=(delta,dials=BAND_DIALS)=>1/(1+Math.exp(-dials.logistic*delta));
+// The formulas live in the world-neutral notch_contest.js (FD2); LOTM passes its calibrated dials.
+export const hitsToDown=(toughness,force=0,dials=BAND_DIALS)=>coreHitsToDown(toughness,force,dials);
+export const winChance=(delta,dials=BAND_DIALS)=>coreWinChance(delta,dials);
 // Probabilistic contest: the side with `delta` notches over the other wins with winChance(delta). `rng` is a required () => [0,1) (the game rng, or a fixed one in tests); no built-in default, so the core debt ceiling holds.
-export function contest(delta,rng,dials=BAND_DIALS){const chance=winChance(delta,dials),roll=rng();return {chance,roll,win:roll<chance};}
+export const contest=(delta,rng,dials=BAND_DIALS)=>coreContest(delta,rng,dials);
 // Hook, not implemented (LCD2 reach kinds): a 'fate' / probability reach kind would turn luck into a notch source, adding notches to an exchange's delta
 // before contest() is called. Nothing reads this yet; it only records where that source plugs in so the contest signature does not change.
 export const REACH_NOTCH_SOURCES=Object.freeze({fate:Object.freeze({implemented:false,note:'Luck as a notch source: a fate-kind effect would add its luck notches to the delta passed to contest(). Not built (LCB-later).'})});
