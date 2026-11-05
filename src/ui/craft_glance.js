@@ -42,7 +42,7 @@ export function craftGlance(model) {
     const totals = new Map();
     for (const r of reqs) totals.set(r.label, (totals.get(r.label) || 0) + r.need);
     const spend = totals.size ? [...totals].map(([label, n]) => `${n} ${label}`).join(', ') : 'nothing listed';
-    const cost = `Spends ${spend} per attempt${model.spendsOnFailure ? ', even when the attempt fails' : ''}`;
+    const cost = model.spendsOnFailure ? 'Selected ingredients are spent on every attempt, including failures.' : (model.cost || `Spends ${spend} per attempt`);
     const q = model.quality?.range;
     const result = `${out.name} ×${out.count}${out.scaled ? ' (partial results possible)' : ''}`;
     const quality = q
@@ -56,7 +56,7 @@ export function craftGlance(model) {
         {key: 'time', label: 'Time', value: model.time || 'Not stated'},
         {key: 'cost', label: 'Cost', value: cost},
         {key: 'result', label: out.uncertain ? 'Possible result' : 'Makes', value: result},
-        {key: 'quality', label: 'Quality', value: quality},
+        ...(q || model.qualityUnassessed ? [{key: 'quality', label: 'Quality', value: q ? quality : 'Unassessed'}] : []),
         {key: 'chance', label: model.chance_label || 'Success', value: chance,
             number: Number.isFinite(model.chance) ? `${model.chance}%` : chance, word: Number.isFinite(model.chance) ? chanceWord(model.chance) : ''},
         {key: 'station', label: 'At', value: model.station || 'Not stated'},

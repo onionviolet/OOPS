@@ -117,8 +117,8 @@ export function createShellComposition({root, board, regions, resize}) {
         const below = Math.max(0, ...[regions.actions, regions.inventory].filter(r => r?.isConnected).map(intrinsicExtent));
         const value = `${topRowHeight({player: top.player, elastic: top.elastic, focus: combat ? top.focus : top.idleFocus, combat, board: height, fontSize, viewport: window.innerHeight, frame: frameFor(fontSize), below})}px`;
         if (root.style.getPropertyValue('--shell-top-row') !== value) root.style.setProperty('--shell-top-row', value);
-        resize?.measure();
         if (root.dataset.shellFit !== 'true') root.dataset.shellFit = 'true';
+        resize?.measure();
         // GU2: each measure is timed so checks can confirm it stays within a frame.
         performance.measure('shell-composition', {start: started, end: performance.now()});
     };

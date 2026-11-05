@@ -8,6 +8,21 @@ import {combatSubject,retainCombatInspection} from '../src/combat_subject.js';
 import {beginNativeCraftTransaction} from '../src/native_craft_transaction.js';
 import {createDom} from '../scripts/headless/dom.mjs';
 import {mountMaterialChoice} from '../src/material_choice_view.js';
+import {renderCraftingSelection} from '../src/crafting_selection_detail.js';
+
+test('native selection inspection reuses the selected result, preserves scroll and never activates craft',()=>{
+ const dom=createDom();dom.loadHTML('<html><body><div id="row"><div class="selectable_material selected_material"><span class="recipe_comp_name">Exact iron lot · input 80%</span><div class="recipe_tooltip">Quality 70–90; Iron blade</div><button id="craft">Craft 1</button></div></div><div id="detail"></div></body></html>');
+ const row=dom.document.getElementById('row'),root=dom.document.getElementById('detail');let commits=0;row.querySelector('button').onclick=()=>commits++;
+ const selection={category:'forging',subcategory:'components',recipe_id:'Blade'};
+ renderCraftingSelection(root,{selection,row});
+ assert.match(root.textContent,/Exact iron lot/);assert.match(root.textContent,/Quality 70–90/);assert.equal(commits,0);
+ const material=row.querySelector('.selected_material');material.dataset.item_key='exact-lot';material.classList.remove('selected_material');
+ renderCraftingSelection(root,{selection:{...selection,material_key:'exact-lot'},row});assert.match(root.textContent,/Quality 70–90/,'first selection renders before the native class is applied');material.classList.add('selected_material');
+ root.querySelector('.craft_detail_body').scrollTop=45;
+ row.querySelector('.recipe_tooltip').textContent='Quality 90–110; Steel blade';renderCraftingSelection(root,{selection,row});
+ assert.match(root.textContent,/Steel blade/);assert.doesNotMatch(root.textContent,/Iron blade/);assert.equal(root.querySelector('.craft_detail_body').scrollTop,45);
+ renderCraftingSelection(root,{selection:null,row:null});assert.match(root.textContent,/Selection spends nothing/);assert.equal(commits,0);
+});
 import {loadNative,STANCE_LOCATION_STUBS} from './helpers/native_loader.mjs';
 
 test('IS1/IS2: cross-category known producer graph uses declared variants and never rolls component results',()=>{

@@ -51,6 +51,10 @@ export function createHpBrewingPanel({read, quote, execute}) {
             button('Set up the Polyjuice bench', {type: 'begin'}, intro, {id: 'begin'}); parts.push(intro);
         } else {
             parts.push(el('p', `Purse ${v.purse} coins · moon: ${v.moon ?? 'unknown'} · cauldron ${v.cauldron.condition}, ${v.cauldron.residue}${v.cauldron.brewing ? `, ${v.cauldron.activity} (${v.cauldron.readyInMinutes < 60 ? `${v.cauldron.readyInMinutes} min` : `${v.cauldron.readyInHours} h`} left)` : ''} · Potions master: ${v.master}`, 'hp-status'));
+            if(v.cauldron.brewing) {
+                const work = section('Current cauldron work', el('p', `${v.cauldron.activity}: ${v.cauldron.readyInMinutes} played minutes remaining. Reviewing ingredients does not change this batch. Use the batch controls below when it is ready.`));
+                work.dataset.hpWork = ''; parts.push(work);
+            }
             // 1. Obtain
             const ings = HP.ingredients, offered = ing => HP.routes.filter(r => Object.hasOwn(r.cost, ing));
             const obtain = section('1. Obtain ingredients', select('Ingredient', ings.map(i => [i.id, i.label]), sel.ingredient, x => {sel.ingredient = x; sel.route = '';}, 'ingredient'));

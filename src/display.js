@@ -5,6 +5,7 @@ import {gearItemFactsHtml} from './gear_item_facts.js';
 import {craftBatchGoal} from './craft_batch_goal.js';
 import {knownRecipeVariants, relatedKnownRecipes, knownUsesHTML, installKnownRecipeLinks, renderRecipeConnections, materialPolicyText, bindSubjectGesture} from './recipe_connections.js';
 import {mountMaterialChoice} from './material_choice_view.js';
+import {renderCraftingSelection} from './crafting_selection_detail.js';
 import {renderRecentLearning} from './recent_learning.js';
 import {equipmentComparisonHTML} from './equipment_comparison.js';
 import {centerModes} from './center_modes.js';
@@ -3323,7 +3324,7 @@ function item_recipe_result_effects(item) {
         const template = effect_templates[effect];
         if(!template) return null;
         return {name: template.name, duration: duration == null ? "until resolved" : format_time({time: {minutes: duration}}),
-            kind: template.tags?.debuff ? "debuff" : template.tags?.buff ? "buff" : "condition", description: template.description || ""};
+            kind: template.tags?.debuff ? "debuff" : template.tags?.buff ? "buff" : "condition", details_html: create_effect_tooltip({effect_name: effect, duration, add_bonus: true}).outerHTML};
     }).filter(Boolean);
 }
 
@@ -3391,7 +3392,7 @@ function build_item_recipe_model(selection) {
     const cue = last ? craftCue(last.skill_id, last.skill_level, last)
         : craftCue(recipe.recipe_skill, skill.getCurrentLvl(), {count});
     const back = item_recipe_return && item_recipe_key(item_recipe_return.selection) !== item_recipe_key(selection) ? item_recipe_return.title : "";
-    return {title: recipe.name, requirements, attempts: state.amount,
+    return {title: recipe.name, description: nativeItemView(item_templates[result_id]).description, requirements, attempts: state.amount,
         effects: item_recipe_result_effects(item_templates[result_id]),
         related: item_recipe_related_uses(selection, known_ids, result_id), back,
         output: {name: item_templates[result_id].getName(), count, scaled: !!recipe.scale_results && count > 1},
@@ -3433,10 +3434,11 @@ function refresh_crafting_detail() {
     if(!root || !win) return;
     const items_page = selected_crafting_subcategory === "items";
     win.dataset.craftView = items_page ? "items" : "other";
-    root.hidden = !items_page;
+    root.hidden = false;
     if(!items_page) {
         const selection = selected_item_recipe?.category === selected_crafting_category && selected_item_recipe?.subcategory === selected_crafting_subcategory ? selected_item_recipe : null;
         const page = crafting_pages[selected_crafting_category]?.[selected_crafting_subcategory];
+        renderCraftingSelection(root, {selection, row: selection && page?.querySelector(`[data-recipe_id="${CSS.escape(selection.recipe_id)}"]`)});
         if(selection && page) renderRecipeConnections(page, {selection, links:item_recipe_related_uses(selection), back:item_recipe_return?.title,
             follow:follow_related_item_recipe,goBack:return_from_related_item_recipe,policy:'Select a material or part to inspect. Craft buttons commit; quality ranges describe possible outcomes.'});
         return;
@@ -4009,6 +4011,7 @@ function update_displayed_component_choice({category, subcategory, recipe_id, co
                     if(candidate)set_HTML(option.querySelector('.recipe_tooltip'),create_item_tooltip_content({item:candidate,options:{comparisonBaseline:baseline}}));
                 }
                 update_recipe_tooltip({category, subcategory, recipe_id, components});
+                refresh_crafting_detail();
             });
                 
             component_selections_div[i].children[1].appendChild(item_div);

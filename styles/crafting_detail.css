@@ -7,7 +7,7 @@
     display: grid; grid-template-columns: minmax(0, 44%) minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); gap: var(--ui-space-4);
     margin-top: var(--ui-space-2);
 }
-#crafting_window[data-craft-view="other"] .crafting_body {grid-template-columns: minmax(0, 1fr);}
+#crafting_window[data-craft-view="other"] .crafting_body {grid-template-columns: minmax(0, 52%) minmax(0, 1fr);}
 #crafting_window .crafting_body > #recipe_categories {min-height: 0; display: flex; flex-direction: column;}
 #crafting_window .crafting_body .crafting_recipe_list {height: auto; flex: 1 1 auto; min-height: 0; padding-bottom: 0; overflow-y: auto;}
 #crafting_window .crafting_body .crafting_recipe_list[style*="none"] {display: none;}
@@ -31,6 +31,7 @@
 
 /* Detail region */
 .crafting_detail {
+    --ui-line-body: round(1.3em, 1px);
     display: flex; flex-direction: column; min-height: 0; overflow: hidden; box-sizing: border-box;
     padding: var(--ui-space-3) var(--ui-space-4); border: 1px solid var(--workspace-border, var(--ui-swatch-100)); border-radius: var(--ui-radius);
     background: var(--theme-surface, var(--ui-swatch-101)); color: var(--theme-surface-text, var(--ui-swatch-102));
@@ -71,6 +72,19 @@
 /* R12 (2026-10-15): known result effects, attempts, related recipes and local return.
    Text follows the chosen size; color repeats a word, never replaces it. */
 .craft_detail_effects {display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--ui-space-1) var(--ui-space-2); margin: var(--ui-space-1) 0;}
+.craft_detail_description {margin: var(--ui-space-2) 0 var(--ui-space-4);}
+.craft_detail_effects .craft_effect {display: block; padding: var(--ui-space-2);}
+.craft_detail_effects .active_effect_tooltip {position: static; display: block; width: auto; max-width: 100%; border: 0; background: transparent; color: inherit;}
+.craft_detail_effects .active_effect_name_and_duration {display: flex; flex-wrap: wrap; gap: var(--ui-space-3);}
+.craft_selection_facts p {margin: var(--ui-space-2) 0;}
+.craft_detail_result {overflow-wrap: anywhere;}
+#crafting_window .selected_material > .recipe_tooltip,
+#crafting_window .recipe_creation_button > .recipe_tooltip {display: none !important;}
+/* Native assembly used a fixed 300px caption plus a 76px batch strip. Let
+   both follow the selected text size and available picker width. */
+#crafting_window .selected_recipe .recipe_creation_button {display:flex;flex-wrap:wrap;align-items:center;gap:var(--ui-space-2);font:inherit;}
+#crafting_window .recipe_creation_span {width:auto;flex:1 1 auto;min-width:0;}
+#crafting_window .recipe_creation_button > .craft_ammount_buttons {display:inline-flex;flex-wrap:wrap;width:auto;font:inherit;}
 .craft_effect {display: inline-flex; gap: var(--ui-space-2); padding: 0 var(--ui-space-2); border: 1px solid var(--workspace-border, var(--ui-swatch-100));}
 .craft_effect_duration {opacity: .8; font-variant-numeric: tabular-nums;}
 .craft_effect[data-effect-kind="debuff"] {border-color: var(--sem-blocked, var(--ui-swatch-004)); color: var(--sem-blocked, var(--ui-swatch-004));}
@@ -105,7 +119,7 @@
    so neither column wraps every word. Width is measured in the chosen text size. */
 #main_content.workspace-active #crafting_window[style*="block"] {container-type: inline-size;}
 @container (max-width: 28em) {
-    #main_content.workspace-active #crafting_window[data-craft-view="items"] .crafting_body {grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(3.2em, 30%) minmax(0, 1fr); gap: var(--ui-space-2);}
+    #main_content.workspace-active #crafting_window .crafting_body {grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(3.2em, 30%) minmax(0, 1fr); gap: var(--ui-space-2);}
 }
 #main_content.workspace-active #crafting_subpage_buttons[data-choices="1"] {display: none;}
 @container (max-width: 28em) {

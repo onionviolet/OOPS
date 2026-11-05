@@ -8,7 +8,7 @@ export const UNKNOWN_MATERIAL_LABEL = 'Unfamiliar material';
 import {craftCue} from './craft_cues.js';
 import {craftGlance, GLANCE_MARKS} from './ui/craft_glance.js';
 
-let resultDetailsOpen = false;
+const detailSubjects = new WeakMap();
 
 const mark = state => GLANCE_MARKS[state] || GLANCE_MARKS.info;
 
@@ -82,6 +82,11 @@ function fact(label, value, attr) {
  * @param {Object} handlers {onCommit(amount), onBlocked(), onRelated(recipe_id), onBack()}
  */
 export function renderCraftingDetail(root, model, handlers) {
+    const sameSubject = detailSubjects.get(root) === model?.title;
+    const scroll = sameSubject ? root.querySelector('.craft_detail_body')?.scrollTop || 0 : 0;
+    const open = selector => sameSubject && !!root.querySelector(selector)?.open;
+    const stockOpen = open('.craft_detail_stock'), aboutOpen = open('.craft_detail_about'), resultOpen = open('.craft_detail_more');
+    detailSubjects.set(root, model?.title);
     const focused = root.contains(document.activeElement) ? document.activeElement : null;
     // Re-renders keep focus on the equivalent control (button, requirement row or reason).
     const kind = focused && ['data-craft-commit', 'data-craft-amount', 'data-craft-req', 'data-craft-blocked-reason', 'data-craft-related', 'data-craft-back','data-craft-continue','data-craft-cancel-goal'].find(a => focused.hasAttribute(a));
@@ -106,9 +111,27 @@ export function renderCraftingDetail(root, model, handlers) {
     title.setAttribute('data-craft-title', '');
     body.append(title);
 
+    if(model.description) body.append(el('p', 'craft_detail_description', model.description));
+    if(model.effects?.length) {
+        const effects = el('section', 'craft_detail_effects');
+        effects.setAttribute('data-craft-effects', '');
+        effects.setAttribute('aria-label', 'Known effects when used');
+        for(const effect of model.effects) {
+            const row = el('div', 'craft_effect');
+            row.dataset.effectKind = effect.kind;
+            if(effect.details_html) row.innerHTML = effect.details_html;
+            else {
+                row.append(el('span', 'craft_effect_name', effect.name), el('span', 'craft_effect_duration', effect.duration));
+                if(effect.description) row.append(el('span', '', effect.description));
+            }
+            effects.append(row);
+        }
+        body.append(effects);
+    }
+
     body.append(renderGlance(model));
     const uses = el('details', 'craft_detail_section craft_detail_stock');
-    uses.open = model.requirements.some(req => req.missing || req.held_back);
+    uses.open = stockOpen || model.requirements.some(req => req.held_back);
     uses.append(el('summary', '', 'Input stock'));
     uses.append(el('div', 'craft_detail_label', model.requirements.every(req=>req.stockKnown) ? 'owned / unblocked / blocked' : 'carried / needed'));
     for(const req of model.requirements) {
@@ -127,25 +150,13 @@ export function renderCraftingDetail(root, model, handlers) {
         uses.append(row);
     }
     body.append(uses);
-    if(model.effects?.length) {
-        // Known effects of using the result, before committing (same data as Result details).
-        const effects = el('div', 'craft_detail_effects');
-        effects.setAttribute('data-craft-effects', '');
-        effects.append(el('span', 'craft_detail_label', 'When used'));
-        for(const e of model.effects) {
-            const chip = el('span', 'craft_effect');
-            chip.dataset.effectKind = e.kind;
-            chip.append(el('span', 'craft_effect_name', e.name), el('span', 'craft_effect_duration', e.duration));
-            if(e.description) chip.title = e.description;
-            effects.append(chip);
-        }
-        body.append(effects);
-    }
     const about = el('details', 'craft_detail_about');
+    about.open = aboutOpen;
     about.append(el('summary', '', 'About this recipe'));
     about.append(fact('XP', model.xp, 'data-craft-xp'));
     if(model.policy) about.append(el('p', 'craft_detail_policy', model.policy));
     body.append(about);
+    if(model.commitTerms) body.append(el('p', 'craft_detail_policy', model.commitTerms));
     if(model.related?.length) {
         const related = el('div', 'craft_detail_section craft_detail_related');
         related.setAttribute('data-craft-related-list', '');
@@ -169,11 +180,11 @@ export function renderCraftingDetail(root, model, handlers) {
         const inner = el('div', 'craft_detail_result');
         more.append(inner);
         more.addEventListener('toggle', () => {
-            resultDetailsOpen = more.open;
             inner.innerHTML = more.open ? model.result_details : '';
             if(more.open && model.cue) inner.append(el('p', 'craft_cue', model.cue));
         });
-        more.open = resultDetailsOpen;
+        more.open = resultOpen;
+        if(resultOpen) inner.innerHTML = model.result_details;
         body.append(more);
     }
     root.append(body);
@@ -182,11 +193,11 @@ export function renderCraftingDetail(root, model, handlers) {
     const buttons = el('div', 'craft_detail_buttons');
     const preview=el('p','craft_batch_proposal','Focus or hover a batch choice to preview its maximum input use. The preview reserves nothing.');
     actions.append(preview);
-    const commit = el('button', 'craft_commit', 'Craft 1');
+    const commit = el('button', 'craft_commit', model.commitLabel || 'Craft 1');
     commit.type = 'button';
     commit.setAttribute('data-craft-commit', '');
     buttons.append(commit);
-    for(const [amount, label] of [[5, '5'], [10, '10'], [Infinity, 'All']]) {
+    for(const [amount, label] of (model.singleAttempt ? [] : [[5, '5'], [10, '10'], [Infinity, 'All']])) {
         const b = el('button', 'craft_amount', label);
         b.type = 'button';
         b.dataset.craftAmount = String(amount);
@@ -196,6 +207,7 @@ export function renderCraftingDetail(root, model, handlers) {
         b.addEventListener('mouseenter',showProposal);b.addEventListener('focus',showProposal);
     }
     const showOne=()=>{preview.textContent=craftBatchProposal({requirements:model.requirements,available:model.attempts??0,requested:1});};
+    preview.hidden = !!model.singleAttempt;
     commit.addEventListener('mouseenter',showOne);commit.addEventListener('focus',showOne);
     for(const b of buttons.children) {
         if(!model.available) b.setAttribute('aria-disabled', 'true');
@@ -217,6 +229,7 @@ export function renderCraftingDetail(root, model, handlers) {
     receipt.hidden = !model.receipt;
     actions.append(receipt);
     root.append(actions);
+    body.scrollTop = scroll;
 
     if(kind) (root.querySelectorAll(`[${kind}]`)[focusIndex] || commit).focus({preventScroll: true});
 }
@@ -224,6 +237,8 @@ export function renderCraftingDetail(root, model, handlers) {
 // Focus the first missing requirement (or the reason when nothing is missing). Changes nothing.
 export function focusFirstBlocker(root) {
     const target = root.querySelector('[data-craft-req][data-missing]') || root.querySelector('[data-craft-blocked-reason]');
+    const disclosure = target?.closest('details');
+    if(disclosure) disclosure.open = true;
     target?.focus();
 }
 

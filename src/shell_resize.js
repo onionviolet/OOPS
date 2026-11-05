@@ -15,7 +15,7 @@ export function dividerSpan(above, below) {
 }
 export function createShellResize({root, board, regions, read, context, commit}) {
     registerShortcut({id:'divider-resize',keys:'Arrow keys to resize, Home to reset, Esc cancels a drag',label:'Panel divider',scope:'On a divider'});
-    let drag = null, preview = null, lastContext = null;
+    let drag = null, preview = null, lastContext = null, geometryFrame = 0;
     const handles = {};
     const definitions = {
         topLeft: ['top left and top centre', 'vertical'],
@@ -171,5 +171,13 @@ export function createShellResize({root, board, regions, read, context, commit})
         h.addEventListener('keydown',e=>{if(e.key!=='Home')return;e.preventDefault();e.stopPropagation();resetThis();});
         handles[key]=h;board.append(h);
     }
-    return {measure,prepare(){if(lastContext!==context()||!Object.keys(preview||read()).length)clear();},destroy(){document.removeEventListener('keydown',escape,true);for(const h of Object.values(handles))h.remove();clear();}};
+    // Guidance chrome and text settings can resize the grid without changing
+    // the shell's context. Keep gutter hit targets on their actual regions,
+    // rather than leaving stale absolute boxes outside the board. This only
+    // observes geometry; it neither saves a split nor adds simulation polling.
+    const geometryObserver = new ResizeObserver(() => {
+        if(!geometryFrame) geometryFrame = requestAnimationFrame(() => {geometryFrame = 0; measure();});
+    });
+    for(const node of new Set([board, ...Object.values(regions)])) geometryObserver.observe(node);
+    return {measure,prepare(){if(lastContext!==context()||!Object.keys(preview||read()).length)clear();},destroy(){geometryObserver.disconnect();if(geometryFrame)cancelAnimationFrame(geometryFrame);document.removeEventListener('keydown',escape,true);for(const h of Object.values(handles))h.remove();clear();}};
 }

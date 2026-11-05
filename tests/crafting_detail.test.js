@@ -1,6 +1,22 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {craftBatchProposal,craftReceiptText} from '../src/crafting_detail.js';
+import {renderCraftingDetail} from '../src/crafting_detail.js';
+import {createDom} from '../scripts/headless/dom.mjs';
+
+test('known effect projection is visible before commitment; refresh retains reference and scroll without crafting',()=>{
+    const previous=globalThis.document,dom=createDom();dom.loadHTML('<html><body><div id="detail"></div></body></html>');globalThis.document=dom.document;
+    try {
+        const root=document.getElementById('detail');let commits=0;
+        const model={title:'Balm',description:'Apply to a wound.',requirements:[],effects:[{name:'Healing',duration:'90m',details_html:'<p>Healing · 90m · Hp regen +12.03</p>'}],output:{name:'Balm',count:1},available:true,attempts:1,xp:'1',result_details:'<p>Full result</p>'};
+        const handlers={onCommit:()=>commits++};renderCraftingDetail(root,model,handlers);
+        assert.match(root.querySelector('[data-craft-effects]').textContent,/\+12.03/);assert.match(root.textContent,/Apply to a wound/);
+        root.querySelector('.craft_detail_stock').open=true;root.querySelector('.craft_detail_body').scrollTop=40;
+        renderCraftingDetail(root,model,handlers);assert.equal(root.querySelector('.craft_detail_stock').open,true);assert.equal(root.querySelector('.craft_detail_body').scrollTop,40);assert.equal(commits,0);
+        renderCraftingDetail(root,{...model,title:'Unknown trial',effects:[],singleAttempt:true,commitLabel:'Try one batch',description:'Effects unobserved'},handlers);
+        assert.equal(root.querySelector('[data-craft-amount]'),null);assert.equal(root.querySelector('[data-craft-commit]').textContent,'Try one batch');assert.doesNotMatch(root.textContent,/12.03/);assert.equal(root.querySelector('.craft_detail_body').scrollTop,0);
+    } finally {globalThis.document=previous;}
+});
 
 test('batch preview quotes maximum native input use without reserving it or promising outputs',()=>{
     const proposal=craftBatchProposal({requirements:[{label:'ore',need:2},{label:'wood',need:1}],available:3,requested:5});
@@ -25,8 +41,8 @@ test('glance states time, cost, result, quality and chance in words, with no inv
     assert.equal(g.status.state, 'ok');
     assert.match(g.status.text, /1 attempt possible now/);
     assert.equal(row('time'), 'Instant');
-    assert.match(row('cost'), /^Spends 3 Rat tail per attempt, even when the attempt fails$/);
-    assert.match(row('quality'), /Not graded/);
+    assert.match(row('cost'), /spent on every attempt, including failures/);
+    assert.equal(g.rows.some(r => r.key === 'quality'), false, 'inapplicable quality is not a fabricated grade');
     assert.equal(row('chance'), '65% · likely');
     const bare = craftGlance({...base, chance: null});
     assert.equal(bare.rows.find(r => r.key === 'time').value, 'Not stated');

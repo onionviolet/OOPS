@@ -13,7 +13,7 @@ export function createGearWorkshopPanel({read, quote, execute, prepareHide,repai
     focus.append(choice('', 'Work by hand'), choice('focus', 'Use measured focus for precision'));
     const inspect = el('div'), details = el('div'), notice = el('p'), run = el('button', 'Apply quoted process'), hides = el('div');
     panel.classList.add('ui-workbench');
-    const subject=panelSection('1 · Choose carried gear'), process=panelSection('2 · Plan the work'), review=panelSection('3 · Review and apply');
+    const subject=panelSection('1 · Current item'), process=panelSection('2 · Plan the change'), review=panelSection('3 · Quoted change and cost');
     const subjectFields=el('div'),processFields=el('div');subjectFields.className=processFields.className='ui-field-grid';
     subjectFields.append(labelControl(maker,'Maker'),labelControl(items,'Carried equipment'));
     processFields.append(labelControl(action,'Process'),labelControl(material,'Material'),labelControl(role,'Material role'),labelControl(slot,'Component to replace'),labelControl(focus,'Process control'),labelControl(affix,'Inscription to reroll'));
@@ -55,7 +55,7 @@ export function createGearWorkshopPanel({read, quote, execute, prepareHide,repai
         role.hidden = !['attach','detach'].includes(a); slot.hidden = a !== 'swap';
         q = quote(request()); run.disabled = !q.eligible;
         run.setAttribute('aria-describedby','gear-workshop-quote');details.id='gear-workshop-quote';
-        details.replaceChildren(el('p', q.eligible ? q.summary : q.reason));
+        details.replaceChildren(el('p', q.eligible ? q.summary : q.reason), el('p', 'Reviewing this item changes nothing. Applying the process rechecks this exact item, material and quote.'));
         const local=panelSection('Local repairer',{description:view.repairerStatus}),treatments=panelSection('Prepare hides',{description:'Choose a treatment to see its material needs and result.',disclosure:true});
         treatments.node.dataset.workshopSection='hides';
         const activate=(rows,fn)=>id=>{try{notice.textContent=fn(rows.find(r=>r.id===id).quote).summary;}catch(e){notice.textContent=e.message;}signature='';render();};

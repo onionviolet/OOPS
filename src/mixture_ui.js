@@ -28,7 +28,8 @@ export function createMixturePanel({craftingContainer,actionContainer,read,act})
     const mix=document.createElement('button');mix.id='mixture_craft';mix.textContent='Mix one vial';mix.onclick=()=>run({type:'mix',...selection(),quote:currentQuote});controls.append(mix);
 
     const feedback=document.createElement('div');feedback.id='mixture_feedback';
-    const feedbackNodes={};for(const [id,label]of [['holds','Holds and cost'],['blocker','Current blocker'],['work','Work'],['lastResult','Last result']]){const card=document.createElement('div');card.className='mixture-feedback-row';const heading=document.createElement('strong');heading.textContent=label;const body=document.createElement('div');body.id='mixture_feedback_'+id;card.append(heading,body);feedback.append(card);feedbackNodes[id]=body;}panel.append(feedback);
+    const workControls=document.createElement('div');
+    const feedbackNodes={};for(const [id,label]of [['holds','Holds and cost'],['blocker','Current blocker'],['work','Current work'],['lastResult','Last result']]){const card=document.createElement('div');card.className='mixture-feedback-row';const heading=document.createElement('strong');heading.textContent=label;const body=document.createElement('div');body.id='mixture_feedback_'+id;card.append(heading,body);if(id==='work'){card.append(workControls);panel.insertBefore(card,learned);}else feedback.append(card);feedbackNodes[id]=body;}panel.append(feedback);
     // K2: the same owned stock quoted into both real products, each with its own admission token.
     // The two cards are further cells of the existing two-column feedback grid, so they sit side by side.
     const compareStock=document.createElement('p');compareStock.id='mixture_destinations_stock';feedbackNodes.holds.parentElement.append(compareStock);
@@ -69,10 +70,8 @@ export function createMixturePanel({craftingContainer,actionContainer,read,act})
     let outputSignature=null;
     function render(){const frame=read();launch.hidden=!frame.visible;mix.disabled=!frame.ready;for(const i of INGREDIENTS)stockLabels[i.id].textContent=` (${frame.inventory[JSON.stringify({id:i.id})]?.count??0} owned) `;preview();
         const s=getMixtureOwner();const signature=JSON.stringify([s?.sequence,Object.entries(frame.inventory).map(([k,v])=>[k,v.count]),frame.ready]);
-        const jobNode=output.querySelector?.('#mixture_job');if(jobNode&&s?.job)jobNode.textContent=`Mixing: ${Math.max(0,s.job.due-frame.clock)} minutes remaining; ${s.job.remaining} batches queued. Ingredients are held.`;
-        if(signature===outputSignature)return;outputSignature=signature;renderDiscovery(s);output.replaceChildren();if(!s)return;
-        const job=document.createElement('p');job.id='mixture_job';job.textContent=s.job?`Mixing: ${Math.max(0,s.job.due-frame.clock)} minutes remaining; ${s.job.remaining} batches queued. Ingredients are held.`:'Mixing vessel free.';output.append(job);
-        if(s.job){const cancel=document.createElement('button');cancel.id='mixture_cancel';cancel.textContent='Cancel and return held ingredients';cancel.onclick=()=>run({type:'cancel'});output.append(cancel);}
+        if(signature===outputSignature)return;outputSignature=signature;renderDiscovery(s);output.replaceChildren();workControls.replaceChildren();if(!s)return;
+        if(s.job){const cancel=document.createElement('button');cancel.id='mixture_cancel';cancel.textContent='Cancel and return held ingredients';cancel.onclick=()=>run({type:'cancel'});workControls.append(cancel);}
         for(const p of Object.values(s.products).reverse()){const key=mixtureKey(p),n=frame.inventory[key]?.count??0,known=!!s.knowledge[p.id];if(!n&&!known)continue;const line=document.createElement('div');line.dataset.mixtureProduct=key;
             const text=document.createElement('p');text.textContent=`${p.revision===2?'Responsive method · ':''}${mixturePresentation(s,p).name} (${n} owned). ${Object.entries(p.inputs).map(([id,n])=>`${n} ${id}`).join(', ')}. ${mixturePresentation(s,p).description}`;line.append(text);
             if(n){const use=document.createElement('button');use.textContent=known?'Drink one dose':'Experiment: drink one dose';use.onclick=()=>run({type:'use',key});line.append(use);}

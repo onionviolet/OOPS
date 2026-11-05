@@ -210,6 +210,31 @@ test('UIL7 split clamps protect both adjacent regions including Reports', async 
     assert.equal(clampSplit(500,1300,300,450),500);
 });
 
+test('resize handles follow actual board geometry changes and release their observer/frame on destroy', async () => {
+    const {createDom}=await import('../scripts/headless/dom.mjs');
+    const {createShellResize}=await import('../src/shell_resize.js');
+    const dom=createDom();dom.loadHTML('<html><body><div id="root"><div id="board"></div></div></body></html>');
+    const previous=Object.fromEntries(['document','getComputedStyle','ResizeObserver','requestAnimationFrame','cancelAnimationFrame'].map(k=>[k,globalThis[k]]));
+    const root=dom.document.getElementById('root'),board=dom.document.getElementById('board');root.dataset.parity='r3';
+    let height=800,callback,disconnected=false,nextFrame=0;const frames=new Map(),observed=[];
+    const box=(left,top,width,h)=>({left,top,width,height:h,right:left+width,bottom:top+h});
+    board.getBoundingClientRect=()=>box(0,0,1000,height);
+    const regions=Object.fromEntries(['player','focus','inventory','actions','log'].map((id,i)=>{const n=dom.document.createElement('div');board.append(n);n.getBoundingClientRect=()=>box(i===4?800:i%2*400,i>1&&i<4?200:0,i===4?200:400,i>1?height-200:200);n.getClientRects=()=>[n.getBoundingClientRect()];return[id,n];}));
+    const create=dom.document.createElement.bind(dom.document);dom.document.createElement=tag=>{const n=create(tag);if(tag==='canvas')n.getContext=()=>({measureText:()=>({width:0})});return n;};
+    Object.assign(globalThis,{document:dom.document,getComputedStyle:()=>({paddingLeft:'0',paddingTop:'0',columnGap:'6',rowGap:'6',display:'block',getPropertyValue:()=> '14'}),
+        ResizeObserver:class{constructor(fn){callback=fn;}observe(n){observed.push(n);}disconnect(){disconnected=true;}},
+        requestAnimationFrame:fn=>{frames.set(++nextFrame,fn);return nextFrame;},cancelAnimationFrame:id=>frames.delete(id)});
+    let controller;
+    try {
+        controller=createShellResize({root,board,regions,read:()=>({}),context:()=> 'service',commit:()=>{throw Error('Geometry measurement must not save a split');}});
+        controller.measure();const handle=board.querySelector('[data-shell-resize="bottomLeft"]');assert.equal(handle.style.height,'600px');
+        assert.ok(observed.includes(board));assert.ok(observed.includes(regions.inventory));
+        height=700;callback();callback();assert.equal(frames.size,1,'geometry notifications share one frame');
+        const [id,run]=[...frames][0];frames.delete(id);run();assert.equal(handle.style.height,'500px');
+        callback();controller.destroy();controller=null;assert.equal(disconnected,true);assert.equal(frames.size,0);
+    } finally {controller?.destroy();Object.assign(globalThis,previous);}
+});
+
 test('UIL7 the row divider spans only columns where a box ends above and another starts below', async () => {
     const {dividerSpan}=await import('../src/shell_resize.js');
     const box=(left,right)=>({left,right});
