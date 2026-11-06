@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import {createExpansionState, commitAction, cancelAction, advanceSimulation, evaluateAction, loadExpansionState, inspectCapabilities} from "../src/expansion_engine.js";
 import {initializeExpedition, expeditionRegistry} from "../src/expedition_content.js";
 import {enrollSimulation, commitSimulationCommand} from "../src/simulation.js";
-import {everydayFacts, everydayScene, routeUnderstanding, recordRouteReading, activeMood, IRRITATED, UNSETTLED, REASSURED} from "../src/everyday_life.js";
+import {everydayFacts, everydayScene, routeUnderstanding, recordRouteReading, activeMood, IRRITATED, UNSETTLED, REASSURED, villageInterruption} from "../src/everyday_life.js";
 import {persistExpansionPlan} from "../src/expansion_persistence.js";
 import {LOG_KEY} from "../src/village_content.js";
 
@@ -156,4 +156,19 @@ test("a shared-word routine builds familiarity until the busy craftsman answers 
     const heard = social(busy, "village.ask_between_cuts");
     assert.equal(activeMood(heard.state, "oldCraftsman", IRRITATED), null);
     assert.ok(heard.state.simulation.knowledge.player["craftsman.hearsYou"]);
+});
+
+test("the Village interrupted path runs through the interrupted-operation record and keeps the same facts", () => {
+    const p = interrupted(), q = enroll();
+    assert.equal(everydayFacts(p.state)["village.interrupted"], true);
+    assert.deepEqual(villageInterruption(p.state), {operation: "village.craftsman_count", stopPoint: "counting fittings", partialEffect: "none",
+        kept: ["his request for quiet"], toldTo: ["oldCraftsman"], reason: "Interrupted him while he was counting fittings. He asked for quiet."});
+    assert.equal(everydayFacts(q.state)["village.interrupted"], false);
+    assert.equal(villageInterruption(q.state), null);
+});
+
+test("an untouched life writes no new key through the care and interruption records", () => {
+    const p = enroll(), before = JSON.stringify(p.state);
+    everydayFacts(p.state); villageInterruption(p.state);
+    assert.equal(JSON.stringify(p.state), before);
 });

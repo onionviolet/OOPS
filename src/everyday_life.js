@@ -2,6 +2,7 @@
 // engine. No mood currency, hidden rolls, retroactive history or second clock.
 import {eqRawReason as eq} from './basics.js';
 import {recurringWindow} from './world_rhythm.js';
+import {interruptedOperation} from './interrupted_operation.js';
 export const TEACHER_WINDOW = Object.freeze({period: 1440, opens: 480, closes: 1080});
 export const IRRITATED = "mood.irritated";
 export const UNSETTLED = "mood.unsettled";
@@ -94,6 +95,10 @@ export function activeMood(state, actorId, id) {
     return c && c.intensity > 0 && (c.expiresAt == null || c.expiresAt > state.clock) ? c : null;
 }
 
+// M3: the interrupt_work path as an interrupted-operation record (derived, never saved).
+export const villageInterruption = state => state.actors.player.completed["village.interrupt_work"]
+    ? interruptedOperation({operation: "village.craftsman_count", stopPoint: "counting fittings", partialEffect: "none",
+        kept: ["his request for quiet"], toldTo: ["oldCraftsman"], reason: "Interrupted him while he was counting fittings. He asked for quiet."}) : null;
 const craftsmanBusy = state => !!state.actors.oldCraftsman?.facts["work.order"] || !!state.actors.oldCraftsman?.facts["field.partsOrder"] || !!state.simulation?.jobs.some(j => (j.participants || [j.actorId]).includes("oldCraftsman"));
 export function everydayFacts(state, {hour = 8} = {}) {
     const p = state.simulation?.people.oldCraftsman;
@@ -102,7 +107,7 @@ export function everydayFacts(state, {hour = 8} = {}) {
         "village.playerUnsettled": !!activeMood(state, "player", UNSETTLED),
         "village.playerReassured": !!activeMood(state, "player", REASSURED),
         "village.craftsmanIdle": !p || p.life === "alive" ? !craftsmanBusy(state) && !activeMood(state, "oldCraftsman", IRRITATED) : false,
-        "village.interrupted": !!state.actors.player.completed["village.interrupt_work"],
+        "village.interrupted": villageInterruption(state) !== null,
         "village.craftsmanKnowsYou": (state.simulation?.relationships?.oldCraftsman?.player?.axes?.familiarity || 0) >= FAMILIAR_AT,
         ...Object.fromEntries(EVERYDAY_HABITS.map(h => [h.fact, (state.actors.player.completed[h.command] || 0) >= h.threshold])),
         "village.teacherHours": recurringWindow(TEACHER_WINDOW, hour * 60).open,

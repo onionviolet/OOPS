@@ -324,3 +324,74 @@ Weibao: "accordingly based on these" (`/reconcile-project`), covering rounds 1-4
 Unmapped residue: IDEA_INDEX current queue routing has no entry for the round 3 implementation order (proposals are not queued until Weibao selects a slice); the lane files' own more-to-consider items are kept in their lanes and not individually reconciled; lane G's `craft_failure_ledger` "not wired" header claim is unchecked; the five lane H open questions (`cultivation_intents`, `gear_workshop`, `field_layer`, `lamplight`, `tools` world scope) remain open.
 
 Checks: `npm run check:rules` pass (rules index, receipts, direction sync). No runtime change in this reconciliation.
+
+## Reconciliation of the remaining sources (2026-11-06)
+
+Weibao, 2026-11-06 (`/reconcile-project`): "so what are we missing?" Four read-only Sonnet lanes matched FD14-FD18, the lane files and the U01-U15 block against the [gap audit](GAP_AUDIT_2026-10-30.md), the [cross-world detail pass](CROSS_WORLD_DETAIL_PASS_2026-11-03.md), the unrechecked U rows and outside-game prior art. The coordinator then re-grepped the claims below against `src/` at master `b9d020380` (dirty shared tree, no runtime run, no tests). Proposals only (AD32); nothing accepted or dispatched.
+
+**Inspected.** Both audits' ranked rows and the two docs here, in full, by one lane each. **Not inspected.** The nine files in `gap-audit-2026-10-30/` (coverage detail, including the 115 unbuilt research packets and 22 unrecorded asks), the 576 cells of the detail-pass matrix, and the eight lane files beyond keyword matches. Lane classifications (a: owned by an FD or lane, b: other owner doc, d: content only) are inferred from keywords; about 10 detail-pass SD rows could move between classes. Gap audit: about 7 a, 12 b, 4 c, 8 d. Detail pass (96 items): 39 a, 14 b, 15 c (about 5 distinct), 28 d.
+
+### Gaps still without an owner (class c, after the spot check)
+
+| ID | Claim | Source locator | Spot check | Nearest FD | Distinguishing check |
+|---|---|---|---|---|---|
+| M1 | One identity rule for batch, portion and label (potion doses, pills, rations, ammunition) | detail pass J5, R4, H6 (CW09/14/16) | Lane C lists doses as `ready_stock` without batch identity; not grepped | FD3+ | Does a stock row carry a batch or label field? |
+| M2 | Care and recovery access record: who provides it, rank or price gate, duration, what it does not restore | detail pass J8, H14 | Appears in 5+ worlds per the pass; lane G has a "Heal" verb and no record behind it | FD15, FD6 | Grep for any care-access record |
+| M3 | Interrupted-operation record: stop point, partial effect, what is kept, who is told | detail pass J9, H15 (CW14) | Lane F covers delegate reporting and no stop record | FD8, FD17 | Same |
+| M4 | Copies, portraits and remote agents | detail pass R8 (CW26) | No covered cell in 16 worlds | FD18, lane F | Same |
+| M5 | ~~A player checkpoint store~~ **Corrected (residue lane, read):** the store exists. `src/continuation_state.js` keeps `initial` plus one replaceable `checkpoint` (lines 96, 168-171, 198-199); `src/absorb_p23/save_time_options/backup_undo.js` adds a swap fallback; tests exist. `anchor_snapshots.js` is a different module (world timeline replay), still 0 `src/` importers | gap audit G15 tail, detail pass H2 | Gap narrowed to: rewind is limited (default for now; dial: widen when another world has a consumer) to Frontier and starts with a loop row (`continuation_state.js:39-44`) | FD18, U14 | Extend rewind to another world when it has a consumer |
+| M6 | Loop kinds: chosen, real entrapment, duplicate processing | gap audit G5 part | Not checked; `bk-mol` may cover it | FD16 (U05) | Read `bk-mol` for the distinction |
+
+### Built as one-world slices (incomplete integration, not unowned)
+
+| ID | Claim in the audit | Now | Disposition |
+|---|---|---|---|
+| G1 | Canon pull has no seam | `src/canon_pull.js`, `canon_pull_host.js`, `canon_pull_panel.js` (1 importer), LOTM cast host | Generalize the pull dial into the FD16 pinned-calendar layer; check the resolver actually reads it |
+| G3 | Persistent rival with hidden power: nothing in `src/` | `src/rival_memory.js` (2 importers): Mara, "H7 first slice", margin and grudge dials | Name a rival record shape for FD15/FD17 beyond the one road rival |
+| G6 | Hit location: nothing in `src/` | `src/tempo_location.js` | Stale gap-audit wording; no action beyond correcting it |
+
+### Stale documentation found
+
+| Where | Said | Now (importers in `src/`) |
+|---|---|---|
+| Module table, Foundations doc | `world_events` 7, `ability_ladders` 0 | 13 and 2 (Round 3 already says 2) |
+| Detail pass | `away_ledger` unused; `harm_loops` tests alone | 1 and 4 |
+| Detail pass | `canon_pull_panel` unused | 1 |
+
+Still true: `law_case`, `anchor_snapshots`, `invention_receipts`, `lotm_price_map` have 0 `src/` importers (tests only). H11 generators exist but have no FLR1/2/6 receipts (missing proof).
+
+### Source recheck of the U rows (read, no tests run)
+
+| U | Now |
+|---|---|
+| U01, U02, U07, U11, U14 | Unchanged since 10-14: no control transfer, no body parts or senses, `techniques` the de facto capability center, world IDs still hardcoded at `simulation.js:256`, per-feature schema bumps with no general migration chain |
+| U03 | Start still gated by `?foundation_probe=1` (`main.js:399`); `structured_pack_runtime` wider |
+| U04 | About 28 `Math.random` calls, all cosmetic or flavor text; gameplay draws go through `gameRandom`. The duplicated xorshift remains in 16 files. Closes the FD16 randomness dependency; `misc.js:73` `random_range` default still falls through to `Math.random` |
+| U06 | Player view is a pure projection of the seat's own knowledge; whether other-actor predicates read it is untraced |
+| U09 | Custody spread; money still a legacy scalar |
+| U10 | Not read (needs and goals unchecked) |
+| U13 | Heir flow reachable once a life ends; rebirth reached by tests alone; combat death is unconsciousness plus a defeat count |
+
+### Outside-game prior art for FD14-FD16 (proposals, mostly secondary sources)
+
+Round 4 and 4b (OB1-OB12: obligations, heat, claim, reach) and RC1-RC13 above were written by another session in parallel. Loyalty drift, tiered asks and strain overlap the OB family: fold them into the OB rows (and FD15 asks) before giving them new codes.
+
+Best three, in order: loyalty drift on a position with thresholds that fire FD16 events (CK3); host demands scaled by rank with a cap (Dwarf Fortress); strain as a forced exit (Princess Maker 2). Smaller: tiered asks raised one step at a time with a renegotiation budget; term length with a renewal event (Mount & Blade, figures unverified); re-check an event trigger at delivery; severity scaled by standing; arrival damping as a roster fills; a build-time reachability check for calendar-gated content (Persona 4); pair tags on cards (Wildermyth). Sources are mostly fan wikis or search snippets; Kenshi and Football Manager were not searched. Each is a default with a dial and a reason, not a requirement.
+
+### NPC agency (D, proposal)
+
+Pseudo agency now, real needs and goals later, through the same command and controller path so a later layer is another controller. Reason: authored worlds need the right person in the right place; cost: real goals multiply the causes every NPC action must justify. U10 needs and goals are unread, so this rests on the 10-14 scorecard.
+
+### Proposed edits to existing proposals
+
+FD3+: add M1. FD15: M2, tiered asks, loyalty drift, strain exit, term length and renewal. FD16: M6, trigger recheck at delivery, canon-pull dial. FD17: rival record shape. FD18: M4, M5. Cross-cutting: correct the stale counts above in the module table and note the Mara and canon-pull slices as first consumers.
+
+### Residue closure (coordinator, 2026-11-06, read-only lanes, tree at `b9d020380`)
+
+- **M1 is built for one world:** `src/hp_brewing_state.js:38,68` has batches with id, doses, grade and history; `hp_preparation.js:31` has `lotId`; `ready_stock.js` counts by kind alone. Gap: a shared batch/label shape, first consumer Klein's Seer dose allocation (`book_world_lotm_actions.js:45-47`). **M2 missing** (just the Village fever storylet, `storylet_content.js:52-54`). **M3 partial** in three one-off forms (`wait_until.js:22-33`, `agreed_duty_continuation.js:20-68`, `everyday_life.js:52-66`). **M4 missing, no reachable consumer.**
+- **M6 partly covered:** `harm_loops.js:6-27` has `cycle`, `restart:initial`, `restart:checkpoint` and triggers; no `cause` (chosen, imposed, entrapped) and no per-attempt re-processing check. Owner `harm_loops.js` with `continuation_state.js`.
+- **U10:** pseudo agency through the command path is already how controllers work (`simulation.js:690-720`, `previewCommand` then `startCommand`); `npc_lives.js` is a scripted yearly register, not an agent layer. Missing: a schedule fact a controller guard can read. Host-file direct-edit scan was not exhaustive (inferred).
+- **U06:** predicates about another actor read raw target state (`simulation_effects.js:131-232`; `meets` callers at `simulation.js:118,163,704`); just `person.<id>.*` is observer-filtered. Missing: a `knownTargetFacts` adapter that appraisal and price rules require.
+- **Unowned foundation-shaped rows from the nine coverage files (O1-O13; about 330 rows scanned, filtered not read line by line; 5 stale rows):** O1 travel budget and logistics; O2 entry permission record; O3 directed group-to-group stance; O4 gifts versus conditional services from a group; O5 paid information becoming a saved lead; O6 concealed capability on any actor with appraisal gate (generalizes `rival_memory.js`); O7 starting hostility with reputation cost; O8 bluff and false signal; O9 transfer of non-item holdings (identity, luck, titles); O10 reset-and-carry contract with a predicate; O11 failure path per system; O12 terminating chains and a tie rule (partial FD16); O13 named capacity gauges (partial FD18). Locators are in the coverage files (research_cov, uv_cov_1-5, coord_cov); not individually verified. Stale in the audit: Nemesis (`rival_memory.js`), hit location (`tempo_location.js`), canon pull per fact (`canon_pull*.js`), anchor snapshots.
+- **Not done:** the 576-cell detail-pass matrix (all content by nature), line-by-line read of uv_cov_1-5.
+

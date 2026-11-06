@@ -21,16 +21,20 @@ export function rivalMemoryEffects(facts, result) {
         ...(result === 'won' ? [put(RIVAL_FACTS.wins, h.wins + 1)] : result === 'lost' ? [put(RIVAL_FACTS.losses, h.losses + 1)] : [put(RIVAL_FACTS.withdrawn, h.withdrawn + 1)])];
 }
 // The means that let the player see her real strength. Each is something the player did or has; none is a permission list.
-export function appraisalMeans(facts) {
+// `observed` is knownTargetFacts(state, 'player', 'roadRival') (optional): a recorded observation of her strength
+// is a means too, and only the TELLING reads it. The margin in rivalCombatant never does (AD7, U06).
+export const RIVAL_OBSERVATION_KEY = 'person.roadRival.strength';
+export function appraisalMeans(facts, observed) {
     const h = rivalHistory(facts), means = [];
+    if(observed?.[RIVAL_OBSERVATION_KEY]) means.push({id: 'observed-her-strength', text: 'You have taken her measure.'});
     if(h.duels > 0) means.push({id: 'felt-her-hand', text: 'You have crossed blades with her.'});
     if(facts?.['rival.resolved']) means.push({id: 'rival-insight', text: 'Beating her taught you how she moves.'});
     return means;
 }
 export const hiddenMargin = () => RIVAL_DIALS.hiddenAttack.value;
 // What the road contest panel says about her before it begins: memory line and appraisal line (the gate).
-export function rivalBrief(facts) {
-    const h = rivalHistory(facts), means = appraisalMeans(facts), pct = Math.round((hiddenMargin() - 1) * 100);
+export function rivalBrief(facts, observed) {
+    const h = rivalHistory(facts), means = appraisalMeans(facts, observed), pct = Math.round((hiddenMargin() - 1) * 100);
     const memory = !h.duels ? 'Mara has not met you in a contest.' : h.last === 'won'
         ? `Mara remembers losing to you${h.wins > 1 ? ` ${h.wins} times` : ''} and wants it back.` : h.last === 'lost'
         ? `Mara remembers beating you${h.losses > 1 ? ` ${h.losses} times` : ''} and expects to do it again.` : 'Mara remembers you walked away from the last contest.';

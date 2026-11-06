@@ -24,6 +24,7 @@ import {beFirearmFacts} from './book_world_lotm_be_firearm.js';
 import './book_world_lotm_fight.js'; // registers the AT15 proof tempo opener
 import {lifeCommands,LOTM_PROFILES,profileKeyOf,weeksOwed} from './book_world_lotm_lives.js';
 import {LOTM_DISTRICTS,districtOfPlace,districtCommands,districtFacts,onShift,roleOutcomeFacts} from './book_world_lotm_districts.js';
+import {makeBatchRef} from './batch_identity.js';
 const acted=()=>({type:'resource',actor:'player',key:'book.lotm.acting',amount:1}),undigested=not(gte('lotm.acting',LOTM_DIGEST_ACTS));
 const sample=name=>K[name];
 const findings={
@@ -160,3 +161,12 @@ export function lotmFacts(state,ctx={}){
  return f;
 }
 export const lotmContext=(state,ctx={})=>({...ctx,facts:{...ctx.facts,...lotmFacts(state,ctx)}});
+// Batch identity for the issued Seer dose (M1). Default: an issued dose is traceable to the supplier's batch.
+// Dial: this world labels doses; others need not. Reason: recalls, tampering and forgery need a dose to name its batch.
+// Derived, never saved: the accept_allocation definition is golden-pinned and a life writes no new key, so the ref is read from the
+// existing 'terms' knowledge record (its minute names the issue). Null before the allocation is accepted.
+export function allocatedDoseRef(state){
+ const rec=state?.simulation?.knowledge?.player?.['book.lotm.terms'];
+ if(!rec||typeof rec.at!=='number')return null;
+ return makeBatchRef({id:`${I.supervisor}.dose.${rec.at}`,kind:K.dose,label:'Tingen prepared Seer dose',source:I.supervisor,doses:1});
+}

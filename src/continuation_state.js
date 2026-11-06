@@ -51,6 +51,14 @@ function snapshotValid(value) {
     check(object(value)&&object(value.character)&&object(value.levels)&&!Object.hasOwn(value,'continuation'), 'Invalid or recursive continuation snapshot.');
     nativeMoment(value);
 }
+// Attempt identity (M6/G5): each life remembers the event tokens of its recent restarts and cycles, so one delivered twice (a reloaded
+// save, a re-sent command) is re-processing and never a new cycle. Optional: a life that never restarted carries no `attempt` key.
+export const ATTEMPT_MEMORY = 32;
+function claimAttempt(life, token) {
+    check(!(life.attempt?.tokens||[]).includes(token), 'This return has already been applied.');
+    const tokens = [...(life.attempt?.tokens||[]), token].slice(-ATTEMPT_MEMORY);
+    life.attempt = {count: (life.attempt?.count||0)+1, tokens};
+}
 export function validateContinuation(value) {
     check(object(value)&&value.schema===1&&id(value.journeyId)&&id(value.active)&&natural(value.sequence)&&
         natural(value.nextLife)&&object(value.lives)&&object(value.mastery)&&object(value.research)&&object(value.loop), 'Unsupported continuation state.');
@@ -76,6 +84,7 @@ export function validateContinuation(value) {
             (life.tether===null||id(life.tether)&&value.lives[life.tether]), 'Invalid continuation life binding.');
         validateExternalEquipment(life);snapshotValid(life.initial);
         if(life.ended!==undefined)check(death(life.ended),'Invalid ended continuation life.');
+        if(life.attempt!==undefined)check(object(life.attempt)&&natural(life.attempt.count)&&Array.isArray(life.attempt.tokens)&&life.attempt.tokens.length<=ATTEMPT_MEMORY&&life.attempt.tokens.every(id),'Invalid continuation attempt identity.');
         if(life.checkpoint!==null) snapshotValid(life.checkpoint);
         if(life.paused!==null) snapshotValid(life.paused);
         check(key===value.active ? life.paused===null : life.paused!==null, 'Paused/active life disagreement.');
@@ -171,6 +180,7 @@ export function planContinuation(original, command, {expectedSequence, fresh, to
         check(target,'There is no later checkpoint in this life.');
         check(nativeMoment(target)<=nativeMoment(source),'That recorded point lies in an abandoned future. This connection does not grant forward travel.');
         const at=nativeMoment(source),world=source.expansion?.actors?.player?.worldId;
+        claimAttempt(life,token);
         next=restore(source,scopedRestart(source,target,world,startId?loopKey(world,startId):world),c);
         // The new run starts on day 1, undiverged, and the ended run's dated events become day-stamped foreknowledge.
         if(startId)afterRunRestart(source.expansion,next.expansion);
@@ -242,6 +252,7 @@ export function planContinuation(original, command, {expectedSequence, fresh, to
         const target=c.loop.target==='initial'?life.initial:life.checkpoint;
         check(target,'Choose an existing checkpoint for repetition.');
         check(nativeMoment(target)<=nativeMoment(source),'This loop cannot reach a future checkpoint.');
+        claimAttempt(life,token);
         c.loop.cycles++;next=restore(source,target,c);c.arrivalPaused=false;c.loop.nextAt=nativeMoment(next)+5;
     } else throw Error('Unknown continuation action.');
     c.sequence++;c.lastTransition={token,kind:command,lifeId:c.active,sequence:c.sequence};

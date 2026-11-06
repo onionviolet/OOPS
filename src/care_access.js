@@ -1,0 +1,48 @@
+// Care access record (audit M2, detail pass J8/CW04). Leaf: imports nothing.
+// Default: a gate of price. Dial: a world picks the gate kind (price, rank,
+// favor), the cost and the duration. Reason: care is a service with a
+// provider, a gate and limits, not a free heal. Limits are adjectives (AD22),
+// so `doesNotRestore` names what this care leaves alone and is surfaced to the
+// player, never applied. Output uses the storylet effect shapes that already
+// exist (fact effect, cost list as {type:'money'-style native key}); no new op.
+export const CARE_GATE_KINDS = Object.freeze(['price', 'rank', 'favor']);
+
+export function validateCareRecord(r) {
+    const errors = [];
+    if (!r || typeof r !== 'object') return ['care record must be an object'];
+    if (!r.provider || typeof r.provider !== 'string') errors.push('provider is required');
+    if (!r.who || typeof r.who !== 'string') errors.push('who is required');
+    const g = r.gate ?? {kind: 'price'};
+    if (!CARE_GATE_KINDS.includes(g.kind)) errors.push(`gate kind must be one of ${CARE_GATE_KINDS.join(', ')}`);
+    if (g.kind !== 'price' && !(Number.isFinite(g.min) && g.min >= 0)) errors.push(`${g.kind} gate needs a non-negative min`);
+    if (!Number.isFinite(r.cost) || r.cost < 0) errors.push('cost must be a non-negative number');
+    if (!Number.isFinite(r.duration) || r.duration < 0) errors.push('duration must be a non-negative number of minutes');
+    for (const k of ['restores', 'doesNotRestore'])
+        if (!Array.isArray(r[k]) || r[k].some(x => typeof x !== 'string' || !x)) errors.push(`${k} must be a list of keys`);
+    return errors;
+}
+
+export function careRecord(fields) {
+    const r = {gate: {kind: 'price'}, duration: 0, restores: [], doesNotRestore: [], ...fields};
+    const errors = validateCareRecord(r);
+    if (errors.length) throw new Error(`Invalid care record: ${errors.join('; ')}`);
+    return r;
+}
+
+export const careLabel = (base, record) => record.gate.kind === 'price' && record.cost > 0
+    ? `${base} · ${record.cost} ${record.cost === 1 ? 'coin' : 'coins'}` : base;
+
+// Pure. `character` = {rank, favor} (missing counts as 0). `moneyCost(n)` builds
+// the host's native cost entry. Refusal leaves state alone: no effects, no costs.
+export function applyCare(record, character = {}, {moneyCost, extraEffects = [], restoreEffect} = {}) {
+    const errors = validateCareRecord(record);
+    if (errors.length) throw new Error(`Invalid care record: ${errors.join('; ')}`);
+    const notRestored = [...record.doesNotRestore];
+    const g = record.gate;
+    const have = g.kind === 'rank' ? (character.rank ?? 0) : g.kind === 'favor' ? (character.favor ?? 0) : null;
+    if (have !== null && have < g.min)
+        return {ok: false, reason: `${record.provider} will not treat you yet: needs ${g.kind} ${g.min}, you have ${have}.`, effects: [], costs: [], notRestored, duration: 0};
+    const mk = restoreEffect || (key => ({type: 'fact', scope: 'actor', key, value: true}));
+    const costs = record.gate.kind === 'price' && record.cost > 0 ? [moneyCost(-record.cost)] : [];
+    return {ok: true, reason: '', effects: [...record.restores.map(mk), ...extraEffects], costs, notRestored, duration: record.duration};
+}

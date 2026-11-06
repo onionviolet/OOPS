@@ -2,6 +2,7 @@
 // Fixed original contacts are a bounded bridge; P4 owns generated residents.
 import {all, not} from './basics.js';
 import {moneyNativeKey as money} from './content_kit.js';
+import {careRecord, applyCare, careLabel} from './care_access.js';
 const F = (fact, op, value) => ({fact, op, value});
 const is = (key, value=true) => F(key,'eq',value);
 const fact = (key,value=true) => ({type:'fact',scope:'actor',key,value});
@@ -20,6 +21,11 @@ function card(id,deck,urgency,label,options={}) {
         requires:all(is('actor.world','base.frontier'),...(event.requires?[event.requires]:[])),
         storylet:{deck:`village.${deck}`,urgency,weight:{base:weight,plus},cooldown,once,family,fallback}};
 }
+// M2: the healer route is a care record (price gate, 6 coins); text and outcome unchanged.
+export const feverCare = careRecord({provider:'healer',who:'Sela’s child',gate:{kind:'price'},cost:6,duration:0,
+    restores:['storylet.fever.treated'],doesNotRestore:[]});
+const feverHealer = (() => {const r=applyCare(feverCare,{},{moneyCost:money,extraEffects:[rel(2,'Sent for the healer.')]});
+    return {...r,label:careLabel('Send for the healer',feverCare)};})();
 export const storyletEvents = [
     card('cow_on_the_road','daily','ambient','Sela finds the missing cow by the mill and shares a coin for your directions.',
         {weight:4,effects:[money(1),rel(1,'Helped find the cow.')],cooldown:72}), // C01
@@ -50,7 +56,7 @@ export const storyletEvents = [
         {family:'people',plus:[{when:is('actor.storylet.harvest.poor'),add:3}],responses:[choice('mediate','Walk the line with them',[rel(2,'Walked the disputed boundary.'),xp('Perception',8),fact('storylet.feud.settled')]),
             choice('pass','Stay out of it',[fact('storylet.feud.known')])]}), // C08
     card('child_has_fever','people','hard','Sela’s child has a fever. The healer can visit, or you can bring the message yourself.',
-        {family:'people',cooldown:480,requires:not(is('actor.storylet.fever.treated')),responses:[choice('healer','Send for the healer · 6 coins',[fact('storylet.fever.treated'),rel(2,'Sent for the healer.')],[money(-6)]),
+        {family:'people',cooldown:480,requires:not(is('actor.storylet.fever.treated')),responses:[choice('healer',feverHealer.label,feverHealer.effects,feverHealer.costs),
             choice('help','Carry the message yourself',[fact('storylet.fever.treated'),rel(1,'Brought the healer.')]),
             choice('pass','Ask her to seek another helper',[fact('storylet.fever.untreated')])],onExpire:[receipt('fever.passed')]}), // C10
     card('teacher_passes_through','chances','soft','A traveling survey teacher offers a short lesson before moving on.',

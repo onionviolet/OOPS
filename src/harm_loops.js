@@ -6,6 +6,10 @@ const freeze=v=>{for(const c of Object.values(v))if(c&&typeof c==='object')freez
 const KINDS=['cycle','restart:initial','restart:checkpoint'];
 const TRIGGERS=['player','death','date','switch','exhaustion'];
 const ANCHORS=['initial','checkpoint'];
+// Who set the loop going (M6/G5). Default 'imposed' keeps today's reading. Dial: a world declares it. Reason: consent changes what the
+// player is told and which exits are real: a chosen loop can be stopped at will, an entrapped one only through its exit rows.
+export const LOOP_CAUSES=['chosen','imposed','entrapped'];
+export const rowCause=r=>r.cause??'imposed';
 // Carry classes for a structured carry entry. 'multiplier' is the aptitude-multiplier route (continuation_retention);
 // which of soul-bound or multiplier a world uses is the row's choice, not a default here (R2).
 export const CARRY_CLASSES=['soul-bound','carried','reset','multiplier'];
@@ -68,7 +72,8 @@ function validV2(r){
  const w=typeof r.witnesses==='string'||entries(r.witnesses,x=>text(x.who)&&text(x.how));
  const s=r.staleness===undefined||(r.staleness&&text(r.staleness.sourceKind)&&Number.isFinite(r.staleness.reliableDays));
  const e=typeof r.exit==='string'||(entries(r.exit,x=>text(x.when)&&text(x.cost))&&r.exit.length>0);
- return t&&c&&b&&w&&s&&e;
+ const k=r.cause===undefined||LOOP_CAUSES.includes(r.cause);
+ return t&&c&&b&&w&&s&&e&&k;
 }
 export function validateLoopRows(rows=LOOP_RESETS){
  for(const [id,r] of Object.entries(rows)){
@@ -94,7 +99,7 @@ export function loopPlan(worldId,{trigger,events,lifeEnded=false,hasCheckpoint=f
  if(!t)return null;
  if(t.kind==='death'&&!lifeEnded)return null;
  const command=t.command??r.command;
- if(t.anchor==='checkpoint'&&!hasCheckpoint)return {command:t.kind==='death'?'restart:initial':'cycle',fellBack:true,carry:r.carry,trigger};
- return {command,fellBack:false,carry:r.carry,trigger};
+ if(t.anchor==='checkpoint'&&!hasCheckpoint)return {command:t.kind==='death'?'restart:initial':'cycle',fellBack:true,carry:r.carry,trigger,cause:rowCause(r)};
+ return {command,fellBack:false,carry:r.carry,trigger,cause:rowCause(r)};
 }
 validateLoopRows();

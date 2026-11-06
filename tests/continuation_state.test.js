@@ -207,3 +207,36 @@ test('a branch is refused from a world that cannot travel',()=>{
     const s=enroll();s.expansion.actors.player.worldId='book.other';
     assert.throws(()=>cmd(s,'branch:x'),/temporal means/);
 });
+test('attempt identity: a cycle delivered twice with one id counts once, a new id counts again',()=>{
+    let s=cmd(enroll(),'loop');s['current time'].minute=5;
+    const t=planContinuation(s,'cycle',{expectedSequence:s.continuation.sequence,token:'attempt-A'});
+    assert.equal(t.continuation.loop.cycles,1);assert.equal(t.continuation.lives['life-1'].attempt.count,1);
+    // Re-sent after another transition moved lastTransition on: still the same attempt.
+    const moved=cmd(t,'continue');moved['current time'].minute=10;
+    assert.throws(()=>planContinuation(moved,'cycle',{expectedSequence:moved.continuation.sequence,token:'attempt-A'}),/already been applied/);
+    assert.equal(moved.continuation.loop.cycles,1);
+    const u=planContinuation(moved,'cycle',{expectedSequence:moved.continuation.sequence,token:'attempt-B'});
+    assert.equal(u.continuation.loop.cycles,2);assert.equal(u.continuation.lives['life-1'].attempt.count,2);
+});
+test('attempt identity: a restart replayed with one id is one cycle, and the ledger survives a save round trip',()=>{
+    const tingen=fresh();tingen.expansion.actors.player.worldId='book.lotm.tingen';
+    let s=cmd(beginContinuation(tingen,'test-journey'),'die:loss_of_control');
+    const r=planContinuation(s,'restart:initial',{expectedSequence:s.continuation.sequence,token:'restart-A'});
+    assert.equal(r.continuation.lives['life-1'].attempt.count,1);
+    const reloaded=JSON.parse(JSON.stringify(r));validateContinuation(reloaded.continuation);
+    assert.equal(reloaded.continuation.lives['life-1'].attempt.count,1);
+    // Reloading mid-attempt (validate, observe, view) never advances it.
+    observeContinuation(reloaded);continuationView(reloaded);assert.equal(reloaded.continuation.lives['life-1'].attempt.count,1);
+    const dead=cmd(reloaded,'die:loss_of_control');
+    assert.throws(()=>planContinuation(dead,'restart:initial',{expectedSequence:dead.continuation.sequence,token:'restart-A'}),/already been applied/);
+    assert.equal(dead.continuation.lives['life-1'].attempt.count,1);
+});
+test('attempt identity is additive: a life that never restarted writes no attempt key and an old save loads byte-identically',()=>{
+    const s=cmd(enroll(),'loop');
+    assert.equal(Object.hasOwn(s.continuation.lives['life-1'],'attempt'),false);
+    const before=JSON.stringify(s.continuation);
+    validateContinuation(JSON.parse(before));assert.equal(JSON.stringify(JSON.parse(before)),before);
+    observeContinuation(s);assert.equal(JSON.stringify(s.continuation).includes('"attempt"'),false);
+    const bad=structuredClone(s.continuation);bad.lives['life-1'].attempt={count:-1,tokens:[]};
+    assert.throws(()=>validateContinuation(bad),/attempt/);
+});
