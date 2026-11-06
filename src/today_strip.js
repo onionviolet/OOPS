@@ -63,6 +63,8 @@ function readToday() {
         clock: local?.clock || nativeClock,
         date: local ? (rows.length ? `These activity hours follow a separate clock: ${nativeClock}` : local.date) : `Year ${t.year}, month ${t.month}, day ${t.day}`,
         place: current_location?.name || '',
+        // A world's local clock may add one short note (e.g. a school-year countdown); absent everywhere else.
+        ...(local?.note ? {note: String(local.note)} : {}),
         rows, usesLocalClock:!!local, work: runningCommitments(readPort('expansion')),
     };
 }
@@ -98,5 +100,5 @@ export function todayDigest() {
     if (!here()) return null;
     return todayDigestView(readToday());
 }
-export const todayDigestView = view => ({clock:view.clock,place:view.place,
+export const todayDigestView = view => ({clock:view.clock,place:view.place,...(view.note?{note:view.note}:{}),
     open:view.usesLocalClock?[]:view.rows.filter(r=>r.open).map(r=>r.name),running:view.work});

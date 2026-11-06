@@ -12,6 +12,9 @@ import {readPort} from './ui_ports.js';
 import {registerHpPeopleSource} from './book_world_hp_people_source.js';
 import {registerLocalClockSource} from './today_strip.js';
 import {resolveWorldCalendar,formatCalendar} from './world_calendar.js';
+import {schoolYearText} from './book_world_hp_school_calendar.js';
+import {registerDutySet} from './duties_domain.js';
+import {hpDutySet} from './book_world_hp_duties.js';
 const LEAD_ID='book.hp.lead';
 const EMPTY_ARC=Object.freeze({id:`${LEAD_ID}.arc`,title:'Nothing authored yet',completed:0,total:0,done:false,next:null,aftermath:null,conclusion:null});
 const actData=()=>getHpLeadCast()?.householdActs??hpLeadHouseholdActs;
@@ -39,7 +42,9 @@ export function registerHpLeadDomain(register,getState,ports=null,data){
     let panel=null;
     // The Reports 'Now' line reads the life's own calendar (same projection as the scene header), not the home clock.
     if(ports)registerLocalClockSource(()=>{const state=getState(),view=state?.actors?.player?.worldId===`${LEAD_ID}.world`?resolveWorldCalendar(state):null;
-        return view?{clock:formatCalendar(view,{time:true}),date:view.label}:null;});
+        return view?{clock:formatCalendar(view,{time:true}),date:view.label,note:schoolYearText(view.absoluteLocalDay)||undefined}:null;});
+    registerDutySet('hp',hpDutySet(getState)); // FD8: inactive until a later act sets hp.lead.atSchool
+
     // The life holds nothing of its own to spend or carry (hpLeadLife.items is empty, no resources), so the shell says so.
     if(ports)registerOwnHoldings(`${LEAD_ID}.world`,{purse:'no money of your own',items:'You carry nothing of your own.',body:'Your body here is not the Village hero\'s sheet.'},hpLeadHoldingsReaders());
     registerHpPeopleSource();

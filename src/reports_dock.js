@@ -13,7 +13,7 @@ export function dockRows({logLines, next, today}) {
     const rows = [];
     if (next) rows.push({kind: 'next', label: 'Next step', text: next.line, hint: next.how});
     if (today) {
-        rows.push({kind: 'clock', label: 'Now', text: `${today.clock}${today.place ? ` at ${today.place}` : ''}`});
+        rows.push({kind: 'clock', label: 'Now', text: `${today.clock}${today.place ? ` at ${today.place}` : ''}${today.note ? ` · ${today.note}` : ''}`});
         if (today.open.length) rows.push({kind: 'open', label: 'Open here', text: today.open.slice(0, 4).join(', ')});
         if (today.running.count) rows.push({kind: 'running', label: 'Running', text: `${plural(today.running.count, 'commitment')}${today.running.nextIn != null ? `, the next ends in ${minutesText(today.running.nextIn)}` : ''}`});
     }

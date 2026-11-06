@@ -17,6 +17,7 @@ import {renderCrossingThreshold} from './ui/crossing_threshold.js';
 import {renderStartCompare} from './ui/start_compare.js';
 import {lotmThresholdView} from './book_world_lotm_threshold.js';
 import {mountWorkroomTabs, WORKROOM_TABS} from './book_world_lotm_tabs.js';
+import {lotmPositionsFromView,lotmPositionLine} from './book_world_lotm_positions.js';
 const node=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;return n;};
 export const lotmPanelTitle=v=>v.resident?v.at:'Tingen workroom';
 // Surface type: place service (UR1). Home: the main workspace, discovered inside the Tingen
@@ -160,6 +161,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend}
   // Pathway ladder (DR2): reached stages, the current one, and what the next crossing still needs.
   const p=v.path;path.dataset.lotmPath=resident?'':p.path;
   if(!resident){
+  const posRows=lotmPositionsFromView(v);if(posRows.length)path.append(node('p',lotmPositionLine(posRows)));
   if(v.profile==='civil'){
    path.append(node('h3','Civil staff'),node('p','A civil post brings no potion or field membership.'));
    const contract=v.records.find(r=>r.id==='book.lotm.contract');

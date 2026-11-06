@@ -1,12 +1,12 @@
 # Cross-world foundations run (2026-11-06)
 
 ```receipt
-build: 53a2a0ab9c4ce41e109adb593d06b54517c1819710a598c21fed27ebff62a80f
+build: b213f540cbbabed76274ac49ad2154320eabaadba25d85afcff528cbd5e311b9
 route: fixture(kj3z ckpt-range with B8 proof acts)
 state: browser-verified
 viewport: 1920x1080
 persistence: checked
-tests: npm test 5248/5248; tempo*, tempo_host, perspective_controls 48/48; seam_register 6/6; check:arch pass; check:rules pass
+tests: npm test 5256/5256 (wave 2); wave 1 5248/5248; focused positions 4/4, hp_school_calendar 7/7; check:arch pass; check:rules pass
 review: none
 ```
 
@@ -64,15 +64,36 @@ Earlier walk on bundle `983e9b31...` with the Sequence 8 corpse-handler at short
 | AT22 | After a fight ends in the LOTM view, the centre panel shows the Notebook view instead of the place | Screenshot `03-after` | Return the LOTM view to Here on fight end |
 | AT23 | The away bank now writes in any world through the neutral port and spends time through the native clock | W1-A port decision | Check banked-time spending in a LOTM life before calling it world-neutral in play |
 
+## Wave 2 receipts
+
+| Lane | Files | Checks | Not covered | State |
+|---|---|---|---|---|
+| W2-A positions | `src/positions.js` (world-neutral registry, `positionsOf`), `src/book_world_lotm_positions.js` (civil-staff contract row after `sign_contract`; probationer row as `enrolled`, an authored mapping), one import in `src/book_world_lotm_actions.js`, one line in `src/book_world_lotm_ui.js` (Path tab), `tests/positions.test.js` | 4/4 plus 23/23 neighbours; check:arch pass; state JSON identical before and after (no save key) | Village career source (LATER: top-level save key outside the registry); term end date; exit kinds; the UI reads rows through a view adapter until the host view carries `positions` | Agent-verified natively |
+| W2-B HP calendar and class duty | `src/book_world_hp_school_calendar.js` (1 September stated; holidays and term end authored proposals), `src/book_world_hp_duties.js` (`hp.lead.class_slot`, active once `hp.lead.atSchool` is set and the date is in term), `src/book_world_hp_lead_domain.js` (local clock `note`; `registerDutySet('hp', ...)`), `tests/hp_school_calendar.test.js` | 7/7 with the digest test; duties tests pass | Class duty is fixture-only until W5 sets `hp.lead.atSchool`; gap weeks of an inactive set count as misses (fix before W5) | Countdown agent-verified natively; duty fixture-only |
+| Coordinator fix | `src/today_strip.js` (local clock `note` passed through `todayDigestView`), `src/reports_dock.js` (appends the note to the Now line) | 7/7; reports_dock tests pass | | |
+
+Native walks (headless, game MCP, frozen instrumented bundles):
+
+| Item | What the player saw | Result |
+|---|---|---|
+| Civil staff before signing | Path tab: "Civil staff" with no positions line | Pass |
+| After signing | "Civil staff, Nighthawks: contract, 3 pounds a week, five years" | Pass |
+| Kept | Same line after save, reload, Export and Import (day 1 08:00, workroom, 1200 pence) | Pass |
+| Probationer | "Probationer, Nighthawks" | Pass (no persistence run) |
+| Harry countdown (first walk) | Not shown: Reports' Now line dropped the clock `date` field | Fail, fixed by the `note` field |
+| Harry countdown (re-walk, bundle `b213f540...`) | "Sat, day 1 09:01 at Your room under the stairs · Term starts in 32 days (1 September)."; a day later 31; same after save, reload, Export and Import; 0 page errors | Pass |
+
+Findings: AT24 the civil-staff life shows Nighthawk probationer rows in Work & merit; AT25 the Reports Now line stayed stale after a 1440-minute step until the log was cleared or the page reloaded (the dock refreshes on a 1-second timer; not isolated as headless or real); the Reports card also hides once the log passes 8 lines (`LOG_TAKES_OVER`), by design.
+
 ## Resume block (unattended run, 2026-11-06)
 
 Weibao, 2026-11-06: "lets work on these to completion".
 - Objective: slices 1-8 of the round 3 order each at the AD43 floor or recorded below it with the blocker named; atlas rows refreshed.
 - Input identity: master at `b9d020380`; dirty but not ours: `styles/ui_extras.css`, `src/home_domain.js`, `src/main.js`, `src/domain_registry.js`, `src/world_completion_materials_*.js`, `tests/domain_registry.test.js`, `scripts/tauri/*`, untracked `desktop-tauri/`, `scripts/perf/*`, `src/typed_confirm.js`, `tests/typed_confirm.test.js`.
-- Steps: wave 1 done (slices 1 and 2; AT15 at floor on a fixture route); wave 2 next (W2-A positions projection plus its LOTM panel line, W2-B HP school calendar and a class duty set).
+- Steps: wave 1 done (slices 1 and 2; AT15 at floor on a fixture route); wave 2 done (positions projection with its LOTM line; Harry's school calendar countdown; HP class duty fixture-only); wave 3 next. Previously wave 2 next (W2-A positions projection plus its LOTM panel line, W2-B HP school calendar and a class duty set).
 - Last evidence: AT15 step 1 `8788923e5`; reconciliation `b9d020380`.
 - Failed approaches: `b8-range-proof.mjs` (stale task-link click, T3); tempo panel via Frontier `harvestWritable` (T1).
-- Next useful action: wave 2 dispatched 2026-11-06 (W2-A positions projection: `src/positions.js`, `src/book_world_lotm_positions.js`, one import in `book_world_lotm_actions.js`, one line in `book_world_lotm_ui.js`, `tests/positions.test.js`; W2-B HP school calendar and class duty: `src/book_world_hp_school_calendar.js`, `src/book_world_hp_duties.js`, `src/book_world_hp_lead_domain.js`, `tests/hp_school_calendar.test.js`). On return: check at locators, run focused tests, build, npm test, check:arch, check:rules, doc slips, then a native walk (LOTM positions line after sign_contract; HP Now line in a W4 save), commit. Then wave 3: slices 5-6 (inquiry@1 with notes as objects; livelihood stage record with rights and dues in a second world). AT21-AT23 open.
+- Next useful action: wave 2 committed (slices 3 first step and 4 first step). Wave 3: slice 5 inquiry@1 with notes as objects (lane G file), slice 6 livelihood stage record with rights and dues in a second world (lane E file and round 4 OB1-OB12); open findings AT21-AT25 and the duty gap-week fix before W5.
 - Usage read 2026-11-06 ~23:00: 5-hour 12%, weekly 61%.
 - Pacing: continue while weekly all-models is under 75% and the 5-hour window under 85%; at 85% on the 5-hour window wake after its reset; at 75% weekly stop and wait for Weibao. Read 2026-11-06 ~22:30: 5-hour 2%, weekly 60%.
 - Stop condition: all eight slices recorded, or weekly at 75%, or a blocker only Weibao can clear.
