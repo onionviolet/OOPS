@@ -209,3 +209,78 @@ A shared host port answers only about the engine and the save (can this write, i
 | 8 | FD16 event layers, FD14 society sheet | Lane B, FD14 | Collects the rest per world |
 
 Each slice lands at the AD43 floor or is recorded below it. Nothing here is dispatched.
+
+## Coverage against the U01-U15 map (2026-11-06)
+
+Weibao, 2026-11-06: "did we account for everything and take everything that we could have?" Rounds 2 and 3 reconciled each idea against the world core kit (K codes), institution docs and `src/`, but never against the [U01-U15 map](../SHARED_FOUNDATIONS_AUDIT_2026-10-12.md) scored in the [core foundations scorecard](../CORE_FOUNDATIONS_SCORECARD_2026-10-14.md); only U09 is cited anywhere in these docs. This block closes that. Proposal only (AD32); no priority changes, nothing dispatched.
+
+**Evidence level.** Scorecard rows are from 2026-10-14. "Now" is a grep of `src/` at master `52d40f7f9` on a dirty shared tree (importer counts, `git merge-base`), no runtime run. Rows marked *unrechecked* keep the 10-14 status. NX1-NX15 in the core kit are merge and process notes, not foundations, so they are not part of this ledger.
+
+| U | Foundation | Scorecard 10-14 | Now | Relation to FD14-FD18 and rounds 2-3 | Class |
+|---|---|---|---|---|---|
+| U01 | Person, body, controller | partial | unrechecked | Positions for NPCs and possession-style contracts assume control transfer; owned by the nonhuman-starts lane | Depended on, owned elsewhere |
+| U02 | Anatomy, needs, senses | thin | unrechecked | FD3+ stock properties and FD17 wounds read body parts; not required for slice 1-4 | Depended on, owned elsewhere |
+| U03 | Coherent beginnings | solid, narrow | unrechecked | Positions add a start-time seat (enrolled, enlisted); WER owns starts | Out of scope here |
+| U04 | Randomness | partial, fix unmerged | `proc/p1-streams` is an ancestor of master; `seeded_streams` has 26 importers; 30 `Math.random` calls remain in 7 `src/` paths (`display.js`, `misc.js`, `main.js`, `particles.js`, `absorb_p23/`); which are gameplay vs cosmetic is **not checked** | FD16 draws weighted cards: it must use seeded streams, never `Math.random` | **Dependency, now mostly met. Add to FD16: draw only through `seeded_streams`; check the remaining 30 calls** |
+| U05 | Time and scheduling | partial | `away_ledger` has 1 importer; offline catch-up still not a shared seam | FD8 duties and FD16 consequences (debts due, rumours) need a rule for time skipped while away; core kit NX7 and NX14 already flag the frozen-absence policy | **Gap: add to FD16 and FD15 (term end while away)** |
+| U06 | Knowledge and perception | partial | `knowledge_view` 2 importers, `world_events_knowledge` exists; predicates reading true state **not rechecked** | Lane C found the saved fight log can reveal concealed abilities; FD16 emitters must say who knows an event | **Gap: add the M12 belief fence to FD16 and FD18** |
+| U07 | Learning and capability | partial, fragmented | unrechecked | Lane G (research and skills) and FD18 channels | Covered (lane G, FD18) |
+| U08 | Relationships and standing | thin | `relationship_web_view` merged and used by 3 files; `relationship_view` (A4) has 0 importers; `person_standing`, `peer_standing`, `economy_standing` exist | FD15 rank and standing read these; FD16 consequence events write them | **Dependency, partly met. Add to FD15: name which standing store a position reads** |
+| U09 | Ownership and economy | partial | unrechecked | FD6 purse, pay and fees; cited in rounds 2-3 | Covered |
+| U10 | NPC agency | solid (engine) | unrechecked | Hired, enlisted and contracted NPCs act through controllers; lane F groups | Covered in lane F, positions for NPCs not yet specified |
+| U11 | Actions and consequences | partial | not rechecked | Three action pipelines is the thing AR17 and the host fix address | Covered (AR17 draft) |
+| U12 | Travel and carriers | partial | Realm travel tests merged (A3) | Mercenary contracts away from home; deployment of a soldier | Out of scope, tests exist |
+| U13 | Loss and continuation | partial | unrechecked | FD15 exits include desert, expelled, killed in service; death and heir flow are U13 | **Gap: add exit-by-death to FD15** |
+| U14 | Durable state | solid, fragmented | unrechecked | `positions@1`, `organizations@1` and `inquiry@1` are new save slices; AR9 migration rule applies | Covered by slice plan, name migration per slice |
+| U15 | Presentation | thin | `panel_kit` now in 58 files | Slice 1 shared-panel slot; each position and event surface needs a view | Mostly met by slice 1 |
+
+**What changes in the proposals.** F1: FD16 gains a rule to draw only through `seeded_streams`, an away-time rule (U05) and a who-knows field (U06). F2: FD15 names the standing store it reads (U08) and adds death and away-time term ends (U13, U05). F3: FD18 and FD16 share one belief fence. F4: the 30 remaining `Math.random` calls need a one-pass classification (gameplay or cosmetic) before FD16 slice 8; that is a small check, not a lane.
+
+**Still unreconciled.** The [gap audit](GAP_AUDIT_2026-10-30.md) (646 vision rows), the [cross-world detail pass](CROSS_WORLD_DETAIL_PASS_2026-11-03.md) and the outside-game comparison (Mount & Blade, Rimworld, Wildermyth, Crusader Kings, Princess Maker for FD15) have not been matched to FD14-FD18. Rows marked *unrechecked* above need a fresh source read before anyone relies on them.
+
+## Round 4: depth without micromanagement (obligations, heat, ownership, economy), 2026-11-06
+
+Weibao, 2026-11-06: "COnsider if like liveliehoods and rights and dues would be too complex for an 'idle' rpg game? more layers to worry about or would it add to it? Or would it add depth, allowying ownership and stuff and more? we can make it really interesting, consider stuff like reputation and wanted levels? like not paying tax and whatever results in stuff like tax colelctors and more? also random events based on these and more? but then if it requires too much micro management it might be something to worry about? Also economy and more?"
+
+Relevant owners: USER_VISION "7. Balance between active play and idling" (open since 2026-10-07; this round is input, not a decision), AD33 (complexity welcome, slices sequence it), AD52 and ACR1-ACR14 (compress repeated play, keep decisions), economy rules ECR in DOMAIN_RULES (local economies, arbitrage intended, per-place price curves), AD22 (limits are per-world adjectives). Existing code: `jurisdiction_rules.js` (1 importer), `law_case.js` (0), `reputation.js` and `faction_rank.js` (Village regions), `pursuit.js`, the owed ledger, FD8 duties, the Frontier-gated return digest (lane H).
+
+### View
+
+Obligations add depth to an idle game when they are standing arrangements the player sets once and consequences that arrive as people and events. They become micromanagement when they are bills the player must click. The difference is the shape, not the amount of simulation underneath. Idle games already prove the pattern: the interesting decision is the policy (how much risk, which costs to skip), and the payoff is coming back to a world that moved.
+
+### Principles (proposals)
+
+| ID | Default | Dial and reason |
+|---|---|---|
+| OB1 | **The choice is a policy, not a payment.** Each obligation (rent, tax, tithe, guild dues, protection money) has a standing order: pay on time, pay late, pay part, dispute, hide income, bribe, evade. Set once; it runs while away (ACR1, FD8 duties, FD6 purse) | Per obligation; a world can offer only some policies (no bribing an incorruptible office) |
+| OB2 | **Consequences escalate through people, legibly.** Miss, then a notice, then a collector visit, then fine or seizure, then a bounty or warrant. Each step is a state-triggered consequence event (FD16 layer 2, no random draw) with a stated grace window | Grace and steps per jurisdiction; a lenient landlady and a strict state differ in-world (AD5) |
+| OB3 | **Heat is local and known.** Notoriety or wanted level is per jurisdiction and per group, decays, and rises only from acts someone knows about (FD10, ABR19). An unseen evasion carries no heat until an audit or informer finds it | Decay speed, informer density and audit rate per world; Tingen's police and a cultivation sect read heat differently (AD46) |
+| OB4 | **Idle never springs an unpreventable loss.** While away, standing orders settle; anything that needs a choice (a collector at the door, a raid) waits for the player or resolves by the policy they set, and the return digest says what happened and why | Hardcore dial per life for players who want away-time risk; default off |
+| OB5 | **Ownership pays only if it compounds.** Owned land, a shop or a workshop produces income, access or standing while away, appreciates or decays, and can be lost through the same obligation chain. Owning without upkeep or risk is a number, not depth | Upkeep and yield per world and per asset |
+| OB6 | **Detail is a view, not a duty.** One ledger at three grains: a weekly line ("Rent and dues paid, 3 soli 4 pence"), exceptions only, full ledger. Default: weekly line plus exceptions (ACR3, ACR5) | Per player and per world; a world without taxes shows nothing |
+| OB7 | **Delegation is the late-game answer.** A steward, spouse, accountant or guild clerk runs obligations by the player's policy and reports in character, with their own honesty and skill (lane F delegation ladder, lane A positions) | Their competence and loyalty are people, not settings |
+
+### What it unlocks (from small to large)
+
+- Small: a landlady who forgives one late week and remembers it; a tax notice that names the clerk; a collector who can be talked down, paid off or avoided by being out.
+- Middle: hiding income from a side job (Klein's divination fees are a natural case) raises audit risk, not a bill; a guild fines you for undercutting; a sect demands contribution and lets you buy exemption with service.
+- Large: owning a property chain, running a fence for hot goods, a wanted level that changes which streets are safe, bounty hunters as encounters (FD17), a district riot when taxes rise (FD16 dated event plus a price shift).
+- Events: obligations are prime material for the consequence layer, so the event director gets a steady supply of plausible, personal happenings without random noise.
+
+### Economy (proposal, within ECR)
+
+Keep the economy local per world and per place (ECR1, AD27); do not build a macro simulation. Add four flows that the obligations need: dues and taxes as money sinks with a named recipient; prices that respond to dated events and tax changes (ECR3 curves already allow it); credit and debt through the owed ledger (AT10), so a loan, a mortgage and a protection debt share one view; and grey channels (a fence, a black market, a smuggler) whose prices read heat. NPCs pay the same dues through the same records (AD6), which is what makes a collector believable.
+
+### Risks and how the design meets them
+
+| Risk | Answer |
+|---|---|
+| Micromanagement | OB1 standing orders, OB6 summary grain, OB7 delegation |
+| Punishing idle play | OB4 waits and the return digest |
+| Spreadsheet feel | OB2 people and scenes, not line items; numbers stay in the full-ledger grain |
+| Implementation cost | Rides on seams already queued: FD8 duties, FD6 purse, FD16 consequence layer, FD10 knowledge, positions and groups. New pieces are a policy field on duties, a heat ladder per jurisdiction and the escalation chain |
+| Worlds where it does not fit | AD46: a world declares no obligations, or only social ones (a sect's contribution, a school's house points) |
+
+### First slice (proposal)
+
+One rent obligation in Tingen with a standing order and three policies (on time, late, skip), a two-step escalation (notice, then the landlady's visit), heat in one jurisdiction from one hidden-income act, the weekly ledger line, and an away-time run that shows OB4. It needs AR17 host work and the FD16 consequence layer, so it sits after slice 1 and with slice 8 in the round 3 order, or earlier if Weibao moves it.
