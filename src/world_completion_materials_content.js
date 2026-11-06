@@ -126,7 +126,14 @@ export function worldCompletionMaterialsFrozenDefinition(definition, measuredStr
 // Load/import validation needs a source shape even before a live registry is
 // constructed. This reads the incumbent exported command's frozen effects for
 // comparison only; playable registration still calls the real owner factory.
+// Pure function of module constants; cached and deep-frozen because state
+// validation calls it on every check (T3). Callers only read it.
+let validationDefinitions = null;
+const deepFreeze = v => {if(v && typeof v === 'object' && !Object.isFrozen(v)) {Object.freeze(v); Object.values(v).forEach(deepFreeze);} return v;};
 export function worldCompletionMaterialsValidationDefinitions() {
+    return validationDefinitions ??= deepFreeze(buildValidationDefinitions());
+}
+function buildValidationDefinitions() {
     return createWorldCompletionMaterialsDefinitions({coveredPlotEffects: text => {
         const original = remainderConsequencesDefinitions.commands.find(d => d.id === C.prefix + 'plot_cover');
         const effects = copy(original.effects);

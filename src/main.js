@@ -572,6 +572,7 @@ import {registerQuestBoard} from './quest_board_ui.js';
 import {restoreGeneratedPeople, generatedPeopleSnapshot, registerGeneratedPeople} from './generated_people_ui.js';
 import {createVillageCareer, migrateVillageCareer, beginVillageShift, finishVillageShift, resolveVillageKit, promoteVillageCareer, CAREER_RANKS, WATCHCRAFT_BOOK, WATCHCRAFT_READING, WATCHCRAFT_PRACTICE, issueWatchcraft, practiceWatchcraft, watchcraftPresentation, villageShiftBonus, assignVillageRecruit, beginVillageTeaching, beginRecruitSolo, advanceVillageMentor, villageTeachingCost, villageTeachingStipend, resolveIonaTuition, villageTeachingBusy, beginTessaInstruction, advanceTessaInstruction, COVER_PAYMENT, SOLO_PAYMENT} from './village_career.js';
 import {createVillageCareerControls} from './village_career_ui.js';
+import {askTypedConfirm} from './typed_confirm.js';
 let customization = defaultCustomizationState();
 let customizationPanel, workLedgerAuthor;
 let workLedger = createWorkLedger();
@@ -8546,9 +8547,10 @@ function load_other_release_save() {return restoreStoredSave(is_on_dev() ? save_
 
 async function hard_reset() {
     if(!ownsSave) {log_message("This tab is read-only. Close the other game tab and reload.", "message_critical"); return;}
-    let confirmation = prompt(`This will erase all your progress and you will have to start from the very beginning. If you are sure this is what you want, type "reset" below`);
+    const confirmed = await askTypedConfirm({title: 'Erase all progress?', word: 'reset', confirmLabel: 'Erase and restart',
+        message: 'This will erase all your progress and you will have to start from the very beginning.'});
 
-    if(confirmation === "reset" || confirmation === `"reset"`) {
+    if(confirmed) {
         if(authorityEnrolled()) {
             try{await authorityOperation(async()=>nativeAuthority.resetSnapshot(await freshNativeSave()),{reload:true});}
             catch(error){log_message('Reset rejected; current authority kept. '+error.message,'message_critical');}

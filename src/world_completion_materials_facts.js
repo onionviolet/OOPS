@@ -85,10 +85,20 @@ export function worldCompletionMaterialsFacts(state, context = {}) {
     };
 }
 
+// Validation runs on every state check; the expected definitions depend only on
+// the two frozen registered cover commands, so build them once per pair (T3).
+const builtFor = new WeakMap();
 function definitions(registry) {
     if(!registry) return worldCompletionMaterialsValidationDefinitions();
     const registered = covers.map(id => registry.simulation.commands.get(id));
     assert(registered.every(Boolean), 'Register both exact alternate crop covers from the real terminal factory.');
+    const hit = Object.isFrozen(registered[0]) && builtFor.get(registered[0]);
+    if(hit && hit.second === registered[1]) return hit.value;
+    const value = build(registered);
+    if(Object.isFrozen(registered[0])) builtFor.set(registered[0], {second: registered[1], value});
+    return value;
+}
+function build(registered) {
     const supplied = text => {
         const d = registered.find(d => d.effects.some(e => e.type === 'knowledge' && e.key === C.facts + 'plot.result' && e.value === text));
         assert(d, 'The alternate cover lost its exact canonical crop result.');

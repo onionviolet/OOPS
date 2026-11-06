@@ -4,7 +4,7 @@
 // survives a clean quit and a hard kill. Never uses the player's store.
 //
 //   cargo build --release --offline --manifest-path desktop-tauri/Cargo.toml
-//   node scripts/tauri/harness.mjs [--variants base,appnap,ephemeral,loopback,native-visibility]
+//   node scripts/tauri/harness.mjs [--variants base,wk-throttle,appnap,ephemeral,loopback,native-visibility,hang,crash,reset]
 //        [--fixtures fresh,crowded] [--runs 1] [--seconds 20] [--no-durability]
 //
 // Output: work/tauri-harness/<stamp>/summary.json plus one report file per run.
@@ -13,12 +13,14 @@ import path from 'node:path';
 import http from 'node:http';
 import {spawn} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
+import os from 'node:os';
+import crypto from 'node:crypto';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const BIN = path.join(ROOT, 'desktop-tauri/target/release/yairpg-tauri');
 const args = process.argv.slice(2);
 const value = (name, fallback) => { const i = args.indexOf(name); return i < 0 ? fallback : args[i + 1]; };
-const variants = value('--variants', 'base,wk-throttle,appnap,ephemeral,loopback,native-visibility').split(',');
+const variants = value('--variants', 'base,wk-throttle,appnap,ephemeral,loopback,native-visibility,hang,crash,reset').split(',');
 const fixtures = value('--fixtures', 'fresh,crowded').split(',');
 const runs = Number(value('--runs', 1));
 const idleMs = Number(value('--seconds', 20)) * 1000;
@@ -33,6 +35,10 @@ const VARIANTS = {
     loopback: {loopback: true},
     'native-visibility': {normalizeVisibility: false},
     'wk-throttle': {env: {YAIRPG_WK_THROTTLE: '1'}},
+    // Recovery scenarios (N1/N2): mirror on, page frozen or its process killed.
+    hang: {env: {YAIRPG_MIRROR: '1', YAIRPG_MIRROR_MS: '2000', YAIRPG_HANG_MS: '6000'}, recovery: 'loop'},
+    reset: {recoveryLike: 'reset'},
+    crash: {env: {YAIRPG_MIRROR: '1', YAIRPG_MIRROR_MS: '2000'}, recovery: 'kill'},
 };
 const stamp = new Date().toISOString().replace(/[:.]/g, '-');
 const out = path.join(ROOT, 'work/tauri-harness', stamp);
@@ -60,14 +66,23 @@ const server = http.createServer((req, res) => {
 await new Promise(r => server.listen(0, '127.0.0.1', r));
 const port = server.address().port;
 
+// Each YAIRPG_USER_DATA path maps to one WebKit store (first 16 bytes of its
+// SHA-256, as a UUID). Remove it once its runs are done so tests leave no data.
+const STORES = path.join(os.homedir(), 'Library/WebKit/yairpg-tauri/WebsiteDataStore');
+const dropStore = profile => {
+    const h = crypto.createHash('sha256').update(profile).digest('hex').slice(0, 32);
+    const id = `${h.slice(0, 8)}-${h.slice(8, 12)}-${h.slice(12, 16)}-${h.slice(16, 20)}-${h.slice(20)}`;
+    if (args.includes('--keep-stores')) return;
+    fs.rmSync(path.join(STORES, id), {recursive: true, force: true});
+};
 const readLines = file => fs.existsSync(file) ? fs.readFileSync(file, 'utf8').split('\n').filter(Boolean).map(l => { try { return JSON.parse(l); } catch { return {type: 'unparsed', l}; } }) : [];
 
 async function launch({name, variant, fixture, phase, exit, profile}) {
     const v = VARIANTS[variant];
     const report = path.join(out, `${name}.jsonl`);
     reportFile = report;
-    const cfg = {phase, exit, idleMs, sample: args.includes('--sample'), normalizeVisibility: v.normalizeVisibility ?? true,
-        fixture: phase === 'first' ? JSON.parse(fs.readFileSync(path.join(ROOT, 'tests/fixtures/perf', fixture + '.json'))) : null,
+    const cfg = {phase, exit, idleMs, hang: v.recovery, restore: true, mirrorWaitMs: 5000, sample: args.includes('--sample') || args.includes('--profile'), profile: args.includes('--profile'), normalizeVisibility: v.normalizeVisibility ?? true,
+        fixture: phase !== 'relaunch' ? JSON.parse(fs.readFileSync(path.join(ROOT, 'tests/fixtures/perf', fixture + '.json'))) : null,
         report: v.loopback ? `http://127.0.0.1:${port}/__harness/report` : '/__harness/report'};
     const script = path.join(out, `${name}.page.js`);
     fs.writeFileSync(script, `window.__harness = ${JSON.stringify(cfg)};\n${pageScript}`);
@@ -126,6 +141,31 @@ const rows = [];
 for (let run = 1; run <= runs; run++) for (const fixture of fixtures) for (const variant of variants) {
     const name = `${variant}-${fixture}-${run}`;
     const profile = path.join(out, 'profiles', name);
+    if (VARIANTS[variant].recoveryLike === 'reset') {
+        const r = await launch({name, variant, fixture, phase: 'reset', exit: 'kill', profile});
+        const dialog = r.events.find(e => e.type === 'reset-dialog'), after = r.events.find(e => e.type === 'after-reset');
+        const row = {name, variant, fixture, dialog: dialog ? {title: dialog.title, blockedWrong: dialog.blockedWrong, enabledRight: dialog.enabledRight} : null,
+            clockBefore: dialog?.clockBefore ?? null, clockAfter: after?.clock ?? null, freshGame: !!after && after.clock < dialog?.clockBefore,
+            timedOut: r.timedOut, errors: [...new Set(r.events.flatMap(e => e.errors || []))]};
+        dropStore(profile);
+        rows.push(row); console.log(JSON.stringify(row));
+        continue;
+    }
+    if (VARIANTS[variant].recovery) {
+        const r = await launch({name, variant, fixture, phase: 'hang', exit: 'kill', profile});
+        const get = t => r.events.find(e => e.type === t);
+        const saved = get('saved'), recover = get('recover'), restored = get('restored');
+        const mirrorDir = path.join(profile, 'save-mirror');
+        const row = {name, variant, fixture, kill: r.events.find(e => e.kill)?.kill ?? null, terminated: r.events.find(e => e.terminated)?.terminated ?? null,
+            recoverReason: recover?.reason ?? null, backups: recover?.backups ?? 0,
+            mirrorFiles: fs.existsSync(mirrorDir) ? [fs.existsSync(path.join(mirrorDir, 'latest.json')) && 'latest.json', ...(fs.existsSync(path.join(mirrorDir, 'history')) ? fs.readdirSync(path.join(mirrorDir, 'history')) : [])].filter(Boolean) : [],
+            expected: saved ? {clock: saved.clock, name: saved.name} : null, restored: restored ? {clock: restored.clock, name: restored.name} : null,
+            restoreKept: !!saved && !!restored && restored.name === saved.name && restored.clock >= saved.clock, timedOut: r.timedOut,
+            errors: [...new Set(r.events.flatMap(e => e.errors || []))]};
+        dropStore(profile);
+        rows.push(row); console.log(JSON.stringify(row));
+        continue;
+    }
     const exit = VARIANTS[variant].ephemeral || VARIANTS[variant].loopback ? 'kill' : 'clean';
     const row = summarize(await launch({name, variant, fixture, phase: 'first', exit, profile}));
     if (durability && !VARIANTS[variant].ephemeral && !VARIANTS[variant].loopback && row.expected) {
@@ -134,6 +174,7 @@ for (let run = 1; run <= runs; run++) for (const fixture of fixtures) for (const
         row.cleanQuitKept = !!got && got.name === row.expected.name && got.clock >= row.expected.clock;
         row.cleanQuitGot = got ? {clock: got.clock, name: got.name} : null;
     }
+    dropStore(profile);
     rows.push(row);
     console.log(JSON.stringify(row));
 }
@@ -145,6 +186,7 @@ if (durability && variants.includes('base')) {
     const got = again.events.find(e => e.type === 'relaunched');
     const row = {name: 'base-kill', expected: first.expected, got: got ? {clock: got.clock, name: got.name} : null,
         killKept: !!got && !!first.expected && got.name === first.expected.name && got.clock >= first.expected.clock};
+    dropStore(profile);
     rows.push(row);
     console.log(JSON.stringify(row));
 }

@@ -54,3 +54,21 @@ Hard kill 1 s after Save: kept. No missing files or page errors in any run. Befo
 - `cargo fmt --check`: PASS.
 
 Status: implemented, below floor (AD43). Hidden fixture runs only; no natural journey, no visible window, no human review. Electron stays the playable fallback.
+
+## Slice 2: full-move groundwork (2026-11-06, later)
+
+Weibao: "Lets fully move to tauri, what is needed and more?" then "Go ahead, Q2 is fine, Q3 is fine, but then we should clear and save local storage accordingly". Q2 = one visible Tauri window for measurement is allowed; Q3 = downloading Tauri plugin crates is allowed. "Clear and save local storage" read as freeing disk space (the disk was 97% full) and keeping new downloads lean. Plan N1-N10 and M1-M3 as answered in chat; proposals except where he said go.
+
+Shared edits added: `src/home_domain.js`, `src/world_completion_materials_content.js`, `src/world_completion_materials_facts.js`, `src/domain_registry.js`, `src/typed_confirm.js` (new), `src/main.js` (hard reset only), `styles/ui_extras.css`, tests `domain_registry`, `typed_confirm`.
+
+- T5 fixed: every exit (window close, Cmd+Q, harness) saves in the page, mirrors, then waits before exit. 10/10 clean quits kept the save (run 2026-11-06T15-50-54Z), plus the hard kill.
+- T3 fixed further: home context builds item names and spend checks only on read and reuses them while clock, sequence and keys are unchanged; crop-cover validation definitions are built once per frozen pair; `ownsItemKey` answers are cached per key and reset when a domain registers. Quiet-machine matrix (2026-11-06T16-16-27Z): crowded 1.00 game min/s visible-normalized (was 0.45; Electron 1.05 on Nov 6), crowded launch→ready 16.3 s, fresh 12.7 s; lag p95 427 ms crowded, 103 ms fresh; all clean quits and the hard kill kept.
+- N3 done: the game's only `window.prompt` (hard reset) is now an in-page typed dialog in every host. Real WebKit run: wrong word blocks, "reset" enables, confirm restarts fresh (clock 1932 → 1920).
+- N1 done: `desktop-tauri/src/mirror.rs` ports `save_mirror.cjs` (latest.json atomic with fsync, gzip history, same retention, same hash: the unit test pins the Electron value). Host routes `/__host/mirror`, `mirror-list`, `mirror-read`; restore only from the recovery page on a click, after a pre-restore snapshot.
+- N2 done: heartbeat over `/__host/pong`; silence past `YAIRPG_HANG_MS` ends the content process by pid so WebKit reports it, and the terminate hook shows `/__host/recover.html`. WebKit's client-requested kill skips the delegate, so that fallback navigates itself.
+- Recovery runs (fresh fixture): crash and hang both reach the recovery page with the right reason, list 2 backups, restore the newest and boot the game with the save kept.
+- Disk: removed 37 harness WebKit stores (181 MB), the prototype's rebuildable `target/` (803 MB) and the scratch app copy in `work/shell-comparison-20261106/web` (75 MB). The harness now deletes each WebKit store it creates (`--keep-stores` to keep).
+
+Checks (slice 2): `cargo test` 3/3 (mirror); `cargo build`/`fmt --check` PASS; focused node tests: home_* 92 + household 131 set, world-completion/audit/home set 200/200, domain_registry 4/4, typed_confirm 2/2, ui_contract 3/3 after token fix; `check:desktop` 6/6 on rerun (one `desktop_crash_guard` failure happened while the harness loaded the CPU); full gates for the commit are recorded in its message. Still implemented, below floor: hidden runs only, no visible window yet, not human-reviewed.
+
+Next: N4 frozen builds and adoption, N5 `.app` bundle and the ported desktop checks, then the visible-window measurement Weibao allowed (Q2), N6-N8 parity, N10 retire Electron.

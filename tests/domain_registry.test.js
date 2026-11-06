@@ -37,3 +37,15 @@ test('registration snapshots routing metadata while closure-owned state stays li
  r.registerDomain({id:'late',deps:['child'],tick:()=>calls.push('late')});
  r.tick(1);assert.deepEqual(calls.slice(-3),['parent',2,'late']);
 });
+
+test("ownsItemKey answers are cached per key and reset when a domain registers", () => {
+    const registry = createDomainRegistry();
+    let asked = 0;
+    registry.registerDomain({id: "a", ownsItemKey: key => { asked++; return key === "x"; }});
+    assert.equal(registry.ownsItemKey("x"), true);
+    assert.equal(registry.ownsItemKey("x"), true);
+    assert.equal(registry.ownsItemKey("y"), false);
+    assert.equal(asked, 2);
+    registry.registerDomain({id: "b", ownsItemKey: key => key === "y"});
+    assert.equal(registry.ownsItemKey("y"), true);
+});

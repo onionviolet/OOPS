@@ -92,3 +92,13 @@ button[data-new-count]::after {
 #reports_dock p{margin:0}
 #reports_dock small{opacity:.8}
 #reports_dock button{align-self:flex-start}
+/* Typed confirmation (src/typed_confirm.js): hard reset and other irreversible steps. */
+.typed-confirm {
+    width: min(32rem, 90vw); padding: var(--ui-space-5);
+    background: var(--ui-fill); color: var(--ui-text); border: var(--ui-frame); outline: 1px solid var(--ui-hairline);
+    font-size: var(--ui-type-body);
+}
+.typed-confirm::backdrop { background: var(--ui-swatch-014); }
+.typed-confirm label { display: grid; gap: var(--ui-space-2); }
+.typed-confirm input { width: 100%; box-sizing: border-box; font-size: var(--ui-type-title); }
+.typed-confirm-actions { display: flex; justify-content: flex-end; gap: var(--ui-space-4); margin-top: var(--ui-space-5); }

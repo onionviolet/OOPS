@@ -55,10 +55,17 @@ function context(overrides={}) {
     c.facts={...c.facts,'cultivation.awakened':!!domainRegistry.command('household_fortunes','observedAwakened')?.(KEEPER)};
     const here=homeAt(state,c);
     c.animalElsewhere=c.legacyAnimal||Object.values(state?.properties||{}).some(h=>h.id!==here?.id&&h.household?.animal);
-    c.itemNames=Object.fromEntries([...new Set([...Object.keys(c.inventory),...Object.values(state?.properties||{}).flatMap(h=>Object.keys(h.stock))])].map(key=>{try{return [key,ports.itemFactory(key).getName?.()||JSON.parse(key).id||'Assembled gear'];}catch{return [key,'Stored item'];}}));
-    c.unspendable=Object.keys(c.inventory).filter(key=>{try{ports.assertSpend(key);return false;}catch{return true;}});
+    // Built on first read only: most context() calls never read them, and each
+    // builds a full item per key (the main crowded-save idle cost, T3).
+    // Reused while clock, sequence and the key set are unchanged; any change rebuilds.
+    const names=[...new Set([...Object.keys(c.inventory),...Object.values(state?.properties||{}).flatMap(h=>Object.keys(h.stock))])],stamp=`${c.clock}|${c.sequence}|`;
+    lazy(c,'itemNames',()=>remembered('names',stamp+names.join('\n'),()=>Object.fromEntries(names.map(key=>{try{return [key,ports.itemFactory(key).getName?.()||JSON.parse(key).id||'Assembled gear'];}catch{return [key,'Stored item'];}}))));
+    lazy(c,'unspendable',()=>remembered('spend',stamp+Object.keys(c.inventory).join('\n'),()=>Object.keys(c.inventory).filter(key=>{try{ports.assertSpend(key);return false;}catch{return true;}})));
     return c;
 }
+const memo={};
+const remembered=(slot,key,build)=>{const m=memo[slot];if(m&&m.key===key)return structuredClone(m.value);const value=build();memo[slot]={key,value};return structuredClone(value);};
+const lazy=(o,name,build)=>{let v,done=false;Object.defineProperty(o,name,{enumerable:true,configurable:true,get(){if(!done){v=build();done=true;}return v;},set(x){v=x;done=true;}});};
 export function syncHomeLocations({render=true}={}) {
     if(!ports)return;const c=context();let pathsChanged=false,servicesChanged=false;
     for(const [id,p]of Object.entries(P)) {

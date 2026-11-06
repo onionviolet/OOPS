@@ -2,12 +2,19 @@
 // build over yairpg://localhost/ and exposes the same window.yairpgHost object
 // the Electron preload does, minus the features not ported yet (see README).
 // src/ never imports this folder.
+mod mirror;
+
 use sha2::{Digest, Sha256};
 use std::{
     borrow::Cow,
     fs::OpenOptions,
     io::Write,
     path::{Path, PathBuf},
+    sync::{
+        atomic::{AtomicBool, AtomicU64, Ordering},
+        Mutex, OnceLock,
+    },
+    time::Duration,
 };
 use tauri::{
     http::{Request, Response},
@@ -54,6 +61,67 @@ fn report(line: &str) {
     }
 }
 
+static QUITTING: AtomicBool = AtomicBool::new(false);
+static CLOSE_MIRRORED: AtomicBool = AtomicBool::new(false);
+static LAST_PONG: AtomicU64 = AtomicU64::new(0);
+static HANG_KILL: AtomicBool = AtomicBool::new(false);
+static NAVIGATE_RECOVER: AtomicBool = AtomicBool::new(false);
+static MIRROR: OnceLock<Mutex<mirror::Mirror>> = OnceLock::new();
+const RECOVER_PATH: &str = "/__host/recover.html";
+
+fn env_ms(name: &str, fallback: u64) -> u64 {
+    std::env::var(name)
+        .ok()
+        .and_then(|v| v.parse().ok())
+        .unwrap_or(fallback)
+}
+
+/// Page script: optionally save through the game, then post every storage key
+/// to the mirror. The recovery page never mirrors itself.
+fn mirror_js(reason: &str, force: bool, save_first: bool) -> String {
+    format!(
+        r#"(() => {{ if (location.pathname === '{RECOVER_PATH}') return;
+  {save} const e = {{}}; for (let i = 0; i < localStorage.length; i++) {{ const k = localStorage.key(i); e[k] = localStorage.getItem(k); }}
+  fetch('/__host/mirror?reason={reason}&force={force}', {{method: 'POST', body: JSON.stringify(e)}}).catch(() => {{}}); }})()"#,
+        save = if save_first {
+            "try { window.saveProgress && window.saveProgress(); } catch (x) {}"
+        } else {
+            ""
+        },
+        force = if force { 1 } else { 0 },
+    )
+}
+
+/// Quit path for every exit (window close, Cmd+Q, harness): save in the page,
+/// copy it to the disk mirror, then give WebKit's storage process time to
+/// write before the app ends. Without the wait the last write can be lost (T5).
+fn quit(app: tauri::AppHandle) {
+    if QUITTING.swap(true, Ordering::SeqCst) {
+        return;
+    }
+    if let Some(window) = app.get_webview_window("main") {
+        let script = if MIRROR.get().is_some() {
+            mirror_js("close", true, true)
+        } else {
+            "try { window.saveProgress && window.saveProgress(); } catch (e) {}".into()
+        };
+        let _ = window.eval(&script);
+    }
+    let wait = env_ms("YAIRPG_QUIT_MS", 1500);
+    std::thread::spawn(move || {
+        let start = std::time::Instant::now();
+        std::thread::sleep(Duration::from_millis(wait));
+        // A slow mirror post gets up to 1.5 s more; a hung page never blocks quitting.
+        while MIRROR.get().is_some()
+            && !CLOSE_MIRRORED.load(Ordering::SeqCst)
+            && start.elapsed() < Duration::from_millis(wait + 1500)
+        {
+            std::thread::sleep(Duration::from_millis(50));
+        }
+        app.exit(0);
+    });
+}
+
 fn respond(status: u16, kind: &str, body: Vec<u8>) -> Response<Cow<'static, [u8]>> {
     Response::builder()
         .status(status)
@@ -66,6 +134,9 @@ fn respond(status: u16, kind: &str, body: Vec<u8>) -> Response<Cow<'static, [u8]
 fn serve(app: &tauri::AppHandle, request: Request<Vec<u8>>) -> Response<Cow<'static, [u8]>> {
     let raw = request.uri().path().to_string();
     let path = percent_decode(&raw);
+    if let Some(route) = path.strip_prefix("/__host/") {
+        return host_route(app, route, &request);
+    }
     if path.starts_with("/__harness/") {
         if std::env::var("YAIRPG_REPORT").is_err() {
             return respond(404, "text/plain", vec![]);
@@ -73,11 +144,9 @@ fn serve(app: &tauri::AppHandle, request: Request<Vec<u8>>) -> Response<Cow<'sta
         if path == "/__harness/report" {
             report(&String::from_utf8_lossy(request.body()));
         } else if path == "/__harness/exit" {
-            let app = app.clone();
-            std::thread::spawn(move || {
-                std::thread::sleep(std::time::Duration::from_millis(100));
-                app.exit(0);
-            });
+            quit(app.clone());
+        } else if path == "/__harness/kill" {
+            kill_page(app, "crashed");
         }
         return respond(204, "text/plain", vec![]);
     }
@@ -93,6 +162,150 @@ fn serve(app: &tauri::AppHandle, request: Request<Vec<u8>>) -> Response<Cow<'sta
             respond(404, "text/plain", vec![])
         }
     }
+}
+
+fn query(request: &Request<Vec<u8>>, name: &str) -> Option<String> {
+    request.uri().query()?.split('&').find_map(|pair| {
+        let (k, v) = pair.split_once('=')?;
+        (k == name).then(|| percent_decode(v))
+    })
+}
+
+fn json_response(value: serde_json::Value) -> Response<Cow<'static, [u8]>> {
+    respond(
+        200,
+        "application/json",
+        serde_json::to_vec(&value).unwrap_or_default(),
+    )
+}
+
+/// Host routes on the game origin: mirror (A1/N1), recovery page, heartbeat (N2).
+fn host_route(
+    app: &tauri::AppHandle,
+    route: &str,
+    request: &Request<Vec<u8>>,
+) -> Response<Cow<'static, [u8]>> {
+    match route {
+        "recover.html" => respond(
+            200,
+            "text/html; charset=utf-8",
+            include_bytes!("recover.html").to_vec(),
+        ),
+        "pong" => {
+            LAST_PONG.store(mirror::now_ms() as u64, Ordering::SeqCst);
+            respond(204, "text/plain", vec![])
+        }
+        "mirror" => {
+            let Some(m) = MIRROR.get() else {
+                return respond(404, "text/plain", vec![]);
+            };
+            let reason = query(request, "reason").unwrap_or_else(|| "poll".into());
+            let force = query(request, "force").as_deref() == Some("1");
+            let result = match serde_json::from_slice::<serde_json::Value>(request.body()) {
+                Ok(serde_json::Value::Object(entries)) => {
+                    let safe: String = reason
+                        .chars()
+                        .filter(|c| c.is_ascii_alphanumeric() || *c == '-')
+                        .take(24)
+                        .collect();
+                    m.lock()
+                        .map(|mut m| {
+                            m.record(&entries, &safe, force)
+                                .map(|r| r.to_string())
+                                .unwrap_or_else(|e| format!("error: {e}"))
+                        })
+                        .unwrap_or_else(|_| "locked".into())
+                }
+                _ => "bad body".into(),
+            };
+            if reason == "close" {
+                CLOSE_MIRRORED.store(true, Ordering::SeqCst);
+            }
+            report(
+                &serde_json::json!({"type": "mirror", "reason": reason, "result": result})
+                    .to_string(),
+            );
+            respond(200, "text/plain", result.into_bytes())
+        }
+        "mirror-list" => match MIRROR.get().and_then(|m| m.lock().ok().map(|m| m.list())) {
+            Some(list) => json_response(list),
+            None => json_response(serde_json::json!([])),
+        },
+        "mirror-read" => {
+            let Some(m) = MIRROR.get() else {
+                return respond(404, "text/plain", vec![]);
+            };
+            let id = query(request, "id").unwrap_or_default();
+            match m
+                .lock()
+                .map_err(|_| "locked".to_string())
+                .and_then(|m| m.read(&id))
+            {
+                Ok(snapshot) => json_response(snapshot["entries"].clone()),
+                Err(e) => respond(404, "text/plain", e.into_bytes()),
+            }
+        }
+        _ => {
+            let _ = app;
+            respond(404, "text/plain", vec![])
+        }
+    }
+}
+
+/// Stops a hung or test-killed page: WebKit then reports the content process
+/// gone and the terminate hook shows the recovery page (N2).
+fn kill_page(app: &tauri::AppHandle, reason: &'static str) {
+    if reason == "hung" {
+        HANG_KILL.store(true, Ordering::SeqCst);
+    }
+    let Some(window) = app.get_webview_window("main") else {
+        return;
+    };
+    let _ = window.with_webview(move |webview| {
+        #[cfg(target_os = "macos")]
+        unsafe {
+            use objc2::{
+                msg_send,
+                runtime::{AnyObject, Bool},
+                sel,
+            };
+            let view = webview.inner() as *mut AnyObject;
+            let has = |s| -> bool {
+                let r: Bool = msg_send![view, respondsToSelector: s];
+                r.as_bool()
+            };
+            // End the content process by pid: WebKit reports that as a crash, so
+            // the terminate hook shows recovery. WebKit's own stop skips the hook,
+            // so that fallback asks for the recovery page directly.
+            let pid: i32 = if has(sel!(_webProcessIdentifier)) {
+                msg_send![view, _webProcessIdentifier]
+            } else {
+                0
+            };
+            let how = if pid > 0 {
+                let _ = std::process::Command::new("/bin/kill")
+                    .args(["-9", &pid.to_string()])
+                    .status();
+                format!("pid {pid}")
+            } else if has(sel!(_killWebContentProcess)) {
+                let _: () = msg_send![view, _killWebContentProcess];
+                NAVIGATE_RECOVER.store(true, Ordering::SeqCst);
+                "killWebContentProcess".to_string()
+            } else {
+                "unsupported".to_string()
+            };
+            report(&serde_json::json!({"type": "host", "kill": reason, "how": how}).to_string());
+        }
+    });
+    std::thread::spawn(move || {
+        std::thread::sleep(Duration::from_millis(500));
+        if NAVIGATE_RECOVER.swap(false, Ordering::SeqCst) {
+            HANG_KILL.store(false, Ordering::SeqCst);
+            if let Ok(url) = format!("yairpg://localhost{RECOVER_PATH}?reason={reason}").parse() {
+                let _ = window.navigate(url);
+            }
+        }
+    });
 }
 
 fn percent_decode(s: &str) -> String {
@@ -165,14 +378,28 @@ fn unthrottle(webview: *mut std::ffi::c_void) -> Vec<&'static str> {
     applied
 }
 
-fn host_script(background: bool) -> String {
+fn host_script(background: bool, mirror: bool) -> String {
     format!(
         r#"(() => {{
-  const background = {background};
+  const background = {background}, mirror = {mirror};
+  const readStorage = () => {{ const e = {{}}; for (let i = 0; i < localStorage.length; i++) {{ const k = localStorage.key(i); e[k] = localStorage.getItem(k); }} return e; }};
   window.yairpgHost = Object.freeze({{
-    desktop: true, shell: 'tauri', background, build: 'tauri-live', capabilities: [],
+    desktop: true, shell: 'tauri', background, build: 'tauri-live', capabilities: mirror ? ['mirror'] : [],
     prompt: () => null,
-    mirrorList: async () => [], mirrorRestore: async () => false,
+    mirrorList: () => mirror ? fetch('/__host/mirror-list').then(r => r.json()).catch(() => []) : Promise.resolve([]),
+    // Restore only from the recovery page, on the player's click; the current
+    // state is mirrored first so a restore can itself be undone.
+    mirrorRestore: async id => {{
+      if (!mirror || location.pathname !== '{RECOVER_PATH}') return false;
+      try {{
+        await fetch('/__host/mirror?reason=pre-restore&force=1', {{method: 'POST', body: JSON.stringify(readStorage())}});
+        const r = await fetch('/__host/mirror-read?id=' + encodeURIComponent(id));
+        if (!r.ok) return false;
+        const e = await r.json();
+        localStorage.clear(); for (const k of Object.keys(e)) localStorage.setItem(k, e[k]);
+        return true;
+      }} catch {{ return false; }}
+    }},
     attention: () => {{}},
     projectionLatest: async () => null,
   }});
@@ -183,6 +410,43 @@ fn host_script(background: bool) -> String {
   }}
 }})();"#
     )
+}
+
+/// Mirror poll (A1) and hang guard (N2, EL46). The guard asks the page for a
+/// heartbeat; a page that has answered once and then stays silent past
+/// YAIRPG_HANG_MS (default 30 s) is stopped and the recovery page shown.
+fn spawn_watchers(app: tauri::AppHandle, mirror_on: bool) {
+    if mirror_on {
+        let app = app.clone();
+        let gap = env_ms("YAIRPG_MIRROR_MS", 30000);
+        std::thread::spawn(move || loop {
+            std::thread::sleep(Duration::from_millis(gap));
+            if QUITTING.load(Ordering::SeqCst) {
+                return;
+            }
+            if let Some(window) = app.get_webview_window("main") {
+                let _ = window.eval(&mirror_js("poll", false, false));
+            }
+        });
+    }
+    let hang = env_ms("YAIRPG_HANG_MS", 30000);
+    if hang == 0 {
+        return;
+    }
+    std::thread::spawn(move || loop {
+        std::thread::sleep(Duration::from_millis(2000));
+        if QUITTING.load(Ordering::SeqCst) {
+            return;
+        }
+        if let Some(window) = app.get_webview_window("main") {
+            let _ = window.eval("fetch('/__host/pong', {method: 'POST'}).catch(() => {})");
+        }
+        let last = LAST_PONG.load(Ordering::SeqCst);
+        if last > 0 && (mirror::now_ms() as u64).saturating_sub(last) > hang {
+            LAST_PONG.store(0, Ordering::SeqCst);
+            kill_page(&app, "hung");
+        }
+    });
 }
 
 fn main() {
@@ -200,6 +464,12 @@ fn main() {
     }
     let url =
         std::env::var("YAIRPG_URL").unwrap_or_else(|_| "yairpg://localhost/index.html".into());
+    // Save mirror (A1): on for normal play; background runs only with YAIRPG_MIRROR=1.
+    let mirror_on = match std::env::var("YAIRPG_MIRROR").as_deref() {
+        Ok("1") => !ephemeral,
+        Ok("0") => false,
+        _ => !hidden && !ephemeral,
+    };
     let harness = std::env::var("YAIRPG_HARNESS_SCRIPT")
         .ok()
         .map(|p| std::fs::read_to_string(p).expect("harness script unreadable"));
@@ -209,7 +479,25 @@ fn main() {
             let app = ctx.app_handle().clone();
             std::thread::spawn(move || responder.respond(serve(&app, request)));
         })
+        .on_web_content_process_terminate(|webview| {
+            let reason = if HANG_KILL.swap(false, Ordering::SeqCst) {
+                "hung"
+            } else {
+                "crashed"
+            };
+            report(&serde_json::json!({"type": "host", "terminated": reason}).to_string());
+            if let Ok(url) = format!("yairpg://localhost{RECOVER_PATH}?reason={reason}").parse() {
+                let _ = webview.navigate(url);
+            }
+        })
         .setup(move |app| {
+            if mirror_on {
+                let dir = match &profile {
+                    Some(dir) => PathBuf::from(dir).join("save-mirror"),
+                    None => app.path().app_data_dir()?.join("save-mirror"),
+                };
+                let _ = MIRROR.set(Mutex::new(mirror::Mirror::open(dir)));
+            }
             #[cfg(target_os = "macos")]
             if hidden {
                 app.set_activation_policy(tauri::ActivationPolicy::Accessory);
@@ -222,7 +510,7 @@ fn main() {
                     .visible(!hidden)
                     .focused(!hidden)
                     .background_throttling(BackgroundThrottlingPolicy::Disabled)
-                    .initialization_script(host_script(hidden));
+                    .initialization_script(host_script(hidden, mirror_on));
             if let Some(script) = &harness {
                 builder = builder.initialization_script(script);
             }
@@ -244,9 +532,25 @@ fn main() {
                     );
                 })?;
             }
-            let _ = app.get_webview_window("main");
+            spawn_watchers(app.handle().clone(), mirror_on);
             Ok(())
         })
-        .run(tauri::generate_context!())
-        .expect("Tauri host failed");
+        .on_window_event(|window, event| {
+            if let tauri::WindowEvent::CloseRequested { api, .. } = event {
+                if !QUITTING.load(Ordering::SeqCst) {
+                    api.prevent_close();
+                    quit(window.app_handle().clone());
+                }
+            }
+        })
+        .build(tauri::generate_context!())
+        .expect("Tauri host failed")
+        .run(|app, event| {
+            if let tauri::RunEvent::ExitRequested { api, .. } = event {
+                if !QUITTING.load(Ordering::SeqCst) {
+                    api.prevent_exit();
+                    quit(app.clone());
+                }
+            }
+        });
 }

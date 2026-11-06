@@ -3,7 +3,7 @@ import {calendarMinutes} from './world_rhythm.js';
 import {deferSimulationRender} from './simulation_render.js';
 // One synchronous lifecycle. Native clock, transaction and storage owners stay outside.
 export function createDomainRegistry() {
-    const domains=new Map();
+    const domains=new Map(),ownsCache=new Map();
     let orderedDomains;
     function ordered() {
         if(orderedDomains)return orderedDomains;
@@ -30,7 +30,7 @@ export function createDomainRegistry() {
             ...(domain.deps?{deps:Object.freeze([...domain.deps])}:{}),
             ...(domain.panels?{panels:Object.freeze([...domain.panels])}:{}),
             ...(commands?{commands}:{})}));
-        orderedDomains=undefined;
+        orderedDomains=undefined;ownsCache.clear();
         return domain;
     }
     return Object.freeze({registerDomain,
@@ -46,7 +46,9 @@ export function createDomainRegistry() {
         mountPanels:()=>{for(const d of ordered())for(const mount of d.panels??[])mount();},
         useItem:key=>{for(const d of ordered()){const command=d.commands?.useItem;if(!command?.accepts(key))continue;const quote=command.quote(key);if(!quote.eligible)throw Error(quote.reason);command.execute(quote);return true;}return false;},
         // A domain-owned native item key is restored verbatim; its owner resolves and validates it.
-        ownsItemKey:key=>ordered().some(d=>d.ownsItemKey?.(key)===true),
+        // Owners decide from the key text alone; inventory checks ask per key many times
+        // a tick, so answers are cached until the domain set changes (T3).
+        ownsItemKey:key=>{const hit=ownsCache.get(key);if(hit!==undefined)return hit;const v=ordered().some(d=>d.ownsItemKey?.(key)===true);if(ownsCache.size>=5000)ownsCache.clear();ownsCache.set(key,v);return v;},
         command:(id,name)=>domains.get(id)?.commands?.[name],
         project:(id,...args)=>domains.get(id)?.projection?.(...args)
     });
