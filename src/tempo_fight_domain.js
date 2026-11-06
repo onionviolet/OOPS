@@ -30,6 +30,19 @@ export const configureTempoFight = operations => {ports = operations;};
 // Damage types are read once from the live actors and kept on the saved profile; a fight saved without them reads as untyped physical.
 const withTypes = (profile, actor) => ({...profile, types: typeSnapshot(actor)});
 const node = (tag, text = '') => {const n = document.createElement(tag); n.textContent = text; return n;};
+// AR17 slot: a world panel offers [data-shared-slot="encounter"]; this panel lives there while it is connected and keeps its
+// own host (the location actions list) otherwise. The id is dropped while slotted so the Adventure Notebook, which files panels by id, leaves it alone.
+export const ENCOUNTER_SLOT = '[data-shared-slot="encounter"]';
+export const PANEL_ID = 'tempo_fight_panel';
+export function placePanel(root, slot, fallback) {
+    if(slot?.isConnected) {
+        if(root.parentElement === slot) return 'slot';
+        root.id = ''; slot.append(root); root.open = true; return 'slot';
+    }
+    root.id = PANEL_ID;
+    if(fallback?.isConnected && root.parentElement !== fallback) { fallback.append(root); return 'fallback'; }
+    return fallback && root.parentElement === fallback ? 'fallback' : 'none';
+}
 const open = () => ports.root().simulation?.sessions.player?.nativeBattle?.schema === TEMPO_SCHEMA ? ports.root().simulation.sessions.player.nativeBattle : null;
 
 function startQuote() {
@@ -132,7 +145,9 @@ function mount() {
         panel?.render(true);
     };
     const button = (label, id, title, disabled, handler) => {const b = node('button', label); b.type = 'button'; b.dataset.tempo = id; b.title = title || ''; b.disabled = !!disabled; b.onclick = handler; return b;};
+    const place = () => placePanel(root, document.querySelector(ENCOUNTER_SLOT), document.getElementById('location_actions_div'));
     const render = force => {
+        place();
         if(!root.isConnected) return;
         const v = view(), sig = JSON.stringify(v) + !!document.getElementById('fight_situation');
         if(!force && sig === signature) { if(!v.visible && document.activeElement !== notice) root.hidden = true; return; }
@@ -189,7 +204,6 @@ function mount() {
             restoreTempoFocus(body, previousFocus, notice);
         }
     };
-    document.getElementById('location_actions_div')?.append(root);
     render(true);
     // A restored fight raises no publication while it waits, so the panel re-reads on a slow beat (cheap: it redraws only when its view changes).
     setInterval(() => {if(!document.hidden) render();}, 1000);

@@ -24,7 +24,8 @@ export const lotmPanelTitle=v=>v.resident?v.at:'Tingen workroom';
 export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend}){
  const panel=node('section');panel.id='lotm_panel';panel.className='expedition_panel';panel.dataset.surfaceType='place-service';
  const status=node('p'),meters=node('div'),path=node('div'),work=node('div'),bench=node('details'),actions=node('div'),walks=node('div'),notebook=node('div'),notice=node('p');notice.setAttribute('role','status');
- panel.append(node('h2','Tingen'),status,meters,path,work,bench,actions,walks,notebook,notice);
+ const encounterSlot=node('div');encounterSlot.dataset.sharedSlot='encounter'; // AR17: shared panels (a fight) render here; not tab-owned, not re-rendered.
+ panel.append(node('h2','Tingen'),status,meters,encounterSlot,path,work,bench,actions,walks,notebook,notice);
  // Round 2 density: in-panel tabs after the heading; Here (actions and walks) comes first (UR42; moved notice per UR13).
  const tabsUi=mountWorkroomTabs({panel,after:panel.firstChild,blocks:{actions,walks,path,work,bench,notebook}});
  decorateActionComponents(panel); // UIV1: blocked reasons visible and Tab-reachable, not title-only.

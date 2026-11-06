@@ -18,9 +18,9 @@ try{
  }
  await page.setViewportSize({width:1920,height:1080});
  const before=counts(await route.snapshot());assert.deepEqual(before,{carried:14,loaded:6});
- const panel=page.locator('#tempo_fight_panel');await panel.waitFor({state:'attached',timeout:20000});
+ const panel=page.locator('[data-shared-slot="encounter"] details').first();await panel.waitFor({state:'attached',timeout:20000});
  result.panelHidden=await panel.evaluate(n=>n.hidden||!n.checkVisibility());
- await panel.evaluate(n=>{n.hidden=false;n.open=true;n.scrollIntoView();});
+ await panel.evaluate(n=>n.scrollIntoView());
  const opener=page.locator('[data-tempo="open:lotm.proof.street"]');await opener.waitFor({timeout:20000});
  result.openerText=await panel.innerText();
  await page.screenshot({path:join(outDir,'01-opener.png')});
@@ -29,10 +29,10 @@ try{
   const open=await page.evaluate(()=>!!simulationTestHooks.snapshot().expansion.simulation.sessions.player);
   if(!open)break;
   if(i===0)await page.screenshot({path:join(outDir,'02-fight.png')});
-  const pick=async id=>{const b=page.locator(`#tempo_fight_panel [data-tempo="${id}"]`);return (await b.count())&&!(await b.first().isDisabled())?b.first():null;};
+  const pick=async id=>{const b=page.locator(`button[data-fight-option="${id}"], [data-shared-slot="encounter"] [data-tempo="${id}"]`);return (await b.count())&&!(await b.first().isDisabled())?b.first():null;};
   const b=(await pick('shoot'))||(await pick('reload'))||(await pick('jab'))||(await pick('guard'));
   if(!b){await page.waitForTimeout(300);continue;}
-  const id=await b.getAttribute('data-tempo');result.clicks.push(id);await b.click();await page.waitForTimeout(150);
+  const id=(await b.getAttribute('data-fight-option'))||(await b.getAttribute('data-tempo'));result.clicks.push(id);await b.click();await page.waitForTimeout(150);
  }
  const after=await route.snapshot();result.lastResult=after.expansion.actors.player.facts['tempo.lastResult'];
  result.log=after.expansion.simulation.log.slice(-3).map(x=>x.text);

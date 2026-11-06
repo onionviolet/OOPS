@@ -134,3 +134,5 @@ Visual: [evidence/foundational_gaps_2026-11-06.html](evidence/foundational_gaps_
 **Larger foundations (follow-up, same day).** Society sheet, positions, event director, encounter frame and ability channels (FD14-FD18) with per-world gaps: [LARGER_FOUNDATIONS_2026-11-06](LARGER_FOUNDATIONS_2026-11-06.md).
 
 **AT15 step 1 (2026-11-06).** Tempo fights take `shoot` and `reload` with real stock and fog; the LOTM proof opener quotes natively but the tempo host is Frontier-only (T1) and its panel is hidden from the LOTM view (T2). Implemented, below floor: [record](../gm/dispatch/at15-fight-2026-11-06/CHECKPOINT.md).
+
+**AT15 closed at floor (2026-11-06, fixture route).** Slice 1 of the cross-world run: tempo and three other world-neutral domains take the neutral write port, the LOTM view has a shared-panel slot, and a native walk on bundle `53a2a0ab...` armed Klein, won a two-shot fight, wrote 6 to 4 loaded rounds back once and kept them across reload and Export/Import. Agent-verified, not human-reviewed. New findings AT21-AT23 and the seam register: [run record](../gm/dispatch/cross-world-run-2026-11-06/CHECKPOINT.md).

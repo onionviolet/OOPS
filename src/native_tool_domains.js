@@ -32,27 +32,30 @@ import {configureSkillLadder} from './skill_ladder_domain.js';
 import {configureReturnDigest} from './return_digest_domain.js';
 import {configureAwayBank} from './away_bank_domain.js';
 
+// AR17: a world-neutral engine takes the save-state write port (work ledger, restore, storage, alive), never the Frontier harvest port.
+export const neutralWritable = operations => operations.tradeWritable || operations.writable;
+
 // Native composition for the two carried-tool owners. Neither domain configures
 // the other. The independent lamp factory receives only its supported operations.
 export function configureNativeToolDomains(operations) {
-    configureAwayBank({root: operations.root, persist: operations.persist, writable: operations.writable, fastForward: operations.fastForward, furnaceAssigned: operations.furnaceAssigned});
+    configureAwayBank({root: operations.root, persist: operations.persist, writable: neutralWritable(operations), fastForward: operations.fastForward, furnaceAssigned: operations.furnaceAssigned});
     configureHpBrewingDomain({persist: operations.persist, writable: operations.tradeWritable || operations.writable,
         world: operations.world, inventory: () => operations.actor().getItems(), itemOwners: operations.itemOwners,
         assertSpend: operations.assertSpend,
         removeExact: (key, qty) => operations.actor().removeFromInventory([{item_key: key, item_count: qty}])});
     configureCohort({...operations,blocked:operations.worldWorkBlocked});
-    configureTempoFight(operations);
+    configureTempoFight({...operations, writable: neutralWritable(operations)});
     configureDrainage(operations);
     configureIntents(operations);
     configureRootRetuning({...operations,writable:operations.tradeWritable||operations.writable,blocked:operations.worldWorkBlocked});
     configureVesselThread({...operations,writable:operations.tradeWritable||operations.writable,blocked:operations.worldWorkBlocked});
-    configurePersonalJournal(operations);
+    configurePersonalJournal({...operations, writable: neutralWritable(operations)});
     configureDojoTower(operations);
     configureShopLocks({...operations,writable:operations.tradeWritable||operations.writable});
     configureStoryInsight(operations);
     configureSkillRecords({continuation:operations.continuation,root: operations.root, actor: operations.actor, world: operations.world, persist: operations.persist, skills: operations.skills});
     configureSkillLadder({actor: operations.actor, skills: operations.skills, redrawSkill: operations.redrawSkill});
-    configureReturnDigest({root: operations.root, persist: operations.persist, writable: operations.writable});
+    configureReturnDigest({root: operations.root, persist: operations.persist, writable: neutralWritable(operations)});
     configurePledges({...operations, clock: () => calendarMinutes(current_game_time)});
     configureToolsDomain({...operations, clock: () => calendarMinutes(current_game_time)});
     configureGearWorkshop({...operations, favorites: favourite_items, temperature: get_current_temperature_smoothed, clock: () => calendarMinutes(current_game_time)});
