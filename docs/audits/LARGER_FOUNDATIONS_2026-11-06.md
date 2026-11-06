@@ -157,3 +157,55 @@ Residue not mapped: `simulation.js` (E5 citations taken as stated), weather file
 
 - Rename FD14 "templates" to palettes (AD46). The default is the rename, already applied as a proposal.
 - RD1 and RD2 are small defects that could be fixed in the step 1 lane.
+
+## Round 3: cross-world foundations, 2026-11-06
+
+Weibao, 2026-11-06: "do we have comprehensive abstraction rules and more? what is foundational across all worlds that we should implement?" then "Can we address all of these? Deeper dive in in terms of little stuff long term? from little details to extend possibilitity in all worlds? like choosing to farm, or choosing to start a society, or mining? Or building? Or researching? or group or other functional abilities that should be sharred across all the worlds?"
+
+Four Sonnet lanes reconciled each area against existing owners first, then worked backward from small outcomes. Each lane keeps its own IDs. Proposals only (AD32).
+
+| Lane | File | Covers |
+|---|---|---|
+| E | [LANE_E_LIVELIHOODS](cross-world-foundations-2026-11-06/LANE_E_LIVELIHOODS.md) | Farming, herding, mining, gathering, building, crafting, storage, rights and dues; E-R1-R15, E-S1-S9, E-O1-O8, E-L1-L9 |
+| F | [LANE_F_GROUPS](cross-world-foundations-2026-11-06/LANE_F_GROUPS.md) | Founding and running groups, delegation, collective acts; G1-G6, F1-F15 |
+| G | [LANE_G_RESEARCH_SKILLS](cross-world-foundations-2026-11-06/LANE_G_RESEARCH_SKILLS.md) | Study, inquiry, notes and texts, shared non-combat skills; 9 skill channels |
+| H | [LANE_H_HOSTS_REGISTER](cross-world-foundations-2026-11-06/LANE_H_HOSTS_REGISTER.md) | World-gated hosts, seam adoption register, AR17 draft |
+
+### Answer to "do we have comprehensive abstraction rules?"
+
+The rules on *when* to abstract are thorough: AD51 (shared seam when two or more worlds plausibly share a mechanism; split a seam that flattens real differences), AR11 (a second, different world proves a seam), AR12 (the shared floor widens), AD46 (each world picks its own version), ACR1-ACR14 (compress repeated play), ABR (abilities). Lane E found one stale older line ("share only after two real consumers") that AD51 supersedes by date; it still limits build order, not seam design. Two pieces are missing: nothing records adoption (lane H's register), and no rule requires hosts to be world-neutral (lane H's AR17 draft). Both are proposals below.
+
+### Ledger (one row per area)
+
+| Area | What exists | Classification | Deepest gaps | Proposed seam |
+|---|---|---|---|---|
+| Hosts (lane H) | 12 shared domains take the Frontier-only `harvestWritable` port (`main.js`); 5 of them are world-neutral by purpose (tempo fight, banked time, return digest, journal, pledges); five siblings already pass the neutral `tradeWritable`; no pattern embeds a shared panel in a world panel | Incomplete integration | Tempo is a one-line port fix (coordinator confirmed `tradeWritable` checks save, ledger and life, not world); panels have no home in LOTM or HP views | AR17 world-neutral hosts plus a shared-panel slot in world panels |
+| Seam register (lane H) | 37 seams scanned: 6 with no world consumer, 16 one world, 15 two or more; none proven by a second world's player route; only `ready_stock` has a native receipt | Missing tracker | AR11 cannot be checked; stale counts (`ability_ladders` now 2 UI importers) | `docs/SEAM_REGISTER.md` printed by `scripts/seam_register.mjs` under `check:rules` |
+| Livelihoods (lane E) | SSD10, SSD70-SSD82 already own most of the seam set; plot, seedbed, frost plot, sheep, home building, workshop and spoilage modules are all Frontier/Village; four crop lifecycles share one shape; `home_building_model.js` does not use `site_projects.js` | Prior art, incomplete integration | E-G1 no second world; E-G2 rights and dues nowhere (`plotRight` is a one-off fact); E-G3 two build paths, no shop or buyer channel | One stage record for crops/stock, a site record, one build-project path, rights and dues through FD8 duties and FD6 purse |
+| Groups (lane F) | No founding verb anywhere; 15 one-world fragments (`gatherings` 1 importer, `party_battle` 6 around one hard-coded helper, Village-only delegation, `law_case` 0, `companion_roster` 0); `33_INSTITUTIONS_AND_COMMUNITIES.md` and `ORGANIZATIONS.md` name the missing record | Incomplete integration | G1 no group record or founding verb; G2 no shared treasury, premises or keys; G3 three disjoint delegation prototypes; G4 law unwired | `organizations@1` paired with `positions@1` (a member's side is a position), three-rung delegation ladder, shared role-slot frame with local effects |
+| Research and skills (lane G) | Knowledge-making exists five times with no shared name (Frontier study rows, lessons, LOTM inference and divination, claims runtime, craft trial log, MoL accounts); 65 native skills cover Perception, Literacy, Medicine, Haggling | Compatible variants | No book life in Study; notes and texts are not objects; no persuade, deceive, read people, stealth, language or wayfinding anywhere | `inquiry@1` (question, method, sources, effort, partial result, risk, output) writing to the existing knowledge store; a `channel` tag on skill and ability rows (9 channels) instead of new native skills |
+
+Coordinator spot checks, current tree: `law_case`, `companion_roster`, `ability_skill_rows` 0 importers; `gatherings` 1; `party_battle` 6; `organization_view` 1 (`src/management/ui.js`); `home_building_model.js` has no `site_projects` import; `native_tool_domains.js:44` passes raw `operations` to tempo while lines 47, 48, 51, 59 pass `tradeWritable||writable`; `tradeWritable` in `main.js` checks the work ledger, restore, storage and life only. Not checked by the coordinator: lane G's `craft_failure_ledger` "not wired" header claim (it has 1 importer).
+
+### How the areas fit
+
+They share one spine. A world's society sheet (FD14) declares institutions; positions (FD15) and founded groups (lane F) are the player's and NPCs' place in them; livelihoods (lane E), research (lane G) and fights (FD17) are what a position or a free person does with time; duties (FD8), purse (FD6), stock (FD3) and the clock carry the costs; knowledge (FD10) and events (FD16) carry the consequences; world-neutral hosts (AR17) let every world show it. Skill channels (lane G) and ability channels (FD18) are the same idea for non-combat and combat verbs and should share one vocabulary.
+
+### Proposed AR17 (draft, lane H)
+
+A shared host port answers only about the engine and the save (can this write, is the character alive, is another activity running), never which world the player is in; any world or place restriction lives in the domain or data row that owns it, and a world panel offers a slot where shared panels render. Mistake it prevents: a world-neutral engine behind a one-world host (T1, T2).
+
+### Implementation order (proposal)
+
+| Slice | What | Closes | Why here |
+|---|---|---|---|
+| 1 | AR17 host fix: tempo takes `tradeWritable`; the other four world-neutral domains follow; a shared-panel slot in the LOTM view, first filled by the open fight | T1, T2, AT15 native walk | Every later seam is invisible outside Frontier without it |
+| 2 | Seam register script and doc | Lane H register | Makes AR11 checkable before more seams land |
+| 3 | `positions@1` as a projection, then `organizations@1` with a founding verb | Lane A G1-G2, lane F G1-G2 | Pupil, soldier, mercenary, club founder in one record family |
+| 4 | Harry's lead-life calendar and houses as the first non-LOTM position and duties consumer | HG1, HG2, AT16 | Second world proves 3 and FD8 |
+| 5 | `inquiry@1` with notes as objects; first consumers Klein's library and Harry's study | Lane G gaps 1-2 | Research in book lives |
+| 6 | Livelihood stage record and rights and dues, second world first (Tingen kitchen garden or Hogwarts greenhouse) | E-G1, E-G2 | Moves production off Frontier-only |
+| 7 | Skill and ability channels, one vocabulary | Lane G gap 3, FD18 | Social, stealth, language verbs everywhere |
+| 8 | FD16 event layers, FD14 society sheet | Lane B, FD14 | Collects the rest per world |
+
+Each slice lands at the AD43 floor or is recorded below it. Nothing here is dispatched.
