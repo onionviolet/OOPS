@@ -61,8 +61,10 @@ PLAYTEST.md), then tick it here.
 1. **CK12 + CK13, the combat screen at 1920 (R22b and R22c).** Both are
    merged, but R22c's record asked to be shown to you before merging. R22d
    (Encounter tally, loot this trip) is the recorded next round.
-2. **CK24 + CK28, the desktop app.** Run `npm run desktop` and move your Chrome
-   save across with Export, then Import. Export before you try Reset in the app.
+2. **CK24 + CK28, the desktop app.** Open "Yet Another Idle RPG" in ~/Applications
+   (the Tauri app since 2026-11-06; `npm run desktop` also opens it). Your Electron save
+   is copied in as a backup: click Restore on the page the first launch shows. A Chrome
+   save still moves with Export, then Import. Export before you try Reset in the app.
 3. **CK1, M4 lamplight.** It is short, and an agent already pre-ran it, so this
    is mostly feel and price.
 4. **CK19, inventory and Around you context (UI A1/A2).** Two everyday

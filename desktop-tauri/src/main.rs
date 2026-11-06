@@ -2,6 +2,8 @@
 // build over yairpg://localhost/ and exposes the same window.yairpgHost object
 // the Electron preload does, minus the features not ported yet (see README).
 // src/ never imports this folder.
+mod builds;
+mod desktop;
 mod mirror;
 
 use sha2::{Digest, Sha256};
@@ -9,7 +11,7 @@ use std::{
     borrow::Cow,
     fs::OpenOptions,
     io::Write,
-    path::{Path, PathBuf},
+    path::PathBuf,
     sync::{
         atomic::{AtomicBool, AtomicU64, Ordering},
         Mutex, OnceLock,
@@ -24,12 +26,6 @@ use tauri::{
 
 fn flag(name: &str) -> bool {
     matches!(std::env::var(name).as_deref(), Ok("1"))
-}
-
-fn root() -> PathBuf {
-    std::env::var("YAIRPG_ROOT")
-        .map(PathBuf::from)
-        .unwrap_or_else(|_| Path::new(env!("CARGO_MANIFEST_DIR")).join(".."))
 }
 
 fn mime(path: &str) -> &'static str {
@@ -64,10 +60,12 @@ fn report(line: &str) {
 static QUITTING: AtomicBool = AtomicBool::new(false);
 static CLOSE_MIRRORED: AtomicBool = AtomicBool::new(false);
 static LAST_PONG: AtomicU64 = AtomicU64::new(0);
+static BACKGROUND: AtomicBool = AtomicBool::new(false);
+static MIRROR_DIR: OnceLock<PathBuf> = OnceLock::new();
 static HANG_KILL: AtomicBool = AtomicBool::new(false);
 static NAVIGATE_RECOVER: AtomicBool = AtomicBool::new(false);
 static MIRROR: OnceLock<Mutex<mirror::Mirror>> = OnceLock::new();
-const RECOVER_PATH: &str = "/__host/recover.html";
+pub(crate) const RECOVER_PATH: &str = "/__host/recover.html";
 
 fn env_ms(name: &str, fallback: u64) -> u64 {
     std::env::var(name)
@@ -78,7 +76,7 @@ fn env_ms(name: &str, fallback: u64) -> u64 {
 
 /// Page script: optionally save through the game, then post every storage key
 /// to the mirror. The recovery page never mirrors itself.
-fn mirror_js(reason: &str, force: bool, save_first: bool) -> String {
+pub(crate) fn mirror_js(reason: &str, force: bool, save_first: bool) -> String {
     format!(
         r#"(() => {{ if (location.pathname === '{RECOVER_PATH}') return;
   {save} const e = {{}}; for (let i = 0; i < localStorage.length; i++) {{ const k = localStorage.key(i); e[k] = localStorage.getItem(k); }}
@@ -127,6 +125,8 @@ fn respond(status: u16, kind: &str, body: Vec<u8>) -> Response<Cow<'static, [u8]
         .status(status)
         .header("Content-Type", kind)
         .header("Access-Control-Allow-Origin", "*")
+        // Frozen builds switch roots in place; never let WebKit reuse an old file.
+        .header("Cache-Control", "no-store")
         .body(Cow::Owned(body))
         .unwrap()
 }
@@ -145,6 +145,8 @@ fn serve(app: &tauri::AppHandle, request: Request<Vec<u8>>) -> Response<Cow<'sta
             report(&String::from_utf8_lossy(request.body()));
         } else if path == "/__harness/exit" {
             quit(app.clone());
+        } else if path == "/__harness/popout" {
+            let _ = desktop::open_popout(app, "events", BACKGROUND.load(Ordering::SeqCst));
         } else if path == "/__harness/kill" {
             kill_page(app, "crashed");
         }
@@ -155,7 +157,7 @@ fn serve(app: &tauri::AppHandle, request: Request<Vec<u8>>) -> Response<Cow<'sta
     if rel.split('/').any(|part| part == "..") {
         return respond(403, "text/plain", vec![]);
     }
-    match std::fs::read(root().join(rel)) {
+    match std::fs::read(builds::root().join(rel)) {
         Ok(bytes) => respond(200, mime(rel), bytes),
         Err(_) => {
             report(&serde_json::json!({"type": "miss", "path": rel}).to_string());
@@ -191,6 +193,38 @@ fn host_route(
             "text/html; charset=utf-8",
             include_bytes!("recover.html").to_vec(),
         ),
+        "build-state" => json_response(builds::state()),
+        "popout.html" => respond(
+            200,
+            "text/html; charset=utf-8",
+            desktop::popout_page(&query(request, "panel").unwrap_or_default()).into_bytes(),
+        ),
+        "projection" => {
+            if let (Some(name), Ok(data)) = (
+                query(request, "name"),
+                serde_json::from_slice::<serde_json::Value>(request.body()),
+            ) {
+                desktop::projection(app, &name, &data);
+            }
+            respond(204, "text/plain", vec![])
+        }
+        "projection-latest" => json_response(desktop::projection_latest(
+            &query(request, "name").unwrap_or_default(),
+        )),
+        "attention" => {
+            let count = query(request, "count")
+                .and_then(|c| c.parse().ok())
+                .unwrap_or(0);
+            let label: String = query(request, "label")
+                .unwrap_or_default()
+                .chars()
+                .take(120)
+                .collect();
+            let result = desktop::attention(app, count, &label, BACKGROUND.load(Ordering::SeqCst));
+            report(&serde_json::json!({"type": "attention", "result": result}).to_string());
+            json_response(result)
+        }
+        "adopt-build" => json_response(serde_json::json!({"adopted": builds::adopt()})),
         "pong" => {
             LAST_PONG.store(mirror::now_ms() as u64, Ordering::SeqCst);
             respond(204, "text/plain", vec![])
@@ -378,13 +412,13 @@ fn unthrottle(webview: *mut std::ffi::c_void) -> Vec<&'static str> {
     applied
 }
 
-fn host_script(background: bool, mirror: bool) -> String {
+pub(crate) fn host_script(background: bool, mirror: bool, build: &str) -> String {
     format!(
         r#"(() => {{
   const background = {background}, mirror = {mirror};
   const readStorage = () => {{ const e = {{}}; for (let i = 0; i < localStorage.length; i++) {{ const k = localStorage.key(i); e[k] = localStorage.getItem(k); }} return e; }};
   window.yairpgHost = Object.freeze({{
-    desktop: true, shell: 'tauri', background, build: 'tauri-live', capabilities: mirror ? ['mirror'] : [],
+    desktop: true, shell: 'tauri', background, build: {build:?}, capabilities: [...(mirror ? ['mirror'] : []), 'attention', 'projection'],
     prompt: () => null,
     mirrorList: () => mirror ? fetch('/__host/mirror-list').then(r => r.json()).catch(() => []) : Promise.resolve([]),
     // Restore only from the recovery page, on the player's click; the current
@@ -400,9 +434,33 @@ fn host_script(background: bool, mirror: bool) -> String {
         return true;
       }} catch {{ return false; }}
     }},
-    attention: () => {{}},
-    projectionLatest: async () => null,
+    // Something is waiting (A4): Dock badge, and a notification when unfocused.
+    attention: (count, label) => {{ fetch('/__host/attention?count=' + (Number(count) || 0) + '&label=' + encodeURIComponent(String(label || '').slice(0, 120)), {{method: 'POST'}}).catch(() => {{}}); }},
+    // Pop-out panels (A3): the game page sends projections; pop-outs only show them.
+    projection: (name, data) => {{ fetch('/__host/projection?name=' + encodeURIComponent(name), {{method: 'POST', body: JSON.stringify(data)}}).catch(() => {{}}); }},
+    onProjection: callback => {{ window.__yairpgProjection = callback; }},
+    projectionLatest: name => fetch('/__host/projection-latest?name=' + encodeURIComponent(name)).then(r => r.json()).catch(() => null),
   }});
+  // Frozen builds (EL18, N4): a newer snapshot is offered; nothing reloads
+  // until the player clicks. Saving goes through the game's own saveProgress.
+  const showBuild = () => {{
+    if (location.pathname === '{RECOVER_PATH}' || !document.body || document.getElementById('yairpg_host_build_notice')) return;
+    const box = document.createElement('div'); box.id = 'yairpg_host_build_notice'; box.setAttribute('role', 'status');
+    box.style.cssText = 'position:fixed;left:12px;bottom:12px;z-index:2147483000;display:flex;gap:8px;align-items:center;padding:6px 10px;font:13px/1.3 system-ui,sans-serif;color:var(--p23-notice,#e8e8e8);background:var(--p23-message-fill,#1f1f1f);border:1px solid var(--p23-frame,#555);box-shadow:0 2px 8px rgba(0,0,0,.4)';
+    const text = document.createElement('span'); text.textContent = 'New build ready';
+    const reload = document.createElement('button'); reload.type = 'button'; reload.id = 'yairpg_host_build_reload'; reload.textContent = 'Save and reload';
+    reload.onclick = async () => {{
+      reload.disabled = true;
+      try {{ window.saveProgress && window.saveProgress(); }} catch (e) {{}}
+      const r = await fetch('/__host/adopt-build', {{method: 'POST'}}).then(r => r.json()).catch(() => ({{}}));
+      if (r.adopted) location.reload(); else box.remove();
+    }};
+    const later = document.createElement('button'); later.type = 'button'; later.textContent = 'Later'; later.onclick = () => box.remove();
+    for (const b of [reload, later]) b.style.cssText = 'font:inherit;padding:2px 8px;cursor:pointer';
+    box.append(text, reload, later); document.body.append(box);
+  }};
+  window.__yairpgBuildReady = () => {{ if (document.body) showBuild(); else addEventListener('DOMContentLoaded', showBuild, {{once: true}}); }};
+  addEventListener('DOMContentLoaded', () => fetch('/__host/build-state').then(r => r.json()).then(s => {{ if (s.announced) showBuild(); }}).catch(() => {{}}), {{once: true}});
   if (background) {{
     window.alert = m => console.warn('[background alert]', m);
     window.confirm = m => {{ console.warn('[background confirm, cancelled]', m); return false; }};
@@ -416,6 +474,26 @@ fn host_script(background: bool, mirror: bool) -> String {
 /// heartbeat; a page that has answered once and then stays silent past
 /// YAIRPG_HANG_MS (default 30 s) is stopped and the recovery page shown.
 fn spawn_watchers(app: tauri::AppHandle, mirror_on: bool) {
+    {
+        // Frozen builds (N4): offer a newer snapshot; the page adopts on a click.
+        let app = app.clone();
+        let gap = env_ms("YAIRPG_BUILD_POLL_MS", 3000);
+        std::thread::spawn(move || loop {
+            std::thread::sleep(Duration::from_millis(gap));
+            if QUITTING.load(Ordering::SeqCst) {
+                return;
+            }
+            if let Some(id) = builds::poll() {
+                report(&serde_json::json!({"type": "host", "announced": id}).to_string());
+                if let Some(window) = app.get_webview_window("main") {
+                    let _ = window.eval(&format!(
+                        "window.__yairpgBuildReady && window.__yairpgBuildReady({})",
+                        serde_json::Value::String(id)
+                    ));
+                }
+            }
+        });
+    }
     if mirror_on {
         let app = app.clone();
         let gap = env_ms("YAIRPG_MIRROR_MS", 30000);
@@ -474,7 +552,20 @@ fn main() {
         .ok()
         .map(|p| std::fs::read_to_string(p).expect("harness script unreadable"));
 
-    tauri::Builder::default()
+    BACKGROUND.store(hidden, Ordering::SeqCst);
+    let mut builder = tauri::Builder::default();
+    if !hidden {
+        // Window size and position (A7) for the player's window only.
+        builder = builder.plugin(
+            tauri_plugin_window_state::Builder::default()
+                .with_denylist(&["popout-events"])
+                .build(),
+        );
+    }
+    builder
+        .on_menu_event(|app, event| {
+            desktop::on_menu(app, event.id().as_ref(), MIRROR_DIR.get().cloned())
+        })
         .register_asynchronous_uri_scheme_protocol("yairpg", |ctx, request, responder| {
             let app = ctx.app_handle().clone();
             std::thread::spawn(move || responder.respond(serve(&app, request)));
@@ -491,11 +582,35 @@ fn main() {
             }
         })
         .setup(move |app| {
+            let data_dir = match &profile {
+                Some(dir) => PathBuf::from(dir),
+                None => app.path().app_data_dir()?,
+            };
+            let live = std::env::var("YAIRPG_ROOT")
+                .ok()
+                .map(PathBuf::from)
+                .or_else(|| (hidden && !flag("YAIRPG_FROZEN")).then(builds::repo_root));
+            builds::init((!ephemeral).then_some(data_dir.as_path()), live)?;
+            let mut start_url = url.clone();
+            let build_id = builds::state()["serving"]
+                .as_str()
+                .unwrap_or("live")
+                .to_string();
+            if !hidden {
+                app.set_menu(desktop::menu(app.handle())?)?;
+            }
             if mirror_on {
                 let dir = match &profile {
                     Some(dir) => PathBuf::from(dir).join("save-mirror"),
                     None => app.path().app_data_dir()?.join("save-mirror"),
                 };
+                // First launch after scripts/tauri/import_save.mjs: show the copied
+                // save on the recovery page; the player restores it with a click.
+                let marker = dir.join("import-pending");
+                if marker.exists() && std::fs::remove_file(&marker).is_ok() {
+                    start_url = format!("yairpg://localhost{RECOVER_PATH}?reason=import");
+                }
+                let _ = MIRROR_DIR.set(dir.clone());
                 let _ = MIRROR.set(Mutex::new(mirror::Mirror::open(dir)));
             }
             #[cfg(target_os = "macos")]
@@ -504,13 +619,13 @@ fn main() {
                 app.set_dock_visibility(false);
             }
             let mut builder =
-                WebviewWindowBuilder::new(app, "main", WebviewUrl::External(url.parse()?))
+                WebviewWindowBuilder::new(app, "main", WebviewUrl::External(start_url.parse()?))
                     .title("Yet Another Idle RPG")
                     .inner_size(1920.0, 1080.0)
                     .visible(!hidden)
-                    .focused(!hidden)
+                    .focused(!hidden && !flag("YAIRPG_INACTIVE"))
                     .background_throttling(BackgroundThrottlingPolicy::Disabled)
-                    .initialization_script(host_script(hidden, mirror_on));
+                    .initialization_script(host_script(hidden, mirror_on, &build_id));
             if let Some(script) = &harness {
                 builder = builder.initialization_script(script);
             }
@@ -537,7 +652,7 @@ fn main() {
         })
         .on_window_event(|window, event| {
             if let tauri::WindowEvent::CloseRequested { api, .. } = event {
-                if !QUITTING.load(Ordering::SeqCst) {
+                if window.label() == "main" && !QUITTING.load(Ordering::SeqCst) {
                     api.prevent_close();
                     quit(window.app_handle().clone());
                 }

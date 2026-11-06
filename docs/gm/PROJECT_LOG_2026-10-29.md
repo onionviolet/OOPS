@@ -2564,3 +2564,7 @@ The [integration record](../audits/FOUR_GROUP_INTEGRATION_2026-11-04.md) owns th
 ## 2026-11-05 campaign stage-summary reconciliation (B552)
 
 The current campaign plan records33 slices/515 selected stages through KJ3AE (431 at KJ3Z plus21+16+13+15+19). Corrected only PROJECT’s obsolete count sentence, preserving endpoint links, mechanism priority and all other prose. This is reported plan arithmetic, not a fresh replay or exhaustive denominator. Superseded wording: “Twenty-eight slices now contain 431 selected stages/intents, not an exhaustive campaign denominator.”
+
+## 2026-11-06 desktop host line (Tauri move)
+
+Replaced in PROJECT.md: "Desktop host: Tauri is the main development target from 2026-11-06 (AD39 amended); the Electron host stays runnable while the move is in progress." Now Tauri is the desktop host (`npm run desktop`, the installed app, `npm run check:tauri`) and Electron is the `npm run desktop:electron` fallback until Weibao has played on Tauri. [Task record](dispatch/tauri-host-2026-11-06/CHECKPOINT.md).

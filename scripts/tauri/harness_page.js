@@ -54,7 +54,7 @@
       while (!document.body.dataset.backups && performance.now() - start < 10000) await delay(100);
       await send({type: 'recover', reason: new URLSearchParams(location.search).get('reason'), backups: Number(document.body.dataset.backups || 0),
         heading: document.getElementById('recover_reason')?.textContent});
-      const latest = document.querySelector('button[data-backup="latest"]');
+      const latest = document.querySelector('button[data-backup="latest"]') || document.querySelector('button[data-backup]');
       if (cfg.restore && latest) { sessionStorage.setItem('harness-restoring', '1'); latest.click(); }
       else await send({type: 'done'});
     });
@@ -103,6 +103,33 @@
       if (sessionStorage.getItem('harness-resetting')) {
         sessionStorage.removeItem('harness-resetting');
         await send({type: 'after-reset', clock: clock(), hasSave: !!localStorage.getItem('save data'), errors});
+        await send({type: 'done'});
+        return;
+      }
+      if (cfg.phase === 'frozen') {
+        // N4: report the served build, wait for the host's offer, adopt it, report again.
+        const state = () => fetch('/__host/build-state').then(r => r.json());
+        if (sessionStorage.getItem('harness-adopting')) {
+          sessionStorage.removeItem('harness-adopting');
+          const s = save();
+          await send({type: 'adopted', build: await state(), clock: clock(), name: s?.character?.name, errors});
+          await send({type: 'done'});
+          return;
+        }
+        window.saveProgress();
+        await send({type: 'frozen-ready', build: await state(), host: window.yairpgHost.build, clock: clock(), name: save().character.name});
+        await wait(() => document.getElementById('yairpg_host_build_reload'), 'build notice');
+        sessionStorage.setItem('harness-adopting', '1');
+        document.getElementById('yairpg_host_build_reload').click();
+        return;
+      }
+      if (cfg.phase === 'popout') {
+        // N7/N8: attention reaches the host (no badge or notice in a hidden run); a pop-out shows the projection.
+        const attention = await fetch('/__host/attention?count=2&label=' + encodeURIComponent('Harness lead'), {method: 'POST'}).then(r => r.json());
+        await send({type: 'attention-checked', attention, capabilities: window.yairpgHost.capabilities});
+        await fetch('/__harness/popout', {method: 'POST'});
+        await delay(4000);
+        window.saveProgress();
         await send({type: 'done'});
         return;
       }

@@ -22,6 +22,7 @@ const REASONS = {
     hung: 'The game stopped responding and was stopped.',
     crashed: 'The game window crashed.',
     manual: 'Choose a backup to restore, or go back to the game.',
+    import: 'Your save from the Electron app is ready. Restore it to continue that game here.',
 };
 const reason = new URLSearchParams(location.search).get('reason') || 'crashed';
 document.getElementById('recover_reason').textContent = REASONS[reason] || `The game window stopped (${reason}).`;

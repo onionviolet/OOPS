@@ -11,13 +11,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';
-import {spawn} from 'node:child_process';
+import {spawn, execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import os from 'node:os';
 import crypto from 'node:crypto';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-const BIN = path.join(ROOT, 'desktop-tauri/target/release/yairpg-tauri');
+const BIN = (() => { const i = process.argv.indexOf('--bin'); return i < 0 ? path.join(ROOT, 'desktop-tauri/target/release/yairpg-tauri') : path.resolve(process.argv[i + 1]); })();
 const args = process.argv.slice(2);
 const value = (name, fallback) => { const i = args.indexOf(name); return i < 0 ? fallback : args[i + 1]; };
 const variants = value('--variants', 'base,wk-throttle,appnap,ephemeral,loopback,native-visibility,hang,crash,reset').split(',');
@@ -25,6 +25,8 @@ const fixtures = value('--fixtures', 'fresh,crowded').split(',');
 const runs = Number(value('--runs', 1));
 const idleMs = Number(value('--seconds', 20)) * 1000;
 const durability = !args.includes('--no-durability');
+const fixtureFile = value('--fixture-file', null);
+const userDataOverride = value('--user-data', null);
 const deadlineMs = Number(value('--deadline', 180)) * 1000;
 if (!fs.existsSync(BIN)) { console.error('Build first: cargo build --release --offline --manifest-path desktop-tauri/Cargo.toml'); process.exit(2); }
 
@@ -38,6 +40,15 @@ const VARIANTS = {
     // Recovery scenarios (N1/N2): mirror on, page frozen or its process killed.
     hang: {env: {YAIRPG_MIRROR: '1', YAIRPG_MIRROR_MS: '2000', YAIRPG_HANG_MS: '6000'}, recovery: 'loop'},
     reset: {recoveryLike: 'reset'},
+    popout: {recoveryLike: 'popout'},
+    // Save move: an Electron mirror snapshot planted as import-pending opens recovery; Restore boots it.
+    import: {env: {YAIRPG_MIRROR: '1'}, recoveryLike: 'import'},
+    // Visible, unfocused window that really paints (Weibao allowed this, Q2 2026-11-06). Not in the default list.
+    visible: {visible: true, normalizeVisibility: false, env: {YAIRPG_INACTIVE: '1'}},
+    // Adoption verify (scripts/tauri/adopt.mjs): serve the frozen build already in --user-data.
+    'frozen-run': {env: {YAIRPG_FROZEN: '1'}},
+    // N4: frozen snapshot served, a newer one offered mid-run and adopted on click.
+    frozen: {env: {YAIRPG_FROZEN: '1', YAIRPG_BUILD_POLL_MS: '1000'}, recoveryLike: 'frozen'},
     crash: {env: {YAIRPG_MIRROR: '1', YAIRPG_MIRROR_MS: '2000'}, recovery: 'kill'},
 };
 const stamp = new Date().toISOString().replace(/[:.]/g, '-');
@@ -47,6 +58,7 @@ const pageScript = fs.readFileSync(path.join(ROOT, 'scripts/tauri/harness_page.j
 
 // Loopback variant: the same files over 127.0.0.1, like the Nov 6 prototype.
 let reportFile = null;
+let onEvent = null; // per-scenario hook, called with each new report line
 const server = http.createServer((req, res) => {
     const url = new URL(req.url, 'http://x');
     if (url.pathname === '/__harness/report') {
@@ -82,11 +94,11 @@ async function launch({name, variant, fixture, phase, exit, profile}) {
     const report = path.join(out, `${name}.jsonl`);
     reportFile = report;
     const cfg = {phase, exit, idleMs, hang: v.recovery, restore: true, mirrorWaitMs: 5000, sample: args.includes('--sample') || args.includes('--profile'), profile: args.includes('--profile'), normalizeVisibility: v.normalizeVisibility ?? true,
-        fixture: phase !== 'relaunch' ? JSON.parse(fs.readFileSync(path.join(ROOT, 'tests/fixtures/perf', fixture + '.json'))) : null,
+        fixture: phase !== 'relaunch' ? JSON.parse(fs.readFileSync(fixtureFile || path.join(ROOT, 'tests/fixtures/perf', fixture + '.json'))) : null,
         report: v.loopback ? `http://127.0.0.1:${port}/__harness/report` : '/__harness/report'};
     const script = path.join(out, `${name}.page.js`);
     fs.writeFileSync(script, `window.__harness = ${JSON.stringify(cfg)};\n${pageScript}`);
-    const env = {...process.env, YAIRPG_HIDDEN: '1', YAIRPG_REPORT: report, YAIRPG_HARNESS_SCRIPT: script, ...(v.env || {})};
+    const env = {...process.env, ...(v.visible ? {} : {YAIRPG_HIDDEN: '1'}), YAIRPG_REPORT: report, YAIRPG_HARNESS_SCRIPT: script, ...(v.env || {})};
     if (!v.ephemeral) env.YAIRPG_USER_DATA = profile;
     if (v.loopback) env.YAIRPG_URL = `http://127.0.0.1:${port}/index.html`;
     const started = Date.now();
@@ -98,7 +110,9 @@ async function launch({name, variant, fixture, phase, exit, profile}) {
     const result = {name, variant, fixture, phase, exit, pid: child.pid, started};
     while (Date.now() - started < deadlineMs) {
         await new Promise(r => setTimeout(r, 250));
-        if (readLines(report).some(e => e.type === 'done') || exited) break;
+        const lines = readLines(report);
+        if (onEvent) for (const e of lines) onEvent(e);
+        if (lines.some(e => e.type === 'done') || exited) break;
     }
     const events = readLines(report);
     result.events = events;
@@ -140,7 +154,61 @@ function summarize(r) {
 const rows = [];
 for (let run = 1; run <= runs; run++) for (const fixture of fixtures) for (const variant of variants) {
     const name = `${variant}-${fixture}-${run}`;
-    const profile = path.join(out, 'profiles', name);
+    const profile = userDataOverride ? path.resolve(userDataOverride) : path.join(out, 'profiles', name);
+    if (VARIANTS[variant].recoveryLike === 'frozen') {
+        // Snapshot A before launch; snapshot B (one changed file) once the game is up.
+        const snap = (from) => execFileSync('node', [path.join(ROOT, 'desktop/snapshot.cjs'), '--from', from], {env: {...process.env, YAIRPG_USER_DATA: profile}}).toString().trim();
+        fs.mkdirSync(profile, {recursive: true});
+        const a = snap(ROOT);
+        const altered = path.join(out, `${name}-tree`);
+        onEvent = e => {
+            if (e.type !== 'frozen-ready' || fs.existsSync(altered)) return;
+            const pkg = (rel) => { const to = path.join(altered, rel); fs.mkdirSync(path.dirname(to), {recursive: true}); fs.cpSync(path.join(ROOT, rel), to, {recursive: true}); };
+            for (const rel of ['index.html', 'style.css', 'favicon.ico', 'help.html', 'changelog.html', 'dist', 'src/game_version.js', 'styles', 'resources', 'assets', 'locales', 'stories', 'private_packs', 'package.json']) if (fs.existsSync(path.join(ROOT, rel))) pkg(rel);
+            fs.appendFileSync(path.join(altered, 'help.html'), `\n<!-- harness ${stamp} -->\n`);
+            snap(altered);
+        };
+        const r = await launch({name, variant, fixture, phase: 'frozen', exit: 'kill', profile});
+        onEvent = null;
+        const ready = r.events.find(e => e.type === 'frozen-ready'), adopted = r.events.find(e => e.type === 'adopted');
+        const row = {name, variant, fixture, snapshotA: a.split(' ')[1], served: ready?.build?.serving ?? null, hostBuild: ready?.host ?? null,
+            announced: r.events.find(e => e.announced)?.announced ?? null, adoptedServing: adopted?.build?.serving ?? null,
+            switched: !!adopted && adopted.build.serving !== ready?.build?.serving && adopted.build.serving === r.events.find(e => e.announced)?.announced,
+            saveKept: !!adopted && adopted.name === ready?.name && adopted.clock >= ready?.clock, timedOut: r.timedOut,
+            misses: r.events.filter(e => e.type === 'miss').map(e => e.path), errors: [...new Set(r.events.flatMap(e => e.errors || []))]};
+        fs.rmSync(altered, {recursive: true, force: true}); fs.rmSync(path.join(profile, 'builds'), {recursive: true, force: true});
+        dropStore(profile);
+        rows.push(row); console.log(JSON.stringify(row));
+        continue;
+    }
+    if (VARIANTS[variant].recoveryLike === 'import') {
+        const fixtureSave = JSON.parse(fs.readFileSync(fixtureFile || path.join(ROOT, 'tests/fixtures/perf', fixture + '.json')));
+        const entries = {'save data': JSON.stringify(fixtureSave)};
+        const {hashEntries} = (await import('node:module')).createRequire(import.meta.url)(path.join(ROOT, 'desktop/save_mirror.cjs'));
+        const id = `20261027-232500-${hashEntries(entries).slice(0, 8)}`;
+        const hist = path.join(profile, 'save-mirror/history');
+        fs.mkdirSync(hist, {recursive: true});
+        fs.writeFileSync(path.join(hist, `${id}.json.gz`), (await import('node:zlib')).gzipSync(JSON.stringify({schema: 1, savedAt: '2026-10-28T03:25:00.103Z', reason: 'from-electron', entries})));
+        fs.writeFileSync(path.join(profile, 'save-mirror/import-pending'), '{}');
+        const r = await launch({name, variant, fixture, phase: 'relaunch', exit: 'kill', profile});
+        const recover = r.events.find(e => e.type === 'recover'), restored = r.events.find(e => e.type === 'restored');
+        const row = {name, variant, fixture, recoverReason: recover?.reason ?? null, heading: recover?.heading ?? null, backups: recover?.backups ?? 0,
+            restored: restored ? {name: restored.name, clock: restored.clock} : null,
+            restoreKept: !!restored && restored.name === fixtureSave.character?.name, markerGone: !fs.existsSync(path.join(profile, 'save-mirror/import-pending')),
+            timedOut: r.timedOut, errors: [...new Set(r.events.flatMap(e => e.errors || []))]};
+        dropStore(profile);
+        rows.push(row); console.log(JSON.stringify(row));
+        continue;
+    }
+    if (VARIANTS[variant].recoveryLike === 'popout') {
+        const r = await launch({name, variant, fixture, phase: 'popout', exit: 'kill', profile});
+        const att = r.events.find(e => e.type === 'attention-checked'), shown = r.events.filter(e => e.type === 'popout-shown');
+        const row = {name, variant, fixture, attention: att?.attention ?? null, capabilities: att?.capabilities ?? null,
+            popoutShown: shown.length, lastPopout: shown.at(-1) ?? null, timedOut: r.timedOut, errors: [...new Set(r.events.flatMap(e => e.errors || []))]};
+        dropStore(profile);
+        rows.push(row); console.log(JSON.stringify(row));
+        continue;
+    }
     if (VARIANTS[variant].recoveryLike === 'reset') {
         const r = await launch({name, variant, fixture, phase: 'reset', exit: 'kill', profile});
         const dialog = r.events.find(e => e.type === 'reset-dialog'), after = r.events.find(e => e.type === 'after-reset');

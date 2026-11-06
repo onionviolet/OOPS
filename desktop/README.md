@@ -1,4 +1,6 @@
-# Desktop host
+# Desktop host (Electron fallback)
+
+Since 2026-11-06 the desktop host is Tauri ([desktop-tauri/](../desktop-tauri/README.md), `npm run desktop`). This Electron shell stays as the fallback (`npm run desktop:electron`) until Weibao has played on Tauri; `snapshot.cjs` and `save_mirror.cjs` are shared with the Tauri scripts.
 
 Electron shell for the web build (AD39). `src/` never imports this folder; the
 browser build stays the default test target. The page reaches the host only

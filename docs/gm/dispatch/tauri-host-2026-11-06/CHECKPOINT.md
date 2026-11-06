@@ -72,3 +72,17 @@ Shared edits added: `src/home_domain.js`, `src/world_completion_materials_conten
 Checks (slice 2): `cargo test` 3/3 (mirror); `cargo build`/`fmt --check` PASS; focused node tests: home_* 92 + household 131 set, world-completion/audit/home set 200/200, domain_registry 4/4, typed_confirm 2/2, ui_contract 3/3 after token fix; `check:desktop` 6/6 on rerun (one `desktop_crash_guard` failure happened while the harness loaded the CPU); full gates for the commit are recorded in its message. Still implemented, below floor: hidden runs only, no visible window yet, not human-reviewed.
 
 Next: N4 frozen builds and adoption, N5 `.app` bundle and the ported desktop checks, then the visible-window measurement Weibao allowed (Q2), N6-N8 parity, N10 retire Electron.
+
+## Slice 3: the full move (2026-11-06, evening)
+
+Weibao: "lets work on these to completion" (N4-N10 and the save copy, after "Go ahead, Q2 is fine, Q3 is fine").
+
+- N4 frozen builds: `desktop-tauri/src/builds.rs` serves `<data>/builds/<id>/` with the `desktop/snapshot.cjs` pointers, makes the first snapshot itself, polls `latest.json`, offers "New build ready · Save and reload" and switches only on the click; responses are `no-store`. `scripts/tauri/adopt.mjs` prepare/verify/swap is MDL16 for Tauri; verify seeds a copy of the newest mirrored save, reports facts only and deletes the copy.
+- N5 app: `scripts/tauri/app.mjs` bundles with sips/iconutil/codesign (no Tauri CLI): 16.8 MB, ad hoc signed, installed at `~/Applications/Yet Another Idle RPG.app`. `npm run check:tauri` replaces `check:desktop` for this host (9 checks).
+- Q2 visible run (inactive window, test profile): fresh launch→ready 8.9 s, 1.00 game min/s, lag p95 105 ms, Save 9 ms, clean quit kept; crowded 12.6 s, 1.00 game min/s, lag p95 144 ms (WebKit reported it hidden part of the time, likely covered by other windows).
+- N6-N8: menu (File: Save now, Restore a backup, Show backups folder; Edit; View: pop-out, reload, zoom, full screen; Window), window size and position via tauri-plugin-window-state (visible runs only), Dock badge, notifications via UNUserNotificationCenter (bundled app, once a minute, unfocused only), pop-out world events fed by projections trimmed like `popout_page.cjs`.
+- Save copy: `scripts/tauri/import_save.mjs --yes` copied the Electron mirror's 2026-10-27 23:25 close snapshot into the app's backups (`20261027-232500-5196e02d`, same hash as Electron's own file) and set the import marker. Electron's profile untouched. The first launch shows recovery; the game moves only on Weibao's Restore click.
+- N10: `npm run desktop` is Tauri; Electron is `npm run desktop:electron`. AD39, PROJECT, AGENTS (hidden-run line), desktop READMEs and CHECKOUT_CHECKLIST CK24/CK28 updated. Deleting `desktop/` and the electron dependency waits for Weibao's play on Tauri, because other sessions and checks still run it.
+- Crates: Q3 download of objc2-user-notifications (+ tauri-plugin-window-state from the cache).
+
+Checks: see the commit message for this slice. Remaining: Weibao plays on the app (human review), then retire Electron; Windows and Linux builds later.
