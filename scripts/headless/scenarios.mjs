@@ -18,10 +18,16 @@ export const SCENARIOS = Object.freeze({
     'fresh': {summary: 'New hero, day 1, Village.', recipe: {days: 0}},
     'fresh-day3': {summary: 'New hero after three days of stepping.', recipe: {days: 3}},
     'fresh-week': {summary: 'New hero after a week of stepping.', recipe: {days: 7}},
+    'village-craftsman': {summary: 'Three days in, old craftsman reachable (story access patched like village_route.progress); walks the village.interrupt_work request.', recipe: {days: 3, patch: 'craftsman'}},
     'perf-fresh': {summary: 'Committed perf fixture: fresh life.', file: 'tests/fixtures/perf/fresh.json'},
     'perf-mid': {summary: 'Committed perf fixture: mid-game life.', file: 'tests/fixtures/perf/mid.json'},
     'perf-crowded': {summary: 'Committed perf fixture: crowded life (many people and jobs).', file: 'tests/fixtures/perf/crowded.json'},
 });
+// A recipe may patch the stepped save for story access a floor check needs without hours of combat; each patch is data a
+// route script already uses (default: none; dial: add a named patch per check; reason: keep the hero otherwise untouched).
+const PATCHES = {
+    craftsman: save => {const out = structuredClone(save); out.availabilities.dialogue.oldCraftsman = 1; return out;},
+};
 export const CACHE_DIR = join(tmpdir(), 'yairpg-scenarios');
 
 async function sourceStamp() {
@@ -43,7 +49,12 @@ export async function scenarioSave(name, {seed = 1} = {}) {
     try {return await readFile(cached, 'utf8');} catch {/* build below */}
     const game = await boot(null, {seed});
     let text;
-    try {await advanceGame(game, {days: def.recipe.days}); text = JSON.stringify(game.snapshot());}
+    try {
+        await advanceGame(game, {days: def.recipe.days});
+        const snap = game.snapshot(), patch = def.recipe.patch ? PATCHES[def.recipe.patch] : null;
+        if(def.recipe.patch && !patch) throw new Error(`Unknown scenario patch ${def.recipe.patch}.`);
+        text = JSON.stringify(patch ? patch(typeof snap === 'string' ? JSON.parse(snap) : snap) : snap);
+    }
     finally {game.close();}
     await mkdir(CACHE_DIR, {recursive: true});
     await writeFile(cached, text);
