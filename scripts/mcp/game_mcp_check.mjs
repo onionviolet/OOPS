@@ -208,6 +208,8 @@ async function blockedRoutes(c) {
     let v = await c.tool('game_look', {scope: '#continuation_panel'});
     assert.ok(v.actions.some(a => a.key === '#continuation_open'), 'BLD3 native continuing connection is reachable');
     await c.tool('game_click', {key: '#continuation_open'});
+    // The connection view opens on "Anchors & study" (2026-10-25); return routes live on the Return tab.
+    await c.tool('game_click', {key: '[data-connection-tab="return"]'});
     v = await c.tool('game_look', {scope: '#continuation_view'});
     assert.ok(v.actions.some(a => a.text === 'Begin a fresh life'), 'native fresh-life confirmation route is offered');
     await c.tool('game_click', {key: '[data-continuation-action="fresh"]'});
