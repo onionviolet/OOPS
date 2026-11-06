@@ -104,3 +104,31 @@ Snapshot 2026-11-06, master at `958740e92` plus this wave's uncommitted lanes; s
 **Momentum.** Nov 5: 7 commits (FD1-FD11 plus snapshots). Nov 6 so far: this wave, uncommitted at the time of writing; the shell comparison from another session.
 
 **Next moves.** Standing priority unchanged (Klein, Harry beside, depth to book worlds). Suggestions, ranked: (1) AT13 give FD6 and FD9 their one consumer each (`collect_pay` through the purse seam, fog in the Tingen scene text) and AT9 one headless walk that lifts those and the three new consumers to FLR2; (2) AT2 B8 fight toward the Tingen climax, now on the shared stock; (3) AT14 diagnose the civil-staff workroom; (4) AT10 owed-ledger line; (5) AT7 app adoption; AT11 worktree retirement trails.
+
+## Foundational gaps left, 2026-11-06
+
+Question: which cross-world foundations are still missing after FD1-FD11 and the consumer wave? Snapshot master at `48b6af6e8`; checked by grep of `src/` (importers, callers) against the FD table, MECHANISM_BACKLOG and the HP run start G-list; no runtime run, no code changed. Content gaps (Klein KJ4-KJ8, Harry W5-W10) are out of scope except where a foundation gates them. Proposals only (AD32).
+
+**Shape.** Most foundations now exist as seams; the remaining gap is breadth, not mechanism. Every FD seam except FD10 has exactly one world consuming it (LOTM). "Shared" is a design property today, not a proven one.
+
+| ID | Gap | Source check | Kind | What waits on it | Next check or action |
+|---|---|---|---|---|---|
+| AT15 | No fight on the shared substrate. Combat is at floor only on the L2b health fixture; FD3 ready stock and FD2 notch contest have one LOTM caller each (`book_world_lotm_be_firearm.js`, `book_world_lotm_bands.js`); B8 still has no native fight. Same root as AT2. | grep importers of `ready_stock`, `notch_contest` | Missing connection / verification gap | Tingen climax and KJ4-KJ8 (required); HP W7 troll and duel (required) | One native fight that spends a loaded round through FD3 and resolves through FD2, saved and reloaded |
+| AT16 | Second consumers are all Harry's, and Harry's lane is the one not moving. FD7 (Hogwarts walks), FD8 (timetable, detentions), FD11 (classes), FD6 (vault draw), FD2 (W7) each name HP as next consumer; FD8 and FD11 also need the G5 school calendar, which is unbuilt. | FD rows; `recurring_duties` and `lesson.js` importers are LOTM plus `teacher_window` only | Missing connection | Proof that the seams generalize; HP W5-W9 | Build G5 calendar with W5, then give FD8 and FD11 their HP consumer in the same window (one class, one missed class) |
+| AT17 | Persistent recurring people (FD4/B11) not built. Cast enrollment is `requiredPeople` plus projection in the LOTM cast host; adding a person is a persistence change with a known failure mode ("Unsupported persistent person"). | `book_world_lotm_cast_host.js:150,303,308`; MECHANISM_BACKLOG B11 | Missing capability | Glacis and Klein's colleagues on stage; HP classmates and teachers (G11 cast depth); helpful, not required while text roles suffice | Scope a world-neutral "wake a role at first repeat use" with export/import/reload asserts before the first window that needs a recurring person placed |
+| AT18 | Constraint packs and beat settlement are LOTM-only (`constraint_store`, `constraint_pack` imported only by LOTM files). FD1 LATER still open. | grep importers | Hypothetical dependency | Any second world that wants packed scene constraints | Nothing until a second world adopts constraint packs; then move settlement out of the host first |
+| AT19 | No shared cover-identity or disguise owner. Cover/disguise logic lives in `feature_expansion_*` hosts and LOTM craft/rite rows; nothing a Tingen cover role or Clown face control (G9) can call. | grep `disguise`, `cover` | Missing capability (proposal FD12) | Klein's cover roles and Sequence 8 G9; HP Polyjuice, Invisibility Cloak later; helpful | Read the subtlety host's existing disguise/recognition proof before proposing a seam; it may already be the owner |
+| AT20 | Carried weight has no shared owner; only `dnd_phandalin.js` models encumbrance (`carry_ledger.js` is cross-world boundary carry). | grep `encumbr`, `carryCapacity` | Missing capability (proposal FD13) | Hypothetical: Klein's carried kit and spirit-form light-items limit (G14) | Defer until a window needs weight; note D&D as the reference shape |
+| AT10 | Unchanged: shared owed ledger still has no duty rows (`owed_ledger_sources.js` lists only the Village kit loan as a duty). | `src/owed_ledger_sources.js:13-16` | Missing connection | One consistent "what I owe" view | One source line reading the duties projection |
+
+Checked and not gaps: tool wear has a shared owner (`absorb_e2/durability.js`, used by `structured_equipment_runtime.js` and `gear_work.js`); FD9 fog and FD6 purse now reach play (AT13 closed).
+
+Delivery-side foundations stay as recorded: AT6 (campaign content in private packs, not on a public install), AT7 (installed app not adopted since Luminous Gothic; Tauri host move in progress), AT8 (no human play judgment). These gate playing, not building.
+
+Visual: [evidence/foundational_gaps_2026-11-06.html](evidence/foundational_gaps_2026-11-06.html).
+
+**What blocks what.** AT15 → Tingen climax → KJ4-KJ8 (required). G5 calendar → AT16 FD8/FD11 HP consumers → W6-W9 (required for that order). AT17 → placed recurring people (helpful). AT18, AT19, AT20 hypothetical until a named window asks.
+
+**Next moves.** Standing priority unchanged (Klein, Harry beside). Suggestions, ranked: (1) AT15 one native fight on FD3+FD2, since it gates both lead lives; (2) AT16 G5 calendar plus HP consumers for FD8/FD11, which turns four one-world seams into proven shared ones and restarts Harry; (3) AT10 owed-ledger line (small); (4) AT17 scoping before it is urgent. AT18-AT20 wait for a consumer.
+
+**Larger foundations (follow-up, same day).** Society sheet, positions, event director, encounter frame and ability channels (FD14-FD18) with per-world gaps: [LARGER_FOUNDATIONS_2026-11-06](LARGER_FOUNDATIONS_2026-11-06.md).
