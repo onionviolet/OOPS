@@ -251,3 +251,7 @@ disposable-profile/
 /work/crafting-reference-20261104/reference.png
 /work/crafting-reference-20261104/current-crafting.png
 /work/crafting-reference-20261104/current-cooking.png
+
+# Tauri prototype build output and local scratch runs
+scripts/perf/tauri-prototype/target/
+work/
