@@ -9,7 +9,8 @@ const CAUSE_KINDS = new Set(['combat', 'harm']);
 // Death causes (G25, 2026-10-23): what ended a life, kept apart from the hero's unconscious outcomes (AD19, native
 // defeat is not death). `age` is the ordinary case; `illness` and `mishap` come from a world's hardship dial. The slice
 // keeps a capped tally and the last cause; who died and at what age belongs to the lessons that read it.
-export const DEATH_CAUSES = Object.freeze(['age', 'illness', 'mishap', 'combat', 'harm']);
+// loss_of_control matches HARM_DEATH_CAUSES so a Beyonder's loss of control can be tallied (RD1); no producer reaches it yet.
+export const DEATH_CAUSES = Object.freeze(['age', 'illness', 'mishap', 'combat', 'harm', 'loss_of_control']);
 let state = null;
 const fresh = () => ({schema: 1, counts: {}, last: null});
 export function defeatState() { return state; }

@@ -132,3 +132,5 @@ Visual: [evidence/foundational_gaps_2026-11-06.html](evidence/foundational_gaps_
 **Next moves.** Standing priority unchanged (Klein, Harry beside). Suggestions, ranked: (1) AT15 one native fight on FD3+FD2, since it gates both lead lives; (2) AT16 G5 calendar plus HP consumers for FD8/FD11, which turns four one-world seams into proven shared ones and restarts Harry; (3) AT10 owed-ledger line (small); (4) AT17 scoping before it is urgent. AT18-AT20 wait for a consumer.
 
 **Larger foundations (follow-up, same day).** Society sheet, positions, event director, encounter frame and ability channels (FD14-FD18) with per-world gaps: [LARGER_FOUNDATIONS_2026-11-06](LARGER_FOUNDATIONS_2026-11-06.md).
+
+**AT15 step 1 (2026-11-06).** Tempo fights take `shoot` and `reload` with real stock and fog; the LOTM proof opener quotes natively but the tempo host is Frontier-only (T1) and its panel is hidden from the LOTM view (T2). Implemented, below floor: [record](../gm/dispatch/at15-fight-2026-11-06/CHECKPOINT.md).

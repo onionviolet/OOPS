@@ -7,6 +7,9 @@ import {validateGoals, validateExit} from './tempo_exit.js';
 export const TEMPO_SCHEMA = 7;
 export const TEMPO_LOG_LINES = 12;
 export const TEMPO_MOVE_IDS = ['jab', 'swing', 'guard', 'tend', 'withdraw', 'yield', 'order'];
+// Stock moves (FD3/FD17, AT15): granted per fighter, never in the default list, so fights that do not name them are unchanged.
+export const TEMPO_STOCK_MOVE_IDS = ['shoot', 'reload'];
+export const TEMPO_ALLOWED_MOVE_IDS = [...TEMPO_MOVE_IDS, ...TEMPO_STOCK_MOVE_IDS];
 export const TEMPO_FACT_HELD = 'tempo.held_minutes';
 
 // Away minutes during an open fight are banked in memory by the clock and folded
@@ -20,6 +23,15 @@ export function recordTempoHold(minutes, battle) {
 export function takeTempoHold() {const m = pendingHold; pendingHold = 0; return m;}
 
 const natural = n => Number.isSafeInteger(n) && n >= 0;
+// Ready stock carried into a fight (FD3): counts live in the fight record; `keys` (player only) names the actor resources written back once at the end.
+const chance = n => Number.isFinite(n) && n >= 0 && n <= 1;
+export function validateTempoStock(st, ids) {
+    if(st === undefined) return true;
+    const keysOk = st.keys === undefined || (st.keys && typeof st.keys.loaded === 'string' && typeof st.keys.carried === 'string' && st.start && natural(st.start.loaded) && natural(st.start.carried));
+    return !!st && typeof st.kind === 'string' && natural(st.loaded) && natural(st.carried) && Number.isSafeInteger(st.capacity) && st.capacity > 0 && st.loaded <= st.capacity &&
+        Number.isSafeInteger(st.batch) && st.batch > 0 && keysOk && st.vs && typeof st.vs === 'object' &&
+        Object.entries(st.vs).every(([id, v]) => ids.includes(id) && chance(v?.chance) && Number.isFinite(v.downIn) && v.downIn >= 1);
+}
 const active = (b, side) => Object.keys(b.fighters).filter(id => b.fighters[id].status === 'active' && (!side || b.fighters[id].side === side));
 
 export function validateTempoBattle(b, session, state) {
@@ -34,7 +46,7 @@ export function validateTempoBattle(b, session, state) {
     for(const id of ids) {
         const f = b.fighters[id];
         check(['a', 'b'].includes(f.side) && natural(f.ready) && f.speed > 0 && Number.isFinite(f.hp) && f.hp >= 0 && f.hp <= f.maxHp && f.stamina >= 0 && f.stamina <= f.maxStamina &&
-            ['active', 'down', 'left'].includes(f.status) && Array.isArray(f.moves) && f.moves.every(m => TEMPO_MOVE_IDS.includes(m)) && f.profile?.stats && (f.ally === undefined || (f.side === 'a' && validateAlly(f.ally))) && validateParts(f.parts) && validateGoals(f.goals) && (f.learned === undefined || (f.learned && typeof f.learned === 'object' && Object.values(f.learned).every(v => typeof v === 'string'))) && (f.tries === undefined || natural(f.tries)), 'Invalid saved tempo fighter.');
+            ['active', 'down', 'left'].includes(f.status) && Array.isArray(f.moves) && f.moves.every(m => TEMPO_ALLOWED_MOVE_IDS.includes(m)) && validateTempoStock(f.stock, ids) && f.profile?.stats && (f.ally === undefined || (f.side === 'a' && validateAlly(f.ally))) && validateParts(f.parts) && validateGoals(f.goals) && (f.learned === undefined || (f.learned && typeof f.learned === 'object' && Object.values(f.learned).every(v => typeof v === 'string'))) && (f.tries === undefined || natural(f.tries)), 'Invalid saved tempo fighter.');
         if(state && id !== 'player') check(!state.simulation.people[id] || state.simulation.people[id].life === 'alive', 'Unavailable tempo fighter.');
     }
     check(active(b, 'a').length && active(b, 'b').length, 'A tempo fight needs fighters on both sides while open.');

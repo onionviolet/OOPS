@@ -21,6 +21,7 @@ import {beClientFacts} from './book_world_lotm_be_clients.js';
 import {payFacts} from './book_world_lotm_pay.js';
 import {BE_SEER_FLAGS,BE_SEER_ENERGY,beSeerSources,beSeerFacts} from './book_world_lotm_be_seer.js';
 import {beFirearmFacts} from './book_world_lotm_be_firearm.js';
+import './book_world_lotm_fight.js'; // registers the AT15 proof tempo opener
 import {lifeCommands,LOTM_PROFILES,profileKeyOf,weeksOwed} from './book_world_lotm_lives.js';
 import {LOTM_DISTRICTS,districtOfPlace,districtCommands,districtFacts,onShift,roleOutcomeFacts} from './book_world_lotm_districts.js';
 const acted=()=>({type:'resource',actor:'player',key:'book.lotm.acting',amount:1}),undigested=not(gte('lotm.acting',LOTM_DIGEST_ACTS));

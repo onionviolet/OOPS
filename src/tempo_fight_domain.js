@@ -11,6 +11,7 @@ import {rivalCombatant, rivalBrief} from './rival_memory.js';
 import {harmState, setHarmState, HARM_RUNGS} from './harm_state.js';
 import {harmPart} from './harm_engine.js';
 import {beginTempoFight, commitTempoMove, handOverTempoFight, tempoView, TEMPO_SCHEMA, TEMPO_FACT_HELD} from './tempo_fight.js';
+import {tempoOpeners, tempoOpener} from './tempo_starters.js';
 import {HANDOVER_LABEL, HANDOVER_TEXT, captureTempoFocus, restoreTempoFocus, newTempoLines} from './ui/tempo_interaction.js';
 
 // Road-duel tempo route: the same pursuit and encounter, driven by the tempo clock (LSD307-LSD317).
@@ -19,7 +20,8 @@ let ports, panel, aim = null;
 // The fight's injuries reach the L9 ladder through its one door after the commit (default parts rows; a world without its own rows keeps them for when it has).
 function applyHarm(plan) {
     for(const e of plan?.harmEffects || []) {
-        let save = {harm: harmState(), expansion: {actors: {player: {worldId: 'default'}}}};
+        // The player's own world picks its harm rows (a world without its own rows falls back to the default ones).
+        let save = {harm: harmState(), expansion: {actors: {player: {worldId: ports?.root?.()?.actors?.player?.worldId || 'default'}}}};
         save = harmPart(save, e).save; setHarmState(save.harm);
     }
 }
@@ -83,6 +85,28 @@ function start(request = {}) {
             profile: rivalProfile, perception: body.intuition + mem.perceptionBonus, stealth: body.agility, goals: mem.goals}]});
     ports.commit(plan); applyHarm(plan);
 }
+// Openers other worlds register (tempo_starters.js): each quotes itself and supplies its fight spec; this host supplies the native actor.
+function openerQuotes() {
+    const state = ports.root(), context = ports.campaignContext();
+    if(!state.simulation || state.simulation.sessions.player) return [];
+    return tempoOpeners().flatMap(o => {
+        try {const q = o.quote(state, context); return q?.visible ? [{id: o.id, label: o.label, text: o.text || '', eligible: !!q.eligible && ports.writable() && !context.busy, reason: q.reason || (context.busy ? 'Finish your current activity first.' : '')}] : [];}
+        catch(error) {return [];}
+    });
+}
+function enemyProfile(body, name, id) {
+    const foe = new ports.enemy({id, name, description: name, add_to_bestiary: false, tags: ['living', 'person'], stats: {...body}});
+    foe.init(); return withTypes(readNativeFighter(foe), foe);
+}
+function begin(request = {}) {
+    const opener = tempoOpener(request.openerId), quote = openerQuotes().find(q => q.id === request.openerId);
+    if(!opener || !quote?.eligible) throw Error(quote?.reason || 'That fight is not available.');
+    const state = ports.root(), context = ports.campaignContext();
+    const me = withTypes(readNativeFighter(ports.actor()), ports.actor());
+    const spec = opener.spec(state, context, {me, vitals: context.vitals.player, parts: carriedParts(), enemyProfile});
+    const plan = beginTempoFight(state, ports.registry, context, spec);
+    ports.commit(plan); applyHarm(plan);
+}
 function move(request) {
     const state = ports.root(), ctx = ports.campaignContext();
     const plan = request.handOver ? handOverTempoFight(state, ports.registry, ctx) : commitTempoMove(state, ports.registry, ctx,
@@ -94,12 +118,12 @@ function view() {
     const b = open();
     if(b) return {visible: true, fight: {...tempoView(b), aim}, held: b.held};
     const quote = startQuote(), facts = ports.root().actors.player.facts;
-    const rival = rivalBrief(facts);
-    return {visible: !!quote.visible || rival.history.duels > 0, start: quote, rival, lio: lioQuote(), last: facts['tempo.lastResult'] || null, owed: facts[TEMPO_FACT_HELD] || 0};
+    const rival = rivalBrief(facts), openers = openerQuotes();
+    return {visible: !!quote.visible || rival.history.duels > 0 || openers.length > 0, start: quote, rival, lio: lioQuote(), openers, last: facts['tempo.lastResult'] || null, owed: facts[TEMPO_FACT_HELD] || 0};
 }
 function mount() {
     const root = node('details'); root.id = 'tempo_fight_panel'; root.className = 'expedition_panel';
-    const body = node('div'), notice = node('p'); notice.setAttribute('role', 'status'); notice.tabIndex = -1; root.append(node('summary', 'Road contest · tempo'), notice, body);
+    const body = node('div'), notice = node('p'); notice.setAttribute('role', 'status'); notice.tabIndex = -1; const summary = node('summary', 'Road contest · tempo'); root.append(summary, notice, body);
     let signature = '', previousLog = [];
     const act = (fn, request) => {
         const before = view().fight?.lines || [];
@@ -116,6 +140,7 @@ function mount() {
         const previousFocus = captureTempoFocus(body, ['tempo']) || (document.activeElement === notice ? {} : null);
         const added = newTempoLines(previousLog, v.fight?.lines || []); previousLog = [...(v.fight?.lines || [])];
         body.replaceChildren(); root.hidden = !v.visible && !previousFocus;
+        summary.textContent = v.fight ? (v.fight.title === "Mara's road contest" ? 'Road contest · tempo' : `${v.fight.title} · tempo`) : v.start?.visible || v.rival?.history.duels ? 'Road contest · tempo' : 'A fight · tempo';
         if(!v.visible) {
             if(previousFocus) { notice.textContent = v.last ? `Fight ended: ${v.last}.` : 'Fight controls are no longer available.'; notice.focus({preventScroll: true}); }
             return;
@@ -148,6 +173,9 @@ function mount() {
                 for(const o of f.orders) body.append(button(`${o.label} · ${o.cost} time · ${o.odds}`, `order:${o.orderId}:${o.allyId}`, `${o.text} Whether it is heard is not certain.`, !ports.writable(), () => act(move, {moveId: 'order', allyId: o.allyId, orderId: o.orderId})));
                 const handover = node('div'); handover.append(button(HANDOVER_LABEL, 'handover', HANDOVER_TEXT, !ports.writable(), () => act(move, {handOver: true})), node('small', ' ' + HANDOVER_TEXT)); body.append(handover);
             }
+        } else if(!v.start.visible && !v.rival.history.duels) {
+            for(const o of v.openers) {const row = node('div'); row.append(button(o.label, `open:${o.id}`, o.reason || o.text, !o.eligible, () => act(begin, {openerId: o.id})), node('small', ' ' + (o.reason || o.text))); body.append(row);}
+            if(v.last) body.append(node('p', `Last fight: ${v.last}.`));
         } else {
             body.append(node('p', 'Settle the road challenge move by move. Quick moves cost little time and light harm; heavy ones leave you open longer. Who notices first sets the opening.'));
             if(v.start.visible || v.rival.history.duels) {const r = node('p', `${v.rival.memory} ${v.rival.appraisal}`); r.dataset.rivalBrief = v.rival.appraised ? 'appraised' : 'unread'; body.append(r);}
@@ -175,7 +203,7 @@ function setAim(request = {}) {
     aim = request.aim;
     panel?.render(true);
 }
-const commands = {aim: setAim, move: request => {
+const commands = {aim: setAim, begin: request => {check(ports?.writable(), 'The game cannot start a fight right now.'); begin(request); panel?.render(true);}, move: request => {
     check(ports?.writable(), 'The game cannot take a move right now.');
     move(request); panel?.render(true);
 }};
