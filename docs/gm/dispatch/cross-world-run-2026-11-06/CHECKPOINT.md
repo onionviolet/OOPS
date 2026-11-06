@@ -72,7 +72,8 @@ Weibao, 2026-11-06: "lets work on these to completion".
 - Steps: wave 1 done (slices 1 and 2; AT15 at floor on a fixture route); wave 2 next (W2-A positions projection plus its LOTM panel line, W2-B HP school calendar and a class duty set).
 - Last evidence: AT15 step 1 `8788923e5`; reconciliation `b9d020380`.
 - Failed approaches: `b8-range-proof.mjs` (stale task-link click, T3); tempo panel via Frontier `harvestWritable` (T1).
-- Next useful action: dispatch wave 2 from the scoping section; AT21-AT23 are open findings.
+- Next useful action: wave 2 dispatched 2026-11-06 (W2-A positions projection: `src/positions.js`, `src/book_world_lotm_positions.js`, one import in `book_world_lotm_actions.js`, one line in `book_world_lotm_ui.js`, `tests/positions.test.js`; W2-B HP school calendar and class duty: `src/book_world_hp_school_calendar.js`, `src/book_world_hp_duties.js`, `src/book_world_hp_lead_domain.js`, `tests/hp_school_calendar.test.js`). On return: check at locators, run focused tests, build, npm test, check:arch, check:rules, doc slips, then a native walk (LOTM positions line after sign_contract; HP Now line in a W4 save), commit. Then wave 3: slices 5-6 (inquiry@1 with notes as objects; livelihood stage record with rights and dues in a second world). AT21-AT23 open.
+- Usage read 2026-11-06 ~23:00: 5-hour 12%, weekly 61%.
 - Pacing: continue while weekly all-models is under 75% and the 5-hour window under 85%; at 85% on the 5-hour window wake after its reset; at 75% weekly stop and wait for Weibao. Read 2026-11-06 ~22:30: 5-hour 2%, weekly 60%.
 - Stop condition: all eight slices recorded, or weekly at 75%, or a blocker only Weibao can clear.
 - Resume prompt: "Continue the cross-world foundations run in docs/gm/dispatch/cross-world-run-2026-11-06/CHECKPOINT.md: read the resume block, check live files and running workers, then do its next useful action under the pacing rule."
