@@ -2,6 +2,7 @@
 // factory, the district layer and the later life slices all build commands and rules from these, so none of
 // them re-declares the helpers. Pure data constructors: no state, no clock, no save.
 import {LOTM_IDS as I,LOTM_ENERGY} from './book_world_lotm_ids.js';
+import {purseEffect} from './own_holdings.js';
 export const freeze=v=>{if(v&&typeof v==='object'){Object.values(v).forEach(freeze);Object.freeze(v);}return v;};
 export const eq=(fact,value=true)=>({fact,op:'eq',value}),gte=(fact,value)=>({fact,op:'gte',value});
 export const all=(...rules)=>({all:rules}),not=rule=>({not:rule}),any=(...rules)=>({any:rules});
@@ -11,7 +12,8 @@ export const has=(key,value=true)=>eq(`lotm.flag.${key}`,value),no=key=>has(key,
 export const item=(actor,key,amount,returned=false)=>({type:'item',actor,key,amount,...(returned?{reservationReturn:true}:{})});
 export const transfer=(from,to,key,count=1)=>({type:'transfer',from,to,key,count});
 export const attention=(amount=-1,actor=I.supervisor)=>({type:'resource',actor,key:'book.lotm.attention',amount});
-export const money=amount=>({type:'resource',actor:'player',key:'money',native:true,amount});
+// Every LOTM native coin move goes through the shared purse seam (FD6): same effect shape as before.
+export const money=amount=>purseEffect(amount);
 export const use=()=>({type:'energy',energyId:I.energy,operation:'use',output:LOTM_ENERGY.output,control:LOTM_ENERGY.control});
 export const know=(key,value,attributedTo='player',actor='player',kind='observation',stage='seen')=>({type:'knowledge',actor,key:`book.lotm.${key}`,stage,value,basis:{kind,attributedTo,situationId:I.situation}});
 export const present=all(eq('lotm.enrolled'),eq('lotm.supervisorHere')),ready=all(present,has('reportedIn'));

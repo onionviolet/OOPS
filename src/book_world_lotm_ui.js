@@ -152,7 +152,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend}
   }
   const d=v.district,resident=v.resident===true;bench.hidden=resident;
   status.textContent=`${v.at}${d?` · ${d.label} · supervised by ${d.officer}${d.officerHere?'':' (not here)'}${d.shift?(d.onShift?' (on shift)':' (off shift)'):''}${d.endorsed?'':' · not endorsed here'}`:''}${v.beyonder?'':' · no Beyonder source'} · ${d?`${d.officer.replace(/^./,c=>c.toUpperCase())}'s attention ${d.attention}`:`Hale's attention ${v.attention}`}${v.sleeping?' · asleep':''}`;
-  if(resident)status.textContent=`${v.at} · ${v.localClock}${v.runMode?' · canon run':''}${v.sleeping?' · asleep':''}`;
+  if(resident)status.textContent=`${v.at} · ${v.localClock}${v.runMode?' · canon run':''}${v.sleeping?' · asleep':''}${v.sky?` · ${v.sky}`:''}`;
   status.title=resident?'':d?.responders||'';
   const live=new Set();for(const m of v.meters||[]){live.add(m.id);let b=bars.get(m.id);if(!b){b=createMeterBar();bars.set(m.id,b);}b.update({...m,compact:true});if(b.node.parentNode!==meters)meters.append(b.node);}
   for(const [id,b] of bars){if(!live.has(id)){b.node.remove();bars.delete(id);}}

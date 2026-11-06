@@ -6,6 +6,8 @@ import {LOTM_LOCATIONS as L,LOTM_PENCE as P} from '../src/book_world_lotm_ids.js
 import {LOTM_PROFILES,LOTM_WEEK_MINUTES,weeksOwed} from '../src/book_world_lotm_lives.js';
 import {validateLotmState} from '../src/book_world_lotm_state.js';
 import {validateLotmEnvelope} from '../src/book_world_lotm_envelope.js';
+import {purseEffect} from '../src/own_holdings.js';
+import {lotmCommands} from '../src/book_world_lotm_actions.js';
 import {LOTM_NATIVE_STOCK} from '../src/book_world_lotm_content.js';
 // LOTM Q3: two life profiles over the same verbs. The probationer is on the Beyonder track; the new-identity civil clerk has a
 // contract and a weekly wage, a small purse and no potion. Both enroll, earn, spend and save differently.
@@ -49,6 +51,11 @@ test('a save enrolled before the entry record still loads; a malformed record is
  const {box}=begin('probationer');const old=structuredClone(box.p.state);delete old.lotm.entry;assert.ok(validateLotmState(old));
  const bad=structuredClone(box.p.state);bad.lotm.entry.method='teleport';assert.throws(()=>validateLotmState(bad),/entry record/);
  const extra=structuredClone(box.p.state);extra.lotm.surprise=1;assert.throws(()=>validateLotmState(extra),/Unsupported Tingen branch fields/);
+});
+test('collect_pay emits exactly one native money effect, the shared purse seam shape (FD6 consumer)',()=>{
+ const pay=lotmCommands.find(d=>d.id==='book.lotm.collect_pay'),money=pay.effects.filter(e=>e.type==='resource'&&e.key==='money');
+ assert.equal(money.length,1,'one purse reading, no second money counter');
+ assert.deepEqual(money[0],purseEffect(LOTM_PROFILES.civil.contract.weeklyPence));
 });
 test('earn: the clerk is paid weekly by contract; the probationer has no wage',()=>{
  let {box}=begin('civil');let p=run(box.p,'report_in');

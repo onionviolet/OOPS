@@ -430,6 +430,11 @@ test('beside clock exposes relative day and band without inventing a civil month
  const {host,box}=begin('beside');box.p.state.clock=1440+8*60;
  assert.equal(host.view().localClock,'Day 2, morning · 08:00');
 });
+test('Tingen night fog reads as one perceived line at 21:00, none at noon (FD9 consumer)',()=>{
+ const {host,box}=begin('beside'),t0=box.p.state.lotm.initializedAt;
+ box.p.state.clock=t0+21*60;assert.match(host.view().sky,/River fog and coal smoke/);assert.doesNotMatch(host.view().sky,/\d/);
+ box.p.state.clock=t0+12*60;assert.equal(host.view().sky,'');
+});
 test('cast boot path stays synchronous even when private fetch never resolves',async()=>{
  const {transform}=await import('esbuild');
  const {readFile}=await import('node:fs/promises');
