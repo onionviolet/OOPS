@@ -105,6 +105,9 @@ standing priority changes.
   Full topic rounds with lanes use `topic-expansion-audit`; repeatable audits such
   as the [world core kit](docs/audits/WORLD_CORE_KIT_CORE_AUDIT.md) extend their
   root doc with a new round and never restart codes.
+  Unattended waves of coordinated worker lanes ("make the most progress",
+  "keep going while I sleep") use the shared `foundation-run` skill bound by the
+  [foundation run playbook](docs/gm/FOUNDATION_RUN_PLAYBOOK.md).
 
 ## Scope
 
