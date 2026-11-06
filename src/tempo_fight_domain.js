@@ -8,6 +8,7 @@ import {typeSnapshot} from './damage_types.js';
 import {partyHelperReasons, initializePartyBattle} from './party_battle.js';
 import {PARTY_HELPER} from './native_battle_contracts.js';
 import {rivalCombatant, rivalBrief} from './rival_memory.js';
+import {knownTargetFacts} from './known_target_facts.js';
 import {harmState, setHarmState, HARM_RUNGS} from './harm_state.js';
 import {harmPart} from './harm_engine.js';
 import {beginTempoFight, commitTempoMove, handOverTempoFight, tempoView, TEMPO_SCHEMA, TEMPO_FACT_HELD} from './tempo_fight.js';
@@ -131,7 +132,7 @@ function view() {
     const b = open();
     if(b) return {visible: true, fight: {...tempoView(b), aim}, held: b.held};
     const quote = startQuote(), facts = ports.root().actors.player.facts;
-    const rival = rivalBrief(facts), openers = openerQuotes();
+    const rival = rivalBrief(facts, knownTargetFacts(ports.root(), 'player', 'roadRival')), openers = openerQuotes();
     return {visible: !!quote.visible || rival.history.duels > 0 || openers.length > 0, start: quote, rival, lio: lioQuote(), openers, last: facts['tempo.lastResult'] || null, owed: facts[TEMPO_FACT_HELD] || 0};
 }
 function mount() {
