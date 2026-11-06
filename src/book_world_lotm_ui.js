@@ -211,12 +211,12 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend}
   if(v.pausedLife){const r=row(node('span',`${v.pausedLife} is paused where you left it.`),button('Open Continuing connection','open_connection',()=>expandWorkspaceModule('continuation'),false,'Resuming pauses this Tingen life in turn.'));r.dataset.lotmPausedLife='';actions.append(r);}
   if(!resident&&v.cause.line)path.append(node('p',v.cause.line));
   if(!resident&&v.clearance.length){path.append(node('h3',`Clearance · ${v.role.replace(/_/g,' ')}`));for(const g of v.clearance){const r=node('p',`Grade ${g.grade}: ${g.ok?'you may handle it here. ':''}${g.ok?g.line:g.reasons.join('; ')}`);r.dataset.clearance=String(g.grade);path.append(r);}}
+  // FD8: recurring duties as plain prose (UR70-UR75) for resident and non-resident lives alike: what it is, when it shuts, how many missed; a button only while the window is open.
+  for(const d of v.duties){const span=m=>m>=1440?`${Math.ceil(m/1440)} days`:m>=60?`${Math.ceil(m/60)} hours`:`${m} minutes`;
+  const when=d.open?` It shuts in ${span(d.shutsIn)}.`:d.status==='late'?' The window has shut for this round.':` ${d.reason}`,gone=d.missed?` Missed ${d.missed} time${d.missed===1?'':'s'}.`:'';
+  const line=node('span',`${d.why}${when}${gone}`);const r=d.open&&attend?row(line,button('Hand it in',`duty_${d.id}`,()=>{try{attend(d.id);notice.textContent='Handed in.';}catch(e){notice.textContent=e.message;}signature='';render();},false)):row(line);r.dataset.dutyId=d.id;work.append(r);}
   if(!resident){
   const held=[v.holds.dose?'prepared dose':'',v.holds.clownDose?'prepared Clown dose':'',...v.doseLabels,...v.marketHeld,...(v.holds.sealed3?['sealed grade 3 item']:[]),...[['frog','dried frog'],['hairs','bundle of hairs'],['ink','jar of grave-dust ink']].filter(([k])=>v.holds[k]).map(x=>x[1]),...['comparator','sampleA','sampleB'].filter(n=>v.holds[n]).map(n=>n==='comparator'?'comparator sample':`sample lot ${n.slice(-1)}`)].filter(Boolean);
-  // FD8: recurring duties as plain prose (UR70-UR75): what it is, when it shuts, how many missed; a button only while the window is open.
-  for(const d of v.duties){const span=m=>m>=1440?`${Math.ceil(m/1440)} days`:m>=60?`${Math.ceil(m/60)} hours`:`${m} minutes`;
-   const when=d.open?` It shuts in ${span(d.shutsIn)}.`:d.status==='late'?' The window has shut for this round.':` ${d.reason}`,gone=d.missed?` Missed ${d.missed} time${d.missed===1?'':'s'}.`:'';
-   const line=node('span',`${d.why}${when}${gone}`);const r=d.open&&attend?row(line,button('Hand it in',`duty_${d.id}`,()=>{try{attend(d.id);notice.textContent='Handed in.';}catch(e){notice.textContent=e.message;}signature='';render();},false)):row(line);r.dataset.dutyId=d.id;work.append(r);}
   work.append(node('p',`You hold: ${held.length?held.join(', '):'nothing from the bench'}.`));
   if(v.broker){
    work.append(node('h3','Broker custody'),node('p',`Money held pending verification: ${v.broker.escrowPence} pence.`));
