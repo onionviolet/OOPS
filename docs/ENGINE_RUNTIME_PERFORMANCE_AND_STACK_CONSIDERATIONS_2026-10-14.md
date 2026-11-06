@@ -1659,6 +1659,11 @@ spike only.**
   44.9.2. D3 measured no shell launch, memory, package-size or platform parity
   comparison, so size claims do not decide this.
 
+**Follow-up experiment, 2026-11-06:** Weibao authorized measuring the current
+Electron build and trying a small Tauri host. The [measured comparison](reviews/shell-comparison-2026-11-06/REPORT.md)
+owns its input hashes, background-window limitations and results. This is a
+TS13 experiment, not a change to AD39 or production migration authority.
+
 **5. TS14 — Keep JSON saves; add compression only to large export/backup paths,
 with domain schema versions as the migration seam.**
 

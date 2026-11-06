@@ -1,0 +1,619 @@
+{
+  "metrics": [
+    {
+      "host": "electron",
+      "fixture": "fresh",
+      "run": 1,
+      "normalizedVisibility": true,
+      "failure": null,
+      "readyMs": 8067.371416999999,
+      "documentReadyMs": 7679.399999976158,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "visibility": "visible",
+      "idleCpuPercentOneCore": 39.82620115033126,
+      "idleFootprintMiB": 1739.4619598388672,
+      "idleRssMiB": 2420.53125,
+      "idleEventLoopP95Ms": 15,
+      "idleEventLoopMaxMs": 23.19999998807907,
+      "clockAdvance": 20,
+      "idleElapsedSeconds": 20.01340775,
+      "gameMinutesPerWallSecond": 0.999330061618317,
+      "medianSaveMs": 14.099999964237213,
+      "saveBytes": 90190,
+      "reloadOk": true,
+      "pageErrors": [],
+      "missing": [],
+      "attributionStable": true,
+      "rendererAttributed": true,
+      "processNames": [
+        "Electron",
+        "Electron Helper",
+        "Electron Helper",
+        "Electron Helper (Renderer)"
+      ],
+      "loadBefore": [
+        4.7861328125,
+        3.7900390625,
+        2.9140625
+      ],
+      "loadAfter": [
+        4.22314453125,
+        3.77392578125,
+        2.95166015625
+      ]
+    },
+    {
+      "host": "tauri",
+      "fixture": "fresh",
+      "run": 1,
+      "normalizedVisibility": true,
+      "failure": null,
+      "readyMs": 36537.32333299999,
+      "documentReadyMs": 36302,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "visibility": "visible",
+      "idleCpuPercentOneCore": 43.81781055937642,
+      "idleFootprintMiB": 1075.2716217041016,
+      "idleRssMiB": 2394.28125,
+      "idleEventLoopP95Ms": 312,
+      "idleEventLoopMaxMs": 535,
+      "clockAdvance": 19,
+      "idleElapsedSeconds": 20.22567291600001,
+      "gameMinutesPerWallSecond": 0.9394001415384102,
+      "medianSaveMs": 15,
+      "saveBytes": 90190,
+      "reloadOk": true,
+      "pageErrors": [],
+      "missing": null,
+      "attributionStable": true,
+      "rendererAttributed": true,
+      "processNames": [
+        "oops-shell-prototype",
+        "com.apple.WebKit.GPU",
+        "com.apple.WebKit.WebContent",
+        "com.apple.WebKit.Networking"
+      ],
+      "loadBefore": [
+        4.22314453125,
+        3.77392578125,
+        2.95166015625
+      ],
+      "loadAfter": [
+        3.69287109375,
+        3.67138671875,
+        3.00927734375
+      ]
+    },
+    {
+      "host": "electron",
+      "fixture": "crowded",
+      "run": 1,
+      "normalizedVisibility": true,
+      "failure": null,
+      "readyMs": 11958.443,
+      "documentReadyMs": 11667,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "visibility": "visible",
+      "idleCpuPercentOneCore": 94.48505587865546,
+      "idleFootprintMiB": 1808.8217697143555,
+      "idleRssMiB": 2770.109375,
+      "idleEventLoopP95Ms": 508,
+      "idleEventLoopMaxMs": 521.8999999761581,
+      "clockAdvance": 21,
+      "idleElapsedSeconds": 20.105794082999985,
+      "gameMinutesPerWallSecond": 1.044475036067145,
+      "medianSaveMs": 32.30000001192093,
+      "saveBytes": 328441,
+      "reloadOk": true,
+      "pageErrors": [],
+      "missing": [],
+      "attributionStable": true,
+      "rendererAttributed": true,
+      "processNames": [
+        "Electron",
+        "Electron Helper",
+        "Electron Helper",
+        "Electron Helper (Renderer)"
+      ],
+      "loadBefore": [
+        3.69287109375,
+        3.67138671875,
+        3.00927734375
+      ],
+      "loadAfter": [
+        3.37353515625,
+        3.59033203125,
+        3.02099609375
+      ]
+    },
+    {
+      "host": "tauri",
+      "fixture": "crowded",
+      "run": 1,
+      "normalizedVisibility": true,
+      "failure": "Error: run timeout",
+      "readyMs": 49591.024999999994,
+      "documentReadyMs": 49348,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "visibility": "visible",
+      "idleCpuPercentOneCore": 85.27576053055336,
+      "idleFootprintMiB": 1005.4904174804688,
+      "idleRssMiB": 2474.9375,
+      "idleEventLoopP95Ms": 498,
+      "idleEventLoopMaxMs": 8293,
+      "clockAdvance": 4,
+      "idleElapsedSeconds": 37.37426487500005,
+      "gameMinutesPerWallSecond": 0.10702551644502398,
+      "medianSaveMs": null,
+      "reloadOk": false,
+      "pageErrors": [],
+      "missing": null,
+      "attributionStable": true,
+      "rendererAttributed": true,
+      "processNames": [
+        "oops-shell-prototype",
+        "com.apple.WebKit.GPU",
+        "com.apple.WebKit.WebContent",
+        "com.apple.WebKit.Networking"
+      ],
+      "loadBefore": [
+        3.37353515625,
+        3.59033203125,
+        3.02099609375
+      ],
+      "loadAfter": [
+        3.33837890625,
+        3.72607421875,
+        3.16845703125
+      ]
+    },
+    {
+      "host": "tauri",
+      "fixture": "fresh",
+      "run": 2,
+      "normalizedVisibility": true,
+      "failure": null,
+      "readyMs": 37975.24900000001,
+      "documentReadyMs": 37733,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "visibility": "visible",
+      "idleCpuPercentOneCore": 42.09254063554525,
+      "idleFootprintMiB": 1111.8340530395508,
+      "idleRssMiB": 2256.90625,
+      "idleEventLoopP95Ms": 317,
+      "idleEventLoopMaxMs": 437,
+      "clockAdvance": 19,
+      "idleElapsedSeconds": 20.14520087499998,
+      "gameMinutesPerWallSecond": 0.9431526703503282,
+      "medianSaveMs": 16,
+      "saveBytes": 90190,
+      "reloadOk": true,
+      "pageErrors": [],
+      "missing": null,
+      "attributionStable": true,
+      "rendererAttributed": true,
+      "processNames": [
+        "oops-shell-prototype",
+        "com.apple.WebKit.GPU",
+        "com.apple.WebKit.WebContent",
+        "com.apple.WebKit.Networking"
+      ],
+      "loadBefore": [
+        3.33837890625,
+        3.72607421875,
+        3.16845703125
+      ],
+      "loadAfter": [
+        4.26025390625,
+        3.90625,
+        3.30419921875
+      ]
+    },
+    {
+      "host": "electron",
+      "fixture": "fresh",
+      "run": 2,
+      "normalizedVisibility": true,
+      "failure": null,
+      "readyMs": 8092.201915999991,
+      "documentReadyMs": 7790.900000035763,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "visibility": "visible",
+      "idleCpuPercentOneCore": 40.82292390644434,
+      "idleFootprintMiB": 1875.446403503418,
+      "idleRssMiB": 2467.453125,
+      "idleEventLoopP95Ms": 19.400000035762787,
+      "idleEventLoopMaxMs": 26.5,
+      "clockAdvance": 20,
+      "idleElapsedSeconds": 20.02170458300004,
+      "gameMinutesPerWallSecond": 0.998915947295593,
+      "medianSaveMs": 9.5,
+      "saveBytes": 90190,
+      "reloadOk": true,
+      "pageErrors": [],
+      "missing": [],
+      "attributionStable": true,
+      "rendererAttributed": true,
+      "processNames": [
+        "Electron",
+        "Electron Helper",
+        "Electron Helper",
+        "Electron Helper (Renderer)"
+      ],
+      "loadBefore": [
+        4.26025390625,
+        3.90625,
+        3.30419921875
+      ],
+      "loadAfter": [
+        3.63037109375,
+        3.80419921875,
+        3.2978515625
+      ]
+    },
+    {
+      "host": "tauri",
+      "fixture": "crowded",
+      "run": 2,
+      "normalizedVisibility": true,
+      "failure": "Error: run timeout",
+      "readyMs": 52110.22079099994,
+      "documentReadyMs": 51871,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "visibility": "visible",
+      "idleCpuPercentOneCore": 82.43447148417678,
+      "idleFootprintMiB": 989.6156463623047,
+      "idleRssMiB": 2472.609375,
+      "idleEventLoopP95Ms": 569,
+      "idleEventLoopMaxMs": 9055,
+      "clockAdvance": 4,
+      "idleElapsedSeconds": 38.436827500000014,
+      "gameMinutesPerWallSecond": 0.10406686139744489,
+      "medianSaveMs": null,
+      "reloadOk": false,
+      "pageErrors": [],
+      "missing": null,
+      "attributionStable": true,
+      "rendererAttributed": true,
+      "processNames": [
+        "oops-shell-prototype",
+        "com.apple.WebKit.GPU",
+        "com.apple.WebKit.WebContent",
+        "com.apple.WebKit.Networking"
+      ],
+      "loadBefore": [
+        3.63037109375,
+        3.80419921875,
+        3.2978515625
+      ],
+      "loadAfter": [
+        3.77978515625,
+        3.67919921875,
+        3.306640625
+      ]
+    },
+    {
+      "host": "electron",
+      "fixture": "crowded",
+      "run": 2,
+      "normalizedVisibility": true,
+      "failure": null,
+      "readyMs": 11810.302040999988,
+      "documentReadyMs": 11520,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "visibility": "visible",
+      "idleCpuPercentOneCore": 94.94137582001822,
+      "idleFootprintMiB": 1826.6814651489258,
+      "idleRssMiB": 2934.0625,
+      "idleEventLoopP95Ms": 445.2999999523163,
+      "idleEventLoopMaxMs": 530.9000000357628,
+      "clockAdvance": 21,
+      "idleElapsedSeconds": 20.093001916000038,
+      "gameMinutesPerWallSecond": 1.0451399988807906,
+      "medianSaveMs": 30.600000023841858,
+      "saveBytes": 328441,
+      "reloadOk": true,
+      "pageErrors": [],
+      "missing": [],
+      "attributionStable": true,
+      "rendererAttributed": true,
+      "processNames": [
+        "Electron",
+        "Electron Helper",
+        "Electron Helper",
+        "Electron Helper (Renderer)"
+      ],
+      "loadBefore": [
+        3.77978515625,
+        3.67919921875,
+        3.306640625
+      ],
+      "loadAfter": [
+        5.71142578125,
+        4.18017578125,
+        3.51318359375
+      ]
+    },
+    {
+      "host": "electron",
+      "fixture": "fresh",
+      "run": 3,
+      "normalizedVisibility": true,
+      "failure": null,
+      "readyMs": 8449.626124999952,
+      "documentReadyMs": 8187.300000011921,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "visibility": "visible",
+      "idleCpuPercentOneCore": 41.882009896330935,
+      "idleFootprintMiB": 1375.2900848388672,
+      "idleRssMiB": 2248.09375,
+      "idleEventLoopP95Ms": 13,
+      "idleEventLoopMaxMs": 20.80000001192093,
+      "clockAdvance": 20,
+      "idleElapsedSeconds": 20.083399416,
+      "gameMinutesPerWallSecond": 0.995847345647393,
+      "medianSaveMs": 8.799999952316284,
+      "saveBytes": 90190,
+      "reloadOk": true,
+      "pageErrors": [],
+      "missing": [],
+      "attributionStable": true,
+      "rendererAttributed": true,
+      "processNames": [
+        "Electron",
+        "Electron Helper",
+        "Electron Helper",
+        "Electron Helper (Renderer)"
+      ],
+      "loadBefore": [
+        5.71142578125,
+        4.18017578125,
+        3.51318359375
+      ],
+      "loadAfter": [
+        5.24951171875,
+        4.2626953125,
+        3.57568359375
+      ]
+    },
+    {
+      "host": "tauri",
+      "fixture": "fresh",
+      "run": 3,
+      "normalizedVisibility": true,
+      "failure": null,
+      "readyMs": 48133.786708,
+      "documentReadyMs": 47898,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "visibility": "visible",
+      "idleCpuPercentOneCore": 46.02028076713785,
+      "idleFootprintMiB": 1064.3029861450195,
+      "idleRssMiB": 2252.9375,
+      "idleEventLoopP95Ms": 200,
+      "idleEventLoopMaxMs": 331,
+      "clockAdvance": 20,
+      "idleElapsedSeconds": 20.18105020900001,
+      "gameMinutesPerWallSecond": 0.9910287023160337,
+      "medianSaveMs": 16,
+      "saveBytes": 90190,
+      "reloadOk": true,
+      "pageErrors": [],
+      "missing": null,
+      "attributionStable": true,
+      "rendererAttributed": true,
+      "processNames": [
+        "oops-shell-prototype",
+        "com.apple.WebKit.GPU",
+        "com.apple.WebKit.WebContent",
+        "com.apple.WebKit.Networking"
+      ],
+      "loadBefore": [
+        5.24951171875,
+        4.2626953125,
+        3.57568359375
+      ],
+      "loadAfter": [
+        3.484375,
+        3.86328125,
+        3.50390625
+      ]
+    },
+    {
+      "host": "electron",
+      "fixture": "crowded",
+      "run": 3,
+      "normalizedVisibility": true,
+      "failure": null,
+      "readyMs": 11554.580874999985,
+      "documentReadyMs": 11265.100000023842,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "visibility": "visible",
+      "idleCpuPercentOneCore": 97.80212741104893,
+      "idleFootprintMiB": 1780.9309844970703,
+      "idleRssMiB": 2676.390625,
+      "idleEventLoopP95Ms": 494.10000002384186,
+      "idleEventLoopMaxMs": 579.8999999761581,
+      "clockAdvance": 22,
+      "idleElapsedSeconds": 20.654307833000086,
+      "gameMinutesPerWallSecond": 1.0651530991926952,
+      "medianSaveMs": 22.100000023841858,
+      "saveBytes": 328441,
+      "reloadOk": true,
+      "pageErrors": [],
+      "missing": [],
+      "attributionStable": true,
+      "rendererAttributed": true,
+      "processNames": [
+        "Electron",
+        "Electron Helper",
+        "Electron Helper",
+        "Electron Helper (Renderer)"
+      ],
+      "loadBefore": [
+        3.484375,
+        3.86328125,
+        3.50390625
+      ],
+      "loadAfter": [
+        2.3740234375,
+        3.4755859375,
+        3.3818359375
+      ]
+    },
+    {
+      "host": "tauri",
+      "fixture": "crowded",
+      "run": 3,
+      "normalizedVisibility": true,
+      "failure": "Error: run timeout",
+      "readyMs": 52311.85525000002,
+      "documentReadyMs": 52078,
+      "viewport": [
+        1920,
+        1080
+      ],
+      "visibility": "visible",
+      "idleCpuPercentOneCore": 98.4368241054164,
+      "idleFootprintMiB": 1146.1781005859375,
+      "idleRssMiB": 2718.28125,
+      "idleEventLoopP95Ms": 238,
+      "idleEventLoopMaxMs": 8997,
+      "clockAdvance": 4,
+      "idleElapsedSeconds": 35.780290791000006,
+      "gameMinutesPerWallSecond": 0.11179338992421324,
+      "medianSaveMs": null,
+      "reloadOk": false,
+      "pageErrors": [],
+      "missing": null,
+      "attributionStable": true,
+      "rendererAttributed": true,
+      "processNames": [
+        "oops-shell-prototype",
+        "com.apple.WebKit.GPU",
+        "com.apple.WebKit.WebContent",
+        "com.apple.WebKit.Networking"
+      ],
+      "loadBefore": [
+        2.3740234375,
+        3.4755859375,
+        3.3818359375
+      ],
+      "loadAfter": [
+        2.798828125,
+        3.388671875,
+        3.3662109375
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "host": "electron",
+      "fixture": "fresh",
+      "runs": 3,
+      "completed": 3,
+      "timeouts": 0,
+      "allPageErrorFree": true,
+      "allReloadOk": true,
+      "allReportedErrorFree": true,
+      "allAttributionStable": true,
+      "allRenderersAttributed": true,
+      "readyMs": 8092.201915999991,
+      "idleCpuPercentOneCore": 40.82292390644434,
+      "idleFootprintMiB": 1739.4619598388672,
+      "idleRssMiB": 2420.53125,
+      "idleEventLoopP95Ms": 15,
+      "medianSaveMs": 9.5,
+      "gameMinutesPerWallSecond": 0.998915947295593
+    },
+    {
+      "host": "electron",
+      "fixture": "crowded",
+      "runs": 3,
+      "completed": 3,
+      "timeouts": 0,
+      "allPageErrorFree": true,
+      "allReloadOk": true,
+      "allReportedErrorFree": true,
+      "allAttributionStable": true,
+      "allRenderersAttributed": true,
+      "readyMs": 11810.302040999988,
+      "idleCpuPercentOneCore": 94.94137582001822,
+      "idleFootprintMiB": 1808.8217697143555,
+      "idleRssMiB": 2770.109375,
+      "idleEventLoopP95Ms": 494.10000002384186,
+      "medianSaveMs": 30.600000023841858,
+      "gameMinutesPerWallSecond": 1.0451399988807906
+    },
+    {
+      "host": "tauri",
+      "fixture": "fresh",
+      "runs": 3,
+      "completed": 3,
+      "timeouts": 0,
+      "allPageErrorFree": true,
+      "allReloadOk": true,
+      "allReportedErrorFree": true,
+      "allAttributionStable": true,
+      "allRenderersAttributed": true,
+      "readyMs": 37975.24900000001,
+      "idleCpuPercentOneCore": 43.81781055937642,
+      "idleFootprintMiB": 1075.2716217041016,
+      "idleRssMiB": 2256.90625,
+      "idleEventLoopP95Ms": 312,
+      "medianSaveMs": 16,
+      "gameMinutesPerWallSecond": 0.9431526703503282
+    },
+    {
+      "host": "tauri",
+      "fixture": "crowded",
+      "runs": 3,
+      "completed": 0,
+      "timeouts": 3,
+      "allPageErrorFree": true,
+      "allReloadOk": false,
+      "allReportedErrorFree": false,
+      "allAttributionStable": true,
+      "allRenderersAttributed": true,
+      "readyMs": 52110.22079099994,
+      "idleCpuPercentOneCore": 85.27576053055336,
+      "idleFootprintMiB": 1005.4904174804688,
+      "idleRssMiB": 2474.9375,
+      "idleEventLoopP95Ms": 498,
+      "medianSaveMs": null,
+      "gameMinutesPerWallSecond": 0.10702551644502398
+    }
+  ]
+}

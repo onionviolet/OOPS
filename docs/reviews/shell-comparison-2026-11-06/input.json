@@ -1,0 +1,32 @@
+{
+  "head": "958740e928e60450d0f98114a5941253c9b36349",
+  "bundleSha256": "66a36950928061894048c39d3051f22650ad39f73024b5d47a424910fc456b4b",
+  "platform": "darwin",
+  "arch": "arm64",
+  "cpus": 18,
+  "memory": 68719476736,
+  "date": "2026-11-06T05:07:15.178Z",
+  "localAssetsIncluded": {
+    "resources/fonts/private/gothic-bitmap-14.woff2": "2324c3f064c33d408d862fdca85fae0b64b0200498becee72a4e088cd2c75758",
+    "resources/fonts/private/msgothic.ttc": "dc68e70dce920b8fc279e56ee86a67950d192d02506515f848dd4d0d12e1bde9",
+    "private_packs/manifest.json": "6c9a8e2f9eb96f8d52024f134932df8e6dcce7ca3e269a5c81ab051a0284ff11"
+  },
+  "fixtureSha256": {
+    "fresh": "1f33ce89ad5c7ecc9c35e9112cf8ffaedcc48b60d03fe5a858936766760825f5",
+    "crowded": "b1e31bf7388574268bb5f7c830fe114c201dbda5a90d4ea9ddd77d19adf94ab1"
+  },
+  "tauriExecutableSha256": "019ecd0676bf4608b7b695fe5d823f7de1c84076a58584dc8639c312cb18b63e",
+  "cpuCalibration": {
+    "processCpuSeconds": 0.300032,
+    "convertedRusageSeconds": 0.300029,
+    "timebaseNumer": 125,
+    "timebaseDenom": 3,
+    "relativeError": 9.998933447201484e-06
+  },
+  "osVersion": "27.2",
+  "pageScriptSha256": "5006f15f2a985b9712f4c68a4c5d2ad69dd30a3deb13ff175943f98be88cf7f1",
+  "samplerSha256": "41c87b601c68d9651e9d731884f20943fe77ffff6b12cf9f80e9fe67cafcc966",
+  "tauriExecutableBytes": 14707648,
+  "electronRuntimeDirectoryBytes": 321928531,
+  "captureNotes": "Retained driver adds HTTP-miss logging and graceful interrupt handling after capture; workload script, sampler and measured binaries are unchanged. Rust source received whitespace-only rustfmt after compilation."
+}
