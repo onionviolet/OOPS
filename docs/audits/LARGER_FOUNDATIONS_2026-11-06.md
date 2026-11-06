@@ -284,3 +284,19 @@ Keep the economy local per world and per place (ECR1, AD27); do not build a macr
 ### First slice (proposal)
 
 One rent obligation in Tingen with a standing order and three policies (on time, late, skip), a two-step escalation (notice, then the landlady's visit), heat in one jurisdiction from one hidden-income act, the weekly ledger line, and an away-time run that shows OB4. It needs AR17 host work and the FD16 consequence layer, so it sits after slice 1 and with slice 8 in the round 3 order, or earlier if Weibao moves it.
+
+### Round 4b: where obligations apply, fighting authority, automated income (2026-11-06)
+
+Weibao, 2026-11-06: "Automating making money and more? If I am strong enough I can choose to fight the 'governemnt' or whatver? also rent and more only for locations where that makes sense? if I chosee to manually craft a domicile in an uninhavitaed place or something,, I am not known so I wont need to pay tax, or there is no authority for those kind of stuff?"
+
+Applies AD38 (things work by how they work), AD5 (pushback needs an in-world agent with a reason), AD46, ACR1-ACR14. Proposals.
+
+| ID | Default | Dial and reason |
+|---|---|---|
+| OB8 | **An obligation needs an authority with a claim, knowledge and reach.** Rent exists where someone owns the room; tax where a state claims the land, knows you are there and can send someone. A cabin you build in empty land owes nothing, because no one claims it, knows of it or can reach it. The price is the other side of the same mechanism: no protection, no market, no credit, no help when hurt | Per place through `jurisdiction_rules.js` and the society sheet (FD14); some worlds' authorities reach far (a sect's spiritual sense, a church's divination), others stop at the city wall |
+| OB9 | **Being unknown is a state you hold, not a loophole.** Anonymity lowers dues and heat and also blocks contracts, positions, loans and a good name. It erodes through your own acts (selling at a market, a rumour, a traveller who saw smoke) and through events (a surveyor, a lord's expansion, hunters, refugees) | Discovery rate per place and per act (FD10, FD16 consequence layer); a hermit life can stay unknown for years by choice |
+| OB10 | **Authority's reach is people, so strength can refuse it.** Collectors and officers are real fighters with real bands (FD17). If you beat them, the next step is the authority's own choice: more and stronger enforcers, a bounty, specialists (a Beyonder squad, a sect elder), negotiation, an exemption, recruitment, or leaving you alone because you cost too much. Winning has costs: markets and allies close, you become a target, and people treat you as a power | Escalation ceiling and willingness per authority and world; canon strength (LOTM's churches, a cultivation empire) makes open war ruinous until very high tiers, by in-world agents, not a cap |
+| OB11 | **You can become the authority.** A founded group (lane F) that claims land, protects people and collects dues runs the same records from the other side: your own collectors, your own defaulters, your own heat with the old authority | Recognition by neighbours and the old authority per world |
+| OB12 | **Income automates through the same means as everything else.** Wages (positions), rent you collect, workshop and farm output, standing orders that sell surplus, hired hands and stewards (delegation), loans and shares. All run while away as ACR plans and settle on the clock; yield reads real inputs (workers, tools, stock, market saturation via `market_saturation.js`, ECR3 price curves), so growth slows through markets and limits of people, not a fixed cap | Per world and per asset; the return digest reports income and why it changed |
+
+What this adds to the event layer: a found cabin, a tax surveyor's first visit, a bounty notice with your description, a deputation offering terms. All are state-triggered consequences, so they come from what you did, not noise.
