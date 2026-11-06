@@ -72,11 +72,11 @@ New leaf `src/known_target_facts.js` (`knownTargetFacts`, `knownTargetFactValues
 "lets work on these to completion" (Weibao, 2026-11-06, after the reconciliation).
 - Objective: lanes A-D each implemented with focused tests, folded on one tree, `npm run build`, `npm test`, `npm run check:arch`, `npm run check:rules` pass, own paths committed (no push), receipts recorded here, audit rows M1-M3, M6, U06 updated.
 - Input identity: master `b9d020380`; dirty but not ours: the files in Reservation, `dist/`, `index.html`, `scripts/perf/`, `desktop-tauri/`.
-- State of the steps: residue lanes returned and folded into the audit; wave selected; lanes A-D returned and recorded (A, D have no play caller); fold gates run: build 5a0e0b58, npm test 5248/5248 (includes another session's uncommitted edits), check:arch no growth, check:rules pass, check_doc_slips no new hits. Committing own paths; no native walk yet.
+- State of the steps: residue lanes returned and folded into the audit; wave selected; lanes A-D returned and recorded (A, D have no play caller); fold gates run: build 5a0e0b58, npm test 5248/5248 (includes another session's uncommitted edits), check:arch no growth, check:rules pass, check_doc_slips no new hits. Committed as 353396d41 (own paths, no push). No native walk yet.
 - Last evidence: build 5a0e0b588b9c, npm test 5248/5248 on the folded tree (430 s), check:arch growth -2/-1/0, check:rules pass. Not run: native game walk, browser at 1920x1080, persistence save/reload/import (lane B changes the continuation slice; only JSON round trips tested).
 - Failed approaches: none.
-- Next useful action: on each lane return, grep the seam's callers, run its focused tests from the root, read the diff, record the receipt; then build once, run npm test, check:arch, check:rules, commit own paths.
+- Next useful action: wire A's one line in `tempo_fight_domain.js` when its other session commits; decide D's consumer (readout vs golden fixture); then one headless walk of the Village fever, an MoL restart replay and the Mara brief on a fresh origin with save/reload/import.
 - Usage pacing: read 2026-11-06 evening: 5-hour 2%, weekly 60%. Continue while weekly under 75% and 5-hour under 85%; at 5-hour 85% wait for reset; at weekly 75% stop and leave this block current.
-- Stop condition: commit hashes recorded for lanes A-D, or a blocker that Weibao must clear. Reached? no.
+- Stop condition: commit hashes recorded for lanes A-D, or a blocker that Weibao must clear. Reached? code lanes yes (353396d41); native walk and the two open consumer wirings (A: tempo_fight_domain line, D: LOTM readout or golden fixture) not done.
 
 Resume prompt for a fresh session: "Continue the unattended run from the Resume block in docs/gm/dispatch/foundation-run-residue-2026-11-06/CHECKPOINT.md. Check `git status` and `git log -3` against its input identity first; finish the next useful action; keep the block current; commit own paths, no push."
