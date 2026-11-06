@@ -300,3 +300,27 @@ Applies AD38 (things work by how they work), AD5 (pushback needs an in-world age
 | OB12 | **Income automates through the same means as everything else.** Wages (positions), rent you collect, workshop and farm output, standing orders that sell surplus, hired hands and stewards (delegation), loans and shares. All run while away as ACR plans and settle on the clock; yield reads real inputs (workers, tools, stock, market saturation via `market_saturation.js`, ECR3 price curves), so growth slows through markets and limits of people, not a fixed cap | Per world and per asset; the return digest reports income and why it changed |
 
 What this adds to the event layer: a found cabin, a tax surveyor's first visit, a bounty notice with your description, a deputation offering terms. All are state-triggered consequences, so they come from what you did, not noise.
+
+## Reconciliation, 2026-11-06
+
+Weibao: "accordingly based on these" (`/reconcile-project`), covering rounds 1-4b. Source revision: master after `e8711b07c`. Each row is one discrepancy; claims reach only the evidence row named.
+
+| ID | Claim and locator | Classification | Owner and consumer | Evidence | Disposition |
+|---|---|---|---|---|---|
+| RC1 | Weibao's words for this session were in chat only | Missing record | USER_VISION | Read | Added [section](../USER_VISION.md#cross-world-foundations-obligations-and-authority-2026-11-06) with his words verbatim, an agent reading, and what is accepted (AT15 step 1 only); VISION_DIGEST gained one line marked as asked, designs proposed |
+| RC2 | Open question "7. Balance between active play and idling" had no input since 2026-10-07 | Stale | USER_VISION | Read | Pointer to round 4 as input, not an answer |
+| RC3 | No rule that hosts are world-neutral | Missing rule | ARCHITECTURE_RULES, RULES_INDEX | Lane H, coordinator check of `native_tool_domains.js:44` and `tradeWritable` | AR17 added as a **proposed** row; register reads AR1–AR17 with AR17 proposed. Not standing until Weibao accepts |
+| RC4 | No router row for the cross-world foundations palette | Missing integration | RULES_INDEX | Read | Router row added; FD, OB and lane IDs stated as palette proposals, not rules |
+| RC5 | B8 backlog row said "no `resolveShot` consumer yet" | Stale | MECHANISM_BACKLOG | Commit `8788923e5` | Row updated: first consumer is the tempo shoot move, below floor (T1, T2); B8 runner stale (T3) |
+| RC6 | AT15 receipt header used free text where `check_receipts` expects its vocabulary | Evidence correction | AT15 CHECKPOINT | `npm run check:rules` failed, now passes | Fields set to allowed values; qualifiers moved to receipt notes (state "built" read as below floor; persistence is the fixture reload only) |
+| RC7 | Lane E E-R6 called "share only after two real consumers" (modular palette, SR23) a disagreement with AD51 | Compatible variant (lane classification corrected) | MODULAR_PRODUCTION_CHAINS palette, SR23, AD51 | Read SR23 and the palette line | AD51 governs design, SR23 and the palette line govern extraction and build. Pointer added to the palette |
+| RC8 | Round 1 table said `ability_ladders.js` has 0 importers | Stale | This doc | Lane H scan: 2 UI gallery importers | Corrected here; no gameplay consumer either way |
+| RC9 | Round 1 said LOTM has four pathways and about 35 ability rows | Stale | This doc | Corrected in round 2 (five pathways, 12 player ability commands) | Already corrected in place |
+| RC10 | `lesson.js` header says HP classes are not built, but hand-written `lesson_charms` commands exist in `world_packs/book_hp_life_data.js` (lane G) | Stale source comment | `src/lesson.js` | Grep: 3 `lesson_charms` hits | Not edited (runtime file; comment only). Carry to the next slice that touches `lesson.js` |
+| RC11 | ABILITY_RULES per-world table counts (Oct 25) differ from today's | Compatible (dated snapshot, labelled as such) | ABILITY_RULES | Read | No edit |
+| RC12 | K32 tension rhythm duplicates E5 storyteller pacing (lane B) | Duplicate | World core kit, E5 | Lane B reading | No edit; FD16 cites E5 as the owner |
+| RC13 | PROJECT.md current focus | No change | PROJECT.md | Read | Unchanged: these are proposals and step 1 sits inside the existing LOTM-first focus |
+
+Unmapped residue: IDEA_INDEX current queue routing has no entry for the round 3 implementation order (proposals are not queued until Weibao selects a slice); the lane files' own more-to-consider items are kept in their lanes and not individually reconciled; lane G's `craft_failure_ledger` "not wired" header claim is unchecked; the five lane H open questions (`cultivation_intents`, `gear_workshop`, `field_layer`, `lamplight`, `tools` world scope) remain open.
+
+Checks: `npm run check:rules` pass (rules index, receipts, direction sync). No runtime change in this reconciliation.

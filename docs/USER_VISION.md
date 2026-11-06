@@ -979,6 +979,8 @@ own?
 
 Status: open. No design recorded yet. This is a good question to settle
 during the first real playtest.
+Input 2026-11-06 (proposal, not a decision): standing orders, safe away-time and
+a summary ledger ([round 4](audits/LARGER_FOUNDATIONS_2026-11-06.md#round-4-depth-without-micromanagement-obligations-heat-ownership-economy-2026-11-06)).
 
 ### 8. How the work runs
 
@@ -7351,3 +7353,37 @@ Weibao, after the [measured Electron/Tauri comparison](reviews/shell-comparison-
 Direction: Tauri becomes the main desktop development target now, adjusted as we learn, with the testing tools the transition needs. This amends AD39 (the web codebase stays; the desktop host changes). Correction recorded with it: the prototype's lower game-minutes rate came from stalls (0.11 game minutes per second on the crowded fixture, saves never completing), not deliberate pacing. A slower clock, if wanted, is a game-side time-scale setting that works in any host.
 
 Proposals, not yet accepted (AD32): migrate desktop features one at a time and keep the Electron host runnable as the fallback until saves, recovery and normal play work under Tauri; explain the prototype's startup and timer stalls before porting features. [Task record](gm/dispatch/tauri-host-2026-11-06/CHECKPOINT.md).
+
+## Cross-world foundations, obligations and authority, 2026-11-06
+
+Weibao, in one Claude session, in order:
+
+> foundational gaps left, /progress-atlas
+
+> what about larget foundational and modularity that wouold be useful? from little stuff like random or not so randomevents, to like ammunition system and more? Balancing different things like classroom based playthroughs to mercanary to soldier to other stuff and more, and all can happen in the same world?
+>
+> Maybe we need a normal society seam to apply to all the worlds?
+>
+> Also on details for each world? specific gaps, such as LOTM missing other potions, how to digitalize combat and variety of abstract abilities and more?
+
+> based on this, we should consider each idea in [the message above] each in depth? to keep working/ideating backwards?
+
+> Yes, do step 1
+
+> consider the other concurrent refactorign everything into tauri, should we wait on them?
+
+> do we have comprehensive abstraction rules and more? what is foundational across all worlds that we should implement?
+
+> Can we address all of these?  Deeper dive in in terms of little stuff long term? from little details to extend possibilitity in all worlds? like choosing to farm, or choosing to start a society, or mining? Or building? Or researching? or group or other functional abilities that should be sharred across all the worlds?
+
+> COnsider if like liveliehoods and rights and dues would be too complex for an 'idle' rpg game? more layers to worry about or would it add to it? Or would it add depth, allowying ownership and stuff and more? we can make it really interesting, consider stuff like reputation and wanted levels? like not paying tax and whatever results in stuff like tax colelctors and more? also random events based on these and more? but then if it requires too much micro management it might be something to worry about?
+>
+> Also economy and more?
+
+> Automating making money and more? If I am strong enough I can choose to fight the 'governemnt' or whatver? also rent and more only for locations where that makes sense? if I chosee to manually craft a domicile in an uninhavitaed place or something,, I am not known so I wont need to pay tax, or there is no authority for those kind of stuff?
+
+> accordingly based on these (`/reconcile-project`)
+
+Agent reading (not his words): he wants shared, modular foundations that let many lives and livelihoods coexist in one world and carry across worlds, built backward from small concrete details; obligations, reputation, heat and economy as depth that does not demand micromanagement; and obligations only where an authority actually has a claim, knowledge and reach, with strength able to refuse or replace that authority.
+
+Accepted so far: "Yes, do step 1" authorized AT15 step 1 only ([record](gm/dispatch/at15-fight-2026-11-06/CHECKPOINT.md), implemented below floor). Everything else is proposal (AD32): FD14-FD18, the round 3 seams (livelihoods, groups, inquiry, skill channels), the AR17 world-neutral host draft, the seam register, and OB1-OB12, all in [LARGER_FOUNDATIONS_2026-11-06](audits/LARGER_FOUNDATIONS_2026-11-06.md). The Tauri answer was "no need to wait" for this work's files; no direction change. Round 4 is input to the open question "7. Balance between active play and idling", not an answer to it.

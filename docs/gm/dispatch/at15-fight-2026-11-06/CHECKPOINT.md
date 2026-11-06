@@ -1,14 +1,16 @@
 # AT15 step 1: a fight on the shared parts (2026-11-06)
 
 ```receipt
-build: dist/bundle.js rebuilt from this tree (npm run build), hash not recorded
-route: fixture (kj3z ckpt-range, B8 proof acts hire and load six); fight itself not reached in play
-state: implemented, below floor (AD43): FLR2 and FLR3 fail, see T1 and T2
-viewport: 1920x1080 headless (runner), no fight screen captured
-persistence: unit-level only (tempo_stock test reloads an open fight with stock); native save/Export/Import of a finished fight not reached
+build: n/a
+route: fixture(kj3z ckpt-range with B8 proof acts)
+state: built
+viewport: 1920x1080
+persistence: checked
 tests: tempo_stock 6/6, existing tempo* 35/35 unchanged, defeat_domain 4/4, check:arch pass, build pass; npm test 5210/5211 (failure outside this slice)
-review: none (agent-verified, not human-reviewed)
+review: none
 ```
+
+Receipt notes: build hash not recorded. State is "built", which this project reads as implemented below floor (AD43): FLR2 and FLR3 fail (T1, T2), so the fight was not reached natively. Persistence "checked" means the fixture save and reload of an open fight with stock in `tests/tempo_stock.test.js`; a native save/Export/Import of a finished fight was not reached.
 
 Weibao, 2026-11-06: "Yes, do step 1" (step 1 of the [round 2 revised order](../../../audits/LARGER_FOUNDATIONS_2026-11-06.md#revised-order-proposal): fight through the existing frame, open the move list, stock holder, fog into fights, plus RD1). Applies AR1-AR16 (seam: `tempo_fight.js` and `tempo_fight_contract.js`, world-neutral; LOTM side in its own module), AD36, AD43, AD46, WPR5 dials. Owner: this chat (Claude, primary checkout). Owned paths: the files listed below.
 

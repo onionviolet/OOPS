@@ -394,6 +394,12 @@ shared piece only after two real consumers exercise it, and give every new
 saved domain an opt-in revision with old saves unchanged. Rounds 1 and 2 stand
 as a palette under that rule.
 
+Pointer 2026-11-06: AD51 (accepted 2026-11-03) now governs seam *design*: design one
+shared seam from all known sources when two or more worlds plausibly share a
+mechanism. The "two real consumers" line above, like SR23, still governs when shared
+code is *extracted and built*. The two are compatible, not in conflict
+([reconciliation](audits/LARGER_FOUNDATIONS_2026-11-06.md#reconciliation-2026-11-06)).
+
 ### Cross-lane top picks (proposal, ranked)
 
 | Rank | Pick | Why first | Save change | Executor |
