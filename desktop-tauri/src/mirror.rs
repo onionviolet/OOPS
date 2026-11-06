@@ -1,5 +1,5 @@
 // Disk mirror of the page's localStorage (A1, N1). Same layout and rules as
-// desktop/save_mirror.cjs, so either host's backups read the same way:
+// scripts/tauri/save_mirror.cjs, so either host's backups read the same way:
 //   latest.json                       newest snapshot, written atomically
 //   history/<stamp>-<hash8>.json.gz   rolling snapshots, bounded by prune()
 // A snapshot is {schema: 1, savedAt, reason, entries: {key: string}}. The page
@@ -280,7 +280,7 @@ mod tests {
 
     #[test]
     fn hash_matches_the_electron_mirror() {
-        // node -e "require('./desktop/save_mirror.cjs').hashEntries({'save data':'{\"a\":1}',other:'x'})"
+        // node -e "require('./scripts/tauri/save_mirror.cjs').hashEntries({'save data':'{\"a\":1}',other:'x'})"
         assert_eq!(
             hash_entries(&entries("{\"a\":1}")),
             "be62a7cb6517b9db063d0ee30c1d5c1032e268d83d9cba6faaec75fcde7108ea"

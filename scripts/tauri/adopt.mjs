@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Adopt a commit into the normal Tauri app (MDL16 for the Tauri host, N4).
-// Same three steps as scripts/adopt_candidate.mjs; only the last touches the
+// Same three steps as the retired Electron adopt_candidate.mjs; only the last touches the
 // player's app folder, and never the save itself.
 //
 //   node scripts/tauri/adopt.mjs prepare --commit <sha>   scratch worktree, build, snapshot
@@ -22,7 +22,7 @@ const WORK = path.join(ROOT, 'work/tauri-adopt');
 const STATE = path.join(WORK, 'state.json');
 const APP_DATA = path.join(os.homedir(), 'Library/Application Support/local.yairpg.tauri');
 const require = createRequire(import.meta.url);
-const snap = require(path.join(ROOT, 'desktop/snapshot.cjs'));
+const snap = require(path.join(ROOT, 'scripts/tauri/snapshot.cjs'));
 const args = process.argv.slice(2);
 const opt = name => { const i = args.indexOf(name); return i < 0 ? null : args[i + 1]; };
 const git = (cwd, ...a) => execFileSync('git', a, {cwd}).toString().trim();
@@ -125,7 +125,7 @@ function swap() {
     snap.writePointer(APP_DATA, 'latest.json', state.id, {files: state.files, commit: state.sha});
     log(`Installed ${state.id} as the app's latest build (commit ${state.sha.slice(0, 9)}).`);
     log('An open game shows "New build ready"; a closed one starts on it next launch.');
-    if (before) log(`Rollback: node -e "require('./desktop/snapshot.cjs').writePointer(process.argv[1],'latest.json',process.argv[2])" "${APP_DATA}" ${before}`);
+    if (before) log(`Rollback: node -e "require('./scripts/tauri/snapshot.cjs').writePointer(process.argv[1],'latest.json',process.argv[2])" "${APP_DATA}" ${before}`);
 }
 
 const command = args[0];

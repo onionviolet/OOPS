@@ -9,7 +9,7 @@ const nodeModules=new Set(builtinModules.map(id=>id.replace(/^node:/,'')));
 // AD39/AR4: host capabilities enter through explicit operations, never host imports.
 export function hostImportViolation(from,spec) {
  const target=spec.startsWith('.')?path.normalize(path.join(path.dirname(from),spec)):spec;
- if(spec.startsWith('node:')||nodeModules.has(spec)||spec==='electron'||spec.startsWith('electron/')||target.startsWith('desktop/'))return `Host dependency in shared runtime: ${from} -> ${spec}`;
+ if(spec.startsWith('node:')||nodeModules.has(spec)||spec==='electron'||spec.startsWith('electron/')||target.startsWith('desktop/')||target.startsWith('desktop-tauri/')||spec.startsWith('@tauri-apps/'))return `Host dependency in shared runtime: ${from} -> ${spec}`;
  return null;
 }
 async function files(dir) {

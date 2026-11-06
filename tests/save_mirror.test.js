@@ -7,8 +7,7 @@ import path from 'node:path';
 import { createRequire } from 'node:module';
 
 const require = createRequire(import.meta.url);
-const { createMirror, hasSave } = require('../desktop/save_mirror.cjs');
-const { clampBounds, readState, writeState } = require('../desktop/window_state.cjs');
+const { createMirror, hasSave } = require('../scripts/tauri/save_mirror.cjs');
 
 const tmp = () => fs.mkdtempSync(path.join(os.tmpdir(), 'yairpg-mirror-'));
 const entries = (n, extra = {}) => ({ 'save data': JSON.stringify({ n }), ...extra });
@@ -60,23 +59,3 @@ test('retention keeps the newest files and one per recent day', () => {
     assert.ok(ids.length <= 4);
 });
 
-const displays = [{ workArea: { x: 0, y: 25, width: 1920, height: 1055 } }, { workArea: { x: 1920, y: 0, width: 1440, height: 900 } }];
-
-test('window bounds stay on a connected display', () => {
-    assert.deepEqual(clampBounds({ x: 100, y: 100, width: 1600, height: 900 }, displays), { x: 100, y: 100, width: 1600, height: 900 });
-    assert.equal(clampBounds({ x: 5000, y: 100, width: 1600, height: 900 }, displays), null, 'unplugged monitor');
-    assert.equal(clampBounds({ x: 1, y: 1, width: NaN, height: 900 }, displays), null);
-    const hanging = clampBounds({ x: 1700, y: 700, width: 1600, height: 900 }, [displays[0]]);
-    assert.ok(hanging.x + hanging.width <= 1920 && hanging.y + hanging.height <= 1080, 'pulled back inside');
-    const tiny = clampBounds({ x: 0, y: 25, width: 800, height: 500 }, displays);
-    assert.deepEqual([tiny.width, tiny.height], [1366, 768], 'raised to the minimum when the display allows');
-});
-
-test('window state round-trips and a missing or broken file reads as none', () => {
-    const dir = tmp();
-    assert.equal(readState(dir), null);
-    writeState(dir, { bounds: { x: 1, y: 2, width: 3, height: 4 }, maximized: true });
-    assert.equal(readState(dir).maximized, true);
-    fs.writeFileSync(path.join(dir, 'window-state.json'), '{bad');
-    assert.equal(readState(dir), null);
-});

@@ -1,5 +1,5 @@
 // What yairpg://localhost serves, and frozen builds (EL18, N4). Same folders
-// and pointers as desktop/snapshot.cjs, which makes the snapshots:
+// and pointers as scripts/tauri/snapshot.cjs, which makes the snapshots:
 //   <userData>/builds/<version>-<fingerprint>/   page files
 //   <userData>/builds/latest.json                 newest snapshot made
 //   <userData>/builds/current.json                snapshot the player adopted
@@ -65,7 +65,7 @@ fn make_snapshot(user_data: &Path) -> Option<String> {
     .find(|p| Path::new(p).exists())
     .unwrap_or_else(|| "node".into());
     let status = std::process::Command::new(node)
-        .arg(repo.join("desktop/snapshot.cjs"))
+        .arg(repo.join("scripts/tauri/snapshot.cjs"))
         .args(["--from", &repo.to_string_lossy()])
         .env("YAIRPG_USER_DATA", user_data)
         .status()

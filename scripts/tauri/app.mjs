@@ -80,7 +80,7 @@ function install() {
 }
 
 function snapshot() {
-    console.log(run(process.execPath, [path.join(ROOT, 'desktop/snapshot.cjs'), '--from', ROOT], {env: {...process.env, YAIRPG_USER_DATA: APP_DATA}}));
+    console.log(run(process.execPath, [path.join(ROOT, 'scripts/tauri/snapshot.cjs'), '--from', ROOT], {env: {...process.env, YAIRPG_USER_DATA: APP_DATA}}));
 }
 
 const command = process.argv[2];

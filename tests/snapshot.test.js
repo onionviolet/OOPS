@@ -6,7 +6,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { createRequire } from 'node:module';
 
-const { makeSnapshot, readPointer, writePointer, buildsDir } = createRequire(import.meta.url)('../desktop/snapshot.cjs');
+const { makeSnapshot, readPointer, writePointer, buildsDir } = createRequire(import.meta.url)('../scripts/tauri/snapshot.cjs');
 
 function fakeRoot() {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'yairpg-snap-src-'));

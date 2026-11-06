@@ -20,8 +20,9 @@ neither is replaced.
 One application, a thin composition root and domain modules that own their
 state. No microservices, plugin runtime, ECS conversion, TypeScript migration,
 UI framework migration or universal rule language. Any of those needs its own
-demonstrated gap and cost comparison. The Electron desktop host (AD39, 2026-10-20)
-is a host layer, not one of these: it wraps the same web build.
+demonstrated gap and cost comparison. The desktop host (AD39: Electron from
+2026-10-20, Tauri from 2026-11-06) is a host layer, not one of these: it wraps
+the same web build.
 
 | Code | Rule | Mistake it prevents |
 | --- | --- | --- |

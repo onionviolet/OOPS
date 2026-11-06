@@ -86,3 +86,16 @@ Weibao: "lets work on these to completion" (N4-N10 and the save copy, after "Go 
 - Crates: Q3 download of objc2-user-notifications (+ tauri-plugin-window-state from the cache).
 
 Checks: see the commit message for this slice. Remaining: Weibao plays on the app (human review), then retire Electron; Windows and Linux builds later.
+
+## Slice 4: Electron removed (2026-11-06, night)
+
+Weibao: "Remove now".
+
+- Deleted `desktop/` (Electron host), `scripts/check_desktop.mjs`, `scripts/desktop_*.cjs` (incl. soak), `scripts/adopt_candidate.mjs`, `scripts/ui_descriptions_electron.cjs`, Electron-only playtests (`combined-electron-delivery`, `corc-electron`, `electron-reload`, `combined-gear-ui`, `inventory-crowded-review`, `nearby-resources`, `you-resize`) and their tests (`adopt_candidate`, `desktop_app_path`, `desktop_prompt_page`, window-state cases). `npm uninstall electron`: node_modules 54 MB.
+- Kept and moved: `desktop/snapshot.cjs` → `scripts/tauri/snapshot.cjs` (CLI now defaults to the Tauri app folder), `desktop/save_mirror.cjs` → `scripts/tauri/save_mirror.cjs`; tests renamed `snapshot.test.js`, `save_mirror.test.js`. `scripts/playtest/electron_ready.mjs` stays (a generic start-screen helper used by repair-journey and visitor-travel).
+- Game MCP: `game_screenshot` now uses `scripts/mcp/chromium_backend.mjs` (headless system Chrome through the existing Playwright, throwaway loopback server); backend name `chromium`. Frozen MCP copies carry `chromium_backend.mjs`, `ui_helpers.cjs` and `scripts/tauri/snapshot.cjs`.
+- Architecture guard also rejects `desktop-tauri/` and `@tauri-apps/` imports from `src/`.
+- Kept on disk as Weibao's data: the Electron profile `~/Library/Application Support/oops-progression-simulator` (save and mirror), which `import_save.mjs` reads.
+- Docs: AD39, PROJECT (+ log), AGENTS hidden-run line, README, VISION_DIGEST, USER_VISION (his words), ARCHITECTURE_RULES host sentence, CHECKOUT_CHECKLIST CK28/CK33, GAME_MCP_LIMITS, desktop-tauri README. Dated receipts and reviews that mention Electron are history and unchanged.
+
+Checks: `check:tauri` 9/9; `npm test` 5261 pass, 2 fail, both in `tests/desktop_ipc_channels.test.js` (tested the deleted Electron files; removed); `check:arch` PASS; `check:rules` PASS. Game MCP check: the new `chromium` screenshot PASS (real 1920×1080 PNG of the frozen session); the check then stops at `blockedRoutes` "native fresh-life confirmation route is offered", which fails the same way on a clean worktree of pushed `9820ca859` (Electron still present), so it is pre-existing and unrelated to the host move.

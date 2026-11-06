@@ -62,7 +62,7 @@ PLAYTEST.md), then tick it here.
    merged, but R22c's record asked to be shown to you before merging. R22d
    (Encounter tally, loot this trip) is the recorded next round.
 2. **CK24 + CK28, the desktop app.** Open "Yet Another Idle RPG" in ~/Applications
-   (the Tauri app since 2026-11-06; `npm run desktop` also opens it). Your Electron save
+   (the Tauri app since 2026-11-06, Electron removed; `npm run desktop` also opens it). Your Electron save
    is copied in as a backup: click Restore on the page the first launch shows. A Chrome
    save still moves with Export, then Import. Export before you try Reset in the app.
 3. **CK1, M4 lamplight.** It is short, and an agent already pre-ran it, so this
@@ -118,7 +118,7 @@ PLAYTEST.md), then tick it here.
 ## E. Agent and tooling deliveries
 
 - [ ] CK32 **AI playtest harness, first slice (PT45)** (HEAD e5459c565, unpushed): `node scripts/playtest/run.mjs --self-test` · a scripted bot with five gap detectors and fault injection · "DONE and verified on 2026-10-20"; the ranked next steps are a proposal · [harness doc](AI_PLAYTEST_HARNESS_CONSIDERATIONS_2026-10-20.md), [scripts/playtest/README.md](../scripts/playtest/README.md) · yes
-- [ ] CK33 **Frozen player build (EL18) and hang guard (EL46)** (HEAD 09fe5e36d to bab1dda77, unpushed): `npm run desktop:snapshot`, then `npm run desktop` · the "New build ready" notice and recovery page; hidden checks pass, not yet seen in a visible window; the owner row still says "LATER" · [Electron host, agent access](ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md) · yes
+- [ ] CK33 **Frozen player build (EL18) and hang guard (EL46)** (HEAD 09fe5e36d to bab1dda77, unpushed): `npm run desktop` (Tauri since 2026-11-06; it snapshots, then opens) · the "New build ready" notice and recovery page; hidden checks pass, not yet seen in a visible window; the owner row still says "LATER" · [Electron host, agent access](ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md) · yes
 - [ ] CK34 **Perf gate baseline (P1)** (HEAD): `node scripts/perf/gate.mjs --base <commit>` · "The standing gate reports FAIL, from budget drift" (5 of 26 checks); "Decision for Weibao: none needed" · [P1 baseline](reviews/P1_BASELINE_2026-10-19.md), [perf README](../scripts/perf/README.md) · yes
 - [ ] CK35 **Domain rules conformance scan** (HEAD): read the doc · 16 rows, 2 fixed; "DRC10's visible button not browser-checked (implemented-unverified)" · [conformance scan](audits/DOMAIN_RULES_CONFORMANCE_2026-10-19.md) · yes
 - [ ] CK36 **World pack loader and Cyoria from book.mol (P2)** (HEAD, probe): there is no player route yet ("No browser journey into Cyoria itself") · content exports are hash-identical; "Gaps (implemented-unverified)" · [P2 checkpoint](gm/dispatch/world-pack-p2-2026-10-19/CHECKPOINT.md), [loader checkpoint](gm/dispatch/world-pack-loader-2026-10-16/CHECKPOINT.md) · yes

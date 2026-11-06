@@ -2568,3 +2568,7 @@ The current campaign plan records33 slices/515 selected stages through KJ3AE (43
 ## 2026-11-06 desktop host line (Tauri move)
 
 Replaced in PROJECT.md: "Desktop host: Tauri is the main development target from 2026-11-06 (AD39 amended); the Electron host stays runnable while the move is in progress." Now Tauri is the desktop host (`npm run desktop`, the installed app, `npm run check:tauri`) and Electron is the `npm run desktop:electron` fallback until Weibao has played on Tauri. [Task record](dispatch/tauri-host-2026-11-06/CHECKPOINT.md).
+
+## 2026-11-06 desktop host line (Electron removed)
+
+Replaced in PROJECT.md: "...Electron stays as the `npm run desktop:electron` fallback until Weibao has played on Tauri." Weibao said "Remove now"; Electron is gone. [Task record](dispatch/tauri-host-2026-11-06/CHECKPOINT.md#slice-4-electron-removed-2026-11-06-night).

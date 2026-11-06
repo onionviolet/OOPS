@@ -1,6 +1,5 @@
-// Desktop chrome for the player's window (N6-N8), ported from desktop/:
-// app_menu.cjs (menu), presence_host.cjs (Dock badge, notifications),
-// popout_host.cjs + popout_page.cjs (pop-out panels). Window size and position
+// Desktop chrome for the player's window (N6-N8), ported from the retired
+// Electron host (app_menu, presence_host, popout_host + popout_page). Window size and position
 // (A7) use tauri-plugin-window-state, registered in main only for visible runs.
 use std::{
     collections::HashMap,
@@ -211,7 +210,7 @@ fn notify(_body: &str) -> bool {
 
 static PROJECTIONS: Mutex<Option<HashMap<String, serde_json::Value>>> = Mutex::new(None);
 
-/// Same trimming as popout_page.cjs cleanProjection: a bad payload cannot flood a window.
+/// Same trimming as the Electron host's cleanProjection: a bad payload cannot flood a window.
 pub fn clean_projection(name: &str, data: &serde_json::Value) -> Option<serde_json::Value> {
     if name != "events" || !data.is_object() {
         return None;

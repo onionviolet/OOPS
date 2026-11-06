@@ -48,8 +48,8 @@ async function nativeOnly(c) {
     const frozen=await c.tool('game_freeze');
     await c.tool('game_new',{sessionId:'native',seed:11,...frozen});
     const before=(await c.tool('game_status',{sessionId:'native'})).stateHash;
-    const result=await c.tool('game_screenshot',{sessionId:'native',backend:'electron'});
-    assert.equal(result.backend,'electron-cdp');assert.equal(result.width,1920);assert.equal(result.height,1080);
+    const result=await c.tool('game_screenshot',{sessionId:'native',backend:'chromium'});
+    assert.equal(result.backend,'chromium');assert.equal(result.width,1920);assert.equal(result.height,1080);
     assert.equal(readFileSync(result.path).subarray(0,8).toString('hex'),'89504e470d0a1a0a');
     assert.ok(result.bytes>10000);
     assert.equal((await c.tool('game_status',{sessionId:'native'})).stateHash,before,'native screenshot does not mutate source session');
@@ -103,15 +103,15 @@ async function frozenAndNative(c) {
     const badBackend=await c.rpc('tools/call',{name:'game_screenshot',arguments:{sessionId:'frozen',backend:'headless'}});
     assert.equal(badBackend.result.isError,true,'DOM cannot masquerade as screenshot');
     const before=(await c.tool('game_status',{sessionId:'frozen'})).stateHash;
-    const image=await c.rpc('tools/call',{name:'game_screenshot',arguments:{sessionId:'frozen',backend:'electron'}});
+    const image=await c.rpc('tools/call',{name:'game_screenshot',arguments:{sessionId:'frozen',backend:'chromium'}});
     let native;
     if(image.result.isError) {
-        assert.match(image.result.content[0].text,/Electron screenshot unavailable/);
+        assert.match(image.result.content[0].text,/Screenshot unavailable/);
         native={status:'blocked',preflight:cap.screenshot,error:image.result.content[0].text};
-        if(process.env.YAIRPG_MCP_REQUIRE_ELECTRON==='1') assert.fail(native.error);
+        if(process.env.YAIRPG_MCP_REQUIRE_SCREENSHOT==='1') assert.fail(native.error);
     } else {
         native=image.result.structuredContent;
-        assert.equal(native.backend,'electron-cdp');
+        assert.equal(native.backend,'chromium');
         assert.equal(native.width,1920);assert.equal(native.height,1080);
         const bytes=readFileSync(native.path);
         assert.equal(bytes.subarray(0,8).toString('hex'),'89504e470d0a1a0a');

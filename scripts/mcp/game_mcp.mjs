@@ -10,7 +10,7 @@ import {fork} from 'node:child_process';
 import {appendFileSync, mkdirSync, existsSync, readFileSync} from 'node:fs';
 import {dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {electronPreflight,captureElectron} from './electron_backend.mjs';
+import {screenshotPreflight,captureScreenshot} from './chromium_backend.mjs';
 import {freezeBuild, ownFrozen} from './frozen_build.mjs';
 import {resolveCheckout} from './checkout.mjs';
 import {createServer} from './stdio_server.mjs';
@@ -76,13 +76,13 @@ const view = r => ({text: JSON.stringify(r, null, 1), data: r});
 const obj = (properties, required = []) => ({type: 'object', properties, required});
 
 const tools = [
-    {name:'game_capabilities',description:'Preflight native screenshot dependencies; available means installed, not a verified launch. Headless look remains text only.',readOnly:true,handler:() => view({quoteCommands:['lamp.toggle'],sessions:true,frozenBuild:true,screenshot:electronPreflight()})},
-    {name:'game_screenshot',description:'Real Electron/CDP PNG of a native saved-state mirror in a fresh hidden profile. Requires backend electron. Does not mirror transient headless panel selections or exact paused timing; returns image path and hash, never DOM layout claims.',readOnly:true,inputSchema:obj({backend:{type:'string',enum:['electron']}},['backend']),handler:async a => {
-        if(a.backend !== 'electron') throw Error('Only the explicit electron screenshot backend is supported. Headless DOM is text only.');
-        const cap=electronPreflight();if(!cap.available) throw Error(`Electron screenshot unavailable: ${cap.reason}`);
+    {name:'game_capabilities',description:'Preflight native screenshot dependencies; available means installed, not a verified launch. Headless look remains text only.',readOnly:true,handler:() => view({quoteCommands:['lamp.toggle'],sessions:true,frozenBuild:true,screenshot:screenshotPreflight()})},
+    {name:'game_screenshot',description:'Real headless Chromium PNG of a native saved-state mirror in a fresh isolated profile. Requires backend chromium. Does not mirror transient headless panel selections or exact paused timing; returns image path and hash, never DOM layout claims.',readOnly:true,inputSchema:obj({backend:{type:'string',enum:['chromium']}},['backend']),handler:async a => {
+        if(a.backend !== 'chromium') throw Error('Only the explicit chromium screenshot backend is supported (Electron was removed 2026-11-06). Headless DOM is text only.');
+        const cap=screenshotPreflight();if(!cap.available) throw Error(`Screenshot unavailable: ${cap.reason}`);
         const id=sessionKey(a),slot=ensureWorker(id);
         const state=await call('captureState',a);
-        return view({...await captureElectron({root:slot.frozen?.root ?? slot.checkout?.root,save:state.save}),sessionId:id,build:state.build});
+        return view({...await captureScreenshot({root:slot.frozen?.root ?? slot.checkout?.root,save:state.save}),sessionId:id,build:state.build});
     }},
     {name:"game_freeze",description:"Freeze an instrumented build plus HTML/CSS/assets and runner inputs. Returns bundlePath, snapshotManifest and SHA-256 identities. Does not boot a game.",handler:async () => view(await freezeBuild())},
     {name:'game_quote', description:'Read the existing AR7 lamp toggle quote. Finite command surface: lamp.toggle only. No click, clock advance or consumption.', readOnly:true, inputSchema:obj({command:{type:'string',enum:['lamp.toggle']}},['command']), handler:a => call('quote',a).then(view)},

@@ -157,7 +157,7 @@ for (let run = 1; run <= runs; run++) for (const fixture of fixtures) for (const
     const profile = userDataOverride ? path.resolve(userDataOverride) : path.join(out, 'profiles', name);
     if (VARIANTS[variant].recoveryLike === 'frozen') {
         // Snapshot A before launch; snapshot B (one changed file) once the game is up.
-        const snap = (from) => execFileSync('node', [path.join(ROOT, 'desktop/snapshot.cjs'), '--from', from], {env: {...process.env, YAIRPG_USER_DATA: profile}}).toString().trim();
+        const snap = (from) => execFileSync('node', [path.join(ROOT, 'scripts/tauri/snapshot.cjs'), '--from', from], {env: {...process.env, YAIRPG_USER_DATA: profile}}).toString().trim();
         fs.mkdirSync(profile, {recursive: true});
         const a = snap(ROOT);
         const altered = path.join(out, `${name}-tree`);
@@ -184,7 +184,7 @@ for (let run = 1; run <= runs; run++) for (const fixture of fixtures) for (const
     if (VARIANTS[variant].recoveryLike === 'import') {
         const fixtureSave = JSON.parse(fs.readFileSync(fixtureFile || path.join(ROOT, 'tests/fixtures/perf', fixture + '.json')));
         const entries = {'save data': JSON.stringify(fixtureSave)};
-        const {hashEntries} = (await import('node:module')).createRequire(import.meta.url)(path.join(ROOT, 'desktop/save_mirror.cjs'));
+        const {hashEntries} = (await import('node:module')).createRequire(import.meta.url)(path.join(ROOT, 'scripts/tauri/save_mirror.cjs'));
         const id = `20261027-232500-${hashEntries(entries).slice(0, 8)}`;
         const hist = path.join(profile, 'save-mirror/history');
         fs.mkdirSync(hist, {recursive: true});

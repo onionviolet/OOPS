@@ -1,5 +1,5 @@
 // Host adapter seam (AD39, EL2). The game page may run inside the Electron host
-// (desktop/preload.cjs exposes window.yairpgHost) or a plain browser, where
+// (desktop-tauri/src/main.rs defines window.yairpgHost) or a plain browser, where
 // every call here does nothing. Calls only report; they never change game
 // state (AR3), and nothing here imports Electron or Node (AR4).
 let lastCount = -1;

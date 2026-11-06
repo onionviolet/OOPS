@@ -164,7 +164,7 @@ Use origin for the personal fork (public) and upstream for the original.
 Inspect the working tree before editing and preserve unrelated changes.
 
 Agent work stays in the background (Weibao, 2026-10-30, standing rule). Never open
-a visible window on his screen: browsers run headless, Tauri and Electron run hidden, and
+a visible window on his screen: browsers run headless, the Tauri app runs hidden, and
 native computer control needs his say-so first.
 
 ## Sealed secrets

@@ -1,8 +1,9 @@
 'use strict';
 // Frozen player builds (EL18). The player's window serves a copy of the page
 // files under userData/builds/<version>-<fingerprint>/, so an agent's
-// `npm run build` never changes what an open game loads. Plain Node, no
-// Electron: `npm run desktop:snapshot` and the host both use it.
+// `npm run build` never changes what an open game loads. Plain Node: the
+// Tauri host (desktop-tauri/src/builds.rs), scripts/tauri/*.mjs and the game
+// MCP's frozen copies use it. Moved from desktop/ when Electron was removed.
 //
 // builds/latest.json  newest snapshot made; the host watches it.
 // builds/current.json the snapshot the player adopted; the host serves it.
@@ -27,8 +28,8 @@ const KEEP = 3;
 const buildsDir = userData => path.join(userData, 'builds');
 const ID_PATTERN = /^[A-Za-z0-9._-]+$/;
 
-// Electron's default userData is appData/<productName or name>; the npm
-// script has no Electron app object, so it derives the same path.
+// The retired Electron app's profile (appData/<productName or name>); only
+// scripts/tauri/import_save.mjs still reads its save mirror.
 function defaultUserData(root) {
     const pkg = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'));
     const name = pkg.productName || pkg.name;
@@ -147,18 +148,21 @@ function makeSnapshot(root, userData) {
     return { id, root: target, files: files.length };
 }
 
-module.exports = { SNAPSHOT_FILES, SNAPSHOT_DIRS, defaultUserData, listFiles, makeSnapshot, readPointer, writePointer, snapshotRoot, buildsDir };
+// The Tauri app's data folder (identifier in desktop-tauri/tauri.conf.json).
+const tauriUserData = () => path.join(os.homedir(), 'Library', 'Application Support', 'local.yairpg.tauri');
 
-// `npm run desktop:snapshot [--from <root>]` writes to YAIRPG_USER_DATA or
-// the player's own profile. Agent runs must pass YAIRPG_USER_DATA.
+module.exports = { SNAPSHOT_FILES, SNAPSHOT_DIRS, defaultUserData, tauriUserData, listFiles, makeSnapshot, readPointer, writePointer, snapshotRoot, buildsDir };
+
+// `node scripts/tauri/snapshot.cjs [--from <root>]` writes to YAIRPG_USER_DATA
+// or the player's Tauri app folder. Agent runs must pass YAIRPG_USER_DATA.
 if (require.main === module) {
     const args = process.argv.slice(2);
-    const from = args.includes('--from') ? path.resolve(args[args.indexOf('--from') + 1]) : path.resolve(__dirname, '..');
+    const from = args.includes('--from') ? path.resolve(args[args.indexOf('--from') + 1]) : path.resolve(__dirname, '../..');
     if (!process.env.YAIRPG_USER_DATA && (process.env.YAIRPG_HIDDEN === '1' || process.env.YAIRPG_INACTIVE === '1')) {
         console.error('Background run without YAIRPG_USER_DATA: refusing to write the player\'s profile.');
         process.exit(2);
     }
-    const userData = process.env.YAIRPG_USER_DATA ? path.resolve(process.env.YAIRPG_USER_DATA) : defaultUserData(path.resolve(__dirname, '..'));
+    const userData = process.env.YAIRPG_USER_DATA ? path.resolve(process.env.YAIRPG_USER_DATA) : tauriUserData();
     const result = makeSnapshot(from, userData);
     console.log(`Snapshot ${result.id} (${result.files} files) in ${result.root}`);
 }

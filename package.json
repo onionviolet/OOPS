@@ -2,7 +2,6 @@
   "name": "oops-progression-simulator",
   "private": true,
   "type": "module",
-  "main": "desktop/main.cjs",
   "scripts": {
     "build": "node build.js",
     "serve": "python3 -m http.server 8123 --bind 127.0.0.1",
@@ -21,9 +20,6 @@
     "build:preview": "node scripts/build_ui_preview.mjs",
     "build:figures": "node scripts/build_figure_gallery.mjs",
     "desktop": "npm run tauri",
-    "desktop:electron": "npm run build && npm run desktop:snapshot && electron .",
-    "desktop:snapshot": "node desktop/snapshot.cjs",
-    "check:desktop": "node scripts/check_desktop.mjs",
     "tauri": "npm run build && node scripts/tauri/app.mjs snapshot && node scripts/tauri/app.mjs open",
     "tauri:install": "npm run build && node scripts/tauri/app.mjs install",
     "check:tauri": "node scripts/tauri/check.mjs",
@@ -34,7 +30,6 @@
   },
   "devDependencies": {
     "@anthropic-ai/sdk": "1.3.0",
-    "electron": "44.9.2",
     "esbuild": "0.25.10"
   },
   "dependencies": {

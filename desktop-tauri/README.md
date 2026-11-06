@@ -1,8 +1,8 @@
 # Tauri desktop host
 
-The desktop host since 2026-11-06 (AD39, amended). The Electron host in
-`desktop/` stays as the fallback (`npm run desktop:electron`) until Weibao has
-played on Tauri. `src/` never imports this folder; the page reaches either host
+The desktop host since 2026-11-06 (AD39, amended); the Electron host was
+removed the same day (its code is in git history before that commit).
+`src/` never imports this folder; the page reaches either host
 only through `window.yairpgHost` (`src/host.js`), and every call has a browser
 fallback.
 
@@ -43,7 +43,7 @@ Agent runs are always hidden and use their own store (`YAIRPG_USER_DATA`); the h
 | `YAIRPG_APPNAP=1` | Let macOS App Nap the process (diagnosis only; the host normally holds a latency-critical activity) |
 | `YAIRPG_WK_THROTTLE=1` | Keep WebKit's hidden-page timer throttling and process suppression (diagnosis only) |
 
-## Parity with the Electron host
+## Parity with the retired Electron host
 
 | Electron feature | Tauri state |
 | --- | --- |
@@ -51,13 +51,13 @@ Agent runs are always hidden and use their own store (`YAIRPG_USER_DATA`); the h
 | Background run guards (alert/confirm/prompt) | Done |
 | Separate test profiles | Done (`YAIRPG_USER_DATA`, `YAIRPG_EPHEMERAL`) |
 | `window.prompt` | Not needed: the game's one caller (hard reset) uses the in-page `src/typed_confirm.js` dialog in every host; `prompt` returns null |
-| Save mirrors, restore, final snapshot on close (A1) | Done (`src/mirror.rs`, same files and hash as `desktop/save_mirror.cjs`; under `~/Library/Application Support/local.yairpg.tauri/save-mirror`, or `<YAIRPG_USER_DATA>/save-mirror`) |
+| Save mirrors, restore, final snapshot on close (A1) | Done (`src/mirror.rs`, same files and hash as `scripts/tauri/save_mirror.cjs`; under `~/Library/Application Support/local.yairpg.tauri/save-mirror`, or `<YAIRPG_USER_DATA>/save-mirror`) |
 | Hang and crash guard (EL46) | Done: heartbeat over `/__host/pong`; a stopped or crashed page shows `/__host/recover.html` with the backups |
 | Quit | Saves, mirrors and waits before exit (window close, Cmd+Q) |
 | Dock badge, notifications (A4) | Done (`src/desktop.rs`): badge follows the count; a notification when it rises, the window is unfocused, at most once a minute (bundled app only) |
 | Pop-out panels (A3) | Done: View > Pop out world events (Cmd+Shift+E), read-only projections, trimmed like the Electron host |
 | Window size and position (A7), native menu | Done: tauri-plugin-window-state; File (Save now, Restore a backup, Show backups folder), Edit, View (pop-out, reload, zoom, full screen), Window |
-| Frozen builds and adoption (EL18, MDL16) | Done (`src/builds.rs`, `scripts/tauri/adopt.mjs`), same folders and pointers as `desktop/snapshot.cjs` |
+| Frozen builds and adoption (EL18, MDL16) | Done (`src/builds.rs`, `scripts/tauri/adopt.mjs`), same folders and pointers as `scripts/tauri/snapshot.cjs` |
 | Installer, signing | `.app` bundle with ad hoc signing; no notarized installer (not needed for local play) |
 | DevTools menu item | Not included (needs Tauri's devtools feature) |
 | Windows and Linux | Not built or tested (WebView2 / WebKitGTK; later, for Steam) |
@@ -68,6 +68,6 @@ WebKit keeps localStorage apart from Electron's profile, so an Electron save
 does not appear here on its own. Compatibility decision (2026-11-06, Weibao's
 "work on these to completion" after the save-move proposal): copy, never move.
 `import_save.mjs` copies the Electron mirror's newest snapshot into this app's
-backups unchanged (same snapshot format and hash) and the next launch opens the
+backups unchanged (same snapshot format and hash; the format lives in `scripts/tauri/save_mirror.cjs`) and the next launch opens the
 recovery page; the save changes host only when the player clicks Restore. The
 Electron profile is never written. Export and Import still work for any save.

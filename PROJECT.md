@@ -53,7 +53,7 @@ The current statement of each accepted decision is its AD line in the [rules ind
 
 Release verification and the selected push boundary are recorded in the [November 4 release reconciliation](docs/audits/RELEASE_RECONCILIATION_2026-11-04.md). Repository publication and the installed app are separate states; the last recorded app adoption is [Luminous Gothic](docs/gm/dispatch/luminous-adopt-2026-10-29/APP_ADOPTION.md), not rechecked by this release pass.
 
-Desktop host: Tauri from 2026-11-06 (AD39 amended): `npm run desktop`, the installed app and `npm run check:tauri`; Electron stays as the `npm run desktop:electron` fallback until Weibao has played on Tauri. The [Tauri task record](docs/gm/dispatch/tauri-host-2026-11-06/CHECKPOINT.md) owns state and checks.
+Desktop host: Tauri from 2026-11-06 (AD39 amended): `npm run desktop`, the installed app and `npm run check:tauri`; Electron was removed the same day. The [Tauri task record](docs/gm/dispatch/tauri-host-2026-11-06/CHECKPOINT.md) owns state and checks.
 
 ## Where to look
 

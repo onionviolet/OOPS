@@ -7354,6 +7354,16 @@ Direction: Tauri becomes the main desktop development target now, adjusted as we
 
 Proposals, not yet accepted (AD32): migrate desktop features one at a time and keep the Electron host runnable as the fallback until saves, recovery and normal play work under Tauri; explain the prototype's startup and timer stalls before porting features. [Task record](gm/dispatch/tauri-host-2026-11-06/CHECKPOINT.md).
 
+Later the same day, after the move was built and checked (agent-verified, before his own play):
+
+> Lets fully move to tauri, what is needed and more?
+
+> lets work on these to completion
+
+> Remove now
+
+Direction: Tauri is the only desktop host. Electron, its checks and its dependency are removed; the Electron profile and its save mirror stay on disk as his data, and his save was copied (not moved) into the Tauri app's backups.
+
 ## Cross-world foundations, obligations and authority, 2026-11-06
 
 Weibao, in one Claude session, in order:

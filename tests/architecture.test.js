@@ -5,6 +5,7 @@ import {architectureEdges,checkBaseline,hostImportViolation} from '../scripts/ch
 test('shared runtime rejects desktop dependencies while allowing ordinary browser modules',()=>{
  for(const spec of ['electron','electron/main','node:fs/promises','fs','fs/promises','../desktop/main.cjs'])assert.match(hostImportViolation('src/feature.js',spec),/Host dependency/);
  assert.match(hostImportViolation('src/ui/feature.js','../../desktop/preload.cjs'),/Host dependency/);
+ for(const spec of ['../desktop-tauri/src/recover.html','@tauri-apps/api/core'])assert.match(hostImportViolation('src/feature.js',spec),/Host dependency/);
  for(const spec of ['./domain_registry.js','../src/ui/feature.js','inkjs','./desktop_theme.js'])assert.equal(hostImportViolation('src/feature.js',spec),null);
 });
 test('the import scan reports real host imports and ignores matching prose',async()=>{

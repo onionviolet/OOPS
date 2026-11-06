@@ -15,8 +15,8 @@ import {fileURLToPath} from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const require = createRequire(import.meta.url);
-const {hashEntries, hasSave} = require(path.join(ROOT, 'desktop/save_mirror.cjs'));
-const {defaultUserData} = require(path.join(ROOT, 'desktop/snapshot.cjs'));
+const {hashEntries, hasSave} = require(path.join(ROOT, 'scripts/tauri/save_mirror.cjs'));
+const {defaultUserData} = require(path.join(ROOT, 'scripts/tauri/snapshot.cjs'));
 const from = path.join(defaultUserData(ROOT), 'save-mirror/latest.json');
 const mirror = path.join(os.homedir(), 'Library/Application Support/local.yairpg.tauri/save-mirror');
 

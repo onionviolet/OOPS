@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-// `npm run check:tauri`: the hidden Tauri host checks (N5), the counterpart of
-// `npm run check:desktop`. Runs the harness scenarios once on the fresh fixture
+// `npm run check:tauri`: the hidden Tauri host checks (N5), which replaced
+// the Electron `check:desktop` suite. Runs the harness scenarios once on the fresh fixture
 // and asserts each one. Build first: `npm run build`.
 import fs from 'node:fs';
 import path from 'node:path';

@@ -1,8 +1,9 @@
 'use strict';
 // Disk mirror of the page's localStorage (A1, EL1/EL39). The page stays the
 // only save writer (AR3); this only copies what it wrote into files under
-// userData, so a wiped or corrupt browser profile is recoverable. Nothing here
-// touches Electron, so it is testable alone.
+// userData, so a wiped or corrupt browser profile is recoverable. The Tauri
+// host writes the same format in Rust (desktop-tauri/src/mirror.rs); this copy
+// reads it in Node (import, tests). Moved from desktop/ with Electron's removal.
 //
 // Layout under dir:
 //   latest.json              newest snapshot, replaced atomically

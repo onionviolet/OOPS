@@ -14,11 +14,11 @@ const walk = root => readdirSync(root,{withFileTypes:true}).flatMap(e => e.isDir
 export async function freezeBuild() {
     const bundle = await bundleGame();
     const root = mkdtempSync(join(tmpdir(),'yairpg-mcp-frozen-'));
-    // Reuse the desktop host's static-content census (including private pack bytes).
-    const {listFiles} = require('../../desktop/snapshot.cjs');
+    // Reuse the frozen-build static-content census (including private pack bytes).
+    const {listFiles} = require('../tauri/snapshot.cjs');
     const files = new Set([...listFiles(ROOT), 'package.json','src/scenario_facade.js',
         ...walk(join(ROOT,'scripts/headless')).filter(p => p.endsWith('.mjs')).map(p=>relative(ROOT,p)),
-        'scripts/mcp/game_worker.mjs','scripts/mcp/electron_backend.mjs','scripts/mcp/frozen_build.mjs', ...walk(join(ROOT,'desktop')).filter(p=>p.endsWith('.cjs')).map(p=>relative(ROOT,p))]);
+        'scripts/mcp/game_worker.mjs','scripts/mcp/chromium_backend.mjs','scripts/mcp/frozen_build.mjs','scripts/ui_helpers.cjs','scripts/tauri/snapshot.cjs']);
     for(const p of files) {mkdirSync(dirname(join(root,p)),{recursive:true});copyFileSync(join(ROOT,p),join(root,p));}
     copyFileSync(bundle,join(root,'instrumented.mjs'));
     const runner = join(root,'scripts/headless/runner.mjs');
