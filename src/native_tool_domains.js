@@ -13,6 +13,7 @@ import './material_lineage_domain.js';
 import './beat_ledger.js';
 import './canon_pull.js';
 import './canon_pull_panel.js';
+import './duties_domain.js';
 import {configureFields} from './field_layer_domain.js';
 import {domainRegistry} from './domain_registry.js';
 import {configureGearWorkshop} from './gear_workshop_domain.js';

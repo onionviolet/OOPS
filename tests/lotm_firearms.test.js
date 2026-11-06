@@ -89,3 +89,18 @@ test('rounds, loading and practice survive a JSON save and reload; broken saves 
  // the Tingen probationer holds no revolver
  const tp=structuredClone(fresh());validateLotmState(tp.state);apply(tp,F.beFirearmIssueEffects());assert.throws(()=>validateLotmState(tp.state),/belongs to the book life/);
 });
+
+test('FD3 delegation keeps the effect, key, requires and fact shapes exactly as before the ready_stock seam',()=>{
+ const r=(key,amount)=>({type:'resource',actor:'player',key,amount});
+ assert.deepEqual(F.beFirearmStockEffects('silver',4),[r('book.lotm.be.carried.silver',4)]);
+ assert.deepEqual(F.beFirearmLoadEffects('ordinary',6),[r('book.lotm.be.carried.ordinary',-6),r('book.lotm.be.loaded.ordinary',6)]);
+ assert.deepEqual(F.beFirearmUnloadEffects('ordinary',2),[r('book.lotm.be.loaded.ordinary',-2),r('book.lotm.be.carried.ordinary',2)]);
+ assert.deepEqual(F.beFirearmFireEffects('silver'),[r('book.lotm.be.loaded.silver',-1)]);
+ assert.deepEqual(F.beFirearmFireEffects('silver',{practice:true}),[r('book.lotm.be.loaded.silver',-1),r('book.lotm.be.practice_fired',1)]);
+ const held={fact:'lotm.beFirearm.held',op:'eq',value:true,reason:'You have no revolver.'};
+ assert.deepEqual(F.beFirearmFireRequires('silver'),{all:[held,{fact:'lotm.beFirearm.loaded.silver',op:'gte',value:1,reason:'The chamber is empty.'}]});
+ assert.deepEqual(F.beFirearmLoadRequires('ordinary',2),{all:[held,{fact:'lotm.beFirearm.carried.ordinary',op:'gte',value:2,reason:'You have too few rounds to load.'},{fact:'lotm.beFirearm.free',op:'gte',value:2,reason:'The chambers cannot take more.'}]});
+ assert.deepEqual([F.beFirearmKeys.carried('silver'),F.beFirearmKeys.loaded('silver'),F.beFirearmKeys.fired],['book.lotm.be.carried.silver','book.lotm.be.loaded.silver','book.lotm.be.practice_fired']);
+ const f={};F.beFirearmFacts({actors:{player:{facts:{[F.BE_REVOLVER_FACT]:true},resources:{'book.lotm.be.loaded.silver':2,'book.lotm.be.carried.ordinary':5,'book.lotm.be.practice_fired':60}}}},f);
+ assert.deepEqual(f,{'lotm.beFirearm.loaded.ordinary':0,'lotm.beFirearm.carried.ordinary':5,'lotm.beFirearm.loaded.silver':2,'lotm.beFirearm.carried.silver':0,'lotm.beFirearm.held':true,'lotm.beFirearm.loaded':2,'lotm.beFirearm.free':4,'lotm.beFirearm.practiceFired':60,'lotm.beFirearm.aim':1});
+});

@@ -1,0 +1,92 @@
+# Foundation consumers wave, 2026-11-06
+
+```receipt
+build: 458610cdc3d56f222fed1656a41c17a354a1ecbc45d8385549f13c8f05574e06
+route: n/a
+state: built
+viewport: n/a
+persistence: checked
+tests: full suite 5201/5201 on the built tree; focused per lane as recorded
+review: diff-scoped
+surface: see change surface table
+```
+
+Request (Weibao, 2026-11-06): "coordinating sonnet, make the most progress foundationally" with the progress-atlas, reconcile-project and more-to-consider skills and a run-until-done goal. This record owns the wave's evidence. Direction is unchanged: Klein first with Harry beside (PROJECT current focus 1-2); shared mechanisms designed from known needs and validated by a second world (AD51, FND5); every slice done only at FLR1-FLR6 (AD43) or recorded below floor.
+
+## Why these slices
+
+The [Nov 4 atlas](../../../audits/PROGRESS_ATLAS_2026-11-04.md) and the [evidence map's P3 order](../../../audits/PROGRESS_EVIDENCE_MAP_2026-11-04.md#p3-implementation-order) say the foundational next step after FD1-FD11 (`be24c225c`, all below floor, "no browser or native play run") is to connect the seams to real consumers and prove reuse on a different case, not to add more seams. Selected from the FD table's own "next" cells:
+
+| Lane | Slice | Owner files | Why foundational |
+|---|---|---|---|
+| A | FD3 ready stock seam; B8 revolver is the first consumer | `src/ready_stock.js` (new), `src/book_world_lotm_be_firearm.js`, tests | Shared counted stock with a ready slot serves bullets, arrows, doses, charges; B8 gates G17 and the Tingen climax (AT2) |
+| B | FD8 register `duties` as a saved domain, settle misses on tick, show rows where the player reads what they owe | `src/duties_domain.js` (new), `src/recurring_duties.js`, `src/book_world_lotm_duties.js`, `src/book_world_lotm_domain.js`, `src/book_world_lotm_ui.js`, `src/native_tool_domains.js`, `docs/SAVES.md` 6e, tests | First duty is Klein's expense claim (B12); same layer carries HP timetable and detentions later |
+| C | FD10 second world: HP registers a people source for G8 fame | `src/book_world_hp_people_source.js` (new), `src/book_world_hp_lead_domain.js`, tests | Validates the FD10 port on a different world (AD51); observer-safe by construction |
+| D | Native smoke of FD1/FD6/FD7/FD9 on committed HEAD in a scratch worktree, game MCP, headless | none in the primary checkout | FD1-FD11 shipped with no play run; this is the missing FLR2 evidence for the committed seams |
+| F | FD5 read-only check: does a shared practice-to-step owner exist | none | Answer: no; `aimNotch` is the single count-to-step reduce found; recommendation folded into lane A as `countToStep` |
+
+Rejected for this wave, with the reason: FD4/B11 wake-on-demand cast roles (touches the cast host and the persistent-person registry; wants the Glacis consumer window, not yet selected); FD6 Harry's vault draw (the acts live in the private pack); FD11 HP classes (W6-W7 not built); AT7 app adoption (touches the installed app Weibao plays; proposed as its own task).
+
+## Reservation
+
+Sole writer in the primary checkout during this wave (no other session running at dispatch, checked through the session list and `ps`). Other sessions' uncommitted work preserved untouched: `dist/`, `index.html`, library index and catalogue, the two shell review documents (registered in the writeup register), `scripts/perf/`, `work/`. A stale baseline `npm test` started before the lanes edited `src/` was stopped by process group at 9,048 TAP lines with 0 failures; it is partial evidence only, and the committer's full run below is the gate.
+
+## More to consider (coordinator pass, before lane returns)
+
+Ranked by how much each could change the decision. Dispositions follow the more-to-consider skill.
+
+- **ACCOUNT FOR NOW, MC1 two kinds of stock.** `ready_stock.js` is resource-backed (actor resource counts), which fits bullets, doses and charges. Arrows are items in the native inventory (crafting makes them), so an arrow consumer needs an item-backed adapter at its first use, not a second seam now. Record the boundary in the seam's header; build the adapter with the first bow.
+- **ACCOUNT FOR NOW, MC2 whose minute.** Duties settle misses against a world minute. Klein's life reads the LOTM calendar (`resolveWorldCalendar`), not the Village clock; a duty set must name its minute source (AD15-AD17, many clocks). A life with no registered duty set records nothing (default; the reason is that misses are play history, not a promise). Lane B's 6e text already states "first tick records where the calendar stands".
+- **ACCOUNT FOR NOW, MC3 envelope contract.** A new top-level save key can trip fixture-exact envelope tests and the clean-export check (`f15a37f90` repaired clean-export checks on Nov 4). Lane B runs the save fixtures; the committer's full suite is the gate. An untouched life must write no key so committed fixtures stay byte-identical.
+- **ACCOUNT FOR NOW, MC4 observer safety is the test, not the comment.** The HP people source must fail a test where a non-player store holds knowledge the player did not witness and that knowledge does not appear (default, with the reason that display is a projection of the player's store, AR3). Without that negative case the seam proves nothing (AD6-AD8).
+- **ACCOUNT FOR NOW, MC5 lane D proves HEAD, not the tree.** The smoke runs on the committed HEAD in a scratch worktree so the three code lanes cannot leak in. It therefore says nothing about lanes A-C; those stay "not built, no browser" until a later native run. The worktree must be removed and `git worktree list` checked at closeout (reconcile-project worktree rule).
+- **LATER, MC6 reload time and wear.** The FD3 row named "reload time"; the revolver loads instantly today and the three-round reload grain belongs to G17 (ch199). Leave it to G17's first fight; do not add a timer the fight does not read yet.
+- **LATER, MC7 duties beyond one world.** HP's timetable and detentions (W6-W9) are the second consumer that validates FD8's shape; swap-with-notice and the notice cost are that lane's. Record, do not build.
+- **LATER, MC8 app adoption (AT7).** Nothing in this wave reaches the installed app Weibao plays. Proposed as its own task; not started here.
+- **Checked, not a gap.** `revealWorldPackPerson` still has no gameplay caller (front door S8 wording stands). FD1 `freeMinutes` has one caller (the LOTM cast host). The baseline suite reached 9,048 TAP lines with zero failures before it was stopped.
+
+## Lane receipts
+
+
+### Lane C, FD10 second world: HP people source (done, below floor)
+
+`src/book_world_hp_people_source.js` (new; `hpPeopleRows`, `registerHpPeopleSource`, source id `book.hp.lead`, order 60) and one import plus one `registerHpPeopleSource();` line in `src/book_world_hp_lead_domain.js` after the own-holdings registration. Rows read only the player's own knowledge store: a cast person gets a row when the player holds their introduction entry or any entry attributed to them; the fame line ("knew your name before you spoke") comes from the W4 pub observation `book.hp.lead.w4.pub.known` and nothing else, so Tom, Doris and Dedalus carry it and Quirrell and the wandmaker do not; location is the place of the act that wrote the newest entry. `potter_vault` is excluded (a vault, not a person). Non-player stores are never read; the observer-safety test puts the pale boy's and the bartender's non-player entries in state and asserts neither appears (MC4 met). Checks: `node --test` on the new file plus the people-knowledge, people-sources, LOTM cast week, MoL restart, party, promise, world-day and body tests: 72/72; `check:arch` unchanged (6 grandfathered main imports, 205 cyclic edges, no new cycle); `check:rules` pass. Change surface: two source files, one test, registration fires only when the HP lead domain registers, no save or UI change, `people_knowledge.js` untouched. Not done: browser run, NPC-to-NPC fame, a fame writer; the domain-to-view wiring is tested only with the private cast absent. FLR: source-edited, focused tests pass, not built, no browser.
+
+### Lane A, FD3 ready stock seam with the B8 revolver as first consumer (done, below floor)
+
+`src/ready_stock.js` (new, leaf, no imports): key builders, stock-in, ready, unready and spend builders, `spendIfReadyEffects` (no effects when the ready count is under one), predicates `readyRequires` and `spendRequires`, `stockFacts`, assertions split into `assertWhole`, `assertCapacity` and `assertKnownKeys`, and `countToStep(count, steps)` (the FD5 answer: the highest step whose count is reached). `src/book_world_lotm_be_firearm.js` delegates its carried/loaded/fire mechanics and `aimNotch` to the seam; every exported name, resource key (`book.lotm.be.carried.<kind>`, `.loaded.<kind>`, `.practice_fired`), fact name and effect shape is deep-equal to HEAD's (checked by a scratch comparison script; one fact-key insertion order moved, `held` after `free`, which nothing reads by order). `aimSteps` numbers unchanged. Behavior change: `beFirearmUnloadEffects` now throws on a non-positive or non-integer `n` where it emitted nonsense effects before. Tests: `tests/ready_stock.test.js` (new; revolver spec, an `arrow` quiver of capacity 1, a stock with no ready slot; refusals for capacity by predicate and assertion, a negative count, an unknown key, an empty spend; `countToStep`) and one literal deep-equal test appended to `tests/lotm_firearms.test.js` pinning effect, requires and fact shapes. Checks: `node --test tests/ready_stock.test.js tests/lotm_firearms.test.js` 12/12; `tests/lotm_be_seat.test.js tests/lotm_be_clients.test.js` 24/24; `check:arch` pass (6 main imports, 205 cyclic edges, unchanged). Change surface: no core-owner file, no registration line, one new edge firearm to ready_stock, no cycle. Not covered: reload time (G17's grain, MC6), item-backed stock (MC1), per-unit identity such as a silver round's age, several ready slots per kind. FLR: source-edited, focused tests pass, not built, no browser.
+
+### Lane B, FD8 duties as a saved domain with a player line (done, below floor)
+
+`src/duties_domain.js` (new) registers the shared `duties` domain through `registerDomain` with `initialState`, `save`, `validate`, `migrate`, `load`, `tick`, `projection` and the `duties.attend({dutyId})` command; worlds register through `registerDutySet(id, {defs, state, active, minute})` (the `state` reader was added so `active` and `minute` have a source). `configureLotm` in `src/book_world_lotm_domain.js` registers `LOTM_DUTIES`, active when `lotmBe(state)`, minute from the BE life's own `state.clock`, not the native calendar (MC2 met). The command settles misses, attends, clears the count, refuses with the duty's own reason when the window is shut and with "not yours to keep" when the life is not enrolled. `src/book_world_lotm_ui.js` shows duty lines in the "Work & merit" block as `data-panel-row` rows with a "Hand it in" button only while the window is open, through two new panel ports (`duties`, `attend`); the row attribute is `data-duty-id` because `perspective_controls` requires every `data-lotm-*` attribute to be tagged. Registration: one side-effect import in `src/native_tool_domains.js` line 16 (`main.js` untouched, `check:arch` main-import count 4 under baseline). Persistence: `docs/SAVES.md` section 3 row (Auth A, 2026-11-06) and new section 6e: a save without the key, a foreign family or an unreadable slice loads fresh and never throws; an untouched life writes no key, so fixtures stay byte-identical (MC3 met); an older build drops the slice on its next save. Checks: `node --test tests/duties_domain.test.js tests/recurring_duties.test.js` 9/9; with `perspective_controls` and `lotm_ui_replay` 15/15; a wider batch of eight LOTM, UI and save-adjacent files 68/69 where the one failure was the untagged attribute, since renamed and its test rerun (the rest of that batch was not rerun after the rename; the committer's full suite covers it); `save_compatibility` and `native_save_fixtures` pass; `check:arch` exit 0. Change surface: one core-owner import line, one `registerDutySet` call, two panel ports, new edge `book_world_lotm_domain` to `duties_domain` and `book_world_lotm_duties` (world to shared), no cycle. Not done: HP class duty, swap-with-notice, the shared owed ledger (`readOwedLedger` in `src/owed_ledger_sources.js` could take the projection's ledger rows in one line; not on the touch list), carry across resume or branch (6e records it as undecided), browser run. FLR: source-edited, focused tests pass, not built, no browser.
+
+### Lane D, native smoke of the committed seams (done; two findings)
+
+Scratch worktree of HEAD `958740e92` (the snapshot tip that contains `be24c225c`), built there (bundle sha256 `66a36950928061894048c39d3051f22650ad39f73024b5d47a424910fc456b4b`, the same bundle the shell comparison measured), played through the game MCP with `build.checkout` naming the worktree on every reply, 0 page errors on every compact header, four sessions closed, worktree removed and pruned (`git worktree list` clean). Agent-verified, not human-reviewed.
+
+| Item | What the player saw | Result |
+|---|---|---|
+| FD7 walks | Nighthawk probationer life, 480 pence. Workroom to docks quoted 20 min, docks to lodging 20 min, lodging to workroom 2 min; the clock read 08:00, 08:20, 08:40, 08:42. No fare line anywhere. | Pass for durations and ids. Purse not re-read after the walks, so "zero fare" rests on the absent fare line, not a purse reading. |
+| FD6 pay | The civil-staff life's Work & merit tab shows merit lines and no "Collect a week's salary" button in the sessions played. Source check (coordinator, confirmed): `payCollectEffects`, `registerPayLine` and `purseEffect` have no caller outside their own modules; the pay the player can collect is `collect_pay` in `src/book_world_lotm_lives.js`, which pays through plain `money()`. | Not reached in play, and the seam has no play consumer. The Nov 5 FD6 row overstated this; corrected in the atlas (AT13). |
+| FD9 light | Day 2, 21:00: the clock read "Night · 21:00"; no fog or night line in the scene or event text. Source check (coordinator, confirmed): `lotmLight` is exported from `src/book_world_lotm_events.js` and called by nothing. | Fail as a visible effect; seam without a reader (AT13). |
+| FD1 time refusal | No time-refused action surfaced; walking during a running walk is not a reservation refusal. | Not reached. |
+| FLR5 round trip | `game_save` (340,202 bytes) then `game_reload`: day 2 21:00, Tingen supervised workroom, 1200 pence. `game_export` loaded into a new session: the same three values. | Pass. |
+| Klein developer start | The Moretti flat chain (desk, notebook, mirror, gas meter, lamp) works; the meter took the purse from 1 penny to 0 with one money counter; "You know no other places yet", so no walk in the five minutes played. | Pass for what was reached. |
+
+Open problems from the run: the civil-staff workroom lacked its sign-contract and report buttons and showed Nighthawk merit text with "Tingen probationer branch" (not diagnosed; AT14). A `game_step({days:7})` ran past the MCP's 300 s tool timeout and killed that session (a 1440-minute step took about 78 s); one `game_report_limit` entry was written (ledger 2026-11-06T06:12). About 3,500 game-minutes, 25 minutes wall.
+
+## Worktree inventory (reconcile-project, read-only)
+
+`git worktree list` shows 19 app-made worktrees under `.claude/worktrees/`, all last committed 2026-10-30 (the representation lanes `rep-*` and `great-ritchie`) or 2026-11-03 (`zealous-joliot`, `zorian-s1-slice`). None of the `rep-*` branches is an ancestor of master, yet their changed files mostly match master by content (for example `rep-crafting` and `zorian-s1-slice` differ in 0 files, `rep-rituals` in 1), so they were folded by cherry-pick or squash rather than merged. Files still different from master per worktree: great-ritchie 9, rep-body 11, rep-character-sheet 8, rep-combat 15, rep-family-tree 4, rep-items 4, rep-knowledge 8, rep-maps 8, rep-organizations 5, rep-relationship-web 2, rep-research 8, rep-rituals 1, rep-spacetime 4, rep-talk 3, rep-time 9, rep-worlds 10, zealous-joliot 44, rep-crafting 0, zorian-s1-slice 0. Seven have uncommitted edits. Disposition: inventory only; nothing removed, because "still different" can mean master moved on rather than work lost, and deciding that needs each lane's owner. The two with zero differences and no dirty files (`rep-crafting` has one dirty file; `zorian-s1-slice` has three) are the first candidates for retirement after their dirty files are read. The lane D scratch worktree is this wave's own and is removed at closeout.
+
+## Checks
+
+| Check | Command | Result | Gap |
+|---|---|---|---|
+| Build | `npm run build` on the tree with lanes A-C applied | pass; `dist/bundle.js` sha256 `458610cdc3d56f222fed1656a41c17a354a1ecbc45d8385549f13c8f05574e06` | `dist/` and `index.html` are shared build output and are not committed (as on Nov 5) |
+| Full suite | `npm test` (slot runner, one suite) | 5201 pass, 0 fail, 0 skipped, 513 s | run under load averages above 30 from the lanes; one earlier baseline run was stopped partial |
+| Architecture | `npm run check:arch` | pass; 6 grandfathered main imports, 205 cyclic edges, unchanged; main.js 4 lines under baseline | none |
+| Rules, receipts, direction sync | `npm run check:rules` | PASS, PASS (26 receipts), PASS direction sync | none |
+| Doc slips | `node scripts/check_doc_slips.mjs` | no new hits after rewording four absolutes in this wave's text and one in another session's review doc | none |
+| Native route | lane D on committed HEAD in a scratch worktree | walks pass (durations match quotes), save/reload/export/import pass, 0 page errors; FD6 and FD9 have no play consumer (AT13); FD1 not reached | proves HEAD (FD1/FD6/FD7/FD9), not lanes A-C |
+| Browser at 1920x1080 | not run | FLR2/FLR3 open for lanes A-C | AT9 in the atlas |

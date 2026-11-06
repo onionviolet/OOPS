@@ -9,6 +9,7 @@ import {createHpLeadPanel} from './book_world_hp_lead_ui.js';
 import {registerOwnHoldings,lifeHoldings} from './own_holdings.js';
 import {ladderLabel} from './coin_ladder.js';
 import {readPort} from './ui_ports.js';
+import {registerHpPeopleSource} from './book_world_hp_people_source.js';
 import {registerLocalClockSource} from './today_strip.js';
 import {resolveWorldCalendar,formatCalendar} from './world_calendar.js';
 const LEAD_ID='book.hp.lead';
@@ -41,6 +42,7 @@ export function registerHpLeadDomain(register,getState,ports=null,data){
         return view?{clock:formatCalendar(view,{time:true}),date:view.label}:null;});
     // The life holds nothing of its own to spend or carry (hpLeadLife.items is empty, no resources), so the shell says so.
     if(ports)registerOwnHoldings(`${LEAD_ID}.world`,{purse:'no money of your own',items:'You carry nothing of your own.',body:'Your body here is not the Village hero\'s sheet.'},hpLeadHoldingsReaders());
+    registerHpPeopleSource();
     return register({id:'hp',deps:[],projection:()=>hpLeadProjection(getState(),data),refresh:()=>panel?.render(),
         panels:ports?[()=>{panel=createHpLeadPanel({project:()=>hpLeadProjection(getState(),data),read:ports.read,command:ports.command});}]:[]});
 }

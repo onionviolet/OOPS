@@ -138,6 +138,7 @@ of what those searches surfaced, not a proof that every persistence change has a
 | 2026-10-30 | Cheat core round 2 | Derived presentation, no saved field changed | A | commit `812aef9b6` |
 | 2026-11-04 | Rune bench recarve exchange (`pledges`) | No saved field or schema change: the credit for a replaced strip is derived from the worn strip's own runes, charges and clock. Old saves load and quote identically. Exercised: fresh origin, reload, Export, literal Import at 1920x1080 and 1536x864 (14, 21 px) | A | `src/exchange_ledger.js`, `tests/exchange_bench_browser.mjs` |
 | 2026-11-04 | **World-pack state (`world_packs` slice)** | New optional key; absent loads empty and writes nothing; an older build ignores and drops it on its next save (lossy downgrade, stated); histories survive a crossing, resume and restart (OD5). Full text in section 6d | A | Weibao's 2026-11-04 sequencing approval (relayed in the task brief); [6d](#6d-world-pack-state-slice-2026-11-04-compatibility-decision); `src/world_pack_registry.js`, `src/continuation_state.js` |
+| 2026-11-06 | **Recurring duties (`duties` slice)** | New optional key `duties@1`; absent, foreign or unreadable loads fresh and nothing is owed retroactively; an untouched life writes no key; an older build ignores and drops it on its next save (lossy downgrade, stated). Full text in section 6e | A | FD8 lane brief (2026-11-06); [6e](#6e-recurring-duties-slice-2026-11-06-compatibility-decision); `src/duties_domain.js`, `src/recurring_duties.js` |
 | not dated | Book pack revisions and save deltas | Earlier lead-life design proposal; save/load wiring and its remaining gameplay-writer gap are now recorded in section 6d. No migration step is registered | P (historical proposal) | LSD142-LSD143 in [RULES_INDEX](RULES_INDEX.md) router; `src/world_pack_save.js`; [later slice decision](#6d-world-pack-state-slice-2026-11-04-compatibility-decision) |
 
 Reading the ledger: a row with Auth `A` restates what that lane did; it does not widen the
@@ -229,6 +230,18 @@ Saved fields added, all optional on `motherOfLearning` (the validator accepts th
 - **Not decided:** which gameplay actions call `reveal`, what freezes an edge or exception at runtime, and a first migration step.
 
 **Checked (agent-verified, not human-reviewed).** Focused: `node --test tests/world_pack_state.test.js` (4 pass: no key when unplayed, save/reload round trip, unloaded-pack section kept and bad schema refused, crossing and return keep the latest history; the crossing test fails when the `restore` line is removed). Browser: `BUILD_OUT=<dir> npm run build` then `node tests/world_pack_state_browser.mjs <dir> <out>` at a fresh 127.0.0.1 origin, 1920x1080 headless: reveal in life A, cross to fresh life B (carried), reveal in B, resume A (both kept), Save, reload (identical slice), Export file, cleared origin, literal Import (identical slice), no page errors. Gaps: the writer is a command reached through the `?test_hooks=1` `command` hook, not a played action; one pack (`book.mol`), one instance, people only; `npm test` full gate and `check:arch`/`check:rules` run separately (see the task record).
+
+### 6e. Recurring-duties slice (2026-11-06, compatibility decision)
+
+**Decision (A, FD8 lane brief; AD32 proposal until Weibao names it).** The shared `duties` domain (`src/duties_domain.js`) owns one optional top-level key, `duties: {family:'duties@1', lastDone:{<dutyId>:cycle}, missed:{<dutyId>:count}, closed:{<dutyId>:firstUnsettledCycle}}`. Duty definitions stay in the worlds (Klein's weekly expense claim is the first); the slice stores only what play changed.
+
+- **Old saves:** no migration step. A save without the key, or with a slice of another family or unreadable shape, loads as fresh (`migrateDuties`) and does not throw (default: the reason is that a duty count is play history, not a promise, so a missing record costs nothing to redo; the dial is a later family bump that refuses instead), so nothing is owed for weeks the save never saw: the first tick on a life records where the calendar stands and counts misses only from then on.
+- **Writes:** an untouched life writes no key, so existing saves and fixtures stay byte-identical. Junk counts inside a readable slice are dropped on load.
+- **Newer to older build:** an older build has no `duties` hook, ignores the key and drops it on its next save (lossy downgrade, taken because old-save compatibility is deferred, 2026-10-17, `W`). The cost is that misses and last-attended weeks reset; default, with the dial being a later schema bump that makes older builds refuse.
+- **Crossings:** the slice rides the save envelope, so it follows whichever life the envelope holds; it is not yet carried across resume/branch like `world_packs`. Not decided.
+- **Not decided:** HP-class duties and swap-with-notice effects (no code); whether the owed panel (`readOwedLedger`) also lists duty rows (the projection already exposes ledger rows).
+
+**Checked (agent-verified, not human-reviewed).** Focused: `node --test tests/duties_domain.test.js tests/recurring_duties.test.js`. No build and no browser run.
 
 ## 7. Links
 
