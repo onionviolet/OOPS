@@ -37,6 +37,7 @@ OOPS (Optimistic Progression Simulator) is Weibao's fork of Miktaew's Yet Anothe
 
 - Improve the Proto23-style functional UI first. Weibao found the pictured home unhelpful; prioritise housing information/actions in the existing shell and evaluate spatial views per actual task, not as a general upgrade ([feedback](USER_VISION.md#functional-proto23-style-ui-over-the-pictured-home-2026-11-01), [look owner](../DESIGN.md#selective-2d-exploration-2026-11-01)).
 - Desktop and laptop first, using the full screen with independent panels visible, not condensed. Target 1920x1080 ([why](USER_VISION.md#standing-ui-priority-2026-10-13)).
+- One web codebase; Tauri is the main desktop host from 2026-11-06, adjusted as we learn, with Electron kept runnable meanwhile ([why](USER_VISION.md#tauri-as-the-main-desktop-target-2026-11-06)).
 - Depth goes to book worlds and menus. Frontier and Mistglass stay playable test beds with no new depth of their own, and nothing is deleted ([why](USER_VISION.md#book-worlds-and-menus-first-frontier-and-mistglass-as-test-beds-2026-10-26)).
 - Canon play leads with Harry Potter, D&D and the book worlds; parallel versions start from easy reuse ([why](USER_VISION.md#world-depth-and-canon-first-world-priority-2026-10-13)).
 - Non-lead characters do not need full lives, since the books give too little to go on ([why](USER_VISION.md#cast-lives-how-deep-everyone-elses-life-goes-2026-10-28)).

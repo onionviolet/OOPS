@@ -7338,3 +7338,16 @@ Weibao:
 > consider rules for long term stuff that pplies to others too
 
 Direction: apply the preceding comparison's layered-task guidance through the existing UI rules and making owners. Browsing, inspection/comparison, setup, commitment, actual work/results and reference are task roles that may share a pane; display detail, quick/guided/deep execution and observer knowledge remain distinct. Reuse existing source-informed result suppliers and commands, with different compositions for fixed products, parts, experiments, staged work and alteration. Generalize useful lifecycle rules to longer tasks and other domains without inventing one universal layout, cancellation policy or new making engine. [UI application](UI_RULES.md#task-layers-and-long-running-work-2026-11-04); [implementation/checks](gm/dispatch/crafting-layers-2026-11-04/CHECKPOINT.md).
+
+
+## Tauri as the main desktop target, 2026-11-06
+
+Weibao, after the [measured Electron/Tauri comparison](reviews/shell-comparison-2026-11-06/REPORT.md):
+
+> if wel will switch to tauri anyway, why not do it now and work out the kinks? the game minutes is better I believe
+
+> We can adjust accordingly as needed? Can also just build in all the variety of testing tools that might be needed?
+
+Direction: Tauri becomes the main desktop development target now, adjusted as we learn, with the testing tools the transition needs. This amends AD39 (the web codebase stays; the desktop host changes). Correction recorded with it: the prototype's lower game-minutes rate came from stalls (0.11 game minutes per second on the crowded fixture, saves never completing), not deliberate pacing. A slower clock, if wanted, is a game-side time-scale setting that works in any host.
+
+Proposals, not yet accepted (AD32): migrate desktop features one at a time and keep the Electron host runnable as the fallback until saves, recovery and normal play work under Tauri; explain the prototype's startup and timer stalls before porting features. [Task record](gm/dispatch/tauri-host-2026-11-06/CHECKPOINT.md).

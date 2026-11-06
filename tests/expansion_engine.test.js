@@ -208,3 +208,17 @@ test("the cold fen opens through a ready guide or a probing technique, and refus
     assert.equal(done.gameplay.player.inventory[JSON.stringify({id: "Cooking herbs"})], 3);
     assert.equal(evaluateAction(done.state, registry, "frontier.fen_guided", context()).eligible, false, "the guide's effort is real");
 });
+
+test("rebuilding a registry over registered definitions reuses them instead of cloning (pack registration cost)", () => {
+    const families = ["worlds", "actions", "opportunities", "capabilities", "sources", "rollTables", "techniques"];
+    const sim = Object.keys(registry.simulation).filter(f => registry.simulation[f] instanceof Map);
+    const rebuilt = createContentRegistry({...Object.fromEntries(families.map(f => [f, [...registry[f].values()]])),
+        simulation: {onEnroll: registry.simulation.onEnroll, ...Object.fromEntries(sim.map(f => [f, [...registry.simulation[f].values()]]))}});
+    for(const f of families) for(const [id, d] of registry[f]) assert.equal(rebuilt[f].get(id), d, `${f} ${id}`);
+    for(const f of sim) for(const [id, d] of registry.simulation[f]) assert.equal(rebuilt.simulation[f].get(id), d, `${f} ${id}`);
+    // A fresh, unfrozen definition is still copied and frozen.
+    const raw = {id: "base.frontier"};
+    const own = createContentRegistry({worlds: [raw]});
+    assert.notEqual(own.worlds.get("base.frontier"), raw);
+    assert.ok(Object.isFrozen(own.worlds.get("base.frontier")));
+});

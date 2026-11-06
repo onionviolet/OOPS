@@ -1,0 +1,8 @@
+{
+  "productName": "Yet Another Idle RPG",
+  "version": "0.1.0",
+  "identifier": "local.yairpg.tauri",
+  "build": { "frontendDist": "stub" },
+  "app": { "windows": [], "security": { "csp": null } },
+  "bundle": { "active": false, "icon": ["../resources/img/oops-icon.png"] }
+}

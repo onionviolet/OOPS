@@ -105,6 +105,7 @@ function validatePersonDefinition(d) {
     assert(stableId(d.id) && natural(d.revision) && d.revision > 0 && typeof d.label === "string" && stableId(d.worldId) && typeof d.location === "string" && ["native", "simulation"].includes(d.inventory), "Invalid person binding.");
     if(d.lifePolicy) assert(natural(d.lifePolicy.lifespan) && d.lifePolicy.lifespan > 0 && ["dead", "departed"].includes(d.lifePolicy.ending) && ["refund", "forfeit", "finish"].includes(d.lifePolicy.work), "Invalid authored lifespan/work policy.");
 }
+const registeredSimulation = new WeakSet();
 function freeze(v) {if(record(v) || Array.isArray(v)) {Object.values(v).forEach(freeze); Object.freeze(v);} return v;}
 export function createSimulationRegistry(definitions = {}) {
     const registry = {};
@@ -113,12 +114,14 @@ export function createSimulationRegistry(definitions = {}) {
         registry[family] = new Map();
         for(const d of definitions[family] || []) {
             assert(record(d) && stableId(d.id) && natural(d.revision) && d.revision > 0 && typeof d.label === "string" && !registry[family].has(d.id), `Invalid or duplicate ${family} definition.`);
+            // Already validated, copied and frozen by an earlier registry (pack rebuilds).
+            if(registeredSimulation.has(d)) {registry[family].set(d.id, d); continue;}
             jsonData(d); validatePredicate(d.requires); validatePredicate(d.visibleWhen);
             if(d.audience) assert(family === "commands" && Array.isArray(d.audience) && d.audience.length > 0 && new Set(d.audience).size === d.audience.length && d.audience.every(id => ["$actor","$target"].includes(id) || stableId(id)), "Invalid command audience.");
             for(const key of ["costs", "effects", "onExpire", "onComplete"]) (d[key] || []).forEach(validateSimulationEffect);
             for(const cost of d.costs || []) assert(["item", "resource", "vital", "transfer", "custody", "energy"].includes(cost.type) && (cost.type !== "energy" || cost.operation === "use") &&
                 (!["item", "resource", "vital"].includes(cost.type) || typeof cost.amount === "object" || cost.amount < 0), "Costs must reserve existing means.");
-            registry[family].set(d.id, freeze(copy(d)));
+            const frozen = freeze(copy(d)); registeredSimulation.add(frozen); registry[family].set(d.id, frozen);
         }
     }
     for(const d of registry.situations.values()) validateSituationDefinition(d);

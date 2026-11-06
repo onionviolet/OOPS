@@ -350,14 +350,19 @@ function validateRule(rule) {
     }
 }
 
+const registeredContent = new WeakSet();
+
 export function createContentRegistry({worlds = [], actions = [], opportunities = [], capabilities = [], sources = [], rollTables = [], techniques = [], simulation = {}}) {
     const register = definitions => {
         const map = new Map();
         for(const definition of definitions) {
             check(id(definition.id) && !map.has(definition.id), "Content needs unique stable IDs.");
+            // A definition this function already copied and froze is reused, not cloned
+            // again: each content pack rebuilds a combined registry over all earlier ones.
+            if(registeredContent.has(definition)) {map.set(definition.id, definition); continue;}
             const copy = clone(definition);
             const freeze = value => {if(object(value) || Array.isArray(value)) {Object.values(value).forEach(freeze); Object.freeze(value);}};
-            freeze(copy); map.set(copy.id, copy);
+            freeze(copy); registeredContent.add(copy); map.set(copy.id, copy);
         }
         return map;
     };
