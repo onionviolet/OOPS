@@ -161,9 +161,9 @@ Numenera; Eclipse Phase; Ironsworn; Godbound free; Rifts Megaverse Builder.
 | DL16 | Pendragon core; Burning Wheel Gold | Generational play and inheritance; skills that improve by use |
 | DL17 | Torg Eternity core; Traveller core | Multi-reality rules; trade and careers |
 | DL18 | WFRP 4e Winds of Magic; Exalted Essence; Spheres of Might | Magic as a society; mortal-to-exalted progression; martial counterpart to held Spheres of Power |
-| DL19 | Starforged core; Mythic Game Master Emulator 2e; Ironsworn: Delve | Solo procedures for generated play |
-| DL20 | Kingdom (Ben Robbins); Forbidden Lands; RuneQuest core | Community decisions; survival and stronghold; cults and culture |
-| DL21 | The Strange: In Translation, Into the Outside; Invisible Sun | Traveler options and recursion building; occult society |
+| DL19 | Starforged core; Mythic Game Master Emulator 2e; Ironsworn: Delve | Solo procedures for generated play **Write-back 2026-11-06:** Starforged Rulebook held 2026-11-05 (md5-checked); Mythic and Delve not checked. |
+| DL20 | Kingdom (Ben Robbins); Forbidden Lands; RuneQuest core | Community decisions; survival and stronghold; cults and culture **Write-back 2026-11-06:** Kingdom 2nd Edition, Forbidden Lands Player's Handbook and RuneQuest: Roleplaying in Glorantha held 2026-11-05. |
+| DL21 | The Strange: In Translation, Into the Outside; Invisible Sun | Traveler options and recursion building; occult society **Write-back 2026-11-06:** Invisible Sun (epub) held 2026-11-05; The Strange core not found (2026-11-05). |
 
 ## W3. Royal Road and progression fantasy (new)
 
@@ -191,7 +191,7 @@ RR origin below is from memory; tag a row RR only after its listing URL is check
 | Code | Item | Why |
 |---|---|---|
 | DL31 | Jacques Gernet, *Daily Life in China on the Eve of the Mongol Invasion* | Household, trades and city life for cultivation worlds (lead O6) |
-| DL32 | Ryan North, *How to Invent Everything* | Rebuilding technology from scratch, for crafting and knowledge carry-over |
+| DL32 | Ryan North, *How to Invent Everything* | Rebuilding technology from scratch, for crafting and knowledge carry-over **Write-back 2026-11-06:** *How to Invent Everything* held 2026-11-05. |
 | DL33 | Ian Mortimer, *The Time Traveller's Guide to Elizabethan England* | Second period guide; the medieval one is held |
 
 ## W6. Gaps in held series
@@ -204,8 +204,8 @@ Translator routes are in AR19-AR27; **T** = fan translator site, captured paced,
 | DL34 | ~~Re:Zero LN 1, 2, 9~~ held all along (scan missed "Volume 01" titles). New: WN arcs 5-10 | T: Witch Cult | DONE: arcs 5, 6 (complete, `bfc232bd8c65`), 8, 9, 10 registered; arc 7 115/116 (chapter 63 "Sparka" has no sitemap entry) |
 | DL35 | ~~Fate/Zero 2-4~~ held (Calibre 150, 160, 161; scan missed "FateZero") | none | DONE as alternate: Baka-Tsuki vols 2-4 and Another Story staged as EPUBs, not registered |
 | DL36 | Tensura LN 1-15 (16 held) | A/Z | No fan web-novel translation found; 15 files, take a few at a time |
-| DL37 | No Game No Life 1-3 | A, or T if Baka-Tsuki pages survive | AR21 |
-| DL38 | Lord El-Melloi II Case Files 1-3; Bookworm Official Fanbook 1 | A/Z | No fan translation found |
+| DL37 | No Game No Life 1-3 | A, or T if Baka-Tsuki pages survive | AR21 **Write-back 2026-11-06:** Vols 1, 2 and 4 held (1-2 fetched 2026-11-05); vol 3 not confirmed. |
+| DL38 | Lord El-Melloi II Case Files 1-3; Bookworm Official Fanbook 1 | A/Z | No fan translation found **Write-back 2026-11-06:** Case Files 1-4 held (1-3 fetched 2026-11-05); Bookworm fanbook not checked. |
 | DL39 | Next volumes listed on Z-Library (scan of 41 series, 2026-10-30): Mark of the Fool 9-10; Randidly 14-15; Chrysalis 8-9; Millennial Mage 9-13; Labyrinth of the Mad God 3; You Are Summoned 6; Wish Upon the Stars 9; Bookworm Official Fanbook 8; El-Melloi II Case Files 6 | A/Z | Numbers read from titles; check each record before downloading |
 | DL40 | Earlier gaps the scan found: Life of a Dungeon Core 1-2; Re:Zero LN 11-18, 23-24; Tensura LN 18-20; No Game No Life 7, 9 | A/Z (Re:Zero also T) | Dungeon Core 1-2 sit before the held 3-6 |
 | DL41 | Open series where only book 1 is held (DL4 plus Dungeon Crawler Carl, Cinnamon Bun): Z-Library lists up to Wandering Inn 18, He Who Fights 13, Mage Errant 8, Dungeon Crawler Carl 8, Cinnamon Bun 7, Arcane Ascension 6, Menocht Loop 6 | A/Z, 2-3 at a time | Long; pick by which world needs them | <!-- slip-ok: Factual holdings, staging or title metadata at this snapshot; not a world design restriction. -->
@@ -222,8 +222,8 @@ volumes are on disk.
 | Code | File in `~/Downloads` | Covers |
 |---|---|---|
 | DL42 | *The Strange: In Translation* (PDF; the tabletop-library copy is damaged too) | **Damaged** (qpdf: no trailer). Re-download; half of DL21. *Into the Outside* is already Calibre 189 |
-| DL43 | *Warhammer Fantasy Roleplay 4e Core* (PDF, 3 MB) | **Damaged** (no page tree; a real core runs about 100 MB). Re-download; base for DL18 |
-| DL44 | *Warhammer 40,000 Core Book 9th Edition*; *Mutants & Masterminds Hero's Handbook 4th Edition Playtest* | **Both damaged.** Re-download if wanted. Z-Library search finds none of DL42-DL44; try Anna's search in Chrome |
+| DL43 | *Warhammer Fantasy Roleplay 4e Core* (PDF, 3 MB) | **Damaged** (no page tree; a real core runs about 100 MB). Re-download; base for DL18 **Write-back 2026-11-06:** WFRP 4e core (Cubicle 7) held 2026-11-05. |
+| DL44 | *Warhammer 40,000 Core Book 9th Edition*; *Mutants & Masterminds Hero's Handbook 4th Edition Playtest* | **Both damaged.** Re-download if wanted. Z-Library search finds none of DL42-DL44; try Anna's search in Chrome **Write-back 2026-11-06:** WH40K Core Book 9th and M&M Hero's Handbook held 2026-11-05. |
 | DL45 | *A Soldier's Life* Book 4 (`.mobi`) | Known; a converted copy is private (library index) |
 
 Registered in Source Library on 2026-10-30: *Bookworm* Part 5 Volume 2 (second copy), the two
@@ -349,11 +349,11 @@ fit below is inferred from linked publisher/author descriptions unless stated ot
 | DL64 | Slumrat Rising / RR 3 | Power access is controlled by a corporation; progression is tied to class and material dependence, useful WG2/WG3 | Unheld. Catalogue finds 1-4 and 6; resolve 5 before calling a collected run complete. [Publisher premise](https://podiumentertainment.com/series/971/slumrat-rising) |
 | DL65 | Forty Millenniums of Cultivation / translated CN 4 | Cultivation at a technological/civilizational scale; potentially useful against RI's resource and ideological lens | Unheld. Full-title English candidate was not acquired because the member API reported no downloads left; its mirror availability remains untested. Older explicitly partial 1-2711 files should not be substituted as complete. [Publisher](https://www.webnovel.com/book/6838665402001705) lists 3,523 entries, while main-story and extras numbering need reconciliation |
 | DL66 | Virtuous Sons / RR 4 | Greco-Roman cultivation offers a distinct cultural basis for progression; useful WG5 comparison | Book 2 acquired beside held book 1. No book 3 found in this catalogue search; no claim of current serial completeness. [Author RR listing](https://www.royalroad.com/fiction/41330/virtuous-sons) |
-| DL67 | Overlord / LN 2 | Nonhuman institutions, asymmetric power and subordinate perspectives; useful faction/world reference, with a dominant lead that changes the progression comparison | Unheld. [Publisher's LN series](https://yenpress.com/series/overlord) lists through 16. Verify novel format and every volume before intake; manga numbering is separate |
-| DL68 | Infinite Dendrogram / LN 3 | A deliberately simulated world and individualized progression; candidate for distinct player lives and world inhabitants | Unheld. [Publisher](https://j-novel.club/series/infinite-dendrogram). Check full current English run before acquiring; publisher listing is not a proof that every ability is balanced or every inhabitant is fully modeled |
-| DL69 | Ishura / LN 4 | An unusual option: many powerful actors with different capabilities, useful to study competing mechanisms and faction perspectives | Unheld. [Publisher](https://yenpress.com/series/ishura) lists 10 novel volumes; exact released-vs-forthcoming boundary needs product dates before bulk intake. Not selected merely for high power levels |
+| DL67 | Overlord / LN 2 | Nonhuman institutions, asymmetric power and subordinate perspectives; useful faction/world reference, with a dominant lead that changes the progression comparison | Unheld. [Publisher's LN series](https://yenpress.com/series/overlord) lists through 16. Verify novel format and every volume before intake; manga numbering is separate **Write-back 2026-11-06:** Held in large part (vols 4, 8, 10-14 shown 2026-11-05; confirm range with library_coverage). |
+| DL68 | Infinite Dendrogram / LN 3 | A deliberately simulated world and individualized progression; candidate for distinct player lives and world inhabitants | Unheld. [Publisher](https://j-novel.club/series/infinite-dendrogram). Check full current English run before acquiring; publisher listing is not a proof that every ability is balanced or every inhabitant is fully modeled **Write-back 2026-11-06:** Held in large part (vols 1, 10-16 shown 2026-11-05, plus 1-5 earlier; confirm range). |
+| DL69 | Ishura / LN 4 | An unusual option: many powerful actors with different capabilities, useful to study competing mechanisms and faction perspectives | Unheld. [Publisher](https://yenpress.com/series/ishura) lists 10 novel volumes; exact released-vs-forthcoming boundary needs product dates before bulk intake. Not selected merely for high power levels **Write-back 2026-11-06:** Held in large part (vols 1, 4-10 shown 2026-11-05; confirm range). |
 | DL70 | The Gods Are Bastards / RR 5 | Religion, bureaucracy and industrial change coexist; useful WG1/WG3/WG5 | Unheld. [Author](https://www.patreon.com/ddwebb/posts/status-of-and-147474165) distinguishes edited book releases from older web books; do not mix their numbering. [RR premise](https://www.royalroad.com/fiction/72751/the-gods-are-bastards) |
-| DL71 | The Irregular at Magic High School / LN 5 | A candidate for technical magic embedded in school and political institutions | Unheld. [Publisher](https://yenpress.com/series/the-irregular-at-magic-high-school). Lower acquisition order than the stronger gaps above; technical consistency and full translated coverage remain to check |
+| DL71 | The Irregular at Magic High School / LN 5 | A candidate for technical magic embedded in school and political institutions | Unheld. [Publisher](https://yenpress.com/series/the-irregular-at-magic-high-school). Lower acquisition order than the stronger gaps above; technical consistency and full translated coverage remain to check **Write-back 2026-11-06:** Vols 1-6 held 2026-11-05; 7+ not fetched. |
 
 ### More to consider: dispositions
 
@@ -509,13 +509,13 @@ first; they cover much of this at no cost.
 | DL72 | Level Up: Advanced 5e system reference document | A strife track for mental strain beside fatigue; journey and supply rules; a richer condition ladder than base 5e | Free, open licence; official site |
 | DL73 | Tales of the Valiant / Black Flag reference document (Kobold Press) | A 5e variant's afflictions and conditions under ORC | Free, ORC |
 | DL74 | Starfinder 2e records on Archives of Nethys | Sci-fi afflictions and disguise technology | Free; the authorized Archives of Nethys browser route ([receipt](d20/D20_RULES_COLLECTION_2026-11-03.md)) |
-| DL75 | *Warhammer Fantasy Roleplay 4e* core, plus *Up in Arms* | The most detailed fantasy diseases and infections; weapon qualities and flaws as a property system | Re-download of DL43 for the core; *Up in Arms* new. A/Z, else buy |
-| DL76 | *Shadowrun* (current edition core) | Fake identities rated against scanner ratings: the credentials-versus-checker layer as numbers (PJI15-16) | A/Z, else buy |
-| DL77 | *Night's Black Agents* (Gumshoe) | A cover identity as a resource spent down by use | A/Z, else buy |
-| DL78 | *HârnMaster* (core and its injury rules) | Injury, bleeding and infection checked daily | A/Z, else buy |
-| DL79 | *Call of Cthulhu* 7e Keeper Rulebook | Sanity as an affliction of the mind, with breaking points | A/Z, else buy |
-| DL80 | *Mothership* Player's Survival Guide | Stress and panic as a compact mind-affliction ladder | Free player guide from the publisher; the warden book A/Z or buy |
-| DL81 | *Mutants & Masterminds* 3e Gamemaster's Guide | Worked uses of the Affliction effect; the Hero's Handbook and Power Profiles are already held | A/Z, else buy |
+| DL75 | *Warhammer Fantasy Roleplay 4e* core, plus *Up in Arms* | The most detailed fantasy diseases and infections; weapon qualities and flaws as a property system | Re-download of DL43 for the core; *Up in Arms* new. A/Z, else buy **Write-back 2026-11-06:** WFRP core and *Up in Arms* both held 2026-11-05. |
+| DL76 | *Shadowrun* (current edition core) | Fake identities rated against scanner ratings: the credentials-versus-checker layer as numbers (PJI15-16) | A/Z, else buy **Write-back 2026-11-06:** Shadowrun Sixth World core held 2026-11-05. |
+| DL77 | *Night's Black Agents* (Gumshoe) | A cover identity as a resource spent down by use | A/Z, else buy **Write-back 2026-11-06:** Searched 2026-11-05: only the Redacted excerpt found, no core book. |
+| DL78 | *HârnMaster* (core and its injury rules) | Injury, bleeding and infection checked daily | A/Z, else buy **Write-back 2026-11-06:** Searched 2026-11-05: no HârnMaster core found. |
+| DL79 | *Call of Cthulhu* 7e Keeper Rulebook | Sanity as an affliction of the mind, with breaking points | A/Z, else buy **Write-back 2026-11-06:** Held 2026-11-05. |
+| DL80 | *Mothership* Player's Survival Guide | Stress and panic as a compact mind-affliction ladder | Free player guide from the publisher; the warden book A/Z or buy **Write-back 2026-11-06:** Player's Survival Guide held 2026-11-05. |
+| DL81 | *Mutants & Masterminds* 3e Gamemaster's Guide | Worked uses of the Affliction effect; the Hero's Handbook and Power Profiles are already held | A/Z, else buy **Write-back 2026-11-06:** Searched 2026-11-05: only 1-2 MB fragments of the GM's Guide. |
 
 Order (proposal): the free three (DL72-DL74) first, then DL75 and DL76, which fill
 the largest gaps in the two palettes; the rest when a world or pass needs them.
@@ -532,14 +532,14 @@ Weibao: "send that into the to be obtained books, check reddit or other forms fo
 | Code | Source | Why | Route |
 |---|---|---|---|
 | DL82 | Foundry VTT PF1 system packs and PCGen Pathfinder data | Every PF1 spell with class lists (3,028 records), plus feats, classes and items | **Done 2026-11-04** (Weibao: "clone"): see the [d20 receipt](d20/D20_RULES_COLLECTION_2026-11-03.md) |
-| DL83 | *The Guide to Glorantha* (two volumes); *Cults of RuneQuest* | Called the best setting on the forums. Myth and cult magic would make a mechanically distinct world | A/Z, else buy |
+| DL83 | *The Guide to Glorantha* (two volumes); *Cults of RuneQuest* | Called the best setting on the forums. Myth and cult magic would make a mechanically distinct world | A/Z, else buy **Write-back 2026-11-06:** *Cults of RuneQuest* held 2026-11-05; *Guide to Glorantha* skipped for size (736/790 MB). |
 | DL84 | *HârnWorld* and the Hârn kingdom modules | Named again and again as the most granular setting: low magic, with social and economic detail | A/Z, else buy |
-| DL85 | *Empire of the Petal Throne* (Tékumel) | Very old, very dense, and nothing like European fantasy | A/Z, else buy |
-| DL86 | Mystara Gazetteers GAZ1-14 | Detailed nations, factions and common people; Immortals take the place of gods | A/Z, else buy |
-| DL87 | *Pathfinder Lost Omens World Guide*; PF1 *Inner Sea World Guide* | Golarion, the biggest setting by volume, as places and factions | A/Z, else buy |
-| DL88 | *Forgotten Realms Campaign Setting* (3e); *Grand History of the Realms* | The setting with the most material in total, which D&D's canon-first world uses | A/Z, else buy |
-| DL89 | *The Dark Eye* 5e core (Aventuria) | Perhaps the Realms' rival for word count; much of it is German-only | A/Z, else buy |
-| DL90 | *Ptolus: City by the Spire* | One city and its dungeon in 672 pages, a model for depth at settlement scale | A/Z, else buy |
+| DL85 | *Empire of the Petal Throne* (Tékumel) | Very old, very dense, and nothing like European fantasy | A/Z, else buy **Write-back 2026-11-06:** Searched 2026-11-05: no core book found. |
+| DL86 | Mystara Gazetteers GAZ1-14 | Detailed nations, factions and common people; Immortals take the place of gods | A/Z, else buy **Write-back 2026-11-06:** Searched 2026-11-05: only the Northern Reaches PDF found. |
+| DL87 | *Pathfinder Lost Omens World Guide*; PF1 *Inner Sea World Guide* | Golarion, the biggest setting by volume, as places and factions | A/Z, else buy **Write-back 2026-11-06:** Both held 2026-11-05. |
+| DL88 | *Forgotten Realms Campaign Setting* (3e); *Grand History of the Realms* | The setting with the most material in total, which D&D's canon-first world uses | A/Z, else buy **Write-back 2026-11-06:** Both held 2026-11-05. |
+| DL89 | *The Dark Eye* 5e core (Aventuria) | Perhaps the Realms' rival for word count; much of it is German-only | A/Z, else buy **Write-back 2026-11-06:** Core held 2026-11-05. |
+| DL90 | *Ptolus: City by the Spire* | One city and its dungeon in 672 pages, a model for depth at settlement scale | A/Z, else buy **Write-back 2026-11-06:** Searched 2026-11-05: only the player's guide found. |
 | DL91 | PF1 Core Rulebook, Advanced Player's Guide, Ultimate Magic, Ultimate Combat, Advanced Class Guide, Occult Adventures | Optional: DL82 already covers the rules data | A/Z |
 
 Order (proposal): DL83 and DL84 first, because they add the most distinct kinds of world. Then DL87 and DL88 for volume. Run DL91 only if a reader needs book layout or rules text that DL82 lacks.
