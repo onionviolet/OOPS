@@ -67,6 +67,22 @@ New leaf `src/batch_identity.js` (`makeBatchRef`, `splitPortion` conserving dose
 
 New leaf `src/known_target_facts.js` (`knownTargetFacts`, `knownTargetFactValues`, `requiresObservation`; returns only the actor's recorded `person.<id>.*` observations with stage, time and cause from the existing knowledge store). Edits: `src/simulation_effects.js` (the `person.<id>.*` copy in `simulationFacts` now calls `knownTargetFactValues`; same keys and values; one new import edge to a leaf) and `src/rival_memory.js` (`RIVAL_OBSERVATION_KEY`, optional `observed` argument on `appraisalMeans` and `rivalBrief`; `rivalCombatant` never reads it, so the hidden margin applies either way). Tests: `tests/known_target_facts.test.js` (4). Coordinator check: diff read; `node --test` known_target_facts + rival_memory 7/7 (lane ran 114/114 across the 18 files importing `simulation_effects`). **Findings.** (1) No play caller: the only runtime caller of `rivalBrief` is `src/tempo_fight_domain.js:134`, which another session has uncommitted edits to, so it was left alone; the wiring is one line, `rivalBrief(facts, knownTargetFacts(state,'player','roadRival'))`, and nothing writes `person.roadRival.strength` yet. (2) The adapter wraps the observation path that already existed; raw `target.*` facts (life, body, vitals, items, conditions) are still exposed to rules that already use them, so the U06 gap narrows to a rule-authoring policy plus this seam, not a closed fence. Appraisal and price rules must be written against `requiresObservation` keys.
 
+## Native walk (headless, game MCP, scratch worktree of HEAD `cb382d4a2`, bundle b213f540cbbabed76274ac49ad2154320eabaadba25d85afcff528cbd5e311b9)
+
+Agent-verified, not human-reviewed. Proves HEAD `cb382d4a2` (the three wave commits), not the later one-line rival wiring `1568691d5`. Fresh Village life, seed 11, no private pack, no page errors. Weibao asked for the walk on 2026-11-06 after the Tauri host landed (`4b4465412`).
+
+| Item | What the player saw | Result |
+|---|---|---|
+| W1 fever healer (M2) | Card "Sela's child has a fever. The healer can visit, or you can bring the message yourself." with the three choices unchanged; chose the healer; inventory "11C 2W" to "10C 6W" (6 coins); log "Send for the healer · 6 coins" then "resolved" | Pass |
+| W1 relationship line | "Sent for the healer" not seen on the screens opened; no Sela relationship view found | Not confirmed |
+| W2 interrupted craftsman (M3) | `village.interrupt_work` never offered: the craftsman unlocks late in the elder's questline behind field combat | Not reached |
+| W3 persistence | Day 6, 15:35, Village, "10C 6W", fever card "resolved" identical in the original session, after reload, and in a new session after export and import | Pass |
+| W4 loop restart replay (M6) | Scenarios listed (fresh, fresh-day3, fresh-week, perf) have no loop row; Worlds panel offered only "A Soldier's Life" | Not reached |
+
+Limit report filed once (craftsman and loop starts unreachable headlessly without the elder chain and field combat). About 6 game days stepped. Scratch worktree removed.
+
+**What this leaves.** M2 has natural-route evidence for the fever choice and its persistence. M3 and M6 have only unit and golden-hash evidence; both need a scenario recipe (a craftsman-ready Village save, a Frontier or Zorian loop save) added to `scripts/headless/scenarios.mjs` before a walk can reach them. A and D have no walkable consumer yet. Delivery stays "implemented, below floor" for M1, M3, M6 and U06; M2 has a natural-route pass for one choice but the floor's other lines are unchecked.
+
 ## Resume block (unattended run, 2026-11-06)
 
 "lets work on these to completion" (Weibao, 2026-11-06, after the reconciliation).
@@ -75,8 +91,8 @@ New leaf `src/known_target_facts.js` (`knownTargetFacts`, `knownTargetFactValues
 - State of the steps: residue lanes returned and folded into the audit; wave selected; lanes A-D returned and recorded (A, D have no play caller); fold gates run: build 5a0e0b58, npm test 5248/5248 (includes another session's uncommitted edits), check:arch no growth, check:rules pass, check_doc_slips no new hits. Committed as 353396d41 (own paths, no push). No native walk yet.
 - Last evidence: build 5a0e0b588b9c, npm test 5248/5248 on the folded tree (430 s), check:arch growth -2/-1/0, check:rules pass. Not run: native game walk, browser at 1920x1080, persistence save/reload/import (lane B changes the continuation slice; only JSON round trips tested).
 - Failed approaches: none.
-- Hold (Weibao, 2026-11-06): "wait till move to tauri". Run no native walk and wire no further consumer until the Tauri host move; the walk then runs on the Tauri harness (`scripts/tauri/harness.mjs`). Earlier text of the next action follows.
-- Next useful action: wire A's one line in `tempo_fight_domain.js` when its other session commits; decide D's consumer (readout vs golden fixture); then one headless walk of the Village fever, an MoL restart replay and the Mara brief on a fresh origin with save/reload/import.
+- Hold lifted: Weibao 2026-11-06 "Yes, run walk" after `4b4465412`. Walk done (see Native walk). Earlier hold text: "wait till move to tauri".
+- Next useful action: add two headless scenario recipes (craftsman-ready Village save; Frontier or Zorian loop save) so W2 and W4 can be walked; give D a readout consumer once the LOTM files other sessions are editing are committed; give A's observation key a writer (a scout action). A's call site is wired (`1568691d5`).
 - Usage pacing: read 2026-11-06 evening: 5-hour 2%, weekly 60%. Continue while weekly under 75% and 5-hour under 85%; at 5-hour 85% wait for reset; at weekly 75% stop and leave this block current.
 - Stop condition: commit hashes recorded for lanes A-D, or a blocker that Weibao must clear. Reached? code lanes yes (353396d41); native walk and the two open consumer wirings (A: tempo_fight_domain line, D: LOTM readout or golden fixture) not done.
 
