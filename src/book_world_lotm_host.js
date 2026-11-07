@@ -22,6 +22,7 @@ import {installRoleDefinitions} from './recurring_people.js';
 import {lotmResignPlan,CIVIL_RESIGN_COST} from './book_world_lotm_positions.js';
 import {GUARD_POSITION_ID,GUARD_RESIGN_COST,GUARD_OFFER,guardSignQuote,guardBegin,guardStand,guardCollect,guardResignPlan,guardView,guardSnapshot,guardRestore,guardPayWords} from './book_world_lotm_guard.js';
 import {LOTM_GUARD_DUTY_ID} from './book_world_lotm_duties.js';
+import {noteExpenseFiled} from './book_world_lotm_colleagues.js';
 import {know} from './book_world_lotm_kit.js';
 import {groupsOf,groupLines} from './organizations.js';
 import './book_world_lotm_organizations.js'; // registers the LOTM groups source
@@ -310,6 +311,13 @@ export function createLotmHost(ports){
    persist(plan);}catch(e){guardRestore(prior);throw e;}
   return trouble?'You stood the watch. Thieves are at the warehouse door.':'You stood the watch. A quiet night; the week is yours to collect when it closes.';
  }
+ // FD8 + AT17 prototype: file the week's expense application (the duty throws when this week is already filed). The first filing leaves Dunn's note,
+ // in one save; later weeks change only the duties slice, as before.
+ function fileExpense(){
+  writable();const plan=base(state(),ports.context()),noted=noteExpenseFiled(plan,registry);
+  domainRegistry.command('duties','attend')({dutyId:'lotm.expense_claim'});
+  if(noted)persist(plan);
+ }
  function collectGuardPay(){
   writable();const s=state(),prior=guardSnapshot(),plan=base(s,ports.context());
   const owed=guardCollect(s);
@@ -391,7 +399,7 @@ export function createLotmHost(ports){
   return {enrolled:true,...(lotmCastLife(s)?{resident:true,waits:waits(s),elsewhere:castElsewhere(s),localClock:castClockLine(s),sky:skyLine(s)}:{}),skills,pausedLife:ports.pausedLife?.()||null,termDay:Math.floor(s.clock/1440),guard:guardView(s),groups:groupLines(groupsOf(s)),merit,bench,broker:brokerView(s,f),places,marketHeld,cause:causeView(f),profile:profileKeyOf(s),entryProfile:s.lotm?.entryProfile,role:f['lotm.roleName'],clearance,district,doseLabels,beyonder:!!(f['lotm.sourceSupported']||[...pathwayRows,...generatedRows].some(r=>f[`lotm.${r.key}Supported`])),switchNotice:LOTM_SWITCH_NOTICE,at:castPlaceLabel(at),supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:lotmMeters(e),path,actingGuidance,holds,issuedDose:allocatedDoseView(s,holds.dose),actions,moves,jobs,records};
  }
  function restoreSleep(){const s=state(),job=s.lotm&&sleepJob(s);if(!ports.restoring()||!job||!sleepingCommand(job.commandId))return false;ports.beginSleep();return true;}
- return {enroll,cross,resign,signGuard,standWatch,collectGuardPay,act,cancel,move,wake,tick,view,purseBalance,payDues,payFine,heldGoods,seizeGoods,sentencePlan,startable,restoreSleep,upcoming:()=>lotmUpcoming({state:ports.state(),days:getPrivateLotmCast()?.bindings?.days||[]}),inspectConstraints:()=>castRevisionReport(state())};
+ return {enroll,cross,resign,signGuard,standWatch,fileExpense,collectGuardPay,act,cancel,move,wake,tick,view,purseBalance,payDues,payFine,heldGoods,seizeGoods,sentencePlan,startable,restoreSleep,upcoming:()=>lotmUpcoming({state:ports.state(),days:getPrivateLotmCast()?.bindings?.days||[]}),inspectConstraints:()=>castRevisionReport(state())};
 }
 
 export function castClockLine(s){return castLocalClock(s)?.clock||'';}
