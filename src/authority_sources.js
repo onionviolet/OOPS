@@ -1,6 +1,7 @@
 // World adapters for authority.js: bounds and knownness read from owners that already exist (no save key, no write). Importing registers them.
 import {registerAuthoritySource, registerKnownness, setKnownnessHalfLife, identityOf, PLAYER_IDENTITY} from './authority.js';
 import './authority_sources_lotm.js';
+import {authorityDials} from './world_society_sheet.js';
 import {loot_sold_count} from './market_saturation.js';
 import {HOME_PLACES, HOME_SITE} from './home_content.js';
 import {LOTM_IDS} from './book_world_lotm_ids.js';
@@ -22,7 +23,9 @@ registerKnownness('village', (state, ctx) => {
     return rows;
 });
 // F4 dial: a village market forgets a stranger within a season. Applies to dated rows only; today's village readers are undated, so nothing fades yet.
-setKnownnessHalfLife('village', 30, 'A small village market has few faces and talks about the newest ones; a name from a season ago is half forgotten.');
+// The sheet may state this dial for 'village' (world_society_sheet.js `authority`); no row today, so the default stands.
+const villageDial = authorityDials('village').halfLife;
+setKnownnessHalfLife('village', villageDial?.days ?? 30, villageDial?.reason ?? 'A small village market has few faces and talks about the newest ones; a name from a season ago is half forgotten.');
 export const WILD_SITE = HOME_SITE;
 
 // LOTM, Tingen: the city's claim stops at the city's own places (a "Tingen ..." location); its knownness readers (wages, divination fees) are in authority_sources_lotm.js.

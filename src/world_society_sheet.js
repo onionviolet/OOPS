@@ -11,8 +11,30 @@ const KIT = 'docs/worlds/WORLD_CORE_KIT_2026-10-14.md';
 // authored/palette rows carry `owner`; a missing row carries `home`, where its data would live once written. `note` is one plain line.
 const f = (status, locator, note, palette = null) => Object.freeze({status, ...(status === 'missing' ? {home: locator} : {owner: locator}), ...(palette ? {palette} : {}), note});
 
+// Optional `authority` on a sheet (FD14's first runtime reader, read by authority_sources*.js): per authority id, how fast it forgets (`halfLifeDays`) and how
+// public each kind of post is (`postPublicity`, by rank). Each dial is {value, reason}; the code keeps the default, and a missing or malformed dial uses it.
+const a = (value, reason) => Object.freeze({value, reason});
+const txt = v => typeof v === 'string' && v.trim() !== '';
+const dialOk = (d, valid) => !!d && typeof d === 'object' && txt(d.reason) && valid(d.value);
+export const authorityDialProblem = dial => dial?.halfLifeDays !== undefined && !dialOk(dial.halfLifeDays, v => Number.isFinite(v) && v > 0) ? 'halfLifeDays needs a positive number and a reason'
+    : dial?.postPublicity !== undefined && !(dial.postPublicity && typeof dial.postPublicity === 'object' && Object.values(dial.postPublicity).every(d => dialOk(d, v => Number.isFinite(v) && v >= 0))) ? 'postPublicity needs a number >= 0 and a reason per rank' : null;
+// Validated dials for one authority id, taken from the first sheet that declares it. Each dial is checked on its own, so one bad entry drops only itself.
+export function authorityDials(authorityId, sheets = SHEETS) {
+    const dial = sheets.find(s => s?.authority && Object.hasOwn(s.authority, authorityId))?.authority[authorityId] ?? {}, out = {halfLife: null, postPublicity: {}};
+    if(dialOk(dial.halfLifeDays, v => Number.isFinite(v) && v > 0)) out.halfLife = {days: dial.halfLifeDays.value, reason: dial.halfLifeDays.reason};
+    if(dial.postPublicity && typeof dial.postPublicity === 'object') for(const [rank, d] of Object.entries(dial.postPublicity)) if(dialOk(d, v => Number.isFinite(v) && v >= 0)) out.postPublicity[rank] = d.value;
+    return out;
+}
+
 export const SHEETS = Object.freeze([
-    Object.freeze({id: 'tingen', label: 'Tingen (Klein, early Tingen lives)', worldId: 'book.lotm.tingen', fields: Object.freeze({
+    Object.freeze({id: 'tingen', label: 'Tingen (Klein, early Tingen lives)', worldId: 'book.lotm.tingen', authority: Object.freeze({tingen: Object.freeze({
+        halfLifeDays: a(60, 'A city office keeps ledgers, but one clerk or one fortune-teller among a crowd is remembered for weeks, not years.'),
+        postPublicity: Object.freeze({
+            clerk: a(2, 'A clerk is on the city\'s books and seen at the office.'),
+            'night watchman': a(1, 'A hired guard is known to one employer and the watch on that stretch of river.'),
+            probationer: a(0, 'A probationer\'s Beyonder post is kept off the books on purpose.'),
+        }),
+    })}), fields: Object.freeze({
         money: f('authored', 'src/book_world_lotm_pay.js#PAY_LINES', 'Pence denominations (LOTM_PENCE) and pay lines are code; the rent figure is an assumed dial, not a source price.'),
         calendar: f('authored', 'src/book_world_lotm_duties.js#LOTM_DUTIES', 'A weekly cycle (expense claim, rent) on world_rhythm; market day and service day from book_world_lotm_deck.js (week phase authored); no festivals yet.'),
         institutions: f('authored', 'src/book_world_lotm_merit.js#NIGHTHAWKS', 'Nighthawks with a merit store, and three churches\' districts in book_world_lotm_districts.js.'),

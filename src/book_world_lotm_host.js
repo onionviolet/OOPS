@@ -17,6 +17,7 @@ import {simulationFacts,applySimulationEffects,inventory} from './simulation_eff
 import {withFactsFrame} from './facts_frame.js';
 import {purseEffect} from './own_holdings.js';
 import {domainRegistry} from './domain_registry.js';
+import {registerPositionsPort} from './positions_domain.js';
 import {lotmResignPlan,CIVIL_RESIGN_COST} from './book_world_lotm_positions.js';
 import {GUARD_POSITION_ID,GUARD_RESIGN_COST,GUARD_OFFER,guardSignQuote,guardBegin,guardStand,guardCollect,guardResignPlan,guardView,guardSnapshot,guardRestore,guardPayWords} from './book_world_lotm_guard.js';
 import {LOTM_GUARD_DUTY_ID} from './book_world_lotm_duties.js';
@@ -110,6 +111,8 @@ function benchDetail(s,c,id,{registry,asleep}){
 }
 export function createLotmHost(ports){
  const registry=ports.registry;let dying=false;
+ // FD15: the civil contract's term ends on the clock; the positions domain settles it for any live LOTM state.
+ registerPositionsPort('lotm',()=>{const s=ports.state();return s?.lotm?s:null;});
  const persist=(plan,options={})=>persistLotmCastPlan(plan,ports.persist,{...options,publish:r=>ports.logMessage?.(r.text,r.kind,{safeText:true,panelId:'known-people'})});
  const state=()=>{installCast(registry);return ports.state();};
  const castState=s=>{if(!lotmCastLife(s))return s;const projected=copy(s);syncLotmCast(projected);return projected;};
@@ -241,7 +244,7 @@ export function createLotmHost(ports){
  // Native sleep ended by any cause before the job finished: the job is forfeited, nothing is restored (D4).
  function wake(){const s=state(),job=s.lotm&&sleepJob(s);if(job&&!ports.restoring()&&ports.writable())cancel(job.id);}
  // The job finished (or was cancelled) while native sleep was still on: end native sleep once.
- function tick(minutes=0){const s=state();if(s.lotm){if(ports.sleeping())restHarm(s,minutes);else if(!dying&&ports.die&&ports.writable()&&lostControlOutcome(s)?.default==='final'){dying=true;Promise.resolve(ports.die('loss_of_control')).finally(()=>{dying=false;});}}if(lotmCastLife(s)&&(castSyncDue(s)||castBeatsPending(s))&&ports.writable()&&(!lotmBe(s)||validLeadLife(getPrivateLotmCast()))){const plan=base(s,ports.context());if(syncLotmCast(plan.state)||castBeatsPending(plan.state))persist(plan);}if(s.lotm&&ports.sleeping()&&!sleepJob(s))ports.endSleep();}
+ function tick(minutes=0){const s=state();if(s.lotm){if(ports.sleeping())restHarm(s,minutes);else if(!dying&&ports.die&&ports.writable()&&lostControlOutcome(s)?.default==='final'){dying=true;try{domainRegistry.command('positions','died')({state:s,at:s.clock});}catch{/* positions settle on the next tick */}Promise.resolve(ports.die('loss_of_control')).finally(()=>{dying=false;});}}if(lotmCastLife(s)&&(castSyncDue(s)||castBeatsPending(s))&&ports.writable()&&(!lotmBe(s)||validLeadLife(getPrivateLotmCast()))){const plan=base(s,ports.context());if(syncLotmCast(plan.state)||castBeatsPending(plan.state))persist(plan);}if(s.lotm&&ports.sleeping()&&!sleepJob(s))ports.endSleep();}
  // Standing orders (OB1/OB4): rent and dues leave the native purse through the purse seam on the clock, in one save with the duties slice. Throws when saving is paused.
  const purseBalance=()=>{const m=ports.context().external?.money;assert(Number.isFinite(m),'The purse is not readable now.');return m;};
  // Read the current life's actual inventory. Unknown or protected goods have no seizure value.

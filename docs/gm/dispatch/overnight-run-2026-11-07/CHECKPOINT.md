@@ -5,7 +5,7 @@ state: drafted
 viewport: n/a
 persistence: n/a
 review: none
-tests: npm test 5515 pass, 0 fail, 22 skip (wave 1-2 fold)
+tests: npm test 5523 pass, 0 fail, 22 skip (wave 3 fold)
 ```
 
 # Overnight foundation run, 2026-11-07
@@ -66,6 +66,23 @@ Rejected for wave 1, with reasons:
 
 Rejected for wave 2: U04 randomness (already closed); FD14 society reader (needs a consumer choice, wave 3 candidate); AT17 (wave 3, after D/E fold so the cast host is not mid-edit with positions).
 
+**Commit `b254013c4` (01:35).** Waves 1-2 (C, D, E) plus the SAVES.md compatibility row, from the isolated worktree with a guarded `update-ref` of master from `778396479`; primary index and working files synced for those 11 paths only. Gate on the folded tree: build `bb58918b...17eb8`, `npm test` 5515 pass / 0 fail / 22 skip, check:arch pass, check:rules pass, doc slips clean. No push.
+
+## Wave 3 (dispatched 01:40; usage 5-hour 33%, weekly 78%)
+
+| Lane | Slice | Model | Owned files |
+|---|---|---|---|
+| F | Wire position settle to the clock: `positions_domain` tick over world-registered state ports, LOTM port, death hook if reachable, heir carry check | sonnet | `src/positions_domain.js`, `src/book_world_lotm_positions.js`, a few lines of `src/book_world_lotm_host.js`, tests |
+| G | FD14 first runtime reader: authority half-lives and post publicity read from each world's society sheet row, code numbers as defaults | sonnet | `src/world_society_sheet.js`, `src/authority_sources*.js`, `src/authority.js` if needed, tests |
+
+Rejected for wave 3: AT17 recurring people (the cast host carries an eager-enrollment byte contract and wake queue; scope needs a design pass, not a mid-tier lane; candidate for a scoped proposal once the five-hour window resets).
+
+**G, society sheet feeds authority dials (returned 01:50, checked).** `src/world_society_sheet.js` gains an optional sheet-level `authority` field (`halfLifeDays`, `postPublicity`, each `{value, reason}`), validator `authorityDialProblem` and reader `authorityDials`; each dial falls back alone when malformed. The Tingen row states 60 days, clerk 2, night watchman 1, probationer 0 with reasons. `src/authority_sources_lotm.js` overlays sheet dials on code defaults at import (`applyAuthorityDials`); `src/authority_sources.js` reads the village half-life from the sheet (no village row yet, so unchanged). New `tests/authority_sheet_dials.test.js` (4). Lane: 57/57 focused, sheet report script exit 0, check:arch pass; coordinator rerun 11/11 of the two authority test files and diff read. FD14 now has its first runtime reader. Not covered: other sheet fields stay declaration-only; the report script does not validate `authority`; no Village or HP row. State: implemented, below floor.
+
+**F, position settle on the clock (returned 02:00, checked).** `src/positions_domain.js`: `registerPositionsPort(id, live)`, a domain `tick` that settles term ends for each live port on its own clock (a throwing or null port is skipped), and a `died({state, at})` command. `src/book_world_lotm_host.js`: registers the LOTM port and calls `died` once a loss of control is judged final, before `ports.die`. New `tests/positions_tick.test.js` (4). Lane: 26/26 positions, LOTM 361 pass 0 fail 15 skip, check:arch pass; coordinator: diff read, positions tests 24/24, build `c7feeedd...96f`, check:arch and check:rules pass. This closes lane E's FR-L1 finding for LOTM. Not covered: deaths outside LOTM loss of control (chronicle `life.endedAt` path sits in `src/continuation_state.js:160` and `main.js`, perf-owned tonight); heir saves start without `positions` (`buildLifeHeirSave` copies a fixed key list), recorded, unchanged; the tick runs on each domain tick and derives rows (cheap derivation, not profiled). State: implemented, below floor (no native walk of a 5-year term).
+
+**Commit (wave 3, 02:15).** F and G from the isolated worktree, guarded update of master from `b254013c4`. Gate: build `c7feeedd...96f`, `npm test` 5523 pass / 0 fail / 22 skip, check:arch and check:rules pass. No push.
+
 ## Resume block (unattended run, 2026-11-07)
 
 Weibao, 2026-11-07 00:13: "make as much progress as possible ... use as much usage to make as much progress, and continue after the 5 hour limit and more".
@@ -74,7 +91,7 @@ Weibao, 2026-11-07 00:13: "make as much progress as possible ... use as much usa
 - State of the steps: wave 1 dispatched 00:25; A and C returned and recorded; B (walk) out. Wave 2 (D, E) dispatched 00:55.
 - Last evidence: folded wave 1-2 tree (C, D, E) built `bb58918b5b35d7b1e1a048284e737ffbd6805c63acba0d71ee5c502f13e17eb8`; check:arch pass; check:rules pass (0 new player-text strings); npm test running 01:20.
 - Failed approaches: none yet.
-- Next useful action: fold B, D, E returns; build in the isolated worktree; gates; commit own paths.
+- Next useful action: fold B (walk), F, G returns; build in the isolated worktree; gates; commit own paths.
 - Usage pacing: read 00:14 EST, 5-hour 25% (resets 03:50), weekly 77% (resets Mon 13:00). Weibao's later words override the 75% weekly stop; this run's ceiling is weekly 92% (stop, leave this block current, about 8% left for his weekend). 5-hour at 85%: start no lane, wake after reset. Five other sessions share the pool.
 - Stop condition (default 92%, Weibao's dial; reason: about 8% stays his until Monday): weekly 92%, or every remaining foundation slice sits inside the collision map, or a blocker that needs Weibao. Reached? Not yet.
 
