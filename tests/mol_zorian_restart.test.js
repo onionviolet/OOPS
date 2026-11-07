@@ -47,6 +47,7 @@ import {carriedKnowledgeView} from '../src/people_knowledge.js';
 import {worldDayNews} from '../src/world_calendar.js';
 import {knowsRows} from '../src/knowledge_view.js';
 import {reconcileForeknowledge} from '../src/mol_zorian_loop.js';
+import {observerView} from '../src/observer_view.js';
 const certainty=e=>Object.fromEntries(knowsRows({knowledge:()=>e.simulation.knowledge.player,facts:()=>({})}).filter(r=>r.key.includes('foreknowledge')).map(r=>[r.key.split('.').pop(),r.certainty]));
 // G7/G8/G11/G13 (Zorian stage record): the month-end and death restarts through the existing continuation route.
 const DAY=1440,Z1='book.mol.zorian.s1.';
@@ -134,6 +135,13 @@ test('G7 month end: the date restart returns the day, keeps the soul-bound memor
  later.motherOfLearning.divergence={day:2,cause:'x'};reconcileForeknowledge(later);
  assert.equal(later.simulation.knowledge.player['book.mol.foreknowledge.month_end'].basis.uncertainty,'The world has moved on; check before relying on this.');
  assert.equal(later.simulation.knowledge.player['book.mol.foreknowledge.school_dance'].basis.uncertainty,undefined,'a confirmed one is not stale');
+ // the read lens: an old save and an idle month read right through observerView before any MoL command, and the stored rows are not written
+ const seen=s=>Object.fromEntries(knowsRows(observerView(s)).filter(r=>r.key.includes('foreknowledge')).map(r=>[r.key.split('.').pop(),r.certainty]));
+ const old2=structuredClone(e);for(const r of Object.values(old2.simulation.knowledge.player))if(r.basis?.carried)r.stage='understood';
+ assert.deepEqual(seen(old2),{school_dance:'guessed',month_end:'guessed'});
+ assert.equal(old2.simulation.knowledge.player['book.mol.foreknowledge.school_dance'].stage,'understood','the lens does not write state');
+ const idle=structuredClone(e);idle.clock+=16*DAY;assert.deepEqual(seen(idle),{school_dance:'known',month_end:'guessed'});
+ assert.equal(observerView(e).knowledge(),e.simulation.knowledge.player,'rows that already agree come back as the same object');
 });
 // G11: the two replayed beats are lr.mol.main.00203 (Essential Invocations, Monday; next 00204 same Monday) and 00205 (training hall, Tuesday;
 // next 00206 same Tuesday at the spell formula classroom). Each next beat states place and day, so the canon pull is place and presence:

@@ -65,12 +65,13 @@ export function termLeftWords(endsAt, now) {
     const parts = [y ? `${words(y)} year${y === 1 ? '' : 's'}` : '', m ? `${m} month${m === 1 ? '' : 's'}` : ''].filter(Boolean);
     return `${parts.join(' and ')} left`;
 }
-// A short hire counts in weeks: "five weeks left", "less than a week left".
+// A short hire counts in weeks, rounded up so a day in still reads "six weeks left"; under a week says so.
 export function weeksLeftWords(endsAt, now) {
     const left = endsAt - now;
     if (left <= 0) return 'the term has run out';
-    const w = Math.floor(left / LOTM_WEEK_MINUTES);
-    return w ? `${words(w)} week${w === 1 ? '' : 's'} left` : 'less than a week left';
+    if (left < LOTM_WEEK_MINUTES) return 'less than a week left';
+    const w = Math.ceil(left / LOTM_WEEK_MINUTES);
+    return `${words(w)} week${w === 1 ? '' : 's'} left`;
 }
 // Plain words, for example "Civil staff, Nighthawks: contract, 3 pounds a week, five years. Four years and 11 months left."
 // `now` (minutes) adds the term left to a live post; an ended post says how it ended instead. Without `now` the base line is unchanged.

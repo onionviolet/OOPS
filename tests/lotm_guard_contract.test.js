@@ -52,6 +52,8 @@ test('sign once: the offer shows to a free man, the row reads as hired for six w
     assert.deepEqual(row.pay, {amount: PAY, unit: 'pence', period: 'week'});
     assert.equal(row.exit.kinds[0], 'resign');
     assert.equal(lotmPositionLine([row], row.term.startedAt + WEEK), 'Hired guard, a Tingen riverside warehouse: hired, 1 pound 5 soli a week, six weeks. Five weeks left.');
+    assert.match(lotmPositionLine([row], row.term.startedAt + 24 * 60), /Six weeks left\.$/, 'one day in rounds up, not down');
+    assert.match(lotmPositionLine([row], row.term.endsAt - 60), /Less than a week left\.$/);
     assert.deepEqual(lotmPositionsFromView(o.host.view()), positionsOf(st(o)), 'panel view and state agree');
     assert.equal(o.host.view().guard.offer, null);
     assert.throws(() => o.host.signGuard(), /already taken this hire/);

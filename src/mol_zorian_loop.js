@@ -6,6 +6,7 @@ import {loopRule} from './harm_loops.js';
 import {WORLD_CALENDAR_PROFILES,WORLD_DAY_EVENTS} from './world_calendar_content.js';
 import {resolveWorldCalendar,dayEventsDue} from './world_calendar.js';
 import {carriedKnowledgeView} from './people_knowledge.js';
+import {registerKnowledgeLens} from './observer_view.js';
 
 export const MOL_WORLD='book.mol.cyoria';
 export const ZORIAN_LOOP_START='zorian';
@@ -73,19 +74,39 @@ export function afterRunRestart(endedExpansion,nextExpansion){
 // 'interpreted' (guessed) until this run has reached its date, then 'understood' (known). Once this run has diverged past the row's reliable
 // days it also carries the existing stale note as basis.uncertainty. Idempotent and derived from the run clock, so older saves
 // (written 'understood') are corrected the next time it runs. The divergence signal is motherOfLearning.divergence (G13).
-export function reconcileForeknowledge(state){
- const e=dayEvents(state),bag=state.simulation?.knowledge?.player,t=todayFor(state);
- if(!e||!bag||!t)return;
+// The derived stage (and stale note) of each carried foreknowledge row, from the run clock alone. Pure: the write path below and the
+// read lens registered with observer_view both use it, so a save written before this rule, or a month left idle, reads right at once.
+export function foreknowledgeCertainty(state){
+ const e=dayEvents(state),bag=state?.simulation?.knowledge?.player,t=todayFor(state),out=new Map();
+ if(!e||!bag||!t)return out;
  const seen=new Set(e.due.map(x=>x.id.replace(/^mol\./,''))),view=new Map(carriedKnowledgeView(state,t).map(r=>[r.id,r]));
  for(const [id,r] of Object.entries(bag)){
-  const c=r.basis?.carried;
-  if(!id.startsWith('book.mol.foreknowledge.')||c?.sourceKind!=='foreknowledge')continue;
+  if(!id.startsWith('book.mol.foreknowledge.')||r.basis?.carried?.sourceKind!=='foreknowledge')continue;
   const confirmed=seen.has(id.slice('book.mol.foreknowledge.'.length));
-  r.stage=confirmed?'understood':'interpreted';
   const stale=!confirmed&&view.get(id)?.status==='stale';
-  if(stale)r.basis.uncertainty=view.get(id).note;else if(r.basis.uncertainty)delete r.basis.uncertainty;
+  out.set(id,{stage:confirmed?'understood':'interpreted',uncertainty:stale?view.get(id).note:''});
+ }
+ return out;
+}
+export function reconcileForeknowledge(state){
+ const bag=state.simulation?.knowledge?.player;
+ for(const [id,d] of foreknowledgeCertainty(state)){
+  const r=bag[id];r.stage=d.stage;
+  if(d.uncertainty)r.basis.uncertainty=d.uncertainty;else if(r.basis.uncertainty)delete r.basis.uncertainty;
  }
 }
+// Read lens: the seat's knowledge as the run clock says it stands now, without writing state. Rows that already agree are returned as is.
+registerKnowledgeLens((state,knowledge)=>{
+ if(!state?.motherOfLearning)return knowledge;
+ const d=foreknowledgeCertainty(state);let out=knowledge;
+ for(const [id,x] of d){
+  const r=knowledge[id];if(r.stage===x.stage&&(r.basis?.uncertainty||'')===x.uncertainty)continue;
+  if(out===knowledge)out={...knowledge};
+  const basis={...r.basis};if(x.uncertainty)basis.uncertainty=x.uncertainty;else delete basis.uncertainty;
+  out[id]={...r,stage:x.stage,basis};
+ }
+ return out;
+});
 // Player-facing run line for the campaign section: where the seat is in the month, and what a restart keeps.
 export function runText(state){
  const t=todayFor(state),d=state.motherOfLearning;

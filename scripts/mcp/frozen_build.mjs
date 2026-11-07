@@ -11,15 +11,16 @@ export const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const sha = bytes => createHash('sha256').update(bytes).digest('hex');
 const walk = root => readdirSync(root,{withFileTypes:true}).flatMap(e => e.isDirectory() ? walk(join(root,e.name)) : [join(root,e.name)]);
 
-export async function freezeBuild() {
-    const bundle = await bundleGame();
+// root: a checkout (resolved by checkout.mjs for a worktree); defaults to this one.
+export async function freezeBuild({root: src = ROOT} = {}) {
+    const bundle = await bundleGame({root: src});
     const root = mkdtempSync(join(tmpdir(),'yairpg-mcp-frozen-'));
     // Reuse the frozen-build static-content census (including private pack bytes).
     const {listFiles} = require('../tauri/snapshot.cjs');
-    const files = new Set([...listFiles(ROOT), 'package.json','src/scenario_facade.js',
-        ...walk(join(ROOT,'scripts/headless')).filter(p => p.endsWith('.mjs')).map(p=>relative(ROOT,p)),
+    const files = new Set([...listFiles(src), 'package.json','src/scenario_facade.js',
+        ...walk(join(src,'scripts/headless')).filter(p => p.endsWith('.mjs')).map(p=>relative(src,p)),
         'scripts/mcp/game_worker.mjs','scripts/mcp/chromium_backend.mjs','scripts/mcp/frozen_build.mjs','scripts/ui_helpers.cjs','scripts/tauri/snapshot.cjs']);
-    for(const p of files) {mkdirSync(dirname(join(root,p)),{recursive:true});copyFileSync(join(ROOT,p),join(root,p));}
+    for(const p of files) {mkdirSync(dirname(join(root,p)),{recursive:true});copyFileSync(join(src,p),join(root,p));}
     copyFileSync(bundle,join(root,'instrumented.mjs'));
     const runner = join(root,'scripts/headless/runner.mjs');
     const source = readFileSync(runner,'utf8');

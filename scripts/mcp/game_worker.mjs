@@ -95,9 +95,17 @@ function lookFull({scope, offset = 0, all = false} = {}) {
 
 // Choose an actual visible native select option. This dispatches the same
 // input/change path as a player and cannot introduce an unavailable option.
-async function selectOption(selector, value) {
-    const g = need(), select = g.document.querySelector(selector);
-    if(!select || select.tagName !== 'SELECT') throw new Error('Choose a native select control.');
+// A visible text field (input or textarea, e.g. a group's name) takes typed text through the same fill path; it is not submitted.
+const TEXT_TYPES = new Set(['text', 'search', 'number', '']);
+async function selectOption(target, value) {
+    const g = need(), select = typeof target === 'string' ? g.document.querySelector(target) : target;
+    const typed = select && (select.tagName === 'TEXTAREA' || (select.tagName === 'INPUT' && TEXT_TYPES.has(select.getAttribute('type') || '')));
+    if(typed) {
+        if(select.disabled || select.readOnly || g.hiddenReason(select)) throw new Error('Text field is not actionable.');
+        await g.fill(select, String(value));
+        return;
+    }
+    if(!select || select.tagName !== 'SELECT') throw new Error('Choose a native select control or a visible text field.');
     if(select.disabled || g.hiddenReason(select)) throw new Error('Select control is not actionable.');
     const option = [...select.querySelectorAll('option')].find(o => o.value === String(value));
     if(!option || option.disabled) throw new Error(`No available player option ${value}.`);
@@ -137,6 +145,11 @@ const ops = {
     async click({index, key, text: label, panel, value, view}) {
         const g = need();
         if(panel) await openPanel(panel);
+        else if(value !== undefined && index !== undefined) {
+            const hit = last[index];
+            if(!hit) throw new Error(`No action ${index}; call game_look first.`);
+            await selectOption(hit.el, value);
+        }
         else if(value !== undefined) await selectOption(key, value);
         else if(index !== undefined) {
             const hit = last[index];

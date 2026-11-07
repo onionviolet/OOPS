@@ -10,6 +10,7 @@ import {execFileSync} from 'node:child_process';
 import {existsSync, mkdtempSync, readFileSync, writeFileSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join, dirname, resolve} from 'node:path';
+import {createHash} from 'node:crypto';
 
 const LEDGER = join(mkdtempSync(join(tmpdir(), 'yairpg-limits-')), 'limits.jsonl');   // never the repo ledger
 
@@ -161,6 +162,18 @@ async function seededScenarios(c) {
     assert.match(v.screen, /sent two constables/, 'door fight quote reads the police decision');
     await c.tool('game_close', {sessionId: 'wanted'});
 }
+async function typing(c) {
+    // game_click({index, value}) types into a listed text field: the inventory filter narrows the list to bread.
+    const v = await c.tool('game_new', {seed: 4, sessionId: 'typing'});
+    const field = v.actions.find(a => a.key === 'input');
+    assert.ok(field, 'the inventory filter is listed');
+    await c.tool('game_click', {sessionId: 'typing', index: field.index, value: 'bread'});
+    const after = await c.tool('game_look', {sessionId: 'typing'});
+    assert.match(after.screen, /Stale bread/); assert.doesNotMatch(after.screen, /Cheap leather pants/, 'typed text filters the list');
+    const refused = (await c.rpc('tools/call', {name: 'game_click', arguments: {sessionId: 'typing', index: 0, value: 'x'}})).result;
+    assert.equal(refused.isError, true, 'a button is not a text field');
+    await c.tool('game_close', {sessionId: 'typing'});
+}
 async function worktreeCheckout(c) {
     const wt = join(mkdtempSync(join(tmpdir(), 'yairpg-wt-')), 'tree');
     execFileSync('git', ['worktree', 'add', '--detach', wt, 'HEAD'], {cwd: ROOT, stdio: 'ignore'});
@@ -171,6 +184,14 @@ async function worktreeCheckout(c) {
         assert.equal(first.started, true);
         for(const rel of ['private_packs', 'node_modules']) if(existsSync(join(ROOT, rel))) assert.ok(existsSync(join(wt, rel)), `${rel} is linked into the worktree`);
         await c.tool('game_close', {sessionId: 'wt'});
+        // game_freeze({checkout}) freezes that worktree's inputs, not the primary's: a marker file edit shows in the manifest hash.
+        writeFileSync(join(wt, 'src/scenario_facade.js'), readFileSync(join(wt, 'src/scenario_facade.js'), 'utf8') + '\n// worktree freeze marker\n');
+        const frozenWt = await c.tool('game_freeze', {checkout: wt});
+        const row = JSON.parse(readFileSync(frozenWt.snapshotManifest, 'utf8')).inputs.find(r => r.path === 'src/scenario_facade.js');
+        assert.equal(row.sha256, createHash('sha256').update(readFileSync(join(wt, 'src/scenario_facade.js'))).digest('hex'), 'frozen from the worktree');
+        const booted = await c.tool('game_new', {sessionId: 'wtf', seed: 3, ...frozenWt});
+        assert.equal(booted.build.kind, 'frozen'); assert.equal(booted.started, true);
+        await c.tool('game_close', {sessionId: 'wtf'});
         const outside = (await c.rpc('tools/call', {name: 'game_new', arguments: {sessionId: 'wt', checkout: tmpdir()}})).result;
         assert.equal(outside.isError, true, 'a folder that is not a worktree of this repo is refused');
     } finally { execFileSync('git', ['worktree', 'remove', '--force', wt], {cwd: ROOT, stdio: 'ignore'}); }
@@ -324,6 +345,13 @@ try {
         console.log(JSON.stringify({slice: 'faster-time', result: 'PASS'}));
     } else if(process.argv.includes('--freeze-only')) {
         await frozenAndNative(c);
+    } else if(process.argv.includes('--typing-only')) {
+        await typing(c);
+        console.log(JSON.stringify({slice: 'typing', result: 'PASS'}));
+    } else if(process.argv.includes('--worktree-only')) {
+        await worktreeCheckout(c);
+    await typing(c);
+        console.log(JSON.stringify({slice: 'worktree', result: 'PASS'}));
     } else {
     const remote = (await c.rpc('tools/call', {name: 'game_new', arguments: {url: 'https://example.com/'}})).result;
     assert.equal(remote.isError, true, 'remote entry origins are refused');

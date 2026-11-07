@@ -8,10 +8,15 @@ import {seatOf, seatScope, seatAllows, seatAllowsPanel, panelPerspective} from '
 // else in the UI.
 export const CONTROLLED_ACTOR_ID = 'player';
 
+// Read lenses (state, knowledge) -> knowledge: a world whose stored stage lags a clock-derived one (MoL foreknowledge) corrects the
+// read here instead of writing state on idle time. A lens returns the same object when nothing changes. Never saved.
+const knowledgeLenses = [];
+export function registerKnowledgeLens(lens) { if (!knowledgeLenses.includes(lens)) knowledgeLenses.push(lens); }
+
 function build(state, seat) {
     const scope = seatScope(seat);
     const actorId = CONTROLLED_ACTOR_ID;
-    const knowledgeMap = () => state?.simulation?.knowledge?.[actorId] ?? {};
+    const knowledgeMap = () => knowledgeLenses.reduce((k, lens) => lens(state, k), state?.simulation?.knowledge?.[actorId] ?? {});
     return Object.freeze({
         seat,
         actorId,
