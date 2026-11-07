@@ -23,6 +23,7 @@ function man(seedWantsTrouble) {
     domainRegistry.load({});
     const o = hostOver(bare(50));
     o.host.enroll('civil'); live.box = o.box;
+    o.host.act('book.lotm.report_in'); // the contract note lives in the day's situation, which reporting in opens
     o.box.p.state.simulation.seed = pickSeed(o, seedWantsTrouble);
     return o;
 }
@@ -193,4 +194,14 @@ test('civil staff and Beyonder lives are unchanged: no guard rows, the civil pos
     assert.equal(rows.length, 1); assert.equal(rows[0].role, 'Civil staff');
     assert.equal(o.host.view().guard, null, 'a signed clerk holds a post, so the hire is not offered');
     assert.equal(lotmPositionLine(rows), 'Civil staff, Nighthawks: contract, 3 pounds a week, five years');
+});
+
+test('the hire waits for the day to begin: before reporting in the offer is closed, so the contract note never lacks its situation', () => {
+    domainRegistry.load({});
+    const o = hostOver(bare(50)); o.host.enroll('civil'); live.box = o.box;
+    const q = guardSignQuote(st(o));
+    assert.equal(q.eligible, false); assert.match(q.reason, /Report in at the workroom first/);
+    assert.throws(() => o.host.signGuard(), /Report in at the workroom first/);
+    o.host.act('book.lotm.report_in');
+    assert.equal(guardSignQuote(st(o)).eligible, true);
 });

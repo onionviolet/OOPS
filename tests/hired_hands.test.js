@@ -150,3 +150,13 @@ test('the hand never double-harvests: a crop the player took from the bed pays n
     assert.equal(stock(K.grain), 0, 'no yield for a crop that was not standing');
     const h = projection().hires[0]; assert.equal(h.cycles, 0);
 });
+
+test('a hand with no seed says so on the first pass and at each paid week, not on every settled minute', () => {
+    setup(300, 0);
+    hire();
+    for (let i = 0; i < 120; i++) advance(1); // two hours, one minute at a time (the live game ticks like this)
+    const said = () => handDigestRows(0).filter(r => /no seed packets/.test(r.text)).length;
+    assert.equal(said(), 1, 'once on the first pass');
+    advance(WEEK);
+    assert.equal(said(), 2, 'again when the week is paid');
+});

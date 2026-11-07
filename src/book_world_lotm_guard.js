@@ -82,6 +82,9 @@ export function guardSignQuote(state) {
     if(guardSigned(state)) return {eligible: false, reason: 'You have already taken this hire; it cannot be signed twice.'};
     const held = positionsOf(state).find(r => !r.ended);
     if(held) return {eligible: false, reason: `You already hold a post (${held.role.toLowerCase()}); the warehouse wants a man free for the night.`};
+    // The contract note is written inside the day's situation (know() attributes it there); before reporting in that situation does not
+    // exist yet and the save would refuse the note, so the hire waits until the day has begun.
+    if(!state.simulation?.situations?.[I.situation]) return {eligible: false, reason: 'Report in at the workroom first; the warehouse hires in the evening, after your day has begun.'};
     return {eligible: true, reason: GUARD_OFFER};
 }
 export function guardBegin(startedAt) { slice = {...fresh(), startedAt}; }

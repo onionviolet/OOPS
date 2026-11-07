@@ -102,7 +102,8 @@ registerHandJob(PLOT_JOB, {
     report(rec, tally, span) {
         const c = HAND_CROPS[rec.crop], parts = [];
         if (tally.cycles) parts.push(`${rec.name}: Over ${span} I brought in ${tally.yielded} ${c.word} and put it in your store${rec.cycleAt != null ? '; the bed is sown again' : ''}.`);
-        if (tally.noSeed && rec.cycleAt == null && rec.status === 'active') parts.push(`${parts.length ? 'I' : `${rec.name}: I`} have no seed packets to sow, so the bed sits empty.`);
+        // Said on the first pass after hiring and at each paid week, not on every settled minute (the walk saw ~1440 repeats a day).
+        if (tally.noSeed && rec.cycleAt == null && rec.status === 'active' && (tally.first || tally.paid)) parts.push(`${parts.length ? 'I' : `${rec.name}: I`} have no seed packets to sow, so the bed sits empty.`);
         if(tally.sold) parts.push(`${parts.length ? 'I' : `${rec.name}: I`} sold ${tally.sold} ${GRAIN.word} above your ${rec.sellAbove} at the Village market for ${tally.coins} coin${tally.coins === 1 ? '' : 's'}.`);
         return parts.join(' ') || null;
     },

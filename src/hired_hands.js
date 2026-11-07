@@ -59,7 +59,7 @@ function endHire(plan, job, rec, at, reason) {
 }
 // Settle one active record up to `now`: work to each week boundary, then pay the next week or end there. Mutates the plan and the record.
 function settleRec(plan, job, id, rec, now) {
-    const tally = {cycles: 0, yielded: 0, noSeed: false, paid: 0, ended: null, sold: 0, coins: 0}, from = rec.workedTo;
+    const tally = {cycles: 0, yielded: 0, noSeed: false, paid: 0, ended: null, sold: 0, coins: 0, first: rec.workedTo === rec.since}, from = rec.workedTo;
     let guard = 0;
     while (rec.status === 'active' && rec.paidThrough <= now && guard++ < PASS_CAP) {
         const b = rec.paidThrough;

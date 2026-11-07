@@ -5,7 +5,7 @@ state: drafted
 viewport: n/a
 persistence: n/a
 review: none
-tests: npm test 5538 pass, 0 fail, 22 skip (wave 4 fold)
+tests: npm test 5557 pass, 0 fail, 5 skip (defect fixes A and B)
 ```
 
 # Overnight foundation run, 2026-11-07
@@ -106,13 +106,20 @@ Rejected for wave 3: AT17 recurring people (the cast host carries an eager-enrol
 | Item | What the player saw | Result | Persistence |
 |---|---|---|---|
 | LOTM hired guard (civil staff life, report in, Path) | "Sign on as a night watchman"; "A quiet night"; purse 1200 → 1500 pence after the week ("Collect the watch pay · 1 pound 5 soli") | pass, with defect A | save, reload, export, import kept day 8 08:00, 1500 pence, the hire on Path |
-| Market courtyard founding and collector | founding form needs a typed group name | not reachable by the MCP (`game_click` takes `value` on selects only; one `game_report_limit` filed); collector needs Klein's own life and three missed rent weeks at about 292 s per game day | n/a |
+| Market courtyard founding and collector | founding form needs a typed group name | not walked here: today's `game_click` sets `value` on native selects, and a typed name needs a text field (one `game_report_limit` filed); collector needs Klein's own life and three missed rent weeks at about 292 s per game day | n/a |
 | Courtyard tender (Sela) | "Sela is hired", then "Grow tended grain · 6 played min" after buying seed | pass, with defect B | save, reload, export, import kept day 3 08:01, 8C 9W, the hire |
 
 Defects found by the walk:
 - **A (save-breaking):** signing the guard contract before reporting in writes a knowledge note whose situation does not exist yet; the save then fails ("Knowledge needs its actual situation context."), progress pauses and every later save is refused. `guardSignQuote` (`src/book_world_lotm_guard.js:78`) offers the hire before the situation exists; note built by `know()` (`src/book_world_lotm_kit.js:18`), validated at `src/causal_situations.js:57`.
 - **B (log flood):** a hand with no seed repeats "I have no seed packets to sow, so the bed sits empty." once per settled minute (about 1440 a day); `report` in `src/hired_hands_plot.js:105` fires on every tick pass.
 - Minor: the guard term reads "Five weeks left" one day in (rounds down).
+
+**Commit `db55445d8` (03:25).** Wave 4 (H, H2, I, J), gate as above. No push.
+
+**Defect fixes from the walk (coordinator, 03:30, uncommitted until gated).**
+- A: `guardSignQuote` (`src/book_world_lotm_guard.js`) refuses until the day's situation exists ("Report in at the workroom first; the warehouse hires in the evening, after your day has begun."), checked after the held-post refusal so the probationer reason is unchanged. Test harness reports in before signing; new regression in `tests/lotm_guard_contract.test.js` (offer closed before report, open after). 11/11.
+- B: `src/hired_hands.js` tally gains `first` (the pass right after hiring); `src/hired_hands_plot.js` says the no-seed line on the first pass and at each paid week. New regression in `tests/hired_hands.test.js` drives 120 one-minute ticks: one line, then one more after a paid week; it fails without the fix (checked by reverting the condition). 9/9.
+- Gate: build `cec10dc1a8ab7a9e756ab2047cf817e8ad7af6f1ba33994ecf536a85d22751c7`, check:arch pass, check:rules 0 new player-text strings; `npm test` 5557 pass / 0 fail / 5 skip (fewer skips than earlier runs: private fixtures present at run time); re-walk of A and B running. Committed after the suite.
 
 ## Resume block (unattended run, 2026-11-07)
 
@@ -122,7 +129,7 @@ Weibao, 2026-11-07 00:13: "make as much progress as possible ... use as much usa
 - State of the steps: wave 1 dispatched 00:25; A and C returned and recorded; B (walk) out. Wave 2 (D, E) dispatched 00:55.
 - Last evidence: folded wave 1-2 tree (C, D, E) built `bb58918b5b35d7b1e1a048284e737ffbd6805c63acba0d71ee5c502f13e17eb8`; check:arch pass; check:rules pass (0 new player-text strings); npm test running 01:20.
 - Failed approaches: none yet.
-- Next useful action: fold B (walk), H, I, J returns; build in the isolated worktree; gates; commit own paths.
+- Next useful action: on green suite and re-walk, commit fixes A/B; then wave 5 (consumer wiring first: healer repayment, Tingen witness belonging from fight observers); build in the isolated worktree; gates; commit own paths.
 - Usage pacing: read 00:14 EST, 5-hour 25% (resets 03:50), weekly 77% (resets Mon 13:00). Weibao's later words override the 75% weekly stop; this run's ceiling is weekly 92% (stop, leave this block current, about 8% left for his weekend). 5-hour at 85%: start no lane, wake after reset. Five other sessions share the pool.
 - Stop condition (default 92%, Weibao's dial; reason: about 8% stays his until Monday): weekly 92%, or every remaining foundation slice sits inside the collision map, or a blocker that needs Weibao. Reached? Not yet.
 
