@@ -60,11 +60,25 @@ export function cleanCharter(c) {
     }
     return out;
 }
+// Dues surface (lane F 3.2/3.3, proposal), all optional so an untouched group saves exactly as before: members (villagers who agreed),
+// treasury (coins), settled (last meeting day already collected), used (ability -> the meeting day it was bought for), shared (coins
+// shared back out at dissolve). Fields with no entry are absent, never zeroed.
+const validDues = g => {
+    const m = g.members, u = g.used;
+    if (m !== undefined && !(m && typeof m === 'object' && Object.keys(m).length <= 12 && Object.entries(m).every(([k, v]) => /^[a-z][a-z0-9_.-]{0,30}$/i.test(k) && v && typeof v.name === 'string' && v.name.length > 0 && v.name.length <= 30 &&
+        nat(v.joined) && nat(v.paid) && nat(v.late) && (v.lastPaid === undefined || nat(v.lastPaid)) && Object.keys(v).every(x => ['name', 'joined', 'paid', 'late', 'lastPaid'].includes(x))))) return false;
+    if (g.treasury !== undefined && !nat(g.treasury)) return false;
+    if (g.settled !== undefined && !nat(g.settled)) return false;
+    if (g.shared !== undefined && !nat(g.shared)) return false;
+    if (u !== undefined && !(u && typeof u === 'object' && Object.entries(u).every(([k, v]) => /^[a-z]{1,16}$/.test(k) && nat(v)))) return false;
+    return true;
+};
 const validGroup = (id, g) => {
     try {
         return g && g.id === id && typeof g.world === 'string' && g.world && g.kind === FOUNDED_KIND && g.revision === 1 && g.name === cleanName(g.name) &&
             nat(g.founded) && (g.status === 'active' || (g.status === 'dissolved' && nat(g.dissolvedAt))) && g.founder === 'player' &&
-            JSON.stringify(cleanCharter(g.charter)) === JSON.stringify(g.charter) && Object.keys(g).every(k => ['id', 'world', 'kind', 'revision', 'name', 'founder', 'founded', 'status', 'dissolvedAt', 'charter'].includes(k));
+            JSON.stringify(cleanCharter(g.charter)) === JSON.stringify(g.charter) && validDues(g) &&
+            Object.keys(g).every(k => ['id', 'world', 'kind', 'revision', 'name', 'founder', 'founded', 'status', 'dissolvedAt', 'charter', 'members', 'treasury', 'settled', 'used', 'shared'].includes(k));
     } catch { return false; }
 };
 // Unreadable parts drop; the rest keeps. validateOrganizations (below) refuses the same shapes on import instead.
@@ -107,14 +121,78 @@ export function dissolveGroup(s, id, at) {
     if (!g) throw new Error('You founded no such group.');
     if (g.status !== 'active') throw new Error(`${g.name} is already dissolved.`);
     if (!nat(at)) throw new Error('A dissolving needs a time.');
-    return {...s, groups: {...s.groups, [id]: {...g, status: 'dissolved', dissolvedAt: at}}};
+    // Stated rule: a box with coins in it is shared back out to the members who paid in. Those coins leave the game (villagers keep no
+    // purse here), so a dissolving never turns member dues into the founder's money.
+    const {treasury, ...rest} = g;
+    return {...s, groups: {...s.groups, [id]: {...rest, status: 'dissolved', dissolvedAt: at, ...(treasury > 0 ? {shared: treasury} : {})}}};
+}
+// ---- dues, members and the treasury (pure; the host passes the clock and what each villager can spare) ----
+// Dues per meeting, by rhythm: a longer gap asks for a little more per meeting, not proportionally more (dial, default weekly).
+export const DUES_COIN = Object.freeze({weekly: 2, fortnightly: 3, monthly: 4});
+export const MAX_CATCH_UP = 12; // meetings settled per collecting; older ones lapsed unpaid (work advances only during play)
+const MEMBER_CAP = 12;
+const meetingMinute = d => d * 1440 + FOUNDED_HOUR * 60;
+const everyOf = g => RHYTHM_DAYS[g.charter.rhythm];
+export const firstMeetingDay = g => Math.floor(g.founded / 1440) + everyOf(g);
+/** The next meeting day whose start is after `clock` (minutes). */
+export function nextMeetingDay(g, clock) {
+    const first = firstMeetingDay(g), span = everyOf(g) * 1440;
+    return clock < meetingMinute(first) ? first : first + (Math.floor((clock - meetingMinute(first)) / span) + 1) * everyOf(g);
+}
+/** Meeting days that have happened by `clock` and are not collected yet (newest MAX_CATCH_UP). */
+export function pendingMeetings(g, clock) {
+    const first = firstMeetingDay(g), every = everyOf(g);
+    if (g.status !== 'active' || clock < meetingMinute(first)) return [];
+    const last = first + Math.floor((clock - meetingMinute(first)) / (every * 1440)) * every, days = [];
+    for (let d = last; d >= first && d > (g.settled ?? -1) && days.length < MAX_CATCH_UP; d -= every) days.unshift(d);
+    return days;
+}
+export const duesOf = g => (g.charter.dues === 'coin' ? DUES_COIN[g.charter.rhythm] : 0);
+export function addMember(s, id, {npc, name, at}) {
+    const g = s.groups[id];
+    if (!g || g.status !== 'active') throw new Error('You run no such group.');
+    if (!nat(at) || g.members?.[npc]) throw new Error(g.members?.[npc] ? `${g.members[npc].name} is already in ${g.name}.` : 'A joining needs a time.');
+    if (Object.keys(g.members || {}).length >= MEMBER_CAP) throw new Error(`${g.name} is full.`);
+    const next = {...g, members: {...g.members, [npc]: {name, joined: at, paid: 0, late: 0}}};
+    if (!validGroup(id, next)) throw new Error('That member cannot be recorded.');
+    return {...s, groups: {...s.groups, [id]: next}};
+}
+/**
+ * Collect every held meeting once. `means(npc)` is what that villager can spare at a meeting; a member who cannot cover the dues is
+ * recorded late (a running count, reset by paying) and charged nothing: no debt, no negative treasury.
+ */
+export function settleDues(s, id, clock, means) {
+    const g = s.groups[id];
+    if (!g || g.status !== 'active' || g.charter.dues !== 'coin') return {slice: s, held: 0, collected: 0, paid: [], late: []};
+    const days = pendingMeetings(g, clock);
+    if (!days.length) return {slice: s, held: 0, collected: 0, paid: [], late: []};
+    const due = duesOf(g), members = structuredClone(g.members || {}), paid = [], late = [];
+    let collected = 0;
+    for (const d of days) for (const [npc, m] of Object.entries(members)) {
+        if (m.joined >= meetingMinute(d)) continue; // joined after this meeting began
+        if ((means(npc) ?? 0) >= due) { m.paid++; m.late = 0; m.lastPaid = d; collected += due; paid.push(m.name); } else { m.late++; late.push(m.name); }
+    }
+    const next = {...g, settled: days[days.length - 1], ...(Object.keys(members).length ? {members} : {}), treasury: (g.treasury || 0) + collected};
+    return {slice: {...s, groups: {...s.groups, [id]: next}}, held: days.length, collected, paid, late};
+}
+/** Take `cost` from the treasury for one ability on one meeting day; each ability once per meeting day. */
+export function spendTreasury(s, id, {key, cost, day}) {
+    const g = s.groups[id];
+    if (!g || g.status !== 'active') throw new Error('You run no such group.');
+    if (!nat(cost) || !nat(day) || !/^[a-z]{1,16}$/.test(key)) throw new Error('Unreadable spend.');
+    if (g.used?.[key] === day) throw new Error('Already done before the next meeting.');
+    if ((g.treasury || 0) < cost) throw new Error(`The treasury holds ${g.treasury || 0} coins; this costs ${cost}.`);
+    return {...s, groups: {...s.groups, [id]: {...g, treasury: g.treasury - cost, used: {...g.used, [key]: day}}}};
 }
 export const setOrganizationsSlice = s => { slice = s; };
 // A founded group as a groups record (LANE_F 3.2). Only fields with an owner are present; the founder is the one member.
 export function foundedRecord(g) {
     const live = g.status === 'active';
     return {id: g.id, world: g.world, kind: g.kind, revision: g.revision, name: g.name, status: g.status, authored: false, founder: g.founder, founded: g.founded,
-        charter: {...g.charter}, members: [{actor: 'player', name: 'You', rank: 'founder', status: live ? 'active' : 'inactive'}],
+        charter: {...g.charter}, members: [{actor: 'player', name: 'You', rank: 'founder', status: live ? 'active' : 'inactive'},
+            ...Object.entries(g.members || {}).map(([actor, m]) => ({actor, name: m.name, rank: 'member', joined: m.joined, paidMeetings: m.paid, lateMeetings: m.late, status: live ? 'active' : 'inactive'}))],
+        ...(g.charter.dues === 'coin' ? {treasury: {coin: g.treasury || 0, custody: 'organizations.js'}, duesPerMeeting: DUES_COIN[g.charter.rhythm]} : {}),
+        ...(g.shared ? {shared: g.shared} : {}), ...(g.used ? {used: {...g.used}} : {}),
         ...(live ? {meeting: {everyDays: RHYTHM_DAYS[g.charter.rhythm], hour: FOUNDED_HOUR, offset: Math.floor(g.founded / 1440) + RHYTHM_DAYS[g.charter.rhythm]}} : {}),
         sources: [{module: 'organizations.js', locator: ORGANIZATIONS_FAMILY}]};
 }
@@ -140,7 +218,8 @@ export function groupLines(groups) {
     return groups.map(g => {
         const n = g.nouns || GROUP_KINDS[g.kind].nouns, m = g.members || [];
         const who = m.length ? ` ${n.roster}: ${m.map(x => x.name ? (x.rank ? `${x.name} (${x.rank})` : x.name) : x.rank || x.actor).join(', ')}.` : '';
+        const box = g.treasury ? ` Treasury: ${g.treasury.coin} coin${g.treasury.coin === 1 ? '' : 's'}.` : '';
         const when = g.meeting ? ` Meets every ${g.meeting.everyDays} day${g.meeting.everyDays === 1 ? '' : 's'}.` : '';
-        return `${g.name || g.id}, a ${n.noun} (${g.status}).${who}${when}`;
+        return `${g.name || g.id}, a ${n.noun} (${g.status}).${who}${when}${box}`;
     });
 }

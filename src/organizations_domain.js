@@ -7,13 +7,29 @@ import {registerDomain} from './domain_registry.js';
 import {defineGathering} from './gatherings.js';
 import {registerPositionSource} from './positions.js';
 import {ORGANIZATIONS_FAMILY, freshOrganizations, migrateOrganizations, validateOrganizations, loadOrganizations, saveOrganizations, organizationsSlice, setOrganizationsSlice,
-    foundGroup, dissolveGroup, foundingReason, cleanName, cleanCharter, activeFounded, CHARTER_DIALS, RHYTHM_DAYS, SECRECY_DIAL, FOUNDED_HOUR} from './organizations.js';
+    foundGroup, dissolveGroup, foundingReason, cleanName, cleanCharter, activeFounded, CHARTER_DIALS, RHYTHM_DAYS, SECRECY_DIAL, FOUNDED_HOUR,
+    addMember, settleDues, spendTreasury, pendingMeetings, nextMeetingDay, duesOf} from './organizations.js';
+import {applyGameplayEffect} from './gameplay_transactions.js';
 
 // Founding routes by world (default, dial, reason). cost: coins from the purse, paid at founding. A hidden group costs more because it
 // needs a back room and a quiet word; an open one meets where the market already is. place/fact name where the player must be.
 export const FOUNDING_ROUTES = Object.freeze({
     'base.frontier': Object.freeze({location: 'Village', fact: 'mg.opened', where: 'the Market courtyard', base: 30, hiddenExtra: 10,
-        reason: 'A corner of the courtyard for the meetings and the first round.'}),
+        reason: 'A corner of the courtyard for the meetings and the first round.',
+        // Villagers who may agree to join (dial: standing needed, coins they can spare at a meeting). Admission shifts the bar:
+        // an open group asks less of a stranger's word, a vouched one more. Authored proposals, not canon.
+        invitees: Object.freeze([
+            Object.freeze({id: 'mg.mira', name: 'Mira', standing: 6, means: 5, yes: 'Mira says she will come, and she has coin to spare.', no: 'Mira smiles and says she wants to see how the first meetings go before she puts her name down.'}),
+            Object.freeze({id: 'mg.sela', name: 'Sela', standing: 10, means: 4, yes: 'Sela agrees; she likes a standing reason to sit down with people.', no: 'Sela says she keeps her evenings for people she has worked beside a while.'}),
+            Object.freeze({id: 'mg.orin', name: 'Orin', standing: 14, means: 3, yes: 'Orin grunts yes; a regular table suits him.', no: 'Orin says he does not hand coin to a box he does not know the keeper of.'}),
+            Object.freeze({id: 'mg.bram', name: 'Bram', standing: 18, means: 1, yes: 'Bram will come, though his purse is thin.', no: 'Bram shakes his head; he trusts few with his name, fewer with his coin.'})]),
+        admissionShift: Object.freeze({open: -2, invite: 0, vouched: 4}),
+        // Group abilities (3.5): what a treasury buys that one purse cannot. Each once per meeting.
+        abilities: Object.freeze({
+            feast: Object.freeze({label: 'Pool for a feast', cost: 12, reputation: Object.freeze({region: 'Village', amount: 2}),
+                reason: 'The pooled dues buy a long table in the courtyard; the village remembers who fed it.'}),
+            lookout: Object.freeze({label: 'Hire a lookout', cost: 6,
+                reason: 'A boy on the courtyard wall to watch the lane, so the next meeting is harder to overhear.'})})}),
 });
 export const foundingCost = (world, charter) => { const r = FOUNDING_ROUTES[world]; return r ? r.base + (charter?.secrecy === 'hidden' ? r.hiddenExtra : 0) : 0; };
 let ports = null;
@@ -65,16 +81,83 @@ function dissolve({id} = {}) {
     if (busy) throw new Error(busy);
     const plan = ports.plan(0), next = dissolveGroup(organizationsSlice(), id, plan.state.clock);
     transact(next);
-    ports.logMessage?.(`You dissolve ${next.groups[id].name}.`, 'notification');
+    const sh = next.groups[id].shared;
+    ports.logMessage?.(`You dissolve ${next.groups[id].name}.${sh ? ` The ${sh} coin${sh === 1 ? '' : 's'} in the box go back to the members who paid in.` : ''}`, 'notification');
+    return next.groups[id];
+}
+const clockNow = () => ports.plan(0).state.clock;
+const route = () => FOUNDING_ROUTES[ports.world()];
+const villageStanding = () => ports.actor().reputation?.Village;
+const meansOf = npc => route()?.invitees?.find(i => i.id === npc)?.means ?? 0;
+// Why the player cannot act on a group right now (spending, inviting), or ''. Reads, never writes.
+function actStop() {
+    if (!ports) return 'Groups are not ready yet.';
+    if (!writable()) return 'Use the writable game tab.';
+    if (ports.location() !== route()?.location) return `Do this at ${route()?.where || 'the Village'}.`;
+    return ports.blocked?.() || (ports.idle?.() === false ? 'Finish what you are doing first.' : '');
+}
+const liveGroup = id => { const g = organizationsSlice().groups[id]; if (!g || g.status !== 'active') throw new Error('You run no such group.'); return g; };
+const bar = (g, v) => v.standing + (route().admissionShift[g.charter.admission] || 0);
+/** Who could be asked, and what each would say now. Villagers agree by a simple rule: Village standing against their bar. */
+function inviteQuote({id} = {}) {
+    const g = liveGroup(id), r = route(), stand = villageStanding(), stop = actStop();
+    return (r?.invitees || []).map(v => {
+        const joined = !!g.members?.[v.id], need = bar(g, v);
+        const reason = joined ? `${v.name} is already in ${g.name}.` : stop || (Number.isFinite(stand) && stand >= need ? '' : v.no);
+        return {npc: v.id, name: v.name, eligible: !reason, reasons: reason ? [reason] : [], needs: need, because: v.yes, joined};
+    });
+}
+function invite({id, npc} = {}) {
+    const q = inviteQuote({id}).find(x => x.npc === npc);
+    if (!q) throw new Error('Nobody here by that name.');
+    if (!q.eligible) throw new Error(q.reasons[0]);
+    const at = clockNow(), next = addMember(organizationsSlice(), id, {npc, name: q.name, at});
+    transact(next);
+    ports.logMessage?.(q.because, 'notification');
+    return next.groups[id].members[npc];
+}
+/** Collect the dues of every meeting held since last time, once each. Safe to call often: nothing held means nothing written. */
+function settle({id} = {}) {
+    if (!ports) throw new Error('Groups are not ready yet.');
+    const g = liveGroup(id), r = settleDues(organizationsSlice(), id, clockNow(), meansOf);
+    if (!r.held) return {held: 0, collected: 0, paid: [], late: []};
+    if (!writable()) throw new Error('Use the writable game tab.');
+    transact(r.slice);
+    const lateNote = r.late.length ? ` Late: ${[...new Set(r.late)].join(', ')}.` : '';
+    ports.logMessage?.(`${g.name} met ${r.held} time${r.held === 1 ? '' : 's'}; dues collected: ${r.collected} coin${r.collected === 1 ? '' : 's'}.${lateNote}`, 'notification');
+    return {held: r.held, collected: r.collected, paid: r.paid, late: r.late};
+}
+const pending = ({id} = {}) => { const g = organizationsSlice().groups[id]; return g ? pendingMeetings(g, clockNow()).length : 0; };
+function abilityQuote({id} = {}) {
+    const g = liveGroup(id), r = route(), clock = clockNow(), day = nextMeetingDay(g, clock), stop = actStop(), held = (g.treasury || 0) + settleDues(organizationsSlice(), id, clock, meansOf).collected;
+    return Object.entries(r?.abilities || {}).map(([key, a]) => {
+        const reason = g.charter.dues !== 'coin' ? 'This group collects no coin dues, so it has no treasury.' : stop || (g.used?.[key] === day ? 'Already done before the next meeting.' :
+            held < a.cost ? `The treasury holds ${held} coins; this costs ${a.cost}.` : '');
+        return {key, label: a.label, cost: a.cost, because: a.reason, eligible: !reason, reasons: reason ? [reason] : []};
+    });
+}
+function spend({id, ability} = {}) {
+    const a = route()?.abilities?.[ability];
+    if (!a) throw new Error('The group has no such ability.');
+    if (!ports) throw new Error('Groups are not ready yet.');
+    settle({id}); // collect what the held meetings owe before spending
+    const q = abilityQuote({id}).find(x => x.key === ability);
+    if (!q.eligible) throw new Error(q.reasons[0]);
+    const g = liveGroup(id), next = spendTreasury(organizationsSlice(), id, {key: ability, cost: a.cost, day: nextMeetingDay(g, clockNow())});
+    transact(next, plan => { if (a.reputation) applyGameplayEffect(plan.gameplay, {type: 'reputation', ...a.reputation}, 'player'); });
+    ports.logMessage?.(`${g.name}: ${a.label.toLowerCase()}. ${a.reason}`, 'notification');
     return next.groups[id];
 }
 // The meeting as a gatherings.js row (one validator for the schedule and the secrecy dial). The founder is the one seat.
+const LOOKOUT_BOOST = 0.5; // dial: how much a hired lookout adds to the meeting's secrecy (capped at fully hidden)
+const lookoutOn = g => g.used?.lookout !== undefined && (ports?.root?.().clock ?? 0) < g.used.lookout * 1440 + FOUNDED_HOUR * 60;
 const gathering = id => {
     const g = organizationsSlice().groups[id];
     if (!g || g.status !== 'active') return null;
     const every = RHYTHM_DAYS[g.charter.rhythm];
     return defineGathering({id: g.id, world: g.world, label: g.name, schedule: {everyDays: every, offset: Math.floor(g.founded / 1440) + every, hour: FOUNDED_HOUR},
-        dial: {secrecy: SECRECY_DIAL[g.charter.secrecy]}, seats: [{id: 'founder', personaId: `${g.id}.founder`}]});
+        dial: {secrecy: lookoutOn(g) ? Math.min(1, SECRECY_DIAL[g.charter.secrecy] + LOOKOUT_BOOST) : SECRECY_DIAL[g.charter.secrecy]},
+        seats: [{id: 'founder', personaId: `${g.id}.founder`}, ...Object.keys(g.members || {}).map(npc => ({id: `m:${npc}`, personaId: `${g.id}.${npc}`}))]});
 };
 // FD15 founder post, derived. A dissolved group's post reads ended with the dissolve exit kind kept here, not in positions@1.
 export function organizationPositions(state) {
@@ -88,4 +171,4 @@ registerPositionSource('organizations', organizationPositions);
 registerDomain({id: 'organizations', deps: [], initialState: freshOrganizations, save: saveOrganizations,
     validate: s => { if (s != null && s.family === ORGANIZATIONS_FAMILY) validateOrganizations(s); },
     migrate: migrateOrganizations, load: loadOrganizations, projection: organizationsSlice,
-    commands: {found, dissolve, quote, gathering, dials: () => CHARTER_DIALS, activeFounded: world => activeFounded(world)}});
+    commands: {found, dissolve, quote, gathering, invite, inviteQuote, settle, pending, spend, abilityQuote, dials: () => CHARTER_DIALS, activeFounded: world => activeFounded(world)}});

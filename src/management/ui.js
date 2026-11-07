@@ -74,11 +74,28 @@ export function createManagementPanel({read,registry,command}) {
   groupsNote.textContent=hidden||!view.opened?'':groupLines(groupsOf(snapshot.state)).join(' ');groupsNote.hidden=!groupsNote.textContent;
   found.hidden=hidden||!view.opened||!domainRegistry.command('organizations','quote');
   if(!found.hidden){const q=domainRegistry.command('organizations','quote')(dials());
-   foundTerms.textContent=`Costs ${q.cost} coins now.${q.because?` ${q.because}`:''} Dues are recorded but not collected yet.`;
+   foundTerms.textContent=`Costs ${q.cost} coins now.${q.because?` ${q.because}`:''} With coin dues, members pay at each meeting into the group's treasury.`;
    foundBtn.disabled=!snapshot.canWrite||!q.eligible||!nameIn.value.trim();foundWhy.textContent=nameIn.value.trim()||!q.eligible?q.reasons.join(' '):'Name the group to found it.';foundWhy.hidden=!foundWhy.textContent;
-   const live=groupsOf(snapshot.state).filter(g=>g.charter&&g.status==='active'),sig=live.map(g=>g.id).join('|');
-   if(mine.dataset.sig!==sig){mine.dataset.sig=sig;mine.replaceChildren(...live.map(g=>{const b=node('button',`Dissolve ${g.name}`,{type:'button'});b.addEventListener('click',()=>{try{domainRegistry.command('organizations','dissolve')({id:g.id});message=`${g.name} dissolved.`;}catch(e){message=e.message;}render();});return b;}));}
-   for(const b of mine.children)b.disabled=!snapshot.canWrite;}
+   const live=groupsOf(snapshot.state).filter(g=>g.charter&&g.status==='active'),org=id=>domainRegistry.command('organizations',id);
+   const safe=(f,d)=>{try{return f();}catch{return d;}};
+   const info=live.map(g=>({g,pend:g.charter.dues==='coin'?safe(()=>org('pending')({id:g.id}),0):0,inv:safe(()=>org('inviteQuote')({id:g.id}),[]),abil:g.charter.dues==='coin'?safe(()=>org('abilityQuote')({id:g.id}),[]):[]}));
+   const sig=JSON.stringify([snapshot.canWrite,info]);
+   if(mine.dataset.sig!==sig){mine.dataset.sig=sig;
+    const run=(f,ok)=>()=>{try{f();message=ok;}catch(e){message=e.message;}render();};
+    const act=(label,why,f,ok,off)=>{const wrap=node('p'),b=node('button',label,{type:'button'});b.disabled=!!off;b.addEventListener('click',run(f,ok));wrap.append(b);if(why)wrap.append(node('small',` ${why}`));return wrap;};
+    mine.replaceChildren(...info.map(({g,pend,inv,abil})=>{
+     const card=node('section','',{class:'expedition_card'}),coin=g.charter.dues==='coin',box=g.treasury?.coin||0;
+     card.append(node('h4',g.name));
+     if(coin){
+      const late=g.members.filter(m=>m.lateMeetings>0).map(m=>`${m.name} (${m.lateMeetings} late)`);
+      card.append(node('p',`Treasury: ${box} coin${box===1?'':'s'}. Dues: ${g.duesPerMeeting} coins per member per meeting; a member who cannot cover it is marked late and charged nothing.${late.length?` Late: ${late.join(', ')}.`:''}`,{class:'organization-note'}));
+      card.append(act(pend?`Collect dues (${pend} meeting${pend===1?'':'s'} held)`:'Collect dues',pend?'':'No meeting has been held since the last collecting.',()=>org('settle')({id:g.id}),'Dues collected and saved.',!snapshot.canWrite||!pend));
+     } else card.append(node('p','This group collects no coin dues, so it has no treasury.',{class:'organization-note'}));
+     for(const q of inv)if(!q.joined)card.append(act(`Invite ${q.name}`,q.eligible?`Agrees at Village standing ${q.needs}.`:q.reasons.join(' '),()=>org('invite')({id:g.id,npc:q.npc}),`${q.name} joined ${g.name}.`,!snapshot.canWrite||!q.eligible));
+     for(const q of abil)card.append(act(`${q.label} · ${q.cost} coins`,q.eligible?q.because:q.reasons.join(' '),()=>org('spend')({id:g.id,ability:q.key}),`${q.label}: done.`,!snapshot.canWrite||!q.eligible));
+     card.append(act(`Dissolve ${g.name}`,box?`The ${box} coins in the box go back to the members who paid in.`:'',()=>org('dissolve')({id:g.id}),`${g.name} dissolved.`,!snapshot.canWrite));
+     return card;}));}
+   }
   const seen=new Set(),visibleGroups=new Set();
   for(const s of view.sections) {
    visibleGroups.add(s.id);let g=groups.get(s.id);
