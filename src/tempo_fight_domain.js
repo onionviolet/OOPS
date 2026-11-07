@@ -10,6 +10,7 @@ import {partyHelperReasons, initializePartyBattle} from './party_battle.js';
 import {PARTY_HELPER} from './native_battle_contracts.js';
 import {rivalCombatant, rivalBrief, rivalStudyQuote, recordRivalStudy} from './rival_memory.js';
 import {knownTargetFacts} from './known_target_facts.js';
+import {applySimulationEffects} from './simulation_effects.js';
 import {harmState, setHarmState, HARM_RUNGS} from './harm_state.js';
 import {harmPart} from './harm_engine.js';
 import {beginTempoFight, commitTempoMove, handOverTempoFight, tempoView, TEMPO_SCHEMA, TEMPO_FACT_HELD} from './tempo_fight.js';
@@ -72,6 +73,23 @@ export function restoreJournalTab(was, notebook) {
 function restoreTab() {const was = priorTab; priorTab = null; restoreJournalTab(was.journal, document.getElementById('journal_show_notebook')); restoreWorkroomTab(was.workroom); restoreCenterView(was.center, centerTask(), document.getElementById('center_mode_back'));}
 const open = () => ports.root().simulation?.sessions.player?.nativeBattle?.schema === TEMPO_SCHEMA ? ports.root().simulation.sessions.player.nativeBattle : null;
 
+// What each opposing fighter saw of the player (world-neutral). A knowledge entry must belong to a persistent actor, so unnamed fighters are skipped.
+// Written once per fight through the knowledge effect (cause = the fight's session id, so a second apply keeps the first record). The wording is the observer's: what he believes happened.
+export const FIGHT_SIGHT_KEY = 'person.player.fight_seen';
+const SIGHT = {won: 'fought you and lost', lost: 'fought you and won', withdrawn: 'fought you, and you backed away', yielded: 'fought you, and you gave way'};
+export function recordFightSight(plan, registry, before) {
+    const sessionId = before?.sessionId, b = before?.battle, result = plan?.state?.actors?.player?.facts?.['tempo.lastResult'];
+    if(!sessionId || !b || !SIGHT[result] || plan.state.simulation.sessions.player?.nativeBattle) return [];
+    const cause = `tempo-sight:${sessionId}`, written = [];
+    for(const [id, f] of Object.entries(b.fighters)) {
+        if(f.side !== 'b' || !plan.state.simulation.people[id] || !plan.state.actors[id]) continue;
+        if(plan.state.simulation.knowledge[id]?.[FIGHT_SIGHT_KEY]?.cause === cause) continue;
+        applySimulationEffects(plan, [{type: 'knowledge', actor: id, key: FIGHT_SIGHT_KEY, stage: 'seen', value: SIGHT[result]}], {actorId: 'player'}, registry, cause);
+        written.push(id);
+    }
+    return written;
+}
+const openFight = () => {const s = ports.root().simulation?.sessions.player; return s?.nativeBattle?.schema === TEMPO_SCHEMA ? {sessionId: s.id, battle: structuredClone(s.nativeBattle)} : null;};
 function startQuote() {
     try {
         const state = ports.root(), context = {...ports.campaignContext(), targetId: ROAD_RIVAL};
@@ -159,10 +177,10 @@ function study() {
     return 'You have taken her measure.';
 }
 function move(request) {
-    const state = ports.root(), ctx = ports.campaignContext();
+    const state = ports.root(), ctx = ports.campaignContext(), before = openFight();
     const plan = request.handOver ? handOverTempoFight(state, ports.registry, ctx) : commitTempoMove(state, ports.registry, ctx,
         {moveId: request.moveId, targetId: request.targetId, allyId: request.allyId, orderId: request.orderId, aim: request.aim !== undefined ? request.aim : ['jab', 'swing'].includes(request.moveId) ? aim : null}, state.sequence);
-    ports.commit(plan); applyHarm(plan);
+    recordFightSight(plan, ports.registry, before); ports.commit(plan); applyHarm(plan);
 }
 // A view only quotes the committed state. Its four quotes share one context build.
 function view() {

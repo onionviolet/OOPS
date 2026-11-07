@@ -5,7 +5,7 @@ state: drafted
 viewport: n/a
 persistence: n/a
 review: none
-tests: npm test 5578 pass, 0 fail, 5 skip (M over e45b11c70)
+tests: npm test 5586 pass, 0 fail, 5 skip (W6 fold)
 ```
 
 # Overnight foundation run, 2026-11-07
@@ -169,6 +169,16 @@ Waiting on perf-8gb's commit: W6-A world-neutral fight observation writer (`temp
 | W6-A | Tempo fights write what persistent opponents saw of the player (world-neutral), skipping non-persistent fighters | sonnet | `work/overnight-20261107/lanes2`; `src/tempo_fight_domain.js`, `src/tempo_fight.js` if needed, tests |
 
 A second worktree (`lanes2`, detached at `e45b11c70`) keeps the lanes off the tree whose suite is running.
+
+**Commit `6a185be67` (05:20).** Lane M over `e45b11c70`; npm test 5578/0/5. No push.
+
+**W6-A, fights record persistent observers (returned 05:20, in `lanes2`).** `src/tempo_fight_domain.js`: `recordFightSight(plan, registry, before)` writes `person.player.fight_seen` (stage seen, observer's voice, e.g. "fought you and lost") for each opposing fighter that is a persistent actor, cause `tempo-sight:<session>` so a second apply writes nothing; `move()` calls it before commit. New `tests/tempo_fight_sight.test.js` (3). Lane: 131/131 across tempo, rival and authority tests; check:arch pass; check:rules 0 new strings. Reachable fight with a persistent opponent: Mara's road contest (code path read, not driven through `move()`); boar, collector, street robber and constables use non-persistent ids. Not covered: no reader yet (Mara has no belonging; the Village witness map is a later dial); headless `driveTempoFight` and fights ending on their opening commit do not write. State: implemented, below floor.
+
+**W6-B, every life end closes posts (returned 05:30, in `lanes2`).** `src/positions_domain.js`: `registerPositionsLifePort` and a death check in `tick` (when `chronicle.life.endedAt` is set, close posts at `endedAt`), plus a `diedInSave` command working on the saved slice. `src/book_world_lotm_host.js` registers the life port; `src/continuation_host.js` calls `diedInSave` on a `die:` before preflight. `chronicle.js`, `continuation_state.js` and `main.js` untouched. New `tests/positions_life_end.test.js` (5). Lane: 68/68 positions and continuation, 16/16 harm, check:arch growth 0. Not covered: a death committed without a domain tick closes its posts on the next tick (still at `endedAt`); the life port is registered by the LOTM host module; HP and organization sources share the path without their own death test.
+
+**W6 fold (05:35).** W6-A and W6-B copied from `lanes2` into the first worktree on `6a185be67` (no overlap with lane M's files). Focused 147/147 (positions, tempo, continuation, harm, guard, constables); build `ad5c673a...f14f`; check:arch pass; check:rules 0 new strings; npm test 5586 pass / 0 fail / 5 skip; committed with the AT17 proposal doc. Process note: the coordinator stopped a mistakenly started duplicate suite with `pkill -f` matching its own log name, against the repo's stop-by-PID rule; nothing else matched.
+
+**AT17 proposal (05:45).** [RECURRING_PEOPLE_AT17_PROPOSAL_2026-11-07](../../../audits/RECURRING_PEOPLE_AT17_PROPOSAL_2026-11-07.md), proposal under AD32: promote a recurring role to an ordinary `simulation.people` entry at its first durable reference through a thin idempotent `promoteRole` over the existing `spawn` effect; definitions registered without provisioning so an untouched life stays byte-identical; stable ids; ended people are kept. First slice: the Tingen constables.
 
 ## Resume block (unattended run, 2026-11-07)
 
