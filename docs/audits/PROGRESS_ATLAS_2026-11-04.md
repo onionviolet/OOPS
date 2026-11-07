@@ -136,3 +136,26 @@ Visual: [evidence/foundational_gaps_2026-11-06.html](evidence/foundational_gaps_
 **AT15 step 1 (2026-11-06).** Tempo fights take `shoot` and `reload` with real stock and fog; the LOTM proof opener quotes natively but the tempo host is Frontier-only (T1) and its panel is hidden from the LOTM view (T2). Implemented, below floor: [record](../gm/dispatch/at15-fight-2026-11-06/CHECKPOINT.md).
 
 **AT15 closed at floor (2026-11-06, fixture route).** Slice 1 of the cross-world run: tempo and three other world-neutral domains take the neutral write port, the LOTM view has a shared-panel slot, and a native walk on bundle `53a2a0ab...` armed Klein, won a two-shot fight, wrote 6 to 4 loaded rounds back once and kept them across reload and Export/Import. Agent-verified, not human-reviewed. New findings AT21-AT23 and the seam register: [run record](../gm/dispatch/cross-world-run-2026-11-06/CHECKPOINT.md).
+
+## Overnight foundation run, 2026-11-07
+
+Snapshot master `434aa706d` plus the wave 7 fold; source: [run record](../gm/dispatch/overnight-run-2026-11-07/CHECKPOINT.md). Agent-verified, not human-reviewed; every slice below is implemented, below floor unless a walk is named.
+
+| Row | Before | After |
+|---|---|---|
+| AT10 | open in this table | closed earlier by `1eeb94f22` (cross-world wave 3); recorded here |
+| AT17 / FD4 | open | prototype: `src/recurring_people.js` promotes the Tingen constables at the door fight (AD32 proposal, [AT17 proposal](RECURRING_PEOPLE_AT17_PROPOSAL_2026-11-07.md)); LOTM colleagues are the next consumer |
+| FD14 | sheet read by scripts and tests | first runtime reader: Tingen half-life and post publicity come from its sheet row |
+| FD15 | exits by the player's choice | term ends settle on the clock (LOTM port); old age and a continuation death close posts as died |
+| Care (residue) | one caller | three: Village fever card, aging treatment, and care on credit with repay through Ledger → Owed |
+| OB8/OB9 (LARGER F1-F8) | knownness did not fade; Tingen had no readers | per-authority half-life, identity key, Tingen readers (wages, divinations, constables' sight), claims as known acts, witness reader |
+
+New findings (proposals, AD32):
+
+| ID | Finding | Next |
+|---|---|---|
+| AT27 | Seam-first lanes return without a caller play reaches (four times this run); wiring-first briefs fixed it | Brief consumer wiring before the seam in later runs |
+| AT28 | Signing the guard contract before reporting in broke every later save; fixed in `bc76799bb` after a native walk | Closed; regression in `tests/lotm_guard_contract.test.js` |
+| AT29 | The one claimable ground today (the wilds stead) sits beyond the Village and Tingen bounds, so a claim there records no known act yet | A claimable place inside Tingen or Village bounds, or a village heat row |
+| AT30 | Care on credit lands in the Village, which belongs to the Frontier test bed (no new depth by default) | Move the first book-world consumer (a Tingen physician or the HP hospital wing) onto the same seam |
+| AT31 | The game MCP cannot type a group name (founding unwalkable) and `game_freeze` reads the primary checkout, not a worktree | Two `game_report_limit` entries filed; extend the server per the limits doc |

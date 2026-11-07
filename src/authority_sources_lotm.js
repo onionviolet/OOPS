@@ -52,9 +52,8 @@ registerKnownness(AUTHORITY, (state, ctx) => {
 // F2 witness belonging (first live consumer). Belonging comes from the only Tingen watch ids the world writes: the constables of book_world_lotm_constables.js
 // (`book.lotm.constable.<n>`, fighters on the police side of the door fight). Dial: a constable's sight counts 1 (he writes it in the station book the police read);
 // a passer-by or a village person has no belonging and adds nothing, and a person whose watch post is not recorded stays out until his id says so.
-// Constables are fight fighters, not persistent people, so their sight cannot live in simulation.knowledge (the save requires persistent holders);
-// book_world_lotm_constables.js keeps the door fight's sight in its own slice and registers the reader that turns it into rows. This belonging serves any later
-// persistent constable whose knowledge records the player.
+// The door fight promotes the constables to persistent people (recurring_people.js, AT17 prototype), so their sight lives in simulation.knowledge and
+// this belonging turns it into Tingen rows. book_world_lotm_constables.js keeps the older `door` slice entry as a fallback for saves from before promotion.
 export const CONSTABLE_PREFIX = 'book.lotm.constable.', CONSTABLE_WEIGHT = 1;
 const CONSTABLE_REASON = 'A constable writes what he saw into the station book, and the Tingen police read that book.';
 registerWitnessBelonging(AUTHORITY, (state, id) => typeof id === 'string' && id.startsWith(CONSTABLE_PREFIX)

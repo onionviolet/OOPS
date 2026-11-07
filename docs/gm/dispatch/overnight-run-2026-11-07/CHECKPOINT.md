@@ -5,7 +5,7 @@ state: drafted
 viewport: n/a
 persistence: n/a
 review: none
-tests: npm test 5586 pass, 0 fail, 5 skip (W6 fold)
+tests: npm test 5591 pass, 0 fail, 5 skip (wave 7 fold)
 ```
 
 # Overnight foundation run, 2026-11-07
@@ -180,15 +180,25 @@ A second worktree (`lanes2`, detached at `e45b11c70`) keeps the lanes off the tr
 
 **AT17 proposal (05:45).** [RECURRING_PEOPLE_AT17_PROPOSAL_2026-11-07](../../../audits/RECURRING_PEOPLE_AT17_PROPOSAL_2026-11-07.md), proposal under AD32: promote a recurring role to an ordinary `simulation.people` entry at its first durable reference through a thin idempotent `promoteRole` over the existing `spawn` effect; definitions registered without provisioning so an untouched life stays byte-identical; stable ids; ended people are kept. First slice: the Tingen constables.
 
+**Commit `434aa706d` (05:55).** W6-A, W6-B and the AT17 proposal; npm test 5586/0/5. No push.
+
+## Wave 7 (05:57; usage 5-hour 50%, weekly 80%)
+
+| Lane | Slice | Model | Owned files |
+|---|---|---|---|
+| N | AT17 first slice, prototype of the proposal: `promoteRole` (world-neutral) and persistent Tingen constables promoted when the door fight opens, so their knowledge feeds the witness rows | sonnet | `src/recurring_people.js` (new), `src/book_world_lotm_constables.js`, minimal `src/tempo_fight_domain.js`, tests |
+
+**N, AT17 first slice (returned 06:10, checked; prototype under AD32).** New `src/recurring_people.js` (`defineRole` registers a promotable role without provisioning, `installRoleDefinitions`, `roleRegistered`, idempotent `promoteRole` over the `spawn` effect). `src/book_world_lotm_constables.js` defines the two constables and promotes them when the door fight opens (opener `promote`); its Tingen reader skips a constable who already has knowledge of the player (F5) and `recordDoorSight` stops writing once they are persistent. `src/tempo_fight_domain.js`: one line in `begin()` calls `opener.promote` before the commit, so W6-A's writer records their sight. New `tests/recurring_people.test.js` (5: untouched bytes, people and knowledge after a fight, encode/import/reload, no double spawn or re-promotion on rewind, one witness row per constable). Lane: 98/98 + LOTM 375/0, check:arch, check:rules 0 new. **Coordinator wiring:** the lane could not install definitions without an import cycle, so a promoted save would have failed to load (F1); the coordinator added `installRoleDefinitions(registry)` at `createLotmHost` (`src/book_world_lotm_host.js`), which the LOTM domain builds at startup; focused 422/422 (recurring, constables, authority, LOTM); updated the comment in `src/authority_sources_lotm.js`; SAVES.md row (forward only). Build `5fe3ff94...02d2`, check:rules pass, doc slips clean, npm test 5591 pass / 0 fail / 5 skip; committed with the atlas refresh section. Not covered: native walk of a door fight and a reload of the promoted save; witness wording now follows the observer's knowledge ("fought you and lost") instead of the door wording; a second fight replaces the first sight. State: implemented, below floor.
+
 ## Resume block (unattended run, 2026-11-07)
 
 Weibao, 2026-11-07 00:13: "make as much progress as possible ... use as much usage to make as much progress, and continue after the 5 hour limit and more".
 - Objective: waves of disjoint foundation slices to floor, committed from an isolated worktree, until the stop condition.
-- Input identity: master `778396479` at start; run commits `b254013c4`, `137319cba`, `db55445d8`, `bc76799bb`, `f8595bf44`; dirty but not ours: the whole primary working tree at dispatch (prose, perf, rules, dist).
+- Input identity: master `778396479` at start; run commits `b254013c4`, `137319cba`, `db55445d8`, `bc76799bb`, `f8595bf44`, `6a185be67`, `434aa706d`; perf-8gb committed `e45b11c70` in between; dirty but not ours: the whole primary working tree at dispatch (prose, perf, rules, dist).
 - State of the steps: wave 1 dispatched 00:25; A and C returned and recorded; B (walk) out. Wave 2 (D, E) dispatched 00:55.
 - Last evidence: folded wave 1-2 tree (C, D, E) built `bb58918b5b35d7b1e1a048284e737ffbd6805c63acba0d71ee5c502f13e17eb8`; check:arch pass; check:rules pass (0 new player-text strings); npm test running 01:20.
 - Failed approaches: none yet.
-- Next useful action: commit M on green suite; fold W6-A and W6-B from `lanes2` into the first worktree, gate, commit; remove `lanes2` at closeout; build in the isolated worktree; gates; commit own paths.
+- Next useful action: fold N, gate, commit; then atlas refresh section and closeout (remove `lanes2` and `checkout` worktrees); build in the isolated worktree; gates; commit own paths.
 - Usage pacing: read 00:14 EST, 5-hour 25% (resets 03:50), weekly 77% (resets Mon 13:00). Weibao's later words override the 75% weekly stop; this run's ceiling is weekly 92% (stop, leave this block current, about 8% left for his weekend). 5-hour at 85%: start no lane, wake after reset. Five other sessions share the pool.
 - Stop condition (default 92%, Weibao's dial; reason: about 8% stays his until Monday): weekly 92%, or every remaining foundation slice sits inside the collision map, or a blocker that needs Weibao. Reached? Not yet.
 

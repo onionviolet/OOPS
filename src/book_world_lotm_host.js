@@ -18,6 +18,7 @@ import {withFactsFrame} from './facts_frame.js';
 import {purseEffect} from './own_holdings.js';
 import {domainRegistry} from './domain_registry.js';
 import {registerPositionsPort,registerPositionsLifePort} from './positions_domain.js';
+import {installRoleDefinitions} from './recurring_people.js';
 import {lotmResignPlan,CIVIL_RESIGN_COST} from './book_world_lotm_positions.js';
 import {GUARD_POSITION_ID,GUARD_RESIGN_COST,GUARD_OFFER,guardSignQuote,guardBegin,guardStand,guardCollect,guardResignPlan,guardView,guardSnapshot,guardRestore,guardPayWords} from './book_world_lotm_guard.js';
 import {LOTM_GUARD_DUTY_ID} from './book_world_lotm_duties.js';
@@ -111,6 +112,7 @@ function benchDetail(s,c,id,{registry,asleep}){
 }
 export function createLotmHost(ports){
  const registry=ports.registry;let dying=false;
+ installRoleDefinitions(registry); // AT17 prototype (AD32): promotable roles (the Tingen constables) validate in this registry before any save loads
  // FD15: the civil contract's term ends on the clock; the positions domain settles it for any live LOTM state.
  registerPositionsPort('lotm',()=>{const s=ports.state();return s?.lotm?s:null;});
  registerPositionsLifePort('life',()=>ports.state()); // any life's old-age end, not only a LOTM seat's

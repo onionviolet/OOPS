@@ -13,6 +13,8 @@ import {AUTHORITIES} from './heat.js';
 import {registerKnownness, identityOf, PLAYER_IDENTITY} from './authority.js';
 import {CONSTABLE_WEIGHT} from './authority_sources_lotm.js';
 import {LOTM_IDS as I} from './book_world_lotm_ids.js';
+import {knownTargetFacts} from './known_target_facts.js';
+import {defineRole, promoteRole, roleRegistered} from './recurring_people.js';
 
 export const CONSTABLES_FAMILY = 'constables@1';
 export const CONSTABLES_TITLE = 'Constables at the door';
@@ -32,6 +34,20 @@ export const CONSTABLES_DIALS = Object.freeze({
 
 // The two men at the door; the fight spec and the sight writer share these ids (the Tingen witness belonging reads the prefix).
 export const CONSTABLE_IDS = Object.freeze([1, 2].map(n => `book.lotm.constable.${n}`));
+// The same two names label the persistent roles below and the legacy door rows.
+const DAY = 24 * 60, NAMES = Object.freeze(['The first constable', 'The second constable']);
+// AT17 PROTOTYPE (proposal under AD32, not an accepted rule): the two constables are recurring roles. They are registered here without provisioning
+// (an untouched life gains no bodies) and promoted to persistent people when the door fight opens, so the fight's sight writer can note what they saw.
+CONSTABLE_IDS.forEach((id, i) => defineRole({id, label: NAMES[i], worldId: I.world, location: 'Your lodging door', body: {form: 'human', hands: 2, mobile: true},
+    vitals: {health: CONSTABLES_DIALS.foeHp.value, max_health: CONSTABLES_DIALS.foeHp.value, stamina: 10, max_stamina: 10}}));
+// Opener hook: runs on the new fight plan before it is committed. Returns the ids created now. A registry that was never given the role definitions
+// promotes nobody, and the legacy `door` record keeps serving (promoting without a definition would write a person no save could validate).
+export function promoteConstables(plan, registry) {
+    if(!CONSTABLE_IDS.every(id => roleRegistered(registry, id))) return [];
+    const cause = `constables-door:${plan.state.sequence}`;
+    return CONSTABLE_IDS.filter(id => promoteRole(plan, registry, {definitionId: id, cause}));
+}
+const persistent = state => CONSTABLE_IDS.every(id => state?.simulation?.people?.[id] && state.actors?.[id]);
 // What each constable saw, in his own words (ACR9: his view of the player, not a hidden truth). The Tingen row reads "<who> saw you and noted: <value>."
 const DOOR_SIGHT = Object.freeze({won: 'fought two constables at the door and drove them off', lost: 'fought two constables at the door and was beaten down',
     yielded: 'gave in at the door', withdrawn: 'got away from two constables at the door'});
@@ -75,10 +91,11 @@ registerConsequence({id: 'constables.bounty', read: () => slice.bounty ? [{id: `
     text: `The Tingen police have posted a bounty of ${slice.bounty.amount} pence for bringing you in.`, cause: `bounty:${slice.bounty.cause}`, observerSafe: true}] : []});
 
 // Tingen's knownness reads what each constable noted at the door: one witness row per constable, same row shape as the knowledge-based witness reader.
-const DAY = 24 * 60, NAMES = Object.freeze(['The first constable', 'The second constable']);
+// AT17 prototype: a constable's own knowledge is the source (the witness belonging reads it); `door` is a read-only fallback for saves made before the
+// constables were persistent. A constable who has knowledge of the player is skipped here so one sight never adds two rows (F5).
 registerKnownness('tingen', (state, ctx) => {
     if(identityOf(ctx) !== PLAYER_IDENTITY || !slice.door) return [];
-    return CONSTABLE_IDS.map((id, i) => ({id: `witness:${id}`, weight: CONSTABLE_WEIGHT, at: Math.floor(slice.door.at / DAY), text: `${NAMES[i]} saw you and noted: ${slice.door.value}.`}));
+    return CONSTABLE_IDS.map((id, i) => [id, i]).filter(([id]) => !Object.keys(knownTargetFacts(state, id, PLAYER_IDENTITY)).length).map(([id, i]) => ({id: `witness:${id}`, weight: CONSTABLE_WEIGHT, at: Math.floor(slice.door.at / DAY), text: `${NAMES[i]} saw you and noted: ${slice.door.value}.`}));
 });
 const project = id => { try { return domainRegistry.project(id) ?? null; } catch { return null; } };
 const cmd = (id, name) => domainRegistry.command(id, name);
@@ -131,12 +148,12 @@ function apply(result, {at, cause}) {
     if(result === 'withdrawn') return '';
     return arrest({at, cause, how: result === 'yielded' ? 'You gave in to the constables.' : 'The constables beat you down at your door and took you in.'});
 }
-// What the two constables saw of the player at the door, dated at the fight. It lives in this slice, not in simulation.knowledge: the save validator
-// requires every knowledge holder to be a persistent actor (state.actors and simulation.people), and a constable is a fight fighter only, so a note
-// under his id would break saving. One record per fight, replaced by the next fight, so it stays bounded; the same fight never rewrites it.
-function recordDoorSight(result, {at, cause}) {
+// Legacy fallback (AT17 prototype): what the two constables saw of the player at the door, for a life whose constables were never promoted (a save from
+// before, or a registry without the role definitions). A promoted constable holds his own knowledge instead, so nothing is written here for him.
+// One record per fight, replaced by the next fight, so it stays bounded; the same fight never rewrites it.
+function recordDoorSight(result, {at, cause}, state) {
     const text = DOOR_SIGHT[result];
-    if(!text || slice.door?.cause === cause) return;
+    if(!text || slice.door?.cause === cause || persistent(state)) return;
     slice = {...slice, door: {value: text, at, cause: String(cause).slice(0, 60)}};
 }
 // Read finished fights from the log; idempotent (the session id is recorded first and put back if the host cannot take the effects now).
@@ -151,7 +168,7 @@ export function resolveConstableFights(state) {
         slice = {...slice, handled: [...slice.handled, e.cause].slice(-HANDLED_CAP)};
         try {
             const text = apply(result, {at, cause: e.cause});
-            recordDoorSight(result, {at, cause: e.cause});
+            recordDoorSight(result, {at, cause: e.cause}, state);
             if(text) { const line = {id: `constablefight:${e.cause}`, at, text}; slice = {...slice, lines: [...slice.lines, line].slice(-LINES_CAP)}; out.push(line); }
         } catch { slice = before; break; }
     }
@@ -198,4 +215,4 @@ export function constablesSpec(state, context, helpers) {
 }
 registerTempoOpener({id: 'lotm.constables.door', label: 'Constables at the door',
     text: 'Two constables have come for you by name. Fight them, give yourself up with Yield, or withdraw if you can.',
-    quote: constablesQuote, spec: constablesSpec});
+    quote: constablesQuote, spec: constablesSpec, promote: promoteConstables});

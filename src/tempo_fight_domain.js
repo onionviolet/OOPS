@@ -163,6 +163,7 @@ function begin(request = {}) {
     const me = withTypes(readNativeFighter(ports.actor()), ports.actor());
     const spec = opener.spec(state, context, {me, vitals: context.vitals.player, parts: carriedParts(), enemyProfile});
     const plan = beginTempoFight(state, ports.registry, context, spec);
+    opener.promote?.(plan, ports.registry); // AT17 prototype: recurring opponents become persistent before the commit, so the sight writer finds them
     rememberTab(); ports.commit(plan); applyHarm(plan);
 }
 // Study her stance: watch Mara for the dial's minutes; the clock advances once and the observation lands in the player's knowledge store.
