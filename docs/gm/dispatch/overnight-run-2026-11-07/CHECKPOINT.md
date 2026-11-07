@@ -5,7 +5,7 @@ state: drafted
 viewport: n/a
 persistence: n/a
 review: none
-tests: npm test 5596 pass, 0 fail, 5 skip (wave 8 fold)
+tests: npm test 5596 pass, 0 fail, 5 skip (scenarios R)
 ```
 
 # Overnight foundation run, 2026-11-07
@@ -228,6 +228,21 @@ One `game_report_limit` filed (aged-life fixture, wanted-level fixture, reports 
 
 **Worktrees.** `work/overnight-20261107/lanes2` removed after checking each of its edits matches `434aa706d`. `work/overnight-20261107/checkout` kept at `86eac8bcb` for the next session (holds only build output beyond HEAD).
 
+**R, game MCP scenarios (returned 07:50, checked by its own MCP check).** `scripts/headless/scenarios.mjs`: `village-aged-chronic` (DEV SEEDED: elder met, chronicle begun through the notebook, `initialAge` 46, stage 1 stiff joints diagnosed, purse 3 coins; healer debt not seeded) and `lotm-klein-wanted` (DEV SEEDED: Klein's own life, one known act of weight 6 against `tingen_police` plus the constables latch; skips without the private cast pack). `scripts/mcp/game_mcp_check.mjs` gains `seededScenarios` asserting each hook ("Treat on credit · 16 coins"; "Constables at the door"). `node scripts/mcp/game_mcp_check.mjs`: PASS (15 tools). Not covered: the `game_new` tool description in `scripts/mcp/game_mcp.mjs` lists the older scenario names; heat decays, so the wanted state lasts about 21 game days. Closes the fixture half of AT31. npm test 5596 pass / 0 fail / 5 skip; committed with the walk receipt (another session's uncommitted two-line edit to `scenarios.mjs` in the primary was preserved by patching).
+
+**Native walk on the new scenarios (returned 08:00).** Bundle `b19c6166...1a6a` at start and end; page errors 0 on every call; no "Progress paused".
+
+| Step | What the player saw | Result | Persistence |
+|---|---|---|---|
+| Aged Village card | "Treat on credit · 16 coins" on the stiff joints card | pass | n/a |
+| Treat on credit | stage eased to "in care"; the 3 coins stayed | pass | n/a |
+| Ledger → Owed | "You owe the healer 16 coins, no set date." | pass | save, reload, export and import into a new session kept the debt |
+| Repay with 3 coins | "Paid 3 coins." owed fell to 13 | pass (partial repay) | kept after save and reload |
+| Constables at the door (wanted Klein) | the fight opened; Klein yielded; "You spent the night in the cells." and a 90 pence fine | pass | save (365,827 bytes), reload, export and import clean; fine and cells record kept |
+| Tingen knows | "The Tingen police have your name." (report line; the knownness screen not opened) | partial | n/a |
+
+Care on credit with repay and the promoted-constables save path now reach the floor on DEV SEEDED fixture routes (`village-aged-chronic`, `lotm-klein-wanted`): agent-verified, not human-reviewed. Not walked: a full repay, the witness rows on a knownness screen.
+
 ## Resume block (unattended run, 2026-11-07)
 
 Weibao, 2026-11-07 00:13: "make as much progress as possible ... use as much usage to make as much progress, and continue after the 5 hour limit and more".
@@ -236,7 +251,7 @@ Weibao, 2026-11-07 00:13: "make as much progress as possible ... use as much usa
 - State of the steps: waves 1-8 returned, recorded and committed (`b254013c4` through `86eac8bcb`); defect fixes A and B committed `bc76799bb` and re-walked; final walk recorded.
 - Last evidence: master `86eac8bcb`; build `b19c616644483f4f4af2238ac24e2cf0b7f2c79aecc8897e7643367f72651a6a`; npm test 5596 pass / 0 fail / 5 skip; check:arch and check:rules pass; final walk: control lesson partial pass, care credit and door fight not reached (no fixtures).
 - Failed approaches: seam-first lanes without a named caller (AT27); writing knowledge for non-persistent fighters (save refuses, use promotion); rebuilding `dist/` while a walker reads it (FR-L8); `game_freeze` for a worktree build (reads the primary).
-- Next useful action: add game MCP fixtures for an aged Village life and a wanted LOTM life (AT31, per `docs/tools/GAME_MCP_LIMITS.md`), then walk care on credit with repay and the constables door fight with save/reload/export/import; after that, AT17 second consumer (a LOTM colleague) and the Gu prepare/meal acts on resources (needs a migration).
+- Next useful action: AT17 second consumer (a LOTM colleague) and the Gu prepare/meal acts on resources (needs a migration).
 - Usage pacing: read 00:14 EST, 5-hour 25% (resets 03:50), weekly 77% (resets Mon 13:00). Weibao's later words override the 75% weekly stop; this run's ceiling is weekly 92% (stop, leave this block current, about 8% left for his weekend). 5-hour at 85%: start no lane, wake after reset. Five other sessions share the pool.
 - Stop condition (default 92%, Weibao's dial; reason: about 8% stays his until Monday): weekly 92%, or every remaining foundation slice sits inside the collision map, or a blocker that needs Weibao. Reached? Not yet (07:20, weekly 81%): next is the game MCP fixtures lane; slices needing new player text or HP files stay out while the prose session and the HP worktree hold them.
 

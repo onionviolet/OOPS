@@ -141,6 +141,26 @@ async function fasterTime(c) {
     await c.tool('game_close', {sessionId: 'days'});
 }
 
+// DEV SEEDED scenarios (scripts/headless/scenarios.mjs): each boots straight to a feature that otherwise needs years or a wanted level.
+async function seededScenarios(c) {
+    await c.tool('game_new', {scenario: 'village-aged-chronic', seed: 5, sessionId: 'aged'});
+    await c.tool('game_step', {minutes: 1, sessionId: 'aged'});
+    await c.tool('game_click', {panel: 'notebook', sessionId: 'aged'});
+    await c.tool('game_click', {key: '#notebook_tab_practice', sessionId: 'aged'});
+    await c.tool('game_click', {key: '#aging_contact_panel > summary', sessionId: 'aged'});
+    let v = await c.tool('game_look', {scope: '#aging_contact_panel', sessionId: 'aged'});
+    assert.match(v.screen, /Stiff joints . stage 1\/3/, 'aged scenario shows a chronic condition card');
+    assert.ok(v.actions.some(a => /^Treat on credit . \d+ coins$/.test(a.text)), 'short purse shows Treat on credit');
+    await c.tool('game_close', {sessionId: 'aged'});
+    if(!existsSync(join(ROOT, 'private_packs/lotm-cast/cast.json'))) return console.error('lotm-klein-wanted check skipped: private cast pack absent');
+    await c.tool('game_new', {scenario: 'lotm-klein-wanted', seed: 5, sessionId: 'wanted'});
+    await c.tool('game_step', {minutes: 5, sessionId: 'wanted'});
+    await c.tool('game_click', {panel: 'lotm', sessionId: 'wanted'});
+    v = await c.tool('game_look', {scope: '#lotm_panel', sessionId: 'wanted'});
+    assert.match(v.screen, /Constables at the door/, 'wanted scenario opens the door fight');
+    assert.match(v.screen, /sent two constables/, 'door fight quote reads the police decision');
+    await c.tool('game_close', {sessionId: 'wanted'});
+}
 async function worktreeCheckout(c) {
     const wt = join(mkdtempSync(join(tmpdir(), 'yairpg-wt-')), 'tree');
     execFileSync('git', ['worktree', 'add', '--detach', wt, 'HEAD'], {cwd: ROOT, stdio: 'ignore'});
@@ -405,6 +425,7 @@ try {
     assert.match(readFileSync(LEDGER, 'utf8'), /screenshot of the village/);
     await fasterTime(c);
     await loopReload(c);
+    await seededScenarios(c);
     await worktreeCheckout(c);
     console.log(JSON.stringify({result: 'PASS', hash: a.hash, tools: list.length}));
     }

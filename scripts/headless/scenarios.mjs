@@ -21,6 +21,8 @@ export const SCENARIOS = Object.freeze({
     'village-craftsman': {summary: 'Three days in, old craftsman reachable (story access patched like village_route.progress); walks the village.interrupt_work request.', recipe: {days: 3, patch: 'craftsman'}},
     'village-workshop-unenrolled': {summary: 'DEV SEEDED craftsman access; native greeting completed, no local simulation enrolled. Open Notebook > People > Craftsman & workshop.', recipe: {days: 0, patch: 'craftsman', prepare: 'workshop'}},
     'village-rival': {summary: 'DEV SEEDED craftsman access; native crossing inspection, field membership and Mara meeting. Open Notebook > People > Road contest.', recipe: {days: 0, patch: 'craftsman', prepare: 'rival'}},
+    'village-aged-chronic': {summary: 'DEV SEEDED: Village chronicle begun, then aged to 46 with stage 1 stiff joints and a 3-coin purse. Open Years & company: Treat on credit shows.', recipe: {days: 0, prepare: 'chronicle', finish: 'agedChronic'}},
+    'lotm-klein-wanted': {summary: 'DEV SEEDED (needs private_packs/lotm-cast): Be Klein Moretti started through the panel, then the Tingen police hold him as wanted and the constables latch is set. Constables at the door opens.', recipe: {days: 0, prepare: 'klein', finish: 'kleinWanted'}},
     'perf-fresh': {summary: 'Committed perf fixture: fresh life.', file: 'tests/fixtures/perf/fresh.json'},
     'perf-mid': {summary: 'Committed perf fixture: mid-game life.', file: 'tests/fixtures/perf/mid.json'},
     'perf-crowded': {summary: 'Committed perf fixture: crowded life (many people and jobs).', file: 'tests/fixtures/perf/crowded.json'},
@@ -30,9 +32,51 @@ export const SCENARIOS = Object.freeze({
 const PATCHES = {
     craftsman: save => {const out = structuredClone(save); out.availabilities.dialogue.oldCraftsman = 1; return out;},
 };
+// Applied after `prepare`. DEV SEEDED stand-in for 28 years of play: the begun chronicle's starting age moves to 46 (the calendar and clock are
+// untouched, so the chronicle validators still agree), the body slice holds stage 1 stiff joints for that life (progress 5 of step 4, diagnosed),
+// and the purse is 3 coins, below the 16-coin course, so the healer's credit button shows. The healer debt itself is never written.
+// DEV SEEDED stand-in for a beaten collector and days of notoriety: one known act of weight 6 against the Tingen police (wanted starts at 4; it decays
+// linearly over 28 days, so about 21 days stay at wanted) and the constables slice's own latch, which the police's decision would set on the next quote.
+const FINISH = {
+    kleinWanted: save => {
+        const out = structuredClone(save), at = out.expansion.clock;
+        if(!out.expansion.lotm) throw new Error('kleinWanted needs a started Tingen life.');
+        out.heat = {family: 'heat@1', acts: [{id: 'dev-seed:wanted', authority: 'tingen_police', weight: 6, age: 0, at, witness: 'dev seed'}], live: {tingen_police: true}, past: {}, marks: {}, fines: {}};
+        out.constables = {family: 'constables@1', handled: [], lines: [], latch: {at}, bounty: null, hooks: {}, sentence: null, arrests: 0, door: null};
+        return out;
+    },
+    agedChronic: save => {
+        const out = structuredClone(save), c = out.expansion.chronicle, age = 46;
+        if(!c) throw new Error('agedChronic needs a begun chronicle.');
+        c.life.initialAge = age;
+        out.aging_contact = {...out.aging_contact, lifeKey: c.enrolledAt, lastAge: age + (c.lastClock - c.enrolledAt) / (360 * 24 * 60),
+            conditions: {joints: {progress: 5, relief: 0, stance: 'ignore', treatedUntil: 0, diagnosed: true}}};
+        out.character.money = 3;
+        return out;
+    },
+};
 // Only story access bypasses the elder's combat chain. Introductions, enrollment,
 // membership, pursuit and their costs are produced by the ordinary UI commands.
 async function prepareVillage(game, kind) {
+    if(kind === 'klein') { // the developer start: pick Be Klein Moretti, then start the independent life (the page reloads; the runner follows)
+        await game.fill('#workspace_navigation select[aria-label="Other known panels"]', 'lotm');
+        await game.click('[data-lotm="pick_be"]');
+        await game.click('[data-lotm="enroll_be"]');
+        await game.step(1);
+        return;
+    }
+    if(kind === 'chronicle') { // elder met, then the People notebook's own Begin chronicle button
+        await game.clickText('village elderVillage neighbor');
+        await game.click('[data-focus-action="talk:villageElder"]');
+        await game.click('[data-textline="hello"]');
+        await game.click('#center_mode_back');
+        await game.step(1);
+        await game.fill('#workspace_navigation select[aria-label="Other known panels"]', 'notebook');
+        await game.click('#notebook_tab_people');
+        await game.click('#chronicle_panel > summary');
+        await game.click('[data-chronicle="begin-open"]');
+        return;
+    }
     await game.clickText('village elderVillage neighbor');
     await game.click('[data-focus-action="talk:villageElder"]');
     await game.click('[data-textline="hello"]');
@@ -87,7 +131,9 @@ export async function scenarioSave(name, {seed = 1} = {}) {
         if(def.recipe.prepare) {
             await game.load(save);
             await prepareVillage(game, def.recipe.prepare);
-            text = JSON.stringify(game.snapshot());
+            const done = game.snapshot(), finish = def.recipe.finish ? FINISH[def.recipe.finish] : null;
+            if(def.recipe.finish && !finish) throw new Error(`Unknown scenario finish ${def.recipe.finish}.`);
+            text = JSON.stringify(finish ? finish(typeof done === 'string' ? JSON.parse(done) : done) : done);
         } else text = JSON.stringify(save);
     }
     finally {game.close();}
