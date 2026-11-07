@@ -57,6 +57,9 @@ Follow the skill's lane brief shapes; the local copy is at
   "Game MCP" for walks), `docs/GROUND_RULES.md`, `.claude/rules/runtime-code.md`,
   `docs/ARCHITECTURE_RULES.md` AR1–AR16, `docs/SAVES.md` sections 3, 5, 6 when a slice adds
   a saved key.
+- Voice sample, for any lane that writes player-facing text: one good line from the same
+  world and surface, quoted as "player text sounds like this", and PRS4/PRS6 named
+  (`docs/PROSE_RULES.md`); `npm run check:player-text` must pass before the return.
 - Prohibitions, quoted into the brief: touch the listed files and no others; no `git add`,
   `commit`, `stash`, `checkout` or `npm run build` in the shared checkout (the coordinator
   is the sole committer and builder, so lanes cannot race each other); no visible window

@@ -27,6 +27,9 @@ reused.
 
 ## What already exists (read, not restated)
 
+Later round on how relationships select dialogue for autonomous people (DA1–DA17, 2026-11-06): [dialogue owner](worlds/DIALOGUE_AND_INTERACTIONS.md#set-dialogue-versus-autonomous-people-and-relationships-2026-11-06).
+
+
 | Owner | Covers |
 |---|---|
 | [Relationships research REPORT](research/relationships-2026-10-10/REPORT.md) | Five separate relationship stores in code (F1), write-mostly axes (F2), consent precedent (F6), layer model L1-L7 (familiarity, opinion, trust, role-relations, memories, shared history, obligations), offline rule, carriers across lives |

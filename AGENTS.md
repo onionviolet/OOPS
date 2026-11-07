@@ -47,6 +47,8 @@ in the repo docs, not in one agent's private memory.
 
 Player-facing UI: follow [DESIGN.md](DESIGN.md) (the look, DSG1–DSG19), `.claude/rules/player-ui.md` and [UI rules](docs/UI_RULES.md) (UR1–UR75 standing, UR76–UR82 proposed). Lane briefs that touch UI link that file.
 
+Player-facing words (content strings, confirm text, tooltips, Reports lines, dialogue): follow [prose rules](docs/PROSE_RULES.md) PRS1–PRS8; `npm run check:rules` lints engine vocabulary out of player text and a lane brief that writes player text quotes one voice sample (PRS7).
+
 Making systems: follow `.claude/rules/making-systems.md` and [making rules](docs/MAKING_RULES.md) MR1-MR36.
 
 Runtime code: follow `.claude/rules/runtime-code.md` and [architecture rules](docs/ARCHITECTURE_RULES.md) AR1-AR16. Runtime lane briefs name their seam and link that file.

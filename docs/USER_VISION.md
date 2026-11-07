@@ -7397,3 +7397,11 @@ Weibao, in one Claude session, in order:
 Agent reading (not his words): he wants shared, modular foundations that let many lives and livelihoods coexist in one world and carry across worlds, built backward from small concrete details; obligations, reputation, heat and economy as depth that does not demand micromanagement; and obligations only where an authority actually has a claim, knowledge and reach, with strength able to refuse or replace that authority.
 
 Accepted so far: "Yes, do step 1" authorized AT15 step 1 only ([record](gm/dispatch/at15-fight-2026-11-06/CHECKPOINT.md), implemented below floor). Everything else is proposal (AD32): FD14-FD18, the round 3 seams (livelihoods, groups, inquiry, skill channels), the AR17 world-neutral host draft, the seam register, and OB1-OB12, all in [LARGER_FOUNDATIONS_2026-11-06](audits/LARGER_FOUNDATIONS_2026-11-06.md). The Tauri answer was "no need to wait" for this work's files; no direction change. Round 4 is input to the open question "7. Balance between active play and idling", not an answer to it.
+
+## Prose rulebook and NPC dialogue ideaboard, 2026-11-06
+
+Weibao, after the agent's read that the prose rules were good but unenforced (about 130 shipped strings in agent vocabulary, later counted at 504) and its three-move proposal (a vocabulary lint in `check:rules`, rewriting by the surface the player reads most, one voice sample in every brief) plus registering the 2026-10-27 PR1–PR4 seed as a rulebook:
+
+> Lets do that, lets do some ideaboarding for future stuff aas well, will we need to create set dialogue for every character to account for options and results from letting npcs be somewhat autonomous? What about in consideration relationship stuff and more?
+
+Recorded direction: the three moves and the rulebook are accepted (AD53, [PROSE_RULES](PROSE_RULES.md) PRS1–PRS8; PRS5–PRS8 are the agent's restatement of the accepted moves, wording adjustable under AD32). First rewrite slice: the Frontier career and field content and the causal story content. The dialogue and relationship questions are recorded as questions; proposals DA1–DA17 are in the [dialogue owner](worlds/DIALOGUE_AND_INTERACTIONS.md#set-dialogue-versus-autonomous-people-and-relationships-2026-11-06), not accepted designs. Bulk local-AI drafting stays later. No commit or push was requested.
