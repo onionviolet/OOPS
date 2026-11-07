@@ -122,6 +122,8 @@ export function gameStream(name) {const state=live();return scopedStream(name,st
 export function gameRandom(name,key='native') {return drawUnit(live(),gameStream(name),key);}
 export function gameOrdinal(name) {return nextOrdinal(live(),gameStream(name));}
 export function gameKeyedRandom(name,key) {return keyedUnit(live(),gameStream(name),key);}
+// Read-only: the per-save root for pure keyed draws (social_contest). Never creates or advances a stream, so it cannot touch the save.
+export function gamePeekRoot() {const state=live();return state.streams?.root??createStreams(state.rng).root;}
 export function gameRandomRange(name,key,min,max) {return Math.round(gameRandom(name,key)*(max-min)+min);}
 // A synchronous commit-only recipe view. Its private-field methods remain bound
 // to the original; getResult resolves its quality through this view. Previews

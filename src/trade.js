@@ -20,6 +20,9 @@ import NPCRegistry from "./data/npcs.js";
 import {termsFor, recordTrade, bindStandingHost} from "./economy_standing_domain.js";
 import {renderStandingTerms} from "./economy_standing_ui.js";
 import {addPurse} from "./economy_domain.js";
+import {socialContest, scaleByMargin} from "./social_contest.js";
+import {gamePeekRoot} from "./seeded_streams.js";
+import {current_game_time} from "./game_time.js";
 
 let current_trader = null;
 let current_quote = null;
@@ -27,6 +30,40 @@ let restockReview = false;
 let current_bread_subtotal=0, use_market_coupon=false;
 // Standing terms for the open vendor (G41). Part of the quote, so a change before accept reads as stale.
 let current_terms=null;
+// "Talk the price down" (W10-B): the sway channel as one contest per vendor per day. In-memory only, no save slice: the draw is keyed on
+// (save root, vendor, day), so reloading and asking again gives the same answer. Dials: a win trims the buy price by 2% to 8% by margin
+// (Haggling already lowers the margin, so this stays small); a loss changes nothing and the vendor will not be asked again that day.
+export const TALK_DIALS=Object.freeze({minCut:{value:0.02,why:'A scraped win is a coin or two, never a gift.'},maxCut:{value:0.08,why:'The best talk still leaves the vendor a margin; Haggling already carries the big discount.'},
+    percentPerNotch:{value:0.04,why:'A vendor who already prices you 4% kindly reads as one notch warmer.'},bigStakes:{value:200,why:'A basket over 200 coins is a harder ask; over 1000 harder again.'}});
+const talks=new Map();
+const talkKey=()=>`${current_trader}:${current_game_time.day_count}`;
+const round4=n=>Math.round(n*10000)/10000;
+const talkCut=r=>scaleByMargin(r,TALK_DIALS.minCut.value,TALK_DIALS.maxCut.value);
+function talkTerms(terms){
+    const r=talks.get(talkKey());if(!terms||!r)return terms;
+    const cut=talkCut(r),part={id:'talk',label:r.won?'You talked the price down':'You tried to talk the price down',sell:1,buy:round4(1-cut),why:r.won?'Your case landed this visit.':'They would not move; asking again today will not change it.'};
+    return {...terms,parts:[...terms.parts,part],buy:round4(terms.buy*(1-cut))};
+}
+function talkOffer(){
+    if(!current_trader||current_terms?.closed)return null;
+    const done=talks.get(talkKey());if(done)return {done};
+    const disposition=Math.round((1-current_terms.buy)/TALK_DIALS.percentPerNotch.value);
+    const stakes=to_buy.value>=1000?2:to_buy.value>=TALK_DIALS.bigStakes.value?1:0;
+    return {actor:{id:'player',rows:[{skill_id:'Haggling',level:skills.Haggling.getCurrentLvl()}]},target:{id:current_trader,name:'The vendor',disposition},stakes};
+}
+function talkPrice(){
+    const offer=talkOffer();if(!offer||offer.done)return;
+    const result=socialContest({streams:{root:gamePeekRoot()},period:current_game_time.day_count},{actor:offer.actor,target:offer.target,channel:'sway',stakes:offer.stakes});
+    talks.set(talkKey(),result);log_message(result.won?`${result.text} You shave ${Math.round(talkCut(result)*1000)/10}% off the price.`:result.text,'message_critical');
+    update_displayed_total_price(calculate_total_values());
+}
+function renderTalkBox(into){
+    const offer=talkOffer();if(!offer)return;
+    into.hidden=false;
+    if(offer.done){const p=document.createElement('p');p.dataset.talkResult='';p.textContent=offer.done.won?`You talked the price down (${Math.round(talkCut(offer.done)*1000)/10}% off).`:'You asked; they would not move today.';into.append(p);return;}
+    const b=document.createElement('button');b.type='button';b.id='talk_price_down';b.textContent='Talk the price down';
+    b.title='One try per vendor per day. Your Haggling skill and how this vendor already treats you tilt it; a bigger basket is a harder ask.';b.onclick=talkPrice;into.append(b);
+}
 bindStandingHost({addCoins:(n,source)=>{addPurse(character,n,source);update_displayed_money();},coins:()=>character.money,log:text=>log_message(text,'message_critical')});
 const to_sell = {value: 0, items: [], groups: {}};
 const to_buy = {value: 0, items: [], groups: {}};
@@ -369,7 +406,7 @@ function calculate_total_values() {
     to_buy.value = 0;
     to_sell.value = 0;
     current_bread_subtotal=0;
-    current_terms=termsFor(current_location.market_region,current_trader,character.reputation);
+    current_terms=talkTerms(termsFor(current_location.market_region,current_trader,character.reputation));
 
 
     ///////////////////////////////////////////////
@@ -544,7 +581,7 @@ function renderStandingBox() {
     const anchor=document.getElementById('trade_price_value');if(!anchor)return;
     let box=document.getElementById('economy_standing_terms');
     if(!box){box=document.createElement('div');box.id='economy_standing_terms';box.setAttribute('role','group');tradeQuoteDetails(anchor).append(box);}
-    renderStandingTerms(box,current_terms);
+    renderStandingTerms(box,current_terms);renderTalkBox(box);
 }
 
 function get_item_value(selected_item) {
