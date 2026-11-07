@@ -1,6 +1,7 @@
 // Original hide preparation routes. The treatment is a process-derived lot fact;
 // later recipes read it, so the same pelt stock can become different products.
 // Pure: callers supply inventory counts, skill and played clock.
+import {readItemKey} from './inventory_key.js';
 import {planProcessedMaterial, readMaterialLineage} from './material_lineage.js';
 
 export const HIDE_TREATMENTS = Object.freeze({
@@ -12,7 +13,7 @@ export const HIDE_TREATMENTS = Object.freeze({
         shift: {'Piece of wolf rat leather': 10, 'Processed rat pelt': -10}},
 });
 export const HIDE_BATCH = 3;
-const idOf = key => {try {return key.startsWith('{') ? JSON.parse(key).id : key;} catch {return null;}};
+const idOf = key => typeof key !== 'string' ? null : key.startsWith('{') ? readItemKey(key)?.id ?? null : key;
 export const treatmentOf = key => readMaterialLineage(key)?.facts.treatment ?? null;
 
 // inventory: {itemKey: count}. Picks the first untreated pelt stack that can

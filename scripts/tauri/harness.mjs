@@ -50,6 +50,8 @@ const VARIANTS = {
     // N4: frozen snapshot served, a newer one offered mid-run and adopted on click.
     frozen: {env: {YAIRPG_FROZEN: '1', YAIRPG_BUILD_POLL_MS: '1000'}, recoveryLike: 'frozen'},
     crash: {env: {YAIRPG_MIRROR: '1', YAIRPG_MIRROR_MS: '2000'}, recovery: 'kill'},
+    // O2: quit cleanly, delete the profile's WebKit data, relaunch; the host store must bring the save back.
+    wipe: {recoveryLike: 'wipe'},
 };
 const stamp = new Date().toISOString().replace(/[:.]/g, '-');
 const out = path.join(ROOT, 'work/tauri-harness', stamp);
@@ -81,10 +83,10 @@ const port = server.address().port;
 // Each YAIRPG_USER_DATA path maps to one WebKit store (first 16 bytes of its
 // SHA-256, as a UUID). Remove it once its runs are done so tests leave no data.
 const STORES = path.join(os.homedir(), 'Library/WebKit/yairpg-tauri/WebsiteDataStore');
-const dropStore = profile => {
+const dropStore = (profile, force = false) => {
     const h = crypto.createHash('sha256').update(profile).digest('hex').slice(0, 32);
     const id = `${h.slice(0, 8)}-${h.slice(8, 12)}-${h.slice(12, 16)}-${h.slice(16, 20)}-${h.slice(20)}`;
-    if (args.includes('--keep-stores')) return;
+    if (args.includes('--keep-stores') && !force) return;
     fs.rmSync(path.join(STORES, id), {recursive: true, force: true});
 };
 const readLines = file => fs.existsSync(file) ? fs.readFileSync(file, 'utf8').split('\n').filter(Boolean).map(l => { try { return JSON.parse(l); } catch { return {type: 'unparsed', l}; } }) : [];
@@ -196,6 +198,19 @@ for (let run = 1; run <= runs; run++) for (const fixture of fixtures) for (const
             restored: restored ? {name: restored.name, clock: restored.clock} : null,
             restoreKept: !!restored && restored.name === fixtureSave.character?.name, markerGone: !fs.existsSync(path.join(profile, 'save-mirror/import-pending')),
             timedOut: r.timedOut, errors: [...new Set(r.events.flatMap(e => e.errors || []))]};
+        dropStore(profile);
+        rows.push(row); console.log(JSON.stringify(row));
+        continue;
+    }
+    if (VARIANTS[variant].recoveryLike === 'wipe') {
+        const first = summarize(await launch({name, variant, fixture, phase: 'first', exit: 'clean', profile}));
+        dropStore(profile, true);
+        const again = await launch({name: name + '-after-wipe', variant, fixture, phase: 'relaunch', profile});
+        const got = again.events.find(e => e.type === 'relaunched');
+        const row = {name, variant, fixture, expected: first.expected, got: got ? {clock: got.clock, name: got.name} : null,
+            storeFile: fs.existsSync(path.join(profile, 'storage/local.json')),
+            wipeKept: !!got && !!first.expected && got.name === first.expected.name && got.clock >= first.expected.clock,
+            timedOut: again.timedOut, errors: [...new Set([...first.errors, ...again.events.flatMap(e => e.errors || [])])]};
         dropStore(profile);
         rows.push(row); console.log(JSON.stringify(row));
         continue;

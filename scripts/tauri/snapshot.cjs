@@ -1,9 +1,10 @@
 'use strict';
 // Frozen player builds (EL18). The player's window serves a copy of the page
 // files under userData/builds/<version>-<fingerprint>/, so an agent's
-// `npm run build` never changes what an open game loads. Plain Node: the
-// Tauri host (desktop-tauri/src/builds.rs), scripts/tauri/*.mjs and the game
-// MCP's frozen copies use it. Moved from desktop/ when Electron was removed.
+// `npm run build` never changes what an open game loads. Plain Node for
+// scripts/tauri/*.mjs and the game MCP's frozen copies. The app itself makes
+// snapshots in Rust (desktop-tauri/src/builds.rs) with the same rules and id;
+// change both together (a Rust test compares them).
 //
 // builds/latest.json  newest snapshot made; the host watches it.
 // builds/current.json the snapshot the player adopted; the host serves it.

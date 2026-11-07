@@ -1,4 +1,5 @@
 // Finite original body/property proofs. Only unpublished plans are changed.
+import {readItemKey} from './inventory_key.js';
 import {copy as clone, deepFreeze as freeze, eqRaw as eq, natural, object} from './basics.js';
 import {activePractice} from './techniques.js';
 import {simulationOccupiesActor} from './simulation.js';
@@ -496,8 +497,8 @@ export function bodyTransitionActive(state) {
     return r?.possession?.status === 'active' || r?.specimen?.phase === 'installed';
 }
 export function bodyItemDispositionReasons(state,itemKey) {
-    let specimenKey = false;
-    try {specimenKey = JSON.parse(itemKey).id === 'Brass lung BL-01';} catch { /* Ordinary invalid keys have their own native validator. */ }
+    // Ordinary invalid keys have their own native validator.
+    const specimenKey = readItemKey(itemKey)?.id === 'Brass lung BL-01';
     return state.backlog?.body?.specimen && specimenKey
         ? ['BL-01 is the one bound specimen. Install or remove it through its body controls; its stock carrier cannot be sold, stored, consumed or borrowed.'] : [];
 }

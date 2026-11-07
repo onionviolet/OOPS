@@ -1,3 +1,4 @@
+import {readItemKey} from './inventory_key.js';
 import {consumeTablet,tabletConsequence,startTreatment,treatmentNow} from './craft_body_treatment.js';
 // ORIGINAL Village trial. Uses the engine's composition law, not the older mixture law.
 import {natural} from './basics.js';
@@ -102,7 +103,7 @@ export function validateCraftingEnvelope(slice,envelope) {
  return slice;
 }
 export function projectCrafting(owner,inventory) {
- const lots=Object.entries(inventory).filter(([key])=>{try{return JSON.parse(key).id===MATERIAL_CARRIER;}catch{return false;}});
+ const lots=Object.entries(inventory).filter(([key])=>readItemKey(key)?.id===MATERIAL_CARRIER);
  return {materials:lots.map(([key,count])=>{
    const {material}=materialFromKey(key,owner),subject=owner?.materials?.[material.id]?material.id:`authored:${material.id}`;
    return {key,count,...projectMaterial(owner,catalogue,material.id,'player'),props:propertyView(catalogue,material,owner?.knowledge?.player?.[subject]?.facts??[])};}),
@@ -113,7 +114,7 @@ export function projectCrafting(owner,inventory) {
   references:Object.entries(inventory).filter(([key])=>referenceIdOf(key)).map(([key,count])=>({key,count,...REFERENCES[referenceIdOf(key)],read:(owner?.references?.read?.[ACTOR]??[]).includes(referenceIdOf(key))})),
   shelf:Object.values(REFERENCES).map(r=>({id:r.id,name:r.name,blurb:r.blurb,mode:r.mode})),
   methods:Object.entries(recipeAccess(owner??{},ACTOR,heldRefs(inventory))).map(([id,via])=>({id,name:RECIPES[id]?.name??id,via,slots:RECIPES[id]?.slots.map(({id:slot,select,qty})=>({id:slot,qty,tags:select.tags?.all??[]}))??[]})),
-  examinable:Object.entries(inventory).filter(([key])=>{try{return JSON.parse(key).id===MATERIAL_CARRIER;}catch{return false;}}).map(([key])=>{const m=materialFromKey(key,owner).material;return {key,id:m.id,name:projectMaterial(owner,catalogue,m.id,'player').name,misses:owner?.references?.attempts?.[ACTOR]?.[m.id]?.misses??0,cost:examineQuote(owner??{},ACTOR,m.id,{cost:{sample:EXAMINE_COST}}).cost.sample};})};
+  examinable:Object.entries(inventory).filter(([key])=>readItemKey(key)?.id===MATERIAL_CARRIER).map(([key])=>{const m=materialFromKey(key,owner).material;return {key,id:m.id,name:projectMaterial(owner,catalogue,m.id,'player').name,misses:owner?.references?.attempts?.[ACTOR]?.[m.id]?.misses??0,cost:examineQuote(owner??{},ACTOR,m.id,{cost:{sample:EXAMINE_COST}}).cost.sample};})};
 }
 // Reference access is a carried fact (inventory), never a stored one: loss removes it, learned recipes remain.
 export const heldRefs=inventory=>Object.entries(inventory).filter(([key,count])=>count>0&&referenceIdOf(key)).map(([key])=>referenceIdOf(key));

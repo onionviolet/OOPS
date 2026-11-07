@@ -5,6 +5,7 @@
 mod builds;
 mod desktop;
 mod mirror;
+mod store;
 
 use sha2::{Digest, Sha256};
 use std::{
@@ -65,6 +66,7 @@ static MIRROR_DIR: OnceLock<PathBuf> = OnceLock::new();
 static HANG_KILL: AtomicBool = AtomicBool::new(false);
 static NAVIGATE_RECOVER: AtomicBool = AtomicBool::new(false);
 static MIRROR: OnceLock<Mutex<mirror::Mirror>> = OnceLock::new();
+static STORE: OnceLock<Mutex<store::Store>> = OnceLock::new();
 pub(crate) const RECOVER_PATH: &str = "/__host/recover.html";
 
 fn env_ms(name: &str, fallback: u64) -> u64 {
@@ -79,7 +81,7 @@ fn env_ms(name: &str, fallback: u64) -> u64 {
 pub(crate) fn mirror_js(reason: &str, force: bool, save_first: bool) -> String {
     format!(
         r#"(() => {{ if (location.pathname === '{RECOVER_PATH}') return;
-  {save} const e = {{}}; for (let i = 0; i < localStorage.length; i++) {{ const k = localStorage.key(i); e[k] = localStorage.getItem(k); }}
+  {save} const e = {{}}; for (let i = 0; i < localStorage.length; i++) {{ const k = localStorage.key(i); if (k !== '{rev}') e[k] = localStorage.getItem(k); }}
   fetch('/__host/mirror?reason={reason}&force={force}', {{method: 'POST', body: JSON.stringify(e)}}).catch(() => {{}}); }})()"#,
         save = if save_first {
             "try { window.saveProgress && window.saveProgress(); } catch (x) {}"
@@ -87,7 +89,18 @@ pub(crate) fn mirror_js(reason: &str, force: bool, save_first: bool) -> String {
             ""
         },
         force = if force { 1 } else { 0 },
+        rev = store::REV_KEY,
     )
+}
+
+/// Writes pending host-store changes (store.rs). Quit calls it last.
+fn flush_store() {
+    if let Some(Ok(mut s)) = STORE.get().map(|s| s.lock()) {
+        if let Err(e) = s.flush() {
+            eprintln!("host store write failed: {e}");
+            report(&serde_json::json!({"type": "store-flush", "error": e.to_string()}).to_string());
+        }
+    }
 }
 
 /// Quit path for every exit (window close, Cmd+Q, harness): save in the page,
@@ -116,6 +129,7 @@ fn quit(app: tauri::AppHandle) {
         {
             std::thread::sleep(Duration::from_millis(50));
         }
+        flush_store();
         app.exit(0);
     });
 }
@@ -260,6 +274,35 @@ fn host_route(
                     .to_string(),
             );
             respond(200, "text/plain", result.into_bytes())
+        }
+        "store-state" => match STORE.get().and_then(|s| s.lock().ok().map(|s| s.state())) {
+            Some(state) => json_response(state),
+            None => respond(404, "text/plain", vec![]),
+        },
+        "store-read" => match STORE
+            .get()
+            .and_then(|s| s.lock().ok().map(|s| s.snapshot()))
+        {
+            Some(snapshot) => json_response(snapshot),
+            None => respond(404, "text/plain", vec![]),
+        },
+        "store" => {
+            let Some(s) = STORE.get() else {
+                return respond(404, "text/plain", vec![]);
+            };
+            let Ok(batch) = serde_json::from_slice::<serde_json::Value>(request.body()) else {
+                return respond(400, "text/plain", b"bad body".to_vec());
+            };
+            let result = s
+                .lock()
+                .map_err(|_| "locked".to_string())
+                .and_then(|mut s| s.apply(&batch));
+            report(&serde_json::json!({"type": "store", "full": batch["full"], "bytes": request.body().len(),
+                "keys": batch["set"].as_object().map(|m| m.keys().cloned().collect::<Vec<_>>()), "result": result.as_ref().map_err(|e| e.clone())}).to_string());
+            match result {
+                Ok(rev) => json_response(serde_json::json!({"rev": rev})),
+                Err(e) => respond(409, "text/plain", e.into_bytes()),
+            }
         }
         "mirror-list" => match MIRROR.get().and_then(|m| m.lock().ok().map(|m| m.list())) {
             Some(list) => json_response(list),
@@ -412,11 +455,54 @@ fn unthrottle(webview: *mut std::ffi::c_void) -> Vec<&'static str> {
     applied
 }
 
+/// Main-window storage sync (store.rs): reconcile at page start, then send each
+/// localStorage change to the host in order. Only the main window runs it.
+fn store_script() -> String {
+    format!(
+        r#"(() => {{
+  const REV = '{rev}', S = Storage.prototype, set = S.setItem, rem = S.removeItem, clr = S.clear, ls = window.localStorage;
+  const sync = (method, path) => {{ const x = new XMLHttpRequest(); x.open(method, path, false); x.send(); if (x.status !== 200) throw Error(path + ' ' + x.status); return JSON.parse(x.responseText); }};
+  const all = () => {{ const e = {{}}; for (let i = 0; i < ls.length; i++) {{ const k = ls.key(i); if (k !== REV) e[k] = ls.getItem(k); }} return e; }};
+  let local = Number(ls.getItem(REV)) || 0, full = false, pending = {{set: {{}}, del: [], clear: false}}, busy = false, dirty = false, status = 'off';
+  try {{
+    const remote = sync('GET', '/__host/store-state');
+    if (remote.present && remote.rev > local) {{
+      // WebKit lost or rolled back its data: the host copy wins.
+      const snap = sync('GET', '/__host/store-read');
+      clr.call(ls); for (const k of Object.keys(snap.entries)) set.call(ls, k, snap.entries[k]);
+      local = snap.rev; set.call(ls, REV, String(local)); status = 'restored';
+    }} else {{
+      full = !remote.present || local > remote.rev; status = full ? 'push' : 'same';
+      dirty = full;
+    }}
+  }} catch (e) {{ status = 'unavailable'; console.warn('[host store]', e); return; }}
+  const flush = async () => {{
+    if (busy || !dirty) return;
+    busy = true; dirty = false;
+    const batch = full ? {{full: true, clear: true, set: all(), del: []}} : pending;
+    pending = {{set: {{}}, del: [], clear: false}}; full = false;
+    local += 1; set.call(ls, REV, String(local)); batch.rev = local;
+    try {{ const r = await fetch('/__host/store', {{method: 'POST', body: JSON.stringify(batch)}}); if (!r.ok) throw Error(String(r.status)); }}
+    catch {{ full = true; dirty = true; }}
+    busy = false;
+    if (dirty) setTimeout(flush, full ? 1000 : 0);
+  }};
+  const note = () => {{ dirty = true; if (!busy) queueMicrotask(flush); }};
+  S.setItem = function (k, v) {{ set.call(this, k, v); if (this === ls && String(k) !== REV) {{ pending.set[String(k)] = String(v); pending.del = pending.del.filter(d => d !== String(k)); note(); }} }};
+  S.removeItem = function (k) {{ rem.call(this, k); if (this === ls && String(k) !== REV) {{ delete pending.set[String(k)]; pending.del.push(String(k)); note(); }} }};
+  S.clear = function () {{ clr.call(this); if (this === ls) {{ set.call(ls, REV, String(local)); pending = {{set: {{}}, del: [], clear: true}}; note(); }} }};
+  window.__yairpgStore = () => ({{status, rev: local, busy, dirty}});
+  if (dirty) queueMicrotask(flush);
+}})();"#,
+        rev = store::REV_KEY
+    )
+}
+
 pub(crate) fn host_script(background: bool, mirror: bool, build: &str) -> String {
     format!(
         r#"(() => {{
   const background = {background}, mirror = {mirror};
-  const readStorage = () => {{ const e = {{}}; for (let i = 0; i < localStorage.length; i++) {{ const k = localStorage.key(i); e[k] = localStorage.getItem(k); }} return e; }};
+  const readStorage = () => {{ const e = {{}}; for (let i = 0; i < localStorage.length; i++) {{ const k = localStorage.key(i); if (k !== '{rev}') e[k] = localStorage.getItem(k); }} return e; }};
   window.yairpgHost = Object.freeze({{
     desktop: true, shell: 'tauri', background, build: {build:?}, capabilities: [...(mirror ? ['mirror'] : []), 'attention', 'projection'],
     prompt: () => null,
@@ -466,7 +552,8 @@ pub(crate) fn host_script(background: bool, mirror: bool, build: &str) -> String
     window.confirm = m => {{ console.warn('[background confirm, cancelled]', m); return false; }};
     window.prompt = () => null;
   }}
-}})();"#
+}})();"#,
+        rev = store::REV_KEY
     )
 }
 
@@ -505,6 +592,17 @@ fn spawn_watchers(app: tauri::AppHandle, mirror_on: bool) {
             if let Some(window) = app.get_webview_window("main") {
                 let _ = window.eval(&mirror_js("poll", false, false));
             }
+        });
+    }
+    if STORE.get().is_some() {
+        // Host store (store.rs): write the file at most every YAIRPG_STORE_MS.
+        let gap = env_ms("YAIRPG_STORE_MS", 5000);
+        std::thread::spawn(move || loop {
+            std::thread::sleep(Duration::from_millis(gap));
+            if QUITTING.load(Ordering::SeqCst) {
+                return;
+            }
+            flush_store();
         });
     }
     let hang = env_ms("YAIRPG_HANG_MS", 30000);
@@ -613,6 +711,9 @@ fn main() {
                 let _ = MIRROR_DIR.set(dir.clone());
                 let _ = MIRROR.set(Mutex::new(mirror::Mirror::open(dir)));
             }
+            if !ephemeral && std::env::var("YAIRPG_STORE").as_deref() != Ok("0") {
+                let _ = STORE.set(Mutex::new(store::Store::open(data_dir.join("storage"))));
+            }
             #[cfg(target_os = "macos")]
             if hidden {
                 app.set_activation_policy(tauri::ActivationPolicy::Accessory);
@@ -626,6 +727,9 @@ fn main() {
                     .focused(!hidden && !flag("YAIRPG_INACTIVE"))
                     .background_throttling(BackgroundThrottlingPolicy::Disabled)
                     .initialization_script(host_script(hidden, mirror_on, &build_id));
+            if STORE.get().is_some() {
+                builder = builder.initialization_script(store_script());
+            }
             if let Some(script) = &harness {
                 builder = builder.initialization_script(script);
             }

@@ -32,7 +32,7 @@ export async function launchChrome() {
 // Paths the build and the served page need. docs/ is large, so only the docs
 // directories that src/ imports are added (found per revision, see prepareTree).
 const TREE_PATHS = ['build.js', 'package.json', 'index.html', 'style.css', 'favicon.ico', 'styles', 'src', 'stories',
-  'locales', 'resources', 'assets', 'scripts/compile_feature_ink.mjs', 'docs/gm/feature-wave/ink'];
+  'locales', 'resources', 'assets', 'scripts/compile_feature_ink.mjs', 'scripts/stylesheet_manifest.mjs', 'docs/gm/feature-wave/ink'];
 
 const docsImports = dir => {
   const found = new Set();

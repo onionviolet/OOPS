@@ -1,12 +1,13 @@
 // ORIGINAL Village method objects (G1). Content only: engine behavior lives in
 // craft_reference.js. A reference is an ordinary carried item keyed by id; its
 // recipe is frozen into the crafting owner the first time one is taken (MR3).
+import {readItemKey} from './inventory_key.js';
 import {frontierCatalogue as catalogue, frontierBrewLaw as law} from './craft_content_frontier.js';
 import {defineRecipe} from './craft_recipes.js';
 
 export const REFERENCE_CARRIER = 'Craft reference';
 export const referenceKey = id => JSON.stringify({id: REFERENCE_CARRIER, ref: id});
-export const referenceIdOf = key => { try { const k = JSON.parse(key); return k.id === REFERENCE_CARRIER ? k.ref : null; } catch { return null; } };
+export const referenceIdOf = key => { const k = readItemKey(key); return k?.id === REFERENCE_CARRIER ? k.ref : null; };
 
 export const SALT_STEEP = defineRecipe(catalogue, {
     id: 'village.salt-steep', revision: 1, name: 'Salt-and-herb steep', law: law.ref, station: null,

@@ -4,6 +4,7 @@
 // Entry one is the existing Village mixture key, byte-identical; entry two is
 // the generic engine batch. Ordinary item keys return null and keep using the
 // original decoder. Reserved fields on an unsupported key throw.
+import {readItemKey} from './inventory_key.js';
 import {MIXTURE_ID, mixtureKey, productFromKey} from './mixture_state.js';
 import {BATCH_FAMILY} from './craft_resolver.js';
 
@@ -34,8 +35,7 @@ const RESERVED = ['productFamily', 'productRef', 'mixture'];
 
 // -> {family, ref} for a generated key, null for an ordinary item key.
 export function classifyProductKey(key) {
-    let k;
-    try { k = JSON.parse(key); } catch { return null; }
+    const k = readItemKey(key);
     if(!k || typeof k !== 'object' || Array.isArray(k)) return null;
     for(const family of Object.values(PRODUCT_FAMILIES)) if(family.accepts(k)) {
         const ref = family.ref(k);

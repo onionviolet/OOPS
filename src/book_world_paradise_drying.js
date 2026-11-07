@@ -1,5 +1,6 @@
 // ORIGINAL paid-bench adaptation of the existing rack / wet-to-sound route.
 // Simulation/native inventories own counts; this module owns no clock or bag.
+import {readItemKey} from './inventory_key.js';
 import {PARADISE_IDS as P,PARADISE_LOCATIONS as L,PARADISE_KEYS as K} from './book_world_paradise_ids.js';
 import {createDryingLot,validateDryingLot,advanceDryingExposure} from './drying_exposure.js';
 import {readMaterialLineage} from './material_lineage.js';
@@ -13,8 +14,8 @@ const D=PARADISE_DRYING, nat=n=>Number.isSafeInteger(n)&&n>=0;
 const clone=structuredClone, same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
 const dryReason='Dry and collect two staves before binding a kit; damp pieces still need air exchange.';
 export function readDryingKey(key){
-    let v;try{v=JSON.parse(key);}catch{return null;}
-    if(v.drying==null)return null;
+    if(readItemKey(key)?.drying==null)return null;
+    const v=JSON.parse(key);
     check(Object.keys(v).sort().join(',')==='drying,id','Unsupported drying carrier.');
     const lot=validateDryingLot(v.drying);
     check(v.id===(lot.field?.charge>0?'Charged repair stave':lot.moisture===0?'Sound repair stave':'Wet repair stave')&&JSON.stringify(v)===key,'Drying identity and retained condition disagree.');

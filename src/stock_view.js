@@ -1,3 +1,4 @@
+import {readItemKey} from './inventory_key.js';
 import {PARTY_HELPER} from './native_battle_contracts.js';
 
 // One reading of who holds what. Pure: it reads the native bag, the open chest and the
@@ -5,7 +6,8 @@ import {PARTY_HELPER} from './native_battle_contracts.js';
 const COMPANIONS = {[PARTY_HELPER]: 'Lio'};
 export function itemName(key) {
     try {
-        const v = JSON.parse(key);
+        const v = readItemKey(key);
+        if (v === null) return 'Unknown item';
         return `${v.id ?? 'Crafted item'}${v.quality != null ? ` (quality ${v.quality})` : ''}`;
     } catch { return 'Unknown item'; }
 }

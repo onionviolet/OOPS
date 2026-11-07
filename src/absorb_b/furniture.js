@@ -1,3 +1,4 @@
+import {readItemKey} from '../inventory_key.js';
 import {homeBenefits} from '../home_model.js';
 // Original balance proposals inspired by Proto23's local furnishing bonuses.
 // Read existing ownership only. Never serialize this projection or install it
@@ -8,7 +9,7 @@ import {PROTO23_IDS as P, PROTO23_LOCATIONS as L, PROTO23_KEYS as K} from '../pr
 const positiveCount = value => Number.isSafeInteger(value) && value > 0 ? value : 0;
 const completed = (state, id) => positiveCount(state.actors?.player?.completed?.[id]) > 0;
 const percent = value => `${Math.round((value - 1) * 10000) / 100}%`;
-const bookId = key => {try {return JSON.parse(key).id;} catch {return null;}};
+const bookId = key => readItemKey(key)?.id ?? null;
 
 function heldCount(state, inventory, key) {
     const borrowed = Object.values(state.simulation?.custody || {}).filter(row =>

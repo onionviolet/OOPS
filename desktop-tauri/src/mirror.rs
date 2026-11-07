@@ -61,7 +61,7 @@ pub fn has_save(entries: &Map<String, Value>) -> bool {
     }
 }
 
-fn write_atomic(file: &Path, data: &[u8]) -> std::io::Result<()> {
+pub(crate) fn write_atomic(file: &Path, data: &[u8]) -> std::io::Result<()> {
     let temp = file.with_extension(format!("{}.tmp", std::process::id()));
     {
         let mut f = fs::File::create(&temp)?;

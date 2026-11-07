@@ -8,10 +8,18 @@ const identity = key => {
     const data = JSON.parse(key);
     return typeof data[INSTANCE] === 'string' && /^e2\.[1-9]\d*$/.test(data[INSTANCE]) && Number.isSafeInteger(Number(data[INSTANCE].slice(3))) ? data[INSTANCE] : null;
 };
+// Pure in its key and asked for every held tool on every tick: cached.
+const CANONICAL = new Map();
 export function canonicalDurabilityKey(key) {
-    const data = JSON.parse(key);
-    delete data[INSTANCE];
-    return JSON.stringify(data);
+    let canonical = CANONICAL.get(key);
+    if (canonical === undefined) {
+        const data = JSON.parse(key);
+        delete data[INSTANCE];
+        canonical = JSON.stringify(data);
+        if (CANONICAL.size >= 20000) CANONICAL.clear();
+        CANONICAL.set(key, canonical);
+    }
+    return canonical;
 }
 // wearPerUse: condition lost per completed work cycle by tool verb (IP2 proposal, 2026-10-17).
 // wearPerHit is the reference rate; an instance's materials scale it (toughness and hardness, gear_dimensions.js wearScale).
