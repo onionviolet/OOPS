@@ -77,6 +77,10 @@ test('registered owner links resolve relative to that owner and detect missing a
     assert.equal(r.status, 1);
     assert.match(r.out, /OWNED.md: broken anchor/);
 });
+test('an explicit <a id> anchor counts as a link target', () => {
+    const good = definitions + '\n<a id="kept-old-anchor"></a>Moved entry\n[Old](OWNED.md#kept-old-anchor)\n';
+    assert.equal(runCheck(mixed(), {'OWNED.md': good}).status, 0);
+});
 
 
 test('a dated proposal source requires explicit classification, a proposal header and stable routing', () => {

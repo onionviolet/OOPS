@@ -7,7 +7,7 @@ add rows, never delete them (mark superseded rows with a date).
 Why: sessions now produce reports faster than anyone reads them. A report that is
 not registered, routed and given a next step is lost. This file is the single list of
 what exists, what state it is in, and what moves it forward. Owners stay where they
-are (USER_VISION for Weibao's words, rulebooks/AD lines for accepted direction, PROJECT.md for current focus,
+are (the direction log `USER_VISION_LOG_*.md` for Weibao's words, USER_VISION for standing direction, rulebooks/AD lines for accepted direction, PROJECT.md for current focus,
 the master plan for its rounds, IDEA_INDEX for idea routing); this register points to them and adds
 the missing piece: **status and next action per writeup**.
 
@@ -31,7 +31,7 @@ Decided only through Weibao's own words, recorded as a dated entry.
 ## 2. Intake rule (every writing session)
 
 In the same change that adds or substantially extends a writeup, add or update one
-register row (section 4) and, when Weibao's words drove it, a verbatim USER_VISION
+register row (section 4) and, when Weibao's words drove it, a verbatim direction-log
 record. A row needs: file, topic, state, the owner doc it extends, open decisions
 (by code), the next action with owner, and one done check. If a session cannot fill
 the next action, state `none yet: needs Weibao's read`. Do not copy the report into
@@ -175,7 +175,7 @@ the `npc-absence`, `time-travel` and main chats; not a rule he stated.
   the record and the reasoning, and note the correction as dated history.
 - **He extends scope one idea at a time** (no caps, automation, NPC help, evil people,
   random events together). Fold each into the same report; keep one layering order.
-- **"Save accordingly" means the repo owner doc plus a USER_VISION record**, not chat.
+- **"Save accordingly" means the repo owner doc plus a direction-log record** (and a USER_VISION line when standing direction changes), not chat.
 - **He asks for a prompt/brief in one chat and launches it elsewhere**, naming the
   model ("with an Opus analyzer"). The launching session reads the brief file first.
 - **He prefers separate chats for separate topics** ("we might need a separate chat")

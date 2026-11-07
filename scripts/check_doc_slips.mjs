@@ -49,7 +49,7 @@ for (const file of newFiles) {
 const abs = /(?<![\w-])(?:never|always|only)(?![\w-])/i;
 const defaultDialReason = /\b(?:default|dial|unless|reason)\b/i;
 const accepted = /\baccepted\b/i;
-const acceptanceEvidence = /(?:USER_VISION|PROJECT)\.md|\bAD\d+\b|"[^"]+"|“[^”]+”/i;
+const acceptanceEvidence = /(?:USER_VISION(?:_LOG_[\d-]+)?|PROJECT)\.md|\bAD\d+\b|"[^"]+"|“[^”]+”/i;
 const silenced = /<!--\s*slip-ok:\s*[^>]+-->/i;
 const hits = [];
 const lineCache = new Map();

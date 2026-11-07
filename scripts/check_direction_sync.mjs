@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // Warns when a lasting-direction change lands without its companions (AGENTS.md "Standing direction"):
-// a dated heading added to docs/USER_VISION.md needs docs/VISION_DIGEST.md in the same change, and
+// a dated heading added to docs/USER_VISION.md belongs in the direction log instead, a dated
+// request added to a docs/gm/USER_VISION_LOG*.md file needs USER_VISION.md or VISION_DIGEST.md, and
 // lines removed from PROJECT.md need a dated entry in a docs/gm/PROJECT_LOG*.md file.
 // Run: node scripts/check_direction_sync.mjs [--range A..B] [--root DIR] [--strict]
 // Default compares the working tree and index with HEAD. Warnings only unless --strict.
@@ -25,7 +26,9 @@ for (const line of diff.split('\n')) {
 const touched = p => files.has(p);
 const warnings = [];
 const datedHeads = (files.get('docs/USER_VISION.md')?.added || []).filter(l => /^## .*\(?20\d\d-\d\d-\d\d\)?/.test(l));
-if (datedHeads.length && !touched('docs/VISION_DIGEST.md')) warnings.push(`USER_VISION gained ${datedHeads.length} dated heading(s) (${datedHeads[0].slice(0, 70)}...) but VISION_DIGEST.md is not in this change`);
+if (datedHeads.length) warnings.push(`USER_VISION gained ${datedHeads.length} dated heading(s) (${datedHeads[0].slice(0, 70)}...); dated requests go in docs/gm/USER_VISION_LOG_<month>.md, with only the standing line changed here`);
+const logHeads = [...files].filter(([f]) => /^docs\/gm\/USER_VISION_LOG[^/]*\.md$/.test(f)).flatMap(([, v]) => v.added).filter(l => /^## .*20\d\d-\d\d-\d\d/.test(l));
+if (logHeads.length && !touched('docs/USER_VISION.md') && !touched('docs/VISION_DIGEST.md')) warnings.push(`the direction log gained ${logHeads.length} dated request(s) (${logHeads[0].slice(0, 70)}...) but neither USER_VISION.md nor VISION_DIGEST.md is in this change`);
 const removed = (files.get('PROJECT.md')?.removed || []).filter(l => l.trim());
 const loggedLog = [...files.keys()].some(f => /^docs\/gm\/PROJECT_LOG[^/]*\.md$/.test(f));
 if (removed.length && !loggedLog) warnings.push(`PROJECT.md lost ${removed.length} line(s) but no docs/gm/PROJECT_LOG*.md entry is in this change`);

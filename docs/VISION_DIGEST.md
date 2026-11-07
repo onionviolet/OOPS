@@ -50,5 +50,5 @@ OOPS (Optimistic Progression Simulator) is Weibao's fork of Miktaew's Yet Anothe
 
 ## Using this digest
 
-This is the read. Search USER_VISION by heading for his exact words, and where two dated entries differ, the later one wins.
+This is the read. [USER_VISION](USER_VISION.md) lists the standing direction by topic; his exact dated words are in the direction log (`gm/USER_VISION_LOG_*.md`, search by heading). Where two dated entries differ, the later one wins.
 Weibao's latest instruction outranks both.

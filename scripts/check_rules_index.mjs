@@ -117,6 +117,7 @@ const anchorsOf = file => {
   let fence = false;
   for (const line of read(file).split('\n')) {
     if (/^\s*```/.test(line)) fence = !fence;
+    if (!fence) for (const a of line.matchAll(/<a\s+(?:id|name)="([^"]+)"/g)) set.add(a[1].toLowerCase());
     const m = !fence && /^#{1,6}\s+(.*?)\s*#*\s*$/.exec(line);
     if (!m) continue;
     const s = slug(m[1]), n = seen.get(s) || 0;

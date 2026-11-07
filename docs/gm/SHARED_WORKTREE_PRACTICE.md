@@ -50,7 +50,7 @@ Serve the checkout with `npm run serve`, then open `http://127.0.0.1:8123/.lane-
 
 ## Editing shared docs
 
-Applies to `docs/USER_VISION.md`, `PROJECT.md`, `docs/IDEA_INDEX.md` and any
+Applies to `docs/USER_VISION.md`, the direction log `docs/gm/USER_VISION_LOG_*.md`, `PROJECT.md`, `docs/IDEA_INDEX.md` and any
 other file several sessions append to. Approved by Weibao as O4, 2026-10-14.
 
 - Re-read the file from disk (or `git show HEAD:<path>`) immediately before
@@ -59,8 +59,14 @@ other file several sessions append to. Approved by Weibao as O4, 2026-10-14.
 - Before committing, check for dropped lines. This must print 0:
 
   ```bash
-  grep -vxF -f docs/USER_VISION.md <(git show HEAD:docs/USER_VISION.md) | awk 'length>0' | wc -l
+  F=docs/gm/USER_VISION_LOG_2026-11.md  # the file you appended to
+  grep -vxF -f "$F" <(git show HEAD:"$F") | awk 'length>0' | wc -l
   ```
+
+  The log is append-only, so this must stay 0. `docs/USER_VISION.md` lines are
+  replaced on purpose when direction changes; check that only your lines changed
+  with `git diff docs/USER_VISION.md`. (2026-11-06: the old 7,400-line file moved
+  verbatim into the monthly log, links re-relativized; see the log headers.)
 
   If it is not 0 and the missing lines are another session's, do not overwrite.
   Leave repair to the file's owner or do a three-way merge (`git merge-file`)

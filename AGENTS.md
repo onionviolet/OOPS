@@ -7,9 +7,10 @@ is the whole startup read; everything else below is looked up when a task needs 
 
 ## Standing direction and consistency gates
 
-`docs/USER_VISION.md` preserves Weibao's goals, reasons and original requests
-(search it by heading; `docs/VISION_DIGEST.md` is the summary to read, updated in
-the same change when lasting direction changes);
+`docs/USER_VISION.md` holds Weibao's standing direction by topic, in his words;
+his dated original requests and reasons live in the monthly direction log
+`docs/gm/USER_VISION_LOG_*.md` (search it by heading; `docs/VISION_DIGEST.md` is
+the summary to read, updated in the same change when lasting direction changes);
 `PROJECT.md` is the short current-state summary: current focus and standing
 priorities. Accepted decisions live as AD lines in the rules index or their rulebook. Relevant design
 owners translate that direction into behavior. Checkpoints and verification
@@ -68,7 +69,7 @@ playable results. Do not impose a coached coding workflow unless he asks to
 learn the implementation.
 
 Make reasonable reversible prototype choices, label them as proposals and show
-the playable result. Record accepted decisions in USER_VISION (his words) and the
+the playable result. Record accepted decisions in the direction log (his words), the affected USER_VISION line and the
 owning rulebook or AD line; touch PROJECT.md only when the current focus or a
 standing priority changes.
 
