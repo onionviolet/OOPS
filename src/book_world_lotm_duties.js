@@ -25,6 +25,12 @@ export const LOTM_CIVIL_DUTY_ID = 'lotm.civil_office_report';
 export const LOTM_CIVIL_DUTIES = Object.freeze([Object.freeze({id: LOTM_CIVIL_DUTY_ID, schedule: Object.freeze({period: WEEK, opens: 0, closes: WEEK}),
     debtor: 'player', creditor: 'nighthawks', source: 'lotm_duties',
     why: 'Hand the Nighthawk office this week\'s tally of copied reports and office hours so your week\'s pay can be signed.'})]);
+// Hired-guard night shift (W9-A, AUTHORED PROPOSAL; the job is invented, see book_world_lotm_guard.js). A duty of the guard row, so resigning or the
+// term running out ends it through the duties seam. Weekly cycle open the whole week, like the civil report; pay and trouble belong to the guard module.
+export const LOTM_GUARD_DUTY_ID = 'lotm.guard_night_watch';
+export const LOTM_GUARD_DUTIES = Object.freeze([Object.freeze({id: LOTM_GUARD_DUTY_ID, schedule: Object.freeze({period: WEEK, opens: 0, closes: WEEK}),
+    debtor: 'player', creditor: 'warehouse foreman', source: 'lotm_duties',
+    why: 'Stand this week\'s night watch at the riverside warehouse so the foreman pays the week.'})]);
 export const lotmDutyRows = (slice, minute) => dutyRows(slice, LOTM_DUTIES, minute);
 export const fileExpenseClaim = (slice, minute) => answerMisses(attendDuty(slice, LOTM_DUTIES, 'lotm.expense_claim', minute), 'lotm.expense_claim');
 export const closeLotmWeeks = (slice, minute) => settleMisses(slice, LOTM_DUTIES, minute);

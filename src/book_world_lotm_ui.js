@@ -18,11 +18,13 @@ import {renderStartCompare} from './ui/start_compare.js';
 import {lotmThresholdView} from './book_world_lotm_threshold.js';
 import {mountWorkroomTabs, WORKROOM_TABS} from './book_world_lotm_tabs.js';
 import {lotmPositionsFromView,lotmPositionLine} from './book_world_lotm_positions.js';
+import {GUARD_POSITION_ID,guardPayWords} from './book_world_lotm_guard.js';
+import {LOTM_GUARD_DUTY_ID} from './book_world_lotm_duties.js';
 const node=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;return n;};
 export const lotmPanelTitle=v=>v.resident?v.at:'Tingen workroom';
 // Surface type: place service (UR1). Home: the main workspace, discovered inside the Tingen
 // branch and in the Village, where its starts begin. Warden Hale runs the workroom; the lodging is where you sleep.
-export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,setOrder,resign}){
+export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,setOrder,resign,signGuard,collectGuard}){
  const panel=node('section');panel.id='lotm_panel';panel.className='expedition_panel';panel.dataset.surfaceType='place-service';
  const status=node('p'),meters=node('div'),path=node('div'),work=node('div'),bench=node('details'),actions=node('div'),walks=node('div'),notebook=node('div'),notice=node('p');notice.setAttribute('role','status');
  const encounterSlot=node('div');encounterSlot.dataset.sharedSlot='encounter'; // AR17: shared panels (a fight) render here; not tab-owned, not re-rendered.
@@ -166,8 +168,21 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
   const leaving=posRows.find(r=>!r.ended&&r.exit?.kinds?.includes('resign'));
   if(leaving&&resign){
    if(!confirmingResign)path.append(row(button('Resign the post','resign',()=>{confirmingResign=true;signature='';render();},false,leaving.exit.cost)));
-   else path.append(node('p',`Resign the ${leaving.role.toLowerCase()} post? ${leaving.exit.cost}`),row(button('Confirm resignation','resign_confirm',()=>{confirmingResign=false;run(()=>resign(),'You resigned the civil staff post.');},false,'Recorded once. It cannot be taken back.'),button('Keep the post','resign_keep',()=>{confirmingResign=false;signature='';render();},false)));
+   else path.append(node('p',`Resign the ${leaving.role.toLowerCase()} post? ${leaving.exit.cost}`),row(button('Confirm resignation','resign_confirm',()=>{confirmingResign=false;run(()=>resign(leaving.id),leaving.id===GUARD_POSITION_ID?'You walked out on the warehouse watch.':'You resigned the civil staff post.');},false,'Recorded once. It cannot be taken back.'),button('Keep the post','resign_keep',()=>{confirmingResign=false;signature='';render();},false)));
   }else confirmingResign=false;
+  // W9-A hired guard: the offer while a man is free for it, then the pay, the trouble and the last words of what happened. The shift itself is a duty in the work list.
+  const gd=v.guard;
+  if(gd){
+   const g=node('div');g.dataset.lotmGuard='';g.append(node('h3','Hired guard'));
+   if(gd.offer)g.append(node('p',gd.offer.text),row(button('Sign on as a night watchman','guard_sign',()=>run(()=>signGuard(),'You signed on at the warehouse.'),!signGuard,'Six weeks, one night shift a week. You can walk out, but the week in progress is forfeited.')));
+   if(gd.rows.length){
+    const o=gd.owed;g.append(node('p',`Watch pay owed now: ${o.pence?guardPayWords(o.pence):'nothing'}${o.bonus?` (with a ${guardPayWords(o.bonus)} bonus)`:''}. The foreman pays a week when it closes; ${gd.stood&&gd.live?'this week\'s watch is stood':'a week with no watch stood pays nothing'}.`));
+    if(o.pence&&collectGuard)g.append(row(button(`Collect the watch pay · ${guardPayWords(o.pence)}`,'guard_collect',()=>run(()=>collectGuard(),'The foreman paid you.'),false,'Weeks already closed and any bonus.')));
+   }
+   if(gd.trouble)g.append(node('p',gd.trouble));
+   for(const t of gd.lines)g.append(node('p',t));
+   path.append(g);
+  }
   // The groups you belong to (a hidden gathering appears only once the player knows of it; none is known yet).
   if(v.groups?.length){const g=node('div');g.dataset.lotmGroups='';g.append(node('h3','Groups'),...v.groups.map(t=>node('p',t)));path.append(g);}
   if(v.profile==='civil'){
@@ -230,7 +245,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
    for(const o of d.policies){const op=node('option',o.label);op.value=o.id;op.selected=o.id===d.policy;sel.append(op);}
    sel.onchange=()=>{try{setOrder(d.id,sel.value);notice.textContent='Standing order changed.';}catch(e){notice.textContent=e.message;}signature='';render();};
    const sr=row(node('span',`${d.why}${gone}${d.escalation?` ${d.escalation}`:''} Standing order: `),sel);sr.dataset.dutyId=d.id;work.append(sr);continue;}
-  const line=node('span',`${d.why}${when}${gone}`);const r=d.open&&attend?row(line,button('Hand it in',`duty_${d.id}`,()=>{try{attend(d.id);notice.textContent='Handed in.';}catch(e){notice.textContent=e.message;}signature='';render();},false)):row(line);r.dataset.dutyId=d.id;work.append(r);}
+  const line=node('span',`${d.why}${when}${gone}`);const guardShift=d.id===LOTM_GUARD_DUTY_ID,r=d.open&&attend?row(line,button(guardShift?'Stand the night watch':'Hand it in',`duty_${d.id}`,()=>{try{const said=attend(d.id);notice.textContent=typeof said==='string'&&said?said:'Handed in.';}catch(e){notice.textContent=e.message;}signature='';render();},false)):row(line);r.dataset.dutyId=d.id;work.append(r);}
   if(!resident){
   const held=[v.holds.dose?'prepared dose':'',v.holds.clownDose?'prepared Clown dose':'',...v.doseLabels,...v.marketHeld,...(v.holds.sealed3?['sealed grade 3 item']:[]),...[['frog','dried frog'],['hairs','bundle of hairs'],['ink','jar of grave-dust ink']].filter(([k])=>v.holds[k]).map(x=>x[1]),...['comparator','sampleA','sampleB'].filter(n=>v.holds[n]).map(n=>n==='comparator'?'comparator sample':`sample lot ${n.slice(-1)}`)].filter(Boolean);
   work.append(node('p',`You hold: ${held.length?held.join(', '):'nothing from the bench'}.`));

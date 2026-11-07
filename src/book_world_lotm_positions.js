@@ -10,6 +10,7 @@ import {LOTM_PROFILES,CIVIL_POSITION_ID,LOTM_WEEK_MINUTES} from './book_world_lo
 import {LOTM_CIVIL_DUTY_ID} from './book_world_lotm_duties.js';
 import {districtById} from './book_world_lotm_districts.js';
 import {registerPositionSource,withExit} from './positions.js';
+import {guardRows,guardPayWords} from './book_world_lotm_guard.js';
 
 const TEAM_OF = home => (home === 'evernight' ? 'Nighthawks' : districtById(home)?.team || home);
 const SOURCE = 'book_world_lotm_lives.js';
@@ -48,12 +49,12 @@ export function lotmPositions(state) {
     const key = profileKeyOfId(state.lotm.entryProfile);
     const signed = state.actors.player.facts?.['book.lotm.contract.signed'] === true;
     const at = state.simulation?.knowledge?.player?.['book.lotm.contract']?.at;
-    return rowsFor(key, signed ? (Number.isFinite(at) ? at : 0) : null);
+    return [...rowsFor(key, signed ? (Number.isFinite(at) ? at : 0) : null), ...guardRows(state)];
 }
 // The panel view holds entryProfile and the contract note record (id, at); same rows as lotmPositions.
 export function lotmPositionsFromView(v) {
     const note = v?.records?.find(r => r.id === 'book.lotm.contract');
-    return rowsFor(profileKeyOfId(v?.entryProfile), note ? (Number.isFinite(note.at) ? note.at : 0) : null);
+    return [...rowsFor(profileKeyOfId(v?.entryProfile), note ? (Number.isFinite(note.at) ? note.at : 0) : null), ...(v?.guard?.rows || [])]; // guard rows come from the host, derived from state
 }
 // "four years and 11 months left": whole months (30 days) and years, rounded down; under a month it says so.
 export function termLeftWords(endsAt, now) {
@@ -64,20 +65,29 @@ export function termLeftWords(endsAt, now) {
     const parts = [y ? `${words(y)} year${y === 1 ? '' : 's'}` : '', m ? `${m} month${m === 1 ? '' : 's'}` : ''].filter(Boolean);
     return `${parts.join(' and ')} left`;
 }
+// A short hire counts in weeks: "five weeks left", "less than a week left".
+export function weeksLeftWords(endsAt, now) {
+    const left = endsAt - now;
+    if (left <= 0) return 'the term has run out';
+    const w = Math.floor(left / LOTM_WEEK_MINUTES);
+    return w ? `${words(w)} week${w === 1 ? '' : 's'} left` : 'less than a week left';
+}
 // Plain words, for example "Civil staff, Nighthawks: contract, 3 pounds a week, five years. Four years and 11 months left."
 // `now` (minutes) adds the term left to a live post; an ended post says how it ended instead. Without `now` the base line is unchanged.
 export function lotmPositionLine(rows, now) {
     return rows.map(r => {
         const parts = [];
         if (r.term.type === 'contracted') parts.push('contract');
-        if (r.pay?.unit === 'pence') parts.push(`${r.pay.amount / P.pound} pounds a ${r.pay.period}`);
+        if (r.term.type === 'hired') parts.push('hired');
+        if (r.pay?.unit === 'pence') parts.push(`${r.pay.amount % P.pound ? guardPayWords(r.pay.amount) : `${r.pay.amount / P.pound} pounds`} a ${r.pay.period}`);
         if (r.term.years) parts.push(`${words(r.term.years)} years`);
+        if (r.term.weeks) parts.push(`${words(r.term.weeks)} weeks`);
         let line = `${r.role}, ${r.institution}${parts.length ? `: ${parts.join(', ')}` : ''}`;
         if (r.ended) {
             const w = Math.max(0, Math.floor((r.ended.at - r.term.startedAt) / LOTM_WEEK_MINUTES));
-            line += `. Ended: ${r.ended.kind === 'resign' ? 'you resigned' : r.ended.kind} after ${w} week${w === 1 ? '' : 's'}`;
+            line += `. Ended: ${r.ended.kind === 'resign' ? 'you resigned' : r.ended.kind === 'term_end' ? 'the hire ran its term' : r.ended.kind} after ${w} week${w === 1 ? '' : 's'}`;
         } else if (now != null && Number.isFinite(r.term.endsAt)) {
-            const left = termLeftWords(r.term.endsAt, now);
+            const left = r.term.weeks ? weeksLeftWords(r.term.endsAt, now) : termLeftWords(r.term.endsAt, now);
             line += `. ${left[0].toUpperCase()}${left.slice(1)}`;
         }
         return line + (r.ended || (now != null && Number.isFinite(r.term.endsAt)) ? '.' : '');
