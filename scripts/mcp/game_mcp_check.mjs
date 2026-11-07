@@ -253,6 +253,39 @@ async function blockedRoutes(c) {
     assert.equal((await c.tool('game_status')).errors.length, 0);
 }
 
+async function loopReload(c) {
+    const sessionId = 'loop-reload', args = {sessionId};
+    await c.tool('game_new', {...args, seed: 11, panel: 'continuation'});
+    await c.tool('game_click', {...args, key: '#continuation_open'});
+    await c.tool('game_click', {...args, key: '[data-connection-tab="return"]'});
+    await c.tool('game_click', {...args, key: '[data-connection-disclosure="loop"] > summary'});
+    await c.tool('game_click', {...args, key: '[data-continuation-action="loop:initial"]'});
+    await c.tool('game_step', {...args, minutes: 6});
+    // The native repeat poll runs on a timer, so the next action may deliver it.
+    await c.tool('game_step', {...args, minutes: 1});
+    const status = await c.tool('game_status', args);
+    assert.ok(status.boots > 1, 'a real cycle reloaded the same game session');
+    assert.deepEqual(status.errors, []);
+    assert.equal((await c.tool('game_look', args)).started, true);
+    await c.tool('game_save', args);
+    const exported = await c.tool('game_export', args);
+    const text = readFileSync(exported.path, 'utf8').replace(/^YAIR-UTF8-1:/, '');
+    const save = JSON.parse(Buffer.from(text, 'base64').toString('utf8'));
+    assert.equal(save.continuation.loop.cycles, 1, 'one real cycle counted once');
+    assert.equal((await c.tool('game_reload', args)).started, true, 'loop auto-PLAY survives explicit reload');
+    await c.tool('game_step', {...args, minutes: 1});
+    await c.tool('game_load', {...args, path: exported.path});
+    assert.equal((await c.tool('game_look', args)).started, true);
+    await c.tool('game_click', {...args, panel: 'continuation'});
+    await c.tool('game_click', {...args, key: '#continuation_open'});
+    await c.tool('game_click', {...args, key: '[data-connection-tab="return"]'});
+    await c.tool('game_click', {...args, key: '[data-connection-disclosure="loop"] > summary'});
+    const view = await c.tool('game_look', {...args, scope: '#continuation_view'});
+    assert.match(view.screen, /Completed cycles: 1/);
+    await c.tool('game_close', args);
+    console.log(JSON.stringify({slice: 'loop-reload', result: 'PASS', cycles: 1}));
+}
+
 const c = client();
 try {
     const init = await c.rpc('initialize', {protocolVersion: '2025-06-18', capabilities: {}, clientInfo: {name: 'check', version: '1'}});
@@ -262,7 +295,9 @@ try {
     assert.deepEqual(list.sort(), ['game_capabilities', 'game_screenshot', 'game_close', 'game_freeze', 'game_quote', 'game_reload', 'game_click', 'game_export', 'game_load', 'game_look', 'game_new', 'game_report_limit', 'game_save', 'game_status', 'game_step'].sort());
     assert.equal((await c.rpc('nope')).error.code, -32601);
 
-    if(process.argv.includes('--native-only')) {
+    if(process.argv.includes('--loop-only')) {
+        await loopReload(c);
+    } else if(process.argv.includes('--native-only')) {
         await nativeOnly(c);
     } else if(process.argv.includes('--faster-time-only')) {
         await fasterTime(c);
@@ -369,6 +404,7 @@ try {
     assert.equal(noted.ledgerEntries, 1);
     assert.match(readFileSync(LEDGER, 'utf8'), /screenshot of the village/);
     await fasterTime(c);
+    await loopReload(c);
     await worktreeCheckout(c);
     console.log(JSON.stringify({result: 'PASS', hash: a.hash, tools: list.length}));
     }

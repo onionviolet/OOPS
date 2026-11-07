@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import crypto from 'node:crypto';
 import {makeBatchRef,splitPortion,describeBatch,validateBatch,fromHpBatch} from '../src/batch_identity.js';
-import {allocatedDoseRef,lotmCommands} from '../src/book_world_lotm_actions.js';
+import {allocatedDoseRef,allocatedDoseView,lotmCommands} from '../src/book_world_lotm_actions.js';
 import {fresh,run,holds,I} from './lotm_helpers.js';
 import {LOTM_KEYS as K} from '../src/book_world_lotm_ids.js';
 const hp=()=>({id:'b3',cohortId:'b3',custody:'carried',readyAt:100,grade:'canon',history:{revision:1,secret:'x'},doses:4,dosesLeft:3,known:{identified:false,assayed:false}});
@@ -61,3 +61,18 @@ test('an untouched life writes no new key, and allocation adds only its two exis
  const added=[...JSON.parse(all)[0],...JSON.parse(all)[1]].filter(k=>![...JSON.parse(before)[0],...JSON.parse(before)[1]].includes(k));
  assert.deepEqual(added.sort(),['book.lotm.allocated','book.lotm.terms']);
 });
+
+ test('the held allocation view hides grade and stops labelling consumed or absent stock',()=>{
+ let p=run(fresh(),'report_in');
+ assert.equal(allocatedDoseView(p.state,1),null);
+ p=run(p,'accept_allocation');
+ const before=JSON.stringify(p.state),view=allocatedDoseView(p.state,holds(p,K.dose));
+ assert.equal(view.id,allocatedDoseRef(p.state).id);
+ assert.match(view.text,/Tingen prepared Seer dose: 1 dose/);
+ assert.equal(view.grade,null);
+ assert.deepEqual(allocatedDoseView(JSON.parse(JSON.stringify(p.state)),1),view);
+ assert.equal(JSON.stringify(p.state),before,'projection writes no state');
+ assert.equal(allocatedDoseView(p.state,0),null);
+ p=run(p,'ingest');
+ assert.equal(allocatedDoseView(p.state,1),null,'a retained allocation record does not label later stock');
+ });

@@ -156,17 +156,55 @@ Private evidence: `private/foundation-run-residue-2026-11-06/wave2-continuation/
 
 **Delivery:** W5 and W6 are agent-verified through named fixtures, not human-reviewed. E's calendar context, W8 loop reload, D's batch-label consumer and health/provider work remain open. This does not upgrade the entire foundation wave to the delivery floor.
 
+### Follow-through: loop reload, NPC calendar and dose label (2026-11-06)
+
+Request: "Continue with the loop reload fix, then wire the NPC calendar and dose-label consumer." Order: close W8 before changing E, then close E before wiring D. Existing authority: AD36/AD41–AD43, AR3/AR6–AR10, U10 schedule definition and M1 batch identity above. No new health mechanics, expanded Frontier content or save schema. Desktop target 1920×1080 for the consumer proof; mobile and installed-host adoption deferred. Player wording sample (PRS7): "One prepared dose now sits in your hands under the supervisor's allocation."
+
+- **F6 loop:** persisted deliberate repetition auto-clicks PLAY in native startup. The runner's extra PLAY click hit its hidden parent. Stepping also returned during asynchronous continuation validation. The runner now recognizes a created hero with the startup screen closed and settles transitions for steps as well as clicks. Baseline reproduced the hidden-PLAY error; direct native route now reaches cycle 1 and explicit reload succeeds. `scripts/mcp/game_mcp_check.mjs --loop-only` passes through step/look/status/save/reload/export/import on the same session, including one cycle counted once. The startup error remains an error unless the native screen is already closed for a created hero.
+- **A3 calendar:** native calendar minutes now reach non-player contexts through the existing context builder, preserving the clock owner and authored schedule. Six focused tests pass, including a native near-dawn fixture: a queued commission waits before 06:00, starts afterward, and finishes through the existing command path. The fixture seeds story access, two logs and the near-dawn time; greetings, enrollment and commissioning are native actions. No schedule state is saved.
+- **A4 dose label:** `allocatedDoseView` projects the existing allocation ref into the Work & merit held-stock readout. Seven batch/golden tests and the native dose-label journey pass: absent before allocation, shown while held, stable after save/reload/export/import, absent after drinking. An unidentified grade stays hidden; a retained allocation record does not label later stock. The golden-pinned allocation action is unchanged. This first consumer is the supervised probationer route; no claim that Klein's separate cast-item route now carries a batch ref.
+
+```receipt
+build: c6107daff819781bd5cef9916ed3a97e21b169eebbe11d50ac0a159c60d588c3
+route: native fresh-life repeat loop; fixture(near-dawn craftsman); native supervised Tingen allocation
+state: browser-verified
+viewport: 1920x1080
+persistence: checked
+tests: loop protocol PASS; calendar 6/6; batch/golden 7/7; native label 1/1; final suite 5525/5525
+review: agent-verified, not human-reviewed
+surface: W8 runner transition boundary; E native NPC context; D allocation read model and held-dose UI; no save schema change
+```
+
+Change surface: one context-field addition on an existing `main.js` line (net zero composition-root lines); existing action/batch imports extended, no new runtime dependency edges. `book_world_lotm_host.js` and `main.js` also contain another session's unrelated edits: the commit must reconstruct these two files from fresh HEAD plus this task's specific import/projection/context hunks, rather than staging the complete working copies. The remaining own paths are runner, MCP regression, actions/UI, batch tests, two nested native journeys, this checkpoint and the Game MCP limits doc. Generated outputs, private evidence and the shared staged index are excluded. User saves remain untouched; all walks use disposable lives.
+
+| Final check | Result and scope |
+|---|---|
+| `node scripts/mcp/game_mcp_check.mjs --loop-only` | PASS: a real deliberate cycle reloads once; look/status, next step, save, reload and file export/import work in the same session. Cycle count stays one. |
+| `node --test tests/headless/npc_calendar.test.js tests/npc_schedule.test.js` | 6/6. Near-dawn fixture waits before 06:00 and starts/finishes the authored commission afterward. |
+| `node --test tests/batch_identity.test.js tests/lotm_commands_golden.test.js` | 7/7. Pure observer-safe label, no new save keys; original allocation action remains byte-identical. |
+| `node --test tests/headless/lotm_dose_label.test.js` | 1/1. Native allocation, visible label, save/reload, literal export/import, removal after drinking. |
+| Game MCP calendar / label walks | Zero page errors. Fixture clock 05:58: queued, no work; 06:01: craftsman job running; 06:06: completed kit collectible. Tingen allocation renders the issued label. Disposable saves hashed `7786c466e31241af` and `a4e37867673cd9ea`; sessions closed. |
+| Rebuilt Chrome, fresh contexts, 1920×1080 | PASS on the receipt bundle. NPC order survives a saved-state load across dawn, starts and completes. Dose label survives fresh-context reload and native file download/upload import, then disappears after ingestion; the ingested fact is asserted. Zero errors, page overflow, clipped text or diagnostic unnamed controls on the final screen. First browser attempt raced import's page reload; the test wait was corrected without further game code changes. |
+| `npm test` | 5525/5525, 644.5 s, shared working tree with other sessions' edits. Nested native journeys are checked separately above. |
+| `npm run build`; `npm run check:arch` | PASS in the primary and clean candidate. Existing duplicate `dial` build warning; main/display/save growth -2/0/0, six grandfathered main imports and 205 cyclic edges. |
+| `npm run check:rules` | Clean scoped candidate PASS with zero warnings. Shared-tree run stopped at three malformed receipt fields in another session's untracked performance checkpoint. Player-text passed separately; direction sync reported an unrelated PROJECT/log warning. The draft is preserved. |
+| `node scripts/check_receipts.mjs --files .../CHECKPOINT.md`; scoped `git diff --check` | PASS. Whole-tree document-slip diagnostic has no finding in this task's checkpoint/limits changes; other sessions' additions retain their own findings. |
+
+Clean verification used a temporary detached checkout of `abdaedf0a` plus the eleven owned paths, with the main/LOTM host changes reconstructed by exact owned hunk. Its build, architecture, rules and seven batch/golden tests pass; no equivalent full suite was repeated there. Screenshots, final browser report/script, source identities and logs are kept under `private/foundation-run-residue-2026-11-06/follow-through/`, outside the commit. The temporary checkout is removed after the guarded commit. No push or install.
+
+**Delivery:** W8 loop reload, E's NPC calendar wiring and D's existing supervised-allocation label consumer are agent-verified, not human-reviewed. No new save schema or migration is needed. This closes these bounded gaps, not every proposed foundation mechanism or the separate Klein cast-item batch route.
+
 ## Resume block (unattended run, 2026-11-06)
 
 "lets work on these to completion" (Weibao, 2026-11-06, after the reconciliation).
-- Objective: lanes A-D each implemented with focused tests, folded on one tree, `npm run build`, `npm test`, `npm run check:arch`, `npm run check:rules` pass, own paths committed (no push), receipts recorded here, audit rows M1-M3, M6, U06 updated.
-- Input identity: continuation started from master `7eebce4e0`, containing the earlier wave commits. Other sessions' staged prose/direction/content edits and unstaged research/performance/build outputs were present; preserved. The continuation owns the six paths listed in its verification receipt below.
-- State of the steps: earlier waves and reversion are recorded above. The continuation adds the two missing recipes and fixes the contest placement blockers found while walking W5/W6. A's observation has a study consumer; D's dose readout remains open. Final continuation checks and publication state belong to its receipt above.
-- Last evidence: see the continuation receipt above for final input hashes, checks, browser and persistence results. Prior wave evidence remains in the dated walk tables rather than being treated as a fresh check.
+- Objective: finish the requested loop reload fix, then NPC calendar wiring and the existing dose-label consumer, with native/persistence/browser evidence and scoped commits, no push. The Follow-through section above owns current checks and limits.
+- Input identity: this follow-through started from master `abdaedf0a`. Other sessions' staged prose/direction/content edits, dirty main/LOTM authority files and unstaged research/performance/build outputs were present; preserve them and stage the two shared source files by owned hunk.
+- State of the steps: W5/W6 closed in `abdaedf0a`. W8, E and the existing D consumer now pass their Follow-through native, persistence and desktop checks above; full suite 5525/5525 and clean candidate rule/build/architecture checks pass. Retain the recorded scope for the separate cast-item route.
+- Last evidence: see the Follow-through receipt above for current input hashes and checks. Earlier wave evidence stays in its dated tables rather than being treated as a fresh check.
 - Failed approaches: cold/wet Poison-resistance facet reverted after finding the existing Cold resistance owner; unlocking craftsman dialogue without greetings did not expose the workshop; connected-slot placement hid the Village contest; using `hidden` for slot availability was overwritten by the browser seat filter. Final slot availability uses `inert`.
 - Hold lifted: Weibao 2026-11-06 "Yes, run walk" after `4b4465412`. Walk done (see Native walk). Earlier hold text: "wait till move to tauri".
-- Next useful action: W5/W6 continuation and checks complete. Repair W8 reload after a loop cycle (ledger entry 56) next. Other open work: D's batch-label consumer, E's NPC calendar context, healer cure/provider paths, and O-rows with a first consumer. Cold/wet Poison resistance was reverted; do not resume its growth tick. Wet/filth ownership remains a design gap. Earlier full-suite failures are historical until rechecked.
+- Next useful action: the three requested changes and their checks are complete; retain the scoped commit and evidence. No new wave is started by this receipt. Remaining broader work after this request: healer cure/provider paths, Wet/filth ownership, and O-rows with a first consumer. The separate Klein cast-item route has no new allocation label from this consumer. Cold/wet Poison resistance was reverted; do not resume its growth tick.
 - Usage pacing: read 2026-11-06 evening: 5-hour 2%, weekly 60%; after wave 2: 5-hour 60%, weekly 67%. Continue while weekly under 75% and 5-hour under 85%; at 5-hour 85% wait for reset; at weekly 75% stop and leave this block current.
-- Stop condition: commit hashes recorded for lanes A-D, or a blocker that Weibao must clear. Reached? code lanes A-H yes (353396d41, 1568691d5, 8821c275c, 4862bbb9d); open: D's consumer, native walks of wave 2, the O-rows.
+- Stop condition: the three requested follow-through changes verified at their stated scope and own changes committed, with unrelated shared-tree gate failures named rather than silently adopted.
 
 Resume prompt for a fresh session: "Continue the unattended run from the Resume block in docs/gm/dispatch/foundation-run-residue-2026-11-06/CHECKPOINT.md. Check `git status` and `git log -3` against its input identity first; finish the next useful action; keep the block current; commit own paths, no push."

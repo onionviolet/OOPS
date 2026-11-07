@@ -31,7 +31,7 @@ import './book_world_lotm_organizations.js'; // registers the lane F groups proj
 import './book_world_lotm_livelihoods.js'; // registers the lane E livelihood source
 import {lifeCommands,LOTM_PROFILES,profileKeyOf,weeksOwed} from './book_world_lotm_lives.js';
 import {LOTM_DISTRICTS,districtOfPlace,districtCommands,districtFacts,onShift,roleOutcomeFacts} from './book_world_lotm_districts.js';
-import {makeBatchRef} from './batch_identity.js';
+import {makeBatchRef,describeBatch} from './batch_identity.js';
 const acted=()=>({type:'resource',actor:'player',key:'book.lotm.acting',amount:1}),undigested=not(gte('lotm.acting',LOTM_DIGEST_ACTS));
 const sample=name=>K[name];
 const findings={
@@ -178,4 +178,9 @@ export function allocatedDoseRef(state){
  const rec=state?.simulation?.knowledge?.player?.['book.lotm.terms'];
  if(!rec||typeof rec.at!=='number')return null;
  return makeBatchRef({id:`${I.supervisor}.dose.${rec.at}`,kind:K.dose,label:'Tingen prepared Seer dose',source:I.supervisor,doses:1});
+}
+// The allocation record remains after drinking; it does not label later stock.
+export function allocatedDoseView(state, held){
+ const ref=held>0&&!state?.actors?.player?.facts?.['book.lotm.ingested']?allocatedDoseRef(state):null;
+ return ref?describeBatch(ref):null;
 }

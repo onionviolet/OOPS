@@ -447,6 +447,14 @@ export class HeadlessGame {
         const button = this.document.getElementById('loading_screen_play_button');
         if(!button) throw new Error('No PLAY button.');
         const fresh = !this.internals.global_flags?.is_hero_created;
+        // Native startup already clicks PLAY for a persisted loop or skip-PLAY
+        // preference. Its hidden button is no longer an actionable control.
+        const started = !fresh && this.document.documentElement.dataset.startScreen === 'closed' &&
+            this.hiddenReason(this.document.getElementById('loading_screen'));
+        if(started) {
+            if(this.errors.length) throw new Error('Boot raised page errors:\n' + this.errors.join('\n'));
+            return;
+        }
         if(fresh) {
             const name = this.document.querySelector('#hero_creation_panel input[type="text"], #character_name_field');
             if(name && this.heroName) {name.value = this.heroName; name.dispatchEvent(new this.dom.classes.Event('input', {bubbles:true})); name.dispatchEvent(new this.dom.classes.Event('change', {bubbles:true}));}
@@ -511,12 +519,12 @@ export class HeadlessGame {
             if(this.minutes() === before) {
                 // A frozen clock is usually an async continuation command (cycle, life switch) that needs microtasks and a
                 // page reload to finish; ticks() never yields, so it could not. Let it, and stop at the new page (2026-11-06).
-                const boots = this.boots; await this.settle();
+                const boots = this.boots; await this._settleAction();
                 if(this.boots !== boots) break;
                 if(this.minutes() === before && ++guard > 3) throw new Error(`Game clock stopped at ${before} (paused, waiting on a choice, or save-blocked).`);
             }
         }
-        await this.settle();
+        await this._settleAction();
         this.stats.minutes += Math.max(0, this.minutes() - start);
         return {minutes:this.minutes() - start, ms:performance.now() - t0};
     }
@@ -563,16 +571,21 @@ export class HeadlessGame {
         el.dispatchEvent(new E.PointerEvent('pointerup', {bubbles:true, cancelable:true}));
         el.dispatchEvent(new E.MouseEvent('mouseup', {bubbles:true, cancelable:true}));
         el.click();
+        await this._settleAction();
+        return el;
+    }
+
+    async _settleAction() {
         await this.settle();
         // Native continuation/import commands validate asynchronously in a frame.
         // Do not hand the caller a view from that temporary realm or from the
         // old runtime after it has committed a life switch but before reload.
         for(let round = 0; round < 400; round++) {
             while(Realm.busy && Realm.booting !== this) await Realm.busy;
-            if(!this.internals.authorityOperationBusy && !this.reloadRequested) return el;
+            if(!this.internals.authorityOperationBusy && !this.reloadRequested) return;
             await this.settle(100);
         }
-        throw new Error('Native click did not settle within 40 s of timer time.');
+        throw new Error('Native action did not settle within 40 s of timer time.');
     }
     _blockReason(el) {const root = el.closest('[data-state]'); return root ? ` (${root.dataset.state}: ${root.textContent.replace(/\s+/g, ' ').trim().slice(0, 200)})` : '';}
     /** Click the first visible, enabled element whose text matches. */
