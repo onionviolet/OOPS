@@ -123,3 +123,13 @@ Weibao: "Yes, look at it" (lowering the autosave cadence).
 - Tried and reverted: a flattened string cache key in `facts_frame.js` (microbenchmark: 2x slower than the nested-Map key). 90% of `readFactsFrame`'s cost is the defensive copy of a roughly 1,500-key facts object on each of about 400 reads per second, mostly from per-command previews in `src/simulation.js` (`previewCommand` asks for full facts per command). The fix is to evaluate one command's predicates against shared facts without copying; `src/simulation.js` has another session's uncommitted edits, so this waits for that owner.
 
 Checks: focused tests 70/70 (every test importing the touched panels); perf gate det identical on fresh and crowded; gate timing not comparable (host load 14-24 from other sessions, head tree includes their uncommitted work).
+
+## Slice 7: command previews read only the facts they need (2026-11-06, late)
+
+Weibao: "go ahead" (F2, once `src/simulation.js` was free).
+
+- `previewCommand` (`src/simulation.js`) first asks `simulationFactsFor` (`src/simulation_effects.js`) for only the facts its `requires`/`visibleWhen` rules name (plus `originalFrontier.clockSupported`), read from the frame's shared row through the new `peekFactsFrame` (`src/facts_frame.js`) without copying it. Most commands are rejected on those alone. A visible, eligible command then takes the full copied facts as before, so quotes, costs and rehearsal are unchanged. Outside a facts frame the old path runs.
+- Results, crowded save (CDP profile, 12.6 s window): `readFactsFrame` 1.9 s → 0.55 s self, main-thread idle 0 → 3.0-3.7 s. Perf gate: crowded taskBusyPct 83.3 → 68.5 (budget 78), scriptBusyPct 48.7 → 43.4, longest task 541 → 364 ms; fresh 17.9 → 16.8. Det identical on fresh and crowded.
+- Next costs: world-completion facts (`src/world_completion_facts.js:23`, about 0.7 s), proto23 shell render (0.45 s), workspace panel eligibility (0.4 s).
+
+Checks: focused tests 1168/1168 (every test importing simulation, simulation_effects or facts_frame); perf gate as above (host load 4.5-7). Not human-reviewed.

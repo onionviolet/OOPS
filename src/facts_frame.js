@@ -48,10 +48,7 @@ function inputs(frame, state, context, registry) {
     }
     return values;
 }
-export function readFactsFrame(state, context, registry, build, fallback = build) {
-    if(mutationDepth) return build();
-    const frame = current;
-    if(!frame || frame.state !== state) return fallback();
+function frameRow(frame, state, context, registry, build) {
     const dependencies = inputs(frame, state, context, registry);
     let row = frame.rows;
     for(const input of dependencies) {
@@ -59,5 +56,19 @@ export function readFactsFrame(state, context, registry, build, fallback = build
         row = row.get(input);
     }
     if(!row.has(readFactsFrame)) row.set(readFactsFrame, build());
-    return {...row.get(readFactsFrame)};
+    return row.get(readFactsFrame);
+}
+// The same cached row as readFactsFrame, without its defensive copy: the
+// caller reads it and never changes it. Null outside a frame for this state,
+// so the caller keeps its own uncached path.
+export function peekFactsFrame(state, context, registry, build) {
+    if(mutationDepth) return build();
+    const frame = current;
+    return frame && frame.state === state ? frameRow(frame, state, context, registry, build) : null;
+}
+export function readFactsFrame(state, context, registry, build, fallback = build) {
+    if(mutationDepth) return build();
+    const frame = current;
+    if(!frame || frame.state !== state) return fallback();
+    return {...frameRow(frame, state, context, registry, build)};
 }

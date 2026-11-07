@@ -1,7 +1,7 @@
 import {createTemperamentPort} from './person_temperament.js';
 import {knownTargetFactValues} from './known_target_facts.js';
 import {derivedBond} from './person_memory_effects.js';
-import {readFactsFrame,invalidateFactsInput,withFactsMutation} from './facts_frame.js';
+import {readFactsFrame,peekFactsFrame,invalidateFactsInput,withFactsMutation} from './facts_frame.js';
 import {domainRegistry} from './domain_registry.js';
 import {hpFacts} from './book_world_hp_facts.js';
 import {generatedPeoplePresenceFacts} from './story_aftermath.js';
@@ -136,11 +136,41 @@ export function simulationFacts(state, context, registry, predicates = null) {
     const build = () => buildSimulationFacts(state, context, registry);
     const facts = readFactsFrame(state, context, registry, build, () => predicates
         ? build() : framedSimulationFacts(state, context, registry, build));
+    return addInventoryRequirementFacts(facts, predicates, inventoryInputs(state, context));
+}
+// Fact names a rule reads, cached per rule object (rules are frozen content).
+const ruleFacts = new WeakMap();
+function factsReadBy(rule, into) {
+    if(Array.isArray(rule)) {for(const r of rule) factsReadBy(r, into); return into;}
+    if(!rule || typeof rule !== 'object') return into;
+    let names = ruleFacts.get(rule);
+    if(!names) {
+        names = new Set();
+        if(typeof rule.fact === 'string') names.add(rule.fact);
+        for(const child of [rule.all, rule.any, rule.not]) for(const n of factsReadBy(child, new Set())) names.add(n);
+        ruleFacts.set(rule, names);
+    }
+    for(const n of names) into.add(n);
+    return into;
+}
+function inventoryInputs(state, context) {
     const people = state.simulation.people, target = people[context.targetId];
-    return addInventoryRequirementFacts(facts, predicates, {
+    return {
         'item.': people[context.actorId]?.inventory === 'native' ? context.gameplay?.[context.actorId]?.inventory : state.simulation.owners[context.actorId],
         'target.item.': target?.inventory === 'native' ? context.gameplay?.[context.targetId]?.inventory : target ? state.simulation.owners[context.targetId] : null,
-    });
+    };
+}
+// Only the facts `predicates` (and `extra` names) read, from the frame's shared
+// row without copying the whole dictionary. Gives the same answers as
+// simulationFacts for those names; null outside a frame (use simulationFacts).
+// Command previews ask this first: most commands are rejected on these facts
+// alone, and a crowded save holds over a thousand facts per actor.
+export function simulationFactsFor(state, context, registry, predicates, extra = []) {
+    const shared = peekFactsFrame(state, context, registry, () => buildSimulationFacts(state, context, registry));
+    if(!shared) return null;
+    const facts = {};
+    for(const name of factsReadBy(predicates, new Set(extra))) if(Object.hasOwn(shared, name)) facts[name] = shared[name];
+    return addInventoryRequirementFacts(facts, predicates, inventoryInputs(state, context));
 }
 function buildSimulationFacts(state, context, registry) {
     const s = state.simulation, actor = context.actorId, a = state.actors[actor];

@@ -32,7 +32,7 @@ import {remainderConsequencesExistingCommandGate} from './audit_remainder_conseq
 import {advanceWorkPlansBoundary} from './feature_expansion_work_plan.js';
 import {activePractice} from "./techniques.js";
 import {assert, natural, copy, stableId, meets, createSimulationState, validateSimulationState} from "./simulation_contracts.js";
-import {cloneData, person, participant, simulationFacts, applySimulationEffects, refundCosts, inventory, writeInventory, advanceNativeContainerClocks,resolveSimulationCostKeys} from "./simulation_effects.js";
+import {cloneData, person, participant, simulationFacts, simulationFactsFor, applySimulationEffects, refundCosts, inventory, writeInventory, advanceNativeContainerClocks,resolveSimulationCostKeys} from "./simulation_effects.js";
 import {previewPowerModel, resolveEffectAmount, fluencyDuration} from "./power_models.js";
 import {prepareSimulationEffects, resolveOutcomeWeights} from "./simulation_resolution.js";
 import {advanceConstructs,nextConstructBoundary} from './temporary_construct.js';
@@ -109,7 +109,12 @@ export function previewSimulationCommand(state, registry, commandId, context) {r
 function previewCommand(state, registry, commandId, context, rehearse, knownFacts = null) {
     const d = registry.simulation.commands.get(commandId); assert(d, "Unknown living-world command.");
     if(d.group==='proto23' && context.proto23Host!==true)return {visible:false,eligible:false,reasons:['Use the current Proto23 visitor controls.']};
-    const s=state.simulation, facts = knownFacts || simulationFacts(state, {...context,targetId:s?.people[context.targetId] ? context.targetId : null}, registry, [d.requires,d.visibleWhen]), p = person(state, context.actorId);
+    // Rejection reads only the facts its rules name (simulationFactsFor); an
+    // eligible, visible command gets the full copy below before any quote.
+    const s=state.simulation, factContext = {...context,targetId:s?.people[context.targetId] ? context.targetId : null}, predicates = [d.requires,d.visibleWhen];
+    const picked = knownFacts ? null : simulationFactsFor(state, factContext, registry, predicates, ['originalFrontier.clockSupported']);
+    let facts = knownFacts || picked || simulationFacts(state, factContext, registry, predicates);
+    const p = person(state, context.actorId);
     // Integration proposal: the trusted host supplies the current full save and
     // this command's function class on BOTH preview and execution. Expansion
     // state alone lacks the body slice; do not read the module-global harm here.
@@ -122,10 +127,13 @@ function previewCommand(state, registry, commandId, context, rehearse, knownFact
     // through their own formulas; these are multipliers/offsets, not odds.
     // The host must rebind harmSave at execution and completion, rather than
     // trusting a UI quote or freezing a body snapshot in the accepted job.
-    for (const modifier of harm?.modifiers ?? []) {
-        facts[`harm.${modifier.axis}.mult`] = modifier.mult ?? 1;
-        facts[`harm.${modifier.axis}.add`] = modifier.add ?? 0;
-    }
+    const addHarm = facts => {
+        for (const modifier of harm?.modifiers ?? []) {
+            facts[`harm.${modifier.axis}.mult`] = modifier.mult ?? 1;
+            facts[`harm.${modifier.axis}.add`] = modifier.add ?? 0;
+        }
+    };
+    addHarm(facts);
     if(d.group === "original_frontier" && !facts["originalFrontier.clockSupported"]) reasons.push("This local work has no supported clock or contact while you are in another realm.");
     if(d.actorId && d.actorId !== context.actorId) reasons.push("This command belongs to another actor.");
     if(d.actorDefinitionId && d.actorDefinitionId !== p.definitionId) reasons.push("This command belongs to another actor role.");
@@ -157,6 +165,7 @@ function previewCommand(state, registry, commandId, context, rehearse, knownFact
     // Eligible actions still reserve, freeze and validate all costs/outcomes.
     if(reasons.length || !visible) return {id:d.id,label:d.label,description:d.description || "",visible,eligible:false,reasons,
         costs:[],duration:commandDuration(state,d,context.actorId),effects:[],weights:null,revision:d.revision,model:null,...(harm?.modifiers.length?{harm:harm.modifiers}:{})};
+    if(picked) {facts = simulationFacts(state, factContext, registry, predicates); addHarm(facts);}
     let model = null;
     if(d.powerId) {
         const power = registry.simulation.powers.get(d.powerId), owned = s.powers[context.actorId]?.[d.powerId];
