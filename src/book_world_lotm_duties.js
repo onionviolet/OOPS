@@ -15,8 +15,12 @@ export const LOTM_RENT_ID = 'lotm.rent';
 export const LOTM_RENT = Object.freeze([Object.freeze({id: LOTM_RENT_ID, schedule: Object.freeze({period: WEEK, opens: 0, closes: WEEK}),
     debtor: 'player', creditor: 'landlady', source: 'lotm_duties',
     why: 'Rent for your Tingen lodging falls due at the end of each week: 5 soli (an assumed figure).',
-    policy: Object.freeze({default: 'pay_on_time', allowed: Object.freeze(['pay_on_time', 'pay_late', 'skip']), reason: 'An ordinary landlady takes it on time, a week late with a word, or not at all.'}),
-    dues: Object.freeze({amount: 5 * LOTM_PENCE.soli, basis: 'assumed', lateCycles: 1, steps: Object.freeze([
+    policy: Object.freeze({default: 'pay_on_time', allowed: Object.freeze(['pay_on_time', 'pay_late', 'pay_part', 'dispute', 'skip']), reason: 'An ordinary landlady takes it on time, a week late with a word, in part, or argues it; she is no official, so there is no bribing her.'}),
+    dues: Object.freeze({amount: 5 * LOTM_PENCE.soli, basis: 'assumed', lateCycles: 1,
+        // OB1/OB2 dials (authored proposals): half in part; a dispute held 3 days, 40% allowed, a granted one cuts the week by half; at 6 missed weeks
+        // her men take goods worth the arrears (lowest value first, never worn or quest items), only while you are there.
+        partShare: 0.5, dispute: Object.freeze({delayDays: 3, chance: 0.4, cut: 0.5, grantLine: 'Your landlady allows the damp and the draught: that week is halved.', denyLine: 'Your landlady checks her book and says the week stands in full.'}),
+        seizure: Object.freeze({atMisses: 6, who: 'Your landlady\'s men'}), steps: Object.freeze([
         Object.freeze({atMisses: 1, kind: 'notice', line: 'A note is pushed under your door: the rent is behind.'}),
         Object.freeze({atMisses: 2, kind: 'visit', line: 'Your landlady knocks and says she cannot carry another week without the money.'})])})})]);
 // Civil staff weekly office report (FD15, AUTHORED PROPOSAL: the book gives the clerk's weekly pay but no office routine). A duty of the civil post

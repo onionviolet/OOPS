@@ -89,7 +89,7 @@ test('the choice is a policy, saved, validated and loaded; bad choices are refus
 test('old saves load with the default order; old defs without a policy behave exactly as before', () => {
     const old = {family: 'duties@1', lastDone: {a: 1}, missed: {a: 2}, closed: {a: 3}};
     assert.deepEqual(migrateDuties(old), {...old, policy: {}, late: {}});
-    assert.deepEqual(migrateDuties({...old, policy: {x: 'bribe', y: 'skip'}, late: {x: -1}}).policy, {y: 'skip'});
+    assert.deepEqual(migrateDuties({...old, policy: {x: 'evade', y: 'skip'}, late: {x: -1}}).policy, {y: 'skip'});
     assert.deepEqual(freshDuties(), {family: 'duties@1', lastDone: {}, missed: {}, closed: {}, policy: {}, late: {}});
     // The weekly claim has no policy: an unattended week is one miss and no coin moves, with a purse present or not.
     reset(5 * RENT);
