@@ -1,7 +1,7 @@
-import {registerDomain} from './domain_registry.js';
+import {registerDomain, domainRegistry} from './domain_registry.js';
 import {addPurse} from './economy_domain.js';
 import {freshAging, validateAgingContact, migrateAgingContact, syncLife, stepAging, setStance as stanceOf, treat as treatOf, spendCompany, writeLetter, contactChoices,
-    ceilings, buckets, agingView, lifeInput, latestMemory, STANCES, CONTACT_NAMES} from './aging_contact.js';
+    ceilings, buckets, agingView, careOwed, knownNeighbour, creditTerms, lifeInput, latestMemory, STANCES, CONTACT_NAMES} from './aging_contact.js';
 import {createAgingContactPanel} from './aging_contact_ui.js';
 // Aging and contact domain. The chronicle owns age and the clock; the hero owns stats. This slice stores wear, choices and letters,
 // and publishes three named multiplier buckets (age wear, chronic conditions, contact) that the stat tooltip shows as parts.
@@ -30,6 +30,12 @@ function sync() {
 }
 const view = () => {const input = inputs();return input ? agingView(state, input) : null;};
 const contacts = () => contactChoices(chronicle()?.relationships, []);
+// The healer's open account, read from the economy_standing projection (obligations ledger rows) and its Village standing; the ledger is not owned here.
+function credit(now) {
+    const standing = domainRegistry.project('economy_standing');
+    if(!standing?.ledger || typeof domainRegistry.command('economy_standing', 'owe') !== 'function') return null;
+    return {owed: careOwed(standing.ledger), known: knownNeighbour(standing.factions), now};
+}
 const here = () => ports?.location?.() === 'Village';
 function commit(next, after, undo) {
     const before = state;
@@ -41,9 +47,16 @@ const commands = {
     stance(id, stance) {sync();const input = inputs();if(!input)throw Error('Begin a life chronicle first.');commit(stanceOf(state, id, stance, input.clock));},
     treat(id) {
         sync();const input = inputs();if(!input)throw Error('Begin a life chronicle first.');
-        const actor = ports.actor(), result = treatOf(state, id, input.clock, actor.money);
+        const actor = ports.actor(), result = treatOf(state, id, input.clock, actor.money, credit(input.clock));
         if(!here())throw Error('Treatment is offered in the Village.');
-        commit(result.state, () => addPurse(actor, -result.cost, 'aging.treatment'), () => addPurse(actor, result.cost, 'aging.treatment.undo'));
+        let rowId = null;
+        commit(result.state, () => {
+            if(result.obligation)rowId = domainRegistry.command('economy_standing', 'owe')(result.obligation);
+            if(result.paid)addPurse(actor, -result.paid, 'aging.treatment');
+        }, () => {
+            if(rowId)domainRegistry.command('economy_standing', 'unowe')(rowId);
+            if(result.paid)addPurse(actor, result.paid, 'aging.treatment.undo');
+        });
     },
     company(withId) {
         sync();const input = inputs();if(!input)throw Error('Begin a life chronicle first.');
@@ -80,5 +93,5 @@ registerDomain({id: 'aging_contact', initialState: freshAging,
     refresh: () => {if(!ports)return;try {sync();apply();} catch {/* retried next refresh */}panel?.render();},
     projection: () => ({view: view(), contacts: contacts(), letters: structuredClone(state.contact.letters)}),
     commands,
-    panels: [() => {panel = createAgingContactPanel({read: () => ({view: view(), contacts: contacts(), here: here(), money: ports?.actor?.().money ?? 0, enrolled: !!chronicle()}), commands, stances: STANCES});}],
+    panels: [() => {panel = createAgingContactPanel({read: () => ({credit: (() => {const input = inputs(), c = input && credit(input.clock);return c ? creditTerms(c) : null;})(), view: view(), contacts: contacts(), here: here(), money: ports?.actor?.().money ?? 0, enrolled: !!chronicle()}), commands, stances: STANCES});}],
 });

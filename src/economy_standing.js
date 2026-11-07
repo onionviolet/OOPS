@@ -218,6 +218,19 @@ export function syncLedger(state, now) {
         amount: c.amount, why: c.why, source: 'economy_standing', since: c.at, eases: 0, carries: false}));
     return {...state, ledger};
 }
+// Care on credit (audit F5): the Village healer's open course is a coin row in the same ledger. `syncLedger` only rewrites credit: and claim:
+// rows, so a care: row stays as written. Row ids are unique: two visits in the same minute get a numbered suffix, never an overwrite.
+export function owe(state, row, now) {
+    if(row?.kind !== 'coin' || row.debtor !== 'player' || !String(row.id).startsWith('care:')) throw Error('Only a care debt is written here.');
+    const taken = new Set(state.ledger.rows.map(r => r.id));
+    let id = row.id, n = 1;
+    while(taken.has(id)) id = `${row.id}:${++n}`;
+    return {state: syncLedger({...state, ledger: writeObligation(state.ledger, {...row, id})}, now), id};
+}
+export function dropCareDebt(state, id, now) {
+    const row = state.ledger.rows.find(r => r.id === id && r.id.startsWith('care:'));
+    return row ? syncLedger({...state, ledger: writeObligation(state.ledger, {...row, amount: 0})}, now) : state;
+}
 // Dated consequence (E1-c, ECR21): once past grace, the rate ratchets and standing drops, once.
 export function settleDue(state, now) {
     let next = state;

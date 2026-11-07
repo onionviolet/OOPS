@@ -5,7 +5,7 @@ state: drafted
 viewport: n/a
 persistence: n/a
 review: none
-tests: npm test 5523 pass, 0 fail, 22 skip (wave 3 fold)
+tests: npm test 5538 pass, 0 fail, 22 skip (wave 4 fold)
 ```
 
 # Overnight foundation run, 2026-11-07
@@ -83,15 +83,46 @@ Rejected for wave 3: AT17 recurring people (the cast host carries an eager-enrol
 
 **Commit (wave 3, 02:15).** F and G from the isolated worktree, guarded update of master from `b254013c4`. Gate: build `c7feeedd...96f`, `npm test` 5523 pass / 0 fail / 22 skip, check:arch and check:rules pass. No push.
 
+## Wave 4 (dispatched 02:20; usage 5-hour 36%, weekly 78%)
+
+| Lane | Slice | Model | Owned files |
+|---|---|---|---|
+| H | Care on credit (LARGER F5): `credit` gate writes an owed row to the provider; Village healer consumer; owed view lists it | sonnet | `src/care_access.js`, one Village healer file, `src/owed_ledger_sources.js`, one obligations owner, tests |
+| I | Claims as known acts (F7): staking ground records one known act toward the covering authority; settler dues read the OB1 policy set if derived | sonnet | `src/organizations_domain.js`, one helper, tests |
+| J | Witness reader (F2): observers belonging to an authority turn their known-target facts into knownness rows | sonnet | `src/authority_sources*.js`, one new file, tests |
+
+**H, care on credit (returned 02:30, checked).** `src/care_access.js`: `credit` gate kind (`min` limit for a stranger, optional larger `known` limit for a neighbour, reason in the record); `applyCare` takes no coins, returns the restore effects plus a coin obligation row (debtor player, creditor provider, `source: care_access`), refuses over the limit with nothing written; imports `obligations_ledger.js` (check:arch pass). One test added. Coordinator: care tests rerun below. **Finding: unreachable.** No Village healer writes the row: the saved owner that fits is `economy_standing`'s `obligations@1` ledger (feeds the owed view; `syncLedger` leaves `care:` rows alone), wired through a cross-domain command plus a `PARTY_LABELS` entry in `owed_ledger_view.js`, and the aging Treat button (`aging_contact_domain.js`, `aging_contact_ui.js`) offering credit when short. Same-minute visits share a row id. State: implemented, below floor, unwired. Wave 5 candidate (one lane, those four files).
+
+**J, witness reader (returned 02:40, checked).** New `src/authority_witness.js`: `registerWitnessBelonging(authorityId, fn)` registers one knownness reader per authority that turns each belonging observer's known-target facts about `ctx.identity` into a row (weight and reason from the belonging dial, latest observation day as `at`, faded by that authority's half-life); reads the observer's beliefs, never truth (ACR9). New `tests/authority_witness.test.js`. Lane: 52/52 authority, LOTM 361 pass 0 fail, check:arch and check:rules pass (0 new player-text strings). **Finding: no consumer.** No belonging is registered: world-pack people carry `institution`/`house`/`cohort` but nothing maps them to village or tingen, and no writer records a constable's or clerk's sight of a fight or sale. State: implemented, below floor, unwired. Lesson for the run (FR-L1 again): seam-first lanes keep returning without a caller; later waves brief consumer wiring first.
+
+**H2, healer credit wired (returned 02:55, checked).** Village "Years & company" Treat card offers "Treat on credit · N coins" when the purse is short and the healer's limit has room (dial: stranger 16 coins, friendly or honoured Village standing 40; reason: stall-holders talk about who pays). The domain writes a `care:healer:<minute>` row (suffix on same-minute visits) through new `owe`/`unowe` commands into `economy_standing`'s saved `obligations@1` ledger (no new key; undo on failed save); Ledger → Owed lists "You owe the healer N coins". Files: `src/aging_contact.js`, `src/aging_contact_domain.js`, `src/aging_contact_ui.js`, `src/economy_standing.js`, `src/economy_standing_domain.js` (outside the brief's list, small, not forbidden), `src/owed_ledger_view.js`, new `tests/care_on_credit.test.js` (5). Lane: 39/39 focused, check:arch pass, check:rules 0 new player-text strings; coordinator rerun 32/32 and UI diff read. Player text: the credit button, a tooltip/note clause, a refusal line, the "the healer" party label. **Direction note:** Village sits in the Frontier test bed, which gets no new depth by default (PROJECT focus 3); this is the shared care seam's test consumer, small and reversible, and the first consumer that a book world could replace (a Tingen physician or the HP hospital wing). Not covered: repayment (only loans have `repay`, so the healer debt clears only through other coin paths), domain test with ports, browser walk. State: implemented, below floor.
+
+**I, claims as known acts (returned 03:05, checked).** `src/organizations_domain.js`: staking a claim reads `authorityOver` before the claim is stored and, after the commit, records one known act through `heat.recordAct` (`CLAIM_ACTS`: tingen → `tingen_police`, village mapped but heat has no village row yet, weight 1 with reason), founders as witnesses, id per claim so heat dedupes; settler dues return a derived OB1 `policy` (pay_on_time at `strongAt` 3 people or known, pay_late below; dial with reason). Behavior change: `claimQuote` now refuses only ground another group holds (the old rule refused any ground an authority covered, which made the covered case unreachable); nothing shipped sits inside bounds, so players see no change. New `tests/group_claim_acts.test.js` (4). Lane: 51/51 focused, check:arch pass; coordinator: diff read, 4/4 rerun. Not covered: the only claimable ground (the wilds stead) lies outside every authority's bounds, so the act never fires in shipped play; settler knownness reads zero (no group reader). State: implemented, below floor, no play route.
+
+**Wave 4 fold gate (03:10).** Build `55c17347cb9aaa0a2e3c252436fb7320fd8bc526115af6c9f7c211aa0b12b180`; check:arch pass; check:rules pass (0 new player-text strings); npm test 5538 pass / 0 fail / 22 skip. Committed with H, H2, I, J (next commit after `137319cba`).
+
+**B, native walks on HEAD `778396479` (returned 03:15).** Bundle `ffe78f5c...250232`; frozen identity bundle `bccdcfd1...93bf`, manifest `509ca540...c58d`. Proves HEAD before this run's commits.
+
+| Item | What the player saw | Result | Persistence |
+|---|---|---|---|
+| LOTM hired guard (civil staff life, report in, Path) | "Sign on as a night watchman"; "A quiet night"; purse 1200 → 1500 pence after the week ("Collect the watch pay · 1 pound 5 soli") | pass, with defect A | save, reload, export, import kept day 8 08:00, 1500 pence, the hire on Path |
+| Market courtyard founding and collector | founding form needs a typed group name | not reachable by the MCP (`game_click` takes `value` on selects only; one `game_report_limit` filed); collector needs Klein's own life and three missed rent weeks at about 292 s per game day | n/a |
+| Courtyard tender (Sela) | "Sela is hired", then "Grow tended grain · 6 played min" after buying seed | pass, with defect B | save, reload, export, import kept day 3 08:01, 8C 9W, the hire |
+
+Defects found by the walk:
+- **A (save-breaking):** signing the guard contract before reporting in writes a knowledge note whose situation does not exist yet; the save then fails ("Knowledge needs its actual situation context."), progress pauses and every later save is refused. `guardSignQuote` (`src/book_world_lotm_guard.js:78`) offers the hire before the situation exists; note built by `know()` (`src/book_world_lotm_kit.js:18`), validated at `src/causal_situations.js:57`.
+- **B (log flood):** a hand with no seed repeats "I have no seed packets to sow, so the bed sits empty." once per settled minute (about 1440 a day); `report` in `src/hired_hands_plot.js:105` fires on every tick pass.
+- Minor: the guard term reads "Five weeks left" one day in (rounds down).
+
 ## Resume block (unattended run, 2026-11-07)
 
 Weibao, 2026-11-07 00:13: "make as much progress as possible ... use as much usage to make as much progress, and continue after the 5 hour limit and more".
 - Objective: waves of disjoint foundation slices to floor, committed from an isolated worktree, until the stop condition.
-- Input identity: master `778396479`; dirty but not ours: the whole primary working tree at dispatch (prose, perf, rules, dist).
+- Input identity: master `778396479` at start; run commits `b254013c4`, `137319cba`; dirty but not ours: the whole primary working tree at dispatch (prose, perf, rules, dist).
 - State of the steps: wave 1 dispatched 00:25; A and C returned and recorded; B (walk) out. Wave 2 (D, E) dispatched 00:55.
 - Last evidence: folded wave 1-2 tree (C, D, E) built `bb58918b5b35d7b1e1a048284e737ffbd6805c63acba0d71ee5c502f13e17eb8`; check:arch pass; check:rules pass (0 new player-text strings); npm test running 01:20.
 - Failed approaches: none yet.
-- Next useful action: fold B (walk), F, G returns; build in the isolated worktree; gates; commit own paths.
+- Next useful action: fold B (walk), H, I, J returns; build in the isolated worktree; gates; commit own paths.
 - Usage pacing: read 00:14 EST, 5-hour 25% (resets 03:50), weekly 77% (resets Mon 13:00). Weibao's later words override the 75% weekly stop; this run's ceiling is weekly 92% (stop, leave this block current, about 8% left for his weekend). 5-hour at 85%: start no lane, wake after reset. Five other sessions share the pool.
 - Stop condition (default 92%, Weibao's dial; reason: about 8% stays his until Monday): weekly 92%, or every remaining foundation slice sits inside the collision map, or a blocker that needs Weibao. Reached? Not yet.
 

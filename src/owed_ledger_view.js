@@ -11,7 +11,7 @@ const KIND_ORDER = ['coin', 'favor', 'duty', 'grievance'];
 export const PARTY_LABELS = Object.freeze({
     market_circle: 'the Market Circle', gutter_crews: 'the Gutter Crews', counting_house: 'the Counting-House',
     village_watch: 'the Village watch', household: 'your household', village_verge: 'the keepers of the Village verge',
-    insurer: 'the broker', elder: 'the village elder', heir: 'your heir',
+    insurer: 'the broker', healer: 'the healer', elder: 'the village elder', heir: 'your heir',
 });
 const SOURCE = {economy_standing: 'Standing and ledger', household_fortunes: 'Household', village_career: 'Village watch work',
     crafting: 'Crafting', heir_inheritance: 'Inheritance'};

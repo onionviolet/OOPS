@@ -12,6 +12,11 @@ export const DEFAULT_DIAL = AGING_DIALS['base.frontier'];
 export const FLOOR = Object.freeze({health: 0.6, stamina: 0.7});
 export const WEAR_FROM_AGE = 40, WEAR_PER_YEAR = 0.004, MAX_SEVERITY = 3, STEP_PENALTY = 0.04;
 export const TREAT_SEASON = 90 * DAY, TREAT_COIN = 8;
+// Care on credit. Default: the healer lets a course ride as a coin debt up to a limit. Dial: `min` for a stranger, `known` for a neighbour
+// (a regular with the Village stall-holders, who talk about who pays), both in coins owed to the healer in all. Reason: a healer who knows
+// you can wait for the coins, one who does not cannot wait long. A world replaces the numbers and says why.
+export const CREDIT = Object.freeze({min: 16, known: 40, knownFrom: 'friendly', provider: 'healer',
+    reason: 'A healer waits a little for a stranger and longer for a neighbour the stall-holders vouch for.'});
 export const CHRONIC = Object.freeze([
     {id: 'joints', onset: 45, step: 4, name: 'Stiff joints', symptom: 'Your joints ache on cold mornings.', health: 1, stamina: 0},
     {id: 'breath', onset: 52, step: 5, name: 'Short breath', symptom: 'You tire faster on the hill paths.', health: 0.5, stamina: 1},
@@ -121,18 +126,30 @@ export function setStance(state, id, stance, clock) {
     next.conditions[id] = {...c, stance, diagnosed: true};
     return next;
 }
-export function treat(state, id, clock, coins) {
+// What the healer carries for this player: coins already owed (care rows in the saved obligations ledger) and whether they count as a neighbour.
+export const careOwed = rows => (rows ?? []).filter(r => r.kind === 'coin' && r.debtor === 'player' && r.creditor === CREDIT.provider && String(r.id).startsWith('care:'))
+    .reduce((sum, r) => sum + r.amount, 0);
+export const knownNeighbour = factions => ['friendly', 'honoured'].includes((factions ?? []).find(f => f.id === 'market_circle')?.tier?.id);
+export function creditTerms({owed = 0, known = false} = {}) {
+    const limit = known ? CREDIT.known : CREDIT.min;
+    return {owed, known, limit, room: Math.max(0, limit - owed), reason: CREDIT.reason};
+}
+// `credit` = {owed, known, now} when the Village keeps a ledger; a short purse then rides on credit instead of being refused.
+// Returns `paid` (coins taken now) and `obligation` (the coin row for the caller to save, or null).
+export function treat(state, id, clock, coins, credit = null) {
     const def = CHRONIC.find(d => d.id === id), c = state.conditions[id];
     if(!def || !c || c.progress <= 0) throw Error('Nothing to treat yet.');
     const cost = treatCost(def, c);
     // The Village healer's season of care is a care record: price gate, same cost, same refusal, same effects.
-    const care = applyCare(careRecord({provider: 'healer', who: 'player', gate: {kind: 'price'}, cost, duration: TREAT_SEASON,
-        restores: ['relief', 'season'], doesNotRestore: ['age']}), {money: coins}, {moneyCost: amount => ({coins: amount}), restoreEffect: key => ({key})});
-    if(!care.ok) throw Error(`A course of care costs ${cost} coins.`);
+    const onCredit = coins < cost && !!credit;
+    const care = applyCare(careRecord({provider: CREDIT.provider, who: 'player', gate: onCredit ? {kind: 'credit', min: CREDIT.min, known: CREDIT.known} : {kind: 'price'}, cost, duration: TREAT_SEASON,
+        restores: ['relief', 'season'], doesNotRestore: ['age']}), {money: coins, owed: credit?.owed ?? 0, known: !!credit?.known, now: credit?.now ?? clock},
+    {moneyCost: amount => ({coins: amount}), restoreEffect: key => ({key})});
+    if(!care.ok) throw Error(onCredit ? `The healer will not wait on more than ${creditTerms(credit).limit} coins; you owe ${credit.owed}.` : `A course of care costs ${cost} coins.`);
     const has = key => care.effects.some(e => e.key === key);
     const next = structuredClone(state);
     next.conditions[id] = {...c, relief: Math.min(c.relief + (has('relief') && severityOf(def, c) > 0 ? 1 : 0), Math.floor(c.progress / def.step)), treatedUntil: clock + (has('season') ? care.duration : 0), diagnosed: true};
-    return {state: next, cost};
+    return {state: next, cost, paid: onCredit ? 0 : cost, obligation: care.obligation ?? null};
 }
 
 export const contactChoices = (relationships, ownIds = []) =>

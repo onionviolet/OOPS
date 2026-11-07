@@ -42,6 +42,9 @@ export function repay(factionId, amount) {
     set(next);
     return paid;
 }
+// Care on credit: another domain's coin row for the healer is written (and, on a failed save, taken back) through these two commands.
+export function oweCare(row) { const {state: next, id} = rules.owe(state, row, now()); set(next); return id; }
+export function dropCare(id) { set(rules.dropCareDebt(state, id, now())); }
 export function insure(value, danger, label) {
     if(danger == null) danger = rules.roadDanger(current_location?.market_region);
     const quote = rules.quoteInsurance(value, danger);
@@ -125,5 +128,5 @@ registerDomain({id: 'economy_standing', deps: [], initialState: () => null,
     validate: slice => rules.validateStanding(slice),
     migrate: slice => rules.migrateStanding(slice),
     load: slice => setStandingState(slice),
-    tick: tickStanding, refresh: () => panel?.render(), projection: view, commands: {repay},
+    tick: tickStanding, refresh: () => panel?.render(), projection: view, commands: {repay, owe: oweCare, unowe: dropCare},
     panels: [() => { panel = createEconomyStandingPanel({read: view, borrow, repay, insure}); }]});

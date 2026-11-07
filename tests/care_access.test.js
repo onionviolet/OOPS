@@ -64,3 +64,26 @@ test('Village aging treatment routes through care_access: unmet gate changes not
     assert.equal(severityOf(joints, r.state.conditions.joints), sev - 1);
     assert.equal(r.state.conditions.joints.diagnosed, true);
 });
+
+test('credit gate: full purse takes no coins, writes one owed row; limit refuses a second visit; old save unchanged', async () => {
+    const {writeObligation, createObligations, validateObligations} = await import('../src/obligations_ledger.js');
+    const rec = careRecord({provider: 'healer', who: 'player', gate: {kind: 'credit', min: 10, known: 24}, cost: 8, restores: ['x']});
+    const r = applyCare(rec, {money: 500, owed: 0, now: 100}, {moneyCost: money});
+    assert.equal(r.ok, true); assert.deepEqual(r.costs, []);
+    assert.deepEqual(r.obligation, {id: 'care:healer:100', kind: 'coin', debtor: 'player', creditor: 'healer', amount: 8,
+        why: 'Care from the healer, owed', source: 'care_access', since: 100, eases: 0, carries: true});
+    let ledger = writeObligation(createObligations(), r.obligation);
+    assert.equal(ledger.rows.length, 1);
+    const snapshot = JSON.stringify(ledger);
+    const second = applyCare(rec, {money: 500, owed: 8, now: 200}, {moneyCost: money});
+    assert.equal(second.ok, false); assert.match(second.reason, /10 coins for a stranger.*owe 8.*8 more/);
+    assert.deepEqual([second.effects, second.costs, second.obligation], [[], [], undefined]);
+    assert.equal(JSON.stringify(ledger), snapshot);
+    const known = applyCare(rec, {owed: 8, known: true, now: 200}, {moneyCost: money});
+    assert.equal(known.ok, true);
+    assert.equal(validateObligations(writeObligation(ledger, known.obligation)).rows.length, 2);
+    assert.throws(() => careRecord({provider: 'x', who: 'p', cost: 1, gate: {kind: 'credit', min: 10, known: 5}}), /known/);
+    // A save that never held a credit row is just an empty or absent ledger: nothing is written or invented.
+    assert.deepEqual(createObligations().rows, []);
+    assert.equal(applyCare(careRecord({provider: 'healer', who: 'p', cost: 6, restores: ['x']}), {money: 6}, {moneyCost: money}).obligation, undefined);
+});

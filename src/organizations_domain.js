@@ -10,7 +10,8 @@ import {ORGANIZATIONS_FAMILY, freshOrganizations, migrateOrganizations, validate
     foundGroup, dissolveGroup, foundingReason, cleanName, cleanCharter, activeFounded, CHARTER_DIALS, RHYTHM_DAYS, SECRECY_DIAL, FOUNDED_HOUR,
     addMember, settleDues, spendTreasury, pendingMeetings, nextMeetingDay, duesOf, claimGround, releaseGround, claimantOf} from './organizations.js';
 import {applyGameplayEffect} from './gameplay_transactions.js';
-import {authorityOver} from './authority.js';
+import {authorityOver, knownness, KNOWN_AT} from './authority.js';
+import {domainRegistry} from './domain_registry.js';
 
 // Founding routes by world (default, dial, reason). cost: coins from the purse, paid at founding. A hidden group costs more because it
 // needs a back room and a quiet word; an open one meets where the market already is. place/fact name where the player must be.
@@ -27,8 +28,10 @@ export const FOUNDING_ROUTES = Object.freeze({
         admissionShift: Object.freeze({open: -2, invite: 0, vouched: 4}),
         // OB11 ground a group may stake (default, dial, reason). place is the authority source's place id (tests assert it equals HOME_SITE); the player must
         // stand there. minMembers 1: a claim without anyone to hold it is a stick in the ground. cost 8 coins: stakes, rope and a day walking the bounds.
+        // strongAt 3 (F7): people in the group (founder and members) at which settlers pay on time; fewer and they pay a week late. A band of three can
+        // show up at a door; two cannot yet. Derived on read from the group record, so nothing is saved.
         // settlerDues 1 coin a week: what an outsider who settles inside a claim owes the holder, the claim's other side (a rule, not a simulation).
-        claims: Object.freeze({'Wild willow stand': Object.freeze({label: 'the wilds stead', cost: 8, minMembers: 1, settlerDues: 1,
+        claims: Object.freeze({'Wild willow stand': Object.freeze({label: 'the wilds stead', cost: 8, minMembers: 1, settlerDues: 1, strongAt: 3,
             reason: 'Stakes and rope, and a day spent walking the bounds with your people so they can say where it ends.'})}),
         // Group abilities (3.5): what a treasury buys that one purse cannot. Each once per meeting.
         abilities: Object.freeze({
@@ -165,7 +168,7 @@ function claimQuote({id} = {}) {
         let reason = '';
         if (held) reason = `${g.name} already claims ${c.label}.`;
         else if (!writable()) reason = 'Use the writable game tab.';
-        else if (over.claimant) reason = `${over.holder ?? over.claimant} already holds ${c.label}; a claim there is refused.`;
+        else if (over.claimedBy === 'claim') reason = `${over.holder ?? over.claimant} already holds ${c.label}; a claim there is refused.`;
         else if (ports.location() !== place) reason = `Go to ${c.label} to stake it.`;
         else if (Object.keys(g.members || {}).length < c.minMembers) reason = `${g.name} needs ${c.minMembers} member${c.minMembers === 1 ? '' : 's'} to hold ground.`;
         else if (ports.actor().money < c.cost) reason = `You need ${c.cost} coins for the stakes.`;
@@ -173,13 +176,30 @@ function claimQuote({id} = {}) {
         return {place, label: c.label, cost: c.cost, because: c.reason, held, eligible: !reason, reasons: reason ? [reason] : []};
     });
 }
+// F7: staking ground inside an authority's bounds is a known act toward it (the founders stood there; its people saw the stakes). Keyed by the
+// claimant id authorityOver names; value = the heat authority that holds the record, the weight of the act and why. Default weight 1: one known
+// notice, the first level of a palette row. Reason: a staked claim is a public statement, not a crime, so it is noticed and not alarming. Dial: per
+// authority. 'village' has no heat palette row yet, so its act is refused by heat and nothing is recorded until one exists.
+export const CLAIM_ACTS = Object.freeze({
+    village: Object.freeze({authority: 'village', weight: 1}),
+    tingen: Object.freeze({authority: 'tingen_police', weight: 1}),
+});
+// Coverage reads authorityOver BEFORE the claim is stored (afterwards the group itself answers as claimant): inside the world's bounds only.
+function claimAct(g, place, over, at) {
+    const row = over?.reach === true && typeof over.claimant === 'string' ? CLAIM_ACTS[over.claimant] : null;
+    if (!row) return false;
+    const witness = ['you', ...Object.values(g.members || {}).map(m => m.name)].join(', ').slice(0, 60);
+    try { return domainRegistry.command('heat', 'recordAct')?.({authority: row.authority, weight: row.weight, id: `claim:${g.id}:${place}@${at}`, at, known: true, witness}) === true; }
+    catch { return false; }
+}
 function claim({id, place} = {}) {
     if (!ports) throw new Error('Groups are not ready yet.');
     const q = claimQuote({id}).find(x => x.place === place);
     if (!q) throw new Error('That ground cannot be claimed here.');
     if (!q.eligible) throw new Error(q.reasons[0]);
-    const g = liveGroup(id), next = claimGround(organizationsSlice(), id, {place, at: clockNow()});
+    const g = liveGroup(id), at = clockNow(), over = authorityOver(ports.root(), {world: ports.world(), place}), next = claimGround(organizationsSlice(), id, {place, at});
     transact(next, p => { p.external.money -= q.cost; });
+    claimAct(next.groups[id], place, over, at); // after the commit: a refused commit leaves no act without a claim
     ports.logMessage?.(`${g.name} claims ${q.label}. ${q.because}`, 'notification');
     return next.groups[id];
 }
@@ -191,10 +211,18 @@ function release({id, place} = {}) {
     ports.logMessage?.(`${g.name} gives up its claim on ${route()?.claims?.[place]?.label ?? place}.`, 'notification');
     return next.groups[id];
 }
+// F7: a settler's standing order toward the group, from the same OB1 set (pay_on_time, pay_late; skip stays a choice for a world that wants a defiant settler).
+// Default pay_on_time while the group is strong (people at strongAt) or known (knownness at KNOWN_AT); pay_late when it slips. Both are derived on read.
+// Knownness reads zero until a reader is registered for the group id, so strength decides today.
+function settlerPolicy(g, c) {
+    const people = 1 + Object.keys(g.members || {}).length;
+    let known = 0; try { known = ports?.root ? knownness(ports.root(), g.id).value : 0; } catch { known = 0; }
+    return people >= c.strongAt || known >= KNOWN_AT ? 'pay_on_time' : 'pay_late';
+}
 /** What an outsider who settles inside a claim owes its holder by the world's rule, or null. No settlement is simulated; callers ask. */
 export function settlerDues(world, place) {
     const g = claimantOf(world, place), c = FOUNDING_ROUTES[world]?.claims?.[place];
-    return g && c ? {group: g.id, holder: g.name, coinsPerWeek: c.settlerDues, why: `${g.name} claims ${c.label}; anyone settling there owes it ${c.settlerDues} coin a week.`} : null;
+    return g && c ? {group: g.id, holder: g.name, coinsPerWeek: c.settlerDues, policy: settlerPolicy(g, c), why: `${g.name} claims ${c.label}; anyone settling there owes it ${c.settlerDues} coin a week.`} : null;
 }
 const gathering = id => {
     const g = organizationsSlice().groups[id];

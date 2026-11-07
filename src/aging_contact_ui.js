@@ -9,7 +9,7 @@ export function createAgingContactPanel({read, commands, stances}) {
         const b = node('button', label);b.type = 'button';b.disabled = disabled;Object.assign(b.dataset, attrs);b.addEventListener('click', () => run(fn));return b;
     }
     function render() {
-        const {view, contacts, here, money, enrolled} = read(), host = document.getElementById('location_actions_div');
+        const {view, contacts, here, money, enrolled, credit} = read(), host = document.getElementById('location_actions_div');
         if(!panel.isConnected)host?.append(panel);
         panel.hidden = false;
         body.replaceChildren();
@@ -25,9 +25,11 @@ export function createAgingContactPanel({read, commands, stances}) {
                 const b = button(`${stance === 'ignore' ? 'Ignore' : 'Manage'}`, {agingStance: `${c.id}:${stance}`}, () => commands.stance(c.id, stance), c.stance === stance);
                 b.title = def.text;card.append(b);
             }
-            const t = button(`Treat · ${c.cost} coins`, {agingTreat: c.id}, () => commands.treat(c.id), money < c.cost || !here);
-            t.title = `${!here ? 'Only in the Village. ' : money < c.cost ? `Needs ${c.cost} coins. ` : ''}A season of care from the Village healer: eases one stage and slows the condition to a tenth of its pace. The ceiling recovers; age itself does not.`;
-            card.append(t, node('p', `Treat: a season of care from the Village healer eases one stage and slows the condition to a tenth of its pace. The ceiling recovers; age itself does not.${!here ? ' Not available away from the Village.' : money < c.cost ? ` You carry ${money} of the ${c.cost} coins.` : ''}`, 'expedition_requirements'));body.append(card);
+            // A short purse rides on credit while the healer's limit has room; the command revalidates (AR7).
+            const onCredit = money < c.cost && !!credit && credit.room >= c.cost;
+            const t = button(onCredit ? `Treat on credit · ${c.cost} coins` : `Treat · ${c.cost} coins`, {agingTreat: c.id}, () => commands.treat(c.id), (money < c.cost && !onCredit) || !here);
+            t.title = `${!here ? 'Only in the Village. ' : onCredit ? `The healer waits for the coins: you owe ${credit.owed} of ${credit.limit}. ` : money < c.cost ? `Needs ${c.cost} coins. ` : ''}A season of care from the Village healer: eases one stage and slows the condition to a tenth of its pace. The ceiling recovers; age itself does not.`;
+            card.append(t, node('p', `Treat: a season of care from the Village healer eases one stage and slows the condition to a tenth of its pace. The ceiling recovers; age itself does not.${!here ? ' Not available away from the Village.' : onCredit ? ` You carry ${money} of the ${c.cost} coins; the healer will wait for them (${credit.owed} owed of ${credit.limit}).` : money < c.cost ? ` You carry ${money} of the ${c.cost} coins.` : ''}`, 'expedition_requirements'));body.append(card);
         }
         const k = view.contact, card = node('section', '', 'expedition_card');card.dataset.agingContact = k.phase;
         card.append(node('p', `Company: ${k.label} (${k.score}/100). ${k.text}`));
