@@ -3,6 +3,7 @@ import {courtyardOrganization} from './organization_source.js';
 import {organizationView,organizationText} from '../organization_view.js';
 import {definePanel} from '../panel_kit.js';
 import './group_source.js';
+import '../livelihood_sources.js'; // Frontier livelihood source (lane E)
 import {groupsOf,groupLines} from '../organizations.js';
 import {moneyText} from '../reveal_chain.js';
 const node=(tag,text='',attrs={})=>{const n=document.createElement(tag);n.textContent=text;for(const[k,v]of Object.entries(attrs))n.setAttribute(k,v);return n;};

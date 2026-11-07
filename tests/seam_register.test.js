@@ -50,6 +50,7 @@ test('family classifier', () => {
  assert.equal(familyOf('world_packs/book_hp_x.js'),'hp');
  assert.equal(familyOf('frontier_map.js'),'village');
  assert.equal(familyOf('main.js'),'shared');
+ assert.equal(familyOf('tempo_fight_domain.js'),'shared');
 });
 
 test('stale check flips when the code changes', () => {

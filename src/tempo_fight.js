@@ -11,6 +11,7 @@ import {applySimulationEffects} from './simulation_effects.js';
 import {allyMove, hearOrder, coverChance, activeOrder, orderChance, oddsWord, ALLY_ORDERS, ALLY_ORDER_IDS, ALLY_DIALS} from './tempo_allies.js';
 import {SLOTS, SLOT_IDS, LOCATION_DIALS, weights as slotWeights, pickSlot, defenceAt, oddsOf, injuryFor, partLabel} from './tempo_location.js';
 import {leaveChance, yieldChance, followers, EXIT_DIALS} from './tempo_exit.js';
+import {winChance} from './notch_contest.js';
 import {TEMPO_SCHEMA, TEMPO_LOG_LINES, TEMPO_MOVE_IDS, TEMPO_ALLOWED_MOVE_IDS, TEMPO_FACT_HELD, recordTempoHold, takeTempoHold, validateTempoBattle} from './tempo_fight_contract.js';
 export {TEMPO_SCHEMA, TEMPO_FACT_HELD, recordTempoHold, takeTempoHold, validateTempoBattle};
 
@@ -27,6 +28,7 @@ export const TEMPO_DIALS = {
     fogMishap: {value: .03, why: 'Fog hides footing and the mark a little; less than full dark, which also hides the hands.'},
     shotDamage: {value: 'maxHp / downIn', why: 'Bridge from a world scale (e.g. LOTM hits-to-down) to tempo health: each hit takes an equal share, so downIn hits drop the target. Authored dial.'},
     stallActions: {value: 30, why: 'AT21: when two weak fighters cannot hurt each other (a hit chance near zero, or blows that do almost nothing), the fight would run forever. After this many moves in a row with no harm to anyone, both sides are spent and break off (ends as withdrawn, no grudge, no one follows). About a ten percent shooter still lands one in thirty about 96 times in 100. Set to 0 to turn it off.'},
+    channelNotice: {value: 'winChance(perceive - conceal)', why: 'A concealed effect (conceal above 0) is seen only by an observer with a perceive value, by one keyed draw on the notch scale: an equal noticer catches it half the time, each notch of edge moves that by roughly a quarter, and no perceive value means nothing is shown and no draw is made. An effect in the open (conceal 0) is always logged. The holder always sees their own effect.'},
     witnessPerStrike: {value: false, why: 'A witness remembers a fight as one event (LSD351); one memory per strike would fill their record. Tests or a world that wants every blow remembered can turn this on.'}
 };
 // Costs are time units (about seconds). Power scales the existing strike math;
@@ -80,6 +82,15 @@ const witnessEffect = (plan, b, holder, subject, amount, severity, place, cause)
     text: 'Struck in a public fight.', clock: plan.state.clock, scene: {place, severity}});
 function say(b, text) {
     b.last = text; b.log.push(text); b.log = b.log.slice(-TEMPO_DIALS.logLines.value);
+}
+// Channel effects (lane W7-B, N3): the log is the player's view, so the player is the one observer. The line is decided here, when written, so a concealed
+// effect that was not noticed never reaches b.log or b.last. One keyed draw per use, and none when no contest exists (open, own, or no perceive value).
+function channelLine(b, actorId, f, moveId) {
+    const c = f.channels?.[moveId];
+    if(!c) return;
+    const me = b.fighters.player, conceal = c.conceal ?? 0;
+    const seen = actorId === 'player' || conceal <= 0 || (me.perceive !== undefined && draw(b, 'perceive', actorId, {move: moveId, channel: c.channel}) < winChance(me.perceive - conceal));
+    if(seen) say(b, c.text); else if(c.neutral) say(b, c.neutral);
 }
 function target(b, actorId, wanted) {
     const foes = active(b).filter(id => sideOf(b, id) !== sideOf(b, actorId));
@@ -293,6 +304,7 @@ function runMove(plan, registry, command, publish) {
             say(b, `${name} ${id === 'player' ? 'offer to yield, but it is refused' : 'offers to yield, but it is refused'}.`);
         }
     }
+    if(!mishap) channelLine(b, id, f, command.moveId);
     f.ready += cost; b.seconds += cost; plan.state.sequence++;
     // One home for the player's contest vitals (R3-C11): every view reads the same value while the fight is open.
     const mine = b.fighters.player, pv = plan.vitals.player;
@@ -353,7 +365,7 @@ export function beginTempoFight(state, registry, context, spec) {
     for(const f of [...spec.fighters].sort((x, y) => (x.id < y.id ? -1 : 1))) {
         fighters[f.id] = {name: f.name, side: f.side, speed: f.speed ?? 100, ready: 0, hp: f.hp, maxHp: f.maxHp ?? f.hp, stamina: f.stamina ?? 10, maxStamina: f.maxStamina ?? f.stamina ?? 10,
             profile: structuredClone(f.profile), moves: (f.moves || KEEP).filter(m => KEEP.includes(m) || (f.stock && TEMPO_ALLOWED_MOVE_IDS.includes(m) && !TEMPO_MOVE_IDS.includes(m))), perception: f.perception ?? 5, stealth: f.stealth ?? 5,
-            tool: f.tool || 'familiar', ...(f.goals ? {goals: {...f.goals}} : {}), ...(f.parts && Object.keys(f.parts).length ? {parts: {...f.parts}} : {}), ...(f.ally ? {ally: {...structuredClone(f.ally), order: null}} : {}), ...(f.stock ? {stock: structuredClone(f.stock)} : {}), guard: false, adrenalineUntil: 0, status: 'active', yielded: false};
+            tool: f.tool || 'familiar', ...(f.goals ? {goals: {...f.goals}} : {}), ...(f.parts && Object.keys(f.parts).length ? {parts: {...f.parts}} : {}), ...(f.ally ? {ally: {...structuredClone(f.ally), order: null}} : {}), ...(f.stock ? {stock: {...structuredClone(f.stock), holder: f.id}} : {}), ...(f.channels ? {channels: structuredClone(f.channels)} : {}), ...(Number.isFinite(f.perceive) ? {perceive: f.perceive} : {}), guard: false, adrenalineUntil: 0, status: 'active', yielded: false};
     }
     if(Object.values(fighters).some(f => f.side === 'a' && f.ally)) fighters.player.moves.push('order');
     const b = {schema: TEMPO_SCHEMA, id: spec.id, title: spec.title || 'A fight', seed, actions: 0, now: 0, seconds: 0, held: 0, floor: spec.floor ?? 0,

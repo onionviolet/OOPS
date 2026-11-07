@@ -2,7 +2,7 @@
 // present/busy blockers), something taught (an instruction-basis knowledge fact), a time and cost the host act carries, and
 // an optional skill step paid through the existing native {type:'xp'} effect (FD5 ladder and skill XP stay the owners).
 // Pure data helpers; no state, clock or save. Consumers: Klein's Old Neil divination lesson (beDivMethodLearnEffects);
-// next named consumer: HP classes (not built).
+// Hogwarts Life's hand-written `lesson_charms` command (world_packs/book_hp_life_data.js) does not use this seam yet.
 import {recurringWindow} from './world_rhythm.js';
 
 /** Availability: the window is open and no blocker applies. `blockers` is [[truthy-when-blocked, reason], ...]. */

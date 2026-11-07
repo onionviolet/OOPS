@@ -54,6 +54,10 @@ function mount() {
     };
     render();
     setInterval(render, 1000);
+    // AT25: a timer alone left the Now line stale after a 1440-minute step (timers are throttled in a hidden or
+    // headless page). Any change to the log, or the page coming back into view, repaints at once.
+    new MutationObserver(render).observe(stream, {childList: true});
+    document.addEventListener('visibilitychange', render);
 }
 
 registerDomain({id: 'reports_dock', deps: [], initialState: () => null, panels: [() => { mount(); }]});

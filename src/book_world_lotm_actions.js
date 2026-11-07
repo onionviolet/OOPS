@@ -24,6 +24,7 @@ import {beFirearmFacts} from './book_world_lotm_be_firearm.js';
 import './book_world_lotm_fight.js'; // registers the AT15 proof tempo opener
 import './book_world_lotm_positions.js'; // registers the FD15 positions projection source
 import './book_world_lotm_organizations.js'; // registers the lane F groups projection source
+import './book_world_lotm_livelihoods.js'; // registers the lane E livelihood source
 import {lifeCommands,LOTM_PROFILES,profileKeyOf,weeksOwed} from './book_world_lotm_lives.js';
 import {LOTM_DISTRICTS,districtOfPlace,districtCommands,districtFacts,onShift,roleOutcomeFacts} from './book_world_lotm_districts.js';
 import {makeBatchRef} from './batch_identity.js';

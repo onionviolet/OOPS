@@ -1,5 +1,6 @@
 import {knownPeopleView} from './people_knowledge.js';
 import {eventFeed} from './event_feed.js';
+import {livelihoodsOf, livelihoodLine} from './livelihoods.js';
 // RPT6/LTU3 return digest (TIME_AND_CHRONICLE TC3, TC8-TC11). Read-only grouping of lines the
 // player already knows: people's memories from knownPeopleView and news from eventFeed. It owns
 // no record and reads no NPC private state; the only saved input is `seenAt`, held by the domain.
@@ -52,7 +53,7 @@ export function groupDigest({clock, seenAt, people = [], own = [], around = [], 
 
 // Adapter from real state. `facts` and `lifeRecord` are the same inputs the World events feed uses;
 // a caller that already built that feed passes it as `feed`.
-export function returnDigest(state, registry, {facts = {}, lifeRecord = null, seenAt = null, threshold, feed: given = null, events = null} = {}) {
+export function returnDigest(state, registry, {facts = {}, lifeRecord = null, seenAt = null, threshold, feed: given = null, events = null, livelihoodCtx = {}} = {}) {
     const clock = state.clock;
     const people = knownPeopleView(state, facts);
     const feed = given ?? eventFeed(state, registry, facts, lifeRecord);
@@ -63,7 +64,8 @@ export function returnDigest(state, registry, {facts = {}, lifeRecord = null, se
     if (reports) missed.push({text: `${reports.label}. ${reports.detail}`, at: reports.at});
     // L14 world events, already worded by the host: digestRowsFromEvents (read_models/time_digest_bridge.js) gives {around, missed}.
     if (events) { around.push(...events.around); missed.push(...events.missed); }
-    return groupDigest({clock, seenAt, people, own, around, missed, threshold});
+    // Lane E: where your livelihoods stand now (derived on read, no save key). Shown with the digest, not timed lines.
+    return {...groupDigest({clock, seenAt, people, own, around, missed, threshold}), livelihoods: livelihoodsOf(state, livelihoodCtx).map(livelihoodLine)};
 }
 
 // The same digest as a figure spec (RPX15/RPX19 gallery form): you at the centre, one marker per

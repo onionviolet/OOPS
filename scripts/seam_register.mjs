@@ -70,8 +70,8 @@ export const FAMILIES=[
  ['proto23',/proto23|(^|[\/_])p23/],
  ['dnd',/dnd/],
  ['field',/(^|\/)field_/],
- // Lane H's village/frontier family also holds these Frontier-only kits.
- ['village',/(^|\/)(village|frontier|original_frontier|expedition_|cohort_|life_events|storylet|tools_domain|gear_workshop|pocket|tempo_fight_domain|tempo_location)/]
+ // Lane H's village/frontier family also holds these Frontier-only kits. tempo_fight* is world-neutral (neutral write port, serves LOTM) and stays shared.
+ ['village',/(^|\/)(village|frontier|original_frontier|expedition_|cohort_|life_events|storylet|tools_domain|gear_workshop|pocket|tempo_location)/]
 ];
 export const SHARED='shared';
 export function familyOf(rel,families=FAMILIES) {
