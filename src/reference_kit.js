@@ -79,13 +79,19 @@ export function createFactTable(caption) {
 
 // Run `render` only while the panel can be seen and its inputs changed, so a section that is not
 // open costs nothing on each publication. It draws once when the panel first comes into view.
+// Where IntersectionObserver exists it tracks whether the panel is on screen, so a refresh does
+// not force a style pass per panel (checkVisibility did, every publication).
 export function visibleRenderer(panel, compute, paint) {
-    let signature = '';
+    let signature = '', inView = null;
+    const shown = () => inView ?? !!panel.checkVisibility?.();
     const run = force => {
-        if (!force && !panel.checkVisibility?.()) return;
+        if (!force && !shown()) return;
         const view = compute(); const next = JSON.stringify(view);
         if (!force && next === signature) return; signature = next; paint(view);
     };
-    if (typeof IntersectionObserver === 'function') new IntersectionObserver(entries => { if (entries.some(e => e.isIntersecting)) run(false); }).observe(panel);
+    if (typeof IntersectionObserver === 'function') new IntersectionObserver(entries => {
+        inView = entries.at(-1).isIntersecting;
+        if (inView) run(false);
+    }).observe(panel);
     return run;
 }

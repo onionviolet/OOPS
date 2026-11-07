@@ -111,4 +111,15 @@ Weibao: "fix accordingly, move everything to rust, consider optimizations ad mor
 
 Checks: `cargo test` 7/7 (store, mirror, snapshot id vs Node); `check:tauri` 10/10 including the new `tauri_store_wipe` (clean quit, WebKit data deleted, relaunch restored the same save); focused node tests 309/309 over every test importing a touched module, plus new `tests/inventory_key.test.js`; perf gate `--base HEAD --fixtures fresh,crowded`: det identical on both (behavior unchanged), budgets over on taskBusyPct, longTasks and storageKBPerMin (head build also includes other sessions' uncommitted work; budget overruns were not compared against base). Memory, hidden app plus its WebKit processes after 40 s: fresh about 1.14 GiB, crowded about 1.17-1.22 GiB settled (load peaks 1.3-1.7 GiB); the Nov 6 Electron figure was 1.74 GiB. Not human-reviewed.
 
-Open: the per-second save itself (60 writes/min, one long task each second) is the main remaining lag source on both hosts; changing its cadence is a game save-policy change, not a host change.
+Open: see slice 6; the per-second save turned out not to be the lag source.
+
+## Slice 6: what the once-a-second work costs (2026-11-06, late)
+
+Weibao: "Yes, look at it" (lowering the autosave cadence).
+
+- Correction to slice 5: the per-minute durable save (one `persistExpansion` per game minute, `src/clock_owner.js`) is not the lag source. Its `setItem` takes 0.1 ms on fresh and 0.4 ms on crowded (headless Chrome, 20 s). Lowering the cadence would trade crash safety for about nothing, so the save policy is unchanged.
+- CPU profile, crowded save, 12.8 s window (CDP sampling, mapped through the sourcemap): main thread 86% busy. Top costs: `readFactsFrame` (`src/facts_frame.js`) 1.9 s self, `checkVisibility` 1.9 s, world-completion facts 1.1 s, proto23 shell render 0.6 s.
+- Fixed: `visibleRenderer` (`src/reference_kit.js`) tracks visibility from its IntersectionObserver instead of calling `checkVisibility` (a forced style pass) on every refresh of the lineage, journal and known-things panels. `checkVisibility` fell to 0.4-0.5 s per window in two profiles.
+- Tried and reverted: a flattened string cache key in `facts_frame.js` (microbenchmark: 2x slower than the nested-Map key). 90% of `readFactsFrame`'s cost is the defensive copy of a roughly 1,500-key facts object on each of about 400 reads per second, mostly from per-command previews in `src/simulation.js` (`previewCommand` asks for full facts per command). The fix is to evaluate one command's predicates against shared facts without copying; `src/simulation.js` has another session's uncommitted edits, so this waits for that owner.
+
+Checks: focused tests 70/70 (every test importing the touched panels); perf gate det identical on fresh and crowded; gate timing not comparable (host load 14-24 from other sessions, head tree includes their uncommitted work).
