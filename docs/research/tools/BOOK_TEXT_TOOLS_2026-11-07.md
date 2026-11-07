@@ -44,7 +44,9 @@ Vol 11 chapters 2888-2889, which are already held.
 
 ## Checks (task record)
 
-- `python3 -I tests/book_text_tools_test.py`: on the pre-fix tools, 26 of 29 failed, both F16 tests included. On the fixed tools, 34 of 34 pass.
+- Input identity: built on base `93dcc52c9`, fix commit `64bbc2655`. `epub_to_json.py` sha256 was `ef6da1b1…` (it matches the F16 probe) and is now `6c2428c3…`. `merge_volumes.py` was `aac8efbf…` and is now `3b311f73…`.
+- `python3 -I tests/book_text_tools_test.py` on the fixed tools: 34 of 34 pass.
+- `BOOK_TOOLS_DIR=<HEAD~ copies of the five book_deep_dive tools> python3 -I tests/book_text_tools_test.py`: 24 of the 28 tool tests fail (21 failures, 3 errors), both F16 tests included. The 6 coverage tests load the current `library_coverage.py`. On the old coverage tool, each of the first draft's four coverage tests failed.
 - The real-library before/after above came from the HEAD copies of the tools in the scratchpad against the new ones. Outputs were deleted, and no text was printed beyond headings.
 - `npm run check:docs`: no slips in this report or the three edited research docs. Other files still have slips, all in other sessions' paths.
 - `npm run check:rules`: FAIL on two problems outside this lane. `docs/CONTINUITY_RULES.md` and `docs/NAMING_RULES.md`, both untracked and owned by another session, have no register row. This lane touched no rules-index input.
@@ -56,4 +58,7 @@ Vol 11 chapters 2888-2889, which are already held.
 - O2: unnumbered side stories and interludes are reported but not kept in the merged JSON. A reader who needs them should use `epub_to_json` output, which keeps every member.
 - O3: `hit_context_shards.py` still uses `sys.path.insert(0, …)`. The other tools now append. It is unchanged, so this is low risk.
 - O4: the tracked 2-byte file `book_deep_dive/--help` is junk left by an old run of `--help`. It is left for its committer to remove.
-- O5, tool gap, not built: no current consumer needs a merged-JSON key for unnumbered members, or a volume-aware `grep_ctx` filter. Build either when a reader asks for it.
+- O5, exposure: the private corpus under `docs/research/novels/` holds zero merged `chNNNNN` JSON files. The 139 member-keyed JSONs come mostly from the fork's spine-based intake. A few flat EPUBs have root-level members, where the basename is the full path. This scan found zero F16-damaged outputs. The scan read headings and keys, not prose.
+- O6: `hit_context_shards.py` consumes `keyword_scan.members()`, which now has the `NNNNb` suffix and the block fallback. No test chains scan into shards yet.
+- O7: the report links into `docs/audits/idea-audit-2026-11-06/`, which the paused audit has not committed yet. Those links resolve on disk but not in the fork until it does.
+- O8, tool gap, not built: no current consumer needs a merged-JSON key for unnumbered members, or a volume-aware `grep_ctx` filter. Build either when a reader asks for it.
