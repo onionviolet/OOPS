@@ -122,16 +122,50 @@ Agent-verified, not human-reviewed. No page errors, no private pack.
 
 **Wave 2 correction.** Lane F's facet is reverted (working tree, committed with this note). E, G and H stand. W5 and W6 remain unwalked: a recipe is needed that reaches the Craftsman & workshop panel and Mara.
 
+### Wave 2 continuation: recipes and contest placement (2026-11-06)
+
+Request: Weibao supplied the interrupted recipe handoff and said "Continue work accordingly". Scope: finish `village-workshop-unenrolled` and `village-rival`, walk W5/W6, and fix defects that prevent those walks. Desktop target 1920×1080; visible outcome: the unenrolled hero can follow local work, and Mara's unread brief can be studied for ten minutes and retained. Mobile, new health mechanics, NPC calendar wiring and new Frontier depth remain outside this slice. Rules: AD36, AD41–AD43, AR3/AR7–AR10/AR17, UR14–UR17; [architecture](../../../ARCHITECTURE_RULES.md), [UI](../../../UI_RULES.md), [look](../../../../DESIGN.md).
+
+- **F4 prerequisite:** the old recipe unlocked craftsman dialogue but did not complete the greeting that introduces him to the Notebook. Enrollment also requires meeting the elder. Both new recipes click the two native greetings; they seed craftsman story access to bypass the elder's combat chain. The rival recipe then inspects the crossing, joins with route findings, meets Mara and advances the pursuit using native buttons and time. No saved membership, pursuit or appraisal is fabricated.
+- **F5 placement defect:** the connected encounter slot in the inactive Tingen panel captured the Village contest. Returning to the fallback then fought the Notebook's placement on every render. Tingen now marks its encounter slot inert outside resident play; this is separate from the seat filter's ownership of `hidden` (real MutationObserver delivery exposed that difference in Chrome). The tempo host skips inactive slots and preserves the Notebook's connected fallback placement. Study feedback now confirms the observation rather than saying fight controls disappeared. No new save fields or combat mechanics.
+- **A2 verification:** `tests/headless/village_wave2.test.js` covers visible enrollment without a simulation and study cost, feedback, repeat-button removal, save/reload and literal export/import. `tests/tempo_host.test.js` adds inactive-slot and Notebook-ownership regressions.
+
+```receipt
+build: 5270cf2b28815d1848248224b5ac869abad1e463d66c88ac6570b8ed6416faf5
+route: fixture(village-workshop-unenrolled and village-rival; seeded craftsman access, native greetings and progression)
+state: browser-verified
+viewport: 1920x1080
+persistence: checked
+tests: final focused 15/15; final full suite 5514/5514
+review: agent-verified, not human-reviewed
+surface: W5/W6; tempo placement, Tingen slot availability, named recipes; no save schema change
+```
+
+| Check | Result and limits |
+|---|---|
+| `npm run build` | Pass; existing duplicate `dial` warning in `src/travel_legs.js`. Shared generated outputs left uncommitted. Browser proof uses its own disposable rebuilt bundle, hash above. |
+| `node --test tests/headless/village_wave2.test.js tests/tempo_host.test.js tests/rival_study.test.js` | 15/15 on final source, including native enrollment, ten minutes charged once, appraisal, success feedback, save/reload/export/import, hidden/inert slot refusal and Notebook placement retention. |
+| `npm test` | Final post-browser-fix run passed 5514/5514 (368 s) on the shared working tree. Earlier source variants are superseded for this slice by this run and the final focused/browser evidence. |
+| `npm run check:arch` | Pass, main/display/save growth -2/0/0, six grandfathered main imports and 205 cyclic edges. No new imports, cycles or composition-root registration. |
+| `npm run check:rules` | Pass; existing warnings concern another session's staged/untracked prose-owner paths. |
+| `node scripts/check_doc_slips.mjs` | Whole-tree diagnostic reports other sessions' added docs; no finding in this checkpoint's changed lines. Scoped `git diff --check` passes for the six owned paths. |
+| Game MCP, frozen build `075a98f0…`, manifest `de19f72f…` | W6 unread brief and study button visible; 08:09 → 08:19; appraised line survives save, reload, export/import; zero page errors. This precedes the final browser-only inert fix and success-message correction; final-source proof is the focused runner and Chrome walk. Disposable sessions closed. |
+| Private Chrome walk using `scripts/playtest/lib.mjs`, fresh contexts | W5 visible/enabled while `simulation` is null, click creates local simulation. W6 unread → appraised, ten minutes, study button removed, appraisal visible after fresh-context saved-state load. No browser errors, horizontal overflow or clipped text. Whole-screen diagnostic also notes one unnamed and one disabled-without-reason control outside the exercised action assertions; no general UI-cleanup claim. |
+
+Private evidence: `private/foundation-run-residue-2026-11-06/wave2-continuation/` at the repository root contains the browser report, runnable walk, three screenshots and source hashes. No private player save was opened. Source changes, tests and checkpoint are the six owned paths; generated bundles and other sessions' index/worktree edits are excluded from the commit. No push or install is part of this continuation.
+
+**Delivery:** W5 and W6 are agent-verified through named fixtures, not human-reviewed. E's calendar context, W8 loop reload, D's batch-label consumer and health/provider work remain open. This does not upgrade the entire foundation wave to the delivery floor.
+
 ## Resume block (unattended run, 2026-11-06)
 
 "lets work on these to completion" (Weibao, 2026-11-06, after the reconciliation).
 - Objective: lanes A-D each implemented with focused tests, folded on one tree, `npm run build`, `npm test`, `npm run check:arch`, `npm run check:rules` pass, own paths committed (no push), receipts recorded here, audit rows M1-M3, M6, U06 updated.
-- Input identity: master `b9d020380`; dirty but not ours: the files in Reservation, `dist/`, `index.html`, `scripts/perf/`, `desktop-tauri/`.
-- State of the steps: residue lanes returned and folded into the audit; wave selected; lanes A-D returned and recorded (A, D have no play caller); fold gates run: build 5a0e0b58, npm test 5248/5248 (includes another session's uncommitted edits), check:arch no growth, check:rules pass, check_doc_slips no new hits. Committed as 353396d41 (own paths, no push). No native walk yet.
-- Last evidence: build 5a0e0b588b9c, npm test 5248/5248 on the folded tree (430 s), check:arch growth -2/-1/0, check:rules pass. Not run: native game walk, browser at 1920x1080, persistence save/reload/import (lane B changes the continuation slice; only JSON round trips tested).
-- Failed approaches: none.
+- Input identity: continuation started from master `7eebce4e0`, containing the earlier wave commits. Other sessions' staged prose/direction/content edits and unstaged research/performance/build outputs were present; preserved. The continuation owns the six paths listed in its verification receipt below.
+- State of the steps: earlier waves and reversion are recorded above. The continuation adds the two missing recipes and fixes the contest placement blockers found while walking W5/W6. A's observation has a study consumer; D's dose readout remains open. Final continuation checks and publication state belong to its receipt above.
+- Last evidence: see the continuation receipt above for final input hashes, checks, browser and persistence results. Prior wave evidence remains in the dated walk tables rather than being treated as a fresh check.
+- Failed approaches: cold/wet Poison-resistance facet reverted after finding the existing Cold resistance owner; unlocking craftsman dialogue without greetings did not expose the workshop; connected-slot placement hid the Village contest; using `hidden` for slot availability was overwritten by the browser seat filter. Final slot availability uses `inert`.
 - Hold lifted: Weibao 2026-11-06 "Yes, run walk" after `4b4465412`. Walk done (see Native walk). Earlier hold text: "wait till move to tauri".
-- Next useful action: (1) native walk of wave 2 on a scratch worktree of HEAD (study her stance; enroll button in an unenrolled hero; cold exposure XP; craftsman schedule stays dormant until `calendarMinute` reaches non-player contexts at `main.js:1684`); (2) a readout for D's dose batch label once the LOTM files are quiet; (3) the Village exposure tick for the cold facet; (4) the healer cure path and provider side; (5) O-rows just with a first consumer. Health round is written (BODY_AND_HEALTH_CONSIDERATIONS, 2026-11-06). Known not-mine failures at the last full run: Math.random baseline 29 vs 28 (`src/storylet_deck2.js`) and an unregistered `data-lotm-position` attribute.
+- Next useful action: W5/W6 continuation and checks complete. Repair W8 reload after a loop cycle (ledger entry 56) next. Other open work: D's batch-label consumer, E's NPC calendar context, healer cure/provider paths, and O-rows with a first consumer. Cold/wet Poison resistance was reverted; do not resume its growth tick. Wet/filth ownership remains a design gap. Earlier full-suite failures are historical until rechecked.
 - Usage pacing: read 2026-11-06 evening: 5-hour 2%, weekly 60%; after wave 2: 5-hour 60%, weekly 67%. Continue while weekly under 75% and 5-hour under 85%; at 5-hour 85% wait for reset; at weekly 75% stop and leave this block current.
 - Stop condition: commit hashes recorded for lanes A-D, or a blocker that Weibao must clear. Reached? code lanes A-H yes (353396d41, 1568691d5, 8821c275c, 4862bbb9d); open: D's consumer, native walks of wave 2, the O-rows.
 

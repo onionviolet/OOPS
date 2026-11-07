@@ -19,6 +19,8 @@ export const SCENARIOS = Object.freeze({
     'fresh-day3': {summary: 'New hero after three days of stepping.', recipe: {days: 3}},
     'fresh-week': {summary: 'New hero after a week of stepping.', recipe: {days: 7}},
     'village-craftsman': {summary: 'Three days in, old craftsman reachable (story access patched like village_route.progress); walks the village.interrupt_work request.', recipe: {days: 3, patch: 'craftsman'}},
+    'village-workshop-unenrolled': {summary: 'DEV SEEDED craftsman access; native greeting completed, no local simulation enrolled. Open Notebook > People > Craftsman & workshop.', recipe: {days: 0, patch: 'craftsman', prepare: 'workshop'}},
+    'village-rival': {summary: 'DEV SEEDED craftsman access; native crossing inspection, field membership and Mara meeting. Open Notebook > People > Road contest.', recipe: {days: 0, patch: 'craftsman', prepare: 'rival'}},
     'perf-fresh': {summary: 'Committed perf fixture: fresh life.', file: 'tests/fixtures/perf/fresh.json'},
     'perf-mid': {summary: 'Committed perf fixture: mid-game life.', file: 'tests/fixtures/perf/mid.json'},
     'perf-crowded': {summary: 'Committed perf fixture: crowded life (many people and jobs).', file: 'tests/fixtures/perf/crowded.json'},
@@ -28,6 +30,34 @@ export const SCENARIOS = Object.freeze({
 const PATCHES = {
     craftsman: save => {const out = structuredClone(save); out.availabilities.dialogue.oldCraftsman = 1; return out;},
 };
+// Only story access bypasses the elder's combat chain. Introductions, enrollment,
+// membership, pursuit and their costs are produced by the ordinary UI commands.
+async function prepareVillage(game, kind) {
+    await game.clickText('village elderVillage neighbor');
+    await game.click('[data-focus-action="talk:villageElder"]');
+    await game.click('[data-textline="hello"]');
+    await game.click('#center_mode_back');
+    await game.clickText('old craftsmanVillage neighbor');
+    await game.click('[data-focus-action="talk:oldCraftsman"]');
+    await game.click('[data-textline="hello"]');
+    await game.click('#center_mode_back');
+    await game.step(1); // Refresh witnessed people and discover the Notebook.
+    if(kind === 'workshop') return;
+    if(kind !== 'rival') throw new Error(`Unknown Village preparation ${kind}.`);
+    await game.fill('#workspace_navigation select[aria-label="Other known panels"]', 'notebook');
+    await game.click('#notebook_tab_here');
+    await game.click('#expedition_panel > summary');
+    await game.click('[data-expedition-action="frontier.inspect"]');
+    await game.step(3);
+    await game.click('#field_panel > summary');
+    await game.click('[data-field-command="field.begin"]');
+    await game.click('[data-field-command="field.join_survey"]');
+    await game.step(2);
+    await game.click('#notebook_tab_people');
+    await game.click('#frontier_campaign_panel > summary');
+    await game.click('[data-campaign="rival.begin"]');
+    await game.step(3);
+}
 export const CACHE_DIR = join(tmpdir(), 'yairpg-scenarios');
 
 async function sourceStamp() {
@@ -44,7 +74,7 @@ export async function scenarioSave(name, {seed = 1} = {}) {
     const def = SCENARIOS[name];
     if(!def) throw new Error(`Unknown scenario ${name}. Known: ${Object.keys(SCENARIOS).join(', ')}.`);
     if(def.file) return readFile(join(ROOT, def.file), 'utf8');
-    if(!def.recipe.days) return null;
+    if(!def.recipe.days && !def.recipe.patch && !def.recipe.prepare) return null;
     const cached = join(CACHE_DIR, `${name}-s${seed}-${await sourceStamp()}.json`);
     try {return await readFile(cached, 'utf8');} catch {/* build below */}
     const game = await boot(null, {seed});
@@ -53,7 +83,12 @@ export async function scenarioSave(name, {seed = 1} = {}) {
         await advanceGame(game, {days: def.recipe.days});
         const snap = game.snapshot(), patch = def.recipe.patch ? PATCHES[def.recipe.patch] : null;
         if(def.recipe.patch && !patch) throw new Error(`Unknown scenario patch ${def.recipe.patch}.`);
-        text = JSON.stringify(patch ? patch(typeof snap === 'string' ? JSON.parse(snap) : snap) : snap);
+        const save = patch ? patch(typeof snap === 'string' ? JSON.parse(snap) : snap) : snap;
+        if(def.recipe.prepare) {
+            await game.load(save);
+            await prepareVillage(game, def.recipe.prepare);
+            text = JSON.stringify(game.snapshot());
+        } else text = JSON.stringify(save);
     }
     finally {game.close();}
     await mkdir(CACHE_DIR, {recursive: true});

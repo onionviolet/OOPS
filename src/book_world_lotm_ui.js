@@ -130,6 +130,8 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
  let doorObserver=null;
  function render(){
   const v={...read(selected),duties:duties?.()?.items||[]};setWorkspaceModuleTitle('lotm',lotmPanelTitle(v));syncDoor(v);if(!doorObserver&&localActions()){doorObserver=new MutationObserver(()=>{if(!door.isConnected)syncDoor(read(selected));});doorObserver.observe(localActions(),{childList:true});}
+  // The seat filter owns hidden on workroom blocks; slot availability is separate.
+  if(encounterSlot.inert!==!v.resident)encounterSlot.inert=!v.resident;
   // Countdown-only changes update the existing control so pointer/focus stays
   // on it. Eligibility, reasons, target times and the rest of the view still
   // participate in the signature; execution requotes through the host.

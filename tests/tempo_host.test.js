@@ -48,4 +48,22 @@ test('a missing or disconnected slot returns the panel to its old host with its 
     assert.equal(root.parentElement, fallback); assert.equal(root.id, PANEL_ID);
     assert.equal(placePanel(fake(), null, null), 'none');
 });
+test('an inactive world slot cannot hide the current world contest', () => {
+    const root = fake(), slot = fake(), fallback = fake();
+    placePanel(root, slot, fallback);
+    slot.hidden = true;
+    assert.equal(placePanel(root, slot, fallback), 'fallback');
+    assert.equal(root.parentElement, fallback);
+    assert.equal(root.id, PANEL_ID);
+    slot.hidden = false;
+    slot.inert = true; // A seat filter may show a block without activating its world.
+    assert.equal(placePanel(root, slot, fallback), 'fallback');
+    assert.equal(root.parentElement, fallback);
+});
+test('fallback placement preserves the Notebook owner on later renders', () => {
+    const root = fake(), notebook = fake(), fallback = fake();
+    notebook.append(root);
+    assert.equal(placePanel(root, null, fallback), 'fallback');
+    assert.equal(root.parentElement, notebook);
+});
 test('the slot selector is neutral, not a data-lotm attribute', () => { assert.equal(ENCOUNTER_SLOT, '[data-shared-slot="encounter"]'); });

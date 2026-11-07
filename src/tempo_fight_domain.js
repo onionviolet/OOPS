@@ -36,13 +36,16 @@ const node = (tag, text = '') => {const n = document.createElement(tag); n.textC
 export const ENCOUNTER_SLOT = '[data-shared-slot="encounter"]';
 export const PANEL_ID = 'tempo_fight_panel';
 export function placePanel(root, slot, fallback) {
-    if(slot?.isConnected) {
+    if(slot?.isConnected && !slot.hidden && !slot.inert) {
         if(root.parentElement === slot) return 'slot';
         root.id = ''; slot.append(root); root.open = true; return 'slot';
     }
+    const wasSlotted = root.id === '';
     root.id = PANEL_ID;
-    if(fallback?.isConnected && root.parentElement !== fallback) { fallback.append(root); return 'fallback'; }
-    return fallback && root.parentElement === fallback ? 'fallback' : 'none';
+    // The Notebook owns connected fallback panels after filing them by id.
+    // Return from a world slot once, then leave that native placement intact.
+    if(fallback?.isConnected && (wasSlotted || !root.parentElement || !root.isConnected)) fallback.append(root);
+    return root.parentElement ? 'fallback' : 'none';
 }
 // AT22: the Adventure Notebook opens its journal tab when a fight starts waiting. Remember the tab the player was on before the commit and put it back
 // once the fight is gone, without touching the notebook's own auto-open (it fires only on a new waiting response, and a fight that has ended is none).
@@ -152,6 +155,7 @@ function study() {
     const plan = ports.plan(quote.minutes);
     check(plan.state.clock - root.clock === quote.minutes, 'Finish the current local decision first.');
     recordRivalStudy(plan.state); ports.commit(plan);
+    return 'You have taken her measure.';
 }
 function move(request) {
     const state = ports.root(), ctx = ports.campaignContext();
@@ -173,12 +177,12 @@ function mount() {
     let signature = '', previousLog = [];
     const act = (fn, request) => {
         const before = view().fight?.lines || [];
-        try { fn(request); notice.textContent = newTempoLines(before, view().fight?.lines || []).join(' '); }
+        try { const feedback = fn(request); notice.textContent = typeof feedback === 'string' ? feedback : newTempoLines(before, view().fight?.lines || []).join(' '); }
         catch(error) { notice.textContent = error.message; }
         panel?.render(true);
     };
     const button = (label, id, title, disabled, handler) => {const b = node('button', label); b.type = 'button'; b.dataset.tempo = id; b.title = title || ''; b.disabled = !!disabled; b.onclick = handler; return b;};
-    const place = () => placePanel(root, document.querySelector(ENCOUNTER_SLOT), document.getElementById('location_actions_div'));
+    const place = () => placePanel(root, [...document.querySelectorAll(ENCOUNTER_SLOT)].find(slot => !slot.hidden && !slot.inert), document.getElementById('location_actions_div'));
     const render = force => {
         place();
         if(!root.isConnected) return;
