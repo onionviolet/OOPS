@@ -1,0 +1,18 @@
+{
+  "id": "v0.6-7b4f5a0cf8fd",
+  "previousLatest": "v0.6-a4982e8239d6",
+  "installed": "/Users/weiwei/Applications/Yet Another Idle RPG.app",
+  "previousPackage": "/Users/weiwei/code/yet-another-idle-rpg/work/js-ui-performance-followup/rollback/Yet Another Idle RPG.app",
+  "runtimeFiles": 126,
+  "bundleSHA256": "910c144cc00fe325147a865ffa773b0d6f8a780aa769074ec0d8dc518b528db1",
+  "hostSHA256": "e71e324f3941d22c5259e9ab9e34d56b885a7c0a40566d83c86b93bb2cf2436e",
+  "packageSignature": "verified",
+  "savedFilesUnchanged": 2,
+  "nativeCSSDelta": [
+    "index.html",
+    "styles/inventory.css"
+  ],
+  "baseCommit": "04c5fd798",
+  "adoptedAt": "2026-11-07T03:22:35.311Z",
+  "launched": false
+}

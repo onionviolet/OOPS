@@ -1,0 +1,29 @@
+{
+  "build": "1bfed8cdb287c2d2e90d60ea0a4c3255ec93c8b53c3b4ab2be5eb5ca8c4b1f0a",
+  "geometry": {
+    "viewport": [
+      1920,
+      1080
+    ],
+    "page": [
+      1920,
+      1080
+    ],
+    "reports": {
+      "x": 1408.609375,
+      "y": 220.15625,
+      "width": 491.390625,
+      "height": 830.84375,
+      "top": 220.15625,
+      "right": 1900,
+      "bottom": 1051,
+      "left": 1408.609375
+    }
+  },
+  "hiddenChanges": 0,
+  "materialCount": 1,
+  "selectionState": "ready",
+  "reopenSelected": true,
+  "experimentResult": "The exact materials became a preparation. Drink to observe it.",
+  "pageErrors": []
+}

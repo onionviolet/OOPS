@@ -198,10 +198,11 @@ export function installCoinFeedback({purse = document.getElementById('money_div'
         const value = parsePurse(purse.textContent);
         if (value == null) return;
         const previous = last; last = value;
-        if (previous == null || !playing() || document.hidden) return;
-        if (value >= previous || effectsCap() === 'off' || getDisplaySetting('coinFloat') === 'off') return;
+        if (previous == null || value >= previous || document.hidden) return;
+        if (effectsCap() === 'off' || getDisplaySetting('coinFloat') === 'off') return;
         const automatic = performance.now() - lastGesture > 1500;
         if (automatic && getDisplaySetting('coinFloatAutomatic') !== 'on') return;
+        if (!playing()) return;
         show(previous - value);
     });
     observer.observe(purse, {childList: true, subtree: true, characterData: true});

@@ -83,17 +83,23 @@ export function decorateInventoryList({id='inventory_content_div',label='invento
     const name=row=>row.querySelector(nameSelector)?.textContent||row.firstElementChild?.textContent||row.textContent;
     const key=row=>row.dataset.character_item||row.id||name(row);
     function refresh(){
-        const rows=[...list.querySelectorAll(rowSelector)];let visible=0;
+        const rows=[...list.querySelectorAll(rowSelector)];let visible=0,units=0;
         for(const row of rows){
             const q=row.dataset.item_quality;
             const facts={name:name(row),kind:inventoryRowKind([...row.classList]),quality:q!=null&&q!==''&&Number.isFinite(Number(q))?Number(q):null};
             row.classList.toggle('ui-list-filtered',!matchesInventoryFilter(facts,{query:search.value,kind:kind?.value||'all',quality:quality?.value||'all'}));
-            const capped=id==='skill_list'&&row.querySelector('.skill_bar_capped');
-            const admitted=!row.hidden&&row.style.display!=='none'&&!row.classList.contains('ui-list-filtered')&&(!capped||getComputedStyle(capped).display!=='none');
-            if(inventory?getComputedStyle(row).display!=='none':admitted)visible++;
             row.toggleAttribute('data-ui-selected',!!selected&&key(row)===selected);
         }
-        const units=rows.filter(row=>getComputedStyle(row).display!=='none').reduce((n,row)=>n+(Number(row.dataset.item_count)||1),0);
+        // Finish filter writes before reading style. Count stacks and units
+        // from the same native visibility read, rather than flushing per row
+        // and then walking the whole list again for its units.
+        for(const row of rows){
+            if(inventory){if(getComputedStyle(row).display!=='none'){visible++;units+=Number(row.dataset.item_count)||1;}}
+            else{
+                const capped=id==='skill_list'&&row.querySelector('.skill_bar_capped');
+                if(!row.hidden&&row.style.display!=='none'&&!row.classList.contains('ui-list-filtered')&&(!capped||getComputedStyle(capped).display!=='none'))visible++;
+            }
+        }
         const text=inventory?`${visible} / ${rows.length} stacks · ${units} items`:`${visible} / ${rows.length} ${noun}`;count.title=inventory?'Matching stacks and units after category, name, kind and quality filters.':'Matching '+noun+'; collapsed groups keep their entries.';if(count.textContent!==text)count.textContent=text;
         if(id==='skill_list'){
             const searching=!!search.value.trim();

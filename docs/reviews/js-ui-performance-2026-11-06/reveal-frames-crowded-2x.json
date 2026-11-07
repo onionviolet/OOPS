@@ -1,0 +1,63 @@
+{
+ "fixture": "crowded",
+ "secs": 10,
+ "rate": "2",
+ "rows": [
+  {
+   "dir": "cand-site",
+   "load": "14.5",
+   "task": 97.5,
+   "script": 58.6,
+   "layout": 0.2,
+   "style": 37,
+   "layoutsPerSec": 2.4,
+   "stylesPerSec": 22.1,
+   "longMax": 567,
+   "longN": 39,
+   "gameMinPerSec": 0.81,
+   "errors": 0
+  },
+  {
+   "dir": "c3",
+   "load": "16.4",
+   "task": 101.2,
+   "script": 65,
+   "layout": 0.2,
+   "style": 34.3,
+   "layoutsPerSec": 2.3,
+   "stylesPerSec": 20,
+   "longMax": 590,
+   "longN": 44,
+   "gameMinPerSec": 0.75,
+   "errors": 0
+  },
+  {
+   "dir": "c3",
+   "load": "15.3",
+   "task": 103.7,
+   "script": 66.7,
+   "layout": 0.2,
+   "style": 35,
+   "layoutsPerSec": 2.5,
+   "stylesPerSec": 20.9,
+   "longMax": 553,
+   "longN": 39,
+   "gameMinPerSec": 0.77,
+   "errors": 0
+  },
+  {
+   "dir": "cand-site",
+   "load": "14.3",
+   "task": 105.4,
+   "script": 65.1,
+   "layout": 0.2,
+   "style": 38.2,
+   "layoutsPerSec": 2.5,
+   "stylesPerSec": 25.5,
+   "longMax": 598,
+   "longN": 42,
+   "gameMinPerSec": 0.77,
+   "errors": 0
+  }
+ ]
+}

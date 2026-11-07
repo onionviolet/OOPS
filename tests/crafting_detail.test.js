@@ -84,3 +84,16 @@ test('an input blocked only by heat reads blocked, not enough', () => {
     const [chip] = needChips([{label: 'Ore', need: 1, have: 3, heat_reason: 'needs a hotter fire'}]);
     assert.deepEqual(chip, {state: 'blocked', text: 'Ore 3/1', note: 'wrong heat'});
 });
+
+test('unchanged empty detail keeps its node, while selecting and clearing a recipe refreshes it',()=>{
+    const previous=globalThis.document,dom=createDom();dom.loadHTML('<html><body><div id="detail"></div></body></html>');globalThis.document=dom.document;
+    try {
+        const root=document.getElementById('detail');
+        renderCraftingDetail(root,null,{});const empty=root.firstElementChild;
+        renderCraftingDetail(root,null,{});assert.equal(root.firstElementChild,empty);
+        renderCraftingDetail(root,{title:'Balm',requirements:[],effects:[],output:{name:'Balm',count:1},available:true,attempts:1},{});
+        assert.notEqual(root.firstElementChild,empty);assert.equal(root.dataset.state,'ready');
+        renderCraftingDetail(root,null,{});assert.equal(root.dataset.state,'empty');
+        assert.match(root.textContent,/Select a recipe/);assert.doesNotMatch(root.textContent,/Balm/);
+    } finally {globalThis.document=previous;}
+});

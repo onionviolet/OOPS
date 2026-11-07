@@ -1,0 +1,521 @@
+{
+  "build": "910c144cc00fe325147a865ffa773b0d6f8a780aa769074ec0d8dc518b528db1",
+  "checks": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "text": 14,
+      "folded": false,
+      "tabs": [
+        {
+          "category": "all",
+          "width": 60,
+          "scroll": 60,
+          "rect": {
+            "x": 23,
+            "y": 354,
+            "width": 60.390625,
+            "height": 42,
+            "top": 354,
+            "right": 83.390625,
+            "bottom": 396,
+            "left": 23
+          },
+          "count": "179",
+          "font": "14px"
+        },
+        {
+          "category": "equipment",
+          "width": 60,
+          "scroll": 60,
+          "rect": {
+            "x": 83.390625,
+            "y": 354,
+            "width": 60.40625,
+            "height": 42,
+            "top": 354,
+            "right": 143.796875,
+            "bottom": 396,
+            "left": 83.390625
+          },
+          "count": "1",
+          "font": "14px"
+        },
+        {
+          "category": "usable",
+          "width": 60,
+          "scroll": 60,
+          "rect": {
+            "x": 143.796875,
+            "y": 354,
+            "width": 60.390625,
+            "height": 42,
+            "top": 354,
+            "right": 204.1875,
+            "bottom": 396,
+            "left": 143.796875
+          },
+          "count": "40",
+          "font": "14px"
+        },
+        {
+          "category": "other",
+          "width": 60,
+          "scroll": 60,
+          "rect": {
+            "x": 204.1875,
+            "y": 354,
+            "width": 60.40625,
+            "height": 42,
+            "top": 354,
+            "right": 264.59375,
+            "bottom": 396,
+            "left": 204.1875
+          },
+          "count": "138",
+          "font": "14px"
+        },
+        {
+          "category": "favorites",
+          "width": 60,
+          "scroll": 60,
+          "rect": {
+            "x": 264.59375,
+            "y": 354,
+            "width": 60.40625,
+            "height": 42,
+            "top": 354,
+            "right": 325,
+            "bottom": 396,
+            "left": 264.59375
+          },
+          "count": "0",
+          "font": "14px"
+        }
+      ],
+      "geometry": {
+        "button": {
+          "x": 953,
+          "y": 887.8125,
+          "width": 525,
+          "height": 28.1875,
+          "top": 887.8125,
+          "right": 1478,
+          "bottom": 916,
+          "left": 953
+        },
+        "back": {
+          "x": 377,
+          "y": 978,
+          "width": 1130,
+          "height": 45,
+          "top": 978,
+          "right": 1507,
+          "bottom": 1023,
+          "left": 377
+        },
+        "page": [
+          1920,
+          1080
+        ],
+        "viewport": [
+          1920,
+          1080
+        ],
+        "fonts": {
+          "body": "14px",
+          "button": "14px"
+        }
+      },
+      "result": "The exact materials became a preparation. Drink to observe it.",
+      "errors": []
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "text": 14,
+      "folded": false,
+      "tabs": [
+        {
+          "category": "all",
+          "width": 59,
+          "scroll": 59,
+          "rect": {
+            "x": 23,
+            "y": 328,
+            "width": 59.28125,
+            "height": 42,
+            "top": 328,
+            "right": 82.28125,
+            "bottom": 370,
+            "left": 23
+          },
+          "count": "179",
+          "font": "14px"
+        },
+        {
+          "category": "equipment",
+          "width": 59,
+          "scroll": 59,
+          "rect": {
+            "x": 82.28125,
+            "y": 328,
+            "width": 59.28125,
+            "height": 42,
+            "top": 328,
+            "right": 141.5625,
+            "bottom": 370,
+            "left": 82.28125
+          },
+          "count": "1",
+          "font": "14px"
+        },
+        {
+          "category": "usable",
+          "width": 59,
+          "scroll": 59,
+          "rect": {
+            "x": 141.5625,
+            "y": 328,
+            "width": 59.296875,
+            "height": 42,
+            "top": 328,
+            "right": 200.859375,
+            "bottom": 370,
+            "left": 141.5625
+          },
+          "count": "40",
+          "font": "14px"
+        },
+        {
+          "category": "other",
+          "width": 59,
+          "scroll": 59,
+          "rect": {
+            "x": 200.859375,
+            "y": 328,
+            "width": 59.28125,
+            "height": 42,
+            "top": 328,
+            "right": 260.140625,
+            "bottom": 370,
+            "left": 200.859375
+          },
+          "count": "138",
+          "font": "14px"
+        },
+        {
+          "category": "favorites",
+          "width": 59,
+          "scroll": 59,
+          "rect": {
+            "x": 260.140625,
+            "y": 328,
+            "width": 59.28125,
+            "height": 42,
+            "top": 328,
+            "right": 319.421875,
+            "bottom": 370,
+            "left": 260.140625
+          },
+          "count": "0",
+          "font": "14px"
+        }
+      ],
+      "geometry": {
+        "button": {
+          "x": 781,
+          "y": 671.8125,
+          "width": 362.5625,
+          "height": 28.1875,
+          "top": 671.8125,
+          "right": 1143.5625,
+          "bottom": 700,
+          "left": 781
+        },
+        "back": {
+          "x": 367.4375,
+          "y": 762,
+          "width": 805.125,
+          "height": 45,
+          "top": 762,
+          "right": 1172.5625,
+          "bottom": 807,
+          "left": 367.4375
+        },
+        "page": [
+          1536,
+          864
+        ],
+        "viewport": [
+          1536,
+          864
+        ],
+        "fonts": {
+          "body": "14px",
+          "button": "14px"
+        }
+      },
+      "result": "The exact materials became a preparation. Drink to observe it.",
+      "errors": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "text": 21,
+      "folded": true,
+      "tabs": [
+        {
+          "category": "all",
+          "width": 128,
+          "scroll": 128,
+          "rect": {
+            "x": 32,
+            "y": 633,
+            "width": 128.296875,
+            "height": 42,
+            "top": 633,
+            "right": 160.296875,
+            "bottom": 675,
+            "left": 32
+          },
+          "count": "179",
+          "font": "21px"
+        },
+        {
+          "category": "equipment",
+          "width": 128,
+          "scroll": 128,
+          "rect": {
+            "x": 160.296875,
+            "y": 633,
+            "width": 128.296875,
+            "height": 42,
+            "top": 633,
+            "right": 288.59375,
+            "bottom": 675,
+            "left": 160.296875
+          },
+          "count": "1",
+          "font": "21px"
+        },
+        {
+          "category": "usable",
+          "width": 128,
+          "scroll": 128,
+          "rect": {
+            "x": 288.59375,
+            "y": 633,
+            "width": 128.296875,
+            "height": 42,
+            "top": 633,
+            "right": 416.890625,
+            "bottom": 675,
+            "left": 288.59375
+          },
+          "count": "40",
+          "font": "21px"
+        },
+        {
+          "category": "other",
+          "width": 128,
+          "scroll": 128,
+          "rect": {
+            "x": 32,
+            "y": 675,
+            "width": 128.296875,
+            "height": 42,
+            "top": 675,
+            "right": 160.296875,
+            "bottom": 717,
+            "left": 32
+          },
+          "count": "138",
+          "font": "21px"
+        },
+        {
+          "category": "favorites",
+          "width": 128,
+          "scroll": 128,
+          "rect": {
+            "x": 160.296875,
+            "y": 675,
+            "width": 128.296875,
+            "height": 42,
+            "top": 675,
+            "right": 288.59375,
+            "bottom": 717,
+            "left": 160.296875
+          },
+          "count": "0",
+          "font": "21px"
+        }
+      ],
+      "geometry": {
+        "button": {
+          "x": 979,
+          "y": 810.40625,
+          "width": 454.09375,
+          "height": 42,
+          "top": 810.40625,
+          "right": 1433.09375,
+          "bottom": 852.40625,
+          "left": 979
+        },
+        "back": {
+          "x": 455.90625,
+          "y": 964.40625,
+          "width": 1014.1875,
+          "height": 54.296875,
+          "top": 964.40625,
+          "right": 1470.09375,
+          "bottom": 1018.703125,
+          "left": 455.90625
+        },
+        "page": [
+          1920,
+          1080
+        ],
+        "viewport": [
+          1920,
+          1080
+        ],
+        "fonts": {
+          "body": "21px",
+          "button": "21px"
+        }
+      },
+      "result": "The exact materials became a preparation. Drink to observe it.",
+      "errors": []
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "text": 21,
+      "folded": true,
+      "tabs": [
+        {
+          "category": "all",
+          "width": 100,
+          "scroll": 100,
+          "rect": {
+            "x": 32,
+            "y": 563,
+            "width": 100.140625,
+            "height": 42,
+            "top": 563,
+            "right": 132.140625,
+            "bottom": 605,
+            "left": 32
+          },
+          "count": "179",
+          "font": "21px"
+        },
+        {
+          "category": "equipment",
+          "width": 100,
+          "scroll": 100,
+          "rect": {
+            "x": 132.140625,
+            "y": 563,
+            "width": 100.140625,
+            "height": 42,
+            "top": 563,
+            "right": 232.28125,
+            "bottom": 605,
+            "left": 132.140625
+          },
+          "count": "1",
+          "font": "21px"
+        },
+        {
+          "category": "usable",
+          "width": 100,
+          "scroll": 100,
+          "rect": {
+            "x": 232.28125,
+            "y": 563,
+            "width": 100.15625,
+            "height": 42,
+            "top": 563,
+            "right": 332.4375,
+            "bottom": 605,
+            "left": 232.28125
+          },
+          "count": "40",
+          "font": "21px"
+        },
+        {
+          "category": "other",
+          "width": 100,
+          "scroll": 100,
+          "rect": {
+            "x": 32,
+            "y": 605,
+            "width": 100.140625,
+            "height": 42,
+            "top": 605,
+            "right": 132.140625,
+            "bottom": 647,
+            "left": 32
+          },
+          "count": "138",
+          "font": "21px"
+        },
+        {
+          "category": "favorites",
+          "width": 100,
+          "scroll": 100,
+          "rect": {
+            "x": 132.140625,
+            "y": 605,
+            "width": 100.140625,
+            "height": 42,
+            "top": 605,
+            "right": 232.28125,
+            "bottom": 647,
+            "left": 132.140625
+          },
+          "count": "0",
+          "font": "21px"
+        }
+      ],
+      "geometry": {
+        "button": {
+          "x": 786,
+          "y": 594.40625,
+          "width": 349.5625,
+          "height": 42,
+          "top": 594.40625,
+          "right": 1135.5625,
+          "bottom": 636.40625,
+          "left": 786
+        },
+        "back": {
+          "x": 367.4375,
+          "y": 748.40625,
+          "width": 805.125,
+          "height": 54.296875,
+          "top": 748.40625,
+          "right": 1172.5625,
+          "bottom": 802.703125,
+          "left": 367.4375
+        },
+        "page": [
+          1536,
+          864
+        ],
+        "viewport": [
+          1536,
+          864
+        ],
+        "fonts": {
+          "body": "21px",
+          "button": "21px"
+        }
+      },
+      "result": "The exact materials became a preparation. Drink to observe it.",
+      "errors": []
+    }
+  ]
+}

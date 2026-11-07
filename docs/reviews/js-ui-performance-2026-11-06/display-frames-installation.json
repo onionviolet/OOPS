@@ -1,0 +1,13 @@
+{
+  "id": "v0.6-7d4dcc19467b",
+  "previousLatest": "v0.6-231c350d8838",
+  "installed": "/Users/weiwei/Applications/Yet Another Idle RPG.app",
+  "hostUnchanged": true,
+  "hostSHA256": "e71e324f3941d22c5259e9ab9e34d56b885a7c0a40566d83c86b93bb2cf2436e",
+  "bundleSHA256": "f19f8f2b7e0c48860ca2fbee09fdc32f91c66df9b8810c786644f6f37d43dc1f",
+  "runtimeFiles": 126,
+  "savedFilesUnchanged": 2,
+  "packageSignature": "verified",
+  "adoptedAt": "2026-11-07T04:59:34.342Z",
+  "launched": false
+}

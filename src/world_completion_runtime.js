@@ -1,4 +1,4 @@
-import {worldCompletionContext,worldCompletionNativeContext} from './world_completion_facts.js';
+import {worldCompletionContext,worldCompletionOwnedContext,worldCompletionNativeContext} from './world_completion_facts.js';
 import {worldCompletionEnrolled} from './world_completion_life_facts.js';
 import {stampWorldCompletionLifeJob,retainWorldCompletionLifeWindows,recordWorldCompletionLifeCompletion} from './world_completion_life_runtime.js';
 import {worldCompletionLensClockSupported} from './world_completion_lens_facts.js';
@@ -16,7 +16,8 @@ export function worldCompletionSimulationContexts(state,contexts={}){
     const joined=worldCompletionLearningSimulationContexts(state,contexts),result={...joined};
     for(const [id,source] of Object.entries(joined)){
         const location=source.facts?.location??state.simulation?.people?.[id]?.location;
-        const normalized=worldCompletionContext(state,{...joined.player,...source,actorId:id,
+        // The facts dictionary below is made for this call alone.
+        const normalized=worldCompletionOwnedContext(state,{...joined.player,...source,actorId:id,
             nativeBody:source.nativeBody||joined.player?.nativeBody,nativeAlive:source.nativeAlive??joined.player?.nativeAlive,
             facts:{...joined.player?.facts,...source.facts,location}});
         // Preserve flat native actor vitals for the incumbent initial snapshot.

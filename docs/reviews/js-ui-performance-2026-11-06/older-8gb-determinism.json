@@ -1,0 +1,19 @@
+{
+  "fresh": {
+    "identical": true,
+    "start": 1921,
+    "beforeEnd": 1929,
+    "afterEnd": 1929,
+    "errors": [],
+    "rawBytesEqual": false,
+    "comparison": "all parsed save values equal; property insertion order differs"
+  },
+  "crowded": {
+    "identical": true,
+    "start": 1932,
+    "beforeEnd": 1940,
+    "afterEnd": 1940,
+    "errors": [],
+    "rawBytesEqual": true
+  }
+}

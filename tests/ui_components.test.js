@@ -119,3 +119,15 @@ test('an explicitly linked summary reason is reused without moving or deleting i
   b.disabled=false;decoration.refresh();assert.equal(text.parentElement,summary);assert(!b.hasAttribute('aria-describedby'));
  }finally{decoration?.destroy();Object.assign(globalThis,saved);}
 });
+
+test('inventory counts stacks and units with one native visibility read per row after filter writes',async()=>{
+ const saved={document:globalThis.document,getComputedStyle:globalThis.getComputedStyle};
+ const dom=createDom();dom.loadHTML('<body><div id="inventory_content_div"><div class="inventory_item_control character_item_other" data-item_count="3"><span class="item_name">Ore</span></div><div class="inventory_item_control character_item_other" data-item_count="2" style="display:none"><span class="item_name">Wood</span></div></div></body>');globalThis.document=dom.document;
+ try{
+  let reads=0;globalThis.getComputedStyle=row=>{reads++;return {display:row.classList.contains('ui-list-filtered')?'none':row.style.display||'block'};};
+  const {decorateInventoryList}=await import('../src/ui_components.js');const list=document.getElementById('inventory_content_div'),view=decorateInventoryList();
+  view.refresh();assert.equal(reads,2);assert.match(document.querySelector('output').textContent,/1 \/ 2 stacks · 3 items/);
+  list.children[1].style.display='block';view.refresh();assert.equal(reads,4);assert.match(document.querySelector('output').textContent,/2 \/ 2 stacks · 5 items/);
+  document.querySelector('input[type=search]').value='Wood';view.refresh();assert.equal(reads,6);assert.match(document.querySelector('output').textContent,/1 \/ 2 stacks · 2 items/);
+ }finally{Object.assign(globalThis,saved);}
+});

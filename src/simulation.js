@@ -38,7 +38,7 @@ import {prepareSimulationEffects, resolveOutcomeWeights} from "./simulation_reso
 import {advanceConstructs,nextConstructBoundary} from './temporary_construct.js';
 import {pursuitReservesActor,nextPursuitBoundary,advancePursuits} from "./pursuit.js";
 export {createSimulationRegistry} from "./simulation_contracts.js";
-export {simulationFacts} from "./simulation_effects.js";
+export {simulationFacts,simulationRuleFacts} from "./simulation_effects.js";
 
 const domain = () => ({facts: {}, resources: {}, completed: {}, sources: {}, techniques: {}});
 // Base duration, shortened by the actor's repetitions of the command's method

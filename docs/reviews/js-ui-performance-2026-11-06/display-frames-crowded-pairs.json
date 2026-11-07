@@ -1,0 +1,211 @@
+{
+ "fixture": "crowded",
+ "method": "work/older-8gb-20261106/measure.mjs, alternating base (installed v0.6-231c350d8838 source, bundle 016ad542) and candidate, 4 s warm + 10 s window, load 7-9",
+ "groups": {
+  "1x-base-016ad54210e5": [
+   {
+    "taskBusyPct": 65,
+    "scriptBusyPct": 43.6,
+    "longTaskMaxMs": 322,
+    "styleRecalcsPerSec": 53.8,
+    "layoutsPerSec": 3,
+    "storageWritesPerMin": 60,
+    "gameMinPerSec": 1.0,
+    "heapKeptMiB": 180.8,
+    "file": "m1-base-1.json",
+    "load": 6.9
+   },
+   {
+    "taskBusyPct": 58.8,
+    "scriptBusyPct": 39.3,
+    "longTaskMaxMs": 296,
+    "styleRecalcsPerSec": 55.4,
+    "layoutsPerSec": 3,
+    "storageWritesPerMin": 60,
+    "gameMinPerSec": 1.0,
+    "heapKeptMiB": 178.9,
+    "file": "m1-base-2.json",
+    "load": 7.1
+   },
+   {
+    "taskBusyPct": 63.2,
+    "scriptBusyPct": 42.8,
+    "longTaskMaxMs": 322,
+    "styleRecalcsPerSec": 52.1,
+    "layoutsPerSec": 3,
+    "storageWritesPerMin": 60,
+    "gameMinPerSec": 1.0,
+    "heapKeptMiB": 181.0,
+    "file": "m1-base-3.json",
+    "load": 7.6
+   },
+   {
+    "taskBusyPct": 63.6,
+    "scriptBusyPct": 43.1,
+    "longTaskMaxMs": 323,
+    "styleRecalcsPerSec": 51.8,
+    "layoutsPerSec": 3,
+    "storageWritesPerMin": 60,
+    "gameMinPerSec": 1.0,
+    "heapKeptMiB": 180.9,
+    "file": "m1-base-4.json",
+    "load": 8.7
+   }
+  ],
+  "1x-cand-9256e8d7d1be": [
+   {
+    "taskBusyPct": 49.2,
+    "scriptBusyPct": 28.7,
+    "longTaskMaxMs": 236,
+    "styleRecalcsPerSec": 61.6,
+    "layoutsPerSec": 3,
+    "storageWritesPerMin": 60,
+    "gameMinPerSec": 1.0,
+    "heapKeptMiB": 182.6,
+    "file": "m1-cand-1.json",
+    "load": 7.6
+   },
+   {
+    "taskBusyPct": 48.9,
+    "scriptBusyPct": 28.7,
+    "longTaskMaxMs": 240,
+    "styleRecalcsPerSec": 60.8,
+    "layoutsPerSec": 3,
+    "storageWritesPerMin": 60,
+    "gameMinPerSec": 1.0,
+    "heapKeptMiB": 178.9,
+    "file": "m1-cand-2.json",
+    "load": 6.8
+   }
+  ],
+  "1x-cand-f19f8f2b7e0c": [
+   {
+    "taskBusyPct": 51.8,
+    "scriptBusyPct": 29.6,
+    "longTaskMaxMs": 250,
+    "styleRecalcsPerSec": 63.8,
+    "layoutsPerSec": 3,
+    "storageWritesPerMin": 60,
+    "gameMinPerSec": 1.0,
+    "heapKeptMiB": 184.4,
+    "file": "m1-cand-3.json",
+    "load": 7.3
+   },
+   {
+    "taskBusyPct": 51.2,
+    "scriptBusyPct": 29.4,
+    "longTaskMaxMs": 249,
+    "styleRecalcsPerSec": 62.4,
+    "layoutsPerSec": 3,
+    "storageWritesPerMin": 60,
+    "gameMinPerSec": 1.0,
+    "heapKeptMiB": 182.1,
+    "file": "m1-cand-4.json",
+    "load": 6.7
+   }
+  ],
+  "2x-base-016ad54210e5": [
+   {
+    "taskBusyPct": 106.4,
+    "scriptBusyPct": 73.5,
+    "longTaskMaxMs": 614,
+    "styleRecalcsPerSec": 26.3,
+    "layoutsPerSec": 2.2,
+    "storageWritesPerMin": 48,
+    "gameMinPerSec": 0.9,
+    "heapKeptMiB": 206.8,
+    "file": "m2-base-1.json",
+    "load": 9.2
+   },
+   {
+    "taskBusyPct": 106.1,
+    "scriptBusyPct": 74.9,
+    "longTaskMaxMs": 596,
+    "styleRecalcsPerSec": 24.7,
+    "layoutsPerSec": 2.5,
+    "storageWritesPerMin": 48,
+    "gameMinPerSec": 1.0,
+    "heapKeptMiB": 196.4,
+    "file": "m2-base-2.json",
+    "load": 7.0
+   },
+   {
+    "taskBusyPct": 108.3,
+    "scriptBusyPct": 74.5,
+    "longTaskMaxMs": 610,
+    "styleRecalcsPerSec": 27.2,
+    "layoutsPerSec": 1.9,
+    "storageWritesPerMin": 42,
+    "gameMinPerSec": 0.9,
+    "heapKeptMiB": 193.1,
+    "file": "m2-base-3.json",
+    "load": 8.4
+   },
+   {
+    "taskBusyPct": 113.1,
+    "scriptBusyPct": 78.9,
+    "longTaskMaxMs": 621,
+    "styleRecalcsPerSec": 27.4,
+    "layoutsPerSec": 2.1,
+    "storageWritesPerMin": 42,
+    "gameMinPerSec": 1.0,
+    "heapKeptMiB": 195.0,
+    "file": "m2-base-4.json",
+    "load": 8.3
+   }
+  ],
+  "2x-cand-9256e8d7d1be": [
+   {
+    "taskBusyPct": 101.4,
+    "scriptBusyPct": 61.5,
+    "longTaskMaxMs": 460,
+    "styleRecalcsPerSec": 30.7,
+    "layoutsPerSec": 3.2,
+    "storageWritesPerMin": 66,
+    "gameMinPerSec": 1.2,
+    "heapKeptMiB": 182.2,
+    "file": "m2-cand-1.json",
+    "load": 7.2
+   },
+   {
+    "taskBusyPct": 102.1,
+    "scriptBusyPct": 62.7,
+    "longTaskMaxMs": 502,
+    "styleRecalcsPerSec": 28.9,
+    "layoutsPerSec": 3.2,
+    "storageWritesPerMin": 66,
+    "gameMinPerSec": 1.2,
+    "heapKeptMiB": 183.1,
+    "file": "m2-cand-2.json",
+    "load": 7.9
+   }
+  ],
+  "2x-cand-f19f8f2b7e0c": [
+   {
+    "taskBusyPct": 106.7,
+    "scriptBusyPct": 65.8,
+    "longTaskMaxMs": 532,
+    "styleRecalcsPerSec": 27.4,
+    "layoutsPerSec": 3.2,
+    "storageWritesPerMin": 60,
+    "gameMinPerSec": 1.1,
+    "heapKeptMiB": 183.0,
+    "file": "m2-cand-3.json",
+    "load": 7.0
+   },
+   {
+    "taskBusyPct": 101.9,
+    "scriptBusyPct": 64.3,
+    "longTaskMaxMs": 496,
+    "styleRecalcsPerSec": 27,
+    "layoutsPerSec": 3.3,
+    "storageWritesPerMin": 66,
+    "gameMinPerSec": 1.1,
+    "heapKeptMiB": 195.5,
+    "file": "m2-cand-4.json",
+    "load": 7.9
+   }
+  ]
+ },
+ "notes": "Candidate f19f8f2b7e0c is the installed v0.6-7d4dcc19467b bundle. Candidate 9256e8d7d1be is the earlier intermediate (frames + field works, before the owned world-completion context). Native-context builds per 10 s: 704 before, 347 after frames."
+}

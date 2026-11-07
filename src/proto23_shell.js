@@ -49,7 +49,7 @@ function mountAttributeInspector(){
     const count=node('p',null,'attribute-inspector-count'),layout=node('div',null,'attribute-inspector-layout'),list=node('div',null,'attribute-inspector-list'),reading=node('section',null,'attribute-inspector-detail');
     list.setAttribute('aria-label','Player attributes');reading.tabIndex=0;reading.setAttribute('aria-label','Selected attribute explanation');
     const empty=node('p','No attributes match these filters.','attribute-empty');empty.hidden=true;layout.append(list,reading);section.append(tools,count,empty,layout);home?.append(section);
-    const records=new Map();let rows=[],selectedId=null,detailSignature='',shown=false;
+    const records=new Map();let rows=[],selectedId=null,detailSignature='',rowsSignature='',shown=false;
     const setText=(target,value)=>{const text=String(value??'');if(target.textContent!==text)target.textContent=text;};
     const numeric=value=>value==null?'Unavailable':String(value);
     function select(id){selectedId=id;paint();}
@@ -86,7 +86,8 @@ function mountAttributeInspector(){
     });
     function refresh(){
         if(!shown)return;
-        const frame=readPlayerAttributeInspector();rows=frame.rows||[];const ids=new Set(rows.map(row=>row.id));
+        const frame=readPlayerAttributeInspector(),nextRows=frame.rows||[],nextSignature=JSON.stringify(nextRows);
+        if(nextSignature===rowsSignature)return;rowsSignature=nextSignature;rows=nextRows;const ids=new Set(rows.map(row=>row.id));
         for(const[id,record]of records)if(!ids.has(id)){record.button.remove();records.delete(id);}
         for(const row of rows){let record=records.get(row.id);if(!record){const button=action('',()=>select(row.id)),label=node('span'),value=node('strong');button.className='attribute-inspector-row';button.dataset.attributeId=row.id;button.append(label,value);list.append(button);record={button,label,value};records.set(row.id,record);}
             record.button.dataset.group=row.group;record.button.dataset.availability=row.availability?.status||'available';setText(record.label,row.label);setText(record.value,row.formatted??numeric(row.value));
@@ -106,7 +107,12 @@ export function mountProto23Shell({read,transferStorage,compareWorn,readItemCard
     const secondaryOrder=SECONDARY_STATS;
     registerPanelSettings({id:'shell-character',title:'You · pinned rows',settings:secondaryOrder.map(([id,label])=>({key:'pin.'+id,label,default:'off',options:[['off','Automatic'],['on','Pinned']],description:'This browser; reset with display settings. Rates live in Condition; other secondary rows live in You.'}))});
     const rateSection=node('section',null,'shell-secondary-stats condition-rates'),rateGrid=node('div',null,'shell-secondary-grid');rateSection.append(rateGrid);rateSection.hidden=true;
-    let statsSignature='';const statRecords=new Map();
+    let statsSignature='',statsDirty=true;const statRecords=new Map();
+    const statsObserver=typeof MutationObserver==='function'?new MutationObserver(records=>{
+        if(records.some(r=>r.target.closest?.('.stat_slot_div')||r.target.parentElement?.closest('.stat_slot_div')||
+            [...r.addedNodes||[],...r.removedNodes||[]].some(n=>n.matches?.('.stat_slot_div')||n.querySelector?.('.stat_slot_div'))))statsDirty=true;
+    }):null;
+    statsObserver?.observe(document.getElementById('character_stats_div'),{subtree:true,childList:true,characterData:true,attributes:true});
     const attributeInspector=mountAttributeInspector();
     const details=action('Attributes ›',()=>{if(expandWorkspaceModule('preparation')){document.getElementById('character_show_stats')?.click();attributeInspector.refresh();}});
     details.className='shell-attributes-open';details.title='Inspect all supported native attributes and their modifiers';
@@ -287,9 +293,12 @@ export function mountProto23Shell({read,transferStorage,compareWorn,readItemCard
     const previewFocus=event=>{if(returningPreviewFocus)return;const row=event.target.closest('#inventory_content_div > [data-character_item]');if(row)showPreview(row);};
     document.addEventListener('focusin',previewFocus);
     document.addEventListener('keydown',event=>{if(active()&&['Enter',' '].includes(event.key)&&event.target.matches('#inventory_content_div > [data-character_item]')){event.preventDefault();choose(event.target);}});
+    // Avoid queuing page-wide reveal observers for unchanged presentation values.
+    const hiddenWhen=(element,value)=>{if(element.hidden!==value)element.hidden=value;};
+    const attributeWhen=(element,key,value)=>{if(element.getAttribute(key)!==value)element.setAttribute(key,value);};
     function fitSecondary(){
         const root=document.getElementById('main_content');
-        if(root.dataset.parity!=='r3'){secondary.hidden=true;rateSection.hidden=true;const shell=player.closest('.workspace-module');if(shell?.dataset.youMinimum){shell.style.removeProperty('min-height');delete shell.dataset.youMinimum;}return;}
+        if(root.dataset.parity!=='r3'){hiddenWhen(secondary,true);hiddenWhen(rateSection,true);const shell=player.closest('.workspace-module');if(shell?.dataset.youMinimum){shell.style.removeProperty('min-height');delete shell.dataset.youMinimum;}return;}
         const fitBody=player.closest('.workspace-module-body');if(fitBody&&!fitBody.hasAttribute('data-fit-clip'))fitBody.dataset.fitClip='';
         const rows=attributeInspector.getRows(),byId=new Map(rows.map(row=>[row.id,row]));
         const candidates=secondaryOrder.filter(([id])=>secondaryVisible(byId.get(id),getDisplaySetting(pinKey(id))==='on'));
@@ -297,17 +306,17 @@ export function mountProto23Shell({read,transferStorage,compareWorn,readItemCard
         // Keep keyed nodes and focused/inspected rows through a tick that makes them neutral.
         for(const[id,record]of secondaryRecords){
             const held=record.button===document.activeElement||contextSource===record.button;
-            record.button.hidden=!shown.has(id)&&!held;
+            hiddenWhen(record.button,!shown.has(id)&&!held);
         }
         for(const[id,label]of candidates){const row=byId.get(id);let record=secondaryRecords.get(id);
             if(!record){const button=node('button',null,'shell-secondary-stat');button.type='button';button.dataset.attributePreview=id;button.append(node('span',label),node('strong'));(isRate(id)?rateGrid:secondaryGrid).append(button);record={button,value:button.lastChild};secondaryRecords.set(id,record);}
-            record.button.hidden=false;
+            hiddenWhen(record.button,false);
             const text=(isRate(id)&&row.value>0?'+':'')+row.formatted.replace('°C difference','°C Δ').replace(/% max (stamina|hp|mana)\/s/,'% /s').replace('stamina/s','/s').replace('mana/s','/s').replace(' damage','');
-            if(isRate(id)){record.button.dataset.rateSign=row.value>0?'gain':row.value<0?'loss':'zero';record.button.title='Regeneration contribution around zero, in the named native unit. Other simultaneous effects can change the net result.';}
+            if(isRate(id)){const sign=row.value>0?'gain':row.value<0?'loss':'zero';if(record.button.dataset.rateSign!==sign)record.button.dataset.rateSign=sign;attributeWhen(record.button,'title','Regeneration contribution around zero, in the named native unit. Other simultaneous effects can change the net result.');}
             if(record.value.textContent!==text)record.value.textContent=text;
-            record.button.setAttribute('aria-label',row.label+': '+row.formatted);
+            attributeWhen(record.button,'aria-label',row.label+': '+row.formatted);
         }
-        secondary.hidden=![...secondaryGrid.children].some(n=>!n.hidden);
+        hiddenWhen(secondary,![...secondaryGrid.children].some(n=>!n.hidden));
         // At constrained sizes, whole secondary rows yield to core, controls and status effects.
         // Attributes remains the complete home; explicit pins are first in the available rows.
         if(fitBody){
@@ -316,7 +325,7 @@ export function mountProto23Shell({read,transferStorage,compareWorn,readItemCard
             const minimum=statline.getBoundingClientRect().height+characterTools.getBoundingClientRect().height+wornSummary.getBoundingClientRect().height+
                 inset(css,['paddingTop','paddingBottom'])+inset(bodyCss,['paddingTop','paddingBottom'])+
                 inset(shellCss,['borderTopWidth','borderBottomWidth'])+(shell.querySelector('.workspace-module-header')?.getBoundingClientRect().height||0);
-            const value=Math.ceil(minimum)+'px';shell.dataset.youMinimum='true';if(shell.style.minHeight!==value)shell.style.setProperty('min-height',value,'important');
+            const value=Math.ceil(minimum)+'px';if(shell.dataset.youMinimum!=='true')shell.dataset.youMinimum='true';if(shell.style.minHeight!==value)shell.style.setProperty('min-height',value,'important');
         }
         const region=player.closest('.parity-region'),shell=player.closest('.workspace-module');
         const siblings=region?[...region.children]:[],following=siblings.slice(siblings.indexOf(shell)+1).filter(rendered).reduce((sum,n)=>sum+(parseFloat(getComputedStyle(n).minHeight)||n.getBoundingClientRect().height),0);
@@ -327,21 +336,22 @@ export function mountProto23Shell({read,transferStorage,compareWorn,readItemCard
         const ordered=candidates.filter(([id])=>!isRate(id)).sort(([a],[b])=>Number(getDisplaySetting(pinKey(b))==='on')-Number(getDisplaySetting(pinKey(a))==='on'));
         const wanted=String(Math.ceil(rowHeight*Math.ceil(ordered.length/cols)+8));if(secondary.dataset.fitWant!==wanted)secondary.dataset.fitWant=wanted;
         const fitted=new Set(ordered.slice(0,capacity).map(([id])=>id));
-        for(const[id,record]of secondaryRecords)if(!isRate(id)&&!fitted.has(id)&&record.button!==document.activeElement&&contextSource!==record.button)record.button.hidden=true;
-        secondary.hidden=![...secondaryGrid.children].some(n=>!n.hidden);
+        for(const[id,record]of secondaryRecords)if(!isRate(id)&&!fitted.has(id)&&record.button!==document.activeElement&&contextSource!==record.button)hiddenWhen(record.button,true);
+        hiddenWhen(secondary,![...secondaryGrid.children].some(n=>!n.hidden));
         const omitted=ordered.length-fitted.size;const detailsText='Attributes ›';if(details.textContent!==detailsText)details.textContent=detailsText;
-        details.title=omitted>0?`All attributes · ${omitted} additional rows available`:'All attributes';
-        rateSection.hidden=![...rateGrid.children].some(n=>!n.hidden);
+        attributeWhen(details,'title',omitted>0?`All attributes · ${omitted} additional rows available`:'All attributes');
+        hiddenWhen(rateSection,![...rateGrid.children].some(n=>!n.hidden));
         // Whole rows yield with an explicit Attributes count; focused/inspected rows stay mounted.
-        root.dataset.secondaryShown=String([...secondaryGrid.children].filter(n=>!n.hidden).length);
+        const count=String([...secondaryGrid.children].filter(n=>!n.hidden).length);if(root.dataset.secondaryShown!==count)root.dataset.secondaryShown=count;
     }
     function render(){
         placeSort();tabs.refresh();boxes.render();strips.render();inventoryComposition.render(rowForSelection());storageComparison.render();
-        condition.render();syncLogLabels();syncNoticeLabels();attributeInspector.setVisible(active()&&document.getElementById('main_content').dataset.parity==='r3');if(!gearChosen){const wanted=false;if(gear.open!==wanted)gear.open=wanted;}if(!active()){if(contextSource)hideContext();return;}const enabled=document.querySelectorAll('#message_controls .active_selection_button').length;filters.textContent=enabled===6?'Filters':`Filters ${enabled}/6`;follow.value=getDisplaySetting('logFollow');const logBox=document.getElementById('message_box_div');latest.disabled=logBox.scrollHeight-logBox.scrollTop-logBox.clientHeight<24;
+        condition.render();syncLogLabels();syncNoticeLabels();attributeInspector.setVisible(active()&&document.getElementById('main_content').dataset.parity==='r3');if(!gearChosen){const wanted=false;if(gear.open!==wanted)gear.open=wanted;}if(!active()){if(contextSource)hideContext();return;}const enabled=document.querySelectorAll('#message_controls .active_selection_button').length,filterText=enabled===6?'Filters':`Filters ${enabled}/6`;if(filters.textContent!==filterText)filters.textContent=filterText;if(follow.value!==getDisplaySetting('logFollow'))follow.value=getDisplaySetting('logFollow');const logBox=document.getElementById('message_box_div');const atLatest=logBox.scrollHeight-logBox.scrollTop-logBox.clientHeight<24;if(latest.disabled!==atLatest)latest.disabled=atLatest;
 
         if(contextSource){if(contextSource.isConnected&&contextSource.checkVisibility()&&active())showContext(contextSource);else hideContext();}
         if(!active())return;
         attributeInspector.refresh();
+        if(statsDirty||!statsObserver){statsDirty=false;
         const nativeStats=[...document.querySelectorAll('#character_stats_div .stat_slot_div')].filter(n=>n.querySelector('.stat_value,.stat_value_long')?.textContent.trim());
         const nextStats=nativeStats.map(n=>n.innerHTML).join('');
         if(statsSignature!==nextStats){statsSignature=nextStats;
@@ -355,15 +365,16 @@ export function mountProto23Shell({read,transferStorage,compareWorn,readItemCard
             }
             for(const[key,row]of statRecords)if(!seen.has(key)){row.remove();statRecords.delete(key);}
         }
+        }
         const root=document.getElementById('main_content'),context=document.getElementById('location_related_div'),style=getComputedStyle(context);
-        root.dataset.shellCustomPalette=context.dataset.customPalette||'false';
+        const customPalette=context.dataset.customPalette||'false';if(root.dataset.shellCustomPalette!==customPalette)root.dataset.shellCustomPalette=customPalette;
         for(const [key,value]of Object.entries({'--shell-context-size':style.fontSize,'--shell-context-font':style.fontFamily,'--shell-context-small-size':style.getPropertyValue('--custom-small-size'),'--shell-context-small-font':style.getPropertyValue('--custom-small-font'),'--shell-user-fill':style.getPropertyValue('--custom-background'),'--shell-user-text':style.getPropertyValue('--custom-text'),'--shell-user-accent':style.getPropertyValue('--custom-accent')}))if(root.style.getPropertyValue(key)!==value)root.style.setProperty(key,value);
         for(const select of [sort]){const active=[...select.options].find(o=>document.getElementById(o.value)?.classList.contains('active_selection_button'));if(active)select.value=active.value;}
         // A zero-capacity native resource is empty, including the currently
         // unimplemented 0/0 mana slot. Keep native numeric text untouched.
         if(root.dataset.parity==='r3')for(const id of ['character_health','character_xp','character_stamina','character_mana']){
             const value=document.getElementById(id+'_value'),host=document.getElementById(id+'_div');
-            if(value&&host){host.tabIndex=0;const text=value.textContent.trim();host.dataset.zeroCapacity=String(/\/\s*0(?:\s|$)/.test(text));value.title=text;}
+            if(value&&host){if(host.tabIndex!==0)host.tabIndex=0;const text=value.textContent.trim(),zero=String(/\/\s*0(?:\s|$)/.test(text));if(host.dataset.zeroCapacity!==zero)host.dataset.zeroCapacity=zero;if(value.title!==text)value.title=text;}
         }
         if(hovered){if(!hovered.isConnected)hidePreview();else showPreview(hovered);}
         const frame=read();const nextPlayer=JSON.stringify(frame);
@@ -438,5 +449,11 @@ export function mountProto23Shell({read,transferStorage,compareWorn,readItemCard
         inventoryComposition.render(rowForSelection());
     }
     document.addEventListener('workspace-presentation-change',()=>{hideContext();hidePreview();render();updateWorkspace();});
-    const timer=setInterval(render,400);return{render,destroy:()=>{document.removeEventListener('pointerdown',resizeDismiss);hidePreview();attributeInspector.destroy();condition.destroy();clearInterval(timer);document.removeEventListener('mouseover',hover);document.removeEventListener('mouseout',leave);document.removeEventListener('keydown',dismiss,true);document.removeEventListener('click',dismissClick);window.removeEventListener('blur',hidePreview);document.removeEventListener('click',inspect);document.removeEventListener('focusin',previewFocus);}};
+    // The periodic refresh runs in the next animation frame. Its first geometry read (the
+    // log's scroll position) otherwise forces a whole-board style recalculation mid-tick;
+    // in the frame callback it shares the one the frame does anyway. A hidden document
+    // runs no frames, so nothing repaints unseen; the pending refresh runs on the first
+    // visible frame. Direct render() calls from events stay synchronous.
+    let frameRequest=0;const refreshSoon=()=>{if(typeof requestAnimationFrame!=='function'){render();return;}if(!frameRequest)frameRequest=requestAnimationFrame(()=>{frameRequest=0;render();});};
+    const timer=setInterval(refreshSoon,400);return{render,destroy:()=>{if(frameRequest)cancelAnimationFrame(frameRequest);frameRequest=0;document.removeEventListener('pointerdown',resizeDismiss);hidePreview();attributeInspector.destroy();statsObserver?.disconnect();condition.destroy();clearInterval(timer);document.removeEventListener('mouseover',hover);document.removeEventListener('mouseout',leave);document.removeEventListener('keydown',dismiss,true);document.removeEventListener('click',dismissClick);window.removeEventListener('blur',hidePreview);document.removeEventListener('click',inspect);document.removeEventListener('focusin',previewFocus);}};
 }

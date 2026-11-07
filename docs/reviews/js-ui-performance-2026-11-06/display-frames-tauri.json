@@ -1,0 +1,37 @@
+{
+  "stamp": "2026-11-07T04-52-39-751Z",
+  "bin": "/Users/weiwei/Applications/Yet Another Idle RPG.app/Contents/MacOS/yairpg-tauri",
+  "idleMs": 15000,
+  "rows": [
+    {
+      "name": "frozen-run-crowded-1",
+      "variant": "frozen-run",
+      "fixture": "crowded",
+      "unthrottled": [
+        "hiddenPageDOMTimerThrottling",
+        "hiddenPageDOMTimerThrottlingAutoIncreases",
+        "pageVisibilityBasedProcessSuppression"
+      ],
+      "launchToReadyS": 10.5,
+      "domToReadyS": 8.2,
+      "visibility": "visible",
+      "gameMinPerWallS": 0.99,
+      "lagP95Ms": 314,
+      "lagMaxMs": 497,
+      "saveMedianMs": 32,
+      "misses": [],
+      "errors": [],
+      "failed": null,
+      "timedOut": false,
+      "expected": {
+        "clock": 1954,
+        "name": "Hero"
+      },
+      "cleanQuitKept": true,
+      "cleanQuitGot": {
+        "clock": 1955,
+        "name": "Hero"
+      }
+    }
+  ]
+}

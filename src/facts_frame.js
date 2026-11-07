@@ -1,4 +1,4 @@
-import {withSimulationFrame} from './simulation_render.js';
+import {withSimulationFrame, inSimulationFrame} from './simulation_render.js';
 
 // Publication is a synchronous, read-only phase over a committed state. Mutable
 // planning/clock work stays outside this frame unless its writers invalidate the
@@ -17,6 +17,11 @@ export function withFactsFrame(state, run) {
     current = enabled ? {state, rows: new Map(), versions: new Map(), parent: outer} : null;
     try {return withSimulationFrame(state, () => run());}
     finally {current = outer;}
+}
+// Display refreshes that may also run inside an existing pass over the same state
+// join that pass, so they reuse its builds instead of hiding them behind a new frame.
+export function withDisplayFactsFrame(state, run) {
+    return inSimulationFrame(state) && (!enabled || current?.state === state) ? run() : withFactsFrame(state, run);
 }
 export function invalidateFactsInput(input) {
     for(let frame = current; frame; frame = frame.parent)
@@ -50,13 +55,24 @@ function inputs(frame, state, context, registry) {
 }
 function frameRow(frame, state, context, registry, build) {
     const dependencies = inputs(frame, state, context, registry);
-    let row = frame.rows;
-    for(const input of dependencies) {
-        if(!row.has(input)) row.set(input, new Map());
-        row = row.get(input);
-    }
-    if(!row.has(readFactsFrame)) row.set(readFactsFrame, build());
-    return row.get(readFactsFrame);
+    // Keep one compact identity vector per read, rather than a Map node per
+    // field/value. Large native contexts made that trie far larger than the
+    // facts it cached. Actor/target buckets keep comparison lists local; every
+    // dependency and explicit invalidation version still participates.
+    let actors=frame.rows.get(registry);
+    if(!actors)frame.rows.set(registry,actors=new Map());
+    let targets=actors.get(context.actorId);
+    if(!targets)actors.set(context.actorId,targets=new Map());
+    let rows=targets.get(context.targetId);
+    if(!rows)targets.set(context.targetId,rows=[]);
+    for(const row of rows)if(sameInputs(row.dependencies,dependencies))return row.value;
+    const value=build();rows.push({dependencies,value});return value;
+}
+function sameInputs(a,b){
+    if(a.length!==b.length)return false;
+    // Map keys used SameValueZero: NaN equals NaN and -0 equals +0.
+    for(let i=0;i<a.length;i++)if(a[i]!==b[i]&&!Object.is(a[i],b[i]))return false;
+    return true;
 }
 // The same cached row as readFactsFrame, without its defensive copy: the
 // caller reads it and never changes it. Null outside a frame for this state,

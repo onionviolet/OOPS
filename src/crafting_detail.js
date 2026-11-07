@@ -82,6 +82,10 @@ function fact(label, value, attr) {
  * @param {Object} handlers {onCommit(amount), onBlocked(), onRelated(recipe_id), onBack()}
  */
 export function renderCraftingDetail(root, model, handlers) {
+    // The empty prompt has no live quote or handlers. Keep its node through
+    // routine refreshes instead of replacing the same content every tick.
+    if(!model && root.dataset.state === 'empty' && root.childElementCount === 1 &&
+        root.firstElementChild.classList.contains('craft_detail_empty')) return;
     const sameSubject = detailSubjects.get(root) === model?.title;
     const scroll = sameSubject ? root.querySelector('.craft_detail_body')?.scrollTop || 0 : 0;
     const open = selector => sameSubject && !!root.querySelector(selector)?.open;

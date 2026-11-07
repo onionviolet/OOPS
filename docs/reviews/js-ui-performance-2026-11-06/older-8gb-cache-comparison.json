@@ -1,0 +1,102 @@
+[
+  {
+    "name": "before",
+    "actors": 68,
+    "facts": 1500,
+    "builds": 68,
+    "liveCacheMiB": 35.91144561767578,
+    "lookupMs": 144.335125,
+    "totalMs": 179.831459,
+    "releasedHeapMiB": 0.0379486083984375
+  },
+  {
+    "name": "after",
+    "actors": 68,
+    "facts": 1500,
+    "builds": 68,
+    "liveCacheMiB": 1.9701461791992188,
+    "lookupMs": 117.710125,
+    "totalMs": 133.871666,
+    "releasedHeapMiB": 0.0381927490234375
+  },
+  {
+    "name": "after",
+    "actors": 68,
+    "facts": 1500,
+    "builds": 68,
+    "liveCacheMiB": 1.9701156616210938,
+    "lookupMs": 81.95666700000001,
+    "totalMs": 92.53425,
+    "releasedHeapMiB": 0.0381927490234375
+  },
+  {
+    "name": "before",
+    "actors": 68,
+    "facts": 1500,
+    "builds": 68,
+    "liveCacheMiB": 35.91144561767578,
+    "lookupMs": 159.43800000000002,
+    "totalMs": 197.0425,
+    "releasedHeapMiB": 0.0379486083984375
+  },
+  {
+    "name": "before",
+    "actors": 68,
+    "facts": 1500,
+    "builds": 68,
+    "liveCacheMiB": 35.91144561767578,
+    "lookupMs": 141.008833,
+    "totalMs": 180.511583,
+    "releasedHeapMiB": 0.0379486083984375
+  },
+  {
+    "name": "after",
+    "actors": 68,
+    "facts": 1500,
+    "builds": 68,
+    "liveCacheMiB": 1.9701156616210938,
+    "lookupMs": 72.56695900000001,
+    "totalMs": 81.902333,
+    "releasedHeapMiB": 0.0381927490234375
+  },
+  {
+    "name": "after",
+    "actors": 68,
+    "facts": 1500,
+    "builds": 68,
+    "liveCacheMiB": 1.970184326171875,
+    "lookupMs": 73.72699999999999,
+    "totalMs": 83.445542,
+    "releasedHeapMiB": 0.03826141357421875
+  },
+  {
+    "name": "before",
+    "actors": 68,
+    "facts": 1500,
+    "builds": 68,
+    "liveCacheMiB": 35.91144561767578,
+    "lookupMs": 150.11812500000002,
+    "totalMs": 189.167959,
+    "releasedHeapMiB": 0.0379486083984375
+  },
+  {
+    "name": "before",
+    "actors": 68,
+    "facts": 1500,
+    "builds": 68,
+    "liveCacheMiB": 35.91144561767578,
+    "lookupMs": 112.53062500000001,
+    "totalMs": 149.857458,
+    "releasedHeapMiB": 0.0379486083984375
+  },
+  {
+    "name": "after",
+    "actors": 68,
+    "facts": 1500,
+    "builds": 68,
+    "liveCacheMiB": 1.9701156616210938,
+    "lookupMs": 78.673708,
+    "totalMs": 89.0385,
+    "releasedHeapMiB": 0.0381927490234375
+  }
+]

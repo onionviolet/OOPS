@@ -151,3 +151,18 @@ test('fixture minutes preserve facts, contexts and create_save bytes with frame 
         });
     }
 });
+
+test('large input dictionaries retain Map scalar equality, order independence and actor/target isolation',()=>{
+ const state={clock:1,sequence:2},registry={},object={},symbol=Symbol('fixture');let builds=0;
+ const facts={...Object.fromEntries(Array.from({length:1500},(_,i)=>['fixture.'+i,i])),nan:NaN,zero:-0,object,symbol};
+ const read=(actorId='player',targetId=null,f=facts)=>readFactsFrame(state,{actorId,targetId,facts:f},registry,()=>({build:++builds}));
+ withFactsFrame(state,()=>{
+  assert.equal(read().build,1);
+  assert.equal(read('player',null,Object.fromEntries(Object.entries({...facts,zero:0}).reverse())).build,1);
+  assert.equal(read('other').build,2);assert.equal(read('player','other').build,3);
+  assert.equal(read('player',null,{...facts,object:{}}).build,4);
+  assert.equal(read('player',null,{...facts,'fixture.1499':-1}).build,5);
+  assert.equal(read().build,1);invalidateFactsInput(state);assert.equal(read().build,6);
+ });
+ assert.equal(read().build,7);
+});

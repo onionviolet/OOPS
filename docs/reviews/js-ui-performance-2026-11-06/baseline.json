@@ -1,0 +1,224 @@
+{
+  "load": [
+    24.0302734375,
+    13.43017578125,
+    9.7099609375
+  ],
+  "build": "4c97bd382bcda9a9e8223d765b3ca1b5669db15fe93b661eb738c1d3bd5c7532",
+  "fixtures": {
+    "fresh": {
+      "metrics": {
+        "wallMs": 12002,
+        "taskBusyPct": 20.2,
+        "scriptBusyPct": 7.3,
+        "layoutsPerSec": 2.2,
+        "styleRecalcsPerSec": 79.7,
+        "longTasks": 12,
+        "longTaskMaxMs": 79,
+        "storageWritesPerMin": 60,
+        "storageKBPerMin": 9083,
+        "heapMB": 77.1,
+        "domNodes": 43361,
+        "listeners": 3379
+      },
+      "top": [
+        {
+          "label": "(idle) ",
+          "ms": 9568
+        },
+        {
+          "label": "(program) ",
+          "ms": 920
+        },
+        {
+          "label": "La ../src/proto23_shell.js:338",
+          "ms": 173
+        },
+        {
+          "label": "eligible ../src/workspace_views.js:31",
+          "ms": 152
+        },
+        {
+          "label": "checkVisibility ",
+          "ms": 134
+        },
+        {
+          "label": "zSe ../src/crafting_detail.js:84",
+          "ms": 132
+        },
+        {
+          "label": "v ../src/workspace_views.js:47",
+          "ms": 90
+        },
+        {
+          "label": "r ../src/settled_text_effects.js:170",
+          "ms": 65
+        },
+        {
+          "label": "v ../src/ui_components.js:85",
+          "ms": 64
+        },
+        {
+          "label": "querySelectorAll ",
+          "ms": 54
+        },
+        {
+          "label": "querySelector ",
+          "ms": 53
+        },
+        {
+          "label": "Lfo ../src/main.js:1691",
+          "ms": 33
+        },
+        {
+          "label": "T ../src/shell_control_boxes.js:78",
+          "ms": 22
+        },
+        {
+          "label": "Xwt ../src/world_completion_facts.js:23",
+          "ms": 20
+        },
+        {
+          "label": "h ../src/basics.js:9",
+          "ms": 14
+        },
+        {
+          "label": " ../src/workspace_layout.js:338",
+          "ms": 13
+        },
+        {
+          "label": "structuredClone ",
+          "ms": 13
+        },
+        {
+          "label": "(garbage collector) ",
+          "ms": 11
+        },
+        {
+          "label": "M5 ../src/original_frontier_facts.js:7",
+          "ms": 11
+        },
+        {
+          "label": "l1e ../src/audit_remainder_facts.js:12",
+          "ms": 10
+        },
+        {
+          "label": "iGo ../src/main.js:8664",
+          "ms": 10
+        },
+        {
+          "label": "lk ../src/native_battle.js:21",
+          "ms": 9
+        }
+      ],
+      "errors": []
+    },
+    "crowded": {
+      "metrics": {
+        "wallMs": 12002,
+        "taskBusyPct": 83.7,
+        "scriptBusyPct": 52.8,
+        "layoutsPerSec": 2.8,
+        "styleRecalcsPerSec": 46.7,
+        "longTasks": 12,
+        "longTaskMaxMs": 459,
+        "storageWritesPerMin": 60,
+        "storageKBPerMin": 36989,
+        "heapMB": 168.7,
+        "domNodes": 123380,
+        "listeners": 3745
+      },
+      "top": [
+        {
+          "label": "(idle) ",
+          "ms": 2180
+        },
+        {
+          "label": "(program) ",
+          "ms": 911
+        },
+        {
+          "label": "Xwt ../src/world_completion_facts.js:23",
+          "ms": 831
+        },
+        {
+          "label": "La ../src/proto23_shell.js:338",
+          "ms": 586
+        },
+        {
+          "label": "Ar ../src/simulation_effects.js:132",
+          "ms": 550
+        },
+        {
+          "label": "checkVisibility ",
+          "ms": 487
+        },
+        {
+          "label": "eligible ../src/workspace_views.js:31",
+          "ms": 478
+        },
+        {
+          "label": "zSe ../src/crafting_detail.js:84",
+          "ms": 464
+        },
+        {
+          "label": "g0e ../src/world_completion_bridge.js:10",
+          "ms": 394
+        },
+        {
+          "label": "v ../src/workspace_views.js:47",
+          "ms": 388
+        },
+        {
+          "label": "readPreview ../src/main.js:9779",
+          "ms": 248
+        },
+        {
+          "label": "v ../src/ui_components.js:85",
+          "ms": 235
+        },
+        {
+          "label": "KK ../src/audit_remainder_consequences_facts.js:38",
+          "ms": 233
+        },
+        {
+          "label": "r ../src/settled_text_effects.js:170",
+          "ms": 231
+        },
+        {
+          "label": "eI ../src/world_completion_facts.js:29",
+          "ms": 212
+        },
+        {
+          "label": "Qmo ../src/main.js:1675",
+          "ms": 206
+        },
+        {
+          "label": "o ../src/simulation_effects.js:83",
+          "ms": 180
+        },
+        {
+          "label": "querySelectorAll ",
+          "ms": 178
+        },
+        {
+          "label": "(garbage collector) ",
+          "ms": 169
+        },
+        {
+          "label": "pCt ../src/simulation_effects.js:175",
+          "ms": 158
+        },
+        {
+          "label": "Fbo ../src/facts_frame.js:38",
+          "ms": 156
+        },
+        {
+          "label": "W0e ../src/world_completion_runtime.js:15",
+          "ms": 142
+        }
+      ],
+      "errors": []
+    }
+  }
+}

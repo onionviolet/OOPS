@@ -1,0 +1,197 @@
+{
+  "load": [
+    2.91796875,
+    2.5908203125,
+    4.44189453125
+  ],
+  "build": "5d006b3175a03d92696ee52f8d99d4a6f9e33b31d66b903c0d2b08f742ff158e",
+  "fixtures": {
+    "fresh": {
+      "metrics": {
+        "wallMs": 10003,
+        "taskBusyPct": 14.7,
+        "scriptBusyPct": 6.3,
+        "layoutsPerSec": 2.2,
+        "styleRecalcsPerSec": 78.6,
+        "longTasks": 0,
+        "longTaskMaxMs": 0,
+        "storageWritesPerMin": 60,
+        "storageKBPerMin": 10568,
+        "heapMB": 218.6,
+        "domNodes": 41990,
+        "listeners": 5142
+      },
+      "top": [
+        {
+          "label": "(idle)",
+          "ms": 8575
+        },
+        {
+          "label": "(program)",
+          "ms": 669
+        },
+        {
+          "label": "../src/proto23_shell.js:344",
+          "ms": 117
+        },
+        {
+          "label": "checkVisibility",
+          "ms": 97
+        },
+        {
+          "label": "../src/workspace_views.js:52",
+          "ms": 58
+        },
+        {
+          "label": "../src/main.js:9779",
+          "ms": 47
+        },
+        {
+          "label": "../src/settled_text_effects.js:170",
+          "ms": 45
+        },
+        {
+          "label": "../src/ui_components.js:85",
+          "ms": 41
+        },
+        {
+          "label": "../src/proto23_world_actions.js:44",
+          "ms": 40
+        },
+        {
+          "label": "../src/main.js:1691",
+          "ms": 33
+        },
+        {
+          "label": "querySelectorAll",
+          "ms": 29
+        },
+        {
+          "label": "querySelector",
+          "ms": 24
+        },
+        {
+          "label": "(garbage collector)",
+          "ms": 19
+        },
+        {
+          "label": "../src/audit_remainder_facts.js:12",
+          "ms": 15
+        },
+        {
+          "label": "../src/world_completion_facts.js:23",
+          "ms": 12
+        },
+        {
+          "label": "../src/rules.js:33",
+          "ms": 9
+        },
+        {
+          "label": "../src/workspace_layout.js:338",
+          "ms": 8
+        },
+        {
+          "label": "../src/basics.js:9",
+          "ms": 8
+        }
+      ],
+      "errors": []
+    },
+    "crowded": {
+      "metrics": {
+        "wallMs": 10002,
+        "taskBusyPct": 62.3,
+        "scriptBusyPct": 41.4,
+        "layoutsPerSec": 3.1,
+        "styleRecalcsPerSec": 58.5,
+        "longTasks": 10,
+        "longTaskMaxMs": 281,
+        "storageWritesPerMin": 60,
+        "storageKBPerMin": 38474,
+        "heapMB": 412.2,
+        "domNodes": 143667,
+        "listeners": 5666
+      },
+      "top": [
+        {
+          "label": "(idle)",
+          "ms": 4091
+        },
+        {
+          "label": "(program)",
+          "ms": 1212
+        },
+        {
+          "label": "../src/facts_frame.js:69",
+          "ms": 442
+        },
+        {
+          "label": "../src/world_completion_facts.js:23",
+          "ms": 395
+        },
+        {
+          "label": "../src/proto23_shell.js:344",
+          "ms": 374
+        },
+        {
+          "label": "checkVisibility",
+          "ms": 316
+        },
+        {
+          "label": "../src/world_completion_bridge.js:10",
+          "ms": 265
+        },
+        {
+          "label": "../src/workspace_views.js:52",
+          "ms": 179
+        },
+        {
+          "label": "../src/settled_text_effects.js:170",
+          "ms": 159
+        },
+        {
+          "label": "../src/ui_components.js:85",
+          "ms": 153
+        },
+        {
+          "label": "../src/audit_remainder_consequences_facts.js:38",
+          "ms": 140
+        },
+        {
+          "label": "../src/main.js:1675",
+          "ms": 139
+        },
+        {
+          "label": "../src/simulation_effects.js:80",
+          "ms": 129
+        },
+        {
+          "label": "../src/facts_frame.js:38",
+          "ms": 121
+        },
+        {
+          "label": "(garbage collector)",
+          "ms": 120
+        },
+        {
+          "label": "../src/world_completion_facts.js:14",
+          "ms": 119
+        },
+        {
+          "label": "querySelectorAll",
+          "ms": 116
+        },
+        {
+          "label": "../src/world_completion_runtime.js:15",
+          "ms": 91
+        }
+      ],
+      "errors": []
+    }
+  },
+  "loadEnd": [
+    3.787109375,
+    2.85888671875,
+    4.45361328125
+  ]
+}

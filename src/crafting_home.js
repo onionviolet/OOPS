@@ -1,6 +1,7 @@
 import {treatmentCapacity} from './craft_body_treatment.js';
 import {definePanel} from './panel_kit.js';
 import {renderCraftingDetail} from './crafting_detail.js';
+import {rendered,shownOrDeferred} from './panel_reveal.js';
 import {infoRow,chip,reasonLine,labelControl} from './ui/panel_sections.js';
 const node=(tag,text)=>{const n=document.createElement(tag);if(text)n.textContent=text;return n;};
 // Expanded center workspace view. The shared center controller owns Back and Esc.
@@ -10,8 +11,16 @@ export function createCraftingHome({read,quote,execute,forecast}) {
  description.append(node('summary','About these trials'),node('p','Gather herbs and river salt on the Village common verge, select carried materials, then try a small steeped batch. Salty batches bind toxin when drunk. Original frontier trial. Properties act before you know them.'));harvest.type='button';const harvestWhy=reasonLine('');harvestWhy.hidden=true;harvest.id='crafting_gather';detail.dataset.craftDetail='';notice.setAttribute('role','status');
  history.dataset.craftForecast='';grudge.dataset.craftGrudge='';notebook.dataset.craftNotebook='';
  const shelf=node('div'),refs=node('div'),sample=node('div'),method=node('select'),methodHint=node('p');method.id='crafting_method';method.setAttribute('aria-label','Method');
-  panel.append(title,description,harvest,harvestWhy,shelf,refs,method,methodHint,stock,sample,detail,history,grudge,products,notebook,notice);
- let selected=new Map(),signature='',lastQuote;
+ const library=node('details'),libraryTitle=node('summary','Books and methods');library.dataset.craftLibrary='';library.append(libraryTitle,shelf,refs);
+  panel.append(title,description,harvest,harvestWhy,library,method,methodHint,stock,sample,detail,history,grudge,products,notebook,notice);
+ let selected=new Map(),signature='',materialSignature='',methodSignature='',detailSignature='',lastQuote;
+ let inView=null;
+ // Like the reference panels, track visibility rather than forcing a style
+ // calculation on every publication or unrelated reveal mutation.
+ const visible=()=>inView??rendered(panel);
+ if(typeof IntersectionObserver==='function')new IntersectionObserver(entries=>{
+  inView=entries.at(-1).isIntersecting;if(inView)render();
+ }).observe(panel);
  const layered=node('input');layered.type='checkbox';layered.id='crafting_layered';const mode=node('label');mode.append(layered,node('span','Layered brazier'));panel.insertBefore(mode,stock);
  const tablet=node('input');tablet.type='checkbox';tablet.id='crafting_tablet';const tabletLabel=node('label');tabletLabel.append(tablet,node('span','Body-conditioning tablet'));panel.insertBefore(tabletLabel,stock);tablet.onchange=()=>{if(tablet.checked)layered.checked=true;render();};
  const timed=node('input');timed.type='checkbox';timed.id='crafting_timed';const timedLabel=node('label');timedLabel.append(timed,node('span','Hold on the brazier'));panel.insertBefore(timedLabel,stock);timed.onchange=()=>{if(timed.checked)layered.checked=true;render();};
@@ -29,9 +38,11 @@ export function createCraftingHome({read,quote,execute,forecast}) {
  function run(q){try{const plan=execute(q);notice.textContent=plan?.outcome?.text??(q.request.type==='harvest'?'Gathered materials stored in your inventory.':q.request.type==='treatment'?'The quoted materials are committed to the treatment.':q.request.type==='craft'?(plan.failure?plan.failure.reason:'The exact materials became a preparation. Drink to observe it.'):'Preparation used. Its observed effects are recorded.');}catch(e){notice.textContent=e.message;}signature='';render();}
  harvest.onclick=()=>run(quote({type:'harvest'}));
  function render(){
-  const view=read(),next=JSON.stringify([view,[...selected],strength.value,method.value,layered.checked,heat.value,tablet.checked,timed.checked]);if(next===signature)return;signature=next;
-  const allowed=view.world==='base.frontier'&&view.location==='Village';panel.hidden=!allowed;
-  if(!allowed)return;
+  const view=read();
+  const allowed=view.world==='base.frontier'&&view.location==='Village';if(panel.hidden===allowed)panel.hidden=!allowed;
+  if(!allowed){signature='';return;}
+  if(inView===false||!shownOrDeferred(render,visible))return;
+  const next=JSON.stringify([view,[...selected],strength.value,method.value,layered.checked,heat.value,tablet.checked,timed.checked]);if(next===signature)return;signature=next;
   const gather=quote({type:'harvest'});harvest.disabled=!gather.eligible;harvest.title=gather.reason;harvestWhy.textContent=gather.eligible?'':gather.reason;harvestWhy.hidden=gather.eligible||!gather.reason;
   const act=(label,request,id)=>{const b=node('button',label),q=quote(request);b.type='button';b.dataset[id]=request.ref??request.key;b.disabled=!q.eligible;b.title=q.reason;b.onclick=()=>run(q);return b;};
   shelf.replaceChildren(node('h3','Village shelf'));
@@ -41,14 +52,19 @@ export function createCraftingHome({read,quote,execute,forecast}) {
    const acts=[];if(r.mode==='learn')acts.push(act('Study and learn',{type:'learn',key:r.key},'refLearn'));if(r.mode==='training')acts.push(act('Read',{type:'read',key:r.key},'refRead'));acts.push(act('Put back on shelf',{type:'return',key:r.key},'refReturn'));
    for(const b of [...acts])if(b.disabled&&b.title)acts.push(reasonLine(b.title));refs.append(infoRow({label:r.name,chips,actions:acts}));}
   if(!view.references?.length)refs.append(node('p','Nothing carried. Take a copy from the shelf.'));
-  const chosen=method.value;method.replaceChildren(Object.assign(node('option','Free experiment (no method)'),{value:''}));
-  for(const m of view.methods??[])method.append(Object.assign(node('option',`Follow ${m.name} (${m.via.map(v=>v==='learned'?'learned':'from book').join(', ')})`),{value:m.id}));
+  const chosen=method.value,nextMethods=JSON.stringify(view.methods??[]);
+  if(nextMethods!==methodSignature){methodSignature=nextMethods;method.replaceChildren(Object.assign(node('option','Free experiment (no method)'),{value:''}));
+   for(const m of view.methods??[])method.append(Object.assign(node('option',`Follow ${m.name} (${m.via.map(v=>v==='learned'?'learned':'from book').join(', ')})`),{value:m.id}));
+  }
   methodHint.textContent='';
   method.value=(view.methods??[]).some(m=>m.id===chosen)?chosen:'';
   const chosenMethod=(view.methods??[]).find(m=>m.id===method.value);
   methodHint.textContent=chosenMethod?`${chosenMethod.name} needs: ${chosenMethod.slots.map(sl=>`${sl.tags.join(' ')} (${sl.qty[0]}-${sl.qty[1]})`).join(' and ')}.`:'';
-  stock.replaceChildren(node('h3','Carried materials'));
   for(const [key]of selected)if(!view.materials.some(m=>m.key===key))selected.delete(key);
+  // Clock-only refreshes still re-quote, but retain the input nodes so a tick
+  // cannot detach a checkbox, steal focus or discard a partly typed quantity.
+  const nextMaterials=JSON.stringify([view.materials,[...selected]]);
+  if(nextMaterials!==materialSignature){materialSignature=nextMaterials;stock.replaceChildren(node('h3','Carried materials'));
   for(const material of view.materials){const label=node('label'),check=node('input'),qty=node('input');check.type='checkbox';check.checked=selected.has(material.key);check.dataset.craftMaterial=material.key;
    qty.type='number';qty.min='1';qty.max=String(material.count);qty.value=String(selected.get(material.key)??1);qty.setAttribute('aria-label',`Quantity of ${material.name}`);qty.className='crafting-trial-quantity';
    check.onchange=()=>{if(check.checked)selected.set(material.key,Number(qty.value));else selected.delete(material.key);signature='';render();};qty.onchange=()=>{if(check.checked)selected.set(material.key,Number(qty.value));signature='';render();};
@@ -58,11 +74,15 @@ export function createCraftingHome({read,quote,execute,forecast}) {
    const props=node('p',(material.props??[]).map(x=>`${x.label[0].toUpperCase()+x.label.slice(1)}: ${x.state==='known'?x.value:x.state==='known-none'?'none':'untried'}`).join(' · '));props.className='crafting-trial-properties';props.dataset.craftProps=material.key;stock.append(props);
   }
   if(!view.materials.length)stock.append(node('p','Gather here to begin. Exact lots also appear in Inventory.'));
+  }
   firing.replaceChildren();if(view.firing){const left=Math.max(0,view.firing.due-view.clock),late=Math.max(0,view.clock-view.firing.due);firing.append(node('p',`One batch is held on the brazier. ${left?left+' played minutes until collection':'Ready for collection'}; ${late} late minutes. Materials and one Charcoal are already spent. Late heat can degrade the preparation; abandoning leaves waste.`));for(const [type,label]of [['collect_firing','Collect the held preparation'],['abandon_firing','Abandon the held batch · materials become waste']]){const q=quote({type}),b=node('button',label);b.type='button';b.dataset.craftFiringAction=type;b.disabled=!q.eligible;b.title=q.reason;b.onclick=()=>run(q);firing.append(b);if(q.firing)firing.append(node('p',`If collected now: heat ${q.firing.heat}, controlled allowance ${q.firing.safeHeat}, residual ${q.firing.residual}, heat impurity ${q.firing.impurity}. Effects still need observation.`));if(!q.eligible)firing.append(node('p',q.reason));}}
   const request={type:timed.checked?'begin_firing':'craft',inputs:[...selected].map(([key,qty])=>({key,qty})),process:[{op:layered.checked?'heat':'steep',level:Number(layered.checked?heat.value:strength.value)}],...(layered.checked?{layered:true,tablet:tablet.checked}:{}),...(method.value?{recipe:method.value}:{})};lastQuote=quote(request);heat.hidden=!layered.checked;strength.hidden=layered.checked;method.title=layered.checked?'The selected book method must admit this heat process. Choose free experiment for an independent formulation.':'';
-  if(layered.checked)stock.append(node('p','Feed order: '+request.inputs.map((i,n)=>`${n+1}. ${view.materials.find(m=>m.key===i.key)?.name}`).join(' → ')));
-  renderCraftingDetail(detail,{title:timed.checked?`Hold layered heat ${heat.value} batch for 6 minutes`:layered.checked?`Layered heat ${heat.value} batch`:`Steep selected materials (level ${strength.value})`,requirements:request.inputs.map(i=>({label:view.materials.find(m=>m.key===i.key)?.name??'Selected material',have:view.materials.find(m=>m.key===i.key)?.count??0,need:i.qty})),description:'Try the selected materials with this process. Effects remain unknown until observed.',singleAttempt:true,commitLabel:timed.checked?'Start brazier hold':'Try one batch',time:timed.checked?'Collect after 6 played minutes':'Immediate preparation',commitTerms:timed.checked?'Selected materials and one Charcoal are spent when started. Collect the held preparation; abandoning leaves waste.':'Selected materials are spent even if the preparation fails. Observe the result before claiming its effects.',output:{name:'Unidentified herbal preparation',count:1,uncertain:true},effects:[],chance:null,chance_label:'Viable preparation',policy:'Selected materials are used even if no preparation results. Completing the steep does not guarantee a viable preparation; effects must be observed.',station:layered.checked?'Village brazier':'Village common bench',xp:'Observation only',attempts:lastQuote.eligible?1:0,available:lastQuote.eligible,blocked_reason:lastQuote.reason},
-   {onCommit:()=>run(lastQuote),onBlocked:()=>{notice.textContent=lastQuote.reason;}});
+  let feed=stock.querySelector('[data-craft-feed-order]');
+  if(layered.checked){if(!feed){feed=node('p');feed.dataset.craftFeedOrder='';stock.append(feed);}const text='Feed order: '+request.inputs.map((i,n)=>`${n+1}. ${view.materials.find(m=>m.key===i.key)?.name}`).join(' → ');if(feed.textContent!==text)feed.textContent=text;}else feed?.remove();
+  const detailModel={title:timed.checked?`Hold layered heat ${heat.value} batch for 6 minutes`:layered.checked?`Layered heat ${heat.value} batch`:`Steep selected materials (level ${strength.value})`,requirements:request.inputs.map(i=>({label:view.materials.find(m=>m.key===i.key)?.name??'Selected material',have:view.materials.find(m=>m.key===i.key)?.count??0,need:i.qty})),description:'Try the selected materials with this process. Effects remain unknown until observed.',singleAttempt:true,commitLabel:timed.checked?'Start brazier hold':'Try one batch',time:timed.checked?'Collect after 6 played minutes':'Immediate preparation',commitTerms:timed.checked?'Selected materials and one Charcoal are spent when started. Collect the held preparation; abandoning leaves waste.':'Selected materials are spent even if the preparation fails. Observe the result before claiming its effects.',output:{name:'Unidentified herbal preparation',count:1,uncertain:true},effects:[],chance:null,chance_label:'Viable preparation',policy:'Selected materials are used even if no preparation results. Completing the steep does not guarantee a viable preparation; effects must be observed.',station:layered.checked?'Village brazier':'Village common bench',xp:'Observation only',attempts:lastQuote.eligible?1:0,available:lastQuote.eligible,blocked_reason:lastQuote.reason};
+  // The handlers read the latest quote, even when the visible terms are unchanged.
+  const nextDetail=JSON.stringify(detailModel);if(nextDetail!==detailSignature){detailSignature=nextDetail;renderCraftingDetail(detail,detailModel,
+   {onCommit:()=>run(lastQuote),onBlocked:()=>{notice.textContent=lastQuote.reason;}});}
   const past=request.inputs.length?forecast(request):{verdict:'untried'};history.hidden=past.verdict==='untried';history.dataset.verdict=past.verdict;
   history.textContent=past.verdict==='known-fail'?`Tried before: this exact steep of these materials came to nothing ${past.tries===1?'once':past.tries+' times'}${past.reasons.includes('thin')?', because the steep ran too thin':past.reasons.includes('reacted')?', after the materials reacted':', with nothing reacting'}${Object.keys(past.residue).length?`; left over: ${Object.entries(past.residue).map(([a,n])=>`${a} ${n}`).join(', ')}`:''}.`:past.verdict==='near'?'You have failed with these materials under another steep; a different steep may differ.':'';
   grudge.hidden=!(view.grudge>0);grudge.textContent=view.grudge>0?`The verge keepers grumble about herbs wasted on thin steeps (${view.grudge}). It eases by one each season.`:'';
@@ -89,6 +109,11 @@ export function createCraftingHome({read,quote,execute,forecast}) {
    if(p.effects.length)row.append(node('p',p.effects.map(e=>`Observed ${e.effect}: ${e.value}`).join(' · ')));const named=node('p',p.derived??p.name??'');named.dataset.craftDerived='';row.prepend(named);products.append(row);
   }
  }
+ // Configuration and the current quote keep independent reading positions;
+ // the existing action stays with its quote rather than below all the stock.
+ const workspace=node('div'),setup=node('section'),review=node('section');workspace.className='crafting-trial-workspace';setup.className='crafting-trial-setup';review.className='crafting-trial-review';
+ setup.setAttribute('aria-label','Materials and process');review.setAttribute('aria-label','Experiment quote and result');
+ setup.append(harvest,harvestWhy,library,form,firing,stock,sample,products,notebook);review.append(detail,history,grudge,notice);workspace.append(setup,review);panel.append(workspace);
  definePanel({id:'herbal-experiments',title:'Village experiments',role:'actions',node:panel,home:document.getElementById('main_content'),defaultDock:'center',
   discovered:()=>read().discovered,eligible:()=>{const v=read();return !v.blocked&&v.world==='base.frontier'&&v.location==='Village';},unavailableReason:()=>read().blocked||'Return to Village to experiment.'});
  render();return {render};

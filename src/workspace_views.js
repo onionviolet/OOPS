@@ -25,11 +25,16 @@ export function createWorkspaceViews({read,combatKnown=()=>false}) {
     document.getElementById('location_related_div')?.prepend(panel);
     registerWorkspaceModule({id:'current-work',title:'Current work & saving',node:panel,home:'center',critical:true});
     // Native combat and stance views join the board while shown; retreat stays in Local actions just below.
-    const shown=node=>!!node&&getComputedStyle(node).display!=='none';
+    // The native combat owner explicitly hides this node when a fight ends.
+    // That common case needs no computed style (and no forced style flush).
+    const shown=node=>!!node&&node.style.display!=='none'&&getComputedStyle(node).display!=='none';
     const combat=document.getElementById('combat_div'),stance=document.getElementById('character_combat_management');
+    // index.html's native inventory/combat switch owns this variable; its
+    // stylesheet default is none. Read that owner before asking for style.
+    const stanceShown=()=>!!stance&&(stance.style.display||document.documentElement.style.getPropertyValue('--character_combat_div_display')||'none')!=='none'&&shown(stance);
     // Discovery: the first real fight (save facts: last combat location or a landed hit), or being shown in one now.
     if(combat)definePanel({id:'combat',role:'actions',unavailableReason:()=> 'No fight right now',title:'Combat',node:combat,home:'center',after:'current-work',eligible:()=>shown(combat),discovered:()=>combatKnown()||shown(combat)});
-    if(stance)definePanel({id:'stance',role:'character',unavailableReason:()=> 'Only during a fight',title:'Stance & combatants',node:stance,home:'left',after:'combat-controls',eligible:()=>shown(stance),discovered:()=>combatKnown()||shown(stance)});
+    if(stance)definePanel({id:'stance',role:'character',unavailableReason:()=> 'Only during a fight',title:'Stance & combatants',node:stance,home:'left',after:'combat-controls',eligible:stanceShown,discovered:()=>combatKnown()||stanceShown()});
     // Place prose keeps its first lines readable; the rest opens in place.
     const prose=document.getElementById('location_description_div'),more=document.createElement('button');
     more.type='button';more.className='workspace-prose-toggle';more.hidden=true;

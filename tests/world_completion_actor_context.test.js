@@ -49,3 +49,20 @@ test('normalized connected-world facts preserve their dependency chain and input
  withFactsFrame(state,()=>assert.deepEqual(worldCompletionFacts(state,context),facts));
  assert.deepEqual(context,before);assert.equal(facts.other,undefined);
 });
+
+test('connected-world result retains supplied family facts without copying unrelated facts into its output',()=>{
+ const registry=createContentRegistry({worlds:[{id:'base.frontier'}],simulation:{}});
+ const state=enrollSimulation(createExpansionState(81),registry,{actorId:'player',facts:{location:'Village'},external:{money:91},gameplay:{}}).state;
+ const base={actorId:'player',facts:{location:'Village'},vitals:{health:9},equipment:{},gameplay:{}};
+ const expected=worldCompletionFacts(state,base);
+ const context={...base,facts:{...Object.fromEntries(Array.from({length:1500},(_,i)=>['unrelated.'+i,i])),...base.facts,'worldCompletion.fixture':17,'worldCompletion.local':'stale'}};
+ const before=structuredClone(context);
+ const actual=worldCompletionFacts(state,context);
+ assert.deepEqual(actual,{...expected,'worldCompletion.fixture':17});
+ assert.equal(actual['worldCompletion.local'],expected['worldCompletion.local']);
+ assert.deepEqual(context,before);
+ const joined=worldCompletionContext(state,context).facts;
+ assert.deepEqual(joined,{...context.facts,...actual});
+ assert.equal(JSON.stringify(joined),JSON.stringify({...context.facts,...actual}),'projection order remains stable');
+ joined['worldCompletion.fixture']=99;assert.equal(worldCompletionContext(state,context).facts['worldCompletion.fixture'],17);
+});

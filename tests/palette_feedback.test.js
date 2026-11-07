@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createPaletteFeedbackLedger} from '../src/palette_feedback.js';
-import {createReceiptGate} from '../src/settled_text_effects.js';
+import {createReceiptGate, installCoinFeedback} from '../src/settled_text_effects.js';
 
 test('tool condition changes stay attached to the observed tool copy', () => {
     const ledger = createPaletteFeedbackLedger();
@@ -72,4 +72,36 @@ test('body recovery requires an observed amount gain at unchanged capacity; comp
  assert.equal(l.observeCompetence({subjectId:'player',capabilityId:'Butchering',label:'Butchering',level:1,causeId:'first'}),null);
  const learned=l.observeCompetence({subjectId:'player',capabilityId:'Butchering',label:'Butchering',level:2,causeId:'native-level:2'});assert.equal(learned.pose,'steady-hands');assert.match(learned.text,/next cut/);
  l.reset();assert.equal(l.observeBody(body),null);
+});
+
+// Purse repaints happen every tick. Ineligible changes must not force layout,
+// while an eligible spend still gets one receipt for the exact current delta.
+test('coin feedback skips layout for non-spends and keeps eligible spend feedback', () => {
+    const keys = ['document', 'MutationObserver', 'getComputedStyle', 'setTimeout'];
+    const originals = keys.map(key => Object.getOwnPropertyDescriptor(globalThis, key));
+    let notify, layouts = 0;
+    const listeners = new Map(), floats = [], purse = {textContent: 'Your purse contains: 10C', getBoundingClientRect: () => ({left: 0, right: 100, width: 100, top: 0, height: 20})};
+    const rect = () => ({left: 0, right: 50, width: 50, height: 20});
+    globalThis.document = {hidden: false, documentElement: {dataset: {}},
+        addEventListener: (type, fn) => listeners.set(type, fn), removeEventListener: type => listeners.delete(type),
+        createElement: () => ({style: {}, setAttribute() {}, getBoundingClientRect: rect, remove() {}}),
+        createRange: () => ({selectNodeContents() {}, getBoundingClientRect: rect}),
+        body: {append: node => floats.push(node)}};
+    globalThis.MutationObserver = class {constructor(fn) {notify = fn;} observe() {} disconnect() {}};
+    globalThis.getComputedStyle = () => {layouts++; return {visibility: 'hidden'};};
+    globalThis.setTimeout = () => 0;
+    let feedback;
+    try {
+        feedback = installCoinFeedback({purse, screen: {}});
+        notify(); purse.textContent = 'Your purse contains: 12C'; notify();
+        purse.textContent = 'Your purse contains: 11C'; notify(); // Automatic charges default to no float.
+        assert.equal(layouts, 0); assert.equal(floats.length, 0);
+        listeners.get('pointerdown')({isTrusted: true});
+        purse.textContent = 'Your purse contains: 8C'; notify();
+        assert.equal(floats.length, 1); assert.equal(floats[0].textContent, '−3C');
+        notify(); assert.equal(floats.length, 1); assert.equal(layouts, 1);
+    } finally {
+        feedback?.destroy();
+        keys.forEach((key, i) => {if (originals[i]) Object.defineProperty(globalThis, key, originals[i]); else delete globalThis[key];});
+    }
 });

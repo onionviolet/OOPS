@@ -172,6 +172,16 @@ export function simulationFactsFor(state, context, registry, predicates, extra =
     for(const name of factsReadBy(predicates, new Set(extra))) if(Object.hasOwn(shared, name)) facts[name] = shared[name];
     return addInventoryRequirementFacts(facts, predicates, inventoryInputs(state, context));
 }
+// Exactly the facts `rule` reads, as simulationFacts(state, context, registry)
+// would give them (no inventory requirement additions), without copying the
+// whole dictionary when the frame holds a shared row. For rule evaluation only.
+export function simulationRuleFacts(state, context, registry, rule) {
+    const shared = peekFactsFrame(state, context, registry, () => buildSimulationFacts(state, context, registry));
+    if(!shared) return simulationFacts(state, context, registry);
+    const facts = {};
+    for(const name of factsReadBy(rule, new Set())) if(Object.hasOwn(shared, name)) facts[name] = shared[name];
+    return facts;
+}
 function buildSimulationFacts(state, context, registry) {
     const s = state.simulation, actor = context.actorId, a = state.actors[actor];
     assert(s && a, "Enroll the living-world services first.");

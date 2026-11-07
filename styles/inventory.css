@@ -57,3 +57,17 @@
 /* FC6: the session's new-item marker reads "new" in the parity shell (word, not only a dot). */
 #main_content.workspace-active[data-parity="r3"] #inventory_content_div [data-item-new] .item_name::after {content:"new";width:auto;height:auto;margin-left:round(.4em, 1px);padding:0 round(.25em, 1px);font-size:.72em;font-weight:700;line-height:1.2;vertical-align:.15em;color:var(--p23-new);background:none;box-shadow:none;border:1px solid currentColor;}
 }
+
+/* Give category labels and counts separate baselines. Equal cells remain
+   stable when a three-digit count changes; larger text never has to squeeze
+   the two strings onto one line. */
+@media (min-width:1001px) {
+#main_content.workspace-active[data-parity="r3"] .inventory-tabs > button:not(.inventory-tabs-clear) {
+    display:grid;grid-template-rows:auto auto;justify-items:center;align-content:center;
+    row-gap:var(--ui-space-1);padding:var(--ui-space-1);min-height:var(--ui-control-md);line-height:var(--ui-line-small);
+}
+#main_content.workspace-active[data-parity="r3"] .inventory-tabs .inventory-tab-count {min-width:3ch;}
+}
+/* Folded categories already live in a narrow popover. Three equal columns
+   give the longer short label room at the 21px native strike. */
+#main_content.workspace-active[data-parity="r3"] .control-box-body .inventory-tabs {grid-template-columns:repeat(3,minmax(0,1fr));}

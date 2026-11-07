@@ -1,0 +1,66 @@
+{
+  "fixture": "synthetic crowded expansion, 1500 unrelated scalar context facts",
+  "callsPerRun": 500,
+  "runsPerInput": 7,
+  "identical": true,
+  "beforeMs": 969.2583749999999,
+  "afterMs": 821.0954169999986,
+  "runs": [
+    {
+      "label": "before",
+      "ms": 830.361625
+    },
+    {
+      "label": "after",
+      "ms": 725.4896659999999
+    },
+    {
+      "label": "after",
+      "ms": 728.120584
+    },
+    {
+      "label": "before",
+      "ms": 969.2583749999999
+    },
+    {
+      "label": "before",
+      "ms": 1000.02925
+    },
+    {
+      "label": "after",
+      "ms": 859.3007909999997
+    },
+    {
+      "label": "after",
+      "ms": 1032.501292
+    },
+    {
+      "label": "before",
+      "ms": 965.303167
+    },
+    {
+      "label": "before",
+      "ms": 981.0864169999995
+    },
+    {
+      "label": "after",
+      "ms": 821.0954169999986
+    },
+    {
+      "label": "after",
+      "ms": 1088.3396249999987
+    },
+    {
+      "label": "before",
+      "ms": 964.2855409999993
+    },
+    {
+      "label": "before",
+      "ms": 1059.1384170000001
+    },
+    {
+      "label": "after",
+      "ms": 734.748458
+    }
+  ]
+}

@@ -18,17 +18,42 @@ export function worldCompletionNativeContext(state,context={}){
     return {...context,vitals,equipment};
 }
 export function worldCompletionFacts(state,context={}){
-    return normalizedWorldCompletionFacts(state,worldCompletionNativeContext(state,context));
+    return normalizedWorldCompletionFacts(state,worldCompletionNativeContext(state,context),true,false).result;
 }
-function normalizedWorldCompletionFacts(state,normalized){
-    const facts={...normalized.facts,...worldCompletionBridgeFacts(state,normalized)};
+// collect: also return this family's own facts (the facts-only API).
+// owned: normalized.facts is a fresh dictionary the caller made for this call,
+// so it is extended in place instead of copied (same keys, values and order).
+function normalizedWorldCompletionFacts(state,normalized,collect,owned){
+    // Keep the dependency dictionary for the leaf readers, but collect this
+    // family's result as it is produced. Native contexts can contain thousands
+    // of unrelated facts; do not allocate entries for all of them just to drop
+    // them at the end of each read.
+    const result={};
+    if(collect)for(const key of Object.keys(normalized.facts||{}))
+        if(key.startsWith('worldCompletion'))result[key]=normalized.facts[key];
+    const bridge=worldCompletionBridgeFacts(state,normalized);
+    const facts=owned?Object.assign(normalized.facts,bridge):{...normalized.facts,...bridge},context={...normalized,facts};
+    if(collect)Object.assign(result,bridge);
     for(const read of [worldCompletionLifeFacts,worldCompletionLensFacts,worldCompletionLearningFacts,worldCompletionMaterialsFacts])
-        Object.assign(facts,read(state,{...normalized,facts}));
-    return Object.fromEntries(Object.entries(facts).filter(([key])=>key.startsWith('worldCompletion')));
+    {
+        const next=read(state,context);
+        Object.assign(facts,next);if(collect)Object.assign(result,next);
+    }
+    return {facts,result};
 }
 export function worldCompletionContext(state,context={}){
     const normalized=worldCompletionNativeContext(state,context);
-    return {...normalized,facts:{...normalized.facts,...normalizedWorldCompletionFacts(state,normalized)}};
+    // The dependency dictionary is already a caller-owned merged projection.
+    // Reuse it here instead of copying the full native dictionary a second time
+    // for every actor context. The facts-only API still returns just its family.
+    return {...normalized,facts:normalizedWorldCompletionFacts(state,normalized,false,false).facts};
+}
+// As worldCompletionContext, for a caller whose context.facts is a fresh plain
+// dictionary it made for this one call and does not read again: that
+// dictionary is extended in place and becomes the returned facts.
+export function worldCompletionOwnedContext(state,context){
+    const normalized=worldCompletionNativeContext(state,context);
+    return {...normalized,facts:normalizedWorldCompletionFacts(state,normalized,false,true).facts};
 }
 export function validateWorldCompletionState(state,registry){
     if(state.simulation?.schema===5&&!worldCompletionEnrolled(state))throw new Error('Simulation5 requires explicit connected home-world enrollment.');

@@ -163,3 +163,25 @@
 .craft_detail_stock > summary, .craft_detail_about > summary {cursor: pointer; font-weight: var(--ui-weight-strong);}
 .craft_detail_about {margin: var(--ui-space-2) 0;}
 .craft_detail_about .craft_detail_policy {margin: var(--ui-space-1) 0; opacity: .85;}
+
+/* The process and quote share the existing expanded-center view. Each owns
+   its scroll; the quote's action remains above the controller's Back bar. */
+#main_content #center_mode_content .expanded-panel-view:has(#crafting_engine_home) {display:flex;flex-direction:column;height:100%;min-height:0;overflow:hidden;}
+#crafting_engine_home:not([hidden]) {
+    display:flex;flex-direction:column;min-height:0;box-sizing:border-box;
+    flex:1 1 auto;height:auto;overflow:hidden;
+}
+#crafting_engine_home .crafting-trial-workspace {
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--ui-space-5);
+    flex:1 1 auto;min-height:0;
+}
+#crafting_engine_home .crafting-trial-setup {min-height:0;overflow:auto;scrollbar-gutter:stable;padding-right:var(--ui-space-2);}
+#crafting_engine_home .crafting-trial-fields {grid-template-columns:minmax(0,1fr);}
+#crafting_engine_home .crafting-trial-review {display:flex;flex-direction:column;min-height:0;overflow:hidden;}
+#crafting_engine_home .crafting-trial-review > p:empty {display:none;}
+#crafting_engine_home [data-craft-detail] {display:flex;flex-direction:column;flex:1 1 auto;min-height:0;overflow:hidden;}
+#crafting_engine_home [data-craft-detail] > .craft_detail_body {flex:1 1 auto;min-height:0;overflow:auto;scrollbar-gutter:stable;}
+#crafting_engine_home [data-craft-detail] .craft_detail_actions {
+    flex:0 0 auto;background:var(--custom-background,var(--p23-context));
+    padding:var(--ui-space-2);border:1px solid var(--workspace-border);
+}

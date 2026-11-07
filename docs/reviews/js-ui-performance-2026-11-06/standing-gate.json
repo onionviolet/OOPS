@@ -1,0 +1,92 @@
+{
+ "base": "abdaedf0aba222a2580edc58d1f430210dd01135",
+ "head": "WORKTREE",
+ "headCommit": "abdaedf0aba222a2580edc58d1f430210dd01135",
+ "idleSec": 8,
+ "detMinutes": 8,
+ "host": {
+  "platform": "darwin",
+  "arch": "arm64",
+  "cpus": 18,
+  "loadavg": [
+   14.5,
+   12.4,
+   10.9
+  ],
+  "node": "v22.23.3",
+  "chrome": "156.0.8078.81",
+  "loadavgEnd": [
+   17.3,
+   14,
+   11.6
+  ],
+  "busy": false
+ },
+ "fixtures": {
+  "fresh": {
+   "fixtureBytes": 47654,
+   "nodeTickMs": 0.16,
+   "nodeTickMedianMs": 0.33,
+   "wallMs": 8002,
+   "taskBusyPct": 35.6,
+   "scriptBusyPct": 13.8,
+   "layoutsPerSec": 2.2,
+   "styleRecalcsPerSec": 72.7,
+   "longTasks": 8,
+   "longTaskMaxMs": 138,
+   "storageWritesPerMin": 60,
+   "storageKBPerMin": 9077,
+   "heapMB": 73.6,
+   "domNodes": 26415,
+   "listeners": 2844,
+   "pageErrors": [],
+   "det": {
+    "identical": true,
+    "start": 1921,
+    "baseEnd": 1929,
+    "headEnd": 1929,
+    "clock": 8,
+    "bytes": 77429,
+    "errors": []
+   }
+  },
+  "crowded": {
+   "fixtureBytes": 279175,
+   "nodeTickMs": 12.36,
+   "nodeTickMedianMs": 13.9,
+   "wallMs": 8002,
+   "taskBusyPct": 114.5,
+   "scriptBusyPct": 77.6,
+   "layoutsPerSec": 2.5,
+   "styleRecalcsPerSec": 31.6,
+   "longTasks": 39,
+   "longTaskMaxMs": 659,
+   "storageWritesPerMin": 37.5,
+   "storageKBPerMin": 23117,
+   "heapMB": 104.9,
+   "domNodes": 117953,
+   "listeners": 3389,
+   "pageErrors": [],
+   "det": {
+    "identical": true,
+    "start": 1932,
+    "baseEnd": 1940,
+    "headEnd": 1940,
+    "clock": 30,
+    "bytes": 315471,
+    "errors": []
+   }
+  }
+ },
+ "failures": [
+  "fresh.taskBusyPct 35.6 > 13",
+  "fresh.scriptBusyPct 13.8 > 7",
+  "fresh.longTasks 8 > 2",
+  "fresh.storageKBPerMin 9077 > 8200",
+  "crowded.taskBusyPct 114.5 > 78",
+  "crowded.scriptBusyPct 77.6 > 72",
+  "crowded.longTasks 39 > 12"
+ ],
+ "result": "FAIL",
+ "wallSec": 106
+}

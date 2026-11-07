@@ -1,0 +1,39 @@
+{
+  "stamp": "2026-11-07T02-30-43-001Z",
+  "bin": "/Users/weiwei/code/yet-another-idle-rpg/desktop-tauri/target/release/yairpg-tauri",
+  "idleMs": 5000,
+  "rows": [
+    {
+      "name": "base-crowded-1",
+      "variant": "base",
+      "fixture": "crowded",
+      "unthrottled": [
+        "hiddenPageDOMTimerThrottling",
+        "hiddenPageDOMTimerThrottlingAutoIncreases",
+        "pageVisibilityBasedProcessSuppression"
+      ],
+      "launchToReadyS": 9.3,
+      "domToReadyS": 6.5,
+      "visibility": "visible",
+      "gameMinPerWallS": 1.02,
+      "lagP95Ms": 334,
+      "lagMaxMs": 803,
+      "saveMedianMs": 10,
+      "misses": [
+        "private_packs/manifest.json",
+        "private_packs/manifest.json",
+        "private_packs/manifest.json",
+        "private_packs/manifest.json",
+        "private_packs/manifest.json",
+        "private_packs/manifest.json"
+      ],
+      "errors": [],
+      "failed": null,
+      "timedOut": false,
+      "expected": {
+        "clock": 1945,
+        "name": "Hero"
+      }
+    }
+  ]
+}

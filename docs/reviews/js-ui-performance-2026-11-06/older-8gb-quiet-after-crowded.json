@@ -1,0 +1,47 @@
+{
+  "build": "016ad54210e5e84c2f4fa86a5a8fc63d8e575e7f58ac0589d224a4ca6bea636a",
+  "load": [
+    6.455078125,
+    6.45556640625,
+    4.73974609375
+  ],
+  "rows": [
+    {
+      "fixture": "crowded",
+      "cpuThrottle": 1,
+      "heapBeforeMiB": 175.3510856628418,
+      "heapEndMiB": 211.17140579223633,
+      "heapKeptMiB": 178.92868423461914,
+      "heapCapacityMiB": 183.484375,
+      "domStart": {
+        "documents": 2,
+        "nodes": 51318,
+        "jsEventListeners": 5189
+      },
+      "dom": {
+        "documents": 2,
+        "nodes": 51318,
+        "jsEventListeners": 5189
+      },
+      "gameMinPerSec": 0.9997000899730081,
+      "wallMs": 10003,
+      "taskBusyPct": 59.8,
+      "scriptBusyPct": 40.3,
+      "layoutsPerSec": 3,
+      "styleRecalcsPerSec": 55.7,
+      "longTasks": 10,
+      "longTaskMaxMs": 296,
+      "storageWritesPerMin": 60,
+      "storageKBPerMin": 38469,
+      "heapMB": 210.8,
+      "domNodes": 57733,
+      "listeners": 5223,
+      "errors": []
+    }
+  ],
+  "loadEnd": [
+    6.294921875,
+    6.423828125,
+    4.767578125
+  ]
+}

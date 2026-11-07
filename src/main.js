@@ -42,7 +42,7 @@ import {installTrainingLink,trainingView} from './absorb_p23/long_life/training.
 import {validateWornTitle,selectWornTitle,wornTitleView,longLifeTitleBonuses} from './absorb_p23/long_life/worn.js';
 import {engineTimeout,engineInterval,clearEngineInterval,engineNow,stepping,testHooksEnabled,pauseEngine,resumeEngine,runEngineTicks,suspendEngine} from './simulation_clock.js';
 import {createPlanningReadFrame} from './planning_read_frame.js';
-import {withFactsFrame as withSimulationFrame} from './facts_frame.js';import {deferSimulationRender,beginSimulationRenderBatch,endSimulationRenderBatch,framedSimulationRead,deferWhileHidden} from './simulation_render.js';
+import {withFactsFrame as withSimulationFrame,withDisplayFactsFrame} from './facts_frame.js';import {deferSimulationRender,beginSimulationRenderBatch,endSimulationRenderBatch,framedSimulationRead,deferWhileHidden} from './simulation_render.js';
 import {ANTHOLOGY,ANTHOLOGY_KEY,REST_MEAL,REST_KEY,REGISTRATIONS} from './absorb_p23/reading/content.js';
 import {planReadingCommand,observeReadingClock,longRestClockRequest} from './absorb_p23/reading/runtime.js';
 import {readingPresentation} from './absorb_p23/reading/presentation.js';
@@ -4531,11 +4531,13 @@ function renderExportReward() {
     update_export_button_tooltip(Date.now() - last_rewarded_export, config.time_between_export_rewards);
 }
 function renderEffectDisplays() {update_displayed_effect_durations(); update_displayed_effects();}
-function renderClockPanels() {expeditionPanel?.render(); techniquePanel?.render(); chroniclePanel?.render(); villagePanel?.render(); simulationPanel?.render();}
+// Clock and tick refreshes are display-only passes over the committed state, like
+// renderPublicationPanels: one frame lets their panels share a single context build.
+function renderClockPanels() {withDisplayFactsFrame(expansionState,()=>{expeditionPanel?.render(); techniquePanel?.render(); chroniclePanel?.render(); villagePanel?.render(); simulationPanel?.render();});}
 // Display-only panel refreshes that every tick repeats.
-function renderTickPanels() {
+function renderTickPanels() {withDisplayFactsFrame(expansionState,()=>{
     domainRegistry.refresh();trancheFourPanel?.render();furniturePanel?.render();localLifePanel?.render();practicePanel?.render();updateWorkspace();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();livingGearPanel?.render();combatOptionsPanel?.render();householdPanel?.render();
-}
+});}
 
 /**
  * 

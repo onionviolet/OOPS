@@ -314,8 +314,8 @@ export function updateWorkspace() {
     // recommend them (WX11); shell_composition.js reads this list.
     setAttribute(owner.root,'data-shell-companions-placed',Object.entries(currentPlacement()?.companions||{}).filter(([,slot])=>slot==='actions').map(([box])=>LEADS[box]).join(' '));
     setAttribute(owner.root,'data-shell-companion-swap',String(!!currentPlacement()?.swap&&owner.root.dataset.parity==='r3'));
-    owner.root.dataset.parityExpanded=String(document.getElementById('center_mode_navigation')?.dataset.centerMode?.startsWith('workspace:')===true);
-    owner.root.dataset.workspaceComposition=owner.composition&&!owner.narrow&&owner.context==='play'?'proto23':'';
+    setData(owner.root,'parityExpanded',String(document.getElementById('center_mode_navigation')?.dataset.centerMode?.startsWith('workspace:')===true));
+    setData(owner.root,'workspaceComposition',owner.composition&&!owner.narrow&&owner.context==='play'?'proto23':'');
     revealArmed(); // start the settle clock on the first pass after the start screen closes
     const focused = document.activeElement; const counts = {};
     ['left','center','right'].forEach((d,i) => setStyle(owner.board, `--workspace-${d}`, `${owner.layout.columns[i]}fr`));

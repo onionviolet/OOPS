@@ -1,4 +1,5 @@
 import {registerDomain} from './domain_registry.js';
+import {withDisplayFactsFrame} from './facts_frame.js';
 import {check} from './basics.js';
 import {commitSimulationCommand, previewSimulationCommand} from './simulation.js';
 import {pursuitView} from './pursuit.js';
@@ -163,8 +164,12 @@ function move(request) {
         {moveId: request.moveId, targetId: request.targetId, allyId: request.allyId, orderId: request.orderId, aim: request.aim !== undefined ? request.aim : ['jab', 'swing'].includes(request.moveId) ? aim : null}, state.sequence);
     ports.commit(plan); applyHarm(plan);
 }
+// A view only quotes the committed state. Its four quotes share one context build.
 function view() {
     if(!ports) return {visible: false};
+    return withDisplayFactsFrame(ports.root(), readView);
+}
+function readView() {
     const b = open();
     if(b) return {visible: true, fight: {...tempoView(b), aim}, held: b.held};
     const quote = startQuote(), facts = ports.root().actors.player.facts;

@@ -21,6 +21,7 @@ export function withSimulationFrame(key, run) {
     const outer = frame; frame = {key, values: new Map()};
     try {return run();} finally {frame = outer;}
 }
+export const inSimulationFrame = key => frame?.key === key;
 export function framedSimulationRead(key, name, build, copy) {
     if(!frame || frame.key !== key) return build();
     if(!frame.values.has(name)) frame.values.set(name, build());
