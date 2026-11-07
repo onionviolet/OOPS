@@ -35,20 +35,39 @@ const lessonOpen = (state, l) => {
     return !!house && inTerm(state) && lessonAvailability(l.schedule, leadMinute(state)).available;
 };
 const powerOf = state => state?.simulation?.powers?.player?.[HP_LEVITATION];
-export function levitateChance(mastery = 0) {
-    const row = HP_SPELL_ROWS[0];
-    return Math.min(1 - row.floor, Math.max(0, 1 - failureChance({failure: row.failure}, mastery, 0)));
+// W11-C library study (book_world_hp_inquiry.js owns the sessions). A finished own study is the knowledge fact below at stage
+// 'understood' in the player's knowledge (the inquiry's output; a note read second hand is 'interpreted' and earns no bonus).
+// Dial with reason: +10 points on the lesson's chance, the worth of one more practice try, because knowing why the motion works
+// helps the hand but is not the practice. The sum still respects each lesson's own cap.
+export const HP_STUDY = Object.freeze({charms: Object.freeze({inquiry: 'study.hp.charms', key: 'study.hp.charms.writeup'}),
+    potions: Object.freeze({inquiry: 'study.hp.potions', key: 'study.hp.potions.writeup'}), bonus: 0.1});
+const studied = (state, topic) => state?.simulation?.knowledge?.player?.[HP_STUDY[topic].key]?.stage === 'understood';
+export const hpStudyBonus = (state, topic) => studied(state, topic) ? HP_STUDY.bonus : 0;
+/** The library is open to a sorted first year in term (same calendar owner as the lessons); returns a reason when not. */
+export function hpLibraryReason(state) {
+    const f = state?.actors?.player?.facts || {};
+    if(state?.actors?.player?.worldId !== `${P}.world` || !f[AT_SCHOOL]) return 'The school library is open once you are at Hogwarts.';
+    if(!f[HP_HOUSE_FACT]) return 'You are not sorted yet; the library asks which house you belong to.';
+    try { if(!inTerm(state)) return 'The library is shut for the holidays.'; } catch { return 'The library is shut just now.'; }
+    return '';
 }
+// Two-argument forms are separate names: tests and callers map the one-argument forms over arrays (index would be read as a bonus).
+const levitateWith = (mastery, bonus) => {
+    const row = HP_SPELL_ROWS[0];
+    return Math.min(1 - row.floor, Math.max(0, 1 - failureChance({failure: row.failure}, mastery, 0) + bonus));
+};
+export const levitateChance = mastery => levitateWith(mastery ?? 0, 0);
 // Potions chance: 50% to start, 2 points per Alchemy xp (a class is worth 5 or 2 xp), at most 95%. Reason: a written, supervised recipe
 // is easier than a first spell, and the skill is the only record of practice (no second counter).
-export const brewChance = (xp = 0) => Math.min(0.95, 0.5 + 0.02 * Math.max(0, xp));
+const brewWith = (xp, bonus) => Math.min(0.95, 0.5 + 0.02 * Math.max(0, xp) + bonus);
+export const brewChance = (xp = 0) => brewWith(xp, 0);
 // Facts for the simulation (called from hpFacts for the lead life). Always defined so outcome weights resolve at any time.
 export function hpLessonFacts(state, context = {}) {
     let charms = false, potions = false;
     try { charms = lessonOpen(state, HP_LESSONS.charms); potions = lessonOpen(state, HP_LESSONS.potions); } catch { /* calendar not ready: closed */ }
     return {[HP_LESSONS.charms.fact]: charms, [HP_LESSONS.potions.fact]: potions,
-        'hp.lead.levitateChance': levitateChance(powerOf(state)?.mastery ?? 0),
-        'hp.lead.brewChance': brewChance(context.gameplay?.player?.skills?.Alchemy?.xp ?? 0)};
+        'hp.lead.levitateChance': levitateWith(powerOf(state)?.mastery ?? 0, hpStudyBonus(state, 'charms')),
+        'hp.lead.brewChance': brewWith(context.gameplay?.player?.skills?.Alchemy?.xp ?? 0, hpStudyBonus(state, 'potions'))};
 }
 // Read model for the panel and the status lines. Empty until the player is at school and sorted (so a summer life shows nothing new).
 export const HP_LESSON_CONSTANTS = Object.freeze({CLASS, SLOT, HP_HOUSE_FACT, AT_SCHOOL});
@@ -64,8 +83,8 @@ export function hpLessonView(state, context = {}) {
             reason: open ? '' : term ? `${l.label} is taught ${l.when}. ${a.window.reason}` : `${l.label} is taught ${l.when}; there are no lessons in the holidays.`};
     });
     const spells = HP_SPELL_ROWS.filter(r => powerOf(state)?.owned).map(r => ({key: r.key, label: r.label, channels: [...r.channels], practice: power.mastery ?? 0,
-        successChance: Math.round(levitateChance(power.mastery ?? 0) * 100),
-        line: `${r.label} · practised ${power.mastery ?? 0} time${(power.mastery ?? 0) === 1 ? '' : 's'} · about ${Math.round(levitateChance(power.mastery ?? 0) * 100)}% to lift the feather`}));
+        successChance: Math.round(levitateWith(power.mastery ?? 0, hpStudyBonus(state, 'charms')) * 100),
+        line: `${r.label} · practised ${power.mastery ?? 0} time${(power.mastery ?? 0) === 1 ? '' : 's'} · about ${Math.round(levitateWith(power.mastery ?? 0, hpStudyBonus(state, 'charms')) * 100)}% to lift the feather${hpStudyBonus(state, 'charms') ? ' (you studied why it works)' : ''}`}));
     const k = state.simulation?.knowledge?.player || {};
     return {lessons, spells, last: [k[`${P}.charms_last`]?.value, k[`${P}.potions_last`]?.value].filter(Boolean)};
 }

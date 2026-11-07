@@ -18,6 +18,7 @@ import {hpDutySet} from './book_world_hp_duties.js';
 import {HP_AT_SCHOOL_FACT} from './book_world_hp_duties.js';
 import {hpLessonView,keepClassSlot} from './book_world_hp_lessons.js';
 import {domainRegistry} from './domain_registry.js';
+import {hpStudyRows,hpStudyStart,hpStudyWriteNote} from './book_world_hp_inquiry.js';
 import {hpPositions,hpPositionLine,HP_HOUSE_FACT,HP_HOUSES} from './book_world_hp_positions.js';
 const LEAD_ID='book.hp.lead';
 const EMPTY_ARC=Object.freeze({id:`${LEAD_ID}.arc`,title:'Nothing authored yet',completed:0,total:0,done:false,next:null,aftermath:null,conclusion:null});
@@ -63,5 +64,5 @@ export function registerHpLeadDomain(register,getState,ports=null,data){
     if(ports)registerOwnHoldings(`${LEAD_ID}.world`,{purse:'no money of your own',items:'You carry nothing of your own.',body:'Your body here is not the Village hero\'s sheet.'},hpLeadHoldingsReaders());
     registerHpPeopleSource();
     return register({id:'hp',deps:[],projection:()=>hpLeadProjection(getState(),data),refresh:()=>panel?.render(),
-        panels:ports?[()=>{panel=createHpLeadPanel({project:()=>hpLeadProjection(getState(),data),read:ports.read,command:ports.command,keepSlot:()=>keepClassSlot(domainRegistry)});}]:[]});
+        panels:ports?[()=>{panel=createHpLeadPanel({project:()=>hpLeadProjection(getState(),data),read:ports.read,command:ports.command,keepSlot:()=>keepClassSlot(domainRegistry),study:{rows:()=>hpStudyRows(domainRegistry),start:id=>hpStudyStart(domainRegistry,id),writeNote:id=>hpStudyWriteNote(domainRegistry,id)}});}]:[]});
 }

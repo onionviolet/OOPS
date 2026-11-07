@@ -10,9 +10,18 @@
 // inquiry is play history, not a promise). An older build ignores the key and drops it on its next save (lossy
 // downgrade, taken under the 2026-10-17 compatibility deferral). Not carried across resume/branch yet.
 //
-// Notes as objects (losable, copyable) are ACCOUNT FOR NOW: a source is {kind, id, coverage}, so a later note item can be
-// a source of kind 'item' that names the inquiry id; no item is built here.
+// Notes as objects (W11-C): once an inquiry is done its write-up can be held as a note item, key
+// {"id":"study.note","inquiry":<id>,"by":<actor>}, in the actor's ordinary inventory (so existing item rules lose, gift or
+// copy it). Reading a held note writes the inquiry's facts into the reader's knowledge at 'interpreted' (second hand), with
+// cause `note:<id>`; the reader's own later work upgrades them. The note adds no save field of its own.
+// Time spent (W11-C): a definition may carry `session` {minutes}, `gate(state, plan)` (a reason string when it cannot run) and
+// `evidence(state, plan)` (a running total from the world's own facts). Hooks are code, never saved. `work` spends the session
+// through the same plan(minutes) route as other timed domain acts, adds the minutes to the record and re-reads evidence.
 import {registerDomain} from './domain_registry.js';
+import {readItemKey} from './inventory_key.js';
+import {stageAcquisition} from './acquisition.js';
+import {inventory, writeInventory} from './simulation_effects.js';
+import {NOTE_ITEM_ID} from './inquiry_note_item.js';
 
 export const INQUIRY_FAMILY = 'inquiry@1';
 export const METHODS = Object.freeze(['read', 'observe', 'experiment', 'ask', 'derive', 'divine', 'translate', 'compare']);
@@ -32,9 +41,12 @@ export function defineInquiry(def) {
     check(Array.isArray(def.sources) && def.sources.every(s => s && idOk(s.kind) && idOk(s.id) && (s.coverage == null || text(s.coverage))), 'Invalid inquiry sources.');
     check(def.need && count(def.need.minutes) && count(def.need.evidence) && (def.need.minutes + def.need.evidence) > 0, 'Invalid inquiry need.');
     check(text(def.risk), 'An inquiry names what a wrong or early answer costs.');
+    check(def.session == null || (def.session && count(def.session.minutes) && def.session.minutes > 0), 'Invalid inquiry session.');
+    check((def.gate == null || typeof def.gate === 'function') && (def.evidence == null || typeof def.evidence === 'function'), 'Inquiry hooks are functions.');
     check(Array.isArray(def.outputs) && def.outputs.length > 0 && def.outputs.every(o => o && idOk(o.key) && STAGES.includes(o.stage) && text(o.value)), 'Invalid inquiry outputs.');
     return Object.freeze({...def, sources: Object.freeze(def.sources.map(s => Object.freeze({...s}))), need: Object.freeze({...def.need}),
-        outputs: Object.freeze(def.outputs.map(o => Object.freeze({...o}))), actor: def.actor ?? 'player'});
+        outputs: Object.freeze(def.outputs.map(o => Object.freeze({...o}))), actor: def.actor ?? 'player',
+        ...(def.session ? {session: Object.freeze({...def.session})} : {})});
 }
 
 export const freshInquiries = () => ({family: INQUIRY_FAMILY, records: {}});
@@ -79,7 +91,8 @@ export function stepInquiry(slice, def, {effort = {}, at, knowledge}) {
     const effects = [];
     if(effortMet(def, rec)) for(const o of def.outputs) {
         if(rec.wrote.includes(o.key)) continue;
-        if(!knowledge[o.key]) { knowledge[o.key] = {stage: o.stage, value: o.value, at, cause: `inquiry:${def.id}`}; effects.push(o.key); }
+        // A fact that arrived second hand from a note (cause `note:`) is upgraded by the actor's own finished work.
+        if(!knowledge[o.key] || String(knowledge[o.key].cause).startsWith('note:')) { knowledge[o.key] = {stage: o.stage, value: o.value, at, cause: `inquiry:${def.id}`}; effects.push(o.key); }
         rec.wrote.push(o.key);
     }
     return {slice: {...slice, records: {...slice.records, [def.id]: rec}}, effects};
@@ -115,9 +128,66 @@ function record({id, effort} = {}) {
     return {...inquiryView(slice, def), wroteNow: effects};
 }
 const view = ({id} = {}) => inquiryView(slice, known(id));
+const isDone = (def, rec) => !!rec && def.outputs.every(o => rec.wrote.includes(o.key));
+
+/** The inventory key of a note for an inquiry, and the inquiry id a held key names (null for any other key). */
+export const noteKey = (inquiryId, by = 'player') => JSON.stringify({id: NOTE_ITEM_ID, inquiry: inquiryId, by});
+export const noteInquiryId = key => { const k = readItemKey(key); return k && k.id === NOTE_ITEM_ID && idOk(k.inquiry) ? k.inquiry : null; };
+
+/** Can a session of this inquiry run now, and why not. Total: a missing port or a throwing gate becomes a reason. */
+function quote({id} = {}) {
+    const def = known(id);
+    let reason = '', plan = null;
+    if(!ports?.plan) reason = 'The game is not ready to study yet.';
+    else try { plan = ports.plan(0); } catch(e) { reason = e.message; }
+    if(!reason && !def.session) reason = 'This is not something you sit down and study.';
+    if(!reason && ports.writable && !ports.writable()) reason = 'Use the writable game tab to study.';
+    if(!reason && isDone(def, slice.records[def.id])) reason = 'You have already worked this out.';
+    if(!reason && plan.state.simulation?.jobs?.length) reason = 'Finish what you are doing first.';
+    if(!reason && def.gate) try { reason = def.gate(plan.state, plan) || ''; } catch(e) { reason = e.message; }
+    return {...inquiryView(slice, def), eligible: !reason, reason, minutes: def.session?.minutes ?? 0};
+}
+/** Command: spend one session on the inquiry. Quote, then revalidate on the advanced plan (AR7); rolls the slice back on a failed commit. */
+function work({id} = {}) {
+    const def = known(id), q = quote({id});
+    check(q.eligible, q.reason);
+    const base = ports.plan(0).state.clock, plan = ports.plan(def.session.minutes);
+    check(plan.state.clock - base === def.session.minutes, 'The time could not pass just now.');
+    const prev = slice.records[def.id]?.effort ?? {minutes: 0, evidence: 0}, knowledge = ((plan.state.simulation.knowledge[def.actor] ||= {}));
+    const effort = {minutes: prev.minutes + def.session.minutes, evidence: def.evidence ? def.evidence(plan.state, plan) : prev.evidence + 1};
+    const before = slice, {slice: next, effects} = stepInquiry(slice, def, {effort, at: plan.state.clock, knowledge});
+    slice = next;
+    try { ports.commit(plan); } catch(e) { slice = before; throw e; }
+    return {...inquiryView(slice, def), wroteNow: effects, spent: def.session.minutes};
+}
+/** Command: write a finished inquiry up as a held note. One call, one copy (copying a note is writing it again). */
+function writeNote({id} = {}) {
+    const def = known(id);
+    check(ports?.plan && ports.commit, 'The game is not ready to record that yet.');
+    check(!ports.writable || ports.writable(), 'Use the writable game tab to write this up.');
+    check(isDone(def, slice.records[def.id]), 'Work it out before you write it up.');
+    const plan = ports.plan(0), key = noteKey(def.id, def.actor);
+    writeInventory(plan, def.actor, stageAcquisition({owner: inventory(plan, def.actor)}, {grants: [{owner: 'owner', key, count: 1}]}).owner);
+    (plan.acquisitions ||= []).push({owner: def.actor, key, count: 1});
+    ports.commit(plan);
+    return {key, inquiry: def.id};
+}
+/** Command: read a note you hold. Writes the inquiry's facts into the reader's knowledge (second hand) and changes no record. */
+function readNote({key, actor = 'player'} = {}) {
+    const id = noteInquiryId(key), def = id && defs.get(id);
+    check(def, 'You cannot make anything of that note.');
+    check(ports?.plan && ports.commit, 'The game is not ready to record that yet.');
+    check(!ports.writable || ports.writable(), 'Use the writable game tab to read it.');
+    const plan = ports.plan(0);
+    check((inventory(plan, actor)[key] ?? 0) > 0, 'You do not hold that note.');
+    const knowledge = ((plan.state.simulation.knowledge[actor] ||= {})), wroteNow = [];
+    for(const o of def.outputs) if(!knowledge[o.key]) { knowledge[o.key] = {stage: 'interpreted', value: o.value, at: plan.state.clock, cause: `note:${def.id}`}; wroteNow.push(o.key); }
+    if(wroteNow.length) ports.commit(plan);
+    return {inquiry: def.id, wroteNow};
+}
 
 registerDomain({id: 'inquiry', deps: [], initialState: freshInquiries,
     save: () => isEmpty(slice) ? undefined : structuredClone(slice), // an untouched life writes no key
     validate: validateInquiries, migrate: migrateInquiries, load: s => { slice = migrateInquiries(s); },
     projection: () => ({inquiries: [...defs.values()].map(d => inquiryView(slice, d))}),
-    commands: {record, view}});
+    commands: {record, view, quote, work, writeNote, readNote}});
