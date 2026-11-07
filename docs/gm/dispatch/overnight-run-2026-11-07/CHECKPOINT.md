@@ -5,7 +5,7 @@ state: drafted
 viewport: n/a
 persistence: n/a
 review: none
-tests: npm test 5591 pass, 0 fail, 5 skip (wave 7 fold)
+tests: npm test 5596 pass, 0 fail, 5 skip (wave 8 fold)
 ```
 
 # Overnight foundation run, 2026-11-07
@@ -190,15 +190,37 @@ A second worktree (`lanes2`, detached at `e45b11c70`) keeps the lanes off the tr
 
 **N, AT17 first slice (returned 06:10, checked; prototype under AD32).** New `src/recurring_people.js` (`defineRole` registers a promotable role without provisioning, `installRoleDefinitions`, `roleRegistered`, idempotent `promoteRole` over the `spawn` effect). `src/book_world_lotm_constables.js` defines the two constables and promotes them when the door fight opens (opener `promote`); its Tingen reader skips a constable who already has knowledge of the player (F5) and `recordDoorSight` stops writing once they are persistent. `src/tempo_fight_domain.js`: one line in `begin()` calls `opener.promote` before the commit, so W6-A's writer records their sight. New `tests/recurring_people.test.js` (5: untouched bytes, people and knowledge after a fight, encode/import/reload, no double spawn or re-promotion on rewind, one witness row per constable). Lane: 98/98 + LOTM 375/0, check:arch, check:rules 0 new. **Coordinator wiring:** the lane could not install definitions without an import cycle, so a promoted save would have failed to load (F1); the coordinator added `installRoleDefinitions(registry)` at `createLotmHost` (`src/book_world_lotm_host.js`), which the LOTM domain builds at startup; focused 422/422 (recurring, constables, authority, LOTM); updated the comment in `src/authority_sources_lotm.js`; SAVES.md row (forward only). Build `5fe3ff94...02d2`, check:rules pass, doc slips clean, npm test 5591 pass / 0 fail / 5 skip; committed with the atlas refresh section. Not covered: native walk of a door fight and a reload of the promoted save; witness wording now follows the observer's knowledge ("fought you and lost") instead of the door wording; a second fight replaces the first sight. State: implemented, below floor.
 
+**Commit `388d25a6f` (06:25).** Wave 7 (lane N with coordinator wiring) and the atlas refresh (AT27-AT31); npm test 5591/0/5. No push.
+
+## Wave 8 (06:27; usage 5-hour 58%, weekly 81%)
+
+Lookup (haiku) for second-consumer slices outside HP files and the Frontier test bed: FD11 lessons (Old Neil), FD3 ready stock, FD9 fog. Selection follows its return.
+
+Lookup returned (06:35): FD11 has a custom LOTM control lesson (`src/book_world_lotm_actions.js:62`) and an uncalled `beDivMethodLearnEffects`; FD3 fits Gu prepared moonlight petals (`src/book_world_gu_domain.js:37-40`); "FD9 fog" in the atlas is weather and light (`src/world_light.js`), while knowledge uncertainty lives in `src/knowledge_view.js` `CERTAINTY`, which Mother of Learning foreknowledge (`src/mol_zorian_loop.js:44-45`) can feed.
+
+| Lane | Slice | Model | Owned files |
+|---|---|---|---|
+| O | FD11 second world: LOTM control lesson builds through `lesson.js`, behavior-preserving | sonnet | `src/book_world_lotm_actions.js`, `src/lesson.js` (small), tests |
+| P | FD3 second world: Gu prepared petals through `ready_stock` | sonnet | `src/book_world_gu_*` (two), `src/ready_stock.js` (small), tests |
+| Q | Knowledge certainty: MoL foreknowledge reads guessed until confirmed this loop | sonnet | `src/mol_*` (two), `src/knowledge_view.js` (small), tests |
+
+**P, Gu petals on ready stock (returned 06:45, checked).** Read side only: `src/book_world_gu_domain.js` `guPetalFacts` builds the care-status line from `stockFacts` over a Gu spec (unchanged wording and counts) and the envelope validator runs `stockAssertions`. New `tests/gu_petal_stock.test.js`. Lane: 28/28 Gu and ready-stock, LOTM firearm 24/24, check:arch pass. Finding: the prepare and meal acts (`src/world_packs/book_gu_life.js`) move items, while `ready_stock` effects write resources; routing them through the seam needs an item-to-resource migration and a SAVES row. FD3's second world is therefore partial (display). State: implemented, below floor.
+
+**O, LOTM control lesson on the lesson seam (returned 06:50, checked).** `src/book_world_lotm_actions.js` builds the control lesson's knowledge effect through `lessonEffects` (same key, stage, basis and text); `lesson.js` unchanged. New `tests/lotm_control_lesson_seam.test.js` (deep-equal against the pre-move literal); `tests/lotm_commands_golden.test.js` still hashes every LOTM command byte-identical. Lane: 390 pass 0 fail over lesson and LOTM tests, HP lessons 8/8, check:arch pass; coordinator rerun below. FD11 now has two worlds on `lessonEffects` (HP, LOTM); `lessonAvailability` stays HP-only (the control lesson has no teacher window). `beDivMethodLearnEffects` stays uncalled (needs a new act and text). State: implemented, below floor (structural move, behavior identical by golden hash).
+
+**Q, MoL foreknowledge certainty (returned 06:55, checked).** `src/mol_zorian_loop.js` writes predictions at stage `interpreted` (the shared view shows guessed); new `reconcileForeknowledge(state)`, run after each Zorian command and restart from `src/book_world_mol_host.js`, sets `understood` once the calendar date is reached in this run and back otherwise; past the row's reliable days with this run diverged (`motherOfLearning.divergence`), an unconfirmed prediction keeps guessed and carries the existing stale note. `src/knowledge_view.js` unchanged. New `tests/mol_foreknowledge_certainty.test.js`; `tests/mol_zorian_restart.test.js` extended. Lane: 75/75 MoL and knowledge tests, check:arch, check:rules 0 new; coordinator 11/11 rerun. Not covered: an old save reads known until the next MoL command or restart; idle time alone does not confirm; "confirmed" means the date was reached, not that the event was observed. State: implemented, below floor.
+
+**Wave 8 fold gate (07:00).** Build `b19c616644483f4f4af2238ac24e2cf0b7f2c79aecc8897e7643367f72651a6a`; check:arch pass; check:rules 0 new strings; npm test 5596 pass / 0 fail / 5 skip. Committed (O, P, Q).
+
 ## Resume block (unattended run, 2026-11-07)
 
 Weibao, 2026-11-07 00:13: "make as much progress as possible ... use as much usage to make as much progress, and continue after the 5 hour limit and more".
 - Objective: waves of disjoint foundation slices to floor, committed from an isolated worktree, until the stop condition.
-- Input identity: master `778396479` at start; run commits `b254013c4`, `137319cba`, `db55445d8`, `bc76799bb`, `f8595bf44`, `6a185be67`, `434aa706d`; perf-8gb committed `e45b11c70` in between; dirty but not ours: the whole primary working tree at dispatch (prose, perf, rules, dist).
+- Input identity: master `778396479` at start; run commits `b254013c4`, `137319cba`, `db55445d8`, `bc76799bb`, `f8595bf44`, `6a185be67`, `434aa706d`, `388d25a6f`; perf-8gb committed `e45b11c70` in between; dirty but not ours: the whole primary working tree at dispatch (prose, perf, rules, dist).
 - State of the steps: wave 1 dispatched 00:25; A and C returned and recorded; B (walk) out. Wave 2 (D, E) dispatched 00:55.
 - Last evidence: folded wave 1-2 tree (C, D, E) built `bb58918b5b35d7b1e1a048284e737ffbd6805c63acba0d71ee5c502f13e17eb8`; check:arch pass; check:rules pass (0 new player-text strings); npm test running 01:20.
 - Failed approaches: none yet.
-- Next useful action: fold N, gate, commit; then atlas refresh section and closeout (remove `lanes2` and `checkout` worktrees); build in the isolated worktree; gates; commit own paths.
+- Next useful action: pick wave 8 from the lookup; at stop, remove `lanes2` and `checkout` worktrees; build in the isolated worktree; gates; commit own paths.
 - Usage pacing: read 00:14 EST, 5-hour 25% (resets 03:50), weekly 77% (resets Mon 13:00). Weibao's later words override the 75% weekly stop; this run's ceiling is weekly 92% (stop, leave this block current, about 8% left for his weekend). 5-hour at 85%: start no lane, wake after reset. Five other sessions share the pool.
 - Stop condition (default 92%, Weibao's dial; reason: about 8% stays his until Monday): weekly 92%, or every remaining foundation slice sits inside the collision map, or a blocker that needs Weibao. Reached? Not yet.
 

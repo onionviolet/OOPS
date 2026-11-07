@@ -5,6 +5,7 @@ import {MOL_START_ZORIAN} from './book_world_mol_starts.js';
 import {loopRule} from './harm_loops.js';
 import {WORLD_CALENDAR_PROFILES,WORLD_DAY_EVENTS} from './world_calendar_content.js';
 import {resolveWorldCalendar,dayEventsDue} from './world_calendar.js';
+import {carriedKnowledgeView} from './people_knowledge.js';
 
 export const MOL_WORLD='book.mol.cyoria';
 export const ZORIAN_LOOP_START='zorian';
@@ -51,7 +52,7 @@ function writeForeknowledge(ended,next){
   if(ev.dateBasis==='unknown'||ev.day==null||ev.day<=1)continue; // day 1 is where every run starts; nothing to foresee
   const id=`book.mol.foreknowledge.${ev.id.replace(/^mol\./,'')}`;
   if(bag[id])continue;
-  bag[id]={value:`${ev.label}: ${ev.text}`,at:next.clock,stage:'understood',cause:'book.mol.zorian.restart',basis:{kind:'recollection',attributedTo:'player',situationId:ZORIAN_RUN_SITUATION,
+  bag[id]={value:`${ev.label}: ${ev.text}`,at:next.clock,stage:'interpreted',cause:'book.mol.zorian.restart',basis:{kind:'recollection',attributedTo:'player',situationId:ZORIAN_RUN_SITUATION,
    carried:{stampDay:ev.day,carrier,sourceKind:'foreknowledge',decaysAfterDays:row.staleness.reliableDays,
     prediction:{day:ev.day,hour:ev.hour??null,text:ev.text}}}};
   written.push(id);
@@ -64,7 +65,26 @@ export function afterRunRestart(endedExpansion,nextExpansion){
  d.runStartedAt=nextExpansion.clock;
  d.runs=(endedExpansion.motherOfLearning?.runs??1)+1;
  delete d.divergence;
- return {foreknowledge:writeForeknowledge(endedExpansion,nextExpansion)};
+ const foreknowledge=writeForeknowledge(endedExpansion,nextExpansion);
+ reconcileForeknowledge(nextExpansion);
+ return {foreknowledge};
+}
+// Certainty of carried foreknowledge, on the shared view's own stages (knowledge_view certaintyOf): a prediction from an earlier run is
+// 'interpreted' (guessed) until this run has reached its date, then 'understood' (known). Once this run has diverged past the row's reliable
+// days it also carries the existing stale note as basis.uncertainty. Idempotent and derived from the run clock, so older saves
+// (written 'understood') are corrected the next time it runs. The divergence signal is motherOfLearning.divergence (G13).
+export function reconcileForeknowledge(state){
+ const e=dayEvents(state),bag=state.simulation?.knowledge?.player,t=todayFor(state);
+ if(!e||!bag||!t)return;
+ const seen=new Set(e.due.map(x=>x.id.replace(/^mol\./,''))),view=new Map(carriedKnowledgeView(state,t).map(r=>[r.id,r]));
+ for(const [id,r] of Object.entries(bag)){
+  const c=r.basis?.carried;
+  if(!id.startsWith('book.mol.foreknowledge.')||c?.sourceKind!=='foreknowledge')continue;
+  const confirmed=seen.has(id.slice('book.mol.foreknowledge.'.length));
+  r.stage=confirmed?'understood':'interpreted';
+  const stale=!confirmed&&view.get(id)?.status==='stale';
+  if(stale)r.basis.uncertainty=view.get(id).note;else if(r.basis.uncertainty)delete r.basis.uncertainty;
+ }
 }
 // Player-facing run line for the campaign section: where the seat is in the month, and what a restart keeps.
 export function runText(state){

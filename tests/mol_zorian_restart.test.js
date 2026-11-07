@@ -45,6 +45,9 @@ import {loopStartOf,todayFor,monthEnded,CARRIER_CODE} from '../src/mol_zorian_lo
 import {loopPlan,loopRule} from '../src/harm_loops.js';
 import {carriedKnowledgeView} from '../src/people_knowledge.js';
 import {worldDayNews} from '../src/world_calendar.js';
+import {knowsRows} from '../src/knowledge_view.js';
+import {reconcileForeknowledge} from '../src/mol_zorian_loop.js';
+const certainty=e=>Object.fromEntries(knowsRows({knowledge:()=>e.simulation.knowledge.player,facts:()=>({})}).filter(r=>r.key.includes('foreknowledge')).map(r=>[r.key.split('.').pop(),r.certainty]));
 // G7/G8/G11/G13 (Zorian stage record): the month-end and death restarts through the existing continuation route.
 const DAY=1440,Z1='book.mol.zorian.s1.';
 // A native-shaped save around the expansion state; clock and the native date move together (one day = 1440 minutes).
@@ -118,6 +121,19 @@ test('G7 month end: the date restart returns the day, keeps the soul-bound memor
  assert.deepEqual(view.map(r=>[r.id.split('.').pop(),r.stampDay,r.status]),[['school_dance',15,'reliable'],['month_end',30,'reliable']]);
  assert.equal(view[0].prediction.check,'upcoming');assert.equal(view[0].carrier,'self');
  assert.equal(next.continuation.lives['life-1'].ended,undefined);
+ // foreknowledge reads as guessed until this run reaches the date, on the shared view's own mapping
+ assert.deepEqual(certainty(e),{school_dance:'guessed',month_end:'guessed'});
+ // an older save wrote these 'understood' (known); the next reconcile reads them by the run clock, current-loop facts are untouched
+ const old=structuredClone(e);for(const r of Object.values(old.simulation.knowledge.player))if(r.basis?.carried)r.stage='understood';
+ assert.equal(certainty(old).school_dance,'known');reconcileForeknowledge(old);assert.deepEqual(certainty(old),{school_dance:'guessed',month_end:'guessed'});
+ assert.equal(old.simulation.knowledge.player['book.mol.invocation'].stage,e.simulation.knowledge.player['book.mol.invocation'].stage);
+ // confirmed: this run reaches day 15, the dance date falls due and the prediction reads as known; month_end stays guessed
+ const later=structuredClone(e);later.clock+=16*DAY;reconcileForeknowledge(later);
+ assert.deepEqual(certainty(later),{school_dance:'known',month_end:'guessed'});
+ // diverged past the row's reliable days and still unconfirmed: still guessed, with the existing stale note
+ later.motherOfLearning.divergence={day:2,cause:'x'};reconcileForeknowledge(later);
+ assert.equal(later.simulation.knowledge.player['book.mol.foreknowledge.month_end'].basis.uncertainty,'The world has moved on; check before relying on this.');
+ assert.equal(later.simulation.knowledge.player['book.mol.foreknowledge.school_dance'].basis.uncertainty,undefined,'a confirmed one is not stale');
 });
 // G11: the two replayed beats are lr.mol.main.00203 (Essential Invocations, Monday; next 00204 same Monday) and 00205 (training hall, Tuesday;
 // next 00206 same Tuesday at the spell formula classroom). Each next beat states place and day, so the canon pull is place and presence:

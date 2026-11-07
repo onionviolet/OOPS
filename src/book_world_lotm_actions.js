@@ -31,6 +31,7 @@ import './book_world_lotm_organizations.js'; // registers the lane F groups proj
 import './book_world_lotm_livelihoods.js'; // registers the lane E livelihood source
 import {lifeCommands,LOTM_PROFILES,profileKeyOf,weeksOwed} from './book_world_lotm_lives.js';
 import {LOTM_DISTRICTS,districtOfPlace,districtCommands,districtFacts,onShift,roleOutcomeFacts} from './book_world_lotm_districts.js';
+import {lessonEffects} from './lesson.js';
 import {makeBatchRef,describeBatch} from './batch_identity.js';
 const acted=()=>({type:'resource',actor:'player',key:'book.lotm.acting',amount:1}),undigested=not(gte('lotm.acting',LOTM_DIGEST_ACTS));
 const sample=name=>K[name];
@@ -62,7 +63,7 @@ const baseCommands=[
  cmd('lesson','Take the control lesson: learn bounded material perception · 1 spirituality, '+LOTM_PRACTICE_MINUTES+' min',L.workroom,{targetId:I.supervisor,
   requires:all(has('stabilized'),no('methodLearned'),eq('lotm.sourceSupported'),gte('lotm.supervisorAttention',1)),duration:LOTM_PRACTICE_MINUTES,cancellation:'forfeit',
   costs:[use(),attention()],effects:[{type:'power',actor:'player',powerId:I.method,operation:'learn'},af('methodLearned'),
-   know('method','You can now deliberately look at one material in front of you and end the sight. It costs spirituality and tires you; it shows presence at the material, not identity, safety or future. Ending the sight stops new cost; it does not undo fatigue.','player','player','instruction','understood')]}),
+   ...lessonEffects({key:'book.lotm.method',situationId:I.situation,value:'You can now deliberately look at one material in front of you and end the sight. It costs spirituality and tires you; it shows presence at the material, not identity, safety or future. Ending the sight stops new cost; it does not undo fatigue.'})]}),
  ...sampleCommands,
  // Seer acting principle: peek at fate, but fear it. Each act is one completed role, not a meter tick.
  cmd('act_reading','Answer a client from the request ledger with a hedged reading · 1 spirituality, '+LOTM_READING_MINUTES+' min',L.workroom,{once:false,
