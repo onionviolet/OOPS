@@ -170,6 +170,14 @@ async function typing(c) {
     await c.tool('game_click', {sessionId: 'typing', index: field.index, value: 'bread'});
     const after = await c.tool('game_look', {sessionId: 'typing'});
     assert.match(after.screen, /Stale bread/); assert.doesNotMatch(after.screen, /Cheap leather pants/, 'typed text filters the list');
+    // Named scopes: the Reports log and a panel by its listed title.
+    const log = await c.tool('game_look', {sessionId: 'typing', scope: 'reports'});
+    assert.match(log.screen, /Started a new quest/); assert.doesNotMatch(log.screen, /Stale bread/, 'reports scope is the log only');
+    const shut = (await c.rpc('tools/call', {name: 'game_look', arguments: {sessionId: 'typing', scope: 'panel:Market courtyard'}})).result;
+    assert.equal(shut.isError, true, 'a closed panel says so instead of returning nothing');
+    await c.tool('game_click', {sessionId: 'typing', panel: 'management'});
+    const court = await c.tool('game_look', {sessionId: 'typing', scope: 'panel:Market courtyard'});
+    assert.match(court.screen, /Courtyard charter/); assert.doesNotMatch(court.screen, /Started a new quest/, 'panel scope is that panel only');
     const refused = (await c.rpc('tools/call', {name: 'game_click', arguments: {sessionId: 'typing', index: 0, value: 'x'}})).result;
     assert.equal(refused.isError, true, 'a button is not a text field');
     await c.tool('game_close', {sessionId: 'typing'});

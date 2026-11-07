@@ -78,10 +78,28 @@ function look({scope, offset = 0, view} = {}) {
     return {...full, actions: full.actions.slice(offset, offset + 80)};
 }
 
+// Named scopes a player can discover: "reports" is the Reports log; "panel:<title>" is a panel by the title the
+// All panels list shows (e.g. "panel:Known things"). Anything else is a CSS selector, as before.
+const NAMED_SCOPES = {reports: '#message_box_div'};
+function scopeRoot(g, scope) {
+    if(!scope) return g.document.body;
+    if(NAMED_SCOPES[scope]) return g.document.querySelector(NAMED_SCOPES[scope]);
+    const m = /^panel:(.+)$/.exec(scope);
+    if(m) {
+        const title = m[1].trim().toLowerCase();
+        const label = el => (el.getAttribute('aria-label') || g.document.getElementById(el.getAttribute('aria-labelledby') || '')?.textContent || '').trim().toLowerCase();
+        // An opened panel's node can move into the center view and leave its dock shell hidden, so any labelled region counts; a visible one wins.
+        const hits = [...g.document.querySelectorAll('[data-panel-kit], section[aria-label], [role="region"][aria-label]')].filter(el => label(el) === title);
+        const open = hits.find(el => !g.hiddenReason(el));
+        if(!open && hits.length) throw new Error(`Panel "${m[1].trim()}" is not open; open it with game_click({panel}) first.`);
+        return open || null;
+    }
+    return g.document.querySelector(scope);
+}
 function lookFull({scope, offset = 0, all = false} = {}) {
     const g = need();
-    const root = scope ? g.document.querySelector(scope) : g.document.body;
-    if(!root) throw new Error(`No view for ${scope}`);
+    const root = scopeRoot(g, scope);
+    if(!root) throw new Error(`No view for ${scope}. Use a CSS selector, "reports", or "panel:<title>" with a title from the All panels list.`);
     last = controls(g).filter(c => root === c.el || root.contains(c.el));
     offset = Math.max(0, Math.floor(Number(offset) || 0));
     return {
