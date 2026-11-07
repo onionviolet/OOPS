@@ -43,6 +43,19 @@ export function settleMisses(slice, defs, minute) {
     }
     return {slice: {...slice, missed, closed}, newMisses};
 }
+// A duty set that is inactive (holidays, before the life is at school) owes nothing for that stretch: close its cycles without counting,
+// so they are not charged as misses when the set becomes active again. Only a def already tracked (`closed` set) moves.
+export function skipInactive(slice, defs, minute) {
+    const closed = {...slice.closed};
+    let moved = false;
+    for(const d of defs) {
+        if(closed[d.id] == null) continue;
+        validateSchedule(d.schedule);
+        const next = lastClosedCycle(d.schedule, minute) + 1;
+        if(next > closed[d.id]) { closed[d.id] = next; moved = true; }
+    }
+    return moved ? {...slice, closed} : slice;
+}
 // ---- Dues with a standing order (OB1/OB2/OB4). A def may carry `policy` {default, allowed?, reason} and `dues` {amount (pence), basis,
 // payer text, lateCycles (dial), steps:[{atMisses, kind, line}] (dial)}. Defs without `dues` never reach this path (settleMisses is untouched).
 export const policyOf = (slice, d) => {

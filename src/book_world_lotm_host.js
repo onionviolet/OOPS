@@ -309,7 +309,7 @@ export function createLotmHost(ports){
   let sv=s,cv=c;if(!stockSeeded(s)){const t=base(s,c);seedBenchStock(t);sv=t.state;cv={...c,gameplay:t.gameplay};}
   const prevMerit=cid=>{const d=registry.simulation.commands.get(cid);if(!d)return null;const p=previewSimulationCommand(s,registry,cid,{...c,targetId:d.targetId||null});
    return {id:cid,label:d.label,eligible:p.eligible&&!ports.sleeping(),reasons:p.eligible&&ports.sleeping()?['You are asleep.']:p.reasons,visible:p.visible};};
-  const merit=f['lotm.home.evernight']?meritView(s,f,prevMerit):null;
+  const merit=f['lotm.home.evernight']&&f['lotm.beyonderTrack']?meritView(s,f,prevMerit):null;
   const bench={rows:benchRowList(s,f),selected:selected&&benchDetail(sv,cv,selected,{registry,asleep:ports.sleeping()})};
   return {enrolled:true,...(lotmCastLife(s)?{resident:true,waits:waits(s),elsewhere:castElsewhere(s),localClock:castClockLine(s),sky:skyLine(s)}:{}),pausedLife:ports.pausedLife?.()||null,merit,bench,broker:brokerView(s,f),places,marketHeld,cause:causeView(f),profile:profileKeyOf(s),entryProfile:s.lotm?.entryProfile,role:f['lotm.roleName'],clearance,district,doseLabels,beyonder:!!(f['lotm.sourceSupported']||[...pathwayRows,...generatedRows].some(r=>f[`lotm.${r.key}Supported`])),switchNotice:LOTM_SWITCH_NOTICE,at:castPlaceLabel(at),supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:lotmMeters(e),path,actingGuidance,holds,actions,moves,jobs,records};
  }

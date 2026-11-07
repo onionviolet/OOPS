@@ -2,6 +2,8 @@ import {managementPresentation} from './host.js';
 import {courtyardOrganization} from './organization_source.js';
 import {organizationView,organizationText} from '../organization_view.js';
 import {definePanel} from '../panel_kit.js';
+import './group_source.js';
+import {groupsOf,groupLines} from '../organizations.js';
 import {moneyText} from '../reveal_chain.js';
 const node=(tag,text='',attrs={})=>{const n=document.createElement(tag);n.textContent=text;for(const[k,v]of Object.entries(attrs))n.setAttribute(k,v);return n;};
 const MOVED_KEY='oops.management.movedNoticeSeen';
@@ -16,7 +18,8 @@ export function createManagementPanel({read,registry,command}) {
  const notice=node('p');notice.setAttribute('role','status');
  const overview=node('div','',{class:'organization-overview'});
  const sections=node('div'),history=node('details'),hs=node('summary','Your courtyard records'),records=node('div');history.append(hs,records);
- element.append(moved,terms,notice,overview,sections,history);
+ const groupsNote=node('p','',{class:'organization-note organization-groups','aria-label':'Groups here'});
+ element.append(moved,terms,notice,overview,groupsNote,sections,history);
  const rows=new Map(),groups=new Map();let message='',selected=null,drawn='';
  function drawOverview(org) {
   const view=org&&organizationView(org);
@@ -56,6 +59,7 @@ export function createManagementPanel({read,registry,command}) {
   const hidden=!view.visible||snapshot.inDialogue||snapshot.inCombat;element.hidden=hidden;
   notice.textContent=snapshot.error||message;notice.hidden=!notice.textContent;
   drawOverview(hidden||!view.opened?null:courtyardOrganization(snapshot.state,registry,snapshot.context));
+  groupsNote.textContent=hidden||!view.opened?'':groupLines(groupsOf(snapshot.state)).join(' ');groupsNote.hidden=!groupsNote.textContent;
   const seen=new Set(),visibleGroups=new Set();
   for(const s of view.sections) {
    visibleGroups.add(s.id);let g=groups.get(s.id);

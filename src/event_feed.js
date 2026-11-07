@@ -4,6 +4,14 @@ import {lifeRecordView} from './life_record.js';
 import {pursuitView} from "./pursuit.js";
 import {worldDayNews} from "./world_calendar.js";
 import {consequenceNews} from "./consequences.js";
+// The world an occurrence's definition pins through an `actor.world` requirement (null when it pins none). Occurrences keep no world of
+// their own, so a Frontier card seen before a crossing must not read as news in the world the player now lives in (AT26).
+const pinnedWorld = rule => {
+    if(!rule || typeof rule !== 'object') return null;
+    if(rule.fact === 'actor.world' && rule.op === 'eq') return rule.value;
+    for(const r of rule.all || []) { const w = pinnedWorld(r); if(w) return w; }
+    return null;
+};
 export function eventFeed(state, registry, facts = {}, lifeRecord = null) {
     const leads = [], news = [], actor = state.actors.player, worldId = actor.worldId;
     const destination = (panel, control) => ({view: "people", panel, control});
@@ -39,6 +47,8 @@ export function eventFeed(state, registry, facts = {}, lifeRecord = null) {
     // Never project the global simulation log: it can contain unobserved NPC acts.
     for(const e of Object.values(state.simulation?.events || {})) {
         if(!e.discoveredBy.includes("player") || state.actors[e.actorId]?.worldId !== worldId) continue;
+        const pinned = pinnedWorld(registry.simulation?.events?.get(e.definitionId)?.requires);
+        if(pinned && pinned !== worldId) continue;
         if(e.status === "open" && e.actorId === "player") leads.push({
             id:`simulation:${e.id}`, label:e.label, at:e.at,
             detail:e.expiresAt == null ? "Waiting for your response." : `${Math.max(0,e.expiresAt-state.clock)} game minutes remaining`,

@@ -2,7 +2,7 @@
 // recurring_duties.js and SAVES 6e). Imports no world (AR3/AR4): a world registers a duty set through registerDutySet and
 // supplies its own reader for "is this life enrolled" and "what minute is it". Absent or foreign slice loads fresh.
 import {registerDomain} from './domain_registry.js';
-import {freshDuties, migrateDuties, validateDuties, attendDuty, settleMisses, settleDues, dutyRows, answerMisses, setPolicy, policyOf, escalationOf, policyWords, DUTIES_FAMILY} from './recurring_duties.js';
+import {freshDuties, migrateDuties, validateDuties, attendDuty, settleMisses, settleDues, skipInactive, dutyRows, answerMisses, setPolicy, policyOf, escalationOf, policyWords, DUTIES_FAMILY} from './recurring_duties.js';
 import {dutyState} from './world_rhythm.js';
 const sets = new Map();
 let slice = freshDuties();
@@ -21,8 +21,17 @@ function live() {
     return out;
 }
 const empty = s => !Object.keys(s.lastDone).length && !Object.keys(s.missed).length && !Object.keys(s.closed).length && !Object.keys(s.policy).length && !Object.keys(s.late).length;
+// Registered sets that are not live right now: their clock is read when it can be, and the stretch is closed unaccounted.
+function skipIdle(liveSets) {
+    for(const set of sets.values()) {
+        if(liveSets.some(l => l.defs === set.defs)) continue;
+        try { const minute = set.minute(set.state?.()); if(Number.isInteger(minute) && minute >= 0) slice = skipInactive(slice, set.defs, minute); } catch { /* clock unreadable: nothing to skip */ }
+    }
+}
 function tick() {
-    for(const {defs, minute, purse, st} of live()) {
+    const liveSets = live();
+    skipIdle(liveSets);
+    for(const {defs, minute, purse, st} of liveSets) {
         if(!(Number.isInteger(minute) && minute >= 0)) continue;
         slice = settleMisses(slice, defs.filter(d => !d.dues), minute).slice;
         const dues = defs.filter(d => d.dues);

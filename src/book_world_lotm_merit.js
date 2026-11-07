@@ -23,7 +23,8 @@ export const NIGHTHAWKS=defineInstitution({id:'nighthawks',world:'lotm',name:'Ni
    text:'A sheet from an evidence box, copied by a clerk. Like any copied sheet, the church does not vouch that it is right.'},
   {id:'sunflower_lot',label:'One lot of crystal sunflower from the evidence store',kind:'ingredient',price:3,stock:2,grants:{key:SUNFLOWER.key,slug:SUNFLOWER.slug},
    text:'Seized with a smuggler\'s cache and kept in the store. Two lots are on the shelf (an authored stock).'}]});
-const home=eq('lotm.home.evernight');
+// Merit is the probationer's ledger: civil staff are paid by contract and have no assignments or store (AT24).
+const home=all(eq('lotm.home.evernight'),eq('lotm.beyonderTrack'));
 export const meritCommands=[
  ...NIGHTHAWKS.missions.map(m=>cmd(`merit_${m.id}`,`${m.label} · ${m.minutes} min · earns ${m.pay} merit`,L.workroom,{targetId:I.supervisor,once:false,requires:home,visibleWhen:home,duration:m.minutes,cancellation:'forfeit',
   effects:[counter(meritRes.earned,m.pay),know(`merit.${m.id}`,`${m.text} Merit earned: ${m.pay}.`,'player','player','observation',U)]})),
