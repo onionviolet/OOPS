@@ -79,3 +79,21 @@ test('the school route survives a private cast that replaces the household acts'
  assert.deepEqual(raw.simulation.commands.map(c=>c.id),[P+'.w1.one',ARRIVE,SORT,P+'.lesson_charms',P+'.charms_practice',P+'.lesson_potions']);
  const f=setup(raw);atDay(f,32,10);assert.equal(preview(f,ARRIVE).eligible,true);
 });
+// IDEA_AUDIT_2026-11-06 F1: a cast whose last act leaves the lead somewhere else (the real one ends away from the opening room)
+// must still reach the school. The act is committed natively, so the player's place comes from the story, not a set location.
+test('arrival leaves from where the cast story ends, not from the opening room',()=>{
+ const act=(n,place,effects)=>({id:`${P}.f1.${n}`,place,minutes:5,label:n,description:'d',report:'r',knowledgeKey:`${P}.f1.${n}.k`,operation:'use',effects});
+ const cast={schema:'hp-cast/1',locations:[{id:P+'.f1_depot',label:'Depot',description:'d'},{id:P+'.f1_road',label:'Road',description:'d'}],people:[],
+  householdActs:{acts:[act('leave',P+'.cupboard',[{type:'relocate',actor:'player',location:P+'.f1_road'}]),act('home',P+'.f1_road',[{type:'relocate',actor:'player',location:P+'.f1_depot'}])],
+   sequences:[{id:P+'.f1',title:'F1',stages:[{commandId:`${P}.f1.leave`,label:'leave'},{commandId:`${P}.f1.home`,label:'home'}]}]}};
+ const raw=withHpLeadCast(packNative(P),cast);
+ assert.equal(raw.simulation.commands.find(c=>c.id===ARRIVE).location,P+'.f1_depot');
+ assert.equal(packNative(P).simulation.commands.find(c=>c.id===ARRIVE).location,P+'.cupboard','the public stub keeps its departure');
+ const f=setup(raw);run(f,`${P}.f1.leave`);run(f,`${P}.f1.home`);
+ assert.equal(f.plan.state.simulation.people.player.location,P+'.f1_depot');
+ atDay(f,31,1000);assert.equal(preview(f,ARRIVE).eligible,false,'still waits for 1 September');
+ atDay(f,32,10);const p=preview(f,ARRIVE);assert.equal(p.eligible,true,p.reasons.join(' '));
+ const s=run(f,ARRIVE);assert.equal(s.simulation.people.player.location,P+'.school_hall');assert.equal(s.actors.player.facts['hp.lead.atSchool'],true);
+ const reloaded=loadExpansionState(JSON.parse(JSON.stringify(s)),f.registry);
+ assert.equal(reloaded.simulation.people.player.location,P+'.school_hall');assert.equal(preview({...f,plan:{...f.plan,state:reloaded}},SORT).eligible,true);
+});
