@@ -20,11 +20,15 @@ import {mountWorkroomTabs, WORKROOM_TABS} from './book_world_lotm_tabs.js';
 import {lotmPositionsFromView,lotmPositionLine} from './book_world_lotm_positions.js';
 import {GUARD_POSITION_ID,guardPayWords} from './book_world_lotm_guard.js';
 import {LOTM_GUARD_DUTY_ID} from './book_world_lotm_duties.js';
+import {lotmLibraryQuote,lotmLibraryStudy} from './book_world_lotm_inquiry.js';
+import {channelNote} from './channels.js';
+import {owedLedgerView} from './owed_ledger_view.js';
+import {readOwedLedger,settleOwed} from './owed_ledger_sources.js';
 const node=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;return n;};
 export const lotmPanelTitle=v=>v.resident?v.at:'Tingen workroom';
 // Surface type: place service (UR1). Home: the main workspace, discovered inside the Tingen
 // branch and in the Village, where its starts begin. Warden Hale runs the workroom; the lodging is where you sleep.
-export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,setOrder,resign,signGuard,collectGuard}){
+export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,setOrder,resign,signGuard,collectGuard,readOwed=readOwedLedger,settle=settleOwed}){
  const panel=node('section');panel.id='lotm_panel';panel.className='expedition_panel';panel.dataset.surfaceType='place-service';
  const status=node('p'),meters=node('div'),path=node('div'),work=node('div'),bench=node('details'),actions=node('div'),walks=node('div'),notebook=node('div'),notice=node('p');notice.setAttribute('role','status');
  const encounterSlot=node('div');encounterSlot.dataset.sharedSlot='encounter'; // AR17: shared panels (a fight) render here; not tab-owned, not re-rendered.
@@ -35,6 +39,8 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
  let signature='',lastRung=null,pulseUntil=0,plannedAct=null,selected=null,benchOpen=false,planOpen=true,choosing=null,currentDistrict=null,mapOpen=true,confirmingResign=false;const bars=new Map(),districtOpen=new Map(),placesOpen=new Map();bench.dataset.lotmBench='';bench.ontoggle=()=>{benchOpen=bench.open;};
  const waitButtons=new Map();
  registerCapability({id:'lotm.local-task-entry',audience:'seat-only',panel:'lotm'});
+ registerCapability({id:'lotm.own-power-notes',audience:'seat-only',panel:'lotm'}); // W11-D: kind-of-power lines and owed rows are the lead's own (ABR19)
+ const readOwedRows=()=>{try{return readOwed?.()||null;}catch{return null;}};
  const currentObserver=()=>observerForProfile(read(selected)?.entryProfile);
  const applySeatFilter=()=>{
   const observer=currentObserver();
@@ -129,7 +135,8 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
   // participate in the signature; execution requotes through the host.
   for(const a of v.waits||[]){const b=waitButtons.get(a.id);if(b&&b.textContent!==a.label)b.textContent=a.label;}
   const signatureView=v.waits?{...v,waits:v.waits.map(({label,duration,...rest})=>rest)}:v;
-  const next=JSON.stringify([signatureView,notice.textContent,selected,choosing,confirmingResign]);if(next===signature)return;signature=next;
+  const owedSource=readOwedRows(),owedRows=owedSource?owedLedgerView({...owedSource}).rows.filter(r=>r.direction==='owe'):[];
+  const next=JSON.stringify([signatureView,notice.textContent,selected,choosing,confirmingResign,owedRows.map(r=>[r.id,r.amount,r.dueText,r.quote?.label??null,r.quote?.blocked??null])]);if(next===signature)return;signature=next;
   const focused=document.activeElement,focusId=panel.contains(focused)?focused?.dataset?.lotm||(focused?.hasAttribute?.('data-panel-row')?focused.querySelector('[data-lotm]')?.dataset?.lotm:null):null;
   const headingFocused=panel.contains(focused)&&focused?.id==='lotm-current-task-title';
   const taskFocus=panel.contains(focused)?['lotmTaskLink','lotmTaskWaitLink','lotmTaskWorkLink','lotmJob'].map(key=>[key,focused?.dataset?.[key]]).find(([,id])=>id):null;
@@ -262,6 +269,11 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
    work.append(box);}
   renderBench(v);
   }
+  if(owedRows.length&&currentObserver().sees({capability:'lotm.own-power-notes'})){
+   const owe=node('section');owe.dataset.lotmOwed='';owe.append(node('h3','What I owe'));
+   for(const r of owedRows){const quote=r.quote,line=row(node('span',r.effect));line.dataset.lotmOwedRow=r.id;
+    if(quote&&settle)line.append(button(quote.label||'Settle',`owed_${r.id}`,()=>{let paid=0;run(()=>{paid=settle(quote);},()=>`Paid ${paid} coins.`);},!!quote.blocked,quote.blocked||''));owe.append(line);}
+   work.append(owe);}
   const jobsHome=resident?actions:work;
   if(resident&&v.jobs.length)jobsHome.append(node('h3','In progress'));
   for(const j of v.jobs){
@@ -364,7 +376,16 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
    for(const a of v.bodyCare)care.append(node('p',`${a.description} ${a.costText}`),row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))),...(!a.eligible?[node('p',a.reasons.join(' '))]:[]));
    actions.append(care);
   }
-  for(const a of v.actions)actions.append(row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))));
+  for(const a of v.actions){actions.append(row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))));
+   const power=a.id.startsWith('book.lotm.ab.')?channelNote(a,{holder:true}):'';
+   if(power&&currentObserver().sees({capability:'lotm.own-power-notes'})){const pn=node('p',power);pn.dataset.lotmPower=a.id;actions.append(pn);}}
+  if(currentObserver().sees({capability:'lotm.own-power-notes'})){
+   let q=null;try{q=lotmLibraryQuote();}catch{}
+   if(q){const lib=node('div');lib.dataset.lotmLibrary='';
+    if(q.done)lib.append(node('p','You have read the city papers in the reading room.'));
+    else lib.append(row(button(`${q.question||'Read the city papers in the reading room'} · ${q.minutes||60} min`,'library_study',()=>run(()=>lotmLibraryStudy(),'You read the city papers.'),!q.eligible,q.eligible?'':q.reason||'')));
+    actions.append(lib);}
+  }
   if(commonActions.childNodes.length)actions.append(commonActions);
   if(v.journeys?.length){
    const journeys=node('details');journeys.dataset.lotmJourneys='';journeys.dataset.perspective='player';journeys.append(node('summary','Journeys · Your journey'));
@@ -387,6 +408,10 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
    const recent=v.records.slice(-6).reverse();for(const r of recent)notebook.append(node('p',r.text));
    if(v.records.length>6){const earlier=node('details');earlier.append(node('summary',`Earlier notes (${v.records.length-6})`));for(const r of v.records.slice(0,-6))earlier.append(node('p',r.text));notebook.append(earlier);}
   }
+  if(v.skills?.length&&currentObserver().sees({capability:'lotm.own-power-notes'})){
+   const sk=node('section');sk.dataset.lotmSkills='';sk.append(node('h3','Skills you have used'));
+   for(const k of v.skills){const l=node('p',`${k.id}. ${k.power}`);l.dataset.lotmSkill=k.id;sk.append(l);}
+   path.append(sk);}
   tabsUi.update(v);
   if(focusId&&!focused.isConnected&&!restoreControl(focusId))panel.querySelector('#lotm-current-task-title')?.focus({preventScroll:true});
   // A review link is navigation, not the native command it points at. Retain
