@@ -135,9 +135,9 @@ spring 2027, chapters free on Manga Plus and VIZ). Receipts:
 |---|---|---|---|
 | DL1 | Acquired: Tree of Aeons 8, Azarinth Healer 7, Threadbare 4–6 | Z | Closed by the 2026-10-31 continuation intake; use the library receipt |
 | DL2 | Path of Ascension 9 already held | reuse | No new request; earlier pending row superseded |
-| DL3 | The Steerswoman 3 *The Lesser Kindred* (Kirstein) | C | Both Anna's hits were Elizabeth Kerner's same-title book |
+| DL3 | The Steerswoman 3 *The Lesser Kindred* (Kirstein) | C | Both Anna's hits were Elizabeth Kerner's same-title book **Write-back 2026-11-06:** Searched 2026-11-06: only a *The Lesser Kindred* of unconfirmed author turned up; not fetched. |
 | DL4 | Remaining candidates from this row: Arcane Ascension 2+, Bioshifter 4+ | A/Z | Recheck current holdings/boundaries before intake. Wandering Inn through 19, HWFWM through 13, Mage Errant main 1–7 plus anthology, Menocht Loop 1–6 are now held |
-| DL5 | Life of a Dungeon Core 7, Beware of Chicken 6, Mana Mirror 6, 12 Miles Below 8 | recheck monthly | Not found or not yet published |
+| DL5 | Life of a Dungeon Core 7, Beware of Chicken 6, Mana Mirror 6, 12 Miles Below 8 | recheck monthly | Not found or not yet published **Write-back 2026-11-06:** Searched 2026-11-06: nothing newer found for Life of a Dungeon Core 7, Beware of Chicken 6, Mana Mirror 6 or 12 Miles Below 8. |
 | DL6 | Shadow Slave 3001+, A Soldier's Life 7+ | recheck monthly | No release found |
 | DL7 | Circle of Inevitability in Chinese (宿命之环, 校对版全本) | Z or A | Cross-check for the English `coi` |
 
@@ -172,9 +172,9 @@ RR origin below is from memory; tag a row RR only after its listing URL is check
 | Code | Item | Why |
 |---|---|---|
 | DL22 | The Primal Hunter 1-2; Defiance of the Fall 1-2 | Profession paths (alchemy) and parallel Dao paths; openers only, both very long | <!-- slip-ok: Factual holdings, staging or title metadata at this snapshot; not a world design restriction. -->
-| DL23 | Everybody Loves Large Chests; Vainqueur the Dragon; Salvos | Nonhuman lives beside Chrysalis and Tree of Aeons |
+| DL23 | Everybody Loves Large Chests; Vainqueur the Dragon; Salvos | Nonhuman lives beside Chrysalis and Tree of Aeons **Write-back 2026-11-06:** Large Chests 1-6 held 2026-11-06 (Neven Iliev); Vainqueur *The Last Adventure* returned Record_not_found; Salvos not found. |
 | DL24 | There Is No Epic Loot Here, Only Puns | Cozy dungeon-core life, next to Dungeon Life | <!-- slip-ok: Factual holdings, staging or title metadata at this snapshot; not a world design restriction. -->
-| DL25 | Delve (SenescentSoul); The Last Ship in Suzhou | Still not found as files; RR capture of free chapters |
+| DL25 | Delve (SenescentSoul); The Last Ship in Suzhou | Still not found as files; RR capture of free chapters **Write-back 2026-11-06:** Searched 2026-11-06: Delve still found only as a short "delve duet" file, not fetched; Last Ship in Suzhou not found. |
 | DL26 | Cinnamon Bun 2+ | Support and crafting life; book 1 now held |
 
 ## W4. Canon-world companions and light novels
@@ -206,7 +206,7 @@ Translator routes are in AR19-AR27; **T** = fan translator site, captured paced,
 | DL36 | Tensura LN 1-15 (16 held) | A/Z | No fan web-novel translation found; 15 files, take a few at a time |
 | DL37 | No Game No Life 1-3 | A, or T if Baka-Tsuki pages survive | AR21 **Write-back 2026-11-06:** Vols 1, 2 and 4 held (1-2 fetched 2026-11-05); vol 3 not confirmed. |
 | DL38 | Lord El-Melloi II Case Files 1-3; Bookworm Official Fanbook 1 | A/Z | No fan translation found **Write-back 2026-11-06:** Case Files 1-4 held (1-3 fetched 2026-11-05); Bookworm fanbook not checked. |
-| DL39 | Next volumes listed on Z-Library (scan of 41 series, 2026-10-30): Mark of the Fool 9-10; Randidly 14-15; Chrysalis 8-9; Millennial Mage 9-13; Labyrinth of the Mad God 3; You Are Summoned 6; Wish Upon the Stars 9; Bookworm Official Fanbook 8; El-Melloi II Case Files 6 | A/Z | Numbers read from titles; check each record before downloading |
+| DL39 | Next volumes listed on Z-Library (scan of 41 series, 2026-10-30): Mark of the Fool 9-10; Randidly 14-15; Chrysalis 8-9; Millennial Mage 9-13; Labyrinth of the Mad God 3; You Are Summoned 6; Wish Upon the Stars 9; Bookworm Official Fanbook 8; El-Melloi II Case Files 6 | A/Z | Numbers read from titles; check each record before downloading **Write-back 2026-11-06:** Wish Upon the Stars 10 and Chrysalis 10 (PDF) held 2026-11-06; Chrysalis 8-9, Randidly 14-15, Millennial Mage 6, Labyrinth 3 and You Are Summoned 6 were already held. |
 | DL40 | Earlier gaps the scan found: Life of a Dungeon Core 1-2; Re:Zero LN 11-18, 23-24; Tensura LN 18-20; No Game No Life 7, 9 | A/Z (Re:Zero also T) | Dungeon Core 1-2 sit before the held 3-6 |
 | DL41 | Open series where only book 1 is held (DL4 plus Dungeon Crawler Carl, Cinnamon Bun): Z-Library lists up to Wandering Inn 18, He Who Fights 13, Mage Errant 8, Dungeon Crawler Carl 8, Cinnamon Bun 7, Arcane Ascension 6, Menocht Loop 6 | A/Z, 2-3 at a time | Long; pick by which world needs them | <!-- slip-ok: Factual holdings, staging or title metadata at this snapshot; not a world design restriction. -->
 
@@ -243,21 +243,21 @@ Similar books, from memory (check author and listing before downloading):
 | Code | Item | Like | Why for us | Route |
 |---|---|---|---|---|
 | DL46 | ~~*Worth the Candle*~~ held (`novels/worth-the-candle`) | | | |
-| DL47 | *Unsong*, Scott Alexander; *Ra*, qntm | Godclads | Kabbalah as industry; magic as engineering. Strong for making systems | Free author sites: capture |
+| DL47 | *Unsong*, Scott Alexander; *Ra*, qntm | Godclads | Kabbalah as industry; magic as engineering. Strong for making systems | Free author sites: capture **Write-back 2026-11-06:** *Unsong* held 2026-11-06; *Ra* not checked. |
 | DL48 | ~~*Worm*~~ held (Calibre 32, lead-run text). Next: *Ward* (sequel), *Pact*, *Twig* | Godclads | Same author's other power-with-cost worlds | Free web serials: capture |
 | DL49 | ~~*Super Supportive*, *The Perfect Run*~~ both held (`novels/`) | Cinnamon Bun; Menocht Loop | Support-power career; time-loop superhero life | A/Z |
-| DL50 | *Heretical Fishing* 1 held, 2 downloaded 2026-10-30, 3-5 next; *A Thousand Li* (Tao Wong) | Beware of Chicken | Cozy trade life in a cultivation world; ordinary sect life | A/Z |
-| DL51 | *The Iron Teeth* (ClearMadness); *Blue Core* (InadvisablyCompelled) | Chrysalis; Dungeon Life | Nonhuman leader and tribe; dungeon-core life | A/Z |
-| DL52 | *This Used to Be About Dungeons*, Alexander Wales | Wandering Inn | Slice-of-life downtime between adventures | Free web serial or A/Z |
+| DL50 | *Heretical Fishing* 1 held, 2 downloaded 2026-10-30, 3-5 next; *A Thousand Li* (Tao Wong) | Beware of Chicken | Cozy trade life in a cultivation world; ordinary sect life | A/Z **Write-back 2026-11-06:** A Thousand Li books 4-6 omnibus held 2026-11-06 (books 1-3 not checked). |
+| DL51 | *The Iron Teeth* (ClearMadness); *Blue Core* (InadvisablyCompelled) | Chrysalis; Dungeon Life | Nonhuman leader and tribe; dungeon-core life | A/Z **Write-back 2026-11-06:** *The Iron Teeth* and *Blue Core* 1 held 2026-11-06. |
+| DL52 | *This Used to Be About Dungeons*, Alexander Wales | Wandering Inn | Slice-of-life downtime between adventures | Free web serial or A/Z **Write-back 2026-11-06:** Held 2026-11-06. |
 
 Cozy farming and homestead, beside Heretical Fishing and Beware of Chicken (Z-Library search, authors checked):
 
 | Code | Item | Why for us | State |
 |---|---|---|---|
 | DL53 | *[Farmer] Mage* (S.C. King), on Weibao's RR favorites: the one he meant. *Battle Mage Farmer* (Seth Ring), 9 books, downloaded in its place | A mage who farms; magic applied to crops and animals | [Farmer] Mage: check Z-Library, else RR capture. Battle Mage Farmer 1-2 downloaded |
-| DL54 | *Sagewood* (Blake Arthur Peel), 4 books | Restore-the-farm progression | Next |
+| DL54 | *Sagewood* (Blake Arthur Peel), 4 books | Restore-the-farm progression | Next **Write-back 2026-11-06:** *Sagewood: Restore the Farm* held 2026-11-06; other three books not checked. |
 | DL55 | *Meadowreach Homestead* (G. A. Jensen), 8 books; *Emberstone Farm* (L. Meili) | Crafting homestead life | Later |
-| DL56 | *Dungeon Farm* (Ringo Hunnigan); *That Time I Turned My Farm Into a Dungeon* (S. A. Archer) | Farm and dungeon as one place, beside Dungeon Life | Later |
+| DL56 | *Dungeon Farm* (Ringo Hunnigan); *That Time I Turned My Farm Into a Dungeon* (S. A. Archer) | Farm and dungeon as one place, beside Dungeon Life | Later **Write-back 2026-11-06:** *Dungeon Farm* held 2026-11-06; *That Time I Turned My Farm Into a Dungeon* not checked. |
 | DL57 | *Rank Zero Waystation Mage* (John Croix); *The Hearthwood Alchemist* (Rowan Thorne) | Low-violence service and crafting jobs | Later |
 
 ## Downloaded 2026-10-30, wave 2 (Anna's member, 50 of 50 used)
@@ -279,6 +279,7 @@ Blueprint for Immortality, Hocus, Pocus, Hypothesis, Death After Death, The Roya
 The Lone Wanderer, Reborn as a Demonic Tree, A Gamer's Guide To Beating The Tutorial,
 Non-Player Character, Harry Potter and the Surprisingly Competent History of Magic.
 
+**Write-back 2026-11-06 (Anna's and Z-Library title searches):** held now from the shelf: Jackal Among Snakes 1-6, 8-12 (book 7 not found), Awaken Online Hellion/Catharsis/Armageddon/Dominion, Everybody Loves Large Chests 1-6, Unsong, The Iron Teeth, Blue Core 1, This Used to Be About Dungeons, Sagewood, Dungeon Farm, Cultist of Cerebon 1-2, The Dark Lord of Crafting 1-4, Corpo Age 1-2, Industrial Mage 1-2, Norman the Necromancer 1-3, Unwilling Eldritch Horror of Fortune 1-3, World Tree Apocalypse 1, Butler to a Core Lord 1, The First Law of Cultivation (PDF), The Sword of Kaigen, Legendary Shadow Blacksmith: The Bridge.
 ## Order by usefulness (proposal)
 
 Sooner, because a live consumer reads them now:
@@ -340,7 +341,7 @@ fit below is inferred from linked publisher/author descriptions unless stated ot
 
 | Code | Source / rank | Why it earns a place beside the benchmarks | Acquisition disposition |
 |---|---|---|---|
-| DL58 | The Wandering Inn / RR 1 | Broad lives, species, communities and noncombat professions. Strong WG1/WG3/WG5 counterweight to combat-first progression | Expand the held first book through published continuations. [Author book list](https://wanderinginn.com/books-2/) and [TOC](https://wanderinginn.com/table-of-contents/). Published-book numbering and web-volume numbering differ; 2026 reissues split early books again. Queue by subtitle, not number alone |
+| DL58 | The Wandering Inn / RR 1 | Broad lives, species, communities and noncombat professions. Strong WG1/WG3/WG5 counterweight to combat-first progression | Expand the held first book through published continuations. [Author book list](https://wanderinginn.com/books-2/) and [TOC](https://wanderinginn.com/table-of-contents/). Published-book numbering and web-volume numbering differ; 2026 reissues split early books again. Queue by subtitle, not number alone **Write-back 2026-11-06:** A file titled *Memory's Flame* (about 101,700 words) was fetched 2026-11-06 and is likely a part or excerpt, not the full book 20. |
 | DL59 | A Practical Guide to Sorcery / RR 2 | Magic as a learned discipline amid university, police, debt and criminal obligations; WG1-WG3 | Main books 2-6 acquired this round; book 1 already held under its subtitle. [Author premise](https://www.azaleaellis.com/a-practical-guide-to-sorcery/). Book 6's [author release notice](https://alcove.azaleaellis.com/t/a-practical-guide-to-sorcery-book-6-early-release-exclusive-now-live/843) establishes availability despite stale coming-soon text elsewhere; book 7 remains preorder on the checked store. Bonus stories are separate coverage |
 | DL60 | Deep Sea Embers / translated CN 1 | City-states, fleets and anomalous seas; strongest new WG4 candidate for the LOTM side, with a different world topology | Acquired English compilation, 851 chapter entries. [Publisher record under Embers of the Deep](https://www.webnovel.com/book/24233205105935405); numbering caveat in library index. Author identity Yuan Tong, distinct from Cuttlefish |
 | DL61 | Embers Ad Infinitum / translated CN 2 | Factions, ruin hunting and survival in a post-apocalyptic setting; a useful same-author contrast to LOTM | Acquired English compilation, numbered 1-953. [Publisher](https://www.webnovel.com/book/18555275806275805). Its promotional claim of surpassing LOTM is not an independent quality finding |
@@ -352,7 +353,7 @@ fit below is inferred from linked publisher/author descriptions unless stated ot
 | DL67 | Overlord / LN 2 | Nonhuman institutions, asymmetric power and subordinate perspectives; useful faction/world reference, with a dominant lead that changes the progression comparison | Unheld. [Publisher's LN series](https://yenpress.com/series/overlord) lists through 16. Verify novel format and every volume before intake; manga numbering is separate **Write-back 2026-11-06:** Held in large part (vols 4, 8, 10-14 shown 2026-11-05; confirm range with library_coverage). |
 | DL68 | Infinite Dendrogram / LN 3 | A deliberately simulated world and individualized progression; candidate for distinct player lives and world inhabitants | Unheld. [Publisher](https://j-novel.club/series/infinite-dendrogram). Check full current English run before acquiring; publisher listing is not a proof that every ability is balanced or every inhabitant is fully modeled **Write-back 2026-11-06:** Held in large part (vols 1, 10-16 shown 2026-11-05, plus 1-5 earlier; confirm range). |
 | DL69 | Ishura / LN 4 | An unusual option: many powerful actors with different capabilities, useful to study competing mechanisms and faction perspectives | Unheld. [Publisher](https://yenpress.com/series/ishura) lists 10 novel volumes; exact released-vs-forthcoming boundary needs product dates before bulk intake. Not selected merely for high power levels **Write-back 2026-11-06:** Held in large part (vols 1, 4-10 shown 2026-11-05; confirm range). |
-| DL70 | The Gods Are Bastards / RR 5 | Religion, bureaucracy and industrial change coexist; useful WG1/WG3/WG5 | Unheld. [Author](https://www.patreon.com/ddwebb/posts/status-of-and-147474165) distinguishes edited book releases from older web books; do not mix their numbering. [RR premise](https://www.royalroad.com/fiction/72751/the-gods-are-bastards) |
+| DL70 | The Gods Are Bastards / RR 5 | Religion, bureaucracy and industrial change coexist; useful WG1/WG3/WG5 | Unheld. [Author](https://www.patreon.com/ddwebb/posts/status-of-and-147474165) distinguishes edited book releases from older web books; do not mix their numbering. [RR premise](https://www.royalroad.com/fiction/72751/the-gods-are-bastards) **Write-back 2026-11-06:** Books 1-3 held (3 fetched 2026-11-06). |
 | DL71 | The Irregular at Magic High School / LN 5 | A candidate for technical magic embedded in school and political institutions | Unheld. [Publisher](https://yenpress.com/series/the-irregular-at-magic-high-school). Lower acquisition order than the stronger gaps above; technical consistency and full translated coverage remain to check **Write-back 2026-11-06:** Vols 1-6 held 2026-11-05; 7+ not fetched. |
 
 ### More to consider: dispositions
