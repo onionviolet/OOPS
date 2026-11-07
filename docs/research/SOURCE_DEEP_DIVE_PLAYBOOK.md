@@ -225,10 +225,12 @@ Fold the required distinctions into the live world plan and selected implementat
    Check chapter keys against body headings. `grep_ctx.py` supports targeted
    checks; use bounded consecutive body output for full reading. Reuse existing
    tools rather than creating another downloader or helper suite.
-   The current EPUB helper sorts archive names rather than following the spine;
-   the volume merger skips unnumbered entries and overwrites duplicate chapter
-   numbers. Neither output alone is a safe full-read manifest. Preserve omitted
-   notes and distinguish volume-qualified identities before trusting coverage.
+   Since 2026-11-07 the EPUB helper follows the spine with full archive paths,
+   and the merger keeps every distinct body: a numbering restart switches all
+   keys to `vNNchNNNNN`, split chapters become `chNNNNN-2`, and unnumbered
+   members and contents pages are reported, not kept
+   ([changes](tools/BOOK_TEXT_TOOLS_2026-11-07.md)). Read its summary lines:
+   skipped prologues or side stories still need their own reading pass.
 4. **Verify the consequential core.** Reuse matching, directly verified
    claims with locators. Select up to five consequential new, conflicting or
    uncertain laws for direct checks, rather than repeating unchanged checks.

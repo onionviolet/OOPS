@@ -64,7 +64,9 @@ metadata lookup and private EPUB intake. Preserve its MIT license and upstream
 attribution. No code was absorbed from the other candidates.
 
 F2: the project extractor at `docs/research/tools/book_deep_dive/epub_to_json.py`
-sorts archive filenames and drops directory prefixes. The fork follows the
+sorted archive filenames and dropped directory prefixes until 2026-11-07; it now
+follows the spine and keeps full paths too ([changes](tools/BOOK_TEXT_TOOLS_2026-11-07.md)).
+The fork follows the
 declared EPUB spine and retains full paths, avoiding chapter-order errors and
 collisions between equal basenames. It uses the same `{member: [heading, body]}`
 JSON shape for existing reader helpers. No existing script was replaced.
