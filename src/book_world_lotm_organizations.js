@@ -16,8 +16,9 @@ export function lotmGroups(state) {
     if (state?.actors?.player?.worldId !== I.world || !state.lotm) return [];
     const out = [], profile = Object.values(LOTM_PROFILES).find(p => p.id === state.lotm.entryProfile);
     if (profile?.home) {
-        const mine = lotmPositions(state), team = teamOf(profile.home);
-        out.push({id: `${I.world}.group.team.${profile.home}`, world: I.world, kind: 'church_cell', name: team, status: 'active', authored: true, revision: 1,
+        const all = lotmPositions(state), mine = all.filter(r => !r.ended), team = teamOf(profile.home);
+        // A player who has left every post of the team is no longer in its group (FD15 exit); a life with no post yet still sees it.
+        if (!all.length || mine.length) out.push({id: `${I.world}.group.team.${profile.home}`, world: I.world, kind: 'church_cell', name: team, status: 'active', authored: true, revision: 1,
             members: mine.map(r => ({actor: 'player', positionId: r.id, rank: r.rank, status: 'active'})),
             sources: [{module: 'book_world_lotm_lives.js', locator: `LOTM_PROFILES.${profile.key}`}]});
     }

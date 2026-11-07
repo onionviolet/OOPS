@@ -11,6 +11,7 @@ import {eq,gte,all,af,has,no,money,know,cmd} from './book_world_lotm_kit.js';
 import {getPrivateLotmCast} from './book_world_lotm_cast_days.js';
 import {districtById} from './book_world_lotm_districts.js';
 import {BE_PROFILE_ID} from './seat_profiles.js';
+import {exitAt} from './positions.js';
 export const LOTM_WEEK_MINUTES=7*24*60;
 // A probationer life wakes in a local clerk's body and keeps the clerk's purse (WER9, AD11). Proposed amount.
 const HOST_PURSE=2*P.pound;
@@ -63,9 +64,14 @@ export function leadLifeEntryEffects(pack){
 export const PROFILE_IDS=Object.freeze(Object.values(LOTM_PROFILES).map(p=>p.id));
 export const profileKeyOf=state=>Object.values(LOTM_PROFILES).find(p=>p.id===state.lotm?.entryProfile)?.key||null;
 // Weeks of salary earned since the contract was signed and not yet collected. The signing time is the contract note's own timestamp.
+// FD15: a resigned post stops its pay at once and forfeits the week in progress (no +1), so only whole weeks served stay owed.
+export const CIVIL_POSITION_ID='lotm.position.civil.civil_staff';
 export function weeksOwed(state){
  const note=state.simulation?.knowledge?.player?.['book.lotm.contract'],paid=state.actors?.player?.resources?.['book.lotm.weeks_paid']||0;
- if(!note)return 0;return Math.max(0,Math.floor((state.clock-note.at)/LOTM_WEEK_MINUTES)+1-paid);
+ if(!note)return 0;
+ const left=exitAt(CIVIL_POSITION_ID,Number.isFinite(note.at)?note.at:0);
+ if(left!=null)return Math.max(0,Math.floor((left-note.at)/LOTM_WEEK_MINUTES)-paid);
+ return Math.max(0,Math.floor((state.clock-note.at)/LOTM_WEEK_MINUTES)+1-paid);
 }
 const C=LOTM_PROFILES.civil.contract;
 const U='understood';

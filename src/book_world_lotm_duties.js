@@ -19,6 +19,12 @@ export const LOTM_RENT = Object.freeze([Object.freeze({id: LOTM_RENT_ID, schedul
     dues: Object.freeze({amount: 5 * LOTM_PENCE.soli, basis: 'assumed', lateCycles: 1, steps: Object.freeze([
         Object.freeze({atMisses: 1, kind: 'notice', line: 'A note is pushed under your door: the rent is behind.'}),
         Object.freeze({atMisses: 2, kind: 'visit', line: 'Your landlady knocks and says she cannot carry another week without the money.'})])})})]);
+// Civil staff weekly office report (FD15, AUTHORED PROPOSAL: the book gives the clerk's weekly pay but no office routine). A duty of the civil post
+// (the position row lists its id), so resigning the post ends it through the duties seam: the set stops being active, no code ends it by hand.
+export const LOTM_CIVIL_DUTY_ID = 'lotm.civil_office_report';
+export const LOTM_CIVIL_DUTIES = Object.freeze([Object.freeze({id: LOTM_CIVIL_DUTY_ID, schedule: Object.freeze({period: WEEK, opens: 0, closes: WEEK}),
+    debtor: 'player', creditor: 'nighthawks', source: 'lotm_duties',
+    why: 'Hand the Nighthawk office this week\'s tally of copied reports and office hours so your week\'s pay can be signed.'})]);
 export const lotmDutyRows = (slice, minute) => dutyRows(slice, LOTM_DUTIES, minute);
 export const fileExpenseClaim = (slice, minute) => answerMisses(attendDuty(slice, LOTM_DUTIES, 'lotm.expense_claim', minute), 'lotm.expense_claim');
 export const closeLotmWeeks = (slice, minute) => settleMisses(slice, LOTM_DUTIES, minute);

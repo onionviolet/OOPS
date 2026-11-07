@@ -15,6 +15,11 @@ import {enrollSimulation,previewSimulationCommand,commitSimulationCommand,cancel
 import {simulationFacts,applySimulationEffects} from './simulation_effects.js';
 import {withFactsFrame} from './facts_frame.js';
 import {purseEffect} from './own_holdings.js';
+import {domainRegistry} from './domain_registry.js';
+import {lotmResignPlan,CIVIL_RESIGN_COST} from './book_world_lotm_positions.js';
+import {know} from './book_world_lotm_kit.js';
+import {groupsOf,groupLines} from './organizations.js';
+import './book_world_lotm_organizations.js'; // registers the LOTM groups source
 import {lotmCommands,lotmContext,lotmFacts} from './book_world_lotm_actions.js';
 import {enrollLotmBranch,LOTM_NATIVE_STOCK} from './book_world_lotm_content.js';
 import {LOTM_IDS as I,LOTM_LOCATIONS as L,LOTM_KEYS as K,LOTM_SAMPLES,LOTM_SWITCH_NOTICE} from './book_world_lotm_ids.js';
@@ -241,6 +246,19 @@ export function createLotmHost(ports){
   applySimulationEffects(plan,[purseEffect(-amount)],{actorId:'player'},registry,'book.lotm.dues');persist(plan);
   ports.logMessage?.(`Standing order: paid ${paid.length} ${paid.length===1?'week':'weeks'} of rent, ${amount} pence from your purse.`,'notification');
  }
+ // OB2: a fine the player chose to settle (heat.js owns the record); one debit and its own line, never while away.
+ function payFine(amount){
+  writable();const s=state(),plan=base(s,ports.context());
+  applySimulationEffects(plan,[purseEffect(-amount)],{actorId:'player'},registry,'book.lotm.fine');persist(plan);
+  ports.logMessage?.(`You paid the landlady's fine, ${amount} pence from your purse.`,'notification');
+ }
+ // FD15: the civil post's one exit. Writes the positions@1 record and a notebook line in one save; if saving fails the record is put back.
+ function resign(){
+  writable();const s=state(),{row,exit}=lotmResignPlan(s),prior=domainRegistry.project('positions'),plan=base(s,ports.context());
+  applySimulationEffects(plan,[know('resigned',`You resigned from the civil staff post at the Nighthawk office. ${CIVIL_RESIGN_COST}`,'player','player','observation','understood')],{actorId:'player'},registry,'book.lotm.resign');
+  domainRegistry.command('positions','exit')({row,...exit});
+  try{persist(plan);}catch(e){domainRegistry.command('positions','revert')(prior);throw e;}
+ }
  function view(selected=null){return withFactsFrame(state(),()=>readView(selected));}
  function readView(selected=null){
   const s=castState(state()),d=s.lotm;
@@ -311,10 +329,10 @@ export function createLotmHost(ports){
    return {id:cid,label:d.label,eligible:p.eligible&&!ports.sleeping(),reasons:p.eligible&&ports.sleeping()?['You are asleep.']:p.reasons,visible:p.visible};};
   const merit=f['lotm.home.evernight']&&f['lotm.beyonderTrack']?meritView(s,f,prevMerit):null;
   const bench={rows:benchRowList(s,f),selected:selected&&benchDetail(sv,cv,selected,{registry,asleep:ports.sleeping()})};
-  return {enrolled:true,...(lotmCastLife(s)?{resident:true,waits:waits(s),elsewhere:castElsewhere(s),localClock:castClockLine(s),sky:skyLine(s)}:{}),pausedLife:ports.pausedLife?.()||null,merit,bench,broker:brokerView(s,f),places,marketHeld,cause:causeView(f),profile:profileKeyOf(s),entryProfile:s.lotm?.entryProfile,role:f['lotm.roleName'],clearance,district,doseLabels,beyonder:!!(f['lotm.sourceSupported']||[...pathwayRows,...generatedRows].some(r=>f[`lotm.${r.key}Supported`])),switchNotice:LOTM_SWITCH_NOTICE,at:castPlaceLabel(at),supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:lotmMeters(e),path,actingGuidance,holds,actions,moves,jobs,records};
+  return {enrolled:true,...(lotmCastLife(s)?{resident:true,waits:waits(s),elsewhere:castElsewhere(s),localClock:castClockLine(s),sky:skyLine(s)}:{}),pausedLife:ports.pausedLife?.()||null,termDay:Math.floor(s.clock/1440),groups:groupLines(groupsOf(s)),merit,bench,broker:brokerView(s,f),places,marketHeld,cause:causeView(f),profile:profileKeyOf(s),entryProfile:s.lotm?.entryProfile,role:f['lotm.roleName'],clearance,district,doseLabels,beyonder:!!(f['lotm.sourceSupported']||[...pathwayRows,...generatedRows].some(r=>f[`lotm.${r.key}Supported`])),switchNotice:LOTM_SWITCH_NOTICE,at:castPlaceLabel(at),supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:lotmMeters(e),path,actingGuidance,holds,actions,moves,jobs,records};
  }
  function restoreSleep(){const s=state(),job=s.lotm&&sleepJob(s);if(!ports.restoring()||!job||!sleepingCommand(job.commandId))return false;ports.beginSleep();return true;}
- return {enroll,cross,act,cancel,move,wake,tick,view,purseBalance,payDues,startable,restoreSleep,upcoming:()=>lotmUpcoming({state:ports.state(),days:getPrivateLotmCast()?.bindings?.days||[]}),inspectConstraints:()=>castRevisionReport(state())};
+ return {enroll,cross,resign,act,cancel,move,wake,tick,view,purseBalance,payDues,payFine,startable,restoreSleep,upcoming:()=>lotmUpcoming({state:ports.state(),days:getPrivateLotmCast()?.bindings?.days||[]}),inspectConstraints:()=>castRevisionReport(state())};
 }
 
 export function castClockLine(s){return castLocalClock(s)?.clock||'';}

@@ -22,7 +22,7 @@ const node=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.text
 export const lotmPanelTitle=v=>v.resident?v.at:'Tingen workroom';
 // Surface type: place service (UR1). Home: the main workspace, discovered inside the Tingen
 // branch and in the Village, where its starts begin. Warden Hale runs the workroom; the lodging is where you sleep.
-export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,setOrder}){
+export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,setOrder,resign}){
  const panel=node('section');panel.id='lotm_panel';panel.className='expedition_panel';panel.dataset.surfaceType='place-service';
  const status=node('p'),meters=node('div'),path=node('div'),work=node('div'),bench=node('details'),actions=node('div'),walks=node('div'),notebook=node('div'),notice=node('p');notice.setAttribute('role','status');
  const encounterSlot=node('div');encounterSlot.dataset.sharedSlot='encounter'; // AR17: shared panels (a fight) render here; not tab-owned, not re-rendered.
@@ -30,7 +30,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
  // Round 2 density: in-panel tabs after the heading; Here (actions and walks) comes first (UR42; moved notice per UR13).
  const tabsUi=mountWorkroomTabs({panel,after:panel.firstChild,blocks:{actions,walks,path,work,bench,notebook}});
  decorateActionComponents(panel); // UIV1: blocked reasons visible and Tab-reachable, not title-only.
- let signature='',lastRung=null,pulseUntil=0,plannedAct=null,selected=null,benchOpen=false,planOpen=true,choosing=null,currentDistrict=null,mapOpen=true;const bars=new Map(),districtOpen=new Map(),placesOpen=new Map();bench.dataset.lotmBench='';bench.ontoggle=()=>{benchOpen=bench.open;};
+ let signature='',lastRung=null,pulseUntil=0,plannedAct=null,selected=null,benchOpen=false,planOpen=true,choosing=null,currentDistrict=null,mapOpen=true,confirmingResign=false;const bars=new Map(),districtOpen=new Map(),placesOpen=new Map();bench.dataset.lotmBench='';bench.ontoggle=()=>{benchOpen=bench.open;};
  const waitButtons=new Map();
  registerCapability({id:'lotm.local-task-entry',audience:'seat-only',panel:'lotm'});
  const currentObserver=()=>observerForProfile(read(selected)?.entryProfile);
@@ -127,7 +127,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
   // participate in the signature; execution requotes through the host.
   for(const a of v.waits||[]){const b=waitButtons.get(a.id);if(b&&b.textContent!==a.label)b.textContent=a.label;}
   const signatureView=v.waits?{...v,waits:v.waits.map(({label,duration,...rest})=>rest)}:v;
-  const next=JSON.stringify([signatureView,notice.textContent,selected,choosing]);if(next===signature)return;signature=next;
+  const next=JSON.stringify([signatureView,notice.textContent,selected,choosing,confirmingResign]);if(next===signature)return;signature=next;
   const focused=document.activeElement,focusId=panel.contains(focused)?focused?.dataset?.lotm||(focused?.hasAttribute?.('data-panel-row')?focused.querySelector('[data-lotm]')?.dataset?.lotm:null):null;
   const headingFocused=panel.contains(focused)&&focused?.id==='lotm-current-task-title';
   const taskFocus=panel.contains(focused)?['lotmTaskLink','lotmTaskWaitLink','lotmTaskWorkLink','lotmJob'].map(key=>[key,focused?.dataset?.[key]]).find(([,id])=>id):null;
@@ -161,7 +161,15 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
   // Pathway ladder (DR2): reached stages, the current one, and what the next crossing still needs.
   const p=v.path;path.dataset.lotmPath=resident?'':p.path;
   if(!resident){
-  const posRows=lotmPositionsFromView(v);if(posRows.length)path.append(node('p',lotmPositionLine(posRows)));
+  const posRows=lotmPositionsFromView(v);if(posRows.length){const line=node('p',lotmPositionLine(posRows,typeof v.termDay==='number'?v.termDay*1440:undefined));line.dataset.lotmPosition='';path.append(line);}
+  // FD15 exit: one verb, resign, on a post that offers it; the cost is shown before the second click and the exit is recorded once.
+  const leaving=posRows.find(r=>!r.ended&&r.exit?.kinds?.includes('resign'));
+  if(leaving&&resign){
+   if(!confirmingResign)path.append(row(button('Resign the post','resign',()=>{confirmingResign=true;signature='';render();},false,leaving.exit.cost)));
+   else path.append(node('p',`Resign the ${leaving.role.toLowerCase()} post? ${leaving.exit.cost}`),row(button('Confirm resignation','resign_confirm',()=>{confirmingResign=false;run(()=>resign(),'You resigned the civil staff post.');},false,'Recorded once. It cannot be taken back.'),button('Keep the post','resign_keep',()=>{confirmingResign=false;signature='';render();},false)));
+  }else confirmingResign=false;
+  // The groups you belong to (a hidden gathering appears only once the player knows of it; none is known yet).
+  if(v.groups?.length){const g=node('div');g.dataset.lotmGroups='';g.append(node('h3','Groups'),...v.groups.map(t=>node('p',t)));path.append(g);}
   if(v.profile==='civil'){
    path.append(node('h3','Civil staff'),node('p','A civil post brings no potion or field membership.'));
    const contract=v.records.find(r=>r.id==='book.lotm.contract');

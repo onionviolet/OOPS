@@ -5,6 +5,8 @@
 // First rule: a person-shaped line when an owed item becomes due, read from the shared owed ledger (readOwedLedger).
 // World-neutral: voices are a palette keyed by creditor id; an unknown creditor falls back to the ledger's own label.
 import {readOwedLedger} from './owed_ledger_sources.js';
+import {heatWordEvents, collectorEvents, fineEvents} from './heat.js';
+import {domainRegistry} from './domain_registry.js';
 const DAY = 1440;
 const rules = new Map();
 
@@ -61,9 +63,16 @@ export const OWED_DUE_RULE = Object.freeze({id: 'owed.due', read({owed}) {
 }});
 registerConsequence(OWED_DUE_RULE);
 
+// OB2/OB3: heat words, the collector's visit (3 misses) and the fine (4 misses, an owed row). All read the heat projection, so each is state.
+registerConsequence({id: 'heat.word', read: ({heat}) => heatWordEvents(heat)});
+registerConsequence({id: 'heat.collector', read: ({heat}) => collectorEvents(heat)});
+registerConsequence({id: 'heat.fine', read: ({heat}) => fineEvents(heat)});
+
 // The adapter. Reads only the player's own ledger projection and returns feed news rows {id, at, text}. Only observerSafe records leave.
 export function consequenceNews(state, read = readOwedLedger) {
     let owed;
     try { owed = read(); } catch { return []; }
-    return runConsequences({state, owed}).filter(e => e.observerSafe).map(e => ({id: e.id, at: e.at, text: e.text}));
+    let heat = null;
+    try { heat = domainRegistry.project('heat') ?? null; } catch { /* heat not registered */ }
+    return runConsequences({state, owed, heat}).filter(e => e.observerSafe).map(e => ({id: e.id, at: e.at, text: e.text}));
 }
