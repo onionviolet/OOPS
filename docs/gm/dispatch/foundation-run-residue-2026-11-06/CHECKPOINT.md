@@ -83,6 +83,19 @@ Limit report filed once (craftsman and loop starts unreachable headlessly withou
 
 **What this leaves.** M2 has natural-route evidence for the fever choice and its persistence. M3 and M6 have only unit and golden-hash evidence; both need a scenario recipe (a craftsman-ready Village save, a Frontier or Zorian loop save) added to `scripts/headless/scenarios.mjs` before a walk can reach them. A and D have no walkable consumer yet. Delivery stays "implemented, below floor" for M1, M3, M6 and U06; M2 has a natural-route pass for one choice but the floor's other lines are unchecked.
 
+### Native walk 2 (headless, scratch worktree of HEAD `8821c275c`, bundle f7f7555fc30224b62e79263b9afddbaf7c0727bb6d4460a0d7c6df4532fe549e)
+
+Agent-verified, not human-reviewed. New recipe `village-craftsman` (`scripts/headless/scenarios.mjs`, commit `8821c275c`). No page errors, no private pack.
+
+| Item | What the player saw | Result |
+|---|---|---|
+| W2 interrupted craftsman (M3) | After commissioning a kit the action "Ask for his attention at the busy bench" appeared; used once: "He is still irritated by the interruption", an "Unsettled" effect, the button gone; 30 minutes later "He has returned to his tools. You remember his earlier request for quiet."; People memory "You interrupted him while he was counting fittings. He asked for quiet." Same lines after save, reload, and export/import (state hash e6d0a386842252bd) | Pass |
+| W4 Frontier deliberate loop (M6) | Continuing connection, Return tab: checkpoint set (Anchors: Initial Y999 4/1 08:00, Later 4/5 08:20), loop enabled; the cycle fired once (save clock at the checkpoint time); "Completed cycles: 1" after export/import and again after a second reload | Pass for one cycle counted once; a forced duplicate delivery was not attempted |
+
+Findings. **F1** `src/simulation_ui.js` hides the "Follow local people and work" section until the player is already enrolled, so that button is unreachable; enrolment worked through "Begin Village encounters" (inferred from the hidden-element error plus source; owner: simulation UI). **F2** the `village-craftsman` recipe still needs the Notebook unlocked and the kit commissioned before the action shows (talk to both NPCs, woodcut, commission); a later recipe patch could skip it. **F3** a loop cycle freezes the harness: `game_reload` and `game_new` cannot click PLAY afterwards and `game_look` fails on the session that cycled (one limit report filed). The first-session reload after the cycle is inferred; the pass rests on the imported session.
+
+**State after both walks.** M2, M3 and M6 have natural-route evidence on a fresh origin including persistence. M1 and U06 have none because no play route reads them. Delivery stays "implemented, below floor" (no 1920x1080 browser check, no installed-app check).
+
 ## Resume block (unattended run, 2026-11-06)
 
 "lets work on these to completion" (Weibao, 2026-11-06, after the reconciliation).
@@ -92,7 +105,7 @@ Limit report filed once (craftsman and loop starts unreachable headlessly withou
 - Last evidence: build 5a0e0b588b9c, npm test 5248/5248 on the folded tree (430 s), check:arch growth -2/-1/0, check:rules pass. Not run: native game walk, browser at 1920x1080, persistence save/reload/import (lane B changes the continuation slice; only JSON round trips tested).
 - Failed approaches: none.
 - Hold lifted: Weibao 2026-11-06 "Yes, run walk" after `4b4465412`. Walk done (see Native walk). Earlier hold text: "wait till move to tauri".
-- Next useful action: add two headless scenario recipes (craftsman-ready Village save; Frontier or Zorian loop save) so W2 and W4 can be walked; give D a readout consumer once the LOTM files other sessions are editing are committed; give A's observation key a writer (a scout action). A's call site is wired (`1568691d5`).
+- Next useful action: give D (batch identity) a readout consumer once the LOTM files other sessions are editing are committed; give A's observation key a writer (a scout action); look at F1 (unreachable follow-people button) and F3 (cycle freezes the harness); write the health round (resistance as exposure-grown skill, illness a per-world dial, default off).
 - Usage pacing: read 2026-11-06 evening: 5-hour 2%, weekly 60%. Continue while weekly under 75% and 5-hour under 85%; at 5-hour 85% wait for reset; at weekly 75% stop and leave this block current.
 - Stop condition: commit hashes recorded for lanes A-D, or a blocker that Weibao must clear. Reached? code lanes yes (353396d41); native walk and the two open consumer wirings (A: tempo_fight_domain line, D: LOTM readout or golden fixture) not done.
 
