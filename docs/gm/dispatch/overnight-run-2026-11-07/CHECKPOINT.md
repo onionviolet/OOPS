@@ -5,7 +5,7 @@ state: drafted
 viewport: n/a
 persistence: n/a
 review: none
-tests: npm test 5560 pass, 0 fail, 5 skip (wave 5 fold)
+tests: npm test 5578 pass, 0 fail, 5 skip (M over e45b11c70)
 ```
 
 # Overnight foundation run, 2026-11-07
@@ -147,15 +147,38 @@ Defects found by the walk:
 
 Lesson (FR-L8 for the playbook): do not rebuild the shared worktree's `dist/` while a walker reads it; use `BUILD_OUT=.lane-builds/<name>` for the walker's build, since `game_freeze` reads the primary checkout.
 
+**Commit `f8595bf44` (04:20).** Wave 5 (K, L); suite 5560/0/5. No push.
+
+## Wave 6 (04:22; usage 5-hour 43%, weekly 79%)
+
+Weibao, 04:15: "the UI slice might be done, figure out what you are free to do now". Check: perf-8gb (the JS/UI performance session) is committing its slice in the primary checkout; the prose session is idle with its rules and content edits uncommitted (staged deletions included), so those paths stay out. Once perf-8gb's commit lands and its files read clean, these open: `src/tempo_fight_domain.js` (a world-neutral fighter-observation writer), `src/continuation_state.js` and `src/main.js` (positions `died` on every life end, not only LOTM loss of control).
+
+| Lane | Slice | Model | Owned files |
+|---|---|---|---|
+| M | Constables record what they saw: the resolved "Constables at the door" fight writes each constable's knowledge of the player, so Tingen witness rows come from play | sonnet | `src/book_world_lotm_constables.js`, constables and witness tests |
+
+Waiting on perf-8gb's commit: W6-A world-neutral fight observation writer (`tempo_fight_domain.js`), W6-B positions `died` from the chronicle life end.
+
+**M, constables record what they saw (returned 04:50, checked).** A knowledge entry under a constable's id fails the save ("Unknown persistent actor", `src/simulation_contracts.js:261`): constables are fight fighters, not persistent people. So `src/book_world_lotm_constables.js` keeps the last resolved door fight (result, time) as an optional `door` entry in `constables@1` and registers its own Tingen knownness reader: one `witness:book.lotm.constable.N` row per constable ("The first constable saw you and noted: fought two constables at the door and drove them off.", worded by result). `CONSTABLE_IDS` shared with the fight spec. New `tests/constable_door_sight.test.js` (5); `tests/authority_strikes.test.js` literal gains `door: null`. Lane: 51/51 + LOTM 375/0, check:arch, check:rules 0 new strings. Coordinator: updated the stale comment in `src/authority_sources_lotm.js`, added the SAVES.md row (forward only; older-build behavior not checked), focused 42/42, build `2a7db6d2...2888`, check:arch and check:rules pass, npm test running. Not covered: the reader parallels the knowledge-based witness reader rather than reusing it (proper fix: persistent constable people); no browser walk. State: implemented, below floor; the Tingen witness row now comes from play.
+
+**perf-8gb committed `e45b11c70` (05:00).** Its files are clean in the primary checkout; only the prose session's three content files remain dirty in `src/`. Lane M was moved onto `e45b11c70` in the first worktree (no overlap), rebuilt `44048797...f71f`, check:arch and check:rules pass, npm test 0 fail (counts in the commit message). Weibao, 05:05: "Go ahead" (W6-A and W6-B).
+
+| Lane | Slice | Model | Worktree and owned files |
+|---|---|---|---|
+| W6-B | Every life end (old age, continuation `die:`) closes the life's posts as died, once, at the true time | sonnet | `work/overnight-20261107/lanes2`; the impure call sites it names, `src/positions_domain.js`, tests |
+| W6-A | Tempo fights write what persistent opponents saw of the player (world-neutral), skipping non-persistent fighters | sonnet | `work/overnight-20261107/lanes2`; `src/tempo_fight_domain.js`, `src/tempo_fight.js` if needed, tests |
+
+A second worktree (`lanes2`, detached at `e45b11c70`) keeps the lanes off the tree whose suite is running.
+
 ## Resume block (unattended run, 2026-11-07)
 
 Weibao, 2026-11-07 00:13: "make as much progress as possible ... use as much usage to make as much progress, and continue after the 5 hour limit and more".
 - Objective: waves of disjoint foundation slices to floor, committed from an isolated worktree, until the stop condition.
-- Input identity: master `778396479` at start; run commits `b254013c4`, `137319cba`; dirty but not ours: the whole primary working tree at dispatch (prose, perf, rules, dist).
+- Input identity: master `778396479` at start; run commits `b254013c4`, `137319cba`, `db55445d8`, `bc76799bb`, `f8595bf44`; dirty but not ours: the whole primary working tree at dispatch (prose, perf, rules, dist).
 - State of the steps: wave 1 dispatched 00:25; A and C returned and recorded; B (walk) out. Wave 2 (D, E) dispatched 00:55.
 - Last evidence: folded wave 1-2 tree (C, D, E) built `bb58918b5b35d7b1e1a048284e737ffbd6805c63acba0d71ee5c502f13e17eb8`; check:arch pass; check:rules pass (0 new player-text strings); npm test running 01:20.
 - Failed approaches: none yet.
-- Next useful action: record the A/B re-walk; fold K and L, gate, commit; build in the isolated worktree; gates; commit own paths.
+- Next useful action: commit M on green suite; fold W6-A and W6-B from `lanes2` into the first worktree, gate, commit; remove `lanes2` at closeout; build in the isolated worktree; gates; commit own paths.
 - Usage pacing: read 00:14 EST, 5-hour 25% (resets 03:50), weekly 77% (resets Mon 13:00). Weibao's later words override the 75% weekly stop; this run's ceiling is weekly 92% (stop, leave this block current, about 8% left for his weekend). 5-hour at 85%: start no lane, wake after reset. Five other sessions share the pool.
 - Stop condition (default 92%, Weibao's dial; reason: about 8% stays his until Monday): weekly 92%, or every remaining foundation slice sits inside the collision map, or a blocker that needs Weibao. Reached? Not yet.
 

@@ -152,7 +152,7 @@ test('saves round trip and a reloaded save does not re-read the same fight; junk
     domainRegistry.load(saved); resolveConstableFights(state);
     assert.equal(domainRegistry.save({}).heat.acts.filter(a => /constable-assault/.test(a.id)).length, 1);
     reset(); assert.equal(domainRegistry.save({}).constables, undefined, 'an untouched life writes no key');
-    assert.deepEqual(migrateConstables({family: 'x'}), {family: 'constables@1', handled: [], lines: [], latch: null, bounty: null, hooks: {}, sentence: null, arrests: 0});
+    assert.deepEqual(migrateConstables({family: 'x'}), {family: 'constables@1', handled: [], lines: [], latch: null, bounty: null, hooks: {}, sentence: null, arrests: 0, door: null});
     assert.equal(migrateConstables({family: 'constables@1', bounty: {amount: -3, at: 1, cause: 'x'}, latch: {at: 'no'}}).bounty, null);
 });
 

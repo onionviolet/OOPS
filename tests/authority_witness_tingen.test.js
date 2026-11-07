@@ -26,7 +26,8 @@ test('a constable who saw the player adds a Tingen row; the fight record names w
     const watch = Object.keys(fight.fighters).filter(id => fight.fighters[id].side === 'b');
     assert.equal(watch.length, 2);
     assert.ok(watch.every(id => id.startsWith(CONSTABLE_PREFIX)), 'belonging follows the id the fight carries');
-    // Missing writer: the fight itself records no observer fact, so there is no row until something writes one.
+    // The fight itself records nothing; the constables' sight is written when its log entry resolves (tests/constable_door_sight.test.js).
+    // This test writes a knowledge fact by hand to prove the knowledge-based reader.
     assert.equal(knownness(state, 'tingen').signals.filter(s => s.id.startsWith('witness:')).length, 0);
     withKnowledge(state, {[watch[0]]: {[`${T}fight`]: see('fought two constables at the door', 10 * DAY)}});
     const k = knownness(state, 'tingen'), rows = k.signals.filter(s => s.id.startsWith('witness:'));

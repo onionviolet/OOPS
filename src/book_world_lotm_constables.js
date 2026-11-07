@@ -10,6 +10,8 @@ import {registerTempoOpener} from './tempo_starters.js';
 import {registerDomain, domainRegistry} from './domain_registry.js';
 import {registerConsequence} from './consequences.js';
 import {AUTHORITIES} from './heat.js';
+import {registerKnownness, identityOf, PLAYER_IDENTITY} from './authority.js';
+import {CONSTABLE_WEIGHT} from './authority_sources_lotm.js';
 import {LOTM_IDS as I} from './book_world_lotm_ids.js';
 
 export const CONSTABLES_FAMILY = 'constables@1';
@@ -28,13 +30,18 @@ export const CONSTABLES_DIALS = Object.freeze({
     easedTo: {value: 1.5, why: 'An arrest settles the warrant: they still have your name (level 1 at 1.0) but no longer ask after you as wanted (4.0).'}
 });
 
+// The two men at the door; the fight spec and the sight writer share these ids (the Tingen witness belonging reads the prefix).
+export const CONSTABLE_IDS = Object.freeze([1, 2].map(n => `book.lotm.constable.${n}`));
+// What each constable saw, in his own words (ACR9: his view of the player, not a hidden truth). The Tingen row reads "<who> saw you and noted: <value>."
+const DOOR_SIGHT = Object.freeze({won: 'fought two constables at the door and drove them off', lost: 'fought two constables at the door and was beaten down',
+    yielded: 'gave in at the door', withdrawn: 'got away from two constables at the door'});
 const RESPONSES = Object.freeze({
     sends_constables: true,
     watches: false
 });
 export const CONSTABLE_RESPONSES = Object.freeze(Object.keys(RESPONSES));
 
-const fresh = () => ({family: CONSTABLES_FAMILY, handled: [], lines: [], latch: null, bounty: null, hooks: {}, sentence: null, arrests: 0});
+const fresh = () => ({family: CONSTABLES_FAMILY, handled: [], lines: [], latch: null, bounty: null, hooks: {}, sentence: null, arrests: 0, door: null});
 const HANDLED_CAP = 40, LINES_CAP = 6;
 let slice = fresh(), host = null, serving = false, queued = false;
 export function configureConstables(h) { host = h && typeof h.plan === 'function' ? h : null; }
@@ -52,10 +59,11 @@ export function migrateConstables(s) {
     const b = s.bounty, bounty = b && Number.isInteger(b.amount) && b.amount > 0 && nat(b.at) && typeof b.cause === 'string' ? {amount: b.amount, at: b.at, cause: b.cause.slice(0, 60)} : null;
     const hooks = s.hooks && typeof s.hooks === 'object' && !Array.isArray(s.hooks) && nat(s.hooks.nighthawks?.at) ? {nighthawks: {at: s.hooks.nighthawks.at}} : {};
     const sentence = s.sentence && Number.isInteger(s.sentence.minutes) && s.sentence.minutes > 0 ? {minutes: s.sentence.minutes, cause: String(s.sentence.cause ?? '').slice(0, 60)} : null;
-    return {family: CONSTABLES_FAMILY, handled: (Array.isArray(s.handled) ? s.handled : []).filter(x => typeof x === 'string').slice(-HANDLED_CAP), lines, latch, bounty, hooks, sentence,
+    const d = s.door, door = d && typeof d.value === 'string' && d.value && nat(d.at) && typeof d.cause === 'string' ? {value: d.value.slice(0, 80), at: d.at, cause: d.cause.slice(0, 60)} : null;
+    return {family: CONSTABLES_FAMILY, door, handled: (Array.isArray(s.handled) ? s.handled : []).filter(x => typeof x === 'string').slice(-HANDLED_CAP), lines, latch, bounty, hooks, sentence,
         arrests: Number.isInteger(s.arrests) && s.arrests > 0 ? s.arrests : 0};
 }
-const untouched = s => !s.handled.length && !s.lines.length && !s.latch && !s.bounty && !Object.keys(s.hooks).length && !s.sentence && !s.arrests;
+const untouched = s => !s.handled.length && !s.lines.length && !s.latch && !s.bounty && !Object.keys(s.hooks).length && !s.sentence && !s.arrests && !s.door;
 registerDomain({id: 'constables', deps: ['heat'], initialState: fresh,
     save: () => untouched(slice) ? undefined : structuredClone(slice),
     validate: s => { if(s != null && s.family !== CONSTABLES_FAMILY) throw Error('Constables: wrong family.'); },
@@ -66,6 +74,12 @@ registerConsequence({id: 'constables.lines', read: () => slice.lines.map(l => ({
 registerConsequence({id: 'constables.bounty', read: () => slice.bounty ? [{id: `bounty:${slice.bounty.cause}`, at: slice.bounty.at,
     text: `The Tingen police have posted a bounty of ${slice.bounty.amount} pence for bringing you in.`, cause: `bounty:${slice.bounty.cause}`, observerSafe: true}] : []});
 
+// Tingen's knownness reads what each constable noted at the door: one witness row per constable, same row shape as the knowledge-based witness reader.
+const DAY = 24 * 60, NAMES = Object.freeze(['The first constable', 'The second constable']);
+registerKnownness('tingen', (state, ctx) => {
+    if(identityOf(ctx) !== PLAYER_IDENTITY || !slice.door) return [];
+    return CONSTABLE_IDS.map((id, i) => ({id: `witness:${id}`, weight: CONSTABLE_WEIGHT, at: Math.floor(slice.door.at / DAY), text: `${NAMES[i]} saw you and noted: ${slice.door.value}.`}));
+});
 const project = id => { try { return domainRegistry.project(id) ?? null; } catch { return null; } };
 const cmd = (id, name) => domainRegistry.command(id, name);
 const levels = AUTHORITIES[POLICE].levels;
@@ -117,6 +131,14 @@ function apply(result, {at, cause}) {
     if(result === 'withdrawn') return '';
     return arrest({at, cause, how: result === 'yielded' ? 'You gave in to the constables.' : 'The constables beat you down at your door and took you in.'});
 }
+// What the two constables saw of the player at the door, dated at the fight. It lives in this slice, not in simulation.knowledge: the save validator
+// requires every knowledge holder to be a persistent actor (state.actors and simulation.people), and a constable is a fight fighter only, so a note
+// under his id would break saving. One record per fight, replaced by the next fight, so it stays bounded; the same fight never rewrites it.
+function recordDoorSight(result, {at, cause}) {
+    const text = DOOR_SIGHT[result];
+    if(!text || slice.door?.cause === cause) return;
+    slice = {...slice, door: {value: text, at, cause: String(cause).slice(0, 60)}};
+}
 // Read finished fights from the log; idempotent (the session id is recorded first and put back if the host cannot take the effects now).
 export function resolveConstableFights(state) {
     const log = state?.simulation?.log, out = [];
@@ -129,6 +151,7 @@ export function resolveConstableFights(state) {
         slice = {...slice, handled: [...slice.handled, e.cause].slice(-HANDLED_CAP)};
         try {
             const text = apply(result, {at, cause: e.cause});
+            recordDoorSight(result, {at, cause: e.cause});
             if(text) { const line = {id: `constablefight:${e.cause}`, at, text}; slice = {...slice, lines: [...slice.lines, line].slice(-LINES_CAP)}; out.push(line); }
         } catch { slice = before; break; }
     }
@@ -165,7 +188,7 @@ export function constablesQuote(state, opts = {}) {
 }
 export function constablesSpec(state, context, helpers) {
     const {me, vitals, parts, enemyProfile} = helpers, hp = CONSTABLES_DIALS.foeHp.value;
-    const foe = (n, name) => { const id = `book.lotm.constable.${n}`; return {id, name, side: 'b', speed: 100, hp, maxHp: hp, stamina: 10, maxStamina: 10,
+    const foe = (n, name) => { const id = CONSTABLE_IDS[n - 1]; return {id, name, side: 'b', speed: 100, hp, maxHp: hp, stamina: 10, maxStamina: 10,
         profile: enemyProfile({...CONSTABLES_DIALS.foeBody.value, health: hp, max_stamina: 10}, name, id), perception: 6, stealth: 5, goals: {survive: .6, aim: .4}}; };
     return {id: 'lotm-constables', title: CONSTABLES_TITLE, floor: 1, conditions: {place: 'Your lodging door'},
         fighters: [
