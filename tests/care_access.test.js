@@ -38,3 +38,29 @@ test('invalid records are rejected and a free price care shows no coin label', (
     assert.throws(() => careRecord({provider: 'x', who: 'p', cost: 0, gate: {kind: 'rank'}}), /min/);
     assert.equal(careLabel('Rest', careRecord({provider: 'x', who: 'p', cost: 0})), 'Rest');
 });
+
+test('a price gate with a known purse refuses a short purse and leaves state alone', () => {
+    const rec = careRecord({provider: 'healer', who: 'player', cost: 8, restores: ['x']});
+    const r = applyCare(rec, {money: 3}, {moneyCost: money});
+    assert.deepEqual([r.ok, r.effects, r.costs], [false, [], []]);
+    assert.match(r.reason, /8 coins.*3/);
+    assert.equal(applyCare(rec, {money: 8}, {moneyCost: money}).ok, true);
+});
+
+test('Village aging treatment routes through care_access: unmet gate changes nothing, met gate keeps prior effects', async () => {
+    const {freshAging, stepAging, treat, severityOf, CHRONIC, DAY, TREAT_SEASON} = await import('../src/aging_contact.js');
+    let s = freshAging(), clock = 44 * 365 * DAY;
+    for (let age = 44; age < 66; age++) {
+        s = stepAging(s, {age, clock, minutes: 365 * DAY, worldId: 'base.frontier', inVillage: false}).state; clock += 365 * DAY;
+    }
+    const joints = CHRONIC[0], c = s.conditions.joints, sev = severityOf(joints, c);
+    assert.ok(sev >= 1, 'fixture needs a condition to treat');
+    const snapshot = JSON.stringify(s);
+    assert.throws(() => treat(s, 'joints', clock, 1), /A course of care costs \d+ coins/);
+    assert.equal(JSON.stringify(s), snapshot, 'refusal leaves the character record unchanged');
+    const r = treat(s, 'joints', clock, 500);
+    assert.equal(r.cost, 8 * (sev + 1));
+    assert.equal(r.state.conditions.joints.treatedUntil, clock + TREAT_SEASON);
+    assert.equal(severityOf(joints, r.state.conditions.joints), sev - 1);
+    assert.equal(r.state.conditions.joints.diagnosed, true);
+});

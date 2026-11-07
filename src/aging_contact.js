@@ -1,4 +1,5 @@
 import {GAME_YEAR} from './chronicle.js';
+import {careRecord, applyCare} from './care_access.js';
 // Age-driven chronic conditions and contact decay (G01/G02, AD13, AD19, AD38). Pure rules: the chronicle owns age
 // and the clock, the hero owns stats; this slice keeps only choices, wear counted so far and who was written to.
 // Every number is a default under a dial: a world's dial replaces the pace and states the in-world reason.
@@ -124,9 +125,13 @@ export function treat(state, id, clock, coins) {
     const def = CHRONIC.find(d => d.id === id), c = state.conditions[id];
     if(!def || !c || c.progress <= 0) throw Error('Nothing to treat yet.');
     const cost = treatCost(def, c);
-    if(coins < cost) throw Error(`A course of care costs ${cost} coins.`);
+    // The Village healer's season of care is a care record: price gate, same cost, same refusal, same effects.
+    const care = applyCare(careRecord({provider: 'healer', who: 'player', gate: {kind: 'price'}, cost, duration: TREAT_SEASON,
+        restores: ['relief', 'season'], doesNotRestore: ['age']}), {money: coins}, {moneyCost: amount => ({coins: amount}), restoreEffect: key => ({key})});
+    if(!care.ok) throw Error(`A course of care costs ${cost} coins.`);
+    const has = key => care.effects.some(e => e.key === key);
     const next = structuredClone(state);
-    next.conditions[id] = {...c, relief: Math.min(c.relief + (severityOf(def, c) > 0 ? 1 : 0), Math.floor(c.progress / def.step)), treatedUntil: clock + TREAT_SEASON, diagnosed: true};
+    next.conditions[id] = {...c, relief: Math.min(c.relief + (has('relief') && severityOf(def, c) > 0 ? 1 : 0), Math.floor(c.progress / def.step)), treatedUntil: clock + (has('season') ? care.duration : 0), diagnosed: true};
     return {state: next, cost};
 }
 

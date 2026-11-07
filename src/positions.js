@@ -8,7 +8,10 @@
 // Leaf module: no world imports, no DOM.
 export const POSITION_TERM_TYPES = Object.freeze(['enrolled', 'enlisted', 'hired', 'contracted', 'apprenticed', 'sworn', 'member']);
 export const POSITIONS_FAMILY = 'positions@1';
-export const POSITION_EXIT_KINDS = Object.freeze(['resign', 'dismissed', 'buy_out', 'transfer', 'desert']);
+// Player or world choices come first; 'term_end' and 'died' are settled by the clock and the life, never offered as a choice (default, dial, reason:
+// a post's own exit.kinds lists what the holder may choose; the two settled kinds apply to every post because every post can run out or lose its holder).
+export const SETTLED_EXIT_KINDS = Object.freeze(['term_end', 'died']);
+export const POSITION_EXIT_KINDS = Object.freeze(['resign', 'dismissed', 'buy_out', 'transfer', 'desert', ...SETTLED_EXIT_KINDS]);
 const nat = n => Number.isInteger(n) && n >= 0;
 export const freshPositions = () => ({family: POSITIONS_FAMILY, records: {}});
 // A save without the slice (or an unreadable one) loads fresh: older saves keep working and no post is ended retroactively.
@@ -45,10 +48,31 @@ export function exitAt(id, startedAt) {
 export function exitPosition(row, {kind, at, reason}) {
     if (!row?.id || !nat(row.term?.startedAt)) throw Error('That post cannot be left: it has no start on record.');
     if (withExit(row).ended) throw Error('This post has already ended.');
-    if (!(row.exit?.kinds || []).includes(kind) || !POSITION_EXIT_KINDS.includes(kind)) throw Error(`This post has no ${kind} exit.`);
+    if (SETTLED_EXIT_KINDS.includes(kind) || !(row.exit?.kinds || []).includes(kind) || !POSITION_EXIT_KINDS.includes(kind)) throw Error(`This post has no ${kind} exit.`);
     if (!nat(at) || typeof reason !== 'string' || !reason) throw Error('An exit needs a time and a reason.');
     slice = {...slice, records: {...slice.records, [row.id]: {startedAt: row.term.startedAt, ...(nat(row.term.endsAt) ? {endsAt: row.term.endsAt} : {}), exit: {kind, at, reason}}}};
 }
+// Settle posts the clock or a death has already ended. rows: positionsOf(state) rows; at: the minute now (or the minute of death).
+// A fixed term whose endsAt is at or before `at` ends as term_end AT endsAt (its true end, not the minute anyone looked), so away time and one
+// long step agree. With {died:true} every post still open ends as died at `at`; a term that had already run out before the death stays term_end.
+// Idempotent: an ended row (derived or recorded) is skipped, so a second call over fresh rows changes nothing. One slice write; returns the ids newly ended.
+export function settlePositions(rows, at, {died = false} = {}) {
+    if (!nat(at)) throw Error('Settling positions needs a time.');
+    const add = {}, ids = [];
+    for (const row of rows || []) {
+        if (!row?.id || !nat(row.term?.startedAt) || withExit(row).ended || add[row.id]) continue;
+        const end = row.term.endsAt;
+        const kind = nat(end) && end <= at ? 'term_end' : died ? 'died' : null;
+        if (!kind) continue;
+        const when = kind === 'term_end' ? Math.max(end, row.term.startedAt) : Math.max(at, row.term.startedAt);
+        add[row.id] = {startedAt: row.term.startedAt, ...(nat(end) ? {endsAt: end} : {}), exit: {kind, at: when, reason: kind === 'term_end' ? 'term-ran-out' : 'holder-died'}};
+        ids.push(row.id);
+    }
+    if (ids.length) slice = {...slice, records: {...slice.records, ...add}};
+    return ids;
+}
+// The life ended: close every open post as died (record kept for heirs and history). Caller: the one place a life's end is first observed.
+export const endPositionsOnDeath = (rows, at) => settlePositions(rows, at, {died: true});
 const sources = new Map();
 export function registerPositionSource(id, fn) {
     if (typeof id !== 'string' || !id) throw new Error('A position source needs an id.');

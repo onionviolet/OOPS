@@ -24,19 +24,40 @@ export function registerClaimSource(id, fn) {
     if(!text(id) || typeof fn !== 'function') throw Error('A claim source needs an id and a reader.');
     claimReaders.set(id, fn);
 }
-// fn(state, ctx) -> [{id, weight, text}] for one authority id. Several readers may serve one authority.
+// fn(state, ctx) -> [{id, weight, text, at?}] for one authority id (at = day of the act; ctx.identity = whose knownness, default the player). Several readers may serve one authority.
 export function registerKnownness(authorityId, fn) {
     if(!text(authorityId) || typeof fn !== 'function') throw Error('A knownness reader needs an authority id and a reader.');
     readers.set(authorityId, [...(readers.get(authorityId) ?? []), fn]);
 }
+// F4 (LARGER_FOUNDATIONS): knownness fades. A reader row may carry `at` (the day the act happened); an authority may register a half-life in days
+// (default: none, so a row without `at` or an authority without a dial behaves exactly as before). Default and reason: a market town forgets a stranger
+// fast (weeks), a sect or office that keeps records forgets slowly (years); each world sets its own number and says why. Dial: the half-life.
+// Derived on read from `ctx.now` (minutes) or `state.clock`, so nothing is saved.
+const halfLives = new Map();
+export function setKnownnessHalfLife(authorityId, days, reason) {
+    if(!text(authorityId) || !(Number.isFinite(days) && days > 0) || !text(reason)) throw Error('A half-life needs an authority id, a number of days and a reason.');
+    halfLives.set(authorityId, {days, reason});
+}
+export const halfLifeOf = authorityId => halfLives.get(authorityId) ?? null;
+// F8: whose knownness is read. Readers get `ctx.identity` (default: the player); an identity with no acts of its own reads zero.
+export const PLAYER_IDENTITY = 'player';
+export const identityOf = ctx => text(ctx?.identity) ? ctx.identity : PLAYER_IDENTITY;
+const DAY = 24 * 60;
 export function knownness(state, authorityId, ctx = {}) {
-    const signals = [];
+    const signals = [], identity = identityOf(ctx), c = {...ctx, identity};
+    const nowMin = Number.isFinite(ctx?.now) ? ctx.now : state?.clock, today = Number.isFinite(nowMin) ? Math.floor(nowMin / DAY) : null;
+    const half = halfLives.get(authorityId)?.days;
     for(const read of readers.get(authorityId) ?? []) {
-        let rows; try { rows = read(state, ctx) || []; } catch { continue; }
-        for(const r of rows) if(r && text(r.id) && Number.isFinite(r.weight) && r.weight > 0) signals.push({id: r.id, weight: r.weight, text: String(r.text ?? '')});
+        let rows; try { rows = read(state, c) || []; } catch { continue; }
+        for(const r of rows) {
+            if(!(r && text(r.id) && Number.isFinite(r.weight) && r.weight > 0)) continue;
+            const dated = Number.isFinite(r.at) && half && today !== null;
+            const weight = dated ? r.weight * 0.5 ** (Math.max(0, today - r.at) / half) : r.weight;
+            signals.push({id: r.id, weight, text: String(r.text ?? ''), ...(dated ? {at: r.at, raw: r.weight} : {})});
+        }
     }
     const value = signals.reduce((n, s) => n + s.weight, 0);
-    return {authority: authorityId, value, level: value >= WELL_KNOWN_AT ? 'known' : value >= KNOWN_AT ? 'noticed' : 'unknown', signals};
+    return {authority: authorityId, identity, value, level: value >= WELL_KNOWN_AT ? 'known' : value >= KNOWN_AT ? 'noticed' : 'unknown', signals};
 }
 const NO_ONE = Object.freeze({claimant: null, knows: false, reach: false, knownBy: null, short: 'no one claims this land', why: 'No one claims this land.'});
 export function authorityOver(state, {world, place, registered = false, holder = null, ctx = {}} = {}) {

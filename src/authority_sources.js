@@ -1,5 +1,6 @@
 // World adapters for authority.js: bounds and knownness read from owners that already exist (no save key, no write). Importing registers them.
-import {registerAuthoritySource, registerKnownness} from './authority.js';
+import {registerAuthoritySource, registerKnownness, setKnownnessHalfLife, identityOf, PLAYER_IDENTITY} from './authority.js';
+import './authority_sources_lotm.js';
 import {loot_sold_count} from './market_saturation.js';
 import {HOME_PLACES, HOME_SITE} from './home_content.js';
 import {LOTM_IDS} from './book_world_lotm_ids.js';
@@ -14,13 +15,16 @@ registerAuthoritySource('base.frontier', (state, {place}) => VILLAGE.has(place)
 const soldIn = o => !o || typeof o !== 'object' ? 0 : Object.entries(o).reduce((n, [k, v]) => n + (k === 'sold' && Number.isFinite(v) ? v : soldIn(v)), 0);
 const marketSales = ctx => Number.isFinite(ctx?.marketSales) ? ctx.marketSales : soldIn(loot_sold_count?.Village);
 registerKnownness('village', (state, ctx) => {
-    const rows = [], f = state?.actors?.player?.facts || {};
+    const rows = [], f = state?.actors?.[identityOf(ctx)]?.facts || {};
     if(f['mg.plotRight'] === true) rows.push({id: 'plot-right', weight: 1, text: 'Mira holds your name on a plot right.'});
-    if(marketSales(ctx) > 0) rows.push({id: 'market-sales', weight: 1, text: 'You have sold goods at the Village market.'});
+    // The market counter is the player's own sales; another identity has none of its own (F8) unless the host states them in ctx.
+    if((identityOf(ctx) === PLAYER_IDENTITY || Number.isFinite(ctx?.marketSales)) && marketSales(ctx) > 0) rows.push({id: 'market-sales', weight: 1, text: 'You have sold goods at the Village market.'});
     return rows;
 });
+// F4 dial: a village market forgets a stranger within a season. Applies to dated rows only; today's village readers are undated, so nothing fades yet.
+setKnownnessHalfLife('village', 30, 'A small village market has few faces and talks about the newest ones; a name from a season ago is half forgotten.');
 export const WILD_SITE = HOME_SITE;
 
-// LOTM, Tingen: the city's claim stops at the city's own places (a "Tingen ..." location); nothing registered reads the player's knownness yet.
+// LOTM, Tingen: the city's claim stops at the city's own places (a "Tingen ..." location); its knownness readers (wages, divination fees) are in authority_sources_lotm.js.
 registerAuthoritySource(LOTM_IDS.world, (state, {place}) => typeof place === 'string' && place.startsWith('Tingen')
     ? {claimant: 'tingen', label: 'the Tingen authorities', inBounds: true} : null);
