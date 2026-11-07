@@ -9,7 +9,8 @@ export const RIVAL_DIALS = Object.freeze({
     mercyPerLoss: {value: .15, why: 'A beaten rival is less ready to stop when she finally has the upper hand.'},
     swaggerPerWin: {value: .1, why: 'Beating you makes her surer of herself and quicker to close the matter.'},
     studyPerDuel: {value: 2, why: 'Each contest teaches her how you open: she notices more.'},
-    studyCap: {value: 6, why: 'There is a limit to what watching teaches.'}
+    studyCap: {value: 6, why: 'There is a limit to what watching teaches.'},
+    studyMinutes: {value: 10, why: 'Seeing a fighter work takes time: you have to watch her stance, her feet and what she does when she thinks no one is looking.'}
 });
 const n = (facts, key) => Number.isFinite(facts?.[key]) ? facts[key] : 0;
 export const rivalHistory = facts => ({duels: n(facts, RIVAL_FACTS.duels), wins: n(facts, RIVAL_FACTS.wins), losses: n(facts, RIVAL_FACTS.losses),
@@ -50,4 +51,24 @@ export function rivalCombatant(body, facts) {
     const goals = {revenge: clamp(.2 + D.revengePerLoss.value * h.wins + D.swaggerPerWin.value * h.losses),
         mercy: clamp(.6 - D.mercyPerLoss.value * h.wins - D.swaggerPerWin.value * h.losses)};
     return {body: real, goals, perceptionBonus: Math.min(D.studyCap.value, D.studyPerDuel.value * h.duels)};
+}
+// Studying her stance: the player watches Mara for studyMinutes and the observation is recorded in the player's
+// existing knowledge store (simulation.knowledge.player). No roll: it works because you watched her for the time.
+// It changes what the player is TOLD (appraisalMeans); rivalCombatant never reads it, so the margin is the same either way (AD7).
+// Dial: a world may change studyMinutes; a better vantage or a teacher could shorten it. Reason is on the dial.
+const lifeOf = state => state?.simulation?.people?.roadRival;
+export function rivalStudyQuote(state, location) {
+    const minutes = RIVAL_DIALS.studyMinutes.value, rival = lifeOf(state), no = reason => ({eligible: false, reason, minutes});
+    if(state?.simulation?.knowledge?.player?.[RIVAL_OBSERVATION_KEY]) return {...no('You have already taken her measure.'), done: true};
+    if(state?.simulation?.sessions?.player) return no('Finish what you are in the middle of first.');
+    if(!rival || rival.life !== 'alive') return no('Mara is not here to watch.');
+    if(location != null && rival.location !== location) return no('Mara is not here to watch.');
+    return {eligible: true, reason: '', minutes};
+}
+// Writes the observation into a plan state whose clock has already advanced by the study minutes. Idempotent: a second study keeps the first record.
+export function recordRivalStudy(state) {
+    const known = state.simulation.knowledge.player ||= {};
+    if(known[RIVAL_OBSERVATION_KEY]) return false;
+    known[RIVAL_OBSERVATION_KEY] = {stage: 'seen', value: 'She fights harder than she looks.', at: state.clock, cause: `rival.study:${state.clock}`};
+    return true;
 }

@@ -96,6 +96,19 @@ Findings. **F1** `src/simulation_ui.js` hides the "Follow local people and work"
 
 **State after both walks.** M2, M3 and M6 have natural-route evidence on a fresh origin including persistence. M1 and U06 have none because no play route reads them. Delivery stays "implemented, below floor" (no 1920x1080 browser check, no installed-app check).
 
+## Wave 2 (Weibao, 2026-11-06: "skip gates? full blast on finishing all the features and ideas, fix problems accordingly")
+
+Reading: skip the per-slice full gates, keep one final gate before commit (another session pushes master, so an untested commit would reach the remote). Lanes ran focused tests only. Usage read before dispatch: 5-hour 43%, weekly 65% (stop line 75%).
+
+| Lane | Slice | Files | Result |
+|---|---|---|---|
+| E | U10 NPC schedule fact (pseudo agency through the command path) | `src/npc_schedule.js` (new leaf), `src/simulation.js` (+7/-2), `src/simulation_content.js` (+5/-1), `tests/npc_schedule.test.js` (5) | implemented, below floor; dormant in play: the craftsman row reads `untimed` until `calendarMinute` is in non-player contexts (`main.js:1684`, not wired); 1118/1118 on importing tests |
+| F | cold/wet resistance facet of the Poison resistance owner (no sick state; XP into the existing key) | `src/hazard_resistance.js` (new), `src/active_effects.js` (tags), `src/models/hero.js` (+5), `src/absorb_c2/local_life.js` (+5), `src/main.js` (+3/-1), `tests/hazard_resistance.test.js` (7), `tests/structured_equipment_runtime.test.js` (param list) | implemented, below floor; division `1 + (coef-1)*0.5` floored at 1; growth just on the Frontier hook, Village gets division without growth; wider run 887/888, the one failure (a live cast-adapter integration test) passed alone 17/17 |
+| G | rival scouting writer: "Study her stance" records `person.roadRival.strength` | `src/rival_memory.js` (+23), `src/tempo_fight_domain.js` (+17), `tests/rival_study.test.js` (5) | implemented, below floor; margin unchanged, just the telling; no `basis` (validator needs a real situation); 70/70 focused |
+| H | walk findings | `src/simulation_ui.js` (F1: enroll button out of the hidden Work section), `scripts/headless/runner.mjs` (F3: settle on a stalled clock; unproven against a real cycle), `tests/simulation_ui_enroll.test.js` (1) | F1 fixed with a test that fails on the old file; F2 not patchable as data (needs an engine enrol and commission step); F3 inferred from source |
+
+Coordinator checks: diffs of `hero.js`, `main.js`, `simulation.js`, `tempo_fight_domain.js` read; each shared file holds only this wave's hunks; other sessions' dirty LOTM, positions and heat files left unstaged.
+
 ## Resume block (unattended run, 2026-11-06)
 
 "lets work on these to completion" (Weibao, 2026-11-06, after the reconciliation).

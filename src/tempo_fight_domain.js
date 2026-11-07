@@ -7,7 +7,7 @@ import {readNativeFighter} from './native_battle.js';
 import {typeSnapshot} from './damage_types.js';
 import {partyHelperReasons, initializePartyBattle} from './party_battle.js';
 import {PARTY_HELPER} from './native_battle_contracts.js';
-import {rivalCombatant, rivalBrief} from './rival_memory.js';
+import {rivalCombatant, rivalBrief, rivalStudyQuote, recordRivalStudy} from './rival_memory.js';
 import {knownTargetFacts} from './known_target_facts.js';
 import {harmState, setHarmState, HARM_RUNGS} from './harm_state.js';
 import {harmPart} from './harm_engine.js';
@@ -143,6 +143,16 @@ function begin(request = {}) {
     const plan = beginTempoFight(state, ports.registry, context, spec);
     rememberTab(); ports.commit(plan); applyHarm(plan);
 }
+// Study her stance: watch Mara for the dial's minutes; the clock advances once and the observation lands in the player's knowledge store.
+const studyQuote = () => { try { return rivalStudyQuote(ports.root(), ports.campaignContext().facts?.location); } catch(error) { return {eligible: false, reason: '', minutes: 0}; } };
+function study() {
+    check(ports?.writable() && ports.plan, 'The game cannot take that right now.');
+    const root = ports.root(), quote = rivalStudyQuote(root, ports.campaignContext().facts?.location);
+    check(quote.eligible, quote.reason);
+    const plan = ports.plan(quote.minutes);
+    check(plan.state.clock - root.clock === quote.minutes, 'Finish the current local decision first.');
+    recordRivalStudy(plan.state); ports.commit(plan);
+}
 function move(request) {
     const state = ports.root(), ctx = ports.campaignContext();
     const plan = request.handOver ? handOverTempoFight(state, ports.registry, ctx) : commitTempoMove(state, ports.registry, ctx,
@@ -154,7 +164,7 @@ function view() {
     const b = open();
     if(b) return {visible: true, fight: {...tempoView(b), aim}, held: b.held};
     const quote = startQuote(), facts = ports.root().actors.player.facts;
-    const rival = rivalBrief(facts, knownTargetFacts(ports.root(), 'player', 'roadRival')), openers = openerQuotes();
+    const rival = {...rivalBrief(facts, knownTargetFacts(ports.root(), 'player', 'roadRival')), study: studyQuote()}, openers = openerQuotes();
     return {visible: !!quote.visible || rival.history.duels > 0 || openers.length > 0, start: quote, rival, lio: lioQuote(), openers, last: facts['tempo.lastResult'] || null, owed: facts[TEMPO_FACT_HELD] || 0};
 }
 function mount() {
@@ -219,6 +229,7 @@ function mount() {
         } else {
             body.append(node('p', 'Settle the road challenge move by move. Quick moves cost little time and light harm; heavy ones leave you open longer. Who notices first sets the opening.'));
             if(v.start.visible || v.rival.history.duels) {const r = node('p', `${v.rival.memory} ${v.rival.appraisal}`); r.dataset.rivalBrief = v.rival.appraised ? 'appraised' : 'unread'; body.append(r);}
+            if(!v.rival.study.done && v.rival.study.minutes) body.append(button(`Study her stance · ${v.rival.study.minutes} min`, 'study', v.rival.study.eligible ? 'Watch how she moves. It takes time; nothing is rolled.' : v.rival.study.reason, !v.rival.study.eligible || !ports.writable(), () => act(study)));
             if(v.last) body.append(node('p', `Last tempo contest: ${v.last}.${v.owed ? ` ${v.owed} minutes of held time are still owed to the world.` : ''}`));
             if(v.start.visible) body.append(button('Accept the road duel as a tempo contest', 'start', v.start.reason, !v.start.eligible, () => act(start)));
             if(v.start.visible && v.lio.offered) body.append(button('Accept it with Lio beside you', 'start_lio', v.lio.reasons.join(' ') || 'Lio fights by his own goals and hears orders by chance. The fee and terms are the party contest\'s.', !v.start.eligible || v.lio.reasons.length > 0, () => act(start, {withLio: true})));
@@ -242,7 +253,7 @@ function setAim(request = {}) {
     aim = request.aim;
     panel?.render(true);
 }
-const commands = {aim: setAim, begin: request => {check(ports?.writable(), 'The game cannot start a fight right now.'); begin(request); panel?.render(true);}, move: request => {
+const commands = {aim: setAim, study: () => {study(); panel?.render(true);}, begin: request => {check(ports?.writable(), 'The game cannot start a fight right now.'); begin(request); panel?.render(true);}, move: request => {
     check(ports?.writable(), 'The game cannot take a move right now.');
     move(request); panel?.render(true);
 }};

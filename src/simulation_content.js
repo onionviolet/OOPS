@@ -45,6 +45,7 @@ import {fieldDefinitions} from "./field_workshop.js";
 import {fieldWorksDefinitions} from './field_works_content.js';
 import {pursuitDefinitions,pursuitSources} from "./pursuit_content.js";
 import {encounterDefinitions,encounterSources} from "./encounter_content.js";
+import {validateSchedule} from "./npc_schedule.js";
 const wood = JSON.stringify({id: "Rough wood log"});
 const kit = JSON.stringify({id: "Prepared survey kit"});
 const fact = (key, value) => ({type: "fact", scope: "actor", key, value});
@@ -103,7 +104,9 @@ export const simulationDefinitions = {
     ],
     transitions:campaignDefinitions.transitions,
     controllers: [...paradiseCampaignDefinitions.controllers,...(molDefinitions.controllers||[]),...(paradiseDefinitions.controllers||[]),...originalFrontierDefinitions.controllers,...pocketSimulationDefinitions.controllers,...exchangeDefinitions.controllers,...promiseDefinitions.controllers,{id: "village.craftsman_controller", revision: 1, label: "Craftsman's work plan", actorId: "oldCraftsman", interval: 1,
-        actions: [{commandId:"field.workshop.parts",priority:2,when:requires("actor.field.partsOrder",true)}, {commandId: "village.craftsman_work", priority: 1, when: requires("actor.work.order", true)}]}, ...helperDefinitions.controllers,...fieldDefinitions.controllers],
+        actions: [{commandId:"field.workshop.parts",priority:2,when:requires("actor.field.partsOrder",true)}, {commandId: "village.craftsman_work", priority: 1, when: {all: [requires("actor.work.order", true), {any: [requires("schedule.oldCraftsman.place", "workbench"), requires("schedule.oldCraftsman.slot", "untimed")]}]}}],
+        // Content, not saved state. Holds out only while the calendar says he is home (22:00 to 06:00); with no calendar the slot reads untimed and he works as before.
+        schedule: validateSchedule({actor: "oldCraftsman", slots: [{from: 360, to: 1320, place: "workbench", activity: "work"}, {from: 1320, to: 360, place: "home", activity: "rest"}]})}, ...helperDefinitions.controllers,...fieldDefinitions.controllers],
     events: [...observationDefinitions.events,{id: "village.shower", revision: 1, label: "A short shower reaches the Village workbench", automatic: true, public: true, interval: 12,
         requires: requires("actor.world", "base.frontier"),
         maxOccurrences: 1, chance: 1, lifetime: 8, mode: "offer", effects: [{type: "world", worldId: "base.frontier", key: "workbench.wet", value: true}],

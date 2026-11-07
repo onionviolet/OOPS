@@ -14,7 +14,7 @@ export function createSimulationPanel({registry, read, command}) {
     const panel = node("details"); panel.id = "simulation_panel"; panel.className = "expedition_panel";
     panel.append(node("summary", "Craftsman & workshop")); const body = node("div"), description = node("p"), status = node("p"), buttons = node("div"), events = node("div"), history = node("ol");
     const encounter = node("section"), people = node("section"); body.append(encounter); people.append(node("h4", "Local commissions"));
-    const personal = node("p"); personal.id = "workshop_personal_detail";
+    const enrollHome = node("div"), personal = node("p"); personal.id = "workshop_personal_detail";
     // Sections are <details> so summarizeGroups gives each heading its "n ready / m actions" (WS-4).
     const section = (id, title, open) => {const d = node("details"), list = node("div"); d.id = id; d.className = "workshop_section"; d.open = open; d.append(node("summary", title), list); return {d, list};};
     const talk = section("workshop_conversation", "Talk", true), workSection = section("workshop_work", "Work here", true), leads = section("workshop_leads", "Leads here", true);
@@ -22,11 +22,12 @@ export function createSimulationPanel({registry, read, command}) {
     const conversation = talk.d, conversations = talk.list, scene = node("section"); scene.className = "workshop_scene"; scene.append(personal);
     workSection.list.append(buttons); const practiceNote = node("small"); workSection.list.append(practiceNote); practiceNote.className = "workshop_practice";
     const homes = {talk: conversations, work: buttons, leads: leads.list};
-    panel.append(body); body.append(description, scene, status, conversation, workSection.d, leads.d, notYet.d, unplaced.d, people, events, history); let notice = "", eventSignature = "", encounterSignature = "", wasIrritated = false;
+    panel.append(body); body.append(description, enrollHome, scene, status, conversation, workSection.d, leads.d, notYet.d, unplaced.d, people, events, history); let notice = "", eventSignature = "", encounterSignature = "", wasIrritated = false;
     const run = c => {try {command(c);status.dataset.themeState='status';status.setAttribute('role','status'); const disclosure=registry.simulation.commands.get(c.id)?.effects.find(e=>e.type === "knowledge" && !e.actor && e.key.startsWith("body.feedback."));
         notice=disclosure ? read().state.simulation.knowledge.player[disclosure.key].value : c.type === "cancel" ? "Command saved. Current work stopped." : c.type === "withdraw" ? "Command saved. Encounter withdrawn." : "Command saved.";} catch(e) {status.dataset.themeState='error';status.setAttribute('role','alert');notice = e.message;} render();};
     const button = (label, id, c) => {const b = node("button", label); b.type = "button"; b.dataset.simulation = id; b.addEventListener("click", () => run(c)); return b;};
-    const enroll = button("Follow local people and work", "enroll", {type: "enroll"}); buttons.append(enroll);
+    // The first step lives outside "Work here": that section stays hidden until the hero is enrolled, so the step inside it was unreachable (2026-11-06).
+    const enroll = button("Follow local people and work", "enroll", {type: "enroll"}); enrollHome.append(enroll);
     const controls = new Map();
     for(const d of registry.simulation.commands.values()) if(d.actorId === "player" && !d.targetDefinitionId && d.group!=="structured_local" && !STEAM_ABSORPTION_GROUPS.includes(d.group) && !["management","game_absorption_assay","contextual_balm","cooling_refinement","home_furnishings","proto23","factorio_retort","book_mol","book_mol_npc","book_paradise","book_paradise_npc","book_paradise_campaign","book_paradise_campaign_npc","status_care","field_care","book_care","book_care_npc","lore_work","lore_warning","body","field","pursuit","exchange","observation","glasshouse","skills","original_frontier","feature_objects","feature_society","feature_powers","feature_battle","tidemark","repositories","ink","backlog","artifact_collection","causal_story","causal_story_npc","audit_remainder","remainder_livelihood","remainder_home","remainder_offers","remainder_consequences","remainder_combat_fit","remainder_combat_objectives"].includes(d.group)) {
         const b = button(d.label, d.id, {type: "command", id: d.id, targetId: d.targetId}), home = workshopHome(d);

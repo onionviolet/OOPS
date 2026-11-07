@@ -49,7 +49,7 @@ effect_templates.Bleeding = new ActiveEffect({name:'Bleeding',description:'A cla
                 cold_tolerance: {flat: -5},
             }
         },
-        tags: {"debuff": true},
+        tags: {"debuff": true, "cold_hazard": true},
     });
 
     effect_templates["Cold"] = new ActiveEffect({
@@ -61,7 +61,7 @@ effect_templates.Bleeding = new ActiveEffect({name:'Bleeding',description:'A cla
             }
         },
         group_tags: {cold: 1},
-        tags: {"debuff": true},
+        tags: {"debuff": true, "cold_hazard": true},
     });
     effect_templates["Very cold"] = new ActiveEffect({
         name: "Very cold",
@@ -74,7 +74,7 @@ effect_templates.Bleeding = new ActiveEffect({name:'Bleeding',description:'A cla
             }
         },
         group_tags: {cold: 2},
-        tags: {"debuff": true},
+        tags: {"debuff": true, "cold_hazard": true},
     });
     effect_templates["Freezing"] = new ActiveEffect({
         name: "Freezing",
@@ -92,7 +92,7 @@ effect_templates.Bleeding = new ActiveEffect({name:'Bleeding',description:'A cla
             }
         },
         group_tags: {cold: 3},
-        tags: {"debuff": true},
+        tags: {"debuff": true, "cold_hazard": true},
     });
     effect_templates["Hypothermia"] = new ActiveEffect({
         name: "Hypothermia",
@@ -110,7 +110,7 @@ effect_templates.Bleeding = new ActiveEffect({name:'Bleeding',description:'A cla
             }
         },
         group_tags: {cold: 4},
-        tags: {"debuff": true},
+        tags: {"debuff": true, "cold_hazard": true},
     });
 })();
 /////////////////////////////////////////

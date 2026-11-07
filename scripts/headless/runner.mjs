@@ -508,10 +508,16 @@ export class HeadlessGame {
             const before = now;
             this.ticks(Math.min(chunk, target - now));
             if(invariants) this.check({before});
-            if(this.minutes() === before && ++guard > 3) throw new Error(`Game clock stopped at ${before} (paused, waiting on a choice, or save-blocked).`);
+            if(this.minutes() === before) {
+                // A frozen clock is usually an async continuation command (cycle, life switch) that needs microtasks and a
+                // page reload to finish; ticks() never yields, so it could not. Let it, and stop at the new page (2026-11-06).
+                const boots = this.boots; await this.settle();
+                if(this.boots !== boots) break;
+                if(this.minutes() === before && ++guard > 3) throw new Error(`Game clock stopped at ${before} (paused, waiting on a choice, or save-blocked).`);
+            }
         }
-        this.stats.minutes += this.minutes() - start;
         await this.settle();
+        this.stats.minutes += Math.max(0, this.minutes() - start);
         return {minutes:this.minutes() - start, ms:performance.now() - t0};
     }
 

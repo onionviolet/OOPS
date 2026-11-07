@@ -1,6 +1,7 @@
 import {actionModifiers} from './harm_state.js';
 import {hashStreamSeed as hash, xorshift32} from './hash_rng.js';
 import {createWakeQueue} from './wake_queue.js';
+import {scheduleFacts} from './npc_schedule.js';
 import {AFTERMATH_ID,aftermathPersonPresent} from './story_aftermath.js';
 import {recordStoryletOutcome} from './lore_history_state.js';
 import {initializeStoryletDecks,nextStoryletBoundary,advanceStoryletDecks,validateStoryletState} from './storylet_deck.js';
@@ -693,15 +694,17 @@ export function advanceSimulationBoundary(out, registry, contexts = {}) {
         // Nothing mutates state until a candidate acts (then the scan stops), so
         // facts for one target are built once and reused by later candidates.
         const scanFacts = new Map();
+        // Schedule facts come from the controller's own authored row; none without one.
+        const schedule = d.schedule ? scheduleFacts([d.schedule], c.actorId, contexts[c.actorId]?.facts?.calendarMinute) : null;
         const targetFacts = ctx => {
             const targetId = s.people[ctx.targetId] ? ctx.targetId : null;
             if(!scanFacts.has(targetId)) scanFacts.set(targetId, simulationFacts(state, {...ctx, targetId}, registry));
-            return {...scanFacts.get(targetId)};
+            return {...scanFacts.get(targetId), ...schedule};
         };
         for(const candidate of controllerOrder(d)) {
             const kind = candidate.kind || "command";
             const ctx = {...contexts[c.actorId], actorId: c.actorId, targetId: candidate.targetId || null, gameplay: out.gameplay, external: out.external, vitals: out.vitals, equipment: out.equipment};
-            if(candidate.when && !meets(candidate.when, ctx.targetId && !s.people[ctx.targetId] ? simulationFacts(state, ctx, registry) : targetFacts(ctx))) continue;
+            if(candidate.when && !meets(candidate.when, ctx.targetId && !s.people[ctx.targetId] ? {...simulationFacts(state, ctx, registry), ...schedule} : targetFacts(ctx))) continue;
             if(kind === "command") {
                 if(surelyIneligible(state, registry, candidate.commandId, ctx)) continue;
                 const preview = previewCommand(state, registry, candidate.commandId, ctx, true, targetFacts(ctx));

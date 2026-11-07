@@ -1,6 +1,7 @@
 import {natural} from '../basics.js';
 import {recurringWindow} from '../world_rhythm.js';
 import {rankOf,rankAllows} from '../faction_rank.js';
+import {exposureGain,OWNER_SKILL} from '../hazard_resistance.js';
 
 // Original, bounded Village/household texture. All rewards are plans; the host
 // persists native diffs and this state together before publishing either.
@@ -79,6 +80,10 @@ export function advanceLocalLife(raw,c,rng=()=>{throw new Error("Local life need
         const exposed=Math.min(delta,c.foodPoisonRemaining);
         s.poisonMinutes+=exposed;
         if(exposed) addXp(p,'Poison resistance',exposed*LOCAL_LIFE_BALANCE.poisonXpPerMinute);
+    }
+    if(c.worldId==='base.frontier' && c.alive===true && delta>0 && finite(c.coldHazardRemaining)) {
+        const gain=exposureGain('cold',Math.min(delta,c.coldHazardRemaining),finite(c.poisonResistanceLevel)?c.poisonResistanceLevel:0);
+        if(gain>0) addXp(p,OWNER_SKILL,gain);
     }
     if(delta>0 && c.worldId==='base.frontier' && c.alive===true && c.location==='Shack' && s.lastLocation==='Shack')
         s.homeMinutes=Math.min(Number.MAX_SAFE_INTEGER,s.homeMinutes+delta);
