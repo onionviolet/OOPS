@@ -78,11 +78,15 @@ export function createManagementPanel({read,registry,command}) {
   drawOverview(hidden||!view.opened?null:courtyardOrganization(snapshot.state,registry,snapshot.context));
   groupsNote.textContent=hidden||!view.opened?'':groupLines(groupsOf(snapshot.state)).join(' ');groupsNote.hidden=!groupsNote.textContent;
   {const hp=hidden||!view.opened?null:domainRegistry.project('hired_hands'),hj=hp?.jobs.find(j=>j.available||j.hired);hands.hidden=!hj;
-   if(hj){const hire=hp.hires.find(h=>h.jobId===hj.id&&h.status==='active'),sig=JSON.stringify([snapshot.canWrite,hj,hire&&hire.paidThrough]);
+   if(hj){const hire=hp.hires.find(h=>h.jobId===hj.id&&h.status==='active'),sig=JSON.stringify([snapshot.canWrite,hj,hire&&hire.paidThrough,hire&&hire.sellAbove]);
     if(handList.dataset.sig!==sig){handList.dataset.sig=sig;
      const run=(f,ok)=>()=>{try{f();message=ok;}catch(e){message=e.message;}render();};
      if(hire)handList.replaceChildren(node('p',`${hire.name} tends the ${hire.crop} for ${hire.wage} coins a week, paid ahead. ${hire.income?.text||''}`.trim(),{class:'organization-note'}),
-      (()=>{const b=node('button',`Let ${hire.name} go`,{type:'button'});b.disabled=!snapshot.canWrite;b.addEventListener('click',run(()=>domainRegistry.command('hired_hands','fire')({jobId:hj.id}),'You let them go.'));return b;})());
+      (()=>{const b=node('button',`Let ${hire.name} go`,{type:'button'});b.disabled=!snapshot.canWrite;b.addEventListener('click',run(()=>domainRegistry.command('hired_hands','fire')({jobId:hj.id}),'You let them go.'));return b;})(),
+      (()=>{const w=node('p',null,{class:'organization-note'}),n=node('input',null,{type:'number',min:'0',max:'999',step:'1',value:String(hire.sellAbove??10),'aria-label':'Keep this much grain'}),set=node('button',hire.sellAbove==null?'Sell grain above this at the market':'Change the sell order',{type:'button'});set.disabled=!snapshot.canWrite;
+       set.addEventListener('click',run(()=>domainRegistry.command('hired_hands','order')({jobId:hj.id,sellAbove:Number(n.value)}),'Sell order set.'));w.append(node('span',hire.sellAbove==null?'Grain above ':`Selling grain above ${hire.sellAbove}; set it to `),n,node('span',' '),set);
+       if(hire.sellAbove!=null){const off=node('button','Stop selling',{type:'button'});off.disabled=!snapshot.canWrite;off.addEventListener('click',run(()=>domainRegistry.command('hired_hands','order')({jobId:hj.id,sellAbove:null}),'Sell order cleared.'));w.append(' ',off);}
+       return w;})());
      else handList.replaceChildren(...hj.candidates.map(c=>{const wrap=node('p'),b=node('button',`Hire ${c.name} · ${c.wage} coins a week`,{type:'button'});b.disabled=!snapshot.canWrite||!c.eligible;
       b.addEventListener('click',run(()=>domainRegistry.command('hired_hands','hire')({jobId:hj.id,hand:c.id,crop:handCrop.value}),`${c.name} is hired.`));wrap.append(b,node('small',` ${c.eligible?c.line:c.reasons.join(' ')}`));return wrap;}));}}}
   found.hidden=hidden||!view.opened||!domainRegistry.command('organizations','quote');

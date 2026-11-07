@@ -16,9 +16,11 @@ import {repositoryAbsorptionItemSpecifications} from '../repository_absorption_c
 import {registerFeatureObjectItems} from '../feature_expansion_objects.js';
 import {FEATURE_POWER_ITEMS} from '../feature_expansion_powers.js';
 import {registerReferenceGameplayItems} from '../reference_gameplay_content.js';
+import {registerFrontierBowItems} from '../frontier_bow.js';
 import {item_templates, OtherItem} from "../items.js";
 
 registerManagementItems({itemTemplates:item_templates,OtherItem});
+registerFrontierBowItems({itemTemplates:item_templates,OtherItem});
 
 // Original provisional supplies, registered through the existing item model.
 for(const [id, description, value] of [

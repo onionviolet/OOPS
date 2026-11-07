@@ -1,7 +1,8 @@
 // OB7/OB12, delegation ladder rung L1: a hired hand runs one standing job on the clock for a weekly wage. World-neutral (AR3/AR4):
 // a world registers a job (registerHandJob) that knows its own plot, tool and stock; this file owns the hire record, the wage and the report.
 // Slice `hired_hands@1` (SAVES note in the lane return): {hires: {jobId: record}, reports: [{at, text}]}. An untouched life writes no key.
-//   record  {hand, name, wage, crop, pace, since, workedTo, paidThrough, cycleAt, status: active|ended, endedAt, endReason, cycles, yielded}
+//   record  {hand, name, wage, crop, pace, since, workedTo, paidThrough, cycleAt, status: active|ended, endedAt, endReason, cycles, yielded, sellAbove?}
+//   sellAbove (additive, absent until a sell order is given): sell the job's stock above this many to the market on the clock; see hired_hands_plot.js.
 // Time rules (OB4, ACR6/7):
 //  - the wage is paid a week ahead, at hire and at each week boundary; work runs on the clock between boundaries, never per minute of play;
 //  - if the purse cannot cover the next week the arrangement ends AT that boundary with a line: nothing is owed, no debt row, no work after it;
@@ -32,7 +33,8 @@ export function migrateHiredHands(s) {
         hires[id] = {hand: r.hand, name: String(r.name || r.hand), wage: r.wage, crop: String(r.crop || ''), pace: Number.isFinite(r.pace) && r.pace > 0 ? r.pace : 1,
             since: r.since, workedTo: r.workedTo, paidThrough: r.paidThrough, cycleAt: nat(r.cycleAt) ? r.cycleAt : null,
             status: r.status === 'ended' ? 'ended' : 'active', endedAt: nat(r.endedAt) ? r.endedAt : null, endReason: typeof r.endReason === 'string' ? r.endReason : null,
-            earned: nat(r.earned) ? r.earned : 0, cycles: nat(r.cycles) ? r.cycles : 0, yielded: nat(r.yielded) ? r.yielded : 0};
+            earned: nat(r.earned) ? r.earned : 0, cycles: nat(r.cycles) ? r.cycles : 0, yielded: nat(r.yielded) ? r.yielded : 0,
+            ...(nat(r.sellAbove) ? {sellAbove: r.sellAbove} : {})}; // standing sell order (W11-E): written only when one is set
     }
     const reports = (Array.isArray(s.reports) ? s.reports : []).filter(x => x && nat(x.at) && typeof x.text === 'string' && x.text).slice(-REPORT_CAP).map(x => ({at: x.at, text: x.text}));
     return {family: HIRED_HANDS_FAMILY, hires, reports};
@@ -57,7 +59,7 @@ function endHire(plan, job, rec, at, reason) {
 }
 // Settle one active record up to `now`: work to each week boundary, then pay the next week or end there. Mutates the plan and the record.
 function settleRec(plan, job, id, rec, now) {
-    const tally = {cycles: 0, yielded: 0, noSeed: false, paid: 0, ended: null}, from = rec.workedTo;
+    const tally = {cycles: 0, yielded: 0, noSeed: false, paid: 0, ended: null, sold: 0, coins: 0}, from = rec.workedTo;
     let guard = 0;
     while (rec.status === 'active' && rec.paidThrough <= now && guard++ < PASS_CAP) {
         const b = rec.paidThrough;
@@ -142,6 +144,23 @@ function fire({jobId} = {}) {
     ports.logMessage?.(`You let ${next.name} go.`, 'notification');
     return project();
 }
+// A standing order: sell the job's stock above `sellAbove` to the market on the clock. null clears it. Changes only the record; nothing sells here.
+export const SELL_ORDER_MAX = 999;
+function order({jobId, sellAbove} = {}) {
+    const rec = slice.hires[jobId], job = jobs.get(jobId);
+    if(!ports || !rec || rec.status !== 'active') throw Error('No one is hired for that.');
+    if(!job?.sells) throw Error('This work has nothing to sell.');
+    if(ports.writable?.() === false) throw Error('Use the writable game tab.');
+    if(sellAbove !== null && !(Number.isInteger(sellAbove) && sellAbove >= 0 && sellAbove <= SELL_ORDER_MAX)) throw Error(`Keep between 0 and ${SELL_ORDER_MAX}.`);
+    const plan = ports.plan(0), prior = slice, now = plan.state.clock, next = structuredClone(rec);
+    if(sellAbove === null) delete next.sellAbove; else next.sellAbove = sellAbove;
+    const text = sellAbove === null ? `You tell ${next.name} to stop selling; the ${job.sells.word} stays in your store.`
+        : `You tell ${next.name} to sell ${job.sells.word} above ${sellAbove} at the market, at whatever the market pays and only while it will buy.`;
+    slice = {...slice, hires: {...slice.hires, [jobId]: next}, reports: [...slice.reports, {at: now, text}].slice(-REPORT_CAP)};
+    try { ports.commit(plan); } catch (e) { slice = prior; throw e; }
+    ports.logMessage?.(text, 'notification');
+    return project();
+}
 function quote({jobId, hand} = {}) {
     const job = jobs.get(jobId);
     if (!job || !ports) return {eligible: false, reasons: ['Hiring is not ready yet.']};
@@ -174,4 +193,4 @@ registerDomain({id: 'hired_hands', deps: [], initialState: fresh,
     validate: s => { if (s != null && s.family !== HIRED_HANDS_FAMILY) throw Error('Hired hands: wrong family.'); },
     migrate: migrateHiredHands,
     load: s => { slice = migrateHiredHands(s); },
-    tick, projection: project, commands: {hire, fire, quote}});
+    tick, projection: project, commands: {hire, fire, quote, order}});
