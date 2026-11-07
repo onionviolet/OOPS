@@ -98,6 +98,9 @@ const rows = [
     ['journeys', 'in-world', 'Available journeys, means, fares and travel time in this life.'],
     ['topic-person', 'in-world', 'Conversations with a person in this character’s life.'],
     ['topic', 'in-world', 'A topic and its available conversation choices.'],
+    ['position', 'in-world', 'This character’s posts: term left and the resign verb.'],
+    ['guard', 'in-world', 'The hired-guard contract this character can sign or holds.'],
+    ['groups', 'in-world', 'The groups this character belongs to, as this life knows them.'],
   ].map(([token, tag, basis]) => ({id: `lotm.data-${token}`, kind: 'panel-block', anchor: `[data-lotm-${token}]`, tag, basis})),
   {id: 'lotm.data-command-control', kind: 'panel-block', anchor: '[data-lotm]', tag: 'in-world', basis: 'A command or formula selector for the current character.'},
 

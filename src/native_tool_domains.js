@@ -35,6 +35,7 @@ import {configureSkillRecords} from './skill_records_domain.js';
 import {configureSkillLadder} from './skill_ladder_domain.js';
 import {configureReturnDigest} from './return_digest_domain.js';
 import {configureAwayBank} from './away_bank_domain.js';
+import {configureHiredHands} from './hired_hands.js';
 
 // AR17: a world-neutral engine takes the save-state write port (work ledger, restore, storage, alive), never the Frontier harvest port.
 export const neutralWritable = operations => operations.tradeWritable || operations.writable;
@@ -49,6 +50,7 @@ export function configureNativeToolDomains(operations) {
         removeExact: (key, qty) => operations.actor().removeFromInventory([{item_key: key, item_count: qty}])});
     configureOrganizations({...operations, writable: neutralWritable(operations), blocked: operations.worldWorkBlocked});
     configureInquiry({plan: operations.plan, commit: operations.commit, writable: neutralWritable(operations)});
+    configureHiredHands({plan: operations.plan, commit: operations.commit, writable: neutralWritable(operations), idle: operations.idle, logMessage: operations.logMessage});
     configureCohort({...operations,blocked:operations.worldWorkBlocked});
     configureTempoFight({...operations, writable: neutralWritable(operations)});
     configureDrainage(operations);

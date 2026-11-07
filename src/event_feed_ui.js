@@ -4,6 +4,7 @@ import {reportAttention,reportProjection} from "./host.js";
 import {domainRegistry} from "./domain_registry.js";
 import {returnDigest} from "./return_digest.js";
 import {dutyMoneyInputs} from "./duties_domain.js";
+import {handDigestRows} from "./hired_hands.js";
 import {readOwedLedger} from "./owed_ledger_sources.js";
 import {createReturnDigestRow} from "./return_digest_ui.js";
 import {openWorkspaceModule} from "./workspace_layout.js";
@@ -27,7 +28,7 @@ export function createEventFeed({registry, read, open}) {
     const rows = new Map(); let historySignature,lifeSignature,heardSignature;
     function render() {
         const snapshot = read(), {state,context} = snapshot, feed = eventFeed(state,registry,context.facts,snapshot.lifeRecord);
-        const marker=domainRegistry.project('returnDigest'),digest=marker?returnDigest(state,registry,{facts:context.facts,lifeRecord:snapshot.lifeRecord,seenAt:marker.seenAt,feed,money:dutyMoneyInputs(readOwedLedger()?.rows??[])}):null;
+        const marker=domainRegistry.project('returnDigest'),digest=marker?returnDigest(state,registry,{facts:context.facts,lifeRecord:snapshot.lifeRecord,seenAt:marker.seenAt,feed,events:{around:handDigestRows(marker.seenAt??0),missed:[]},money:dutyMoneyInputs(readOwedLedger()?.rows??[])}):null;
         digestRow.update(digest,{writable:marker?.writable!==false,bank:domainRegistry.project('awayBank')});
         panel.hidden = !feed.leads.length && !feed.news.length && !feed.life.length && !feed.heard.length;
         const count = feed.leads.filter(e => e.available).length;

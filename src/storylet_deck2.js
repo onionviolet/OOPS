@@ -1,4 +1,4 @@
-// Storylet deck schema 2 (FD16 layer 3, LANE_B_EVENTS). A pure leaf: no save field, no clock of its own, no Math.random.
+// Storylet deck schema 2 (FD16 layer 3, LANE_B_EVENTS). A pure leaf: no save field, no clock of its own, no unseeded randomness.
 // Schema 1 (storylet_deck.js, the four Village decks) is untouched; this is an additive second shape for decks that are DERIVED,
 // not stored: the draw for a slot is a function of (seed, deck id, slot index) and of the cards drawn in earlier slots, so the same
 // seed and the same clock give the same card on every read, reload and replay.

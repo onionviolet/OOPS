@@ -4,6 +4,7 @@ import {organizationView,organizationText} from '../organization_view.js';
 import {definePanel} from '../panel_kit.js';
 import './group_source.js';
 import '../livelihood_sources.js'; // Frontier livelihood source (lane E)
+import '../hired_hands_plot.js'; // hired hand for the courtyard plot (OB7/OB12)
 import {groupsOf,groupLines} from '../organizations.js';
 import {moneyText} from '../reveal_chain.js';
 import {domainRegistry} from '../domain_registry.js';
@@ -31,7 +32,11 @@ export function createManagementPanel({read,registry,command}) {
  foundBody.append(foundTerms,foundBtn,foundWhy,mine);
  const dials=()=>({name:nameIn.value,...Object.fromEntries(Object.entries(dialSel).map(([k,sel])=>[k,sel.value]))});
  foundBtn.addEventListener('click',()=>{try{domainRegistry.command('organizations','found')(dials());nameIn.value='';message='Group founded and saved.';}catch(e){message=e.message;}render();});
- element.append(moved,terms,notice,overview,groupsNote,found,sections,history);
+ // OB7/OB12: hire a villager to tend the plot. Direct domain commands, like founding a group.
+ const hands=node('details',''),handsBody=node('div','',{class:'expedition_card'});hands.append(node('summary','Hire help for the plot'),handsBody);
+ const handCrop=node('select','',{'aria-label':'Crop to grow'});for(const c of['grain','greens'])handCrop.append(node('option',c,{value:c}));
+ const handList=node('div');handsBody.append(node('label','Crop '),handList);handsBody.firstChild.append(handCrop);
+ element.append(moved,terms,notice,overview,groupsNote,found,hands,sections,history);
  const rows=new Map(),groups=new Map();let message='',selected=null,drawn='';
  function drawOverview(org) {
   const view=org&&organizationView(org);
@@ -72,6 +77,14 @@ export function createManagementPanel({read,registry,command}) {
   notice.textContent=snapshot.error||message;notice.hidden=!notice.textContent;
   drawOverview(hidden||!view.opened?null:courtyardOrganization(snapshot.state,registry,snapshot.context));
   groupsNote.textContent=hidden||!view.opened?'':groupLines(groupsOf(snapshot.state)).join(' ');groupsNote.hidden=!groupsNote.textContent;
+  {const hp=hidden||!view.opened?null:domainRegistry.project('hired_hands'),hj=hp?.jobs.find(j=>j.available||j.hired);hands.hidden=!hj;
+   if(hj){const hire=hp.hires.find(h=>h.jobId===hj.id&&h.status==='active'),sig=JSON.stringify([snapshot.canWrite,hj,hire&&hire.paidThrough]);
+    if(handList.dataset.sig!==sig){handList.dataset.sig=sig;
+     const run=(f,ok)=>()=>{try{f();message=ok;}catch(e){message=e.message;}render();};
+     if(hire)handList.replaceChildren(node('p',`${hire.name} tends the ${hire.crop} for ${hire.wage} coins a week, paid ahead. ${hire.income?.text||''}`.trim(),{class:'organization-note'}),
+      (()=>{const b=node('button',`Let ${hire.name} go`,{type:'button'});b.disabled=!snapshot.canWrite;b.addEventListener('click',run(()=>domainRegistry.command('hired_hands','fire')({jobId:hj.id}),'You let them go.'));return b;})());
+     else handList.replaceChildren(...hj.candidates.map(c=>{const wrap=node('p'),b=node('button',`Hire ${c.name} · ${c.wage} coins a week`,{type:'button'});b.disabled=!snapshot.canWrite||!c.eligible;
+      b.addEventListener('click',run(()=>domainRegistry.command('hired_hands','hire')({jobId:hj.id,hand:c.id,crop:handCrop.value}),`${c.name} is hired.`));wrap.append(b,node('small',` ${c.eligible?c.line:c.reasons.join(' ')}`));return wrap;}));}}}
   found.hidden=hidden||!view.opened||!domainRegistry.command('organizations','quote');
   if(!found.hidden){const q=domainRegistry.command('organizations','quote')(dials());
    foundTerms.textContent=`Costs ${q.cost} coins now.${q.because?` ${q.because}`:''} With coin dues, members pay at each meeting into the group's treasury.`;
