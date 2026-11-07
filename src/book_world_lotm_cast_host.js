@@ -156,6 +156,9 @@ function enrollCastBody(state,def){
   body:{id:`native.person.${def.id}.body`,form:'human',hands:2,mobile:true,ownerId:def.id,controllerId:def.id}};
  return true;
 }
+// AT17 prototype (AD32): give one pack person a body at a durable reference (a note he must hold). True when this call created him; false when he
+// already has one, the pack is absent, or the id is not a pack person. Same body and birth as an enrolled neighbour, so there is never a second him.
+export function wakeCastPerson(state,id){const def=castAvailable&&castPeople.find(p=>p.id===id);return def?enrollCastBody(state,def):false;}
 function referencedCastPeople(state){
  const ids=new Set(),add=id=>{if(id)ids.add(lotmBe(state)&&actorId(id)===LOTM_CAST.leadLife?.actorId?'player':actorId(id));};
  for(const j of state.simulation.jobs||[]){add(j.actorId);add(j.targetId);for(const id of j.participants||[])add(id);}
