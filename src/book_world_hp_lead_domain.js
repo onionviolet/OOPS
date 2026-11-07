@@ -16,6 +16,8 @@ import {schoolYearText} from './book_world_hp_school_calendar.js';
 import {registerDutySet} from './duties_domain.js';
 import {hpDutySet} from './book_world_hp_duties.js';
 import {HP_AT_SCHOOL_FACT} from './book_world_hp_duties.js';
+import {hpLessonView,keepClassSlot} from './book_world_hp_lessons.js';
+import {domainRegistry} from './domain_registry.js';
 import {hpPositions,hpPositionLine,HP_HOUSE_FACT,HP_HOUSES} from './book_world_hp_positions.js';
 const LEAD_ID='book.hp.lead';
 const EMPTY_ARC=Object.freeze({id:`${LEAD_ID}.arc`,title:'Nothing authored yet',completed:0,total:0,done:false,next:null,aftermath:null,conclusion:null});
@@ -35,7 +37,7 @@ export function hpLeadProjection(state,data=actData(),locked=getHpLeadCast()?.lo
     const arc=placeActSequenceView(state,data)??{...EMPTY_ARC};
     // Untaken options of the act that is current (or the last one done) show locked, never actionable.
     const shown=arc.next?.id??data.acts?.at(-1)?.id;
-    return {enrolled:state.actors?.player?.worldId===`${LEAD_ID}.world`,arc,school:hpSchoolRoute(state),locked:structuredClone(locked[shown]??[]),jobs:structuredClone(state.simulation.jobs||[])};
+    return {enrolled:state.actors?.player?.worldId===`${LEAD_ID}.world`,arc,school:hpSchoolRoute(state),lessons:hpLessonView(state),locked:structuredClone(locked[shown]??[]),jobs:structuredClone(state.simulation.jobs||[])};
 }
 // Live holdings: the purse is the player's own resource under the pack's currency key (one integer in the smallest coin,
 // shown on the pack's ladder); other holders (a vault, another person's coins) are different actors and never show here.
@@ -61,5 +63,5 @@ export function registerHpLeadDomain(register,getState,ports=null,data){
     if(ports)registerOwnHoldings(`${LEAD_ID}.world`,{purse:'no money of your own',items:'You carry nothing of your own.',body:'Your body here is not the Village hero\'s sheet.'},hpLeadHoldingsReaders());
     registerHpPeopleSource();
     return register({id:'hp',deps:[],projection:()=>hpLeadProjection(getState(),data),refresh:()=>panel?.render(),
-        panels:ports?[()=>{panel=createHpLeadPanel({project:()=>hpLeadProjection(getState(),data),read:ports.read,command:ports.command});}]:[]});
+        panels:ports?[()=>{panel=createHpLeadPanel({project:()=>hpLeadProjection(getState(),data),read:ports.read,command:ports.command,keepSlot:()=>keepClassSlot(domainRegistry)});}]:[]});
 }

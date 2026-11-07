@@ -4,6 +4,7 @@
 // Chapter 1 (the prologue) is not Harry's point of view and is deliberately absent from his knowledge.
 // Compatibility decision: a new definition id with no earlier save state; old saves hold none of it.
 // No calendar year (the book gives none): the clock is elapsed play, day 0 is the Saturday of the birthday.
+import {lessonEffects} from '../lesson.js';
 const P='book.hp.lead', id=n=>`${P}.${n}`;
 const note=(n,value)=>({type:'knowledge',key:id(n),stage:'understood',value});
 const guardian=who=>({type:'relationship',actor:id(who),target:'player',axis:id('guardian_of'),amount:1000});
@@ -65,6 +66,34 @@ export const hpLeadSchoolLocked={[id('sorting')]:[
  {id:id('sorting.ravenclaw'),label:'Be placed in Ravenclaw',reason:'The hat named Gryffindor. Another house would mean a different common room and Head of House; none of that is built.'},
  {id:id('sorting.slytherin'),label:'Be placed in Slytherin',reason:'The hat named Gryffindor. Another house would mean a different common room and Head of House; none of that is built.'}]};
 hpLeadLife.simulation.commands.push(...hpLeadSchoolCommands);
+// W9-D: the first lessons (HG3 spell row from a lesson, HG7 Potions class). Windows and chances are facts from book_world_hp_lessons.js
+// (hpFacts); this file is data only. The Charms lesson teaches the levitation charm once; each later Charms class is a practice attempt whose
+// chance rises with practice. Potions is a weekly class with a practice outcome (the Alchemy skill owns the progress). Authored proposals.
+export const HP_LEVITATION=id('levitation');
+export const hpLeadLessonCommands=(()=>{
+ const open=(fact,reason)=>({all:[...alive.all,{fact,op:'eq',value:true}],reason});
+ const charmsOpen=open('hp.lead.charmsOpen','Charms is taught on Mondays from 09:00 to 10:00 in term, once you are sorted.');
+ const potionsOpen=open('hp.lead.potionsOpen','Potions is taught on Mondays from 10:00 to 11:00 in term, once you are sorted.');
+ const base={revision:1,group:'structured_local',worldId:id('world'),actorId:'player',location:id('school_hall'),audience:['$actor'],costs:[],cancellation:'refund',completionRequires:alive,completionCoLocated:true,completionFailure:'refund'};
+ const know=(n,value)=>note(n,value);
+ return [
+  {...base,id:id('lesson_charms'),label:'Attend your first Charms lesson · 30 min',once:true,duration:30,requires:charmsOpen,
+   description:'The charms master shows the wand motion and the words for the levitation charm on a feather. Attending teaches the method; it does not make the charm work yet.',
+   effects:[...lessonEffects({key:id('lesson.levitation'),value:'The charms master showed the wand motion and the words for the levitation charm.',situationId:id('situation')}),{type:'power',powerId:HP_LEVITATION,operation:'learn'},know('charms_last','The charms master corrected your wrist and your pronunciation. You know the levitation charm now; getting a feather to rise takes practice.')]},
+  {...base,id:id('charms_practice'),label:'Practise the levitation charm in Charms · 30 min',duration:30,
+   requires:{all:[...charmsOpen.all,{fact:`power.${HP_LEVITATION}.owned`,op:'eq',value:true}],reason:charmsOpen.reason},
+   description:'Every pupil tries the charm on a feather. Each try, lifted or dropped, adds one step of practice, and the chance of lifting it rises with practice.',
+   outcomes:[
+    {id:'lifted',weight:{fact:'hp.lead.levitateChance'},effects:[{type:'power',powerId:HP_LEVITATION,operation:'refine',amount:1},know('charms_last','Your feather rose off the desk and settled again. The practice is yours.')]},
+    {id:'dropped',weight:{fact:'hp.lead.levitateChance',scale:-1,add:1},effects:[{type:'power',powerId:HP_LEVITATION,operation:'refine',amount:1},know('charms_last','The feather stayed put, or wobbled and fell. You noticed what you did wrong.')]}]},
+  {...base,id:id('lesson_potions'),label:'Attend Potions · 45 min',duration:45,requires:potionsOpen,
+   description:'A first-year class in the dungeon: you follow the written steps for a simple draught under the potions master\'s eye. Care and attention raise the chance it comes out right, and each class adds to your Alchemy.',
+   outcomes:[
+    {id:'brewed',weight:{fact:'hp.lead.brewChance'},effects:[...lessonEffects({key:id('lesson.potions'),value:'You followed the written steps of a simple draught under the potions master.',situationId:id('situation'),skill:'Alchemy',xp:5}),know('potions_last','Your draught came out the right colour and the master moved on.')]},
+    {id:'spoiled',weight:{fact:'hp.lead.brewChance',scale:-1,add:1},effects:[...lessonEffects({key:id('lesson.potions'),value:'You followed the written steps of a simple draught under the potions master.',situationId:id('situation'),skill:'Alchemy',xp:2}),know('potions_last','Your draught went wrong; the master told you where.')]}]}];
+})();
+hpLeadLife.simulation.powers=[{id:HP_LEVITATION,revision:1,label:'Levitation charm',model:'practice',capacity:1,cooldown:0}];
+hpLeadLife.simulation.commands.push(...hpLeadLessonCommands);
 hpLeadLife.calendarProfile={id:P+'.calendar',revision:1,algorithmId:'fixed_months',algorithmRevision:1,
  units:{minutesPerHour:60,hoursPerDay:24},months:Array.from({length:12},(_,i)=>({id:String(i+1),days:30})),
  week:['Sat','Sun','Mon','Tue','Wed','Thu','Fri'],precision:'day',evidence:'elapsed play; the book names the Saturday, not a year',

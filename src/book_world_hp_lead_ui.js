@@ -6,7 +6,7 @@ registerOwnedWorkPanel((_work,definition)=>definition?.group==='book_hp_lead'?'h
 // Workspace panel for the HP lead life: the current task, its control, the options that were not taken, the last result.
 // It draws the domain projection and the structured campaign view; every start goes through the host's command.
 const node=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;return n;};
-export function createHpLeadPanel({project,read,command}){
+export function createHpLeadPanel({project,read,command,keepSlot}){
  const panel=node('section');panel.id='hp_panel';panel.className='expedition_panel';panel.dataset.surfaceType='place-service';
  const body=node('div');panel.append(node('h2','The household day'),body);
  let notice='';
@@ -45,6 +45,18 @@ export function createHpLeadPanel({project,read,command}){
    for(const o of sc.locked){const r=node('div');r.dataset.hpLocked=o.id;const b=node('button',o.label);b.disabled=true;r.append(b,node('span',` Not how it happened. ${o.reason}`));s2.append(r);}
    if(sc.atSchool)s2.append(node('p',sc.house?`You are a first year at Hogwarts, in ${sc.house}.`:'You have reached Hogwarts.'));
    if(sc.next||sc.atSchool)section.append(s2);}
+  const ls=v.lessons;
+  if(ls){const s3=node('section');s3.className='ui-panel-section';s3.dataset.hpLessons='';s3.append(node('h3','Lessons'));
+   for(const l of ls.lessons){const a=(campaign.actions||[]).find(x=>x.id===l.commandId);if(!a)continue;
+    const row=node('div');row.dataset.panelRow='';const s=shortActionLabel(a.label);
+    const b=node('button',s.text);b.type='button';b.dataset.hpLesson=l.id;b.disabled=!l.open||!a.eligible||!campaign.canWrite||!!v.jobs.find(j=>j.commandId===l.commandId);
+    if(s.chip)b.append(node('span',` · ${s.chip}`));
+    // The lesson runs through the host command; once it is accepted this week's class slot is kept through the duties API.
+    b.onclick=()=>{try{command({type:'action',id:l.commandId});keepSlot?.();notice='';}catch(e){notice=e.message;}render();};
+    row.append(b);row.append(node('p',l.open?(a.description||''):l.reason));s3.append(row);}
+   for(const sp of ls.spells){const p=node('p',sp.line);p.dataset.hpSpell=sp.key;s3.append(p);}
+   for(const t of ls.last){const p=node('p',`Last class: ${t}`);p.dataset.hpLessonResult='';s3.append(p);}
+   section.append(s3);}
   if(arc.aftermath){const p=node('p',`Last result: ${arc.aftermath}`);p.dataset.hpLastResult='';section.append(p);}
   if(arc.done&&arc.conclusion)section.append(node('p',arc.conclusion));
   if(notice)section.append(node('p',notice));

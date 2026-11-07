@@ -2,6 +2,7 @@ import {hpSchoolLife,hpTradeLife,hpSpellRows} from './world_packs/book_hp_life_d
 import {hpLeadLife} from './world_packs/book_hp_lead_life_data.js';
 // HP-local clock projection. Shared simulation owns all elapsed time, jobs and skill settlement.
 import {recurringWindow} from './world_rhythm.js';
+import {hpLessonFacts} from './book_world_hp_lessons.js';
 import {hpCharmRows} from './read_models/hp_charm_bridge.js';
 export function hpSchoolCalendar(state){
  const P='book.hp.school',opening=state.simulation?.knowledge?.player?.[P+'.opening'];
@@ -17,7 +18,7 @@ export function hpFacts(state,context={}){
  const world=state.actors?.player?.worldId,trade=world==='book.hp.trade.world',c=hpSchoolCalendar(state);
  // The lead life's day index (anchor 08:00 on day 0), for gates such as the 1 September arrival; the profile's own arithmetic.
  if(world==='book.hp.lead.world'){const opening=state.simulation?.knowledge?.player?.['book.hp.lead.opening'];
-  return opening?{'hp.lead.day':Math.floor((Math.max(0,state.clock-opening.at)+480)/1440)}:{};}
+  return opening?{'hp.lead.day':Math.floor((Math.max(0,state.clock-opening.at)+480)/1440),...hpLessonFacts(state,context)}:{};}
  if(trade)return {'hp.trade.wandReady':(context.gameplay?.player?.inventory?.[JSON.stringify({id:'book.hp.trade.wand'})]||0)>0};
  if(!c)return {};
  const inv=context.gameplay?.player?.inventory||{},P='book.hp.school',held=n=>(inv[JSON.stringify({id:P+'.'+n})]||0)>0;

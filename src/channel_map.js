@@ -20,3 +20,5 @@ export const LOTM_ABILITY_CHANNELS = Object.freeze({
     'ability:face_hold': ['conceal'],
     'ability:sun_hymn': ['impose_condition'], 'ability:sun_ward': ['impose_condition']
 });
+// HP lead life spell rows (src/book_world_hp_lessons.js HP_SPELL_ROWS keys), W9-D. Levitating a feather changes what is where.
+export const HP_SPELL_CHANNELS = Object.freeze({'ability:levitation_charm': ['change_situation']});

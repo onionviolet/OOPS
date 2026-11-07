@@ -2,7 +2,7 @@
 // does and which existing seam owns it; it adds no mechanism, and a row keeps its own world's nouns (AD46). Channels project onto the
 // structured-ability `functions` vocabulary (function -> effect types), so a channel is valid only if those pairs exist there.
 // A channel with no owner seam says so (status 'unbuilt', no pairs) instead of implying it is data (ABR22).
-import {SKILL_CHANNELS, LOTM_ABILITY_CHANNELS} from './channel_map.js';
+import {SKILL_CHANNELS, LOTM_ABILITY_CHANNELS, HP_SPELL_CHANNELS} from './channel_map.js';
 
 const entry = (id, label, plain, seam, projects, kinds, status = 'built') => Object.freeze({id, label, plain, seam, projects: Object.freeze(projects.map(p => Object.freeze(p))), kinds: Object.freeze(kinds), status});
 const S = ['skill'], A = ['ability'], B = ['skill', 'ability'];
@@ -30,7 +30,7 @@ export const CHANNEL_IDS = Object.freeze(CHANNELS.map(c => c.id));
 const byId = new Map(CHANNELS.map(c => [c.id, c]));
 export const channel = id => byId.get(id) ?? null;
 
-const TABLE = {...SKILL_CHANNELS, ...LOTM_ABILITY_CHANNELS};
+const TABLE = {...SKILL_CHANNELS, ...LOTM_ABILITY_CHANNELS, ...HP_SPELL_CHANNELS};
 const keyOf = row => {
     if (!row || typeof row !== 'object') return null;
     if (typeof row.skill_id === 'string') return `skill:${row.skill_id}`;
