@@ -143,6 +143,13 @@ export function gatherOwed({standing = null, fortunes = [], grudge = null, terms
                 causes: (standing.deeds ?? []).flatMap(d => (d.moves ?? []).filter(m => m.id === f.id).map(m => `${m.amount > 0 ? '+' : '−'}${Math.abs(m.amount)} ${DEED_WORDS[d.deed] ?? words(d.deed)}${m.backlash ? ' (their rival was favoured)' : ''}`)).slice(-3)}) : null,
             late: terms ? `If late: after ${plural(terms.grace, 'day')} of grace the rate rises ${Math.round(terms.ratchet * 100)} points for the rest of the loan and standing drops ${terms.defaulted}.` : null};
     }
+    // A care row (the healer's credit) is paid through repayCare, the same shape as a loan: the purse limits what lands and the rest stays owed.
+    for(const r of standing?.ledger ?? []) if(r.kind === 'coin' && r.debtor === 'player' && r.id.startsWith('care:') && r.amount > 0) {
+        const coins = standing.coins ?? 0, pays = Math.min(r.amount, coins);
+        live[r.id] = {amount: r.amount, quote: {command: 'repayCare', factionId: r.id, owed: r.amount, pays, coins, label: `Repay ${r.amount}`,
+            blocked: coins < 1 ? 'You have no coins to repay with.' : null,
+            note: pays < r.amount && coins >= 1 ? `You hold ${plural(coins, 'coin')}, so this pays ${pays} now and the rest stays owed.` : null}};
+    }
     for(const c of standing?.claims ?? []) if(standing.now != null) live[c.id] = {amount: c.amount, due: {daysLeft: Math.ceil((c.due - standing.now) / DAY), overdue: false}};
     if(grudge != null) live['craft:verge-grudge'] = {amount: grudge};
     return {rows, live, labels, now: standing?.now ?? 0};

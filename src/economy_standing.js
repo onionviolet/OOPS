@@ -231,6 +231,14 @@ export function dropCareDebt(state, id, now) {
     const row = state.ledger.rows.find(r => r.id === id && r.id.startsWith('care:'));
     return row ? syncLedger({...state, ledger: writeObligation(state.ledger, {...row, amount: 0})}, now) : state;
 }
+// Paying a care row: the same shape as repayLoan (whole coins, at most what is owed, the rest stays owed). Zero closes the row.
+export function repayCareDebt(state, id, amount, now) {
+    const row = state.ledger.rows.find(r => r.id === id && r.id.startsWith('care:'));
+    if(!row) throw Error('You owe nothing there.');
+    if(!Number.isInteger(amount) || amount < 1) throw Error('Repay a whole number of coins.');
+    const pay = Math.min(amount, row.amount);
+    return {state: syncLedger({...state, ledger: writeObligation(state.ledger, {...row, amount: row.amount - pay})}, now), paid: pay};
+}
 // Dated consequence (E1-c, ECR21): once past grace, the rate ratchets and standing drops, once.
 export function settleDue(state, now) {
     let next = state;

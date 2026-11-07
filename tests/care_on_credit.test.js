@@ -62,3 +62,30 @@ test('known neighbour reads the Village standing tier', () => {
     assert.equal(knownNeighbour([{id: 'market_circle', tier: {id: 'neutral'}}]), false);
     assert.equal(knownNeighbour(undefined), false);
 });
+
+test('repaying the healer: full clears the row and restores room; short purse pays part; loan repay is untouched', async () => {
+    const {s, clock} = aged();
+    const row = treat(s, 'joints', clock, 0, {owed: 0, known: true, now: clock}).obligation;
+    const {state, id} = standing.owe(standing.fresh(), row, clock);
+    assert.equal(creditTerms({owed: careOwed(state.ledger.rows), known: false}).room, Math.max(0, CREDIT.min - row.amount));
+    const part = standing.repayCareDebt(state, id, 3, clock);
+    assert.equal(part.paid, 3);assert.equal(careOwed(part.state.ledger.rows), row.amount - 3);
+    const loaded = roundTrip(part.state);standing.validateStanding(loaded);
+    assert.equal(careOwed(loaded.ledger.rows), row.amount - 3);
+    const view = owedLedgerView(gatherOwed({standing: {ledger: loaded.ledger.rows, now: clock, coins: 2}}));
+    assert.equal(view.rows[0].quote.label, `Repay ${row.amount - 3}`);assert.equal(view.rows[0].quote.pays, 2);
+    const full = standing.repayCareDebt(part.state, id, 999, clock);
+    assert.equal(full.paid, row.amount - 3);assert.equal(careOwed(full.state.ledger.rows), 0);assert.equal(full.state.ledger.rows.length, 0);
+    assert.equal(creditTerms({owed: 0, known: false}).room, CREDIT.min);
+    assert.throws(() => standing.repayCareDebt(state, id, 0, clock), /whole number/);
+    assert.throws(() => standing.repayCareDebt(state, 'credit:x', 1, clock), /nothing there/);
+    assert.throws(() => standing.repayCareDebt(full.state, id, 1, clock), /nothing there/);
+    const {domainRegistry} = await import('../src/domain_registry.js');
+    const dom = await import('../src/economy_standing_domain.js');
+    let purse = 0;dom.bindStandingHost({coins: () => purse, addCoins: n => { purse += n; }});
+    dom.setStandingState(state);
+    assert.throws(() => dom.repayCare(id, 5), /no coins/);assert.equal(dom.standingState().ledger.rows[0].amount, row.amount);
+    purse = 4;assert.equal(dom.repayCare(id, 99), 4);assert.equal(purse, 0);
+    assert.equal(dom.standingState().ledger.rows[0].amount, row.amount - 4);
+    assert.equal(typeof domainRegistry.command('economy_standing', 'repayCare'), 'function');
+});

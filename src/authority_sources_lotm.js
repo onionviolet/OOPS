@@ -4,6 +4,7 @@ import {registerKnownness, setKnownnessHalfLife, identityOf, PLAYER_IDENTITY} fr
 import {authorityDials} from './world_society_sheet.js';
 import {positionsOf} from './positions.js';
 import {BE_CLIENT_PREFIX} from './book_world_lotm_be_clients.js';
+import {registerWitnessBelonging} from './authority_witness.js';
 
 const AUTHORITY = 'tingen', DAY = 24 * 60;
 // F4 and F3 dials. Defaults here; the Tingen society sheet row (world_society_sheet.js `authority`) overrides each dial it states validly, with its reason beside it.
@@ -48,3 +49,11 @@ registerKnownness(AUTHORITY, (state, ctx) => {
     }
     return rows;
 });
+// F2 witness belonging (first live consumer). Belonging comes from the only Tingen watch ids the world writes: the constables of book_world_lotm_constables.js
+// (`book.lotm.constable.<n>`, fighters on the police side of the door fight). Dial: a constable's sight counts 1 (he writes it in the station book the police read);
+// a passer-by or a village person has no belonging and adds nothing, and a person whose watch post is not recorded stays out until his id says so.
+// Missing writer: no play writes `person.player.*` into a constable's knowledge (tempo fights record no observer facts), so the row appears only once one does.
+export const CONSTABLE_PREFIX = 'book.lotm.constable.', CONSTABLE_WEIGHT = 1;
+const CONSTABLE_REASON = 'A constable writes what he saw into the station book, and the Tingen police read that book.';
+registerWitnessBelonging(AUTHORITY, (state, id) => typeof id === 'string' && id.startsWith(CONSTABLE_PREFIX)
+    ? {weight: CONSTABLE_WEIGHT, label: state?.simulation?.people?.[id]?.name || 'A constable', reason: CONSTABLE_REASON} : null);

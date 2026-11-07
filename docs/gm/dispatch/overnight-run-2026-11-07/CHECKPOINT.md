@@ -5,7 +5,7 @@ state: drafted
 viewport: n/a
 persistence: n/a
 review: none
-tests: npm test 5557 pass, 0 fail, 5 skip (defect fixes A and B)
+tests: npm test 5560 pass, 0 fail, 5 skip (wave 5 fold)
 ```
 
 # Overnight foundation run, 2026-11-07
@@ -121,6 +121,32 @@ Defects found by the walk:
 - B: `src/hired_hands.js` tally gains `first` (the pass right after hiring); `src/hired_hands_plot.js` says the no-seed line on the first pass and at each paid week. New regression in `tests/hired_hands.test.js` drives 120 one-minute ticks: one line, then one more after a paid week; it fails without the fix (checked by reverting the condition). 9/9.
 - Gate: build `cec10dc1a8ab7a9e756ab2047cf817e8ad7af6f1ba33994ecf536a85d22751c7`, check:arch pass, check:rules 0 new player-text strings; `npm test` 5557 pass / 0 fail / 5 skip (fewer skips than earlier runs: private fixtures present at run time); re-walk of A and B running. Committed after the suite.
 
+**Commit `bc76799bb` (03:50).** Defect fixes A and B; suite 5557/0/5. No push.
+
+## Wave 5 (dispatched 03:52; usage 5-hour 40%, weekly 79%), consumer wiring first
+
+| Lane | Slice | Model | Owned files |
+|---|---|---|---|
+| K | Repay the healer: care rows get a repay path and a Repay control in Ledger → Owed; repaying frees credit room | sonnet | `src/economy_standing*.js`, `src/owed_ledger*.js`, tests |
+| L | First live witness consumer: Tingen police or watch observers of a recorded fight add a Tingen knownness row | sonnet | `src/authority_sources_lotm.js`, one new file, tests |
+
+**K, repay the healer (returned 04:00, checked).** `src/economy_standing.js` `repayCareDebt` (shape of `repayLoan`: whole coins, at most what is owed, row removed at zero); `src/economy_standing_domain.js` `repayCare` command (purse route `ports.addCoins(-paid)`, as loan repay); `src/owed_ledger_view.js` quotes each open `care:` row so the existing Settle path shows "Repay N". One test added to `tests/care_on_credit.test.js` (partial pay reload, full pay frees credit room, refusals). Lane: 33/33 + 7/7, check:arch pass, check:rules 0 new strings; coordinator rerun below. Not covered: the click path through `settleOwed`, browser walk. State: implemented, below floor. Care on credit is now a closed loop (borrow, owe, repay) at rule level.
+
+**L, Tingen witnesses (returned 04:05, checked).** `src/authority_sources_lotm.js` registers a Tingen witness belonging: observers whose id starts with `book.lotm.constable.` count, weight 1 (reason: a constable writes what he saw into the station book, and the police read it); label from the person's name. New `tests/authority_witness_tingen.test.js` (2: drives a real `beginTempoFight` record, shows zero rows until the observation exists; a village observer and a bystander add none; checks the real constable fighter ids carry the prefix). Lane: 54/54 authority, LOTM 375 pass 0 fail, check:arch pass, check:rules 0 new strings; coordinator 2/2 rerun. **Missing writer:** no fight writes what its non-player fighters saw (`tempo_fight`/`tempo_fight_domain` write nothing for them). `src/tempo_fight_domain.js` carries another session's uncommitted edit in the primary checkout, so the writer belongs in the LOTM constables result path (`src/book_world_lotm_constables.js` `apply`, ~115), which is clean. Wave 6 candidate. State: implemented, below floor.
+
+**Wave 5 fold gate (04:10).** Build `3423be9e753e06a0773a6b5d8bc60a135a3c84218d160fdc879c9ea353a4b3d1`; check:arch pass; check:rules 0 new strings; npm test 5560 pass / 0 fail / 5 skip. Committed (K, L).
+
+**Re-walk of fixes A and B (returned 04:15).** Played live from the worktree through `game_new` with `checkout=` (`game_freeze` froze the primary checkout instead; one `game_report_limit` filed). The coordinator rebuilt `dist/` during the walk (my error), so the bundle was `cec10dc1...51c7` at start and `3423be9e...b3d1` at the end; both builds contain fixes A and B, and the wave 5 changes in between touch no guard or hired-hand code, so the result holds for either.
+
+| Item | What the player saw | Result | Persistence |
+|---|---|---|---|
+| A: Path before reporting in | no sign offer on Path | pass | n/a |
+| A: report in, then sign | "You signed on at the warehouse." | pass | save, reload, export, import into a new game and a further day's step all saved; no "Progress paused" |
+| B: Sela hired with no seed, one day stepped | the no-seed line once (digest and log show the same event) | pass | save and reload kept one copy |
+| B: again at a paid week | not stepped | not walked (covered by the regression test) | n/a |
+
+Lesson (FR-L8 for the playbook): do not rebuild the shared worktree's `dist/` while a walker reads it; use `BUILD_OUT=.lane-builds/<name>` for the walker's build, since `game_freeze` reads the primary checkout.
+
 ## Resume block (unattended run, 2026-11-07)
 
 Weibao, 2026-11-07 00:13: "make as much progress as possible ... use as much usage to make as much progress, and continue after the 5 hour limit and more".
@@ -129,7 +155,7 @@ Weibao, 2026-11-07 00:13: "make as much progress as possible ... use as much usa
 - State of the steps: wave 1 dispatched 00:25; A and C returned and recorded; B (walk) out. Wave 2 (D, E) dispatched 00:55.
 - Last evidence: folded wave 1-2 tree (C, D, E) built `bb58918b5b35d7b1e1a048284e737ffbd6805c63acba0d71ee5c502f13e17eb8`; check:arch pass; check:rules pass (0 new player-text strings); npm test running 01:20.
 - Failed approaches: none yet.
-- Next useful action: on green suite and re-walk, commit fixes A/B; then wave 5 (consumer wiring first: healer repayment, Tingen witness belonging from fight observers); build in the isolated worktree; gates; commit own paths.
+- Next useful action: record the A/B re-walk; fold K and L, gate, commit; build in the isolated worktree; gates; commit own paths.
 - Usage pacing: read 00:14 EST, 5-hour 25% (resets 03:50), weekly 77% (resets Mon 13:00). Weibao's later words override the 75% weekly stop; this run's ceiling is weekly 92% (stop, leave this block current, about 8% left for his weekend). 5-hour at 85%: start no lane, wake after reset. Five other sessions share the pool.
 - Stop condition (default 92%, Weibao's dial; reason: about 8% stays his until Monday): weekly 92%, or every remaining foundation slice sits inside the collision map, or a blocker that needs Weibao. Reached? Not yet.
 
