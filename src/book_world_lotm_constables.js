@@ -2,10 +2,9 @@
 // hold you as wanted (heat.js palette, last level), they decide once, by dial, to send two constables to your door; that decision is a latch in
 // the slice `constables@1`, so a few days of heat decay do not undo it. The fight is a tempo opener, read back from the fight log like the
 // collector's. Win: more heat, a named bounty (once), and a Nighthawk-level hook once heat passes a further dial (a flag for a later lane, no content).
-// Lose, yield or surrender: arrested. A night in the cells (minutes owed to the clock), a magistrate's fine that waits as an owed row, the
-// bounty lifted, police heat eased. Nothing runs on the clock and nothing is taken while the player is away (OB4): effects follow a fight or a
-// surrender the player chose. No end-of-fight hook exists for openers, and no module here may move the root clock, so the night is recorded
-// as owed minutes and a host that supplies configureConstables({advance}) serves it; without one it stays pending and visible.
+// Lose, yield or surrender: arrested. The fine and pending sentence are saved in the existing slice.
+// A microtask serves the night after the fight publisher returns, through the host's staged chronicle
+// plan. Only actual elapsed minutes are deducted, in the same save; a paused clock retains the debt.
 // Every number is an authored dial with its reason (WPR5/AD49); no source figure exists for any of them.
 import {registerTempoOpener} from './tempo_starters.js';
 import {registerDomain, domainRegistry} from './domain_registry.js';
@@ -37,8 +36,14 @@ export const CONSTABLE_RESPONSES = Object.freeze(Object.keys(RESPONSES));
 
 const fresh = () => ({family: CONSTABLES_FAMILY, handled: [], lines: [], latch: null, bounty: null, hooks: {}, sentence: null, arrests: 0});
 const HANDLED_CAP = 40, LINES_CAP = 6;
-let slice = fresh(), host = null;
-export function configureConstables(h) { host = h && typeof h.advance === 'function' ? h : null; }
+let slice = fresh(), host = null, serving = false, queued = false;
+export function configureConstables(h) { host = h && typeof h.plan === 'function' ? h : null; }
+// Defer until the fight publisher and its render stack have returned. Never fast-forward inside a quote.
+function queueSentence(){
+    if(queued || serving || !host || !slice.sentence) return;
+    queued = true;
+    queueMicrotask(() => { queued = false; try { serveSentence(); } catch { /* a paused host retries on its next quote */ } });
+}
 const nat = n => Number.isFinite(n) && n >= 0;
 export function migrateConstables(s) {
     if(!s || s.family !== CONSTABLES_FAMILY) return fresh();
@@ -76,15 +81,15 @@ function decide(state, choice) {
     return !!slice.latch;
 }
 
-// An arrest. The night is served first when a host can serve it (a throw leaves everything untouched); otherwise it stays owed.
+// Record the arrest first. Its time is served after the current publication returns.
 function arrest({at, cause, how}) {
     const minutes = CONSTABLES_DIALS.cellMinutes.value;
-    if(host) host.advance(minutes);
     cmd('heat', 'easeActs')({authority: POLICE, to: CONSTABLES_DIALS.easedTo.value});
     const fine = cmd('heat', 'raiseFine')({authority: POLICE, dutyId: 'arrest', add: 0, at, tag: cause});
     const lifted = !!slice.bounty;
-    slice = {...slice, latch: null, bounty: null, arrests: slice.arrests + 1, sentence: host ? null : {minutes, cause: String(cause).slice(0, 60)}};
-    const night = host ? 'You spend a night in the cells.' : 'You are to spend a night in the cells.';
+    slice = {...slice, latch: null, bounty: null, arrests: slice.arrests + 1, sentence: {minutes, cause: String(cause).slice(0, 60)}};
+    queueSentence();
+    const night = 'You are to spend a night in the cells.';
     return `${how} ${night}${fine != null ? ` The magistrate writes a fine of ${fine} pence; it waits in Ledger → Owed.` : ' The magistrate has no way to collect a fine from you yet.'}${lifted ? ' The bounty on you is lifted.' : ''} The police still have your name, but they are no longer asking after you as wanted.`;
 }
 function surrender(at) {
@@ -131,15 +136,28 @@ export function resolveConstableFights(state) {
 }
 // Serve a night still owed (a host that gained a clock seam later calls this).
 export function serveSentence() {
-    if(!slice.sentence || !host) return false;
-    host.advance(slice.sentence.minutes);
-    slice = {...slice, sentence: null};
-    return true;
+    if(!slice.sentence || !host || serving) return false;
+    serving = true;
+    try {
+        while(slice.sentence) {
+            const before = slice, sentence = slice.sentence, plan = host.plan(sentence.minutes);
+            if(!plan.minutes) return false;
+            if(!Number.isInteger(plan.minutes) || plan.minutes < 0 || plan.minutes > sentence.minutes) throw Error('Invalid sentence duration.');
+            const remaining = sentence.minutes - plan.minutes;
+            slice = {...slice, sentence: remaining ? {...sentence, minutes: remaining} : null};
+            if(!remaining) slice = {...slice, lines: [...slice.lines, {id:`sentence:${sentence.cause}`, at:plan.at??0, text:'You spent the night in the cells.'}].slice(-LINES_CAP)};
+            try { plan.commit(); } catch(error) { slice = before; throw error; }
+            // A post-publication tick cannot undo time that is already durably served.
+            plan.afterCommit?.();
+        }
+        return true;
+    } finally { serving = false; }
 }
 
 export function constablesQuote(state, opts = {}) {
     try { resolveConstableFights(state); } catch { /* a paused host retries on the next read */ }
     if(state.actors?.player?.worldId !== I.world || !state.lotm) return {visible: false};
+    queueSentence();
     if(!decide(state, opts.choice)) return {visible: false};
     if(state.simulation?.sessions?.player) return {visible: true, eligible: false, reason: 'Another encounter is already open.'};
     const bounty = slice.bounty ? ` A bounty of ${slice.bounty.amount} pence stands.` : '';

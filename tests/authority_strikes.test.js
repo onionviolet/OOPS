@@ -21,7 +21,7 @@ registerDutySet('strikes_rent', {defs: LOTM_RENT, state: () => ({clock}), active
 const reset = ({host = true} = {}) => {
     clock = 10; purse = 0; advanced = []; domainRegistry.load({}); domainRegistry.tick(1);
     configureHeatPurse({balance: () => purse, pay: amount => { purse -= amount; }});
-    configureConstables(host ? {advance: m => { advanced.push(m); clock += m; domainRegistry.tick(m); }} : null);
+    configureConstables(host ? {plan: m => ({minutes:m,commit:()=>{ advanced.push(m); clock += m; domainRegistry.tick(m); }})} : null);
 };
 const record = (weight, id) => domainRegistry.command('heat', 'recordAct')({authority: 'tingen_police', weight, id, at: clock, known: true, witness: 'landlady'});
 const police = () => domainRegistry.project('heat').heat.find(h => h.authority === 'tingen_police');
@@ -101,7 +101,7 @@ test('a loss: arrested, a night passes by the dial, a fine waits as owed, heat d
     assert.match(plan.state.simulation.log.at(-1).text, /: lost\./);
     const lines = resolveConstableFights(plan.state);
     assert.match(lines[0].text, /took you in/); assert.match(lines[0].text, /fine of 90 pence/); assert.match(lines[0].text, /bounty on you is lifted/);
-    assert.deepEqual(advanced, [720]);
+    serveSentence(); assert.deepEqual(advanced, [720]);
     assert.ok(police().value <= 1.5 + 1e-6 && police().value < hot, 'heat dropped');
     assert.equal(domainRegistry.project('constables').bounty, null); assert.equal(domainRegistry.project('constables').latch, null);
     const fine = readOwedLedger().rows.find(r => r.id.startsWith('fine:arrest'));
@@ -114,13 +114,13 @@ test('yielding at the door is giving yourself up; the surrender command does the
     const state = wantedState(); quote(state);
     withLog(state, 'yielded');
     assert.match(resolveConstableFights(state)[0].text, /gave in to the constables/);
-    assert.deepEqual(advanced, [720]);
+    serveSentence(); assert.deepEqual(advanced, [720]);
     // surrender without any fight
     const s2 = wantedState(); quote(s2);
     assert.throws(() => { reset(); domainRegistry.command('constables', 'surrender')({at: 5}); }, /No constables/);
     const s3 = wantedState(); quote(s3);
     const l = domainRegistry.command('constables', 'surrender')({at: clock});
-    assert.match(l.text, /give yourself up/); assert.deepEqual(advanced, [720]);
+    assert.match(l.text, /give yourself up/); serveSentence(); assert.deepEqual(advanced, [720]);
     assert.ok(police().value <= 1.5 + 1e-6); assert.equal(quote(s3).visible, false);
     assert.equal(readOwedLedger().rows.filter(r => r.id.startsWith('fine:arrest')).length, 1);
 });
@@ -140,7 +140,7 @@ test('with no clock host the night stays owed and visible; a host that arrives s
     assert.match(text, /to spend a night in the cells/);
     assert.equal(domainRegistry.project('constables').sentence.minutes, 720);
     assert.equal(serveSentence(), false, 'no host yet');
-    configureConstables({advance: m => advanced.push(m)});
+    configureConstables({plan: m => ({minutes:m,commit:()=>advanced.push(m)})});
     assert.equal(serveSentence(), true); assert.deepEqual(advanced, [720]); assert.equal(domainRegistry.project('constables').sentence, null);
 });
 
@@ -154,4 +154,25 @@ test('saves round trip and a reloaded save does not re-read the same fight; junk
     reset(); assert.equal(domainRegistry.save({}).constables, undefined, 'an untouched life writes no key');
     assert.deepEqual(migrateConstables({family: 'x'}), {family: 'constables@1', handled: [], lines: [], latch: null, bounty: null, hooks: {}, sentence: null, arrests: 0});
     assert.equal(migrateConstables({family: 'constables@1', bounty: {amount: -3, at: 1, cause: 'x'}, latch: {at: 'no'}}).bounty, null);
+});
+
+test('the deferred host serves after resolution returns, saves remaining time, and never repeats on reload', async () => {
+    reset({host:false}); record(4.5,'a'); const s=fresh().p.state; quote(s);withLog(s,'yielded');
+    const writes=[];let returned=false;
+    configureConstables({plan:m=>({minutes:Math.min(200,m),commit:()=>{assert.equal(returned,true);writes.push(JSON.parse(JSON.stringify(domainRegistry.save({}))).constables.sentence?.minutes??0);}})});
+    resolveConstableFights(s);assert.deepEqual(writes,[]);returned=true;
+    await new Promise(resolve=>queueMicrotask(resolve));assert.deepEqual(writes,[520,320,120,0]);
+    const saved=domainRegistry.save({});domainRegistry.load(saved);quote(s);await new Promise(resolve=>queueMicrotask(resolve));assert.equal(writes.length,4);
+});
+test('a paused or rejected sentence publication preserves its debt for retry',()=>{
+    reset({host:false});record(4.5,'a');const s=fresh().p.state;quote(s);withLog(s,'yielded');resolveConstableFights(s);
+    configureConstables({plan:()=>({minutes:0,commit:()=>assert.fail('paused')})});assert.equal(serveSentence(),false);assert.equal(domainRegistry.project('constables').sentence.minutes,720);
+    configureConstables({plan:()=>({minutes:300,commit:()=>{throw Error('disk full');}})});assert.throws(()=>serveSentence(),/disk full/);assert.equal(domainRegistry.project('constables').sentence.minutes,720);
+    configureConstables({plan:m=>({minutes:m,commit:()=>{}})});assert.equal(serveSentence(),true);assert.equal(domainRegistry.project('constables').sentence,null);
+});
+
+test('post-publication failure cannot restore already-served time',()=>{
+    reset({host:false});record(4.5,'a');const s=fresh().p.state;quote(s);withLog(s,'yielded');resolveConstableFights(s);
+    configureConstables({plan:m=>({minutes:m,commit:()=>{},afterCommit:()=>{throw Error('display failed');}})});
+    assert.throws(()=>serveSentence(),/display failed/);assert.equal(domainRegistry.project('constables').sentence,null);
 });

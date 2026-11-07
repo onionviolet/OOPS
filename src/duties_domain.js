@@ -85,7 +85,7 @@ function seize(dues, set, minute, st) {
             if(!plan) continue;
             const before = slice;
             slice = applySeizure(slice, d, plan, minute);
-            try { set.seize.take(plan.picks, plan, st); } catch { slice = before; }
+            try { set.seize.take(plan.picks, {...plan, line: slice.last[d.id].line}, st); } catch { slice = before; }
         } catch { /* world not ready: it waits */ }
     }
 }

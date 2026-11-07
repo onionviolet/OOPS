@@ -79,7 +79,8 @@ export class Session {
             (document.getElementById('loading_screen_play_button')?.checkVisibility() ||
              document.getElementById('loading_screen')?.style.visibility === 'hidden'), null, {timeout:60000});
         await page.evaluate(() => window.simulationTestHooks.pause());
-        if(await play.isVisible()) await play.click();
+        // Headless macOS can lack display-link frames. PLAY only dismisses the startup overlay.
+        if(await play.isVisible()) await play.click({force:true});
         const confirm = page.locator('#hero_creation_panel_confirmation');
         if(await confirm.isVisible().catch(() => false)) await confirm.click();
         await page.waitForTimeout(300);

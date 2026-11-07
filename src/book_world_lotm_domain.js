@@ -1,3 +1,4 @@
+import {configureConstables} from './book_world_lotm_constables.js';
 import {remotePresenceFacts} from './place_remote_presence.js';
 import {getPrivateLotmCast} from './book_world_lotm_cast_days.js';
 // Tingen Seer slice native domain (LIP3/LIP4). Registers through the domain registry (AR2): the
@@ -15,7 +16,7 @@ import {lotmActFacts} from './book_world_lotm_acts_host.js';
 import {createLotmHost,lotmSimulationContexts} from './book_world_lotm_host.js';
 import {createLotmPanel} from './book_world_lotm_ui.js';
 import {lotmPeople} from './book_world_lotm_content.js';
-import {LOTM_LOCATIONS as L} from './book_world_lotm_ids.js';
+import {LOTM_IDS as I,LOTM_LOCATIONS as L} from './book_world_lotm_ids.js';
 import {registerLocalClockSource} from './today_strip.js';
 import {registerOwnedWorkPanel} from './adventure_notebook.js';
 import {createCastLocationRestore} from './cast_location_restore.js';
@@ -45,13 +46,14 @@ export function configureLotm(p){
  // Rent is a standing order on the same clock: settles through the host's purse seam, never a click.
  configureHeatPurse({balance:()=>host.purseBalance(),pay:amount=>host.payFine(amount)});
  registerDutySet('lotm_rent',{defs:LOTM_RENT,state:()=>p.state(),active:st=>lotmBe(st),minute:st=>st.clock,purse:{balance:()=>host.purseBalance(),pay:(amount,paid)=>host.payDues(amount,paid)},money:{world:'Tingen'},
-  // OB2 seizure seam: the host lane supplies heldGoods()/seizeGoods(); until it does, nothing is taken and the arrears wait (the panel says so).
-  seize:{present:()=>!!host?.seizeGoods&&p.writable?.()!==false&&!p.restoring?.(),goods:()=>host.heldGoods(),take:(picks,plan)=>host.seizeGoods(picks,plan)}});
+  // OB2: actual carried goods, published together with the settled arrears.
+  seize:{present:()=>p.state().actors.player.worldId===I.world&&p.writable?.()!==false&&!p.restoring?.(),goods:()=>host.heldGoods(),take:(picks,plan)=>host.seizeGoods(picks,plan)}});
  castLocationRestore=createCastLocationRestore({locations:p.locations,
   createLocation:definition=>new p.SafeLocation({...definition,is_unlocked:true,npcs:[],connected_locations:[],is_under_roof:true,tags:{book_world_lotm:true},entrance_rewards:{}}),
   onResolved:place=>{if(p.location()===place.id)p.refreshLocationIdentity?.(place);}});
  import('./book_world_lotm_cast_days.js').then(({whenCastLoaded})=>whenCastLoaded()).then(pack=>{if(!pack)return;installCast(p.registry);if(pack.people.length<=CAST_EAGER_PEOPLE_LIMIT)for(const {id} of castPlaces)ensureCastLocation(id);else ensureCastLocation(pack.host.profile.start);for(const id of Object.keys(p.locations))ensureCastLocation(id);panel?.render();});
  host=createLotmHost({...p,ensureCastLocation});
+ configureConstables({plan:minutes=>host.sentencePlan(minutes)});
 }
 function restoreMissingCast(envelope){
  if(!ports||!lotmCastLife(envelope.expansion))return;

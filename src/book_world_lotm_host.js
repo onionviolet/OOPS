@@ -13,7 +13,7 @@ import {persistLotmCastPlan,castBeatsPending,castSyncDue,installCast,castElsewhe
 // finite stock, native sleep is joined to book.lotm.sleep (D4). The caller supplies ports;
 // this file imports no main.js and publishes only through the one expansion publisher.
 import {enrollSimulation,previewSimulationCommand,commitSimulationCommand,cancelSimulationJob} from './simulation.js';
-import {simulationFacts,applySimulationEffects} from './simulation_effects.js';
+import {simulationFacts,applySimulationEffects,inventory} from './simulation_effects.js';
 import {withFactsFrame} from './facts_frame.js';
 import {purseEffect} from './own_holdings.js';
 import {domainRegistry} from './domain_registry.js';
@@ -244,6 +244,30 @@ export function createLotmHost(ports){
  function tick(minutes=0){const s=state();if(s.lotm){if(ports.sleeping())restHarm(s,minutes);else if(!dying&&ports.die&&ports.writable()&&lostControlOutcome(s)?.default==='final'){dying=true;Promise.resolve(ports.die('loss_of_control')).finally(()=>{dying=false;});}}if(lotmCastLife(s)&&(castSyncDue(s)||castBeatsPending(s))&&ports.writable()&&(!lotmBe(s)||validLeadLife(getPrivateLotmCast()))){const plan=base(s,ports.context());if(syncLotmCast(plan.state)||castBeatsPending(plan.state))persist(plan);}if(s.lotm&&ports.sleeping()&&!sleepJob(s))ports.endSleep();}
  // Standing orders (OB1/OB4): rent and dues leave the native purse through the purse seam on the clock, in one save with the duties slice. Throws when saving is paused.
  const purseBalance=()=>{const m=ports.context().external?.money;assert(Number.isFinite(m),'The purse is not readable now.');return m;};
+ // Read the current life's actual inventory. Unknown or protected goods have no seizure value.
+ function heldGoods(){
+  const s=state(),c=ports.context(),plan=base(s,c),worn=Object.values(s.simulation.equipment?.player||{}).concat(Object.values(c.equipment?.player||{}));
+  return Object.entries(inventory(plan,'player')).flatMap(([key,qty])=>{
+   try{ports.assertDisposition?.(key);const item=ports.item?.(key);
+    if(!item||item.tags?.quest||item.tags?.quest_item||Object.values(s.simulation.custody||{}).some(x=>x.holder==='player'&&x.key===key))return [];
+    const value=item.getValue({quality:item.quality});return Number.isFinite(value)&&value>0?[{key,name:item.getName(),qty,value,equipped:worn.includes(key)}]:[];
+   }catch{return [];}
+  });
+ }
+ function seizeGoods(picks,settlement){
+  writable();assert(!ports.restoring()&&state().actors.player.worldId===I.world,'The creditor must find you in Tingen.');
+  const goods=new Map(heldGoods().filter(g=>!g.equipped).map(g=>[g.key,g]));
+  const used=new Set();for(const p of picks){const g=goods.get(p.key);assert(!used.has(p.key)&&g&&Number.isInteger(p.qty)&&p.qty>0&&p.qty<=g.qty,'Those goods are no longer available.');used.add(p.key);}
+  const plan=base(state(),ports.context());applySimulationEffects(plan,picks.map(p=>({type:'item',actor:'player',key:p.key,amount:-p.qty})),{actorId:'player'},registry,'book.lotm.seizure');persist(plan);
+  try{if(settlement?.line)ports.logMessage?.(settlement.line,'notification');}catch{/* The debit and its saved receipt already landed. */}
+ }
+ // Plan first so the sentence owner can stage its remaining minutes in the same durable write.
+ function sentencePlan(minutes){
+  writable();assert(!ports.restoring()&&!ports.busy()&&!state().simulation.sessions?.player&&state().actors.player.worldId===I.world,'Finish your current encounter first.');
+  assert(ports.planTime,'The clock is unavailable.');const before=state().clock,plan=ports.planTime(minutes),consumed=plan.state.clock-before;
+  assert(Number.isInteger(consumed)&&consumed>=0&&consumed<=minutes,'The clock returned an invalid duration.');
+  return {minutes:consumed,at:plan.state.clock,commit:()=>persist(plan),afterCommit:()=>{domainRegistry.tick(consumed);ports.logMessage?.(`You spent ${consumed} minutes in the cells.`,'notification');}};
+ }
  function payDues(amount,paid){
   writable();const s=state(),plan=base(s,ports.context());
   applySimulationEffects(plan,[purseEffect(-amount)],{actorId:'player'},registry,'book.lotm.dues');persist(plan);
@@ -361,7 +385,7 @@ export function createLotmHost(ports){
   return {enrolled:true,...(lotmCastLife(s)?{resident:true,waits:waits(s),elsewhere:castElsewhere(s),localClock:castClockLine(s),sky:skyLine(s)}:{}),skills,pausedLife:ports.pausedLife?.()||null,termDay:Math.floor(s.clock/1440),guard:guardView(s),groups:groupLines(groupsOf(s)),merit,bench,broker:brokerView(s,f),places,marketHeld,cause:causeView(f),profile:profileKeyOf(s),entryProfile:s.lotm?.entryProfile,role:f['lotm.roleName'],clearance,district,doseLabels,beyonder:!!(f['lotm.sourceSupported']||[...pathwayRows,...generatedRows].some(r=>f[`lotm.${r.key}Supported`])),switchNotice:LOTM_SWITCH_NOTICE,at:castPlaceLabel(at),supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:lotmMeters(e),path,actingGuidance,holds,issuedDose:allocatedDoseView(s,holds.dose),actions,moves,jobs,records};
  }
  function restoreSleep(){const s=state(),job=s.lotm&&sleepJob(s);if(!ports.restoring()||!job||!sleepingCommand(job.commandId))return false;ports.beginSleep();return true;}
- return {enroll,cross,resign,signGuard,standWatch,collectGuardPay,act,cancel,move,wake,tick,view,purseBalance,payDues,payFine,startable,restoreSleep,upcoming:()=>lotmUpcoming({state:ports.state(),days:getPrivateLotmCast()?.bindings?.days||[]}),inspectConstraints:()=>castRevisionReport(state())};
+ return {enroll,cross,resign,signGuard,standWatch,collectGuardPay,act,cancel,move,wake,tick,view,purseBalance,payDues,payFine,heldGoods,seizeGoods,sentencePlan,startable,restoreSleep,upcoming:()=>lotmUpcoming({state:ports.state(),days:getPrivateLotmCast()?.bindings?.days||[]}),inspectConstraints:()=>castRevisionReport(state())};
 }
 
 export function castClockLine(s){return castLocalClock(s)?.clock||'';}

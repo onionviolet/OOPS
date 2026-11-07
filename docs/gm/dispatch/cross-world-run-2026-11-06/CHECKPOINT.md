@@ -145,3 +145,8 @@ Weibao, 2026-11-06: "lets work on these to completion".
 - Pacing: continue while weekly all-models is under 75% and the 5-hour window under 85%; at 85% on the 5-hour window wake after its reset; at 75% weekly stop and wait for Weibao. Read 2026-11-06 ~22:30: 5-hour 2%, weekly 60%.
 - Stop condition: all eight slices recorded, or weekly at 75%, or a blocker only Weibao can clear.
 - Resume prompt: "Continue the cross-world foundations run in docs/gm/dispatch/cross-world-run-2026-11-06/CHECKPOINT.md: read the resume block, check live files and running workers, then do its next useful action under the pacing rule."
+
+
+## Wave 11 closure, 2026-11-06
+
+The two remaining host gaps (inventory seizure and served jail time) are closed, with final isolated build/full-suite/architecture/rules and rebuilt desktop fixture evidence in the [Wave 11 closure receipt](../wave11-closure-2026-11-06/CHECKPOINT.md). Full suite: 5514 passed, zero failures, five private-fixture skips; all five passed after the missing inputs were supplied (26/26 focused). Seizure and the 720-minute sentence survive reload and literal Export/Import without repeating. Agent-verified, not human-reviewed. The scoped Wave 11 closure change includes the source and verification records; other sessions' work is preserved. Wider earlier acceptance items keep their original scope above.
