@@ -1,0 +1,20 @@
+{
+  "productName": "OOPS Shell Prototype",
+  "version": "0.1.0",
+  "identifier": "local.oops.shell-prototype",
+  "build": {
+    "frontendDist": "stub"
+  },
+  "app": {
+    "windows": [],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": false,
+    "icon": [
+      "../../../resources/img/oops-icon.png"
+    ]
+  }
+}
