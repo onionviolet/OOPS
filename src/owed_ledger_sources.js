@@ -10,6 +10,7 @@ import {DIALS, TIERS, DEEDS} from './economy_standing.js';
 const TERMS = Object.freeze({tiers: TIERS.map(t => t.label), cuts: DIALS.tierCuts.value, grace: DIALS.graceDays.value, ratchet: DIALS.ratchet.value,
     defaulted: -DEEDS.defaulted.amount, paid: DEEDS.paid_debt.amount});
 
+// AT10: recurring duties (the weekly claim, rent) are one more source line: the duties projection's rows, derived and never stored here.
 // A kit still out on loan is a duty with a date in words, not coins yet (village_career.js turns an unreturned kit into debt).
 export function careerRows(career) {
     const rows = fromVillageCareer(career ?? {});
@@ -29,7 +30,7 @@ export function readOwedLedger() {
     const standing = domainRegistry.project('economy_standing') ?? null;
     const home = domainRegistry.project('household_fortunes')?.household;
     // The projection lists the household ledger newest first; the adapter reads the newest note from the end.
-    const fortunes = [...fromHousehold(home ? {resentment: home.resentment, ledger: [...(home.ledger ?? [])].reverse()} : {}), ...careerRows(readPort('villageCareer'))];
+    const fortunes = [...fromHousehold(home ? {resentment: home.resentment, ledger: [...(home.ledger ?? [])].reverse()} : {}), ...careerRows(readPort('villageCareer')), ...(domainRegistry.project('duties')?.rows ?? [])];
     const grudge = standing?.state?.ledger ? grudgeNow(standing.state.ledger, standing.now) : null;
     return gatherOwed({standing, fortunes, grudge, terms: TERMS});
 }

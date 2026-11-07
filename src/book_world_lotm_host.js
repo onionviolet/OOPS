@@ -14,6 +14,7 @@ import {persistLotmCastPlan,castBeatsPending,castSyncDue,installCast,castElsewhe
 import {enrollSimulation,previewSimulationCommand,commitSimulationCommand,cancelSimulationJob} from './simulation.js';
 import {simulationFacts,applySimulationEffects} from './simulation_effects.js';
 import {withFactsFrame} from './facts_frame.js';
+import {purseEffect} from './own_holdings.js';
 import {lotmCommands,lotmContext,lotmFacts} from './book_world_lotm_actions.js';
 import {enrollLotmBranch,LOTM_NATIVE_STOCK} from './book_world_lotm_content.js';
 import {LOTM_IDS as I,LOTM_LOCATIONS as L,LOTM_KEYS as K,LOTM_SAMPLES,LOTM_SWITCH_NOTICE} from './book_world_lotm_ids.js';
@@ -233,6 +234,13 @@ export function createLotmHost(ports){
  function wake(){const s=state(),job=s.lotm&&sleepJob(s);if(job&&!ports.restoring()&&ports.writable())cancel(job.id);}
  // The job finished (or was cancelled) while native sleep was still on: end native sleep once.
  function tick(minutes=0){const s=state();if(s.lotm){if(ports.sleeping())restHarm(s,minutes);else if(!dying&&ports.die&&ports.writable()&&lostControlOutcome(s)?.default==='final'){dying=true;Promise.resolve(ports.die('loss_of_control')).finally(()=>{dying=false;});}}if(lotmCastLife(s)&&(castSyncDue(s)||castBeatsPending(s))&&ports.writable()&&(!lotmBe(s)||validLeadLife(getPrivateLotmCast()))){const plan=base(s,ports.context());if(syncLotmCast(plan.state)||castBeatsPending(plan.state))persist(plan);}if(s.lotm&&ports.sleeping()&&!sleepJob(s))ports.endSleep();}
+ // Standing orders (OB1/OB4): rent and dues leave the native purse through the purse seam on the clock, in one save with the duties slice. Throws when saving is paused.
+ const purseBalance=()=>{const m=ports.context().external?.money;assert(Number.isFinite(m),'The purse is not readable now.');return m;};
+ function payDues(amount,paid){
+  writable();const s=state(),plan=base(s,ports.context());
+  applySimulationEffects(plan,[purseEffect(-amount)],{actorId:'player'},registry,'book.lotm.dues');persist(plan);
+  ports.logMessage?.(`Standing order: paid ${paid.length} ${paid.length===1?'week':'weeks'} of rent, ${amount} pence from your purse.`,'notification');
+ }
  function view(selected=null){return withFactsFrame(state(),()=>readView(selected));}
  function readView(selected=null){
   const s=castState(state()),d=s.lotm;
@@ -306,7 +314,7 @@ export function createLotmHost(ports){
   return {enrolled:true,...(lotmCastLife(s)?{resident:true,waits:waits(s),elsewhere:castElsewhere(s),localClock:castClockLine(s),sky:skyLine(s)}:{}),pausedLife:ports.pausedLife?.()||null,merit,bench,broker:brokerView(s,f),places,marketHeld,cause:causeView(f),profile:profileKeyOf(s),entryProfile:s.lotm?.entryProfile,role:f['lotm.roleName'],clearance,district,doseLabels,beyonder:!!(f['lotm.sourceSupported']||[...pathwayRows,...generatedRows].some(r=>f[`lotm.${r.key}Supported`])),switchNotice:LOTM_SWITCH_NOTICE,at:castPlaceLabel(at),supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:lotmMeters(e),path,actingGuidance,holds,actions,moves,jobs,records};
  }
  function restoreSleep(){const s=state(),job=s.lotm&&sleepJob(s);if(!ports.restoring()||!job||!sleepingCommand(job.commandId))return false;ports.beginSleep();return true;}
- return {enroll,cross,act,cancel,move,wake,tick,view,startable,restoreSleep,upcoming:()=>lotmUpcoming({state:ports.state(),days:getPrivateLotmCast()?.bindings?.days||[]}),inspectConstraints:()=>castRevisionReport(state())};
+ return {enroll,cross,act,cancel,move,wake,tick,view,purseBalance,payDues,startable,restoreSleep,upcoming:()=>lotmUpcoming({state:ports.state(),days:getPrivateLotmCast()?.bindings?.days||[]}),inspectConstraints:()=>castRevisionReport(state())};
 }
 
 export function castClockLine(s){return castLocalClock(s)?.clock||'';}

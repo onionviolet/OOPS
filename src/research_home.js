@@ -1,4 +1,5 @@
-import {registerDomain} from './domain_registry.js';
+import {registerDomain, domainRegistry} from './domain_registry.js';
+import {studyInquiryId, studyEffort} from './inquiry_study.js';
 import {definePanel} from './panel_kit.js';
 import {readPort} from './ui_ports.js';
 import {node, visibleRenderer} from './reference_kit.js';
@@ -44,12 +45,21 @@ function createPanel() {
         where.textContent = target?.checkVisibility?.() ? `Opened ${target.querySelector('summary')?.textContent || 'the panel'} in your notes.` : 'It is not on screen from here. Go to the place named in the step, then open Notes and its Here view.';
     };
 
+    // Writing up costs no time: the effort is the lesson work already done. It files the finding once, when the work is there.
+    const writeNote = node('p', '', {class: 'research-where-note', role: 'status', 'aria-live': 'polite'});
+    const writeUp = p => {
+        const b = node('button', p.inquiry.done ? 'Written down' : 'Write up what I have found', {type: 'button', class: 'research-writeup'});
+        b.disabled = p.inquiry.done;
+        b.onclick = () => { try { const r = domainRegistry.command('inquiry', 'record')({id: p.inquiry.id, effort: studyEffort(p)}); writeNote.textContent = r.wroteNow.length ? 'Written down.' : `Not enough yet. ${r.partial}`; } catch (e) { writeNote.textContent = e.message; } render(true); };
+        return b;
+    };
     const render = visibleRenderer(root, () => {
         const state = readPort('expansion');
         if (!state) return {projects: [], glance: '', empty: '', selected: null};
         const view = researchView(observerView(state), state);
         if (!view.projects.some(p => p.id === selected)) selected = view.projects[0]?.id ?? null;
-        return {...view, selected};
+        const projects = view.projects.map(p => { const id = studyInquiryId(p); return id ? {...p, inquiry: domainRegistry.project('inquiry')?.inquiries.find(q => q.id === id) ?? null} : p; });
+        return {...view, projects, selected};
     }, view => {
         head.textContent = view.projects.length ? `${view.glance}. Pick one to see what it needs and what it opens.` : view.empty;
         queue.replaceChildren(...view.projects.map(p => {
@@ -85,6 +95,7 @@ function createPanel() {
             node('p', `Time left: ${p.timeLeft.text}.`, {class: 'research-time'}), whereButton, where,
             section('Steps', steps),
             section('What you have found so far', findings),
+            p.inquiry ? section('Writing it up', node('p', p.inquiry.done ? `Written down. ${p.inquiry.partial}` : `${p.inquiry.question} So far: ${p.inquiry.partial} A wrong early answer: ${p.inquiry.risk}`), writeUp(p), writeNote) : node('span'),
             section('What it opens', node('p', `${p.opens.state === 'open' ? '★ Open' : '☆ Closed'}: ${p.opens.label}. ${p.opens.how}${p.opens.state === 'open' ? '' : ` (${p.opens.gate})`}`, {class: 'research-opens', 'data-state': p.opens.state})),
             p.next ? section('Next level', node('p', `${p.next.label}: ${p.next.changes}`)) : node('span'),
             mapBox);

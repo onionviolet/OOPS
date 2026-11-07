@@ -10,6 +10,7 @@ const functions = {
     perception: new Set(['knowledge', 'observation']),
     support: new Set(['vital', 'condition', 'body', 'energy', 'relationship', 'knowledge'])
 };
+export const abilityFunctions = functions; // read-only vocabulary for src/channels.js projections
 const acquisitions = new Set(['innate', 'learned', 'borrowed', 'acquired']);
 const kinds = new Set(['body-faculty', 'permanent-imprint', 'device-construct', 'temporary-construct', 'ordinary-technique']);
 const fields = new Set(['id', 'commandId', 'sourceId', 'powerId', 'function', 'acquisition', 'executionKind', 'control', 'target', 'counters', 'carriers', 'conditions']);

@@ -14,6 +14,8 @@ import './beat_ledger.js';
 import './canon_pull.js';
 import './canon_pull_panel.js';
 import './duties_domain.js';
+import {configureInquiry} from './inquiry.js';
+import './inquiry_study.js';
 import {configureFields} from './field_layer_domain.js';
 import {domainRegistry} from './domain_registry.js';
 import {configureGearWorkshop} from './gear_workshop_domain.js';
@@ -43,6 +45,7 @@ export function configureNativeToolDomains(operations) {
         world: operations.world, inventory: () => operations.actor().getItems(), itemOwners: operations.itemOwners,
         assertSpend: operations.assertSpend,
         removeExact: (key, qty) => operations.actor().removeFromInventory([{item_key: key, item_count: qty}])});
+    configureInquiry({plan: operations.plan, commit: operations.commit, writable: neutralWritable(operations)});
     configureCohort({...operations,blocked:operations.worldWorkBlocked});
     configureTempoFight({...operations, writable: neutralWritable(operations)});
     configureDrainage(operations);

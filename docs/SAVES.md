@@ -139,6 +139,7 @@ of what those searches surfaced, not a proof that every persistence change has a
 | 2026-11-04 | Rune bench recarve exchange (`pledges`) | No saved field or schema change: the credit for a replaced strip is derived from the worn strip's own runes, charges and clock. Old saves load and quote identically. Exercised: fresh origin, reload, Export, literal Import at 1920x1080 and 1536x864 (14, 21 px) | A | `src/exchange_ledger.js`, `tests/exchange_bench_browser.mjs` |
 | 2026-11-04 | **World-pack state (`world_packs` slice)** | New optional key; absent loads empty and writes nothing; an older build ignores and drops it on its next save (lossy downgrade, stated); histories survive a crossing, resume and restart (OD5). Full text in section 6d | A | Weibao's 2026-11-04 sequencing approval (relayed in the task brief); [6d](#6d-world-pack-state-slice-2026-11-04-compatibility-decision); `src/world_pack_registry.js`, `src/continuation_state.js` |
 | 2026-11-06 | **Recurring duties (`duties` slice)** | New optional key `duties@1`; absent, foreign or unreadable loads fresh and nothing is owed retroactively; an untouched life writes no key; an older build ignores and drops it on its next save (lossy downgrade, stated). Full text in section 6e | A | FD8 lane brief (2026-11-06); [6e](#6e-recurring-duties-slice-2026-11-06-compatibility-decision); `src/duties_domain.js`, `src/recurring_duties.js` |
+| 2026-11-06 | **Inquiry (`inquiry` slice) and duty policies** | New optional key `inquiry@1` (per inquiry: actor, effort, opened at, facts written); absent, foreign or unreadable loads fresh; an untouched life writes no key; an older build drops it on its next save. The `duties@1` slice gains optional `policy` and `late` maps, defaulting to empty, so older duty saves load with the default standing order | [6f](#6f-inquiry-slice-and-duty-policies-2026-11-06-compatibility-decision) |
 | 2026-11-06 | Continuation attempt identity (`continuation.lives[id].attempt`) | Optional `{count, tokens[≤32]}`, written when a life first restarts or cycles; absent loads unchanged; no migration; an older reader ignores it, so a duplicate restart could count again after a downgrade; tokens older than 32 attempts are not recognized (agent proposal, below floor) | P | [foundation run residue checkpoint](gm/dispatch/foundation-run-residue-2026-11-06/CHECKPOINT.md); `src/continuation_state.js` |
 | not dated | Book pack revisions and save deltas | Earlier lead-life design proposal; save/load wiring and its remaining gameplay-writer gap are now recorded in section 6d. No migration step is registered | P (historical proposal) | LSD142-LSD143 in [RULES_INDEX](RULES_INDEX.md) router; `src/world_pack_save.js`; [later slice decision](#6d-world-pack-state-slice-2026-11-04-compatibility-decision) |
 
@@ -243,6 +244,13 @@ Saved fields added, all optional on `motherOfLearning` (the validator accepts th
 - **Not decided:** HP-class duties and swap-with-notice effects (no code); whether the owed panel (`readOwedLedger`) also lists duty rows (the projection already exposes ledger rows).
 
 **Checked (agent-verified, not human-reviewed).** Focused: `node --test tests/duties_domain.test.js tests/recurring_duties.test.js`. No build and no browser run.
+
+### 6f. Inquiry slice and duty policies (2026-11-06, compatibility decision)
+
+**Decision (cross-world run wave 3; AD32 proposal until Weibao names it).** `src/inquiry.js` owns one optional top-level key, `inquiry: {family:'inquiry@1', records:{<id>:{actor, effort:{minutes, evidence}, openedAt, wrote:[]}}}`; definitions stay in code. Output facts go into the existing knowledge store once. `duties@1` adds `policy` and `late` maps for standing orders (rent in Klein's own life); absent maps read as the duty's default policy.
+- **Older to newer:** a save without either loads fresh or with defaults; nothing is owed or written retroactively.
+- **Newer to older build:** an older build ignores `inquiry` and the new duty maps and drops them on its next save (lossy downgrade, same reason as 6e).
+- **Checked (agent-verified, not human-reviewed):** `tests/inquiry.test.js`, `tests/rent_duty.test.js`; native walk in the [run record](gm/dispatch/cross-world-run-2026-11-06/CHECKPOINT.md).
 
 ## 7. Links
 

@@ -3,6 +3,7 @@ import {lifeRecordView} from './life_record.js';
 // Read-only news from existing owners. No rolls, rewards, enrollment or save fields.
 import {pursuitView} from "./pursuit.js";
 import {worldDayNews} from "./world_calendar.js";
+import {consequenceNews} from "./consequences.js";
 export function eventFeed(state, registry, facts = {}, lifeRecord = null) {
     const leads = [], news = [], actor = state.actors.player, worldId = actor.worldId;
     const destination = (panel, control) => ({view: "people", panel, control});
@@ -92,6 +93,8 @@ export function eventFeed(state, registry, facts = {}, lifeRecord = null) {
     }
     // Dated world events appear on their day and not before; a world without them contributes nothing.
     for(const e of worldDayNews(state)) news.push({id:e.id,at:Math.max(0,state.clock-e.ageMinutes),text:e.text});
+    // FD16 layer 2: state-triggered consequences (no draw, no save field); ids are built from their cause.
+    for(const e of consequenceNews(state)) news.push(e);
     const order = (a,b) => b.at-a.at || a.id.localeCompare(b.id);
     leads.sort((a,b) => Number(b.available)-Number(a.available) || a.at-b.at || a.id.localeCompare(b.id));
     const lifeView=state.chronicle ? lifeExperienceView(state.chronicle) : null;

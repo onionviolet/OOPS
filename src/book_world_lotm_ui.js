@@ -22,7 +22,7 @@ const node=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.text
 export const lotmPanelTitle=v=>v.resident?v.at:'Tingen workroom';
 // Surface type: place service (UR1). Home: the main workspace, discovered inside the Tingen
 // branch and in the Village, where its starts begin. Warden Hale runs the workroom; the lodging is where you sleep.
-export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend}){
+export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,setOrder}){
  const panel=node('section');panel.id='lotm_panel';panel.className='expedition_panel';panel.dataset.surfaceType='place-service';
  const status=node('p'),meters=node('div'),path=node('div'),work=node('div'),bench=node('details'),actions=node('div'),walks=node('div'),notebook=node('div'),notice=node('p');notice.setAttribute('role','status');
  const encounterSlot=node('div');encounterSlot.dataset.sharedSlot='encounter'; // AR17: shared panels (a fight) render here; not tab-owned, not re-rendered.
@@ -217,6 +217,11 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend}
   // FD8: recurring duties as plain prose (UR70-UR75) for resident and non-resident lives alike: what it is, when it shuts, how many missed; a button only while the window is open.
   for(const d of v.duties){const span=m=>m>=1440?`${Math.ceil(m/1440)} days`:m>=60?`${Math.ceil(m/60)} hours`:`${m} minutes`;
   const when=d.open?` It shuts in ${span(d.shutsIn)}.`:d.status==='late'?' The window has shut for this round.':` ${d.reason}`,gone=d.missed?` Missed ${d.missed} time${d.missed===1?'':'s'}.`:'';
+  if(d.standing){ // a standing order (OB1): the choice sits beside the line; it settles on the clock, so there is no button
+   const sel=node('select');sel.dataset.dutyPolicy=d.id;sel.setAttribute('aria-label','Standing order');
+   for(const o of d.policies){const op=node('option',o.label);op.value=o.id;op.selected=o.id===d.policy;sel.append(op);}
+   sel.onchange=()=>{try{setOrder(d.id,sel.value);notice.textContent='Standing order changed.';}catch(e){notice.textContent=e.message;}signature='';render();};
+   const sr=row(node('span',`${d.why}${gone}${d.escalation?` ${d.escalation}`:''} Standing order: `),sel);sr.dataset.dutyId=d.id;work.append(sr);continue;}
   const line=node('span',`${d.why}${when}${gone}`);const r=d.open&&attend?row(line,button('Hand it in',`duty_${d.id}`,()=>{try{attend(d.id);notice.textContent='Handed in.';}catch(e){notice.textContent=e.message;}signature='';render();},false)):row(line);r.dataset.dutyId=d.id;work.append(r);}
   if(!resident){
   const held=[v.holds.dose?'prepared dose':'',v.holds.clownDose?'prepared Clown dose':'',...v.doseLabels,...v.marketHeld,...(v.holds.sealed3?['sealed grade 3 item']:[]),...[['frog','dried frog'],['hairs','bundle of hairs'],['ink','jar of grave-dust ink']].filter(([k])=>v.holds[k]).map(x=>x[1]),...['comparator','sampleA','sampleB'].filter(n=>v.holds[n]).map(n=>n==='comparator'?'comparator sample':`sample lot ${n.slice(-1)}`)].filter(Boolean);

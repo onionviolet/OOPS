@@ -26,6 +26,7 @@ export const TEMPO_DIALS = {
     logLines: {value: TEMPO_LOG_LINES, why: 'The log is a short readable tail, not history.'},
     fogMishap: {value: .03, why: 'Fog hides footing and the mark a little; less than full dark, which also hides the hands.'},
     shotDamage: {value: 'maxHp / downIn', why: 'Bridge from a world scale (e.g. LOTM hits-to-down) to tempo health: each hit takes an equal share, so downIn hits drop the target. Authored dial.'},
+    stallActions: {value: 30, why: 'AT21: when two weak fighters cannot hurt each other (a hit chance near zero, or blows that do almost nothing), the fight would run forever. After this many moves in a row with no harm to anyone, both sides are spent and break off (ends as withdrawn, no grudge, no one follows). About a ten percent shooter still lands one in thirty about 96 times in 100. Set to 0 to turn it off.'},
     witnessPerStrike: {value: false, why: 'A witness remembers a fight as one event (LSD351); one memory per strike would fill their record. Tests or a world that wants every blow remembered can turn this on.'}
 };
 // Costs are time units (about seconds). Power scales the existing strike math;
@@ -180,6 +181,7 @@ function runMove(plan, registry, command, publish) {
     b.now = f.ready; b.actions++;
     let cost = scaled(move, f);
     if(command.why) say(b, command.why);
+    let harmed = false;
     const mishap = move.kind !== 'order' && draw(b, 'mishap', id) < mishapChance(b, f);
     f.guard = false;
     if(mishap) {
@@ -215,6 +217,7 @@ function runMove(plan, registry, command, publish) {
             if(def.worn > 0) stopped = round1(Math.max(0, mitigateCombatDamageFromStats(strike.values, {...foe.profile.stats, defense: def.base}, guardMod, pen, scale) - dmg));
         }
         if(dmg) {
+            harmed = true;
             foe.hp = Math.max(b.floor, round1(foe.hp - dmg)); foe.guard = false; foe.adrenalineUntil = b.now + 10;
             if(foe.hp <= b.floor) foe.status = 'down';
             const part = SLOTS[slot].part, next = part ? injuryFor(foe.parts?.[part], dmg, foe.maxHp, strike.critted) : null;
@@ -245,6 +248,7 @@ function runMove(plan, registry, command, publish) {
         const hit = draw(b, 'shot', id, {foe: foeId}) < odds.chance;
         const foeName = foeId === 'player' ? 'you' : foe.name;
         if(hit) {
+            harmed = true;
             const dmg = round1(foe.maxHp / odds.downIn);
             foe.hp = Math.max(b.floor, round1(foe.hp - dmg)); foe.guard = false; foe.adrenalineUntil = b.now + 10;
             if(foe.hp <= b.floor) foe.status = 'down';
@@ -296,6 +300,12 @@ function runMove(plan, registry, command, publish) {
     stagePlayerVitals(plan);
     if(move.kind === 'yield' && !mishap && f.status === 'left') publish(f.side === 'a' ? 'yielded' : 'won');
     else resolveEnd(b, publish, f, id);
+    // A fight nobody can win ends by exhaustion (AT21): the count resets on any harm and is kept in the saved fight.
+    if(b.result === null) {
+        b.lull = harmed ? 0 : (b.lull || 0) + 1;
+        const limit = TEMPO_DIALS.stallActions.value;
+        if(limit > 0 && b.lull >= limit) {say(b, 'Neither of you can hurt the other any more. Spent, you both break off.'); publish('withdrawn');}
+    }
 }
 
 const definition = {

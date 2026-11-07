@@ -51,6 +51,7 @@ import { enemy_killcount, enemy_templates } from "./enemies.js";
 import { playerAttributeDefinitions, ATTRIBUTE_DESCRIPTIONS, GEAR_DIMENSION_NOTES, PERCENT_ATTRIBUTES, DAMAGE_TAKEN_FLOOR, affixSourceRows } from "./player_attribute_definitions.js";
 import { expo, format_reading_time, stat_names, round_item_price, format_working_time, task_type_names, celsius_to_fahrenheit, is_a_older_than_b, select_outline_class } from "./misc.js"
 //import { stances } from "./combat_stances.js";
+import { channelNote } from "./channels.js";
 import { rankOf } from "./faction_rank.js";
 import { recipes, get_recipe_xp_value, find_recipe_material, get_component_stats } from "./crafting_recipes.js";
 import {recipeMakeableNow, itemRecipeStatus} from "./crafting_visibility.js";
@@ -5442,7 +5443,7 @@ function create_new_skill_bar(skill) {
     if(skill.parent_skill) {
         html_content += `<br>Parent skill: ${skill.parent_skill}<br><br>`; 
     }
-    
+    const channel_line = channelNote(skill, {holder: true}); if(channel_line) html_content += `<br>${channel_line}<br>`; // own skill only (ABR19)
     insert_HTML(tooltip_desc, html_content);
     skill_bar_max.appendChild(skill_bar_text);
     skill_bar_max.appendChild(skill_bar_current);

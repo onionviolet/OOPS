@@ -44,6 +44,28 @@ export function placePanel(root, slot, fallback) {
     if(fallback?.isConnected && root.parentElement !== fallback) { fallback.append(root); return 'fallback'; }
     return fallback && root.parentElement === fallback ? 'fallback' : 'none';
 }
+// AT22: the Adventure Notebook opens its journal tab when a fight starts waiting. Remember the tab the player was on before the commit and put it back
+// once the fight is gone, without touching the notebook's own auto-open (it fires only on a new waiting response, and a fight that has ended is none).
+let priorTab = null;
+const journalTabs = () => [...(document.getElementById('journal_show_notebook')?.parentNode?.children || [])];
+// Book views keep their own in-panel tab bar (reference_kit createTabs, aria-selected); remember that tab too.
+const workroomTab = () => document.querySelector('[data-workroom-tabs] [role="tab"][aria-selected="true"]');
+// In a composed workspace the notebook opens as a centre view; main_content publishes which one (R13) and #center_mode_back closes it.
+const centerTask = () => document.getElementById('main_content')?.dataset.centerTask || null;
+export function restoreCenterView(was, now, back) {
+    if(now === 'workspace:notebook' && was !== now && back?.isConnected) {back.click(); return true;}
+    return false;
+}
+const rememberTab = () => {priorTab = {journal: journalTabs().find(b => b.classList.contains('active_selection_button') && b.id !== 'journal_show_notebook') || null, workroom: workroomTab(), center: centerTask()};};
+export function restoreWorkroomTab(was) {
+    if(was?.isConnected && was.getAttribute('aria-selected') !== 'true') {was.click(); return true;}
+    return false;
+}
+export function restoreJournalTab(was, notebook) {
+    if(was?.isConnected && notebook?.classList.contains('active_selection_button')) {was.click(); return true;}
+    return false;
+}
+function restoreTab() {const was = priorTab; priorTab = null; restoreJournalTab(was.journal, document.getElementById('journal_show_notebook')); restoreWorkroomTab(was.workroom); restoreCenterView(was.center, centerTask(), document.getElementById('center_mode_back'));}
 const open = () => ports.root().simulation?.sessions.player?.nativeBattle?.schema === TEMPO_SCHEMA ? ports.root().simulation.sessions.player.nativeBattle : null;
 
 function startQuote() {
@@ -97,7 +119,7 @@ function start(request = {}) {
         {id: 'player', name: 'You', side: 'a', speed: 100, parts: carriedParts(), hp: v.health, maxHp: v.max_health, stamina: v.stamina, maxStamina: v.max_stamina, profile: me, perception: me.stats.intuition ?? 5, stealth: me.stats.agility ?? 5},
         {id: ROAD_RIVAL, name: 'Mara', side: 'b', speed: Math.round(100 * (body.attack_speed ?? 1) / .8), hp: rival.vitals.health, maxHp: rival.vitals.max_health, stamina: rival.vitals.stamina, maxStamina: rival.vitals.max_stamina,
             profile: rivalProfile, perception: body.intuition + mem.perceptionBonus, stealth: body.agility, goals: mem.goals}]});
-    ports.commit(plan); applyHarm(plan);
+    rememberTab(); ports.commit(plan); applyHarm(plan);
 }
 // Openers other worlds register (tempo_starters.js): each quotes itself and supplies its fight spec; this host supplies the native actor.
 function openerQuotes() {
@@ -119,7 +141,7 @@ function begin(request = {}) {
     const me = withTypes(readNativeFighter(ports.actor()), ports.actor());
     const spec = opener.spec(state, context, {me, vitals: context.vitals.player, parts: carriedParts(), enemyProfile});
     const plan = beginTempoFight(state, ports.registry, context, spec);
-    ports.commit(plan); applyHarm(plan);
+    rememberTab(); ports.commit(plan); applyHarm(plan);
 }
 function move(request) {
     const state = ports.root(), ctx = ports.campaignContext();
@@ -150,7 +172,9 @@ function mount() {
     const render = force => {
         place();
         if(!root.isConnected) return;
-        const v = view(), sig = JSON.stringify(v) + !!document.getElementById('fight_situation');
+        const v = view();
+        if(priorTab && !v.fight) restoreTab();
+        const sig = JSON.stringify(v) + !!document.getElementById('fight_situation');
         if(!force && sig === signature) { if(!v.visible && document.activeElement !== notice) root.hidden = true; return; }
         signature = sig;
         const previousFocus = captureTempoFocus(body, ['tempo']) || (document.activeElement === notice ? {} : null);
