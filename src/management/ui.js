@@ -37,7 +37,8 @@ export function createManagementPanel({read,registry,command}) {
  const hands=node('details',''),handsBody=node('div','',{class:'expedition_card'});hands.append(node('summary','Hire help for the plot'),handsBody);
  const handCrop=node('select','',{'aria-label':'Crop to grow'});for(const c of['grain','greens'])handCrop.append(node('option',c,{value:c}));
  const handList=node('div');handsBody.append(node('label','Crop '),handList);handsBody.firstChild.append(handCrop);
- element.append(moved,terms,notice,overview,groupsNote,found,mine,hands,sections,history);
+ const awayHead=node('h3','Your groups',{class:'organization-away-head'});awayHead.hidden=true;
+ element.append(moved,terms,notice,awayHead,overview,groupsNote,found,mine,hands,sections,history);
  const rows=new Map(),groups=new Map();let message='',selected=null,drawn='';
  function drawOverview(org) {
   const view=org&&organizationView(org);
@@ -77,7 +78,8 @@ export function createManagementPanel({read,registry,command}) {
   const snapshot=read(),view=managementPresentation(snapshot.state,registry,snapshot.context);
   // AT32: at a group's claim place (the wilds stead) the panel opens with the group cards alone; the courtyard itself needs the Village.
   const here=!view.visible&&claimHere(),hidden=(!view.visible&&!here)||snapshot.inDialogue||snapshot.inCombat,court=hidden||here;element.hidden=hidden;
-  terms.hidden=here;moved.hidden=here||seenMoved();sections.hidden=here;history.hidden=here;
+  terms.hidden=here;moved.hidden=here||seenMoved();awayHead.hidden=!here; // the panel keeps its registered title; away from the courtyard this names what it shows
+  sections.hidden=here;history.hidden=here;
   notice.textContent=snapshot.error||message;notice.hidden=!notice.textContent;
   drawOverview(court||!view.opened?null:courtyardOrganization(snapshot.state,registry,snapshot.context));
   groupsNote.textContent=court||!view.opened?'':groupLines(groupsOf(snapshot.state)).join(' ');groupsNote.hidden=!groupsNote.textContent;
