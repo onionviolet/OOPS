@@ -41,8 +41,9 @@ export function createManagementPanel({read,registry,command}) {
  const rows=new Map(),groups=new Map();let message='',selected=null,drawn='';
  function drawOverview(org) {
   const view=org&&organizationView(org);
-  const key=view?`${organizationText(view)}|${selected}`:'';
-  if(key===drawn)return;drawn=key;overview.hidden=!view;overview.replaceChildren();if(!view)return;
+  if(!view){overview.hidden=true;overview.replaceChildren();drawn='';return;} // hidden even on the first render (AT32: the panel can open away from the courtyard)
+  const key=`${organizationText(view)}|${selected}`;
+  if(key===drawn)return;drawn=key;overview.hidden=false;overview.replaceChildren();
   const summary=node('p',view.summary,{class:'organization-summary'});
   const grid=node('div','',{class:'organization-grid'});
   // Roster: table with a pinned inspector (O1).
