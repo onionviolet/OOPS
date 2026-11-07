@@ -103,11 +103,24 @@ Reading: skip the per-slice full gates, keep one final gate before commit (anoth
 | Lane | Slice | Files | Result |
 |---|---|---|---|
 | E | U10 NPC schedule fact (pseudo agency through the command path) | `src/npc_schedule.js` (new leaf), `src/simulation.js` (+7/-2), `src/simulation_content.js` (+5/-1), `tests/npc_schedule.test.js` (5) | implemented, below floor; dormant in play: the craftsman row reads `untimed` until `calendarMinute` is in non-player contexts (`main.js:1684`, not wired); 1118/1118 on importing tests |
-| F | cold/wet resistance facet of the Poison resistance owner (no sick state; XP into the existing key) | `src/hazard_resistance.js` (new), `src/active_effects.js` (tags), `src/models/hero.js` (+5), `src/absorb_c2/local_life.js` (+5), `src/main.js` (+3/-1), `tests/hazard_resistance.test.js` (7), `tests/structured_equipment_runtime.test.js` (param list) | implemented, below floor; division `1 + (coef-1)*0.5` floored at 1; growth just on the Frontier hook, Village gets division without growth; wider run 887/888, the one failure (a live cast-adapter integration test) passed alone 17/17 |
+| F | cold/wet resistance facet of Poison resistance | (reverted, see Wave 2 correction) | built in `4862bbb9d`, reverted after the native walk showed the original Cold resistance skill already owns cold exposure; lessons: lane F's repo search missed `skills["Cold resistance"]` (`src/data/skills.js:917`), so a lane brief should name existing owners from a grep of the skill table, not rely on the lane's own search |
 | G | rival scouting writer: "Study her stance" records `person.roadRival.strength` | `src/rival_memory.js` (+23), `src/tempo_fight_domain.js` (+17), `tests/rival_study.test.js` (5) | implemented, below floor; margin unchanged, just the telling; no `basis` (validator needs a real situation); 70/70 focused |
 | H | walk findings | `src/simulation_ui.js` (F1: enroll button out of the hidden Work section), `scripts/headless/runner.mjs` (F3: settle on a stalled clock; unproven against a real cycle), `tests/simulation_ui_enroll.test.js` (1) | F1 fixed with a test that fails on the old file; F2 not patchable as data (needs an engine enrol and commission step); F3 inferred from source |
 
 Coordinator checks: diffs of `hero.js`, `main.js`, `simulation.js`, `tempo_fight_domain.js` read; each shared file holds only this wave's hunks; other sessions' dirty LOTM, positions and heat files left unstaged.
+
+### Wave 2 native walk (headless, scratch worktree of HEAD `498a7b10b`, bundle 01eab058f9675f176a54fb5026eae69e86129dec4602c213930df888af7dfeb7)
+
+Agent-verified, not human-reviewed. No page errors, no private pack.
+
+| Item | Result | Notes |
+|---|---|---|
+| W5 enroll button (F1) | Not reached | The "Craftsman & workshop" panel did not appear in the panel list before or after enrolling; the earlier walk reached the section only after the craftsman was met |
+| W6 Study her stance | Not reached | No Mara, rival or contest panel appeared within about 1 game day |
+| W7 cold/wet resistance | Observed, but it showed the design error | Poison resistance +4.8 then +9.6 XP over two hours of Wet and Cold, and "Cold resistance +4.6 XP" at the same time: the original skill already trains from the same exposure. The facet was reverted |
+| W8 loop cycle (F3) | Partial | `game_look` and `game_status` now work on the cycled session and the next step works; `game_reload` still cannot click PLAY (page does reload; loop state persisted). The F3 fix is incomplete; ledger entry 56 |
+
+**Wave 2 correction.** Lane F's facet is reverted (working tree, committed with this note). E, G and H stand. W5 and W6 remain unwalked: a recipe is needed that reaches the Craftsman & workshop panel and Mara.
 
 ## Resume block (unattended run, 2026-11-06)
 

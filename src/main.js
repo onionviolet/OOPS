@@ -1,5 +1,4 @@
 import {createClockOwner} from './clock_owner.js';
-import {FACETS} from './hazard_resistance.js';
 import {rebaseFurnaceSave} from './patient_furnace.js';
 import {craftingOwner,setCraftingOwner} from './crafting_frontier_runtime.js';
 import {configureHomes,residenceState,stageResidenceClock,residenceSleepAllowed} from './home_domain.js';import {hostPlaceClock} from './owned_place_clock_host.js';import {configureRankGap} from './rank_gap_observer_domain.js';
@@ -1614,8 +1613,7 @@ function localLifeContext(calendar=current_game_time, state=expansionState, loca
         perception:character.getTotalSkillLevel('Perception'),money:character.money,villageReputation:character.reputation.Village,illumination:domainRegistry.project('lamplight')?.light?.light,nightVisionRatio:character.getTotalSkillLevel('Night vision')/skills['Night vision'].max_level,
         millUnlocked:locations['Eastern mill'].getAvailabilityComponent().getStatus().is_unlocked===true,
         bleedingRemaining:active_effects.Bleeding?.duration||0,
-        foodPoisonRemaining:active_effects['Slight food poisoning']?.duration||0,
-        coldHazardRemaining:Math.max(0,...FACETS.cold.hazards.map(h=>active_effects[h]?.duration||0)),poisonResistanceLevel:character.getTotalSkillLevel('Poison resistance')};
+        foodPoisonRemaining:active_effects['Slight food poisoning']?.duration||0};
 }
 function stageLocalLifeResult(plan, result) {
     plan.gameplay ||= gameplaySnapshot();

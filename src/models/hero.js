@@ -14,7 +14,6 @@ import { skills } from "../data/skills.js";
 import { levels, bios } from "../data/component_references.js";
 import { Person } from "./person.js";
 import {get_current_light_level} from '../weather.js';
-import {facetForTags, facetDivisor, OWNER_SKILL} from '../hazard_resistance.js';
 
 class Hero extends Person {
     #nativeLightBonusReader = null;
@@ -232,10 +231,6 @@ class Hero extends Person {
                     multiplier *= this.getTotalSkillCoefficient({scaling_type: "multiplicative", skill_id: skill_id});
                 }
         });
-        const hazard = facetForTags(active_effect.tags);
-        if(hazard) { //hazard facet of the poison-resistance owner; floored at 1, so never amplifies or heals
-            multiplier *= facetDivisor(this.getTotalSkillCoefficient({scaling_type: "multiplicative", skill_id: OWNER_SKILL}), hazard.facet);
-        }
         let boosted = {stats: {}, bonus_skill_levels: {...active_effect.effects.bonus_skill_levels}, xp_multipliers: {...active_effect.effects.xp_multipliers}};
         for(const [key, value] of Object.entries(active_effect.effects.stats)) {
             boosted.stats[key] = {};

@@ -1,7 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {facetForTags,facetDivisor,OWNER_SKILL} from '../src/hazard_resistance.js';
 import {validateStructuredEquipmentDefinition,nativeStructuredEquipmentTemplate,projectStructuredEquipment} from '../src/structured_equipment_runtime.js';
 
 const key=JSON.stringify({id:'original.coat'});
@@ -47,9 +46,9 @@ test('descriptor is accepted by the actual Hero effect consumer without consumab
  const source=readFileSync(new URL('../src/models/hero.js',import.meta.url),'utf8');
  const method=source.match(/    getEffectWithBonuses\(active_effect\) \{([\s\S]*?)\n    \}\n/);
  assert.ok(method);
- const consume=new Function('active_effect','skill_consumable_tags','facetForTags','facetDivisor','OWNER_SKILL',method[1]);
+ const consume=new Function('active_effect','skill_consumable_tags',method[1]);
  const effect=projectStructuredEquipment(fixture()).effects['structured.equipment'];
- const result=consume.call({getTotalSkillCoefficient(){throw Error('Physical armor must not be amplified by consumable skills.');}},effect,{Medicine:'medicine'},facetForTags,facetDivisor,OWNER_SKILL);
+ const result=consume.call({getTotalSkillCoefficient(){throw Error('Physical armor must not be amplified by consumable skills.');}},effect,{Medicine:'medicine'});
  assert.deepEqual(result,effect.effects);assert.equal(effect.duration,null);
 });
 test('malformed policy cannot create unknown coverage, slots or negative physical effects',()=>{
