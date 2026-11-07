@@ -3,7 +3,7 @@
 // LOTM host does. No state, tick or save of its own. registerBookBeginnings passes the ports; the panel mounts
 // with the other domains. The act data is the private cast when present, else the public stub.
 import {placeActSequenceView} from './place_act_sequence.js';
-import {hpLeadHouseholdActs} from './world_packs/book_hp_lead_life_data.js';
+import {hpLeadHouseholdActs,hpLeadSchoolLocked} from './world_packs/book_hp_lead_life_data.js';
 import {getHpLeadCast} from './book_world_hp_lead_pack.js';
 import {createHpLeadPanel} from './book_world_hp_lead_ui.js';
 import {registerOwnHoldings,lifeHoldings} from './own_holdings.js';
@@ -15,15 +15,27 @@ import {resolveWorldCalendar,formatCalendar} from './world_calendar.js';
 import {schoolYearText} from './book_world_hp_school_calendar.js';
 import {registerDutySet} from './duties_domain.js';
 import {hpDutySet} from './book_world_hp_duties.js';
+import {HP_AT_SCHOOL_FACT} from './book_world_hp_duties.js';
+import {hpPositions,hpPositionLine,HP_HOUSE_FACT,HP_HOUSES} from './book_world_hp_positions.js';
 const LEAD_ID='book.hp.lead';
 const EMPTY_ARC=Object.freeze({id:`${LEAD_ID}.arc`,title:'Nothing authored yet',completed:0,total:0,done:false,next:null,aftermath:null,conclusion:null});
 const actData=()=>getHpLeadCast()?.householdActs??hpLeadHouseholdActs;
+// W8-A route to the school: the next step is the arrival command until hp.lead.atSchool is set, then the Sorting until a house is
+// set, then nothing. Both facts live on the player's actor facts (the saved actor record); nothing here is stored.
+const SCHOOL_STEPS=[['arrive_school','Take the train to Hogwarts'],['sorting','Put on the Sorting Hat']];
+export function hpSchoolRoute(state){
+    const f=state?.actors?.player?.facts||{};
+    const next=!f[HP_AT_SCHOOL_FACT]?SCHOOL_STEPS[0]:!f[HP_HOUSE_FACT]?SCHOOL_STEPS[1]:null;
+    return {atSchool:f[HP_AT_SCHOOL_FACT]===true,house:HP_HOUSES[f[HP_HOUSE_FACT]]??null,
+        next:next?{id:`${LEAD_ID}.${next[0]}`,label:next[1]}:null,
+        locked:next?.[0]==='sorting'?structuredClone(hpLeadSchoolLocked[`${LEAD_ID}.sorting`]):[]};
+}
 export function hpLeadProjection(state,data=actData(),locked=getHpLeadCast()?.lockedOptions??{}){
     if(!state?.simulation?.people?.player)return null;
     const arc=placeActSequenceView(state,data)??{...EMPTY_ARC};
     // Untaken options of the act that is current (or the last one done) show locked, never actionable.
     const shown=arc.next?.id??data.acts?.at(-1)?.id;
-    return {enrolled:state.actors?.player?.worldId===`${LEAD_ID}.world`,arc,locked:structuredClone(locked[shown]??[]),jobs:structuredClone(state.simulation.jobs||[])};
+    return {enrolled:state.actors?.player?.worldId===`${LEAD_ID}.world`,arc,school:hpSchoolRoute(state),locked:structuredClone(locked[shown]??[]),jobs:structuredClone(state.simulation.jobs||[])};
 }
 // Live holdings: the purse is the player's own resource under the pack's currency key (one integer in the smallest coin,
 // shown on the pack's ladder); other holders (a vault, another person's coins) are different actors and never show here.
@@ -42,7 +54,7 @@ export function registerHpLeadDomain(register,getState,ports=null,data){
     let panel=null;
     // The Reports 'Now' line reads the life's own calendar (same projection as the scene header), not the home clock.
     if(ports)registerLocalClockSource(()=>{const state=getState(),view=state?.actors?.player?.worldId===`${LEAD_ID}.world`?resolveWorldCalendar(state):null;
-        return view?{clock:formatCalendar(view,{time:true}),date:view.label,note:schoolYearText(view.absoluteLocalDay)||undefined}:null;});
+        return view?{clock:formatCalendar(view,{time:true}),date:view.label,note:[schoolYearText(view.absoluteLocalDay),hpPositionLine(hpPositions(state))].filter(Boolean).join(' ')||undefined}:null;});
     registerDutySet('hp',hpDutySet(getState)); // FD8: inactive until a later act sets hp.lead.atSchool
 
     // The life holds nothing of its own to spend or carry (hpLeadLife.items is empty, no resources), so the shell says so.

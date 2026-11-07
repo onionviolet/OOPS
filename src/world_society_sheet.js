@@ -24,9 +24,9 @@ export const SHEETS = Object.freeze([
     Object.freeze({id: 'little_whinging_hogwarts', label: 'Harry, Little Whinging and the Hogwarts summer', worldId: 'book.hp.lead.world', fields: Object.freeze({
         money: f('palette', HP_PASS + '#money-and-information-wpr12', 'Pass table only (coins and prices); no HP price anchors or pay bands in code.', 'boarding_school'),
         calendar: f('authored', 'src/book_world_hp_school_calendar.js#SCHOOL_YEAR', 'School year and term phases from day 0 (31 July), plus a weekly class slot (an authored proposal).'),
-        institutions: f('palette', HP_PASS + '#places-and-institutions-wpr9', 'School, houses and Ministry from the pass; only the generic grant seam (institution_access) is code.', 'boarding_school'),
-        positions: f('palette', 'src/book_world_hp_duties.js#HP_DUTIES', 'One class slot as a duty; enrolment, year and prefect are not a position record.', 'boarding_school'),
-        law: f('missing', 'src/law_case.js#defineLawBook', 'Points, detention and out-of-bounds have no owner; no house-points code found.'),
+        institutions: f('palette', HP_PASS + '#places-and-institutions-wpr9', 'School, four houses with a Head each, hospital wing, Ministry: pass table only; the house list is code (HP_HOUSES) but no house row, Head or points total is loaded.', 'boarding_school'),
+        positions: f('authored', 'src/book_world_hp_positions.js#hpPositions', 'Pupil (first year) and house member rows derived from two actor facts; no route sets them yet (no arrival or Sorting command). Prefect and Head of House are not rows.'),
+        law: f('palette', HP_PASS + '#law-enforcement-aftermath-wpr11-wpr16', 'School-yard rules from the pass: no magic in corridors between classes, out-of-bounds floor and forest, caretaker patrols and reports, lost points, expulsion as top penalty. A curfew is not stated in the pass. Not loaded as rows.', 'boarding_school'),
         information: f('authored', 'src/book_world_hp_people_source.js#hpPeopleRows', 'People known only through the player\'s own knowledge entries; owl post and papers are not modelled.'),
         address: f('missing', KIT + '#k20', 'No forms of address as data.'),
     })}),

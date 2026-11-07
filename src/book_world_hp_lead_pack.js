@@ -3,6 +3,7 @@
 // public stub. Locked "Not how it happened" rows and the act sequence come from the pack.
 import {definePlaceActs} from './place_acts.js';
 import {validLadder} from './coin_ladder.js';
+import {hpLeadSchoolCommands} from './world_packs/book_hp_lead_life_data.js';
 const P='book.hp.lead',KIND='hp-cast';
 let loaded=null;
 export const getHpLeadCast=()=>loaded;
@@ -42,6 +43,6 @@ export function withHpLeadCast(raw,pack){
  native.simulation.people=[...native.simulation.people,...pack.people.map(p=>({id:p.id,revision:1,label:p.label,worldId:`${P}.world`,location:`${P}.street`,inventory:'simulation',provision:false,
   body:{id:p.id+'_body',ownerId:p.id,controllerId:p.id,form:'human',hands:2,mobile:true},vitals:{health:100,stamina:100}}))];
  native.presentation.people={...native.presentation.people,...Object.fromEntries(pack.people.map(p=>[p.id,{introductionKnowledgeKey:p.introductionKnowledgeKey}]))};
- native.simulation.commands=acts.map(c=>({...c,audience:['$actor']}));
+ native.simulation.commands=[...acts.map(c=>({...c,audience:['$actor']})),...structuredClone(hpLeadSchoolCommands)]; // the school route survives the private cast
  return native;
 }

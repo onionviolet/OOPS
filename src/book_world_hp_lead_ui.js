@@ -34,6 +34,17 @@ export function createHpLeadPanel({project,read,command}){
    if(running){const t=node('p',`${(campaign.jobs||[]).find(j=>j.commandId===next.id)?.remaining??''} minutes remaining`);t.dataset.hpTaskTerms='';section.append(t);}
   }
   for(const o of v.locked||[]){const r=node('div');r.dataset.hpLocked=o.id;r.append(node('button',o.label));r.firstChild.disabled=true;r.append(node('span',' Not how it happened'));section.append(r);}
+  const sc=v.school;
+  if(sc){const s2=node('section');s2.className='ui-panel-section';s2.dataset.hpSchool='';s2.append(node('h3','The road to Hogwarts'));
+   if(sc.next){const a=(campaign.actions||[]).find(x=>x.id===sc.next.id);
+    if(a){const row=node('div');row.dataset.panelRow='';const s=shortActionLabel(a.label);
+     const b=node('button',s.text);b.type='button';b.dataset.hpSchool=sc.next.id;b.disabled=!a.eligible||!campaign.canWrite||!!v.jobs.find(j=>j.commandId===sc.next.id);
+     if(s.chip)b.append(node('span',` · ${s.chip}`));
+     b.onclick=()=>{try{command({type:'action',id:sc.next.id});notice='';}catch(e){notice=e.message;}render();};
+     row.append(b);if(a.reasons?.length)row.append(node('p',a.reasons.join(' ')));if(a.description)row.append(node('p',a.description));s2.append(row);}}
+   for(const o of sc.locked){const r=node('div');r.dataset.hpLocked=o.id;const b=node('button',o.label);b.disabled=true;r.append(b,node('span',` Not how it happened. ${o.reason}`));s2.append(r);}
+   if(sc.atSchool)s2.append(node('p',sc.house?`You are a first year at Hogwarts, in ${sc.house}.`:'You have reached Hogwarts.'));
+   if(sc.next||sc.atSchool)section.append(s2);}
   if(arc.aftermath){const p=node('p',`Last result: ${arc.aftermath}`);p.dataset.hpLastResult='';section.append(p);}
   if(arc.done&&arc.conclusion)section.append(node('p',arc.conclusion));
   if(notice)section.append(node('p',notice));

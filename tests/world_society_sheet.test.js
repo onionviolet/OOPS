@@ -25,3 +25,7 @@ test('coverage counts add up and an unresolvable locator is reported', () => {
 test('sheets name no secret truth: only IDs and plain-world facts', () => {
     assert.ok(!/\bsecret\b/i.test(JSON.stringify(SHEETS)));
 });
+test('Hogwarts coverage: positions authored, law and institutions palette, address still missing', () => {
+    const c = sheetCoverage(SHEETS.find(s => s.id === 'little_whinging_hogwarts'));
+    assert.deepEqual([c.authored, c.palette, c.missing], [3, 3, 1]);
+});

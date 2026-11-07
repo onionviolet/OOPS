@@ -17,7 +17,8 @@ export const hpLeadLife={
  locations:[
   {id:id('cupboard'),label:'Your room under the stairs',description:'Your place in the house: a narrow space with a bed, a spider or two, and no door you can lock from inside.',underRoof:true},
   {id:id('kitchen'),label:'Your guardians\' kitchen',description:'Where breakfast is fried and the day\'s orders are given.',underRoof:true},
-  {id:id('hall'),label:'Front door and hall',description:'The hall of your guardians\' house.',underRoof:true}],
+  {id:id('hall'),label:'Front door and hall',description:'The hall of your guardians\' house.',underRoof:true},
+  {id:id('school_hall'),label:'Hogwarts, the Great Hall',description:'The school\'s great hall, where the new first years are sorted.',underRoof:true}],
  items:[],
  sources:[{id:id('magic'),revision:1,label:'A source with no method',kind:'trait',origin:'inherited',grants:[],bioDetail:'Something in you sometimes acts on its own. No method is learned, taught or named, and this entry grants no technique.'}],
  starts:[{id:id('start'),locationId:id('cupboard'),
@@ -43,6 +44,27 @@ export const hpLeadLife={
    effects:[note('dressed','You are dressed. Today is your cousin\'s birthday.')]}]},
  presentation:{people:Object.fromEntries(['vernon','petunia','dudley'].map(n=>[id(n),{introductionKnowledgeKey:id(n+'_known')}])),status:[{id:id('opening_status'),label:'Means',knowledgeKey:id('opening')},{id:id('custody_status'),label:'Custody',knowledgeKey:id('custody')}]}
 };
+// W8-A: the route from the summer to the school, as two native one-shot commands (HG1/HG2). Arrival opens on the lead clock's day 32
+// (1 September, book_world_hp_school_calendar.js) through the fact 'hp.lead.day' (book_world_hp_facts.js) and sets the actor facts the
+// duty set and the position source already read. The summer's earlier beats (letters, Diagon Alley) are NOT built: the default is
+// arrival on 1 September. Sorting follows the canon placing (Gryffindor); the other houses are locked rows, not commands.
+export const HP_ARRIVAL_DAY=32;
+export const hpLeadSchoolCommands=[
+ {id:id('arrive_school'),revision:1,label:'Take the train to Hogwarts · 8 h',group:'structured_local',worldId:id('world'),actorId:'player',location:id('cupboard'),audience:['$actor'],costs:[],once:true,
+  description:'The school year starts on 1 September. Your trunk, your ticket and the long train north; you arrive at the castle in the evening.',duration:480,cancellation:'refund',
+  requires:{all:[...alive.all,{fact:'hp.lead.day',op:'gte',value:HP_ARRIVAL_DAY}],reason:'The term starts on 1 September; there is no train to the school before then.'},completionRequires:alive,completionCoLocated:true,completionFailure:'refund',
+  effects:[{type:'relocate',actor:'player',location:id('school_hall')},{type:'fact',scope:'actor',key:'hp.lead.atSchool',value:true},
+   note('arrived','You have reached Hogwarts for the first term. Lessons begin on a weekly timetable.')]},
+ {id:id('sorting'),revision:1,label:'Put on the Sorting Hat · 15 min',group:'structured_local',worldId:id('world'),actorId:'player',location:id('school_hall'),audience:['$actor'],costs:[],once:true,
+  description:'Each new first year sits on the stool and has the hat placed on their head. It names a house.',duration:15,cancellation:'refund',
+  requires:{all:[...alive.all,{fact:'actor.hp.lead.atSchool',op:'eq',value:true}],reason:'You are not at the school yet.'},completionRequires:alive,completionCoLocated:true,completionFailure:'refund',
+  effects:[{type:'fact',scope:'actor',key:'hp.lead.house',value:'gryffindor'},note('sorted','The hat placed you in Gryffindor.')]}];
+// Options the book did not take, shown locked beside the Sorting (rendered "Not how it happened").
+export const hpLeadSchoolLocked={[id('sorting')]:[
+ {id:id('sorting.hufflepuff'),label:'Be placed in Hufflepuff',reason:'The hat named Gryffindor. Another house would mean a different common room and Head of House; none of that is built.'},
+ {id:id('sorting.ravenclaw'),label:'Be placed in Ravenclaw',reason:'The hat named Gryffindor. Another house would mean a different common room and Head of House; none of that is built.'},
+ {id:id('sorting.slytherin'),label:'Be placed in Slytherin',reason:'The hat named Gryffindor. Another house would mean a different common room and Head of House; none of that is built.'}]};
+hpLeadLife.simulation.commands.push(...hpLeadSchoolCommands);
 hpLeadLife.calendarProfile={id:P+'.calendar',revision:1,algorithmId:'fixed_months',algorithmRevision:1,
  units:{minutesPerHour:60,hoursPerDay:24},months:Array.from({length:12},(_,i)=>({id:String(i+1),days:30})),
  week:['Sat','Sun','Mon','Tue','Wed','Thu','Fri'],precision:'day',evidence:'elapsed play; the book names the Saturday, not a year',
