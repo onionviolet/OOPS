@@ -17,6 +17,13 @@ export function registerAuthoritySource(worldId, fn) {
     if(!text(worldId) || typeof fn !== 'function') throw Error('An authority source needs a world id and a reader.');
     sources.set(worldId, fn);
 }
+// OB11: claims that other owners hold (a founded group's staked ground). A claim reader is checked BEFORE the world's source, so it never replaces it.
+// fn(state, {world, place}) -> null | {claimant, label, holder?, short?, why?}. The claimant is the claim's holder and knows its own ground.
+const claimReaders = new Map();
+export function registerClaimSource(id, fn) {
+    if(!text(id) || typeof fn !== 'function') throw Error('A claim source needs an id and a reader.');
+    claimReaders.set(id, fn);
+}
 // fn(state, ctx) -> [{id, weight, text}] for one authority id. Several readers may serve one authority.
 export function registerKnownness(authorityId, fn) {
     if(!text(authorityId) || typeof fn !== 'function') throw Error('A knownness reader needs an authority id and a reader.');
@@ -33,6 +40,14 @@ export function knownness(state, authorityId, ctx = {}) {
 }
 const NO_ONE = Object.freeze({claimant: null, knows: false, reach: false, knownBy: null, short: 'no one claims this land', why: 'No one claims this land.'});
 export function authorityOver(state, {world, place, registered = false, holder = null, ctx = {}} = {}) {
+    for(const read of claimReaders.values()) {
+        let held = null; try { held = read(state, {world, place}); } catch { held = null; }
+        if(held && text(held.claimant)) {
+            const label = text(held.label) ? held.label : held.claimant;
+            return {claimant: held.claimant, knows: true, reach: true, knownBy: held.claimant, holder: text(held.holder) ? held.holder : label, claimedBy: 'claim',
+                short: text(held.short) ? held.short : `${label} claims it`, why: text(held.why) ? held.why : `${cap(label)} claims this ground.`};
+        }
+    }
     const read = sources.get(world);
     let claim = null;
     if(read) { try { claim = read(state, {place, ctx}); } catch { claim = null; } }

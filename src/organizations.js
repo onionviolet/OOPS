@@ -3,6 +3,7 @@
 // Record fields follow LANE_F_GROUPS 3.2; a field with no owner yet is omitted, never invented or zeroed (AD6). Nouns stay per
 // world (AD46): a record may carry its own `nouns`, the palette below only supplies defaults. Leaf module: no world imports, no DOM.
 // Sealed facts are never copied in: a record refers to a hidden thing by id, route and status only.
+import {registerClaimSource} from './authority.js';
 export const GROUP_STATUSES = Object.freeze(['forming', 'active', 'dormant', 'split', 'dissolved']);
 // Kind palette. basis: 'authored' = a world row exists for it, 'palette' = a starter default only, 'missing' = nothing yet.
 // Never a canon claim (FD14 rule). `nouns` are the defaults a view uses when a record carries none.
@@ -70,6 +71,8 @@ const validDues = g => {
     if (g.treasury !== undefined && !nat(g.treasury)) return false;
     if (g.settled !== undefined && !nat(g.settled)) return false;
     if (g.shared !== undefined && !nat(g.shared)) return false;
+    if (g.claims !== undefined && !(g.claims && typeof g.claims === 'object' && !Array.isArray(g.claims) && Object.keys(g.claims).length <= 4 &&
+        Object.entries(g.claims).every(([k, v]) => typeof k === 'string' && k.length > 0 && k.length <= 60 && v && nat(v.at) && Object.keys(v).length === 1))) return false;
     if (u !== undefined && !(u && typeof u === 'object' && Object.entries(u).every(([k, v]) => /^[a-z]{1,16}$/.test(k) && nat(v)))) return false;
     return true;
 };
@@ -78,7 +81,7 @@ const validGroup = (id, g) => {
         return g && g.id === id && typeof g.world === 'string' && g.world && g.kind === FOUNDED_KIND && g.revision === 1 && g.name === cleanName(g.name) &&
             nat(g.founded) && (g.status === 'active' || (g.status === 'dissolved' && nat(g.dissolvedAt))) && g.founder === 'player' &&
             JSON.stringify(cleanCharter(g.charter)) === JSON.stringify(g.charter) && validDues(g) &&
-            Object.keys(g).every(k => ['id', 'world', 'kind', 'revision', 'name', 'founder', 'founded', 'status', 'dissolvedAt', 'charter', 'members', 'treasury', 'settled', 'used', 'shared'].includes(k));
+            Object.keys(g).every(k => ['id', 'world', 'kind', 'revision', 'name', 'founder', 'founded', 'status', 'dissolvedAt', 'charter', 'members', 'treasury', 'settled', 'used', 'shared', 'claims'].includes(k));
     } catch { return false; }
 };
 // Unreadable parts drop; the rest keeps. validateOrganizations (below) refuses the same shapes on import instead.
@@ -123,7 +126,7 @@ export function dissolveGroup(s, id, at) {
     if (!nat(at)) throw new Error('A dissolving needs a time.');
     // Stated rule: a box with coins in it is shared back out to the members who paid in. Those coins leave the game (villagers keep no
     // purse here), so a dissolving never turns member dues into the founder's money.
-    const {treasury, ...rest} = g;
+    const {treasury, claims, ...rest} = g; // a dissolved group holds no ground
     return {...s, groups: {...s.groups, [id]: {...rest, status: 'dissolved', dissolvedAt: at, ...(treasury > 0 ? {shared: treasury} : {})}}};
 }
 // ---- dues, members and the treasury (pure; the host passes the clock and what each villager can spare) ----
@@ -184,6 +187,26 @@ export function spendTreasury(s, id, {key, cost, day}) {
     if ((g.treasury || 0) < cost) throw new Error(`The treasury holds ${g.treasury || 0} coins; this costs ${cost}.`);
     return {...s, groups: {...s.groups, [id]: {...g, treasury: g.treasury - cost, used: {...g.used, [key]: day}}}};
 }
+// OB11: staking ground. Pure; the host decides who may (cost, place, held-by-another). Stores {place: {at}} on the group (additive, optional).
+export function claimGround(s, id, {place, at}) {
+    const g = s.groups[id];
+    if (!g || g.status !== 'active') throw new Error('You run no such group.');
+    if (typeof place !== 'string' || !place || !nat(at)) throw new Error('A claim needs a place and a time.');
+    if (g.claims?.[place]) throw new Error(`${g.name} already claims this ground.`);
+    return {...s, groups: {...s.groups, [id]: {...g, claims: {...g.claims, [place]: {at}}}}};
+}
+export function releaseGround(s, id, place) {
+    const g = s.groups[id];
+    if (!g?.claims?.[place]) throw new Error('That group claims no such ground.');
+    const {[place]: _gone, ...rest} = g.claims, {claims, ...bare} = g;
+    return {...s, groups: {...s.groups, [id]: Object.keys(rest).length ? {...bare, claims: rest} : bare}};
+}
+/** The active founded group (any) in this world that claims `place`, or null. */
+export const claimantOf = (world, place, s = slice) => Object.values(s.groups).find(g => g.world === world && g.status === 'active' && g.claims?.[place]) ?? null;
+registerClaimSource('organizations', (state, {world, place}) => {
+    const g = typeof world === 'string' && typeof place === 'string' ? claimantOf(world, place) : null;
+    return g ? {claimant: g.id, label: g.name, holder: g.name, short: `your group ${g.name} claims this land`, why: `Your group ${g.name} claims this ground and holds it.`} : null;
+});
 export const setOrganizationsSlice = s => { slice = s; };
 // A founded group as a groups record (LANE_F 3.2). Only fields with an owner are present; the founder is the one member.
 export function foundedRecord(g) {
@@ -192,7 +215,7 @@ export function foundedRecord(g) {
         charter: {...g.charter}, members: [{actor: 'player', name: 'You', rank: 'founder', status: live ? 'active' : 'inactive'},
             ...Object.entries(g.members || {}).map(([actor, m]) => ({actor, name: m.name, rank: 'member', joined: m.joined, paidMeetings: m.paid, lateMeetings: m.late, status: live ? 'active' : 'inactive'}))],
         ...(g.charter.dues === 'coin' ? {treasury: {coin: g.treasury || 0, custody: 'organizations.js'}, duesPerMeeting: DUES_COIN[g.charter.rhythm]} : {}),
-        ...(g.shared ? {shared: g.shared} : {}), ...(g.used ? {used: {...g.used}} : {}),
+        ...(g.shared ? {shared: g.shared} : {}), ...(g.claims ? {claims: Object.keys(g.claims)} : {}), ...(g.used ? {used: {...g.used}} : {}),
         ...(live ? {meeting: {everyDays: RHYTHM_DAYS[g.charter.rhythm], hour: FOUNDED_HOUR, offset: Math.floor(g.founded / 1440) + RHYTHM_DAYS[g.charter.rhythm]}} : {}),
         sources: [{module: 'organizations.js', locator: ORGANIZATIONS_FAMILY}]};
 }

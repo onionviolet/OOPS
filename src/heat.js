@@ -34,7 +34,11 @@ export const AUTHORITIES = Object.freeze({
     tingen_police: Object.freeze({jurisdiction: 'tingen', label: 'the Tingen police', decayDays: 28,
         levels: Object.freeze([
             Object.freeze({at: 1, word: 'the Tingen police have your name', line: 'The Tingen police have your name.'}),
-            Object.freeze({at: 4, word: 'wanted by the Tingen police', line: 'The Tingen police are asking after you by name.'})])}),
+            Object.freeze({at: 4, word: 'wanted by the Tingen police', line: 'The Tingen police are asking after you by name.'})]),
+        // OB10: the fine the magistrate writes when the constables take you (book_world_lotm_constables.js). 90 pence: a week and a half of rent, felt, below the
+        // collector's 180 and never ruinous. Written only through raiseFine with a tag (one fine per arrest), never from arrears, so police add no surprise fines.
+        fine: Object.freeze({atMisses: Infinity, amount: 90, unit: PENCE, why: 'A magistrate\'s fine for resisting the constables, written after a night in the cells.',
+            line: amount => `The magistrate has written a fine of ${amount} pence against you. It waits in Ledger → Owed; settle it when you can. Nothing is taken from you while you are away.`})}),
 });
 
 export const freshHeat = () => ({family: HEAT_FAMILY, acts: [], live: {}, past: {}, marks: {}, fines: {}});
@@ -161,14 +165,27 @@ function settleFine(key, owed) {
 // OB10: an authority answers a beating by raising what you owe, never by taking it while you are away (the caller is a fight the player chose).
 // Raises the open fine for this duty and episode by `add` pence, or writes it now at the palette amount plus `add` when it was not due yet.
 // Returns the new amount, or null when there is no purse seam (no fine can exist, OB4) or that episode's fine is already settled.
-function raiseFine({authority, dutyId, add = 0, at = 0} = {}) {
+// `tag` (optional) makes a separate fine for a separate cause (one per arrest) instead of one per duty and episode.
+function raiseFine({authority, dutyId, add = 0, at = 0, tag} = {}) {
     const def = AUTHORITIES[authority];
     if(!def?.fine || !purse || !nat(add) || typeof dutyId !== 'string') return null;
-    const ep = epochOf(slice, authority), key = `${dutyId}@${ep}`, f = slice.fines[key];
+    const ep = epochOf(slice, authority), key = tag ? `${dutyId}:${String(tag).slice(0, 40)}@${ep}` : `${dutyId}@${ep}`, f = slice.fines[key];
     if(f?.settled) return null;
     const amount = (f?.amount ?? def.fine.amount) + add;
     slice = {...slice, fines: {...slice.fines, [key]: f ? {...f, amount} : {authority, duty: dutyId, epoch: ep, amount, at: Number.isFinite(at) ? at : 0, settled: false}}};
     return amount;
+}
+// OB10: an arrest answers a warrant. Scales one authority's stored acts down so its act heat is at most `to` (derived arrears heat is untouched);
+// `to` 0 removes them. Surviving weights stay above 0. Returns the authority's heat value after. Only a chosen fight or surrender calls it.
+function easeActs({authority, to = 0} = {}) {
+    if(!Object.hasOwn(AUTHORITIES, authority) || !Number.isFinite(to) || to < 0) return null;
+    const mine = slice.acts.filter(a => a.authority === authority), sum = mine.reduce((n, a) => n + actHeat(a), 0);
+    const derived = (heatTable(slice, readDuties()).find(h => h.authority === authority)?.value ?? 0) - sum, target = Math.max(0, to - Math.max(0, derived));
+    if(sum > target) {
+        const f = sum > 0 ? target / sum : 0;
+        slice = {...slice, acts: slice.acts.flatMap(a => a.authority !== authority ? [a] : f > 0 ? [{...a, weight: Math.max(1e-6, a.weight * f)}] : [])};
+    }
+    return heatTable(slice, readDuties()).find(h => h.authority === authority)?.value ?? 0;
 }
 function project() {
     const v = view(slice, readDuties());
@@ -189,4 +206,4 @@ registerDomain({id: 'heat', deps: ['duties'], initialState: freshHeat,
     save: () => isEmpty(slice) ? undefined : structuredClone(slice), // an untouched life writes no key
     validate: s => { if(s != null && s.family === HEAT_FAMILY) validateHeat(s); },
     migrate: migrateHeat, load: s => { slice = migrateHeat(s); },
-    tick, projection: project, commands: {recordAct, settleFine, raiseFine}});
+    tick, projection: project, commands: {recordAct, settleFine, raiseFine, easeActs}});

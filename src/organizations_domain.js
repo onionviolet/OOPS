@@ -8,8 +8,9 @@ import {defineGathering} from './gatherings.js';
 import {registerPositionSource} from './positions.js';
 import {ORGANIZATIONS_FAMILY, freshOrganizations, migrateOrganizations, validateOrganizations, loadOrganizations, saveOrganizations, organizationsSlice, setOrganizationsSlice,
     foundGroup, dissolveGroup, foundingReason, cleanName, cleanCharter, activeFounded, CHARTER_DIALS, RHYTHM_DAYS, SECRECY_DIAL, FOUNDED_HOUR,
-    addMember, settleDues, spendTreasury, pendingMeetings, nextMeetingDay, duesOf} from './organizations.js';
+    addMember, settleDues, spendTreasury, pendingMeetings, nextMeetingDay, duesOf, claimGround, releaseGround, claimantOf} from './organizations.js';
 import {applyGameplayEffect} from './gameplay_transactions.js';
+import {authorityOver} from './authority.js';
 
 // Founding routes by world (default, dial, reason). cost: coins from the purse, paid at founding. A hidden group costs more because it
 // needs a back room and a quiet word; an open one meets where the market already is. place/fact name where the player must be.
@@ -24,6 +25,11 @@ export const FOUNDING_ROUTES = Object.freeze({
             Object.freeze({id: 'mg.orin', name: 'Orin', standing: 14, means: 3, yes: 'Orin grunts yes; a regular table suits him.', no: 'Orin says he does not hand coin to a box he does not know the keeper of.'}),
             Object.freeze({id: 'mg.bram', name: 'Bram', standing: 18, means: 1, yes: 'Bram will come, though his purse is thin.', no: 'Bram shakes his head; he trusts few with his name, fewer with his coin.'})]),
         admissionShift: Object.freeze({open: -2, invite: 0, vouched: 4}),
+        // OB11 ground a group may stake (default, dial, reason). place is the authority source's place id (tests assert it equals HOME_SITE); the player must
+        // stand there. minMembers 1: a claim without anyone to hold it is a stick in the ground. cost 8 coins: stakes, rope and a day walking the bounds.
+        // settlerDues 1 coin a week: what an outsider who settles inside a claim owes the holder, the claim's other side (a rule, not a simulation).
+        claims: Object.freeze({'Wild willow stand': Object.freeze({label: 'the wilds stead', cost: 8, minMembers: 1, settlerDues: 1,
+            reason: 'Stakes and rope, and a day spent walking the bounds with your people so they can say where it ends.'})}),
         // Group abilities (3.5): what a treasury buys that one purse cannot. Each once per meeting.
         abilities: Object.freeze({
             feast: Object.freeze({label: 'Pool for a feast', cost: 12, reputation: Object.freeze({region: 'Village', amount: 2}),
@@ -151,6 +157,45 @@ function spend({id, ability} = {}) {
 // The meeting as a gatherings.js row (one validator for the schedule and the secrecy dial). The founder is the one seat.
 const LOOKOUT_BOOST = 0.5; // dial: how much a hired lookout adds to the meeting's secrecy (capped at fully hidden)
 const lookoutOn = g => g.used?.lookout !== undefined && (ports?.root?.().clock ?? 0) < g.used.lookout * 1440 + FOUNDED_HOUR * 60;
+// ---- OB11: claim ground. Reads authorityOver (the one authority for who holds a place); writes only the group record and the purse. ----
+function claimQuote({id} = {}) {
+    const g = liveGroup(id), r = route(), world = ports.world();
+    return Object.entries(r?.claims || {}).map(([place, c]) => {
+        const held = g.claims?.[place] ? true : false, over = authorityOver(ports.root(), {world, place});
+        let reason = '';
+        if (held) reason = `${g.name} already claims ${c.label}.`;
+        else if (!writable()) reason = 'Use the writable game tab.';
+        else if (over.claimant) reason = `${over.holder ?? over.claimant} already holds ${c.label}; a claim there is refused.`;
+        else if (ports.location() !== place) reason = `Go to ${c.label} to stake it.`;
+        else if (Object.keys(g.members || {}).length < c.minMembers) reason = `${g.name} needs ${c.minMembers} member${c.minMembers === 1 ? '' : 's'} to hold ground.`;
+        else if (ports.actor().money < c.cost) reason = `You need ${c.cost} coins for the stakes.`;
+        else reason = ports.blocked?.() || (ports.idle?.() === false ? 'Finish what you are doing first.' : '');
+        return {place, label: c.label, cost: c.cost, because: c.reason, held, eligible: !reason, reasons: reason ? [reason] : []};
+    });
+}
+function claim({id, place} = {}) {
+    if (!ports) throw new Error('Groups are not ready yet.');
+    const q = claimQuote({id}).find(x => x.place === place);
+    if (!q) throw new Error('That ground cannot be claimed here.');
+    if (!q.eligible) throw new Error(q.reasons[0]);
+    const g = liveGroup(id), next = claimGround(organizationsSlice(), id, {place, at: clockNow()});
+    transact(next, p => { p.external.money -= q.cost; });
+    ports.logMessage?.(`${g.name} claims ${q.label}. ${q.because}`, 'notification');
+    return next.groups[id];
+}
+function release({id, place} = {}) {
+    if (!ports) throw new Error('Groups are not ready yet.');
+    if (!writable()) throw new Error('Use the writable game tab.');
+    const g = liveGroup(id), next = releaseGround(organizationsSlice(), id, place);
+    transact(next);
+    ports.logMessage?.(`${g.name} gives up its claim on ${route()?.claims?.[place]?.label ?? place}.`, 'notification');
+    return next.groups[id];
+}
+/** What an outsider who settles inside a claim owes its holder by the world's rule, or null. No settlement is simulated; callers ask. */
+export function settlerDues(world, place) {
+    const g = claimantOf(world, place), c = FOUNDING_ROUTES[world]?.claims?.[place];
+    return g && c ? {group: g.id, holder: g.name, coinsPerWeek: c.settlerDues, why: `${g.name} claims ${c.label}; anyone settling there owes it ${c.settlerDues} coin a week.`} : null;
+}
 const gathering = id => {
     const g = organizationsSlice().groups[id];
     if (!g || g.status !== 'active') return null;
@@ -171,4 +216,4 @@ registerPositionSource('organizations', organizationPositions);
 registerDomain({id: 'organizations', deps: [], initialState: freshOrganizations, save: saveOrganizations,
     validate: s => { if (s != null && s.family === ORGANIZATIONS_FAMILY) validateOrganizations(s); },
     migrate: migrateOrganizations, load: loadOrganizations, projection: organizationsSlice,
-    commands: {found, dissolve, quote, gathering, invite, inviteQuote, settle, pending, spend, abilityQuote, dials: () => CHARTER_DIALS, activeFounded: world => activeFounded(world)}});
+    commands: {found, dissolve, claimQuote, claim, release, settlerDues: ({world, place} = {}) => settlerDues(world, place), quote, gathering, invite, inviteQuote, settle, pending, spend, abilityQuote, dials: () => CHARTER_DIALS, activeFounded: world => activeFounded(world)}});
