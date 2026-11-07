@@ -1,6 +1,7 @@
 import {registerDomain} from './domain_registry.js';
 import {todayDigest} from './today_strip.js';
 import {minutesText, plural} from './reference_kit.js';
+import {sayReason} from './locked_control.js';
 
 // COV11 / UR11: the Reports column is 500 px wide and held three lines for the first hour. Until the log
 // has LOG_TAKES_OVER lines it also shows what to do next and what the day offers, then the log has the column
@@ -29,7 +30,9 @@ function mount() {
     let signature = '';
     const render = () => {
         const nextCard = document.getElementById('next_step');
-        const next = nextCard && !nextCard.hidden ? {line: nextCard.querySelector('span')?.textContent || '', how: nextCard.querySelector('small')?.textContent || ''} : null;
+        // OPN8: the card follows the Village life; off-Village worlds show nothing until its own timer catches up.
+        const village = (document.documentElement.dataset.world || 'native') === 'native';
+        const next = village && nextCard && !nextCard.hidden ? {line: nextCard.querySelector('span')?.textContent || '', how: nextCard.querySelector('small')?.textContent || ''} : null;
         let today = null; try { today = todayDigest(); } catch { today = null; }
         const rows = dockRows({logLines: stream.children.length, next, today});
         // The banner under the top strip moves here while the dock shows; it returns when the log takes over.
@@ -47,7 +50,7 @@ function mount() {
             if (row.kind === 'next') {
                 const show = document.createElement('button'); show.type = 'button'; show.textContent = 'Show me';
                 show.setAttribute('aria-label', `Show me: ${row.text}`);
-                show.onclick = () => nextCard?.querySelector('button')?.click();
+                show.onclick = () => { nextCard?.querySelector('button')?.click(); const said = document.getElementById('ui_locked_reason'); if (said?.textContent) sayReason(show, said.textContent); };
                 card.append(show);
             }
         }

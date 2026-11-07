@@ -50,6 +50,8 @@ Player-facing UI: follow [DESIGN.md](DESIGN.md) (the look, DSG1–DSG19), `.clau
 
 Player-facing words (content strings, confirm text, tooltips, Reports lines, dialogue): follow [prose rules](docs/PROSE_RULES.md) PRS1–PRS8; `npm run check:rules` lints engine vocabulary out of player text and a lane brief that writes player text quotes one voice sample (PRS7).
 
+Quality checks from the 2026-11-06 deep dives (proposed rulebooks, AD32): pacing [PAC](docs/PACING_RULES.md), openings [OPN](docs/OPENING_RULES.md), names [NMR](docs/NAMING_RULES.md), consistency [CTR](docs/CONTINUITY_RULES.md), feedback [FBK](docs/FEEDBACK_RULES.md). Names and consistency run in `check:rules`; `npm run check:pacing`, `check:openings` and `check:feedback` play the game and run on request. A brief that writes names quotes one sample from the world's [naming sheet](docs/names/WORLD_NAMING_SHEETS.md).
+
 Making systems: follow `.claude/rules/making-systems.md` and [making rules](docs/MAKING_RULES.md) MR1-MR36.
 
 Runtime code: follow `.claude/rules/runtime-code.md` and [architecture rules](docs/ARCHITECTURE_RULES.md) AR1-AR16. Runtime lane briefs name their seam and link that file.

@@ -4,6 +4,7 @@ import {createReferenceDisclosure} from './workspace_disclosure.js';
 import {registerWorkspaceModule, updateWorkspace, openWorkspaceModule} from './workspace_layout.js';
 import {publishChange} from './ui_change_signal.js';
 import {applyWorldLook} from './world_look.js';
+import {sayReason} from './locked_control.js';
 
 // Only host-supplied, already visible labels enter this presentation. No new
 // definition lookup, command dispatcher or gameplay timer belongs here.
@@ -20,7 +21,7 @@ export function createWorkspaceViews({read,combatKnown=()=>false}) {
     const heading=document.createElement('strong');heading.textContent='Current work';
     const work=document.createElement('p'),ownership=document.createElement('p');
     const jump=document.createElement('button');jump.type='button';jump.textContent='Open local controls';
-    jump.onclick=()=>{if(read().waiting){openWorkspaceModule('notebook');return;}openWorkspaceModule('local-actions');const target=document.getElementById('location_related_div');target?.scrollIntoView({block:'nearest'});const first=target?.querySelector('button:not(:disabled),[role="button"],summary');first?.focus();};
+    jump.onclick=()=>{if(read().waiting){openWorkspaceModule('notebook');sayReason(jump,'Opened your waiting response in the notebook.');return;}openWorkspaceModule('local-actions');const target=document.getElementById('location_related_div');target?.scrollIntoView({block:'nearest'});const first=target?.querySelector('button:not(:disabled),[role="button"],summary');first?.focus();sayReason(jump,first?'Opened local controls. The first action there has focus.':'Opened local controls. Nothing here is ready to act on yet.');};
     panel.append(heading,work,ownership,jump);
     document.getElementById('location_related_div')?.prepend(panel);
     registerWorkspaceModule({id:'current-work',title:'Current work & saving',node:panel,home:'center',critical:true});

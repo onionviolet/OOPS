@@ -1,5 +1,9 @@
 # Game idea index
 
+[Five quality deep dives, 2026-11-06](gm/dispatch/quality-deep-dives-2026-11-06/CHECKPOINT.md): pacing (PAC), openings (OPN), names (NMR), consistency (CTR) and feedback (FBK) on the prose model, each a proposed rulebook, a baseline-ratchet check and a ranked backlog; fix slices done 2026-11-07 (see the checkpoint's fix log).
+
+[Planned-idea audit continuation, 2026-11-06](audits/IDEA_AUDIT_2026-11-06.md): inherited lanes plus UI, research/authority, tooling/release and other-world review. Coverage and remaining unverified rows stay explicit; this is not a new execution queue.
+
 Use this index to find idea owners. Dated execution summaries below retain their original evidence and can be superseded by later receipts; [PROJECT.md](../PROJECT.md), the current rules and each actual owner govern present priority/status (AD32/AD41/AD44/AD51). “Active,” “free,” “running” and old proposal/implementation labels are not fresh worker or runtime checks. Full-index content reconciliation is recorded at the end; linked bodies keep their own review scope.
 
 [Project-wide loose-document reconciliation, 2026-11-04](audits/LOOSE_DOCUMENT_RECONCILIATION_2026-11-04.md): discovered-input inventory, selected owner corrections and retained historical/proposal routing. [WRITEUP_REGISTER](gm/WRITEUP_REGISTER.md) remains the follow-up owner. Metadata-routed material is distinguished from reviewed sections; this adds no build order or blanket adoption.

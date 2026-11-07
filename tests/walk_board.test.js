@@ -21,7 +21,7 @@ test('rows are sorted by minutes, then by place name', () => withBoard(WALK_MAP_
 test('walk buttons keep their data-lotm and quote minutes', () => withBoard(WALK_MAP_VIEW, {}, board => {
     const wharf = rowFor(board, 'Saltgate wharf').querySelector('button');
     assert.equal(wharf.getAttribute('data-lotm'), 'walk_wharf');
-    assert.equal(wharf.textContent, 'Walk · 20 min');
+    assert.equal(wharf.textContent, 'Walk to Saltgate wharf · 20 min');
     assert.equal(rowFor(board, 'Glassworks yard').querySelector('button').getAttribute('data-lotm'), 'walk_glass');
 }));
 

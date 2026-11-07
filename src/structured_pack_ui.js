@@ -13,7 +13,9 @@ export function createStructuredPackPanel({read,command,changed}) {
     const body=document.createElement('div');panel.append(body);let signature,notice='',repetition=null,noticeError=false;
     const node=(tag,parent)=>{const n=document.createElement(tag);parent.append(n);return n;};
     const live={info:node('section',body)},work=node('section',body);live.plans=node('section',body);live.renewal=node('section',body);const actions=node('section',body),message=node('p',body);
-    const actionRows=new Map(),jobRows=new Map(),sectionRows={};
+    // OPN2/OPN4: actions that cannot run yet wait in one closed list, each with its reason, so the opening lists what you can do now.
+    const notYet=document.createElement('details'),notYetSummary=node('summary',notYet),notYetList=node('div',notYet);notYet.className='action-legibility__not-yet';notYet.hidden=true;
+    const actionRows=new Map(),jobRows=new Map(),sectionRows={};let statusOpen=false;
     const trim=(cache,ids)=>{for(const [id,row]of cache)if(!ids.has(id)){if(row.card.contains(document.activeElement))summary.focus?.();row.card.remove();cache.delete(id);}};
     const projected=()=>{const v=read();return {
         expeditions:(v.expeditions||[]).map(s=>({id:s.id,label:s.label,phase:s.phase,injury:s.injury})),available:!!v.available,active:!!v.active,title:v.title,place:v.place,description:v.description,
@@ -92,8 +94,14 @@ export function createStructuredPackPanel({read,command,changed}) {
             else {
                 p(view.place);
                 for(const site of view.expeditions)p(`${site.label}: ${site.phase}${site.injury>0?' · treatment needed':''}`);
-                for(const person of view.people){p(person.name);for(const detail of person.details)p(detail);}
-                for(const row of view.status)p(`${row.label}: ${row.value}`);
+                // OPN2: one line says a thing once. A detail already shown as a status row, or by an earlier person, is not repeated.
+                const said=new Set(view.status.map(r=>String(r.value)));
+                for(const person of view.people){p(person.name);for(const detail of person.details){if(said.has(String(detail)))continue;said.add(String(detail));p(detail);}}
+                // OPN2: status bookkeeping (means, access, timetable, food lots) folds behind "Details"; the choice survives re-renders.
+                if(view.status.length){const more=node('details',info);more.className='structured-status-details';more.open=statusOpen;more.ontoggle=()=>{statusOpen=more.open;};
+                    node('summary',more).textContent='Details';
+                    for(const row of view.status){const n=node('p',more);n.textContent=`${row.label}: ${row.value}`;}
+                    rows.get(info).push(['status',view.status.map(r=>[r.label,r.value])]);}
                 if(view.house){renderGuHouse(info,view.house);rows.get(info).push(['house',view.house]);}
                 for(const l of view.ladders)ladderBlock(info,l);
                 for(const e of view.extensions){
@@ -121,7 +129,9 @@ export function createStructuredPackPanel({read,command,changed}) {
                 for(const action of view.actions){
                     let row=actionRows.get(action.id);
                     if(!row){const card=node('section',actions);card.className='action-legibility__card';card.dataset.structuredRow=action.id;
-                        const heading=node('h4',card),description=node('p',card),state=node('p',card),duration=node('p',card),costs=node('p',card),blockers=node('p',card);
+                        // OPN2: the quote (what it is, the clock, the inputs) folds behind "Details"; the locked reason stays in view (UIV1).
+                        const heading=node('h4',card),more=node('details',card),summary=node('summary',more);summary.textContent='Details';more.className='action-legibility__details';
+                        const description=node('p',more),state=node('p',more),duration=node('p',more),costs=node('p',more),blockers=node('p',card);
                         const act=button(action.label,{structuredAction:action.id},{type:'action',id:action.id},false),repeat=button('',{structuredRepeat:action.id},{type:'action',id:action.id,times:3},false);card.append(act,repeat);
                         row={card,heading,description,state,duration,costs,blockers,act,repeat};actionRows.set(action.id,row);}
                     setText(row.heading,action.label);setText(row.description,action.description||'');
@@ -133,11 +143,15 @@ export function createStructuredPackPanel({read,command,changed}) {
                     row.act.setAttribute?.('aria-describedby',[row.duration.id,row.costs.id,...(action.reasons.length?[row.blockers.id]:[])].join(' '));
                     setText(row.act,action.label);row.act.disabled=!view.canWrite||!action.eligible;
                     setText(row.repeat,'Repeat '+action.label+' 3 times');row.repeat.hidden=!action.repeatable;row.repeat.disabled=row.act.disabled;
+                    const home=action.eligible||pending?actions:notYetList;
+                    if(row.card.parentNode!==home){const had=row.card.contains(document.activeElement);home.append(row.card);if(had)row.act.focus?.();}
                 }
             }
         }
         for(const [key,fresh] of [['info',info],['plans',plans],['renewal',renewal]]){const sig=JSON.stringify(rows.get(fresh));if(sectionRows[key]!==sig){sectionRows[key]=sig;live[key].replaceChildren(...fresh.children);}}
-        trim(actionRows,new Set(view.active?view.actions.map(a=>a.id):[]));trim(jobRows,new Set(view.active?view.jobs.map(j=>j.id):[]));
+        trim(actionRows,new Set(view.active?view.actions.map(a=>a.id):[]));
+        {const n=notYetList.children.length;notYet.hidden=!n;setText(notYetSummary,`Not available yet (${n})`);if(notYet.parentNode!==actions||actions.lastChild!==notYet)actions.append(notYet);}
+trim(jobRows,new Set(view.active?view.jobs.map(j=>j.id):[]));
         setText(message,view.error||notice);message.hidden=!message.textContent;
         message.dataset.themeState=view.error||noticeError?'error':'status';message.setAttribute('role',view.error||noticeError?'alert':'status');
         if(focusKey){const find=node=>node.dataset?.[focusKey[0]]===focusKey[1]?node:[...node.children].map(find).find(Boolean);find(body)?.focus();}

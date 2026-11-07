@@ -1869,3 +1869,8 @@ body:has(#main_content #location_related_div[data-component-theme="luminous"][da
 
 /* The active borrowed header can wrap or resize with typography. */
 #center_mode_content { scroll-padding-block-start: calc(var(--ui-expanded-heading-clearance, 0px) + var(--ui-space-2)); }
+/* NAV (UIV1): a locked control's reason, shown on click or focus under the control; fixed, so nothing moves. */
+.ui-locked-reason { position: fixed; z-index: calc(var(--ui-layer-nav, 100) + 5); max-width: min(32em, calc(100vw - 8px)); margin: 0; padding: 3px 8px; border: 1px solid var(--ui-border, currentColor); border-radius: 3px; background: var(--ui-navy, Canvas); color: var(--ui-text, CanvasText); pointer-events: none; }
+.ui-locked-reason[hidden] { display: none; }
+[aria-disabled="true"][data-disabled-reason] { cursor: not-allowed; }
+#workspace_navigation button[aria-disabled="true"], #workspace_pane_navigation button[aria-disabled="true"] { color: var(--ui-swatch-068); border-style: dashed; }

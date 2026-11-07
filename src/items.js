@@ -2922,7 +2922,7 @@ function add_gear_components() {
             }
         });
         item_templates["Leather hat"] = new Armor({
-            name: "Leather hat",
+            name: "Leather hat", // names: allow plain starter/commodity item, common in the village (NMR5 dial)
             description: "A nice leather hat to protect your head",
             value: 300,
             component_type: "helmet interior",
@@ -3003,7 +3003,7 @@ function add_gear_components() {
         });
         /*
         item_templates["Leather gloves"] = new Armor({
-            name: "Leather gloves",
+            name: "Leather gloves", // names: allow plain starter/commodity item, common in the village (NMR5 dial)
             description: "Strong leather gloves, perfect for handling rough and sharp objects",
             value: 300,
             component_type: "glove interior",
@@ -3906,7 +3906,7 @@ function add_gear() {
         });
 
         item_templates["Old axe"] = new Tool({
-            name: "Old axe",
+            name: "Old axe", // names: allow plain starter/commodity item, common in the village (NMR5 dial)
             description: "An old axe that has seen better times, but is still usable",
             value: 10,
             equip_slot: "axe",

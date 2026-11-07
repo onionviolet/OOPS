@@ -6,6 +6,7 @@ import {STEAM_ABSORPTION_GROUPS} from './steam_absorption_content.js';
 import {isFeatureBattleSchema} from './feature_expansion_battle.js';
 import {activePractice} from "./techniques.js";
 import {createPeopleOverview} from "./people_ui.js";
+import {sayReason} from './locked_control.js';
 
 const views = [["here", "Here"], ["practice", "Practice"], ["people", "People"]];
 const panels = [
@@ -68,7 +69,7 @@ export function createAdventureNotebook({registry, read}) {
         button.type = "button"; button.id = `notebook_tab_${id}`; button.dataset.notebookView = id;
         button.setAttribute("role","tab"); button.setAttribute("aria-controls",`notebook_view_${id}`);
         section.id = `notebook_view_${id}`; section.setAttribute("role","tabpanel"); section.setAttribute("aria-labelledby",button.id);
-        button.addEventListener("click",() => {selected=id; render();});
+        button.addEventListener("click",() => {if(selected===id){sayReason(button,`Already showing ${label}.`);return;} selected=id; render();});
         button.addEventListener("keydown", event => {
             if(!["ArrowLeft","ArrowRight","Home","End"].includes(event.key)) return;
             event.preventDefault(); const available = [...buttons.values()].filter(b => !b.disabled && !b.hidden);

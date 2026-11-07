@@ -16,6 +16,8 @@ export const FOREIGN_REASONS = Object.freeze([
     "This plan belongs to another actor.",
     "This response belongs to another actor.",
 ]);
+// What a tooltip says when the engine could only refuse with its fallback (OPN4): true in every world, names no hidden fact.
+export const NEUTRAL_REASON = "Not open to you yet.";
 export const DEV_REASONS = new Set([UNMET_REASON, ...FOREIGN_REASONS]);
 const RETURN = /^Return to (.+)\.$/;
 // Engine wording that is true but says nothing a player can act on: say what to do (UR73).

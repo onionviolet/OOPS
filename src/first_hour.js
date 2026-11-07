@@ -3,13 +3,14 @@
 // saved layouts and the opening quest are untouched. Rows are data: a later opening adds rows.
 // `state.tasks` is the opening quest's per-task finished flags; the rest are plain facts read from the
 // elder's own conversation lines, so the line never asks for a report the elder cannot take.
+import {sayReason} from './locked_control.js';
 export const FIRST_HOUR_QUEST = 'Lost memory';
 
 // First row whose `when` is true wins. `where` names a workspace module for the Show me button.
 export const FIRST_HOUR_STEPS = [
     {id: 'ask-elder', when: s => !s.tasks[0], where: 'local-actions',
-        line: 'Talk to the village elder.',
-        how: 'In Local actions: Talk to someone, then Talk to village elder.'},
+        line: 'Talk to Old Hesk, the village elder.',
+        how: 'In Local actions: Talk to someone, then Talk to Old Hesk, the village elder.'},
     {id: 'ask-to-leave', when: s => !s.tasks[1], where: 'local-actions',
         line: 'Keep talking: say you want to leave.',
         how: 'In the conversation, pick the line about leaving, then "But I want to leave".'},
@@ -21,13 +22,13 @@ export const FIRST_HOUR_STEPS = [
         how: 'Local actions, then Move somewhere else, then Infested field. Fights run on their own; watch your health.'},
     {id: 'report-field', when: s => !s.tasks[2] && !s.fieldReported, where: 'local-actions',
         line: 'The field is clear. Tell the elder.',
-        how: 'Back in the village: Local actions, Talk to someone, Talk to village elder.'},
+        how: 'Back in the village: Local actions, Talk to someone, Talk to Old Hesk, the village elder.'},
     {id: 'clear-cave', when: s => !s.tasks[2] && !s.caveCleared, where: 'local-actions',
         line: 'Clear the Nearby cave, then tell the elder.',
         how: 'Local actions, then Move somewhere else, then Nearby cave. Rest first if your health is low.'},
     {id: 'report-cave', when: s => !s.tasks[2], where: 'local-actions',
         line: 'The cave is clear. Tell the elder.',
-        how: 'Back in the village: Local actions, Talk to someone, Talk to village elder.'},
+        how: 'Back in the village: Local actions, Talk to someone, Talk to Old Hesk, the village elder.'},
     {id: 'journal', when: s => !s.tasks[3], where: 'records',
         line: 'Your next lead is in the Journal.',
         how: 'Open Journal at the top, then read the quest "Lost memory".'},
@@ -49,7 +50,12 @@ export function createNextStepCard({host, read, show, enabled = () => true}) {
     label.textContent = 'Next step'; button.type = 'button'; button.textContent = 'Show me';
     card.append(label, line, how, button);
     let shown = null; card.hidden = true;
-    button.onclick = () => { if (shown?.where) show(shown.where); };
+    button.onclick = () => {
+        if (!shown?.where) return;
+        show(shown.where);
+        // FBK3: the opened view is a panel the trace may not see, so the press says where it went.
+        sayReason(button, `Opened ${shown.where.replace(/-/g, ' ')}. ${shown.line}`);
+    };
     function render() {
         // Sit directly under the top strip; the workspace may mount its strip after this card.
         const bar = host.querySelector(':scope > .workspace-context-bar');

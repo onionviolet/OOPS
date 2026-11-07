@@ -34,7 +34,9 @@ export function renderGuHouse(parent, house) {
     const led = el('section', null, root, {'data-gu': 'ledger', 'aria-label': 'Stipend and stone ledger'});
     const a = house.ledger.agreement;
     el('p', `Stones in hand: ${house.stones}. ${a.why}.${house.ledger.nextStipendIn == null ? '' : ` Next payment in ${span(house.ledger.nextStipendIn)}.`}`, led, {'data-gu': 'agreement'});
-    const lt = el('table', null, led, {class: 'gu-ledger', 'data-gu': 'ledger-rows'});
+    // OPN2: the entry-by-entry ledger folds behind a disclosure; the agreement line above and the net below stay in view.
+    const lines = el('details', null, led, {class: 'gu-ledger-details'}); el('summary', 'Ledger entries', lines);
+    const lt = el('table', null, lines, {class: 'gu-ledger', 'data-gu': 'ledger-rows'});
     const lh = el('tr', null, el('thead', null, lt)); for(const h of ['Entry', 'Stones', 'Detail']) el('th', h, lh, {scope: 'col'});
     const lb = el('tbody', null, lt);
     for(const l of house.ledger.lines) { const tr = el('tr', null, lb); el('th', l.label, tr, {scope: 'row'}); el('td', signed(l.amount), tr); el('td', l.note, tr); }

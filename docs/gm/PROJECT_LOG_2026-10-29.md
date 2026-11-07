@@ -2572,3 +2572,20 @@ Replaced in PROJECT.md: "Desktop host: Tauri is the main development target from
 ## 2026-11-06 desktop host line (Electron removed)
 
 Replaced in PROJECT.md: "...Electron stays as the `npm run desktop:electron` fallback until Weibao has played on Tauri." Weibao said "Remove now"; Electron is gone. [Task record](dispatch/tauri-host-2026-11-06/CHECKPOINT.md#slice-4-electron-removed-2026-11-06-night).
+
+## 2026-11-06 JavaScript/UI app adoption
+
+Replaced PROJECT.md's unverified-adoption statement from the November 6 idea audit with the installed package and frozen build `v0.6-7b4f5a0cf8fd`. It is clean `04c5fd798` plus this task's changes, not all concurrent primary work. Signature verified, 126 runtime files retained, storage/save-mirror hashes unchanged; previous package and `v0.6-a4982e8239d6` pointer retained for rollback. [Task record](dispatch/js-ui-performance-2026-11-06/CHECKPOINT.md). The executable difference noted by the earlier audit was not assumed to prove a code difference; this pass's signed bundle matches the previous installed host bytes. The gameplay/UI assets changed. No player-profile launch, commit or push.
+
+## 2026-11-06 older 8 GB performance target
+
+Weibao selected comfortable older-computer/8 GB play; USER_VISION, VISION_DIGEST, AD39 and PROJECT now agree. The agent's earlier unqualified recommended-specs section below was replaced in the current report, not accepted as a product floor. Verified hardware/platform limits remain evidence, and concrete budgets are still engineering proposals. Superseded report wording:
+
+## Provisional recommended specs, 2026-11-06
+
+Engineering estimate for the current Mac build, not published or hardware-qualified requirements: Apple M2-class or newer, 16 GB system RAM, integrated graphics, 1 GB free storage for the app/build snapshots/backups, and a 1920×1080 usable viewport preferred (layout verified at 1536×864 too). CPU generation, RAM capacity and free-space budget are recommendations inferred from the present workload; no low-end hardware comparison establishes them as thresholds.
+
+Verified environment: Apple M5 Pro, 18 logical CPUs, 64 GiB RAM, macOS 27.2. Installed executable is arm64. The installed Info.plist declares macOS 14.0; its Mach-O deployment target is 11.0, which does not establish runtime compatibility on either older release. Only 27.2 has been exercised here. [Tauri's configuration reference](https://v2.tauri.app/reference/config/#macconfig) describes the bundle minimum-version setting; the actual package here is built by scripts/tauri/app.mjs.
+
+Earlier Tauri host measurements reported roughly 1.14–1.22 GiB settled app/WebKit footprint, with 1.3–1.7 GiB startup peaks. They are not a new final-build RAM measurement or an exact unique-system-memory figure. Current installed package is about 17 MB and the retained build directory about 167 MB. Strong single-thread performance matters more than GPU power for the current measured JavaScript/UI work. Minimum CPU/8 GB RAM compatibility and Windows/Linux requirements remain unverified; do not turn this estimate into a supported minimum or a guarantee for crowded long-running saves.
+

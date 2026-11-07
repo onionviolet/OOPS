@@ -1,0 +1,119 @@
+{
+  "schema": 1,
+  "note": "Feedback ratchet (FBK6). Controls with no visible answer in the recorded trace, by start. Regenerate with check_feedback.mjs --update-baseline.",
+  "params": {
+    "seed": 1,
+    "minutes": 960,
+    "actions": 100,
+    "dt": 10
+  },
+  "starts": {
+    "village": {
+      "silent": [],
+      "stateOnly": [],
+      "refusedSilent": [],
+      "genericAck": [],
+      "sharedLine": []
+    },
+    "book.hp.school": {
+      "silent": [],
+      "stateOnly": [],
+      "refusedSilent": [],
+      "genericAck": [],
+      "sharedLine": []
+    },
+    "book.hp.trade": {
+      "silent": [],
+      "stateOnly": [],
+      "refusedSilent": [],
+      "genericAck": [],
+      "sharedLine": []
+    },
+    "book.hp.lead": {
+      "silent": [],
+      "stateOnly": [],
+      "refusedSilent": [],
+      "genericAck": [],
+      "sharedLine": []
+    },
+    "book.ss.apprentice": {
+      "silent": [],
+      "stateOnly": [],
+      "refusedSilent": [],
+      "genericAck": [],
+      "sharedLine": []
+    },
+    "book.ss.trial": {
+      "silent": [],
+      "stateOnly": [],
+      "refusedSilent": [],
+      "genericAck": [],
+      "sharedLine": []
+    },
+    "book.ri.academy": {
+      "silent": [],
+      "stateOnly": [],
+      "refusedSilent": [],
+      "genericAck": [],
+      "sharedLine": []
+    },
+    "book.ri.keeper": {
+      "silent": [
+        "button: here"
+      ],
+      "stateOnly": [],
+      "refusedSilent": [],
+      "genericAck": [],
+      "sharedLine": []
+    },
+    "book.ss.company": {
+      "silent": [],
+      "stateOnly": [],
+      "refusedSilent": [],
+      "genericAck": [],
+      "sharedLine": []
+    },
+    "lotm.probationer": {
+      "silent": [],
+      "stateOnly": [],
+      "refusedSilent": [],
+      "genericAck": [],
+      "sharedLine": []
+    },
+    "lotm.machinery": {
+      "silent": [],
+      "stateOnly": [],
+      "refusedSilent": [],
+      "genericAck": [],
+      "sharedLine": []
+    },
+    "lotm.storm": {
+      "silent": [],
+      "stateOnly": [],
+      "refusedSilent": [],
+      "genericAck": [],
+      "sharedLine": []
+    },
+    "lotm.civil": {
+      "silent": [],
+      "stateOnly": [],
+      "refusedSilent": [],
+      "genericAck": [],
+      "sharedLine": []
+    },
+    "lotm.beside": {
+      "silent": [],
+      "stateOnly": [],
+      "refusedSilent": [],
+      "genericAck": [],
+      "sharedLine": []
+    },
+    "soldier.p01": {
+      "silent": [],
+      "stateOnly": [],
+      "refusedSilent": [],
+      "genericAck": [],
+      "sharedLine": []
+    }
+  }
+}

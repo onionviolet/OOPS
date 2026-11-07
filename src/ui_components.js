@@ -1,5 +1,5 @@
 import {INVENTORY_KINDS,inventoryRowKind,matchesInventoryFilter} from './inventory_filters.js';
-import {splitReasons,playerReasonText} from './player_reasons.js';
+import {splitReasons,playerReasonText,DEV_REASONS,NEUTRAL_REASON} from './player_reasons.js';
 import {config} from './config.js';
 // Shared display grammar only. Reasons come from the action's existing owner.
 let reasonSequence=0;
@@ -22,6 +22,12 @@ export function decorateActionComponents(root) {
             const raw=button.disabled&&!button.hidden ? button.dataset.disabledReason || button.title : '';
             const split=raw?splitReasons(raw):null;
             const reason=!split?'':playerReasonText(raw)||(config.enable_dev_mode&&split.dev.length?'dev: '+split.dev.join(' '):'');
+            // OPN4: the tooltip is read like the note. Engine wording leaves it; an action with nothing else to say keeps a neutral line.
+            if(raw&&button.title&&[...DEV_REASONS].some(d=>button.title.includes(d))){
+                let t=button.title;for(const d of DEV_REASONS)t=t.split(d).join('');
+                t=t.replace(/^[\s·]+|[\s·]+$/g,'').replace(/(\s·){2,}/g,' ·');
+                t=t&&!/^[·\s]*$/.test(t)?t:NEUTRAL_REASON;if(button.title!==t)button.title=t;
+            }
             let note=notes.get(button);
             if(!note) {
                 const existing=(button.getAttribute('aria-describedby')||'').split(/\s+/).map(id=>document.getElementById(id)).find(n=>n?.classList.contains('ui-disabled-reason'));

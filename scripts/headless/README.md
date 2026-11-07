@@ -58,6 +58,7 @@ const saved = await game.save();                               // window.savePro
 
 ## Scripts
 
+- `trace.mjs --list-starts | --start <id>`: JSONL playthrough trace for one start (schema in its header); read by the pacing, openings and feedback checks.
 - `bench.mjs [--minutes N] [fresh|save.json ...]`: game minutes per wall and CPU second.
 - `village_route.mjs`: one scripted route (elder, craftsman, equip axe, woodcutting, buy coal, smelt).
 - `browser_parity.mjs`: runs that route in Chrome (private port, temp bundle,

@@ -196,6 +196,10 @@ function add_to_buying_list(selected_item) {
     
     let actual_number_to_add = selected_item.count;
     let item_count_in_trader = NPCRegistry.get(current_trader).getTraderInventory()[selected_item.item_key].count;
+    // FBK3/FBK4: a press that adds nothing, or less than asked, says why in the trade view's status line.
+    const wanted = selected_item.count, inBasket = present_item?.count || 0, left = item_count_in_trader - inBasket;
+    if(left > 0 && left < wanted) sayTradeReason(`${NPCRegistry.get(current_trader).name} has only ${left} more ${item.name.toLowerCase()}.`);
+    else sayTradeReason('');
 
     if(present_item) { //there's already some in to_buy
         if(item_count_in_trader - present_item.count < selected_item.count) {
@@ -607,6 +611,12 @@ function sort_traded_items(a,b) {
     }
 }
 
+/** Short reason in the trade view's own status line; a pending restock review keeps its longer text. */
+export function sayTradeReason(text='') {
+    if(restockReview) return;
+    const notice=document.getElementById('trade_stock_notice');
+    if(notice){notice.hidden=!text;if(notice.textContent!==text)notice.textContent=text;}
+}
 function setRestockNotice(text='') {
     const notice=document.getElementById('trade_stock_notice');
     if(notice){notice.hidden=!text;notice.textContent=text;}

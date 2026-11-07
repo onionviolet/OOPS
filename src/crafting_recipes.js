@@ -782,12 +782,12 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
 (()=>{
     //full weapons
     crafting_recipes.equipment["Axe"] = new EquipmentRecipe({
-        name: "Axe",
+        name: "Axe", // names: allow recipe label for a common starter item (NMR5 dial); the made item carries material and quality
         components: ["axe head", "medium handle"],
         item_type: "Weapon",
     });
     crafting_recipes.equipment["Dagger"] = new EquipmentRecipe({
-        name: "Dagger",
+        name: "Dagger", // names: allow recipe label for a common starter item (NMR5 dial); the made item carries material and quality
         components: ["short blade", "short handle"],
         item_type: "Weapon",
     });
@@ -797,26 +797,26 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
         item_type: "Weapon",
     });
     crafting_recipes.equipment["Spear"] = new EquipmentRecipe({
-        name: "Spear",
+        name: "Spear", // names: allow recipe label for a common starter item (NMR5 dial); the made item carries material and quality
         components: ["short blade", "long handle"],
         item_type: "Weapon",
     });
     crafting_recipes.equipment["Sword"] = new EquipmentRecipe({
-        name: "Sword",
+        name: "Sword", // names: allow recipe label for a common starter item (NMR5 dial); the made item carries material and quality
         components: ["long blade", "short handle"],
         item_type: "Weapon",
     });
 
     //full shields
     crafting_recipes.equipment["Shield"] = new EquipmentRecipe({
-        name: "Shield",
+        name: "Shield", // names: allow recipe label for a common starter item (NMR5 dial); the made item carries material and quality
         components: ["shield base","shield handle"],
         item_type: "Shield",
     });
 
     //full armor
     crafting_recipes.equipment["Helmet"] = new EquipmentRecipe({
-        name: "Helmet",
+        name: "Helmet", // names: allow recipe label for a common starter item (NMR5 dial); the made item carries material and quality
         components: ["helmet interior", "helmet exterior"],
         item_type: "Armor",
     });
@@ -845,7 +845,7 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
 //clothes (which is also equipment, but also components, therefore separate)
 (()=>{
     crafting_recipes.equipment["Hat"] = new ComponentRecipe({
-        name: "Hat",
+        name: "Hat", // names: allow recipe label for a common starter item (NMR5 dial); the made item carries material and quality
         materials: [
             {material_id: "Piece of wolf leather", count: 3, result_id: "Leather hat"},
             {material_id: "Wool cloth", count: 3, result_id: "Wool hat"},
@@ -896,7 +896,7 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
     });
 
     crafting_recipes.equipment["Gloves"] = new ComponentRecipe({
-        name: "Gloves",
+        name: "Gloves", // names: allow recipe label for a common starter item (NMR5 dial); the made item carries material and quality
         materials: [
             {material_id: "Piece of wolf leather", count: 2, result_id: "Leather gloves"},
             {material_id: "Wool cloth", count: 2, result_id: "Wool gloves"},
@@ -926,7 +926,7 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
     });
 
     crafting_recipes.equipment["Amulet"] = new ComponentRecipe({
-        name: "Amulet",
+        name: "Amulet", // names: allow recipe label for a common starter item (NMR5 dial); the made item carries material and quality
         materials: [
             {material_id: "Wool cloth", count: 5, result_id: "Wool scarf"},
             {material_id: "Springsteel ingot", count: 1, result_id: "Springsteel brace"},

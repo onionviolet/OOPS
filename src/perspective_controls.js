@@ -96,6 +96,7 @@ const rows = [
     ['divinations', 'in-world', 'Disclosure group: this character’s rites and questions.'],
     ['altar-rites', 'in-world', 'Disclosure group: the altar and the steps of a rite this character is performing.'],
     ['journeys', 'in-world', 'Available journeys, means, fares and travel time in this life.'],
+    ['more-walks', 'in-world', 'Disclosure group: farther places this character knows, nearest first, with walk times.'],
     ['topic-person', 'in-world', 'Conversations with a person in this character’s life.'],
     ['topic', 'in-world', 'A topic and its available conversation choices.'],
     ['position', 'in-world', 'This character’s posts: term left and the resign verb.'],

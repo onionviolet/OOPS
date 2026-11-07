@@ -111,7 +111,7 @@ for(const g of KEEPER_GU) {
 }
 // Work for stones, a stipend event, the aperture's passive regeneration.
 const timed = (duration, support) => ({duration, cancellation: 'refund', reservationReturns: 1, completionRequires: support, completionCoLocated: true, completionFailure: 'refund'});
-S.commands.push(cmd('chores', `Do clan Gu-house chores · ${KEEPER_DIALS.choreMinutes} min, ${KEEPER_DIALS.choreStones} stone`, {...timed(KEEPER_DIALS.choreMinutes, ready),
+S.commands.push(cmd('chores', `Do clan Gu house chores · ${KEEPER_DIALS.choreMinutes} min, ${KEEPER_DIALS.choreStones} stone`, {...timed(KEEPER_DIALS.choreMinutes, ready),
     description: `Sweep and haul for the steward for ${KEEPER_DIALS.choreMinutes} played minutes and earn ${KEEPER_DIALS.choreStones} primeval stone. Cancelling pays nothing.`,
     effects: [item('stone', KEEPER_DIALS.choreStones), note('chore', `The steward paid ${KEEPER_DIALS.choreStones} stone for the chores.`)]}));
 S.commands.push(cmd('rest', 'Sit and gather essence · 60 min, up to 3 units', {requires: all(ready, faculty, le(`energy.${id('primeval')}.reserve`, KEEPER_DIALS.capacity - 1)), ...timed(60, all(ready, faculty)),

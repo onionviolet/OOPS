@@ -62,29 +62,29 @@ class NPCRegistryC {
 
 const NPCRegistry = new NPCRegistryC();
 
-NPCRegistry.add("villageElder", new NPC({name: "village elder", dialogue: dialogues["village elder"]}));
-NPCRegistry.add("villageGuard", new NPC({name: "village guard", dialogue: dialogues["village guard"]}));
-NPCRegistry.add("oldCraftsman", new NPC({name: "old craftsman", dialogue: dialogues["old craftsman"]}));
+NPCRegistry.add("villageElder", new NPC({name: "village elder", displayName: "Old Hesk, the village elder", dialogue: dialogues["village elder"]})); // names: allow internal key; players read displayName
+NPCRegistry.add("villageGuard", new NPC({name: "village guard", displayName: "Harl, the village guard", dialogue: dialogues["village guard"]})); // names: allow internal key; players read displayName
+NPCRegistry.add("oldCraftsman", new NPC({name: "old craftsman", displayName: "Wend, the old craftsman", dialogue: dialogues["old craftsman"]})); // names: allow internal key; players read displayName
 setCraftsmanPractice(NPCRegistry.get("oldCraftsman"));
-NPCRegistry.add("villageMillers", new NPC({name: "village millers", dialogue: dialogues["village millers"]}));
+NPCRegistry.add("villageMillers", new NPC({name: "village millers", displayName: "the Pennick family, the village millers", dialogue: dialogues["village millers"]})); // names: allow internal key; players read displayName
 
-NPCRegistry.add("suspiciousMan", new NPC({name: "suspicious man", dialogue: dialogues["suspicious man"]}));
-NPCRegistry.add("oldWomanOfTheSlums", new NPC({name: "old woman of the slums", dialogue: dialogues["old woman of the slums"]}));
+NPCRegistry.add("suspiciousMan", new NPC({name: "suspicious man", displayName: "Skerrit, the hooded man", dialogue: dialogues["suspicious man"]})); // names: allow internal key; players read displayName
+NPCRegistry.add("oldWomanOfTheSlums", new NPC({name: "old woman of the slums", displayName: "Granny Moth, the old woman of the slums", dialogue: dialogues["old woman of the slums"]})); // names: allow internal key; players read displayName
 
-NPCRegistry.add("gateGuard", new NPC({name: "gate guard", dialogue: dialogues["gate guard"]}));
-NPCRegistry.add("farmSupervisor", new NPC({name: "farm supervisor", dialogue: dialogues["farm supervisor"]}));
-NPCRegistry.add("nekomimiProprietress", new NPC({name: "nekomimi proprietress",dialogue: dialogues["nekomimi proprietress"]}));
+NPCRegistry.add("gateGuard", new NPC({name: "gate guard", displayName: "Corwin Slate, the gate guard", dialogue: dialogues["gate guard"]})); // names: allow internal key; players read displayName
+NPCRegistry.add("farmSupervisor", new NPC({name: "farm supervisor", displayName: "Hesper Ayles, the farm supervisor", dialogue: dialogues["farm supervisor"]})); // names: allow internal key; players read displayName
+NPCRegistry.add("nekomimiProprietress", new NPC({name: "nekomimi proprietress",displayName: "Madam Kohaku, the nekomimi proprietress", dialogue: dialogues["nekomimi proprietress"]})); // names: allow internal key; players read displayName
 
-NPCRegistry.add("swamplandChief", new NPC({name: "swampland chief", dialogue: dialogues["swampland chief"]}));
-NPCRegistry.add("swamplandCook", new NPC({name: "swampland cook", dialogue: dialogues["swampland cook"]}));
-NPCRegistry.add("swamplandTailor", new NPC({name: "swampland tailor", dialogue: dialogues["swampland tailor"]}));
-NPCRegistry.add("swamplandTanner", new NPC({name: "swampland tanner", dialogue: dialogues["swampland tanner"]}));
-NPCRegistry.add("swamplandScout", new NPC({name: "swampland scout", dialogue: dialogues["swampland scout"]}));
+NPCRegistry.add("swamplandChief", new NPC({name: "swampland chief", displayName: "Murrow, the swampland chief", dialogue: dialogues["swampland chief"]})); // names: allow internal key; players read displayName
+NPCRegistry.add("swamplandCook", new NPC({name: "swampland cook", displayName: "Ludd, the swampland cook", dialogue: dialogues["swampland cook"]})); // names: allow internal key; players read displayName
+NPCRegistry.add("swamplandTailor", new NPC({name: "swampland tailor", displayName: "Sorrel, the swampland tailor", dialogue: dialogues["swampland tailor"]})); // names: allow internal key; players read displayName
+NPCRegistry.add("swamplandTanner", new NPC({name: "swampland tanner", displayName: "Grist, the swampland tanner", dialogue: dialogues["swampland tanner"]})); // names: allow internal key; players read displayName
+NPCRegistry.add("swamplandScout", new NPC({name: "swampland scout", displayName: "Rook, the swampland scout", dialogue: dialogues["swampland scout"]})); // names: allow internal key; players read displayName
 
-NPCRegistry.add("villageTrader", new NPC({name: "village trader", trader: traders["village trader"]}));
-NPCRegistry.add("suspiciousTrader", new NPC({name: "suspicious trader", trader: traders["suspicious trader"]}));
-NPCRegistry.add("swamplandTrader", new NPC({name: "swampland trader", trader: traders["swampland trader"]}));
-NPCRegistry.add("nekomimiTrader", new NPC({name: "nekomimi trader", trader: traders["nekomimi trader"]}));
-NPCRegistry.add("catCafeTrader", new NPC({name: "cat cafe trader", trader: traders["cat cafe trader"]}));
+NPCRegistry.add("villageTrader", new NPC({name: "village trader", displayName: "Dunstan, the village trader", trader: traders["village trader"]})); // names: allow internal key; players read displayName
+NPCRegistry.add("suspiciousTrader", new NPC({name: "suspicious trader", displayName: "Quill, the back-alley trader", trader: traders["suspicious trader"]})); // names: allow internal key; players read displayName
+NPCRegistry.add("swamplandTrader", new NPC({name: "swampland trader", displayName: "Mulgrave, the swampland trader", trader: traders["swampland trader"]})); // names: allow internal key; players read displayName
+NPCRegistry.add("nekomimiTrader", new NPC({name: "nekomimi trader", displayName: "Tama, the nekomimi trader", trader: traders["nekomimi trader"]})); // names: allow internal key; players read displayName
+NPCRegistry.add("catCafeTrader", new NPC({name: "cat cafe trader", displayName: "Nori, the Whisker Corner trader", trader: traders["cat cafe trader"]})); // names: allow internal key; players read displayName
 
 export default NPCRegistry;

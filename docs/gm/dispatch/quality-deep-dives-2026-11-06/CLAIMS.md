@@ -1,0 +1,53 @@
+# File claims for fix lanes
+
+- scripts/check_feedback.mjs : FEEDBACK
+- src/data/npcs.js : NAMES
+- src/models/npc.js : NAMES
+- src/data/locations.js : NAMES
+- src/first_hour.js : NAMES
+- src/crafting_recipes.js : NAMES
+- src/items.js : NAMES
+- scripts/headless/trace.mjs : PACING
+- scripts/check_pacing.mjs : PACING
+- scripts/pacing_baseline.json : PACING
+- tests/pacing_check.test.js : PACING
+- docs/PACING_RULES.md : PACING
+- docs/pacing/PACING_BACKLOG.md : PACING
+- scripts/check_continuity.mjs : CONTINUITY
+- scripts/continuity_baseline.json : CONTINUITY
+- docs/continuity/CONTINUITY_BACKLOG.md : CONTINUITY
+- private_packs/lotm-cast/cast.json : CONTINUITY (git-ignored; names + idMap)
+- private_packs/lotm-cast/continuity-links.json, private_packs/lotm-abilities/id-links.json : CONTINUITY (new, git-ignored)
+- tests/continuity_check.test.js : CONTINUITY
+- scripts/check_names.mjs, tests/names_check.test.js : PRIVATE-NAMES; private_packs/{lotm,mol,hp}-cast/*.json, private/naming/ : PRIVATE-NAMES (git-ignored)
+- src/proto23_shell.js : FEEDBACK
+- src/main.js : FEEDBACK
+- src/lineage_domain.js : FEEDBACK
+- tests/feedback_check.test.js : FEEDBACK
+- src/reports_dock.js : OPENINGS
+- src/workspace_navigation.js : OPENINGS
+- src/book_world_lotm_broker.js : OPENINGS
+- src/ui_components.js : OPENINGS
+- src/player_reasons.js : OPENINGS
+- src/structured_pack_ui.js : OPENINGS
+- src/ui/gu_house_view.js : OPENINGS
+- src/book_world_lotm_ui.js : OPENINGS
+- src/ui/walk_board.js, tests/walk_board.test.js, src/book_world_lotm_ui.js : OPENINGS
+- private_packs/a-soldiers-life/pack.json : OPENINGS (git-ignored; premise display text)
+- src/world_packs/book_gu_keeper.js : OPENINGS (one label)
+- src/book_world_lotm_cast_host.js : COORDINATOR
+- src/book_world_lotm_ui.js : COORDINATOR (after OPENINGS finished)
+- src/workspace_navigation.js : NAV (owner-assigned; OPENINGS one-line edit left intact)
+- src/locked_control.js (new), styles/ui_tokens.css (one rule), src/proto23_shell.js (Latest line only), src/workspace_layout.js (collapse only), src/workspace_views.js (jump only) : NAV
+- scripts/headless/scenarios.mjs : COORDINATOR
+- src/structured_pack_runtime.js : REASONS (view reasons seam)
+- src/structured_action_reasons.js : REASONS (new, display-only reason table)
+- tests/structured_action_reasons.test.js : REASONS (new)
+- src/structured_action_reasons.js : HPLEAD
+- tests/structured_action_reasons.test.js : HPLEAD
+- scripts/check_names.mjs, tests/names_check.test.js : SOURCE-PAIRS (distinct/DUP allow list in private/naming only)
+- private_packs/lotm-cast/cast.json, continuity-links.json, private/naming/*, private/names_baseline_private.json, scripts/continuity_baseline.json : SOURCE-PAIRS
+- src/trade.js, index.html (acceptTrade else-branch only) : LAST-FEEDBACK
+- scripts/check_feedback.mjs, src/workspace_views.js, src/workspace_navigation.js, src/ui_components.js : LAST-FEEDBACK (FEEDBACK/NAV finished; claims now handed over)
+- src/first_hour.js (Show me onclick only), src/reports_dock.js (Show me onclick only), src/proto23_shell.js (attribute row), src/display.js (trade reason) : LAST-FEEDBACK
+- src/adventure_notebook.js, src/village_workspace.js, src/reference_kit.js (tab re-press) : LAST-FEEDBACK

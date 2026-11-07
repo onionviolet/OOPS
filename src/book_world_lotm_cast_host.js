@@ -174,7 +174,7 @@ function deriveCast(pack){
  LOTM_CAST=pack;peopleById=new Map(pack.people.map(p=>[p.id,p]));placesById=new Map(pack.places.map(p=>[p.id,p]));castWakes=null;roleIds=new Set(pack.people.filter(p=>p.tier==='role').map(p=>p.id));
  castSituation.label=pack.host.situation.label;
  aliases=new Map(pack.placeAliases.flatMap(a=>[[a.id,a.place],[a.indexId,a.place]]));
- CAST_PLACE_LABELS=Object.fromEntries(pack.places.filter(p=>!p.anchorOnly).map(p=>[p.id,p.name]));
+ CAST_PLACE_LABELS=Object.fromEntries(pack.places.filter(p=>!p.anchorOnly).map(p=>[p.id,castPlaceName(p)]));
  castSchedule=lotmCastSchedule().map(r=>({...r,actor:actorId(r.actor),place:resolveCastPlace(r.place)}));
  scheduleIndex=compileCastSchedule(castSchedule);
  const firstPlaces=new Map();for(const r of castSchedule)if(!firstPlaces.has(r.actor))firstPlaces.set(r.actor,r.place);
@@ -337,7 +337,11 @@ export function castTalkPreview(state,def,preview){
 
 // Cast addresses are distinct native IDs. District links supply the cost; the
 // existing same-district default is 2 minutes (authored, adjustable).
-export const castPlaceLabel=id=>CAST_PLACE_LABELS[id]||(!castAvailable&&dormantCastPlace(id)?'Cast place unavailable':id);
+// A pack row whose name is still an id (an extraction gap) reads as its slug in words, never a raw id (OPN3, NMR1).
+const ID_LIKE=/^[a-z]+\.[a-z]+\.[\w-]+$/;
+const slugWords=id=>{const tail=String(id).split('.').pop().replace(/^cast-[0-9a-f]+$/,'');return tail?tail.replace(/-/g,' ').replace(/^./,c=>c.toUpperCase()):'';};
+export const castPlaceName=p=>!p?.name||ID_LIKE.test(p.name)?(slugWords(p.indexId)||slugWords(p.id)||'An unnamed place'):p.name;
+export const castPlaceLabel=id=>CAST_PLACE_LABELS[id]||(!castAvailable&&dormantCastPlace(id)?'Cast place unavailable':slugWords(id)||'An unnamed place');
 export const castWalkId=(from,to)=>`book.lotm.cast_walk_${from.replaceAll(/[^a-z0-9]/gi,'_')}_${to.replaceAll(/[^a-z0-9]/gi,'_')}`;
 const walkPart=id=>id.replaceAll(/[^a-z0-9]/gi,'_');
 let walkPlaces=new Map();const walksById=new Map();

@@ -1,0 +1,15 @@
+{
+ "version": 1,
+ "note": "Known continuity findings (ratchet). Private-pack entries carry a hash, files and a ref only.",
+ "findings": {
+  "CTR2|70852eff284d": {
+   "code": "CTR2",
+   "world": "lotm",
+   "files": [
+    "private_packs/lotm-cast/cast.json"
+   ],
+   "ref": "7b888db3",
+   "private": true
+  }
+ }
+}

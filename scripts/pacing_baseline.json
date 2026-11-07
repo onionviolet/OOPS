@@ -1,0 +1,182 @@
+{
+  "schema": 1,
+  "note": "Pacing ratchet (PAC5). Today's misses; values are game minutes. Regenerate with check_pacing.mjs --update-baseline.",
+  "params": {
+    "seed": 1,
+    "minutes": 960,
+    "actions": 100,
+    "dt": 10,
+    "policy": "work"
+  },
+  "tolerance": {
+    "minutes": 30,
+    "ratio": 0.25
+  },
+  "starts": {
+    "village": {
+      "status": "ok",
+      "measured": {
+        "firstPayoffMin": 30,
+        "firstActedPayoffMin": 30,
+        "longestPayoffGapMin": 120,
+        "longestDeadMin": 40,
+        "payoffCount": 15
+      },
+      "misses": {}
+    },
+    "book.hp.school": {
+      "status": "ok",
+      "measured": {
+        "firstPayoffMin": 60,
+        "firstActedPayoffMin": 60,
+        "longestPayoffGapMin": 176,
+        "longestDeadMin": 33,
+        "payoffCount": 10
+      },
+      "misses": {}
+    },
+    "book.hp.trade": {
+      "status": "ok",
+      "measured": {
+        "firstPayoffMin": 30,
+        "firstActedPayoffMin": 30,
+        "longestPayoffGapMin": 40,
+        "longestDeadMin": 10,
+        "payoffCount": 39
+      },
+      "misses": {}
+    },
+    "book.hp.lead": {
+      "status": "ok",
+      "measured": {
+        "firstPayoffMin": 10,
+        "firstActedPayoffMin": 10,
+        "longestPayoffGapMin": 368,
+        "longestDeadMin": 41,
+        "payoffCount": 3
+      },
+      "misses": {}
+    },
+    "book.ss.apprentice": {
+      "status": "ok",
+      "measured": {
+        "firstPayoffMin": 10,
+        "firstActedPayoffMin": 10,
+        "longestPayoffGapMin": 30,
+        "longestDeadMin": 10,
+        "payoffCount": 43
+      },
+      "misses": {}
+    },
+    "book.ss.trial": {
+      "status": "ok",
+      "measured": {
+        "firstPayoffMin": 10,
+        "firstActedPayoffMin": 10,
+        "longestPayoffGapMin": 60,
+        "longestDeadMin": 10,
+        "payoffCount": 44
+      },
+      "misses": {}
+    },
+    "book.ri.academy": {
+      "status": "ok",
+      "measured": {
+        "firstPayoffMin": 10,
+        "firstActedPayoffMin": 10,
+        "longestPayoffGapMin": 337,
+        "longestDeadMin": 32,
+        "payoffCount": 16
+      },
+      "misses": {}
+    },
+    "book.ri.keeper": {
+      "status": "ok",
+      "measured": {
+        "firstPayoffMin": 10,
+        "firstActedPayoffMin": 10,
+        "longestPayoffGapMin": 425,
+        "longestDeadMin": 33,
+        "payoffCount": 12
+      },
+      "misses": {}
+    },
+    "book.ss.company": {
+      "status": "ok",
+      "measured": {
+        "firstPayoffMin": 10,
+        "firstActedPayoffMin": 10,
+        "longestPayoffGapMin": 60,
+        "longestDeadMin": 0,
+        "payoffCount": 51
+      },
+      "misses": {}
+    },
+    "lotm.probationer": {
+      "status": "ok",
+      "measured": {
+        "firstPayoffMin": 20,
+        "firstActedPayoffMin": 20,
+        "longestPayoffGapMin": 30,
+        "longestDeadMin": 0,
+        "payoffCount": 53
+      },
+      "misses": {}
+    },
+    "lotm.machinery": {
+      "status": "ok",
+      "measured": {
+        "firstPayoffMin": 20,
+        "firstActedPayoffMin": 20,
+        "longestPayoffGapMin": 380,
+        "longestDeadMin": 0,
+        "payoffCount": 6
+      },
+      "misses": {}
+    },
+    "lotm.storm": {
+      "status": "ok",
+      "measured": {
+        "firstPayoffMin": 20,
+        "firstActedPayoffMin": 20,
+        "longestPayoffGapMin": 380,
+        "longestDeadMin": 0,
+        "payoffCount": 23
+      },
+      "misses": {}
+    },
+    "lotm.civil": {
+      "status": "ok",
+      "measured": {
+        "firstPayoffMin": 30,
+        "firstActedPayoffMin": 30,
+        "longestPayoffGapMin": 30,
+        "longestDeadMin": 0,
+        "payoffCount": 48
+      },
+      "misses": {}
+    },
+    "lotm.beside": {
+      "status": "ok",
+      "measured": {
+        "firstPayoffMin": 369,
+        "firstActedPayoffMin": 369,
+        "longestPayoffGapMin": 369,
+        "longestDeadMin": 0,
+        "payoffCount": 4
+      },
+      "misses": {}
+    },
+    "soldier.p01": {
+      "status": "ok",
+      "measured": {
+        "firstPayoffMin": 60,
+        "firstActedPayoffMin": 60,
+        "longestPayoffGapMin": 70,
+        "longestDeadMin": 20,
+        "payoffCount": 14
+      },
+      "misses": {}
+    }
+  }
+}

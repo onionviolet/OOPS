@@ -11,12 +11,12 @@
         <link rel="stylesheet" href="styles/status_window.css?version=0023c5675b2d">
         <link rel="stylesheet" href="style.css?version=v0.6-c3476681b5a8">
         <link rel="stylesheet" href="styles/action_legibility.css?version=7a7c36a0289c">
-        <link rel="stylesheet" href="styles/crafting_detail.css?version=0b6e22322933">
+        <link rel="stylesheet" href="styles/crafting_detail.css?version=ed431a67123b">
         <link rel="stylesheet" href="styles/component_themes.css?version=7c80e2f1f996">
         <link rel="stylesheet" href="styles/start_probe.css?version=f8faff61cea7">
-        <link rel="stylesheet" href="styles/ui_tokens.css?version=213db1b9a6cc">
+        <link rel="stylesheet" href="styles/ui_tokens.css?version=f21980a198fa">
         <link rel="stylesheet" href="styles/shell_layout.css?version=c114835c8955">
-        <link rel="stylesheet" href="styles/inventory.css?version=55b944496583">
+        <link rel="stylesheet" href="styles/inventory.css?version=c71f66873b87">
         <link rel="stylesheet" href="styles/opponents.css?version=fa6db5d61628">
         <link rel="stylesheet" href="styles/combat_log.css?version=aec488eac3b1">
         <link rel="stylesheet" href="styles/oops_branding.css?version=be2f6469874f">
@@ -24,7 +24,7 @@
         <link rel="stylesheet" href="styles/inventory_composition.css?version=103486cbc3e7">
         <link rel="stylesheet" href="styles/item_card.css?version=4b9f7f13dff6">
         <link rel="stylesheet" href="styles/nearby_context_view.css?version=3c6c97f95cfe">
-        <link rel="stylesheet" href="styles/ui_extras.css?version=29c0220eac53">
+        <link rel="stylesheet" href="styles/ui_extras.css?version=d5793e5d02ae">
         <link rel="stylesheet" href="styles/scene_card.css?version=80d7a6d95feb">
         <link rel="stylesheet" href="styles/figure.css?version=08248f70672f">
         <link rel="stylesheet" href="styles/skin_paper.css?version=7417c6351259">
@@ -52,7 +52,7 @@
         
         <script type="module" src="resources/js/HackTimer/HackTimer.min.js"></script>
 
-        <script type="module" src="dist/bundle.js?version=v0.6-14de605930ca"></script>
+        <script type="module" src="dist/bundle.js?version=v0.6-14b42f44b2e4"></script>
 
 
         <!--favicon-->
@@ -1133,7 +1133,13 @@
                     trade_price_value.innerText = format_money(total_price);
                     accept_trade();
                 } else {
-                    console.log("You can't afford this");
+                    // FBK4: the refusal says why, in the trade view's status line.
+                    const notice = document.getElementById("trade_stock_notice");
+                    if(notice) {
+                        const short = -(total_price + get_character_money());
+                        notice.innerHTML = `You are ${format_money(short)} short. Remove something from the basket, or sell something first.`;
+                        notice.hidden = false;
+                    }
                 }
             }
 

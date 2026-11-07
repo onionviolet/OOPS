@@ -1,3 +1,4 @@
+import {sayReason} from './locked_control.js';
 // Small display helpers shared by the reference sections (Known things, Statistics, Today, Region,
 // Companions, Loadouts). Presentation only: nothing here reads or writes game state. Text always
 // goes in with textContent (ER11 F8), and every list keeps keyed rows so a refresh with nothing
@@ -26,7 +27,7 @@ export function createTabs({label, tabs, initial = tabs[0]?.id, onSelect}) {
     }
     for (const tab of tabs) {
         const b = node('button', tab.label, {type: 'button', role: 'tab'}); b.dataset.tab = tab.id;
-        b.onclick = () => select(tab.id);
+        b.onclick = () => { if (active === tab.id) { sayReason(b, `Already showing ${tab.label}.`); return; } select(tab.id); };
         b.onkeydown = event => {
             const i = tabs.findIndex(t => t.id === tab.id);
             const next = event.key === 'ArrowRight' ? i + 1 : event.key === 'ArrowLeft' ? i - 1 : event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1 : null;

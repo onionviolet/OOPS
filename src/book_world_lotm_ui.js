@@ -55,7 +55,8 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
  const run=(fn,done)=>{const focused=panel.contains(document.activeElement)?document.activeElement?.dataset?.lotm:null;try{fn();if(done!==undefined)notice.textContent=typeof done==='function'?done():done;}catch(e){notice.textContent=e.message;}signature='';render();if(focused&&!restoreControl(focused))panel.querySelector('#lotm-current-task-title')?.focus({preventScroll:true});};
  // COV7 / UR42: a button reads as a short verb phrase. Cost and time ride in a chip after it, a bracketed risk note moves to
  // the hover text, and an over-long phrase is cut at eight words with the whole line kept in the title.
- const button=(label,token,onclick,disabled,reason)=>{const s=shortActionLabel(label);const b=node('button',s.text);if(s.chip){const c=node('span',` · ${s.chip}`);c.className='action-chip';b.append(c);}b.type='button';b.dataset.lotm=token;b.disabled=!!disabled;const title=[reason,s.note,s.cut?label:''].filter(Boolean).join(' · ');if(title)b.title=title;b.onclick=onclick;return b;};
+ // OPN4: before the first report-in the engine refuses with its situation assertion; the player's reason is the report.
+ const button=(label,token,onclick,disabled,reason0)=>{const reason=String(reason0||'').split('Knowledge needs its actual situation context.').join('Report in at the workroom first.');const s=shortActionLabel(label);const b=node('button',s.text);if(s.chip){const c=node('span',` · ${s.chip}`);c.className='action-chip';b.append(c);}b.type='button';b.dataset.lotm=token;b.disabled=!!disabled;const title=[reason,s.note,s.cut?label:''].filter(Boolean).join(' · ');if(title)b.title=title;if(reason)b.dataset.disabledReason=reason;b.onclick=onclick;return b;};
  const row=(...kids)=>{const r=node('div');r.dataset.panelRow='';r.append(...kids);return r;};
  // Navigation only: focus the existing command row, including its disabled reason.
  const tabBlocks={actions,walks,path,work,bench,notebook};
@@ -243,7 +244,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
   }
   }
   // RET3: the paused Village life is resumed from the connection panel, not from here. It leads the Here tab: the other life is a crossing fact, not a path detail.
-  if(v.pausedLife){const r=row(node('span',`${v.pausedLife} is paused where you left it.`),button('Open Continuing connection','open_connection',()=>expandWorkspaceModule('continuation'),false,'Resuming pauses this Tingen life in turn.'));r.dataset.lotmPausedLife='';actions.append(r);}
+  if(v.pausedLife){const r=row(node('span',`${v.pausedLife} is paused where you left it. Your continuing connection is the way back.`),button('Open Continuing connection','open_connection',()=>expandWorkspaceModule('continuation'),false,'Resuming pauses this Tingen life in turn.'));r.dataset.lotmPausedLife='';actions.append(r);}
   if(!resident&&v.cause.line)path.append(node('p',v.cause.line));
   if(!resident&&v.clearance.length){path.append(node('h3',`Clearance · ${v.role.replace(/_/g,' ')}`));for(const g of v.clearance){const r=node('p',`Grade ${g.grade}: ${g.ok?'you may handle it here. ':''}${g.ok?g.line:g.reasons.join('; ')}`);r.dataset.clearance=String(g.grade);path.append(r);}}
   // FD8: recurring duties as plain prose (UR70-UR75) for resident and non-resident lives alike: what it is, when it shuts, how many missed; a button only while the window is open.
@@ -379,7 +380,15 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
    for(const a of v.bodyCare)care.append(node('p',`${a.description} ${a.costText}`),row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))),...(!a.eligible?[node('p',a.reasons.join(' '))]:[]));
    actions.append(care);
   }
-  for(const a of v.actions){actions.append(row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))));
+  // OPN2/OPN3/OPN4 (display only; command definitions stay byte-identical): a broker step waits out of sight until its turn,
+  // its locked reason says what it waits for, and doses that look alike on purpose carry a lot number.
+  const BROKER_WAIT={pay:'The broker must be at the docks with this lot, and you must be able to pay or swap.',verify:'The appraiser checks only a lot you have paid the broker to hold.',settle:'Settling waits for the appraiser to judge the lot genuine.',reject:'Taking your side back waits for the appraiser to judge the lot forged.'};
+  const brokerStep=a=>/(?:^|\.)lot_(pay|verify|settle|reject)_/.exec(a.id)?.[1];
+  const lotNo=new Map();
+  for(const a0 of v.actions){const step=brokerStep(a0);if(step&&step!=='pay'&&!a0.eligible)continue;
+   const a=step?{...a0,reasons:a0.reasons.map(r=>r==='The required knowledge, means or circumstances are missing.'?BROKER_WAIT[step]:r)}:a0;
+   if(step&&/an unmarked/.test(a.label)){const id=a.id.replace(/lot_(pay|verify|settle|reject)_/,'lot_');if(!lotNo.has(id))lotNo.set(id,lotNo.size+1);a.label=a.label.replace(/ an unmarked /,` lot ${lotNo.get(id)}, an unmarked `);}
+   actions.append(row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))));
    const power=a.id.startsWith('book.lotm.ab.')?channelNote(a,{holder:true}):'';
    if(power&&currentObserver().sees({capability:'lotm.own-power-notes'})){const pn=node('p',power);pn.dataset.lotmPower=a.id;actions.append(pn);}}
   if(currentObserver().sees({capability:'lotm.own-power-notes'})){
@@ -405,7 +414,18 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
    walks.append(walkBoard({...v,legs,elsewhere:[]},{move:id=>run(()=>move(id),'You walk there.'),onToggleMap:()=>{mapOpen=!mapOpen;signature='';render();},mapShown:mapOpen}));
    if(mapOpen)walks.append(walkMapBlock({...v,legs},{open:true,ontoggle:o=>{if(!o){mapOpen=false;signature='';render();}},onPick:findControl}));
   }
-  for(const m of v.moves.filter(m=>!walkIds.has(m.id)))walks.append(walkRow(m));
+  // OPN2/OPN3: a cast life can know hundreds of addresses. The nearest few stay in view; the rest wait in one
+  // disclosure, nearest first (default 8, a dial). Its open state survives re-renders like placesOpen.
+  const others=v.moves.filter(m=>!walkIds.has(m.id)).sort((a,b)=>(a.minutes??1e9)-(b.minutes??1e9));
+  const NEAR_WALKS=8;
+  for(const m of others.slice(0,NEAR_WALKS))walks.append(walkRow(m));
+  if(others.length>NEAR_WALKS){
+   const more=node('details');more.dataset.lotmMoreWalks='';more.dataset.perspective='player';more.open=placesOpen.get('more-walks')===true;
+   more.ontoggle=()=>placesOpen.set('more-walks',more.open);
+   more.append(node('summary',`More places you know (${others.length-NEAR_WALKS})`));
+   for(const m of others.slice(NEAR_WALKS))more.append(walkRow(m));
+   walks.append(more);
+  }
   if(v.records.length){
    notebook.append(node('h3','What you know'));
    const recent=v.records.slice(-6).reverse();for(const r of recent)notebook.append(node('p',r.text));

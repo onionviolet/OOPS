@@ -10,6 +10,7 @@ import {previewStructuredExpeditions} from './structured_expedition_runtime.js';
 import {createSimulationState,validateSimulationState,validateSimulationEffect,jsonData,stableId} from './simulation_contracts.js';
 import {applySimulationEffects} from './simulation_effects.js';
 import {structuredReachabilityHints} from './structured_reachability.js';
+import {structuredActionReasons} from './structured_action_reasons.js';
 import {simulationFacts} from './simulation_effects.js';
 import {previewSimulationCommand} from './simulation.js';
 import {compileClaims,claimStale} from './claim_runtime.js';
@@ -139,7 +140,7 @@ export function structuredCampaignView(state,d,record,context) {
         if(a.actorId && a.actorId!=='player' || a.actorDefinitionId && a.actorDefinitionId!==state.simulation.people.player?.definitionId)continue;
         if(a.location!=null&&a.location!==(context.facts?.location||state.simulation.people.player.location))continue;
         const quote=previewSimulationCommand(state,context.registry,a.id,{...context,targetId:a.targetId});
-        if(quote.visible)actions.push({id:a.id,label:a.label,description:a.description||'',eligible:quote.eligible,reasons:[...hints(a),...quote.reasons],duration:quote.duration,completed:state.actors.player.completed[a.id]||0,repeatable:!a.once&&quote.duration>0,costs:structuredActionCosts({...quote,costs:quote.costs?.length?quote.costs:a.costs},d,state)});
+        if(quote.visible)actions.push({id:a.id,label:a.label,description:a.description||'',eligible:quote.eligible,reasons:quote.eligible?[...hints(a),...quote.reasons]:structuredActionReasons(a,[...hints(a),...quote.reasons],reachFacts.get(a.targetId||null)),duration:quote.duration,completed:state.actors.player.completed[a.id]||0,repeatable:!a.once&&quote.duration>0,costs:structuredActionCosts({...quote,costs:quote.costs?.length?quote.costs:a.costs},d,state)});
     }
     const jobs=state.simulation.jobs.filter(j=>j.actorId==='player'&&j.commandId.startsWith(d.id+'.')).map(j=>({id:j.id,commandId:j.commandId,label:j.label,remaining:Math.max(0,j.due-state.clock),duration:context.registry.simulation.commands.get(j.commandId)?.duration||0,cancellable:j.cancellation!=='none'}));
     const extensions=(d.extensions||[]).filter(e=>!record.extensions?.some(pin=>pin.id===e.id)).map(e=>previewStructuredExtension(state,d,record,e,context,simulationFacts(state,context,context.registry)));

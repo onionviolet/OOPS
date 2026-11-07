@@ -18,6 +18,7 @@ import {pollBadges,badgeCount,markSeen,paintBadge} from './change_badges.js';
 import {controlForRoute} from './seat_profiles.js';
 import {observerView} from './observer_view.js';
 import {readPort} from './ui_ports.js';
+import {setLocked,lockReason,sayReason} from './locked_control.js';
 
 // UIL1 (UIM2): the routes come from the layout spec's route table; this module owns how each opens.
 const routes=routeTable();
@@ -29,6 +30,8 @@ export function mountWorkspaceNavigation({notice,ports}={}) {
     const buttons=new Map(),arrivals=new Set();
     function go(route) {
         const {target:id,tab}=route;
+        // UIV1: a locked route answers in words instead of staying silent (native disabled cannot be clicked or focused).
+        const own=buttons.get(route),why=lockReason(own);if(why){sayReason(own,why);return;}
         arrivals.delete(id);markSeen(route.id);
         for(const[known,b]of buttons)if(known.target===id)delete b.dataset.newHome;
         if(route.open==='here'){centerModes().showHere();return;}
@@ -85,15 +88,15 @@ export function mountWorkspaceNavigation({notice,ports}={}) {
             if(b.hidden!==hidden){if(hold)held=true;else b.hidden=hidden;}
             // Compute disabled and title once, then write only a change: writing the module's value and
             // then the crafting or mixing override flip-flopped them every refresh (2026-10-29 freeze).
-            const module=known.find(m=>m.id===id);let disabled=!!module&&!module.eligible,title=`${route.label} · Alt+${route.key.toUpperCase()}${disabled?' · '+module.reason:''}`;
+            const module=known.find(m=>m.id===id);let disabled=!!module&&!module.eligible,why=disabled?module.reason||`${route.label} is not available here yet.`:'',title=`${route.label} · Alt+${route.key.toUpperCase()}${disabled?' · '+module.reason:''}`;
             if(arrivals.has(id))b.dataset.newHome='true';
-            if(route.open==='crafting'){disabled=!document.querySelector('.choice_craft');title=disabled?'Crafting · Alt+C · no available station or finish this conversation.':`Crafting · Alt+C`;}
-            if(route.open==='mixing'){const launch=document.getElementById('village_mixing_open');disabled=!launch||launch.hidden;title=disabled?'Mixing · Alt+M · return to Village and finish your conversation.':'Mixing · Alt+M';}
-            if(b.disabled!==disabled)b.disabled=disabled;if(b.title!==title)b.title=title;
+            if(route.open==='crafting'){disabled=!document.querySelector('.choice_craft');why=disabled?'No crafting station is available here. Reach one, or finish the conversation first.':'';title=disabled?'Crafting · Alt+C · no available station or finish this conversation.':`Crafting · Alt+C`;}
+            if(route.open==='mixing'){const launch=document.getElementById('village_mixing_open');disabled=!launch||launch.hidden;title=disabled?(document.documentElement.dataset.world||'native')==='native'?'Mixing · Alt+M · return to Village and finish your conversation.':'Mixing · Alt+M · no mixing bench here.':'Mixing · Alt+M';why=disabled?title.replace(/^Mixing · Alt\+M · /,'').replace(/^./,c=>c.toUpperCase()):'';}
+            setLocked(b,disabled?why:'');if(b.title!==title)b.title=title;
             b.setAttribute('aria-current',centerModes().mode===`workspace:${id}`?'page':'false');
         }
         pollBadges();for(const [route,b]of buttons)paintBadge(b,badgeCount(route.id),route.label);
-        for(const [route,b]of paneButtons){const original=buttons.get(route);b.hidden=original.hidden||!observer.sees({control:'menu.pane-selector'});b.disabled=original.disabled;b.title=original.title;const mode=centerModes().mode;b.setAttribute('aria-current',route.open==='here'&&mode==='local'||route.open==='crafting'&&mode==='crafting'?'page':original.getAttribute('aria-current'));if(arrivals.has(route.target))b.dataset.newHome='true';else delete b.dataset.newHome;}
+        for(const [route,b]of paneButtons){const original=buttons.get(route);b.hidden=original.hidden||!observer.sees({control:'menu.pane-selector'});setLocked(b,lockReason(original));b.title=original.title;const mode=centerModes().mode;b.setAttribute('aria-current',route.open==='here'&&mode==='local'||route.open==='crafting'&&mode==='crafting'?'page':original.getAttribute('aria-current'));if(arrivals.has(route.target))b.dataset.newHome='true';else delete b.dataset.newHome;}
         const next=JSON.stringify([known,[...arrivals],known.map(m=>badgeCount(m.id))]);if(next!==last){last=next;more.replaceChildren();const first=document.createElement('option');first.value='';first.textContent=arrivals.size?'All panels… •':'All panels…';more.append(first);
             // COV6: five groups in player words; a greyed row says why (UIV1) instead of sitting there silent.
             const groups=new Map(PANEL_GROUPS.map(g=>[g,document.createElement('optgroup')]));groups.forEach((g,name)=>{g.label=name;});
@@ -114,7 +117,7 @@ export function mountWorkspaceNavigation({notice,ports}={}) {
         const editing=event.target.closest('input,textarea,select,[contenteditable="true"]');
         if(event.key==='?'&&!editing){event.preventDefault();showHelp();return;}
         if(editing||!event.altKey||event.ctrlKey||event.metaKey)return;
-        const entry=[...buttons].find(([route,b])=>route.key===event.key.toLowerCase()&&!b.hidden&&!b.disabled);
+        const entry=[...buttons].find(([route,b])=>route.key===event.key.toLowerCase()&&!b.hidden&&!lockReason(b));
         if(entry){event.preventDefault();go(entry[0]);}
     });
     // UIL2 (UIX2): route state is a change reader. The spec gives the navigation no `reads` yet, so

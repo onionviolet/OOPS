@@ -9935,7 +9935,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     mountProto23Shell({transferStorage:commitNativeStorage,compareWorn:key=>structuredEquipmentView(key),readItemCard:makeItemCardReader({getItemFromKey,getItemRarity,equipmentOf:()=>character.getEquipment(),durability}),read:()=>{
         const stats=character.getFullStats();
         return {stats:[['STR',stats.strength],['AGL',stats.agility],['DEX',stats.dexterity],['INT',stats.intuition],['Attack',character.getAttackPower()],['Defense',stats.defense]].map(([label,value])=>[label,Number.isFinite(value)?Number(value.toFixed(1)):'???']),
-            equipment:[...document.querySelectorAll('#character_equipment_div .equipment_slot_div')].map(slot=>{const id=slot.id.replace(/_slot$/,'');const item=character.getEquipment()[id==='fishing'?'fishing_pole':id];return {id,label:id.replaceAll('_',' '),name:item?item.getName():null};}),
+            equipment:[...document.querySelectorAll('#character_equipment_div .equipment_slot_div, #character_tools_div .equipment_slot_div')].map(slot=>{const id=slot.id.replace(/_slot$/,'');const item=character.getEquipment()[id==='fishing'?'fishing_pole':id];return {id,label:id.replaceAll('_',' '),name:item?item.getName():null};}),
             reason:nativeActionReasons(expansionState).join(' ')};
     }});
     createVillageWorkspace({placeDetail:quietPlaceDetail.node,read:()=>{

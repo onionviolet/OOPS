@@ -12,7 +12,8 @@ class NPC extends Person {
     #trader;
 
     constructor(data) {
-        super(data);
+        // displayName is what the player reads ("Old Hesk, the village elder"); `name` stays the key (id, stock seed).
+        super(data.displayName && !data.getName ? {...data, getName() {return data.displayName;}} : data);
         this.tags = {"npc": true};
 
         if(data.dialogue) {
@@ -33,7 +34,7 @@ class NPC extends Person {
                 this.#trader.name = this.name;
             }
             if(!this.#trader.trade_text) { 
-                this.#trader.trade_text = `Trade with ${this.name}`;
+                this.#trader.trade_text = `Trade with ${this.getName()}`;
             }
         }
 

@@ -1,0 +1,395 @@
+{
+  "schema": 1,
+  "note": "Openings ratchet (OPN9). Today's flags; values are counts, words or presses. Regenerate with check_openings.mjs --update-baseline.",
+  "params": {
+    "seed": 1,
+    "minutes": 960,
+    "actions": 100,
+    "dt": 10
+  },
+  "dials": {
+    "window": {
+      "steps": 60,
+      "minutes": 720
+    },
+    "proseWords": 300,
+    "blockWords": 60,
+    "firstActionSteps": 6,
+    "firstPayoffSteps": 20,
+    "noEffectChoices": 3,
+    "deadRun": 6
+  },
+  "tolerance": {
+    "abs": 1,
+    "ratio": 0.25
+  },
+  "starts": {
+    "village": {
+      "status": "ok",
+      "measured": {
+        "proseWords": 23,
+        "longestBlockWords": 9,
+        "proseBlocks": 3,
+        "actionsEnabled": 10,
+        "actionsDisabled": 0,
+        "disabledNoReason": 0,
+        "engineReasons": 0,
+        "traceRefusalsNoReason": 6,
+        "stepsSeen": 60,
+        "firstActionStep": 3,
+        "firstActionMin": 31,
+        "firstPayoffStep": 3,
+        "noEffectChoices": 1,
+        "longestDeadRun": 33,
+        "deadRunFrom": 27
+      },
+      "misses": {
+        "trace-refusal-no-reason": 6,
+        "dead-stretch": 33
+      }
+    },
+    "lotm.probationer": {
+      "status": "ok",
+      "measured": {
+        "proseWords": 116,
+        "longestBlockWords": 23,
+        "proseBlocks": 9,
+        "actionsEnabled": 2,
+        "actionsDisabled": 3,
+        "disabledNoReason": 0,
+        "engineReasons": 0,
+        "traceRefusalsNoReason": 4,
+        "stepsSeen": 60,
+        "firstActionStep": 2,
+        "firstActionMin": 21,
+        "firstPayoffStep": 39,
+        "noEffectChoices": 0,
+        "longestDeadRun": 0,
+        "deadRunFrom": 0
+      },
+      "misses": {
+        "trace-refusal-no-reason": 4,
+        "first-payoff-late": 39
+      }
+    },
+    "lotm.machinery": {
+      "status": "ok",
+      "measured": {
+        "proseWords": 132,
+        "longestBlockWords": 29,
+        "proseBlocks": 9,
+        "actionsEnabled": 2,
+        "actionsDisabled": 3,
+        "disabledNoReason": 0,
+        "engineReasons": 0,
+        "traceRefusalsNoReason": 4,
+        "stepsSeen": 60,
+        "firstActionStep": 2,
+        "firstActionMin": 21,
+        "firstPayoffStep": 39,
+        "noEffectChoices": 0,
+        "longestDeadRun": 0,
+        "deadRunFrom": 0
+      },
+      "misses": {
+        "trace-refusal-no-reason": 4,
+        "first-payoff-late": 39
+      }
+    },
+    "lotm.storm": {
+      "status": "ok",
+      "measured": {
+        "proseWords": 131,
+        "longestBlockWords": 26,
+        "proseBlocks": 9,
+        "actionsEnabled": 2,
+        "actionsDisabled": 13,
+        "disabledNoReason": 0,
+        "engineReasons": 0,
+        "traceRefusalsNoReason": 4,
+        "stepsSeen": 60,
+        "firstActionStep": 2,
+        "firstActionMin": 21,
+        "firstPayoffStep": 39,
+        "noEffectChoices": 0,
+        "longestDeadRun": 0,
+        "deadRunFrom": 0
+      },
+      "misses": {
+        "trace-refusal-no-reason": 4,
+        "first-payoff-late": 39
+      }
+    },
+    "lotm.civil": {
+      "status": "ok",
+      "measured": {
+        "proseWords": 116,
+        "longestBlockWords": 23,
+        "proseBlocks": 9,
+        "actionsEnabled": 2,
+        "actionsDisabled": 3,
+        "disabledNoReason": 0,
+        "engineReasons": 0,
+        "traceRefusalsNoReason": 4,
+        "stepsSeen": 60,
+        "firstActionStep": 2,
+        "firstActionMin": 21,
+        "firstPayoffStep": 39,
+        "noEffectChoices": 0,
+        "longestDeadRun": 0,
+        "deadRunFrom": 0
+      },
+      "misses": {
+        "trace-refusal-no-reason": 4,
+        "first-payoff-late": 39
+      }
+    },
+    "lotm.beside": {
+      "status": "ok",
+      "measured": {
+        "proseWords": 141,
+        "longestBlockWords": 25,
+        "proseBlocks": 13,
+        "actionsEnabled": 353,
+        "actionsDisabled": 7,
+        "disabledNoReason": 0,
+        "engineReasons": 0,
+        "traceRefusalsNoReason": 4,
+        "stepsSeen": 60,
+        "firstActionStep": 2,
+        "firstActionMin": 21,
+        "firstPayoffStep": 39,
+        "noEffectChoices": 0,
+        "longestDeadRun": 0,
+        "deadRunFrom": 0
+      },
+      "misses": {
+        "same-label": 2,
+        "trace-refusal-no-reason": 4,
+        "first-payoff-late": 39
+      }
+    },
+    "book.hp.school": {
+      "status": "ok",
+      "measured": {
+        "proseWords": 166,
+        "longestBlockWords": 60,
+        "proseBlocks": 9,
+        "actionsEnabled": 8,
+        "actionsDisabled": 1,
+        "disabledNoReason": 0,
+        "engineReasons": 0,
+        "traceRefusalsNoReason": 2,
+        "stepsSeen": 60,
+        "firstActionStep": 1,
+        "firstActionMin": 11,
+        "firstPayoffStep": null,
+        "noEffectChoices": 22,
+        "longestDeadRun": 3,
+        "deadRunFrom": 9
+      },
+      "misses": {
+        "trace-refusal-no-reason": 2,
+        "first-payoff-late": 61,
+        "no-effect-choice": 22
+      }
+    },
+    "book.hp.trade": {
+      "status": "ok",
+      "measured": {
+        "proseWords": 117,
+        "longestBlockWords": 43,
+        "proseBlocks": 7,
+        "actionsEnabled": 4,
+        "actionsDisabled": 0,
+        "disabledNoReason": 0,
+        "engineReasons": 0,
+        "traceRefusalsNoReason": 1,
+        "stepsSeen": 60,
+        "firstActionStep": 1,
+        "firstActionMin": 11,
+        "firstPayoffStep": 1,
+        "noEffectChoices": 6,
+        "longestDeadRun": 2,
+        "deadRunFrom": 17
+      },
+      "misses": {
+        "trace-refusal-no-reason": 1,
+        "no-effect-choice": 6
+      }
+    },
+    "book.hp.lead": {
+      "status": "ok",
+      "measured": {
+        "proseWords": 90,
+        "longestBlockWords": 31,
+        "proseBlocks": 7,
+        "actionsEnabled": 1,
+        "actionsDisabled": 0,
+        "disabledNoReason": 0,
+        "engineReasons": 0,
+        "traceRefusalsNoReason": 2,
+        "stepsSeen": 60,
+        "firstActionStep": 1,
+        "firstActionMin": 11,
+        "firstPayoffStep": null,
+        "noEffectChoices": 5,
+        "longestDeadRun": 3,
+        "deadRunFrom": 10
+      },
+      "misses": {
+        "trace-refusal-no-reason": 2,
+        "first-payoff-late": 61,
+        "no-effect-choice": 5
+      }
+    },
+    "book.ss.apprentice": {
+      "status": "ok",
+      "measured": {
+        "proseWords": 68,
+        "longestBlockWords": 35,
+        "proseBlocks": 4,
+        "actionsEnabled": 1,
+        "actionsDisabled": 0,
+        "disabledNoReason": 0,
+        "engineReasons": 0,
+        "traceRefusalsNoReason": 1,
+        "stepsSeen": 60,
+        "firstActionStep": 1,
+        "firstActionMin": 11,
+        "firstPayoffStep": null,
+        "noEffectChoices": 21,
+        "longestDeadRun": 2,
+        "deadRunFrom": 19
+      },
+      "misses": {
+        "trace-refusal-no-reason": 1,
+        "first-payoff-late": 61,
+        "no-effect-choice": 21
+      }
+    },
+    "book.ss.trial": {
+      "status": "ok",
+      "measured": {
+        "proseWords": 51,
+        "longestBlockWords": 33,
+        "proseBlocks": 3,
+        "actionsEnabled": 2,
+        "actionsDisabled": 0,
+        "disabledNoReason": 0,
+        "engineReasons": 0,
+        "traceRefusalsNoReason": 1,
+        "stepsSeen": 60,
+        "firstActionStep": 1,
+        "firstActionMin": 11,
+        "firstPayoffStep": null,
+        "noEffectChoices": 5,
+        "longestDeadRun": 2,
+        "deadRunFrom": 19
+      },
+      "misses": {
+        "trace-refusal-no-reason": 1,
+        "first-payoff-late": 61,
+        "no-effect-choice": 5
+      }
+    },
+    "book.ss.company": {
+      "status": "ok",
+      "measured": {
+        "proseWords": 134,
+        "longestBlockWords": 51,
+        "proseBlocks": 6,
+        "actionsEnabled": 4,
+        "actionsDisabled": 0,
+        "disabledNoReason": 0,
+        "engineReasons": 0,
+        "traceRefusalsNoReason": 1,
+        "stepsSeen": 60,
+        "firstActionStep": 1,
+        "firstActionMin": 11,
+        "firstPayoffStep": null,
+        "noEffectChoices": 0,
+        "longestDeadRun": 0,
+        "deadRunFrom": 0
+      },
+      "misses": {
+        "trace-refusal-no-reason": 1,
+        "first-payoff-late": 61
+      }
+    },
+    "book.ri.academy": {
+      "status": "ok",
+      "measured": {
+        "proseWords": 125,
+        "longestBlockWords": 40,
+        "proseBlocks": 5,
+        "actionsEnabled": 2,
+        "actionsDisabled": 0,
+        "disabledNoReason": 0,
+        "engineReasons": 0,
+        "traceRefusalsNoReason": 2,
+        "stepsSeen": 60,
+        "firstActionStep": 1,
+        "firstActionMin": 11,
+        "firstPayoffStep": 3,
+        "noEffectChoices": 22,
+        "longestDeadRun": 1,
+        "deadRunFrom": 4
+      },
+      "misses": {
+        "trace-refusal-no-reason": 2,
+        "no-effect-choice": 22
+      }
+    },
+    "book.ri.keeper": {
+      "status": "ok",
+      "measured": {
+        "proseWords": 222,
+        "longestBlockWords": 39,
+        "proseBlocks": 16,
+        "actionsEnabled": 9,
+        "actionsDisabled": 0,
+        "disabledNoReason": 0,
+        "engineReasons": 0,
+        "traceRefusalsNoReason": 3,
+        "stepsSeen": 60,
+        "firstActionStep": 1,
+        "firstActionMin": 11,
+        "firstPayoffStep": 1,
+        "noEffectChoices": 11,
+        "longestDeadRun": 1,
+        "deadRunFrom": 13
+      },
+      "misses": {
+        "trace-refusal-no-reason": 3,
+        "no-effect-choice": 11
+      }
+    },
+    "soldier.p01": {
+      "status": "ok",
+      "measured": {
+        "proseWords": 281,
+        "longestBlockWords": 43,
+        "proseBlocks": 13,
+        "actionsEnabled": 5,
+        "actionsDisabled": 4,
+        "disabledNoReason": 0,
+        "engineReasons": 0,
+        "traceRefusalsNoReason": 2,
+        "stepsSeen": 60,
+        "firstActionStep": 9,
+        "firstActionMin": 91,
+        "firstPayoffStep": 17,
+        "noEffectChoices": 3,
+        "longestDeadRun": 19,
+        "deadRunFrom": 41
+      },
+      "misses": {
+        "trace-refusal-no-reason": 2,
+        "first-action-late": 9,
+        "no-effect-choice": 3,
+        "dead-stretch": 19
+      }
+    }
+  }
+}

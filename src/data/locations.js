@@ -381,7 +381,7 @@ const favourite_locations = {};
         },
         npcs: ["villageElder", "villageGuard", "oldCraftsman", "villageTrader"],
         market_region: "Village",
-        name: "Village", 
+        name: "Village", // names: allow region name the player reads as a proper name; id is derived from name, so it stays (NMR4 dial)
         crafting: new LocationCrafting({
             is_unlocked: true, 
             use_text: "Try to craft something", 
@@ -789,7 +789,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
         types: [{type: "narrow", stage: 1, xp_gain: 1}],
         enemy_count: 30, 
         enemy_stat_variation: 0.2,
-        name: "Forest", 
+        name: "Forest", // names: allow region name the player reads as a proper name; id is derived from name, so it stays (NMR4 dial)
         parent_location: locations["Forest road"],
         first_reward: {
             xp: 60,
@@ -1051,7 +1051,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
         enemy_group_size: [8,8],
         enemy_stat_variation: 0.1,
         id: "Forest ant nest",
-        name: "Red ant nest",
+        name: "Roadside ant nest",
         parent_location: locations["Forest road"],
         first_reward: {
             xp: 6000,
@@ -1062,7 +1062,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
         temperature_range_modifier: 0.7,
         is_under_roof: true,
     });
-    locations["Forest road"].connected_locations.push({location: locations["Forest ant nest"], custom_text: "Enter the [Red ant nest]", travel_time: 120});
+    locations["Forest road"].connected_locations.push({location: locations["Forest ant nest"], custom_text: "Enter the [Roadside ant nest]", travel_time: 120});
 
     locations["Town outskirts"] = new SafeLocation({ 
         connected_locations: [{location: locations["Forest road"], custom_text: "Return to the [Forest road]", travel_time: 240}],
@@ -1143,7 +1143,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
         enemy_group_size: [5,6],
         enemy_stat_variation: 0.1,
         id: "Red ant nest 1",
-        name: "Red ant nest",
+        name: "Furrow ant nest",
         parent_location: locations["Town farms"],
         first_reward: {
             xp: 4000,
@@ -1171,7 +1171,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
         enemy_group_size: [5,6],
         enemy_stat_variation: 0.1,
         id: "Red ant nest 2",
-        name: "Red ant nest",
+        name: "Orchard ant nest",
         parent_location: locations["Town farms"],
         first_reward: {
             xp: 4000,
@@ -1199,7 +1199,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
         enemy_group_size: [5,6],
         enemy_stat_variation: 0.1,
         id: "Red ant nest 3",
-        name: "Red ant nest",
+        name: "Barn-wall ant nest",
         parent_location: locations["Town farms"],
         first_reward: {
             xp: 4000,
@@ -1219,9 +1219,9 @@ There's another gate on the wall in front of you, but you have a strange feeling
     });
 
     locations["Town farms"].connected_locations.push(
-        {location: locations["Red ant nest 1"], custom_text: "Enter the [Red ant nest]", travel_time: 10},
-        {location: locations["Red ant nest 2"], custom_text: "Enter the [Red ant nest]", travel_time: 10},
-        {location: locations["Red ant nest 3"], custom_text: "Enter the [Red ant nest]", travel_time: 10},
+        {location: locations["Red ant nest 1"], custom_text: "Enter the [Furrow ant nest]", travel_time: 10},
+        {location: locations["Red ant nest 2"], custom_text: "Enter the [Orchard ant nest]", travel_time: 10},
+        {location: locations["Red ant nest 3"], custom_text: "Enter the [Barn-wall ant nest]", travel_time: 10},
     );
 
     locations["Gang hideout"] = new CombatZone({ 
@@ -2391,7 +2391,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
                     { name: "Ratfish", chance: [0.2, 0.7] },
                     { name: "Carp", chance: [0.3, 0.5] },
                     { name: "Salmon", chance: [0.2, 0.4] },
-                    { name: "Catfish", chance: [0.015, 0.3] },
+                    { name: "Catfish", chance: [0.015, 0.3] }, // names: allow catfish and ratfish are two real fish, not a spelling split
                     { name: "Pike", chance: [0.1, 0.3] },
                     { name: "Eel", chance: [0.01, 0.2] }
                 ],
@@ -2453,7 +2453,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
                     { name: "Ratfish", chance: [0.2, 0.8] },
                     { name: "Carp", chance: [0.1, 0.5] },
                     { name: "Salmon", chance: [0.1, 0.3] },
-                    { name: "Catfish", chance: [0.01, 0.1] }
+                    { name: "Catfish", chance: [0.01, 0.1] } // names: allow catfish and ratfish are two real fish, not a spelling split
                 ],
                 time_period: [120, 30],
                 skill_required: [10, 22],
@@ -2489,7 +2489,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
                     { name: "Ratfish", chance: [0.2, 0.7] },
                     { name: "Carp", chance: [0.3, 0.5] },
                     { name: "Salmon", chance: [0.2, 0.4] },
-                    { name: "Catfish", chance: [0.015, 0.3] },
+                    { name: "Catfish", chance: [0.015, 0.3] }, // names: allow catfish and ratfish are two real fish, not a spelling split
                     { name: "Pike", chance: [0.1, 0.3] },
                     { name: "Eel", chance: [0.01, 0.2] },
                     { name: "Coelacanth", chance: [0.01, 0.1] }

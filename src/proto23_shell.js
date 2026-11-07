@@ -1,3 +1,4 @@
+import {setLocked,lockReason,sayReason} from './locked_control.js';
 import {mountInventoryComposition} from './inventory_composition.js';
 import {mountStorageComparison} from './storage_comparison.js';
 import {clear_message_log,log_message,setCombatReportsStopped,readPlayerAttributeInspector} from './display.js';
@@ -89,7 +90,7 @@ function mountAttributeInspector(){
         const frame=readPlayerAttributeInspector(),nextRows=frame.rows||[],nextSignature=JSON.stringify(nextRows);
         if(nextSignature===rowsSignature)return;rowsSignature=nextSignature;rows=nextRows;const ids=new Set(rows.map(row=>row.id));
         for(const[id,record]of records)if(!ids.has(id)){record.button.remove();records.delete(id);}
-        for(const row of rows){let record=records.get(row.id);if(!record){const button=action('',()=>select(row.id)),label=node('span'),value=node('strong');button.className='attribute-inspector-row';button.dataset.attributeId=row.id;button.append(label,value);list.append(button);record={button,label,value};records.set(row.id,record);}
+        for(const row of rows){let record=records.get(row.id);if(!record){const button=action('',()=>{if(selectedId===row.id){sayReason(button,`Already showing ${record?.label?.textContent||'this attribute'}.`);return;}select(row.id);}),label=node('span'),value=node('strong');button.className='attribute-inspector-row';button.dataset.attributeId=row.id;button.append(label,value);list.append(button);record={button,label,value};records.set(row.id,record);}
             record.button.dataset.group=row.group;record.button.dataset.availability=row.availability?.status||'available';setText(record.label,row.label);setText(record.value,row.formatted??numeric(row.value));
             const spoken=row.label+': '+(row.formatted??numeric(row.value));if(record.button.getAttribute('aria-label')!==spoken)record.button.setAttribute('aria-label',spoken);
         }
@@ -191,12 +192,12 @@ export function mountProto23Shell({read,transferStorage,compareWorn,readItemCard
     document.addEventListener('click',event=>{const subject=event.target.closest('.log-subject,.shell-place-tag,[data-context-preview=temperature],[data-context-preview=effect],[data-attribute-preview]');if(subject){showContext(subject,true);if(subject.dataset.attributePreview)contextPreview.querySelector('summary')?.focus({preventScroll:true});return;}if(!contextPreview.contains(event.target))hideContext();});
 
     const preview=node('aside',null,'shell-item-preview');preview.id='shell_item_preview';
-    preview.setAttribute('popover','manual');preview.setAttribute('aria-label','Item preview');
+    preview.setAttribute('popover','manual');preview.setAttribute('aria-label','Item preview');preview.hidden=true;
     const previewBody=node('div',null,'shell-preview-body'),previewFooter=node('div',null,'shell-preview-footer');
     const full=action('Full item ›',()=>{if(hovered?.isConnected){const row=hovered;row.focus({preventScroll:true});choose(row);expandWorkspaceModule('shell-detail');}});
     previewFooter.append(full,node('span','Inspection is free · Esc closes'));preview.append(previewBody,previewFooter);player.append(preview);
     let hovered=null,previewSignature='',hideTimer=null,returningPreviewFocus=false;
-    function hidePreview(){clearTimeout(hideTimer);if(preview.matches(':popover-open'))preview.hidePopover();hovered?.removeAttribute('aria-describedby');hovered=null;previewSignature='';}
+    function hidePreview(){clearTimeout(hideTimer);if(preview.matches(':popover-open'))preview.hidePopover();preview.hidden=true;hovered?.removeAttribute('aria-describedby');hovered=null;previewSignature='';}
     function deferHide(){clearTimeout(hideTimer);hideTimer=setTimeout(hidePreview,180);}
     function showPreview(row){
         // Keep a command being edited intact; another carried row can still be previewed.
@@ -214,7 +215,7 @@ export function mountProto23Shell({read,transferStorage,compareWorn,readItemCard
         preview.style.setProperty('--shell-preview-left',(expanded?box.left+4:Math.min(box.right+6,innerWidth-480))+'px');
         preview.style.setProperty('--shell-preview-top',Math.max(48,Math.min(box.top,innerHeight-300))+'px');
         preview.style.setProperty('--shell-preview-height',Math.max(160,innerHeight-Math.max(48,Math.min(box.top,innerHeight-300))-54)+'px');
-        if(!preview.matches(':popover-open'))preview.showPopover();
+        preview.hidden=false;if(!preview.matches(':popover-open'))preview.showPopover();
     }
     const hover=event=>{const row=event.target.closest('#inventory_content_div > [data-character_item]');if(row&&!row.contains(event.relatedTarget))showPreview(row);};
     const leave=event=>{if(event.target.closest('#inventory_content_div > [data-character_item]')&&!event.target.closest('#inventory_content_div > [data-character_item]').contains(event.relatedTarget))deferHide();};
@@ -265,7 +266,7 @@ export function mountProto23Shell({read,transferStorage,compareWorn,readItemCard
     definePanel({id:'shell-detail',title:'Item details',role:'records',node:detail,home,defaultDock:'center',after:'focus',eligible:()=>active()&&!!selected,discovered:active});
     const logTools=node('div',null,'shell-log-tools');const filters=action('Filters · All',()=>{const root=document.getElementById('main_content');root.dataset.logFiltersOpen=String(root.dataset.logFiltersOpen!=='true');filters.setAttribute('aria-expanded',root.dataset.logFiltersOpen);});filters.setAttribute('aria-expanded','false');filters.setAttribute('aria-controls','message_controls');
     const follow=node('select');follow.setAttribute('aria-label','Log follow');for(const [value,label]of [['hold','Follow: smart'],['always','Follow: always']]){const option=node('option',label);option.value=value;follow.append(option);}follow.title='Smart follow holds your place when you scroll up. Always follow jumps to new messages.';follow.onchange=()=>setDisplaySettings({logFollow:follow.value});
-    const latest=action('Latest',()=>{const native=document.querySelector('.log-unread-anchor button');if(native)native.click();else{const box=document.getElementById('message_box_div');box.scrollTop=box.scrollHeight;}});latest.title='Jump to the latest message';let combatStopped=false;const combatLog=action('Stop combat log',()=>{combatStopped=setCombatReportsStopped(!combatStopped);combatLog.textContent=combatStopped?'Resume combat log':'Stop combat log';combatLog.setAttribute('aria-pressed',String(combatStopped));});combatLog.title='Stop recording new hit, miss, block and defeat reports in this presentation. Combat continues; existing history, loot and growth reports remain. Resets on reload.';
+    const latest=action('Latest',()=>{const why=lockReason(latest);if(why){sayReason(latest,why);return;}const native=document.querySelector('.log-unread-anchor button');if(native)native.click();else{const box=document.getElementById('message_box_div');box.scrollTop=box.scrollHeight;}});latest.title='Jump to the latest message';let combatStopped=false;const combatLog=action('Stop combat log',()=>{combatStopped=setCombatReportsStopped(!combatStopped);combatLog.textContent=combatStopped?'Resume combat log':'Stop combat log';combatLog.setAttribute('aria-pressed',String(combatStopped));});combatLog.title='Stop recording new hit, miss, block and defeat reports in this presentation. Combat continues; existing history, loot and growth reports remain. Resets on reload.';
     const clearLog=action('Clear',()=>{hideContext();clear_message_log();});clearLog.title='Clear the visible report history. Character, discoveries, quests and combat are unchanged.';
     logTools.append(filters,follow,latest,combatLog,clearLog);
     // R21 control boxes (CB1–CB5): Inventory and Reports choices open from one box each; UM5 adds Skills, Quests and Crafting.
@@ -278,6 +279,10 @@ export function mountProto23Shell({read,transferStorage,compareWorn,readItemCard
         if(selected.slot)return document.getElementById(selected.slot+'_slot');
         return [...document.querySelectorAll('#inventory_content_div > [data-character_item]')].find(r=>r.dataset.character_item===selected.key);
     }
+    // FBK3: a slot press must answer where the player is. When a center view (dialogue, trade, mixing) hides the
+    // Item details dock, open the details as a center view, the same route "Full item ›" takes.
+    function showDetailsIfHidden(){if(document.getElementById('main_content').dataset.parity==='r3'&&detail.checkVisibility?.()===false)expandWorkspaceModule('shell-detail');}
+    function chooseSlot(id){selected={slot:id};signature='';render();updateWorkspace();showDetailsIfHidden();}
     function choose(row){
         hidePreview();
         selected=row.classList.contains('equipment_slot_div')?{slot:row.id.replace(/_slot$/,'')}:{key:row.dataset.character_item};
@@ -346,7 +351,7 @@ export function mountProto23Shell({read,transferStorage,compareWorn,readItemCard
     }
     function render(){
         placeSort();tabs.refresh();boxes.render();strips.render();inventoryComposition.render(rowForSelection());storageComparison.render();
-        condition.render();syncLogLabels();syncNoticeLabels();attributeInspector.setVisible(active()&&document.getElementById('main_content').dataset.parity==='r3');if(!gearChosen){const wanted=false;if(gear.open!==wanted)gear.open=wanted;}if(!active()){if(contextSource)hideContext();return;}const enabled=document.querySelectorAll('#message_controls .active_selection_button').length,filterText=enabled===6?'Filters':`Filters ${enabled}/6`;if(filters.textContent!==filterText)filters.textContent=filterText;if(follow.value!==getDisplaySetting('logFollow'))follow.value=getDisplaySetting('logFollow');const logBox=document.getElementById('message_box_div');const atLatest=logBox.scrollHeight-logBox.scrollTop-logBox.clientHeight<24;if(latest.disabled!==atLatest)latest.disabled=atLatest;
+        condition.render();syncLogLabels();syncNoticeLabels();attributeInspector.setVisible(active()&&document.getElementById('main_content').dataset.parity==='r3');if(!gearChosen){const wanted=false;if(gear.open!==wanted)gear.open=wanted;}if(!active()){if(contextSource)hideContext();return;}const enabled=document.querySelectorAll('#message_controls .active_selection_button').length,filterText=enabled===6?'Filters':`Filters ${enabled}/6`;if(filters.textContent!==filterText)filters.textContent=filterText;if(follow.value!==getDisplaySetting('logFollow'))follow.value=getDisplaySetting('logFollow');const logBox=document.getElementById('message_box_div');const atLatest=logBox.scrollHeight-logBox.scrollTop-logBox.clientHeight<24;setLocked(latest,atLatest?'You are already at the latest message.':'');
 
         if(contextSource){if(contextSource.isConnected&&contextSource.checkVisibility()&&active())showContext(contextSource);else hideContext();}
         if(!active())return;
@@ -387,14 +392,15 @@ export function mountProto23Shell({read,transferStorage,compareWorn,readItemCard
             const focusInSummary=wornSummary.contains(document.activeElement);
             wornSummary.replaceChildren();
             for(const slot of frame.equipment.filter(slot=>slot.name)){
-                const button=action('',()=>{selected={slot:slot.id};signature='';render();updateWorkspace();});
+                const button=action('',()=>chooseSlot(slot.id));
                 button.dataset.shellSlot=slot.id;button.className='shell-worn-item';button.title=`${slot.label}: ${slot.name}`;
                 button.append(node('span',slot.label,'shell-worn-slot'),node('span',slot.name,'shell-worn-name'));wornSummary.append(button);
             }
             wornSummary.hidden=!worn;
             const toolsOpen=equipment.querySelector('details')?.open;equipment.replaceChildren();
             const tools=node('details'),toolLabel=node('summary','Tools');tools.open=!!toolsOpen;const toolGrid=node('div',null,'shell-equipment');tools.append(toolLabel,toolGrid);
-            for(const slot of frame.equipment){const b=action(`${slot.label} · ${slot.name||'Empty'}`,()=>{selected={slot:slot.id};signature='';render();updateWorkspace();});b.dataset.shellSlot=slot.id;b.title=slot.name||`Empty ${slot.label} slot`;(['axe','pickaxe','sickle','shovel','fishing'].includes(slot.id)?toolGrid:equipment).append(b);}
+            for(const slot of frame.equipment){const b=action(`${slot.label} · ${slot.name||'Empty'}`,()=>chooseSlot(slot.id));b.dataset.shellSlot=slot.id;b.title=slot.name||`Empty ${slot.label} slot`;(['axe','pickaxe','sickle','shovel','fishing'].includes(slot.id)?toolGrid:equipment).append(b);}
+            if(!toolGrid.children.length)toolGrid.append(node('p','No tool slots on this body yet.','ui-disabled-reason'));
             equipment.append(tools);
             if(focusedSlot)(focusInSummary?wornSummary:equipment).querySelector(`[data-shell-slot="${CSS.escape(focusedSlot)}"]`)?.focus({preventScroll:true});
         }

@@ -15,7 +15,7 @@ export function setNativeObservedDropReader(read){nativeObservedDropReader=read;
 import {GRADED_IDS} from './harvest.js';
 import {deferSimulationRender} from './simulation_render.js';
 import {knownBestiarySources, knownLootValue} from './fork_discovery_views.js';
-import {vendorState, conditionText} from './ui_polish.js';
+import {vendorState, conditionText} from './ui_polish.js'; import {vendorRefusal} from './trade_notice.js';
 import {reportRepeatKey} from './report_repeats.js';
 import {currentWorldFamily, currentWorldId} from './world_look.js';
 import {ownHoldingsView} from './own_holdings.js';
@@ -122,9 +122,9 @@ document.addEventListener('scroll', positionFocusedItemDetail, true);
 // Empty stock rows are retained only for this trade visit, never saved.
 const seenVendorRows = new Map();
 trader_inventory_div.addEventListener('click', event => {
-    if(event.target.closest('[data-vendor-state="sold-out"], [data-vendor-state="in-basket"]')) {
-        event.stopImmediatePropagation(); event.preventDefault();
-    }
+    const row = event.target.closest('[data-vendor-state="sold-out"], [data-vendor-state="in-basket"]'), notice = document.getElementById('trade_stock_notice');
+    if(row) { event.stopImmediatePropagation(); event.preventDefault(); } // FBK3: the press also says why
+    if(row && notice && current_trader) { notice.textContent = vendorRefusal({state: row.dataset.vendorState, traderName: NPCRegistry.get(current_trader).getName(), itemName: getItemFromKey(row.getAttribute('data-trader_item')).name}); notice.hidden = false; }
 }, true);
 function refreshVendorStates() {
     if(!current_trader) return;

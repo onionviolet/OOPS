@@ -73,7 +73,7 @@ async function prepareVillage(game, kind) {
         return;
     }
     if(kind === 'chronicle') { // elder met, then the People notebook's own Begin chronicle button
-        await game.clickText('village elderVillage neighbor');
+        await game.clickText(/village elder\s*Village neighbor$/); // display name leads (NMR1), role stays
         await game.click('[data-focus-action="talk:villageElder"]');
         await game.click('[data-textline="hello"]');
         await game.click('#center_mode_back');
@@ -84,11 +84,11 @@ async function prepareVillage(game, kind) {
         await game.click('[data-chronicle="begin-open"]');
         return;
     }
-    await game.clickText('village elderVillage neighbor');
+    await game.clickText(/village elder\s*Village neighbor$/); // display name leads (NMR1), role stays
     await game.click('[data-focus-action="talk:villageElder"]');
     await game.click('[data-textline="hello"]');
     await game.click('#center_mode_back');
-    await game.clickText('old craftsmanVillage neighbor');
+    await game.clickText(/old craftsman\s*Village neighbor$/);
     await game.click('[data-focus-action="talk:oldCraftsman"]');
     await game.click('[data-textline="hello"]');
     await game.click('#center_mode_back');

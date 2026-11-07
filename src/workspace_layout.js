@@ -1,4 +1,5 @@
 import {readPort} from './ui_ports.js';
+import {setLocked,lockReason,sayReason} from './locked_control.js';
 import {resolvePanel,selectSection,foldOf} from './panel_folds.js';
 import {seatAllowsPanel,panelPerspective} from './seat_profiles.js';
 import {centerModes} from './center_modes.js';
@@ -158,7 +159,7 @@ function syncPanelHeader(module,state,eligible) {
         const description=purse?`Purse: ${purse}`:statusText;
         setProperty(status,'title',description);setAttribute(status,'aria-label',description);
         setAttribute(header.querySelector('strong'),'aria-expanded',!state.collapsed);
-        for(const control of ['hide','collapse'])setProperty(header.querySelector(`[data-workspace-action="${control}"]`),'disabled',module.critical);
+        for(const control of ['hide','collapse'])setLocked(header.querySelector(`[data-workspace-action="${control}"]`),module.critical?`${panelName} stays open so you can always see it.`:'');
         setProperty(header.querySelector('[data-workspace-action=expand]'),'textContent',module.expanded?'Return':'Expand');
         const collapse=header.querySelector('[data-workspace-action="collapse"]'),collapseLabel=`${state.collapsed?'Open':'Collapse'} ${panelName}`;
         setProperty(collapse,'textContent',state.collapsed?'▸':'▾');setProperty(collapse,'title',collapseLabel);setAttribute(collapse,'aria-label',collapseLabel);setAttribute(collapse,'aria-expanded',!state.collapsed);
@@ -181,6 +182,7 @@ function read(narrow) { try { const raw = localStorage.getItem(layoutStorageKey(
 function apply(id, patch) { owner.layout = changeModule(owner.layout, id, patch); save(); updateWorkspace(); }
 function action(event) {
     const control = event.target.closest('[data-workspace-action]'); if (!control || !owner.root.contains(control)) return;
+    { const why = lockReason(control); if (why) { sayReason(control, why); return; } }
     const a = control.dataset.workspaceAction, id = control.dataset.module, state = owner.layout.modules.find(v => v.id === id);
     if (a === 'presentation') {selectShell(control.value!=='existing',control.value==='proto23-parity');return;}
     if (a === 'shell-move') { if(event.type!=='change')return; const box=control.dataset.box,def=LAYOUT_SPEC.boxes[box],context=placementContext();

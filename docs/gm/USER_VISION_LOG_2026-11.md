@@ -323,3 +323,9 @@ Weibao asked what else could get a deep dive like the prose pass. The agent prop
 > Lets address the same way for each of these
 
 Recorded direction: run each area the way the prose pass ran (sweep, rulebook, check with a baseline ratchet, ranked backlog). The run is authorized; the rule lines the lanes write are proposals (AD32) until he accepts them, and the first fix slices are sequenced after the rulebooks land. Prefixes: PAC (pacing), OPN (openings), NMR (names), CTR (continuity), FBK (feedback). Fast static checks may join `check:rules` with a baseline; checks that play the game get their own npm scripts and stay out of the universal gate (AD36). [Dispatch](dispatch/quality-deep-dives-2026-11-06/CHECKPOINT.md).
+
+Weibao, 2026-11-07, while the lanes ran (a session goal):
+
+> continue accordingly, plan for in case of usage full, fix everything
+
+Recorded direction: the run continues past the rulebooks into fixing what the checks found, with a resume block kept in the dispatch checkpoint in case usage runs out. This supersedes the earlier "first fix slices are sequenced after the rulebooks land" line for this run. Fix rules: ids and saved shape stay, display text and feedback change, false positives get the rulebook's dial with a reason. Rule lines stay proposals (AD32); new NPC display names ("Old Hesk, the village elder" and the rest) are agent proposals he can change.

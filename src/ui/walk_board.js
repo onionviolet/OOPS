@@ -49,7 +49,7 @@ export function walkBoard(view, {move, onToggleMap, mapShown = false} = {}) {
             row.append(chips);
             const walk = moveFor(place.place);
             if (walk) {
-                const button = el('button', `Walk · ${place.minutes} min`, {type: 'button', 'data-lotm': walk.id});
+                const button = el('button', `Walk to ${place.place} · ${place.minutes} min`, {type: 'button', 'data-lotm': walk.id});
                 const reasons = Array.isArray(walk.reasons) ? walk.reasons.join(' ') : '';
                 if (!walk.eligible) { button.disabled = true; button.title = reasons; }
                 button.addEventListener('click', () => { if (move && !button.disabled) move(walk.id); });

@@ -69,11 +69,11 @@ function createPanel() {
     const rootTest=node('button','Test this body’s latent circulation affinity · 6 coins',{type:'button'});rootTest.dataset.lineageRootTest='';rootTest.onclick=()=>{try{domainRegistry.command('inherited_traits','testRoot')();notice='The paid test records this body’s actual latent affinity.';}catch(e){notice=e.message;}render(true);};
     root.append(node('h2', 'Family qualities'), intro, status, rootTest,list);
     const render = visibleRenderer(root, () => ({line: ensure(), notice, coins: readPort('character')?.money ?? 0}), view => {
-        if (!view.line) { intro.textContent = 'Begin a life chronicle in the People notebook to learn what runs in your family.'; status.textContent = ''; list.replaceChildren(); return; }
+        if (!view.line) { intro.textContent = 'Begin a life chronicle in the People notebook to learn what runs in your family.'; status.textContent = ''; list.replaceChildren(); rootTest.disabled = true; status.textContent = 'The test waits for a life chronicle.'; return; }
         const profile = LINEAGE_PROFILES[view.line.profile];
         intro.textContent = `What shows in each of you is plain to see. Which alleles are carried is learned by a test (${TEST_COST} coins each) or from a child. ${profile.reason}`;
         rootTest.disabled=!!view.line.cultivationRoot?.tested||view.coins<TEST_COST||view.line.bodyBinding!==bodyBinding();
-        const affinity=view.line.cultivationRoot;status.textContent=view.notice+(affinity?.tested?` Flow affinity ${affinity.flow}/4; still affinity ${affinity.still}/4. Each matching share adds 1% to that drill’s native intake, whether tested or not.`:' Latent circulation affinity has not been tested.');
+        const affinity=view.line.cultivationRoot;status.textContent=view.notice+(!affinity?.tested&&view.coins<TEST_COST?` The test costs ${TEST_COST} coins.`:'')+(affinity?.tested?` Flow affinity ${affinity.flow}/4; still affinity ${affinity.still}/4. Each matching share adds 1% to that drill’s native intake, whether tested or not.`:' Latent circulation affinity has not been tested.');
         list.replaceChildren(...view.line.members.map(m => {
             const box = node('div', null, {class: 'lineage-member'}), hidden = hiddenLoci(m).length;
             box.append(node('h3', m.id === view.line.selfId ? `${m.name} (you)` : m.name));
