@@ -11,6 +11,7 @@
 import {registerDomain, domainRegistry} from './domain_registry.js';
 import './duties_domain.js';
 import {obligation} from './obligations_ledger.js';
+import {authorityOver} from './authority.js';
 
 export const HEAT_FAMILY = 'heat@1';
 const DAY = 1440, PENCE = {one: 'penny', many: 'pence'};
@@ -137,8 +138,10 @@ function tick(minutes = 0) {
 }
 // A known act: someone saw it or holds the record. An unknown act raises nothing (the caller records it when an audit or informer finds it).
 // `witness` names who knows (the landlady who saw the assault); it is kept with the act, it adds no heat of its own.
-function recordAct({authority, weight = 1, id, at = 0, known = false, witness} = {}) {
+// OB8: when the caller names where it happened (`world`, `place`, optional `state`), the act counts only if the authority's claim reaches that place.
+function recordAct({authority, weight = 1, id, at = 0, known = false, witness, world, place, state} = {}) {
     if(known !== true || !Object.hasOwn(AUTHORITIES, authority) || !(weight > 0)) return false;
+    if(place != null) { const over = authorityOver(state ?? {}, {world, place}); if(!over.reach || over.claimant !== AUTHORITIES[authority].jurisdiction) return false; }
     const actId = String(id ?? `${authority}@${at}`);
     if(slice.acts.some(a => a.id === actId)) return false;
     slice = {...slice, acts: [...slice.acts, {id: actId, authority, weight, age: 0, at: Number.isFinite(at) ? at : 0, ...(typeof witness === 'string' && witness ? {witness: witness.slice(0, 60)} : {})}]};

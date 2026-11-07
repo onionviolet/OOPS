@@ -1,6 +1,10 @@
 // World adapters for livelihoods.js: each reads existing owners only (no save key, no write). Importing this file registers them.
-import {registerLivelihoodSource} from './livelihoods.js';
+import {registerLivelihoodSource, authorityFields} from './livelihoods.js';
+import './authority_sources.js';
+import {domainRegistry} from './domain_registry.js';
+import {HOME_PLACES, HOME_SITE} from './home_content.js';
 import {habitatFacts, HABITAT} from './habitat_care.js';
+const WORLD = 'base.frontier';
 const NONE = (why) => ({kind: 'none', pointer: null, why});
 // Frontier / Village. Courtyard plot (MG06 facts on the player actor) and, when the host passes it, the meadow pen (ctx.habitat = {owner, clock}).
 registerLivelihoodSource('base.frontier', (state, ctx) => {
@@ -13,15 +17,27 @@ registerLivelihoodSource('base.frontier', (state, ctx) => {
             detail: ready ? `${crop} ready to harvest` : growing ? `${crop} growing` : 'bed empty',
             income: null, runBy: 'self',
             // MG06 is a one-time 4-coin right from Mira. Nothing recurring exists to point at (E-G2); say so.
-            obligations: NONE('The plot right was paid once; no dues recur.'), authority: {known: true, who: 'Mira'}});
+            obligations: NONE('The plot right was paid once; no dues recur.'), ...authorityFields(state, {world: WORLD, place: 'Village', registered: true, holder: 'Mira', ctx})});
     }
     if (ctx?.habitat?.owner) {
+        const penAuthority = authorityFields(state, {world: WORLD, place: HABITAT.location, ctx});
         const h = habitatFacts(ctx.habitat.owner, ctx.habitat.clock), s = h.state;
         rows.push({id: 'frontier.village.meadow_pen', kind: 'herd', label: 'Meadow pen',
             stage: !s?.animal ? 'set up' : 'running',
             detail: !s?.animal ? 'no sheep yet' : h.ready ? `${HABITAT.yield} wool ready` : 'sheep in care',
             income: null, runBy: 'self',
-            obligations: NONE('Your own pen; no authority knows of it, so no rent or tax.'), authority: {known: false, who: null}});
+            obligations: NONE(penAuthority.authority.known ? 'Your own pen; the village knows of it but asks nothing recurring.' : 'Your own pen; no authority knows of it, so no rent or tax.'), ...penAuthority});
+    }
+    // A shelter, burrow, nest or tent in the open ground. Where no one claims the place it owes nothing, and the price is the other side of that (no
+    // protection, market or credit). Reads the homes projection unless the host passes ctx.homes.
+    let homes = ctx?.homes;
+    if(!homes) { try { homes = domainRegistry.project('homes')?.homes; } catch { homes = null; } }
+    for(const h of Array.isArray(homes) ? homes : []) {
+        const place = h.id === 'tent' ? h.anchor : HOME_PLACES[h.id] && ['shelter', 'burrow', 'nest'].includes(h.id) ? HOME_SITE : null;
+        if(!place || !h.access) continue;
+        const a = authorityFields(state, {world: WORLD, place, ctx});
+        rows.push({id: `frontier.homestead.${h.id}`, kind: 'homestead', label: h.name || HOME_PLACES[h.id].name, stage: 'set up', detail: a.claim.short,
+            income: null, runBy: 'self', obligations: NONE(a.authority.who ? 'Your own shelter; the village asks nothing recurring of it.' : 'No one claims this land, so no rent or tax; nor does anyone protect it.'), ...a});
     }
     return rows;
 });

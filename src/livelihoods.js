@@ -6,7 +6,9 @@
 //  income      {amount, unit, per, text} where an owner already computes it, else null. Never invented.
 //  runBy       self | hire | group (who does the work today).
 //  obligations {kind: none|rent|tax|dues|wage-terms|other, pointer, why}; pointer names the duties/owed row, or null.
-//  authority   {known, who}. OB8/OB12: where no authority knows of the place, no rent, tax or dues are owed, so known=false forces kind none.
+//  authority   {known, who}, read through authorityOver (src/authority.js) by the world's source, never hard-coded; `claim` carries {reach, why, short} beside it.
+//              A record with no `who` (no one claims the place) owes nothing either. OB8/OB12: where no authority knows of the place, no rent, tax or dues are owed, so known=false forces kind none.
+import {authorityOver} from './authority.js';
 export const STAGES = Object.freeze(['idea', 'set up', 'running', 'automated', 'ended']);
 export const RUNNERS = Object.freeze(['self', 'hire', 'group']);
 export const OBLIGATION_KINDS = Object.freeze(['none', 'rent', 'tax', 'dues', 'wage-terms', 'other']);
@@ -25,7 +27,13 @@ export function validateLivelihood(r) {
     if (!r.obligations || !OBLIGATION_KINDS.includes(r.obligations.kind) || !text(r.obligations.why)) bad('obligations need a kind and a reason.');
     if (!r.authority || typeof r.authority.known !== 'boolean') bad('authority needs known.');
     if (!r.authority.known && r.obligations.kind !== 'none') bad('no authority knows of it, so nothing is owed (OB8).');
+    if(!r.authority.who && r.obligations.kind !== 'none') bad('no one claims the place, so nothing is owed (OB8).');
     return r;
+}
+// The authority fields of a record for a place, from the OB8 seam. `registered` / `holder` come from the world's own facts (a plot right, a lease).
+export function authorityFields(state, {world, place, registered = false, holder = null, ctx = {}}) {
+    const a = authorityOver(state, {world, place, registered, holder, ctx});
+    return {authority: {known: a.knows, who: a.knows && a.claimant ? (a.holder ?? a.claimant) : null}, claim: {reach: a.reach, why: a.why, short: a.short}};
 }
 export function livelihoodsOf(state, ctx = {}) {
     const out = [];
