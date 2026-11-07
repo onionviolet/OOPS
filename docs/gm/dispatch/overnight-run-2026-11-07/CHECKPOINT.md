@@ -212,17 +212,33 @@ Lookup returned (06:35): FD11 has a custom LOTM control lesson (`src/book_world_
 
 **Wave 8 fold gate (07:00).** Build `b19c616644483f4f4af2238ac24e2cf0b7f2c79aecc8897e7643367f72651a6a`; check:arch pass; check:rules 0 new strings; npm test 5596 pass / 0 fail / 5 skip. Committed (O, P, Q).
 
+**Commit `86eac8bcb` (07:05).** Wave 8 (O, P, Q); npm test 5596/0/5. No push.
+
+**Final walk (dispatched 07:07; usage 5-hour 61%, weekly 81%).** One sonnet walker on build `b19c6166...1a6a` (no rebuild during the walk): care on credit and repay with persistence, the LOTM control lesson, and the constables door fight with reload if a probe reaches it.
+
+**Final walk (returned 07:15).** Live from the worktree through `game_new` `checkout=`; bundle `b19c6166...1a6a` at start and end.
+
+| Item | What the player saw | Result | Persistence |
+|---|---|---|---|
+| Care on credit and repay | no route to an aged Village life (the first chronic condition starts at age 45; no probe or fixture sets age) | not reached | n/a |
+| LOTM control lesson (Nighthawk probationer, after the Seer dose) | "Take the control lesson: learn bounded material perception · 1 spirituality, 5 min"; after 6 minutes the lesson left and the next act appeared | partial pass (action state, not the result text: compact view shows no reports log) | save and reload kept 08:06 in the Tingen workroom; export taken, import not run |
+| Constables at the door (Klein's own life) | opened at day 1, 00:00; the fight needs a wanted latch and no fixture sets it | not reached | n/a |
+
+One `game_report_limit` filed (aged-life fixture, wanted-level fixture, reports log in compact view). The persistence changes of this run (promoted constables, care rows, positions exits) are proven by focused round-trip tests and the full suite, not by a native walk; that walk waits on those fixtures (AT31).
+
+**Worktrees.** `work/overnight-20261107/lanes2` removed after checking each of its edits matches `434aa706d`. `work/overnight-20261107/checkout` kept at `86eac8bcb` for the next session (holds only build output beyond HEAD).
+
 ## Resume block (unattended run, 2026-11-07)
 
 Weibao, 2026-11-07 00:13: "make as much progress as possible ... use as much usage to make as much progress, and continue after the 5 hour limit and more".
 - Objective: waves of disjoint foundation slices to floor, committed from an isolated worktree, until the stop condition.
-- Input identity: master `778396479` at start; run commits `b254013c4`, `137319cba`, `db55445d8`, `bc76799bb`, `f8595bf44`, `6a185be67`, `434aa706d`, `388d25a6f`; perf-8gb committed `e45b11c70` in between; dirty but not ours: the whole primary working tree at dispatch (prose, perf, rules, dist).
-- State of the steps: wave 1 dispatched 00:25; A and C returned and recorded; B (walk) out. Wave 2 (D, E) dispatched 00:55.
-- Last evidence: folded wave 1-2 tree (C, D, E) built `bb58918b5b35d7b1e1a048284e737ffbd6805c63acba0d71ee5c502f13e17eb8`; check:arch pass; check:rules pass (0 new player-text strings); npm test running 01:20.
-- Failed approaches: none yet.
-- Next useful action: pick wave 8 from the lookup; at stop, remove `lanes2` and `checkout` worktrees; build in the isolated worktree; gates; commit own paths.
+- Input identity: master `778396479` at start; run commits `b254013c4`, `137319cba`, `db55445d8`, `bc76799bb`, `f8595bf44`, `6a185be67`, `434aa706d`, `388d25a6f`, `86eac8bcb`; perf-8gb committed `e45b11c70` in between; dirty but not ours: the whole primary working tree at dispatch (prose, perf, rules, dist).
+- State of the steps: waves 1-8 returned, recorded and committed (`b254013c4` through `86eac8bcb`); defect fixes A and B committed `bc76799bb` and re-walked; final walk recorded.
+- Last evidence: master `86eac8bcb`; build `b19c616644483f4f4af2238ac24e2cf0b7f2c79aecc8897e7643367f72651a6a`; npm test 5596 pass / 0 fail / 5 skip; check:arch and check:rules pass; final walk: control lesson partial pass, care credit and door fight not reached (no fixtures).
+- Failed approaches: seam-first lanes without a named caller (AT27); writing knowledge for non-persistent fighters (save refuses, use promotion); rebuilding `dist/` while a walker reads it (FR-L8); `game_freeze` for a worktree build (reads the primary).
+- Next useful action: add game MCP fixtures for an aged Village life and a wanted LOTM life (AT31, per `docs/tools/GAME_MCP_LIMITS.md`), then walk care on credit with repay and the constables door fight with save/reload/export/import; after that, AT17 second consumer (a LOTM colleague) and the Gu prepare/meal acts on resources (needs a migration).
 - Usage pacing: read 00:14 EST, 5-hour 25% (resets 03:50), weekly 77% (resets Mon 13:00). Weibao's later words override the 75% weekly stop; this run's ceiling is weekly 92% (stop, leave this block current, about 8% left for his weekend). 5-hour at 85%: start no lane, wake after reset. Five other sessions share the pool.
-- Stop condition (default 92%, Weibao's dial; reason: about 8% stays his until Monday): weekly 92%, or every remaining foundation slice sits inside the collision map, or a blocker that needs Weibao. Reached? Not yet.
+- Stop condition (default 92%, Weibao's dial; reason: about 8% stays his until Monday): weekly 92%, or every remaining foundation slice sits inside the collision map, or a blocker that needs Weibao. Reached? Not yet (07:20, weekly 81%): next is the game MCP fixtures lane; slices needing new player text or HP files stay out while the prose session and the HP worktree hold them.
 
 Resume prompt for a fresh session: "Continue the unattended run from the Resume block in docs/gm/dispatch/overnight-run-2026-11-07/CHECKPOINT.md. Check `git status` and `git log -3` against its input identity first; finish the next useful action; keep the block current; commit own paths from the isolated worktree, no push."
 
