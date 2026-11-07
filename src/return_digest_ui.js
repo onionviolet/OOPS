@@ -10,8 +10,8 @@ export function createReturnDigestRow({doc = document, markRead, openPerson = nu
     button.type = 'button';
     const bankLine = node(doc, 'p', '', 'return-digest-bank'), spend = node(doc, 'button', 'Spend banked time'), bankStatus = node(doc, 'p', '', 'return-digest-status');
     spend.type = 'button'; spend.id = 'away_bank_spend';
-    const works = node(doc, 'p', '', 'return-digest-livelihoods');
-    root.append(heading, groups, works, button, status, bankLine, spend, bankStatus);
+    const works = node(doc, 'p', '', 'return-digest-livelihoods'), money = node(doc, 'p', '', 'return-digest-money');
+    root.append(heading, groups, money, works, button, status, bankLine, spend, bankStatus);
     let signature = '';
     button.addEventListener('click', () => {
         try {markRead(); status.textContent = '';}
@@ -35,13 +35,15 @@ export function createReturnDigestRow({doc = document, markRead, openPerson = nu
             if (bank.lastSpend) bankStatus.textContent = bank.lastSpend;
         } else {bankLine.textContent = ''; bankStatus.textContent = '';}
         button.hidden = !shown; status.hidden = !shown;
-        if (!shown) {groups.replaceChildren(); works.textContent = ''; heading.textContent = 'While you were away'; signature = ''; return;}
+        if (!shown) {groups.replaceChildren(); works.textContent = ''; money.textContent = ''; heading.textContent = 'While you were away'; signature = ''; return;}
         button.disabled = !writable;
         button.title = writable ? 'Hide this until more time passes.' : 'Saving is unavailable, so this stays unread.';
-        const next = JSON.stringify([digest.spanText, digest.groups, digest.livelihoods]);
+        const next = JSON.stringify([digest.spanText, digest.groups, digest.livelihoods, digest.money]);
         if (next === signature) return;
         signature = next;
         heading.textContent = `While you were away · ${digest.spanText}`;
+        const m = digest.money, mtext = m ? [...m.lines.map(l => l.text), ...m.exceptions.map(e => `${e.text}.`)].join(' ') : '';
+        money.hidden = !mtext; money.textContent = mtext;
         works.hidden = !digest.livelihoods?.length;
         works.textContent = digest.livelihoods?.length ? `Your work: ${digest.livelihoods.join(' ')}` : '';
         groups.replaceChildren(...digest.groups.map(g => {

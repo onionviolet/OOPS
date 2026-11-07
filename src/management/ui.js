@@ -6,6 +6,7 @@ import './group_source.js';
 import '../livelihood_sources.js'; // Frontier livelihood source (lane E)
 import {groupsOf,groupLines} from '../organizations.js';
 import {moneyText} from '../reveal_chain.js';
+import {domainRegistry} from '../domain_registry.js';
 const node=(tag,text='',attrs={})=>{const n=document.createElement(tag);n.textContent=text;for(const[k,v]of Object.entries(attrs))n.setAttribute(k,v);return n;};
 const MOVED_KEY='oops.management.movedNoticeSeen';
 const seenMoved=()=>{try{return localStorage.getItem(MOVED_KEY)==='1';}catch{return false;}};
@@ -20,7 +21,17 @@ export function createManagementPanel({read,registry,command}) {
  const overview=node('div','',{class:'organization-overview'});
  const sections=node('div'),history=node('details'),hs=node('summary','Your courtyard records'),records=node('div');history.append(hs,records);
  const groupsNote=node('p','',{class:'organization-note organization-groups','aria-label':'Groups here'});
- element.append(moved,terms,notice,overview,groupsNote,sections,history);
+ // Lane F step 2: found a small gathering (O1). Direct domain command, not the courtyard `command` prop (that routes to the simulation).
+ const found=node('details',''),foundSum=node('summary','Found a small group'),foundBody=node('div','',{class:'expedition_card'});found.append(foundSum,foundBody);
+ const nameIn=node('input','',{type:'text',maxlength:'40','aria-label':'Group name',placeholder:'Group name'}),dialSel={};
+ const DIAL_LABEL={admission:'Who may join',dues:'Dues',secrecy:'How openly it meets',rhythm:'Meets'},foundBtn=node('button','Found the group',{type:'button'}),foundWhy=node('p','',{class:'organization-note'}),foundTerms=node('p','',{class:'organization-note'}),mine=node('div');
+ {const lab=node('label','Name ');lab.append(nameIn);foundBody.append(lab);}
+ for(const[dial,values]of Object.entries(domainRegistry.command('organizations','dials')?.()||{})){const lab=node('label',`${DIAL_LABEL[dial]} `),sel=node('select','',{'aria-label':DIAL_LABEL[dial]});for(const v of values)sel.append(node('option',v,{value:v}));sel.addEventListener('change',()=>render());dialSel[dial]=sel;lab.append(sel);foundBody.append(lab);}
+ nameIn.addEventListener('input',()=>render());
+ foundBody.append(foundTerms,foundBtn,foundWhy,mine);
+ const dials=()=>({name:nameIn.value,...Object.fromEntries(Object.entries(dialSel).map(([k,sel])=>[k,sel.value]))});
+ foundBtn.addEventListener('click',()=>{try{domainRegistry.command('organizations','found')(dials());nameIn.value='';message='Group founded and saved.';}catch(e){message=e.message;}render();});
+ element.append(moved,terms,notice,overview,groupsNote,found,sections,history);
  const rows=new Map(),groups=new Map();let message='',selected=null,drawn='';
  function drawOverview(org) {
   const view=org&&organizationView(org);
@@ -61,6 +72,13 @@ export function createManagementPanel({read,registry,command}) {
   notice.textContent=snapshot.error||message;notice.hidden=!notice.textContent;
   drawOverview(hidden||!view.opened?null:courtyardOrganization(snapshot.state,registry,snapshot.context));
   groupsNote.textContent=hidden||!view.opened?'':groupLines(groupsOf(snapshot.state)).join(' ');groupsNote.hidden=!groupsNote.textContent;
+  found.hidden=hidden||!view.opened||!domainRegistry.command('organizations','quote');
+  if(!found.hidden){const q=domainRegistry.command('organizations','quote')(dials());
+   foundTerms.textContent=`Costs ${q.cost} coins now.${q.because?` ${q.because}`:''} Dues are recorded but not collected yet.`;
+   foundBtn.disabled=!snapshot.canWrite||!q.eligible||!nameIn.value.trim();foundWhy.textContent=nameIn.value.trim()||!q.eligible?q.reasons.join(' '):'Name the group to found it.';foundWhy.hidden=!foundWhy.textContent;
+   const live=groupsOf(snapshot.state).filter(g=>g.charter&&g.status==='active'),sig=live.map(g=>g.id).join('|');
+   if(mine.dataset.sig!==sig){mine.dataset.sig=sig;mine.replaceChildren(...live.map(g=>{const b=node('button',`Dissolve ${g.name}`,{type:'button'});b.addEventListener('click',()=>{try{domainRegistry.command('organizations','dissolve')({id:g.id});message=`${g.name} dissolved.`;}catch(e){message=e.message;}render();});return b;}));}
+   for(const b of mine.children)b.disabled=!snapshot.canWrite;}
   const seen=new Set(),visibleGroups=new Set();
   for(const s of view.sections) {
    visibleGroups.add(s.id);let g=groups.get(s.id);

@@ -12,6 +12,15 @@ export function registerDutySet(id, set) {
     if(typeof id !== 'string' || !id || !Array.isArray(set?.defs) || typeof set.active !== 'function' || typeof set.minute !== 'function') throw Error('Invalid duty set.');
     sets.set(id, Object.freeze({...set, defs: Object.freeze([...set.defs])}));
 }
+// OB6: inputs for the digest's weekly money line, from live sets that declare `money: {world, fmt?, paidLabel?}`. Read-only.
+export function dutyMoneyInputs(owed = []) {
+    const out = [];
+    for(const set of sets.values()) {
+        if(!set.money) continue;
+        try { if(set.active(set.state?.())) out.push({world: set.money.world, defs: set.defs, slice, owed, fmt: set.money.fmt, paidLabel: set.money.paidLabel}); } catch { /* world not ready */ }
+    }
+    return out;
+}
 // Active sets with their current minute; a set whose reader throws is skipped, never a reason to stop the clock.
 function live() {
     const out = [];
@@ -63,6 +72,21 @@ function attend({dutyId} = {}) {
     }
     throw Error('That duty is not yours to keep right now.');
 }
+// OB10: pay the back rent in one go, from the purse, because the player chose to (a fight's end, or a knock answered). Never runs on the clock.
+// Returns {missed, amount, paid}; short purse or no seam pays nothing and leaves the count alone. The count clears only if the debit lands.
+function settleArrears({dutyId} = {}) {
+    for(const {defs, purse, st} of live()) {
+        const d = defs.find(x => x.id === dutyId && x.dues);
+        if(!d) continue;
+        const missed = slice.missed[dutyId] ?? 0, amount = missed * d.dues.amount;
+        if(!missed || !purse || !(purse.balance(st) >= amount)) return {missed, amount, paid: false};
+        const before = slice;
+        slice = answerMisses(slice, dutyId);
+        try { purse.pay(amount, Array.from({length: missed}, () => ({id: dutyId, cycle: null, amount: d.dues.amount})), st); } catch(error) { slice = before; throw error; }
+        return {missed, amount, paid: true};
+    }
+    throw Error('That duty has no arrears to settle right now.');
+}
 // rows are the shared-ledger rows; items add what the panel needs (open, minutes left, missed) per def, in words-ready form.
 function project() {
     const sets = live(), rows = [], items = [];
@@ -88,4 +112,4 @@ registerDomain({id: 'duties', deps: [], initialState: freshDuties,
     validate: s => { if(s != null && s.family === DUTIES_FAMILY) validateDuties(s); },
     migrate: migrateDuties,
     load: s => { slice = migrateDuties(s); },
-    tick, projection: project, commands: {attend, setOrder}});
+    tick, projection: project, commands: {attend, setOrder, settleArrears}});

@@ -44,7 +44,7 @@ export function migrateHeat(slice) {
     const obj = o => o && typeof o === 'object' && !Array.isArray(o) ? o : {};
     const known = id => Object.hasOwn(AUTHORITIES, id);
     const acts = (Array.isArray(slice.acts) ? slice.acts : []).filter(a => a && known(a.authority) && Number.isFinite(a.weight) && a.weight > 0 && nat(a.age) && typeof a.id === 'string')
-        .map(a => ({id: a.id, authority: a.authority, weight: a.weight, age: a.age, at: Number.isFinite(a.at) ? a.at : 0}));
+        .map(a => ({id: a.id, authority: a.authority, weight: a.weight, age: a.age, at: Number.isFinite(a.at) ? a.at : 0, ...(typeof a.witness === 'string' && a.witness ? {witness: a.witness.slice(0, 60)} : {})}));
     const live = Object.fromEntries(Object.entries(obj(slice.live)).filter(([k, v]) => known(k) && v === true));
     const past = Object.fromEntries(Object.entries(obj(slice.past)).filter(([k, v]) => known(k) && nat(v)));
     const marks = Object.fromEntries(Object.entries(obj(slice.marks)).filter(([k, v]) => k && v && known(v.authority) && Number.isFinite(v.at)).map(([k, v]) => [k, {authority: v.authority, at: v.at}]));
@@ -136,11 +136,12 @@ function tick(minutes = 0) {
     slice = JSON.stringify(next) === JSON.stringify(slice) ? slice : next;
 }
 // A known act: someone saw it or holds the record. An unknown act raises nothing (the caller records it when an audit or informer finds it).
-function recordAct({authority, weight = 1, id, at = 0, known = false} = {}) {
+// `witness` names who knows (the landlady who saw the assault); it is kept with the act, it adds no heat of its own.
+function recordAct({authority, weight = 1, id, at = 0, known = false, witness} = {}) {
     if(known !== true || !Object.hasOwn(AUTHORITIES, authority) || !(weight > 0)) return false;
     const actId = String(id ?? `${authority}@${at}`);
     if(slice.acts.some(a => a.id === actId)) return false;
-    slice = {...slice, acts: [...slice.acts, {id: actId, authority, weight, age: 0, at: Number.isFinite(at) ? at : 0}]};
+    slice = {...slice, acts: [...slice.acts, {id: actId, authority, weight, age: 0, at: Number.isFinite(at) ? at : 0, ...(typeof witness === 'string' && witness ? {witness: witness.slice(0, 60)} : {})}]};
     return true;
 }
 // Settle one fine through the purse seam: debit first (the seam throws if it cannot), then mark paid. Returns pence paid.
@@ -153,6 +154,18 @@ function settleFine(key, owed) {
     purse.pay(f.amount, key);
     slice = {...slice, fines: {...slice.fines, [key]: {...f, settled: true}}};
     return f.amount;
+}
+// OB10: an authority answers a beating by raising what you owe, never by taking it while you are away (the caller is a fight the player chose).
+// Raises the open fine for this duty and episode by `add` pence, or writes it now at the palette amount plus `add` when it was not due yet.
+// Returns the new amount, or null when there is no purse seam (no fine can exist, OB4) or that episode's fine is already settled.
+function raiseFine({authority, dutyId, add = 0, at = 0} = {}) {
+    const def = AUTHORITIES[authority];
+    if(!def?.fine || !purse || !nat(add) || typeof dutyId !== 'string') return null;
+    const ep = epochOf(slice, authority), key = `${dutyId}@${ep}`, f = slice.fines[key];
+    if(f?.settled) return null;
+    const amount = (f?.amount ?? def.fine.amount) + add;
+    slice = {...slice, fines: {...slice.fines, [key]: f ? {...f, amount} : {authority, duty: dutyId, epoch: ep, amount, at: Number.isFinite(at) ? at : 0, settled: false}}};
+    return amount;
 }
 function project() {
     const v = view(slice, readDuties());
@@ -173,4 +186,4 @@ registerDomain({id: 'heat', deps: ['duties'], initialState: freshHeat,
     save: () => isEmpty(slice) ? undefined : structuredClone(slice), // an untouched life writes no key
     validate: s => { if(s != null && s.family === HEAT_FAMILY) validateHeat(s); },
     migrate: migrateHeat, load: s => { slice = migrateHeat(s); },
-    tick, projection: project, commands: {recordAct, settleFine}});
+    tick, projection: project, commands: {recordAct, settleFine, raiseFine}});

@@ -42,7 +42,7 @@ export function configureLotm(p){
  registerDutySet('lotm_civil',{defs:LOTM_CIVIL_DUTIES,state:()=>p.state(),active:st=>lotmDutyHeld(st,LOTM_CIVIL_DUTY_ID),minute:st=>st.clock});
  // Rent is a standing order on the same clock: settles through the host's purse seam, never a click.
  configureHeatPurse({balance:()=>host.purseBalance(),pay:amount=>host.payFine(amount)});
- registerDutySet('lotm_rent',{defs:LOTM_RENT,state:()=>p.state(),active:st=>lotmBe(st),minute:st=>st.clock,purse:{balance:()=>host.purseBalance(),pay:(amount,paid)=>host.payDues(amount,paid)}});
+ registerDutySet('lotm_rent',{defs:LOTM_RENT,state:()=>p.state(),active:st=>lotmBe(st),minute:st=>st.clock,purse:{balance:()=>host.purseBalance(),pay:(amount,paid)=>host.payDues(amount,paid)},money:{world:'Tingen'}});
  castLocationRestore=createCastLocationRestore({locations:p.locations,
   createLocation:definition=>new p.SafeLocation({...definition,is_unlocked:true,npcs:[],connected_locations:[],is_under_roof:true,tags:{book_world_lotm:true},entrance_rewards:{}}),
   onResolved:place=>{if(p.location()===place.id)p.refreshLocationIdentity?.(place);}});

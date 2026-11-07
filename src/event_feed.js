@@ -4,6 +4,7 @@ import {lifeRecordView} from './life_record.js';
 import {pursuitView} from "./pursuit.js";
 import {worldDayNews} from "./world_calendar.js";
 import {consequenceNews} from "./consequences.js";
+import {tingenDeckNews} from "./book_world_lotm_deck.js";
 // The world an occurrence's definition pins through an `actor.world` requirement (null when it pins none). Occurrences keep no world of
 // their own, so a Frontier card seen before a crossing must not read as news in the world the player now lives in (AT26).
 const pinnedWorld = rule => {
@@ -105,6 +106,8 @@ export function eventFeed(state, registry, facts = {}, lifeRecord = null) {
     for(const e of worldDayNews(state)) news.push({id:e.id,at:Math.max(0,state.clock-e.ageMinutes),text:e.text});
     // FD16 layer 2: state-triggered consequences (no draw, no save field); ids are built from their cause.
     for(const e of consequenceNews(state)) news.push(e);
+    // FD16 layers 1 and 3 for Tingen: scheduled market/service days and the seeded quiet-hours deck (derived, no save field, empty elsewhere).
+    for(const e of tingenDeckNews(state)) news.push(e);
     const order = (a,b) => b.at-a.at || a.id.localeCompare(b.id);
     leads.sort((a,b) => Number(b.available)-Number(a.available) || a.at-b.at || a.id.localeCompare(b.id));
     const lifeView=state.chronicle ? lifeExperienceView(state.chronicle) : null;
