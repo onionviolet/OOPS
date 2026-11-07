@@ -22,6 +22,7 @@ export const SCENARIOS = Object.freeze({
     'village-workshop-unenrolled': {summary: 'DEV SEEDED craftsman access; native greeting completed, no local simulation enrolled. Open Notebook > People > Craftsman & workshop.', recipe: {days: 0, patch: 'craftsman', prepare: 'workshop'}},
     'village-rival': {summary: 'DEV SEEDED craftsman access; native crossing inspection, field membership and Mara meeting. Open Notebook > People > Road contest.', recipe: {days: 0, patch: 'craftsman', prepare: 'rival'}},
     'village-aged-chronic': {summary: 'DEV SEEDED: Village chronicle begun, then aged to 46 with stage 1 stiff joints and a 3-coin purse. Open Years & company: Treat on credit shows.', recipe: {days: 0, prepare: 'chronicle', finish: 'agedChronic'}},
+    'village-standing': {summary: 'DEV SEEDED: fresh Village hero with Village standing 10 (character.reputation), so Mira and Sela agree to join a founded group (AT32 invite-and-stake walk).', recipe: {days: 0, finish: 'villageStanding'}},
     'lotm-klein-wanted': {summary: 'DEV SEEDED (needs private_packs/lotm-cast): Be Klein Moretti started through the panel, then the Tingen police hold him as wanted and the constables latch is set. Constables at the door opens.', recipe: {days: 0, prepare: 'klein', finish: 'kleinWanted'}},
     'perf-fresh': {summary: 'Committed perf fixture: fresh life.', file: 'tests/fixtures/perf/fresh.json'},
     'perf-mid': {summary: 'Committed perf fixture: mid-game life.', file: 'tests/fixtures/perf/mid.json'},
@@ -43,6 +44,12 @@ const FINISH = {
         if(!out.expansion.lotm) throw new Error('kleinWanted needs a started Tingen life.');
         out.heat = {family: 'heat@1', acts: [{id: 'dev-seed:wanted', authority: 'tingen_police', weight: 6, age: 0, at, witness: 'dev seed'}], live: {tingen_police: true}, past: {}, marks: {}, fines: {}};
         out.constables = {family: 'constables@1', handled: [], lines: [], latch: {at}, bounty: null, hooks: {}, sentence: null, arrests: 0, door: null};
+        return out;
+    },
+    // DEV SEEDED stand-in for weeks of Village work: saved reputation total 10 (Mira joins at 6, Sela at 10; Orin and Bram stay out). Purse and story untouched.
+    villageStanding: save => {
+        const out = structuredClone(save);
+        out.character.reputation = {...out.character.reputation, Village: 10};
         return out;
     },
     agedChronic: save => {
@@ -118,7 +125,10 @@ export async function scenarioSave(name, {seed = 1} = {}) {
     const def = SCENARIOS[name];
     if(!def) throw new Error(`Unknown scenario ${name}. Known: ${Object.keys(SCENARIOS).join(', ')}.`);
     if(def.file) return readFile(join(ROOT, def.file), 'utf8');
-    if(!def.recipe.days && !def.recipe.patch && !def.recipe.prepare) return null;
+    if(!def.recipe.days && !def.recipe.patch && !def.recipe.prepare && !def.recipe.finish) return null;
+    const finish = def.recipe.finish ? FINISH[def.recipe.finish] : null;
+    if(def.recipe.finish && !finish) throw new Error(`Unknown scenario finish ${def.recipe.finish}.`);
+    const parse = v => typeof v === 'string' ? JSON.parse(v) : v;
     const cached = join(CACHE_DIR, `${name}-s${seed}-${await sourceStamp()}.json`);
     try {return await readFile(cached, 'utf8');} catch {/* build below */}
     const game = await boot(null, {seed});
@@ -131,10 +141,9 @@ export async function scenarioSave(name, {seed = 1} = {}) {
         if(def.recipe.prepare) {
             await game.load(save);
             await prepareVillage(game, def.recipe.prepare);
-            const done = game.snapshot(), finish = def.recipe.finish ? FINISH[def.recipe.finish] : null;
-            if(def.recipe.finish && !finish) throw new Error(`Unknown scenario finish ${def.recipe.finish}.`);
-            text = JSON.stringify(finish ? finish(typeof done === 'string' ? JSON.parse(done) : done) : done);
-        } else text = JSON.stringify(save);
+            const done = game.snapshot();
+            text = JSON.stringify(finish ? finish(parse(done)) : done);
+        } else text = JSON.stringify(finish ? finish(parse(save)) : save); // a finish applies with or without a prepare step
     }
     finally {game.close();}
     await mkdir(CACHE_DIR, {recursive: true});
