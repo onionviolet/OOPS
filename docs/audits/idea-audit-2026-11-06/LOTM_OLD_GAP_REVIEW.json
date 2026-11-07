@@ -1,0 +1,228 @@
+{
+  "inputs": {
+    "private_packs/lotm-cast/cast.json": "ccfaa823fbdee1ea1bb3c98226583dadb8eec238940dd3da850fd01dea5d76b6",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/cards-2026-10-29/cards-ch1-24.jsonl": "cb3b3c9c798a8e861308721c1a18def26251d04d64d53cda12057ec4709f9aff",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/m4-whole-book-2026-10-29/merged/scenes.jsonl": "27540d66f80aeec3301aab50bc00a297e07ab99e55ade4dabdfc6eb46bc3735b",
+    "docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/routine-r3/klein-slots.jsonl": "2ccca964c6bf5bd719ae92e106d8d9cc932aaf404d39cadcd6bece3831a94c2c"
+  },
+  "cards": {
+    "total": 157,
+    "bound": 66,
+    "unbound": 91,
+    "unboundByShardVolume": {
+      "3": 17,
+      "5": 5,
+      "6": 24,
+      "7": 7,
+      "8": 38
+    },
+    "currentBuilderAdmits": 157,
+    "fixture": {
+      "sceneShard": "lotm6c001m",
+      "bareLocator": "zh \u7b2c1\u7ae0 p1",
+      "actual": {
+        "book": 0,
+        "ch": 1
+      }
+    },
+    "currentPackEventCards": 0
+  },
+  "slots": {
+    "total": 322,
+    "filled": 240,
+    "gap": 82,
+    "runtimeReady": 0,
+    "sourceMissingAfter30": 305
+  },
+  "historicalVerifier": {
+    "exit": 1,
+    "passedBeforeFailure": [
+      "91 unique decided gaps/provenance",
+      "322 slots/240 candidates/82 gaps",
+      "proposed patch66retained/91excluded in memory"
+    ],
+    "failed": "Historical cast input SHA mismatch",
+    "expectedCastSha": "9fe7cf49def248e3b54531ffb5a0e2149103258e36dd309d9af309a83c8d52d9"
+  },
+  "current_coverage_proxy": {
+    "counts": {
+      "customs": {
+        "total": 196,
+        "consumed": 1,
+        "missing": 195
+      },
+      "dated events": {
+        "total": 758,
+        "consumed": 242,
+        "missing": 516
+      },
+      "opening hours": {
+        "total": 171,
+        "consumed": 0,
+        "missing": 171
+      },
+      "people": {
+        "total": 270,
+        "consumed": 270,
+        "missing": 0
+      },
+      "people_other": {
+        "total": 131,
+        "consumed": 0,
+        "missing": 131
+      },
+      "places": {
+        "total": 438,
+        "consumed": 315,
+        "missing": 123
+      },
+      "prices": {
+        "total": 430,
+        "consumed": 99,
+        "missing": 331
+      },
+      "routines": {
+        "total": 1852,
+        "consumed": 3,
+        "missing": 1849
+      },
+      "rules.ability": {
+        "total": 363,
+        "consumed": 5,
+        "missing": 358
+      },
+      "rules.craft": {
+        "total": 103,
+        "consumed": 52,
+        "missing": 51
+      },
+      "rules.custom": {
+        "total": 335,
+        "consumed": 1,
+        "missing": 334
+      },
+      "rules.institution": {
+        "total": 201,
+        "consumed": 5,
+        "missing": 196
+      },
+      "rules.law": {
+        "total": 154,
+        "consumed": 3,
+        "missing": 151
+      },
+      "rules.other": {
+        "total": 134,
+        "consumed": 3,
+        "missing": 131
+      },
+      "rules.potion": {
+        "total": 147,
+        "consumed": 45,
+        "missing": 102
+      },
+      "rules.reset": {
+        "total": 2,
+        "consumed": 0,
+        "missing": 2
+      },
+      "rules.rite": {
+        "total": 245,
+        "consumed": 47,
+        "missing": 198
+      },
+      "rules.spell": {
+        "total": 27,
+        "consumed": 4,
+        "missing": 23
+      },
+      "services": {
+        "total": 194,
+        "consumed": 2,
+        "missing": 192,
+        "priced": 97
+      }
+    },
+    "consumerProxy": "whole id token or volume 1 locator",
+    "gameFiles": [
+      "private_packs/lotm-cast/cast.json",
+      "private_packs/lotm-ingredients/ingredients.json",
+      "src/book_world_lotm_abilities.js",
+      "src/book_world_lotm_actions.js",
+      "src/book_world_lotm_acts_host.js",
+      "src/book_world_lotm_bands.js",
+      "src/book_world_lotm_be_clients.js",
+      "src/book_world_lotm_be_firearm.js",
+      "src/book_world_lotm_be_seer.js",
+      "src/book_world_lotm_bench.js",
+      "src/book_world_lotm_brew.js",
+      "src/book_world_lotm_broker.js",
+      "src/book_world_lotm_card.js",
+      "src/book_world_lotm_cast.js",
+      "src/book_world_lotm_cast_days.js",
+      "src/book_world_lotm_cast_host.js",
+      "src/book_world_lotm_cast_reveal.js",
+      "src/book_world_lotm_causes.js",
+      "src/book_world_lotm_cities.js",
+      "src/book_world_lotm_clearance.js",
+      "src/book_world_lotm_collector.js",
+      "src/book_world_lotm_constables.js",
+      "src/book_world_lotm_content.js",
+      "src/book_world_lotm_deck.js",
+      "src/book_world_lotm_districts.js",
+      "src/book_world_lotm_div_supply.js",
+      "src/book_world_lotm_divination_method.js",
+      "src/book_world_lotm_domain.js",
+      "src/book_world_lotm_duties.js",
+      "src/book_world_lotm_entry.js",
+      "src/book_world_lotm_envelope.js",
+      "src/book_world_lotm_events.js",
+      "src/book_world_lotm_fight.js",
+      "src/book_world_lotm_generated.js",
+      "src/book_world_lotm_guard.js",
+      "src/book_world_lotm_harm.js",
+      "src/book_world_lotm_host.js",
+      "src/book_world_lotm_ids.js",
+      "src/book_world_lotm_inquiry.js",
+      "src/book_world_lotm_kit.js",
+      "src/book_world_lotm_livelihoods.js",
+      "src/book_world_lotm_lives.js",
+      "src/book_world_lotm_merit.js",
+      "src/book_world_lotm_organizations.js",
+      "src/book_world_lotm_path.js",
+      "src/book_world_lotm_pathways.js",
+      "src/book_world_lotm_pay.js",
+      "src/book_world_lotm_positions.js",
+      "src/book_world_lotm_readiness.js",
+      "src/book_world_lotm_records_host.js",
+      "src/book_world_lotm_ritual.js",
+      "src/book_world_lotm_rows.js",
+      "src/book_world_lotm_seq7.js",
+      "src/book_world_lotm_sheets.js",
+      "src/book_world_lotm_state.js",
+      "src/book_world_lotm_sun_rows.js",
+      "src/book_world_lotm_tabs.js",
+      "src/book_world_lotm_threshold.js",
+      "src/book_world_lotm_ui.js",
+      "src/book_world_lotm_upcoming.js",
+      "src/lotm_craft_rows.js",
+      "src/lotm_divination_rows.js",
+      "src/lotm_formula_rows.js",
+      "src/lotm_potion_rule_rows.js",
+      "src/lotm_records_rows.js",
+      "src/lotm_rite_rows.js",
+      "src/lotm_summons_rows.js",
+      "src/cast_schedule.js"
+    ],
+    "missingKleinSlots": 413,
+    "missingKleinAfterChapter30": 369,
+    "identity": "043951e6dc9602359e7f251ab714ce8616474ccc4fa1aa9a2a4ace576d3124ee",
+    "qualification": "Token/locator/quantity-carrier proxy, not played mechanisms, source fidelity, canon pricing or runtime-ready schedules."
+  },
+  "current_b8_proof_stage_indices": {
+    "book.lotm.b8.issue": 421,
+    "book.lotm.b8.load": 422,
+    "book.lotm.b8.fire": 423,
+    "book.lotm.b8.fire2": 424
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "head": "93dcc52c9335e04d9349080a225f91e83b76b59a",
+  "created_at": "2026-11-07T04:04:23.791737+00:00",
+  "files": [
+    {
+      "path": "docs/ABILITY_RULES.md",
+      "sha256": "d8d559d997e3c2e687f749b1332e2fc153e4129bf769677c1c786f37ce375bbe",
+      "lines": 348,
+      "read_ranges": [
+        [
+          1,
+          348
+        ]
+      ]
+    },
+    {
+      "path": "src/adaptation_ledger.js",
+      "sha256": "3d7b7a7f6053a3bc390676b15afe68442683d9b9c855fda7ff47c2a7032f5669",
+      "lines": 147,
+      "read_ranges": [
+        [
+          1,
+          147
+        ]
+      ]
+    },
+    {
+      "path": "src/adaptation_catalogue.js",
+      "sha256": "5c6e14368ee8b9661a52373648a6072c3945b082f007af2fa92d69cd720937d9",
+      "lines": 41,
+      "read_ranges": [
+        [
+          1,
+          41
+        ]
+      ]
+    },
+    {
+      "path": "tests/adaptation_ledger.test.js",
+      "sha256": "6fcbe89d5e4481d9b5dfcf9f41cec248b36200ce036411f9cee11e419856f82b",
+      "lines": 97,
+      "read_ranges": [
+        [
+          1,
+          97
+        ]
+      ]
+    },
+    {
+      "path": "docs/emergent/E8E_ADAPTATION.md",
+      "sha256": "a27f58c9a87b23c6e7155445029352fecba8431a1942cbae638d2285e57716a8",
+      "lines": 238,
+      "read_ranges": [
+        [
+          1,
+          238
+        ]
+      ]
+    },
+    {
+      "path": "src/vow_rules.js",
+      "sha256": "a0e5793f301f9668908829d6cdf3ae1497c3fe3dba623591f26616d6162b35af",
+      "lines": 52,
+      "read_ranges": [
+        [
+          1,
+          52
+        ]
+      ]
+    },
+    {
+      "path": "src/ability_records.js",
+      "sha256": "b682974e067a9722ba2758da127a5af75d53252dc669a1b41e14994f2d4fdbfd",
+      "lines": 138,
+      "read_ranges": [
+        [
+          70,
+          115
+        ]
+      ]
+    },
+    {
+      "path": "src/lineage_traits.js",
+      "sha256": "baf42afc78432977fd4364835a033069f1f668a3ceb24e51b17a3f640e81b75c",
+      "lines": 174,
+      "read_ranges": [
+        [
+          1,
+          60
+        ]
+      ]
+    },
+    {
+      "path": "src/book_world_lotm_generated.js",
+      "sha256": "4cbb4332c8730e416a9a5dcc26baf203122eab1380840e74b254b30d906ebbf9",
+      "lines": 90,
+      "read_ranges": [
+        [
+          64,
+          89
+        ]
+      ]
+    },
+    {
+      "path": "src/book_world_gu_keeper_domain.js",
+      "sha256": "c45f74b7fb0b9cd77f582bf744ebf1f8d2dd152de1cc898606cb5ff6eed29418",
+      "lines": 85,
+      "read_ranges": [
+        [
+          1,
+          85
+        ]
+      ]
+    }
+  ],
+  "test": {
+    "command": "node --test tests/adaptation_ledger.test.js",
+    "exit_code": 0,
+    "pass": 9,
+    "fail": 0
+  },
+  "limits": "static selected reads and pure tests, no gameplay floor or canon recheck"
+}

@@ -1,0 +1,44 @@
+{
+  "at": "2026-11-07T02:06:35.969Z",
+  "route": "fixture: day 32, location set directly; no story replay or browser proof",
+  "privateCastSha256": "766a34c349649d5ec99021f058791dbc28d01e57397a8829868b5608cbe5c3d8",
+  "actCount": 56,
+  "lastRelocations": [
+    {
+      "actor": "player",
+      "location": "book.hp.lead.homebound"
+    },
+    {
+      "actor": "book.hp.lead.hagrid",
+      "location": "book.hp.lead.paddington"
+    }
+  ],
+  "sources": [
+    {
+      "path": "src/world_packs/book_hp_lead_life_data.js",
+      "sha256": "4cf59d9327e5ef9a5bed2bf218e91106d2680bc5af00e7cee93b16464347b3f1"
+    },
+    {
+      "path": "src/book_world_hp_lead_pack.js",
+      "sha256": "035712685b2b812f468ca051a5c7940b8fd319488bd5f9857ced81a7f574c9dc"
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "95c45e920ac47bedb46d4eb00dca2dc153312e1708d3d661abd23056f8ad82e5"
+    }
+  ],
+  "results": [
+    {
+      "location": "book.hp.lead.cupboard",
+      "eligible": true,
+      "reasons": []
+    },
+    {
+      "location": "book.hp.lead.homebound",
+      "eligible": false,
+      "reasons": [
+        "Return to book.hp.lead.cupboard."
+      ]
+    }
+  ]
+}

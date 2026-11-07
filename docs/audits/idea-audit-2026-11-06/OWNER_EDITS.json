@@ -1,0 +1,25 @@
+{
+  "changes": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "original": "SLC121 ladder slice built and committed on branch `worktree-agent-a99cafb056410fd34`, not merged. Next: Weibao decides whether to merge the slice.",
+      "replacement": "SLC121 ladder slice merged as `1a8ef39b7` (ancestor of audit HEAD `7eebce4e0`, checked 2026-11-06). Source integration is established; its proposal and below-floor verification status remain. The merge retained master dist because the branch bundle was 179 commits old. Next: use the [idea audit](../audits/IDEA_AUDIT_2026-11-06.md) for remaining proof, not a repeated merge decision.",
+      "basis": "merge-base ancestor check and merge receipt; no runtime floor claim"
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "change": "single navigation paragraph at top"
+    },
+    {
+      "path": "docs/IDEA_INDEX.md",
+      "change": "single navigation paragraph at top"
+    },
+    {
+      "path": "PROJECT.md",
+      "original": "Release verification and the selected push boundary are recorded in the [November 4 release reconciliation](docs/audits/RELEASE_RECONCILIATION_2026-11-04.md). Repository publication and the installed app are separate states; the last recorded app adoption is [Luminous Gothic](docs/gm/dispatch/luminous-adopt-2026-10-29/APP_ADOPTION.md), not rechecked by this release pass.",
+      "replacement": "Release verification and the selected push boundary are recorded in the [November 4 release reconciliation](docs/audits/RELEASE_RECONCILIATION_2026-11-04.md). Repository publication and installed-app adoption are separate states; the Tauri task record below owns later adoption history. The [November 6 idea audit](docs/audits/IDEA_AUDIT_2026-11-06.md) found differing installed and target executable identities, so latest-code adoption remains unverified.",
+      "basis": "Later Tauri host adoption receipt and lane7 current installed/target executable metadata; no new installation or GUI claim."
+    }
+  ],
+  "preservation": "Exact replaced SLC121 wording retained in this file; full pre-edit text for zero-loss comparison at /tmp/oops-idea-audit-2026-11-06-before, not a project owner."
+}

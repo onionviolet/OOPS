@@ -1,0 +1,66 @@
+{
+  "captured_at": "2026-11-07T03:09:59.896739+00:00",
+  "read_sources": {
+    "docs/reviews/UI_STRING_INVENTORY_2026-11-03.md": {
+      "sha256": "087a6f90c656d816c7b3b33cc01878a3eeb4a029a4eb5ed760033d992d343e96",
+      "read_boundary": "1\u2013341"
+    },
+    "docs/reviews/DEDUP_AUDIT_2026-10-18/L5_REPORT.md": {
+      "sha256": "b2e15beb4db1ebe09b0717cd5ac70f01993628b6fd6b9dc1ef9118b742051750",
+      "read_boundary": "Narrative1\u201370 plus all188listed paths parsed and checked"
+    },
+    "docs/reviews/PROTO23_DESKTOP_COMPARISON_2026-10-21.md": {
+      "sha256": "a597ab5b5fbf145246e8a3dd34aff47106140ec2b205840e3c9d49607fbb73c7",
+      "read_boundary": "1\u2013254"
+    },
+    "docs/research/ZLIBRARY_YAIR_ACQUISITION_WAVE_2026-10-21.md": {
+      "sha256": "6c470abf7585c679076bba90e247e6a503104740466719934230107b57224e58",
+      "read_boundary": "1\u2013253, recovered clippedF10"
+    },
+    "docs/research/SIM_PROFILE_RUST_WASM_2026-10-24.md": {
+      "sha256": "ea3ff58f52feda7f44269640889f3d739cd6bb7712f84dba93a87b91da6c694c",
+      "read_boundary": "1\u2013319"
+    },
+    "docs/research/local-ai-2026-10-14/round2/sources/Altworld__Hemmingway-1__README.md": {
+      "sha256": "fb5cafeaf04b1dd9ef79935a7b55da33096b2f634279e854d3357f07092fe375",
+      "read_boundary": "1\u2013136"
+    },
+    "docs/research/local-ai-2026-10-14/round2/sources/Alexander-Ollman__qwen3.8-on-m4max__speed-readme.md": {
+      "sha256": "173ebccde5d998c5d436973ca4aae61bbcaeb3c906e86009c17793d0c1e626f4",
+      "read_boundary": "1\u2013143"
+    },
+    "docs/research/local-ai-2026-10-14/round2/sources/xiaoxianxian__qwen3.8-deployment__speed-readme.md": {
+      "sha256": "beb59689cd2736a913b590e835b8862f8e707ba1f72f613bdfd11c0210cec969",
+      "read_boundary": "1\u2013451"
+    },
+    "docs/research/local-ai-2026-10-14/round2/sources/orcarouter__Qwen3.8-27B-Uncensored-MLX__README.md": {
+      "sha256": "6f4d8ecdb6831f6d78c1b1fbf0ff0e1981521bcc3c546b0bc5f21a6a224b49b5",
+      "read_boundary": "1\u2013275"
+    },
+    "docs/research/local-ai-2026-10-14/round2/sources/meta-models__Muse-Glimmer-30B__README.md": {
+      "sha256": "5894e358c58f4f8425645a5b0b890468ecb3e6b049c2e941648db077c4b7df58",
+      "read_boundary": "1\u2013218, recovered52\u201359and158\u2013181"
+    },
+    "docs/research/local-ai-2026-10-14/round2/sources/Qwen__Qwen3.8-27B__README.md": {
+      "sha256": "57e4bdb258ee1a7d2635c5174ebd4e56abe392505cdb5f8bbb356b0dc4293641",
+      "read_boundary": "Complete semantic rendering486lines of582physical: HTMLtablesallcells; CSSstyleomitted"
+    }
+  },
+  "transformation": {
+    "source": "Qwen__Qwen3.8-27B__README.md",
+    "rendering": "HTML table rows/cells converted to ordered plain text; style block omitted as nonsemantic CSS; remaining text/code preserved",
+    "output_sha256": "a4ba036bd50bc5d0d5e0a807f6059fffe2f5aff026029d76ea682184d7f81b32"
+  },
+  "metadata_validation": {
+    "dedup_listed_paths": 188,
+    "absent": 0,
+    "ui_inventory_surface_sum": 41478,
+    "ui_inventory_world_sum": 41478
+  },
+  "external_technical_sources": [
+    "https://doc.rust-lang.org/std/collections/struct.HashMap.html",
+    "https://doc.rust-lang.org/std/time/struct.SystemTime.html",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Window/crossOriginIsolated"
+  ],
+  "usage_observed_percent": 60
+}

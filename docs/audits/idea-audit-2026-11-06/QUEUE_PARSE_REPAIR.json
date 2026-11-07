@@ -1,0 +1,250 @@
+{
+  "schema": 2,
+  "added": [
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 23,
+      "id": "AT1",
+      "raw_class": "done-floor (doc fix)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 37,
+      "id": "AT15",
+      "raw_class": "done-floor (fixture route kj3z, not canon gunfight ch103)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 56,
+      "id": "FD3",
+      "raw_class": "done-floor (fixture route, one world)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 57,
+      "id": "FD4",
+      "raw_class": "duplicate (AT17)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 60,
+      "id": "FD7",
+      "raw_class": "done-floor (Tingen only)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 62,
+      "id": "FD9",
+      "raw_class": "done-floor (status line)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 65,
+      "id": "FD12",
+      "raw_class": "duplicate (AT19)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 66,
+      "id": "FD13",
+      "raw_class": "duplicate (AT20)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 72,
+      "id": "FD14",
+      "raw_class": "done-below-floor (declaration plus printout by design)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 78,
+      "id": "PW1",
+      "raw_class": "blocked (source reading for LG2)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 79,
+      "id": "PW2",
+      "raw_class": "in-progress (W11-D own-power notes uncommitted, 3/3)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 91,
+      "id": "S2",
+      "raw_class": "stale-doc (delivery claim false now)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 117,
+      "id": "OB1",
+      "raw_class": "stale-doc (delivery says part/dispute/bribe left; code has them, below floor)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 118,
+      "id": "OB2",
+      "raw_class": "stale-doc plus done-below-floor"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 124,
+      "id": "OB8",
+      "raw_class": "stale-doc (delivery line behind code)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 137,
+      "id": "RC10",
+      "raw_class": "stale-doc (source comment)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 138,
+      "id": "RC8-RC9",
+      "raw_class": "done-floor (doc fix)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 139,
+      "id": "M1",
+      "raw_class": "done-below-floor (no play reader)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 140,
+      "id": "M2",
+      "raw_class": "done-floor (one choice; rank and favor gates no consumer)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 142,
+      "id": "M4",
+      "raw_class": "blocked (no reachable consumer)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 144,
+      "id": "M6",
+      "raw_class": "done-floor (Frontier route only)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 148,
+      "id": "HZ",
+      "raw_class": "contradicted (by the Cold resistance skill, per its own walk)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 158,
+      "id": "A-G4",
+      "raw_class": "ready (points)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 159,
+      "id": "A-G5",
+      "raw_class": "blocked (AT17)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 162,
+      "id": "A-M15",
+      "raw_class": "done-floor (naming)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 171,
+      "id": "B-O1..O6",
+      "raw_class": "done-below-floor (O2, O4); ready (O3, O5, O6)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 178,
+      "id": "C-N1",
+      "raw_class": "done-floor (via AT15)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 193,
+      "id": "LG2",
+      "raw_class": "blocked (source reading)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 201,
+      "id": "HG1",
+      "raw_class": "done-floor (countdown); route below floor"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 215,
+      "id": "E-S1/S2",
+      "raw_class": "done-below-floor (read side)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 218,
+      "id": "E-O1..O8",
+      "raw_class": "done-below-floor (E-O6); ready (rest)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 233,
+      "id": "F-F1..F15",
+      "raw_class": "ready (F1-F12, F15); done-floor (F13)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 250,
+      "id": "G-K1..K9",
+      "raw_class": "contradicted (shipped as 16 by the W4-B lane, not by an accepted decision)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 256,
+      "id": "H-G2..G5",
+      "raw_class": "done-floor (tempo walk); done-below-floor (others)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 268,
+      "id": "W1-A..W5-B",
+      "raw_class": "done-below-floor (walked parts above)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 271,
+      "id": "MCP",
+      "raw_class": "stale-doc (residue CP wave 2 walk shows freeze working)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 272,
+      "id": "W11",
+      "raw_class": "in-progress (W11-D) / unrecorded"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 278,
+      "id": "P1-P12",
+      "raw_class": "needs-yes (P3, P6-P12); unverified (P2, P4, P5)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_3_FOUNDATIONS_NOV4-6.md",
+      "line": 280,
+      "id": "M19-M26",
+      "raw_class": "done-below-floor (M21, M22, M25); ready (M19, M20, M23, M24, M26)"
+    },
+    {
+      "source": "docs/audits/idea-audit-2026-11-06/LANE_4_MASTER_PLAN_RANKED_LISTS.md",
+      "line": 121,
+      "id": "R12-H1..H4",
+      "raw_class": "duplicate / parked"
+    }
+  ],
+  "total_queue_claims": 956,
+  "all_ledger_rows": 956,
+  "irregular": [],
+  "original_rows_outside_class_tables": [],
+  "missing_after_repair": []
+}

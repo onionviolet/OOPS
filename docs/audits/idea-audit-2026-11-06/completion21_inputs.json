@@ -1,0 +1,37 @@
+{
+  "created_at": "2026-11-07T04:12:18.188296+00:00",
+  "head": "93dcc52c9335e04d9349080a225f91e83b76b59a",
+  "files": [
+    {
+      "path": "docs/gm/dispatch/NEXT_WORLD_AFTER_MOL_PROPOSAL_2026-11-03.md",
+      "sha256": "a5b58ccc3f7de8ca0764688f8b2f0447efd47662d1060cc0931e98b4774f17e8",
+      "lines": 78,
+      "coverage": "full report body, no primary source payload"
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/OW1_MOL_FOLLOWUP.md",
+      "sha256": "dfd2cfc0a1960b9a1fc36e98f5deece7fda6cfea5e84079b0ab74ed468b219c0",
+      "lines": 17,
+      "coverage": "full report body, no primary source payload"
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/OW2_DND_FOLLOWUP.md",
+      "sha256": "1579314c012153db04523c3fe72ee3305f66bf79e4b839d73476351f4fc29b72",
+      "lines": 25,
+      "coverage": "full report body, no primary source payload"
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/OW3_RI_RESEARCH.md",
+      "sha256": "589c8465475b1e08a6e59e8b0bbb9c0ace548dddf48bcf07a94f723a2615f441",
+      "lines": 19,
+      "coverage": "full report body, no primary source payload"
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/OW4_REZERO_RESEARCH.md",
+      "sha256": "98551736c75c730973b1c63f8cddb9c53777650b47de4a0999ec4940b6c5a63b",
+      "lines": 27,
+      "coverage": "full report body, no primary source payload"
+    }
+  ],
+  "checks": "Full report reads and current authority/source-header comparison only"
+}

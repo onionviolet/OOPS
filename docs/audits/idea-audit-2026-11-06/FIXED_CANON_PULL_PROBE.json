@@ -1,0 +1,19 @@
+{
+  "scope": "Synthetic fixed=true copy of existing fixture; no private pack, save or UI. Beat ids/content deliberately omitted.",
+  "strength": 0.91,
+  "first_draw_counterexample": {
+    "seed": 17,
+    "outcome": "deviated",
+    "reason": "draw",
+    "chance": 0.91,
+    "status": "lapsed"
+  },
+  "spent_counterexample": {
+    "seed": 1,
+    "ceiling": 1,
+    "outcome": "deviated",
+    "reason": "spent",
+    "status": "lapsed"
+  },
+  "finding": "fixed excludes disturbance and selects full kind weight, but neither guarantees successful keyed draw nor supplies an agent with budget. A pinned-outcome claim needs additional policy/consumer."
+}

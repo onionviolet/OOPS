@@ -1,0 +1,37 @@
+{
+  "boundary": "Read-only installed package, build-pointer and frozen-runtime metadata only. No app launch or user profile/save read.",
+  "installed": "/Users/weiwei/Applications/Yet Another Idle RPG.app",
+  "bundle_id": "local.yairpg.tauri",
+  "version": "0.1.0",
+  "host_sha256": "e71e324f3941d22c5259e9ab9e34d56b885a7c0a40566d83c86b93bb2cf2436e",
+  "matches_recorded_host": true,
+  "signature_exit": 0,
+  "signature_stderr": "",
+  "latest_metadata": {
+    "id": "v0.6-7b4f5a0cf8fd",
+    "at": "2026-11-07T03:22:35.305Z",
+    "files": 126,
+    "baseCommit": "04c5fd798",
+    "source": "verified local JavaScript/UI performance candidate"
+  },
+  "recorded_installation": {
+    "id": "v0.6-7b4f5a0cf8fd",
+    "previousLatest": "v0.6-a4982e8239d6",
+    "installed": "/Users/weiwei/Applications/Yet Another Idle RPG.app",
+    "previousPackage": "/Users/weiwei/code/yet-another-idle-rpg/work/js-ui-performance-followup/rollback/Yet Another Idle RPG.app",
+    "runtimeFiles": 126,
+    "bundleSHA256": "910c144cc00fe325147a865ffa773b0d6f8a780aa769074ec0d8dc518b528db1",
+    "hostSHA256": "e71e324f3941d22c5259e9ab9e34d56b885a7c0a40566d83c86b93bb2cf2436e",
+    "packageSignature": "verified",
+    "savedFilesUnchanged": 2,
+    "nativeCSSDelta": [
+      "index.html",
+      "styles/inventory.css"
+    ],
+    "baseCommit": "04c5fd798",
+    "adoptedAt": "2026-11-07T03:22:35.311Z",
+    "launched": false
+  },
+  "frozen_bundle_sha256": "910c144cc00fe325147a865ffa773b0d6f8a780aa769074ec0d8dc518b528db1",
+  "matches_recorded_bundle": true
+}

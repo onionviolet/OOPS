@@ -1,0 +1,152 @@
+[
+  {
+    "path": "docs/tools/GAME_MCP_LIMITS.md",
+    "sha256": "c8d9571f2059bf78f366c4834fbed5715b4d228bf5b4774d8702b0dc4e9adb4b",
+    "lines": 106,
+    "scope": "See exact ranges in batch report; hash captured after reading, not test backdating"
+  },
+  {
+    "path": "docs/tools/game_mcp_limits.jsonl",
+    "sha256": "df55291cd6847199ffdbc0d2c3dab89b9db0488b5accafc4962f9ac363abbd53",
+    "lines": 56,
+    "scope": "See exact ranges in batch report; hash captured after reading, not test backdating"
+  },
+  {
+    "path": "docs/gm/dispatch/tauri-host-2026-11-06/CHECKPOINT.md",
+    "sha256": "24c5fe9a5d41a2d03d2ac12c8778cc16534738325eb24b3bbb1a83697f9c6eda",
+    "lines": 135,
+    "scope": "See exact ranges in batch report; hash captured after reading, not test backdating"
+  },
+  {
+    "path": "docs/SAVES.md",
+    "sha256": "ed17fff54428869e58e36b121906cdda5bcb005cf7e0ef8512505f4949033a84",
+    "lines": 297,
+    "scope": "See exact ranges in batch report; hash captured after reading, not test backdating"
+  },
+  {
+    "path": "scripts/mcp/game_mcp.mjs",
+    "sha256": "d065d2bdd861878635ded8885e255ad8990fbf2aac04862595e09712889ef32e",
+    "lines": 139,
+    "scope": "See exact ranges in batch report; hash captured after reading, not test backdating"
+  },
+  {
+    "path": "scripts/mcp/game_worker.mjs",
+    "sha256": "6030bf453dfe52d5a04b0fda0b3a9cdbfb34edc097b167a008e0e46b01c54b1a",
+    "lines": 196,
+    "scope": "See exact ranges in batch report; hash captured after reading, not test backdating"
+  },
+  {
+    "path": "scripts/mcp/frozen_build.mjs",
+    "sha256": "74154d99650070c2fb894cc73971218e03d3e1a0aff27aaa15fff44cc955335d",
+    "lines": 60,
+    "scope": "See exact ranges in batch report; hash captured after reading, not test backdating"
+  },
+  {
+    "path": "scripts/mcp/checkout.mjs",
+    "sha256": "e9c5afa0b9bc738a7d72d5845a4cefbc52891f9808516050473d6ec5936458a9",
+    "lines": 34,
+    "scope": "See exact ranges in batch report; hash captured after reading, not test backdating"
+  },
+  {
+    "path": "scripts/mcp/chromium_backend.mjs",
+    "sha256": "e4c99d2e2d3e87543211e69ae709a75b08f6053dd54d77d2a8a8512c48eb6428",
+    "lines": 90,
+    "scope": "See exact ranges in batch report; hash captured after reading, not test backdating"
+  },
+  {
+    "path": "scripts/mcp/game_mcp_check.mjs",
+    "sha256": "5fba5cb09e56c3b7ee49f4e6b8bb35bab051200a52d00ede5adfa4702910a507",
+    "lines": 411,
+    "scope": "See exact ranges in batch report; hash captured after reading, not test backdating"
+  },
+  {
+    "path": "scripts/tauri/check.mjs",
+    "sha256": "689c2b3fb61f2973cb997117e457fbba93b5b330414be588aa71db57022b47ab",
+    "lines": 34,
+    "scope": "See exact ranges in batch report; hash captured after reading, not test backdating"
+  },
+  {
+    "path": "scripts/tauri/snapshot.cjs",
+    "sha256": "51b7aba08bd98f8fbc2b466c128f54b057c0d777c8d967a9bae99c76540dc688",
+    "lines": 169,
+    "scope": "See exact ranges in batch report; hash captured after reading, not test backdating"
+  },
+  {
+    "path": "desktop-tauri/src/main.rs",
+    "sha256": "caf4986f65a072d60ff3902429104c2c7419124c9c4e92e64b703998da43ce8b",
+    "lines": 775,
+    "scope": "See exact ranges in batch report; hash captured after reading, not test backdating"
+  },
+  {
+    "path": "desktop-tauri/src/desktop.rs",
+    "sha256": "6cbaef8085f8a62295615971c3a184924c74ee9802f2e08f1a3e144ab332dd2e",
+    "lines": 367,
+    "scope": "See exact ranges in batch report; hash captured after reading, not test backdating"
+  },
+  {
+    "path": "desktop-tauri/src/store.rs",
+    "sha256": "8a1f894371d32ac9aae6a70571092bd51a87b383ce1598b2239c4cd72fe10b61",
+    "lines": 150,
+    "scope": "See exact ranges in batch report; hash captured after reading, not test backdating"
+  },
+  {
+    "path": "src/inquiry.js",
+    "sha256": "d1c9c0e85c6e1de5d958583adcc97b0240860669e9ea08d28d318fac7b7e0acd",
+    "lines": 193,
+    "scope": "See exact ranges in batch report; hash captured after reading, not test backdating"
+  },
+  {
+    "path": "src/positions.js",
+    "sha256": "7599c1cca4ff87fd402afc00243e7f834332e4780311a39f7a6cd68cdec9c424",
+    "lines": 67,
+    "scope": "See exact ranges in batch report; hash captured after reading, not test backdating"
+  },
+  {
+    "path": "src/heat.js",
+    "sha256": "8ae41dbe48225016a15b772a2a954b89af93618a072f81da01f239f06b73f77b",
+    "lines": 209,
+    "scope": "See exact ranges in batch report; hash captured after reading, not test backdating"
+  },
+  {
+    "path": "src/book_world_lotm_collector.js",
+    "sha256": "ccf2f440e5c98d4e932c2289ac52813990dd626aff58f22bc109304bfd643a4c",
+    "lines": 115,
+    "scope": "See exact ranges in batch report; hash captured after reading, not test backdating"
+  },
+  {
+    "path": "src/organizations.js",
+    "sha256": "ed62e029269c9a6f0cede35398d4e3b0723eb8c48b924cfdaa373bb94f9ac8ba",
+    "lines": 248,
+    "scope": "See exact ranges in batch report; hash captured after reading, not test backdating"
+  },
+  {
+    "path": "src/organizations_domain.js",
+    "sha256": "8f24425c86af43c26c7503f6fcc513e73cefcce120e57bdaa366e7128d236b73",
+    "lines": 219,
+    "scope": "See exact ranges in batch report; hash captured after reading, not test backdating"
+  },
+  {
+    "path": "src/event_feed_ui.js",
+    "sha256": "f3e1b601b906d41c07d04db3bfda57029b73a7eaa2368efce57dfee0f43c71b6",
+    "lines": 67,
+    "scope": "See exact ranges in batch report; hash captured after reading, not test backdating"
+  },
+  {
+    "path": "src/host.js",
+    "sha256": "5ba0ab17e5eb218edf2945c833d5e5f258e67091f517a814e6d0c53b4af6522a",
+    "lines": 32,
+    "scope": "See exact ranges in batch report; hash captured after reading, not test backdating"
+  },
+  {
+    "path": "src/book_world_hp_inquiry.js",
+    "sha256": "5c5a36f201e356907e3daef9fd55188a970cd1b191a2dc5e9ba38b6c258726cd",
+    "lines": 44,
+    "scope": "See exact ranges in batch report; hash captured after reading, not test backdating"
+  },
+  {
+    "path": "src/book_world_lotm_inquiry.js",
+    "sha256": "a6c69aa777ac4776a740cb19a40cc2b74cf480075d7cb055363ddfe9c9301b32",
+    "lines": 29,
+    "scope": "See exact ranges in batch report; hash captured after reading, not test backdating"
+  }
+]

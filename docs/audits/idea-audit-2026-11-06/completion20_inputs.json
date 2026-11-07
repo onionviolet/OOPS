@@ -1,0 +1,171 @@
+{
+  "head": "93dcc52c9335e04d9349080a225f91e83b76b59a",
+  "created_at": "2026-11-07T04:10:40.868521+00:00",
+  "files": [
+    {
+      "path": "docs/worlds/mother-of-learning/ZORIAN_PLAYTHROUGH_PLAN_2026-11-03.md",
+      "sha256": "e3487897eeb164b15889dcca856a4572f451cfb0996feae8e0792aca3395dd53",
+      "lines": 164,
+      "coverage": "full"
+    },
+    {
+      "path": "docs/worlds/mother-of-learning/ZORIAN_P1_P2_PAPER_TEST_2026-11-03.md",
+      "sha256": "1f481ee8ec8e381c7c69ea1ab416acac69d796a3426ddea7ae4bdb2167d8fa2f",
+      "lines": 93,
+      "coverage": "full"
+    },
+    {
+      "path": "docs/worlds/mother-of-learning/RETENTION_RESET_SEAM_2026-11-03.md",
+      "sha256": "14e28bc9d71c9690c0781c431ea1e6ee34b83eea9736b3e6ac098da59af8004a",
+      "lines": 97,
+      "coverage": "full"
+    },
+    {
+      "path": "docs/worlds/mother-of-learning/ZORIAN_S0_S1_STAGE_RECORD_2026-11-03.md",
+      "sha256": "59a7bbd1a34ee851e706fcbbc8bccce95aa6f2ccc0dae7d80530e000326bd8cc",
+      "lines": 113,
+      "coverage": "full"
+    },
+    {
+      "path": "docs/worlds/mother-of-learning/ZORIAN_S2_S6_STAGE_RECORD_2026-11-03.md",
+      "sha256": "35e1d3189e93de7513c414d136c681b3185d90a494c37f55c509cf403595b873",
+      "lines": 136,
+      "coverage": "full"
+    },
+    {
+      "path": "docs/worlds/mother-of-learning/ZORIAN_S0_S1_SCENE_TABLE_2026-11-03.md",
+      "sha256": "5328eb1d75dadc3995016e5555cc7a3f1e2569c505b32076827ed26708d84f9f",
+      "lines": 504,
+      "coverage": [
+        [
+          1,
+          23
+        ],
+        [
+          459,
+          504
+        ]
+      ]
+    },
+    {
+      "path": "src/book_world_mol_starts.js",
+      "sha256": "fecce8d2645a93e75642a0b30ae7e6b58414562f202360ba0619c9020d3f83fc",
+      "lines": 50,
+      "coverage": "full"
+    },
+    {
+      "path": "src/mol_zorian_loop.js",
+      "sha256": "d42ad038b02c84ddb3df42b2cf056da6afb14f8824f4abe0a48157730683d873",
+      "lines": 73,
+      "coverage": "full"
+    },
+    {
+      "path": "src/mol_zorian_loop_host.js",
+      "sha256": "5045cc68b366227f8a520b7e8f7f55931419a022b1493fba4137411fd35ea4fc",
+      "lines": 29,
+      "coverage": "full"
+    },
+    {
+      "path": "src/harm_loops.js",
+      "sha256": "2de58443578ee488f396174e69a06cb1735d852d4950d4a5012566aee537a166",
+      "lines": 105,
+      "coverage": [
+        [
+          33,
+          55
+        ],
+        [
+          84,
+          110
+        ]
+      ]
+    },
+    {
+      "path": "src/harm_restart_scope.js",
+      "sha256": "10d97179440f939b732506fb69ec88abff71df3dcc7b4833e00acc6b3dc1064b",
+      "lines": 209,
+      "coverage": [
+        [
+          30,
+          35
+        ],
+        [
+          94,
+          119
+        ],
+        [
+          135,
+          145
+        ]
+      ]
+    },
+    {
+      "path": "src/continuation_state.js",
+      "sha256": "ddc125c92c5d882f81114627e7c0e7310467be80d89a5ea592783f5408b8e584",
+      "lines": 271,
+      "coverage": [
+        [
+          164,
+          190
+        ]
+      ]
+    },
+    {
+      "path": "src/world_calendar.js",
+      "sha256": "760d17de8c34921a76f8343cfc9bc46ccec5443905d11ce39e9c31472206712e",
+      "lines": 157,
+      "coverage": [
+        [
+          57,
+          82
+        ],
+        [
+          146,
+          157
+        ]
+      ]
+    },
+    {
+      "path": "src/world_calendar_content.js",
+      "sha256": "ec41baab98f7c00b85d576db882755363482ebfb290856c633871f2582335810",
+      "lines": 39,
+      "coverage": [
+        [
+          1,
+          43
+        ]
+      ]
+    },
+    {
+      "path": "tests/mol_zorian_restart.test.js",
+      "sha256": "4e101bdd27f3edf5b3db0fd60d0bd108abbad305b075c5ea7e17cc26e6fa328e",
+      "lines": 224,
+      "coverage": "full"
+    },
+    {
+      "path": "tests/mol_zorian_start.test.js",
+      "sha256": "dce984c72f2b416ef09680591bc69145ae513a5e59b473d2cb2f325901d702d6",
+      "lines": 151,
+      "coverage": "selected1\u2013105; dependency full test run"
+    },
+    {
+      "path": "tests/harm_loops_v2.test.js",
+      "sha256": "e4dec2aa2c0a79b870fb8ef32dea5ffbcdce85ea5d9df6cb8c815e900e744e90",
+      "lines": 66,
+      "coverage": "dependency, tests run"
+    },
+    {
+      "path": "tests/world_day_events.test.js",
+      "sha256": "e0bb85dc60bd72c031351944ce852adeefdb050c318515d7bb73e639d2256aa6",
+      "lines": 97,
+      "coverage": "dependency, tests run"
+    }
+  ],
+  "check": {
+    "command": "node --test tests/mol_zorian_start.test.js tests/mol_zorian_restart.test.js tests/harm_loops_v2.test.js tests/world_day_events.test.js",
+    "exit": 0,
+    "pass": 34,
+    "fail": 0
+  },
+  "worktree": "read-only parity/status check; no mutation"
+}

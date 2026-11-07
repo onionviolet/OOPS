@@ -1,0 +1,8 @@
+{
+  "state": "paused user request",
+  "json_parse_errors": [],
+  "checks": "JSON parse only; no fresh runtime suite/build/browser",
+  "last_batch": "COMPLETION_21_WORLD_ORDER_FOLLOWUPS.md",
+  "original_claims_disposed": 207,
+  "native_content_reviewed": 25
+}

@@ -1,0 +1,23 @@
+{
+  "packSha256": "ccfaa823fbdee1ea1bb3c98226583dadb8eec238940dd3da850fd01dea5d76b6",
+  "fixtures": [
+    {
+      "fixture": "kj3ab-ch58-2026-11-03",
+      "sha256": "a27faa0153666265d82cb76c7aac44b0b9c998c38c2b686e22d0405533744a91",
+      "nextId": "book.lotm.b8.issue",
+      "arcId": "club",
+      "completed": 11,
+      "total": 15,
+      "done": false
+    },
+    {
+      "fixture": "kj3ae-ch67-2026-11-04",
+      "sha256": "f5181cdb5dd0dcfe238a4046c15e921233c21a16710806c6cfe678db36dbf4a2",
+      "nextId": "book.lotm.b8.issue",
+      "arcId": "club",
+      "completed": 11,
+      "total": 15,
+      "done": false
+    }
+  ]
+}

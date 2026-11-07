@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "fixture": "fresh,seed17",
+  "before": 1920,
+  "receipt": {
+    "requested": 64800,
+    "capped": false,
+    "advanced": 64800,
+    "startCalendar": 1920,
+    "endCalendar": 66720,
+    "expansionClock": [
+      0,
+      64800
+    ],
+    "wallMs": 729638,
+    "cpuMs": 745731,
+    "minPerWallS": 89
+  },
+  "reloaded": 66720,
+  "imported": 66720,
+  "errors": [],
+  "bytes": 163788
+}

@@ -1,0 +1,32 @@
+{
+  "boundary": "Generated fixture only. No acquired or user EPUB modified. Outputs isolated temporary directory.",
+  "fixture": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-audit-epub-7zskhs5m",
+  "extractor": {
+    "exit": 0,
+    "input_html_members": 2,
+    "output_members": 1,
+    "stdout": "1 members, 31 characters",
+    "output": {
+      "part.xhtml": [
+        "Chapter 2",
+        "Chapter 2\nSecond distinct body."
+      ]
+    }
+  },
+  "merger": {
+    "exit": 0,
+    "input_chapter_bodies": 2,
+    "output_chapters": 1,
+    "stdout": "1 chapters 1-1, 1 duplicates, 0 missing",
+    "output": {
+      "ch00001": [
+        "Chapter 1",
+        "Chapter 1\nVolume 2 body."
+      ]
+    }
+  },
+  "input_hashes": {
+    "docs/research/tools/book_deep_dive/epub_to_json.py": "ef6da1b1e8b121b2d9764ac73f3f39114b727d65f9afa64287153dc0d801faa2",
+    "docs/research/tools/book_deep_dive/merge_volumes.py": "aac8efbfbca01234e7c5d7cd93c373e236937d48707e1518b7d5b2f0133bf820"
+  }
+}

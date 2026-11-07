@@ -1,0 +1,297 @@
+{
+  "results": [
+    {
+      "fixture_dir": "kj3aa-ch55-2026-11-03",
+      "sha256": "49d72b3dfeb6ac9a85072d074428c3374c39d410cd643a547de55f0bf76b36a2",
+      "steps": 21,
+      "checks": [
+        "21 intents run natively; facts and knowledge asserted per act; export/import preserves position, money and facts"
+      ],
+      "page_errors": 0,
+      "bundleSha256": "65a3b12270499bad226b9e2955dabe73553cd0202a43dab71a2ccd72aa3189d3",
+      "packSha256": "8b7ada2b0f399ed10aeb67888603dd093e199b786b63d057828b73755ea586ad",
+      "wallMs": 3060667
+    },
+    {
+      "fixture_dir": "kj3ab-ch58-2026-11-03",
+      "sha256": "0dcb4a8e5b76be87c03dcee9035aa43fc7e3458139ba42a027bcb598fd3114be",
+      "steps": 16,
+      "checks": [
+        "16 intents run natively; facts and knowledge asserted per act; export/import preserves position, money and facts"
+      ],
+      "page_errors": 0,
+      "bundleSha256": "65a3b12270499bad226b9e2955dabe73553cd0202a43dab71a2ccd72aa3189d3",
+      "packSha256": "264d92999f719f07ee901f948d55d8728a4f78b8b5f5cb5c83c484e0a23a7e87",
+      "wallMs": 1094484
+    },
+    {
+      "fixture_dir": "kj3ac-ch62-2026-11-04",
+      "sha256": "143cd0302427dd17cb4e6fa30fad71e03b7a82db70decd0d6ed92b5f1a5ccf91",
+      "steps": 13,
+      "checks": [
+        "13 intents run natively; facts and knowledge asserted per act; export/import preserves position, money and facts"
+      ],
+      "page_errors": 0,
+      "bundleSha256": "4c9c0c2b495474893f2cdff057b67d8d613c13ac8d990c5925eb46768e7d7abd",
+      "packSha256": "eb38c228c5cd2ad469881532166e655ee5b322726386ba69b065b6af9b86d17d",
+      "wallMs": 4864251
+    },
+    {
+      "fixture_dir": "kj3ad-ch65-2026-11-04",
+      "sha256": "8e37ede4b787254d64aba1e31182bf2f893cd2d299e4bc5f539ea0112a6c6265",
+      "steps": 15,
+      "checks": [
+        "15 intents run natively; facts and knowledge asserted per act; export/import preserves position, money and facts"
+      ],
+      "page_errors": 0,
+      "bundleSha256": "4c9c0c2b495474893f2cdff057b67d8d613c13ac8d990c5925eb46768e7d7abd",
+      "packSha256": "3d1c8448c3841ca3cfd6d7eb9d4aeb7fb5b34047bd91bcea9c2756e674fa099f",
+      "wallMs": 13718438
+    },
+    {
+      "fixture_dir": "kj3ae-ch67-2026-11-04",
+      "sha256": "1bb25268245fcd76c43791ce652ad36889c89e6aafaf1a662a291fc2b544dd6a",
+      "steps": 19,
+      "checks": [
+        "19 intents run natively; facts and knowledge asserted per act; export/import preserves position, money and facts"
+      ],
+      "page_errors": 0,
+      "bundleSha256": "4c9c0c2b495474893f2cdff057b67d8d613c13ac8d990c5925eb46768e7d7abd",
+      "packSha256": "52e76c545f782dad2cefb182b6bbabdc57c337ad2bea3fcce4c72bff81a497bd",
+      "wallMs": 4559348
+    },
+    {
+      "fixture_dir": "kj3e-ch16-2026-11-02",
+      "sha256": "584c6599b2c28124c93f32a35f0eb67f7dfa4a900144a055aa168f86f0ec4568",
+      "steps": 8,
+      "checks": [
+        "11 intents reach the Chanis Gate junction with money 0 -> 3 and the invitation still pending",
+        "literal Export/Import preserves position, money, retained knowledge and completed arc",
+        "completed state renders at 14 and 21 px (captures saved; inspect separately)",
+        "with no coin the carriage fare is blocked and no state changes",
+        "ride is blocked until the pocket balance is stated"
+      ],
+      "page_errors": 0,
+      "bundleSha256": "919b17d3a114e5c622d0efd81f53a84c927012d10537c863fdb851ba2d7c9abf",
+      "packSha256": "db0a0c77fc3bc6b6c2bf6aaffe4605bdf6bf2211ef62bd1ddee32d09d836c0d4",
+      "wallMs": 287226
+    },
+    {
+      "fixture_dir": "kj3i-ch21-2026-11-02",
+      "sha256": "e22836b6453f0a43e4c6903d6a3265f8a5c239ea103d794222e418a5d0666d03",
+      "steps": 6,
+      "checks": [
+        "6 intents run natively; diary pages, issue held as facts, Leonard met; export/import preserves position, money and facts"
+      ],
+      "page_errors": 0,
+      "bundleSha256": "919b17d3a114e5c622d0efd81f53a84c927012d10537c863fdb851ba2d7c9abf",
+      "packSha256": "b576bd9c636b6abb0c8d62949ddd4c852c25a6aea330b0cbcc3139326115704d",
+      "wallMs": 150711
+    },
+    {
+      "fixture_dir": "kj3j-ch22-2026-11-02",
+      "sha256": "486774e884ee92d4bbf3f8e086187207406ae983e8bb2ef579682bc024aeb3f7",
+      "steps": 5,
+      "checks": [
+        "5 intents run natively; Monday start, path line, Spirit Medium and the treat held as facts; Rozanne gains no private reason; export/import preserves position, money and facts"
+      ],
+      "page_errors": 0,
+      "bundleSha256": "919b17d3a114e5c622d0efd81f53a84c927012d10537c863fdb851ba2d7c9abf",
+      "packSha256": "562a92ad2475ef233ef29495afc05b97c891b9eef007d860fde89eeeec891923",
+      "wallMs": 155076
+    },
+    {
+      "fixture_dir": "kj3k-ch23-2026-11-02",
+      "sha256": "450e5cae83045c74516e8a9d0e30c079148480dc4711c0206b9dc0868e7d93a9",
+      "steps": 6,
+      "checks": [
+        "6 intents run natively; facts and knowledge asserted per act; export/import preserves position, money and facts"
+      ],
+      "page_errors": 0,
+      "bundleSha256": "919b17d3a114e5c622d0efd81f53a84c927012d10537c863fdb851ba2d7c9abf",
+      "packSha256": "8159096e58d83d34a3834c685bbfa4393a7269eefc7014cc812ac0296b5fa76d",
+      "wallMs": 151389
+    },
+    {
+      "fixture_dir": "kj3l-ch24-2026-11-02",
+      "sha256": "c2af664cd81d20d63c3c8632e92ca32234c990bbe7fde20381a2acab4690b4cb",
+      "steps": 14,
+      "checks": [
+        "14 intents run natively; facts and knowledge asserted per act; export/import preserves position, money and facts"
+      ],
+      "page_errors": 0,
+      "bundleSha256": "919b17d3a114e5c622d0efd81f53a84c927012d10537c863fdb851ba2d7c9abf",
+      "packSha256": "63943a36adc847541fcba3b166de1836889d7aa73da7613a21fdc82b77af1a27",
+      "wallMs": 468810
+    },
+    {
+      "fixture_dir": "kj3m-ch26-2026-11-02",
+      "sha256": "7c9a77cae6207c8145be926201e67c2754e959f8d614458ee3b968504e7d02c8",
+      "steps": 15,
+      "checks": [
+        "15 intents run natively; facts and knowledge asserted per act; export/import preserves position, money and facts"
+      ],
+      "page_errors": 0,
+      "bundleSha256": "919b17d3a114e5c622d0efd81f53a84c927012d10537c863fdb851ba2d7c9abf",
+      "packSha256": "8ebc961d4dd64bb7e955c238f53cb4d1d0faf82593682bce4899497446ec7a6d",
+      "wallMs": 284626
+    },
+    {
+      "fixture_dir": "kj3n-ch29-2026-11-03",
+      "sha256": "9577db016e56e6b8977c9af957fc5ac17cf1107db021b221dc94394047508037",
+      "steps": 15,
+      "checks": [
+        "15 intents run natively; facts and knowledge asserted per act; export/import preserves position, money and facts"
+      ],
+      "page_errors": 0,
+      "bundleSha256": "2f659cc73c6c19b592cf6e5571a7e6f70f35d3dcbf3c9f760b9867165f2e1431",
+      "packSha256": "5916b2a3356f8afa676380094df2b8c02d556428a5dca04584120a7d7d528b36",
+      "wallMs": 582617
+    },
+    {
+      "fixture_dir": "kj3o-ch30-2026-11-03",
+      "sha256": "f77c074fe1d38d6f33595c1e4ee185b56a25215171aefaec884577c6f8d8d544",
+      "steps": 11,
+      "checks": [
+        "11 intents run natively; facts and knowledge asserted per act; export/import preserves position, money and facts"
+      ],
+      "page_errors": 0,
+      "bundleSha256": "2f659cc73c6c19b592cf6e5571a7e6f70f35d3dcbf3c9f760b9867165f2e1431",
+      "packSha256": "3a38e15572e77bb1588f02eb046d298cab3cd724713f9771d0f3c38085904018",
+      "wallMs": 617974
+    },
+    {
+      "fixture_dir": "kj3p-ch32-2026-11-03",
+      "sha256": "87b3ab39ddd203df0e1e1c1cf8a7e0c5afc54d963ada92216499ddd268a437e2",
+      "steps": 17,
+      "checks": [
+        "17 intents run natively; facts and knowledge asserted per act; export/import preserves position, money and facts"
+      ],
+      "page_errors": 0,
+      "bundleSha256": "45c086a712262768fffb6da96132d1998afe5b64daa2bfbd04eabcd61d6ee979",
+      "packSha256": "f4beb179b1d5bd574d13af362fd31f1d4cd7dd1bc89da14baf843e19822eac0f",
+      "wallMs": 268316
+    },
+    {
+      "fixture_dir": "kj3q-ch33-2026-11-03",
+      "sha256": "be7851da22264e1be2f7fd70f63846a6429bfa9b635dcf02fb8809798df32447",
+      "steps": 19,
+      "checks": [
+        "19 intents run natively; facts and knowledge asserted per act; export/import preserves position, money and facts"
+      ],
+      "page_errors": 0,
+      "bundleSha256": "45c086a712262768fffb6da96132d1998afe5b64daa2bfbd04eabcd61d6ee979",
+      "packSha256": "3e80770786c112a92f2bc658c6dc98007d0aed41290c32527eab108e655c6a18",
+      "wallMs": 340845
+    },
+    {
+      "fixture_dir": "kj3r-ch35-2026-11-03",
+      "sha256": "957a71ec329bfd969bd935fb019b08c17a5ab33a913db68e1a0a32d23ad75574",
+      "steps": 16,
+      "checks": [
+        "16 intents run natively; facts and knowledge asserted per act; export/import preserves position, money and facts"
+      ],
+      "page_errors": 0,
+      "bundleSha256": "45c086a712262768fffb6da96132d1998afe5b64daa2bfbd04eabcd61d6ee979",
+      "packSha256": "13a100c88f03beef44b5eac6dfa501505d5dc2cbf7d5468b2a8321ae2929773f",
+      "wallMs": 294103
+    },
+    {
+      "fixture_dir": "kj3s-ch38-2026-11-03",
+      "sha256": "8e63469ba5dd9199ffa1d4367db34685d2e4a2217c012619171188755506e29c",
+      "steps": 16,
+      "checks": [
+        "16 intents run natively; facts and knowledge asserted per act; export/import preserves position, money and facts"
+      ],
+      "page_errors": 0,
+      "bundleSha256": "45c086a712262768fffb6da96132d1998afe5b64daa2bfbd04eabcd61d6ee979",
+      "packSha256": "42b455980ea294f00e9e59452d6aa0ebaa694e8979b43b15b7ddf362b3733761",
+      "wallMs": 282592
+    },
+    {
+      "fixture_dir": "kj3t-ch39-2026-11-03",
+      "sha256": "05502edecca3d6dbc2b9e28bc5cf3fee92a178ce5865f23c179a3cd9cd252cc7",
+      "steps": 3,
+      "checks": [
+        "17 intents run natively; facts and knowledge asserted per act; export/import preserves position, money and facts"
+      ],
+      "page_errors": 0,
+      "bundleSha256": "45c086a712262768fffb6da96132d1998afe5b64daa2bfbd04eabcd61d6ee979",
+      "packSha256": "2f55a8729cd0769517e46967a84dba064c1e606972d8f45a4513f28ead6b3208",
+      "wallMs": 1523635
+    },
+    {
+      "fixture_dir": "kj3u-ch41-2026-11-03",
+      "sha256": "8e8a2dee255e7d694243d50a632f503e677f0bd2690dc4371517f97d325191df",
+      "steps": 16,
+      "checks": [
+        "16 intents run natively; facts and knowledge asserted per act; export/import preserves position, money and facts"
+      ],
+      "page_errors": 0,
+      "bundleSha256": "45c086a712262768fffb6da96132d1998afe5b64daa2bfbd04eabcd61d6ee979",
+      "packSha256": "f6c8f143a3de00114f10b701f0cb2365b530eae23f5fe7d1bab905b806a8bcbd",
+      "wallMs": 334239
+    },
+    {
+      "fixture_dir": "kj3v-ch43-2026-11-03",
+      "sha256": "32ada56592a421375792d92003ae48680a34265da63273b6dae4ab9ba26ec3df",
+      "steps": 25,
+      "checks": [
+        "25 intents run natively; facts and knowledge asserted per act; export/import preserves position, money and facts"
+      ],
+      "page_errors": 0,
+      "bundleSha256": "45c086a712262768fffb6da96132d1998afe5b64daa2bfbd04eabcd61d6ee979",
+      "packSha256": "ed7c90b665b62f3a3dfda8f26c4d58047f0edbfed0ea669696e9bfd88304b704",
+      "wallMs": 829244
+    },
+    {
+      "fixture_dir": "kj3w-ch46-2026-11-03",
+      "sha256": "87c3528e4ab4ffba4c65b240e3acaa755d39e84543a7f84f09a2f3e8c8dab950",
+      "steps": 25,
+      "checks": [
+        "25 intents run natively; facts and knowledge asserted per act; export/import preserves position, money and facts"
+      ],
+      "page_errors": 0,
+      "bundleSha256": "45c086a712262768fffb6da96132d1998afe5b64daa2bfbd04eabcd61d6ee979",
+      "packSha256": "4a0f1d0fbf574dd7711f0f5062950374d29d4e60b18b300c8595b03ba5f665a2",
+      "wallMs": 597097
+    },
+    {
+      "fixture_dir": "kj3x-ch48-2026-11-03",
+      "sha256": "4241c3446d526a785ad37ee52dc269be5bbf6e5d27790ed0fb97e4daca9f010a",
+      "steps": 25,
+      "checks": [
+        "25 intents run natively; facts and knowledge asserted per act; export/import preserves position, money and facts"
+      ],
+      "page_errors": 0,
+      "bundleSha256": "45c086a712262768fffb6da96132d1998afe5b64daa2bfbd04eabcd61d6ee979",
+      "packSha256": "c85f8d81f359b8e4bd2a2c9e094359557367c5fa0a5eb0ec2619500569a3166f",
+      "wallMs": 665150
+    },
+    {
+      "fixture_dir": "kj3y-ch50-2026-11-03",
+      "sha256": "0075c1d7191fc21e3370eaab5cd72dda515abc74c54b715507e6321ee1a69c12",
+      "steps": 0,
+      "checks": [
+        "25 intents run natively; facts and knowledge asserted per act; export/import preserves position, money and facts"
+      ],
+      "page_errors": 0,
+      "bundleSha256": "45c086a712262768fffb6da96132d1998afe5b64daa2bfbd04eabcd61d6ee979",
+      "packSha256": "49a61fd580f00b3ddee460f2bc5746538accaf1e06d89b9f6ccd027c55c439db",
+      "wallMs": 94263
+    },
+    {
+      "fixture_dir": "kj3z-ch52-2026-11-03",
+      "sha256": "8758147c6bb47d92f47bc771a0b6b861f2cebc44224ca0da78df15fb92fc05d6",
+      "steps": 23,
+      "checks": [
+        "23 intents run natively; facts and knowledge asserted per act; export/import preserves position, money and facts"
+      ],
+      "page_errors": 0,
+      "bundleSha256": "45c086a712262768fffb6da96132d1998afe5b64daa2bfbd04eabcd61d6ee979",
+      "packSha256": "ebfe4861cd1d32897f7e089da349d2e4c1f5f2b83c5e69ebbf35ab8f8c2e2a77",
+      "wallMs": 617159
+    }
+  ],
+  "qualification": "Retained generated-fixture artifacts, not new execution; no raw saves or source prose included."
+}

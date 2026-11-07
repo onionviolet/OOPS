@@ -1,0 +1,772 @@
+{
+  "at": "2026-11-07T02:38:49.459777+00:00",
+  "source": "docs/tools/game_mcp_limits.jsonl",
+  "sha256": "df55291cd6847199ffdbc0d2c3dab89b9db0488b5accafc4962f9ac363abbd53",
+  "lines_read": [
+    1,
+    56
+  ],
+  "counter_meaning": "openLimitEntries is raw nonempty-line count; no status field or handled-table subtraction",
+  "entries": [
+    {
+      "raw_line": 1,
+      "at": "2026-10-25T05:02:14.514Z",
+      "wanted": "Click the PLAY action shown on the game_new title screen to begin a player-visible run.",
+      "classification": [
+        "startup/continuation evidence"
+      ],
+      "substantive_disposition": [
+        "Current frozen new/reload/step/export/import tested successfully. Loop-specific regression runs separately; old scene-specific hangs without reproducible build/fixture are historical incidents, not proven current general startup defects."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 2,
+      "at": "2026-10-25T05:15:35.872Z",
+      "wanted": "Click the visible Find work choice returned in the scoped #location_actions_div view by its exact displayed text.",
+      "classification": [
+        "action/navigation contract"
+      ],
+      "substantive_disposition": [
+        "worker controls adds location dropdowns, text matches visible control labels, native select requires enabled known options, scoped indices are absolute for that view, look offset is action offset not page number. Current functionality is source-traced; named route coverage is checked separately rather than treating old exact text as stable."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 3,
+      "at": "2026-10-25T05:17:00.701Z",
+      "wanted": "Open the test-only LOTM Tingen branch panel from a fresh Village life using the allowed localhost lotm_probe route and then use normal player enrollment controls.",
+      "classification": [
+        "startup/continuation evidence"
+      ],
+      "substantive_disposition": [
+        "Current frozen new/reload/step/export/import tested successfully. Loop-specific regression runs separately; old scene-specific hangs without reproducible build/fixture are historical incidents, not proven current general startup defects."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 4,
+      "at": "2026-10-25T05:17:53.788Z",
+      "wanted": "Take the offered Village patrol for two hours after opening Find work in a fresh game.",
+      "classification": [
+        "historical patrol action exception"
+      ],
+      "substantive_disposition": [
+        "greetElder regression tests successful patrol click and no page error but expressly excludes patrol ticking. Current entry acceptance and subsequent work progression must remain separate."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": true
+    },
+    {
+      "raw_line": 5,
+      "at": "2026-10-25T05:18:24.446Z",
+      "wanted": "Reach the player-visible Mistglass opt-in route from a fresh Village start to test cultivation and trials.",
+      "classification": [
+        "startup/continuation evidence"
+      ],
+      "substantive_disposition": [
+        "Current frozen new/reload/step/export/import tested successfully. Loop-specific regression runs separately; old scene-specific hangs without reproducible build/fixture are historical incidents, not proven current general startup defects."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 6,
+      "at": "2026-10-25T05:18:28.882Z",
+      "wanted": "Return from the visible Wild willow stand location to continue a Village livelihood/workshop playtest.",
+      "classification": [
+        "action/navigation contract"
+      ],
+      "substantive_disposition": [
+        "worker controls adds location dropdowns, text matches visible control labels, native select requires enabled known options, scoped indices are absolute for that view, look offset is action offset not page number. Current functionality is source-traced; named route coverage is checked separately rather than treating old exact text as stable."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 7,
+      "at": "2026-10-25T05:19:02.575Z",
+      "wanted": "Resume an exported household save through game_new({path}), as requested for persistence coverage.",
+      "classification": [
+        "save input contract"
+      ],
+      "substantive_disposition": [
+        "game_worker.mjs safePath requires the tool export directory; game_new path and game_load decode exported data; scenario route is named library only. A repository/native envelope is a different accepted-input contract. Frozen round-trip passes; general source/native-envelope import remains unavailable."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 8,
+      "at": "2026-10-25T05:21:04.737Z",
+      "wanted": "Open the visible continuing-connection panel and begin a fresh life through its normal confirmation flow.",
+      "classification": [
+        "startup/continuation evidence"
+      ],
+      "substantive_disposition": [
+        "Current frozen new/reload/step/export/import tested successfully. Loop-specific regression runs separately; old scene-specific hangs without reproducible build/fixture are historical incidents, not proven current general startup defects."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 9,
+      "at": "2026-10-25T06:48:46.257Z",
+      "wanted": "",
+      "classification": [
+        "empty report"
+      ],
+      "substantive_disposition": [
+        "All wanted/blockedBy/workaround fields empty; no defect assertion can be derived."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 10,
+      "at": "2026-10-25T07:04:03.604Z",
+      "wanted": "Confirm a native fresh life and inspect its arrival through MCP on tooling 35ef1a1f3.",
+      "classification": [
+        "startup/continuation evidence"
+      ],
+      "substantive_disposition": [
+        "Current frozen new/reload/step/export/import tested successfully. Loop-specific regression runs separately; old scene-specific hangs without reproducible build/fixture are historical incidents, not proven current general startup defects."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 11,
+      "at": "2026-10-25T07:15:55.684Z",
+      "wanted": "Withdraw from the active native Infested field fight after some exchanges, then inspect the field aftermath.",
+      "classification": [
+        "combat interaction gap"
+      ],
+      "substantive_disposition": [
+        "Native field combat timing and withdrawal are not equivalent to calendar stepping. This is not a missing generic MCP arbitrary-click method; retain field withdrawal route for combat-consumer review."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": true
+    },
+    {
+      "raw_line": 12,
+      "at": "2026-10-26T04:05:51.004Z",
+      "wanted": "Compact view: every game_look/game_click reply repeats ~8k tokens of whole-screen text (all panel names, stats, inventory, options menu) plus 80-action pages of panel chrome, so a 40-call route walk exhausts context. Wanted a delta-only or action-only reply (e.g. only the scene/work/dialogue region and action indices >= first game action).",
+      "classification": [
+        "reply volume"
+      ],
+      "substantive_disposition": [
+        "worker compact diff carries header, capped added/removed lines and absolute actions. First baseline still includes up to12000 visible characters and80 actions; requesting compact does not make first baseline a delta."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 13,
+      "at": "2026-10-26T06:13:17.707Z",
+      "wanted": "Open the cultivation and family panels by name with game_click({panel}) during the M1 walk.",
+      "classification": [
+        "action/navigation contract"
+      ],
+      "substantive_disposition": [
+        "worker controls adds location dropdowns, text matches visible control labels, native select requires enabled known options, scoped indices are absolute for that view, look offset is action offset not page number. Current functionality is source-traced; named route coverage is checked separately rather than treating old exact text as stable."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 14,
+      "at": "2026-10-26T15:03:47.286Z",
+      "wanted": "Exercise recipient and repetition-sensitive medicine on lane's privately rebuilt BUILD_OUT bundle with synthetic fuel and body controls.",
+      "classification": [
+        "fixture overlay capability gap"
+      ],
+      "substantive_disposition": [
+        "game_new schema, call(new), worker new and freezeBuild source have no per-session supplement overlay or arbitrary prepared-material fixture property. Browser-context overlay is an existing separate verification route."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 15,
+      "at": "2026-10-26T15:04:25.773Z",
+      "wanted": "Exercise the new Glasshouse commission on the lane BUILD_OUT using a named synthetic stocked-workshop fixture, before browser matrix proof.",
+      "classification": [
+        "snapshot/root selection contract",
+        "fixture overlay capability gap"
+      ],
+      "substantive_disposition": [
+        "frozen_build.mjs freezeBuild selects module ROOT; checkout supports git worktrees; arbitrary BUILD_OUT is not an input. ENOENT desktop regression is closed for captured inputs by successful isolated frozen/native test.",
+        "game_new schema, call(new), worker new and freezeBuild source have no per-session supplement overlay or arbitrary prepared-material fixture property. Browser-context overlay is an existing separate verification route."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 16,
+      "at": "2026-10-26T16:33:11.919Z",
+      "wanted": "Reach earned Mistglass practice, cap and absence receipt on the lane's frozen BUILD_OUT.",
+      "classification": [
+        "snapshot/root selection contract",
+        "fixture overlay capability gap"
+      ],
+      "substantive_disposition": [
+        "frozen_build.mjs freezeBuild selects module ROOT; checkout supports git worktrees; arbitrary BUILD_OUT is not an input. ENOENT desktop regression is closed for captured inputs by successful isolated frozen/native test.",
+        "game_new schema, call(new), worker new and freezeBuild source have no per-session supplement overlay or arbitrary prepared-material fixture property. Browser-context overlay is an existing separate verification route."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 17,
+      "at": "2026-10-26T16:55:03.445Z",
+      "wanted": "Load the named generated supplied-workshop fixture for applied-mastery walk before desktop proof.",
+      "classification": [
+        "save input contract"
+      ],
+      "substantive_disposition": [
+        "game_worker.mjs safePath requires the tool export directory; game_new path and game_load decode exported data; scenario route is named library only. A repository/native envelope is a different accepted-input contract. Frozen round-trip passes; general source/native-envelope import remains unavailable."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 18,
+      "at": "2026-10-26T17:07:47.624Z",
+      "wanted": "Open Notes, practice & people and follow the real Paradise taught-method route on L3's isolated rebuilt origin.",
+      "classification": [
+        "action/navigation contract"
+      ],
+      "substantive_disposition": [
+        "worker controls adds location dropdowns, text matches visible control labels, native select requires enabled known options, scoped indices are absolute for that view, look offset is action offset not page number. Current functionality is source-traced; named route coverage is checked separately rather than treating old exact text as stable."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 19,
+      "at": "2026-10-26T17:30:41.084Z",
+      "wanted": "Import the repository's named synthetic Cyoria pending-control fixture for an existing exploration loop verification.",
+      "classification": [
+        "save input contract"
+      ],
+      "substantive_disposition": [
+        "game_worker.mjs safePath requires the tool export directory; game_new path and game_load decode exported data; scenario route is named library only. A repository/native envelope is a different accepted-input contract. Frozen round-trip passes; general source/native-envelope import remains unavailable."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 20,
+      "at": "2026-10-26T17:43:10.495Z",
+      "wanted": "Walk the HP bench preparation journey using the game MCP before rebuilt desktop proof.",
+      "classification": [
+        "historical HP bench timing incident"
+      ],
+      "substantive_disposition": [
+        "Repeated reports share the same clock-not-ready symptom. Raw report has no retained build hash or standalone reproducible bench fixture. Historical issue retained as one specifically unproven bench route; fresh freeze/Village success cannot close it. Current HP bench/clock consumer trace is a linked remaining claim."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": true
+    },
+    {
+      "raw_line": 21,
+      "at": "2026-10-26T17:43:43.744Z",
+      "wanted": "Reproduce saved fractional place-clock state and assert literal native Export/Import at mid-remainder; use isolated generated cottage/food fixture.",
+      "classification": [
+        "fixture overlay capability gap"
+      ],
+      "substantive_disposition": [
+        "game_new schema, call(new), worker new and freezeBuild source have no per-session supplement overlay or arbitrary prepared-material fixture property. Browser-context overlay is an existing separate verification route."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 22,
+      "at": "2026-10-26T17:48:23.519Z",
+      "wanted": "Walk the newly built L1 Cyoria document/strip-trial route from its isolated immutable BUILD_OUT and supplied-stock QA fixture.",
+      "classification": [
+        "snapshot/root selection contract",
+        "fixture overlay capability gap"
+      ],
+      "substantive_disposition": [
+        "frozen_build.mjs freezeBuild selects module ROOT; checkout supports git worktrees; arbitrary BUILD_OUT is not an input. ENOENT desktop regression is closed for captured inputs by successful isolated frozen/native test.",
+        "game_new schema, call(new), worker new and freezeBuild source have no per-session supplement overlay or arbitrary prepared-material fixture property. Browser-context overlay is an existing separate verification route."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 23,
+      "at": "2026-10-26T17:55:55.300Z",
+      "wanted": "Begin HP bench through real native player controls",
+      "classification": [
+        "historical HP bench timing incident"
+      ],
+      "substantive_disposition": [
+        "Repeated reports share the same clock-not-ready symptom. Raw report has no retained build hash or standalone reproducible bench fixture. Historical issue retained as one specifically unproven bench route; fresh freeze/Village success cannot close it. Current HP bench/clock consumer trace is a linked remaining claim."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": true
+    },
+    {
+      "raw_line": 24,
+      "at": "2026-10-26T17:56:53.035Z",
+      "wanted": "Walk named G7-L2 pre-assembly QA fixture before rebuilt desktop proof.",
+      "classification": [
+        "save input contract",
+        "fixture overlay capability gap"
+      ],
+      "substantive_disposition": [
+        "game_worker.mjs safePath requires the tool export directory; game_new path and game_load decode exported data; scenario route is named library only. A repository/native envelope is a different accepted-input contract. Frozen round-trip passes; general source/native-envelope import remains unavailable.",
+        "game_new schema, call(new), worker new and freezeBuild source have no per-session supplement overlay or arbitrary prepared-material fixture property. Browser-context overlay is an existing separate verification route."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 25,
+      "at": "2026-10-26T18:04:49.239Z",
+      "wanted": "Begin the HP bench and exercise batch custody through native commands.",
+      "classification": [
+        "historical HP bench timing incident"
+      ],
+      "substantive_disposition": [
+        "Repeated reports share the same clock-not-ready symptom. Raw report has no retained build hash or standalone reproducible bench fixture. Historical issue retained as one specifically unproven bench route; fresh freeze/Village success cannot close it. Current HP bench/clock consumer trace is a linked remaining claim."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": true
+    },
+    {
+      "raw_line": 26,
+      "at": "2026-10-26T18:27:02.356Z",
+      "wanted": "Walk the joined G7-L3 supplied-stock pre-assembly fixture on the frozen L3 bundle before desktop proof.",
+      "classification": [
+        "snapshot/root selection contract",
+        "save input contract",
+        "fixture overlay capability gap"
+      ],
+      "substantive_disposition": [
+        "frozen_build.mjs freezeBuild selects module ROOT; checkout supports git worktrees; arbitrary BUILD_OUT is not an input. ENOENT desktop regression is closed for captured inputs by successful isolated frozen/native test.",
+        "game_worker.mjs safePath requires the tool export directory; game_new path and game_load decode exported data; scenario route is named library only. A repository/native envelope is a different accepted-input contract. Frozen round-trip passes; general source/native-envelope import remains unavailable.",
+        "game_new schema, call(new), worker new and freezeBuild source have no per-session supplement overlay or arbitrary prepared-material fixture property. Browser-context overlay is an existing separate verification route."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 27,
+      "at": "2026-10-26T18:39:46.206Z",
+      "wanted": "Verify exact native rain offset-30 structural wear boundary and retained paid repair/weatherproofing through Save/reload/Export/literal Import on W2 frozen build.",
+      "classification": [
+        "snapshot/root selection contract",
+        "fixture overlay capability gap"
+      ],
+      "substantive_disposition": [
+        "frozen_build.mjs freezeBuild selects module ROOT; checkout supports git worktrees; arbitrary BUILD_OUT is not an input. ENOENT desktop regression is closed for captured inputs by successful isolated frozen/native test.",
+        "game_new schema, call(new), worker new and freezeBuild source have no per-session supplement overlay or arbitrary prepared-material fixture property. Browser-context overlay is an existing separate verification route."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 28,
+      "at": "2026-10-26T18:46:14.928Z",
+      "wanted": "Exercise the frozen W3 paid-rack fixture and exact retained native-key persistence after a fresh-life walk.",
+      "classification": [
+        "snapshot/root selection contract",
+        "fixture overlay capability gap",
+        "action/navigation contract"
+      ],
+      "substantive_disposition": [
+        "frozen_build.mjs freezeBuild selects module ROOT; checkout supports git worktrees; arbitrary BUILD_OUT is not an input. ENOENT desktop regression is closed for captured inputs by successful isolated frozen/native test.",
+        "game_new schema, call(new), worker new and freezeBuild source have no per-session supplement overlay or arbitrary prepared-material fixture property. Browser-context overlay is an existing separate verification route.",
+        "worker controls adds location dropdowns, text matches visible control labels, native select requires enabled known options, scoped indices are absolute for that view, look offset is action offset not page number. Current functionality is source-traced; named route coverage is checked separately rather than treating old exact text as stable."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 29,
+      "at": "2026-10-26T19:14:31.165Z",
+      "wanted": "Exercise W4 exact frozen-input starting-material/linen fixture through paid water/filter/soften and native literal Save/reload/Export/Import.",
+      "classification": [
+        "snapshot/root selection contract",
+        "fixture overlay capability gap"
+      ],
+      "substantive_disposition": [
+        "frozen_build.mjs freezeBuild selects module ROOT; checkout supports git worktrees; arbitrary BUILD_OUT is not an input. ENOENT desktop regression is closed for captured inputs by successful isolated frozen/native test.",
+        "game_new schema, call(new), worker new and freezeBuild source have no per-session supplement overlay or arbitrary prepared-material fixture property. Browser-context overlay is an existing separate verification route."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 30,
+      "at": "2026-10-26T19:43:43.143Z",
+      "wanted": "Start a fresh nursery supply walk in the native notebook, on W5's exact frozen candidate.",
+      "classification": [
+        "snapshot/root selection contract",
+        "fixture overlay capability gap",
+        "action/navigation contract"
+      ],
+      "substantive_disposition": [
+        "frozen_build.mjs freezeBuild selects module ROOT; checkout supports git worktrees; arbitrary BUILD_OUT is not an input. ENOENT desktop regression is closed for captured inputs by successful isolated frozen/native test.",
+        "game_new schema, call(new), worker new and freezeBuild source have no per-session supplement overlay or arbitrary prepared-material fixture property. Browser-context overlay is an existing separate verification route.",
+        "worker controls adds location dropdowns, text matches visible control labels, native select requires enabled known options, scoped indices are absolute for that view, look offset is action offset not page number. Current functionality is source-traced; named route coverage is checked separately rather than treating old exact text as stable."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 31,
+      "at": "2026-10-26T19:49:42.136Z",
+      "wanted": "Begin the HP bench through the fresh game MCP route before the imported-material journey.",
+      "classification": [
+        "historical HP bench timing incident"
+      ],
+      "substantive_disposition": [
+        "Repeated reports share the same clock-not-ready symptom. Raw report has no retained build hash or standalone reproducible bench fixture. Historical issue retained as one specifically unproven bench route; fresh freeze/Village success cannot close it. Current HP bench/clock consumer trace is a linked remaining claim."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": true
+    },
+    {
+      "raw_line": 32,
+      "at": "2026-10-26T19:58:27.231Z",
+      "wanted": "Walk the fresh native route and exercise the exact frozen W6 field/forecast candidate from an agent-generated prepared-stave fixture.",
+      "classification": [
+        "snapshot/root selection contract",
+        "fixture overlay capability gap",
+        "action/navigation contract"
+      ],
+      "substantive_disposition": [
+        "frozen_build.mjs freezeBuild selects module ROOT; checkout supports git worktrees; arbitrary BUILD_OUT is not an input. ENOENT desktop regression is closed for captured inputs by successful isolated frozen/native test.",
+        "game_new schema, call(new), worker new and freezeBuild source have no per-session supplement overlay or arbitrary prepared-material fixture property. Browser-context overlay is an existing separate verification route.",
+        "worker controls adds location dropdowns, text matches visible control labels, native select requires enabled known options, scoped indices are absolute for that view, look offset is action offset not page number. Current functionality is source-traced; named route coverage is checked separately rather than treating old exact text as stable."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 33,
+      "at": "2026-10-27T00:24:16.155Z",
+      "wanted": "Inspect and choose the pre-PLAY launch options (age, race, Optional beginning select) before starting, to test world-start choices from a fresh launch.",
+      "classification": [
+        "pre-PLAY capability gap"
+      ],
+      "substantive_disposition": [
+        "game_new calls headless boot and auto-starts; no pre-PLAY option in schema/worker. Current source confirms the requested pre-launch inspection is outside this method."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 34,
+      "at": "2026-10-27T07:15:11.500Z",
+      "wanted": "Read Village reputation and the trade price breakdown after a Local life watch; page past the first 80 actions; scope a click's reply to one panel.",
+      "classification": [
+        "action/navigation contract"
+      ],
+      "substantive_disposition": [
+        "worker controls adds location dropdowns, text matches visible control labels, native select requires enabled known options, scoped indices are absolute for that view, look offset is action offset not page number. Current functionality is source-traced; named route coverage is checked separately rather than treating old exact text as stable."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 35,
+      "at": "2026-10-30T01:51:15.679Z",
+      "wanted": "A 1920x1080 screenshot of the screen the player actually sees (workspace layout) for a UI audit.",
+      "classification": [
+        "rendering proof boundary"
+      ],
+      "substantive_disposition": [
+        "Chromium backend creates a new1920x1080 context from saved native state, no transient headless panel selection. Successful PNG is a saved-state mirror, not equality to the shim DOM or restored transient UI. Electron backend is retired."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 36,
+      "at": "2026-10-30T04:58:35.863Z",
+      "wanted": "Begin a life chronicle from a fresh game: talk to the village elder, open the People notebook, click [data-chronicle=\"begin-open\"], then open the Family panel.",
+      "classification": [
+        "action/navigation contract"
+      ],
+      "substantive_disposition": [
+        "worker controls adds location dropdowns, text matches visible control labels, native select requires enabled known options, scoped indices are absolute for that view, look offset is action offset not page number. Current functionality is source-traced; named route coverage is checked separately rather than treating old exact text as stable."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 37,
+      "at": "2026-10-30T05:28:12.787Z",
+      "wanted": "Walk a UI change made in a git worktree (.claude/worktrees/rep-worlds-173cee) from a fresh life.",
+      "classification": [
+        "checkout support"
+      ],
+      "substantive_disposition": [
+        "resolveCheckout compares git common-dir, requires worker, links absent shared inputs; game_new chooses that worker and screenshots choose same root. Source integration is present; live worktree/branch ownership not inferred."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 38,
+      "at": "2026-10-30T14:52:28.588Z",
+      "wanted": "Click the visible Village action \"Talk to someone\" by its text on a fresh life.",
+      "classification": [
+        "action/navigation contract",
+        "report lacks blocking cause"
+      ],
+      "substantive_disposition": [
+        "worker controls adds location dropdowns, text matches visible control labels, native select requires enabled known options, scoped indices are absolute for that view, look offset is action offset not page number. Current functionality is source-traced; named route coverage is checked separately rather than treating old exact text as stable.",
+        "blockedBy empty. Wanted/walk outcome retained, but no new MCP defect follows from this line."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 39,
+      "at": "2026-11-02T03:39:56.512Z",
+      "wanted": "Walk the new continuation from the archived earned KJ2 checkpoint using the same native commands.",
+      "classification": [
+        "save input contract"
+      ],
+      "substantive_disposition": [
+        "game_worker.mjs safePath requires the tool export directory; game_new path and game_load decode exported data; scenario route is named library only. A repository/native envelope is a different accepted-input contract. Frozen round-trip passes; general source/native-envelope import remains unavailable."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 40,
+      "at": "2026-11-02T05:11:37.331Z",
+      "wanted": "Continue the next visit from the previously earned native KJ3A checkpoint.",
+      "classification": [
+        "save input contract"
+      ],
+      "substantive_disposition": [
+        "game_worker.mjs safePath requires the tool export directory; game_new path and game_load decode exported data; scenario route is named library only. A repository/native envelope is a different accepted-input contract. Frozen round-trip passes; general source/native-envelope import remains unavailable."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 41,
+      "at": "2026-11-02T06:50:50.602Z",
+      "wanted": "Resume the larger episode from the earned native chapter-10 browser checkpoint.",
+      "classification": [
+        "save input contract"
+      ],
+      "substantive_disposition": [
+        "game_worker.mjs safePath requires the tool export directory; game_new path and game_load decode exported data; scenario route is named library only. A repository/native envelope is a different accepted-input contract. Frozen round-trip passes; general source/native-envelope import remains unavailable."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 42,
+      "at": "2026-11-03T04:58:56.564Z",
+      "wanted": "A compact reply that omits the unchanged dock panels and the 150-action list; the first reply after boot, load or travel is 15-25k characters.",
+      "classification": [
+        "save input contract",
+        "slow stepping observation"
+      ],
+      "substantive_disposition": [
+        "game_worker.mjs safePath requires the tool export directory; game_new path and game_load decode exported data; scenario route is named library only. A repository/native envelope is a different accepted-input contract. Frozen round-trip passes; general source/native-envelope import remains unavailable.",
+        "days/until lift limits using same advanceGame; OP_TIMEOUT_MS defaults300000. No analytical fast-forward promised; historical155s observation is not a current benchmark."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 43,
+      "at": "2026-11-03T22:25:38.413Z",
+      "wanted": "Walk the Zorian start in the worktree build: begin_zorian, court, two missile casts, read the reserve, save, reload, export, import.",
+      "classification": [
+        "report lacks blocking cause"
+      ],
+      "substantive_disposition": [
+        "blockedBy empty. Wanted/walk outcome retained, but no new MCP defect follows from this line."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": true
+    },
+    {
+      "raw_line": 44,
+      "at": "2026-11-04T16:25:31.446Z",
+      "wanted": "Load a named synthetic cast supplement into an isolated game to prove recipient-gated conversation consequences without changing canonical packs.",
+      "classification": [
+        "fixture overlay capability gap"
+      ],
+      "substantive_disposition": [
+        "game_new schema, call(new), worker new and freezeBuild source have no per-session supplement overlay or arbitrary prepared-material fixture property. Browser-context overlay is an existing separate verification route."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 45,
+      "at": "2026-11-04T19:03:10.895Z",
+      "wanted": "Start the isolated developer life and inspect its current task",
+      "classification": [
+        "startup/continuation evidence"
+      ],
+      "substantive_disposition": [
+        "Current frozen new/reload/step/export/import tested successfully. Loop-specific regression runs separately; old scene-specific hangs without reproducible build/fixture are historical incidents, not proven current general startup defects."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": true
+    },
+    {
+      "raw_line": 46,
+      "at": "2026-11-04T19:30:37.347Z",
+      "wanted": "Open the previous earned-checkpoint fixture for the next LOTM editorial journey",
+      "classification": [
+        "save input contract"
+      ],
+      "substantive_disposition": [
+        "game_worker.mjs safePath requires the tool export directory; game_new path and game_load decode exported data; scenario route is named library only. A repository/native envelope is a different accepted-input contract. Frozen round-trip passes; general source/native-envelope import remains unavailable."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 47,
+      "at": "2026-11-04T19:38:05.494Z",
+      "wanted": "Exercise the original paid-work QA pack through the native Klein and Harry lead hosts with private-pack route overlays.",
+      "classification": [
+        "fixture overlay capability gap"
+      ],
+      "substantive_disposition": [
+        "game_new schema, call(new), worker new and freezeBuild source have no per-session supplement overlay or arbitrary prepared-material fixture property. Browser-context overlay is an existing separate verification route."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 48,
+      "at": "2026-11-05T04:47:16.855Z",
+      "wanted": "Verify a frozen synthetic Seer exhaustion fixture with declared pack overlay, actual on/off actions and literal Export/Import.",
+      "classification": [
+        "fixture overlay capability gap"
+      ],
+      "substantive_disposition": [
+        "game_new schema, call(new), worker new and freezeBuild source have no per-session supplement overlay or arbitrary prepared-material fixture property. Browser-context overlay is an existing separate verification route."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 49,
+      "at": "2026-11-06T06:12:28.277Z",
+      "wanted": "Step 7 days in a Tingen Nighthawk-probationer life (fd-smoke worktree at 958740e92) to reach the first weekly pay",
+      "classification": [
+        "long-step performance limit"
+      ],
+      "substantive_disposition": [
+        "Current worker advances same stepper and server kills timed-out operation after configured timeout. The API allows days but does not promise that7days completes within300s. Named life performance is a separate measurement claim."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": true
+    },
+    {
+      "raw_line": 50,
+      "at": "2026-11-06T22:54:03.312Z",
+      "wanted": "Read the Harry school-calendar text (\"Term starts in N days\") that schoolYearText feeds into the local-clock date",
+      "classification": [
+        "clock-display chain"
+      ],
+      "substantive_disposition": [
+        "todayDigestView includes local note and reports_dock renders note; date field is omitted. Old report conflated note/countdown and date. Current countdown text supplier is separately traced through local.note; reports dock hides all rows after8loglines."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 51,
+      "at": "2026-11-06T23:14:12.996Z",
+      "wanted": "game_freeze to get a frozen bundle for the wave 3 native walk",
+      "classification": [
+        "snapshot/root selection contract"
+      ],
+      "substantive_disposition": [
+        "frozen_build.mjs freezeBuild selects module ROOT; checkout supports git worktrees; arbitrary BUILD_OUT is not an input. ENOENT desktop regression is closed for captured inputs by successful isolated frozen/native test."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": false
+    },
+    {
+      "raw_line": 52,
+      "at": "2026-11-06T23:48:15.002Z",
+      "wanted": "Reach the Village old craftsman (W2) and a loop start (W4) headlessly without playing the elder questline and field combat",
+      "classification": [
+        "named-scenario coverage gap"
+      ],
+      "substantive_disposition": [
+        "Adding scenario support does not supply every quest-complete recipe. Craftsman unlock/loop recipe coverage must be checked at SCENARIOS and the actual unlock consumer. No new scenario authored by audit."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": true
+    },
+    {
+      "raw_line": 53,
+      "at": "2026-11-07T00:00:23.494Z",
+      "wanted": "Observe the Zorian/continuation repeat loop cycle (checkpoint target, 5 min) and read the cycle count",
+      "classification": [
+        "startup/continuation evidence"
+      ],
+      "substantive_disposition": [
+        "Current frozen new/reload/step/export/import tested successfully. Loop-specific regression runs separately; old scene-specific hangs without reproducible build/fixture are historical incidents, not proven current general startup defects."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": true
+    },
+    {
+      "raw_line": 54,
+      "at": "2026-11-07T00:07:47.511Z",
+      "wanted": "Reach the old craftsman (field.introduced) in a fresh life to test the inquiry write-up",
+      "classification": [
+        "action/navigation contract"
+      ],
+      "substantive_disposition": [
+        "worker controls adds location dropdowns, text matches visible control labels, native select requires enabled known options, scoped indices are absolute for that view, look offset is action offset not page number. Current functionality is source-traced; named route coverage is checked separately rather than treating old exact text as stable."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": true
+    },
+    {
+      "raw_line": 55,
+      "at": "2026-11-07T00:36:43.739Z",
+      "wanted": "Read a skill tooltip (Night vision, Breathing) in Klein's life, and open a Work & merit / What I owe view.",
+      "classification": [
+        "world-specific panel coverage"
+      ],
+      "substantive_disposition": [
+        "Skills/ledger availability in Klein’s seat is a UI-consumer claim, not established by a fresh Village MCP boot. Keep the specific player-panel route with the lane5 UI completion audit."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": true
+    },
+    {
+      "raw_line": 56,
+      "at": "2026-11-07T01:28:07.467Z",
+      "wanted": "After one intentional-loop cycle fired (commit 498a7b10b, fresh-day3), game_step first call failed and game_reload failed with 'Element is not visible (visibility hidden on #loading_screen) ... loading_screen_play_button'; look/status/second step worked.",
+      "classification": [
+        "startup/continuation evidence"
+      ],
+      "substantive_disposition": [
+        "Current frozen new/reload/step/export/import tested successfully. Loop-specific regression runs separately; old scene-specific hangs without reproducible build/fixture are historical incidents, not proven current general startup defects."
+      ],
+      "evidence_level": "current source contract plus specified tests; scene-specific route gaps are not declared fixed",
+      "cross_claim_remains": true
+    }
+  ]
+}

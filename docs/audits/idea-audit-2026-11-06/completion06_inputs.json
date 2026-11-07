@@ -1,0 +1,36 @@
+{
+  "captured_at": "2026-11-07T03:28:31.995538+00:00",
+  "identities_at_inspection_after_focused_run": {
+    "src/book_world_lotm_constables.js": "ef871c3cf557f702fa7c02162ab4cf507b491eddd66d009da04a55f54366a0df",
+    "src/book_world_lotm_host.js": "15dd10f0a904f7f2e107b72dcc0cebe1dfb3f6bfd081e6e7e8a29d655433380f",
+    "src/book_world_lotm_domain.js": "3e00dc03a61b48b1a6fac457405eb338c5865185609be5509fe6d57a8cd4061e",
+    "src/duties_domain.js": "3a7982fccb589fcbe9076c08dcc4c08d5defb105c8e79b04d70f13e682ed1c75",
+    "src/npc_schedule.js": "29308b7d2a19c1454234c16252c0a1564354247a618af1ea0099bb323c078302",
+    "src/simulation.js": "95c45e920ac47bedb46d4eb00dca2dc153312e1708d3d661abd23056f8ad82e5",
+    "src/main.js": "4c983df2161ba2fda8f35c360186e56bb04126ecb3c0434eede6311927747c44",
+    "src/owed_ledger_sources.js": "414ae7a17b142b57a19d5697022aa24b3e592342daed0f25976e136a331fd224",
+    "src/lesson.js": "69492b0b29de208dfe9f2e555b4a019e2a9ac98f6c5ae5727f66f122b4e91fa2",
+    "src/book_world_hp_lessons.js": "d94acf6f40cb8c3d7b7eef1d62ead50c3a83f2a1df7702c2107ee96123ae625e",
+    "src/batch_identity.js": "98dfe42ca622df0333a30bb77abcb0c8112eff657ab445b718aa935063098914",
+    "src/book_world_lotm_actions.js": "eaec186de38fdbfcf5f211d55e25de2818a344532bfe1af113103c51e2a6de1d",
+    "src/book_world_lotm_ui.js": "220bf0263a6ab4c9e5c83861e0202ee219a74234d76adaf1b73bbad3e3a26afe",
+    "work/w11-closure/verified-inputs.json": "cccb9cbe8d036a74576632e433872de462f0f32b9e0fac20965de2ac103a9e62",
+    "work/w11-closure/result.json": "41b45d012513b5ac1e8198db73db450e03db301568265ab46370060c788b1883",
+    "work/w11-closure/library-result.json": "2dd306311a8d081c1785aad3bd560ad63e1ca9a3e60bc0fc906444089c6d9b03",
+    "work/w11-closure/jail-ui-result.json": "c3a0215340c9cffc7e5ad1715fdfe9ee1b17b58ac07f10ca5a4d02ddd0ab2736",
+    "docs/research/rogue-legacy/COVERAGE.json": "6ec4ba4ad0bafbcae4471b0248cb6fe029f86dc492a844d1d489cf9a684ec9bb"
+  },
+  "focused": {
+    "command": "node --test tests/owed_ledger.test.js tests/hp_lessons.test.js tests/batch_identity.test.js tests/at24_positions_rows.test.js",
+    "pass": 27,
+    "fail": 0,
+    "skip": 0
+  },
+  "wave11_archive_sha256": "08d2b0a2e383029ad537d37466e09091d50e444d5289e8b4751344e7a3312cc9",
+  "rogue_metadata_check": {
+    "files": 344,
+    "csharp_files": 290,
+    "read_csharp_lines": 4986,
+    "issues": []
+  }
+}

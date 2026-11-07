@@ -1,0 +1,254 @@
+{
+  "lane": 7,
+  "read_date": "2026-11-07 UTC / 2026-11-06 local",
+  "head": "abdaedf0aba222a2580edc58d1f430210dd01135",
+  "selected_precount_words": 11394,
+  "budget_words": 12000,
+  "sources": {
+    "docs/gm/dispatch/tauri-host-2026-11-06/CHECKPOINT.md": {
+      "ranges": [
+        [
+          1,
+          125
+        ]
+      ],
+      "words": 2504,
+      "sha256": "24c5fe9a5d41a2d03d2ac12c8778cc16534738325eb24b3bbb1a83697f9c6eda",
+      "unread_ranges": [
+        [
+          126,
+          135
+        ]
+      ]
+    },
+    "docs/audits/RELEASE_RECONCILIATION_2026-11-04.md": {
+      "ranges": [
+        [
+          1,
+          46
+        ]
+      ],
+      "words": 1000,
+      "sha256": "066803a39f13e52e193c4db2dc1fd76378b7e726ff45ae172dd0383c616d5038",
+      "unread_ranges": []
+    },
+    "docs/tools/GAME_MCP_LIMITS.md": {
+      "ranges": [
+        [
+          1,
+          17
+        ],
+        [
+          96,
+          105
+        ]
+      ],
+      "words": 515,
+      "sha256": "4220570c38c3709ce3199036544d1beb6c6dbcf20c0a848bf2d5baceb44c1830",
+      "unread_ranges": [
+        [
+          18,
+          95
+        ]
+      ]
+    },
+    "docs/SAVES.md": {
+      "ranges": [
+        [
+          199,
+          207
+        ],
+        [
+          254,
+          272
+        ]
+      ],
+      "words": 886,
+      "sha256": "ed17fff54428869e58e36b121906cdda5bcb005cf7e0ef8512505f4949033a84",
+      "unread_ranges": [
+        [
+          1,
+          198
+        ],
+        [
+          208,
+          253
+        ],
+        [
+          273,
+          297
+        ]
+      ]
+    },
+    "docs/SEAM_REGISTER.md": {
+      "ranges": [
+        [
+          1,
+          15
+        ],
+        [
+          55,
+          65
+        ]
+      ],
+      "words": 462,
+      "sha256": "4255907e67e9c7c6a402e8f0948e3b4555dda04ed352b5b702bbc5a612b138f1",
+      "unread_ranges": [
+        [
+          16,
+          54
+        ],
+        [
+          63,
+          63
+        ]
+      ]
+    },
+    "docs/reviews/ELECTRON_RUST_ASSESSMENT_2026-11-05.md": {
+      "ranges": [
+        [
+          1,
+          52
+        ]
+      ],
+      "words": 381,
+      "sha256": "6642c9899fe082852fd8377a791152b6be041b233c2a4604c06df26fe9db5923",
+      "unread_ranges": []
+    },
+    "docs/reviews/shell-comparison-2026-11-06/REPORT.md": {
+      "ranges": [
+        [
+          157,
+          186
+        ]
+      ],
+      "words": 221,
+      "sha256": "6ce03f881f9b430a7ecb8606b2bfa0223ac12e431b7874c38022349603ff4a5d",
+      "unread_ranges": [
+        [
+          1,
+          156
+        ]
+      ]
+    },
+    "docs/audits/DONE_CHATS_AUDIT_2026-10-30.md": {
+      "ranges": [
+        [
+          101,
+          137
+        ]
+      ],
+      "words": 809,
+      "sha256": "8eed26491ad855a6eba0eab23e90af918a9595c838219542089136fc6cbf5191",
+      "unread_ranges": [
+        [
+          1,
+          100
+        ]
+      ]
+    },
+    "package.json": {
+      "ranges": [
+        [
+          1,
+          39
+        ]
+      ],
+      "words": 137,
+      "sha256": "ab2e819cfba1d6b5d250cdd1ea15b331080cba4660e24350636253f4952d0d54",
+      "unread_ranges": []
+    },
+    "docs/GROUND_RULES.md": {
+      "ranges": [
+        [
+          1,
+          82
+        ]
+      ],
+      "words": 1339,
+      "sha256": "2cea999a968627c57136a877a9676ef50560a1043f9fdc31f71e16beaf6423cb",
+      "unread_ranges": []
+    },
+    "docs/VISION_DIGEST.md": {
+      "ranges": [
+        [
+          1,
+          54
+        ]
+      ],
+      "words": 1346,
+      "sha256": "61e0d63e3c2908d6d4c50f6de6d0f1089b76b02b941ead3124cec621feb7063f",
+      "unread_ranges": []
+    },
+    "PROJECT.md": {
+      "ranges": [
+        [
+          1,
+          73
+        ]
+      ],
+      "words": 1303,
+      "sha256": "edfd21f692010ff859b42e79bba69fed09dd17ee16fbfa659105b5583cd43653",
+      "unread_ranges": []
+    },
+    "docs/audits/IDEA_AUDIT_2026-11-06.md": {
+      "ranges": [
+        [
+          1,
+          30
+        ]
+      ],
+      "words": 491,
+      "sha256": "8c66a123e09aacfa0faacae6c540ac2601e8bee8a829b759f66bcc2ed3cd894d",
+      "unread_ranges": []
+    }
+  },
+  "targeted_probe_note": "Bounded rg selections additionally inspected scripts/tauri/check.mjs:12,23; scripts/mcp/game_mcp.mjs:87,92; desktop-tauri/README.md:59. Under 600 additional selected words. No semantic source audit. One combined read output clipped part of SEAM_REGISTER:63; retained as unread in report.",
+  "commands": {
+    "seam_check": {
+      "command": "node scripts/seam_register.mjs --check",
+      "exit": 1,
+      "result": "docs/SEAM_REGISTER.md is stale or names missing modules"
+    },
+    "mcp_selfcheck": {
+      "command": "node scripts/mcp/game_mcp.mjs --self-check",
+      "exit": 0,
+      "result": {
+        "ok": true,
+        "actions": 80,
+        "hash": "2355e898c51ec9ee",
+        "openLimitEntries": 56
+      }
+    },
+    "status": "MM AGENTS.md\n M dist/bundle.js\n M dist/bundle.js.map\nD  docs/PROSE_RULES.md\nMM docs/RELATIONSHIPS_AND_CANON_CONSIDERATIONS_2026-10-18.md\nMM docs/RULES_INDEX.md\nMM docs/USER_VISION.md\nMM docs/VISION_DIGEST.md\nMM docs/gm/FOUNDATION_RUN_PLAYBOOK.md\nD  docs/prose/PROSE_REWRITE_BACKLOG.md\n M docs/research/DOWNLOAD_WISHLIST_2026-10-30.md\n M docs/research/LIBRARY_INDEX.md\n M docs/research/SOURCE_LIBRARY_CATALOGUE.md\n M docs/tools/game_mcp_limits.jsonl\nMM docs/worlds/DIALOGUE_AND_INTERACTIONS.md\n M index.html\nMM package.json\nD  scripts/check_player_text.mjs\nD  scripts/player_text_baseline.json\n M src/book_world_lotm_constables.js\n M src/book_world_lotm_domain.js\n M src/book_world_lotm_host.js\nMM src/causal_story_content.js\n M src/main.js\nMM src/original_frontier_career_content.js\nMM src/original_frontier_field_content.js\n M tests/authority_strikes.test.js\n?? docs/PROSE_RULES.md\n?? docs/audits/IDEA_AUDIT_2026-11-06.md\n?? docs/audits/idea-audit-2026-11-06/\n?? docs/gm/dispatch/wave11-closure-2026-11-06/\n?? docs/prose/\n?? scripts/check_player_text.mjs\n?? scripts/perf/compare-shells.mjs\n?? scripts/perf/shell-launch.c\n?? scripts/perf/shell-page.js\n?? scripts/perf/shell-processes.py\n?? scripts/perf/summarize-shells.mjs\n?? scripts/perf/tauri-prototype/\n?? scripts/player_text_baseline.json\n?? tests/lotm_seizure_host.test.js\n",
+    "diff_stat": " AGENTS.md                                          |   2 +\n dist/bundle.js                                     | 174 +++++++++---------\n dist/bundle.js.map                                 |   8 +-\n ...IONSHIPS_AND_CANON_CONSIDERATIONS_2026-10-18.md |   3 +\n docs/RULES_INDEX.md                                |   5 +-\n docs/USER_VISION.md                                |   8 +\n docs/VISION_DIGEST.md                              |   2 +-\n docs/gm/FOUNDATION_RUN_PLAYBOOK.md                 |   3 +\n docs/research/DOWNLOAD_WISHLIST_2026-10-30.md      |  27 +--\n docs/research/LIBRARY_INDEX.md                     |  11 ++\n docs/research/SOURCE_LIBRARY_CATALOGUE.md          |  48 ++++-\n docs/tools/game_mcp_limits.jsonl                   |   7 +\n docs/worlds/DIALOGUE_AND_INTERACTIONS.md           |  41 +++++\n index.html                                         |   4 +-\n package.json                                       |   3 +-\n src/book_world_lotm_constables.js                  |  43 +++--\n src/book_world_lotm_domain.js                      |   8 +-\n src/book_world_lotm_host.js                        |  27 ++-\n src/causal_story_content.js                        |  72 ++++----\n src/main.js                                        |   2 +-\n src/original_frontier_career_content.js            | 202 ++++++++++-----------\n src/original_frontier_field_content.js             | 166 ++++++++---------\n tests/authority_strikes.test.js                    |  27 ++-\n 23 files changed, 538 insertions(+), 355 deletions(-)\n",
+    "cached_stat": " AGENTS.md                                          |   2 -\n docs/PROSE_RULES.md                                |  47 -\n ...IONSHIPS_AND_CANON_CONSIDERATIONS_2026-10-18.md |   3 -\n docs/RULES_INDEX.md                                |   5 +-\n docs/USER_VISION.md                                |   8 -\n docs/VISION_DIGEST.md                              |   2 +-\n docs/gm/FOUNDATION_RUN_PLAYBOOK.md                 |   3 -\n docs/prose/PROSE_REWRITE_BACKLOG.md                | 958 ---------------------\n docs/worlds/DIALOGUE_AND_INTERACTIONS.md           |  41 -\n package.json                                       |   3 +-\n scripts/check_player_text.mjs                      | 119 ---\n scripts/player_text_baseline.json                  |   1 -\n src/causal_story_content.js                        |  72 +-\n src/original_frontier_career_content.js            | 202 ++---\n src/original_frontier_field_content.js             | 166 ++--\n 15 files changed, 223 insertions(+), 1409 deletions(-)\n"
+  },
+  "identities": {
+    "dist/bundle.js": "5270cf2b28815d1848248224b5ac869abad1e463d66c88ac6570b8ed6416faf5",
+    "dist/bundle.js.map": "a5f820e2ccab31d2c06559a94d7cb9764fc551d9e75d3dddaa6ac7af0fa1eab2",
+    "index.html": "5086779f792ad192e49fb47355d8b2b68fbf7bcacc612e3ec9304f22d2ec1e91",
+    "desktop-tauri/target/release/yairpg-tauri": "e6e1fb551540892f51c9ae237379f81eba20707f0e456ed3a83f8e45efcc9b1d",
+    "/Users/weiwei/Applications/Yet Another Idle RPG.app/Contents/MacOS/yairpg-tauri": "e71e324f3941d22c5259e9ab9e34d56b885a7c0a40566d83c86b93bb2cf2436e"
+  },
+  "ledger": {
+    "path": "docs/tools/game_mcp_limits.jsonl",
+    "sha256": "df55291cd6847199ffdbc0d2c3dab89b9db0488b5accafc4962f9ac363abbd53",
+    "lines": 56,
+    "unreviewed_ranges": [
+      [
+        1,
+        56
+      ]
+    ],
+    "note": "56 append-only raw entries counted by self-check; no handled/open semantic triage read"
+  },
+  "checks_audit_only": {
+    "rows": 47,
+    "classes": "PASS",
+    "trailing_whitespace": "PASS",
+    "git_diff_check": "PASS; untracked paths so no tracked diff evaluated",
+    "runtime": "not run"
+  },
+  "concurrent_drift": "Root reports wave11 closure and tests/lotm_seizure_host.test.js; not reviewed or assumed complete."
+}

@@ -1,0 +1,52 @@
+{
+  "command": [
+    "node",
+    "--test",
+    "tests/inquiry.test.js",
+    "tests/rent_duty.test.js",
+    "tests/duties_domain.test.js",
+    "tests/positions_term.test.js",
+    "tests/heat.test.js",
+    "tests/collector_fight.test.js",
+    "tests/organizations_founding.test.js",
+    "tests/organizations_dues.test.js",
+    "tests/world_pack_state.test.js",
+    "tests/snapshot.test.js",
+    "tests/host_seam.test.js"
+  ],
+  "exit_code": 0,
+  "inputs_before": {
+    "src/inquiry.js": "d1c9c0e85c6e1de5d958583adcc97b0240860669e9ea08d28d318fac7b7e0acd",
+    "src/positions.js": "7599c1cca4ff87fd402afc00243e7f834332e4780311a39f7a6cd68cdec9c424",
+    "src/heat.js": "8ae41dbe48225016a15b772a2a954b89af93618a072f81da01f239f06b73f77b",
+    "src/book_world_lotm_collector.js": "ccf2f440e5c98d4e932c2289ac52813990dd626aff58f22bc109304bfd643a4c",
+    "src/organizations.js": "ed62e029269c9a6f0cede35398d4e3b0723eb8c48b924cfdaa373bb94f9ac8ba",
+    "src/organizations_domain.js": "8f24425c86af43c26c7503f6fcc513e73cefcce120e57bdaa366e7128d236b73",
+    "src/duties_domain.js": "3a7982fccb589fcbe9076c08dcc4c08d5defb105c8e79b04d70f13e682ed1c75",
+    "src/recurring_duties.js": "1a81fdd749547dacc716d35d3a02e5c6fe40a013bc01d74709e742d99b546977",
+    "tests/inquiry.test.js": "f6474e7a0913cd6dacc75ca2b24ade5dda2fd364bff688794dae9b96a74bf5c3",
+    "tests/rent_duty.test.js": "283bc2a9986f12fc4afd15a26602f42796c5d52e51ed47ec714c7f37424eab6b",
+    "tests/duties_domain.test.js": "b3a8d11639ed086dbcdc84fe37040e7510fa591ce25caf66228be6cc2728fc53",
+    "tests/positions_term.test.js": "e69ef2fd2f7f3d496875649b7e0f16ac92be359052969dafd03302d80b2cd8d0",
+    "tests/heat.test.js": "4eaa5294dbd53faace8fb8771eab9391caa604f130eff69bf93c60a9bd043fbe",
+    "tests/collector_fight.test.js": "0c44f3968802814334e46fc6b937e1f1109a7fc40de21169cb7deefeaa084924",
+    "tests/organizations_founding.test.js": "9a9c0b907caec8d4acb1f9b9a9137c14ee4093872d50b332d96eaed60e732df6",
+    "tests/organizations_dues.test.js": "8bab978b523d0fa6a444e233db29cbb6026570939212514e966045a18712f73e",
+    "tests/world_pack_state.test.js": "780eae0b21c3b57ea4d5b7bd47b69ea66e0e5e8a3971ce338c03fd3ffca60d9b",
+    "tests/snapshot.test.js": "18d17f0de4445a067a3392196915cadad4304048f02dd8a7ee9d0b03c002d4a2",
+    "tests/host_seam.test.js": "f1886ddc9192b1b4a7a94123f263a96e050f636be8030a3d28b1f67a5f37efee"
+  },
+  "changed_during_run": [],
+  "summary": [
+    "  ...",
+    "1..78",
+    "# tests 78",
+    "# suites 0",
+    "# pass 78",
+    "# fail 0",
+    "# cancelled 0",
+    "# skipped 0",
+    "# todo 0",
+    "# duration_ms 4437.595083"
+  ]
+}

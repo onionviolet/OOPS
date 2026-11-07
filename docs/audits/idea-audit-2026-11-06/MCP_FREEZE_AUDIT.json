@@ -1,0 +1,29 @@
+{
+  "command": "node scripts/slot_run.mjs --kind browser -- node <captured sandbox>/scripts/mcp/game_mcp_check.mjs --freeze-only",
+  "exit_code": 0,
+  "result": "PASS frozenAndNative assertions",
+  "instrumented_bundle_sha256": "d04cb5b905bd7d917e59988399f49aaa6de905c5d0f9833fcc7d1aeff0a05a69",
+  "snapshot_manifest_sha256": "7d36f47191aa65be029233ca86628830d98ddb6b517a2a795d9a710d968d6945",
+  "frozen_input_count": 148,
+  "screenshot": {
+    "path": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/yairpg-mcp-chromium-JKu6E6/screenshot.png",
+    "width": 1920,
+    "height": 1080,
+    "sha256": "ef73fff8f9cad2bfb5d9a4d74fc05556e0fbb479564833a9c1803ee317607441",
+    "bytes": 595839
+  },
+  "proved": [
+    "freeze executes after Electron directory removal",
+    "reload ignores drift in copied live source/HTML/CSS/runner",
+    "quote unchanged; source snapshot session unchanged by screenshot",
+    "save-export-advance-import restores clock on frozen inputs",
+    "mismatched pair and tampered external snapshot rejected",
+    "existing session owns frozen bytes even after external snapshot tamper"
+  ],
+  "limits": [
+    "Original supplied external snapshot intentionally tampered by negative-case test; do not reuse that external snapshot as a valid current artifact.",
+    "PNG is saved-state mirror, not transient headless UI fidelity.",
+    "Current dist and source captured separately; this does not prove their equivalence.",
+    "First setup run failed because sandbox omitted statically imported Ink JSON; docs was linked for read-only compilation and run repeated."
+  ]
+}

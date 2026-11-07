@@ -1,0 +1,29 @@
+{
+  "at": "2026-11-07T02:49:38.376741+00:00",
+  "command": "node --test tests/cast_ability_adapter.test.js tests/cast_divination_adapter.test.js tests/cast_inference_adapter.test.js tests/cast_worksheet.test.js tests/lead_run_crosswalk.test.js tests/perspective_controls.test.js",
+  "result": "PASS43/43; no failed/cancelled/skipped",
+  "log_tail": [
+    "  ...",
+    "1..43",
+    "# tests 43",
+    "# suites 0",
+    "# pass 43",
+    "# fail 0",
+    "# cancelled 0",
+    "# skipped 0",
+    "# todo 0",
+    "# duration_ms 59499.243875"
+  ],
+  "scope": "Adapter/inventory/CLI focused regression slice, not a full suite or canonical campaign proof",
+  "inputs": {
+    "tests/cast_ability_adapter.test.js": "1f05f78186d887b55f90f27b12f105b4a0b753e451194f01c284d4261adedad2",
+    "tests/cast_divination_adapter.test.js": "e2a084b3caa506e20a1851e622b5148d782b9f390d49ed160a3014b02e23695b",
+    "tests/cast_inference_adapter.test.js": "d239d13858c2cf75f87a5c2c8c6470af3a6715a571d959f737307422feeac27e",
+    "tests/cast_worksheet.test.js": "9d6fae7498260edc2cca8985e92f10ca4f8ed6ee2ab1375d724336a0dd4dff82",
+    "tests/lead_run_crosswalk.test.js": "1a88021dee1f0c586c670dbabafc96de5b6d71adbdd0f088eaf82990ffb617db",
+    "tests/perspective_controls.test.js": "c2ce9045253ca999af8b149df4ef15b934418003e6b69f4293e852aa73f53e93",
+    "scripts/lead_run/cast_worksheet.mjs": "15eb13d0181bc5793e75a44a1298bede2072da3c3574937250882eb754e5e72c",
+    "scripts/lead_run/build_crosswalk.mjs": "5c267406f7b584aa8f4059fd74ad1f23641720d209dda3471b8808c3c9656c61",
+    "src/perspective_controls.js": "d3290213f7782931f60227cc4cf14495a6611e257a60524f32960a12316738b2"
+  }
+}

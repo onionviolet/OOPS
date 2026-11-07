@@ -1,0 +1,38 @@
+{
+  "at": "2026-11-07T02:13:55.447808+00:00",
+  "head": "abdaedf0aba222a2580edc58d1f430210dd01135",
+  "intake_candidates": 2247,
+  "changed_inputs": [
+    {
+      "path": "docs/IDEA_INDEX.md",
+      "intake_sha256": "c2832850820ce01e183d10e8dc3680ce6b8378286e308dba2d88e76423ad1914",
+      "closeout_sha256": "974c2746a8df31a2bb36309fad0d9a9bc4711e43cb3b9492c054b22a17b951f8",
+      "task_owned_edit": true
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "intake_sha256": "7557169125a6ed9ab36216bab02631f072f4833b016d472d58bdb0d8d1c31945",
+      "closeout_sha256": "ed7e666850b89a55422b8bcf11e1c1c669eb157fd821379f15b05fff2034abc4",
+      "task_owned_edit": true
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-run-residue-2026-11-06/CHECKPOINT.md",
+      "intake_sha256": "7b2e072cffac11557b86d554dcbdbf7fe6aee0c9d9365f5adfd6944199d491fe",
+      "closeout_sha256": "5b6796488aee51a5de651f8efdb01132840b513dcdc1d38b590ce0612254a766",
+      "task_owned_edit": false
+    },
+    {
+      "path": "PROJECT.md",
+      "intake_sha256": "edfd21f692010ff859b42e79bba69fed09dd17ee16fbfa659105b5583cd43653",
+      "closeout_sha256": "14bac500b2f11b183ad086bdb5c2c3c1e890ac57b16f97317f00183afaf2aa00",
+      "task_owned_edit": true
+    }
+  ],
+  "later_metadata_intake": [
+    "docs/gm/dispatch/wave11-closure-2026-11-06/CHECKPOINT.md"
+  ],
+  "hp_probe_source_drift": [],
+  "limitations": "Closeout byte checks preserve read scope; do not revalidate unchanged historical runtime receipts. Live dirty tree remains mutable. Later intake not automatically semantically reviewed.",
+  "final_head": "abdaedf0aba222a2580edc58d1f430210dd01135",
+  "final_at": "2026-11-07T02:18:13.571744+00:00"
+}

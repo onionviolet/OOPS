@@ -1,0 +1,125 @@
+{
+  "head": "93dcc52c9335e04d9349080a225f91e83b76b59a",
+  "created_at": "2026-11-07T04:06:14.524789+00:00",
+  "files": [
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/DEPTH_DIAL_PROPOSAL.md",
+      "sha256": "ebe69788f510aed8ed2a2db3d55e6c4666e4f425ead016b52b3d8a2de1da4c96",
+      "lines": 860,
+      "read_ranges": [
+        [
+          550,
+          695
+        ],
+        [
+          770,
+          860
+        ]
+      ],
+      "semantic_reuse": "B566 original1\u2013845, full disposition read, closeout match"
+    },
+    {
+      "path": "docs/SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md",
+      "sha256": "75663dbdf6a8120a0517058a8bb3b7843adb84fc8cb3951198130982e083f6f4",
+      "lines": 752,
+      "read_ranges": [
+        [
+          700,
+          752
+        ]
+      ],
+      "semantic_reuse": "B434 full semantic disposition read, closeout match; B566/B572 qualification read"
+    },
+    {
+      "path": "src/skill_inspector.js",
+      "sha256": "a37462e327febad9c215f6a3042f0f0b7bbafcbf873c2d450ab2e11285d521d4",
+      "lines": 34,
+      "read_ranges": "full"
+    },
+    {
+      "path": "tests/skill_inspector.test.js",
+      "sha256": "244550236e7d9c7450ad64dec181de0b441ccb759d4c9fac2b11d8cad82b5d23",
+      "lines": 34,
+      "read_ranges": "full"
+    },
+    {
+      "path": "src/keyed_generation.js",
+      "sha256": "4c4f329e4da6b999d734cbb48e43b93c53fa335a31bdf42ea7bb9d250d4f6900",
+      "lines": 31,
+      "read_ranges": "full"
+    },
+    {
+      "path": "src/canon_pull.js",
+      "sha256": "0d4f88911ace49594b8ab33f651352b39110c38ef68055953f31f91459758e5a",
+      "lines": 175,
+      "read_ranges": "full"
+    },
+    {
+      "path": "src/canon_pull_host.js",
+      "sha256": "408118d8f680c815d2038bae6234cfb5e14f3e55596f2e491f5401cb004264e0",
+      "lines": 45,
+      "read_ranges": [
+        [
+          1,
+          35
+        ]
+      ]
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "933e45ca3e4c2307f2a138d7f5f01f7b28aabe2a8a93107e80363b1e213f60c5",
+      "lines": 524,
+      "read_ranges": [
+        [
+          338,
+          342
+        ],
+        [
+          482,
+          490
+        ]
+      ]
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "sha256": "28ff4a543f6648af8bdd435714b9cb9d650bd938de3b16e94f96004995cd44e8",
+      "lines": 752,
+      "read_ranges": [
+        [
+          83,
+          90
+        ]
+      ]
+    },
+    {
+      "path": "tests/canon_pull.test.js",
+      "sha256": "3befbbb9d5166b12f1e249d595d473186be743291c8af230d499d944590c5aa8",
+      "lines": 127,
+      "read_ranges": [
+        [
+          1,
+          80
+        ]
+      ]
+    },
+    {
+      "path": "src/world_packs/lotm_pull_slice.js",
+      "sha256": "95dca0ec560ba13cc561d41f37c1e17cc147c7d096f7e2814470451cc47cff43",
+      "lines": 20,
+      "read_ranges": [],
+      "role": "probe dependency, imported not source-read"
+    }
+  ],
+  "checks": [
+    {
+      "command": "node --test tests/skill_inspector.test.js",
+      "exit": 0,
+      "pass": 2
+    },
+    {
+      "command": "node --input-type=module fixed canon pull synthetic probe",
+      "exit": 0,
+      "artifact": "FIXED_CANON_PULL_PROBE.json"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "at": "2026-11-07T02:49:14.412851+00:00",
+  "bundle_identifier": "local.yairpg.tauri",
+  "version": "0.1.0",
+  "installed_executable": "/Users/weiwei/Applications/Yet Another Idle RPG.app/Contents/MacOS/yairpg-tauri",
+  "installed_sha256": "e71e324f3941d22c5259e9ab9e34d56b885a7c0a40566d83c86b93bb2cf2436e",
+  "target_executable": "desktop-tauri/target/release/yairpg-tauri",
+  "target_sha256": "e6e1fb551540892f51c9ae237379f81eba20707f0e456ed3a83f8e45efcc9b1d",
+  "scope": "Read application Info.plist/executables and builds current/latest pointers plus their static JS bundle bytes. No launch, save-mirror, storage/local.json or personal save access. On-disk designation is not observation of a running window.",
+  "same_executable": false,
+  "on_disk_build_pointers": {
+    "current.json": {
+      "exists": false
+    },
+    "latest.json": {
+      "exists": true,
+      "id": "v0.6-a4982e8239d6",
+      "bundle_exists": true,
+      "bundle_sha256": "86979fdefea2990522073fa0a27cc08b5312df87063a0fec6612d6d97ec9fb10"
+    }
+  },
+  "checkout_dist_sha256": "46be40186817642fbb3380ff9cb564c2d80276671892b6216054fdc77a87f6d8"
+}

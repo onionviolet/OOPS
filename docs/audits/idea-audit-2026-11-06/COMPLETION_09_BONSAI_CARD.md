@@ -1,0 +1,9 @@
+# Completion batch9: archived Bonsai model card
+
+All288 lines read in two bounded pieces, including packaging, memory, kernels, throughput definitions, speculative decoding, every benchmark row, density formula and limitations. This is supplier documentation captured in October, not a fresh model/version/installation verification or YAIR workload benchmark. No download, command execution, PDF reading, server change or model choice was made.
+
+The opening3.9GB number is native language-weight packaging, not the MLX download or total runtime: the card itself says MLX pack5.13GB including bundled vision, MLX language weights4.21GB, and peak5.9/6.3/12.2GB at4K/10K/100K without cache compression. Optional drafter and vision residency differ. Throughput rows mostly use the supplier llama.cpp fork and GGUF; the phone uses MLX Swift. Those figures cannot be silently assigned to this Mac or a default MLX installation.
+
+The card claims exact-distribution speculative verification and1.37×CUDA speedup while saying on-device speculation is not enabled by default. The roadmap expressly says long-horizon agentic coding is not a strong target. The262K architecture/context and supplier benchmark average do not establish reliable YAIR extraction, tool use, secrecy or whole-repository reasoning.
+
+One internal arithmetic overclaim is directly checkable without external research:0.275mWh/token versus the stated GPU range0.63–1.32 implies about2.3–4.8×, not the prose's order-of-magnitude claim. The inference measurements and phone battery estimates remain supplier claims; the latter is explicitly approximate. The invented intelligence-density metric is a transformed selected-benchmark average per weightGB, not an independently validated measure of usefulness. No purchase or current recommendation follows.

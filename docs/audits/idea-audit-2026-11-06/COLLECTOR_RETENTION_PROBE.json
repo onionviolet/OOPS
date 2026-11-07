@@ -1,0 +1,14 @@
+{
+  "route": "fixture:41synthetic finished-collector log entries; no actual41fight journey and no user saves",
+  "logLength": 41,
+  "firstApplied": 41,
+  "secondApplied": 41,
+  "finesAfterFirst": [
+    2580
+  ],
+  "finesAfterIdenticalSecondRead": [
+    5040
+  ],
+  "handledRetained": 40,
+  "interpretation": "40handled-id retention is smaller than100simulation-log retention. Identical retained41-entry log is reprocessed, increasing fines on second read. This contradicts unqualified reload/read exactly-once claim in a fixture."
+}

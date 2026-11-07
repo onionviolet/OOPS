@@ -1,0 +1,16 @@
+{
+  "scope": "Minimal synthetic calendar/start/continuation fixture, no save or game UI",
+  "day": {
+    "day": 30,
+    "hour": 23,
+    "divergedOnDay": null
+  },
+  "monthEnded": true,
+  "alive_host_next": "loop-end:date",
+  "dead_host_next": "die:harm",
+  "same_timestamp_row_plan": {
+    "command": "restart:initial",
+    "trigger": "date"
+  },
+  "finding": "When date is due and actor is dead, host orders die:harm before checking monthEnded, while row helper gives date priority for same-time events. Host has no event timestamps, so this proves a policy mismatch, not exact death timing in a natural game."
+}

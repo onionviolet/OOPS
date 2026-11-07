@@ -1,0 +1,8 @@
+{
+  "head_at_check": "93dcc52c9335e04d9349080a225f91e83b76b59a",
+  "json_files_parsed": 44,
+  "new_completion_local_links_checked": 14,
+  "issues": [],
+  "later_input_drift": [],
+  "qualification": "Artifact integrity only. Drift does not invalidate unchanged seams automatically and old evidence does not certify changed source. No full runtime suite."
+}

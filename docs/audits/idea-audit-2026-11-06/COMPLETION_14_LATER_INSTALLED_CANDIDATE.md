@@ -1,0 +1,11 @@
+# Completion batch14: later installed candidate supersedes batch2 pointer
+
+A concurrent owner changed installed delivery after batch2's static inspection. Read the full112-line js-ui-performance checkpoint, actual installation receipt and all four followup-ui geometry/result records. Existing1920×1080 followup-experiment.png inspected visually: two-column experiments, current material and terms, Try one batch above Back, independent inventory and Reports columns. This is retained rebuilt fixture evidence, not a new browser run by the auditor.
+
+Fresh read-only package inspection confirms local.yairpg.tauri0.1.0 host SHAe71e324f… matches the installation receipt; `codesign --verify --deep --strict` exits0. latest.json now selects v0.6-7b4f5a0cf8fd, and that frozen dist/bundle.js SHA910c144c… matches the receipt. [Actual static check](INSTALLED_FOLLOWUP_STATIC_AUDIT.json). No player app launched, save/profile file opened or pointer changed.
+
+This supersedes batch2's latest-pointer observation, preserving it as dated history. The signed-host hash is unchanged from the prior installed host, so differing release-executable hashes do not prove Rust code changed. The frozen page changed. Installed candidate base04c5fd798 plus this owner's source excludes later unrelated primary work, including this audit's new source findings. Current sourceHEAD is not the installed bundle identity.
+
+The checkpoint carefully qualifies overlapping suite versus later focused/CSS/browser evidence, clean isolated suite5516pass/5optional skips, native quit/relaunch on prior CSS, and final CSS browser follow-through. This audit reads those retained records, not all logs afresh, and does not certify the whole current tree from them. Its13 owned paths and reconstruction patch preserve ownership. No robust whole-game CPU reduction, memory/battery result, human acceptance or old8GB hardware compatibility is claimed. The latest older8GB section is active work with a failed throttle stress case, not a passed hardware gate.
+
+Queue release claims were already disposed at their earlier actual input; this addendum refreshes the later installed identity rather than pretending the old observation remains current. New detailed performance recommendations and active optimizations are concurrent intake, not implemented by this audit. No commit or push performed.

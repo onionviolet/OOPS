@@ -1,0 +1,752 @@
+{
+  "route": "41synthetic constable yielded log entries, actual resolver, host null to prevent time settlement; no personal saves or41fight journey",
+  "firstApplied": 41,
+  "secondApplied": 41,
+  "arrestsAfterFirst": 41,
+  "arrestsAfterSecond": 82,
+  "handledRetained": 40,
+  "pendingSentence": 720,
+  "finesAfterFirst": [
+    {
+      "key": "arrest:audit-constables:0@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:1@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:2@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:3@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:4@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:5@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:6@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:7@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:8@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:9@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:10@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:11@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:12@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:13@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:14@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:15@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:16@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:17@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:18@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:19@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:20@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:21@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:22@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:23@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:24@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:25@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:26@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:27@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:28@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:29@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:30@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:31@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:32@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:33@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:34@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:35@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:36@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:37@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:38@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:39@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:40@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    }
+  ],
+  "finesAfterSecond": [
+    {
+      "key": "arrest:audit-constables:0@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:1@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:2@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:3@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:4@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:5@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:6@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:7@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:8@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:9@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:10@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:11@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:12@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:13@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:14@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:15@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:16@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:17@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:18@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:19@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:20@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:21@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:22@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:23@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:24@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:25@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:26@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:27@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:28@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:29@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:30@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:31@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:32@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:33@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:34@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:35@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:36@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:37@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:38@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:39@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    },
+    {
+      "key": "arrest:audit-constables:40@0",
+      "authority": "tingen_police",
+      "duty": "arrest",
+      "epoch": 0,
+      "amount": 90,
+      "at": 10,
+      "settled": false
+    }
+  ],
+  "sourceSha256": "ef871c3cf557f702fa7c02162ab4cf507b491eddd66d009da04a55f54366a0df"
+}

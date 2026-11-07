@@ -1,0 +1,90 @@
+{
+  "created_at": "2026-11-07T04:08:03.970019+00:00",
+  "head": "93dcc52c9335e04d9349080a225f91e83b76b59a",
+  "files": [
+    {
+      "path": "docs/research/proto23/SKILL_CATALOGUE_2026-11-03.md",
+      "sha256": "f5aa2abf41be2a1ca69f941f79d2fbaa433e7d0e306460e1ff57001a00e521bc",
+      "lines": 249,
+      "coverage": "full"
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/LEAD_SKILL_TIMELINES_2026-11-03.md",
+      "sha256": "fab8f9bfc433ab2a4bef1cb1b2e543f8cb7d798c471fc9dda150db28409354c5",
+      "lines": 201,
+      "coverage": "full"
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/DEED_TITLES_WITNESSES_2026-11-03.md",
+      "sha256": "4ebd2f8aeeb8e8d303e097fce216e35024632035fd114814f6b647a6600338c9",
+      "lines": 111,
+      "coverage": "full"
+    },
+    {
+      "path": "src/skill_ladder.js",
+      "sha256": "c1a037b1a9d5c658fd35b7ea572b71e10096829b61cedc531f41c9060b6e2849",
+      "lines": 136,
+      "coverage": "full"
+    },
+    {
+      "path": "src/skill_ladder_domain.js",
+      "sha256": "2fea0f30768d8f1ba9d0e004bf6df39cffb9bbda45ea2550296639fd715f443c",
+      "lines": 26,
+      "coverage": "full"
+    },
+    {
+      "path": "src/titles.js",
+      "sha256": "da5d12ad08e92da23aa40e87e205276a563588396461567af89bc75e8f13f0d1",
+      "lines": 126,
+      "coverage": "full"
+    },
+    {
+      "path": "tests/skill_ladder.test.js",
+      "sha256": "956496652a48e7a9543cab2d57c0e3f43bc61c5eb555747d3e9a2c590a29edfb",
+      "lines": 106,
+      "coverage": "full"
+    },
+    {
+      "path": "tests/titles.test.js",
+      "sha256": "97619e76e53216ac3ce5d355ca23220489165346d6fb43f37ff198c4748aeeb0",
+      "lines": 51,
+      "coverage": "selected evidence/dependency; see report; not a full source read"
+    },
+    {
+      "path": "docs/gm/dispatch/skill-ladder-slice-2026-11-03/evidence/receipt.json",
+      "sha256": "f35de63f74a1d434e3fd7e4ac83ad0ebcfc32027e843d8ead7b8e1ea62c0d4c9",
+      "lines": 309,
+      "coverage": "selected evidence/dependency; see report; not a full source read"
+    },
+    {
+      "path": "src/data/skills.js",
+      "sha256": "700a2bff7063f6c78fb43591fdbd145b22f5a754a8e8d773c69eec1d319d491c",
+      "lines": 3072,
+      "coverage": "selected evidence/dependency; see report; not a full source read"
+    },
+    {
+      "path": "src/native_tool_domains.js",
+      "sha256": "5126ef36090cf296a198e00e56abbdc4ac914c789ccebf0848c988f156f3739a",
+      "lines": 83,
+      "coverage": "selected evidence/dependency; see report; not a full source read"
+    },
+    {
+      "path": "src/character_bio_ui.js",
+      "sha256": "ca99098e3d3756c18de5314d255d84442d8af021a61f96bb39e74c782c2be5cf",
+      "lines": 55,
+      "coverage": "selected evidence/dependency; see report; not a full source read"
+    },
+    {
+      "path": "src/main.js",
+      "sha256": "4c983df2161ba2fda8f35c360186e56bb04126ecb3c0434eede6311927747c44",
+      "lines": 10113,
+      "coverage": "selected evidence/dependency; see report; not a full source read"
+    }
+  ],
+  "check": {
+    "command": "node --test tests/skill_ladder.test.js tests/titles.test.js",
+    "exit": 0,
+    "pass": 9,
+    "fail": 0
+  }
+}

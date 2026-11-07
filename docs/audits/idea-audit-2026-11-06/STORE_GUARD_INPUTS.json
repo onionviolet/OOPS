@@ -1,0 +1,9 @@
+{
+  "sandbox": "/var/folders/xb/njlqv84d65zbhd229mkw85zh0000gn/T/oops-audit-store-jkwf071c",
+  "source": "desktop-tauri/src/store.rs",
+  "sha256": "8a1f894371d32ac9aae6a70571092bd51a87b383ce1598b2239c4cd72fe10b61",
+  "probe": "Run actual copied Store.apply: non-full revision4 rejected after revision5; full revision4 accepted. Only apply checked. mirror shim is not production mirror proof. No flush or personal-save access.",
+  "result": "PASS1/1 selected fixture test;2original store tests filtered out",
+  "actual": "Incremental rev4 refused after5; full rev4 accepted and sets stored rev4/value old-full",
+  "limits": "Actual copied Store.apply code, with mirror shim unused by this selected apply-only test. No native reload/quit or user-save corruption reproduced."
+}

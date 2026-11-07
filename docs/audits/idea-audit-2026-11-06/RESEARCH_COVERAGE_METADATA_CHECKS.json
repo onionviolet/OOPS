@@ -1,0 +1,253 @@
+{
+  "dwarf-fortress": {
+    "source_files": 29,
+    "unique_read_lines": 4951,
+    "claimed": {
+      "findings": 33,
+      "paths": 17,
+      "files_with_semantic_spans": 29,
+      "reviewed_lines_union": 4951,
+      "shipped_lua_files": 19,
+      "shipped_txt_files": 374,
+      "total_retained_files": 2749
+    },
+    "issues": [],
+    "fresh_retained_hash_checks": [
+      {
+        "file": "data/init/generators.lua",
+        "exists": false,
+        "sha_matches": null
+      },
+      {
+        "file": "data/init/globals.lua",
+        "exists": false,
+        "sha_matches": null
+      },
+      {
+        "file": "data/vanilla/vanilla_procedural/scripts/init.lua",
+        "exists": false,
+        "sha_matches": null
+      },
+      {
+        "file": "data/vanilla/vanilla_procedural/scripts/generators/materials.lua",
+        "exists": false,
+        "sha_matches": null
+      },
+      {
+        "file": "data/vanilla/vanilla_procedural/scripts/generators/evil.lua",
+        "exists": false,
+        "sha_matches": null
+      },
+      {
+        "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/secret.lua",
+        "exists": false,
+        "sha_matches": null
+      },
+      {
+        "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/curse.lua",
+        "exists": false,
+        "sha_matches": null
+      },
+      {
+        "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/blessing.lua",
+        "exists": false,
+        "sha_matches": null
+      },
+      {
+        "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/disturbance.lua",
+        "exists": false,
+        "sha_matches": null
+      },
+      {
+        "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/item_power.lua",
+        "exists": false,
+        "sha_matches": null
+      },
+      {
+        "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions.lua",
+        "exists": false,
+        "sha_matches": null
+      },
+      {
+        "file": "data/vanilla/vanilla_procedural/scripts/generators/entities.lua",
+        "exists": false,
+        "sha_matches": null
+      },
+      {
+        "file": "data/vanilla/vanilla_procedural/scripts/generators/creatures.lua",
+        "exists": false,
+        "sha_matches": null
+      },
+      {
+        "file": "data/vanilla/vanilla_procedural/scripts/generators/creatures/shared_info.lua",
+        "exists": false,
+        "sha_matches": null
+      },
+      {
+        "file": "data/vanilla/vanilla_procedural/scripts/generators/creatures/rcp.lua",
+        "exists": false,
+        "sha_matches": null
+      },
+      {
+        "file": "data/vanilla/vanilla_entities/objects/entity_default.txt",
+        "exists": false,
+        "sha_matches": null
+      },
+      {
+        "file": "data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+        "exists": false,
+        "sha_matches": null
+      },
+      {
+        "file": "data/vanilla/vanilla_reactions/objects/reaction_smelter.txt",
+        "exists": false,
+        "sha_matches": null
+      },
+      {
+        "file": "data/vanilla/vanilla_plants/objects/plant_standard.txt",
+        "exists": false,
+        "sha_matches": null
+      },
+      {
+        "file": "data/vanilla/vanilla_materials/objects/inorganic_metal.txt",
+        "exists": false,
+        "sha_matches": null
+      },
+      {
+        "file": "data/vanilla/vanilla_items/objects/item_weapon.txt",
+        "exists": false,
+        "sha_matches": null
+      },
+      {
+        "file": "data/vanilla/vanilla_creatures/objects/creature_standard.txt",
+        "exists": false,
+        "sha_matches": null
+      },
+      {
+        "file": "data/vanilla/vanilla_bodies/objects/tissue_template_default.txt",
+        "exists": false,
+        "sha_matches": null
+      },
+      {
+        "file": "data/vanilla/vanilla_buildings/objects/building_custom.txt",
+        "exists": false,
+        "sha_matches": null
+      },
+      {
+        "file": "readme.txt",
+        "exists": false,
+        "sha_matches": null
+      },
+      {
+        "file": "release notes.txt",
+        "exists": false,
+        "sha_matches": null
+      },
+      {
+        "file": "data/vanilla/examples and notes/gaits.txt",
+        "exists": false,
+        "sha_matches": null
+      },
+      {
+        "file": "data/vanilla/vanilla_procedural/info.txt",
+        "exists": false,
+        "sha_matches": null
+      },
+      {
+        "file": "data/vanilla/vanilla_entities/info.txt",
+        "exists": false,
+        "sha_matches": null
+      }
+    ]
+  },
+  "elin": {
+    "calculated": {
+      "source_files": {
+        "files": 49,
+        "read_lines": 6428
+      },
+      "yair_inputs": {
+        "files": 25,
+        "read_lines": 3197
+      }
+    },
+    "claimed": {
+      "source_files_with_semantic_spans": 49,
+      "cs_files_with_semantic_spans": 47,
+      "unique_source_lines": 6428,
+      "yair_files_with_semantic_spans": 25,
+      "unique_yair_lines": 3197
+    },
+    "issues": [],
+    "raw_source_hashes": "not rechecked; this is metadata accounting"
+  },
+  "keeperrl": {
+    "files_with_spans": 29,
+    "union_lines": 4366,
+    "range_records": 97,
+    "inventory": {
+      "tracked_blob_files": 939,
+      "gameplay_semantic_file_count": 29,
+      "unique_semantically_read_line_count": 4366,
+      "unread_or_inventory_only_file_count": 910,
+      "manifest_path": "/Users/weiwei/.codex/research/keeperrl/GIT_TREE_MANIFEST.json",
+      "provenance_read_separately": "INTAKE.json lists license/readme/config/header qualification; unread here means no gameplay semantic coverage claimed."
+    },
+    "unread_unique_paths": 910,
+    "issues": [],
+    "raw_source_hashes": "not rechecked; this is metadata accounting"
+  },
+  "amazing-cultivation-simulator": {
+    "input_sha256": "2dc7e5ee1ad60470044f972d04950d448ef2bf3aac96785d23d686d885320bb2",
+    "range_records": 537,
+    "sha_records": 286,
+    "existing_absolute_paths": 0,
+    "matching_file_hashes": 0,
+    "records": 125,
+    "unique_paths": 125,
+    "union_lines": 16957,
+    "claimed_files": 124,
+    "claimed_lines": 16957,
+    "issues": [],
+    "qualification": "Checks declared range order, available upper bounds and hashes of available explicitly declared local research files. Does not read raw bodies semantically, recover unavailable inputs or prove runtime."
+  },
+  "crush-crush": {
+    "input_sha256": "eeeb896e1ce5cfe20d2d2e2b8d599426740cb5803a1359852fc4372a2859844c",
+    "range_records": 318,
+    "sha_records": 347,
+    "existing_absolute_paths": 0,
+    "matching_file_hashes": 0,
+    "issues": [],
+    "qualification": "Checks declared range order, available upper bounds and hashes of available explicitly declared local research files. Does not read raw bodies semantically, recover unavailable inputs or prove runtime."
+  },
+  "melvor-idle": {
+    "input_sha256": "275de3d1f58fa96937d59cfba0539cc8265d13d0e88f93fe2373f0e1c55c26e4",
+    "range_records": 409,
+    "sha_records": 69,
+    "existing_absolute_paths": 0,
+    "matching_file_hashes": 0,
+    "issues": [],
+    "qualification": "Checks declared range order, available upper bounds and hashes of available explicitly declared local research files. Does not read raw bodies semantically, recover unavailable inputs or prove runtime."
+  },
+  "orb-of-creation": {
+    "input_sha256": "9879225301f6f5eb9ac9a7f0158b4297d0a5bcdbd6ddc48714bf29fb9dd3f5eb",
+    "range_records": 875,
+    "sha_records": 445,
+    "existing_absolute_paths": 0,
+    "matching_file_hashes": 0,
+    "source_registry": 139,
+    "asset_registry": 291,
+    "issues": [],
+    "qualification": "Checks declared range order, available upper bounds and hashes of available explicitly declared local research files. Does not read raw bodies semantically, recover unavailable inputs or prove runtime."
+  },
+  "your-chronicle": {
+    "input_sha256": "1c5ede6d909a903b887220ccbbc45a4c9851071e6ce65de8bde25e4f4414be0b",
+    "sha_records": 247,
+    "declared_ranges": 573,
+    "available_retained_files": 0,
+    "matching_retained_hashes": 0,
+    "unique_absolute_path_hash_pairs": 130,
+    "issues": [],
+    "qualification": "Metadata and literal-byte checks only; no fresh source semantic reading, runtime or all111260-method coverage."
+  }
+}

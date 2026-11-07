@@ -1,0 +1,23 @@
+{
+  "captured_at": "2026-11-07T03:03:19.814851+00:00",
+  "source_identities": {
+    "tests/character_sheets.test.js": "267632c33583130060948233dc7547f7e17c74269ed110af5f66fab0596147ab",
+    "src/character_sheets.js": "59d7ec566a7780cf54fb5f995802fe17033724fedc5eb427ef0c3c47219005e4",
+    "figure-gallery.html": "305a44be3b143ffe8b54d1e736426cfb5d0c6bb3e09a43ccbc0aa88d244d4878",
+    "styles/manifest.txt": "27e25b89e3e13e81bb00f4c0ef05c8aa8de354fad81fd2c8935c8f786f016405",
+    "scripts/build_figure_gallery.mjs": "4a5f4ac3bb323c8ec275e8efbc285db690871cb4f0974983540d771e30a21324",
+    "scripts/tauri/check.mjs": "689c2b3fb61f2973cb997117e457fbba93b5b330414be588aa71db57022b47ab",
+    "docs/gm/dispatch/tauri-host-2026-11-06/CHECKPOINT.md": "24c5fe9a5d41a2d03d2ac12c8778cc16534738325eb24b3bbb1a83697f9c6eda",
+    "docs/audits/DONE_CHATS_AUDIT_2026-10-30.md": "8eed26491ad855a6eba0eab23e90af918a9595c838219542089136fc6cbf5191",
+    "docs/research/itch-io-2026-10-22/PLAY_QUEUE.md": "0d683fa1aeb053fd838f5af42e971caeb20ba8d923282817bbb19c35caf40d79",
+    "PROJECT.md": "14bac500b2f11b183ad086bdb5c2c3c1e890ac57b16f97317f00183afaf2aa00"
+  },
+  "rows_disposed": 34,
+  "character_sheet_test": {
+    "command": "node --test tests/character_sheets.test.js",
+    "pass": 8,
+    "fail": 0,
+    "skip": 0
+  },
+  "read_qualification": "Prior checkpoint/source reads plus specifically recovered previously clipped sections; byte hashes identify inspected inputs, not all-file runtime verification."
+}

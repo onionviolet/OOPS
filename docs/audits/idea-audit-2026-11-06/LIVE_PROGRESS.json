@@ -1,0 +1,43 @@
+{
+  "status": "paused at explicit user request",
+  "head_at_checkpoint": "93dcc52c9335e04d9349080a225f91e83b76b59a",
+  "claims": {
+    "total": 956,
+    "substantively_disposed": 207
+  },
+  "native_unread_or_partial": {
+    "total": 56,
+    "content_reviewed": 25
+  },
+  "last_batch": "COMPLETION_21_WORLD_ORDER_FOLLOWUPS.md",
+  "usage": {
+    "start_percent": 58,
+    "observed_percent": 63,
+    "ceiling_percent": 68,
+    "requested_new_ceiling_percent": 68,
+    "authorized_new_ceiling": true,
+    "paid_fallback": false
+  },
+  "next": "PG1\u20139/A1\u20136 schema/producer continuation, then full lane complements. New reads listed in handoff; batch22 not written and no PG/A row disposed yet.",
+  "scope": "Audit only, no unselected product fixes, commits or pushes; native goal remains active and incomplete.",
+  "handoff": {
+    "user_request": "Continue until the full audit is done, including all the unread sections and unverified claims. Then: hand off to separate chat.",
+    "authority": "Audit and documentary reconciliation only. No unselected production fixes, acquisitions, automation, personal-save access, visible windows, commits or pushes. 63% ceiling was reached; Weibao explicitly answered Continue to68%, extending included allowance ceiling to68%. No paid/API fallback. This follows the same task budget across chats.",
+    "resume": "Explicit user pause. Completed batches17\u201321:207/956 original claim rows disposed,25/56 native docs reviewed; four additional IB13\u201316 dispositions outside denominator. Audit-only artifacts under existing folder. No code/shared owner edits this successor, commit/push/visible window/paid action or own process remaining. Last meter63%, inherited ceiling68%. Resume only on user continuation. Next PG/A slice is not halfway raw book reading: current local_census_lane.py107lines fully read; merge_shards1\u2013100,130\u2013245 selected, schema_union1\u2013130 selected; batch_lib schema discovery hits only. Source discovers optional1.4 acquire/reset/enforcement/costStated, recurrence/until/since already in batch_lib120\u2013142,469; READINESS_AND_SCOPE SV3/SV10/SV12/C26/C30 are selected search hits only. Need actual schema bodies/consumers and named tests before PG dispositions. PG2 queue item incorrectly says Actionable choices; actual owner PG2 is Recurrence in routines. Preserve original item when correcting. READING_GAP_MAP full B327 disposition/current tail read on matching closeout; LOCAL_AI_READER B326 same; READING_STATUS B179 same plus full current body reviewed across outputs. Historical reading model/paid/account/process claims not live. No book/model/source acquisition or run.",
+    "coverage": "161/956 original ledger claims disposed,25/56 native previously unread/partial documents content-reviewed. These are not a project score or total scope denominator: all lane Residue tables/manifests have additional grouped IDs and complements. input_inventory.json2247 metadata candidates is discovery, not semantic reading. Prior reconciliation2220candidates may supply qualified semantic reuse only after reading actual dispositions and matching owning current input hashes. Never declare full coverage from hashes or path existence alone. Successor fully read ability348,source skill catalogue249,lead timelines201,deed titles113,Zorian plan164/paper93/seam97/stage113+136,NEXT_WORLD83,and OW1\u20134 reports17/25/19/27. Prior depth B566 semantic reuse at matching owner bytes. Scene table S0/S1 body24\u2013458 and S2/S6 full table still unread; explicit lane_complements field preserves this. Other9lane residues remain.",
+    "findings": "F1 HP admission location mismatch; F2 stale queues/landed work; F3 proof-state confusion; F4 authority/proposal distinctions; F5 coverage limits; F6 notification request vs actual OS delivery; F7 inquiry unfamiliar IDs preserved; F8 Rust full snapshots bypass incremental stale revision refusal; F9 collector repeat fine after41retained results, constable repeat arrest count but fine dedup; F10 Rust does not guarantee determinism; F11 foreign-volume legacy-card locator collisions; F12 token/locator coverage proxies not gameplay; F13 retained B8 proof acts outrank laterAB/AEcampaign checkpoints; F14 queue parser skipped40qualified statuses, now956exact rows; F15 valid1320\u20131440 schedule rejected as overlap, not a hang; F16 EPUB basename collision silently drops distinct folder-qualified bodies. Exact caveats/results live in COMPLETION reports and probe JSONs. No product repairs by auditor. F17 fixed canon pull can still deviate by draw or spent agent; batch18 synthetic fixture. F18 Zorian row date-tie policy versus host death-first priority, synthetic supported calendar fixture batch20.",
+    "verification": "Own isolated MCP freeze/native loops pass; focused persistence78,book-study7,release-focused43,prices4,foundation27 pass in their named batches. Isolated45-day long wait completed with exact64800minutes and save/reload/import; historical crash not reproduced at that NodeDOM fixture. Copied Rust store probe1pass and actual pure/resolver synthetic counterexamples retained. No own full npm test/build on primary. Reused W11 retained overlay proof only after seam/input comparison, including5514pass/5skip historical isolated suite. Fresh vocabulary ratchet passes424occurrences/423keys/0new, not clean prose. Successor current focused tests:adaptation9,inspector2,ladder+titles9,Zorian/start/restart/loop/calendar34,all pass. No current browser/build/fullsuite. F17 fixed canon-pull draw/spent counterexamples retained; F18 Zorian row date-tie versus host death-first mismatch retained. Both synthetic, no product fixes.",
+    "installed": "Batch14 supersedes batch2 pointer: latestv0.6-7b4f5a0cf8fd, frozen bundle910c144c\u2026 matches actual file; installed hoste71e324f\u2026 matchesreceipt and codesign verify exit0. Read-only package/pointer files, no save/profile reads/app launch. Existing1920\u00d71080 experiment screenshot inspected. Installed base04c5fd798+other task changes excludes unrelated currentprimaryfindings. Their newer8GB optimization remains active owner, not passed real-hardware qualification.",
+    "files_and_ownership": "All audit artifacts under docs/audits/idea-audit-2026-11-06 and root IDEA_AUDIT_2026-11-06.md are task-owned and untracked. Earlier narrow own owner edits: PROJECT release paragraph, WRITEUP_REGISTER SLC121 merged correction, IDEA_INDEX/register audit navigation. Pre-edit snapshots/OWNER_EDITS/PRESERVATION_CHECK record exact original hunks. Concurrent sessions changed many source/docs/dist/tests and installedapp; preserve all. LastobservedHEAD93dcc52c9. No own process left running; longwait completed, sandbox MCP sessions closed. Existing old agents finished; do not resume/spawn new agents absent explicit applicable authorization.",
+    "pitfalls": "Never run game_mcp_check.mjs --freeze-only in primary: it overwrites root source/style/runner deliberately; use a disposable copied sandbox. Old freeze sandbox was intentionally tampered for negative tests, not a reusable positive bundle. Do not inspect work/w11-closure/private-origin.json. Generated earned proof fixtures are allowed, personal saves are not. Many historical research absolute retained paths are now unavailable at their declared locations, not proof globallylost. Keep publication/code/source/research/native/installed/human states separate. No blanket source-law assertions or universal balancing taxes from palettes.",
+    "check_commands": "Docs-only validation of JSON/relative links/whitespace; rules/index changes need check:rules. Runtime claims use focused tests and isolated rebuilt1920\u00d71080fresh-origin proof where material; persistence changes/claims exerciseSave/reload/literalImport. No duplicate full suite; only committer runs universal gates. Slot kinds are suite/build/browser, no --label or kindtest. Stop only own PID/groups, never pkill-f."
+  },
+  "successor": {
+    "thread_id": "01a1b42b-eaa9-7d72-b0c1-4fbfec5c2158",
+    "host_id": "local",
+    "observed_status": "active, first turn in progress",
+    "predecessor": "01a1b3be-f9e2-7b81-960c-c3cf8e07c03a",
+    "ownership": "Predecessor releases audit artifacts; no further audit work here. Shared product paths remain other owners."
+  },
+  "paused_at": "2026-11-07T04:13:05.764440+00:00"
+}

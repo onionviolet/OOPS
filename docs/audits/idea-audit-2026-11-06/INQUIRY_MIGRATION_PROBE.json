@@ -1,0 +1,6 @@
+{
+  "claim": "inquiry.js header says unknown ids dropped",
+  "probe": "valid-shaped record with a valid unregistered id",
+  "retained": true,
+  "interpretation": "Header overstates dropping; valid unfamiliar records survive migration. No live save accessed and no gameplay loss demonstrated."
+}

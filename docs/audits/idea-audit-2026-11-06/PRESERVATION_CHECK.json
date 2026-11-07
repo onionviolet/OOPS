@@ -1,0 +1,14 @@
+[
+  {
+    "path": "PROJECT.md",
+    "reverse_task_edits_equals_pre_edit": true
+  },
+  {
+    "path": "docs/IDEA_INDEX.md",
+    "reverse_task_edits_equals_pre_edit": true
+  },
+  {
+    "path": "docs/gm/WRITEUP_REGISTER.md",
+    "reverse_task_edits_equals_pre_edit": true
+  }
+]

@@ -1,0 +1,224 @@
+{
+  "inputs": [
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "sha256": "7557169125a6ed9ab36216bab02631f072f4833b016d472d58bdb0d8d1c31945",
+      "requested_ranges_not_full_read": [
+        [
+          70,
+          116
+        ],
+        [
+          147,
+          162
+        ],
+        [
+          184,
+          192
+        ],
+        [
+          230,
+          240
+        ],
+        [
+          275,
+          290
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/ui-coverage-2026-10-27/PLAN.md",
+      "sha256": "73f3d3646756ac7c58872c07f59be33ed9e7d3e1e2e8ad888ce6530eea50bdf6",
+      "requested_ranges_not_full_read": [
+        [
+          95,
+          121
+        ],
+        [
+          207,
+          225
+        ],
+        [
+          274,
+          289
+        ],
+        [
+          341,
+          370
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/village-loop-2026-10-27/GM_PLAN.md",
+      "sha256": "31f3fb607b2b673a935dd583efda05110c261aec7f0745c374731f9e48fd79ff",
+      "requested_ranges_not_full_read": [
+        [
+          234,
+          245
+        ],
+        [
+          413,
+          460
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/village-loop-2026-10-27/VILLAGE_LOOP_CHECKPOINT.md",
+      "sha256": "6595b0e15b344092b0c75980092d284e0944323bc51cc3fad216f953cfe7c6c5",
+      "requested_ranges_not_full_read": [
+        [
+          143,
+          170
+        ]
+      ]
+    },
+    {
+      "path": "docs/gm/dispatch/village-loop-2026-10-27/BACKLOG_UI_CHECKPOINT.md",
+      "sha256": "914bc493b9c4b4d051be8d6f6de65dd4fe7f4b79a702fcef7f9007aa90a271c0",
+      "requested_ranges_not_full_read": [
+        [
+          219,
+          250
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/UI_CAPABILITY_GAPS_2026-10-30.md",
+      "sha256": "1d5940fa5e8eb8854c6e92da79e7fdad7031c3fbab260802d423aa77c208286a",
+      "requested_ranges_not_full_read": [
+        [
+          19,
+          55
+        ],
+        [
+          75,
+          110
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/UI_DIRECTIONS_2026-10-30.md",
+      "sha256": "4922b20972c14c79bf62a5b89c592ef5cb06716bf5f6ef51d7cf2cfd320696f4",
+      "requested_ranges_not_full_read": [
+        [
+          117,
+          146
+        ],
+        [
+          200,
+          213
+        ],
+        [
+          267,
+          290
+        ]
+      ]
+    },
+    {
+      "path": "docs/audits/UI_RULES_ACCEPTANCE_PACKET_2026-10-29.md",
+      "sha256": "06dba62ab83ab50d509b44b81acd666f85c6c92360c21edf2dda317001dcd92d",
+      "requested_ranges_not_full_read": [
+        [
+          1,
+          80
+        ]
+      ]
+    },
+    {
+      "path": "docs/ui/COPY_STYLE_SHEET.md",
+      "sha256": "e9ee0984b84bbc5a9ce764b7f2956faabc66a5887528e205d41279a61eba1efe",
+      "requested_ranges_not_full_read": [
+        [
+          51,
+          75
+        ],
+        [
+          132,
+          170
+        ],
+        [
+          301,
+          325
+        ]
+      ]
+    },
+    {
+      "path": "docs/reviews/UI_LOG_CAPTURE_2026-11-03.md",
+      "sha256": "91fa5588122763932ec2cb1d37fa4da5cbe8158aca9209bc52d1680faed8992a",
+      "requested_ranges_not_full_read": [
+        [
+          1,
+          65
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/ATTENTION_BALANCE_GAMES_2026-10-27.md",
+      "sha256": "9750abb88a60fe8694894dfd478f3edbaa0dbe4ca36e8ed523e91b590fb23d89",
+      "requested_ranges_not_full_read": [
+        [
+          240,
+          251
+        ],
+        [
+          303,
+          330
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/NPC_ABSENCE_AND_REACH_OUT_2026-10-27.md",
+      "sha256": "b338af68c4006ad2dd3a1860fb63b20e04fa1d653669984f1409c97a16af40cb",
+      "requested_ranges_not_full_read": [
+        [
+          120,
+          143
+        ],
+        [
+          198,
+          221
+        ],
+        [
+          270,
+          278
+        ],
+        [
+          372,
+          405
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/TIME_TRAVEL_AND_SEEDED_WORLDS_2026-10-27.md",
+      "sha256": "f7fb15183fa14420a76b38c6c6098cf0a3fda2a8ef293f1b0bb4a903fa724322",
+      "requested_ranges_not_full_read": [
+        [
+          355,
+          373
+        ],
+        [
+          426,
+          450
+        ]
+      ]
+    },
+    {
+      "path": "docs/research/CONCEPTUAL_ABILITIES_ENGINE_AUDIT_2026-10-27.md",
+      "sha256": "cd89aaf27e2df47beb5f26e7474de8e8381dbdfa48d41734e1653007e68b0bae",
+      "requested_ranges_not_full_read": [
+        [
+          280,
+          310
+        ],
+        [
+          366,
+          390
+        ]
+      ]
+    }
+  ],
+  "selected_words": 20831,
+  "metadata_scan": "Heading/ID rg scan and git status only; not semantic coverage of excluded lines.",
+  "warning": "Initial requested selection was 20831 words and truncated. Requested ranges are not all semantically read; report Inputs read and Residue are authoritative. Input-budget compliance not claimed.",
+  "ledger_rows": 115
+}

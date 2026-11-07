@@ -1,5 +1,7 @@
 # Writeup register and follow-up workflow (2026-10-27)
 
+[Planned-idea audit continuation, 2026-11-06](../audits/IDEA_AUDIT_2026-11-06.md): eight lane reports, scoped evidence, current input census and explicit unread residue. This audits recorded plans without selecting new mechanics or changing build order.
+
 [Lane branch and worktree reconciliation, 2026-11-07](BRANCH_WORKTREE_RECONCILIATION_2026-11-07.md): 22 branches from the 2026-10-30 replication wave checked by content; all landed, none to merge; 8 worktrees removed and 22 branches dropped 2026-11-07, tips kept under `refs/archive/2026-11-07/` (New).
 
 Status: working process and register, proposals for the process itself. Nothing in the
@@ -213,7 +215,7 @@ Read-only reconciliation of the idle/cultivation implementation packets against 
 
 Proposal round on milestone ladders, titles and perks in a lead's playthrough, with more-skill candidates and four delegable deep dives (SLC112-SLC122): [skills palette, Round 6](../SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md#round-6-2026-11-03-milestone-ladders-titles-and-perks-in-a-leads-playthrough-more-skills-proposal-only). State: New. Next: Weibao picks which of SLC119-SLC122 to start.
 
-Skills round 6 deep dives, same day (all New, proposals, none human-reviewed): [source-game skill catalogue SLC119](../research/proto23/SKILL_CATALOGUE_2026-11-03.md); [lead skill timelines SLC120](dispatch/protagonist-life-2026-10-27/LEAD_SKILL_TIMELINES_2026-11-03.md) (Klein and Zorian; no row seat-neutral yet); [deed titles with witnesses SLC122](dispatch/protagonist-life-2026-10-27/DEED_TITLES_WITNESSES_2026-11-03.md) (Klein, design only); SLC121 ladder slice built and committed on branch `worktree-agent-a99cafb056410fd34`, not merged. Next: Weibao decides whether to merge the slice.
+Skills round 6 deep dives, same day (all New, proposals, none human-reviewed): [source-game skill catalogue SLC119](../research/proto23/SKILL_CATALOGUE_2026-11-03.md); [lead skill timelines SLC120](dispatch/protagonist-life-2026-10-27/LEAD_SKILL_TIMELINES_2026-11-03.md) (Klein and Zorian; no row seat-neutral yet); [deed titles with witnesses SLC122](dispatch/protagonist-life-2026-10-27/DEED_TITLES_WITNESSES_2026-11-03.md) (Klein, design only); SLC121 ladder slice merged as `1a8ef39b7` (ancestor of audit HEAD `7eebce4e0`, checked 2026-11-06). Source integration is established; its proposal and below-floor verification status remain. The merge retained master dist because the branch bundle was 179 commits old. Next: use the [idea audit](../audits/IDEA_AUDIT_2026-11-06.md) for remaining proof, not a repeated merge decision.
 
 Abstraction direction (AD51) and the shared-seam round AB1-AB10, 2026-11-03: [USER_VISION](../USER_VISION.md#reasonable-things-get-abstracted-2026-11-03), [ABILITY_RULES round](../ABILITY_RULES.md#abstraction-round-2026-11-03). State: New (proposal round; AD51 recorded as Weibao's direction). Next: Weibao decides whether to send out AB8.
 

@@ -1,0 +1,459 @@
+{
+  "baseline": "7eebce4e09ef7a8a43ed1a96d6c50b1b76ea9825",
+  "selected_words": 16913,
+  "inputs": [
+    {
+      "path": "docs/GROUND_RULES.md",
+      "sha256": "2cea999a968627c57136a877a9676ef50560a1043f9fdc31f71e16beaf6423cb",
+      "ranges": [
+        [
+          1,
+          82
+        ]
+      ],
+      "selected_words": 1339,
+      "coverage": "selected ranges only; other lines unread unless discovery-only search hits"
+    },
+    {
+      "path": "docs/VISION_DIGEST.md",
+      "sha256": "61e0d63e3c2908d6d4c50f6de6d0f1089b76b02b941ead3124cec621feb7063f",
+      "ranges": [
+        [
+          1,
+          54
+        ]
+      ],
+      "selected_words": 1346,
+      "coverage": "selected ranges only; other lines unread unless discovery-only search hits"
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "edfd21f692010ff859b42e79bba69fed09dd17ee16fbfa659105b5583cd43653",
+      "ranges": [
+        [
+          1,
+          73
+        ]
+      ],
+      "selected_words": 1303,
+      "coverage": "selected ranges only; other lines unread unless discovery-only search hits"
+    },
+    {
+      "path": "docs/audits/IDEA_AUDIT_2026-11-06.md",
+      "sha256": "8c66a123e09aacfa0faacae6c540ac2601e8bee8a829b759f66bcc2ed3cd894d",
+      "ranges": [
+        [
+          1,
+          30
+        ]
+      ],
+      "selected_words": 491,
+      "coverage": "selected ranges only; other lines unread unless discovery-only search hits"
+    },
+    {
+      "path": "docs/RULES_INDEX.md",
+      "sha256": "4882f439e441028bf96f5df60b3066ef559d38123f15353646257bcec1898ab8",
+      "ranges": [
+        [
+          48,
+          49
+        ],
+        [
+          52,
+          52
+        ],
+        [
+          63,
+          63
+        ],
+        [
+          132,
+          132
+        ],
+        [
+          145,
+          145
+        ],
+        [
+          267,
+          269
+        ]
+      ],
+      "selected_words": 1242,
+      "coverage": "selected ranges only; other lines unread unless discovery-only search hits"
+    },
+    {
+      "path": "docs/USER_VISION.md",
+      "sha256": "9ca58152606d2ad7c2ec45ef30442eb093e5124d1e60d1b66573880e908449aa",
+      "ranges": [
+        [
+          7246,
+          7248
+        ],
+        [
+          7268,
+          7268
+        ],
+        [
+          7276,
+          7278
+        ],
+        [
+          7282,
+          7282
+        ],
+        [
+          7308,
+          7308
+        ],
+        [
+          7316,
+          7316
+        ],
+        [
+          7399,
+          7399
+        ]
+      ],
+      "selected_words": 932,
+      "coverage": "selected ranges only; other lines unread unless discovery-only search hits"
+    },
+    {
+      "path": "docs/WORLD_ABSORPTION_RULES.md",
+      "sha256": "a22c53e45563da6418f5c8d499f18f5c02178318670a93735dacb5b31e2cf023",
+      "ranges": [
+        [
+          145,
+          160
+        ]
+      ],
+      "selected_words": 892,
+      "coverage": "selected ranges only; other lines unread unless discovery-only search hits"
+    },
+    {
+      "path": "docs/ARCHITECTURE_RULES.md",
+      "sha256": "444e98a49d77c54b0f662479559cba745a43e34394f6b53d68280d18f7068116",
+      "ranges": [
+        [
+          60,
+          60
+        ]
+      ],
+      "selected_words": 97,
+      "coverage": "selected ranges only; other lines unread unless discovery-only search hits"
+    },
+    {
+      "path": "docs/UI_RULES.md",
+      "sha256": "cff58807ea1e642a3461004809f0d1da49bac0694757ea16529d197d064ca7ac",
+      "ranges": [
+        [
+          160,
+          163
+        ],
+        [
+          178,
+          180
+        ]
+      ],
+      "selected_words": 576,
+      "coverage": "selected ranges only; other lines unread unless discovery-only search hits"
+    },
+    {
+      "path": "docs/RELATIONSHIPS_AND_CANON_CONSIDERATIONS_2026-10-18.md",
+      "sha256": "fb515aca358ea88b12cde5014901bc9e0101362db4d8d7123031468c431fe167",
+      "ranges": [
+        [
+          620,
+          623
+        ]
+      ],
+      "selected_words": 378,
+      "coverage": "selected ranges only; other lines unread unless discovery-only search hits"
+    },
+    {
+      "path": "docs/ACTIVITY_ABSTRACTION_RULES.md",
+      "sha256": "849f72bc8892142dd6d9a32ce77262e0abf658f597d16750ddbfb28320649047",
+      "ranges": [
+        [
+          1,
+          37
+        ]
+      ],
+      "selected_words": 1237,
+      "coverage": "selected ranges only; other lines unread unless discovery-only search hits"
+    },
+    {
+      "path": "docs/ABILITY_RULES.md",
+      "sha256": "d8d559d997e3c2e687f749b1332e2fc153e4129bf769677c1c786f37ce375bbe",
+      "ranges": [
+        [
+          263,
+          263
+        ],
+        [
+          267,
+          297
+        ],
+        [
+          344,
+          346
+        ]
+      ],
+      "selected_words": 1426,
+      "coverage": "selected ranges only; other lines unread unless discovery-only search hits"
+    },
+    {
+      "path": "docs/SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md",
+      "sha256": "75663dbdf6a8120a0517058a8bb3b7843adb84fc8cb3951198130982e083f6f4",
+      "ranges": [
+        [
+          718,
+          721
+        ],
+        [
+          740,
+          740
+        ],
+        [
+          747,
+          747
+        ]
+      ],
+      "selected_words": 444,
+      "coverage": "selected ranges only; other lines unread unless discovery-only search hits"
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/DEPTH_DIAL_PROPOSAL.md",
+      "sha256": "ebe69788f510aed8ed2a2db3d55e6c4666e4f425ead016b52b3d8a2de1da4c96",
+      "ranges": [
+        [
+          578,
+          593
+        ],
+        [
+          850,
+          850
+        ],
+        [
+          860,
+          860
+        ]
+      ],
+      "selected_words": 615,
+      "coverage": "selected ranges only; other lines unread unless discovery-only search hits"
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/DEED_TITLES_WITNESSES_2026-11-03.md",
+      "sha256": "4ebd2f8aeeb8e8d303e097fce216e35024632035fd114814f6b647a6600338c9",
+      "ranges": [
+        [
+          3,
+          3
+        ],
+        [
+          100,
+          100
+        ]
+      ],
+      "selected_words": 111,
+      "coverage": "selected ranges only; other lines unread unless discovery-only search hits"
+    },
+    {
+      "path": "docs/gm/WRITEUP_REGISTER.md",
+      "sha256": "7557169125a6ed9ab36216bab02631f072f4833b016d472d58bdb0d8d1c31945",
+      "ranges": [
+        [
+          214,
+          214
+        ]
+      ],
+      "selected_words": 54,
+      "coverage": "selected ranges only; other lines unread unless discovery-only search hits"
+    },
+    {
+      "path": "docs/gm/dispatch/NEXT_WORLD_AFTER_MOL_PROPOSAL_2026-11-03.md",
+      "sha256": "a5b58ccc3f7de8ca0764688f8b2f0447efd47662d1060cc0931e98b4774f17e8",
+      "ranges": [
+        [
+          64,
+          78
+        ]
+      ],
+      "selected_words": 289,
+      "coverage": "selected ranges only; other lines unread unless discovery-only search hits"
+    },
+    {
+      "path": "docs/worlds/mother-of-learning/ZORIAN_PLAYTHROUGH_PLAN_2026-11-03.md",
+      "sha256": "e3487897eeb164b15889dcca856a4572f451cfb0996feae8e0792aca3395dd53",
+      "ranges": [
+        [
+          137,
+          141
+        ]
+      ],
+      "selected_words": 202,
+      "coverage": "selected ranges only; other lines unread unless discovery-only search hits"
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/LORE_EXCEPTION_RESEARCH_ROUND3.md",
+      "sha256": "047e97f599a18b961c038a9c693c3d69e5c4cf67cd52424584579b363a9cd82f",
+      "ranges": [
+        [
+          85,
+          90
+        ]
+      ],
+      "selected_words": 387,
+      "coverage": "selected ranges only; other lines unread unless discovery-only search hits"
+    },
+    {
+      "path": "docs/research/READING_GAP_MAP_2026-10-28.md",
+      "sha256": "e12e60a6c5ac972407c76188414626956879469c7d2f9e15729019d2d9b102dc",
+      "ranges": [
+        [
+          140,
+          148
+        ]
+      ],
+      "selected_words": 591,
+      "coverage": "selected ranges only; other lines unread unless discovery-only search hits"
+    },
+    {
+      "path": "docs/research/LOCAL_AI_READER_TEST_2026-10-27.md",
+      "sha256": "c8f582375bc92c1089ed671b5b13867c873c88cd338454d22526dcc7721c0b7b",
+      "ranges": [
+        [
+          191,
+          196
+        ]
+      ],
+      "selected_words": 221,
+      "coverage": "selected ranges only; other lines unread unless discovery-only search hits"
+    },
+    {
+      "path": "docs/research/FUTURE_ACQUISITION_QUEUE_2026-10-13.md",
+      "sha256": "1e208efb9e4dc41b91cc64b5624e36a81ae683304649d13e59f2d12e3dfca428",
+      "ranges": [
+        [
+          108,
+          116
+        ]
+      ],
+      "selected_words": 63,
+      "coverage": "selected ranges only; other lines unread unless discovery-only search hits"
+    },
+    {
+      "path": "docs/worlds/jujutsu/JJK_GAP_FILL_PLAN.md",
+      "sha256": "164b664ed2c65edd4bd5a53603788b04ff44a4990e449926b7eb3906f48b6fcc",
+      "ranges": [
+        [
+          14,
+          14
+        ],
+        [
+          18,
+          18
+        ],
+        [
+          42,
+          42
+        ],
+        [
+          53,
+          55
+        ]
+      ],
+      "selected_words": 552,
+      "coverage": "selected ranges only; other lines unread unless discovery-only search hits"
+    },
+    {
+      "path": "docs/gm/dispatch/protagonist-life-2026-10-27/READING_STATUS.md",
+      "sha256": "0e843b9dddddf46ff18ed8be7f5c4e9d6122263296d428aa04734dbb914a5854",
+      "ranges": [
+        [
+          20,
+          24
+        ],
+        [
+          32,
+          32
+        ],
+        [
+          44,
+          44
+        ],
+        [
+          81,
+          85
+        ]
+      ],
+      "selected_words": 789,
+      "coverage": "selected ranges only; other lines unread unless discovery-only search hits"
+    },
+    {
+      "path": "docs/AFFLICTIONS_AND_WEAPON_PROPERTIES_CONSIDERATIONS_2026-11-03.md",
+      "sha256": "0b52c65e9d64352c8e6d0dbcb519b2b145635af84bdbc66a259cb91905ef80ad",
+      "ranges": [
+        [
+          1,
+          8
+        ]
+      ],
+      "selected_words": 63,
+      "coverage": "selected ranges only; other lines unread unless discovery-only search hits"
+    },
+    {
+      "path": "docs/research/d20/PF1_ABSORPTION_CANDIDATES_2026-11-04.md",
+      "sha256": "a0867df94c1646d3c17b3fa1be1a03fc8c2729aeb64e67bb2ce699bffaf4820a",
+      "ranges": [
+        [
+          1,
+          8
+        ],
+        [
+          68,
+          88
+        ]
+      ],
+      "selected_words": 430,
+      "coverage": "selected ranges only; other lines unread unless discovery-only search hits"
+    },
+    {
+      "path": "docs/ui/COPY_STYLE_SHEET.md",
+      "sha256": "e9ee0984b84bbc5a9ce764b7f2956faabc66a5887528e205d41279a61eba1efe",
+      "ranges": [
+        [
+          201,
+          219
+        ]
+      ],
+      "selected_words": 312,
+      "coverage": "selected ranges only; other lines unread unless discovery-only search hits"
+    },
+    {
+      "path": "src/skill_ladder.js",
+      "sha256": "c1a037b1a9d5c658fd35b7ea572b71e10096829b61cedc531f41c9060b6e2849",
+      "ranges": [
+        [
+          1,
+          28
+        ]
+      ],
+      "selected_words": 342,
+      "coverage": "selected ranges only; other lines unread unless discovery-only search hits"
+    },
+    {
+      "path": "src/adaptation_ledger.js",
+      "sha256": "3d7b7a7f6053a3bc390676b15afe68442683d9b9c855fda7ff47c2a7032f5669",
+      "ranges": [
+        [
+          1,
+          16
+        ]
+      ],
+      "selected_words": 189,
+      "coverage": "selected ranges only; other lines unread unless discovery-only search hits"
+    }
+  ],
+  "note": "Manifest records bounded selected source excerpts and mandatory startup. Discovery grep hits are navigation only unless separately listed; truncation means no full-file claim. Git evidence is listed in report, not source-file manifest."
+}

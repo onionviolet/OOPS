@@ -1,0 +1,13 @@
+{
+  "command": "node scripts/slot_run.mjs --kind browser --slots1 -- node <captured sandbox>/scripts/mcp/game_mcp_check.mjs --loop-only",
+  "exit_code": 0,
+  "result": "PASS",
+  "cycles": 1,
+  "proved": [
+    "cycle fires once",
+    "look/status/next step after cycle usable",
+    "explicit reload starts",
+    "export/import starts and retained completed-cycle text stays1"
+  ],
+  "limits": "Captured source inputs at MCP_AUDIT_INPUTS, native headless route; no browser layout or all loop worlds certified."
+}

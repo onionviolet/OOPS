@@ -1,0 +1,8 @@
+{
+  "json_files_parsed": 50,
+  "completion_relative_links": 15,
+  "issues": [],
+  "tracked_whitespace_exit": 0,
+  "qualification": "Audit artifact integrity; untracked markdown separately inspected for trailing whitespace below. No runtime certification.",
+  "untracked_markdown_trailing_whitespace": []
+}

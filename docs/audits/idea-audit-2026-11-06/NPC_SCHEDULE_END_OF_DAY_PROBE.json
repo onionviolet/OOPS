@@ -1,0 +1,21 @@
+{
+  "source": "src/npc_schedule.js",
+  "sha256": "29308b7d2a19c1454234c16252c0a1564354247a618af1ea0099bb323c078302",
+  "route": "pure validateSchedule on1320-to1439control versus1320-to1440valid-declared-boundary; subprocess timeout kills only owned child",
+  "cases": [
+    {
+      "end": 1439,
+      "returncode": 0,
+      "stdout": "returned",
+      "stderr": ""
+    },
+    {
+      "end": 1440,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "file:///Users/weiwei/code/yet-another-idle-rpg/src/npc_schedule.js:26\n    const fail = m => {throw new Error(`Invalid schedule: ${m}`);};\n                             ^\n\nError: Invalid schedule: audit.person slots overlap at minute 1320.\n    at fail (file:///Users/weiwei/code/yet-another-idle-rpg/src/npc_schedule.js:26:30)\n    at validateSchedule (file:///Users/weiwei/code/yet-another-idle-rpg/src/npc_schedule.js:36:28)\n    at file:///Users/weiwei/code/yet-another-idle-rpg/[eval1]:1:56\n    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:282:26)\n    at async ModuleLoader.executeModuleJob (node:internal/modules/esm/loader:278:20)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)\n\nNode.js v22.23.3"
+    }
+  ],
+  "cause": "Validator explicitly allows to=1440, but modulo iterator never equals1440; after circling the day it revisits1320 and falsely rejects this one valid slot as overlap. The coverage guard terminates with an error, so this is not an infinite-loop reproduction.",
+  "classification": "Reproduced false rejection of a declared-valid end-of-day schedule; no current authored controller load failure demonstrated."
+}

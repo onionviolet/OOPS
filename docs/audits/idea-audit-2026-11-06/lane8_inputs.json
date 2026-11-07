@@ -1,0 +1,2039 @@
+{
+  "lane": 8,
+  "baseline_head": "abdaedf0aba222a2580edc58d1f430210dd01135",
+  "scope": "bounded documentation audit; no fresh gameplay verification",
+  "mandatory_startup_words": 4479,
+  "precount_selected_words": 9665,
+  "budget_qualification": "Selected semantic corpus was pre-counted before reading. Broad initial discovery and combined output truncation prevent an exact all-displayed-word budget claim. Discovered/search-only lines are not full semantic review. Requested ranges obscured by truncation remain unread. No claim of comprehensive requested-source coverage.",
+  "sources": [
+    {
+      "path": "docs/IDEA_INDEX.md",
+      "total_lines": 703,
+      "selected_words": 523,
+      "sha256": "974c2746a8df31a2bb36309fad0d9a9bc4711e43cb3b9492c054b22a17b951f8",
+      "requested_ranges": [
+        [
+          72,
+          82
+        ]
+      ],
+      "reviewed_ranges": [
+        [
+          72,
+          82
+        ]
+      ],
+      "unread_ranges": [
+        [
+          1,
+          71
+        ],
+        [
+          83,
+          703
+        ]
+      ],
+      "reviewed_words": 464,
+      "line_count_at_selection": 701,
+      "preparation_drift": "Line count changed during shared-doc preparation; selection remains scoped to explicit ranges, no full file claim."
+    },
+    {
+      "path": "docs/gm/dispatch/sonnet-wave-2026-10-30/PLAN.md",
+      "total_lines": 279,
+      "selected_words": 376,
+      "sha256": "513b0b5edd94b4e1be356a7b58c694226753e11ebba36ae6f3ec4e91f9d3620b",
+      "requested_ranges": [
+        [
+          227,
+          228
+        ],
+        [
+          263,
+          263
+        ],
+        [
+          265,
+          268
+        ],
+        [
+          270,
+          270
+        ],
+        [
+          272,
+          272
+        ],
+        [
+          274,
+          279
+        ]
+      ],
+      "reviewed_ranges": [
+        [
+          227,
+          228
+        ],
+        [
+          263,
+          263
+        ],
+        [
+          265,
+          268
+        ],
+        [
+          270,
+          270
+        ],
+        [
+          272,
+          272
+        ],
+        [
+          274,
+          279
+        ]
+      ],
+      "unread_ranges": [
+        [
+          1,
+          226
+        ],
+        [
+          229,
+          262
+        ],
+        [
+          264,
+          264
+        ],
+        [
+          269,
+          269
+        ],
+        [
+          271,
+          271
+        ],
+        [
+          273,
+          273
+        ]
+      ],
+      "reviewed_words": 376
+    },
+    {
+      "path": "docs/worlds/WORLD_CORE_KIT_2026-10-14.md",
+      "total_lines": 1984,
+      "selected_words": 380,
+      "sha256": "689f7a0da29b7372d646c3b6a32a37e6a64687dfdaa7f8685fa25e71603b1bd1",
+      "requested_ranges": [
+        [
+          1920,
+          1920
+        ],
+        [
+          1924,
+          1924
+        ],
+        [
+          1926,
+          1926
+        ],
+        [
+          1928,
+          1928
+        ],
+        [
+          1935,
+          1935
+        ],
+        [
+          1937,
+          1937
+        ],
+        [
+          1945,
+          1945
+        ],
+        [
+          1947,
+          1947
+        ],
+        [
+          1956,
+          1956
+        ],
+        [
+          1958,
+          1984
+        ]
+      ],
+      "reviewed_ranges": [
+        [
+          1920,
+          1920
+        ],
+        [
+          1924,
+          1924
+        ],
+        [
+          1926,
+          1926
+        ],
+        [
+          1928,
+          1928
+        ],
+        [
+          1935,
+          1935
+        ],
+        [
+          1937,
+          1937
+        ],
+        [
+          1945,
+          1945
+        ],
+        [
+          1947,
+          1947
+        ],
+        [
+          1956,
+          1956
+        ],
+        [
+          1958,
+          1984
+        ]
+      ],
+      "unread_ranges": [
+        [
+          1,
+          1919
+        ],
+        [
+          1921,
+          1923
+        ],
+        [
+          1925,
+          1925
+        ],
+        [
+          1927,
+          1927
+        ],
+        [
+          1929,
+          1934
+        ],
+        [
+          1936,
+          1936
+        ],
+        [
+          1938,
+          1944
+        ],
+        [
+          1946,
+          1946
+        ],
+        [
+          1948,
+          1955
+        ],
+        [
+          1957,
+          1957
+        ]
+      ],
+      "reviewed_words": 380
+    },
+    {
+      "path": "docs/gm/dispatch/crafting-layers-2026-11-04/CHECKPOINT.md",
+      "total_lines": 82,
+      "selected_words": 484,
+      "sha256": "38b4b22c8f8d6e99c4101ac6426be2d5c9235a75100a67d662376fab881704e8",
+      "requested_ranges": [
+        [
+          50,
+          62
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          66,
+          66
+        ],
+        [
+          68,
+          68
+        ],
+        [
+          70,
+          82
+        ]
+      ],
+      "reviewed_ranges": [
+        [
+          52,
+          52
+        ],
+        [
+          54,
+          54
+        ],
+        [
+          56,
+          56
+        ],
+        [
+          58,
+          58
+        ]
+      ],
+      "unread_ranges": [
+        [
+          1,
+          51
+        ],
+        [
+          53,
+          53
+        ],
+        [
+          55,
+          55
+        ],
+        [
+          57,
+          57
+        ],
+        [
+          59,
+          82
+        ]
+      ],
+      "reviewed_words": 209
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-method-use-2026-11-04/CHECKPOINT.md",
+      "total_lines": 98,
+      "selected_words": 382,
+      "sha256": "9b903b9bc07a935a9b1bd4c977ff947ce3dec6a860f69fffdfaf070f788379eb",
+      "requested_ranges": [
+        [
+          67,
+          72
+        ],
+        [
+          80,
+          81
+        ],
+        [
+          83,
+          83
+        ],
+        [
+          85,
+          98
+        ]
+      ],
+      "reviewed_ranges": [
+        [
+          67,
+          67
+        ],
+        [
+          69,
+          69
+        ],
+        [
+          71,
+          71
+        ]
+      ],
+      "unread_ranges": [
+        [
+          1,
+          66
+        ],
+        [
+          68,
+          68
+        ],
+        [
+          70,
+          70
+        ],
+        [
+          72,
+          98
+        ]
+      ],
+      "reviewed_words": 84
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-paid-work-2026-11-04/CHECKPOINT.md",
+      "total_lines": 79,
+      "selected_words": 477,
+      "sha256": "f0859a7c81eec36be00d60370bbfdacf417e08ef793692eaa3b236d198c123ca",
+      "requested_ranges": [
+        [
+          48,
+          48
+        ],
+        [
+          50,
+          50
+        ],
+        [
+          52,
+          52
+        ],
+        [
+          54,
+          63
+        ],
+        [
+          65,
+          65
+        ],
+        [
+          70,
+          70
+        ],
+        [
+          72,
+          79
+        ]
+      ],
+      "reviewed_ranges": [
+        [
+          48,
+          48
+        ],
+        [
+          50,
+          50
+        ],
+        [
+          52,
+          52
+        ],
+        [
+          54,
+          63
+        ],
+        [
+          65,
+          65
+        ],
+        [
+          70,
+          70
+        ],
+        [
+          72,
+          79
+        ]
+      ],
+      "unread_ranges": [
+        [
+          1,
+          47
+        ],
+        [
+          49,
+          49
+        ],
+        [
+          51,
+          51
+        ],
+        [
+          53,
+          53
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          66,
+          69
+        ],
+        [
+          71,
+          71
+        ]
+      ],
+      "reviewed_words": 477
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-place-identity-2026-11-04/CHECKPOINT.md",
+      "total_lines": 63,
+      "selected_words": 244,
+      "sha256": "4439e92ecf03f4022f3e52e317f7c7859235521362265cbbf76360b008c87e94",
+      "requested_ranges": [
+        [
+          37,
+          40
+        ],
+        [
+          46,
+          46
+        ],
+        [
+          48,
+          48
+        ],
+        [
+          50,
+          52
+        ],
+        [
+          54,
+          63
+        ]
+      ],
+      "reviewed_ranges": [
+        [
+          37,
+          40
+        ],
+        [
+          46,
+          46
+        ],
+        [
+          48,
+          48
+        ],
+        [
+          50,
+          52
+        ],
+        [
+          54,
+          63
+        ]
+      ],
+      "unread_ranges": [
+        [
+          1,
+          36
+        ],
+        [
+          41,
+          45
+        ],
+        [
+          47,
+          47
+        ],
+        [
+          49,
+          49
+        ],
+        [
+          53,
+          53
+        ]
+      ],
+      "reviewed_words": 244
+    },
+    {
+      "path": "docs/gm/dispatch/cultivation-absorption-2026-10-24/CHECKPOINT.md",
+      "total_lines": 526,
+      "selected_words": 511,
+      "sha256": "2bfce8b0d28c7dd552e774424b0cc45fe2f3a1e3f907e9bb843d752bfe6e47e7",
+      "requested_ranges": [
+        [
+          14,
+          14
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          18,
+          18
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          22,
+          32
+        ],
+        [
+          34,
+          34
+        ],
+        [
+          518,
+          519
+        ],
+        [
+          521,
+          526
+        ]
+      ],
+      "reviewed_ranges": [
+        [
+          14,
+          14
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          18,
+          18
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          22,
+          32
+        ],
+        [
+          34,
+          34
+        ],
+        [
+          518,
+          519
+        ],
+        [
+          521,
+          526
+        ]
+      ],
+      "unread_ranges": [
+        [
+          1,
+          13
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          17,
+          17
+        ],
+        [
+          19,
+          19
+        ],
+        [
+          21,
+          21
+        ],
+        [
+          33,
+          33
+        ],
+        [
+          35,
+          517
+        ],
+        [
+          520,
+          520
+        ]
+      ],
+      "reviewed_words": 511
+    },
+    {
+      "path": "docs/gm/dispatch/village-loop-2026-10-27/VILLAGE_LOOP_CHECKPOINT.md",
+      "total_lines": 153,
+      "selected_words": 299,
+      "sha256": "6595b0e15b344092b0c75980092d284e0944323bc51cc3fad216f953cfe7c6c5",
+      "requested_ranges": [
+        [
+          106,
+          106
+        ],
+        [
+          108,
+          108
+        ],
+        [
+          113,
+          113
+        ],
+        [
+          144,
+          144
+        ],
+        [
+          146,
+          148
+        ],
+        [
+          150,
+          153
+        ]
+      ],
+      "reviewed_ranges": [
+        [
+          106,
+          106
+        ],
+        [
+          108,
+          108
+        ],
+        [
+          113,
+          113
+        ],
+        [
+          144,
+          144
+        ],
+        [
+          146,
+          148
+        ],
+        [
+          150,
+          153
+        ]
+      ],
+      "unread_ranges": [
+        [
+          1,
+          105
+        ],
+        [
+          107,
+          107
+        ],
+        [
+          109,
+          112
+        ],
+        [
+          114,
+          143
+        ],
+        [
+          145,
+          145
+        ],
+        [
+          149,
+          149
+        ]
+      ],
+      "reviewed_words": 299
+    },
+    {
+      "path": "docs/gm/MECHANIC_ABSORPTION_WORKFLOW.md",
+      "total_lines": 146,
+      "selected_words": 375,
+      "sha256": "daa355a6b059ff0f6402bb2400240e349cfd85a5b5a7c20b09b06418e8c07ec8",
+      "requested_ranges": [
+        [
+          121,
+          134
+        ],
+        [
+          136,
+          136
+        ],
+        [
+          138,
+          141
+        ],
+        [
+          143,
+          143
+        ],
+        [
+          145,
+          145
+        ]
+      ],
+      "reviewed_ranges": [
+        [
+          121,
+          134
+        ],
+        [
+          136,
+          136
+        ],
+        [
+          138,
+          141
+        ],
+        [
+          143,
+          143
+        ],
+        [
+          145,
+          145
+        ]
+      ],
+      "unread_ranges": [
+        [
+          1,
+          120
+        ],
+        [
+          135,
+          135
+        ],
+        [
+          137,
+          137
+        ],
+        [
+          142,
+          142
+        ],
+        [
+          144,
+          144
+        ],
+        [
+          146,
+          146
+        ]
+      ],
+      "reviewed_words": 375
+    },
+    {
+      "path": "docs/SKILLS_AND_LEARNING_CONSIDERATIONS_2026-10-18.md",
+      "total_lines": 752,
+      "selected_words": 929,
+      "sha256": "75663dbdf6a8120a0517058a8bb3b7843adb84fc8cb3951198130982e083f6f4",
+      "requested_ranges": [
+        [
+          680,
+          692
+        ],
+        [
+          698,
+          698
+        ],
+        [
+          700,
+          702
+        ],
+        [
+          718,
+          721
+        ],
+        [
+          740,
+          742
+        ]
+      ],
+      "reviewed_ranges": [
+        [
+          680,
+          692
+        ],
+        [
+          698,
+          698
+        ],
+        [
+          700,
+          702
+        ],
+        [
+          718,
+          721
+        ],
+        [
+          740,
+          742
+        ]
+      ],
+      "unread_ranges": [
+        [
+          1,
+          679
+        ],
+        [
+          693,
+          697
+        ],
+        [
+          699,
+          699
+        ],
+        [
+          703,
+          717
+        ],
+        [
+          722,
+          739
+        ],
+        [
+          743,
+          752
+        ]
+      ],
+      "reviewed_words": 929
+    },
+    {
+      "path": "docs/audits/CROSS_WORLD_DETAIL_PASS_2026-11-03.md",
+      "total_lines": 399,
+      "selected_words": 342,
+      "sha256": "b1e9951615934ea9e70c7ac457d67a7fb3b93f74d29c73fd896dab42dee17fe8",
+      "requested_ranges": [
+        [
+          148,
+          149
+        ],
+        [
+          151,
+          153
+        ],
+        [
+          158,
+          158
+        ],
+        [
+          160,
+          160
+        ],
+        [
+          382,
+          383
+        ],
+        [
+          385,
+          394
+        ]
+      ],
+      "reviewed_ranges": [
+        [
+          148,
+          149
+        ],
+        [
+          151,
+          153
+        ],
+        [
+          158,
+          158
+        ],
+        [
+          160,
+          160
+        ],
+        [
+          382,
+          383
+        ],
+        [
+          385,
+          394
+        ]
+      ],
+      "unread_ranges": [
+        [
+          1,
+          147
+        ],
+        [
+          150,
+          150
+        ],
+        [
+          154,
+          157
+        ],
+        [
+          159,
+          159
+        ],
+        [
+          161,
+          381
+        ],
+        [
+          384,
+          384
+        ],
+        [
+          395,
+          399
+        ]
+      ],
+      "reviewed_words": 342
+    },
+    {
+      "path": "docs/gm/dispatch/refinement-audits-2026-10-31/OTHER_WORLD_DEBATE_WORKERS.md",
+      "total_lines": 50,
+      "selected_words": 398,
+      "sha256": "6242585febbdb7712081bef6d6d9560ddfa2b1fd695610aa2bb23cf896afb49f",
+      "requested_ranges": [
+        [
+          1,
+          16
+        ],
+        [
+          19,
+          19
+        ],
+        [
+          21,
+          21
+        ],
+        [
+          23,
+          23
+        ],
+        [
+          25,
+          25
+        ],
+        [
+          27,
+          27
+        ],
+        [
+          29,
+          29
+        ],
+        [
+          31,
+          31
+        ],
+        [
+          33,
+          33
+        ],
+        [
+          35,
+          35
+        ],
+        [
+          37,
+          37
+        ]
+      ],
+      "reviewed_ranges": [
+        [
+          1,
+          16
+        ],
+        [
+          19,
+          19
+        ],
+        [
+          21,
+          21
+        ],
+        [
+          23,
+          23
+        ],
+        [
+          25,
+          25
+        ],
+        [
+          27,
+          27
+        ],
+        [
+          29,
+          29
+        ],
+        [
+          31,
+          31
+        ],
+        [
+          33,
+          33
+        ],
+        [
+          35,
+          35
+        ],
+        [
+          37,
+          37
+        ]
+      ],
+      "unread_ranges": [
+        [
+          17,
+          18
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          22,
+          22
+        ],
+        [
+          24,
+          24
+        ],
+        [
+          26,
+          26
+        ],
+        [
+          28,
+          28
+        ],
+        [
+          30,
+          30
+        ],
+        [
+          32,
+          32
+        ],
+        [
+          34,
+          34
+        ],
+        [
+          36,
+          36
+        ],
+        [
+          38,
+          50
+        ]
+      ],
+      "reviewed_words": 398
+    },
+    {
+      "path": "docs/AFFLICTIONS_AND_WEAPON_PROPERTIES_CONSIDERATIONS_2026-11-03.md",
+      "total_lines": 269,
+      "selected_words": 217,
+      "sha256": "0b52c65e9d64352c8e6d0dbcb519b2b145635af84bdbc66a259cb91905ef80ad",
+      "requested_ranges": [
+        [
+          245,
+          259
+        ]
+      ],
+      "reviewed_ranges": [
+        [
+          245,
+          259
+        ]
+      ],
+      "unread_ranges": [
+        [
+          1,
+          244
+        ],
+        [
+          260,
+          269
+        ]
+      ],
+      "reviewed_words": 217
+    },
+    {
+      "path": "docs/emergent/E8E_ADAPTATION.md",
+      "total_lines": 238,
+      "selected_words": 205,
+      "sha256": "a27f58c9a87b23c6e7155445029352fecba8431a1942cbae638d2285e57716a8",
+      "requested_ranges": [
+        [
+          197,
+          212
+        ]
+      ],
+      "reviewed_ranges": [
+        [
+          197,
+          212
+        ]
+      ],
+      "unread_ranges": [
+        [
+          1,
+          196
+        ],
+        [
+          213,
+          238
+        ]
+      ],
+      "reviewed_words": 205
+    },
+    {
+      "path": "docs/systems/README.md",
+      "total_lines": 129,
+      "selected_words": 483,
+      "sha256": "4154eacfe6fba9f426065df81a8dfc5caf54014223ccd7a0f744659ff1ed02f3",
+      "requested_ranges": [
+        [
+          106,
+          129
+        ]
+      ],
+      "reviewed_ranges": [
+        [
+          106,
+          129
+        ]
+      ],
+      "unread_ranges": [
+        [
+          1,
+          105
+        ]
+      ],
+      "reviewed_words": 483
+    },
+    {
+      "path": "docs/systems/PROGRESSION_WORLD_STATE.md",
+      "total_lines": 925,
+      "selected_words": 338,
+      "sha256": "c20ddcff9c3073c71a7e081624168c7c0e12a38e6a7bc8ea278f37336dadbc90",
+      "requested_ranges": [
+        [
+          849,
+          860
+        ]
+      ],
+      "reviewed_ranges": [
+        [
+          849,
+          860
+        ]
+      ],
+      "unread_ranges": [
+        [
+          1,
+          848
+        ],
+        [
+          861,
+          925
+        ]
+      ],
+      "reviewed_words": 338
+    },
+    {
+      "path": "docs/systems/COMBAT_PEOPLE_SITES_UI.md",
+      "total_lines": 110,
+      "selected_words": 388,
+      "sha256": "1414a9a2bb57e3f61c9f8d0d50a01f9bed8e3901017b4bdc9c21c83836aa525a",
+      "requested_ranges": [
+        [
+          26,
+          28
+        ],
+        [
+          54,
+          67
+        ]
+      ],
+      "reviewed_ranges": [
+        [
+          26,
+          28
+        ],
+        [
+          54,
+          67
+        ]
+      ],
+      "unread_ranges": [
+        [
+          1,
+          25
+        ],
+        [
+          29,
+          53
+        ],
+        [
+          68,
+          110
+        ]
+      ],
+      "reviewed_words": 388
+    },
+    {
+      "path": "docs/systems/MAKING_ITEMS_ECONOMY.md",
+      "total_lines": 575,
+      "selected_words": 220,
+      "sha256": "843044ed4cc707c87a2baca3795b39a4afb5f887b716e399207a54cd6300779b",
+      "requested_ranges": [
+        [
+          539,
+          553
+        ]
+      ],
+      "reviewed_ranges": [
+        [
+          539,
+          553
+        ]
+      ],
+      "unread_ranges": [
+        [
+          1,
+          538
+        ],
+        [
+          554,
+          575
+        ]
+      ],
+      "reviewed_words": 220
+    },
+    {
+      "path": "docs/worlds/MOTHER_OF_LEARNING_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "total_lines": 340,
+      "selected_words": 0,
+      "sha256": "77a2bea9cbda7ab476011847907ad4b62121f5a852986aae0771a76700e34384",
+      "requested_ranges": [],
+      "reviewed_ranges": [],
+      "unread_ranges": [
+        [
+          1,
+          340
+        ]
+      ],
+      "reviewed_words": 0
+    },
+    {
+      "path": "docs/worlds/OMNISCIENT_READERS_VIEWPOINT_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "total_lines": 255,
+      "selected_words": 0,
+      "sha256": "d7937fb622c3ba5e969d9bbe52d9262bcedb71701991c281bc7f0580c5b49b3a",
+      "requested_ranges": [],
+      "reviewed_ranges": [],
+      "unread_ranges": [
+        [
+          1,
+          255
+        ]
+      ],
+      "reviewed_words": 0
+    },
+    {
+      "path": "docs/worlds/REVEREND_INSANITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "total_lines": 285,
+      "selected_words": 53,
+      "sha256": "92de6eb3a701e02847eb213b0deb198a3c102605d9a660c0e951a09130ea81b0",
+      "requested_ranges": [
+        [
+          14,
+          16
+        ],
+        [
+          179,
+          181
+        ],
+        [
+          216,
+          218
+        ],
+        [
+          237,
+          239
+        ]
+      ],
+      "reviewed_ranges": [
+        [
+          14,
+          16
+        ],
+        [
+          179,
+          181
+        ],
+        [
+          216,
+          218
+        ],
+        [
+          237,
+          239
+        ]
+      ],
+      "unread_ranges": [
+        [
+          1,
+          13
+        ],
+        [
+          17,
+          178
+        ],
+        [
+          182,
+          215
+        ],
+        [
+          219,
+          236
+        ],
+        [
+          240,
+          285
+        ]
+      ],
+      "reviewed_words": 53
+    },
+    {
+      "path": "docs/worlds/SHADOW_SLAVE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "total_lines": 263,
+      "selected_words": 283,
+      "sha256": "aaea643546c7ebd4fac5cd50b599a8cd6816cf7a13f92ebcfcb3055f0c0475e6",
+      "requested_ranges": [
+        [
+          14,
+          16
+        ],
+        [
+          187,
+          189
+        ],
+        [
+          192,
+          194
+        ],
+        [
+          235,
+          242
+        ]
+      ],
+      "reviewed_ranges": [
+        [
+          14,
+          16
+        ],
+        [
+          187,
+          189
+        ],
+        [
+          192,
+          194
+        ],
+        [
+          235,
+          242
+        ]
+      ],
+      "unread_ranges": [
+        [
+          1,
+          13
+        ],
+        [
+          17,
+          186
+        ],
+        [
+          190,
+          191
+        ],
+        [
+          195,
+          234
+        ],
+        [
+          243,
+          263
+        ]
+      ],
+      "reviewed_words": 283
+    },
+    {
+      "path": "docs/worlds/TTKS_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "total_lines": 521,
+      "selected_words": 697,
+      "sha256": "4418ed7ec414ee650415a8ba904d476060526241a71600f2d7e27d4036ef45f1",
+      "requested_ranges": [
+        [
+          14,
+          16
+        ],
+        [
+          36,
+          38
+        ],
+        [
+          143,
+          145
+        ],
+        [
+          166,
+          168
+        ],
+        [
+          231,
+          233
+        ],
+        [
+          237,
+          238
+        ],
+        [
+          241,
+          241
+        ],
+        [
+          258,
+          272
+        ],
+        [
+          274,
+          274
+        ],
+        [
+          457,
+          457
+        ],
+        [
+          459,
+          459
+        ]
+      ],
+      "reviewed_ranges": [
+        [
+          14,
+          16
+        ],
+        [
+          36,
+          38
+        ],
+        [
+          143,
+          145
+        ],
+        [
+          166,
+          168
+        ],
+        [
+          231,
+          233
+        ],
+        [
+          237,
+          238
+        ],
+        [
+          241,
+          241
+        ],
+        [
+          258,
+          272
+        ],
+        [
+          274,
+          274
+        ],
+        [
+          457,
+          457
+        ],
+        [
+          459,
+          459
+        ]
+      ],
+      "unread_ranges": [
+        [
+          1,
+          13
+        ],
+        [
+          17,
+          35
+        ],
+        [
+          39,
+          142
+        ],
+        [
+          146,
+          165
+        ],
+        [
+          169,
+          230
+        ],
+        [
+          234,
+          236
+        ],
+        [
+          239,
+          240
+        ],
+        [
+          242,
+          257
+        ],
+        [
+          273,
+          273
+        ],
+        [
+          275,
+          456
+        ],
+        [
+          458,
+          458
+        ],
+        [
+          460,
+          521
+        ]
+      ],
+      "reviewed_words": 697
+    },
+    {
+      "path": "docs/worlds/REGRESSORS_TALE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "total_lines": 321,
+      "selected_words": 148,
+      "sha256": "a4e1f006b9523fc34189a37d233724a129c76666e56593861ecd6b42bad9980e",
+      "requested_ranges": [
+        [
+          16,
+          18
+        ],
+        [
+          212,
+          214
+        ],
+        [
+          259,
+          266
+        ]
+      ],
+      "reviewed_ranges": [
+        [
+          16,
+          18
+        ],
+        [
+          212,
+          214
+        ],
+        [
+          259,
+          266
+        ]
+      ],
+      "unread_ranges": [
+        [
+          1,
+          15
+        ],
+        [
+          19,
+          211
+        ],
+        [
+          215,
+          258
+        ],
+        [
+          267,
+          321
+        ]
+      ],
+      "reviewed_words": 148
+    },
+    {
+      "path": "docs/worlds/PRIMORDIAL_SAINT_SECT_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "total_lines": 422,
+      "selected_words": 122,
+      "sha256": "823a15b0429992a63cc4226ba6218d0a903a47444a44c559ca83449fde3b049c",
+      "requested_ranges": [
+        [
+          20,
+          22
+        ],
+        [
+          270,
+          272
+        ],
+        [
+          305,
+          312
+        ],
+        [
+          390,
+          392
+        ]
+      ],
+      "reviewed_ranges": [
+        [
+          20,
+          22
+        ],
+        [
+          270,
+          272
+        ],
+        [
+          305,
+          312
+        ],
+        [
+          390,
+          392
+        ]
+      ],
+      "unread_ranges": [
+        [
+          1,
+          19
+        ],
+        [
+          23,
+          269
+        ],
+        [
+          273,
+          304
+        ],
+        [
+          313,
+          389
+        ],
+        [
+          393,
+          422
+        ]
+      ],
+      "reviewed_words": 122
+    },
+    {
+      "path": "docs/worlds/HARRY_POTTER_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "total_lines": 345,
+      "selected_words": 0,
+      "sha256": "ccd6450d8b95e6f88b86e29460ecb2b1de91f1ed6bff9c69ce8594e9fbf505ab",
+      "requested_ranges": [],
+      "reviewed_ranges": [],
+      "unread_ranges": [
+        [
+          1,
+          345
+        ]
+      ],
+      "reviewed_words": 0
+    },
+    {
+      "path": "docs/worlds/FANREN_SIMULATOR_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "total_lines": 313,
+      "selected_words": 337,
+      "sha256": "8da9f31a5fc98d500f72bd8d9e9121bfb25fc122d28d3f5f863557456d2f6169",
+      "requested_ranges": [
+        [
+          22,
+          24
+        ],
+        [
+          158,
+          160
+        ],
+        [
+          230,
+          232
+        ],
+        [
+          253,
+          260
+        ]
+      ],
+      "reviewed_ranges": [
+        [
+          22,
+          24
+        ],
+        [
+          158,
+          160
+        ],
+        [
+          230,
+          232
+        ],
+        [
+          253,
+          260
+        ]
+      ],
+      "unread_ranges": [
+        [
+          1,
+          21
+        ],
+        [
+          25,
+          157
+        ],
+        [
+          161,
+          229
+        ],
+        [
+          233,
+          252
+        ],
+        [
+          261,
+          313
+        ]
+      ],
+      "reviewed_words": 337
+    },
+    {
+      "path": "docs/worlds/LORD_OF_THE_MYSTERIES_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "total_lines": 282,
+      "selected_words": 0,
+      "sha256": "6e2d4ff351fc1e2a6a2dfa379932289058ecbe5dd1d611f1e181ef163882ec07",
+      "requested_ranges": [],
+      "reviewed_ranges": [],
+      "unread_ranges": [
+        [
+          1,
+          282
+        ]
+      ],
+      "reviewed_words": 0
+    },
+    {
+      "path": "docs/worlds/A_SOLDIERS_LIFE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "total_lines": 364,
+      "selected_words": 100,
+      "sha256": "5099bea56bdbd4e26f5cf5a145257d7d6c28d45f686fd156b81fd379d16f4af5",
+      "requested_ranges": [
+        [
+          16,
+          18
+        ],
+        [
+          226,
+          228
+        ],
+        [
+          258,
+          265
+        ]
+      ],
+      "reviewed_ranges": [
+        [
+          16,
+          18
+        ],
+        [
+          226,
+          228
+        ],
+        [
+          258,
+          265
+        ]
+      ],
+      "unread_ranges": [
+        [
+          1,
+          15
+        ],
+        [
+          19,
+          225
+        ],
+        [
+          229,
+          257
+        ],
+        [
+          266,
+          364
+        ]
+      ],
+      "reviewed_words": 100
+    },
+    {
+      "path": "docs/worlds/CIRCLE_OF_INEVITABILITY_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "total_lines": 304,
+      "selected_words": 163,
+      "sha256": "90a43976590fb1abad3d50a6f82638716f21b79a5b65f2207ba544d700bdf66a",
+      "requested_ranges": [
+        [
+          13,
+          15
+        ],
+        [
+          185,
+          194
+        ]
+      ],
+      "reviewed_ranges": [
+        [
+          13,
+          15
+        ],
+        [
+          185,
+          194
+        ]
+      ],
+      "unread_ranges": [
+        [
+          1,
+          12
+        ],
+        [
+          16,
+          184
+        ],
+        [
+          195,
+          304
+        ]
+      ],
+      "reviewed_words": 163
+    },
+    {
+      "path": "docs/worlds/REINCARNATION_PARADISE_FACILITIES_AND_SUBTLE_DETAILS_2026-10-23.md",
+      "total_lines": 390,
+      "selected_words": 191,
+      "sha256": "1cf4da3524c6398fffe64dbcf6c529bad7c64d70c968092b47b55a0d5f1efb89",
+      "requested_ranges": [
+        [
+          50,
+          52
+        ],
+        [
+          263,
+          265
+        ],
+        [
+          268,
+          270
+        ],
+        [
+          372,
+          380
+        ]
+      ],
+      "reviewed_ranges": [
+        [
+          50,
+          52
+        ],
+        [
+          263,
+          265
+        ],
+        [
+          268,
+          270
+        ],
+        [
+          372,
+          380
+        ]
+      ],
+      "unread_ranges": [
+        [
+          1,
+          49
+        ],
+        [
+          53,
+          262
+        ],
+        [
+          266,
+          267
+        ],
+        [
+          271,
+          371
+        ],
+        [
+          381,
+          390
+        ]
+      ],
+      "reviewed_words": 191
+    }
+  ],
+  "additional_discovery_only": [
+    "ABILITY_RULES AB11/AB25 reconciliation search",
+    "SLC119-SLC122 searches",
+    "TTKS title mapping lines23-27",
+    "LANE_3 importer/rival snippets; historical only",
+    "OW2/OW3/OW4 next-seam excerpts; no original source reread",
+    "src adaptation/arbitrage string search; no full-source absence inference"
+  ],
+  "unopened_requested_sources": [
+    "sonnet-wave-2026-10-30/ideas/sw-absorb.md",
+    "sonnet-wave-2026-10-30/ideas/sw-chars.md",
+    "sonnet-wave-2026-10-30/ideas/sw-bridge.md",
+    "sonnet-wave-2026-10-30/ideas/sw-adv.md",
+    "sonnet-wave-2026-10-30/ideas/sw-calendar.md",
+    "cultivation CG01-CG30 variant ledger and individual domain/content consumers",
+    "world core W36/W37 reports and 31 card bodies",
+    "all original novel/chapter payloads",
+    "full runtime consumer/importer chains and test contents",
+    "crafting APP_ADOPTION receipt",
+    "SLC121 receipt (merge evidence supplied by lane6)"
+  ],
+  "checks": [
+    {
+      "command": "Python ledger row/count uniqueness",
+      "result": "PASS:100 distinct rows"
+    },
+    {
+      "command": "Python JSON parse/range complement/bounds",
+      "result": "PASS:32 source entries; exact reviewed/unread partition; initial IDEA_INDEX line-count mismatch corrected and recorded"
+    },
+    {
+      "command": "SHA256 comparison after manifest preparation",
+      "result": "PASS:no later drift"
+    },
+    {
+      "command": "Python task-file whitespace",
+      "result": "PASS"
+    }
+  ]
+}

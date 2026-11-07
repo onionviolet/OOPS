@@ -1,0 +1,24 @@
+{
+  "at": "2026-11-07T02:17:40.581513+00:00",
+  "local_markdown_path_links_checked": 27,
+  "missing_link_paths": [],
+  "direct_trailing_whitespace": [],
+  "json_parse": "PASS",
+  "git_diff_check_exit": 0,
+  "project_shape_tests": "PASS 2/2 (node --test tests/project_md_shape.test.js)",
+  "doc_slip_exit": 1,
+  "doc_slip_audit_hits": 165,
+  "doc_slip_by_file": {
+    "LANE_1_KLEIN_MECHANISMS.md": 23,
+    "LANE_2_HARRY_POTTER.md": 10,
+    "LANE_3_FOUNDATIONS_NOV4-6.md": 33,
+    "LANE_4_MASTER_PLAN_RANKED_LISTS.md": 26,
+    "LANE_5_UI_VILLAGE_WRITEUPS.md": 5,
+    "LANE_6_RESEARCH_AUTHORITY.md": 43,
+    "LANE_7_TOOLING_RELEASE_SAVES.md": 12,
+    "LANE_8_OTHER_WORLDS_SYSTEM_DEPTH.md": 13
+  },
+  "doc_slip_interpretation": "FAIL heuristic diagnostic. Preserved inherited ledgers and new evidence-boundary language contain absolute-word hits; two inherited acceptance-attribution hits retained. Not clean lint. No new product constraints are adopted by these reports.",
+  "preservation": "PASS reverse task edits reproduce pre-edit contents for all 3 shared owners",
+  "runtime": "HP arrival fixture only; no build/browser/persistence/installed GUI or full suite run by coordinator"
+}
