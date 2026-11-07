@@ -65,3 +65,14 @@ test('settlers pay on time while the group is strong and a week late when it sli
     d = settlerDues(W, HOME_SITE);
     assert.equal(d.policy, 'pay_on_time'); assert.equal(d.coinsPerWeek, 1);
 });
+
+// AT32: the claim card has to be reachable where the claim happens. claimHere is true on claimable ground while a founded group is live, false in the Village and with no group.
+test('claimHere: true at the stead with a live group; false in the Village, with no group, or after dissolving', () => {
+    cover(null); make();
+    box.where = HOME_SITE; assert.equal(cmd('claimHere')(), false, 'no group yet');
+    box.where = 'Village'; const g = cmd('found')({name: 'Lantern Circle', dues: 'coin'});
+    assert.equal(cmd('claimHere')(), false, 'the Village is not claimable ground');
+    box.where = HOME_SITE; assert.equal(cmd('claimHere')(), true);
+    box.where = 'Village'; cmd('dissolve')({id: g.id}); box.where = HOME_SITE;
+    assert.equal(cmd('claimHere')(), false, 'a dissolved group holds nothing to stake');
+});

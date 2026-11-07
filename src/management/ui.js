@@ -14,6 +14,7 @@ const seenMoved=()=>{try{return localStorage.getItem(MOVED_KEY)==='1';}catch{ret
 const markMoved=()=>{try{localStorage.setItem(MOVED_KEY,'1');}catch{}};
 export function createManagementPanel({read,registry,command}) {
  // UR8: the panel owns its node and registers through definePanel; nothing appends it to Location actions.
+ const claimHere=()=>{try{return !!domainRegistry.command('organizations','claimHere')?.();}catch{return false;}};
  const element=node('section','',{id:'management_panel','aria-label':'Market courtyard'});element.className='expedition_panel organization-panel';
  const terms=node('p','Original local proposals. Work advances only during play. No browser-closed rent, upkeep or debt collection.');terms.className='organization-note';
  const moved=node('p','This panel used to sit inside Location actions. It now has its own place in the panel list.');moved.className='organization-note organization-moved';
@@ -29,14 +30,14 @@ export function createManagementPanel({read,registry,command}) {
  {const lab=node('label','Name ');lab.append(nameIn);foundBody.append(lab);}
  for(const[dial,values]of Object.entries(domainRegistry.command('organizations','dials')?.()||{})){const lab=node('label',`${DIAL_LABEL[dial]} `),sel=node('select','',{'aria-label':DIAL_LABEL[dial]});for(const v of values)sel.append(node('option',v,{value:v}));sel.addEventListener('change',()=>render());dialSel[dial]=sel;lab.append(sel);foundBody.append(lab);}
  nameIn.addEventListener('input',()=>render());
- foundBody.append(foundTerms,foundBtn,foundWhy,mine);
+ foundBody.append(foundTerms,foundBtn,foundWhy);mine.setAttribute('aria-label','Your groups');
  const dials=()=>({name:nameIn.value,...Object.fromEntries(Object.entries(dialSel).map(([k,sel])=>[k,sel.value]))});
  foundBtn.addEventListener('click',()=>{try{domainRegistry.command('organizations','found')(dials());nameIn.value='';message='Group founded and saved.';}catch(e){message=e.message;}render();});
  // OB7/OB12: hire a villager to tend the plot. Direct domain commands, like founding a group.
  const hands=node('details',''),handsBody=node('div','',{class:'expedition_card'});hands.append(node('summary','Hire help for the plot'),handsBody);
  const handCrop=node('select','',{'aria-label':'Crop to grow'});for(const c of['grain','greens'])handCrop.append(node('option',c,{value:c}));
  const handList=node('div');handsBody.append(node('label','Crop '),handList);handsBody.firstChild.append(handCrop);
- element.append(moved,terms,notice,overview,groupsNote,found,hands,sections,history);
+ element.append(moved,terms,notice,overview,groupsNote,found,mine,hands,sections,history);
  const rows=new Map(),groups=new Map();let message='',selected=null,drawn='';
  function drawOverview(org) {
   const view=org&&organizationView(org);
@@ -73,11 +74,13 @@ export function createManagementPanel({read,registry,command}) {
  }
  function render() {
   const snapshot=read(),view=managementPresentation(snapshot.state,registry,snapshot.context);
-  const hidden=!view.visible||snapshot.inDialogue||snapshot.inCombat;element.hidden=hidden;
+  // AT32: at a group's claim place (the wilds stead) the panel opens with the group cards alone; the courtyard itself needs the Village.
+  const here=!view.visible&&claimHere(),hidden=(!view.visible&&!here)||snapshot.inDialogue||snapshot.inCombat,court=hidden||here;element.hidden=hidden;
+  terms.hidden=here;moved.hidden=here||seenMoved();sections.hidden=here;history.hidden=here;
   notice.textContent=snapshot.error||message;notice.hidden=!notice.textContent;
-  drawOverview(hidden||!view.opened?null:courtyardOrganization(snapshot.state,registry,snapshot.context));
-  groupsNote.textContent=hidden||!view.opened?'':groupLines(groupsOf(snapshot.state)).join(' ');groupsNote.hidden=!groupsNote.textContent;
-  {const hp=hidden||!view.opened?null:domainRegistry.project('hired_hands'),hj=hp?.jobs.find(j=>j.available||j.hired);hands.hidden=!hj;
+  drawOverview(court||!view.opened?null:courtyardOrganization(snapshot.state,registry,snapshot.context));
+  groupsNote.textContent=court||!view.opened?'':groupLines(groupsOf(snapshot.state)).join(' ');groupsNote.hidden=!groupsNote.textContent;
+  {const hp=court||!view.opened?null:domainRegistry.project('hired_hands'),hj=hp?.jobs.find(j=>j.available||j.hired);hands.hidden=!hj;
    if(hj){const hire=hp.hires.find(h=>h.jobId===hj.id&&h.status==='active'),sig=JSON.stringify([snapshot.canWrite,hj,hire&&hire.paidThrough,hire&&hire.sellAbove]);
     if(handList.dataset.sig!==sig){handList.dataset.sig=sig;
      const run=(f,ok)=>()=>{try{f();message=ok;}catch(e){message=e.message;}render();};
@@ -89,10 +92,12 @@ export function createManagementPanel({read,registry,command}) {
        return w;})());
      else handList.replaceChildren(...hj.candidates.map(c=>{const wrap=node('p'),b=node('button',`Hire ${c.name} · ${c.wage} coins a week`,{type:'button'});b.disabled=!snapshot.canWrite||!c.eligible;
       b.addEventListener('click',run(()=>domainRegistry.command('hired_hands','hire')({jobId:hj.id,hand:c.id,crop:handCrop.value}),`${c.name} is hired.`));wrap.append(b,node('small',` ${c.eligible?c.line:c.reasons.join(' ')}`));return wrap;}));}}}
-  found.hidden=hidden||!view.opened||!domainRegistry.command('organizations','quote');
+  found.hidden=court||!view.opened||!domainRegistry.command('organizations','quote');
   if(!found.hidden){const q=domainRegistry.command('organizations','quote')(dials());
    foundTerms.textContent=`Costs ${q.cost} coins now.${q.because?` ${q.because}`:''} With coin dues, members pay at each meeting into the group's treasury.`;
-   foundBtn.disabled=!snapshot.canWrite||!q.eligible||!nameIn.value.trim();foundWhy.textContent=nameIn.value.trim()||!q.eligible?q.reasons.join(' '):'Name the group to found it.';foundWhy.hidden=!foundWhy.textContent;
+   foundBtn.disabled=!snapshot.canWrite||!q.eligible||!nameIn.value.trim();foundWhy.textContent=nameIn.value.trim()||!q.eligible?q.reasons.join(' '):'Name the group to found it.';foundWhy.hidden=!foundWhy.textContent;}
+  mine.hidden=hidden||(!here&&!view.opened)||!domainRegistry.command('organizations','quote');
+  if(!mine.hidden){
    const live=groupsOf(snapshot.state).filter(g=>g.charter&&g.status==='active'),org=id=>domainRegistry.command('organizations',id);
    const safe=(f,d)=>{try{return f();}catch{return d;}};
    const info=live.map(g=>({g,pend:g.charter.dues==='coin'?safe(()=>org('pending')({id:g.id}),0):0,inv:safe(()=>org('inviteQuote')({id:g.id}),[]),abil:g.charter.dues==='coin'?safe(()=>org('abilityQuote')({id:g.id}),[]):[],clm:safe(()=>org('claimQuote')({id:g.id}),[])}));
@@ -134,7 +139,7 @@ export function createManagementPanel({read,registry,command}) {
   return view;
  }
  // Discovery follows the existing visibility: the Village, outside dialogue and combat.
- const visible=()=>{try{const s=read(),v=managementPresentation(s.state,registry,s.context);return v.visible&&!s.inDialogue&&!s.inCombat;}catch{return false;}};
+ const visible=()=>{try{const s=read(),v=managementPresentation(s.state,registry,s.context);return (v.visible||claimHere())&&!s.inDialogue&&!s.inCombat;}catch{return false;}};
  definePanel({id:'management',title:'Market courtyard',role:'actions',node:element,home:document.getElementById('main_content'),
   discovered:visible,eligible:visible,emptyText:'Return to the Village to use the market courtyard'});
  return {element,render};

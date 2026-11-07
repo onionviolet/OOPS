@@ -105,6 +105,8 @@ function actStop() {
     if (ports.location() !== route()?.location) return `Do this at ${route()?.where || 'the Village'}.`;
     return ports.blocked?.() || (ports.idle?.() === false ? 'Finish what you are doing first.' : '');
 }
+// AT32: the player stands on ground a founded group here could stake, so its card is shown away from the courtyard. Reads, never writes.
+function claimHere() { if (!ports) return false; return !!route()?.claims?.[ports.location()] && activeFounded(ports.world()).length > 0; }
 const liveGroup = id => { const g = organizationsSlice().groups[id]; if (!g || g.status !== 'active') throw new Error('You run no such group.'); return g; };
 const bar = (g, v) => v.standing + (route().admissionShift[g.charter.admission] || 0);
 /** Who could be asked, and what each would say now. Villagers agree by a simple rule: Village standing against their bar. */
@@ -244,4 +246,4 @@ registerPositionSource('organizations', organizationPositions);
 registerDomain({id: 'organizations', deps: [], initialState: freshOrganizations, save: saveOrganizations,
     validate: s => { if (s != null && s.family === ORGANIZATIONS_FAMILY) validateOrganizations(s); },
     migrate: migrateOrganizations, load: loadOrganizations, projection: organizationsSlice,
-    commands: {found, dissolve, claimQuote, claim, release, settlerDues: ({world, place} = {}) => settlerDues(world, place), quote, gathering, invite, inviteQuote, settle, pending, spend, abilityQuote, dials: () => CHARTER_DIALS, activeFounded: world => activeFounded(world)}});
+    commands: {found, dissolve, claimQuote, claimHere, claim, release, settlerDues: ({world, place} = {}) => settlerDues(world, place), quote, gathering, invite, inviteQuote, settle, pending, spend, abilityQuote, dials: () => CHARTER_DIALS, activeFounded: world => activeFounded(world)}});
