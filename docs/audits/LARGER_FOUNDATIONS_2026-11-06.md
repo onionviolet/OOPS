@@ -395,3 +395,50 @@ FD3+: add M1. FD15: M2, tiered asks, loyalty drift, strain exit, term length and
 - **Unowned foundation-shaped rows from the nine coverage files (O1-O13; about 330 rows scanned, filtered not read line by line; 5 stale rows):** O1 travel budget and logistics; O2 entry permission record; O3 directed group-to-group stance; O4 gifts versus conditional services from a group; O5 paid information becoming a saved lead; O6 concealed capability on any actor with appraisal gate (generalizes `rival_memory.js`); O7 starting hostility with reputation cost; O8 bluff and false signal; O9 transfer of non-item holdings (identity, luck, titles); O10 reset-and-carry contract with a predicate; O11 failure path per system; O12 terminating chains and a tie rule (partial FD16); O13 named capacity gauges (partial FD18). Locators are in the coverage files (research_cov, uv_cov_1-5, coord_cov); not individually verified. Stale in the audit: Nemesis (`rival_memory.js`), hit location (`tempo_location.js`), canon pull per fact (`canon_pull*.js`), anchor snapshots.
 - **Not done:** the 576-cell detail-pass matrix (all content by nature), line-by-line read of uv_cov_1-5.
 
+
+## Delivery reconciliation, 2026-11-06 (after waves 1-10)
+
+Weibao asked "did everything get done?". Input: master at `498a7b10b`, final gate build `01eab058...`, `npm test` 5470/5471 with the one failure fixed (see the [run record](../gm/dispatch/cross-world-run-2026-11-06/CHECKPOINT.md#full-blast-waves-6-10-receipt-2026-11-06)). Evidence rows follow the reconcile table: **source** (read at producer and consumer), **tests** (focused run on the current tree), **walk** (a native or fixture journey on a built bundle). None is human-reviewed. Answer: every slice has a first working version; the native walks and a long palette tail are not done.
+
+### Implementation order
+
+| Slice | Delivered | Evidence reached | Left |
+|---|---|---|---|
+| 1 AR17 hosts | Tempo, away bank, return digest and journal take the neutral write port; LOTM encounter slot | walk (AT15 runner, reload and Export/Import) | Pledges still on the Frontier port (blocked split); AR17 text stays proposed until Weibao accepts it |
+| 2 Seam register | `scripts/seam_register.mjs`, `docs/SEAM_REGISTER.md` | tests, `--check` current | none |
+| 3 Positions and groups | `positions@1` term and resign; projections in LOTM (clerk, probationer, guard) and HP (pupil, house); `organizations@1` founding, invite, dues, treasury, feast, lookout | walk for the clerk positions line (wave 2); tests for the rest | Founding, dues, resign and guard not walked; other exit kinds named but not playable; NPC founding (AT17); `law_case` wiring (lane F G4); splits |
+| 4 HP calendar and houses | Countdown, train on 1 September, Sorting, pupil and house lines, class slot, Charms and Potions lessons | walk for the countdown (wave 2); tests for the route | The 31-day wait and the school route not walked; Head of House, house points, troll and duel (HG4), owl post (HG6) |
+| 5 Inquiry | `inquiry@1`, Frontier lever write-up | tests | Not walked (MCP cannot reach the craftsman); the slice's named consumers, Klein's library and Harry's study, are not built; notes as objects not built |
+| 6 Livelihoods | Stage records (Frontier plot, pen, wilds homestead; LOTM clerk wage); hired hands run the plot; authority and knownness decide obligations | tests | Production is still Frontier-only (no Tingen garden or Hogwarts greenhouse); hired hand not walked |
+| 7 Channels | One 16-channel vocabulary; skill tooltip line; fight-log channels with perceive against conceal; social contests and "Talk the price down" | tests; walk could not open a skill tooltip in Tingen | No channel line on LOTM ability rows; no language, stealth or wayfinding verbs; ability moves in fights; shop button not walked |
+| 8 Events and society sheet | Consequences (owed, heat, collector, fine); Tingen deck and market and service days; sheets for Tingen and Harry | walk: owed lines and deck cards in Klein's digest | Deck cards carry flavour text without effects or choices; forms of address missing in both sheets; other worlds have no sheet |
+
+### Round 4 obligations (OB1-OB12)
+
+| ID | Delivered | Evidence | Left |
+|---|---|---|---|
+| OB1 | Pay on time, a week late, skip | walk | Pay part, dispute, hide income, bribe, evade |
+| OB2 | Notice, landlady, collector at 3, fine at 4 | walk for notice and landlady; tests for collector and fine | Seizure, bounty, warrant |
+| OB3 | `heat@1`, per authority, from known acts, decays | tests | Audit discovery; few producers of known acts (collector fight, one roster caller) |
+| OB4 | Fines wait, wages end at a week boundary, nothing taken while away | tests (AT23 included) | none at this scope |
+| OB5 | Hired-hand income | tests | Appreciation, decay and loss of owned things |
+| OB6 | Weekly money line with exceptions, wired into Reports | tests | Not seen natively |
+| OB7 | Hired hand (ladder L1) | tests | Stewards and accountants running obligations |
+| OB8 | `authorityOver` with claimant, knowledge, reach; livelihoods obey it | tests | Duties and rent do not consult it yet (Tingen rent is correct by authoring, not by the seam) |
+| OB9 | Knownness from Mira's plot right and market sales | tests | No LOTM readers; rumours and positions do not feed it |
+| OB10 | Turn the collector away; police heat after a win | tests | The authority's stronger follow-up steps |
+| OB11 | Founded groups collect member dues | tests | Claiming land and collecting from outsiders as the authority |
+| OB12 | Wages through positions, hired hands | tests | Standing orders that sell surplus, rent you collect, loans |
+
+### FD rows, per-world gaps and findings
+
+- **FD3+ stock properties:** silver and poison done (tests, loaded kind seen natively); M1 batch and label identity not built; Frontier bow has no item, recipe or opener.
+- **FD17 fight frame:** stalemate end, foe stock, armed robber, collector and guard openers (armed opener seen natively; the rest tests).
+- **FD18 ability channels:** vocabulary and fight-log text; executable ability effects not built.
+- **LOTM potions:** Sun 9-8 and Klein's Sequence 7 (tests); 18 pathways and higher Sequences remain (LG2 needs source reading first); LG3-LG8 open.
+- **Other worlds:** MoL, Reinvented Paradise, Primordial Saint Sect and Gu had a light pass; no slice landed there.
+- **Findings:** AT21 fixed (tests), AT22 fixed (walk), AT23 verified (tests), AT24 fixed (tests), AT25 data path fixed (timer behaviour not checked in a browser), AT26 fixed (walk). Still open: pledges split; M1-M4 and M6; G1 canon pull into the FD16 calendar; G3 rival record shape; the Tingen skill tooltip and owed ledger panels not offered in that view; the game MCP server needs a restart before `game_freeze` works.
+
+### Classification
+
+Incomplete integration: OB8 duties, the inquiry book consumers, Tingen panels for tooltip and ledger, the Frontier bow. Missing proof: every "tests" row above until a walk runs. Proposals still awaiting Weibao: AR17 and every authored dial (AD32). No genuine disagreement found.
