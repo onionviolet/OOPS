@@ -7,6 +7,7 @@ import {beFirearmFacts, beFirearmKeys, shotOdds, BE_FIREARM_DIALS} from './book_
 import {winChance} from './book_world_lotm_bands.js';
 import {lotmLight} from './book_world_lotm_events.js';
 import {registerTempoOpener} from './tempo_starters.js';
+import {stockKindLabel} from './stock_kinds.js';
 
 export const LOTM_FIGHT_DIALS = Object.freeze({
     fogNotches: {value: 1, why: 'Fog takes about one notch off an aimed shot: the mark blurs past a few yards (Tingen light profile, visibility halved).'},
@@ -30,7 +31,9 @@ function readStock(state) {
     const f = {};
     beFirearmFacts(state, f);
     const kinds = ['ordinary', 'silver'];
-    const kind = kinds.reduce((best, k) => (f[`lotm.beFirearm.loaded.${k}`] || 0) > (f[`lotm.beFirearm.loaded.${best}`] || 0) ? k : best, kinds[0]);
+    // The player's pick (a fact a Load act may set) wins when that kind is loaded; otherwise the kind with more rounds loaded, ties to the first.
+    const picked = f['lotm.beFirearm.pickKind'] ?? state.actors?.player?.facts?.['lotm.beFirearm.pickKind'];
+    const kind = kinds.includes(picked) && (f[`lotm.beFirearm.loaded.${picked}`] || 0) > 0 ? picked : kinds.reduce((best, k) => (f[`lotm.beFirearm.loaded.${k}`] || 0) > (f[`lotm.beFirearm.loaded.${best}`] || 0) ? k : best, kinds[0]);
     return {f, held: !!f['lotm.beFirearm.held'], kind, loaded: f[`lotm.beFirearm.loaded.${kind}`] || 0, carried: f[`lotm.beFirearm.carried.${kind}`] || 0, fired: f['lotm.beFirearm.practiceFired'] || 0};
 }
 // Pure: the odds of one shot at the proof foe in the current light, on the band scale.
@@ -46,7 +49,7 @@ export function lotmFightQuote(state) {
     if(state.simulation?.sessions?.player) return {visible: true, eligible: false, reason: 'Another encounter is already open.'};
     if(s.loaded < 1) return {visible: true, eligible: false, reason: 'Load the revolver first: the chambers are empty.'};
     const shot = lotmShot(state, s);
-    return {visible: true, eligible: true, reason: `${s.loaded} loaded, ${s.carried} carried.${shot.fog ? ' Fog tonight: aimed shots are harder.' : shot.night ? ' It is dark.' : ''}`};
+    return {visible: true, eligible: true, reason: `${s.loaded} ${stockKindLabel(s.kind)}${s.loaded === 1 ? '' : 's'} loaded, ${s.carried} carried.${shot.fog ? ' Fog tonight: aimed shots are harder.' : shot.night ? ' It is dark.' : ''}`};
 }
 // Pure: the robber's odds against the player in the same light (his stock is read as an ordinary adult shooter, target null).
 export function lotmRobberShot(state) {

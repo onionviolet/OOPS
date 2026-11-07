@@ -12,6 +12,7 @@ import {allyMove, hearOrder, coverChance, activeOrder, orderChance, oddsWord, AL
 import {SLOTS, SLOT_IDS, LOCATION_DIALS, weights as slotWeights, pickSlot, defenceAt, oddsOf, injuryFor, partLabel} from './tempo_location.js';
 import {leaveChance, yieldChance, followers, EXIT_DIALS} from './tempo_exit.js';
 import {winChance} from './notch_contest.js';
+import {stockEdge, stockKindLabel} from './stock_kinds.js';
 import {TEMPO_SCHEMA, TEMPO_LOG_LINES, TEMPO_MOVE_IDS, TEMPO_ALLOWED_MOVE_IDS, TEMPO_FACT_HELD, recordTempoHold, takeTempoHold, validateTempoBattle} from './tempo_fight_contract.js';
 export {TEMPO_SCHEMA, TEMPO_FACT_HELD, recordTempoHold, takeTempoHold, validateTempoBattle};
 
@@ -254,7 +255,7 @@ function runMove(plan, registry, command, publish) {
         const st = f.stock, foeId = target(b, id, command.targetId);
         check(st && st.loaded > 0, 'The chamber is empty.');
         check(foeId && st.vs[foeId], 'No one is in your sights.');
-        const foe = b.fighters[foeId], odds = st.vs[foeId];
+        const foe = b.fighters[foeId], odds = stockEdge(st.kind, foe.tags, st.vs[foeId]);
         st.loaded--;
         const hit = draw(b, 'shot', id, {foe: foeId}) < odds.chance;
         const foeName = foeId === 'player' ? 'you' : foe.name;
@@ -263,7 +264,7 @@ function runMove(plan, registry, command, publish) {
             const dmg = round1(foe.maxHp / odds.downIn);
             foe.hp = Math.max(b.floor, round1(foe.hp - dmg)); foe.guard = false; foe.adrenalineUntil = b.now + 10;
             if(foe.hp <= b.floor) foe.status = 'down';
-            say(b, `${name} fire${id === 'player' ? '' : 's'} and hit${id === 'player' ? '' : 's'} ${foeName}.${foe.status === 'down' ? ` ${foeId === 'player' ? 'You go' : `${foe.name} goes`} down.` : ''}`);
+            say(b, `${name} fire${id === 'player' ? '' : 's'} and hit${id === 'player' ? '' : 's'} ${foeName}.${foe.status === 'down' ? ` ${foeId === 'player' ? 'You go' : `${foe.name} goes`} down.` : ''}${odds.notes.length ? ` (${odds.notes.join(', ')})` : ''}`);
         } else say(b, `${name} fire${id === 'player' ? '' : 's'} and miss${id === 'player' ? '' : 'es'}.`);
         if(!st.loaded) say(b, `${id === 'player' ? 'Your' : `${f.name}'s`} chambers are empty.`);
     } else if(move.kind === 'reload') {
@@ -365,7 +366,7 @@ export function beginTempoFight(state, registry, context, spec) {
     for(const f of [...spec.fighters].sort((x, y) => (x.id < y.id ? -1 : 1))) {
         fighters[f.id] = {name: f.name, side: f.side, speed: f.speed ?? 100, ready: 0, hp: f.hp, maxHp: f.maxHp ?? f.hp, stamina: f.stamina ?? 10, maxStamina: f.maxStamina ?? f.stamina ?? 10,
             profile: structuredClone(f.profile), moves: (f.moves || KEEP).filter(m => KEEP.includes(m) || (f.stock && TEMPO_ALLOWED_MOVE_IDS.includes(m) && !TEMPO_MOVE_IDS.includes(m))), perception: f.perception ?? 5, stealth: f.stealth ?? 5,
-            tool: f.tool || 'familiar', ...(f.goals ? {goals: {...f.goals}} : {}), ...(f.parts && Object.keys(f.parts).length ? {parts: {...f.parts}} : {}), ...(f.ally ? {ally: {...structuredClone(f.ally), order: null}} : {}), ...(f.stock ? {stock: {...structuredClone(f.stock), holder: f.id}} : {}), ...(f.channels ? {channels: structuredClone(f.channels)} : {}), ...(Number.isFinite(f.perceive) ? {perceive: f.perceive} : {}), guard: false, adrenalineUntil: 0, status: 'active', yielded: false};
+            tool: f.tool || 'familiar', ...(f.goals ? {goals: {...f.goals}} : {}), ...(f.parts && Object.keys(f.parts).length ? {parts: {...f.parts}} : {}), ...(f.ally ? {ally: {...structuredClone(f.ally), order: null}} : {}), ...(f.stock ? {stock: {...structuredClone(f.stock), holder: f.id}} : {}), ...(f.channels ? {channels: structuredClone(f.channels)} : {}), ...(f.tags?.length ? {tags: [...f.tags]} : {}), ...(Number.isFinite(f.perceive) ? {perceive: f.perceive} : {}), guard: false, adrenalineUntil: 0, status: 'active', yielded: false};
     }
     if(Object.values(fighters).some(f => f.side === 'a' && f.ally)) fighters.player.moves.push('order');
     const b = {schema: TEMPO_SCHEMA, id: spec.id, title: spec.title || 'A fight', seed, actions: 0, now: 0, seconds: 0, held: 0, floor: spec.floor ?? 0,
@@ -420,11 +421,11 @@ export function tempoView(b) {
     const me = b.fighters.player;
     const mix = me.profile.types?.attack || null, st = me.stock, foe0 = st && active(b, 'b').find(id => st.vs[id]);
     const stockWhy = id => id === 'shoot' ? (!st?.loaded ? 'The chamber is empty.' : !foe0 ? 'No one is in your sights.' : '') : id === 'reload' ? (!st?.carried ? 'You have no rounds to load.' : st.loaded >= st.capacity ? 'Every chamber is already loaded.' : '') : '';
-    return {title: b.title, lines: [...b.log], next, you: {hp: me.hp, maxHp: me.maxHp, stamina: me.stamina, maxStamina: me.maxStamina, mix, ...(st ? {stock: {loaded: st.loaded, carried: st.carried, capacity: st.capacity}} : {})}, hits: [...(b.hits || [])], yourTurn: mine && !b.result, result: b.result,
+    return {title: b.title, lines: [...b.log], next, you: {hp: me.hp, maxHp: me.maxHp, stamina: me.stamina, maxStamina: me.maxStamina, mix, ...(st ? {stock: {loaded: st.loaded, carried: st.carried, capacity: st.capacity, kind: st.kind, kindLabel: stockKindLabel(st.kind)}} : {})}, hits: [...(b.hits || [])], yourTurn: mine && !b.result, result: b.result,
         moves: mine ? me.moves.filter(id => id !== 'order').map(id => ({id, label: TEMPO_MOVES[id].label, ...(TEMPO_MOVES[id].kind === 'strike' && mix ? {mix} : {}), text: TEMPO_MOVES[id].text, cost: scaled(TEMPO_MOVES[id], me), safe: TEMPO_MOVES[id].safe,
             usable: (id !== 'tend' || me.stamina >= TEMPO_MOVES.tend.stamina) && (TEMPO_MOVES[id].kind !== 'strike' || oddsOf(me).allowed) && !stockWhy(id),
             odds: id === 'withdraw' ? oddsWord(leaveChance(b, me, x => oddsOf(x).speed)) : id === 'yield' ? oddsWord(yieldChance(b, me)) : id === 'shoot' && foe0 ? oddsWord(st.vs[foe0].chance) : null,
-            ...(id === 'shoot' || id === 'reload' ? {text: `${TEMPO_MOVES[id].text} ${st.loaded} of ${st.capacity} loaded, ${st.carried} carried.`} : {}),
+            ...(id === 'shoot' || id === 'reload' ? {text: `${TEMPO_MOVES[id].text} ${st.loaded} of ${st.capacity} loaded, ${st.carried} carried (${stockKindLabel(st.kind)}).`} : {}),
             why: stockWhy(id) ? stockWhy(id) : id === 'tend' && me.stamina < TEMPO_MOVES.tend.stamina ? 'Needs two stamina.' : TEMPO_MOVES[id].kind === 'strike' && !oddsOf(me).allowed ? `${oddsOf(me).blockedBy.reason} stops you striking.` : ''})) : [],
         aims: mine ? SLOT_IDS.map(id => ({id, label: SLOTS[id].label === 'body' ? 'Body' : SLOTS[id].label[0].toUpperCase() + SLOTS[id].label.slice(1), text: SLOTS[id].why})) : [],
         hurt: Object.entries(me.parts || {}).map(([id, rung]) => ({id, label: partLabel(id), rung, shift: oddsOf({parts: {[id]: rung}}).shift})),
