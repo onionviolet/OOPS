@@ -1,5 +1,7 @@
 # Writeup register and follow-up workflow (2026-10-27)
 
+[Lane branch and worktree reconciliation, 2026-11-07](BRANCH_WORKTREE_RECONCILIATION_2026-11-07.md): 22 branches from the 2026-10-30 replication wave checked by content; all landed, none to merge; 8 worktrees removed and 22 branches dropped 2026-11-07, tips kept under `refs/archive/2026-11-07/` (New).
+
 Status: working process and register, proposals for the process itself. Nothing in the
 registered writeups gains acceptance from registration. Under AD32, direction is established by Weibao’s words and the owning rulebook/AD line; PROJECT.md summarizes current focus and priorities. Edit this file in place;
 add rows, never delete them (mark superseded rows with a date).
