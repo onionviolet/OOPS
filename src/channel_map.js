@@ -17,5 +17,6 @@ export const LOTM_ABILITY_CHANNELS = Object.freeze({
     'ability:fury_burst': ['impose_condition'],
     'ability:dead_regard': ['perceive'], 'ability:spirit_sight': ['perceive'],
     'ability:full_recall': ['inquire'], 'ability:ruin_lore': ['inquire'],
-    'ability:face_hold': ['conceal']
+    'ability:face_hold': ['conceal'],
+    'ability:sun_hymn': ['impose_condition'], 'ability:sun_ward': ['impose_condition']
 });

@@ -10,6 +10,8 @@ import {eq,gte,all,not,af,has,no,item,know,cmd} from './book_world_lotm_kit.js';
 import {LOTM_CAUSES} from './book_world_lotm_causes.js';
 import {drunkEffect} from './book_world_lotm_bench.js';
 import {rowById} from './lotm_formula_rows.js';
+import {SUN_SPEC} from './book_world_lotm_sun_rows.js';
+import {SEQ7_DRINK_IDS} from './book_world_lotm_seq7.js';
 const U='understood';
 const grant=sourceId=>({type:'source',actor:'player',sourceId,operation:'grant',origin:'acquired',awakened:true,active:true});
 const press=amount=>({type:'resource',actor:'player',key:'book.lotm.pressure',amount});
@@ -40,7 +42,7 @@ export function generatePathwayRow(spec){
  for(const r of [base,next])if(r.ritual?.needed)throw Error(`${r.name} has a rite; the ritual mechanism (DWF149) owns it, not this generator.`);
  for(const [r,name] of [[base,'base'],[next,'next']])if(K[spec.holds[name]]!==r.product.key)throw Error(`The ${r.name} dose key must equal its bench product key.`);
  const cause=(...ids)=>causesOf(...ids);
- const gaps=[`The notes record no acting principle for Sequence 8 ${next.name} (M); only the Sequence 9 principle is used, and Sequence 8 digestion is not offered.`,
+ const gaps=spec.gaps??[`The notes record no acting principle for Sequence 8 ${next.name} (M); only the Sequence 9 principle is used, and Sequence 8 digestion is not offered.`,
   'No Tingen church holds the Visionary line (Psychology Alchemists are the canon holder); nobody supervises or examines. The Alchemists contact is not written (LATER).',
   `Taking ${next.name} without a Spectator source has no cause row yet; the drink is refused with a stated reason.`,
   'The notes list no Sequence 9 or 8 abilities for this pathway, so the sources grant none yet.'];
@@ -48,11 +50,12 @@ export function generatePathwayRow(spec){
   holds:spec.holds,digest:spec.digest,acts:spec.acts,know:spec.know,sources:spec.sources,ladder:spec.ladder,principle:spec.principle,
   formulaIds:{base:base.id,next:next.id},assessLabel:'You judge the digestion by feel',crossings:{base:`Brew or buy a ${base.name} dose, then drink it`,next:`Brew or buy a ${next.name} dose, then drink it`},
   causes:{foreign:cause('wrong_pathway','switching'),rush:cause('skip','rushed')},gaps:Object.freeze(gaps),
-  provenance:Object.freeze({potion:'table',next:'table',sequences:'table',doseKeys:'table (formula rows)',principle9:'table',principle8:'gap',digest:'proposal',acts:'proposal (from the table principle)',
+  provenance:Object.freeze(spec.provenance??{potion:'table',next:'table',sequences:'table',doseKeys:'table (formula rows)',principle9:'table',principle8:'gap',digest:'proposal',acts:'proposal (from the table principle)',
    place:'proposal (anywhere people are)',supervision:'proposal (self-directed, no examiner)',texts:'proposal',abilities:'gap'})});
 }
 export const spectatorRow=generatePathwayRow(SPECTATOR_SPEC);
-export const generatedRows=Object.freeze([spectatorRow]);
+export const sunRow=generatePathwayRow(SUN_SPEC);
+export const generatedRows=Object.freeze([spectatorRow,sunRow]);
 const notes=cs=>cs.map(c=>c.text).join(' ');
 const total=cs=>cs.reduce((n,c)=>n+c.pressure,0);
 const kn=(row,which)=>{const [key,text,kind]=row.know[which];return know(key,text,'player','player',kind,U);};
@@ -84,4 +87,4 @@ export function generatedCommands(row){
     know(`cause.rush.${k}`,`${notes(causes.rush)} ${row.know.rushed[1]}`,'player','player','observation',U)]})];
 }
 // Which bench formula ids a generated row can drink, with their command ids (the host previews these instead of the "not yet written" marker).
-export const generatedDrinkIds=Object.freeze(Object.fromEntries(generatedRows.flatMap(r=>[[r.formulaIds.base,[`book.lotm.drink_${r.key}9`,`book.lotm.drink_${r.key}9_foreign`]],[r.formulaIds.next,[`book.lotm.drink_${r.key}8`,`book.lotm.drink_${r.key}8_rushed`]]])));
+export const generatedDrinkIds=Object.freeze({...Object.fromEntries(generatedRows.flatMap(r=>[[r.formulaIds.base,[`book.lotm.drink_${r.key}9`,`book.lotm.drink_${r.key}9_foreign`]],[r.formulaIds.next,[`book.lotm.drink_${r.key}8`,`book.lotm.drink_${r.key}8_rushed`]]])),...SEQ7_DRINK_IDS});

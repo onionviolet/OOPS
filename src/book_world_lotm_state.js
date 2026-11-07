@@ -13,6 +13,7 @@ import {roleOutcomeAssertions} from './book_world_lotm_districts.js';
 import {meritAssertions} from './book_world_lotm_merit.js';
 import {pathwayRows} from './book_world_lotm_rows.js';
 import {generatedRows} from './book_world_lotm_generated.js';
+import {seq7Assertions} from './book_world_lotm_seq7.js';
 import {lotmCommands} from './book_world_lotm_actions.js';
 import {jsonData} from './simulation_contracts.js';
 import {packRevision} from './constraint_pack.js';
@@ -82,6 +83,7 @@ export function validateLotmState(state){
  assert(!has('examined')||has('assessed'),'An examination needs its pre-screen.');
  assert(!has('promoted')||has('assessed')&&(!has('exam.required')||has('examined'))&&!!src,'A promotion needs the assessment and the Seer source.');
  assert(!!clown===has('promoted'),'The Clown source exists exactly when the promotion is recorded.');
+ seq7Assertions({a,has,assert,natural});
  // Other pathways (Q1 onward) are rows: each has its own flags and acting resource, additive and optional. One pathway per life.
  const chosen=row=>has(flagOf(row,'allocated'))||has(flagOf(row,'ingested'))||!!a.player.sources?.[row.base];
  const seerChosen=has('allocated')||has('ingested')||!!src;

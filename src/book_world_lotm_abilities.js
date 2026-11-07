@@ -8,11 +8,14 @@ import {eq} from './basics.js';
 import {LOTM_IDS as I} from './book_world_lotm_ids.js';
 import {pathwaySources} from './book_world_lotm_pathways.js';
 import {pathwayRows} from './book_world_lotm_rows.js';
+import {sunRow} from './book_world_lotm_generated.js';
+import {SUN_SPEC,SUN_ABILITY_ROWS,SUN_CONDITIONS} from './book_world_lotm_sun_rows.js';
 const U='understood';
 const stamina=n=>({type:'vital',key:'stamina',amount:-n}),cond=(id,duration)=>({type:'condition',id,operation:'apply',duration});
 const note=(key,value)=>({type:'knowledge',key:`book.lotm.${key}`,stage:U,value});
 // Conditions the abilities and their drawbacks apply. `look` rows are concealed unless an observer could see them.
 export const abilityConditions=[
+ ...SUN_CONDITIONS,
  {id:'book.lotm.cold_ward',revision:1,label:'Cold-warded',stacking:'max',bioVisible:true,bioDetail:'The cold and rot of the dead rooms slide off you for a while.'},
  {id:'book.lotm.pallor',revision:1,label:'Deathly pallor',stacking:'max',bioVisible:true,bioDetail:'Your skin has gone pale and cold after using the dead-room gift.',look:{slot:'skin',rank:3,concealed:true,seenBy:['beyonder','undead'],text:'Your skin is too pale and too cold; the dead do not flinch from you.'}},
  {id:'book.lotm.grave_strength',revision:1,label:'Grave strength',stacking:'max',bioVisible:true,bioDetail:'Your body is quicker and stronger than a clerk\'s for a while.'},
@@ -43,9 +46,10 @@ const ROWS={
   {key:'scale_slick',stage:'base',fn:'physical',kind:'body-faculty',label:'Raise your scales and slip any grip',desc:'Hidden scales make you hard to grip.',costs:[stamina(2)],effects:[cond('book.lotm.slick_scales',180)],drawback:{id:'scale_price',price:[cond('book.lotm.rage_residue',120)]}},
   {key:'deep_breath',stage:'base',fn:'physical',kind:'body-faculty',label:'Take the long breath under water',desc:'About ten minutes under water.',costs:[stamina(2)],effects:[cond('book.lotm.long_breath',60)],drawback:{id:'breath_price',price:[cond('book.lotm.slick_scales',60)]}},
   {key:'fury_burst',stage:'next',fn:'physical',kind:'body-faculty',label:'Let your anger burst out',desc:'A burst of attack and speed when angry.',costs:[stamina(3)],effects:[cond('book.lotm.rage_burst',60)],drawback:{id:'fury_price',price:[cond('book.lotm.rage_residue',240)]}}],
+ sun:SUN_ABILITY_ROWS,
  seer:[
   {key:'face_hold',stage:'next',fn:'physical',kind:'body-faculty',label:'Hold whatever face you set',desc:'Facial control for a while.',costs:[stamina(1)],effects:[cond('book.lotm.steady_face',120)],drawback:{id:'face_price',price:[cond('book.lotm.persona_slip',240)]}}]};
-const STAGE={sa:{base:I.sailor,next:I.folk},cc:{base:I.corpse,next:I.gravedigger},sv:{base:I.savant,next:I.archaeologist},seer:{base:I.source,next:I.clown}};
+const STAGE={sa:{base:I.sailor,next:I.folk},cc:{base:I.corpse,next:I.gravedigger},sv:{base:I.savant,next:I.archaeologist},seer:{base:I.source,next:I.clown},sun:{base:SUN_SPEC.baseSource,next:SUN_SPEC.nextSource}};
 // Hostile Beyonders (original, unnamed, not enrolled by default): the same ability rows bound to another actor. ids are definition ids only.
 export const LOTM_HOSTILES=Object.freeze([
  {id:'book.lotm.rogue.cc',key:'cc',label:'Unlicensed corpse-handler (original, hostile)',holds:['base','next']},
@@ -54,7 +58,7 @@ export const LOTM_HOSTILES=Object.freeze([
  {id:'book.lotm.rogue.seer',key:'seer',label:'Unlicensed fortune-teller (original, hostile)',holds:['base','next']}]);
 const ownerOf=(actor,key)=>actor==='player'?`book.lotm.ab.${key}`:`book.lotm.ab.${key}.${actor.slice('book.lotm.rogue.'.length)}`;
 function definitionFor(actors){
- const rows=[],commands=[],sources=[...pathwayRows.flatMap(pathwaySources),
+ const rows=[],commands=[],sources=[...pathwayRows.flatMap(pathwaySources),...pathwaySources(sunRow),
   {id:I.source,revision:1,label:'Seer source (initiated)',kind:'trait',origin:'acquired',grants:[],bioDetail:'One consumed supervised dose.'},
   {id:I.clown,revision:1,label:'Clown source (Sequence 8)',kind:'trait',origin:'acquired',grants:[],bioDetail:'A second consumed dose after an assessed digestion.'}];
  for(const actor of actors)for(const [pk,list] of Object.entries(ROWS))for(const a of list){

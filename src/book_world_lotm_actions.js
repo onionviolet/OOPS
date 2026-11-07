@@ -9,6 +9,7 @@ import {freeze,eq,gte,all,not,af,has,no,item,transfer,attention,use,know,present
 import {examinationCommand,examFacts,pathwayCommands,pathwayFlags,pathwaySources,pathwayFacts,flagOf} from './book_world_lotm_pathways.js';
 import {pathwayRows,allRows} from './book_world_lotm_rows.js';
 import {generatedRows,generatedCommands} from './book_world_lotm_generated.js';
+import {seq7Commands,seq7Flags,seq7Sources,seq7Facts} from './book_world_lotm_seq7.js';
 import {abilityCommands} from './book_world_lotm_abilities.js';
 import {brewCommands,brewFlags,brewFacts} from './book_world_lotm_brew.js';
 import {benchCommands,benchFlags,benchFacts} from './book_world_lotm_bench.js';
@@ -22,6 +23,7 @@ import {payFacts} from './book_world_lotm_pay.js';
 import {BE_SEER_FLAGS,BE_SEER_ENERGY,beSeerSources,beSeerFacts} from './book_world_lotm_be_seer.js';
 import {beFirearmFacts} from './book_world_lotm_be_firearm.js';
 import './book_world_lotm_fight.js'; // registers the AT15 proof tempo opener
+import './book_world_lotm_collector.js'; // registers the OB10 collector-at-the-door tempo opener
 import './book_world_lotm_positions.js'; // registers the FD15 positions projection source
 import './book_world_lotm_organizations.js'; // registers the lane F groups projection source
 import './book_world_lotm_livelihoods.js'; // registers the lane E livelihood source
@@ -86,6 +88,7 @@ const baseCommands=[
  ...brokerCommands,
  ...pathwayRows.flatMap(causeCommands),causeSteadyCommand,
  ...generatedRows.flatMap(generatedCommands),
+ ...seq7Commands,
  cmd('sleep','Sleep at your lodging to recover spirituality and cool strain · '+LOTM_SLEEP_MINUTES+' min',L.lodging,{alone:true,once:false,requires:all(has('reportedIn'),eq('lotm.sourceSupported'),eq('lotm.restPlace')),visibleWhen:all(eq('lotm.enrolled'),has('ingested')),
   duration:LOTM_SLEEP_MINUTES,cancellation:'forfeit',effects:[{type:'energy',energyId:I.energy,operation:'recover',amount:LOTM_ENERGY.capacity,cooling:LOTM_ENERGY.strainLimit}]})
 ];
@@ -104,10 +107,10 @@ export const lotmPowers=freeze([{id:I.method,revision:1,label:'Material percepti
 export const lotmEnergies=freeze([LOTM_ENERGY,BE_SEER_ENERGY]);
 export const lotmSources=freeze([{id:I.source,revision:1,label:'Seer source (initiated)',kind:'trait',origin:'acquired',grants:[],bioDetail:'One consumed supervised dose. Source ownership is separate from control, strain and any later digestion; none of those follows from it alone.'},
  {id:I.clown,revision:1,label:'Clown source (Sequence 8)',kind:'trait',origin:'acquired',grants:[],bioDetail:'A second consumed dose after an assessed digestion. Canon grants fine body coordination, combat intuition and facial control; the Tingen slice has no fight or performance that reads them yet.'},
- ...pathwayRows.flatMap(pathwaySources),...generatedRows.flatMap(pathwaySources),...beSeerSources]);
+ ...pathwayRows.flatMap(pathwaySources),...generatedRows.flatMap(pathwaySources),...seq7Sources,...beSeerSources]);
 const LIFE_FLAGS=['contract.signed','sealed.held',...lotFlags,...causeFlags];
 const DISTRICT_FLAGS=LOTM_DISTRICTS.map(d=>`endorsed.${d.id}`);
-const LOTM_FLAGS=[...BE_SEER_FLAGS,'reportedIn','allocated','declined','ingested','stabilized','methodLearned','refusedHigh','assessed','exam.required','examined','promoted',...pathwayRows.flatMap(pathwayFlags),...generatedRows.flatMap(pathwayFlags),...brewFlags,...benchFlags,...ritualFlags,...DISTRICT_FLAGS,...LIFE_FLAGS,...LOTM_SAMPLES.flatMap(n=>[`took.${n}`,`observed.${n}`,`returned.${n}`])];
+const LOTM_FLAGS=[...BE_SEER_FLAGS,'reportedIn','allocated','declined','ingested','stabilized','methodLearned','refusedHigh','assessed','exam.required','examined','promoted',...pathwayRows.flatMap(pathwayFlags),...generatedRows.flatMap(pathwayFlags),...seq7Flags,...brewFlags,...benchFlags,...ritualFlags,...DISTRICT_FLAGS,...LIFE_FLAGS,...LOTM_SAMPLES.flatMap(n=>[`took.${n}`,`observed.${n}`,`returned.${n}`])];
 export function lotmFacts(state,ctx={}){
  const s=state.simulation||{},p=s.people?.player,sup=s.people?.[I.supervisor],f={};
  const alive=x=>x?.life==='alive'&&x.body?.form==='human'&&(x.body.hands??0)>=2&&x.body.mobile===true;
@@ -136,6 +139,7 @@ export function lotmFacts(state,ctx={}){
  f['lotm.acting']=acting;f['lotm.digested']=acting>=LOTM_DIGEST_ACTS;f['lotm.holds.clownDose']=inv[K.clownDose]||0;
  examFacts(allRows[0],state,f);
  for(const row of [...pathwayRows,...generatedRows])pathwayFacts(row,state,f,{inv,flag});
+ seq7Facts(state,f,{inv,flag});
  roleOutcomeFacts(state,f);
  // One pathway per life: any allocation or ingestion elsewhere closes the other offers.
  // Generated rows (DWF139) count for choice and ingestion but not for the wrong-potion held set: holding a brewed dose is harmless, drinking it is the act.
