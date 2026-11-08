@@ -90,7 +90,19 @@ export const nativeHomeEntries=()=>Object.entries(HOME_PLACES).filter(([id])=>NA
 export const nativeFurnitureValues=()=>Object.entries(DOMICILE_FURNITURE).filter(([id])=>NATIVE_FURNITURE.has(id)).map(([,f])=>f);
 export const nativeRoomEntries=()=>Object.entries(HOME_IMPROVEMENTS).filter(([id])=>NATIVE_ROOMS.has(id));
 const worldRows=new Map();
-export function registerHomeWorld({worldId,places={},furniture={},rooms={}}={}){
+// Tenure law (XC3, proposal under AD32): what a holder may do in a home, by kind of tenure, as data. Default per kind below; a home row's
+// `rights` overrides any of them, with its world's reason. Structural work still needs the home owned (the plan's owner check). The native
+// kinds (owned, rented, shared) keep what they allowed before (fit and store). Reason: who may change a place depends on whose it is.
+export const TENURE_RIGHTS=Object.freeze({
+    owned:Object.freeze({fit:true,store:true}),rented:Object.freeze({fit:true,store:true}),shared:Object.freeze({fit:true,store:true}),
+    lodger:Object.freeze({fit:false,store:true,reason:'A lodger keeps a few things here but changes nothing.'}),
+    tied:Object.freeze({fit:false,store:true,reason:'This place is lent to you; the people who own it decide what goes in it.'}),
+    squatter:Object.freeze({fit:true,store:true})});
+export function homeRights(id){const p=HOME_PLACES[id];return {...(TENURE_RIGHTS[p?.tenure]||TENURE_RIGHTS.shared),...(p?.rights||{})};}
+// money: the plural word for the world's smallest coin ("pence"), used in the engine's own refusals. Default "coins" (the Village's word).
+const moneyWords=new Map();
+export const homeMoneyWord=worldId=>moneyWords.get(worldId)||'coins';
+export function registerHomeWorld({worldId,places={},furniture={},rooms={},money=null}={}){
     const ok=x=>typeof x==='string'&&/^[a-z][a-z0-9_.:-]*$/i.test(x);
     if(!ok(worldId)||worldId===HOME_WORLD)throw Error('A home world needs its own world id.');
     const add=(table,rows,native,label,shape)=>{for(const [id,row] of Object.entries(rows)){
@@ -105,6 +117,7 @@ export function registerHomeWorld({worldId,places={},furniture={},rooms={}}={}){
     add(HOME_PLACES,places,NATIVE_PLACES,'Home',r=>{if(![r.name,r.location,r.tenure,r.owner].every(x=>typeof x==='string'&&x)||!Array.isArray(r.forms)||!Number.isSafeInteger(r.capacity))throw Error('A world home needs a name, location, tenure, owner, forms and capacity.');
         if((r.furnished||[]).some(f=>DOMICILE_FURNITURE[f]?.world!==worldId)||r.listedAt!=null&&!Array.isArray(r.listedAt))throw Error('A world home furnishes only from its own world\u2019s furniture.');});
     if(itemRegistrar)for(const id of Object.keys(furniture))furnitureTemplate(itemRegistrar.templates,itemRegistrar.Item,id,DOMICILE_FURNITURE[id]);
+    if(money!=null){if(typeof money!=='string'||!/^[a-z][a-z ]{0,23}$/.test(money))throw Error('A world money word is a short plain word.');moneyWords.set(worldId,money);}
     worldRows.set(worldId,{places:Object.keys(places),furniture:Object.keys(furniture),rooms:Object.keys(rooms)});
     return worldRows.get(worldId);
 }

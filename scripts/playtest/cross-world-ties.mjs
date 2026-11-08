@@ -129,6 +129,10 @@ async function walkHp() {
         const home = async () => p.locator('[data-hp-home]').innerText();
         assert.match(await home(), /You are at home/); assert.match(await home(), /Your uncle, your aunt and your cousin live here with you/);
         r.checks.push('W2c: the Home block shows the guardians\u2019 house through the shared world home port (at home, three residents)');
+        // W3a: the cupboard as a tied home in the shared home engine, claimed by its button; the tenure law says what Harry may do.
+        await p.locator('[data-hp-home-act="settle"]').click(); await p.waitForTimeout(300); await nc.panel();
+        assert.match(await home(), /The cupboard is yours to sleep in: thin mattress \(your guardians’\)/); assert.match(await home(), /This place is lent to you/);
+        r.checks.push('W3a: the cupboard claimed by its button as a tied home in the home engine; the Home block shows the guardians’ mattress and the tenure law’s limits');
         while((await nc.view()).arc?.next && acts < 120) {await nc.startCurrent(); await nc.settle(); acts++;}
         r.householdActs = acts;
         const day = async () => p.evaluate(() => simulationTestHooks.project('hp')?.school);
@@ -210,6 +214,7 @@ async function walkHp() {
         for(const x of [afterReload, afterImport]) {assert.equal(aff(x), 2); assert.ok(x.simulation.knowledge.player[P + '.tie.ron_family']); assert.equal(x.actors.player.facts['hp.lead.potions.flask'], 'cure');}
         r.checks.push('save, reload, Export and Import keep affection 2, the note and the handed-in flask');
         await reopen(); assert.match(await home(), /away from the house/); r.checks.push('W2c: the Home block reads the same after Import');
+        assert.match(await home(), /The cupboard is yours to sleep in/); r.checks.push('W3a: the claimed cupboard survives reload and Import');
         if(r.studyDone) {for(const x of [afterReload, afterImport]) assert.equal(x.simulation.knowledge.player['study.hp.charms.writeup']?.stage, 'understood'); r.checks.push('the study write-up survives reload and Import');}
         r.errors = s.errors.length; assert.equal(s.errors.length, 0, JSON.stringify(s.errors.slice(0, 3)));
         r.ok = true;
@@ -284,7 +289,7 @@ async function walkLotmHome() {
         assert.equal(await buy.count(), 1, 'the crate is offered at the market');
         if(await buy.isDisabled()) {
             r.buyShutReason = (await view()).home.actions.find(a => a.id === `buy:${CRATE}`)?.reason;
-            assert.match(r.buyShutReason, /coins/); r.checks.push(`at the Lettuce and Meat market: the crate is offered and shut with the engine’s reason, read from Klein’s own purse (${r.buyShutReason})`);
+            assert.match(r.buyShutReason, /pence/); r.checks.push(`at the Lettuce and Meat market: the crate is offered and shut with the engine’s reason, read from Klein’s own purse (${r.buyShutReason})`);
         } else {
             await act(`buy:${CRATE}`); await goto(FLAT); await act(`install:${CRATE}`);
             assert.match(await homeText(), /Lidded tea crate/); assert.equal((await flat()).fixtures.box?.owner, 'player');

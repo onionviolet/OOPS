@@ -57,3 +57,11 @@ test('S2: a world home is taken up at itself by its own life, with the landlordâ
     assert.throws(() => planHome(r.state, {type: 'buy', item: 'test.s2.rug'}, {...c('test.s2.market'), world: 'test.homeworld'}), /buy this where it is sold/);
     assert.throws(() => planHome(r.state, {type: 'buy', item: 'Home plain bed'}, c('test.s2.market')), /Village home supplier/);
 });
+
+test('a world names its own money in the engine\u2019s refusals; the Village keeps coins', async () => {
+    const {homeMoneyWord} = await import('../src/home_content.js');
+    await import('../src/lotm_home_world.js');
+    assert.equal(homeMoneyWord('book.lotm.tingen'), 'pence');
+    assert.equal(homeMoneyWord('base.frontier'), 'coins');
+    assert.throws(() => registerHomeWorld({worldId: 'test.money', money: 'Pence!'}), /short plain word/);
+});

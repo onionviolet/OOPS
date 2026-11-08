@@ -30,4 +30,4 @@ export const LOTM_HOMES = Object.freeze({
         description: 'The rented flat you share with your brother and sister. The landlord owns the walls and the bed.', startsHere: true,
         furnished: [`${H}.landlord_bed`]},
 });
-registerHomeWorld({worldId: LOTM_HOME_WORLD, furniture: LOTM_HOME_FURNITURE, places: LOTM_HOMES});
+registerHomeWorld({worldId: LOTM_HOME_WORLD, furniture: LOTM_HOME_FURNITURE, places: LOTM_HOMES, money: 'pence'});

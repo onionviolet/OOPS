@@ -39,7 +39,7 @@ export function hpLeadProjection(state,data=actData(),locked=getHpLeadCast()?.lo
     const arc=placeActSequenceView(state,data)??{...EMPTY_ARC};
     // Untaken options of the act that is current (or the last one done) show locked, never actionable.
     const shown=arc.next?.id??data.acts?.at(-1)?.id;
-    return {enrolled:state.actors?.player?.worldId===`${LEAD_ID}.world`,arc,school:hpSchoolRoute(state),home:hpLeadHomeView(state),lessons:hpLessonView(state),locked:structuredClone(locked[shown]??[]),jobs:structuredClone(state.simulation.jobs||[])};
+    return {enrolled:state.actors?.player?.worldId===`${LEAD_ID}.world`,arc,school:hpSchoolRoute(state),home:hpLeadHomeView(state,{homes:domainRegistry.project('homes'),quote:domainRegistry.command('homes','quote')??null}),lessons:hpLessonView(state),locked:structuredClone(locked[shown]??[]),jobs:structuredClone(state.simulation.jobs||[])};
 }
 // Live holdings: the purse is the player's own resource under the pack's currency key (one integer in the smallest coin,
 // shown on the pack's ladder); other holders (a vault, another person's coins) are different actors and never show here.
@@ -65,5 +65,5 @@ export function registerHpLeadDomain(register,getState,ports=null,data){
     if(ports)registerOwnHoldings(`${LEAD_ID}.world`,{purse:'no money of your own',items:'You carry nothing of your own.',body:'Your body here is not the Village hero\'s sheet.'},hpLeadHoldingsReaders());
     registerHpPeopleSource();
     return register({id:'hp',deps:[],projection:()=>hpLeadProjection(getState(),data),refresh:()=>panel?.render(),
-        panels:ports?[()=>{panel=createHpLeadPanel({project:()=>hpLeadProjection(getState(),data),read:ports.read,command:ports.command,keepSlot:()=>keepClassSlot(domainRegistry),study:{rows:()=>hpStudyRows(domainRegistry),start:id=>hpStudyStart(domainRegistry,id),writeNote:id=>hpStudyWriteNote(domainRegistry,id)}});}]:[]});
+        panels:ports?[()=>{panel=createHpLeadPanel({project:()=>hpLeadProjection(getState(),data),read:ports.read,command:ports.command,keepSlot:()=>keepClassSlot(domainRegistry),homeAct:request=>domainRegistry.command('homes','execute')(domainRegistry.command('homes','quote')(request)),study:{rows:()=>hpStudyRows(domainRegistry),start:id=>hpStudyStart(domainRegistry,id),writeNote:id=>hpStudyWriteNote(domainRegistry,id)}});}]:[]});
 }

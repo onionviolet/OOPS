@@ -8,7 +8,7 @@ registerOwnedWorkPanel((_work,definition)=>definition?.group==='book_hp_lead'?'h
 // Workspace panel for the HP lead life: the current task, its control, the options that were not taken, the last result.
 // It draws the domain projection and the structured campaign view; every start goes through the host's command.
 const node=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;return n;};
-export function createHpLeadPanel({project,read,command,keepSlot,study}){
+export function createHpLeadPanel({project,read,command,keepSlot,study,homeAct}){
  const panel=node('section');panel.id='hp_panel';panel.className='expedition_panel';panel.dataset.surfaceType='place-service';
  const body=node('div');panel.append(node('h2','The household day'),body);
  let notice='';
@@ -90,7 +90,10 @@ export function createHpLeadPanel({project,read,command,keepSlot,study}){
     row.append(b,node('p',a.eligible?(a.description||''):(a.reasons||[]).join(' ')));s4.append(row);}
    if(s4.childElementCount>1)section.append(s4);}
   // W2c: home read side through the shared world home port (hp_lead_home.js).
-  if(v.home?.lines?.length){const h=node('section');h.className='ui-panel-section';h.dataset.hpHome='';h.append(node('h3','Home'),...v.home.lines.map(l=>node('p',l)));section.append(h);}
+  if(v.home?.lines?.length){const h=node('section');h.className='ui-panel-section';h.dataset.hpHome='';h.append(node('h3','Home'),...v.home.lines.map(l=>node('p',l)));
+   // W3a: home acts through the shared home engine; a shut one says why (UR70-UR75).
+   for(const a of v.home.actions||[]){const b=node('button',a.label);b.type='button';b.dataset.hpHomeAct=a.id;b.disabled=!a.eligible||!campaign.canWrite;b.onclick=()=>{try{homeAct?.(a.request);notice='';}catch(e){notice=e.message;}render();};h.append(b);if(!a.eligible&&a.reason)h.append(node('p',a.reason));}
+   section.append(h);}
   if(arc.aftermath){const p=node('p',`Last result: ${arc.aftermath}`);p.dataset.hpLastResult='';section.append(p);}
   if(arc.done&&arc.conclusion)section.append(node('p',arc.conclusion));
   if(notice)section.append(node('p',notice));
