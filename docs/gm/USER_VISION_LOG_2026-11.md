@@ -448,3 +448,11 @@ Weibao asked:
 > What can we do to expand wave 3? other procedural stystems and stuff?
 
 Recorded as ideas, not accepted decisions (AD32): W3X1-W3X8 widen the wave-3 engines into playable rows, and W3X9-W3X14 add procedural systems built on them (commissions, investigations, classes and exams, grind encounters, daily schedules, item identity), in the [long-term atlas](../audits/PROGRESS_ATLAS_2026-11-07_LONG_TERM.md#expanding-wave-3-more-callers-and-more-procedural-systems-2026-11-08).
+
+## 2026-11-08: systems that need the engines, and how far ahead to look
+
+Weibao asked:
+
+> Other stuff that needs the procedural engines and more? other systems that require those? Do we need to move further down the story to understand those systems better and create whats required?
+
+Recorded as ideas, not accepted decisions (AD32): W3X15-W3X24 (acting and digestion, advancement, prayer and summoning, mystical items, flying and Quidditch, the obstacle chain, school discipline, errands and journeys, teaching, plans and schemes) and D-G (read ahead fully from the existing census, walk ahead one window at a time), in the [long-term atlas](../audits/PROGRESS_ATLAS_2026-11-07_LONG_TERM.md#other-systems-that-need-the-procedural-engines-and-how-far-ahead-to-look-2026-11-08).

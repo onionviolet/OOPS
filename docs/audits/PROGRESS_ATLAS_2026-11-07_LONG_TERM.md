@@ -497,3 +497,32 @@ What wave 3 left (from its [task record](../gm/dispatch/cross-world-systems-2026
 | W3X14 | **Item identity** | Crafted items carry a maker, a lineage and a generated name (`craft_item_name`, material lineage), so a gift, a sold potion or a found relic has a history someone can recognise (XM4) | Crafting feeds ties and reputation as items, not numbers |
 
 **Suggested picks (proposals).** W3X9 commissions first, since it joins the most systems and runs in both lead worlds; then W3X10 investigations for Klein and W3X11 classes for Harry, which are the two leads' daily lives; W3X1 widening runs alongside as bulk rows from the census. Each is one slice at floor, after N1 (the app rebuild).
+
+## Other systems that need the procedural engines, and how far ahead to look (2026-11-08)
+
+Weibao, 2026-11-08: "Other stuff that needs the procedural engines and more? other systems that require those? Do we need to move further down the story to understand those systems better and create whats required?"
+
+**Systems that need the engines.** Existing modules were listed from `src/` (`lotm_advancement`, `lotm_formula_rows`, `hp_brewing_formula`, acting and digestion in the LOTM state and ability files, `material_apprentice`, `place_act_sequence`); where one exists, the proposal moves it onto the shared engines rather than replacing it. Later-rung names stay out of tracked files, as `lotm_advancement.js` already does. Proposals, not accepted decisions (AD32).
+
+| Code | System | Engines it needs | Lead caller in range |
+|---|---|---|---|
+| W3X15 | **Acting and digestion** (LOTM): living by a potion's principle digests it; acting against it, or advancing undigested, raises the risk of losing control | Procedure conditions (acting rules as graded conditions), research-style affinity buckets (MG10), strain and harm (XC16) | Klein, volume 1 |
+| W3X16 | **Advancement** (LOTM): acquiring a formula, gathering main and supplementary ingredients, brewing, and the rite some rungs ask for | Procedure layer, shared traits, economy (buying formulas and ingredients through gatherings), the existing ladder | Klein's next rung |
+| W3X17 | **Prayer, sacrifice and summoning** (LOTM): rites addressed to an Agent that may answer, refuse or misread | Procedure layer's Agent part, ritual conditions with substitutes | Klein's rites (census) |
+| W3X18 | **Mystical items** (LOTM): Beyonder characteristics turned into items with powers and drawbacks, stored and sealed | Making plus traits, misfiring relics (MG10), institutions (sealing) | Nighthawk storage, the Gathering |
+| W3X19 | **Flying, Quidditch and matches** (HP): lessons, practice, tryouts and matches as procedures with skill checks | Procedure layer, classes (W3X11), audiences for house standing | Harry's first year |
+| W3X20 | **The obstacle chain** (HP book one's climax): a sequence of trials, each passable by a skill, a spell, a person or a clever substitute | Procedure conditions with substitutes, ties (who is with you) | Harry's end of year |
+| W3X21 | **Detentions, points and school discipline** (HP) | Duties, the norms table (SKIT4), reputation audiences | Harry's first year |
+| W3X22 | **Errands and journeys**: multi-leg trips with stops, timetables and things to do on the way | Procedure steps over `travel_legs`, schedules (W3X13), SKIT7 transport | Both leads |
+| W3X23 | **Teaching and apprenticeship**: learning a method from someone over sessions, and later teaching it | Lessons, ties, research (two bars), `material_apprentice` | Neil and Klein; Harry's teachers |
+| W3X24 | **Plans and schemes**: heists, investigations that go active, setting a trap, staging a cover | Procedure layer with conditions, knowledge per observer, heat | Klein's cases; later volumes |
+
+Wider palette, logged: construction, farming cycles, animal training and bonding, festivals and seasonal events, courtship, contracts and negotiations, medicine and surgery, combat techniques as sequences of steps.
+
+**Do we need to go further down the story?**
+
+| Code | Decision (proposal) | Reason |
+|---|---|---|
+| D-G | **Read ahead fully, walk ahead one window at a time.** Default: the census already covers LOTM volume 1 to chapter 213 and Harry's book one index, so system shapes come from mining those rows now (D-B), with no walk needed. A bounded pass extracts every system demand those rows imply (acting, advancement, rites, flying, the obstacle chain) into the gap ledger with chapter locators. Walks then go one window at a time as callers and calibration, which is where integration gaps show (F6, the KJ3AE lesson). Dial: walk further ahead when a system's timing or interplay can't be judged from text, such as acting's pace over weeks. | Reading is cheap and complete for volume 1; walking is expensive and finds different things. The walk sits at chapter 69 of 213, so most of volume 1's systems are known from text but not yet played |
+
+Suggested first step for D-G: one docs-only pass over the existing volume-1 and book-one census rows that lists each system demand with its chapter range and its engine, then folds the result into this register. No new reading and no paid route.
