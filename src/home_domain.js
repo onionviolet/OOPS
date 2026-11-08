@@ -9,7 +9,7 @@ import {registerHomeWork,applyHomeSimulationEffects,stageHomeJob,previewHomeJob}
 import {conditionOf} from './home_building_model.js';
 import {STEWARD,COOK,KEEPER,BUILDER} from './home_work_content.js';
 import {registerDomain,domainRegistry} from './domain_registry.js';
-import {HOME_PLACES as P, HOME_WORLD, DOMICILE_FURNITURE as F, HOME_SITE, HOME_BUILDINGS as B} from './home_content.js';
+import {HOME_PLACES as P, nativeHomeEntries, HOME_WORLD, DOMICILE_FURNITURE as F, HOME_SITE, HOME_BUILDINGS as B} from './home_content.js';
 import {emptyHomes,validateHomes,planHome,homeAt,homeUsable,homeRestable,homeBenefits,homeDescription,settleHomes,householdHomeContext} from './home_model.js';
 import {createSimulationState} from './simulation_contracts.js';
 import {applyGameplayEffect} from './gameplay_transactions.js';
@@ -29,7 +29,7 @@ export function configureHomes(operations) {
             connected_locations:[{location:ports.locations.Village,travel_time:5,custom_text:'Return to Village'}]});
         ports.locations[HOME_SITE]=site;ports.locations.Village.connected_locations.push({location:site,travel_time:5});
     }
-    for(const [id,p] of Object.entries(P))if(!p.legacy&&!ports.locations[p.location]) {
+    for(const [id,p] of nativeHomeEntries())if(!p.legacy&&!ports.locations[p.location]) {
         const housing=new ports.locations.Shack.housing.constructor({is_unlocked:false,sleeping_xp_per_tick:1});
         const crafting=new ports.locations.Village.crafting.constructor({is_unlocked:false,tiers:{cooking:1}});
         crafting.tiers={crafting:0,forging:0,smelting:0,cooking:1,alchemy:0,butchering:0,woodworking:0};
@@ -68,7 +68,7 @@ const remembered=(slot,key,build)=>{const m=memo[slot];if(m&&m.key===key)return 
 const lazy=(o,name,build)=>{let v,done=false;Object.defineProperty(o,name,{enumerable:true,configurable:true,get(){if(!done){v=build();done=true;}return v;},set(x){v=x;done=true;}});};
 export function syncHomeLocations({render=true}={}) {
     if(!ports)return;const c=context();let pathsChanged=false,servicesChanged=false;
-    for(const [id,p]of Object.entries(P)) {
+    for(const [id,p]of nativeHomeEntries()) {
         if(p.legacy)continue;const h=state?.properties[id],place=ports.locations[p.location];
         // Former tenants retain a way to collect their belongings. Sleep and
         // private room services still consult the actual paid term and body.
@@ -155,7 +155,7 @@ export function stageResidenceClock(plan) {
     if(effects.length)ports.effects(plan,{effects});
     validateHomes(next,{clock:plan.state.clock,sequence:plan.state.sequence});
     plan.nativePatch={...plan.nativePatch,homes:next};
-    for(const [id,p]of Object.entries(P))if(!p.legacy){const h=next.properties[id],usable=homeRestable(h,c);plan.nativePatch[`availabilities/location/${p.location}`]=h?1:0;plan.nativePatch[`availabilities/location/${p.location}:housing`]=usable?1:0;plan.nativePatch[`availabilities/location/${p.location}:crafting`]=usable&&h.fixtures.hearth&&h.fixtures.tableware?1:0;}
+    for(const [id,p]of nativeHomeEntries())if(!p.legacy){const h=next.properties[id],usable=homeRestable(h,c);plan.nativePatch[`availabilities/location/${p.location}`]=h?1:0;plan.nativePatch[`availabilities/location/${p.location}:housing`]=usable?1:0;plan.nativePatch[`availabilities/location/${p.location}:crafting`]=usable&&h.fixtures.hearth&&h.fixtures.tableware?1:0;}
     if(plan.homeLegacyRemoval){const old=plan.p00Household?.state;if(!old?.animal)throw Error('The original companion changed during retrieval.');old.animal=null;plan.nativePatch.household=old;}
     const previous=plan.absorbPublish;plan.absorbPublish=()=>{previous?.();publish(next);};
 }

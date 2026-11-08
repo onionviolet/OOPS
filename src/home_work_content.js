@@ -4,7 +4,7 @@ import {contactDefinitions} from './home_contacts.js';
 import {schoolCommands} from './home_school_content.js';
 import {cultivationDefinitions} from './home_cultivation_content.js';
 import {TUTOR,SUPPLIER,HOUSEHOLD_TERMS as TERMS} from './home_household_content.js';
-import {HOME_PLACES as P,HOME_BUILDINGS as B,HOME_SITE,HOME_WORLD,homeKey as k} from './home_content.js';
+import {HOME_PLACES as P,nativeHomeEntries,HOME_BUILDINGS as B,HOME_SITE,HOME_WORLD,homeKey as k} from './home_content.js';
 import {eqRaw as eq} from './basics.js';
 export const BUILDER='home.hired_builder',STEWARD='home.manor.steward',COOK='home.manor.cook',KEEPER='home.manor.keeper';
 export const progressKey=(home,kind)=>`home.work.${home}.${kind}`;
@@ -15,7 +15,7 @@ const def=(id,label,extra)=>({id,revision:1,label,worldId:HOME_WORLD,group:'home
 export const homeWorkDefinitions={people:[
     [BUILDER,'Ada, contract builder','Village'],[STEWARD,'Rowan, family steward',P.manor.location],[COOK,'Iven, household cook',P.manor.location],[KEEPER,'Toma, estate caretaker',P.manor.location],[TUTOR,'Sera, reading tutor',P.manor.location],[SUPPLIER,'Mara, Village provisioner','Village'],
 ].map(([id,label,location])=>({id,revision:1,label,location,worldId:HOME_WORLD,inventory:'simulation',provision:false,body:{id:`native.person.${id}.body`,form:'human',hands:2,mobile:true,ownerId:id,controllerId:id}})),commands:[...legacyCommands,...cultivationDefinitions.commands,...schoolCommands,...contactDefinitions.commands,...warehouseCommands],events:contactDefinitions.events,conditions:cultivationDefinitions.conditions};
-for(const [home,p]of Object.entries(P))if(!p.legacy)for(const kind of ['build','repair','weatherproof']) {
+for(const [home,p]of nativeHomeEntries())if(!p.legacy)for(const kind of ['build','repair','weatherproof']) {
     if(kind==='build'&&!B[home])continue;
     const location=kind==='build'?HOME_SITE:p.location,key=progressKey(home,kind),permission=eq('actor.'+permitKey(home,kind),true);
     for(const mode of ['solo','shared','rain','shared_rain']) {

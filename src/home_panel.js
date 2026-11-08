@@ -5,7 +5,7 @@ import {HOME_WORKERS} from './home_workers.js';
 import {centerModes} from './center_modes.js';
 import {definePanel} from './panel_kit.js';
 import {expandWorkspaceModule} from './workspace_layout.js';
-import {DOMICILE_FURNITURE as F,HOME_PLACES as P,HOME_STARTS as S,HOME_IMPROVEMENTS as I,HOME_SUPPLIES,HOME_SITE,HOME_MATERIALS as M,HOME_BUILDINGS as B} from './home_content.js';
+import {DOMICILE_FURNITURE as F,HOME_PLACES as P,nativeHomeEntries,nativeRoomEntries,HOME_STARTS as S,HOME_IMPROVEMENTS as I,HOME_SUPPLIES,HOME_SITE,HOME_MATERIALS as M,HOME_BUILDINGS as B} from './home_content.js';
 import {homeUsable,homeCapacity,homeComfort,homeDescription,householdHomeContext} from './home_model.js';
 import {householdPresentation} from './absorb_p23/household/host.js';
 import {createHouseholdScene} from './household_scene.js';
@@ -63,7 +63,7 @@ export function createHomePanel({read,quote,execute}) {
             if(deposit.options.length){if([...deposit.options].some(o=>o.value===depositSelections.get(h.id)))deposit.value=depositSelections.get(h.id);stock.append(deposit);const update=()=>{depositSelections.set(h.id,deposit.value);action(stock,`deposit:${h.id}`,'Store one selected item',{type:'deposit',home:h.id,key:deposit.value});};deposit.onchange=update;update();}
             for(const [key,n]of Object.entries(h.stock))action(stock,`withdraw:${h.id}:${key}`,`Take ${c.itemNames?.[key]||JSON.parse(key).id||'Assembled gear'} · ${n} stored`,{type:'withdraw',home:h.id,key});
             if(B[h.id]&&h.construction){const work=section(detail,'Shelter work and moving');work.append(el('p','Your gathered materials made this shelter. Pack your fixtures and collect goods before dismantling; half the frame and thatch can be reused. Return to the willow stand to gather new lining.'));action(work,'dismantle:'+h.id,'Dismantle and recover reusable material · 10 min',{type:'dismantle',home:h.id});}
-            if(h.id==='cottage') {const improvements=section(detail,'Homeowner repairs and rooms');for(const [id,i]of Object.entries(I)){if(h.improvements.includes(id))improvements.append(el('p',`${i.name} · complete`));else action(improvements,`improve:${id}`,`${i.name} · ${i.coins} coins + ${i.wood} Rough wood logs · ${i.minutes} min`,{type:'improve',home:h.id,improvement:id});}}
+            if(h.id==='cottage') {const improvements=section(detail,'Homeowner repairs and rooms');for(const [id,i]of nativeRoomEntries()){if(h.improvements.includes(id))improvements.append(el('p',`${i.name} · complete`));else action(improvements,`improve:${id}`,`${i.name} · ${i.coins} coins + ${i.wood} Rough wood logs · ${i.minutes} min`,{type:'improve',home:h.id,improvement:id});}}
             if(P[h.id].legacy)detail.append(el('p','The existing hearth and companion controls remain in Here → Options at this home.'));
             if(h.improvements.includes('guestroom')){const room=section(detail,'Worker room and rota');const assigned=Object.entries(view.state.workers||{}).find(([,a])=>a.home===h.id);
                 room.append(el('p',assigned?`${HOME_WORKERS[assigned[0]]} occupies this guest room on the ${assigned[1].shift} rota. The same room cannot also lodge Reed.`:'An owned guest room can house one hired human worker. Day rota: 06:00–18:00; night rota: 18:00–06:00. Accepted batches finish before rest; loss of room rights stops unsupported work.'));
@@ -81,7 +81,7 @@ export function createHomePanel({read,quote,execute}) {
                 for(const other of view.homes)if(other.id!==h.id&&other.household?.animal)action(household,'move_cat:'+h.id,'Bring Moss from '+other.name,{type:'move_cat',home:h.id,from:other.id});
             }
         } else detail.append(el('p','Visit the Village home supplier or choose an optional fresh home beginning. The original Shack remains available through its ordinary route.'));
-        for(const [id,p]of Object.entries(P))if(p.legacy&&c.nativeRights?.[id]&&!view.state.properties[id]&&c.location===p.location)action(detail,'register:'+id,'Register this existing home in Homes',{type:'register',home:id});
+        for(const [id,p]of nativeHomeEntries())if(p.legacy&&c.nativeRights?.[id]&&!view.state.properties[id]&&c.location===p.location)action(detail,'register:'+id,'Register this existing home in Homes',{type:'register',home:id});
         buildingBody.replaceChildren();building.hidden=c.world!=='base.frontier';
         buildingBody.append(el('p',`Visit ${HOME_SITE} through native travel. This authored unclaimed site offers forked branches for a nest, dry diggable roots for a burrow and a clearing for a lean-to. Materials are gathered in small carried bundles; construction spends real materials and played time, without coins.`));
         if(c.location===HOME_SITE){
@@ -101,7 +101,7 @@ export function createHomePanel({read,quote,execute}) {
         market.hidden=c.world!=='base.frontier'||c.location!=='Village';
         if(!market.hidden&&view.homes.some(h=>h.id==='manor'))renderVillageContacts({host:marketBody,view,action});
         if(!view.state.properties.manor)action(marketBody,'institution_join','Join the household as a provision worker and student',{type:'institution_join'});
-        for(const [id,p]of Object.entries(P))if(!['family','manor'].includes(id)&&!p.legacy&&!B[id])action(marketBody,'acquire:'+id,`${p.tenure==='rented'?'Rent':p.price?'Buy':'Settle'} ${p.name} · ${p.price} coins${p.period?' / day':''}`,{type:'acquire',home:id});
+        for(const [id,p]of nativeHomeEntries())if(!['family','manor'].includes(id)&&!p.legacy&&!B[id])action(marketBody,'acquire:'+id,`${p.tenure==='rented'?'Rent':p.price?'Buy':'Settle'} ${p.name} · ${p.price} coins${p.period?' / day':''}`,{type:'acquire',home:id});
         const shop=shopNode||(shopNode=select('Furnishing to buy'));if(!shop.options.length)for(const [id,f]of Object.entries({...F,...HOME_SUPPLIES}))shop.append(option(id,`${f.name} · ${f.price} coins`));if(shopSelection)shop.value=shopSelection;if(shop.parentElement!==marketBody)marketBody.append(shop);const updateShop=()=>{shopSelection=shop.value;action(marketBody,'buy','Buy selected furnishing',{type:'buy',item:shop.value});};shop.onchange=updateShop;updateShop();
         for(const row of view.state.ledger.slice().reverse())historyBody.append(el('p',`Minute ${row.at}: ${row.text}`));
         for(const d of detail.querySelectorAll('details'))if(oldOpen.includes(d.firstChild.textContent))d.open=true;

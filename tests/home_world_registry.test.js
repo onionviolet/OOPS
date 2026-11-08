@@ -1,0 +1,42 @@
+// W3a S1: a world registers homes, furniture and rooms into the home engine's own tables; native loops never see them, and a save
+// holding a world home validates on load (registration runs at import, before restore).
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {registerHomeWorld, nativeHomeEntries, nativeFurnitureValues, nativeRoomEntries, HOME_PLACES, DOMICILE_FURNITURE, homeKey, homeWorlds} from '../src/home_content.js';
+import {validateHomes, emptyHomes, homeAt, homeCapacity} from '../src/home_model.js';
+
+const W = 'test.homeworld';
+const nativeBefore = nativeHomeEntries().map(([id]) => id);
+registerHomeWorld({worldId: W,
+    places: {[`${W}.flat`]: {name: 'A rented flat', location: `${W}.place.flat`, tenure: 'rented', owner: `${W}.landlady`, price: 0, forms: ['human'], capacity: 6, description: 'Two rooms up a stair.'}},
+    furniture: {[`${W}.cot`]: {name: 'Folding cot', slot: 'bed', price: 3, forms: ['human'], effects: {rest: 1.02}, description: 'A narrow cot.'},
+        [`${W}.crate`]: {name: 'Tea crate', slot: 'box', price: 1, forms: ['human'], effects: {storage: 4}, description: 'An old crate with a lid.'}},
+    rooms: {[`${W}.nook`]: {name: 'Curtain off a nook', minutes: 20, capacity: 2}}});
+
+test('registered rows join the lookup tables but never the native loops', () => {
+    assert.ok(HOME_PLACES[`${W}.flat`].registered);
+    assert.equal(HOME_PLACES[`${W}.flat`].world, W);
+    assert.deepEqual(nativeHomeEntries().map(([id]) => id), nativeBefore);
+    assert.ok(!nativeFurnitureValues().some(f => f.world === W));
+    assert.ok(!nativeRoomEntries().some(([id]) => id.startsWith(W)));
+    assert.ok(homeWorlds().includes(W));
+});
+
+test('ids must be namespaced, native ids and the native world are refused', () => {
+    assert.throws(() => registerHomeWorld({worldId: 'base.frontier'}), /own world id/);
+    assert.throws(() => registerHomeWorld({worldId: 'test.other', places: {cottage: {}}}), /namespaced/);
+    assert.throws(() => registerHomeWorld({worldId: 'test.other', furniture: {'test.other.x': {name: 'X'}}}), /furniture needs/);
+});
+
+test('failure scenario: a save holding a world home validates, finds the home by its world and location, and counts its furniture', () => {
+    const flat = {id: `${W}.flat`, name: 'A rented flat', tenure: 'rented', owner: `${W}.landlady`, access: true, acquiredAt: 0, paidUntil: null,
+        stock: {[homeKey('bread')]: 2}, fixtures: {bed: {key: homeKey(`${W}.cot`), owner: 'player'}, box: {key: homeKey(`${W}.crate`), owner: 'player'}}, improvements: []};
+    const s = {...emptyHomes(), primary: flat.id, properties: {[flat.id]: flat}};
+    const restored = JSON.parse(JSON.stringify(s));
+    assert.doesNotThrow(() => validateHomes(restored, {clock: 10}));
+    assert.equal(homeAt(restored, {world: W, location: `${W}.place.flat`})?.id, flat.id);
+    assert.equal(homeCapacity(restored.properties[flat.id]), 10);
+    // A renter may not make structural changes (the engine's own tenure rule applies to world homes too).
+    restored.properties[flat.id].improvements = [`${W}.nook`];
+    assert.throws(() => validateHomes(restored, {clock: 10}), /unauthorized structural improvement/);
+});

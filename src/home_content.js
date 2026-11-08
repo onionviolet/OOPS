@@ -2,7 +2,7 @@ import {registerCultivationItems,QI_CRADLE} from './cultivation_items.js';
 // Original Frontier domicile content. Values are local balance dials, not world laws.
 export const HOME_WORLD = 'base.frontier';
 const furnishing = (name, slot, price, effects, description, forms=['human']) => ({name, slot, price, effects, description, forms});
-export const DOMICILE_FURNITURE = Object.freeze({
+export const DOMICILE_FURNITURE = ({
     [QI_CRADLE]:furnishing('Condensate cradle','qi',30,{},'A fitted chamber for one sealed condensate. A willing household keeper releases four hours of local qi; without a real packet it supplies none.'),
     'Home plain bed': furnishing('Plain bed','bed',30,{rest:1.08,xp:{Sleeping:1.1}},'An installed mattress supports ordinary rest and sleep practice.'),
     'Home ragwork blanket': furnishing('Ragwork blanket','blanket',12,{xp:{Sleeping:1.5}},'A fitted blanket improves Sleeping XP here.'),
@@ -18,7 +18,7 @@ export const DOMICILE_FURNITURE = Object.freeze({
     'Home fitted hearth': furnishing('Fitted hearth','hearth',25,{},'An installed fireplace uses actual paid logs, ventilation and the local firewood pile.'),
     'Home nest lining': furnishing('Soft nest lining','bed',8,{rest:1.12,xp:{Sleeping:1.15}},'Dry woven grass supports resting in a burrow or nest.', ['fox','bird']),
 });
-export const HOME_PLACES = Object.freeze({
+export const HOME_PLACES = ({
     shack: {location:'Shack',name:'Village Shack',travelMinutes:10,tenure:'shared',owner:'village',price:0,legacy:true,forms:['human'],capacity:12,description:'Your existing Village shelter. Housing access grants occupancy; purchase a deed here if you want title and structural rights. The old shared chest stays on its native route.'},
     proto: {location:'Proto23 visitor cottage',name:'Visitor cottage',world:'reference.proto23.village',tenure:'owned',owner:'player',price:0,legacy:true,forms:['human'],capacity:12,description:'Your existing settled cottage right. Its original fixtures and household remain on their native routes; added belongings stay at this endpoint.'},
     shelter: {location:'Willow clearing shelter',name:'Willow clearing shelter',tenure:'owned',owner:'player',price:0,forms:['human'],capacity:8,description:'A lashed timber lean-to on a dry clearing above the flood line. Its roof gives basic shelter; carried goods and fitted bedding remain separate.'},
@@ -42,7 +42,7 @@ export const HOME_STARTS = Object.freeze({
     fox:{label:'Fox in a willow burrow',home:'burrow',form:'fox',text:'Begin as a fox with a dry lined burrow and an accessible cache. Paws cannot fit human furniture.'},
     bird:{label:'Bird in a canopy nest',home:'nest',form:'bird',text:'Begin as a bird with a lined nest and small cache. Flight reaches your nest; beak and feet handle nest lining.'},
 });
-export const HOME_IMPROVEMENTS = Object.freeze({
+export const HOME_IMPROVEMENTS = ({
     restore:{name:'Restore side room',coins:20,wood:5,minutes:30,capacity:10,rest:1.02},
     study:{name:'Fit a quiet study',coins:15,wood:3,minutes:20,capacity:0,xp:{Literacy:1.05}},
     guestroom:{name:'Fit a guest room',coins:20,wood:4,minutes:25,capacity:8},
@@ -75,3 +75,29 @@ export const HOME_BUILDINGS=Object.freeze({
 
 export const HOME_CAMPS=Object.freeze(['Wild willow stand','Village']);
 export const PACKED_TENT='Home packed travel shelter';
+
+// World registration (W3a S1, proposal under AD32, docs/CROSS_WORLD_SYSTEMS_TRANSFER.md#the-comprehensive-check-2026-11-08): a world adds its own
+// homes, furniture and rooms to the same tables the engine looks up by id, so every plan and view reads them with no second code path.
+// Native rows are the ones above; every loop that builds Village or Frontier locations, markets or work iterates only those
+// (nativeHomeEntries and friends), so a registered world row never becomes a Village place. Registration runs at import time, before a
+// save is restored, so validateHomes knows a world home on load. Default: ids are namespaced by the world and may not reuse a native id.
+// Dial: a world supplies any subset. Reason: one engine, the world's content as data (AR17 proposed).
+const NATIVE_PLACES=new Set(Object.keys(HOME_PLACES)),NATIVE_FURNITURE=new Set(Object.keys(DOMICILE_FURNITURE)),NATIVE_ROOMS=new Set(Object.keys(HOME_IMPROVEMENTS));
+export const nativeHomeEntries=()=>Object.entries(HOME_PLACES).filter(([id])=>NATIVE_PLACES.has(id));
+export const nativeFurnitureValues=()=>Object.entries(DOMICILE_FURNITURE).filter(([id])=>NATIVE_FURNITURE.has(id)).map(([,f])=>f);
+export const nativeRoomEntries=()=>Object.entries(HOME_IMPROVEMENTS).filter(([id])=>NATIVE_ROOMS.has(id));
+const worldRows=new Map();
+export function registerHomeWorld({worldId,places={},furniture={},rooms={}}={}){
+    const ok=x=>typeof x==='string'&&/^[a-z][a-z0-9_.:-]*$/i.test(x);
+    if(!ok(worldId)||worldId===HOME_WORLD)throw Error('A home world needs its own world id.');
+    const add=(table,rows,native,label,shape)=>{for(const [id,row] of Object.entries(rows)){
+        if(!ok(id)||!id.startsWith(`${worldId}.`))throw Error(`${label} ids are namespaced by their world.`);
+        if(native.has(id)||(table[id]&&table[id].world!==worldId))throw Error(`${label} ${id} is already registered.`);
+        shape(row);table[id]=Object.freeze({...row,world:worldId,registered:true});}};
+    add(HOME_PLACES,places,NATIVE_PLACES,'Home',r=>{if(![r.name,r.location,r.tenure,r.owner].every(x=>typeof x==='string'&&x)||!Array.isArray(r.forms)||!Number.isSafeInteger(r.capacity))throw Error('A world home needs a name, location, tenure, owner, forms and capacity.');});
+    add(DOMICILE_FURNITURE,furniture,NATIVE_FURNITURE,'Furniture',r=>{if(![r.name,r.slot,r.description].every(x=>typeof x==='string'&&x)||!Number.isFinite(r.price)||!Array.isArray(r.forms))throw Error('World furniture needs a name, slot, price, forms and description.');});
+    add(HOME_IMPROVEMENTS,rooms,NATIVE_ROOMS,'Room',r=>{if(typeof r.name!=='string'||!Number.isSafeInteger(r.minutes))throw Error('A world room needs a name and minutes.');});
+    worldRows.set(worldId,{places:Object.keys(places),furniture:Object.keys(furniture),rooms:Object.keys(rooms)});
+    return worldRows.get(worldId);
+}
+export const homeWorlds=()=>[...worldRows.keys()];

@@ -3,7 +3,7 @@
 // storage, household, construction and weather. No new state and no engine rule: every number is the
 // owner's (conditionOf, homeCapacity, homeComfort, projectProgress). The observer filters what is shown
 // (UR80); a seat that may not see the household field never sees the field chamber row.
-import {DOMICILE_FURNITURE as F, HOME_PLACES as P, HOME_IMPROVEMENTS as I} from './home_content.js';
+import {DOMICILE_FURNITURE as F, HOME_PLACES as P, HOME_IMPROVEMENTS as I, nativeRoomEntries} from './home_content.js';
 import {registerCapability} from './seat_profiles.js';
 import {HOME_WORKERS} from './home_workers.js';
 import {homeCapacity, homeComfort, homeUsable} from './home_model.js';
@@ -40,7 +40,8 @@ function groupsFor(home, form, sees) {
         if (g.capability && !sees({capability: g.capability})) return false;
         if (g.id === 'play' && !home.household?.animal) return false;
         if (g.id === 'field' && !home.fixtures.qi) return false;
-        return Object.values(F).some(f => g.slots.includes(f.slot) && f.forms.includes(homeForm));
+        // A home sees its own world's furniture: native homes the native table, a registered world home its world's rows.
+        return Object.values(F).some(f => (f.registered ? f.world === place.world : !place.registered) && g.slots.includes(f.slot) && f.forms.includes(homeForm));
     });
 }
 
@@ -79,7 +80,7 @@ export function homeOverviewModel(view, {homeId} = {}) {
 
     // Rooms: only a home that allows homeowner work lists its rooms (the owned cottage today).
     const roomsAllowed = h.tenure === 'owned' && h.id === 'cottage';
-    model.rooms = roomsAllowed ? Object.entries(I).map(([rid, room]) => ({
+    model.rooms = roomsAllowed ? nativeRoomEntries().map(([rid, room]) => ({
         id: rid, label: room.name,
         state: h.improvements.includes(rid) ? 'done' : 'empty',
         note: h.improvements.includes(rid) ? 'built' : 'not built yet',
