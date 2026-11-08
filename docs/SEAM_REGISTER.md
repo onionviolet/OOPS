@@ -16,26 +16,26 @@ Only two seams have a cited receipt today: `ready_stock` (fixture route, LOTM, f
 
 | World families importing (direct) | Seams | Which |
 |---|---|---|
-| 0 | 11 | check_contract, people_knowledge, conflict_frame, tempo_fight, faction_rank, law_case, life_events, home_building_model, research_*, ability_ladders, effect_dsl |
-| 1 | 16 | ready_stock, notch_contest, recurring_duties, teacher_window, travel_legs, world_light, constraint_store, world_events, storylet_deck, institution_access, owed_ledger_sources, structured_ability_runtime, cast_* adapters, ability_records, lore_history_state, combat_math |
-| 2+ | 10 | own_holdings, lesson, people_sources, harm_state, world_rhythm, cast_schedule, seeded_streams, institution_store, world_calendar, material_lineage |
+| 0 | 10 | check_contract, conflict_frame, tempo_fight, faction_rank, law_case, life_events, home_building_model, research_*, ability_ladders, effect_dsl |
+| 1 | 16 | notch_contest, recurring_duties, teacher_window, travel_legs, world_light, people_knowledge, constraint_store, world_events, storylet_deck, institution_access, owed_ledger_sources, structured_ability_runtime, cast_* adapters, ability_records, lore_history_state, combat_math |
+| 2+ | 12 | ready_stock, own_holdings, lesson, people_sources, harm_state, world_rhythm, cast_schedule, seeded_streams, institution_store, world_calendar, material_lineage, person_ties |
 
 | Seam | Purpose | src importers | tests / scripts | Shared importers | World families (importer files) | Families | Proof state | Receipt |
 |---|---|---|---|---|---|---|---|---|
-| ready_stock | Counted stock a holder carries and spends (rounds, doses) | 1 | 1 / 0 | 0 | lotm 1 | 1 | one-world route | `docs/gm/dispatch/at15-fight-2026-11-06/CHECKPOINT.md` |
+| ready_stock | Counted stock a holder carries and spends (rounds, doses) | 2 | 2 / 0 | 0 | gu 1, lotm 1 | 2 | one-world route | `docs/gm/dispatch/at15-fight-2026-11-06/CHECKPOINT.md` |
 | notch_contest | Notch-banded contest resolution | 3 | 1 / 0 | 2 | lotm 1 | 1 | unknown | none cited |
 | check_contract | Declared check contract (inputs, outcomes) for skill checks | 4 | 1 / 0 | 4 | none | 0 | unknown | none cited |
 | own_holdings | Purse and holdings owned by the player | 8 | 4 / 0 | 3 | lotm 3, hp 2 | 2 | unknown | none cited |
-| recurring_duties | Duties that come due on a schedule | 2 | 7 / 1 | 1 | lotm 1 | 1 | unknown | none cited |
-| lesson | Taught lessons and what they leave behind | 4 | 1 / 0 | 1 | hp 2, lotm 1 | 2 | unknown | none cited |
+| recurring_duties | Duties that come due on a schedule | 2 | 8 / 1 | 1 | lotm 1 | 1 | unknown | none cited |
+| lesson | Taught lessons and what they leave behind | 5 | 2 / 0 | 1 | hp 2, lotm 2 | 2 | unknown | none cited |
 | teacher_window | When a teacher is available | 1 | 1 / 0 | 0 | village 1 | 1 | unknown | none cited |
 | travel_legs | Journeys as legs with cost and time | 2 | 3 / 0 | 0 | lotm 2 | 1 | unknown | none cited |
 | world_light | Light and dark by place and hour | 2 | 1 / 0 | 0 | lotm 2 | 1 | unknown | none cited |
-| people_knowledge | What the player knows about each person | 6 | 7 / 0 | 6 | none | 0 | unknown | none cited |
+| people_knowledge | What the player knows about each person | 7 | 7 / 0 | 6 | mol 1 | 1 | unknown | none cited |
 | people_sources | Where people entries come from | 4 | 1 / 0 | 1 | hp 1, lotm 1, mol 1 | 3 | unknown | none cited |
 | constraint_store | Standing constraints on the actor | 3 | 2 / 0 | 1 | lotm 2 | 1 | unknown | none cited |
 | conflict_frame | Shared frame for an encounter and its grains | 5 | 0 / 0 | 5 | none | 0 | unknown | none cited |
-| tempo_fight | Tempo fight engine, contract and domain | 3 | 19 / 1 | 3 | none | 0 | one-world route | `docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/P4_TEMPO_CHECKPOINT.md` |
+| tempo_fight | Tempo fight engine, contract and domain | 3 | 23 / 1 | 3 | none | 0 | one-world route | `docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/P4_TEMPO_CHECKPOINT.md` |
 | harm_state | Harm ladder and wounds | 9 | 5 / 0 | 7 | lotm 1, village 1 | 2 | unknown | none cited |
 | world_rhythm | World clock rhythm and seasons | 31 | 6 / 7 | 25 | hp 2, proto23 2, lotm 1, primordial 1 | 4 | unknown | none cited |
 | cast_schedule | Where the cast is by hour | 5 | 6 / 1 | 1 | lotm 2, mol 1, village 1 | 3 | unknown | none cited |
@@ -59,6 +59,7 @@ Only two seams have a cited receipt today: `ready_stock` (fixture route, LOTM, f
 | material_lineage | Where a material came from | 14 | 6 / 0 | 10 | paradise 2, hp 1, mistglass 1 | 3 | unknown | none cited |
 | lore_history_state | Lore and history knowledge state | 9 | 7 / 0 | 8 | mistglass 1 | 1 | unknown | none cited |
 | combat_math | Shared combat arithmetic | 13 | 7 / 0 | 11 | village 2 | 1 | unknown | none cited |
+| person_ties | Ties on the one person record: regard as rule facts, observed notes, tie-gated offers (LT8) | 4 | 1 / 0 | 1 | lotm 2, hp 1 | 2 | two-world route | `docs/gm/dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md` |
 
 One hop through shared adapters: not computed (lane H marked those rows inferred but defined no rule). Receipt column shows the first cited path only; full locators are in `PROOF` in `scripts/seam_register.mjs`.
 

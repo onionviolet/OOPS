@@ -30,7 +30,7 @@ test('a pack is validated and absence leaves the public stub untouched',()=>{
 });
 test('the merged definition compiles, replaces the stub command and keeps the source-only start',()=>{
  const {raw}=setup(synthetic());
- assert.deepEqual(raw.simulation.commands.map(c=>c.id),[P+'.w1.one',P+'.w1.two',P+'.arrive_school',P+'.sorting',P+'.lesson_charms',P+'.charms_practice',P+'.lesson_potions']);
+ assert.deepEqual(raw.simulation.commands.map(c=>c.id),[P+'.w1.one',P+'.w1.two',P+'.arrive_school',P+'.sorting',P+'.lesson_charms',P+'.charms_practice',P+'.lesson_potions',P+'.tie.ron_family']);
  assert.ok(raw.locations.some(l=>l.id===P+'.yard'));
  assert.equal(raw.starts[0].effects.find(e=>e.type==='source').sourceId,P+'.magic');
  assert.ok(!raw.items.length);

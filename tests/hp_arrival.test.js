@@ -76,7 +76,7 @@ test('save and reload keep both facts; the Reports Now note and the class duty f
 test('the school route survives a private cast that replaces the household acts',()=>{
  const cast={schema:'hp-cast/1',locations:[],people:[],householdActs:{acts:[{id:P+'.w1.one',place:P+'.cupboard',minutes:5,label:'One',description:'d',report:'r',knowledgeKey:P+'.w1.k',operation:'use',effects:[]}],sequences:[{id:P+'.s',title:'S',stages:[{commandId:P+'.w1.one',label:'One'}]}]}};
  const raw=withHpLeadCast(packNative(P),cast);
- assert.deepEqual(raw.simulation.commands.map(c=>c.id),[P+'.w1.one',ARRIVE,SORT,P+'.lesson_charms',P+'.charms_practice',P+'.lesson_potions']);
+ assert.deepEqual(raw.simulation.commands.map(c=>c.id),[P+'.w1.one',ARRIVE,SORT,P+'.lesson_charms',P+'.charms_practice',P+'.lesson_potions',P+'.tie.ron_family']);
  const f=setup(raw);atDay(f,32,10);assert.equal(preview(f,ARRIVE).eligible,true);
 });
 // IDEA_AUDIT_2026-11-06 F1: a cast whose last act leaves the lead somewhere else (the real one ends away from the opening room)

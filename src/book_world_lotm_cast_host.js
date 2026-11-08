@@ -522,7 +522,7 @@ export function castSettledPeople(state,ledger,pack=getPrivateLotmCast()){
  const reports=castBeatReports(ledger);
  return pack.people.filter(p=>castKnown(state,p.id)&&(!roleIds.has(p.id)||state.simulation?.people?.[p.id]?.location===state.simulation?.people?.player?.location)).map(p=>({id:p.id,name:p.name,
   location:'Known from your local meetings and received accounts',
-  details:Object.values(state.simulation?.knowledge?.player||{}).filter(k=>reports.some(r=>r.actor===p.id&&r.beat===k.cause)).map(k=>k.value),
+  details:Object.values(state.simulation?.knowledge?.player||{}).filter(k=>reports.some(r=>r.actor===p.id&&r.beat===k.cause)||k.basis?.attributedTo===p.id&&k.basis?.kind==='observation').map(k=>k.value), // LT8: observations attributed to this person too
   memories:reports.filter(r=>r.actor===p.id).map(r=>({id:r.beat,at:r.at,text:r.text}))}));
 }
 export function planLotmCastBeats(state,ledger=newBeatState(),pack=getPrivateLotmCast()){

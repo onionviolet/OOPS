@@ -28,7 +28,7 @@ const node=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.text
 export const lotmPanelTitle=v=>v.resident?v.at:'Tingen workroom';
 // Surface type: place service (UR1). Home: the main workspace, discovered inside the Tingen
 // branch and in the Village, where its starts begin. Warden Hale runs the workroom; the lodging is where you sleep.
-export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,setOrder,resign,signGuard,collectGuard,readOwed=readOwedLedger,settle=settleOwed}){
+export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,tieAsk,setOrder,resign,signGuard,collectGuard,readOwed=readOwedLedger,settle=settleOwed}){
  const panel=node('section');panel.id='lotm_panel';panel.className='expedition_panel';panel.dataset.surfaceType='place-service';
  const status=node('p'),meters=node('div'),path=node('div'),work=node('div'),bench=node('details'),actions=node('div'),walks=node('div'),notebook=node('div'),notice=node('p');notice.setAttribute('role','status');
  const encounterSlot=node('div');encounterSlot.dataset.sharedSlot='encounter'; // AR17: shared panels (a fight) render here; not tab-owned, not re-rendered.
@@ -256,6 +256,8 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
    sel.onchange=()=>{try{setOrder(d.id,sel.value);notice.textContent='Standing order changed.';}catch(e){notice.textContent=e.message;}signature='';render();};
    const sr=row(node('span',`${d.why}${gone}${d.escalation?` ${d.escalation}`:''} Standing order: `),sel);sr.dataset.dutyId=d.id;work.append(sr);continue;}
   const line=node('span',`${d.why}${when}${gone}`);const guardShift=d.id===LOTM_GUARD_DUTY_ID,r=d.open&&attend?row(line,button(guardShift?'Stand the night watch':'Hand it in',`duty_${d.id}`,()=>{try{const said=attend(d.id);notice.textContent=typeof said==='string'&&said?said:'Handed in.';}catch(e){notice.textContent=e.message;}signature='';render();},false)):row(line);r.dataset.dutyId=d.id;work.append(r);}
+  // LT8: tie-gated conversations (person_ties offers) sit with the duties that earn them; a disabled button says what opens it (UR70-UR75).
+  for(const o of v.tieOffers||[]){if(o.taken){const said=node('p',o.said);said.dataset.tieSaid=o.id;work.append(said);continue;}const r=row(node('span',o.eligible?o.description:`${o.description} ${o.reasons.join(' ')}`),button(o.label,`tie_${o.id}`,()=>{try{tieAsk(o.id);notice.textContent='Noted in your Notebook.';}catch(e){notice.textContent=e.message;}signature='';render();},!o.eligible||!tieAsk));r.dataset.tieOffer=o.id;work.append(r);}
   if(!resident){
   const held=[v.holds.dose?'prepared dose':'',v.holds.clownDose?'prepared Clown dose':'',...v.doseLabels,...v.marketHeld,...(v.holds.sealed3?['sealed grade 3 item']:[]),...[['frog','dried frog'],['hairs','bundle of hairs'],['ink','jar of grave-dust ink']].filter(([k])=>v.holds[k]).map(x=>x[1]),...['comparator','sampleA','sampleB'].filter(n=>v.holds[n]).map(n=>n==='comparator'?'comparator sample':`sample lot ${n.slice(-1)}`)].filter(Boolean);
   work.append(node('p',`You hold: ${held.length?held.join(', '):'nothing from the bench'}.`));

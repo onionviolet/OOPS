@@ -5,10 +5,20 @@
 // Compatibility decision: a new definition id with no earlier save state; old saves hold none of it.
 // No calendar year (the book gives none): the clock is elapsed play, day 0 is the Saturday of the birthday.
 import {lessonEffects} from '../lesson.js';
+import {registerWorldTies,tieEffects,tieOfferCommands} from '../person_ties.js';
 const P='book.hp.lead', id=n=>`${P}.${n}`;
 const note=(n,value)=>({type:'knowledge',key:id(n),stage:'understood',value});
 const guardian=who=>({type:'relationship',actor:id(who),target:'player',axis:id('guardian_of'),amount:1000});
 const alive={all:[{fact:'actor.life',op:'eq',value:'alive'},{fact:'native.ready',op:'eq',value:true}]};
+// LT8 (proposal, docs/CROSS_WORLD_SYSTEMS_TRANSFER.md#lt8-ties): Ron's regard for Harry is a tie on the shared person record. Default:
+// shared moments (the Sorting, the first Charms lesson) each raise affection by one. Dial: the offer's threshold (two). Reason: the book's
+// friendship grows from shared school days; affection opens the evening talk where Ron tells Harry about his family.
+export const HP_LEAD_TIES=registerWorldTies({worldId:id('world'),situationId:id('situation'),kinds:['affection'],people:{ron:id('ron')},
+ offers:[{id:id('tie.ron_family'),alias:'ron',kind:'affection',atLeast:2,label:'Sit with Ron in the common room · 30 min',
+  description:'An evening by the fire with Ron, once lessons are done.',
+  blocked:'Ron is still a boy you shared a bench with; a few more days of school together first.',
+  note:{key:id('tie.ron_family'),value:'Ron told you about his family: five older brothers, a younger sister, and hand-me-downs for almost everything he owns.'}}]});
+const ronTie=(moment,value)=>tieEffects(id('world'),{alias:'ron',kind:'affection',seen:{key:id(`tie.ron.${moment}`),value}});
 
 export const hpLeadLife={
  schema:2,id:P,revision:1,title:'Harry Potter · the boy under the stairs',
@@ -38,12 +48,12 @@ export const hpLeadLife={
  simulation:{situations:[{id:id('situation'),revision:1,label:'The household day',context:{worldId:id('world'),instanceId:id('main'),continuityId:id('main'),eraId:id('book1'),regionId:id('privet')},
   participants:['player'],initialPhase:'day',phases:['day'],privateTruth:{day:'saturday'},responseWindow:null}],
   people:[
-  ...['vernon:Your uncle','petunia:Your aunt','dudley:Your cousin'].map(s=>{const [n,label]=s.split(':');
-   return {id:id(n),revision:1,label,worldId:id('world'),location:id('kitchen'),inventory:'simulation',provision:false,body:{id:id(n+'_body'),ownerId:id(n),controllerId:id(n),form:'human',hands:2,mobile:true},vitals:{health:100,stamina:100}};})],
+  ...['vernon:Your uncle','petunia:Your aunt','dudley:Your cousin','ron:Ron Weasley'].map(s=>{const [n,label]=s.split(':');
+   return {id:id(n),revision:1,label,worldId:id('world'),location:n==='ron'?id('school_hall'):id('kitchen'),inventory:'simulation',provision:false,body:{id:id(n+'_body'),ownerId:id(n),controllerId:id(n),form:'human',hands:2,mobile:true},vitals:{health:100,stamina:100}};})],
   commands:[{id:id('dress'),revision:1,label:'Get up and dress for the day · 5 min',group:'structured_local',worldId:id('world'),actorId:'player',location:id('cupboard'),audience:['$actor'],costs:[],
    description:'Find your socks under the bed, pull off a spider and get dressed before your aunt\'s call.',duration:5,cancellation:'refund',requires:alive,completionRequires:alive,completionCoLocated:true,completionFailure:'refund',
    effects:[note('dressed','You are dressed. Today is your cousin\'s birthday.')]}]},
- presentation:{people:Object.fromEntries(['vernon','petunia','dudley'].map(n=>[id(n),{introductionKnowledgeKey:id(n+'_known')}])),status:[{id:id('opening_status'),label:'Means',knowledgeKey:id('opening')},{id:id('custody_status'),label:'Custody',knowledgeKey:id('custody')}]}
+ presentation:{people:Object.fromEntries(['vernon','petunia','dudley','ron'].map(n=>[id(n),{introductionKnowledgeKey:id(n+'_known')}])),status:[{id:id('opening_status'),label:'Means',knowledgeKey:id('opening')},{id:id('custody_status'),label:'Custody',knowledgeKey:id('custody')}]}
 };
 // W8-A: the route from the summer to the school, as two native one-shot commands (HG1/HG2). Arrival opens on the lead clock's day 32
 // (1 September, book_world_hp_school_calendar.js) through the fact 'hp.lead.day' (book_world_hp_facts.js) and sets the actor facts the
@@ -59,7 +69,9 @@ export const hpLeadSchoolCommands=[
  {id:id('sorting'),revision:1,label:'Put on the Sorting Hat · 15 min',group:'structured_local',worldId:id('world'),actorId:'player',location:id('school_hall'),audience:['$actor'],costs:[],once:true,
   description:'Each new first year sits on the stool and has the hat placed on their head. It names a house.',duration:15,cancellation:'refund',
   requires:{all:[...alive.all,{fact:'actor.hp.lead.atSchool',op:'eq',value:true}],reason:'You are not at the school yet.'},completionRequires:alive,completionCoLocated:true,completionFailure:'refund',
-  effects:[{type:'fact',scope:'actor',key:'hp.lead.house',value:'gryffindor'},note('sorted','The hat placed you in Gryffindor.')]}];
+  effects:[{type:'fact',scope:'actor',key:'hp.lead.house',value:'gryffindor'},note('sorted','The hat placed you in Gryffindor.'),
+   note('ron_known','Ron Weasley, the red-haired boy from the train, was sorted into Gryffindor too.'),
+   ...ronTie('sorting','Ron cheered when the hat named Gryffindor and moved up the bench for you.')]}];
 // Options the book did not take, shown locked beside the Sorting (rendered "Not how it happened").
 export const hpLeadSchoolLocked={[id('sorting')]:[
  {id:id('sorting.hufflepuff'),label:'Be placed in Hufflepuff',reason:'The hat named Gryffindor. Another house would mean a different common room and Head of House; none of that is built.'},
@@ -79,7 +91,7 @@ export const hpLeadLessonCommands=(()=>{
  return [
   {...base,id:id('lesson_charms'),label:'Attend your first Charms lesson · 30 min',once:true,duration:30,requires:charmsOpen,
    description:'The charms master shows the wand motion and the words for the levitation charm on a feather. Attending teaches the method; it does not make the charm work yet.',
-   effects:[...lessonEffects({key:id('lesson.levitation'),value:'The charms master showed the wand motion and the words for the levitation charm.',situationId:id('situation')}),{type:'power',powerId:HP_LEVITATION,operation:'learn'},know('charms_last','The charms master corrected your wrist and your pronunciation. You know the levitation charm now; getting a feather to rise takes practice.')]},
+   effects:[...lessonEffects({key:id('lesson.levitation'),value:'The charms master showed the wand motion and the words for the levitation charm.',situationId:id('situation')}),{type:'power',powerId:HP_LEVITATION,operation:'learn'},...ronTie('charms','Ron sat beside you in your first Charms lesson and grumbled at his feather with you.'),know('charms_last','The charms master corrected your wrist and your pronunciation. You know the levitation charm now; getting a feather to rise takes practice.')]},
   {...base,id:id('charms_practice'),label:'Practise the levitation charm in Charms · 30 min',duration:30,
    requires:{all:[...charmsOpen.all,{fact:`power.${HP_LEVITATION}.owned`,op:'eq',value:true}],reason:charmsOpen.reason},
    description:'Every pupil tries the charm on a feather. Each try, lifted or dropped, adds one step of practice, and the chance of lifting it rises with practice.',
@@ -94,6 +106,9 @@ export const hpLeadLessonCommands=(()=>{
 })();
 hpLeadLife.simulation.powers=[{id:HP_LEVITATION,revision:1,label:'Levitation charm',model:'practice',capacity:1,cooldown:0}];
 hpLeadLife.simulation.commands.push(...hpLeadLessonCommands);
+export const hpLeadTieCommands=tieOfferCommands(id('world'),{group:'structured_local',worldId:id('world'),actorId:'player',location:id('school_hall'),audience:['$actor'],costs:[],
+ duration:30,cancellation:'refund',requires:{all:[...alive.all,{fact:'actor.hp.lead.atSchool',op:'eq',value:true}]},completionRequires:alive,completionCoLocated:true,completionFailure:'refund'});
+hpLeadLife.simulation.commands.push(...hpLeadTieCommands);
 hpLeadLife.calendarProfile={id:P+'.calendar',revision:1,algorithmId:'fixed_months',algorithmRevision:1,
  units:{minutesPerHour:60,hoursPerDay:24},months:Array.from({length:12},(_,i)=>({id:String(i+1),days:30})),
  week:['Sat','Sun','Mon','Tue','Wed','Thu','Fri'],precision:'day',evidence:'elapsed play; the book names the Saturday, not a year',

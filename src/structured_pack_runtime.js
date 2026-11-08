@@ -115,7 +115,8 @@ export function structuredCampaignView(state,d,record,context) {
     const known=state.simulation.knowledge.player||{},people=[];
     for(const p of d.simulation.people||[]) {
         const key=d.presentation.people[p.id].introductionKnowledgeKey;
-        if(known[key])people.push({name:p.label,details:[known[key].value]});
+        // LT8: what the player saw of this person (observations attributed to them, such as person_ties notes), after the introduction.
+        if(known[key])people.push({name:p.label,details:[known[key].value,...Object.entries(known).filter(([k,r])=>k!==key&&r.basis?.attributedTo===p.id).map(([,r])=>r.value)]});
     }
     const status=d.presentation.status.filter(row=>known[row.knowledgeKey]).map(row=>({label:row.label,value:known[row.knowledgeKey].value}));
     status.push(...hpLifeStatus(state,context));

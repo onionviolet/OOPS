@@ -1,6 +1,7 @@
 import {definePanel} from './panel_kit.js';
 import {shortActionLabel} from './ui/action_label.js';
 import {registerOwnedWorkPanel} from './adventure_notebook.js';
+import {hpLeadTieCommands} from './world_packs/book_hp_lead_life_data.js';
 // While a household act runs, the notebook's current-work view shows this panel (as the other book panels do).
 registerOwnedWorkPanel((_work,definition)=>definition?.group==='book_hp_lead'?'hp_panel':null);
 // Workspace panel for the HP lead life: the current task, its control, the options that were not taken, the last result.
@@ -65,6 +66,14 @@ export function createHpLeadPanel({project,read,command,keepSlot,study}){
      nb.onclick=()=>{try{study.writeNote(r.id);notice='You wrote a note.';}catch(e){notice=e.message;}render();};row.append(nb);}
     s3.append(row);}
    section.append(s3);}
+  // LT8: tie-gated talks (person_ties offers as native commands). Shown once at school; a shut one says what opens it (UR70-UR75).
+  if(v.school?.atSchool){const s4=node('section');s4.className='ui-panel-section';s4.dataset.hpFriends='';s4.append(node('h3','Friends'));
+   for(const c of hpLeadTieCommands){const a=(campaign.actions||[]).find(x=>x.id===c.id);if(!a)continue;
+    const row=node('div');row.dataset.panelRow='';const s=shortActionLabel(a.label),b=node('button',s.text);b.type='button';b.dataset.hpTie=c.id;
+    b.disabled=!a.eligible||!campaign.canWrite||!!v.jobs.find(j=>j.commandId===c.id);if(s.chip)b.append(node('span',` · ${s.chip}`));
+    b.onclick=()=>{try{command({type:'action',id:c.id});notice='';}catch(e){notice=e.message;}render();};
+    row.append(b,node('p',a.eligible?(a.description||''):(a.reasons||[]).join(' ')));s4.append(row);}
+   if(s4.childElementCount>1)section.append(s4);}
   if(arc.aftermath){const p=node('p',`Last result: ${arc.aftermath}`);p.dataset.hpLastResult='';section.append(p);}
   if(arc.done&&arc.conclusion)section.append(node('p',arc.conclusion));
   if(notice)section.append(node('p',notice));

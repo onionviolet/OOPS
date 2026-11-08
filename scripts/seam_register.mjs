@@ -47,13 +47,15 @@ export const SEAMS=[
  {id:'ability_records',files:['ability_records'],purpose:'Ability records'},
  {id:'material_lineage',files:['material_lineage','material_lineage_domain'],purpose:'Where a material came from'},
  {id:'lore_history_state',files:['lore_history_state'],purpose:'Lore and history knowledge state'},
- {id:'combat_math',files:['combat_math'],purpose:'Shared combat arithmetic'}
+ {id:'combat_math',files:['combat_math'],purpose:'Shared combat arithmetic'},
+ {id:'person_ties',files:['person_ties'],purpose:'Ties on the one person record: regard as rule facts, observed notes, tie-gated offers (LT8)'}
 ];
 
 // Proof state is curated, not computed. States: none (no world file imports it, set by the scan),
 // one-world route, two-world route, unknown (default). A route means a native play route (AR10), not a unit test.
 export const PROOF={
  ready_stock:{state:'one-world route',receipt:'docs/gm/dispatch/at15-fight-2026-11-06/CHECKPOINT.md (fixture route kj3z ckpt-range: native hire and load shown; fight use blocked by T1, T2); docs/gm/dispatch/refinement-audits-2026-10-31/B8_IMPLEMENTATION_RECEIPT.md (B8 focused tests)'},
+ person_ties:{state:'two-world route',receipt:'docs/gm/dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md (X1: Klein, weekly expense filings to Dunn open a talk; Harry, the Sorting and first Charms with Ron open a talk; both natural routes from a fresh origin, scripts/playtest/cross-world-ties.mjs)'},
  tempo_fight:{state:'one-world route',receipt:'docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/P4_TEMPO_CHECKPOINT.md (Frontier road-rival contest, fixture-seeded browser route); not reached natively for LOTM: docs/gm/dispatch/at15-fight-2026-11-06/CHECKPOINT.md T1, T2'}
 };
 

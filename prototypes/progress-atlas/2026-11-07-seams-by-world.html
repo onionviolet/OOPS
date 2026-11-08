@@ -1,0 +1,38 @@
+<h2 class="sr-only">Shared seams by world on 2026-11-07: which worlds' files import each shared seam. Most seams reach one world, ten reach none, and Shadow Slave and D&D use none.</h2>
+<style>
+.sw{font-size:12px;color:var(--text-primary)}
+.sw table{width:100%;border-collapse:collapse;table-layout:fixed}
+.sw th{font-weight:400;color:var(--text-secondary);font-size:11px;padding:4px 2px;text-align:center;vertical-align:bottom}
+.sw th:first-child{width:150px;text-align:left}
+.sw td{padding:2px;text-align:center;border-bottom:.5px solid var(--border)}
+.sw td:first-child{text-align:left;padding:4px 6px 4px 0}
+.c{height:20px;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:11px}
+.g td{padding-top:10px;color:var(--text-muted);font-size:11px;border-bottom:none}
+.none{color:var(--text-danger);font-size:11px}
+.lg{display:flex;gap:14px;flex-wrap:wrap;color:var(--text-secondary);font-size:11px;margin:8px 0}
+.lg span{display:flex;align-items:center;gap:5px}.lg i{width:14px;height:10px;border-radius:2px;display:inline-block}
+</style>
+<div class="sw">
+<div class="lg"><span><i style="background:#cfe2f8"></i>1 file</span><span><i style="background:#86b6ec"></i>2 files</span><span><i style="background:#2a78d6"></i>3+ files</span><span>blank: no importer in that world</span></div>
+<table id="t"></table>
+<p style="color:var(--text-muted);font-size:11px;margin-top:10px">Static imports under src/ at a152827dd, by file-name family (seam register plus a grep for Nov 6-7 seams). Code reach only: an import is not a working or reachable route. Registry-based and shared-host use is not counted.</p>
+</div>
+<script>
+const W=["LOTM","Harry","MoL","Gu (RI)","Paradise","Primordial","Village","Test beds","Shadow Slave, D&D"];
+const R=[
+["Society and obligations"],
+["positions",[5,1,0,1,0,0,0,0,0]],["groups (organizations)",[2,0,0,0,0,0,1,0,0]],["duties",[1,1,0,0,0,0,0,0,0]],["authority, knownness",[2,0,0,0,0,0,1,0,0]],["heat",[2,0,0,0,0,0,0,0,0]],["obligations ledger",[0,0,0,1,0,1,0,0,0]],["society sheet",[1,1,0,0,0,0,0,0,0]],["institution store",[1,0,0,0,0,1,0,0,0]],["institution access",[0,0,1,0,0,0,0,0,0]],["law case",[0,0,0,0,0,0,0,0,0]],["faction rank",[0,0,0,0,0,0,0,0,0]],
+["Time and events"],
+["world rhythm",[1,2,0,0,0,1,0,2,0]],["world calendar",[0,2,1,0,2,0,1,0,0]],["recurring duties",[1,0,0,0,0,0,0,0,0]],["world events",[2,0,0,0,0,0,0,0,0]],["storylet deck",[0,0,0,0,0,0,1,0,0]],["life events",[0,0,0,0,0,0,0,0,0]],
+["People and knowledge"],
+["people sources",[1,1,1,0,0,0,0,0,0]],["cast schedule",[2,0,1,0,0,0,1,0,0]],["recurring people",[2,0,0,0,0,0,0,0,0]],["people knowledge",[0,0,1,0,0,0,0,0,0]],["lesson",[2,2,0,0,0,0,0,0,0]],["inquiry",[1,1,0,0,0,0,0,0,0]],["research",[0,0,0,0,0,0,0,0,0]],
+["Powers and conflict"],
+["ability runtime",[1,0,0,0,0,0,0,0,0]],["channels",[2,0,0,0,0,0,0,0,0]],["ready stock",[1,0,0,1,0,0,0,0,0]],["harm state",[1,0,0,0,0,0,1,0,0]],["ability ladders",[0,0,0,0,0,0,0,0,0]],["effect DSL",[0,0,0,0,0,0,0,0,0]],["conflict frame",[0,0,0,0,0,0,0,0,0]],
+["Things and money"],
+["own holdings (purse)",[3,2,0,0,0,0,0,0,0]],["material lineage",[0,1,0,0,2,0,0,1,0]],["seeded streams",[1,0,0,0,0,0,1,5,0]]];
+const col=n=>n>=3?['#2a78d6','#fff']:n==2?['#86b6ec','#0c447c']:['#cfe2f8','#0c447c'];
+let h='<tr><th>Seam</th>'+W.map(w=>'<th>'+w+'</th>').join('')+'</tr>';
+R.forEach(r=>{if(r.length==1){h+='<tr class="g"><td colspan="10">'+r[0]+'</td></tr>';return}
+const z=r[1].every(v=>!v);h+='<tr><td>'+r[0]+(z?' <span class="none">no world</span>':'')+'</td>'+r[1].map((v,i)=>{if(!v)return '<td></td>';const c=col(v);return '<td><div class="c" style="background:'+c[0]+';color:'+c[1]+'" title="'+r[0]+' in '+W[i]+': '+v+' file'+(v>1?'s':'')+'">'+v+'</div></td>'}).join('')+'</tr>'});
+document.getElementById('t').innerHTML=h;
+</script>

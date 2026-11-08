@@ -1,0 +1,76 @@
+<h2 class="sr-only">Progress atlas for OOPS on 2026-11-07: eleven areas scored on four separate evidence marks, the open gaps, commits by day and suggested next moves.</h2>
+<style>
+.pa{font-size:13px;color:var(--text-primary)}
+.pa h3{font-size:15px;font-weight:500;margin:1.25rem 0 .5rem}
+.row{display:grid;grid-template-columns:minmax(0,1fr) repeat(4,64px);gap:6px;align-items:center;padding:6px 8px;border-bottom:.5px solid var(--border);cursor:pointer}
+.row:hover,.row.sel{background:var(--surface-1)}
+.hd{cursor:default;color:var(--text-secondary);font-size:11px}.hd:hover{background:none}
+.m{height:14px;border-radius:3px;border:1px solid var(--text-secondary)}
+.yes{background:#1baf7a;border-color:#1baf7a}.part{background:linear-gradient(90deg,#eda100 50%,transparent 50%);border-color:#eda100}
+.no{background:transparent}.unk{border-style:dashed;border-color:var(--text-muted)}.def{background:repeating-linear-gradient(45deg,var(--text-muted) 0 2px,transparent 2px 6px);border-color:var(--text-muted)}
+.lg{display:flex;flex-wrap:wrap;gap:14px;color:var(--text-secondary);font-size:12px;margin:6px 0}.lg span{display:flex;align-items:center;gap:5px}.lg .m{width:18px;height:10px}
+.det{background:var(--surface-1);border-radius:8px;padding:10px 12px;margin:8px 0;color:var(--text-secondary);min-height:20px}
+.gap{display:grid;grid-template-columns:52px minmax(0,1fr);gap:8px;padding:6px 0;border-bottom:.5px solid var(--border)}
+.tag{font-size:11px;padding:1px 6px;border-radius:6px;margin-left:6px}
+.t-miss{background:var(--bg-danger);color:var(--text-danger)}.t-ver{background:var(--bg-warning);color:var(--text-warning)}.t-del{background:var(--bg-accent);color:var(--text-accent)}.t-dir{background:var(--surface-1);color:var(--text-secondary)}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.nm{padding:6px 0;border-bottom:.5px solid var(--border)}
+</style>
+<div class="pa">
+<div class="lg"><span><i class="m yes"></i>yes</span><span><i class="m part"></i>partly</span><span><i class="m no"></i>no</span><span><i class="m unk"></i>unknown</span><span><i class="m def"></i>deferred by direction</span></div>
+<div id="grid"></div>
+<div class="det" id="det">Select a row for its evidence, owner and date.</div>
+
+<h3>What is missing</h3>
+<div id="gaps"></div>
+
+<h3>Commits by day</h3>
+<div class="lg"><span><i class="m" style="background:#2a78d6;border-color:#2a78d6"></i>Klein story windows</span><span><i class="m" style="background:#eb6834;border-color:#eb6834"></i>foundations and Harry at Hogwarts</span></div>
+<div style="position:relative;height:170px"><canvas id="mom" role="img" aria-label="Commits per day, Nov 1 to Nov 7: 7, 15, 171, 55, 7, 70, 36. Klein story windows on Nov 3 and 4, foundations and Harry at Hogwarts on Nov 6 and 7.">Nov 1: 7, Nov 2: 15, Nov 3: 171, Nov 4: 55, Nov 5: 7, Nov 6: 70, Nov 7: 36.</canvas></div>
+
+<div class="cols">
+<div><h3>Accepted priority</h3><div id="acc"></div></div>
+<div><h3>Suggested next moves</h3><div id="sug"></div></div>
+</div>
+<p style="color:var(--text-muted);font-size:11px;margin-top:12px">Snapshot 2026-11-07 at master a152827dd (clean, pushed). Read from owner docs and git history; no build, test or walk run for this atlas. Every mark is agent-verified, not human-reviewed.</p>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const D=[
+["Klein's story, ch1 to ch69","yes","yes","part","part","KJ1-KJ3AE native on the B10 bundle. Story facts outrun mechanisms (F6): KJ3AE marks rites and Spirit Vision as facts. Volume 1 runs to ch213. In the app only from the local private pack (AT6).","KJ3AE receipt, Klein campaign plan · 2026-11-04"],
+["Klein's Tingen life around the story","yes","part","part","part","Sun Sequence 9-8 and Seq 7, guard contract, rent duty, Tingen deck, constables at the door. Door fight walked to floor on a fixture; control lesson partial; guard term rounding not walked. Constables (Nov 7) are not in the installed build.","overnight-run-2026-11-07 CHECKPOINT · 2026-11-07"],
+["Harry, W1 to W4 (to the wand)","yes","yes","yes","part","Four lead windows through the chapter-5 shops, vault and wand. Private pack, local only.","HP whole-world plan, HP W4 receipt · 2026-11-03"],
+["Harry at Hogwarts","yes","part","part","part","Train, Sorting, pupil and house positions, Charms, Potions, library study. F1 fix (train leaves where the cast story ends) has 125/125 HP tests but no recorded native walk of the 1 September route (AT35). Class duty registered, inactive until school.","a75a65c75, 33ffbf7e0, 61b3d9238 · 2026-11-06/07"],
+["Shared society seams","yes","part","part","part","Positions, duties, purse, society sheet, knownness, obligations, groups, channels, inquiry. FD6/FD8/FD9/FD10 walked natively; most Nov 6-7 waves landed below floor under 'full blast' (AT37). Seam-first lanes came back without callers four times (AT27).","LARGER_FOUNDATIONS_2026-11-06, cross-world-run CHECKPOINT · 2026-11-07"],
+["Combat","yes","part","part","part","AT15 closed at floor on a fixture fight (shoot, reload, real stock). Collector and door fights exist. B8 firearm campaign use and broad encounter content remain thin.","PROGRESS_ATLAS_2026-11-04 AT15 · 2026-11-06"],
+["Village and own world","yes","part","part","part","Groups and treasury, care on credit (floor on fixture), hired hands, bow and hunting. Stead claim reachable only partly (AT32). New depth is landing in a test bed (AT30).","overnight-run CHECKPOINT AT29-AT32 · 2026-11-07"],
+["Mother of Learning","part","part","part","unk","Visitor route plus a bounded Zorian reset experiment; foreknowledge certainty lens added Nov 7, below floor.","ZORIAN_S0_S1 stage record · 2026-11-07"],
+["Other book worlds","part","unk","unk","unk","Reverend Insanity, Shadow Slave, D&D Phandalin, Primordial Saint Sect, Reincarnation Paradise: registered bounded lives, not refreshed since late October.","Refined atlas W4-W8 · 2026-11-04"],
+["Ordinary starts and second lives","part","no","no","def","Wait on Klein's ending by schedule (AT5). Direction choice only.","PROJECT focus 1, WER owner · 2026-11-01"],
+["Desktop app and delivery","yes","yes","part","part","Tauri host installed Nov 6 (v0.6-231c350d8838). Master is 39 commits past that build (AT36). Public repo is pushed; book packs are private (AT6).","js-ui-performance CHECKPOINT, RELEASE_RECONCILIATION · 2026-11-06"]];
+const H=["Built","Proven in play","Joined to consumers","In your app"];
+const g=document.getElementById('grid'),det=document.getElementById('det');
+g.innerHTML='<div class="row hd"><span>Area</span>'+H.map(h=>'<span>'+h+'</span>').join('')+'</div>';
+const cls={yes:'yes',part:'part',no:'no',unk:'unk',def:'def'},wd={yes:'yes',part:'partly',no:'no',unk:'unknown',def:'deferred'};
+D.forEach((d,i)=>{const r=document.createElement('div');r.className='row';r.tabIndex=0;
+r.innerHTML='<span>'+d[0]+'</span>'+[1,2,3,4].map(k=>'<i class="m '+cls[d[k]]+'" title="'+H[k-1]+': '+wd[d[k]]+'"></i>').join('');
+const f=()=>{g.querySelectorAll('.sel').forEach(x=>x.classList.remove('sel'));r.classList.add('sel');det.innerHTML='<span style="color:var(--text-primary)">'+d[0]+'.</span> '+d[5]+'<br><span style="color:var(--text-muted);font-size:11px">'+d[6]+'</span>'};
+r.onclick=f;r.onkeydown=e=>{if(e.key==='Enter')f()};g.appendChild(r)});
+const G=[
+["AT34","Klein's story has not moved past ch69 since Nov 4. Nov 5-7 went to shared seams. Fine by direction (mechanisms lead), but kjw22 still has no call on which of B3/R5 it uses.","miss"],
+["AT35","Harry's Hogwarts route has tests, no native walk since the F1 fix. Code says it connects; play has not shown it.","ver"],
+["AT37","Most Nov 6-7 slices sit below floor. Full suite passed 5671/0, but few consumers were walked.","ver"],
+["AT36","The app you play is 39 commits behind: constables, care on credit, F1 fix and the quality fixes are missing.","del"],
+["AT27","Seams keep arriving before a caller play reaches. Briefs now wire the consumer first.","miss"],
+["AT30","Care on credit landed in the Village test bed, not a book world.","dir"],
+["AT6","Klein and Harry live in private packs; a public install cannot reach them.","del"],
+["AT8","No human play session on any slice. Fun and pacing are unjudged.","ver"]];
+const tl={miss:'missing link',ver:'unproven',del:'delivery',dir:'off-direction'};
+document.getElementById('gaps').innerHTML=G.map(x=>'<div class="gap"><span style="color:var(--text-secondary)">'+x[0]+'</span><span>'+x[1]+'<span class="tag t-'+x[2]+'">'+tl[x[2]]+'</span></span></div>').join('');
+document.getElementById('acc').innerHTML=["Klein first, through his full journey","Harry's own life alongside","Depth goes to book worlds and menus; Frontier and Mistglass stay test beds"].map(t=>'<div class="nm">'+t+'</div>').join('');
+document.getElementById('sug').innerHTML=["1. Walk Harry's 1 September route natively (AT35)","2. Decide kjw22's mechanisms and restart Klein's spine (AT34)","3. Rebuild and adopt the app (AT36)","4. One walk pass over below-floor consumers (AT37)","5. Tingen physician on the care seam (AT30)"].map(t=>'<div class="nm">'+t+'</div>').join('');
+const dk=matchMedia('(prefers-color-scheme: dark)').matches||document.documentElement.dataset.mode==='dark';
+const mu=dk?'#898781':'#898781',gr=dk?'#2c2c2a':'#e1e0d9';
+new Chart(document.getElementById('mom'),{type:'bar',data:{labels:['Nov 1','Nov 2','Nov 3','Nov 4','Nov 5','Nov 6','Nov 7'],datasets:[{data:[7,15,171,55,7,70,36],backgroundColor:['#b4b2a9','#b4b2a9','#2a78d6','#2a78d6','#b4b2a9','#eb6834','#eb6834'],borderRadius:4,maxBarThickness:24}]},
+options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{afterLabel:c=>[ '','','Klein windows KJ3Y-KJ3AC','Klein KJ3AD-KJ3AE','','Cross-world run, Hogwarts','Overnight run, quality checks'][c.dataIndex]}}},scales:{x:{grid:{display:false},ticks:{color:mu}},y:{grid:{color:gr},ticks:{color:mu}}}}});
+</script>

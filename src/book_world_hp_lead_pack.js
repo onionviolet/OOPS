@@ -3,7 +3,7 @@
 // public stub. Locked "Not how it happened" rows and the act sequence come from the pack.
 import {definePlaceActs} from './place_acts.js';
 import {validLadder} from './coin_ladder.js';
-import {hpLeadSchoolCommands,hpLeadLessonCommands} from './world_packs/book_hp_lead_life_data.js';
+import {hpLeadSchoolCommands,hpLeadLessonCommands,hpLeadTieCommands} from './world_packs/book_hp_lead_life_data.js';
 const P='book.hp.lead',KIND='hp-cast';
 let loaded=null;
 export const getHpLeadCast=()=>loaded;
@@ -49,6 +49,6 @@ export function withHpLeadCast(raw,pack){
  const placeIds=new Set(native.locations.map(l=>l.id)),school=structuredClone(hpLeadSchoolCommands);
  const endpoint=pack.householdActs.acts.flatMap(a=>(a.effects||[]).filter(e=>e.type==='relocate'&&e.actor==='player'&&placeIds.has(e.location))).at(-1)?.location;
  const arrive=school.find(c=>c.id===`${P}.arrive_school`);if(arrive&&endpoint)arrive.location=endpoint;
- native.simulation.commands=[...acts.map(c=>({...c,audience:['$actor']})),...school,...structuredClone(hpLeadLessonCommands)]; // the school route and lessons survive the private cast
+ native.simulation.commands=[...acts.map(c=>({...c,audience:['$actor']})),...school,...structuredClone(hpLeadLessonCommands),...structuredClone(hpLeadTieCommands)]; // the school route and lessons survive the private cast
  return native;
 }
