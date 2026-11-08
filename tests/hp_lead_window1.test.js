@@ -30,10 +30,10 @@ test('a pack is validated and absence leaves the public stub untouched',()=>{
 });
 test('the merged definition compiles, replaces the stub command and keeps the source-only start',()=>{
  const {raw}=setup(synthetic());
- assert.deepEqual(raw.simulation.commands.map(c=>c.id),[P+'.w1.one',P+'.w1.two',P+'.arrive_school',P+'.sorting',P+'.lesson_charms',P+'.charms_practice',P+'.lesson_potions',P+'.tie.ron_family']);
+ assert.deepEqual(raw.simulation.commands.map(c=>c.id),[P+'.w1.one',P+'.w1.two',P+'.arrive_school',P+'.sorting',P+'.lesson_charms',P+'.charms_practice',P+'.lesson_potions',P+'.tie.ron_family',P+'.make.cure_boils',P+'.make.cure_boils.use',P+'.make.cure_boils_quills_early',P+'.make.cure_boils_quills_early.use',P+'.sp.use.levitation_charm']);
  assert.ok(raw.locations.some(l=>l.id===P+'.yard'));
  assert.equal(raw.starts[0].effects.find(e=>e.type==='source').sourceId,P+'.magic');
- assert.ok(!raw.items.length);
+ assert.ok(raw.items.every(i=>i.id.startsWith(P+'.item.'))); // only the W1a Potions items; the synthetic cast brings none
 });
 test('the projection shows the next act, locked options of the current act, and completes with the sequence',async()=>{
  const {createExpansionState}=await import('../src/expansion_engine.js');

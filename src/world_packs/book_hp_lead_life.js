@@ -1,4 +1,7 @@
 import {hpLeadLife} from './book_hp_lead_life_data.js';
+import {hpLeadSpellCommands} from '../hp_lead_spells.js';
+// W1b: the levitation charm cast on the shared spell lowering (hp_lead_spells.js imports the data file, so the push sits here, not there).
+for(const c of hpLeadSpellCommands)if(!hpLeadLife.simulation.commands.some(x=>x.id===c.id))hpLeadLife.simulation.commands.push(c);
 // Plain-data world pack for the HP lead life. It cannot sit in the main bundled list: the loader refuses
 // nested pack ids and `book.hp` is already a pack (world_pack_loader namespace-overlap). It is loaded as
 // a second, separate list in world_pack_registry.js. Paraphrase only; no source text is bundled.

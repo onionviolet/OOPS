@@ -50,17 +50,41 @@ async function walkLotm() {
         await open();
         const DUNN = 'lotm.person.cast-618f4df49af02c7da45e', OFFER = '[data-lotm="tie_book.lotm.tie.dunn_funding"]', DUTY = '[data-lotm="duty_lotm.expense_claim"]';
         const trust = st => st.simulation.relationships?.[DUNN]?.player?.axes?.['tie.trust'] || 0;
-        assert.equal(await p.locator(OFFER).isDisabled(), true); assert.equal(trust(await snap(p)), 0);
-        const shut = await p.locator('[data-tie-offer]').innerText();
-        assert.match(shut, /once he has signed two/); r.checks.push('offer shown shut with its reason before any filing');
+        // X1-G1: before Klein has met Dunn, the talk is not offered and a filing earns no regard (the duty itself still counts).
+        const dunnKnown = st => ['known', 'met'].some(k => st.simulation.knowledge.player?.[`book.lotm.cast.${k}.${DUNN}`]);
+        assert.equal(dunnKnown(await snap(p)), false); assert.equal(await p.locator(OFFER).count(), 0);
         await p.locator(DUTY).click(); await p.waitForTimeout(300);
-        let st = await snap(p); assert.equal(trust(st), 1); assert.ok(st.simulation.knowledge.player['book.lotm.tie.dunn_signed']);
-        assert.equal(await p.locator(OFFER).isDisabled(), true); r.checks.push('week 1 filed by the duty button: trust 1, observation note held, offer still shut');
+        let st = await snap(p); assert.equal(trust(st), 0); assert.ok(!st.simulation.knowledge.player['book.lotm.tie.dunn_signed']);
+        r.checks.push('before meeting Dunn: no talk shown; a filing counts for the duty and earns no regard');
+        // Follow Klein's own story tasks natively until he has met Dunn (the interview), as a player would.
+        const nc = new NativeContinuation(s, {panel: 'lotm', attrPrefix: 'lotm', stepLimit: 4000});
+        const here = async () => {await panel(p, 'lotm'); await p.locator('[data-workroom-tabs] button').filter({hasText: /^Here$/}).first().click(); await p.waitForTimeout(200);};
+        await here();
+        let acts = 0;
+        while(!dunnKnown(await snap(p)) && acts < 300) {
+            const v = await nc.view(); if(!v.arc?.next) {await s.step(60); acts++; continue;}
+            await here();
+            const b = p.locator(`[data-lotm="${v.arc.next.id}"]`).first();
+            if(await b.count() && !(await b.isDisabled())) {await b.click(); await p.waitForTimeout(150); await nc.settle();}
+            else await s.step(60);
+            acts++;
+            if(acts % 10 === 0) console.error(`lotm: ${acts} story tasks`);
+        }
+        r.storyTasksToMeetDunn = acts; assert.ok(dunnKnown(await snap(p)), 'Klein met Dunn by his own story route');
+        await writeFile(join(out, 'klein-met-dunn.save.json'), JSON.stringify(await s.save())); // gitignored scratch: W1c seed, carries cast text
+        await open();
+        assert.equal(await p.locator(OFFER).isDisabled(), true);
+        assert.match(await p.locator('[data-tie-offer]').innerText(), /once he has signed two/); r.checks.push('after meeting Dunn by the story route: the talk is shown shut with its reason');
+        // First regard-earning filing: the next duty week after the meeting.
+        for(let d = 0; d < 7; d++) {await s.step(1440); await p.waitForTimeout(50);}
+        await open(); await p.locator(DUTY).click(); await p.waitForTimeout(300);
+        st = await snap(p); assert.equal(trust(st), 1); assert.ok(st.simulation.knowledge.player['book.lotm.tie.dunn_signed']);
+        assert.equal(await p.locator(OFFER).isDisabled(), true); r.checks.push('first filing after meeting: trust 1, observation held, talk still shut');
         // A week of native time, a day per call (one 10,080-minute call exhausted the headless page).
         for(let d = 0; d < 7; d++) {await s.step(1440); await p.waitForTimeout(50);}
         await open();
         await p.locator(DUTY).click(); await p.waitForTimeout(300);
-        st = await snap(p); assert.equal(trust(st), 2); r.checks.push('week 2 filed after seven native days: trust 2');
+        st = await snap(p); assert.equal(trust(st), 2); r.checks.push('next week filed after seven native days: trust 2');
         assert.equal(await p.locator(OFFER).isDisabled(), false);
         await p.locator(OFFER).click(); await p.waitForTimeout(300);
         st = await snap(p); const note = st.simulation.knowledge.player['book.lotm.tie.dunn_funding'];
@@ -110,16 +134,39 @@ async function walkHp() {
         r.hoursWaitedForCharms = waited;
         await charms.click(); await s.step(35); await nc.panel();
         st = await snap(p); assert.equal(aff(st), 2); r.checks.push('first Charms by its button: Ron affection 2');
+        // W1b: cast the learned charm on the shared spell lowering; stamina is spent either way, and each try leaves a result.
+        const CAST = `[data-hp-cast="${P}.sp.use.levitation_charm"]`, results = [];
+        for(let i = 0; i < 3; i++) {
+            assert.equal(await p.locator(CAST).isDisabled(), false, 'the charm can be cast after the lesson');
+            await p.locator(CAST).click(); await s.step(10); await nc.panel();
+            results.push((await snap(p)).simulation.knowledge.player[`${P}.spell.levitation.last`]?.value || '');
+        }
+        assert.ok(results.every(Boolean)); r.castResults = results.map(t => /rose/.test(t) ? 'rose' : /shivered/.test(t) ? 'fizzled' : 'other');
+        r.checks.push(`levitation cast three times by its button: ${r.castResults.join(', ')}`);
         assert.equal(await p.locator(TALK).isDisabled(), false);
         await p.locator(TALK).click(); await s.step(35); await nc.panel();
         st = await snap(p); const note = st.simulation.knowledge.player[P + '.tie.ron_family'];
         assert.equal(note?.basis?.attributedTo, RON); r.checks.push('talk taken: one note attributed to Ron');
+        // W1a: the next Monday Potions class issues the ingredients; the bench brews on the shared craft engine; the flask is handed in.
+        const potions = p.locator('[data-hp-lesson]').filter({hasText: 'Potions'});
+        waited = 0; while(await potions.isDisabled() && waited < 9 * 24) {await s.step(60); await nc.panel(); waited++;}
+        await potions.click(); await s.step(50); await nc.panel();
+        const MAKE = `[data-hp-make="${P}.make.cure_boils"]`, EARLY = `[data-hp-make="${P}.make.cure_boils_quills_early"]`;
+        assert.equal(await p.locator(MAKE).isDisabled(), false); assert.equal(await p.locator(EARLY).isDisabled(), false);
+        r.checks.push('Potions class issues the ingredients: both bench brews open (by the steps, quills early)');
+        await p.locator(MAKE).click(); await s.step(45); await nc.panel();
+        const USE = `[data-hp-make="${P}.make.cure_boils.use"]`;
+        assert.equal(await p.locator(USE).isDisabled(), false); await p.locator(USE).click(); await s.step(10); await nc.panel();
+        st = await snap(p); assert.equal(st.actors.player.facts['hp.lead.potions.flask'], 'cure');
+        assert.equal(await p.locator(EARLY).isDisabled(), true, 'one set of ingredients brews once');
+        r.checks.push('brewed by the steps and handed in: the flask fact is cure; the early brew is shut (ingredients spent)');
+        r.potionsBrewChance = await p.evaluate(() => document.querySelector('[data-hp-lessons]')?.innerText.match(/Potions[^\n]*/)?.[0] || null);
         await panel(p, 'beginning'); await p.waitForTimeout(300);
         r.peopleViewShowsRonLines = await p.evaluate(() => document.body.innerText.includes('five older brothers') && document.body.innerText.includes('moved up the bench'));
         const reopen = async () => {await panel(p, 'hp'); await p.waitForTimeout(250);};
         const {afterReload, afterImport} = await roundTrip(s, reopen);
-        for(const x of [afterReload, afterImport]) {assert.equal(aff(x), 2); assert.ok(x.simulation.knowledge.player[P + '.tie.ron_family']);}
-        r.checks.push('save, reload, Export and Import keep affection 2 and the note');
+        for(const x of [afterReload, afterImport]) {assert.equal(aff(x), 2); assert.ok(x.simulation.knowledge.player[P + '.tie.ron_family']); assert.equal(x.actors.player.facts['hp.lead.potions.flask'], 'cure');}
+        r.checks.push('save, reload, Export and Import keep affection 2, the note and the handed-in flask');
         r.errors = s.errors.length; assert.equal(s.errors.length, 0, JSON.stringify(s.errors.slice(0, 3)));
         r.ok = true;
     } catch(e) {r.ok = false; r.error = String(e.stack || e).slice(0, 1500); r.errors = s.errors.slice(0, 5); await p.screenshot({path: join(out, 'hp-fail.png')}).catch(() => {});}

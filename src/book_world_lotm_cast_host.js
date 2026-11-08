@@ -438,7 +438,7 @@ export function nextCastBeatTime(state,through,ledger,pack=getPrivateLotmCast())
  }
  return next;
 }
-const castKnown=(state,id)=>['known','met'].some(kind=>state.simulation?.knowledge?.player?.[`book.lotm.cast.${kind}.${id}`]);
+export const castKnown=(state,id)=>['known','met'].some(kind=>state.simulation?.knowledge?.player?.[`book.lotm.cast.${kind}.${id}`]);
 const renderCastReport=r=>renderRefs(r.template,{names:r.names}).replace(/^(\s*\p{Ll})/u,letter=>letter.toUpperCase());
 // Pack constraints are cached projections. They share the actor alias and place
 // resolver with schedules; neither a second canon store nor a saved source table.

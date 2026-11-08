@@ -25,14 +25,14 @@ test('facts resolve to 0 before any act and read the holder regard after', () =>
 });
 
 test('an offer is shut below the threshold with its reason, open at it, and taken once', () => {
-    assert.deepEqual(tieOfferView(stateWith(1)), [{id: 'test.tie.ask', label: 'Ask', description: 'Ask the captain.', eligible: false, reasons: ['Not yet.']}]);
+    assert.deepEqual(tieOfferView(stateWith(1)), [{id: 'test.tie.ask', personId: 'test.person.cap', label: 'Ask', description: 'Ask the captain.', eligible: false, reasons: ['Not yet.']}]);
     assert.throws(() => tieOfferEffects(stateWith(1), 'test.tie.ask'), /Not yet/);
     const open = stateWith(2);
     assert.equal(tieOfferView(open)[0].eligible, true);
     const [note] = tieOfferEffects(open, 'test.tie.ask');
     assert.equal(note.key, 'test.tie.asked');
     open.simulation.knowledge.player['test.tie.asked'] = {value: 'He told you.'};
-    assert.deepEqual(tieOfferView(open), [{id: 'test.tie.ask', label: 'Ask', taken: true, said: 'He told you.'}]);
+    assert.deepEqual(tieOfferView(open), [{id: 'test.tie.ask', personId: 'test.person.cap', label: 'Ask', taken: true, said: 'He told you.'}]);
     assert.throws(() => tieOfferEffects(open, 'test.tie.ask'), /already/);
 });
 
@@ -72,4 +72,15 @@ test('Klein: the trust step uses the duty seam\'s own week, so filings on either
     // elapsed time, but two duty cycles; each filing must be its own tie step.
     assert.equal(expenseTieCycle(boundary - 1) + 1, expenseTieCycle(boundary));
     for(const m of [boundary - 1, boundary, boundary + 3 * 1440]) assert.equal(expenseTieCycle(m), recurringWindow(schedule, m).cycle);
+});
+
+test('Klein X1-G1: Dunn holds no regard until the player holds the cast "met" key the pack writes at the interview', async () => {
+    const {castKnown} = await import('../src/book_world_lotm_cast_host.js');
+    const {tieExpenseFiled, DUNN_ID} = await import('../src/book_world_lotm_colleagues.js');
+    const st = met => ({clock: 3 * 1440, simulation: {knowledge: {player: met ? {[`book.lotm.cast.met.${DUNN_ID}`]: {stage: 'seen', value: 'x'}} : {}}}});
+    assert.equal(castKnown(st(false), DUNN_ID), false);
+    assert.equal(castKnown(st(true), DUNN_ID), true);
+    // Unmet: the writer refuses before touching the registry (a null registry would otherwise also refuse, so check the order by a live one).
+    const registry = {simulation: {people: new Map([[DUNN_ID, {}]])}};
+    assert.equal(tieExpenseFiled({state: st(false)}, registry), false);
 });

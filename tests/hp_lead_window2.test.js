@@ -30,7 +30,7 @@ test('a second-window act requires every earlier act of both windows (cross-sequ
 test('the pack with two sequences validates and merges into the native definition',()=>{
  assert.deepEqual(validateHpLeadCast(pack()),[]);
  const raw=withHpLeadCast(packNative(P),pack());
- assert.deepEqual(raw.simulation.commands.map(c=>c.id),[P+'.w1.a',P+'.w1.b',P+'.w2.c',P+'.w2.d',P+'.arrive_school',P+'.sorting',P+'.lesson_charms',P+'.charms_practice',P+'.lesson_potions',P+'.tie.ron_family']);
+ assert.deepEqual(raw.simulation.commands.map(c=>c.id),[P+'.w1.a',P+'.w1.b',P+'.w2.c',P+'.w2.d',P+'.arrive_school',P+'.sorting',P+'.lesson_charms',P+'.charms_practice',P+'.lesson_potions',P+'.tie.ron_family',P+'.make.cure_boils',P+'.make.cure_boils.use',P+'.make.cure_boils_quills_early',P+'.make.cure_boils_quills_early.use',P+'.sp.use.levitation_charm']);
 });
 // G10 (receiving side only): the existing event owner already keeps a private delivery away from anyone who is not
 // the holder. A letter addressed to the lead but held by the guardian is "present" for the guardian and unknown to the lead.

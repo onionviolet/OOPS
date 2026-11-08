@@ -6,6 +6,7 @@
 // No calendar year (the book gives none): the clock is elapsed play, day 0 is the Saturday of the birthday.
 import {lessonEffects} from '../lesson.js';
 import {registerWorldTies,tieEffects,tieOfferCommands} from '../person_ties.js';
+import {hpLeadMakingCommands as makingRows,hpLeadMakingItems,hpPotionsIssueEffects} from '../hp_lead_making.js';
 const P='book.hp.lead', id=n=>`${P}.${n}`;
 const note=(n,value)=>({type:'knowledge',key:id(n),stage:'understood',value});
 const guardian=who=>({type:'relationship',actor:id(who),target:'player',axis:id('guardian_of'),amount:1000});
@@ -30,7 +31,7 @@ export const hpLeadLife={
   {id:id('kitchen'),label:'Your guardians\' kitchen',description:'Where breakfast is fried and the day\'s orders are given.',underRoof:true},
   {id:id('hall'),label:'Front door and hall',description:'The hall of your guardians\' house.',underRoof:true},
   {id:id('school_hall'),label:'Hogwarts, the Great Hall',description:'The school\'s great hall, where the new first years are sorted.',underRoof:true}],
- items:[],
+ items:[...hpLeadMakingItems], // W1a: Potions ingredients and flasks (hp_lead_making.js)
  sources:[{id:id('magic'),revision:1,label:'A source with no method',kind:'trait',origin:'inherited',grants:[],bioDetail:'Something in you sometimes acts on its own. No method is learned, taught or named, and this entry grants no technique.'}],
  starts:[{id:id('start'),locationId:id('cupboard'),
   description:'You are ten, your guardians\' nephew, living in the room under the stairs. It is Saturday morning and your cousin\'s birthday. You hold nothing of your own: no money, no wand.',
@@ -101,14 +102,19 @@ export const hpLeadLessonCommands=(()=>{
   {...base,id:id('lesson_potions'),label:'Attend Potions · 45 min',duration:45,requires:potionsOpen,
    description:'A first-year class in the dungeon: you follow the written steps for a simple draught under the potions master\'s eye. Care and attention raise the chance it comes out right, and each class adds to your Alchemy.',
    outcomes:[
-    {id:'brewed',weight:{fact:'hp.lead.brewChance'},effects:[...lessonEffects({key:id('lesson.potions'),value:'You followed the written steps of a simple draught under the potions master.',situationId:id('situation'),skill:'Alchemy',xp:5}),know('potions_last','Your draught came out the right colour and the master moved on.')]},
-    {id:'spoiled',weight:{fact:'hp.lead.brewChance',scale:-1,add:1},effects:[...lessonEffects({key:id('lesson.potions'),value:'You followed the written steps of a simple draught under the potions master.',situationId:id('situation'),skill:'Alchemy',xp:2}),know('potions_last','Your draught went wrong; the master told you where.')]}]}];
+    {id:'brewed',weight:{fact:'hp.lead.brewChance'},effects:[...hpPotionsIssueEffects,...lessonEffects({key:id('lesson.potions'),value:'You followed the written steps of a simple draught under the potions master.',situationId:id('situation'),skill:'Alchemy',xp:5}),know('potions_last','Your draught came out the right colour and the master moved on.')]},
+    {id:'spoiled',weight:{fact:'hp.lead.brewChance',scale:-1,add:1},effects:[...hpPotionsIssueEffects,...lessonEffects({key:id('lesson.potions'),value:'You followed the written steps of a simple draught under the potions master.',situationId:id('situation'),skill:'Alchemy',xp:2}),know('potions_last','Your draught went wrong; the master told you where.')]}]}];
 })();
 hpLeadLife.simulation.powers=[{id:HP_LEVITATION,revision:1,label:'Levitation charm',model:'practice',capacity:1,cooldown:0}];
 hpLeadLife.simulation.commands.push(...hpLeadLessonCommands);
 export const hpLeadTieCommands=tieOfferCommands(id('world'),{group:'structured_local',worldId:id('world'),actorId:'player',location:id('school_hall'),audience:['$actor'],costs:[],
  duration:30,cancellation:'refund',requires:{all:[...alive.all,{fact:'actor.hp.lead.atSchool',op:'eq',value:true}]},completionRequires:alive,completionCoLocated:true,completionFailure:'refund'});
 hpLeadLife.simulation.commands.push(...hpLeadTieCommands);
+// W1a (proposal, docs/gm/dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md): the Potions class brews on the shared craft engine with HP's own
+// law as data. Default: each class issues one set of ingredients for the board's recipe. Dial: a store cupboard or a bought kit later. Reason: in book 1
+// the class brews in pairs from the board, and the student does not buy the class ingredients.
+export const hpLeadMakingCommands=makingRows.map(c=>({...c,audience:['$actor']})); // structured commands name their observers
+hpLeadLife.simulation.commands.push(...hpLeadMakingCommands);
 hpLeadLife.calendarProfile={id:P+'.calendar',revision:1,algorithmId:'fixed_months',algorithmRevision:1,
  units:{minutesPerHour:60,hoursPerDay:24},months:Array.from({length:12},(_,i)=>({id:String(i+1),days:30})),
  week:['Sat','Sun','Mon','Tue','Wed','Thu','Fri'],precision:'day',evidence:'elapsed play; the book names the Saturday, not a year',

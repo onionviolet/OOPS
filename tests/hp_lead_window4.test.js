@@ -34,8 +34,8 @@ test('G7 and G6: currency and items are checked as data, and merge into the nati
  assert.deepEqual(validateHpLeadCast(pack([act('a')],{items:[{id:'x.y',label:'z'}]})),['items']);
  const before=structuredClone(hpLeadLife),native=withHpLeadCast(hpLeadLife,pack([act('a',{place:`${P}.cupboard`})],{items}));
  assert.deepEqual(hpLeadLife,before,'the public stub is not mutated');
- assert.deepEqual(native.items.map(i=>i.id),[`${P}.thing`]);assert.equal(native.items[0].value,1);
- assert.deepEqual(hpLeadLife.items,[]);
+ assert.deepEqual(native.items.filter(i=>!i.id.startsWith(`${P}.item.`)).map(i=>i.id),[`${P}.thing`]);assert.equal(native.items.find(i=>i.id===`${P}.thing`).value,1); // W1a Potions items sit beside the cast's
+ assert.ok(hpLeadLife.items.every(i=>i.id.startsWith(`${P}.item.`))); // the stub holds only the W1a Potions items
 });
 test('G7: money is per holder; the purse shows only the player\'s own resource and falls back before any exists',()=>{
  const cast={currency:{resource:`${P}.coin`,ladder:LADDER},items:[{id:`${P}.thing`,label:'A particular thing'}]};

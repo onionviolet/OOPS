@@ -4,7 +4,7 @@
 // him without a body. "First" is read from state (the note is absent), never from the duties projection (F6), so a second week, a replayed plan or a
 // retried save writes nothing new. Default: the note keeps the first filing's date; a later consumer that wants the latest week can rewrite it (dial).
 import {applySimulationEffects} from './simulation_effects.js';
-import {wakeCastPerson, LOTM_CAST_SITUATION} from './book_world_lotm_cast_host.js';
+import {wakeCastPerson, castKnown, LOTM_CAST_SITUATION} from './book_world_lotm_cast_host.js';
 import {registerWorldTies, tieEffects} from './person_ties.js';
 import {recurringWindow} from './world_rhythm.js';
 import {LOTM_DUTIES} from './book_world_lotm_duties.js';
@@ -40,7 +40,8 @@ export const expenseTieCycle = minute => recurringWindow(LOTM_DUTIES[0].schedule
 // One tie step per duty cycle. Returns true when it wrote (false without Dunn's body, as above).
 export function tieExpenseFiled(plan, registry) {
     const s = plan?.state;
-    if(!s?.simulation || !Number.isSafeInteger(s.clock) || !registry?.simulation?.people?.has(DUNN_ID)) return false;
+    // X1-G1: a captain the player has not met yet holds no regard for him; the filing still counts for the duty.
+    if(!s?.simulation || !Number.isSafeInteger(s.clock) || !castKnown(s, DUNN_ID) || !registry?.simulation?.people?.has(DUNN_ID)) return false;
     const week = expenseTieCycle(s.clock);
     wakeCastPerson(s, DUNN_ID);
     if(!s.simulation.people[DUNN_ID] || !s.actors?.[DUNN_ID]) return false;

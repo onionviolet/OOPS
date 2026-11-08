@@ -61,13 +61,17 @@ export const levitateChance = mastery => levitateWith(mastery ?? 0, 0);
 // is easier than a first spell, and the skill is the only record of practice (no second counter).
 const brewWith = (xp, bonus) => Math.min(0.95, 0.5 + 0.02 * Math.max(0, xp) + bonus);
 export const brewChance = (xp = 0) => brewWith(xp, 0);
+// W1a: a Cure for Boils handed in by the written steps shows the method is understood. Default: 10 points on the next class. Dial: the size. Reason: the
+// master's approval and the practice both follow a correct flask; a corrosive one teaches the mistake but earns no bonus.
+export const FLASK_BONUS = 0.1;
+const flaskBonus = state => state?.actors?.player?.facts?.['hp.lead.potions.flask'] === 'cure' ? FLASK_BONUS : 0;
 // Facts for the simulation (called from hpFacts for the lead life). Always defined so outcome weights resolve at any time.
 export function hpLessonFacts(state, context = {}) {
     let charms = false, potions = false;
     try { charms = lessonOpen(state, HP_LESSONS.charms); potions = lessonOpen(state, HP_LESSONS.potions); } catch { /* calendar not ready: closed */ }
     return {[HP_LESSONS.charms.fact]: charms, [HP_LESSONS.potions.fact]: potions,
         'hp.lead.levitateChance': levitateWith(powerOf(state)?.mastery ?? 0, hpStudyBonus(state, 'charms')),
-        'hp.lead.brewChance': brewWith(context.gameplay?.player?.skills?.Alchemy?.xp ?? 0, hpStudyBonus(state, 'potions'))};
+        'hp.lead.brewChance': brewWith(context.gameplay?.player?.skills?.Alchemy?.xp ?? 0, hpStudyBonus(state, 'potions') + flaskBonus(state))};
 }
 // Read model for the panel and the status lines. Empty until the player is at school and sorted (so a summer life shows nothing new).
 export const HP_LESSON_CONSTANTS = Object.freeze({CLASS, SLOT, HP_HOUSE_FACT, AT_SCHOOL});

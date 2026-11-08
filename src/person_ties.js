@@ -73,9 +73,10 @@ export function tieOfferView(state) {
     const known = state.simulation?.knowledge?.player || {};
     // A taken offer stays as what was said (the player's own note), so the place it was asked keeps the answer readable.
     return decl.offers.map(o => {
-        if(known[o.note.key]) return {id: o.id, label: o.label, taken: true, said: known[o.note.key].value};
-        const eligible = tieValue(state, decl.people[o.alias], o.kind) >= o.atLeast;
-        return {id: o.id, label: o.label, description: o.description, eligible, reasons: eligible ? [] : [o.blocked]};
+        const personId = decl.people[o.alias];
+        if(known[o.note.key]) return {id: o.id, personId, label: o.label, taken: true, said: known[o.note.key].value};
+        const eligible = tieValue(state, personId, o.kind) >= o.atLeast;
+        return {id: o.id, personId, label: o.label, description: o.description, eligible, reasons: eligible ? [] : [o.blocked]};
     });
 }
 export function tieOfferEffects(state, offerId) {

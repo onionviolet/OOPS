@@ -1,7 +1,7 @@
 # Cross-world systems: task record
 
 ```receipt
-build: bdefe75ca6ff3d916eac3d83fb37f6307b0630ee32f3556b4b0709e8a4f789a7
+build: e90a6fe4988f11ca9ef8c2893a8a326f46f619f6fca37ff4457b508d18887a44
 route: natural
 state: browser-verified
 viewport: 1920x1080
@@ -10,7 +10,7 @@ tests: person_ties 6/6; HP lead, lessons, arrival, people, colleagues, recurring
 review: none
 ```
 
-Receipt notes: X1 (LT8) only. Route "natural" is a fresh origin by earned steps in both lives (scripted native panel clicks, headless). The build is the tree after fix X1-B1, where Klein was walked last (six checks, 0 page errors); the commit-`2933f87e3` tree was walked as bundle `2b1ae547…`. Harry was walked on the previous bundle `5025ccafed13d072…`. The change between the two touched only Klein's display: a taken offer shows what was said, and the cast People rows gained attributed observations. The functions Harry's route uses (`tieEffects`, `tieFacts`, `tieOfferCommands`) did not change.
+Receipt notes: the build is the tree of commit 3 (X1-G1, W1a, W1b), where Harry was walked (X1, W1a, W1b). Klein's last full positive walk was bundle `bdefe75c…` (before the X1-G1 gate). After the gate, Klein's shut path was walked natively on bundle `cdf6029a…`; the open path waits on the W1c fixture. Route "natural" means a fresh origin by earned steps (scripted native panel clicks, headless).
 
 Started 2026-11-07 from the [long-term atlas](../../../audits/PROGRESS_ATLAS_2026-11-07_LONG_TERM.md) (LT1-LT11), in a session started by the progress-atlas session. Owner doc for the method: [cross-world systems transfer pattern](../../../CROSS_WORLD_SYSTEMS_TRANSFER.md) (proposal, AD32).
 
@@ -27,17 +27,18 @@ Cell format: **F / U**. F: `port` (world data through the shared port, no per-wo
 
 | System | Village (reference) | Klein (LOTM) | Harry (HP) | MoL | Gu | Shadow Slave | D&D Phandalin | Paradise | Primordial |
 |---|---|---|---|---|---|---|---|---|---|
-| Procedural crafting | port / floor | thin / - | own / below | own / - | own / - | own / - | own / - | port (process) / - | - / - |
-| Mixtures and discovery | port / floor | - / - | thin / - | - / - | - / - | - / - | - / - | - / - | - / - |
+| Procedural crafting | port / floor | thin / - | **port / floor** (W1a; Polyjuice still own) | own / - | own / - | own / - | own / - | port (process) / - | - / - |
+| Mixtures and discovery | port / floor | - / - | **port / floor** (W1a: order changes the result) | - / - | - / - | - / - | - / - | - / - | - / - |
 | Materials and lineage | port / floor | - / - | own / - | - / - | - / - | thin / - | - / - | port / - | - / - |
 | Gear and runes | port / floor | - / - | - / - | - / - | n/a (Gu are living tools) | own / - | thin / - | thin / - | - / - |
 | Economy and trade | port / floor | own / floor | own / below | own / - | own / - | own / - | - / - | own / - | own / - |
-| Relationships and standing | thin / - | **port / floor** (LT8) | **port / floor** (LT8) | port (people source) / - | - / - | thin / - | - / - | thin / - | - / - |
+| Relationships and standing | thin / - | **port / below** (LT8; X1-G1 gate: the open path after meeting Dunn awaits W1c) | **port / floor** (LT8) | port (people source) / - | - / - | thin / - | - / - | thin / - | - / - |
 | Companions | port / floor | - / - | - / - | - / - | own (living Gu) / - | own (hound shadow) / - | - / - | - / - | - / - |
 | Homes and households | port / floor | thin (rent duty) / - | - / - | thin / - | - / - | - / - | - / - | thin / - | - / - |
 | Heirs and genetics | own / floor | n/a for volume 1 (no heirs in reach) | n/a for book 1 | - / - | - / - | - / - | - / - | - / - | - / - |
 | Gathering and seasons | port / floor | thin (calendar) / - | thin (moon) / - | port (calendar) / - | - / - | - / - | - / - | port / - | thin / - |
 | Research and study | thin / - | thin (records) / - | port (inquiry) / below | own / - | - / - | own / - | - / - | - / - | - / - |
+| Powers (LT2 lowering) | n/a (no casting layer) | - / - (W2b) | **port / below** (W1b; LT2 needs the LOTM caller) | - / - | own (Gu) / - | own / - | own (mending) / - | - / - | - / - |
 
 Notes:
 - "own" cells are the bridging targets (LT7): the world keeps its laws as data and the hand-built runtime retires.
@@ -50,6 +51,9 @@ Notes:
 | ID | Slice | F: new hand code per world | U: route | State |
 |---|---|---|---|---|
 | X1 | LT8 one person record: `person_ties.js` engine (regard as facts, observed notes, tie-gated offers); Klein: Dunn's trust from weekly expense filings opens a talk; Harry: Ron's affection from the Sorting and first Charms opens a talk | Engine: `src/person_ties.js` (new, world-neutral). Klein data: one declaration plus one writer in `book_world_lotm_colleagues.js`, a host verb and a panel row. Harry data: a declaration, two writer calls and a person row in the lead data, plus a Friends section in the lead panel. Per-world hand code is host rendering only: about 10 lines each | Klein: native, fresh origin, Work & merit buttons, a week of native time between filings. Harry: native, fresh origin, 56 household acts, 32 days, train, Sorting, first Charms | **At floor in both lives** (checks below) |
+| X1-G1 | Dunn's regard and talk gated on Klein having met him (the cast `met` key the pack writes at the interview, day 3) | Klein-only gate: three lines in the LOTM host and colleagues file | Shut path walked natively (day 1: no talk shown, a filing earns no regard); open path needs the W1c fixture, because Klein's canon arc moves rooms (the wash step) and the walk driver does not move him yet | **Implemented; shut path native, open path below floor** |
+| W1a | Harry's Potions class on the shared craft engine: HP catalogue (nettles, snake fangs, horned slugs, porcupine quills) and one HP law; two engine-resolved bench brews, by the written steps and with the quills in early; the class issues one set of ingredients; the handed-in cure raises the next Potions chance (10 points) | World data only (`src/hp_lead_making.js`); no engine code. Port finding: `defineCastMaking` passes no ingredient order, so the mistake rides on the process steps, not on `directions` | Native: X1 route, then the next Monday Potions class, brew, hand in | **At floor** |
+| W1b | One shared spell-cast lowering (`src/spell_cast_lowering.js`): a cast becomes an engine-drawn, seeded outcome (works or fizzles) with the fizzle chance as a fact that falls with practice; Harry's levitation charm cast on it, stamina spent either way | World data plus one binding to the power Harry learns in Charms (`src/hp_lead_spells.js`); wand and spoken words unstated, since he has no wand fact at his first lesson | Native: three casts after first Charms (rose, fizzled, rose) | **Harry at floor; LT2 below floor** until a LOTM caller uses the same lowering (W2b) |
 
 ## Checks
 
@@ -60,6 +64,8 @@ Notes:
 | `node --test tests/seam_register.test.js` after adding the `person_ties` row | working tree | pass | |
 | Native walk, Klein: `node scripts/playtest/cross-world-ties.mjs lotm` | bundle `5025ccafed13d072` (working tree), headless Chromium 1920×1080, seed 7 | **pass**: offer shown shut with its reason; week 1 by the duty button gives trust 1 and the observation; seven native days, week 2 gives trust 2; the talk is taken, one note attributed to Dunn, the button gone; Save, reload, Export and Import keep trust 2 and the note; 0 page errors | Superseded by the final run below |
 | Native walk, Harry: `node scripts/playtest/cross-world-ties.mjs hp` | same bundle, seed 11 | **pass**: 56 household acts, 32 native days a day per call, the train and the Sorting by their buttons give Ron affection 1, the talk is shown shut with its reason; 56 native hours to the first Monday Charms, which gives affection 2; the talk is taken, one note attributed to Ron; the People view shows Ron's lines; Save, reload, Export and Import keep affection 2 and the note; 0 page errors | A first run with a 25-minute limit timed out in the wait (no fault) |
+| Native walk, Harry with W1a and W1b: `node scripts/playtest/cross-world-ties.mjs hp` | bundle `e90a6fe4…` | **pass**: the X1 checks plus three casts (rose, fizzled, rose), the Potions class issuing ingredients, both brews open, brewed by the steps and handed in (flask fact `cure`), the early brew shut; Save, reload, Export and Import keep the flask; 0 page errors | |
+| X1-G1 unit test and diagnostic | `tests/person_ties.test.js`; a 40-step headless diagnostic of Klein's arc | the gate reads `book.lotm.cast.met.<Dunn>`; the arc stops at the wash step, which needs a room move | open path waits on W1c |
 | Native walk, Klein, final: same command | bundle `2b1ae547…` (final tree) | **pass**, six checks: the five above plus Dunn's words shown in Work & merit after the talk, and again after Import; 0 page errors | Dunn is absent from the People view until Klein meets him in canon (the expense duty is open from day 1, a design that predates this slice) |
 | Full `npm test` | final tree | 5679 tests: 5677 pass, 0 fail, 2 skipped | |
 | `npm run check:rules` | final tree | pass (receipts, direction sync, player text 0 new, names, continuity) | |

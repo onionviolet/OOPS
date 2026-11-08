@@ -7,7 +7,7 @@ import {channelNote} from './channels.js';
 import {commitCastAbility} from './cast_ability_adapter.js';
 import {runWaitUntil} from './wait_until.js';
 import {castRecordCommands,castRecordOffers,castAbilityCommands,castAbilityOffers,castActCommands,castActOffers,castBodyCommands,castBodyOffers,castExchangeCommands,castExchangeOffers,castInferenceCommands,castInferenceOffers,castMakingCommands,castMakingOffers,castDivinationCommands,castDivinationOffers,castJourneyCommands,castJourneyOffers,castJourneyContext,castTopicOffers,castObjectOffers,castObjectCommands,castWaitOptions,nextCastBeatTime,currentCastBeatLedger} from './book_world_lotm_cast_host.js';
-import {persistLotmCastPlan,castBeatsPending,castSyncDue,installCast,castElsewhere,castCalendar,castLocalClock,castAvailable,castPlaces,castMoves,castPlaceLabel,castWalkId,castWalkCommands,installCastWalk,lotmBe,lotmCastLife,syncLotmCast,castTalkCommands,castTalkPreview,canonActionDecision,castWriteCode,castRevisionReport} from './book_world_lotm_cast_host.js';
+import {castKnown,persistLotmCastPlan,castBeatsPending,castSyncDue,installCast,castElsewhere,castCalendar,castLocalClock,castAvailable,castPlaces,castMoves,castPlaceLabel,castWalkId,castWalkCommands,installCastWalk,lotmBe,lotmCastLife,syncLotmCast,castTalkCommands,castTalkPreview,canonActionDecision,castWriteCode,castRevisionReport} from './book_world_lotm_cast_host.js';
 // Native host for the early-Tingen Seer slice (LIP3/LIP4). One authority per fact (AR3):
 // state.lotm and the simulation own the branch, the supervisor's native inventory owns the
 // finite stock, native sleep is joined to book.lotm.sleep (D4). The caller supplies ports;
@@ -322,7 +322,8 @@ export function createLotmHost(ports){
  }
  // LT8: a tie-gated conversation (person_ties offers). One save; the note is attributed to the person, so People and the Notebook show it.
  function tieAsk(id){
-  writable();const s=state(),plan=base(s,ports.context());
+  writable();const s=state(),plan=base(s,ports.context()),row=tieOfferView(s).find(o=>o.id===id);
+  assert(row&&castKnown(s,row.personId),'You have not met them yet.');
   applySimulationEffects(plan,tieOfferEffects(s,id),{actorId:'player'},registry,id);persist(plan);
  }
  function collectGuardPay(){
@@ -368,7 +369,7 @@ export function createLotmHost(ports){
    const records=[...Object.entries(know).filter(([k])=>k.startsWith('book.lotm.history.')).map(([id,r])=>({id,text:r.value,at:r.at})),...placeActRecords(s,pack?.householdActs),...topicTalkRecords(s,castTalkCommands)];
    const region=lotmRegionAt(s.simulation.people.player.location,{hour:castCalendar(s).calendar.hour,money:nativeContext.external?.money??0,restrictions:lotmRestrictions({state:s,days:getPrivateLotmCast()?.bindings?.days||[]})});
    const sheets=lotmSheetsFor(s,getPrivateLotmCast(),Object.keys(know).map(k=>/^book\.lotm\.cast\.(?:known|met)\.(.+)$/.exec(k)?.[1]).filter(Boolean));
-   return {enrolled:true,resident:true,tieOffers:tieOfferView(s),altarRites:rites,arc:placeActSequenceView(s,pack?.householdActs),remoteMeetings:remotePresenceView(s,pack?.householdActs),stockViews:placeStockViews(s,pack?.householdActs),runMode:s.lotm.runMode,entryProfile:s.lotm.entryProfile,at:castPlaceLabel(at),localClock:castClockLine(s),sky:skyLine(s),sleeping:ports.sleeping(),meters:[],places,moves,actions,journeys,topicTalks,objectActs,bodyCare,making,sealedRecords,exchanges,divinations,inferences,abilityConflicts,sheets,region,waits:waits(s),elsewhere:castElsewhere(s),jobs,records};
+   return {enrolled:true,resident:true,tieOffers:tieOfferView(s).filter(o=>castKnown(s,o.personId)),altarRites:rites,arc:placeActSequenceView(s,pack?.householdActs),remoteMeetings:remotePresenceView(s,pack?.householdActs),stockViews:placeStockViews(s,pack?.householdActs),runMode:s.lotm.runMode,entryProfile:s.lotm.entryProfile,at:castPlaceLabel(at),localClock:castClockLine(s),sky:skyLine(s),sleeping:ports.sleeping(),meters:[],places,moves,actions,journeys,topicTalks,objectActs,bodyCare,making,sealedRecords,exchanges,divinations,inferences,abilityConflicts,sheets,region,waits:waits(s),elsewhere:castElsewhere(s),jobs,records};
   }
   const actions=[],actingGuidance=[];
   const path=lotmPathView(s,f),actingCrossing=path.crossings.find(x=>x.id==='acting');
