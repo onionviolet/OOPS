@@ -393,3 +393,11 @@ Weibao asked:
 > Player also cant physically die from hunger, which has to count for something right? other stuff and more? We can create a shop that sells something in demand? Other aspects to consider? We need to create enviorments to farm things, both like creaturs to kill or like actually farm to create some sort of economy? Would we have a endless basement of rats or something? more to consider?
 
 Recorded as ideas and questions, not accepted decisions (AD32): XC19 (hunger can't kill the player by default and still costs), XC20 (a shop that reads demand), XC21 (productive places that renew by cause) and XC22 (a rat cellar with a cause), with XM34-XM40, in the [long-term atlas](../audits/PROGRESS_ATLAS_2026-11-07_LONG_TERM.md#hunger-that-doesnt-kill-shops-productive-places-and-the-rat-cellar-2026-11-08).
+
+## 2026-11-08: simple selling and a grind spot in every world
+
+Weibao asked:
+
+> For selling, cant we just find a bazarr or a npc to sell things to> more to consider? Other aspects? XC21, how to consider accordingly? we need something in each world to grind in, endless mining for endless mining, enldess, or well, combat that continues for a certain point? more to cnsidr? consider how YAIR or proto23 or otherd handle these? Some stuff can just remain simple, consider hwaat is theb est way to go about these?
+
+Recorded as direction that some systems stay simple ("Some stuff can just remain simple"), and as ideas and questions, not accepted decisions (AD32): XC23 (sell to ordinary buyers on YAIR's trader shape), XC24 (a grind spot in every world, with returns that fade) and XC25 (simple by default, depth when pulled), with XM41-XM46, in the [long-term atlas](../audits/PROGRESS_ATLAS_2026-11-07_LONG_TERM.md#simple-first-sell-to-anyone-a-grind-spot-in-every-world-2026-11-08).
