@@ -351,3 +351,13 @@ The cross-world systems session walked Harry's library study and found that cast
 > dont forget the core rules after all
 
 Recorded direction: every cast on the shared spell lowering adds practice, whether it works or fizzles. Harry's charm gains mastery from it and Klein's Seer faculty gains development. Classes, digestion through acting and other world laws keep working beside it; use is one growth route among several, not a replacement. "The core rules" is read as AD38 (things work by how they work) and AD5 (default, dial and reason), so the amount per cast is a dial and each world keeps its own stated law. The detail lives in `src/spell_cast_lowering.js` and its two callers; the [cross-world record](dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md) has the slice. All of it is proposal under AD32 except his stated direction.
+
+## Story walks calibrate the systems, and more crafting, reputation and homes, 2026-11-08
+
+After the cross-world systems session's first waves, the coordinating chat reported what the session had built: shared ties, crafting, a home read side and a casting layer in Klein's and Harry's lives, plus its survey finding that the home engine's catalogues are hard-wired to the Village. Weibao asked:
+
+> potioncrafting and different types of crrafting? Reputation system? Buying house from the landlord, other aspects and more? Should relationships be visible earlier? it doesnt have to change earlier, dont forget for the story walks we build the system to make it retroactively match the events that happen, which in a way fine tunes it? More to consider? /reconcile-project so these ideas and current progress arent lost?
+
+Recorded direction: story walks are calibration. Systems are built and tuned so that their natural outcomes reproduce the events the canon route walks through, such as Dunn's growing trust or Ron's friendship. This applies AD49 (lore anchors, calibrated systems) to events and relationships as well as numbers; it is not a new rule. A system may be visible before it changes anything: showing a tie from the first meeting does not mean the tie must move earlier than canon moves it.
+
+Recorded as ideas and questions, not accepted decisions (AD32): potion crafting in depth and other kinds of crafting; one reputation system; buying a house from the landlord and other parts of home life; whether relationships should show earlier. The agent's answers and a more-to-consider round are in the [long-term atlas](../audits/PROGRESS_ATLAS_2026-11-07_LONG_TERM.md#weibaos-2026-11-08-ideas-reconciled), and the cross-world systems session ([record](dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md)) has them for its wave plan.
