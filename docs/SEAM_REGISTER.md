@@ -17,8 +17,8 @@ Only two seams have a cited receipt today: `ready_stock` (fixture route, LOTM, f
 | World families importing (direct) | Seams | Which |
 |---|---|---|
 | 0 | 10 | check_contract, conflict_frame, tempo_fight, faction_rank, law_case, life_events, home_building_model, research_*, ability_ladders, effect_dsl |
-| 1 | 16 | notch_contest, recurring_duties, teacher_window, travel_legs, world_light, people_knowledge, constraint_store, world_events, storylet_deck, institution_access, owed_ledger_sources, structured_ability_runtime, cast_* adapters, ability_records, lore_history_state, combat_math |
-| 2+ | 12 | ready_stock, own_holdings, lesson, people_sources, harm_state, world_rhythm, cast_schedule, seeded_streams, institution_store, world_calendar, material_lineage, person_ties |
+| 1 | 15 | notch_contest, recurring_duties, teacher_window, travel_legs, world_light, people_knowledge, constraint_store, world_events, storylet_deck, institution_access, owed_ledger_sources, structured_ability_runtime, ability_records, lore_history_state, combat_math |
+| 2+ | 14 | ready_stock, own_holdings, lesson, people_sources, harm_state, world_rhythm, cast_schedule, seeded_streams, institution_store, world_calendar, cast_* adapters, material_lineage, spell_cast_lowering, person_ties |
 
 | Seam | Purpose | src importers | tests / scripts | Shared importers | World families (importer files) | Families | Proof state | Receipt |
 |---|---|---|---|---|---|---|---|---|
@@ -37,7 +37,7 @@ Only two seams have a cited receipt today: `ready_stock` (fixture route, LOTM, f
 | conflict_frame | Shared frame for an encounter and its grains | 5 | 0 / 0 | 5 | none | 0 | unknown | none cited |
 | tempo_fight | Tempo fight engine, contract and domain | 3 | 23 / 1 | 3 | none | 0 | one-world route | `docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/P4_TEMPO_CHECKPOINT.md` |
 | harm_state | Harm ladder and wounds | 9 | 5 / 0 | 7 | lotm 1, village 1 | 2 | unknown | none cited |
-| world_rhythm | World clock rhythm and seasons | 31 | 6 / 7 | 25 | hp 2, proto23 2, lotm 1, primordial 1 | 4 | unknown | none cited |
+| world_rhythm | World clock rhythm and seasons | 32 | 6 / 7 | 25 | hp 2, lotm 2, proto23 2, primordial 1 | 4 | unknown | none cited |
 | cast_schedule | Where the cast is by hour | 5 | 6 / 1 | 1 | lotm 2, mol 1, village 1 | 3 | unknown | none cited |
 | world_events | Dated world events and who knows them | 9 | 10 / 1 | 7 | lotm 2 | 1 | unknown | none cited |
 | storylet_deck | Storylet draw and gating | 4 | 3 / 1 | 3 | village 1 | 1 | unknown | none cited |
@@ -54,11 +54,12 @@ Only two seams have a cited receipt today: `ready_stock` (fixture route, LOTM, f
 | ability_ladders | Ability ladders | 2 | 1 / 0 | 2 | none | 0 | unknown | none cited |
 | effect_dsl | Effect description language (inert by ABR4) | 1 | 1 / 0 | 1 | none | 0 | unknown | none cited |
 | world_calendar | Per-world calendar | 10 | 8 / 0 | 4 | hp 2, paradise 2, mol 1, village 1 | 4 | unknown | none cited |
-| cast_* adapters | Adapters that give cast members shared mechanisms | 2 | 14 / 1 | 0 | lotm 2 | 1 | unknown | none cited |
+| cast_* adapters | Adapters that give cast members shared mechanisms | 3 | 15 / 1 | 0 | lotm 2, hp 1 | 2 | unknown | none cited |
 | ability_records | Ability records | 4 | 4 / 0 | 3 | lotm 1 | 1 | unknown | none cited |
 | material_lineage | Where a material came from | 14 | 6 / 0 | 10 | paradise 2, hp 1, mistglass 1 | 3 | unknown | none cited |
 | lore_history_state | Lore and history knowledge state | 9 | 7 / 0 | 8 | mistglass 1 | 1 | unknown | none cited |
 | combat_math | Shared combat arithmetic | 13 | 7 / 0 | 11 | village 2 | 1 | unknown | none cited |
+| spell_cast_lowering | Casts lowered to native commands: a seeded works-or-fizzles outcome where a world has a failure chance (LT2) | 2 | 2 / 0 | 0 | hp 1, lotm 1 | 2 | two-world route | `docs/gm/dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md` |
 | person_ties | Ties on the one person record: regard as rule facts, observed notes, tie-gated offers (LT8) | 4 | 1 / 0 | 1 | lotm 2, hp 1 | 2 | two-world route | `docs/gm/dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md` |
 
 One hop through shared adapters: not computed (lane H marked those rows inferred but defined no rule). Receipt column shows the first cited path only; full locators are in `PROOF` in `scripts/seam_register.mjs`.

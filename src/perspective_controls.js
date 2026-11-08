@@ -108,6 +108,7 @@ const rows = [
     ['library', 'in-world', 'The reading-room study this character can do or has done.'],
     ['skills', 'in-world', 'The skills this character has used and the kind of power each is.'],
     ['groups', 'in-world', 'The groups this character belongs to, as this life knows them.'],
+    ['powers', 'in-world', 'The powers this character can use now and what each costs.'],
     ['home', 'in-world', 'This character\u2019s home: who lives there, the rent and what is kept there.'],
   ].map(([token, tag, basis]) => ({id: `lotm.data-${token}`, kind: 'panel-block', anchor: `[data-lotm-${token}]`, tag, basis})),
   {id: 'lotm.data-command-control', kind: 'panel-block', anchor: '[data-lotm]', tag: 'in-world', basis: 'A command or formula selector for the current character.'},

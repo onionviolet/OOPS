@@ -327,6 +327,8 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
    for(const a of v.inferences)thoughts.append(node('p',`${a.chainLabel}: ${a.description} ${a.costText}`),row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))),...(a.record?[node('p',a.record)]:[]),...(a.status?[node('p',`Your intention: ${a.status}`)]:[]),...(!a.eligible?[node('p',a.reasons.join(' '))]:[]));
    actions.append(thoughts);
   }
+  // W2b: powers on the shared spell lowering; a shut one says why (UR70-UR75).
+  if(v.powers?.length){const pw=node('div');pw.dataset.lotmPowers='';pw.append(node('h3','Powers'));for(const a of v.powers)pw.append(row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))),...(a.description?[node('p',a.description)]:[]),...(!a.eligible&&a.reasons.length?[node('p',a.reasons.join(' '))]:[]));actions.append(pw);}
   if(v.abilityConflicts?.length){
    const encounter=node('details');encounter.dataset.lotmAbilityConflicts='';encounter.dataset.perspective='player';encounter.append(node('summary','Encounters · Your encounter'));
    for(const a of v.abilityConflicts)encounter.append(node('p',`${a.encounterLabel}: ${a.description} ${a.costText}`),row(button(a.label,a.id,()=>run(()=>act(a.id),''),!a.eligible,a.reasons.join(' '))),...(a.record?[node('p',a.record)]:[]),...(!a.eligible?[node('p',a.reasons.join(' '))]:[]));

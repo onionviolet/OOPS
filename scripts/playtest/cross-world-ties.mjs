@@ -184,9 +184,40 @@ async function walkHp() {
     return r;
 }
 
+
+// W2b: from the native Seer fixture (scripts/playtest/klein-to-seer.mjs), Klein opens his Spirit Vision by its button on the shared spell
+// lowering: spirituality is spent, the vision opens, the button shuts while it is open, and Save, reload, Export and Import keep it.
+async function walkLotmSeer() {
+    const seed = JSON.parse(await readFile(process.env.KLEIN_SEER, 'utf8'));
+    const s = new Session({url: server.url, seed: 7, wall: Date.UTC(2026, 10, 7), opTimeout: 20000}), r = {checks: [], fixture: 'klein-seer (scripts/playtest/klein-to-seer.mjs, native)'};
+    await s.start(); await s.open(seed); const p = s.page, ID = 'book.lotm.be.sp.use.spirit_vision', BTN = `[data-lotm="${ID}"]`, POOL = 'book.lotm.be_spirituality';
+    const here = async () => {await panel(p, 'lotm'); await p.locator('[data-workroom-tabs] button').filter({hasText: /^Here$/}).first().click(); await p.waitForTimeout(250);};
+    const reserve = st => st.simulation.energies?.player?.[POOL]?.reserve;
+    try {
+        await here();
+        assert.equal(await p.locator(BTN).isDisabled(), false, 'the Spirit Vision power is offered after the potion');
+        const before = reserve(await snap(p));
+        await p.locator(BTN).click(); await p.waitForTimeout(300);
+        for(let k = 0; k < 20 && (await p.evaluate(() => simulationTestHooks.project('lotm').jobs.length)); k++) await s.step(10);
+        await here();
+        const st = await snap(p), after = reserve(st);
+        assert.ok(after < before, `spirituality spent (${before} -> ${after})`);
+        r.checks.push(`Open your Spirit Vision by its button: spirituality ${before} -> ${after}`);
+        assert.equal(await p.locator(BTN).isDisabled(), true); r.shutReason = (await p.locator('[data-lotm-powers]').innerText()).length > 0;
+        r.checks.push('while the vision is open the power is shown shut');
+        const {afterReload, afterImport} = await roundTrip(s, here);
+        for(const x of [afterReload, afterImport]) assert.equal(reserve(x), after);
+        r.checks.push('save, reload, Export and Import keep the spent spirituality');
+        r.errors = s.errors.length; assert.equal(s.errors.length, 0, JSON.stringify(s.errors.slice(0, 3))); r.ok = true;
+    } catch(e) {r.ok = false; r.error = String(e.stack || e).slice(0, 1200); r.errors = s.errors.slice(0, 5); await p.screenshot({path: join(out, 'seer-fail.png')}).catch(() => {});}
+    finally {await s.close();}
+    return r;
+}
+
 try {
-    if(which !== 'hp') receipt.runs.lotm = await walkLotm();
-    if(which !== 'lotm') receipt.runs.hp = await walkHp();
+    if(which === 'seer') receipt.runs.seer = await walkLotmSeer();
+    else if(which !== 'hp') receipt.runs.lotm = await walkLotm();
+    if(which !== 'lotm' && which !== 'seer') receipt.runs.hp = await walkHp();
 } finally {server.close(); await bundle.dispose();}
 await writeFile(join(out, 'receipt.json'), JSON.stringify(receipt, null, 1));
 console.log(JSON.stringify(receipt, null, 1));
