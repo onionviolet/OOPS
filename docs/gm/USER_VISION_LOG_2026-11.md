@@ -440,3 +440,11 @@ Weibao asked:
 > how can we consider each idea? commit and push too, what to be done next?
 
 Recorded: the idea register in the [long-term atlas](../audits/PROGRESS_ATLAS_2026-11-07_LONG_TERM.md#how-each-idea-gets-considered-the-idea-register-2026-11-08) sorts XC1-XC31 into built, next, simple layer, method and logged bins, with a proposed next order N1-N4. "commit and push too" authorized committing the finished wave-3 work (d9d8d21be) and pushing this round.
+
+## 2026-11-08: expanding wave 3
+
+Weibao asked:
+
+> What can we do to expand wave 3? other procedural stystems and stuff?
+
+Recorded as ideas, not accepted decisions (AD32): W3X1-W3X8 widen the wave-3 engines into playable rows, and W3X9-W3X14 add procedural systems built on them (commissions, investigations, classes and exams, grind encounters, daily schedules, item identity), in the [long-term atlas](../audits/PROGRESS_ATLAS_2026-11-07_LONG_TERM.md#expanding-wave-3-more-callers-and-more-procedural-systems-2026-11-08).

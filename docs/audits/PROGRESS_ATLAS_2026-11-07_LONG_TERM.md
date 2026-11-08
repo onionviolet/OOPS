@@ -465,3 +465,35 @@ Status read on 2026-11-08 from the cross-world record and `src/` names; "built" 
 | N2 | Klein's grind slice: steady guard shifts, a firearm range, divination drills with XC16 strain, a Tingen pawnshop | LOTM first; the first lead caller for four ideas at once |
 | N3 | Norms and age slice (SKIT4, SKIT9) with the first-year skinning act | Tests the society kit at its smallest, on Harry |
 | N4 | Decide kjw22's mechanisms (AT34), then resume Klein's story windows | Story-led waves resume on finished engines |
+
+## Expanding wave 3: more callers and more procedural systems (2026-11-08)
+
+Weibao, 2026-11-08: "What can we do to expand wave 3? other procedural stystems and stuff?"
+
+What wave 3 left (from its [task record](../gm/dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md#wave-3-engine-completion-2026-11-08-current) and [source shapes](../gm/dispatch/cross-world-systems-2026-11-07/SOURCE_SHAPES.md)): the engines compile all 26 indexed HP1 spell tasks and nine LOTM divination methods as contract tests, but only four powers, two makings, two tie consumers and two homes are playable. So expansion runs two ways: **widen** (turn compiled shapes into playable rows) and **build on** (new procedural systems that are mostly compositions of the wave-3 engines). Existing seams named below were listed from `src/` (`story_requests`, `storylet_deck`, `npc_schedule`, `encounter_content`, `lesson`, `book_world_hp_lessons`, `craft_item_name`); their depth was not re-read. Proposals, not accepted decisions (AD32).
+
+**Widen the engines.**
+
+| Code | Engine | Expansion | Caller |
+|---|---|---|---|
+| W3X1 | Powers grammar | Promote compiled shapes to playable rows: Harry's first-year charms in class order, Klein's divination methods (each a prepare, rite, attempt, interpret procedure). Bulk rows come from the census (XM10) with an outlier report, so most need no hand tuning | Harry's Charms class, Klein's drills (XC24 G3) |
+| W3X2 | Powers grammar | Pool limits (XC16) and player-composed variants: a known part swapped for another known part, priced by the grammar and learned by research or practice | Klein's spirituality; Harry's practice room (H1) |
+| W3X3 | Procedure layer | More rites and makings as procedures: LOTM rites from the census, more potions in Harry's class order, Polyjuice later; cooking and first aid as ordinary procedures (XC9, medicine first) | Potions class, Tingen injuries, the hospital wing |
+| W3X4 | Procedure layer | Standing procedures with upkeep (MG2) and plan-before-make (MG7) | Wards and long rites; the Potions bench |
+| W3X5 | Shared traits | Appraisal writes observations of hidden traits (XM16), so an ingredient's traits are learned, and generic trait-based brewing reaches the lead worlds | Neil's lessons, Snape's class |
+| W3X6 | Reputation view | More audiences: institutions (the Nighthawks, Hogwarts houses with house points as standing), districts and the norms table (SKIT4) as the judge | The norms slice (N3) |
+| W3X7 | Ties | Second tie shapes: rivalry (Draco), mentorship (Dunn, a teacher), friendship that grows from shared acts; free-play tie sources (gifts, help, shared work, XM5) | Harry's W7, Klein's team |
+| W3X8 | Homes | Rooms with functions (a workshop, a shop counter for XC20, storage with count and kind caps, MG14), and renovation as a procedure | Klein's flat, Harry's trunk |
+
+**New procedural systems built on the engines.**
+
+| Code | System | Composition | Why it pays |
+|---|---|---|---|
+| W3X9 | **Commissions** | A generated request from someone's need (`story_requests`, MG13 request chains) names a product or service, a deadline and a pay; doing it runs a making or procedure, delivery moves a tie and an audience's view | One system feeds grind (XC24), selling (XC23), ties and reputation at once; works in every world with its own requesters |
+| W3X10 | **Investigations** | A case is a procedure whose conditions are clues: gather (inquiry, divination), connect, confront. Clues are observer knowledge, so a case can be half-solved and resumed | Klein's whole job; the Nighthawks' cases are its canon caller |
+| W3X11 | **Classes and exams** | A school term as a procedure: lessons (`lesson`, `book_world_hp_lessons`), homework, practice, and end-of-year exams that grade the spells and potions you can actually do | Harry's school year end to end |
+| W3X12 | **Encounters in grind spots** | Level-banded encounter tables (`encounter_content`, Proto23's profiles) plus storylet cards drawn while grinding (XM45) | Keeps XC24's loops alive without new engines |
+| W3X13 | **Daily life schedules** | People keep routines (`npc_schedule`, `cast_schedule`) that put them where a commission, a case or a meeting can find them | Makes commissions and investigations land on real places and times |
+| W3X14 | **Item identity** | Crafted items carry a maker, a lineage and a generated name (`craft_item_name`, material lineage), so a gift, a sold potion or a found relic has a history someone can recognise (XM4) | Crafting feeds ties and reputation as items, not numbers |
+
+**Suggested picks (proposals).** W3X9 commissions first, since it joins the most systems and runs in both lead worlds; then W3X10 investigations for Klein and W3X11 classes for Harry, which are the two leads' daily lives; W3X1 widening runs alongside as bulk rows from the census. Each is one slice at floor, after N1 (the app rebuild).
