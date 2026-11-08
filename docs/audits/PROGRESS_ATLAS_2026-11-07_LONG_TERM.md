@@ -435,3 +435,33 @@ The first slice that tests the whole kit is small: SKIT4 norms plus SKIT9 age, w
 | XM56 | LATER (medium) | Servitude and rights carry weight: house-elves in HP, indentured or bound servants elsewhere. They are people with their own views and norms, and changing their status is a story with costs, not a toggle | One bound servant whose view of their own status differs from the household's |
 | XM57 | LATER (medium) | Cultural fluency: a wizard bungles Muggle money, a Muggle-born misses wizarding customs. Fluency per culture is a skill that grows with exposure, and a gap shows as small mistakes, not a block | A first visit to the other side costs a small mistake that practice removes |
 | XM58 | LATER (small) | Passing as one of them (disguise, borrowed status, a false ID) uses perception and records: it holds until someone with the means checks | A disguise that passes one audience and fails a better-informed one |
+
+## How each idea gets considered: the idea register (2026-11-08)
+
+Weibao, 2026-11-08: "how can we consider each idea? commit and push too, what to be done next?"
+
+**Method.** Every XC idea passes the same four questions, in order, and lands in one bin. XM rows already carry a level and a done check; MG rows carry an owner and a puller, so they follow the same bins.
+
+1. Is it already built? Then it needs a walk at floor, not more design.
+2. Does a lead caller or a source row pull it now (D-E)? Then it is next.
+3. Does a simple layer already exist (XC25)? Then it ships simple and waits for depth.
+4. Otherwise it is logged with its expected puller, and nothing about it is closed (Weibao, 2026-11-08: "it shouldnt limti any future prospects").
+
+Status read on 2026-11-08 from the cross-world record and `src/` names; "built" means implemented and agent-verified, not human-reviewed.
+
+| Bin | Ideas | Note |
+|---|---|---|
+| Built (wave 3, committed d9d8d21be) | XC2 reputation view, XC3 house purchase terms, XC4 ties visible from meeting, XC7 procedure layer, XC8 shared traits vocabulary; XC1 and XC6 in part (Seer brew, Potions bench) | Polyjuice and the Sequence-5 rite are later content on the same layer |
+| Next, a lead caller pulls it | XC16 pool limits (Klein's divination drills), XC23 simple selling (a Tingen pawnshop), XC24 grind spots (Klein G1-G4, then Harry H1-H4), XC30 society kit first slice (SKIT4 norms and SKIT9 age), with XC26 and XC29 as its test act | One slice each, at floor, LOTM first |
+| Simple layer exists, depth waits | XC21 renewing places (`gathering_model` sites), XC22 the rat cellar (YAIR's cave), XC19 hunger (default-off, non-lethal), XC20 shops (traders exist; the player's own shop waits) | Ship as is; deepen when pulled |
+| Method, applied in every slice | XC5 calibration by story walks, XC17 the player's difference as method, XC25 simple by default | Not features; each slice records how it applied them |
+| Logged with an expected puller | XC9 other domains (medicine via the hospital wing), XC10 layered law, XC11 education, XC12 general research, XC13 exotic materials, XC14 research payouts, XC15 research map, XC18 tiers and automation, XC27 era and institutions beyond the first slice, XC28 the veil (Harry's Muggle side), XC31 mundane people | Each names its puller in its own row |
+
+**Suggested next order (proposals).**
+
+| Code | Step | Why now |
+|---|---|---|
+| N1 | Rebuild and install the app (AT36) | Wave 3 is committed but not in the app Weibao plays |
+| N2 | Klein's grind slice: steady guard shifts, a firearm range, divination drills with XC16 strain, a Tingen pawnshop | LOTM first; the first lead caller for four ideas at once |
+| N3 | Norms and age slice (SKIT4, SKIT9) with the first-year skinning act | Tests the society kit at its smallest, on Harry |
+| N4 | Decide kjw22's mechanisms (AT34), then resume Klein's story windows | Story-led waves resume on finished engines |

@@ -432,3 +432,11 @@ Weibao asked:
 > Children can do that but might be frowned upon, what should we do for a comprehensive society kit? More to consider? Muggle living in magic societty? other aspects to conisder?
 
 Recorded as direction that a child may do such acts and meet disapproval rather than a block. Recorded as ideas and questions, not accepted decisions (AD32): XC29 (frowned upon as norms), XC30 (a ten-layer society kit, SKIT1-SKIT10, with norms and age as the first slice) and XC31 (mundane people in a magical society), with XM53-XM58, in the [long-term atlas](../audits/PROGRESS_ATLAS_2026-11-07_LONG_TERM.md#a-comprehensive-society-kit-norms-and-mundane-people-in-magical-societies-2026-11-08).
+
+## 2026-11-08: how each idea gets considered
+
+Weibao asked:
+
+> how can we consider each idea? commit and push too, what to be done next?
+
+Recorded: the idea register in the [long-term atlas](../audits/PROGRESS_ATLAS_2026-11-07_LONG_TERM.md#how-each-idea-gets-considered-the-idea-register-2026-11-08) sorts XC1-XC31 into built, next, simple layer, method and logged bins, with a proposed next order N1-N4. "commit and push too" authorized committing the finished wave-3 work (d9d8d21be) and pushing this round.
