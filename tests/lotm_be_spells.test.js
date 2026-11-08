@@ -12,7 +12,7 @@ const [cmd] = lotmBeSpellCommands;
 const base = {'actor.life': 'alive', 'lotm.beSeer.supported': true, [`condition.${BE_SPIRIT_VISION}`]: 0, [`condition.${BE_SPIRIT_EXHAUSTION}`]: 0};
 
 test('the same lowering gives two worlds different laws: LOTM stays plain, Harry gets outcomes', () => {
-    assert.equal(lotmBeSpellCommands.length, 1);
+    assert.equal(lotmBeSpellCommands.length, 2);
     assert.equal(lotmBeSpellSet.spells.spirit_vision.failure.chance, null);
     assert.ok(cmd.effects && !cmd.outcomes, 'no fizzle: LOTM states no failure number');
     assert.deepEqual(lotmBeSpellFacts({simulation: {powers: {player: {}}}}), {});

@@ -21,7 +21,7 @@ export function renderHomeView(node, model, {onSelect = null, onOpenHomes = null
     };
     if (model.empty) { node.append(el('p', 'home-view-empty', model.empty)); return; }
 
-    if (model.homes.length > 1) {
+    if (onSelect && model.homes.length > 1) {
         const bar = el('div', 'home-view-switch', undefined, {role: 'group', 'aria-label': 'Choose a home'});
         for (const h of model.homes) {
             const b = el('button', 'home-view-home', `${h.name}${h.here ? ' · here' : ''}${h.main ? ' · main' : ''}`, {type: 'button', 'data-home-id': h.id, 'aria-pressed': String(h.id === model.id)});
@@ -33,7 +33,7 @@ export function renderHomeView(node, model, {onSelect = null, onOpenHomes = null
 
     const head = model.header;
     node.append(el('h3', 'home-view-name', head.name),
-        el('p', 'home-view-glance', `${head.tenure} · ${head.comfort.label} · ${head.where}${head.usable ? '' : ' Services are unavailable to this body right now.'}`, {'data-home-glance': ''}));
+        el('p', 'home-view-glance', `${head.tenure} · ${head.comfort?.label || 'Comfort not assessed'} · ${head.where}${head.usable ? '' : ' Services are unavailable to this body right now.'}`, {'data-home-glance': ''}));
 
     if (model.next.length) {
         const list = el('ul', 'home-view-next', undefined, {'aria-label': 'What to do next'});
@@ -44,12 +44,13 @@ export function renderHomeView(node, model, {onSelect = null, onOpenHomes = null
     const spec = homeFigureSpec(model);
     const strip = el('div', 'home-view-strip', undefined, {'data-home-strip': ''});
     node.append(strip);
-    renderFigure(strip, spec, {idPrefix: `${idPrefix}_${model.id}`});
+    if(spec) renderFigure(strip, spec, {idPrefix: `${idPrefix}_${model.id}`});
 
     const section = (title, attr) => { const s = el('section', 'home-view-section', undefined, {'data-home-section': attr}); s.append(el('h4', 'home-view-heading', title)); node.append(s); return s; };
     const meterRow = (parent, row, extra = {}) => {
         const line = el('div', `home-view-meter-row${row.warn ? ' home-view-warn' : ''}`, undefined, {'data-meter': row.id});
         line.append(el('span', 'home-view-meter-label', row.label));
+        if(!Number.isFinite(row.max) || row.max <= 0 || !Number.isFinite(row.value)) { line.append(el('span', 'home-view-meter-words', row.words)); parent.append(line); return; }
         const m = el('meter', 'home-view-meter', undefined, {min: 0, max: row.max, value: row.value, 'aria-label': `${row.label}: ${row.words}`, ...extra});
         line.append(m, el('span', 'home-view-meter-words', `${row.warn ? '! ' : ''}${row.words}`));
         parent.append(line);
@@ -59,7 +60,7 @@ export function renderHomeView(node, model, {onSelect = null, onOpenHomes = null
     if (model.upkeep.length) for (const r of model.upkeep) meterRow(upkeep, r);
     else upkeep.append(el('p', 'home-view-note', 'This home keeps no structural wear of its own.'));
     meterRow(upkeep, {id: 'storage', label: 'Storage', value: model.storage.used, max: model.storage.cap, words: model.storage.words, warn: model.storage.warn});
-    upkeep.append(el('p', 'home-view-note', model.weather.words, {'data-weather': model.weather.raining ? 'rain' : 'dry'}));
+    upkeep.append(el('p', 'home-view-note', model.weather?.words || 'Weather not recorded here.', {'data-weather': model.weather?.raining ? 'rain' : 'dry'}));
 
     if (model.construction.length || model.sites.length) {
         const work = section('Construction', 'construction');
@@ -71,6 +72,7 @@ export function renderHomeView(node, model, {onSelect = null, onOpenHomes = null
     if (model.household.length) for (const r of model.household) who.append(el('p', 'home-view-line', r.text, {'data-household': r.id}));
     else who.append(el('p', 'home-view-note', 'Nobody else lives or works here.'));
 
+    if(!onOpenHomes) return;
     const foot = el('p', 'home-view-foot');
     const open = el('button', 'home-view-open', 'Open Homes to change anything', {type: 'button', 'data-open-homes': ''});
     open.addEventListener('click', () => { if (onOpenHomes) onOpenHomes(); });

@@ -65,3 +65,52 @@ test('a world names its own money in the engine\u2019s refusals; the Village kee
     assert.equal(homeMoneyWord('base.frontier'), 'coins');
     assert.throws(() => registerHomeWorld({worldId: 'test.money', money: 'Pence!'}), /short plain word/);
 });
+
+test('world improvements use their actual home, materials and tenure; a renter can hang removable furnishings', async()=>{
+ const {planHome}=await import('../src/home_model.js');
+ const {LOTM_FLAT_HOME,LOTM_FLAT_PLACE,LOTM_HOME_ROOMS}=await import('../src/lotm_home_world.js');
+ const c={world:'book.lotm.tingen',location:LOTM_FLAT_PLACE,clock:100,sequence:1,alive:true,ready:true,writable:true,money:0,inventory:{},body:{ownerId:'player',controllerId:'player',form:'human',hands:2,mobile:true},nativeRights:{}};
+ const s=planHome(emptyHomes(),{type:'settle_world_home',home:LOTM_FLAT_HOME},c).state;
+ const [id,room]=Object.entries(LOTM_HOME_ROOMS)[0];
+ assert.throws(()=>planHome(s,{type:'improve',improvement:id},c),/materials/);
+ const built=planHome(s,{type:'improve',improvement:id},{...c,inventory:{...room.materials}});
+ assert.equal(built.minutes,15);assert.equal(built.state.properties[LOTM_FLAT_HOME].tenure,'rented');
+ assert.deepEqual(built.items,Object.entries(room.materials).map(([key,n])=>({key,amount:-n})));
+ assert.doesNotThrow(()=>validateHomes(JSON.parse(JSON.stringify(built.state)),{clock:100}));
+ assert.throws(()=>planHome(built.state,{type:'improve',improvement:id},c),/unfinished/);
+ assert.throws(()=>planHome(s,{type:'improve',improvement:id},{...c,location:'elsewhere'}),/actual residence/);
+});
+
+test('a tied-person purchase retains title and one balance through cash, loan and installments',async()=>{
+ const {planHome}=await import('../src/home_model.js');
+ const {homePurchaseRows}=await import('../src/home_purchase.js');
+ const W='test.deal',H=W+'.house',SELLER=W+'.owner';
+ registerHomeWorld({worldId:W,money:'pence',places:{[H]:{name:'Fixture house',startsHere:true,period:10,location:W+'.door',tenure:'rented',owner:SELLER,forms:['human'],capacity:8,price:100,listedAt:[W+'.office'],description:'A house offered by its holder.',purchase:{seller:SELLER,price:100,tie:{kind:'trust',atLeast:2,reason:'The seller needs to know you first.'},loan:{deposit:10,interest:5,period:100,installment:20,creditor:W+'.lender'},installments:{deposit:20,period:100,installment:20}}}}});
+ const c={world:W,location:W+'.office',clock:100,sequence:1,alive:true,ready:true,writable:true,money:100,inventory:{},body:{ownerId:'player',controllerId:'player',form:'human',hands:2,mobile:true},nativeRights:{},relationships:{[SELLER]:{player:{axes:{'tie.trust':2}}}}};
+ assert.throws(()=>planHome(emptyHomes(),{type:'acquire',home:H},{...c,relationships:{}}),/know you/);
+ for(const method of ['cash','loan','installments']){
+  const buy=planHome(emptyHomes(),{type:'acquire',home:H,method},c),h=buy.state.properties[H];
+  assert.equal(h.owner,'player');assert.equal(h.tenure,'owned');
+  const loaded=JSON.parse(JSON.stringify(buy.state));assert.doesNotThrow(()=>validateHomes(loaded,{clock:100}));
+  assert.equal(homePurchaseRows(loaded).length,method==='cash'?0:1);
+  if(method!=='cash'){const row=homePurchaseRows(loaded)[0];assert.equal(row.unit.many,'pence');assert.equal(row.creditorLabel,method==='loan'?'the lender':'the seller');assert.equal(homePurchaseRows(loaded,{clock:200,displayClock:1000})[0].since,900);}
+  if(method!=='cash'){
+   const old=h.purchase.balance,paid=planHome(loaded,{type:'repay_purchase',home:H,amount:20},c);
+   assert.equal(paid.state.properties[H].purchase.balance,old-20);assert.equal(paid.money,80);
+   assert.equal(homePurchaseRows(paid.state)[0].amount,old-20);
+   assert.throws(()=>planHome(loaded,{type:'repay_purchase',home:H,amount:20},{...c,money:0}),/not enough/);
+  }
+ }
+ const renting=planHome(emptyHomes(),{type:'settle_world_home',home:H},{...c,location:W+'.door'}).state;
+ renting.properties[H].stock[homeKey('Personal letter')]=1;
+ const bought=planHome(renting,{type:'acquire',home:H,method:'installments'},c).state;
+ assert.equal(bought.properties[H].stock[homeKey('Personal letter')],1,'title transfer keeps possessions');
+ const {homeUsable}=await import('../src/home_model.js');
+ assert.equal(homeUsable(bought.properties[H],{...c,clock:1000}),true,'old rent expiry no longer controls owned title');
+ const part=planHome(bought,{type:'repay_purchase',home:H,amount:10},c).state;
+ assert.equal(part.properties[H].purchase.due,200);
+ const whole=planHome(part,{type:'repay_purchase',home:H,amount:10},c).state;
+ assert.equal(whole.properties[H].purchase.due,300,'two partial payments keep one installment');
+ assert.doesNotThrow(()=>validateHomes(whole,{clock:100}));
+
+});

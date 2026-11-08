@@ -48,7 +48,10 @@ export const SEAMS=[
  {id:'material_lineage',files:['material_lineage','material_lineage_domain'],purpose:'Where a material came from'},
  {id:'lore_history_state',files:['lore_history_state'],purpose:'Lore and history knowledge state'},
  {id:'combat_math',files:['combat_math'],purpose:'Shared combat arithmetic'},
- {id:'spell_cast_lowering',files:['spell_cast_lowering'],purpose:'Casts lowered to native commands: a seeded works-or-fizzles outcome where a world has a failure chance (LT2)'},
+ {id:'spell_cast_lowering',files:['spell_cast_lowering','power_grammar','power_grammar_worlds'],purpose:'Composed and priced powers through the structured descriptor, seeded casts and practice (LT2)'},
+ {id:'making_procedure',files:['making_procedure','making_traits'],purpose:'Shared material traits and ordered native preparation with conditions and agents'},
+ {id:'reputation_view',files:['reputation_view'],purpose:'Audience-specific observed standing across existing source owners'},
+ {id:'home_world_port',files:['home_content','home_model','home_overview_model','home_purchase','home_market_actions'],purpose:'World homes, tenure, improvements, furnishings and retained purchase terms'},
  {id:'person_ties',files:['person_ties'],purpose:'Ties on the one person record: regard as rule facts, observed notes, tie-gated offers (LT8)'}
 ];
 
@@ -56,6 +59,9 @@ export const SEAMS=[
 // one-world route, two-world route, unknown (default). A route means a native play route (AR10), not a unit test.
 export const PROOF={
  ready_stock:{state:'one-world route',receipt:'docs/gm/dispatch/at15-fight-2026-11-06/CHECKPOINT.md (fixture route kj3z ckpt-range: native hire and load shown; fight use blocked by T1, T2); docs/gm/dispatch/refinement-audits-2026-10-31/B8_IMPLEMENTATION_RECEIPT.md (B8 focused tests)'},
+ making_procedure:{state:'two-world route',receipt:'docs/gm/dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md (W3d: HP Potions and Neil’s Seer brew through ordered native jobs)'},
+ reputation_view:{state:'two-world route',receipt:'docs/gm/dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md (W3e: known Dunn and Ron audiences, no new score store)'},
+ home_world_port:{state:'two-world route',receipt:'docs/gm/dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md (W3a: flat, cupboard, dormitory; financed house is a named developer fixture)'},
  spell_cast_lowering:{state:'two-world route',receipt:'docs/gm/dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md (W1b Harry levitation, stamina and fizzle; W2b Klein Spirit Vision, spirituality, no fizzle; both walked natively, scripts/playtest/cross-world-ties.mjs hp and seer)'},
  person_ties:{state:'two-world route',receipt:'docs/gm/dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md (X1: Klein, weekly expense filings to Dunn open a talk; Harry, the Sorting and first Charms with Ron open a talk; both natural routes from a fresh origin, scripts/playtest/cross-world-ties.mjs)'},
  tempo_fight:{state:'one-world route',receipt:'docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/P4_TEMPO_CHECKPOINT.md (Frontier road-rival contest, fixture-seeded browser route); not reached natively for LOTM: docs/gm/dispatch/at15-fight-2026-11-06/CHECKPOINT.md T1, T2'}

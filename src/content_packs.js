@@ -132,13 +132,30 @@ export function cancelPack(state,d) {
     for(const [key,amount] of Object.entries(action.start?.add||{}))if(typeof row.values[key]==='number'&&Number.isFinite(row.values[key]-amount)&&row.values[key]-amount>=0)row.values[key]-=amount;
     row.job=null;return validatePackState(next);
 }
+// Explicit additive registration migration: a pack names new native IDs. This
+// updates provenance only, never stock, availability, active-life definitions or jobs.
+// Removals, reordering and undeclared additions still require their own migration.
+function migrateRegistration(row,d) {
+    const additions=d.compatibility?.registrationAdditions;
+    if(!row || !additions)return row;
+    const next={...row};
+    for(const [field,current]of [['locationIds',d.locations.map(l=>l.id)],['itemIds',(d.items||[]).map(i=>i.id)]]) {
+        const added=additions[field]||[];
+        check(Array.isArray(added)&&new Set(added).size===added.length&&added.every(id=>current.includes(id)&&id.startsWith(d.id+'.')),'Invalid additive registration migration.');
+        if(row[field]==null)continue;
+        const old=row[field];
+        check(old.every(id=>current.includes(id))&&JSON.stringify(old.filter(id=>!added.includes(id)))===JSON.stringify(current.filter(id=>!added.includes(id))),'Optional registration needs an explicit migration.');
+        next[field]=[...current];
+    }
+    return next;
+}
 // Registration provenance is distinct from a visit: installing content earns no
 // actions, custody, work or wages. Existing visited schema-1 saves supply their
 // own provenance; legacy unvisited records without it remain protected unknowns.
 export function packSaveState(state,definitions) {
     validatePackState(state);const next=structuredClone(state);next.registered??={};
     for(const [id,d] of definitions) {
-        const prior=next.registered[id],locationIds=d.locations.map(l=>l.id);
+        const prior=migrateRegistration(next.registered[id],d),locationIds=d.locations.map(l=>l.id);
         check(!prior||prior.worldId===d.world.id&&JSON.stringify(prior.locationIds)===JSON.stringify(locationIds),'Optional registration needs an explicit migration.');
         const itemIds=(d.items||[]).map(item=>item.id);
         check(prior?.itemIds==null||JSON.stringify(prior.itemIds)===JSON.stringify(itemIds),'Optional item registration needs an explicit migration.');
@@ -155,7 +172,9 @@ export function preparePackSave(original,definitions) {
     validatePackState(save.content_packs);save.content_packs.registered??={};
     for(const [id,row] of Object.entries(save.content_packs.packs))
         save.content_packs.registered[id]??={worldId:row.worldId,locationIds:[...row.locationIds]};
-    for(const [id,registration] of Object.entries(save.content_packs.registered)) {
+    for(const [id,savedRegistration] of Object.entries(save.content_packs.registered)) {
+        const registration=definitions.has(id)?migrateRegistration(savedRegistration,definitions.get(id)):savedRegistration;
+        save.content_packs.registered[id]=registration;
         const d=definitions.get(id),row=save.content_packs.packs[id];
         if(d) {
             if(registration.inventoryBindings!=null)check(JSON.stringify(registration.inventoryBindings)===JSON.stringify((d.simulation?.containers||[]).map(c=>({category:c.category,id:c.id}))), 'Optional inventory restoration needs an explicit migration.');

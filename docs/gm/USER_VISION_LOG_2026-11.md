@@ -340,6 +340,7 @@ and after the first palette, "save ideaboarding accordingly".
 
 Recorded direction: the question is recorded as a request for an ideaboard, not a build order or an accepted design. The palette PRT1-PRT26 lives in [the portal multiverse ideaboard](../worlds/PORTAL_MULTIVERSE_WORLDS_IDEABOARD_2026-11-07.md): an original analogue by default and a private canon pack as a condition (WER11, WER15), ranked requirements marked exists or gap, and a proposed first slice on an existing book world. All of it is proposal under AD32. Standing priorities (LOTM and HP lead lines) are unchanged. No commit or push was requested.
 
+
 ## Casting adds mastery, and use is not the only way, 2026-11-08
 
 The cross-world systems session walked Harry's library study and found that casting the levitation charm outside class left its practice unchanged; only Charms classes refined it. Weibao said, across three messages:
@@ -369,6 +370,16 @@ After the cross-world session reached the powers grammar, Weibao asked:
 > first consider if better way of going about them, and then once improved.decided, continue accordingly, consitder wether if more progress needs to go into the protaginist playtrhough to help feed certain features
 
 He delegated the decision. Recorded: the remaining waves run as story-led integration waves (D-A to D-D in the [long-term atlas](../audits/PROGRESS_ATLAS_2026-11-07_LONG_TERM.md#approach-review-for-the-remaining-waves-2026-11-08)). Each wave takes the next Klein window, then the next Harry window, and builds the shared engine parts those canon events need, with anchors also read from the books and walks starting from saved fixtures. This keeps LOTM first and the 2026-11-02 "mechanism slices lead and book windows follow" direction. The answer to his question is yes: story progress now feeds calibration and several features.
+
+## 2026-11-08: wave 3 engines first, source shape tests, then story-led waves
+
+Weibao, in the “Finish wave 3 engines” chat:
+
+> 1. Finish wave 3’s engines now: the powers grammar, the procedure layer with shared traits, the reputation view, and the remaining home and tie work. They already have real callers: Spirit Vision, the levitation charm, the Seer brew, the Potions class, Dunn and Ron, the flat and the cupboard. So they can’t end up as dead seams.
+> 2. Test each engine’s shape against a list of what the books state, such as Harry’s whole first-year spell list and Klein’s divination methods. That catches missing parts before content depends on them.
+> 3. Then return to story-led waves. Each new window mainly fills content and tunes numbers against what’s now a complete engine.
+
+Recorded as build order and verification direction, replacing the earlier story-first deferral. The task record keeps implementation and source qualifications separate from this instruction.
 
 ## 2026-11-08: engine growth shows gaps, and the Minecraft mapping
 

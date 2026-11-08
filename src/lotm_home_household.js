@@ -1,3 +1,4 @@
+import {homeMarketActions} from './home_market_actions.js';
 // W1d, LT10 read side (proposal under AD32, docs/CROSS_WORLD_SYSTEMS_TRANSFER.md): Klein's rented flat as a home view, from LOTM's own data.
 // Read side only: who lives there (the pack's people, shown once the player knows them), the rent the existing rent duty says is owed,
 // and what the flat's stock views hold. The data goes through the shared home overview's world port (worldHomeModel), so the
@@ -8,7 +9,7 @@ import {castKnown} from './book_world_lotm_cast_host.js';
 import {placeStockViews} from './place_acts.js';
 import {LOTM_RENT, LOTM_RENT_ID} from './book_world_lotm_duties.js';
 import {LOTM_PENCE} from './book_world_lotm_ids.js';
-import {LOTM_FLAT_HOME, LOTM_FLAT_PLACE, LOTM_HOME_FURNITURE} from './lotm_home_world.js';
+import {LOTM_FLAT_HOME, LOTM_FLAT_PLACE, LOTM_HOME_FURNITURE, LOTM_HOME_ROOMS} from './lotm_home_world.js';
 import {homeKey} from './home_content.js';
 
 export const FLAT_RESIDENTS = Object.freeze([
@@ -45,10 +46,10 @@ export function lotmHomeView(state, {pack, duties, homes = null, quote = null} =
     const rent = rentOf(duties);
     const stored = (placeStockViews(state, pack?.householdActs) || []).flatMap(v => v.rows)
         .filter(r => Number.isFinite(r.amount) && r.amount > 0).map(r => ({label: r.label, count: r.amount}));
-    const model = worldHomeModel({place: {id: placeId, name: placeName}, tenure: 'rented',
+    const model = worldHomeModel({homeId: LOTM_FLAT_HOME, here: state?.simulation?.people?.player?.location === placeId, place: {id: placeId, name: placeName}, tenure: 'rented',
         residents: residents.map(r => ({...r, self: r.relation === 'you'})),
         dues: [{id: LOTM_RENT_ID, label: 'Rent', words: rent.line, warn: rent.owed > 0, next: rent.owed > 0 ? 'Pay the rent when you can.' : undefined}],
-        stores: stored});
+        stores: stored}, homes);
     const lines = homeModelLines(model);
     // W3a-S3: once the flat is a home in the shared engine, its fittings and storage are the engine's, read from its own record.
     const flat = homes?.state?.properties?.[LOTM_FLAT_HOME] || null;
@@ -59,7 +60,7 @@ export function lotmHomeView(state, {pack, duties, homes = null, quote = null} =
         }).filter(Boolean);
         lines.push(fitted.length ? `Fitted: ${fitted.join(', ')}.` : 'Nothing is fitted yet.');
     }
-    return {place: {id: placeId, name: placeName}, residents, rent, stored, lines, model, settled: !!flat, actions: homeActions(state, {flat, quote})};
+    return {place: {id: placeId, name: placeName}, residents, rent, stored, lines, model, settled: !!flat, actions: [...homeActions(state, {flat, quote}),...homeMarketActions(state,homes,quote)]};
 }
 
 // The home acts this place offers, quoted through the home engine (one authority for what is allowed and what it costs).
@@ -71,6 +72,7 @@ function homeActions(state, {flat, quote}) {
     if(!flat && at === LOTM_FLAT_PLACE) offer('settle', 'Make the flat your home in this life', {type: 'settle_world_home', home: LOTM_FLAT_HOME});
     for(const [id, f] of Object.entries(LOTM_HOME_FURNITURE)) if(f.soldAt?.includes(at))
         offer(`buy:${id}`, `Buy a ${f.name.toLowerCase()} \u00b7 ${f.price} pence`, {type: 'buy', item: id});
+    if(flat && at === LOTM_FLAT_PLACE) for(const [id, r] of Object.entries(LOTM_HOME_ROOMS)) if(!flat.improvements.includes(id)) offer(`improve:${id}`, `${r.name} · ${r.minutes} min`, {type: 'improve', home: LOTM_FLAT_HOME, improvement: id});
     if(flat) for(const [id, f] of Object.entries(LOTM_HOME_FURNITURE)) if(f.soldAt && !flat.fixtures[f.slot] && quote({type: 'install', key: homeKey(id)}).eligible)
         offer(`install:${id}`, `Fit the ${f.name.toLowerCase()} in the flat`, {type: 'install', key: homeKey(id)});
     return rows;

@@ -64,6 +64,9 @@ test('captured Chinese chapters: renumbered title, mirror notice and a repeated 
 
 test('a pass with a partial marker is not done, so the planner re-reads it', () => {
     assert.ok(!passDone('census', 'x2c001', new Set(['x2c001m_census.jsonl', 'x2c001_census.partial'])));
+    // A Luna-lane read (`<prefix>L` files) counts as read, so a batch plan does not pay for it again.
+    assert.ok(passDone('census', 'x2c001', new Set(['x2c001Lm_census.jsonl'])) && passDone('rules', 'x2c001', new Set(['x2c001L_rules.jsonl'])));
+    assert.ok(!passDone('scenes', 'x2c001', new Set(['x2c001Lm_census.jsonl'])));
 });
 
 test('--schema 1.4 stamps schemaVersion on a plan; the default leaves no field and the same key order', () => {

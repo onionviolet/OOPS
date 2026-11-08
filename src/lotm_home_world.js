@@ -25,9 +25,12 @@ export const LOTM_HOME_FURNITURE = Object.freeze({
     [`${H}.tea_crate`]: piece('Lidded tea crate', 'box', 6, {storage: 6}, 'An emptied tea crate with a lid; six more things fit under the bed.', sold),
     [`${H}.book_shelf`]: piece('Small book shelf', 'shelf', 48, {}, 'A plain pine shelf for the history books and notes.', sold),
 });
+export const LOTM_HOME_ROOMS = Object.freeze({
+    [`${H}.privacy_curtain`]: {name: 'Fit a removable privacy curtain', minutes: 15, coins: 0, capacity: 0, structural: false, homes: [LOTM_FLAT_HOME], materials: {[JSON.stringify({id: `${H}.wool_blanket`})]: 1}},
+});
 export const LOTM_HOMES = Object.freeze({
     [LOTM_FLAT_HOME]: {name: 'The Moretti flat', location: LOTM_FLAT_PLACE, tenure: 'rented', owner: LOTM_LANDLORD, price: 0, forms: ['human'], capacity: 10,
         description: 'The rented flat you share with your brother and sister. The landlord owns the walls and the bed.', startsHere: true,
         furnished: [`${H}.landlord_bed`]},
 });
-registerHomeWorld({worldId: LOTM_HOME_WORLD, furniture: LOTM_HOME_FURNITURE, places: LOTM_HOMES, money: 'pence'});
+registerHomeWorld({worldId: LOTM_HOME_WORLD, furniture: LOTM_HOME_FURNITURE, places: LOTM_HOMES, rooms: LOTM_HOME_ROOMS, money: 'pence'});

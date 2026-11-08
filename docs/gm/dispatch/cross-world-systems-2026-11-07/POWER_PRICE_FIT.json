@@ -1,0 +1,274 @@
+[
+  {
+    "world": "book.hp.lead.power_law",
+    "prices": {
+      "cost": {
+        "magnitude": 1,
+        "range": 0.25,
+        "duration": 0.01,
+        "additionalTargets": 0.5
+      },
+      "failure": {
+        "function.levitate": 0.6
+      },
+      "perMastery": {
+        "function.levitate": 0.1
+      },
+      "strain": null
+    },
+    "fits": {
+      "cost": {
+        "status": "fitted",
+        "anchors": 1,
+        "rank": 1,
+        "dimensions": 4,
+        "underdetermined": true,
+        "unobservedFeatures": [
+          "range",
+          "duration",
+          "additionalTargets"
+        ]
+      },
+      "failure": {
+        "status": "fitted",
+        "anchors": 1,
+        "rank": 1,
+        "dimensions": 1,
+        "underdetermined": false,
+        "unobservedFeatures": []
+      },
+      "perMastery": {
+        "status": "fitted",
+        "anchors": 1,
+        "rank": 1,
+        "dimensions": 1,
+        "underdetermined": false,
+        "unobservedFeatures": []
+      },
+      "strain": {
+        "status": "unmodelled"
+      }
+    },
+    "rows": [
+      {
+        "id": "first_year_levitation",
+        "tier": 1,
+        "basis": "gameplay dial",
+        "locator": "src/book_world_hp_lessons.js:HP_SPELL_ROWS; canon effect: first Charms lesson",
+        "values": {
+          "cost": 1,
+          "failure": 0.6,
+          "perMastery": 0.1,
+          "strain": null
+        },
+        "errors": {
+          "cost": 0,
+          "failure": 0,
+          "perMastery": 0
+        },
+        "unknown": [
+          "strain"
+        ],
+        "outlier": false,
+        "interpretation": "Outliers need a missing part or an explicit canon exception."
+      }
+    ],
+    "byTier": [
+      {
+        "tier": 1,
+        "status": "dial-anchored",
+        "anchors": 1,
+        "maxError": 0,
+        "outliers": []
+      },
+      {
+        "tier": 2,
+        "status": "assumed",
+        "anchors": 0,
+        "maxError": null,
+        "outliers": []
+      },
+      {
+        "tier": 3,
+        "status": "assumed",
+        "anchors": 0,
+        "maxError": null,
+        "outliers": []
+      },
+      {
+        "tier": 4,
+        "status": "assumed",
+        "anchors": 0,
+        "maxError": null,
+        "outliers": []
+      },
+      {
+        "tier": 5,
+        "status": "assumed",
+        "anchors": 0,
+        "maxError": null,
+        "outliers": []
+      },
+      {
+        "tier": 6,
+        "status": "assumed",
+        "anchors": 0,
+        "maxError": null,
+        "outliers": []
+      },
+      {
+        "tier": 7,
+        "status": "assumed",
+        "anchors": 0,
+        "maxError": null,
+        "outliers": []
+      }
+    ]
+  },
+  {
+    "world": "book.lotm.be.power_law",
+    "prices": {
+      "cost": {
+        "function.open_vision": 1
+      },
+      "control": {
+        "function.open_vision": 1
+      },
+      "failure": null,
+      "perMastery": null,
+      "strain": {
+        "function.open_vision": 1
+      }
+    },
+    "fits": {
+      "cost": {
+        "status": "fitted",
+        "anchors": 1,
+        "rank": 1,
+        "dimensions": 1,
+        "underdetermined": false,
+        "unobservedFeatures": []
+      },
+      "control": {
+        "status": "fitted",
+        "anchors": 1,
+        "rank": 1,
+        "dimensions": 1,
+        "underdetermined": false,
+        "unobservedFeatures": []
+      },
+      "failure": {
+        "status": "unmodelled"
+      },
+      "perMastery": {
+        "status": "unmodelled"
+      },
+      "strain": {
+        "status": "fitted",
+        "anchors": 1,
+        "rank": 1,
+        "dimensions": 1,
+        "underdetermined": false,
+        "unobservedFeatures": []
+      }
+    },
+    "rows": [
+      {
+        "id": "seer_spirit_vision",
+        "tier": 9,
+        "basis": "gameplay dial",
+        "locator": "src/book_world_lotm_be_seer.js:B1/B3; ch33 P034-P038 qualitative use and exhaustion",
+        "values": {
+          "cost": 1,
+          "control": 1,
+          "failure": null,
+          "perMastery": null,
+          "strain": 1
+        },
+        "errors": {
+          "cost": 0,
+          "control": 0,
+          "strain": 0
+        },
+        "unknown": [
+          "failure",
+          "perMastery"
+        ],
+        "outlier": false,
+        "interpretation": "Outliers need a missing part or an explicit canon exception."
+      }
+    ],
+    "byTier": [
+      {
+        "tier": 0,
+        "status": "assumed",
+        "anchors": 0,
+        "maxError": null,
+        "outliers": []
+      },
+      {
+        "tier": 1,
+        "status": "assumed",
+        "anchors": 0,
+        "maxError": null,
+        "outliers": []
+      },
+      {
+        "tier": 2,
+        "status": "assumed",
+        "anchors": 0,
+        "maxError": null,
+        "outliers": []
+      },
+      {
+        "tier": 3,
+        "status": "assumed",
+        "anchors": 0,
+        "maxError": null,
+        "outliers": []
+      },
+      {
+        "tier": 4,
+        "status": "assumed",
+        "anchors": 0,
+        "maxError": null,
+        "outliers": []
+      },
+      {
+        "tier": 5,
+        "status": "assumed",
+        "anchors": 0,
+        "maxError": null,
+        "outliers": []
+      },
+      {
+        "tier": 6,
+        "status": "assumed",
+        "anchors": 0,
+        "maxError": null,
+        "outliers": []
+      },
+      {
+        "tier": 7,
+        "status": "assumed",
+        "anchors": 0,
+        "maxError": null,
+        "outliers": []
+      },
+      {
+        "tier": 8,
+        "status": "assumed",
+        "anchors": 0,
+        "maxError": null,
+        "outliers": []
+      },
+      {
+        "tier": 9,
+        "status": "dial-anchored",
+        "anchors": 1,
+        "maxError": 0,
+        "outliers": []
+      }
+    ]
+  }
+]

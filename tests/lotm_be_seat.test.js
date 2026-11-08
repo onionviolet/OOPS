@@ -381,3 +381,16 @@ test('B4: the divination step spends the Seer pool, shows it in the cost line, a
  const ab=defineCastAbilities({encounters:[{id:'fixture.enc',label:'E',description:'d',place:room,moves:[{id:'go',label:'Go',description:'d',minutes:1,report:'r',costs:[B.beSeerUse()]}]}]},binding);
  assert.equal(ab[0].castAbility.cost,'stated');assert.equal(ab[0].costs[0].type,'energy');
 });
+
+test('an admitted Cogitation job validates against its exported definition and rejects altered saved effects',async()=>{
+ const {beSeerDrinkEffects,beSeerSteadyEffects}=await import('../src/book_world_lotm_be_seer.js');
+ const {lotmBeSpellCommands}=await import('../src/lotm_be_spells.js');
+ const o=hostOver(bare());o.host.enroll('be',{independent:true});
+ applySimulationEffects(o.box.p,[...beSeerDrinkEffects(),...beSeerSteadyEffects(),{type:'knowledge',key:'book.lotm.kj3p.cogitation.seen',stage:'seen',value:'Learned the method.'}],{actorId:'player'},registry,'test.cogitation.learn');
+ const command=lotmBeSpellCommands.find(c=>c.id.endsWith('.cogitation'));
+ o.host.act(command.id);
+ assert.equal(o.box.p.state.simulation.jobs.length,1);
+ assert.doesNotThrow(()=>validateLotmState(JSON.parse(JSON.stringify(o.box.p.state))));
+ const bad=structuredClone(o.box.p.state);bad.simulation.jobs[0].effects[0].amount=99;
+ assert.throws(()=>validateLotmState(bad),/exact admitted definition/);
+});

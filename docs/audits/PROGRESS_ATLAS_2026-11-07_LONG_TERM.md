@@ -248,6 +248,8 @@ Default: a bar per fidelity step, plus discrete experiment and insight moments. 
 
 ## Approach review for the remaining waves (2026-11-08)
 
+Order superseded by Weibao’s later 2026-11-08 instruction to finish wave 3’s engines and source-shape checks before resuming story windows. The [current task record](../gm/dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md#wave-3-engine-completion-2026-11-08-current) owns execution; the review below remains historical.
+
 Weibao, 2026-11-08: "first consider if better way of going about them, and then once improved.decided, continue accordingly, consitder wether if more progress needs to go into the protaginist playtrhough to help feed certain features". He delegated the decision; this section records it as decided under that delegation, applied in the [cross-world record](../gm/dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md).
 
 **What the evidence says.**

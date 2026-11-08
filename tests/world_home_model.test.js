@@ -13,7 +13,7 @@ test('the port returns the overview model shape from world data alone', () => {
     assert.deepEqual(homeModelLines(m), ['Ann (your sister) and Bo live here with you.', 'Rent is due.', 'Kept here: Bread (2).']);
     assert.deepEqual(m.next, [{id: 'rent', text: 'Pay it.'}]);
     assert.equal(m.storage.used, 2);
-    assert.equal(worldHomeModel({}).household[0].text, 'You live here on your own, as far as you know.');
+    assert.equal(worldHomeModel({}).household[0].text, 'No other residents are known to you.');
 });
 
 test('Harry: the house lists the guardians present in the life, and says where he is', () => {

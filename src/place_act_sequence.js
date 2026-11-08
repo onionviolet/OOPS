@@ -28,5 +28,5 @@ export function sequenceOffers(state,data,commands,actorId='player'){
     const stages=placeActStages(data);if(!stages.length)return commands;
     const known=state.simulation?.knowledge?.[actorId]||{},ledger=state.actors?.[actorId]?.completed||{},pending=new Set((state.simulation?.jobs||[]).map(j=>j.commandId));
     const next=stages.find(s=>!ledger[s.commandId]&&!known[s.knowledgeKey]);
-    return commands.filter(c=>pending.has(c.id)||c.id===next?.commandId);
+    return commands.filter(c=>pending.has(c.id)||c.id===next?.commandId||c.procedure?.parentId===next?.commandId);
 }

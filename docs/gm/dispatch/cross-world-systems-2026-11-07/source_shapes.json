@@ -1,0 +1,1423 @@
+{
+  "schema": 1,
+  "scope": "HP1 complete existing rules-index spell rows across chapters 1-17 plus practical exams; LOTM source-pinned volume-1 method rows, not full-novel exhaustive coverage",
+  "rows": [
+    {
+      "id": "hp.spell.umbrella-pig-tail.hp1c003_rules",
+      "world": "hp1",
+      "label": "Pig-tail hex with pink umbrella",
+      "evidenceStatus": "S",
+      "locator": "en b1 c4 p127",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c003_rules.jsonl:1",
+      "holders": [
+        "Hagrid",
+        "Dudley"
+      ],
+      "verb": "transform",
+      "means": "umbrella hex, no incantation given",
+      "requires": [
+        "Insult to Dumbledore spoken in Hagrid's hearing"
+      ],
+      "costsStated": [],
+      "parts": {
+        "functions": [
+          "transform"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 1
+      },
+      "qualification": "source-index paraphrase; figures below are test bands, not canon power costs or unlocks"
+    },
+    {
+      "id": "hp.spell.fire-lighting-hagrid.hp1c003_rules",
+      "world": "hp1",
+      "label": "Fire lit at empty grate",
+      "evidenceStatus": "S",
+      "locator": "en b1 c4 p25",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c003_rules.jsonl:2",
+      "holders": [
+        "Hagrid"
+      ],
+      "verb": "fire",
+      "means": "unnamed fire-lighting",
+      "requires": [
+        "Empty grate in the damp hut"
+      ],
+      "costsStated": [],
+      "parts": {
+        "functions": [
+          "fire"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 1
+      },
+      "qualification": "source-index paraphrase; figures below are test bands, not canon power costs or unlocks"
+    },
+    {
+      "id": "hp.spell.unnamed-evil-curse.hp1c003_rules",
+      "world": "hp1",
+      "label": "Powerful evil curse (Voldemort's)",
+      "evidenceStatus": "T",
+      "locator": "en b1 c4 p101",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c003_rules.jsonl:3",
+      "holders": [
+        "Voldemort"
+      ],
+      "verb": "harm",
+      "means": "curse",
+      "requires": [
+        "Cast by Voldemort at the Potters' house on Halloween ten years ago"
+      ],
+      "costsStated": [],
+      "parts": {
+        "functions": [
+          "harm"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 1
+      },
+      "qualification": "source-index paraphrase; figures below are test bands, not canon power costs or unlocks"
+    },
+    {
+      "id": "hp.spell.umbrella-boat-speed.hp1c005_rules",
+      "world": "hp1",
+      "label": "Umbrella boat speed-up",
+      "evidenceStatus": "S",
+      "locator": "en b1 c5 p40",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c005_rules.jsonl:5",
+      "holders": [
+        "hp.person.hagrid"
+      ],
+      "verb": "move",
+      "means": "Umbrella tapping (no incantation stated)",
+      "requires": [
+        "Boat on water",
+        "Hagrid asks Harry not to mention it at Hogwarts (en b1 c5 p39)"
+      ],
+      "costsStated": [],
+      "parts": {
+        "functions": [
+          "move"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 1
+      },
+      "qualification": "source-index paraphrase; figures below are test bands, not canon power costs or unlocks"
+    },
+    {
+      "id": "hp.spell.yellow-rat-charm.hp1c005_rules",
+      "world": "hp1",
+      "label": "Rat-yellowing charm (Ron's)",
+      "evidenceStatus": "S",
+      "locator": "en b1 c6 p196",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c005_rules.jsonl:8",
+      "holders": [
+        "hp.person.ron-weasley"
+      ],
+      "verb": "transform",
+      "means": "Rhyming incantation (paraphrased: sunshine and daisies, turn the rat yellow)",
+      "requires": [
+        "Ron's wand held",
+        "Target is Scabbers"
+      ],
+      "costsStated": [],
+      "parts": {
+        "functions": [
+          "transform"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 1
+      },
+      "qualification": "source-index paraphrase; figures below are test bands, not canon power costs or unlocks"
+    },
+    {
+      "id": "hp.spell.golden-ribbon-song.hp1c007_rules",
+      "world": "hp1",
+      "label": "Golden ribbon forming words",
+      "evidenceStatus": "S",
+      "locator": "en b1 c7 p116",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c007_rules.jsonl:8",
+      "holders": [
+        "hp.person.albus-dumbledore"
+      ],
+      "verb": "display",
+      "means": "unspecified",
+      "requires": [
+        "Dumbledore leads the school song"
+      ],
+      "costsStated": [],
+      "parts": {
+        "functions": [
+          "display"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 1
+      },
+      "qualification": "source-index paraphrase; figures below are test bands, not canon power costs or unlocks"
+    },
+    {
+      "id": "hp.spell.desk-to-pig.hp1c007_rules",
+      "world": "hp1",
+      "label": "Desk into pig and back",
+      "evidenceStatus": "S",
+      "locator": "en b1 c8 p17",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c007_rules.jsonl:9",
+      "holders": [
+        "hp.person.mcgonagall"
+      ],
+      "verb": "transform",
+      "means": "Transfiguration",
+      "requires": [
+        "Transfiguration class"
+      ],
+      "costsStated": [],
+      "parts": {
+        "functions": [
+          "transform"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 1
+      },
+      "qualification": "source-index paraphrase; figures below are test bands, not canon power costs or unlocks"
+    },
+    {
+      "id": "hp.spell.match-to-needle.hp1c007_rules",
+      "world": "hp1",
+      "label": "Match into needle",
+      "evidenceStatus": "S",
+      "locator": "en b1 c8 p18",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c007_rules.jsonl:10",
+      "holders": [
+        "hp.person.mcgonagall",
+        "hp.person.hermione-granger"
+      ],
+      "verb": "transform",
+      "means": "Transfiguration",
+      "requires": [
+        "first Transfiguration lesson; each student given a match"
+      ],
+      "costsStated": [],
+      "parts": {
+        "functions": [
+          "transform"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 1
+      },
+      "qualification": "source-index paraphrase; figures below are test bands, not canon power costs or unlocks"
+    },
+    {
+      "id": "hp.spell.up.hp1c009_rules",
+      "world": "hp1",
+      "label": "Up!",
+      "evidenceStatus": "S",
+      "locator": "en b1 c9 p23",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c009_rules.jsonl:1",
+      "holders": [
+        "Madam Hooch",
+        "first-year students"
+      ],
+      "verb": "move",
+      "means": "broom-summoning word",
+      "requires": [
+        "broom lies on ground",
+        "student stands beside broom"
+      ],
+      "costsStated": [],
+      "parts": {
+        "functions": [
+          "move"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 1
+      },
+      "qualification": "source-index paraphrase; figures below are test bands, not canon power costs or unlocks"
+    },
+    {
+      "id": "hp.spell.wingardium-leviosa.hp1c009_rules",
+      "world": "hp1",
+      "label": "Wingardium Leviosa",
+      "evidenceStatus": "T",
+      "locator": "en b1 c10 p64",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c009_rules.jsonl:5",
+      "holders": [
+        "Professor Flitwick",
+        "Hermione Granger",
+        "Ron Weasley",
+        "Harry Potter"
+      ],
+      "verb": "move",
+      "means": "levitation incantation",
+      "requires": [
+        "target object in view",
+        "correct wand movement and wording"
+      ],
+      "costsStated": [],
+      "parts": {
+        "functions": [
+          "move"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 1
+      },
+      "qualification": "source-index paraphrase; figures below are test bands, not canon power costs or unlocks"
+    },
+    {
+      "id": "hp.spell.alohomora.hp1c009_rules",
+      "world": "hp1",
+      "label": "Alohomora",
+      "evidenceStatus": "S",
+      "locator": "en b1 c9 p164",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c009_rules.jsonl:6",
+      "holders": [
+        "Hermione Granger"
+      ],
+      "verb": "unlock",
+      "means": "unlocking incantation",
+      "requires": [
+        "locked door in reach"
+      ],
+      "costsStated": [],
+      "parts": {
+        "functions": [
+          "unlock"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 1
+      },
+      "qualification": "source-index paraphrase; figures below are test bands, not canon power costs or unlocks"
+    },
+    {
+      "id": "hp.spell.conjured-blue-fire.hp1c011_rules",
+      "world": "hp1",
+      "label": "Conjured blue fire",
+      "evidenceStatus": "S",
+      "locator": "en b1 c11 p5",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c011_rules.jsonl:1",
+      "holders": [
+        "hp.person.hermione-granger"
+      ],
+      "verb": "fire",
+      "means": "conjured fire",
+      "requires": [],
+      "costsStated": [],
+      "parts": {
+        "functions": [
+          "fire"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 1
+      },
+      "qualification": "source-index paraphrase; figures below are test bands, not canon power costs or unlocks"
+    },
+    {
+      "id": "hp.spell.blue-fire-on-robes.hp1c011_rules",
+      "world": "hp1",
+      "label": "Blue fire on Snape's robe hem",
+      "evidenceStatus": "S",
+      "locator": "en b1 c11 p101",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c011_rules.jsonl:2",
+      "holders": [
+        "hp.person.hermione-granger",
+        "hp.person.snape"
+      ],
+      "verb": "fire",
+      "means": "unnamed spell, whispered words",
+      "requires": [
+        "Caster crouches close behind target"
+      ],
+      "costsStated": [],
+      "parts": {
+        "functions": [
+          "fire"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 1
+      },
+      "qualification": "source-index paraphrase; figures below are test bands, not canon power costs or unlocks"
+    },
+    {
+      "id": "hp.spell.snape-broom-jinx.hp1c011_rules",
+      "world": "hp1",
+      "label": "Jinx on Harry's broom",
+      "evidenceStatus": "S",
+      "locator": "en b1 c11 p96",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c011_rules.jsonl:3",
+      "holders": [
+        "hp.person.snape"
+      ],
+      "verb": "control",
+      "means": "jinx",
+      "requires": [
+        "Caster's eyes fixed on target",
+        "Caster mutters nonstop"
+      ],
+      "costsStated": [],
+      "parts": {
+        "functions": [
+          "control"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 1
+      },
+      "qualification": "source-index paraphrase; figures below are test bands, not canon power costs or unlocks"
+    },
+    {
+      "id": "hp.spell.bewitched-snowballs.hp1c011_rules",
+      "world": "hp1",
+      "label": "Bewitched snowballs",
+      "evidenceStatus": "S",
+      "locator": "en b1 c12 p2",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c011_rules.jsonl:4",
+      "holders": [
+        "hp.person.fred-weasley",
+        "hp.person.george-weasley"
+      ],
+      "verb": "control",
+      "means": "bewitching",
+      "requires": [],
+      "costsStated": [],
+      "parts": {
+        "functions": [
+          "control"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 1
+      },
+      "qualification": "source-index paraphrase; figures below are test bands, not canon power costs or unlocks"
+    },
+    {
+      "id": "hp.spell.paint-flash-charm.hp1c011_rules",
+      "world": "hp1",
+      "label": "Paint-flashing charm on banner",
+      "evidenceStatus": "S",
+      "locator": "en b1 c11 p36",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c011_rules.jsonl:5",
+      "holders": [
+        "hp.person.hermione-granger"
+      ],
+      "verb": "display",
+      "means": "tricky little charm",
+      "requires": [],
+      "costsStated": [],
+      "parts": {
+        "functions": [
+          "display"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 1
+      },
+      "qualification": "source-index paraphrase; figures below are test bands, not canon power costs or unlocks"
+    },
+    {
+      "id": "hp.spell.leg-locker-curse.hp1c013_rules",
+      "world": "hp1",
+      "label": "Leg-Locker Curse",
+      "evidenceStatus": "S",
+      "locator": "en b1 c13 p22",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c013_rules.jsonl:1",
+      "holders": [
+        "hp.person.draco-malfoy",
+        "hp.person.neville"
+      ],
+      "verb": "bind",
+      "means": "curse",
+      "requires": [],
+      "costsStated": [],
+      "parts": {
+        "functions": [
+          "bind"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 1
+      },
+      "qualification": "source-index paraphrase; figures below are test bands, not canon power costs or unlocks"
+    },
+    {
+      "id": "hp.spell.leg-locker-countercurse.hp1c013_rules",
+      "world": "hp1",
+      "label": "Countercurse to Leg-Locker Curse",
+      "evidenceStatus": "T",
+      "locator": "en b1 c13 p23",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c013_rules.jsonl:2",
+      "holders": [
+        "hp.person.hermione-granger"
+      ],
+      "verb": "unbind",
+      "means": "countercurse",
+      "requires": [
+        "Target hit by Leg-Locker Curse"
+      ],
+      "costsStated": [],
+      "parts": {
+        "functions": [
+          "unbind"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 1
+      },
+      "qualification": "source-index paraphrase; figures below are test bands, not canon power costs or unlocks"
+    },
+    {
+      "id": "hp.spell.locomotor-mortis.hp1c013_rules",
+      "world": "hp1",
+      "label": "Locomotor Mortis",
+      "evidenceStatus": "T",
+      "locator": "en b1 c13 p58",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c013_rules.jsonl:3",
+      "holders": [
+        "hp.person.ron-weasley",
+        "hp.person.hermione-granger"
+      ],
+      "verb": "bind",
+      "means": "curse",
+      "requires": [
+        "Snape shows any sign of wanting to hurt Harry"
+      ],
+      "costsStated": [],
+      "parts": {
+        "functions": [
+          "bind"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 1
+      },
+      "qualification": "source-index paraphrase; figures below are test bands, not canon power costs or unlocks"
+    },
+    {
+      "id": "hp.spell.petrificus-totalus.hp1c015_rules",
+      "world": "hp1",
+      "label": "Petrificus Totalus",
+      "evidenceStatus": "S",
+      "locator": "en b1 c16 p114",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c015_rules.jsonl:1",
+      "holders": [
+        "Hermione"
+      ],
+      "verb": "bind",
+      "means": "full Body-Bind",
+      "requires": [],
+      "costsStated": [],
+      "parts": {
+        "functions": [
+          "bind"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 1
+      },
+      "qualification": "source-index paraphrase; figures below are test bands, not canon power costs or unlocks"
+    },
+    {
+      "id": "hp.spell.alohomora.hp1c015_rules",
+      "world": "hp1",
+      "label": "Alohomora",
+      "evidenceStatus": "S",
+      "locator": "en b1 c16 p185",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c015_rules.jsonl:2",
+      "holders": [
+        "Hermione"
+      ],
+      "verb": "unlock",
+      "means": "Alohomora charm",
+      "requires": [],
+      "costsStated": [],
+      "parts": {
+        "functions": [
+          "unlock"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 1
+      },
+      "qualification": "source-index paraphrase; figures below are test bands, not canon power costs or unlocks"
+    },
+    {
+      "id": "hp.spell.bluebell-flames.hp1c015_rules",
+      "world": "hp1",
+      "label": "Bluebell Flames",
+      "evidenceStatus": "S",
+      "locator": "en b1 c16 p171",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c015_rules.jsonl:3",
+      "holders": [
+        "Hermione"
+      ],
+      "verb": "fire",
+      "means": "bluebell flame jet",
+      "requires": [],
+      "costsStated": [],
+      "parts": {
+        "functions": [
+          "fire"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 1
+      },
+      "qualification": "source-index paraphrase; figures below are test bands, not canon power costs or unlocks"
+    },
+    {
+      "id": "hp.spell.binding-ropes.hp1c017_rules",
+      "world": "hp1",
+      "label": "Unnamed binding ropes",
+      "evidenceStatus": "S",
+      "locator": "en b1 c17 p11",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c017_rules.jsonl:1",
+      "holders": [
+        "hp.person.quirrell"
+      ],
+      "verb": "bind",
+      "means": "unnamed, finger snap",
+      "requires": [],
+      "costsStated": [],
+      "parts": {
+        "functions": [
+          "bind"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 1
+      },
+      "qualification": "source-index paraphrase; figures below are test bands, not canon power costs or unlocks"
+    },
+    {
+      "id": "hp.exam.pineapple-dance",
+      "world": "hp1",
+      "label": "Animate a pineapple for the practical exam",
+      "evidenceStatus": "S",
+      "locator": "en b1 c16 p2",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c015_rules_other.jsonl",
+      "holders": [
+        "Harry"
+      ],
+      "verb": "control",
+      "parts": {
+        "functions": [
+          "control"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 1
+      },
+      "qualification": "source-index; practical task does not establish a named incantation or universal success"
+    },
+    {
+      "id": "hp.exam.mouse-snuffbox",
+      "world": "hp1",
+      "label": "Transform a mouse into a snuffbox for the practical exam",
+      "evidenceStatus": "S",
+      "locator": "en b1 c16 p2",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c015_rules_other.jsonl",
+      "holders": [
+        "Harry"
+      ],
+      "verb": "transform",
+      "parts": {
+        "functions": [
+          "transform"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 1
+      },
+      "qualification": "source-index; practical task does not establish a named incantation or universal success"
+    },
+    {
+      "id": "hp.exam.exam-quill",
+      "world": "hp1",
+      "label": "Exam quill enchantment",
+      "evidenceStatus": "S",
+      "locator": "en b1 c16 p1",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c015_rules_other.jsonl",
+      "holders": [
+        "school staff"
+      ],
+      "verb": "control",
+      "parts": {
+        "functions": [
+          "control"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 1
+      },
+      "qualification": "source-index; practical task does not establish a named incantation or universal success"
+    },
+    {
+      "id": "lotm.div.coin-divination",
+      "world": "lotm1",
+      "label": "Coin divination",
+      "evidenceStatus": "source-pinned paraphrase",
+      "locator": "zh \u7b2c113\u7ae0 p11",
+      "source": "src/lotm_divination_rows.js",
+      "holders": [
+        "Klein"
+      ],
+      "verb": "divine",
+      "parts": {
+        "functions": [
+          "divine"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 9
+      },
+      "requires": [
+        {
+          "fact": "actor.lotm.div.means.coin",
+          "op": "eq",
+          "value": true,
+          "reason": "Have the gold coin available for the toss."
+        },
+        {
+          "fact": "actor.lotm.div.contact.return-address",
+          "op": "eq",
+          "value": true,
+          "reason": "Hold the intended return to 160 Boklund Street in mind."
+        },
+        {
+          "fact": "actor.lotm.div.grounds.coin-divination",
+          "source": "zh \u7b2c113\u7ae0 p11"
+        }
+      ],
+      "steps": [
+        {
+          "id": "prepare",
+          "kind": "prepare"
+        },
+        {
+          "id": "ask",
+          "kind": "attempt"
+        },
+        {
+          "id": "interpret",
+          "kind": "interpret"
+        }
+      ],
+      "qualification": "Method, information contact and grounds are distinct; elapsed step minutes are authored, signals and conclusions remain separate."
+    },
+    {
+      "id": "lotm.div.cane-dowsing",
+      "world": "lotm1",
+      "label": "Cane-based search divination",
+      "evidenceStatus": "source-pinned paraphrase",
+      "locator": "zh \u7b2c46\u7ae0 p69",
+      "source": "src/lotm_divination_rows.js",
+      "holders": [
+        "Klein"
+      ],
+      "verb": "divine",
+      "parts": {
+        "functions": [
+          "divine"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 9
+      },
+      "requires": [
+        {
+          "fact": "actor.lotm.div.means.cane",
+          "op": "eq",
+          "value": true,
+          "reason": "Have the black cane with silver inlay available."
+        },
+        {
+          "fact": "actor.lotm.div.contact.bieber",
+          "op": "eq",
+          "value": true,
+          "reason": "Have the portrait and the men's clothing available as the search focus."
+        },
+        {
+          "fact": "actor.lotm.div.grounds.cane-dowsing",
+          "source": "zh \u7b2c46\u7ae0 p69"
+        }
+      ],
+      "steps": [
+        {
+          "id": "prepare",
+          "kind": "prepare"
+        },
+        {
+          "id": "recite",
+          "kind": "rite"
+        },
+        {
+          "id": "ask",
+          "kind": "attempt"
+        },
+        {
+          "id": "interpret",
+          "kind": "interpret"
+        }
+      ],
+      "qualification": "Method, information contact and grounds are distinct; elapsed step minutes are authored, signals and conclusions remain separate."
+    },
+    {
+      "id": "lotm.div.altar-search-divination",
+      "world": "lotm1",
+      "label": "Altar-assisted dream search",
+      "evidenceStatus": "source-pinned paraphrase",
+      "locator": "zh \u7b2c121\u7ae0 p59",
+      "source": "src/lotm_divination_rows.js",
+      "holders": [
+        "Klein"
+      ],
+      "verb": "divine",
+      "parts": {
+        "functions": [
+          "divine"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 9
+      },
+      "requires": [
+        {
+          "fact": "actor.lotm.div.means.altar-search",
+          "op": "eq",
+          "value": true,
+          "reason": "Have paper, writing materials and an altar prepared for prayer in the locked, spiritually sealed bedroom."
+        },
+        {
+          "fact": "actor.lotm.div.contact.deceased",
+          "op": "eq",
+          "value": true,
+          "reason": "Have the deceased person's effects and the account of the scene Leonard described."
+        },
+        {
+          "fact": "actor.lotm.div.grounds.altar-search-divination",
+          "source": "zh \u7b2c121\u7ae0 p59"
+        }
+      ],
+      "steps": [
+        {
+          "id": "prepare",
+          "kind": "prepare"
+        },
+        {
+          "id": "write",
+          "kind": "rite"
+        },
+        {
+          "id": "recite",
+          "kind": "rite"
+        },
+        {
+          "id": "unknown",
+          "kind": "unknown"
+        }
+      ],
+      "qualification": "Method, information contact and grounds are distinct; elapsed step minutes are authored, signals and conclusions remain separate."
+    },
+    {
+      "id": "lotm.div.dream-divination",
+      "world": "lotm1",
+      "label": "Dream divination",
+      "evidenceStatus": "source-pinned paraphrase",
+      "locator": "zh \u7b2c82\u7ae0 p71",
+      "source": "src/lotm_divination_rows.js",
+      "holders": [
+        "Klein"
+      ],
+      "verb": "divine",
+      "parts": {
+        "functions": [
+          "divine"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 9
+      },
+      "requires": [
+        {
+          "fact": "actor.lotm.div.means.dream-divination",
+          "op": "eq",
+          "value": true,
+          "reason": "Have writing materials and the ability to enter a divinatory dream."
+        },
+        {
+          "fact": "actor.lotm.div.contact.bogda",
+          "op": "eq",
+          "value": true,
+          "reason": "Have Bogda's ring and the paper recording his birth details."
+        },
+        {
+          "fact": "actor.lotm.div.grounds.dream-divination",
+          "source": "zh \u7b2c82\u7ae0 p71"
+        }
+      ],
+      "steps": [
+        {
+          "id": "prepare",
+          "kind": "prepare"
+        },
+        {
+          "id": "ask",
+          "kind": "attempt"
+        },
+        {
+          "id": "interpret",
+          "kind": "interpret"
+        }
+      ],
+      "qualification": "Method, information contact and grounds are distinct; elapsed step minutes are authored, signals and conclusions remain separate."
+    },
+    {
+      "id": "lotm.div.pendulum-divination",
+      "world": "lotm1",
+      "label": "Pendulum divination",
+      "evidenceStatus": "source-pinned paraphrase",
+      "locator": "zh \u7b2c136\u7ae0 p49",
+      "source": "src/lotm_divination_rows.js",
+      "holders": [
+        "Klein"
+      ],
+      "verb": "divine",
+      "parts": {
+        "functions": [
+          "divine"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 9
+      },
+      "requires": [
+        {
+          "fact": "actor.lotm.div.means.yellow-crystal",
+          "op": "eq",
+          "value": true,
+          "reason": "Have the yellow crystal pendant and writing materials available."
+        },
+        {
+          "fact": "actor.lotm.div.contact.azik-disclosure",
+          "op": "eq",
+          "value": true,
+          "reason": "Have the proposed disclosure about Mr. Azik in mind."
+        },
+        {
+          "fact": "actor.lotm.div.grounds.pendulum-divination",
+          "source": "zh \u7b2c136\u7ae0 p49"
+        }
+      ],
+      "steps": [
+        {
+          "id": "prepare",
+          "kind": "prepare"
+        },
+        {
+          "id": "ask",
+          "kind": "attempt"
+        },
+        {
+          "id": "interpret",
+          "kind": "interpret"
+        }
+      ],
+      "qualification": "Method, information contact and grounds are distinct; elapsed step minutes are authored, signals and conclusions remain separate."
+    },
+    {
+      "id": "lotm.div.coin-divination-club",
+      "world": "lotm1",
+      "label": "Coin divination",
+      "evidenceStatus": "source-pinned paraphrase",
+      "locator": "zh \u7b2c115\u7ae0 p21",
+      "source": "src/lotm_divination_rows.js",
+      "holders": [
+        "Klein"
+      ],
+      "verb": "divine",
+      "parts": {
+        "functions": [
+          "divine"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 9
+      },
+      "requires": [
+        {
+          "fact": "actor.lotm.div.means.brass-coin",
+          "op": "eq",
+          "value": true,
+          "reason": "Have the brass-colored coin available."
+        },
+        {
+          "fact": "actor.lotm.div.contact.club-visit",
+          "op": "eq",
+          "value": true,
+          "reason": "Have today's proposed club visit in mind."
+        },
+        {
+          "fact": "actor.lotm.div.grounds.coin-divination-club",
+          "source": "zh \u7b2c115\u7ae0 p21"
+        }
+      ],
+      "steps": [
+        {
+          "id": "prepare",
+          "kind": "prepare"
+        },
+        {
+          "id": "ask",
+          "kind": "attempt"
+        },
+        {
+          "id": "interpret",
+          "kind": "interpret"
+        }
+      ],
+      "qualification": "Method, information contact and grounds are distinct; elapsed step minutes are authored, signals and conclusions remain separate."
+    },
+    {
+      "id": "lotm.div.astrological-chart",
+      "world": "lotm1",
+      "label": "Astrological chart divination",
+      "evidenceStatus": "source-pinned paraphrase",
+      "locator": "zh \u7b2c62\u7ae0 p70",
+      "source": "src/lotm_divination_rows.js",
+      "holders": [
+        "Klein"
+      ],
+      "verb": "divine",
+      "parts": {
+        "functions": [
+          "divine"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 9
+      },
+      "requires": [
+        {
+          "fact": "actor.lotm.div.means.chart",
+          "op": "eq",
+          "value": true,
+          "reason": "Have paper, a pen and the ability to construct and read an event chart."
+        },
+        {
+          "fact": "actor.lotm.div.contact.iron-mine-investment",
+          "op": "eq",
+          "value": true,
+          "reason": "Have Glacis's description of the investment and its key timing information."
+        },
+        {
+          "fact": "actor.lotm.div.grounds.astrological-chart",
+          "source": "zh \u7b2c62\u7ae0 p70"
+        }
+      ],
+      "steps": [
+        {
+          "id": "prepare",
+          "kind": "prepare"
+        },
+        {
+          "id": "ask",
+          "kind": "attempt"
+        },
+        {
+          "id": "interpret",
+          "kind": "interpret"
+        }
+      ],
+      "qualification": "Method, information contact and grounds are distinct; elapsed step minutes are authored, signals and conclusions remain separate."
+    },
+    {
+      "id": "lotm.div.tarot-divination",
+      "world": "lotm1",
+      "label": "Tarot divination",
+      "evidenceStatus": "source-pinned paraphrase",
+      "locator": "zh \u7b2c82\u7ae0 p61",
+      "source": "src/lotm_divination_rows.js",
+      "holders": [
+        "Klein"
+      ],
+      "verb": "divine",
+      "parts": {
+        "functions": [
+          "divine"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 9
+      },
+      "requires": [
+        {
+          "fact": "actor.lotm.div.means.tarot",
+          "op": "eq",
+          "value": true,
+          "reason": "Have a tarot deck and the ability to read the Intis spread."
+        },
+        {
+          "fact": "actor.lotm.div.contact.bogda-operation",
+          "op": "eq",
+          "value": true,
+          "reason": "Have the patient present to ask about the operation and handle the deck."
+        },
+        {
+          "fact": "actor.lotm.div.grounds.tarot-divination",
+          "source": "zh \u7b2c82\u7ae0 p61"
+        }
+      ],
+      "steps": [
+        {
+          "id": "prepare",
+          "kind": "prepare"
+        },
+        {
+          "id": "ask",
+          "kind": "attempt"
+        },
+        {
+          "id": "interpret",
+          "kind": "interpret"
+        }
+      ],
+      "qualification": "Method, information contact and grounds are distinct; elapsed step minutes are authored, signals and conclusions remain separate."
+    },
+    {
+      "id": "lotm.div.numerology",
+      "world": "lotm1",
+      "label": "Numerology",
+      "evidenceStatus": "source-pinned paraphrase",
+      "locator": "zh \u7b2c55\u7ae0 p12",
+      "source": "src/lotm_divination_rows.js",
+      "holders": [
+        "Klein"
+      ],
+      "verb": "divine",
+      "parts": {
+        "functions": [
+          "divine"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 9
+      },
+      "requires": [
+        {
+          "fact": "actor.lotm.div.means.numerology",
+          "op": "eq",
+          "value": true,
+          "reason": "Have the ability to calculate and interpret the date numbers."
+        },
+        {
+          "fact": "actor.lotm.div.contact.joyce-birth-date",
+          "op": "eq",
+          "value": true,
+          "reason": "Have Anna's birth information for Joyce and the current year, 1349."
+        },
+        {
+          "fact": "actor.lotm.div.grounds.numerology",
+          "source": "zh \u7b2c55\u7ae0 p12"
+        }
+      ],
+      "steps": [
+        {
+          "id": "prepare",
+          "kind": "prepare"
+        },
+        {
+          "id": "ask",
+          "kind": "attempt"
+        },
+        {
+          "id": "interpret",
+          "kind": "interpret"
+        }
+      ],
+      "qualification": "Method, information contact and grounds are distinct; elapsed step minutes are authored, signals and conclusions remain separate."
+    },
+    {
+      "id": "hp.ability.involuntary-magic-upset",
+      "world": "hp1",
+      "label": "Unwitting magic when upset or angry",
+      "evidenceStatus": "I",
+      "locator": "en b1 c4 p118",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c003_rules.jsonl:4",
+      "holders": [
+        "Harry"
+      ],
+      "origin": "inherited",
+      "verb": "transform",
+      "parts": {
+        "functions": [
+          "transform"
+        ],
+        "magnitude": 1,
+        "range": 0,
+        "duration": 0,
+        "targets": 1,
+        "tier": 1
+      },
+      "qualification": "Involuntary effects, not a selectable learned spell; individual causes/outcomes remain qualified."
+    }
+  ],
+  "sources": [
+    {
+      "path": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c001_rules.jsonl",
+      "sha256": "f3ca301b5456f95985e7dfe19620bd08d3c19b0a8ad8becc3760bb0ec25613ed"
+    },
+    {
+      "path": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c003_rules.jsonl",
+      "sha256": "cc30cebdfaf89edb97a5102b61a95cf1e869155345024bbe961e8d42deac2461"
+    },
+    {
+      "path": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c005_rules.jsonl",
+      "sha256": "a4b834e6879faba24dea4732133c443ae9ca47aae21ad8b4382cdd87c7b5a2a6"
+    },
+    {
+      "path": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c007_rules.jsonl",
+      "sha256": "6b672c54b5791d9ddb9a7954339c6345d4b2ccb09248560f7dc6c5077fe50d61"
+    },
+    {
+      "path": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c009_rules.jsonl",
+      "sha256": "463d772e84ab80ac9c9943e048ab53635b8f1dcd184d048fc455538eb8a7cda8"
+    },
+    {
+      "path": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c011_rules.jsonl",
+      "sha256": "fff393beb4edd7de4811b7041d757bec59c7a0c186d82ff0b666f4a605cd31f0"
+    },
+    {
+      "path": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c013_rules.jsonl",
+      "sha256": "298b6d027860ffc9dec2dfc974392436cebd193ed684fc3c87bf7ff442c3a516"
+    },
+    {
+      "path": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c015_rules.jsonl",
+      "sha256": "040a220cc10e1eb2a169531135d7a387a808701f5d771dd6cab640592d0ba212"
+    },
+    {
+      "path": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c017_rules.jsonl",
+      "sha256": "55fc4bca1f1f7cdfcc9c3aa9febaf6ce91359713701a933e44cb4350c531744c"
+    },
+    {
+      "path": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c015_rules_other.jsonl",
+      "sha256": "a807393bd8266a17602e430a872a11e32c6c9d03889ede3503e1a882cbe6fb71"
+    },
+    {
+      "path": "src/lotm_divination_rows.js",
+      "sha256": "62fc9a09bed22601dc8bbd92ee0930ce9034f10bd5282c1fdb4da2cb3f898baf"
+    }
+  ],
+  "excluded": [
+    "Lumos: no verified book-1 index evidence, previous draft removed",
+    "Rons rat-yellow rhyme is a failed attempt, not a proven usable spell",
+    "Broom-jinx attribution in early records is observer belief, not omniscient truth",
+    "Other characters spells are not Harry learned powers"
+  ],
+  "unread": [
+    "Direct full-text re-audit of every HP1 paragraph",
+    "LOTM methods outside the pinned volume-1 inventory"
+  ],
+  "engineCases": [
+    {
+      "id": "hp.custom.dursley-cupboard-punishment.hp1c001_rules",
+      "kind": "custom",
+      "label": "Cupboard punishment",
+      "evidenceStatus": "T",
+      "locator": "en b1 c2 p48",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c001_rules.jsonl:3",
+      "engine": "homes",
+      "qualification": "Naming a potion or outcome does not grant its formula; these are source shape anchors, not content unlocks."
+    },
+    {
+      "id": "hp.custom.house-points.hp1c007_rules",
+      "kind": "custom",
+      "label": "House points and house cup",
+      "evidenceStatus": "T",
+      "locator": "en b1 c7 p7",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c007_rules.jsonl:2",
+      "engine": "reputation",
+      "qualification": "Naming a potion or outcome does not grant its formula; these are source shape anchors, not content unlocks."
+    },
+    {
+      "id": "hp.potion.draught-of-living-death.hp1c007_rules",
+      "kind": "potion",
+      "label": "Draught of Living Death",
+      "evidenceStatus": "T",
+      "locator": "en b1 c8 p51",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c007_rules.jsonl:11",
+      "engine": "making",
+      "qualification": "Naming a potion or outcome does not grant its formula; these are source shape anchors, not content unlocks."
+    },
+    {
+      "id": "hp.potion.boil-cure.hp1c007_rules",
+      "kind": "potion",
+      "label": "Simple boil-curing potion",
+      "evidenceStatus": "S",
+      "locator": "en b1 c8 p53",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c007_rules.jsonl:12",
+      "engine": "making",
+      "qualification": "Naming a potion or outcome does not grant its formula; these are source shape anchors, not content unlocks."
+    },
+    {
+      "id": "hp.institution.house-points.hp1c009_rules",
+      "kind": "institution",
+      "label": "House points",
+      "evidenceStatus": "T",
+      "locator": "en b1 c9 p103",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c009_rules.jsonl:10",
+      "engine": "reputation",
+      "qualification": "Naming a potion or outcome does not grant its formula; these are source shape anchors, not content unlocks."
+    },
+    {
+      "id": "hp.potion.unnamed-potions-brew.hp1c011_rules",
+      "kind": "potion",
+      "label": "Unnamed Potions class brew",
+      "evidenceStatus": "S",
+      "locator": "en b1 c12 p5",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c011_rules.jsonl:11",
+      "engine": "making",
+      "qualification": "Naming a potion or outcome does not grant its formula; these are source shape anchors, not content unlocks."
+    },
+    {
+      "id": "hp.potion.elixir-of-life.hp1c015_rules",
+      "kind": "potion",
+      "label": "Elixir of Life",
+      "evidenceStatus": "T",
+      "locator": "en b1 c15 p162",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c015_rules.jsonl:6",
+      "engine": "making",
+      "qualification": "Naming a potion or outcome does not grant its formula; these are source shape anchors, not content unlocks."
+    },
+    {
+      "id": "hp.potion.bottle-puzzle.hp1c015_rules",
+      "kind": "potion",
+      "label": "Seven-bottle puzzle draughts",
+      "evidenceStatus": "T",
+      "locator": "en b1 c16 p248",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c015_rules.jsonl:7",
+      "engine": "making",
+      "qualification": "Naming a potion or outcome does not grant its formula; these are source shape anchors, not content unlocks."
+    },
+    {
+      "id": "hp.institution.house-points.hp1c015_rules",
+      "kind": "institution",
+      "label": "House points",
+      "evidenceStatus": "T",
+      "locator": "en b1 c15 p10",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c015_rules.jsonl:11",
+      "engine": "reputation",
+      "qualification": "Naming a potion or outcome does not grant its formula; these are source shape anchors, not content unlocks."
+    },
+    {
+      "id": "hp.potion.unicorn-blood.hp1c017_rules",
+      "kind": "potion",
+      "label": "Unicorn blood drink for Voldemort",
+      "evidenceStatus": "T",
+      "locator": "en b1 c17 p59",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c017_rules.jsonl:3",
+      "engine": "making",
+      "qualification": "Naming a potion or outcome does not grant its formula; these are source shape anchors, not content unlocks."
+    },
+    {
+      "id": "hp.potion.elixir-of-life.hp1c017_rules",
+      "kind": "potion",
+      "label": "Elixir of Life",
+      "evidenceStatus": "T",
+      "locator": "en b1 c17 p59",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c017_rules.jsonl:4",
+      "engine": "making",
+      "qualification": "Naming a potion or outcome does not grant its formula; these are source shape anchors, not content unlocks."
+    },
+    {
+      "id": "hp.institution.house-points.hp1c017_rules",
+      "kind": "institution",
+      "label": "House points and house cup",
+      "evidenceStatus": "S",
+      "locator": "en b1 c17 p166",
+      "source": "docs/research/novels/harry-potter/private/lead-run-2026-10-28/hp1c017_rules.jsonl:8",
+      "engine": "reputation",
+      "qualification": "Naming a potion or outcome does not grant its formula; these are source shape anchors, not content unlocks."
+    }
+  ]
+}

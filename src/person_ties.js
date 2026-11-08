@@ -1,3 +1,4 @@
+import {validateSimulationEffect} from './simulation_contracts.js';
 // LT8 one person record (proposal under AD32; docs/CROSS_WORLD_SYSTEMS_TRANSFER.md#lt8-ties). The engine is the existing directed edge
 // simulation.relationships[holder][subject] written by the native `relationship` effect (axes, memories, per-cause replay receipts, saved
 // inside the expansion state). This module adds no store: it names tie kinds as axes, lets a world declare which of its people carry ties
@@ -25,6 +26,8 @@ export function registerWorldTies(decl) {
     const offers = (decl.offers || []).map(o => {
         if(!idOk(o?.id) || !decl.people[o.alias] || !kinds.includes(o.kind) || !Number.isSafeInteger(o.atLeast) || ![o.label, o.description, o.blocked, o.note?.value].every(textOk) || !idOk(o.note?.key))
             throw Error(`Invalid tie offer in ${decl.worldId}.`);
+        if(o.effects != null) { if(!Array.isArray(o.effects)) throw Error('Tie effects need a list.'); o.effects.forEach(validateSimulationEffect); }
+        if(o.minutes != null && (!Number.isSafeInteger(o.minutes) || o.minutes <= 0)) throw Error('Tie work needs positive minutes.');
         return Object.freeze({...o, note: Object.freeze({...o.note})});
     });
     // shown (XC4): a tie shown from first meeting, before it has moved: {alias, kind, label, none, noticed, moves, seenPrefix}. The line is
@@ -69,9 +72,11 @@ const offerNote = (decl, o) => ({...seenNote(decl, decl.people[o.alias], o.note.
 // Native commands for hosts that list simulation commands (base carries world, place, group, timing). Once only; the gate is a tie fact.
 export function tieOfferCommands(worldId, base) {
     const decl = worldTies(worldId);
-    return (decl?.offers || []).map(o => ({...base, id: o.id, revision: 1, label: o.label, description: o.description, once: true,
+    return (decl?.offers || []).map(o => ({...base, id: o.id, revision: 1, label: o.label, description: o.description,
         requires: {all: [...(base.requires?.all || []), {fact: `tie.${o.alias}.${o.kind}`, op: 'gte', value: o.atLeast, reason: o.blocked}], reason: o.blocked},
-        effects: [offerNote(decl, o)]}));
+        ...(o.minutes ? {duration: o.minutes} : {}), once: o.repeatable ? false : true,
+        ...(o.assisted ? {participants: [base.actorId || 'player', decl.people[o.alias]], participantsCoLocated: true} : {}),
+        effects: [...structuredClone(o.effects || []), offerNote(decl, o)]}));
 }
 // Panel rows for hosts that render their own buttons: eligible while the regard is high enough; once taken, the note itself.
 export function tieShownView(state) {

@@ -19,6 +19,8 @@ import {lotmThresholdView} from './book_world_lotm_threshold.js';
 import {mountWorkroomTabs, WORKROOM_TABS} from './book_world_lotm_tabs.js';
 import {lotmPositionsFromView,lotmPositionLine} from './book_world_lotm_positions.js';
 import {GUARD_POSITION_ID,guardPayWords} from './book_world_lotm_guard.js';
+import {homeModelLines} from './home_overview_model.js';
+import {renderHomeView} from './ui/home_view.js';
 import {LOTM_GUARD_DUTY_ID} from './book_world_lotm_duties.js';
 import {lotmLibraryQuote,lotmLibraryStudy} from './book_world_lotm_inquiry.js';
 import {channelNote} from './channels.js';
@@ -245,7 +247,8 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
   }
   // RET3: the paused Village life is resumed from the connection panel, not from here. It leads the Here tab: the other life is a crossing fact, not a path detail.
   // W1d (LT10 read side): the flat on the household model: who lives there, the rent, what is kept there.
-  if(v.home?.lines?.length){const h=node('div');h.dataset.lotmHome='';h.append(node('h3','Home'),...v.home.lines.map(l=>node('p',l)));
+  if(v.home?.lines?.length){const h=node('div');h.dataset.lotmHome='';h.append(node('h3','Home'),...v.home.lines.filter(l=>!homeModelLines(v.home.model).includes(l)).map(l=>node('p',l)));
+   const detail=node('div');detail.dataset.worldHomeView='';renderHomeView(detail,v.home.model);h.append(detail);
    // W3a-S3: home acts through the shared home engine (take up the flat, buy at the market, fit a piece); a shut one says why.
    for(const a of v.home.actions||[]){const b=node('button',a.label);b.type='button';b.dataset.lotmHomeAct=a.id;b.disabled=!a.eligible;if(!a.eligible)b.title=a.reason;b.onclick=()=>run(()=>homeAct?.(a.request));h.append(b);if(!a.eligible&&a.reason)h.append(node('p',a.reason));}
    actions.append(h);}
@@ -263,7 +266,8 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
   const line=node('span',`${d.why}${when}${gone}`);const guardShift=d.id===LOTM_GUARD_DUTY_ID,r=d.open&&attend?row(line,button(guardShift?'Stand the night watch':'Hand it in',`duty_${d.id}`,()=>{try{const said=attend(d.id);notice.textContent=typeof said==='string'&&said?said:'Handed in.';}catch(e){notice.textContent=e.message;}signature='';render();},false)):row(line);r.dataset.dutyId=d.id;work.append(r);}
   // LT8: tie-gated conversations (person_ties offers) sit with the duties that earn them; a disabled button says what opens it (UR70-UR75).
   // XC4: a tie shown from first meeting, before it moves, with what moves it (knowledge only, never the regard number).
-  for(const t of v.ties||[]){const p=node('p',`${t.label}: ${t.line}`);p.dataset.lotmTie=t.alias;work.append(p);}
+  for(const r of v.reputation||[]){const p=node('p',`${r.label} · what you have seen: ${r.line}`);p.dataset.reputationAudience=r.audienceId;p.dataset.lotmTie=(v.ties||[]).find(t=>t.personId===r.audienceId)?.alias||'';work.append(p);}
+  for(const t of (v.ties||[]).filter(t=>!(v.reputation||[]).some(r=>r.audienceId===t.personId))){const p=node('p',`${t.label}: ${t.line}`);p.dataset.lotmTie=t.alias;work.append(p);}
   for(const o of v.tieOffers||[]){if(o.taken){const said=node('p',o.said);said.dataset.tieSaid=o.id;work.append(said);continue;}const r=row(node('span',o.eligible?o.description:`${o.description} ${o.reasons.join(' ')}`),button(o.label,`tie_${o.id}`,()=>{try{tieAsk(o.id);notice.textContent='Noted in your Notebook.';}catch(e){notice.textContent=e.message;}signature='';render();},!o.eligible||!tieAsk));r.dataset.tieOffer=o.id;work.append(r);}
   if(!resident){
   const held=[v.holds.dose?'prepared dose':'',v.holds.clownDose?'prepared Clown dose':'',...v.doseLabels,...v.marketHeld,...(v.holds.sealed3?['sealed grade 3 item']:[]),...[['frog','dried frog'],['hairs','bundle of hairs'],['ink','jar of grave-dust ink']].filter(([k])=>v.holds[k]).map(x=>x[1]),...['comparator','sampleA','sampleB'].filter(n=>v.holds[n]).map(n=>n==='comparator'?'comparator sample':`sample lot ${n.slice(-1)}`)].filter(Boolean);

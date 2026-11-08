@@ -1,0 +1,93 @@
+{
+  "viewport": "1920x1080",
+  "review": "agent-verified, not human-reviewed",
+  "routes": {
+    "klein_home": {
+      "bundle": "ed81a783bf37f9f79d92e4602a19e7eef0174a5ba4d6d39f0d24ce708049410f",
+      "runs": {
+        "home": {
+          "ok": true,
+          "checks": [
+            "at the flat: \"Make the flat your home\" takes it up in the shared home engine, rented, with the landlord\u2019s bed fitted",
+            "bought the crate and blanket, fitted crate and removable privacy curtain at the rented flat",
+            "save, reload, Export and Import keep the flat in the home engine with the landlord\u2019s bed and the fitted crate"
+          ],
+          "fixture": "klein-home.save.json",
+          "errors": 0
+        }
+      }
+    },
+    "klein_powers": {
+      "bundle": "ae80081b808410f3db996d72834ff2b39d24a430e517dfa903c5d3e72a6f08c6",
+      "runs": {
+        "seer": {
+          "ok": true,
+          "checks": [
+            "Open your Spirit Vision by its button: spirituality 2 -> 1",
+            "practice: the opening develops the Seer faculty 0 -> 1",
+            "while the vision is open the power is shown shut",
+            "save, reload, Export and Import keep the spent spirituality",
+            "W3b: learned Cogitation runs as a ten-minute native job, restores the same pool and survives Save/reload/Export/Import"
+          ],
+          "fixture": "klein-seer (scripts/playtest/klein-to-seer.mjs, native)",
+          "errors": 0
+        }
+      }
+    },
+    "financed_home_fixture": {
+      "bundle": "288da61760481e86f37d0a90af298bd774cdf1863c0c794908aedb7275db926f",
+      "runs": {
+        "home": {
+          "ok": true,
+          "checks": [
+            "at the flat: \"Make the flat your home\" takes it up in the shared home engine, rented, with the landlord\u2019s bed fitted",
+            "bought the crate and blanket, fitted crate and removable privacy curtain at the rented flat",
+            "named fixture: tied seller grants installment title; one retained balance 80 to 60 survives Save/reload/Export/Import",
+            "save, reload, Export and Import keep the flat in the home engine with the landlord\u2019s bed and the fitted crate"
+          ],
+          "fixture": "wave3-home-deal-fixture.save.json",
+          "errors": 0
+        }
+      }
+    },
+    "harry_engines": {
+      "bundle": "7948c801add511ea7f7d9d3e67a18e147e24eefa43d18f7ec529602ae8ffda0e",
+      "runs": {
+        "hpbench": {
+          "ok": true,
+          "checks": [
+            "pending step survives Save/reload/Export/Import; cancelled second step retains first; retry produces and hands in one cure",
+            "earned tie admits Ron as a participating practice partner and adds mastery",
+            "composed feather application transfers actual stock to Ron; observed audience standing shown without regard totals",
+            "school home, companion result, transferred feather and cure remain after Save/reload/Export/Import"
+          ],
+          "fixture": "HP first-Potions native checkpoint",
+          "errors": 0
+        }
+      }
+    },
+    "harry_final_view": {
+      "bundle": "8167ff8c16dc4e9f83ef322b3ca07197745c8ee3ba1bef472fc643771d281f5a",
+      "runs": {
+        "hpsnapshot": {
+          "ok": true,
+          "checks": [
+            "latest rebuilt desktop view shows actual 1/2-stamina prices, 30-minute first step, bed/trunk and no inert switch; retained cure survives Save/reload/Export/Import"
+          ],
+          "fixture": "native HP wave-3 endpoint",
+          "errors": 0
+        }
+      }
+    },
+    "klein_brew": {
+      "bundle": "8f8dbf2d4cdadf4a15d06c23b383bbf0c6fa82ffa66e3fc335feebf182c7295f",
+      "fixture": "native pre-Seer checkpoint",
+      "tasks": 7,
+      "moves": 0,
+      "waits": 0,
+      "clockMinutes": 8708,
+      "ok": true,
+      "errors": 0
+    }
+  }
+}

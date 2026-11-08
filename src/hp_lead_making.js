@@ -12,10 +12,8 @@
 // numbers, not the engine. Reason: quills react with whatever cure is dissolved while the liquid is still on the fire.
 // Not a blanket rule: a different brew in this world can use quills early on purpose.
 //
-// Why ops, not the law's `directions`: the cast-making adapter does not forward an `order` to resolveBatch, so order of
-// ingredients cannot differ between two rows. The timing is therefore carried by the process steps the maker performs
-// (take it off the fire, then add the quills, or add them hot), which the adapter does pass through.
 import {defineCastMaking} from './cast_making_adapter.js';
+import {MAKING_TRAITS} from './making_traits.js';
 
 const P = 'book.hp.lead';
 const itemKey = name => JSON.stringify({id: `${P}.item.${name}`});
@@ -50,6 +48,10 @@ const recipeFor = (name, process) => ({id: `${P}.recipe.${name}`, revision: 1, n
 const row = ({name, label, description, report, minutes, process, product, use}) => ({
     id: `${P}.make.${name}`, revision: 1, label, description, report, place: `${P}.school_hall`, minutes,
     knowledgeKey: KNOW, law: `${P}.law.potions@1`, recipe: recipeFor(name, process), inputs: structuredClone(inputs), process, stations: [],
+    procedure: {steps: process.map((s,i)=>({id:s.op,minutes: i===0?30:process.length===2?10:5,
+        ...(s.op==='add_quills_cool'||s.op==='add_quills_hot'?{condition:{fact:'actor.hp.lead.potions.onFire',op:'eq',value:s.op==='add_quills_hot',reason:s.op==='add_quills_hot'?'Keep the cauldron over the fire.':'Take the cauldron off the fire first.'}}:{}),
+        ...(s.op==='simmer'||s.op==='take_off_fire'?{effects:[{type:'fact',scope:'actor',actor:'player',key:'hp.lead.potions.onFire',value:s.op==='simmer'}]}:{}),
+        label: ({simmer:'Simmer the nettles, fangs and slugs',take_off_fire:'Take the cauldron off the fire',add_quills_cool:'Add the quills off the fire',add_quills_hot:'Add the quills over the fire'})[s.op]}))},
     product, use,
 });
 
@@ -59,11 +61,12 @@ export const HP_LEAD_MAKING = Object.freeze({
         id: `${P}.potions`, revision: 1,
         axes: [{id: 'cure', kind: 'fraction', label: 'the cure'}, {id: 'sting', kind: 'fraction', label: 'quill sting'},
             {id: 'acid', kind: 'fraction', label: 'green burn'}],
+        tags: MAKING_TRAITS,
         materials: [
-            {id: 'Dried nettles', revision: 1, properties: {cure: 300}},
-            {id: 'Crushed snake fangs', revision: 1, properties: {cure: 250}},
-            {id: 'Stewed horned slugs', revision: 1, properties: {cure: 200}},
-            {id: 'Porcupine quills', revision: 1, properties: {sting: 500}},
+            {id: 'Dried nettles', revision: 1, tags: ['material.plant','preparation.dried'], properties: {cure: 300}},
+            {id: 'Crushed snake fangs', revision: 1, tags: ['material.animal','preparation.crushed'], properties: {cure: 250}},
+            {id: 'Stewed horned slugs', revision: 1, tags: ['material.animal','preparation.stewed'], properties: {cure: 200}},
+            {id: 'Porcupine quills', revision: 1, tags: ['material.animal','function.heat_reactive'], properties: {sting: 500}},
         ],
     },
     laws: [{

@@ -469,3 +469,9 @@ Every former heading of this file, newest first, kept as an anchor. Each entry l
 <a id="interpretation-boundary"></a>[Interpretation boundary](gm/USER_VISION_LOG_2026-10.md#interpretation-boundary)<br>
 <a id="original-user-messages"></a><a id="u01"></a><a id="u02"></a><a id="u03"></a><a id="u04"></a><a id="u05"></a><a id="u06"></a><a id="u07"></a><a id="u08"></a><a id="u09"></a><a id="u10"></a><a id="u11"></a><a id="u12"></a><a id="u13"></a><a id="u14"></a><a id="genre-sweep-follow-up"></a><a id="enemy-protagonist-follow-up"></a><a id="concurrent-characters-and-rogue-clone-feasibility"></a><a id="engine-implementation-follow-up"></a><a id="characters-ai-world-events-and-saving-ideas"></a>[Original user messages](gm/USER_VISION_LOG_2026-10.md#original-user-messages)<br>
 <a id="scope-and-precedence"></a>[Scope and precedence](gm/USER_VISION_LOG_2026-10.md#scope-and-precedence)<br>
+
+### Wave 3 engine completion and source shape checks
+
+Weibao: “Finish wave 3’s engines now: the powers grammar, the procedure layer with shared traits, the reputation view, and the remaining home and tie work.” Existing callers named: Spirit Vision, the levitation charm, the Seer brew, the Potions class, Dunn and Ron, the flat and the cupboard. “So they can’t end up as dead seams.”
+
+“Test each engine’s shape against a list of what the books state, such as Harry’s whole first-year spell list and Klein’s divination methods. That catches missing parts before content depends on them.” Then return to story-led waves: “Each new window mainly fills content and tunes numbers against what’s now a complete engine.” This replaces the previous story-first deferral of unfinished wave-3 foundations. LOTM-first and Harry alongside remain unchanged. Execution and source qualifications: [cross-world task record](gm/dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md).

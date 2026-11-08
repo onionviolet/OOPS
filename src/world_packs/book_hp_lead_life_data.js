@@ -4,6 +4,8 @@
 // Chapter 1 (the prologue) is not Harry's point of view and is deliberately absent from his knowledge.
 // Compatibility decision: a new definition id with no earlier save state; old saves hold none of it.
 // No calendar year (the book gives none): the clock is elapsed play, day 0 is the Saturday of the birthday.
+import {hpLeadPowerItems,hpLeadSpellIssueEffects} from '../hp_lead_spells.js';
+import {hpLeadHomeCommands} from '../hp_lead_home.js';
 import {lessonEffects} from '../lesson.js';
 import {registerWorldTies,tieEffects,tieOfferCommands} from '../person_ties.js';
 import {hpLeadMakingCommands as makingRows,hpLeadMakingItems,hpPotionsIssueEffects} from '../hp_lead_making.js';
@@ -19,20 +21,25 @@ export const HP_LEAD_TIES=registerWorldTies({worldId:id('world'),situationId:id(
  offers:[{id:id('tie.ron_family'),alias:'ron',kind:'affection',atLeast:2,label:'Sit with Ron in the common room · 30 min',
   description:'An evening by the fire with Ron, once lessons are done.',
   blocked:'Ron is still a boy you shared a bench with; a few more days of school together first.',
-  note:{key:id('tie.ron_family'),value:'Ron told you about his family: five older brothers, a younger sister, and hand-me-downs for almost everything he owns.'}}]});
+  note:{key:id('tie.ron_family'),value:'Ron told you about his family: five older brothers, a younger sister, and hand-me-downs for almost everything he owns.'}},
+ {id:id('tie.ron_practice'),alias:'ron',kind:'affection',atLeast:2,label:'Practise together with Ron · 20 min',minutes:20,repeatable:true,assisted:true,
+  description:'Take turns watching each other’s wrist and listening to the words for the levitation charm.',blocked:'Spend some school time with Ron first.',
+  effects:[{type:'power',powerId:id('levitation'),operation:'refine',amount:1}],
+  note:{key:id('tie.ron_practice'),value:'You and Ron took turns with the charm, pointing out what the other missed.'}}]});
 const ronTie=(moment,value)=>tieEffects(id('world'),{alias:'ron',kind:'affection',seen:{key:id(`tie.ron.${moment}`),value}});
 
 export const hpLeadLife={
  schema:2,id:P,revision:1,title:'Harry Potter · the boy under the stairs',
  description:'Opt-in lead life: a ten-year-old in his guardians\' household on the morning of his cousin\'s birthday. No income, no wand, no money of his own. Present magic has no learned method behind it.',
- compatibility:{legacy:'preserve-dormant',origin:'mandatory'},capabilities:['native-stock','jobs'],
+ compatibility:{legacy:'preserve-dormant',origin:'mandatory',registrationAdditions:{locationIds:[id('dormitory')],itemIds:[id('item.practice_feather')]}},capabilities:['native-stock','jobs'],
  world:{id:id('world'),label:'Harry Potter · your guardians\' street (lead life)'},
  locations:[
   {id:id('cupboard'),label:'Your room under the stairs',description:'Your place in the house: a narrow space with a bed, a spider or two, and no door you can lock from inside.',underRoof:true},
   {id:id('kitchen'),label:'Your guardians\' kitchen',description:'Where breakfast is fried and the day\'s orders are given.',underRoof:true},
   {id:id('hall'),label:'Front door and hall',description:'The hall of your guardians\' house.',underRoof:true},
+  {id:id('dormitory'),label:'Gryffindor first-year dormitory',description:'Red curtains around four-poster beds, with trunks at their feet.',underRoof:true},
   {id:id('school_hall'),label:'Hogwarts, the Great Hall',description:'The school\'s great hall, where the new first years are sorted.',underRoof:true}],
- items:[...hpLeadMakingItems], // W1a: Potions ingredients and flasks (hp_lead_making.js)
+ items:[...hpLeadMakingItems,...hpLeadPowerItems.map(({name,...item})=>({...item,label:name}))], // W1a: Potions ingredients and flasks (hp_lead_making.js)
  sources:[{id:id('magic'),revision:1,label:'A source with no method',kind:'trait',origin:'inherited',grants:[],bioDetail:'Something in you sometimes acts on its own. No method is learned, taught or named, and this entry grants no technique.'}],
  starts:[{id:id('start'),locationId:id('cupboard'),
   description:'You are ten, your guardians\' nephew, living in the room under the stairs. It is Saturday morning and your cousin\'s birthday. You hold nothing of your own: no money, no wand.',
@@ -79,7 +86,7 @@ export const hpLeadSchoolLocked={[id('sorting')]:[
  {id:id('sorting.hufflepuff'),label:'Be placed in Hufflepuff',reason:'The hat named Gryffindor. Another house would mean a different common room and Head of House; none of that is built.'},
  {id:id('sorting.ravenclaw'),label:'Be placed in Ravenclaw',reason:'The hat named Gryffindor. Another house would mean a different common room and Head of House; none of that is built.'},
  {id:id('sorting.slytherin'),label:'Be placed in Slytherin',reason:'The hat named Gryffindor. Another house would mean a different common room and Head of House; none of that is built.'}]};
-hpLeadLife.simulation.commands.push(...hpLeadSchoolCommands);
+hpLeadLife.simulation.commands.push(...hpLeadSchoolCommands,...hpLeadHomeCommands);
 // W9-D: the first lessons (HG3 spell row from a lesson, HG7 Potions class). Windows and chances are facts from book_world_hp_lessons.js
 // (hpFacts); this file is data only. The Charms lesson teaches the levitation charm once; each later Charms class is a practice attempt whose
 // chance rises with practice. Potions is a weekly class with a practice outcome (the Alchemy skill owns the progress). Authored proposals.
@@ -93,7 +100,7 @@ export const hpLeadLessonCommands=(()=>{
  return [
   {...base,id:id('lesson_charms'),label:'Attend your first Charms lesson · 30 min',once:true,duration:30,requires:charmsOpen,
    description:'The charms master shows the wand motion and the words for the levitation charm on a feather. Attending teaches the method; it does not make the charm work yet.',
-   effects:[...lessonEffects({key:id('lesson.levitation'),value:'The charms master showed the wand motion and the words for the levitation charm.',situationId:id('situation')}),{type:'power',powerId:HP_LEVITATION,operation:'learn'},...ronTie('charms','Ron sat beside you in your first Charms lesson and grumbled at his feather with you.'),know('charms_last','The charms master corrected your wrist and your pronunciation. You know the levitation charm now; getting a feather to rise takes practice.')]},
+   effects:[...hpLeadSpellIssueEffects,...lessonEffects({key:id('lesson.levitation'),value:'The charms master showed the wand motion and the words for the levitation charm.',situationId:id('situation')}),{type:'power',powerId:HP_LEVITATION,operation:'learn'},...ronTie('charms','Ron sat beside you in your first Charms lesson and grumbled at his feather with you.'),know('charms_last','The charms master corrected your wrist and your pronunciation. You know the levitation charm now; getting a feather to rise takes practice.')]},
   {...base,id:id('charms_practice'),label:'Practise the levitation charm in Charms · 30 min',duration:30,
    requires:{all:[...charmsOpen.all,{fact:`power.${HP_LEVITATION}.owned`,op:'eq',value:true}],reason:charmsOpen.reason},
    description:'Every pupil tries the charm on a feather. Each try, lifted or dropped, adds one step of practice, and the chance of lifting it rises with practice.',
@@ -110,6 +117,9 @@ hpLeadLife.simulation.powers=[{id:HP_LEVITATION,revision:1,label:'Levitation cha
 hpLeadLife.simulation.commands.push(...hpLeadLessonCommands);
 export const hpLeadTieCommands=tieOfferCommands(id('world'),{group:'structured_local',worldId:id('world'),actorId:'player',location:id('school_hall'),audience:['$actor'],costs:[],
  duration:30,cancellation:'refund',requires:{all:[...alive.all,{fact:'actor.hp.lead.atSchool',op:'eq',value:true}]},completionRequires:alive,completionCoLocated:true,completionFailure:'refund'});
+const ronPractice=hpLeadTieCommands.find(c=>c.id===id('tie.ron_practice'));
+ronPractice.requires.all.push({fact:`power.${HP_LEVITATION}.owned`,op:'eq',value:true,reason:'Learn the levitation charm in class first.'});
+ronPractice.completionRequires=structuredClone(ronPractice.requires);
 hpLeadLife.simulation.commands.push(...hpLeadTieCommands);
 // W1a (proposal, docs/gm/dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md): the Potions class brews on the shared craft engine with HP's own
 // law as data. Default: each class issues one set of ingredients for the board's recipe. Dial: a store cupboard or a bought kit later. Reason: in book 1

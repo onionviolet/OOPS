@@ -30,18 +30,18 @@ Cell format: **F / U**. F: `port` (world data through the shared port, no per-wo
 
 | System | Village (reference) | Klein (LOTM) | Harry (HP) | MoL | Gu | Shadow Slave | D&D Phandalin | Paradise | Primordial |
 |---|---|---|---|---|---|---|---|---|---|
-| Procedural crafting | port / floor | **port / floor** (W2a: Neil's Seer brew, engine-resolved, watched) | **port / floor** (W1a; Polyjuice still own) | own / - | own / - | own / - | own / - | port (process) / - | - / - |
+| Procedural crafting | port / floor | **port / floor** (W3d: Neil’s Seer brew, ordered native procedure, watched) | **port / floor** (W3d: resumable Potions steps; Polyjuice content still own) | own / - | own / - | own / - | own / - | port (process) / - | - / - |
 | Mixtures and discovery | port / floor | port / - (W2a dose law, unit test only) | **port / floor** (W1a: order changes the result) | - / - | - / - | - / - | - / - | - / - | - / - |
 | Materials and lineage | port / floor | - / - | own / - | - / - | - / - | thin / - | - / - | port / - | - / - |
 | Gear and runes | port / floor | - / - | - / - | - / - | n/a (Gu are living tools) | own / - | thin / - | thin / - | - / - |
 | Economy and trade | port / floor | own / floor | own / below | own / - | own / - | own / - | - / - | own / - | own / - |
-| Relationships and standing | thin / - | **port / floor** (LT8, gated on meeting Dunn) | **port / floor** (LT8) | port (people source) / - | - / - | thin / - | - / - | thin / - | - / - |
+| Relationships and standing | thin / - | **port / floor** (Dunn’s earned tie and audience standing, gated on meeting) | **port / floor** (Ron’s tie, participating practice and audience standing) | port (people source) / - | - / - | thin / - | - / - | thin / - | - / - |
 | Companions | port / floor | - / - | - / - | - / - | own (living Gu) / - | own (hound shadow) / - | - / - | - / - | - / - |
-| Homes and households | port / floor | **port (engine) / floor** (W3a: the flat in the home engine; take-up, buying and fitting walked) | **port (engine) / floor** (W3a-S4: the cupboard as a tied home) | thin / - | - / - | - / - | - / - | thin / - | - / - |
+| Homes and households | port / floor | **port (engine) / floor** (flat, furnishings, removable improvement and full view; financed title is a named fixture) | **port (engine) / floor** (tied cupboard, shared dormitory and full view) | thin / - | - / - | - / - | - / - | thin / - | - / - |
 | Heirs and genetics | own / floor | n/a for volume 1 (no heirs in reach) | n/a for book 1 | - / - | - / - | - / - | - / - | - / - | - / - |
 | Gathering and seasons | port / floor | thin (calendar) / - | thin (moon) / - | port (calendar) / - | - / - | - / - | - / - | port / - | thin / - |
 | Research and study | thin / - | thin (records) / - | **port / floor** (inquiry; library study finished natively) | own / - | - / - | own / - | - / - | - / - | - / - |
-| Powers (LT2 lowering) | n/a (no casting layer) | **port / floor** (W2b: Spirit Vision, spirituality) | **port / floor** (W1b: levitation, stamina, fizzle) | - / - | own (Gu) / - | own / - | own (mending) / - | - / - | - / - |
+| Powers (LT2 lowering) | n/a (no casting layer) | **port / floor** (W3b: priced grammar, Spirit Vision and timed Cogitation) | **port / floor** (W3b: levitation and conserved transfer; seeded failure, costs and mastery) | - / - | own (Gu) / - | own / - | own (mending) / - | - / - | - / - |
 
 Notes:
 - "own" cells are the bridging targets (LT7): the world keeps its laws as data and the hand-built runtime retires.
@@ -101,7 +101,7 @@ FLR lines for X1 (both lives; Harry's FLR3 is the Friends row and the People vie
 
 Save decision: no new slice. The tie axis and the notes live in the expansion state; a missing axis reads as 0, so older saves load. The HP lead definition gains Ron (a person row) and one command; a save that holds the HP lead life from before this change carries the older definition, accepted under "old saves may break" (Weibao, 2026-11-07).
 
-## Resume
+## Previous resume (superseded by the wave-3 completion section below)
 
 - Files this task owns: `src/person_ties.js`, `tests/person_ties.test.js`, `scripts/playtest/cross-world-ties.mjs`, `docs/CROSS_WORLD_SYSTEMS_TRANSFER.md`, this folder; hunks in `src/book_world_lotm_colleagues.js`, `src/book_world_lotm_host.js`, `src/book_world_lotm_domain.js`, `src/book_world_lotm_ui.js`, `src/world_packs/book_hp_lead_life_data.js`, `src/book_world_hp_lead_pack.js`, `src/book_world_hp_lead_ui.js`, `src/simulation_effects.js` (one fact line), `src/structured_pack_runtime.js` (people details), `scripts/seam_register.mjs` (one row), three HP test pins.
 - Resumed 2026-11-07 on Weibao's "continue" (relayed): lean pacing, one lane at a time, commit each slice at its floor, check usage between slices, stop at 98% weekly. Commits so far: `2933f87e3` (X1), `f28fa8e45` (X1-B1), `e84b9a79e` (X1-G1, W1a, W1b). Usage at the last read: weekly 92%.
@@ -111,7 +111,7 @@ Save decision: no new slice. The tie axis and the notes live in the expansion st
 - Fixed forward after commit `2933f87e3`, X1-B1: the trust step was keyed to weeks since the life began, while the duty numbers its cycles from the absolute clock. Two filings in consecutive duty weeks could then share one tie step. It now uses the duty seam's cycle (`expenseTieCycle`), with a regression test in `tests/person_ties.test.js`.
 - Wave execution rules (advisor, 2026-11-07): lanes run focused tests only and never build or walk in the shared checkout; the coordinator folds, builds once and walks once. The W1c fixture save stays gitignored, because a chain save carries cast-pack text; only its replay script and scenario recipe are committed, and the scenario degrades without the private pack. Gitignored iteration saves (Harry after the Sorting, Klein after week 2) cut walk cost inside a wave, and each wave still ends with one fresh natural walk per world. LT2 counts as done only when a LOTM caller and an HP caller run through the same lowering.
 
-## Wave plan from here: story-led integration (D-A to D-D, 2026-11-08)
+## Earlier story-first plan (superseded in order on 2026-11-08)
 
 Weibao delegated the approach ("first consider if better way of going about them, and then once improved.decided, continue accordingly, consitder wether if more progress needs to go into the protaginist playtrhough to help feed certain features"); the decision is D-A to D-D in `docs/audits/PROGRESS_ATLAS_2026-11-07_LONG_TERM.md`, section "Approach review for the remaining waves", committed at `c1c9beb95`. This table replaces the wave 3+ order below; the older rows stay as the inventory of engine parts each window pulls.
 
@@ -151,3 +151,66 @@ Each wave lands one playable world-slice per lane at the AD43 floor or records i
 Rejected for wave 1: LT7 Klein first (no reachable making act before the W1c fixture exists); heirs anywhere (does not apply in either first book); Primordial (no player route without a probe flag).
 
 More to consider (dispositions): ACT NOW: lanes write only new files, and the coordinator wires them (a shared-file collision is otherwise certain). ACCOUNT FOR NOW: Klein's native walks cost tens of minutes per week of play, so W1c is the multiplier for every later Klein slice. Stepping a native week in one call crashed the headless page, so walks step a day per call. LATER: the systems sheet (LT1) as a runtime file and its coverage printout, once two waves have shown which fields the ports really need. Its done check is a printout that lists every world × system cell with its state.
+
+## Wave 3 engine completion, 2026-11-08 (current)
+
+Weibao's latest instruction supersedes the story-first deferral above: finish W3b, W3d, W3e and remaining W3a/W3c now using their existing callers; test engine shape against source inventories, then return to story-led windows. Story windows then mainly add content and calibrate numbers. This changes build order, not the LOTM-first world priority.
+
+Target: rebuilt 1920x1080 desktop, usable powers, making, standing and home actions in both leads. Mobile and new world bring-up remain deferred. AR1-AR19, AD38/43/49/51/54, PRS4/6/7 apply. Voice sample: “You made the motion and said the words, and the feather rose off the desk.”
+
+Writer reservations: root owns homes, ties/reputation, host integration, shared docs and browser proof. Bounded worker P owns powers grammar plus hp_lead_spells/lotm_be_spells. Worker M owns procedures, cast_making_adapter, hp_lead_making and lotm_seer_brew. No core composition-root edits or commits from workers. Two concurrent workers maximum, two Sol-medium invocations for substantive coupled implementation; one later Luna-low source-inventory invocation, maximum 12,000 source words and six responses, no acquisition or paid fallback. Reuse existing census evidence; unknown live allowance, finite three-worker budget including repair in root. Focused tests per lane; root runs combined completion gates and proof.
+
+Initial state: HEAD and dirty tree inspected; unrelated batch-reading tooling and direction-doc edits preserved. Required failure cases: stale home quote/rights, hidden or wrong-audience standing, interrupted procedure and unavailable agent, cast failure with practice and price calibration outliers.
+
+### Engine completion scope and compatibility
+
+W3b now composes parts and prices through `power_grammar` → spell records → `compileStructuredAbilities` → the native command transaction. Harry’s existing levitation and new conserved feather transfer, and Klein’s existing Spirit Vision and taught, timed Cogitation, are callers. Numeric cost/failure/recovery/duration values remain gameplay dials where the source gives no number. Fitting reports tier error, unobserved dimensions and underdetermination; it does not invent canon observations.
+
+W3d uses `making_procedure` for the Potions bench and Neil’s Seer brew. The first step reserves ingredients; completed steps are native actor facts, pending work is a native job, final steps award the original product/consumer. Stopping a later step preserves earlier work; deliberately restarting spends fresh ingredients. Heat and actual local makers/witnesses are checked at admission and settlement. Remote answerers can instead require their contact owner’s readiness, checked again at settlement; that branch is contract-tested, not a new playable rite. `making_traits` is a shared TagRegistry vocabulary on the existing material catalogues. Village mixture resolution is unchanged. Polyjuice and the Sequence-5 rite remain later content/integration cases on this layer, not newly delivered story routes.
+
+W3c adds a second tie consumer: Ron is an actual participant in repeatable joint practice, gated by the earned tie and learned method. W3e projects observed accounts by audience without a new standing total; unknown audiences/private reports are omitted. The writer map in `reputation_view` keeps existing stores independent. Only the lead worlds’ person accounts are currently registered; later institution/region/heat accounts supply their own observer-safe reports.
+
+W3a now supplies world-specific room improvements and the full shared home view, Harry’s reachable dormitory with school bed/trunk, and retained cash/loan/installment purchase terms gated by the seller’s regard. Title transfer preserves stored possessions and ends the engine’s rental-expiry test; partial payments count towards installments and one balance feeds Owed in the world’s currency. A world’s separate rent duty needs its own source-backed applicability rule when that world adds a purchase offer. Klein’s flat remains rented; the financed house is an explicitly synthetic developer fixture, not an invented canon sale. World staff institutions and novel construction methods are separate later content/ports, not claimed here.
+
+Save compatibility: procedure progress uses existing actor facts/jobs; purchases are optional records inside homes@1. `content_packs` accepts explicitly declared additive registration IDs (Harry’s dormitory and practice feather), preserving stock and old life definitions. Undeclared additions, removals and reordering still fail. Current new state is exercised through native Save/reload/Export/Import. Older active structured lives retain their admitted definitions and are not silently rewritten to acquire new commands. Personal saves and the installed app are untouched. No commit or push in this completion run.
+
+### Source inventory and evidence routes
+
+[SOURCE_SHAPES](SOURCE_SHAPES.md), [source shapes](source_shapes.json) and [price fit](POWER_PRICE_FIT.json) own source qualifications. The contract suite covers all 26 spell occurrences/tasks in the existing HP1 rules index, one inherited/involuntary-magic shape, and nine pinned LOTM divination occasions. Additional potion, cupboard and house-standing cases remain source anchors, not formula grants. This is an index audit, not a new exhaustive direct read of either novel.
+
+Named routes: `scripts/playtest/cross-world-ties.mjs` modes `home`, `seer`, `hp`, `hpbench`; `scripts/playtest/klein-to-seer.mjs` now follows exposed procedure prerequisites. `hp` saves the naturally earned household and Sorting endpoints and a failure checkpoint, so `hpbench` can continue the first Potions state without replaying the opening/month. Fixture saves carry cast text and stay in private scratch. The production entry point never imports `scripts/playtest/fixtures/home-purchase-entry.mjs`. To repeat the financed case, clone the native Klein-home seed with `prepare-home-purchase.mjs`, then run the home mode with `WAVE3_DEAL_FIXTURE` naming that entry. Its two trust steps are an explicit test input; they are not claimed earned by that fixture.
+
+Verification repairs: the first browser run caught the empty fittings strip crashing an unclaimed world home; the renderer now handles empty/room-only views. A later native Cogitation admission caught its missing exact-definition entry in `book_world_lotm_state`; the regression starts a real admitted job, validates it and rejects altered saved effects. The first HP Potions assertion expected a hidden final-step control to be disabled; it now checks absence before prerequisites. Completed native steps were saved and reused.
+
+### Current result and next window
+
+The named wave-3 engine work is implemented and agent-verified, not human-reviewed. [WAVE3_EVIDENCE.json](WAVE3_EVIDENCE.json) records six passing route groups and their exact rebuilt bundle hashes; [WAVE3_INPUTS.json](WAVE3_INPUTS.json) records the runtime/driver/test inputs, source-pack hashes and 11 verified source-index hashes. Figures and counts prove their own scope, not every future spell or all world simulation.
+
+```receipt
+build: 8167ff8c16dc4e9f83ef322b3ca07197745c8ee3ba1bef472fc643771d281f5a
+route: fixture(wave3 native continuations; HP opening and school reached naturally)
+state: browser-verified
+viewport: 1920x1080
+persistence: checked
+tests: source contracts, power/practice, procedure, homes/tenure/purchase, audience privacy and compatibility focused checks pass; full delivery suite 5745 pass, 0 fail, 2 skip
+review: diff-scoped
+```
+
+| Check | Input | Result | Gap |
+|---|---|---|---|
+| `BUILD_OUT=/tmp/wave3-build-delivery node scripts/slot_run.mjs --kind build -- npm run build` | Frozen implementation; `WAVE3_INPUTS.json` | Pass; production bundle `d1f642a2d8f0950b8a24845fca0b35b75420190504de04bd2a16cb19773c45a0` | Existing duplicate `dial` warning in `travel_legs.js`; no new build warning |
+| `npm test` (delivery run) | Frozen runtime and tests; log `/tmp/wave3-delivery-test.log` | Pass: 5,747 tests, 5,745 pass, 0 fail, 2 skip | Two existing skips, not coverage |
+| `npm run check:arch` | Delivery tree | Pass; no growth in main/display/save_files, no new cycle edge | Existing baseline retained |
+| `npm run check:rules` | Delivery tree | Pass | One known continuity finding retained |
+| Focused power, making, home, Owed, observer and compatibility files | Current engine inputs | Pass; late focused slices 46/46, native-home regressions 46/46, purchase/Owed 18/18 | A test count is not a runtime denominator |
+| `node scripts/calibrate_powers.mjs --strict --json /tmp/wave3-price-fit.json` | World-local gameplay anchors | Pass; persisted as `POWER_PRICE_FIT.json` | Numeric canon costs unknown; unanchored tiers explicitly assumed |
+| Source-index hashes and source-contract suite | `source_shapes.json` | 11/11 hashes match; indexed HP1 and LOTM method shapes compile | Direct full-novel re-audit not performed |
+| Rebuilt headless browser walks | Six route groups in `WAVE3_EVIDENCE.json` | Pass; 1920x1080; 0 page errors in successful routes; native Save/reload/Export/Import exercised | Financed title is a synthetic fixture; remote answerer is checked at contract level, not in a walk |
+
+Change surface: shared leaves and their existing world callers; no changes to `main.js`, `display.js` or `save_files.js`, no new save slice or second clock. World-host changes include the existing command lists’ recognition of timed powers and procedure prerequisites. Unrelated batch-reading tooling, generated outputs and other shared-document edits present at startup remain preserved.
+
+**Current resume:** return to story-led windows, Klein kjw22 from the official KJ3AE endpoint (ch69 P082), then Harry W6 from its source window owner. Reuse the completed engines for content and numeric calibration; extend a part only when the next source event demonstrates the missing mechanism. Do not replay the engine validation from scratch. Build the KJ3AE canonical continuation fixture once through the existing chain if not already available; the engine fixtures below are not substitutes for that narrative endpoint.
+
+Private engine seeds and replay outputs: `/tmp/wave3-hp/hp-sorted.save.json` (natural Sorting); `/tmp/wave3-hp/hp-failure-checkpoint.save.json` (natural first Potions class, before prep; the failure was an incorrect driver assertion); `/tmp/wave3-hp-bench/hp-wave3-end.save.json` (retained engine endpoint); `/tmp/wave3-klein-brew/klein-seer.save.json` (new procedure route). Never commit these source-bearing saves. Rebuild with `cross-world-ties.mjs hpbench` from `HP_BENCH_SEED`, then `hpsnapshot` for the latest visible prices/home view. The final screenshots stay in `/tmp/wave3-hp-final`, `/tmp/wave3-seer` and `/tmp/wave3-home-deal-final`.
+
+Release states: source edited, built, focused-checked, browser-verified and persistence-checked. No commit, push, installed-app update or human review claimed.

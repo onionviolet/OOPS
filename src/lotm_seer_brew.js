@@ -18,20 +18,23 @@
 // Why a non-player maker and facts, not an inventory cup: the text has Neil make it and leaves the cup in the room ("nobody
 // holds the cup"). The engine is pure (resolveBatch), so an NPC maker calls it directly; the pack's own act that finishes the
 // brew records the product, and the drink requires it. The cup itself stays scene text (no holder, no item).
+import {compileProcedure} from './making_procedure.js';
+import {MAKING_TRAITS} from './making_traits.js';
 import {defineCatalogue} from './craft_materials.js';
 import {defineCraftLaw, resolveBatch} from './craft_resolver.js';
 
 const P = 'book.lotm.seer_brew';
 export const SEER_BREW_FACTS = Object.freeze({product: `${P}.product`, madness: `${P}.madness`, seer: `${P}.seer`});
 
-const material = (id, properties = {}) => ({id, revision: 1, properties});
+const material = (id, properties = {}, tags = []) => ({id, revision: 1, properties, tags});
 export const SEER_BREW_CATALOGUE = defineCatalogue({
     id: `${P}.catalogue`, revision: 1,
     axes: [{id: 'charge', kind: 'fraction', label: 'Beyonder charge'}, {id: 'binding', kind: 'fraction', label: 'binding'},
         {id: 'seer', kind: 'fraction', label: 'the Seer’s power'}],
-    materials: [material('Distilled water'), material('Night vanilla liquid'), material('Gold mint leaf'),
-        material('Poison hemlock juice'), material('Dragon blood grass powder'),
-        material('Lavos Squid blood', {charge: 1000}), material('Star Crystal', {binding: 1000})],
+    tags: MAKING_TRAITS,
+    materials: [material('Distilled water', {}, ['material.liquid']), material('Night vanilla liquid', {}, ['material.plant','material.liquid']), material('Gold mint leaf', {}, ['material.plant']),
+        material('Poison hemlock juice', {}, ['material.plant','material.liquid']), material('Dragon blood grass powder', {}, ['material.plant','preparation.crushed']),
+        material('Lavos Squid blood', {charge: 1000}, ['material.animal','material.liquid','function.spiritual_charge']), material('Star Crystal', {binding: 1000}, ['material.mineral','function.binding'])],
 });
 
 export const SEER_BREW_LAW = defineCraftLaw({
@@ -69,5 +72,16 @@ export function bindSeerBrew(commands, product = NEIL_BREW) {
     // The drink needs a batch the engine resolved with the Seer's power in it; a missing fact reads as not brewed.
     const gate = {fact: `actor.${SEER_BREW_FACTS.seer}`, op: 'gte', value: 1, reason: 'The potion has to be brewed first.'};
     for(const k of ['requires', 'completionRequires']) drink[k] = {all: [...(drink[k] ? [drink[k]] : []), gate]};
+    // The source already supplies Neil as the target participant. Retain that
+    // actual actor rather than spawning a second maker. Klein remains the viewer.
+    if(brew.duration >= 2) {
+        const maker = brew.targetId ? [{id:brew.targetId,role:'maker'}] : [];
+        const steps = compileProcedure(brew,{steps:[
+            {id:'crucial',minutes:Math.floor(brew.duration/2),label:'Watch Neil measure the blood and crystal',agents:maker},
+            {id:'fog',minutes:Math.ceil(brew.duration/2),label:'Watch the fog settle into the cup',agents:maker},
+        ]});
+        Object.assign(brew,steps.at(-1));
+        commands.push(...steps.slice(0,-1));
+    }
     return 2;
 }

@@ -1,5 +1,6 @@
 // Host reader for Ledger → Owed (LTU6). Reads only published projections and ports, never a domain's closure, and writes nothing:
 // the economy_standing projection (loans, claims, the verge grudge), the household projection and the Village career port.
+import {homePurchaseRows} from './home_purchase.js';
 import {domainRegistry} from './domain_registry.js';
 import {readPort} from './ui_ports.js';
 import {fromHousehold, fromVillageCareer, obligation} from './obligations_ledger.js';
@@ -30,11 +31,14 @@ export function settleOwed(settle) {
 export function readOwedLedger() {
     const standing = domainRegistry.project('economy_standing') ?? null;
     const home = domainRegistry.project('household_fortunes')?.household;
+    const residences=domainRegistry.project('homes');
     // The projection lists the household ledger newest first; the adapter reads the newest note from the end.
-    const fortunes = [...fromHousehold(home ? {resentment: home.resentment, ledger: [...(home.ledger ?? [])].reverse()} : {}), ...careerRows(readPort('villageCareer')), ...(domainRegistry.project('duties')?.rows ?? [])];
+    const fortunes = [...homePurchaseRows(residences?.state,{clock:residences?.context?.clock,displayClock:standing?.now??0}), ...fromHousehold(home ? {resentment: home.resentment, ledger: [...(home.ledger ?? [])].reverse()} : {}), ...careerRows(readPort('villageCareer')), ...(domainRegistry.project('duties')?.rows ?? [])];
     const grudge = standing?.state?.ledger ? grudgeNow(standing.state.ledger, standing.now) : null;
     // OB2: fines levied by an authority are one more source; the heat domain owns the record, this only lists it with its Settle quote.
     const fines = fineQuotes(), owed = gatherOwed({standing, fortunes: [...fortunes, ...fines.rows], grudge, terms: TERMS});
     Object.assign(owed.live, fines.live);
+    for(const r of fortunes)if(r.source==='homes')owed.labels[r.creditor]=r.creditorLabel;
+    for(const h of Object.values(residences?.state?.properties||{}))if(h.purchase?.balance>0){const left=h.purchase.due-(residences.context?.clock||0);owed.live[`home:${h.id}`]={amount:h.purchase.balance,due:{daysLeft:Math.ceil(left/1440),overdue:left<0}};}
     return owed;
 }

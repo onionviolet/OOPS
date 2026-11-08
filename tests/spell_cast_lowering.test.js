@@ -47,7 +47,7 @@ test('a spell with no failure chance keeps its plain command', () => {
 
 test('Harry: the cast binds to the learned levitation power, spends stamina and agrees with the Charms class dial', () => {
     const [cmd] = hpLeadSpellCommands;
-    assert.equal(hpLeadSpellCommands.length, 1);
+    assert.equal(hpLeadSpellCommands.length, 2);
     assert.equal(cmd.powerId, HP_LEVITATION);
     assert.ok(cmd.requires.all.some(r => r.fact === `power.${HP_LEVITATION}.owned` && r.value === true));
     assert.ok(cmd.requires.all.some(r => r.fact === 'actor.hp.lead.atSchool'));

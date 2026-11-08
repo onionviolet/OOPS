@@ -1,6 +1,7 @@
 // Private HP lead cast: fetched if present (same convention as the other private supplements), merged into the lead
 // life's native definition before it is registered. No canon text lives here; with the pack absent the lead life is the
 // public stub. Locked "Not how it happened" rows and the act sequence come from the pack.
+import {hpLeadHomeCommands} from './hp_lead_home.js';
 import {definePlaceActs} from './place_acts.js';
 import {validLadder} from './coin_ladder.js';
 import {hpLeadSpellCommands} from './hp_lead_spells.js';
@@ -50,6 +51,6 @@ export function withHpLeadCast(raw,pack){
  const placeIds=new Set(native.locations.map(l=>l.id)),school=structuredClone(hpLeadSchoolCommands);
  const endpoint=pack.householdActs.acts.flatMap(a=>(a.effects||[]).filter(e=>e.type==='relocate'&&e.actor==='player'&&placeIds.has(e.location))).at(-1)?.location;
  const arrive=school.find(c=>c.id===`${P}.arrive_school`);if(arrive&&endpoint)arrive.location=endpoint;
- native.simulation.commands=[...acts.map(c=>({...c,audience:['$actor']})),...school,...structuredClone(hpLeadLessonCommands),...structuredClone(hpLeadTieCommands),...structuredClone(hpLeadMakingCommands),...structuredClone(hpLeadSpellCommands)]; // the school route and lessons survive the private cast
+ native.simulation.commands=[...acts.map(c=>({...c,audience:['$actor']})),...school,...structuredClone(hpLeadHomeCommands),...structuredClone(hpLeadLessonCommands),...structuredClone(hpLeadTieCommands),...structuredClone(hpLeadMakingCommands),...structuredClone(hpLeadSpellCommands)]; // the school route and lessons survive the private cast
  return native;
 }

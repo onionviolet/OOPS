@@ -4,7 +4,7 @@
 // or a charge pool with a recharge rule. Refusal is the engine's own; this leaf adds the validated row, the lowering and a read model.
 // Defaults and dials (per world): a limit of kind 'none' is allowed; costs and limits the source does not state are labelled `unstated`
 // rather than invented. `failure.hook` is an opaque id another owner (backlash, loss of control) can read; nothing here models it.
-import {assert, record, stableId, jsonData, validatePredicate, meets} from './simulation_contracts.js';
+import {assert, record, stableId, jsonData, validatePredicate, validateSimulationEffect, meets} from './simulation_contracts.js';
 import {evaluateRule} from './rules.js';
 import {compileStructuredAbilities} from './structured_ability_runtime.js';
 
@@ -19,7 +19,7 @@ function validateRow(row, prefix) {
     assert(stableId(row.sourceId) && row.sourceId.startsWith(prefix + '.'), 'An ability record needs an owned held source.');
     assert(Array.isArray(row.conditions) && row.conditions.every(c => record(c) && text(c.label) && record(c.requires)), 'Ability conditions need a label and a typed predicate.');
     row.conditions.forEach(c => validatePredicate(c.requires));
-    assert(Array.isArray(row.cost) && row.cost.every(c => record(c) && ['resource', 'item', 'vital', 'energy'].includes(c.type) && Number.isFinite(c.amount) && c.amount < 0), 'Costs must name spent stock; an unknown cost goes in `unstated`.');
+    assert(Array.isArray(row.cost) && row.cost.every(c => record(c) && (c.type === 'energy' && c.operation === 'use' ? (validateSimulationEffect(c), true) : ['resource', 'item', 'vital'].includes(c.type) && Number.isFinite(c.amount) && c.amount < 0)), 'Costs must name spent stock; an unknown cost goes in `unstated`.');
     assert(Array.isArray(row.effects) && row.effects.length > 0, 'An ability needs a concrete effect.');
     assert(row.price == null || Array.isArray(row.price) && row.price.length > 0, 'A price needs actual effects.');
     const l = row.limit ?? {kind: 'none'};
@@ -118,7 +118,7 @@ export function abilityView(card, {facts = {}, quote = null, charges = null, rea
     const limit = card.limit.kind === 'cooldown' ? {kind: 'cooldown', minutes: card.limit.minutes, readyIn: readyIn ?? 0}
         : card.limit.kind === 'charges' ? {kind: 'charges', max: card.limit.max, left: charges ?? card.limit.initial ?? card.limit.max} : {kind: 'none'};
     const ready = quote ? quote.eligible === true : blockers.length === 0 && conditions.every(c => c.met) && (limit.kind !== 'cooldown' || limit.readyIn === 0) && (limit.kind !== 'charges' || limit.left > 0);
-    return {id: card.id, label: card.label, conditions, cost: card.cost.map(c => ({what: c.key ?? c.type, amount: -c.amount})), limit, price: card.price.length > 0,
+    return {id: card.id, label: card.label, conditions, cost: card.cost.map(c => ({what: c.key ?? c.energyId ?? c.type, amount: c.type === 'energy' ? c.output : -c.amount})), limit, price: card.price.length > 0,
         ready, refusedBy: ready ? [] : [...conditions.filter(c => !c.met).map(c => c.label), ...blockers.map(l => `blocked by ${l}`), ...(limit.kind === 'cooldown' && limit.readyIn > 0 ? ['recovering'] : []), ...(limit.kind === 'charges' && limit.left <= 0 ? ['no charges left'] : [])],
         failureHook: card.failureHook, stated: (card.stated ?? []).map(({kind, value, unit, label}) => ({kind, value: value ?? null, unit: unit ?? '', label})), unstated: card.unstated};
 }

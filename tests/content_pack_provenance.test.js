@@ -27,3 +27,15 @@ test('unvisited registered native non-person inventories park and restore exact 
  const restored=preparePackSave(parked,defs);assert.deepEqual(restored.inventories,original.inventories);assert.equal(restored.content_packs.packs.cargo,undefined);
  const wrong=structuredClone(parked);wrong.content_packs.registered.cargo.native.inventories.storage.unrelated={};assert.throws(()=>preparePackSave(wrong,defs),/Unowned/);
 });
+
+test('explicit additive migration updates registered ids without granting items or changing parked state',()=>{
+ const prior={schema:1,packs:{},registered:{add:{worldId:'add.world',locationIds:['add.old'],itemIds:['add.item.old']}}};
+ const d={schema:2,id:'add',world:{id:'add.world'},locations:[{id:'add.old'},{id:'add.new'}],items:[{id:'add.item.old'},{id:'add.item.new'}],compatibility:{registrationAdditions:{locationIds:['add.new'],itemIds:['add.item.new']}}};
+ const original={content_packs:prior,character:{money:42},inventories:{player:{kept:3}}};
+ const migrated=preparePackSave(original,new Map([['add',d]]));
+ assert.deepEqual(migrated.content_packs.registered.add.locationIds,['add.old','add.new']);
+ assert.deepEqual(migrated.content_packs.registered.add.itemIds,['add.item.old','add.item.new']);
+ assert.deepEqual(migrated.inventories,original.inventories);assert.deepEqual(original.content_packs,prior);
+ assert.throws(()=>preparePackSave(original,new Map([['add',{...d,compatibility:{}}]])),/migration/);
+ assert.throws(()=>preparePackSave(original,new Map([['add',{...d,locations:[{id:'add.renamed'},{id:'add.new'}]}]])),/migration/);
+});

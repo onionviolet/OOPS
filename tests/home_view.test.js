@@ -87,3 +87,16 @@ test('several homes show a switcher and report the choice', () => {
     buttons[0].click();
     assert.deepEqual(picked, ['cottage']);
 });
+
+test('a world home without condition or weather records renders its known household without inventing meters',async()=>{
+ const {worldHomeModel}=await import('../src/home_overview_model.js');
+ const model=worldHomeModel({place:{id:'world.flat',name:'Flat'},residents:[{name:'Aunt'}],dues:[],stores:[]});
+ const n=host();assert.doesNotThrow(()=>renderHomeView(n,model));assert.match(n.textContent,/Aunt/);
+});
+
+test('a world home can show room plans before it has any furniture',async()=>{
+ const {worldHomeModel}=await import('../src/home_overview_model.js');
+ const model=worldHomeModel({place:{id:'world.empty_house',name:'Empty house'}});
+ model.rooms=[{id:'world.study',label:'Fit a study',state:'empty',note:'Not fitted yet.'}];
+ const n=host();assert.doesNotThrow(()=>renderHomeView(n,model));assert.match(n.textContent,/Fit a study/);
+});

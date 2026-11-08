@@ -71,7 +71,7 @@ export function defineSpells(rows, adapter) {
         const effects = structuredClone(row.effects);
         if(row.prepare && !row.prepare.keep) effects.push({type: 'fact', scope: 'actor', actor: actorId, key: preparedKey(k), value: false});
         const failure = {chance: row.failure?.chance ?? ad.failure.chance, perMastery: row.failure?.perMastery ?? ad.failure.perMastery ?? 0, outcome: structuredClone(row.failure?.outcome ?? []),
-            hook: `${prefix}.failure.${k}`, basis: row.failure?.chance != null ? 'stated' : ad.failure.chance != null ? 'world default' : 'none'};
+            hook: `${prefix}.failure.${k}`, basis: row.costBasis?.kind === 'parts' ? 'composed' : row.failure?.chance != null ? 'stated' : ad.failure.chance != null ? 'world default' : 'none'};
         if(failure.basis !== 'stated') note('failure chance');
         if(!(row.cost ?? []).length && !(row.unstated ?? []).includes('cost amount')) note('cost amount');
         const ab = {key: k, label: row.label, ...(row.description ? {description: row.description} : {}), sourceId: row.sourceId, conditions, cost: row.cost ?? [], limit: row.limit ?? {kind: 'none'},

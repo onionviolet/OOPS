@@ -21,9 +21,9 @@ export const sha = text => createHash('sha256').update(text).digest('hex').slice
 /** Durable state without the clock: two saves differ here only if play changed something. */
 export const stateHash = save => {const s = JSON.parse(canonicalSave(save)); delete s['current time']; return sha(JSON.stringify(s));};
 
-export async function buildBundle() {
+export async function buildBundle({entryPoint = join(ROOT, 'src/main.js')} = {}) {
     const dir = await mkdtemp(join(tmpdir(), 'yairpg-playtest-bundle-'));
-    await build({entryPoints:[join(ROOT, 'src/main.js')], bundle:true, format:'esm', platform:'browser', target:'es2022', minify:true, sourcemap:true, outfile:join(dir, 'bundle.js'), logLevel:'error'});
+    await build({entryPoints:[entryPoint], bundle:true, format:'esm', platform:'browser', target:'es2022', minify:true, sourcemap:true, outfile:join(dir, 'bundle.js'), logLevel:'error'});
     return {dir, dispose:() => rm(dir, {recursive:true, force:true})};
 }
 
@@ -88,7 +88,7 @@ export class Session {
     // Same loop as HeadlessGame.step: chunks of up to 60 ticks until the calendar target.
     step(minutes) {
         return this.page.evaluate(minutes => {
-            const now = () => {const t = window.simulationTestHooks.snapshot()['current time']; return t.day_count * 1440 + t.hour * 60 + t.minute;};
+            const now = () => {if(window.simulationTestHooks.clock) return window.simulationTestHooks.clock(); const t = window.simulationTestHooks.snapshot()['current time']; return t.day_count * 1440 + t.hour * 60 + t.minute;};
             const target = now() + minutes;
             for(let m = now(), i = 0; m < target; m = now()) {
                 if(++i > 10000) throw new Error('Game clock did not advance ' + minutes + ' minutes.');

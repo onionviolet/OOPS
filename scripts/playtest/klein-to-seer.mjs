@@ -49,10 +49,12 @@ try {
         if(next.id === last) {if(++same > 150) throw Error(`stalled at ${next.id} place=${next.place}`);} else {last = next.id; same = 0;}
         const sel = id => p.locator(`[data-lotm="${id}"]`).first();
         console.error('tab Here'); await tab('Here');
-        let b = sel(next.id);
+        const prep=(v.objectActs||[]).find(a=>a.id.startsWith(`${next.id}.procedure.`)&&a.eligible);
+        const nextId=prep?.id||next.id;
+        let b = sel(nextId);
         if(await b.count() && !(await b.isDisabled())) {
-            await b.click(); await p.waitForTimeout(150); await nc.settle(); tasks.push(next.id);
-            console.error(`task ${next.id} clock=${await clock()}`); continue;
+            await b.click(); await p.waitForTimeout(150); await nc.settle(); tasks.push(nextId);
+            console.error(`task ${nextId} clock=${await clock()}`); continue;
         }
         const mv = v.moves.find(m => m.to === next.place && m.eligible);
         if(mv) {

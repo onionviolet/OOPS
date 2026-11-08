@@ -80,7 +80,8 @@ export function quotePlaceActs(state,commands,data,preview,{blocked='',decide=()
  const place=state.simulation?.people?.player?.location,pending=new Set((state.simulation?.jobs||[]).map(j=>j.commandId));
  const rows=new Map((data?.acts||[]).map(row=>[row.id,row]));
  return sequenceOffers(state,data,commands).filter(d=>d.location===place||pending.has(d.id)).flatMap(d=>{
-  const row=rows.get(d.id),q=preview(d);
+  const row=rows.get(d.procedure?.parentId||d.id),q=preview(d);
+  if(!row)return [];
   if(!q.visible)return [];
   const decision=decide(d);
   // Public remote presence is already part of the admitted guard. Explain that
@@ -90,7 +91,7 @@ export function quotePlaceActs(state,commands,data,preview,{blocked='',decide=()
   const known=row.publicReasons?[...disclosedReasons(row.requires,publicFacts),...(remoteRule?disclosedReasons(remoteRule,publicFacts):[])]:[];
   const reasons=[...(q.reasons||[]).flatMap(r=>r==='The required knowledge, means or circumstances are missing.'&&known.length?known:[r.startsWith('Insufficient ')&&row.costReason?row.costReason:r]),...(blocked?[blocked]:[]),...(!decision.allowed?[decision.reason]:[])];
   return [{id:d.id,label:`${d.label} · ${q.duration??d.duration} min · ${row.costLabel||'no stock spent'}${d.cancellation==='forfeit'?' · inputs stay spent if stopped':''}`,
-   description:row.description,...(row.flavour?{flavour:row.flavour}:{}),eligible:q.eligible&&!blocked&&decision.allowed,reasons,duration:q.duration??d.duration}];
+   description:d.procedure?d.description:row.description,...(row.flavour?{flavour:row.flavour}:{}),eligible:q.eligible&&!blocked&&decision.allowed,reasons,duration:q.duration??d.duration}];
  });
 }
 // Knowledge is written by command settlement. Publish its receipt once through

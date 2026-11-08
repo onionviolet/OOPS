@@ -58,7 +58,12 @@ test('Harry: Ron is a school person, the Sorting and first Charms raise his rega
     const raises = c => c.effects.filter(e => e.type === 'relationship' && e.actor === 'book.hp.lead.ron' && e.axis === 'tie.affection').length;
     assert.equal(raises(cmd('book.hp.lead.sorting')), 1);
     assert.equal(raises(cmd('book.hp.lead.lesson_charms')), 1);
-    assert.equal(hpLeadTieCommands.length, 1);
+    assert.equal(hpLeadTieCommands.length, 2);
+    const together=cmd('book.hp.lead.tie.ron_practice');
+    assert.deepEqual(together.participants,['player', 'book.hp.lead.ron']);
+    assert.equal(together.participantsCoLocated,true);
+    assert.ok(together.effects.some(e=>e.type==='power'&&e.operation==='refine'));
+    assert.ok(together.completionRequires.all.some(r=>r.fact===`power.book.hp.lead.levitation.owned`));
     const talk = cmd('book.hp.lead.tie.ron_family');
     assert.deepEqual(talk.requires.all.at(-1), {fact: 'tie.ron.affection', op: 'gte', value: 2, reason: HP_LEAD_TIES.offers[0].blocked});
 });

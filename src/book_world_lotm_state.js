@@ -1,3 +1,4 @@
+import {lotmBeSpellCommands} from './lotm_be_spells.js';
 // Optional `state.lotm` owner for the early-Tingen probationer branch. Absent means
 // inert: no Tingen presence, job, means or knowledge may exist without it. The
 // only activation path is enrollLotmBranch (book_world_lotm_content.js).
@@ -59,7 +60,7 @@ export function validateLotmState(state){
  if(d.entryProfile!==BE_PROFILE_ID)assert(sup&&a[I.supervisor]?.worldId===I.world&&sup.body?.id===`native.person.${I.supervisor}.body`&&sup.body.ownerId===I.supervisor&&sup.body.controllerId===I.supervisor,'The Tingen supervisor needs their own independent body.');
  for(const j of (s.jobs||[]).filter(j=>prefix(j.commandId)||[...castBodyCommands,...castObjectCommands,...castJourneyCommands,...castDivinationCommands,...castRecordCommands,...castMakingCommands,...castInferenceCommands,...castExchangeCommands,...castAbilityCommands].some(c=>c.id===j.commandId))){
   if(lotmCastLife(state)&&dormantCastWalk(j))continue;
-  const def=castWalkDefinitionById(j.commandId)||[...castBodyCommands,...lotmCommands,...castWalkCommands,...castObjectCommands,...castTopicCommands,...castJourneyCommands,...castDivinationCommands,...castRecordCommands,...castMakingCommands,...castInferenceCommands,...castExchangeCommands,...castAbilityCommands].find(c=>c.id===j.commandId);
+  const def=castWalkDefinitionById(j.commandId)||[...lotmBeSpellCommands,...castBodyCommands,...lotmCommands,...castWalkCommands,...castObjectCommands,...castTopicCommands,...castJourneyCommands,...castDivinationCommands,...castRecordCommands,...castMakingCommands,...castInferenceCommands,...castExchangeCommands,...castAbilityCommands].find(c=>c.id===j.commandId);
   assert(def&&def.duration>0&&j.actorId===def.actorId&&j.revision===def.revision&&(j.cancellation||'none')===(def.cancellation||'none')&&same(j.costs,def.costs)&&same(j.effects,def.effects),'Tingen work differs from its exact admitted definition.');
   if(def.bodyCare&&def.duration>0)assert(same(j.completionSupport,{schema:1,requires:def.completionRequires,coLocated:def.completionCoLocated??true,location:j.context?.facts?.location||s.people[j.actorId].location,failure:'refund'}),'Body support differs from its exact admitted definition.');
   if(def.castAbility)assert(same(j.completionSupport,{schema:1,requires:def.completionRequires,coLocated:def.completionCoLocated,location:j.context?.facts?.location||s.people[j.actorId].location,failure:'refund'}),'Encounter support differs from its exact admitted definition.');

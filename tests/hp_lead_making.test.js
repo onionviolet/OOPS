@@ -9,12 +9,15 @@ const make='book.hp.lead.make.cure_boils',early='book.hp.lead.make.cure_boils_qu
 const bind={worldId:'book.hp.lead.world',group:'structured_local',situationId:'book.hp.lead.situation'};
 
 test('pack defines and yields a make and a use command per row',()=>{
- assert.deepEqual(cmds.map(c=>c.id),[make,`${make}.use`,early,`${early}.use`]);
+ assert.deepEqual(cmds.map(c=>c.id),[`${make}.procedure.1`,`${make}.procedure.2`,make,`${make}.use`,`${early}.procedure.1`,early,`${early}.use`]);
+ assert.equal(cmds.filter(c=>c.procedure?.parentId===make).reduce((n,c)=>n+c.duration,0),40);
  for(const k of Object.values(K))validateItemKey(k);
 });
 test('make commands consume exactly the ingredients and produce their own flask',()=>{
  for(const [id,flask] of [[make,K.cure],[early,K.corrosive]]){
-  const c=by(id),cost=Object.fromEntries(c.costs.map(x=>[x.key,x.amount]));
+  const c=by(id),first=by(`${id}.procedure.1`),cost=Object.fromEntries(first.costs.map(x=>[x.key,x.amount]));
+  assert.deepEqual(c.costs,[]);
+  assert.ok(!first.effects.some(e=>e.type==='item'&&e.amount>0));
   assert.deepEqual(cost,{[K.nettles]:-2,[K.fangs]:-1,[K.slugs]:-1,[K.quills]:-1});
   assert.ok(c.effects.some(e=>e.type==='item'&&e.key===flask&&e.amount===1));
   assert.equal(c.making.productKey,flask);

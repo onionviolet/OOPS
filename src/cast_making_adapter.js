@@ -6,6 +6,7 @@ import {defineRecipe,recognizeRecipe} from './craft_recipes.js';
 import {classifyProductKey} from './craft_product_registry.js';
 import {validateItemKey} from './inventory_key.js';
 import {defineProcess} from './dose_process.js';
+import {compileProcedure} from './making_procedure.js';
 const id=x=>typeof x==='string'&&/^[a-z][a-z0-9_.:-]*$/i.test(x)&&!['__proto__','constructor','prototype'].includes(x);
 const text=x=>typeof x==='string'&&x.trim().length>0;
 const pos=x=>Number.isSafeInteger(x)&&x>0;
@@ -93,10 +94,11 @@ export function defineCastMaking(data,{worldId,actorId='player',group,situationI
   const base={revision:row.revision,group,actorId,worldId,location:row.place,once:false,
    visibleWhen:requires||eq('actor.life','alive'),requires:support,completionRequires:support,
    completionCoLocated:true,completionFailure:'refund',cancellation:'refund'};
-  commands.push({...base,id:row.id,label:row.label,description:row.description,duration:envelope.minutes,
+  const prepare={...base,id:row.id,label:row.label,description:row.description,duration:envelope.minutes,
    costs:fit.debits.map(x=>({type:'item',actor:actorId,key:x.key,amount:-x.qty})),
    effects:[{type:'item',actor:actorId,key:row.product.key,amount:1},...allocation,note(receipt,row.report)],
-   making:{rowId:row.id,stage:'prepare',costText:inputs.filter(x=>x.role!=='catalyst').map(x=>`${x.qty} ${x.label||x.material.name}`).join('; '),receiptKey:receipt,productKey:row.product.key,productId:result.product.id,law:law.ref,...(row.product.consumer?{consumer:row.product.consumer}:{})}});
+   making:{rowId:row.id,stage:'prepare',costText:inputs.filter(x=>x.role!=='catalyst').map(x=>`${x.qty} ${x.label||x.material.name}`).join('; '),receiptKey:receipt,productKey:row.product.key,productId:result.product.id,law:law.ref,...(row.product.consumer?{consumer:row.product.consumer}:{})}};
+  commands.push(...(row.procedure?compileProcedure(prepare,row.procedure):[prepare]));
   if(row.use){
    const use=row.use;
    if(![use.label,use.description,use.report].every(text)||!pos(use.minutes)||!Array.isArray(use.effects)||!use.effects.length)throw Error('Making use needs an authored consumer.');

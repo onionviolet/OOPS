@@ -18,7 +18,7 @@ Only two seams have a cited receipt today: `ready_stock` (fixture route, LOTM, f
 |---|---|---|
 | 0 | 10 | check_contract, conflict_frame, tempo_fight, faction_rank, law_case, life_events, home_building_model, research_*, ability_ladders, effect_dsl |
 | 1 | 15 | notch_contest, recurring_duties, teacher_window, travel_legs, world_light, people_knowledge, constraint_store, world_events, storylet_deck, institution_access, owed_ledger_sources, structured_ability_runtime, ability_records, lore_history_state, combat_math |
-| 2+ | 14 | ready_stock, own_holdings, lesson, people_sources, harm_state, world_rhythm, cast_schedule, seeded_streams, institution_store, world_calendar, cast_* adapters, material_lineage, spell_cast_lowering, person_ties |
+| 2+ | 17 | ready_stock, own_holdings, lesson, people_sources, harm_state, world_rhythm, cast_schedule, seeded_streams, institution_store, world_calendar, cast_* adapters, material_lineage, spell_cast_lowering, making_procedure, reputation_view, home_world_port, person_ties |
 
 | Seam | Purpose | src importers | tests / scripts | Shared importers | World families (importer files) | Families | Proof state | Receipt |
 |---|---|---|---|---|---|---|---|---|
@@ -59,8 +59,11 @@ Only two seams have a cited receipt today: `ready_stock` (fixture route, LOTM, f
 | material_lineage | Where a material came from | 14 | 6 / 0 | 10 | paradise 2, hp 1, mistglass 1 | 3 | unknown | none cited |
 | lore_history_state | Lore and history knowledge state | 9 | 7 / 0 | 8 | mistglass 1 | 1 | unknown | none cited |
 | combat_math | Shared combat arithmetic | 13 | 7 / 0 | 11 | village 2 | 1 | unknown | none cited |
-| spell_cast_lowering | Casts lowered to native commands: a seeded works-or-fizzles outcome where a world has a failure chance (LT2) | 2 | 2 / 0 | 0 | hp 1, lotm 1 | 2 | two-world route | `docs/gm/dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md` |
-| person_ties | Ties on the one person record: regard as rule facts, observed notes, tie-gated offers (LT8) | 4 | 1 / 0 | 1 | lotm 2, hp 1 | 2 | two-world route | `docs/gm/dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md` |
+| spell_cast_lowering | Composed and priced powers through the structured descriptor, seeded casts and practice (LT2) | 2 | 4 / 1 | 0 | hp 1, lotm 1 | 2 | two-world route | `docs/gm/dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md` |
+| making_procedure | Shared material traits and ordered native preparation with conditions and agents | 3 | 2 / 0 | 1 | hp 1, lotm 1 | 2 | two-world route | `docs/gm/dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md` |
+| reputation_view | Audience-specific observed standing across existing source owners | 2 | 1 / 0 | 0 | hp 1, lotm 1 | 2 | two-world route | `docs/gm/dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md` |
+| home_world_port | World homes, tenure, improvements, furnishings and retained purchase terms | 28 | 16 / 1 | 22 | lotm 3, hp 2, field 1 | 3 | two-world route | `docs/gm/dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md` |
+| person_ties | Ties on the one person record: regard as rule facts, observed notes, tie-gated offers (LT8) | 6 | 1 / 0 | 2 | hp 2, lotm 2 | 2 | two-world route | `docs/gm/dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md` |
 
 One hop through shared adapters: not computed (lane H marked those rows inferred but defined no rule). Receipt column shows the first cited path only; full locators are in `PROOF` in `scripts/seam_register.mjs`.
 

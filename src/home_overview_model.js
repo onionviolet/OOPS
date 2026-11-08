@@ -80,23 +80,25 @@ export function homeOverviewModel(view, {homeId} = {}) {
 
     // Rooms: only a home that allows homeowner work lists its rooms (the owned cottage today).
     const roomsAllowed = h.tenure === 'owned' && h.id === 'cottage';
-    model.rooms = roomsAllowed ? nativeRoomEntries().map(([rid, room]) => ({
+    const roomEntries = place.registered ? Object.entries(I).filter(([, r]) => r.world === place.world && (r.homes || []).includes(h.id) && (r.structural === false || h.tenure === 'owned')) : roomsAllowed ? nativeRoomEntries() : [];
+    model.rooms = roomEntries.map(([rid, room]) => ({
         id: rid, label: room.name,
         state: h.improvements.includes(rid) ? 'done' : 'empty',
         note: h.improvements.includes(rid) ? 'built' : 'not built yet',
-    })) : [];
+    }));
 
     // Upkeep: soundness, dampness, prepaid lodging. A home with no tracked condition says so, not "100%".
     const upkeep = [];
     if (!place.legacy) upkeep.push({id: 'soundness', label: 'Structure', value: q.integrity, max: 100, words: `${q.integrity} of 100 · ${soundWord(q.integrity)}`, warn: q.integrity < 50},
         {id: 'dampness', label: 'Dampness', value: Math.floor(q.wetness / 10), max: 100, words: `${Math.floor(q.wetness / 10)} of 100 · ${dampWord(q.wetness)}`, warn: q.wetness >= 150});
-    if (place.period) {
+    if (place.period && h.tenure !== 'owned') {
         const left = Math.max(0, h.paidUntil - c.clock);
         upkeep.push({id: 'lodging', label: 'Prepaid lodging', value: Math.min(left, place.period), max: place.period, words: `${timeWords(left)} left · ${place.price} coins a day`, warn: left < 360});
     }
     model.upkeep = upkeep;
     const used = Object.values(h.stock).reduce((a, b) => a + b, 0), cap = homeCapacity(h);
-    model.storage = {used, cap, words: `${used} of ${cap} units used`, warn: used >= cap};
+    const storageFitted = Object.values(h.fixtures).map(r => fixtureOf(r.key)).filter(f => f?.effects?.storage > 0).map(f => f.name);
+    model.storage = {used, cap, words: `${used} of ${cap} units used${place.registered && storageFitted.length ? '; ' + storageFitted.join(', ') : ''}`, warn: used >= cap};
 
     // Weather: what rain does to this home, from the owner's exposure table. Not a forecast.
     const exposed = HOME_EXPOSURE[h.id] || 0;
@@ -137,9 +139,10 @@ export function homeFigureSpec(model) {
     if (model.empty) return null;
     const done = list => list.filter(s => s.state === 'done').length;
     const chip = s => ({label: s.label, state: s.state, ...(s.note ? {note: s.note} : {})});
-    const chips = [{id: 'fittings', label: `Fittings: ${done(model.fittings)} of ${model.fittings.length} fitted`, items: model.fittings.map(chip)}];
+    const chips = model.fittings.length ? [{id: 'fittings', label: `Fittings: ${done(model.fittings)} of ${model.fittings.length} fitted`, items: model.fittings.map(chip)}] : [];
     if (model.rooms.length) chips.push({id: 'rooms', label: `Rooms: ${done(model.rooms)} of ${model.rooms.length} built`, items: model.rooms.map(chip)});
-    return {id: `home-strip-${model.id}`, title: `${model.header.name}: rooms and fittings`, summary: `${model.header.comfort.label}. ${model.header.where}`, size: 720, chips,
+    if(!chips.length) return null;
+    return {id: `home-strip-${model.id}`, title: `${model.header.name}: rooms and fittings`, summary: `${model.header.comfort?.label || 'Comfort not assessed'}. ${model.header.where}`, size: 720, chips,
         notes: model.fittings.filter(f => f.state === 'broken' || f.state === 'strained').map(f => ({state: f.state, text: `${f.label}: ${f.note}`})),
         legend: [{state: 'done', label: 'fitted or built'}, {state: 'empty', label: 'not yet'}, {state: 'strained', label: 'works, with a problem'}, {state: 'broken', label: 'cannot be used'}]};
 }
@@ -154,25 +157,33 @@ export function homeFigureSpec(model) {
  * world; only the data differs.
  */
 const listWords = xs => { const t = xs.length > 1 ? `${xs.slice(0, -1).join(', ')} and ${xs.at(-1)}` : xs[0]; return t.charAt(0).toUpperCase() + t.slice(1); };
-export function worldHomeModel(world = {}) {
+export function worldHomeModel(world = {}, homes = null) {
     const name = world.place?.name || 'Your home', id = world.place?.id || 'world.home';
     const residents = (world.residents || []).filter(r => r?.name), others = residents.filter(r => !r.self);
     const stores = (world.stores || []).filter(s => Number.isFinite(s.count) && s.count > 0);
     const dues = world.dues || [];
     const used = stores.reduce((n, s) => n + s.count, 0);
-    return {
+    const engine = homes?.homes?.some(h => h.id === world.homeId) ? homeOverviewModel(homes, {homeId: world.homeId}) : null;
+    const model = {
         id, empty: null, world: true,
         homes: [{id, name, here: world.here === true, main: true}],
         header: {name, tenure: world.tenure || '', here: world.here === true, usable: true, where: world.here ? 'You are here.' : '', comfort: null},
         fittings: [], rooms: [], construction: [], sites: [], weather: null,
         household: others.length
             ? [{id: 'residents', text: `${listWords(others.map(r => r.relation ? `${r.name} (${r.relation})` : r.name))} live${others.length === 1 ? 's' : ''} here with you.`}]
-            : [{id: 'residents', text: 'You live here on your own, as far as you know.'}],
+            : [{id: 'residents', text: world.householdEmpty || 'No other residents are known to you.'}],
         upkeep: dues.map(d => ({id: d.id, label: d.label, words: d.words, warn: d.warn === true})),
         storage: {used, cap: null, warn: false, items: stores.map(s => ({label: s.label, count: s.count})),
             words: stores.length ? `Kept here: ${stores.map(s => `${s.label} (${s.count})`).join(', ')}.` : (world.empty || 'Nothing is kept here that you know of.')},
         next: dues.filter(d => d.warn && d.next).map(d => ({id: d.id, text: d.next})).slice(0, 3),
     };
+    if(engine && !engine.empty) {
+        for(const key of ['id', 'homes', 'header', 'fittings', 'rooms', 'construction', 'sites', 'weather']) model[key] = engine[key];
+        model.weather = world.weather || null; // The Village forecast is not this world’s weather.
+        model.upkeep = [...engine.upkeep, ...model.upkeep];
+        model.storage = {...engine.storage, items: model.storage.items, words: `${engine.storage.words}. ${model.storage.words}`};
+    }
+    return model;
 }
 
 /** The model as plain lines, for hosts that show a short home block: household, then each due, then storage. */

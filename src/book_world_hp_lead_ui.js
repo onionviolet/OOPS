@@ -1,3 +1,5 @@
+import {homeModelLines} from './home_overview_model.js';
+import {renderHomeView} from './ui/home_view.js';
 import {definePanel} from './panel_kit.js';
 import {shortActionLabel} from './ui/action_label.js';
 import {registerOwnedWorkPanel} from './adventure_notebook.js';
@@ -62,7 +64,8 @@ export function createHpLeadPanel({project,read,command,keepSlot,study,homeAct})
     const row=node('div');row.dataset.panelRow='';const s=shortActionLabel(a.label),b=node('button',s.text);b.type='button';b.dataset.hpCast=c.id;
     b.disabled=!a.eligible||!campaign.canWrite||!!v.jobs.find(j=>j.commandId===c.id);if(s.chip)b.append(node('span',` · ${s.chip}`));
     b.onclick=()=>{try{command({type:'action',id:c.id});notice='';}catch(e){notice=e.message;}render();};
-    row.append(b,node('p',a.eligible?'Costs a little stamina whether or not the feather rises; practice makes it rise more often.':(a.reasons||[]).join(' ')));s3.append(row);}
+    const stamina=-(c.costs||[]).filter(x=>x.type==='vital'&&x.key==='stamina').reduce((n,x)=>n+x.amount,0);
+    row.append(b,node('p',`Costs ${stamina} stamina, even if it fizzles; every try adds practice.`));if(!a.eligible)row.append(node('p',(a.reasons||[]).join(' ')));s3.append(row);}
    for(const t of ls.last){const p=node('p',`Last class: ${t}`);p.dataset.hpLessonResult='';s3.append(p);}
    // W11-C: library study through the inquiry domain (one hour a session; the topic finishes on minutes plus lessons attended).
    for(const r of study?.rows?.()||[]){const row=node('div');row.dataset.panelRow='';
@@ -75,15 +78,17 @@ export function createHpLeadPanel({project,read,command,keepSlot,study,homeAct})
    section.append(s3);}
   // W1a: the Potions bench (shared craft engine rows); shown at school, a shut brew says what it needs (UR70-UR75).
   if(v.school?.atSchool){const s5=node('section');s5.className='ui-panel-section';s5.dataset.hpBench='';s5.append(node('h3','Potions bench'));
+   for(const j of campaign.jobs||[]){if(!hpLeadMakingCommands.some(c=>c.id===j.commandId))continue;const line=node('p',`${j.label} · ${j.remaining} min left`);s5.append(line);if(j.cancellable){const b=node('button','Stop this preparation');b.type='button';b.dataset.hpProcedureCancel=j.id;b.onclick=()=>{try{command({type:'cancel',jobId:j.id});notice='Completed steps are kept. You can try this step again.';}catch(e){notice=e.message;}render();};s5.append(b);}}
    for(const c of hpLeadMakingCommands){const a=(campaign.actions||[]).find(x=>x.id===c.id);if(!a)continue;
-    const row=node('div');row.dataset.panelRow='';const s=shortActionLabel(a.label),b=node('button',s.text);b.type='button';b.dataset.hpMake=c.id;
+    const row=node('div');row.dataset.panelRow='';const s=shortActionLabel(c.procedure?`${a.label} · ${a.duration} min`:a.label),b=node('button',s.text);b.type='button';b.dataset.hpMake=c.id;
     b.disabled=!a.eligible||!campaign.canWrite||!!v.jobs.find(j=>j.commandId===c.id);if(s.chip)b.append(node('span',` · ${s.chip}`));
     b.onclick=()=>{try{command({type:'action',id:c.id});notice='';}catch(e){notice=e.message;}render();};
-    row.append(b,node('p',a.eligible?(a.description||''):(a.reasons||[]).join(' ')));s5.append(row);}
+    row.append(b,node('p',a.eligible?(a.description||''):(a.reasons||[]).join(' ')));if(c.procedure&&a.eligible)row.append(node('p',c.costs.length?`Uses ${c.making.costText}.`:'Uses the batch you have already prepared.'));s5.append(row);}
    if(s5.childElementCount>1)section.append(s5);}
   // LT8: tie-gated talks (person_ties offers as native commands). Shown once at school; a shut one says what opens it (UR70-UR75).
   if(v.school?.atSchool){const s4=node('section');s4.className='ui-panel-section';s4.dataset.hpFriends='';s4.append(node('h3','Friends'));
-   for(const t of v.ties||[]){const p=node('p',`${t.label}: ${t.line}`);p.dataset.hpTieLine=t.alias;s4.append(p);}
+   for(const r of v.reputation||[]){const p=node('p',`${r.label} · what you have seen: ${r.line}`);p.dataset.reputationAudience=r.audienceId;p.dataset.hpTieLine=(v.ties||[]).find(t=>t.personId===r.audienceId)?.alias||'';s4.append(p);}
+   for(const t of (v.ties||[]).filter(t=>!(v.reputation||[]).some(r=>r.audienceId===t.personId))){const p=node('p',`${t.label}: ${t.line}`);p.dataset.hpTieLine=t.alias;s4.append(p);}
    for(const c of hpLeadTieCommands){const a=(campaign.actions||[]).find(x=>x.id===c.id);if(!a)continue;
     const row=node('div');row.dataset.panelRow='';const s=shortActionLabel(a.label),b=node('button',s.text);b.type='button';b.dataset.hpTie=c.id;
     b.disabled=!a.eligible||!campaign.canWrite||!!v.jobs.find(j=>j.commandId===c.id);if(s.chip)b.append(node('span',` · ${s.chip}`));
@@ -91,9 +96,11 @@ export function createHpLeadPanel({project,read,command,keepSlot,study,homeAct})
     row.append(b,node('p',a.eligible?(a.description||''):(a.reasons||[]).join(' ')));s4.append(row);}
    if(s4.childElementCount>1)section.append(s4);}
   // W2c: home read side through the shared world home port (hp_lead_home.js).
-  if(v.home?.lines?.length){const h=node('section');h.className='ui-panel-section';h.dataset.hpHome='';h.append(node('h3','Home'),...v.home.lines.map(l=>node('p',l)));
+  if(v.home?.lines?.length){const h=node('section');h.className='ui-panel-section';h.dataset.hpHome='';h.append(node('h3','Home'),...v.home.lines.filter(l=>!homeModelLines(v.home.model).includes(l)).map(l=>node('p',l)));
+   const detail=node('div');detail.dataset.worldHomeView='';renderHomeView(detail,v.home.model);h.append(detail);
    // W3a: home acts through the shared home engine; a shut one says why (UR70-UR75).
    for(const a of v.home.actions||[]){const b=node('button',a.label);b.type='button';b.dataset.hpHomeAct=a.id;b.disabled=!a.eligible||!campaign.canWrite;b.onclick=()=>{try{homeAct?.(a.request);notice='';}catch(e){notice=e.message;}render();};h.append(b);if(!a.eligible&&a.reason)h.append(node('p',a.reason));}
+   for(const id of v.home.travel||[]){const a=(campaign.actions||[]).find(x=>x.id===id);if(!a)continue;const b=node('button',a.label);b.type='button';b.dataset.hpHomeTravel=id;b.disabled=!a.eligible||!campaign.canWrite;b.onclick=()=>{try{command({type:'action',id});notice='';}catch(e){notice=e.message;}render();};h.append(b);}
    section.append(h);}
   if(arc.aftermath){const p=node('p',`Last result: ${arc.aftermath}`);p.dataset.hpLastResult='';section.append(p);}
   if(arc.done&&arc.conclusion)section.append(node('p',arc.conclusion));
