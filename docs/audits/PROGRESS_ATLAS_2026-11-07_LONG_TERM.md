@@ -526,3 +526,15 @@ Wider palette, logged: construction, farming cycles, animal training and bonding
 | D-G | **Read ahead fully, walk ahead one window at a time.** Default: the census already covers LOTM volume 1 to chapter 213 and Harry's book one index, so system shapes come from mining those rows now (D-B), with no walk needed. A bounded pass extracts every system demand those rows imply (acting, advancement, rites, flying, the obstacle chain) into the gap ledger with chapter locators. Walks then go one window at a time as callers and calibration, which is where integration gaps show (F6, the KJ3AE lesson). Dial: walk further ahead when a system's timing or interplay can't be judged from text, such as acting's pace over weeks. | Reading is cheap and complete for volume 1; walking is expensive and finds different things. The walk sits at chapter 69 of 213, so most of volume 1's systems are known from text but not yet played |
 
 Suggested first step for D-G: one docs-only pass over the existing volume-1 and book-one census rows that lists each system demand with its chapter range and its engine, then folds the result into this register. No new reading and no paid route.
+
+**D-G result, 2026-11-08.** The [system demands](SYSTEM_DEMANDS_VOL1_BOOK1_2026-11-08.md) pass grouped 3,643 volume-1 rows and 528 book-one rows into 42 repeatable mechanisms (23 for Klein's volume, 20 for Harry's book, less two residue groups of plain narrative facts). By the reader's judgment, 11 already fit the engines as data, 27 fit in part with a named missing part, and 4 need a missing mechanism. Counts are approximate (keyword grouping). What it changes in the register:
+
+| Code | Finding | Consequence |
+|---|---|---|
+| DG1 | The three largest Klein demands are advancement (about 365 rows), an organisation career with rank, pay, rota and probation (about 311) and prayer and summoning (about 290). The career layer is new and is Klein's daily life | W3X16 and W3X17 move up; a career layer (rank ladder, rota, probation) joins XC24's guard shifts as one slice |
+| DG2 | Loss of control with a conserved power-trait pool is a NO and sits beside XC16 | XC16 grows a third grade for Klein's world: risk of losing control, with W3X15 acting as its counterweight |
+| DG3 | Divination and investigations together are about 355 rows, each PART: answer tiers by scope and cost, and a case file with deduction steps | W3X10 investigations is confirmed as Klein's second slice, with divination as its inquiry channel |
+| DG4 | Harry's largest demands are creature care (about 54 rows), the team sport (about 50), spells with exact words and counters (37) and house points (31); the obstacle chain is a NO | W3X19, W3X20 and house standing (W3X6) are Harry's slices; creature care confirms XC26's care-and-harvest default |
+| DG5 | One lead-specific signature power is a NO by design | It stays an authored override with reasons (XM12), not a general engine |
+
+Next, under D-G: walk Klein's next window as the caller for DG1, with the census rows above as its anchors.

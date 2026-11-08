@@ -456,3 +456,7 @@ Weibao asked:
 > Other stuff that needs the procedural engines and more? other systems that require those? Do we need to move further down the story to understand those systems better and create whats required?
 
 Recorded as ideas, not accepted decisions (AD32): W3X15-W3X24 (acting and digestion, advancement, prayer and summoning, mystical items, flying and Quidditch, the obstacle chain, school discipline, errands and journeys, teaching, plans and schemes) and D-G (read ahead fully from the existing census, walk ahead one window at a time), in the [long-term atlas](../audits/PROGRESS_ATLAS_2026-11-07_LONG_TERM.md#other-systems-that-need-the-procedural-engines-and-how-far-ahead-to-look-2026-11-08).
+
+## 2026-11-08: the census system-demand pass
+
+Weibao said "Push and run it" for D-G's first step. The pass ran docs-only on the existing census and is saved as [system demands](../audits/SYSTEM_DEMANDS_VOL1_BOOK1_2026-11-08.md), with findings DG1-DG5 in the long-term atlas. Recorded as evidence and proposals, not accepted decisions (AD32).
