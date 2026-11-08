@@ -377,3 +377,11 @@ After the wave-3 engines were finished, Weibao answered a proposed exit bar for 
 > did it finish first? The engines first growing is a good thing, since it shows gaps we have and will eventually need to address, thoughts Save the D5 stuff
 
 Recorded as direction: engine work may run ahead of callers, and every gap it exposes is logged with its owner and expected puller (D-E in the [long-term atlas](../audits/PROGRESS_ATLAS_2026-11-07_LONG_TERM.md#engine-growth-as-a-gap-finder-and-the-minecraft-mapping-2026-11-08)). "Save the D5 stuff" saved the Minecraft-to-engine mapping as the next docs task (D-F, XM27); it is not dispatched.
+
+## 2026-11-08: pool limits, the player as different, Minecraft progression
+
+On the Minecraft mapping's first pick (MG1, overdraw into the body), Weibao asked:
+
+> Past pool can simply be unable to use and maybe reduced stats? Make it reasonable and more? COnsider hte fact that we, as the player, is simply different after all, what about research and tech progression and more from minecraft mods?
+
+Recorded as ideas and questions, not accepted decisions (AD32): XC16 (empty pool refuses, low pool strains, body spill a per-world exception), XC17 (the player's difference shows as method) and XC18 (tier ladders, discovery-gated research, a progression map and automation as the idle layer), with XM28-XM33, in the [long-term atlas](../audits/PROGRESS_ATLAS_2026-11-07_LONG_TERM.md#pool-limits-the-player-as-an-outsider-and-minecraft-style-progression-2026-11-08).

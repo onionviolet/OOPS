@@ -20,7 +20,7 @@ Each row is one missing part. "Pulled by" names the lead caller or source row th
 
 | Code | Missing part | Owner | Sources (examples) | Pulled by |
 |---|---|---|---|---|
-| MG1 | **Overdraw into the body.** Spending past a pool spills into a battery, then health or injury, then lockout; the deeper branch can be gated on a learned fact | E-POW with harm state | Hex overcast, Psi overflow, Blood Magic overdraft, low-pool ritual nausea | Likely Klein: spirituality exhaustion and losing control. Strongest candidate |
+| MG1 | **Overdraw into the body.** Spending past a pool spills into a battery, then health or injury, then lockout; the deeper branch can be gated on a learned fact | E-POW with harm state | Hex overcast, Psi overflow, Blood Magic overdraft, low-pool ritual nausea | Likely Klein: spirituality running low. Reshaped by XC16 in the long-term atlas: by default an empty pool refuses use and a low one strains stats; spilling into the body is a per-world dial |
 | MG2 | **Standing procedures with upkeep.** A procedure that stays active, pays per pulse and refuses in grades when funds run low | E-PROC | Blood Magic standing rituals, rituals as upkeep (C) | Likely wards and ongoing rites in both leads |
 | MG3 | **Recorded spell methods.** Ordered or wired compositions saved as items, run with device caps; rote mastery makes known parts cheap to assemble | E-POW | Hex, Psi, Ars-style glyphs, Rote | Logged; likely Mother of Learning spell formulae. Mastery already lowers failure (`power_grammar.js`), but cheaper assembly is missing |
 | MG4 | **Conduit networks.** Capacity, loss per hop, overload that breaks the weakest part, rate limit with back-pressure, a second conserved motion field | E-FIELD | GT wires and voltage, TB transfer, Embers, Create rotary | Logged; no lead pulls it |
@@ -53,7 +53,7 @@ Five other GAP claims (gear budget, field networks, standing upkeep, spoilage, s
 
 Ranked by D-E, a lead caller first:
 
-1. MG1, overdraw into the body, with Klein's spirituality as the caller.
+1. MG1 as reshaped by XC16 (refusal and strain first), with Klein's spirituality as the caller.
 2. MG7, plan before you make, on the Potions bench and Neil's brew.
 3. MG2, standing procedures, once a rite or ward in either lead runs over time.
 
