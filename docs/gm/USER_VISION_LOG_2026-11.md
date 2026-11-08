@@ -329,3 +329,14 @@ Weibao, 2026-11-07, while the lanes ran (a session goal):
 > continue accordingly, plan for in case of usage full, fix everything
 
 Recorded direction: the run continues past the rulebooks into fixing what the checks found, with a resume block kept in the dispatch checkpoint in case usage runs out. This supersedes the earlier "first fix slices are sequenced after the rulebooks land" line for this run. Fix rules: ids and saved shape stay, display text and feedback change, false positives get the rulebook's dial with a reason. Rule lines stay proposals (AD32); new NPC display names ("Old Hesk, the village elder" and the rest) are agent proposals he can change.
+
+## Portal multiverse worlds ideaboard, 2026-11-07
+
+Weibao asked:
+
+> ideaboarding implementing worlds like rick on morty? what that would require and more?
+
+and after the first palette, "save ideaboarding accordingly".
+
+Recorded direction: the question is recorded as a request for an ideaboard, not a build order or an accepted design. The palette PRT1-PRT26 lives in [the portal multiverse ideaboard](../worlds/PORTAL_MULTIVERSE_WORLDS_IDEABOARD_2026-11-07.md): an original analogue by default and a private canon pack as a condition (WER11, WER15), ranked requirements marked exists or gap, and a proposed first slice on an existing book world. All of it is proposal under AD32. Standing priorities (LOTM and HP lead lines) are unchanged. No commit or push was requested.
+

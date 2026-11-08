@@ -158,6 +158,7 @@ Every former heading of this file, newest first, kept as an anchor. Each entry l
 
 ### 2026-11
 
+<a id="portal-multiverse-worlds-ideaboard-2026-11-07"></a>[Portal multiverse worlds ideaboard, 2026-11-07](gm/USER_VISION_LOG_2026-11.md#portal-multiverse-worlds-ideaboard-2026-11-07)<br>
 <a id="five-quality-deep-dives-on-the-prose-model-2026-11-06"></a>[Five quality deep dives on the prose model, 2026-11-06](gm/USER_VISION_LOG_2026-11.md#five-quality-deep-dives-on-the-prose-model-2026-11-06)<br>
 <a id="comfortable-play-on-older-8-gb-computers-2026-11-06"></a>[Comfortable play on older 8 GB computers, 2026-11-06](gm/USER_VISION_LOG_2026-11.md#comfortable-play-on-older-8-gb-computers-2026-11-06)<br>
 <a id="prose-rulebook-and-npc-dialogue-ideaboard-2026-11-06"></a>[Prose rulebook and NPC dialogue ideaboard, 2026-11-06](gm/USER_VISION_LOG_2026-11.md#prose-rulebook-and-npc-dialogue-ideaboard-2026-11-06)<br>

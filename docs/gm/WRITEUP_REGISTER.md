@@ -287,3 +287,8 @@ The register’s states describe different events. Read or Routed does not mean 
 Full reading of the table and appended topic entries does not review every linked report. Preserve their original rounds and use the receiving owners: B184’s complete world-rules-map review retains the author’s own correction that the UI shipping list already exists; B153’s released method-use checkpoint supersedes the progress row’s active wording at M21/M22/M25 scope. Its final method/recipient/paper proof does not close all method families or source arrival. Other old slice rankings, held budgets, prototype gaps and New labels retain their dates until the selected owner supplies a scoped correction.
 
 Earlier pass logs and fixed five-question dispositions remain intact. Do not ask again for resolved lead/date direction, treat the old original-world ranks as a global queue, or use a missing row as evidence a mechanism is absent. The project-wide inventory remains the content-coverage owner, including partial files; this register is the routing/status front door. No gameplay, independent acceptance vote, new automation or source reading follows from this maintenance.
+
+## Portal multiverse worlds ideaboard, 2026-11-07
+
+Premises like Rick and Morty as a palette, PRT1-PRT26: [ideaboard](../worlds/PORTAL_MULTIVERSE_WORLDS_IDEABOARD_2026-11-07.md). State: New. World instances exist in `src/world_instances.js`; seeded dimensions (PRT4) and mechanism-changing law diffs (PRT7) are gaps. Next: PRT22, the law-diff seam design, then PRT23 and the first slice PRT24. Docs only; nothing in `src/` changed.
+

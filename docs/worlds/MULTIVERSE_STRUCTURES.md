@@ -229,3 +229,7 @@ build or new scope for the continuation executor is selected by this note.
 OD5 separates what a cosmos is, how much is represented, what persists, and which instance a return reaches. A represented town can belong to a real planet; an expedition can become residence without resetting goods, people, obligations or history. Cosmology options and the proposed five records remain a palette, not a mandatory schema or ten-world delivery queue. Titles, local authority, usable means, coverage and personal power are different facts.
 
 OD11 EC1–EC5 and GW4 preserve profitable commerce and selling-centric powers. Knowing, proving, teaching, making one product, maintaining supply and using it are different capabilities. Automatic scarcity taxes, forced demand collapse or universal bottlenecks would add rules this palette does not establish (AD5, AD38). Imported mechanisms depend on actual requirements and the destination, rather than franchise rank. Keep worked compositions and source-cutoff alternatives. The October 7 source/build note remains implemented-unverified in its own scope; B103 already retires the historical prestige gate. No crossing, return or whole-world simulation was exercised here.
+
+## Portal multiverse premise, 2026-11-07
+
+A personal device into seeded variant dimensions, counterpart selves and a crossroads hub is palette-mapped in [the portal multiverse ideaboard](PORTAL_MULTIVERSE_WORLDS_IDEABOARD_2026-11-07.md) (proposal, PRT1-PRT26).
