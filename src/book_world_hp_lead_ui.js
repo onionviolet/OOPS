@@ -89,6 +89,8 @@ export function createHpLeadPanel({project,read,command,keepSlot,study}){
     b.onclick=()=>{try{command({type:'action',id:c.id});notice='';}catch(e){notice=e.message;}render();};
     row.append(b,node('p',a.eligible?(a.description||''):(a.reasons||[]).join(' ')));s4.append(row);}
    if(s4.childElementCount>1)section.append(s4);}
+  // W2c: home read side through the shared world home port (hp_lead_home.js).
+  if(v.home?.lines?.length){const h=node('section');h.className='ui-panel-section';h.dataset.hpHome='';h.append(node('h3','Home'),...v.home.lines.map(l=>node('p',l)));section.append(h);}
   if(arc.aftermath){const p=node('p',`Last result: ${arc.aftermath}`);p.dataset.hpLastResult='';section.append(p);}
   if(arc.done&&arc.conclusion)section.append(node('p',arc.conclusion));
   if(notice)section.append(node('p',notice));

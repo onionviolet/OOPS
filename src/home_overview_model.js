@@ -142,3 +142,36 @@ export function homeFigureSpec(model) {
         notes: model.fittings.filter(f => f.state === 'broken' || f.state === 'strained').map(f => ({state: f.state, text: `${f.label}: ${f.note}`})),
         legend: [{state: 'done', label: 'fitted or built'}, {state: 'empty', label: 'not yet'}, {state: 'strained', label: 'works, with a problem'}, {state: 'broken', label: 'cannot be used'}]};
 }
+
+/**
+ * World port (cross-world transfer, proposal AD32): a world whose homes are not native home state hands its own data,
+ * world = {place:{id,name}, tenure?, here?, residents:[{id,name,relation,self?}], dues:[{id,label,words,warn?,next?}],
+ * stores:[{label,count}], empty?}, and gets the same model shape homeOverviewModel returns, so one view and one set of
+ * words serve every world. Default: no fittings, rooms, weather or construction (those need native home state). Dial: a
+ * world adds rows to dues or stores. Reason: who lives there, what is owed and what is kept are the same question in any
+ * world; only the data differs.
+ */
+const listWords = xs => { const t = xs.length > 1 ? `${xs.slice(0, -1).join(', ')} and ${xs.at(-1)}` : xs[0]; return t.charAt(0).toUpperCase() + t.slice(1); };
+export function worldHomeModel(world = {}) {
+    const name = world.place?.name || 'Your home', id = world.place?.id || 'world.home';
+    const residents = (world.residents || []).filter(r => r?.name), others = residents.filter(r => !r.self);
+    const stores = (world.stores || []).filter(s => Number.isFinite(s.count) && s.count > 0);
+    const dues = world.dues || [];
+    const used = stores.reduce((n, s) => n + s.count, 0);
+    return {
+        id, empty: null, world: true,
+        homes: [{id, name, here: world.here === true, main: true}],
+        header: {name, tenure: world.tenure || '', here: world.here === true, usable: true, where: world.here ? 'You are here.' : '', comfort: null},
+        fittings: [], rooms: [], construction: [], sites: [], weather: null,
+        household: others.length
+            ? [{id: 'residents', text: `${listWords(others.map(r => r.relation ? `${r.name} (${r.relation})` : r.name))} live${others.length === 1 ? 's' : ''} here with you.`}]
+            : [{id: 'residents', text: 'You live here on your own, as far as you know.'}],
+        upkeep: dues.map(d => ({id: d.id, label: d.label, words: d.words, warn: d.warn === true})),
+        storage: {used, cap: null, warn: false, items: stores.map(s => ({label: s.label, count: s.count})),
+            words: stores.length ? `Kept here: ${stores.map(s => `${s.label} (${s.count})`).join(', ')}.` : (world.empty || 'Nothing is kept here that you know of.')},
+        next: dues.filter(d => d.warn && d.next).map(d => ({id: d.id, text: d.next})).slice(0, 3),
+    };
+}
+
+/** The model as plain lines, for hosts that show a short home block: household, then each due, then storage. */
+export const homeModelLines = model => [...model.household.map(h => h.text), ...model.upkeep.map(u => u.words), model.storage.words];

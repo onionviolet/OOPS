@@ -126,6 +126,9 @@ async function walkHp() {
         assert.equal((await snap(p)).actors.player.worldId, P + '.world');
         const nc = new NativeContinuation(s, {panel: 'hp', attrPrefix: 'hp', stepLimit: 2000});
         await nc.panel(); let acts = 0;
+        const home = async () => p.locator('[data-hp-home]').innerText();
+        assert.match(await home(), /You are at home/); assert.match(await home(), /Your uncle, your aunt and your cousin live here with you/);
+        r.checks.push('W2c: the Home block shows the guardians\u2019 house through the shared world home port (at home, three residents)');
         while((await nc.view()).arc?.next && acts < 120) {await nc.startCurrent(); await nc.settle(); acts++;}
         r.householdActs = acts;
         const day = async () => p.evaluate(() => simulationTestHooks.project('hp')?.school);
@@ -138,6 +141,7 @@ async function walkHp() {
         assert.equal(await p.locator(TALK).isDisabled(), true);
         assert.match(await p.locator('[data-hp-friends]').innerText(), /few more days of school/);
         r.checks.push('Sorting by its button: Ron affection 1, observation held, the talk shown shut with its reason');
+        assert.match(await home(), /away from the house/); r.checks.push('W2c: at school the Home block says Harry is away from the house');
         // The first Charms lesson opens on a term Monday 09:00; wait by the hour until its button is live.
         const charms = p.locator('[data-hp-lesson]').filter({hasText: 'first Charms'});
         let waited = 0; while(await charms.isDisabled() && waited < 9 * 24) {await s.step(60); await nc.panel(); waited++;}
@@ -177,6 +181,7 @@ async function walkHp() {
         const {afterReload, afterImport} = await roundTrip(s, reopen);
         for(const x of [afterReload, afterImport]) {assert.equal(aff(x), 2); assert.ok(x.simulation.knowledge.player[P + '.tie.ron_family']); assert.equal(x.actors.player.facts['hp.lead.potions.flask'], 'cure');}
         r.checks.push('save, reload, Export and Import keep affection 2, the note and the handed-in flask');
+        await reopen(); assert.match(await home(), /away from the house/); r.checks.push('W2c: the Home block reads the same after Import');
         r.errors = s.errors.length; assert.equal(s.errors.length, 0, JSON.stringify(s.errors.slice(0, 3)));
         r.ok = true;
     } catch(e) {r.ok = false; r.error = String(e.stack || e).slice(0, 1500); r.errors = s.errors.slice(0, 5); await p.screenshot({path: join(out, 'hp-fail.png')}).catch(() => {});}

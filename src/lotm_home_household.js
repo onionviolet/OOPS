@@ -1,9 +1,9 @@
 // W1d, LT10 read side (proposal under AD32, docs/CROSS_WORLD_SYSTEMS_TRANSFER.md): Klein's rented flat as a home view, from LOTM's own data.
 // Read side only: who lives there (the pack's people, shown once the player knows them), the rent the existing rent duty says is owed,
-// and what the flat's stock views hold. The shared home overview (home_overview_model.homeOverviewModel) reads projectHomes() of the
-// native home state and cannot take world residents, dues or stores, so this is a thin adapter; only timeWords is reused from it.
+// and what the flat's stock views hold. The data goes through the shared home overview's world port (worldHomeModel), so the
+// model and its words are the same ones every world's home reads; this file only gathers LOTM's own data.
 // Default: the flat is the be-life's start place. Pack people are matched by index id, never by prose.
-import {timeWords} from './home_overview_model.js';
+import {timeWords, worldHomeModel, homeModelLines} from './home_overview_model.js';
 import {castKnown} from './book_world_lotm_cast_host.js';
 import {placeStockViews} from './place_acts.js';
 import {LOTM_RENT, LOTM_RENT_ID} from './book_world_lotm_duties.js';
@@ -43,9 +43,10 @@ export function lotmHomeView(state, {pack, duties} = {}) {
     const rent = rentOf(duties);
     const stored = (placeStockViews(state, pack?.householdActs) || []).flatMap(v => v.rows)
         .filter(r => Number.isFinite(r.amount) && r.amount > 0).map(r => ({label: r.label, count: r.amount}));
-    const others = residents.filter(r => r.relation !== 'you');
-    const lines = [others.length ? `${others.map(r => `${r.name} (${r.relation})`).join(' and ')} live${others.length === 1 ? 's' : ''} here with you.` : 'You live here on your own, as far as you know.',
-        rent.line,
-        stored.length ? `Kept here: ${stored.map(s => `${s.label} (${s.count})`).join(', ')}.` : 'Nothing is kept here that you know of.'];
-    return {place: {id: placeId, name: placeName}, residents, rent, stored, lines};
+    const model = worldHomeModel({place: {id: placeId, name: placeName}, tenure: 'rented',
+        residents: residents.map(r => ({...r, self: r.relation === 'you'})),
+        dues: [{id: LOTM_RENT_ID, label: 'Rent', words: rent.line, warn: rent.owed > 0, next: rent.owed > 0 ? 'Pay the rent when you can.' : undefined}],
+        stores: stored});
+    const lines = homeModelLines(model);
+    return {place: {id: placeId, name: placeName}, residents, rent, stored, lines, model};
 }
