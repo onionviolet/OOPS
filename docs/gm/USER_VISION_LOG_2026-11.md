@@ -413,3 +413,11 @@ Weibao said:
 > For wildrness maybe, but in general idk. also how to implement the modern society thing that can apply to worlds with well, some sort of modern society in conjunction with their magical stuff?
 
 Recorded as direction: the grind, selling and farming proposals are first-slice defaults that close no future option. Recorded as ideas and questions, not accepted decisions (AD32): XC26 (care and harvest at Hogwarts, hunting as a regulated adult or wilderness trade), XC27 (a modern-society kit on the society seams) and XC28 (a veil between mundane and magical audiences), with XM47-XM52, in the [long-term atlas](../audits/PROGRESS_ATLAS_2026-11-07_LONG_TERM.md#creatures-at-hogwarts-open-futures-and-modern-society-beside-magic-2026-11-08).
+
+## 2026-11-08: frowned upon, a comprehensive society kit, mundane people among magic
+
+Weibao asked:
+
+> Children can do that but might be frowned upon, what should we do for a comprehensive society kit? More to consider? Muggle living in magic societty? other aspects to conisder?
+
+Recorded as direction that a child may do such acts and meet disapproval rather than a block. Recorded as ideas and questions, not accepted decisions (AD32): XC29 (frowned upon as norms), XC30 (a ten-layer society kit, SKIT1-SKIT10, with norms and age as the first slice) and XC31 (mundane people in a magical society), with XM53-XM58, in the [long-term atlas](../audits/PROGRESS_ATLAS_2026-11-07_LONG_TERM.md#a-comprehensive-society-kit-norms-and-mundane-people-in-magical-societies-2026-11-08).

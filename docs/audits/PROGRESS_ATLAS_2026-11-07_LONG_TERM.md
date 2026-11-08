@@ -393,3 +393,43 @@ Recorded direction: these proposals are defaults for a first slice and close no 
 | XM50 | LATER (medium) | Modern jobs are good grind loops (XC24): shifts with wages, promotion by duty record, and a mundane cover job for a magical life. The guard contract in Tingen is already one | One mundane job in a modern world paying shifts on the duty seam |
 | XM51 | LATER (medium) | Creature trade spans both sides of the veil: magical parts sold to apothecaries, illegal poaching, regulated hunting licences. The trader templates (XC23) and law cases cover it | One creature part sold legally and one sold on the black market, with different heat |
 | XM52 | LATER (small) | Muggle-born and transmigrator starts (XC17) cross the veil from the mundane side; their mundane knowledge is method on that side, as XC17 describes | A Muggle-born start knows one mundane thing a pure-blood start doesn't |
+
+## A comprehensive society kit, norms, and mundane people in magical societies (2026-11-08)
+
+Weibao, 2026-11-08: "Children can do that but might be frowned upon, what should we do for a comprehensive society kit? More to consider? Muggle living in magic societty? other aspects to conisder?"
+
+Proposals, not accepted decisions (AD32). Seams named below were listed from `src/` on 2026-11-08; their depth was not re-read.
+
+| Code | Topic | Proposal |
+|---|---|---|
+| XC29 | **Allowed but frowned upon** (refines XC26) | A student can hunt, harvest or skin where the means exist; nothing blocks it by label (AD38). What changes is how people react: classmates, teachers, parents and the creature authorities each judge it through their own norms, from a shrug to detention, house points, a letter home or a case. Default: social cost, not a wall. Dial: per world and audience, how strongly an act is judged. Reason: this is the general case of norms (XC30), and it keeps the option open as Weibao directed |
+| XC30 | **A comprehensive society kit** | Ten layers of world data, most on seams that already exist. A world fills the ones it has; an empty layer means the world doesn't have it. The table after this one maps each layer to its seams and the parts still missing |
+| XC31 | **Mundane people in a magical society** | Default: a body without the world's power is an ordinary start with the same systems, under a different law. The power grammar refuses spells for want of a pool (XC16 refusal), while items, potions, trade, work, ties and research still work wherever their mechanisms don't need the power (to confirm per world: which HP potions and devices work for a non-wizard). Perception is part of the law: some enchanted places hide from mundane eyes (the Leaky Cauldron in canon), and a few non-wizards can see them (Squibs). Status follows the world's norms: in HP, Squibs and Muggles face prejudice and pure-blood politics. Their roles are real ones (a caretaker, a family member, a liaison, a shopkeeper's mundane supplier), and their method is mundane knowledge and tools (XC17), limited where tech fails near magic (XC27). The same shape covers ordinary people in LOTM and mortals in cultivation worlds. Dial: per world, what the powerless can perceive, use and become. Reason: most people in most of these worlds have no power, so this is the ordinary life the society kit models |
+
+**The ten layers of XC30.**
+
+| Layer | What it holds | Existing seams (by name) | Missing part |
+|---|---|---|---|
+| SKIT1 Era and technology | What exists and how it interacts with magic | layered law (XC10), `field_layer` | Era tags on content rows (XM49) |
+| SKIT2 People and roles | Who lives here, their jobs and households | `people_sources`, `generated_people`, `positions`, `cast_schedule`, the society residents in `feature_expansion_society` | None for a first slice |
+| SKIT3 Status and standing | Class, rank, blood status, caste, titles, and how they shape access and treatment | `faction_rank`, `rank_gap_observer`, `authority`, `reputation_view` | A status hierarchy row per world that other rows can read |
+| SKIT4 Norms | Which acts each audience approves, frowns on, reports or punishes, adjusted by the actor's age, role and status | `observer_view`, `authority_witness`, `heat`, `heat_grades` | **A norms table**: act kind, audience, reaction, modifiers. The key new piece; XC29 and XC28 both read it |
+| SKIT5 Institutions | Government, courts and police, churches, schools, guilds, banks, hospitals, the press | `institution_store`, `institution_access`, `law_case`, groups, the church positions in LOTM, school positions in HP | Licences and taxes as institution rows |
+| SKIT6 Economy | Money, wages, prices, rent, debts, black markets | the economy port, purse, `obligations_ledger`, traders (XC23), `market_saturation` | Exchange between currencies (XM47) |
+| SKIT7 Daily rhythm and travel | Calendar, holidays, work and shop hours, timetables, transport | world calendar and rhythm, `book_world_hp_school_calendar`, `travel_legs` | Scheduled transport (a train that leaves at eleven) as data |
+| SKIT8 Information | Gossip, newspapers, broadcasts, records and ID, surveillance | knownness, `people_knowledge`, inquiry | Media channels with their own spread speed |
+| SKIT9 Life stages and law | Childhood, majority, guardianship, marriage, inheritance, age gates such as HP's underage-magic Trace | `lineage_domain`, households, duties | **Age and legal status** on the actor, read by norms, institutions and powers |
+| SKIT10 The veil | Who can perceive and know what across mundane and magical sides | XC28 audiences, `observer_view` | Perception law per observer kind (XC31) |
+
+The first slice that tests the whole kit is small: SKIT4 norms plus SKIT9 age, with one frowned-upon act (a first-year skinning a creature) judged differently by a classmate, a teacher and the creature authority.
+
+### More to consider (round on XC29-XC31)
+
+| Code | Level | Consideration | Done check |
+|---|---|---|---|
+| XM53 | ACCOUNT FOR NOW | Norms and law differ: an act can be legal but shameful, or illegal but admired. SKIT4 holds social reaction and SKIT5 holds legal consequence, and an act can trigger either, both or neither | One act frowned on without a crime, and one crime some audience admires |
+| XM54 | ACCOUNT FOR NOW | Prejudice is a mechanism with an observer, not a stat on the victim. Blood-status contempt lives in the judging audience's norms, so a Squib's or Muggle-born's treatment changes with who is watching (AD6-AD8) | A Squib is treated differently by two audiences in the same scene |
+| XM55 | ACCOUNT FOR NOW | Children's acts reach their guardians: a school writes home, a parent pays a fine. SKIT9 links a minor's consequences to a guardian through the existing ties and obligations | A student's fine lands on a guardian's Owed, with the reason shown |
+| XM56 | LATER (medium) | Servitude and rights carry weight: house-elves in HP, indentured or bound servants elsewhere. They are people with their own views and norms, and changing their status is a story with costs, not a toggle | One bound servant whose view of their own status differs from the household's |
+| XM57 | LATER (medium) | Cultural fluency: a wizard bungles Muggle money, a Muggle-born misses wizarding customs. Fluency per culture is a skill that grows with exposure, and a gap shows as small mistakes, not a block | A first visit to the other side costs a small mistake that practice removes |
+| XM58 | LATER (small) | Passing as one of them (disguise, borrowed status, a false ID) uses perception and records: it holds until someone with the means checks | A disguise that passes one audience and fails a better-informed one |
