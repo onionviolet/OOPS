@@ -361,3 +361,11 @@ After the cross-world systems session's first waves, the coordinating chat repor
 Recorded direction: story walks are calibration. Systems are built and tuned so that their natural outcomes reproduce the events the canon route walks through, such as Dunn's growing trust or Ron's friendship. This applies AD49 (lore anchors, calibrated systems) to events and relationships as well as numbers; it is not a new rule. A system may be visible before it changes anything: showing a tie from the first meeting does not mean the tie must move earlier than canon moves it.
 
 Recorded as ideas and questions, not accepted decisions (AD32): potion crafting in depth and other kinds of crafting; one reputation system; buying a house from the landlord and other parts of home life; whether relationships should show earlier. The agent's answers and a more-to-consider round are in the [long-term atlas](../audits/PROGRESS_ATLAS_2026-11-07_LONG_TERM.md#weibaos-2026-11-08-ideas-reconciled), and the cross-world systems session ([record](dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md)) has them for its wave plan.
+
+## Story-led integration for the cross-world waves, 2026-11-08
+
+After the cross-world session reached the powers grammar, Weibao asked:
+
+> first consider if better way of going about them, and then once improved.decided, continue accordingly, consitder wether if more progress needs to go into the protaginist playtrhough to help feed certain features
+
+He delegated the decision. Recorded: the remaining waves run as story-led integration waves (D-A to D-D in the [long-term atlas](../audits/PROGRESS_ATLAS_2026-11-07_LONG_TERM.md#approach-review-for-the-remaining-waves-2026-11-08)). Each wave takes the next Klein window, then the next Harry window, and builds the shared engine parts those canon events need, with anchors also read from the books and walks starting from saved fixtures. This keeps LOTM first and the 2026-11-02 "mechanism slices lead and book windows follow" direction. The answer to his question is yes: story progress now feeds calibration and several features.

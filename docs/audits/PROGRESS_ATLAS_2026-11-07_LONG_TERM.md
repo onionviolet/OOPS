@@ -245,3 +245,34 @@ Default: a bar per fidelity step, plus discrete experiment and insight moments. 
 | XM25 | ACCOUNT FOR NOW | Research that improves abilities overlaps with practice and digestion. Each growth route must record its cause (SLR4) and not double-count. | One ability improved by research and by practice, with two recorded causes |
 | XM26 | ACCOUNT FOR NOW | A generated map can become a wall of nodes. | Default zoom shows only nodes within two steps of the current focus |
 | XM27 | LATER (medium) | The Minecraft audits (MR, SR, GT, TA, WV2-WV3) hold many more mechanisms (tiers, flux and warp, automation chains). They should be mapped onto these engines as rows before anything is built. | One audit's findings classified by engine and law row |
+
+## Approach review for the remaining waves (2026-11-08)
+
+Weibao, 2026-11-08: "first consider if better way of going about them, and then once improved.decided, continue accordingly, consitder wether if more progress needs to go into the protaginist playtrhough to help feed certain features". He delegated the decision; this section records it as decided under that delegation, applied in the [cross-world record](../gm/dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md).
+
+**What the evidence says.**
+- Klein's story endpoint has stayed at KJ3AE (ch69 P082) since 2026-11-04. KJ3AE recorded the R5 rites and both B3 Spirit Vision uses as facts, not mechanisms (F6).
+- Harry's road to Hogwarts, the Sorting and first lessons exist in code, but HP plan windows W5-W10 are still marked proposed. W6 (Sorting, first days, the potions master) and W7 (flying, the duel, Halloween, house points, the troll) are dense with exactly what wave 3 builds.
+- Remaining wave 3 and 4 slices mostly lack a live consumer: the powers grammar has two anchors per world, potions beyond the Seer brew have no reachable window, and reputation and the second tie shape have nothing in play that reads them. Seam-first slices without callers failed four times in the overnight run (AT27).
+- XC5 makes walked canon events the calibration data. Fewer walked events means less to calibrate against.
+
+**Answer to the playthrough question: yes.** Story progress is now the bottleneck for several features: calibration anchors in play, potions beyond the first, Klein's rites, reputation and house points, a dormitory to live in, and later house buying (Backlund). The fix is not a pause in engine work but a fused order.
+
+**Decided (D-A to D-D).**
+
+| Code | Decision | Reason |
+|---|---|---|
+| D-A | **Story-led integration waves.** Each wave takes the next Klein window, then the next Harry window (LOTM first). Each window names the engine parts its canon events need and builds them as shared, world-neutral parts through the ports, with the window as their consumer in the same wave. | Matches the standing "mechanism slices lead, book windows follow as consumers" (2026-11-02) while closing the AT27 gap; each part lands with a caller and calibration data |
+| D-B | **Anchors come from source reading as well as walks.** Fitting price lists and recipe laws (XP3, XC6) uses census rows of what the books state about abilities and potions, read by bounded haiku readers (AU5). Walks validate, they don't have to supply every anchor. | Anchors for a whole first-year spell list or a pathway's formulas don't need the story to reach them |
+| D-C | **Fixture-first walks.** Each window ends with a saved fixture (AD54 O1), and the next window starts from it, with no full-route replays. | The 150-task Klein walk showed replays are the expensive part |
+| D-D | **Engine-only slices only when structural** (registries, save shapes) or when no window will pull a part soon. Wave 4 domains are pulled by windows too: medicine by an injury or the hospital wing. | Keeps every slice playable and avoids idle seams |
+
+**Revised order.**
+
+| Wave | Klein window | Harry window | Engine parts pulled |
+|---|---|---|---|
+| 3' | kjw22, from ch69 P082 | W6: Sorting, first days, the potions master | W3b powers grammar on the descriptor, anchored by Klein's divination methods and Spirit Vision plus Harry's first-year spells; W3d procedure layer and shared traits through R5 rites (Agent part) and Harry's first Potions brew; dormitory as a location (home) |
+| 4' | kjw23 | W7: flying, the duel, Halloween, house points, the troll | W3e reputation view and house points (money-less obligations, LARGER F6); second tie shape (rivalry with Draco, friendship with Hermione); medicine (hospital wing) as the first W4a domain |
+| Later | following windows | W8 onward | Remaining W4a domains, W5a and W5b, as windows pull them |
+
+Rejected: finishing every engine wave before story windows (repeats AT27 and leaves calibration without data), and story windows with fact-only mechanisms (repeats F6). Not changed: Klein first, Harry alongside, Frontier and Mistglass get no new depth, and every slice lands at floor or is recorded below it.
