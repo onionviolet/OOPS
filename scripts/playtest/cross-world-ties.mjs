@@ -253,7 +253,7 @@ async function walkLotmSeer() {
 // W3a-S3: Klein takes up the flat in the shared home engine, buys a crate at the street market and fits it, by the Here tab's buttons.
 async function walkLotmHome() {
     const seed = JSON.parse(await readFile(process.env.KLEIN_HOME_SAVE, 'utf8'));
-    const s = new Session({url: server.url, seed: 7, wall: Date.UTC(2026, 10, 7), opTimeout: 20000}), r = {checks: [], fixture: 'klein-seer (scripts/playtest/klein-to-seer.mjs, native; 802 pence)'};
+    const s = new Session({url: server.url, seed: 7, wall: Date.UTC(2026, 10, 7), opTimeout: 20000}), r = {checks: [], fixture: process.env.KLEIN_HOME_SAVE.split('/').pop()};
     await s.start(); await s.open(seed); const p = s.page;
     const FLAT = 'lotm.place.cast-266d12fc010442f95bac', MARKET = 'lotm.place.cast-67769506e76820d498cc', HOME = 'book.lotm.tingen.home.moretti_flat', CRATE = 'book.lotm.tingen.home.tea_crate';
     const here = async () => {await panel(p, 'lotm'); await p.locator('[data-workroom-tabs] button').filter({hasText: /^Here$/}).first().click(); await p.waitForTimeout(250);};
@@ -288,13 +288,14 @@ async function walkLotmHome() {
         } else {
             await act(`buy:${CRATE}`); await goto(FLAT); await act(`install:${CRATE}`);
             assert.match(await homeText(), /Lidded tea crate/); assert.equal((await flat()).fixtures.box?.owner, 'player');
-            r.checks.push('bought the crate at the market and fitted it at the flat');
+            r.checks.push('bought the crate at the market and fitted it at the flat'); r.bought = true;
         }
         await goto(FLAT);
         const {afterReload, afterImport} = await roundTrip(s, here);
         for(const x of [afterReload, afterImport]) assert.ok(x);
         assert.equal((await flat())?.fixtures.bed?.owner, 'book.lotm.tingen.landlord'); assert.match(await homeText(), /Narrow iron bed/);
-        r.checks.push('save, reload, Export and Import keep the flat in the home engine with the landlord’s bed');
+        if(r.bought) {assert.equal((await flat()).fixtures.box?.owner, 'player'); assert.match(await homeText(), /Lidded tea crate/);}
+        r.checks.push(`save, reload, Export and Import keep the flat in the home engine with the landlord’s bed${r.bought ? ' and the fitted crate' : ''}`);
         r.errors = s.errors.length; assert.equal(s.errors.length, 0, JSON.stringify(s.errors.slice(0, 3))); r.ok = true;
     } catch(e) {r.ok = false; r.error = String(e.stack || e).slice(0, 1500); r.errors = s.errors.slice(0, 5); await p.screenshot({path: join(out, 'home-fail.png')}).catch(() => {});}
     finally {await s.close();}

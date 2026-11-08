@@ -35,7 +35,10 @@ try {
     const nc = new NativeContinuation(s, {panel: 'lotm', attrPrefix: 'lotm', stepLimit: 4000});
     const tab = async name => {await panel(p, 'lotm'); await p.locator('[data-workroom-tabs] button').filter({hasText: new RegExp(`^${name}$`)}).first().click(); await p.waitForTimeout(150);};
     const clock = async () => (await snap(p)).clock ?? null;
-    const met = async () => !!(await snap(p)).simulation.energies?.player?.['book.lotm.be_spirituality'];
+    const seer = async () => !!(await snap(p)).simulation.energies?.player?.['book.lotm.be_spirituality'];
+    // W3a-S3 fixture: with KLEIN_UNTIL_HOME set, keep following the story past the drink until Klein is back at the flat.
+    const FLAT = 'lotm.place.cast-266d12fc010442f95bac', untilHome = !!process.env.KLEIN_UNTIL_HOME;
+    const met = async () => (await seer()) && (!untilHome || (await snap(p)).simulation.people.player.location === FLAT);
     const tasks = []; let cp = 0, moves = 0, waits = 0, last = null, same = 0;
     for(let i = 0; i < 1500 && !(await met()); i++) {
         console.error('iter', i, 'jobs?'); const v = await nc.view(); console.error('view ok', v.jobs.length, v.arc?.next?.id);
@@ -62,7 +65,7 @@ try {
         if(waits % 10 === 0) console.error(`wait x${waits} for ${next.id} clock=${await clock()} ${JSON.stringify(v.objectActs?.filter(a => a.id === next.id).map(a => a.reasons))}`);
     }
     const ok = await met();
-    const save = join(out, 'klein-seer.save.json');
+    const save = join(out, untilHome ? 'klein-home.save.json' : 'klein-seer.save.json');
     if(ok) await writeFile(save, JSON.stringify(await s.save()));
     result = {bundleSha256, tasks: tasks.length, moves, waits, clockMinutes: await clock(), met: ok, save: ok ? save : null, pageErrors: s.errors.length};
     if(s.errors.length) console.error(s.errors.slice(0, 5).map(e => e.text.slice(0, 200)).join('\n'));
