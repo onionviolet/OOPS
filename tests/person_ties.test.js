@@ -62,3 +62,14 @@ test('Harry: Ron is a school person, the Sorting and first Charms raise his rega
     const talk = cmd('book.hp.lead.tie.ron_family');
     assert.deepEqual(talk.requires.all.at(-1), {fact: 'tie.ron.affection', op: 'gte', value: 2, reason: HP_LEAD_TIES.offers[0].blocked});
 });
+
+test('Klein: the trust step uses the duty seam\'s own week, so filings on either side of a week boundary count twice', async () => {
+    const {expenseTieCycle} = await import('../src/book_world_lotm_colleagues.js');
+    const {recurringWindow} = await import('../src/world_rhythm.js');
+    const {LOTM_DUTIES} = await import('../src/book_world_lotm_duties.js');
+    const WEEK = 7 * 1440, boundary = 9 * WEEK, schedule = LOTM_DUTIES[0].schedule;
+    // A life begun mid-week: one minute before the duty week shuts and one minute after the next opens are one "life week" apart by
+    // elapsed time, but two duty cycles; each filing must be its own tie step.
+    assert.equal(expenseTieCycle(boundary - 1) + 1, expenseTieCycle(boundary));
+    for(const m of [boundary - 1, boundary, boundary + 3 * 1440]) assert.equal(expenseTieCycle(m), recurringWindow(schedule, m).cycle);
+});

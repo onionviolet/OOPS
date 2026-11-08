@@ -316,7 +316,7 @@ export function createLotmHost(ports){
  // in one save; later weeks change only the duties slice, as before.
  function fileExpense(){
   writable();const s=state(),plan=base(s,ports.context()),noted=noteExpenseFiled(plan,registry);
-  const tied=tieExpenseFiled(plan,registry,Math.floor((s.clock-(s.lotm?.initializedAt??s.clock))/(7*1440)));
+  const tied=tieExpenseFiled(plan,registry);
   domainRegistry.command('duties','attend')({dutyId:'lotm.expense_claim'});
   if(noted||tied)persist(plan);
  }

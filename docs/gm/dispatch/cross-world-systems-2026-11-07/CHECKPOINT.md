@@ -1,7 +1,7 @@
 # Cross-world systems: task record
 
 ```receipt
-build: 2b1ae54705005de388d7756c49acced0218e4c0a5be964fc84edd995c18de8bb
+build: bdefe75ca6ff3d916eac3d83fb37f6307b0630ee32f3556b4b0709e8a4f789a7
 route: natural
 state: browser-verified
 viewport: 1920x1080
@@ -10,7 +10,7 @@ tests: person_ties 6/6; HP lead, lessons, arrival, people, colleagues, recurring
 review: none
 ```
 
-Receipt notes: X1 (LT8) only. Route "natural" is a fresh origin by earned steps in both lives (scripted native panel clicks, headless). The build is the final tree, where Klein was walked last. Harry was walked on the previous bundle `5025ccafed13d072…`. The change between the two touched only Klein's display: a taken offer shows what was said, and the cast People rows gained attributed observations. The functions Harry's route uses (`tieEffects`, `tieFacts`, `tieOfferCommands`) did not change.
+Receipt notes: X1 (LT8) only. Route "natural" is a fresh origin by earned steps in both lives (scripted native panel clicks, headless). The build is the tree after fix X1-B1, where Klein was walked last (six checks, 0 page errors); the commit-`2933f87e3` tree was walked as bundle `2b1ae547…`. Harry was walked on the previous bundle `5025ccafed13d072…`. The change between the two touched only Klein's display: a taken offer shows what was said, and the cast People rows gained attributed observations. The functions Harry's route uses (`tieEffects`, `tieFacts`, `tieOfferCommands`) did not change.
 
 Started 2026-11-07 from the [long-term atlas](../../../audits/PROGRESS_ATLAS_2026-11-07_LONG_TERM.md) (LT1-LT11), in a session started by the progress-atlas session. Owner doc for the method: [cross-world systems transfer pattern](../../../CROSS_WORLD_SYSTEMS_TRANSFER.md) (proposal, AD32).
 
@@ -72,8 +72,14 @@ Save decision: no new slice. The tie axis and the notes live in the expansion st
 ## Resume
 
 - Files this task owns: `src/person_ties.js`, `tests/person_ties.test.js`, `scripts/playtest/cross-world-ties.mjs`, `docs/CROSS_WORLD_SYSTEMS_TRANSFER.md`, this folder; hunks in `src/book_world_lotm_colleagues.js`, `src/book_world_lotm_host.js`, `src/book_world_lotm_domain.js`, `src/book_world_lotm_ui.js`, `src/world_packs/book_hp_lead_life_data.js`, `src/book_world_hp_lead_pack.js`, `src/book_world_hp_lead_ui.js`, `src/simulation_effects.js` (one fact line), `src/structured_pack_runtime.js` (people details), `scripts/seam_register.mjs` (one row), three HP test pins.
-- Next: wave 1 of the plan below (W1a-W1d).
+- Stopped 2026-11-07 on usage: the weekly all-models limit read 91% (resets 2026-11-09 17:59 UTC); the 5-hour window read 13%. A four-lane wave with long native walks would likely exhaust the weekly allowance, so wave 1 is planned and not dispatched (stop condition per the foundation-run pacing).
+- Input identity: master after the X1 commits; no dirty files from this task.
+- Next useful action: after the weekly reset, start W1c (the Klein fixture) first as one long background job, then dispatch W1a, W1b and W1d as sonnet lanes writing only their own new files, with the rules below.
+- Resume prompt: "Continue docs/gm/dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md. Read its direction, coverage table, wave plan and open items. Check usage first. Start W1c, then lanes W1a, W1b and W1d. You own the shared HP lead and LOTM host files and wire each lane's export. Fold, build once, walk once (scripts/playtest/cross-world-ties.mjs is the pattern), regenerate the matrix with scripts/cross_world_coverage.mjs, and commit own paths with docs/audits/tools/commit_own_paragraphs.py, no trailer, no push."
 - Open: LT2 (powers) and LT7 (making) were in the first brief and are not started; see the wave plan.
+- Open, canon gap X1-G1: Klein's expense duty is open from day 1 (it predates this slice), so Dunn's trust and the talk can come before Klein has met Dunn in canon. The People view correctly omits Dunn until he is known. Fix: gate the writer and the offer on Dunn being known, using the check `castSettledPeople` uses. It becomes walkable on the W1c fixture. Until then the "natural route" label means earned steps, not canon-clean timing.
+- Fixed forward after commit `2933f87e3`, X1-B1: the trust step was keyed to weeks since the life began, while the duty numbers its cycles from the absolute clock. Two filings in consecutive duty weeks could then share one tie step. It now uses the duty seam's cycle (`expenseTieCycle`), with a regression test in `tests/person_ties.test.js`.
+- Wave execution rules (advisor, 2026-11-07): lanes run focused tests only and never build or walk in the shared checkout; the coordinator folds, builds once and walks once. The W1c fixture save stays gitignored, because a chain save carries cast-pack text; only its replay script and scenario recipe are committed, and the scenario degrades without the private pack. Gitignored iteration saves (Harry after the Sorting, Klein after week 2) cut walk cost inside a wave, and each wave still ends with one fresh natural walk per world. LT2 counts as done only when a LOTM caller and an HP caller run through the same lowering.
 
 ## Wave plan (proposal, foundation-run shape)
 

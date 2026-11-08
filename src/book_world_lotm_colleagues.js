@@ -6,6 +6,8 @@
 import {applySimulationEffects} from './simulation_effects.js';
 import {wakeCastPerson, LOTM_CAST_SITUATION} from './book_world_lotm_cast_host.js';
 import {registerWorldTies, tieEffects} from './person_ties.js';
+import {recurringWindow} from './world_rhythm.js';
+import {LOTM_DUTIES} from './book_world_lotm_duties.js';
 
 export const DUNN_ID = 'lotm.person.cast-618f4df49af02c7da45e'; // index id lotm.person.dunn-smith
 export const EXPENSE_FILED_KEY = 'book.lotm.colleague.expense_filed';
@@ -33,10 +35,13 @@ export const LOTM_TIES = registerWorldTies({worldId: 'book.lotm.tingen', situati
         note: {key: 'book.lotm.tie.dunn_funding', value: 'Dunn explained that he signs each member\'s weekly application and adds it to the team\'s quarterly funding request to the church, so an application on time keeps the team\'s request simple.'}}]});
 export const EXPENSE_TIE_KEY = 'book.lotm.tie.dunn_signed';
 export const EXPENSE_TIE_LINE = 'Captain Dunn took your weekly expense application and signed it.';
-// One tie step per week of the life's own clock. Returns true when it wrote (false without Dunn's body, as above).
-export function tieExpenseFiled(plan, registry, week) {
+// The duty seam's own cycle for a clock minute, so one tie step matches one filed week exactly (the duty numbers cycles by absolute clock).
+export const expenseTieCycle = minute => recurringWindow(LOTM_DUTIES[0].schedule, minute).cycle;
+// One tie step per duty cycle. Returns true when it wrote (false without Dunn's body, as above).
+export function tieExpenseFiled(plan, registry) {
     const s = plan?.state;
-    if(!s?.simulation || !Number.isSafeInteger(week) || week < 0 || !registry?.simulation?.people?.has(DUNN_ID)) return false;
+    if(!s?.simulation || !Number.isSafeInteger(s.clock) || !registry?.simulation?.people?.has(DUNN_ID)) return false;
+    const week = expenseTieCycle(s.clock);
     wakeCastPerson(s, DUNN_ID);
     if(!s.simulation.people[DUNN_ID] || !s.actors?.[DUNN_ID]) return false;
     applySimulationEffects(plan, tieEffects('book.lotm.tingen', {alias: 'dunn', kind: 'trust', seen: {key: EXPENSE_TIE_KEY, value: EXPENSE_TIE_LINE}}), {actorId: 'player'}, registry, `book.lotm.expense_claim.dunn.w${week}`);
