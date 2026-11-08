@@ -9,7 +9,7 @@ import {registerHomeWork,applyHomeSimulationEffects,stageHomeJob,previewHomeJob}
 import {conditionOf} from './home_building_model.js';
 import {STEWARD,COOK,KEEPER,BUILDER} from './home_work_content.js';
 import {registerDomain,domainRegistry} from './domain_registry.js';
-import {HOME_PLACES as P, nativeHomeEntries, HOME_WORLD, DOMICILE_FURNITURE as F, HOME_SITE, HOME_BUILDINGS as B} from './home_content.js';
+import {HOME_PLACES as P, nativeHomeEntries, homeWorlds, HOME_WORLD, DOMICILE_FURNITURE as F, HOME_SITE, HOME_BUILDINGS as B} from './home_content.js';
 import {emptyHomes,validateHomes,planHome,homeAt,homeUsable,homeRestable,homeBenefits,homeDescription,settleHomes,householdHomeContext} from './home_model.js';
 import {createSimulationState} from './simulation_contracts.js';
 import {applyGameplayEffect} from './gameplay_transactions.js';
@@ -45,6 +45,10 @@ export function configureHomes(operations) {
 function context(overrides={}) {
     const c={...ports.read(),...overrides};
     const root=overrides.root||ports.root?.();delete c.root;const sim=root?.simulation;
+    // W3a-S2: a world that registered its homes keeps its life's place in the simulation, not the native location.
+    if(homeWorlds().includes(c.world)&&!overrides.location&&sim?.people?.player?.location)c.location=sim.people.player.location;
+    // A book life is judged by its own busy state, not the Village's native-activity gate (which refuses while another world is active).
+    if(homeWorlds().includes(c.world)&&c.worldReady!==undefined){c.writable=c.worldWritable;c.ready=c.worldReady&&c.writable;}delete c.worldReady;delete c.worldWritable;
     c.conditions={[KEEPER]:sim?.conditions?.[KEEPER]?.[QI_FIELD]?{[QI_FIELD]:structuredClone(sim.conditions[KEEPER][QI_FIELD])}:{}};c.resources=root?.actors.player.resources||{};c.people=Object.fromEntries(Object.entries(sim?.people||{}).filter(([id])=>[...HOUSEHOLD_ACTORS,BUILDER].includes(id)));c.jobs=sim?.jobs||[];
     c.staffResources=Object.fromEntries([...HOUSEHOLD_ACTORS,BUILDER].map(id=>[id,root?.actors[id]?.resources||{}]));c.staffStock=Object.fromEntries(HOUSEHOLD_ACTORS.map(id=>[id,sim?.owners[id]||{}]));
     c.staffFacts=Object.fromEntries(HOUSEHOLD_ACTORS.map(id=>[id,root?.actors[id]?.facts||{}]));c.playerFacts=root?.actors.player.facts||{};c.paidHelpReason=domainRegistry.command('pledges','actionReason')?.({kind:'paid-help'})||'';c.warehouseCompleted=root?.actors['home.manor.supplier']?.completed?.[WAREHOUSE_JOB]||0;
@@ -97,7 +101,7 @@ function publish(next){state=next;syncHomeLocations({render:false});}
 export function projectHomes() {
     if(!ports)return {visible:false,homes:[],ready:false};
     const c=context(),publicHome=h=>{const {brood,...visible}=h;return brood?{...visible,broodPublic:broodView(brood,c,h)}:visible;},homes=Object.values(state?.properties||{}).map(publicHome),{weatherAt,...publicContext}=c;
-    return {visible:c.world===HOME_WORLD||homes.length>0||Object.values(c.nativeRights||{}).some(Boolean),ready:c.ready&&c.alive&&bodyControlled(c),context:publicContext,
+    return {visible:c.world===HOME_WORLD||homeWorlds().includes(c.world)||homes.length>0||Object.values(c.nativeRights||{}).some(Boolean),ready:c.ready&&c.alive&&bodyControlled(c),context:publicContext,
         state:state?{...state,properties:Object.fromEntries(homes.map(h=>[h.id,h]))}:emptyHomes(),homes,here:homes.find(h=>h.id===homeAt(state,c)?.id)||null,fresh:c.fresh&&state?.beginning===true&&!state?.start&&homes.length===0&&!c.legacyAnimal};
 }
 export function quoteHome(request) {

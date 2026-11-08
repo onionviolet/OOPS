@@ -250,10 +250,62 @@ async function walkLotmSeer() {
     return r;
 }
 
+// W3a-S3: Klein takes up the flat in the shared home engine, buys a crate at the street market and fits it, by the Here tab's buttons.
+async function walkLotmHome() {
+    const seed = JSON.parse(await readFile(process.env.KLEIN_HOME_SAVE, 'utf8'));
+    const s = new Session({url: server.url, seed: 7, wall: Date.UTC(2026, 10, 7), opTimeout: 20000}), r = {checks: [], fixture: 'klein-seer (scripts/playtest/klein-to-seer.mjs, native; 802 pence)'};
+    await s.start(); await s.open(seed); const p = s.page;
+    const FLAT = 'lotm.place.cast-266d12fc010442f95bac', MARKET = 'lotm.place.cast-67769506e76820d498cc', HOME = 'book.lotm.tingen.home.moretti_flat', CRATE = 'book.lotm.tingen.home.tea_crate';
+    const here = async () => {await panel(p, 'lotm'); await p.locator('[data-workroom-tabs] button').filter({hasText: /^Here$/}).first().click(); await p.waitForTimeout(250);};
+    const view = () => p.evaluate(() => window.simulationTestHooks.project('lotm'));
+    const flat = async () => (await p.evaluate(() => window.simulationTestHooks.snapshot().homes))?.properties?.['book.lotm.tingen.home.moretti_flat'];
+    const money = () => p.evaluate(() => window.simulationTestHooks.snapshot().gameplay?.player?.money ?? window.simulationTestHooks.snapshot().money ?? null);
+    const goto = async place => {
+        for(let hop = 0; hop < 6; hop++) {
+            const v = await view(); if(v.at?.id === place || v.home && (await p.evaluate(() => window.simulationTestHooks.snapshot().expansion.simulation.people.player.location)) === place) return;
+            const mv = v.moves.find(m => m.to === place && m.eligible);
+            assert.ok(mv, `a walk to ${place} from here (${v.moves.filter(m => m.eligible).map(m => m.to).slice(0, 8).join(', ')})`);
+            await here(); const b = p.locator(`[data-lotm="${mv.id}"]`).first();
+            if(!(await b.isVisible())) await p.locator('[data-lotm-more-walks] summary').click().catch(() => {});
+            await b.click(); await p.waitForTimeout(150);
+            for(let k = 0; k < 40 && (await view()).jobs.length; k++) await s.step(10);
+        }
+        assert.fail(`reached ${place}`);
+    };
+    const act = async id => {await here(); const b = p.locator(`[data-lotm-home-act="${id}"]`); assert.equal(await b.isDisabled(), false, `${id} is offered: ${JSON.stringify((await view()).home?.actions)} homes=${JSON.stringify(await p.evaluate(() => {const h = window.simulationTestHooks.project('homes'); return {visible: h?.visible, ready: h?.ready, alive: h?.context?.alive, cready: h?.context?.ready, writable: h?.context?.writable, worldReady: h?.context?.worldReady, keys: Object.keys(h?.context || {}).join(',')};}))} body=${JSON.stringify(await p.evaluate(() => window.simulationTestHooks.snapshot().expansion.simulation.people.player.body))}`); await b.click(); await p.waitForTimeout(250); r.lastNotice = (await p.locator('#lotm_panel').innerText()).split('\n').filter(l => /Home:|home|cannot|need|first/i.test(l)).slice(0, 6); await here();};
+    const homeText = async () => p.locator('[data-lotm-home]').innerText();
+    try {
+        await here(); await goto(FLAT); await here();
+        await act('settle');
+        assert.match(await homeText(), /Fitted: Narrow iron bed \(the landlord’s\)/); assert.equal((await flat())?.tenure, 'rented');
+        r.checks.push('at the flat: "Make the flat your home" takes it up in the shared home engine, rented, with the landlord’s bed fitted');
+        await goto(MARKET); await here();
+        const buy = p.locator(`[data-lotm-home-act="buy:${CRATE}"]`);
+        assert.equal(await buy.count(), 1, 'the crate is offered at the market');
+        if(await buy.isDisabled()) {
+            r.buyShutReason = (await view()).home.actions.find(a => a.id === `buy:${CRATE}`)?.reason;
+            assert.match(r.buyShutReason, /coins/); r.checks.push(`at the Lettuce and Meat market: the crate is offered and shut with the engine’s reason, read from Klein’s own purse (${r.buyShutReason})`);
+        } else {
+            await act(`buy:${CRATE}`); await goto(FLAT); await act(`install:${CRATE}`);
+            assert.match(await homeText(), /Lidded tea crate/); assert.equal((await flat()).fixtures.box?.owner, 'player');
+            r.checks.push('bought the crate at the market and fitted it at the flat');
+        }
+        await goto(FLAT);
+        const {afterReload, afterImport} = await roundTrip(s, here);
+        for(const x of [afterReload, afterImport]) assert.ok(x);
+        assert.equal((await flat())?.fixtures.bed?.owner, 'book.lotm.tingen.landlord'); assert.match(await homeText(), /Narrow iron bed/);
+        r.checks.push('save, reload, Export and Import keep the flat in the home engine with the landlord’s bed');
+        r.errors = s.errors.length; assert.equal(s.errors.length, 0, JSON.stringify(s.errors.slice(0, 3))); r.ok = true;
+    } catch(e) {r.ok = false; r.error = String(e.stack || e).slice(0, 1500); r.errors = s.errors.slice(0, 5); await p.screenshot({path: join(out, 'home-fail.png')}).catch(() => {});}
+    finally {await s.close();}
+    return r;
+}
+
 try {
-    if(which === 'seer') receipt.runs.seer = await walkLotmSeer();
+    if(which === 'home') receipt.runs.home = await walkLotmHome();
+    else if(which === 'seer') receipt.runs.seer = await walkLotmSeer();
     else if(which !== 'hp') receipt.runs.lotm = await walkLotm();
-    if(which !== 'lotm' && which !== 'seer') receipt.runs.hp = await walkHp();
+    if(!['lotm', 'seer', 'home'].includes(which)) receipt.runs.hp = await walkHp();
 } finally {server.close(); await bundle.dispose();}
 await writeFile(join(out, 'receipt.json'), JSON.stringify(receipt, null, 1));
 console.log(JSON.stringify(receipt, null, 1));

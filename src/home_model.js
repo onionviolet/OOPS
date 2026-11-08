@@ -5,7 +5,7 @@ import {domainRegistry} from './domain_registry.js';
 import {newHomeCondition,conditionOf,homeSupportsRest,validateHomeBuilding,settleHomeBuilding,planHomeBuilding} from './home_building_model.js';
 import {admitManorStaff,planHomeStaff} from './home_staff.js';
 import {validateWorkerRooms,planWorkerRoom} from './home_workers.js';
-import {DOMICILE_FURNITURE as F, HOME_PLACES as P, nativeHomeEntries, HOME_STARTS as S, HOME_IMPROVEMENTS as I, HOME_WORLD, HOME_SUPPLIES, HOME_SITE, HOME_MATERIALS as M, HOME_BUILDINGS as B, homeKey} from './home_content.js';
+import {DOMICILE_FURNITURE as F, HOME_PLACES as P, nativeHomeEntries, homeWorlds, HOME_STARTS as S, HOME_IMPROVEMENTS as I, HOME_WORLD, HOME_SUPPLIES, HOME_SITE, HOME_MATERIALS as M, HOME_BUILDINGS as B, homeKey} from './home_content.js';
 import {validateHousehold, planHousehold, householdAnimalView} from './absorb_p23/household/model.js';
 const check=(v,m)=>{if(!v)throw Error(`Home: ${m}`);};
 const natural=n=>Number.isSafeInteger(n)&&n>=0;
@@ -80,13 +80,14 @@ function createProperty(id,clock,starting=false) {
     if(['rental','family'].includes(id))install('Home plain bed',p.owner);
     if(id==='family')install('Home wooden tableware',p.owner);
     if(['burrow','nest'].includes(id))install('Home nest lining','player');
+    for(const f of p.registered?p.furnished||[]:[])install(f,p.owner); // a world home's landlord or household furniture
     if(starting&&id==='cottage')for(const id of ['Home plain bed','Home ragwork blanket','Home fitted hearth'])install(id,'player');
     return h;
 }
 export function planHome(raw,request,c) {
     validateHomes(raw,c);check(c.alive&&(c.ready||['cancel_work','cancel_staff','cancel_household','office_cancel','cultivation_cancel','medicine_cancel','school_cancel','contacts_cancel','warehouse_stop','legacy_cancel'].includes(request.type)&&c.writable!==false),'use your living, free body and writable save');
     check(c.body.ownerId==='player'&&c.body.controllerId==='player','control your own body');
-    check(c.world===HOME_WORLD||Object.entries(c.nativeRights||{}).some(([id,right])=>right&&(P[id].world||HOME_WORLD)===c.world),'visit a world with supported residence rights');
+    check(c.world===HOME_WORLD||homeWorlds().includes(c.world)||Object.entries(c.nativeRights||{}).some(([id,right])=>right&&(P[id].world||HOME_WORLD)===c.world),'visit a world with supported residence rights');
     const simEffects=[];const s=settleHomes(raw,c,null,rows=>simEffects.push(...rows))||emptyHomes(),items=[],out={simEffects,state:s,items,money:c.money,minutes:0,message:'',body:null,householdEffects:[]};
     const spend=(key,n)=>{check(natural(n)&&n>0&&(c.inventory[key]||0)>=n,'carry enough usable owned materials');check(!c.unspendable?.includes(key),'borrowed or reserved property cannot be spent');items.push({key,amount:-n});};
     const pay=n=>{check(c.money>=n,'not enough coins');out.money-=n;};
@@ -119,19 +120,21 @@ export function planHome(raw,request,c) {
         const p=P[request.home];check(p?.legacy&&c.nativeRights?.[request.home]===true&&c.location===p.location&&(p.world||HOME_WORLD)===c.world,'register actual existing home rights from this home');check(!s.properties[request.home],'this home is already registered');
         s.beginning=false;s.properties[request.home]=createProperty(request.home,c.clock);s.beginning=false;s.primary=request.home;out.message='Existing home access registered. No copied stock, fixtures or companion were granted.';break;
     }
+    // W3a-S2: a world's own home (a registered row marked `startsHere`) is taken up once, by that world's life, at the home itself.
+    case 'settle_world_home': {const p=P[request.home];check(p?.registered&&p.startsHere&&p.world===c.world&&c.location===p.location&&!s.properties[request.home],'this is not a home you can take up here');check(p.forms.includes(c.body.form),'the home must fit your body');s.properties[request.home]=createProperty(request.home,c.clock);s.primary??=request.home;out.message=`${p.name} is your home now.`;break;}
     case 'deed': local();check(h.id==='shack'&&h.tenure==='shared'&&c.nativeRights?.shack,'purchase title for your actual accessible Shack');pay(60);h.deed=true;h.owner='player';h.tenure='owned';out.message='The Village settles the Shack deed in your name. Existing goods and workshop progress stay intact.';break;
     case 'acquire': {
-        const p=P[request.home];check(p&&!p.legacy&&!s.properties[request.home]?.access,'this residence is already available');check(c.location==='Village','discuss the listed home in Village');check(p.forms.includes(c.body.form),'the offered home must fit your body');
+        const p=P[request.home];check(p&&!p.legacy&&!s.properties[request.home]?.access,'this residence is already available');check(p.registered?p.world===c.world&&(p.listedAt||[]).includes(c.location):c.location==='Village',p.registered?'ask about this home where it is let':'discuss the listed home in Village');check(p.forms.includes(c.body.form),'the offered home must fit your body');
         check(!B[request.home],'build this habitat at its actual wild site rather than settling it through a supplier');
         check(!['family','manor'].includes(request.home),'shared household access comes from its actual beginning, not an invented family');
         if(s.properties[request.home]){check(p.period,'this title is already held');const old=s.properties[request.home];pay(p.price);old.access=true;old.paidUntil=Math.max(c.clock,old.paidUntil)+p.period;}
         else{pay(p.price);s.properties[request.home]=createProperty(request.home,c.clock);}
         s.beginning=false;s.primary=request.home;out.message=`${p.name}: ${p.tenure==='rented'?'one day of lodging prepaid':'home rights settled'}.`;break;
     }
-    case 'renew': check(h&&P[h.id].period&&['Village',P[h.id].location].includes(c.location),'renew with this host or from your room');pay(P[h.id].price);h.access=true;h.paidUntil=Math.max(c.clock,h.paidUntil)+P[h.id].period;out.message='One more played day of lodging is paid. No automatic charge.';break;
+    case 'renew': check(h&&P[h.id].period&&[...(P[h.id].registered?P[h.id].listedAt||[]:['Village']),P[h.id].location].includes(c.location),'renew with this host or from your room');pay(P[h.id].price);h.access=true;h.paidUntil=Math.max(c.clock,h.paidUntil)+P[h.id].period;out.message='One more played day of lodging is paid. No automatic charge.';break;
     case 'primary': local();s.primary=h.id;out.message=`${h.name} is your main residence. Goods stay at their actual homes.`;break;
     case 'rename': owner(false);check(typeof request.name==='string'&&request.name.trim().length>0&&request.name.trim().length<=60,'use a name of 1–60 characters');h.name=request.name.trim();out.message=`Home named ${h.name}.`;break;
-    case 'buy': {check(c.location==='Village','buy furnishings from the Village home supplier');const f=F[request.item]||HOME_SUPPLIES[request.item];check(f,'unknown furnishing or supply');pay(f.price);receive(homeKey(request.item));out.message=`Bought ${f.name}; carry it to a suitable home to install.`;break;}
+    case 'buy': {const f=F[request.item]||HOME_SUPPLIES[request.item];check(f?.registered?f.world===c.world&&(f.soldAt||[]).includes(c.location):c.location==='Village',f?.registered?'buy this where it is sold':'buy furnishings from the Village home supplier');check(f,'unknown furnishing or supply');pay(f.price);receive(homeKey(request.item));out.message=`Bought ${f.name}; carry it to a suitable home to install.`;break;}
     case 'install': {local();const f=fixture(request.key);check(f&&f.forms.includes(c.body.form),'this furnishing needs a fitting body and room');check(!(P[h.id].legacy&&f.slot==='hearth'),'install native hearths through their existing home route');check(!h.fixtures[f.slot],'remove the current fixture in this slot first');spend(request.key,1);h.fixtures[f.slot]={key:request.key,owner:'player'};out.message=`Installed ${f.name}.`;break;}
     case 'remove': {check(h&&homeAt(s,c)?.id===h.id&&P[h.id].forms.includes(c.body.form),'return to this residence with a fitting body');const row=h.fixtures[request.slot];check(row&&row.owner==='player','communal and landlord furnishings remain with their owner');check(!(request.slot==='hearth'&&((h.household?.hearth.fuelMinutes||0)>0||(h.household?.hearth.firewood?.logs.length||0)>0)),'extinguish and empty the firewood pile before removing the hearth');delete h.fixtures[request.slot];check(Object.values(h.stock).reduce((a,b)=>a+b,0)<=homeCapacity(h),'empty enough storage before removing its capacity');receive(row.key);out.message='Removed your furnishing and returned the exact item to your pack.';break;}
     case 'deposit': local();check(Object.values(h.stock).reduce((a,b)=>a+b,0)<homeCapacity(h),'local storage is full');spend(request.key,1);h.stock[request.key]=(h.stock[request.key]||0)+1;out.message='One owned item moved into your private local storage.';break;

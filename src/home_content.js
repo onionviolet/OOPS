@@ -50,13 +50,16 @@ export const HOME_IMPROVEMENTS = ({
 });
 export const HOME_SUPPLIES = Object.freeze({'Rough wood log':{name:'Rough wood log',price:2},'Linen cloth':{name:'Linen cloth',price:4}});
 export const homeKey = id => JSON.stringify({id});
+let itemRegistrar=null; // bound once the item tables exist, so a world registered later still gets its furniture's item templates
+const furnitureTemplate=(templates,Item,id,f)=>{templates[id] ||= new Item({id,name:f.name,value:f.price,
+        description:`${f.description} Install or remove it through Homes.`,tags:{domicile:true},saturates_market:false});};
 export function registerDomicileItems(templates, Item) {
+    itemRegistrar={templates,Item};
     registerCultivationItems(templates,Item);
     templates[PACKED_TENT] ||= new Item({id:PACKED_TENT,name:'Packed travel shelter',value:0,description:'Your folded woven shelter and pole frame. Pitch through Homes at a permitted camp; its retained condition travels with this kit.',tags:{domicile:true},saturates_market:false});
     templates['Home damp grass'] ||= new Item({id:'Home damp grass',name:'Damp shelter grass',value:0,description:'Rain-wet grass. Dry it before weaving bedding or binding a sound roof.',tags:{domicile:true},saturates_market:false});
     for(const [id,m] of Object.entries(HOME_MATERIALS)) templates[id] ||= new Item({id,name:m.name,value:0,description:m.description,tags:{domicile:true},saturates_market:false});
-    for(const [id,f] of Object.entries(DOMICILE_FURNITURE)) templates[id] ||= new Item({id,name:f.name,value:f.price,
-        description:`${f.description} Install or remove it through Homes.`,tags:{domicile:true},saturates_market:false});
+    for(const [id,f] of Object.entries(DOMICILE_FURNITURE)) furnitureTemplate(templates,Item,id,f);
 }
 
 // One authored unclaimed site. Suitability is local terrain, not universal land rights.
@@ -94,9 +97,14 @@ export function registerHomeWorld({worldId,places={},furniture={},rooms={}}={}){
         if(!ok(id)||!id.startsWith(`${worldId}.`))throw Error(`${label} ids are namespaced by their world.`);
         if(native.has(id)||(table[id]&&table[id].world!==worldId))throw Error(`${label} ${id} is already registered.`);
         shape(row);table[id]=Object.freeze({...row,world:worldId,registered:true});}};
-    add(HOME_PLACES,places,NATIVE_PLACES,'Home',r=>{if(![r.name,r.location,r.tenure,r.owner].every(x=>typeof x==='string'&&x)||!Array.isArray(r.forms)||!Number.isSafeInteger(r.capacity))throw Error('A world home needs a name, location, tenure, owner, forms and capacity.');});
-    add(DOMICILE_FURNITURE,furniture,NATIVE_FURNITURE,'Furniture',r=>{if(![r.name,r.slot,r.description].every(x=>typeof x==='string'&&x)||!Number.isFinite(r.price)||!Array.isArray(r.forms))throw Error('World furniture needs a name, slot, price, forms and description.');});
+    // Furniture first, so a home's `furnished` rows (the landlord's or household's pieces) name furniture of the same world.
+    // Optional home fields: startsHere (the world's life takes it up at the home), listedAt and soldAt (where it is let or sold;
+    // the native default is the Village), furnished (fixture ids installed with the home's owner as owner), period and price.
+    add(DOMICILE_FURNITURE,furniture,NATIVE_FURNITURE,'Furniture',r=>{if(![r.name,r.slot,r.description].every(x=>typeof x==='string'&&x)||!Number.isFinite(r.price)||!Array.isArray(r.forms)||r.soldAt!=null&&!Array.isArray(r.soldAt))throw Error('World furniture needs a name, slot, price, forms and description.');});
     add(HOME_IMPROVEMENTS,rooms,NATIVE_ROOMS,'Room',r=>{if(typeof r.name!=='string'||!Number.isSafeInteger(r.minutes))throw Error('A world room needs a name and minutes.');});
+    add(HOME_PLACES,places,NATIVE_PLACES,'Home',r=>{if(![r.name,r.location,r.tenure,r.owner].every(x=>typeof x==='string'&&x)||!Array.isArray(r.forms)||!Number.isSafeInteger(r.capacity))throw Error('A world home needs a name, location, tenure, owner, forms and capacity.');
+        if((r.furnished||[]).some(f=>DOMICILE_FURNITURE[f]?.world!==worldId)||r.listedAt!=null&&!Array.isArray(r.listedAt))throw Error('A world home furnishes only from its own world\u2019s furniture.');});
+    if(itemRegistrar)for(const id of Object.keys(furniture))furnitureTemplate(itemRegistrar.templates,itemRegistrar.Item,id,DOMICILE_FURNITURE[id]);
     worldRows.set(worldId,{places:Object.keys(places),furniture:Object.keys(furniture),rooms:Object.keys(rooms)});
     return worldRows.get(worldId);
 }
