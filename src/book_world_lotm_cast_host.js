@@ -32,6 +32,7 @@ import {defineRecords,quoteRecords} from './book_world_lotm_records_host.js';
 import {accrueAct} from './book_world_lotm_harm.js';
 import {defineDivinations,quoteDivinations,pendingDivinationReports,settleDivinationReports} from './cast_divination_adapter.js';
 import {defineCastExchanges,quoteCastExchanges} from './cast_exchange_adapter.js';
+import {bindSeerBrew} from './lotm_seer_brew.js';
 import {defineCastMaking,quoteCastMaking,validateCastMakingConsumers} from './cast_making_adapter.js';
 import {defineTopicTalks,quoteTopicTalks,pendingTopicTalkReports,settleTopicTalkReports} from './cast_topic_talk.js';
 import {definePlaceActs,seedPlaceObjects,quotePlaceActs,settlePlaceActReports,pendingPlaceActReports,placeActVisitors} from './place_acts.js';
@@ -215,6 +216,7 @@ function deriveCast(pack){
  castWalkCommands=[];walksById.clear();walkPlaces=new Map([...Object.values(L),...castPlaces.map(p=>p.id)].map(id=>[walkPart(id),id]));
  castObjectCommands=definePlaceActs(pack.householdActs,{worldId:I.world,group:'book_lotm',
   situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
+ bindSeerBrew(castObjectCommands);
  for(const d of castObjectCommands)for(const e of d.effects)if(e.type==='relocate'&&e.actor==='player'&&!placesById.has(e.location))throw Error('Place-act travel needs a declared destination.');
  castAvailable=true;
 }
