@@ -75,7 +75,11 @@ async function walkLotm() {
             if(acts % 10 === 0) console.error(`lotm: ${acts} story tasks`);
         }
         r.storyTasksToMeetDunn = acts; assert.ok(dunnKnown(await snap(p)), 'Klein met Dunn by his own story route');
-        } else {assert.ok(dunnKnown(await snap(p)), 'fixture: Klein has met Dunn'); r.checks.push('fixture loaded: Klein met Dunn by his own story route (83 tasks, day 3)');}
+        } else {assert.ok(dunnKnown(await snap(p)), 'fixture: Klein has met Dunn'); r.checks.push('fixture loaded: Klein met Dunn by his own story route (83 tasks, day 3)');
+            // W1d: the flat's Home block on the Here tab (household read side).
+            await panel(p, 'lotm'); await p.locator('[data-workroom-tabs] button').filter({hasText: /^Here$/}).first().click(); await p.waitForTimeout(200);
+            const home = await p.locator('[data-lotm-home]').innerText(); assert.match(home, /rent/i); r.homeLines = home.split('\n').length;
+            r.homeNamesFamily = /Benson|Melissa/.test(home); r.checks.push('Home block shown on the Here tab with the rent line');}
         let st;
         if(!seed) await writeFile(join(out, 'klein-met-dunn.save.json'), JSON.stringify(await s.save())); // scratch only: carries cast text
         await open();

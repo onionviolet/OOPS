@@ -244,6 +244,8 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
   }
   }
   // RET3: the paused Village life is resumed from the connection panel, not from here. It leads the Here tab: the other life is a crossing fact, not a path detail.
+  // W1d (LT10 read side): the flat on the household model: who lives there, the rent, what is kept there.
+  if(v.home?.lines?.length){const h=node('div');h.dataset.lotmHome='';h.append(node('h3','Home'),...v.home.lines.map(l=>node('p',l)));actions.append(h);}
   if(v.pausedLife){const r=row(node('span',`${v.pausedLife} is paused where you left it. Your continuing connection is the way back.`),button('Open Continuing connection','open_connection',()=>expandWorkspaceModule('continuation'),false,'Resuming pauses this Tingen life in turn.'));r.dataset.lotmPausedLife='';actions.append(r);}
   if(!resident&&v.cause.line)path.append(node('p',v.cause.line));
   if(!resident&&v.clearance.length){path.append(node('h3',`Clearance · ${v.role.replace(/_/g,' ')}`));for(const g of v.clearance){const r=node('p',`Grade ${g.grade}: ${g.ok?'you may handle it here. ':''}${g.ok?g.line:g.reasons.join('; ')}`);r.dataset.clearance=String(g.grade);path.append(r);}}
