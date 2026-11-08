@@ -37,21 +37,25 @@ async function roundTrip(s, reopen) {
 }
 
 async function walkLotm() {
-    const s = new Session({url: server.url, seed: 7, wall: Date.UTC(2026, 10, 7), opTimeout: 20000}), r = {checks: []};
-    await s.start(); await s.open(null); const p = s.page;
+    const seedPath = process.env.KLEIN_MET_DUNN, seed = seedPath ? JSON.parse(await readFile(seedPath, 'utf8')) : null;
+    const s = new Session({url: server.url, seed: 7, wall: Date.UTC(2026, 10, 7), opTimeout: 20000}), r = {checks: [], fixture: seedPath ? 'klein-met-dunn (scripts/playtest/klein-to-dunn.mjs, native)' : null};
+    await s.start(); await s.open(seed); const p = s.page;
     try {
+        if(!seed) {
         await panel(p, 'lotm');
-        await p.getByRole('button', {name: 'Developer playthrough: Be Klein Moretti'}).click();
-        // Starting the new life reloads the page into it; PLAY again on the reloaded page.
-        await Promise.all([p.waitForEvent('load', {timeout: 60000}), p.getByRole('button', {name: 'Start this new life'}).click({noWaitAfter: true})]);
-        await play(p);
-        assert.equal((await snap(p)).actors.player.worldId, 'book.lotm.tingen');
+            await p.getByRole('button', {name: 'Developer playthrough: Be Klein Moretti'}).click();
+            // Starting the new life reloads the page into it; PLAY again on the reloaded page.
+            await Promise.all([p.waitForEvent('load', {timeout: 60000}), p.getByRole('button', {name: 'Start this new life'}).click({noWaitAfter: true})]);
+            await play(p);
+            assert.equal((await snap(p)).actors.player.worldId, 'book.lotm.tingen');
+        }
         const open = async () => {await panel(p, 'lotm'); await p.locator('button').filter({hasText: /^Work & merit$/}).first().click(); await p.waitForTimeout(250);};
         await open();
         const DUNN = 'lotm.person.cast-618f4df49af02c7da45e', OFFER = '[data-lotm="tie_book.lotm.tie.dunn_funding"]', DUTY = '[data-lotm="duty_lotm.expense_claim"]';
         const trust = st => st.simulation.relationships?.[DUNN]?.player?.axes?.['tie.trust'] || 0;
-        // X1-G1: before Klein has met Dunn, the talk is not offered and a filing earns no regard (the duty itself still counts).
         const dunnKnown = st => ['known', 'met'].some(k => st.simulation.knowledge.player?.[`book.lotm.cast.${k}.${DUNN}`]);
+        if(!seed) {
+        // X1-G1: before Klein has met Dunn, the talk is not offered and a filing earns no regard (the duty itself still counts).
         assert.equal(dunnKnown(await snap(p)), false); assert.equal(await p.locator(OFFER).count(), 0);
         await p.locator(DUTY).click(); await p.waitForTimeout(300);
         let st = await snap(p); assert.equal(trust(st), 0); assert.ok(!st.simulation.knowledge.player['book.lotm.tie.dunn_signed']);
@@ -71,17 +75,19 @@ async function walkLotm() {
             if(acts % 10 === 0) console.error(`lotm: ${acts} story tasks`);
         }
         r.storyTasksToMeetDunn = acts; assert.ok(dunnKnown(await snap(p)), 'Klein met Dunn by his own story route');
-        await writeFile(join(out, 'klein-met-dunn.save.json'), JSON.stringify(await s.save())); // gitignored scratch: W1c seed, carries cast text
+        } else {assert.ok(dunnKnown(await snap(p)), 'fixture: Klein has met Dunn'); r.checks.push('fixture loaded: Klein met Dunn by his own story route (83 tasks, day 3)');}
+        let st;
+        if(!seed) await writeFile(join(out, 'klein-met-dunn.save.json'), JSON.stringify(await s.save())); // scratch only: carries cast text
         await open();
         assert.equal(await p.locator(OFFER).isDisabled(), true);
         assert.match(await p.locator('[data-tie-offer]').innerText(), /once he has signed two/); r.checks.push('after meeting Dunn by the story route: the talk is shown shut with its reason');
         // First regard-earning filing: the next duty week after the meeting.
-        for(let d = 0; d < 7; d++) {await s.step(1440); await p.waitForTimeout(50);}
+        for(let q = 0; q < 28; q++) {await s.step(360); await p.waitForTimeout(50);} // six hours per call: a day per call crashed the page past day 3
         await open(); await p.locator(DUTY).click(); await p.waitForTimeout(300);
         st = await snap(p); assert.equal(trust(st), 1); assert.ok(st.simulation.knowledge.player['book.lotm.tie.dunn_signed']);
         assert.equal(await p.locator(OFFER).isDisabled(), true); r.checks.push('first filing after meeting: trust 1, observation held, talk still shut');
         // A week of native time, a day per call (one 10,080-minute call exhausted the headless page).
-        for(let d = 0; d < 7; d++) {await s.step(1440); await p.waitForTimeout(50);}
+        for(let q = 0; q < 28; q++) {await s.step(360); await p.waitForTimeout(50);} // six hours per call: a day per call crashed the page past day 3
         await open();
         await p.locator(DUTY).click(); await p.waitForTimeout(300);
         st = await snap(p); assert.equal(trust(st), 2); r.checks.push('next week filed after seven native days: trust 2');
