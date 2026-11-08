@@ -10,10 +10,13 @@
 import {defineSpells} from './spell_seam.js';
 import {lotmSpellAdapter} from './spell_adapter_lotm.js';
 import {lowerSpellCasts, spellCastFacts} from './spell_cast_lowering.js';
-import {beSeerUse, beSpiritVisionOnRequires, beSpiritVisionOnEffects} from './book_world_lotm_be_seer.js';
+import {beSeerUse, beSpiritVisionOnRequires, beSpiritVisionOnEffects, BE_SEER_SOURCE} from './book_world_lotm_be_seer.js';
 
 const WORLD = 'book.lotm.tingen', PREFIX = 'book.lotm.be.sp', KEY = 'spirit_vision';
 export const BE_SPIRIT_VISION_OPEN_MINUTES = 60;
+// Practice (Weibao, 2026-11-08): each opening develops the Seer faculty by one, its control with use. Default, dial, reason: one per
+// opening; the amount is the dial. LOTM's own law still moves Sequences by digesting the potion through acting; practice does not
+// replace or speed that law, it is a second, separate growth (the world's core rule stays, use is not the only way).
 const note = value => ({type: 'knowledge', key: 'book.lotm.be.spell.spirit_vision.last', stage: 'understood', value});
 
 export const lotmBeSpellSet = defineSpells([{
@@ -30,7 +33,7 @@ export const lotmBeChanceFact = id => `lotm.be.spell.${id.slice(PREFIX.length + 
 
 // A spell row must name a prefix-owned source, so the row uses a generated one and the command's requires are rewritten onto the story's own gate
 // (the real Seer source, through the host fact lotm.beSeer.supported), as the Harry caller does for its power. The spirituality cost is an energy `use` effect (no amount), which an ability row cannot state, so the command carries it here.
-export const lotmBeSpellCommands = lowerSpellCasts(lotmBeSpellSet, {chanceFact: lotmBeChanceFact}).filter(c => c.id === castId).map(c => ({
+export const lotmBeSpellCommands = lowerSpellCasts(lotmBeSpellSet, {chanceFact: lotmBeChanceFact, practice: {sourceOf: () => BE_SEER_SOURCE, amount: 1}}).filter(c => c.id === castId).map(c => ({
     ...c, group: 'book_lotm', worldId: WORLD, audience: ['$actor'], costs: [beSeerUse()],
     requires: {all: [{fact: 'actor.life', op: 'eq', value: 'alive'}, beSpiritVisionOnRequires()], reason: 'You need the Seer potion in you and a rested mind.'}}));
 

@@ -340,3 +340,14 @@ and after the first palette, "save ideaboarding accordingly".
 
 Recorded direction: the question is recorded as a request for an ideaboard, not a build order or an accepted design. The palette PRT1-PRT26 lives in [the portal multiverse ideaboard](../worlds/PORTAL_MULTIVERSE_WORLDS_IDEABOARD_2026-11-07.md): an original analogue by default and a private canon pack as a condition (WER11, WER15), ranked requirements marked exists or gap, and a proposed first slice on an existing book world. All of it is proposal under AD32. Standing priorities (LOTM and HP lead lines) are unchanged. No commit or push was requested.
 
+## Casting adds mastery, and use is not the only way, 2026-11-08
+
+The cross-world systems session walked Harry's library study and found that casting the levitation charm outside class left its practice unchanged; only Charms classes refined it. Weibao said, across three messages:
+
+> Casting should Add mastry...
+
+> Things should usualkly not be limited to a specific way
+
+> dont forget the core rules after all
+
+Recorded direction: every cast on the shared spell lowering adds practice, whether it works or fizzles. Harry's charm gains mastery from it and Klein's Seer faculty gains development. Classes, digestion through acting and other world laws keep working beside it; use is one growth route among several, not a replacement. "The core rules" is read as AD38 (things work by how they work) and AD5 (default, dial and reason), so the amount per cast is a dial and each world keeps its own stated law. The detail lives in `src/spell_cast_lowering.js` and its two callers; the [cross-world record](dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md) has the slice. All of it is proposal under AD32 except his stated direction.

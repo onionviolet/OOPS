@@ -12,16 +12,25 @@ import {failureChance} from './spell_seam.js';
 export const defaultChanceFact = castCommandId => `spell.${castCommandId}.failChance`;
 
 // set: a defineSpells result. chanceFact: (castCommandId) => fact name read for the spell's failure chance.
+// practice: {powerOf:(key)=>powerId | sourceOf:(key)=>sourceId, amount} adds that much on every cast, worked or fizzled (Weibao,
+// 2026-11-08: "Casting should add mastery"; "Things should usually not be limited to a specific way"). A power gains mastery; a
+// faculty source (a world whose ability is a held faculty, not a learned power) gains development. Default: both outcomes teach,
+// because a failed try teaches too. Dial: the amount per world. Reason: use is one way to grow among others; a world's own growth
+// laws (classes, digestion, rites) keep working beside it and are not replaced.
 // Returns the set's commands; each cast command of a spell with a chance becomes {outcomes:[cast, fizzled]} with no direct `effects`.
-export function lowerSpellCasts(set, {chanceFact = defaultChanceFact} = {}) {
+export function lowerSpellCasts(set, {chanceFact = defaultChanceFact, practice = null} = {}) {
     const byCommand = new Map(Object.entries(set.ids).map(([key, ids]) => [ids.command, key]));
+    if(practice != null && !(Number.isFinite(practice.amount) && practice.amount > 0 && (typeof practice.powerOf === 'function') !== (typeof practice.sourceOf === 'function'))) throw Error('Cast practice needs one power or source and a positive amount.');
+    const learn = key => !practice ? [] : practice.powerOf ? [{type: 'power', powerId: practice.powerOf(key), operation: 'refine', amount: practice.amount}]
+        : [{type: 'source', sourceId: practice.sourceOf(key), operation: 'develop', amount: practice.amount}];
     return set.commands.map(command => {
         const key = byCommand.get(command.id), spell = key && set.spells[key];
-        if(!spell || spell.failure.chance == null) return command;
+        if(!spell) return command;
+        if(spell.failure.chance == null) return practice ? {...command, effects: [...command.effects, ...learn(key)]} : command;
         const fact = chanceFact(command.id), {effects, ...rest} = command;
         return {...rest, outcomes: [
-            {id: 'cast', weight: {fact, scale: -1, add: 1}, effects: structuredClone(effects)},
-            {id: 'fizzled', weight: {fact}, effects: structuredClone(spell.failure.outcome)}]};
+            {id: 'cast', weight: {fact, scale: -1, add: 1}, effects: [...structuredClone(effects), ...learn(key)]},
+            {id: 'fizzled', weight: {fact}, effects: [...structuredClone(spell.failure.outcome), ...learn(key)]}]};
     });
 }
 

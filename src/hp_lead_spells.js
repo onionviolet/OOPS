@@ -7,7 +7,7 @@
 // dropped because a learned power is the gate here. The cast needs the learned power and being at the school.
 // Gaps (unstated, not invented): the wand and the spoken words. The lead life holds no wand fact or item at his first Charms lesson (the wand
 // item book.hp.lead.w4_wand belongs to a later window) and no speech fact, so neither is required; both are listed on the row's `unstated`.
-// Cast mastery gain is not modelled here: the Charms class refines the power.
+// Each cast, lifted or not, adds one step of practice to the charm (Weibao, 2026-11-08), the same step a Charms class try adds.
 import {defineSpells} from './spell_seam.js';
 import {hpSpellAdapter} from './spell_adapter_hp.js';
 import {lowerSpellCasts, spellCastFacts} from './spell_cast_lowering.js';
@@ -29,7 +29,7 @@ export const hpLeadSpellSet = defineSpells([{
 const castId = hpLeadSpellSet.ids[KEY].command;
 export const hpLeadChanceFact = id => `hp.lead.spell.${id.slice(PREFIX.length + 1)}.failChance`;
 
-export const hpLeadSpellCommands = lowerSpellCasts(hpLeadSpellSet, {chanceFact: hpLeadChanceFact}).filter(c => c.id === castId).map(c => {
+export const hpLeadSpellCommands = lowerSpellCasts(hpLeadSpellSet, {chanceFact: hpLeadChanceFact, practice: {powerOf: () => HP_LEVITATION, amount: 1}}).filter(c => c.id === castId).map(c => {
     const own = hpLeadSpellSet.cards[KEY];
     return {...c, powerId: HP_LEVITATION, group: 'structured_local', worldId: WORLD, location: HALL, audience: ['$actor'],
         requires: {all: [alive, ...own.conditions.map(x => structuredClone(x.requires)), {fact: `power.${HP_LEVITATION}.owned`, op: 'eq', value: true, reason: 'Learn the charm in Charms first.'}],

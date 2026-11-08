@@ -93,6 +93,17 @@ test('the engine draws the lowered command: both outcomes occur at the first-try
 
 test('player-facing strings carry no engine words', () => {
     const [cmd] = hpLeadSpellCommands, strings = [cmd.label, cmd.requires.reason, ...cmd.requires.all.map(r => r.reason).filter(Boolean),
-        ...cmd.outcomes.flatMap(o => o.effects.map(e => e.value))];
+        ...cmd.outcomes.flatMap(o => o.effects.map(e => e.value).filter(v => v != null))];
     for(const s of strings) assert.doesNotMatch(s, /outcome|weight|\bfact\b|chance|failChance|\.[a-z_]+\./i, s);
+});
+
+test('practice: every cast adds to the power, lifted or not (Harry), and to the faculty for a plain command (Klein)', async () => {
+    const {HP_LEVITATION} = await import('../src/world_packs/book_hp_lead_life_data.js');
+    const [cmd] = hpLeadSpellCommands;
+    for(const o of cmd.outcomes) assert.deepEqual(o.effects.at(-1), {type: 'power', powerId: HP_LEVITATION, operation: 'refine', amount: 1}, o.id);
+    const {lotmBeSpellCommands} = await import('../src/lotm_be_spells.js');
+    const {BE_SEER_SOURCE} = await import('../src/book_world_lotm_be_seer.js');
+    assert.deepEqual(lotmBeSpellCommands[0].effects.at(-1), {type: 'source', sourceId: BE_SEER_SOURCE, operation: 'develop', amount: 1});
+    assert.throws(() => lowerSpellCasts(hpLeadSpellSet, {practice: {amount: 1}}), /one power or source/);
+    assert.throws(() => lowerSpellCasts(hpLeadSpellSet, {practice: {powerOf: () => 'x', sourceOf: () => 'y', amount: 1}}), /one power or source/);
 });

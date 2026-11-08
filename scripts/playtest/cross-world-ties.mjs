@@ -157,6 +157,20 @@ async function walkHp() {
         }
         assert.ok(results.every(Boolean)); r.castResults = results.map(t => /rose/.test(t) ? 'rose' : /shivered/.test(t) ? 'fizzled' : 'other');
         r.checks.push(`levitation cast three times by its button: ${r.castResults.join(', ')}`);
+        // Research: library study on the shared inquiry engine, by its own buttons; reading alone cannot finish without class evidence.
+        const STUDY = '[data-hp-study="study.hp.charms"]', studyLine = async () => p.locator(STUDY).locator('xpath=..').innerText();
+        const before = await studyLine(); let sessions = 0;
+        while(sessions < 4 && !(await p.locator('[data-hp-study-note="study.hp.charms"]').count())) {
+            if(await p.locator(STUDY).isDisabled()) break;
+            await p.locator(STUDY).click(); await s.step(60); await nc.panel(); sessions++;
+        }
+        r.studySessions = sessions; r.studyBefore = before.split('\n').at(-1); r.studyAfter = (await studyLine()).split('\n').at(-1);
+        assert.ok(sessions >= 1 && r.studyAfter !== r.studyBefore, 'a study session changes the shown progress');
+        if(await p.locator('[data-hp-study-note="study.hp.charms"]').count()) {
+            await p.locator('[data-hp-study-note="study.hp.charms"]').click(); await nc.panel();
+            assert.equal((await snap(p)).simulation.knowledge.player['study.hp.charms.writeup']?.stage, 'understood');
+            r.studyDone = true; r.checks.push(`library study by its button: ${sessions} sessions finish the charms topic, written up as a note`);
+        } else r.checks.push(`library study by its button: ${sessions} sessions move the charms topic (${r.studyAfter})`);
         assert.equal(await p.locator(TALK).isDisabled(), false);
         await p.locator(TALK).click(); await s.step(35); await nc.panel();
         st = await snap(p); const note = st.simulation.knowledge.player[P + '.tie.ron_family'];
@@ -174,6 +188,20 @@ async function walkHp() {
         st = await snap(p); assert.equal(st.actors.player.facts['hp.lead.potions.flask'], 'cure');
         assert.equal(await p.locator(EARLY).isDisabled(), true, 'one set of ingredients brews once');
         r.checks.push('brewed by the steps and handed in: the flask fact is cure; the early brew is shut (ingredients spent)');
+        // Research, finished: class evidence comes from Charms classes (casting outside class does not refine the power), so attend
+        // the next Mondays' Charms practice by its button, then study until the topic can be written up.
+        const NOTE = '[data-hp-study-note="study.hp.charms"]', practice = p.locator('[data-hp-lesson]').filter({hasText: 'Charms'});
+        for(let week = 0; week < 3 && !(await p.locator(NOTE).count()); week++) {
+            let h = 0; while(await practice.isDisabled() && h < 8 * 24) {await s.step(60); await nc.panel(); h++;}
+            await practice.click(); await s.step(35); await nc.panel();
+            for(let k = 0; k < 2 && !(await p.locator(NOTE).count()) && !(await p.locator(STUDY).isDisabled()); k++) {await p.locator(STUDY).click(); await s.step(60); await nc.panel(); sessions++;}
+        }
+        if(!r.studyDone && await p.locator(NOTE).count()) {
+            await p.locator(NOTE).click(); await nc.panel();
+            assert.equal((await snap(p)).simulation.knowledge.player['study.hp.charms.writeup']?.stage, 'understood');
+            r.studyDone = true; r.studySessions = sessions; r.checks.push(`library study finished after more Charms classes by their buttons: ${sessions} sessions, written up as a note`);
+            r.charmsLine = await p.evaluate(() => document.querySelector('[data-hp-lessons]')?.innerText.match(/Levitation[^\n]*|[^\n]*feather[^\n]*/)?.[0] || null);
+        }
         r.potionsBrewChance = await p.evaluate(() => document.querySelector('[data-hp-lessons]')?.innerText.match(/Potions[^\n]*/)?.[0] || null);
         await panel(p, 'beginning'); await p.waitForTimeout(300);
         r.peopleViewShowsRonLines = await p.evaluate(() => document.body.innerText.includes('five older brothers') && document.body.innerText.includes('moved up the bench'));
@@ -182,6 +210,7 @@ async function walkHp() {
         for(const x of [afterReload, afterImport]) {assert.equal(aff(x), 2); assert.ok(x.simulation.knowledge.player[P + '.tie.ron_family']); assert.equal(x.actors.player.facts['hp.lead.potions.flask'], 'cure');}
         r.checks.push('save, reload, Export and Import keep affection 2, the note and the handed-in flask');
         await reopen(); assert.match(await home(), /away from the house/); r.checks.push('W2c: the Home block reads the same after Import');
+        if(r.studyDone) {for(const x of [afterReload, afterImport]) assert.equal(x.simulation.knowledge.player['study.hp.charms.writeup']?.stage, 'understood'); r.checks.push('the study write-up survives reload and Import');}
         r.errors = s.errors.length; assert.equal(s.errors.length, 0, JSON.stringify(s.errors.slice(0, 3)));
         r.ok = true;
     } catch(e) {r.ok = false; r.error = String(e.stack || e).slice(0, 1500); r.errors = s.errors.slice(0, 5); await p.screenshot({path: join(out, 'hp-fail.png')}).catch(() => {});}
@@ -198,20 +227,22 @@ async function walkLotmSeer() {
     await s.start(); await s.open(seed); const p = s.page, ID = 'book.lotm.be.sp.use.spirit_vision', BTN = `[data-lotm="${ID}"]`, POOL = 'book.lotm.be_spirituality';
     const here = async () => {await panel(p, 'lotm'); await p.locator('[data-workroom-tabs] button').filter({hasText: /^Here$/}).first().click(); await p.waitForTimeout(250);};
     const reserve = st => st.simulation.energies?.player?.[POOL]?.reserve;
+    const dev = st => st.simulation.faculties?.player?.['book.lotm.be_seer']?.development ?? 0;
     try {
         await here();
         assert.equal(await p.locator(BTN).isDisabled(), false, 'the Spirit Vision power is offered after the potion');
-        const before = reserve(await snap(p));
+        const st0 = await snap(p), before = reserve(st0), devBefore = dev(st0);
         await p.locator(BTN).click(); await p.waitForTimeout(300);
         for(let k = 0; k < 20 && (await p.evaluate(() => simulationTestHooks.project('lotm').jobs.length)); k++) await s.step(10);
         await here();
         const st = await snap(p), after = reserve(st);
         assert.ok(after < before, `spirituality spent (${before} -> ${after})`);
         r.checks.push(`Open your Spirit Vision by its button: spirituality ${before} -> ${after}`);
+        assert.equal(dev(st), devBefore + 1); r.checks.push(`practice: the opening develops the Seer faculty ${devBefore} -> ${dev(st)}`);
         assert.equal(await p.locator(BTN).isDisabled(), true); r.shutReason = (await p.locator('[data-lotm-powers]').innerText()).length > 0;
         r.checks.push('while the vision is open the power is shown shut');
         const {afterReload, afterImport} = await roundTrip(s, here);
-        for(const x of [afterReload, afterImport]) assert.equal(reserve(x), after);
+        for(const x of [afterReload, afterImport]) {assert.equal(reserve(x), after); assert.equal(dev(x), devBefore + 1);}
         r.checks.push('save, reload, Export and Import keep the spent spirituality');
         r.errors = s.errors.length; assert.equal(s.errors.length, 0, JSON.stringify(s.errors.slice(0, 3))); r.ok = true;
     } catch(e) {r.ok = false; r.error = String(e.stack || e).slice(0, 1200); r.errors = s.errors.slice(0, 5); await p.screenshot({path: join(out, 'seer-fail.png')}).catch(() => {});}

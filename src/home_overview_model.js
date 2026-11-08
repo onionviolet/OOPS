@@ -146,8 +146,9 @@ export function homeFigureSpec(model) {
 /**
  * World port (cross-world transfer, proposal AD32): a world whose homes are not native home state hands its own data,
  * world = {place:{id,name}, tenure?, here?, residents:[{id,name,relation,self?}], dues:[{id,label,words,warn?,next?}],
- * stores:[{label,count}], empty?}, and gets the same model shape homeOverviewModel returns, so one view and one set of
- * words serve every world. Default: no fittings, rooms, weather or construction (those need native home state). Dial: a
+ * stores:[{label,count}], empty?}, and gets the same model shape homeOverviewModel returns, so every world's home shares
+ * one model and one set of words. renderHomeView still needs native home state (comfort, weather, fittings), so a world
+ * home shows the short block from homeModelLines until that view takes a world model. Default: no fittings, rooms, weather or construction (those need native home state). Dial: a
  * world adds rows to dues or stores. Reason: who lives there, what is owed and what is kept are the same question in any
  * world; only the data differs.
  */
