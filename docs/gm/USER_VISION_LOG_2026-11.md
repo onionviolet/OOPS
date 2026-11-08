@@ -401,3 +401,15 @@ Weibao asked:
 > For selling, cant we just find a bazarr or a npc to sell things to> more to consider? Other aspects? XC21, how to consider accordingly? we need something in each world to grind in, endless mining for endless mining, enldess, or well, combat that continues for a certain point? more to cnsidr? consider how YAIR or proto23 or otherd handle these? Some stuff can just remain simple, consider hwaat is theb est way to go about these?
 
 Recorded as direction that some systems stay simple ("Some stuff can just remain simple"), and as ideas and questions, not accepted decisions (AD32): XC23 (sell to ordinary buyers on YAIR's trader shape), XC24 (a grind spot in every world, with returns that fade) and XC25 (simple by default, depth when pulled), with XM41-XM46, in the [long-term atlas](../audits/PROGRESS_ATLAS_2026-11-07_LONG_TERM.md#simple-first-sell-to-anyone-a-grind-spot-in-every-world-2026-11-08).
+
+## 2026-11-08: creatures at Hogwarts, open futures, modern society with magic
+
+Weibao said:
+
+> does hunting and skinnign creatures make sense for hogwarts xD I think maybe but also idk
+>
+> These ideas are good, but it shouldnt limti any future prospects
+>
+> For wildrness maybe, but in general idk. also how to implement the modern society thing that can apply to worlds with well, some sort of modern society in conjunction with their magical stuff?
+
+Recorded as direction: the grind, selling and farming proposals are first-slice defaults that close no future option. Recorded as ideas and questions, not accepted decisions (AD32): XC26 (care and harvest at Hogwarts, hunting as a regulated adult or wilderness trade), XC27 (a modern-society kit on the society seams) and XC28 (a veil between mundane and magical audiences), with XM47-XM52, in the [long-term atlas](../audits/PROGRESS_ATLAS_2026-11-07_LONG_TERM.md#creatures-at-hogwarts-open-futures-and-modern-society-beside-magic-2026-11-08).
