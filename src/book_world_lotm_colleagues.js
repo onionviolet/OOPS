@@ -28,6 +28,8 @@ export function noteExpenseFiled(plan, registry) {
 // offer below (two weeks). Reason: a captain who signs your papers every week comes to rely on you; the book shows Dunn answering
 // Klein's questions about the team's routine (KJ3T), so trust opens disclosure, not money.
 export const LOTM_TIES = registerWorldTies({worldId: 'book.lotm.tingen', situationId: LOTM_CAST_SITUATION, kinds: ['trust'], people: {dunn: DUNN_ID},
+    shown: [{alias: 'dunn', kind: 'trust', label: 'Captain Dunn', none: 'He knows your name and little else yet.', noticed: 'He has signed your weekly application.',
+        moves: 'Handing in your weekly expense application on time is the kind of thing he notices.', seenPrefix: 'book.lotm.tie.dunn_signed'}],
     offers: [{id: 'book.lotm.tie.dunn_funding', alias: 'dunn', kind: 'trust', atLeast: 2,
         label: 'Ask Captain Dunn how the funding request works',
         description: 'Dunn has signed your weekly applications; ask him what happens to them after he signs.',

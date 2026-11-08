@@ -27,8 +27,15 @@ export function registerWorldTies(decl) {
             throw Error(`Invalid tie offer in ${decl.worldId}.`);
         return Object.freeze({...o, note: Object.freeze({...o.note})});
     });
+    // shown (XC4): a tie shown from first meeting, before it has moved: {alias, kind, label, none, noticed, moves, seenPrefix}. The line is
+    // knowledge, never the regard number: `none` until the player holds one of the tie's own observation notes (keys starting with
+    // seenPrefix, attributed to that person), then `noticed`. Other things the person said do not count as the tie moving.
+    const shown = (decl.shown || []).map(r => {
+        if(!decl.people[r.alias] || !kinds.includes(r.kind) || ![r.label, r.none, r.noticed, r.moves].every(textOk) || !idOk(r.seenPrefix)) throw Error(`Invalid shown tie in ${decl.worldId}.`);
+        return Object.freeze({...r});
+    });
     declarations.set(decl.worldId, Object.freeze({worldId: decl.worldId, situationId: decl.situationId, kinds: Object.freeze([...kinds]),
-        people: Object.freeze(Object.fromEntries(people)), offers: Object.freeze(offers)}));
+        people: Object.freeze(Object.fromEntries(people)), offers: Object.freeze(offers), shown: Object.freeze(shown)}));
     return declarations.get(decl.worldId);
 }
 export const worldTies = worldId => declarations.get(worldId) || null;
@@ -67,6 +74,16 @@ export function tieOfferCommands(worldId, base) {
         effects: [offerNote(decl, o)]}));
 }
 // Panel rows for hosts that render their own buttons: eligible while the regard is high enough; once taken, the note itself.
+export function tieShownView(state) {
+    const decl = worldTies(state?.actors?.player?.worldId);
+    if(!decl) return [];
+    const notes = Object.entries(state.simulation?.knowledge?.player || {});
+    return decl.shown.map(r => {
+        const personId = decl.people[r.alias];
+        const seen = notes.some(([k, n]) => k.startsWith(r.seenPrefix) && n?.basis?.attributedTo === personId && n.basis.situationId === decl.situationId);
+        return {personId, alias: r.alias, kind: r.kind, label: r.label, line: `${seen ? r.noticed : r.none} ${r.moves}`};
+    });
+}
 export function tieOfferView(state) {
     const decl = worldTies(state?.actors?.player?.worldId);
     if(!decl) return [];

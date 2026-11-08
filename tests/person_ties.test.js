@@ -84,3 +84,17 @@ test('Klein X1-G1: Dunn holds no regard until the player holds the cast "met" ke
     const registry = {simulation: {people: new Map([[DUNN_ID, {}]])}};
     assert.equal(tieExpenseFiled({state: st(false)}, registry), false);
 });
+
+test('XC4: a tie is shown from first meeting as knowledge, none until the person is noticed, never the regard number', async () => {
+    const {tieShownView} = await import('../src/person_ties.js');
+    registerWorldTies({worldId: 'test.shown', situationId: 'test.shown.s', kinds: ['trust'], people: {cap: 'test.shown.cap'},
+        shown: [{alias: 'cap', kind: 'trust', label: 'The captain', none: 'He barely knows you.', noticed: 'He has noticed your work.', moves: 'Steady work moves him.', seenPrefix: 'test.shown.tie.'}]});
+    const st = (notes = {}) => ({actors: {player: {worldId: 'test.shown'}}, simulation: {knowledge: {player: notes}, relationships: {'test.shown.cap': {player: {axes: {'tie.trust': 5}}}}}});
+    assert.equal(tieShownView(st())[0].line, 'He barely knows you. Steady work moves him.');
+    const said = st({'test.shown.talk': {value: 'x', basis: {kind: 'observation', attributedTo: 'test.shown.cap', situationId: 'test.shown.s'}}});
+    assert.equal(tieShownView(said)[0].line, 'He barely knows you. Steady work moves him.', 'other things he said do not move the tie');
+    const seen = st({'test.shown.tie.signed': {value: 'x', basis: {kind: 'observation', attributedTo: 'test.shown.cap', situationId: 'test.shown.s'}}});
+    assert.equal(tieShownView(seen)[0].line, 'He has noticed your work. Steady work moves him.');
+    assert.ok(!JSON.stringify(tieShownView(seen)).includes('5'), 'no regard number');
+    assert.throws(() => registerWorldTies({worldId: 'test.shown2', situationId: 's', kinds: ['trust'], people: {a: 'p'}, shown: [{alias: 'a', kind: 'trust', label: 'A'}]}), /Invalid shown tie/);
+});

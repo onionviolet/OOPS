@@ -83,6 +83,7 @@ export function createHpLeadPanel({project,read,command,keepSlot,study,homeAct})
    if(s5.childElementCount>1)section.append(s5);}
   // LT8: tie-gated talks (person_ties offers as native commands). Shown once at school; a shut one says what opens it (UR70-UR75).
   if(v.school?.atSchool){const s4=node('section');s4.className='ui-panel-section';s4.dataset.hpFriends='';s4.append(node('h3','Friends'));
+   for(const t of v.ties||[]){const p=node('p',`${t.label}: ${t.line}`);p.dataset.hpTieLine=t.alias;s4.append(p);}
    for(const c of hpLeadTieCommands){const a=(campaign.actions||[]).find(x=>x.id===c.id);if(!a)continue;
     const row=node('div');row.dataset.panelRow='';const s=shortActionLabel(a.label),b=node('button',s.text);b.type='button';b.dataset.hpTie=c.id;
     b.disabled=!a.eligible||!campaign.canWrite||!!v.jobs.find(j=>j.commandId===c.id);if(s.chip)b.append(node('span',` · ${s.chip}`));

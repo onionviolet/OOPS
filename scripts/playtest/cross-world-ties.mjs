@@ -84,7 +84,7 @@ async function walkLotm() {
         if(!seed) await writeFile(join(out, 'klein-met-dunn.save.json'), JSON.stringify(await s.save())); // scratch only: carries cast text
         await open();
         assert.equal(await p.locator(OFFER).isDisabled(), true);
-        assert.match(await p.locator('[data-tie-offer]').innerText(), /once he has signed two/); r.checks.push('after meeting Dunn by the story route: the talk is shown shut with its reason');
+        assert.match(await p.locator('[data-tie-offer]').innerText(), /once he has signed two/); r.checks.push('after meeting Dunn by the story route: the talk is shown shut with its reason'); assert.match(await p.locator('[data-lotm-tie="dunn"]').innerText(), /knows your name/); r.checks.push('XC4: once met, Dunn is shown with what moves him, before any filing');
         // First regard-earning filing: the next duty week after the meeting.
         for(let q = 0; q < 28; q++) {await s.step(360); await p.waitForTimeout(50);} // six hours per call: a day per call crashed the page past day 3
         await open(); await p.locator(DUTY).click(); await p.waitForTimeout(300);
@@ -95,6 +95,7 @@ async function walkLotm() {
         await open();
         await p.locator(DUTY).click(); await p.waitForTimeout(300);
         st = await snap(p); assert.equal(trust(st), 2); r.checks.push('next week filed after seven native days: trust 2');
+        assert.match(await p.locator('[data-lotm-tie="dunn"]').innerText(), /signed your weekly application/); r.checks.push('XC4: after filing, the Dunn line says he has noticed');
         assert.equal(await p.locator(OFFER).isDisabled(), false);
         await p.locator(OFFER).click(); await p.waitForTimeout(300);
         st = await snap(p); const note = st.simulation.knowledge.player['book.lotm.tie.dunn_funding'];
@@ -146,6 +147,7 @@ async function walkHp() {
         assert.match(await p.locator('[data-hp-friends]').innerText(), /few more days of school/);
         r.checks.push('Sorting by its button: Ron affection 1, observation held, the talk shown shut with its reason');
         assert.match(await home(), /away from the house/); r.checks.push('W2c: at school the Home block says Harry is away from the house');
+        assert.match(await p.locator('[data-hp-tie-line="ron"]').innerText(), /shared a few school moments/); r.checks.push('XC4: after the Sorting, Ron is shown in Friends with what brings you closer');
         // The first Charms lesson opens on a term Monday 09:00; wait by the hour until its button is live.
         const charms = p.locator('[data-hp-lesson]').filter({hasText: 'first Charms'});
         let waited = 0; while(await charms.isDisabled() && waited < 9 * 24) {await s.step(60); await nc.panel(); waited++;}

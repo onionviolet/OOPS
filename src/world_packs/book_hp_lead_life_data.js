@@ -15,6 +15,7 @@ const alive={all:[{fact:'actor.life',op:'eq',value:'alive'},{fact:'native.ready'
 // shared moments (the Sorting, the first Charms lesson) each raise affection by one. Dial: the offer's threshold (two). Reason: the book's
 // friendship grows from shared school days; affection opens the evening talk where Ron tells Harry about his family.
 export const HP_LEAD_TIES=registerWorldTies({worldId:id('world'),situationId:id('situation'),kinds:['affection'],people:{ron:id('ron')},
+ shown:[{alias:'ron',kind:'affection',label:'Ron',none:'You have only just met.',noticed:'You have shared a few school moments.',moves:'Days together at school, at meals and in lessons, bring you closer.',seenPrefix:id('tie.ron.')}],
  offers:[{id:id('tie.ron_family'),alias:'ron',kind:'affection',atLeast:2,label:'Sit with Ron in the common room · 30 min',
   description:'An evening by the fire with Ron, once lessons are done.',
   blocked:'Ron is still a boy you shared a bench with; a few more days of school together first.',
