@@ -369,3 +369,11 @@ After the cross-world session reached the powers grammar, Weibao asked:
 > first consider if better way of going about them, and then once improved.decided, continue accordingly, consitder wether if more progress needs to go into the protaginist playtrhough to help feed certain features
 
 He delegated the decision. Recorded: the remaining waves run as story-led integration waves (D-A to D-D in the [long-term atlas](../audits/PROGRESS_ATLAS_2026-11-07_LONG_TERM.md#approach-review-for-the-remaining-waves-2026-11-08)). Each wave takes the next Klein window, then the next Harry window, and builds the shared engine parts those canon events need, with anchors also read from the books and walks starting from saved fixtures. This keeps LOTM first and the 2026-11-02 "mechanism slices lead and book windows follow" direction. The answer to his question is yes: story progress now feeds calibration and several features.
+
+## 2026-11-08: engine growth shows gaps, and the Minecraft mapping
+
+After the wave-3 engines were finished, Weibao answered a proposed exit bar for engine work:
+
+> did it finish first? The engines first growing is a good thing, since it shows gaps we have and will eventually need to address, thoughts Save the D5 stuff
+
+Recorded as direction: engine work may run ahead of callers, and every gap it exposes is logged with its owner and expected puller (D-E in the [long-term atlas](../audits/PROGRESS_ATLAS_2026-11-07_LONG_TERM.md#engine-growth-as-a-gap-finder-and-the-minecraft-mapping-2026-11-08)). "Save the D5 stuff" saved the Minecraft-to-engine mapping as the next docs task (D-F, XM27); it is not dispatched.

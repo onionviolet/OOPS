@@ -276,3 +276,16 @@ Weibao, 2026-11-08: "first consider if better way of going about them, and then 
 | Later | following windows | W8 onward | Remaining W4a domains, W5a and W5b, as windows pull them |
 
 Rejected: finishing every engine wave before story windows (repeats AT27 and leaves calibration without data), and story windows with fact-only mechanisms (repeats F6). Not changed: Klein first, Harry alongside, Frontier and Mistglass get no new depth, and every slice lands at floor or is recorded below it.
+
+## Engine growth as a gap finder, and the Minecraft mapping (2026-11-08)
+
+Weibao, 2026-11-08, after the wave-3 engine work: "The engines first growing is a good thing, since it shows gaps we have and will eventually need to address". This replaces the proposed fixed exit bar for engine work (D1 in that chat), which treated growth as scope creep.
+
+State at the time: the wave-3 engines (powers grammar, procedure layer and shared traits, reputation view, homes and ties) are implemented and agent-verified, not human-reviewed, per the [cross-world record](../gm/dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md#wave-3-engine-completion-2026-11-08-current). They were uncommitted when this was written. The source-shape check (D2 in that chat) landed with them as `SOURCE_SHAPES.md`.
+
+| Code | Decision | Default, dial and reason |
+|---|---|---|
+| D-E | **Engine growth is welcome, and every gap it finds is recorded.** When a shape check, a source row or a caller finds something an engine can't express, it becomes a gap row: what's missing, which source or caller showed it, which engine owns it, and what will pull it. | Default: build a gap now when a lead caller or a source-shape row uses it, and log it with its expected puller otherwise. Dial: how far ahead of callers engine work runs, raised by Weibao's direction here. Reason: growth shows the real shape of the engines, and logging keeps the AT27 idle-seam risk visible instead of hiding it |
+| D-F | **Map the Minecraft research onto the engines before building more from it** (XM27, raised from LATER to next). Each mechanism in the 17 audits under `docs/research/minecraft/audits/` (MR, SR, GT, TA, TB, WV2, WV3, EP, GL, WC and the syntheses) is classified once. | Classes: fits an existing engine as data (name the engine and law row), needs a missing part (becomes a D-E gap row), or is out of scope for the life sim, with a reason. Done check: one table, `docs/research/minecraft/ENGINE_MAPPING_2026-11-08.md`, with every audit's mechanisms classified and unmapped residue listed. Docs only, one sonnet reader per shard of audits, no runtime edits. Reason: a source unlike either book tests the engines' shape from outside the two leads |
+
+Still open from that chat: kjw22's mechanisms (AT34) before Klein's story windows resume, and rebuilding the installed app (AT36) once the wave-3 work is committed.
