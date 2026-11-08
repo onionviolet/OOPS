@@ -385,3 +385,11 @@ On the Minecraft mapping's first pick (MG1, overdraw into the body), Weibao aske
 > Past pool can simply be unable to use and maybe reduced stats? Make it reasonable and more? COnsider hte fact that we, as the player, is simply different after all, what about research and tech progression and more from minecraft mods?
 
 Recorded as ideas and questions, not accepted decisions (AD32): XC16 (empty pool refuses, low pool strains, body spill a per-world exception), XC17 (the player's difference shows as method) and XC18 (tier ladders, discovery-gated research, a progression map and automation as the idle layer), with XM28-XM33, in the [long-term atlas](../audits/PROGRESS_ATLAS_2026-11-07_LONG_TERM.md#pool-limits-the-player-as-an-outsider-and-minecraft-style-progression-2026-11-08).
+
+## 2026-11-08: hunger that doesn't kill, shops, farms and the rat cellar
+
+Weibao asked:
+
+> Player also cant physically die from hunger, which has to count for something right? other stuff and more? We can create a shop that sells something in demand? Other aspects to consider? We need to create enviorments to farm things, both like creaturs to kill or like actually farm to create some sort of economy? Would we have a endless basement of rats or something? more to consider?
+
+Recorded as ideas and questions, not accepted decisions (AD32): XC19 (hunger can't kill the player by default and still costs), XC20 (a shop that reads demand), XC21 (productive places that renew by cause) and XC22 (a rat cellar with a cause), with XM34-XM40, in the [long-term atlas](../audits/PROGRESS_ATLAS_2026-11-07_LONG_TERM.md#hunger-that-doesnt-kill-shops-productive-places-and-the-rat-cellar-2026-11-08).
