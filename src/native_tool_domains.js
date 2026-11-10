@@ -14,6 +14,7 @@ import './beat_ledger.js';
 import './canon_pull.js';
 import './canon_pull_panel.js';
 import './duties_domain.js';
+import './mood_thoughts_domain.js';
 import './positions_domain.js';
 import {configureOrganizations} from './organizations_domain.js';
 import {configureInquiry} from './inquiry.js';

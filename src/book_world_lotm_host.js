@@ -22,7 +22,7 @@ import {installRoleDefinitions} from './recurring_people.js';
 import {lotmResignPlan,CIVIL_RESIGN_COST} from './book_world_lotm_positions.js';
 import {GUARD_POSITION_ID,GUARD_RESIGN_COST,GUARD_OFFER,guardSignQuote,guardBegin,guardStand,guardCollect,guardResignPlan,guardView,guardSnapshot,guardRestore,guardPayWords} from './book_world_lotm_guard.js';
 import {LOTM_GUARD_DUTY_ID} from './book_world_lotm_duties.js';
-import {noteExpenseFiled,tieExpenseFiled} from './book_world_lotm_colleagues.js';
+import {noteExpenseFiled,tieExpenseFiled,moodExpenseFiled,moodExpenseLapsed,expenseTieCycle} from './book_world_lotm_colleagues.js';
 import {reputationView} from './reputation_view.js';
 import {tieOfferEffects,tieOfferView,tieShownView} from './person_ties.js';
 import {lotmHomeView} from './lotm_home_household.js';
@@ -328,7 +328,11 @@ export function createLotmHost(ports){
  function fileExpense(){
   writable();const s=state(),plan=base(s,ports.context()),noted=noteExpenseFiled(plan,registry);
   const tied=tieExpenseFiled(plan,registry);
+  // MND5: the lapse is read before the filing answers it (attend clears the count), then one thought is left: a lapse if a week went by unfiled, a warm one if it is on time. Keyed by week.
+  const lapsed=(domainRegistry.project('duties')?.items||[]).find(d=>d.id==='lotm.expense_claim')?.missed>0;
   domainRegistry.command('duties','attend')({dutyId:'lotm.expense_claim'});
+  const week=expenseTieCycle(s.clock);
+  if(lapsed)moodExpenseLapsed(s,week);else moodExpenseFiled(s,week);
   if(noted||tied)persist(plan);
  }
  // LT8: a tie-gated conversation (person_ties offers). One save; the note is attributed to the person, so People and the Notebook show it.

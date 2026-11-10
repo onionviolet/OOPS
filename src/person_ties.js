@@ -27,6 +27,7 @@ export function registerWorldTies(decl) {
         if(!idOk(o?.id) || !decl.people[o.alias] || !kinds.includes(o.kind) || !Number.isSafeInteger(o.atLeast) || ![o.label, o.description, o.blocked, o.note?.value].every(textOk) || !idOk(o.note?.key))
             throw Error(`Invalid tie offer in ${decl.worldId}.`);
         if(o.effects != null) { if(!Array.isArray(o.effects)) throw Error('Tie effects need a list.'); o.effects.forEach(validateSimulationEffect); }
+        if(o.moodAtLeast != null && (!Number.isSafeInteger(o.moodAtLeast) || !textOk(o.moodBlocked))) throw Error('A mood gate needs an integer and a refusal line.');
         if(o.minutes != null && (!Number.isSafeInteger(o.minutes) || o.minutes <= 0)) throw Error('Tie work needs positive minutes.');
         return Object.freeze({...o, note: Object.freeze({...o.note})});
     });
@@ -41,6 +42,20 @@ export function registerWorldTies(decl) {
         people: Object.freeze(Object.fromEntries(people)), offers: Object.freeze(offers), shown: Object.freeze(shown)}));
     return declarations.get(decl.worldId);
 }
+// MND5 (mood slice): a world may register one reader for how a person feels toward the player right now, {total, band, rows} or null
+// (the mood_thoughts reader). The tie module never stores it. Regard (above) is the slow standing; mood is what the last few days did.
+// An offer may set `moodAtLeast` (default band edge -4 keeps the conversation shut while the person is sour) with `moodBlocked` text.
+const moodReaders = new Map();
+export const registerTieMood = (worldId, read) => { if(typeof read !== 'function') throw Error('A tie mood reader is a function.'); moodReaders.set(worldId, read); };
+const moodOf = (state, worldId, personId) => { try { return moodReaders.get(worldId)?.(state, personId) ?? null; } catch { return null; } };
+// The words the player reads: knowledge of what was seen, never the total (AD6-AD8). Even moods say nothing.
+export const moodWords = mood => !mood?.rows?.length || mood.band === 'even' ? '' :
+    mood.band === 'sour' ? `They are short with you at the moment: ${mood.rows[0].line}.` : `They are in good humour with you: ${mood.rows[0].line}.`;
+const moodShut = (state, decl, o) => {
+    if(o.moodAtLeast == null) return null;
+    const mood = moodOf(state, decl.worldId, decl.people[o.alias]);
+    return mood && mood.total < o.moodAtLeast ? `${o.moodBlocked || 'They are not in the mood for it right now.'} ${moodWords(mood)}`.trim() : null;
+};
 export const worldTies = worldId => declarations.get(worldId) || null;
 export const tieWorlds = () => [...declarations.keys()];
 const seenNote = (decl, holder, key, value) => ({type: 'knowledge', actor: 'player', key, stage: 'seen', value,
@@ -64,7 +79,10 @@ export function tieFacts(state) {
     const decl = worldTies(state?.actors?.player?.worldId);
     if(!decl) return {};
     const out = {};
-    for(const [alias, id] of Object.entries(decl.people)) for(const kind of decl.kinds) out[`tie.${alias}.${kind}`] = tieValue(state, id, kind);
+    for(const [alias, id] of Object.entries(decl.people)) {
+        for(const kind of decl.kinds) out[`tie.${alias}.${kind}`] = tieValue(state, id, kind);
+        if(moodReaders.has(decl.worldId)) out[`mood.${alias}`] = moodOf(state, decl.worldId, id)?.total ?? 0; // only worlds with a mood reader
+    }
     return out;
 }
 
@@ -73,7 +91,8 @@ const offerNote = (decl, o) => ({...seenNote(decl, decl.people[o.alias], o.note.
 export function tieOfferCommands(worldId, base) {
     const decl = worldTies(worldId);
     return (decl?.offers || []).map(o => ({...base, id: o.id, revision: 1, label: o.label, description: o.description,
-        requires: {all: [...(base.requires?.all || []), {fact: `tie.${o.alias}.${o.kind}`, op: 'gte', value: o.atLeast, reason: o.blocked}], reason: o.blocked},
+        requires: {all: [...(base.requires?.all || []), {fact: `tie.${o.alias}.${o.kind}`, op: 'gte', value: o.atLeast, reason: o.blocked},
+            ...(o.moodAtLeast != null ? [{fact: `mood.${o.alias}`, op: 'gte', value: o.moodAtLeast, reason: o.moodBlocked}] : [])], reason: o.blocked},
         ...(o.minutes ? {duration: o.minutes} : {}), once: o.repeatable ? false : true,
         ...(o.assisted ? {participants: [base.actorId || 'player', decl.people[o.alias]], participantsCoLocated: true} : {}),
         effects: [...structuredClone(o.effects || []), offerNote(decl, o)]}));
@@ -86,7 +105,7 @@ export function tieShownView(state) {
     return decl.shown.map(r => {
         const personId = decl.people[r.alias];
         const seen = notes.some(([k, n]) => k.startsWith(r.seenPrefix) && n?.basis?.attributedTo === personId && n.basis.situationId === decl.situationId);
-        return {personId, alias: r.alias, kind: r.kind, label: r.label, line: `${seen ? r.noticed : r.none} ${r.moves}`};
+        return {personId, alias: r.alias, kind: r.kind, label: r.label, line: `${seen ? r.noticed : r.none} ${r.moves} ${moodWords(moodOf(state, decl.worldId, personId))}`.trim()};
     });
 }
 export function tieOfferView(state) {
@@ -97,8 +116,8 @@ export function tieOfferView(state) {
     return decl.offers.map(o => {
         const personId = decl.people[o.alias];
         if(known[o.note.key]) return {id: o.id, personId, label: o.label, taken: true, said: known[o.note.key].value};
-        const eligible = tieValue(state, personId, o.kind) >= o.atLeast;
-        return {id: o.id, personId, label: o.label, description: o.description, eligible, reasons: eligible ? [] : [o.blocked]};
+        const regard = tieValue(state, personId, o.kind) >= o.atLeast, shut = regard ? moodShut(state, decl, o) : null, eligible = regard && !shut;
+        return {id: o.id, personId, label: o.label, description: o.description, eligible, reasons: eligible ? [] : [shut || o.blocked]};
     });
 }
 export function tieOfferEffects(state, offerId) {
@@ -106,5 +125,7 @@ export function tieOfferEffects(state, offerId) {
     if(!o) throw Error('That conversation is not open here.');
     if(state.simulation?.knowledge?.player?.[o.note.key]) throw Error('You have already had that conversation.');
     if(tieValue(state, decl.people[o.alias], o.kind) < o.atLeast) throw Error(o.blocked);
+    const shut = moodShut(state, decl, o);
+    if(shut) throw Error(shut);
     return [offerNote(decl, o)];
 }
