@@ -192,7 +192,7 @@ in-world reason and cost (AD5).
 
 | Code | Rule | Mistake it prevents |
 | --- | --- | --- |
-| CBR25 | **Leaving a live fight is a choice with a cost,** with a comfort setting that keeps a free exit (AD21). By default pursuit follows actors that can track. (CBC28, CBC29) | Free walk-outs, or every rat chasing you home |
+| CBR25 | **Leaving a live fight is a choice with a cost by default** (a means that makes escape free works, AD55), with a comfort setting that keeps a free exit (AD21). By default pursuit follows actors that can track. (CBC28, CBC29) | Free walk-outs, or every rat chasing you home |
 | CBR26 | **Idle fights run on a stated policy paid from real stock;** no stock means the policy withdraws. (CBC24) | Free infinite idle combat |
 | CBR27 | **Away combat stops at a downed state, a lasting-harm risk or a new kind of enemy** unless a harsher forewarned setting says otherwise (BHR18, AD16). (CBC25) | Returning to a dead or maimed character after closing the tab |
 

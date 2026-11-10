@@ -1715,3 +1715,295 @@ User authorized the remaining measured bottlenecks, UI polish and updating the i
 **VG8 ACCOUNT FOR NOW:** avoid styling over update churn. Native stat mirrors use source mutations to mark repaint work, unchanged attribute models skip paints, inventory filtering completes its writes before reading native row visibility once, and the world-completion context reuses its freshly merged fact dictionary. Facts-only results, quote refresh, source-order serialization, caller isolation, current readiness and persistence stay intact. Node/body calculations are not throttled to make the UI appear cheaper.
 
 **VG9 LATER:** full facts copies, world-completion leaf projection and remaining shell visibility/list work remain candidates for a new measured slice, not proof that every remaining cost is removable. Reopen with a profile showing a concrete consumer and a compatible read model; use substantive implementation judgment, medium effort, and verify changed-state/knowledge/reload boundaries. Do not reopen save cadence or a Rust rewrite from these UI measurements alone.
+
+## Round 37, 2026-11-10: what the new rulebooks need on screen
+
+Weibao: "lets work on refining UI rules and stuff" ([log](../gm/USER_VISION_LOG_2026-11.md#refining-ui-rules-2026-11-10)). Every UR, DSG, SUI and RPT line predates the ten 2026-11-10 rulebooks, so this round cross-walks them. A reader extracted each rulebook row that needs something visible (70 rows across the ten books; TIE17, STY12 and STY14 were borderline and left out); the mapping below is the agent's. Findings are proposals; the new rules live in [UI_RULES](../UI_RULES.md#what-the-2026-11-10-rulebooks-need-on-screen) as working defaults under AD56, with UR88 held.
+
+Rejected this round: rewording UR1–UR75 (standing; wording changes need Weibao) and moving the dated reconciliation sections out of UI_RULES (other docs link their anchors; cleanup was not asked for).
+
+| Cluster | Rulebook rows | Owning UI codes | Gap |
+| --- | --- | --- | --- |
+| Return recap names gains, losses and stops | TIE8, TMR6, TMR8, TMR10, TMR18, KNW25, LVR4, LVR9, ITM12 | UR81, RPT6, RPT2 | None: the recap lines are content inside UR81 (lost time past the cap, routine gains, what a person tried) |
+| Coming losses forewarned | TMR13, TMR15, ITM11, STN15, STN17, STY18, STY20, MND13, MND15, KNW19 | UIV3, UIV4, SUI7 (partial) | **UR83**: nothing owned a warning for a loss that comes to you |
+| Knowledge entries and their home | KNW3, KNW7, KNW9, KNW10, KNW12, KNW14, KNW16, KNW20, KNW23, KNW26, MND12, ITM16, ITM17 | UIV6, UR27, UR28, UR74, UR79 | **UR84**: one entry shape with source, day and freshness |
+| Nothing leaks through presentation | KNW22, KNW24, STY30 | UR80, UR72 | None |
+| Notes, not numbers | TIE14, TIE24, STN5, ITM13 | UR70, UR73, DSG15 | None |
+| Readouts granted by a means | CHT3, CHT10, CHT19, TMR15 with CTC93, STY29, AGT20, AGT9 | UR80 (it covers narrowing), DSG15, DSG18 | **UR85**: a means that widens what the screen shows |
+| Cards state their terms | CHT6, CHT12, CHT16 | UR70–UR72, UR79 | None: a cheat card is a description plus terms in one shape |
+| Unchosen acts and gaps | MND9, MND14, MND15, MND21, TIE11 | UR81 (it covers absences) | **UR86**: the screen marks what the player did not choose |
+| Choices, intents and routes | TIE11, LVR11, STN12, STY22, KNW8, TMR5, LVR5, LVR22 | UR35, SUI2, SUI5, SUI6 | None |
+| Untaken and past-built options | STY4, STY7, STY18 | SUI4, SUI5 | None |
+| Who works what, under way | LVR2, LVR12 | UIV3, UR79 | None |
+| Inventory and items | ITM7, ITM22 | UR13, UR21 | None |
+| News and stories | STY9, STY13, STY23, STY5 | RPT1–RPT14 | None |
+
+Gaps not raised by a rulebook, checked by synonym before counting (grep for "colorblind" found nothing, yet the bounded-journey section already keeps meaning usable without motion, sound or color alone; first-reach guidance is UIV2, UR82 and DSG9):
+
+- **UIC23, ACT NOW:** paused lives and worlds had no home on screen (AD12, TMR17). Now UR87.
+- **UIC24, ACT NOW:** a shared knowledge entry shape has two consumers already (the Knows panel and the journal), so it passes the UR54 and UR79 bar. Now UR84.
+- **UIC25, ACCOUNT FOR NOW:** attention. With seventy rows asking for notices, notices need tiers. Drafted as UR88 and held, because it limits how features reach the player (AD56); listed as LLR28.
+- **UIC26, ACCOUNT FOR NOW:** UR77 (numeric home budgets) and UR82 (a system stays hidden until something is attached) are limits under AD56 that predate it; listed as LLR29 and LLR30 for his answer. UR80, UR81, UIV1, UIV3, UIV4 and UIV6 widen play and need no answer.
+- **UIC27, LATER:** build order for the new rules. KNW26 with UR84 is the first slice (search, pins, links and source in the Knows panel and journal); UR83's shared warning row and UR87's lives list follow. Level: runtime UI slice each, medium effort; done check: rebuilt browser proof at 1920×1080 on a populated save (UR14, AD43).
+
+## Round 38, 2026-11-10: general UI design, flow, effects and open forms
+
+Weibao: "Also general UI design and more? From VFX to like, the general flow and more? Other aspects to consider? Ui panels for certain aspects or gameplay? progression trees? TO not be limited by what we have currently? other stuff?" ([log](../gm/USER_VISION_LOG_2026-11.md#general-ui-design-and-open-forms-2026-11-10)). A reader first mapped what the docs already hold, so this round extends those owners instead of restarting them: the [effects pipeline and rarity ladder](../PRESENTATION_AND_FOURTH_WALL.md#room-for-improvement-the-effects-pipeline), [UI at scale](../UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md) (home table PL, MC dashboards from pins, AX accessibility, MI sound, DV charts, MP maps and the cross-world atlas), [intro flow](../INTRO_FLOW_CONSIDERATIONS_2026-10-13.md), [opening](../OPENING_RULES.md), [feedback](../FEEDBACK_RULES.md) and [pacing](../PACING_RULES.md) rules, the [technology palette](../TECHNOLOGY_AND_PROGRESSION.md), SR7 maps as knowledge, and the travel UI proposals UT1–UT5. New working defaults are UR89–UR92 in [UI_RULES](../UI_RULES.md#open-forms-surfaces-progression-views-effects-and-history); everything else here is palette (AD32), with build items under AD56 only when a slice is authorized.
+
+### Flow: three loops
+
+- **UIC28, ACCOUNT FOR NOW: each surface names the loop it serves.** The moment loop (act, answer, consequence: FBK, UR35, UIV4), the session loop (arrive, read what waits, plan, run, return: UR81, RPT6, TMR10, UIV3) and the life loop (start, grow, cross, end or pause: OPN, WER, UR87). A lane brief says which loop a surface serves and how it hands to the next; a surface that serves none is reference (UR43). This is a brief prompt, not a gate.
+- **UIC29, LATER: the session spine as one designed path.** Return recap, then "what waits for you" (choices, warnings UR83, finished work), then plan (routines, goals STY22), then run. Today these are separate surfaces. Level: runtime UI slice; effort medium; done check: browser proof of a return from a 3-day absence on a populated save reaching a running routine in at most three deliberate clicks, at 1920×1080.
+- **UIC30, LATER: a goals board.** The player's goals (STY22) as a surface that shows the known next steps for each, drawn from gates (UR90) and knowledge (UR84), and lets a goal become a routine. Opens play without telling the player what to want. Level: design plus slice; effort medium; done check: a goal with two known paths shows both and starts either.
+- **UIC31, LATER: a routine and policy editor.** Idle play lives in routines; BF106 policy rows and the "Spend up to 4 pence; stop if..." example already sketch the grammar. A visual editor for stop rules, inputs and what a routine refines or trains (TMR18), with a preview of one simulated day (UIV4). Level: slice; effort large; done check: a routine with two stop rules previews and then runs to the stop it named.
+
+### One home per aspect
+
+The PL table in UI at scale places many systems; the 2026-11-10 aspects need rows too. Each row is a proposal for the home, the glance form (DSG7) and the open form (UR89) a later slice could use.
+
+| Aspect | Home | Glance | Open form worth trying |
+| --- | --- | --- | --- |
+| Ties and people (TIE) | People rows that promote to a person page | Regard note, last contact | A web of ties as a node graph, each edge a note with its history (UR92) |
+| Livelihoods (LVR) | The place where the work is (field, pen, shop) | Due, ready, neglected | A board of plots, herds or stalls with workers on them (LVR2 one view) |
+| Time (TMR) | The work line plus a calendar view | Bank, next stop | Calendar with schedules (TMR13), the bank as a filling vessel with its cap (TMR6) |
+| Knowledge (KNW) | The Knows home and journal (UR84) | New, unresolved | A case board linking people, places and claims; a mind palace from a cheat |
+| Standing and law (STN) | Per audience under People and places | A note per audience; heat where it applies | A jurisdiction map layer; a rank-versus-power card for STN8 |
+| Story and fate (STY) | Reports and the goals board | What changed in the world | A "what I know of the story" timeline; fate traces through divination (UR85) |
+| Cheats (CHT) | The cheat's own form (status window, ring spirit, card) | Charges, ready | Diegetic UI per cheat type (DSG18), the base cheat as the player's own readout |
+| Mind (MND) | You panel, traits and conditions | Strain, active conditions | Traits discovered over time as an unfolding sheet; gaps and unchosen acts marked (UR86) |
+| Items (ITM) | Inventory | Grade word, condition | Item history (repairs, owners, where found) under UR92 |
+| Powers that act (AGT) | Faith and patrons under the place or the cheat | Debts, last answer | Prayer, reception and answer as three marks (AGT9); a belief ledger (AGT10) |
+
+- **UIC32, ACCOUNT FOR NOW:** every new aspect panel uses DSG6–DSG11 (home, glance, details, empty state, reasons, one home per fact) and UR92 (history). When an aspect appears follows UR82 while it stands; UR82 is held as LLR30, so this may change with his answer.
+
+### Effects, motion and sound
+
+- **UIC33, ACT NOW (rule):** the effects pipeline proposal becomes the default shape (UR91): settled event in, renderers out, stakes-scaled intensity, reduced motion and mute as settings.
+- **UIC34, LATER: an effect vocabulary per world.** One small set per world for hit, gain, loss, warning, discovery, rare event, mapped to DSG14 harm types and the world's motion signature (FLA2): ink blots and paper for LOTM, qi light for cultivation, glitch and window chimes for a system cheat. Level: design pass plus token pack; effort medium; done check: the same settled event renders differently in two worlds with identical text.
+- **UIC35, LATER: returns as a reveal.** The first frame after absence is a digest (UI at scale MI-F); the recap can still reveal its lines one by one, skippable, with big effects kept for rare results. Done check: a 1-day and a 30-day return both open on a readable digest within one frame, effects off and on.
+- **UIC36, LATER: sound.** MI41 quiet ticks and the D4 small vocabulary stay the start; no sound system exists in code. Level: slice; effort medium; done check: mute and per-kind volume persist through save and import.
+
+### Progression views
+
+- **UIC37, ACT NOW (rule):** progression views draw the real gates (UR90).
+- **UIC38, LATER: one progression view per lead world, in its form.** A LOTM Sequence path card with digestion (MND10); a cultivation realm chart with bottlenecks as gates; a D&D-style class and feat web; a research map with "knowing that versus knowing how" (TK). Level: one slice per world; effort medium each; done check: every node shown matches `evaluateGate` for a populated save, and a noticed unknown shows as ???.
+- **UIC39, LATER: a cross-life progression view.** What the soul or the base cheat carries across lives (CHT16, WER) as its own tree. Done check: a crossing shows which branches carried, converted or stopped.
+
+### Maps, reference and the wider screen
+
+- **UIC40, LATER: map layers by means.** SR7 already makes maps knowledge with source and date; layers (jurisdiction and heat, schedules of known people, fate traces, rumoured places hedged) appear when the character has a means for them (UR85). Done check: a layer toggles on once its means exists and stays off without it, and a rumoured place reads as rumoured.
+- **UIC41, LATER: a "why?" on any number.** UR71 asks for a breakdown in descriptions; this makes it a universal gesture: any displayed number opens its causes from the real pipeline. Done check: three numbers from three systems open breakdowns whose totals match the shown value.
+- **UIC42, LATER: compare anything.** No comparison surface exists beyond rows. Two items, two routes, two lives or two offers side by side, using the same entry shape. Done check: comparing two items shows only fields that differ by default, with "show all".
+- **UIC43, LATER: named dashboards from pins.** MC4 already proposes them; KNW26 and UR84 pins now give them a supplier. Done check: a pinned person, item and routine appear on one board and survive reload.
+- **UIC44, ACCOUNT FOR NOW: accessibility rides with each slice.** AX1–AX12 stay the palette; every new form under UR89 keeps keyboard reach, text equivalents and meaning without color or motion.
+
+### Developer and verification views
+
+- **UIC45, LATER: a fixture launcher for UI states.** Open any surface in a named state (empty, unknown, populated, warning, running, interrupted) from the dev route, so each new form under UR89 gets checked in all of them. Done check: one command opens a surface in six states with screenshots at 1920×1080.
+
+Ranked for building, most useful first: UIC29 session spine, UIC38 one progression view (LOTM first), UIC31 routine editor, UIC34 effect vocabulary, UIC41 "why?", then the rest.
+
+## Round 39, 2026-11-10: why surfaces look alike, and how to make them distinct
+
+Weibao: "ALso making Uis disctinct and more? since alot of the UI work and implementations, for stuff like rituals and stuff and more turned into sets of circles and stuff, thoughts? How to have nuanced, interesting, reactive, and comprehensive, and pleasing ui?" ([log](../gm/USER_VISION_LOG_2026-11.md#distinct-reactive-and-pleasing-ui-2026-11-10)). Evidence: a fresh headless game on the perf-mid save at 1920×1080 (home view: framed boxes of rows in every region), and `src/lotm_rite_rows.js`, whose rites carry steps, performers, conditions, outcomes and costs: structure a ritual surface could draw. The LOTM ritual screen itself was not opened (its scenario needs the private cast pack), so "sets of circles" is his observation, not re-measured here. Rules: [UR93–UR97](../UI_RULES.md#distinct-reactive-and-pleasing-surfaces).
+
+### Why surfaces converge (findings)
+
+- **UIC46, ACCOUNT FOR NOW: the cheapest compliant shape wins.** UR6 (shared tokens), UR7 (shared components), UR79 (one shape per kind of information) and UR77 (home budgets) each reward reuse. With no rule asking a surface to express its mechanism, a lane passing the UI contract test picks the row, the chip or the circle marker. UR94 now says what is shared (grammar) and what is not (composition).
+- **UIC47, ACCOUNT FOR NOW: the UI contract asks for a home and a shape, not a form.** UR76's card named home and primitives; it now also names the mechanism's form (UR93), so the design question is asked before code.
+- **UIC48, ACCOUNT FOR NOW: diegetic and skins are deferred by his direction.** DSG18 waits for each world's basic kit (his words), and DSG17 skins are later. UR93 needs neither: a form that mirrors the mechanism can be built in the Luminous default now, and a world's material dresses it later.
+- **UIC49, ACCOUNT FOR NOW: tests check structure, not distinctness.** Nothing measures whether two systems look alike. UR94's two cover tests (which system, which world) go in the UR97 craft record as screenshots.
+
+### Forms per mechanism (palette)
+
+Each row is a starting idea for a slice; the form reads the owning data, and the world dresses it.
+
+| Mechanism | Form that encodes it | Reacts to |
+| --- | --- | --- |
+| Ritual (LOTM rites, summonings) | An altar or circle whose positions are the rite's real parts (offerings, candles, the honorific's three lines, the performer's place), with steps as an ordered path around it | Each placed part lights its position; missing or wrong parts show as gaps or a tell; risk and spirituality spent build visibly; the answer (or silence, AGT9) lands on the altar |
+| Formation or array (cultivation) | Nodes and flows on a diagram: flags, stones, the qi path | Flow strength along each edge; a broken node dims its branch |
+| Mixing and potions | A vessel with ingredient slots, stages and heat | Colour, phase and residue change as each ingredient is added (from the real mixture model) |
+| Divination | Question, method (pendulum, dream, cards, coins) and the answer in the method's own shape | Clarity and precision as the method resolves; the hedge shows (UIV6) |
+| Contracts and bargains | Clauses with parties, terms and penalties | Each clause highlights what it binds when hovered; breached clauses mark |
+| Cultivation | A body chart: meridians, dantian, the realm | Opened meridians fill; a bottleneck shows where it blocks (UR90) |
+| Cheat window | The cheat's own frame: a system window, a ring spirit's voice, a card | Notifications in the cheat's voice; its readouts (UR85) |
+| Investigation | A case board of people, places and claims (UR84) | New links draw in; contradictions mark |
+| Ties | A web of people with notes on each edge | Edges change with events, each with its history (UR92) |
+| Fights | Positions and reach on a small field | Threat lines and openings; the selected target's facts (UR36) |
+| Standing and law | A map layer per jurisdiction, heat as weather | Heat rises and settles; escalation steps appear in order (STN17) |
+| Travel | The route as a line with stops and time | Redraws as stops change; hazards along the line |
+
+### Making it nuanced, reactive and pleasing (palette)
+
+- **UIC50, LATER: a ritual surface as the first UR93 slice.** LOTM rites already carry steps, performers, conditions and outcomes. Level: runtime UI slice; effort medium; done check: with labels covered, a reader tells it from the inventory and the mixing counter; placing a part changes the form; the result lands on the altar and in Reports; browser proof at 1920×1080 on a fixture.
+- **UIC51, LATER: a material set per lead world.** Paper, ink and brass for LOTM; jade, silk and qi light for cultivation; parchment and runes for D&D; chrome and glitch for a system cheat. Built from tokens (UR6), keyed by `data-world` (DSG12). Level: token pack per world; effort small to medium; done check: the same ritual surface reads as two worlds with the world name covered.
+- **UIC52, LATER: small reactive details.** Candle flicker scaled by spirituality left; a pen that writes a Reports line; a vessel that steams while heat holds; cursor or hover marks that show where a dragged ingredient will go. Each reads a real value, settles at stable moments, and has a static form for reduced motion.
+- **UIC53, LATER: a craft record template.** One short block per surface: focal point, the two cover tests, reference compared, states captured. Level: docs plus a screenshot script; effort small; done check: one existing surface (the mixing counter) recorded as the example.
+- **UIC54, LATER: a redesign sweep by distinctness.** Rank existing surfaces by how alike they are (cover-test failures) and how often they are used; redo the top three under UR93. Level: audit then slices; effort medium; done check: before and after screenshots with the cover tests recorded.
+
+Ranked for building: UIC50 ritual surface, UIC51 material sets for LOTM and cultivation, UIC54 sweep, then the rest.
+
+## Round 40, 2026-11-10: levels of abstraction, limits, and what comes next
+
+Weibao: "Consider levels of abstraction needed and more? How to still make it cool and stuffgiven our stuff? any limitations there are, and therefore how to address them? Research and other future features?" ([log](../gm/USER_VISION_LOG_2026-11.md#ui-abstraction-levels-limits-and-future-2026-11-10)). Rules: [UR98, UR99](../UI_RULES.md#distinct-reactive-and-pleasing-surfaces); held lines LLR33, LLR32.
+
+Evidence read this round: `src/ui/figure.js` (MDL2: one declarative spec of rings, nodes, slots, tracks and edges drawn as inline SVG, 21 importing modules), `figure_graph.js` (chain, tree, wheel, web, list), `figure_forms.js` (table, matrix and sentence forms of the same spec), `rite_figure.js` (rite conditions as slots on a ring, risk at the centre), the representation docs in `docs/representations/` (25 subjects, agent proposals under AD32), MDL1–MDL8 and RPX1–RPX11 above, FLA2 and FLA4. Round 39 missed this set; it is the owner the forms in round 39 extend.
+
+### Diagnosis: the abstraction stopped one level too low
+
+- **UIC55, ACT NOW (rule): the figure primitive is right as a layer and wrong as the top layer.** MDL2 gave the game one honest renderer with a text form, knowledge depth and alternate forms, which is worth keeping. Adapters then mapped each mechanism straight onto its geometry, so a rite became slots on a ring, lives became pips, a web became a wheel. UR98 names six levels and puts a mechanism form (L3) between domain data and geometry; MDL2's rule against kind-specific drawing code is read as no kind-specific tokens or marks (default), with mechanism parts allowed at L3 (dial).
+- **UIC56, ACCOUNT FOR NOW: what each level owns.**
+
+| Level | Owns | Shared or distinct | Exists today |
+| --- | --- | --- | --- |
+| L0 tokens | Colour, space, type, layers, motion timings | Shared | Yes (UR6, UR65–UR68) |
+| L1 marks | Pip, bar, slot, edge, label, glyph, fill and ghost arcs | Shared | Yes, inside `figure.js` |
+| L2 layouts | Chain, tree, wheel, web, ring, track, list; wanted: grid, map, timeline, flow, vessel, board, body outline | Shared, plural | Partly |
+| L3 mechanism forms | Altar, vessel, meridian chart, case board, contract, route, field | Distinct per mechanism, shared across worlds | Adapters exist, forms do not |
+| L4 world dress | Material, glyph set, ornament, motion signature, sound | Distinct per world | Skins started (MDL6); motif packs named in adapters, none built |
+| L5 diegetic frames | Newspaper, status window, jade slip, case file | Distinct per world or cheat | Later (DSG18) |
+
+  Cutting across all six: the text form (every figure already has one), the knowledge filter (MDL4, UR80), effects (UR91), interaction (`figure_interact.js`) and the alternate forms (`figure_forms.js`). The combinatorics stay small: a mechanism form is written once and every world dresses it.
+
+### Limits and how to address them
+
+| Limit | Consequence | How to address |
+| --- | --- | --- |
+| No art pipeline (the `assets` folder holds one SVG) | Nothing illustrated; geometry stands in | Seeded SVG sigils and symbols per subject id; hand-written symbol sets per world; typography and CJK glyphs as imagery (DSG4); raster or generated art waits on LLR32 |
+| One bitmap Gothic face, single weight (UR68) | Emphasis by weight is unavailable | Colour, case, outline, size strikes; a world display face as an L4 token if licensed |
+| Vanilla DOM and SVG, one runtime dependency | No tweening or scene engine | CSS transitions and Web Animations for settle motion, SVG morphs between states, canvas for ambient layers; a library waits on LLR33 |
+| Agents judge look poorly (scaled screenshots, no feel) | Work passes tests and still feels flat | UR97 craft record with the two cover tests; the representation gallery at full size (MDL7, `ui-preview.html`); a reference image beside each form; his optional review (AD42) |
+| Tests check structure, not distinctness | Sameness passes | Cover-test screenshots in the gallery; a check that an adapter produces an L3 form id, not raw L2 geometry |
+| The app's web view is not headless Chromium | A filter or motion can differ in the app | Check new materials in the app he plays (UR16); keep a static fallback for every effect |
+| Thin domain data (rite steps carry `minutes: null`, some outcomes empty) | A rich form over thin data looks hollow or invents | The form shows what the data holds and marks gaps in words; UR93 becomes a request to the data lane, not a reason to draw fiction |
+| Many panels mounted, ticks every second | Motion and large SVGs cost frames | Animate on settle (UR52, UR69), pause when hidden, cap node counts per figure, reuse the mount-on-open rule (MDL7) |
+| Many worlds | A form per world per mechanism is too many | Mechanism forms shared across worlds (L3), world dress per world (L4) |
+| Desktop first, mobile deferred (2026-10-13 priority) | None for now | Use the space: a 1920×1080 surface can hold a form and its text side by side |
+
+### Making it cool with what we have
+
+The strongest levers fit a text-forward game with SVG: forms that mirror mechanisms (L3), material and ink (L4), and motion that marks consequence (UR91).
+
+- **UIC57, LATER: seeded sigils.** A rite, a pathway, a sect or a cheat draws a sigil generated from its id and its parts, so by default a subject keeps one look across sessions and two subjects get different ones. Level: L1 and L4 module; effort small; done check: twenty rites give twenty distinct, stable sigils with a text alt.
+- **UIC58, LATER: ink and settle.** Text and marks that write in when a result settles (ink for LOTM, light for qi, a terminal cursor for a system), with a static form for reduced motion. Done check: one settled rite writes in once and does not replay on navigation (UR38).
+- **UIC59, LATER: state morphs.** A figure animates from its old state to its new one (a slot filling, a vessel changing colour, a route redrawing) instead of being redrawn. Done check: the morph reads the same settled event as the log line.
+- **UIC60, LATER: lenses as layers (MDL5).** Spirit sight, divination and appraisal tint and annotate the existing forms; the cost shows while the lens is on. Done check: switching the lens leaves every fact unchanged and changes what is shown.
+- **UIC61, LATER: voices.** A cheat, a patron or a madness speaks in Reports in its own typographic voice (DSG13), marked as such. Done check: with labels covered, the voice is still recognisable.
+
+### Research to run (proposals, none started)
+
+- **UIC62, LATER: reference study of distinctive text-heavy interfaces.** Card-and-slot occult games, mechanism-puzzle diagrams, potion maps, diegetic card tables, skill-voice narration, dense simulation screens, and idle games. For each: how the form encodes the mechanism, what material carries the mood, what moves. Level: one sonnet research lane, with screenshots kept to captions and short quotes; effort medium; done check: one table per reference mapped to our L2–L5 levels and an ACT/LATER list.
+- **UIC63, LATER: procedural ornament.** Techniques for seeded sigils, border ornament and texture in SVG that stay crisp on the Gothic strikes. Effort small; done check: three prototypes in the gallery.
+- **UIC64, LATER: SVG and motion cost in the app's web view.** Measure filters, morphs and node counts in the app against headless Chromium. Effort small; done check: a budget table that UR99 can cite.
+- **UIC65, LATER: accessible diagrams.** How figures expose structure to keyboard and screen readers beyond the sentence form. Effort small.
+
+### Future features this opens
+
+- **UIC66, LATER: motif packs per lead world** (L4), starting with LOTM and a cultivation world.
+- **UIC67, LATER: the L2 layouts that are missing:** grid, map, timeline, flow, vessel, board, body outline, each a pure layout like `figure_graph.js`.
+- **UIC68, LATER: the first L3 forms:** altar (rites), vessel (mixing), body chart (cultivation and conditions), case board (knowledge), each read through an adapter that names its form id.
+- **UIC69, LATER: diegetic frames once a world's basic kit works** (DSG18): the Tingen newspaper for news, a status window for a system cheat.
+- **UIC70, LATER: a form gallery with the cover tests built in.** `ui-preview.html` shows every L3 form in every world dress with labels and world names toggled off.
+
+Ranked for building: UIC68 altar form with UIC57 sigils (the ritual slice from round 39), UIC66 LOTM motif pack, UIC67 missing layouts as each form needs them, UIC70 gallery, then the research lanes.
+
+## Round 41, 2026-11-10: research returns on distinct forms
+
+Weibao: "send the research stuff accordingly, consider ideas working on the same thing and how they do it" ([log](../gm/USER_VISION_LOG_2026-11.md#answers-on-llr32-and-llr33-and-ui-research-sent-2026-11-10)). Three sonnet lanes wrote to [docs/reviews/ui-distinct-forms-2026-11-10/](../reviews/ui-distinct-forms-2026-11-10/): [R1 game references](../reviews/ui-distinct-forms-2026-11-10/R1_GAME_REFERENCES.md) (16 references, 11 patterns), [R2 layers, libraries and ornament](../reviews/ui-distinct-forms-2026-11-10/R2_LAYERS_LIBRARIES_ORNAMENT.md), [R3 accessibility and cost](../reviews/ui-distinct-forms-2026-11-10/R3_ACCESSIBILITY_AND_COST.md). Evidence limits, stated by the lanes: many developer-talk pages returned 403 or partial text and no GDC talk text was read; claims are tagged as fetched, recalled or unverified; library sizes are partly third-party figures; nothing was measured in the app. R1 lines that describe other games use absolute words about those games and trip the design-doc lint; they are descriptions, not rules here.
+
+### What others do, mapped to our levels
+
+- **UIC71, ACCOUNT FOR NOW: slot shapes are the rules (R1 P1).** Cultist Simulator, Book of Hours, Disco Elysium's Thought Cabinet and Citizen Sleeper's dice show the constraint in the slot's own shape, so what fits is visible before trying. For the altar (UIC68): each position draws what it accepts (an offering, a candle, a spoken line), and a stand-in fits with a visible strain mark. Serves rites, mixing, contracts.
+- **UIC72, ACCOUNT FOR NOW: one drawn object carries the state (R1 P2).** Citizen Sleeper's dice as the body, Obra Dinn's logbook, Inscryption's cabin. Fits lives (a soul's ledger), care and the case board.
+- **UIC73, LATER: the map is the recipe (R1 P3).** Potion Craft's mixing map, Slay the Spire's route, Sunless Sea's chart. Prototype one: the LOTM potion as a path whose position is the result. Done check: two ingredient orders draw two paths and two results read from the real mixture model.
+- **UIC74, ACCOUNT FOR NOW: pending effects show numbers (R1 P4).** Slay the Spire's intents moved from symbols to numbers after testers asked; this backs UR95 with the quote's numbers on the form.
+- **UIC75, ACCOUNT FOR NOW: voice as form (R1 P5).** Pentiment's type families and Disco Elysium's skill voices: three to five typographic voices per world for narrator, patrons, cheats and madness (DSG13), not a bespoke font system (Pentiment's lettering took months of work).
+- **UIC76, LATER: replay (R1 P6).** Opus Magnum reruns the mechanism on the same figure. A settled rite or brew can replay its steps on its form from the stored event. Done check: replay reads the stored event and changes nothing.
+- **UIC77, ACCOUNT FOR NOW: hidden logic needs hints (R1 P11, anti-pattern "mystery without onboarding").** Each L3 form names how a new player learns its rule (KNW7's noticed unknowns as hints).
+- Also recorded: batch confirmation (P7), a diegetic frame built from one fixed scene (P8, fits DSG18), one hue plus glyph plus effect per patron or faction (P9), the interface growing as the system opens (P10, fits UR82). Anti-patterns match UR93, UR94, UR95 and AD46's colour rule.
+
+### How to build it
+
+- **UIC78, ACT NOW (when the altar slice is authorized): the L3 registry contract (R2).** A `FORM_TYPES` registry like a node-type registry; each form is `compile(domain) -> figure spec`, the way a grammar-of-graphics compiler turns a short spec into a full one; a `dress` object for L4; three token tiers (primitive, semantic, per-form), with world dress overriding the semantic and per-form tiers. `rite_figure.js` names a form id, and a check flags an adapter that emits raw rings and slots.
+- **UIC79, ACT NOW (same slice): seeded sigil generator (R2).** A pure `sigil(id, opts)` on a coarse integer grid with `crispEdges`, small and large cuts by size, no dependency. Done check: identical SVG for the same id, twenty rites give twenty distinct sigils at 16, 24 and 160 px in the gallery, with a text alt.
+- **UIC80, ACT NOW (same slice): one motion helper (R2).** `src/ui/motion.js` resolves reduced motion from the media query, `data-effects` and `data-display-reveal` together, with `settle`, `inkIn` (path length and dash offset) and `once(eventId)`. R2 saw style sheets that gate on one of these and not the others.
+- **UIC81, ACCOUNT FOR NOW: libraries (LLR33 opened).** The browser's Web Animations API by default; a spike of the `motion` package's small `animate` (about 3 kB, a third-party figure) behind one wrapper; a Rough.js spike for L4 frames only, checking text crispness beside the Gothic face. Skipped for now: GSAP (owner can change terms), anime.js (overlaps), flubber (dormant), svg.js and simplex-noise (no gain). Done check per spike: bundle delta from esbuild, the same rite settle built both ways, behaviour in the app, adopt or skip recorded.
+- **UIC82, ACCOUNT FOR NOW: textures (R2, R3).** Bake an SVG noise texture once into a static layer and animate opacity or transform; WebKit bug reports describe slow or broken animated turbulence and displacement filters. Measure in the app before relying on filters.
+- **UIC83, ACCOUNT FOR NOW: keyboard and screen reader (R3).** `figure.js` already marks figures as images with title and description, and `figure_interact.js` holds the neighbourhood model that accessible-diagram projects build. Default for interactive figures: one Tab stop, arrow keys along that model, Enter to pin, a live region on focus and on settled events and not on ticks; each L3 form names these in its UR76 card and ships its table or sentence form from the same spec.
+- **UIC84, ACT NOW (rule): starting budgets in UR99**, marked as estimates until measured.
+- **UIC85, LATER: confirm the hidden-window path in the app (R3).** A minimized and restored app shows simulated time equal to wall time within the bank cap and one redraw. Effort small.
+- **UIC86, LATER: the R3 measurement plan** (eight steps, app against headless Chromium) to replace the estimates.
+
+### Gaps for a follow-up lane
+
+- **UIC87, LATER: R4.** No fetched source described a meridian or realm chart UI in a cultivation game, so the body chart has no verified precedent; GDC and developer talk texts were unreadable this pass; idle-game engineering sources were not found. Level: sonnet research lane; effort medium; done check: the meridian question answered with sources or recorded as original, and at least three developer talks summarized.
+
+Ranked for building, revised: the altar slice with UIC78 registry, UIC79 sigils and UIC80 motion helper together; then the LOTM motif pack with three to five voices (UIC66, UIC75); then the potion-map prototype (UIC73); the spikes (UIC81, UIC82) run inside the slice that first needs them.
+
+## Round 42, 2026-11-10: R4, the sources the first lanes could not read
+
+Weibao asked for a Codex prompt to reach the blocked sources ([prompt](../reviews/ui-distinct-forms-2026-11-10/R4_CODEX_PROMPT.md)); Codex wrote [R4](../reviews/ui-distinct-forms-2026-11-10/R4_BLOCKED_SOURCES.md). It reached developer slides (Inscryption GDC 2022, Slay the Spire GDC 2019), Zach Barth's GDC 2019 captions, Weather Factory's own devlogs, Lucas Pope's Obra Dinn post, the Pentiment type-studio case study, the recovered Potion Craft essay, first-game Citizen Sleeper and Disco Elysium screenshots, pinned source for four idle games, measured package sizes and WebKit tracker statuses. Still open: the Mullins and Sawyer talk transcripts, Melvor's current catch-up internals, VoiceOver behaviour, and every cost in the app's web view. No gameplay, VoiceOver or app measurement is claimed.
+
+### Corrections to earlier rounds
+
+- **UIC88, ACT NOW (correction): Slay the Spire's numbers.** Round 41 (UIC74) said intents moved from symbols to numbers after testers asked. R4 confirms the intent redesign came from playtest feedback and that the shipped attack intent shows damage and hit count; the claim that testers asked for exact numbers stays unverified. UIC74's design point (show the pending effect with its numbers, UR95) stands on its own reason, not on that anecdote.
+- **UIC89, ACT NOW (correction): Book of Hours is set in an occult library,** not a prayer book; its grimoire look is a documented prototype direction (R1 entry 2).
+- Other R1–R3 corrections are listed in R4's table; [K] and [?] claims stay leads until upgraded there.
+
+### What changes our plan
+
+- **UIC90, ACCOUNT FOR NOW: the closest precedent to our problem is Weather Factory's own.** Lottie Bevan's 2022 Book of Hours prototype post contrasts Cultist Simulator's one repeated verb tile with distinct recipe windows attached to desks, gardens and ovens, built on the same shared framework. That is UR94 in practice: shared logic, distinct interaction per station. The altar (UIC68) and the vessel follow this shape.
+- **UIC91, ACCOUNT FOR NOW: the body chart has precedent, so ours is not original.** Wandering Sword draws six named meridians round a seated figure as a selector, then a body view of linked acupoints with real bonuses for the chosen channel; Tale of Immortal gives realms a ladder and the breakthrough its own screen of methods, required materials and a probability; Amazing Cultivation Simulator shows body remolding as an inspector with a visible capacity. Default for our cultivation form: a selector to find a channel, a body view to decide on it, the cause of any blockage drawn on the route, and realm readiness beside it when it bears on the same decision. A dantian appears where a world's rules have one. Topology stays the world's (UR90, AD38).
+- **UIC92, ACCOUNT FOR NOW: a complete example beside the first editable one (Zachtronics).** Barth describes teaching with a working example next to a separate exercise, and giving a goal and tools in place of one prescribed route. The first rite on the altar shows a complete rite beside the editable one, and the altar accepts any arrangement the rite's rules accept (AD38).
+- **UIC93, ACCOUNT FOR NOW: a working object can hold the state (Obra Dinn, Inscryption).** Pope's evidence book and Mullins' cabin of stateful objects back UIC72. Pope regrets the separately animated binding; keep page turns cheap.
+- **UIC94, ACCOUNT FOR NOW: idle-game practice from their source code.**
+  - Kittens Game computes elapsed time from timestamps, caps the span by progress, logs elapsed days and counts, and fades older log lines.
+  - Antimatter Dimensions has two return states, computing and ready, with a progress bar for long catch-up and a stable summary after.
+  - A Dark Room reveals affordances when they first matter, with 300–500 ms fades.
+  - Melvor's Steam build pauses skills when backgrounded and catches up on return.
+
+  These back UR81 and UIC35 (return as a reveal), UR82 (forms arrive with capability) and UIC85 (hidden-window path).
+- **UIC95, ACCOUNT FOR NOW: libraries, measured.**
+  - `motion` mini `animate`: 3,299 bytes gzip, MIT, published 2026-11-10.
+  - Anime.js v4 WAAPI subpath: 4,815 bytes gzip, MIT, active.
+  - Rough.js: 9,196 bytes gzip, MIT, last release 2023 and last push 2024, so less active.
+
+  Default for the altar slice: the browser's Web Animations API. A Motion mini spike is the cheapest add if the helper grows. Rough.js waits for a world whose frames need the hand-drawn look.
+- **UIC96, ACCOUNT FOR NOW: textures stay static.** Four WebKit filter bugs remain open (general SVG filter slowness, turbulence and displacement rendering failures, scroll cost with a static grain filter, pixelation while scaled). Bake textures once; keep the R3 budgets in UR99 as estimates.
+- **UIC97, LATER: the Tauri background setting.** Tauri documents `backgroundThrottling` on macOS 14 and later; this checkout sets no override, and the renderer defers refreshes while hidden. Check it with UIC85 in a release-shaped build.
+
+Ranked for building (R4 agrees): the LOTM altar slice with sigils and the motion helper first, its positions drawn from the real rite, a complete example beside the first editable rite, and the result settling on the altar and in Reports; then the cultivation body chart brief (UIC91); then motif work and replay.
+
+## Round 43, 2026-11-10: every element, census and coverage
+
+Weibao: "more UI autdit rules and more for all ui elements?" ([log](../gm/USER_VISION_LOG_2026-11.md#ui-rules-for-every-element-2026-11-10)). Rules: [the element sheet, UR100–UR127](../UI_RULES.md#every-element-the-element-sheet).
+
+### Census
+
+A grep of `src/**/*.js` on 2026-11-10 for each element kind, counting modules that mention it. These are text matches, so they over-count (a word in a comment counts) and under-count (shared helpers hide raw tags). They size the audit; they are not a defect count.
+
+| Element | Modules | Element | Modules |
+| --- | --- | --- | --- |
+| Progress | 191 | Selects | 38 |
+| Buttons | 146 | Tooltips | 36 |
+| Titles (hover text) | 106 | Live regions | 29 |
+| Disclosures | 103 | Keyboard handling | 29 |
+| Chips and badges | 76 | Checkboxes | 16 |
+| Meters | 56 | Text areas | 11 |
+| Inputs | 44 | Sliders | 6 |
+| Modals and dialogs | 40 | Tabs (role) | 5 |
+| Popovers | 5 | Toasts | 2 |
+| Drag | 1 | Context menu | 1 |
+
+### Coverage before this round
+
+- **Covered by standing or earlier codes, gathered per element:** buttons (UR10, UR66, UIV1), names in text (UR35, UR43), disclosures (UR26, UR42), tooltips (UR43, UR47), menus (UR53), modals (UR5), meters (UR61), progress (UR61, task layers), lists (UR27), logs (UR44, RPT), headers and back bars (UR9, UR30), empty states (UR32), larger text (UR33), colour (UR37), shortcuts (UR31).
+- **No code covered, now filled:** an element state sheet (UR100), auditing by element (UR101), selects (UR104), toggles (UR105), sliders and number entry (UR106), text fields and search (UR107), drag (UR110), toasts (UR114), number formatting (UR117), chips and badges (UR118), row anatomy (UR119), tables (UR120), icons (UR121), pictures (UR122), loading and error states (UR125), focus rings and keyboard traps (UR126), truncation and measure (UR127).
+- Nothing in this round removes an option; tab and notice counts defer to UR77 and UR88, which stay held.
+
+### Next
+
+- **UIC98, LATER: the first element audit (UR101).** Take the ten largest kinds above, sample three consumers each across worlds, check the row and UR100, and record pass and gaps here. Level: sonnet audit lane with the headless game and screenshots; effort medium; done check: thirty consumers checked, each with codes, pass or gap, and a screenshot path.
+- **UIC99, LATER: state sheets in the gallery (UR100).** `ui-preview.html` shows each shared control in every state from fixtures, with labels and world names toggleable for the cover tests. Effort medium; done check: buttons, selects, toggles, meters and tabs each render all their states at 1920×1080 and 150% text.
+- **UIC100, LATER: contract-test additions.** Extend the UI contract test: an interactive element without an accessible name fails, a raw number formatted outside the shared formatter is flagged, an icon without a label is flagged. Effort small to medium; done check: the test runs in `npm test` and lists current offenders as known findings instead of failing the build on day one.
+- **UIC101, LATER: one number formatter.** If the census of number formatting finds several formatters, consolidate behind one owner that reads the player's settings (UR117). Done check: the same value renders identically in three surfaces.

@@ -159,7 +159,7 @@ export function lotmFacts(state,ctx={}){
  const peopleAt=enrolled?Object.keys(LOTM_ROLE_OF).filter(id=>state.actors?.[id]?.worldId===I.world&&alive(s.people?.[id])&&s.people[id].location===p.location):[];
  clearanceFacts(state,f,{profile,ingested:allRows.some(r=>flag(flagOf(r,'ingested'))),here:enrolled,peopleAt});
  f['lotm.holds.sealed3']=inv[K.sealed3]||0;
- causeFacts(state,f);
+ causeFacts(state,f,ctx);
  for(const r of pathwayRows)if(r.market)for(const n of [r.market.baseHold,r.market.nextHold])f[`lotm.holds.${n}`]=inv[K[n]]||0;
  for(const n of ['frog','hairs','ink'])f[`lotm.holds.${n}`]=inv[K[n]]||0;
  if(enrolled)brokerFacts(state,f,{alive,enrolled,player:p,inventory:ctx.gameplay?.[I.broker]?.inventory||{}});else{f['lotm.brokerHere']=false;f['lotm.escrow']=0;}

@@ -6,7 +6,7 @@ import { update_displayed_trader, update_displayed_trader_inventory,
          update_displayed_character_inventory, exit_displayed_trade, update_displayed_money, update_displayed_total_price, log_message } from "./display.js";
 import { character } from "./data/character.js";
 import { skills } from "./data/skills.js";
-import { getItemFromKey } from "./items.js";
+import { getItemFromKey, item_templates } from "./items.js";
 import { add_to_sold, calculate_total_saturation, capped_at, equipment_capped_at, group_key_prefix, remove_from_sold } from "./market_saturation.js";
 // Host callbacks are injected by main.js (bindTradeHost) so trade.js never imports main.js (AR5).
 const host={};
@@ -17,7 +17,9 @@ import {readInventoryOwner} from "./acquisition.js";
 import {loot_sold_count} from "./market_saturation.js";
 import {tradeQuoteFingerprint} from "./native_trade_transaction.js";
 import NPCRegistry from "./data/npcs.js";
-import {termsFor, recordTrade, bindStandingHost} from "./economy_standing_domain.js";
+import {termsFor, recordTrade, bindStandingHost, noteShopVisit, shopMemory} from "./economy_standing_domain.js";
+import {shopGreeting} from "./shop_greeting.js";
+import {address, drawU32, indexFromU32} from "./gen_kit.js";
 import {renderStandingTerms} from "./economy_standing_ui.js";
 import {addPurse} from "./economy_domain.js";
 import {socialContest, scaleByMargin} from "./social_contest.js";
@@ -110,6 +112,8 @@ function start_trade(trader_key) {
     host.interruptP23NativeWork();use_market_coupon=false;
     NPCRegistry.get(trader_key).refreshTraderInventory(host.get_context());
     current_trader = trader_key;
+    noteShopVisit(trader_key);
+    sayGreeting(trader_key, host.get_context());
     
     update_displayed_trader();
     update_displayed_character_inventory({is_trade: true});
@@ -161,7 +165,8 @@ function accept_trade() {
     }
     host.commitNativeTrade(quoted, current_quote);
     const region=current_location.market_region;
-    recordTrade({region,vendorId:quoted.vendorId,sellValue:quoted.sellValue,buyValue:quoted.buyValue,
+    const top=[...quoted.buy].sort((a,b)=>get_item_value(b)-get_item_value(a))[0];
+    recordTrade({region,vendorId:quoted.vendorId,sellValue:quoted.sellValue,buyValue:quoted.buyValue,bought:top?getItemFromKey(top.item_key).name:null,
         seen:[...quoted.sell,...quoted.buy].map(({item_key})=>{const item=getItemFromKey(item_key);
             return {key:item_key,label:item.name||item_key,price:item.getValue({region})};})});
     cancel_trade();
@@ -609,6 +614,29 @@ function sort_traded_items(a,b) {
     } else {
         return item_b.getBaseValue() - item_a.getBaseValue();
     }
+}
+
+// ECC43: the keeper's opening line, read from what they remember, today's haggle, the stall and price causes.
+// A keyed pick on (save root, vendor, day, visits): reopening the stall the same day repeats the line.
+export function greetingFacts(trader_key, context) {
+    const npc=NPCRegistry.get(trader_key), trader=npc.getTraderComponent(), memory=shopMemory(trader_key), today=current_game_time.day_count;
+    const onShelf=new Set(Object.values(npc.getTraderInventory()).filter(e=>e?.count>0).map(e=>e.item?.name));
+    const gone=trader.stapleNames(context).map(name=>item_templates[name]?.name ?? name).find(name=>trader.laid_out?.has(name)&&!onShelf.has(name));
+    const restockIn=trader.daysToRestock();
+    const terms=termsFor(current_location.market_region,trader_key,character.reputation);
+    return {visits:memory.visits,today,lastBought:memory.lastBought,boughtDay:memory.boughtDay,talked:talks.get(`${trader_key}:${today}`)??null,
+        soldOut:gone&&restockIn?{item:gone,restockIn}:null,
+        shortage:terms.parts.some(p=>p.cause==='shortage')};
+}
+function sayGreeting(trader_key, context) {
+    const line=document.getElementById('trade_greeting');if(!line)return;
+    const facts=greetingFacts(trader_key, context);
+    const root=gamePeekRoot();
+    const pick=(kind,size)=>indexFromU32(drawU32(root,address('shop-greeting',trader_key,facts.today,facts.visits,kind)),size);
+    const {text,why}=shopGreeting({vendorId:trader_key,facts,pick});
+    const npc=NPCRegistry.get(trader_key),who=String(npc.getName?.()??npc.name??'').split(',')[0].trim();
+    const name=document.createElement('strong');name.textContent=who;
+    line.replaceChildren(name,document.createTextNode(`: \u201c${text}\u201d`));line.dataset.greetingWhy=why.join(' ');line.hidden=false;
 }
 
 /** Short reason in the trade view's own status line; a pending restock review keeps its longer text. */

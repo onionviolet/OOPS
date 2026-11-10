@@ -116,6 +116,7 @@ sections). Next run starts from those sections and the trigger table.
 |---|---|---|---|---|
 | 2026-10-14 | First full run, palette rounds 1 to 11 | C1 to C16, all folded | Palette A to IC; H checked (8 confirmed, 3 corrected); Rill found as existing dog; stray-dog N1 to N5 ranked; 33 JX tensions; 59-source micro register; owner map; abstraction; C11 to C16 folded (corrections to GC3 cue saving, line-rate tension, narrower observation channels, build layers L00 to L07, CM1 to CM12) | 9a0c049b (rounds 1-11, C1-C10); be47d1dd (audit, C11-C13, C15-C16 files); fd176f27 (C14 files, by peer session); fold commit |
 | 2026-10-18 | Core-rule reconciliation | none | Actual helper means, knowledge and clock; NPC-heavy work still deferred; unsafe reset instruction qualified | not committed |
+| 2026-11-10 | Round 12, pets against the 2026-11-10 rulebooks | none (root only) | CPR1–CPR13: one being in three grains, care on the shared upkeep seam, contracted beings as acting powers; first shared slice proposed on a Gu and Norbert | see git log |
 ## Core-rule reconciliation, 2026-10-18
 
 Apply the [shared pass](TOPIC_EXPANSION_AUDIT_PLAYBOOK.md#core-rule-reconciliation-pass-2026-10-18)

@@ -2,6 +2,9 @@
 // existing joined clock. No second simulation, resource award or save writer.
 import {check,natural} from '../../basics.js';
 export const AWAY_CAP=120,AWAY_MS_PER_MINUTE=1000;
+// TMR6 (RCL6): the native away bank is the one source of absence time. This practice draws from it at an efficiency
+// dial (BT8): its own pace credits one practice minute per wall second, so one banked minute buys 60. Dial: the pace.
+export const AWAY_EFFICIENCY=60000/AWAY_MS_PER_MINUTE;
 export function validateAway(a){
  if(a===undefined)return;
  check(a&&Object.keys(a).sort().join(',')==='armed,bank,clock,last,lastSeen,remainder,schema'&&a.schema===1&&typeof a.armed==='boolean'&&['bank','clock','lastSeen','remainder'].every(k=>natural(a[k]))&&a.bank<=AWAY_CAP&&a.remainder<AWAY_MS_PER_MINUTE,'Invalid cultivation absence ledger.');
@@ -11,8 +14,8 @@ export function armAway(previous,clock,now){
  validateAway(previous);check(natural(clock)&&natural(now),'Invalid cultivation departure.');
  const a={schema:1,armed:true,bank:previous?.bank??0,clock,lastSeen:now,remainder:previous?.remainder??0,last:{kind:'arm',minutes:0,dropped:0,condensate:0}};validateAway(a);return a;
 }
-export function bankAway(previous,clock,now){
+export function bankAway(previous,clock,now,{available:bankMinutes=Infinity,efficiency=AWAY_EFFICIENCY}={}){
  validateAway(previous);check(previous?.armed,'Choose the absence practice policy before leaving.');check(natural(clock)&&clock>=previous.clock&&natural(now)&&now>=previous.lastSeen,'The played or wall clock moved backwards.');
- const elapsed=BigInt(now-previous.lastSeen)+BigInt(previous.remainder),wallMinutes=Number(elapsed/BigInt(AWAY_MS_PER_MINUTE)),online=clock-previous.clock,available=Math.max(0,wallMinutes-online),credited=Math.min(AWAY_CAP-previous.bank,available);
+ const elapsed=BigInt(now-previous.lastSeen)+BigInt(previous.remainder),wallMinutes=Number(elapsed/BigInt(AWAY_MS_PER_MINUTE)),online=clock-previous.clock,wall=Math.max(0,wallMinutes-online),available=Math.min(wall,Math.floor(bankMinutes*efficiency)),credited=Math.min(AWAY_CAP-previous.bank,available);
  const a={...previous,bank:previous.bank+credited,clock,lastSeen:now,remainder:Number(elapsed%BigInt(AWAY_MS_PER_MINUTE)),last:{kind:'bank',minutes:credited,dropped:available-credited,condensate:0}};validateAway(a);return a;
 }

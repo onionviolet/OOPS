@@ -640,3 +640,257 @@ Recorded as his proposed order: freedom (the option to diverge) for the lead's r
 ## Save long term, 2026-11-09
 
 Weibao: "save acc0rd9gjgly long term" with the more-to-consider and reconcile-project skills. The atlas gained a reconciliation section for LAYX81-LAYX218 that separates his direction from agent proposals, restates the next order (N9-N13) and adds LAYX219-LAYX227. No proposal was accepted by this request.
+
+## Shop stock and shop dialogue, 2026-11-10
+
+Weibao asked: "Should we make shopes default have vertain items and stuff? like default/other items that should be for sale too?" then "Shop dialogue? More to consider?"
+
+Recorded as questions with a more-to-consider round, not a decision. The agent proposed four stock layers (canon anchors, staples by shop type, seeded variety, ask and order) and shop dialogue built on the existing talk hosts: ECC38-ECC52 and ECL6-ECL11 in the [economy palette](../ECONOMY_AND_TRADE_CONSIDERATIONS_2026-10-18.md#round-3-shop-stock-layers-and-shop-dialogue-2026-11-10). WA40 (held-state layers) was already accepted on 2026-10-27 ([USER_VISION](../USER_VISION.md#adopt-this-sessions-proposals-as-adjustable-working-direction-2026-10-27)); the rest are agent proposals and no build is authorized.
+
+Then, to the offer to build ECL6 (staples) and ECL8 (greeting) first: "Yes, build both". Built 2026-11-10 for the five native stalls; receipt in the [economy palette](../ECONOMY_AND_TRADE_CONSIDERATIONS_2026-10-18.md#ecl6-and-ecl8-receipt-2026-11-10).
+
+## Relationship and livelihood rulebooks, 2026-11-10
+
+Weibao asked: "do we have comprehensive foundational implementation rules for all aspects? from relationship to ui to farming to ability progression and more?" The agent answered that relationships and livelihoods (farming, gathering, ranching, fishing, work) had no rulebook of their own and offered to draft both. He replied:
+
+> Draft both
+
+Recorded as his request for two new rulebooks (the index requires one): [RELATIONSHIP_RULES](../RELATIONSHIP_RULES.md) (TIE) and [LIVELIHOOD_RULES](../LIVELIHOOD_RULES.md) (LVR). The rule lines are agent proposals under AD32 until he accepts them. Aging, heirs and family depth stay deferred (2026-11-09); the relationship rulebook names them and adds no depth.
+
+## Four more rulebooks, and cheats brought forward, 2026-11-10
+
+Weibao asked "other aspects that needs foundational rules>". The agent ranked four areas where code competes and no rulebook decides (O1 time and time away, O2 knowledge and discovery, O3 standing, institutions and law, O4 story and events) and recommended O1 and O2. He replied:
+
+> Draft all four
+
+and, while the drafts were being prepared:
+
+> Cheats should be brough earlier for consideration
+
+Recorded: his request for five new rulebooks, [TIME_RULES](../TIME_RULES.md) (TMR), [KNOWLEDGE_RULES](../KNOWLEDGE_RULES.md) (KNW), [STANDING_RULES](../STANDING_RULES.md) (STN), [STORY_RULES](../STORY_RULES.md) (STY) and [CHEAT_RULES](../CHEAT_RULES.md) (CHT). The second message changes the 2026-10-30 direction that further cheat work is "deferred long term": cheats come back into consideration now. The agent reads "for consideration" as design and rules, not a build order; no cheat slice is authorized by it. The rule lines are agent proposals under AD32 until he accepts them.
+
+## Levels of fate, cheats further, no forced weakness anywhere, 2026-11-10
+
+Weibao, on the story and cheat rulebooks:
+
+> For D4, levels of fate? For say, in reverend insanity, it is theorized that heavens will pushed everything in the world for the destruction of fate gu to give the non humans a chance, look on reddit accordingly, too, do consider how deterministic or precedural, but also randomness and events tie into them? Also for the non lore runs?
+> D5, we should look further into this?
+>
+> The idea that there is no forced weakness should honestly apply to everything?
+>
+> Maybe types of cheats should be kept as a catalogue somehwere, do be drawn upon and implmented eventually? other stuff and more?
+
+Recorded:
+
+- **No forced weakness, everywhere.** His direction: no power, ability, cheat, item, bloodline, technique or world feature has to carry a weakness, drawback, counter or tell by rule. Limits stay per-thing adjectives, and pushback comes from in-world agents with reasons. This widens the cheat-only line (CHT12, CHEAT_LIBRARY B499) and AGENTS' "Balance is not forced" to every system. Costs a mechanism really has (a potion uses its ingredients) are not forced weaknesses.
+- **Levels of fate** go into the story rules as a ladder with world dials, covering lore and non-lore runs; the agent's ladder and the Reverend Insanity reading (canon versus fan theory) are proposals.
+- **Cheats:** a further look, and a catalogue of cheat types to draw on later ([CHEAT_CATALOGUE](../CHEAT_CATALOGUE.md)). The catalogue is a palette, not a build order.
+
+## Three more rulebooks, and making rules reach implementation, 2026-11-10
+
+After the coverage audit ([FOUNDATIONAL_RULES_COVERAGE](../audits/FOUNDATIONAL_RULES_COVERAGE_2026-11-10.md)) ranked the aspects still without rules, Weibao said:
+
+> Draft FRC1–FRC3 rulebooks
+
+and, while they were being prepared:
+
+> How to make sure rules will be used during implementations too?
+
+Recorded: his request for three new rulebooks, [MIND_RULES](../MIND_RULES.md) (MND, mind, personality and mental state), [ITEM_RULES](../ITEM_RULES.md) (ITM, items, inventory and equipment) and [POWERS_THAT_ACT_RULES](../POWERS_THAT_ACT_RULES.md) (AGT, gods, faith, fate actors, patrons and other agents with goals and reach). Lines are agent proposals under AD32. The second message is a question; the agent's answer (rules loaded by path, cited from code and briefs, checked at commit) is a proposal until he says which parts to build.
+
+## Ideas that open possibilities are welcome; limits run by him first, 2026-11-10
+
+After the ten rulebooks and the answer on making rules reach implementation, Weibao said:
+
+> COmmit then build, consider what other stuff is needed I like basically all the ideas that follow the core rules, and is interesting and leads to more possiblities, anything that limts those should run by me first
+
+Recorded as standing direction (AD56): ideas that follow the core rules (Rulebook 1–12 and the AD lines), are interesting and open more possibilities are welcome and become adjustable working defaults; any line that limits possibilities is held for his review before it binds. Applied the same day: the 2026-11-10 rulebooks (TIE, LVR, TMR, KNW, STN, STY, CHT, MND, ITM, AGT) are working defaults except the lines listed in the [limiting lines review](../audits/LIMITING_LINES_REVIEW_2026-11-10.md), which stay proposals until he answers. Lines that restate already accepted direction keep their own authority. The build he authorized: path rules for the new books, area guide pointers and a rule-route check.
+
+## Answers on the limiting lines, first round, 2026-11-10
+
+Weibao, on the [limiting lines review](../audits/LIMITING_LINES_REVIEW_2026-11-10.md):
+
+> Uncapped with no limit, or certain cap and more? Aging is deferred, and not aging could be a thing that the base cheats comes with? or well, its not reflected the same way?
+>
+> What is Forgetting?
+>
+> Rank can depend, afterall rank without the power or power without the rank is a trope,
+>
+> MND15 is interesting, but I agree, but it should be noticible, mght be hard to implement tho, consider different avenues and more
+>
+> ITM7, tihs can be defurred for the future, but might depend on strength or carry capacity?
+>
+> Wear is interesting, but repair should be an aspect too, do consider that durability often takes away from gameplay?
+>
+> Belief should be a resource always(if there is method) to allow for belief based progression and stuff?
+
+Recorded:
+
+- **LLR12 opened (STN8):** rank can follow its holder's real power or diverge from it; rank without the power and power without the rank are both tropes the rules allow.
+- **LLR22 kept and widened (MND15, new MND21):** hostile mind control on the lead stays forewarned, sourced and escapable, and it must be noticeable; MND21 lists the avenues.
+- **LLR23 deferred (ITM7):** no carrying limit for now; a later default derives capacity from strength, body and containers.
+- **LLR24 kept with repair (ITM11, ITM12):** gentle wear, with repair as play, and durability that adds choices rather than chores.
+- **LLR27 opened (AGT10):** belief is a resource wherever a method draws on it, so belief-based progression is possible.
+- **LLR9 (TMR15):** aging stays deferred; not aging, or aging shown differently, can come from a cheat (a base cheat included) or a body; recorded as the dial, with no new aging system.
+- **LLR7 (TMR6) and LLR11 (KNW19):** his questions are answered in chat; both wait for his pick.
+
+## Answers on the limiting lines, second round, 2026-11-10
+
+Weibao:
+
+> Growing cap,
+>
+> Okay make no forgetting unless external things, but then organizing 'remembered' info will be something we need to do, maybe add repariting tools to be part of routine for wear? Maybe we as protaginsit has lifespan, but it doesnt show? There are so many ways to go about this, maybe some lore runs would be useful,
+
+Recorded:
+
+- **LLR7 (TMR6):** the away bank has a growing cap: it starts at 7 days and grows through play, cheats, research or items; uncapped stays a dial.
+- **LLR11 kept (KNW19):** by default the player forgets through external things alone; new KNW26 makes organizing remembered information a requirement.
+- **Repair tools in routines (ITM12):** a maintenance routine spends repair kits or tools and stops when they run out.
+- **Lifespan (TMR15):** the protagonist may have a lifespan that is a hidden property, learned by means; aging depth stays deferred. His "maybe some lore runs would be useful" is recorded as a suggestion to calibrate lifespan and aging from the lead worlds' lore; no pass is started.
+
+## Answers on the limiting lines, third round, 2026-11-10
+
+Weibao:
+
+> Maybe no lifespan for us right now, but make base cheat in charge of showing lifespan, or maybe we should have lifespan fitting what character we are, what bloodline or consitution and more, lifespan doesnt have to be hidden, but then if something hurts our lifespand should be worrisome,
+>
+> For routine, maybe a refinement/self improvement routine,
+>
+> Whats next?
+
+Recorded:
+
+- **Lifespan (TMR15, replaces the second round's hidden-lifespan line):** no protagonist lifespan limit for now (life mode "open"). Where a lifespan exists it fits what the character is (species, bloodline, constitution, realm, body); it can be shown, and the base cheat can be what shows it (new catalogue type CTC93, lifespan readout); harm to lifespan names its cost, shows the loss and points to recourse. Aging depth stays deferred; the lore-run calibration stays a suggestion.
+- **Improving routines (new TMR18):** a routine may refine items or improve the self (training, cultivation, study), spending inputs and gaining by the same rules as doing it by hand, through the stop list and the recap.
+
+## Refining UI rules, 2026-11-10
+
+Weibao:
+
+> Commit, then lets work on refining UI rules and stuff
+
+Recorded: the agent committed the three rounds of limiting-line answers, then cross-walked the ten 2026-11-10 rulebooks against the UI rules ([UI audit round 37](../audits/UI_DESIGN_CORE_AUDIT.md#round-37-2026-11-10-what-the-new-rulebooks-need-on-screen)). Most visible demands map to existing codes; six new lines, [UR83–UR88](../UI_RULES.md#what-the-2026-11-10-rulebooks-need-on-screen), cover forewarned losses, knowledge entries with source and freshness, readouts granted by a means, unchosen acts and gaps, a lives list, and notice tiers. UR83–UR87 are working defaults under AD56; UR88 limits how features reach his attention and waits for his answer, with UR77 and UR82 ([limiting lines](../audits/LIMITING_LINES_REVIEW_2026-11-10.md) LLR28–LLR30).
+
+
+## World kind and source kind rulebooks, 2026-11-10
+
+Weibao asked:
+
+> foundational implementation rules for types of worlds and more? also types of source? other aspects to consider?
+
+Recorded: his request for two rulebooks, [WORLD_KIND_RULES](../WORLD_KIND_RULES.md) (WKR, kinds of world as presets over the world axes already in `src/world_pack_manifest.js`) and [SOURCE_KIND_RULES](../SOURCE_KIND_RULES.md) (SKR, kinds of source and their provenance in data). Both are working defaults under AD56 except WKR19, held as LLR31 in the [limiting lines review](../audits/LIMITING_LINES_REVIEW_2026-11-10.md). "Other aspects" is answered as round 2 of the [coverage audit](../audits/FOUNDATIONAL_RULES_COVERAGE_2026-11-10.md#round-2-2026-11-10-world-kinds-source-kinds-and-what-is-left) (FRC17–FRC23), a ranked proposal; no further rulebook is drafted until he picks.
+
+## Canon-first building and calibration, 2026-11-10
+
+On the world kind and source kind rulebooks, Weibao asked:
+
+> Alot of stuff to consider like first building things/calibrating them against cannon first?
+
+Recorded: the order already stands in AD44 (build through the lead's life), AD49 (lore anchors, calibrated systems), AD51 (a second world validates) and SPR7–SPR22 (fitting to the source). The new books now say it too: WKR21 (kind presets come out of calibrated canon worlds, and original or non-lore worlds borrow their anchors) and SKR21 (anchor order: stated figures, shown results, borrowed, assumed; variance reads the fitted values). Both restate accepted direction applied to kinds and sources; neither limits options.
+
+## General UI design and open forms, 2026-11-10
+
+Weibao:
+
+> Also general UI design and more? From VFX to like, the general flow and more? Other aspects to consider? Ui panels for certain aspects or gameplay? progression trees? TO not be limited by what we have currently? other stuff?
+
+Recorded: [UI audit round 38](../audits/UI_DESIGN_CORE_AUDIT.md#round-38-2026-11-10-general-ui-design-flow-effects-and-open-forms) extends the existing effects, scale, flow and map palettes (three loops, one home per new aspect, effects and sound, progression views, maps, "why?", comparison, dashboards). Four working defaults under AD56 in [UI_RULES](../UI_RULES.md#open-forms-surfaces-progression-views-effects-and-history): new surface kinds are open (UR89), progression views draw the real gates (UR90), one settled event drives every rendering (UR91), every aspect keeps its history (UR92). Nothing in this round limits options, so no line is held.
+
+
+## Results-based calibration with routes that vary, 2026-11-10
+
+Weibao, on the canon-first lines:
+
+> Results based calibration? so vaiance can happen with ways that leads to cannon, which creates variation and more?
+
+Recorded as widening direction (AD56, it opens possibilities): calibration fits results (SPR9, SPR20), so a canon result fixes where a scene lands while the route there can vary by method, order, helper, timing, price and means (STY33), and the route's residue carries into later scenes (STY34). This widens the 2026-10-28 lead-life line "variance changes details only" ([LEAD_LIFE_RULES](../LEAD_LIFE_RULES.md)), which now carries a dated qualifier. Band width per beat is a world dial.
+
+## Distinct, reactive and pleasing UI, 2026-11-10
+
+Weibao:
+
+> ALso making Uis disctinct and more? since alot of the UI work and implementations, for stuff like rituals and stuff and more turned into sets of circles and stuff, thoughts? How to have nuanced, interesting, reactive, and comprehensive, and pleasing ui?
+
+Recorded: [UI audit round 39](../audits/UI_DESIGN_CORE_AUDIT.md#round-39-2026-11-10-why-surfaces-look-alike-and-how-to-make-them-distinct) finds that the shared-component rules reward the cheapest compliant shape and nothing asked a surface to express its mechanism. Five working defaults under AD56 in [UI_RULES](../UI_RULES.md#distinct-reactive-and-pleasing-surfaces): form follows the mechanism (UR93), shared grammar with distinct composition, checked by covering labels and world names (UR94), surfaces react before and after commit (UR95), comprehensive by layers (UR96), and a recorded craft pass (UR97); UR76's contract card now names the mechanism's form. Nothing here limits options, so no line is held.
+
+## UI abstraction levels, limits and future, 2026-11-10
+
+Weibao:
+
+> Consider levels of abstraction needed and more? How to still make it cool and stuffgiven our stuff? any limitations there are, and therefore how to address them? Research and other future features?
+
+Recorded: [UI audit round 40](../audits/UI_DESIGN_CORE_AUDIT.md#round-40-2026-11-10-levels-of-abstraction-limits-and-what-comes-next). The circles trace to the MDL2 figure primitive: adapters mapped each mechanism straight onto rings, slots and pips. Two working defaults under AD56: six levels with a mechanism form between data and geometry (UR98, reading MDL2 as no kind-specific tokens or marks), and cheap materials first (UR99). Two held lines for Weibao: no new rendering dependency by default (LLR33, first numbered LLR31) and raster or generated art waiting on provenance (LLR32). Research lanes and future features are proposals, none started.
+
+
+## Making rules followed, and bringing old code in line, 2026-11-10
+
+Weibao, after the routes round:
+
+> Other aspects to consider? Rules we need to setup and make followed? changing prior implementation for these rules once other stuff is addressed?
+
+Recorded: path rules for the world kind and source kind books, so they load while editing (as the ten earlier books do); a [rule conformance ledger](../audits/RULE_CONFORMANCE_LEDGER_2026-11-10.md) whose policy (RCL1–RCL4) is an agent proposal: old code moves when a slice touches it, and a dedicated consolidation runs ahead of that only for conflicting writers, blocked slices or per-world cost, after the current checkpoint; and round 3 of the [coverage audit](../audits/FOUNDATIONAL_RULES_COVERAGE_2026-11-10.md#round-3-2026-11-10-making-the-rules-followed-and-old-code) (FRC24–FRC30), whose lints and commit-time check are proposals, not built.
+
+## Answers on LLR32 and LLR33, and UI research sent, 2026-11-10
+
+Weibao:
+
+> LLR32, is that needed for now? Generated art?
+>
+> LLR31, why should that be limited?
+>
+> send the research stuff accordingly, consider ideas working on the same thing and how they do it
+
+Recorded:
+
+- **LLR33 opened (UR99; he answered it as LLR31, renumbered because a world-kinds line already held LLR31):** a rendering or animation library is welcome where it saves real work, with its size and gain noted. The agent had proposed zero new dependencies out of caution, with no reason strong enough to keep it.
+- **LLR32 opened (UR99):** generated or raster art is not needed for the current work; it is welcome where a surface benefits, with its source noted per asset, and is not a gate.
+- **Research sent:** three lanes on how others solve the same problem, writing to `docs/reviews/ui-distinct-forms-2026-11-10/`: R1 games whose UI encodes their mechanisms, R2 diagram layering, libraries, sigils and motion, R3 accessible diagrams and rendering cost in the app's web view. Returns fold into the UI design core audit.
+
+
+## Chainsaw Man, other worlds and pet systems, 2026-11-10
+
+Weibao asked:
+
+> WHat about chainsaw man and more? more to consider? Pet systems and more?
+
+Recorded as proposals: round 4 of the [coverage audit](../audits/FOUNDATIONAL_RULES_COVERAGE_2026-11-10.md#round-4-2026-11-10-which-world-fills-which-gap) maps worlds to the gaps they fill (FRC31–FRC37; Chainsaw Man has no held source yet), and round 12 of the [companion palette](../COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md#round-12-pets-against-the-2026-11-10-rulebooks-and-todays-code-2026-11-10) treats pets against the new rulebooks (CPR1–CPR13). No build order changes; nothing is started.
+
+## Fixing the rest, recovery from corruption, base cheat, carryover, 2026-11-10
+
+After RCL5 and RCL6 landed, Weibao asked:
+
+> Fix the rest accordingly, how did people recover from corruption in the book or was that not possible? should we be different given the base cheat? Can we see the effects of our actions? what carries over to the next life?
+
+Recorded:
+
+- **The rest, by the ledger's policy (RCL1–RCL4):** RCL7 (overnight schedule rows), RCL8 (one Tingen day formula) and RCL14 (beats record their route) were fixed; RCL13 was tried and held back because it changes pack fingerprints; RCL9 (window builders) is the one large dedicated consolidation left; the others wait for a slice that touches them ([ledger](../audits/RULE_CONFORMANCE_LEDGER_2026-11-10.md)).
+- **Recovery in the books:** pre-signs can be pulled back; full loss is never reversed, only ended by death, a sealed item or a leftover characteristic. Recorded as MND22, with higher-sequence means (soothing pollution, faith anchors, purification) as reachable means, not defaults.
+- **The base cheat:** the agent's default is that it reads the line (CTC94, strain readout) without holding it back; holding it back or one rescue past it is catalogue type CTC95. The choice is held for him as LLR32.
+- **Seeing effects:** strain from peeks and doses now shows on one Tingen line with its count, and crossing a stage leaves one Reports line; at the lost stage the line counts the grace down.
+- **Next life:** memories, the base cheat and paid aptitude anchors carry (AD11); a restart rewinds the seat's world, body and `harm` slice, so strain and loss of control do not carry.
+
+## Decompile bank for gaps beyond pets, 2026-11-10
+
+Weibao asked:
+
+> Deep level stuff to take?  Other stuff and more? other stuff that can use decompiled stuff rather than just hte pet stuff? Send chat to digest pet stuff
+
+Recorded: a separate session digests the held pet captures (CPR22, CPR23). Round 5 of the [coverage audit](../audits/FOUNDATIONAL_RULES_COVERAGE_2026-11-10.md#round-5-2026-11-10-what-the-decompile-bank-gives-the-open-gaps) maps bank systems to open gaps (FRC38–FRC50), as proposals; nothing is built.
+
+## Cross-world rulebook, 2026-11-10
+
+Weibao asked:
+
+> Another caht to work on the cross world rulebook?
+
+Recorded: [CROSS_WORLD_RULES](../CROSS_WORLD_RULES.md) XWR1–XWR28 drafts FRC18 as working defaults under AD56 (AD32, proposals): the hub and home, the carry list per crossing, authority per edge, time across worlds, local prices and conserved cross-world stock, travel authorities, converged worlds and what others know of a traveler. It links WER, WKR17, multiverse structures, ITM, TIE25, KNW and CHT rather than restating them. Three lines limit options and wait for his answer as LLR34–LLR36 (titles abroad, bodies the destination cannot support, counterparts as different people); nothing is built.
+
+## UI rules for every element, 2026-11-10
+
+Weibao:
+
+> more UI autdit rules and more for all ui elements?
+
+Recorded: [the element sheet](../UI_RULES.md#every-element-the-element-sheet) adds UR100–UR127 as working defaults under AD56: a state sheet for every interactive element (UR100), auditing by element and then by journey (UR101), and one row per element kind, from buttons to truncated text. [UI audit round 43](../audits/UI_DESIGN_CORE_AUDIT.md#round-43-2026-11-10-every-element-census-and-coverage) holds the census of element kinds in the code, what earlier codes covered and what was new. The first element audit, gallery state sheets, contract-test additions and one number formatter are proposals, not started.
+

@@ -1,13 +1,18 @@
 // Loss of control as stated causes (B3, 2026-10-23). The source names five causes: skipping Sequences, a wrong-pathway potion, switching
-// pathways, residue from rushing, and temptation through heightened senses; pre-signs are reversible, full loss is not
-// [LOTM_RULES L7: 0018, 0033, 0165-0167]. Each cause here is a row with its own pressure. A pathway added as data inherits the rows through
+// pathways, residue from rushing, and temptation through heightened senses [LOTM_RULES L7: 0018, 0033]. Full loss is never reversed in
+// the books (0165-0167, Old Neil); that pre-signs can be pulled back by ritual stabilising is inferred there (0165), not stated (MND22). Each cause here is a row with its own pressure. A pathway added as data inherits the rows through
 // the generic dose commands below, so the Seer's failure rules cannot be bypassed by adding a pathway. A cause is a consequence, not a wall:
 // the stated acts are possible (through a broker's unmarked dose) and cost pressure; at the loss line the branch is over. Amounts and the
 // two lines are authored proposals (WPR5). Temptation has no heightened-sense mechanic in this slice and stays an unmodelled row.
 import {LOTM_IDS as I,LOTM_KEYS as K} from './book_world_lotm_ids.js';
 import {eq,gte,all,not,af,has,no,item,attention,know,cmd} from './book_world_lotm_kit.js';
 import {LOTM_LOCATIONS as L} from './book_world_lotm_ids.js';
-export const LOTM_PRESSURE=Object.freeze({presign:2,loss:6});
+import {lotmLossLine,LOTM_INBOX} from './book_world_lotm_harm.js';
+import {harmState} from './harm_state.js';
+// MND8 (RCL5): rows add to an inbox on the source's six-step line; it lands on the one power carrier in harm_state
+// (book_world_lotm_harm.js), so these lines are the carrier's strained and lost stages (3 and 9).
+const LINE=lotmLossLine(null,null);
+export const LOTM_PRESSURE=Object.freeze({presign:LINE.presign,loss:LINE.loss});
 export const LOTM_CAUSES=Object.freeze([
  {id:'skip',label:'Skipping a Sequence step',pressure:3,modelled:true,source:'[0018] Dunn: skipping Sequences',text:'You drank a heavier potion without the digestion and assessment the church requires.'},
  {id:'wrong_pathway',label:'A wrong-pathway potion',pressure:3,modelled:true,source:'[0033] [0165-0167]: a potion of another pathway',text:'You drank a potion that does not belong to your pathway.'},
@@ -42,21 +47,18 @@ export function causeCommands(row){
 export const causeFlags=[...LOTM_CAUSES.map(c=>`cause.${c.id}`),...LOTM_LOC_FLAGS];
 // Steadying is the reversible half: guided attention under the supervisor lowers pressure while it is still below the loss line.
 export const causeSteadyCommand=cmd('steady','Ask Hale for guided attention to steady the pre-signs · 1 of Hale\'s attention',L.workroom,{targetId:I.supervisor,once:false,
- requires:all(gte('lotm.pressure',1),not(gte('lotm.pressure',LOTM_PRESSURE.loss)),gte('lotm.supervisorAttention',1)),costs:[attention()],effects:[press(-1),know('cause.steadied','Hale held your attention on a familiar object until the hum eased a little. It is only the pre-signs; past the line there is no easing them.','player','player','observation','understood')]});
+ requires:all(gte('lotm.pressure',1),not(gte('lotm.pressure',LOTM_PRESSURE.loss)),gte('lotm.supervisorAttention',1)),costs:[attention()],effects:[{type:'resource',actor:'player',key:LOTM_INBOX.relief,amount:1},know('cause.steadied','Hale held your attention on a familiar object until the hum eased a little. It is only the pre-signs; past the line there is no easing them.','player','player','observation','understood')]});
 // Completed recoveries that may bring recorded pressure to zero: the steadying above and the self-addressed rite (ritual.js, M4 A5).
 export const LOTM_RECOVERY_COMMANDS=Object.freeze(['book.lotm.steady','book.lotm.rit_self_light','book.lotm.rit_self_light_body']);
-export function causeFacts(state,f){
- const n=state.actors?.player?.resources?.['book.lotm.pressure']||0;
- f['lotm.pressure']=n;f['lotm.presign']=n>=LOTM_PRESSURE.presign;f['lotm.lostControl']=n>=LOTM_PRESSURE.loss;
+// One read for every reader: the power carrier with the pending inbox, from the context's harm slice (the host and tests
+// pass it) or the live slice.
+export function causeFacts(state,f,ctx={}){
+ const line=lotmLossLine(ctx.harm??harmState(),state),n=line.count;
+ f['lotm.pressure']=n;f['lotm.presign']=n>=LOTM_PRESSURE.presign;f['lotm.lostControl']=n>=LOTM_PRESSURE.loss;f['lotm.graceLeft']=line.graceLeft;
 }
-export function causeAssertions({a,has,assert,natural}){
- const n=a.player.resources?.['book.lotm.pressure'];
- const causes=LOTM_CAUSES.filter(c=>causeHeld(has,c.id));
- assert(n===undefined||natural(n),'Pressure is a natural number.');
- assert((n||0)<=total(causes)+LOTM_PRESSURE.loss,'Pressure cannot exceed what the recorded causes add.');
- // Zero is reachable only through a completed recovery; the causes stay recorded as history either way.
- const recovered=LOTM_RECOVERY_COMMANDS.some(id=>(a.player.completed?.[id]||0)>0);
- assert(causes.length===0||(n||0)>0||has('declined')||recovered,'A recorded cause leaves pressure behind.');
+// The carrier owns the count; rest lowers it legitimately, so a recorded cause need not leave any behind. The inbox is natural.
+export function causeAssertions({a,assert,natural}){
+ for(const key of Object.values(LOTM_INBOX)){const n=a.player.resources?.[key];assert(n===undefined||natural(n),'A loss-of-control inbox is a natural number.');}
 }
 export const causeView=f=>({pressure:f['lotm.pressure'],presign:f['lotm.presign'],lost:f['lotm.lostControl'],loss:LOTM_PRESSURE.loss,
- line:f['lotm.lostControl']?'You have lost control. The branch is over: nothing you do here changes it.':f['lotm.presign']?`Pre-signs: a hum behind the eyes and whispers at the edge of hearing (${f['lotm.pressure']} of ${LOTM_PRESSURE.loss}). Guided attention can ease them; past the line nothing can.`:f['lotm.pressure']?`A faint residue (${f['lotm.pressure']} of ${LOTM_PRESSURE.loss}).`:''});
+ line:f['lotm.lostControl']?`You have lost control. Past the line nothing eases it; ${Math.ceil(f['lotm.graceLeft']??30)} minutes of waking time are left before it ends you. Only rest, care or getting somewhere safe is still possible.`:f['lotm.presign']?`Pre-signs: a hum behind the eyes and whispers at the edge of hearing (${+f['lotm.pressure'].toFixed(2)} of ${LOTM_PRESSURE.loss}). Guided attention can ease them; past the line nothing can.`:f['lotm.pressure']?`A faint residue (${+f['lotm.pressure'].toFixed(2)} of ${LOTM_PRESSURE.loss}).`:''});

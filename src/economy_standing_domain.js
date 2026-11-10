@@ -21,11 +21,15 @@ export const setStandingState = slice => { state = rules.migrateStanding(slice);
 export const termsFor = (region, vendorId, reputation) => rules.standingTerms(state, {region, vendorId, reputation, now: now()});
 
 // After a committed trade: a deed toward the vendor's house, and what the prices looked like.
-export function recordTrade({region, vendorId, sellValue, buyValue, seen = []}) {
+export function recordTrade({region, vendorId, sellValue, buyValue, seen = [], bought = null}) {
     let next = rules.tradeDeed(state, {region, vendorId, sellValue, buyValue}, now());
+    if(bought) next = rules.noteBought(next, vendorId, bought, current_game_time.day_count);
     for(const s of seen) next = rules.observePrice(next, region, s.key, s.price, now(), {label: s.label, via: 'traded'});
     set(next);
 }
+// Opening a shop counts one visit per day toward what its keeper remembers (ECC43).
+export function noteShopVisit(vendorId) { const next = rules.noteVisit(state, vendorId, current_game_time.day_count); if(next !== state) set(next); }
+export const shopMemory = vendorId => rules.customerMemory(state, vendorId);
 export const creditView = () => Object.keys(rules.FACTIONS).map(id => rules.creditTerms(state, id, now()));
 export function borrow(factionId, amount) {
     const next = rules.takeLoan(state, factionId, amount, now());
@@ -132,7 +136,7 @@ const view = () => {
 registerDomain({id: 'economy_standing', deps: [], initialState: () => null,
     // Old saves have no slice: start fresh. Only write once something exists.
     save: () => rules.validateStanding(state) && (Object.keys(state.standing).length || Object.keys(state.loans).length ||
-        Object.keys(state.memory).length || state.causes.length || state.ledger.rows.length || state.rumours.length || state.insurance || state.claims.length || Object.keys(state.traffic).length) ? structuredClone(state) : undefined,
+        Object.keys(state.memory).length || state.causes.length || state.ledger.rows.length || state.rumours.length || state.insurance || state.claims.length || Object.keys(state.traffic).length || Object.keys(state.customers ?? {}).length) ? structuredClone(state) : undefined,
     validate: slice => rules.validateStanding(slice),
     migrate: slice => rules.migrateStanding(slice),
     load: slice => setStandingState(slice),

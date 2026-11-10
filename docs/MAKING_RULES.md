@@ -49,11 +49,11 @@ is in [CRAFTING_ENGINE round 4](CRAFTING_ENGINE.md#round-4-2026-10-15-deeper-pot
 
 | Code | Rule | Mistake it prevents |
 | --- | --- | --- |
-| MR16 | **Every verb changes declared state.** A stir, quench, stroke or chant has a stated effect, window and cost, or it is not offered. | Decorative minigame steps |
+| MR16 | **Every verb changes declared state.** A stir, quench, stroke or chant has a stated effect, window and cost (the cost may be none where the mechanism gives one, AD55, 2026-11-10), or it is not offered. | Decorative minigame steps |
 | MR17 | **Order, preparation and timing count only where the law reads them.** Stages have windows (early, on time, late) only when a rule consumes them. | Busywork controls with no consequence |
 | MR18 | **Depth is chosen per activity:** quick (repeat a recorded method), guided (key decisions) or deep (every stage). All three run one resolver, and the choice is a comfort setting, not a penalty. | A grind for basic results, or a deep mode with different rules |
 | MR19 | **Quick never beats what is known; deep beats quick only through better choices.** | Automation stronger than the knowledge behind it |
-| MR20 | **Magic, qi or spell input is a step with requirements and cost,** not a free multiplier. | Mana ink or a wand wave that buffs everything |
+| MR20 | **Magic, qi or spell input is a step with requirements and cost,** not a free multiplier. Default: the cost is what the mechanism spends; a mechanism that spends nothing can be free (AD55, AD38, 2026-11-10). | Mana ink or a wand wave that buffs everything |
 
 ## Mastery
 
