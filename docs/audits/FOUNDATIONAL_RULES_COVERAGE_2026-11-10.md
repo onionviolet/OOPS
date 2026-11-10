@@ -34,7 +34,7 @@ Bodies and health (BHR), combat (CBR), economy (ECR), skills (SLR), presence (PI
 
 ## Round 2, 2026-11-10: world kinds, source kinds and what is left
 
-Weibao asked "foundational implementation rules for types of worlds and more? also types of source? other aspects to consider?" ([log](../gm/USER_VISION_LOG_2026-11.md#world-kind-and-source-kind-rulebooks-2026-11-10)). Drafted: [WORLD_KIND_RULES](../WORLD_KIND_RULES.md) (WKR1–WKR20) and [SOURCE_KIND_RULES](../SOURCE_KIND_RULES.md) (SKR1–SKR20). Both build on code that already exists: the thirteen world axes, presets, origin kinds and licence tiers in `src/world_pack_manifest.js`, and the HP pack's evidence rows. FRC4–FRC10 above are unchanged.
+Weibao asked "foundational implementation rules for types of worlds and more? also types of source? other aspects to consider?" ([log](../gm/USER_VISION_LOG_2026-11.md#world-kind-and-source-kind-rulebooks-2026-11-10)). Drafted: [WORLD_KIND_RULES](../WORLD_KIND_RULES.md) (WKR1–WKR21) and [SOURCE_KIND_RULES](../SOURCE_KIND_RULES.md) (SKR1–SKR21). Both build on code that already exists: the thirteen world axes, presets, origin kinds and licence tiers in `src/world_pack_manifest.js`, and the HP pack's evidence rows. FRC4–FRC10 above are unchanged.
 
 | Code | Aspect | What exists | Why it matters | Proposal |
 | --- | --- | --- | --- | --- |

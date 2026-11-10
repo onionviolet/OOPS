@@ -780,3 +780,11 @@ Weibao asked:
 > foundational implementation rules for types of worlds and more? also types of source? other aspects to consider?
 
 Recorded: his request for two rulebooks, [WORLD_KIND_RULES](../WORLD_KIND_RULES.md) (WKR, kinds of world as presets over the world axes already in `src/world_pack_manifest.js`) and [SOURCE_KIND_RULES](../SOURCE_KIND_RULES.md) (SKR, kinds of source and their provenance in data). Both are working defaults under AD56 except WKR19, held as LLR31 in the [limiting lines review](../audits/LIMITING_LINES_REVIEW_2026-11-10.md). "Other aspects" is answered as round 2 of the [coverage audit](../audits/FOUNDATIONAL_RULES_COVERAGE_2026-11-10.md#round-2-2026-11-10-world-kinds-source-kinds-and-what-is-left) (FRC17–FRC23), a ranked proposal; no further rulebook is drafted until he picks.
+
+## Canon-first building and calibration, 2026-11-10
+
+On the world kind and source kind rulebooks, Weibao asked:
+
+> Alot of stuff to consider like first building things/calibrating them against cannon first?
+
+Recorded: the order already stands in AD44 (build through the lead's life), AD49 (lore anchors, calibrated systems), AD51 (a second world validates) and SPR7–SPR22 (fitting to the source). The new books now say it too: WKR21 (kind presets come out of calibrated canon worlds, and original or non-lore worlds borrow their anchors) and SKR21 (anchor order: stated figures, shown results, borrowed, assumed; variance reads the fitted values). Both restate accepted direction applied to kinds and sources; neither limits options.
