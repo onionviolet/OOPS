@@ -797,3 +797,11 @@ Weibao:
 
 Recorded: [UI audit round 38](../audits/UI_DESIGN_CORE_AUDIT.md#round-38-2026-11-10-general-ui-design-flow-effects-and-open-forms) extends the existing effects, scale, flow and map palettes (three loops, one home per new aspect, effects and sound, progression views, maps, "why?", comparison, dashboards). Four working defaults under AD56 in [UI_RULES](../UI_RULES.md#open-forms-surfaces-progression-views-effects-and-history): new surface kinds are open (UR89), progression views draw the real gates (UR90), one settled event drives every rendering (UR91), every aspect keeps its history (UR92). Nothing in this round limits options, so no line is held.
 
+
+## Results-based calibration with routes that vary, 2026-11-10
+
+Weibao, on the canon-first lines:
+
+> Results based calibration? so vaiance can happen with ways that leads to cannon, which creates variation and more?
+
+Recorded as widening direction (AD56, it opens possibilities): calibration fits results (SPR9, SPR20), so a canon result fixes where a scene lands while the route there can vary by method, order, helper, timing, price and means (STY33), and the route's residue carries into later scenes (STY34). This widens the 2026-10-28 lead-life line "variance changes details only" ([LEAD_LIFE_RULES](../LEAD_LIFE_RULES.md)), which now carries a dated qualifier. Band width per beat is a world dial.
