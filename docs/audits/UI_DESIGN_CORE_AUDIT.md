@@ -1939,3 +1939,37 @@ Weibao: "send the research stuff accordingly, consider ideas working on the same
 - **UIC87, LATER: R4.** No fetched source described a meridian or realm chart UI in a cultivation game, so the body chart has no verified precedent; GDC and developer talk texts were unreadable this pass; idle-game engineering sources were not found. Level: sonnet research lane; effort medium; done check: the meridian question answered with sources or recorded as original, and at least three developer talks summarized.
 
 Ranked for building, revised: the altar slice with UIC78 registry, UIC79 sigils and UIC80 motion helper together; then the LOTM motif pack with three to five voices (UIC66, UIC75); then the potion-map prototype (UIC73); the spikes (UIC81, UIC82) run inside the slice that first needs them.
+
+## Round 42, 2026-11-10: R4, the sources the first lanes could not read
+
+Weibao asked for a Codex prompt to reach the blocked sources ([prompt](../reviews/ui-distinct-forms-2026-11-10/R4_CODEX_PROMPT.md)); Codex wrote [R4](../reviews/ui-distinct-forms-2026-11-10/R4_BLOCKED_SOURCES.md). It reached developer slides (Inscryption GDC 2022, Slay the Spire GDC 2019), Zach Barth's GDC 2019 captions, Weather Factory's own devlogs, Lucas Pope's Obra Dinn post, the Pentiment type-studio case study, the recovered Potion Craft essay, first-game Citizen Sleeper and Disco Elysium screenshots, pinned source for four idle games, measured package sizes and WebKit tracker statuses. Still open: the Mullins and Sawyer talk transcripts, Melvor's current catch-up internals, VoiceOver behaviour, and every cost in the app's web view. No gameplay, VoiceOver or app measurement is claimed.
+
+### Corrections to earlier rounds
+
+- **UIC88, ACT NOW (correction): Slay the Spire's numbers.** Round 41 (UIC74) said intents moved from symbols to numbers after testers asked. R4 confirms the intent redesign came from playtest feedback and that the shipped attack intent shows damage and hit count; the claim that testers asked for exact numbers stays unverified. UIC74's design point (show the pending effect with its numbers, UR95) stands on its own reason, not on that anecdote.
+- **UIC89, ACT NOW (correction): Book of Hours is set in an occult library,** not a prayer book; its grimoire look is a documented prototype direction (R1 entry 2).
+- Other R1–R3 corrections are listed in R4's table; [K] and [?] claims stay leads until upgraded there.
+
+### What changes our plan
+
+- **UIC90, ACCOUNT FOR NOW: the closest precedent to our problem is Weather Factory's own.** Lottie Bevan's 2022 Book of Hours prototype post contrasts Cultist Simulator's one repeated verb tile with distinct recipe windows attached to desks, gardens and ovens, built on the same shared framework. That is UR94 in practice: shared logic, distinct interaction per station. The altar (UIC68) and the vessel follow this shape.
+- **UIC91, ACCOUNT FOR NOW: the body chart has precedent, so ours is not original.** Wandering Sword draws six named meridians round a seated figure as a selector, then a body view of linked acupoints with real bonuses for the chosen channel; Tale of Immortal gives realms a ladder and the breakthrough its own screen of methods, required materials and a probability; Amazing Cultivation Simulator shows body remolding as an inspector with a visible capacity. Default for our cultivation form: a selector to find a channel, a body view to decide on it, the cause of any blockage drawn on the route, and realm readiness beside it when it bears on the same decision. A dantian appears where a world's rules have one. Topology stays the world's (UR90, AD38).
+- **UIC92, ACCOUNT FOR NOW: a complete example beside the first editable one (Zachtronics).** Barth describes teaching with a working example next to a separate exercise, and giving a goal and tools in place of one prescribed route. The first rite on the altar shows a complete rite beside the editable one, and the altar accepts any arrangement the rite's rules accept (AD38).
+- **UIC93, ACCOUNT FOR NOW: a working object can hold the state (Obra Dinn, Inscryption).** Pope's evidence book and Mullins' cabin of stateful objects back UIC72. Pope regrets the separately animated binding; keep page turns cheap.
+- **UIC94, ACCOUNT FOR NOW: idle-game practice from their source code.**
+  - Kittens Game computes elapsed time from timestamps, caps the span by progress, logs elapsed days and counts, and fades older log lines.
+  - Antimatter Dimensions has two return states, computing and ready, with a progress bar for long catch-up and a stable summary after.
+  - A Dark Room reveals affordances when they first matter, with 300–500 ms fades.
+  - Melvor's Steam build pauses skills when backgrounded and catches up on return.
+
+  These back UR81 and UIC35 (return as a reveal), UR82 (forms arrive with capability) and UIC85 (hidden-window path).
+- **UIC95, ACCOUNT FOR NOW: libraries, measured.**
+  - `motion` mini `animate`: 3,299 bytes gzip, MIT, published 2026-11-10.
+  - Anime.js v4 WAAPI subpath: 4,815 bytes gzip, MIT, active.
+  - Rough.js: 9,196 bytes gzip, MIT, last release 2023 and last push 2024, so less active.
+
+  Default for the altar slice: the browser's Web Animations API. A Motion mini spike is the cheapest add if the helper grows. Rough.js waits for a world whose frames need the hand-drawn look.
+- **UIC96, ACCOUNT FOR NOW: textures stay static.** Four WebKit filter bugs remain open (general SVG filter slowness, turbulence and displacement rendering failures, scroll cost with a static grain filter, pixelation while scaled). Bake textures once; keep the R3 budgets in UR99 as estimates.
+- **UIC97, LATER: the Tauri background setting.** Tauri documents `backgroundThrottling` on macOS 14 and later; this checkout sets no override, and the renderer defers refreshes while hidden. Check it with UIC85 in a release-shaped build.
+
+Ranked for building (R4 agrees): the LOTM altar slice with sigils and the motion helper first, its positions drawn from the real rite, a complete example beside the first editable rite, and the result settling on the altar and in Reports; then the cultivation body chart brief (UIC91); then motif work and replay.
