@@ -1375,3 +1375,10 @@ Aging, heirs and family (LAYX197, LAYX198, and LAYX193 where it concerns people)
 ### Residue not mapped
 
 Rows LAYX81-LAYX218 not named in a bin above are considerations attached to a named neighbour (for example LAYX89 to LAYX88, LAYX92-LAYX93 to LAYX90) and keep their own done checks. Nothing in LAYX1-LAYX80 was re-read for this pass.
+
+### Found while landing the stopped sessions' work (2026-11-09)
+
+| Code | Disposition | Consideration | Level, effort and done check |
+|---|---|---|---|
+| LAYX228 | ACT NOW (for whoever continues Klein's arc) | **Story-act prerequisites grow with the square of the number of acts.** `sequencePrerequisites` in `src/place_act_sequence.js` gives each act one prerequisite entry for every earlier stage across all sequences, and rebuilds the stage list on each call. The private LOTM cast pack now holds 1,532 acts in 178 sequences, so start-up builds about 1.2 million entries. Measured on 2026-11-09 by an allocation profile of one headless boot: about 675 MB live with the pack against about 95 MB without it, with 364 MB in the registry's `copy` and 161 MB in the prerequisite builder; registry validation takes about 5 seconds per boot. Two test files (`facts_frame`, `palette_native`) ran out of memory at the default 4 GB heap because they boot several times in one process; `npm test` now runs with an 8 GB heap as a stopgap. The same failure occurs on the previous runtime with the same pack, so the pack's growth is the trigger. Options: require only the stage before (lighter, and looser for seeded states that skip stages), or one derived "sequence reached" fact per stage. Either changes gating behaviour and needs the arc owner. | Sonnet, runtime, small. Done: boot with the pack is back near the no-pack figure, the heap flag is removed from `package.json`, and the gating tests still pass |
+| LAYX229 | ACCOUNT FOR NOW | **A duplicate person id entered the private cast pack.** One role-named person exists under two ids (continuity finding CTR2, ref `b82c3230`), added to the known-findings baseline to keep the gate usable. The pack still has both. | Cast merge owner. Done: one id, baseline entry removed |

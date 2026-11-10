@@ -31,10 +31,17 @@ test('Cyoria installs from the pack: original exports retain the conversion hash
     // separately tested additive lore family. Do not replace the baseline hash.
     const loreItems = new Set(['Cyorian borrowed workshop packet', 'Cyorian single-cube tracing guide']);
     const loreKeys = new Set([...loreItems].map(id => JSON.stringify({id})));
+    // Zorian's Arc 1 (2026-11-09) added items, three places and one person id to these exports
+    // without a family prefix. They are additive, so they are filtered here by name, as rows,
+    // as string members and as string values, and the baseline hash stays.
+    const arcItems = ['Cyorian divination compass', 'Cyorian prepared barrier cubes', 'Cyorian missile rod', 'Cyorian stone relay', 'Cyorian silver disc',
+        'Cyorian shield bracelet', 'Cyorian revolver', 'Cyorian revolver cartridge', 'Cyorian pocket charges'];
+    const arcAdded = new Set([...arcItems, ...arcItems.map(id => JSON.stringify({id})), 'Cyoria tavern meeting', 'Noveda mansion', 'Cyoria festival dance hall', 'book.mol.haslush']);
+    const added = value => typeof value === 'string' ? arcAdded.has(value) : arcAdded.has(value?.id);
     const original = value => Array.isArray(value)
-        ? value.filter(row => !loreItems.has(row?.id) && !row?.id?.startsWith?.('book.mol.lore.') && !row?.id?.startsWith?.('book.mol.zorian.')).map(original)
+        ? value.filter(row => !added(row) && !loreItems.has(row?.id) && !row?.id?.startsWith?.('book.mol.lore.') && !row?.id?.startsWith?.('book.mol.zorian.')).map(original)
         : value && typeof value === 'object'
-            ? Object.fromEntries(Object.entries(value).filter(([key, child]) => !loreKeys.has(key) && !(key === 'energies' && Array.isArray(child) && child.every(e => e.id.startsWith('book.mol.zorian.')))).map(([key, child]) => [key, original(child)]))
+            ? Object.fromEntries(Object.entries(value).filter(([key, child]) => !arcAdded.has(key) && !(typeof child === 'string' && arcAdded.has(child)) && !loreKeys.has(key) && !(key === 'energies' && Array.isArray(child) && child.every(e => e.id.startsWith('book.mol.zorian.')))).map(([key, child]) => [key, original(child)]))
             : value;
     const out = {};
     for (const k of Object.keys(content).sort()) if (typeof content[k] !== 'function') out[k] = original(content[k]);
@@ -43,7 +50,7 @@ test('Cyoria installs from the pack: original exports retain the conversion hash
     const loaded = installedWorldPack('book.mol');
     assert.equal(loaded.pack.sourceSnapshot.hash, MOL_SOURCE_HASH);
     assert.equal(loaded.pack.sourceSnapshot.locator, MOL_SOURCE_SNAPSHOT);
-    assert.deepEqual(loaded.pack.content.people.filter(p => !p.tags?.includes('zorian_s0')).map(p => [p.id, p.name]), content.molDefinitions.people.map(p => [p.id, p.label]));
+    assert.deepEqual(loaded.pack.content.people.filter(p => !p.tags?.includes('zorian_s0') && !arcAdded.has(p.id)).map(p => [p.id, p.name]), content.molDefinitions.people.map(p => [p.id, p.label]));
     assert.ok(Object.isFrozen(content.molDefinitions.commands) && !Object.isFrozen(content.molDefinitions.people));
 });
 

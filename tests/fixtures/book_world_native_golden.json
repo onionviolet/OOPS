@@ -97,7 +97,10 @@
     "Cyoria academy guest library",
     "Cyoria formula workshop",
     "Cyoria supervised practice court",
-    "Cyoria sewer service hatch"
+    "Cyoria sewer service hatch",
+    "Cyoria tavern meeting",
+    "Noveda mansion",
+    "Cyoria festival dance hall"
    ],
    "npcs": [
     "book.mol.imaya",
@@ -117,6 +120,15 @@
     "book.mol.household.stock"
    ],
    "tags": [
+    {
+     "book_world_mol": true
+    },
+    {
+     "book_world_mol": true
+    },
+    {
+     "book_world_mol": true
+    },
     {
      "book_world_mol": true
     },
@@ -162,6 +174,9 @@
     "Original independent local scavenger guarding a short hatch for salvage. Own hook, meal, finite effort and purse; no sourced antagonist identity or future intelligence. Intervention changes actual injury/position/means."
    ],
    "locDesc": [
+    "Cyoria · independent academy visitor. Use Notebook for retained local work, actual stock, optional assignments and departure.",
+    "Cyoria · independent academy visitor. Use Notebook for retained local work, actual stock, optional assignments and departure.",
+    "Cyoria · independent academy visitor. Use Notebook for retained local work, actual stock, optional assignments and departure.",
     "Cyoria · independent academy visitor. Use Notebook for retained local work, actual stock, optional assignments and departure.",
     "Cyoria · independent academy visitor. Use Notebook for retained local work, actual stock, optional assignments and departure.",
     "Cyoria · independent academy visitor. Use Notebook for retained local work, actual stock, optional assignments and departure.",
@@ -258,7 +273,10 @@
      "Cyoria academy guest library": 1,
      "Cyoria formula workshop": 1,
      "Cyoria supervised practice court": 1,
-     "Cyoria sewer service hatch": 1
+     "Cyoria sewer service hatch": 1,
+     "Cyoria tavern meeting": 1,
+     "Noveda mansion": 1,
+     "Cyoria festival dance hall": 1
     },
     "person": {
      "book.mol.imaya": 1,
@@ -435,7 +453,10 @@
      "Cyoria academy guest library": 1,
      "Cyoria formula workshop": 1,
      "Cyoria supervised practice court": 1,
-     "Cyoria sewer service hatch": 1
+     "Cyoria sewer service hatch": 1,
+     "Cyoria tavern meeting": 1,
+     "Noveda mansion": 1,
+     "Cyoria festival dance hall": 1
     },
     "person": {
      "book.mol.imaya": 1,
@@ -572,7 +593,10 @@
       "Cyoria academy guest library": 1,
       "Cyoria formula workshop": 1,
       "Cyoria supervised practice court": 1,
-      "Cyoria sewer service hatch": 1
+      "Cyoria sewer service hatch": 1,
+      "Cyoria tavern meeting": 1,
+      "Noveda mansion": 1,
+      "Cyoria festival dance hall": 1
      },
      "person": {
       "book.mol.imaya": 1,
@@ -1768,7 +1792,10 @@
     "Cyoria sewer service hatch": 1,
     "Proto23 Village Center": 0,
     "Proto23 Dojo lobby": 0,
-    "Proto23 visitor cottage": 0
+    "Proto23 visitor cottage": 0,
+    "Cyoria tavern meeting": 1,
+    "Noveda mansion": 1,
+    "Cyoria festival dance hall": 1
    }
   },
   "snapshotNativeStockEqualsSave": [

@@ -69,12 +69,13 @@ test('a pass with a partial marker is not done, so the planner re-reads it', () 
     assert.ok(!passDone('scenes', 'x2c001', new Set(['x2c001Lm_census.jsonl'])));
 });
 
-test('--schema 1.4 stamps schemaVersion on a plan; the default leaves no field and the same key order', () => {
+// New plans default to schema 1.5 with a reading block (reading levels, 2026-11-08); --schema 1.4 keeps the older explicit shape.
+test('a new plan defaults to schema 1.5 with a reading block; --schema 1.4 changes only the version, in the same key order', () => {
     const args = {world: 'w', lang: 'en', pass: 'rules', priv: '/p', glossary: {}, label: 'x-rules', shards: []};
     const plain = planObject(args), v14 = planObject({...args, schema: '1.4'});
-    assert.ok(!('schemaVersion' in plain));
+    assert.equal(plain.schemaVersion, '1.5');
     assert.equal(v14.schemaVersion, '1.4');
-    const {schemaVersion, ...rest} = v14;
-    assert.deepEqual(rest, plain);
-    assert.deepEqual(Object.keys(plain), ['world', 'model', 'maxTokens', 'outTokensAssumed', 'effort', 'schemaMode', 'privateDir', 'outDir', 'glossary', 'label', 'pass', 'shards']);
+    assert.deepEqual(plain.reading, {level: 'L1', relevance: ['reference'], review: 'not-reviewed'});
+    assert.deepEqual({...v14, schemaVersion: '1.5'}, plain);
+    assert.deepEqual(Object.keys(plain), ['world', 'model', 'maxTokens', 'outTokensAssumed', 'effort', 'schemaMode', 'schemaVersion', 'reading', 'privateDir', 'outDir', 'glossary', 'label', 'pass', 'shards']);
 });

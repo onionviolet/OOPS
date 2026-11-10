@@ -10,6 +10,15 @@
    ],
    "ref": "7b888db3",
    "private": true
+  },
+  "CTR2|537f632d8062": {
+   "code": "CTR2",
+   "world": "lotm",
+   "files": [
+    "private_packs/lotm-cast/cast.json"
+   ],
+   "ref": "b82c3230",
+   "private": true
   }
  }
 }
