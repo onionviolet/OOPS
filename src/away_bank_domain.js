@@ -13,11 +13,28 @@ import {computeAway} from './away_ledger.js';
 // Patient Furnace rule: while its routine is assigned it accrues the same wall time itself, so
 // this ledger only rebases and does not also credit it.
 export const AWAY_BANK_DEFAULTS=Object.freeze({capacity:7*24*60,spendMinutes:60,minReport:1});
+// TMR6 (RCL6): the one bank's cap starts at 7 days and grows through registered sources (play, cheats, research,
+// items: BT6). Each source returns extra minutes and states its reason; the projection lists them. The first source is
+// play itself. Proposal dial: one more day of capacity per 30 played days. Uncapped stays a dial (a source may return
+// Infinity). Other banks draw from this one at their own efficiency (the Mistglass practice) or rebase on it (the Furnace).
+const capacitySources=new Map();
+export function registerAwayCapacity(id,source){
+    if(typeof id!=='string'||!id||typeof source?.minutes!=='function'||typeof source.reason!=='string')throw new Error('Invalid away capacity source.');
+    if(capacitySources.has(id))throw new Error(`Away capacity source ${id} is already registered.`);
+    capacitySources.set(id,source);
+}
+export const AWAY_GROWTH_PLAY=Object.freeze({playedMinutesPerDay:30*24*60,
+    reason:'Every 30 days you have played, the bank keeps one more day of unused time.'}); // proposal dial (TMR6)
+registerAwayCapacity('play',{minutes:root=>Math.floor((root?.clock??0)/AWAY_GROWTH_PLAY.playedMinutesPerDay)*24*60,reason:AWAY_GROWTH_PLAY.reason});
+function capacityParts(){
+    const root=ports?.root?.();
+    return [...capacitySources].map(([id,s])=>{const n=s.minutes(root);return {id,minutes:Number.isFinite(n)||n===Infinity?Math.max(0,n):0,reason:s.reason};}).filter(p=>p.minutes>0);
+}
 const natural=n=>Number.isSafeInteger(n)&&n>=0;
 let ports=null,state=null,pending=null,busy=false,lastSpend='';
 export function configureAwayBank(operations){ports=operations;}
 const now=()=>ports?.now?.()??Date.now();
-const capacity=()=>Math.max(AWAY_BANK_DEFAULTS.capacity,ports?.capacity?.()??0);
+const capacity=()=>Math.max(AWAY_BANK_DEFAULTS.capacity+capacityParts().reduce((n,p)=>n+p.minutes,0),ports?.capacity?.()??0);
 export function savedAtMs(stamp){
     const m=/^(\d{4})-(\d{2})-(\d{2}) (\d{2})_(\d{2})_(\d{2})$/.exec(stamp??'');
     return m?new Date(+m[1],+m[2]-1,+m[3],+m[4],+m[5],+m[6]).getTime():NaN;
@@ -37,6 +54,15 @@ function settle(){
     const banked=Math.min(capacity(),r.bankedMinutes),gained=Math.max(0,banked-state.bankedMinutes);
     state.bankedMinutes=banked;state.remainderMs=r.stoppedBy==='clock-back'?0:r.remainderMs;state.lastSeen=at;
     if(r.overflowMinutes>=AWAY_BANK_DEFAULTS.minReport)state.lastReturn={minutes:r.overflowMinutes,banked:gained,dropped:r.overflowMinutes-gained};
+}
+// The balance another bank may draw from (TMR6), and the debit after its own plan saved.
+export function awayBankBalance(){settle();return state?state.bankedMinutes:0;}
+export function takeAwayBank(minutes){
+    settle();
+    if(!state)throw new Error('The game is still loading.');
+    const n=Math.min(Math.max(0,Math.floor(minutes)),state.bankedMinutes);
+    if(n>0){state.bankedMinutes-=n;ports?.persist?.(()=>{});}
+    return n;
 }
 export async function spendAwayBank(minutes=AWAY_BANK_DEFAULTS.spendMinutes){
     settle();
@@ -64,7 +90,7 @@ export const awayBankDomain=registerDomain({id:'awayBank',initialState:()=>null,
     },
     projection:()=>{
         if(!state)return null;settle();
-        return {bankedMinutes:state.bankedMinutes,capacity:capacity(),lastReturn:state.lastReturn,lastSpend,spendMinutes:Math.min(AWAY_BANK_DEFAULTS.spendMinutes,state.bankedMinutes),
+        return {bankedMinutes:state.bankedMinutes,capacity:capacity(),capacitySources:capacityParts(),lastReturn:state.lastReturn,lastSpend,spendMinutes:Math.min(AWAY_BANK_DEFAULTS.spendMinutes,state.bankedMinutes),
             busy,writable:ports?.writable?.()!==false};
     },
     commands:{spend:spendAwayBank}});

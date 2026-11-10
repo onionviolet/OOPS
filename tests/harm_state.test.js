@@ -107,7 +107,7 @@ test('death ends a travel-world life once and exposes an independent read model'
     const harm=harmView({...ended,harm:{schema:1,backlash:{power:6}}});
     assert.deepEqual(harm.lastDeath,{cause:'loss_of_control',outcome:'final'});assert.equal(harm.rung,null);
     assert.deepEqual(harm.carriers,[{id:'power',label:'Power strain',count:6,stage:'slipping',stageLabel:'Slipping',
-        blocked:['ritual','research'],recovers:{rest:0.25,treated:1}}]);
+        blocked:['ritual','research'],recovers:{rest:0.25,treated:1},holds:false}]);
     harm.carriers[0].blocked.push('rest');assert.equal(rules.carriers.power.stages[2].blocks.length,2);
     assert.deepEqual(harmView(fresh('unbound.world')),{carriers:[],rung:null,parts:[],lastDeath:null});
 });

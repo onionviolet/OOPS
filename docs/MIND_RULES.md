@@ -90,7 +90,7 @@ Hard cases, settled as defaults: hidden long-term control (a planted suggestion)
 
 ## Open details
 
-- Two LOTM loss accumulators run in parallel: `book.lotm.pressure` (loss at 6) and the `harm_state` power carrier (lost at 9 with a 30-minute death clock). MND8 says one carrier; the death clock needs a check against BHR18.
+- Resolved 2026-11-10 (RCL5): the two LOTM loss accumulators are one `harm` power carrier; cause rows write an inbox that drains onto it at 1.5x, lost holds, and the 30-minute grace runs in play only.
 - `harm_state.js` has body parts but no mind or soul part (MND1).
 - No mood state exists (MND5); LSD397 is blocked on it.
 - The trait registry tunes memory, trust and gossip and nothing else yet; temper and risk dials are unwritten (MND2).

@@ -4,7 +4,9 @@ import {retainShopStock} from '../../shop_locks.js';
 import {validateCultivationRoot} from '../../cultivation_root.js';
 import {SEALED_CONDENSATE,CLUTCH} from '../../cultivation_items.js';
 import {controlledPurgeKnown,inquiryView,stageInquiry} from '../../mistglass_inquiry.js';
-import {armAway,bankAway,validateAway} from '../world_adaptation/away.js';
+import {armAway,bankAway,validateAway,AWAY_EFFICIENCY} from '../world_adaptation/away.js';
+// TMR6 (RCL6): absence practice draws from the one away bank; the host debits what it drew once the plan is saved.
+export function debitMistglassDraw(plan,take){const drew=plan.state.worldAdaptation?.techniques?.away?.last?.minutes??0;return drew>0&&plan.state.worldAdaptation.techniques.away.last.kind==='bank'?take(Math.ceil(drew/AWAY_EFFICIENCY)):0;}
 import {planPathWork,quotePathWork} from '../../mistglass_path_work.js';
 import {assertNativeItemDisposition} from '../../native_gameplay_adapter.js';
 import {retainMistglassOrigin,validateMistglassOrigin,observeMistglassHistory,mistglassHistoryView,MISTGLASS_HISTORY_SITUATION} from '../../mistglass_history.js';
@@ -32,7 +34,7 @@ export function registerMistglassNative(registry){
 function mistglassHistory(state){const ids=Object.keys(sluiceHistories);return {schema:1,id:ids[Math.floor(keyedUnit(state,scopedStream('world.events:p23.mistglass.history',P.worldId),'origin')*ids.length)],drawnAt:state.clock};}
 export function mistglassHistoryAccount(state){const h=state.mistglassRealm?.history,k=state.simulation?.knowledge?.player?.['p23.mistglass.history'];return h&&k?.stage==='seen'?sluiceHistories[h.id].account:null;}
 export function mistglassReserve(state){return state.simulation?.energies?.player?.[P.resourceId]?.reserve;}
-export function mistglassContext(state,{body,alive,location,inventory={},materialClock=state.clock,wallNowMs,ruleRelic=null,lawMemory=null,rootAffinity=null,choiceWaiting=false,effectsEnabled=false,optIn=false}={}){
+export function mistglassContext(state,{awayBankMinutes,body,alive,location,inventory={},materialClock=state.clock,wallNowMs,ruleRelic=null,lawMemory=null,rootAffinity=null,choiceWaiting=false,effectsEnabled=false,optIn=false}={}){
     if(rootAffinity)validateCultivationRoot(rootAffinity);
     check(body && typeof body.id==='string','Use the actual native body owner.');
     const raw=state.simulation?.conditions?.player?.[P.blockedConditionId];
@@ -41,7 +43,7 @@ export function mistglassContext(state,{body,alive,location,inventory={},materia
     if(raw && (raw.expiresAt===null||raw.expiresAt>state.clock))conditionIds.push(P.blockedConditionId);
     return {clock:state.clock,worldId:state.actors.player.worldId,instanceId:state.mistglassRealm?.instance.id,
         bodyId:body.id,bodyForm:body.form,ownerId:body.ownerId,controllerId:body.controllerId,alive:alive===true,
-        conditionIds,optIn,inventory,materialClock,wallNowMs,ruleRelic,lawMemory,rootAffinity,controlledPurge:controlledPurgeKnown(state),pressureInsight:pressureTimingKnown(state),choiceWaiting:choiceWaiting||!!state.simulation?.sessions?.player,methodKnown:state.simulation?.knowledge?.player?.['p23.mistglass.method']?.stage==='understood',effectsEnabled,sluiceHistory:state.mistglassRealm?.history?.id??null};
+        conditionIds,optIn,inventory,materialClock,wallNowMs,awayBankMinutes,ruleRelic,lawMemory,rootAffinity,controlledPurge:controlledPurgeKnown(state),pressureInsight:pressureTimingKnown(state),choiceWaiting:choiceWaiting||!!state.simulation?.sessions?.player,methodKnown:state.simulation?.knowledge?.player?.['p23.mistglass.method']?.stage==='understood',effectsEnabled,sluiceHistory:state.mistglassRealm?.history?.id??null};
 }
 export function validateMistglassEnvelope(save){
     const state=save.expansion;if(!state)return;
@@ -213,7 +215,8 @@ function stageMistglassAway(plan,c,registry,action,{advance}={}){
  s.techniques ||= freshCultivation();const previous=s.techniques.away;
  if(action==='arm')s.techniques.away=armAway(previous,plan.state.clock,c.wallNowMs);
  else if(action==='stop'){check(previous,'No absence policy is selected.');previous.armed=false;previous.last={kind:'stop',minutes:0,dropped:0,condensate:0};}
- else if(action==='bank')s.techniques.away=bankAway(previous,plan.state.clock,c.wallNowMs);
+ // TMR6 (RCL6): the draw is bounded by the native away bank; the host debits what was drawn after the plan saves.
+ else if(action==='bank')s.techniques.away=bankAway(previous,plan.state.clock,c.wallNowMs,{available:c.awayBankMinutes??Infinity});
  else if(action==='spend'){
   check(previous?.bank>0&&typeof advance==='function','Bank eligible absence minutes before spending them.');
   const beforeClock=plan.state.clock,beforeReserve=mistglassReserve(plan.state),requested=previous.bank,advanced=advance(plan,requested);

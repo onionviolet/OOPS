@@ -44,7 +44,8 @@ export const HARM_WORLDS = freeze({
             {id:'slipping',label:'Slipping',at:6,blocks:['ritual','research'],
                 modifiers:[{axis:'precision',mult:0.75,reason:'Proposed dial: unstable control reduces precision before it stops other activity.'}]},
             {id:'lost',label:'Lost control',at:9,blocks:ACTION_CLASSES.filter(id=>!['rest','care','travel'].includes(id))}
-        ],floor:0,restPerHour:0.25,treatedPerHour:1,riseScale:1}},
+        ],floor:0,restPerHour:0.25,treatedPerHour:1,riseScale:1,holdsFrom:9,
+            holdsReason:'Canon calibration (AD49, LOTM_RULES L7: pre-signs are reversible, full loss is not): once the lost stage is reached, rest and relief no longer lower the count. Dial: a world, rank or means may lower or remove this hold with an in-world cost.'}},
         sources:{
             cast:{carrier:'power',base:0.5,perRankGap:0.5,reason:'Proposed dial: a cast strains the caster a little, and reaching past its comfortable rank strains more; worlds and sequences replace both numbers.'},
             act:{carrier:'power',base:1,reason:'Proposed dial: a rite or craft row names its own weight; this is the fallback when the row omits one.'},
@@ -138,9 +139,23 @@ export function restBacklash(value, rules, carrier, {minutes,treated=false}) {
     check(Number.isFinite(minutes) && minutes >= 0 && typeof treated === 'boolean', 'Invalid backlash recovery.');
     const row = carrierRule(rules,carrier), next = structuredClone(value ?? fresh());
     const before = next.backlash[carrier] ?? row.floor;
-    next.backlash[carrier] = Math.max(row.floor,before-minutes/60*(treated ? row.treatedPerHour : row.restPerHour));
+    if (!held(row,before)) next.backlash[carrier] = Math.max(row.floor,before-minutes/60*(treated ? row.treatedPerHour : row.restPerHour));
     validateHarm(next);
     return {state:next,record:{carrier,minutes,treated,before,after:next.backlash[carrier]}};
+}
+// A carrier may hold its count once it reaches `holdsFrom` (a world dial with its reason).
+const held = (row, count) => Number.isFinite(row.holdsFrom) && count >= row.holdsFrom;
+// Relief from an act (a steadying, a self-addressed rite): lowers the count by an amount, to the floor,
+// unless the carrier holds (MND8: one carrier, every source and relief goes through it).
+export function relieveBacklash(value, rules, carrier, {source,amount}) {
+    validateHarm(value);
+    check(typeof source === 'string' && source.trim().length > 0 && source.length <= 120, 'Invalid backlash source.');
+    check(Number.isFinite(amount) && amount >= 0, 'Invalid backlash relief.');
+    const row = carrierRule(rules,carrier), next = structuredClone(value ?? fresh());
+    const before = next.backlash[carrier] ?? row.floor;
+    if (!held(row,before)) next.backlash[carrier] = Math.max(row.floor,before-amount);
+    validateHarm(next);
+    return {state:next,record:{carrier,source,before,after:next.backlash[carrier],relief:true}};
 }
 export function actionGate(stage, actionClass) {
     check(ACTION_CLASSES.includes(actionClass), 'Unknown harm action class.');
@@ -232,7 +247,7 @@ export function harmView(save) {
     const carriers = Object.entries(rules.carriers).map(([id,row])=>{
         const count = save?.harm?.backlash?.[id] ?? row.floor, stage = backlashStage(rules,id,count);
         return {id,label:row.label,count,stage:stage.id,stageLabel:stage.label,blocked:[...stage.blocks],
-            recovers:{rest:row.restPerHour,treated:row.treatedPerHour}};
+            recovers:{rest:row.restPerHour,treated:row.treatedPerHour},holds:held(row,count)};
     });
     const last = save?.continuation?.deaths?.findLast(entry=>entry.cause !== undefined);
     const parts = Object.entries(save?.harm?.parts ?? {}).flatMap(([id,part])=>{

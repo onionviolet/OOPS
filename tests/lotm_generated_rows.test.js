@@ -49,7 +49,7 @@ test('brewed Spectator: drink, act, feel the digestion, then Telepathist; ledger
 test('stated causes apply: Telepathist before the potion settles, and Spectator on top of another pathway',()=>{
  let p=brew(begin(),'visionary_9');p=run(p,'drink_vi9');
  let q=brew(p,'visionary_8');refuses(q,'drink_vi8');q=run(q,'drink_vi8_rushed');ok(q);
- assert.equal(f(q)['lotm.pressure'],5);assert.equal(f(q)['lotm.presign'],true);assert.equal(f(q)['lotm.lostControl'],false);
+ assert.equal(f(q)['lotm.pressure'],7.5);assert.equal(f(q)['lotm.presign'],true);assert.equal(f(q)['lotm.lostControl'],false);
  let s=run(begin(),'accept_allocation');s=run(s,'ingest');s=brew(s,'visionary_9');
  refuses(s,'drink_vi9');s=run(s,'drink_vi9_foreign');ok(s);assert.equal(f(s)['lotm.lostControl'],true);
 });

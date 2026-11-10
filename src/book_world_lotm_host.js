@@ -55,7 +55,8 @@ import {lotmRegionAt} from './book_world_lotm_cities.js';
 import {lotmRestrictions,lotmLight} from './book_world_lotm_events.js';
 import {lotmUpcoming} from './book_world_lotm_upcoming.js';
 import {lotmSheetsFor} from './book_world_lotm_sheets.js';
-import {harmContext,accrueHarm,restHarm,lostControlOutcome} from './book_world_lotm_harm.js';
+import {harmContext,accrueHarm,restHarm,lostControlOutcome,lossOfControlStep,harmClassOf,drainLotmInbox} from './book_world_lotm_harm.js';
+import {harmState,setHarmState} from './harm_state.js';
 import {districtOfPlace,districtById,respondersFor,lotmWalkMinutes,LOTM_PLACE_KEYS,onShift} from './book_world_lotm_districts.js';
 const copy=x=>structuredClone(x),assert=(ok,text)=>{if(!ok)throw Error(text);};
 // A walk's arrival record cites the workroom situation, which begins when you report in (or your life's own first report).
@@ -127,7 +128,7 @@ export function createLotmHost(ports){
  const sleepingCommand=id=>id===SLEEP||registry.simulation.commands.get(id)?.group==='book_lotm'&&registry.simulation.commands.get(id)?.bodyCare?.kind==='sleep';
  const sleepJob=s=>s.simulation?.jobs?.find(j=>sleepingCommand(j.commandId)&&j.actorId==='player');
  function ctx(s,def,nativeContext){const c=nativeContext||ports.context(),vitals=c.vitals||{};
-  const out=lotmContext(s,{...c,actorId:'player',vitalsByActor:c.vitalsByActor||vitals,busy:!!ports.busy(),targetId:def?.targetId||null});if(lotmBe(s))out.facts['lotm.profile.beside']=true;out.facts['bodyCare.sleeping']=!!ports.sleeping();out.facts['topicTalk.hour']=castCalendar(s).calendar.hour;return castJourneyContext(s,def?{...out,...harmContext(s,def)}:out);}
+  const out=lotmContext(s,{...c,actorId:'player',vitalsByActor:c.vitalsByActor||vitals,busy:!!ports.busy(),targetId:def?.targetId||null,harm:harmState()});if(lotmBe(s))out.facts['lotm.profile.beside']=true;out.facts['bodyCare.sleeping']=!!ports.sleeping();out.facts['topicTalk.hour']=castCalendar(s).calendar.hour;return castJourneyContext(s,def?{...out,...harmContext(s,def)}:out);}
  const base=(s,c)=>({state:copy(s),external:copy(c.external||{}),gameplay:copy(c.gameplay||{}),gameplayBefore:copy(c.gameplay||{}),vitals:copy(c.vitals||{}),equipment:copy(c.equipment||{}),acquisitions:[],unlocks:[]});
  function writable(){assert(ports.writable(),'Saving is paused, so the branch cannot change now.');assert(!lotmBe(state())||validLeadLife(getPrivateLotmCast()),'Cast unavailable: private pack absent. This life is read-only.');}
  function recordEmergent(plan,def){
@@ -215,14 +216,17 @@ export function createLotmHost(ports){
    recordEmergent(plan,def);persist(plan);ports.endSleep();return plan;
   }
   assert(!ports.sleeping(),'You\'re asleep. Wake up first.');
-  assert(!ctx(s,def).facts['lotm.lostControl'],'You have lost control. Nothing you do here changes it.');
+  // AD50 (RCL5): at the lost stage only rest, care and travel remain (the carrier's own action gate); the grace clock runs.
+  assert(!ctx(s,def).facts['lotm.lostControl']||['rest','care','travel'].includes(harmClassOf(def)),'You have lost control. Only rest, care or getting somewhere safe is still possible.');
   if(lotmCastLife(s)){const quote=castTalkPreview(s,def,previewSimulationCommand(s,registry,id,ctx(s,def)));
    assert(quote.eligible,quote.reasons.join(' ')||'This command is hidden.');}
   const commit=commandId=>commitSimulationCommand(s,registry,{id:commandId},ctx(s,def),s.sequence);
   const plan=def.castAbility?commitCastAbility(castAbilityCommands,id,{state:s,context:ctx(s,def),commit}):commit(id);
   recordEmergent(plan,def);
   syncLotmCast(plan.state);
+  const drained=drainLotmInbox(plan.state,harmState());
   persist(plan);
+  if(drained)setHarmState(drained);
   accrueHarm(plan.state,def);
   if(id===SLEEP||def.bodyCare?.kind==='sleep')ports.beginSleep();
   return plan;
@@ -249,10 +253,14 @@ export function createLotmHost(ports){
   plan.state.simulation.people.player.location=to;castWriteCode(plan.state,'location:player','emergent');plan.nativeLocation=to;plan.nativePatch={'current location':to};
   syncLotmCast(plan.state);persist(plan);return plan;
  }
+ // MND8 (RCL5): a completed job (the self rite) or another route may leave loss-of-control inbox amounts; move them onto
+ // the one carrier in a saved plan, then set the slice (persist throws when saving is paused, and nothing moves).
+ function drainInbox(s){const r=s.actors?.player?.resources;if(!(r?.['book.lotm.pressure']>0||r?.['book.lotm.relief']>0)||!ports.writable())return;
+  const plan=base(s,ports.context()),drained=drainLotmInbox(plan.state,harmState());if(!drained)return;persist(plan);setHarmState(drained);}
  // Native sleep ended by any cause before the job finished: the job is forfeited, nothing is restored (D4).
  function wake(){const s=state(),job=s.lotm&&sleepJob(s);if(job&&!ports.restoring()&&ports.writable())cancel(job.id);}
  // The job finished (or was cancelled) while native sleep was still on: end native sleep once.
- function tick(minutes=0){const s=state();if(s.lotm){if(ports.sleeping())restHarm(s,minutes);else if(!dying&&ports.die&&ports.writable()&&lostControlOutcome(s)?.default==='final'){dying=true;try{domainRegistry.command('positions','died')({state:s,at:s.clock});}catch{/* positions settle on the next tick */}Promise.resolve(ports.die('loss_of_control')).finally(()=>{dying=false;});}}if(lotmCastLife(s)&&(castSyncDue(s)||castBeatsPending(s))&&ports.writable()&&(!lotmBe(s)||validLeadLife(getPrivateLotmCast()))){const plan=base(s,ports.context());if(syncLotmCast(plan.state)||castBeatsPending(plan.state))persist(plan);}if(s.lotm&&ports.sleeping()&&!sleepJob(s))ports.endSleep();}
+ function tick(minutes=0){const s=state();if(s.lotm){drainInbox(s);if(ports.sleeping())restHarm(s,minutes);if(!dying&&ports.die&&ports.writable()&&lossOfControlStep(s,{minutes,skipping:!!ports.skipping?.()}).die&&lostControlOutcome(s)?.default==='final'){dying=true;try{domainRegistry.command('positions','died')({state:s,at:s.clock});}catch{/* positions settle on the next tick */}Promise.resolve(ports.die('loss_of_control')).finally(()=>{dying=false;});}}if(lotmCastLife(s)&&(castSyncDue(s)||castBeatsPending(s))&&ports.writable()&&(!lotmBe(s)||validLeadLife(getPrivateLotmCast()))){const plan=base(s,ports.context());if(syncLotmCast(plan.state)||castBeatsPending(plan.state))persist(plan);}if(s.lotm&&ports.sleeping()&&!sleepJob(s))ports.endSleep();}
  // Standing orders (OB1/OB4): rent and dues leave the native purse through the purse seam on the clock, in one save with the duties slice. Throws when saving is paused.
  const purseBalance=()=>{const m=ports.context().external?.money;assert(Number.isFinite(m),'The purse is not readable now.');return m;};
  // Read the current life's actual inventory. Unknown or protected goods have no seizure value.

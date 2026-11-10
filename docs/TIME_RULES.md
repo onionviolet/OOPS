@@ -70,7 +70,7 @@ Owners and neighbours (linked, not restated): Rulebook 7 in [RULES_FROM_SCRATCH]
 ## Open details
 
 - AD16 says routines progress while away; the code banks and spends. TMR5 states that as the default; an auto-spend option is open.
-- Three banks with three caps (TMR6).
+- Resolved 2026-11-10 (RCL6): one bank. The Mistglass practice draws from it at an efficiency dial, the Furnace rebases on it, and the cap grows through registered sources (play first) shown in the projection (TMR6).
 - LOTM keeps its own day formula in two places (TMR1).
 - No slice-equivalence test for catch-up draws (TMR4).
 - AD17's recap has no owner (TMR10).

@@ -89,3 +89,23 @@ test('digest row shows the bank and spends it from the button', async () => {
     await btn.click(); assert.equal(spent, 1);
     row.update(null, {bank: {bankedMinutes: 0, lastReturn: null}}); assert.equal(row.node.hidden, true);
 });
+
+test('one bank with a growing cap (TMR6, RCL6): play adds a day per 30 played days and the projection says why', () => {
+    const was = clock;
+    try {
+        clock = 0; loadAway(30 * 24 * 60 * MIN);
+        assert.equal(project().capacity, 7 * 24 * 60);assert.deepEqual(project().capacitySources, []);
+        clock = 60 * 24 * 60; loadAway(30 * 24 * 60 * MIN);
+        assert.equal(project().capacity, 9 * 24 * 60, 'two more days after 60 played days');
+        assert.equal(project().bankedMinutes, 9 * 24 * 60);assert.equal(project().capacitySources[0].id, 'play');
+        assert.match(project().capacitySources[0].reason, /30 days/);
+    } finally {clock = was;}
+});
+
+test('another bank draws from this one and the draw is debited (TMR6, RCL6)', async () => {
+    const {awayBankBalance, takeAwayBank} = await import('../src/away_bank_domain.js');
+    loadAway(10 * MIN);
+    assert.equal(awayBankBalance(), 10);
+    assert.equal(takeAwayBank(4), 4);assert.equal(awayBankBalance(), 6);
+    assert.equal(takeAwayBank(50), 6, 'a draw never takes more than the bank holds');assert.equal(awayBankBalance(), 0);
+});

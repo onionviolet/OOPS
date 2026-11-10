@@ -54,7 +54,7 @@ test('route: brew Bard, drink, act, judge by feel, brew Light Supplicant, drink;
 test('stated causes apply to Sun: rushed Light Supplicant, and Bard on top of another pathway',()=>{
  let p=run(brew(begin(),'sun_9'),'drink_su9');
  let q=brew(p,'sun_8');refuses(q,'drink_su8');q=run(q,'drink_su8_rushed');ok(q);
- assert.equal(f(q)['lotm.pressure'],5);assert.equal(f(q)['lotm.presign'],true);assert.equal(f(q)['lotm.lostControl'],false);
+ assert.equal(f(q)['lotm.pressure'],7.5);assert.equal(f(q)['lotm.presign'],true);assert.equal(f(q)['lotm.lostControl'],false);
  let s=run(run(begin(),'accept_allocation'),'ingest');s=brew(s,'sun_9');
  refuses(s,'drink_su9');s=run(s,'drink_su9_foreign');ok(s);assert.equal(f(s)['lotm.lostControl'],true);
 });

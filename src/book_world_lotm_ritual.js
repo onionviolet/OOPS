@@ -99,7 +99,7 @@ const guard=extra=>({cancellation:'refund',completionRequires:all(home,...extra)
 const eases=(id,spend,reserve,cost)=>why(cmd(id,`Light the circle and address the rite to yourself · ${SELF_RITE.rite} min · ${cost} and 1 attention, both returned on Stop · eases ${SELF_RITE.relief} pressure`,L.workroom,{
  targetId:I.supervisor,once:false,visibleWhen:all(known,eq(`lotm.rit.self.${reserve}`)),requires:all(home,known,eq(`lotm.rit.self.${reserve}`),ready,presign),
  duration:SELF_RITE.rite,costs:[spend,attention()],...guard([known,eq(`lotm.rit.self.${reserve}`),ready,presign]),
- effects:[attention(1),{type:'resource',actor:'player',key:'book.lotm.pressure',amount:-SELF_RITE.relief},
+ effects:[attention(1),{type:'resource',actor:'player',key:'book.lotm.relief',amount:SELF_RITE.relief},
   know('rit.self.response','The candle took, and the words you addressed to yourself came back as a quiet weight behind the eyes. The hum eased a step while Hale watched. The circle is spent: another rite needs another preparation, and past the loss line no rite eases anything.','player','player','observation','understood')]}),
  `Needs Hale here, the taught rite, ${cost}, an unlit circle prepared here since your last walk (a walk away ends it; returning does not revive it) and pre-signs short of the loss line.`);
 export const selfRiteCommands=[

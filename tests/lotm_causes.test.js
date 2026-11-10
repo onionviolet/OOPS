@@ -8,7 +8,8 @@ import {validateLotmEnvelope} from '../src/book_world_lotm_envelope.js';
 // B3: the stated causes of loss of control are rows that add pressure; the acts are possible (through a broker's unmarked dose) and costly.
 // An ordinary day adds none; pre-signs ease with guided attention; the loss line ends the branch.
 const refuses=(p,id)=>assert.throws(()=>run(p,id));
-const pressure=p=>p.state.actors.player.resources['book.lotm.pressure']||0;
+// MND8 (RCL5): the one power carrier's count, inbox included, in carrier units (source amounts x1.5).
+const pressure=p=>lotmFacts(p.state,ctx(p))['lotm.pressure'];
 const ok=p=>{assert.ok(validateLotmState(p.state));assert.ok(validateLotmEnvelope(save(p)));return p;};
 const buy=(p,lot)=>{p=at(p,L.docks);for(const t of ['pay','verify','settle'])p=run(p,`lot_${t}_${lot}`);return p;};
 const seer=()=>{let p=run(fresh(40000),'report_in');p=run(p,'accept_allocation');return run(p,'ingest');};
@@ -32,9 +33,9 @@ test('a wrong-pathway potion on top of another pathway is switching: both causes
 test('skipping and rushing: a bought Sequence 8 dose drunk before the assessment adds pressure and pre-signs that guided attention eases',()=>{
  let p=buy(cc(),'dose8_cc');
  refuses(seer(),'drink_market_cc8');
- p=at(p,L.docks);p=run(p,'drink_market_cc8');assert.equal(pressure(p),5);ok(p);
+ p=at(p,L.docks);p=run(p,'drink_market_cc8');assert.equal(pressure(p),7.5);ok(p);
  const f=lotmFacts(p.state,ctx(p));assert.equal(f['lotm.presign'],true);assert.equal(f['lotm.lostControl'],false);
- p=at(p,L.workroom);p=run(p,'steady');assert.equal(pressure(p),4);p=run(p,'steady');assert.equal(pressure(p),3);ok(p);
+ p=at(p,L.workroom);p=run(p,'steady');assert.equal(pressure(p),6);p=run(p,'steady');assert.equal(pressure(p),4.5);ok(p);
  refuses(p,'request_assessment_cc');
  assert.ok(p.state.actors.player.sources[I.gravedigger]);
 });
