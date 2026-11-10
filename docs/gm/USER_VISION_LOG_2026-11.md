@@ -877,3 +877,11 @@ Weibao asked:
 > Deep level stuff to take?  Other stuff and more? other stuff that can use decompiled stuff rather than just hte pet stuff? Send chat to digest pet stuff
 
 Recorded: a separate session digests the held pet captures (CPR22, CPR23). Round 5 of the [coverage audit](../audits/FOUNDATIONAL_RULES_COVERAGE_2026-11-10.md#round-5-2026-11-10-what-the-decompile-bank-gives-the-open-gaps) maps bank systems to open gaps (FRC38–FRC50), as proposals; nothing is built.
+
+## Cross-world rulebook, 2026-11-10
+
+Weibao asked:
+
+> Another caht to work on the cross world rulebook?
+
+Recorded: [CROSS_WORLD_RULES](../CROSS_WORLD_RULES.md) XWR1–XWR28 drafts FRC18 as working defaults under AD56 (AD32, proposals): the hub and home, the carry list per crossing, authority per edge, time across worlds, local prices and conserved cross-world stock, travel authorities, converged worlds and what others know of a traveler. It links WER, WKR17, multiverse structures, ITM, TIE25, KNW and CHT rather than restating them. Three lines limit options and wait for his answer as LLR34–LLR36 (titles abroad, bodies the destination cannot support, counterparts as different people); nothing is built.
