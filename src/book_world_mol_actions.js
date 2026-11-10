@@ -10,6 +10,7 @@ import {molDivinationFacts} from './mol_zorian_divination.js';
 import {molAraneaFacts} from './mol_zorian_aranea.js';
 import {molStudyMonthFacts} from './mol_zorian_study_months.js';
 import {molArcFacts} from './mol_zorian_arc_one.js';
+import {molResearchFacts} from './mol_zorian_research.js';
 const freeze=v=>{if(v&&typeof v==='object'){Object.values(v).forEach(freeze);Object.freeze(v);}return v;};
 const installed=packNative('book.mol');
 const {commands,controllers,powers,conditions,encounters,situations}=installed.definitions;
@@ -43,7 +44,7 @@ export function molFacts(state,ctx={}){
  f['mol.hatchReturnSupported']=['avoided','deterred','negotiated'].includes(worldFacts['book.mol.hazard'])&&worldFacts['book.mol.forecast']==='residue_and_movement';
  f['mol.outcomeResolved']=['paid','failed','declined','withdrawn'].includes(worldFacts['book.mol.retrieval'])||worldFacts['book.mol.retrieval']==='late'&&state.actors?.player?.facts?.['book.mol.lateAcknowledged']===true;
  for(const [owner,bag]of Object.entries(n.stock||{}))for(const [key,count]of Object.entries(bag))f[`mol.stock.${owner}.${key}`]=count;
- Object.assign(f,molSensingFacts(state),molCloudSensingFacts(state),molDivinationFacts(state,{compass:held('player',K.compass)}),molAraneaFacts(state,{barrierCubes:held('player',K.barrierCubes)}),molStudyMonthFacts(state),molArcFacts(state,{watch:held('player',K.watch),rod:held('player',K.spellRod),relay:held('player',K.relay),supplies:held('player',K.escapeGear),revolver:held('player',K.revolver)}));
+ Object.assign(f,molSensingFacts(state),molCloudSensingFacts(state),molDivinationFacts(state,{compass:held('player',K.compass)}),molAraneaFacts(state,{barrierCubes:held('player',K.barrierCubes)}),molStudyMonthFacts(state),molArcFacts(state,{watch:held('player',K.watch),rod:held('player',K.spellRod),relay:held('player',K.relay),supplies:held('player',K.escapeGear),revolver:held('player',K.revolver)}),molResearchFacts(state));
  Object.assign(f,molLoreInstitutionFacts(state,{ownedLamp:held('player',K.lamp)+acceptedTool(K.lamp)>=1}));
  return f;
 }

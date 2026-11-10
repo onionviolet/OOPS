@@ -85,5 +85,5 @@ Owners and neighbours (linked, not restated): Rulebook 5 and 6 in [RULES_FROM_SC
 - No owner for the examination act outside features (KNW8).
 - No document owner for texts (KNW16).
 - The knowledge rule-behavior route covers two test files (Building step 5).
-- Research has no lead-world caller for `invention_planner.js`; `inquiry_study.js` serves the Village alone (KNW13).
+- Research has one lead-world caller: Mother of Learning's Zorian ward-question row (`src/mol_zorian_research.js`, 2026-11-10, proposal) feeds `invention_planner.js` and writes entries through pack commands; `inquiry_study.js` still serves the Village alone, and no other lead world has a research row (KNW13).
 - "Claim" means three things in code; this book says "account" for the knowledge sense.
