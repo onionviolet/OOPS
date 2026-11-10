@@ -386,3 +386,73 @@ MG01 separates loan/equity/future goods/patronage and allows actual repair/logis
 MG03 shop/inn stock and remembered customers; MG04 appraisal/auction evidence and bid limits; MG05 cargo/route/capacity/delivery; MG06 seasonal farming/care and storage; MG07 commissions sharing real stock/tools/capacity; MG08 lending/mutual aid and negotiated terms; MG09 event programs/attendance; MG10 restoration/collections/provenance each offers a distinct continuing livelihood. Their trained clerk, caretaker, bidder, caravan leader, farmhand, foreman, steward, organizer and conservator operate within actual mandate/means rather than silently duplicating funds or discarding others' choices. Banks, shares and tenant law are local possibilities, not prerequisites for all worlds.
 
 Reopen a selected existing enterprise/occupant/stock/clock/settlement consumer when useful. The palette retains proposed fund/pass, actual contribution, settlement, room use, delegation and persistence checks; none was run by saving it. This fold adds no financial advice, source-world canon, new simulation owner or universally demanded whole-city economy.
+
+
+## Round 3: shop stock layers and shop dialogue, 2026-11-10
+
+**Prompt (Weibao, 2026-11-10):** "Should we make shopes default have vertain items and stuff? like default/other items that should be for sale too?" then "Shop dialogue? More to consider?" Proposals only; nothing here is accepted or built. Builds on WA40 (accepted held-state layers), [plan section 18.1](gm/dispatch/protagonist-life-2026-10-27/PLAN.md#181-merchant-inventory-in-the-same-three-layers) and PL-L34, ECC22-ECC23, FBK3/FBK4 and the native talk host.
+
+**State found (2026-11-10):** native shops draw from `src/data/inventory_templates.js`; a `chance: 1` row is already a guaranteed staple (Basic always has the quartz setting, survey kit and rope), and `keyedShopStock` makes the draw replay-stable. Book-world shops (the LOTM broker, bakeries) keep their own stock rows and are not on that draw; PL-L34 is unbuilt. Native shopkeepers talk through `data/dialogues.js` textlines shown by `talk_dialogue_host.js`; the trade view itself speaks only in its status line (`trade_notice.js` `vendorRefusal`, `sayTradeReason`). Book-world people talk through `cast_topic_talk.js` topics. No shop has a greeting, ask-for-item, haggle talk or memory of the customer.
+
+### ECC-K: what a shop stocks
+
+- **ECC38: four stock layers.** (1) Canon anchors: what the source shows a shop selling, at its stated price, present in its dated window. (2) Staples by shop type: what the trade lives on daily (bread at a bakery, rope and candles at a chandler); the count moves with a bad day or season, the row does not vanish. (3) Seeded variety: the existing keyed draw for rarer goods, quality spread and what the last delivery brought. (4) Ask and order: goods not on the shelf that can still be had (ECC42). Player deltas from receipts sit over all four (WA40).
+- **ECC39: stock follows supply, not a permission list (AD38).** A port shop carries foreign goods because ships land there; an inland village shop carries them only after a caravan, and dearer (P8 TRADE_SUPPLY, M2). Staples are the dial a world sets per shop type; the reason is the supplier route.
+- **ECC40: the buy side uses the same layers.** What a shop will buy and at what spread follows its trade: the smith buys ore and scrap, the apothecary buys herbs, nobody in the village buys a Beyonder ingredient openly. This matters once making systems sell output (MR27).
+
+### ECC-L: shop dialogue
+
+- **ECC41: the shopkeeper is a person first, the shop is one topic.** Trade opens from that person's talk (native textline or cast topic), so shop talk reuses the existing talk hosts and person tier (WA43), not a second dialogue tree. A System store or vending spirit sets presence to none: a terse menu voice, no memory.
+- **ECC42: asking for what is not on the shelf.** "Ask for X" answers from real state: don't carry it; out until market day (the restock date from the keyed epoch); can order it (wait, deposit, obligation row in `obligations_ledger.js`); kept in the back for people they trust (standing); or "try the herbalist by the mill", which is route discovery. One talk surface turns layer 4 into play.
+- **ECC43: lines read state, not a script.** A greeting picks from a small voiced pool by what is true: first visit or regular, what you bought last, whether you squeezed them (ECC23), hour and weather, stock news ("the rye was gone by noon"). Pick by keyed draw on (seed, person, day, visit count) so it replays and a preview spends nothing (MR4). No repeat within a few visits.
+- **ECC44: haggling is talk with real levers.** Bulk, repeat custom, a flaw in the item, a price quoted elsewhere (market knowledge, M11), information or a favour as part payment, charm that suits this person, pressure that costs standing. Each lever works by its mechanism and the result is a contest on the person's state; the existing Haggling multiplier stays the base. They remember how it went.
+- **ECC45: refusals speak in voice and give the reason.** Extend the `vendorRefusal` seam past sold-out: closed for the festival (ECC22), not to someone with your reputation, not to a child, not openly in daylight, sealed goods ("I don't know what you mean"). FBK3/FBK4 already require the reason; this gives it a speaker.
+- **ECC46: selling is appraisal by conversation.** What the shopkeeper says about your item is bounded by what they can know (MEANS_AND_APPRAISAL): the smith judges the blade, not the curse on it. "Where did you get this?" for stolen, marked or canon-significant goods carries real consequences (law, rumor, a buyer who comes looking).
+- **ECC47: the counter is a news and rumor channel.** Shopkeepers hear prices, shortages, who is new in town and who bought what; what they share depends on standing, whether you just bought something, and their discretion dial (privacy is a per-person trait). Knowledge goes through the existing knowledge owner, so it is dated and can be wrong. A shop line can be a discovery route for a sealed secret, referenced by ID.
+- **ECC48: book shops speak canon.** Canon shopkeepers use the voice and idiom the readers extracted (WA41); a lead's canon purchase on its date is a small scene, not a silent transaction, and a diverged run lets the same person react to a different customer.
+- **ECC49: idle-time speech is a recap, and standing orders are talk.** Offline there is no conversation; the return recap says what happened ("Dunstan set aside two loaves for you"). "Keep two loaves for me each morning" is a standing order made in talk, paid by the existing purse seam and tracked as an obligation.
+
+### ECC-M: implementation implications
+
+- **ECC50: no new save slice for talk.** Lines are stateless keyed draws. What must persist (visits, last haggle outcome, standing orders) goes in existing owners: relationship or reputation for memory, obligations for orders, receipts for purchases. Old saves are disposable, so no migration is owed.
+- **ECC51: buying does not wait on dialogue by default.** Dial: a shop whose keeper must vet you (black market, guild counter) can put talk first, for that in-world reason. Desktop first: one speech line at the top of the trade panel and an "Ask about" row; the stock table stays one click away. Talk adds texture and options, not clicks before a known purchase.
+- **ECC52: a "why this line" inspector.** A debug view lists the facts that chose the greeting, the haggle levers in play and their odds, read-only. It is the cheapest proof that lines follow state.
+
+### ACT NOW (done)
+
+- Saved this round (ECC38-ECC52, ECL6-ECL11) here and recorded the prompt in the [direction log](gm/USER_VISION_LOG_2026-11.md#shop-stock-and-shop-dialogue-2026-11-10).
+
+### ACCOUNT FOR NOW
+
+- Any shop work reuses `keyedShopStock`, the native talk host and `cast_topic_talk.js`; no parallel stock or dialogue system (PL-A34).
+- Player text follows PRS1-PRS8 with one voice sample per brief (PRS7) and names follow the world's naming sheet; `npm run check:rules` lints it.
+- Line choice and haggle odds default to keyed draws rather than a saved stream cursor, because a preview spends nothing (MR4).
+
+### LATER / DELEGATE
+
+| Code | Item | Level | Effort | Done check |
+|---|---|---|---|---|
+| ECL6 | Staple rows for the five native traders by shop type | designer + sonnet | S | Each trader's staples appear on every refresh; seeded rows still vary by day |
+| ECL7 | Book-world shop on the keyed draw with canon anchors (= PL-L34) | sonnet | M | The bakery's stated price appears on its stated day; generated stock repeats on replay |
+| ECL8 | Greeting line that reads customer memory and stock news | sonnet | S-M | First visit, regular and after-haggle visits give different lines; same seed and day give the same line |
+| ECL9 | "Ask for X" topic with the five answers of ECC42 | sonnet | M | An absent item returns one of the five answers from real state; an order creates an obligation row and arrives |
+| ECL10 | Haggle talk with two real levers (bulk, quoted price elsewhere) | sonnet | M | Each lever moves the quote by a shown reason; the merchant's next greeting reflects the outcome |
+| ECL11 | Standing order made in talk, settled daily and in the offline recap | sonnet | M | Order pays and delivers on schedule, offline included, with a recap line; save, reload and import keep it |
+
+### ECL6 and ECL8 receipt, 2026-11-10
+
+Weibao: "Yes, build both" ([log](gm/USER_VISION_LOG_2026-11.md#shop-stock-and-shop-dialogue-2026-11-10)). Agent-verified, not human-reviewed.
+
+- **ECL6 (staples): already present, now read.** Native templates already lay out staples: a `TradeItem` with no `chance` defaults to 1, so bread, healing powder, coal, phials, rope, camping supplies and lamp oil appear at each refresh unless a mod removes them. No template rows changed. `TraderComponent.stapleNames(context)` lists them under the current conditions, and `laid_out` records what the last restock shelved (memory only). Correction found in play: a staple added by `main.js` (the Road memory knife) is in the template but never reaches the shelf, so "missing from the shelf" is not "sold out". The keeper reports only a staple that was laid out and is now gone.
+- **ECL8 (greeting): built.** `src/shop_greeting.js` (pure; five voices plus a default) picks an opener (talked down today, first visit, bought within 7 days, returning or regular) and at most one stock-news line (a sold-out staple with days to the next cart, or a shortage cause). `trade.js` reads facts from `shopMemory`, the open stock, `daysToRestock`, `termsFor` and today's haggle, and picks by `gen_kit` keyed draw on (save root, vendor, day, visits). Reopening the same day repeats the line and spends no stream. `#trade_greeting` sits above the stock table and carries `data-greeting-why` (ECC52 seed).
+- **Persistence:** the `economy_standing` slice gains `customers` (visits counted once per day, last purchase, cap 40, oldest forgotten first). Schema stays 1: `migrateStanding` fills the field for slices without it.
+- **Limits:** after a reload, stock news is silent until the next restock (`laid_out` is not saved), but the opener still remembers. Haggle levers, ask-for-item, refusals in voice and book-world stalls (ECL7, ECL9-ECL11) are not built.
+
+| Check | Result | Gaps |
+|---|---|---|
+| `node --test tests/shop_greeting.test.js` (new) plus standing, keyed stock and trade notice tests | 17/17 pass | none |
+| MCP walk, scenario village-standing, seed 20261110 | Day 1: "New face…", and the knife line is gone. Bought the single Survey rope on the shelf. Day 2: "How is the survey rope holding up? No survey rope left, sorry. The cart brings more in 3 days." Save, reload: opener kept, news silent (known limit). Export, import into a new session: opener kept. 0 page errors | Dunstan's voice was the one played; the other four are covered by tests |
+| Headless Chromium, fresh origin, 1920×1080, bundle 95a843b553a7 | Greeting visible under the Trade heading (box y≈204, w 1130), why=first-visit, 0 page errors | none |
+| `npm run check:arch`, `npm run check:rules` | PASS; direction-sync warning answered by the USER_VISION line | none |
+| `npm test` (first run) | 5861/5864; 1 fail, ui_contract `foreign-host` on the greeting `append`, fixed with `replaceChildren` | re-run below |
+| `npm test` (after the fix, bundle 95a843b553a7) | 5862 pass, 0 fail, 2 skipped (5864) | none |

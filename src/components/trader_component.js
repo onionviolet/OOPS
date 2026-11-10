@@ -97,6 +97,9 @@ class TraderComponent {
 
             const locked=retainShopStock(this.stockOwnerId,previous,this.#inventory.getItems());for(const key of Object.keys(this.#inventory.getItems()))if(!Object.hasOwn(locked,key))delete this.#inventory.getItems()[key];Object.assign(this.#inventory.getItems(),locked);
             this.last_refresh = (current_game_time.day_count + 1 - current_game_time.day_count % this.refresh_time);
+            // What this restock put on the shelf, by name: lets the keeper say a staple sold out (ECC43). Memory only;
+            // after a reload it is empty until the next restock, and the keeper simply has no stock news.
+            this.laid_out = new Set(Object.values(this.#inventory.getItems()).filter(e => e?.count > 0).map(e => e.item?.name));
             return true;
         }
         //otherwise do nothing
@@ -113,6 +116,19 @@ class TraderComponent {
 
     getAvailabilityComponent() {
         return this.#availability;
+    }
+
+    // ECC38: staples are the template rows this stall always lays out (chance 1) under the current conditions.
+    stapleNames(context) {
+        const names = inventory_templates[this.inventory_template].filter(g => g.canBeStarted(context))
+            .flatMap(g => g.items.filter(spec => spec.chance >= 1 && spec.canBeStarted(context)).map(spec => spec.item_name));
+        return [...new Set(names)];
+    }
+
+    /** Whole days until the next delivery (at least 1); null for a stall on another restock clock. */
+    daysToRestock() {
+        if(this.played_minute_refresh || this.last_refresh < 0) return null;
+        return Math.max(1, this.last_refresh + this.refresh_shift + this.refresh_time - current_game_time.day_count);
     }
 
     /**

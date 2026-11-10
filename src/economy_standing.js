@@ -6,7 +6,7 @@ import {createObligations, writeObligation, obligation} from './obligations_ledg
 
 export const DAY = 1440;
 export const STANDING_SCHEMA = 1;
-export const LIMITS = Object.freeze({deeds: 20, rumours: 12, memoryPerRegion: 60, traffic: 200, claims: 12, causes: 12});
+export const LIMITS = Object.freeze({deeds: 20, rumours: 12, memoryPerRegion: 60, traffic: 200, claims: 12, causes: 12, customers: 40});
 
 // Institutions are world data. Each names a rival; a shift moves the rival the other way by
 // `backlash` of the amount (Silver Way: 0.6), because friends of one side are read by the other.
@@ -73,7 +73,7 @@ export const DEEDS = Object.freeze({
 
 const clamp = (n, a, b) => Math.min(b, Math.max(a, n));
 export const fresh = () => ({schema: STANDING_SCHEMA, standing: {}, loans: {}, ledger: createObligations(), memory: {},
-    rumours: [], insurance: null, claims: [], traffic: {}, deeds: [], rumourDay: -1, causes: []});
+    rumours: [], insurance: null, claims: [], traffic: {}, deeds: [], rumourDay: -1, causes: [], customers: {}});
 
 export const tierIndex = score => DIALS.tierCuts.value.filter(cut => score >= cut).length;
 export const tierOf = score => TIERS[tierIndex(score)];
@@ -153,6 +153,28 @@ export function tradeDeed(state, {region, vendorId, sellValue = 0, buyValue = 0}
     if(!id || sellValue + buyValue <= 0) return state;
     return shiftStanding(state, id, Math.min(3, 1 + Math.floor((sellValue + buyValue) / 100)), 'trade', now);
 }
+
+// ---- customer memory (ECC43) ------------------------------------------------------------------
+// What a shopkeeper remembers about you: how many days you came in, and the last thing you bought.
+// One row per vendor; the vendor seen longest ago is forgotten first at the cap.
+const customerRow = (state, vendorId) => (state.customers ?? {})[vendorId] ?? {visits: 0, lastVisit: -1, lastBought: null, boughtDay: -1};
+function keepCustomer(state, vendorId, row) {
+    const customers = {...(state.customers ?? {}), [vendorId]: row};
+    const ids = Object.keys(customers);
+    if(ids.length > LIMITS.customers) delete customers[ids.filter(id => id !== vendorId).sort((a, b) => customers[a].lastVisit - customers[b].lastVisit)[0]];
+    return {...state, customers};
+}
+export function noteVisit(state, vendorId, day) {
+    if(typeof vendorId !== 'string' || !vendorId || !Number.isInteger(day)) return state;
+    const row = customerRow(state, vendorId);
+    if(row.lastVisit === day) return state;
+    return keepCustomer(state, vendorId, {...row, visits: row.visits + 1, lastVisit: day});
+}
+export function noteBought(state, vendorId, label, day) {
+    if(typeof vendorId !== 'string' || !vendorId || typeof label !== 'string' || !label || !Number.isInteger(day)) return state;
+    return keepCustomer(state, vendorId, {...customerRow(state, vendorId), lastBought: label.slice(0, 80), boughtDay: day});
+}
+export const customerMemory = (state, vendorId) => ({...customerRow(state, vendorId)});
 
 // ---- credit (G42) ------------------------------------------------------------------------------
 const termDays = () => DIALS.termDays.value;
@@ -356,6 +378,10 @@ export function validateStanding(slice) {
     for(const c of slice.causes ?? []) if(!CAUSES[c?.kind] || typeof c.region !== 'string' || ![c.sell, c.buy, c.until, c.since].every(Number.isFinite) || c.sell <= 0 || c.buy <= 0) bad('bad price cause.');
     for(const entries of Object.values(slice.memory ?? {})) if(Object.keys(entries).length > LIMITS.memoryPerRegion) bad('memory too large.');
     if(Object.keys(slice.traffic ?? {}).length > LIMITS.traffic) bad('traffic too large.');
+    const customers = Object.entries(slice.customers ?? {});
+    if(customers.length > LIMITS.customers) bad('too many customers remembered.');
+    for(const [, c] of customers) if(!Number.isSafeInteger(c?.visits) || c.visits < 0 || !Number.isInteger(c.lastVisit) || !Number.isInteger(c.boughtDay) ||
+        !(c.lastBought === null || typeof c.lastBought === 'string' && c.lastBought.length <= 80)) bad('bad customer memory.');
     return slice;
 }
 export function migrateStanding(slice) {

@@ -640,3 +640,11 @@ Recorded as his proposed order: freedom (the option to diverge) for the lead's r
 ## Save long term, 2026-11-09
 
 Weibao: "save acc0rd9gjgly long term" with the more-to-consider and reconcile-project skills. The atlas gained a reconciliation section for LAYX81-LAYX218 that separates his direction from agent proposals, restates the next order (N9-N13) and adds LAYX219-LAYX227. No proposal was accepted by this request.
+
+## Shop stock and shop dialogue, 2026-11-10
+
+Weibao asked: "Should we make shopes default have vertain items and stuff? like default/other items that should be for sale too?" then "Shop dialogue? More to consider?"
+
+Recorded as questions with a more-to-consider round, not a decision. The agent proposed four stock layers (canon anchors, staples by shop type, seeded variety, ask and order) and shop dialogue built on the existing talk hosts: ECC38-ECC52 and ECL6-ECL11 in the [economy palette](../ECONOMY_AND_TRADE_CONSIDERATIONS_2026-10-18.md#round-3-shop-stock-layers-and-shop-dialogue-2026-11-10). WA40 (held-state layers) was already accepted on 2026-10-27 ([USER_VISION](../USER_VISION.md#adopt-this-sessions-proposals-as-adjustable-working-direction-2026-10-27)); the rest are agent proposals and no build is authorized.
+
+Then, to the offer to build ECL6 (staples) and ECL8 (greeting) first: "Yes, build both". Built 2026-11-10 for the five native stalls; receipt in the [economy palette](../ECONOMY_AND_TRADE_CONSIDERATIONS_2026-10-18.md#ecl6-and-ecl8-receipt-2026-11-10).

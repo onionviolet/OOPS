@@ -88,6 +88,7 @@ How to use and update it:
 - **Far deeper worlds and potion coverage**, through shared mechanisms that turn per-world content into data ([2026-10-25](gm/USER_VISION_LOG_2026-10.md#world-depth-shared-mechanisms-and-lean-proof-2026-10-25)).
 - **Gear carries many native stat dimensions** through one sourced modifier pipeline, with affixes and sockets as data ([2026-10-20](gm/USER_VISION_LOG_2026-10.md#retire-the-1366768-floor-2026-10-19)).
 - **Experimentation:** known actions plus research for new uses; failed experiments teach; previews show known costs and uncertain outcomes ([2026-10-15](gm/USER_VISION_LOG_2026-10.md#proto23-shell-spacing-color-and-combat-refinement-2026-10-15)).
+- **Shopkeepers greet you from what they remember.** Weibao (2026-11-10) asked whether shops should have default items and "Shop dialogue? More to consider?", then "Yes, build both" to the staples and greeting slice. Staples already existed as always-stocked template rows; the greeting (first visit, last purchase, sold-out staple and its return, shortage, today's haggle) is built for the native stalls. The rest of the round (ECC38-ECC52) remains proposal ([2026-11-10](gm/USER_VISION_LOG_2026-11.md#shop-stock-and-shop-dialogue-2026-11-10)).
 
 ## UI and look
 
@@ -164,6 +165,7 @@ Every former heading of this file, newest first, kept as an anchor. Each entry l
 
 ### 2026-11
 
+<a id="shop-stock-and-shop-dialogue-2026-11-10"></a>[Shop stock and shop dialogue, 2026-11-10](gm/USER_VISION_LOG_2026-11.md#shop-stock-and-shop-dialogue-2026-11-10)<br>
 <a id="each-slice-leaves-the-next-one-cheaper-2026-11-07"></a>[Each slice leaves the next one cheaper, 2026-11-07](gm/USER_VISION_LOG_2026-11.md#each-slice-leaves-the-next-one-cheaper-2026-11-07)<br>
 <a id="portal-multiverse-worlds-ideaboard-2026-11-07"></a>[Portal multiverse worlds ideaboard, 2026-11-07](gm/USER_VISION_LOG_2026-11.md#portal-multiverse-worlds-ideaboard-2026-11-07)<br>
 <a id="five-quality-deep-dives-on-the-prose-model-2026-11-06"></a>[Five quality deep dives on the prose model, 2026-11-06](gm/USER_VISION_LOG_2026-11.md#five-quality-deep-dives-on-the-prose-model-2026-11-06)<br>
