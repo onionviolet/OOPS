@@ -2639,3 +2639,9 @@ Superseded current-focus line:
 > **Immediate build order:** Klein first. This wave covers the warehouse handoff, Harry’s Halloween, Fang Yuan’s first Moonlight Gu refinement attempt, and Zorian’s first lesson with Haslush. [Delivery and resume points](dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md#opening-arc-checkpoints-november-8-2026).
 
 The [major arc checkpoints](dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md#first-major-arcs-november-8-2026) track the larger requested endpoints separately from verified slices.
+
+## 2026-11-10 world kind and source kind rulebooks
+
+Superseded standing-priority line (now twelve rulebooks, adding WKR and SKR):
+
+> - **Ten proposed rulebooks (2026-11-10, AD32):** relationships [TIE](docs/RELATIONSHIP_RULES.md), livelihoods [LVR](docs/LIVELIHOOD_RULES.md), time [TMR](docs/TIME_RULES.md), knowledge [KNW](docs/KNOWLEDGE_RULES.md), standing and law [STN](docs/STANDING_RULES.md), story [STY](docs/STORY_RULES.md), cheats [CHT](docs/CHEAT_RULES.md), mind [MND](docs/MIND_RULES.md), items [ITM](docs/ITEM_RULES.md), powers that act [AGT](docs/POWERS_THAT_ACT_RULES.md); cheats are back in consideration ([direction](docs/USER_VISION.md#four-more-rulebooks-and-cheats-brought-forward-2026-11-10)).

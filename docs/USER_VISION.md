@@ -133,6 +133,7 @@ How to use and update it:
 - **NPC-heavy simulation was deprioritized** in favor of ruins, exploration and world systems (AD33), narrowed for per-world dials, and AD33's procedural deferral is lifted ([2026-10-16](gm/USER_VISION_LOG_2026-10.md#r7-panelreadability-steering-2026-10-15), [2026-10-23](gm/USER_VISION_LOG_2026-10.md#leftover-itchio-items-built-as-small-per-world-dials-2026-10-23), [2026-11-03](gm/USER_VISION_LOG_2026-11.md#variance-abstraction-and-procedural-work-2026-11-03)).
 - **Daily-life granularity is decided later**: wage, rent and the like come at the level the book or life needs, abstracted a few levels ([2026-11-03](gm/USER_VISION_LOG_2026-11.md#daily-life-granularity-is-a-later-adjustable-dial-2026-11-03)).
 - **Relationships and livelihoods get rulebooks of their own.** Asked whether foundational rules covered everything "from relationship to ui to farming", he said "Draft both": [TIE1–TIE25](RELATIONSHIP_RULES.md) and [LVR1–LVR25](LIVELIHOOD_RULES.md), proposals until he accepts them ([2026-11-10](gm/USER_VISION_LOG_2026-11.md#relationship-and-livelihood-rulebooks-2026-11-10)).
+- **World kinds and source kinds get rulebooks.** He asked for "foundational implementation rules for types of worlds and more? also types of source?": [WKR1–WKR20](WORLD_KIND_RULES.md) and [SKR1–SKR20](SOURCE_KIND_RULES.md), working defaults under AD56 except LLR31; other aspects ranked as FRC17–FRC23 in the [coverage audit](audits/FOUNDATIONAL_RULES_COVERAGE_2026-11-10.md#round-2-2026-11-10-world-kinds-source-kinds-and-what-is-left) ([2026-11-10](gm/USER_VISION_LOG_2026-11.md#world-kind-and-source-kind-rulebooks-2026-11-10)).
 - **Open:** the balance between active play and idling has no decision yet ([2026-10-07](gm/USER_VISION_LOG_2026-10.md#vision-update-what-weibao-asked-for-2026-10-05-evening-to-2026-10-07)).
 
 ## Research and sources
@@ -168,6 +169,7 @@ Every former heading of this file, newest first, kept as an anchor. Each entry l
 
 ### 2026-11
 
+<a id="world-kind-and-source-kind-rulebooks-2026-11-10"></a>[World kind and source kind rulebooks, 2026-11-10](gm/USER_VISION_LOG_2026-11.md#world-kind-and-source-kind-rulebooks-2026-11-10)<br>
 <a id="ideas-that-open-possibilities-are-welcome-limits-run-by-him-first-2026-11-10"></a>[Ideas that open possibilities are welcome; limits run by him first, 2026-11-10](gm/USER_VISION_LOG_2026-11.md#ideas-that-open-possibilities-are-welcome-limits-run-by-him-first-2026-11-10)<br>
 <a id="three-more-rulebooks-and-making-rules-reach-implementation-2026-11-10"></a>[Three more rulebooks, and making rules reach implementation, 2026-11-10](gm/USER_VISION_LOG_2026-11.md#three-more-rulebooks-and-making-rules-reach-implementation-2026-11-10)<br>
 <a id="levels-of-fate-cheats-further-no-forced-weakness-anywhere-2026-11-10"></a>[Levels of fate, cheats further, no forced weakness anywhere, 2026-11-10](gm/USER_VISION_LOG_2026-11.md#levels-of-fate-cheats-further-no-forced-weakness-anywhere-2026-11-10)<br>

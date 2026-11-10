@@ -772,3 +772,11 @@ Weibao:
 
 Recorded: the agent committed the three rounds of limiting-line answers, then cross-walked the ten 2026-11-10 rulebooks against the UI rules ([UI audit round 37](../audits/UI_DESIGN_CORE_AUDIT.md#round-37-2026-11-10-what-the-new-rulebooks-need-on-screen)). Most visible demands map to existing codes; six new lines, [UR83–UR88](../UI_RULES.md#what-the-2026-11-10-rulebooks-need-on-screen), cover forewarned losses, knowledge entries with source and freshness, readouts granted by a means, unchosen acts and gaps, a lives list, and notice tiers. UR83–UR87 are working defaults under AD56; UR88 limits how features reach his attention and waits for his answer, with UR77 and UR82 ([limiting lines](../audits/LIMITING_LINES_REVIEW_2026-11-10.md) LLR28–LLR30).
 
+
+## World kind and source kind rulebooks, 2026-11-10
+
+Weibao asked:
+
+> foundational implementation rules for types of worlds and more? also types of source? other aspects to consider?
+
+Recorded: his request for two rulebooks, [WORLD_KIND_RULES](../WORLD_KIND_RULES.md) (WKR, kinds of world as presets over the world axes already in `src/world_pack_manifest.js`) and [SOURCE_KIND_RULES](../SOURCE_KIND_RULES.md) (SKR, kinds of source and their provenance in data). Both are working defaults under AD56 except WKR19, held as LLR31 in the [limiting lines review](../audits/LIMITING_LINES_REVIEW_2026-11-10.md). "Other aspects" is answered as round 2 of the [coverage audit](../audits/FOUNDATIONAL_RULES_COVERAGE_2026-11-10.md#round-2-2026-11-10-world-kinds-source-kinds-and-what-is-left) (FRC17–FRC23), a ranked proposal; no further rulebook is drafted until he picks.

@@ -38,6 +38,7 @@ Lines that only restate accepted direction (his own words or an AD line) are lis
 | LLR28 | UR88 | A stop-list item may interrupt; other notices become log lines, dots or recap lines | Many new notices compete for one player's attention | Each feature picks its own notice level, with a player dial to quiet it |
 | LLR29 | UR77 | Numeric budgets for routes, regions, center modes, Local actions and tabs; raising one needs a demotion and his yes | Screens fill one panel at a time | Budgets as guidance a lane may exceed with a stated reason |
 | LLR30 | UR82 | A system stays hidden in a life until something is attached | Unmet layers are noise | Show every system's entrance from the start with an empty state that says how to fill it |
+| LLR31 | WKR19 | A new kind of world gets its own sources or declared rules, people, resources and progression before a build packet | Ten shallow reskins add registrations, not play | Quick variants of an existing world allowed on the same kit with a stated difference, deepened later |
 
 ## Answers so far
 
