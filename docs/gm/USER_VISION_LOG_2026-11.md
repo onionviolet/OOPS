@@ -814,3 +814,11 @@ Weibao:
 
 Recorded: [UI audit round 39](../audits/UI_DESIGN_CORE_AUDIT.md#round-39-2026-11-10-why-surfaces-look-alike-and-how-to-make-them-distinct) finds that the shared-component rules reward the cheapest compliant shape and nothing asked a surface to express its mechanism. Five working defaults under AD56 in [UI_RULES](../UI_RULES.md#distinct-reactive-and-pleasing-surfaces): form follows the mechanism (UR93), shared grammar with distinct composition, checked by covering labels and world names (UR94), surfaces react before and after commit (UR95), comprehensive by layers (UR96), and a recorded craft pass (UR97); UR76's contract card now names the mechanism's form. Nothing here limits options, so no line is held.
 
+## UI abstraction levels, limits and future, 2026-11-10
+
+Weibao:
+
+> Consider levels of abstraction needed and more? How to still make it cool and stuffgiven our stuff? any limitations there are, and therefore how to address them? Research and other future features?
+
+Recorded: [UI audit round 40](../audits/UI_DESIGN_CORE_AUDIT.md#round-40-2026-11-10-levels-of-abstraction-limits-and-what-comes-next). The circles trace to the MDL2 figure primitive: adapters mapped each mechanism straight onto rings, slots and pips. Two working defaults under AD56: six levels with a mechanism form between data and geometry (UR98, reading MDL2 as no kind-specific tokens or marks), and cheap materials first (UR99). Two held lines for Weibao: no new rendering dependency by default (LLR31) and raster or generated art waiting on provenance (LLR32). Research lanes and future features are proposals, none started.
+

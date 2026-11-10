@@ -1842,3 +1842,67 @@ Each row is a starting idea for a slice; the form reads the owning data, and the
 - **UIC54, LATER: a redesign sweep by distinctness.** Rank existing surfaces by how alike they are (cover-test failures) and how often they are used; redo the top three under UR93. Level: audit then slices; effort medium; done check: before and after screenshots with the cover tests recorded.
 
 Ranked for building: UIC50 ritual surface, UIC51 material sets for LOTM and cultivation, UIC54 sweep, then the rest.
+
+## Round 40, 2026-11-10: levels of abstraction, limits, and what comes next
+
+Weibao: "Consider levels of abstraction needed and more? How to still make it cool and stuffgiven our stuff? any limitations there are, and therefore how to address them? Research and other future features?" ([log](../gm/USER_VISION_LOG_2026-11.md#ui-abstraction-levels-limits-and-future-2026-11-10)). Rules: [UR98, UR99](../UI_RULES.md#distinct-reactive-and-pleasing-surfaces); held lines LLR31, LLR32.
+
+Evidence read this round: `src/ui/figure.js` (MDL2: one declarative spec of rings, nodes, slots, tracks and edges drawn as inline SVG, 21 importing modules), `figure_graph.js` (chain, tree, wheel, web, list), `figure_forms.js` (table, matrix and sentence forms of the same spec), `rite_figure.js` (rite conditions as slots on a ring, risk at the centre), the representation docs in `docs/representations/` (25 subjects, agent proposals under AD32), MDL1–MDL8 and RPX1–RPX11 above, FLA2 and FLA4. Round 39 missed this set; it is the owner the forms in round 39 extend.
+
+### Diagnosis: the abstraction stopped one level too low
+
+- **UIC55, ACT NOW (rule): the figure primitive is right as a layer and wrong as the top layer.** MDL2 gave the game one honest renderer with a text form, knowledge depth and alternate forms, which is worth keeping. Adapters then mapped each mechanism straight onto its geometry, so a rite became slots on a ring, lives became pips, a web became a wheel. UR98 names six levels and puts a mechanism form (L3) between domain data and geometry; MDL2's rule against kind-specific drawing code is read as no kind-specific tokens or marks (default), with mechanism parts allowed at L3 (dial).
+- **UIC56, ACCOUNT FOR NOW: what each level owns.**
+
+| Level | Owns | Shared or distinct | Exists today |
+| --- | --- | --- | --- |
+| L0 tokens | Colour, space, type, layers, motion timings | Shared | Yes (UR6, UR65–UR68) |
+| L1 marks | Pip, bar, slot, edge, label, glyph, fill and ghost arcs | Shared | Yes, inside `figure.js` |
+| L2 layouts | Chain, tree, wheel, web, ring, track, list; wanted: grid, map, timeline, flow, vessel, board, body outline | Shared, plural | Partly |
+| L3 mechanism forms | Altar, vessel, meridian chart, case board, contract, route, field | Distinct per mechanism, shared across worlds | Adapters exist, forms do not |
+| L4 world dress | Material, glyph set, ornament, motion signature, sound | Distinct per world | Skins started (MDL6); motif packs named in adapters, none built |
+| L5 diegetic frames | Newspaper, status window, jade slip, case file | Distinct per world or cheat | Later (DSG18) |
+
+  Cutting across all six: the text form (every figure already has one), the knowledge filter (MDL4, UR80), effects (UR91), interaction (`figure_interact.js`) and the alternate forms (`figure_forms.js`). The combinatorics stay small: a mechanism form is written once and every world dresses it.
+
+### Limits and how to address them
+
+| Limit | Consequence | How to address |
+| --- | --- | --- |
+| No art pipeline (the `assets` folder holds one SVG) | Nothing illustrated; geometry stands in | Seeded SVG sigils and symbols per subject id; hand-written symbol sets per world; typography and CJK glyphs as imagery (DSG4); raster or generated art waits on LLR32 |
+| One bitmap Gothic face, single weight (UR68) | Emphasis by weight is unavailable | Colour, case, outline, size strikes; a world display face as an L4 token if licensed |
+| Vanilla DOM and SVG, one runtime dependency | No tweening or scene engine | CSS transitions and Web Animations for settle motion, SVG morphs between states, canvas for ambient layers; a library waits on LLR31 |
+| Agents judge look poorly (scaled screenshots, no feel) | Work passes tests and still feels flat | UR97 craft record with the two cover tests; the representation gallery at full size (MDL7, `ui-preview.html`); a reference image beside each form; his optional review (AD42) |
+| Tests check structure, not distinctness | Sameness passes | Cover-test screenshots in the gallery; a check that an adapter produces an L3 form id, not raw L2 geometry |
+| The app's web view is not headless Chromium | A filter or motion can differ in the app | Check new materials in the app he plays (UR16); keep a static fallback for every effect |
+| Thin domain data (rite steps carry `minutes: null`, some outcomes empty) | A rich form over thin data looks hollow or invents | The form shows what the data holds and marks gaps in words; UR93 becomes a request to the data lane, not a reason to draw fiction |
+| Many panels mounted, ticks every second | Motion and large SVGs cost frames | Animate on settle (UR52, UR69), pause when hidden, cap node counts per figure, reuse the mount-on-open rule (MDL7) |
+| Many worlds | A form per world per mechanism is too many | Mechanism forms shared across worlds (L3), world dress per world (L4) |
+| Desktop first, mobile deferred (2026-10-13 priority) | None for now | Use the space: a 1920×1080 surface can hold a form and its text side by side |
+
+### Making it cool with what we have
+
+The strongest levers fit a text-forward game with SVG: forms that mirror mechanisms (L3), material and ink (L4), and motion that marks consequence (UR91).
+
+- **UIC57, LATER: seeded sigils.** A rite, a pathway, a sect or a cheat draws a sigil generated from its id and its parts, so by default a subject keeps one look across sessions and two subjects get different ones. Level: L1 and L4 module; effort small; done check: twenty rites give twenty distinct, stable sigils with a text alt.
+- **UIC58, LATER: ink and settle.** Text and marks that write in when a result settles (ink for LOTM, light for qi, a terminal cursor for a system), with a static form for reduced motion. Done check: one settled rite writes in once and does not replay on navigation (UR38).
+- **UIC59, LATER: state morphs.** A figure animates from its old state to its new one (a slot filling, a vessel changing colour, a route redrawing) instead of being redrawn. Done check: the morph reads the same settled event as the log line.
+- **UIC60, LATER: lenses as layers (MDL5).** Spirit sight, divination and appraisal tint and annotate the existing forms; the cost shows while the lens is on. Done check: switching the lens leaves every fact unchanged and changes what is shown.
+- **UIC61, LATER: voices.** A cheat, a patron or a madness speaks in Reports in its own typographic voice (DSG13), marked as such. Done check: with labels covered, the voice is still recognisable.
+
+### Research to run (proposals, none started)
+
+- **UIC62, LATER: reference study of distinctive text-heavy interfaces.** Card-and-slot occult games, mechanism-puzzle diagrams, potion maps, diegetic card tables, skill-voice narration, dense simulation screens, and idle games. For each: how the form encodes the mechanism, what material carries the mood, what moves. Level: one sonnet research lane, with screenshots kept to captions and short quotes; effort medium; done check: one table per reference mapped to our L2–L5 levels and an ACT/LATER list.
+- **UIC63, LATER: procedural ornament.** Techniques for seeded sigils, border ornament and texture in SVG that stay crisp on the Gothic strikes. Effort small; done check: three prototypes in the gallery.
+- **UIC64, LATER: SVG and motion cost in the app's web view.** Measure filters, morphs and node counts in the app against headless Chromium. Effort small; done check: a budget table that UR99 can cite.
+- **UIC65, LATER: accessible diagrams.** How figures expose structure to keyboard and screen readers beyond the sentence form. Effort small.
+
+### Future features this opens
+
+- **UIC66, LATER: motif packs per lead world** (L4), starting with LOTM and a cultivation world.
+- **UIC67, LATER: the L2 layouts that are missing:** grid, map, timeline, flow, vessel, board, body outline, each a pure layout like `figure_graph.js`.
+- **UIC68, LATER: the first L3 forms:** altar (rites), vessel (mixing), body chart (cultivation and conditions), case board (knowledge), each read through an adapter that names its form id.
+- **UIC69, LATER: diegetic frames once a world's basic kit works** (DSG18): the Tingen newspaper for news, a status window for a system cheat.
+- **UIC70, LATER: a form gallery with the cover tests built in.** `ui-preview.html` shows every L3 form in every world dress with labels and world names toggled off.
+
+Ranked for building: UIC68 altar form with UIC57 sigils (the ritual slice from round 39), UIC66 LOTM motif pack, UIC67 missing layouts as each form needs them, UIC70 gallery, then the research lanes.
