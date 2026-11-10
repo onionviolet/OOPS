@@ -19,8 +19,8 @@ Owners and neighbours (linked, not restated): AD2, AD24, AD25, AD44, AD49, AD50,
 | STY5 | **Freedom comes to the lead's run first, in three levels.** Level 1: the days the book skips. Level 2: variance inside a scene. Level 3: breaking a result. | Default: in that order; level 3 needs a worked example first (LAYX217). Dial: how loudly the world says it has thinned past the book (LAYX215). Reason: his 2026-11-09 order; the lead is the cheapest seat to free (LAYX211). | LAYX211–LAYX218 |
 | STY6 | **After divergence the world is a delta over canon.** Changed facts are keyed by fact ID over the canon baseline; unchanged canon still happens. | Default: RLN1–RLN9 (baseline plus delta, a dependency index, event statuses). Dial: none proposed. Reason: no second authoring of the whole world after one change. | RLN, WA24 |
 | STY7 | **Forward anchors bind generation, not the player** (restates WA24). | Default: player-caused divergence may change an anchor and is labelled; generated fill may not. Dial: none. Reason: WA24. | WA24 |
-| STY33 | **A canon result fixes where a scene lands; the route there can vary.** The anchor is the outcome band (who wins, what gets made, who trusts whom by when); the way there can differ by method, order, helper, timing inside the window, price paid and which of the lead's means carried it. Each route runs through real mechanisms and pays its own costs. | Default: a canon-run beat offers the canon route and any other route the state reasonably supports (AD38); canon pull (STY3) acts on the result, never on the route; a route that misses the band is divergence (STY6, level 3 of STY5). Dial: band width per world and per beat: the exact result, the same result at a different price, or the same direction. Reason: Weibao, 2026-11-10, "variance can happen with ways that leads to cannon, which creates variation"; SPR9 and SPR20 already fit outcomes, not steps. | SPR9, SPR20–SPR22, STY3, STY12, WA24 |
-| STY34 | **The route leaves residue that later scenes read.** A different helper, method or cost leaves facts behind (a tie, a debt, knowledge, an injury, a spare item) that later beats and other seats read, so variation compounds while the anchors still hold. | Default: residue is ordinary state through the owning stores; a residue that would break a later anchor raises that anchor's strain, a calibration signal (lead-life rules), and is never erased to protect canon. Dial: per world, how strongly later beats pull residue back toward canon (STY3). Reason: route variety that leaves no trace is only flavour text. | STY6, WA24, TIE, KNW |
+| STY33 | **A canon result fixes where a scene lands; the route there can vary.** The anchor is the outcome band (who wins, what gets made, who trusts whom by when); the way there can differ by method, order, helper, timing inside the window, price paid and which of the lead's means carried it. Each route runs through real mechanisms and pays its own costs. | Default: a canon-run beat offers the canon route and any other route the state reasonably supports (AD38); a route is any action that satisfies the beat's `needs` (no authored route list, AD38); canon pull (STY3) works on the result's preconditions through a budgeted in-world agent (`canon_pull.js` restores or substitutes) and never overrides the method the lead chose; the beat's `kind` (great, detail, routine) is the band-width dial's first reader; a route that misses the band is divergence (STY6, level 3 of STY5). Dial: band width per world and per beat: the exact result, the same result at a different price, or the same direction. Reason: Weibao, 2026-11-10, "variance can happen with ways that leads to cannon, which creates variation"; SPR9 and SPR20 already fit outcomes, not steps. | SPR9, SPR20–SPR22, STY3, STY12, WA24 |
+| STY34 | **The route leaves residue that later scenes read.** A different helper, method or cost leaves facts behind (a tie, a debt, knowledge, an injury, a spare item) that later beats and other seats read, so variation compounds while the anchors still hold. | Default: residue is ordinary state through the owning stores; a residue that would break a later anchor raises that anchor's strain (read through `disturbanceAt` in `canon_pull.js`), a calibration signal (lead-life rules), and is never erased to protect canon. Dial: per world, how strongly later beats pull residue back toward canon (STY3). Reason: route variety that leaves no trace is only flavour text. | STY6, WA24, TIE, KNW |
 
 ## Events
 
@@ -92,6 +92,38 @@ Design pass done 2026-11-10: the [fixture matrix](gm/causal-endings/FATE_FIXTURE
 3. Route effects through existing verbs or place acts (STY15); news through the knowledge rules (STY9).
 4. Write the Reports line with RPT rules and a voice sample (PRS7).
 5. Tests: the beat and pull tests beside `beat_records.js` and `canon_pull.js`; browser proof at the desktop viewport (AD43).
+
+## More to consider: routes to canon results, round 1 (2026-11-10)
+
+Weibao asked "Other aspects to consider?" after STY33–STY34. Prefix RTC is this round's own. Evidence: `src/canon_pull.js` (pull restores preconditions or substitutes the beat through a budgeted agent; wired for one LOTM beat), `src/beat_records.js` (beats carry `needs`, `kind`, `mechanism`, no record of which route met them), no reach-rate tool in `src/`, `scripts/` or `tests/`, and `scripts/headless/lead_bot.mjs` as the nearest seed-sweep driver.
+
+### ACT NOW (done)
+
+| Code | Finding | Done |
+| --- | --- | --- |
+| RTC1 | STY33 said canon pull acts "on the result"; the code acts on preconditions through an agent. | STY33 now says so, names routes as `needs` satisfiers and the beat `kind` as the band dial's first reader; STY34 names `disturbanceAt` as the strain reader |
+
+### ACCOUNT FOR NOW
+
+| Code | Constraint | Why |
+| --- | --- | --- |
+| RTC2 | **Do not tax other routes to keep canon's route best.** A route may be cheaper or easier than the book's; costs come from mechanisms. | AD55, no forced weakness; AD38 |
+| RTC3 | **Playing never shows that an anchor exists.** In play, the recap says what happened and what it cost, never "this was the canon result" or "you are on course"; canon status shows in developer views and by the PRS4 spoiler dial. | Sealed secrets gate play; PRS4 |
+| RTC4 | **Only the book's own route is calibration data.** Outcomes reached by other routes are predictions of the fitted model, checked by SPR22 held-back results, never fed back as anchors. | SPR13, SPR22; avoids fitting to our own output |
+| RTC5 | **Residue compounds across beats, so strain is watched per chain.** Several small route differences can together break a later anchor no single one touches. | STY34; `disturbanceAt` already sums hops |
+| RTC6 | **Other seats get wider bands by the same dial.** `PULL_SEATS` already lowers pull away from the lead; band width follows it. | STY4, STY32 |
+| RTC7 | **Kinds can carry a default band.** A loop world holds results tight and repeats them; a death game leaves them loose. The preset sets the default, the beat overrides. | WKR1, WKR21 |
+| RTC8 | **Versions and fan work are route evidence.** A web novel and its rewrite reaching one result two ways, or a fan work reaching a canon event differently, are worked examples of routes and their residue. | SKR8, SKR13 |
+
+### LATER / DELEGATE
+
+| Code | Item | Level, effort | Done check |
+| --- | --- | --- | --- |
+| RTC9 | Record the route: a `via` on resolved beats (the action or mechanism that met `needs`), read by the recap. | Sonnet, small | One LOTM beat resolves by two routes in a test and the recap names each, with nothing about canon status |
+| RTC10 | Reach and variety sweep: run a lead window over many seeds with `lead_bot.mjs` and report per beat the reach rate (SPR9) and the number of distinct routes taken. | Sonnet, medium | A report for one LOTM window: reach rate per beat, distinct `via` counts, strain at the last anchor |
+| RTC11 | Band width per beat from `kind`, with a world override, in `beat_records.js`. | Sonnet, small | Two beats of different kind accept different results in one test |
+| RTC12 | Show route and strain in `canon_pull_panel.js` (developer view, inspection only). | Sonnet, small | Panel lists each beat's route and strain after a divergent run, read-only |
+| RTC13 | Route examples from WN and LN cross-checks once a franchise with both is held. | Haiku, small | Three examples with locators in that world's notes |
 
 ## Open details
 
