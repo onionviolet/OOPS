@@ -460,3 +460,19 @@ Recorded as ideas, not accepted decisions (AD32): W3X15-W3X24 (acting and digest
 ## 2026-11-08: the census system-demand pass
 
 Weibao said "Push and run it" for D-G's first step. The pass ran docs-only on the existing census and is saved as [system demands](../audits/SYSTEM_DEMANDS_VOL1_BOOK1_2026-11-08.md), with findings DG1-DG5 in the long-term atlas. Recorded as evidence and proposals, not accepted decisions (AD32).
+
+## Rules for building and tuning systems, 2026-11-09
+
+Weibao asked, across one chat about whether the way relationships, combat and procedural systems get built is right:
+
+> is the way we go about to implement something like the relationship system or combat system even the right way? other aspects to consider?
+
+> what about making the system fit what happens in lore to tune it? more to consider? Procedural crafting and other aspects?
+
+> Reconile all of thes ideas into the docs to act upon? From relationship to other crafting type and more? OTher aspects to consider?
+
+> Yes do that, address the rules accordingly,  consider other implicit/required things and more? Research? Gu? Pet raising? oother stuff? Chemestry?
+
+> reconcile docs and core rules and more as to make future dev easier
+
+"Yes do that" answered the offer to run the docs pass for anchor ledgers and world axis sheets (N5 in the atlas). The rest asked for the ideas to be put into rule form and reconciled. What was written is agent proposal (AD32), not his acceptance: the [system practice rules](../SYSTEM_PRACTICE_RULES.md) SPR1-SPR14, [making rules](../MAKING_RULES.md#proposed-additions-2026-11-09-ad32) MR37-MR41, and the [atlas rounds](../audits/PROGRESS_ATLAS_2026-11-07_LONG_TERM.md#is-the-approach-right-and-tuning-by-lore-2026-11-09) LAYX24-LAYX74 that hold the evidence. No line there is accepted until he accepts it by name. Current focus and build order are unchanged.

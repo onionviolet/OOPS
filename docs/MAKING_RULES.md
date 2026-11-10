@@ -91,6 +91,21 @@ is in [CRAFTING_ENGINE round 4](CRAFTING_ENGINE.md#round-4-2026-10-15-deeper-pot
 | MR35 | **Prove the canon boundary when a canon pack exists:** the exact formula makes the canon product, a near miss makes degraded, free mixing makes originals, and cited rows have locators. | Canon packs that drift from the source |
 | MR36 | **Playable proof follows [AD43](RULES_INDEX.md#definition-of-done-the-floor-ad43)** for rebuild, fresh-origin desktop play and persistence proof. AD36 owns check selection/reuse. Unit tests alone are source evidence, not gameplay. | Claiming engine code is a playable feature |
 
+## Proposed additions, 2026-11-09 (AD32)
+
+Agent proposals from a code-shape read of the lead worlds
+([atlas action register](audits/PROGRESS_ATLAS_2026-11-07_LONG_TERM.md#action-register-for-layx24-layx56-and-other-crafts-2026-11-09)),
+not accepted until Weibao accepts them by name. Until then they are prompts for
+briefs. MR1-MR36 govern wherever these overlap. Each is a default with a dial.
+
+| Code | Rule | Mistake it prevents |
+| --- | --- | --- |
+| MR37 | **Properties belong to the world, not the recipe.** Default: for a making domain, a world declares one property set that every one of its materials carries, and a canon recipe is one point in that space (MR7, MR8). Dial: how many properties a world has and how many the maker can see. | Per-recipe axes, where a material means nothing outside its recipe and an off-formula mix across two recipes has no reading. Found in both book-world brews on 2026-11-09 |
+| MR38 | **Made things and powers name effects from one vocabulary per world.** A potion and a spell that do the same thing share the effect, so they stack, counter and price coherently. Dial: a world whose law treats an ingested effect differently from a cast one says so in its law. | A potion effect that exists only inside its recipe file and that no fight, body or counter can read |
+| MR39 | **A story beat that is a making runs on the making engine.** Default: the window binds its beat to an engine row. A making canon presents as singular stays an authored override with its reason. Old windows move when touched (AR9). | Crafts authored inside story windows (amulets, Gu refinement) that an ordinary character cannot reach |
+| MR40 | **A making brief answers five things,** all from rules above: the mode (MR11), the world's properties or pattern vocabulary (MR8, MR37), the canon point with its near miss and its failure (MR35), the use (MR32) and where inputs come from (MR25-MR27). A blank answer names a gap and stops nothing. | A lane that ships one more fixed recipe |
+| MR41 | **A living thing that is made, refined or bred stays the same individual.** Default: it keeps its identity, history and needs through the process, its upkeep belongs to its care owner, and failure harms or loses that individual and not a fresh copy. Dial: a world where the process creates a new being says what becomes of the old one. | A refined Gu, a hatched creature or a grafted plant turning into a new item with no past and no needs |
+
 ## Application reconciliation, 2026-10-18
 
 At Weibao's request, apply MR1, MR5 and MR29 together with AR7 and AD38:

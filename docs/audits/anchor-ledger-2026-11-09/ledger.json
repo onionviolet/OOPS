@@ -1,0 +1,1053 @@
+{
+ "code": "LAYX34",
+ "date": "2026-11-09",
+ "inputs": {
+  "A": {
+   "book": "LOTM volume 1 (chapters 1-213)",
+   "files": 150,
+   "rows": 3643
+  },
+  "B": {
+   "book": "Harry Potter book one",
+   "files": 18,
+   "rows": 528
+  }
+ },
+ "systems": {
+  "A": {
+   "L-SUMM": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 30,
+     "band": 20,
+     "order": 3,
+     "count_or_duration": 21,
+     "sequence": 88,
+     "tolerance": 4,
+     "negative": 40,
+     "qualitative": 100,
+     "total": 221
+    },
+    "tier": "tunable",
+    "examples": [
+     "b5s51_rules:7",
+     "w3s38_rules:3",
+     "b5s56_rules:10",
+     "s2r_rules:1",
+     "b6s64_rules_other:2"
+    ],
+    "note": ""
+   },
+   "L-DIV": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 28,
+     "band": 16,
+     "order": 5,
+     "count_or_duration": 41,
+     "sequence": 71,
+     "tolerance": 12,
+     "negative": 35,
+     "qualitative": 167,
+     "total": 283
+    },
+    "tier": "tunable",
+    "examples": [
+     "w2s23_rules_other:33",
+     "w1s12_rules:1",
+     "b5s59_rules:3",
+     "b4s49_rules:5",
+     "w2s20_rules:1"
+    ],
+    "note": ""
+   },
+   "L-ACT": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 1,
+     "band": 6,
+     "order": 0,
+     "count_or_duration": 7,
+     "sequence": 11,
+     "tolerance": 1,
+     "negative": 3,
+     "qualitative": 39,
+     "total": 57
+    },
+    "tier": "tunable",
+    "examples": [
+     "b4s49_rules_other:5",
+     "b5s50_rules:15",
+     "b5s53_rules:3",
+     "w3s32_rules:1",
+     "b5s53_rules_other:6"
+    ],
+    "note": ""
+   },
+   "L-ADV": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 24,
+     "band": 28,
+     "order": 9,
+     "count_or_duration": 50,
+     "sequence": 61,
+     "tolerance": 5,
+     "negative": 39,
+     "qualitative": 225,
+     "total": 376
+    },
+    "tier": "tunable",
+    "examples": [
+     "b4s45_rules_other:37",
+     "w2s23_rules:11",
+     "s8v_rules_other:7",
+     "w3s33_rules_other:41",
+     "b4s48_rules:8"
+    ],
+    "note": ""
+   },
+   "L-CTRL": {
+    "adjusted_tier": "shape only",
+    "counts": {
+     "point": 0,
+     "band": 0,
+     "order": 1,
+     "count_or_duration": 2,
+     "sequence": 3,
+     "tolerance": 1,
+     "negative": 6,
+     "qualitative": 14,
+     "total": 23
+    },
+    "tier": "shape only",
+    "examples": [
+     "s7v_rules:14",
+     "w3s30_rules_other:29"
+    ],
+    "note": ""
+   },
+   "L-SEAL": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 14,
+     "band": 14,
+     "order": 0,
+     "count_or_duration": 11,
+     "sequence": 23,
+     "tolerance": 3,
+     "negative": 13,
+     "qualitative": 48,
+     "total": 89
+    },
+    "tier": "tunable",
+    "examples": [
+     "zw2s25r_rules:7",
+     "b7s70_rules:10",
+     "w2s25_rules:3",
+     "w1s15_rules:7",
+     "b4s48_rules:11"
+    ],
+    "note": ""
+   },
+   "L-CHARM": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 4,
+     "band": 4,
+     "order": 1,
+     "count_or_duration": 5,
+     "sequence": 16,
+     "tolerance": 1,
+     "negative": 7,
+     "qualitative": 20,
+     "total": 40
+    },
+    "tier": "tunable",
+    "examples": [
+     "b4s44_rules:2",
+     "w1s16_rules:1",
+     "b4s48_rules:5",
+     "b4s42_rules:7",
+     "w2s24_rules:6"
+    ],
+    "note": ""
+   },
+   "L-INV": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 8,
+     "band": 7,
+     "order": 0,
+     "count_or_duration": 9,
+     "sequence": 5,
+     "tolerance": 0,
+     "negative": 4,
+     "qualitative": 46,
+     "total": 65
+    },
+    "tier": "tunable",
+    "examples": [
+     "w4s40_rules_other:7",
+     "b6s60_rules_other:2",
+     "b5s50_rules_other:36",
+     "w3s37_rules:16",
+     "b5s51_rules_other:61"
+    ],
+    "note": ""
+   },
+   "L-CLUB": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 5,
+     "band": 0,
+     "order": 0,
+     "count_or_duration": 2,
+     "sequence": 7,
+     "tolerance": 0,
+     "negative": 2,
+     "qualitative": 21,
+     "total": 32
+    },
+    "tier": "tunable",
+    "examples": [
+     "w1s18_rules_other:11",
+     "w1s17_rules_other:6",
+     "w1s17_rules:6",
+     "w1s14_rules:2",
+     "b4s44_rules:13"
+    ],
+    "note": ""
+   },
+   "L-ORG": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 23,
+     "band": 17,
+     "order": 6,
+     "count_or_duration": 38,
+     "sequence": 37,
+     "tolerance": 2,
+     "negative": 12,
+     "qualitative": 158,
+     "total": 248
+    },
+    "tier": "tunable",
+    "examples": [
+     "w3s33_rules_other:3",
+     "s3r_rules_other:7",
+     "w4s40_rules_other:6",
+     "s8v_rules:7",
+     "w3s37_rules_other:7"
+    ],
+    "note": ""
+   },
+   "L-LAW": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 1,
+     "band": 3,
+     "order": 0,
+     "count_or_duration": 5,
+     "sequence": 5,
+     "tolerance": 0,
+     "negative": 4,
+     "qualitative": 20,
+     "total": 31
+    },
+    "tier": "tunable",
+    "examples": [
+     "b6s61_rules_other:25",
+     "b4s45_rules:5",
+     "b5s58_rules_other:28",
+     "w1s17_rules:7",
+     "w4s41_rules_other:30"
+    ],
+    "note": ""
+   },
+   "L-EDU": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 5,
+     "band": 3,
+     "order": 0,
+     "count_or_duration": 13,
+     "sequence": 5,
+     "tolerance": 0,
+     "negative": 1,
+     "qualitative": 43,
+     "total": 63
+    },
+    "tier": "tunable",
+    "examples": [
+     "s6r_rules_other:17",
+     "s2_rules_other:8",
+     "b4s43_rules_other:27",
+     "w1s14_rules_other:15",
+     "w1s13_rules:8"
+    ],
+    "note": ""
+   },
+   "L-TRAIN": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 7,
+     "band": 5,
+     "order": 1,
+     "count_or_duration": 9,
+     "sequence": 10,
+     "tolerance": 0,
+     "negative": 3,
+     "qualitative": 38,
+     "total": 61
+    },
+    "tier": "tunable",
+    "examples": [
+     "b6s63_rules_other:51",
+     "w1s10_rules:8",
+     "b6s63_rules:6",
+     "w1s16_rules_other:5",
+     "w1s15_rules_other:16"
+    ],
+    "note": ""
+   },
+   "L-TRAV": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 19,
+     "band": 14,
+     "order": 0,
+     "count_or_duration": 18,
+     "sequence": 16,
+     "tolerance": 0,
+     "negative": 1,
+     "qualitative": 48,
+     "total": 95
+    },
+    "tier": "tunable",
+    "examples": [
+     "w1s14_rules_other:16",
+     "b5s51_rules_other:43",
+     "b7s72_rules:12",
+     "b5s51_rules_other:50",
+     "s9v_rules_other:28"
+    ],
+    "note": ""
+   },
+   "L-HOME": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 34,
+     "band": 15,
+     "order": 1,
+     "count_or_duration": 22,
+     "sequence": 10,
+     "tolerance": 1,
+     "negative": 10,
+     "qualitative": 49,
+     "total": 103
+    },
+    "tier": "tunable",
+    "examples": [
+     "b4s45_rules_other:8",
+     "b4s42_rules_other:19",
+     "w4s41_rules_other:24",
+     "b6s64_rules:2",
+     "w3s33_rules_other:2"
+    ],
+    "note": ""
+   },
+   "L-ECON": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 218,
+     "band": 68,
+     "order": 5,
+     "count_or_duration": 58,
+     "sequence": 57,
+     "tolerance": 4,
+     "negative": 26,
+     "qualitative": 298,
+     "total": 618
+    },
+    "tier": "tunable",
+    "examples": [
+     "w1s11_rules_other:27",
+     "b5s57_rules_other:16",
+     "w2s29_rules_other:30",
+     "w1s14_rules_other:14",
+     "w2s24_rules_other:35"
+    ],
+    "note": ""
+   },
+   "L-SPIR": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 3,
+     "band": 3,
+     "order": 0,
+     "count_or_duration": 16,
+     "sequence": 22,
+     "tolerance": 4,
+     "negative": 13,
+     "qualitative": 34,
+     "total": 74
+    },
+    "tier": "tunable",
+    "examples": [
+     "w1s19_rules:4",
+     "w2s26_rules:5",
+     "b5s51_rules_other:35",
+     "w1s12_rules:4",
+     "w1s16_rules:2"
+    ],
+    "note": ""
+   },
+   "L-POWER": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 4,
+     "band": 14,
+     "order": 1,
+     "count_or_duration": 10,
+     "sequence": 18,
+     "tolerance": 5,
+     "negative": 7,
+     "qualitative": 33,
+     "total": 73
+    },
+    "tier": "tunable",
+    "examples": [
+     "b4s46_rules_other:11",
+     "s3r_rules_other:4",
+     "zw3s33r_rules_other:7",
+     "w3s30_rules_other:26",
+     "b4s43_rules:10"
+    ],
+    "note": ""
+   },
+   "L-ETIQ": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 1,
+     "band": 1,
+     "order": 0,
+     "count_or_duration": 3,
+     "sequence": 4,
+     "tolerance": 0,
+     "negative": 1,
+     "qualitative": 19,
+     "total": 26
+    },
+    "tier": "tunable",
+    "examples": [
+     "w1s17_rules:4",
+     "b5s56_rules:9",
+     "zw3s33r_rules:2",
+     "w2s20_rules:9",
+     "w1s10_rules:1"
+    ],
+    "note": ""
+   },
+   "L-TEXT": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 29,
+     "band": 88,
+     "order": 3,
+     "count_or_duration": 134,
+     "sequence": 66,
+     "tolerance": 1,
+     "negative": 10,
+     "qualitative": 159,
+     "total": 389
+    },
+    "tier": "tunable",
+    "examples": [
+     "s7v_rules_other:9",
+     "s7v_rules_other:12",
+     "b6s69_rules_other:26",
+     "s5r_rules_other:38",
+     "w3s31_rules_other:19"
+    ],
+    "note": ""
+   },
+   "L-DAY": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 10,
+     "band": 3,
+     "order": 0,
+     "count_or_duration": 4,
+     "sequence": 22,
+     "tolerance": 0,
+     "negative": 10,
+     "qualitative": 54,
+     "total": 87
+    },
+    "tier": "tunable",
+    "examples": [
+     "b4s48_rules:2",
+     "w3s34_rules_other:11",
+     "w3s32_rules:3",
+     "b6s69_rules:1",
+     "b4s45_rules_other:5"
+    ],
+    "note": ""
+   },
+   "L-SIG": {
+    "adjusted_tier": "",
+    "counts": {
+     "point": 0,
+     "band": 0,
+     "order": 0,
+     "count_or_duration": 0,
+     "sequence": 0,
+     "tolerance": 0,
+     "negative": 0,
+     "qualitative": 0,
+     "total": 0
+    },
+    "tier": "not re-derived",
+    "examples": [],
+    "note": "its keywords would name a sealed lead-specific power"
+   },
+   "L-RARE": {
+    "adjusted_tier": "",
+    "counts": {
+     "point": 0,
+     "band": 0,
+     "order": 0,
+     "count_or_duration": 0,
+     "sequence": 0,
+     "tolerance": 0,
+     "negative": 0,
+     "qualitative": 0,
+     "total": 0
+    },
+    "tier": "not re-derived",
+    "examples": [],
+    "note": "rare late events; keywords would name them"
+   },
+   "L-MISC": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 28,
+     "band": 31,
+     "order": 2,
+     "count_or_duration": 15,
+     "sequence": 19,
+     "tolerance": 3,
+     "negative": 25,
+     "qualitative": 494,
+     "total": 589
+    },
+    "tier": "tunable",
+    "examples": [
+     "w2s28_rules_other:67",
+     "b6s65_rules:9",
+     "w3s34_rules_other:2",
+     "b6s61_rules_other:34",
+     "w2s25_rules_other:11"
+    ],
+    "note": ""
+   }
+  },
+  "B": {
+   "H-CREAT": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 9,
+     "band": 1,
+     "order": 0,
+     "count_or_duration": 5,
+     "sequence": 9,
+     "tolerance": 0,
+     "negative": 4,
+     "qualitative": 36,
+     "total": 60
+    },
+    "tier": "tunable",
+    "examples": [
+     "hp1c009_rules_other:44",
+     "hp1c005_rules_other:45",
+     "hp1c013_rules:5",
+     "hp1c003_rules:7",
+     "hp1c005_rules_other:6"
+    ],
+    "note": ""
+   },
+   "H-QUID": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 4,
+     "band": 6,
+     "order": 1,
+     "count_or_duration": 5,
+     "sequence": 9,
+     "tolerance": 2,
+     "negative": 8,
+     "qualitative": 36,
+     "total": 57
+    },
+    "tier": "tunable",
+    "examples": [
+     "hp1c001_rules:1",
+     "hp1c009_rules_other:39",
+     "hp1c009_rules_other:24",
+     "hp1c005_rules:4",
+     "hp1c013_rules_other:40"
+    ],
+    "note": ""
+   },
+   "H-WAND": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 4,
+     "band": 0,
+     "order": 0,
+     "count_or_duration": 0,
+     "sequence": 3,
+     "tolerance": 0,
+     "negative": 2,
+     "qualitative": 10,
+     "total": 18
+    },
+    "tier": "tunable",
+    "examples": [
+     "hp1c005_rules_other:44",
+     "hp1c005_rules_other:42",
+     "hp1c005_rules_other:40",
+     "hp1c005_rules_other:46"
+    ],
+    "note": ""
+   },
+   "H-POT": {
+    "adjusted_tier": "shape only",
+    "counts": {
+     "point": 0,
+     "band": 0,
+     "order": 0,
+     "count_or_duration": 0,
+     "sequence": 2,
+     "tolerance": 0,
+     "negative": 3,
+     "qualitative": 8,
+     "total": 12
+    },
+    "tier": "shape only",
+    "examples": [
+     "hp1c005_rules_other:8",
+     "hp1c007_rules:12",
+     "hp1c007_rules_other:24",
+     "hp1c005_rules:17",
+     "hp1c005_rules_other:9"
+    ],
+    "note": ""
+   },
+   "H-ECON": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 5,
+     "band": 1,
+     "order": 0,
+     "count_or_duration": 2,
+     "sequence": 1,
+     "tolerance": 0,
+     "negative": 0,
+     "qualitative": 21,
+     "total": 29
+    },
+    "tier": "tunable",
+    "examples": [
+     "hp1c005_rules_other:1",
+     "hp1c011_rules_other:54",
+     "hp1c005_rules:1",
+     "hp1c005_rules_other:2",
+     "hp1c005_rules_other:15"
+    ],
+    "note": ""
+   },
+   "H-POST": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 3,
+     "band": 1,
+     "order": 0,
+     "count_or_duration": 0,
+     "sequence": 3,
+     "tolerance": 0,
+     "negative": 1,
+     "qualitative": 12,
+     "total": 19
+    },
+    "tier": "tunable",
+    "examples": [
+     "hp1c009_rules_other:34",
+     "hp1c003_rules_other:25",
+     "hp1c003_rules_other:29"
+    ],
+    "note": ""
+   },
+   "H-TRAV": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 0,
+     "band": 2,
+     "order": 0,
+     "count_or_duration": 4,
+     "sequence": 2,
+     "tolerance": 0,
+     "negative": 0,
+     "qualitative": 5,
+     "total": 12
+    },
+    "tier": "tunable",
+    "examples": [
+     "hp1c005_rules:14",
+     "hp1c011_rules_other:39",
+     "hp1c005_rules_other:12",
+     "hp1c017_rules:10",
+     "hp1c005_rules_other:27"
+    ],
+    "note": ""
+   },
+   "H-OBST": {
+    "adjusted_tier": "assumed",
+    "counts": {
+     "point": 1,
+     "band": 1,
+     "order": 0,
+     "count_or_duration": 0,
+     "sequence": 1,
+     "tolerance": 0,
+     "negative": 1,
+     "qualitative": 10,
+     "total": 13
+    },
+    "tier": "assumed",
+    "examples": [
+     "hp1c015_rules:7",
+     "hp1c011_rules_other:34"
+    ],
+    "note": ""
+   },
+   "H-ITEM": {
+    "adjusted_tier": "assumed",
+    "counts": {
+     "point": 1,
+     "band": 0,
+     "order": 0,
+     "count_or_duration": 0,
+     "sequence": 1,
+     "tolerance": 0,
+     "negative": 1,
+     "qualitative": 17,
+     "total": 20
+    },
+    "tier": "assumed",
+    "examples": [
+     "hp1c009_rules_other:30"
+    ],
+    "note": ""
+   },
+   "H-HOUSE": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 5,
+     "band": 1,
+     "order": 0,
+     "count_or_duration": 6,
+     "sequence": 4,
+     "tolerance": 0,
+     "negative": 4,
+     "qualitative": 18,
+     "total": 36
+    },
+    "tier": "tunable",
+    "examples": [
+     "hp1c013_rules:8",
+     "hp1c013_rules:10",
+     "hp1c005_rules:13",
+     "hp1c013_rules_other:28",
+     "hp1c011_rules:9"
+    ],
+    "note": ""
+   },
+   "H-DISC": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 1,
+     "band": 2,
+     "order": 0,
+     "count_or_duration": 2,
+     "sequence": 3,
+     "tolerance": 1,
+     "negative": 3,
+     "qualitative": 7,
+     "total": 15
+    },
+    "tier": "tunable",
+    "examples": [
+     "hp1c017_rules:7",
+     "hp1c001_rules_other:17",
+     "hp1c015_rules:13",
+     "hp1c015_rules:10"
+    ],
+    "note": ""
+   },
+   "H-CLASS": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 1,
+     "band": 1,
+     "order": 0,
+     "count_or_duration": 3,
+     "sequence": 2,
+     "tolerance": 0,
+     "negative": 1,
+     "qualitative": 13,
+     "total": 20
+    },
+    "tier": "tunable",
+    "examples": [
+     "hp1c013_rules_other:31",
+     "hp1c003_rules_other:62",
+     "hp1c011_rules_other:47",
+     "hp1c013_rules_other:27",
+     "hp1c013_rules_other:29"
+    ],
+    "note": ""
+   },
+   "H-SPELL": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 1,
+     "band": 1,
+     "order": 0,
+     "count_or_duration": 2,
+     "sequence": 3,
+     "tolerance": 2,
+     "negative": 4,
+     "qualitative": 15,
+     "total": 22
+    },
+    "tier": "tunable",
+    "examples": [
+     "hp1c001_rules_other:18",
+     "hp1c003_rules:3",
+     "hp1c009_rules:5"
+    ],
+    "note": ""
+   },
+   "H-HIDDEN": {
+    "adjusted_tier": "assumed",
+    "counts": {
+     "point": 0,
+     "band": 0,
+     "order": 1,
+     "count_or_duration": 1,
+     "sequence": 1,
+     "tolerance": 0,
+     "negative": 0,
+     "qualitative": 3,
+     "total": 5
+    },
+    "tier": "assumed",
+    "examples": [
+     "hp1c005_rules:6"
+    ],
+    "note": ""
+   },
+   "H-INV": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 1,
+     "band": 1,
+     "order": 0,
+     "count_or_duration": 3,
+     "sequence": 0,
+     "tolerance": 0,
+     "negative": 0,
+     "qualitative": 3,
+     "total": 6
+    },
+    "tier": "tunable",
+    "examples": [
+     "hp1c011_rules_other:84",
+     "hp1c013_rules_other:33",
+     "hp1c003_rules_other:70"
+    ],
+    "note": ""
+   },
+   "H-AGE": {
+    "adjusted_tier": "assumed",
+    "counts": {
+     "point": 0,
+     "band": 0,
+     "order": 0,
+     "count_or_duration": 1,
+     "sequence": 0,
+     "tolerance": 0,
+     "negative": 0,
+     "qualitative": 9,
+     "total": 10
+    },
+    "tier": "assumed",
+    "examples": [
+     "hp1c003_rules_other:46"
+    ],
+    "note": ""
+   },
+   "H-HOME": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 0,
+     "band": 3,
+     "order": 0,
+     "count_or_duration": 3,
+     "sequence": 0,
+     "tolerance": 0,
+     "negative": 2,
+     "qualitative": 18,
+     "total": 26
+    },
+    "tier": "tunable",
+    "examples": [
+     "hp1c001_rules_other:24",
+     "hp1c001_rules_other:21",
+     "hp1c003_rules_other:1",
+     "hp1c001_rules_other:19",
+     "hp1c001_rules_other:20"
+    ],
+    "note": ""
+   },
+   "H-SOC": {
+    "adjusted_tier": "assumed",
+    "counts": {
+     "point": 0,
+     "band": 0,
+     "order": 0,
+     "count_or_duration": 0,
+     "sequence": 0,
+     "tolerance": 0,
+     "negative": 0,
+     "qualitative": 4,
+     "total": 4
+    },
+    "tier": "assumed",
+    "examples": [
+     "hp1c011_rules_other:16",
+     "hp1c011_rules_other:52",
+     "hp1c011_rules_other:51",
+     "hp1c003_rules_other:58"
+    ],
+    "note": ""
+   },
+   "H-TEXT": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 0,
+     "band": 9,
+     "order": 0,
+     "count_or_duration": 20,
+     "sequence": 11,
+     "tolerance": 0,
+     "negative": 2,
+     "qualitative": 32,
+     "total": 61
+    },
+    "tier": "tunable",
+    "examples": [
+     "hp1c003_rules_other:81",
+     "hp1c003_rules_other:49",
+     "hp1c005_rules_other:25",
+     "hp1c003_rules_other:30",
+     "hp1c009_rules_other:41"
+    ],
+    "note": ""
+   },
+   "H-DAY": {
+    "adjusted_tier": "assumed",
+    "counts": {
+     "point": 0,
+     "band": 1,
+     "order": 0,
+     "count_or_duration": 1,
+     "sequence": 1,
+     "tolerance": 0,
+     "negative": 0,
+     "qualitative": 7,
+     "total": 10
+    },
+    "tier": "assumed",
+    "examples": [
+     "hp1c005_rules_other:31",
+     "hp1c011_rules:14"
+    ],
+    "note": ""
+   },
+   "H-MISC": {
+    "adjusted_tier": "tunable",
+    "counts": {
+     "point": 4,
+     "band": 4,
+     "order": 0,
+     "count_or_duration": 2,
+     "sequence": 2,
+     "tolerance": 0,
+     "negative": 4,
+     "qualitative": 59,
+     "total": 73
+    },
+    "tier": "tunable",
+    "examples": [
+     "hp1c013_rules_other:37",
+     "hp1c009_rules_other:42",
+     "hp1c013_rules_other:43",
+     "hp1c009_rules_other:38",
+     "hp1c011_rules_other:31"
+    ],
+    "note": ""
+   }
+  }
+ },
+ "precision": {
+  "point": {
+   "A": "15/15",
+   "B": "12/15",
+   "note": "B misses: a spell row and two rows with no figure; the structured-quantity shortcut over-fires."
+  },
+  "band": {
+   "A": "14/15 (12/15 before the rank-number fix)",
+   "B": "15/15",
+   "note": "A misses were rank names such as a range of ranks, now stripped."
+  },
+  "order": {
+   "A": "11/15",
+   "B": "2/3",
+   "note": "Misses were 'rather than', 'superior' as a job title and 'later than' as a deadline; excluded after sampling (fix not re-sampled). B has only 3 rows."
+  },
+  "count_or_duration": {
+   "A": "13/15",
+   "B": "13/15",
+   "note": "Misses were counts of steps or crowd sizes, not tries or days."
+  },
+  "sequence": {
+   "A": "15/15",
+   "B": "12/15",
+   "note": "Broad kind: any rule with 3 or more listed steps counts. B misses were 'before the whole school' and 'after dark' used as time words."
+  },
+  "tolerance": {
+   "A": "4/15",
+   "B": "2/5",
+   "note": "Poor. Most hits were 'within', 'correct' or 'wrong'; those words were removed after sampling (fix not re-sampled). Treat tolerance counts as unreliable."
+  },
+  "negative": {
+   "A": "14/15",
+   "B": "14/15",
+   "note": "Misses were place names such as the forbidden corridor and 'lost' meaning wandering."
+  }
+ },
+ "tier_rule": "tunable: point+band+count_or_duration >= 3; shape only: else order+sequence+tolerance+negative >= 3; assumed: otherwise"
+}

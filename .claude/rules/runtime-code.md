@@ -18,3 +18,8 @@ and link that file.
 Before any runtime slice, read [docs/GROUND_RULES.md](docs/GROUND_RULES.md):
 the proposed pre-flight PRF1–PRF8 helps shape the brief and the accepted AD43 floor FLR1–FLR6 decides
 when the slice is done (2026-10-26).
+Before building in an area (ties, fights, powers, making, care, homes, money,
+travel, time, institutions, situations, generation, story windows, saves), open
+[docs/AREA_GUIDE.md](docs/AREA_GUIDE.md) for the established module, its entry
+points, a caller to copy and the parallel implementation not to copy. Update its
+entry in the same change that alters a seam's entry points.

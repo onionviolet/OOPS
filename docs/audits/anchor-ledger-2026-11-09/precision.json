@@ -1,0 +1,65 @@
+{
+ "precision": {
+  "point": {
+   "A": "15/15",
+   "B": "12/15",
+   "note": "B misses: a spell row and two rows with no figure; the structured-quantity shortcut over-fires."
+  },
+  "band": {
+   "A": "14/15 (12/15 before the rank-number fix)",
+   "B": "15/15",
+   "note": "A misses were rank names such as a range of ranks, now stripped."
+  },
+  "order": {
+   "A": "11/15",
+   "B": "2/3",
+   "note": "Misses were 'rather than', 'superior' as a job title and 'later than' as a deadline; excluded after sampling (fix not re-sampled). B has only 3 rows."
+  },
+  "count_or_duration": {
+   "A": "13/15",
+   "B": "13/15",
+   "note": "Misses were counts of steps or crowd sizes, not tries or days."
+  },
+  "sequence": {
+   "A": "15/15",
+   "B": "12/15",
+   "note": "Broad kind: any rule with 3 or more listed steps counts. B misses were 'before the whole school' and 'after dark' used as time words."
+  },
+  "tolerance": {
+   "A": "4/15",
+   "B": "2/5",
+   "note": "Poor. Most hits were 'within', 'correct' or 'wrong'; those words were removed after sampling (fix not re-sampled). Treat tolerance counts as unreliable."
+  },
+  "negative": {
+   "A": "14/15",
+   "B": "14/15",
+   "note": "Misses were place names such as the forbidden corridor and 'lost' meaning wandering."
+  }
+ },
+ "adjustment": "One round of regex changes after the first sample (rank-number scrub for band, comparison words trimmed for order, tolerance narrowed, sequence trimmed to before/after/then, negative trimmed). Order, tolerance and sequence precision above is from the re-sample; point and count are from the first sample, whose regexes did not change. Two small last fixes (rather than, and the tolerance words) were applied without a re-sample.",
+ "changes": [
+  "Almost every system with a price, wage, time or count in its rows clears the three-anchor bar, because the bar is low and the row sets are large. The class column says anchors exist, not that they are enough to fit a curve. A fit should count anchors per quantity it actually tunes.",
+  "Tolerance anchors are the thinnest kind in both books. Shapes such as 'too much fails' mostly sit in qualitative prose and need a targeted read before a fit relies on them.",
+  "Rows are the rule and rule-note passes only. Systems fed mainly by scenes or people rows (for example daily life) are undercounted here."
+ ],
+ "rates": {
+  "A": {
+   "point": 1.0,
+   "band": 0.93,
+   "order": 0.73,
+   "count_or_duration": 0.87,
+   "sequence": 1.0,
+   "tolerance": 0.27,
+   "negative": 0.93
+  },
+  "B": {
+   "point": 0.8,
+   "band": 1.0,
+   "order": 0.67,
+   "count_or_duration": 0.87,
+   "sequence": 0.8,
+   "tolerance": 0.4,
+   "negative": 0.93
+  }
+ }
+}

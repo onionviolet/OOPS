@@ -67,6 +67,7 @@ Desktop host: Tauri from 2026-11-06 (AD39 amended): `npm run desktop`, the insta
 | Active lanes and reconciliation | `docs/gm/dispatch/*/CHECKPOINT.md`, [shared worktree practice](docs/gm/SHARED_WORKTREE_PRACTICE.md) |
 | Tools, book library, game MCP | [tool registry](docs/TOOL_REGISTRY.md), [library index](docs/research/LIBRARY_INDEX.md), [game MCP limits](docs/tools/GAME_MCP_LIMITS.md) |
 | Why something was decided, and when | [project log](docs/gm/PROJECT_LOG_2026-10-29.md), [earlier log](docs/gm/PROJECT_LOG.md) |
+| Which existing module to build a feature on | [area guide](docs/AREA_GUIDE.md), then the [seam register](docs/SEAM_REGISTER.md) |
 
 ## Updating this file
 

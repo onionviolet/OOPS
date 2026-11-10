@@ -97,6 +97,8 @@ Weibao, 2026-11-08: "how to procedurally create the various posibiltiies and mor
 
 **Converged proposal:** XP2 as the base, XP3 as the tuning tool, XP4 on top for generation. Hand-tuning remains for anchors that disagree and for signature abilities a world states exactly. Default: the spell lowering folds into the structured descriptor, so there is one ability path (ABR5, ABR6), not two. Dial: how strictly a world's prices must fit its anchors (exact where the text states numbers, banded where it is vague). Reason: tuning per part scales to many worlds, and canon anchors turn tuning into measurement.
 
+Status 2026-11-09: the fit runs (`fitPowerPrices`, `scripts/calibrate_powers.mjs`), but its two anchors are gameplay dials, one per world, so no power price is tuned to canon yet ([LAYX24](#is-the-approach-right-and-tuning-by-lore-2026-11-09)).
+
 | ID | Disposition | Consideration | Next check |
 |---|---|---|---|
 | XM7 | ACCOUNT FOR NOW | Two ability paths now exist: the descriptor and the spell seam. Building the grammar on the spell seam would split abilities in two. | Lower Spirit Vision and the charm onto descriptor rows before adding parts |
@@ -118,6 +120,8 @@ Weibao, 2026-11-08: "What about crafting and more? or potions? or implementing o
 | Rites, amulets and other crafts | LOTM rites have their own code; amulet craft is open (R8); smithing, cooking and runes run in the Village | Same engine, different law rows (XC1) |
 
 **XC6 (proposal): procedural recipes on the same idea as XP2-XP3.** Ingredients carry property axes (a LOTM characteristic's pathway and sequence, an HP ingredient's potency and reactions). A world's law turns properties into outcomes. Canon formulas are anchors that the axes and law are fitted to (AD49). Off-book combinations then produce reasoned results, such as a weaker brew, a side effect or a failed one, instead of nothing. That gives experiments and discovery (mixtures, experiment log) in book worlds without writing every recipe. Default: canon formulas stay exact and free experiments are banded. Dial: how forgiving a world's alchemy is. Reason: both books show failed and altered brews, and the engine already records trials.
+
+Status 2026-11-09: the Cure for Boils and the Seer brew run on the shared craft engine, each with axes that belong to its one recipe; the 43 LOTM formula rows and Polyjuice sit on the separate process envelope with fixed slots. What XC6 still needs is in [the potion round](#procedural-potion-crafting-2026-11-09) (LAYX41-LAYX49).
 
 ### Rites and a shared procedure layer (2026-11-08)
 
@@ -451,7 +455,7 @@ Status read on 2026-11-08 from the cross-world record and `src/` names; "built" 
 
 | Bin | Ideas | Note |
 |---|---|---|
-| Built (wave 3, committed d9d8d21be) | XC2 reputation view, XC3 house purchase terms, XC4 ties visible from meeting, XC7 procedure layer, XC8 shared traits vocabulary; XC1 and XC6 in part (Seer brew, Potions bench) | Polyjuice and the Sequence-5 rite are later content on the same layer |
+| Built (wave 3, committed d9d8d21be) | XC2 reputation view, XC3 house purchase terms, XC4 ties visible from meeting, XC7 procedure layer, XC8 shared traits vocabulary; XC1 and XC6 in part (Seer brew, Potions bench) | Polyjuice and the Sequence-5 rite are later content on the same layer. As of 2026-11-09 XC8 is ten presence tags with no values, and XC6's two brews use per-recipe axes (LAYX41) |
 | Next, a lead caller pulls it | XC16 pool limits (Klein's divination drills), XC23 simple selling (a Tingen pawnshop), XC24 grind spots (Klein G1-G4, then Harry H1-H4), XC30 society kit first slice (SKIT4 norms and SKIT9 age), with XC26 and XC29 as its test act | One slice each, at floor, LOTM first |
 | Simple layer exists, depth waits | XC21 renewing places (`gathering_model` sites), XC22 the rat cellar (YAIR's cave), XC19 hunger (default-off, non-lethal), XC20 shops (traders exist; the player's own shop waits) | Ship as is; deepen when pulled |
 | Method, applied in every slice | XC5 calibration by story walks, XC17 the player's difference as method, XC25 simple by default | Not features; each slice records how it applied them |
@@ -502,7 +506,7 @@ What wave 3 left (from its [task record](../gm/dispatch/cross-world-systems-2026
 
 Weibao, 2026-11-08: "Other stuff that needs the procedural engines and more? other systems that require those? Do we need to move further down the story to understand those systems better and create whats required?"
 
-**Systems that need the engines.** Existing modules were listed from `src/` (`lotm_advancement`, `lotm_formula_rows`, `hp_brewing_formula`, acting and digestion in the LOTM state and ability files, `material_apprentice`, `place_act_sequence`); where one exists, the proposal moves it onto the shared engines rather than replacing it. Later-rung names stay out of tracked files, as `lotm_advancement.js` already does. Proposals, not accepted decisions (AD32).
+**Systems that need the engines.** Existing modules were listed from `src/` (`lotm_advancement`, `lotm_formula_rows`, `hp_brewing_formula`, acting and digestion in the LOTM state and ability files, `material_apprentice`, `place_act_sequence`); where one exists, the proposal moves it onto the shared engines rather than replacing it. Later-rung names stay out of tracked files, as `lotm_advancement.js` already does. (Checked 2026-11-09: the tracked `lotm_formula_rows.js` does hold the whole ladder by name, so this is true of this doc and that module, not of `src/`; see LAYX56.) Proposals, not accepted decisions (AD32).
 
 | Code | System | Engines it needs | Lead caller in range |
 |---|---|---|---|
@@ -538,3 +542,286 @@ Suggested first step for D-G: one docs-only pass over the existing volume-1 and 
 | DG5 | One lead-specific signature power is a NO by design | It stays an authored override with reasons (XM12), not a general engine |
 
 Next, under D-G: walk Klein's next window as the caller for DG1, with the census rows above as its anchors.
+
+## Is the approach right, and tuning by lore (2026-11-09)
+
+Weibao, 2026-11-09: "is the way we go about to implement something like the relationship system or combat system even the right way? other aspects to consider?", then "or like hte procedural systems too", then "what about making the system fit what happens in lore to tune it? more to consider? Procedural crafting and other aspects?" Proposals (AD32). Evidence: `person_ties.js`, `tempo_fight*.js` and their importers, `power_grammar.js`, `power_grammar_worlds.js`, `scripts/calibrate_powers.mjs`, `scripts/calibration/fight_cases.json`, the making and craft file list. Code shape only; nothing was run or played.
+
+**The read.** The skeleton (shared engine, world law rows, a real caller, the floor) is sound. Three things are off.
+
+- **Ties are a ledger so far.** `person_ties.js` is 110 lines: five axes holding numbers, nine importers, two playable consumers, against about 1,250 lines of relationship design (RLA to RLY). A tie is a system when a person behaves differently because of it.
+- **Story windows are the wrong puller for repeating systems.** A chapter is a once-only beat, so it pulls a once-only act. Ties, fights and generators are about the ordinary day. This is the LAY3 gap seen from the player's side.
+- **Feel has no check.** Contract tests and scripted walks can't say whether a fight is tense or a friendship is noticeable.
+
+Fights do run on a shared engine in the lead worlds: `tempo_fight` is called by `book_world_lotm_fight.js`, `book_world_hp_lead_duel.js` and four Gu windows. The upstream `models/combat.js` is the Village's.
+
+**ACCOUNT FOR NOW.**
+
+| Code | Constraint | Evidence and reason |
+|---|---|---|
+| LAYX24 | **A fit report counts source-backed anchors per channel, and zero reads as "assumed".** | Both power anchors in `POWER_CALIBRATION_ANCHORS` have basis "gameplay dial", one per world. The fit currently reproduces our own numbers, so powers are not yet tuned to lore. The script's header says so; the atlas text above reads as if they were. |
+| LAYX25 | **Fit to the kinds of statement books make.** Default kinds: point (a price, a wage, a count), band, order (A beats B, this is harder than that), duration or count (three tries, spent after two uses in a day), sequence (before or after), tolerance (how far off still works, and in which direction it fails; added with LAYX44). Census rows carry their kind. | Novels state outcomes, orders and durations far more than costs. `hpPowerPrices` lists canon stamina, failure and strain as unknown. The fight calibrator already uses bands; powers, ties and making can use the same shape. |
+| LAYX26 | **Fit the route as well as the row.** A lead taking canon choices with the fitted dials reaches canon outcomes at a stated rate over many seeds, with no grind (XM41). Default: the canon outcome sits inside the reachable band; where the book calls it lucky or desperate it may be a low-odds result plus the lead's own edge (XC17). Dial: the target reach rate per world. | Ten steps at 80% each is an 11% route. Canon is one sample and often an unlikely one, so pinning every canon result as the median makes the world too easy for everyone else. |
+| LAYX27 | **Negative anchors count.** Failed brews, substitutes that didn't work, fights lost and trust refused are recorded as anchors with the same weight as successes. | A law fitted only to successes fits by being permissive. Under AD5 a negative is the ordinary case with a reason, not an absolute. |
+| LAYX28 | **Outliers have three classes:** canon exception (XM12), missing part, and canon disagreeing with itself. The third keeps the earlier or more specific statement and records the other. | `fitPowerPrices` offers the first two. Long serials contradict their own numbers, and a missing-part hunt for those wastes a slice. |
+| LAYX29 | **Ties are tuned to behaviors by chapter.** The anchor is "by chapter N this person does X for the lead" (shares a secret, lends money, takes a risk). Each such behavior is a threshold with a consumer, and gains per event are fitted so the canon events between cross it in time. Per-person warmth is a trait of the person, not one global rate. | Checked 2026-11-09: the tie does keep events. `simulation_effects.js` stores up to 32 memories per pair (cause, time, text) beside the axes. What is thin is behaviors that read them. Without behaviors there is nothing for lore to tune. |
+| LAYX30 | **Fights are tuned to what decided them.** The anchor is who won, roughly how long, what it cost and what decided it (preparation, information, a tool, an ally), not health totals. | `fight_cases.json` says there was no canon fight in chapters 1 to 24 to calibrate against. Klein's walk is now at chapter 129, so that note is stale and canon fights can replace proposal bands (inferred from the walk's reach; the fights were not listed here). |
+| LAYX31 | **A refit is a versioned law row, and fixtures replay after it.** | Changing a price list silently changes what earlier window receipts proved. Old saves are disposable; old proofs are not. |
+| LAYX32 | **New making goes onto the shared craft engine, not a new path.** Corrected 2026-11-09: the first wording said only the Village feeds the trait engine. The Cure for Boils and the Seer brew already resolve through it (`cast_making_adapter`, `craft_materials`). | What is thin is the shared vocabulary: `making_traits.js` is ten presence tags with no values, and each brew brings its own axes ([potion round](#procedural-potion-crafting-2026-11-09)). |
+| LAYX33 | **A generator ships a "read ten" check beside FND1's four lines:** generate fifty, read ten as a player, and name the decision today's output changes. | Validators catch malformed output, not bland output. |
+
+**LATER / DELEGATE.**
+
+| Code | Move | Level, effort | Done check |
+|---|---|---|---|
+| LAYX34 | **Anchor ledger.** One table per lead world: system by statement kind (LAYX25), with source-backed anchor counts and locators, from the existing census rows | Haiku readers per shard, sonnet fold, small; no new reading | LOTM volume 1 and Harry's book one each have a table; a system with fewer than three anchors is flagged assumed |
+| LAYX35 | **Canon replay harness.** Run a lead's fixture chain over many seeds and report the reach rate per canon event | Sonnet, medium, after LAYM1 | Klein's chain to chapter 129 prints a reach rate per window |
+| LAYX36 | **Hold-out check.** Fit on the walked chapters and predict the read-but-unwalked ones (LOTM 130 to 213) before walking them | Sonnet, small, after LAYX34 | A report of predicted against stated outcomes, with misses classed by LAYX28 |
+| LAYX37 | **Borrowed baselines where canon is silent.** Period wages, travel times and learning hours, or a sibling source, labelled "borrowed" and kept apart from canon anchors | Haiku lookup, small | Each lead world's law rows show canon, borrowed or assumed per dial |
+| LAYX38 | **Inverse making.** The player names a wanted effect, the law lists the traits it needs, and the search for materials that carry them becomes the activity; extends MG7 (plan before you make) | Design pass, then sonnet, medium | One Potions-bench and one Tingen making reached from a stated goal, with a missing trait named |
+| LAYX39 | **Someone wants what you make.** Generated demand for made goods through commissions (W3X9), so trait-based results have a use (FLR4) | With W3X9 | A banded off-book brew finds a buyer or a refusal with a reason |
+| LAYX40 | **One week with one person, one fight you can lose.** Two ordinary-day loops as the pullers for ties and fights, beside LAYM2's case and lesson | Sonnet, medium each | Dunn's and Hermione's ties each change five things (an offer, a favor, a refusal, an unprompted visit, a remembered act); one fight per lead world ends in a loss with an aftermath |
+
+Suggested order: LAYX34 first, since it is docs only and shows where lore can tune at all. Then LAYX30's fight anchors and LAYX40, with LAYX29 riding on LAYX40. LAYX35 follows the window builder.
+
+## Procedural potion crafting (2026-11-09)
+
+Weibao, 2026-11-09: "procedural potion crafting, other aspects and more? Reoncile things accordfingly". Proposals (AD32). Extends XC6 and the [October alchemy audit](../PROCEDURAL_MATERIALS_AND_ALCHEMY_AUDIT_2026-10-13.md) (five records, P1-P15, R1-R9), which stay the design owner for composition; this round is about what the book worlds need next. Evidence: `hp_lead_making.js`, `lotm_seer_brew.js`, `cast_making_adapter.js`, `dose_process.js`, `lotm_formula_rows.js`, `hp_brewing_*.js`, `making_traits.js`, `mixture_rules.js`, `power_grammar.js` and their importers. Code shape only; nothing was run or played.
+
+**What exists.** Brewing in the book worlds runs on three paths. The shared craft engine resolves the Cure for Boils and the Seer brew from material properties, ordered process steps and a law, and it already yields a different product when a step is done wrong. The process envelope (`dose_process`) holds 43 LOTM formula rows, 23 of them brewable, and Polyjuice, as fixed slots; its header says only an exact item key resolves against holdings today, so substitution by trait can't run there. Polyjuice also keeps its own 524-line state machine and save slice. The Village has a fourth, its own mixing law.
+
+**ACT NOW (done).** Corrected in this doc: LAYX32's claim that only the Village feeds the trait engine; status notes on XP3 and XC6; the wave-3 "built" row for XC8; the later-rung names sentence. Added the tolerance kind to LAYX25.
+
+**ACCOUNT FOR NOW.**
+
+| Code | Constraint | Evidence and reason |
+|---|---|---|
+| LAYX41 | **Axes belong to the world, not the recipe.** Default: each world declares one set of potion axes that every one of its ingredients carries, and a recipe is one point in that space. Dial: how many axes a world has and how many the player can see. | The Cure for Boils declares `cure`, `sting` and `acid`; the Seer brew declares `charge` and `binding`. Nettles only mean something inside their own recipe, so two recipes can't interact and an off-book mix across them has no reading. This is the one change that makes brewing procedural. |
+| LAYX42 | **One brewing path.** Formula rows and Polyjuice move onto the craft engine as ingredients with world axes plus a pinned canon point, when a slice touches them. No fourth path. | Three paths today. The envelope's fixed slots are what makes those 44 recipes a recipe book. |
+| LAYX43 | **Each world says which of three things is open:** ingredients (substitution), process (order, timing, heat, precision) and effect (new combinations). Defaults: in LOTM the main ingredient sets the effect, and the open space is substitutes, dose precision and risk. At Hogwarts process and preparation are open and a new effect is rare invention. Original worlds can open all three. Dial per world. | Canon, as recorded in the two brew files: Neil's first five ingredients barely matter and the last two fail in one direction; the quills go in after the cauldron leaves the fire. "Procedural" means a different thing in each, and one free-mixing model would get both wrong. |
+| LAYX44 | **Potions are where tuning by lore gets proven first.** | They have source-backed anchors where powers have none yet (LAYX24): quantities with locators on the LOTM formula rows, step order and named failure products. Corrected by the [anchor ledger](ANCHOR_LEDGER_VOL1_BOOK1_2026-11-09.md): this holds for LOTM (advancement and formulas, about 100 numeric anchors). Harry's book-one potions have 12 rule rows and no numeric anchor, so his bench can be shaped by lore (order, failures) but not numerically fitted. |
+| LAYX45 | **An off-formula result is a product.** It has identity and traits and can be used, sold, studied or thrown at something. Default: no empty result. Dial: a world can make inert sludge common. | The Cure for Boils law already outputs a corrosive when the quills go in early. The alchemy audit says the same for leftovers. Failures feed LAYX27. |
+| LAYX46 | **Potion effects and power effects share one vocabulary.** | `boil_cure` exists only in `hp_lead_making.js`; `power_grammar.js` has its own functions. A potion and a spell that do the same thing should stack, counter and price the same way. |
+| LAYX47 | **A brewed thing has a use in play before more recipes are added.** Uses: a fight, the body (tolerance, and digestion under W3X15), a sale or commission (LAYX39), a gift that moves a tie. | No `tempo_*` file, `book_world_lotm_fight.js` or `book_world_hp_lead_duel.js` mentions a potion or a dose (FLR4). |
+| LAYX48 | **Each world law gets property checks.** The canon point reproduces; neighbours are banded; constituents are conserved unless the law says otherwise; more of an active gives more effect until it saturates; nothing generated beats a higher canon rung at lower cost without a stated reason. | One test file per law beats a test per recipe as rows grow (LAYX8). The last check is an order anchor (LAYX25). |
+| LAYX49 | **Ingredients come from somewhere.** LOTM's main ingredients are creature parts, so the source is a hunt or a purchase, and their scarcity is the in-world limit on experiments. Hogwarts has greenhouses, stores and suppliers whose word isn't proof. | Polyjuice already models unverified provenance. No artificial cap on trials is needed where the world prices them (AD22). |
+
+**LATER / DELEGATE.**
+
+| Code | Move | Level, effort | Done check |
+|---|---|---|---|
+| LAYX50 | **World axis sheets.** For LOTM and Hogwarts, the axis set and each ingredient's values, marked canon, borrowed or assumed, from the formula rows and census | Sonnet with haiku readers, small; docs only, same pass as LAYX34 | Every ingredient in the 23 brewable rows and book one's potions has values and a basis |
+| LAYX51 | **First procedural slice, Harry's bench.** The Cure for Boils on world axes, one more first-year potion sharing an ingredient, an off-book mix that gives a third product, and one use for each | Sonnet, medium, after LAYX50 | At floor, with Save/reload/Export/Import; LAYX48's checks pass |
+| LAYX52 | **Klein's bench: substitution and precision.** One substitute for a main ingredient with its risk, and the tolerance asymmetry Neil describes reproduced by the law | Sonnet, medium, after LAYX50 | The canon brew is exact; a short measure and an over measure give the two different stated outcomes |
+| LAYX53 | **Formulas as knowledge you trade.** A formula has a price, a source and a chance of being partial or false; the price notes on the formula rows are its anchors | Design pass, then sonnet | One formula bought at a gathering and checked before brewing |
+| LAYX54 | **Standing brew orders.** A learned method repeats in batches with a stop policy (LAYX1; the audit's P9) | With LAYM2 | A batch stops on shortage and reports what it made |
+| LAYX55 | **Generated ingredients** for parallel worlds and places canon doesn't describe, drawn on the world's axes and named from its sheet (`craft_materials` can already seed materials) | Sonnet, medium, after LAYX51 | Two seeds give different local herbs that a known recipe accepts as substitutes at different strength |
+| LAYX56 | **What a fresh character sees of the ladder.** `lotm_formula_rows.js` holds every rung by name; check what the bench and reference views show before Klein reaches them | Haiku read plus one MCP walk, small | A new Tingen character's views show no rung above what they've learned of |
+
+Suggested order: LAYX50 with LAYX34 as one docs pass. Then LAYX41 through LAYX51 on Harry's bench, since first-year Potions is the cheapest place to prove world axes, with LAYX47 deciding which uses ship with it. LAYX52 follows for Klein.
+
+Several rows in this round restate accepted [making rules](../MAKING_RULES.md); the [action register](#action-register-for-layx24-layx56-and-other-crafts-2026-11-09) below maps each one.
+
+## Action register for LAYX24-LAYX56, and other crafts (2026-11-09)
+
+Weibao, 2026-11-09: "Reconile all of thes ideas into the docs to act upon? From relationship to other crafting type and more? OTher aspects to consider?" Proposals (AD32). Nothing here is accepted or dispatched; writing a row into this register does not adopt it. Evidence: [MAKING_RULES](../MAKING_RULES.md) MR1-MR36, AD49, the [relationship palette](../RELATIONSHIPS_AND_CANON_CONSIDERATIONS_2026-10-18.md), `simulation_effects.js`, `book_gu_lead_refinement.js`, `book_world_lotm_content.js`, `rune_grammar.js` and import lists, plus the [live task record](../gm/dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md#sonnet-handoff-november-9). Code shape only.
+
+**What the mapping found.** On ties, fights and making, the design is ahead of the code. Typed memories are in the relationship palette since October (RLA3) and the code stores them. Free experimentation, formulas as attractors and composition over catalogues are accepted rules (MR6-MR8). So about a third of LAYX24-LAYX56 are not new ideas. They are places where the code hasn't reached a rule that already exists, and they act as build targets, not as design.
+
+### Ledger
+
+Class: **gap** means an existing rule or palette row the code hasn't reached; **restates** means already covered, kept only as a pointer; **new** is a proposal with no earlier owner found; **method** changes how work is done; **correction** fixes a stale statement.
+
+| Rows | Class | Existing owner | What remains to act on |
+|---|---|---|---|
+| LAYX24 | correction | AD49, XP3 | The fit report prints source-backed anchor counts; done in docs, not in the script |
+| LAYX25 | new | AD49 names stated figures (price, change, wage, time window) | Orders, counts, sequences and tolerances as anchors widen AD49's reach. That is Weibao's call, not a reading of AD49 |
+| LAYX26 | new | AD49, XC5, XM41 | Route-level reach rate, and lucky canon results as low-odds outcomes |
+| LAYX27, LAYX45 | restates, with a small addition | MR6 (every combination resolves to an outcome), MR7 (near misses) | The addition: failures are recorded as anchors for fitting |
+| LAYX28 | method | `fitPowerPrices` outlier text | A third outlier class, canon disagreeing with itself |
+| LAYX29 | gap | RLA3 typed memories; XC5 | Memories are stored. Behaviors that read a tie at a threshold are the missing part |
+| LAYX30 | correction | LSD350, `scripts/calibration/fight_cases.json` | The "no canon fight in chapters 1 to 24" note is stale; walked fights can become cases |
+| LAYX31 | restates, with an addition | MR30 (products keep their law revision) | The addition: fixtures replay after a refit |
+| LAYX32, LAYX42 | restates | MR29 (one shared envelope, separate product logics), AR11 | Compatible with MR29: one resolver for brewing, each world keeping its own product logic. Formula rows and Polyjuice are the unmoved content |
+| LAYX33 | method | FND1 (proposed) | A read-ten check for generators |
+| LAYX41 | gap | MR8 (author reusable properties, operations and laws) | Per-recipe axes in the two book brews. The largest making gap |
+| LAYX43 | restates | MR11 (each world declares its making modes per domain) | Nothing new; the LOTM and Hogwarts defaults are examples for MR11 |
+| LAYX44 | method | AD49, XC5 | Prove fitting on potions first |
+| LAYX46 | new | ABILITY_RULES, XP2 | One effect vocabulary for potions and powers |
+| LAYX47 | gap | MR32 (no maker system without a reader), FLR4 | No fight code reads a potion or dose |
+| LAYX48 | restates, with additions | MR34, MR35 (exact formula, near miss, free mixing) | Additions: effect rises with the active until it saturates; canon tier order holds |
+| LAYX49 | restates | MR25-MR27 (resource layers, canon scarcity, forms of supply) | Nothing new |
+| LAYX34-LAYX40, LAYX50-LAYX56 | new moves | none found | Binned below |
+
+Unmapped: the combat owners ([COMBAT_RULES](../COMBAT_RULES.md), the [combat considerations](../COMBAT_AND_CONFLICT_CONSIDERATIONS_2026-10-18.md)) were not read row by row, so LAYX30 and LAYX40's fight half may restate rows there.
+
+### Other crafts
+
+The same pattern holds outside potions: the lead worlds' other crafts were built inside story windows and don't call the making engine.
+
+| Craft | Where it runs today | Mode it would declare under MR11 (proposal) | Lore anchors | First caller |
+|---|---|---|---|---|
+| Potions (Cure for Boils, Seer brew) | Shared craft engine, per-recipe axes | Composition with canon attractors | Dense | Harry's bench (LAYX51), Klein's bench (LAYX52) |
+| LOTM formulas, Polyjuice | Process envelope with fixed slots; Polyjuice also has its own state machine | Formula with conserved identity (LOTM); formula with strict process (Polyjuice) | Dense | When a window touches them (LAYX42) |
+| Amulets and charms (LOTM) | Authored in `book_world_lotm_content.js`; no making-engine import | Pattern plus material plus a rite: the procedure layer, with stand-ins graded by `ritual_conditions`' physical, functional and symbolic fit | Klein's sessions through chapter 129 | Klein's paid clients |
+| Gu refinement (Reverend Insanity) | `book_gu_lead_refinement.js`, a window pack with no making, recipe or craft reference | Conserved identity: the specimen stays the same Gu. Open dials would be odds, feeding and cost of failure (inferred from the file header; RI rows were not read) | Fang Yuan's walk through chapter 140 | His next refinement or fusion window |
+| Smithing and alloys | Upstream recipes, `alloy_equipment.js`, Village craft content | Composition with components and grade | None in lead worlds | None now; the Village gets no new depth by direction |
+| Cooking and meals | `household_meal_items.js` | Simple formula; hunger is off by default (XC19) | Household scenes | The Moretti dinners |
+| Medicine and balm | `contextual_balm_*`, `home_medicine.js` | Context-sensitive use (the alchemy audit's P12) | Sparse | The hospital wing (XC9) |
+| Runes and inscription | `rune_grammar.js`, imported only by pledges | Pattern grammar | None in the lead worlds' first volumes | Logged; no caller in range |
+| Rites | Procedure layer and `ritual_conditions`, LOTM only | Procedure with an answering Agent (W3X17) | Dense (about 290 census rows, DG1) | Klein's rites |
+
+### Bins
+
+By the [idea register's](#how-each-idea-gets-considered-the-idea-register-2026-11-08) four questions.
+
+| Bin | Rows | Note |
+|---|---|---|
+| Already built, needs a consumer | LAYX29 (memories stored), LAYX32 (brews on the engine) | Not more design |
+| Docs only, can run beside the live arcs | LAYX34 anchor ledger, LAYX50 axis sheets, LAYX56 ladder visibility, LAYX60 below | No runtime file touched |
+| Next, a lead caller pulls it | LAYX30 fight anchors (walked fights exist), LAYX61 below (the next window with a making beat), LAYX41 with LAYX51 (Harry's bench) | One slice each, at floor |
+| Method, applied in every slice | LAYX24-LAYX28, LAYX31, LAYX33, LAYX44, LAYX48 | Each slice records how it applied them |
+| Logged with an expected puller | LAYX35 (after LAYM1), LAYX36, LAYX37, LAYX38, LAYX39 (with W3X9), LAYX40, LAYX46, LAYX52-LAYX55, LAYX58 below | Each names its puller in its own row |
+
+### More to consider
+
+| Code | Disposition | Consideration | Level, effort and done check |
+|---|---|---|---|
+| LAYX57 | ACCOUNT FOR NOW | **A making brief answers five things** before a lane starts, all from existing rules: the mode (MR11), the world's properties or pattern vocabulary (MR8), the canon point with its near miss and failure (MR35), the use (MR32) and where inputs come from (MR27). | A prompt for briefs, like PRF1-PRF8; a blank answer names a gap and stops nothing |
+| LAYX58 | LATER | **"Made for someone" as one slice.** A person asks for a thing, the lead makes it on world axes, hands it over, and the tie records it and later cites it. One slice then proves LAYX41, LAYX47, LAYX29 and LAYX39 together, and it is the palette's handmade gift (RLG3). | Sonnet, medium, after LAYX50. Done: a Hogwarts remedy for a named student and a Tingen charm for a client, each with a later line or choice that reads the memory, at floor |
+| LAYX59 | ACCOUNT FOR NOW | **On ties, fights and making, a new considerations round first names the accepted rule or palette row it would change.** Default: if none changes, the round is a pointer and the effort goes to a slice. Dial: Weibao asking for a round overrides this. Reason: the palettes already hold these ideas, and the gap is in code. | Applies to this atlas; the ledger above is the first use |
+| LAYX60 | LATER | **Do the two craft-engine brews show MR35's three cases?** Exact formula gives the canon product, a near miss gives a degraded one, free mixing gives an outcome. | Haiku read of the W1a and W2a receipts and their tests, small. Done: a yes or a named missing case per brew |
+| LAYX61 | ACCOUNT FOR NOW | **A window whose beat is a making binds to the making engine.** This is LAYM3 applied to making; amulets and Gu refinement are the examples already passed. Old windows move only when touched (AR9). | The next Klein or Fang Yuan window with a making beat names its engine row in its receipt |
+| LAYX62 | ACCOUNT FOR NOW | **World axes change product identity.** Moving a brew to world axes is a new law revision; products made before keep theirs (MR30). | Old saves may break by Weibao's standing preference, but the Seer brew and Cure for Boils fixtures need a replay or a recorded re-earn |
+| LAYX63 | ACCOUNT FOR NOW | **Axes reach the player as words.** A bench shows what the character has observed in the world's terms, never axis names or numbers they haven't learned (MR31, PRS, XM16). | `check:rules` vocabulary lint passes on the bench copy |
+| LAYX64 | LATER | **An ordinary character can do it too.** Each of LAYX51, LAYX52 and LAYX58 is walked once from a non-lead seat. | With each slice. Done: one non-lead walk per slice, natively |
+
+### Next order (proposals)
+
+Extends N1-N4. The live goal is unchanged: Klein to chapter 213 and Fang Yuan to chapter 199, owned by the live task record. Runtime steps below wait for an arc endpoint or Weibao's word.
+
+| Code | Step | Why |
+|---|---|---|
+| N5 | One docs pass: LAYX34 and LAYX50, with LAYX56 and LAYX60 as small checks | Shows where lore can tune and what the axes are, with no runtime risk and no conflict with the arcs |
+| N6 | Fight cases from fights already walked (LAYX30), then one calibrator run | Data only; replaces proposal bands with canon outcomes |
+| N7 | Harry's bench on world axes (LAYX41, LAYX51) as a "made for someone" slice (LAYX58) | The cheapest proof of procedural making, with a use and a tie in the same slice |
+| N8 | Klein's bench (LAYX52) and a week with one person (LAYX40) | The same proof in the first lead world, after N7 shows the shape |
+
+## Rules, research, Gu, creatures, chemistry and what every domain needs (2026-11-09)
+
+Weibao, 2026-11-09: "Yes do that, address the rules accordingly,  consider other implicit/required things and more? Research? Gu? Pet raising? oother stuff? Chemestry?" and "reconcile docs and core rules and more as to make future dev easier". Proposals (AD32). Evidence: file headers and import counts for the modules named below, the brew tests' titles, `.claude/rules/making-systems.md`. Code shape only; nothing was run or played.
+
+### Rules
+
+The rows of this chat that read as rules now have rule form, all proposed until accepted by name:
+
+- [System practice rules](../SYSTEM_PRACTICE_RULES.md) SPR1-SPR14: how to pull, prove and tune a repeating system. They carry LAYX24-LAYX31, LAYX33, LAYX40, LAYX44, LAYX59 and LAYX61.
+- [Making rules](../MAKING_RULES.md#proposed-additions-2026-11-09-ad32) MR37-MR41: world-level properties (LAYX41), one effect vocabulary (LAYX46), story makings on the engine (LAYX61), the making brief (LAYX57) and living things keeping identity (new, from Gu and creatures below).
+- [Ground rules](../GROUND_RULES.md) gained a four-line SPR prompt block, and the [rules index](../RULES_INDEX.md) has register and router rows for both.
+- **A gap that made the rules easy to miss:** the making path rule loaded for files named craft, potion, brew, dose, mixture, rune, alloy, workshop and invention, but not for `hp_lead_making.js`, `cast_making_adapter.js`, `lotm_formula_rows.js`, `lotm_ingredient_catalogue.js` or `book_gu_lead_refinement.js`. So an agent editing the book-world brews did not get MR1-MR36 loaded. The rule now also matches making, formula, ingredient, refine and amulet.
+
+### Two checks from N5, done here
+
+| Code | Result | Evidence and limit |
+|---|---|---|
+| LAYX60 | Both craft-engine brews test the exact formula and a near miss. Neither has a test for free mixing, MR35's third case. | Test titles in `tests/hp_lead_making.test.js` and `tests/lotm_seer_brew.test.js`; test bodies not read. Free mixing can't be tested meaningfully until axes are world-level (MR37) |
+| LAYX56 | Not settled. `benchRowList` in `book_world_lotm_bench.js` returns the name, pathway and rung of every formula row with a `formulaKnown` flag, so the view model carries rungs the character hasn't learned of. | Whether the screen hides them was not walked. Next: one MCP look at a fresh Tingen character's bench |
+
+### Where these domains stand
+
+| Domain | In source today | Lore demand | What it lacks |
+|---|---|---|---|
+| Research | A Study view over existing lessons (`research_content`, `research_home`, `inquiry_study`); an AND/OR invention planner (`invention_planner`, one importer); an experiment log with six importers, HP brewing among them | Schools and study in both leads; Zorian's study months | Nothing generates what there is to research (XC12). Research doesn't yet write observations of a hidden property in the book worlds (XM16) |
+| Gu | An original keeper's first year (`book_gu_keeper`: stipend, prices, meals, one refinement, upkeep through the `living_upkeep` seam, all authored dials); Fang Yuan's windows, with refinement as a window pack | Fang Yuan's walk to chapter 140 | Two implementations of the same things. Whether the lead windows use the keeper's upkeep was not traced |
+| Creatures and pets | Four care families (`habitat_care` for a Village sheep pen, `book_care_*`, `field_care_*`, `status_care_*`), the companion roster with stages and wishes, `creature_layers` with no importer | Creature care is Harry's largest book-one demand, about 54 rows (DG4) | Whether the care families share one owner was not traced. No bond behaviors found by name |
+| Chemistry | `craft_process_thermal` (staged heat kinetics, no importer), `craft_process_separation`, `craft_agitation`, `material_corrosion` | Tingen's ordinary layer; the Potions bench | The ordinary layer is built and unwired (XM24). XC10's layered law has no world using two layers |
+
+### More to consider
+
+| Code | Disposition | Consideration | Level, effort and done check |
+|---|---|---|---|
+| LAYX65 | ACCOUNT FOR NOW | **Gu is the stress test for the shared model.** One Gu is an item, a living creature, a tool and a power at once: it is fed (care), refined (a making on a living thing, MR41), used (the power grammar) and limited by the aperture (a pool, XC16). Engines that carry a Gu also carry a familiar, a wand with its own loyalty, living gear and a sealed artifact. | Fang Yuan's next refinement or feeding window names which engines it binds to (SPR3) |
+| LAYX66 | ACCOUNT FOR NOW | **Care is one activity form.** Needs on a clock, what neglect does, growth and yield. Feeding a Gu, tending a Hogwarts creature, a sheep pen, a potted mandrake and a familiar are the same form under different law. Feeding is also the plainest standing order (LAYX1). | Before a fifth care family: LAYX71's trace |
+| LAYX67 | ACCOUNT FOR NOW | **Raising a pet is care plus a tie plus teaching, with no new system.** The bond is a tie with a non-person and is counted by its readers (SPR2): it comes when called, refuses a stranger, defends, sulks after neglect. Training is the lesson form with the creature as the learner. | A creature slice lists its bond behaviors |
+| LAYX68 | ACCOUNT FOR NOW | **Research is how hidden properties get learned.** Its product is an observation about a world property (MR1, MR31, MR37), so the axis sheets (LAYX50) define what there is to research, and an unknown shows only once noticed (XM23). | A research slice changes a later prediction, not a meter |
+| LAYX69 | ACCOUNT FOR NOW | **Chemistry is the ordinary layer under potions.** A world's property set says which properties are ordinary (heat, solubility, acidity; real principles, banded and cited, XM21) and which are supernatural, so Tingen's chemistry and Neil's brew share a bench. Dial per world: Hogwarts can leave the ordinary layer thin. | The axis sheets mark each property's layer |
+| LAYX70 | ACCOUNT FOR NOW | **Each domain slice says which implicit needs it covers** (the table below), in the way PRF6 names its ring. | A brief lists covered and left-out needs; a blank stops nothing |
+| LAYX71 | LATER | **Trace the care families.** Who owns needs, clocks and neglect in `habitat_care`, `book_care`, `field_care`, `status_care`, `living_upkeep` and the companion roster, and what reads each. | Haiku read, small. Done: one table of owner and readers per family, with overlaps named |
+| LAYX72 | LATER | **Gu on the engines.** Fang Yuan's next refinement runs on the making engine with the keeper's upkeep, and the same specimen survives it with its history. | Sonnet, medium, with the live Fang Yuan arc and its owner's agreement. Done: at floor, and the keeper life can run the same refinement |
+| LAYX73 | LATER | **A creature for Harry.** One creature with needs, two bond behaviors and a yield that a potion uses (XM19: one item, two procedures). | Sonnet, medium, after LAYX51. Done: at floor, plus one non-lead walk |
+| LAYX74 | LATER | **Learn a property by experiment.** One hidden property of an ingredient is learned at the bench and changes the next brew's stated expectation. | Sonnet, small to medium, with LAYX51 |
+
+### Implicit needs of any making, care or research slice
+
+Things a design rarely lists and a slice always meets. Each has an owner already; the table is a reminder, not new rules.
+
+| Need | Question | Existing owner |
+|---|---|---|
+| Quantity and unit | How much, in what unit, and does a little more matter? | Alchemy audit's five records; MR5 |
+| Time | How long, what happens while away, does it age or spoil? | ACR1-ACR14; the audit's P14 |
+| Station and tools | What is needed at hand, and does it wear? | MR16, MR17; cauldron condition in Polyjuice |
+| Who can do it | Skill, body, rank, and can someone else do it for you? | MR21, MR23 |
+| Knowledge | What does the character know, and what stays hidden? | MR1, MR31, XM16 |
+| Source of inputs | Wild, grown, bought, taken from a creature, salvaged? | MR25-MR28 |
+| Storage and custody | Where does it sit, who may hold it, how much fits? | MG14; custody in the kernel |
+| Harm and aftermath | What does failure do to the maker, the thing and bystanders? | Affliction seam; AD50 |
+| Use and demand | Who or what consumes the result? | MR32, FLR4, W3X9 |
+| Law and norms | Is it allowed, who would notice, and can they reach you? | SKIT4; authority needs a claim, knowledge and reach |
+| Words and names | What is it called here, and what does the player read? | PRS1-PRS8, NMR1-NMR8, MR12 |
+| Saved shape | What is pending if the game closes mid-work? | LAYX2, AR6, MR30 |
+
+Other domains on the same footing, logged without a caller: herbology and farming, wandlore, enchanting, tailoring, breeding, taming, formations and arrays, cooking as a craft, construction.
+
+### N5 results (2026-11-09)
+
+Two sonnet readers ran the docs pass. Their files were read back here before folding; neither touched runtime code.
+
+**Anchor ledger (LAYX34), [file](ANCHOR_LEDGER_VOL1_BOOK1_2026-11-09.md).** A script classified the 3,643 volume-1 rule rows and the 528 book-one rule rows by system and statement kind, with about 15 rows per kind hand-checked. Counted, not played.
+
+| Code | Finding | Consequence |
+|---|---|---|
+| AL1 | LOTM's money has by far the most numeric anchors (about 340 of prices, wages and fares), then advancement and formulas (about 100), divination (about 85), the organisation career (about 80) and prayer and summoning (about 70) | Lore-fitting is best proven on Tingen's prices and wages, then on advancement. Corrects LAYX44, which named potions in general |
+| AL2 | Harry's book-one potions have 12 rule rows and no numeric anchor. Six Harry systems have fewer than three anchors of any kind | Harry's bench is shaped by lore (order, failures), not fitted. N7 stays the proof of world-level properties and stops being a proof of fitting |
+| AL3 | Loss of control (LOTM) has two numeric anchors and several negatives | It stays a shape: directions and failures, with assumed figures (SPR13) |
+| AL4 | The rule rows hold no group for ties or for fights. Those statements sit in scene and people rows, which this pass did not read | LAYX29 and LAYX30 cannot be judged from this ledger. A second pass over scene rows is needed before either is tuned by lore |
+| AL5 | The tolerance kind was detected poorly (4 of 15 and 2 of 5 correct). The other kinds held up at 11 to 15 of 15 | Tolerance anchors need a targeted read, not a regex. SPR8 keeps the kind; the ledger's tolerance column is not usable |
+| AL6 | The three-anchor bar is low on large row sets | The ledger says where anchors exist. A fit still counts anchors per quantity it tunes (SPR7) |
+
+**World potion axes (LAYX50), [file](WORLD_POTION_AXES_2026-11-09.md).** Six properties per world, drafted and run on today's craft engine in a scratch harness (the reader's report; the harness is not in the repo and was not rerun here).
+
+| Code | Finding | Consequence |
+|---|---|---|
+| AX1 | Hogwarts: mend, calm, bite, venom, ward, burn. LOTM: spirit, bind, harsh, power, echo, strain. Both canon brews and their stated failures reproduce on world-level properties with today's numbers | MR37 looks workable on the current engine without changing a canon result |
+| AX2 | No ingredient value is canon on level: 1 of 8 Hogwarts values and 1 of 31 LOTM values have even their presence stated for that ingredient. The rest follow from a recipe rule, are borrowed or are assumed | The sheets are a design, not a measurement, and say so per value (SPR13) |
+| AX3 | The modes held (LAYX43), with corrections: Hogwarts shows no ingredient substitution in book one, so it defaults closed there. LOTM's substitutes are same-rung alternates and the same-pathway characteristic, not general stand-ins | LAYX52 is narrower than written: one alternate principal, not free substitution |
+| AX4 | Three engine gaps showed up in the runs: an ingredient can't carry its own add-step (so a general "hot sting" rule can't coexist with a timed add); nothing caps an overdose; the law can't see two pathways clashing in one brew | Three gap rows for the D-E ledger, each with a puller: Harry's bench for the first, Klein's bench for the other two |
+| AX5 | The canon Cure for Boils failure gives boils as well as a melted cauldron; today's law outputs the corrosion alone | One law row on a skin route, no new property |
+| AX6 | Two repo sources disagree on which way the Seer brew's principals fail: the brew file's comment, and the brewing owner doc | A source question to settle against the text before LAYX52, not a design choice |
+| AX7 | One more LOTM ladder has full formulas inside volume 1. The reader kept it in the private table and unnamed in the tracked sheet | Weibao's call whether the tracked sheet may name it |
+
+**What changes in the order.** N5 is done. N6 (fight cases) needs a scene-row pass first (AL4). N7 keeps its place as the proof of MR37 with a use and a tie. A new candidate sits beside N6: fit Tingen's prices and wages against their anchors, since that is where the numbers are (AL1), and L-ECON was already judged to fit the engines as data.
+
+## Ties, other systems and the area guide (2026-11-09)
+
+Weibao, 2026-11-09: "what abou trelation ship stuff and more? other systems? rules to make future implementation easier ? areas/established abstraction guidiance?" Proposals (AD32). Evidence: `person_ties.js` read whole; greps for its callers, for `derivedBond`, `temperament` and `.memories`; file names of the `person_*` and `*_memory` families. Code shape only; nothing was run or played.
+
+**What the tie trace found.** There are three layers, built at different times, and the newest one skips the middle one.
+
+| Layer | Module | What it does | Reach |
+|---|---|---|---|
+| Record | The native `relationship` effect in `simulation_effects.js` | Directed regard per pair: axes plus up to 32 memories (cause, time, text), replay-safe by cause | Everything below writes through it |
+| Character | `person_memory.js`, `person_memory_effects.js` (`derivedBond`), `person_temperament.js`, with `person_loyalty`, `person_severity`, `person_silence`, `person_standing`, `crowd_memory`, `rival_memory` | Regard that fades with time and depends on the holder's temperament | No `book_world_*` file mentions temperament, so the lead worlds supply none |
+| World ties | `person_ties.js` (LT8) | A world declares its people and tie kinds; `tieEffects` writes regard plus what the player saw; an offer opens at a threshold | Two declarations (Tingen colleagues, Harry's lead life), three offers in all, one `tieEffects` call site in each |
+
+| Code | Disposition | Consideration | Level, effort and done check |
+|---|---|---|---|
+| LAYX75 | ACCOUNT FOR NOW | **The lead worlds read raw regard.** `tieValue` returns the baseline and its comment says decay belongs to `person_memory` and is not applied. So fade and temperament, which exist, do nothing for Klein's or Harry's people. That may be right for a lead's circle and wrong for acquaintances; either way it should be a stated choice (SPR17). | The next tie slice says which read it uses |
+| LAYX76 | ACCOUNT FOR NOW | **The offer is the only reader shape.** Three offers across two worlds is the whole of what ties do in lead play. Favor, refusal, visit, remembered act and vouching (SPR16) can be data shapes on the same declaration, as the offer is. | A second shape exists on `registerWorldTies` before more offers are written |
+| LAYX77 | ACCOUNT FOR NOW | **Memories are text, and the palette asks for types (RLA3).** A memory is `{cause, at, text}`. `story_recognizer.js` finds grievances by matching words in the text. A kind on each memory would let a person cite the right one without parsing prose. | A remembered-act reader picks a memory by kind |
+| LAYX78 | ACCOUNT FOR NOW | **The other person acts first sometimes.** Nothing in the tie module starts anything; every reader waits for the player. A visit or a message needs the storylet deck or world events as its trigger, with the tie as the gate (LAYX14). | One person-started beat in a week-with-one-person slice (LAYX40) |
+| LAYX79 | LATER | **Trace the person and memory families.** Which of `person_*`, `crowd_memory`, `rival_memory`, `rehearsed_foe` and the companion roster own what, and which the lead worlds could adopt as they are. | Haiku read, small, alongside LAYX71. Done: one table of owner, readers and world reach per module |
+| LAYX80 | LATER | **Tie and fight anchors from scene rows** (AL4). A pass over the scene and people rows for "by this chapter, this person does this for the lead" and for who won each fight, what it cost and what decided it. | Sonnet with a script, docs only, private rows. Done: an anchor table per lead for ties and fights, with row handles and no plot detail in the tracked copy |
+
+**Rules.** Five tie lines joined the proposed [system practice rules](../SYSTEM_PRACTICE_RULES.md#ties-between-people) as SPR15-SPR19: one record and one way in, reader shapes beyond the offer, which regard a gate reads, warmth as a trait of the person, and audiences versus ties.
+
+**Other systems, and the guide.** The same question (what is established, where is it, what bypasses it) applies to every area, so it now has one home: the [area guide](../AREA_GUIDE.md). For each area it names the module to build on, the entry points to call, where the state lives, a real caller to copy, the focused test and the known traps. It is navigation built from a source read; it makes no rule. [AGENTS.md](../../AGENTS.md) and the rules index point to it.
