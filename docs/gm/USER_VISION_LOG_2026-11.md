@@ -697,3 +697,11 @@ and, while they were being prepared:
 > How to make sure rules will be used during implementations too?
 
 Recorded: his request for three new rulebooks, [MIND_RULES](../MIND_RULES.md) (MND, mind, personality and mental state), [ITEM_RULES](../ITEM_RULES.md) (ITM, items, inventory and equipment) and [POWERS_THAT_ACT_RULES](../POWERS_THAT_ACT_RULES.md) (AGT, gods, faith, fate actors, patrons and other agents with goals and reach). Lines are agent proposals under AD32. The second message is a question; the agent's answer (rules loaded by path, cited from code and briefs, checked at commit) is a proposal until he says which parts to build.
+
+## Ideas that open possibilities are welcome; limits run by him first, 2026-11-10
+
+After the ten rulebooks and the answer on making rules reach implementation, Weibao said:
+
+> COmmit then build, consider what other stuff is needed I like basically all the ideas that follow the core rules, and is interesting and leads to more possiblities, anything that limts those should run by me first
+
+Recorded as standing direction (AD56): ideas that follow the core rules (Rulebook 1–12 and the AD lines), are interesting and open more possibilities are welcome and become adjustable working defaults; any line that limits possibilities is held for his review before it binds. Applied the same day: the 2026-11-10 rulebooks (TIE, LVR, TMR, KNW, STN, STY, CHT, MND, ITM, AGT) are working defaults except the lines listed in the [limiting lines review](../audits/LIMITING_LINES_REVIEW_2026-11-10.md), which stay proposals until he answers. Lines that restate already accepted direction keep their own authority. The build he authorized: path rules for the new books, area guide pointers and a rule-route check.

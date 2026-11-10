@@ -1,6 +1,6 @@
 # Cheat rules
 
-Proposed 2026-11-10 (AD32). Weibao: "Cheats should be brough earlier for consideration" ([log](gm/USER_VISION_LOG_2026-11.md#four-more-rulebooks-and-cheats-brought-forward-2026-11-10)), which ends the 2026-10-30 long-term deferral of cheat work. The lines are agent proposals until he accepts them; "for consideration" is read as design and rules, not a build order. Rows marked **(restates)** repeat a rule that already binds through its own code and add no authority.
+Working defaults 2026-11-10 under AD56 (ideas that open possibilities are welcome), adjustable; the lines listed in the [limiting lines review](audits/LIMITING_LINES_REVIEW_2026-11-10.md) stay proposals until Weibao answers. Drafted as proposals the same day (AD32). Weibao: "Cheats should be brough earlier for consideration" ([log](gm/USER_VISION_LOG_2026-11.md#four-more-rulebooks-and-cheats-brought-forward-2026-11-10)), which ends the 2026-10-30 long-term deferral of cheat work.  "for consideration" is read as design and rules, not a build order. Rows marked **(restates)** repeat a rule that already binds through its own code and add no authority.
 
 A cheat here is an in-fiction advantage that puts someone beyond the ordinary: the base cheat, a ring spirit, a system interface, a regression, a patron's gift, a bloodline that should not exist. It is not anti-cheat (AD22: none beyond save integrity). A world may set any line differently with an in-world reason and cost (AD5, AD38); each row gives the default, the dial and the reason.
 

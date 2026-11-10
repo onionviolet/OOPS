@@ -1,6 +1,6 @@
 # Standing, institutions and law rules
 
-Proposed 2026-11-10 (AD32). Requested by Weibao ("Draft all four", [log](gm/USER_VISION_LOG_2026-11.md#four-more-rulebooks-and-cheats-brought-forward-2026-11-10)); the lines are agent proposals until he accepts them. Rows marked **(restates)** repeat a rule that already binds through its own code and add no authority.
+Working defaults 2026-11-10 under AD56 (ideas that open possibilities are welcome), adjustable; the lines listed in the [limiting lines review](audits/LIMITING_LINES_REVIEW_2026-11-10.md) stay proposals until Weibao answers. Drafted as proposals the same day (AD32). Requested by Weibao ("Draft all four", [log](gm/USER_VISION_LOG_2026-11.md#four-more-rulebooks-and-cheats-brought-forward-2026-11-10)). Rows marked **(restates)** repeat a rule that already binds through its own code and add no authority.
 
 Covers what audiences think of a person, groups and institutions (schools, churches, sects, guilds, governments, companies, gangs), membership, posts and ranks, admission, duties and dues, law, crime, cases and heat. A world may set any line differently with an in-world reason and cost (AD5, AD38, AD46); each row gives the default, the dial and the reason.
 

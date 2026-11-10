@@ -36,10 +36,13 @@ When direction changes, update its owner, replace the affected PROJECT.md line
 to [the project log](docs/gm/PROJECT_LOG_2026-10-29.md) as dated history.
 Handoffs link to owners rather than copying another competing specification.
 
-Code areas load their rules automatically from `.claude/rules/` by path. Open the
+Code areas load their rules automatically from `.claude/rules/` by path (Claude). Codex
+and scripts get the same routing from `node scripts/rule_routes.mjs --for <path>`;
+before committing runtime code, `npm run check:rule-routes -- --message <file>` warns
+when a touched area's codes are not cited. Open the
 [rules index](docs/RULES_INDEX.md) router when a task makes or changes a design
 rule, needs a rule code for a lane brief, or touches an aspect with no path rule;
-AD1–AD51 restate the accepted direction for aspects without their own rulebook.
+AD1–AD56 restate the accepted direction for aspects without their own rulebook.
 Cite codes in task records and handoffs. The rulebooks below keep their own detail. Keep the index
 current in the same change: a new or changed rulebook updates its register and
 router rows, and a new or changed accepted decision updates its AD line. Lane
@@ -88,6 +91,11 @@ standing priority changes.
   its label or category; nothing needs a permission list to happen. Model
   mechanisms, not allowed-outcome lists, and let costs and the world's real
   mechanisms decide what "reasonably" means.
+- **Ideas that open possibilities are welcome; limits go to Weibao first** (AD56,
+  2026-11-10). An idea that follows the core rules and widens play becomes an
+  adjustable working default; a line that removes options, narrows a dial or
+  defers a capability waits for his answer (list it, as in the
+  [limiting lines review](docs/audits/LIMITING_LINES_REVIEW_2026-11-10.md)).
 - **Write constraints as default, dial and reason** (the in-world reason and
   cost), not never/always/only. No design line holds for every world. A world's
   stated absolutes, canon ones included, describe the ordinary case; exceptions

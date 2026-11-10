@@ -25,9 +25,9 @@ Bodies and health (BHR), combat (CBR), economy (ECR), skills (SLR), presence (PI
 
 | Code | Finding | Disposition |
 | --- | --- | --- |
-| FRC11 | **None of the seven new books binds yet.** Each is a proposal under AD32 until Weibao accepts it, by book or by line. | ACCOUNT FOR NOW: a short acceptance pass (accept, adjust, defer per book) turns them into working defaults |
+| FRC11 | **None of the seven new books binds yet.** Each is a proposal under AD32 until Weibao accepts it, by book or by line. | Done 2026-11-10 by AD56: working defaults, except the [limiting lines](LIMITING_LINES_REVIEW_2026-11-10.md) held for his answer |
 | FRC12 | **The new books overlap and need owner rows.** Rumor spread (KNW17) and audience spread (STN3); the recap (TMR10, AD17, KNW25); hidden motives (STY26) and truth (KNW1); companions (TIE19) and groups (STN7); fate actors (STY F3) and cheat patrons (CHT5) | ACT NOW (done below): owner lines added to the rules index |
 | FRC13 | **AD55 reached five lines; the palettes still hold older "every power has a counter" wording.** The sweep sampled rulebooks, not every palette | LATER: a palette sweep with a reword pass, haiku, small; done when `grep` finds no unqualified mandatory counter |
-| FRC14 | **The area guide's "Rules:" lines and missing modules** (`authority.js`, `positions.js`, `organizations.js`, `heat@1`; the stale "no shared day reader") | LATER: once the session editing it is done; small |
-| FRC15 | **`check:rule-behavior` has no groups for the new books.** | LATER: map existing tests (person_ties, heat, authority, away_bank, canon_pull) to TIE, STN, TMR, STY; small |
+| FRC14 | **The area guide's "Rules:" lines and missing modules** (`authority.js`, `positions.js`, `organizations.js`, `heat@1`; the stale "no shared day reader") | Done 2026-11-10: Rules lines point at the new codes; the four modules and the day reader are corrected |
+| FRC15 | **`check:rule-behavior` has no groups for the new books.** | Done 2026-11-10: groups ties, standing, time, fate, cheats and routes in `scripts/check_rule_behavior.mjs` |
 | FRC16 | **One shape repeats across books: an agent with goals and reach.** Fate actors, gods, patrons, authorities (STN14) and storytellers differ by what they may touch | ACCOUNT FOR NOW: FRC3's rulebook should name the shared shape; STN14's claim, knowledge and reach is the nearest built seam (`authority.js`) |

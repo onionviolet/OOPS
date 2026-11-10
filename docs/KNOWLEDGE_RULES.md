@@ -1,6 +1,6 @@
 # Knowledge rules
 
-Proposed 2026-11-10 (AD32). Requested by Weibao ("Draft all four", [log](gm/USER_VISION_LOG_2026-11.md#four-more-rulebooks-and-cheats-brought-forward-2026-11-10)); the lines are agent proposals until he accepts them. Rows marked **(restates)** repeat a rule that already binds through its own code and add no authority.
+Working defaults 2026-11-10 under AD56 (ideas that open possibilities are welcome), adjustable; the lines listed in the [limiting lines review](audits/LIMITING_LINES_REVIEW_2026-11-10.md) stay proposals until Weibao answers. Drafted as proposals the same day (AD32). Requested by Weibao ("Draft all four", [log](gm/USER_VISION_LOG_2026-11.md#four-more-rulebooks-and-cheats-brought-forward-2026-11-10)). Rows marked **(restates)** repeat a rule that already binds through its own code and add no authority.
 
 Covers what characters know and how: truth versus what an observer knows versus what a screen shows, noticing, learning, guessing, accounts and rumours, appraisal and identification, research, teaching and texts, divination and other means, forgetting, spreading, and carrying knowledge across lives and worlds. A world may set any line differently with an in-world reason and cost (AD5, AD38); each row gives the default, the dial and the reason.
 

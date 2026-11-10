@@ -1,6 +1,6 @@
 # Mind rules
 
-Proposed 2026-11-10 (AD32). Requested by Weibao ("Draft FRC1–FRC3 rulebooks", [log](gm/USER_VISION_LOG_2026-11.md#three-more-rulebooks-and-making-rules-reach-implementation-2026-11-10)); the lines are agent proposals until he accepts them. Rows marked **(restates)** repeat a rule that already binds through its own code and add no authority.
+Working defaults 2026-11-10 under AD56 (ideas that open possibilities are welcome), adjustable; the lines listed in the [limiting lines review](audits/LIMITING_LINES_REVIEW_2026-11-10.md) stay proposals until Weibao answers. Drafted as proposals the same day (AD32). Requested by Weibao ("Draft FRC1–FRC3 rulebooks", [log](gm/USER_VISION_LOG_2026-11.md#three-more-rulebooks-and-making-rules-reach-implementation-2026-11-10)). Rows marked **(restates)** repeat a rule that already binds through its own code and add no authority.
 
 Covers the mind as a carrier: personality and traits, mood, stress and strain, sanity and madness, LOTM's loss of control and digestion, powers that act on minds (charm, compulsion, memory editing, possession), will, and identity across bodies and lives. A world may set any line differently with an in-world reason and cost (AD5, AD38); each row gives the default, the dial and the reason.
 
