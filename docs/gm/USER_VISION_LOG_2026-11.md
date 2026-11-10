@@ -763,3 +763,12 @@ Recorded:
 
 - **Lifespan (TMR15, replaces the second round's hidden-lifespan line):** no protagonist lifespan limit for now (life mode "open"). Where a lifespan exists it fits what the character is (species, bloodline, constitution, realm, body); it can be shown, and the base cheat can be what shows it (new catalogue type CTC93, lifespan readout); harm to lifespan names its cost, shows the loss and points to recourse. Aging depth stays deferred; the lore-run calibration stays a suggestion.
 - **Improving routines (new TMR18):** a routine may refine items or improve the self (training, cultivation, study), spending inputs and gaining by the same rules as doing it by hand, through the stop list and the recap.
+
+## Refining UI rules, 2026-11-10
+
+Weibao:
+
+> Commit, then lets work on refining UI rules and stuff
+
+Recorded: the agent committed the three rounds of limiting-line answers, then cross-walked the ten 2026-11-10 rulebooks against the UI rules ([UI audit round 37](../audits/UI_DESIGN_CORE_AUDIT.md#round-37-2026-11-10-what-the-new-rulebooks-need-on-screen)). Most visible demands map to existing codes; six new lines, [UR83–UR88](../UI_RULES.md#what-the-2026-11-10-rulebooks-need-on-screen), cover forewarned losses, knowledge entries with source and freshness, readouts granted by a means, unchosen acts and gaps, a lives list, and notice tiers. UR83–UR87 are working defaults under AD56; UR88 limits how features reach his attention and waits for his answer, with UR77 and UR82 ([limiting lines](../audits/LIMITING_LINES_REVIEW_2026-11-10.md) LLR28–LLR30).
+

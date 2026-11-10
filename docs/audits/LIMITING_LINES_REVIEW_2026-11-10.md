@@ -1,6 +1,6 @@
 # Limiting lines review, 2026-11-10
 
-Under AD56 (Weibao, 2026-11-10: "anything that limts those should run by me first"), the 2026-11-10 rulebooks are working defaults except the lines below. Each one narrows a dial, removes an option or defers a capability, so it stays a proposal until Weibao answers. Answer per line: **keep** (it becomes a working default), **open** (the agent rewrites it toward more possibilities) or **adjust** (say how).
+Under AD56 (Weibao, 2026-11-10: "anything that limts those should run by me first"), the 2026-11-10 rulebooks are working defaults except the lines below. LLR28–LLR30 were added from [UI audit round 37](UI_DESIGN_CORE_AUDIT.md#round-37-2026-11-10-what-the-new-rulebooks-need-on-screen): UR77 and UR82 predate AD56 and stay in use as proposals while he decides. Each one narrows a dial, removes an option or defers a capability, so it stays a proposal until Weibao answers. Answer per line: **keep** (it becomes a working default), **open** (the agent rewrites it toward more possibilities) or **adjust** (say how).
 
 Lines that only restate accepted direction (his own words or an AD line) are listed separately; they bind already, through their source.
 
@@ -35,6 +35,9 @@ Lines that only restate accepted direction (his own words or an AD line) are lis
 | LLR25 | ITM20 | Coin is a purse, not an item | One money seam (ECR16) | Coins as items where theft or weight matters |
 | LLR26 | AGT2 | The shared acting-power record waits for a second world | AD51 | Build it now with LOTM and Reverend Insanity together |
 | LLR27 | AGT10 | No worship currency unless a world declares one | Avoids fixing every god's strength | Belief as a resource by default in worlds with gods |
+| LLR28 | UR88 | A stop-list item may interrupt; other notices become log lines, dots or recap lines | Many new notices compete for one player's attention | Each feature picks its own notice level, with a player dial to quiet it |
+| LLR29 | UR77 | Numeric budgets for routes, regions, center modes, Local actions and tabs; raising one needs a demotion and his yes | Screens fill one panel at a time | Budgets as guidance a lane may exceed with a stated reason |
+| LLR30 | UR82 | A system stays hidden in a life until something is attached | Unmet layers are noise | Show every system's entrance from the start with an empty state that says how to fill it |
 
 ## Answers so far
 

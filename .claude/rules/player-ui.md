@@ -38,3 +38,5 @@ UI/prose reconciliation (2026-11-04, AD40): apply existing UR53/57/60/62/64/66/7
 For a small fix, start at the checklist at the top of docs/UI_RULES.md. UR76–UR82 and
 UIV1–UIV4, UIV6, UIV7 are proposed, in use as the default (CHOICES item 4, 2026-10-30);
 cite them as proposed.
+
+What the 2026-11-10 rulebooks need on screen: UR83–UR88 in docs/UI_RULES.md (working defaults under AD56; UR88 notice tiers held for Weibao). Forewarn a coming loss the character could know, give each known fact its source, day and freshness in one entry shape, let a means add a readout, mark acts the player did not choose, and keep other lives one click away.

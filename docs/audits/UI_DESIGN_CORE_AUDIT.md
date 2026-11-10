@@ -1715,3 +1715,33 @@ User authorized the remaining measured bottlenecks, UI polish and updating the i
 **VG8 ACCOUNT FOR NOW:** avoid styling over update churn. Native stat mirrors use source mutations to mark repaint work, unchanged attribute models skip paints, inventory filtering completes its writes before reading native row visibility once, and the world-completion context reuses its freshly merged fact dictionary. Facts-only results, quote refresh, source-order serialization, caller isolation, current readiness and persistence stay intact. Node/body calculations are not throttled to make the UI appear cheaper.
 
 **VG9 LATER:** full facts copies, world-completion leaf projection and remaining shell visibility/list work remain candidates for a new measured slice, not proof that every remaining cost is removable. Reopen with a profile showing a concrete consumer and a compatible read model; use substantive implementation judgment, medium effort, and verify changed-state/knowledge/reload boundaries. Do not reopen save cadence or a Rust rewrite from these UI measurements alone.
+
+## Round 37, 2026-11-10: what the new rulebooks need on screen
+
+Weibao: "lets work on refining UI rules and stuff" ([log](../gm/USER_VISION_LOG_2026-11.md#refining-ui-rules-2026-11-10)). Every UR, DSG, SUI and RPT line predates the ten 2026-11-10 rulebooks, so this round cross-walks them. A reader extracted each rulebook row that needs something visible (70 rows across the ten books; TIE17, STY12 and STY14 were borderline and left out); the mapping below is the agent's. Findings are proposals; the new rules live in [UI_RULES](../UI_RULES.md#what-the-2026-11-10-rulebooks-need-on-screen) as working defaults under AD56, with UR88 held.
+
+Rejected this round: rewording UR1–UR75 (standing; wording changes need Weibao) and moving the dated reconciliation sections out of UI_RULES (other docs link their anchors; cleanup was not asked for).
+
+| Cluster | Rulebook rows | Owning UI codes | Gap |
+| --- | --- | --- | --- |
+| Return recap names gains, losses and stops | TIE8, TMR6, TMR8, TMR10, TMR18, KNW25, LVR4, LVR9, ITM12 | UR81, RPT6, RPT2 | None: the recap lines are content inside UR81 (lost time past the cap, routine gains, what a person tried) |
+| Coming losses forewarned | TMR13, TMR15, ITM11, STN15, STN17, STY18, STY20, MND13, MND15, KNW19 | UIV3, UIV4, SUI7 (partial) | **UR83**: nothing owned a warning for a loss that comes to you |
+| Knowledge entries and their home | KNW3, KNW7, KNW9, KNW10, KNW12, KNW14, KNW16, KNW20, KNW23, KNW26, MND12, ITM16, ITM17 | UIV6, UR27, UR28, UR74, UR79 | **UR84**: one entry shape with source, day and freshness |
+| Nothing leaks through presentation | KNW22, KNW24, STY30 | UR80, UR72 | None |
+| Notes, not numbers | TIE14, TIE24, STN5, ITM13 | UR70, UR73, DSG15 | None |
+| Readouts granted by a means | CHT3, CHT10, CHT19, TMR15 with CTC93, STY29, AGT20, AGT9 | UR80 (it covers narrowing), DSG15, DSG18 | **UR85**: a means that widens what the screen shows |
+| Cards state their terms | CHT6, CHT12, CHT16 | UR70–UR72, UR79 | None: a cheat card is a description plus terms in one shape |
+| Unchosen acts and gaps | MND9, MND14, MND15, MND21, TIE11 | UR81 (it covers absences) | **UR86**: the screen marks what the player did not choose |
+| Choices, intents and routes | TIE11, LVR11, STN12, STY22, KNW8, TMR5, LVR5, LVR22 | UR35, SUI2, SUI5, SUI6 | None |
+| Untaken and past-built options | STY4, STY7, STY18 | SUI4, SUI5 | None |
+| Who works what, under way | LVR2, LVR12 | UIV3, UR79 | None |
+| Inventory and items | ITM7, ITM22 | UR13, UR21 | None |
+| News and stories | STY9, STY13, STY23, STY5 | RPT1–RPT14 | None |
+
+Gaps not raised by a rulebook, checked by synonym before counting (grep for "colorblind" found nothing, yet the bounded-journey section already keeps meaning usable without motion, sound or color alone; first-reach guidance is UIV2, UR82 and DSG9):
+
+- **UIC23, ACT NOW:** paused lives and worlds had no home on screen (AD12, TMR17). Now UR87.
+- **UIC24, ACT NOW:** a shared knowledge entry shape has two consumers already (the Knows panel and the journal), so it passes the UR54 and UR79 bar. Now UR84.
+- **UIC25, ACCOUNT FOR NOW:** attention. With seventy rows asking for notices, notices need tiers. Drafted as UR88 and held, because it limits how features reach the player (AD56); listed as LLR28.
+- **UIC26, ACCOUNT FOR NOW:** UR77 (numeric home budgets) and UR82 (a system stays hidden until something is attached) are limits under AD56 that predate it; listed as LLR29 and LLR30 for his answer. UR80, UR81, UIV1, UIV3, UIV4 and UIV6 widen play and need no answer.
+- **UIC27, LATER:** build order for the new rules. KNW26 with UR84 is the first slice (search, pins, links and source in the Knows panel and journal); UR83's shared warning row and UR87's lives list follow. Level: runtime UI slice each, medium effort; done check: rebuilt browser proof at 1920×1080 on a populated save (UR14, AD43).
