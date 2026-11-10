@@ -23,10 +23,11 @@ test('each 2026-11-10 rulebook routes from its modules, with no stale glob', () 
     const files = execFileSync('git', ['ls-files', '--cached', '--others', '--exclude-standard'], {encoding: 'utf8', maxBuffer: 64 * 1024 * 1024}).split('\n');
     const expect = {'src/heat.js': 'STN', 'src/canon_pull.js': 'STY', 'src/items.js': 'ITM', 'src/craft_sources.js': 'LVR',
         'src/world_calendar.js': 'TMR', 'src/observer_view.js': 'KNW', 'src/cheat_cards.js': 'CHT', 'src/person_temperament.js': 'MND',
-        'src/authority.js': 'AGT', 'src/person_ties.js': 'TIE'};
+        'src/authority.js': 'AGT', 'src/person_ties.js': 'TIE',
+        'src/world_pack_manifest.js': 'WKR', 'src/world_packs/book_hp_pack.js': 'SKR'};
     for (const [path, fam] of Object.entries(expect))
         assert.ok(routesFor(path, routes).some(r => r.families.includes(fam)), `${path} should route to ${fam}`);
-    const books = ['relationships', 'livelihoods', 'time', 'knowledge', 'standing', 'story', 'cheats', 'mind', 'items', 'powers-that-act'];
+    const books = ['relationships', 'livelihoods', 'time', 'knowledge', 'standing', 'story', 'cheats', 'mind', 'items', 'powers-that-act', 'world-kinds', 'source-kinds'];
     for (const r of routes.filter(r => books.some(b => r.file.endsWith(`/${b}.md`))))
         r.res.forEach((re, i) => assert.ok(files.some(f => re.test(f)), `${r.file}: glob ${r.globs[i]} matches no file`));
 });

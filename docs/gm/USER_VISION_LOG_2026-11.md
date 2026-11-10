@@ -822,3 +822,11 @@ Weibao:
 
 Recorded: [UI audit round 40](../audits/UI_DESIGN_CORE_AUDIT.md#round-40-2026-11-10-levels-of-abstraction-limits-and-what-comes-next). The circles trace to the MDL2 figure primitive: adapters mapped each mechanism straight onto rings, slots and pips. Two working defaults under AD56: six levels with a mechanism form between data and geometry (UR98, reading MDL2 as no kind-specific tokens or marks), and cheap materials first (UR99). Two held lines for Weibao: no new rendering dependency by default (LLR31) and raster or generated art waiting on provenance (LLR32). Research lanes and future features are proposals, none started.
 
+
+## Making rules followed, and bringing old code in line, 2026-11-10
+
+Weibao, after the routes round:
+
+> Other aspects to consider? Rules we need to setup and make followed? changing prior implementation for these rules once other stuff is addressed?
+
+Recorded: path rules for the world kind and source kind books, so they load while editing (as the ten earlier books do); a [rule conformance ledger](../audits/RULE_CONFORMANCE_LEDGER_2026-11-10.md) whose policy (RCL1–RCL4) is an agent proposal: old code moves when a slice touches it, and a dedicated consolidation runs ahead of that only for conflicting writers, blocked slices or per-world cost, after the current checkpoint; and round 3 of the [coverage audit](../audits/FOUNDATIONAL_RULES_COVERAGE_2026-11-10.md#round-3-2026-11-10-making-the-rules-followed-and-old-code) (FRC24–FRC30), whose lints and commit-time check are proposals, not built.

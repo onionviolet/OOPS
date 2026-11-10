@@ -47,3 +47,17 @@ Weibao asked "foundational implementation rules for types of worlds and more? al
 | FRC23 | **Many-world scale budget** (save size, loaded packs, frozen worlds) | AR6 saves, TMR7 frozen worlds, SAVES contract | Matters once five or more worlds are enterable at once | Later; AR section when measured |
 
 Ranked recommendation for the next drafts: FRC17, FRC18, FRC19, FRC20, FRC21. The rest wait for a reader.
+
+## Round 3, 2026-11-10: making the rules followed, and old code
+
+Weibao asked "Other aspects to consider? Rules we need to setup and make followed? changing prior implementation for these rules once other stuff is addressed?" ([log](../gm/USER_VISION_LOG_2026-11.md#making-rules-followed-and-bringing-old-code-in-line-2026-11-10)). Evidence: `.claude/rules/`, `scripts/rule_routes.mjs`, `package.json` scripts, `.git/hooks` (no hooks installed).
+
+| Code | Finding | Disposition |
+| --- | --- | --- |
+| FRC24 | **WKR and SKR had no path rules,** so nothing loaded them while editing world packs or research notes. | ACT NOW (done): `.claude/rules/world-kinds.md` and `source-kinds.md`; `tests/rule_routes.test.js` checks both route and have no stale glob |
+| FRC25 | **The commit-time rule check runs only by hand.** `check:rule-routes` is warning-only and nothing calls it; `check:rules` runs only its stale-glob pass. | LATER: run `check:rule-routes -- --message` inside the guarded commit recipe in [shared worktree practice](../gm/SHARED_WORKTREE_PRACTICE.md), still as a warning. Sonnet, small. Done when a commit touching `src/heat.js` without an STN code prints the warning during the recipe |
+| FRC26 | **Old code that does not meet the new books** has no list and no policy. | ACT NOW (done): [rule conformance ledger](RULE_CONFORMANCE_LEDGER_2026-11-10.md), RCL1–RCL4 policy (move when touched; dedicated consolidation only for conflicting writers, blocked slices or per-world cost; after the current checkpoint) and RCL5–RCL17 ranked rows |
+| FRC27 | **Mechanical rules can be linted cheaply.** Candidates: no new clock counter outside `world_day_index.js` (TMR1); no reader branching on a preset id (WKR1); new story windows import `windowKit` (STY17); source rows name a medium once the source table exists (SKR1). | LATER, proposals: warning-first lints in `check:rules` with a baseline that only shrinks, the way `check_player_text.mjs` works. Sonnet, small each. Done when each lint reports today's count as its baseline and fails only on a new case |
+| FRC28 | **`check:rule-behavior` has no groups for WKR, SKR or STY33–STY34.** Routing is tested; behaviour is not. | LATER: a group per book once a test pins its behaviour (RCL14's route test is the first candidate for STY33). Haiku, small |
+| FRC29 | **Rule changes leave code stale without a signal.** | ACCOUNT FOR NOW: RCL4; a changed rule line gets a dated note, and its ledger rows are re-checked in the same change |
+| FRC30 | **Agent reading load grows with each book** (twelve on 2026-11-10 alone). | ACCOUNT FOR NOW: path rules stay one paragraph; briefs cite codes rather than whole books; overlapping lines get owner rows in the rules index rather than restatement. LATER: a reconciliation pass when two books restate the same line twice |
