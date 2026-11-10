@@ -107,6 +107,82 @@ SHOWN: `CreatureFamilies` supplies adult, offspring and egg relationships. All r
 | Thestral | True | False | 1800 / 0 |
 | Unicorn | True | False | 1800 / 0 |
 
+### Addendum 2026-11-10: breeding, coat inheritance, conflicts and the record fields (CPR14, CPR24)
+
+Read from the private game tables (`private/tables/game/`). Labels as above.
+
+SHOWN, the creature record. `NurturingCreatureDynamic` (shipped with 0 rows) has 27 columns:
+identity (`CreatureUID`, `TypeID`, `CreatureName`, `IsLocalizedName`), flags
+(`IsUncapturable`, `IsGenderMale`, `IsMount`, `CanRename`, `CanReturnToWild`),
+look (`ColorVariation`, `ScaleVariation`), lineage (`MotherUID`, `FatherUID`,
+`BreedingGeneration`, `BirthDateTime`), care (`Happiness`, `NeedMet_Fed`,
+`NeedMet_Interaction`), breeding clocks (`PregnancyState`,
+`PregnancyStartDateTime`, `IncubationStartDateTime`), housing (`NurturingSpaceID`,
+`PenUID`, `PlacedInNurturingSpaceDateTime`) and production (`ProducingByproduct`,
+`ByproductCooldownProgress`, `LastUpdateDateTime`, `SimulationEnabled`,
+`EnableSimulationWhenFirstSpawned`). Timestamps and `LastUpdateDateTime` suggest
+catch-up from elapsed time rather than per-frame ticking (INFERRED).
+`PregnancyState` is an unlabelled integer (state names are a gap).
+`NamedCreatureDefinition` (44 rows) seeds the same fields for authored creatures:
+a UID, type, sex, scale, colour, start `Happiness` (50 on the sampled class
+beasts) and `SimulationEnabled`; 4 are mounts that cannot be renamed or released
+(`CanReturnToWild` 0), the rest can be renamed and released.
+
+SHOWN, the family row. `CreatureFamilies` (13 rows) pairs `AdultID`, `OffspringID`
+and `EggID` with `PregnancyDurationSecs` and `HatchingDurationSecs` (the earlier
+table). Two routes follow from which cells are filled: six species have an egg
+(Diricawl, Fwooper, Giant Purple Toad, Hippogriff, Jobberknoll, Niffler: 900 s
+pregnancy, then 900 s hatching) and six go straight to a live offspring (Graphorn,
+Kneazle, Mooncalf, Puffskein, Thestral, Unicorn: 1800 s pregnancy). The offspring
+is its own creature definition (`DiricawlOffspring`, `PuffskeinOffspring`...), so
+a life stage is a separate type row, not a flag. That fits CPR24: Norbert's egg and
+adult can both be named from one family row (proposal).
+
+SHOWN, coat inheritance. `CreatureColorVariationBreeding` (73 rows over 35 parent
+pairs) gives child colour weights. Ordinary pair: two Default parents give Default
+85, and each of Variation1-3 5. A Default parent with a Variation parent gives 40
+parent-colour, 40 the other, 10 each of the remaining two. Two matching Variation
+parents give 85 for the shared colour and 5 for each other. An Albino parent
+with a common-colour parent gives Albino 25, the other colour 75. The
+`UniqueVariation1-3` coats (the authored mounts) never pass on: crossed with a
+common colour the child takes the other parent's colour at 100, crossed with
+Albino it is Albino 25 or Default 75, and crossed with each other it is Default
+at 100, except Unique3 with Unique2 (Default 50, Albino 50). I found no Albino x Albino row (INFERRED: that pair is not defined, or
+handled in code). `CreatureColorVariationDefinition` (78 rows) sets each species'
+wild colour weights (`SpawnChanceWeight`, Albino 5 for 12 species) and
+`MaleScaleVariationMin/Max`, `FemaleScaleVariationMin/Max`, so size is a per-sex
+range (for example Diricawl male 0.9-1.1, female 0.85-1.0).
+
+SHOWN, care preferences. `CreatureDefinition` (47 rows) gives each adult a
+`PreferredToy` (twig ball, quaffle ball, weeble, yarn ball, bone ball and
+one-species balls for Mooncalf, Niffler, Puffskein and Unicorn) with
+`PlayWithToyHappinessPercentage` 0 in the shipped rows, and a `Conflict1`
+species: conflicts come in mutual pairs (Diricawl and Kneazle, Fwooper and
+Phoenix, Giant Purple Toad and Jobberknoll, Graphorn and Mooncalf, Hippogriff and
+Niffler, Thestral and Unicorn). INFERRED: mixing a pair in one space costs
+happiness; the effect size is in code. `MaxNumSpecies` 4 per biome space (2 for
+`Beast_Class`) is the other mixing limit.
+
+SHOWN, capture and housing gates. Capture fields: `CapturingTime` (0-6 s by
+species), `CapturingGates` (the `CompletedYearForCapture` story-year gate, 0-5),
+`CapturingDistanceMax`, `OnlyCapturableWhenNearDeathKneeling` (Graphorn only),
+`isCarnivore`, `isAgressive`. `NurturingSpaceDefinition.MaxCreatureCompletedYearForCapture`
+is 99 everywhere. Biome spaces map from level substrings through
+`SanctuaryBiomeDefinition` and open with a lock (`SanctuaryExpansionDefinition`,
+`Nurture_BiomeUnlock_*`). `SanctuaryHousekeepingDefinition` adds respawning
+forage per zone (common 5 per interval to a cap of 8, uncommon 3 to 6, rare 2 to 3)
+and `SanctuaryItemGeneratorData` three timed generators (540, 240 and 720 s).
+`BeastDenLocations` (56) place wild dens in the world.
+
+Reusable shapes (proposal, default and dial): one family row per species naming
+adult, young and egg stages; a weighted colour table keyed by parent pair, with
+authored "unique" coats that do not pass on; per-sex size ranges; mutual
+conflict pairs plus a species-count cap per space; a record with separate fed and
+interaction needs and elapsed-time catch-up. Gaps: pregnancy-state names, how
+conflict and toy affect happiness, the production Boolean, and what triggers a
+birth (needs a male and female in one space, INFERRED from `IsGenderMale` and the
+two parent UIDs).
+
 ## Exact trait recipes
 
 SHOWN: all 75 `GearTraitRecipeDefinition` rows are 25 families at three ranks. Inputs below preserve every populated Component1..6/Quantity1..6 pair; unlocking uses LockID and is separate from owning the material. These are gear traits, not new spells.
