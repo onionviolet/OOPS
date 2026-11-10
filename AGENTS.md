@@ -52,7 +52,7 @@ Player-facing words (content strings, confirm text, tooltips, Reports lines, dia
 
 Quality checks from the 2026-11-06 deep dives (proposed rulebooks, AD32): pacing [PAC](docs/PACING_RULES.md), openings [OPN](docs/OPENING_RULES.md), names [NMR](docs/NAMING_RULES.md), consistency [CTR](docs/CONTINUITY_RULES.md), feedback [FBK](docs/FEEDBACK_RULES.md). Names and consistency run in `check:rules`; `npm run check:pacing`, `check:openings` and `check:feedback` play the game and run on request. A brief that writes names quotes one sample from the world's [naming sheet](docs/names/WORLD_NAMING_SHEETS.md).
 
-Making systems: follow `.claude/rules/making-systems.md` and [making rules](docs/MAKING_RULES.md) MR1-MR36 (MR37-MR41 proposed). Building or tuning a repeating system (ties, fights, making, care, research, generators): the proposed [system practice rules](docs/SYSTEM_PRACTICE_RULES.md) SPR1-SPR19 are prompts for briefs, not gates. Before building in an area, check the [area guide](docs/AREA_GUIDE.md) for the established abstraction to use.
+Making systems: follow `.claude/rules/making-systems.md` and [making rules](docs/MAKING_RULES.md) MR1-MR36 (MR37-MR41 proposed). Building or tuning a repeating system (ties, fights, making, care, research, generators): the proposed [system practice rules](docs/SYSTEM_PRACTICE_RULES.md) SPR1-SPR22 are prompts for briefs, not gates. Before building in an area, check the [area guide](docs/AREA_GUIDE.md) for the established abstraction to use.
 
 Runtime code: follow `.claude/rules/runtime-code.md` and [architecture rules](docs/ARCHITECTURE_RULES.md) AR1-AR16. Runtime lane briefs name their seam and link that file.
 
@@ -182,6 +182,14 @@ indexes, commit messages or UI text outside its discovery route. Refer to
 secrets by ID, route and status ("S2: Medicine route works"). Unseal only
 when he asks for that secret or world. Public franchise twists are not
 sealed; a changed or randomized truth is.
+
+The gate is for play (Weibao, 2026-11-09: "The sealed secret gate is only during
+gameplay, for developing, it shoudnt matter as much"). He has read Lord of the
+Mysteries in its entirety, so its canon at any volume is open in development
+chat, reports and tracked design docs. Default (proposal): a changed or
+randomized truth still goes by ID in chat unless the development question needs
+it or he asks. In play, what a character can see still follows what that
+character knows. Raw book prose stays out of git either way.
 
 ## Source acquisition tools
 

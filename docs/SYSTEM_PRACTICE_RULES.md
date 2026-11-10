@@ -26,7 +26,7 @@ the accepted rule governs.
 
 ## Tuning by lore
 
-These extend [AD49](RULES_INDEX.md) (lore anchors, calibrated systems). AD49 governs; SPR8 widens what counts as an anchor and so needs Weibao's word before it is used as more than a prompt.
+These extend [AD49](RULES_INDEX.md) (lore anchors, calibrated systems). AD49 governs. SPR8 widens what counts as an anchor. Asked whether orders, counts and tolerances count, Weibao replied on 2026-11-09: "Should we decide on things in ways that make them reaosnable?" Read as yes, to the degree each is reasonable: a non-numeric anchor binds as far as the text supports it, and AD49's guard still holds (a reader row is not an anchor until checked). The other SPR lines remain proposals.
 
 | Code | Rule | Mistake it prevents | How a receipt shows it |
 | --- | --- | --- | --- |
@@ -38,6 +38,9 @@ These extend [AD49](RULES_INDEX.md) (lore anchors, calibrated systems). AD49 gov
 | SPR12 | **A refit is a new law revision.** Things made or earned under the old revision keep it (MR30, AR9), and the fixtures that proved earlier slices are replayed or marked for re-earning. | A tuned number quietly changing what an earlier receipt proved | The revision, and which fixtures were replayed |
 | SPR13 | **Where canon is silent, say whose number it is.** Each dial is canon (with a locator), borrowed (a period wage, a travel time, a sibling source, named) or assumed. Variance fills only what the source leaves unstated. | Borrowed and invented numbers read as canon later | The basis beside each dial |
 | SPR14 | **Tune ties to behavior and fights to what decided them.** A tie's anchor is "by this chapter, this person does this for the lead". A fight's anchor is who won, what it cost and what decided it (preparation, information, a tool, an ally), before any health total. | Fitting meters nobody in the book ever mentions | The behavior or deciding factor each anchor names |
+| SPR20 | **Results are the contract, numbers are the implementation.** Asked about non-numeric anchors, Weibao said (2026-11-09): "build numbers based off of results?" Default: where the book gives outcomes and no figures (who won, the brew failed, she lent the money), each outcome becomes a constraint the system has to reproduce, and the numbers are whatever satisfies all of them. Their basis is "derived from N results" (SPR13). A number may be retuned freely while every result still comes out. Dial: how many results a number needs behind it before it is treated as more than assumed. | Inventing a figure and then defending it as canon; or refusing to tune a system because the book gave no figures | The results each number was derived from, as replayable cases |
+| SPR21 | **Results fix order and ratio; something else fixes scale.** Outcomes say A exceeds B, never by how many units. Default: each channel takes one point of scale from a stated figure where the book has one (a price, a wage, a duration), or declares its unit as assumed. The fit also reports slack: how far each number can move before a result breaks. Slack is the room left for gameplay tuning. | Numbers that satisfy every result at an arbitrary scale, then collide with a neighbouring system that picked a different one | The scale point or "unit assumed", and slack per number |
+| SPR22 | **Hold some results back.** Default: derive from part of the results and test on the rest (other rungs, other fights, later chapters). A model that needs a new number for every new result has the wrong mechanism (SPR11), and the lead's own wins are weak evidence because the story selected them (SPR9). | Numbers that absorb a wrong mechanism, fitting everything seen and predicting nothing | Which results derived the numbers and which tested them |
 
 ## Ties between people
 

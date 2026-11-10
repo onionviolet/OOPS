@@ -476,3 +476,27 @@ Weibao asked, across one chat about whether the way relationships, combat and pr
 > reconcile docs and core rules and more as to make future dev easier
 
 "Yes do that" answered the offer to run the docs pass for anchor ledgers and world axis sheets (N5 in the atlas). The rest asked for the ideas to be put into rule form and reconciled. What was written is agent proposal (AD32), not his acceptance: the [system practice rules](../SYSTEM_PRACTICE_RULES.md) SPR1-SPR14, [making rules](../MAKING_RULES.md#proposed-additions-2026-11-09-ad32) MR37-MR41, and the [atlas rounds](../audits/PROGRESS_ATLAS_2026-11-07_LONG_TERM.md#is-the-approach-right-and-tuning-by-lore-2026-11-09) LAYX24-LAYX74 that hold the evidence. No line there is accepted until he accepts it by name. Current focus and build order are unchanged.
+
+## Anchors, sealing in development and the bench, 2026-11-09
+
+Asked three open questions from the rules pass (whether orders, counts and tolerances count as lore anchors; whether the tracked potion-axis sheet may name one more LOTM ladder; whether Klein's bench shows rungs he has not learned), Weibao replied:
+
+> What is Q1 asking? Should we decide on things in ways that make them reaosnable?
+>
+> Q2 definitely
+>
+> Q3 Sure, The sealed secret gate is only during gameplay, for developing, it shoudnt matter as much, I did also have read LOTM in it's entirety? More to consider?
+
+Recorded: the first is read as yes, to the degree each anchor is reasonable ([SPR8](../SYSTEM_PRACTICE_RULES.md#tuning-by-lore)); the axis sheet may name further LOTM ladders; the bench may show unlearned rungs. Lasting direction: sealing gates play, not development, and LOTM canon at any volume is open in development chat and docs ([AGENTS.md](../../AGENTS.md#sealed-secrets)). How unlearned rungs appear in play, and how changed or randomized truths are handled in chat, are agent defaults there and in the atlas, not his words.
+
+## Numbers from results, and the other sources, 2026-11-09
+
+After the agent listed follow-on considerations (LAYX81-LAYX86), Weibao replied:
+
+> adress and update and reconcile accordingly
+>
+> LAYX84, build numbers based off of results? More to consider?
+>
+> What do we need to do for the others? I think some others were read already
+
+Recorded: "build numbers based off of results" is quoted in the proposed [SPR20](../SYSTEM_PRACTICE_RULES.md#tuning-by-lore); SPR20-SPR22 and the atlas rows LAYX87-LAYX94 are agent proposals built on it, not his words. "The others" was read as the other sources: the atlas now says what each needs (an anchor ledger over rows already read).

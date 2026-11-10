@@ -53,13 +53,13 @@ A runtime slice missing a line is "implemented, below floor", never "done". Cont
 | FND4 | **Stack questions route to the ranked table** (TS10-TS17); reopen only with new measurement or Weibao's direction. | AD39 |
 | FND5 | **Design a reasonable shared seam from known world needs; a second, different world validates or revises it.** Extend existing verbs where they fit, and keep actual world differences local. This proposed prompt follows accepted AD51 and is not a two-implemented-world prerequisite. | AD51, AR11, WA1, WA5, WA20 |
 
-## System practice, SPR1-SPR19 (proposed 2026-11-09, [rulebook](SYSTEM_PRACTICE_RULES.md))
+## System practice, SPR1-SPR22 (proposed 2026-11-09, [rulebook](SYSTEM_PRACTICE_RULES.md))
 
 Prompts for a brief that builds or tunes a repeating system (ties, fights, making, care, research, generators). A blank answer stops nothing.
 
 - **Pull.** Which ordinary-day loop calls it, and which non-lead seat can run it. Story windows calibrate. (SPR1, SPR3)
 - **Readers.** What behaves differently because of it: a tie's behaviors, a product's uses, the decision a generator changes. (SPR2, SPR4; FLR4, MR32)
-- **Anchors.** How many of the numbers come from the source, of which kind, and whose the rest are. Failures count. (SPR7-SPR13; AD49)
+- **Anchors.** How many of the numbers come from the source, of which kind, and whose the rest are. Failures count. (SPR7-SPR14, SPR20-SPR22; AD49)
 - **Ties.** One person record, a reader that is more than an unlocked line, and which regard a gate reads. (SPR15-SPR19)
 - **Palette first.** On a topic with a palette or rulebook, name the row a new round would change. (SPR5)
 

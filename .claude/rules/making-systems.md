@@ -30,4 +30,4 @@ to the world and not the recipe, made things and powers share one effect
 vocabulary, a story beat that is a making runs on the making engine, a making
 brief answers five things, and a living thing that is made or refined stays the
 same individual. Tuning to a source follows the proposed
-[system practice rules](docs/SYSTEM_PRACTICE_RULES.md) SPR7–SPR14.
+[system practice rules](docs/SYSTEM_PRACTICE_RULES.md) SPR7–SPR14 and SPR20–SPR22.

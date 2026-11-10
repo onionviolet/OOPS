@@ -113,6 +113,12 @@ to unseal it. Reports name secrets by ID, route and status. Public
 franchise twists are not sealed; a changed, divergent or randomized truth
 is. Secrets about the player character count too.
 
+Weibao, 2026-11-09: "The sealed secret gate is only during gameplay, for
+developing, it shoudnt matter as much, I did also have read LOTM in it's
+entirety?" The gate governs play. Development chat and docs may state canon from
+a book he has read in full; [AGENTS.md](../../AGENTS.md#sealed-secrets) carries
+the default for changed or randomized truths.
+
 ### Implementing sealing (proposals)
 
 - **Where sealed records live.** Original worlds: `docs/worlds/<world>/sealed/`
