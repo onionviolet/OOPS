@@ -1802,3 +1802,43 @@ The PL table in UI at scale places many systems; the 2026-11-10 aspects need row
 - **UIC45, LATER: a fixture launcher for UI states.** Open any surface in a named state (empty, unknown, populated, warning, running, interrupted) from the dev route, so each new form under UR89 gets checked in all of them. Done check: one command opens a surface in six states with screenshots at 1920×1080.
 
 Ranked for building, most useful first: UIC29 session spine, UIC38 one progression view (LOTM first), UIC31 routine editor, UIC34 effect vocabulary, UIC41 "why?", then the rest.
+
+## Round 39, 2026-11-10: why surfaces look alike, and how to make them distinct
+
+Weibao: "ALso making Uis disctinct and more? since alot of the UI work and implementations, for stuff like rituals and stuff and more turned into sets of circles and stuff, thoughts? How to have nuanced, interesting, reactive, and comprehensive, and pleasing ui?" ([log](../gm/USER_VISION_LOG_2026-11.md#distinct-reactive-and-pleasing-ui-2026-11-10)). Evidence: a fresh headless game on the perf-mid save at 1920×1080 (home view: framed boxes of rows in every region), and `src/lotm_rite_rows.js`, whose rites carry steps, performers, conditions, outcomes and costs: structure a ritual surface could draw. The LOTM ritual screen itself was not opened (its scenario needs the private cast pack), so "sets of circles" is his observation, not re-measured here. Rules: [UR93–UR97](../UI_RULES.md#distinct-reactive-and-pleasing-surfaces).
+
+### Why surfaces converge (findings)
+
+- **UIC46, ACCOUNT FOR NOW: the cheapest compliant shape wins.** UR6 (shared tokens), UR7 (shared components), UR79 (one shape per kind of information) and UR77 (home budgets) each reward reuse. With no rule asking a surface to express its mechanism, a lane passing the UI contract test picks the row, the chip or the circle marker. UR94 now says what is shared (grammar) and what is not (composition).
+- **UIC47, ACCOUNT FOR NOW: the UI contract asks for a home and a shape, not a form.** UR76's card named home and primitives; it now also names the mechanism's form (UR93), so the design question is asked before code.
+- **UIC48, ACCOUNT FOR NOW: diegetic and skins are deferred by his direction.** DSG18 waits for each world's basic kit (his words), and DSG17 skins are later. UR93 needs neither: a form that mirrors the mechanism can be built in the Luminous default now, and a world's material dresses it later.
+- **UIC49, ACCOUNT FOR NOW: tests check structure, not distinctness.** Nothing measures whether two systems look alike. UR94's two cover tests (which system, which world) go in the UR97 craft record as screenshots.
+
+### Forms per mechanism (palette)
+
+Each row is a starting idea for a slice; the form reads the owning data, and the world dresses it.
+
+| Mechanism | Form that encodes it | Reacts to |
+| --- | --- | --- |
+| Ritual (LOTM rites, summonings) | An altar or circle whose positions are the rite's real parts (offerings, candles, the honorific's three lines, the performer's place), with steps as an ordered path around it | Each placed part lights its position; missing or wrong parts show as gaps or a tell; risk and spirituality spent build visibly; the answer (or silence, AGT9) lands on the altar |
+| Formation or array (cultivation) | Nodes and flows on a diagram: flags, stones, the qi path | Flow strength along each edge; a broken node dims its branch |
+| Mixing and potions | A vessel with ingredient slots, stages and heat | Colour, phase and residue change as each ingredient is added (from the real mixture model) |
+| Divination | Question, method (pendulum, dream, cards, coins) and the answer in the method's own shape | Clarity and precision as the method resolves; the hedge shows (UIV6) |
+| Contracts and bargains | Clauses with parties, terms and penalties | Each clause highlights what it binds when hovered; breached clauses mark |
+| Cultivation | A body chart: meridians, dantian, the realm | Opened meridians fill; a bottleneck shows where it blocks (UR90) |
+| Cheat window | The cheat's own frame: a system window, a ring spirit's voice, a card | Notifications in the cheat's voice; its readouts (UR85) |
+| Investigation | A case board of people, places and claims (UR84) | New links draw in; contradictions mark |
+| Ties | A web of people with notes on each edge | Edges change with events, each with its history (UR92) |
+| Fights | Positions and reach on a small field | Threat lines and openings; the selected target's facts (UR36) |
+| Standing and law | A map layer per jurisdiction, heat as weather | Heat rises and settles; escalation steps appear in order (STN17) |
+| Travel | The route as a line with stops and time | Redraws as stops change; hazards along the line |
+
+### Making it nuanced, reactive and pleasing (palette)
+
+- **UIC50, LATER: a ritual surface as the first UR93 slice.** LOTM rites already carry steps, performers, conditions and outcomes. Level: runtime UI slice; effort medium; done check: with labels covered, a reader tells it from the inventory and the mixing counter; placing a part changes the form; the result lands on the altar and in Reports; browser proof at 1920×1080 on a fixture.
+- **UIC51, LATER: a material set per lead world.** Paper, ink and brass for LOTM; jade, silk and qi light for cultivation; parchment and runes for D&D; chrome and glitch for a system cheat. Built from tokens (UR6), keyed by `data-world` (DSG12). Level: token pack per world; effort small to medium; done check: the same ritual surface reads as two worlds with the world name covered.
+- **UIC52, LATER: small reactive details.** Candle flicker scaled by spirituality left; a pen that writes a Reports line; a vessel that steams while heat holds; cursor or hover marks that show where a dragged ingredient will go. Each reads a real value, settles at stable moments, and has a static form for reduced motion.
+- **UIC53, LATER: a craft record template.** One short block per surface: focal point, the two cover tests, reference compared, states captured. Level: docs plus a screenshot script; effort small; done check: one existing surface (the mixing counter) recorded as the example.
+- **UIC54, LATER: a redesign sweep by distinctness.** Rank existing surfaces by how alike they are (cover-test failures) and how often they are used; redo the top three under UR93. Level: audit then slices; effort medium; done check: before and after screenshots with the cover tests recorded.
+
+Ranked for building: UIC50 ritual surface, UIC51 material sets for LOTM and cultivation, UIC54 sweep, then the rest.

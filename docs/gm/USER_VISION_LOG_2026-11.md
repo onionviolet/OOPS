@@ -805,3 +805,12 @@ Weibao, on the canon-first lines:
 > Results based calibration? so vaiance can happen with ways that leads to cannon, which creates variation and more?
 
 Recorded as widening direction (AD56, it opens possibilities): calibration fits results (SPR9, SPR20), so a canon result fixes where a scene lands while the route there can vary by method, order, helper, timing, price and means (STY33), and the route's residue carries into later scenes (STY34). This widens the 2026-10-28 lead-life line "variance changes details only" ([LEAD_LIFE_RULES](../LEAD_LIFE_RULES.md)), which now carries a dated qualifier. Band width per beat is a world dial.
+
+## Distinct, reactive and pleasing UI, 2026-11-10
+
+Weibao:
+
+> ALso making Uis disctinct and more? since alot of the UI work and implementations, for stuff like rituals and stuff and more turned into sets of circles and stuff, thoughts? How to have nuanced, interesting, reactive, and comprehensive, and pleasing ui?
+
+Recorded: [UI audit round 39](../audits/UI_DESIGN_CORE_AUDIT.md#round-39-2026-11-10-why-surfaces-look-alike-and-how-to-make-them-distinct) finds that the shared-component rules reward the cheapest compliant shape and nothing asked a surface to express its mechanism. Five working defaults under AD56 in [UI_RULES](../UI_RULES.md#distinct-reactive-and-pleasing-surfaces): form follows the mechanism (UR93), shared grammar with distinct composition, checked by covering labels and world names (UR94), surfaces react before and after commit (UR95), comprehensive by layers (UR96), and a recorded craft pass (UR97); UR76's contract card now names the mechanism's form. Nothing here limits options, so no line is held.
+
