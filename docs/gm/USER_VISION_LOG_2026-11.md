@@ -847,3 +847,11 @@ Recorded:
 - **LLR32 opened (UR99):** generated or raster art is not needed for the current work; it is welcome where a surface benefits, with its source noted per asset, and is not a gate.
 - **Research sent:** three lanes on how others solve the same problem, writing to `docs/reviews/ui-distinct-forms-2026-11-10/`: R1 games whose UI encodes their mechanisms, R2 diagram layering, libraries, sigils and motion, R3 accessible diagrams and rendering cost in the app's web view. Returns fold into the UI design core audit.
 
+
+## Chainsaw Man, other worlds and pet systems, 2026-11-10
+
+Weibao asked:
+
+> WHat about chainsaw man and more? more to consider? Pet systems and more?
+
+Recorded as proposals: round 4 of the [coverage audit](../audits/FOUNDATIONAL_RULES_COVERAGE_2026-11-10.md#round-4-2026-11-10-which-world-fills-which-gap) maps worlds to the gaps they fill (FRC31–FRC37; Chainsaw Man has no held source yet), and round 12 of the [companion palette](../COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md#round-12-pets-against-the-2026-11-10-rulebooks-and-todays-code-2026-11-10) treats pets against the new rulebooks (CPR1–CPR13). No build order changes; nothing is started.
