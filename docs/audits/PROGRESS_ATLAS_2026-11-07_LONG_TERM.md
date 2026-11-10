@@ -545,6 +545,113 @@ Suggested first step for D-G: one docs-only pass over the existing volume-1 and 
 
 Next, under D-G: walk Klein's next window as the caller for DG1, with the census rows above as its anchors.
 
+## Layers that condense the work (2026-11-09)
+
+Weibao, 2026-11-09: "Layers of abstraction needed and more, to condense things to a format that fits what we have/what we are tying to achieve?" Follow-up to the missing-foundations read (F1-F9 in that chat: ordinary loops, career and cases, power grammar, encounter frame, procedures for rites and advancement, people with plans, the world sheet, idle seams, content throughput). Everything here is a proposal (AD32). Evidence: the seam register at the current tree, the [transfer pattern](../CROSS_WORLD_SYSTEMS_TRANSFER.md), [ACR1-ACR14](../ACTIVITY_ABSTRACTION_RULES.md), [AR1-AR19](../ARCHITECTURE_RULES.md) and a grep of `src/`. Code shape only, no play proof.
+
+**What the code shows.** The engine, port and world-data split already exists for systems. What has no runtime layer is everything between an engine and a story window. 44 files redefine the same rule helpers (`eq`, `all`, `set`, `note`, `stock`), and 34 define their own `act()` builder. Most of them are the 33 `book_gu_lead_*` window modules (4,666 lines). In `book_gu_lead_wolf_front.js`, 88 of 146 lines are code around the window definition. The shared helpers turned out to be about 20 of those lines (measured in the LAYM1 status below); the rest is window-specific gates, clock requests and registration. LOTM already has the better shape: `lotm_act_engine.js` compiles a source row plus an authored binding into native commands and reports a missing binding instead of guessing. It serves LOTM alone. ACR1-ACR14 describe repeated activities well, but they are rules with no runtime templates, so each window hand-builds its case, lesson or errand.
+
+### The stack
+
+| Layer | Holds | Owner today | Gap | Foundations it serves |
+|---|---|---|---|---|
+| LAY0 · Kernel | Clock, registry, save slices, seeded streams, custody, transactions, observer knowledge | AR1-AR19, `simulation`, `structured_pack_*` runtime | Sound; keep | All |
+| LAY1 · Engines (verbs) | Make, cast, procedure, encounter, exchange, ties, home, inquiry, travel, harm | Seam register (about 40 rows) | Group the rows into about ten verb families. Encounter has no world consumer, effects are partial, and the procedure layer lacks advancement and the answering Agent | F3, F4, F5, F8 |
+| LAY2 · World law | Society sheet, systems sheet, law rows per port, cost sources, palettes | Transfer pattern, `world_society_sheet.js` | The systems sheet (LT1) is not built, so a missing piece still reads as absent | F7 |
+| LAY3 · Activity forms (missing) | Job or shift, case, lesson and practice, making, rite, journey, deal, care of a living thing, upkeep, encounter. Each is a thin template over LAY1 with one contract: find a place, person and means; check access; commit means; settle cost, custody and result; hand the result to a later consumer; settle interruption by ACR7 | ACR1-ACR14, as rules with no runtime | No runtime templates. Forms are actor-neutral, so a character can run the same form later | F1, F2, F6 |
+| LAY4 · Situations | A form bound to a place, people and world data: a Nighthawk case at the club, the Monday Charms lesson, feeding a held Gu | `causal_situations.js` (phases, private truth, participants, response window; 5 importers), structured packs, `place_acts`, storylet deck | Exists as a simulation type; window files bypass it (corrected in the next round) | F1 |
+| LAY5 · Routes | A lead route is an ordered policy over situations with canon outcomes pinned as calibration (AD49, XC5) and authored overrides where canon is singular (DG5). Ordinary life is player choice over the same situations | One module per window (Gu), the row-plus-binding compiler (LOTM alone) | No shared builder; this is where throughput is lost | F9 |
+| LAY6 · Projection and words | Read models, views at quick, guided and detailed depth, prose | AR8, `src/read_models/`, UR, PRS | Small; ACR3 depth views | F1 |
+
+Two rows cut across every layer: **evidence** (source, focused test, browser, installed, human-reviewed, kept distinct) and **demand** (census row, mechanism, owning layer, as D-G already does).
+
+### Options weighed
+
+| Code | Option | What it buys | Why not alone |
+|---|---|---|---|
+| LAYO1 | **The layered stack above** | Each gap has one home; a world is a sheet plus situations | Seven layers can drift into ceremony if a layer has no caller |
+| LAYO2 | **Everything is a procedure:** one engine runs making, rites, lessons, cases and fights | The most condensed form | It becomes a mega-engine. Fights and timed scenes fit badly, and one bad change breaks every activity |
+| LAYO3 | **Beats as the unit (unusual):** each census row compiles to a form, its bindings and a pinned outcome. Windows become lists of beat rows citing locators | It attacks content throughput (LT6) directly, and the canon pull already produces the rows | Beat granularity varies by book, and it still needs LAY1 and LAY3 underneath |
+| LAYO4 | **Agents first (unusual):** every person runs needs and plans, the player is one more actor, and canon is a set of nudges | It is the purest life sim and makes F6 central | It fights canon fidelity (AD49), is expensive and hard to debug at this stage |
+
+**D-H, converged (proposal).** LAYO1 as the frame. LAYO2 survives inside LAY3: forms share one step-and-settle contract but stay separate thin templates. LAYO3 becomes the authoring format for LAY4 and LAY5 wherever a census row maps cleanly to a form; the rest stays authored with a reason. LAYO4 is a dial for later. Forms are actor-neutral from the start, so S1 (people with their own plans) costs content rather than a rebuild. Rejected: LAYO2 as one engine, for the coupling risk; LAYO4 as the frame now, for canon cost.
+
+### Moves (proposals)
+
+| Code | Move | Default, dial and reason | Done check |
+|---|---|---|---|
+| LAYM1 | **One window builder.** Lift the repeated helpers and `act()` into one shared module, and widen LOTM's row-plus-binding compiler to every world | Structural first (AR9): emitted commands stay identical, so content hashes and earned saves hold. Old windows move only when touched. Dial: how much of a binding a world may leave to defaults. Reason: the cheapest throughput gain, available now | The next Gu window and the next Klein window both use it. Each records its non-data line count against its predecessor (baseline: wolf front, 88 lines of code around 58 lines of definition) |
+| LAYM2 | **First two activity forms: case and lesson.** Build them over existing inquiry, duties, lessons and the purse | Default consumers: a small Tingen case from intake to report and follow-up (F1, F2), and a Hogwarts school week. Dial: how many steps a world shows (ACR3). Reason: these are the largest ordinary-life and career demands (DG1, DG3) | An ordinary character and the lead route run the same form, each walked natively, with Save/reload/Export/Import |
+| LAYM3 | **Lead beats cite forms.** When a window's beat matches a form, the route points at a situation instead of a new once-only act | Canon outcome pinned as calibration; a singular beat stays an authored override with its reason. Reason: lead play and ordinary play share one path, so each window adds reusable situations | One window where most beats are situations, and an ordinary character can take one of them |
+| LAYM4 | **Systems sheet printout (LT1)** across LAY1 to LAY3 per world, each row authored, palette or missing | Lead worlds first; test beds keep palette rows. Reason: it makes gaps visible before a lane builds beside them | Printout for LOTM, Harry and Qing Mao |
+| LAYM5 | **One capability map for the docs.** A layer-by-world grid where each existing code (LT, XC, W3X, MG, DG, F, A, S) sits in one cell, with its evidence state | Docs only; no codes renamed and no new register. Reason: the many parallel code families are hard to read as one picture | Every code in this atlas and the ordinary-play audit lands in one cell or is marked retired |
+
+**LAYM1 status, 2026-11-09: implemented, below floor by design (structural, AR9).** [`src/window_chain.js`](../../src/window_chain.js) holds the shared helpers (`windowKit`: prefix and energy pool only, usable at top level) and the chain act builder (`kit.chain`: world, place, admission, readiness, default refusal). It emits keys in the existing order, because a window's content hash is `JSON.stringify` of its definition. Harry's windows already load private JSON packs through a thin compiler over `place_acts`, and Klein's come from the private generated cast, so the hand-rolled duplication was in the 33 Fang Yuan modules.
+
+| Check | Result | Gaps |
+|---|---|---|
+| `node --test tests/window_chain.test.js` | 4/4 pass: key order, shape, parts, repeat, extra fields, loud failure on missing context | Fixture inputs |
+| Scratch migration of every Fang Yuan window, compared by `node scripts/compare_window_exports.mjs` | 10 of 33 byte-identical with no hand work, same content hash: ear grass, estate claim, estate handover, hunt follow-through, rank two, relic market, river toad, white jade, wolf front, year end. About 20 lines saved per window. The other 23 need a hand move: 4 use helpers at top level before the kit line (ice crystal, ice soul, stone forest, wood charm); 9 differ through a same-named helper with another meaning or act options the builder does not cover (exam result's `reserve` is an exact-equals check); 10 have no standard act builder (the life base, selection, vital, refinement and others) | Proof ran on scratch copies; no window file was changed |
+| `npm run check:arch`, `npm run check:rules` | Pass; `main.js` growth 0 | |
+| Build, browser | Not run: nothing in the bundle imports the module yet, and no behavior changed | |
+
+**Correction and next lever.** The helper lift is a modest win, about 20 of 88 code lines per window, not the throughput lever this section first claimed. The bigger saving is the shape Harry's windows already use: a module of about 40 lines over a private JSON pack, with one shared compiler (`compileHpSchoolContinuation` over `place_acts`). That also keeps canon content in the gitignored `private_packs/` instead of public `src/`. Moving Fang Yuan's windows to that shape is the second half of LAYM1.
+
+**Proof standard for a move.** A move is proved by `compare_window_exports.mjs` showing identical bytes, because the runtime hashes exactly that JSON and earned saves pin the hash, so identical bytes mean identical admission (AR9's reason). The cheap confirming step is admitting one earned save for the moved window in a rebuilt build.
+
+No window was moved. The Fang Yuan files are another lane's uncommitted, untracked work, edited as late as 16:31 today. Remaining LAYM1 work: the next Fang Yuan window uses the builder (the done check); moving existing windows is left to that lane or to a later pass with its owner's handoff, each proved with the compare script; widening the row-plus-binding compiler (`lotm_act_engine.js`) to other worlds is a separate step.
+
+Suggested order: LAYM1 now (cheap, structural, and it speeds every following window), LAYM2 alongside KJ3AV and the Harry school week, LAYM3 as each window lands, LAYM4 beside them, and LAYM5 whenever a docs pass is free. Current focus (Klein first, Harry alongside) is unchanged.
+
+### More to consider: bigger moves, procedural systems, UI and other aspects (2026-11-09)
+
+Weibao, 2026-11-09: "bigger stuff too? more procedural systems? UI rules for implmentation? other aspects and more?" Proposals (AD32). Evidence: `ls src` (1,169 files, flat), `dist/bundle.js` at 8.9 MB, [UI rules](../UI_RULES.md#task-layers-and-long-running-work-2026-11-04) task layers and BF105/BF106, and the importers of `causal_situations.js` and `storylet_deck.js`. Code shape only.
+
+**ACT NOW (done).** The LAY4 row said situations were missing as a type. That was wrong. `causal_situations.js` already defines a phased situation with private truth, participants and a response window, and the storylet deck already draws cards in the Village and LOTM (`book_world_lotm_deck.js`). The row now names them. LAY4 builds on these; it doesn't add a third situation type.
+
+**ACCOUNT FOR NOW.** These constraints apply to LAYM1-LAYM5 as they are built.
+
+| Code | Constraint | Evidence and reason |
+|---|---|---|
+| LAYX1 | **Every activity form has a routine mode.** It can repeat as a standing order with a stop policy and settle in batches (ACR1, ACR8). | This is an idle RPG. A form that runs just once, by hand, recreates the click-through windows. BF106 already sketches the policy controls. |
+| LAYX2 | **One saved shape for work in progress:** reserved, spent, partial output and pending settlement, shared by every form (AR6, ACR7, ACR11). | XM14 asked for this for procedures alone. Without it each form invents its own pending state and its own refund bugs. |
+| LAYX3 | **One view per form, not per world.** A form ships one activity row (BF105) and one current-work block (BF106), mapped onto the [accepted task layers](../USER_VISION.md#task-appropriate-ui-layers-and-crafting-follow-through-2026-11-04): browse, inspect, configure, commit, running, settle. A world supplies words, fields and its own law, not a layout. | `src/ui/` holds world-specific views (`lotm_task_summary.js`, `gu_house_view.js`, `rite_figure.js`). Each new world would otherwise add its own. |
+| LAYX4 | **The form owns the quote.** UI reads the form's quote and revalidation (AR7) and by default computes no cost or chance itself (UR74). | This keeps one meaning across lead and ordinary play, and across hover, row and receipt. |
+| LAYX5 | **Situations sit in homes that already exist** (UR76-UR79): today's work, requests and offers go in the existing Local and work surfaces as rows. There's no panel per form or per world. | UR78: content inside a surface that already exists is not a promotion. |
+| LAYX6 | **Private truth stays sealed in projection.** A generated or canon situation's private truth is world truth (AR8); by default the player sees what their character observed and nothing more (UR80). | Sealed-secrets rule. Generated cases make leaks easier, because the truth is now data next to the clues. |
+| LAYX7 | **Window data stays data.** LAYM1's builder emits plain rows with no closures over other windows' modules, so a world's packs can later load on their own (LAYX9). | 8.9 MB bundle against the 8 GB target. Today windows import their predecessors' modules to reach item ids. |
+| LAYX8 | **Each form gets one scenario fixture** (a success and a single-change failure, S4) under tests by system. Per-window tests default to checking bindings. | Lean tests. One fixture per form beats a test per window as the window count grows. |
+
+**LATER / DELEGATE. Bigger structural moves.**
+
+| Code | Move | Level, effort | Done check |
+|---|---|---|---|
+| LAYX9 | **Load a world's packs on entry** (code split per world) instead of one bundle | Sonnet, medium, after LAYM1 | Cold start and memory on the target machine drop, with every earned save still admitted |
+| LAYX10 | **Re-home code by layer and system.** 63 files are named after delivery waves (`backlog_expansion_*`, `feature_expansion_*`, `continuation_*`, `absorb_*`), in a flat `src/` of 1,169 files. Move them under layer and system folders, structurally (AR9, AR15) | Sonnet, large, in rounds with writer reservations | `check:arch` passes and the same scenario replays identically before and after; no wave-named file left in a moved family |
+| LAYX11 | **Calibration as a layer.** Generalize the XP3 fitting script, so each form's dials (odds, gains, prices, minutes) are solved from canon beats that cite it, with outliers reported as canon exceptions | Sonnet, medium, after LAYM2 has two forms | One report per form listing fitted dials, the anchor beats and outliers |
+| LAYX12 | **Inspector and lint for authors.** A developer view and a game MCP tool that list, for a chosen character: available forms and situations, why each is shut, and every unbound or unconsumed row (like `lotm_act_engine`'s binding report). It inspects and never mutates, so it is safe against saves (reason: inspection is separate from mutation) | Sonnet, small to medium | The MCP lists Klein's and an ordinary Tingen clerk's open situations with their shut reasons |
+| LAYX13 | **Crossing as a form property.** Each form and situation declares what crosses worlds (knowledge, item, tie, pending work) under WER1-WER17, instead of per-crossing code | Design pass, then sonnet | One item and one tie cross Tingen to Hogwarts and back through the declaration |
+
+**LATER / DELEGATE. More procedural systems.** Each fills LAY4 with generated situations, so ordinary life isn't hand-written. Each waits for a named first caller.
+
+| Code | System | Built on | First caller and done check |
+|---|---|---|---|
+| LAYX14 | **Situation director:** the storylet deck widened to draw today's requests, cases, offers and trouble per world from place, season, standing and the character's forms | Storylet deck, `world_events`, world calendar, reputation view | A Tingen clerk sees different requests over three days, each tied to state that changes them |
+| LAYX15 | **Generated cases:** a private truth, clues placed with people and places, witnesses with their own accounts, and an answer that grades by evidence | `causal_situations` private truth, `people_knowledge`, the case form (LAYM2) | One generated case closes by records search and another by a witness, after reload |
+| LAYX16 | **Generated ordinary people:** role, schedule, wants and ties for people who aren't canon cast, drawn from the world's naming sheet | `cast_schedule`, `person_ties`, naming sheets (NMR) | A case's witness and a shop's keeper exist without authoring, and they remember the player |
+| LAYX17 | **Places that fill in:** addresses, shops and workplaces with demand and stock (XC20, MG15) | Shops, economy port, `place_acts` | A district gains a shop that sells what nearby demand asks for |
+| LAYX18 | **Timetables and curricula:** generated lesson weeks, shifts and rotas from the world calendar | World calendar, lesson form, duties | A Hogwarts week and a Nighthawk rota come from one generator with different law rows |
+| LAYX19 | **Word of mouth:** how news, rumours and standing spread and fade per audience (XC2's dial) | Reputation view, knowledge per observer | A case's outcome reaches a second district a day later, changing a price or an offer |
+| LAYX20 | **Prices solved over the world** (MG8) and generated abilities within a world's allowed parts (XP4) | Economy port, power grammar | Already logged; listed here so the director can call them |
+
+**LATER / DELEGATE. Other aspects.**
+
+- **LAYX21, prose slots per form.** Each form's rows and receipts read world word slots (PRS1-PRS8, naming sheets), so a generated situation sounds local. Sonnet, small, with LAYM2. Done check: the same case form reads as Tingen in one world and Hogwarts in another, with `check:rules` passing.
+- **LAYX22, lane briefs name their layer cell.** A runtime brief names the layer, the form and the world cell from LAYM5, so foundation runs pick slices by gap rather than by window. Docs, small. Done check: the next lane brief cites a LAYM5 cell.
+- **LAYX23, routine cost per tick.** Measure the cost of twenty forms running as routines on the target machine before LAYX14 multiplies them. Sonnet, small. Done check: recorded tick time with twenty routines against none.
+
+Suggested order is unchanged at the front: LAYM1, then LAYM2 carrying LAYX1-LAYX8. LAYX12 (the inspector) is the cheapest next one with lasting value. LAYX14 and LAYX15 are the biggest procedural step for ordinary life, after the case form exists.
+
 ## Is the approach right, and tuning by lore (2026-11-09)
 
 Weibao, 2026-11-09: "is the way we go about to implement something like the relationship system or combat system even the right way? other aspects to consider?", then "or like hte procedural systems too", then "what about making the system fit what happens in lore to tune it? more to consider? Procedural crafting and other aspects?" Proposals (AD32). Evidence: `person_ties.js`, `tempo_fight*.js` and their importers, `power_grammar.js`, `power_grammar_worlds.js`, `scripts/calibrate_powers.mjs`, `scripts/calibration/fight_cases.json`, the making and craft file list. Code shape only; nothing was run or played.

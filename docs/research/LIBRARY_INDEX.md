@@ -134,6 +134,7 @@ A new book arrives: add its row here (and in `books.json` if it will be batch-re
 
 | Document | Owns |
 |---|---|
+| [BOOK_RECEPTION_AUDIT](BOOK_RECEPTION_AUDIT.md) | Repeatable title audits for paid performance, visibility and reader reception, with Qidian pilots and cross-market plans |
 | [SOURCE_ACQUISITION_TOOLS](SOURCE_ACQUISITION_TOOLS.md), [TOOL_REGISTRY](../TOOL_REGISTRY.md) | How to acquire: Source Library CLI, polite scraper, Calibre routes |
 | [DOWNLOAD_WISHLIST_2026-10-30](DOWNLOAD_WISHLIST_2026-10-30.md) (current ranked to-download list), [BOOK_CANDIDATES_2026-10-22](BOOK_CANDIDATES_2026-10-22.md), [BOOK_DISCOVERY_2026-10-26](BOOK_DISCOVERY_2026-10-26.md), [FUTURE_ACQUISITION_QUEUE](FUTURE_ACQUISITION_QUEUE_2026-10-13.md) | What we might acquire next (proposals, history) |
 | [BOOK_ACQUISITION_RECEIPT_2026-10-24](BOOK_ACQUISITION_RECEIPT_2026-10-24.md), [SOURCE_ACQUISITION_RECEIPT_2026-10-26](SOURCE_ACQUISITION_RECEIPT_2026-10-26.md) | What was downloaded, dated, with checks (history; this index is the live answer) |
@@ -1021,7 +1022,7 @@ Trigger: Weibao, “for the wiki we can look for other routes, or use chrome ext
 | Cypher Reference Document | col.montecookgames.com/license | `Cypher-Reference-Document-2026-07-29.docx` 8.5 MB, plus the licence PDF dated 2026-07-15 | Cypher Open License | valid docx; SHA-256 `cbc222b131436fef…` |
 | Eclipse Phase 2nd edition Quick-Start ("Acrimony", Nov 2023) | eclipsephase.com/qsr | PDF 6.7 MB | CC BY-NC-SA 4.0 (the site's licence page) | valid PDF; SHA-256 `8ba97f45ad34ef69…` |
 | Ironsworn rulebook and Assets Master Set | itch.io free download (shawn-tomkin.itch.io/ironsworn) in Weibao's Chrome; no account or payment. The rulebook was already in `~/Downloads` (2026-10-14) and was copied, not moved | rulebook 40.9 MB, about 270 pages; assets 0.46 MB | CC BY-NC-SA 4.0 (full text) | complete PDFs; SHA-256 `c1cfba6573cbd57e…` and `cc16c4eb95d0f782…` |
-| Delta Green: Need to Know | free, but only through DriveThruRPG with an account; the Arc Dream pages hold no direct file | not fetched | OGL core rules | Weibao's to grab |
+| Delta Green: Need to Know | [Held via later intake](#world-play-aids-2026-11-09) | 53-page PDF with six sample agents | OGL core rules | Separate printable agents also indexed |
 | Eclipse Phase 1st edition core | pay-what-you-want on DriveThruRPG; the publisher's epub mirror returns 404 | not fetched | CC BY-NC-SA | Weibao's to grab |
 
 A stalled duplicate rulebook download, `~/Downloads/Unconfirmed 993474.crdownload` (15.7 MB), is left in place for Weibao to discard in Chrome.
@@ -1117,3 +1118,129 @@ Downloaded through Z-Library, md5-matched and registered as managed assets (not 
 **Anna's fast route blocked on this network.** The member API answered, but its download host (`wtgadtq.org`) presented a certificate issued by "FortiGate CA" (Fortinet), so a firewall on the current network is intercepting that host and TLS verification fails in Python and curl. Four fast uses were spent on the failed attempts (46 of 50 left on 2026-11-08). Verification was not disabled to get around the filter. Once Weibao's VPN was back up, Anna's passed a TLS preflight and the run resumed.
 
 **Anna's fast after the VPN came back** (md5-checked, registered, not screened or read; PDFs still need `pdf-screen`), 45 files: *Life of a Dungeon Core* 1 *The Eternal Training Ground* (series now 1-6); *Warformed: Stormweaver* 2 *Fire and Song*; Bookworm Fanbook 1 (fanbooks now 1-7); *The Apothecary Diaries* 1-15; *A Tale of the Secret Saint* 1-10; *Re:Monster* 1-6; and the tabletop books *Thousand Year Old Vampire*, *The Quiet Year*, *Mouse Guard* 2e, *Apocalypse World* core, *Ryuutama*, *Dungeon Crawl Classics* core, Pathfinder 1e *Core Rulebook*, *Advanced Player's Guide*, *Ultimate Magic* (pocket edition) and *Ultimate Combat*, *HârnMaster* 3e and *Ptolus* (2021 5e edition, not the 2006 original). Anna's ended at 0 of 50: 4 uses lost to the firewall and 5 to an undersized cap, though those 5 md5s were retried at no extra cost. Next queue, not fetched: *Re:Monster* 7-11, *Arifureta* 1-13 and Zero 1-2, *Konosuba* 1-17. The browser search (haiku agent, Weibao's Chrome, one tab) found no English *Microscope*, *Stars Without Number* Revised, *Worlds Without Number*, *Reign*, *Night's Black Agents* core, *Mark of the Fool* 11, *Butler to a Core Lord* 2 or *Stormweaver* 3; *Wanderhome* exists only as a 178 MB PDF (md5 fbac35db40415e72320cbfcf613ed9af), not fetched. Lessons are AR52-AR55 in [source acquisition tools](SOURCE_ACQUISITION_TOOLS.md). Receipts: `receipts2.jsonl` and `receipts3.jsonl` in the same folder.
+
+## Cyberpunk follow-up, 2026-11-08 (DL106)
+
+Anna's member route added **20 unique PDFs** to Source Library. The download host passed TLS preflight. Each registered file matched its expected MD5 and recorded SHA-256 and opened in `pdfinfo` with a positive page count. The private queue and per-file receipts are `novels/wave-2026-11-08/list4_anna_followup.json` and `receipts4_anna_followup.jsonl`.
+
+| Group | Acquired |
+|---|---|
+| Cyberpunk | *Cyberpunk 2020* 2e core, *Night City Guide*, *Chromebook 1* listing, *Listen Up You Primitive Screwheads*, *Cyberpunk RED Jumpstart Kit*, *Black Chrome*, *Danger Gal Dossier*, *Tales of the RED: Street Stories* |
+| Shadowrun | Fifth Edition core and *Run Faster*. Sixth World *Street Wyrd*, *Firing Squad*, *Body Shop* and *Double Clutch*. The Sixth World core was already held |
+| Other systems | *GURPS Cyberpunk*, *Interface Zero 3.0 Player's Guide*, *The Sprawl* 1.1 |
+| Ghost in the Shell | Original manga (368-page scan, Dark Horse second edition, 2004), *Man-Machine Interface* listing (300 pages), *Human-Error Processor* listing (199 pages) |
+
+`pdf-screen` and rendered front and back matter identified the 368-page “Complete” scan as the original manga volume. The other PDFs still need screening before reading. The Z-Library desktop route timed out before authentication, and the alternate account check required a session. The 10 cyberpunk fiction titles and the 24 light novels in [the priority queue](DOWNLOAD_WISHLIST_2026-10-30.md#priority-queue-for-the-next-resets-2026-11-08) are pending. The separate *Cyberpunk RED* core EPUB listing remains unverified.
+
+## Anna's first fiction follow-up, 2026-11-08 (DL105, DL106)
+
+Z-Library desktop metadata was reachable again and provided exact edition MD5s. Anna's public search returned a browser challenge in headless Chrome. Anna's member API supplied all **30 reviewed prose EPUBs**, so the wave used **zero Z-Library downloads**. Each EPUB was registered, matched its expected MD5 and recorded SHA-256, and passed ZIP CRC and OPF spine-entry checks. Two files with missing or undefined language tags, *Altered Carbon* and *Snow Crash*, contained English prose in the sampled body files.
+
+| Group | Acquired |
+|---|---|
+| Cyberpunk fiction | *Neuromancer*, *Count Zero*, *Mona Lisa Overdrive*, *Burning Chrome*, *Altered Carbon*, *Broken Angels*, *Woken Furies*, *Do Androids Dream of Electric Sheep?*, *Snow Crash*, *Hardwired* |
+| Light novels | *Arifureta* 1-13, *Arifureta Zero* 1-2, *A Tale of the Secret Saint ZERO* 1-4 |
+| Re:Monster | English prose EPUB labeled volume 7, with numbered chapters 34-38. This follows the numbering found in the held volume 6 EPUB. Edition and text equivalence with the official translation remain unverified |
+
+Four old queue entries, *Re:Monster* 8-11, were [Seven Seas manga](https://sevenseasentertainment.com/series/remonster/) and were excluded from the prose batch. [Hanashi Media](https://beta.hanashi.media/store/series/remonster/) lists English light novel volume 5 for November 29, 2026. The checked Z-Library prose searches surfaced the volume 7 compilation as the highest matching volume. Private evidence: `novels/wave-2026-11-08/metadata5.jsonl`, the two `list5_*.jsonl` selections and `receipts5.jsonl`.
+
+## Wishlist prose wave, 2026-11-08 (DL107)
+
+Z-Library supplied **30 new EPUBs** from the next wishlist tier. The desktop account check confirmed the allowance went from 30 available to zero. Anna's supplied the preceding wave and was unused here. Each new file was registered, matched its expected MD5 and recorded SHA-256, and passed ZIP CRC and EPUB spine-entry checks.
+
+| Group | Acquired |
+|---|---|
+| Drew Hayes | *Super Powereds* Years 1-4 and *Corpies* |
+| Progression fiction | *Minute Mage* 1-3, *Double-Blind* 1-3, *All the Dust that Falls* 1-4 |
+| Light novels | *Making Magic* 1-3, *Monster Tamer* 1-2, *Min-Maxing My TRPG Build* 1-2, *D-Genesis* 1-2, *Lazy Dungeon Master* 1-3 |
+| Standalone and serial files | *Fine Structure*, *The Oracle Paths* compilation with numbered chapters 1-485, *Dungeon Reset* compilation with ordered chapter files corresponding to 2-345 and a repeated opening file |
+
+The *Dungeon Reset* opener is available free in the [licensed Tappytoon novel](https://www.tappytoon.com/en/book/dungeon-reset-novel). The compilation uses different front-matter metadata and its translation equivalence remains unverified. No exact match surfaced in the checked Z-Library results for the four remaining author-posted serials in DL107. Private evidence: `novels/wave-2026-11-08/scout6_live.jsonl`, `coverage6.txt`, `list6_a.json`, `list6_b.json` and `receipts6.jsonl`.
+
+## Code Geass, 2026-11-09 (DL112)
+
+- **Main manga:** Source Library registered chapter 1 of Majiko!'s *Lelouch of the Rebellion* as a 63-page CBZ with a clean ZIP CRC. The existing manga governor is processing the MangaFire run (chapters 1–26 and bonus 26.5) at the next manga slot. The surveyed English chapter lists stop around the end of volume 6. Chapters 27–38 cover volumes 7–8 and remain acquisition gaps. The survey, exact chapter IDs and queue selection are in `novels/code-geass-2026-11-09/`.
+- **Main prose series:** All five English Bandai Entertainment print-edition scans are registered in Source Library as original PDFs from the [Internet Archive collection](https://archive.org/details/novel-code-geass-lelouch-of-the-rebellion). Archive file numbering is 01–05. The printed Stage numbers are 0–4: *Entrance* (83 PDF pages), *Shadow* (94), *Knight* (108), *Sword* (103), and *Zero* (107). Most PDF pages are two-page spreads. All five matched the archive MD5s and passed PDF parse and screening. Rendered cover, title, contents and back-matter samples matched the expected editions. Private file-level evidence is in `novels/code-geass-2026-11-09/stage-novels-receipt.json`.
+- **R2 and side novels:** Source Library separately holds the [R2 TURN 1 opening excerpt](https://archive.org/details/ch1_20260905), an OCR-derived EPUB from an English fan translation credited to ShuuTheExiled. It matched the archive's MD5 and passed ZIP CRC. Complete English *R2* and *Red Tracks* files were unverified in the checked routes. [Bandai's cancellation announcement as reported in 2012](https://www.comicsbeat.com/bandai-entertainment-reorganizes-ceases-publishing-manga-dvds-and-blu-rays/) includes the planned English *R2* novels. Neither archive transfer used Anna's or Z-Library allowance.
+
+## Anna’s rulebook preflight, 2026-11-09
+
+The live Source Library check confirmed *Sword Coast Adventurer’s Guide* (`6f450994a01b`), *Explorer’s Guide to Wildemount* (`15b34ddd1b33`), the four Pathfinder 2e remaster core books, *Kingmaker* (`9f4dff305435`, 642 pages in `pdfinfo`), *GURPS Infinite Worlds*, *Pendragon Core Rulebook* and *Burning Wheel Gold Revised*. The [wishlist](DOWNLOAD_WISHLIST_2026-10-30.md#w2-dd-and-other-rulebooks) now reflects those holdings (DL13–DL16, DL103).
+
+Anna’s download host passed TLS verification. Its member API returned `No_downloads_left` for the queued *Wanderhome* candidate (DL96). The background browser stalled at Anna’s browser check before reaching a slow partner link. This run added zero files. The remaining tabletop priorities include *Cyberpunk RED* core and the *Edgerunners Mission Kit* (DL106), the 2025 *Monster Manual* (DL8), and the DL109 tabletop queue. Private preflight and member receipt are in `novels/wave-rulebooks-2026-11-09/`.
+
+## Cyberpunk core editions, 2026-11-09 (DL106)
+
+Anna’s slow partners supplied eight PDFs after the browser check cleared. Each matched Anna’s MD5 and its managed Source Library copy was checked against the registered SHA-256. The intake covers the core reading material in the six-title checklist, including the previously held *Cyberpunk 2020* second-edition core (`c1f21f1e9ad6`).
+
+| Title | Managed copy and verified scope |
+|---|---|
+| *Cyberpunk RED* | Full 458-page CR3001 rulebook, `c97bd6967f58`. Anna’s listing says digital v1.25. The rendered credits page shows third printing and ISBN 978-1-950911-06-6. |
+| *Cyberpunk 2013* | All three 1988 booklets. *View From the Edge* (50 PDF pages, `52185f69c98d`), *Friday Night Firefight* (26, `b3d783286dc1`), and *Welcome to Night City* (42, `29a12a034dc5`). Loose player aids remain unverified. |
+| *CyberGeneration* | 195-page scan of the 1993 first edition, `0fd5ae65511a`. The rendered copyright page identifies CP3251. |
+| *Cyberpunk Version 3.0* | 291-page core, `4f81185e7057`. The cover identifies V3.0. |
+| *Edgerunners Mission Kit* | All three booklets in a 126-page PDF, `be394a294d95`. Covers at pages 1, 43, and 85 identify the *Rule Book*, *Edgerunner’s Handbook*, and *The Jacket*. Also held separately is the 42-page *Edgerunner’s Handbook*, `ec035fbae6ab`. Separate maps, tokens, and pre-generated character sheets remain unverified. |
+
+Checks: `pdfinfo` opened all eight originals. `qpdf --check` completed with PDF structure warnings on several copies. Poppler rendered all 458 RED pages and all 126 Mission Kit pages. `pdf-screen` failed on a RED cross-reference, so RED identification used rendered pages. Private receipts, screen output and render evidence are in `novels/wave-rulebooks-2026-11-09/`. These are source intake and edition checks.
+
+## Cyberpunk boxed-set aids, 2026-11-09 (DL106)
+
+- **Cyberpunk 2013.** Pages 47–50 of the held *View From the Edge* scan contain the four reference panels. They include the Netrunner interface map, cyberware reference, blank character record, and skills and gear list. The separate *Player Reference Sheets* PDF is `51b377c698fd`. *Extra Reference and Combat Aids* (`efd7fcc22355`) contains combat tables and the tracking sheet from *Friday Night Firefight* (PDF pages 21–22 and 24), plus the Netrunner program list from *Welcome to Night City* (PDF page 42). All eight extracted pages rendered identically to their source pages. The independent [TSR Archive entry](https://www.tsrarchive.com/cp/cp-1e.html) identifies the original four-page foldout and shows its skills and gear panel.
+- **Edgerunners Mission Kit.** The three-booklet PDF includes five annotated encounter map images on PDF pages 92, 103, 105, 108 and 114. The private ZIP preserves those five original embedded JPEGs. *The Jacket: NPC Cards and Mission Flowchart* (`336bf0cf5de6`) contains PDF pages 118–126. The [digital v1.0 intake below](#original-edgerunners-files-and-tabletop-player-aids-2026-11-09) closes the original loose maps, standees, tokens, and seven pregens. Anna’s returned a gateway error on the follow-up. The publisher lists the [digital edition](https://rtalsoriangames.com/cyberpunk-edgerunners-mission-kit/) and [Roll20 edition](https://marketplace.roll20.net/browse/bundle/31687/cyberpunk-edgerunners-mission-kit). Roll20’s adventure content stays in its VTT.
+- **Official supplemental aids.** The 11-page fillable RED *Edgerunners Folio* (`74fc3df71a56`), *Karaoke Night* (`33c6bc0a16b5`), and *Night City Atlas* (`85a672ea7890`) are managed PDFs. The private ZIPs contain four *Karaoke Night* map JPGs (two locations, with and without grid), 680 RED token PNGs, and four Night City Atlas map variants in JPG and PDF. See [R. Talsorian’s download index](https://rtalsoriangames.com/downloadable-content/) and [Karaoke Night release notes](https://rtalsoriangames.com/2024/07/15/cyberpunk-edgerunners-mission-kit-dlc-1-releases/).
+- **Verification.** Six managed PDFs matched their recorded SHA-256. All map and token ZIPs passed CRC checks. Private files, download URLs and screen and extraction checks live in `novels/cyberpunk-box-aids-2026-11-09/`.
+
+Related reference candidates: [Blades in the Dark Player’s Kit](https://bladesinthedark.com/downloads) for OOPS crew sheets, faction tracking and downtime; [Mothership’s Warden screen and player aids](https://www.tuesdayknightgames.com/pages/mothership-resources-downloads) for quick hazard and condition reference; [Paizo’s Beginner Box resources](https://paizo.com/pathfinder/getstarted) for pregenerated starts. The [official NREMT EMT interactive samples](https://www.nremt.org/Pages/Examinations/EMR-and-EMT-Certification-Examinations), already tracked by Lumen, can serve as interaction references when testing category sorting and sequencing.
+
+## Original Edgerunners files and tabletop player aids, 2026-11-09
+
+| Source | Acquired and verified |
+|---|---|
+| *Cyberpunk: Edgerunners Mission Kit*, digital v1.0 (DL106) | The archive contains six encounter maps and the Night City map as seven standalone JPGs, an eight-page map PDF, 69 PNG tokens, a two-page printable token and standee sheet, and 20 weapon and cyberware cards. Both folio PDFs contain all seven pregens: Bluescreen, Connect, Hardpoint, Insurance, Maven, Thorn, and Wrench. The original letter and 11×17 folios, intro sheet, maps PDF and token sheet are managed in Source Library. |
+| *Blades in the Dark* | Official 32-page Player’s Kit and three Core Play Sheets. The kit includes character and crew sheets, procedures, faction reference and maps. [Publisher downloads](https://bladesinthedark.com/downloads) |
+| *Mothership* 1e | Official four-page Warden’s Screen, one-page Basic and Advanced Character Profiles and Ship Manifest. [Publisher downloads](https://www.tuesdayknightgames.com/pages/mothership-resources-downloads) |
+
+The Edgerunners ZIP came from a community mirror. Its embedded handbook matches our held copy byte for byte, and the folios and token sheet were visually checked against the contents described by the [publisher](https://rtalsoriangames.com/cyberpunk-edgerunners-mission-kit/). The publisher’s archive hash is unavailable for comparison. All ZIP members passed CRC checks, and all 96 images decoded. All 11 Source Library PDF hashes matched. Ten were newly managed, and the official Blades Player’s Kit matched the copy already indexed. Private archive, loose files, source URLs and verification receipts are under `novels/tabletop-player-aids-2026-11-09/`.
+
+Further candidates for OOPS: [Ironsworn: Delve worksheets and cards](https://tomkinpress.com/collections/delve-downloads) for showing what the player knows about a site; [Mausritter item and condition cards](https://mausritter.com/) for showing inventory capacity and what conditions displace; [Delta Green briefing documents and pregens](https://www.delta-green.com/start-here/) for investigation handoffs such as Tingen casework.
+
+## World play aids, 2026-11-09
+
+Six PDFs were added to Source Library. All managed copies matched the recorded SHA-256. Private originals, source URLs and checks are in `novels/world-play-aids-2026-11-09/`.
+
+| Source | Acquired |
+|---|---|
+| *Ironsworn: Delve* (DL19) | Official one-page Site Worksheet (`eedc2953e5a6`) and seven-page Site Cards (`30bbfbbb945b`), with theme, domain and blank cards. [Tomkin Press](https://tomkinpress.com/pages/ironsworn-delve) |
+| *Mausritter* | Official three-page Item and Condition Cards (`9ba9288d9e7f`). [Losing Games](https://mausritter.com/) |
+| *Delta Green* | Eight-page *Briefing Documents* (`dbd22bb84f6d`) from a mirror. The publisher’s preview also has eight pages and the same main sections. Anna’s supplied the 53-page *Need to Know* (`874854f72b86`), which matched the archive MD5. *Six Sample Agents* (`9b2b4a2041a9`) is a printable extract of PDF pages 22–33. All 12 pages rendered identically to their source pages. [Publisher starter resources](https://www.delta-green.com/start-here/) |
+
+**Account for now.** Tingen is the first place to compare the Delta Green aids against an existing OOPS route. A case handoff could expose the report, who supplied it, what authority the character has and what can be checked next. Keep witness statements, checked evidence and withheld information distinct. Compare GUMSHOE’s core clues for routes that still work when one interview or method fails. [Tingen route](../worlds/world-core-kit-2026-10-14/W3_PEOPLE_INSTITUTIONS_LIFE.md#w3-lm-lord-of-the-mysteries-tingen-household-and-case-office) · [GUMSHOE SRD](https://pelgranepress.com/2013/10/24/the-gumshoe-system-reference-document/)
+
+**Later candidates.** Start with one existing player route per source before considering wider changes.
+
+- *LOTM:* The fan-made *Beyonders & Mysteries* character sheet is a reference for arranging pathway, advancement and condition information. Compare the layout against an early Klein state. Use the novel for canon. The fan volumes contain full-series spoilers. [Creator’s release](https://www.reddit.com/r/LordofTheMysteries/comments/1xht65b/v8_fan_project_beyonders_mysteries_a_free/)
+- *Harry Potter:* Compare a Hogwarts Potions lesson card with the *Ars Magica* laboratory and item references. Show the assigned method, materials on hand, teacher supervision and what the student can observe if a step goes wrong. [Hogwarts Potions](https://www.harrypotter.com/fact-file/magical-miscellany/potions) · [Atlas Games resources](https://atlas-games.com/arsmagica/)
+- *Reverend Insanity:* Use the newly held Mausritter cards as a display reference for one existing Gu. Show what it needs to feed, when the next feeding comes due and what carrying or maintaining it costs. Preserve the Gu’s specific means and consequences.
+- *D&D and expedition worlds:* Compare the held Delve worksheet with *The One Ring* Journey Log. The journey view can track route, assigned roles and fatigue. The site view can carry forward observations and unresolved hazards when the party returns. [Free League](https://freeleaguepublishing.com/games/the-one-ring/)
+
+## Implementation references, 2026-11-09
+
+**Act now (done).** Eight PDFs registered in Source Library. The four English files cover the distinct releases in the linked Drive folder. The other four files are Portuguese editions. Originals, source URLs, screen reports and file receipts are in `novels/implementation-references-2026-11-09/`.
+
+| Reference | Files and first use |
+|---|---|
+| *Beyonders & Mysteries* | Rules labeled 0.1 (260 pages), Pathways Volumes I and II (240 and 198 pages), and the two-page fillable character sheet. Compare what the sheet groups together with the information an early Klein can actually know. Use the books for canon and the fan volumes as a versioned comparison. The volumes contain full-series spoilers. [Creator's Drive](https://drive.google.com/drive/folders/1TSLhC0RXWtwCq3kW_er5FbFh6av1NDiZ) |
+| *GUMSHOE SRD* | The publisher's 303-page CC BY 3.0 edition includes One-2-One and QuickShock. Compare access to a core lead with the cost of the method used to obtain it. [Pelgrane Press](https://pelgranepress.com/2013/10/24/the-gumshoe-system-reference-document/) |
+| *Ars Magica* 5e | Ten-page *Covenant Record Sheets* and its Laboratory Record Sheet as a separate PDF. The original includes laboratory texts, library records, vis and yearly bookkeeping. The lab sheet distinguishes features, Safety and Upkeep. [Atlas Games PDF](https://www.atlas-games.com/pdf_storage/ArM5CovenantRecordSheets.pdf) |
+| *The One Ring* 2e | One-page fillable Journey Log with route, roles, events, mounts and Travel Fatigue. [Free League PDF](https://freeleaguepublishing.com/wp-content/uploads/2023/09/TOR_Journey_Log_fillable.pdf) |
+
+The standalone lab page matched the publisher packet's page 8 in rendered pixels. The rules PDF has broken destination warnings and rendered all 260 pages. GUMSHOE and the Journey Log reported linearization warnings. Screened instruction-like phrases reviewed on the rendered pages were game text. Static inspection of the Journey Log's flagged actions found an initial page view and a form icon import action. Form entry and round trips remain untested.
+
+**Account for now.** Pair the Delta Green handoff with GUMSHOE in one [Tingen case](../worlds/world-core-kit-2026-10-14/W3_PEOPLE_INSTITUTIONS_LIFE.md#w3-lm-lord-of-the-mysteries-tingen-household-and-case-office). A qualified approach can surface the lead needed to keep investigating. Different methods can cost time, expose different corroboration or alert different people. Verify that a failed method leaves a source-valid route when the case provides one, and that evidence and elapsed time survive reload. For the fan rules, community gap report and wiki chart together, see [Pathway comparison](../worlds/progression-gates-2026-10-23/LORD_OF_THE_MYSTERIES.md#11-fan-rules-community-gaps-and-pathway-chart-2026-11-09).
+
+**Later / delegate.** Reopen when the corresponding playable route comes up.
+
+| Slice | Level and effort | Done check |
+|---|---|---|
+| Hogwarts or Mother of Learning lab | Runtime designer, medium | Run the same known procedure with different tools or preparation. Show why the result, cost or interruption differs. For a time loop, account separately for what the character remembers and what the room retains. |
+| Expedition with a return trip | Runtime designer, medium | Save after an interrupted leg with a party role and fatigue recorded. Reload, change the approach and revisit a Delve-style site with earlier observations intact. The recorded journey and the party's current state agree. |

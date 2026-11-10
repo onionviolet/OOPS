@@ -75,5 +75,6 @@
     }
    ]
   }
- ]
+ ],
+ "note": "2026-11-08: an OpenAI run file covers the same shards (overnight_oa-2026-11-08-ttks1.json). Launch one; batch_submit refuses shards already read or in flight."
 }

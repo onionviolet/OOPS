@@ -1,0 +1,24 @@
+{
+ "ceilingUsd": 33,
+ "approval": "Weibao 2026-11-08: \"Go ahead, build those reading levels into the workflow and check what the existing readings need. Fix the schema for anything not sent yet, and keep any extra reading within the $33 budget. Consider aspects like procedural systems and more\"",
+ "reservations": [
+  {
+   "id": "coi-approved",
+   "capUsd": 3.96
+  },
+  {
+   "id": "four-approved-books",
+   "capUsd": 23.72
+  },
+  {
+   "id": "prior-coi-schema-failure",
+   "capUsd": 0.0567
+  },
+  {
+   "id": "reading-level-supplement",
+   "capUsd": 1
+  }
+ ],
+ "reservedUsd": 28.74,
+ "unallocatedUsd": 4.26
+}

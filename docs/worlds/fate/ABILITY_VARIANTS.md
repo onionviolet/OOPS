@@ -69,3 +69,6 @@ The digest's earlier E8 mapping is explicitly unverified. Its DF1–DF3 review s
 | Class / graph change | Create a versioned new instance or form with an explicit source and effect set. | Replacing a heroic record, body or history silently. |
 | Rebirth / restoration | Require continuity-specific carrier, cause, cost, and proven conditions. | General immortality, universal resurrection, or a free prestige loop. |
 
+## Lore edge-case check (2026-11-09)
+
+The original Japanese prologue confirms weaker compulsion for broad orders and supports a named case of resistance carrying a cost. Use the actual instruction and scope when resolving a spent charge. Archer’s reported burden is specific to his case. [Source passages and proposed checks, LE26](../../research/LORE_EDGE_CASES_2026-11-09.md#le26)

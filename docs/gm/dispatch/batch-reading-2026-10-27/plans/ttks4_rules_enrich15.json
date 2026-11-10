@@ -1,0 +1,40 @@
+{
+ "world": "ttks4",
+ "model": "gpt-6-luna",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "reading": {
+  "level": "L1",
+  "relevance": [
+   "lead-trajectory",
+   "reference"
+  ],
+  "review": "not-reviewed",
+  "kind": "targeted-enrichment",
+  "basedOn": {
+   "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B4/private/lead-run-2026-10-28",
+   "sourceFile": "shard_ttks4_ch003-004.txt"
+  },
+  "focus": "Check procedure ordering and actor/tool bindings, interrupted/partial outcomes, learning and enforcement, what varies versus what is fixed, persistent consequences and observer knowledge. Preserve explicit source quantities and distinguish an observed case from a universal rule. Do not mistake an upcoming rank for the current rank, an actor report for an observed action, or an ordinary procedure for random generation. This is a selected-shard supplement, not full-book synthesis."
+ },
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/_reading-level-review-2026-11-08/enrichment/ttks4",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/_reading-level-review-2026-11-08/enrichment/ttks4/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B4/private/lead-run-2026-10-28",
+  "censusMatch": "^ttks4c\\d{3,}(?:L)?m_census\\.jsonl$"
+ },
+ "label": "ttks4-rules-enrich15",
+ "pass": "rules",
+ "shards": [
+  {
+   "prefix": "ttks4c003",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B4/private/lead-run-2026-10-28/shard_ttks4_ch003-004.txt",
+   "base": "00301",
+   "chapters": "3-4"
+  }
+ ],
+ "reread": "Targeted schema1.5 enrichment after field audit and contextual source sample; isolated outputs preserve previous extraction."
+}

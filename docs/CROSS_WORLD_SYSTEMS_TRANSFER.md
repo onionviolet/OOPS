@@ -84,3 +84,142 @@ Weibao asked whether each system was made "comprehensive and modular and extenda
 | Homes | World catalogues reach the engine for tenure, furnishings, world-specific room improvements, full overview, dormitory access and purchases. A retained purchase balance feeds Owed; current rental possessions survive title transfer | Authored world rows; existing building generators remain separate | Yes for registered home/furniture/room/purchase rows. World staff institutions and construction methods outside those declarations still need their own appropriate ports | Add later source homes as content. Cash/loan/installment branches are tested; financed title is a developer fixture, not a new canon offer |
 | Powers | `power_grammar` composes effect functions, magnitude/range/duration/targets and world price lists, then uses spell records and the structured descriptor; casting keeps seeded failure, costs and mastery. Timed Cogitation uses native jobs and exact save validation | Authoring is compositional; seeded invention is still the later XP4 dial, not claimed here | Rows compose known parts. A genuinely new effect type needs a handler into an existing physical owner or a justified engine extension | Story rows/calibration anchors; source-shape contracts cover indexed first-year magic and pinned Seer methods |
 | Research | Yes for Harry (`inquiry` with authored topics, gate and evidence readers) | No | Yes: a topic, its sources and an evidence reader | Klein's records onto `inquiry` |
+
+## Round 2. Cross-world build cases from community discussions (2026-11-09)
+
+**ACT NOW (done).** Compared the [30 lore cases](research/LORE_EDGE_CASES_2026-11-09.md)
+with named community examples and the existing source owners. Bounded
+reuse-and-check under WPR1–5, WPR24 and WPR27. Reviewed job completion,
+ability records, observation channels, obligations, material lineage and
+continuation state at the current checkout. This is a design round under
+AD5, AD38, AD46, AD51 and AD52. Each row proposes a contrast for a selected
+slice. It changes neither build order nor acceptance rules. The lore note
+keeps each novel, manga and VN claim at its own evidence level.
+
+### ACCOUNT FOR NOW
+
+**LT11. Recheck what supports the next step, then settle what actually happened.**
+The D&D 2024 *Antimagic Field* text says “the time it spends suppressed
+counts against its duration” ([official spell](https://www.dndbeyond.com/spells/2618860-antimagic-field),
+[community rules discussion](https://www.dndbeyond.com/forums/dungeons-dragons-discussion/rules-game-mechanics/212268-2024-antimagic-field)).
+That gives a useful contrast to LOTM's nested projections and a borrowed
+wand. A capability can stop working temporarily while an independent
+clock and completed effects continue. A job in `simulation.js` can
+already recheck support and return reservations or keep disclosed costs.
+The missing design case is a repeatable order that encounters a material
+boundary between operations. Continue with a substitute when it fits
+the player's agreed method and budget. Pause if the substitute would
+spend more, require fresh consent, or change the product. Test expiry
+just before, at, and after the relevant completion boundary. A prior
+effect that already settled keeps its consequences unless the world
+has an actual means to undo them. See ACR2/6–8/10–11 and LE1/3/6.
+
+**LT12. Give an alternate method a real chance at the same objective.**
+The [community discussion about meaningful costs](https://www.reddit.com/r/ProgressionFantasy/comments/1syy6hb/discussion_what_makes_a_cost_in_progression/)
+distinguishes cooldowns from costs to relationships, reputation or
+abilities. Treat this as reader preference, with no requirement that
+every use hurt. The book checks already support an in-world contrast:
+Hanged Man flesh manipulation and Faceless both offer appearance
+changes with different precision, and the same apparent escape can
+leave different evidence (LMD1–2). Use the existing ability and spell
+ports for the source, method, target and actual output. Let a second
+method change the next decision, even if both get the player through the
+door. For example, one leaves a witness who can be interviewed and one
+changes the mechanism a subsequent guard checks. If a more capable
+character genuinely solves the entire problem, let the advantage
+stand (ACR12). Sample an ordinary method and a different powered method
+before adding more variants. See the [effect cases](worlds/deeper-interactions-audit-2026-10-13/01_EFFECT_KINDS_AND_ACTIONS.md).
+
+**LT13. A changed appearance updates a particular check.** A
+[Larian forum player](https://forums.larian.com/ubbthreads.php?Number=880962&ubb=showflat)
+describes using disguise to question a corpse that refuses its killer.
+Larian's Patch 4 confirms a related retry condition, “if you didn't ask
+any questions the first time,” with a Wild Shape example
+([developer notes](https://baldursgate3.game/news/patch-4-now-live_96)).
+The useful decision is whether to change the evidence a listener uses,
+try a different listener, or acquire independent proof. LOTM Error
+and HP Polyjuice can use different channels. Run an appearance-based
+check and one based on separately verified knowledge against the same
+actor. A successful disguise can change the current verdict while
+the witness's old account, actual identity, and earlier custody remain
+available to their proper owners. Reuse the existing actor facts and
+observer-scoped receipts where the operation fits.
+See ACR9, LE2 and the [identity palette](worlds/HP_POLYJUICE_AND_PERCEIVED_IDENTITY_CONSIDERATIONS_2026-11-03.md).
+
+**LT14. Keep custody and liability separate when the agreed route changes.**
+[Courier players discussing collateral](https://forums.eveonline.com/t/how-does-collateral-work-for-courier-contracts/324789)
+raise who recovers the stake on failure. CCP's guide confirms a
+stronger case: if a destination is removed after acceptance, “an
+accepted contract's destination will change” to the issuer's asset
+safety location in the ordinary documented case, with a wormhole
+exception that fails the contract
+([official courier guide](https://support.eveonline.com/hc/en-us/articles/203218982-Courier-Contracts)).
+ORV adds a penalty a qualifying proxy can partly absorb. Fate adds a
+charge that may produce weaker compulsion than intended. For ordinary
+work, run the existing custody, agreed-duty and owed owners together.
+Given the same cancelled or disrupted delivery, inspect who physically
+has the item, who may redirect it, who owes what, and whether earlier
+effort or a paid fee survives. Redirect under a term already accepted.
+Otherwise ask for a new choice where the character can make one.
+Test repeated notification or reload at settlement and require a single
+payment or debt. See ACR6/7/11 and LE26/28/29.
+
+**LT15. Group stock by what the next action needs to distinguish.**
+A [Factorio forum suggestion](https://forums.factorio.com/viewtopic.php?t=135672)
+asks for control over which destination stack receives incoming stock.
+Wube's Gleba design post says “recipe results inherit their freshness
+from the ingredients” ([Friday Facts 414](https://www.factorio.com/blog/post/fff-414)).
+The useful comparison is selecting stock for an order versus the
+world's law for physically mixing stock. YAIRPG's `planMaterialMerge`
+already keeps unequal lineage keys separate. Build on that. For a
+perishable, inspected or claimed item, preserve the cohort if a recipe,
+buyer, healer or authority reads the distinction. Use a single UI line
+for convenience when the details can be expanded and the policy still
+selects the real units. Let a world that truly mixes ingredients write
+a transformation, with actual sources and yield. Test two similar
+Tingen doses or Village rations, one with an actionable difference.
+Show that transfer, reservation and reload preserve it. See ACR8/13
+and the [M1 batch, portion and label gap](audits/LARGER_FOUNDATIONS_2026-11-06.md#gaps-still-without-an-owner-class-c-after-the-spot-check).
+
+**LT16. Test what follows the body, the learner, and the world at a reset.**
+[Outer Wilds players](https://www.reddit.com/r/outerwilds/comments/1d49c6x)
+frame discovery as the improvement in a loop. Mobius describes a solar
+system stuck in a time loop and mysteries explored across it
+([developer overview](https://www.mobiusdigitalgames.com/outer-wilds.html)).
+Use this as a player-experience comparison. The novel evidence gives
+different causal cases. RTOC can retain a mind that exceeds the body's
+capacity, Mother of Learning has an eligibility delay before a lapsed
+temporary marker can be reused, and Revival Hunter's window follows
+the time of the triggering death. Our continuation state already
+holds an initial point and a replaceable checkpoint. Reuse the
+snapshot machinery where appropriate and choose the carry rules per
+event. Test one thing kept, one lost, one that now has a different
+cost or use, and the expiry of a relevant permission. Distinguish
+memory of how something is done from training or authority to do it.
+See LE7–11/27/30 and ACR9/11.
+
+### LATER / DELEGATE
+
+Three shapes were considered. Per-world scripts are a good fit for an
+isolated story beat but duplicate custody, work and reload semantics
+when two worlds need the same behavior. A universal magic or contract
+engine would have to encode very different enforcement, timing and
+sources before any of them has a player. The proposed default keeps
+the current per-system ports and adds the smallest missing behavior
+when an active slice needs it. The unusual comparison is to run the
+same test with an ordinary cook, porter or student as the second
+consumer. That often exposes a false assumption faster than a second
+magical duel. These are proposed build cases and can enter in either
+order when their real consumers arrive.
+
+| Ranked build case | Level and effort | Done check |
+| --- | --- | --- |
+| 1. Interrupted preparation or practice (LT11–12). Reopen when an existing Tingen or Hogwarts job has an interruptible support or a meaningful substitute. | Runtime designer, medium for one shared behavior. | Finish normally, lose support during work, and replay the same case through a recurring order. Save and reload before the boundary. Show retained progress, spent inputs, remaining reservations and the true reason for pause. Compare with a second setting when selected under AD51. |
+| 2. Mundane handoff across a boundary (LT14–15). Reopen when a selected delivery or care job reads source identity and accepts a named recipient. | Runtime designer, medium for one cargo or batch. | Close or change the destination mid-job. Keep actual custody, apply the agreed terms once and retain remaining duty or cost. Let an affected material difference reach the recipient's decision. |
+| 3. Competing recognition and memory (LT13/16). Reopen when a selected disguise or reset makes knowledge or permission consequential. | Source reviewer then runtime designer, medium for one branch. | Compare two independent observers or two carriers, including one exception. Preserve what the character learned and limit disclosures to those with an actual source. |
+
+Separate follow-up suggestion. In a future playable review, put the failed
+case next to the successful one in the existing scenario builder. Reuse
+one setup and one change in means, place or timing so differences are
+easy to diagnose (AD54). The examples above do not require a new shared
+schema before any story can move.

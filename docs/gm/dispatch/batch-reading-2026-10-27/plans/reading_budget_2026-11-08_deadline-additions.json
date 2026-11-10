@@ -1,0 +1,28 @@
+{
+ "ceilingUsd": 33,
+ "reservedUsd": 27.32,
+ "unallocatedUsd": 5.68,
+ "approval": "Weibao 2026-11-08: “send more for Openai batch to try and use it all before the 10th of november”. Complete You Are Summoned books 1–5 and Wish Upon the Stars books 1–3 gaps using OpenAI within the existing combined $33 campaign.",
+ "reservations": [
+  {
+   "id": "prior-campaign-measured",
+   "capUsd": 4.556072085
+  },
+  {
+   "id": "ri-extraction-through-current-receipts",
+   "capUsd": 14.8395
+  },
+  {
+   "id": "ri-active-source-audit",
+   "capUsd": 0.8790376000000002
+  },
+  {
+   "id": "oa-2026-11-08-deadline-yas",
+   "capUsd": 4.21
+  },
+  {
+   "id": "oa-2026-11-08-deadline-wus",
+   "capUsd": 2.83
+  }
+ ]
+}

@@ -38,6 +38,49 @@ of an automatic provider adapter. Other
 scouted comic downloaders remain candidates; not every upstream client shares
 that ledger or has been installed.
 
+### Keiyoushi coverage scout (2026-11-08)
+
+For broad coverage, start with the extensions already enabled in Suwayomi. In
+the October 23 governor survey of 51 selected titles, Kagane had a qualifying
+chapter list for 39 titles, AllManga 36, MangaKatana and Weeb Central 32 each,
+Bbato 28, Atsumaru 26, MangaPill 23 and MangaFire 7. A qualifying list had a
+title match score of at least 0.8, at most five numbering gaps and at most
+two repeated chapter numbers. These are historical catalogue results for
+our title mix. Confirm the edition, language and page access for any intake.
+MangaPill currently [says it removed its manhwa](https://mangapill.com/).
+
+| Route | What it adds |
+|---|---|
+| Already enabled: Kagane, AllManga, MangaKatana, Weeb Central | First checks for long runs. Current Weeb Central listings span the opening to chapter 263 of [World Trigger](https://weebcentral.com/series/01J76XY7YPC5SJGDE7JDBC4444), and list [Jujutsu Kaisen Modulo](https://weebcentral.com/series/01K4JBKB0VX8TCFSSF1MK2DTZZ) through chapter 25. MangaFire and AllManga each historically listed chapters 0–65 of the older LOTM comic. |
+| Trial first: WEBTOON | Biggest new public catalogue opportunity among the reviewed extensions. The official English site lists [Omniscient Reader](https://www.webtoons.com/en/action/omniscient-reader/list?title_no=2154) through episode 308, [The World After the Fall](https://www.webtoons.com/en/action/the-world-after-the-fall/list?title_no=4011) through episode 245 and [Tower of God](https://www.webtoons.com/en/fantasy/tower-of-god/list?title_no=95) through entry 652. Align publisher episode IDs with existing CBZs, and verify public page access separately from app-only listings. |
+| Targeted trials: WebNovel, Tapas, KadoComi | WebNovel for the [newer LOTM comic](https://www.webnovel.com/comic/32535186308512101/catalog), Tapas for the [official TBATE comic](https://tapas.io/series/tbate-comic/info), and KadoComi for Japanese originals such as [Dungeon Meshi](https://comic-walker.com/detail/KC_000393_S). These add edition references. Compare actual free page coverage with existing providers before selecting one for a run. |
+
+The [Keiyoushi index](https://github.com/keiyoushi/extensions/blob/repo/index.json)
+still supplies individual JARs. Reuse the
+[existing Suwayomi install route](/Users/weiwei/code/zlibrary-research/docs/SUWAYOMI_EXTENSIONS_2026-10-22.md).
+The next check for a new extension is one exact series match, its public episode
+list and one readable CBZ import through Source Library. This scout verified
+catalogue evidence. It did not install extensions, fetch pages or change the queue.
+
+### Live Suwayomi reader checks (2026-11-08)
+
+Queried enabled English sources, refreshed chapter lists, and decoded images
+through the same Suwayomi page endpoint Source Library uses. The four first
+choices below had no gaps in their integer chapter numbers. Each passed an
+opening, middle and latest chapter sample, with the first, middle and last
+images decoded in the latest chapter. Other chapters were checked by listing.
+
+| Comic | First choice and chapter samples | Other findings |
+|---|---|---|
+| LOTM, older comic | [MangaFire](https://mangafire.to/title/5kx4m-lord-of-the-mysteriess), 0–65 listed. Opened 1, 33 and 65. | Atsumaru also opened 65. AllManga lists 0–65 but chapter reads failed because CEF is disabled. MangaKatana lists through 64. |
+| LOTM, 2025 remake | [Bbato](https://bato1.com/read/lord-of-mysteries-2025/chapter-25), 0–25 listed. Opened 1, 13 and 25. [WebNovel lists 25](https://www.webnovel.com/comic/32535186308512101/catalog). | Atsumaru opened the same samples amid repeated releases. MangaFire opened 25. MangaKatana stopped at 15. |
+| Omniscient Reader | [Weeb Central](https://weebcentral.com/series/01J76XYDMWWJX3T4BFWR84FQQK), 0–311 listed. Opened 0, 155, 253, 308 and 311. | MangaKatana, Flame Comics and Asura opened 311. MangaFire's 311.2 has one image and Atsumaru's 311.5 has two. Keep those separate from main chapters. Local integer CBZ labels are contiguous from 0 to 252. |
+| The World After the Fall | [Weeb Central](https://weebcentral.com/series/01J76XYFA2SNRMQT60JEWDRZRW/The-World-After-the-Fall), 0–258 listed. Opened 0, 129, 245 and 258. [Naver also lists 258](https://m.comic.naver.com/webtoon/list?titleId=789979). | MangaKatana, MangaFire, Atsumaru and Asura opened 258. |
+
+MangaDex returned a server error loading the older LOTM list, and Kagane timed
+out on its search. No files were imported into Source Library and no extensions
+or queues changed.
+
 ## Discover and reuse first
 
 Check local source owners and already acquired files first. For a needed new

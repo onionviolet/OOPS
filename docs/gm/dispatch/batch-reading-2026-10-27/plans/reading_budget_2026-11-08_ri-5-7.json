@@ -1,0 +1,16 @@
+{
+ "ceilingUsd": 33,
+ "reservedUsd": 28.28,
+ "unallocatedUsd": 4.72,
+ "approval": "Weibao 2026-11-08: “Lets do ones we can finish or make actionable prgress on, so like entirety of some, or first few for all” after the recommendation to finish the seven volume 1–3 gaps and all five passes for volumes 5–7 within $23.72.",
+ "reservations": [
+  {
+   "id": "prior-campaign-measured",
+   "capUsd": 4.556072085
+  },
+  {
+   "id": "oa-2026-11-08-ri-complete-5-7",
+   "capUsd": 23.72
+  }
+ ]
+}

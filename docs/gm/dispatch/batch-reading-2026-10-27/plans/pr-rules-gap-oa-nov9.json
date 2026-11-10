@@ -1,0 +1,33 @@
+{
+ "world": "pr",
+ "model": "gpt-6-luna",
+ "maxTokens": 64000,
+ "outTokensAssumed": 24000,
+ "effort": "low",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "reading": {
+  "level": "L1",
+  "relevance": [
+   "reference"
+  ],
+  "review": "not-reviewed"
+ },
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29",
+  "censusMatch": "^(pr|prb)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "pr-rules-gap-oa-nov9",
+ "pass": "rules",
+ "shards": [
+  {
+   "prefix": "prc109",
+   "file": "shard_pr_b1_ch109-110.txt",
+   "base": "10901",
+   "chapters": "109-110",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/perfect-run/private/lead-run-2026-10-29/shard_pr_b1_ch109-110.txt"
+  }
+ ]
+}

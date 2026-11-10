@@ -111,3 +111,21 @@ Proposal, not accepted. Shared pack `src/world_packs/book_mol_pack.js` (one writ
 - ACT NOW (done): this record; R1 default written; G10 found to be a branch fact, not a world fact.
 - ACCOUNT FOR NOW: the 37 inferred and 44 unknown dates decide whether G6 can be built from the text or needs a reader pass on stated times; check `check_reader_rows.mjs` on any reader output.
 - LATER / DELEGATE: haiku shard to list, per S1 scene, the verbs the seat performs (actor per verb), sonnet to merge; done when each scene names its owner command or a gap.
+
+## F18 and G13 closure, November 8, 2026
+
+Weibao authorized one MoL slice alongside Klein and Harry to repair restart ordering and show a remembered fact unlocking a real action after Save and reload. The slice uses the existing calendar, harm, continuation and MoL command owners (AD36, AD43, AD51, AD54, AR3, AR6, AR10 and WPR32). Desktop proof targets 1920×1080. Mobile is deferred.
+
+- **F18.** The native host submits the calendar boundary and observed death to the existing loop planner on the same expansion clock. It selects the earlier event and gives the calendar an exact tie. The host uses the chronicle timestamp when present. A bare native dead flag has no stored event time, so the host uses the current observation minute. No save fields changed. The combined timing cases are exercised in the focused regression. The rebuilt browser walks the calendar-triggered restart.
+- **Entry prerequisite.** The fresh browser route exposed a second failure. Reading the Cyoria terms creates the situation that the Zorian start also tried to create. The start now reuses the existing situation, keeping the original knowledge and attribution. A regression commits the terms and then the start. It reproduced the duplicate-situation error before the fix.
+- **G13.** On a fresh native journey, the court drill is unavailable before Zorian learns the Invocations lecture. The test earns the lecture, then uses a named near-month-end fixture that advances only the clocks and keeps future checks at their original offsets. The game restarts automatically and returns to the original household. The lecture completion clears for the new run, while the remembered fact survives Save, page reload, Export and Import. That memory enables the existing drill through its own button. Settling it spends one cast, takes the reserve from 8 to 7 and records the changed course of the day.
+
+| Check | Result |
+|---|---|
+| `node --test tests/mol_zorian_start.test.js tests/mol_zorian_restart.test.js tests/harm_loops_v2.test.js tests/world_day_events.test.js` | 36 passed. Includes both event orders, exact tie, observation fallback and entry after reading the terms. |
+| `npm run check:arch` and `npm run check:rules` | Passed. The architecture baseline and one known continuity finding remain. |
+| `BUILD_OUT=<isolated dir> npm run build` | Passed. Bundle SHA-256 `211cab6f24a7330d70904be1715cc9eb5ca8f16624413c07ec095414fde753f4`. Existing duplicate-key build warning in `travel_legs.js`. |
+| Game MCP | Fresh entry surface did not expose the required control through the attempted route. The limit was filed once. |
+| `node scripts/playtest/mol-restart-memory.mjs <BUILD_OUT> work/mol-restart-memory-2026-11-08` | Rebuilt headless Chromium at 1920×1080. Named clock fixture after earned setup. Native reset and persistence round trip, drill spent and settled, zero page errors and zero horizontal overflow. Local output includes the generated fixture, completed save, screenshot and receipt. |
+
+Agent-verified at the scope above. The skipped month and natural competing-death timing are outside the browser walk. The installed app has a separate delivery state.

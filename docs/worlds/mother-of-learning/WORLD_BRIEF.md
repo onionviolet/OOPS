@@ -138,3 +138,29 @@ F2: The continuous visitor branch, later exploration receipt, source-scened Zori
 ## Recognition-map content reconciliation B612
 
 The [recognition map](../../gm/feature-wave/features/book-world-subtleties/recognition/mother-of-learning/COVERAGE.json) is fully content-reviewed, including17evidence records and original earned-admission/topology chains. Its frozen unactivated label is historical: current profile nativeBound=true and main/native wrapper wire the optional visitor/Zorian presence. Separately, recognizeBookWorld remains source-comparison-only; these three rules and their full source-native chain are not activated merely by a campaign flag. Exact key/mana test, institutional right, observer/event/branch history, sound/counter and actual lesson remain distinct. Early recurrence is not a completed reset contract; theory/doctrine/late private knowledge stay qualified. This adds selected source-wiring evidence only, not fresh route/build/save proof or blanket completion. Human review is optional under AD42.
+
+## F4 follow-up. Surpassing Zorian within one loop
+
+**ACT NOW (done).** Recorded Weibao's question as a long-term design proposal
+(WPR24/27, AD5/38/51/52). The [ordinary-play audit](../../gm/dispatch/cross-world-systems-2026-11-07/ORDINARY_PLAY_AUDIT_2026-11-09.md#account-for-now-what-the-player-must-do)
+owns the immediate guest and lead actions. This proposal concerns a loop-capable
+seat and uses the [retention and reset rules](RETENTION_RESET_SEAM_2026-11-03.md#wa55-differences-rows-mol-against-the-shared-shape).
+
+### ACCOUNT FOR NOW
+
+| ID | Design consideration | Distinguishing check |
+|---|---|---|
+| ZP1 · Define what was surpassed | Use an observed feat with a time and context. Separate a fresh seat's gain inside one month, a later seat using mastery carried into that month, and performance against Zorian at his canon peak. The default comparison is the corresponding source window. Keep peak comparison as its own qualified benchmark. | The same ward can be beaten by precision, a tool or allies. Record the method and inputs so a successful team feat does not silently raise the player's personal reserve. |
+| ZP2 · Let earned capability change the scene | Consider a canon ceiling, opponents that scale with the player, and a causal divergence. Prefer causal divergence. If the actor actually has the method, means, access and time, resolve the attempt early. Let observable evidence drive any response. A teacher might offer advanced work, a watcher might investigate, or nobody might notice a private feat. | Open or bypass one challenge ahead of schedule, then let an informed person respond differently from an uninformed person. Keep route progress independent of hidden facts the actor has yet to discover. |
+| ZP3 · Carry the right part of the breakthrough | Separate learned control, current body or reserve, built equipment, access and another person's consent. Apply the existing carrier policy at reset. Re-evaluate predictions when early intervention changes the events that made them reliable. | After save and reset, the actor can repeat the technique with the right means. A borrowed focus, spent stock or prior cooperation follows its own reset rule. A warning can stay remembered while its prediction becomes uncertain. |
+| ZP4 · Give early success a real payoff | Consider an asymmetric win. Someone might solve one ward or protect one person better than Zorian by using preparation, craftsmanship or coordination. Capability can change how a scene is won while other simultaneous obligations still require choices. A separate loop or exit mechanism needs its own means and discovery. | Show the concrete gain in the ordinary action and its aftermath. If a known route would now be redundant, let the player skip it or use the new result in a different route. |
+
+### LATER / DELEGATE
+
+**ZP5 · One early feat across a reset.** Medium design/runtime slice after a
+source-qualified benchmark and a reusable action have both been selected.
+Compare the usual route and an early clear of the same challenge. Track time,
+cost, evidence and witness reactions. Save while the feat is pending, complete
+it, reset, then repeat with a changed tool or consent. Verify a retained method,
+a rewound resource and a later action that genuinely changes. The fresh visitor
+path remains the immediate F4 audit item.

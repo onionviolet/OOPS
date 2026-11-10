@@ -1,0 +1,32 @@
+{
+ "world": "ttks1",
+ "model": "gpt-6-luna",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "medium",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B1/private/lead-run-2026-10-28",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B1/private/lead-run-2026-10-28/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B1/private/lead-run-2026-10-28",
+  "censusMatch": "^(ttks1)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "ttks1-census-oa",
+ "pass": "census",
+ "shards": [
+  {
+   "prefix": "ttks1c001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B1/private/lead-run-2026-10-28/shard_ttks1_ch001-002.txt",
+   "base": "00101",
+   "chapters": "1-2"
+  }
+ ],
+ "schemaVersion": "1.5",
+ "reading": {
+  "level": "L1",
+  "relevance": [
+   "reference",
+   "lead-trajectory"
+  ],
+  "review": "not-reviewed"
+ }
+}

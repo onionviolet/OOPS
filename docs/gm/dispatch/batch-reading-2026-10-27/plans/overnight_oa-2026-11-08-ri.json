@@ -1,0 +1,770 @@
+{
+ "name": "oa-2026-11-08-ri",
+ "approval": "PENDING: needs Weibao's go phrase.",
+ "ceilingUsd": 139.65,
+ "capTotal": 139.65,
+ "steps": [
+  {
+   "name": "pilot",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri5_pilot_census_oa.json",
+     "cap": 0.05,
+     "label": "ri5-pilot-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri5_pilot_scenes_oa.json",
+     "cap": 0.05,
+     "label": "ri5-pilot-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri6_pilot_census_oa.json",
+     "cap": 0.05,
+     "label": "ri6-pilot-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri6_pilot_scenes_oa.json",
+     "cap": 0.05,
+     "label": "ri6-pilot-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri7_pilot_census_oa.json",
+     "cap": 0.05,
+     "label": "ri7-pilot-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri7_pilot_scenes_oa.json",
+     "cap": 0.05,
+     "label": "ri7-pilot-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri8_pilot_census_oa.json",
+     "cap": 0.05,
+     "label": "ri8-pilot-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri8_pilot_scenes_oa.json",
+     "cap": 0.05,
+     "label": "ri8-pilot-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri9_pilot_census_oa.json",
+     "cap": 0.05,
+     "label": "ri9-pilot-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri9_pilot_scenes_oa.json",
+     "cap": 0.05,
+     "label": "ri9-pilot-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri10_pilot_census_oa.json",
+     "cap": 0.05,
+     "label": "ri10-pilot-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri10_pilot_scenes_oa.json",
+     "cap": 0.05,
+     "label": "ri10-pilot-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri11_pilot_census_oa.json",
+     "cap": 0.05,
+     "label": "ri11-pilot-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri11_pilot_scenes_oa.json",
+     "cap": 0.05,
+     "label": "ri11-pilot-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri12_pilot_census_oa.json",
+     "cap": 0.05,
+     "label": "ri12-pilot-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri12_pilot_scenes_oa.json",
+     "cap": 0.05,
+     "label": "ri12-pilot-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri13_pilot_census_oa.json",
+     "cap": 0.05,
+     "label": "ri13-pilot-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri13_pilot_scenes_oa.json",
+     "cap": 0.05,
+     "label": "ri13-pilot-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri14_pilot_census_oa.json",
+     "cap": 0.05,
+     "label": "ri14-pilot-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri14_pilot_scenes_oa.json",
+     "cap": 0.05,
+     "label": "ri14-pilot-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri15_pilot_census_oa.json",
+     "cap": 0.05,
+     "label": "ri15-pilot-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri15_pilot_scenes_oa.json",
+     "cap": 0.05,
+     "label": "ri15-pilot-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri16_pilot_census_oa.json",
+     "cap": 0.05,
+     "label": "ri16-pilot-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri16_pilot_scenes_oa.json",
+     "cap": 0.05,
+     "label": "ri16-pilot-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri17_pilot_census_oa.json",
+     "cap": 0.05,
+     "label": "ri17-pilot-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri17_pilot_scenes_oa.json",
+     "cap": 0.05,
+     "label": "ri17-pilot-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri18_pilot_census_oa.json",
+     "cap": 0.05,
+     "label": "ri18-pilot-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri18_pilot_scenes_oa.json",
+     "cap": 0.05,
+     "label": "ri18-pilot-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri19_pilot_census_oa.json",
+     "cap": 0.05,
+     "label": "ri19-pilot-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri19_pilot_scenes_oa.json",
+     "cap": 0.05,
+     "label": "ri19-pilot-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri20_pilot_census_oa.json",
+     "cap": 0.05,
+     "label": "ri20-pilot-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri20_pilot_scenes_oa.json",
+     "cap": 0.05,
+     "label": "ri20-pilot-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri21_pilot_census_oa.json",
+     "cap": 0.05,
+     "label": "ri21-pilot-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri21_pilot_scenes_oa.json",
+     "cap": 0.05,
+     "label": "ri21-pilot-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri22_pilot_census_oa.json",
+     "cap": 0.05,
+     "label": "ri22-pilot-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri22_pilot_scenes_oa.json",
+     "cap": 0.05,
+     "label": "ri22-pilot-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri23_pilot_census_oa.json",
+     "cap": 0.05,
+     "label": "ri23-pilot-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri23_pilot_scenes_oa.json",
+     "cap": 0.05,
+     "label": "ri23-pilot-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri24_pilot_census_oa.json",
+     "cap": 0.05,
+     "label": "ri24-pilot-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri24_pilot_scenes_oa.json",
+     "cap": 0.05,
+     "label": "ri24-pilot-scenes-oa"
+    }
+   ]
+  },
+  {
+   "name": "census",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri1_census_oa.json",
+     "cap": 0.1,
+     "label": "ri1-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri5_census_oa.json",
+     "cap": 1.46,
+     "label": "ri5-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri6_census_oa.json",
+     "cap": 1.56,
+     "label": "ri6-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri7_census_oa.json",
+     "cap": 1.51,
+     "label": "ri7-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri8_census_oa.json",
+     "cap": 1.51,
+     "label": "ri8-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri9_census_oa.json",
+     "cap": 1.46,
+     "label": "ri9-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri10_census_oa.json",
+     "cap": 1.51,
+     "label": "ri10-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri11_census_oa.json",
+     "cap": 1.42,
+     "label": "ri11-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri12_census_oa.json",
+     "cap": 1.42,
+     "label": "ri12-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri13_census_oa.json",
+     "cap": 1.19,
+     "label": "ri13-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri14_census_oa.json",
+     "cap": 1.19,
+     "label": "ri14-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri15_census_oa.json",
+     "cap": 1.14,
+     "label": "ri15-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri16_census_oa.json",
+     "cap": 1.14,
+     "label": "ri16-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri17_census_oa.json",
+     "cap": 1.19,
+     "label": "ri17-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri18_census_oa.json",
+     "cap": 1.46,
+     "label": "ri18-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri19_census_oa.json",
+     "cap": 1.46,
+     "label": "ri19-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri20_census_oa.json",
+     "cap": 1.42,
+     "label": "ri20-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri21_census_oa.json",
+     "cap": 1.37,
+     "label": "ri21-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri22_census_oa.json",
+     "cap": 1.46,
+     "label": "ri22-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri23_census_oa.json",
+     "cap": 1.51,
+     "label": "ri23-census-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri24_census_oa.json",
+     "cap": 0.51,
+     "label": "ri24-census-oa"
+    }
+   ]
+  },
+  {
+   "name": "scenes",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri2_scenes_oa.json",
+     "cap": 0.05,
+     "label": "ri2-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri5_scenes_oa.json",
+     "cap": 1.46,
+     "label": "ri5-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri6_scenes_oa.json",
+     "cap": 1.56,
+     "label": "ri6-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri7_scenes_oa.json",
+     "cap": 1.51,
+     "label": "ri7-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri8_scenes_oa.json",
+     "cap": 1.51,
+     "label": "ri8-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri9_scenes_oa.json",
+     "cap": 1.46,
+     "label": "ri9-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri10_scenes_oa.json",
+     "cap": 1.51,
+     "label": "ri10-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri11_scenes_oa.json",
+     "cap": 1.42,
+     "label": "ri11-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri12_scenes_oa.json",
+     "cap": 1.42,
+     "label": "ri12-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri13_scenes_oa.json",
+     "cap": 1.19,
+     "label": "ri13-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri14_scenes_oa.json",
+     "cap": 1.19,
+     "label": "ri14-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri15_scenes_oa.json",
+     "cap": 1.14,
+     "label": "ri15-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri16_scenes_oa.json",
+     "cap": 1.14,
+     "label": "ri16-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri17_scenes_oa.json",
+     "cap": 1.19,
+     "label": "ri17-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri18_scenes_oa.json",
+     "cap": 1.46,
+     "label": "ri18-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri19_scenes_oa.json",
+     "cap": 1.46,
+     "label": "ri19-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri20_scenes_oa.json",
+     "cap": 1.42,
+     "label": "ri20-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri21_scenes_oa.json",
+     "cap": 1.37,
+     "label": "ri21-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri22_scenes_oa.json",
+     "cap": 1.46,
+     "label": "ri22-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri23_scenes_oa.json",
+     "cap": 1.51,
+     "label": "ri23-scenes-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri24_scenes_oa.json",
+     "cap": 0.51,
+     "label": "ri24-scenes-oa"
+    }
+   ]
+  },
+  {
+   "name": "rules",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri5_rules_oa.json",
+     "cap": 1.51,
+     "label": "ri5-rules-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri6_rules_oa.json",
+     "cap": 1.6,
+     "label": "ri6-rules-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri7_rules_oa.json",
+     "cap": 1.56,
+     "label": "ri7-rules-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri8_rules_oa.json",
+     "cap": 1.56,
+     "label": "ri8-rules-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri9_rules_oa.json",
+     "cap": 1.51,
+     "label": "ri9-rules-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri10_rules_oa.json",
+     "cap": 1.56,
+     "label": "ri10-rules-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri11_rules_oa.json",
+     "cap": 1.46,
+     "label": "ri11-rules-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri12_rules_oa.json",
+     "cap": 1.46,
+     "label": "ri12-rules-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri13_rules_oa.json",
+     "cap": 1.24,
+     "label": "ri13-rules-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri14_rules_oa.json",
+     "cap": 1.24,
+     "label": "ri14-rules-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri15_rules_oa.json",
+     "cap": 1.19,
+     "label": "ri15-rules-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri16_rules_oa.json",
+     "cap": 1.19,
+     "label": "ri16-rules-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri17_rules_oa.json",
+     "cap": 1.24,
+     "label": "ri17-rules-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri18_rules_oa.json",
+     "cap": 1.51,
+     "label": "ri18-rules-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri19_rules_oa.json",
+     "cap": 1.51,
+     "label": "ri19-rules-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri20_rules_oa.json",
+     "cap": 1.46,
+     "label": "ri20-rules-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri21_rules_oa.json",
+     "cap": 1.42,
+     "label": "ri21-rules-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri22_rules_oa.json",
+     "cap": 1.51,
+     "label": "ri22-rules-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri23_rules_oa.json",
+     "cap": 1.56,
+     "label": "ri23-rules-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri24_rules_oa.json",
+     "cap": 0.55,
+     "label": "ri24-rules-oa"
+    }
+   ]
+  },
+  {
+   "name": "people",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri2_people_oa.json",
+     "cap": 0.05,
+     "label": "ri2-people-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri3_people_oa.json",
+     "cap": 0.05,
+     "label": "ri3-people-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri5_people_oa.json",
+     "cap": 1.51,
+     "label": "ri5-people-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri6_people_oa.json",
+     "cap": 1.6,
+     "label": "ri6-people-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri7_people_oa.json",
+     "cap": 1.56,
+     "label": "ri7-people-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri8_people_oa.json",
+     "cap": 1.56,
+     "label": "ri8-people-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri9_people_oa.json",
+     "cap": 1.51,
+     "label": "ri9-people-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri10_people_oa.json",
+     "cap": 1.56,
+     "label": "ri10-people-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri11_people_oa.json",
+     "cap": 1.46,
+     "label": "ri11-people-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri12_people_oa.json",
+     "cap": 1.46,
+     "label": "ri12-people-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri13_people_oa.json",
+     "cap": 1.24,
+     "label": "ri13-people-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri14_people_oa.json",
+     "cap": 1.24,
+     "label": "ri14-people-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri15_people_oa.json",
+     "cap": 1.19,
+     "label": "ri15-people-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri16_people_oa.json",
+     "cap": 1.19,
+     "label": "ri16-people-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri17_people_oa.json",
+     "cap": 1.24,
+     "label": "ri17-people-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri18_people_oa.json",
+     "cap": 1.51,
+     "label": "ri18-people-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri19_people_oa.json",
+     "cap": 1.51,
+     "label": "ri19-people-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri20_people_oa.json",
+     "cap": 1.46,
+     "label": "ri20-people-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri21_people_oa.json",
+     "cap": 1.42,
+     "label": "ri21-people-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri22_people_oa.json",
+     "cap": 1.51,
+     "label": "ri22-people-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri23_people_oa.json",
+     "cap": 1.56,
+     "label": "ri23-people-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri24_people_oa.json",
+     "cap": 0.55,
+     "label": "ri24-people-oa"
+    }
+   ]
+  },
+  {
+   "name": "texture",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri3_texture_oa.json",
+     "cap": 0.1,
+     "label": "ri3-texture-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri5_texture_oa.json",
+     "cap": 1.51,
+     "label": "ri5-texture-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri6_texture_oa.json",
+     "cap": 1.6,
+     "label": "ri6-texture-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri7_texture_oa.json",
+     "cap": 1.56,
+     "label": "ri7-texture-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri8_texture_oa.json",
+     "cap": 1.56,
+     "label": "ri8-texture-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri9_texture_oa.json",
+     "cap": 1.51,
+     "label": "ri9-texture-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri10_texture_oa.json",
+     "cap": 1.56,
+     "label": "ri10-texture-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri11_texture_oa.json",
+     "cap": 1.46,
+     "label": "ri11-texture-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri12_texture_oa.json",
+     "cap": 1.46,
+     "label": "ri12-texture-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri13_texture_oa.json",
+     "cap": 1.24,
+     "label": "ri13-texture-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri14_texture_oa.json",
+     "cap": 1.24,
+     "label": "ri14-texture-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri15_texture_oa.json",
+     "cap": 1.19,
+     "label": "ri15-texture-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri16_texture_oa.json",
+     "cap": 1.19,
+     "label": "ri16-texture-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri17_texture_oa.json",
+     "cap": 1.24,
+     "label": "ri17-texture-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri18_texture_oa.json",
+     "cap": 1.51,
+     "label": "ri18-texture-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri19_texture_oa.json",
+     "cap": 1.51,
+     "label": "ri19-texture-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri20_texture_oa.json",
+     "cap": 1.46,
+     "label": "ri20-texture-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri21_texture_oa.json",
+     "cap": 1.42,
+     "label": "ri21-texture-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri22_texture_oa.json",
+     "cap": 1.51,
+     "label": "ri22-texture-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri23_texture_oa.json",
+     "cap": 1.56,
+     "label": "ri23-texture-oa"
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ri24_texture_oa.json",
+     "cap": 0.55,
+     "label": "ri24-texture-oa"
+    }
+   ]
+  }
+ ],
+ "note": "2026-11-08: unsent plans upgraded to schema1.5. Pending caps conservatively assume each request fills both configured prompt-tier envelope and output cap; regenerate source-sized estimates before approval if tighter caps are wanted. Remains PENDING, not authorized or reserved in the $33 campaign."
+}

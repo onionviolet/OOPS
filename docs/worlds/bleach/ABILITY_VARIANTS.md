@@ -122,3 +122,7 @@ The archived Bleach Wiki snapshot adds secondary support for the source/body bou
 **Correction to the old note layer:** shard-b episode 91's imported Rukia/Keigo/child Soul-injury comparison and shard-c episode 352's imported earlier Book of the End reports are excluded from page-level source facts after the P1 audit in [the source ledger](SOURCE_LEDGER.md#cross-page-carryover-audit-p1). They may not justify a healing or historical-insertion mechanic in this file. The episode 352 page's own dialogue remains an anime-page assertion, not a manga rule.
 
 All tier/mode rows in this file remain proposals, not accepted gameplay. This evidence pass does not select a release function, resolve BU1–BU6, add new save state or prove execution.
+
+## Lore edge-case check (2026-11-09)
+
+Ch516 supports three separate outcomes for a damaged source. Reassembling Ikkaku’s Bankai leaves reduced function. Komamura’s bond transmits injury and allows recovery with the body. The exact wording on Mayuri’s own remodeling remains open. [Source passages and proposed checks, LE24](../../research/LORE_EDGE_CASES_2026-11-09.md#le24)

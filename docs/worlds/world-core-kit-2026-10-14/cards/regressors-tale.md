@@ -18,3 +18,7 @@ Open: star-duration reading (C1, span versus cumulative), root-sale and bribe pr
 ## Institution and source-scope reconciliation B609
 
 The [institution pass](../../REGRESSORS_TALE_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_2026-10-23.md#content-reconciliation-b609-rights-currency-and-loop-evidence) later section16 keeps C1 unresolved as interval/cumulative wording. Paid conference entry, recommendation, interview and contest grant particular institutional rights, rather than gating every institution. Source quotes remain edition/life-local; no stable silver/spirit exchange or rent quote is pinned here. The fox opening, conference and monthly duty belong to distinct periods, and regression is the protagonist's specific capability. This card supersedes the pass's early absent-card follow-up. All coverage cells remain historical/proposed, with no fresh runtime or whole-profile proof.
+
+## Lore edge-case check (2026-11-09)
+
+Ch80 and ch92 separate reset cultivation from retained understanding and consciousness. Check the mismatch between retained consciousness and the new body, the suppressor’s provenance and what must be earned again. [Source passages and proposed checks, LE27](../../../research/LORE_EDGE_CASES_2026-11-09.md#le27)

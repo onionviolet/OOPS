@@ -1,0 +1,32 @@
+{
+ "world": "sup",
+ "model": "gpt-6-luna",
+ "maxTokens": 64000,
+ "outTokensAssumed": 24000,
+ "effort": "high",
+ "schemaVersion": "1.5",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29",
+  "censusMatch": "^(sup)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "sup-pilot-census-deadline-oa",
+ "pass": "census",
+ "shards": [
+  {
+   "prefix": "supc001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/super-supportive/private/lead-run-2026-10-29/shard_sup_b1_ch001-002.txt",
+   "base": "00101",
+   "chapters": "1-2"
+  }
+ ],
+ "reading": {
+  "level": "L1",
+  "relevance": [
+   "reference",
+   "lead-trajectory"
+  ],
+  "review": "not-reviewed"
+ }
+}

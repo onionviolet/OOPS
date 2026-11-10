@@ -1,0 +1,55 @@
+{
+ "name": "oa-2026-11-09-deadline-rtoc",
+ "approval": "Weibao: “send more for Openai batch to try and use it all before the 10th of november”. Reads the full scene pass of the prepared edition and fills four non-scene gaps.",
+ "ceilingUsd": 8.55,
+ "capTotal": 8.55,
+ "budgetFile": "docs/gm/dispatch/batch-reading-2026-10-27/plans/reading_budget_2026-11-09_deadline-rtoc.json",
+ "budgetReservation": "oa-2026-11-09-deadline-rtoc",
+ "steps": [
+  {
+   "name": "census-gap",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/rtoc_pilot_census_deadline_oa.json",
+     "label": "rtoc-pilot-census-deadline-oa",
+     "cap": 0.03
+    }
+   ]
+  },
+  {
+   "name": "scene-pilot-and-extra-gaps",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/rtoc_pilot_scenes_deadline_oa.json",
+     "label": "rtoc-pilot-scenes-deadline-oa",
+     "cap": 0.03
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/rtoc_rules_deadline_oa.json",
+     "label": "rtoc-rules-deadline-oa",
+     "cap": 0.03
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/rtoc_people_deadline_oa.json",
+     "label": "rtoc-people-deadline-oa",
+     "cap": 0.03
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/rtoc_texture_deadline_oa.json",
+     "label": "rtoc-texture-deadline-oa",
+     "cap": 0.03
+    }
+   ]
+  },
+  {
+   "name": "remaining-scenes",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/rtoc_scenes_deadline_oa.json",
+     "label": "rtoc-scenes-deadline-oa",
+     "cap": 8.4
+    }
+   ]
+  }
+ ]
+}

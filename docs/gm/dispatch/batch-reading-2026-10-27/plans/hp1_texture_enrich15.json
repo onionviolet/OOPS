@@ -1,0 +1,40 @@
+{
+ "world": "hp",
+ "model": "gpt-6-luna",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "reading": {
+  "level": "L1",
+  "relevance": [
+   "lead-trajectory",
+   "reference"
+  ],
+  "review": "not-reviewed",
+  "kind": "targeted-enrichment",
+  "basedOn": {
+   "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28",
+   "sourceFile": "shard_hp1_b1_ch001-002.txt"
+  },
+  "focus": "Check procedure ordering and actor/tool bindings, interrupted/partial outcomes, learning and enforcement, what varies versus what is fixed, persistent consequences and observer knowledge. Preserve explicit source quantities and distinguish an observed case from a universal rule. Do not mistake an upcoming rank for the current rank, an actor report for an observed action, or an ordinary procedure for random generation. This is a selected-shard supplement, not full-book synthesis."
+ },
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/_reading-level-review-2026-11-08/enrichment/hp1",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/_reading-level-review-2026-11-08/enrichment/hp1/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28",
+  "censusMatch": "^hp1c\\d{3,}(?:L)?m_census\\.jsonl$"
+ },
+ "label": "hp1-texture-enrich15",
+ "pass": "texture",
+ "shards": [
+  {
+   "prefix": "hp1c001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/private/lead-run-2026-10-28/shard_hp1_b1_ch001-002.txt",
+   "base": "00101",
+   "chapters": "1-2"
+  }
+ ],
+ "reread": "Targeted schema1.5 enrichment after field audit and contextual source sample; isolated outputs preserve previous extraction."
+}

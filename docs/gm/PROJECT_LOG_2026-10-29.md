@@ -2589,3 +2589,53 @@ Verified environment: Apple M5 Pro, 18 logical CPUs, 64 GiB RAM, macOS 27.2. Ins
 
 Earlier Tauri host measurements reported roughly 1.14–1.22 GiB settled app/WebKit footprint, with 1.3–1.7 GiB startup peaks. They are not a new final-build RAM measurement or an exact unique-system-memory figure. Current installed package is about 17 MB and the retained build directory about 167 MB. Strong single-thread performance matters more than GPU power for the current measured JavaScript/UI work. Minimum CPU/8 GB RAM compatibility and Windows/Linux requirements remain unverified; do not turn this estimate into a supported minimum or a guarantee for crowded long-running saves.
 
+
+## 2026-11-08 kjw22a endpoint and continuation
+
+Superseded in PROJECT.md: “Resume story-led windows, Klein kjw22 then Harry W6, mainly adding content and calibrating numbers.” The next continuation is now kjw22b. KJ3AE was the endpoint at 33 slices and 515 selected stages; its receipt still owns that historical scope. [KJ3AF](dispatch/refinement-audits-2026-10-31/KJ3AF_IMPLEMENTATION_RECEIPT.md) adds thirteen actions through the next operation threshold, bringing the selected route to 34 slices and 528 stages. The full kjw22 window remains open. This updates execution state, not standing direction or installed-app adoption.
+
+
+## 2026-11-08 kjw22b operation and W6 source qualification
+
+Superseded build order in PROJECT.md was “Resume story-led windows, Klein kjw22b then Harry W6, mainly adding content and calibrating numbers.” The [KJ3AF receipt](dispatch/refinement-audits-2026-10-31/KJ3AF_IMPLEMENTATION_RECEIPT.md) holds the prior endpoint of 34 slices and 528 selected stages. [KJ3AG](dispatch/refinement-audits-2026-10-31/KJ3AG_IMPLEMENTATION_RECEIPT.md) advances it through the operation and both inquiries. [W6 qualification](dispatch/cross-world-systems-2026-11-07/HP_W6_SOURCE_QUALIFICATION_2026-11-08.md) records the verified school source span.
+
+
+## 2026-11-08 Klein kjw23 and Harry W6
+
+Superseded current-focus line:
+
+> **Immediate build order:** wave 3’s shared engines are implemented and agent-verified through existing Klein/Harry callers and source-inventory contracts. Continue the encounter following kjw22b and use the qualified source span for Harry W6 ([direction](docs/USER_VISION.md#wave-3-engine-completion-and-source-shape-checks), [task record](docs/gm/dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md)).
+
+The previous Klein endpoint remains in KJ3AG at 35 slices and 548 selected stages. The two new endpoints and their evidence live in the [delivery record](dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md#klein-kj3ah-and-harry-w6-november-8-2026).
+
+## 2026-11-08 four parallel lead lanes
+
+Superseded current-focus line:
+
+> **Immediate build order:** Klein first with Harry alongside. Klein’s latest earned endpoint is the warehouse-yard encounter after kjw22b. Harry’s W6 route is playable from train arrival through Friday tea and return. [Delivery and resume points](dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md#klein-kj3ah-and-harry-w6-november-8-2026).
+
+[This wave’s delivery record](dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md#four-parallel-lead-lanes-november-8-2026) retains the prior earned entry points.
+
+## 2026-11-08 four playable continuations
+
+Superseded current-focus line:
+
+> **Immediate build order:** Klein first. This wave covers Klein’s next warehouse encounter, Harry’s first flying lesson after W6 and Fang Yuan’s opening through his first academy exercise. Zorian stays in S2 preparation. [Delivery and resume points](dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md#four-parallel-lead-lanes-november-8-2026).
+
+Weibao corrected Zorian’s prep-only scope and authorized a playable slice in each lane after checking the local readings. [Current delivery record](dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md#four-playable-continuations-november-8-2026).
+
+## 2026-11-08 opening arc checkpoints
+
+Superseded current-focus line:
+
+> **Immediate build order:** Klein first. The parallel wave covers Klein’s warehouse escape, Harry’s midnight duel, Fang Yuan’s first Gu selection and Zorian’s first sensing practice with Xvim. [Delivery and resume points](dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md#four-playable-continuations-november-8-2026).
+
+[Opening arc delivery](dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md#opening-arc-checkpoints-november-8-2026) owns this wave’s named endpoints and remaining arc work.
+
+## 2026-11-08 major arc goal
+
+Superseded current-focus line:
+
+> **Immediate build order:** Klein first. This wave covers the warehouse handoff, Harry’s Halloween, Fang Yuan’s first Moonlight Gu refinement attempt, and Zorian’s first lesson with Haslush. [Delivery and resume points](dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md#opening-arc-checkpoints-november-8-2026).
+
+The [major arc checkpoints](dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md#first-major-arcs-november-8-2026) track the larger requested endpoints separately from verified slices.

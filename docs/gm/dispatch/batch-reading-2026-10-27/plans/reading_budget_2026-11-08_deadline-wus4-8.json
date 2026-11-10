@@ -1,0 +1,32 @@
+{
+ "ceilingUsd": 33,
+ "reservedUsd": 30.94,
+ "unallocatedUsd": 2.06,
+ "approval": "Weibao 2026-11-08: “send more for Openai batch to try and use it all before the 10th of november”. Completes the remaining Wish Upon the Stars volume set under the $33 campaign.",
+ "reservations": [
+  {
+   "id": "prior-campaign-measured",
+   "capUsd": 4.556072085
+  },
+  {
+   "id": "ri-current",
+   "capUsd": 13.4653
+  },
+  {
+   "id": "ri-source-review",
+   "capUsd": 0.7662985000000005
+  },
+  {
+   "id": "oa-2026-11-08-deadline-yas",
+   "capUsd": 3.6031999999999997
+  },
+  {
+   "id": "oa-2026-11-08-deadline-wus",
+   "capUsd": 2.5164
+  },
+  {
+   "id": "oa-2026-11-08-deadline-wus4-8",
+   "capUsd": 6.01
+  }
+ ]
+}

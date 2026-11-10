@@ -210,3 +210,326 @@ GTR1 to GTR27 treat a gate as a rule that reads the actor's own means and either
 | A characteristic ledger (LMX1) as a world record | designer plus sonnet | large | One death moves a characteristic to a vault or market in a stepped test |
 
 **Separate short suggestions (not reasons to stop):** put the districts' `vouch` rows through a GTR25 credential record when a rank record exists; name the engine's `defaultBlock` dial in the inspector so a world can set it false with an in-world reason.
+
+## 9. Future pathway and authority design from lore discussions (2026-11-09)
+
+**ACT NOW (done):** Bounded LOTM/COI K3 and WPR14 intake under WPR1–5,
+WPR24 and WPR27. Read the two supplied discussions and questions 2, 3, 5,
+8 and 10 of the linked Q&A archive, and checked the existing catalog and
+runtime switching facts. No subagents or novel chapter reread. The official
+English chapter 1386 preview does not expose the cited passage. The Q&A is a
+community archive with Chinese transcription, screenshots and fan translation.
+The findings below are future design proposals under AD5/AD38. Klein's
+first-novel journey retains its order and ordinary starts retain their
+low-spoiler boundary.
+
+### ACCOUNT FOR NOW
+
+**LMD1. Distinguish powers by what they act on and what remains.** The
+[powers discussion](https://www.reddit.com/r/LordofTheMysteries/comments/1xqj15p/coi2_questions_about_powers/)
+suggests this authored comparison. Give every method the same objective
+(get out of a warded cell) and compare what a jailer can learn or do next.
+The examples are test ideas whose exact feasibility needs the relevant scene,
+Sequence, target and ward.
+
+| Method | Proposed escape and consequence |
+| --- | --- |
+| Fooling | Fool the relevant history so an earlier free state applies now. A mundane lock inspection can still find a locked cell. A source-qualified historical check may uncover the discrepancy. |
+| Grafting | Connect the threshold to a different destination. Trace or sever the connection. Anyone using the threshold while the link holds may be affected if the scope permits it. |
+| Black Emperor | Exploit or distort the operative rule, such as how the ward recognizes an authorized release. Compare the ward's actual ruling with the original instruction. A rule independent of the altered ward may still hold. |
+| Error | Exploit a mismatch in how the ward identifies its authorized actor. A second, independent identity check may close this particular opening. |
+
+The comments disagree about which powers can create or exploit loopholes.
+Keep overlap where the mechanism supports it. Treat the gap, altered rule,
+changed relation or fooled fact as the thing the effect depends on. For the
+first selected case, follow it through existing access, custody, witness and
+investigation owners. Let evidence differ by observer and preserve any settled
+consequences across expiration and reload.
+
+**LMD2. Similar results can come from different means.** In the
+[archived author Q&A](https://docs.google.com/document/u/0/d/10vx-jc_ZUe4tVSJNmE34kCdyVC_4hNnFNo-FSx5TLmY/mobilebasic),
+Q3 allows Hanged Man flesh and bone manipulation to alter appearance with
+less precision than Faceless. Q5 distinguishes a Mystery Pryer's technique
+from domain authority and names analysis as a counter. Q10 describes a Fool
+advantage in the Spirit World. In a future slice, test resemblance, what an
+inspection can detect, and how the place affects the contest. Begin with the
+ability, its source and its limits in that scene. A common effect label need
+not confer the rest of a pathway's powers or a uniform strength ranking.
+
+**LMD3. Model a transition as a specific attempt.** LMG5, LMG15, LMK3
+and LMK4 preserve the in-world warning and the unresolved swap thresholds.
+The [compatibility discussion](https://www.reddit.com/r/LordofTheMysteries/comments/1xpz26w/coi_end_compatible_pathways_canon_and/)
+raises two useful checks: a shared symbol might matter to one operation more
+than another, and a viable route into a pathway might be harder in reverse.
+The Tail-Devourer example is a COI lead to verify against the text before
+authoring a route. Start with the directed source and destination, Sequence,
+operation, materials or patron, ritual and current stability. Distinguish
+characteristic accommodation, a granted boon (LMG33), and Sefirah
+accommodation. Separate what a character has been taught, what they can
+attempt, and what the attempt costs or leaves behind. Retained abilities,
+residue, convergence and recovery follow the qualified case. The fan
+proposals for a continuous proximity scale and extra risk gradients among
+neighbors are hypotheses. The Q&A's Q2 supports a specific high-tier
+combination with consequences. The Fifth Pillar/reset idea remains fan
+speculation.
+
+### LATER / DELEGATE
+
+| Reopen when | Level and effort | Done check |
+| --- | --- | --- |
+| An arc needs its first authority contest | Substantive design and implementation, medium for one scene | Qualify the book scene, compare two routes to one result, and verify distinct prerequisites, defenses, traces and settled aftermath after reload. |
+| A selected arc or alternate life needs a switch or boon | Bounded source review then substantive implementation, medium for one transition | Locate primary evidence for that direction and Sequence. Exercise an ordinary promotion and the exceptional attempt with its specific cost, recovery and save/import behavior. |
+
+## 10. Book checks on nested powers, grants and switches (2026-11-09)
+
+**ACT NOW (done):** Book checks on LMD1–3. WPR4 evidence labels below.
+Locators give the **displayed** English Webnovel chapter and, in parentheses,
+the EPUB member number where it differs. See the [cross-series pass and
+scope](../../research/LORE_EDGE_CASES_2026-11-09.md) for the wider intake.
+These are inputs to future slices under TD2, AD5 and AD38.
+
+### ACCOUNT FOR NOW
+
+- **LMD4. A projection can summon more projections, with a real maintenance
+  burden.** **Shown:** LOTM ch1165, *The Grand Lineup* (1185), has nested
+  angel-level projections. **Inferred by Klein:** he might sustain this
+  arrangement for less than ten seconds. The same paragraph explicitly
+  considers the recursive self-summon and why this load changes it. For a
+  future projection slice, trace the original caster, active controller,
+  each dependent effect and the maintenance burden. Prove that a child can
+  act, that adding one can shorten sustain, and what happens if parent
+  support ends mid-action. The ten seconds is a scene estimate.
+  [Nested projections discussion](https://www.reddit.com/r/LordofTheMysteries/comments/1cf5mpc/)
+- **LMD5. Error can exploit the target's way of recognizing someone.**
+  **Shown:** LOTM ch1386, *Narrow Path* (1412), uses resemblance across
+  multiple signals to get a specific defense to accept an impostor. This
+  closes the chapter-preview evidence gap in LMD1. The scene supports a
+  particular recognition exploit. For a ward encounter, an independent
+  check can matter if the power did not also compromise it. Keep actual
+  identity, the ward's verdict and the witnesses' evidence distinct.
+  [Powers discussion](https://www.reddit.com/r/LordofTheMysteries/comments/1xqj15p/coi2_questions_about_powers/)
+- **LMD6. A boon has a delivery route, a recipient and an ongoing influence.**
+  **Stated:** COI ch37, *Dangerous Forest* (039), distinguishes a gift from
+  a characteristic and discusses bodily conflict and change. Ch61,
+  *Description* (063), treats preparation, dose strength and the seal as
+  consequential. **Attributed:** ch166, *In Return* (169), gives Lumian's
+  explanation for his reduced susceptibility, including filtering,
+  behavior and partial digestion. He generalizes from examples, so a
+  universal list of boon side effects remains unproved. Track the source
+  and route of the grant, its usable power, existing digestion and the
+  resulting changes separately. A boon rank alone gives insufficient
+  evidence for skipping the equivalent potion rungs or for what remains
+  after withdrawal. Test both questions if the chosen scene needs them.
+  [Boon-to-potion discussion](https://www.reddit.com/r/LordofTheMysteries/comments/1gi5uko/),
+  [Boon side-effects discussion](https://www.reddit.com/r/LordofTheMysteries/comments/1xcei0a/coi_end_question_about_boons/)
+- **LMD7. Switching changes more than the current label.** **Stated:** LOTM
+  ch145 (149) establishes a high-Sequence exception to the early lesson.
+  Ch1103, *Hint* (1119), names particular groups and ranks. Ch1168,
+  *My Anchors* (1188), reports a failed attempt even though the destination
+  is in a related group. COI ch392, *Switching Pathways* (396), gives
+  Franca's reasoning about how old acting and bodily consequences affect
+  the choice. Ch877, *Promised Matters* (883), distinguishes an eligible
+  route from a route with the materials, ritual and help actually available
+  under pressure. **Attributed:** ch488, *Mutual Provocation* (492), has
+  Franca observe a combined effect and speculate about reproducing it.
+  Preserve the acquired characteristic history and qualify retained or
+  combined effects individually. Test a clean promotion, a viable switch
+  with a real cost, and an otherwise plausible switch lacking its rite or
+  support. Keep source availability and the character's knowledge separate.
+  [Retained-powers discussion](https://www.reddit.com/r/LordofTheMysteries/comments/1fvuw8q/),
+  [COI switching discussion](https://www.reddit.com/r/LordofTheMysteries/comments/1ocjnws/)
+
+### LATER / DELEGATE
+
+| Reopen at | Level and effort | Done check |
+| --- | --- | --- |
+| First projection sustaining a child effect | Runtime designer, medium | Reproduce one bounded stack, end support during a child action, save and reload the correct cost and consequences. |
+| First switch or boon whose source changes | Source reviewer plus runtime designer, medium | Confirm precise rank and delivery case. Show which powers work now, which traces persist, and which prerequisites prevent the next step. Keep Tail-Devourer directionality and Sefirah combinations as distinct source questions. |
+
+## 11. Fan rules, community gaps and pathway chart (2026-11-09)
+
+**Act now (done).** Compared the supplied Pathways screenshot, indexed wiki
+excerpts and community feedback with samples from the acquired English volumes.
+The full Fandom page returned an access error. The screenshot shows the standard
+pathway table, and indexed excerpts point to additional sections on neighboring
+pathways and boons. See the [reference intake](../../research/LIBRARY_INDEX.md#implementation-references-2026-11-09).
+This was a bounded source comparison under WPR4 and WPR24.
+
+**Account for now.**
+
+- **LMD8. Compare rank coverage with capability coverage.** The chart provides a
+  roster and alias crosswalk for the standard pathways. Check the mechanics
+  separately. The community review flags missing abilities, a disputed unlock
+  rank, and limits on detection, damage and interruption. Some flags are already
+  addressed in the held PDFs. Vol I pp. 77–78 names the three Psychiatrist
+  techniques, Vol I p. 20 gives the Marionettist's damage interruption and
+  object limitations, and Vol II p. 49 gives Savant perfect memory. The author
+  said they planned a correction. The rules file is labeled 0.1 and the exact
+  revision history of the volumes is unverified. Treat each comment as a lead
+  tied to the edition and page reviewed.
+  [Community review](https://www.reddit.com/r/LordofTheMysteries/comments/1xhuigb/v8_fan_project_ttrpg_the_fool_wanted_a_tabletop/)
+- **LMD9. Keep the author view separate from the character's view.** A
+  development crosswalk can use stable pathway and rank IDs with translation
+  aliases. An ordinary start can show only what this character has learned or
+  been told, with provenance where it matters. Keep the chapter locator and
+  whether the evidence was shown, stated or inferred in the source record. The
+  encyclopedia and wiki are leads for gaps in the standard table. For
+  compatibility, boons and retained powers, use the particular book cases in
+  LMD3 and LMD6–7 before authoring the operation.
+  [Pathways wiki](https://lordofthemysteries.fandom.com/wiki/Pathways)
+  · [Official encyclopedia](https://www.lomworld.com/handbook/en?categoryId=3)
+- **LMD10. Verify an ability where the shortcut would break play.** For one
+  selected early power, pair the ordinary use with a qualified counter or
+  interrupted attempt. Record what happened, what each observer can tell, what
+  the character paid, and whether the effect or its aftermath persists after
+  reload. Separate a canon limit, an unresolved inference and a tabletop ruling
+  before using any of them in a test. That carries forward the thread's
+  distinction between giving a GM discretion and spelling out a repeatable
+  rule. [Community discussion](https://www.reddit.com/r/LordofTheMysteries/comments/1xhuigb/v8_fan_project_ttrpg_the_fool_wanted_a_tabletop/)
+
+**Later / delegate.** At the first selected ability flagged by the review,
+run a bounded source check and one runtime comparison (medium effort). Done
+when the book scene supports the unlock and scope, a plausible counter or
+interruption changes the result, and reload preserves both cost and the
+character's earned knowledge. Handle each further row when an arc needs it.
+
+## 12. Early Seer and the first Blackthorn case (2026-11-09)
+
+**ACT NOW (done).** Bounded WPR4/WPR24/WPR30 source and runtime audit. “First
+case” here means the first civilian commission Klein takes after drinking the
+Seer potion, Elliott Vickroy's kidnapping (displayed English ch42–44, EPUB
+members 46–48). The pre-potion notebook investigation precedes it. The ch46
+search is a nearby counterexample for dowsing, with its own case state. Read
+the held English Webnovel text, the locally held Fandom snapshot (Abilities
+revision 127676 and Divination Art 123606), and screened *Beyonders &
+Mysteries* Pathways Vol I pp. 13–14. Wiki and fan claims below are attributed.
+[Novel intake](../../research/LIBRARY_INDEX.md#prime-books)
+· [Wiki abilities](https://lordofthemysteries.fandom.com/wiki/Fool_Pathway/Abilities)
+· [Wiki divination](https://lordofthemysteries.fandom.com/wiki/Divination_Art)
+· [Fan reference intake](../../research/LIBRARY_INDEX.md#implementation-references-2026-11-09)
+
+| Capability | Novel evidence | Wiki and fan comparison | OOPS state |
+|---|---|---|---|
+| Learning and memory | **Stated** by Dunn, ch29 and 31, that the potion gives the capacity to learn divination and rites without supplying the knowledge. **Shown** ch32 that Klein enters Cogitation readily, then learns to see auras. **Stated in Klein's experience** ch40 that memory improves slightly. Neil says practice still matters. Ch43 shows a specific absence of memory that defeats a search. | **Wiki:** enhanced memory and learned methods agree. Its claim that memory improves during digestion reaches beyond this early check. **Fan:** immediate mastery of dream divination, dowsing and cards plus a generic difficulty bonus are tabletop choices. | Seer ingestion, steadying, pool, Cogitation and learned/real method gates exist in `book_world_lotm_be_seer.js` and `book_world_lotm_divination_method.js`. The case's dowsing does not use that gate. No separate memory stat is needed to play this case. |
+| Spirit Vision | **Shown** ch32–33: auras, taught switch, exhaustion, rest. **Shown** ch43: count the auras through the obstruction and infer the shorter one is likely Elliott. The firearms information comes from Klee. | **Wiki:** perception of auras and spirits agrees. **Fan:** fixed radius and success thresholds for characteristics, curses, and thread following are tabletop rules. Ch43 does not establish those thresholds or capabilities. | A real vision condition, exhaustion and repeatable cast exist. The current `kj3u.floor3` act spends spirituality and emits the authored aura finding without reading or setting the vision condition. No target-scoped case observation consumes the switch here. |
+| Dowsing Rod Seeking | **Shown** ch43: acquired clothes and worn amulet, cane and half-Cogitation produce a direction. Klein corrects the route and narrows the search on location. The amulet serves as the focus without clothes for a later reading. **Shown** ch46: a different search with portrait and clothing produces motion without usable direction. Interference is Klein's reading. | **Wiki:** differentiates forms of divination and cites the directional method. **Fan:** broad divination talent is a useful reminder, while fixed difficulty and success grades can make symbolic evidence too definite. | The current `kj3u.medium`, `dowse1`, `route` and `block` use authored facts and prose. They do not supply typed dowsing tool/contact/method facts to the real gate or produce a direction consumed by the route. `lotm_divination_rows.js` has a distinct obscured cane search for the ch46 scene, with a Ray/Riel English-name discrepancy to check at the binding. |
+| Spiritual intuition and teamwork | **Shown** ch44: Klein barely resists Leonard's poem with spiritual perception and Cogitation, notices someone approaching before he knows who it is, and later reflects on spiritual perception without enhanced ordinary senses. His firearms practice supplies the response. | **Wiki:** distinguishes spiritual and ordinary senses. **Fan:** guaranteed threat warnings, reactive bonus and universal scene-trace reading are tabletop rules. No tested chapter here makes the approach cue disclose allegiance or give immunity to the poem. | Current `kj3v.poem`, `stairwell` and `shot` record fixed results. The rescue uses Leonard's authored actions and a narrated shot. The police report and commission are facts and notes here. They do not show an ammunition debit or a shared case handoff that consumes the observation. |
+
+[Ch32, Spirit Vision](https://www.webnovel.com/book/lord-of-mysteries_11022733006234505/spirit-vision_31326423721503881)
+· [Ch42, Butler Klee](https://www.webnovel.com/book/11022733006234505/31486397009422267/)
+· [Ch43, Search](https://www.webnovel.com/book/11022733006234505/31486452592339902/)
+
+**ACCOUNT FOR NOW.** The route is playable as authored content. The
+[KJ3U search](../../gm/dispatch/refinement-audits-2026-10-31/KJ3U_IMPLEMENTATION_RECEIPT.md)
+and [KJ3V rescue](../../gm/dispatch/refinement-audits-2026-10-31/KJ3V_IMPLEMENTATION_RECEIPT.md)
+were browser-verified on B10 and scratch packs, including Export/Import and
+reload. Static inspection of the current local private pack
+`cast-reviewed-kj3av-41c38c0d9dd13f92` confirmed that the named acts still use
+the authored effects in the table. The 54 focused source tests passed.
+They cover the Seer seat, method sessions, divination suppliers and rows,
+authority witnesses, records and Tingen deck. The current full case was
+not replayed in a browser for this audit.
+
+- **LMD11. First integration is evidence to action.** Reuse the learned/real
+  method gate and case-owned observations. Let the obtained focus and
+  learned technique produce a direction, then let the search consume it.
+  At the door, record the aura count, Klein's inference, and the weapons
+  report as distinct entries. The report that reaches Leonard or police
+  follows the actual disclosure. Preserve case clock, tool and focus
+  custody, and earned evidence on reload. The book gives no numeric
+  dowsing cost. Treat any metering as calibration.
+- **LMD12. Make different failed approaches legible.** No usable focus and
+  an obscured reading have different recovery paths. The former can prompt
+  a specific request to the client. The latter can prompt an independent
+  check or qualified help if the scene offers one. The ch46 example supplies
+  neighbor confirmation and a police handoff after the occult search stalls.
+  GUMSHOE is a design reference for preserving a viable lead; the book does
+  not establish a second proven rescue route for Elliott. Keep any new
+  rescue alternative labeled as authored divergence.
+- **LMD13. Keep the client's version of events separate.** Klee supplies
+  contact material and a witness account, Leonard supplies field help, and
+  Klein can make a factual police report under the security company's
+  cover. A private perception, the explanation given to the client, and a
+  public handoff can differ without changing what happened. Test who learns
+  each fact. Urgency can change what the team does while Klein waits or
+  leaves. A civilian variant can pass an actionable observation to the
+  team without gaining occult knowledge or taking over Klein's case.
+
+**LATER / DELEGATE.** At the next authorized pass on the case, medium
+runtime effort for one authored stretch. Prove briefing → usable focus →
+direction → corroboration → handoff from the earned route or named fixture.
+Save before corroboration, reload, and finish once. Exercise missing focus
+and exhausted vision, and preserve a specific next action when the case
+supports one. Then use the ch46 obscured search to check that a result can
+remain inconclusive without inventing a direction. Reopen the firearm,
+custody and commission seams when the encounter or its aftermath needs
+those systems to settle consequences. No new runtime behavior in this audit.
+
+## 13. Elliott's search and handoff integration (2026-11-09)
+
+**ACT NOW.** WPR24/WPR30 and AD38 implementation of the first evidence
+chain from §12. This uses the existing Klein route and Wave 3 contracts.
+The local cast pack, `private_packs/lotm-cast/cast.json`, keeps the authored
+facts, reports and sequence. The private patch,
+`private/elliott-case-2026-11-09/bind-case.mjs`, can be reapplied from the
+repository root if that pack is regenerated.
+The native catalog supplies two exact, non-consuming focus items.
+
+- Klee's return gives one set of Elliott's clothes and his amulet. The
+  first reading takes the learned dowsing method, live Seer source, the
+  scene's cane and both held items. The native divination attempt records
+  a signal and forward bearing. The carriage consumes that bearing.
+  Later route steps use the amulet and the last bearing, narrowing toward
+  the stairs and upper floor. No numeric charge was added for dowsing.
+- The landing uses the existing Spirit Vision condition and one existing
+  spirituality charge. It records an aura observation, a qualified
+  inference, and a reference to Klee's separate account. The authored
+  hold time uses the repeatable vision cast's existing 60-minute dial.
+  Leonard receives the qualified spoken account when the existing
+  co-located handoff and poem act settles. His record attributes it to
+  Klein. The original observation stays with Klein.
+- The original command IDs remain. Legacy completed acts can satisfy the
+  new checks through their specific old receipt keys. New acts write
+  different keys, so the old path cannot bypass an item or bearing check
+  on a new run. The patch leaves final return of the focus items open.
+  No general custody or new case save slice was added.
+
+**ACCOUNT FOR NOW.**
+
+- **LMD14.** Inventory is adequate for borrowed material within this
+  sequence. If later play can stash, return, or transfer the focus,
+  move its custody to the shared transfer owner and test that only the
+  holder can use it. Reopening the case must not duplicate either piece.
+- **LMD15.** The canonical search uses authored directions on a known
+  route. A later case with multiple viable exits would test whether the
+  shared inquiry and travel owners can carry a direction scoped to the
+  location and observation time. Add a reusable contract only when that
+  consumer needs it. A stale bearing should prompt a new reading, and an
+  obscured reading should preserve the clue already obtained without
+  making up a direction.
+- **LMD16.** Preserve the report as a disclosed account with a recipient.
+  A second recipient such as a constable can get a different, actionable
+  account. Add a report-selection or sharing interface when the player can
+  actually choose which observations to disclose. For this case the
+  spoken handoff is fixed to the source sequence.
+
+**LATER / DELEGATE.** Medium runtime effort for the next qualifying
+consumer. Exercise the ch46 obscured result or a case that offers two
+routes, with an interruption after a real signal and before delivery.
+Done when the case keeps its prior evidence, pays any committed cost
+once, and accurately shows which option remains open after reload.
+
+**Verification.** Full private pack schema and lowering passed (1,313
+place commands). Isolated `npm run build`, `check:arch`, `check:rules`
+and 37 focused tests passed. The [browser regression](../../../tests/lotm_elliott_case_browser.mjs)
+used the current canonical case rows in a named shortened entry after
+the office briefing. At 1920×1080 it exercised both missing items, wrong
+bearing, exhausted vision, reload during the search, literal Export and
+Import before the handoff, and reload during and after the handoff. The
+brief was published at settlement with no duplicate and no browser
+errors. The settled desktop view passed the overflow check at 1920×1080
+and 1536×864, at 14 and 21 px. Bundle SHA-256
+`533a16a6b22ca07c09043775d4e1dd2913f1c0360f33dcbf8b1a32315ffc4f72`.
+Evidence in `private/elliott-case-2026-11-09/browser-final/`. This proof
+covers the selected case steps. A replay from the opening and historical
+save imports were outside this proof.

@@ -341,6 +341,15 @@ and after the first palette, "save ideaboarding accordingly".
 Recorded direction: the question is recorded as a request for an ideaboard, not a build order or an accepted design. The palette PRT1-PRT26 lives in [the portal multiverse ideaboard](../worlds/PORTAL_MULTIVERSE_WORLDS_IDEABOARD_2026-11-07.md): an original analogue by default and a private canon pack as a condition (WER11, WER15), ranked requirements marked exists or gap, and a proposed first slice on an existing book world. All of it is proposal under AD32. Standing priorities (LOTM and HP lead lines) are unchanged. No commit or push was requested.
 
 
+## Each slice leaves the next one cheaper, 2026-11-07
+
+Weibao asked "things that can be done to make future implementation faster". The agent ranked five from the week's commits and run records: O1 saved states for the book lives, O2 a check that new features can be reached from play, O3 slices that plug into world hosts instead of editing them, O4 fewer docs touched per slice, O5 shared test fixtures for lead-life starts. Then:
+
+> obsorb each of o5 into long standing and inherent design choices
+
+Recorded direction: all five (O1–O5) become standing defaults, not a one-off task list. AD54 in the [rules index](../RULES_INDEX.md#accepted-direction-rules-ad) restates them; the detail lives in AD36 items 8–10 ([verification workflow](../RULES_INDEX.md#efficient-rule-verification-ad36)) and AR18–AR19 ([architecture rules](../ARCHITECTURE_RULES.md#for-coordinators-and-lane-briefs)). The wording, dials and reasons are the agent's and adjustable. The tools they name (book-life scenarios, the reachability check, host hook lists, life-start fixture builders, a save-key table generator) are not built yet; the first slice that needs one builds it as its own structural change (AR9), and until then each rule names its manual stand-in.
+
+
 ## Casting adds mastery, and use is not the only way, 2026-11-08
 
 The cross-world systems session walked Harry's library study and found that casting the levitation charm outside class left its practice unchanged; only Charms classes refined it. Weibao said, across three messages:
@@ -380,6 +389,14 @@ Weibao, in the “Finish wave 3 engines” chat:
 > 3. Then return to story-led waves. Each new window mainly fills content and tunes numbers against what’s now a complete engine.
 
 Recorded as build order and verification direction, replacing the earlier story-first deferral. The task record keeps implementation and source qualifications separate from this instruction.
+
+## 2026-11-08: reading order for the OpenAI credits
+
+After the OpenAI batch backend was built and the backlog counted, Weibao said:
+
+> reconcile records accoridngly, and the nsend out Circle of inevitablity, did we finish harry potter? reverend insanity should be higher ones, Part 2 sure, but then TTKS books 1-4 should be more specific
+
+Recorded as reading order (operational, owned by [reading status](dispatch/protagonist-life-2026-10-27/READING_STATUS.md#reading-order-2026-11-08)): Circle of Inevitability first (approved the same day as its own go), Reverend Insanity 5-24 and its leftovers second, then scenes for the books the Luna queue read, with the four TTKS books named by title, then Shadow Slave and Wasteland Border Inspector leftovers, then the unread wave 2 list. Every later run still needs its own go.
 
 ## 2026-11-08: engine growth shows gaps, and the Minecraft mapping
 
@@ -460,6 +477,45 @@ Recorded as ideas, not accepted decisions (AD32): W3X15-W3X24 (acting and digest
 ## 2026-11-08: the census system-demand pass
 
 Weibao said "Push and run it" for D-G's first step. The pass ran docs-only on the existing census and is saved as [system demands](../audits/SYSTEM_DEMANDS_VOL1_BOOK1_2026-11-08.md), with findings DG1-DG5 in the long-term atlas. Recorded as evidence and proposals, not accepted decisions (AD32).
+
+## 2026-11-08: reading levels and procedural system coverage
+
+Weibao asked:
+
+> for the readings, do we need to improve the non scene readings? shoudnt we have core readings and more? different levels of readings from required syste,s and omre?
+
+After the proposed L1 broad index, L2 system synthesis, L3 build qualification and L4 expanded-life depth, he directed:
+
+> Go ahead, build those reading levels into the workflow and check what the existing readings need. Fix the schema for anything not sent yet, and keep any extra reading within the $33 budget.
+>
+> Consider aspects like procedural systems and more
+
+The owning [reading workflow](../research/BATCH_READING_WORKFLOW.md#reading-levels-and-system-relevance-2026-11-08) separates depth from system relevance, adds procedural/generative and broader world-life lenses, and records extraction versus semantic qualification. The [review receipt](../research/READING_LEVEL_REVIEW_2026-11-08.md) owns bounded source checks, schema migration and the capped supplementary dispatch. This approval covers that reading work within the combined budget, not a new build-order gate or blanket reread.
+
+## First OOPS version and retrospective changelog, 2026-11-08
+
+Weibao asked:
+
+> we shoud get v0.1.0 once somethign truely playable is done, create some backdated stuff for past done stuff already and the days they were done accordingly and assign versions
+
+The [changelog](../../changelog.html) assigns retrospective development versions. The [README](../../README.md#versions-and-changelog) records the working release check. Earlier scope direction still applies ([October 24](USER_VISION_LOG_2026-10.md#first-milestone-and-scope-check-2026-10-24)).
+
+| Version | Verification date | Evidence |
+| --- | --- | --- |
+| `v0.1.0-dev.1` | 2026-10-27 | [Village watch and trade](dispatch/village-loop-2026-10-27/VILLAGE_LOOP_CHECKPOINT.md#verification-vl1) and [Tingen crossing and return](dispatch/lotm-return-2026-10-27/CHECKPOINT.md), fresh starts and persistence checked. |
+| `v0.1.0-dev.2` | 2026-11-06 | [Tauri move](dispatch/tauri-host-2026-11-06/CHECKPOINT.md#slice-3-the-full-move-2026-11-06-evening), [calendar and dose](dispatch/foundation-run-residue-2026-11-06/CHECKPOINT.md#follow-through-loop-reload-npc-calendar-and-dose-label-2026-11-06), [seizure and jail fixture](dispatch/wave11-closure-2026-11-06/CHECKPOINT.md), and [desktop UI](dispatch/js-ui-performance-2026-11-06/CHECKPOINT.md#follow-up-installed-result). |
+| `v0.1.0-dev.3` | 2026-11-07 | [Early classes and relationships](dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md#checks), and the [installed display-read build](dispatch/js-ui-performance-2026-11-06/CHECKPOINT.md#slice-2-shared-display-reads-2026-11-07-claude). |
+| `v0.1.0-dev.4` | 2026-11-08 | [Home, procedure and power routes](dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md#current-result-and-next-window). Harry reaches school through ordinary play. Some continuations use named fixtures. |
+
+Each row groups work by date. The individual receipts identify the inputs, route and installation status for each slice.
+
+## Major update scale, 2026-11-08
+
+Weibao asked:
+
+> check feature scal per big update for yair, we should match or exceed that
+
+Apply the [upstream release comparison](../reviews/YAIR_RELEASE_SCALE_2026-11-08.md) to `v0.1.0` and future major feature updates. The [README](../../README.md#versions-and-changelog) records how to check playable scope on the intended release build. The earlier [first-version decision](#first-oops-version-and-retrospective-changelog-2026-11-08) still governs preview labels.
 
 ## Rules for building and tuning systems, 2026-11-09
 

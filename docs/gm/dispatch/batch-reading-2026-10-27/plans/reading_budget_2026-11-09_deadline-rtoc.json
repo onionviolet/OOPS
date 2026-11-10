@@ -1,0 +1,32 @@
+{
+ "ceilingUsd": 33,
+ "reservedUsd": 32.62,
+ "unallocatedUsd": 0.38,
+ "approval": "Weibao: “send more for Openai batch to try and use it all before the 10th of november”. Reads the full scene pass of the prepared edition and fills four non-scene gaps.",
+ "reservations": [
+  {
+   "id": "prior-campaign-measured",
+   "capUsd": 4.556072085
+  },
+  {
+   "id": "ri-extraction",
+   "capUsd": 7.2428
+  },
+  {
+   "id": "ri-audits-and-repairs",
+   "capUsd": 2.817031110000001
+  },
+  {
+   "id": "ri-final-review-headroom",
+   "capUsd": 4.5
+  },
+  {
+   "id": "prior-openai-deadline-runs",
+   "capUsd": 4.9345
+  },
+  {
+   "id": "oa-2026-11-09-deadline-rtoc",
+   "capUsd": 8.55
+  }
+ ]
+}

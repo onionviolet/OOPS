@@ -1,0 +1,36 @@
+{
+ "ceilingUsd": 33,
+ "reservedUsd": 32.32,
+ "unallocatedUsd": 0.68,
+ "approval": "Weibao 2026-11-08: “send more for Openai batch to try and use it all before the 10th of november”. Uses released reservations to cover the next complete source in the recorded queue.",
+ "reservations": [
+  {
+   "id": "prior-campaign-measured",
+   "capUsd": 4.556072085
+  },
+  {
+   "id": "ri-current",
+   "capUsd": 13.4653
+  },
+  {
+   "id": "ri-source-audits",
+   "capUsd": 0.7662985000000005
+  },
+  {
+   "id": "oa-2026-11-08-deadline-yas",
+   "capUsd": 1.8451
+  },
+  {
+   "id": "oa-2026-11-08-deadline-wus",
+   "capUsd": 1.0762
+  },
+  {
+   "id": "oa-2026-11-08-deadline-wus4-8",
+   "capUsd": 2.5841000000000003
+  },
+  {
+   "id": "oa-2026-11-08-deadline-worm",
+   "capUsd": 8
+  }
+ ]
+}

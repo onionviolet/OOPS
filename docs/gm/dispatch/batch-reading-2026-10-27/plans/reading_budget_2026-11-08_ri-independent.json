@@ -1,0 +1,24 @@
+{
+ "ceilingUsd": 33,
+ "reservedUsd": 25.28,
+ "unallocatedUsd": 7.72,
+ "approval": "Weibao 2026-11-08: “Send some through my claude api too since we have 100+ to spare”, following the request to complete, collect, source-check and fix volumes 5–7 within the $33 campaign.",
+ "reservations": [
+  {
+   "id": "prior-campaign-measured",
+   "capUsd": 4.556072085
+  },
+  {
+   "id": "oa-2026-11-08-ri-volume-5",
+   "capUsd": 7.9
+  },
+  {
+   "id": "claude-2026-11-08-ri-volume-6",
+   "capUsd": 6.5
+  },
+  {
+   "id": "claude-2026-11-08-ri-volume-7",
+   "capUsd": 6.32
+  }
+ ]
+}

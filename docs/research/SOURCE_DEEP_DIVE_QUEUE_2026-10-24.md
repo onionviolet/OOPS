@@ -19,6 +19,9 @@ the [playbook](SOURCE_DEEP_DIVE_PLAYBOOK.md) and saves a world card under
 [cards](../worlds/world-core-kit-2026-10-14/cards/README.md). Rows here are proposals; the queue
 order is a default Weibao can change. Rules: WPR1-WPR32, AU1-AU15, AD5, AD35, AD37, AD38.
 
+The [lore edge-case intake](LORE_EDGE_CASES_2026-11-09.md) compares community
+claims with chapter passages and records verification and deferred source leads.
+
 ## Status
 
 | World | State | Card |

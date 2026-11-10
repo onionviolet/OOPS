@@ -1,0 +1,96 @@
+{
+ "name": "reading-level-supplement-2026-11-08",
+ "approval": "Weibao 2026-11-08: \"Go ahead, build those reading levels into the workflow and check what the existing readings need. Fix the schema for anything not sent yet, and keep any extra reading within the $33 budget. Consider aspects like procedural systems and more\"",
+ "ceilingUsd": 0.73,
+ "capTotal": 0.73,
+ "budgetFile": "docs/gm/dispatch/batch-reading-2026-10-27/plans/reading_budget_2026-11-08.json",
+ "steps": [
+  {
+   "name": "targeted-enrichment-and-census-gaps",
+   "gate": "stop",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/hp1_rules_enrich15.json",
+     "label": "hp1-rules-enrich15",
+     "cap": 0.04
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/hp1_people_enrich15.json",
+     "label": "hp1-people-enrich15",
+     "cap": 0.04
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/hp1_texture_enrich15.json",
+     "label": "hp1-texture-enrich15",
+     "cap": 0.04
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/hp1_scenes_enrich15.json",
+     "label": "hp1-scenes-enrich15",
+     "cap": 0.04
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm2_rules_enrich15.json",
+     "label": "lotm2-rules-enrich15",
+     "cap": 0.04
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm2_people_enrich15.json",
+     "label": "lotm2-people-enrich15",
+     "cap": 0.04
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm2_texture_enrich15.json",
+     "label": "lotm2-texture-enrich15",
+     "cap": 0.04
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm2_scenes_enrich15.json",
+     "label": "lotm2-scenes-enrich15",
+     "cap": 0.04
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ttks1_rules_enrich15.json",
+     "label": "ttks1-rules-enrich15",
+     "cap": 0.04
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ttks1_scenes_enrich15.json",
+     "label": "ttks1-scenes-enrich15",
+     "cap": 0.04
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ttks2_rules_enrich15.json",
+     "label": "ttks2-rules-enrich15",
+     "cap": 0.04
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ttks3_rules_enrich15.json",
+     "label": "ttks3-rules-enrich15",
+     "cap": 0.04
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/ttks4_rules_enrich15.json",
+     "label": "ttks4-rules-enrich15",
+     "cap": 0.04
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm3_census_gap15.json",
+     "label": "lotm3-census-gap15",
+     "cap": 0.1
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm4_census_gap15.json",
+     "label": "lotm4-census-gap15",
+     "cap": 0.04
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/lotm5_census_gap15.json",
+     "label": "lotm5-census-gap15",
+     "cap": 0.07
+    }
+   ]
+  }
+ ],
+ "budgetReservation": "reading-level-supplement"
+}

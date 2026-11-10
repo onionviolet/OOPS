@@ -55,3 +55,7 @@ These slots may be used only for original branch variation or randomized truth. 
 ## P5. Conflicts / counters checklist
 
 Every selected variant needs a positive use, a valid no-effect condition, a costly or interrupted case and a counter that follows its own predicate. Do not invent universal aura resistance, exact numerical aura units, or a shared all-categories proficiency equation from the wiki summary. Keep source/creator semantics when ability use is borrowed, stolen, inherited or post-mortem where evidence supports it. Mark anything else `OPEN`.
+
+## Lore edge-case check (2026-11-09)
+
+The manga panels support separate conditions for Chain Jail and Judgment Chain. Keep Chain Jail’s Troupe vow and lethal breach with that operation, and keep Judgment Chain’s rule payload and Scarlet Eyes requirement with its own action. [Source passages and proposed checks, LE25](../../research/LORE_EDGE_CASES_2026-11-09.md#le25)

@@ -6,6 +6,16 @@ A personal text-based RPG by Weibao, exploring discovery, experimentation and pr
 
 See [PROJECT.md](PROJECT.md) for scope, setup and current work, and [AGENTS.md](AGENTS.md) for agent instructions.
 
+## Versions and changelog
+
+Open the [changelog](changelog.html) from the version link in the game. It collects player-facing OOPS changes and preserves the upstream YAIR history.
+
+Use `v0.1.0-dev.N` for development milestones. The retrospective entries use the dates their changes were verified. Keep a record of the evidence and, for an installed desktop snapshot, its exact build ID. Collect new player-facing changes and upgrade notes under **In development** until the next milestone.
+
+Reserve `v0.1.0` (Git tag `oops-v0.1.0`) for the first genuinely playable release. Match or exceed the player-facing scope of a major YAIR update for `v0.1.0` and future major feature updates. Compare the new or substantially changed decisions, the content that puts them to work, and what they change later in play. Use the [YAIR release comparison](docs/reviews/YAIR_RELEASE_SCALE_2026-11-08.md) as the reference.
+
+On the exact release candidate, start a fresh life through the normal menus, play the headline changes through to their consequences, and verify that the results survive save and reload. Use the assets included in the intended release. Subsequent feature releases get minor bumps and fixes get patch bumps. OOPS release labels, the YAIR save compatibility version and the Tauri package version serve separate purposes.
+
 ## Credits and upstream
 
 - [OOPS repository](https://github.com/onionviolet/OOPS)

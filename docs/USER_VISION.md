@@ -124,6 +124,7 @@ How to use and update it:
 
 ## Scope and sequencing
 
+- **Reserve OOPS `v0.1.0` for genuinely playable work.** It and future major feature updates should match or exceed the feature scope of a major YAIR update. Give past verified work dated development versions ([first version](gm/USER_VISION_LOG_2026-11.md#first-oops-version-and-retrospective-changelog-2026-11-08), [release scale](gm/USER_VISION_LOG_2026-11.md#major-update-scale-2026-11-08)).
 - **All ideas stay on the table.** The one-realm/one-prestige first milestone is not a gate: "f5 I like having all my ideas on the table" ([2026-10-24](gm/USER_VISION_LOG_2026-10.md#first-milestone-and-scope-check-2026-10-24)).
 - **Build a system that lets worlds, plots and enemies be added**, from simple rules that compose ([2026-10-03](gm/USER_VISION_LOG_2026-10.md#long-world-campaigns-and-parallel-systems-2026-10-03), [2026-10-01](gm/USER_VISION_LOG_2026-10.md#original-user-messages)).
 - **NPC-heavy simulation was deprioritized** in favor of ruins, exploration and world systems (AD33), narrowed for per-world dials, and AD33's procedural deferral is lifted ([2026-10-16](gm/USER_VISION_LOG_2026-10.md#r7-panelreadability-steering-2026-10-15), [2026-10-23](gm/USER_VISION_LOG_2026-10.md#leftover-itchio-items-built-as-small-per-world-dials-2026-10-23), [2026-11-03](gm/USER_VISION_LOG_2026-11.md#variance-abstraction-and-procedural-work-2026-11-03)).
@@ -135,6 +136,7 @@ How to use and update it:
 - **Absorb interesting systems from any game**, idle RPGs and beyond; decompiling or reading builds is accepted, copying code is not (except the credited Proto23 port) ([2026-10-07](gm/USER_VISION_LOG_2026-10.md#vision-update-what-weibao-asked-for-2026-10-05-evening-to-2026-10-07)).
 - **Save deep detail** from every decompile, source read or research pass, beyond bounded summaries ([2026-10-14](gm/USER_VISION_LOG_2026-10.md#save-deep-details-for-reference-2026-10-14)).
 - **Batch readers record everything a source states** and invent nothing; implementers read the cited paragraphs ([2026-10-28](gm/USER_VISION_LOG_2026-10.md#batch-api-reading-campaign-2026-10-27)).
+- **Reading order (2026-11-08):** Circle of Inevitability, then Reverend Insanity 5-24, then scenes for Luna-read books (the TTKS books by title), then the rest; each run still needs its own go ([2026-11-08](gm/USER_VISION_LOG_2026-11.md#2026-11-08-reading-order-for-the-openai-credits)).
 - **Manga sources:** SM5–SM7 high, SM9 next, anime deferred ([2026-10-18](gm/USER_VISION_LOG_2026-10.md#extensible-panels-and-layout-seams-2026-10-16)).
 - **Book-reading budget:** conservative reader rules AU1–AU15 after one book used most of his tokens ([2026-10-16](gm/USER_VISION_LOG_2026-10.md#agent-generation-and-book-usage-2026-10-16)).
 
@@ -149,6 +151,7 @@ How to use and update it:
 - **Primary checkout by default**; publish to the personal fork, never upstream; push waits for his yes ([2026-10-21](gm/USER_VISION_LOG_2026-10.md#primary-checkout-default-and-finished-worktree-cleanup-2026-10-21), [2026-10-21](gm/USER_VISION_LOG_2026-10.md#shared-master-baseline-and-fork-only-publication-2026-10-21)).
 - **Codex lanes implement**; the coordinating session briefs, reviews, commits and runs browser checks. Separate capable implementers build the runtime mechanism lane ([2026-10-29](gm/USER_VISION_LOG_2026-10.md#cast-lives-build-everything-the-leads-life-needs-choose-later-for-other-seats-2026-10-28), [2026-11-02](gm/USER_VISION_LOG_2026-11.md#runtime-mechanism-lane-for-the-book-absorption-2026-11-02)).
 - **Consider sibling ideas** in the same family where relevant, as a default, not a duty ([2026-10-30](gm/USER_VISION_LOG_2026-10.md#consider-similar-ideas-for-each-idea-where-relevant-2026-10-30)).
+- **Each slice leaves the next one cheaper** (AD54): walks save reusable game states, reachability is checked at commit, world hosts take one registration line per consumer, tests share life-start builders, and records cost less than the work ([2026-11-07](gm/USER_VISION_LOG_2026-11.md#each-slice-leaves-the-next-one-cheaper-2026-11-07)).
 - Model routing for subagents follows the global working agreement; the 2026-10-20 "sonnet level" entry is history ([2026-10-20](gm/USER_VISION_LOG_2026-10.md#retire-the-1366768-floor-2026-10-19)).
 
 ## Identity
@@ -161,6 +164,7 @@ Every former heading of this file, newest first, kept as an anchor. Each entry l
 
 ### 2026-11
 
+<a id="each-slice-leaves-the-next-one-cheaper-2026-11-07"></a>[Each slice leaves the next one cheaper, 2026-11-07](gm/USER_VISION_LOG_2026-11.md#each-slice-leaves-the-next-one-cheaper-2026-11-07)<br>
 <a id="portal-multiverse-worlds-ideaboard-2026-11-07"></a>[Portal multiverse worlds ideaboard, 2026-11-07](gm/USER_VISION_LOG_2026-11.md#portal-multiverse-worlds-ideaboard-2026-11-07)<br>
 <a id="five-quality-deep-dives-on-the-prose-model-2026-11-06"></a>[Five quality deep dives on the prose model, 2026-11-06](gm/USER_VISION_LOG_2026-11.md#five-quality-deep-dives-on-the-prose-model-2026-11-06)<br>
 <a id="comfortable-play-on-older-8-gb-computers-2026-11-06"></a>[Comfortable play on older 8 GB computers, 2026-11-06](gm/USER_VISION_LOG_2026-11.md#comfortable-play-on-older-8-gb-computers-2026-11-06)<br>
@@ -477,3 +481,7 @@ Every former heading of this file, newest first, kept as an anchor. Each entry l
 Weibao: “Finish wave 3’s engines now: the powers grammar, the procedure layer with shared traits, the reputation view, and the remaining home and tie work.” Existing callers named: Spirit Vision, the levitation charm, the Seer brew, the Potions class, Dunn and Ron, the flat and the cupboard. “So they can’t end up as dead seams.”
 
 “Test each engine’s shape against a list of what the books state, such as Harry’s whole first-year spell list and Klein’s divination methods. That catches missing parts before content depends on them.” Then return to story-led waves: “Each new window mainly fills content and tunes numbers against what’s now a complete engine.” This replaces the previous story-first deferral of unfinished wave-3 foundations. LOTM-first and Harry alongside remain unchanged. Execution and source qualifications: [cross-world task record](gm/dispatch/cross-world-systems-2026-11-07/CHECKPOINT.md).
+
+### Reading levels and procedural system coverage, 2026-11-08
+
+Weibao: “Go ahead, build those reading levels into the workflow and check what the existing readings need. Fix the schema for anything not sent yet, and keep any extra reading within the $33 budget.” Also: “Consider aspects like procedural systems and more”. The workflow distinguishes broad indexing, system synthesis, build qualification and expanded-life depth, with relevance to the lead's trajectory/next slice/other lives recorded separately. Include procedures, generative mechanisms and their interactions alongside powers, institutions and ordinary life; reuse existing evidence and target diagnosed gaps. This does not authorize a blanket full-book reread or change story build order. [Workflow](research/BATCH_READING_WORKFLOW.md#reading-levels-and-system-relevance-2026-11-08), [request log](gm/USER_VISION_LOG_2026-11.md#2026-11-08-reading-levels-and-procedural-system-coverage), [review and dispatch receipt](research/READING_LEVEL_REVIEW_2026-11-08.md).

@@ -1,0 +1,40 @@
+{
+ "world": "lotm",
+ "model": "gpt-6-luna",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "reading": {
+  "level": "L1",
+  "relevance": [
+   "lead-trajectory",
+   "reference"
+  ],
+  "review": "not-reviewed",
+  "kind": "targeted-enrichment",
+  "basedOn": {
+   "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27",
+   "sourceFile": "shard_lotm2_ch001-002.txt"
+  },
+  "focus": "Check procedure ordering and actor/tool bindings, interrupted/partial outcomes, learning and enforcement, what varies versus what is fixed, persistent consequences and observer knowledge. Preserve explicit source quantities and distinguish an observed case from a universal rule. Do not mistake an upcoming rank for the current rank, an actor report for an observed action, or an ordinary procedure for random generation. This is a selected-shard supplement, not full-book synthesis."
+ },
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/_reading-level-review-2026-11-08/enrichment/lotm2",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/_reading-level-review-2026-11-08/enrichment/lotm2/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27",
+  "censusMatch": "^lotm2c\\d{3,}(?:L)?m_census\\.jsonl$"
+ },
+ "label": "lotm2-rules-enrich15",
+ "pass": "rules",
+ "shards": [
+  {
+   "prefix": "lotm2c001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm2_ch001-002.txt",
+   "base": "200101",
+   "chapters": "1-2"
+  }
+ ],
+ "reread": "Targeted schema1.5 enrichment after field audit and contextual source sample; isolated outputs preserve previous extraction."
+}

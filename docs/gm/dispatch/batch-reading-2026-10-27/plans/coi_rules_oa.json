@@ -1,0 +1,42 @@
+{
+ "world": "coi",
+ "model": "gpt-6-luna",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/circle-of-inevitability/private/lead-run-2026-10-28",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/circle-of-inevitability/private/lead-run-2026-10-28/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/circle-of-inevitability/private/lead-run-2026-10-28",
+  "censusMatch": "^(coi|coix)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "coi-rules-oa",
+ "pass": "rules",
+ "shards": [
+  {
+   "prefix": "coic001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/circle-of-inevitability/private/lead-run-2026-10-28/shard_coi_b1_ch001-004.txt",
+   "base": "00101",
+   "chapters": "1-4"
+  }
+ ],
+ "schemaVersion": "1.5",
+ "reading": {
+  "level": "L1",
+  "relevance": [
+   "reference",
+   "lead-trajectory"
+  ],
+  "review": "not-reviewed",
+  "aspects": [
+   "procedures",
+   "generation",
+   "progression",
+   "institutions",
+   "daily-life",
+   "knowledge",
+   "economy"
+  ]
+ }
+}

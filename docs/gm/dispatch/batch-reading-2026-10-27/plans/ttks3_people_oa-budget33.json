@@ -1,0 +1,42 @@
+{
+ "world": "ttks3",
+ "model": "gpt-6-luna",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "high",
+ "schemaMode": "prompt",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B3/private/lead-run-2026-10-28",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B3/private/lead-run-2026-10-28/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B3/private/lead-run-2026-10-28",
+  "censusMatch": "^(ttks3)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "ttks3-people-oa-budget33",
+ "pass": "people",
+ "shards": [
+  {
+   "prefix": "ttks3c001",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/ttks-novels-2026-10-10/B3/private/lead-run-2026-10-28/shard_ttks3_ch001-002.txt",
+   "base": "00101",
+   "chapters": "1-2"
+  }
+ ],
+ "schemaVersion": "1.5",
+ "reading": {
+  "level": "L1",
+  "relevance": [
+   "reference",
+   "lead-trajectory"
+  ],
+  "review": "not-reviewed",
+  "aspects": [
+   "procedures",
+   "generation",
+   "progression",
+   "institutions",
+   "daily-life",
+   "knowledge",
+   "economy"
+  ]
+ }
+}

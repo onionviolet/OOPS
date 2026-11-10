@@ -1,0 +1,41 @@
+{
+ "name": "oa-2026-11-08-deadline-wus4-8-resume",
+ "approval": "Weibao 2026-11-08: “send more for Openai batch to try and use it all before the 10th of november”. Completes the remaining Wish Upon the Stars volume set under the $33 campaign.",
+ "ceilingUsd": 6.01,
+ "capTotal": 6.01,
+ "budgetFile": "docs/gm/dispatch/batch-reading-2026-10-27/plans/reading_budget_2026-11-08_deadline-wus4-8.json",
+ "budgetReservation": "oa-2026-11-08-deadline-wus4-8",
+ "steps": [
+  {
+   "name": "remaining-scenes",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus4_scenes_deadline_oa.json",
+     "label": "wus4-scenes-deadline-oa",
+     "cap": 1.07
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus5_scenes_deadline_oa.json",
+     "label": "wus5-scenes-deadline-oa",
+     "cap": 1.1
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus6_scenes_deadline_oa.json",
+     "label": "wus6-scenes-deadline-oa",
+     "cap": 1.07
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus7_scenes_deadline_oa.json",
+     "label": "wus7-scenes-deadline-oa",
+     "cap": 1.07
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/wus8_scenes_deadline_oa.json",
+     "label": "wus8-scenes-deadline-oa",
+     "cap": 0.95
+    }
+   ]
+  }
+ ],
+ "reason": "Pilot repaired locally from cited display entries and dialogue, then re-linted at grade B."
+}

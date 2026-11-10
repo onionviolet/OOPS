@@ -90,6 +90,9 @@ Owner: [source/design owner](../../../research/novels/full-book/circle-of-inevit
 
 More to consider: retain W2 world rows and local dials below; INFERRED additions stay proposals. Save/read/away bindings follow actual consumers; unknown bindings are not guessed.
 
+For directional switches, boons and Sefirah accommodation, see the COI source leads in the
+[LOTM lore discussion intake](../../progression-gates-2026-10-23/LORD_OF_THE_MYSTERIES.md#9-future-pathway-and-authority-design-from-lore-discussions-2026-11-09).
+
 ## K4: Starts and arrival
 
 Owner: [source/design owner](../../../research/novels/full-book/circle-of-inevitability/WORLD_BRIEF.md), with [W5 rows](../W5_KNOWLEDGE_CANON_CROSSING_END.md) and [local merged W5](#w19-lane-w5). Floor: W1 D **partial**, R **missing**; deep: UNASSESSED; shared seams: RF5; EI4; UP1/UP5/UP9/UP11.

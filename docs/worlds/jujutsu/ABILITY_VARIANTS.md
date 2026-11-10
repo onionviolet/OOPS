@@ -56,3 +56,7 @@ The source snapshot’s claims about unusual technique storage or body use are i
 ## Checkpoint and remaining gate
 
 No ability here is implemented, balanced, or natively tested. Before a proof, select one source case, verify primary evidence, inspect exact effect and condition owners, declare counter/order/failure, then run a rebuilt desktop browser slice from a fresh origin. Save/reload/import is required if persistence changes.
+
+## Lore edge-case check (2026-11-09)
+
+The manga check distinguishes Miwa’s immediate attack and future katana restriction from Kenjaku’s stated treatment of self-vows and agreements. Use the vow’s action and its own breach conditions. Other blade categories and loss of an already-spent benefit remain open. [Source passages and proposed checks, LE23](../../research/LORE_EDGE_CASES_2026-11-09.md#le23)

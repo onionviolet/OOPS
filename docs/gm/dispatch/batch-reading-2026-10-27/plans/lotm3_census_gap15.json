@@ -1,0 +1,43 @@
+{
+ "world": "lotm",
+ "model": "gpt-6-luna",
+ "maxTokens": 128000,
+ "outTokensAssumed": 32000,
+ "effort": "medium",
+ "schemaVersion": "1.5",
+ "reading": {
+  "level": "L1",
+  "relevance": [
+   "reference"
+  ],
+  "review": "not-reviewed"
+ },
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27",
+  "censusMatch": "^lotm3c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "lotm3-census-gap15",
+ "pass": "census",
+ "shards": [
+  {
+   "prefix": "lotm3c057",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch057-058.txt",
+   "base": "305701",
+   "chapters": "57-58"
+  },
+  {
+   "prefix": "lotm3c179",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch179-180.txt",
+   "base": "317901",
+   "chapters": "179-180"
+  },
+  {
+   "prefix": "lotm3c209",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/lord-of-mysteries/private/lead-run-2026-10-27/shard_lotm3_ch209-210.txt",
+   "base": "320901",
+   "chapters": "209-210"
+  }
+ ]
+}

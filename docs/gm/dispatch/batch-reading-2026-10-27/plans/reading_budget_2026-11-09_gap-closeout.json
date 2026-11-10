@@ -1,0 +1,16 @@
+{
+ "ceilingUsd": 33,
+ "reservedUsd": 19.04,
+ "unallocatedUsd": 13.96,
+ "approval": "Weibao 2026-11-09: Send The Perfect Run, A Soldier’s Life and Shadow Slave gaps through OpenAI Batch before the 10th. Within remaining campaign funds.",
+ "reservations": [
+  {
+   "id": "measured-prior-campaign",
+   "capUsd": 16.782407795
+  },
+  {
+   "id": "oa-2026-11-09-gap-closeout",
+   "capUsd": 2.25
+  }
+ ]
+}

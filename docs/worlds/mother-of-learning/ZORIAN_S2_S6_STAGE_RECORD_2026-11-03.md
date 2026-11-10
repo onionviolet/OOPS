@@ -87,6 +87,8 @@ Rules applied: [plan](ZORIAN_PLAYTHROUGH_PLAN_2026-11-03.md) (stage rows S2-S6, 
 Disposition: ACT NOW (the next build session needs it), ACCOUNT FOR NOW (constraint, no build), LATER. Tag: on-path (build now) or off-path (recorded, built when a start needs it), per ST13.
 Every task below can be dispatched alone. Level and effort: sonnet unless stated; haiku only for bounded reading of a prepared shard (AU3).
 
+[H3 appointment](ZORIAN_S2_TEACHER_PREP_2026-11-08.md#playable-h3-appointment-2026-11-08) follows the earned drill into Xvim’s first Friday sensing session and critique. [Monday with Haslush](ZORIAN_S2_TEACHER_PREP_2026-11-08.md#playable-monday-object-lesson-2026-11-08) continues from the earned Friday save through the first supervised object-analysis result. H3 remains open for recurring instruction and a demonstrated durable learner outcome.
+
 | Code | Gap | Disposition | Tag and blocks | Task, level and effort | Done check |
 |---|---|---|---|---|---|
 | H1 | **Witness state.** Who remembers, since which run, until when (the row field has no state or reader). First ally told: c16 and c25; Taiven, Xvim, Kael, Zach later | ACT NOW | on-path; blocks lead replay | M2 consumer: a per-actor witness record written when told and cleared or kept by the restart row; sonnet, medium | A told ally's record shows "knows since run N"; a restart keeps or clears it per the row; LOTM death row and Perfect Run unchanged |

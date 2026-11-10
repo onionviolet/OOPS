@@ -202,3 +202,29 @@ extension pins use the existing structured record and durable publication owner.
 own the finite implementation and serialized native acceptance steps. This closes
 no later-term calendar, holiday-return, school-year or career horizon; those
 HP-D7-X4 possibilities and HP-D7-X5 remain in the palette above.
+
+### Wand custody, affinity and allegiance (2026-11-09)
+
+**ACCOUNT FOR NOW, HPL1 (source-checked proposal, AD5/AD38, WPR4).**
+The [wand-allegiance discussion](https://www.reddit.com/r/harrypotter/comments/q5zvok/)
+raises whether every disarm should transfer a wand. In *Deathly Hallows*
+ch24, *The Wandmaker* (prepared B7 pp. 4121–4122), Ollivander says
+another wand can channel magic, affinity changes how well it works, and
+the taking and wand itself matter for allegiance. Ch25, *Shell Cottage*
+(p. 4145), shows Draco's wand working for Harry, while Harry attributes
+Hermione's trouble with Bellatrix's wand to how she obtained it. Ch36,
+*The Flaw in the Plan* (pp. 4347–4349), has Harry explain the Elder Wand's
+allegiance through defeat despite different physical custody, followed by
+the wand's behavior in the duel. The Elder Wand case leaves ordinary
+wands' transfer conditions open.
+
+Build on HP-D7-X2 and the campaign's separate use, answering and possession
+facts. A borrowed wand, an ordinary wand won in an encounter, and an
+exceptional allegiance change can have three different consequences. Keep
+spell skill with the caster and distinguish known affinity or allegiance
+from what a witness can infer. **LATER / DELEGATE:** At the first arc with
+a consequential wand transfer, substantive implementation, medium effort.
+Prove a useful loan and return without a forced transfer, then compare a
+source-qualified contest. If the chosen artifact changes allegiance offsite,
+verify that the affected wand's custody stays where the story put it and
+that reload preserves both facts. See [cross-series comparison](../../research/LORE_EDGE_CASES_2026-11-09.md).

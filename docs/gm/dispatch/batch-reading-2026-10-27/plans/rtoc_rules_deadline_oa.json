@@ -1,0 +1,25 @@
+{
+ "world": "rtoc",
+ "model": "gpt-6-luna",
+ "maxTokens": 48000,
+ "outTokensAssumed": 24000,
+ "effort": "low",
+ "schemaMode": "prompt",
+ "schemaVersion": "1.5",
+ "privateDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29",
+ "outDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/batch",
+ "glossary": {
+  "censusDir": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29",
+  "censusMatch": "^(rtoc)c\\d{3,}m_census\\.jsonl$"
+ },
+ "label": "rtoc-rules-deadline-oa",
+ "pass": "rules",
+ "shards": [
+  {
+   "prefix": "rtocc000",
+   "shard": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/regressors-tale/private/lead-run-2026-10-29/shard_rtoc_b1_ch000-001.txt",
+   "base": "00001",
+   "chapters": "0-1"
+  }
+ ]
+}

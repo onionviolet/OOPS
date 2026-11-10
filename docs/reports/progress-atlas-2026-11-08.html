@@ -1,0 +1,134 @@
+<div id="oops-atlas-nov8">
+  <header>
+    <h2>OOPS progress atlas</h2>
+    <p class="text-small text-muted">Nov 8, 2026 · Current owners and selected source; gameplay proof from named builds.</p>
+  </header>
+  <div class="viz-row" aria-label="Atlas views">
+    <button type="button" class="btn" data-view="map" aria-pressed="true">Where we stand</button>
+    <button type="button" class="btn" data-view="links" aria-pressed="false">What blocks what</button>
+  </div>
+  <div id="oops-atlas-nov8-rows"></div>
+  <section class="card" id="oops-atlas-nov8-detail" aria-live="polite" aria-atomic="true">
+    <h3></h3><p></p><p class="text-small text-muted"></p>
+  </section>
+</div>
+<style>
+#oops-atlas-nov8 {display:grid;gap:calc(var(--font-size-base) * .75)}
+#oops-atlas-nov8 header, #oops-atlas-nov8-detail {display:grid;gap:calc(var(--font-size-base) * .3)}
+#oops-atlas-nov8-rows {display:grid;gap:0}
+#oops-atlas-nov8 .atlas-row {display:grid;grid-template-columns:minmax(9em,1.06fr) repeat(3,minmax(0,1fr));align-items:center;gap:.55em;padding:.45em 0;border-bottom:1px solid var(--border)}
+#oops-atlas-nov8 .atlas-row > * {min-width:0;overflow-wrap:anywhere}
+#oops-atlas-nov8 .atlas-row > button {justify-self:start;text-align:start}
+#oops-atlas-nov8 .atlas-headers {font-weight:500}
+#oops-atlas-nov8 .atlas-cell {display:flex;align-items:baseline;gap:.4em}
+#oops-atlas-nov8 .atlas-mark {color:var(--viz-series-1);flex:none}
+#oops-atlas-nov8 [data-mark="gap"] .atlas-mark {color:var(--viz-series-2)}
+#oops-atlas-nov8 [data-mark="unknown"] .atlas-mark, #oops-atlas-nov8 [data-mark="deferred"] .atlas-mark {color:var(--muted-foreground)}
+#oops-atlas-nov8 .atlas-mobile {position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+@media(max-width:560px) {
+  #oops-atlas-nov8 .atlas-row {grid-template-columns:1fr;gap:.24em;padding:.65em 0}
+  #oops-atlas-nov8 .atlas-headers {display:none}
+  #oops-atlas-nov8 .atlas-mobile {position:static;width:auto;height:auto;overflow:visible;clip-path:none;white-space:normal;font-weight:500}
+}
+</style>
+<script>
+(() => {
+  const root = document.getElementById("oops-atlas-nov8");
+  const rows = document.getElementById("oops-atlas-nov8-rows");
+  const detail = document.getElementById("oops-atlas-nov8-detail");
+  const [name, copy, evidence] = detail.children;
+  const views = [...root.querySelectorAll("[data-view]")];
+  const checkpoint = "Cross-world systems checkpoint, Nov 8, 2026";
+  const data = {
+    map: {
+      cols: ["In play", "Evidence", "Open edge"],
+      items: [
+        ["W1","Klein / LOTM","Through kjw22b","Earned fixture · browser","Next encounter","The 20-action item-safety and inquiry slice keeps custody, support, cost and inquiry results through reload. The next encounter is the resume point.","KJ3AG receipt, Nov 8, 2026 · 58af1ae7…"],
+        ["W2","Harry Potter","Shops → school bridge","Browser · named routes","W6 source only","Four authored windows reach the shops. A separately verified bridge reaches Sorting and selected lessons; the full W5 journey and W6 sequence are still open.","HP whole-world plan; F1 arrival receipt, Nov 7; W6 source qualification, Nov 8, 2026"],
+        ["G5","Shared engines","Powers, making, home, ties","Both leads · browser","Wider callers","Both leads use common systems with local rules. A financed house is a synthetic fixture; remote rite response is contract proof only.",checkpoint],
+        ["U14","World state & saves","Jobs, knowledge, retained state","Selected round trips","Crossing & reset depth","The named routes keep consequences after save and reload. Other worlds’ travel and reset laws need their own route evidence.","Systems owners; Nov 4 atlas; KJ3AG receipt, Nov 8, 2026"],
+        ["W9","Village & test beds","Village loops; two test beds","Prior receipts","Test-bed depth deferred","Village is the broad native reference for crafting, economy and homes. Frontier and Mistglass remain test beds; a full original-world campaign stays in the vision.","PROJECT and world × system coverage, inspected Nov 8, 2026"],
+        ["W3–8","Other worlds","Bounded starts and slices","Carried forward","Fresh breadth unknown","MoL and Paradise have bounded routes; Gu and Shadow Slave have starts. Phandalin is a fixture; Primordial has a probe-only entry in the coverage owner.","Nov 4 atlas W3–W8; world × system coverage, inspected Nov 8, 2026"],
+        ["G1","Desktop delivery","Tauri performance build","Installed hash checked","New story build separate","The latest installed snapshot pointer names v0.6-7d4dcc19467b. The current lead receipts name separate builds. Physical older 8 GB testing remains open.","Performance checkpoint and installed latest pointer, checked Nov 8, 2026"]
+      ]
+    },
+    links: {
+      cols: ["Existing input", "Connection needed", "What it unlocks"],
+      items: [
+        ["G2/G4","Next Klein encounter","Earned kjw22b state","Required: use retained facts","A continuous route","Resume from the earned state. Check that the next encounter reads the actual reports, custody and escort state where they matter.","KJ3AG receipt and cross-world systems checkpoint, Nov 8, 2026"],
+        ["G7","Harry’s first week","School bridge + 12 source rows","Required: scene and agency handoff","A played school week","Build the source-qualified W6 span. Verify the handoff from the train; retain preference, school authority and distinct lesson outcomes.","HP W6 source qualification, Nov 8, 2026"],
+        ["G5","Institutions","Person ties and standing","Required for depth: authority and audience","School and career consequences","A personal tie can enable joint practice now. Institution-level decisions still need the actual authority, terms and audience that make them matter.","Wave 3 checkpoint and career/rite gap check, Nov 8, 2026"],
+        ["U07","Use → better control","Practice recorded in both leads","Helpful: Klein payoff","Practice changes a choice","Harry’s practice already serves mastery and study. Check what improved control buys Klein when a later consuming action needs it.",checkpoint],
+        ["G1","Play latest in desktop","Separate verified candidates","Required for adoption: combined build","Delivered lead routes","At a selected release point, identify a combined build, verify both continuations and compare that identity with the installed snapshot.","Wave 3 and KJ3AG receipts; installed latest pointer, Nov 8, 2026"]
+      ]
+    }
+  };
+  const snapshot = "oops-2026-11-08-d7b9822d2";
+  let view = "map", selected = "W1";
+  const el = (tag, cls, value) => {
+    const node = document.createElement(tag);
+    if (cls) node.className = cls;
+    if (value) node.textContent = value;
+    return node;
+  };
+  function select(id, save) {
+    const item = data[view].items.find(row => row[0] === id) || data[view].items[0];
+    selected = item[0];
+    for (const btn of rows.querySelectorAll("button")) btn.setAttribute("aria-pressed", String(btn.dataset.key === selected));
+    name.textContent = item[0] + " · " + item[1];
+    copy.textContent = item[5];
+    evidence.textContent = item[6];
+    if (save) window.openai?.setWidgetState?.({modelContent:{snapshot,view,selected}})?.catch(() => {});
+  }
+  function render() {
+    for (const btn of views) btn.setAttribute("aria-pressed", String(btn.dataset.view === view));
+    const {cols,items} = data[view];
+    const head = el("div","atlas-row atlas-headers text-small");
+    head.setAttribute("aria-hidden","true");
+    for (const label of ["Area", ...cols]) head.append(el("span","",label));
+    const body = items.map(item => {
+      const row = el("div","atlas-row");
+      const btn = el("button","btn",item[1]);
+      btn.type = "button";
+      btn.dataset.key = item[0];
+      btn.dataset.tooltip = item[0] + " · " + item[6];
+      btn.addEventListener("click", () => select(item[0], true));
+      row.append(btn);
+      cols.forEach((label,i) => {
+        const cell = el("div","atlas-cell");
+        const gap = view === "map" ? i === 2 : i === 1;
+        const unknown = view === "map" && item[0] === "W3–8" && i === 2;
+        const deferred = view === "map" && item[0] === "W9" && i === 2;
+        cell.dataset.mark = unknown ? "unknown" : deferred ? "deferred" : gap ? "gap" : "known";
+        const mark = el("span","atlas-mark",unknown ? "○" : deferred ? "▱" : gap ? "◇" : "●");
+        mark.setAttribute("aria-hidden","true");
+        const description = el("span");
+        const mobile = el("span","atlas-mobile",label + ": ");
+        description.append(mobile,document.createTextNode(item[i+2]));
+        cell.append(mark,description);
+        row.append(cell);
+      });
+      return row;
+    });
+    rows.replaceChildren(head,...body);
+    select(selected,false);
+  }
+  function restore(state) {
+    const saved = state?.modelContent;
+    if (saved?.snapshot !== snapshot || !Object.hasOwn(data,saved.view)) return;
+    view = saved.view;
+    selected = saved.selected;
+    render();
+  }
+  for (const btn of views) btn.addEventListener("click", () => {
+    if (view === btn.dataset.view) return;
+    view = btn.dataset.view;
+    selected = data[view].items[0][0];
+    render();
+    select(selected,true);
+  });
+  render();
+  restore(window.openai?.widgetState);
+  window.addEventListener("openai:set_globals", e => restore(e.detail?.globals?.widgetState));
+})();
+</script>

@@ -1,0 +1,55 @@
+{
+ "name": "oa-2026-11-08-deadline-worm",
+ "approval": "Weibao 2026-11-08: “send more for Openai batch to try and use it all before the 10th of november”. Uses released reservations to cover the next complete source in the recorded queue.",
+ "ceilingUsd": 8,
+ "capTotal": 8,
+ "budgetFile": "docs/gm/dispatch/batch-reading-2026-10-27/plans/reading_budget_2026-11-08_deadline-worm.json",
+ "budgetReservation": "oa-2026-11-08-deadline-worm",
+ "steps": [
+  {
+   "name": "census-gaps",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/worm_pilot_census_deadline_oa.json",
+     "label": "worm-pilot-census-deadline-oa",
+     "cap": 0.03
+    }
+   ]
+  },
+  {
+   "name": "scene-pilot-and-extra-gaps",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/worm_pilot_scenes_deadline_oa.json",
+     "label": "worm-pilot-scenes-deadline-oa",
+     "cap": 0.03
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/worm_rules_deadline_oa.json",
+     "label": "worm-rules-deadline-oa",
+     "cap": 0.03
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/worm_people_deadline_oa.json",
+     "label": "worm-people-deadline-oa",
+     "cap": 0.03
+    },
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/worm_texture_deadline_oa.json",
+     "label": "worm-texture-deadline-oa",
+     "cap": 0.03
+    }
+   ]
+  },
+  {
+   "name": "remaining-scenes",
+   "labels": [
+    {
+     "plan": "docs/gm/dispatch/batch-reading-2026-10-27/plans/worm_scenes_deadline_oa.json",
+     "label": "worm-scenes-deadline-oa",
+     "cap": 7.85
+    }
+   ]
+  }
+ ]
+}

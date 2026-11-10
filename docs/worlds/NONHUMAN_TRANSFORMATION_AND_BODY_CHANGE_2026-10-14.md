@@ -1,5 +1,7 @@
 # Nonhuman transformation and body change, 2026-10-14
 
+Latest expansion: [narrative UI, humanity and continuity](#narrative-ui-humanity-and-continuity-2026-11-08), proposals prompted by Weibao on November 8.
+
 Status: TRANSFORMATION lane research and proposals. No accepted rules, runtime
 implementation, tests, rebuild, browser play or save verification. Authority:
 [COMMON](../gm/dispatch/nonhuman-starts-2026-10-14/COMMON.md),
@@ -332,3 +334,48 @@ Read no-XP/no-duplication wording by mechanism: previews, repeated import and du
 Source comparisons retain edition/stage/context: book versus film presentation, normal dose expiry versus wrong-material care, separate awakening cases, page-level secondary fiend memory, and unresolved brain/body/chimera identity. A page-level chapter list does not settle sentence-specific law. The cited PDF locators were not opened or extracted in this review. Tern is a bounded inspected historical seam, detached traveler intents are not registered native commands, and neither establishes the full return/remote aging engine. B218–B224 qualify source/default body/clock/recognition claims without resolving unknown canon.
 
 Current desktop/prose-first targets and AD42 qualify old1366-primary/human acceptance wording; AD51 qualifies generalized second-consumer thresholds. Timed return, partner revocation and support loss need actual executable policy, not universal teleport, complete refund or erasure of learned history. These are selected-consumer requirements, not a reason to gate unrelated current worlds on every transformation kind. No transformation, migration, command, native play or persistence check was implemented or run here.
+
+## Narrative UI, humanity and continuity, 2026-11-08
+
+**Status: design proposals, not implemented or accepted rules.** Weibao asked:
+“Consider Narrative UI elements and more, such as klein moretti no longer being human and more? other similar aspects we can consider?”
+
+This round takes that premise as a design question, without asserting a particular canon threshold, physiology or compulsory emotional outcome. Exact LOTM stage laws need source-window evidence when implemented. It changes no current build order. Related owners: [sensory UI](NONHUMAN_SENSES_SCALE_AND_UI_2026-10-14.md), [minds](NONHUMAN_MINDS_AND_COGNITION_2026-10-14.md), [identity/control](PLAYER_CHARACTER_IDENTITY_AND_CONTROL_2026-10-13.md), [UI descriptions](../UI_RULES.md), and [prose](../PROSE_RULES.md). Applies AD6–AD8, AD32, AD38, AD51, PRS4/PRS6/PRS8 and UR64. These references constrain proposals; this round creates no registered rule codes.
+
+### ACT NOW: preserve the distinctions in the design (done)
+
+**NHU1. Humanity has several meanings.** Separate bodily nature, continuity of person/memory, felt identity, relationships, and world-specific supernatural stability. A changed body does not establish cruelty, emotional emptiness, insanity or loss of personhood. Any mechanically meaningful loss, pressure or recovery needs its own cause. Stronger power can also bring relief, freedom and new pleasures.
+
+**NHU2. Compare three presentations.** A species badge is useful for reference but too thin to carry the experience. A changing narrative voice and context-sensitive action wording are the recommended everyday default. An unusual optional view, such as parallel local-body and remote-awareness panes, can express a genuinely distributed life when its mechanics exist. Persistent whole-screen distortion is a poor default because it makes ordinary play harder to read. Body details and stranger views can coexist with stable commands.
+
+### ACCOUNT FOR NOW: opportunities and consequences
+
+All examples below are invented UI sketches, not book quotations or statements of implemented behavior. They apply when the selected world and current character state support them.
+
+| Code | Aspect | Narrative/UI opportunity | Consequence to retain |
+|---|---|---|---|
+| NHU3 | Necessity versus pleasure | A meal can move from a bodily need to taste, company or remembered custom. Sketch: “You order the usual. The company matters more than the meal.” | Removing a need can remove its routine chore. Eating voluntarily can still have social or physical effects. |
+| NHU4 | Home and ordinary ties | A familiar room, private joke or unchanged greeting can mean something different after a transformation. Let returning, writing or sharing time be actions. | Ties belong to particular people and histories. Avoid turning every friendship into a repeatable stability payment. |
+| NHU5 | Names, masks and recognition | Separate who you are, the identity you present, and who each observer thinks you are. A letter can address an old name while a stranger uses a title. | Appearance, public reputation, private recognition and legal identity can disagree. A private header should not leak through public dialogue. |
+| NHU6 | Estrangement and continuity | Contrast an altered body with a retained habit, taste, promise or sense of humor. Allow delight, grief, neutrality and chosen attachment. | Personality should follow authored characterization and choices, rather than a species-based emotional script. |
+| NHU7 | Perception and hazardous knowledge | Let supported new senses change inspect text and available questions. Distinguish a sensed presence from a recognized person. | Perception is not omniscience. Hidden tooltips, accessible labels and search results follow the same knowledge boundary. Repainting an observation does not repeat its danger. |
+| NHU8 | Embodiment and vulnerability | Change rest, repair, equipment, speech and recovery descriptions when their mechanisms change. Show what damage now threatens. | A familiar HP label cannot silently imply human anatomy. Conversely, unusual anatomy does not justify inventing a new upkeep tax. |
+| NHU9 | Divided presence and agency | Label the body or viewpoint currently acting; keep distant reports distinct from direct awareness. A compact switcher can support an unfamiliar existence. | Copies, controlled bodies and independent partners need different agency, attention, custody and continuity terms. No free knowledge or inventory transfer from switching panes. |
+| NHU10 | Time and memory | Let long absences change familiar places and relationships; preserve letters, promises and dated recollections. | A long-lived body and a long-lived relationship need not share a clock. Faster thought does not grant faster travel or timeless social contact. |
+| NHU11 | Social scale and responsibility | Recognition may change a conversation from bargaining to petition, fear, worship or deliberate familiarity. Show the audience and known basis. | Power, legitimacy, affection and actual institutional reach are separate. Reactions differ by observer and culture. |
+| NHU12 | Truth, belief and narration | Separate body facts, the character's interpretation and another person's claim. An unsettling impression can stay uncertain. | Unreliable narration can be authored, while costs, commands and navigation stay legible. Avoid an arbitrary hidden “real truth” exposed by a status badge. |
+| NHU13 | Change beyond becoming nonhuman | Apply the same treatment to aging, disability and adaptation, exile, bereavement, changed class, vows, altered memories or a newly public identity. | These are distinct mechanisms and experiences, not reskins of corruption. Retain competence, accommodations, joy and alternative lives. |
+
+Prose sample for this proposed surface, PRS7: “The cup is warm in your hands. You stay until the conversation ends.” Use only when sensation and circumstances support it. A detail earns repetition when its context changes; a familiar meal need not trigger the same melancholy paragraph each time. Do not retroactively rewrite saved Reports or memories as the character changes.
+
+**Presentation target:** desktop 1920×1080, within the existing You, Focus, current action and Reports homes. Glance shows a relevant change; inspect gives the known explanation and available response. Keep useful independent panes, commands, keyboard focus and readable static text. Mobile optimization and automatic portraits/illustrations are deferred. This is a proposed composition, with no rebuilt-browser fit claim.
+
+### LATER / DELEGATE: bounded suggestions, not dispatched
+
+| Code | Follow-up and reopen trigger | Suggested level / effort | Done check |
+|---|---|---|---|
+| NHU14 | At the first source-backed change affecting daily life, map the old/new body facts, knowledge, identity and actions into existing suppliers and displays. | Substantive implementation judgment / medium | Trace each displayed change to a source-backed state and real action consequence; retain unknowns rather than inventing thresholds. |
+| NHU15 | When that state exists, deliver one before/after everyday encounter, such as sharing a meal or returning home. | Substantive writing and UI judgment / medium | Rebuild and exercise both states at 1920×1080; show a meaningful retained choice, changed wording and appropriate observer response. Check unchanged controls and history. Save/reload/export/import if state persistence changes. |
+| NHU16 | When a second world needs the same distinction, validate the shared projection against a reversible transformation or a changed public identity. | Cross-world synthesis / medium | Reuse the shared meaning while keeping world laws local; show that disguise need not change personhood and physical change need not dictate emotion. |
+
+**Verification:** documentation-only expansion. No runtime behavior, canon-stage accuracy, browser layout or persistence claim is made. Local link and whitespace checks are recorded in the task response; no build or runtime suite is needed for this palette addition.
