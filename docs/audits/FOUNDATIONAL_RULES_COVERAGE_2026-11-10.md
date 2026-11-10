@@ -75,3 +75,34 @@ Weibao asked "WHat about chainsaw man and more? more to consider? Pet systems an
 | FRC35 | **Chainsaw Man** | 0 held; wiki-only pack proposal in `docs/worlds/chainsaw-man/` (snapshot 2023-11-27); DL113 queues the one prose spin-off | Fear as a population-level resource (AGT10, STN3 audiences), contracts as priced bargains with acting powers (AGT, CHT5), possession and fusion bodies (MND13–MND16, BHR carriers), a Devil as pet and heart (CPR1, CPR5) | ACCOUNT FOR NOW: the shared acting-power record (AGT1) and belief resource leave room for fear and contracts. LATER: hold the Part 1 manga through the governed manga queue before any build (SKR21, WKR21) |
 | FRC36 | **Frieren** | 15 held records | Long lifespans and slow time (TMR15, aging deferred), ordinary life after the story ends, mana concealment as knowledge (KNW) | Later; best fit when aging and lifespan reopen |
 | FRC37 | **Hunter x Hunter, Fullmetal Alchemist** | 0 and 5 held | Vows and restrictions (HxH), equivalent exchange in making (FMA, MR) | Later; acquisition first |
+
+## Round 5, 2026-11-10: what the decompile bank gives the open gaps
+
+Weibao asked "Deep level stuff to take? Other stuff and more? other stuff that can use decompiled stuff rather than just hte pet stuff?" ([log](../gm/USER_VISION_LOG_2026-11.md#decompile-bank-for-gaps-beyond-pets-2026-11-10)). A haiku reader grepped committed research notes against thirteen open gaps (private captures not opened); the root spot-checked. Its "Qud audit folder does not exist" was wrong: `docs/research/qud-systems-audit-2026-10-15/` is tracked (185 files). Pets went to a separate digest session (CPR22, CPR23). Labels are the notes' own; shapes are taken, closed-game numbers are calibration only (SKR11).
+
+### Deep takes, ranked by gap closed
+
+| Code | Gap | Bank source | Mechanism | Disposition |
+| --- | --- | --- | --- | --- |
+| FRC38 | **Storyteller** (STY10: no module) | RimWorld [storyteller](../research/rimworld/pass-2026-10-14-deep/STORYTELLER.md), decompiled | Components tick every 1000 ticks; a category is drawn first, then a weighted eligible incident, and eligibility is rechecked at execution; choosing a category promises no specific incident | Best fit in the bank: it is STY10's "picks timing, not truth" as working code. ACCOUNT FOR NOW in STY10; LATER: first director slice on LOTM news |
+| FRC39 | **Mood and breaks** (MND5 no mood; RCL5 two loss counters) | RimWorld [report](../research/rimworld/REPORT.md) F3, decompiled | `Need_Mood` sums dated thoughts (an insult memory lasts 20 days, its mood thought 2 days, attributed to the other pawn) and feeds a separate `MentalBreaker` | Shape for MND5 and for RCL5's one carrier: thoughts as dated, attributed entries; a break reads the carrier, it is not a second counter |
+| FRC40 | **One away bank** (RCL6, TMR4 no equivalence test) | Melvor [report](../research/melvor-idle/REPORT.md) "Offline and automation boundaries", source; Idleon [AFK digest](../research/legends-of-idleon/AFK_AND_LEGIBILITY_DIGEST.md), shipped code | Melvor replays the same 50 ms ticks offline up to a fixed 24 h cap; Idleon clamps by a selected prayer (10 h) | Replay-the-same-ticks is TMR4's equivalence test in shipped form. No bank grows its cap: his growing cap (TMR6) is original design |
+| FRC41 | **Creatures and refill** (FRC19) | Caves of Qud [aspects](../research/caves-of-qud/aspects-2026-10-14/ASPECTS.md) `PopulationManager`, decompiled (1,510 population tags with chance, weight, number); Minecraft [engine mapping](../research/minecraft/ENGINE_MAPPING_2026-11-08.md) nests by biome and hive caps | Table-driven populations per place, nests and caps | Data shape for a creature rulebook and LVR22 simple areas; respawn timing not found in the notes |
+| FRC42 | **Spoilage** (ITM8 no owner) | Factorio [quality-spoilage reader](../research/factorio/native/readers/quality-spoilage/REPORT.md), native decompile | Lifetime depends on quality; spoiling outputs keep a timed identity (`computeTicksToSpoil`) | Shape for one spoilage owner on ITM instance ids |
+| FRC43 | **Needs and hunger seam** (RCL12) | RimWorld report, decompiled; Kenshi [findings](../research/kenshi/FINDINGS.md), extracted data | Food drains nutrition; malnutrition rises while starving, falls otherwise and changes drain; per-body hunger rates | Shape for the one hunger seam; bodies set rates (BHR) |
+| FRC44 | **Bodies with their own rates** (FRC7 nonhuman) | Kenshi [bodies](../research/kenshi/second-pass/BODIES.md) B4, extracted data | Each race body carries hunger rate, heal and strength multipliers (a skeleton never hungers) | Per-body dials on BHR carriers |
+| FRC45 | **Law by observation** (STN18 no caller, KNW) | Kenshi [world card](../research/kenshi/second-pass/WORLD_CARD.md) and [settlements](../research/kenshi/second-pass/SETTLEMENTS.md), extracted data | Institutions classify a visitor by observed body, clothes, papers, ties and conduct, with no central judge; a loss routes to an enforcement mission | Fits STN14 claim and reach plus KNW: a guard judges what it sees |
+| FRC46 | **Prices across markets** (FRC18 between worlds) | Naev [living universe](../research/naev/LIVING_UNIVERSE.md) NV-D4, pinned source | Commodity metadata plus periodic price functions per region | Shape for local prices; the note itself warns prices moving is not stock moving (ECR conservation still owed) |
+| FRC47 | **Divine answers as effects** (AGT8 no prayer module) | Dwarf Fortress [chain details](../research/dwarf-fortress/emergence-2026-10-15/audit/CHAIN_DETAILS.md), extracted Lua | A blessing emits typed effects with severity, probability and a time window | An answer from an acting power is ordinary effects with a duration (AGT, AD38) |
+
+### Gaps the bank does not cover
+
+No documented source found for: one sanity meter (Cultist Simulator and Book of Hours notes have no hits), NPC schedules with a midnight rule (RCL7), per-character item identification (RCL15 neighbour; Qud names the Examiner path only), or a growing offline cap. These stay original design or need a new read. Thin leads: CK3 stress and coping traits; Cult of the Lamb doctrines on real traits; Six Ages 2 rituals at year boundaries.
+
+### LATER
+
+| Code | Item | Level, effort | Done check |
+| --- | --- | --- | --- |
+| FRC48 | Read the Cultist Simulator and Book of Hours captures for dread, fascination and other mind meters (MND, RCL5) | Haiku, small | A digest naming the meters, their sources and what breaks |
+| FRC49 | Read Stardew and Rune Factory 5 NPC schedule data for the midnight rule (RCL7) | Haiku, small, can ride on the pet digest session's captures | Schedule rows with times and the day-boundary rule |
+| FRC50 | Fold FRC38 into STY10 and FRC39 into MND5 as dated "bank shape" notes when a slice picks them up | Sonnet, small, at slice time | The rule rows cite the bank digest |

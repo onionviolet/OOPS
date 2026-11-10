@@ -855,3 +855,25 @@ Weibao asked:
 > WHat about chainsaw man and more? more to consider? Pet systems and more?
 
 Recorded as proposals: round 4 of the [coverage audit](../audits/FOUNDATIONAL_RULES_COVERAGE_2026-11-10.md#round-4-2026-11-10-which-world-fills-which-gap) maps worlds to the gaps they fill (FRC31–FRC37; Chainsaw Man has no held source yet), and round 12 of the [companion palette](../COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md#round-12-pets-against-the-2026-11-10-rulebooks-and-todays-code-2026-11-10) treats pets against the new rulebooks (CPR1–CPR13). No build order changes; nothing is started.
+
+## Fixing the rest, recovery from corruption, base cheat, carryover, 2026-11-10
+
+After RCL5 and RCL6 landed, Weibao asked:
+
+> Fix the rest accordingly, how did people recover from corruption in the book or was that not possible? should we be different given the base cheat? Can we see the effects of our actions? what carries over to the next life?
+
+Recorded:
+
+- **The rest, by the ledger's policy (RCL1–RCL4):** RCL7 (overnight schedule rows), RCL8 (one Tingen day formula) and RCL14 (beats record their route) were fixed; RCL13 was tried and held back because it changes pack fingerprints; RCL9 (window builders) is the one large dedicated consolidation left; the others wait for a slice that touches them ([ledger](../audits/RULE_CONFORMANCE_LEDGER_2026-11-10.md)).
+- **Recovery in the books:** pre-signs can be pulled back; full loss is never reversed, only ended by death, a sealed item or a leftover characteristic. Recorded as MND22, with higher-sequence means (soothing pollution, faith anchors, purification) as reachable means, not defaults.
+- **The base cheat:** the agent's default is that it reads the line (CTC94, strain readout) without holding it back; holding it back or one rescue past it is catalogue type CTC95. The choice is held for him as LLR32.
+- **Seeing effects:** strain from peeks and doses now shows on one Tingen line with its count, and crossing a stage leaves one Reports line; at the lost stage the line counts the grace down.
+- **Next life:** memories, the base cheat and paid aptitude anchors carry (AD11); a restart rewinds the seat's world, body and `harm` slice, so strain and loss of control do not carry.
+
+## Decompile bank for gaps beyond pets, 2026-11-10
+
+Weibao asked:
+
+> Deep level stuff to take?  Other stuff and more? other stuff that can use decompiled stuff rather than just hte pet stuff? Send chat to digest pet stuff
+
+Recorded: a separate session digests the held pet captures (CPR22, CPR23). Round 5 of the [coverage audit](../audits/FOUNDATIONAL_RULES_COVERAGE_2026-11-10.md#round-5-2026-11-10-what-the-decompile-bank-gives-the-open-gaps) maps bank systems to open gaps (FRC38–FRC50), as proposals; nothing is built.
