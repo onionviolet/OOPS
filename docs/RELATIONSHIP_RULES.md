@@ -1,0 +1,81 @@
+# Relationship rules
+
+Proposed 2026-11-10 (AD32). Requested by Weibao ("Draft both", [log](gm/USER_VISION_LOG_2026-11.md#relationship-and-livelihood-rulebooks-2026-11-10)); the lines are agent proposals until he accepts them. Rows marked **(restates)** repeat a rule that already binds through its own code and add no authority.
+
+Covers ties between people: regard, memory of acts, companions and followers, kin, rivals, romance, debts and promises felt between people, and how a tie meets standing. A world may set any line differently with an in-world reason and cost (AD5, AD38); each row gives the default, the dial and the reason.
+
+Scope, from his direction: "leave trust/ relationship open to other possibilities" (2026-10-02); build top down from "the book as basis, considering choices people make" (2026-10-27); "do they reach out? What happens?" (2026-10-27). On 2026-11-09 he asked whether relationships should be deferred as too complex; the agent's answer (build the bounded part, defer the open part, atlas LAYX95) is a proposal. This book follows that reading: it bounds what a tie slice builds and names what waits. Aging, heirs and family depth are deferred by his 2026-11-09 word ("could probably be delayed").
+
+Owners and neighbours (linked, not restated): AD6–AD8 (means, one record, impressions), AD33 (NPC-heavy work paced), AD44 and the [lead-life rules](LEAD_LIFE_RULES.md) (depth by tier, thin canon stays thin), AD49 (lore numbers are fixed points, relationships included); [PIR1–PIR25](DOMAIN_RULES.md#presence-and-interaction-rules) (who is here, talk, known people); SPR15–SPR19 in [system practice](SYSTEM_PRACTICE_RULES.md#ties-between-people) (proposed); ECR21–ECR22 in [economy rules](DOMAIN_RULES.md#economy-rules) (credit, promises); [overlap owners](RULES_INDEX.md#overlap-owners-proposal-2026-10-30) (debts, known wording, rank ladders). Palettes: [relationships and canon](RELATIONSHIPS_AND_CANON_CONSIDERATIONS_2026-10-18.md) (RLA–RLZ), [companions, familiars and pets](COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md), [companions audit](audits/COMPANIONS_CORE_AUDIT.md), [dialogue and interactions](worlds/DIALOGUE_AND_INTERACTIONS.md) (DA1–DA17), the [2026-10-10 relationships research](research/relationships-2026-10-10/REPORT.md) (layers L1–L7). Code map: [area guide](AREA_GUIDE.md#people-and-ties), "People and ties" and "Standing and reputation".
+
+## The record
+
+| Code | Rule | Default, dial, reason | Builds on |
+| --- | --- | --- | --- |
+| TIE1 | **One edge store for ties.** A tie is the edge `simulation.relationships[holder][subject]`, written by the native `relationship` effect through `tieEffects`. A new tie feature adds readers, not a store. | Default: declare a world's ties with `registerWorldTies` and write through `applySimulationEffects`. Dial: a world adds tie kinds or aliases. Reason: three person stores already compete (`simulation.relationships`, `person_memory`, `bondStatuses` in `npc_lives.js`) and a fourth sits in `companion_roster.js`; when a slice touches one of the others, it moves that use onto the edge or records why it stays. | SPR15, AR3, PIR23 |
+| TIE2 | **Ties are directed.** A's regard for B and B's for A are two edges and can differ. | Default: lopsided ties are normal (a student reveres a teacher who barely knows the name). Dial: a world's bond magic may link two edges. Reason: most canon relationships are uneven, and a shared number hides who owes whom. | RLA1 |
+| TIE3 | **A tie is a few typed axes plus dated memories, not one meter.** The axes are the five `person_ties` kinds: trust, debt, affection, rivalry, duty. Named relationships (friend, mentor, rival, sworn sibling) are role-relations read from those axes and from facts. | Default: five axes, role-relations as derived labels. Dial: a world registers more kinds or role-relations (a sect's master and disciple, a contract familiar). Reason: why someone acts needs more than one number, and a fixed list of relationship types would need a meter per type (DA15). | DA5, DA15, RLA4 |
+| TIE4 | **Save the causes, derive the values.** Every change is a dated delta with a cause and a receipt; the canon baseline comes from the world pack and is not saved. | Default: one cause adds its regard once; use a per-occasion cause (this week, this rescue) for repeats. Dial: a world may let a ritual cause stack. Reason: rewinds (PIR21), inspectors and the lore fit (AD49) all need to know why a value is what it is. | LSD301, PIR21 |
+| TIE5 | **Feeling and belief are kept apart.** What a person thinks is true of another (a claim, a rumour, a guess) goes through the knowledge system, not the edge. | Default: the edge holds regard; Knows holds beliefs and their wording. Dial: none needed. Reason: someone can like a person they wrongly think is a thief; one record per fact (AD7, overlap owners). | AD7, RLA2, LSD417–LSD422 |
+
+## What a tie does
+
+| Code | Rule | Default, dial, reason | Builds on |
+| --- | --- | --- | --- |
+| TIE6 | **Every tie has a reader that changes behaviour.** A threshold names a behaviour: an offer, a favour, a refusal, a visit, a remembered act, vouching, a warning, a betrayal. | Default: a tie slice ships with at least one reader beyond an unlocked line, and says which one. Dial: how many readers a world has. Reason: a tie nothing reads is a number in a save (FLR4); the 2026-11-09 trace found offers but almost no favours, refusals or visits. | SPR2, SPR16, FLR4, LAYX208 |
+| TIE7 | **A gate names which regard it reads.** Either the raw axis (`tieValue`) or the derived bond from memory (`derivedBond`). | Default: behaviour gates read the derived bond; bookkeeping and canon checks read the raw axis. Dial: per gate. Reason: the two can disagree after old events, and a gate that reads the wrong one surprises the player. | SPR17 |
+| TIE8 | **People act first sometimes.** A person with a strong enough tie and a reason of their own can reach out, ask for help, visit, worry or turn away. | Default: their move is planned on the person's own wake (LSD138) and settles in game time; talk itself waits for the player (PIR19), so an away recap lists what they tried. Dial: per world and tier. Reason: Weibao asked "do they reach out?"; a world where only the player starts things feels like a stage set. | LAYX78, PIR19, AD44 |
+| TIE9 | **Tune ties to what the book shows.** Thresholds are set so canon events happen at canon regard, and the same numbers give sensible results off the book's path. | Default: calibrate top down from stated or shown behaviour (AD49); fill only what the source leaves open. Dial: a world's variance for parallel versions. Reason: lore is the fixed point; invented tuning drifts from the people the player knows. | SPR14, AD49, LAYX29 |
+| TIE10 | **Same rules for player and others.** An NPC's tie to the player and to another NPC use the same store and readers once that NPC is promoted. | Default: the crowd has no edges until touched (LSD132); promoted people keep theirs. Dial: a world can seed canon NPC-to-NPC ties from the book. Reason: AD6; a separate NPC relationship model would need its own fixes forever. | AD6, RLF1, LSD131 |
+| TIE11 | **Talk follows threads and intents.** The player picks an intent (ask, comfort, press, flatter, confess), and the reply is chosen from the tie, the memories and open threads. | Default: every autonomous verb ships with its telling (a line that says what happened); set dialogue covers canon beats, composed lines cover the rest. Dial: how much a world writes by hand. Reason: Weibao asked "will we need to create set dialogue for every character to account for options and results" (2026-11-06); the agent's answer is that per-character branching for every option is too much to write, and threads drive talk better than meters. | DA2, DA10, DA16, PRS |
+
+## Change over time
+
+| Code | Rule | Default, dial, reason | Builds on |
+| --- | --- | --- | --- |
+| TIE12 | **Tempo belongs to the person.** How fast someone warms, forgives, sours or forgets is part of who they are. | Default: a per-person rate on each axis, from canon where shown and from role otherwise. Dial: per person. Reason: a single global rate makes the proud and the easy-going identical. | SPR18, RLA6 |
+| TIE13 | **Fade is a dial on familiarity, not trust.** Unused acquaintance fades; trust and debts fade by events, not by days. | Default: fade off for the lead's circle (the code has no decay today, which is this default); acquaintance fade on only where a world sets it. Dial: per world and axis. Reason: real trust is not lost by being busy, and a decaying meter becomes a chore. | RLU5, RLU6 |
+| TIE14 | **Memories can be cited.** A person can name the act behind a feeling ("you lied to me about the ring"). | Default: episodes per pair are kept in `person_memory` under its episode cap and read with `reactionLine` and `recalledPhrase`; repeated impressions already merge. Proposed, not yet in code: when the cap is reached, old small episodes compress into a summary and large ones stay. Dial: the cap and what counts as large. Reason: a feeling with a reason the player can see is the point of the system. | RLA3, person_memory |
+| TIE15 | **No relationship chores.** A tie holds without daily visits or gifts. | Default: neglect changes nothing unless the world sets fade (TIE13) or the person has a reason to feel slighted (a missed promise, a wedding skipped). Dial: a world whose people expect visits (a court, a sect hierarchy) sets a cost with an in-world reason. Reason: Weibao should not tend meters; the same holds for farms (SSD95). | RLI1–RLI6, SSD95 |
+
+## Who gets depth
+
+| Code | Rule | Default, dial, reason | Builds on |
+| --- | --- | --- | --- |
+| TIE16 | **Depth by tier** (restates the accepted lead-life line). The lead's life is built fully; principal and recurring people get an inner layer; role people get a mechanical layer; the crowd is not individuals until touched. | Default: generate on first contact and keep it (LSD131); attention promotes, absence compresses (LSD130). Dial: a world with rich ensemble text raises more people. Reason: "other people's lives are not all full", because invented depth contradicts later chapters. | [LEAD_LIFE_RULES](LEAD_LIFE_RULES.md), LSD126–LSD137 |
+| TIE17 | **Fill from roles, not invention.** A gap in a canon person is filled from their role and what the book shows, and the fill is marked as fill. | Default: a recurring role is an archetype implemented once (WA46). Dial: a thin canon stays thin unless the world opens it. Reason: role fills stay consistent with later chapters. | WA46, LSD133 |
+| TIE18 | **Regard can go wrong and stay wrong.** People can dislike the player, keep a grudge, prefer someone else or never warm. | Default: negatives on every axis and no pull toward liking the player. Dial: a world with a charm power or a fated bond can bend it, with a cost. Reason: "everyone loves you" and protagonist gravity are the overdo modes the palette names (RLI). | RLI1–RLI6, AD25 |
+
+## Companions, kin and romance
+
+| Code | Rule | Default, dial, reason | Builds on |
+| --- | --- | --- | --- |
+| TIE19 | **A companion is a tied person with a state, not a kind of person.** "With you" is a presence state (PIR4); the person keeps their own tie, wants and memories. | Default: a companion acts only through actual location, clock, stock and policy (companions audit); `companion_roster.js` bonds move to the edge when a slice touches them. Dial: a contract familiar or a summoned servant may have a bond kind of its own. Reason: leaving the party should not erase who someone is. | WA34, PIR4, CROSS_WORLD_SYSTEMS_TRANSFER#LT8 |
+| TIE20 | **Kin, heirs and aging are deferred.** Existing family code (`family_tree.js`, `village_family.js`, heir modules) stays as is. | Default: when a slice needs a relative, the relative is an edge with a duty or affection baseline and a kin role-relation, with no new family system. Dial: Weibao reopens it. Reason: his 2026-11-09 deferral. | LAYX197, LAYX198 |
+| TIE21 | **Romance floor** (restates the floor recorded with accepted CQ1, 2026-10-13, as tightened by DV1). Romance and partner content needs both people 18+ by body age and adult in appearance; claimed, soul or species age never unlocks it; lore betrothals stay offscreen contract ties until then. | This is a fixed floor, not a dial: the log records it as "Fixed floor kept by Claude, not a dial" beside his accepted CQ1. Above it, romance is one possible endpoint among many, never the default reading of affection. Reason: the floor as recorded; the endpoint line is RLI's overdo mode. | [CQ1 log](gm/USER_VISION_LOG_2026-10.md#ability-coverage-and-habits-2026-10-13), RLI |
+
+## Standing, debts and hidden things
+
+| Code | Rule | Default, dial, reason | Builds on |
+| --- | --- | --- | --- |
+| TIE22 | **A tie is not standing.** What one person feels is the edge; what an audience thinks is reputation, read through `reputationView` with each source keeping its own writer. | Default: a tie can feed a standing source (the registered ties reporter), but standing is not stored on the edge. Dial: a world where one person is the audience (a patron) may read the tie directly. Reason: SPR19; five standing owners already exist with no shared write seam (a named gap below). | SPR19, AD8 |
+| TIE23 | **Debts have one ledger.** The amount owed lives in the economy Owed ledger; the `debt` axis holds the felt obligation; `debtOf` is a derived read. | Default: a favour creates a felt debt; money creates a ledger entry and may also move the axis. Dial: a world where oaths bind (a contract magic) adds an enforcer. Reason: the overlap-owner proposal; ECR21 (forgiving credit) and ECR22 (a promise binds through its enforcer, else reputation). | ECR21, ECR22, LSD408–LSD411 |
+| TIE24 | **Hidden intent stays hidden.** Views show what the player could know: impressions and notes, not numbers. | Default: a person's regard shows as a note ("warm toward you since the flood"); secrets about a person go by ID (sealed-secret rule). Dial: means (empathy, divination, mind reading) reveal more, at their cost. Reason: AD6 and AD8; a shown number turns people into a puzzle. | AD6, AD8, PIR5 |
+| TIE25 | **Ties stay in their life and world.** Past-life knowledge is memory, not relationship; a person met again in a new life starts from their own record of this life. | Default: no edge carries across lives or worlds. Dial: a world mechanism (a soul bond, a reincarnation pact) can carry one with a cost. Reason: PIR22 and AD11–AD12. | PIR22, AD11, AD12 |
+
+## Building a tie slice
+
+1. Name the ordinary-day caller that will read the tie (SPR1) and the reader it adds (TIE6).
+2. Declare the world's ties through `registerWorldTies`; copy `src/book_world_lotm_colleagues.js` (`LOTM_TIES`) or `src/world_packs/book_hp_lead_life_data.js` (`HP_LEAD_TIES`).
+3. Write through `tieEffects` with per-occasion causes (TIE4); say which regard each gate reads (TIE7).
+4. Tune thresholds to one canon beat the book shows (TIE9) and one off-path result.
+5. Tests: `tests/person_ties.test.js`, `tests/person_memory.test.js`; browser proof at the desktop viewport for any shown note (AD43).
+
+## Open details
+
+- Three person stores, plus companion bonds (TIE1). Consolidation happens as slices touch them; no slice owns it yet.
+- Five standing owners with one shared read and no shared write seam (TIE22).
+- Debts appear as the Owed ledger, the `debt` axis and `debtOf`; the overlap owner is still a proposal (TIE23).
+- No tie reader starts an action yet (TIE8); the wake-time scheduler (LSD138) is proposed.
+- Fade and episode caps are proposals (TIE13, TIE14).
+- Aging, heirs and family wait for Weibao (TIE20).

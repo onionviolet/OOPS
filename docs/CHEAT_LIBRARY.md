@@ -298,7 +298,7 @@ pursuits remain available without making every old method necessary.
 Weibao: "consider how enemies would have cheats." Builds on the north
 star's [enemy powers](LIFE_SIM_NORTH_STAR.md#enemy-powers-and-how-they-work-proposal-2026-10-08)
 (enemies run on the same framework; every power has a tell, a counter and
-a cost), [enemy reincarnators](LIFE_SIM_NORTH_STAR.md#enemies-who-are-reincarnators-regressors-and-transmigrators-proposal-2026-10-08)
+a cost; superseded 2026-11-10 by AD55, no forced weakness: these are optional per power), [enemy reincarnators](LIFE_SIM_NORTH_STAR.md#enemies-who-are-reincarnators-regressors-and-transmigrators-proposal-2026-10-08)
 and [enemy protagonists](ENEMY_PROTAGONISTS.md).
 
 ### Same cards, other side

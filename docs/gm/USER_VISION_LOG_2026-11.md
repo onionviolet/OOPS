@@ -648,3 +648,52 @@ Weibao asked: "Should we make shopes default have vertain items and stuff? like 
 Recorded as questions with a more-to-consider round, not a decision. The agent proposed four stock layers (canon anchors, staples by shop type, seeded variety, ask and order) and shop dialogue built on the existing talk hosts: ECC38-ECC52 and ECL6-ECL11 in the [economy palette](../ECONOMY_AND_TRADE_CONSIDERATIONS_2026-10-18.md#round-3-shop-stock-layers-and-shop-dialogue-2026-11-10). WA40 (held-state layers) was already accepted on 2026-10-27 ([USER_VISION](../USER_VISION.md#adopt-this-sessions-proposals-as-adjustable-working-direction-2026-10-27)); the rest are agent proposals and no build is authorized.
 
 Then, to the offer to build ECL6 (staples) and ECL8 (greeting) first: "Yes, build both". Built 2026-11-10 for the five native stalls; receipt in the [economy palette](../ECONOMY_AND_TRADE_CONSIDERATIONS_2026-10-18.md#ecl6-and-ecl8-receipt-2026-11-10).
+
+## Relationship and livelihood rulebooks, 2026-11-10
+
+Weibao asked: "do we have comprehensive foundational implementation rules for all aspects? from relationship to ui to farming to ability progression and more?" The agent answered that relationships and livelihoods (farming, gathering, ranching, fishing, work) had no rulebook of their own and offered to draft both. He replied:
+
+> Draft both
+
+Recorded as his request for two new rulebooks (the index requires one): [RELATIONSHIP_RULES](../RELATIONSHIP_RULES.md) (TIE) and [LIVELIHOOD_RULES](../LIVELIHOOD_RULES.md) (LVR). The rule lines are agent proposals under AD32 until he accepts them. Aging, heirs and family depth stay deferred (2026-11-09); the relationship rulebook names them and adds no depth.
+
+## Four more rulebooks, and cheats brought forward, 2026-11-10
+
+Weibao asked "other aspects that needs foundational rules>". The agent ranked four areas where code competes and no rulebook decides (O1 time and time away, O2 knowledge and discovery, O3 standing, institutions and law, O4 story and events) and recommended O1 and O2. He replied:
+
+> Draft all four
+
+and, while the drafts were being prepared:
+
+> Cheats should be brough earlier for consideration
+
+Recorded: his request for five new rulebooks, [TIME_RULES](../TIME_RULES.md) (TMR), [KNOWLEDGE_RULES](../KNOWLEDGE_RULES.md) (KNW), [STANDING_RULES](../STANDING_RULES.md) (STN), [STORY_RULES](../STORY_RULES.md) (STY) and [CHEAT_RULES](../CHEAT_RULES.md) (CHT). The second message changes the 2026-10-30 direction that further cheat work is "deferred long term": cheats come back into consideration now. The agent reads "for consideration" as design and rules, not a build order; no cheat slice is authorized by it. The rule lines are agent proposals under AD32 until he accepts them.
+
+## Levels of fate, cheats further, no forced weakness anywhere, 2026-11-10
+
+Weibao, on the story and cheat rulebooks:
+
+> For D4, levels of fate? For say, in reverend insanity, it is theorized that heavens will pushed everything in the world for the destruction of fate gu to give the non humans a chance, look on reddit accordingly, too, do consider how deterministic or precedural, but also randomness and events tie into them? Also for the non lore runs?
+> D5, we should look further into this?
+>
+> The idea that there is no forced weakness should honestly apply to everything?
+>
+> Maybe types of cheats should be kept as a catalogue somehwere, do be drawn upon and implmented eventually? other stuff and more?
+
+Recorded:
+
+- **No forced weakness, everywhere.** His direction: no power, ability, cheat, item, bloodline, technique or world feature has to carry a weakness, drawback, counter or tell by rule. Limits stay per-thing adjectives, and pushback comes from in-world agents with reasons. This widens the cheat-only line (CHT12, CHEAT_LIBRARY B499) and AGENTS' "Balance is not forced" to every system. Costs a mechanism really has (a potion uses its ingredients) are not forced weaknesses.
+- **Levels of fate** go into the story rules as a ladder with world dials, covering lore and non-lore runs; the agent's ladder and the Reverend Insanity reading (canon versus fan theory) are proposals.
+- **Cheats:** a further look, and a catalogue of cheat types to draw on later ([CHEAT_CATALOGUE](../CHEAT_CATALOGUE.md)). The catalogue is a palette, not a build order.
+
+## Three more rulebooks, and making rules reach implementation, 2026-11-10
+
+After the coverage audit ([FOUNDATIONAL_RULES_COVERAGE](../audits/FOUNDATIONAL_RULES_COVERAGE_2026-11-10.md)) ranked the aspects still without rules, Weibao said:
+
+> Draft FRC1–FRC3 rulebooks
+
+and, while they were being prepared:
+
+> How to make sure rules will be used during implementations too?
+
+Recorded: his request for three new rulebooks, [MIND_RULES](../MIND_RULES.md) (MND, mind, personality and mental state), [ITEM_RULES](../ITEM_RULES.md) (ITM, items, inventory and equipment) and [POWERS_THAT_ACT_RULES](../POWERS_THAT_ACT_RULES.md) (AGT, gods, faith, fate actors, patrons and other agents with goals and reach). Lines are agent proposals under AD32. The second message is a question; the agent's answer (rules loaded by path, cited from code and briefs, checked at commit) is a proposal until he says which parts to build.

@@ -1,0 +1,33 @@
+# Foundational rules coverage, 2026-11-10
+
+Audit, agent proposal (AD32). Weibao asked "Other reuls we should take into considertion? Other aspects to consider?" after seven rulebooks were drafted the same day ([log](../gm/USER_VISION_LOG_2026-11.md#levels-of-fate-cheats-further-no-forced-weakness-anywhere-2026-11-10)). This maps every aspect to its rule owner and ranks what is left. Findings are proposals; none authorizes a rulebook or a build. Method: the [rules index](../RULES_INDEX.md) register and router, the [area guide](../AREA_GUIDE.md) "Competing" lines, and a filename search of `docs/` for each aspect.
+
+## Aspects with a rulebook
+
+Bodies and health (BHR), combat (CBR), economy (ECR), skills (SLR), presence (PIR), making (MR), sites and maps (SR), generation (GR), abilities (ABR), gates (GTR), world entry (WER), world absorption (WA), UI (UR, DSG), prose (PRS), activity compression (ACR), and the seven drafted 2026-11-10: relationships (TIE), livelihoods (LVR), time (TMR), knowledge (KNW), standing and law (STN), story and fate (STY), cheats (CHT). Saves have a contract in [SAVES](../SAVES.md) with AR6, which is enough for now.
+
+## Aspects with no rulebook, ranked
+
+| Code | Aspect | What exists | Why it matters | Proposal |
+| --- | --- | --- | --- | --- |
+| FRC1 | **Mind, personality and mental state** (temperament, mood, stress, sanity, madness, loss of control) | BHR2 and BHR3 name the mind as a carrier; `person_temperament.js`; LOTM loss of control lives in LOTM files alone (ABILITY_RULES AB14); a temperament lane brief | LOTM's loss of control, Reverend Insanity's will, and every NPC's reactions read it; TIE12 (tempo is the person's) has no owner for the traits behind it | Rulebook first in this list |
+| FRC2 | **Items, inventory and equipment** (identity, stacks, custody, storage, carrying, wear) | MR5 (conserved, custody), [equipment stat dimensions](../EQUIPMENT_STAT_DIMENSIONS_CONSIDERATIONS_2026-10-20.md), [gear depth](../GEAR_DEPTH_BLACKSMITHING_CHEMISTRY_ENERGY_POWERS_CONSIDERATIONS_2026-10-20.md), an [inventory overhaul assessment](../reviews/INVENTORY_OVERHAUL_ASSESSMENT_2026-10-21.md) | Every system hands items around; no rule says when an item is an individual or a count, or where it lives | Rulebook |
+| FRC3 | **Gods, faith and powers that act** (prayer, divine answers, patrons, churches as faith rather than offices) | STN6 treats a church as an institution; [FAITH palette](../gm/dispatch/procgen-2026-10-13/p31/FAITH.md); CHT5 lists "patron" as a backing; STY F3 is "an actor with an agenda" | Faith is central to LOTM (atlas LAYX203). A god, a fate actor, a cheat's patron and Heaven's Will share one shape: an in-world agent with goals, reach and sometimes a budget. One seam under AD51 | Rulebook built around that shared shape |
+| FRC4 | **Creatures, monsters and ecology** (wild populations, spawning, territories, food webs) | CBR covers enemies in a fight; LVR covers animals kept for a living; [nonhuman monster side](../worlds/NONHUMAN_MONSTER_SIDE_2026-10-14.md); ecology palettes | His 2026-11-08 "environments to farm things, both like creatures to kill"; simple areas (LVR22) need a rule for where monsters come from and how they refill | Rulebook, or a section added to LVR |
+| FRC5 | **Death, afterlife and continuation** | Rulebook 4–5, AD10–AD14, [death and reset considerations](../research/DEATH_AND_RESET_CONSIDERATIONS_2026-10-10.md), the continuation owner | Accepted AD lines cover the main line; heirs are deferred. What happens to the dead body, the estate, ties and knowledge is spread across TIE, KNW and BHR | Short rulebook or AD consolidation |
+| FRC6 | **Language and communication** (who understands whom, translation, scripts, codes) | [language stack](../gm/dispatch/codex-parallel-2026-10-25/D3_language_stack.md), [rune language](../gm/dispatch/maker-arts-2026-10-14/RUNE_LANGUAGE.md) | Crossing worlds raises it at once (WER); KNW16 texts need readability; rumor spread (KNW17) assumes a shared tongue | Section in KNW, or a short rulebook |
+| FRC7 | **Nonhuman bodies, senses and scale** | [nonhuman starts spec](../worlds/NONHUMAN_STARTS_ENGINE_SPEC_2026-10-14.md), [senses and scale UI](../worlds/NONHUMAN_SENSES_SCALE_AND_UI_2026-10-14.md), BHR carriers | Accepted direction allows nonhuman starts; KNW6 means depend on senses | Section in BHR |
+| FRC8 | **Settlements and building** (growing a place, founding a society, public works) | AD23 homes, STN12 founding groups, LVR holdings, settlement palettes | "choosing to start a society" (2026-11-06) | Later; STN and LVR cover the first steps |
+| FRC9 | **Travel, journeys and mounts** | SR maps, TMR14, `travel_legs` and `cast_journeys` (two routes) | Two code routes; no rule for vehicles or mounts | Section in SR when touched |
+| FRC10 | **Weather, environment and disasters** | TMR2, LVR7, weather modules, an environment lane | Disasters are events with causes (STY) and conditions (LVR7) | Covered enough by STY and LVR |
+
+## Rules to take into consideration across the new books
+
+| Code | Finding | Disposition |
+| --- | --- | --- |
+| FRC11 | **None of the seven new books binds yet.** Each is a proposal under AD32 until Weibao accepts it, by book or by line. | ACCOUNT FOR NOW: a short acceptance pass (accept, adjust, defer per book) turns them into working defaults |
+| FRC12 | **The new books overlap and need owner rows.** Rumor spread (KNW17) and audience spread (STN3); the recap (TMR10, AD17, KNW25); hidden motives (STY26) and truth (KNW1); companions (TIE19) and groups (STN7); fate actors (STY F3) and cheat patrons (CHT5) | ACT NOW (done below): owner lines added to the rules index |
+| FRC13 | **AD55 reached five lines; the palettes still hold older "every power has a counter" wording.** The sweep sampled rulebooks, not every palette | LATER: a palette sweep with a reword pass, haiku, small; done when `grep` finds no unqualified mandatory counter |
+| FRC14 | **The area guide's "Rules:" lines and missing modules** (`authority.js`, `positions.js`, `organizations.js`, `heat@1`; the stale "no shared day reader") | LATER: once the session editing it is done; small |
+| FRC15 | **`check:rule-behavior` has no groups for the new books.** | LATER: map existing tests (person_ties, heat, authority, away_bank, canon_pull) to TIE, STN, TMR, STY; small |
+| FRC16 | **One shape repeats across books: an agent with goals and reach.** Fate actors, gods, patrons, authorities (STN14) and storytellers differ by what they may touch | ACCOUNT FOR NOW: FRC3's rulebook should name the shared shape; STN14's claim, knowledge and reach is the nearest built seam (`authority.js`) |

@@ -51,7 +51,7 @@ power to fill a gap; dial: an original ability labelled as such when Weibao asks
 for one or the world clearly implies one.
 
 **ABR2. Model the mechanism, not the name (AD38, SLR41, GTR2).** Each ability row
-names its means (source, faculty, method, device), trigger, cost and the consumer
+names its means (source, faculty, method, device), trigger, cost (or none, ABR14, AD55) and the consumer
 its effect reaches. A spell that mends glass is a repair effect on a glass item
 that any fitting means could also cause. A label alone does not gate; the mechanism does.
 
