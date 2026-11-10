@@ -16,6 +16,7 @@ import {affixedStockEntries} from '../gear_acquisition.js';
 import {getItemFromKey} from '../items.js';
 import {keyedShopStock,keyedUnitFor} from '../keyed_generation.js';
 import {dayIndex} from '../world_day_index.js';
+import {stapleIds, projectStock} from '../regional_prices.js';
 
 const conservedCampaignItems = [...factorioRetortItemSpecifications,...proto23ItemSpecifications];
 const conservedCampaignKeys = new Set(conservedCampaignItems.map(spec => JSON.stringify({id:spec.id})));
@@ -28,6 +29,7 @@ class TraderComponent {
 
     #inventory;
     #availability;
+    #cycleStart = -1;
 
     constructor({
                 name,
@@ -81,7 +83,8 @@ class TraderComponent {
         if(this.played_minute_refresh) return this.played_minute_refresh(context);
         if(this.can_refresh()) {
             //refresh inventory
-            const previous={...this.#inventory.getItems()},retained = {};
+            const previous={...this.#inventory.getItems()},retained = {}, lastDue = this.last_refresh;
+            this.#cycleStart = lastDue;
             for(const [key, entry] of Object.entries(this.#inventory.getItems())) {
                 if(conservedCampaignKeys.has(key)) {
                     if(!entry?.item || !Number.isSafeInteger(entry.count) || entry.count <= 0) throw new Error('Invalid conserved campaign merchant stock.');
@@ -95,6 +98,7 @@ class TraderComponent {
                 this.#inventory.getItems()[key] = entry;
             }
 
+            this.#carryStaples(previous);
             const locked=retainShopStock(this.stockOwnerId,previous,this.#inventory.getItems());for(const key of Object.keys(this.#inventory.getItems()))if(!Object.hasOwn(locked,key))delete this.#inventory.getItems()[key];Object.assign(this.#inventory.getItems(),locked);
             this.last_refresh = (current_game_time.day_count + 1 - current_game_time.day_count % this.refresh_time);
             // What this restock put on the shelf, by name: lets the keeper say a staple sold out (ECC43). Memory only;
@@ -104,6 +108,24 @@ class TraderComponent {
         }
         //otherwise do nothing
         return false;
+    }
+
+
+    // XWR17/ECR15: a staple on a regional shelf is carried, not redrawn. Last cycle's count plus the stated deliveries
+    // (and local use of any surplus) since, each cycle under its own keyed event. The first fill of an empty shelf keeps
+    // the template draw as the opening stock; a shelf with anything on it is a real shelf.
+    #carryStaples(previous) {
+        const ids = stapleIds(this.stockOwnerId);
+        if(!ids.length || !Object.keys(previous).length) return;
+        const items = this.#inventory.getItems(), day = current_game_time.day_count;
+        const cycles = this.#cycleStart < 0 ? 1 : Math.max(1, Math.floor((day - this.#cycleStart) / this.refresh_time));
+        const draw = key => gameKeyedRandom(STREAMS.market, key);
+        for(const id of ids) {
+            const key = JSON.stringify({id}), had = previous[key]?.count ?? 0;
+            const count = projectStock({vendorId: this.stockOwnerId, goodId: id, stock: had, fromDay: this.#cycleStart < 0 ? day - this.refresh_time : this.#cycleStart, cycleDays: this.refresh_time, cycles, draw});
+            if(count > 0) items[key] = {item: items[key]?.item ?? previous[key]?.item ?? getItem(item_templates[id]), count};
+            else delete items[key];
+        }
     }
 
     /**

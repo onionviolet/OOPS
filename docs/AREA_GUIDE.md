@@ -21,6 +21,7 @@ By default a new slice declares data through the seam named here and does not ad
 | [Care and upkeep of living things](#care-and-upkeep-of-living-things) | living_upkeep.js (no shared slice) | Not established (per feature) | gu_upkeep.test.js |
 | [Homes](#homes) | home_overview_model.js (`worldHomeModel`), home_content.js | Native `homes` slice | world_home_model.test.js |
 | [Money, holdings and debts](#money-holdings-and-debts) | economy_domain.js, own_holdings.js | `character.money`; obligations and standing slices | economy_domain.test.js, own_holdings.test.js |
+| [Regional staple prices](#regional-staple-prices) | regional_prices.js (pure leaf) | None; reads trader stock (`inventories.trader`) and the standing slice's price memory | regional_prices.test.js |
 | [Travel and journeys](#travel-and-journeys) | travel_legs.js | None (caller applies clock, purse, location) | lotm_next_city.test.js |
 | [Time and calendar](#time-and-calendar) | world_calendar.js | Native `current_game_time`; derived | world_calendar.test.js |
 | [Institutions, rank and law](#institutions-rank-and-law) | institution_store.js, institution_access.js | World adapter (no shared slice) | institution_store.test.js |
@@ -182,6 +183,16 @@ By default a new slice declares data through the seam named here and does not ad
 - Limits/traps: every purse write needs a named source or it throws; a grain-2 world (`WORLD_GRAIN`: Tingen) throws on off-grain values; `own_holdings` stores and changes nothing (veil is CSS on `data-own-holdings`); `owed_ledger_sources` reads projections and ports only, not a domain's closure; native resource effect only accepts actor `player`, key `money` (simulation_effects.js); one authority per currency.
 - Do not: add a second money or debt counter; do not copy `book_life_holdings.js` for a new lead (older LIVES-table version of the same registration).
 - Competing: holdings registration exists three times (book_life_holdings.js, hp_life_holdings.js, inline in book_world_hp_lead_domain.js), all through `registerOwnHoldings`. Debts have two homes: obligations_ledger rows (household, career, heirs) and economy_standing loans/claims, joined only at read time by owed_ledger_sources.
+
+## Regional staple prices
+
+- Use this: `regional_prices.js` is one pure quote function for a staple on a regional shelf: base value x place x season x a keyed local event x the shelf count, with a staple margin (default 1.3) on what you pay and a bid share (0.75) on what the keeper pays (XWR17, ECR3-ECR5, ECR9, ECR15). `trade.js` calls it for goods the stall lists in `STAPLES` (Village Dunstan and Slums Quill: Coal, Stale bread, Fresh bread); other goods keep the native margin and saturation.
+- Declare: add the vendor id and its goods to `STAPLES` (usual shelf `par`, delivery per cycle `supply`, surplus `use`), the place to `PLACES`, the kind's season and events to `KINDS` and `EVENTS`.
+- Write: nothing is saved. `TraderComponent.#carryStaples` (restock) carries last cycle's count plus the stated deliveries instead of redrawing, so the player's sales stay on the shelf and a sold-out staple returns by the cart. `stageNativeTrade` skips the saturation counters for a vendor's staples (the shelf is their one cause).
+- Read: `unitPrice`, `lineValue`, `explainQuote`, `memoryNote`; `trade.js` exports `regionalUnit` (lists and tooltips) and `regionalNotes` (the `#trade_price_notes` list: price, why, and what you remember of the other place from `economy_standing` price memory, labelled old).
+- Test: tests/regional_prices.test.js; browser proof `scripts/regional_prices_browser.cjs` (1920x1080, buy, 540-minute walk, sell, reload).
+- Limits/traps: the first fill of an empty shelf still keeps the template draw; a shelf saved while due loads with `last_refresh = -1` and counts as one cycle; only unqualified items (key `{"id":...}`) qualify; the shortage cause is divided out of the terms for staples so one cause is not counted twice; Tingen has no shops and is not covered.
+- Do not: add a price factor beside `unitPrice`; do not give a second world a stall without its own `PLACES` row and reasons.
 
 ## Travel and journeys
 
