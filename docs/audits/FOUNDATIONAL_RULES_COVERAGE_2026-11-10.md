@@ -103,6 +103,6 @@ No documented source found for: one sanity meter (Cultist Simulator and Book of 
 
 | Code | Item | Level, effort | Done check |
 | --- | --- | --- | --- |
-| FRC48 | Read the Cultist Simulator and Book of Hours captures for dread, fascination and other mind meters (MND, RCL5) | Haiku, small | A digest naming the meters, their sources and what breaks |
-| FRC49 | Read Stardew and Rune Factory 5 NPC schedule data for the midnight rule (RCL7) | Haiku, small, can ride on the pet digest session's captures | Schedule rows with times and the day-boundary rule |
+| FRC48 | Read the Cultist Simulator and Book of Hours captures for dread, fascination and other mind meters (MND, RCL5) | Haiku, small | DONE 2026-11-10: [mind meters digest](../research/cultist-simulator/MIND_METERS_DIGEST.md) (from committed notes; private snapshots missing from disk) |
+| FRC49 | Read Stardew and Rune Factory 5 NPC schedule data for the midnight rule (RCL7) | Haiku, small, can ride on the pet digest session's captures | DONE 2026-11-10: [NPC schedules digest](../research/stardew-valley/NPC_SCHEDULES_DIGEST.md) (Stardew rule shown; RF5 midnight not established) |
 | FRC50 | Fold FRC38 into STY10 and FRC39 into MND5 as dated "bank shape" notes when a slice picks them up | Sonnet, small, at slice time | The rule rows cite the bank digest |
