@@ -45,6 +45,8 @@ export function lotmRestrictions({state,days,pack=loaded}){
  if(!pack||!state.lotm)return [];
  return restrictionsOn(lotmEventBook({state,days,pack}),lotmDay(state));
 }
+// TMR1 (RCL8): the one Tingen day formula (day 1 = arrival, 24-hour days from it). Moving it onto `dayIndex` waits for a
+// Tingen calendar profile (TMR2), which would roll days at midnight instead of 24 hours after arrival.
 export const lotmDay=state=>Math.floor((state.clock-state.lotm.initializedAt)/1440)+1;
 // The one book the day's restrictions and the upcoming strip both read, so the strip cannot disagree with travel blocking.
 export function lotmEventBook({state,days,pack=loaded}){

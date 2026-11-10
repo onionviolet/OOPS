@@ -59,3 +59,16 @@ test('time bands and recurrence defaults are exported and invalid rows fail earl
     assert.equal(whereabouts([row({recurrence: 'weekly', day: 3})], 'dunn', atDay(8, 9)).place, null);
     assert.throws(() => whereabouts([row({from: 'midnight'})], 'dunn', atDay(1)), /Unknown/);
 });
+
+test('a night shift wraps past midnight, as npc_schedule rows do (RCL7)', () => {
+    const night = [row({place: 'watch', from: 1320, to: 360, recurrence: 'daily', day: 3})];
+    assert.equal(whereabouts(night, 'dunn', atDay(3, 23)).place, 'watch');
+    assert.equal(whereabouts(night, 'dunn', atDay(4, 5)).place, 'watch', 'the shift continues after midnight');
+    assert.equal(whereabouts(night, 'dunn', atDay(3, 5)).place, null, 'no tail before the first night');
+    const day = whereabouts(night, 'dunn', atDay(4, 7));
+    assert.equal(day.place, null);assert.equal(day.nextAt, calendarMinutes(atDay(4, 22).calendar));
+    const once = [row({place: 'watch', from: 1320, to: 360, day: 5})];
+    assert.equal(whereabouts(once, 'dunn', atDay(6, 2)).place, 'watch');
+    assert.equal(whereabouts(once, 'dunn', atDay(6, 7)).nextAt, null);
+    assert.throws(() => whereabouts([row({from: 600, to: 600})], 'dunn', atDay(2)), /length/);
+});

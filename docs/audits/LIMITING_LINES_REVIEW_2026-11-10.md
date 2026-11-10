@@ -39,6 +39,7 @@ Lines that only restate accepted direction (his own words or an AD line) are lis
 | LLR29 | UR77 | Numeric budgets for routes, regions, center modes, Local actions and tabs; raising one needs a demotion and his yes | Screens fill one panel at a time | Budgets as guidance a lane may exceed with a stated reason |
 | LLR30 | UR82 | A system stays hidden in a life until something is attached | Unmet layers are noise | Show every system's entrance from the start with an empty state that says how to fill it |
 | LLR31 | WKR19 | A new kind of world gets its own sources or declared rules, people, resources and progression before a build packet | Ten shallow reskins add registrations, not play | Quick variants of an existing world allowed on the same kit with a stated difference, deepened later |
+| LLR32 | MND22, harm carrier `holdsFrom` | Past the LOTM loss line nothing eases strain, the base cheat included; it reads the line (CTC94) but does not hold it back | Canon: full loss is never reversed in the books (AD49) | The base cheat slows the carrier or allows one rescue past the line (CTC95), with a cost |
 
 ## Answers so far
 

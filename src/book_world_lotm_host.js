@@ -55,7 +55,7 @@ import {lotmRegionAt} from './book_world_lotm_cities.js';
 import {lotmRestrictions,lotmLight} from './book_world_lotm_events.js';
 import {lotmUpcoming} from './book_world_lotm_upcoming.js';
 import {lotmSheetsFor} from './book_world_lotm_sheets.js';
-import {harmContext,accrueHarm,restHarm,lostControlOutcome,lossOfControlStep,harmClassOf,drainLotmInbox} from './book_world_lotm_harm.js';
+import {harmContext,accrueHarm,restHarm,lostControlOutcome,lossOfControlStep,harmClassOf,drainLotmInbox,lotmLossLine,lotmStageNote} from './book_world_lotm_harm.js';
 import {harmState,setHarmState} from './harm_state.js';
 import {districtOfPlace,districtById,respondersFor,lotmWalkMinutes,LOTM_PLACE_KEYS,onShift} from './book_world_lotm_districts.js';
 const copy=x=>structuredClone(x),assert=(ok,text)=>{if(!ok)throw Error(text);};
@@ -228,6 +228,7 @@ export function createLotmHost(ports){
   persist(plan);
   if(drained)setHarmState(drained);
   accrueHarm(plan.state,def);
+  noteStage(plan.state);
   if(id===SLEEP||def.bodyCare?.kind==='sleep')ports.beginSleep();
   return plan;
  }
@@ -253,6 +254,9 @@ export function createLotmHost(ports){
   plan.state.simulation.people.player.location=to;castWriteCode(plan.state,'location:player','emergent');plan.nativeLocation=to;plan.nativePatch={'current location':to};
   syncLotmCast(plan.state);persist(plan);return plan;
  }
+ // The last stage this host reported; the first read after load only records it, so a reload repeats nothing.
+ let shownStage=null;
+ function noteStage(s){const now=lotmLossLine(harmState(),s).stage.id,line=lotmStageNote(shownStage,now);shownStage=now;if(line)try{ports.logMessage?.(line,'notification');}catch{/* the change already landed */}}
  // MND8 (RCL5): a completed job (the self rite) or another route may leave loss-of-control inbox amounts; move them onto
  // the one carrier in a saved plan, then set the slice (persist throws when saving is paused, and nothing moves).
  function drainInbox(s){const r=s.actors?.player?.resources;if(!(r?.['book.lotm.pressure']>0||r?.['book.lotm.relief']>0)||!ports.writable())return;
@@ -260,7 +264,7 @@ export function createLotmHost(ports){
  // Native sleep ended by any cause before the job finished: the job is forfeited, nothing is restored (D4).
  function wake(){const s=state(),job=s.lotm&&sleepJob(s);if(job&&!ports.restoring()&&ports.writable())cancel(job.id);}
  // The job finished (or was cancelled) while native sleep was still on: end native sleep once.
- function tick(minutes=0){const s=state();if(s.lotm){drainInbox(s);if(ports.sleeping())restHarm(s,minutes);if(!dying&&ports.die&&ports.writable()&&lossOfControlStep(s,{minutes,skipping:!!ports.skipping?.()}).die&&lostControlOutcome(s)?.default==='final'){dying=true;try{domainRegistry.command('positions','died')({state:s,at:s.clock});}catch{/* positions settle on the next tick */}Promise.resolve(ports.die('loss_of_control')).finally(()=>{dying=false;});}}if(lotmCastLife(s)&&(castSyncDue(s)||castBeatsPending(s))&&ports.writable()&&(!lotmBe(s)||validLeadLife(getPrivateLotmCast()))){const plan=base(s,ports.context());if(syncLotmCast(plan.state)||castBeatsPending(plan.state))persist(plan);}if(s.lotm&&ports.sleeping()&&!sleepJob(s))ports.endSleep();}
+ function tick(minutes=0){const s=state();if(s.lotm){drainInbox(s);if(ports.sleeping())restHarm(s,minutes);noteStage(state());if(!dying&&ports.die&&ports.writable()&&lossOfControlStep(s,{minutes,skipping:!!ports.skipping?.()}).die&&lostControlOutcome(s)?.default==='final'){dying=true;try{domainRegistry.command('positions','died')({state:s,at:s.clock});}catch{/* positions settle on the next tick */}Promise.resolve(ports.die('loss_of_control')).finally(()=>{dying=false;});}}if(lotmCastLife(s)&&(castSyncDue(s)||castBeatsPending(s))&&ports.writable()&&(!lotmBe(s)||validLeadLife(getPrivateLotmCast()))){const plan=base(s,ports.context());if(syncLotmCast(plan.state)||castBeatsPending(plan.state))persist(plan);}if(s.lotm&&ports.sleeping()&&!sleepJob(s))ports.endSleep();}
  // Standing orders (OB1/OB4): rent and dues leave the native purse through the purse seam on the clock, in one save with the duties slice. Throws when saving is paused.
  const purseBalance=()=>{const m=ports.context().external?.money;assert(Number.isFinite(m),'The purse is not readable now.');return m;};
  // Read the current life's actual inventory. Unknown or protected goods have no seizure value.

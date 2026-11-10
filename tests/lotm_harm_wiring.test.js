@@ -57,3 +57,11 @@ test('one carrier (MND8, RCL5): peek strain and a bad dose add on one line, and 
  assert.equal(lotmLossLine({schema:1,backlash:{power:6}},relief).count,4.5,'relief eases below the line');
  assert.equal(lotmLossLine({schema:1,backlash:{power:9}},relief).count,9,'past the line nothing eases it');
 });
+
+test('crossing a stage leaves one Reports line, and the line counts the grace down (FBK, RCL5)', () => {
+ const logs=[];const o=hostOver(bare(),{logMessage:t=>logs.push(t),die:()=>Promise.resolve()});o.host.enroll('probationer');
+ o.host.tick(1);o.box.p.state.actors.player.resources['book.lotm.pressure']=6;o.host.tick(1);
+ assert.equal(harmState().backlash.power,9);assert.equal(logs.filter(t=>/lost control/.test(t)).length,1);
+ o.host.tick(1);assert.equal(logs.filter(t=>/lost control/.test(t)).length,1,'no repeat while the stage holds');
+ assert.match(o.host.view().cause.line,/2[89] minutes of waking time are left/);
+});
