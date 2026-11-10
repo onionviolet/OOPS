@@ -1973,3 +1973,37 @@ Weibao asked for a Codex prompt to reach the blocked sources ([prompt](../review
 - **UIC97, LATER: the Tauri background setting.** Tauri documents `backgroundThrottling` on macOS 14 and later; this checkout sets no override, and the renderer defers refreshes while hidden. Check it with UIC85 in a release-shaped build.
 
 Ranked for building (R4 agrees): the LOTM altar slice with sigils and the motion helper first, its positions drawn from the real rite, a complete example beside the first editable rite, and the result settling on the altar and in Reports; then the cultivation body chart brief (UIC91); then motif work and replay.
+
+## Round 43, 2026-11-10: every element, census and coverage
+
+Weibao: "more UI autdit rules and more for all ui elements?" ([log](../gm/USER_VISION_LOG_2026-11.md#ui-rules-for-every-element-2026-11-10)). Rules: [the element sheet, UR100–UR127](../UI_RULES.md#every-element-the-element-sheet).
+
+### Census
+
+A grep of `src/**/*.js` on 2026-11-10 for each element kind, counting modules that mention it. These are text matches, so they over-count (a word in a comment counts) and under-count (shared helpers hide raw tags). They size the audit; they are not a defect count.
+
+| Element | Modules | Element | Modules |
+| --- | --- | --- | --- |
+| Progress | 191 | Selects | 38 |
+| Buttons | 146 | Tooltips | 36 |
+| Titles (hover text) | 106 | Live regions | 29 |
+| Disclosures | 103 | Keyboard handling | 29 |
+| Chips and badges | 76 | Checkboxes | 16 |
+| Meters | 56 | Text areas | 11 |
+| Inputs | 44 | Sliders | 6 |
+| Modals and dialogs | 40 | Tabs (role) | 5 |
+| Popovers | 5 | Toasts | 2 |
+| Drag | 1 | Context menu | 1 |
+
+### Coverage before this round
+
+- **Covered by standing or earlier codes, gathered per element:** buttons (UR10, UR66, UIV1), names in text (UR35, UR43), disclosures (UR26, UR42), tooltips (UR43, UR47), menus (UR53), modals (UR5), meters (UR61), progress (UR61, task layers), lists (UR27), logs (UR44, RPT), headers and back bars (UR9, UR30), empty states (UR32), larger text (UR33), colour (UR37), shortcuts (UR31).
+- **No code covered, now filled:** an element state sheet (UR100), auditing by element (UR101), selects (UR104), toggles (UR105), sliders and number entry (UR106), text fields and search (UR107), drag (UR110), toasts (UR114), number formatting (UR117), chips and badges (UR118), row anatomy (UR119), tables (UR120), icons (UR121), pictures (UR122), loading and error states (UR125), focus rings and keyboard traps (UR126), truncation and measure (UR127).
+- Nothing in this round removes an option; tab and notice counts defer to UR77 and UR88, which stay held.
+
+### Next
+
+- **UIC98, LATER: the first element audit (UR101).** Take the ten largest kinds above, sample three consumers each across worlds, check the row and UR100, and record pass and gaps here. Level: sonnet audit lane with the headless game and screenshots; effort medium; done check: thirty consumers checked, each with codes, pass or gap, and a screenshot path.
+- **UIC99, LATER: state sheets in the gallery (UR100).** `ui-preview.html` shows each shared control in every state from fixtures, with labels and world names toggleable for the cover tests. Effort medium; done check: buttons, selects, toggles, meters and tabs each render all their states at 1920×1080 and 150% text.
+- **UIC100, LATER: contract-test additions.** Extend the UI contract test: an interactive element without an accessible name fails, a raw number formatted outside the shared formatter is flagged, an icon without a label is flagged. Effort small to medium; done check: the test runs in `npm test` and lists current offenders as known findings instead of failing the build on day one.
+- **UIC101, LATER: one number formatter.** If the census of number formatting finds several formatters, consolidate behind one owner that reads the player's settings (UR117). Done check: the same value renders identically in three surfaces.

@@ -885,3 +885,12 @@ Weibao asked:
 > Another caht to work on the cross world rulebook?
 
 Recorded: [CROSS_WORLD_RULES](../CROSS_WORLD_RULES.md) XWR1–XWR28 drafts FRC18 as working defaults under AD56 (AD32, proposals): the hub and home, the carry list per crossing, authority per edge, time across worlds, local prices and conserved cross-world stock, travel authorities, converged worlds and what others know of a traveler. It links WER, WKR17, multiverse structures, ITM, TIE25, KNW and CHT rather than restating them. Three lines limit options and wait for his answer as LLR34–LLR36 (titles abroad, bodies the destination cannot support, counterparts as different people); nothing is built.
+
+## UI rules for every element, 2026-11-10
+
+Weibao:
+
+> more UI autdit rules and more for all ui elements?
+
+Recorded: [the element sheet](../UI_RULES.md#every-element-the-element-sheet) adds UR100–UR127 as working defaults under AD56: a state sheet for every interactive element (UR100), auditing by element and then by journey (UR101), and one row per element kind, from buttons to truncated text. [UI audit round 43](../audits/UI_DESIGN_CORE_AUDIT.md#round-43-2026-11-10-every-element-census-and-coverage) holds the census of element kinds in the code, what earlier codes covered and what was new. The first element audit, gallery state sheets, contract-test additions and one number formatter are proposals, not started.
+
