@@ -1,0 +1,103 @@
+{
+ "sampling": {
+  "seed": 11,
+  "per_kind": 10,
+  "method": "python3 -I build_ledger_sources.py --sample 10 11; read each row context by hand; kinds sampled: point, order, tolerance, negative"
+ },
+ "precision": {
+  "point": {
+   "L": "10/10",
+   "X": "1/2 (second row was a structured-quantity case with no text to judge)",
+   "H": "9/10",
+   "R": "8/9 (one structured-quantity row not judgeable)",
+   "R14": "8/10"
+  },
+  "order": {
+   "L": "5/10",
+   "X": "1/1",
+   "H": "6/10",
+   "R": "10/10",
+   "R14": "9/10"
+  },
+  "tolerance": {
+   "L": "3/10",
+   "X": "0/5",
+   "H": "2/10",
+   "R": "5/10",
+   "R14": "5/10"
+  },
+  "negative": {
+   "L": "9/10",
+   "X": "7/10",
+   "H": "6/10",
+   "R": "10/10",
+   "R14": "9/10"
+  }
+ },
+ "rates": {
+  "L": {
+   "point": 1.0,
+   "order": 0.5,
+   "tolerance": 0.3,
+   "negative": 0.9
+  },
+  "X": {
+   "point": 0.5,
+   "order": 1.0,
+   "tolerance": 0.0,
+   "negative": 0.7
+  },
+  "H": {
+   "point": 0.9,
+   "order": 0.6,
+   "tolerance": 0.2,
+   "negative": 0.6
+  },
+  "R": {
+   "point": 0.89,
+   "order": 1.0,
+   "tolerance": 0.5,
+   "negative": 1.0
+  },
+  "R14": {
+   "point": 0.8,
+   "order": 0.9,
+   "tolerance": 0.5,
+   "negative": 0.9
+  }
+ },
+ "notes": {
+  "point misses": "RI 1-4: rank labels such as 'number one Rank two' and 'Rank five Gu Masters' trip the unit list (rank, grade); HP: a house-elf row matched 'house' as a unit.",
+  "order misses": "LOTM and HP: 'exceeds', 'lower tier', 'faster than expected' and 'fewer than N' used for bounds, labels or expectations rather than two things compared.",
+  "tolerance": "Poor everywhere. Most hits were 'exact', 'precise' or 'too' used for 'exact range not stated', 'too late' or 'barely'. Real thresholds ('too few fails', 'too small to condense') are the minority. Treat tolerance counts as unreliable, as in the volume 1 ledger (4/15).",
+  "negative": "HP misses: hypothetical 'fail', 'lost track', 'never visited', 'no longer made'.",
+  "sample size": "10 per kind (fewer where fewer rows exist), so each rate has a wide interval; a one-row difference moves it 10 points.",
+  "recall (counted probe)": "RI: rows naming percent, primeval stones, jin, li or zhang with no point or band after the extension: 115 of 5,420 (qualified) and 296 of 6,998 (volumes 1-4). The sample rows seen were 'primeval stone' with no number, so the real misses are small. Recall of the other kinds was not measured."
+ },
+ "missing": [
+  "LOTM volumes 2 to 8: all seven volumes found (lotm2c... to lotm8c..., 1,184 rules and rule-note files in lead-run-2026-10-27). Nothing missing.",
+  "LOTM extras: the book 9 mapped files are in lead-run-extras-2026-10-30 (lotmxc...L_rules*.jsonl), 30 files and 100 rows. The other extras folders in lead-run-2026-10-27 (x1 to x4) hold mapping notes, not rules rows.",
+  "Harry Potter books 2 to 7: all six found in lead-run-2026-10-28 (hp2c... to hp7c..., 340 files). Nothing missing.",
+  "Reverend Insanity volumes 5 to 7: rows are in lead-run-2026-10-29 (volume 5) and lead-run-2026-10-29/claude-6-7 (volumes 6 and 7). Review overlays are in lead-run-2026-10-29/ri-5-7-review (audit-5-rules, audit-6-extras, audit-7-extras). The overlay for volumes 6 and 7 rules sits in the 'extras' audits, not a rules-named audit.",
+  "Reverend Insanity volumes 1 to 3 gap rows: there are none for the rules pass. The gap closeouts were ri1 census, ri2 scenes and people, ri3 people and texture (audit-5-core). No rules rows from the gaps were reviewed, so none are in the qualified set. Instead the existing volume 1 to 4 rules rows (6,998) are run as a separate unreviewed source. Volume 4 is outside the ask and included only because its rules files sit beside volumes 1 to 3.",
+  "Not found: any review overlay for LOTM 2-8, HP 2-7 or RI 1-4 rules rows. The LOTM reviewed-rows folder holds targeted spot reviews and an id alias map, not qualification of these rows."
+ ],
+ "findings": [
+  "AM1 (counted): the class column no longer separates systems. LOTM v2-8 has 22 of 22 re-derived groups tunable, HP 2-7 has 21 of 21, RI has 15 of 15 in both sets. In the volume 1 ledger HP had 7 non-tunable systems; at 10 times the rows all of them clear the bar. Use anchors per 100 rows and the quantity a fit needs, not the class.",
+  "AM2 (counted): anchor density is lower in the later LOTM volumes and HP books than in volume 1 and book one. All rows: LOTM v2-8 23.3 point, band or count anchors per 100 rows against 37.0 in volume 1; HP 2-7 20.4 against 25.6. Inferred: the later passes record more prose-like notes per row; not checked.",
+  "AM3 (counted): the densest groups in every source are the time groups (L-TEXT 65 per 100, H-TEXT 54, R-TIME 103 and 111). These are durations and dates, so they feed schedules, not the systems. Among system groups, LOTM is densest in L-ECON (1,636 anchors, 33 per 100: prices, wages, money), L-TRAV and L-CHARM (29 per 100). HP is densest in H-POT and H-ECON (about 26 per 100) and H-QUID (25). RI qualified is densest in R-KILLER (56 per 100, 99 anchors), R-REFINE (50 per 100, 214 anchors) and R-RANK (50 per 100, 215 anchors), then R-ECON (43 per 100).",
+  "AM4 (counted): thinnest systems with at least 20 rows. LOTM: L-INV (13 per 100) and L-SEAL (14.5), L-CTRL (195 rows, 33 anchors). HP: H-INV (65 rows, 6 anchors), H-DAY (8.6 per 100), H-WAND (11.6 per 100, 51 anchors on 440 rows). RI qualified: R-BLOOD (19.5 per 100, 31 anchors) and R-FEED (61 rows, 21 anchors). No re-derived group has zero anchors in any of the four large sets.",
+  "AM5 (counted, inferred reading): Reverend Insanity volumes 5-7 carry far more quantity per row than LOTM or HP (42.1 per 100 across all rows against 23.3 and 20.4) and the sampled order and negative precision is 10/10 on both. Part of the density is my point-regex extension (726 added rows, point only, sampled 8/9 for point after the extension); without it the gap shrinks but was not recomputed. Gu refinement, rank advancement, killer moves and aperture and essence all have 100 or more anchors in volumes 5-7, so these are the best-anchored RI systems for fitting.",
+  "AM6 (counted): R-FEED is thin in volumes 5-7 (61 rows, 21 anchors, 34 per 100) against volumes 1-4 (95 rows, 70 anchors, 74 per 100). R-KILLER is the reverse: 13 rows in volumes 1-4 and 176 in 5-7. Inferred: Gu upkeep is set up early and killer moves arrive later. For feeding and upkeep, tune from volumes 1-4 rows only after a source review; those are unreviewed.",
+  "AM7 (sampled): tolerance is unusable again: 3/10 LOTM, 2/10 HP, 5/10 RI, 0/5 extras (volume 1 was 4/15). Order is good for RI (10/10 and 9/10) and poor for LOTM (5/10) and HP (6/10). The adjusted-class column barely moves because the class bar is low; the extras source flips ECON to shape only, but it has 100 rows.",
+  "AM8 (counted): L-MISC is 25% and H-MISC 29% of rows, because the v1 keyword lists were fitted to volume 1 and book one. The new RI groups leave 9.5%. For LOTM and HP, group counts in later volumes undercount systems the v1 lists do not name; the MISC rows still hold 712 (LOTM) and 246 (HP) anchors."
+ ],
+ "limits": [
+  "Groups are keyword lists, first match wins, so a row sits in one group. The RI groups are broad: R-IMMORT, R-GUUSE and R-COMBAT catch many words, and R-COMBAT is the largest group at 14% (counted). Group sizes are not system sizes.",
+  "Kinds are regex heuristics on row text. Sampling covered point, order, tolerance and negative only, 10 rows each. Band, count or duration and sequence were not sampled, and recall was not measured except a probe on RI quantity words.",
+  "LOTM, extras, HP and RI 1-4 rows are unreviewed reader output. Only RI 5-7 rows passed a source review, and a corrected row was counted in its corrected form. The review checks claims against the source; it does not check that a row is useful for tuning.",
+  "Only rules and rule-note rows are counted, not scenes, people, texture or census. Systems fed mainly by those passes are undercounted.",
+  "The point-regex extension (percent signs, RI currency and measure words) applies to RI only. LOTM and HP use the exact volume 1 classifier, so their counts compare to the committed ledger. The RI densities are not strictly comparable to them.",
+  "Counts say where anchors exist, not whether they agree with each other or are enough for a fit (AD49). Private per-row files: docs/research/novels/<source>/private/anchor-ledger-2026-11-09/rows_classified_<tag>.jsonl."
+ ]
+}

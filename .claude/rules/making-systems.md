@@ -25,7 +25,7 @@ are data with canon-status labels, depth is chosen per activity, mastery improve
 control rather than truth, and one shared envelope sits over separate product
 logics.
 
-MR37–MR41 are proposed (AD32) prompts for briefs, not gates: properties belong
+MR37–MR44 are proposed (AD32) prompts for briefs, not gates: properties belong
 to the world and not the recipe, made things and powers share one effect
 vocabulary, a story beat that is a making runs on the making engine, a making
 brief answers five things, and a living thing that is made or refined stays the

@@ -500,3 +500,87 @@ After the agent listed follow-on considerations (LAYX81-LAYX86), Weibao replied:
 > What do we need to do for the others? I think some others were read already
 
 Recorded: "build numbers based off of results" is quoted in the proposed [SPR20](../SYSTEM_PRACTICE_RULES.md#tuning-by-lore); SPR20-SPR22 and the atlas rows LAYX87-LAYX94 are agent proposals built on it, not his words. "The others" was read as the other sources: the atlas now says what each needs (an anchor ledger over rows already read).
+
+## Ties scope, effect distinctions and farm areas, 2026-11-09
+
+Weibao asked:
+
+> should we defer relationships since its too complex to cponsoider th possibilities and more, or is it feasible? Crafting seems reasonable, Potion and spells sharing effects is nice, but there can still be distinctions, We might want to consider abstraction layers, like the areas to farm and more? regenerting areas of enemies and more?  Thoughts?
+
+Recorded: "there can still be distinctions" is quoted in the proposed MR38. The answers (build the bounded part of ties, a shared source abstraction for places that deplete and refill) are agent proposals in the atlas as LAYX95-LAYX102, not decisions.
+
+## Simple areas and long-term features, 2026-11-09
+
+Weibao asked:
+
+> consider areas to just keep simple? consider how other games addresses these? YAIR and proto23 just has areas for fighting enemies and stuff? more to consider?
+>
+> Also consider long term features like farming and more? Other stuff not considered yet?
+
+Recorded: read as a preference for the simple area (a pool of enemies to fight, as in both parent games) over the richer model proposed the same day. The atlas rows LAYX103-LAYX118 are agent proposals, not decisions.
+
+## Lore run versus gameplay, and game inspirations, 2026-11-09
+
+Weibao asked:
+
+> What about other inspirations from games and more? Dwarf fortress's procedural stuff? More to consider? COnsider the distinction of a lore run for the sake of fleshing out the world versus the gameplay of playing as someone seperate or part of the same story, just a different part of it?
+
+Recorded: he names a distinction between a lore run (fleshing out the world) and gameplay as someone separate or in the same story at a different part. It sits beside the accepted lead-as-main-line direction and does not replace it. The atlas rows LAYX126-LAYX143 are agent proposals.
+
+## Fleshing out the world, and core inspirations, 2026-11-09
+
+Weibao asked:
+
+> how to flesh out world with the lore runs? Do we need to adjust current work and more? more to consider? Isnt alot of stuff we do probalistic and more? Caves of QUd and RImworld, and maybe Shadow of mordor would and should be core inspirations, we should have considered this previously already along time ago did we not?
+
+Recorded as lasting direction: Caves of Qud, RimWorld and Shadow of Mordor are core inspirations ([USER_VISION](../USER_VISION.md), [digest](../VISION_DIGEST.md)). They had been considered: he asked "Nemesis system?" on 2026-10-01, named Qud on 2026-10-03, and a Qud systems audit and RimWorld findings exist. The method for lore runs and the adjustments to current work are agent proposals in the atlas (LAYX144-LAYX158).
+
+## Potion values from other sources, 2026-11-09
+
+Weibao asked:
+
+> Does the potions ever get the numbers? Did they ever release the mad blood princ'es book or something? In that case why cant we get the values elsewhere, search online if anyone analyzed it, or find lore books, or look at the games? there are manmy ways?
+
+Recorded: read as direction that values the book leaves out may be taken from other sources. Quoted in the proposed SPR13, which now ranks them (author-adjacent material, licensed games, fan analysis, real-world counterpart). The ranking and atlas rows LAYX159-LAYX164 are agent proposals.
+
+## Many routes to one product, 2026-11-09
+
+Weibao said:
+
+> There might be different ways to make the same thing, and there might be differences in quality and efficientcy, after all, the prince's potion book had enhanced recipes and more? same thing should apply for other worlds and more, and potions should be derivable from procedural rules, like effects of ingredients and more
+
+Recorded as lasting direction in [USER_VISION](../USER_VISION.md#making-and-crafting): several ways to make the same thing with different quality and efficiency, in every world, derived from what ingredients do. The rule wording (MR42-MR44), the per-world widths and the atlas rows LAYX165-LAYX173 are agent proposals built on it.
+
+## Rules for every craft, and forging, 2026-11-09
+
+Weibao asked:
+
+> Everything can be reasonably built around rules and more? Trying different steps can result in different results, or no result, other stuff and more?
+>
+> Same level of bredth for forging and more?
+
+Recorded: read as extending the same-day making direction (many routes, derived from what materials do) to every craft, forging included. Consistent with AD38 and MR6-MR8. The six craft families and atlas rows LAYX174-LAYX183 are agent proposals.
+
+## Farming and other long-term systems, 2026-11-09
+
+Weibao asked "Research? Abstraction? Did we cover all our basis?" and then "Farming? Other stuff?". The agent had recommended stopping the rounds for a build; he continued the rounds, which is his call (SPR5's dial). Atlas rows LAYX184-LAYX203 are agent proposals.
+
+## Deferral and priorities, 2026-11-09
+
+Weibao said:
+
+> Aging and heir and family could porobably be delayed, other stuff and more? What is most imperative? More to consider/ Stuff that doesnt have anything yet?
+
+Recorded: aging, heirs and family are deferred (no new depth until he raises them). The priority order in the atlas (LAYX204-LAYX210) is the agent's proposal in answer to his question.
+
+## Freedom for the lore run first, 2026-11-09
+
+Weibao asked:
+
+> Would it be easier to start from giving the lore run the same freedom first, so like the opition to diverge and ore? nd then we can extend that freedom to non lore runs?
+
+Recorded as his proposed order: freedom (the option to diverge) for the lead's run first, then extended to other seats. The agent agreed; the three levels and the revised first slice (LAYX211-LAYX218) are agent proposals, and no slice has been authorized.
+
+## Save long term, 2026-11-09
+
+Weibao: "save acc0rd9gjgly long term" with the more-to-consider and reconcile-project skills. The atlas gained a reconciliation section for LAYX81-LAYX218 that separates his direction from agent proposals, restates the next order (N9-N13) and adds LAYX219-LAYX227. No proposal was accepted by this request.

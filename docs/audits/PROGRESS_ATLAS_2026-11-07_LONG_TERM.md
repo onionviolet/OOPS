@@ -2,6 +2,8 @@
 
 Weibao, 2026-11-07: "what about foundational stuff? How to address long term world implementations and more?" Follow-up to the [2026-11-07 atlas refresh](PROGRESS_ATLAS_2026-11-04.md#refresh-2026-11-07-master-a152827dd-clean-pushed). Proposals (AD32); nothing accepted or dispatched. Evidence: `node scripts/seam_register.mjs` plus a static-import grep for the Nov 6-7 seams at `a152827dd`, by file-name family. Code reach only, not route proof. Visual: [seams by world](../../prototypes/progress-atlas/2026-11-07-seams-by-world.html). Builds on [LARGER_FOUNDATIONS](LARGER_FOUNDATIONS_2026-11-06.md) FD14-FD18 and the [enablement plan](../reviews/FOUNDATION_WORLD_ENABLEMENT_PLAN_2026-11-04.md) E1-E10.
 
+**Entry point for the 2026-11-09 rounds:** read [Reconciliation of LAYX81-LAYX218](#reconciliation-of-layx81-layx218-2026-11-09) and its next-order table (N9-N13); search the rest of this file by code.
+
 ## What the matrix shows
 
 - LOTM imports nearly every seam; Harry is the second consumer for about ten; MoL, Gu, Paradise and Primordial touch a few each; Shadow Slave and D&D import none.
@@ -857,3 +859,412 @@ Weibao on LAYX84: "build numbers based off of results? More to consider?" and on
 | LAYX92 | ACCOUNT FOR NOW | **Channels meet at exchange points.** Money has a scale (about 340 stated figures); fights and ties have none. Scenes where one buys the other pin the ratio: a doctor's fee for a wound, a bounty for a kill, a loan a friend makes. Collect these in the scene-row pass (LAYX80). | Part of LAYX80. Done: exchange points listed per pair of channels |
 | LAYX93 | ACCOUNT FOR NOW | **Numbers derived from the lead apply to everyone.** A fight number that reproduces Klein's wins is also the number a clerk meets. After a fit, one non-lead seat runs the same loop to see it is still livable (SPR1's seat check). | Part of every fit receipt. Done: one non-lead run named |
 | LAYX94 | ACCOUNT FOR NOW | **Upper-rung potions are not bench recipes.** From section 2.7: where the principal is a singular thing with custody and a rite, the making is the mixing step inside the advancement procedure. MR37's property set is tested on rungs 9 to 5. | Decide when N8 touches the bench. Done: the bench brief says which rungs it covers |
+
+**LAYX88 result (2026-11-09).** The ledger ran over the rule rows already read: [more sources](ANCHOR_LEDGER_MORE_SOURCES_2026-11-09.md), findings AM1-AM8. Row sets (counted, rerun once by the controller with matching totals): LOTM volumes 2 to 8, 30,060 rows; Harry Potter books 2 to 7, 7,762; Reverend Insanity volumes 5 to 7, 5,420 review-qualified rows; Reverend Insanity volumes 1 to 4, 6,998 unreviewed. What it changes:
+
+- **The tunable/shape/assumed class stops being useful at this size** (AM1): every system group in the large sets clears the three-anchor bar. Compare anchors per 100 rows instead.
+- **Where the anchors are** (AM3): money in LOTM, potions and money in Harry Potter, and in Reverend Insanity killer moves, Gu refinement and rank advancement. Thin: investigation, sealing and loss of control in LOTM; wands and daily routine in Harry Potter; feeding and kinship in Reverend Insanity volumes 5 to 7.
+- **Gu feeding anchors sit in the unreviewed early volumes** (AM6), so the keeper's upkeep numbers need those rows hand-checked before they bind (LAYX89).
+- **Order anchors are usable on Reverend Insanity and poor elsewhere; tolerance is poor everywhere** (sampled, 10 rows per kind: order 10/10 on the qualified set, 5/10 on LOTM, 6/10 on Harry Potter; tolerance 2 to 5 of 10). SPR8's tolerance kind needs a hand read per case, which fits SPR20: take the result ("too much killed him") as the constraint and skip the classifier.
+- **A quarter of LOTM and Harry Potter rows fall in no system group** (AM8), so the keyword groups from volume 1 and book one miss later-volume systems. Regrouping is the next improvement to the ledger, before any fit uses it.
+
+## Scope of ties, effect distinctions, and places that refill (2026-11-09)
+
+Weibao asked whether relationships should be deferred as too open-ended, said crafting seems reasonable and that potions and spells sharing effects "is nice, but there can still be distinctions", and raised abstraction layers such as "the areas to farm" and "regenerting areas of enemies" ([his words](../gm/USER_VISION_LOG_2026-11.md#ties-scope-effect-distinctions-and-farm-areas-2026-11-09)). MR38 now carries the distinction as a delivery record. The rows are agent proposals (AD32).
+
+**Code read for this round.** `craft_sources.js` (`defineSourceTable`, `nodeAt`, `harvest`) already keeps standing availability apart from harvested inventory on a calendar, used by the Paradise coppice. Upstream `models/location.js` combat zones carry a fixed `enemy_count` per clear. `shop_restock.js` is eight lines. Nothing joins them.
+
+| Code | Disposition | Consideration | Level, effort and done check |
+|---|---|---|---|
+| LAYX95 | ACCOUNT FOR NOW | **Ties: build the bounded part, defer the open part.** Bounded: five tie kinds times a short list of reader shapes (SPR16), anchored on results ("by this chapter she does this", SPR14, SPR20). Deferred until a slice needs them: fading and temperament, ties between two non-player people, typed memories, family and romance dynamics. | No work. Done: tie briefs name one reader shape and one person |
+| LAYX96 | LATER | **First new tie reader: the favor.** A person's regard changes a price, a wait or an access. It is the cheapest shape because money already has a scale, and it gives a source (LAYX97) an owner to be on good terms with. | Sonnet, runtime, small. Done: one person's terms change with regard, reachable in play |
+| LAYX97 | ACCOUNT FOR NOW | **One abstraction for places that deplete and refill.** A source is a place, a stock, a recovery law, an access condition and who else draws on it. It covers a herb patch, a mine, a hunting ground, a monster den, a shop shelf and a notice board. It is the ordinary-day caller SPR1 asks for: gathering feeds making, hunting feeds fights. Default: extend `craft_sources.js` from materials to populations before writing a second module. | Design note first, then one slice. Done: one gather source and one enemy source on the same module |
+| LAYX98 | ACCOUNT FOR NOW | **Recovery is a law per source, not one timer.** Kinds: regrows on the calendar; breeds from what is left, so overhunting collapses it; restocks from a supplier, so it fails when the supplier does; refills from outside (migration, a tide, new arrivals); does not recover (a vein, a ruin). | Part of LAYX97. Done: at least two kinds exist |
+| LAYX99 | ACCOUNT FOR NOW | **Enemies in an area are a population that responds.** Killing lowers a count; the rest may flee, band together, send something worse or draw a rival who was waiting. That is what separates a hunting ground from a counter that resets. Dial: a world with endless spawn (a dungeon that refills by its own law) says so. | Part of LAYX97. Done: one response beyond the count dropping |
+| LAYX100 | ACCOUNT FOR NOW | **How farmable a world is, is the world's dial.** LOTM keeps Beyonder ingredients scarce and priced, so a farmable patch there breaks stated prices (AD49); the Gu world has wild Gu, beast groups and tides; Hogwarts has greenhouses and a forest with rules about entry. The first slice belongs where canon does not constrain it. Default: the Village, which is original. | Decide at LAYX97's slice. Done: the slice names its world and why |
+| LAYX101 | ACCOUNT FOR NOW | **Others draw on the same source.** A rival hunter, a clan's claim or a season's buyers change what is left and what it sells for. Supply reaching the market moves the price (economy seam), and a claim makes access a matter of standing or a favor (LAYX96). | Later slice. Done: one non-player draw on one source |
+| LAYX102 | ACCOUNT FOR NOW | **Repeating a source is the idle loop.** The routine/program machinery already repeats a job; a source gives it something that changes as it is repeated (thinner yield, rising danger), so a long run is a decision and not a multiplier. | Part of LAYX97. Done: yield or danger changes across a routine |
+
+## Keep areas simple; long-term features not yet considered (2026-11-09)
+
+Weibao: "consider areas to just keep simple? consider how other games addresses these? YAIR and proto23 just has areas for fighting enemies and stuff?" and "Also consider long term features like farming and more? Other stuff not considered yet?" ([his words](../gm/USER_VISION_LOG_2026-11.md#simple-areas-and-long-term-features-2026-11-09)). This round revises LAYX97-LAYX99: the simple area is the default and the responding population is a later option. Rows are agent proposals (AD32).
+
+**How the two parents do it** (shown in source; the Proto23 lines are from the repo's [reader notes](../research/proto23/readers-2026-10-10/R3_equipment_creatures_areas.md), not reread here).
+
+| | YAIR (`src/models/location.js`, `CombatZone`) | Proto23 (`Area`, reader notes section 3) |
+|---|---|---|
+| Who you fight | A list of enemies or fixed groups, up to 8 at once | A weighted pool with a level band, one at a time |
+| How long | `enemy_count` groups to a clear, then it repeats | `size` kills to a clear, or -1 for endless |
+| Refill | None needed; every fight is a fresh draw | No timer; a cleared area resets its size by script |
+| Why come back | First-clear reward, repeatable reward, rewards at a clear count, unlocks | Clear unlocks the next area; an area drop table beside creature drops, improved by a hunting skill |
+| What the place adds | Location types that train a skill (dark, narrow), light, temperature | Area drops, `onEnd` and `onDeath` hooks |
+
+Neither tracks a population, a respawn clock or a response. The area stays the same and the character changes, and the reasons to move on are unlocks, drops a recipe needs and a finish line. Other idle games known to the agent (inference, not checked here) follow the same shape: pick an area, it loops, and tasks or dungeons supply the reason to switch.
+
+| Code | Disposition | Consideration | Level, effort and done check |
+|---|---|---|---|
+| LAYX103 | ACCOUNT FOR NOW | **The simple area is the default.** An area is a pool of opponents, a size, a clear reward, an area drop list and entry conditions. No clock and no population. The Village already has this through `CombatZone`. LAYX97's richer source stays for gathering, where `craft_sources.js` already does it. | No work. Done: area briefs start from this shape |
+| LAYX104 | ACCOUNT FOR NOW | **One three-way dial covers the worlds.** Endless (a training ground, a forest), sized (clear it, it resets) and finite (it does not come back). Finite is what LOTM needs, where ingredients are scarce and priced; the Gu world's beast groups can be sized. LAYX98's recovery laws fold into this until a slice asks for more. | Part of the first area slice. Done: the slice names its setting |
+| LAYX105 | LATER | **The missing piece is an area for the lead worlds' fight engine.** The Village's zones call the upstream battler. `tempo_fight` has no repeatable caller: every lead-world fight is a story window. A simple area that draws an opponent and runs `tempo_fight` is the ordinary-day caller (SPR1) at the lowest cost. | Sonnet, runtime, small to medium, needs the owning session's agreement for the world it lands in. Done: one area in one lead world, cleared twice in play |
+| LAYX106 | ACCOUNT FOR NOW | **Variety comes from reasons to move, not from the area.** Clear unlocks, a drop a recipe needs, a bounty or commission (W3X), a skill a kind of ground trains, a condition such as night or season. Each is data on the simple area. | Part of LAYX105's brief. Done: the area has at least one reason to leave it |
+| LAYX107 | ACCOUNT FOR NOW | **The place can give things the creature does not.** Proto23's area drop list, improved by a skill, is the cheap link from fighting to making: herbs, ore and oddments from where you were. | Part of LAYX105. Done: one area drop feeds one recipe |
+| LAYX108 | LATER | **A population that responds (LAYX99) becomes an option, not a requirement.** It suits a world where canon makes hunting consequential (a clan's beasts, a protected forest) and is a setting on one area when a slice wants it. | Not scheduled. Done: recorded as an option on the area shape |
+
+**Long-term features not yet considered in this chat.** A palette, not a plan (AD5). "Exists" is from module names and heads, not walked.
+
+| Code | Feature | What exists | What it would need |
+|---|---|---|---|
+| LAYX109 | **Farming and plots.** Timed growth, seasons, tending, yield | `field_layer*`, `habitat_care` (sheep, lazy ticks), the Paradise coppice on `craft_sources` | One plot shape shared by crops, herds and coppice; the care area's missing shared seam (area guide) |
+| LAYX110 | **Time away.** What happens to timers, plots and routines while the game is closed or time is skipped | Lazy evaluation in `habitat_care`; routines/programs | A stated rule per kind of timer: catches up, pauses, or spoils. Farming cannot be designed before this |
+| LAYX111 | **Delegation.** Someone else farms, hunts or minds the shop | Routines repeat the player's own jobs; companions exist | A hired or allied person running a routine, paid from the purse; ties give the first favor (LAYX96) |
+| LAYX112 | **Storage and carrying.** How much can be kept and moved | Inventory; `ready_stock` | A limit that makes a long run a choice; spoilage for fresh goods |
+| LAYX113 | **Sinks.** Where farmed goods and coin go so prices hold | Economy faucet and sink ledger (memory only) | A sink per faucet a new area or plot opens; in LOTM the stated prices are the check (AD49) |
+| LAYX114 | **What kills teach.** A bestiary that fills in with experience | Knowledge rules (AD6-AD8) | Counts per creature unlocking what the character knows about it; improves odds reading |
+| LAYX115 | **Defeat in an area.** What losing costs outside a story scene | Story windows author their own | A default per world: wake at home, lose the run's haul, an injury, or worse |
+| LAYX116 | **Bounties and commissions.** Standing reasons to go somewhere | W3X commissions (atlas) | Boards that point at areas and plots |
+| LAYX117 | **Carry between worlds.** Whether farmed goods and trained skills cross | Cross-world transfer rules, cheat cosmology | A per-item answer; otherwise the easiest world's farm supplies every world |
+| LAYX118 | **The long run.** What a player works toward after the areas are cleared | Continuing growth and optional restarts (direction of 2026-11-01) | Each new repeatable (area, plot) says what it feeds beyond itself |
+
+### Other games (added the same turn, Weibao: "Consider oter games too")
+
+From the agent's memory of well-known games, not checked against sources today; treat each line as a lead (inference).
+
+| Game | Areas and enemies | Refill | Farming | Reason to move on |
+|---|---|---|---|---|
+| Melvor Idle | Pick one monster or area and it loops; dungeons are fixed sequences ending in a chest | Next monster appears at once | Plots with real-time timers, seeds and compost; plot count is the limit | Slayer tasks assign a target and pay their own currency; areas with entry requirements |
+| Clicker Heroes, Idle Champions | A ladder of zones; so many kills advances; a timed boss every few zones | Instant | none | The ladder itself; failing a boss means you farm the last zone |
+| NGU Idle | Zones with a chance of a boss; an endless tower scaled to you | Instant | none | Each zone drops one gear set; manual play beats idle play |
+| Kittens Game | No areas. "Send hunters" is a button with a yield roll | Not applicable | Fields as buildings with seasons | Resource needs |
+| Idleon | Each character is parked in an area; gains are computed from stats as a rate | Rate-based, also offline | Plots and timers | Per-area drops and quests |
+| Stardew Valley | Mine floors with a fixed set of monsters | Resets each morning | Plots, seasons, daily watering | Deeper floors, seasonal crops |
+| Monster Hunter | A named quest into a map for a target | Per quest | Small farm that ticks per quest | The quest board |
+| RimWorld, Dwarf Fortress | Real animal populations; raids scale with wealth | Simulated | Simulated crops and seasons | The simulation pushes back |
+| Cultivation sims (several) | Send a disciple out; a timed trip returns a result | Per trip | Spirit fields on timers | Events on the map |
+
+| Code | Disposition | Consideration | Level, effort and done check |
+|---|---|---|---|
+| LAYX119 | ACCOUNT FOR NOW | **There are four models, and the cheapest three are enough.** Loop (stay and fight: YAIR, Proto23, Melvor), ladder (clear to advance, with a gate), expedition (go out for a set time, come back with a result) and simulated population. LAYX103 is the loop. The simulated population is the costly one and stays optional (LAYX108). | No work. Done: area briefs name the model |
+| LAYX120 | ACCOUNT FOR NOW | **The expedition fits the story worlds better than the loop.** A Nighthawk does not farm a forest; he takes a case, is gone a night and comes back with an outcome. "Commission, time away, result from your abilities and preparation" is canon-shaped for LOTM and Hogwarts, needs no area screen, and is results-first (SPR20). Default: loop in the Village and the Gu world's wilds, expedition in LOTM and Hogwarts. | Shapes LAYX105. Done: LAYX105's brief picks loop or expedition for its world |
+| LAYX121 | ACCOUNT FOR NOW | **Assigned targets solve "park in the best area forever".** Melvor's slayer task hands you a target and pays in its own currency. Here that is a bounty or commission (LAYX116) from a person or institution, which also gives ties and standing something to pay out. | Part of LAYX116. Done: one board assignment |
+| LAYX122 | ACCOUNT FOR NOW | **Idle and offline play need a fight you can summarize.** Rate-based games compute gains from stats. `tempo_fight` resolves move by move. A summary run (many fights, expected result and spread) is needed for a long routine, and it is the same tool SPR9 needs to report route odds. | Sonnet, tooling then runtime, medium. Done: a summary of N fights matches N played fights within a stated margin |
+| LAYX123 | ACCOUNT FOR NOW | **"Resets each morning" is the simplest refill that still means something.** The game has calendars; a daily or seasonal reset gives scarcity and a reason to return without a population or a clock per node. It is the sized setting of LAYX104 with the calendar as the trigger. | Part of the first area slice. Done: reset trigger named |
+| LAYX124 | ACCOUNT FOR NOW | **Plot count is the farming limiter everywhere.** Timers and seasons set pace; the number of plots sets scale and is what a player buys, earns or is granted. That makes land and tenancy (homes, institutions) the gate for farming. | Applies to LAYX109. Done: the plot shape says what grants a plot |
+| LAYX125 | ACCOUNT FOR NOW | **Attention should beat absence.** NGU pays more for manual play. Here a routine could give the plain result while playing it yourself opens the decisions (preparation, a tool, an ally) that SPR14 says decide fights. | Design note with LAYX122. Done: the difference between routine and played is stated |
+
+## The lore run versus the game, and what other games suggest (2026-11-09)
+
+Weibao: "What about other inspirations from games and more? Dwarf fortress's procedural stuff? More to consider? COnsider the distinction of a lore run for the sake of fleshing out the world versus the gameplay of playing as someone seperate or part of the same story, just a different part of it?" ([his words](../gm/USER_VISION_LOG_2026-11.md#lore-run-versus-gameplay-and-game-inspirations-2026-11-09)). Accepted direction stays as it is: the lead's life is the main line and the developer playthrough (AD44), ordinary entry uses lore-grounded starts, and non-lead characters do not need full lives. The rows are agent proposals (AD32) about what follows from naming the distinction. Game descriptions are from the agent's memory, not checked today.
+
+**The distinction.** A lore run and a game are measured differently.
+
+| | Lore run (the lead, canon choices) | Game (another seat) |
+|---|---|---|
+| Purpose | Flesh out the world: places, people, prices, institutions, events, anchors | Live in it: an ordinary day that is playable and choices that matter |
+| Measure | Fidelity to the book | Whether a repeatable loop exists and is worth repeating |
+| Shape | Scenes, each once | Loops, favors, areas, makings, done many times |
+| Who plays | The developer playthrough, and anyone who wants story mode | Weibao as someone in the same story at a different part, or someone separate |
+
+This explains the chat's main finding. Story windows produce once-only acts because a lore run is scenes; that is correct for a lore run and insufficient for a game.
+
+| Code | Disposition | Consideration | Level, effort and done check |
+|---|---|---|---|
+| LAYX126 | ACCOUNT FOR NOW | **A lore-run window leaves three kinds of thing, and says which.** World facts (a place, a person and their routine, a price, an institution's rule), system anchors (results a system must reproduce, SPR20) and lead-only scenes. The first two are what other seats live on. Default: each window's receipt lists what it added of each. | Receipt line, no new gate. Done: one window's receipt lists the three |
+| LAYX127 | ACCOUNT FOR NOW | **The bystander check.** After a window, ask what someone standing nearby got from that chapter: a shop that now exists, a rumour, a price change, a person who is now busy or dead. If the answer is nothing, the window built a scene and not the world. | Prompt in the lead-life brief. Done: the answer is written per window |
+| LAYX128 | ACCOUNT FOR NOW | **The story is the world's calendar.** For another seat, canon events happen on their dates whether or not you are there, as news, closures, danger or opportunity. The lore run already knows the dates. Default: canon events are world events with a visible wake, and a seat's distance decides how much reaches it. | Design note. Done: one canon event reaches a non-lead seat as a consequence |
+| LAYX129 | ACCOUNT FOR NOW | **The lore run's choices are the lead's script as a non-player person.** When Weibao plays someone else, Klein still has to act. The developer playthrough's recorded choices are that behaviour, played back until the player disturbs something. | Later. Done: the lead runs one day from the recorded choices with the player elsewhere |
+| LAYX130 | ACCOUNT FOR NOW | **Three seats, by distance.** The lead (story mode). A participant in the same story at a different part (a colleague, a classmate, a clan member), who meets canon at set points. Someone separate (another city or year), for whom canon is distant news. Each needs less of the book and more of the repeatable systems as distance grows. | Applies to world entry (WER). Done: a start names its distance |
+| LAYX131 | ACCOUNT FOR NOW | **The player knows the plot and the character does not.** Weibao has read LOTM. Playing beside the story with that knowledge is the fun of it, and it is the knowledge rule (AD6-AD8) under strain: the character can act on a hunch, and cannot cite what they never learned. Dial: a start that grants foreknowledge in-world (a transmigrator) says so. | Applies to starts. Done: a start states what the character knows |
+| LAYX132 | ACCOUNT FOR NOW | **Disturbing canon needs a default.** The canon-pull rules cover the lead. For another seat: canon holds unless the player removes something it depends on, then the nearest plausible person or event fills the gap, and what cannot be filled diverges and is recorded. | Design note, owned by the lead-life systems design (LSD). Done: one worked example |
+
+**From other games.**
+
+| Code | Source | What it does | What it suggests here |
+|---|---|---|---|
+| LAYX133 | Dwarf Fortress | Generates a world, then simulates its history, then lets you play in it. Fortress mode and adventure mode share one world: you can walk into the ruins of your own fort | The same split as lore run and game. For a book world the history is the book and the lore run is history generation done by hand; for original worlds the history can be generated |
+| LAYX134 | Dwarf Fortress | Materials, creatures and items are defined in data files with properties; everything made is a combination | MR37's world property set is this. It argues for properties in data per world, not in recipe code |
+| LAYX135 | Dwarf Fortress | Artifacts and engravings depict real events from the history | Made things and places that reference real receipts: a keepsake names who made it and when (MR30), a ruin shows what happened (AV1 in the procedural story palette) |
+| LAYX136 | Dwarf Fortress | Legends mode lets you read the generated history | A history view of canon and generated events, limited in play to what the character has learned |
+| LAYX137 | Dwarf Fortress, Crusader Kings | Detail falls off with distance from the player | Already in `EMERGENT_SYSTEMS`; it is what makes LAYX128 affordable |
+| LAYX138 | Crusader Kings | Opinion is a sum of named modifiers with reasons and expiry; you can play any character in the world | Regard as remembered causes is what the tie record already stores (32 memories per pair). Shown as reasons, never a number. Playing any seat is LAYX130 |
+| LAYX139 | Persona, Fire Emblem, Hades | A relationship is a short ladder of ranks, each opening a scene or a benefit | Supports LAYX95: bounded ties work in loved games. A ladder is the simplest reader shape for people outside the lead's circle |
+| LAYX140 | Caves of Qud | Hand-written main story and places inside a procedurally generated history and villages | The mix this project is heading to: canon authored, the rest generated around it |
+| LAYX141 | Mount and Blade, Kenshi | You start as nobody; lords and factions use the same rules you do and carry on without you | The separate seat. It is also SPR1's test: a system a non-player can run is a system that exists |
+| LAYX142 | Shadow of Mordor | An enemy who beat you remembers and is promoted | `rival_memory` and `rehearsed_foe` exist (LAYX79 to trace). One remembered opponent per area is cheap variety on the simple area |
+| LAYX143 | RimWorld | A storyteller paces events by how the colony is doing | A pacing director over world events, with canon dates as fixed points it works around |
+
+## Fleshing out the world with lore runs, chance, and the three core inspirations (2026-11-09)
+
+Weibao: "how to flesh out world with the lore runs? Do we need to adjust current work and more? more to consider? Isnt alot of stuff we do probalistic and more? Caves of QUd and RImworld, and maybe Shadow of mordor would and should be core inspirations, we should have considered this previously already along time ago did we not?" ([his words](../gm/USER_VISION_LOG_2026-11.md#fleshing-out-the-world-and-core-inspirations-2026-11-09)). The core-inspirations line is his direction and is now in [USER_VISION](../USER_VISION.md) and the digest. Everything else here is agent proposal (AD32).
+
+**Were they considered before? Yes, and the previous round of this atlas missed it.** Found in the repo today:
+
+| Game | What already exists | State |
+|---|---|---|
+| Caves of Qud | Named in USER_VISION for unfair difficulty (2026-10-03). A [systems audit](../research/qud-systems-audit-2026-10-15/REPORT.md) with a generated-world-and-quests part, plus `research/caves-of-qud/`. "Legend lines, Qud style" in `EMERGENT_SYSTEMS.md` | Researched; legends not built |
+| RimWorld | `research/rimworld/` findings (body and social). Director personalities in `EMERGENT_SYSTEMS.md` | Researched; no director in code (no module by that name) |
+| Shadow of Mordor | Weibao asked "Nemesis system?" on 2026-10-01. "Enemies that remember" is I2 in the procedural story palette. `rival_memory.js` is imported by `tempo_fight_domain.js` and `native_battle.js` | Partly built; reach in lead worlds not walked |
+| Related code | `storylet_deck.js` (simulation), `storylet_deck2.js` (LOTM deck), `story_recognizer.js`, `cast_schedule.js` with source ranks canon, intention, routine, fill | Built |
+
+LAYX133-LAYX143 presented these as fresh ideas from memory. They were already researched and partly built. The gap was that they lived in palettes and research folders and not in the one-page direction, so a new chat did not start from them. That is now fixed for these three; LAYX144 covers the general case.
+
+**Chance.** Much of the game is rolled: fight harm odds, brew outcomes, gather odds, seeded streams for generation. A lore run is then one path through a world of chances.
+
+| Code | Disposition | Consideration | Level, effort and done check |
+|---|---|---|---|
+| LAYX144 | ACCOUNT FOR NOW | **Research that is not in the digest gets rediscovered.** A core inspiration belongs in USER_VISION with a link to its research and the code that came from it. Default: when a reference game or book is named as core, one line goes there. | Done for three. Done check: the digest names them |
+| LAYX145 | ACCOUNT FOR NOW | **Canon is one draw.** The book shows what happened once. The world a bystander lives in is the spread that draw came from. So the lore run records, per result, whether the book treats it as ordinary, lucky or desperate (SPR9), and the fit targets the spread with canon inside it. The lore run itself pins the canon outcome by a recorded seed or a stated override, so it stays replayable. | Receipt line. Done: one fight and one brew carry the label |
+| LAYX146 | ACCOUNT FOR NOW | **Rolled interactions answer "ties are too many possibilities".** RimWorld does not author relationships. People with a few traits roll small interactions by compatibility, each leaves a remembered reason that fades, and the relationship is what accumulates. Here the tie record already stores remembered causes. A small set of rolled everyday interactions per world, weighted by temperament, fills in everyone the book does not cover; the lead's circle stays anchored to canon (SPR17). | Design note, then a slice after LAYX96. Done: two non-lead people's regard changes over a week with no authored scene |
+| LAYX147 | ACCOUNT FOR NOW | **Canon is the fixed point and generation is the fill, at one lower rank.** `cast_schedule.js` already ranks canon over intention over routine over fill. The same ranking can apply to places, shops, prices and people: what the book states is fixed, what it implies is borrowed (SPR13), and the rest is generated from the world's own grammar. This is Qud's hand-written story inside generated villages. | Design note. Done: one street in Tingen has canon shops and generated ones, told apart in the developer view |
+
+**How a lore run fleshes out the world** (method, each a receipt prompt and not a gate).
+
+| Code | Step | What it produces |
+|---|---|---|
+| LAYX148 | **Harvest each window.** Every place, person, routine, price, rule of an institution and dated event in the chapter becomes a world record, whether or not the lead uses it | The world facts of LAYX126 |
+| LAYX149 | **Play the days the book skips.** "A week later" is seven ordinary days. The lead's shifts, study, practice, wages and errands in that gap are the repeatable loop (SPR1), and the book's before and after are its anchors | The ordinary day, calibrated by canon at both ends |
+| LAYX150 | **Write down what others did meanwhile.** The people and scene rows say where the cast was off the page. Those become schedule rows at canon or intention rank | A cast that moves without the lead |
+| LAYX151 | **Fill around the fixed points** (LAYX147) and label each fill by basis | A street with more than the named shop |
+| LAYX152 | **Walk one ordinary person at each arc waypoint.** From the saved scenario (AD54), play a day as a clerk or a first-year who is not the lead. What they can do is the measure of how fleshed out the world is | The bystander check, played and not asked |
+| LAYX153 | **Record canon results with their odds label** (LAYX145) | Anchors a fit can use |
+
+**Does current work need adjusting?** A proposal for the session that owns the Klein and Harry arcs; this chat has not edited its record.
+
+| Code | Adjustment | Cost |
+|---|---|---|
+| LAYX154 | Keep going. Klein through Tingen stays the build order. Nothing here stops or re-plans it | None |
+| LAYX155 | Add to each window's checkpoint entry: what it added to the world, the results it recorded with an odds label, and the bystander answer | Three lines per window |
+| LAYX156 | Where the book skips days, build or reuse a loop for them and do not jump the clock. This is the one change that alters what gets built | Varies; it is the missing ordinary-day caller, so the cost buys the thing the chat found missing |
+| LAYX157 | At each arc waypoint, one non-lead day-walk (LAYX152) before the next arc | One short walk per arc |
+| LAYX158 | Trace where `rival_memory` and the storylet deck already reach in the lead worlds before proposing anything new for opponents who remember or paced events (extends LAYX79) | Haiku read, small |
+
+## Potion numbers from later books and outside sources (2026-11-09)
+
+Weibao: "Does the potions ever get the numbers? Did they ever release the mad blood princ'es book or something? In that case why cant we get the values elsewhere, search online if anyone analyzed it, or find lore books, or look at the games? there are manmy ways?" ([his words](../gm/USER_VISION_LOG_2026-11.md#potion-values-from-other-sources-2026-11-09)). SPR13 now ranks borrowed sources. Rows are agent proposals (AD32).
+
+**Later books (counted, from the [more-sources ledger](ANCHOR_LEDGER_MORE_SOURCES_2026-11-09.md), rows unreviewed).** Book one has 12 potion rule rows and no figure. Books 2 to 7 have 169 potion rows with 45 anchors: 10 points, 17 bands, 18 counts or durations, plus 37 sequences and 23 negatives. So the series does give numbers, mostly from book 2 on (brewing durations, counts, stirring sequences, what went wrong).
+
+**Outside sources (web search today, four queries; each line is a lead to verify before use).**
+
+| Source | What it has | Rank under SPR13 | Checked today |
+|---|---|---|---|
+| The Half-Blood Prince's textbook | Not published. Only fan-made replicas were found | none | [HP Lexicon](https://www.hp-lexicon.org/?p=546), search found no official edition |
+| Pottermore's brewing game (2011 to 2015) | Step recipes with counts. One lexicon entry gives the Cure for Boils as 6 snake fangs, 4 horned slugs, 2 porcupine quills, five clockwise stirs and a wand wave | Author-adjacent | [World of Potter lexicon](https://worldofpotter.eu/lexicon/entry/019e8a18-15f4-72a8-8864-d208498554d3), [Compendium](https://harry-potter-compendium.fandom.com/wiki/Cure_for_Boils). Exact timings not confirmed |
+| Wonderbook: Book of Potions (2013) | A potions primer with a new author character, made with Rowling; its Cure for Boils is a one-part recipe that differs from Pottermore's | Author-adjacent | [Harry Potter Wiki](https://harrypotter.fandom.com/wiki/Book_of_Potions), [MuggleNet](https://www.mugglenet.com/?p=1206241). Full recipe list not retrieved |
+| Hogwarts Legacy (2023) | Ingredient sets, counts and brew times per potion; guides disagree on some values across patches | Licensed game | [Sportskeeda](https://www.sportskeeda.com/esports/hogwarts-legacy-potions-guide-how-obtain-recipes-ingredients), [Fextralife](https://hogwartslegacy.wiki.fextralife.com/Potions) |
+| Fan lexicons and class sites | Collated recipes, often mixing the above | Fan analysis | [HP Lexicon note](https://www.hp-lexicon.org/?p=4726) |
+
+| Code | Disposition | Consideration | Level, effort and done check |
+|---|---|---|---|
+| LAYX159 | ACCOUNT FOR NOW | **The Hogwarts potion bench need not wait for numbers.** LAYX44's "no numeric anchor" was about book one alone. Later books and author-adjacent material give counts, sequences and durations. | No work. Done: N7's brief cites this section |
+| LAYX160 | LATER | **Collect the outside values for the book-one potions.** Pottermore and Book of Potions recipes for the potions a first-year meets, each value with its source and rank, into the axis sheet's Hogwarts section. Values and steps only, paraphrased; no copied text. | Haiku with web search, docs only, small. Done: the Cure for Boils and two more have a sourced value table |
+| LAYX161 | ACCOUNT FOR NOW | **Outside sources disagree with the book and with each other, and that is data.** Pottermore's Cure for Boils had no way to take the cauldron off the fire, which the book makes the whole point of the lesson; Book of Potions uses a different recipe. Under SPR11 the book wins, the others fill what it leaves open, and a disagreement between them is a dial. | Applies to LAYX160. Done: each conflict names which source governs |
+| LAYX162 | ACCOUNT FOR NOW | **A game's numbers carry order and ratio, not scale.** A 15-second brew was tuned for an action game. Which potion takes longer, how many ingredients, which ingredient recurs: usable. Seconds and Galleon prices: not, unless a book figure pins the scale (SPR21). | Applies to every licensed-game source. Done: borrowed values say what was kept |
+| LAYX163 | ACCOUNT FOR NOW | **The same ladder exists for every world.** LOTM has the author's side material, the adaptation and a large wiki; Reverend Insanity has fan-compiled Gu lists; Mother of Learning has the author's worldbuilding posts. A source's outside ladder belongs in its ledger so a slice knows where to look when the book is silent. | Part of LAYX88's follow-up. Done: each ledger has an "outside sources" section |
+| LAYX164 | ACCOUNT FOR NOW | **Real-world counterparts are the bottom rung and often the best.** Hemlock, aconite, nettles and mandrake are real plants with real toxicity. A world's harsh ingredients can borrow their ordering from pharmacology, labelled as borrowed. The LOTM sheet already does this for one auxiliary. | Applies to MR37 property sets. Done: borrowed-from-real cells are labelled |
+
+## Many routes to one product (2026-11-09)
+
+Weibao: "There might be different ways to make the same thing, and there might be differences in quality and efficientcy, after all, the prince's potion book had enhanced recipes and more? same thing should apply for other worlds and more, and potions should be derivable from procedural rules, like effects of ingredients and more" ([his words](../gm/USER_VISION_LOG_2026-11.md#many-routes-to-one-product-2026-11-09)). The direction is in USER_VISION. Its rule form is proposed as [MR42-MR44](../MAKING_RULES.md#proposed-additions-2026-11-09-ad32); accepted MR6-MR10 and MR21 already hold most of the ground (formulas as attractors, composition over catalogs, open slots, recorded methods, skill as control). Rows are agent proposals (AD32).
+
+| Code | Disposition | Consideration | Level, effort and done check |
+|---|---|---|---|
+| LAYX165 | ACCOUNT FOR NOW | **What was missing from the accepted rules.** They say any mix resolves and a formula is an attractor. They do not say a product has several deliberate routes with different quality and cost, that the taught recipe sits below the best one, or that a method is ownable. MR42-MR44 add those three. | No work. Done: making briefs cite MR42-MR44 |
+| LAYX166 | ACCOUNT FOR NOW | **The Prince's notes are handling changes, which the engine can express.** Crushing where the book says cut, an extra stir the other way, a different count: each changes how much of a property a material releases or when. That is a preparation verb acting on extraction (MR16), which today's engine lacks per ingredient (gap G1 in the axis sheet). So G1 is the gap that blocks enhanced recipes. | Raises G1's priority for N7. Done: one ingredient has two preparations with different yields |
+| LAYX167 | ACCOUNT FOR NOW | **Canon gives the ranking as a result.** The annotated method beat the textbook followed exactly, in class, more than once. That is an order anchor (SPR8, SPR20) the Hogwarts property set has to reproduce: textbook-exact lands inside the region, the annotated route lands better. | Part of N7's canon boundary (MR35). Done: both routes run and rank correctly |
+| LAYX168 | ACCOUNT FOR NOW | **Efficiency has several axes, so different makers want different routes.** Ingredient cost, time, yield per batch, risk of a bad failure, skill demanded, and apparatus needed. A poor student wants the cheap slow route; a shop wants yield; an expert takes the risky fast one. One "quality" number would hide this. | Design note in the axis sheet. Done: a product shows two routes that trade cost for risk |
+| LAYX169 | ACCOUNT FOR NOW | **Each world sets how wide the region is, and canon supports the idea in all four.** Hogwarts: wide, with room above the textbook. The Gu world: several refinement recipes for one Gu with different costs and success rates are part of the setting, and better recipes are treasures. LOTM: narrow, since a wrong potion costs the drinker dearly, with latitude mostly in auxiliaries and in equivalent main ingredients of the same pathway. Mother of Learning: alchemy that improves with study. | Per-world line in each axis sheet. Done: each sheet states its width and what a miss costs |
+| LAYX170 | ACCOUNT FOR NOW | **Deriving a route is the research loop.** If potions follow from what ingredients do, then learning an ingredient's properties is progress, and working out a new route is something to do at a bench. `invention_planner` and `craft_experiment_log` exist for this (LAYX65); knowledge of properties stays per observer (MR1, MR31). | Trace those two modules with LAYX71. Done: one derived route recorded as a learned method |
+| LAYX171 | ACCOUNT FOR NOW | **A better method is worth money and trust.** A master's secret, a family recipe, a margin note in a second-hand book: each is knowledge with a holder (MR44). That gives ties a favor to grant (LAYX96), institutions something to guard, and shops a reason to differ. | Later slice. Done: one method learned from a person and not from a list |
+| LAYX172 | ACCOUNT FOR NOW | **Substitution answers scarcity, within what canon fixes.** Many routes mean a missing ingredient is a problem to solve and not a wall. MR26 still holds: where canon makes an ingredient the scarce thing (a Beyonder main ingredient), no route goes around it, and the dial says so. | Applies to LOTM's sheet. Done: the sheet lists which ingredients have no substitute |
+| LAYX173 | ACCOUNT FOR NOW | **One dominant route would undo all of this.** If a derived route is cheaper, faster and better on every axis, everyone uses it and the product has one recipe again. Each fit checks that no route wins on every axis, and that the best route for quality costs something. | Check in the fit (LAYX90). Done: the check runs on one product |
+
+## Rules all the way down, and the same breadth for forging (2026-11-09)
+
+Weibao: "Everything can be reasonably built around rules and more? Trying different steps can result in different results, or no result, other stuff and more? Same level of bredth for forging and more?" ([his words](../gm/USER_VISION_LOG_2026-11.md#rules-for-every-craft-and-forging-2026-11-09)). This is AD38 (things work by how they work) and MR6-MR8, MR16-MR17 applied across crafts; nothing here changes an accepted rule. Rows are agent proposals (AD32).
+
+**The shape every craft shares.** Materials carry properties. Steps change state. A law reads the final state into what the thing does. Different steps give a different state and so a different result; a step the law does not read at that moment changes nothing that matters, and the maker gets a cue saying so. MR11 already names the modes (composition, formula, slots, budget, grade, conserved identity, pattern, assembly). What differs between crafts is what a step acts on.
+
+| Family | Crafts | What a step changes | Why order matters | What "no result" looks like | Code today |
+|---|---|---|---|---|---|
+| Mixing | Potions, cooking, medicine, alloys | A blend of properties | Weakly: timing and heat windows | An inert or spoiled mix | `craft_resolver` (8 importers); deep only for two potions |
+| Working | Forging, carving, tailoring, wand and tool making | One object's structure and shape | Strongly: each step acts on what the last left, and some cannot be undone | Hammering cold metal: nothing, or a crack | `alloy_equipment.js` (one authored alloy), `temperature_band.js`; `craft_process_thermal.js` has no importer |
+| Patterning | Runes, enchanting, talismans, formations, spell design | An arrangement of symbols | Adjacency and sequence are the grammar | A pair the grammar does not name resolves to discord | `rune_grammar.js` (4 importers), already resolves unnamed pairs |
+| Assembling | Devices, constructs, suits | Which parts connect, within budgets | Interfaces and load, not sequence | A part with nothing to drive it | `temporary_construct.js`; not traced |
+| Growing | Gu refinement, breeding, grafting, herb beds | A living individual over time | Seasons, feeding and age | It lives and does not change | Window pack for Gu; care families unshared (LAYX71) |
+| Performing | Rites, summoning, oaths | Conditions met for a party that answers | The answering party decides | Silence | Procedure layer and `ritual_conditions`, LOTM only |
+
+| Code | Disposition | Consideration | Level, effort and done check |
+|---|---|---|---|
+| LAYX174 | ACCOUNT FOR NOW | **Six families, one shape.** A new craft declares its family and its world's properties before any recipe. The families differ in what a step acts on, so the engine needs both a blend resolver (exists) and a history resolver (LAYX175). | No work. Done: craft briefs name the family |
+| LAYX175 | ACCOUNT FOR NOW | **Forging needs the step history, and the piece for it sits unwired.** A blade is the same steel with a different past: quench then temper is one sword, temper then quench is another. `craft_resolver` sums; `craft_process_thermal.js` models staged kinetics and nothing imports it. That module is the start of the working family. | Trace it (LAYX74), then decide. Done: its fitness for forging stated |
+| LAYX176 | ACCOUNT FOR NOW | **Forging's property set, as a starting palette.** Hardness, toughness, flex, edge, weight, purity, and how well it carries the world's energy. Steps: alloy (a mixing sub-step), heat to a band, hammer or fold, quench in a medium, temper, anneal, grind, fit to a user. Routes that trade off: fine metal treated carelessly against plain metal treated well. | Palette only. Done: one world's sheet adopts or changes it |
+| LAYX177 | ACCOUNT FOR NOW | **Real metallurgy is the richest borrowed source any craft has.** Books rarely give forging numbers; the real craft has them in abundance (which steps harden, which toughen, what overheating ruins). Under SPR13 it is borrowed from the real-world counterpart, labelled, and a world's magic adds to it. | Applies to LAYX176. Done: borrowed cells labelled |
+| LAYX178 | ACCOUNT FOR NOW | **A worked object persists, which mixing products mostly do not.** A blade wears, is repaired, reforged and renamed; it has a history as a living thing does (MR41 by analogy) and a maker (MR30). Hogwarts canon has a made thing that takes in what strengthens it. So the working family needs wear and upkeep as readers, where potions need only use. | Design note. Done: one object's history changes its stats |
+| LAYX179 | ACCOUNT FOR NOW | **"No result" has to teach.** MR16 says a verb with no stated effect is not offered; MR17 says timing counts only where the law reads it. Reconciled with "trying different steps can result in no result": a verb always changes declared state, and sometimes that state does not change the product. The cue says which (nothing happened; too early; wasted). Without the cue, experimenting is guessing. | Applies to every bench screen. Done: a no-effect step shows why |
+| LAYX180 | ACCOUNT FOR NOW | **Rules alone make things that are all slightly different and none special.** MR2 keeps a third source of chance for this: rare authored reactions. Each craft keeps a small set of named works and odd reactions that no formula predicts, as overrides with a reason. | Applies per craft. Done: each sheet lists its authored exceptions |
+| LAYX181 | ACCOUNT FOR NOW | **Breadth is cheap in rules and costly in readers.** A property with nothing that reads it is a number (SPR2, MR32). Forging is the best-supplied craft here because fights read weapons; cooking is the worst while hunger is off. Order crafts by how many readers they already have. | Ordering input. Done: the crafts table has a readers column |
+| LAYX182 | ACCOUNT FOR NOW | **Forging has no lead-world caller yet.** The Village holds the smithing content and gets no new depth by direction; Tingen, Hogwarts and Qing Mao are not smithing stories. Its first caller would be a world where making gear is the life (a cultivation world's artifact refining, an original world). Until then it stays a palette. | Not scheduled. Done: recorded |
+| LAYX183 | ACCOUNT FOR NOW | **Crafts feed each other.** An alloy is mixed then worked; a blade is worked then patterned; a talisman needs ink that was mixed; a Gu is grown then used in a rite. A product of one family is a material in another, carrying its properties across (MR14 for across worlds). | Design note with LAYX174. Done: one chain across two families runs |
+
+### Research, the shared abstraction, and what this chat has not covered (same turn: "Research? Abstraction? Did we cover all our basis?")
+
+| Code | Disposition | Consideration | Level, effort and done check |
+|---|---|---|---|
+| LAYX184 | ACCOUNT FOR NOW | **Research is the seventh family, and the one that makes the other six playable.** Its product is knowledge. Steps are experiments, reading, asking and watching; the state changed is what one observer knows (MR1, MR31); "no result" is an inconclusive test. If things follow from properties, then finding out a property is progress in every craft at once. Modules exist (`research_content`, `research_home`, `inquiry_study`, `invention_planner`, `craft_experiment_log`); their reach in lead worlds is untraced (LAYX65). | Trace with LAYX71. Done: which of the five a lead world calls |
+| LAYX185 | ACCOUNT FOR NOW | **The abstraction is already an accepted rule; the code has four routes.** MR29 says one shared envelope with separate product logics. The area guide found four making routes. So the abstraction question is consolidation as slices touch them (the standing default), with the family table (LAYX174) as the target shape: properties, steps, a law, readers and a knowledge view per craft. | No new abstraction. Done: the next making slice lands on the envelope |
+| LAYX186 | ACCOUNT FOR NOW | **Not covered: how any of this looks at a bench.** Properties, routes, cues and "why nothing happened" all need a screen a player can read. UI rules exist (UR41-UR43, UR71, UR74); this chat applied none of them. | First making slice. Done: a bench shows two routes and one cue |
+| LAYX187 | ACCOUNT FOR NOW | **Not covered: non-player makers.** MR23 says every maker uses the same rules. Then a shop's stock, a rival's potion and a master's work come from the same properties, and prices follow cost of route. Nothing here checked whether any non-player makes anything. | Later. Done: one shop item made by the resolver |
+| LAYX188 | ACCOUNT FOR NOW | **Not covered: fights got less than making.** This chat gave fights anchors, areas and a summary tool, and no equivalent of the property-and-route treatment. What decides a fight (preparation, information, a tool, an ally, SPR14) deserves the same pass. | A round of its own if asked. Done: recorded |
+| LAYX189 | ACCOUNT FOR NOW | **Not covered: cost.** Step histories, properties per material and remembered reasons per pair of people all grow saves and compute. No estimate was made. | With the first slice that adds one. Done: save growth measured once |
+| LAYX190 | ACT NOW (for Weibao to decide) | **The base most at risk is building.** This chat has produced about 190 atlas rows and 30 proposed rules; none of the rules is accepted by name and nothing has been built or played. SPR5 was written for this case. Recommendation: stop the rounds and take one slice that tests several threads at once, an ordinary first-year's day at Hogwarts with a potion made two ways (the textbook route and a better one). | Weibao's call. Done: a slice is chosen or the rounds continue by his choice |
+
+## Farming, and long-term systems already in the code (2026-11-09)
+
+Weibao: "Farming? Other stuff?" ([log](../gm/USER_VISION_LOG_2026-11.md#farming-and-other-long-term-systems-2026-11-09)). Extends LAYX109 and LAYX124. Rows are agent proposals (AD32). "Exists" is from module headers and importer counts read today, not walked in play.
+
+**Correction to LAYX97 and LAYX103.** `craft_sources.js` (6 importers) already does more than those rows said: location sources (herb patches, ore seams, fishing spots, salvage heaps) with regional variants, yield rolls keyed on game time, tool, skill, hour and season gates, depletion and regrowth, rare finds, an odds forecast and bounded idle gathering. The gathering half of "areas to farm" is built. What is missing is the owned, tended half.
+
+| Code | Disposition | Consideration | Level, effort and done check |
+|---|---|---|---|
+| LAYX191 | ACCOUNT FOR NOW | **A farm plot is a source you own and tend.** Take a `craft_sources` node, add an owner, and let care change its regrowth and quality. Then farming, herb beds, a fish pond and a herd are one shape with gathering, and the growing family (LAYX174) has its first shared seam. Default: extend the source module before writing a farming module. | Design note, then a slice. Done: one tended plot and one wild patch on the same module |
+| LAYX192 | ACCOUNT FOR NOW | **Farming by rules, same as potions.** A plant has needs (water, light, soil, season, company) and gives a yield with quality. Soil is a material with properties, so compost and feed are mixing. Steps are sow, water, weed, prune, graft and when to harvest. Routes trade labour for yield (MR42): a neglected bed still gives something. | Palette. Done: one plant with two care routes |
+| LAYX193 | ACCOUNT FOR NOW | **Breeding is the long loop.** Selecting for a trait over generations is progress that takes seasons. `lineage_traits.js`, `lineage_domain.js` and `material_lineage_domain.js` exist; whether they cover plants or animals is untraced. | Trace with LAYX71. Done: what the lineage modules own |
+| LAYX194 | ACCOUNT FOR NOW | **The book worlds give farming real callers.** Hogwarts has the greenhouses and a plant whose growing-up is tracked across a school year (book 2). The Gu world has feed: a keeper who grows or buys what a Gu eats has a reason to own a plot, and the keeper code already predicts starvation (`living_upkeep.js`). LOTM has none. From the agent's memory of the books; check against rows before use. | Shapes where LAYX191's slice lands. Done: the slice names its world and its canon anchor |
+| LAYX195 | ACCOUNT FOR NOW | **Weather and seasons already exist as modules** (`weather.js`, `weather_calendar.js`, `world_calendar`). Farming is their first strong reader: a dry month, a frost, a tide of pests. Bad seasons are events with a wake (LAYX128), which gives the storyteller (LAYX143) something to pace. | Part of LAYX191. Done: one weather fact changes one yield |
+| LAYX196 | ACCOUNT FOR NOW | **Time away has to be settled first** (LAYX110). `habitat_care.js` projects time lazily so reloading never grants stock; that is a working answer for one pen and the candidate default for all plots. | Decide at LAYX191. Done: the rule is stated once for all timers |
+
+**Other long-term systems that already have code.** Found by module name today; none traced in this chat. A palette for later rounds, not a plan.
+
+| Code | System | Modules seen | Question it raises |
+|---|---|---|---|
+| LAYX197 | Family, heirs and inheritance | `family_tree`, `village_family`, `heir_inheritance`, `home_inheritance`, `lineage_*` | Playing on as an heir is the Crusader Kings long game. Does any lead world use it, and does it meet the tie record or sit beside it (the area guide's third person store)? |
+| LAYX198 | Aging | `aging_contact*` | With seasons, breeding and heirs, age is what makes long loops cost something |
+| LAYX199 | Schooling, teaching and apprentices | `home_school*`, `teacher_window`, `material_apprentice`, `book_world_hp_school_calendar` | A method can be taught (MR44). Is there one teaching seam or several? |
+| LAYX200 | Careers and work | `village_career*`, LOTM shifts in story windows | The ordinary day (SPR1) is mostly work. One career shape across worlds is the skipped-days loop (LAYX149) |
+| LAYX201 | Law and cases | `law_case` | Standing has five owners; where does a crime or a contract land? |
+| LAYX202 | Workshops and storage | `*_workshop_*` (several), `storage_*`, `workshop_placement` | Several workshop families: are they the bench for all six craft families or one each? |
+| LAYX203 | Not seen in code by name | Health and illness, faith and churches, trade routes and caravans, running a business | Faith is central to LOTM (churches grant standing, work and protection); caravans are in the Gu world's story windows |
+
+## What to defer, what is most pressing, and what has nothing yet (2026-11-09)
+
+Weibao: "Aging and heir and family could porobably be delayed, other stuff and more? What is most imperative? More to consider/ Stuff that doesnt have anything yet?" ([log](../gm/USER_VISION_LOG_2026-11.md#deferral-and-priorities-2026-11-09)). The deferral is his; the ordering below is an agent proposal (AD32).
+
+**Deferred by Weibao ("could probably be delayed"):** aging, heirs and family (LAYX197, LAYX198). Their code stays; no new depth and no slice until he raises them.
+
+**Correction to LAYX203.** "Not seen in code by name" was wrong as a reading of the code. A keyword count today (file counts in `src/`, which show a word appears and not that a system works): illness and infection 27 files (`affliction_catalogue`, `affliction_track`), wounds 89, church and prayer 41 (LOTM files), caravans 9 (Gu world), bounty or commission 67, offline or catch-up 32. Almost nothing discussed in this chat has no code at all. The codebase is wide. What it lacks is callers in an ordinary day and a map of what each family does.
+
+| Code | Disposition | Consideration | Level, effort and done check |
+|---|---|---|---|
+| LAYX204 | ACT NOW (Weibao's call) | **Most pressing: one ordinary day in one book world.** Every engine here waits for a caller that repeats. A first-year's school day at Hogwarts (Book 1 is closed) with a potion made two ways tests the day loop, many routes (MR42, MR43) and the bystander view together. | Sonnet lanes with a brief; runtime; medium. Done: played twice in the browser at 1920x1080 from a fresh origin |
+| LAYX205 | LATER (cheap, can run beside LAYX204) | **Second: a census of what the module families do.** Today's name searches kept finding built things the chat did not know about (gathering sources, afflictions, bounties, lineage, workshops). The area guide covers 18 areas; the families outside it are unmapped. One pass per family: what it owns, who calls it, whether a lead world reaches it. | Haiku readers, docs only, extends the area guide. Done: care, person and memory, research, workshops, afflictions, bounties and commissions, offline handling each have an entry |
+| LAYX206 | ACCOUNT FOR NOW | **Third: the time-away rule** (LAYX110, LAYX196). It blocks farming, plots and long routines, and 32 files already mention offline or catch-up, so there may be several answers in the code already. | Part of LAYX205's census, then one stated rule. Done: one rule, with the modules that follow it |
+| LAYX207 | ACCOUNT FOR NOW | **Fourth: preparation per ingredient in the making engine** (axis-sheet gap G1, LAYX166). Without it there are no enhanced recipes, and many routes collapse to one. | Inside LAYX204 if the potion needs it. Done: one ingredient, two preparations, different yields |
+| LAYX208 | ACCOUNT FOR NOW | **Fifth: one tie reader that is not an unlocked line** (LAYX96, the favor). Small, and it makes regard matter in the ordinary day. | After LAYX204. Done: one person's terms change with regard |
+| LAYX209 | ACCOUNT FOR NOW | **What has nothing yet, as far as this chat's traces go.** A repeatable fight caller for the lead worlds (LAYX105); a fight that can be summarized (LAYX122); rolled everyday interactions between people (LAYX146); the lead played from the recorded choices (LAYX129); canon events reaching another seat as a calendar (LAYX128); a fit that takes results (LAYX90). Each is a connection between things that exist. | Ordering input. Done: recorded |
+| LAYX210 | ACCOUNT FOR NOW | **Also undecided: the 30 proposed rules.** SPR1-SPR22 and MR37-MR44 are prompts until accepted by name. Three of them now quote his direction (SPR20, MR38, MR42-MR43). Accepting or rejecting them is quicker than another round and tells every later brief what holds. | Weibao's call. Done: each rule marked standing, rejected or left as a prompt |
+
+## Give the lore run the freedom first (2026-11-09)
+
+Weibao: "Would it be easier to start from giving the lore run the same freedom first, so like the opition to diverge and ore? nd then we can extend that freedom to non lore runs?" ([log](../gm/USER_VISION_LOG_2026-11.md#freedom-for-the-lore-run-first-2026-11-09)). The agent's answer is yes, and it revises LAYX204 and the "play as a bystander next" advice given earlier the same day. Rows are agent proposals (AD32).
+
+**What exists.** The lead-life rules already cover this ground: results follow the book's chain while the state matches, a state that no longer matches is logged as divergence, and worlds differ in how canon resists change (causal mass, plus a world mechanism where a world names one). A keyword search found no divergence handling in the two lead domains (`book_world_lotm_domain.js`, `book_world_hp_lead_domain.js`); not walked, so how much choice the windows give today is unverified.
+
+| Code | Disposition | Consideration | Level, effort and done check |
+|---|---|---|---|
+| LAYX211 | ACCOUNT FOR NOW | **Yes: the lead is the cheapest seat to free.** The lead has state, panels, a cast with ties and saved waypoints (AD54). Another seat needs a start, an identity, a kit and its own knowledge before its first minute (WER). Freedom for the lead costs only the free actions themselves. | Replaces "bystander first" in LAYX204. Done: the first slice is the lead's free day |
+| LAYX212 | ACCOUNT FOR NOW | **The lead's free actions are the repeatable loops.** Skip the lesson and go to the library, brew something else at the bench, take an odd job, visit someone. Built once for the lead, they are what any other seat does all day. So this order builds the missing ordinary-day callers (SPR1) directly. | Design consequence. Done: each free action names the non-lead seat that can also run it |
+| LAYX213 | ACCOUNT FOR NOW | **Three levels of freedom, cheapest first.** (1) Free in the gaps: the days the book skips have no canon to break (LAYX149). (2) Free inside a scene in ways that keep its result: variance of detail, which the lead-life rules already allow. (3) Free to break a result: the divergence is recorded and what depended on it changes. Level 1 needs no divergence machinery at all. | Order of work. Done: level 1 played before level 3 is designed |
+| LAYX214 | ACCOUNT FOR NOW | **A lead who has diverged is the first non-lead seat.** Once Harry stops following the book, later scenes that depended on him fall away and he lives on the generic loops and the world's calendar, which is exactly a bystander's life. So extending freedom to other seats is the same thing with a different starting state and no canon pull. | Framing for LAYX130. Done: a diverged save and a bystander start are compared once |
+| LAYX215 | ACCOUNT FOR NOW | **Diverging makes the world thinner, and that should be said.** Authored scenes are the rich part. Past a real divergence the game has what the loops and the calendar provide. Default: tell the player in-world that things are no longer as they would have been (a hunch, a missed appointment), and keep the canon choice available at each scene so the lore run stays replayable. In play the canon choice is not labelled; the developer view labels it. | Part of level 3. Done: one divergence shows its consequence and the canon path still replays |
+| LAYX216 | ACCOUNT FOR NOW | **The lead's privileges make this flattering.** Harry's fame, Klein's secret resources and Fang Yuan's foreknowledge make any loop easier and more interesting than it is for a clerk. A loop that only works with them is a lead scene in disguise. Keep the seat check (LAYX152): after the lead's free day, the same day once without the privileges. | One short walk per slice. Done: the walk names what was missing |
+| LAYX217 | ACCOUNT FOR NOW | **What happens to canon when the lead leaves it** (LAYX132) becomes urgent at level 3 and not before. The rules give the default (causal mass, nearest plausible fill, recorded divergence); no code was found. Level 1 and 2 can ship without it. | Design note before level 3. Done: one worked example in the lead-life systems design |
+| LAYX218 | ACT NOW (Weibao's call) | **Revised first slice.** Harry's free day between two Book 1 scenes: the timetable as the default day, three or four free actions (a lesson attended or skipped, the library, the potion bench with two routes, a visit), then the same day once as an ordinary first-year. Tingen gets the same treatment at its skipped days when Klein's volume closes. | Sonnet lanes with a brief; runtime; medium. Done: played twice at 1920x1080 from a fresh origin |
+
+## Reconciliation of LAYX81-LAYX218 (2026-11-09)
+
+Weibao: "save acc0rd9gjgly long term" with the more-to-consider and reconcile-project skills. This section is the entry point for everything the 2026-11-09 chat added after LAYX80. It maps 138 rows into six bins, marks what was corrected or replaced, restates the next order and adds one more round. It accepts nothing: a row's bin says what kind of thing it is, and only the first bin is Weibao's word. Source: this file at the working tree of 2026-11-09 (HEAD `05d446148` plus uncommitted appends); no code was run for this pass beyond the named searches.
+
+### Bin 1: direction Weibao gave, and where it now lives
+
+Each line traces to his words in the [direction log](../gm/USER_VISION_LOG_2026-11.md). The owner holds the wording; rows here only point.
+
+| What he said (short) | Owner updated | Rows that build on it (proposals) |
+|---|---|---|
+| Sealing gates play, not development; he has read all of LOTM | AGENTS.md "Sealed secrets", the secrets doc | LAYX81, LAYX82 |
+| Non-numeric anchors count where reasonable | SPR8 note in the system practice rules | LAYX84, LAYX85 |
+| The axis sheet may name every LOTM ladder; the bench may show unlearned rungs | Axis sheet section 2.7 | LAYX83, LAYX94 |
+| "Build numbers based off of results" | Quoted in SPR20 (rule still proposed) | SPR20-SPR22, LAYX90-LAYX93 |
+| Potions and spells share effects, "but there can still be distinctions" | Quoted in MR38 (proposed) | none further |
+| Values may come from other sources (later books, lore books, games, analyses) | Quoted in SPR13 (proposed) | LAYX159-LAYX164 |
+| Many ways to make the same thing, with quality and efficiency, in every world, derived from what ingredients do | USER_VISION "Making and crafting" | MR42-MR44, LAYX165-LAYX173 |
+| Caves of Qud, RimWorld and Shadow of Mordor are core inspirations | USER_VISION, VISION_DIGEST | LAYX144, LAYX146, LAYX147, LAYX158 |
+| Aging, heirs and family "could probably be delayed" | This atlas (LAYX197, LAYX198 deferred) | none |
+| Keep areas simple (asked as a question, read as a preference) | This atlas | LAYX103-LAYX108 |
+| Freedom for the lore run first, then other seats (asked as a question; the agent agreed) | This atlas | LAYX211-LAYX218 |
+| The lore run versus the game as a distinction | Direction log; consistent with the digest's "developer build-through, not the default player start" | LAYX126-LAYX132 |
+
+The last three were phrased as questions. They are recorded as his leaning and not as decisions.
+
+### Bin 2: rules awaiting his word
+
+SPR1-SPR22 ([rulebook](../SYSTEM_PRACTICE_RULES.md)) and MR37-MR44 ([making rules](../MAKING_RULES.md#proposed-additions-2026-11-09-ad32)). Thirty lines, all prompts for briefs until accepted by name. Offered as three bundles so the decision is short (LAYX219).
+
+### Bin 3: done in this chat (docs and local scripts only)
+
+| Row | What was done | State reached |
+|---|---|---|
+| N5 (LAYX34, LAYX50) | Anchor ledger for LOTM volume 1 and Harry's book one; world potion axes sheet | Committed `b038f1bb7`; script output, samples hand-judged by the reader |
+| LAYX83 (first step) | All 23 brewable LOTM rows listed in the axis sheet | Committed `05d446148`; generated table, nothing fitted |
+| LAYX88 | Ledger over LOTM 2-8, Harry Potter 2-7, Reverend Insanity 1-7 (about 50,000 rows) | Uncommitted at the time of this pass; script rerun once by the controller with matching totals |
+| LAYX155-LAYX158 | Sent to the session building the lead arcs as proposals | Delivered; no reply seen; that session's record not edited |
+| Area guide, SPR, MR additions | Written and routed | Committed; names verified by script, no behaviour run |
+
+### Bin 4: corrections and replaced rows
+
+| Earlier row | Now read as | Why |
+|---|---|---|
+| LAYX44 "no numeric anchor" for Hogwarts potions | True of book one only; books 2-7 have 45 potion anchors (LAYX159) | Ledger over later books |
+| LAYX86 "which other sources are open" | Replaced by LAYX87: a source needs a ledger, not permission | Sealing direction |
+| LAYX97-LAYX99 (rich source model, responding population) | Default is the simple area (LAYX103, LAYX104); the population is an option (LAYX108) | His leaning to simple |
+| LAYX97, LAYX103 "nothing joins gathering and areas" | `craft_sources.js` already does gathering with depletion, regrowth and idle bounds (LAYX191 preface) | Module header read |
+| LAYX133-LAYX143 presented as new ideas | Already researched and partly built (table under "Were they considered before?") | Repo search |
+| LAYX203 "not seen in code" | Wrong; keyword counts show files for each (LAYX209 preface) | Keyword search |
+| LAYX204 "an ordinary first-year's day" as the first slice | Replaced by LAYX218: the lead's free day first, then the same day without privileges | His order |
+| N7 (Harry's bench as a "made for someone" slice) | Folded into N9 below | Same world, same bench |
+| The axis sheet's line that naming an out-of-scope rung breaks sealing | Withdrawn in the sheet | Sealing direction |
+
+### Bin 5: palettes for later (no order implied)
+
+Simple areas and the four models (LAYX103-LAYX125); lore-run method (LAYX126-LAYX132, LAYX145-LAYX153); other games (LAYX133-LAYX143); outside value sources (LAYX159-LAYX164); routes and methods (LAYX165-LAYX173); craft families, forging and research (LAYX174-LAYX189); farming (LAYX191-LAYX196); long-term systems with code (LAYX199-LAYX203); time away, storage, sinks, defeat, bounties, carry between worlds (LAYX109-LAYX118).
+
+### Bin 6: deferred by Weibao
+
+Aging, heirs and family (LAYX197, LAYX198, and LAYX193 where it concerns people).
+
+### Next order, restated (proposals; replaces N6-N8 as the working list, which stay above as history)
+
+| ID | Next | Why | Needs |
+|---|---|---|---|
+| N9 | The lead's free day at Hogwarts (LAYX218): the timetable as the default day, three or four free actions including the potion bench with two routes, then the same day once without Harry's privileges | Tests the ordinary-day loop, many routes and the seat check together, in a world whose first book is closed | Weibao's go; agreement with the session that has uncommitted edits in Harry's files; one writer |
+| N10 | Census of the module families outside the area guide (LAYX205), including every answer to time away (LAYX206) | Name searches kept finding built systems this chat did not know; cheap, docs only, can run beside N9 | Weibao's go; haiku readers |
+| N11 | Decide the thirty proposed rules in three bundles (LAYX219) | Tells every later brief what holds | Weibao, a few minutes |
+| N12 | Fight cases as results with locators (N6, LAYX91), then a fit that takes results (LAYX90) | Turns "numbers from results" into a tool | After N11's bundle A |
+| N13 | Tingen's skipped days and a week with one person (N8, LAYX149, LAYX96) when Klein's volume closes | The same free-day treatment in the first lead world | The arc session reaching chapter 213 |
+
+### One more round (more to consider)
+
+| Code | Disposition | Consideration | Level, effort and done check |
+|---|---|---|---|
+| LAYX219 | ACT NOW (Weibao's call) | **Three bundles make the rules a short decision.** A: lines that quote his own direction (SPR8, SPR13's source ranks, SPR20, MR38, MR42, MR43). B: practice prompts for briefs (SPR1-SPR7, SPR9-SPR12, SPR14, SPR21, SPR22). C: design lines for ties and making (SPR15-SPR19, MR37, MR39-MR41, MR44). He can accept A alone and leave B and C as prompts. | His word. Done: each bundle marked standing, rejected or prompt |
+| LAYX220 | ACCOUNT FOR NOW | **N9 touches files another session is editing.** `book_world_hp_lead_domain.js`, `_pack.js`, `_ui.js` and `book_world_hp_facts.js` are modified and four new Harry files are untracked in the shared checkout. A free-day slice written now would collide. One writer per file area: the arc session lands or parks first, or takes N9 itself. | Before any N9 lane. Done: ownership written in the task record |
+| LAYX221 | ACCOUNT FOR NOW | **The school calendar exists and is the free day's spine.** `book_world_hp_school_calendar.js` maps the lead clock to the school year as pure data. N9's brief starts by reading it and `tests/hp_school_progression.test.js`, and adds a timetable row only if one is missing. No Hogwarts scenario was found by name in `scripts/headless/scenarios.mjs` (searched, not exhaustive), so N9 may need to save its own waypoint (AD54). | Brief input. Done: the brief names the calendar seam and the scenario it boots |
+| LAYX222 | ACCOUNT FOR NOW | **Free actions change state shape, and saved waypoints go stale.** Old saves are disposable by standing preference, but AD54 scenarios are assets. A slice that adds state regenerates the scenarios it invalidates, or says which are stale. | Part of N9's receipt. Done: scenarios listed as kept, rebuilt or stale |
+| LAYX223 | ACCOUNT FOR NOW | **A developer view makes all of this checkable.** Which choice is the canon one, which route landed where in a product's region, why a step did nothing, which numbers are derived and from what. Players see none of it; without it an agent cannot verify a route ranking or a divergence. Default: an inspector panel behind the existing developer or cheat surface, read-only. | Small addition to N9. Done: the bench's two routes are visible side by side in the inspector |
+| LAYX224 | ACCOUNT FOR NOW | **Claims from memory are marked, and need a check before a brief uses them.** Other games' mechanics (LAYX119-LAYX125, LAYX133-LAYX143), what canon says about recipes in the Gu world and LOTM (LAYX169), Hogwarts greenhouse and feed-crop anchors (LAYX194). The reading rows or a short search settle each. | Per brief. Done: a brief cites a row or a source for any such claim it relies on |
+| LAYX225 | ACCOUNT FOR NOW | **The arc session got its adjustments before the "lead freedom first" idea.** What it was sent (play the skipped days, LAYX156) is level 1 of that idea, so nothing conflicts. It has not been told the framing, or that N9 may want Harry's files. | One follow-up message when N9 is authorized. Done: sent or dropped |
+| LAYX226 | ACCOUNT FOR NOW | **This file is past 1,300 lines and holds 226 LAYX rows.** A new chat should read this section and the next-order table, and search the rest by code. If the chat's rows keep growing, the next step is a separate file per topic with this atlas as the index, done as one move with redirects so codes keep resolving. | Not now. Done: entry-point line at the top of the atlas (added with this pass) |
+| LAYX227 | LATER | **Writeups from this chat are registered.** The area guide, the two ledgers, the axis sheet and the practice rulebook get one row in the writeup register, state New, with the open decisions (N9-N11). | Done with this pass |
+
+### Residue not mapped
+
+Rows LAYX81-LAYX218 not named in a bin above are considerations attached to a named neighbour (for example LAYX89 to LAYX88, LAYX92-LAYX93 to LAYX90) and keep their own done checks. Nothing in LAYX1-LAYX80 was re-read for this pass.

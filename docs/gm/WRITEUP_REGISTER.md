@@ -292,3 +292,7 @@ Earlier pass logs and fixed five-question dispositions remain intact. Do not ask
 
 Premises like Rick and Morty as a palette, PRT1-PRT26: [ideaboard](../worlds/PORTAL_MULTIVERSE_WORLDS_IDEABOARD_2026-11-07.md). State: New. World instances exist in `src/world_instances.js`; seeded dimensions (PRT4) and mechanism-changing law diffs (PRT7) are gaps. Next: PRT22, the law-diff seam design, then PRT23 and the first slice PRT24. Docs only; nothing in `src/` changed.
 
+
+## System practice, area guide, anchor ledgers and axis sheet, 2026-11-09
+
+One chat's writeups on how repeating systems get built and tuned: [system practice rules](../SYSTEM_PRACTICE_RULES.md) (SPR1-SPR22, proposed), [area guide](../AREA_GUIDE.md), [anchor ledger, volume 1 and book one](../audits/ANCHOR_LEDGER_VOL1_BOOK1_2026-11-09.md), [anchor ledger, more sources](../audits/ANCHOR_LEDGER_MORE_SOURCES_2026-11-09.md), [world potion axes](../audits/WORLD_POTION_AXES_2026-11-09.md), and MR37-MR44 in the making rules. State: New. Index and open decisions: the atlas [reconciliation section](../audits/PROGRESS_ATLAS_2026-11-07_LONG_TERM.md#reconciliation-of-layx81-layx218-2026-11-09), N9 (the lead's free day at Hogwarts), N10 (census of module families), N11 (thirty proposed rules in three bundles). Nothing built or played.
