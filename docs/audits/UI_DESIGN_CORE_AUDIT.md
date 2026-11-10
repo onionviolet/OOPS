@@ -1906,3 +1906,36 @@ The strongest levers fit a text-forward game with SVG: forms that mirror mechani
 - **UIC70, LATER: a form gallery with the cover tests built in.** `ui-preview.html` shows every L3 form in every world dress with labels and world names toggled off.
 
 Ranked for building: UIC68 altar form with UIC57 sigils (the ritual slice from round 39), UIC66 LOTM motif pack, UIC67 missing layouts as each form needs them, UIC70 gallery, then the research lanes.
+
+## Round 41, 2026-11-10: research returns on distinct forms
+
+Weibao: "send the research stuff accordingly, consider ideas working on the same thing and how they do it" ([log](../gm/USER_VISION_LOG_2026-11.md#answers-on-llr32-and-llr33-and-ui-research-sent-2026-11-10)). Three sonnet lanes wrote to [docs/reviews/ui-distinct-forms-2026-11-10/](../reviews/ui-distinct-forms-2026-11-10/): [R1 game references](../reviews/ui-distinct-forms-2026-11-10/R1_GAME_REFERENCES.md) (16 references, 11 patterns), [R2 layers, libraries and ornament](../reviews/ui-distinct-forms-2026-11-10/R2_LAYERS_LIBRARIES_ORNAMENT.md), [R3 accessibility and cost](../reviews/ui-distinct-forms-2026-11-10/R3_ACCESSIBILITY_AND_COST.md). Evidence limits, stated by the lanes: many developer-talk pages returned 403 or partial text and no GDC talk text was read; claims are tagged as fetched, recalled or unverified; library sizes are partly third-party figures; nothing was measured in the app. R1 lines that describe other games use absolute words about those games and trip the design-doc lint; they are descriptions, not rules here.
+
+### What others do, mapped to our levels
+
+- **UIC71, ACCOUNT FOR NOW: slot shapes are the rules (R1 P1).** Cultist Simulator, Book of Hours, Disco Elysium's Thought Cabinet and Citizen Sleeper's dice show the constraint in the slot's own shape, so what fits is visible before trying. For the altar (UIC68): each position draws what it accepts (an offering, a candle, a spoken line), and a stand-in fits with a visible strain mark. Serves rites, mixing, contracts.
+- **UIC72, ACCOUNT FOR NOW: one drawn object carries the state (R1 P2).** Citizen Sleeper's dice as the body, Obra Dinn's logbook, Inscryption's cabin. Fits lives (a soul's ledger), care and the case board.
+- **UIC73, LATER: the map is the recipe (R1 P3).** Potion Craft's mixing map, Slay the Spire's route, Sunless Sea's chart. Prototype one: the LOTM potion as a path whose position is the result. Done check: two ingredient orders draw two paths and two results read from the real mixture model.
+- **UIC74, ACCOUNT FOR NOW: pending effects show numbers (R1 P4).** Slay the Spire's intents moved from symbols to numbers after testers asked; this backs UR95 with the quote's numbers on the form.
+- **UIC75, ACCOUNT FOR NOW: voice as form (R1 P5).** Pentiment's type families and Disco Elysium's skill voices: three to five typographic voices per world for narrator, patrons, cheats and madness (DSG13), not a bespoke font system (Pentiment's lettering took months of work).
+- **UIC76, LATER: replay (R1 P6).** Opus Magnum reruns the mechanism on the same figure. A settled rite or brew can replay its steps on its form from the stored event. Done check: replay reads the stored event and changes nothing.
+- **UIC77, ACCOUNT FOR NOW: hidden logic needs hints (R1 P11, anti-pattern "mystery without onboarding").** Each L3 form names how a new player learns its rule (KNW7's noticed unknowns as hints).
+- Also recorded: batch confirmation (P7), a diegetic frame built from one fixed scene (P8, fits DSG18), one hue plus glyph plus effect per patron or faction (P9), the interface growing as the system opens (P10, fits UR82). Anti-patterns match UR93, UR94, UR95 and AD46's colour rule.
+
+### How to build it
+
+- **UIC78, ACT NOW (when the altar slice is authorized): the L3 registry contract (R2).** A `FORM_TYPES` registry like a node-type registry; each form is `compile(domain) -> figure spec`, the way a grammar-of-graphics compiler turns a short spec into a full one; a `dress` object for L4; three token tiers (primitive, semantic, per-form), with world dress overriding the semantic and per-form tiers. `rite_figure.js` names a form id, and a check flags an adapter that emits raw rings and slots.
+- **UIC79, ACT NOW (same slice): seeded sigil generator (R2).** A pure `sigil(id, opts)` on a coarse integer grid with `crispEdges`, small and large cuts by size, no dependency. Done check: identical SVG for the same id, twenty rites give twenty distinct sigils at 16, 24 and 160 px in the gallery, with a text alt.
+- **UIC80, ACT NOW (same slice): one motion helper (R2).** `src/ui/motion.js` resolves reduced motion from the media query, `data-effects` and `data-display-reveal` together, with `settle`, `inkIn` (path length and dash offset) and `once(eventId)`. R2 saw style sheets that gate on one of these and not the others.
+- **UIC81, ACCOUNT FOR NOW: libraries (LLR33 opened).** The browser's Web Animations API by default; a spike of the `motion` package's small `animate` (about 3 kB, a third-party figure) behind one wrapper; a Rough.js spike for L4 frames only, checking text crispness beside the Gothic face. Skipped for now: GSAP (owner can change terms), anime.js (overlaps), flubber (dormant), svg.js and simplex-noise (no gain). Done check per spike: bundle delta from esbuild, the same rite settle built both ways, behaviour in the app, adopt or skip recorded.
+- **UIC82, ACCOUNT FOR NOW: textures (R2, R3).** Bake an SVG noise texture once into a static layer and animate opacity or transform; WebKit bug reports describe slow or broken animated turbulence and displacement filters. Measure in the app before relying on filters.
+- **UIC83, ACCOUNT FOR NOW: keyboard and screen reader (R3).** `figure.js` already marks figures as images with title and description, and `figure_interact.js` holds the neighbourhood model that accessible-diagram projects build. Default for interactive figures: one Tab stop, arrow keys along that model, Enter to pin, a live region on focus and on settled events and not on ticks; each L3 form names these in its UR76 card and ships its table or sentence form from the same spec.
+- **UIC84, ACT NOW (rule): starting budgets in UR99**, marked as estimates until measured.
+- **UIC85, LATER: confirm the hidden-window path in the app (R3).** A minimized and restored app shows simulated time equal to wall time within the bank cap and one redraw. Effort small.
+- **UIC86, LATER: the R3 measurement plan** (eight steps, app against headless Chromium) to replace the estimates.
+
+### Gaps for a follow-up lane
+
+- **UIC87, LATER: R4.** No fetched source described a meridian or realm chart UI in a cultivation game, so the body chart has no verified precedent; GDC and developer talk texts were unreadable this pass; idle-game engineering sources were not found. Level: sonnet research lane; effort medium; done check: the meridian question answered with sources or recorded as original, and at least three developer talks summarized.
+
+Ranked for building, revised: the altar slice with UIC78 registry, UIC79 sigils and UIC80 motion helper together; then the LOTM motif pack with three to five voices (UIC66, UIC75); then the potion-map prototype (UIC73); the spikes (UIC81, UIC82) run inside the slice that first needs them.
