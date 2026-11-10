@@ -1,54 +1,32 @@
 // Qing Mao, volume two chapters 124–125.
 import {extensionFact} from '../structured_pack_extensions.js';
+import {all, eq, heldBodyReady, windowKit} from '../window_chain.js';
 import {GU_LEAD, riLeadId as id} from './book_gu_lead_life.js';
 import {GU_LEAD_WOLF_FRONT} from './book_gu_lead_wolf_front.js';
 import {GU_LEAD_RIVER_TOAD} from './book_gu_lead_river_toad.js';
 import {GU_LEAD_MOONGLOW} from './book_gu_lead_moonglow.js';
 
 export const GU_LEAD_ALLIANCE_SLOPE = id('alliance_slope');
-const local = name => `${GU_LEAD_ALLIANCE_SLOPE}.${name}`;
 const baseHash = 'sha256:9efca86558d35ae4ca0bce01755dd50761bf4c3aee82d1cd72d8b72d50f2001c';
 const predecessorHash = 'sha256:b50fb0bcc47bc5b80ac293f1bf7b0993e248b83dc30aaae130555e8f6eee3a95';
 const world = id('world');
 const academy = id('academy');
-const all = (...rules) => ({all: rules});
-const eq = (fact, value = true) => ({fact, op: 'eq', value});
-const done = name => eq(`completed.${local(name)}`);
-const field = (name, value) => eq(`actor.${local(name)}`, value);
-const set = (name, value) => ({type: 'fact', actor: 'player', scope: 'actor', key: local(name), value});
-const note = (name, value) => ({type: 'knowledge', actor: 'player', key: local(name), stage: 'understood', value});
-const status = (name, label) => ({id: local(name + '_status'), label, knowledgeKey: local(name)});
-const key = itemId => JSON.stringify({id: itemId});
-const stock = (itemId, value = 1) => ({fact: `item.${key(itemId)}`, op: 'gte', value});
+const kit = windowKit({prefix: GU_LEAD_ALLIANCE_SLOPE});
+const {local, done, field, set, event, note, status, stock} = kit;
 const grass = stock(`${GU_LEAD_MOONGLOW}.vitality_grass`);
 const worm = stock(`${GU_LEAD_RIVER_TOAD}.four_flavours_liquor_worm`);
-const stamina = loss => ({type: 'vital', actor: 'player', key: 'stamina', amount: -loss});
-const event = (name, value) => ({type: 'fact', actor: 'player', scope: 'world', key: local(name), value});
-const ready = all(eq('actor.life', 'alive'), eq('native.ready'), eq('native.alive'),
-    eq('body.ownerId', 'player'), eq('body.controllerId', 'player'), eq('body.mobile'),
-    eq(`claim.${id('academy_roll')}.held`), eq(`claim.${id('academy_roll')}.owner`, 'player'),
-    eq(`faculty.${id('aperture')}.active`), eq('actor.location', academy));
+const stamina = loss => kit.vital('stamina', -loss);
+const ready = heldBodyReady({claim: id('academy_roll'), faculty: id('aperture'), place: academy});
 const predecessor = all(eq(extensionFact(GU_LEAD_WOLF_FRONT)),
     eq(`completed.${GU_LEAD_WOLF_FRONT}.hear_the_medicine_offer`),
     eq(`actor.${GU_LEAD_WOLF_FRONT}.offer`, 'medicine_offer_awaiting_reply'),
     eq(`actor.${GU_LEAD_WOLF_FRONT}.contest`, 'ordered_to_abstain_compensated'));
 const admitted = eq(extensionFact(GU_LEAD_ALLIANCE_SLOPE));
 
-function act(name, label, duration, previous, description, effects, {needs = [], costs = [], reason} = {}) {
-    const visibleWhen = all(admitted, previous);
-    const support = all(ready, visibleWhen, ...needs);
-    return {
-        id: local(name), revision: 1, label, description, group: 'structured_local', worldId: world,
-        actorId: 'player', location: academy, audience: ['$actor'], once: true, duration, visibleWhen,
-        requires: {...support, reason: reason || 'Finish the previous step and stay in the village.'},
-        completionRequires: support, completionCoLocated: true, completionFailure: 'refund',
-        cancellation: 'refund', reservationReturns: 1, costs, effects
-    };
-}
+const act = kit.chain({worldId: world, location: academy, admitted, ready, flatRequires: true,
+    defaultReason: 'Finish the previous step and stay in the village.'});
 
-
-export const guLeadAllianceSlope = {
-    schema: 1, id: GU_LEAD_ALLIANCE_SLOPE, revision: 1,
+export const guLeadAllianceSlope = kit.window({
     base: {id: GU_LEAD, revision: 1, contentHash: baseHash},
     label: 'Fang Yuan attends the three-clan gathering',
     description: 'Answer Qing Shu before you join the clans at Alliance Slope.',
@@ -82,7 +60,7 @@ export const guLeadAllianceSlope = {
                 note('challenge', 'You tell him you admit defeat. The crowd hears your answer. You have given him no contest.')],
             {needs: [field('demonstration', 'shadow_bond_seen')]})
     ]
-};
+});
 
 export async function registerGuLeadAllianceSlope(register, base) {
     if (!register.extension || base.contentHash !== baseHash ||
