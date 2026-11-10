@@ -1,5 +1,14 @@
 import {hpSchoolLife,hpTradeLife,hpSpellRows} from './world_packs/book_hp_life_data.js';
 import {hpLeadLife} from './world_packs/book_hp_lead_life_data.js';
+import {getHpLeadCast} from './book_world_hp_lead_pack.js';
+import {hpLeadFlightFacts} from './book_world_hp_lead_flight.js';
+import {hpLeadDuelFacts} from './book_world_hp_lead_duel.js';
+import {hpLeadHalloweenFacts} from './book_world_hp_lead_halloween.js';
+import {hpLeadQuidditchFacts} from './book_world_hp_lead_quidditch.js';
+import {hpLeadMirrorFacts} from './book_world_hp_lead_mirror.js';
+import {hpLeadFlamelFacts} from './book_world_hp_lead_flamel.js';
+import {hpLeadNorbertFacts} from './book_world_hp_lead_norbert.js';
+import {hpLeadFinaleFacts} from './book_world_hp_lead_finale.js';
 // HP-local clock projection. Shared simulation owns all elapsed time, jobs and skill settlement.
 import {recurringWindow} from './world_rhythm.js';
 import {hpLessonFacts} from './book_world_hp_lessons.js';
@@ -19,7 +28,7 @@ export function hpFacts(state,context={}){
  const world=state.actors?.player?.worldId,trade=world==='book.hp.trade.world',c=hpSchoolCalendar(state);
  // The lead life's day index (anchor 08:00 on day 0), for gates such as the 1 September arrival; the profile's own arithmetic.
  if(world==='book.hp.lead.world'){const opening=state.simulation?.knowledge?.player?.['book.hp.lead.opening'];
-  return opening?{'hp.lead.day':Math.floor((Math.max(0,state.clock-opening.at)+480)/1440),...hpLessonFacts(state,context),...hpLeadSpellFacts(state)}:{};}
+  return opening?{'hp.lead.day':Math.floor((Math.max(0,state.clock-opening.at)+480)/1440),...hpLessonFacts(state,context),...hpLeadSpellFacts(state),...hpLeadFlightFacts(context),...hpLeadDuelFacts(context),...hpLeadHalloweenFacts(context),...hpLeadQuidditchFacts(context),...hpLeadMirrorFacts(context),...hpLeadFlamelFacts(context),...hpLeadNorbertFacts(context),...hpLeadFinaleFacts(context)}:{};}
  if(trade)return {'hp.trade.wandReady':(context.gameplay?.player?.inventory?.[JSON.stringify({id:'book.hp.trade.wand'})]||0)>0};
  if(!c)return {};
  const inv=context.gameplay?.player?.inventory||{},P='book.hp.school',held=n=>(inv[JSON.stringify({id:P+'.'+n})]||0)>0;
@@ -49,7 +58,10 @@ export function hpCalendarBinding(state){
  const life=[hpSchoolLife,hpTradeLife,hpLeadLife].find(l=>state?.actors?.player?.worldId===l.world.id);
  const opening=life&&state.simulation?.knowledge?.player?.[life.id+'.opening'];
  const instance=life&&state.worlds?.[life.world.id]?.facts?.[life.id+'.instance'];
- // The lead life's calendar names the weekday (the book gives order and the Saturday, no date). The flag is added here, not on the
- // profile, because the profile is part of the pack's content hash and an existing save must keep matching it.
- return opening&&instance?{profile:life===hpLeadLife?{...life.calendarProfile,showWeekday:true}:life.calendarProfile,instanceId:instance,elapsed:Math.max(0,state.clock-opening.at)}:null;
+ // The opening has a stated Saturday. In the source school route, the
+ // weekday from the household clock would conflict with the stated scenes.
+ if(!opening||!instance)return null;
+ const school=life===hpLeadLife&&getHpLeadCast()?.schoolWeek&&state.actors.player.facts['hp.lead.atSchool'];
+ const profile=life===hpLeadLife?{...life.calendarProfile,showWeekday:!school,...(school?{label:'School days'}:{})}:life.calendarProfile;
+ return {profile,instanceId:instance,elapsed:Math.max(0,state.clock-opening.at)};
 }

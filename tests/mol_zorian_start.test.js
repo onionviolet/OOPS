@@ -67,6 +67,18 @@ test('Zorian start: begins in Cyoria as the seat with supplier facts, student st
  assert.equal(f['mol.nativeBound'],true);assert.equal(f['mol.playerSupported'],true);assert.equal(f[`mol.local.${I.world}`],true);
  assert.equal(f['mol.zorianSeat'],true);assert.equal(f['actor.book.mol.guestPermit'],true);assert.equal(molSupplier(p.state).name,'zorianSupplier');
 });
+test('reading the Cyoria entry terms first still allows the Zorian start',()=>{
+ const v=village(), c=context0(v);
+ c.facts['village.elderMet']=true;
+ const read={...v,...commitMolCommand(v.state,registry,{type:'book_mol',id:'book.mol.chart'},c)};
+ const chart=read.state.simulation.knowledge.player['book.mol.chart'];
+ assert.ok(chart);
+ const situation=read.state.simulation.situations[chart.basis.situationId];
+ const p=begin(read);
+ assert.equal(p.state.motherOfLearning.entryProfile,MOL_START_ZORIAN);
+ assert.deepEqual(p.state.simulation.situations[chart.basis.situationId],situation);
+ assert.deepEqual(p.state.simulation.knowledge.player['book.mol.chart'],chart);
+});
 test('G15: in the Zorian start the book Zorian is not a met resident and zorian_talk is hidden',()=>{
  const p=zorian(),f=molFacts(p.state,zctx(p));
  assert.equal(f[`mol.support.${I.zorian}`],false);assert.equal(f[`mol.support.${I.imaya}`],true);

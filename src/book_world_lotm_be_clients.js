@@ -38,6 +38,7 @@ export function registerBeClient(def){
 registerBeClient({id:'anna',label:'Anna',service:'divination',referrer:'angelica',referrerLabel:'Angelica',quote:{amount:1,currency:'soli',basis:'stated',houseCut:{num:1,den:8,basis:'stated'},tip:{pence:0.5,basis:'stated'},settle:'later'}});
 registerBeClient({id:'glacis',label:'Glacis',service:'divination',referrer:'angelica',referrerLabel:'Angelica',quote:{amount:8,currency:'pence',basis:'listed',houseCut:{num:1,den:8,basis:'listed'},settle:'later'}});
 registerBeClient({id:'joyce',label:'Joyce',service:'dream interpretation',referrer:'angelica',referrerLabel:'Angelica',quote:{amount:1,currency:'soli',basis:'stated',houseCut:{num:1,den:8,basis:'listed'},settle:'later'}});
+registerBeClient({id:'bogda',label:'Bogda',service:'divination',referrer:'angelica',referrerLabel:'Angelica',quote:{amount:8,currency:'pence',basis:'stated',houseCut:{num:1,den:8,basis:'listed'},settle:'later'}});
 const key=(id,part='')=>`${BE_CLIENT_PREFIX}${id}${part?`.${part}`:''}`;
 const fact=(k,value)=>({type:'fact',scope:'actor',actor:'player',key:k,value});
 // Saved ids too (load order: a save can hold a client the pack has not registered yet).

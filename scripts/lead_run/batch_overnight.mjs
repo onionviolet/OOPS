@@ -1,6 +1,7 @@
 // Unattended run of approved batch stages (NOV1_SCHEDULE): submit each step's labels, collect them, apply the gate, then the next step.
 //   ANTHROPIC_API_KEY="$(security find-generic-password -a "$USER" -s anthropic-api-yairpg -w)" \
 //       node scripts/lead_run/batch_overnight.mjs --run <run.json>
+// A run whose plans name an OpenAI model (gpt-*) takes OPENAI_API_KEY instead (openai_batch.mjs, service openai-api-yairpg); one provider per run.
 // Run file: {approval, ceilingUsd, steps: [{name, gate?: 'pilot'|'stop', pilotLabel?, pilotRefs?, nonGating?: [labels], labels: [{plan, cap}]}]}. Only labels Weibao approved with their caps belong in it.
 // Resumable: a label with a receipt is collected, not resubmitted; a label with a summary is skipped. Stops (and says why) on a failed gate, a stop rule,
 // a cap above the remaining ceiling, or an error. Repair batches are written by collect but never submitted here (they need their own go).
@@ -9,8 +10,10 @@ import {readFileSync, writeFileSync, appendFileSync, existsSync, mkdirSync} from
 import {join, dirname, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {makeClient, collect, stripMeta, glossaryFromPlan} from './batch_lib.mjs';
+import {isOpenAIModel} from './openai_batch.mjs';
 import {submit} from './batch_submit.mjs';
 import {compareShards, load} from './batch_compare.mjs';
+import {checkReadingBudget} from './reading_plan_maintenance.mjs';
 
 const readJson = p => JSON.parse(readFileSync(p, 'utf8'));
 
@@ -57,6 +60,14 @@ export function pilotCheck({summary, estimate, plan, refs, loadFn = load, knownF
 }
 
 export async function runOvernight({run, runName, submitFn = submit, collectFn = collect, client = null, log = console.log, root = '.', retries = 6, retryMs = 30000}) {
+    if (run.budgetFile) {
+        const budget = readJson(resolve(root, run.budgetFile));
+        checkReadingBudget(budget);
+        const reservation = budget.reservations.find(r => r.id === run.budgetReservation);
+        const caps = run.steps.flatMap(s => s.labels).reduce((a, l) => a + l.cap, 0);
+        if (!reservation || Math.ceil(caps * 100 - 1e-8) > Math.floor(reservation.capUsd * 100 + 1e-8) || run.ceilingUsd > reservation.capUsd)
+            throw Error('run exceeds its whole-campaign reading reservation');
+    }
     let spent = 0;
     const ledger = [];
     const note = (o, outDir) => { const line = {t: new Date().toISOString(), ...o}; ledger.push(line); log(JSON.stringify(line)); if (outDir) { mkdirSync(outDir, {recursive: true}); appendFileSync(join(outDir, `overnight_${runName}.jsonl`), JSON.stringify(line) + '\n'); } };
@@ -94,8 +105,10 @@ export async function runOvernight({run, runName, submitFn = submit, collectFn =
             if (repairs.length) writeFileSync(join(it.plan.outDir, `${it.plan.label}_repair_requests.jsonl`), repairs.map(r => JSON.stringify(r)).join('\n') + '\n');
             const pub = {...summary, repair: (summary.repair || []).map(r => ({id: r.id, why: r.why})), repairRequests: repairs.length};
             writeFileSync(join(it.plan.outDir, `${it.plan.label}_summary.json`), JSON.stringify(pub, null, 1) + '\n');
+            // OpenAI files (uploaded source text, outputs) are deleted once the summary is on disk; a failed delete is logged, not fatal.
+            if (client?.messages?.batches?.cleanup) try { await client.messages.batches.cleanup(batchId); } catch (e) { note({label: it.plan.label, cleanupError: String(e.message || e).slice(0, 120)}, it.plan.outDir); }
             spent += summary.usd || 0;
-            note({label: it.plan.label, collected: batchId, usd: summary.usd, shards: (summary.shards || []).map(s => ({id: s.id, status: s.status, grade: s.grade, lint: s.lintIssues, coverage: s.coverage?.rate})), repairRequests: repairs.length}, it.plan.outDir);
+            note({label: it.plan.label, collected: batchId, usd: summary.usd, shards: (summary.shards || []).map(s => ({id: s.id, status: s.status, grade: s.grade, lint: s.lintIssues, coverage: s.coverage?.rate})), repairRequests: repairs.length, ...(summary.batchErrors ? {batchErrors: summary.batchErrors} : {})}, it.plan.outDir);
             return {label: it.plan.label, summary: pub, estimate, plan: it.plan};
         }));
         results.push(...collected);
@@ -121,7 +134,11 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     const runPath = a[i + 1], run = readJson(runPath), runName = run.name || 'run';
     const root = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
     try {
-        const client = await makeClient();
+        // One provider per run: the driver holds one client for every collect.
+        const models = [...new Set(run.steps.flatMap(s => s.labels).map(l => readJson(resolve(root, l.plan)).model || 'claude-haiku-5-5'))];
+        const providers = new Set(models.map(m => isOpenAIModel(m) ? 'openai' : 'anthropic'));
+        if (providers.size > 1) throw new Error(`run mixes providers (${models.join(', ')}); split it into one run file per provider`);
+        const client = await makeClient(process.env, {model: models[0]});
         const r = await runOvernight({run, runName, client, root});
         console.log(JSON.stringify({stopped: r.stopped, spent: Number(r.spent.toFixed(4))}));
     } catch (e) { console.error(e.message); process.exit(1); }

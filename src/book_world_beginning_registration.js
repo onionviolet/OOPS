@@ -5,17 +5,110 @@ import {registerDomain, domainRegistry} from './domain_registry.js';
 import {packNative} from './world_pack_registry.js';
 import {loadHpLeadCast,withHpLeadCast} from './book_world_hp_lead_pack.js';
 import {registerHpLeadDomain} from './book_world_hp_lead_domain.js';
+import {registerHpLeadFlight,hpSchoolPassageClockRequest} from './book_world_hp_lead_flight.js';
+import {registerHpLeadDuel,hpDuelPassageClockRequest} from './book_world_hp_lead_duel.js';
+import {registerHpLeadHalloween,hpHalloweenPassageClockRequest} from './book_world_hp_lead_halloween.js';
+import {registerHpLeadQuidditch,hpQuidditchPassageClockRequest} from './book_world_hp_lead_quidditch.js';
+import {registerHpLeadMirror,hpMirrorPassageClockRequest} from './book_world_hp_lead_mirror.js';
+import {registerHpLeadFlamel,hpFlamelPassageClockRequest} from './book_world_hp_lead_flamel.js';
+import {registerHpLeadNorbert,hpNorbertPassageClockRequest} from './book_world_hp_lead_norbert.js';
+import {registerHpLeadFinale,hpFinalePassageClockRequest} from './book_world_hp_lead_finale.js';
 import {registerHpLifeHoldings} from './hp_life_holdings.js';
 import {registerBookLifeHoldings} from './book_life_holdings.js';
 import {shadowSlaveApprentice} from './world_packs/book_shadow_slave_life.js';
 import {shadowSlaveTrial} from './world_packs/book_shadow_slave_trial.js';
 import {guAcademyLife} from './world_packs/book_gu_life.js';
 import {guKeeperLife} from './world_packs/book_gu_keeper.js';
+import {guLeadLife} from './world_packs/book_gu_lead_life.js';
+import {registerGuLeadSelection,guLeadAcademyPassageClockRequest} from './world_packs/book_gu_lead_selection.js';
+import {registerGuLeadRefinement,guLeadRefinementClockRequest} from './world_packs/book_gu_lead_refinement.js';
+import {registerGuLeadVital,guLeadVitalClockRequest} from './world_packs/book_gu_lead_vital.js';
+import {registerGuLeadMoonblade,guLeadMoonbladeClockRequest} from './world_packs/book_gu_lead_moonblade.js';
+import {registerGuLeadDorm,guLeadDormClockRequest} from './world_packs/book_gu_lead_dorm.js';
+import {registerGuLeadAssessment} from './world_packs/book_gu_lead_assessment.js';
+import {registerGuLeadConfrontation,guLeadConfrontationClockRequest} from './world_packs/book_gu_lead_confrontation.js';
+import {registerGuLeadClanResponse,guLeadClanResponseClockRequest} from './world_packs/book_gu_lead_clan_response.js';
+import {registerGuLeadCaravan,guLeadCaravanClockRequest} from './world_packs/book_gu_lead_caravan.js';
+import {registerGuLeadInheritance,guLeadInheritanceClockRequest} from './world_packs/book_gu_lead_inheritance.js';
+import {registerGuLeadMoonveil,guLeadMoonveilClockRequest} from './world_packs/book_gu_lead_moonveil.js';
+import {registerGuLeadHearing} from './world_packs/book_gu_lead_hearing.js';
+import {registerGuLeadSecondGu,guLeadSecondGuClockRequest} from './world_packs/book_gu_lead_second_gu.js';
+import {registerGuLeadEarlyDuel,guLeadEarlyDuelClockRequest} from './world_packs/book_gu_lead_early_duel.js';
+import {registerGuLeadHuntFollowthrough,guLeadHuntFollowthroughClockRequest} from './world_packs/book_gu_lead_hunt_followthrough.js';
+import {registerGuLeadExamResult,guLeadExamResultClockRequest} from './world_packs/book_gu_lead_exam_result.js';
+import {registerGuLeadYearEnd,guLeadYearEndClockRequest} from './world_packs/book_gu_lead_year_end.js';
+import {registerGuLeadRankTwo,guLeadRankTwoClockRequest} from './world_packs/book_gu_lead_rank_two.js';
+import {registerGuLeadEstateClaim,guLeadEstateClaimClockRequest} from './world_packs/book_gu_lead_estate_claim.js';
+import {registerGuLeadWhiteJade,guLeadWhiteJadeClockRequest} from './world_packs/book_gu_lead_white_jade.js';
+import {registerGuLeadEstateHandover,guLeadEstateHandoverClockRequest} from './world_packs/book_gu_lead_estate_handover.js';
+import {registerGuLeadQingShuMeeting} from './world_packs/book_gu_lead_qing_shu_meeting.js';
+import {registerGuLeadMoonglow,guLeadMoonglowClockRequest} from './world_packs/book_gu_lead_moonglow.js';
+import {registerGuLeadRelicMarket,guLeadRelicMarketClockRequest} from './world_packs/book_gu_lead_relic_market.js';
+import {registerGuLeadStoneForest} from './world_packs/book_gu_lead_stone_forest.js';
+import {registerGuLeadRiverToad} from './world_packs/book_gu_lead_river_toad.js';
+import {registerGuLeadWolfFront,guLeadWolfFrontClockRequest} from './world_packs/book_gu_lead_wolf_front.js';
+import {registerGuLeadAllianceSlope} from './world_packs/book_gu_lead_alliance_slope.js';
+import {registerGuLeadEarGrass,guLeadEarGrassClockRequest} from './world_packs/book_gu_lead_ear_grass.js';
+import {registerGuLeadIceSoul,guLeadIceSoulClockRequest} from './world_packs/book_gu_lead_ice_soul.js';
+import {registerGuLeadIceCrystal} from './world_packs/book_gu_lead_ice_crystal.js';
+import {registerGuLeadWoodCharm,guLeadWoodCharmClockRequest} from './world_packs/book_gu_lead_wood_charm.js';
+import {registerGuLeadWallNight} from './world_packs/book_gu_lead_wall_night.js';
+import {registerGuLeadBurialGu} from './world_packs/book_gu_lead_burial_gu.js';
+import {registerGuLeadElderHall,guLeadElderHallClockRequest} from './world_packs/book_gu_lead_elder_hall.js';
+import {registerGuLeadSecretRoom,guLeadSecretRoomClockRequest} from './world_packs/book_gu_lead_secret_room.js';
+import {registerGuLeadTusitaFlower,guLeadTusitaFlowerClockRequest} from './world_packs/book_gu_lead_tusita_flower.js';
+import {registerGuLeadThunderCrown,guLeadThunderCrownClockRequest} from './world_packs/book_gu_lead_thunder_crown.js';
+import {registerGuLeadLycan} from './world_packs/book_gu_lead_lightning_lycan.js';
+import {registerGuLeadInvestigator} from './world_packs/book_gu_lead_investigator.js';
+import {molSchoolPassageClockRequest} from './mol_zorian_sensing.js';
 import {shadowCompanyLife} from './world_packs/book_shadow_company_life.js';
+
+export function bookPassageClockRequest(state,record) {
+    return hpSchoolPassageClockRequest(state,record) ?? hpDuelPassageClockRequest(state,record) ??
+        hpHalloweenPassageClockRequest(state,record) ?? hpQuidditchPassageClockRequest(state,record) ??
+        hpMirrorPassageClockRequest(state,record) ?? hpFlamelPassageClockRequest(state,record) ??
+        hpNorbertPassageClockRequest(state,record) ?? hpFinalePassageClockRequest(state,record) ??
+        guLeadAcademyPassageClockRequest(state,record) ?? guLeadRefinementClockRequest(state,record) ??
+        guLeadVitalClockRequest(state,record) ?? guLeadMoonbladeClockRequest(state,record) ??
+        guLeadDormClockRequest(state,record) ??
+        guLeadConfrontationClockRequest(state,record) ??
+        guLeadClanResponseClockRequest(state,record) ??
+        guLeadCaravanClockRequest(state,record) ??
+        guLeadInheritanceClockRequest(state,record) ??
+        guLeadMoonveilClockRequest(state,record) ??
+        guLeadSecondGuClockRequest(state,record) ??
+        guLeadEarlyDuelClockRequest(state,record) ??
+        guLeadHuntFollowthroughClockRequest(state,record) ??
+        guLeadExamResultClockRequest(state,record) ??
+        guLeadYearEndClockRequest(state,record) ??
+        guLeadRankTwoClockRequest(state,record) ??
+        guLeadEstateClaimClockRequest(state,record) ??
+        guLeadWhiteJadeClockRequest(state,record) ??
+        guLeadEstateHandoverClockRequest(state,record) ??
+        guLeadMoonglowClockRequest(state,record) ??
+        guLeadRelicMarketClockRequest(state,record) ??
+        guLeadWolfFrontClockRequest(state,record) ??
+        guLeadEarGrassClockRequest(state,record) ??
+        guLeadIceSoulClockRequest(state,record) ??
+        guLeadWoodCharmClockRequest(state,record) ??
+        guLeadElderHallClockRequest(state,record) ??
+        guLeadSecretRoomClockRequest(state,record) ??
+        guLeadTusitaFlowerClockRequest(state,record) ??
+        guLeadThunderCrownClockRequest(state,record) ??
+        molSchoolPassageClockRequest(state);
+}
 
 export async function registerBookBeginnings(register, choices, hpPorts = null) {
     await registerHpBeginnings(register, choices);
     const lead = await register(withHpLeadCast(packNative('book.hp.lead'), await loadHpLeadCast()));
+    await registerHpLeadFlight(register, lead);
+    await registerHpLeadDuel(register, lead);
+    await registerHpLeadHalloween(register, lead);
+    await registerHpLeadQuidditch(register, lead);
+    await registerHpLeadMirror(register, lead);
+    await registerHpLeadFlamel(register, lead);
+    await registerHpLeadNorbert(register, lead);
+    await registerHpLeadFinale(register, lead);
     // The domain registry is process-wide and rejects a repeated id, so a second call keeps the first registration.
     if (!domainRegistry.list().some(d => d.id === 'hp')) registerHpLeadDomain(registerDomain, hpPorts?.state ?? (() => null), hpPorts);
     if (hpPorts) { registerHpLifeHoldings(); registerBookLifeHoldings(); }
@@ -38,6 +131,50 @@ export async function registerBookBeginnings(register, choices, hpPorts = null) 
     choices.register({packId:keeper.id,label:'Reverend Insanity · original Gu keeper, first year',
         arrival:'Begin an original adult clan-sponsored Gu keeper with an already-opened Rank-one aperture and a weekly stone stipend.',
         means:'Three primeval stones, eight essence, a free Moonlight Gu and two more Gu for sale. Feed each on its own schedule, take in only what you can pay for, and risk one refinement.'});
+    const guLead = await register(guLeadLife);
+    await registerGuLeadSelection(register, guLead);
+    await registerGuLeadRefinement(register, guLead);
+    await registerGuLeadVital(register, guLead);
+    await registerGuLeadMoonblade(register, guLead);
+    await registerGuLeadDorm(register, guLead);
+    await registerGuLeadAssessment(register, guLead);
+    await registerGuLeadConfrontation(register, guLead);
+    await registerGuLeadClanResponse(register, guLead);
+    await registerGuLeadCaravan(register, guLead);
+    await registerGuLeadInheritance(register, guLead);
+    await registerGuLeadMoonveil(register, guLead);
+    await registerGuLeadHearing(register, guLead);
+    await registerGuLeadSecondGu(register, guLead);
+    await registerGuLeadEarlyDuel(register, guLead);
+    await registerGuLeadHuntFollowthrough(register, guLead);
+    await registerGuLeadExamResult(register, guLead);
+    await registerGuLeadYearEnd(register, guLead);
+    await registerGuLeadRankTwo(register, guLead);
+    await registerGuLeadEstateClaim(register, guLead);
+    await registerGuLeadWhiteJade(register, guLead);
+    await registerGuLeadEstateHandover(register, guLead);
+    await registerGuLeadQingShuMeeting(register, guLead);
+    await registerGuLeadMoonglow(register, guLead);
+    await registerGuLeadRelicMarket(register, guLead);
+    await registerGuLeadStoneForest(register, guLead);
+    await registerGuLeadRiverToad(register, guLead);
+    await registerGuLeadWolfFront(register, guLead);
+    await registerGuLeadAllianceSlope(register, guLead);
+    await registerGuLeadEarGrass(register, guLead);
+    await registerGuLeadIceSoul(register, guLead);
+    await registerGuLeadIceCrystal(register, guLead);
+    await registerGuLeadWoodCharm(register, guLead);
+    await registerGuLeadWallNight(register, guLead);
+    await registerGuLeadBurialGu(register, guLead);
+    await registerGuLeadElderHall(register, guLead);
+    await registerGuLeadSecretRoom(register, guLead);
+    await registerGuLeadTusitaFlower(register, guLead);
+    await registerGuLeadThunderCrown(register, guLead);
+    await registerGuLeadLycan(register, guLead);
+    await registerGuLeadInvestigator(register, guLead);
+    choices.register({packId: guLead.id, label: 'Reverend Insanity · the returned clan youth',
+        arrival: 'Begin in your guardians’ house on the morning of the Awakening Ceremony. You remember a life that everyone around you has yet to live.',
+        means: 'Your clan name gives you a place at the ceremony. You have no opened aperture, primeval essence or Gu of your own.'});
     const company=await register(shadowCompanyLife);
     choices.register({packId:company.id,label:'Shadow Slave · original Shadowbound company',arrival:'Begin an original Woken life with an explicitly acquired Shadowbound fan-law binding and one already-owned shadow.',
         means:'An injured stored marsh-hound shadow, two gems and actual patrol supplies. Recovery and independent gem sleep feed a prepared two-person causeway patrol with Sera’s finite stipend.'});

@@ -2,6 +2,7 @@
 import {whereabouts,lintAnchors} from './cast_schedule.js';
 import {defineBeats} from './beat_records.js';
 import {validateSimulationEffect} from './simulation_contracts.js';
+import {validateItemSafety} from './book_world_lotm_item_safety.js';
 // Probe every possible day and schedule boundary of an undated forward anchor.
 // This is conservative lint input, not an assertion that a future scene happens every day.
 export function lotmAnchorProbes(pack) {
@@ -23,6 +24,8 @@ export function validateLotmCast(pack) {
     const people = new Set(pack.people.map(p => p.id));
     const targets = new Set([...people, ...pack.references.map(p => p.id)]);
     const places = new Set(pack.places.map(p => p.id));
+    try { validateItemSafety(pack.itemSafety, people, places); }
+    catch (error) { errors.push(error.message); }
     const ids = new Set();
     const requireEvidence = (row, where) => {
         if (!labels.has(row.label) || !(row.locator || row.label === 'fill' && row.basis)) errors.push(`${where}: evidence`);

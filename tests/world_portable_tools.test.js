@@ -20,7 +20,7 @@ test('gen-runner: explicit LOTM world equals the defaults; HP fixture carries no
 });
 test('native-continuation: selectors follow panel and attribute prefix, LOTM by default',async()=>{
   const seen=[];
-  const page={locator:q=>{seen.push(q);return {waitFor:async()=>{},click:async()=>{},getAttribute:async a=>{seen.push(a);return 'a1';},isDisabled:async()=>false,innerText:async()=>'',first(){return this;},selectOption:async()=>{}};},
+  const page={locator:q=>{seen.push(q);return {waitFor:async()=>{},count:async()=>0,click:async()=>{},getAttribute:async a=>{seen.push(a);return 'a1';},isDisabled:async()=>false,innerText:async()=>'',first(){return this;},selectOption:async()=>{}};},
     evaluate:async(fn,arg)=>arg===undefined&&fn.toString().includes('snapshot')?{}:{arc:{next:{id:'a1'}}}};
   for(const [opt,panel,attr] of [[{},'lotm','lotm'],[{panel:'hp',attrPrefix:'hp'},'hp','hp']]){
     seen.length=0;const r=new NativeContinuation({page},opt);assert.equal(r.panelId,panel);
@@ -29,6 +29,30 @@ test('native-continuation: selectors follow panel and attribute prefix, LOTM by 
     assert.ok(seen.includes(`data-${attr}-task-link`));assert.ok(seen.includes(`[data-${attr}="a1"]`));
     if(attr==='hp')assert.ok(!seen.some(q=>/lotm/.test(q)));
   }
+});
+test('native-continuation starts the inline current action once and refuses a disabled one',async()=>{
+  const clicks=[],lookups=[];let disabled=false,hook=0;
+  const page={locator:q=>{lookups.push(q);return {count:async()=>1,click:async()=>{clicks.push(q);},isDisabled:async()=>disabled,
+    innerText:async()=> 'Wait for the previous task.',first(){return this;}};},
+    evaluate:async(fn,arg)=>arg===undefined&&fn.toString().includes('snapshot')?{}:{arc:{next:{id:'task.1'}}}};
+  const route=new NativeContinuation({page});
+  const result=await route.startCurrent({exact:true,beforeClick:async()=>{hook++;}});
+  assert.deepEqual(result,{id:'task.1',command:'task.1'});
+  assert.equal(hook,1);assert.deepEqual(clicks,['[data-lotm-arc] [data-lotm="task.1"]']);
+  assert.ok(!lookups.includes('[data-lotm-task-link]'),'an inline action needs no navigation link');
+  disabled=true;await assert.rejects(()=>route.startCurrent(),/Wait for the previous task/);
+  assert.equal(clicks.length,1,'a refused action never runs');
+});
+test('native-continuation batches native work only while a job remains',async()=>{
+  const calls=[];let pending=true;
+  const page={evaluate:async(fn,arg)=>{
+    if(arg==='lotm')return {jobs:pending?[{id:'job.1'}]:[]};
+    calls.push(arg);pending=false;
+  }};
+  const route=new NativeContinuation({page},{workBatchTicks:300});
+  await route.settle();await route.settle();
+  assert.deepEqual(calls,[{limit:50,batch:300}],'an already-idle route never advances time');
+  for(const value of [0,-1,1.5,1000001])assert.throws(()=>new NativeContinuation({page},{workBatchTicks:value}),/Invalid native work batch/);
 });
 const loc='en b1 c1 p1',slice={from:loc,to:'en b1 c2 p999'};
 function placeFixture(book,pp,district){

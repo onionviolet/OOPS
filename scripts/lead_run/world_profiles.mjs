@@ -95,6 +95,8 @@ export const WORLDS = Object.freeze({
     asl: {lang: 'en', name: "A Soldier's Life"},
     ss: {lang: 'en', name: 'Shadow Slave'},
     coi: {lang: 'en', name: 'Circle of Inevitability'},
+    ri: {lang: 'en', name: 'Reverend Insanity'},
+    rtoc: {lang: 'en', name: "A Regressor's Tale of Cultivation"},
     worm: {lang: 'en', name: 'Worm'},
     yas: {lang: 'en', name: 'You Are Summoned'},
     wus: {lang: 'en', name: 'Wish Upon the Stars'},

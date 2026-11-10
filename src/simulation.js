@@ -43,7 +43,11 @@ export {simulationFacts,simulationRuleFacts} from "./simulation_effects.js";
 const domain = () => ({facts: {}, resources: {}, completed: {}, sources: {}, techniques: {}});
 // Base duration, shortened by the actor's repetitions of the command's method
 // when the command declares a fluency curve. Read before this run is counted.
-const commandDuration = (state, d, actorId) => fluencyDuration(d.duration || 0, d.fluency, state.simulation?.powers?.[actorId]?.[d.powerId]?.executions || 0);
+function commandDuration(state, d, actorId) {
+    const anchor = d.durationSinceKnowledge && state.simulation?.knowledge?.[actorId]?.[d.durationSinceKnowledge];
+    if(anchor) return Math.max(1, d.duration - (state.clock - anchor.at));
+    return fluencyDuration(d.duration || 0, d.fluency, state.simulation?.powers?.[actorId]?.[d.powerId]?.executions || 0);
+}
 const ruleReason = (rule, facts) => meets(rule, facts) ? [] : [rule?.reason || "The required knowledge, means or circumstances are missing."];
 const log = (s, clock, text, cause) => {s.log.push({at: clock, text, cause}); s.log = s.log.slice(-100);};
 function draw(check) {check.rng = xorshift32(check.rng); return check.rng / 0x100000000;}

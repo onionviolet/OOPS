@@ -29,7 +29,8 @@ export function requireStructuredExtensions(record,base,state) {
         if(!e)continue;
         check(record?.extensions?.some(pin=>pin.id===e.id),'Pending extension work requires its saved content pin.');
         const d=e.commands.find(c=>c.id===job.commandId);
-        check(d&&job.revision===d.revision&&JSON.stringify(job.costs)===JSON.stringify(d.costs)&&JSON.stringify(job.effects)===JSON.stringify(d.effects)&&job.cancellation===d.cancellation&&job.reservationReturns===d.reservationReturns&&job.targetId===d.targetId&&job.actorId===d.actorId&&JSON.stringify(job.participants)===JSON.stringify([d.actorId,d.targetId])&&JSON.stringify(job.audience)===JSON.stringify([d.actorId])&&JSON.stringify(job.completionSupport)===JSON.stringify({schema:1,requires:d.completionRequires,coLocated:!!d.completionCoLocated,location:d.location,failure:d.completionFailure}),'Restore the exact pending school extension command. Your saved work has been preserved.');
+        const participants=d?.targetId?[d.actorId,d.targetId]:[d?.actorId];
+        check(d&&job.revision===d.revision&&JSON.stringify(job.costs)===JSON.stringify(d.costs)&&JSON.stringify(job.effects)===JSON.stringify(d.effects)&&job.cancellation===d.cancellation&&job.reservationReturns===d.reservationReturns&&job.targetId===(d.targetId??null)&&job.actorId===d.actorId&&JSON.stringify(job.participants)===JSON.stringify(participants)&&JSON.stringify(job.audience)===JSON.stringify([d.actorId])&&JSON.stringify(job.completionSupport)===JSON.stringify({schema:1,requires:d.completionRequires,coLocated:!!d.completionCoLocated,location:d.location,failure:d.completionFailure}),'Restore the exact pending school extension command. Your saved work has been preserved.');
     }
 }
 export function admittedExtensionCommands(base,record) {

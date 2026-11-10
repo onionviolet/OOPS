@@ -242,9 +242,9 @@ export function measureSaveSize(serialized) {
     return {utf8Bytes:new TextEncoder().encode(serialized).length,storageBytes:serialized.length*2};
 }
 export function checkSaveSize(serialized,{storage,key,budget=SAVE_STORAGE_BUDGET}={}) {
-    const size=measureSaveSize(serialized);let total=size.storageBytes+2*(key?.length || 0);
+    const size=measureSaveSize(serialized);let total=2*(storage?.storedLength?.(serialized) ?? serialized.length)+2*(key?.length || 0);
     if(storage && Number.isInteger(storage.length) && typeof storage.key==='function') {
-        for(let i=0;i<storage.length;i++) {const k=storage.key(i);if(k!==null && k!==key)total+=2*(k.length+(storage.getItem(k)?.length || 0));}
+        for(let i=0;i<storage.length;i++) {const k=storage.key(i);if(k!==null && k!==key)total+=2*(k.length+((storage.getStoredItem?storage.getStoredItem(k):storage.getItem(k))?.length || 0));}
     }
     if(total>budget) throw Object.assign(new Error('There is no room to safely keep this life in your browser. Export your save to a file before continuing; your last saved life is still safe.'),{code:'SAVE_STORAGE_FULL'});
     return {...size,originStorageBytes:total,budget};

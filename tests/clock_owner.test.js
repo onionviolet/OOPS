@@ -48,6 +48,22 @@ test('natural sleep and rest requests retain their existing clock owner',()=>{
     f.clock.studyContext=()=>({});f.clock.longRestClockRequest=()=>2;
     assert.equal(f.advance(),2);
 });
+test('quoted school passage only changes regular ticks and respects existing clock guards',()=>{
+    const f=fixture(),record={packId:'book.hp.lead'};
+    f.world.optionalPackState.structured=record;
+    f.clock.bookPassageClockRequest=(state,active)=>{
+        assert.equal(state,f.clock.expansionState);
+        assert.equal(active,record);
+        return 120;
+    };
+    assert.equal(f.advance(),120);
+    assert.equal(f.advance(3,'travel'),3);
+    f.clock.explicitFastForward=true;assert.equal(f.advance(),1);f.clock.explicitFastForward=false;
+    f.body.is_sleeping=true;assert.equal(f.advance(),5);f.body.is_sleeping=false;
+    f.world.p23Leisure={pending:{due:f.clock.expansionState.clock+7}};
+    assert.equal(f.advance(),7);
+    f.save.ownsSave=false;assert.equal(f.advance(),0);
+});
 test('failed durable publication cannot tick domains or publish a successful span',()=>{
     const f=fixture();f.save.persistExpansion=()=>{throw Error('fixture storage failure');};
     const original=console.error;console.error=()=>{};

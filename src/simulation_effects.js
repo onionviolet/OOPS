@@ -192,6 +192,10 @@ function buildSimulationFacts(state, context, registry) {
     // support through its existing domain projection at the actual commit boundary.
     if(state.lotm) Object.assign(facts,domainRegistry.project('lotm','facts',state,context)||{});
     Object.assign(facts,hpFacts(state,context),tieFacts(state));
+    const beginning = context.structuredNative;
+    if(actor === 'player' && beginning?.bound && beginning.worldId === a.worldId) {
+        for(const pin of beginning.extensions || []) facts[`structured.extension.${pin.id}.admitted`] = true;
+    }
     Object.assign(facts,leverFacts(state,context),generatedPeoplePresenceFacts(state,context));
     Object.assign(facts,fieldWorksFacts(state,context));
     Object.assign(facts,partnerFacts(state),systemsWorkshopFacts(state),foundationInteractionProbeFacts(state,context));

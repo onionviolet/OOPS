@@ -368,6 +368,7 @@ registerFortContent({locations,item_templates,book_stats,quests,availabilities,S
 
 import {prepareFoundationSave, retainRetiredContent} from "./save_compatibility.js";
 import {writeGuardedSave, encodeSaveFile, decodeSaveFile, importSaveFile, validateSaveEnvelope, createDurableSaveWriter} from "./save_files.js";
+import {installSaveStorageCodec} from "./save_storage_codec.js";
 import {freshNativeSave, preflightImport, installImportProbe} from "./import_probe.js";
 import {restoreSavedReputation, shouldReplayReputation} from "./reputation_state.js";
 import {hasEarnedClear} from "./clear_state.js";
@@ -386,7 +387,7 @@ import {beginStructuredCampaign,planStructuredSelection,structuredCampaignView,a
 import {requireStructuredContent,requireStructuredSelection} from './structured_pack_state.js';
 import {previewStructuredRenewal,commitStructuredRenewal} from './structured_renewal.js';
 import {createStructuredPackPanel} from './structured_pack_ui.js';
-import {registerBookBeginnings} from './book_world_beginning_registration.js';
+import {registerBookBeginnings,bookPassageClockRequest} from './book_world_beginning_registration.js';
 import {waitForLotmSourceJobs} from './book_world_lotm_readiness.js';
 import {createStructuredBeginningChoices} from './structured_beginning_choice.js';
 import {nativeStructuredEquipmentTemplate} from './structured_equipment_runtime.js';
@@ -490,7 +491,7 @@ const backup_key = "backup save";
 const dev_backup_key = "dev backup save";
 // Heir succession: the ended life stays in the save slot until the heir's
 // envelope passes the real import check. Only a small request crosses reload.
-const nativeAuthority=createNativeAuthority({storage:localStorage,release:is_on_dev()?'dev':'live',currentVersion:game_version,
+const nativeAuthority=createNativeAuthority({storage:installSaveStorageCodec(localStorage),release:is_on_dev()?'dev':'live',currentVersion:game_version,
     ownsSave:()=>ownsSave&&!importProbeToken&&!foundationSaveBlocked&&!is_loading_error,
     preflight:preflightImport});
 function activeNativeBytes(key) {
@@ -8576,10 +8577,10 @@ const update_timer = createClockOwner({
         get authorityOperationBusy(){return authorityOperationBusy;}, get authorityBootError(){return authorityBootError;}, get expansionState(){return expansionState;},
         get current_game_time(){return current_game_time;}, get stepperRenderSuppressed(){return stepperRenderSuppressed;}, get chroniclePauseReason(){return chroniclePauseReason;}, set chroniclePauseReason(value){chroniclePauseReason=value;},
         get expansionError(){return expansionError;}, set expansionError(value){expansionError=value;}, usesJoinedClock, is_night,
-        longRestClockRequest, studyContext, mistglassNextBoundary,
+        longRestClockRequest, studyContext, mistglassNextBoundary, bookPassageClockRequest,
         automaticResponse, makeChroniclePlan, advanceFrontierJourney,
         advanceChroniclePlan, createPlanningReadFrame, p23Plan,
-        waitingSimulationChoice,
+        waitingSimulationChoice, get explicitFastForward(){return !!fastForwarding;},
     },
     save: {
         get importProbeToken(){return importProbeToken;}, get ownsSave(){return ownsSave;}, get foundationSaveBlocked(){return foundationSaveBlocked;},
@@ -10022,11 +10023,8 @@ if(importProbeToken&&!freshAuthorityProbe) installImportProbe(importProbeToken, 
 if(is_on_dev()) {
     log_message("It looks like you are playing on the dev release. It is recommended to keep the developer console open (in Chrome/Firefox/Edge it's at F12 => 'Console' tab) in case of any errors/warnings appearing in there.", "notification");
 
-    if(localStorage[dev_backup_key]) {
-        update_backup_load_button(JSON.parse(localStorage[dev_backup_key]).saved_at);
-    } else {
-        update_backup_load_button();
-    }
+    const devBackup = localStorage.getItem(dev_backup_key);
+    update_backup_load_button(devBackup ? JSON.parse(devBackup).saved_at : undefined);
 
     if(localStorage[save_key]) {
         update_other_save_load_button(JSON.parse(localStorage[save_key]).saved_at || "", true);

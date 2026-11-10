@@ -91,6 +91,10 @@ function energyCostText(state,actorId,e){
  const o=state.simulation?.energies?.[actorId]?.[e.energyId];if(!o)return `${e.energyId}: not held`;
  return `${energyCharge(o.policy,e)} ${o.policy.label}; ${o.policy.strainPerUse} strain (pool ${o.reserve} of ${o.policy.capacity})`;
 }
+export function divinationCostText(state, command, costs) {
+ return costs.map(e=>e.type==='energy'?energyCostText(state,command.actorId,e):`${e.key||e.type}: ${e.amount}`).join('; ')
+  ||(command.divination.cost===null?'cost not recorded':'No stock spent.');
+}
 export function quoteDivinations(state,commands,preview,{blocked='',decide=()=>({allowed:true}),facts=()=>({})}={}){
  return commands.flatMap(d=>{
   const q=preview(d);if(!q.visible)return [];
@@ -102,7 +106,7 @@ export function quoteDivinations(state,commands,preview,{blocked='',decide=()=>(
   const known=state.simulation?.knowledge?.[d.actorId]||{};
   return [{id:d.id,queryId:m.queryId,queryLabel:m.label,question:m.question,method:m.method,perspective:'Your rite',
    label:`${d.label} · ${q.duration??d.duration} min`,description:d.description,duration:q.duration??d.duration,
-   costs:structuredClone(costs),...(m.cost===null?{cost:null}:{}),costText:costs.map(e=>e.type==='energy'?energyCostText(state,d.actorId,e):`${e.key||e.type}: ${e.amount}`).join('; ')||(m.cost===null?'cost not recorded':'No stock spent.'),
+   costs:structuredClone(costs),...(m.cost===null?{cost:null}:{}),costText:divinationCostText(state,d,costs),
    effectText:d.description,...(k?{record:k.value}:{}),
    ...(m.kind==='attempt'&&known[`divination.${m.queryId}.signal`]?{signal:known[`divination.${m.queryId}.signal`].value}:{}),
    ...(m.kind==='interpret'&&known[`divination.${m.queryId}.interpretation`]?{belief:known[`divination.${m.queryId}.interpretation`].value}:{}),

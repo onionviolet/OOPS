@@ -189,22 +189,41 @@ export function stageStructuredNativeObjects(d,{availabilities,makeLocation,make
     }
 }
 
-// Compile against the existing base's world/means without merging another world,
-// item, actor, start or replacement command. Publish only after all checks pass.
-export function registerStructuredCommandExtension(raw,contentHash,base,registry) {
+// An extension may define a carried item, but keeps the exact base's world,
+// actors and start. Stage its native items only after all checks pass.
+export function registerStructuredCommandExtension(raw,contentHash,base,registry,stageItems) {
     jsonData(raw);requireExtensionBase(raw,base);
     check(raw.schema===1&&stableId(raw.id)&&raw.id.startsWith(base.id+'.')&&Number.isSafeInteger(raw.revision)&&raw.revision>0&&/^sha256:[a-f0-9]{64}$/.test(contentHash),'Invalid command extension header.');
-    check(Object.keys(raw).every(k=>['schema','id','revision','base','label','description','requires','reason','commands'].includes(k))&&typeof raw.label==='string'&&typeof raw.description==='string'&&typeof raw.reason==='string'&&Array.isArray(raw.commands)&&raw.commands.length>0,'Only a command extension is supported.');
+    check(Object.keys(raw).every(k=>['schema','id','revision','base','label','description','requires','reason','commands','items','status'].includes(k))&&typeof raw.label==='string'&&typeof raw.description==='string'&&typeof raw.reason==='string'&&Array.isArray(raw.commands)&&raw.commands.length>0,'Only a command extension is supported.');
     validatePredicate(raw.requires);
     check(!(base.extensions||[]).some(e=>e.id===raw.id),'Duplicate structured extension.');
     for(const c of raw.commands)check(c.id.startsWith(raw.id+'.')&&!registry.simulation.commands.has(c.id)&&c.duration>0&&c.cancellation==='refund'&&c.reservationReturns===1&&!c.outcomes&&!c.fluency&&!c.powerId,'Unsupported or colliding extension command.');
-    for(const c of raw.commands)check((c.costs||[]).every(e=>['item','vital'].includes(e.type)&&typeof e.amount==='number')&&(c.effects||[]).every(e=>['item','knowledge','xp'].includes(e.type)&&(!('amount' in e)||typeof e.amount==='number')),'Command-only extensions cannot provision actors, faculties or new runtime owners.');
-    const candidate={...base,simulation:{...base.simulation,commands:[...base.simulation.commands,...raw.commands]}};
+    const items=raw.items||[],status=raw.status||[];
+    const own=id=>stableId(id)&&id.startsWith(raw.id+'.');
+    for(const c of raw.commands){
+        const playerEffect=e=>c.actorId==='player'&&(e.actor==null||e.actor==='player'||e.actor==='$actor');
+        const existingEnergy=e=>e.type==='energy'&&playerEffect(e)&&base.simulation.energies?.some(row=>row.id===e.energyId);
+        const coLocatedTarget=c.actorId==='player'&&c.coLocated===true&&c.completionCoLocated===true&&base.simulation.people?.some(p=>p.id===c.targetId);
+        const allowedCost=e=>['item','vital'].includes(e.type)&&typeof e.amount==='number'||
+            existingEnergy(e)&&e.operation==='use'&&Number.isSafeInteger(e.output)&&Number.isSafeInteger(e.control);
+        const allowedEffect=e=>['item','knowledge','xp'].includes(e.type)&&(!('amount' in e)||typeof e.amount==='number')||
+            e.type==='fact'&&['actor','world'].includes(e.scope)&&playerEffect(e)&&own(e.key)||
+            e.type==='relationship'&&coLocatedTarget&&e.actor===c.targetId&&e.target==='player'&&e.axis==='tie.affection'&&Number.isSafeInteger(e.amount)||
+            e.type==='relocate'&&playerEffect(e)&&base.locations.some(row=>row.id===e.location)||
+            existingEnergy(e)&&e.operation==='recover'&&Number.isSafeInteger(e.amount);
+        check((c.costs||[]).every(allowedCost)&&(c.effects||[]).every(allowedEffect),'Command-only extensions cannot provision actors, faculties or new runtime owners.');
+    }
+    const notes=new Set(raw.commands.flatMap(c=>c.effects||[]).filter(e=>e.type==='knowledge'&&e.actor==='player').map(e=>e.key));
+    check(raw.items===undefined||Array.isArray(items)&&items.length>0&&items.every(i=>object(i)&&own(i.id)&&Object.keys(i).every(k=>['id','label','description','value'].includes(k))&&Number.isSafeInteger(i.value)&&i.value>=0),'Invalid extension item.');
+    check(raw.status===undefined||Array.isArray(status)&&status.length>0&&status.every(r=>object(r)&&own(r.id)&&own(r.knowledgeKey)&&notes.has(r.knowledgeKey)),'Invalid extension status.');
+    const priorItems=(base.extensions||[]).flatMap(extension=>extension.items||[]);
+    const candidate={...base,items:[...(base.items||[]),...priorItems,...items],presentation:{...base.presentation,status:[...base.presentation.status,...status]},
+        simulation:{...base.simulation,commands:[...base.simulation.commands,...raw.commands]}};
     const compiled=compileStructuredPack(candidate);
     const commands=raw.commands.map(c=>compiled.registry.simulation.commands.get(c.id));
     const extension=freeze({...structuredClone(raw),contentHash,commands});
-    // No constructor or asynchronous operation occurs after this preflight.
     for(const c of commands)check(!registry.simulation.commands.has(c.id),'Structured extension command collision.');
+    if(items.length&&stageItems)stageItems(items);
     for(const c of commands)registry.simulation.commands.set(c.id,c);
     base.extensions=[...(base.extensions||[]),extension];
     return extension;

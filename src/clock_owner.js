@@ -35,12 +35,15 @@ export function createClockOwner({clock, save, body, world, ui}) {
         }
         if(world.backlogNativeClockPaused(clock.expansionState)){ui.backlogPanel?.render();ui.replacementRecognitionPanel?.render();ui.backlogOpeningPanel?.render();ui.knownRoutesPanel?.render();ui.adventureNotebook?.render();ui.livingGearPanel?.render();ui.combatOptionsPanel?.render();return 0;}
         const was_night = clock.is_night(clock.current_game_time);
-        let minutes = time_in_minutes ?? (clock.expansionState.p23Reading?.current?.kind==='rest' ? clock.longRestClockRequest(clock.expansionState.p23Reading,clock.studyContext()) : body.is_sleeping ? world.config.time_speedup_when_sleeping : 1);
+        const readingRest=clock.expansionState.p23Reading?.current?.kind==='rest';
+        const passage=time_in_minutes==null&&source==null&&!clock.explicitFastForward&&!stepSpansForTests&&!readingRest&&!body.is_sleeping&&clock.usesJoinedClock()
+            ? clock.bookPassageClockRequest?.(clock.expansionState,world.optionalPackState.structured) : null;
+        let minutes = time_in_minutes ?? (readingRest ? clock.longRestClockRequest(clock.expansionState.p23Reading,clock.studyContext()) : body.is_sleeping ? world.config.time_speedup_when_sleeping : passage??1);
         if(world.p23Leisure?.pending&&world.p23Leisure.pending.due>clock.expansionState.clock)minutes=Math.min(minutes,world.p23Leisure.pending.due-clock.expansionState.clock);
         if(world.p23Leisure?.pending&&world.p23Leisure.pending.due<=clock.expansionState.clock){try{save.persistExpansion(clock.p23Plan());}catch(error){ui.log_message(error.message,'notification');return 0;}}
         minutes=clock.mistglassNextBoundary(clock.expansionState,clock.expansionState.clock+minutes)-clock.expansionState.clock;
         if(minutes === 0) return 0;
-        const heldNow=time_in_minutes==null?clock.expansionState.actors?.player?.facts?.[TEMPO_FACT_HELD]||0:0,heldStep=Math.min(heldNow,60);
+        const heldNow=time_in_minutes==null?clock.expansionState.actors?.player?.facts?.[TEMPO_FACT_HELD]||0:0,heldStep=passage==null?Math.min(heldNow,60):0;
         minutes+=heldStep;
         if(clock.usesJoinedClock()) {
             if(save.importProbeToken || !save.ownsSave || clock.expansionError || save.foundationSaveBlocked || save.is_loading_error || body.nativeLifeEnded()) return 0;

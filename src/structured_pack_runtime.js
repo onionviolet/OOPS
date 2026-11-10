@@ -118,7 +118,8 @@ export function structuredCampaignView(state,d,record,context) {
         // LT8: what the player saw of this person (observations attributed to them, such as person_ties notes), after the introduction.
         if(known[key])people.push({name:p.label,details:[known[key].value,...Object.entries(known).filter(([k,r])=>k!==key&&r.basis?.attributedTo===p.id).map(([,r])=>r.value)]});
     }
-    const status=d.presentation.status.filter(row=>known[row.knowledgeKey]).map(row=>({label:row.label,value:known[row.knowledgeKey].value}));
+    const extensionStatus=(d.extensions||[]).filter(e=>record.extensions?.some(pin=>pin.id===e.id)).flatMap(e=>e.status||[]);
+    const status=[...d.presentation.status,...extensionStatus].filter(row=>known[row.knowledgeKey]).map(row=>({label:row.label,value:known[row.knowledgeKey].value}));
     status.push(...hpLifeStatus(state,context));
     status.push(...guCareStatus(state,d,record,context));
     status.push(...shadowCompanyStatus(state,d,record,context));
@@ -171,7 +172,9 @@ export function structuredActionCosts(quote, definition, state) {
             if(item)rows.push(`${e.count} × ${item.label} to recipient`);
         }
         else if(e.type==='item'&&e.amount<0) {
-            const item=definition.items?.find(i=>i.id===JSON.parse(e.key).id);
+            const id=JSON.parse(e.key).id;
+            const item=definition.items?.find(i=>i.id===id) ??
+                definition.extensions?.flatMap(extension=>extension.items||[]).find(i=>i.id===id);
             if(item)rows.push(`${-e.amount} × ${item.label}`);
         }
     }

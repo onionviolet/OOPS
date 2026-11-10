@@ -31,11 +31,14 @@ export function todayFor(state){
  const e=loopStartOf(state)&&dayEvents(state);
  return e?{day:e.view.day,hour:e.view.hour,divergedOnDay:state.motherOfLearning.divergence?.day??null}:null;
 }
-// The date end is the calendar's own month_end event (one owner for the date); a trigger row without it never ends the run.
-export function monthEnded(state){
+// Convert the calendar's due event back to the expansion clock used by harm.
+// A missing or future calendar event cannot end the run.
+export function monthEndAt(state){
  const e=loopStartOf(state)&&dayEvents(state);
- return !!e&&e.due.some(x=>x.id==='mol.month_end');
+ const end=e?.due.find(x=>x.id==='mol.month_end');
+ return end ? state.clock-end.ageMinutes : null;
 }
+export const monthEnded=state=>monthEndAt(state)!==null;
 // G13: the first thing in a run that differs from the earlier timeline sets the divergence day once; routine repeats do not.
 export function markDivergence(state,cause){
  const d=state.motherOfLearning,t=todayFor(state);

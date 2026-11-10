@@ -31,7 +31,7 @@ const READ_STORAGE_SOURCE = `(() => {
     const entries = {};
     for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
-        entries[key] = localStorage.getItem(key);
+        entries[key] = (localStorage.getStoredItem || localStorage.getItem).call(localStorage, key);
     }
     return entries;
 })()`;
@@ -47,6 +47,7 @@ function hashEntries(entries) {
 function hasSave(entries) {
     const raw = entries && entries[SAVE_KEY];
     if (typeof raw !== 'string' || raw.length < 2) return false;
+    if (raw.startsWith('yairpg-lz1:')) return true; // compressed by src/save_storage_codec.js
     try { return JSON.parse(raw) !== null; } catch { return false; }
 }
 

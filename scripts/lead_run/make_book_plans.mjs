@@ -2,7 +2,7 @@
 // plan per pass per book that skips shards already read, and writes one run file per world with true-bound caps (every request at max_tokens).
 //   Book types: pdf, epub (numbered members), ncx (`Chapter N:` labels), html (spine blocks split at `Chapter N: Title`), zh-nav (Chinese nav.xhtml), json (browser-captured `NNNN: [title, text]` files, Chinese).
 //   node scripts/lead_run/make_book_plans.mjs [--keys hp2,hp3] [--prepare] [--run 2026-10-29] [--ceiling world=usd,...] [--schema 1.4|1.5]
-//   --schema 1.4 stamps `schemaVersion: '1.4'` on every plan written (READINESS_AND_SCOPE round 12); without it plans carry no field and read as 1.3.
+//   New plans default to schema 1.5; --schema 1.4 retains that explicit older shape. Existing unversioned plans still read as 1.3.
 //   --schema 1.5 adds step-level actor, kind, locator, target, using, habit, results and witnesses on scenes (LSD204); it includes 1.4's extras.
 // Plans and run files only: nothing is sent. Each run file starts `approval: PENDING` and needs Weibao's go before batch_overnight.mjs runs it.
 import {execFileSync} from 'node:child_process';
@@ -11,7 +11,8 @@ import {join, dirname, relative} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {pdfChapters, epubChapterMembers, epubParagraphs, htmlBlocks, epubSpine, blockChapters, BOOK_TAIL, shardTextEn} from './prepare_shard_en.mjs';
 import {chapterLinks, volumeRuns, shardText, textChapters} from './prepare_shard.mjs';
-import {requestsFromPlan, estimateCost, EXTRA_PASSES, extraFile} from './batch_lib.mjs';
+import {requestsFromPlan, estimateCost, passDone} from './batch_lib.mjs';
+export {passDone};
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const PLANS = join(root, 'docs/gm/dispatch/batch-reading-2026-10-27/plans');
@@ -30,8 +31,8 @@ const settings = (lang, pass) => ({maxTokens: 128000, outTokensAssumed: 32000, .
 
 /** Consecutive chapters grouped up to `target` size units and `max` chapters; a chapter over the target stands alone. */
 /** The plan object for one label; `schema` ('1.4') is opt-in and leaves no field when unset, so existing plans do not move. */
-export function planObject({world, lang, pass, priv, glossary, label, shards, schema = null}) {
-    return {world, model: 'claude-haiku-5-5', ...settings(lang, pass), ...(schema ? {schemaVersion: schema} : {}), privateDir: priv, outDir: join(priv, 'batch'), glossary, label, pass, shards};
+export function planObject({world, lang, pass, priv, glossary, label, shards, schema = '1.5', model = 'claude-haiku-5-5'}) {
+    return {world, model, ...settings(lang, pass), schemaVersion: schema || '1.5', reading: {level: 'L1', relevance: ['reference'], review: 'not-reviewed'}, privateDir: priv, outDir: join(priv, 'batch'), glossary, label, pass, shards};
 }
 
 export function groupBySize(chapters, size, {target, max}) {
@@ -130,16 +131,12 @@ export function bookShards(b, files) {
 }
 
 /** Has this pass already been read for the shard (its output file exists)? Census and scenes write migrated `<prefix>m_*`, passes 3-5 `<prefix>_<key>`. */
-export function passDone(pass, prefix, files) {
-    // A reply salvaged after a cut-off kept its rows but still needs a full read.
-    if (files.has(`${prefix}_${pass}.partial`)) return false;
-    if (pass === 'census' || pass === 'scenes') return files.has(`${prefix}m_${pass}.jsonl`);
-    return EXTRA_PASSES[pass].some(k => files.has(`${prefix}_${extraFile(pass, k)}.jsonl`));
-}
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
     const a = process.argv.slice(2), flag = n => { const i = a.indexOf(n); return i >= 0 ? a[i + 1] : null; };
     const registry = JSON.parse(readFileSync(join(PLANS, 'books.json'), 'utf8'));
+    // `--model gpt-6-luna` writes plans for the OpenAI batch backend (openai_batch.mjs); pair it with a `--tag` so labels stay apart from Haiku runs.
+    const model = flag('--model');
     const schema = flag('--schema'), keys = flag('--keys') ? new Set(flag('--keys').split(',')) : null, tag = flag('--tag');
     if (schema && !['1.4', '1.5'].includes(schema)) throw new Error(`--schema supports 1.4 or 1.5, got ${schema}`);
     const ceilings = Object.fromEntries((flag('--ceiling') || '').split(',').filter(Boolean).map(x => x.split('=')).map(([w, u]) => [w, Number(u)]));
@@ -169,7 +166,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
                 .map(s => ({prefix: s.prefix, shard: join(priv, s.file), base: s.base, chapters: s.chapters}));
             if (!todo.length) continue;
             // `--tag r2` gives a rerun its own labels and plan files, so the driver does not collect an earlier batch by its receipt.
-            const label = `${b.key}-${suffix.replace('_', '-')}${tag ? `-${tag}` : ''}`, plan = planObject({world: b.world, lang: b.lang, pass, priv, glossary, label, shards: todo, schema});
+            const label = `${b.key}-${suffix.replace('_', '-')}${tag ? `-${tag}` : ''}`, plan = planObject({world: b.world, lang: b.lang, pass, priv, glossary, label, shards: todo, schema, ...(model ? {model} : {})});
             const name = `${b.key}_${suffix}${tag ? `_${tag}` : ''}`;
             writeFileSync(join(PLANS, `${name}.json`), JSON.stringify(plan, null, 1) + '\n');
             // True bound: every request at max_tokens. Rounded up to the cent.

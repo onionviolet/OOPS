@@ -28,7 +28,9 @@ const reason = new URLSearchParams(location.search).get('reason') || 'crashed';
 document.getElementById('recover_reason').textContent = REASONS[reason] || `The game window stopped (${reason}).`;
 let text = 'No save found on this origin.';
 try {
-    const save = JSON.parse(localStorage.getItem('save data'));
+    const rawSave = localStorage.getItem('save data');
+    // A compressed save is only readable inside the game; this page just reports that it exists.
+    const save = rawSave && rawSave.startsWith('yairpg-lz1:') ? {} : JSON.parse(rawSave);
     if (save) text = 'Last save: ' + (save.saved_at ? String(save.saved_at).replace(/_/g, ':') : 'time unknown') + '.';
 } catch { text = 'The last save could not be read here; reloading will try it as usual.'; }
 document.getElementById('recover_save').textContent = text;

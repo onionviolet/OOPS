@@ -54,6 +54,8 @@ pub fn hash_entries(entries: &Map<String, Value>) -> String {
 /// Only a real save is worth keeping; an empty or wiped origin never replaces a good mirror.
 pub fn has_save(entries: &Map<String, Value>) -> bool {
     match entries.get(SAVE_KEY).and_then(Value::as_str) {
+        // A compressed save (src/save_storage_codec.js) is kept as stored; the game decodes it.
+        Some(raw) if raw.starts_with("yairpg-lz1:") => true,
         Some(raw) if raw.len() >= 2 => serde_json::from_str::<Value>(raw)
             .map(|v| !v.is_null())
             .unwrap_or(false),

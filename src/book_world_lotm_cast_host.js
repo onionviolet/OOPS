@@ -214,8 +214,9 @@ function deriveCast(pack){
  castPlaces=pack.places.filter(p=>!p.anchorOnly&&(p.travel||journeyPlaces.has(p.id)));
  castMoves=Object.fromEntries(castPlaces.filter(p=>p.travel).map(p=>[`lotm.move.${p.id}`,p.id]));
  castWalkCommands=[];walksById.clear();walkPlaces=new Map([...Object.values(L),...castPlaces.map(p=>p.id)].map(id=>[walkPart(id),id]));
+ const placeInquiries=defineDivinations(pack.householdActs?.inquiries,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION});
  castObjectCommands=definePlaceActs(pack.householdActs,{worldId:I.world,group:'book_lotm',
-  situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
+  situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be'),inquiries:new Map(placeInquiries.map(d=>[d.id,d]))});
  bindSeerBrew(castObjectCommands);
  for(const d of castObjectCommands)for(const e of d.effects)if(e.type==='relocate'&&e.actor==='player'&&!placesById.has(e.location))throw Error('Place-act travel needs a declared destination.');
  castAvailable=true;

@@ -12,13 +12,15 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     const planPath = flag('--plan'), batchId = flag('--batch');
     if (!planPath || !batchId) { console.error('usage: batch_collect.mjs --plan plan.json --batch msgbatch_id'); process.exit(2); }
     try {
-        const plan = JSON.parse(readFileSync(planPath, 'utf8')), client = await makeClient();
+        const plan = JSON.parse(readFileSync(planPath, 'utf8')), client = await makeClient(process.env, {model: plan.model});
         const summary = await collect({client, batchId, plan, outDir: plan.outDir, log: m => console.error(m)});
         const repairs = summary.repair.filter(r => r.request).map(r => stripMeta(r.request));
         if (repairs.length) writeFileSync(join(plan.outDir, `${plan.label}_repair_requests.jsonl`), repairs.map(r => JSON.stringify(r)).join('\n') + '\n');
         const pub = {...summary, repair: summary.repair.map(r => ({id: r.id, why: r.why})), repairRequests: repairs.length};
         writeFileSync(join(plan.outDir, `${plan.label}_summary.json`), JSON.stringify(pub, null, 1) + '\n');
         console.log(JSON.stringify(pub, null, 1));
+        // OpenAI keeps the uploaded source text in Files storage; remove it once the summary is on disk (`--keep-files` to skip).
+        if (client.messages.batches.cleanup && !a.includes('--keep-files')) console.error(`deleted provider files: ${(await client.messages.batches.cleanup(batchId)).join(', ')}`);
         if (repairs.length) console.log(`repair requests written (${repairs.length}); one repair batch per shard at most, a second grade C gets a fresh call, never a third (AU13)`);
     } catch (e) { console.error(e.message); process.exit(1); }
 }

@@ -5,6 +5,11 @@ import {fresh,ctx,wait,registry,I} from './lotm_helpers.js';
 import {createSimulationRegistry,validateSimulationState} from '../src/simulation_contracts.js';
 import {applySituationEffect} from '../src/causal_situations.js';
 import {previewSimulationCommand,commitSimulationCommand,cancelSimulationJob,simulationFacts} from '../src/simulation.js';
+import {definePlaceActs,quotePlaceActs} from '../src/place_acts.js';
+import {itemSafetyFacts,OPERATION_SLOW} from '../src/book_world_lotm_item_safety.js';
+import {advanceSimulation} from '../src/expansion_engine.js';
+import {applyEnergyEffect} from '../src/energy_resources.js';
+import {BE_SEER_ENERGY} from '../src/book_world_lotm_be_seer.js';
 const eq=(fact,value,reason='Use the prepared means.')=>({fact,op:'eq',value,reason});
 const room='fixture.room',world=I.world;
 // Synthetic row schema/example for pack.divinations. Signal is an observation;
@@ -194,4 +199,98 @@ try {
  `);
  const {stdout}=await exec(process.execPath,['--max-old-space-size=8192',worker],{cwd:dir,timeout:270000,maxBuffer:1024*1024});
  assert.match(stdout,/tamper: PASS/);
+});
+
+test('a sequenced inquiry loses its result and returns its reservation when the watcher leaves', t => {
+ const p = setup();
+ const helper = I.supervisor;
+ const energyId = 'fixture.escorted.energy';
+ const policy = {...BE_SEER_ENERGY,id:energyId};
+ registry.simulation.energies.set(energyId,policy);
+ t.after(()=>registry.simulation.energies.delete(energyId));
+ applyEnergyEffect(p.state,'player',{energyId,operation:'learn'},registry.simulation);
+ applyEnergyEffect(p.state,'player',{energyId,operation:'recover',amount:policy.capacity},registry.simulation);
+ const spirit = state => state.simulation.energies.player[energyId];
+ p.state.simulation.people[helper].location = room;
+ p.state.actors[helper].facts['operation.item.watching'] = true;
+ const local = {
+  roster: ['player', helper],
+  range: 5,
+  modes: {restrained: 1},
+  setDownPlaces: ['fixture.storage'],
+  separations: [{from:room,to:'fixture.storage',meters:10}],
+ };
+ const facts = p.state.worlds[world].facts;
+ facts['operation.item.custody'] = helper;
+ facts['operation.item.mode'] = 'restrained';
+ const q = {
+  id:'fixture.escorted',targetId:'fixture.sample',question:'Is the sample sound?',method:'Held pointer',
+  label:'Examine the sample',description:'Check it in company.',place:room,
+  means:eq('actor.fixture.instrument',true),
+  contact:{fact:'itemSafety.watchers',op:'gte',value:1,reason:'Keep a steady companion nearby.'},
+  steps:[{id:'ask',kind:'attempt',label:'Ask',description:'Hold the pointer.',minutes:2,
+   report:'The pointer turns.',status:'signal',signal:'The pointer leans left.',costs:[{type:'energy',energyId,operation:'use',output:1,control:1}]}],
+ };
+ const act = {id:'fixture.local.inquiry',place:room,label:'Ask',description:'Hold the pointer.',
+  report:'You look at the pointer.',minutes:2,knowledgeKey:'fixture.local.receipt',operation:'use',
+  inquiryStep:q.id+'.ask',publicReasons:true};
+ const data = {acts:[act],sequence:{id:'fixture.local',title:'Escort',stages:[{commandId:act.id,label:act.label}]}};
+ const [step] = defineDivinations({queries:[q]},binding);
+ const [command] = definePlaceActs(data,{...binding,inquiries:new Map([[step.id,step]])});
+ registry.simulation.commands.set(command.id,command);
+ t.after(()=>registry.simulation.commands.delete(command.id));
+
+ const context = plan => {
+  const c = ctx(plan);
+  return {...c,facts:{...c.facts,...itemSafetyFacts(plan.state,local)}};
+ };
+ const preview = () => previewSimulationCommand(p.state,registry,command.id,context(p));
+ const [offer] = quotePlaceActs(p.state,[command],data,preview,{facts:()=>simulationFacts(p.state,context(p),registry)});
+ assert.equal(offer.eligible,true);
+ assert.doesNotMatch(JSON.stringify(offer),/leans left/);
+ const accepted = {...p,...commitSimulationCommand(p.state,registry,{id:command.id},context(p),p.state.sequence)};
+ assert.equal(spirit(accepted.state).reserve,policy.capacity-1);
+ assert.equal(spirit(accepted.state).strain,policy.strainPerUse);
+ const signal = 'divination.'+q.id+'.signal';
+ assert.equal(accepted.state.simulation.knowledge.player?.[signal],undefined);
+ accepted.state.simulation.people[helper].location='fixture.storage';
+ const c = context(accepted);
+ const stopped=advanceSimulation(accepted.state,registry,2,accepted.external,accepted.gameplay,{player:{...c,vitals:c.vitals.player}});
+ assert.deepEqual(spirit(stopped.state),spirit(p.state));
+ assert.equal(stopped.external.money,p.external.money);
+ assert.equal(stopped.state.simulation.knowledge.player?.[signal],undefined);
+ assert.equal(stopped.state.actors.player.completed[command.id],undefined);
+});
+
+test('the item uses its custodian location, exposure limit and live assistance',()=>{
+ const {state}=setup();
+ const helper=I.supervisor;
+ const third=I.member;
+ for(const id of [helper,third]){
+  state.simulation.people[id].location=room;
+  state.actors[id].facts['operation.item.watching']=true;
+ }
+ const placement='fixture.storage';
+ const spec={roster:['player',helper,third],range:5,modes:{restrained:1,agitated:2},
+  setDownPlaces:[placement],separations:[{from:room,to:placement,meters:10}]};
+ const facts=state.worlds[world].facts;
+ facts['operation.item.custody']=helper;
+ facts['operation.item.mode']='restrained';
+ assert.equal(itemSafetyFacts(state,spec)['itemSafety.slots'],1);
+ state.simulation.conditions.player={[OPERATION_SLOW]:{intensity:1}};
+ assert.equal(itemSafetyFacts(state,spec)['itemSafety.slots'],0);
+ assert.equal(itemSafetyFacts(state,spec)[`itemSafety.aid.${helper}.player`],true);
+ facts['operation.item.mode']='agitated';
+ assert.equal(itemSafetyFacts(state,spec)['itemSafety.slots'],1);
+ state.simulation.conditions[helper]={[OPERATION_SLOW]:{intensity:1}};
+ assert.equal(itemSafetyFacts(state,spec)['itemSafety.slots'],0);
+ assert.equal(itemSafetyFacts(state,spec)[`itemSafety.aid.${helper}.player`],false);
+ state.simulation.people[third].location=placement;
+ assert.equal(itemSafetyFacts(state,spec)[`itemSafety.aid.${third}.player`],false);
+ state.simulation.people[helper].location=placement;
+ assert.equal(itemSafetyFacts(state,spec)['itemSafety.exposed.player'],false);
+ assert.equal(itemSafetyFacts(state,spec)['itemSafety.playerClear'],true);
+ facts['operation.item.custody']=placement;
+ state.simulation.people[helper].location=room;
+ assert.equal(itemSafetyFacts(state,spec)['itemSafety.playerClear'],true);
 });

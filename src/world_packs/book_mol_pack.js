@@ -25,6 +25,10 @@ export default {
  "content": {
   "people": [
    {
+    "id": "book.mol.haslush",
+    "name": "Haslush Ikzeteri"
+   },
+   {
     "id": "book.mol.imaya",
     "name": "Imaya Kuroshka"
    },
@@ -1626,6 +1630,5497 @@ export default {
     }
    ],
    "commands": [
+    {
+     "id": "book.mol.zorian.s2.wait_for_xvim",
+     "revision": 1,
+     "label": "Wait for Xvim until Friday at 3 p.m.",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria supervised practice court",
+     "description": "Stay in the practice court until Friday at 3 p.m. by the Cyoria clock. Other commitments and local events still run. You can stop waiting at any time.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.sensing.introduced", "op": "eq", "value": true},
+       {"fact": "mol.sensing.finished", "op": "eq", "value": false},
+       {"fact": "mol.sensing.before", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "reason": "Come back before Friday at 3 p.m. to wait for Xvim.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.sensing.introduced", "op": "eq", "value": true},
+       {"fact": "mol.sensing.before", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [],
+     "duration": 1,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.sensing.introduced", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true
+    },
+    {
+     "id": "book.mol.zorian.s2.start_sensing",
+     "revision": 1,
+     "label": "Put on the blindfold and track a marble",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria supervised practice court",
+     "description": "Xvim throws mana-charged marbles. Try to follow one by its mana alone. The opening drill takes 15 minutes and uses one stamina and Xvim’s attention.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.sensing.introduced", "op": "eq", "value": true},
+       {"fact": "mol.sensing.finished", "op": "eq", "value": false},
+       {"fact": "mol.sensing.opened", "op": "eq", "value": false}
+      ]
+     },
+     "requires": {
+      "reason": "Meet Xvim here between 3 and 5 p.m. by the Cyoria clock on Friday. Leave at least 30 minutes for the exercise.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.sensing.introduced", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.xvim", "op": "eq", "value": true},
+       {"fact": "mol.sensing.beginOnTime", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [
+      {"type": "vital", "actor": "player", "key": "stamina", "amount": -1},
+      {"type": "resource", "actor": "book.mol.xvim", "key": "book.mol.attention", "amount": -1}
+     ],
+     "effects": [],
+     "duration": 15,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.sensing.introduced", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.xvim", "op": "eq", "value": true},
+       {"fact": "mol.sensing.inSession", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "targetId": "book.mol.xvim",
+     "coLocated": true,
+     "participants": ["$target"]
+    },
+    {
+     "id": "book.mol.zorian.s2.report_uncertainty",
+     "revision": 1,
+     "label": "Tell Xvim you felt it coming but lost the trail",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria supervised practice court",
+     "description": "You feel mana coming toward you. It passes without touching you, and the trace is too faint to follow. Spend the last 15 minutes on another throw and Xvim’s critique.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.sensing.introduced", "op": "eq", "value": true},
+       {"fact": "mol.sensing.finished", "op": "eq", "value": false},
+       {"fact": "mol.sensing.opened", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "reason": "Return to Xvim here with 15 minutes left before 5 p.m. by the Cyoria clock on Friday.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.sensing.introduced", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.xvim", "op": "eq", "value": true},
+       {"fact": "mol.sensing.opened", "op": "eq", "value": true},
+       {"fact": "mol.sensing.finished", "op": "eq", "value": false},
+       {"fact": "mol.sensing.answerOnTime", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.xvim_critique",
+       "stage": "understood",
+       "value": "Xvim has you keep the blindfold on. “Then tell me where you lost it, Mr. Kazinski.” You could sense the marble’s approach, but you still lost its path.",
+       "basis": {"kind": "instruction", "attributedTo": "book.mol.xvim", "situationId": "book.mol.visitor_branch"}
+      }
+     ],
+     "duration": 15,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.sensing.introduced", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.xvim", "op": "eq", "value": true},
+       {"fact": "mol.sensing.inSession", "op": "eq", "value": true},
+       {"fact": "mol.sensing.opened", "op": "eq", "value": true},
+       {"fact": "mol.sensing.finished", "op": "eq", "value": false}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "targetId": "book.mol.xvim",
+     "coLocated": true,
+     "participants": ["$target"]
+    },
+    {
+     "id": "book.mol.zorian.s2.guess_left",
+     "revision": 1,
+     "label": "Call left and ask Xvim where it went",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria supervised practice court",
+     "description": "You feel mana coming toward you. It passes without touching you, and the trace is too faint to follow. Spend the last 15 minutes on another throw and Xvim’s critique.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.sensing.introduced", "op": "eq", "value": true},
+       {"fact": "mol.sensing.finished", "op": "eq", "value": false},
+       {"fact": "mol.sensing.opened", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "reason": "Return to Xvim here with 15 minutes left before 5 p.m. by the Cyoria clock on Friday.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.sensing.introduced", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.xvim", "op": "eq", "value": true},
+       {"fact": "mol.sensing.opened", "op": "eq", "value": true},
+       {"fact": "mol.sensing.finished", "op": "eq", "value": false},
+       {"fact": "mol.sensing.answerOnTime", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.xvim_critique",
+       "stage": "understood",
+       "value": "You call left. Xvim lets you lift the blindfold for the next throw. The marble sails overhead. “Follow the mana, Mr. Kazinski. Your shoulder had nothing to do with it.” You can feel it coming, but the direction was a guess.",
+       "basis": {"kind": "instruction", "attributedTo": "book.mol.xvim", "situationId": "book.mol.visitor_branch"}
+      }
+     ],
+     "duration": 15,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.sensing.introduced", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.xvim", "op": "eq", "value": true},
+       {"fact": "mol.sensing.inSession", "op": "eq", "value": true},
+       {"fact": "mol.sensing.opened", "op": "eq", "value": true},
+       {"fact": "mol.sensing.finished", "op": "eq", "value": false}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "targetId": "book.mol.xvim",
+     "coLocated": true,
+     "participants": ["$target"]
+    },
+    {
+     "id": "book.mol.zorian.s2.meet_haslush",
+     "revision": 1,
+     "label": "Meet Ilsa’s divination tutor",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria academy guest library",
+     "description": "Speak with the man Ilsa sent and get the directions for your next meeting. Takes 10 minutes.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showIntro", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "reason": "Catch Haslush outside the library before Monday’s lesson.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showIntro", "op": "eq", "value": true},
+       {"fact": "mol.divination.introOnTime", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.haslush_appointment",
+       "stage": "seen",
+       "value": "Detective Haslush Ikzeteri takes you for a drink and talks shop. He sends you off with directions to another tavern for Monday at 3 p.m. You collect the divination compass from your school kit before heading home.",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      },
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian divination compass\"}",
+       "amount": 1
+      }
+     ],
+     "duration": 10,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showIntro", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.tell_imaya_about_lesson",
+     "revision": 1,
+     "label": "Tell Imaya when you’ll be home",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria Imaya household",
+     "description": "Let Imaya know that Haslush’s lesson will keep you out after class on Monday. Takes 5 minutes.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showNotice", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "reason": "Catch Imaya at the house before the Monday lesson.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showNotice", "op": "eq", "value": true},
+       {"fact": "mol.divination.noticeOnTime", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.imaya", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.imaya", "op": "eq", "value": "Cyoria Imaya household"}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.haslush_household_notice",
+       "stage": "seen",
+       "value": "You tell Imaya where you’re going on Monday. She asks you to give her some warning next time, too.",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "book.mol.imaya",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 5,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showNotice", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.imaya", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.imaya", "op": "eq", "value": "Cyoria Imaya household"}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.wait_for_haslush",
+     "revision": 1,
+     "label": "Wait for Haslush until Monday at 3 p.m.",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria Imaya household",
+     "description": "Stay at Imaya’s house until Monday at 3 p.m. by the Cyoria clock. Time passes in the city while you wait. You can stop and leave at any time.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.noticeGiven", "op": "eq", "value": true},
+       {"fact": "mol.divination.before", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "reason": "Wait at Imaya’s house before the Monday lesson.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.noticeGiven", "op": "eq", "value": true},
+       {"fact": "mol.divination.before", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [],
+     "duration": 1,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.noticeGiven", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true
+    },
+    {
+     "id": "book.mol.zorian.s2.check_tavern",
+     "revision": 1,
+     "label": "Look for Haslush in the tavern",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria tavern meeting",
+     "description": "Check the room against his directions. Leave 45 minutes for the visit, including 5 minutes to look around.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showEntry", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "reason": "Come back Monday between 3 and 5 p.m. by the Cyoria clock, with 45 minutes to spare.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showEntry", "op": "eq", "value": true},
+       {"fact": "mol.divination.entryOnTime", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.haslush_apparent_absence",
+       "stage": "seen",
+       "value": "The directions fit, but you don’t see Haslush. The man in the corner looks like a factory worker. You’ve barely looked around and already feel like leaving.",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 5,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showEntry", "op": "eq", "value": true},
+       {"fact": "mol.divination.teacherAtTavern", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.trace_haslush",
+     "revision": 1,
+     "label": "Use your compass to look for Haslush",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria tavern meeting",
+     "description": "Ask the compass to find the detective. It takes 5 minutes and mana equal to one magic missile. Keep enough mana for the practice spell.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showSearch", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "reason": "Bring your divination compass and leave 35 minutes before 5 p.m. on Monday.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showSearch", "op": "eq", "value": true},
+       {"fact": "mol.divination.traceOnTime", "op": "eq", "value": true},
+       {"fact": "mol.divination.hasCompass", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "use",
+       "output": 1,
+       "control": 1
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.haslush_found",
+       "stage": "seen",
+       "value": "The needle points at the man in work clothes. You sit across from him and ask about the spell. Haslush drops his disguise and the room suddenly feels less urgent to leave. He asks how closely you looked before you sat down.",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 5,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showSearch", "op": "eq", "value": true},
+       {"fact": "mol.divination.hasCompass", "op": "eq", "value": true},
+       {"fact": "mol.divination.teacherAtTavern", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.ask_after_haslush",
+     "revision": 1,
+     "label": "Ask the bar about your appointment",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria tavern meeting",
+     "description": "Stay long enough to ask whether a detective booked a table. This takes 10 minutes and no mana.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showSearch", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "reason": "Leave 40 minutes before 5 p.m. on Monday for the questions and practice.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showSearch", "op": "eq", "value": true},
+       {"fact": "mol.divination.askOnTime", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.haslush_found",
+       "stage": "seen",
+       "value": "A patron points you back to the corner. The man in work clothes sighs and lets the disguise drop. Your urge to leave lifts, too. Haslush asks how much you noticed while you were looking for him.",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 10,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showSearch", "op": "eq", "value": true},
+       {"fact": "mol.divination.teacherAtTavern", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.study_object_analysis",
+     "revision": 1,
+     "label": "Learn how to examine a warded object",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria tavern meeting",
+     "description": "Answer Haslush’s questions about the room. Then have him show you how to look for a ward. Takes 20 minutes at his table.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showStudy", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "reason": "Start with Haslush at the tavern with at least 30 minutes left before 5 p.m. on Monday.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showStudy", "op": "eq", "value": true},
+       {"fact": "mol.divination.studyOnTime", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.object_analysis_method",
+       "stage": "understood",
+       "value": "You remember the trophies better than the people beneath them. Haslush lays out a watch, a sealed envelope and other odds and ends. He teaches you to ask the spell one narrow question. Try looking for a ward on the envelope before you touch the seal.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 20,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showStudy", "op": "eq", "value": true},
+       {"fact": "mol.divination.teacherAtTavern", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.read_practice_envelope",
+     "revision": 1,
+     "label": "Check the practice envelope for a ward",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria tavern meeting",
+     "description": "Use Haslush’s spell on the envelope while he watches. Leave it sealed. Takes 10 minutes and mana equal to one magic missile.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showPractice", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "reason": "Work at Haslush’s table with 10 minutes left before 5 p.m. on Monday.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showPractice", "op": "eq", "value": true},
+       {"fact": "mol.divination.practiceOnTime", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "use",
+       "output": 1,
+       "control": 1
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.object_analysis_result",
+       "stage": "seen",
+       "value": "The spell finds a ward laid across the seal. You leave it intact and tell Haslush what you found. He turns the envelope over and shows you where he laid the ward. That answers what would react to opening it. You still don’t know who wrote the letter.",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 10,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showPractice", "op": "eq", "value": true},
+       {"fact": "mol.divination.teacherAtTavern", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.warn_haslush_privately",
+     "revision": 1,
+     "label": "Ask for a privacy ward and warn Haslush",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria tavern meeting",
+     "description": "Tell him what you remember about the festival. Keep your source to yourself. Takes 10 minutes.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showTip", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "reason": "Catch Haslush with ten minutes left before he leaves the tavern.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showTip", "op": "eq", "value": true},
+       {"fact": "mol.divination.tipOnTime", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.haslush_festival_tip",
+       "stage": "seen",
+       "value": "Haslush wards the table before you speak. You tell him the attack came with the fireworks and that trolls entered from below the city. He asks for a source. You give him none. He’ll make quiet inquiries and wants to talk after your next lesson.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 10,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showTip", "op": "eq", "value": true},
+       {"fact": "mol.divination.teacherAtTavern", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.keep_festival_warning_private",
+     "revision": 1,
+     "label": "Keep the festival warning to yourself",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria tavern meeting",
+     "description": "Leave Haslush with the ward exercise. He has no tip from you to follow.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showTip", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showTip", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.festival_tip_withheld",
+       "stage": "seen",
+       "value": "You let the lesson end without mentioning the festival.",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.steady_the_snail",
+     "revision": 1,
+     "label": "Practice levitation on the snail’s shell",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria Imaya household",
+     "description": "Hold it above your palm, then lower it. Takes 10 minutes and mana equal to one magic missile.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showShaping", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showShaping", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "use",
+       "output": 1,
+       "control": 1
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.snail_shaping_practice",
+       "stage": "seen",
+       "value": "The snail writhes when you lift it by the shell. Kirielle asks you a question and it wobbles as you look up. You bring it back down and take it out to the garden. A steady lift needs your attention even when the shell gives you a firm hold.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 10,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showShaping", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.tutor_kael",
+     "revision": 1,
+     "label": "Help Kael catch up on first-year magic",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria Imaya household",
+     "description": "Start with how students learn to draw on their own mana. Kirielle listens in. Takes 20 minutes.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showTutoring", "op": "eq", "value": true}
+      ]
+     },
+     "targetId": "book.mol.kael",
+     "participants": ["$target"],
+     "participantsCoLocated": true,
+     "requires": {
+      "reason": "Start the lesson while Kael is at home.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showTutoring", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.kael", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.kael", "op": "eq", "value": "Cyoria Imaya household"}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.household_magic_tutoring",
+       "stage": "seen",
+       "value": "Kael asks you to start at the beginning. You explain why first-year students learn to draw mana by operating enchanted objects before they learn long chants and gestures. Kirielle stops doodling. A knock interrupts the lesson.",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 20,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showTutoring", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.kael", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.kael", "op": "eq", "value": "Cyoria Imaya household"}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.read_taivens_paper",
+     "revision": 1,
+     "label": "Read the paper Taiven brought",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria Imaya household",
+     "description": "See what the reporters can prove about Zach’s claim.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showPaper", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showPaper", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.taivens_dragon_paper",
+       "stage": "seen",
+       "value": "Zach produced a dragon’s body for the reporters. Officials say it appears to be Oganj and want a closer look before they pay the bounty. Taiven asks how a student you remember struggling in class could have managed it.",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.confide_in_kael_and_kirielle",
+     "revision": 1,
+     "label": "Tell Kael and Kirielle about the repeated month",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria Imaya household",
+     "description": "Let Taiven go, then explain what you remember. Ask them to keep the festival warning in the house. Takes 15 minutes.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showDisclosure", "op": "eq", "value": true}
+      ]
+     },
+     "targetId": "book.mol.kael",
+     "participants": ["$target"],
+     "participantsCoLocated": true,
+     "requires": {
+      "reason": "Speak with Kael while he’s at home.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showDisclosure", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.kael", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.kael", "op": "eq", "value": "Cyoria Imaya household"}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.household_confidence",
+       "stage": "seen",
+       "value": "Taiven takes the repeated month for a wild guess. After she leaves, Kael and Kirielle ask what you meant. You tell them what happened at the festival and what you kept when you woke up again. They keep asking questions, and Kael offers to look into the spell you remember.",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      },
+      {
+       "type": "fact",
+       "actor": "book.mol.kael",
+       "scope": "actor",
+       "key": "book.mol.zorian.s2.heard_zorian_loop",
+       "value": true
+      }
+     ],
+     "duration": 15,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showDisclosure", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.kael", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.kael", "op": "eq", "value": "Cyoria Imaya household"}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.wait_for_kael_research",
+     "revision": 1,
+     "label": "Give Kael three days to look into the spell",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria Imaya household",
+     "description": "Wait at home while he checks his books. You can stop and use the intervening time yourself.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showResearchWait", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showResearchWait", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [],
+     "duration": 1,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showTheory", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.hear_kaels_theory",
+     "revision": 1,
+     "label": "Look at the passage Kael marked",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria Imaya household",
+     "description": "Hear what he made of the chant you remember. Takes 5 minutes.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showTheory", "op": "eq", "value": true}
+      ]
+     },
+     "targetId": "book.mol.kael",
+     "participants": ["$target"],
+     "participantsCoLocated": true,
+     "requires": {
+      "reason": "Talk it through with Kael at home.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showTheory", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.kael", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.kael", "op": "eq", "value": "Cyoria Imaya household"}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.kael_examination_theory",
+       "stage": "interpreted",
+       "value": "Kael found a spell that fits parts of the chant. He thinks it may have left a link between you and Zach. He offers to check for the kind of bond he recognizes.",
+       "basis": {
+        "kind": "instruction",
+        "attributedTo": "book.mol.kael",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 5,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showTheory", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.kael", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.kael", "op": "eq", "value": "Cyoria Imaya household"}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.accept_kaels_examination",
+     "revision": 1,
+     "label": "Let Kael check for the bond he described",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria Imaya household",
+     "description": "Sit for his examination. You can withdraw before he finishes. Takes 15 minutes.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showExam", "op": "eq", "value": true}
+      ]
+     },
+     "targetId": "book.mol.kael",
+     "participants": ["$target"],
+     "participantsCoLocated": true,
+     "requires": {
+      "reason": "Kael needs to be there to perform the examination.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showExam", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.kael", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.kael", "op": "eq", "value": "Cyoria Imaya household"}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.kael_examination_result",
+       "stage": "interpreted",
+       "value": "Kael finishes the last spell and closes the book. He finds no sign of the kind of soul bond he knows how to detect. If there is a connection to Zach, he says, he cannot tell you what it is.",
+       "basis": {
+        "kind": "instruction",
+        "attributedTo": "book.mol.kael",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 15,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showExam", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.kael", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.kael", "op": "eq", "value": "Cyoria Imaya household"}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.defer_kaels_examination",
+     "revision": 1,
+     "label": "Leave the examination for another time",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria Imaya household",
+     "description": "Keep Kael’s theory in mind and end the discussion without an examination.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showExam", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.divination.showExam", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.kael_examination_deferred",
+       "stage": "seen",
+       "value": "You thank Kael for looking through his books and decide to leave the examination for another time.",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.answer_unseen_visitor",
+     "revision": 1,
+     "label": "Steady your thoughts and answer the voice",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria Imaya household",
+     "description": "Something brushes the edge of your thoughts as you return to your room. Try to keep your attention on the voice.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.aranea.showContact", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.aranea.showContact", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.aranea_house_visit",
+       "stage": "seen",
+       "value": "Your hands will not move. The spider says she is an aranea matriarch and asks why you sent people looking in the sewers. You explain what you meant by the warning. She calls you an empath and asks you to meet her below the city. The next thing you know, the room is quiet and you can move again.",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.read_about_aranea",
+     "revision": 1,
+     "label": "Compare the accounts of aranea",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria academy guest library",
+     "description": "Look for a way to recognize what you met and give yourself time to leave if the next meeting goes badly. Takes 20 minutes.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.aranea.showReading", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.aranea.showReading", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.aranea_library_accounts",
+       "stage": "interpreted",
+       "value": "The writers agree that the aranea are intelligent and use magic. Their accounts disagree on nearly everything else. One author mentions a sharp reaction to bright light. You make a note of it and look for a way to keep a clear route back out.",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 20,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.aranea.showReading", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.ask_imaya_about_crowds",
+     "revision": 1,
+     "label": "Help with the dishes and ask Imaya about empathy",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria Imaya household",
+     "description": "Talk through when the pressure starts and what makes it worse. Takes 20 minutes.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.aranea.showImaya", "op": "eq", "value": true}
+      ]
+     },
+     "targetId": "book.mol.imaya",
+     "requires": {
+      "reason": "Speak with Imaya in her kitchen.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.aranea.showImaya", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.imaya", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.imaya", "op": "eq", "value": "Cyoria Imaya household"}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.imaya_crowd_pressure",
+       "stage": "interpreted",
+       "value": "You dry the dishes while Imaya finishes washing. At the table she asks whether the pressure changes with the size or mood of a crowd. It is strongest when people are packed together and upset. That gives you a reason to take the matriarch’s claim seriously.",
+       "basis": {
+        "kind": "instruction",
+        "attributedTo": "book.mol.imaya",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 20,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.aranea.showImaya", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.imaya", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.imaya", "op": "eq", "value": "Cyoria Imaya household"}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true,
+     "participants": [
+      "$target"
+     ],
+     "participantsCoLocated": true
+    },
+    {
+     "id": "book.mol.zorian.s2.make_barrier_cubes",
+     "revision": 1,
+     "label": "Prepare barrier cubes with Kael",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria Imaya household",
+     "description": "Work with the blanks Kael brings. Set the cubes to raise a barrier when you send mana into them. Takes 25 minutes and mana equal to one magic missile.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.aranea.showPreparations", "op": "eq", "value": true}
+      ]
+     },
+     "targetId": "book.mol.kael",
+     "requires": {
+      "reason": "Prepare the cubes with Kael at home.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.aranea.showPreparations", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.kael", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.kael", "op": "eq", "value": "Cyoria Imaya household"}
+      ]
+     },
+     "costs": [
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "use",
+       "output": 1,
+       "control": 1
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.kael_sewer_preparations",
+       "stage": "seen",
+       "value": "Kael brings the blanks and insists on coming with you. He plans to shield his mind and can put a shield on you if the conversation turns. You inscribe a set of barrier cubes for a retreat. The barrier needs a pulse of mana when you use it.",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      },
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian prepared barrier cubes\"}",
+       "amount": 1
+      }
+     ],
+     "duration": 25,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.aranea.showPreparations", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.kael", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.kael", "op": "eq", "value": "Cyoria Imaya household"}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true,
+     "participants": [
+      "$target"
+     ],
+     "participantsCoLocated": true
+    },
+    {
+     "id": "book.mol.zorian.s2.ask_kael_to_go_ahead",
+     "revision": 1,
+     "label": "Ask Kael to meet you at the sewer hatch",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria Imaya household",
+     "description": "Kael can go ahead while you carry the cubes.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.aranea.showCompany", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "reason": "Find Kael at home before you leave.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.aranea.showCompany", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.kael", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.kael", "op": "eq", "value": "Cyoria Imaya household"}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "relocate",
+       "actor": "book.mol.kael",
+       "location": "Cyoria sewer service hatch"
+      }
+     ],
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.hear_matriarchs_terms",
+     "revision": 1,
+     "label": "Lay the cubes and speak with the matriarch",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria sewer service hatch",
+     "description": "Leave the barrier cubes along the way out. Ask Kael to stay with you while you talk. Takes 15 minutes.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.aranea.showTerms", "op": "eq", "value": true}
+      ]
+     },
+     "targetId": "book.mol.kael",
+     "requires": {
+      "reason": "Bring the barrier cubes you prepared with Kael.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.aranea.showTerms", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.kael", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.kael", "op": "eq", "value": "Cyoria sewer service hatch"},
+       {"fact": "mol.aranea.hasBarrierCubes", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.aranea_tunnel_meeting",
+       "stage": "seen",
+       "value": "Kael keeps his mind shield up. The matriarch makes a voice Kael can hear and describes a way to send her memories through the next restart. She offers help with your empathy in exchange. Before she can tell you what she knows, a roar echoes down the tunnel.",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 15,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.aranea.showTerms", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.kael", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.kael", "op": "eq", "value": "Cyoria sewer service hatch"},
+       {"fact": "mol.aranea.hasBarrierCubes", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true,
+     "participants": [
+      "$target"
+     ],
+     "participantsCoLocated": true
+    },
+    {
+     "id": "book.mol.zorian.s2.trigger_barrier_cubes",
+     "revision": 1,
+     "label": "Raise the barrier and lead the retreat",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria sewer service hatch",
+     "description": "Send mana into the cubes as the pursuers reach the narrow passage. Uses the prepared set and mana equal to one magic missile.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.aranea.showEscape", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.aranea.showEscape", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "use",
+       "output": 1,
+       "control": 1
+      },
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian prepared barrier cubes\"}",
+       "amount": -1
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.aranea_retreat",
+       "stage": "seen",
+       "value": "The cubes raise a sheet of force across the tunnel. The trolls run into it and pile into one another. That buys you time to reach the surface with Kael and the aranea. You gather in a quiet alley to finish the conversation.",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.accept_memory_packet",
+     "revision": 1,
+     "label": "Agree to carry the matriarch’s memories",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria sewer service hatch",
+     "description": "Let her leave a packet in your mind. She asks you to find her after you wake in the next month. Takes 15 minutes.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.aranea.showPacket", "op": "eq", "value": true}
+      ]
+     },
+     "targetId": "book.mol.kael",
+     "requires": {
+      "reason": "Finish the conversation while Kael is with you.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.aranea.showPacket", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.kael", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.kael", "op": "eq", "value": "Cyoria sewer service hatch"}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.aranea_memory_packet",
+       "stage": "understood",
+       "value": "You let the matriarch place a packet in your mind. You cannot read it yourself. She asks you to find her in another month so she can recover it. You decide to give yourself time to find out what you are carrying.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      },
+      {
+       "type": "relocate",
+       "actor": "book.mol.kael",
+       "location": "Cyoria Imaya household"
+      }
+     ],
+     "duration": 15,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.aranea.showPacket", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.kael", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.kael", "op": "eq", "value": "Cyoria sewer service hatch"}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true,
+     "participants": [
+      "$target"
+     ],
+     "participantsCoLocated": true
+    },
+    {
+     "id": "book.mol.zorian.s2.decline_memory_packet",
+     "revision": 1,
+     "label": "Leave without accepting the packet",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria sewer service hatch",
+     "description": "Keep control of what goes into your mind. The matriarch’s offer remains unanswered.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.aranea.showPacket", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.aranea.showPacket", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.kael", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.kael", "op": "eq", "value": "Cyoria sewer service hatch"}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.aranea_memory_packet_refused",
+       "stage": "seen",
+       "value": "You leave the alley with Kael and keep the offer in mind. The matriarch has placed nothing in you.",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      },
+      {
+       "type": "relocate",
+       "actor": "book.mol.kael",
+       "location": "Cyoria Imaya household"
+      }
+     ],
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.plan_festival_departure",
+     "revision": 1,
+     "label": "Make a plan to leave before the fireworks",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria Imaya household",
+     "description": "Ask who can come with you and hear who Kael thinks you should speak to.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.showGoodbye", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.showGoodbye", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.festival_departure_plan",
+       "stage": "seen",
+       "value": "Kael says he and Kana can go with you and Kirielle. Imaya wants more of an explanation before she will leave. Kael gives you names to remember if you want to pursue his theory in another month.",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.take_festival_train",
+     "revision": 1,
+     "label": "Take the train out on the festival night",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria visitor arrival",
+     "description": "Wait for the festival train, then ride with Kirielle, Kael and Kana. Time passes to the end of this month.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.showTrain", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.showTrain", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.festival_train_departure",
+       "stage": "seen",
+       "value": "You leave Cyoria by train with Kirielle, Kael and Kana. You play cards until the month runs out.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 1,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.atEnd", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.hasDeparturePlan", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.let_missed_study_month_end",
+     "revision": 1,
+     "label": "Wait out the month at home",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria Imaya household",
+     "description": "It’s too late to set aside this month for study. Let the days pass and try again after you wake.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.missedStudy", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.missedStudy", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [],
+     "duration": 1,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.atEnd", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.quiet_study_month_1",
+     "revision": 1,
+     "label": "Spend this month studying with Haslush",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria tavern meeting",
+     "description": "Set aside the month for object-reading lessons while keeping clear of Zach. This is study month 1 of 6. Cancel to use the remaining days yourself.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.next", "op": "eq", "value": 1}
+      ]
+     },
+     "requires": {
+      "reason": "Set aside time with the teacher on the first day of the month.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.next", "op": "eq", "value": 1},
+       {"fact": "mol.studyMonths.studyOnTime", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.quiet_study_month_1",
+       "stage": "understood",
+       "value": "You keep to your own work and finish month 1 of the six months of study. Haslush has you ask smaller questions about enchanted objects and check what you can against their physical details.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 1,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.nextAtEnd", "op": "eq", "value": 1}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.quiet_study_month_2",
+     "revision": 1,
+     "label": "Spend this month studying with Nora",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria formula workshop",
+     "description": "Set aside the month for work on smaller spell formulas while keeping clear of Zach. This is study month 2 of 6. Cancel to use the remaining days yourself.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.next", "op": "eq", "value": 2}
+      ]
+     },
+     "requires": {
+      "reason": "Set aside time with the teacher on the first day of the month.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.next", "op": "eq", "value": 2},
+       {"fact": "mol.studyMonths.studyOnTime", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.nora", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.nora", "op": "eq", "value": "Cyoria formula workshop"}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.quiet_study_month_2",
+       "stage": "understood",
+       "value": "You keep to your own work and finish month 2 of the six months of study. Nora helps you pare down the formula and fit it on a smaller piece of wood and stone.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 1,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.nextAtEnd", "op": "eq", "value": 2},
+       {"fact": "mol.support.book.mol.nora", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.nora", "op": "eq", "value": "Cyoria formula workshop"}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.quiet_study_month_3",
+     "revision": 1,
+     "label": "Spend this month studying with Haslush",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria tavern meeting",
+     "description": "Set aside the month for object-reading lessons while keeping clear of Zach. This is study month 3 of 6. Cancel to use the remaining days yourself.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.next", "op": "eq", "value": 3}
+      ]
+     },
+     "requires": {
+      "reason": "Set aside time with the teacher on the first day of the month.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.next", "op": "eq", "value": 3},
+       {"fact": "mol.studyMonths.studyOnTime", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.quiet_study_month_3",
+       "stage": "understood",
+       "value": "You keep to your own work and finish month 3 of the six months of study. Haslush has you ask smaller questions about enchanted objects and check what you can against their physical details.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 1,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.nextAtEnd", "op": "eq", "value": 3}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.quiet_study_month_4",
+     "revision": 1,
+     "label": "Spend this month studying with Nora",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria formula workshop",
+     "description": "Set aside the month for work on smaller spell formulas while keeping clear of Zach. This is study month 4 of 6. Cancel to use the remaining days yourself.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.next", "op": "eq", "value": 4}
+      ]
+     },
+     "requires": {
+      "reason": "Set aside time with the teacher on the first day of the month.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.next", "op": "eq", "value": 4},
+       {"fact": "mol.studyMonths.studyOnTime", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.nora", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.nora", "op": "eq", "value": "Cyoria formula workshop"}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.quiet_study_month_4",
+       "stage": "understood",
+       "value": "You keep to your own work and finish month 4 of the six months of study. Nora helps you pare down the formula and fit it on a smaller piece of wood and stone.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 1,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.nextAtEnd", "op": "eq", "value": 4},
+       {"fact": "mol.support.book.mol.nora", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.nora", "op": "eq", "value": "Cyoria formula workshop"}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.quiet_study_month_5",
+     "revision": 1,
+     "label": "Spend this month studying with Haslush",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria tavern meeting",
+     "description": "Set aside the month for object-reading lessons while keeping clear of Zach. This is study month 5 of 6. Cancel to use the remaining days yourself.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.next", "op": "eq", "value": 5}
+      ]
+     },
+     "requires": {
+      "reason": "Set aside time with the teacher on the first day of the month.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.next", "op": "eq", "value": 5},
+       {"fact": "mol.studyMonths.studyOnTime", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.quiet_study_month_5",
+       "stage": "understood",
+       "value": "You keep to your own work and finish month 5 of the six months of study. Haslush has you ask smaller questions about enchanted objects and check what you can against their physical details.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 1,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.nextAtEnd", "op": "eq", "value": 5}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.quiet_study_month_6",
+     "revision": 1,
+     "label": "Spend this month studying with Nora",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria formula workshop",
+     "description": "Set aside the month for work on smaller spell formulas while keeping clear of Zach. This is study month 6 of 6. Cancel to use the remaining days yourself.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.next", "op": "eq", "value": 6}
+      ]
+     },
+     "requires": {
+      "reason": "Set aside time with the teacher on the first day of the month.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.next", "op": "eq", "value": 6},
+       {"fact": "mol.studyMonths.studyOnTime", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.nora", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.nora", "op": "eq", "value": "Cyoria formula workshop"}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.quiet_study_month_6",
+       "stage": "understood",
+       "value": "You keep to your own work and finish month 6 of the six months of study. Nora helps you pare down the formula and fit it on a smaller piece of wood and stone.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 1,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.nextAtEnd", "op": "eq", "value": 6},
+       {"fact": "mol.support.book.mol.nora", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.nora", "op": "eq", "value": "Cyoria formula workshop"}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.ask_ilsa_for_combat_instruction",
+     "revision": 1,
+     "label": "Show Ilsa your combat practice and ask for help",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria academy guest desk",
+     "description": "Ask for more instruction before you go back below the city. Takes 10 minutes.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.showIlsa", "op": "eq", "value": true}
+      ]
+     },
+     "targetId": "book.mol.ilsa",
+     "requires": {
+      "reason": "Speak to Ilsa at the academy desk.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.showIlsa", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.ilsa", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.ilsa", "op": "eq", "value": "Cyoria academy guest desk"}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.ilsa_combat_refusal",
+       "stage": "seen",
+       "value": "Ilsa watches your demonstration but declines to arrange further combat instruction on those terms. You consider asking someone who has fought beside you.",
+       "basis": {
+        "kind": "instruction",
+        "attributedTo": "book.mol.ilsa",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 10,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.showIlsa", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.ilsa", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.ilsa", "op": "eq", "value": "Cyoria academy guest desk"}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true,
+     "participants": [
+      "$target"
+     ],
+     "participantsCoLocated": true
+    },
+    {
+     "id": "book.mol.zorian.s2.meet_taiven_for_tunnels",
+     "revision": 1,
+     "label": "Ask Taiven to come as far as the tunnel meeting",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria sewer service hatch",
+     "description": "Tell her what you have learned about the voices in the sewers. Takes 5 minutes.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.showTaiven", "op": "eq", "value": true}
+      ]
+     },
+     "targetId": "book.mol.taiven",
+     "requires": {
+      "reason": "Find Taiven at the hatch.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.showTaiven", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.taiven", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.taiven", "op": "eq", "value": "Cyoria sewer service hatch"}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.taiven_tunnel_company",
+       "stage": "seen",
+       "value": "Taiven insists on coming along. You tell her to wait for your signal before casting near the scouts.",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 5,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.showTaiven", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.taiven", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.taiven", "op": "eq", "value": "Cyoria sewer service hatch"}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true,
+     "participants": [
+      "$target"
+     ],
+     "participantsCoLocated": true
+    },
+    {
+     "id": "book.mol.zorian.s2.ask_the_matriarch_to_check_the_packet",
+     "revision": 1,
+     "label": "Let the matriarch examine the memories you carried",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria sewer service hatch",
+     "description": "Give the scout the details of your last meeting. Let the matriarch check what crossed with you. Takes 15 minutes.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.showPacketCheck", "op": "eq", "value": true}
+      ]
+     },
+     "targetId": "book.mol.taiven",
+     "requires": {
+      "reason": "Carry a packet from the earlier meeting and bring Taiven to the hatch.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.showPacketCheck", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.hasPacket", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.taiven", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.taiven", "op": "eq", "value": "Cyoria sewer service hatch"}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.aranea_packet_recognized",
+       "stage": "seen",
+       "value": "The scout takes you to the matriarch. She recognizes the packet in your mind and agrees to talk again. You leave with a better sense of which tunnel entrances the scouts watch.",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 15,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.showPacketCheck", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.hasPacket", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.taiven", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.taiven", "op": "eq", "value": "Cyoria sewer service hatch"}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true,
+     "participants": [
+      "$target"
+     ],
+     "participantsCoLocated": true
+    },
+    {
+     "id": "book.mol.zorian.s2.ask_the_matriarch_to_check_the_packet_without_it",
+     "revision": 1,
+     "label": "Speak to the matriarch without sharing a packet",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria sewer service hatch",
+     "description": "Ask for a new conversation. She has no memories from the last meeting. Takes 15 minutes.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.showPacketCheck", "op": "eq", "value": true}
+      ]
+     },
+     "targetId": "book.mol.taiven",
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.showPacketCheck", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.taiven", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.taiven", "op": "eq", "value": "Cyoria sewer service hatch"}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.aranea_packet_refusal_return",
+       "stage": "seen",
+       "value": "The scout takes your request below. The matriarch will consider another meeting. You and Taiven come back to the surface without showing her any memories.",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 15,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.showPacketCheck", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.taiven", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.taiven", "op": "eq", "value": "Cyoria sewer service hatch"}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true,
+     "participants": [
+      "$target"
+     ],
+     "participantsCoLocated": true
+    },
+    {
+     "id": "book.mol.zorian.s2.agree_to_practice_with_taiven",
+     "revision": 1,
+     "label": "Arrange a practice bout with Taiven",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria sewer service hatch",
+     "description": "Taiven wants to see how you fight before you try another tunnel visit. She’ll meet you at the practice court.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.showAgreement", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.showAgreement", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.taiven", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.taiven", "op": "eq", "value": "Cyoria sewer service hatch"}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.taiven_practice_agreed",
+       "stage": "seen",
+       "value": "Taiven wants a chance to see what you can do before you go anywhere dangerous without help.",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      },
+      {
+       "type": "relocate",
+       "actor": "book.mol.taiven",
+       "location": "Cyoria supervised practice court"
+      }
+     ],
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.trade_practice_casts_with_taiven",
+     "revision": 1,
+     "label": "Trade practice casts with Taiven",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria supervised practice court",
+     "description": "Work behind the court’s wards. Hold your shield and give Taiven one cast to track. Takes 20 minutes and mana equal to two magic missiles.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.showSpar", "op": "eq", "value": true}
+      ]
+     },
+     "targetId": "book.mol.taiven",
+     "requires": {
+      "reason": "Meet Taiven at the practice court with enough mana for both sides.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.showSpar", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.taiven", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.taiven", "op": "eq", "value": "Cyoria supervised practice court"}
+      ]
+     },
+     "costs": [
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "use",
+       "output": 1,
+       "control": 1
+      },
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "use",
+       "output": 1,
+       "control": 1
+      },
+      {
+       "type": "resource",
+       "actor": "book.mol.taiven",
+       "key": "book.mol.personalMana",
+       "amount": -2
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.taiven_sensing_in_spar",
+       "stage": "seen",
+       "value": "Your shield holds against her opening casts. Later, Taiven turns into your next cast with her eyes shut and fires back along its line. You want to know how she did it.",
+       "basis": {
+        "kind": "observation",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 20,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.showSpar", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.taiven", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.taiven", "op": "eq", "value": "Cyoria supervised practice court"}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true,
+     "participants": [
+      "$target"
+     ],
+     "participantsCoLocated": true
+    },
+    {
+     "id": "book.mol.zorian.s2.ask_taiven_how_she_located_the_cast",
+     "revision": 1,
+     "label": "Ask Taiven how she found your cast",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria supervised practice court",
+     "description": "Ask what she could sense with her eyes closed. Takes 5 minutes.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.showMethod", "op": "eq", "value": true}
+      ]
+     },
+     "targetId": "book.mol.taiven",
+     "requires": {
+      "reason": "Ask Taiven while she is at the practice court.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.showMethod", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.taiven", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.taiven", "op": "eq", "value": "Cyoria supervised practice court"}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.taiven_cloud_method",
+       "stage": "understood",
+       "value": "Taiven spreads her mana through the air and feels where a concentrated spell disturbs it. She picked up your cast, then aimed back along its path. You ask if a much smaller cloud might let you feel a marble instead.",
+       "basis": {
+        "kind": "instruction",
+        "attributedTo": "book.mol.taiven",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 5,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.showMethod", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.taiven", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.taiven", "op": "eq", "value": "Cyoria supervised practice court"}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true,
+     "participants": [
+      "$target"
+     ],
+     "participantsCoLocated": true
+    },
+    {
+     "id": "book.mol.zorian.s2.shape_a_small_mana_cloud",
+     "revision": 1,
+     "label": "Practice shaping a cloud close to your head",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria supervised practice court",
+     "description": "Keep the cloud small. Try feeling a marble move through it. Takes two hours and mana equal to one magic missile.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.showPractice", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.showPractice", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "use",
+       "output": 1,
+       "control": 1
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.shape_a_small_mana_cloud",
+       "stage": "understood",
+       "value": "You spend two hours keeping a thin cloud close to your head. It lets you feel where a marble moves through the air. You still cannot tell how strongly it is charged.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 120,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.studyMonths.showPractice", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.wait_for_xvim_cloud_drill",
+     "revision": 1,
+     "label": "Wait for Xvim’s Friday marble drill",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria supervised practice court",
+     "description": "Stay at the court until Friday at 3 p.m. You can leave the wait at any time.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.sensing.showCloudWait", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.sensing.showCloudWait", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [],
+     "duration": 1,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.sensing.showCloudDrill", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.s2.track_marble_by_touch",
+     "revision": 1,
+     "label": "Use the cloud in Xvim’s blindfold drill",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria supervised practice court",
+     "description": "Feel the marbles pass through the air near your head. Takes 15 minutes and mana equal to one magic missile.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.sensing.showCloudDrill", "op": "eq", "value": true}
+      ]
+     },
+     "targetId": "book.mol.xvim",
+     "requires": {
+      "reason": "Start with Xvim at the court and leave 15 minutes in Friday’s lesson.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.sensing.showCloudDrill", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.xvim", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.xvim", "op": "eq", "value": "Cyoria supervised practice court"},
+       {"fact": "mol.sensing.cloudOnTime", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "use",
+       "output": 1,
+       "control": 1
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.s2.cloud_drill_result",
+       "stage": "understood",
+       "value": "Blindfolded, you follow where the marbles are going as they pass through your cloud. Xvim speeds up and asks you to sort them by how much mana they give off. You can follow where they go. You cannot rank them by charge yet.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 15,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.sensing.showCloudDrill", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.xvim", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.xvim", "op": "eq", "value": "Cyoria supervised practice court"},
+       {"fact": "mol.sensing.cloudInSession", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true,
+     "participants": [
+      "$target"
+     ],
+     "participantsCoLocated": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.return_to_scout",
+     "revision": 1,
+     "label": "Wait for the scout meeting",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria sewer service hatch",
+     "description": "Return three days after the marble lesson. You can stop waiting and use the time yourself.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.waitMeeting", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.waitMeeting", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [],
+     "duration": 1,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.meetingReady", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.trade_forecasts",
+     "revision": 1,
+     "label": "Compare accounts with the matriarch",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria sewer service hatch",
+     "description": "Tell her what you remember about earlier months. Ask what the web’s diviners found. Takes 20 minutes.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.meeting", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "reason": "Give the matriarch the three days she needs to meet you.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.meeting", "op": "eq", "value": true},
+       {"fact": "mol.arc.meetingReady", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.aranea_forecast",
+       "stage": "seen",
+       "value": "The web’s forecasts disagree on what happens before the festival. Every one of them goes blank beyond that night. The matriarch gives you names of human diviners and asks what they can confirm. She’ll see you again in three days.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 20,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.meeting", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.consult_temple",
+     "revision": 1,
+     "label": "Ask the temple about the end of its forecasts",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria academy guest desk",
+     "description": "Visit the temple quarter and ask what an independent forecast can tell you. Takes 45 minutes.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.visitTemple", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.visitTemple", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.temple_visit",
+       "stage": "interpreted",
+       "value": "You ask about the blank past the festival and listen to what the temple is willing to share. The conversation gives you a reason to compare other accounts before you draw a conclusion.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 45,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.visitTemple", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.compare_forecasters",
+     "revision": 1,
+     "label": "Compare the forecasts and ask about your classmates",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria academy guest library",
+     "description": "Follow the names the matriarch gave you and ask Benisek what has changed at school. Takes two hours.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.compareOracles", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.compareOracles", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.forecast_inquiries",
+       "stage": "interpreted",
+       "value": "You find accounts worth taking back to the web. Benisek offers school gossip. That gives you names to pay attention to and no proof that any classmate knows what is coming.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 120,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.compareOracles", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.wait_to_report",
+     "revision": 1,
+     "label": "Wait for the follow-up with the matriarch",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria sewer service hatch",
+     "description": "The matriarch asked for three days between meetings. You can stop waiting.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.waitReport", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.waitReport", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [],
+     "duration": 1,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.reportReady", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.report_and_ask_about_training",
+     "revision": 1,
+     "label": "Report what you learned and ask for mind lessons",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria sewer service hatch",
+     "description": "Share the inquiries you made. Tell the matriarch you need a way to handle the pressure in crowds. Takes 20 minutes.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.report", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "reason": "Return at the arranged time.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.report", "op": "eq", "value": true},
+       {"fact": "mol.arc.reportReady", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.mind_lesson_invitation",
+       "stage": "seen",
+       "value": "The matriarch listens to your report. When you mention a human teacher, she argues for a different way to learn. You ask her to show you. She tells you to return at the same time tomorrow.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 20,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.report", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.wait_for_mind_lesson",
+     "revision": 1,
+     "label": "Wait until tomorrow’s mind lesson",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria sewer service hatch",
+     "description": "The matriarch offered to meet at the same time tomorrow. You can stop waiting.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.waitLesson", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.waitLesson", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [],
+     "duration": 1,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.lessonReady", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.practice_inward_sense",
+     "revision": 1,
+     "label": "Stop reaching out and listen inward",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria sewer service hatch",
+     "description": "With the matriarch there, try to notice nearby minds with your eyes shut. Takes an hour and 2 stamina.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.lesson", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "reason": "Start once the matriarch’s lesson is due.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.lesson", "op": "eq", "value": true},
+       {"fact": "mol.arc.lessonReady", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [
+      {
+       "type": "vital",
+       "actor": "player",
+       "key": "stamina",
+       "amount": -2
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.inward_mind_sense",
+       "stage": "understood",
+       "value": "When you stop trying to push outward, several minds flare into view. A few are where you saw no one standing. The matriarch’s voice breaks your concentration. It takes practice before you can do this while moving.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 60,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.lesson", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.discuss_firing_positions",
+     "revision": 1,
+     "label": "Share the positions you traced with the matriarch",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria sewer service hatch",
+     "description": "Tell her where the bright shots came from in earlier months. Let the web decide how to act. Takes 15 minutes.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.prepareParty", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.prepareParty", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.noveda_invitation",
+       "stage": "seen",
+       "value": "You mark the firing positions for the matriarch. She’ll act on them with her own people. You plan to go with Taiven to the festival gathering Zach is holding at the mansion.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 15,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.prepareParty", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.wait_for_festival_party",
+     "revision": 1,
+     "label": "Wait at home for the festival evening",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria Imaya household",
+     "description": "Let the days pass until the gathering. You can stop waiting and use them yourself.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.waitParty", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.waitParty", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [],
+     "duration": 1,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.partyReady", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.watch_fireworks",
+     "revision": 1,
+     "label": "Watch the fireworks with Tinami and Zach",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Noveda mansion",
+     "description": "Join the others in the garden after the dance. Keep your mind closed in the crowd. Takes 20 minutes.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.party", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "reason": "Come to the mansion on the festival evening.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.party", "op": "eq", "value": true},
+       {"fact": "mol.arc.partyReady", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.noveda_fireworks",
+       "stage": "seen",
+       "value": "The sky lights up with fireworks. The artillery you expected never comes. Zach keeps looking for it. You go back inside with Tinami, and a little later the alarm comes from inside the mansion.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 20,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.party", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.inscribe_corridor_runes",
+     "revision": 1,
+     "label": "Set an explosive line to cover the retreat",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Noveda mansion",
+     "description": "While the others hold the doorway, inscribe the line behind them. Takes 10 minutes and one cast’s worth of mana.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.corridor", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.corridor", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "use",
+       "output": 1,
+       "control": 1
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.mansion_corridor",
+       "stage": "seen",
+       "value": "Taiven, Tinami and Briam buy you time. You finish the runes and trigger them across the corridor as the attackers close. The group can pull away from the door.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 10,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.corridor", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.cross_mansion_grounds",
+     "revision": 1,
+     "label": "Take the group out through the window",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Noveda mansion",
+     "description": "Use a disc of force to get past the drop. Feel for a path around the fighting. Takes one cast’s worth of mana.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.crossGrounds", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.crossGrounds", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "use",
+       "output": 1,
+       "control": 1
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.mansion_garden",
+       "stage": "seen",
+       "value": "You get out of the room and follow the others across the grounds. You pick up an approaching mind through the confusion. The matriarch intervenes and draws near while you get ready to carry Tinami away.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.carry_tinami_toward_zach",
+     "revision": 1,
+     "label": "Carry Tinami back toward Zach",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Noveda mansion",
+     "description": "Wait for the matriarch to finish, then lift Tinami. You have little cover in the garden. Takes 5 minutes.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.garden", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.garden", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.garden_fall",
+       "stage": "seen",
+       "value": "You lift Tinami and make for Zach. A red beam cuts across the garden before you have gone five steps.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      },
+      {
+       "type": "life",
+       "actor": "player",
+       "status": "dead",
+       "lethal": true,
+       "reason": "festival garden"
+      }
+     ],
+     "duration": 5,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.garden", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.make_missile_rod",
+     "revision": 1,
+     "label": "Make a rod for magic missiles",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria Imaya household",
+     "description": "Fit a rod for the missile spell you know. Takes one hour and one cast’s worth of mana.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.newRod", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.newRod", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "use",
+       "output": 1,
+       "control": 1
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.missile_rod_made",
+       "stage": "seen",
+       "value": "You finish a rod for the missiles you can already cast. You take it with you before you seek the scouts.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      },
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian missile rod\"}",
+       "amount": 1
+      }
+     ],
+     "duration": 60,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.newRod", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.follow_a_mind_below",
+     "revision": 1,
+     "label": "Use mind sense to find a way to the scouts",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria sewer service hatch",
+     "description": "Follow the strongest mind you can feel. Keep your rod ready. Takes 15 minutes and one cast’s worth of mana.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.scout", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "reason": "Bring the spell rod you made in your room.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.scout", "op": "eq", "value": true},
+       {"fact": "mol.arc.hasRod", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "use",
+       "output": 1,
+       "control": 1
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.scout_after_festival",
+       "stage": "seen",
+       "value": "You notice a rat’s mind before it reaches for yours. You use the rod to stop it and keep moving. A scout finally leads you to the matriarch, who needs time to consider what you remember.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      },
+      {
+       "type": "relocate",
+       "actor": "book.mol.taiven",
+       "location": "Cyoria supervised practice court"
+      }
+     ],
+     "duration": 15,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.scout", "op": "eq", "value": true},
+       {"fact": "mol.arc.hasRod", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.drill_missiles_with_taiven",
+     "revision": 1,
+     "label": "Work through Taiven’s missile drills",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria supervised practice court",
+     "description": "Ask Taiven for practical combat instruction before taking the sewer job. Takes two hours and one cast’s worth of mana.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.train", "op": "eq", "value": true}
+      ]
+     },
+     "targetId": "book.mol.taiven",
+     "participants": [
+      "$target"
+     ],
+     "participantsCoLocated": true,
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.train", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.taiven", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.taiven", "op": "eq", "value": "Cyoria supervised practice court"}
+      ]
+     },
+     "costs": [
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "use",
+       "output": 1,
+       "control": 1
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.taiven_field_training",
+       "stage": "seen",
+       "value": "Taiven has you repeat your casts until you can keep the motion small and the aim steady. You decide to join her retrieval team for its next sewer job.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      },
+      {
+       "type": "relocate",
+       "actor": "book.mol.taiven",
+       "location": "Cyoria sewer service hatch"
+      }
+     ],
+     "duration": 120,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.train", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.taiven", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.taiven", "op": "eq", "value": "Cyoria supervised practice court"}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.receive_pocket_watch",
+     "revision": 1,
+     "label": "Ask for the team’s missing pocket watch",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria sewer service hatch",
+     "description": "Go with Taiven’s team to the web and ask about the item the client lost. Takes 20 minutes.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.retrieve", "op": "eq", "value": true}
+      ]
+     },
+     "targetId": "book.mol.taiven",
+     "participants": [
+      "$target"
+     ],
+     "participantsCoLocated": true,
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.retrieve", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.taiven", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.taiven", "op": "eq", "value": "Cyoria sewer service hatch"}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.retrieved_watch",
+       "stage": "seen",
+       "value": "An aranea returns with what looks like a pocket watch. You carry it for the team on the way back to the client.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      },
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian retrieved watch\"}",
+       "amount": 1
+      }
+     ],
+     "duration": 20,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.retrieve", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.taiven", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.taiven", "op": "eq", "value": "Cyoria sewer service hatch"}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.identify_watch_purpose",
+     "revision": 1,
+     "label": "Use Haslush’s method on the pocket watch",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria sewer service hatch",
+     "description": "Ask what the object is made to do. Leave it closed. Takes 10 minutes and one cast’s worth of mana.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.identify", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "reason": "Bring the watch and use the object-reading method you remember.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.identify", "op": "eq", "value": true},
+       {"fact": "mol.arc.hasWatch", "op": "eq", "value": true},
+       {"fact": "mol.arc.knowsObjectAnalysis", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "use",
+       "output": 1,
+       "control": 1
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.ward_reader_known",
+       "stage": "understood",
+       "value": "The spell finds a ward scanner under the watch’s appearance. It is made to help search for weaknesses in wards. The question of how to operate it is still open.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 10,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.identify", "op": "eq", "value": true},
+       {"fact": "mol.arc.hasWatch", "op": "eq", "value": true},
+       {"fact": "mol.arc.knowsObjectAnalysis", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.feel_watch_casing",
+     "revision": 1,
+     "label": "Feel the seams with a small mana cloud",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria sewer service hatch",
+     "description": "Find how the casing opens without forcing it. Takes 5 minutes and one cast’s worth of mana.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.openWatch", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "reason": "Bring the watch and use the mana-cloud technique you remember.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.openWatch", "op": "eq", "value": true},
+       {"fact": "mol.arc.hasWatch", "op": "eq", "value": true},
+       {"fact": "mol.arc.knowsCloud", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "use",
+       "output": 1,
+       "control": 1
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.ward_reader_opened",
+       "stage": "seen",
+       "value": "You feel gears and crystals through gaps in the casing. The watch face is painted onto glass. Pressing the glass releases it and exposes dials you still cannot read.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 5,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.openWatch", "op": "eq", "value": true},
+       {"fact": "mol.arc.hasWatch", "op": "eq", "value": true},
+       {"fact": "mol.arc.knowsCloud", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.return_watch_to_client",
+     "revision": 1,
+     "label": "Hand over the watch without a tracking spell",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria visitor arrival",
+     "description": "Let the client inspect the object and shake his hand before you go.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.deliver", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.deliver", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian retrieved watch\"}",
+       "amount": -1
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.ward_reader_returned",
+       "stage": "seen",
+       "value": "You return the device. The client checks it, including a sweep for tracking magic, then shakes your hand.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.bring_back_ward_reader_news",
+     "revision": 1,
+     "label": "Tell the matriarch what the watch does",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria sewer service hatch",
+     "description": "Report the purpose you observed, then ask what the web learned. Takes 15 minutes.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.reportWatch", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.reportWatch", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.ward_reader_report",
+       "stage": "understood",
+       "value": "You tell her the device searches for weak points in wards. She says the client’s group had been watching the edges of her territory. She has another training contact to offer as you learn more about the invasion.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 15,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.reportWatch", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.earn_ilsa_apprenticeship",
+     "revision": 1,
+     "label": "Show Ilsa your shaping and ask for teleport lessons",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria academy guest desk",
+     "description": "Demonstrate what you can already do. Ask about a lesson arrangement rather than trying a jump untrained. Takes 20 minutes.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.earnsApprenticeship", "op": "eq", "value": true}
+      ]
+     },
+     "targetId": "book.mol.ilsa",
+     "participants": [
+      "$target"
+     ],
+     "participantsCoLocated": true,
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.earnsApprenticeship", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.ilsa", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.ilsa", "op": "eq", "value": "Cyoria academy guest desk"}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.ilsa_apprenticeship",
+       "stage": "seen",
+       "value": "Ilsa watches your shaping and examines your formulas. She takes you on as her apprentice. You will help with attendance and assignments while you work through what she wants you to master before she teaches teleportation.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 20,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.earnsApprenticeship", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.ilsa", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.ilsa", "op": "eq", "value": "Cyoria academy guest desk"}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.wait_for_next_apprentice_month",
+     "revision": 1,
+     "label": "Wait out the month at home",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria Imaya household",
+     "description": "You missed the start of this month’s work. Let this month end and ask Ilsa again after you wake.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.apprenticeMissed", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.apprenticeMissed", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [],
+     "duration": 1,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.monthEnd", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.apprentice_month_1",
+     "revision": 1,
+     "label": "Work and train with Ilsa this month",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria academy guest desk",
+     "description": "Help with attendance and assignments, then work through Ilsa’s practice. This is month 1 of 5. You can stop and use the time yourself.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.apprenticeNext", "op": "eq", "value": 1}
+      ]
+     },
+     "requires": {
+      "reason": "Start this round with Ilsa on the first day of the month.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.apprenticeNext", "op": "eq", "value": 1},
+       {"fact": "mol.arc.apprenticeOnTime", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.ilsa", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.ilsa", "op": "eq", "value": "Cyoria academy guest desk"}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.apprentice_month_1",
+       "stage": "understood",
+       "value": "You complete month 1 of the apprenticeship. You keep up with the class duties and practice the shaping Ilsa asks for.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 1,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.apprenticeSettle", "op": "eq", "value": 1},
+       {"fact": "mol.support.book.mol.ilsa", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.ilsa", "op": "eq", "value": "Cyoria academy guest desk"}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.apprentice_month_2",
+     "revision": 1,
+     "label": "Work and train with Ilsa this month",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria academy guest desk",
+     "description": "Help with attendance and assignments, then work through Ilsa’s practice. This is month 2 of 5. You can stop and use the time yourself.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.apprenticeNext", "op": "eq", "value": 2}
+      ]
+     },
+     "requires": {
+      "reason": "Start this round with Ilsa on the first day of the month.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.apprenticeNext", "op": "eq", "value": 2},
+       {"fact": "mol.arc.apprenticeOnTime", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.ilsa", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.ilsa", "op": "eq", "value": "Cyoria academy guest desk"}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.apprentice_month_2",
+       "stage": "understood",
+       "value": "You complete month 2 of the apprenticeship. You keep up with the class duties and practice the shaping Ilsa asks for.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 1,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.apprenticeSettle", "op": "eq", "value": 2},
+       {"fact": "mol.support.book.mol.ilsa", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.ilsa", "op": "eq", "value": "Cyoria academy guest desk"}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.apprentice_month_3",
+     "revision": 1,
+     "label": "Work and train with Ilsa this month",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria academy guest desk",
+     "description": "Help with attendance and assignments, then work through Ilsa’s practice. This is month 3 of 5. You can stop and use the time yourself.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.apprenticeNext", "op": "eq", "value": 3}
+      ]
+     },
+     "requires": {
+      "reason": "Start this round with Ilsa on the first day of the month.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.apprenticeNext", "op": "eq", "value": 3},
+       {"fact": "mol.arc.apprenticeOnTime", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.ilsa", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.ilsa", "op": "eq", "value": "Cyoria academy guest desk"}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.apprentice_month_3",
+       "stage": "understood",
+       "value": "You complete month 3 of the apprenticeship. You keep up with the class duties and practice the shaping Ilsa asks for.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 1,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.apprenticeSettle", "op": "eq", "value": 3},
+       {"fact": "mol.support.book.mol.ilsa", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.ilsa", "op": "eq", "value": "Cyoria academy guest desk"}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.apprentice_month_4",
+     "revision": 1,
+     "label": "Work and train with Ilsa this month",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria academy guest desk",
+     "description": "Help with attendance and assignments, then work through Ilsa’s practice. This is month 4 of 5. You can stop and use the time yourself.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.apprenticeNext", "op": "eq", "value": 4}
+      ]
+     },
+     "requires": {
+      "reason": "Start this round with Ilsa on the first day of the month.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.apprenticeNext", "op": "eq", "value": 4},
+       {"fact": "mol.arc.apprenticeOnTime", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.ilsa", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.ilsa", "op": "eq", "value": "Cyoria academy guest desk"}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.apprentice_month_4",
+       "stage": "understood",
+       "value": "You complete month 4 of the apprenticeship. You keep up with the class duties and practice the shaping Ilsa asks for.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 1,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.apprenticeSettle", "op": "eq", "value": 4},
+       {"fact": "mol.support.book.mol.ilsa", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.ilsa", "op": "eq", "value": "Cyoria academy guest desk"}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.apprentice_month_5",
+     "revision": 1,
+     "label": "Work and train with Ilsa this month",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria academy guest desk",
+     "description": "Help with attendance and assignments, then work through Ilsa’s practice. This is month 5 of 5. You can stop and use the time yourself.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.apprenticeNext", "op": "eq", "value": 5}
+      ]
+     },
+     "requires": {
+      "reason": "Start this round with Ilsa on the first day of the month.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.apprenticeNext", "op": "eq", "value": 5},
+       {"fact": "mol.arc.apprenticeOnTime", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.ilsa", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.ilsa", "op": "eq", "value": "Cyoria academy guest desk"}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.apprentice_month_5",
+       "stage": "understood",
+       "value": "You complete month 5 of the apprenticeship. Ilsa finally teaches you to jump to a known beacon. It takes mana, and neither heavy rock nor a warded destination will make way for you.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 1,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.apprenticeSettle", "op": "eq", "value": 5},
+       {"fact": "mol.support.book.mol.ilsa", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.ilsa", "op": "eq", "value": "Cyoria academy guest desk"}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.make_stone_relays",
+     "revision": 1,
+     "label": "Make six stone relays for the web",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria Imaya household",
+     "description": "Prepare five stones for the aranea and keep the last to listen from elsewhere. Takes an hour and one cast’s worth of mana.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.makeRelays", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.makeRelays", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "use",
+       "output": 1,
+       "control": 1
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.stone_relays_ready",
+       "stage": "seen",
+       "value": "You finish six heavy stone discs. Their formulas will last longer than the month you have.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      },
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian stone relay\"}",
+       "amount": 6
+      }
+     ],
+     "duration": 60,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.makeRelays", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.leave_relays_with_the_web",
+     "revision": 1,
+     "label": "Leave five relays with the matriarch",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria sewer service hatch",
+     "description": "Return what you remember of the earlier work and keep one stone with you.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.installRelays", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.installRelays", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian stone relay\"}",
+       "amount": -5
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.web_relays_given",
+       "stage": "seen",
+       "value": "You carry what you remember back to the matriarch and give her five discs. Your own disc lets you receive what she sends from below.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.ask_kael_in_confidence",
+     "revision": 1,
+     "label": "Ward the room and ask Kael for help",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria Imaya household",
+     "description": "Tell Kael what has happened in the earlier months. Ask how you could hide from someone who reads souls. Takes an evening.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.kaelPact", "op": "eq", "value": true}
+      ]
+     },
+     "targetId": "book.mol.kael",
+     "participants": [
+      "$target"
+     ],
+     "participantsCoLocated": true,
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.kaelPact", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.kael", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.kael", "op": "eq", "value": "Cyoria Imaya household"}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.kael_soul_concealment",
+       "stage": "understood",
+       "value": "Kael listens after you ward the room. He shows you how to hide from soul sight. A separate spell will still be needed to hide from ordinary divination.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 180,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.kaelPact", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.kael", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.kael", "op": "eq", "value": "Cyoria Imaya household"}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.prepare_capture_trap",
+     "revision": 1,
+     "label": "Lay the three-part capture trap",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria sewer service hatch",
+     "description": "Work with the web on the floor, dimensional lock and smoke. The matriarch will decide when to spring it. Takes two hours and one cast’s worth of mana.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.trap", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.trap", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "use",
+       "output": 1,
+       "control": 1
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.settlement_trap_ready",
+       "stage": "seen",
+       "value": "The floor will soften and harden around whoever steps into it. A lock will close off phase or teleport escape, and the smoke is meant to disable. You leave the prepared site to the matriarch.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 120,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.trap", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.prepare_silver_disc",
+     "revision": 1,
+     "label": "Collect the silver disc from Kael",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria Imaya household",
+     "description": "Kael explains what contact it needs. Take the disc to the festival. Takes 20 minutes and one cast’s worth of mana.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.silver", "op": "eq", "value": true}
+      ]
+     },
+     "targetId": "book.mol.kael",
+     "participants": [
+      "$target"
+     ],
+     "participantsCoLocated": true,
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.silver", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.kael", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.kael", "op": "eq", "value": "Cyoria Imaya household"}
+      ]
+     },
+     "costs": [
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "use",
+       "output": 1,
+       "control": 1
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.silver_disc_method",
+       "stage": "understood",
+       "value": "Kael gives you a disc that can sever the lich’s hold on its body. It must touch him directly. A shield will stop it, and destroying that body will only send him back to his phylactery.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      },
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian silver disc\"}",
+       "amount": 1
+      }
+     ],
+     "duration": 20,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.silver", "op": "eq", "value": true},
+       {"fact": "mol.support.book.mol.kael", "op": "eq", "value": true},
+       {"fact": "mol.at.book.mol.kael", "op": "eq", "value": "Cyoria Imaya household"}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.wait_for_second_festival",
+     "revision": 1,
+     "label": "Wait for the festival at home",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria Imaya household",
+     "description": "Wait for the same local festival evening. You can stop and use the days yourself.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.secondWait", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.secondWait", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [],
+     "duration": 1,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.partyReady", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.stop_the_attack_on_akoja",
+     "revision": 1,
+     "label": "Interrupt the rush and hold the fire beam",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria festival dance hall",
+     "description": "Use the prepared distraction, then aim clear of the people in the hall. Costs four casts’ worth of mana.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.secondParty", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "reason": "Attend the festival on its evening with enough mana left.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.secondParty", "op": "eq", "value": true},
+       {"fact": "mol.arc.partyReady", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "use",
+       "output": 1,
+       "control": 1
+      },
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "use",
+       "output": 1,
+       "control": 1
+      },
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "use",
+       "output": 1,
+       "control": 1
+      },
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "use",
+       "output": 1,
+       "control": 1
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.festival_hall_defence",
+       "stage": "seen",
+       "value": "Your distraction gives Akoja time to get clear. You keep the fire trained on the attacker. By the time you can turn back, Zach and Kyron are badly hurt and the lich is still standing.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.offer_the_silver_disc",
+     "revision": 1,
+     "label": "Offer the disc so the lich will catch it",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria festival dance hall",
+     "description": "Let the silver touch his hand. It cannot work through a shield.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.banish", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.banish", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian silver disc\"}",
+       "amount": -1
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.lich_banished",
+       "stage": "seen",
+       "value": "The lich takes the disc in his hand. The body collapses. Kael’s spell has separated it from the soul, buying time before it can return.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.watch_the_relay",
+     "revision": 1,
+     "label": "Listen through the stone relay",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria festival dance hall",
+     "description": "Watch from the matriarch’s position while she springs the trap. Takes 5 minutes.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.monitor", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "reason": "Keep the sixth relay with you.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.monitor", "op": "eq", "value": true},
+       {"fact": "mol.arc.hasRelay", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.festival_relay_cut",
+       "stage": "seen",
+       "value": "The trap catches what looked like the attacker. The real one strikes from elsewhere. Before you can learn what survived, the relay goes quiet.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 5,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.monitor", "op": "eq", "value": true},
+       {"fact": "mol.arc.hasRelay", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.recover_fragmented_route",
+     "revision": 1,
+     "label": "Find what the survivors can still show you",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria sewer service hatch",
+     "description": "Look for surviving minds and gather what they can pass on. Takes 15 minutes.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.search", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.search", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.fragmented_tunnel_map",
+       "stage": "understood",
+       "value": "The fragments give you part of the lower tunnel map. One marked route leads to a shaft above a lake. Parts of the map are missing.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      },
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.broken_settlement_message",
+       "stage": "seen",
+       "value": "Several minds carry pieces of a message. They overlap, but you cannot put the whole account back together.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 15,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.search", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.let_the_month_reset",
+     "revision": 1,
+     "label": "Wait for the month to end",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria Imaya household",
+     "description": "Hold what you remember. The month will end on its own. You can stop waiting.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.resetForReturn", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.resetForReturn", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [],
+     "duration": 1,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.monthEnd", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.jump_to_cyoria_beacon",
+     "revision": 1,
+     "label": "Teleport to the Cyoria beacon",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria Imaya household",
+     "description": "Jump to the beacon you know. The rock and wards make the settlement a poor destination. Costs two casts’ worth of mana.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.beacon", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.beacon", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "use",
+       "output": 1,
+       "control": 1
+      },
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "use",
+       "output": 1,
+       "control": 1
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.beacon_landing",
+       "stage": "seen",
+       "value": "The city beacon gives the spell a clear destination. You land in Cyoria and take a moment to steady yourself.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.buy_beacon_supplies",
+     "revision": 1,
+     "label": "Buy supplies and recover near the beacon",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria visitor arrival",
+     "description": "Take a shield bracelet, a rod, a revolver and six rounds on credit. Take half an hour to recover two casts’ worth of mana.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.equip", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.equip", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.beacon_shopping",
+       "stage": "seen",
+       "value": "The shopkeeper puts the equipment on your account. You use the wait to catch your breath before you go below.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      },
+      {
+       "type": "resource",
+       "actor": "player",
+       "key": "book.mol.shopTab",
+       "amount": 1
+      },
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian shield bracelet\"}",
+       "amount": 1
+      },
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian missile rod\"}",
+       "amount": 1
+      },
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian revolver\"}",
+       "amount": 1
+      },
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian revolver cartridge\"}",
+       "amount": 6
+      },
+      {
+       "type": "energy",
+       "actor": "player",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "recover",
+       "amount": 2
+      }
+     ],
+     "duration": 30,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.equip", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.prepare_pocket_charges",
+     "revision": 1,
+     "label": "Prepare your pocket charges",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria visitor arrival",
+     "description": "Put together the charges you know how to make. Takes 15 minutes and one cast’s worth of mana.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.pack", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.pack", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "use",
+       "output": 1,
+       "control": 1
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.pocket_charges_ready",
+       "stage": "seen",
+       "value": "You keep the charges where you can reach them in the dark.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      },
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian pocket charges\"}",
+       "amount": 1
+      }
+     ],
+     "duration": 15,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.pack", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.search_the_silent_settlement",
+     "revision": 1,
+     "label": "Search the settlement before you call out",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria sewer service hatch",
+     "description": "Look for bodies, damage and familiar minds. Takes 15 minutes.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.descendAgain", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.descendAgain", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.silent_settlement_search",
+       "stage": "seen",
+       "value": "You see bodies without signs of a struggle. Some of the minds that answer are the same ones you remember from the earlier search. A portal opens behind you before you can sort out why.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "duration": 15,
+     "reservationReturns": 1,
+     "completionRequires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.descendAgain", "op": "eq", "value": true}
+      ]
+     },
+     "completionFailure": "refund",
+     "cancellation": "refund",
+     "completionCoLocated": true,
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.buy_time_with_concealment",
+     "revision": 1,
+     "label": "Raise your defences and hide your soul",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria sewer service hatch",
+     "description": "Use the shield bracelet and the concealment Kael showed you. Raise dust to break sight. Costs one cast’s worth of mana.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.conceal", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "reason": "Bring the shield bracelet and remember Kael’s concealment.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.conceal", "op": "eq", "value": true},
+       {"fact": "mol.arc.hasSupplyKit", "op": "eq", "value": true},
+       {"fact": "mol.arc.knowsConcealment", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [
+      {
+       "type": "energy",
+       "energyId": "book.mol.zorian.reserve",
+       "operation": "use",
+       "output": 1,
+       "control": 1
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.soul_concealment_used",
+       "stage": "seen",
+       "value": "The bracelet catches the missiles. Dust buys you a moment to pull away. With Kael’s concealment up, the attacker knows you are near but cannot place you at first.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.break_the_mind_link",
+     "revision": 1,
+     "label": "Stay silent and break the mind link",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria sewer service hatch",
+     "description": "Give no names. Fight the connection he opens when he grabs you. Costs 3 stamina.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.resist", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.resist", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [
+      {
+       "type": "vital",
+       "actor": "player",
+       "key": "stamina",
+       "amount": -3
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.broken_mind_link",
+       "stage": "seen",
+       "value": "He tries to reach into your thoughts. You turn the link back on him and make him drop his rod. You still cannot make his hand let go.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.fire_and_pull_free",
+     "revision": 1,
+     "label": "Fire all six rounds and pull free",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria sewer service hatch",
+     "description": "Shoot before he can bring a shield all the way up. Uses six rounds.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.shoot", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "reason": "Bring the revolver and all six rounds.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.shoot", "op": "eq", "value": true},
+       {"fact": "mol.arc.hasRevolver", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian revolver cartridge\"}",
+       "amount": -6
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.revolver_escape",
+       "stage": "seen",
+       "value": "Two rounds get through before the shield rises. The rest strike it. His grip loosens and you run. He is still able to cast.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.take_the_shaft_from_the_map",
+     "revision": 1,
+     "label": "Follow the fragmentary map to the shaft",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria sewer service hatch",
+     "description": "Find the route to the deep lake before your pursuer catches you.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.exit", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "reason": "Use the route you carried back from the earlier search.",
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.exit", "op": "eq", "value": true},
+       {"fact": "mol.arc.hasFragment", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.shaft_reached",
+       "stage": "seen",
+       "value": "You find the shaft where the fragments put it. Lightning catches you as you step over the edge. You fall toward the water.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      }
+     ],
+     "once": true
+    },
+    {
+     "id": "book.mol.zorian.arc1.detonate_before_impact",
+     "revision": 1,
+     "label": "Trigger the charges before you hit the water",
+     "group": "book_mol",
+     "actorId": "player",
+     "worldId": "book.mol.cyoria",
+     "location": "Cyoria sewer service hatch",
+     "description": "Use the charges while you are still falling.",
+     "visibleWhen": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.terminal", "op": "eq", "value": true}
+      ]
+     },
+     "requires": {
+      "all": [
+       {"fact": "mol.zorianSeat", "op": "eq", "value": true},
+       {"fact": "mol.studyAccess", "op": "eq", "value": true},
+       {"fact": "mol.arc.terminal", "op": "eq", "value": true}
+      ]
+     },
+     "costs": [
+      {
+       "type": "item",
+       "actor": "player",
+       "key": "{\"id\":\"Cyorian pocket charges\"}",
+       "amount": -1
+      }
+     ],
+     "effects": [
+      {
+       "type": "knowledge",
+       "actor": "player",
+       "key": "book.mol.zorian.arc1.arc_one_finished",
+       "stage": "seen",
+       "value": "You trigger the charges before you reach the water. Your world ends in light and pain.",
+       "basis": {
+        "kind": "recollection",
+        "attributedTo": "player",
+        "situationId": "book.mol.visitor_branch"
+       }
+      },
+      {
+       "type": "life",
+       "actor": "player",
+       "status": "dead",
+       "lethal": true,
+       "reason": "arc one fall"
+      }
+     ],
+     "once": true
+    },
     {
      "id": "book.mol.chart",
      "revision": 1,
@@ -14117,6 +19612,16 @@ export default {
   ],
   "items": [
    {
+    "id": "Cyorian divination compass",
+    "name": "Cyorian divination compass",
+    "description": "The needle answers a locator spell. It moves when you tell the spell who or what to seek.",
+    "value": 0,
+    "tags": {
+     "expedition": true,
+     "book_world_mol": true
+    }
+   },
+   {
     "id": "Cyorian research paper",
     "name": "Cyorian research paper",
     "description": "Counted local blank paper. Study/research consumes it; a title grants no spell.",
@@ -14135,6 +19640,15 @@ export default {
      "expedition": true,
      "book_world_mol": true
     }
+   },
+   {
+    "id": "Cyorian prepared barrier cubes",
+    "name": "Cyorian prepared barrier cubes",
+    "description": "Inscribed stone cubes laid along a retreat. A pulse of mana raises the barrier.",
+    "value": 0,
+    "tags": [
+     "material"
+    ]
    },
    {
     "id": "Cyorian blank stone cube",
@@ -14196,6 +19710,19 @@ export default {
      "book_world_mol": true
     }
    },
+   {
+    "id": "Cyorian missile rod",
+    "name": "Cyorian missile rod",
+    "description": "A rod shaped for the magic missile spell. The caster supplies the mana.",
+    "value": 0,
+    "tags": ["material"]
+   },
+   {"id": "Cyorian stone relay", "name": "Cyorian stone relay", "description": "An inscribed stone disc for the aranea’s relay.", "value": 0, "tags": ["material"]},
+   {"id": "Cyorian silver disc", "name": "Cyorian silver disc", "description": "A silver disc prepared by Kael.", "value": 0, "tags": ["material"]},
+   {"id": "Cyorian shield bracelet", "name": "Cyorian shield bracelet", "description": "A bracelet prepared to raise a shield.", "value": 0, "tags": ["material"]},
+   {"id": "Cyorian revolver", "name": "Cyorian revolver", "description": "A revolver bought near the beacon.", "value": 0, "tags": ["material"]},
+   {"id": "Cyorian revolver cartridge", "name": "Cyorian revolver cartridge", "description": "One cartridge for the revolver.", "value": 0, "tags": ["material"]},
+   {"id": "Cyorian pocket charges", "name": "Cyorian pocket charges", "description": "One set of charges sized for a pocket.", "value": 0, "tags": ["material"]},
    {
     "id": "Cyorian retrieved watch",
     "name": "Cyorian retrieved watch",

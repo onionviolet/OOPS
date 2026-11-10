@@ -1,3 +1,4 @@
+import {itemSafetyFacts} from './book_world_lotm_item_safety.js';
 import {configureConstables} from './book_world_lotm_constables.js';
 import {remotePresenceFacts} from './place_remote_presence.js';
 import {getPrivateLotmCast} from './book_world_lotm_cast_days.js';
@@ -65,5 +66,5 @@ function restoreMissingCast(envelope){
 registerUpcomingSource(()=>host?.upcoming()||[]);
 registerDomain({id:'lotm',deps:[],validate:(_slice,envelope)=>restoreMissingCast(envelope),tick:minutes=>host?.tick(minutes),refresh:()=>panel?.render(),
  commands:{restoreSleep:()=>host?.restoreSleep(),wake:()=>host?.wake(),enrollBeFresh:()=>host.enroll('be',{independent:true})},
- projection:(kind,...args)=>kind==='castContext'?castNeedsFullContext(...args):kind==='contexts'?lotmSimulationContexts(...args):kind==='facts'?{...lotmFacts(...args),...lotmDivinationFacts(...args),...lotmActFacts(...args),...remotePresenceFacts(args[0],getPrivateLotmCast()?.householdActs)}:host?.view(),
+ projection:(kind,...args)=>kind==='castContext'?castNeedsFullContext(...args):kind==='contexts'?lotmSimulationContexts(...args):kind==='facts'?{...lotmFacts(...args),...lotmDivinationFacts(...args),...lotmActFacts(...args),...itemSafetyFacts(args[0],getPrivateLotmCast()?.itemSafety),...remotePresenceFacts(args[0],getPrivateLotmCast()?.householdActs)}:host?.view(),
  panels:[()=>{panel=createLotmPanel({read:sel=>host.view(sel),act:id=>host.act(id),cancel:id=>host.cancel(id),move:id=>host.move(id),enroll:profile=>host.cross(profile),home:ports.home(),duties:()=>domainRegistry.project('duties'),tieAsk:id=>host.tieAsk(id),homeAct:request=>domainRegistry.command('homes','execute')(domainRegistry.command('homes','quote')(request)),attend:dutyId=>dutyId===LOTM_GUARD_DUTY_ID?host.standWatch():dutyId==='lotm.expense_claim'?host.fileExpense():domainRegistry.command('duties','attend')({dutyId}),resign:id=>host.resign(id),signGuard:()=>host.signGuard(),collectGuard:()=>host.collectGuardPay(),setOrder:(dutyId,policy)=>domainRegistry.command('duties','setOrder')({dutyId,policy})});}]});

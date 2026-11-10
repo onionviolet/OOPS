@@ -25,6 +25,10 @@ export function createStructuredNativeRegistration({registry,locations,items,inv
         for(const [category,id,inventory]of staged.inventories){inventories[category]||={};inventories[category][id]=inventory;}
         definitions.set(d.id,d);return d;
     };
-    register.extension=async(raw,base)=>registerStructuredCommandExtension(raw,await structuredContentHash(raw),base,registry);
+    register.extension=async(raw,base)=>registerStructuredCommandExtension(raw,await structuredContentHash(raw),base,registry,rows=>{
+        if(rows.some(row=>Object.hasOwn(items,row.id)))throw Error('Structured native item collision.');
+        const staged=stageStructuredNativeObjects({locations:[],items:rows,simulation:{}},{availabilities,makeLocation,makeItem,makeInventory});
+        for(const [id,item] of staged.items)items[id]=item;
+    });
     return register;
 }

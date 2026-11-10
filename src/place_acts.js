@@ -3,15 +3,27 @@ import {placeActStages,sequencePrerequisites,sequenceOffers} from './place_act_s
 // Definitions carry world-specific facts/text; simulation owns time, cost and effects.
 import {compilePlaceActOperation} from './place_act_operations.js';
 import {evaluateRule} from './rules.js';
+import {divinationCostText} from './cast_divination_adapter.js';
 const validId=x=>typeof x==='string'&&/^[a-z][a-z0-9_.:-]*$/i.test(x)&&!['__proto__','constructor','prototype'].includes(x);
-export function definePlaceActs(data,{worldId,actorId='player',group,situationId,requires=null}={}){
+export function definePlaceActs(data,{worldId,actorId='player',group,situationId,requires=null,inquiries=new Map()}={}){
  if(!validId(worldId)||!validId(actorId)||!validId(group)||!validId(situationId))throw Error('Invalid place act binding.');
  const ids=new Set();
+ const boundInquiries=new Set();
  const sequenceIds=new Set(placeActStages(data).map(s=>s.commandId));
  return (data?.acts||[]).map(row=>{
   if(!validId(row.id)||ids.has(row.id)||!validId(row.place)||
    !Number.isSafeInteger(row.minutes)||row.minutes<1||!row.label||!row.description||!row.report||!validId(row.knowledgeKey))throw Error('Invalid place act.');
   ids.add(row.id);
+  const inquiry=row.inquiryStep==null?null:inquiries.get(row.inquiryStep);
+  if(row.inquiryStep!=null){
+   if(!inquiry?.divination||boundInquiries.has(row.inquiryStep)||inquiry.actorId!==actorId
+    ||inquiry.worldId!==worldId||inquiry.location!==row.place||inquiry.duration!==row.minutes
+    ||row.costs?.length||row.remoteSession||row.contact||row.operation!=='use'
+    ||(row.cancellation??'refund')!==inquiry.cancellation){
+    throw Error('Place inquiry needs one matching local step with its own cost and timing.');
+   }
+   boundInquiries.add(row.inquiryStep);
+  }
   if(row.flavour!=null&&(typeof row.flavour!=='string'||row.flavour.length>200))throw Error('Invalid place-act narrator text.');
   const cancellation=row.cancellation??'refund';
   if(!['refund','forfeit'].includes(cancellation))throw Error('Place work needs a supported interruption policy.');
@@ -26,17 +38,19 @@ export function definePlaceActs(data,{worldId,actorId='player',group,situationId
    {fact:'actor.location',op:'eq',value:row.place,reason:'Your physical anchor is no longer here.'},
    {fact:'target.location',op:'eq',value:contact.place,reason:'The required contact is no longer supported.'},
    {fact:'target.body.ownerId',op:'eq',value:row.targetId},
-   {fact:'target.body.controllerId',op:'eq',value:row.targetId}]:[]),...(remote?[{fact:'actor.location',op:'eq',value:row.place,reason:'Your physical anchor is no longer here.'},{fact:`remote.${remote}.ready`,op:'eq',value:true,reason:'The meeting connection is no longer supported.'}]:[]),...(requires?[requires]:[]),...(row.requires?[row.requires]:[]),...operation.requires,...sequencePrerequisites(data,row.id)]};
+   {fact:'target.body.controllerId',op:'eq',value:row.targetId}]:[]),...(remote?[{fact:'actor.location',op:'eq',value:row.place,reason:'Your physical anchor is no longer here.'},{fact:`remote.${remote}.ready`,op:'eq',value:true,reason:'The meeting connection is no longer supported.'}]:[]),...(requires?[requires]:[]),...(row.requires?[row.requires]:[]),...(inquiry?[inquiry.requires]:[]),...operation.requires,...sequencePrerequisites(data,row.id)]};
   return {id:row.id,revision:1,label:row.label,description:row.description+(cancellation==='forfeit'?' Inputs stay spent if this work stops before completion.':''),group,actorId,worldId,location:row.place,
    ...(remote&&!row.targetId?{participants:data.remoteSessions.find(s=>s.id===remote).seats.map(s=>s.id),participantsCoLocated:false}:{}),
    ...(row.targetId?{targetId:row.targetId,participants:remote?(data.remoteSessions.find(s=>s.id===remote).seats.map(s=>s.id)):['$target'],coLocated:!remote&&!contact,participantsCoLocated:!remote&&!contact}:{}),
    ...(row.participants?{participants:[...row.participants],participantsCoLocated:true}:{}),
    once:sequenceIds.has(row.id),duration:row.minutes,cancellation,requires:guard,
+   ...(inquiry?{divination:inquiry.divination}:{}),
    ...(row.operation==='sleep'?{bodyCare:{kind:'sleep'}}:{}),
    // Keep a blocked local affordance visible, including missing means/order.
-   visibleWhen:{all:[requires||{fact:'actor.life',op:'eq',value:'alive'},...(row.visibleWhen?[row.visibleWhen]:[])]},
+   visibleWhen:{all:[requires||{fact:'actor.life',op:'eq',value:'alive'},...(row.visibleWhen?[row.visibleWhen]:[]),
+    ...(inquiry?[inquiry.visibleWhen]:[])]},
    completionRequires:guard,completionCoLocated:!remote&&!contact,completionFailure:cancellation,
-   costs:structuredClone(row.costs||[]),effects:[...structuredClone(row.effects||[]),...operation.effects,
+   costs:structuredClone(inquiry?.costs||row.costs||[]),effects:[...structuredClone(inquiry?.effects||[]),...structuredClone(row.effects||[]),...operation.effects,
     {type:'knowledge',actor:actorId,key:row.knowledgeKey,stage:'seen',value:row.report,
      basis:{kind:'observation',attributedTo:actorId,situationId}}]};
  });
@@ -88,9 +102,11 @@ export function quotePlaceActs(state,commands,data,preview,{blocked='',decide=()
   // specific known condition, not every compiled (possibly private) prerequisite.
   const remoteRule=row.remoteSession?d.requires?.all?.find(r=>r.fact===`remote.${row.remoteSession}.ready`):null;
   const publicFacts=row.publicReasons?facts(d):null;
-  const known=row.publicReasons?[...disclosedReasons(row.requires,publicFacts),...(remoteRule?disclosedReasons(remoteRule,publicFacts):[])]:[];
+  const known=row.publicReasons?disclosedReasons(d.divination?d.requires:row.requires,publicFacts):[];
+  if(remoteRule)known.push(...disclosedReasons(remoteRule,publicFacts));
   const reasons=[...(q.reasons||[]).flatMap(r=>r==='The required knowledge, means or circumstances are missing.'&&known.length?known:[r.startsWith('Insufficient ')&&row.costReason?row.costReason:r]),...(blocked?[blocked]:[]),...(!decision.allowed?[decision.reason]:[])];
-  return [{id:d.id,label:`${d.label} · ${q.duration??d.duration} min · ${row.costLabel||'no stock spent'}${d.cancellation==='forfeit'?' · inputs stay spent if stopped':''}`,
+  const cost=d.divination?divinationCostText(state,d,q.eligible?q.costs:d.costs):row.costLabel||'no stock spent';
+  return [{id:d.id,label:`${d.label} · ${q.duration??d.duration} min · ${cost}${d.cancellation==='forfeit'?' · inputs stay spent if stopped':''}`,
    description:d.procedure?d.description:row.description,...(row.flavour?{flavour:row.flavour}:{}),eligible:q.eligible&&!blocked&&decision.allowed,reasons,duration:q.duration??d.duration}];
  });
 }

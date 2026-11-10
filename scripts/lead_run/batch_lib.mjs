@@ -1,21 +1,28 @@
 // Message Batches reading protocol (v4): one structured request per shard, pass 1 census then pass 2 scenes.
 // Pure functions plus a client factory. The SDK is imported only by `makeClient`, so tests and dry runs never need it.
-// Paid API route: see docs/TOOL_REGISTRY.md (`anthropic-batch`). Source text goes to Anthropic; outputs stay in the
-// gitignored private folder. The key is read from ANTHROPIC_API_KEY at run time and is never logged or written.
-import {readFileSync, writeFileSync, appendFileSync, existsSync, mkdirSync, copyFileSync, unlinkSync} from 'node:fs';
+// Paid API route: see docs/TOOL_REGISTRY.md (`anthropic-batch`, `openai-batch`). Source text goes to the plan model's provider; outputs stay in the
+// gitignored private folder. The key is read from ANTHROPIC_API_KEY or OPENAI_API_KEY (an OpenAI `model`, openai_batch.mjs) at run time and is never logged or written.
+import {readFileSync, writeFileSync, appendFileSync, existsSync, mkdirSync, copyFileSync, unlinkSync, readdirSync} from 'node:fs';
 import {execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 import {join, dirname, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {parseShard, lintScenes, lintCensus, lintFills, ACTION_CLASSES} from './lint_lead_run.mjs';
+import {parseShard, lintScenes, lintCensus, lintFills, ACTION_CLASSES, MOTIVES, KINDS, RULE_KINDS} from './lint_lead_run.mjs';
 import {extractCandidates, buildGlossary, glossaryHits, auditShard} from './shard_tools.mjs';
-import {worldProfile, languageRules, parseLocator, formatLocator, sharedWordRun} from './world_profiles.mjs';
+import {worldProfile, languageRules, parseLocator, formatLocator, sharedWordRun, LOCATOR_ANY} from './world_profiles.mjs';
+import {OPENAI_PRICES, isOpenAIModel, makeOpenAIClient} from './openai_batch.mjs';
 
 export const MODEL = 'claude-haiku-5-5';
 // claude-api skill cached table 2026-10-06: Haiku 5.5, prompts up to 100K tokens; the Batch API is half price.
-export const PRICE = Object.freeze({inPerM: 0.10, outPerM: 0.50, batchFactor: 0.5, promptCap: 100000});
+export const PRICE = Object.freeze({inPerM: 0.10, outPerM: 0.50, batchFactor: 0.5, cacheReadFactor: 0.1, cacheWriteFactor: 1.25, promptCap: 100000});
 // Per-model standard prices (same cached table): Sonnet 5.5 is $2 / $10.
-export const PRICES = Object.freeze({'claude-haiku-5-5': PRICE, 'claude-sonnet-5-5': {...PRICE, inPerM: 2, outPerM: 10}});
+export const PRICES = Object.freeze({'claude-haiku-5-5': PRICE, 'claude-sonnet-5-5': {...PRICE, inPerM: 2, outPerM: 10}, ...OPENAI_PRICES});
+/** Price row for a model. An OpenAI model with no row is an error, so an estimate never borrows Haiku's prices for it. */
+export function priceFor(model = MODEL) {
+    if (PRICES[model]) return PRICES[model];
+    if (isOpenAIModel(model)) throw new Error(`no price row for ${model}; add it to OPENAI_PRICES in openai_batch.mjs from the pricing page`);
+    return PRICE;
+}
 const here = dirname(fileURLToPath(import.meta.url));
 const DOCS = resolve(here, '../../docs/gm/dispatch/protagonist-life-2026-10-27');
 
@@ -179,6 +186,32 @@ export function shardSchema(pass, {version = '1.3'} = {}) {
     return obj({scenes: arr(SCENE), census: arr(CENSUS), fills: arr(FILL)}, ['scenes', 'census', 'fills']);
 }
 
+// The strict provider can enforce the same locator grammar and scene vocabularies
+// as the local lint. A locator still needs an in-shard and semantic check.
+function strictReadingSchema(schema, key) {
+    if (Array.isArray(schema)) return schema.map(value => strictReadingSchema(value));
+    if (!schema || typeof schema !== 'object') return schema;
+    if (schema.type === 'string' && ['locator', 'firstMention'].includes(key)) {
+        return {...schema, pattern: LOCATOR_ANY.source};
+    }
+    return Object.fromEntries(Object.entries(schema).map(([field, value]) => [field, strictReadingSchema(value, field)]));
+}
+
+function requestSchema(pass, version, model) {
+    const schema = shardSchema(pass, {version});
+    if (!isOpenAIModel(model) || !STEPS_15(version)) return schema;
+    const constrained = strictReadingSchema(schema);
+    const scene = constrained.properties.scenes?.items.properties;
+    if (scene) {
+        scene.steps.items.properties.class.enum = ACTION_CLASSES;
+        scene.options.items.properties.class.enum = ACTION_CLASSES;
+        scene.motives.items.properties.tag.enum = MOTIVES;
+    }
+    const census = constrained.properties.census?.items.properties;
+    if (census) census.kind.enum = [...new Set([...KINDS, ...RULE_KINDS])];
+    return constrained;
+}
+
 // ---- prompt -------------------------------------------------------------------------------------------------
 const PASS_TEXT = {
     census: 'PASS 1 (census). Return only the `census` array: every named entity and every distinct amount, time and measure in the shard. ' +
@@ -197,12 +230,18 @@ const PASS_TEXT = {
 // Shared by passes 3-5: record, never invent.
 const RECORD_TEXT = 'Record everything the shard states or shows for this pass, however small; completeness matters more than polish. Do not invent: no proposals, no fills, no alternatives the text does not give; gaps are handled later by the project. A fact that fits no field goes in `other` with the ids it is about. Labels: `T` stated outright, `S` shown in action, `I` implied, `U` unsettled. Every row and sub-row carries its own locator: one paragraph per locator in the exact form below, never a range or a list (several paragraphs take several locators). Keep each field to a few words and state each fact once, so the reply fits and closes as valid JSON. Own words, no source quotes.';
 
+// Broad extraction remains source-led. These lenses prevent ordinary procedures and
+// causal/generative rules from disappearing behind a power-system-only taxonomy.
+export const SYSTEM_LENSES = 'System lenses, when evidenced in this shard: procedures and repeated work (ordered steps, branches, prerequisites, actor/tool/material bindings, duration, checkpoints, interruption, cancellation, partial results and recovery); procedural or generative systems (what varies, persistent identity, dependencies, distributions and bounds, when outcomes become fixed, what resets or is retained); progression, learning and powers; production, trade and custody; body, hazards and conflict; institutions, authority, obligations and reputation; relationships, knowledge and deception; travel, ecology, time, household routines and long pursuits. Record these through this pass\'s fields, with remaining source facts in `other` for non-scene passes. Do not invent seeds, probability values, universal limits or missing mechanics. A fixed authored event is not proof of random generation. Distinguish the world\'s mechanism, what an actor believes, and any unknown cause. Later exceptions remain evidence, not retroactive knowledge for earlier actors.';
+
 /** Byte-stable prefix: identical for every request in a batch (and a pass), so it caches. */
 export function systemText(pass, {world = 'lotm', cardPath = join(DOCS, 'SCHEMA_CARD_1_3.md'), version = '1.3'} = {}) {
     const profile = worldProfile(world);
     return localize([
         'You are a bounded source reader for YAIRPG. You receive one shard of a novel (paragraph-numbered: `pN: text` under chapter headers) and return structured rows as JSON matching the output schema. You have no tools and no other source: record only what the shard states. Do not add facts you know from elsewhere about this book or its sequels; if a row needs context the shard lacks, label it `I` and say so in the note.',
         PASS_TEXT[pass],
+        ...(STEPS_15(version) ? ['Each locator field takes exactly one paragraph. For a claim supported by several paragraphs, cite each paragraph in its own evidence entry where the schema permits. Never put a range, list, chapter-only citation, or prose in a locator field.'] : []),
+        ...(version === '1.5' ? [SYSTEM_LENSES] : []),
         ...(EXTRAS_14(version) && PASS_TEXT_14[pass] ? [PASS_TEXT_14[pass]] : []),
         ...(STEPS_15(version) && (pass === 'scenes' || pass === 'full') ? [SCENES_TEXT_15] : []),
         ...(EXTRA_SCHEMA[pass] ? [RECORD_TEXT] : []),
@@ -234,7 +273,9 @@ export function candidateTable(candidates) {
 /** One batch request. Varying parts (base, glossary, candidates, text) go in the user turn after the stable system prefix. */
 export function buildRequest({customId, prefix, base, shardText, glossary, pass, model = MODEL, effort = 'low', maxTokens = 48000,
     schemaMode = 'format', world = 'lotm', version = '1.3', system = systemText(pass, {world, version})}) {
-    if (EXTRA_SCHEMA[pass]) schemaMode = 'prompt';
+    // Anthropic's grammar caps optional and union properties, so the large passes go in prompt mode there; OpenAI strict mode has no such cap (openai_batch.mjs).
+    if (isOpenAIModel(model)) schemaMode = 'format';
+    else if (EXTRA_SCHEMA[pass]) schemaMode = 'prompt';
     const hits = glossary ? glossaryHits(glossary, shardText) : [];
     const cands = extractCandidates(parseShard(shardText));
     const meta = `Shard ${prefix}. Beat ids start at lr.${world}.main.${base}.\n\n# Known names in this shard (reuse these ids and labels)\n\n${glossaryTable(hits)}\n\n# Candidates found by script\n\n${candidateTable(cands)}\n\n# Shard text\n`;
@@ -243,7 +284,7 @@ export function buildRequest({customId, prefix, base, shardText, glossary, pass,
         // Prompt mode (no strict format): the schema travels in the stable system text and the reply is parsed and linted in code.
         system: [{type: 'text', text: schemaMode === 'format' ? system : `${system}\n\n# Output\n\nReply with only one JSON object (no code fence, no commentary) that matches this JSON schema:\n${JSON.stringify(shardSchema(pass, {version}))}`, cache_control: {type: 'ephemeral', ttl: '1h'}}],
         messages: [{role: 'user', content: [{type: 'text', text: meta}, {type: 'text', text: shardText}]}],
-        output_config: schemaMode === 'format' ? {effort, format: {type: 'json_schema', schema: shardSchema(pass, {version})}} : {effort},
+        output_config: schemaMode === 'format' ? {effort, format: {type: 'json_schema', schema: requestSchema(pass, version, model)}} : {effort},
     };
     return {custom_id: customId, params, _hits: hits.length, _candidates: cands.length};
 }
@@ -262,9 +303,9 @@ export function requestText(req) {
 
 /** Dollars at batch price. `outTokens` is per request (thinking at low effort plus rows), an assumption until measured. */
 export function estimateCost(requests, outTokens, model = MODEL) {
-    const price = PRICES[model] || PRICES[MODEL];
+    const price = priceFor(model);
     const inTok = requests.map(r => estimateTokens(requestText(r)));
-    const over = inTok.filter(t => t > PRICE.promptCap).length;
+    const over = inTok.filter(t => t > price.promptCap).length;
     const totalIn = inTok.reduce((a, b) => a + b, 0), totalOut = outTokens * requests.length;
     const usd = (totalIn * price.inPerM + totalOut * price.outPerM) / 1e6 * price.batchFactor;
     return {requests: requests.length, inputTokens: totalIn, outputTokensAssumed: totalOut, usdBatch: Number(usd.toFixed(4)),
@@ -321,11 +362,41 @@ export function addMissingKnown(census, glossary, shardText) {
 
 export function requestsFromPlan(plan) {
     const glossary = glossaryFromPlan(plan);
-    const pass = plan.pass, version = plan.schemaVersion || '1.3', system = systemText(pass, {world: plan.world || 'lotm', version});
+    const pass = plan.pass, version = plan.schemaVersion || '1.3';
+    const system = systemText(pass, {world: plan.world || 'lotm', version}) + (plan.reading?.focus ? '\n\nBounded reading focus: ' + plan.reading.focus + '\nThis focus does not grant evidence outside the supplied shard or establish whole-book coverage. Keep the pass schema and source labels.' : '');
     return plan.shards.map(s => buildRequest({
         customId: `${s.prefix}-${pass}`, prefix: s.prefix, base: s.base, shardText: readFileSync(s.shard, 'utf8'), glossary, pass,
         model: plan.model || MODEL, effort: plan.effort || 'low', maxTokens: plan.maxTokens || 48000, schemaMode: plan.schemaMode || 'format',
         world: plan.world || 'lotm', version, system}));
+}
+
+/** Whether a shard's pass is already read in a private folder, by any provider (file names do not carry the reader). A salvaged cut-off still needs a full read. */
+export function passDone(pass, prefix, files) {
+    if (pass === 'full') return passDone('census', prefix, files) && passDone('scenes', prefix, files);
+    // Codex Luna lanes (luna_queue.mjs, luna_scenes.mjs) write the same files under `<prefix>L`; a shard either route read counts as read.
+    return [prefix, `${prefix}L`].some(p => {
+        if (files.has(`${p}_${pass}.partial`)) return false;
+        if (pass === 'census' || pass === 'scenes') return files.has(`${p}m_${pass}.jsonl`);
+        return EXTRA_PASSES[pass].some(k => files.has(`${p}_${extraFile(pass, k)}.jsonl`));
+    });
+}
+
+/**
+ * Reread guard (2026-11-08): plan shards whose pass is already on disk, and shards another label in the same outDir has submitted but not collected.
+ * A plan written before another provider's run (an `_oa` plan beside a Haiku one) would otherwise pay to read the same text twice.
+ */
+export function readOverlap(plan) {
+    const files = existsSync(plan.privateDir) ? new Set(readdirSync(plan.privateDir)) : new Set();
+    const done = plan.shards.filter(s => passDone(plan.pass, s.prefix, files)).map(s => `${s.prefix}-${plan.pass}`);
+    const mine = new Set(plan.shards.map(s => `${s.prefix}-${plan.pass}`)), inFlight = [];
+    const out = existsSync(plan.outDir) ? readdirSync(plan.outDir) : [];
+    for (const f of out.filter(f => f.endsWith('_receipt.json'))) {
+        const label = f.slice(0, -'_receipt.json'.length);
+        if (label === plan.label || out.includes(`${label}_summary.json`) || !out.includes(`${label}_requests.jsonl`)) continue;
+        const ids = readFileSync(join(plan.outDir, `${label}_requests.jsonl`), 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l).custom_id.replace(/-repair$/, '')).filter(id => mine.has(id));
+        if (ids.length) inFlight.push({label, ids});
+    }
+    return {done, inFlight};
 }
 
 export const planHash = plan => createHash('sha256').update(JSON.stringify(plan)).digest('hex').slice(0, 12);
@@ -333,7 +404,8 @@ export const stripMeta = ({custom_id, params}) => ({custom_id, params});
 
 // ---- client -------------------------------------------------------------------------------------------------
 /** The only place the key is read. No fallback to another credential, base URL, profile or model. */
-export async function makeClient(env = process.env) {
+export async function makeClient(env = process.env, {model = MODEL} = {}) {
+    if (isOpenAIModel(model)) return makeOpenAIClient(env);
     const apiKey = env.ANTHROPIC_API_KEY;
     if (!apiKey) {
         throw new Error('ANTHROPIC_API_KEY is not set. This is a paid API route and has no fallback. Run it with the key loaded into the child environment only, ' +
@@ -396,8 +468,8 @@ export function parseMessage(message) {
 }
 
 export function usageUsd(u = {}, model = MODEL) {
-    const price = PRICES[model] || PRICE;
-    const inTok = (u.input_tokens || 0) + (u.cache_creation_input_tokens || 0) * 1.25 + (u.cache_read_input_tokens || 0) * 0.1;
+    const price = priceFor(model);
+    const inTok = (u.input_tokens || 0) + (u.cache_creation_input_tokens || 0) * price.cacheWriteFactor + (u.cache_read_input_tokens || 0) * price.cacheReadFactor;
     return (inTok * price.inPerM + (u.output_tokens || 0) * price.outPerM) / 1e6 * price.batchFactor;
 }
 
@@ -492,11 +564,15 @@ export async function collect({client, batchId, plan, outDir, pollMs = 60000, sl
     mkdirSync(plan.privateDir, {recursive: true});
     mkdirSync(outDir, {recursive: true});
     const byId = new Map(plan.shards.map(s => [`${s.prefix}-${plan.pass}`, s]));
-    const summary = {batchId, counts: batch.request_counts, shards: [], repair: [], usd: 0};
+    const summary = {batchId, counts: batch.request_counts, shards: [], repair: [], usd: 0, ...(batch.errors ? {batchErrors: batch.errors} : {})};
+    const seen = new Set();
+    let repairBatch = false;
     const ledger = join(outDir, `${plan.label}_usage.csv`);
     if (!existsSync(ledger)) writeFileSync(ledger, 'custom_id,type,input,cache_read,cache_create,output,usd_batch\n');
     for await (const item of await client.messages.batches.results(batchId)) {
         const id = item.custom_id, s = byId.get(id.replace(/-repair$/, ''));
+        seen.add(id.replace(/-repair$/, ''));
+        if (id.endsWith('-repair')) repairBatch = true;
         const r = item.result;
         if (!s) { summary.shards.push({id, status: 'unknown-custom-id'}); continue; }
         if (r.type !== 'succeeded') { summary.shards.push({id, status: r.type}); summary.repair.push({id, why: r.type}); appendFileSync(ledger, `${id},${r.type},0,0,0,0,0\n`); continue; }
@@ -552,6 +628,8 @@ export async function collect({client, batchId, plan, outDir, pollMs = 60000, sl
             }
         }
     }
+    // A plan shard with no result line (a rejected, expired or cancelled batch) still counts against the gates. Repair batches carry only some ids.
+    if (!repairBatch) for (const id of byId.keys()) if (!seen.has(id)) { summary.shards.push({id, status: 'missing'}); summary.repair.push({id, why: 'missing'}); }
     summary.usd = Number(summary.usd.toFixed(4));
     return summary;
 }

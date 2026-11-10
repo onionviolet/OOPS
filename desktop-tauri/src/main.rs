@@ -81,7 +81,7 @@ fn env_ms(name: &str, fallback: u64) -> u64 {
 pub(crate) fn mirror_js(reason: &str, force: bool, save_first: bool) -> String {
     format!(
         r#"(() => {{ if (location.pathname === '{RECOVER_PATH}') return;
-  {save} const e = {{}}; for (let i = 0; i < localStorage.length; i++) {{ const k = localStorage.key(i); if (k !== '{rev}') e[k] = localStorage.getItem(k); }}
+  {save} const e = {{}}; for (let i = 0; i < localStorage.length; i++) {{ const k = localStorage.key(i); if (k !== '{rev}') e[k] = (localStorage.getStoredItem || localStorage.getItem).call(localStorage, k); }}
   fetch('/__host/mirror?reason={reason}&force={force}', {{method: 'POST', body: JSON.stringify(e)}}).catch(() => {{}}); }})()"#,
         save = if save_first {
             "try { window.saveProgress && window.saveProgress(); } catch (x) {}"
@@ -462,7 +462,7 @@ fn store_script() -> String {
         r#"(() => {{
   const REV = '{rev}', S = Storage.prototype, set = S.setItem, rem = S.removeItem, clr = S.clear, ls = window.localStorage;
   const sync = (method, path) => {{ const x = new XMLHttpRequest(); x.open(method, path, false); x.send(); if (x.status !== 200) throw Error(path + ' ' + x.status); return JSON.parse(x.responseText); }};
-  const all = () => {{ const e = {{}}; for (let i = 0; i < ls.length; i++) {{ const k = ls.key(i); if (k !== REV) e[k] = ls.getItem(k); }} return e; }};
+  const all = () => {{ const e = {{}}; for (let i = 0; i < ls.length; i++) {{ const k = ls.key(i); if (k !== REV) e[k] = (ls.getStoredItem || ls.getItem).call(ls, k); }} return e; }};
   let local = Number(ls.getItem(REV)) || 0, full = false, pending = {{set: {{}}, del: [], clear: false}}, busy = false, dirty = false, status = 'off';
   try {{
     const remote = sync('GET', '/__host/store-state');
@@ -502,7 +502,7 @@ pub(crate) fn host_script(background: bool, mirror: bool, build: &str) -> String
     format!(
         r#"(() => {{
   const background = {background}, mirror = {mirror};
-  const readStorage = () => {{ const e = {{}}; for (let i = 0; i < localStorage.length; i++) {{ const k = localStorage.key(i); if (k !== '{rev}') e[k] = localStorage.getItem(k); }} return e; }};
+  const readStorage = () => {{ const e = {{}}; for (let i = 0; i < localStorage.length; i++) {{ const k = localStorage.key(i); if (k !== '{rev}') e[k] = (localStorage.getStoredItem || localStorage.getItem).call(localStorage, k); }} return e; }};
   window.yairpgHost = Object.freeze({{
     desktop: true, shell: 'tauri', background, build: {build:?}, capabilities: [...(mirror ? ['mirror'] : []), 'attention', 'projection'],
     prompt: () => null,

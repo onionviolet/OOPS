@@ -5,6 +5,7 @@ import {lotmCommands,lotmSources,lotmPowers,lotmEnergies} from './book_world_lot
 import {createLotmState} from './book_world_lotm_state.js';
 import {LOTM_HOSTILES,hostileAbilityCommands,abilityConditions} from './book_world_lotm_abilities.js';
 import {beSeerConditions} from './book_world_lotm_be_seer.js';
+import {operationSlowCondition} from './book_world_lotm_item_safety.js';
 import {LOTM_PROFILES,validLeadLife} from './book_world_lotm_lives.js';
 import {getPrivateLotmCast} from './book_world_lotm_cast_days.js';
 import {BENCH_STOCK,STOCK_REV_KEY,LOTM_CHARACTERISTIC as CORE} from './book_world_lotm_bench.js';
@@ -29,7 +30,7 @@ export const lotmPeople=[{id:I.supervisor,label:'Warden Hale (original superviso
  officer(I.machineryOfficer,'Machinery records officer (original, unnamed)',L.university,'An original Machinery team records officer in the university quarter. No canon identity; supervises visitors and errands in the Steam and Machinery district.')];
 // Opening stock lives with the supervisor (plan S3). Prehistory preparation is not debited again.
 export const LOTM_NATIVE_STOCK={[I.supervisor]:{[K.dose]:1,[K.comparator]:1,[K.sampleA]:1,[K.sampleB]:1,[K.sealed3]:1},[I.broker]:{[K.frog]:1,[K.hairs]:1,[K.ink]:1,[K.marketCc9]:1,[K.marketCc8]:1,[K.marketSv9]:1,[K.marketSv8]:1,[K.marketSa9]:1,[K.marketSa8]:1,...BENCH_STOCK,[CORE.key]:CORE.stock}};
-export const lotmDefinitions={people:[...lotmPeople,...castPeople,...LOTM_HOSTILES.map(h=>({id:h.id,label:h.label,revision:1,worldId:I.world,location:L.docks,inventory:'native',provision:false,description:'An original hostile Beyonder, not enrolled by default: they hold the same source and use the same ability records as the player. No canon identity.',resources:{},body:{form:'human',hands:2,mobile:true},vitals:{health:24,max_health:24,stamina:18,max_stamina:18}}))],sites:[{id:I.site,revision:1,label:'Tingen supervised workroom bench',capacity:1}],powers:lotmPowers,energies:lotmEnergies,commands:[...lotmCommands,...castTalkCommands,...castWalkCommands,...hostileAbilityCommands],conditions:[...abilityConditions,...beSeerConditions],encounters:[],controllers:[],situations:[castSituation,{id:I.situation,revision:1,label:'Original Tingen probationer account',context:{worldId:I.world,instanceId:'book.lotm.tingen.main',continuityId:'book.lotm.probationer.branch',eraId:'book.lotm.early_tingen',regionId:'book.lotm.tingen'},participants:['player'],initialPhase:'present',phases:['present'],privateTruth:{role:'original_probationer'}}]};
+export const lotmDefinitions={people:[...lotmPeople,...castPeople,...LOTM_HOSTILES.map(h=>({id:h.id,label:h.label,revision:1,worldId:I.world,location:L.docks,inventory:'native',provision:false,description:'An original hostile Beyonder, not enrolled by default: they hold the same source and use the same ability records as the player. No canon identity.',resources:{},body:{form:'human',hands:2,mobile:true},vitals:{health:24,max_health:24,stamina:18,max_stamina:18}}))],sites:[{id:I.site,revision:1,label:'Tingen supervised workroom bench',capacity:1}],powers:lotmPowers,energies:lotmEnergies,commands:[...lotmCommands,...castTalkCommands,...castWalkCommands,...hostileAbilityCommands],conditions:[...abilityConditions,...beSeerConditions,operationSlowCondition],encounters:[],controllers:[],situations:[castSituation,{id:I.situation,revision:1,label:'Original Tingen probationer account',context:{worldId:I.world,instanceId:'book.lotm.tingen.main',continuityId:'book.lotm.probationer.branch',eraId:'book.lotm.early_tingen',regionId:'book.lotm.tingen'},participants:['player'],initialPhase:'present',phases:['present'],privateTruth:{role:'original_probationer'}}]};
 export const LOTM_ITEM_SPECIFICATIONS=[
  ['Tingen prepared Seer dose','One supervised prepared dose from a pinned, authored lot. Holding it grants nothing; taking it is a separate irreversible step.'],
  ['Tingen ordinary comparator sample','An ordinary material used to compare against supported samples.'],
@@ -56,7 +57,27 @@ export const LOTM_ITEM_SPECIFICATIONS=[
   ,...LOTM_BENCH_ITEMS
   ,...RITE_ITEMS
 ].map(([id,description])=>({id,name:id,description,value:1,tags:{expedition:true,book_world_lotm:true}}));
-export function registerLotmItems({itemTemplates,OtherItem}){for(const spec of [...LOTM_ITEM_SPECIFICATIONS,...HOUSEHOLD_MEAL_ITEMS]){if(itemTemplates[spec.id])throw Error(`Duplicate Lord of the Mysteries item ${spec.id}.`);itemTemplates[spec.id]=new OtherItem(spec);}}
+const LEAD_ITEMS=[
+ ['silver_amulet_blank','Silver amulet blank','A plain silver piece ready for engraving.'],
+ ['silver_practice_offcut','Silver practice offcut','A scrap for testing an inscription before engraving the finished piece.'],
+ ['silver_protective_amulet','Silver protective amulet','Silver with a request for protection from misfortune engraved on both faces.'],
+ ['wood_rite_supplies','Candles and altar supplies','The candles, salt, oils and writing materials set aside for the rite in the Wood house.'],
+ ['sirius_portrait','Portrait of a man in a dark coat','A likeness copied from the face you recalled.'],
+ ['sirius_portrait_office_copy','Office copy of the portrait','A copy left with the company for the search.'],
+ ['sirius_scene_silver_round','Loose silver round','A silver round carried in reserve for the revolver.'],
+ ['sirius_scene_letters','Letters from Sirius','Letters taken from the man’s coat.'],
+ ['sirius_undelivered_letter','Undelivered letter','An unsent letter kept for the company’s investigation.'],
+ ['sirius_remaining_papers','Papers from the library grounds','The papers you kept after handing over the unsent letter.'],
+ ['henry_friday_receipt','Henry’s payment receipt','A receipt for the latest payment on the two enquiries.'],
+ ['sirius_scene_police_badge','Police badge','Your probationary inspector’s badge.'],
+ ['sirius_scene_library_card','Deweyville Library card','The card you can show to ask for access at the library.'],
+ ['sirius_scene_holy_night_powder','Holy Night Powder','Powder for marking the boundary of a rite.'],
+ ['sirius_scene_amantha_extract','Amantha extract','An extract carried in a small bottle.'],
+ ['sirius_scene_drago_powder','Drago bark and leaf powder','Ground drago bark and leaves for ritual work.'],
+ ['sirius_scene_slumber_oil','Slumber flower oil','A small bottle of oil pressed from slumber flowers.'],
+ ['sirius_scene_dried_chamomile','Dried chamomile petals','Dried petals kept apart from the other supplies.']
+].map(([id,name,description])=>({id:'book.lotm.'+id,name,description,value:1,tags:{expedition:true,book_world_lotm:true}}));
+export function registerLotmItems({itemTemplates,OtherItem}){for(const spec of [...LOTM_ITEM_SPECIFICATIONS,...HOUSEHOLD_MEAL_ITEMS,...LEAD_ITEMS]){if(itemTemplates[spec.id])throw Error(`Duplicate Lord of the Mysteries item ${spec.id}.`);itemTemplates[spec.id]=new OtherItem(spec);}}
 // Pure enrollment of the original probationer branch (plan S2 prototype start).
 // The caller owns the publication; this changes only the passed state.
 export function enrollLotmBranch(state,profile='probationer'){

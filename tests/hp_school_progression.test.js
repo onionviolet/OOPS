@@ -62,7 +62,11 @@ test('stale, busy, body-unready, base mismatch, unknown and duplicate extension 
 
 test('extension preflight rejects base mismatch, command collision and content outside command-only contract atomically',()=>{
  const f=setup();
- for(const edit of [e=>e.base.revision++,e=>e.commands[0].id=P+'.lesson_charms',e=>e.items=[],e=>e.commands.push(e.commands[0])]){
+ for(const edit of [e=>e.base.revision++,e=>e.commands[0].id=P+'.lesson_charms',e=>e.items=[],e=>e.commands.push(e.commands[0]),
+  e=>e.commands[0].effects.push({type:'fact',scope:'actor',actor:'player',key:'hp.lead.house',value:'ravenclaw'}),
+  e=>e.commands[0].costs.push({type:'energy',energyId:'book.other.energy',operation:'use',output:1,control:1}),
+  e=>e.commands[0].effects.push({type:'relocate',actor:'player',location:'Village'}),
+  e=>e.commands[0].effects.push({type:'relationship',actor:'player',target:P+'.tutor',axis:'tie.affection',amount:1})]){
   const raw=structuredClone(rawExtension);raw.id=E+'.other';raw.commands=raw.commands.map(c=>({...c,id:c.id.replace(E,raw.id)}));edit(raw);
   const before=[...f.registry.simulation.commands];assert.throws(()=>registerStructuredCommandExtension(raw,hash(raw),f.d,f.registry));assert.deepEqual([...f.registry.simulation.commands],before);
  }
