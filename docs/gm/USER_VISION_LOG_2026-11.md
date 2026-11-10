@@ -705,3 +705,61 @@ After the ten rulebooks and the answer on making rules reach implementation, Wei
 > COmmit then build, consider what other stuff is needed I like basically all the ideas that follow the core rules, and is interesting and leads to more possiblities, anything that limts those should run by me first
 
 Recorded as standing direction (AD56): ideas that follow the core rules (Rulebook 1–12 and the AD lines), are interesting and open more possibilities are welcome and become adjustable working defaults; any line that limits possibilities is held for his review before it binds. Applied the same day: the 2026-11-10 rulebooks (TIE, LVR, TMR, KNW, STN, STY, CHT, MND, ITM, AGT) are working defaults except the lines listed in the [limiting lines review](../audits/LIMITING_LINES_REVIEW_2026-11-10.md), which stay proposals until he answers. Lines that restate already accepted direction keep their own authority. The build he authorized: path rules for the new books, area guide pointers and a rule-route check.
+
+## Answers on the limiting lines, first round, 2026-11-10
+
+Weibao, on the [limiting lines review](../audits/LIMITING_LINES_REVIEW_2026-11-10.md):
+
+> Uncapped with no limit, or certain cap and more? Aging is deferred, and not aging could be a thing that the base cheats comes with? or well, its not reflected the same way?
+>
+> What is Forgetting?
+>
+> Rank can depend, afterall rank without the power or power without the rank is a trope,
+>
+> MND15 is interesting, but I agree, but it should be noticible, mght be hard to implement tho, consider different avenues and more
+>
+> ITM7, tihs can be defurred for the future, but might depend on strength or carry capacity?
+>
+> Wear is interesting, but repair should be an aspect too, do consider that durability often takes away from gameplay?
+>
+> Belief should be a resource always(if there is method) to allow for belief based progression and stuff?
+
+Recorded:
+
+- **LLR12 opened (STN8):** rank can follow its holder's real power or diverge from it; rank without the power and power without the rank are both tropes the rules allow.
+- **LLR22 kept and widened (MND15, new MND21):** hostile mind control on the lead stays forewarned, sourced and escapable, and it must be noticeable; MND21 lists the avenues.
+- **LLR23 deferred (ITM7):** no carrying limit for now; a later default derives capacity from strength, body and containers.
+- **LLR24 kept with repair (ITM11, ITM12):** gentle wear, with repair as play, and durability that adds choices rather than chores.
+- **LLR27 opened (AGT10):** belief is a resource wherever a method draws on it, so belief-based progression is possible.
+- **LLR9 (TMR15):** aging stays deferred; not aging, or aging shown differently, can come from a cheat (a base cheat included) or a body; recorded as the dial, with no new aging system.
+- **LLR7 (TMR6) and LLR11 (KNW19):** his questions are answered in chat; both wait for his pick.
+
+## Answers on the limiting lines, second round, 2026-11-10
+
+Weibao:
+
+> Growing cap,
+>
+> Okay make no forgetting unless external things, but then organizing 'remembered' info will be something we need to do, maybe add repariting tools to be part of routine for wear? Maybe we as protaginsit has lifespan, but it doesnt show? There are so many ways to go about this, maybe some lore runs would be useful,
+
+Recorded:
+
+- **LLR7 (TMR6):** the away bank has a growing cap: it starts at 7 days and grows through play, cheats, research or items; uncapped stays a dial.
+- **LLR11 kept (KNW19):** by default the player forgets through external things alone; new KNW26 makes organizing remembered information a requirement.
+- **Repair tools in routines (ITM12):** a maintenance routine spends repair kits or tools and stops when they run out.
+- **Lifespan (TMR15):** the protagonist may have a lifespan that is a hidden property, learned by means; aging depth stays deferred. His "maybe some lore runs would be useful" is recorded as a suggestion to calibrate lifespan and aging from the lead worlds' lore; no pass is started.
+
+## Answers on the limiting lines, third round, 2026-11-10
+
+Weibao:
+
+> Maybe no lifespan for us right now, but make base cheat in charge of showing lifespan, or maybe we should have lifespan fitting what character we are, what bloodline or consitution and more, lifespan doesnt have to be hidden, but then if something hurts our lifespand should be worrisome,
+>
+> For routine, maybe a refinement/self improvement routine,
+>
+> Whats next?
+
+Recorded:
+
+- **Lifespan (TMR15, replaces the second round's hidden-lifespan line):** no protagonist lifespan limit for now (life mode "open"). Where a lifespan exists it fits what the character is (species, bloodline, constitution, realm, body); it can be shown, and the base cheat can be what shows it (new catalogue type CTC93, lifespan readout); harm to lifespan names its cost, shows the loss and points to recourse. Aging depth stays deferred; the lore-run calibration stays a suggestion.
+- **Improving routines (new TMR18):** a routine may refine items or improve the self (training, cultivation, study), spending inputs and gaining by the same rules as doing it by hand, through the stop list and the recap.

@@ -58,6 +58,29 @@ Owners and neighbours (linked, not restated): AD49, AD50, AD51, AD55; BHR2, BHR3
 | MND19 | **The self is the memory and soul carrier.** One continuing self by default; possession, shared minds and several bodies are possible by mechanism. | Default: "same person" follows memory and soul (BHR33); a new body or a new name does not change who it is. Dial: a world's own metaphysics (a soul that splits, a copied mind). Reason: USER_VISION, Starts; WER3 and ST6 keep remembered identity apart from the inherited record. | BHR33, WER3, ST6 |
 | MND20 | **Echoes and other selves are separate people.** Past, future and shadow selves are distinct records with their own ties. | Default: SELVES_AND_ECHOES (proposal). Dial: per world. Reason: two people sharing one record would break ties and knowledge. | SELVES_AND_ECHOES |
 
+## Noticing control
+
+Added 2026-11-10: Weibao agreed with MND15 and asked that control "should be noticible, mght be hard to implement tho, consider different avenues and more".
+
+| Code | Rule | Default, dial, reason | Builds on |
+| --- | --- | --- | --- |
+| MND21 | **Control of the lead is noticeable, at the latest afterwards.** Noticing comes from consequences and observers, so the power itself needs no forced tell (AD55). | Default: the player can find out by at least one route below, and always after the control ends; how early is the dial. Dial: per world and power, from "felt as it starts" to "found after the fact". Reason: his 2026-11-10 words; SLR39 (forewarned, recoverable, recorded). | MND15, SLR39, AD55 |
+
+Avenues, cheapest first (agent proposal; pick per world and power):
+
+| Avenue | What the player sees | Built on |
+| --- | --- | --- |
+| Marked acts | Acts done under control are tagged at write time; Reports and the recap show them in a different voice ("You found yourself at the docks") | A `controlled` condition with source and window (MND14), the layer tag idea (STY30), RPT voice rules |
+| Lost time | The clock moved and the recap names a gap the character cannot account for | TMR10 recap; the stop list (TMR8) |
+| Discrepancies | Notes, journal or held items disagree with memory: a letter you do not remember writing, money missing | KNW16 texts, ITM3 custody records, `personal_journal.js` |
+| Others notice | A companion or friend reacts ("you weren't yourself"); a rival boasts | TIE6 readers, `reactionLine` |
+| Means | A ward warms, a divination shows a thread, a cheat's quiet sense twitches, self-appraisal finds a foreign mark | KNW12, CHT19, STY29 traces |
+| World tells | Where the world has them: voices, a compulsion's itch, a smell, a cold spot | Per-world rows, as LOTM's voices |
+| Resisting | A moment to resist, shown as a choice with its odds, when the power's strength allows | MND17 will, UR40 chances |
+| Afterwards | When control ends, a recap of what was done and, if knowable, by whom | TMR10, KNW4 sources |
+
+Hard cases, settled as defaults: hidden long-term control (a planted suggestion) is found by discrepancies, others or means, and at the latest when it ends; control while away stops the routine at the first controlled act (TMR8); an NPC under control follows the same tags, so the player can notice it in others too.
+
 ## Building a mind slice
 
 1. Name the carrier (MND1) and the world mechanism that makes it matter (MND7).
@@ -71,5 +94,5 @@ Owners and neighbours (linked, not restated): AD49, AD50, AD51, AD55; BHR2, BHR3
 - `harm_state.js` has body parts but no mind or soul part (MND1).
 - No mood state exists (MND5); LSD397 is blocked on it.
 - The trait registry tunes memory, trust and gossip and nothing else yet; temper and risk dials are unwritten (MND2).
-- No code for compulsion, memory editing or possession beyond the `charmed` id (MND13–MND16).
+- No code for compulsion, memory editing or possession beyond the `charmed` id (MND13–MND16); no `controlled` condition or act tag for MND21 yet.
 - The temperament slice (MR3) is implemented, below floor: its browser gate and commit are still owed.

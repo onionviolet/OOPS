@@ -88,6 +88,8 @@ What is built today, for orientation: the quiet base faculty (Continuing insight
 | CTC54 | Sealed blessing | A locked gift you grow into or guard | Patron, body | Virtuous Demon sealed swordsmanship | Gates, knowledge | Seal strength, true grade hidden | not built | [LIB](CHEAT_LIBRARY.md#more-cheat-types-2026-10-10) |
 | CTC55 | Rotating powers | Hold a few powers and swap them | Body | Eidolon in Worm | Power registry | Weakest right after a swap | not built | [CBW](CHEATS_BY_WORLD.md#worm) |
 | CTC56 | Body from a vial or gene | Buy or take a power that rewrites the body | Institution, body | Worm Cauldron vials; Genetic Ascension | Body, economy | Odds, rare catalyst | not built | [CBW](CHEATS_BY_WORLD.md#worm) |
+| CTC92 | Agelessness or a different clock for the body | The body stops aging, slows, or shows age differently (young body, spent lifespan; the soul ages instead) | Body, soul | Cultivation longevity, elven blood, "not aging could be a thing that the base cheats comes with" (Weibao, 2026-11-10) | Body clock (TMR3, TMR15), BHR | Per card | not built | [TIME_RULES](TIME_RULES.md) |
+| CTC93 | Lifespan readout | The cheat shows lifespan: years left, what shortens or extends them, and the cost of a year-spending act before it is paid | Knowledge, body | Status panels that list lifespan; "make base cheat in charge of showing lifespan" (Weibao, 2026-11-10) | Body clock (TMR15), knownness (KNW1, KNW12) | Per card | not built | [TIME_RULES](TIME_RULES.md) |
 
 ## F. Companions and voices
 

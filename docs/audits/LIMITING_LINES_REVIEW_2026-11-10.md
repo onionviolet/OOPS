@@ -36,6 +36,21 @@ Lines that only restate accepted direction (his own words or an AD line) are lis
 | LLR26 | AGT2 | The shared acting-power record waits for a second world | AD51 | Build it now with LOTM and Reverend Insanity together |
 | LLR27 | AGT10 | No worship currency unless a world declares one | Avoids fixing every god's strength | Belief as a resource by default in worlds with gods |
 
+## Answers so far
+
+First to third rounds, 2026-11-10 ([first](../gm/USER_VISION_LOG_2026-11.md#answers-on-the-limiting-lines-first-round-2026-11-10), [second](../gm/USER_VISION_LOG_2026-11.md#answers-on-the-limiting-lines-second-round-2026-11-10), [third](../gm/USER_VISION_LOG_2026-11.md#answers-on-the-limiting-lines-third-round-2026-11-10)):
+
+| Code | Answer | Where it landed |
+| --- | --- | --- |
+| LLR7 | Growing cap: starts at 7 days, grows through play, cheats, research or items; uncapped as a dial | TMR6 |
+| LLR9 | Aging stays deferred; no protagonist lifespan for now; where one exists it fits the character, can be shown (the base cheat can show it), and harm to it is worrisome; agelessness can come from a cheat or a body | TMR15; cheat types CTC92, CTC93 |
+| LLR11 | Kept: no forgetting unless external things; organizing remembered information becomes a requirement | KNW19, new KNW26 |
+| LLR12 | Opened: rank can match or diverge from real power, both ways are tropes | STN8 |
+| LLR22 | Kept, and control must be noticeable | MND15 with new MND21 (avenues) |
+| LLR23 | Deferred; later capacity from strength, body and containers | ITM7 |
+| LLR24 | Kept gentle, with repair as play and durability that adds choices, not chores | ITM11, ITM12 |
+| LLR27 | Opened: belief is a resource wherever a method draws on it | AGT10 |
+
 ## Restating accepted direction (no answer needed)
 
 TIE20 and TMR16 (aging, heirs and family deferred, 2026-11-09); TIE21 (romance floor, CQ1 and DV1); STN2 (no moral meter, his 2026-10-02 reading); STN19 and ITM16 (MR2, MR1, MR31); STY5 (his lore-run-first order); STY19, STY32 balance actor (AD25); CHT2 (AD29); AGT19 (his 2026-10-10 words on god-likes); LVR15 (BHR16, no hunger death); MND9 (AD50).
