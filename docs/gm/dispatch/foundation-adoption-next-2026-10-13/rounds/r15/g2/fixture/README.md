@@ -29,3 +29,12 @@ fixture and is **seeded-native**.
 ## Content reconciliation B468: complete record and evidence-depth distinctions
 
 The complete26-line fixture record was reviewed with the G2 report's final verification/limits section. Nine fixtures disclose actual-model seed additions/removals, funded-pack shortages, retained earned household state and the moved merchant receiver. They are not natural acquisition, balance acceptance or played sale/rebuy/day-refresh proof. The merchant serialization/reimport check is SOURCE; native controls exercised with its result are seeded-native. A full archived export or `.txt` path is an artifact, not proof every later import comparison passed. Preserve stopped predecessor archives, the one-tick old mismatch and unasserted quota/debug images; later exact comparisons qualify only their named gates. The report's611 total includes32 focused tests, rather than643 disjoint tests. Its cancellation conditional preserves a completed program when another command's job is canceled, not a general rewrite or replay of old work. Current [PROJECT](../../../../../../../../PROJECT.md), AD32/AD36/AD43 and optional review govern later use. No archive, fixture file, generator, real model, native origin, private/personal save or runtime/test was opened or run here. Historical generate/import instructions grant no current execution or writer authority.
+
+## Predecessor fixtures, packed 2026-11-09
+
+`PREDECESSOR-FIXTURES.tar.xz` holds the stopped G2 worker's earlier fixture set
+(seven `.txt` heroes, its `VERIFICATION.json` and `generate.mjs`) as they stood
+before the foundation merge, hash-listed in `PREDECESSOR-FIXTURES-MANIFEST.json`.
+They came from a leftover stash and were superseded by the files above; they are
+history, not current fixtures or proof. The same stash's 85 evidence files were
+already in `evidence/PREDECESSOR-ARTIFACTS.tar.xz`, matched by hash.

@@ -1,0 +1,47 @@
+[
+ {
+  "file": "TEST-FIXTURE-R15-G2-held.txt",
+  "bytes": 173933,
+  "sha256": "be631a4f137b05ab032ed98a01cbc6815497272abc71a433235198a6b88201a8"
+ },
+ {
+  "file": "TEST-FIXTURE-R15-G2-mixed-nowood.txt",
+  "bytes": 132025,
+  "sha256": "34324d26c29072e0a2e7a9a743169f68ee093b519f86f8844603c9e27662a195"
+ },
+ {
+  "file": "TEST-FIXTURE-R15-G2-mixed.txt",
+  "bytes": 132017,
+  "sha256": "2bb0ccbb855f8698c0259427497173e2205eb4e3c4c1c81cba0e202dd57db2eb"
+ },
+ {
+  "file": "TEST-FIXTURE-R15-G2-program.txt",
+  "bytes": 173873,
+  "sha256": "a45a1a72e01f382ccbf5f719061cad5e1730aac267e4e516e95f89d474aa1118"
+ },
+ {
+  "file": "TEST-FIXTURE-R15-G2-program3.txt",
+  "bytes": 173873,
+  "sha256": "df4b93860f388983f8917d25dde50c9714d06f8b42cb185a496b9de7707bd230"
+ },
+ {
+  "file": "TEST-FIXTURE-R15-G2-reserve.txt",
+  "bytes": 173873,
+  "sha256": "127a01e1121f3d68f29b6825f13eb12bb3e657e2240ee2817fc7fa8b1a1c53a1"
+ },
+ {
+  "file": "TEST-FIXTURE-R15-G2-retort.txt",
+  "bytes": 173921,
+  "sha256": "7909d01277d23c50668c5c027cf3ad111ba4d6c1e2b2a45241a9eab1f72aeea9"
+ },
+ {
+  "file": "VERIFICATION.json",
+  "bytes": 3668,
+  "sha256": "41dc6935072aa472de733c8784a457a63e19663f1a0f2c405554903a4712f07c"
+ },
+ {
+  "file": "generate.mjs",
+  "bytes": 9508,
+  "sha256": "43776bcd355a3f95b1f8bba0f579976e7a793254fafbc977136cc305649bbaef"
+ }
+]
