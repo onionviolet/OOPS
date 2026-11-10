@@ -1,6 +1,6 @@
 # Limiting lines review, 2026-11-10
 
-Under AD56 (Weibao, 2026-11-10: "anything that limts those should run by me first"), the 2026-11-10 rulebooks are working defaults except the lines below. LLR28–LLR32 were added from UI audit rounds [37](UI_DESIGN_CORE_AUDIT.md#round-37-2026-11-10-what-the-new-rulebooks-need-on-screen) and [40](UI_DESIGN_CORE_AUDIT.md#round-40-2026-11-10-levels-of-abstraction-limits-and-what-comes-next): UR77 and UR82 predate AD56 and stay in use as proposals while he decides. Each one narrows a dial, removes an option or defers a capability, so it stays a proposal until Weibao answers. Answer per line: **keep** (it becomes a working default), **open** (the agent rewrites it toward more possibilities) or **adjust** (say how).
+Under AD56 (Weibao, 2026-11-10: "anything that limts those should run by me first"), the 2026-11-10 rulebooks are working defaults except the lines below. LLR28–LLR30, LLR32 and LLR33 came from UI audit rounds [37](UI_DESIGN_CORE_AUDIT.md#round-37-2026-11-10-what-the-new-rulebooks-need-on-screen) and [40](UI_DESIGN_CORE_AUDIT.md#round-40-2026-11-10-levels-of-abstraction-limits-and-what-comes-next): UR77 and UR82 predate AD56 and stay in use as proposals while he decides. Each one narrows a dial, removes an option or defers a capability, so it stays a proposal until Weibao answers. Answer per line: **keep** (it becomes a working default), **open** (the agent rewrites it toward more possibilities) or **adjust** (say how).
 
 Lines that only restate accepted direction (his own words or an AD line) are listed separately; they bind already, through their source.
 
@@ -38,13 +38,11 @@ Lines that only restate accepted direction (his own words or an AD line) are lis
 | LLR28 | UR88 | A stop-list item may interrupt; other notices become log lines, dots or recap lines | Many new notices compete for one player's attention | Each feature picks its own notice level, with a player dial to quiet it |
 | LLR29 | UR77 | Numeric budgets for routes, regions, center modes, Local actions and tabs; raising one needs a demotion and his yes | Screens fill one panel at a time | Budgets as guidance a lane may exceed with a stated reason |
 | LLR30 | UR82 | A system stays hidden in a life until something is attached | Unmet layers are noise | Show every system's entrance from the start with an empty state that says how to fill it |
-| LLR31 | UR99 (proposed default) | No new rendering or animation dependency by default; SVG, CSS, Web Animations and the existing canvas carry the look | Zero-dependency build, small bundle, one renderer to test | Allow a small library (a tween or SVG helper) where it saves real work, recorded with its gain |
-| LLR32 | UR99 (proposed default) | Raster art and generated images wait for a provenance decision (FLA4); hand-written and seeded SVG are used meanwhile | Bundle size and source provenance | Allow AI-generated or open-licensed raster art for illustrations and textures, with provenance recorded per asset |
 | LLR31 | WKR19 | A new kind of world gets its own sources or declared rules, people, resources and progression before a build packet | Ten shallow reskins add registrations, not play | Quick variants of an existing world allowed on the same kit with a stated difference, deepened later |
 
 ## Answers so far
 
-First to third rounds, 2026-11-10 ([first](../gm/USER_VISION_LOG_2026-11.md#answers-on-the-limiting-lines-first-round-2026-11-10), [second](../gm/USER_VISION_LOG_2026-11.md#answers-on-the-limiting-lines-second-round-2026-11-10), [third](../gm/USER_VISION_LOG_2026-11.md#answers-on-the-limiting-lines-third-round-2026-11-10)):
+First to fourth rounds, 2026-11-10 ([first](../gm/USER_VISION_LOG_2026-11.md#answers-on-the-limiting-lines-first-round-2026-11-10), [second](../gm/USER_VISION_LOG_2026-11.md#answers-on-the-limiting-lines-second-round-2026-11-10), [third](../gm/USER_VISION_LOG_2026-11.md#answers-on-the-limiting-lines-third-round-2026-11-10), [fourth](../gm/USER_VISION_LOG_2026-11.md#answers-on-llr32-and-llr33-and-ui-research-sent-2026-11-10)):
 
 | Code | Answer | Where it landed |
 | --- | --- | --- |
@@ -56,6 +54,8 @@ First to third rounds, 2026-11-10 ([first](../gm/USER_VISION_LOG_2026-11.md#answ
 | LLR23 | Deferred; later capacity from strength, body and containers | ITM7 |
 | LLR24 | Kept gentle, with repair as play and durability that adds choices, not chores | ITM11, ITM12 |
 | LLR27 | Opened: belief is a resource wherever a method draws on it | AGT10 |
+| LLR33 | Opened: a library is welcome where it saves real work ("why should that be limited?") | UR99 dial |
+| LLR32 | Opened: generated or raster art is not needed now; it is welcome where a surface benefits, with its source noted | UR99 dial |
 
 ## Restating accepted direction (no answer needed)
 

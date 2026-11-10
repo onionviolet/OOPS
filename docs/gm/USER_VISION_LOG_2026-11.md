@@ -820,7 +820,7 @@ Weibao:
 
 > Consider levels of abstraction needed and more? How to still make it cool and stuffgiven our stuff? any limitations there are, and therefore how to address them? Research and other future features?
 
-Recorded: [UI audit round 40](../audits/UI_DESIGN_CORE_AUDIT.md#round-40-2026-11-10-levels-of-abstraction-limits-and-what-comes-next). The circles trace to the MDL2 figure primitive: adapters mapped each mechanism straight onto rings, slots and pips. Two working defaults under AD56: six levels with a mechanism form between data and geometry (UR98, reading MDL2 as no kind-specific tokens or marks), and cheap materials first (UR99). Two held lines for Weibao: no new rendering dependency by default (LLR31) and raster or generated art waiting on provenance (LLR32). Research lanes and future features are proposals, none started.
+Recorded: [UI audit round 40](../audits/UI_DESIGN_CORE_AUDIT.md#round-40-2026-11-10-levels-of-abstraction-limits-and-what-comes-next). The circles trace to the MDL2 figure primitive: adapters mapped each mechanism straight onto rings, slots and pips. Two working defaults under AD56: six levels with a mechanism form between data and geometry (UR98, reading MDL2 as no kind-specific tokens or marks), and cheap materials first (UR99). Two held lines for Weibao: no new rendering dependency by default (LLR33, first numbered LLR31) and raster or generated art waiting on provenance (LLR32). Research lanes and future features are proposals, none started.
 
 
 ## Making rules followed, and bringing old code in line, 2026-11-10
@@ -830,3 +830,20 @@ Weibao, after the routes round:
 > Other aspects to consider? Rules we need to setup and make followed? changing prior implementation for these rules once other stuff is addressed?
 
 Recorded: path rules for the world kind and source kind books, so they load while editing (as the ten earlier books do); a [rule conformance ledger](../audits/RULE_CONFORMANCE_LEDGER_2026-11-10.md) whose policy (RCL1–RCL4) is an agent proposal: old code moves when a slice touches it, and a dedicated consolidation runs ahead of that only for conflicting writers, blocked slices or per-world cost, after the current checkpoint; and round 3 of the [coverage audit](../audits/FOUNDATIONAL_RULES_COVERAGE_2026-11-10.md#round-3-2026-11-10-making-the-rules-followed-and-old-code) (FRC24–FRC30), whose lints and commit-time check are proposals, not built.
+
+## Answers on LLR32 and LLR33, and UI research sent, 2026-11-10
+
+Weibao:
+
+> LLR32, is that needed for now? Generated art?
+>
+> LLR31, why should that be limited?
+>
+> send the research stuff accordingly, consider ideas working on the same thing and how they do it
+
+Recorded:
+
+- **LLR33 opened (UR99; he answered it as LLR31, renumbered because a world-kinds line already held LLR31):** a rendering or animation library is welcome where it saves real work, with its size and gain noted. The agent had proposed zero new dependencies out of caution, with no reason strong enough to keep it.
+- **LLR32 opened (UR99):** generated or raster art is not needed for the current work; it is welcome where a surface benefits, with its source noted per asset, and is not a gate.
+- **Research sent:** three lanes on how others solve the same problem, writing to `docs/reviews/ui-distinct-forms-2026-11-10/`: R1 games whose UI encodes their mechanisms, R2 diagram layering, libraries, sigils and motion, R3 accessible diagrams and rendering cost in the app's web view. Returns fold into the UI design core audit.
+

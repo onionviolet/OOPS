@@ -1845,7 +1845,7 @@ Ranked for building: UIC50 ritual surface, UIC51 material sets for LOTM and cult
 
 ## Round 40, 2026-11-10: levels of abstraction, limits, and what comes next
 
-Weibao: "Consider levels of abstraction needed and more? How to still make it cool and stuffgiven our stuff? any limitations there are, and therefore how to address them? Research and other future features?" ([log](../gm/USER_VISION_LOG_2026-11.md#ui-abstraction-levels-limits-and-future-2026-11-10)). Rules: [UR98, UR99](../UI_RULES.md#distinct-reactive-and-pleasing-surfaces); held lines LLR31, LLR32.
+Weibao: "Consider levels of abstraction needed and more? How to still make it cool and stuffgiven our stuff? any limitations there are, and therefore how to address them? Research and other future features?" ([log](../gm/USER_VISION_LOG_2026-11.md#ui-abstraction-levels-limits-and-future-2026-11-10)). Rules: [UR98, UR99](../UI_RULES.md#distinct-reactive-and-pleasing-surfaces); held lines LLR33, LLR32.
 
 Evidence read this round: `src/ui/figure.js` (MDL2: one declarative spec of rings, nodes, slots, tracks and edges drawn as inline SVG, 21 importing modules), `figure_graph.js` (chain, tree, wheel, web, list), `figure_forms.js` (table, matrix and sentence forms of the same spec), `rite_figure.js` (rite conditions as slots on a ring, risk at the centre), the representation docs in `docs/representations/` (25 subjects, agent proposals under AD32), MDL1–MDL8 and RPX1–RPX11 above, FLA2 and FLA4. Round 39 missed this set; it is the owner the forms in round 39 extend.
 
@@ -1871,7 +1871,7 @@ Evidence read this round: `src/ui/figure.js` (MDL2: one declarative spec of ring
 | --- | --- | --- |
 | No art pipeline (the `assets` folder holds one SVG) | Nothing illustrated; geometry stands in | Seeded SVG sigils and symbols per subject id; hand-written symbol sets per world; typography and CJK glyphs as imagery (DSG4); raster or generated art waits on LLR32 |
 | One bitmap Gothic face, single weight (UR68) | Emphasis by weight is unavailable | Colour, case, outline, size strikes; a world display face as an L4 token if licensed |
-| Vanilla DOM and SVG, one runtime dependency | No tweening or scene engine | CSS transitions and Web Animations for settle motion, SVG morphs between states, canvas for ambient layers; a library waits on LLR31 |
+| Vanilla DOM and SVG, one runtime dependency | No tweening or scene engine | CSS transitions and Web Animations for settle motion, SVG morphs between states, canvas for ambient layers; a library waits on LLR33 |
 | Agents judge look poorly (scaled screenshots, no feel) | Work passes tests and still feels flat | UR97 craft record with the two cover tests; the representation gallery at full size (MDL7, `ui-preview.html`); a reference image beside each form; his optional review (AD42) |
 | Tests check structure, not distinctness | Sameness passes | Cover-test screenshots in the gallery; a check that an adapter produces an L3 form id, not raw L2 geometry |
 | The app's web view is not headless Chromium | A filter or motion can differ in the app | Check new materials in the app he plays (UR16); keep a static fallback for every effect |
