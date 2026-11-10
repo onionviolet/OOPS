@@ -9,11 +9,21 @@ export function placeActSequences(data) {
     return arcs.map(a=>({...a,stages:a.stages.map(s=>({...s,place:rows.get(s.commandId).place,knowledgeKey:rows.get(s.commandId).knowledgeKey}))}));
 }
 export const placeActStages=data=>placeActSequences(data).flatMap(a=>a.stages);
+// Each stage requires the stage before it. Earlier stages follow by induction: every one of them needed its own
+// predecessor before it could finish. Listing every earlier stage on every act grew with the square of the act
+// count (1,532 acts made about 1.2 million entries and several hundred megabytes at boot; atlas LAYX228).
+// Dial: a state seeded past a stage it never did (a fixture, or a stage inserted by a later pack revision) is held
+// to order by sequenceOffers, which offers only the earliest unfinished stage.
+const prerequisite=s=>({any:[
+    {fact:`completed.${s.commandId}`,op:'eq',value:true,reason:`First: ${s.label}.`},
+    {fact:`knowledge.${s.knowledgeKey}.seen`,op:'eq',value:true,reason:`First: ${s.label}.`}]});
+/** One pass over the stages: commandId -> its prerequisite rules. Callers that bind many acts use this, not the per-act form. */
+export function sequencePrerequisiteIndex(data){
+    const stages=placeActStages(data);
+    return new Map(stages.map((s,i)=>[s.commandId,i?[prerequisite(stages[i-1])]:[]]));
+}
 export function sequencePrerequisites(data,commandId){
-    const stages=placeActStages(data),index=stages.findIndex(s=>s.commandId===commandId);
-    return index<0?[]:stages.slice(0,index).map(s=>({any:[
-        {fact:`completed.${s.commandId}`,op:'eq',value:true,reason:`First: ${s.label}.`},
-        {fact:`knowledge.${s.knowledgeKey}.seen`,op:'eq',value:true,reason:`First: ${s.label}.`}]}));
+    return sequencePrerequisiteIndex(data).get(commandId)||[];
 }
 export function placeActSequenceView(state,data,actorId='player'){
     const arcs=placeActSequences(data);if(!arcs.length)return null;

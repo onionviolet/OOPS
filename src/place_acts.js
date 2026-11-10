@@ -1,4 +1,4 @@
-import {placeActStages,sequencePrerequisites,sequenceOffers} from './place_act_sequence.js';
+import {sequencePrerequisiteIndex,sequenceOffers} from './place_act_sequence.js';
 // Ordinary work on objects at a place, expressed through simulation commands.
 // Definitions carry world-specific facts/text; simulation owns time, cost and effects.
 import {compilePlaceActOperation} from './place_act_operations.js';
@@ -9,7 +9,7 @@ export function definePlaceActs(data,{worldId,actorId='player',group,situationId
  if(!validId(worldId)||!validId(actorId)||!validId(group)||!validId(situationId))throw Error('Invalid place act binding.');
  const ids=new Set();
  const boundInquiries=new Set();
- const sequenceIds=new Set(placeActStages(data).map(s=>s.commandId));
+ const sequenceRequires=sequencePrerequisiteIndex(data),sequenceIds=new Set(sequenceRequires.keys());
  return (data?.acts||[]).map(row=>{
   if(!validId(row.id)||ids.has(row.id)||!validId(row.place)||
    !Number.isSafeInteger(row.minutes)||row.minutes<1||!row.label||!row.description||!row.report||!validId(row.knowledgeKey))throw Error('Invalid place act.');
@@ -38,7 +38,7 @@ export function definePlaceActs(data,{worldId,actorId='player',group,situationId
    {fact:'actor.location',op:'eq',value:row.place,reason:'Your physical anchor is no longer here.'},
    {fact:'target.location',op:'eq',value:contact.place,reason:'The required contact is no longer supported.'},
    {fact:'target.body.ownerId',op:'eq',value:row.targetId},
-   {fact:'target.body.controllerId',op:'eq',value:row.targetId}]:[]),...(remote?[{fact:'actor.location',op:'eq',value:row.place,reason:'Your physical anchor is no longer here.'},{fact:`remote.${remote}.ready`,op:'eq',value:true,reason:'The meeting connection is no longer supported.'}]:[]),...(requires?[requires]:[]),...(row.requires?[row.requires]:[]),...(inquiry?[inquiry.requires]:[]),...operation.requires,...sequencePrerequisites(data,row.id)]};
+   {fact:'target.body.controllerId',op:'eq',value:row.targetId}]:[]),...(remote?[{fact:'actor.location',op:'eq',value:row.place,reason:'Your physical anchor is no longer here.'},{fact:`remote.${remote}.ready`,op:'eq',value:true,reason:'The meeting connection is no longer supported.'}]:[]),...(requires?[requires]:[]),...(row.requires?[row.requires]:[]),...(inquiry?[inquiry.requires]:[]),...operation.requires,...(sequenceRequires.get(row.id)||[])]};
   return {id:row.id,revision:1,label:row.label,description:row.description+(cancellation==='forfeit'?' Inputs stay spent if this work stops before completion.':''),group,actorId,worldId,location:row.place,
    ...(remote&&!row.targetId?{participants:data.remoteSessions.find(s=>s.id===remote).seats.map(s=>s.id),participantsCoLocated:false}:{}),
    ...(row.targetId?{targetId:row.targetId,participants:remote?(data.remoteSessions.find(s=>s.id===remote).seats.map(s=>s.id)):['$target'],coLocated:!remote&&!contact,participantsCoLocated:!remote&&!contact}:{}),

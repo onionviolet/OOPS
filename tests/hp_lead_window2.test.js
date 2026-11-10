@@ -22,10 +22,14 @@ test('the second sequence follows the first: arc moves on when the first is done
  assert.deepEqual(second.locked.map(l=>l.label),['Not taken']);
  const done=views(['w1.a','w1.b','w2.c','w2.d']);assert.equal(done.arc.done,true);assert.equal(done.arc.id,P+'.second');
 });
-test('a second-window act requires every earlier act of both windows (cross-sequence prerequisites)',()=>{
- const d=pack().householdActs,req=sequencePrerequisites(d,P+'.w2.d');
- assert.equal(req.length,3);assert.deepEqual(placeActSequences(d).map(a=>a.stages.length),[2,2]);
- assert.equal(sequencePrerequisites(d,P+'.w1.a').length,0);
+// Each act requires the act before it, across windows; earlier acts follow by induction (linear, not one entry per earlier act).
+test('a second-window act chains to the act before it, and the chain crosses from the first window (cross-sequence prerequisites)',()=>{
+ const d=pack().householdActs,facts=id=>sequencePrerequisites(d,P+id).map(r=>r.any[0].fact);
+ assert.deepEqual(placeActSequences(d).map(a=>a.stages.length),[2,2]);
+ assert.deepEqual(facts('.w2.d'),[`completed.${P}.w2.c`]);
+ assert.deepEqual(facts('.w2.c'),[`completed.${P}.w1.b`]);
+ assert.deepEqual(facts('.w1.b'),[`completed.${P}.w1.a`]);
+ assert.deepEqual(facts('.w1.a'),[]);
 });
 test('the pack with two sequences validates and merges into the native definition',()=>{
  assert.deepEqual(validateHpLeadCast(pack()),[]);

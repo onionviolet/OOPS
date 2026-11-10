@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {placeActSequenceView,sequenceOffers} from '../src/place_act_sequence.js';
+import {placeActSequenceView,sequenceOffers,sequencePrerequisites,sequencePrerequisiteIndex} from '../src/place_act_sequence.js';
 import {definePlaceActs,seedPlaceObjects} from '../src/place_acts.js';
 import {fresh,ctx,wait,registry,I} from './lotm_helpers.js';
 import {createSimulationRegistry,validateSimulationState} from '../src/simulation_contracts.js';
@@ -78,4 +78,19 @@ test('an authored interaction uses the actual participant and loses support if t
 test('the opening in another world does not receive the Village shower event',()=>{
  let p=setup();p=wait(p,20);
  assert.equal(Object.values(p.state.simulation.events).some(e=>e.definitionId==='village.shower'),false);
+});
+
+// LAYX228: prerequisites must grow with the number of acts, not its square. 1,532 acts once made about 1.2 million entries at boot.
+test('prerequisites stay linear in the number of stages and still chain every stage to the one before it',()=>{
+ const n=600,acts=Array.from({length:n},(_,i)=>({id:`fixture.long.${i}`,place:'fixture.place',knowledgeKey:`fixture.long.k${i}`}));
+ const long={acts,sequences:[0,1,2].map(a=>({id:`fixture.long.arc${a}`,title:`Arc ${a}`,stages:acts.slice(a*200,a*200+200).map(r=>({commandId:r.id,label:`Stage ${r.id}`}))}))};
+ const index=sequencePrerequisiteIndex(long);
+ assert.equal(index.size,n);
+ assert.equal([...index.values()].reduce((sum,rules)=>sum+rules.length,0),n-1);
+ assert.deepEqual(index.get('fixture.long.0'),[]);
+ // The first stage of a later arc chains to the last stage of the arc before it.
+ assert.equal(index.get('fixture.long.200')[0].any[0].fact,'completed.fixture.long.199');
+ assert.equal(index.get('fixture.long.599')[0].any[1].fact,'knowledge.fixture.long.k598.seen');
+ assert.deepEqual(sequencePrerequisites(long,'fixture.long.431'),index.get('fixture.long.431'));
+ assert.deepEqual(sequencePrerequisites(long,'fixture.unknown'),[]);
 });
