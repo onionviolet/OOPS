@@ -9,6 +9,7 @@
 // commit that opens the fight. Arrows left over stay in the quiver; the next hunt counts them with any loose ones. Nothing here mutates the
 // live state handed to quote or spec.
 import {registerTempoOpener} from './tempo_starters.js';
+import {defineCreatureTable, createPopulationState, validatePopulationState, populationAt, recordKill, populationLine} from './creature_populations.js';
 import {STOCK_PROPERTY_DIALS, frontierBowKeys, frontierBowStock, stockKindLabel, FRONTIER_BOW} from './stock_kinds.js';
 
 export const BOW_ITEM = "Hunter's bow", ARROW_ITEM = "Hunter's arrow", POISONED_ARROW_ITEM = "Poisoned hunter's arrow";
@@ -75,6 +76,17 @@ export function emptyQuiver(plan, kind) {
 
 // ---- the hunt ----
 export const BOAR = Object.freeze({id: 'frontier.meadow.boar', name: 'A boar at the meadow edge', tags: Object.freeze(['living', 'beast'])});
+// Who lives at the meadow edge (LVR22 richer rung; the dials are mine, not a source's). One counted pool: boars come and go by day, a clearing
+// is felt for a while, and they return on the played clock. The count is kept in one actor fact beside the hunt's other facts, so a won hunt and
+// its depletion commit together; no fact means the edge is full (old saves need nothing).
+export const MEADOW_WORLD = 'base.frontier', MEADOW_PLACE = 'meadow_edge', MEADOW_FACT = 'frontier.meadow.pop';
+export const MEADOW_POPULATION = defineCreatureTable({id: 'frontier.wild', revision: 1, places: [{id: MEADOW_PLACE, name: 'Meadow edge', creatures: [
+    {id: BOAR.id, name: 'Boar', weight: 1, chance: 800, number: [1, 1], cap: 2, refillPerDay: 1}]}]});
+export function meadowState(state) {
+    const raw = state.actors?.player?.facts?.[MEADOW_FACT];
+    return raw ? validatePopulationState(JSON.parse(raw), MEADOW_POPULATION, MEADOW_WORLD) : createPopulationState();
+}
+export const meadowView = state => populationAt(MEADOW_POPULATION, meadowState(state), {root: state.simulation?.seed ?? 1, world: MEADOW_WORLD, place: MEADOW_PLACE, at: state.clock});
 const PLAYER_MOVES = ['jab', 'swing', 'guard', 'tend', 'withdraw', 'yield', 'shoot', 'reload'];
 const inFrontier = state => state.actors?.player?.worldId === 'base.frontier';
 export const huntOpenerId = kind => `frontier.hunt.${kind}`;
@@ -84,6 +96,8 @@ function huntQuote(kind) {
         const n = arrowsOnHand(state, context.gameplay, kind);
         if(n < 1) return {visible: false};
         if(state.simulation?.sessions?.player) return {visible: true, eligible: false, reason: 'Another encounter is already open.'};
+        const here = meadowView(state);
+        if(!here.next) return {visible: true, eligible: false, reason: populationLine(here, BOAR.id)};
         return {visible: true, eligible: true, reason: `${n} ${stockKindLabel(kind)}${n === 1 ? '' : 's'} for the quiver.`};
     };
 }
@@ -91,6 +105,7 @@ export function huntSpec(kind) {
     return (state, context, helpers) => {
         const {me, vitals, parts, enemyProfile} = helpers;
         if(state.simulation?.sessions && Object.keys(state.simulation.sessions).length) throw Error('Another encounter is already open.');
+        if(!meadowView(state).next) throw Error('There is no boar at the meadow edge now.');
         if(!hasBow(context.gameplay) || arrowsOnHand(state, context.gameplay, kind) < 1) throw Error('A hunt needs the bow and arrows of that kind.');
         // The staged plan: a private copy of the world with the arrows already moved. The session object has the shape tempo_fight.js builds for a
         // non-adopted fight (tests/frontier_bow.test.js pins it); the host's begin only needs it to exist.
@@ -109,8 +124,14 @@ export function huntSpec(kind) {
                     perception: FRONTIER_BOW_DIALS.boarNotice.value, stealth: FRONTIER_BOW_DIALS.boarNotice.value, goals: {survive: .5, aim: .5}}]};
     };
 }
+// A won hunt takes one boar from the count; a yielded or lost one takes none. Runs inside the fight's own commit (tempo_fight.js finishFight).
+const huntAfter = (plan, result) => {
+    if(result !== 'won') return;
+    const next = recordKill(MEADOW_POPULATION, meadowState(plan.state), {world: MEADOW_WORLD, place: MEADOW_PLACE, species: BOAR.id, at: plan.state.clock});
+    plan.state.actors.player.facts[MEADOW_FACT] = JSON.stringify(next);
+};
 for(const kind of FRONTIER_BOW.kinds) {
-    registerTempoOpener({id: huntOpenerId(kind), label: kind === 'arrow' ? 'Hunt the boar at the meadow edge' : 'Hunt the boar with poisoned arrows',
+    registerTempoOpener({id: huntOpenerId(kind), owns: battleId => battleId === `frontier-hunt-${kind}`, after: huntAfter, label: kind === 'arrow' ? 'Hunt the boar at the meadow edge' : 'Hunt the boar with poisoned arrows',
         text: `Your loose ${stockKindLabel(kind)}s go to the bow's quiver and the rest of the hunt spends them; what is left stays in the quiver. You are driven off at worst, not killed.`,
         quote: huntQuote(kind), spec: huntSpec(kind)});
 }
