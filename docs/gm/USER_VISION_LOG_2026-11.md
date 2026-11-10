@@ -788,3 +788,12 @@ On the world kind and source kind rulebooks, Weibao asked:
 > Alot of stuff to consider like first building things/calibrating them against cannon first?
 
 Recorded: the order already stands in AD44 (build through the lead's life), AD49 (lore anchors, calibrated systems), AD51 (a second world validates) and SPR7–SPR22 (fitting to the source). The new books now say it too: WKR21 (kind presets come out of calibrated canon worlds, and original or non-lore worlds borrow their anchors) and SKR21 (anchor order: stated figures, shown results, borrowed, assumed; variance reads the fitted values). Both restate accepted direction applied to kinds and sources; neither limits options.
+
+## General UI design and open forms, 2026-11-10
+
+Weibao:
+
+> Also general UI design and more? From VFX to like, the general flow and more? Other aspects to consider? Ui panels for certain aspects or gameplay? progression trees? TO not be limited by what we have currently? other stuff?
+
+Recorded: [UI audit round 38](../audits/UI_DESIGN_CORE_AUDIT.md#round-38-2026-11-10-general-ui-design-flow-effects-and-open-forms) extends the existing effects, scale, flow and map palettes (three loops, one home per new aspect, effects and sound, progression views, maps, "why?", comparison, dashboards). Four working defaults under AD56 in [UI_RULES](../UI_RULES.md#open-forms-surfaces-progression-views-effects-and-history): new surface kinds are open (UR89), progression views draw the real gates (UR90), one settled event drives every rendering (UR91), every aspect keeps its history (UR92). Nothing in this round limits options, so no line is held.
+

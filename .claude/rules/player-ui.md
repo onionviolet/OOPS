@@ -40,3 +40,5 @@ UIV1–UIV4, UIV6, UIV7 are proposed, in use as the default (CHOICES item 4, 202
 cite them as proposed.
 
 What the 2026-11-10 rulebooks need on screen: UR83–UR88 in docs/UI_RULES.md (working defaults under AD56; UR88 notice tiers held for Weibao). Forewarn a coming loss the character could know, give each known fact its source, day and freshness in one entry shape, let a means add a readout, mark acts the player did not choose, and keep other lives one click away.
+
+Open forms: UR89–UR92 (working defaults under AD56). A task may use a canvas, graph, tree, map, timeline or world-shaped surface through the center controller; progression views read the gate data; effects and sound read settled events and decide nothing; aspects keep a history of what changed and why.

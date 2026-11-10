@@ -1745,3 +1745,60 @@ Gaps not raised by a rulebook, checked by synonym before counting (grep for "col
 - **UIC25, ACCOUNT FOR NOW:** attention. With seventy rows asking for notices, notices need tiers. Drafted as UR88 and held, because it limits how features reach the player (AD56); listed as LLR28.
 - **UIC26, ACCOUNT FOR NOW:** UR77 (numeric home budgets) and UR82 (a system stays hidden until something is attached) are limits under AD56 that predate it; listed as LLR29 and LLR30 for his answer. UR80, UR81, UIV1, UIV3, UIV4 and UIV6 widen play and need no answer.
 - **UIC27, LATER:** build order for the new rules. KNW26 with UR84 is the first slice (search, pins, links and source in the Knows panel and journal); UR83's shared warning row and UR87's lives list follow. Level: runtime UI slice each, medium effort; done check: rebuilt browser proof at 1920×1080 on a populated save (UR14, AD43).
+
+## Round 38, 2026-11-10: general UI design, flow, effects and open forms
+
+Weibao: "Also general UI design and more? From VFX to like, the general flow and more? Other aspects to consider? Ui panels for certain aspects or gameplay? progression trees? TO not be limited by what we have currently? other stuff?" ([log](../gm/USER_VISION_LOG_2026-11.md#general-ui-design-and-open-forms-2026-11-10)). A reader first mapped what the docs already hold, so this round extends those owners instead of restarting them: the [effects pipeline and rarity ladder](../PRESENTATION_AND_FOURTH_WALL.md#room-for-improvement-the-effects-pipeline), [UI at scale](../UI_AT_SCALE_CONSIDERATIONS_2026-10-14.md) (home table PL, MC dashboards from pins, AX accessibility, MI sound, DV charts, MP maps and the cross-world atlas), [intro flow](../INTRO_FLOW_CONSIDERATIONS_2026-10-13.md), [opening](../OPENING_RULES.md), [feedback](../FEEDBACK_RULES.md) and [pacing](../PACING_RULES.md) rules, the [technology palette](../TECHNOLOGY_AND_PROGRESSION.md), SR7 maps as knowledge, and the travel UI proposals UT1–UT5. New working defaults are UR89–UR92 in [UI_RULES](../UI_RULES.md#open-forms-surfaces-progression-views-effects-and-history); everything else here is palette (AD32), with build items under AD56 only when a slice is authorized.
+
+### Flow: three loops
+
+- **UIC28, ACCOUNT FOR NOW: each surface names the loop it serves.** The moment loop (act, answer, consequence: FBK, UR35, UIV4), the session loop (arrive, read what waits, plan, run, return: UR81, RPT6, TMR10, UIV3) and the life loop (start, grow, cross, end or pause: OPN, WER, UR87). A lane brief says which loop a surface serves and how it hands to the next; a surface that serves none is reference (UR43). This is a brief prompt, not a gate.
+- **UIC29, LATER: the session spine as one designed path.** Return recap, then "what waits for you" (choices, warnings UR83, finished work), then plan (routines, goals STY22), then run. Today these are separate surfaces. Level: runtime UI slice; effort medium; done check: browser proof of a return from a 3-day absence on a populated save reaching a running routine in at most three deliberate clicks, at 1920×1080.
+- **UIC30, LATER: a goals board.** The player's goals (STY22) as a surface that shows the known next steps for each, drawn from gates (UR90) and knowledge (UR84), and lets a goal become a routine. Opens play without telling the player what to want. Level: design plus slice; effort medium; done check: a goal with two known paths shows both and starts either.
+- **UIC31, LATER: a routine and policy editor.** Idle play lives in routines; BF106 policy rows and the "Spend up to 4 pence; stop if..." example already sketch the grammar. A visual editor for stop rules, inputs and what a routine refines or trains (TMR18), with a preview of one simulated day (UIV4). Level: slice; effort large; done check: a routine with two stop rules previews and then runs to the stop it named.
+
+### One home per aspect
+
+The PL table in UI at scale places many systems; the 2026-11-10 aspects need rows too. Each row is a proposal for the home, the glance form (DSG7) and the open form (UR89) a later slice could use.
+
+| Aspect | Home | Glance | Open form worth trying |
+| --- | --- | --- | --- |
+| Ties and people (TIE) | People rows that promote to a person page | Regard note, last contact | A web of ties as a node graph, each edge a note with its history (UR92) |
+| Livelihoods (LVR) | The place where the work is (field, pen, shop) | Due, ready, neglected | A board of plots, herds or stalls with workers on them (LVR2 one view) |
+| Time (TMR) | The work line plus a calendar view | Bank, next stop | Calendar with schedules (TMR13), the bank as a filling vessel with its cap (TMR6) |
+| Knowledge (KNW) | The Knows home and journal (UR84) | New, unresolved | A case board linking people, places and claims; a mind palace from a cheat |
+| Standing and law (STN) | Per audience under People and places | A note per audience; heat where it applies | A jurisdiction map layer; a rank-versus-power card for STN8 |
+| Story and fate (STY) | Reports and the goals board | What changed in the world | A "what I know of the story" timeline; fate traces through divination (UR85) |
+| Cheats (CHT) | The cheat's own form (status window, ring spirit, card) | Charges, ready | Diegetic UI per cheat type (DSG18), the base cheat as the player's own readout |
+| Mind (MND) | You panel, traits and conditions | Strain, active conditions | Traits discovered over time as an unfolding sheet; gaps and unchosen acts marked (UR86) |
+| Items (ITM) | Inventory | Grade word, condition | Item history (repairs, owners, where found) under UR92 |
+| Powers that act (AGT) | Faith and patrons under the place or the cheat | Debts, last answer | Prayer, reception and answer as three marks (AGT9); a belief ledger (AGT10) |
+
+- **UIC32, ACCOUNT FOR NOW:** every new aspect panel uses DSG6–DSG11 (home, glance, details, empty state, reasons, one home per fact) and UR92 (history). When an aspect appears follows UR82 while it stands; UR82 is held as LLR30, so this may change with his answer.
+
+### Effects, motion and sound
+
+- **UIC33, ACT NOW (rule):** the effects pipeline proposal becomes the default shape (UR91): settled event in, renderers out, stakes-scaled intensity, reduced motion and mute as settings.
+- **UIC34, LATER: an effect vocabulary per world.** One small set per world for hit, gain, loss, warning, discovery, rare event, mapped to DSG14 harm types and the world's motion signature (FLA2): ink blots and paper for LOTM, qi light for cultivation, glitch and window chimes for a system cheat. Level: design pass plus token pack; effort medium; done check: the same settled event renders differently in two worlds with identical text.
+- **UIC35, LATER: returns as a reveal.** The first frame after absence is a digest (UI at scale MI-F); the recap can still reveal its lines one by one, skippable, with big effects kept for rare results. Done check: a 1-day and a 30-day return both open on a readable digest within one frame, effects off and on.
+- **UIC36, LATER: sound.** MI41 quiet ticks and the D4 small vocabulary stay the start; no sound system exists in code. Level: slice; effort medium; done check: mute and per-kind volume persist through save and import.
+
+### Progression views
+
+- **UIC37, ACT NOW (rule):** progression views draw the real gates (UR90).
+- **UIC38, LATER: one progression view per lead world, in its form.** A LOTM Sequence path card with digestion (MND10); a cultivation realm chart with bottlenecks as gates; a D&D-style class and feat web; a research map with "knowing that versus knowing how" (TK). Level: one slice per world; effort medium each; done check: every node shown matches `evaluateGate` for a populated save, and a noticed unknown shows as ???.
+- **UIC39, LATER: a cross-life progression view.** What the soul or the base cheat carries across lives (CHT16, WER) as its own tree. Done check: a crossing shows which branches carried, converted or stopped.
+
+### Maps, reference and the wider screen
+
+- **UIC40, LATER: map layers by means.** SR7 already makes maps knowledge with source and date; layers (jurisdiction and heat, schedules of known people, fate traces, rumoured places hedged) appear when the character has a means for them (UR85). Done check: a layer toggles on once its means exists and stays off without it, and a rumoured place reads as rumoured.
+- **UIC41, LATER: a "why?" on any number.** UR71 asks for a breakdown in descriptions; this makes it a universal gesture: any displayed number opens its causes from the real pipeline. Done check: three numbers from three systems open breakdowns whose totals match the shown value.
+- **UIC42, LATER: compare anything.** No comparison surface exists beyond rows. Two items, two routes, two lives or two offers side by side, using the same entry shape. Done check: comparing two items shows only fields that differ by default, with "show all".
+- **UIC43, LATER: named dashboards from pins.** MC4 already proposes them; KNW26 and UR84 pins now give them a supplier. Done check: a pinned person, item and routine appear on one board and survive reload.
+- **UIC44, ACCOUNT FOR NOW: accessibility rides with each slice.** AX1–AX12 stay the palette; every new form under UR89 keeps keyboard reach, text equivalents and meaning without color or motion.
+
+### Developer and verification views
+
+- **UIC45, LATER: a fixture launcher for UI states.** Open any surface in a named state (empty, unknown, populated, warning, running, interrupted) from the dev route, so each new form under UR89 gets checked in all of them. Done check: one command opens a surface in six states with screenshots at 1920×1080.
+
+Ranked for building, most useful first: UIC29 session spine, UIC38 one progression view (LOTM first), UIC31 routine editor, UIC34 effect vocabulary, UIC41 "why?", then the rest.
