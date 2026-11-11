@@ -262,7 +262,7 @@ Weibao asked: "Consider long term gameplay loop, like, would it be endless progr
 
 | Code | Item | Level, effort | Done check |
 | --- | --- | --- | --- |
-| PX78 | One life-end to legacy loop on existing heir and lineage code: a lead dies or retires, the player picks the next seat, and PX73's carry list shows | Sonnet, medium | Headless play from an ending into the next seat, save, reload and import |
+| PX78 | One life-end to legacy loop on existing heir and lineage code: a lead dies or retires, the player picks the next seat, and PX73's carry list shows. Queued by Weibao 2026-11-10 ("Que"), starts when a build lane frees | Sonnet, medium | Headless play from an ending into the next seat, save, reload and import |
 | PX79 | Post-canon continuation for one world (LOTM after the first novel's ending, or Mother of Learning after the loop) with the storyteller and economy running | Sonnet, large | Thirty in-game days past canon produce events from world rules, not authored beats |
 | PX80 | A first "becoming a power" prototype on the acting-power record: the player, as a patron, answers one other life's prayer | Sonnet, medium, after AGT1 merges | A patron answer shows up as an ordinary effect in the other life |
 | PX81 | A tier review: list each world's ladder and which tiers only scale numbers (PX68) | Haiku, small | A table per world with each tier's new verbs |
