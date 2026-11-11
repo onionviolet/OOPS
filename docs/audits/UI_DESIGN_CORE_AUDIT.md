@@ -2007,3 +2007,51 @@ A grep of `src/**/*.js` on 2026-11-10 for each element kind, counting modules th
 - **UIC99, LATER: state sheets in the gallery (UR100).** `ui-preview.html` shows each shared control in every state from fixtures, with labels and world names toggleable for the cover tests. Effort medium; done check: buttons, selects, toggles, meters and tabs each render all their states at 1920×1080 and 150% text.
 - **UIC100, LATER: contract-test additions.** Extend the UI contract test: an interactive element without an accessible name fails, a raw number formatted outside the shared formatter is flagged, an icon without a label is flagged. Effort small to medium; done check: the test runs in `npm test` and lists current offenders as known findings instead of failing the build on day one.
 - **UIC101, LATER: one number formatter.** If the census of number formatting finds several formatters, consolidate behind one owner that reads the player's settings (UR117). Done check: the same value renders identically in three surfaces.
+
+## Round 44, 2026-11-10: the first element audit (UR101)
+
+Weibao: "Run the audit" (UIC98 from round 43). Three sonnet lanes drove headless Chrome at 1920×1080 through the playtest kit (`scripts/playtest/lib.mjs`) on `tests/fixtures/perf/mid.json`, built from HEAD `55fbeb44b`, with probes and screenshots kept in the session scratchpad (screenshots can show sealed text). Reports: [A controls](../reviews/ui-element-audit-2026-11-10/A_CONTROLS.md), [B overlays and disclosures](../reviews/ui-element-audit-2026-11-10/B_OVERLAYS.md), [C readouts](../reviews/ui-element-audit-2026-11-10/C_READOUTS.md). The design-doc lint flags lines in these reports that describe what the game does now ("only in a title"); they are findings, not rules. Nothing was fixed.
+
+### Results
+
+| Lane | Consumers | Pass rate by kind |
+| --- | --- | --- |
+| A controls | 36 | Tabs 100%, selects 95%, checkboxes 86%, number entry 76%, text fields and search 75%, buttons 72%; no sliders exist |
+| B overlays | 36 (82 checks) | 71% overall: names in text 5/5, back bars 6/7, tooltips 10/14, disclosures 12/20, modals 7/10, popovers 6/8, drag 2/4 |
+| C readouts | 50 rows | Figures 100%, chips 82%, lists 70%, meters 68%, progress 67%, empty and error states 63%, logs 50%, tables 50%, numbers 33%, icons 29% |
+
+Gaps are ranked by how many surfaces they touch. SHARED means fix once in a shared owner.
+
+### Shared gaps (fix once)
+
+- **UIC102, UR117: numbers have many formatters.** 43 named helpers in five families, 83 raw `toFixed` sites and 99 hand-rolled percentage roundings; the player's scientific-notation setting reaches 2 files through `expo()`. The same quantity prints differently: purse `10C 4W` and `104 coins`, crit `5.0%` and `5%`, `130.0%` and `×1.3`, durations `60m`, `1h` and `1 hour`. Fix: one formatter owner that reads the player's settings, adopted surface by surface (UIC101). Effort medium to large; done check: one value renders the same in three surfaces, and the contract test flags new raw formatting.
+- **UIC103, UIV1 and UR111: facts and reasons live only in `title` attributes.** Weather and season spans, Trade standing rows, Latest, panel Collapse controls and "Try one batch". Fix: show the reason inline or on focus in the pinned box; a title may repeat it. Effort medium.
+- **UIC104, UR126: focus and keyboard order in the shell.** The token focus ring is scoped to `#main_content`, so "Panel shortcuts" and "Menu" show none and "Find" shows the browser default; the top navigation is Tab stop 83, after the panels, with 10 backward jumps in 90 presses. Fix: move the ring rule to the shell and order the top bar first. Effort small to medium.
+- **UIC105, UR109 and UR26: disclosure summaries without state.** 37 of 60 unique summaries show no count or state, including closed groups over live lists (Input stock, Notebook, Homes). Fix: the summary helper (`summarizeGroups` in `ui_components.js`) supplies a count or ready line. Effort small to medium.
+- **UIC106, UR115: vitals and skill bars lack meter semantics.** No role, no value for assistive tech and no marked low threshold, unlike `meter_bar.js`. Fix: render them through `meter_bar.js`. Effort small.
+- **UIC107, UR107: three search fields built three ways.** None has a visible label and Esc does not clear. Fix: one search control. Effort small.
+- **UIC108, UR121: icons.** Material icon ligature names leak as text where the font is absent, and `▾` means both collapse and menu. Fix: accessible names and distinct glyphs. Effort small.
+- **UIC109, UR33: the top navigation and game bar ignore larger text.** They stay at 14 px at 150%. Effort small.
+- **UIC110, UR105: checkbox rows.** A rule at `styles/ui_tokens.css:1769` stretches "Static VFX" and "Plain text VFX" rows to 876 px, and several labels name a thing, not what "on" does. Effort small.
+- **UIC111, UR102 and UR66: action labels and heights.** Several actions carry no cost or time, and some heights sit off the control-size tokens. Effort medium, surface by surface.
+
+### Local defects
+
+- **UIC112, UR53: the inventory row menu lets the outside click through.** The test click opened Crafting; the item preview also takes the first Esc before the menu.
+- **UIC113, UR116: the patrol bar is hard-coded to 385 px** (`display.js` around lines 5098 and 5175) and reads 34% at minute 119 of 120.
+- **UIC114, UR61: an unknown Trust or Warmth reading draws as a half-full bar.** Unknown should read as unknown (UIV6, KNW7).
+- **UIC115, UR112: the chronicle end screen claims to be modal while the page behind stays live,** and Hard reset has no visible or keyboard route in this shell.
+
+### Not checked
+
+LOTM and household surfaces (the private packs were not loaded), most overlays and readouts at 150% text, reduced motion, combat, mixing and research meters, the real Shift+F10 key and pointer drag. A second pass with the private packs loaded covers them.
+
+### Proposed fix order
+
+1. Local defects UIC112–UIC115 (small, each a visible bug).
+2. The keyboard and focus shell pass, UIC104 and UIC109.
+3. Reasons out of titles (UIC103) with meter semantics (UIC106).
+4. One number formatter (UIC102).
+5. Search, disclosures, icons, checkboxes and labels (UIC105, UIC107, UIC108, UIC110, UIC111).
+
+Each is a runtime UI slice that needs rebuilt browser proof at 1920×1080 (UR14, AD43).
