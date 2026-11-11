@@ -1,6 +1,7 @@
 // L9 host consumer: the one place the Tingen host talks to the harm domain (AR3: harm_state owns the
 // counter; this file only supplies the command class, reads modifiers and records accrual and rest).
-import {harmState,setHarmState,addBacklash,restBacklash,relieveBacklash,backlashStage,resolveDeath,HARM_WORLDS} from './harm_state.js';
+import {harmState,setHarmState,addBacklash,restBacklash,relieveBacklash,healPart,backlashStage,resolveDeath,restReading,settleRestHarm,harmBody,HARM_WORLDS} from './harm_state.js';
+import {bodyData} from './needs.js';
 import {lossOfControlTick} from './harm_engine.js';
 const WORLD='book.lotm.tingen',CARRIER='power';
 // Proposed dials (default, dial, reason): peeking and ritual casts strain the power most, plain practice a little.
@@ -62,9 +63,33 @@ export function lotmStageNote(before,after){return before&&after&&before!==after
 export function accrueAct(carrier,{source,weight}){
  const next=addBacklash(harmState(),HARM_WORLDS[WORLD],carrier,{source,weight});setHarmState(next.state);return next.record;
 }
+// FRC52: the lead's rest need. Waking time drains it (projected from the slice's `at`); this sleep tick, the one path
+// every Tingen sleep takes (the bodyCare sleep job holds native sleep), repays it. Recovery in the same stretch reads the
+// body heal multiplier times the rest stage's heal (needs.js) through harm_state's own recovery: power strain and each
+// injured part. A tired body heals slower; nothing here kills (BHR16). The clock starts at the life's first sleep: a life
+// with no sleep act yet (a probationer before the dose) cannot meet the need, so it does not tire. Dial: a world that gives
+// every life a bed from day one can start it at entry instead.
+const restSave=s=>({expansion:s,harm:harmState()});
+export function startRest(s,clock=s.clock){
+ if(s.actors?.player?.worldId!==WORLD||harmState().rest?.world===WORLD||!Number.isSafeInteger(clock)||clock<0)return null;
+ const next=settleRestHarm(harmState(),{body:harmBody(HARM_WORLDS[WORLD]),world:WORLD,clock});setHarmState(next.state);return next.record;
+}
 export function restHarm(s,minutes,treated=false){
  if(s.actors?.player?.worldId!==WORLD||!(minutes>0))return null;
- const next=restBacklash(harmState(),HARM_WORLDS[WORLD],CARRIER,{minutes,treated});setHarmState(next.state);return next.record;
+ const rules=HARM_WORLDS[WORLD],start=s.clock-minutes;startRest(s,start);
+ const heal=(restReading(restSave(s),start)??{effect:{heal:bodyData(harmBody(rules)).heal}}).effect.heal;
+ let next=restBacklash(harmState(),rules,CARRIER,{minutes,treated,heal});
+ for(const id of Object.keys(next.state.parts??{}))next={state:healPart(next.state,rules,id,{minutes,treated,heal}).state,record:next.record};
+ if(next.state.rest?.world!==WORLD||!Number.isSafeInteger(s.clock)){setHarmState(next.state);return next.record;}
+ const at=next.state.rest.at,rest=settleRestHarm(next.state,{body:harmBody(rules),world:WORLD,clock:s.clock,awake:Math.max(0,start-at),asleep:minutes});
+ setHarmState(rest.state);return {...next.record,rest:rest.record};
+}
+// The Rest bar for the lead's panel: the level as a pool with the stage and what it does, from the one reading.
+export function lotmRestMeter(s){
+ const r=s.actors?.player?.worldId===WORLD?restReading(restSave(s)):null;if(!r)return null;
+ const slow=r.effect.work<1?` Work and fights run at ${Math.round(r.effect.work*100)}% and wounds mend at ${Math.round(r.effect.heal*100)}% until you sleep.`:'';
+ return {id:'lotm.rest',label:`Rest: ${r.stageLabel}`,kind:'pool',value:Math.round(r.level*100),max:100,
+  note:`Falls while you are awake; each minute asleep repays two waking minutes.${slow}`};
 }
 // Lost control left running is the world's death trigger (L9 design); the outcome row decides what it means.
 export function lostControlOutcome(s){
