@@ -21,6 +21,7 @@ import {registerOwnHoldings,lifeHoldings} from './own_holdings.js';
 import {ladderLabel} from './coin_ladder.js';
 import {readPort} from './ui_ports.js';
 import {registerHpPeopleSource} from './book_world_hp_people_source.js';
+import {hpTableFoodItems} from './hp_table_food_items.js';
 import {registerLocalClockSource} from './today_strip.js';
 import {resolveWorldCalendar,formatCalendar} from './world_calendar.js';
 import {schoolYearText} from './book_world_hp_school_calendar.js';
@@ -76,7 +77,7 @@ export function hpLeadHoldingsReaders(cast=()=>getHpLeadCast()){
     return {
         purse(state){const c=cast()?.currency,n=c&&lifeHoldings(state).resources[c.resource];
             return typeof n==='number'?ladderLabel(n,c.ladder,'an empty purse'):undefined;},
-        items(){const labels=new Map([...(cast()?.items||[]),...(getHpLeadHalloween()?.items||[]),...(getHpLeadMirror()?.items||[]),...(getHpLeadFlamel()?.items||[]),...(getHpLeadNorbert()?.items||[]),...(getHpLeadFinale()?.items||[])].map(i=>[i.id,i.label])),rows=readPort('character')?.getItems?.()??{},out=[];
+        items(){const labels=new Map([...(cast()?.items||[]),...(getHpLeadHalloween()?.items||[]),...(getHpLeadMirror()?.items||[]),...(getHpLeadFlamel()?.items||[]),...(getHpLeadNorbert()?.items||[]),...(getHpLeadFinale()?.items||[]),...hpTableFoodItems.map(i=>({id:i.id,label:i.name}))].map(i=>[i.id,i.label])),rows=readPort('character')?.getItems?.()??{},out=[];
             for(const [key,row] of Object.entries(rows)){let id;try{id=JSON.parse(key)?.id;}catch{continue;}
                 if(labels.has(id)&&(row?.count??1)>0)out.push(`${labels.get(id)}${(row?.count??1)>1?` x${row.count}`:''}`);}
             return out;},
