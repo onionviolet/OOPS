@@ -11,7 +11,7 @@
     border-color: var(--theme-border) !important; border-radius: var(--ui-radius);
     line-height: 1.4; min-width: 0; box-sizing: border-box;
 }
-:is(#main_content.workspace-active, .theme-preview) .customization-module :is(button, .activable_buttons > div, .crafting_mainpage_button, .crafting_subpage_button, .recipe_name, .recipe_item_name, .recipe_comp_name, .selectable_material, .selectable_component, select, input:not([type=color]), textarea, .action_travel, .start_dialogue, .start_trade, .start_game_action, .start_activity, .location_choices, .choices_return_button, .dialogue_textline, .dialogue_trade, .end_dialogue_button, .backstep_dialogue_button) {
+:is(#main_content.workspace-active, .theme-preview) .customization-module :is(button, .activable_buttons > :is(div,button), .crafting_mainpage_button, .crafting_subpage_button, .recipe_name, .recipe_item_name, .recipe_comp_name, .selectable_material, .selectable_component, select, input:not([type=color]), textarea, .action_travel, .start_dialogue, .start_trade, .start_game_action, .start_activity, .location_choices, .choices_return_button, .dialogue_textline, .dialogue_trade, .end_dialogue_button, .backstep_dialogue_button) {
     font-family: var(--custom-font); font-size: var(--custom-size) !important;
     line-height: 1.3; color: var(--theme-control-text) !important;
     background: var(--theme-control) !important; border: 1px solid var(--theme-border);
@@ -19,7 +19,7 @@
     min-height: 2em; height: auto; white-space: normal; overflow-wrap: anywhere;
     max-width: 100%; min-width: 0;
 }
-:is(#main_content.workspace-active, .theme-preview) .customization-module :is(button, .activable_buttons > div, .action_travel, .start_dialogue, .start_trade, .start_game_action, .start_activity, .location_choices, .dialogue_textline):hover:not(:disabled):not([aria-disabled=true]) {
+:is(#main_content.workspace-active, .theme-preview) .customization-module :is(button, .activable_buttons > :is(div,button), .action_travel, .start_dialogue, .start_trade, .start_game_action, .start_activity, .location_choices, .dialogue_textline):hover:not(:disabled):not([aria-disabled=true]) {
     background: color-mix(in srgb, var(--theme-accent) 16%, var(--theme-control)) !important;
 }
 :is(#main_content.workspace-active, .theme-preview) .customization-module :is(button:disabled, button[aria-disabled=true], input:disabled, select:disabled, .action_unavailable, .activity_unavailable, .recipe_unavailable, .recipe_unavailable .recipe_item_name) {
@@ -67,7 +67,7 @@
 .theme-preview label {display: flex; flex-wrap: wrap; gap: round(.3em, 1px);}
 .theme-preview :is(p, h4) {margin-block: round(.5em, 1px);}
 
-#main_content.workspace-active .customization-module .activable_buttons > div {width: auto; flex: 1 1 auto; float: none; padding: round(.25em, 1px) round(.4em, 1px);}
+#main_content.workspace-active .customization-module .activable_buttons > :is(div,button) {width: auto; flex: 1 1 auto; float: none; padding: round(.25em, 1px) round(.4em, 1px);}
 
 .theme-preview dl {display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: round(.25em, 1px); font-variant-numeric: tabular-nums;}
 .theme-preview dd {margin: 0;}

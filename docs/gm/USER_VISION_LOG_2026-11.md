@@ -905,3 +905,16 @@ Recorded:
 - The UI contract test now enforces UR130, UR131 and UR133 as ratchets.
 - The reason sweeper touches only its own notes (UR129).
 - [UI audit round 45](../audits/UI_DESIGN_CORE_AUDIT.md#round-45-2026-11-10-guards-and-what-else-to-consider) ranks the other aspects (UIC116–UIC126): one Escape stack, the 53 legacy clickable divs, focus after redraws, a browser element check, visual baselines, live announcements, decorator cost, uncovered surfaces, and an undo window for instant spends.
+
+## Intuitive, sectioned, flowing UI from the playtest complaints, 2026-11-10
+
+Weibao, after "Convert the 53 divs" and "Inherit UI design styles and guidelines?":
+
+> Making things intuitive? sectioned properly? Flow properly? consider my qualms from the last time I actually playtested and checked things, the stuff I didnt like then, addressing those and more?
+
+Recorded:
+- [UI audit round 46](../audits/UI_DESIGN_CORE_AUDIT.md#round-46-2026-11-10-intuitive-sectioned-flowing-and-the-playtest-complaints) lists his earlier complaints (Q1–Q15: Reports, Focus and You, opening at the bottom, item pages, scrolling and back paths, clutter, spacing, Ctrl+ zoom, spoiling text, button feedback, circles, improvements that show up, Proto23 look, memory). Each has its status in today's build.
+- The round adds nine findings from a walk of every route (R1–R9). R4 and R9 are fixed.
+- New working defaults UR139–UR143 in [UI rules](../UI_RULES.md#intuitive-sectioned-flowing-rules-from-weibaos-playtest-complaints).
+- `npm run check:flow` plays the screens and catches a repeat.
+- On "Inherit UI design styles and guidelines?": the converted controls keep the shared design (their class styling, the shared focus ring, a pressed state that is not colour-only), recorded in the round 45 follow-up.

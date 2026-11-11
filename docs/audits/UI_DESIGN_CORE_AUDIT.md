@@ -2127,3 +2127,73 @@ Weibao: "what other aspects of UI to consider? UI rules so same mistakes wont me
 
   The next element audit loads the packs first. Effort M per surface group.
 - **UIC126, undo for instant spends.** Craft, mix and Try one batch spend materials at once with no undo window. This is an idea that adds options, not a gate: a short undo window for an instant spend could sit beside UR112's ask-by-stakes, where a world allows it (AD56: it widens play, so it is a working default when built). Effort M.
+
+### Round 45 follow-up, 2026-11-10: the 53 clickable divs
+
+Weibao: "Convert the 53 divs", then "Inherit UI design styles and guidelines?" Agent-verified, not human-reviewed.
+
+- **UIC118 done.** Every `<div onclick>` in `index.html` is now `<button type="button" class="ui-native-control ...">`, and the `clickable-div` allowlist is empty. Export's nested tooltip became a span. The Reports filter selectors in `styles/ui_tokens.css` match buttons too.
+- **Design: they inherit the shared grammar.**
+  - They keep their class styling, so the shell look holds. A computed-style comparison at text sizes 14 and 21 found no change on any visible control (the save bar and the seven crafting tabs).
+  - They gain the shared focus ring.
+  - Tabs, filters, sorts and the combat or inventory switch state `aria-pressed`, kept in step with `active_selection_button` by `src/ui/native_controls.js`.
+  - The pressed one is underlined (UR108: more than colour), matching the Reports filters.
+- **Proof.**
+  - Headless Chrome at 1920×1080: Tab reaches every visible converted control, Enter on Cooking switches the tab, the focus ring is solid 2px, and an Inventory filter click updates `aria-pressed` live.
+  - New `tests/native_controls.test.js`.
+  - The older div patches (`qualifyNativeTabs`, the location decorator) skip real buttons and still serve script-made divs.
+
+
+## Round 46, 2026-11-10: intuitive, sectioned, flowing, and the playtest complaints
+
+Weibao: "Making things intuitive? sectioned properly? Flow properly? consider my qualms from the last time I actually playtested and checked things, the stuff I didnt like then, addressing those and more?"
+
+**Method.**
+- His complaints come from the direction logs (2026-10-14, 10-15 and 10-27) and the Codex memory of his UI sessions.
+- Each was checked against today's build: a headless walk of every top-bar route at 1920×1080 on the mid fixture, plus 1536×864 and 1280×720 (browser zoom at 125% and 150%). Screenshots are in the session scratchpad.
+- Status words: **addressed** (seen working today), **partly**, **open**, **not rechecked**.
+- Agent-verified, not human-reviewed.
+
+### His complaints, then and now
+
+| Code | Complaint (his words, date) | Status today | Evidence |
+| --- | --- | --- | --- |
+| Q1 | "our reports page still isnt quite as good" (10-15) | Partly | Reports keeps its own right column, 499×1018 px. Early in a life it holds four lines (right now, next step, now, the Home header), so most of the column sits empty. UR69 says regions lend free space; Reports does not yet. |
+| Q2 | "Our focus and you tabs dont feel as clean either" (10-15) | Partly | You (left) is compact and Stats opens a clean list with detail. Around you (centre top) leaves the lower half of its People column empty under two people. |
+| Q3 | "things shouldt always open onto the bottom" (10-15) | Addressed | Default today: every route opens in the centre with "← Village", and Esc returns home (check:flow: 13 routes, no back findings). |
+| Q4 | "rather than item details page we can have a hover menu" (10-15) | Addressed | Clicking an item opens the item detail beside the list with its actions; there is no separate page. |
+| Q5 | "everything should be viewable without scrolling too much", "paths back to specific large panels" (10-14) | Addressed at the home view | No page scroll at 1920×1080, 125% or 150%. Large panels have Expand and "← Village". Long views (Notebook, Stats' 42 attributes) scroll inside their region. |
+| Q6 | "clicking into certain panels leaves no way back" (Codex memory) | Addressed | As Q3. |
+| Q7 | "feels a little cluttered", but "fully make use of the Screen" (Codex memory) | Partly | Seven regions share the home view. Repeats: Journal is a top-bar route and a centre box; the work line repeats "Pick something under Here" while "Here" is also a tab; Notebook mixes notes and commands (R3). |
+| Q8 | "weird spacing on some stuff?" (Codex memory) | Partly | The Village list heights were evened this session (UIC111). At 150%, Around you cuts its Services list behind "Choose someone or something here to inspect." |
+| Q9 | "kinks to work out too, like ui scaling when I do ctrl +" (10-27) | Partly | No sideways scroll at 125% or 150%. Overflowing routes fold into "All panels…". Undiscovered Journal tabs showed "???????" (fixed, R4). |
+| Q10 | "if the details text on world crossing spoils too much" (10-27) | Not rechecked | Prose rules PRS1–PRS8 own it; check:rules lints engine words, not spoilers. |
+| Q11 | "button feedback, interaction and more?" (11-04) | Partly | Craft, mix and Equip labels now carry time or slot (UIC111), and a blocked craft says why beside the button. The Inventory route shows almost no response (R1). |
+| Q12 | rituals and other UIs "turned into sets of circles" (11-10) | Open | UR93–UR99 and the R1–R4 research set the direction; the altar slice is not built. |
+| Q13 | improvements should "actually show up" (Codex memory) | Process | Every claim this round comes from a rebuilt browser run, not source. |
+| Q14 | "Proto23 still looks better" (10-15) | Addressed by direction | The shell is the Proto23 variant; not re-judged here. |
+| Q15 | RAM: run comfortably on 8 GB (11-0x) | Not rechecked | UIC124 (decorator cost) is a related measure. |
+
+### What the walk found
+
+Ranked by how much each confuses a player:
+
+- **R1, the Inventory route answers weakly (UR139).** The top-bar Inventory routes to the inventory already on the left; the one visible change is an "Expand" link. Fix: a route to an on-screen panel moves focus into it and marks it briefly. Effort S, in `workspace_navigation.js`. Done check: the click puts focus in the inventory and a mark shows.
+- **R2, Worlds contradicts the Village (UR140).** Worlds is locked ("No other world is open to you yet") because it holds optional content-pack worlds, while the Village offers "Cross to another world: Tingen". Fix: Worlds lists every crossing the life can make, the Tingen door included, with the content-pack worlds as one section. Until then, the lock reason names what Worlds holds. Effort M (`content_pack_ui.js`, `book_world_lotm_ui.js`, `panel_directory.js`). Done check: with Tingen open, Worlds opens and shows it.
+- **R3, Notebook is three panels in one (UR141).** It holds notes, practice and people (good), then "Known actions" with full cost cards and live task commands ("Close the lung valve", "Close the seal and return"). Fix: commands go back to their task's panel or the Village list. Known actions becomes a short reference with a route to each task. Effort M. Done check: Notebook shows no live command buttons.
+- **R4, "???????" tabs (UR142).** Fixed here: the Bestiary, Books and Magic tabs keep the mystery name and say "You have not come across this yet." on focus or click (`workspace_disclosure.js`).
+- **R5, the Journal opens on a blank half (UR143).** One quest is listed and the rest of the panel is empty. Fix: open on the current quest's detail, or say "Choose a quest to read its steps." Effort S. Done check: the Journal route shows a quest's detail.
+- **R6, a generic reason in Known actions (UR81).** "This action is not available under the current conditions…" is the fallback when no specific reason is disclosed (`action_legibility.js`). Where the action states a prerequisite ("Hear the seal-steward's terms"), the reason can name it. Effort S, with a knowledge check so nothing sealed leaks. Done check: Discuss the offered work names its missing step.
+- **R7, empty space early on (Q1, Q2, UR69).** Reports and the lower half of Around you sit mostly empty at the start of a life. Fix: empty regions lend height to busy neighbours until they fill (UR69 already says so), with the region sizes as a player dial. Effort M; a visual baseline (UIC122) should land first.
+- **R8, clipping at 150% (Q8, UR33).** Around you hides its Services list behind its footer line. Effort S. Done check: check:flow reports no clipped region at 150%, which needs its clip detector to cover scrolling regions too.
+- **R9, Export's tooltip in the corner.** It was placed on mouse movement alone, so a pointer that arrived without moving showed it at the bottom left. It is now placed on entry too (inline script in `index.html`).
+
+### Prevention
+
+- **UR139–UR143** in [UI rules](../UI_RULES.md#intuitive-sectioned-flowing-rules-from-weibaos-playtest-complaints).
+- **`npm run check:flow`** (new, `scripts/check_flow.mjs`) plays the built game: every top-bar route, a visible response, a back path and Esc home, no bare placeholders, and zoom at 125% and 150% (no sideways scroll, no clipped text). It runs on request like check:pacing; today it reports 0 findings after R4.
+- Its next additions (UIC121): the list-detail check (R5), contradicting routes (R2), scrolling-region clips (R8), and the four worlds' starts as well as the Village.
+
+### Proposed fix order
+
+R1, R5 and R6 are small and remove the most confusion. Then R2 and R3, which change where things live. R7 waits for visual baselines (UIC122).

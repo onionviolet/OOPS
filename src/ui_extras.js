@@ -1,4 +1,5 @@
 import {mountSearchEscape} from './ui/search_field.js';
+import {mountNativeControls} from './ui/native_controls.js';
 import {mountCommandPalette} from './command_palette.js';
 import {mountRowContextMenu} from './row_context_menu.js';
 import {mountEmptyStates} from './empty_states.js';
@@ -31,6 +32,7 @@ export function mountUiExtras({nav, openPanel}) {
     const empties = mountEmptyStates();
     mountReasonDelegate();
     mountSearchEscape();
+    mountNativeControls();
     const findButton = document.createElement('button');
     findButton.type = 'button'; findButton.textContent = 'Find'; findButton.dataset.paletteOpen = '';
     findButton.title = 'Find a panel, item or action · Ctrl+K or Cmd+K'; findButton.setAttribute('aria-keyshortcuts', 'Control+K Meta+K');

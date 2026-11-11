@@ -106,3 +106,10 @@ button[data-new-count]::after {
 .ui-search-label { display:inline-flex; align-items:center; gap:var(--ui-space-3); }
 .ui-search-label-text { font-size:var(--custom-small-size, var(--ui-type-small)); color:var(--theme-muted, var(--ui-text)); }
 
+
+/* UR130: the converted index.html controls (UIC118). They keep their class styling; the base only
+   undoes the browser's button font, adds the shared focus ring, and marks the pressed tab by more
+   than colour (UR108), with the underline the Reports filters already use. */
+:where(button.ui-native-control) { font: inherit; color: inherit; }
+:is(#main_content, body) button.ui-native-control[aria-pressed="true"] { text-decoration: underline; text-decoration-thickness: 2px; }
+:is(#main_content, body) button.ui-native-control:focus-visible { outline: 2px solid var(--workspace-focus); outline-offset: -2px; }
