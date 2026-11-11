@@ -127,3 +127,15 @@ test('styles use tokens only (UR6)', () => {
     const css = readFileSync(new URL('../styles/talk_view.css', import.meta.url), 'utf8');
     assert.doesNotMatch(css, /#[0-9a-f]{3,8}\b|rgba?\(|\d+px\b/i);
 });
+
+test('alternatives that do the same thing say it once, in plain words (PX31)', () => {
+    const rewards = {textlines: [1], quest_progress: [1]};
+    const topics = topicsFromLines([
+        {id: 'a', label: 'What happened?', state: 'new', rewards, closesOthers: true},
+        {id: 'b', label: 'Where am I?', state: 'new', rewards, closesOthers: true},
+        {id: 'c', label: 'Who are you?', state: 'new', rewards: {textlines: [1]}},
+    ]);
+    assert.deepEqual(topics[0].quote.effects, ['Opens more to ask.', 'Moves one of your journal tasks forward.', 'Picking one closes the others.']);
+    assert.deepEqual(topics[1].quote.effects, ['Same as the line above.']);
+    assert.deepEqual(topics[2].quote.effects, ['Opens more to ask.']);
+});

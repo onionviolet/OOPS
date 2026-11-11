@@ -128,3 +128,16 @@ Each is a default with a dial:
 ### Ranked
 
 PX28 and PX29 are the first thing a new life meets; together they cost one small change in the guide and the person card. Then PX30 and PX31 (noise in the first minute), then PX36 (measure the loops).
+
+### Round 2 fixes, 2026-11-10
+
+Weibao: "Yes, fix them" (PX28–PX31). Agent-verified, not human-reviewed. Proof: a fresh start replayed through the game MCP after a rebuild, plus focused tests.
+
+| Code | Fix | Where | Proof |
+| --- | --- | --- | --- |
+| PX28 | The guide points at Old Hesk in Around you. Show me opens his card (a free inspection) and focuses "Talk with Old Hesk"; the press says "Opened Around you". The same applies to the weapon and report-back steps. | `src/first_hour.js` (steps gain `place`, `open`, `focus`) | Show me lands on the card with the Talk button; `tests/first_hour.test.js` |
+| PX29 | A village person you have not met yet reads "Talk with Old Hesk"; "Meet traveler" stays for generated travelers. | `src/main.js` (same line, no growth) | The elder's card says "Talk with Old Hesk" |
+| PX30 | Layout-move notices come from layouts saved before this page load, not from the one a fresh start writes. A first session marks every move as seen, so later loads stay quiet too. | `src/panel_folds.js` (`layoutsAtLoad`) | No "now in" lines on a fresh start; new test in `tests/panel_folds.test.js` |
+| PX31 | Alternatives that do the same thing state it once; the next ones read "Same as the line above." "Settles the other ways to put this" became "Picking one closes the others." | `src/read_models/talk_bridge.js`, `scripts/talk_browser.cjs` | The elder's first menu shows the caption once; new test in `tests/talk_view.test.js` |
+
+**Also done:** Spotlight showed three copies of the app. The build output in `desktop-tauri/target/bundle` and an old rollback copy in `work/` went to the Trash. Both folders now carry `.metadata_never_index`, so future builds there stay out of Spotlight. `~/Applications/Yet Another Idle RPG.app` is the one left.

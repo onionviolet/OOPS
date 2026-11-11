@@ -52,10 +52,16 @@ const minutesText = m => m > 0 ? `${m} min` : NO_TIME;
  * lines: [{id, label, state, text?, rewards?, closesOthers?}] already filtered to what the hero sees.
  * Rewards are quoted through rewardQuote; `closesOthers` adds the one structural fact the hero can see.
  */
+export const CLOSES_OTHERS = 'Picking one closes the others.';
+export const SAME_AS_ABOVE = 'Same as the line above.';
 export function topicsFromLines(lines, {known, nameOf, minutes = () => 0} = {}) {
+    let previous = null;
     return lines.map(line => {
-        const effects = line.state === 'new' || line.state === 'locked' ? rewardQuote(line.rewards, {known, nameOf}) : [];
-        if (line.closesOthers && line.state === 'new') effects.push('Settles the other ways to put this.');
+        let effects = line.state === 'new' || line.state === 'locked' ? rewardQuote(line.rewards, {known, nameOf}) : [];
+        if (line.closesOthers && line.state === 'new') effects.push(CLOSES_OTHERS);
+        // PX31, UR64: alternatives that do the same thing say it once; the next ones point back to it.
+        const key = effects.length > 1 ? JSON.stringify(effects) : null;
+        if (key && key === previous) effects = [SAME_AS_ABOVE]; else previous = key;
         return {id: line.id, label: line.label, state: line.state, reason: line.reason || '', recall: line.state === 'heard' ? line.text || '' : '',
             quote: {time: minutesText(minutes(line)), effects}};
     });

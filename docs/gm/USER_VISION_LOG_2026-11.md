@@ -976,6 +976,22 @@ Recorded:
 - It adds flow defaults PX36–PX41: measured journeys, context that travels, returning after interruptions and reloads, announced mode changes, and a guide that grows with the player.
 - A frozen build was snapshotted into the installed desktop app for him to play (snapshot `v0.6-c4f997fe257e`, from commit `35ed6580b`).
 
+## First-minutes flow fixes and one app in Spotlight, 2026-11-10
+
+Weibao:
+
+> Yes, fix them
+
+> Consider also deleting the duplicate noes that shows up in spotlight and only keeping the main one, so that its easy to know which one
+
+Recorded:
+- PX28–PX31 are fixed ([round 2 fixes](../audits/PLAYER_EXPERIENCE_CORE_AUDIT.md#round-2-fixes-2026-11-10)):
+  - the guide points at the elder's card;
+  - the card says "Talk with Old Hesk";
+  - no layout notices on a fresh start;
+  - alternatives state their effect once, in plain words.
+- The two extra app copies (build output and an old rollback) went to the Trash, and their folders are excluded from Spotlight. `~/Applications/Yet Another Idle RPG.app` is the one left.
+
 ## Gu abilities and killer moves, 2026-11-10
 
 > Address bottlenecks long term too, also consider abilities tied to gu, gu killer moves, which is moves made by using a combinatiobn of gus, other stuff and more?

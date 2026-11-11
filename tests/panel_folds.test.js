@@ -50,3 +50,12 @@ test('movedNotices speaks once, only for ids a saved layout had', () => {
     const fresh = {length: 0, key: () => null, getItem: () => null, setItem() {}};
     assert.deepEqual(movedNotices({storage: fresh}), []);
 });
+
+test('a fresh start announces nothing, now or on later loads, though its own layout names folded panels (PX30)', () => {
+    const store = new Map();
+    const storage = {get length() { return store.size; }, key: i => [...store.keys()][i], getItem: k => store.get(k) ?? null, setItem: (k, v) => store.set(k, v)};
+    // The page loaded with no saved layout; the fresh game then writes its default, which lists folded ids.
+    store.set('yairpg.workspace.v1.desktop', JSON.stringify({modules: [{id: 'shell-inventory-tools'}, {id: 'today'}]}));
+    assert.deepEqual(movedNotices({storage, stored: []}), []);
+    assert.deepEqual(movedNotices({storage}), [], 'the next load stays quiet');
+});

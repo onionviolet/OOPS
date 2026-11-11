@@ -21,7 +21,7 @@ test('a cleared field never sends the player back for a weapon or to the field',
 test('every step names its place in words and a known module', () => {
     for (const row of FIRST_HOUR_STEPS) {
         assert.ok(row.line.length > 5 && row.how.length > 10, row.id);
-        assert.ok(['local-actions', 'records'].includes(row.where), row.id);
+        assert.ok(['local-actions', 'records', 'focus'].includes(row.where), row.id);
     }
     assert.equal(nextStep(null), null);
 });

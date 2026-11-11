@@ -53,7 +53,7 @@ fs.mkdirSync(output, {recursive: true});
         // Two options that close each other quote that fact.
         const opts = await page.locator('#talk_view_host .scene-card-option').allTextContents();
         report.options = opts;
-        assert.ok(opts.some(t => /Settles the other ways/.test(t)), 'sibling-closing options say so');
+        assert.ok(opts.some(t => /Picking one closes the others/.test(t)), 'sibling-closing options say so');
         await shot('talk-options-1920.png');
         // Sibling lines lock each other: saying one reads as one covered row and one told row, not three.
         await page.locator('#talk_view_host button[data-topic-id="where am i"]').click();
