@@ -17,23 +17,25 @@ test('no inherited care, instant harm or stock; feeding spends real inventory on
     let p=housed();assert.equal(habitatFacts(p.owner,500).welfare,'Safe in suitable shelter with clean water');assert.equal(projectHabitat(p.owner,500).progress,0);assert.deepEqual(p.inventory,{});
     assert.throws(()=>act(p,'feed'),/actual/);p=act(p,'buy_feed');assert.equal(p.inventory[hay],1);assert.equal(p.money,68);
     p=act(p,'feed');assert.equal(p.inventory[hay],undefined);assert.equal(p.owner.feeds,1);assert.throws(()=>act(p,'feed'),/ration/);
-    assert.equal(projectHabitat(p.owner,106).progress,0);assert.throws(()=>act({...p,clock:106},'collect'),/not ready/);
+    assert.equal(projectHabitat(p.owner,105).progress,5);assert.throws(()=>act({...p,clock:105},'collect'),/not ready/);
 });
-test('attention alone produces nothing; both care orders support the same finite batch',()=>{
+// FRC56 changed the gate on purpose: hay grows wool (Stardew's shape); brushing sets the fleece's grade, not whether it grows.
+test('brushing alone produces nothing; hay alone grows the batch, in either care order',()=>{
+    let b=act(housed(),'attend');assert.equal(projectHabitat(b.owner,130).progress,0);
     for(const order of [['feed','attend'],['attend','feed']]){
-        let p=act(housed(),'buy_feed');p=act(p,order[0]);assert.equal(projectHabitat(p.owner,105).progress,0);p=act({...p,clock:102},order[1]);
-        assert.equal(habitatFacts(p.owner,107).ready,false);assert.equal(habitatFacts(p.owner,108).ready,true);
+        let p=act(housed(),'buy_feed');p=act(p,order[0]);assert.equal(projectHabitat(p.owner,105).progress,order[0]==='feed'?5:0);p=act({...p,clock:102},order[1]);
+        const at=order[0]==='feed'?100:102;assert.equal(habitatFacts(p.owner,at+5).ready,false);assert.equal(habitatFacts(p.owner,at+6).ready,true);
         const f=habitatFacts(p.owner,130);assert.equal(f.fed,false);assert.equal(f.attended,false);assert.equal(f.ready,true);assert.match(f.welfare,/Safe/);
         const done=act({...p,clock:130},'collect');assert.equal(done.inventory[wool],5);assert.equal(done.owner.collected,1);assert.throws(()=>act(done,'collect'),/not ready/);
         assert.equal(projectHabitat(done.owner,500).progress,0);assert.equal(projectHabitat(done.owner,500).collected,1);
     }
 });
-test('partial supported time pauses, survives persistence and resumes with new paid care',()=>{
-    let p=act(act(housed(),'buy_feed'),'feed');p=act({...p,clock:110},'attend');
-    assert.equal(projectHabitat(p.owner,120).progress,2);
-    p=act({...p,clock:120},'buy_feed');p=act(p,'feed');p=act({...p,clock:122},'attend');
-    p.owner=JSON.parse(JSON.stringify(p.owner));assert.equal(projectHabitat(p.owner,124).progress,6);
-    assert.equal(act({...p,clock:124},'collect').inventory[wool],5);
+test('partial fed time survives persistence and completes on the same ration',()=>{
+    let p=act(housed(),'buy_feed');p=act({...p,clock:108},'feed');
+    assert.equal(projectHabitat(p.owner,110).progress,2);
+    p.owner=projectHabitat(p.owner,110);p.owner=JSON.parse(JSON.stringify(p.owner));p.clock=110;
+    assert.equal(projectHabitat(p.owner,113).progress,5);assert.equal(projectHabitat(p.owner,130).progress,6);
+    assert.equal(act({...p,clock:130},'collect').inventory[wool],5);
 });
 test('save/reload/export-style roundtrip retains pending and collected states without rewards',()=>{
     let p=cared();for(const clock of [103,106]){

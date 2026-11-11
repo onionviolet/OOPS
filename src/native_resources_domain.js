@@ -1,6 +1,8 @@
 import {registerDomain} from './domain_registry.js';
 import {createHarvest,validateHarvest,validateHarvestEnvelope,supportedHarvest,drawSpecimen,addCarcass,beginHarvest,cancelHarvest,advanceHarvest,setHarvestRoutine,pauseHarvestRoutine,resumeHarvestRoutine,cancelHarvestRoutine,observeCarcass} from './harvest.js';
 import {validateHabitat,planHabitatAction} from './habitat_care.js';
+import {SHEEP_HOLDER} from './fleece_from_care.js';
+import {addMoodThought,readMood} from './mood_thoughts_domain.js';
 import {createHarvestPanel} from './harvest_ui.js';
 import {createHabitatPanel} from './habitat_care_ui.js';
 import {calendarMinutes} from './world_rhythm.js';
@@ -45,14 +47,22 @@ function tickHarvest(minutes){
     harvestPanel?.render();
 }
 
-function actHabitat(action){ports.commitHabitatPlan(planHabitatAction(habitatOwner,action,ports.habitatContext()));}
+// FRC56: the sheep's mood is its own thought rows (mood_thoughts); plans read it and return the rows a care act adds. Rows are
+// written before the commit so its save carries them; a failed commit can leave one keyed row behind (no remove port), harmless.
+const habitatRead=()=>{const c=ports.habitatContext();return {...c,mood:readMood(SHEEP_HOLDER,c.clock)};};
+function actHabitat(action){
+    const context=habitatRead(),plan=planHabitatAction(habitatOwner,action,context);
+    for(const t of plan.thoughts||[])addMoodThought(t,context.clock);
+    ports.commitHabitatPlan(plan);
+    if(plan.fleece)ports.logMessage(`Collected ${plan.fleece.amount} ${plan.fleece.grade} wool${plan.fleece.deluxe?' (a dense fleece)':''}.`,'notification');
+}
 // Preserve the old validation order: care cross-checks first, carcasses second.
 registerDomain({id:'meadow_pen',initialState:()=>null,
     save:()=>habitatOwner?structuredClone(validateHabitat(habitatOwner,ports.clock())):undefined,
     validate:(slice,save)=>{if(slice!=null)validateHabitat(slice,calendarMinutes(save['current time']));},
     migrate:(slice,save)=>slice==null?null:structuredClone(validateHabitat(slice,envelopeClock(save))),load:setHabitatOwner,
-    commands:{act:actHabitat},projection:()=>ports.habitatContext(),
-    panels:[()=>{habitatPanel=createHabitatPanel({parent:ports.careContainer(),read:ports.habitatContext,act:actHabitat});}]});
+    commands:{act:actHabitat},projection:habitatRead,
+    panels:[()=>{habitatPanel=createHabitatPanel({parent:ports.careContainer(),read:habitatRead,act:actHabitat});}]});
 registerDomain({id:'harvest',initialState:()=>null,
     save:()=>harvestOwner?structuredClone(validateHarvest(harvestOwner,ports.clock())):undefined,
     validate:(_,save)=>validateHarvestEnvelope(save,envelopeClock(save)),

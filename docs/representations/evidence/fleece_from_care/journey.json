@@ -1,0 +1,95 @@
+{
+ "bundleHash": "de89c1fdd961",
+ "viewport": "1920x1080",
+ "lives": {
+  "neglected": {
+   "brush": false,
+   "cycles": 4,
+   "facts": {
+    "ownership": "Site: your sheltered meadow pen · capacity 1. Animal: your fleece sheep, housed here.",
+    "welfare": "Welfare: Safe in suitable shelter with clean water.",
+    "care": "Care: fed; not brushed this interval. Carried hay: 0.",
+    "tie": "Held, not yet tied: brush it and it will come to know you.",
+    "mood": "Mood: warm, from Ate fresh hay from your hand (+3); Ate fresh hay from your hand (+3); Ate fresh hay from your hand (+3); Slept dry in its shelter (+1).",
+    "fleece": "Next fleece: plain wool, 100% quality, 5 Wool, 2% chance of a dense fleece once the tie reaches 200.",
+    "harvest": "Harvest: 0/6 fed minutes. Collected fleeces: 4. Carried Wool, all grades: 20."
+   },
+   "wool": [
+    [
+     "{\"id\":\"Wool\"}",
+     20
+    ]
+   ]
+  },
+  "kept": {
+   "brush": true,
+   "cycles": 4,
+   "facts": {
+    "ownership": "Site: your sheltered meadow pen · capacity 1. Animal: your fleece sheep, housed here.",
+    "welfare": "Welfare: Safe in suitable shelter with clean water.",
+    "care": "Care: fed; brushed this interval. Carried hay: 0.",
+    "tie": "Tie to you: Acquainted (100 of 1000 from brushing and meals).",
+    "mood": "Mood: warm, from Was brushed and checked over by you (+4); Was brushed and checked over by you (+4); Was brushed and checked over by you (+4); Ate fresh hay from your hand (+3).",
+    "fleece": "Next fleece: good wool, 120% quality, 5 Wool, 40% chance of a dense fleece once the tie reaches 200.",
+    "harvest": "Harvest: 0/6 fed minutes. Collected fleeces: 4. Carried Wool, all grades: 20."
+   },
+   "wool": [
+    [
+     "{\"id\":\"Wool\"}",
+     5
+    ],
+    [
+     "{\"id\":\"Wool\",\"quality\":115}",
+     15
+    ]
+   ]
+  }
+ },
+ "route": "fresh life, own purse",
+ "differ": true,
+ "reload": {
+  "facts": {
+   "ownership": "Site: your sheltered meadow pen · capacity 1. Animal: your fleece sheep, housed here.",
+   "welfare": "Welfare: Safe in suitable shelter with clean water.",
+   "care": "Care: fed; brushed this interval. Carried hay: 0.",
+   "tie": "Tie to you: Acquainted (100 of 1000 from brushing and meals).",
+   "mood": "Mood: warm, from Was brushed and checked over by you (+4); Was brushed and checked over by you (+4); Was brushed and checked over by you (+4); Ate fresh hay from your hand (+3).",
+   "fleece": "Next fleece: good wool, 120% quality, 5 Wool, 40% chance of a dense fleece once the tie reaches 200.",
+   "harvest": "Harvest: 0/6 fed minutes. Collected fleeces: 4. Carried Wool, all grades: 20."
+  },
+  "wool": [
+   [
+    "{\"id\":\"Wool\"}",
+    5
+   ],
+   [
+    "{\"id\":\"Wool\",\"quality\":115}",
+    15
+   ]
+  ]
+ },
+ "import": {
+  "facts": {
+   "ownership": "Site: your sheltered meadow pen · capacity 1. Animal: your fleece sheep, housed here.",
+   "welfare": "Welfare: Safe in suitable shelter with clean water.",
+   "care": "Care: fed; brushed this interval. Carried hay: 0.",
+   "tie": "Tie to you: Acquainted (100 of 1000 from brushing and meals).",
+   "mood": "Mood: warm, from Was brushed and checked over by you (+4); Was brushed and checked over by you (+4); Was brushed and checked over by you (+4); Ate fresh hay from your hand (+3).",
+   "fleece": "Next fleece: good wool, 120% quality, 5 Wool, 40% chance of a dense fleece once the tie reaches 200.",
+   "harvest": "Harvest: 0/6 fed minutes. Collected fleeces: 4. Carried Wool, all grades: 20."
+  },
+  "wool": [
+   [
+    "{\"id\":\"Wool\"}",
+    5
+   ],
+   [
+    "{\"id\":\"Wool\",\"quality\":115}",
+    15
+   ]
+  ]
+ },
+ "reloadSame": true,
+ "importSame": true,
+ "errors": []
+}
