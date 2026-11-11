@@ -151,6 +151,7 @@ By default a new slice declares data through the seam named here and does not ad
 - Rules: ITM8 (perishables only, storage slows by how it works), TMR9 (this timer spoils, projected lazily), ITM3/ITM22 (rot is kept, nothing vanishes), MR quality; Factorio shape from `docs/research/factorio/native/readers/quality-spoilage/REPORT.md`. Numbers are authored proposals.
 - Test: `tests/spoilage.test.js`, `tests/owned_place_clock.test.js`, `scripts/place_clock_browser.cjs`.
 - Competing: the Gu opening petal lot (`book_world_gu_domain.js`, `GU_FRESHNESS` condition expiry) still has its own deadline; not folded (its freshness is a shared lot condition, not a per-portion age). Fold when that line is next touched (AR9).
+- Craft inheritance (BDT35, proposal, SPR29 adaptation 2026-11-11): `inheritedSpent` weights perishable inputs only (each capped at 1); `madeKey` in `owned_place_clock.js` writes the product's age on the existing `hearthShelf` receipt (no new domain), stamped on the expansion clock, rounded to whole minutes; a product from timerless inputs stays a plain key. Recipes may set `fresh_start:{reason}`. First row: Clam fritters (original, SKR17), because no raw perishable exists and only Cooked clam has a source.
 - Do not: add another per-feature freshness counter; do not make unheld goods rot in a pack without a world saying so (held goods carry no timer here).
 
 ## Care and upkeep of living things

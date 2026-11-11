@@ -1,7 +1,7 @@
 import {createClockOwner} from './clock_owner.js';
 import {rebaseFurnaceSave} from './patient_furnace.js';
 import {craftingOwner,setCraftingOwner} from './crafting_frontier_runtime.js';
-import {configureHomes,residenceState,stageResidenceClock,residenceSleepAllowed} from './home_domain.js';import {hostPlaceClock} from './owned_place_clock_host.js';import {configureRankGap} from './rank_gap_observer_domain.js';
+import {configureHomes,residenceState,stageResidenceClock,residenceSleepAllowed} from './home_domain.js';import {hostPlaceClock} from './owned_place_clock_host.js';import {madeKey} from './owned_place_clock.js';import {configureRankGap} from './rank_gap_observer_domain.js';
 import {createFurniturePanel} from './home_furniture_panel.js';
 import {allocatedRecipeInputs,recipeMaterialOutput,treatedRecipeQuality} from './processed_materials.js';
 import {configureCraftingDomain} from './crafting_domain.js';import './dnd_phandalin_domain.js';
@@ -5472,7 +5472,7 @@ function execute_native_recipe(target, ammount_wanted_to_craft = 1) {
                 const final_count = scale_results ? fuzzy_final_result_count : final_result_count;
 
                 if(final_count) {
-                    character.addToInventory([{item_key: recipeMaterialOutput({resultId:result_id,count:final_count,quality:treatedRecipeQuality(harvestQuality,result_id,lineageInputs),allocations:lineageInputs,recipeId:selected_recipe.id,clock:calendarMinutes(current_game_time),world:expansionState.actors.player.worldId}) || (harvestQuality ? gradedKey(result_id,harvestQuality) : item_templates[result_id].getInventoryKey()), count: final_count}]);
+                    character.addToInventory([{item_key: madeKey(recipeMaterialOutput({resultId:result_id,count:final_count,quality:treatedRecipeQuality(harvestQuality,result_id,lineageInputs),allocations:lineageInputs,recipeId:selected_recipe.id,clock:calendarMinutes(current_game_time),world:expansionState.actors.player.worldId}) || (harvestQuality ? gradedKey(result_id,harvestQuality) : item_templates[result_id].getInventoryKey()),lineageInputs,{clock:expansionState.clock,freshStart:selected_recipe.fresh_start}), count: final_count}]);
                     observeFortAcquisition(result_id,final_count,"craft",selected_recipe.id,selected_recipe.name);
                     let msg = `Created ${item_templates[result_id].getName()}`;
                     if(attempted_crafting_ammount > 1 || scale_results) {
