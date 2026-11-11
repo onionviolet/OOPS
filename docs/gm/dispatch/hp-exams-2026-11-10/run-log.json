@@ -1,0 +1,26 @@
+{
+ "route": "fixture",
+ "errors": [],
+ "log": [
+  {
+   "step": "revision open",
+   "text": "\n\nThe exams begin on 17 June (71 days). Revise what you are least sure of.\n\nRevise Transfiguration · 90 min\n\n0 of 6 sessions so far.\n\nRevise Charms · 90 min\n\n0 of 6 sessions so far.\n\nRevise Herbology · 90 min\n\n0 of 6 sessions so far.\n\nRevise Potions · 90 min\n\n0 of 6 sessions so far.\n\nRevise Astronomy · 90 min\n\n0 of 6 sessions so far.\n\nRevise Defence Against the Dark Arts · 90 min\n\n0 of 6 sessions "
+  },
+  {
+   "step": "revised",
+   "text": "\n\nThe exams begin on 17 June (71 days). Revise what you are least sure of.\n\nRevise Transfiguration · 90 min\n\n0 of 6 sessions so far.\n\nRevise Charms · 90 min\n\n6 of 6 sessions so far. You know Charms as well as notes can teach you; what is left is practice or a teacher.\n\nRevise Herbology · 90 min\n\n0 of 6 sessions so far.\n\nRevise Potions · 90 min\n\n3 of 6 sessions so far.\n\nRevise Astronomy · 90 min\n\n0 of 6 sessions so far.\n\nRevise Defence Against the Dark Arts · 90 min\n\n0 of 6 sessions so far.\n\nRevise History of Magic · 90 min\n\n0 of 6 sessions so far.\n\nHome\n\nYou are away from the house.\n\nYour school dormitory\n\nshared school room · Comfort not assessed ·\n\nUpkeep and space\n\nThis home keeps no stru"
+  },
+  {
+   "step": "after reload",
+   "text": "\n\nThe exams begin on 17 June (71 days). Revise what you are least sure of.\n\nRevise Transfiguration · 90 min\n\n0 of 6 sessions so far.\n\nRevise Charms · 90 min\n\n6 of 6 sessions so far. You know Charms as well as notes can teach you; what is left is practice or a teacher.\n\nRevise Herbology · 90 min\n\n0 o"
+  },
+  {
+   "step": "papers sat",
+   "text": "\n\nAll papers sat. The marks go up on the board on the last day of term.\n\nRead your marks on the board · 10 min\n\nPinned on the board in the common room.\n\nThe marks go up on the board on the last day of term.\n\nHome\n\nYou are away from the house.\n\nYour school dormitory\n\nshared school room · Comfort not assessed ·\n\nUpkeep and space\n\nThis home keeps no structural wear of its own.\n\nStorage\nYour bed and t"
+  },
+  {
+   "step": "results",
+   "text": "\n\nYour marks are in.\n\nOverall: a pass.\n\nTransfiguration: a pass. The transformation mistress passed it, with a note to go over the steps more carefully.\nCharms: high marks. The charms master was pleased with the paper and says so.\nHerbology: good marks. The herbology witch marked it well and wrote that you follow the work.\nPotions: good marks. The potions master marked it well and wrote that you follow the work.\nAstronomy: a pass. The astronomy witch passed it, with a note to go over the steps more carefully.\nDefence Against the Dark Arts: good marks. The defence master marked it well and wrote that you follow the work.\nHistory of Magic: good marks. The history ghost marked it well and wrote that you follow the work.\n\nNext year starts from where this one left you.\n\nHome\n\nYou are away from the house.\n\nYour school dormitory\n\nshared school room · Comfort not assessed ·\n\nUpkeep and space\n\nThis home keeps no structural wear of its own.\n\nStorage\nYour bed and trunk are upstairs.\n\nWeather not recorded here.\n\nHousehold\n\nRon lives here with you.\n\nGo up to your dormitory"
+  }
+ ]
+}

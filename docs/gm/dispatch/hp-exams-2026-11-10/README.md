@@ -39,9 +39,14 @@ still passes (ordinary Hogwarts first-year; dial `passMark`/`aptitude`).
 - Papers are one sitting day (the book has a week); dial `EXAM_DAY`.
 
 ## Verification (one line per check)
-- `node --test tests/hp_exams.test.js` + hp_lessons, hp_school_calendar, hp_lead_life, hp_positions: 32 pass (model, 200-cohort slack, commands, save-shaped state).
-- `npm run build`, `npm run check:arch`, `npm run check:rules`: pass. Full `npm test`: 5884 tests, 5860 pass, 0 fail, 24 skipped.
-- Rebuilt headless browser play at 1920x1080 from a fresh origin through revision, papers, marks and save/reload: **not exercised** when this was committed.
-  The lead's route to the Easter holidays is about 40 s of wall time per act press in `scripts/headless/hp_lead_walk.mjs`, so the walk was still running;
-  `scripts/hp_exam_browser.cjs` is the Playwright half (it needs a save from the walk). Status: implemented, unit-verified, below the floor until that run is recorded here.
-- Route kind: unit fixture (native commands at set clock days); not a from-fresh-life MCP walk.
+- Focused: `node --test tests/hp_exams.test.js` plus hp_lessons, hp_school_calendar, hp_lead_life, hp_lead_making, hp_positions: pass (model, 200-cohort slack, commands, save-shaped state).
+- `npm run build`, `check:arch`, `check:rules`: pass. Full `npm test` after the last code change: 5868 tests, 5861 pass, 0 fail, 7 skipped.
+- Rebuilt headless Chrome at 1920x1080, fresh origin, `scripts/hp_exam_browser.cjs` (6 screenshots + `run-log.json` here): revise Charms x6 (capped, "6 of 6 sessions"), Potions x3,
+  save, reload (counts kept), exam day, seven papers in order (no band shown before marks), save, reload, last day of term, "Read your marks", results screen
+  (overall plus seven subject lines with remarks), save, reload (same overall). Zero page errors. Bundle built from this tree; the cast pack loaded (`private_packs` symlink).
+- **Route kind: fixture.** The headless engine runs about 40 s per game day in the lead life, so a walk to day 247 is hours. `scripts/headless/hp_exam_fixture.mjs`
+  (dev/test only, no new save field, nothing in the player UI) begins the lead life through the Beginning panel, marks the Arrival, Sorting and first week done, sets
+  at-school/Gryffindor/hall and moves the engine's clocks; the browser script moves the saved clock again to day 321 and 329. Not a from-fresh-life walk, so the story chain
+  (and the pack-seam items above) stays unexercised. `hp_lead_walk.mjs` is the real-route walker (slow; kept for later).
+- Found in the browser, not the unit tests: with the private cast loaded the lead's command list is rebuilt in `book_world_hp_lead_pack.js`, so the exam commands are added there too.
+- The exam section shows beside any story passage (it is a dated event of the year), not only between excursions.

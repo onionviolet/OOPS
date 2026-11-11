@@ -157,15 +157,15 @@ export function createHpLeadPanel({project,read,command,keepSlot,study,homeAct})
      nb.onclick=()=>{try{study.writeNote(r.id);notice='You wrote a note.';}catch(e){notice=e.message;}render();};row.append(nb);}
     s3.append(row);}
    section.append(s3);}
-  // Exams (hp_exam_model.js, book_world_hp_exams.js): the date, revision by subject before it, the papers on the day, the marks after.
+  // Exams (hp_exam_model.js, book_world_hp_exams.js): a dated event of the year, so it shows beside any story passage, not only between excursions. The date, revision by subject before it, the papers on the day, the marks after.
   const ex=v.exams;
-  if(ex&&v.school?.atSchool&&schoolExtras){const s6=node('section');s6.className='ui-panel-section';s6.dataset.hpExams=ex.phase;s6.append(node('h3','End-of-year exams'),node('p',ex.line));
-   const actionRow=(id,label,note)=>{const a=(campaign.actions||[]).find(x=>x.id===id);if(!a)return;
+  if(ex&&v.school?.atSchool){const s6=node('section');s6.className='ui-panel-section';s6.dataset.hpExams=ex.phase;s6.append(node('h3','End-of-year exams'),node('p',ex.line));
+   const actionRow=(id,label,note,quiet)=>{const a=(campaign.actions||[]).find(x=>x.id===id);if(!a)return;
     const row=node('div');row.dataset.panelRow='';const sh=shortActionLabel(label),b=node('button',sh.text);b.type='button';
     b.disabled=!a.eligible||!campaign.canWrite||!!v.jobs.find(j=>j.commandId===id);if(sh.chip)b.append(node('span',` · ${sh.chip}`));
     b.onclick=()=>{try{command({type:'action',id});notice='';}catch(e){notice=e.message;}render();};
-    row.append(b,node('p',a.eligible?note:(a.reasons||[]).join(' ')));return row;};
-   if(ex.phase==='revision')for(const r of ex.revision){const row=actionRow(r.commandId,`Revise ${r.label} · 90 min`,`${r.sessions} of ${ex.cap} sessions so far.`);
+    row.append(b,node('p',note));if(!a.eligible&&!quiet)row.append(node('p',(a.reasons||[]).join(' ')));return row;};
+   if(ex.phase==='revision')for(const r of ex.revision){const row=actionRow(r.commandId,`Revise ${r.label} · 90 min`,`${r.sessions} of ${ex.cap} sessions so far.${r.full?` You know ${r.label} as well as notes can teach you; what is left is practice or a teacher.`:''}`,r.full);
     if(row){row.dataset.hpRevise=r.id;s6.append(row);}}
    if(ex.phase==='exams'){const p=ex.nextPaper;
     if(p){const row=actionRow(p.commandId,`Sit the ${p.label} paper · 90 min`,'Marks are read on the last day of term.');if(row){row.dataset.hpPaper=p.id;s6.append(row);}}

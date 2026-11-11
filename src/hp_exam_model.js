@@ -27,7 +27,7 @@ export const EXAM_SUBJECTS = Object.freeze([
 export const SUBJECT_IDS = Object.freeze(EXAM_SUBJECTS.map(s => s.id));
 export const examSubject = id => EXAM_SUBJECTS.find(s => s.id === id);
 
-// Deterministic stream (no Math.random): the cohort is the world's, the same in every life.
+// Deterministic stream (seeded, no ambient randomness): the cohort is the world's, the same in every life.
 const hash = text => { let h = 2166136261; for(const c of text) { h ^= c.charCodeAt(0); h = Math.imul(h, 16777619); } return h >>> 0; };
 const stream = seed => { let a = seed >>> 0; return () => { a = (a + 0x6D2B79F5) >>> 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; };
 const gauss = next => Math.sqrt(-2 * Math.log(1 - next())) * Math.cos(2 * Math.PI * next());
