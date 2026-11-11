@@ -997,3 +997,9 @@ Recorded:
 > Address bottlenecks long term too, also consider abilities tied to gu, gu killer moves, which is moves made by using a combinatiobn of gus, other stuff and more?
 
 Recorded: [Gu abilities and killer moves](../GU_ABILITIES_AND_KILLER_MOVES_CONSIDERATIONS_2026-11-10.md) GKM1–GKM12 (palette, proposals), and long-term bottleneck fixes FRC69–FRC74 in the [coverage audit](../audits/FOUNDATIONAL_RULES_COVERAGE_2026-11-10.md) round 8. FRC72 (build outputs in git) waits for his answer.
+
+## Above-rank Gu, procedural moves and worlds with the same shape, 2026-11-10
+
+> Using gu above rank is possible? consider techniques of condensing higher rank essense and mroe? or other people giving you some? We should consider all possibilities, Other stuff to consider? procedural system for in world systems like gu killer moves? More to consider? We can build the rules around the worlds too, consider other worlds with similar considerations we would need to consider
+
+Recorded: round 2 of [Gu abilities and killer moves](../GU_ABILITIES_AND_KILLER_MOVES_CONSIDERATIONS_2026-11-10.md), GKM13–GKM26. Above-rank use is possible at a cost through stored, condensed, given, lent or burned essence; round 1's "cannot be driven" line is revised. A killer move generator over the same grammar; a cross-world composed abilities rulebook (CAB, proposed) built from Reverend Insanity, Mother of Learning, Lord of the Mysteries, Harry Potter, D&D and Jujutsu Kaisen.
