@@ -197,6 +197,18 @@ By default a new slice declares data through the seam named here and does not ad
 - Do not: add a second money or debt counter; do not copy `book_life_holdings.js` for a new lead (older LIVES-table version of the same registration).
 - Competing: holdings registration exists three times (book_life_holdings.js, hp_life_holdings.js, inline in book_world_hp_lead_domain.js), all through `registerOwnHoldings`. Debts have two homes: obligations_ledger rows (household, career, heirs) and economy_standing loans/claims, joined only at read time by owed_ledger_sources.
 
+## Exams against a cohort
+
+- Use this: `exam_cohort.js` `examModel(spec)` is the one pure model (no state, clock or save): mark = aptitude + weighted terms + an enumerated draw that preparation narrows, graded by rank against a seeded cohort plus a pass mark, overall verdict from band points. Two callers: `hp_exam_model.js` (Hogwarts, seven papers, class of 40) and `mol_exam_model.js` (Cyoria, three tests, class of 24, two loop terms). Shape from the Academagia packet; no number or band name copied.
+- Declare: a world spec (subjects with aptitude, anchors with optional per-subject `over` and loop `variants`, anon spread, `terms` with weight/cap/narrow, dials) and its paper commands (one outcome per band, weight = a fact holding that band's exact chance). `variant` changes only anchor ranges, never the draw count, so classmates who reset repeat their marks exactly.
+- Write: the paper's outcome sets the band as an actor fact. HP: `book.hp.lead.exam.band.<s>` (permanent). MOL: `book.mol.zorian.exam.band.<s>` resets with the run; soul-bound `book.mol.loop.exam.{last,rev,sat}.<s>` cross it (resources under `book.mol.loop.` are soul-bound in `harm_restart_scope.js`, the Zorian row only).
+- Read: `hpExamFacts`/`hpExamView` (`book_world_hp_exams.js`), `molExamFacts`/`molExamView`/`molExamSection` (`mol_zorian_exams.js`), model `bandChances`, `overallChances`, `anchorBands`, `cohortFor(run)`.
+- Copy: `src/world_packs/book_mol_exam_data.js` (windowKit act rows with outcomes, `group` overridden) and `src/mol_zorian_exams.js` (inputs read from the owners that already keep practice).
+- Test: `tests/hp_exams.test.js`, `tests/mol_exams.test.js` (HP digest regression, canon bands, 200-cohort slack, loop carry, saved job validation); browser `scripts/hp_exam_browser.cjs`, `scripts/playtest/mol-exams.mjs`.
+- Limits/traps: inputs must come from what the seat actually did; never add a stored score. A world whose save validator checks frozen job effects must allow the drawn outcome's effects (`book_world_mol_state.js` does since 2026-11-10). Weighted outcomes roll from `simulation.seed`, a shared ledger the scoped restart keeps live (not rewound), so a resit in the next run draws afresh.
+- Do not: copy `hp_exam_model.js` numbers into another world, or write a second grading function beside `examModel`.
+- Rules: GTR12, GTR14, GTR20, GTR21, GTR26; SPR9, SPR20-SPR22; STY33; SKR1, SKR21; AR3, AR18, AR19; WKR9.
+
 ## Regional staple prices
 
 - Use this: `regional_prices.js` is one pure quote function for a staple on a regional shelf: base value x place x season x a keyed local event x the shelf count, with a staple margin (default 1.3) on what you pay and a bid share (0.75) on what the keeper pays (XWR17, ECR3-ECR5, ECR9, ECR15). `trade.js` calls it for goods the stall lists in `STAPLES` (Village Dunstan and Slums Quill: Coal, Stale bread, Fresh bread); other goods keep the native margin and saturation.
