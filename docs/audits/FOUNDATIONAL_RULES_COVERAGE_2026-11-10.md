@@ -145,3 +145,16 @@ Weibao asked "Other systems we can take? send chats for each Do we need to consi
 | FRC66 | **Seams with one world caller (AR11).** Spoilage, regional prices, item knowledge, needs and offline replay have one world each; storyteller, exams and mood have second-world lanes running. | LATER: a second-world lane per seam once the current ones land; revise or delete a seam the second case fights |
 | FRC67 | **Merged slices were proven alone.** No combined play, no combined save, reload and import, no reachability or registry sweep across them (AR10, AR19, AR6, FRC60, FRC61). | ACT NOW: an integration lane: combined headless play through the merged systems at 1920×1080, one save, reload and import, an AR2 and AR19 check of each new module, AR13 change surfaces, and a regression for any cross-system defect in its owner |
 | FRC68 | **Many small new modules.** Each slice adds a pure reader; the area guide is the only map. | ACCOUNT FOR NOW: each slice adds its area guide row (already practice); the integration lane flags any reader with no caller |
+
+## Round 8, 2026-11-10: bottlenecks, long term
+
+Weibao asked to "Address bottlenecks long term too". Round 7's FRC63 handled the short term (focused tests in lanes, full suite per merge batch, about eight lanes). These are the structural fixes.
+
+| Code | Bottleneck | Fix | Disposition |
+| --- | --- | --- | --- |
+| FRC69 | **Every lane needs the full suite to trust a change.** | `npm run test:changed`: run the tests that import, directly or through the import graph, any file changed since the merge base; the full suite stays the merge gate | ACT NOW: tooling session |
+| FRC70 | **The full suite is about six minutes and growing.** | Profile per-file durations, speed up or split the slowest files, and keep a duration budget test so a new slow file shows up | ACT NOW: same tooling session |
+| FRC71 | **Merging is manual and serial through one chat.** | A merge-queue script that does the isolated procedure used today: `merge-tree` per branch, build and checks in a scratch worktree, one full suite, guarded `update-ref`, then primary-checkout sync with three-way `merge-file` for paths other sessions have dirty | ACT NOW: tooling session |
+| FRC72 | **Build outputs in git.** `dist/bundle.js`, its map and the version stamps in `index.html` change in every worktree and every merge. | Proposal: regenerate them only at merge time, or stop tracking them if nothing deploys from git. Changes what ships; Weibao decides | ASK |
+| FRC73 | **Shared docs as append points.** AREA_GUIDE and RULES_INDEX take a row from most slices. | Proposal: per-area files under one index, or a generated guide from per-module headers | LATER, sonnet, medium |
+| FRC74 | **Browser proof walks are slow.** Reaching exam day or day 3 takes minutes of headless play. | Dev-only fixtures per world (the HP exams lane built one) behind one loader, also offered to the game MCP | LATER, sonnet, medium, after the current lanes |

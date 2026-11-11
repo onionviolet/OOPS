@@ -975,3 +975,9 @@ Recorded:
   - the top bar is busy on day 1.
 - It adds flow defaults PX36–PX41: measured journeys, context that travels, returning after interruptions and reloads, announced mode changes, and a guide that grows with the player.
 - A frozen build was snapshotted into the installed desktop app for him to play (snapshot `v0.6-c4f997fe257e`, from commit `35ed6580b`).
+
+## Gu abilities and killer moves, 2026-11-10
+
+> Address bottlenecks long term too, also consider abilities tied to gu, gu killer moves, which is moves made by using a combinatiobn of gus, other stuff and more?
+
+Recorded: [Gu abilities and killer moves](../GU_ABILITIES_AND_KILLER_MOVES_CONSIDERATIONS_2026-11-10.md) GKM1–GKM12 (palette, proposals), and long-term bottleneck fixes FRC69–FRC74 in the [coverage audit](../audits/FOUNDATIONAL_RULES_COVERAGE_2026-11-10.md) round 8. FRC72 (build outputs in git) waits for his answer.
