@@ -4405,6 +4405,12 @@ function add_gear() {
         tags: {"food": true},
     });
 
+    // ITM8: what a spoiled perishable becomes (src/spoilage.js). Rot is a real thing in the pack, not a deletion (ITM3, ITM22).
+    item_templates["Spoiled food"] = new Material({
+        name: "Spoiled food", description: "Food that sat too long. Not for eating; farmers and tanners pay little for it",
+        value: 1, tags: {"compost": true},
+    });
+
     item_templates["Weak healing powder"] = new UsableItem({
         name: "Weak healing powder",
         description: "Not very potent, but can still make body heal noticeably faster for quite a while",
