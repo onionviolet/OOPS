@@ -49,10 +49,11 @@ function tickHarvest(minutes){
 
 // FRC56: the sheep's mood is its own thought rows (mood_thoughts); plans read it and return the rows a care act adds. Rows are
 // written before the commit so its save carries them; a failed commit can leave one keyed row behind (no remove port), harmless.
-const habitatRead=()=>{const c=ports.habitatContext();return {...c,mood:readMood(SHEEP_HOLDER,c.clock)};};
+// Thought rows run on the root clock (TMR1, expansionState.clock), shared with every other holder; the pen keeps its calendar clock.
+const habitatRead=()=>{const c=ports.habitatContext();return {...c,mood:readMood(SHEEP_HOLDER,ports.rootClock())};};
 function actHabitat(action){
-    const context=habitatRead(),plan=planHabitatAction(habitatOwner,action,context);
-    for(const t of plan.thoughts||[])addMoodThought(t,context.clock);
+    const context=habitatRead(),plan=planHabitatAction(habitatOwner,action,context),root=ports.rootClock();
+    for(const t of plan.thoughts||[])addMoodThought(t,root);
     ports.commitHabitatPlan(plan);
     if(plan.fleece)ports.logMessage(`Collected ${plan.fleece.amount} ${plan.fleece.grade} wool${plan.fleece.deluxe?' (a dense fleece)':''}.`,'notification');
 }

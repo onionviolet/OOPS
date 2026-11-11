@@ -35,7 +35,7 @@ registerLivelihoodSource('base.frontier', (state, ctx) => {
         const h = habitatFacts(ctx.habitat.owner, ctx.habitat.clock), s = h.state;
         rows.push({id: 'frontier.village.meadow_pen', kind: 'herd', label: 'Meadow pen',
             stage: !s?.animal ? 'set up' : 'running',
-            detail: !s?.animal ? 'no sheep yet' : h.ready ? `${HABITAT.yield} wool ready` : 'sheep in care',
+            detail: !s?.animal ? 'no sheep yet' : h.ready ? 'a fleece ready' : 'sheep in care',
             income: null, runBy: 'self',
             obligations: NONE(penAuthority.authority.known ? 'Your own pen; the village knows of it but asks nothing recurring.' : 'Your own pen; no authority knows of it, so no rent or tax.'), ...penAuthority});
     }

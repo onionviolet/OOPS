@@ -61,7 +61,7 @@ const act = async action => {
     await b.click(); await page.waitForTimeout(250);
 };
 const wool = async () => Object.entries(JSON.parse(await save()).inventories.person.main_character).filter(([k]) => JSON.parse(k).id === 'Wool').map(([k, v]) => [k, v.count]);
-async function life(name, {brush, cycles}) {
+async function life(name, {brush, cycles, wait}) {
     await open(null);
     let s = JSON.parse(await save());
     if (s.character.money < 30 + 2 * cycles) {
@@ -69,21 +69,22 @@ async function life(name, {brush, cycles}) {
         await open(JSON.stringify(s));
     } else report.route = 'fresh life, own purse';
     await pen(); await act('build'); await act('adopt');
-    const fleeces = [];
-    for(let i = 0; i < cycles; i++) {
+        for(let i = 0; i < cycles; i++) {
         await act('buy_feed'); await act('feed'); if(brush) await act('attend');
-        await tick(6); await pen(); await act('collect');
-        fleeces.push(await page.evaluate(() => [...document.querySelectorAll('#message_log div, .message_log div, #log_div div')].map(n => n.textContent).filter(t => /^Collected \d+ /.test(t)).at(0) || null));
+        await tick(wait); await pen(); await act('collect');
     }
     await act('buy_feed'); await act('feed'); if(brush) await act('attend'); await pen();
     await page.locator('#meadow_pen_panel').screenshot({path: join(OUT, `${name}-pen.png`)});
     await page.screenshot({path: join(OUT, `${name}-1920.png`)});
-    report.lives[name] = {brush, cycles, facts: await facts(), wool: await wool()};
+    // What a trader pays per lock: the inventory rows carry the native value (getValue) the sell screen uses.
+    const values = await page.evaluate(() => [...document.querySelectorAll('[data-character_item]')].filter(n => JSON.parse(n.dataset.character_item).id === 'Wool').map(n => ({key: n.dataset.character_item, value: Number(n.dataset.item_value)})));
+    report.lives[name] = {brush, cycles, wait, facts: await facts(), wool: await wool(), values};
     return report.lives[name];
 }
 try {
-    const neglected = await life('neglected', {brush: false, cycles: 4});
-    const kept = await life('kept', {brush: true, cycles: 4});
+    // Neglected: never brushed, and hay comes 40 played minutes after the last (three missed rations each time).
+    const neglected = await life('neglected', {brush: false, cycles: 4, wait: 40});
+    const kept = await life('kept', {brush: true, cycles: 4, wait: 6});
     report.differ = JSON.stringify(kept.wool) !== JSON.stringify(neglected.wool) && kept.facts.fleece !== neglected.facts.fleece;
     const midSave = await save();
     await open(midSave); await pen(); report.reload = {facts: await facts(), wool: await wool()};

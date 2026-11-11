@@ -84,3 +84,17 @@ test('older pen saves without a last-meal receipt still load, and bad receipts r
     assert.equal(readFleece({owner: p.owner}).quality, FLEECE.plain);
     assert.equal(p.inventory[hay], undefined);
 });
+
+test('the pen writes the sheep\'s rows on the root clock, so another holder\'s running thought survives a care act', async () => {
+    const {configureResourceDomains, setHabitatOwner} = await import('../src/native_resources_domain.js');
+    const {addMoodThought, readMood} = await import('../src/mood_thoughts_domain.js');
+    const {domainRegistry} = await import('../src/domain_registry.js');
+    let owner = null, money = 100, inventory = {}; const root = 4320, calendar = 6240; // root (TMR1) and calendar minutes differ, as in play
+    configureResourceDomains({clock: () => calendar, rootClock: () => root, logMessage: () => {},
+        habitatContext: () => ({owner, clock: calendar, money, inventory, location: H.location, world: H.world, ready: true}),
+        commitHabitatPlan: plan => { owner = plan.state; setHabitatOwner(owner); money = plan.money; for(const {key, amount} of plan.items) inventory[key] = (inventory[key] || 0) + amount; }});
+    addMoodThought({holder: 'other.person', subject: 'player', source: 'test', magnitude: 5, minutes: 600, line: 'Still pleased.', key: 'other:1'}, root);
+    for(const a of ['build', 'adopt', 'buy_feed', 'feed']) domainRegistry.command('meadow_pen', 'act')(a);
+    assert.equal(readMood('other.person', root + 1).total, 5);
+    assert.ok(readMood(SHEEP_HOLDER, root).rows.some(r => r.source === 'fed'));
+});
