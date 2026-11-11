@@ -1,0 +1,28 @@
+bundle sha256/16: 97240c4f82332802
+fixture: 400 coins, 3 Cooked potato, 6 Meadow hay, fresh origin
+hearth shelf: The hearth keeps the world's hours.2 Cooked potato stored, fresh, good for about 1 day
+meadow pen: Site: your sheltered meadow pen · capacity 1. Animal: your fleece sheep, housed here. | Welfare: Safe in suitable shelter with clean water. | Care: fed; needs attention. Carried hay: 5. | Harvest: 0/6 supported minutes. Collected batches: 0. Carried Wool: 0.
+pen need (projection): owner present
+village notes t0: Coal: cheap here. You pay 6, he pays 4. 19 on the shelf, far more than the usual 12; people will use it up slowly. The village is far from any coal, so it comes dear. A new seam has opened and the colliers are glad of bu
+S0 clock: 11
+A clock: 1521
+A larder: The hearth keeps the world's hours.2 Cooked potato stored, spoiled
+A pen: Site: your sheltered meadow pen · capacity 1. Animal: your fleece sheep, housed here. | Welfare: Safe in suitable shelter with clean water. | Care: needs hay; needs attention. Carried hay: 5. | Harvest: 0/6 supported minutes. Collected batches: 0. Carried Wool: 0.
+A village notes: Coal: cheap here. You pay 6, he pays 4. 19 on the shelf, far more than the usual 12; people will use it up slowly. The village is far from any coal, so it comes dear. A new seam has opened and the colliers are glad of bu
+B banked on return: 1500
+B first spend (button): Spent 60 banked minutes.
+B clock: 1521
+B larder: The hearth keeps the world's hours.2 Cooked potato stored, spoiled
+B pen: Site: your sheltered meadow pen · capacity 1. Animal: your fleece sheep, housed here. | Welfare: Safe in suitable shelter with clean water. | Care: needs hay; needs attention. Carried hay: 5. | Harvest: 0/6 supported minutes. Collected batches: 0. Carried Wool: 0.
+B village notes: Coal: cheap here. You pay 6, he pays 4. 19 on the shelf, far more than the usual 12; people will use it up slowly. The village is far from any coal, so it comes dear. A new seam has opened and the colliers are glad of bu
+TMR4 clock A vs B: 1521 vs 1521
+TMR4 differing save keys (A vs B, bank excluded): []
+TMR4 larder words equal: true
+TMR4 pen words equal: true
+TMR4 notes equal: true
+rot carried after take: 1
+sold rot: {"coins":1,"onShelf":1}
+slices present: placeClocks:present meadow_pen:present awayBank:present economyStanding:absent homes:present
+reload: differing slices: []
+import: differing slices: []
+page errors: {"A":[],"B":[],"import":[]}

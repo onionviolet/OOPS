@@ -1,0 +1,8 @@
+revise charms presses: 3
+exams panel:  The exams begin on 17 June (74 days). Revise what you are least sure of. Revise Transfiguration · 90 min 0 of 6 sessions so far. Revise Charms · 90 min 3 of 6 sessions so far. Revise Herbology · 90 min 0 of 6 sessions so far. Revise Potions · 90 min 0 of 6 sessions so far. Revise Astronomy · 90 min 0 of 6 sessions so far. Revise Defence Against the Dark Arts · 90 min 0 of 6 sessions so far. Revis
+hp exam facts: {"facts":{"book.hp.lead.in_custody":true,"hp.lead.atSchool":true,"hp.lead.house":"gryffindor"},"completed":{"book.hp.lead.revise_charms":3},"clock":356025}
+reload: hp state equal: true
+reload: exams panel equal: true
+import: hp state equal: true
+import: exams panel equal: true
+page errors: []

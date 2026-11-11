@@ -1,0 +1,30 @@
+bundle sha256/16: d2cf12826289511d
+world: book.lotm.tingen
+clock at fixture: 28211
+application button ready: true
+Dunn rows before: []
+Dunn rows after hand-in: [{"holder":"lotm.person.cast-618f4df49af02c7da45e","subject":"player","source":"lotm.expense.lapsed","magnitude":-8,"at":28211,"until":35411,"line":"a week went by with no application from you","key":"expense.lapsed.w2"}]
+S0 clock: 28212
+feed at S0 (last 4): ["Someone has left yesterday's paper on the bench, folded open at the shipping notices and a long column of arrivals. [why: Nothing else competed for your attention.]","A ferry horn sounds from the river, low and long, and somewhere a dog answers it. [why: Nothing else competed for your attention.]","Fog off the river thickens with coal smoke. The gas lamps become soft yellow smudges and every footstep seems to come from somewhere else. [why: Nothing else competed for your attention.]","Your landlady stops you on the stair: this week's rent is due."]
+A clock: 28932
+A Dunn rows: [{"holder":"lotm.person.cast-618f4df49af02c7da45e","subject":"player","source":"lotm.expense.lapsed","magnitude":-8,"at":28211,"until":35411,"line":"a week went by with no application from you","key":"expense.lapsed.w2"}]
+screenshot skipped: page.screenshot: Timeout 8000ms exceeded.
+B banked on return: 10080
+B spend stops (waiting choices): []
+B clock: 28932
+B Dunn rows: [{"holder":"lotm.person.cast-618f4df49af02c7da45e","subject":"player","source":"lotm.expense.lapsed","magnitude":-8,"at":28211,"until":35411,"line":"a week went by with no application from you","key":"expense.lapsed.w2"}]
+TMR4 differing save keys (A vs B, bank excluded): ["locations","availabilities"]
+  locations paths: []
+  availabilities paths: []
+TMR4 Events rows equal: true
+feed after N (last 6): ["A cab goes by too fast for the fog. You hear the horse and the wheels long before the lamps show you anything. [why: Nothing else competed for your attention.]","Someone has left yesterday's paper on the bench, folded open at the shipping notices and a long column of arrivals. [why: Nothing else competed for your attention.]","A ferry horn sounds from the river, low and long, and somewhere a dog answers it. [why: Nothing else competed for your attention.]","Your landlady stops you on the stair: this week's rent is due."]
+mood slice present: true
+reload: clock before/after: [28932,28932]
+reload: differing save keys: []
+reload: Events rows equal: true
+import: clock: 28932
+import: differing save keys: ["last_rewarded_export","locations","availabilities","active_effects"]
+import: Dunn rows equal: true
+import: Events rows equal: true
+page errors: fixture 11 console 'No such element with availability as item -> book.hp.lead.*' (old checkpoint); A, B, import none
+import-only recheck (sorted keys): clock 28932 both; only last_rewarded_export and the export reward effect differ
