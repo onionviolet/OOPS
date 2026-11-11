@@ -1,0 +1,175 @@
+{
+ "bundleHash": "6aeab5708973",
+ "viewport": "1920x1080",
+ "steps": [
+  {
+   "step": "A0 pre-fight, no watch block",
+   "watch": null
+  },
+  {
+   "step": "A1 after the fight, case open",
+   "watch": {
+    "text": "The watch The constables who fought you at your door know your face, and you look as they remember. The magistrate would fine you 90 pence. Talk to him Pay the fine · 90 pence You hold 1 pence, short of the fine. Show your papers You hold no papers he would read. Walk away",
+    "buttons": [
+     {
+      "id": "law_talk",
+      "label": "Talk to him",
+      "disabled": false
+     },
+     {
+      "id": "law_pay",
+      "label": "Pay the fine · 90 pence",
+      "disabled": true
+     },
+     {
+      "id": "law_papers",
+      "label": "Show your papers",
+      "disabled": true
+     },
+     {
+      "id": "law_flee",
+      "label": "Walk away",
+      "disabled": false
+     }
+    ]
+   }
+  },
+  {
+   "step": "A2 saved slice",
+   "slice": null
+  },
+  {
+   "step": "B0 seeded remembered look swaps",
+   "swapped": 2
+  },
+  {
+   "step": "B changed outfit: watch block",
+   "watch": null
+  },
+  {
+   "step": "C0 case survives import",
+   "watch": {
+    "text": "The watch The constables who fought you at your door know your face, and you look as they remember. The magistrate would fine you 90 pence. Talk to him Pay the fine · 90 pence You hold 1 pence, short of the fine. Show your papers You hold no papers he would read. Walk away",
+    "buttons": [
+     {
+      "id": "law_talk",
+      "label": "Talk to him",
+      "disabled": false
+     },
+     {
+      "id": "law_pay",
+      "label": "Pay the fine · 90 pence",
+      "disabled": true
+     },
+     {
+      "id": "law_papers",
+      "label": "Show your papers",
+      "disabled": true
+     },
+     {
+      "id": "law_flee",
+      "label": "Walk away",
+      "disabled": false
+     }
+    ]
+   }
+  },
+  {
+   "step": "C1 after Talk",
+   "watch": {
+    "text": "The watch The constables listen, grumble, and let you off with a warning. The police still have your name.",
+    "buttons": []
+   }
+  },
+  {
+   "step": "C2 slice after Talk",
+   "slice": {
+    "family": "lotm_law@1",
+    "closed": [
+     {
+      "id": "case:tempo-sight:tempo:3",
+      "how": "talked",
+      "at": 727,
+      "line": "The constables listen, grumble, and let you off with a warning. The police still have your name."
+     }
+    ]
+   }
+  },
+  {
+   "step": "C3 after save + reload",
+   "watch": {
+    "text": "The watch The constables listen, grumble, and let you off with a warning. The police still have your name.",
+    "buttons": []
+   },
+   "slice": {
+    "family": "lotm_law@1",
+    "closed": [
+     {
+      "id": "case:tempo-sight:tempo:3",
+      "how": "talked",
+      "at": 727,
+      "line": "The constables listen, grumble, and let you off with a warning. The police still have your name."
+     }
+    ]
+   }
+  },
+  {
+   "step": "C4 after export + import",
+   "watch": {
+    "text": "The watch The constables listen, grumble, and let you off with a warning. The police still have your name.",
+    "buttons": []
+   },
+   "slice": {
+    "family": "lotm_law@1",
+    "closed": [
+     {
+      "id": "case:tempo-sight:tempo:3",
+      "how": "talked",
+      "at": 727,
+      "line": "The constables listen, grumble, and let you off with a warning. The police still have your name."
+     }
+    ]
+   }
+  },
+  {
+   "step": "D1 after Walk away",
+   "watch": {
+    "text": "The watch You walk away. The constables saw you go, and the police know it.",
+    "buttons": []
+   }
+  },
+  {
+   "step": "D2 slice after Walk away",
+   "slice": {
+    "family": "lotm_law@1",
+    "closed": [
+     {
+      "id": "case:tempo-sight:tempo:3",
+      "how": "fled",
+      "at": 727,
+      "line": "You walk away. The constables saw you go, and the police know it."
+     }
+    ]
+   }
+  },
+  {
+   "step": "D3 after save + reload",
+   "watch": {
+    "text": "The watch You walk away. The constables saw you go, and the police know it.",
+    "buttons": []
+   },
+   "slice": {
+    "family": "lotm_law@1",
+    "closed": [
+     {
+      "id": "case:tempo-sight:tempo:3",
+      "how": "fled",
+      "at": 727,
+      "line": "You walk away. The constables saw you go, and the police know it."
+     }
+    ]
+   }
+  }
+ ],
+ "errors": []
+}

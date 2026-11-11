@@ -241,12 +241,12 @@ By default a new slice declares data through the seam named here and does not ad
 - Write: none in these leaves (pure). Each world adapter stores balances and grants in its own save and turns store rows into commands (`meritCommands`).
 - Read: `offerFor`, `storeView`, `auditLedger`, `accessStatus`, `rankOf`, `rankFacts`, `rankAllows`, `rankRows`, `rankChange`, `promotionText`, `quoteStandingLesson`, `caseFor`, `detect`, `jurisdictionChain`, `responsesFor`; base: `rulingFor`, `defineStatutes` in `jurisdiction_rules.js`.
 - State: institution numbers live in the world adapter (LOTM keeps a resource pair via `meritRes`); rank has no store (derived from `character.reputation`); law is read-only, a caller passes who actually saw what.
-- Copy: `src/book_world_lotm_merit.js` (`NIGHTHAWKS` via `defineInstitution`, `meritView`, `meritAssertions`); access: `src/book_world_mol_access.js` `accessView`; also `src/book_world_primordial_credit.js` `INSTITUTION`. Rank and law: no lead-world caller.
+- Copy: `src/book_world_lotm_merit.js` (`NIGHTHAWKS` via `defineInstitution`, `meritView`, `meritAssertions`); access: `src/book_world_mol_access.js` `accessView`; also `src/book_world_primordial_credit.js` `INSTITUTION`. Law: `src/book_world_lotm_law.js` (first `law_case.js` caller, witness reader via `witnessesFor`, `observed_look.js`); rank: no lead-world caller.
 - Test: tests/institution_store.test.js, institution_access.test.js, institutions_records.test.js, faction_rank.test.js, law_case.test.js.
 - Rules: AR3, AR12, CX2 (law reuses jurisdiction_rules), MR2 (no chance drawn in law), GTR11 (admission vs continuing support), WPR5, DWF154/DWF155/DWF162, AD30, AD38; STN1–STN22, AGT11, AGT16 (2026-11-10 rulebooks, `node scripts/rule_routes.mjs --for <path>`).
-- Limits/traps: `law_case.js` has no src importer (only `world_society_sheet.js` names it in text, plus its test), so it is proposal-only and unregistered; `institution_access.js` has one importer (MOL); `defineInstitution` rows are labelled proposals unless they carry a source locator; `faction_rank` ladders are per region of the original game and `rankFacts` is read in `main.js` for original-game facts; rank and institution currency are separate facts (no merging).
+- Limits/traps: `law_case.js` has one importer, `book_world_lotm_law.js` (an authored Tingen statute; slice `lotm_law@1` stores closures only, open cases derive from the constables' notes); `institution_access.js` has one importer (MOL); `defineInstitution` rows are labelled proposals unless they carry a source locator; `faction_rank` ladders are per region of the original game and `rankFacts` is read in `main.js` for original-game facts; rank and institution currency are separate facts (no merging).
 - Do not: `faction_rank.js` for a book-world rank (it reads `character.reputation` regions); a second ruling table beside `jurisdiction_rules.js`.
-- Competing: partial. Institutions are per world adapters over one leaf; rank/law have no lead-world consumer yet.
+- Competing: partial. Institutions are per world adapters over one leaf; rank has no lead-world consumer yet; law has one (LOTM Tingen).
 
 ## Situations, story cards and requests
 
@@ -322,7 +322,7 @@ By default a new slice declares data through the seam named here and does not ad
 - Who authors the `schedule` row that `npc_schedule.js` reads in `simulation.js`; no lead-world caller was found.
 - Whether any lead world feeds `invention_planner.js` (importers found: `invention_qa.js` and tests).
 - Which rule codes govern the care procedures (`status_care_*`, `field_care_*`, `book_care_*`) beyond the general ones listed.
-- A lead-world caller for `faction_rank.js` and `law_case.js` (none found; `law_case.js` has no `src/` importer).
+- A lead-world caller for `faction_rank.js` (none found). `law_case.js` has one caller (LOTM Tingen); a second world's law book is open.
 - A shared hook list for world-host consumers (AR18 describes it; none exists in the tree yet).
 - A checked-in list of top-level save keys (SAVES.md gap G6); enumerate with `domainRegistry.list()`.
 - Focused tests for `panel_kit.js`, `ui_ports.js` and `travel_legs.js` (travel is covered through route and district tests).
