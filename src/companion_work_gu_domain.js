@@ -28,7 +28,9 @@ export function guOpinionRows(state) {
         const w = s.checks[id(`care.${g.slot}.a_reset`)]?.count ?? 0, order = facts(state, 'player')[orderFactFor(id, g.slot)];
         const add = (r, tag) => out.push({...r, holder: gu, subject: 'player', key: `${gu}.${tag}.w${w}`});
         if(f[id(g.slot + '_kept.fed')]) add(GU_OPINION.fed, 'fed');
-        if(f[id(g.slot + '_resents')]) add(GU_OPINION.pushed, 'pushed');
+        // A push is one act, not a state: key it by how many times you have worked it hungry, so a push left unfed for three
+        // windows is still one memory (the Qud reapply cooldown for this cause). Fed and worked are new acts each window.
+        if(f[id(g.slot + '_resents')]) { const pushes = state.actors?.player?.completed?.[id(`work_${g.slot}_weak_bound`)] || 0; out.push({...GU_OPINION.pushed, holder: gu, subject: 'player', key: `${gu}.pushed.n${pushes}`}); }
         else if(f[id(g.slot + '_kept.worked')] && order && order !== 'none') add(GU_OPINION.worked, 'order');
     }
     return out;

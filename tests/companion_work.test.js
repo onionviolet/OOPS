@@ -114,6 +114,23 @@ test('pushed hungry, a bound Gu cools on you and its order stops until fed; a he
     assert.equal(guOpinionRows(h.p.state).length, 0, 'an unrefined Gu is held: no mind, no opinion');
 });
 
+test('one push is one memory however long it goes unfed; once fed the cool Gu works its order one petal short (CPR18 cool band)', () => {
+    resetThoughts();
+    const f = refined(); f.p.gameplay.player.inventory[key('petals')] = 40; f.start('order.moon_tend.on');
+    f.p.state.simulation.owners[id('moon')] = {};
+    f.p.state.simulation.people[id('moon')].vitals.health = 2;
+    f.start('work_moon_weak_bound');
+    for(let i = 0; i < 3; i++) { stage(f); f.step(DAY); stage(f); }
+    const pushed = readKeeperOpinion(id('moon'), 'player', f.p.state.clock).rows.filter(r => r.line === GU_OPINION.pushed.line);
+    assert.equal(pushed.length, 1, 'one push, one row');
+    f.start('feed_moon'); assert.equal(row(f, 'moon').resents, false);
+    f.p.state.simulation.people[id('moon')].vitals.health = 4;
+    assert.equal(readKeeperOpinion(id('moon'), 'player', f.p.state.clock).band, 'cool');
+    const before = larder(f, 'moon', 'petals'); f.step(DAY);
+    assert.equal(larder(f, 'moon', 'petals'), before - 3 + 1, 'refined meal 3, cool tend 1');
+    assert.match(f.p.state.simulation.knowledge.player[id('work')].value, /grudgingly/);
+});
+
 test('every Gu has one order and its events sort after its care rows at the shared boundary', () => {
     const f = setup();
     for(const g of KEEPER_GU) {
