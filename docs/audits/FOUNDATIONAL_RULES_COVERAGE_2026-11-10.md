@@ -106,3 +106,29 @@ No documented source found for: one sanity meter (Cultist Simulator and Book of 
 | FRC48 | Read the Cultist Simulator and Book of Hours captures for dread, fascination and other mind meters (MND, RCL5) | Haiku, small | DONE 2026-11-10: [mind meters digest](../research/cultist-simulator/MIND_METERS_DIGEST.md) (from committed notes; private snapshots missing from disk) |
 | FRC49 | Read Stardew and Rune Factory 5 NPC schedule data for the midnight rule (RCL7) | Haiku, small, can ride on the pet digest session's captures | DONE 2026-11-10: [NPC schedules digest](../research/stardew-valley/NPC_SCHEDULES_DIGEST.md) (Stardew rule shown; RF5 midnight not established) |
 | FRC50 | Fold FRC38 into STY10 and FRC39 into MND5 as dated "bank shape" notes when a slice picks them up | Sonnet, small, at slice time | The rule rows cite the bank digest |
+
+## Round 6, 2026-11-10: the third build wave and what merging teaches
+
+Weibao asked "Other systems we can take? send chats for each? More aspects to consider?" while the first four build branches (needs seam, spoilage, regional prices, mood) were merging. Systems below are the bank shapes with a caller and no owner yet; aspects come from integrating thirteen parallel branches.
+
+### Systems, third wave
+
+| Code | System | Bank shape | First caller | Disposition |
+| --- | --- | --- | --- | --- |
+| FRC51 | **Mind meters as dated entries** (MND, RCL5 carrier) | Cultist Simulator dread and fascination ([digest](../research/cultist-simulator/MIND_METERS_DIGEST.md)): meters are cards with a lifetime; a third mark opens an ending route with a last window to abate it; contentment cancels one mark | LOTM: Klein's strain from what he sees, read beside the mood rows and feeding the one loss carrier | ACT NOW: session, after the mood merge |
+| FRC52 | **Rest and healing by body** (FRC44 second consumer, BHR) | Kenshi B4 per-body heal and strength; RimWorld rest need on the same interval shape as food | A second need kind on `needs.js` and the body `heal` multiplier read by recovery; a construct never tires | ACT NOW: session, after the needs merge |
+| FRC53 | **Warning-first rule lints** (FRC27) | None; local tooling | `check:rules` warns on a new clock counter outside `world_day_index.js` (TMR1), a reader branching on a preset id (WKR1), a new story window not importing `windowKit` (STY17) | ACT NOW: session |
+| FRC54 | **Who knows what an item is** (KNW, gap the bank does not cover) | Caves of Qud names the Examiner path only; original design otherwise | An unknown find is named by what this character has learned; another character sees it differently | ACT NOW: session, original design labelled |
+| FRC55 | **Companion work orders and opinion** (CPR15, CPR18) | Rune Factory 5 helper work orders; Qud follower opinion kept apart from allegiance | A kept creature does daily work at a place and its opinion outlasts leaving | LATER: after the pet record merges (it owns the being record) |
+| FRC56 | **Produce from care** (CPR23) | Stardew deluxe produce from friendship and mood | Sheep fleece quality reads care and mood | LATER: after the pet record and mood both merge |
+| FRC57 | **One equipment read** (RCL10) | Consolidation | Native, simulation and structured equipment adapt to one stat read | LATER: after this wave's checkpoint (RCL3) |
+
+### Aspects from merging
+
+| Code | Aspect | Disposition |
+| --- | --- | --- |
+| FRC58 | **Master's `check:rules` is red from outside.** STORY_RULES (commit 28161dd05) links the fate handoff, which sits untracked in the primary checkout, so every lane's floor fails on the same link. | ACT NOW: commit that handoff or drop the link; its owner or Weibao decides |
+| FRC59 | **Shared docs are the merge hot spot.** Every slice adds an AREA_GUIDE row, and mood and the pet record both touch `person_ties.js`. | ACCOUNT FOR NOW: merge each branch as it reaches the floor; new sessions branch from master after the merge; dependent slices name the branch they wait on |
+| FRC60 | **Separately built systems now meet.** Spoilage, needs, regional stock and mood each passed alone; whether rotten food still feeds, whether shelf stock spoils and whether hunger moves mood is untested together. | ACCOUNT FOR NOW: one combined headless play after each merge batch; a cross-system defect becomes a regression in the owning module |
+| FRC61 | **Save shape across merged slices.** Several slices add saved state; each passed save, reload and import alone. | ACCOUNT FOR NOW: the merge batch runs one combined save, reload and import (AD43 line six) |
+| FRC62 | **The blind playtest pilot fits now.** With several systems landed, a no-knowledge agent through the game MCP is the cheapest cross-system check. | Offer stands; Weibao picks LOTM or HP |
