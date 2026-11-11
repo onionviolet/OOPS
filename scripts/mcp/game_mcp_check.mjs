@@ -162,6 +162,18 @@ async function seededScenarios(c) {
     assert.match(v.screen, /sent two constables/, 'door fight quote reads the police decision');
     await c.tool('game_close', {sessionId: 'wanted'});
 }
+// DEV world fixtures (scripts/headless/world_fixtures.mjs): every one is named in game_new's scenario help, and one boots to its state.
+async function worldFixtures(c) {
+    const {WORLD_FIXTURES} = await import('../headless/world_fixtures.mjs');
+    const help = (await c.rpc('tools/list')).result.tools.find(t => t.name === 'game_new').inputSchema.properties.scenario.description;
+    for(const name of Object.keys(WORLD_FIXTURES)) assert.ok(help.includes(name), `game_new scenario help names ${name}`);
+    await c.tool('game_new', {scenario: 'household-cat', seed: 1, sessionId: 'fixture'});
+    await c.tool('game_click', {panel: 'homes', sessionId: 'fixture'});
+    await c.tool('game_click', {text: 'Hearth and companion', sessionId: 'fixture'}); // Moss shows inside it, as a player opens it
+    const v = await c.tool('game_look', {scope: '#home_panel', sessionId: 'fixture'});
+    assert.match(v.screen, /Moss/, 'the household-cat fixture shows Moss in Homes');
+    await c.tool('game_close', {sessionId: 'fixture'});
+}
 async function typing(c) {
     // game_click({index, value}) types into a listed text field: the inventory filter narrows the list to bread.
     const v = await c.tool('game_new', {seed: 4, sessionId: 'typing'});
@@ -353,6 +365,9 @@ try {
         console.log(JSON.stringify({slice: 'faster-time', result: 'PASS'}));
     } else if(process.argv.includes('--freeze-only')) {
         await frozenAndNative(c);
+    } else if(process.argv.includes('--fixtures-only')) {
+        await worldFixtures(c);
+        console.log(JSON.stringify({slice: 'world-fixtures', result: 'PASS'}));
     } else if(process.argv.includes('--typing-only')) {
         await typing(c);
         console.log(JSON.stringify({slice: 'typing', result: 'PASS'}));
@@ -462,6 +477,7 @@ try {
     await fasterTime(c);
     await loopReload(c);
     await seededScenarios(c);
+    await worldFixtures(c);
     await worktreeCheckout(c);
     console.log(JSON.stringify({result: 'PASS', hash: a.hash, tools: list.length}));
     }

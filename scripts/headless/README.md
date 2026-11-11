@@ -78,3 +78,7 @@ Tests: `node --test tests/headless/*.test.js` (set `YAIRPG_HEADLESS_DAY=1` for t
 - `scenarios.mjs`: `list`, `build <name> --out f`, `determinism <name> [--days 1]` (boot twice, same seed, compare).
   Names: fresh, fresh-day3, fresh-week, perf-fresh, perf-mid, perf-crowded. Recipes cache in the OS temp folder.
 - Game MCP: `game_step({days})`, `game_step({until:"event"})`, `game_new({scenario})`.
+- `world_fixtures.mjs` (DEV, FRC74): named world states (LOTM Tingen day 3, HP exam week, Gu keeper fed plus second Gu, MOL loop 2,
+  Frontier hunt ready, household cat) built by play or COMPOSED on a begun life, cached only after a reload proves them; listed by
+  `scenarios.mjs list`. Browser route: `node scripts/fixture_browser.cjs <name|all>`. Test: `node --test tests/headless/world_fixtures.test.js`.
+  How lanes use them: [AD36 item 11](../../docs/RULES_INDEX.md#efficient-rule-verification-ad36).

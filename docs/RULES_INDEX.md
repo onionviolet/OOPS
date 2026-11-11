@@ -393,6 +393,28 @@ task record and checks. No separate checklist file or universal compliance score
    migration or compatibility decision). Reason: in the week to 2026-11-07 those
    shared docs each changed in about thirty commits. Stand-in until a generator
    exists: one SAVES.md line per new or changed save key, nothing else.
+11. **Start browser proof from a world fixture (FRC74, 2026-11-10).** Default: a
+   lane whose feature sits days or months into a life boots a named DEV fixture
+   from `scripts/headless/world_fixtures.mjs` instead of walking there (LOTM
+   Tingen day 3, HP exam week, a Gu keeper with a fed and a second Gu, MOL loop 2,
+   Frontier hunt ready, the household cat). Routes: `npm run build && node
+   scripts/fixture_browser.cjs <name>` (headless Chrome 1920x1080, fresh origin;
+   lane scripts import its `openFixture(page, {base, name})`), `node
+   scripts/headless/scenarios.mjs build <name> --out f.json`, or `game_new
+   {scenario: "<name>"}`. Each fixture is built by play, or COMPOSED on a begun
+   life through the save path when the walk is hours (its summary says which and
+   what was set), and is cached only after it loads through the real load path,
+   passes the runner invariants and proves its state. A cold build takes up to a
+   few minutes under load, past the game MCP's 300 s call limit for the slow
+   ones, so warm it with `scenarios.mjs build` first; later code reuses the last
+   build while it still loads and proves (`YAIRPG_FIXTURE_REBUILD=1` forces a
+   rebuild). The fixture is setup only: the lane still plays the changed
+   behaviour from it and still runs save, reload and import from a fresh origin
+   (FLR5). It never stands in for the floor's fresh-origin line when the feature
+   is the start of a life (a start, an arrival, an enrollment). The task record
+   names the fixture (FLR2's named fixture) and says COMPOSED when it is. Dial: add a named fixture when a
+   second lane would walk to the same state. Reason: on 2026-11-10 lanes spent
+   most of their wall time walking fresh lives to exam day or day 3 at load 30.
 
 | Change or boundary | Focused route | Scope / additional evidence |
 |---|---|---|

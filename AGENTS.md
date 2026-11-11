@@ -165,7 +165,11 @@ Before calling gameplay done: rebuild, then exercise the changed
 behavior in a browser from a fresh test origin. When persistence changes, also
 save, reload and import. Label anything not exercised as implemented-unverified
 and add it to that wave's acceptance backlog. Do not claim a change works
-based on the prebuilt bundle.
+based on the prebuilt bundle. To reach a state days into a life, boot a DEV world
+fixture (`node scripts/fixture_browser.cjs <name>`, or `game_new {scenario}`) for
+the setup only, then play the change and run save, reload and import from a fresh
+origin; never for a feature that is the start of a life
+([AD36 item 11](docs/RULES_INDEX.md#efficient-rule-verification-ad36)).
 
 ## Safety
 
