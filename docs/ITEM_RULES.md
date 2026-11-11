@@ -85,6 +85,6 @@ Owners and neighbours (linked, not restated): Rulebook 5; MR1, MR3, MR5, MR30–
 - Identity is opt-in through the global durability switch; five key shapes exist (ITM1, ITM2).
 - Three equipment owners (native, simulation, structured) coexist (ITM9).
 - Artifact, amulet and ring stats do not scale with quality; durability does not wrap all stats; tools ignore quality (ITM9, ITM13; census I3, I8, MT1).
-- No generic spoilage owner; freshness lives in `owned_place_clock.js` and the Gu opening lot (ITM8).
+- One spoilage owner, `src/spoilage.js` (ITM8, FRC42): per-portion perishables (the stilled hearth shelf in `owned_place_clock.js`) and shared-lot perishables (the Gu opening petal lot, whose five-day life `book_gu_life.js` reads from it). No cool-cellar storage yet; `readSpoilage` already takes a rate.
 - No owner field for theft or loans; one lantern loan is hard-coded (ITM4, TQ76).
 - Texts have no document owner (ITM17).

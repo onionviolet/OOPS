@@ -1,6 +1,7 @@
 // Story director (STY10, STY11, STY30): pacing over already-caused candidates, keyed, rechecked, receipts, no saved state.
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
 import {directWindow, runDirector, validateDirector, quietWeight, whyLine} from '../src/story_director.js';
 import {tingenDirected, tingenDraws, TINGEN_DIRECTOR, slotFacts} from '../src/book_world_lotm_deck.js';
 import {eventFeed} from '../src/event_feed.js';
@@ -65,4 +66,19 @@ test('Tingen: the director only surfaces cards the deck drew, heat shifts the mi
     assert.equal(JSON.stringify(s), before);
     assert.ok(news.some(n => n.id.startsWith('tingen:deck') && n.why));
     assert.equal(TINGEN_DIRECTOR.id, 'tingen.director');
+});
+test('kind and per-category cooldown: repeated occurrences of one kind sit out together, other categories keep their own', () => {
+    const sp = validateDirector({...spec, id: 'kc', quiet: 0, cooldown: 0, categories: {texture: {weight: 1, hold: 0, cooldown: 3}, pressure: {weight: 1, hold: 0}}});
+    const run = runDirector(sp, 5, 40, w => [{id: `m${w}`, kind: 'meal', category: 'texture', weight: 1}], () => ({tension: 0}), 'kc');
+    const at = run.filter(o => o.surfaced).map(o => o.window);
+    assert.ok(at.length > 3);
+    for(let i = 1; i < at.length; i++) assert.ok(at[i] - at[i - 1] >= 3);
+    assert.throws(() => validateDirector({...sp, categories: {texture: {weight: 1, hold: 0, cooldown: -1}}}));
+});
+test('Tingen paces the same after the second-world words change (golden captured before it, 2026-11-10)', () => {
+    const s = tingen(7, 60), hot = {heat: () => ({heat: [{level: 3}]}), positions: () => []};
+    const rows = r => r.map(o => o.surfaced ? `${o.window}:${o.surfaced.id}@${o.surfaced.born}/${o.surfaced.category}|${whyLine(o.receipt)}` : `${o.window}:-`).join('\n');
+    const out = rows(tingenDirected(s, none)) + '\n#\n' + rows(tingenDirected(s, hot));
+    assert.equal(createHash('sha256').update(out).digest('hex').slice(0, 16), 'e5f4dc98f4189502');
+    assert.equal(whyLine({surfaced: 'a', tension: 0, comfort: 0, late: true}, {calm: 'Calm.', late: 'Late.'}), 'Calm. Late.');
 });

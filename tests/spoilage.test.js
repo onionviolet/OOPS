@@ -42,3 +42,8 @@ test('a stack on the shelf: the older portion is taken first',()=>{
     c.clock=DAY+100; // first portion past a day, second not
     const out=run({type:'take',place:'cottage',key:potato});assert.equal(out.spoiled,true,'oldest first');
 });
+test('FRC42: the Gu opening petal lot is a shared-lot perishable read by the same owner, kept as itself',()=>{
+    const petals=JSON.stringify({id:'book.ri.academy.petals'});
+    assert.equal(lifeOf(petals),5*DAY);assert.equal(resultOf(petals),null);assert.equal(isPerishable(petals),true);
+    assert.equal(readSpoilage(petals,5*DAY+1).state,'spoiled');assert.equal(wordsFor(readSpoilage(petals,DAY)),'fresh, good for about 4 days');
+});
