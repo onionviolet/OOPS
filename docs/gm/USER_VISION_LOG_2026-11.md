@@ -1055,3 +1055,11 @@ Weibao (on the talk preamble, the herb answer and the Local life panel):
 > we can probably remove this, should the second one be prose instead? does that part leak too much?
 
 Recorded: [player experience round 5](../audits/PLAYER_EXPERIENCE_CORE_AUDIT.md#round-5-2026-11-10-hints-not-manuals). The talk preamble is gone, the herb answer is Old Hesk's own hint, and Local life reads as the narrator with exact odds on hover. PRS9 extended: hints leave something to find, exact numbers sit one step away until earned (UR151), and a view needs no preamble.
+
+## Faster tests, now and long term, 2026-11-11
+
+> Que, consider optizing the tests to be faster?
+>
+> adjust accordingly, and long term
+
+"Que" queued PX78 (life-end to legacy loop). On tests: the faster-tests lane (FRC69, FRC70) makes speed standing practice, not a one-off pass: test-writing defaults in AD36 and the AGENTS verification paragraph (shared life-start builders, no real waits, a slow tier for play-length tests, a per-file budget), a duration budget check whose baseline shrinks as files get faster, `test:changed` as the lane default with the full suite as the merge gate, and a re-profile trigger as the suite grows.
