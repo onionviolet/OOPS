@@ -143,3 +143,15 @@ test('inputs are not modified and results are deterministic', () => {
     assert.equal(state.day, 0);
     assert.deepEqual(state.facts, {'market.open': true});
 });
+
+test('a result records the route that met it, and who wrote each fact (STY33, RCL14)', () => {
+    const {any} = {any: (...rules) => ({any: rules})};
+    const beat = [{id: 'b.case', dayIndex: 2, needs: [any(eq('clue.divined'), eq('clue.told'))], effects: [{fact: 'case.solved', value: true}]}];
+    const by = {'clue.divined': 'player:divination', 'clue.told': 'contact:informant'};
+    const one = resolveBeats(beat, newBeatState({'clue.divined': true}), 2, {writtenBy: f => by[f]}).results[0];
+    assert.equal(one.status, 'carried');assert.deepEqual(one.via, [{fact: 'clue.divined', value: true, by: 'player:divination'}]);
+    const two = resolveBeats(beat, newBeatState({'clue.told': true}), 2, {writtenBy: f => by[f]}).results[0];
+    assert.deepEqual(two.via, [{fact: 'clue.told', value: true, by: 'contact:informant'}], 'the same result, reached another way');
+    const none = resolveBeats(beat, newBeatState({'clue.told': true}), 2).results[0];
+    assert.equal(none.via[0].by, null, 'without a writer lookup the route still names its facts');
+});

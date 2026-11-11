@@ -46,7 +46,9 @@ function normalizeRow(row, index) {
     check(row.source == null || SOURCES.has(row.source), `Invalid schedule source on row ${index}.`);
     check(row.weight == null || (typeof row.weight === 'number' && Number.isFinite(row.weight)), `Invalid schedule weight on row ${index}.`);
     const from = minuteValue(row.from, 'from'), to = minuteValue(row.to, 'to');
-    check(from < to, `Schedule row ${index} must have from before to.`);
+    // RCL7 (TMR, one midnight rule with npc_schedule.js): from > to wraps past midnight (22:00 to 06:00);
+    // equal ends would be an empty window.
+    check(from !== to && from < 1440 && to > 0, `Schedule row ${index} needs a window with length (from before 24:00, to after 00:00).`);
     check(row.termDays == null || (natural(row.termDays) && row.termDays > 0), `Invalid term length on row ${index}.`);
     // `day` is the row's first day (dayIndex). A `once` row needs it; for repeating rows it sets the
     // phase (first weekly day, term start) and nothing before it applies.
@@ -54,6 +56,14 @@ function normalizeRow(row, index) {
     check(recurrence !== 'once' || row.day != null, `Schedule row ${index} is once and needs a day.`);
     return {row, index, recurrence, from, to, source: row.source ?? (row.label === 'fill' ? 'fill' : 'routine')};
 }
+// A wrapping row becomes two windows: its evening part on the row's own day and its morning part on the next
+// day (`shift` 1), so every reader below stays half-open within one day.
+function normalizeRows(row, index) {
+    const spec = normalizeRow(row, index);
+    if (spec.from < spec.to) return [spec];
+    return [{...spec, to: 1440}, {...spec, from: 0, shift: 1}];
+}
+const lastDay = spec => spec.row.until == null ? Infinity : spec.row.until + (spec.shift ?? 0);
 
 function readAt(at) {
     check(at && typeof at === 'object', 'A game calendar is required for cast whereabouts.');
@@ -73,6 +83,7 @@ function dateAtMinute(minute) {
 }
 
 function occursOn(spec, current, candidateMinute, candidateDay) {
+    if (spec.shift) {candidateDay -= spec.shift; candidateMinute -= spec.shift * 1440;}
     const first = spec.row.day ?? 1;
     if (candidateDay < first) return false;
     if (spec.recurrence === 'once') return candidateDay === first;
@@ -91,7 +102,7 @@ function occursOn(spec, current, candidateMinute, candidateDay) {
 }
 
 function isActive(spec, current) {
-    if (spec.recurrence === 'irregular' || (spec.row.until != null && current.day > spec.row.until)) return false;
+    if (spec.recurrence === 'irregular' || current.day > lastDay(spec)) return false;
     return occursOn(spec, current, current.minute, current.day) &&
         current.minuteOfDay >= spec.from && current.minuteOfDay < spec.to;
 }
@@ -99,9 +110,10 @@ function isActive(spec, current) {
 function nextOccurrence(spec, current) {
     if (spec.recurrence === 'irregular') return null;
     if (spec.recurrence === 'once') {
-        if (spec.row.day < current.day || spec.row.day === current.day && current.minuteOfDay >= spec.to) return null;
-        const from = spec.row.day === current.day ? Math.max(spec.from, current.minuteOfDay) : spec.from;
-        return {minute: current.minute - current.minuteOfDay + (spec.row.day - current.day) * 1440 + from, day: spec.row.day};
+        const day = spec.row.day + (spec.shift ?? 0);
+        if (day < current.day || day === current.day && current.minuteOfDay >= spec.to) return null;
+        const from = day === current.day ? Math.max(spec.from, current.minuteOfDay) : spec.from;
+        return {minute: current.minute - current.minuteOfDay + (day - current.day) * 1440 + from, day};
     }
     // At most one 360-day game year is needed to find yearly recurrence; a
     // larger term can extend the bounded search to its next authored boundary.
@@ -109,7 +121,7 @@ function nextOccurrence(spec, current) {
     for (let offset = 0; offset <= horizon; offset++) {
         const start = offset === 0 ? current.minute : current.minute - current.minuteOfDay + offset * 1440;
         const candidateDay = current.day + offset;
-        if (spec.row.until != null && candidateDay > spec.row.until) return null;
+        if (candidateDay > lastDay(spec)) return null;
         if (!occursOn(spec, current, start, candidateDay)) continue;
         const atMinute = offset === 0 ? current.minuteOfDay : 0;
         const from = Math.max(spec.from, offset === 0 ? current.minuteOfDay : 0);
@@ -129,7 +141,7 @@ function compare(a, b) {
 export function whereabouts(rows, actor, at) {
     check(Array.isArray(rows), 'Cast schedule rows must be a list.');
     check(typeof actor === 'string' && actor.length > 0, 'A cast actor is required.');
-    return projectWhereabouts(rows.map(normalizeRow).filter(spec => spec.row.actor === actor), readAt(at));
+    return projectWhereabouts(rows.flatMap(normalizeRows).filter(spec => spec.row.actor === actor), readAt(at));
 }
 
 function projectWhereabouts(candidates, current) {
@@ -152,7 +164,7 @@ function projectWhereabouts(candidates, current) {
 export function compileCastSchedule(rows) {
     check(Array.isArray(rows), 'Cast schedule rows must be a list.');
     const byActor = new Map();
-    for(const spec of rows.map(normalizeRow)) {
+    for(const spec of rows.flatMap(normalizeRows)) {
         if(!byActor.has(spec.row.actor)) byActor.set(spec.row.actor, []);
         byActor.get(spec.row.actor).push(spec);
     }
@@ -161,7 +173,7 @@ export function compileCastSchedule(rows) {
         nextBoundary(actor, at) {
             const current = readAt(at); let next = Infinity;
             for(const spec of byActor.get(actor) || []) {
-                if(spec.row.until != null && current.day > spec.row.until) continue;
+                if(current.day > lastDay(spec)) continue;
                 if(isActive(spec, current)) next = Math.min(next, current.minute - current.minuteOfDay + spec.to);
                 else {
                     const occurrence = nextOccurrence(spec, current);
@@ -179,7 +191,7 @@ export function lintAnchors(rows, anchors) {
     for (const anchor of anchors) {
         check(anchor && typeof anchor.actor === 'string' && typeof anchor.place === 'string', 'Invalid cast anchor.');
         const current = readAt(anchor.at);
-        for (const spec of rows.map(normalizeRow).filter(s => s.row.actor === anchor.actor && s.source !== 'canon')) {
+        for (const spec of rows.flatMap(normalizeRows).filter(s => s.row.actor === anchor.actor && s.source !== 'canon')) {
             if (spec.row.place !== anchor.place && isActive(spec, current)) conflicts.push(spec.row);
         }
     }

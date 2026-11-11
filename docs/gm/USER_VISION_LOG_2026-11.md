@@ -877,3 +877,44 @@ Weibao asked:
 > Deep level stuff to take?  Other stuff and more? other stuff that can use decompiled stuff rather than just hte pet stuff? Send chat to digest pet stuff
 
 Recorded: a separate session digests the held pet captures (CPR22, CPR23). Round 5 of the [coverage audit](../audits/FOUNDATIONAL_RULES_COVERAGE_2026-11-10.md#round-5-2026-11-10-what-the-decompile-bank-gives-the-open-gaps) maps bank systems to open gaps (FRC38–FRC50), as proposals; nothing is built.
+
+## Cross-world rulebook, 2026-11-10
+
+Weibao asked:
+
+> Another caht to work on the cross world rulebook?
+
+Recorded: [CROSS_WORLD_RULES](../CROSS_WORLD_RULES.md) XWR1–XWR28 drafts FRC18 as working defaults under AD56 (AD32, proposals): the hub and home, the carry list per crossing, authority per edge, time across worlds, local prices and conserved cross-world stock, travel authorities, converged worlds and what others know of a traveler. It links WER, WKR17, multiverse structures, ITM, TIE25, KNW and CHT rather than restating them. Three lines limit options and wait for his answer as LLR34–LLR36 (titles abroad, bodies the destination cannot support, counterparts as different people); nothing is built.
+
+## UI rules for every element, 2026-11-10
+
+Weibao:
+
+> more UI autdit rules and more for all ui elements?
+
+Recorded: [the element sheet](../UI_RULES.md#every-element-the-element-sheet) adds UR100–UR127 as working defaults under AD56: a state sheet for every interactive element (UR100), auditing by element and then by journey (UR101), and one row per element kind, from buttons to truncated text. [UI audit round 43](../audits/UI_DESIGN_CORE_AUDIT.md#round-43-2026-11-10-every-element-census-and-coverage) holds the census of element kinds in the code, what earlier codes covered and what was new. The first element audit, gallery state sheets, contract-test additions and one number formatter are proposals, not started.
+
+## UI guard rules from the element fixes, 2026-11-10
+
+Weibao, after "Go through and fix 1 to 5" and "Do the action labels and Try one batch too":
+
+> what other aspects of UI to consider? UI rules so same mistakes wont me made again?
+
+Recorded:
+- [The guard rows](../UI_RULES.md#building-elements-guards-from-the-2026-11-10-fixes) UR128–UR138 add one rule per mistake found or made in the fixes, each with the check that catches a repeat. They are working defaults under AD56.
+- The UI contract test now enforces UR130, UR131 and UR133 as ratchets.
+- The reason sweeper touches only its own notes (UR129).
+- [UI audit round 45](../audits/UI_DESIGN_CORE_AUDIT.md#round-45-2026-11-10-guards-and-what-else-to-consider) ranks the other aspects (UIC116–UIC126): one Escape stack, the 53 legacy clickable divs, focus after redraws, a browser element check, visual baselines, live announcements, decorator cost, uncovered surfaces, and an undo window for instant spends.
+
+## Intuitive, sectioned, flowing UI from the playtest complaints, 2026-11-10
+
+Weibao, after "Convert the 53 divs" and "Inherit UI design styles and guidelines?":
+
+> Making things intuitive? sectioned properly? Flow properly? consider my qualms from the last time I actually playtested and checked things, the stuff I didnt like then, addressing those and more?
+
+Recorded:
+- [UI audit round 46](../audits/UI_DESIGN_CORE_AUDIT.md#round-46-2026-11-10-intuitive-sectioned-flowing-and-the-playtest-complaints) lists his earlier complaints (Q1–Q15: Reports, Focus and You, opening at the bottom, item pages, scrolling and back paths, clutter, spacing, Ctrl+ zoom, spoiling text, button feedback, circles, improvements that show up, Proto23 look, memory). Each has its status in today's build.
+- The round adds nine findings from a walk of every route (R1–R9). R4 and R9 are fixed.
+- New working defaults UR139–UR143 in [UI rules](../UI_RULES.md#intuitive-sectioned-flowing-rules-from-weibaos-playtest-complaints).
+- `npm run check:flow` plays the screens and catches a repeat.
+- On "Inherit UI design styles and guidelines?": the converted controls keep the shared design (their class styling, the shared focus ring, a pressed state that is not colour-only), recorded in the round 45 follow-up.

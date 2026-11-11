@@ -49,7 +49,7 @@ export function createEconomyStandingPanel({read, borrow, repay, insure}) {
             const who = node('td', f.label); who.append(node('small', ` ${f.region}`));
             const stand = node('td'); stand.append(chip(f.tier.label, {tone: f.tier.buy > 1 ? 'warn' : f.tier.sell > 1 ? 'good' : ''}), ` ${f.score}`);
             const sells = node('td', pct(f.tier.buy), 'ui-num'), buys = node('td', pct(f.tier.sell), 'ui-num');
-            tr.title = `Rival: ${f.rivalLabel}. Why: ${f.tier.why}`;
+            tr.title = `Rival: ${f.rivalLabel}. Why: ${f.tier.why}`; tr.dataset.say = tr.title; tr.tabIndex = 0;
             tr.append(who, stand, sells, buys); body.append(tr);
         }
         factions.append(table);

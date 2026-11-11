@@ -49,6 +49,20 @@ function failures(rule, lookup) {
     return [{fact: rule.fact, op: rule.op ?? 'eq', want: rule.value, have: lookup(rule.fact)}];
 }
 const factLookup = facts => fact => own(facts, fact) ? facts[fact] : undefined;
+// STY33 (RCL14, RTC9): the route a result took is the facts that met its rule, with whoever wrote each one when the
+// caller can say (ctx.writtenBy: fact -> provenance code). Only branches that held are listed.
+function heldLeaves(rule, lookup) {
+    if (rule == null || !test(rule, lookup)) return [];
+    if (Array.isArray(rule)) return rule.flatMap(r => heldLeaves(r, lookup));
+    if (rule.all) return rule.all.flatMap(r => heldLeaves(r, lookup));
+    if (rule.any) return rule.any.flatMap(r => heldLeaves(r, lookup));
+    if (rule.not) return [];
+    return [rule.fact];
+}
+function routeOf(rule, facts, writtenBy) {
+    const lookup = factLookup(facts);
+    return [...new Set(heldLeaves(rule, lookup))].map(fact => ({fact, value: lookup(fact), by: writtenBy?.(fact) ?? null}));
+}
 const lifeLookup = (life, facts) => fact => own(life.facts, fact) ? life.facts[fact] : own(facts, fact) ? facts[fact] : undefined;
 
 // ---- the beat table ----
@@ -130,7 +144,7 @@ function applyEffects(effects, facts, beat, day) {
     return diffs;
 }
 
-function resolveOne(beat, state, day, facts, lives, mechanisms) {
+function resolveOne(beat, state, day, facts, lives, mechanisms, writtenBy) {
     const causes = [];
     if (beat.mechanism && !mechanisms.includes(beat.mechanism)) causes.push({mechanism: beat.mechanism});
     for (const d of beat.deps ?? []) {
@@ -139,19 +153,19 @@ function resolveOne(beat, state, day, facts, lives, mechanisms) {
         if (dep !== 'carried' && dep !== 'altered') causes.push({beat: d.id, status: dep ?? 'unresolved'});
     }
     causes.push(...failures(beat.needs, factLookup(facts)));
-    let status, alteredRule = null, diffs = [];
+    let status, alteredRule = null, diffs = [], via = [];
     if (!causes.length) {
-        status = 'carried';
+        status = 'carried';via = routeOf(beat.needs, facts, writtenBy);
         diffs = applyEffects(beat.effects, facts, beat, day);
     } else {
         alteredRule = causes.some(c => c.mechanism) ? null : (beat.altered ?? []).find(a => test(a.when, factLookup(facts))) ?? null;
-        if (alteredRule) { status = 'altered'; diffs = applyEffects(alteredRule.effects, facts, beat, day); }
+        if (alteredRule) { status = 'altered'; via = routeOf(alteredRule.when, facts, writtenBy); diffs = applyEffects(alteredRule.effects, facts, beat, day); }
         else if (day < (beat.until ?? beat.dayIndex)) status = 'deferred';
         else status = causes.some(c => c.mechanism || c.beat) ? 'blocked' : 'lapsed';
     }
     return {beat: beat.id, kind: beat.kind ?? null, day, canonDay: beat.dayIndex, status,
         causes: status === 'carried' || status === 'altered' ? [] : causes,
-        altered: alteredRule ? beat.altered.indexOf(alteredRule) : null, diffs,
+        altered: alteredRule ? beat.altered.indexOf(alteredRule) : null, diffs, via,
         lives: livesFor(beat, status, alteredRule, lives, day, state.facts)};
 }
 
@@ -170,7 +184,7 @@ export function resolveBeats(beats, state, through, ctx = {}) {
         for (const beat of book) {
             if (beat.dayIndex > day || day > (beat.until ?? beat.dayIndex) || SETTLED.has(next.done[beat.id]?.status)) continue;
             const facts = {...next.facts};
-            const result = resolveOne(beat, next, day, facts, lives, mechanisms);
+            const result = resolveOne(beat, next, day, facts, lives, mechanisms, ctx.writtenBy);
             next.facts = facts;
             next.done = {...next.done, [beat.id]: {status: result.status, day, causes: result.causes}};
             results.push(result);

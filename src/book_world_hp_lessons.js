@@ -43,6 +43,10 @@ export const HP_STUDY = Object.freeze({charms: Object.freeze({inquiry: 'study.hp
     potions: Object.freeze({inquiry: 'study.hp.potions', key: 'study.hp.potions.writeup'}), bonus: 0.1});
 const studied = (state, topic) => state?.simulation?.knowledge?.player?.[HP_STUDY[topic].key]?.stage === 'understood';
 export const hpStudyBonus = (state, topic) => studied(state, topic) ? HP_STUDY.bonus : 0;
+// Exam result read back (hp_exam_model.js; trait for next year): a high or top Charms paper earns the charms master's regard, five points on the
+// charm's chance in later lessons. Dial: the size. Reason: a master who thinks well of a pupil corrects the wrist sooner. First-year lessons are over
+// by the time marks are read, so this only bites once a later year exists (below the floor until then).
+const examRegard = state => ['top', 'high'].includes(state?.actors?.player?.facts?.['hp.lead.exam.band.charms']) ? 0.05 : 0;
 /** The library is open to a sorted first year in term (same calendar owner as the lessons); returns a reason when not. */
 export function hpLibraryReason(state) {
     const f = state?.actors?.player?.facts || {};
@@ -70,7 +74,7 @@ export function hpLessonFacts(state, context = {}) {
     let charms = false, potions = false;
     try { charms = lessonOpen(state, HP_LESSONS.charms); potions = lessonOpen(state, HP_LESSONS.potions); } catch { /* calendar not ready: closed */ }
     return {[HP_LESSONS.charms.fact]: charms, [HP_LESSONS.potions.fact]: potions,
-        'hp.lead.levitateChance': levitateWith(powerOf(state)?.mastery ?? 0, hpStudyBonus(state, 'charms')),
+        'hp.lead.levitateChance': levitateWith(powerOf(state)?.mastery ?? 0, hpStudyBonus(state, 'charms') + examRegard(state)),
         'hp.lead.brewChance': brewWith(context.gameplay?.player?.skills?.Alchemy?.xp ?? 0, hpStudyBonus(state, 'potions') + flaskBonus(state))};
 }
 // Read model for the panel and the status lines. Empty until the player is at school and sorted (so a summer life shows nothing new).

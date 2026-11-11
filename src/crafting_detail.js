@@ -9,6 +9,7 @@ import {craftCue} from './craft_cues.js';
 import {craftGlance, GLANCE_MARKS} from './ui/craft_glance.js';
 
 const detailSubjects = new WeakMap();
+let reasonIds = 0;
 
 const mark = state => GLANCE_MARKS[state] || GLANCE_MARKS.info;
 
@@ -197,7 +198,8 @@ export function renderCraftingDetail(root, model, handlers) {
     const buttons = el('div', 'craft_detail_buttons');
     const preview=el('p','craft_batch_proposal','Focus or hover a batch choice to preview its maximum input use. The preview reserves nothing.');
     actions.append(preview);
-    const commit = el('button', 'craft_commit', model.commitLabel || 'Craft 1');
+    // Outcome and time on the label (UR102, UR10): "Craft 1 · instant", "Start brazier hold · 6 min".
+    const commit = el('button', 'craft_commit', `${model.commitLabel || 'Craft 1'}${model.when ? ` · ${model.when}` : ''}`);
     commit.type = 'button';
     commit.setAttribute('data-craft-commit', '');
     buttons.append(commit);
@@ -221,6 +223,14 @@ export function renderCraftingDetail(root, model, handlers) {
         });
     }
     actions.append(buttons);
+    // A blocked commit says why beside the button, not only in the glance above (UIV1, UIC111).
+    if(!model.available) {
+        const why = el('p', 'craft_commit_reason ui-action-reason', model.blocked_reason || "Can't craft right now.");
+        why.id = `craft_commit_reason_${++reasonIds}`;
+        why.setAttribute('data-craft-commit-reason', '');
+        for(const b of buttons.children) b.setAttribute('aria-describedby', why.id);
+        actions.append(why);
+    }
     if(model.goal){
         const g=model.goal,remaining=g.target-g.attempted,goal=el('section','craft_goal');goal.dataset.craftGoal='';
         goal.append(el('p','',`Session goal: ${g.attempted} of ${g.target} attempts · ${g.successful} successes · ${g.made} useful outputs. ${remaining?`${remaining} attempts remain; continue explicitly after reviewing current stock and station.`:'Goal finished.'} This intent survives navigation and clears on loading a save. It reserves nothing.`));

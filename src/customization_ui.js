@@ -39,7 +39,7 @@ export function createCustomizationUI({container, effectsContainer, read, save, 
     const lookBox = document.createElement('details'); lookBox.className = 'customization-look';
     const lookSummary = document.createElement('summary'); lookSummary.textContent = 'Receipt look'; const lookBody = document.createElement('div'); lookBody.className = 'ui-field-grid'; lookBox.append(lookSummary, lookBody); effectFields.append(lookBox); currentFields = lookBody;
     const motif = select('Original VFX motif', ['receipt','seal','guidance','closing']), duration = input('Receipt duration (ms)', 'number', 200, 10000);
-    const effectColor = input('VFX color', 'color'), effectBackground = input('VFX background', 'color'), staticMode = input('Static VFX', 'checkbox'), plain = input('Plain text VFX', 'checkbox');
+    const effectColor = input('VFX color', 'color'), effectBackground = input('VFX background', 'color'), staticMode = input('Hold effects still (no motion)', 'checkbox'), plain = input('Show effects as plain text only', 'checkbox');
     // Per-browser display settings sit outside the save-bound fieldset, so they stay usable when the save is read-only.
     const displaySettings = mountDisplaySettings(effectSurface.body);
     const button = (label, callback) => { const node = document.createElement('button'); node.type = 'button'; node.textContent = label; node.addEventListener('click', callback); actions.append(node); return node; };

@@ -47,3 +47,10 @@ test('prior segment is subject-bound and capacity changes do not look like recov
  assert.equal(normalizeMeter({...spec,subject:'copy2'}).change,null);
  const resized=normalizeMeter({...spec,max:12,change:{...spec.change,previousMax:10}});assert.equal(resized.change,null);assert.match(resized.annotations.join(' '),/Capacity 10 → 12/);
 });
+
+test('an unknown reading reads as unknown, not as a middle value (UR61, UIC114)', () => {
+    const m = normalizeMeter({id: 'w', label: 'Their warmth: not read now', kind: 'track', value: 1, max: 2, discrete: true, unknown: true});
+    assert.equal(m.unknown, true);
+    assert.equal(m.text, 'Their warmth: not read now, unknown');
+    assert.equal(m.stateText, '');
+});

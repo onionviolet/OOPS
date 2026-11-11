@@ -7,10 +7,10 @@ import {createReturnDigestRow} from '../src/return_digest_ui.js';
 
 // Real wiring: configureNativeToolDomains hands the bank its ports; the registry saves and loads it.
 const MIN = 60000;
-let clock = 100, wall = 1e12, assigned = false, calls = [], stopAt = Infinity;
+let clock = 100, wall = 1e12, assigned = false, calls = [], stopAt = Infinity, stride = 1, options = [];
 const root = {get clock() {return clock;}};
 const ports = {root: () => root, persist: fn => fn(), writable: () => true, furnaceAssigned: () => assigned,
-    fastForward: async n => {calls.push(n); clock += Math.min(n, stopAt);}};
+    fastForward: async (n, o) => {calls.push(n); options.push(o); clock += stride * Math.min(n, stopAt);}};
 const realNow = Date.now;
 // The bank is configured first, so the call reaches it; later domains need the full game's ports.
 function wire() {try {configureNativeToolDomains(ports);} catch {/* unrelated domains */}}
@@ -108,4 +108,14 @@ test('another bank draws from this one and the draw is debited (TMR6, RCL6)', as
     assert.equal(awayBankBalance(), 10);
     assert.equal(takeAwayBank(4), 4);assert.equal(awayBankBalance(), 6);
     assert.equal(takeAwayBank(50), 6, 'a draw never takes more than the bank holds');assert.equal(awayBankBalance(), 0);
+});
+
+test('a spend counts minutes on the root clock, so a multi-minute tick cannot overdraw it (TMR5, TMR11)', async () => {
+    stride = 6; stopAt = 3; options = [];
+    try {
+        loadAway(30 * MIN);
+        const before = clock, r = await spend();
+        assert.deepEqual(options, [{untilClock: before + 30}], 'the spend names the clock minute it stops at');
+        assert.equal(r.consumed, 18); assert.equal(project().bankedMinutes, 12, 'the debit is what the clock consumed');
+    } finally {stride = 1; stopAt = Infinity;}
 });

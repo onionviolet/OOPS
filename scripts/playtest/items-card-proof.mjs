@@ -26,7 +26,7 @@ try{
  const seed=JSON.parse(await readFile('tests/fixtures/perf/mid.json','utf8'));seed.customization=defaultCustomizationState();delete seed.availabilities.recipe.undefined;
  for(const quality of [60,140])seed.inventories.person.main_character[JSON.stringify({id:'Cheap leather pants',quality})]={count:1};
  await s.open(seed);p=s.page;p.setDefaultTimeout(30000);
- await p.locator('#inventory_content_div > [data-item_quality="140"] .item_name').first().click();await p.getByRole('button',{name:'Equip',exact:true}).click();await p.waitForTimeout(500);
+ await p.locator('#inventory_content_div > [data-item_quality="140"] .item_name').first().click();await p.getByRole('button',{name:/^Equip( · |$)/}).click();await p.waitForTimeout(500);
  await p.locator('#inventory_content_div > [data-item_quality="60"] .item_name').first().click();await p.waitForTimeout(500);
  const c2=p.locator('.item-card').first();await c2.waitFor({state:'visible'});const second=await c2.innerText();
  assert.match(second,/Compared with your/);receipt.cases.push({case:'60% pants against worn 140% pants',text:second});

@@ -1,9 +1,12 @@
 // LP4 original proposal. The native calendar and inventory remain authoritative.
 // Time is projected lazily, so rendering/reloading never grants native stock.
 import {check, natural} from './basics.js';
+import {rationMinutes, readNeed} from './needs.js';
+// The sheep's hunger is the shared food need (needs.js, RCL12/LVR13): one hay ration holds careMinutes at the sheep's body rate.
+export const HABITAT_BODY='sheep';
 export const HABITAT = Object.freeze({site:'village.meadow_pen',animal:'meadow.fleece_sheep',
     location:'Village',world:'base.frontier',buildCost:18,adoptCost:12,feedCost:2,
-    careMinutes:12,batchMinutes:6,yield:5});
+    careMinutes:rationMinutes(HABITAT_BODY,'food'),batchMinutes:6,yield:5});
 export const HAY_KEY=JSON.stringify({id:'Meadow hay'});
 export const WOOL_KEY=JSON.stringify({id:'Wool'});
 const object=v=>v&&typeof v==='object'&&!Array.isArray(v);
@@ -37,9 +40,10 @@ export function projectHabitat(owner,clock){
     s.lastMinute=clock;return s;
 }
 export function habitatFacts(owner,clock){
-    const s=projectHabitat(owner,clock),fed=s?.fedAt!=null&&clock<s.fedAt+HABITAT.careMinutes,
+    const s=projectHabitat(owner,clock),
+        need=readNeed({body:HABITAT_BODY,sinceMeal:s?.fedAt==null?null:clock-s.fedAt}),fed=s?.fedAt!=null&&need.level>0,
         attended=s?.attendedAt!=null&&clock<s.attendedAt+HABITAT.careMinutes;
-    return {state:s,fed:!!fed,attended:!!attended,ready:s?.progress===HABITAT.batchMinutes,
+    return {state:s,need,fed:!!fed,attended:!!attended,ready:s?.progress===HABITAT.batchMinutes,
         welfare:!s?.animal?'No animal':'Safe in suitable shelter with clean water'};
 }
 export function planHabitatAction(owner,action,{clock,money,inventory,location,world,ready}){

@@ -240,3 +240,8 @@ font-size:var(--shell-context-size,var(--ui-type-body));line-height:1.25;color:v
 #main_content.workspace-active[data-parity="r3"] #message_box_div .message_combat {display:var(--message_combat_display);}
 #main_content.workspace-active[data-parity="r3"] #message_box_div .message_loot {display:var(--message_loot_display);}
 #main_content.workspace-active[data-parity="r3"] #message_box_div .message_background {display:var(--message_background_display);}
+/* Element audit UIC104 and UIC109: the game bar and top navigation get the shell's focus ring and follow the text-size setting. */
+:root[data-one-bar="true"] #game_bar :focus-visible, #workspace_navigation :focus-visible, #options_panel :focus-visible {outline:2px solid var(--workspace-focus,var(--ui-accent))!important;outline-offset:2px;}
+#workspace_navigation :is(button,select) {font-size:var(--ui-type-nav);}
+:root[data-one-bar="true"] #game_bar :is(button,select,input) {font-size:inherit;}
+

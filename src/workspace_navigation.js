@@ -74,7 +74,7 @@ export function mountWorkspaceNavigation({notice,ports}={}) {
         decorateInventoryList({id:'books_list',label:'read book',rowSelector:':scope > *',nameSelector:'.book_name',emptyText:'Finish reading a book to record it here.'})];
     const refresh=()=>{
         lastRefresh=performance.now();const hold=interacting();held=false;
-        for(const list of lists)list.refresh();summarizeGroups(document.getElementById('location_actions_div'));summarizeGroups(document.getElementById('projects_drawer'));
+        for(const list of lists)list.refresh();for(const id of ['location_actions_div','projects_drawer'])summarizeGroups(document.getElementById(id));for(const panel of document.querySelectorAll('#main_content .workspace-module:not([hidden]) .workspace-module-body'))summarizeGroups(panel,{actions:false,skip:'#location_actions_div, #projects_drawer'});
         if(!notified&&document.getElementById('main_content').dataset.workspaceComposition==='proto23'){notified=true;if(document.getElementById('main_content').dataset.parity!=='r3')notice?.('Workspace now groups You above Inventory. Character details and known records remain in the named navigation.','preparation');const stats=[...buttons].find(([route])=>route.target==='preparation')?.[1];if(stats)stats.dataset.newHome='true';}
         const known=knownWorkspaceModules(),ids=new Set(known.map(m=>m.id));
         const observer=observerView(readPort('expansion'));

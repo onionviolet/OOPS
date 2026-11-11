@@ -27,6 +27,13 @@ export function recordTrade({region, vendorId, sellValue, buyValue, seen = [], b
     for(const s of seen) next = rules.observePrice(next, region, s.key, s.price, now(), {label: s.label, via: 'traded'});
     set(next);
 }
+// Standing at a stall you see its prices (ECR17): one remembered row per good and place, with the day you saw it.
+export function seePrices(region, rows) {
+    let next = state;
+    for(const r of rows) next = rules.observePrice(next, region, r.key, r.price, now(), {label: r.label, via: 'seen'});
+    if(next !== state) set(next);
+}
+export const remembered = (region, key) => rules.memoryRows(state, now()).find(r => r.region === region && r.key === key) ?? null;
 // Opening a shop counts one visit per day toward what its keeper remembers (ECC43).
 export function noteShopVisit(vendorId) { const next = rules.noteVisit(state, vendorId, current_game_time.day_count); if(next !== state) set(next); }
 export const shopMemory = vendorId => rules.customerMemory(state, vendorId);

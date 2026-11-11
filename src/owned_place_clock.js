@@ -2,14 +2,16 @@
 // Authored, not canon. Every dial is default / dial / in-world reason / cost; none is a world law.
 // Home state is read-only here (AR3): the place clock and its larder live in their own slice.
 import {registerDomain} from './domain_registry.js';
+import {PERISHABLES,lifeOf,resultOf,readSpoilage,wordsFor,oldestFirst} from './spoilage.js';
 const DAY=1440;
 // Dials. ratio: default 1 (the world's clock); stilledRatio 0.25 at the Hearthside cottage because the
 // old hearthstone holds slow hours when kept fed. Cost: upkeep per world day paid up front, an
 // offering to reopen, and a settling fee to release it cleanly. Lapse is the consequence of neglect.
 export const PLACE_DIALS=Object.freeze({cottage:{label:'Hearthside cottage',ratio:1,stilledRatio:.25,upkeepPerDay:2,maxDays:7,releasePerOwedDay:1,reopenOffering:4,sandglassPrice:3,
     why:'The hearthstone slows the room only while it is fed; unfed, the hours it withheld come back together.'}});
-// Shelf life is measured in the place's own minutes. Authored default per item id, dial per world.
-export const SHELF_LIFE=Object.freeze({'Cooked potato':DAY,'Cooked carrot':DAY,'Cooked clam':DAY/2});
+// Shelf life is measured in the place's own minutes. The spoilage owner (ITM8, src/spoilage.js) holds lives, quality and results;
+// this place is a storage that slows it (stilled ratio) and keeps the spent age on its own clock.
+export const SHELF_LIFE=Object.freeze(Object.fromEntries(Object.entries(PERISHABLES).map(([id,v])=>[id,v.life])));
 export const OBSERVER_ROUTES=Object.freeze({
     present:'Standing in the place: you see the larder\'s condition and whether the hearth keeps slow hours, not by how much.',
     sandglass:'Standing in the place with a timekeeping means (a sand glass against the world): the ratio, owed hours and larder ages.'});
@@ -59,9 +61,8 @@ export function settlePlace(place,now){
     }else{addAge(p,now-p.at);p.at=now;}
     return p;
 }
-const lifeOf=key=>{let id;try{id=JSON.parse(key).id;}catch{return null;}return SHELF_LIFE[id]??null;};
 const spentAge=(p,r)=>localAge(p)-r.born+(r.priorAge??0);
-const larderRows=p=>p.larder.map(r=>({key:r.key,count:r.count,spent:spentAge(p,r),life:lifeOf(r.key)})).map(r=>({...r,spoiled:r.life!==null&&r.spent>r.life}));
+const larderRows=p=>oldestFirst(p.larder,r=>spentAge(p,r)).map(r=>({key:r.key,count:r.count,read:readSpoilage(r.key,spentAge(p,r))})).map(r=>({...r,spent:r.read.spent,spoiled:r.read.state==='spoiled'}));
 function plan(request){
     const c=ports.read(),dial=PLACE_DIALS[request.place],bad=m=>{throw Error(m);};
     if(!dial)bad('That place has no clock of its own.');
@@ -96,11 +97,13 @@ function plan(request){
         if(row)row.count++;else p.larder.push({key:request.key,count:1,born:localAge(p),priorAge});
         out.cost.items.push({key:request.key,delta:-1});out.message='One portion is set on the hearth shelf.';break;}
     case 'take':{
-        const i=p.larder.findIndex(r=>r.key===request.key);if(i<0)bad('Nothing like that is on the shelf.');
-        const r=p.larder[i],spent=spentAge(p,r),gone=lifeOf(r.key)!==null&&spent>lifeOf(r.key);
+        const oldest=oldestFirst(p.larder.filter(r=>r.key===request.key),r=>spentAge(p,r))[0]; // oldest portion first (ITM8)
+        if(!oldest)bad('Nothing like that is on the shelf.');
+        const i=p.larder.indexOf(oldest),r=oldest,spent=spentAge(p,r),read=readSpoilage(r.key,spent),gone=read.state==='spoiled';
         if(--r.count===0)p.larder.splice(i,1);
-        if(!gone)out.cost.items.push({key:shelfKey(r.key,spent,c.clock),delta:1});
-        out.message=gone?'It has spoiled on the shelf and is thrown out.':'You take the portion back, still good.';out.spoiled=gone;break;}
+        // Spoiled goods become their declared result, not nothing (ITM3, ITM22).
+        out.cost.items.push(gone?{key:JSON.stringify({id:resultOf(r.key)}),delta:1}:{key:shelfKey(r.key,spent,c.clock),delta:1});
+        out.message=gone?'It spoiled on the shelf; you carry out the rot.':'You take the portion back, still good.';out.spoiled=gone;break;}
     default:bad('Unknown place-clock action.');
     }
     if(c.money<out.cost.money)bad(`Needs ${out.cost.money} coins.`);
@@ -123,7 +126,7 @@ export function projectPlaceClock(placeId,route){
     lines.push(p.status==='stilled'?'The hearth keeps slow hours.':p.status==='closed'?'The hearth is closed; the land-spirit withholds it.':'The hearth keeps the world\'s hours.');
     if(p.rushed)lines.push('The withheld hours came back together; the shelf shows it.');
     if(route==='sandglass')lines.push(`Ratio ${p.ratio} to the world; ${p.drift} minutes owed.`);
-    for(const r of larderRows(p))lines.push(route==='sandglass'?`${r.count} stored, ${r.spent} min old${r.spoiled?', spoiled':''}`:r.spoiled?`${r.count} stored, spoiled`:`${r.count} stored, ${r.life&&r.spent>r.life*.5?'turning':'fresh'}`);
+    for(const r of larderRows(p))lines.push(`${r.count} ${JSON.parse(r.key).id} stored, ${wordsFor(r.read)}${route==='sandglass'?` (${Math.floor(r.spent)} of ${r.read.life} min spent)`:''}`);
     return {visible:true,route,lines};
 }
 export const placeClockState=()=>state;

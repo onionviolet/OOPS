@@ -102,3 +102,14 @@ button[data-new-count]::after {
 .typed-confirm label { display: grid; gap: var(--ui-space-2); }
 .typed-confirm input { width: 100%; box-sizing: border-box; font-size: var(--ui-type-title); }
 .typed-confirm-actions { display: flex; justify-content: flex-end; gap: var(--ui-space-4); margin-top: var(--ui-space-5); }
+/* One search grammar (UR107, element audit UIC107): a visible label beside the field. */
+.ui-search-label { display:inline-flex; align-items:center; gap:var(--ui-space-3); }
+.ui-search-label-text { font-size:var(--custom-small-size, var(--ui-type-small)); color:var(--theme-muted, var(--ui-text)); }
+
+
+/* UR130: the converted index.html controls (UIC118). They keep their class styling; the base only
+   undoes the browser's button font, adds the shared focus ring, and marks the pressed tab by more
+   than colour (UR108), with the underline the Reports filters already use. */
+:where(button.ui-native-control) { font: inherit; color: inherit; }
+:is(#main_content, body) button.ui-native-control[aria-pressed="true"] { text-decoration: underline; text-decoration-thickness: 2px; }
+:is(#main_content, body) button.ui-native-control:focus-visible { outline: 2px solid var(--workspace-focus); outline-offset: -2px; }

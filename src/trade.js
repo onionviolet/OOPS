@@ -17,13 +17,16 @@ import {readInventoryOwner} from "./acquisition.js";
 import {loot_sold_count} from "./market_saturation.js";
 import {tradeQuoteFingerprint} from "./native_trade_transaction.js";
 import NPCRegistry from "./data/npcs.js";
+import {isStaple, unitPrice, lineValue, explainQuote, stapleIds} from './regional_prices.js';
+import {seePrices, remembered} from "./economy_standing_domain.js";
+import {memoryNote} from './regional_prices.js';
 import {termsFor, recordTrade, bindStandingHost, noteShopVisit, shopMemory} from "./economy_standing_domain.js";
 import {shopGreeting} from "./shop_greeting.js";
 import {address, drawU32, indexFromU32} from "./gen_kit.js";
 import {renderStandingTerms} from "./economy_standing_ui.js";
 import {addPurse} from "./economy_domain.js";
 import {socialContest, scaleByMargin} from "./social_contest.js";
-import {gamePeekRoot} from "./seeded_streams.js";
+import {gamePeekRoot, STREAMS, gameKeyedRandom} from "./seeded_streams.js";
 import {current_game_time} from "./game_time.js";
 
 let current_trader = null;
@@ -114,6 +117,7 @@ function start_trade(trader_key) {
     current_trader = trader_key;
     noteShopVisit(trader_key);
     sayGreeting(trader_key, host.get_context());
+    seeShelfPrices();
     
     update_displayed_trader();
     update_displayed_character_inventory({is_trade: true});
@@ -134,6 +138,55 @@ function cancel_trade() {
 
     update_displayed_character_inventory({is_trade: true});
     update_displayed_trader_inventory();
+    renderPriceNotes();
+}
+
+// ---- regional staples (XWR17, ECR3-ECR5): one price function for a staple on a regional shelf ----------------
+// The shelf count is the cause of scarcity, so the shortage cause is divided out of the terms for these goods (ECR4).
+const regionalDraw = key => gameKeyedRandom(STREAMS.market, key);
+const withoutShortage = terms => { const p = terms.parts.find(x => x.cause === 'shortage'); return p ? {buy: terms.buy / p.buy, sell: terms.sell / p.sell} : {buy: terms.buy, sell: terms.sell}; };
+function regionalCtx(item) {
+    if(!current_trader || !isStaple(current_trader, item.id) || item.getInventoryKey?.() !== JSON.stringify({id: item.id})) return null;
+    const trader = NPCRegistry.get(current_trader).getTraderComponent();
+    const terms = current_terms ?? talkTerms(termsFor(current_location.market_region, current_trader, character.reputation));
+    const haggle = trader.profit_margin > 1 ? (trader.getProfitMargin(current_location.market_region) - 1) / (trader.profit_margin - 1) : 1;
+    return {vendorId: current_trader, goodId: item.id, base: item.getBaseValue(), stock: trader.getTradeInventory()[item.getInventoryKey()]?.count ?? 0,
+        day: current_game_time.day_count, season: current_game_time.getSeason(), draw: regionalDraw, haggle, terms: withoutShortage(terms)};
+}
+/** Total for `count` units of a regional staple, or null when the good is not one here. */
+function regionalLine(item, side, count) { const ctx = regionalCtx(item); return ctx ? lineValue({...ctx, side, count}).total : null; }
+/** Unit price the stall quotes now for a regional staple, or null (lists and tooltips call this). */
+export function regionalUnit(item, side) { const ctx = regionalCtx(item); return ctx ? unitPrice({...ctx, side}).price : null; }
+const OTHER_PLACE = {Village: 'Slums', Slums: 'Village'};
+/** The shelf note: what each staple costs here and why, plus what you remember of the other place (a guess, never live). */
+function renderPriceNotes() {
+    const list = document.getElementById('trade_price_notes'); if(!list) return;
+    const rows = current_trader ? regionalNotes(current_trader) : [];
+    if(!rows.length) { list.hidden = true; list.replaceChildren(); return; }
+    const place = current_location.market_region, other = OTHER_PLACE[place], now = current_game_time.day_count;
+    list.replaceChildren(...rows.map(n => {
+        const item = getItemFromKey(JSON.stringify({id: n.goodId})), li = document.createElement('li');
+        li.dataset.priceGood = n.goodId; li.dataset.priceMood = n.mood;
+        const buy = regionalUnit(item, 'buy'), sell = regionalUnit(item, 'sell');
+        const head = `${n.goodId}: ${n.mood === 'steady' ? 'ordinary price' : `${n.mood} here`}. You pay ${buy}, he pays ${sell}.`;
+        const why = [...n.reasons, n.stock > 0 && n.reasons.length === 0 ? `${n.stock} on the shelf.` : ''].filter(Boolean).join(' ');
+        const seen = other ? remembered(other, JSON.stringify({id: n.goodId})) : null;
+        const away = seen ? ` ${memoryNote({place: other, goodId: n.goodId, price: seen.price, ageDays: seen.ageDays})}` : '';
+        li.textContent = `${head} ${why}${away}`.replace(/\s+/g, ' ').trim();
+        return li;
+    }));
+    list.hidden = false;
+}
+/** Remember what the shelf showed you today. */
+function seeShelfPrices() {
+    const rows = regionalNotes(current_trader).map(n => ({key: JSON.stringify({id: n.goodId}), label: n.goodId, price: regionalUnit(getItemFromKey(JSON.stringify({id: n.goodId})), 'buy')}));
+    if(rows.length) seePrices(current_location.market_region, rows);
+}
+/** Why the keeper's price is what it is, for the shelf note: one row per staple he stocks, as he would tell it. */
+export function regionalNotes(trader_key = current_trader) {
+    if(!trader_key) return [];
+    const trader = NPCRegistry.get(trader_key).getTraderComponent(), day = current_game_time.day_count, season = current_game_time.getSeason();
+    return stapleIds(trader_key).map(goodId => explainQuote({vendorId: trader_key, goodId, stock: trader.getTradeInventory()[JSON.stringify({id: goodId})]?.count ?? 0, day, season, draw: regionalDraw}));
 }
 
 function readTradeQuote() {
@@ -168,13 +221,13 @@ function accept_trade() {
     const top=[...quoted.buy].sort((a,b)=>get_item_value(b)-get_item_value(a))[0];
     recordTrade({region,vendorId:quoted.vendorId,sellValue:quoted.sellValue,buyValue:quoted.buyValue,bought:top?getItemFromKey(top.item_key).name:null,
         seen:[...quoted.sell,...quoted.buy].map(({item_key})=>{const item=getItemFromKey(item_key);
-            return {key:item_key,label:item.name||item_key,price:item.getValue({region})};})});
+            return {key:item_key,label:item.name||item_key,price:regionalUnit(item,'sell')??item.getValue({region})};})});
     cancel_trade();
     update_displayed_money();
 }
 
 function exit_trade() {
-    restockReview=false;setRestockNotice();
+    restockReview=false;setRestockNotice();document.getElementById('trade_price_notes')?.setAttribute('hidden','');
     current_quote = null;
     current_trader = null;
     to_buy.items = [];
@@ -476,7 +529,7 @@ function calculate_total_values() {
             stop_multiplier_at: difference in counts, as only count over that difference should be subject to saturation
             */
             to_sell.groups[traded_group_key].group_value 
-                                    += item.getValueOfMultiple({
+                                    += regionalLine(item, 'sell', to_sell.groups[traded_group_key].sorted[i].count) ?? item.getValueOfMultiple({
                                         additional_traded_count: sold_saturation,
                                         stop_multiplier_at: Math.max(0,sold_saturation-bought_saturation+to_sell.groups[traded_group_key].sorted[i].count),
                                         count: to_sell.groups[traded_group_key].sorted[i].count,
@@ -528,7 +581,7 @@ function calculate_total_values() {
             stop_multiplier_at: difference in counts, as only count over that difference should be subject to saturation
             */
             
-            const line_value=item.getValueOfMultiple({
+            const line_value=regionalLine(item, 'buy', to_buy.groups[traded_group_key].sorted[i].count) ?? item.getValueOfMultiple({
                                         additional_traded_count: -bought_saturation,
                                         stop_multiplier_at: Math.max(0,sold_saturation-bought_saturation-to_buy.groups[traded_group_key].sorted[i].count),
                                         count: to_buy.groups[traded_group_key].sorted[i].count,
@@ -552,7 +605,7 @@ function calculate_total_values() {
     });
 
     current_quote = readTradeQuote();
-    renderP23MarketQuote();renderStandingBox();
+    renderP23MarketQuote();renderStandingBox();renderPriceNotes();
     const total=to_sell.value-current_quote.marketLife.quote.total;
     window.dispatchEvent(new CustomEvent("native-trade-total",{detail:total}));
     return total;
@@ -598,6 +651,8 @@ function get_item_value(selected_item) {
 
     const item = getItemFromKey(selected_item.item_key);
 
+    const regional = regionalLine(item, 'buy', selected_item.count);
+    if(regional !== null) return regional;
     return round_item_price(profit_margin * item.getValue({quality: item.quality, region: current_location.market_region})) * selected_item.count;
 }
 

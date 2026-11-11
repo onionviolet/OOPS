@@ -1,5 +1,5 @@
 import {defineBodyCare,quoteBodyCare} from './cast_body_adapter.js';
-import {settleLotmEvents,lotmRestrictions,LOTM_EVENTS_SETTLED} from './book_world_lotm_events.js';
+import {settleLotmEvents,lotmRestrictions,LOTM_EVENTS_SETTLED,lotmDay} from './book_world_lotm_events.js';
 import {CITY_PREFIX,TINGEN_STATION,journeyUnderRestrictions} from './book_world_lotm_cities.js';
 import {LOTM_DIVINATION_ROWS} from './lotm_divination_rows.js';
 import {constraintsFromPack} from './constraint_pack.js';
@@ -563,8 +563,9 @@ export function planLotmCastBeats(state,ledger=newBeatState(),pack=getPrivateLot
   // Older packs used the scene suffix; bind it to the same authoritative day.
   for(const b of pack.bindings.beats)if(b.needs?.fact?.startsWith('lotm.cast.window.'))facts[b.needs.fact]=days.get(b.scene)?.day===day.day;
   const available=table.filter(b=>b.dayIndex<=day.day&&(b.id===beat.id||terminalBeat(next.done[b.id])));
+  // STY33 (RCL14): a result names the route that met it, with the recorded writer of each fact.
   const resolution=resolveBeats(available,{...next,facts,day:day.day-1},day.day,
-   {lives:[{id:beat.actor}],mechanisms:[]});
+   {lives:[{id:beat.actor}],mechanisms:[],writtenBy:f=>state.lotm.castProvenance?.[`fact:${f}`]??null});
   next={...resolution.state,day:Math.max(ledger.day,resolution.state.day)};
   for(const result of resolution.results){
    const provenance=constraintProvenance(beat);
@@ -626,7 +627,7 @@ export function persistLotmCastPlan(plan,persist,{reset=false,publish=()=>{},wri
   if(report.effects.length)applySimulationEffects(plan,report.effects,{actorId:'player',worldId:I.world,facts:{location:report.place}},null,`lotm.cast.card.${report.cardId.replace(/[^a-z0-9_.:-]/gi,'_')}`);
   out.ledger.facts[REPORT_PREFIX+`card.${report.cardId}`]={text:report.text,at:report.at,kind:report.kind,actor:report.actor,place:report.place,threadId:report.threadId};
  }
- const news=lotmBe(plan.state)?settleLotmEvents({ledger:out.ledger,days:getPrivateLotmCast()?.bindings?.days||[],day:Math.floor((plan.state.clock-plan.state.lotm.initializedAt)/1440)+1,reached:new Set(cardWindow.scenes)}):{writes:[],reports:[]};
+ const news=lotmBe(plan.state)?settleLotmEvents({ledger:out.ledger,days:getPrivateLotmCast()?.bindings?.days||[],day:lotmDay(plan.state),reached:new Set(cardWindow.scenes)}):{writes:[],reports:[]};
  if(news.writes.length)applyBeatKnowledge(plan,news.writes,writeKnowledge);
  if(news.settledDay!==undefined)out.ledger.facts[LOTM_EVENTS_SETTLED]=news.settledDay;
  for(const r of news.reports)out.ledger.facts[REPORT_PREFIX+r.id]={text:r.text,at:r.at,kind:r.kind,actor:r.actor};
@@ -640,7 +641,7 @@ export function persistLotmCastPlan(plan,persist,{reset=false,publish=()=>{},wri
  // Canon pull (G1, proposal): the day-3 beat needs the lead at their scheduled place; fate or the church can put them there; once per life day.
  let pullNext=null;
  if(lotmBe(plan.state)){
-  const day=Math.floor((plan.state.clock-plan.state.lotm.initializedAt)/1440)+1;
+  const day=lotmDay(plan.state);
   const pullBefore=domainRegistry.project('canonPull'),tick=canonPullTick(pullBefore,{facts:pullFacts({scheduledPlace:scheduleIndex.whereabouts(actorId(getPrivateLotmCast()?.leadLife?.actorId),castCalendar(plan.state)).place,playerPlace:plan.state.simulation.people.player.location}),day,seat:'be',worldSeed:plan.state.rng??0});
   if(tick.effects.length)applySimulationEffects(plan,tick.effects,{actorId:'player',worldId:I.world},null,'lotm.pull.b1');
   for(const r of tick.records)out.reports.push({text:`Beat b1: ${r.outcome}${r.sign?` (${r.sign})`:''}.`,at:plan.state.clock,kind:'events',actor:'player'});

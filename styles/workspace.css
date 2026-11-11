@@ -682,7 +682,7 @@ body #bottom_panel_div .sl_button {padding-left:var(--ui-space-3);padding-right:
     --theme-selected-text: var(--ui-swatch-158) !important; --theme-focus: var(--vivid-focus) !important;
     --theme-warning: var(--ui-swatch-184) !important; --theme-danger: var(--ui-swatch-185) !important;
     --workspace-border: var(--vivid-edge); --workspace-accent: var(--vivid-accent);}
-:root[data-color-scheme="vivid"] #main_content.workspace-active .customization-module:not([data-custom-palette="true"]) :is(button, .activable_buttons > div, .action_travel, .start_dialogue, .start_trade, .start_game_action, .start_activity, .location_choices, .dialogue_textline):hover:not(:disabled):not([aria-disabled=true]) {
+:root[data-color-scheme="vivid"] #main_content.workspace-active .customization-module:not([data-custom-palette="true"]) :is(button, .activable_buttons > :is(div,button), .action_travel, .start_dialogue, .start_trade, .start_game_action, .start_activity, .location_choices, .dialogue_textline):hover:not(:disabled):not([aria-disabled=true]) {
     background: var(--vivid-control-hover) !important;}
 :root[data-color-scheme="vivid"] #main_content.workspace-active #location_actions_div > :is(.location_choice_dropdown, [data-native-choice]) {border-color: var(--ui-swatch-186) !important;}
 :root[data-color-scheme="vivid"] #main_content.workspace-active #location_name_div {color: var(--ui-swatch-182); border-bottom-color: var(--vivid-accent);}

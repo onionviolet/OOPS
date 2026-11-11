@@ -6,6 +6,7 @@ import {definePlaceActs} from './place_acts.js';
 import {placeActStages,placeActSequenceView} from './place_act_sequence.js';
 import {validLadder} from './coin_ladder.js';
 import {hpLeadSpellCommands} from './hp_lead_spells.js';
+import {hpLeadExamCommands} from './world_packs/book_hp_lead_exam_data.js';
 import {hpLeadSchoolCommands,hpLeadLessonCommands,hpLeadTieCommands,hpLeadMakingCommands} from './world_packs/book_hp_lead_life_data.js';
 const P='book.hp.lead',KIND='hp-cast';
 const arrivalId=P+'.arrive_school', sortingId=P+'.sorting';
@@ -79,7 +80,7 @@ export function withHpLeadCast(raw,pack){
  const placeIds=new Set(native.locations.map(l=>l.id)),school=structuredClone(hpLeadSchoolCommands);
  const endpoint=pack.householdActs.acts.flatMap(a=>(a.effects||[]).filter(e=>e.type==='relocate'&&e.actor==='player'&&placeIds.has(e.location))).at(-1)?.location;
  const arrive=school.find(c=>c.id===arrivalId);if(arrive&&endpoint)arrive.location=endpoint;
- const extras=structuredClone([...hpLeadHomeCommands,...hpLeadLessonCommands,...hpLeadTieCommands,...hpLeadMakingCommands,...hpLeadSpellCommands]);
+ const extras=structuredClone([...hpLeadHomeCommands,...hpLeadLessonCommands,...hpLeadTieCommands,...hpLeadMakingCommands,...hpLeadSpellCommands,...hpLeadExamCommands]);
  let weekCommands=[];
  if(pack.schoolWeek){
   const week=pack.schoolWeek, stages=placeActStages(week), split=stages.findIndex(s=>s.commandId===week.placementAfter);

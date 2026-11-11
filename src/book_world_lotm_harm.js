@@ -48,9 +48,16 @@ export function accrueHarm(s,def){
 }
 // The carrier's count (inbox included) and its lines, for facts and views: one read for every reader.
 export function lotmLossLine(harm,state){
- const row=HARM_WORLDS[WORLD].carriers[CARRIER],h=withLotmInbox(harm,state),count=h?.backlash?.[CARRIER]??row.floor;
- return {count,presign:row.stages.find(x=>x.id==='strained').at,loss:row.stages.find(x=>x.id==='lost').at};
+ const rules=HARM_WORLDS[WORLD],row=rules.carriers[CARRIER],h=withLotmInbox(harm,state),count=h?.backlash?.[CARRIER]??row.floor;
+ const grace=rules.lossOfControl.graceMinutes,lostFor=h?.lostFor?.[CARRIER]??0;
+ return {count,presign:row.stages.find(x=>x.id==='strained').at,loss:row.stages.find(x=>x.id==='lost').at,
+  stage:backlashStage(rules,CARRIER,count),graceLeft:Math.max(0,grace-lostFor)};
 }
+// FBK (feedback): one Reports line when the carrier moves to another stage, in the world's own words.
+const STAGE_LINES=Object.freeze({steady:'The hum behind your eyes has gone quiet.',strained:'Your power feels strained: a hum behind the eyes and whispers at the edge of hearing.',
+ slipping:'Your control is slipping. Rituals and research will not hold your attention now; rest, or ask Hale to steady you.',
+ lost:'You have lost control. Past this line nothing eases it, and within half an hour of waking time it ends you.'});
+export function lotmStageNote(before,after){return before&&after&&before!==after?STAGE_LINES[after]??null:null;}
 // A finished rite or craft names its carrier and weight (lotm_act_engine settle); the one door into the same slice.
 export function accrueAct(carrier,{source,weight}){
  const next=addBacklash(harmState(),HARM_WORLDS[WORLD],carrier,{source,weight});setHarmState(next.state);return next.record;

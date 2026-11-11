@@ -28,7 +28,7 @@ export function normalizeMeter(spec) {
     if(spec.observation){if(typeof spec.observation.text!=='string'||!spec.observation.text)throw new Error('Invalid observation.');annotations.push(spec.observation.text);}
     if(spec.change&&typeof spec.subject==='string'&&spec.change.subject===spec.subject){const c=spec.change;if(!Number.isFinite(c.previous)||!Number.isFinite(c.current)||c.current!==value||typeof c.lifetime!=='string'||!c.lifetime)throw new Error('Invalid subject change.');const previousMax=c.previousMax??spec.max;if(!Number.isFinite(previousMax)||previousMax<=0||c.previous<0||c.previous>previousMax)throw new Error('Invalid previous capacity.');const delta=c.current-c.previous;if(previousMax!==spec.max)annotations.push(`Capacity ${previousMax} → ${spec.max}; previous amount ${c.previous}. This is not a recovery or damage receipt.`);else {annotations.push(`${delta>0?'+':''}${delta} since previous ${c.lifetime}`);if(delta)change={from:Math.min(c.previous,c.current)/spec.max*100,width:Math.abs(delta)/spec.max*100,direction:delta>0?'gain':'loss'};}}
     return {id: spec.id, label: spec.label, kind: spec.kind, value, max: spec.max, note: spec.note || '', token: spec.token || spec.kind, compact: !!spec.compact,
-        state, annotations, change, stale, discrete:spec.discrete===true&&Number.isInteger(spec.max)&&spec.max<=24, text: `${spec.label} ${value}/${spec.max}`, stateText: ({empty:'empty',low:'low',high:'near the limit',full:'at the limit',complete:'complete'})[state] || (spec.kind === 'track' && value === 0 ? 'not started' : '')};
+        state, annotations, change, stale, unknown:spec.unknown===true, discrete:spec.discrete===true&&Number.isInteger(spec.max)&&spec.max<=24, text: spec.unknown===true ? `${spec.label}, unknown` : `${spec.label} ${value}/${spec.max}`, stateText: spec.unknown===true ? '' : (({empty:'empty',low:'low',high:'near the limit',full:'at the limit',complete:'complete'})[state] || (spec.kind === 'track' && value === 0 ? 'not started' : ''))};
 }
 export function createMeterBar(doc = document) {
     const root = doc.createElement('div'), label = doc.createElement('span'), value = doc.createElement('span'), track = doc.createElement('span'), fill = doc.createElement('span'), annotations=doc.createElement('span'),delta=doc.createElement('span'),steps=doc.createElement('span');
@@ -42,16 +42,18 @@ export function createMeterBar(doc = document) {
             details=doc.createElement('details');details.className='meter-bar-details';summary=doc.createElement('summary');note=doc.createElement('span');note.className='meter-bar-note';details.append(summary,note);root.append(details);
         } else if(!m.compact && details){details.remove();details=summary=note=null;}
         if(details){summary.textContent='Details';note.textContent=m.note;}
-        root.dataset.stale=String(m.stale);root.dataset.discrete=String(m.discrete);root.dataset.meter = m.id; root.dataset.kind = m.kind; root.dataset.token = m.token; root.dataset.state = m.state;
+        root.dataset.stale=String(m.stale);root.dataset.unknown=String(m.unknown);root.dataset.discrete=String(m.discrete);root.dataset.meter = m.id; root.dataset.kind = m.kind; root.dataset.token = m.token; root.dataset.state = m.state;
         track.setAttribute('role', m.kind === 'track' ? 'progressbar' : 'meter'); track.setAttribute('aria-label', m.label); track.setAttribute('aria-valuemin', '0');
-        track.setAttribute('aria-valuemax', String(m.max)); track.setAttribute('aria-valuenow', String(m.value));
+        track.setAttribute('aria-valuemax', String(m.max));
+        // An unknown reading has no value to announce or fill (UR61, UIV6; element audit UIC114).
+        if(m.unknown) track.removeAttribute('aria-valuenow'); else track.setAttribute('aria-valuenow', String(m.value));
         track.setAttribute('aria-valuetext', `${m.stale?'Last observed: ':''}${m.text}${m.stateText ? `, ${m.stateText}` : ''}${m.annotations.length?`, ${m.annotations.join('; ')}`:''}`);
         root.title = details ? '' : m.note;
         delta.hidden=!m.change;
         if(m.change){delta.dataset.direction=m.change.direction;delta.style.left=`${m.change.from}%`;delta.style.width=`${m.change.width}%`;}
         steps.replaceChildren();if(m.discrete)for(let i=1;i<m.max;i++){const step=doc.createElement('i');step.style.left=`${i/m.max*100}%`;steps.append(step);}
-        fill.style.width = `${(m.value / m.max) * 100}%`;
-        label.textContent = m.label; value.textContent = `${m.value}/${m.max}${m.stateText ? ` · ${m.stateText}` : ''}`;
+        fill.style.width = m.unknown ? '0%' : `${(m.value / m.max) * 100}%`;
+        label.textContent = m.label; value.textContent = m.unknown ? 'unknown' : `${m.value}/${m.max}${m.stateText ? ` · ${m.stateText}` : ''}`;
         annotations.textContent=m.annotations.join(' · ');annotations.hidden=!m.annotations.length;
     }};
 }

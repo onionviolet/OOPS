@@ -39,6 +39,10 @@ Lines that only restate accepted direction (his own words or an AD line) are lis
 | LLR29 | UR77 | Numeric budgets for routes, regions, center modes, Local actions and tabs; raising one needs a demotion and his yes | Screens fill one panel at a time | Budgets as guidance a lane may exceed with a stated reason |
 | LLR30 | UR82 | A system stays hidden in a life until something is attached | Unmet layers are noise | Show every system's entrance from the start with an empty state that says how to fill it |
 | LLR31 | WKR19 | A new kind of world gets its own sources or declared rules, people, resources and progression before a build packet | Ten shallow reskins add registrations, not play | Quick variants of an existing world allowed on the same kit with a stated difference, deepened later |
+| LLR32 | MND22, harm carrier `holdsFrom` | Past the LOTM loss line nothing eases strain, the base cheat included; it reads the line (CTC94) but does not hold it back | Canon: full loss is never reversed in the books (AD49) | The base cheat slows the carrier or allows one rescue past the line (CTC95), with a cost |
+| LLR34 | XWR6 | A title's entitlement or power works abroad only where the destination recognises its issuer or the carrier brings the means; the record of the title crosses as history | Titles, entitlement and active power are different facts and no universal conversion is selected; STN11 already holds foreign credentials | A title keeps working everywhere by default, or converts at an equalising edge by default |
+| LLR35 | XWR8 | A body that the destination cannot support shows that before crossing and needs a carrier, an adaptation or a local means | AD13 and AD38: bodies are real and things work by how they work | Bodies always adapt on crossing, or an unsupportable body simply cannot cross |
+| LLR36 | XWR27 | A counterpart in a branch or parallel world is a different person after the fork, and meeting one's own counterpart is meeting a stranger | Multiverse structures' branching row | Counterparts keep a link by default (shared memory, a bond), by world |
 
 ## Answers so far
 

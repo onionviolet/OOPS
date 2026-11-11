@@ -24,7 +24,7 @@ import {GUARD_POSITION_ID,GUARD_RESIGN_COST,GUARD_OFFER,guardSignQuote,guardBegi
 import {LOTM_GUARD_DUTY_ID} from './book_world_lotm_duties.js';
 import {lawView,takeRoute,papersHeld,lawSnapshot,lawRestore} from './book_world_lotm_law.js';
 import {lookOf} from './observed_look.js';
-import {noteExpenseFiled,tieExpenseFiled} from './book_world_lotm_colleagues.js';
+import {noteExpenseFiled,tieExpenseFiled,moodExpenseFiled,moodExpenseLapsed,expenseTieCycle} from './book_world_lotm_colleagues.js';
 import {reputationView} from './reputation_view.js';
 import {tieOfferEffects,tieOfferView,tieShownView} from './person_ties.js';
 import {lotmHomeView} from './lotm_home_household.js';
@@ -45,6 +45,7 @@ import {getPrivateLotmCast} from './book_world_lotm_cast_days.js';
 import {entryRecord,entryAnswers,LOTM_ENTRY_AXES} from './book_world_lotm_entry.js';
 import {causeView} from './book_world_lotm_causes.js';
 import {brokerView} from './book_world_lotm_broker.js';
+import {itemIdentityOf,itemReading,itemReadingLine} from './item_identity.js';
 import {gradeRiteAtTransition} from './book_world_lotm_ritual.js';
 import {benchWithRite} from './read_models/rite_state_bridge.js';
 import {meritView} from './book_world_lotm_merit.js';
@@ -57,7 +58,7 @@ import {lotmRegionAt} from './book_world_lotm_cities.js';
 import {lotmRestrictions,lotmLight} from './book_world_lotm_events.js';
 import {lotmUpcoming} from './book_world_lotm_upcoming.js';
 import {lotmSheetsFor} from './book_world_lotm_sheets.js';
-import {harmContext,accrueHarm,restHarm,lostControlOutcome,lossOfControlStep,harmClassOf,drainLotmInbox} from './book_world_lotm_harm.js';
+import {harmContext,accrueHarm,restHarm,lostControlOutcome,lossOfControlStep,harmClassOf,drainLotmInbox,lotmLossLine,lotmStageNote} from './book_world_lotm_harm.js';
 import {harmState,setHarmState} from './harm_state.js';
 import {districtOfPlace,districtById,respondersFor,lotmWalkMinutes,LOTM_PLACE_KEYS,onShift} from './book_world_lotm_districts.js';
 const copy=x=>structuredClone(x),assert=(ok,text)=>{if(!ok)throw Error(text);};
@@ -230,6 +231,7 @@ export function createLotmHost(ports){
   persist(plan);
   if(drained)setHarmState(drained);
   accrueHarm(plan.state,def);
+  noteStage(plan.state);
   if(id===SLEEP||def.bodyCare?.kind==='sleep')ports.beginSleep();
   return plan;
  }
@@ -255,6 +257,9 @@ export function createLotmHost(ports){
   plan.state.simulation.people.player.location=to;castWriteCode(plan.state,'location:player','emergent');plan.nativeLocation=to;plan.nativePatch={'current location':to};
   syncLotmCast(plan.state);persist(plan);return plan;
  }
+ // The last stage this host reported; the first read after load only records it, so a reload repeats nothing.
+ let shownStage=null;
+ function noteStage(s){const now=lotmLossLine(harmState(),s).stage.id,line=lotmStageNote(shownStage,now);shownStage=now;if(line)try{ports.logMessage?.(line,'notification');}catch{/* the change already landed */}}
  // MND8 (RCL5): a completed job (the self rite) or another route may leave loss-of-control inbox amounts; move them onto
  // the one carrier in a saved plan, then set the slice (persist throws when saving is paused, and nothing moves).
  function drainInbox(s){const r=s.actors?.player?.resources;if(!(r?.['book.lotm.pressure']>0||r?.['book.lotm.relief']>0)||!ports.writable())return;
@@ -262,7 +267,7 @@ export function createLotmHost(ports){
  // Native sleep ended by any cause before the job finished: the job is forfeited, nothing is restored (D4).
  function wake(){const s=state(),job=s.lotm&&sleepJob(s);if(job&&!ports.restoring()&&ports.writable())cancel(job.id);}
  // The job finished (or was cancelled) while native sleep was still on: end native sleep once.
- function tick(minutes=0){const s=state();if(s.lotm){drainInbox(s);if(ports.sleeping())restHarm(s,minutes);if(!dying&&ports.die&&ports.writable()&&lossOfControlStep(s,{minutes,skipping:!!ports.skipping?.()}).die&&lostControlOutcome(s)?.default==='final'){dying=true;try{domainRegistry.command('positions','died')({state:s,at:s.clock});}catch{/* positions settle on the next tick */}Promise.resolve(ports.die('loss_of_control')).finally(()=>{dying=false;});}}if(lotmCastLife(s)&&(castSyncDue(s)||castBeatsPending(s))&&ports.writable()&&(!lotmBe(s)||validLeadLife(getPrivateLotmCast()))){const plan=base(s,ports.context());if(syncLotmCast(plan.state)||castBeatsPending(plan.state))persist(plan);}if(s.lotm&&ports.sleeping()&&!sleepJob(s))ports.endSleep();}
+ function tick(minutes=0){const s=state();if(s.lotm){drainInbox(s);if(ports.sleeping())restHarm(s,minutes);noteStage(state());if(!dying&&ports.die&&ports.writable()&&lossOfControlStep(s,{minutes,skipping:!!ports.skipping?.()}).die&&lostControlOutcome(s)?.default==='final'){dying=true;try{domainRegistry.command('positions','died')({state:s,at:s.clock});}catch{/* positions settle on the next tick */}Promise.resolve(ports.die('loss_of_control')).finally(()=>{dying=false;});}}if(lotmCastLife(s)&&(castSyncDue(s)||castBeatsPending(s))&&ports.writable()&&(!lotmBe(s)||validLeadLife(getPrivateLotmCast()))){const plan=base(s,ports.context());if(syncLotmCast(plan.state)||castBeatsPending(plan.state))persist(plan);}if(s.lotm&&ports.sleeping()&&!sleepJob(s))ports.endSleep();}
  // Standing orders (OB1/OB4): rent and dues leave the native purse through the purse seam on the clock, in one save with the duties slice. Throws when saving is paused.
  const purseBalance=()=>{const m=ports.context().external?.money;assert(Number.isFinite(m),'The purse is not readable now.');return m;};
  // Read the current life's actual inventory. Unknown or protected goods have no seizure value.
@@ -330,7 +335,11 @@ export function createLotmHost(ports){
  function fileExpense(){
   writable();const s=state(),plan=base(s,ports.context()),noted=noteExpenseFiled(plan,registry);
   const tied=tieExpenseFiled(plan,registry);
+  // MND5: the lapse is read before the filing answers it (attend clears the count), then one thought is left: a lapse if a week went by unfiled, a warm one if it is on time. Keyed by week.
+  const lapsed=(domainRegistry.project('duties')?.items||[]).find(d=>d.id==='lotm.expense_claim')?.missed>0;
   domainRegistry.command('duties','attend')({dutyId:'lotm.expense_claim'});
+  const week=expenseTieCycle(s.clock);
+  if(lapsed)moodExpenseLapsed(s,week);else moodExpenseFiled(s,week);
   if(noted||tied)persist(plan);
  }
  // LT8: a tie-gated conversation (person_ties offers). One save; the note is attributed to the person, so People and the Notebook show it.
@@ -422,14 +431,15 @@ export function createLotmHost(ports){
   const homeKey=profileKeyOf(s),homeChurch=homeKey?districtById(LOTM_PROFILES[homeKey].home)?.church:null,dist=districtOfPlace(at),district=dist&&{id:dist.id,label:dist.label,team:dist.team,officer:dist.officerLabel,officerHere:f['lotm.officerHere'],responders:respondersFor(dist.id,homeChurch).line,home:!!f[`lotm.home.${dist.id}`],onShift:onShift(dist,s.clock),shift:!!dist.shift,claim:dist.claim,why:dist.why,endorsed:!!f[`lotm.home.${dist.id}`]||f[`lotm.flag.endorsed.${dist.id}`]===true,attention:f['lotm.officerAttention']};
   const doseLabels=pathwayRows.flatMap(r=>[[r.holds.base,`prepared ${r.potion} dose`],[r.holds.next,`prepared ${r.next} dose`]]).filter(([k])=>holds[k]).map(x=>x[1]);
   const clearance=at===L.workroom?clearanceView(f['lotm.roleName'],f['lotm.presentRoles']?f['lotm.presentRoles'].split(','):[]):[];
-  const marketHeld=pathwayRows.filter(r=>r.market).flatMap(r=>[[r.market.baseHold,`unmarked dose`],[r.market.nextHold,`unmarked Sequence 8 dose`]]).filter(([k])=>holds[k]).map(x=>x[1]);
+  // ITM23: a held market dose is named by the seat's own reading of it (item_identity.js), not by its saved id.
+  const marketHeld=pathwayRows.filter(r=>r.market).flatMap(r=>[r.market.baseHold,r.market.nextHold]).filter(k=>holds[k]).map(k=>itemReadingLine(itemReading(know,itemIdentityOf(K[k]))));
   // A save from before the bench has no stock yet; offers preview against the stock the first action will seed, so the buttons are not dead (DWF127).
   let sv=s,cv=c;if(!stockSeeded(s)){const t=base(s,c);seedBenchStock(t);sv=t.state;cv={...c,gameplay:t.gameplay};}
   const prevMerit=cid=>{const d=registry.simulation.commands.get(cid);if(!d)return null;const p=previewSimulationCommand(s,registry,cid,{...c,targetId:d.targetId||null});
    return {id:cid,label:d.label,eligible:p.eligible&&!ports.sleeping(),reasons:p.eligible&&ports.sleeping()?['You are asleep.']:p.reasons,visible:p.visible};};
   const merit=f['lotm.home.evernight']&&f['lotm.beyonderTrack']?meritView(s,f,prevMerit):null;
   const bench={rows:benchRowList(s,f),selected:selected&&benchDetail(sv,cv,selected,{registry,asleep:ports.sleeping()})};
-  return {enrolled:true,...(lotmCastLife(s)?{resident:true,waits:waits(s),elsewhere:castElsewhere(s),localClock:castClockLine(s),sky:skyLine(s)}:{}),skills,pausedLife:ports.pausedLife?.()||null,termDay:Math.floor(s.clock/1440),guard:guardView(s),law:lawView(s,lawCtx(s,c)),groups:groupLines(groupsOf(s)),merit,bench,broker:brokerView(s,f),places,marketHeld,cause:causeView(f),profile:profileKeyOf(s),entryProfile:s.lotm?.entryProfile,role:f['lotm.roleName'],clearance,district,doseLabels,beyonder:!!(f['lotm.sourceSupported']||[...pathwayRows,...generatedRows].some(r=>f[`lotm.${r.key}Supported`])),switchNotice:LOTM_SWITCH_NOTICE,at:castPlaceLabel(at),supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:lotmMeters(e),path,actingGuidance,holds,issuedDose:allocatedDoseView(s,holds.dose),actions,moves,jobs,records};
+  return {enrolled:true,...(lotmCastLife(s)?{resident:true,waits:waits(s),elsewhere:castElsewhere(s),localClock:castClockLine(s),sky:skyLine(s)}:{}),skills,pausedLife:ports.pausedLife?.()||null,termDay:Math.floor(s.clock/1440),guard:guardView(s),law:lawView(s,lawCtx(s,c)),groups:groupLines(groupsOf(s)),merit,bench,broker:brokerView(s,f,know),places,marketHeld,cause:causeView(f),profile:profileKeyOf(s),entryProfile:s.lotm?.entryProfile,role:f['lotm.roleName'],clearance,district,doseLabels,beyonder:!!(f['lotm.sourceSupported']||[...pathwayRows,...generatedRows].some(r=>f[`lotm.${r.key}Supported`])),switchNotice:LOTM_SWITCH_NOTICE,at:castPlaceLabel(at),supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:lotmMeters(e),path,actingGuidance,holds,issuedDose:allocatedDoseView(s,holds.dose),actions,moves,jobs,records};
  }
  function restoreSleep(){const s=state(),job=s.lotm&&sleepJob(s);if(!ports.restoring()||!job||!sleepingCommand(job.commandId))return false;ports.beginSleep();return true;}
  return {enroll,cross,resign,signGuard,standWatch,lawRoute,fileExpense,tieAsk,collectGuardPay,act,cancel,move,wake,tick,view,purseBalance,payDues,payFine,heldGoods,seizeGoods,sentencePlan,startable,restoreSleep,upcoming:()=>lotmUpcoming({state:ports.state(),days:getPrivateLotmCast()?.bindings?.days||[]}),inspectConstraints:()=>castRevisionReport(state())};

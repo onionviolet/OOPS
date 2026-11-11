@@ -1939,3 +1939,261 @@ Weibao: "send the research stuff accordingly, consider ideas working on the same
 - **UIC87, LATER: R4.** No fetched source described a meridian or realm chart UI in a cultivation game, so the body chart has no verified precedent; GDC and developer talk texts were unreadable this pass; idle-game engineering sources were not found. Level: sonnet research lane; effort medium; done check: the meridian question answered with sources or recorded as original, and at least three developer talks summarized.
 
 Ranked for building, revised: the altar slice with UIC78 registry, UIC79 sigils and UIC80 motion helper together; then the LOTM motif pack with three to five voices (UIC66, UIC75); then the potion-map prototype (UIC73); the spikes (UIC81, UIC82) run inside the slice that first needs them.
+
+## Round 42, 2026-11-10: R4, the sources the first lanes could not read
+
+Weibao asked for a Codex prompt to reach the blocked sources ([prompt](../reviews/ui-distinct-forms-2026-11-10/R4_CODEX_PROMPT.md)); Codex wrote [R4](../reviews/ui-distinct-forms-2026-11-10/R4_BLOCKED_SOURCES.md). It reached developer slides (Inscryption GDC 2022, Slay the Spire GDC 2019), Zach Barth's GDC 2019 captions, Weather Factory's own devlogs, Lucas Pope's Obra Dinn post, the Pentiment type-studio case study, the recovered Potion Craft essay, first-game Citizen Sleeper and Disco Elysium screenshots, pinned source for four idle games, measured package sizes and WebKit tracker statuses. Still open: the Mullins and Sawyer talk transcripts, Melvor's current catch-up internals, VoiceOver behaviour, and every cost in the app's web view. No gameplay, VoiceOver or app measurement is claimed.
+
+### Corrections to earlier rounds
+
+- **UIC88, ACT NOW (correction): Slay the Spire's numbers.** Round 41 (UIC74) said intents moved from symbols to numbers after testers asked. R4 confirms the intent redesign came from playtest feedback and that the shipped attack intent shows damage and hit count; the claim that testers asked for exact numbers stays unverified. UIC74's design point (show the pending effect with its numbers, UR95) stands on its own reason, not on that anecdote.
+- **UIC89, ACT NOW (correction): Book of Hours is set in an occult library,** not a prayer book; its grimoire look is a documented prototype direction (R1 entry 2).
+- Other R1–R3 corrections are listed in R4's table; [K] and [?] claims stay leads until upgraded there.
+
+### What changes our plan
+
+- **UIC90, ACCOUNT FOR NOW: the closest precedent to our problem is Weather Factory's own.** Lottie Bevan's 2022 Book of Hours prototype post contrasts Cultist Simulator's one repeated verb tile with distinct recipe windows attached to desks, gardens and ovens, built on the same shared framework. That is UR94 in practice: shared logic, distinct interaction per station. The altar (UIC68) and the vessel follow this shape.
+- **UIC91, ACCOUNT FOR NOW: the body chart has precedent, so ours is not original.** Wandering Sword draws six named meridians round a seated figure as a selector, then a body view of linked acupoints with real bonuses for the chosen channel; Tale of Immortal gives realms a ladder and the breakthrough its own screen of methods, required materials and a probability; Amazing Cultivation Simulator shows body remolding as an inspector with a visible capacity. Default for our cultivation form: a selector to find a channel, a body view to decide on it, the cause of any blockage drawn on the route, and realm readiness beside it when it bears on the same decision. A dantian appears where a world's rules have one. Topology stays the world's (UR90, AD38).
+- **UIC92, ACCOUNT FOR NOW: a complete example beside the first editable one (Zachtronics).** Barth describes teaching with a working example next to a separate exercise, and giving a goal and tools in place of one prescribed route. The first rite on the altar shows a complete rite beside the editable one, and the altar accepts any arrangement the rite's rules accept (AD38).
+- **UIC93, ACCOUNT FOR NOW: a working object can hold the state (Obra Dinn, Inscryption).** Pope's evidence book and Mullins' cabin of stateful objects back UIC72. Pope regrets the separately animated binding; keep page turns cheap.
+- **UIC94, ACCOUNT FOR NOW: idle-game practice from their source code.**
+  - Kittens Game computes elapsed time from timestamps, caps the span by progress, logs elapsed days and counts, and fades older log lines.
+  - Antimatter Dimensions has two return states, computing and ready, with a progress bar for long catch-up and a stable summary after.
+  - A Dark Room reveals affordances when they first matter, with 300–500 ms fades.
+  - Melvor's Steam build pauses skills when backgrounded and catches up on return.
+
+  These back UR81 and UIC35 (return as a reveal), UR82 (forms arrive with capability) and UIC85 (hidden-window path).
+- **UIC95, ACCOUNT FOR NOW: libraries, measured.**
+  - `motion` mini `animate`: 3,299 bytes gzip, MIT, published 2026-11-10.
+  - Anime.js v4 WAAPI subpath: 4,815 bytes gzip, MIT, active.
+  - Rough.js: 9,196 bytes gzip, MIT, last release 2023 and last push 2024, so less active.
+
+  Default for the altar slice: the browser's Web Animations API. A Motion mini spike is the cheapest add if the helper grows. Rough.js waits for a world whose frames need the hand-drawn look.
+- **UIC96, ACCOUNT FOR NOW: textures stay static.** Four WebKit filter bugs remain open (general SVG filter slowness, turbulence and displacement rendering failures, scroll cost with a static grain filter, pixelation while scaled). Bake textures once; keep the R3 budgets in UR99 as estimates.
+- **UIC97, LATER: the Tauri background setting.** Tauri documents `backgroundThrottling` on macOS 14 and later; this checkout sets no override, and the renderer defers refreshes while hidden. Check it with UIC85 in a release-shaped build.
+
+Ranked for building (R4 agrees): the LOTM altar slice with sigils and the motion helper first, its positions drawn from the real rite, a complete example beside the first editable rite, and the result settling on the altar and in Reports; then the cultivation body chart brief (UIC91); then motif work and replay.
+
+## Round 43, 2026-11-10: every element, census and coverage
+
+Weibao: "more UI autdit rules and more for all ui elements?" ([log](../gm/USER_VISION_LOG_2026-11.md#ui-rules-for-every-element-2026-11-10)). Rules: [the element sheet, UR100–UR127](../UI_RULES.md#every-element-the-element-sheet).
+
+### Census
+
+A grep of `src/**/*.js` on 2026-11-10 for each element kind, counting modules that mention it. These are text matches, so they over-count (a word in a comment counts) and under-count (shared helpers hide raw tags). They size the audit; they are not a defect count.
+
+| Element | Modules | Element | Modules |
+| --- | --- | --- | --- |
+| Progress | 191 | Selects | 38 |
+| Buttons | 146 | Tooltips | 36 |
+| Titles (hover text) | 106 | Live regions | 29 |
+| Disclosures | 103 | Keyboard handling | 29 |
+| Chips and badges | 76 | Checkboxes | 16 |
+| Meters | 56 | Text areas | 11 |
+| Inputs | 44 | Sliders | 6 |
+| Modals and dialogs | 40 | Tabs (role) | 5 |
+| Popovers | 5 | Toasts | 2 |
+| Drag | 1 | Context menu | 1 |
+
+### Coverage before this round
+
+- **Covered by standing or earlier codes, gathered per element:** buttons (UR10, UR66, UIV1), names in text (UR35, UR43), disclosures (UR26, UR42), tooltips (UR43, UR47), menus (UR53), modals (UR5), meters (UR61), progress (UR61, task layers), lists (UR27), logs (UR44, RPT), headers and back bars (UR9, UR30), empty states (UR32), larger text (UR33), colour (UR37), shortcuts (UR31).
+- **No code covered, now filled:** an element state sheet (UR100), auditing by element (UR101), selects (UR104), toggles (UR105), sliders and number entry (UR106), text fields and search (UR107), drag (UR110), toasts (UR114), number formatting (UR117), chips and badges (UR118), row anatomy (UR119), tables (UR120), icons (UR121), pictures (UR122), loading and error states (UR125), focus rings and keyboard traps (UR126), truncation and measure (UR127).
+- Nothing in this round removes an option; tab and notice counts defer to UR77 and UR88, which stay held.
+
+### Next
+
+- **UIC98, LATER: the first element audit (UR101).** Take the ten largest kinds above, sample three consumers each across worlds, check the row and UR100, and record pass and gaps here. Level: sonnet audit lane with the headless game and screenshots; effort medium; done check: thirty consumers checked, each with codes, pass or gap, and a screenshot path.
+- **UIC99, LATER: state sheets in the gallery (UR100).** `ui-preview.html` shows each shared control in every state from fixtures, with labels and world names toggleable for the cover tests. Effort medium; done check: buttons, selects, toggles, meters and tabs each render all their states at 1920×1080 and 150% text.
+- **UIC100, LATER: contract-test additions.** Extend the UI contract test: an interactive element without an accessible name fails, a raw number formatted outside the shared formatter is flagged, an icon without a label is flagged. Effort small to medium; done check: the test runs in `npm test` and lists current offenders as known findings instead of failing the build on day one.
+- **UIC101, LATER: one number formatter.** If the census of number formatting finds several formatters, consolidate behind one owner that reads the player's settings (UR117). Done check: the same value renders identically in three surfaces.
+
+## Round 44, 2026-11-10: the first element audit (UR101)
+
+Weibao: "Run the audit" (UIC98 from round 43). Three sonnet lanes drove headless Chrome at 1920×1080 through the playtest kit (`scripts/playtest/lib.mjs`) on `tests/fixtures/perf/mid.json`, built from HEAD `55fbeb44b`, with probes and screenshots kept in the session scratchpad (screenshots can show sealed text). Reports: [A controls](../reviews/ui-element-audit-2026-11-10/A_CONTROLS.md), [B overlays and disclosures](../reviews/ui-element-audit-2026-11-10/B_OVERLAYS.md), [C readouts](../reviews/ui-element-audit-2026-11-10/C_READOUTS.md). The design-doc lint flags lines in these reports that describe what the game does now ("only in a title"); they are findings, not rules. Nothing was fixed.
+
+### Results
+
+| Lane | Consumers | Pass rate by kind |
+| --- | --- | --- |
+| A controls | 36 | Tabs 100%, selects 95%, checkboxes 86%, number entry 76%, text fields and search 75%, buttons 72%; no sliders exist |
+| B overlays | 36 (82 checks) | 71% overall: names in text 5/5, back bars 6/7, tooltips 10/14, disclosures 12/20, modals 7/10, popovers 6/8, drag 2/4 |
+| C readouts | 50 rows | Figures 100%, chips 82%, lists 70%, meters 68%, progress 67%, empty and error states 63%, logs 50%, tables 50%, numbers 33%, icons 29% |
+
+Gaps are ranked by how many surfaces they touch. SHARED means fix once in a shared owner.
+
+### Shared gaps (fix once)
+
+- **UIC102, UR117: numbers have many formatters.** 43 named helpers in five families, 83 raw `toFixed` sites and 99 hand-rolled percentage roundings; the player's scientific-notation setting reaches 2 files through `expo()`. The same quantity prints differently: purse `10C 4W` and `104 coins`, crit `5.0%` and `5%`, `130.0%` and `×1.3`, durations `60m`, `1h` and `1 hour`. Fix: one formatter owner that reads the player's settings, adopted surface by surface (UIC101). Effort medium to large; done check: one value renders the same in three surfaces, and the contract test flags new raw formatting.
+- **UIC103, UIV1 and UR111: facts and reasons live only in `title` attributes.** Weather and season spans, Trade standing rows, Latest, panel Collapse controls and "Try one batch". Fix: show the reason inline or on focus in the pinned box; a title may repeat it. Effort medium.
+- **UIC104, UR126: focus and keyboard order in the shell.** The token focus ring is scoped to `#main_content`, so "Panel shortcuts" and "Menu" show none and "Find" shows the browser default; the top navigation is Tab stop 83, after the panels, with 10 backward jumps in 90 presses. Fix: move the ring rule to the shell and order the top bar first. Effort small to medium.
+- **UIC105, UR109 and UR26: disclosure summaries without state.** 37 of 60 unique summaries show no count or state, including closed groups over live lists (Input stock, Notebook, Homes). Fix: the summary helper (`summarizeGroups` in `ui_components.js`) supplies a count or ready line. Effort small to medium.
+- **UIC106, UR115: vitals and skill bars lack meter semantics.** No role, no value for assistive tech and no marked low threshold, unlike `meter_bar.js`. Fix: render them through `meter_bar.js`. Effort small.
+- **UIC107, UR107: three search fields built three ways.** None has a visible label and Esc does not clear. Fix: one search control. Effort small.
+- **UIC108, UR121: icons.** Material icon ligature names leak as text where the font is absent, and `▾` means both collapse and menu. Fix: accessible names and distinct glyphs. Effort small.
+- **UIC109, UR33: the top navigation and game bar ignore larger text.** They stay at 14 px at 150%. Effort small.
+- **UIC110, UR105: checkbox rows.** A rule at `styles/ui_tokens.css:1769` stretches "Static VFX" and "Plain text VFX" rows to 876 px, and several labels name a thing, not what "on" does. Effort small.
+- **UIC111, UR102 and UR66: action labels and heights.** Several actions carry no cost or time, and some heights sit off the control-size tokens. Effort medium, surface by surface.
+
+### Local defects
+
+- **UIC112, UR53: the inventory row menu lets the outside click through.** The test click opened Crafting; the item preview also takes the first Esc before the menu.
+- **UIC113, UR116: the patrol bar is hard-coded to 385 px** (`display.js` around lines 5098 and 5175) and reads 34% at minute 119 of 120.
+- **UIC114, UR61: an unknown Trust or Warmth reading draws as a half-full bar.** Unknown should read as unknown (UIV6, KNW7).
+- **UIC115, UR112: the chronicle end screen claims to be modal while the page behind stays live,** and Hard reset has no visible or keyboard route in this shell.
+
+### Not checked
+
+LOTM and household surfaces (the private packs were not loaded), most overlays and readouts at 150% text, reduced motion, combat, mixing and research meters, the real Shift+F10 key and pointer drag. A second pass with the private packs loaded covers them.
+
+### Proposed fix order
+
+1. Local defects UIC112–UIC115 (small, each a visible bug).
+2. The keyboard and focus shell pass, UIC104 and UIC109.
+3. Reasons out of titles (UIC103) with meter semantics (UIC106).
+4. One number formatter (UIC102).
+5. Search, disclosures, icons, checkboxes and labels (UIC105, UIC107, UIC108, UIC110, UIC111).
+
+Each is a runtime UI slice that needs rebuilt browser proof at 1920×1080 (UR14, AD43).
+
+### Fixes, 2026-11-10
+
+Weibao: "Go through and fix 1 to 5". Agent-verified, not human-reviewed. Evidence: a headless Chrome probe on a fresh temp build of the working tree at 1920×1080, mid fixture, text sizes 14 and 21, no page errors (session scratchpad `fix-proof/proof.json` and screenshots); `npm run check:arch` and `check:rules` pass; 182 focused tests across the 29 touched-module test files pass, including the UI contract test. The full `npm test` result is recorded with the commit.
+
+| Code | Fix | Where | Proof |
+| --- | --- | --- | --- |
+| UIC112 | The row menu swallows the outside click and takes Esc before the item preview | `row_context_menu.js` (window-capture Esc; the control box's click swallow) | Right-click, then click Crafting: the menu closes and the center task stays null; Esc closes the menu first |
+| UIC113 | Work and reading bars fill by their real fraction, with progress semantics | `ui/bar_semantics.js` `set_bar_fraction`, four call sites in `display.js` | No fixed 385 px fills remain |
+| UIC114 | An unknown meter reading shows as an empty dashed track reading "unknown" | `meter_bar.js` `unknown` option, warmth in `ui/relationship_web.js`, `styles/meter_bar.css` | New test in `tests/meter_bar.test.js` |
+| UIC115 | The life-end screen makes the whole page inert; Load backup, Import and Hard reset are real buttons | `chronicle_ui.js`, `index.html`, `style.css` | Buttons keep the old look (`font: inherit`) |
+| UIC104, UIC109 | Focus ring in the game bar, top navigation and options panel; the top bar follows the text-size setting | `styles/shell_chrome.css`, new token `--ui-type-nav`, `proto23_shell.js` publishes `--shell-context-size` on the root | Ring `solid 2px` on the bar; nav text 21 px at size 21 |
+| UIC103 | Locked controls say their reason on focus or click page-wide, and Esc or a press elsewhere dismisses it; weather, season and Trade standing facts reach keyboard focus | `locked_control.js` `mountReasonDelegate`, `data-say` on `village_workspace.js` badges and `economy_standing_ui.js` rows | Weather badge `tabIndex 0`, words in place of "native weather; no additional effect inferred" |
+| UIC106 | Health, stamina and xp bars are meters with value text and a low state | `ui/bar_semantics.js` `mark_vital_meter`, low mark in `meter_bar.css` | "60 of 60 hp", role `meter` |
+| UIC102 | One number-format owner; critical chance and damage, the xp ratio, the Homes purse and effect durations now read the same everywhere | new `number_format.js` with `tests/number_format.test.js`; `display.js`, `home_panel.js`, `proto23_shell.js` (sidebar "Crit dmg") | Sidebar "5%" and "×1.3" match Stats; xp "0/10 xp" |
+| UIC107 | Search fields have a visible label and Esc clears a typed query before closing | new `ui/search_field.js`, used by `known_things.js`, `ui/figure_interact.js`, `ui_components.js` | Typed "pants", Esc: field empty, box still open, label "Find" |
+| UIC108 | Icon ligatures are hidden from assistive tech, and controls carry the name | favourite star and task status in `display.js` | Favourite: `aria-hidden`, "Toggle favorite" |
+| UIC110 | Checkboxes no longer stretch to the field width; the effect toggles say what "on" does | `styles/ui_tokens.css`, `customization_ui.js` | "Hold effects still (no motion)" and a plain-text effects toggle |
+| UIC105 | Collapsed groups across open panels show their entry count; a summary that already states a count keeps its own | `ui_components.js` `summarizeGroups` (`actions`, `skip`), `workspace_navigation.js` | First try looped (two passes wrote the same groups); fixed with `skip` and re-proved |
+
+| UIC111 (labels) | Action labels carry their time: "Craft 1 · instant", "Try one batch · instant", "Start brazier hold · 6 min", "Mix one vial · instant" and the steep and boil cards; the item detail's Equip names its slot ("Equip · legs") | `crafting_detail.js` (`when` on the model), `crafting_home.js`, `display.js`, `mixture_ui.js`, `proto23_shell.js`; three playtest scripts now match `Equip` by prefix | Read in the browser on all four surfaces |
+| UIC111 (heights) | The Village action list sits on one dense size: 25.2 to 36.2 px before, 24.2 to 26.2 px after | `styles/ui_tokens.css` (one rule on the list's top-level entries) | Measured per entry |
+| G2, UIV1 | A blocked craft says why beside its buttons as well as in the glance; Try one batch reads "Select at least one carried material for an experiment." | `crafting_detail.js` reason line with `aria-describedby`; new test in `tests/crafting_detail.test.js` | First try used the `ui-disabled-reason` class, which the shared sweeper emptied; moved to `ui-action-reason` and re-proved |
+
+Weibao, 2026-11-10: "Do the action labels and Try one batch too".
+
+**Reviewed, no change:**
+- `▾` is the disclosure convention for both a collapsing panel and a dropdown, so it keeps one meaning: "shows more here".
+- The Tab walk that put the top navigation at stop 83 started in mid-page. The game bar is already first in DOM order (`document.body.prepend`).
+
+**Still open:**
+- UIC111, the rest: the Village list's entries open views and spend no time, so they keep plain verbs. Item detail buttons (24.2 px), the game bar, Latest, panel header toggles and the ledger's "Cancel active effect" still sit off the control sizes; a base `min-height` rule (G7) risks visual regressions and waits for its own pass.
+- Ledger "Lease woodworking assist (2 points)" names its cost but not the shortfall when disabled.
+- The remaining formatter sites are adopted when touched (AREA_GUIDE money "Display" line).
+- LOTM and household surfaces, and 150% text beyond the top bar.
+
+## Round 45, 2026-11-10: guards and what else to consider
+
+Weibao: "what other aspects of UI to consider? UI rules so same mistakes wont me made again?" Findings are proposals, not accepted decisions.
+
+**ACT NOW (done this round):**
+- **UIC116, the guard rules.** UR128–UR138 in [UI rules](../UI_RULES.md#building-elements-guards-from-the-2026-11-10-fixes): one row per mistake from the round 44 fixes, each with the check that catches a repeat.
+- **Static guards in the UI contract.** `tests/helpers/ui_contract.mjs` now flags `clickable-div` (UR130), `pixel-geometry` (UR131) and `partial-inert` (UR133). Existing hits are listed in the allowlist with a reason, so only new ones fail.
+- **The reason sweeper's root bug.** `decorateActionComponents` in `ui_components.js` claimed any `.ui-disabled-reason` node inside its roots. It now marks its own notes (`data-ui-sweeper`) and leaves the rest alone (UR129). Before the fix, two `proto23_shell.js` lines (the item detail's reason and the empty tool-slot note) and the locked-route line could be removed whenever they sat inside a decorated root. A test covers it.
+
+**ACCOUNT FOR NOW (constraints on the next UI work):**
+- **UIC117, one Escape stack.** 11 modules handle Esc on their own. UR132 states the order; a small shared stack (menu, query, preview, panel) would make it one owner. Effort M, sonnet. Done check: one module owns Esc order, and the row menu, search and preview journeys still pass.
+- **UIC118, 53 clickable divs in `index.html`.** These are the old tab, sort and category controls in Inventory, Journal, Storage, Skills and Crafting, the save bar and the options close. They are now grandfathered in the allowlist. Convert them to buttons in one pass with `font: inherit` so the look holds, then drop the allowlist entries. Effort M, sonnet. Done check: the allowlist count for `clickable-div` is 0, and Tab reaches every one at 1920×1080.
+- **UIC120, focus after a redraw.** 276 `replaceChildren` calls redraw panels. Where the focused control is redrawn, focus falls to the page body. Crafting keeps scroll but not focus. Default: a redraw keeps focus on the same `data-*` hook when it still exists (UR126, UR23). Effort M. Done check: Tab to Craft 1, let a tick redraw, and focus is still on Craft 1.
+
+**LATER / DELEGATE:**
+- **UIC119, a lint for inline number formats.** Flag `toFixed(` and `*100` followed by `%` in UI modules, as a ratchet like the others (UR135). Effort S, haiku. Done check: new inline formats fail the UI contract.
+- **UIC121, a browser element check.** The round 43 and 44 probes were scratch scripts. Promote the useful ones into `npm run check:elements`, run on request like `check:pacing`, covering:
+  - every disabled control has a visible reason in its group (UR128);
+  - focus rings exist;
+  - controls sit on the three heights;
+  - no title-only facts;
+  - the walk starts at the top (UR138).
+
+  Effort M, sonnet. Done check: the command reproduces round 44's counts on the old commit and passes on HEAD.
+- **UIC122, visual baselines.** No screenshot comparison exists, so every CSS change risks unseen shifts. This is why the base `min-height` rule (G7) waits. Keep a small baseline set (home, Village, craft, item detail, Reports at 1920×1080 and at 150% text) and diff on request. Effort M. Done check: a known one-pixel change shows in the diff.
+- **UIC123, live announcements.** 119 status or live regions exist. Nobody has checked how many speak at once during a busy tick. Count announcements in one played minute and merge per source (UR88, UR114). Effort S to measure.
+- **UIC124, decorator cost.** 22 MutationObservers run sweeps. The 2026-10-29 freeze and this round's loop both came from decorators. Measure one tick's sweep time on the mid fixture with all panels open. Effort S. Done check: a number in the perf notes.
+- **UIC125, uncovered surfaces.**
+  - The LOTM and household surfaces (private packs not loaded in round 44's probes).
+  - 150% text beyond the top bar.
+  - Each world dress's contrast (UR37).
+  - Failed save and import messages (UR125).
+  - Tauri window behaviour: resize, file dialogs.
+
+  The next element audit loads the packs first. Effort M per surface group.
+- **UIC126, undo for instant spends.** Craft, mix and Try one batch spend materials at once with no undo window. This is an idea that adds options, not a gate: a short undo window for an instant spend could sit beside UR112's ask-by-stakes, where a world allows it (AD56: it widens play, so it is a working default when built). Effort M.
+
+### Round 45 follow-up, 2026-11-10: the 53 clickable divs
+
+Weibao: "Convert the 53 divs", then "Inherit UI design styles and guidelines?" Agent-verified, not human-reviewed.
+
+- **UIC118 done.** Every `<div onclick>` in `index.html` is now `<button type="button" class="ui-native-control ...">`, and the `clickable-div` allowlist is empty. Export's nested tooltip became a span. The Reports filter selectors in `styles/ui_tokens.css` match buttons too.
+- **Design: they inherit the shared grammar.**
+  - They keep their class styling, so the shell look holds. A computed-style comparison at text sizes 14 and 21 found no change on any visible control (the save bar and the seven crafting tabs).
+  - They gain the shared focus ring.
+  - Tabs, filters, sorts and the combat or inventory switch state `aria-pressed`, kept in step with `active_selection_button` by `src/ui/native_controls.js`.
+  - The pressed one is underlined (UR108: more than colour), matching the Reports filters.
+- **Proof.**
+  - Headless Chrome at 1920×1080: Tab reaches every visible converted control, Enter on Cooking switches the tab, the focus ring is solid 2px, and an Inventory filter click updates `aria-pressed` live.
+  - New `tests/native_controls.test.js`.
+  - The older div patches (`qualifyNativeTabs`, the location decorator) skip real buttons and still serve script-made divs.
+
+
+## Round 46, 2026-11-10: intuitive, sectioned, flowing, and the playtest complaints
+
+Weibao: "Making things intuitive? sectioned properly? Flow properly? consider my qualms from the last time I actually playtested and checked things, the stuff I didnt like then, addressing those and more?"
+
+**Method.**
+- His complaints come from the direction logs (2026-10-14, 10-15 and 10-27) and the Codex memory of his UI sessions.
+- Each was checked against today's build: a headless walk of every top-bar route at 1920×1080 on the mid fixture, plus 1536×864 and 1280×720 (browser zoom at 125% and 150%). Screenshots are in the session scratchpad.
+- Status words: **addressed** (seen working today), **partly**, **open**, **not rechecked**.
+- Agent-verified, not human-reviewed.
+
+### His complaints, then and now
+
+| Code | Complaint (his words, date) | Status today | Evidence |
+| --- | --- | --- | --- |
+| Q1 | "our reports page still isnt quite as good" (10-15) | Partly | Reports keeps its own right column, 499×1018 px. Early in a life it holds four lines (right now, next step, now, the Home header), so most of the column sits empty. UR69 says regions lend free space; Reports does not yet. |
+| Q2 | "Our focus and you tabs dont feel as clean either" (10-15) | Partly | You (left) is compact and Stats opens a clean list with detail. Around you (centre top) leaves the lower half of its People column empty under two people. |
+| Q3 | "things shouldt always open onto the bottom" (10-15) | Addressed | Default today: every route opens in the centre with "← Village", and Esc returns home (check:flow: 13 routes, no back findings). |
+| Q4 | "rather than item details page we can have a hover menu" (10-15) | Addressed | Clicking an item opens the item detail beside the list with its actions; there is no separate page. |
+| Q5 | "everything should be viewable without scrolling too much", "paths back to specific large panels" (10-14) | Addressed at the home view | No page scroll at 1920×1080, 125% or 150%. Large panels have Expand and "← Village". Long views (Notebook, Stats' 42 attributes) scroll inside their region. |
+| Q6 | "clicking into certain panels leaves no way back" (Codex memory) | Addressed | As Q3. |
+| Q7 | "feels a little cluttered", but "fully make use of the Screen" (Codex memory) | Partly | Seven regions share the home view. Repeats: Journal is a top-bar route and a centre box; the work line repeats "Pick something under Here" while "Here" is also a tab; Notebook mixes notes and commands (R3). |
+| Q8 | "weird spacing on some stuff?" (Codex memory) | Partly | The Village list heights were evened this session (UIC111). At 150%, Around you cuts its Services list behind "Choose someone or something here to inspect." |
+| Q9 | "kinks to work out too, like ui scaling when I do ctrl +" (10-27) | Partly | No sideways scroll at 125% or 150%. Overflowing routes fold into "All panels…". Undiscovered Journal tabs showed "???????" (fixed, R4). |
+| Q10 | "if the details text on world crossing spoils too much" (10-27) | Not rechecked | Prose rules PRS1–PRS8 own it; check:rules lints engine words, not spoilers. |
+| Q11 | "button feedback, interaction and more?" (11-04) | Partly | Craft, mix and Equip labels now carry time or slot (UIC111), and a blocked craft says why beside the button. The Inventory route shows almost no response (R1). |
+| Q12 | rituals and other UIs "turned into sets of circles" (11-10) | Open | UR93–UR99 and the R1–R4 research set the direction; the altar slice is not built. |
+| Q13 | improvements should "actually show up" (Codex memory) | Process | Every claim this round comes from a rebuilt browser run, not source. |
+| Q14 | "Proto23 still looks better" (10-15) | Addressed by direction | The shell is the Proto23 variant; not re-judged here. |
+| Q15 | RAM: run comfortably on 8 GB (11-0x) | Not rechecked | UIC124 (decorator cost) is a related measure. |
+
+### What the walk found
+
+Ranked by how much each confuses a player:
+
+- **R1, the Inventory route answers weakly (UR139).** The top-bar Inventory routes to the inventory already on the left; the one visible change is an "Expand" link. Fix: a route to an on-screen panel moves focus into it and marks it briefly. Effort S, in `workspace_navigation.js`. Done check: the click puts focus in the inventory and a mark shows.
+- **R2, Worlds contradicts the Village (UR140).** Worlds is locked ("No other world is open to you yet") because it holds optional content-pack worlds, while the Village offers "Cross to another world: Tingen". Fix: Worlds lists every crossing the life can make, the Tingen door included, with the content-pack worlds as one section. Until then, the lock reason names what Worlds holds. Effort M (`content_pack_ui.js`, `book_world_lotm_ui.js`, `panel_directory.js`). Done check: with Tingen open, Worlds opens and shows it.
+- **R3, Notebook is three panels in one (UR141).** It holds notes, practice and people (good), then "Known actions" with full cost cards and live task commands ("Close the lung valve", "Close the seal and return"). Fix: commands go back to their task's panel or the Village list. Known actions becomes a short reference with a route to each task. Effort M. Done check: Notebook shows no live command buttons.
+- **R4, "???????" tabs (UR142).** Fixed here: the Bestiary, Books and Magic tabs keep the mystery name and say "You have not come across this yet." on focus or click (`workspace_disclosure.js`).
+- **R5, the Journal opens on a blank half (UR143).** One quest is listed and the rest of the panel is empty. Fix: open on the current quest's detail, or say "Choose a quest to read its steps." Effort S. Done check: the Journal route shows a quest's detail.
+- **R6, a generic reason in Known actions (UR81).** "This action is not available under the current conditions…" is the fallback when no specific reason is disclosed (`action_legibility.js`). Where the action states a prerequisite ("Hear the seal-steward's terms"), the reason can name it. Effort S, with a knowledge check so nothing sealed leaks. Done check: Discuss the offered work names its missing step.
+- **R7, empty space early on (Q1, Q2, UR69).** Reports and the lower half of Around you sit mostly empty at the start of a life. Fix: empty regions lend height to busy neighbours until they fill (UR69 already says so), with the region sizes as a player dial. Effort M; a visual baseline (UIC122) should land first.
+- **R8, clipping at 150% (Q8, UR33).** Around you hides its Services list behind its footer line. Effort S. Done check: check:flow reports no clipped region at 150%, which needs its clip detector to cover scrolling regions too.
+- **R9, Export's tooltip in the corner.** It was placed on mouse movement alone, so a pointer that arrived without moving showed it at the bottom left. It is now placed on entry too (inline script in `index.html`).
+
+### Prevention
+
+- **UR139–UR143** in [UI rules](../UI_RULES.md#intuitive-sectioned-flowing-rules-from-weibaos-playtest-complaints).
+- **`npm run check:flow`** (new, `scripts/check_flow.mjs`) plays the built game: every top-bar route, a visible response, a back path and Esc home, no bare placeholders, and zoom at 125% and 150% (no sideways scroll, no clipped text). It runs on request like check:pacing; today it reports 0 findings after R4.
+- Its next additions (UIC121): the list-detail check (R5), contradicting routes (R2), scrolling-region clips (R8), and the four worlds' starts as well as the Village.
+
+### Proposed fix order
+
+R1, R5 and R6 are small and remove the most confusion. Then R2 and R3, which change where things live. R7 waits for visual baselines (UIC122).

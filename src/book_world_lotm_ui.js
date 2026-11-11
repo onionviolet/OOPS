@@ -276,7 +276,7 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
   if(v.broker){
    work.append(node('h3','Broker custody'),node('p',`Money held pending verification: ${v.broker.escrowPence} pence.`));
    for(const b of v.broker.barters)work.append(node('p',`Posted barter: ${b.offered} (${b.offeredPence} pence) for ${b.label} (${b.requestedPence} pence), equal value. Appraisal costs ${b.feePence} pence separately.`));
-   for(const t of v.broker.trades){const r=node('p',`${t.label}: ${t.status}.`);r.dataset.brokerTrade=t.id;work.append(r);}
+   for(const t of v.broker.trades){const r=node('p',`${t.label}: ${t.status}.`);r.dataset.brokerTrade=t.id;if(t.certainty)r.dataset.itemReading=t.certainty;work.append(r);}
   }
   if(v.merit){const m=v.merit,box=node('div');box.dataset.lotmMerit='';box.append(node('h3',`${m.name} · merit`));
    const bal=node('p',`Merit in hand: ${m.balance} (earned ${m.earned}, spent ${m.spent}). Standing is tracked separately.`);bal.dataset.lotmMeritBalance=String(m.balance);box.append(bal);

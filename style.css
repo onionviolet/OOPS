@@ -794,6 +794,11 @@ input[type=checkbox], input[type=radio] {
  }
 
  .options_button {
+	/* Real buttons since the element audit (UIC115): keep the old look, gain keyboard reach. */
+	display: block;
+	border: none;
+	font: inherit;
+	box-sizing: content-box;
 	width: fit-content;
 	margin-left: 40px;
 	margin-right: auto;

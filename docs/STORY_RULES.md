@@ -127,7 +127,7 @@ Weibao asked "Other aspects to consider?" after STY33–STY34. Prefix RTC is thi
 
 ## Open details
 
-- No storyteller module exists; `director` exists as schema slots and nothing more (STY10).
+- `src/story_director.js` is the first storyteller slice (STY10, FRC38): keyed pacing over already-caused candidates, hold and recheck, receipts; one consumer, the Tingen Events list (`book_world_lotm_deck.js` `tingenDirected`). Not yet: tension from canon beats, personalities per world, dated events through it, a developer receipt view.
 - Canon pull is wired for one LOTM beat (STY3).
 - `storylet_deck2.js` reaches play as read-only news and nothing else yet (STY15).
 - `windowKit` has no caller outside its test (STY17).
