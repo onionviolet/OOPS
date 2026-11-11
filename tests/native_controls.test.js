@@ -18,3 +18,17 @@ test('index.html controls are buttons, and tabs and filters state their pressed 
     mountNativeControls(dom.document); // the headless DOM has no MutationObserver; the browser proof covers the live sync
     assert.equal(all.getAttribute('aria-pressed'),'false');assert.equal(gear.getAttribute('aria-pressed'),'true');
 });
+
+test('PX50: a press outside a modal sheet cancels and closes it; a press inside or a no-dismiss sheet does not', async () => {
+    const {mountLightDismiss} = await import('../src/ui/native_controls.js');
+    let handler;
+    const doc = {addEventListener: (type, fn) => { handler = fn; }, removeEventListener() {}, defaultView: {Event: class { constructor(type, o) { this.type = type; this.cancelable = o.cancelable; } }}};
+    const sheet = (attrs = {}) => ({tagName: 'DIALOG', open: true, closed: 0, events: [], matches: () => true, hasAttribute: n => n in attrs,
+        getBoundingClientRect: () => ({left: 100, right: 300, top: 100, bottom: 300}), dispatchEvent(e) { this.events.push(e.type); return true; }, close() { this.closed++; }});
+    mountLightDismiss(doc);
+    const press = (target, x, y) => { let stopped = false; handler({target, clientX: x, clientY: y, preventDefault() {}, stopPropagation() { stopped = true; }}); return stopped; };
+    const a = sheet();
+    assert.equal(press(a, 10, 10), true); assert.deepEqual([a.events, a.closed], [['cancel'], 1]);
+    const b = sheet(); press(b, 200, 200); assert.equal(b.closed, 0, 'inside the sheet');
+    const c = sheet({'data-no-light-dismiss': ''}); press(c, 10, 10); assert.equal(c.closed, 0, 'opted out');
+});

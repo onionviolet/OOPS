@@ -1003,3 +1003,27 @@ Recorded: [Gu abilities and killer moves](../GU_ABILITIES_AND_KILLER_MOVES_CONSI
 > Using gu above rank is possible? consider techniques of condensing higher rank essense and mroe? or other people giving you some? We should consider all possibilities, Other stuff to consider? procedural system for in world systems like gu killer moves? More to consider? We can build the rules around the worlds too, consider other worlds with similar considerations we would need to consider
 
 Recorded: round 2 of [Gu abilities and killer moves](../GU_ABILITIES_AND_KILLER_MOVES_CONSIDERATIONS_2026-11-10.md), GKM13–GKM26. Above-rank use is possible at a cost through stored, condensed, given, lent or burned essence; round 1's "cannot be driven" line is revised. A killer move generator over the same grammar; a cross-world composed abilities rulebook (CAB, proposed) built from Reverend Insanity, Mother of Learning, Lord of the Mysteries, Harry Potter, D&D and Jujutsu Kaisen.
+
+## A short playthrough: duplicate text, menus, talk, immersion, 2026-11-10
+
+Weibao (after playing the v0.6 snapshot, with nine screenshots):
+
+> this duplicates text, for the home one, rather than saying something we can pose a question instead, that should be prose rules, something like "Maybe you can build a house here?" maybe the go menu should be left open so no need to double click
+>
+> Clicjking into conversation changes the whole screen and could be surprovsing, some menus should be clicked to open and not jump out so people can be acquainted?
+>
+> Some texts break immersion? Asking about the herb field birng up not found,
+>
+> Also is Old Hesk the guy's official name? the menu on the bottom like this? Is relationship this easy?
+>
+> For someting like the new life stuff, maybe we can have the begin as, clickable from the table rather than scrolling down?
+>
+> Ui can be overwhelming? More to consider?
+>
+> This short playthrough already gave many issues, lets addressthem and extrapolate stuff so they dont happen again for the future and can be fixed?
+>
+> Unable to click out of menues like the ? mark on without clicking close or escate, rather than it dissapearing when I click seomthing behind it
+
+> ALso relationbship is also represented as circle in a linear path, is that something optimal even? That falls under all the system becomming circles and stuff that I talked about
+
+Recorded: [player experience round 3](../audits/PLAYER_EXPERIENCE_CORE_AUDIT.md#round-3-2026-11-10-weibaos-short-playthrough). Fixed PX42–PX50 (missing-text marker, name and role, "knows of you", rapport as a sentence instead of rings, Around you duplication with the willow stand posing a question, engine-speak strings and a wider prose lint, travel menu stays open, Begin from the compare table, outside press closes sheets). New working defaults under AD56: UR147–UR150 and PRS9. Proposed, not built: PX51 (talk opens in place), PX52 (a calmer Village screen), PX53 (rapport from real ties, which changes pace and waits for him), PX54 (crossing stops the idle run), PX55 (show which "one of" line was said), PX56 (keep or rename Old Hesk).

@@ -19,3 +19,25 @@ export function mountNativeControls(doc = document) {
     }
     return buttons.length;
 }
+
+// PX50, UR150: a modal sheet closes when the player presses outside it, the same as Esc or its Close
+// button, and that press does not reach what is underneath. A sheet that must not close this way
+// (a half-typed form) carries data-no-light-dismiss. One listener for every <dialog> opened with showModal().
+export function outsideDialog(dialog, x, y) {
+    const r = dialog.getBoundingClientRect();
+    return x < r.left || x > r.right || y < r.top || y > r.bottom;
+}
+
+export function mountLightDismiss(doc = document) {
+    const onDown = event => {
+        const dialog = event.target;
+        if(dialog?.tagName !== 'DIALOG' || !dialog.open || !dialog.matches(':modal') || dialog.hasAttribute('data-no-light-dismiss')) return;
+        if(!outsideDialog(dialog, event.clientX, event.clientY)) return;
+        event.preventDefault(); event.stopPropagation();
+        // Same path as Esc: owners that listen for 'cancel' (resolve a promise, restore focus) still run.
+        const Ev = doc.defaultView?.Event ?? globalThis.Event;
+        if(dialog.dispatchEvent(new Ev('cancel', {cancelable: true}))) dialog.close();
+    };
+    doc.addEventListener('pointerdown', onDown, true);
+    return () => doc.removeEventListener('pointerdown', onDown, true);
+}

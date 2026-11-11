@@ -141,3 +141,36 @@ Weibao: "Yes, fix them" (PX28–PX31). Agent-verified, not human-reviewed. Proof
 | PX31 | Alternatives that do the same thing state it once; the next ones read "Same as the line above." "Settles the other ways to put this" became "Picking one closes the others." | `src/read_models/talk_bridge.js`, `scripts/talk_browser.cjs` | The elder's first menu shows the caption once; new test in `tests/talk_view.test.js` |
 
 **Also done:** Spotlight showed three copies of the app. The build output in `desktop-tauri/target/bundle` and an old rollback copy in `work/` went to the Trash. Both folders now carry `.metadata_never_index`, so future builds there stay out of Spotlight. `~/Applications/Yet Another Idle RPG.app` is the one left.
+
+## Round 3, 2026-11-10: Weibao's short playthrough
+
+Weibao played the v0.6 snapshot (built from 35ed6580b, before the round 2 fixes) and sent nine screenshots with notes. Each note below has a code, what caused it, and what happened. Agent-verified, not human-reviewed: focused tests, a rebuild, a game-MCP replay of a fresh start and a headless probe at 1920x1080.
+
+### Fixed
+
+| Code | What he saw | Cause | Fix | Proof |
+| --- | --- | --- | --- | --- |
+| PX42 | Asking about the herb bed showed "text not found, id: '…'" | The translator turns any text without a translation key into a marker. Labels were cleaned up; answers were not. | `getText` returns prose-shaped text as written (key-shaped ids keep the marker for tests). | Test: every dialogue `name` and `text` resolves (`tests/talk_view.test.js` PX42) |
+| PX43 | "What Old Hesk, the village elder knows of you" | One display string carried name and role into every sentence. | The talk host splits at the comma: sentences say "Old Hesk", the header says "Talking with Old Hesk, the village elder" once. | MCP replay |
+| PX44 | "You told them: Hello? / Who are you?" | Every line you said counted as something you told them, questions included, and a "one of" row too. | "You said" lists statements; questions and "one of" rows tell them nothing; a questions-only talk reads "knows little of you". | Talk tests |
+| PX45 | Rapport as four rings on a line; "1 more to reach…" | The rapport figure reused the shared figure track (the circles of UI round 40, UR98), and its text counted lines. | Rapport is one sentence: "Familiar. Closer, they might offer secrets they would keep from a stranger." No rings, no line count. | Talk tests, MCP replay |
+| PX46 | Around you: "Nothing here to inspect yet", the willow stand's first sentence, then the same sentence again | The count line had a fallback text; the fold title was the first sentence and the body held the whole account. | A short account shows whole; a long one shows its first sentence with the rest behind "More about this place"; no count line when nothing is here; an empty place reads "No one else is here." The willow stand now ends "Could you make a shelter here? Homes has what it would take." | `tests/nearby_context_view.test.js` PX46, headless probe |
+| PX47 | "Original local prototype… represented irrigation", "Following creates no past history", the temperature note's "makes no claim about heat safety", the herb answer's "thirty played minutes" | The PRS6 lint read `field: '…'` strings and missed text set with `textContent = '…'`. | Rewrote the four strings; the lint now reads `textContent`/`innerText` assignments and knows the new terms. It found 60 older strings it could not see before; they went to the baseline and the [rewrite backlog](../prose/PROSE_REWRITE_BACKLOG.md). | `node scripts/check_player_text.mjs` catches the old workshop intro |
+| PX48 | "Move somewhere else" needs a second click after every move | Proto23's dropdown is rebuilt shut on each location change. | Menus remember the state the player gave them; travel starts open. | Headless probe: open on load and after a move |
+| PX49 | Scrolling past the lives table to the Begin buttons; "Finish or stop the work under way first" under every button | The table was read-only and each disabled button printed its own reason. | Each table row carries its Begin button; a reason that blocks them all shows once above the table and the buttons point at it. | `tests/start_compare.test.js` PX49, headless probe |
+| PX50 | The "?" shortcuts sheet does not close when clicking behind it | A modal `<dialog>` has no outside-press close by default. | One document listener closes any modal sheet on an outside press through its cancel path (typed confirm and the palette keep their handlers). | `tests/native_controls.test.js` PX50, headless probe |
+
+Rules so they do not come back: UR147 (say a thing once per view), UR148 (a menu the player opened stays open), UR149 (choose where you compare), UR150 (a sheet closes when you press outside it), PRS9 (the world speaks, not the build).
+
+### Proposed, not built
+
+| Code | Note | Default proposed | Dial | Size |
+| --- | --- | --- | --- | --- |
+| PX51 | Opening a conversation swaps the whole centre and surprises. | A conversation opens in the Around you card it started from (the person's card grows into the talk), and the centre keeps what it showed; a long scene can still be expanded to the centre on purpose (UR144). | Per world: a scene-heavy world can open talks full size. | One slice: the talk host mounts into the person card; check:flow stability covers it. |
+| PX52 | The Village screen is overwhelming: many folds, "0 ready / 9 actions", a workshop ledger open in the middle. | Local actions shows the ready actions first and folds the rest under one "More here" line; systems a player has not met (Iona's ledger) stay out until met (UR32, UR139). | Density setting. | Medium: needs the fold owner and a first-meeting flag per panel. |
+| PX53 | Rapport rises from Stranger to Familiar in five lines. | Rapport reads the existing ties (`person_ties` trust and affection) and person memory, so it rises with time spent, help given and promises kept; small talk moves a stranger to acquainted and stops there. | Per world and per person: an open, friendly person warms faster. | Medium: wire `talkModel` to `tieValue` and the memory bond (AREA_GUIDE "People and ties"). Changes the pace, so it waits for Weibao (AD56). |
+| PX54 | Crossing to Tingen is blocked by "Just running around". | Crossing stops the idle run itself and says so ("You stop running and cross."); work with a stake (a craft, a job, a fight) still blocks with its name. | None needed. | Small, but it touches how a life is left mid-activity; check save state first. |
+| PX55 | "Already covered" shows "One of: My head hurts.. / Where am I? / …" | Record which sibling line was said (a one-field save note), then show that line alone. | None. | Small save addition. |
+| PX56 | Is "Old Hesk" his real name? | It is an agent-given name (2026-11-07 names pass) for Proto23's unnamed "village elder", and it is not on the naming sheet. Keep it, or rename from the Village naming sheet. | Weibao's call. | Trivial either way. |
+
+PX53 is the one that needs Weibao's answer before building; PX51 is the next flow slice.

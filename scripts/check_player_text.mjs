@@ -34,11 +34,15 @@ export const ENGINE_WORDS = [
   'canon label', 'counter operation', 'bounded', 'revalidat\\w*', 'eligib\\w*',
   'disclosed', 'owned kit', 'own log', 'cited slice', 'the slice', 'this slice',
   'runtime', 'registry', 'host\\b', 'adapter', 'validated', 'atomically',
+  // PX47 (2026-11-10 playtest): prototype talk and hedges that reached the player.
+  'prototype', 'represented', 'authority-backed', 'played minutes', 'makes no claim', 'past history', 'text not found',
 ];
 const wordRe = new RegExp(`\\b(${ENGINE_WORDS.join('|')})\\b`, 'i');
 // Field names whose string values the player reads.
 const FIELDS = 'description|text|label|title|reason|summary|line|body|flavour|flavor|note|hint|quote|name|tooltip|caption|message|blocked|why';
 const fieldRe = new RegExp(`\\b(?:${FIELDS})\\s*:\\s*(["'\`])((?:\\\\.|(?!\\1)[^\\\\\\n])*)\\1`, 'g');
+// PX47: text set straight on a node (`intro.textContent = '...'`, `a ? '...' : ...`) reaches the player the same way.
+const assignRe = /\b(?:textContent|innerText)\s*=\s*(?:[^;\n]*?[?:]\s*)?(["'`])((?:\\.|(?!\1)[^\\\n])*)\1/g;
 const MIN_LEN = 25;
 
 const sha = s => createHash('sha256').update(s).digest('hex').slice(0, 12);
@@ -48,7 +52,7 @@ export function scanSource(name, source) {
   const lineStarts = [0];
   for (let i = 0; i < source.length; i++) if (source[i] === '\n') lineStarts.push(i + 1);
   const lineOf = idx => { let lo = 0, hi = lineStarts.length - 1; while (lo < hi) { const mid = (lo + hi + 1) >> 1; if (lineStarts[mid] <= idx) lo = mid; else hi = mid - 1; } return lo; };
-  for (const m of source.matchAll(fieldRe)) {
+  for (const m of [...source.matchAll(fieldRe), ...source.matchAll(assignRe)]) {
     const text = m[2];
     if (text.length < MIN_LEN) continue;
     const word = text.match(wordRe);

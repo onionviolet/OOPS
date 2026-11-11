@@ -4,7 +4,6 @@
 // model: talk_bridge.talkModel(). hooks: {onChoose(topic), onPerson(id)}. options: {answerNode} a node moved
 // into the card as the person's last line (the native #dialogue_answer_div keeps its id and text).
 import {renderSceneCard} from './scene_card.js';
-import {renderFigure} from './figure.js';
 import {talkText} from '../read_models/talk_bridge.js';
 
 const STATE_MARK = {new: '●', heard: '✓', closed: '·', locked: '○'};
@@ -22,7 +21,7 @@ export function renderTalkView(host, model, hooks = {}, options = {}) {
     const byId = new Map(model.open.map(t => [t.id, t]));
     const card = renderSceneCard(cardHost, {
         kind: 'talk', id: model.person.id,
-        header: {lead: `Talking with ${model.person.name}`, place: model.place},
+        header: {lead: `Talking with ${model.person.name}${model.person.role ? `, ${model.person.role}` : ''}`, place: model.place},
         stakes: model.stakes,
         options: model.open.map(t => ({id: t.id, label: t.label, time: model.noTime ? '' : t.quote.time, cost: t.quote.cost, affects: t.quote.effects.join(' · '),
             attrs: {topicId: t.id, topicState: t.state}, blocked: t.state === 'locked' ? (t.reason || 'Not possible yet.') : '', onChoose: () => hooks.onChoose?.(byId.get(t.id))})),
@@ -51,7 +50,6 @@ export function renderTalkView(host, model, hooks = {}, options = {}) {
     if (model.cheat) knows.append(make('p', 'talk-cheat', 'Cheat view: shows what they privately think.'));
     const rapport = make('div', 'talk-rapport'); rapport.dataset.rapportStage = model.rapport.stage.id;
     rapport.append(make('h4', '', 'Rapport'), make('p', '', model.rapport.text));
-    if (model.rapportFigure) { const fig = make('div', 'talk-rapport-figure'); rapport.append(fig); renderFigure(fig, model.rapportFigure, {idPrefix: `talk-${model.person.id}`, text: false}); }
     knows.append(rapport);
 
     const text = make('pre', 'talk-text'); text.textContent = talkText(model); text.hidden = true; text.dataset.talkText = '';

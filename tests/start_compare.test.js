@@ -15,3 +15,13 @@ test('a column no start answers is left out and a single start needs no comparis
     assert.deepEqual(compareRows([pr('a', '1')]), {columns: [], rows: []});
     assert.deepEqual(compareRows([{key: 'a', label: 'a', answers: []}, pr('b', '2')]).rows, []);
 });
+
+test('PX49: each start can be chosen from its own row of the comparison', async () => {
+    const {withPanelDom} = await import('./helpers/mini_dom.mjs');
+    const {renderStartCompare} = await import('../src/ui/start_compare.js');
+    withPanelDom(({document, host}) => {
+        const table = renderStartCompare(host, [pr('a', '1', 'x'), pr('b', '2', 'y')], undefined, {action: key => { const b = document.createElement('button'); b.textContent = `Begin ${key}`; return b; }});
+        const rows = table.children.find(n => n.tagName === 'tbody').children;
+        assert.deepEqual(rows.map(r => r.children.at(-1).children[0]?.textContent), ['Begin a', 'Begin b']);
+    });
+});

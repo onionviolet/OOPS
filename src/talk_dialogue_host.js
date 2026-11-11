@@ -4,7 +4,7 @@
 // What is "new" is read from the divs update_displayed_dialogue already built, so eligibility cannot drift from
 // the native checks. "Heard" is derived from the line's own lock (it closes itself in locks_lines), so no new save
 // state is written; a line that a sibling closed reads "settled another way".
-import {topicsFromLines, talkModel, rapportFigure} from './read_models/talk_bridge.js';
+import {topicsFromLines, talkModel} from './read_models/talk_bridge.js';
 import {renderTalkView} from './ui/talk_view.js';
 import {storyRecap} from './lore_history_view.js';
 import {readPort} from './ui_ports.js';
@@ -38,9 +38,11 @@ export function mountTalkView({actionDiv, npcId, name, role, place, dialogue, tr
     const {lines, hiddenMore} = nativeTalkLines({dialogue, shownKeys, labelOf: key => labelOf(key), answerOf: line => translate(line.text)});
     const recap = storyRecap(readPort('expansion'), npcId)?.line;
     const deeds = recap ? [recap.replace(/^Story so far: /, '')] : [], manner = '';
-    const person = {id: npcId, name, role};
+    // PX43: "Old Hesk, the village elder" is a name and a role. Sentences use the name; the role rides beside it.
+    const [shortName, ...title] = String(name).split(', ');
+    const person = {id: npcId, name: shortName, role: role || title.join(', ')};
     const model = talkModel({person, place, topics: topicsFromLines(lines), hiddenMore, deeds, manner});
-    model.rapportFigure = rapportFigure(person, model.rapport);
+    // PX45, UR98: rapport reads as a sentence; a ring-and-pip track made a feeling look like a progress bar.
     const answerNode = actionDiv.querySelector('#dialogue_answer_div');
     for (const n of natives) { n.classList.add('talk-native-list'); n.setAttribute('aria-hidden', 'true'); }
     actionDiv.querySelector('#dialogue_name_div')?.classList.add('talk-native-list');
