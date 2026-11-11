@@ -9,22 +9,22 @@
         <link rel="stylesheet" href="styles/workspace_discovery.css?version=b5eeb0896e80">
         <link rel="stylesheet" href="styles/display_settings.css?version=26b21c1fadde">
         <link rel="stylesheet" href="styles/status_window.css?version=0023c5675b2d">
-        <link rel="stylesheet" href="style.css?version=v0.6-c3476681b5a8">
+        <link rel="stylesheet" href="style.css?version=v0.6-e0364dc6f5c1">
         <link rel="stylesheet" href="styles/action_legibility.css?version=7a7c36a0289c">
         <link rel="stylesheet" href="styles/crafting_detail.css?version=ed431a67123b">
         <link rel="stylesheet" href="styles/component_themes.css?version=7c80e2f1f996">
         <link rel="stylesheet" href="styles/start_probe.css?version=f8faff61cea7">
-        <link rel="stylesheet" href="styles/ui_tokens.css?version=f21980a198fa">
+        <link rel="stylesheet" href="styles/ui_tokens.css?version=96706fe6319d">
         <link rel="stylesheet" href="styles/shell_layout.css?version=c114835c8955">
         <link rel="stylesheet" href="styles/inventory.css?version=c71f66873b87">
         <link rel="stylesheet" href="styles/opponents.css?version=fa6db5d61628">
         <link rel="stylesheet" href="styles/combat_log.css?version=aec488eac3b1">
         <link rel="stylesheet" href="styles/oops_branding.css?version=be2f6469874f">
-        <link rel="stylesheet" href="styles/shell_chrome.css?version=5696c1288a7b">
+        <link rel="stylesheet" href="styles/shell_chrome.css?version=39b9b03b3433">
         <link rel="stylesheet" href="styles/inventory_composition.css?version=103486cbc3e7">
         <link rel="stylesheet" href="styles/item_card.css?version=4b9f7f13dff6">
         <link rel="stylesheet" href="styles/nearby_context_view.css?version=3c6c97f95cfe">
-        <link rel="stylesheet" href="styles/ui_extras.css?version=d5793e5d02ae">
+        <link rel="stylesheet" href="styles/ui_extras.css?version=36265c653802">
         <link rel="stylesheet" href="styles/scene_card.css?version=80d7a6d95feb">
         <link rel="stylesheet" href="styles/figure.css?version=08248f70672f">
         <link rel="stylesheet" href="styles/skin_paper.css?version=7417c6351259">
@@ -35,7 +35,7 @@
         <link rel="stylesheet" href="styles/character_sheet.css?version=19c3400ad0b1">
         <link rel="stylesheet" href="styles/body_view.css?version=c4f5085b6997">
         <link rel="stylesheet" href="styles/research.css?version=0c0f75ed8bbf">
-        <link rel="stylesheet" href="styles/meter_bar.css?version=94f5b2f9efc8">
+        <link rel="stylesheet" href="styles/meter_bar.css?version=5799cf60a406">
         <link rel="stylesheet" href="styles/corc_readability.css?version=c0a352950af8">
         <link rel="stylesheet" href="styles/talk_view.css?version=abe8bc675ee6">
         <link rel="stylesheet" href="styles/material_icons.css?version=3fc1347eba2f">
@@ -52,7 +52,7 @@
         
         <script type="module" src="resources/js/HackTimer/HackTimer.min.js"></script>
 
-        <script type="module" src="dist/bundle.js?version=v0.6-fe5837d05672"></script>
+        <script type="module" src="dist/bundle.js?version=v0.6-9c82525fa523"></script>
 
 
         <!--favicon-->
@@ -840,9 +840,9 @@
 
             </div>
             <div id="close_options" onclick="closeOptions()"> X </div>
-            <div id = "backup_load_button" class="options_button" onclick = "loadTheBackup()">Load the backup autosave</div>
-            <div id = "import_other_save_button" class="options_button" onclick = "importOtherSave()"> Import save from </div>
-            <div id = "hard_reset_button" class="options_button" onclick = "hardReset()"> Hard reset the game <i class="material-icons"> warning_amber </i> </div>
+            <button type="button" id = "backup_load_button" class="options_button" onclick = "loadTheBackup()">Load the backup autosave</button>
+            <button type="button" id = "import_other_save_button" class="options_button" onclick = "importOtherSave()"> Import save from </button>
+            <button type="button" id = "hard_reset_button" class="options_button" onclick = "hardReset()"> Hard reset the game <i class="material-icons" aria-hidden="true"> warning_amber </i> </button>
         </div>
 
         <canvas id="foreground_canvas">

@@ -1,3 +1,5 @@
+import {formatMoneyText} from './number_format.js';
+import {denominationsKnown} from './reveal_chain.js';
 import {renderWarehouse} from './home_warehouse.js';
 import {renderVillageContacts} from './home_contacts.js';
 import {renderHomeWork} from './home_building_panel.js';
@@ -34,7 +36,7 @@ export function createHomePanel({read,quote,execute}) {
     const section=(parent,label)=>{const d=el('details');d.className='ui-panel-section';d.append(el('summary',label));parent.append(d);return d;};
     function render() {
         if(!panel.isConnected)return;view=read();const sig=JSON.stringify([view,selected]);if(sig===signature)return;signature=sig;
-        summary.textContent=view.visible?`${view.homes.length} residence${view.homes.length===1?'':'s'} · ${view.context.body.form} body · ${view.context.money} coins`:'Your known homes are elsewhere.';
+        summary.textContent=view.visible?`${view.homes.length} residence${view.homes.length===1?'':'s'} · ${view.context.body.form} body · ${formatMoneyText(view.context.money,{denominations:denominationsKnown()})}`:'Your known homes are elsewhere.';
         if(!view.homes.some(h=>h.id===selected))selected=view.here?.id||view.state.primary||view.homes[0]?.id||'';
         const values=view.homes.map(h=>[h.id,`${h.name} · ${h.tenure}${view.here?.id===h.id?' · here':''}`]);
         if(JSON.stringify(values)!==homes.dataset.rows){homes.replaceChildren(...values.map(([id,label])=>option(id,label)));homes.dataset.rows=JSON.stringify(values);}homes.value=selected;homes.hidden=!values.length;

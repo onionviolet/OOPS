@@ -1,3 +1,4 @@
+import {searchLabel} from './ui/search_field.js';
 import {INVENTORY_KINDS,inventoryRowKind,matchesInventoryFilter} from './inventory_filters.js';
 import {splitReasons,playerReasonText,DEV_REASONS,NEUTRAL_REASON} from './player_reasons.js';
 import {config} from './config.js';
@@ -77,7 +78,7 @@ export function decorateInventoryList({id='inventory_content_div',label='invento
     const tools=document.createElement('div');tools.className='ui-list-tools';
     const search=document.createElement('input');search.type='search';search.placeholder=`Find ${label}`;search.setAttribute('aria-label',`Find ${label}`);
     const count=document.createElement('output'),empty=document.createElement('p');empty.className='ui-list-empty';
-    tools.append(search,count);list.before(tools);list.after(empty);
+    tools.append(searchLabel(search,'Find'),count);list.before(tools);list.after(empty);
     let kind=null,quality=null;
     if(id==='inventory_content_div'){
         const select=(label,choices)=>{const box=document.createElement('label');box.textContent=label+' ';const n=document.createElement('select');n.setAttribute('aria-label',label);for(const [value,text]of choices){const o=document.createElement('option');o.value=value;o.textContent=text;n.append(o);}box.append(n);tools.append(box);n.addEventListener('change',()=>{refresh();list.scrollTop=0;search.dispatchEvent(new Event('input',{bubbles:true}));});return n;};
@@ -123,14 +124,22 @@ export function decorateInventoryList({id='inventory_content_div',label='invento
     return {refresh};
 }
 
-export function summarizeGroups(root) {
+export function summarizeGroups(root, {actions = true, skip = null} = {}) {
     if(!root)return;
+    // A closed group says whether opening it matters (UR26, UR109; element audit UIC105): its ready actions,
+    // or how many entries it holds. A group over prose only gets no count, so the heading stays honest.
     for(const group of root.querySelectorAll('details')){
-        const summary=group.querySelector(':scope > summary');if(!summary)continue;
+        if(skip&&group.closest(skip))continue; // another pass owns these groups; two writers would fight
+        const summary=group.querySelector(':scope > summary');if(!summary||summary.querySelector('[data-group-own-status]'))continue;
+        // A summary that already states its own count or state keeps it (for example "Gear · 0").
+        const own=[...summary.childNodes].filter(n=>!(n.dataset&&'groupStatus' in n.dataset)).map(n=>n.textContent).join('');
+        if(/\d/.test(own)){summary.querySelector('[data-group-status]')?.remove();continue;}
+        const buttons=actions?[...group.querySelectorAll('button')].filter(n=>!n.hidden&&!n.closest('summary')):[];
+        const rows=buttons.length?[]:[...group.querySelectorAll(':scope li, :scope tr, :scope [data-panel-row]')].filter(n=>!n.hidden&&!n.closest('summary')&&!n.closest('thead'));
+        const text=buttons.length?`${buttons.filter(n=>!n.disabled&&n.getAttribute('aria-disabled')!=='true').length} ready / ${buttons.length} actions`:rows.length?`${rows.length} ${rows.length===1?'entry':'entries'}`:'';
         let status=summary.querySelector('[data-group-status]');
+        if(!text){status?.remove();continue;}
         if(!status){status=document.createElement('small');status.dataset.groupStatus='';summary.append(status);}
-        const buttons=[...group.querySelectorAll('button')].filter(n=>!n.hidden);
-        const text=buttons.length?`${buttons.filter(n=>!n.disabled).length} ready / ${buttons.length} actions`:'Open to review';
         if(status.textContent!==text)status.textContent=text;
     }
 }

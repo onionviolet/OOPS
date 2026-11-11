@@ -74,6 +74,13 @@ export function createChroniclePanel({read, command, duty, cancelDuty, exportSav
     const independentButton=node('button','Archive this life and begin an independent character');independentButton.type='button';independentButton.dataset.life='begin-independent';independentButton.addEventListener('click',()=>{try{beginIndependent?.();}catch(e){heirNotice.textContent=e.message;}});
     const carryText=node('div');carryText.id='chronicle_carry_ledger';
     end.append(graveText,bequestText,carryText,heirNotice,exportButton,heirButton,independentButton,resetButton); document.body.append(end);
+    // While the life-end screen is up, everything else on the page is inert, not only the main column
+    // (UR112; element audit UIC115). Only the elements this screen made inert are released again.
+    const madeInert = new Set();
+    const setPageInert = on => {
+        if(on) {for(const child of document.body.children) if(child !== end && !child.inert && !child.matches('script, style')) {child.inert = true; madeInert.add(child);}}
+        else {for(const child of madeInert) child.inert = false; madeInert.clear();}
+    };
     const moment = (c, at) => {const t = new Game_Time(c.calendarAtEnrollment); t.goUp(at - c.enrolledAt); return t.toString();};
 
     function render(force = false) {
@@ -151,7 +158,7 @@ export function createChroniclePanel({read, command, duty, cancelDuty, exportSav
         const ended = !!localEnd || !!c && c.life.endedAt !== null;
         setText(endDescription, localEnd?.description||"Old age ended this mortal life. Game time and activities have stopped. Your possessions, learned knowledge and chronicle are still saved.");
         independentButton.hidden=!localEnd||!beginIndependent;independentButton.disabled=!canWrite;resetButton.hidden=!!localEnd;graveText.hidden=bequestText.hidden=legacyHelp.hidden=!!localEnd;
-        end.hidden = !ended; document.getElementById("main_content").inert = ended;
+        end.hidden = !ended; setPageInert(ended);
         heirButton.hidden=!beginHeir||!!localEnd&&c?.life.endedAt==null;
         setText(legacyHelp, beginHeir ? 'An heir begins with their own body, skills and starting things. They also receive what this life actually left behind:' : 'What this life left behind waits for someone to claim it. Export these memories to keep the whole life.');
         if(ended&&!localEnd){const grave=lifeGrave(c,context.heroName);setText(graveText, `A quiet grave. ${grave.epitaph}`);

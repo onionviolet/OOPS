@@ -252,6 +252,8 @@
     --ui-line-prose: round(calc(var(--custom-size, var(--ui-type-body)) * 1.45), 1px);
     --ui-type-figure: 12px; /* SVG figures draw text in their own viewBox units at this design base; the figure scales as a whole */
     --ui-type-heading: round(calc(var(--custom-size, var(--ui-type-body)) * 8 / 7), 1px);
+    /* Top navigation text: the shell's chosen size, one step smaller (UR33; element audit UIC109). */
+    --ui-type-nav: round(calc(var(--shell-context-size, var(--ui-type-body)) * 6 / 7), 1px);
     --ui-weight-regular: 400; --ui-weight-strong: 700;
 }
 
@@ -584,6 +586,9 @@ body { font-family: var(--ui-font); font-size: var(--ui-type-body); }
 }
 #main_content[data-presentation="proto23-shell"] #location_actions_div { gap: 0; }
 #main_content[data-presentation="proto23-shell"] #location_actions_div > .location_choice_dropdown { padding: var(--ui-space-1); font-size: var(--custom-size,var(--ui-type-body)); }
+/* One height for the dense Village list: every top-level entry on the small control size (UR66, UIC111). */
+#main_content[data-presentation="proto23-shell"] #location_actions_div > :is(.location_choice_dropdown,.location_choices,button) { box-sizing: border-box; min-height: var(--ui-control-sm); padding: var(--ui-space-1); font-size: var(--custom-size,var(--ui-type-body)); border-width: 0; }
+#main_content[data-presentation="proto23-shell"] #location_actions_div > .location_choices > .material-icons { font-size: 20px; vertical-align: middle; }
 #main_content[data-presentation="proto23-shell"] #location_actions_div > .location_choice_dropdown > .material-icons { font-size: 20px; vertical-align: middle; }
 #main_content[data-presentation="proto23-shell"] :is(#crafting_mainpage_buttons,.crafting_subpage_buttons) { outline: none; border-bottom: 1px solid var(--ui-hairline); }
 #main_content[data-presentation="proto23-shell"] :is(.crafting_mainpage_button,.crafting_subpage_button) { border: 0; border-right: 1px solid var(--ui-hairline); background: var(--shell-stat-fill); }
@@ -1766,7 +1771,7 @@ body:has(#main_content #location_related_div[data-component-theme="luminous"][da
 .ui-control-field {display:grid;gap:var(--ui-space-1);min-width:0;}
 .ui-control-field:has(> [hidden]) {display:none;}
 .ui-control-field > span {color:var(--theme-muted,var(--workspace-muted));}
-#main_content.workspace-active .ui-control-field > :is(select,input) {width:100%;min-width:0;min-height:var(--ui-control-md);box-sizing:border-box;}
+#main_content.workspace-active .ui-control-field > :is(select,input:not([type="checkbox"],[type="radio"])) {width:100%;min-width:0;min-height:var(--ui-control-md);box-sizing:border-box;}
 #main_content.workspace-active :is(.ui-quoted-actions,.ui-action-row,.bond-actions) > button {margin:var(--ui-space-1) var(--ui-space-2) var(--ui-space-1) 0;max-width:100%;white-space:normal;overflow-wrap:anywhere;text-align:start;min-height:var(--ui-control-md);padding:var(--ui-space-2) var(--ui-space-3);line-height:var(--ui-line-body);}
 #main_content.workspace-active .ui-checkbox-field {display:flex;align-items:start;gap:var(--ui-space-2);margin-block:var(--ui-space-3);line-height:var(--ui-line-body);cursor:pointer;}
 #main_content.workspace-active .ui-checkbox-field > input[type="checkbox"] {flex:none;width:1em;height:1em;min-height:0;margin:var(--ui-space-1) 0 0;padding:0;}

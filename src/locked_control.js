@@ -47,3 +47,20 @@ export function setLocked(button, reason) {
 }
 
 export const lockReason = button => (button?.getAttribute('aria-disabled') === 'true' ? button.dataset.disabledReason || '' : '');
+
+// One page-wide delegate (element audit UIC103, G9): any locked control that carries its reason in
+// `data-disabled-reason` says it on focus or click, even when its owner did not call setLocked, and the
+// line dismisses with Esc or a press elsewhere instead of waiting out its timer.
+let delegated = false;
+export function mountReasonDelegate(doc = document) {
+    if (delegated) return; delegated = true;
+    const lockedFrom = target => target?.closest?.('[aria-disabled="true"][data-disabled-reason]');
+    const say = event => { const node = lockedFrom(event.target); if (node && !node.dataset.lockedBound) sayReason(node, node.dataset.disabledReason); };
+    // A fact that used to live only in a hover title (`data-say`) also shows on keyboard focus.
+    const sayFact = event => { const node = event.target?.closest?.('[data-say]'); if (node && !lockedFrom(event.target)) sayReason(node, node.dataset.say); };
+    doc.addEventListener('focusin', say);
+    doc.addEventListener('focusin', sayFact);
+    doc.addEventListener('click', say, true);
+    doc.addEventListener('keydown', event => { if (event.key === 'Escape' && line && !line.hidden) clearReason(); }, true);
+    doc.addEventListener('pointerdown', event => { if (line && !line.hidden && !lockedFrom(event.target) && !event.target?.closest?.('[data-say]')) clearReason(); }, true);
+}

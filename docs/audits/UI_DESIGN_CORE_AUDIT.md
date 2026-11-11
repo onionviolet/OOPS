@@ -2055,3 +2055,38 @@ LOTM and household surfaces (the private packs were not loaded), most overlays a
 5. Search, disclosures, icons, checkboxes and labels (UIC105, UIC107, UIC108, UIC110, UIC111).
 
 Each is a runtime UI slice that needs rebuilt browser proof at 1920×1080 (UR14, AD43).
+
+### Fixes, 2026-11-10
+
+Weibao: "Go through and fix 1 to 5". Agent-verified, not human-reviewed. Evidence: a headless Chrome probe on a fresh temp build of the working tree at 1920×1080, mid fixture, text sizes 14 and 21, no page errors (session scratchpad `fix-proof/proof.json` and screenshots); `npm run check:arch` and `check:rules` pass; 182 focused tests across the 29 touched-module test files pass, including the UI contract test. The full `npm test` result is recorded with the commit.
+
+| Code | Fix | Where | Proof |
+| --- | --- | --- | --- |
+| UIC112 | The row menu swallows the outside click and takes Esc before the item preview | `row_context_menu.js` (window-capture Esc; the control box's click swallow) | Right-click, then click Crafting: the menu closes and the center task stays null; Esc closes the menu first |
+| UIC113 | Work and reading bars fill by their real fraction, with progress semantics | `ui/bar_semantics.js` `set_bar_fraction`, four call sites in `display.js` | No fixed 385 px fills remain |
+| UIC114 | An unknown meter reading shows as an empty dashed track reading "unknown" | `meter_bar.js` `unknown` option, warmth in `ui/relationship_web.js`, `styles/meter_bar.css` | New test in `tests/meter_bar.test.js` |
+| UIC115 | The life-end screen makes the whole page inert; Load backup, Import and Hard reset are real buttons | `chronicle_ui.js`, `index.html`, `style.css` | Buttons keep the old look (`font: inherit`) |
+| UIC104, UIC109 | Focus ring in the game bar, top navigation and options panel; the top bar follows the text-size setting | `styles/shell_chrome.css`, new token `--ui-type-nav`, `proto23_shell.js` publishes `--shell-context-size` on the root | Ring `solid 2px` on the bar; nav text 21 px at size 21 |
+| UIC103 | Locked controls say their reason on focus or click page-wide, and Esc or a press elsewhere dismisses it; weather, season and Trade standing facts reach keyboard focus | `locked_control.js` `mountReasonDelegate`, `data-say` on `village_workspace.js` badges and `economy_standing_ui.js` rows | Weather badge `tabIndex 0`, words in place of "native weather; no additional effect inferred" |
+| UIC106 | Health, stamina and xp bars are meters with value text and a low state | `ui/bar_semantics.js` `mark_vital_meter`, low mark in `meter_bar.css` | "60 of 60 hp", role `meter` |
+| UIC102 | One number-format owner; critical chance and damage, the xp ratio, the Homes purse and effect durations now read the same everywhere | new `number_format.js` with `tests/number_format.test.js`; `display.js`, `home_panel.js`, `proto23_shell.js` (sidebar "Crit dmg") | Sidebar "5%" and "×1.3" match Stats; xp "0/10 xp" |
+| UIC107 | Search fields have a visible label and Esc clears a typed query before closing | new `ui/search_field.js`, used by `known_things.js`, `ui/figure_interact.js`, `ui_components.js` | Typed "pants", Esc: field empty, box still open, label "Find" |
+| UIC108 | Icon ligatures are hidden from assistive tech, and controls carry the name | favourite star and task status in `display.js` | Favourite: `aria-hidden`, "Toggle favorite" |
+| UIC110 | Checkboxes no longer stretch to the field width; the effect toggles say what "on" does | `styles/ui_tokens.css`, `customization_ui.js` | "Hold effects still (no motion)" and a plain-text effects toggle |
+| UIC105 | Collapsed groups across open panels show their entry count; a summary that already states a count keeps its own | `ui_components.js` `summarizeGroups` (`actions`, `skip`), `workspace_navigation.js` | First try looped (two passes wrote the same groups); fixed with `skip` and re-proved |
+
+| UIC111 (labels) | Action labels carry their time: "Craft 1 · instant", "Try one batch · instant", "Start brazier hold · 6 min", "Mix one vial · instant" and the steep and boil cards; the item detail's Equip names its slot ("Equip · legs") | `crafting_detail.js` (`when` on the model), `crafting_home.js`, `display.js`, `mixture_ui.js`, `proto23_shell.js`; three playtest scripts now match `Equip` by prefix | Read in the browser on all four surfaces |
+| UIC111 (heights) | The Village action list sits on one dense size: 25.2 to 36.2 px before, 24.2 to 26.2 px after | `styles/ui_tokens.css` (one rule on the list's top-level entries) | Measured per entry |
+| G2, UIV1 | A blocked craft says why beside its buttons as well as in the glance; Try one batch reads "Select at least one carried material for an experiment." | `crafting_detail.js` reason line with `aria-describedby`; new test in `tests/crafting_detail.test.js` | First try used the `ui-disabled-reason` class, which the shared sweeper emptied; moved to `ui-action-reason` and re-proved |
+
+Weibao, 2026-11-10: "Do the action labels and Try one batch too".
+
+**Reviewed, no change:**
+- `▾` is the disclosure convention for both a collapsing panel and a dropdown, so it keeps one meaning: "shows more here".
+- The Tab walk that put the top navigation at stop 83 started in mid-page. The game bar is already first in DOM order (`document.body.prepend`).
+
+**Still open:**
+- UIC111, the rest: the Village list's entries open views and spend no time, so they keep plain verbs. Item detail buttons (24.2 px), the game bar, Latest, panel header toggles and the ledger's "Cancel active effect" still sit off the control sizes; a base `min-height` rule (G7) risks visual regressions and waits for its own pass.
+- Ledger "Lease woodworking assist (2 points)" names its cost but not the shortfall when disabled.
+- The remaining formatter sites are adopted when touched (AREA_GUIDE money "Display" line).
+- LOTM and household surfaces, and 150% text beyond the top bar.

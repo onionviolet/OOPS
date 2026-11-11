@@ -1,3 +1,4 @@
+import {searchLabel} from './ui/search_field.js';
 import {registerDomain} from './domain_registry.js';
 import {definePanel} from './panel_kit.js';
 import {readPort, whenPortsReady} from './ui_ports.js';
@@ -90,7 +91,7 @@ function createKnownThingsPanel() {
     const tabs = createTabs({label: 'Kinds of known things', tabs: KINDS, onSelect: () => render(true)});
     const people = node('button', 'Open People', {type: 'button'}); people.title = 'People you know are kept in the People panel';
     people.onclick = () => expandWorkspaceModule('known-people');
-    panel.append(node('h2', 'Known things'), intro, tabs.bar, search, status, list, people);
+    panel.append(node('h2', 'Known things'), intro, tabs.bar, searchLabel(search, 'Search'), status, list, people);
     let records = readRecords();
     const render = visibleRenderer(panel, () => { records = readRecords(); return {tab: tabs.active(), q: search.value, records}; }, view => {
         const kind = KINDS.find(k => k.id === view.tab), rows = view.records[view.tab] || [], shown = rows.filter(row => matches(row, view.q));

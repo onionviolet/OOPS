@@ -16,7 +16,7 @@ import {rendered} from './panel_reveal.js';
 import {descriptionCopy} from './shell_item_description.js';
 import {renderItemCard} from './ui/item_card.js';
 const node=(tag,text,cls)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;if(cls)n.className=cls;return n;};
-const shortStatLabels={strength_slot:'STR',agility_slot:'AGL',dexterity_slot:'DEX',intuition_slot:'INT',magic_slot:'Magic',attack_power_slot:'Attack',attack_speed_slot:'Speed',crit_rate_slot:'Crit %',crit_multiplier_slot:'Crit ×',hit_chance_slot:'AP',defense_slot:'Defense',defensive_action_chance_slot:'EP'};
+const shortStatLabels={strength_slot:'STR',agility_slot:'AGL',dexterity_slot:'DEX',intuition_slot:'INT',magic_slot:'Magic',attack_power_slot:'Attack',attack_speed_slot:'Speed',crit_rate_slot:'Crit %',crit_multiplier_slot:'Crit dmg',hit_chance_slot:'AP',defense_slot:'Defense',defensive_action_chance_slot:'EP'};
 const active=()=>document.getElementById('main_content')?.dataset.presentation==='proto23-shell';
 const action=(label,run)=>{const b=node('button',label);b.type='button';b.onclick=run;return b;};
 function attributeExplanation(row){
@@ -374,6 +374,8 @@ export function mountProto23Shell({read,transferStorage,compareWorn,readItemCard
         const root=document.getElementById('main_content'),context=document.getElementById('location_related_div'),style=getComputedStyle(context);
         const customPalette=context.dataset.customPalette||'false';if(root.dataset.shellCustomPalette!==customPalette)root.dataset.shellCustomPalette=customPalette;
         for(const [key,value]of Object.entries({'--shell-context-size':style.fontSize,'--shell-context-font':style.fontFamily,'--shell-context-small-size':style.getPropertyValue('--custom-small-size'),'--shell-context-small-font':style.getPropertyValue('--custom-small-font'),'--shell-user-fill':style.getPropertyValue('--custom-background'),'--shell-user-text':style.getPropertyValue('--custom-text'),'--shell-user-accent':style.getPropertyValue('--custom-accent')}))if(root.style.getPropertyValue(key)!==value)root.style.setProperty(key,value);
+        // The game bar and top navigation sit outside #main_content; give them the same text size (UR33, element audit UIC109).
+        {const top=document.documentElement,size=style.fontSize;if(top.style.getPropertyValue('--shell-context-size')!==size)top.style.setProperty('--shell-context-size',size);}
         for(const select of [sort]){const active=[...select.options].find(o=>document.getElementById(o.value)?.classList.contains('active_selection_button'));if(active)select.value=active.value;}
         // A zero-capacity native resource is empty, including the currently
         // unimplemented 0/0 mana slot. Keep native numeric text untouched.
@@ -442,7 +444,7 @@ export function mountProto23Shell({read,transferStorage,compareWorn,readItemCard
             const favorite=row.querySelector('.item_fav_div');
             if(favorite&&root.dataset.parity==='r3'){const favored=row.querySelector('.item_fav_icon')?.textContent==='star';const b=action(favored?'Unfavorite':'Favorite',()=>{rowForSelection()?.querySelector('.item_fav_div')?.click();signature='';render();});b.dataset.shellFavorite='';b.setAttribute('aria-pressed',String(favored));more.append(b);}
             for(const selector of ['.equip_item_button','.item_use_button','.item_auto_use_button']){const native=row.querySelector(selector);if(!native)continue;
-                const label=native.textContent.replace(/[\[\]]/g,'').trim();const b=action(label[0].toUpperCase()+label.slice(1),()=>{const current=rowForSelection()?.querySelector(selector);if(current){const slot=rowForSelection()?.dataset.item_slot;current.click();if(selector==='.equip_item_button'&&slot)selected={slot};signature='';render();updateWorkspace();}});b.dataset.shellItemAction=label;b.disabled=!!frame.reason;b.title=frame.reason;(selector==='.item_auto_use_button'&&root.dataset.parity==='r3'?more:controls).append(b);}
+                const label=native.textContent.replace(/[\[\]]/g,'').trim(),slotName=selector==='.equip_item_button'?row.dataset.item_slot:'';const b=action(label[0].toUpperCase()+label.slice(1)+(slotName?` · ${slotName.replace(/_/g,' ')}`:''),()=>{const current=rowForSelection()?.querySelector(selector);if(current){const slot=rowForSelection()?.dataset.item_slot;current.click();if(selector==='.equip_item_button'&&slot)selected={slot};signature='';render();updateWorkspace();}});b.dataset.shellItemAction=label;b.disabled=!!frame.reason;b.title=frame.reason;(selector==='.item_auto_use_button'&&root.dataset.parity==='r3'?more:controls).append(b);}
         }
         if(frame.reason)controls.append(node('span',frame.reason,'ui-disabled-reason'));
         if(root.dataset.parity==='r3'&&row?.querySelector('.known-item-binding'))more.append(action('Hotkey…',()=>{

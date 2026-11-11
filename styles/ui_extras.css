@@ -102,3 +102,7 @@ button[data-new-count]::after {
 .typed-confirm label { display: grid; gap: var(--ui-space-2); }
 .typed-confirm input { width: 100%; box-sizing: border-box; font-size: var(--ui-type-title); }
 .typed-confirm-actions { display: flex; justify-content: flex-end; gap: var(--ui-space-4); margin-top: var(--ui-space-5); }
+/* One search grammar (UR107, element audit UIC107): a visible label beside the field. */
+.ui-search-label { display:inline-flex; align-items:center; gap:var(--ui-space-3); }
+.ui-search-label-text { font-size:var(--custom-small-size, var(--ui-type-small)); color:var(--theme-muted, var(--ui-text)); }
+
