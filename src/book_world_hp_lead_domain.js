@@ -16,6 +16,7 @@ import {getHpLeadMirror} from './book_world_hp_lead_mirror.js';
 import {getHpLeadFlamel} from './book_world_hp_lead_flamel.js';
 import {getHpLeadNorbert,HP_LEAD_NORBERT} from './book_world_hp_lead_norbert.js';
 import {getHpLeadFinale,getHpLeadFarewell,HP_LEAD_FINALE} from './book_world_hp_lead_finale.js';
+import {norbertCard} from './being_norbert.js';
 import {createHpLeadPanel} from './book_world_hp_lead_ui.js';
 import {registerOwnHoldings,lifeHoldings} from './own_holdings.js';
 import {ladderLabel} from './coin_ladder.js';
@@ -66,7 +67,7 @@ export function hpLeadProjection(state,data=actData(),locked=getHpLeadCast()?.lo
     const halloweenCharms=!!state.actors?.player?.completed?.[HP_LEAD_HALLOWEEN+'.charms'];
     const hufflepuffResult=state.simulation.knowledge?.player?.[HP_LEAD_NORBERT+'.match-result']?.value??null;
     const termResults=state.simulation.knowledge?.player?.[HP_LEAD_FINALE+'.cup-result']?.value??null;
-    return {enrolled:state.actors?.player?.worldId===`${LEAD_ID}.world`,arc,schoolWeek:!!week,halloweenCharms,
+    return {enrolled:state.actors?.player?.worldId===`${LEAD_ID}.world`,being:norbert?norbertCard(state):null,arc,schoolWeek:!!week,halloweenCharms,
         termResults,hufflepuffResult,excursion:excursion?{id:arc.id,venue}:null,housePoints:halloweenArc?hpHalloweenHousePoints(state):null,match:matchArc?hpQuidditchMatch(state):null,reputation:reputationView(state,{known:id=>id==='book.hp.lead.ron'&&!!hpSchoolRoute(state).house}),school:hpSchoolRoute(state),ties:hpSchoolRoute(state).house?tieShownView(state):[],home:hpLeadHomeView(state,{homes:domainRegistry.project('homes'),quote:domainRegistry.command('homes','quote')??null}),lessons:hpLessonView(state),locked:structuredClone((excursion?excursion.locked?.[shown]:locked[shown])??[]),jobs:structuredClone(state.simulation.jobs||[])};
 }
 // Live holdings: the purse is the player's own resource under the pack's currency key (one integer in the smallest coin,

@@ -137,6 +137,8 @@ test('house view: timers, gauge, cap and ledger read the save', () => {
     let h = v(); assert.equal(h.gauge.max, DIAL.capacity); assert.equal(h.stones, DIAL.startStones);
     const m = h.gu.find(x => x.id === 'moon'); assert.deepEqual([m.kept, m.mealsStocked, m.nextMealIn, m.starvesIn, m.starvedOutIn], [true, 2, DAY, null, 5 * DAY - f.p.state.clock]);
     assert.equal(h.gu.find(x => x.id === 'worm').kept, false); assert.match(h.feedingCap.line, /1 of 1/);
+    assert.deepEqual([m.being.grain, m.being.holder, m.being.care.state, m.being.tie.rows.length, m.ability], ['held', 'you', 'fed', 0, 'sound'], 'CPR10: the shared being record reads the Gu row');
+    assert.equal(h.gu.find(x => x.id === 'worm').being.holder, 'the clan steward');
     f.step(7 * DAY - f.p.state.clock); h = v();
     assert.equal(h.ledger.lines[0].amount, DIAL.stipendStones); assert.equal(h.ledger.agreement.kind, 'coin'); assert.equal(h.ledger.nextStipendIn, 7 * DAY);
     f.start('chores'); f.step(DIAL.choreMinutes); f.start('buy_petals'); h = v();
