@@ -6,6 +6,7 @@ import {energyCharge} from './energy_resources.js';
 import {guKeeperLife as life, kId as id, kKey as key, KEEPER_GU, KEEPER_DIALS as DIAL, KEEPER_DAY, keeperDiets} from './world_packs/book_gu_keeper.js';
 import {nextMeal, starvation, sustainable, dailyCost, dailyFood, mealSize, stipendAgreement} from './living_upkeep.js';
 import {guCard} from './being_gu.js';
+import {keeperMoveFacts, keeperMovesView} from './gu_keeper_move_view.js';
 import {createObligations, writeObligation} from './obligations_ledger.js';
 const check = (ok, message) => { if(!ok) throw Error(message); };
 const own = (rows, k) => rows?.[k] || 0;
@@ -76,10 +77,11 @@ export function keeperHouseView(state, definition, record, context) {
     const ledger = writeObligation(createObligations(), agreement);
     const nextStipend = paid < DIAL.stipendWeeks ? anchor + (paid + 1) * DIAL.stipendDays * KEEPER_DAY - now : null;
     const spentOnGu = KEEPER_GU.filter(g => done('take_' + g.slot)).reduce((n, g) => n + g.price, 0);
-    const foodBought = KEEPER_GU.map(g => ({g, n: done('buy_' + g.food)})).filter(x => x.n);
+    // One purchase command per food, even when two Gu eat the same food (Moonlight and Moonglow share petals).
+    const foodBought = KEEPER_GU.filter((g, i) => KEEPER_GU.findIndex(x => x.food === g.food) === i).map(g => ({g, n: done('buy_' + g.food)})).filter(x => x.n);
     const spentOnFood = foodBought.reduce((n, x) => n + x.n * x.g.bundlePrice, 0), chores = done('chores') * DIAL.choreStones;
     const income = paid * DIAL.stipendStones + chores, spent = spentOnGu + spentOnFood;
-    return {gauge, gu: rows, stones, feedingCap: {held: held.length, sustained: cap.fed.length, line: held.length ? `At this week's stipend you can afford to feed ${cap.fed.length} of ${held.length} Gu you hold${cap.starving.length ? `; ${cap.starving.map(i => KEEPER_GU.find(g => g.slot === i).label).join(', ')} would go short. Each Gu starves from its own larder, so the timers below are what decides.` : '.'}` : 'You hold no Gu yet.'},
+    return {gauge, gu: rows, stones, moves: keeperMovesView(state), feedingCap: {held: held.length, sustained: cap.fed.length, line: held.length ? `At this week's stipend you can afford to feed ${cap.fed.length} of ${held.length} Gu you hold${cap.starving.length ? `; ${cap.starving.map(i => KEEPER_GU.find(g => g.slot === i).label).join(', ')} would go short. Each Gu starves from its own larder, so the timers below are what decides.` : '.'}` : 'You hold no Gu yet.'},
         ledger: {stones, agreement: ledger.rows[0], nextStipendIn: nextStipend, lines: [
             {label: 'Stipend received', amount: paid * DIAL.stipendStones, note: `${paid} of ${DIAL.stipendWeeks} weekly payments`},
             {label: 'Chores', amount: chores, note: `${done('chores')} jobs`},
@@ -87,4 +89,5 @@ export function keeperHouseView(state, definition, record, context) {
             {label: 'Food bought', amount: 0 - spentOnFood || 0, note: foodBought.map(x => `${x.n}× ${x.g.bundle} ${x.g.foodLabel}`).join(', ') || 'none'}],
             net: income - spent}};
 }
-registerDomain({id: 'gu_keeper', validate: (_slice, envelope) => validateKeeperEnvelope(envelope)});
+// GKM2: the move facts the engine reads (guKm.*), from the same reader the move panel uses.
+registerDomain({id: 'gu_keeper', validate: (_slice, envelope) => validateKeeperEnvelope(envelope), projection: (kind, state, context) => kind === 'facts' ? keeperMoveFacts(state, context) : null});

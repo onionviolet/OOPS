@@ -1,0 +1,83 @@
+// Gu moves journey (GKM1-GKM10 first slice): headless Chrome, 1920x1080, fresh origin, rebuilt bundle served from this checkout.
+// Earned route in the keeper life: take and feed two Gu, learn the pairing, cast, see the Gu busy, starve the Little Light Gu,
+// see the move backfire, then save/reload and Export/Import into a fresh origin keeping known recipes. Run after `npm run build`.
+import assert from 'node:assert/strict';
+import {createServer} from 'node:http';
+import {readFile, writeFile, mkdir, stat} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import path from 'node:path';
+import {createRequire} from 'node:module';
+const build=path.resolve(path.dirname(new URL(import.meta.url).pathname),'..');
+const {launchChrome} = createRequire(import.meta.url)('./ui_helpers.cjs');
+const out=process.env.YAIRPG_PROOF_DIR||'/tmp/yairpg-gu-moves-proof'; await mkdir(out,{recursive:true});
+const P='book.ri.keeper',id=n=>P+'.'+n, mv=k=>`${P}.km.use.${k}`, PAIR='little_light_moonblade__moon_light__own';
+const server=createServer(async(req,res)=>{try{let file=path.resolve(build,'.'+new URL(req.url,'http://local').pathname);
+  if((await stat(file)).isDirectory())file=path.join(file,'index.html');
+  res.setHeader('Content-Type',({'.js':'text/javascript','.html':'text/html','.css':'text/css','.json':'application/json','.png':'image/png','.woff2':'font/woff2'})[path.extname(file)]||'application/octet-stream');res.end(await readFile(file));}catch{res.writeHead(404).end();}});
+await new Promise(r=>server.listen(0,'127.0.0.1',r));
+const browser=await launchChrome(),context=await browser.newContext({viewport:{width:1920,height:1080}});
+const p=await context.newPage();p.setDefaultTimeout(60000);const errors=[];p.on('pageerror',e=>errors.push(e.message));
+const play=async()=>{await p.locator('#loading_screen_play_button').waitFor({state:'visible',timeout:60000});await p.evaluate(()=>window.simulationTestHooks.pause());await p.locator('#loading_screen_play_button').click();await p.waitForFunction(()=>document.documentElement.dataset.startScreen==='closed');};
+const open=v=>p.locator('#workspace_navigation select').first().selectOption(v);
+const save=()=>p.evaluate(()=>{window.saveProgress();return JSON.parse(localStorage.getItem('save data'));});
+const step=async n=>{for(let left=n;left>0;left-=1440)await p.evaluate(k=>window.advanceTicks(k),Math.min(1440,left));await p.evaluate(()=>window.advanceTicks(1,{render:true}));};
+const act=async full=>{await open('beginning');const b=p.locator('[data-structured-action="'+full+'"]');await b.waitFor();if(await b.isDisabled())throw Error('disabled: '+full);await b.click();await p.waitForTimeout(150);};
+const movesText=async()=>{await open('beginning');return p.locator('[data-gu="moves"]').innerText();};
+const formText=async k=>p.locator(`[data-gu-form="${mv(k)}"]`).innerText();
+const stones=s=>s.expansion?.simulation?.owners?.player?.[JSON.stringify({id:id('stone')})]??null;
+const result={checks:[]};const ok=(m,v)=>{result.checks.push(v===undefined?m:`${m}: ${v}`);};
+try{
+  await p.goto('http://127.0.0.1:'+server.address().port+'/?test_hooks=1');await play();await open('beginning');
+  const bundle=createHash('sha256').update(await readFile(build+'/dist/bundle.js')).digest('hex').slice(0,16);ok('bundle sha256',bundle);
+  await p.locator('[data-structured-choice="life"]').selectOption(P);await p.locator('[data-structured-begin]').click();
+  for(const n of ['take_moon','buy_moss','take_light','feed_light','feed_moon'])await act(id(n));
+  ok('earned route','take Moonlight (free), buy lamp moss, take Little Light (2 stones), feed both');
+  let t=await movesText();assert.match(t,/Little Light moonblade/);assert.match(t,/the steward can tell you the pairing/);ok('panel before learning',t.split('\n').filter(l=>/Little Light moonblade/.test(l)).join(' | ').slice(0,200));
+  await act(id('km_learn_pairing'));
+  t=await movesText();assert.match(await formText(PAIR),/ready$/);ok('pair form',await formText(PAIR));
+  await p.locator('[data-gu="moves"]').scrollIntoViewIfNeeded();await p.screenshot({path:out+'/01-moves-ready-1920.png'});
+  const s0=await save();
+  await act(mv(PAIR));
+  t=await movesText();ok('while running',(await p.locator('[data-gu-move="moonblade"] [data-gu="fillers"]').innerText()));
+  assert.match(await p.locator('[data-gu-move="moonblade"] [data-gu="fillers"]').innerText(),/busy/);
+  const lone=p.locator('[data-structured-action="'+mv('moonblade__moon__own')+'"]');assert.equal(await lone.count()===0||await lone.isDisabled(),true);ok('lone moonblade refused while the Moonlight Gu is busy');
+  await step(31);const s1=await save();
+  const inv=s=>s.inventories?.person?.main_character?.[JSON.stringify({id:id('stone')})]?.count;
+  const known=s=>Object.entries(s.expansion.simulation.knowledge.player).filter(([k])=>k.includes('.km.')).map(([k,v])=>[k.split('.').pop(),v.stage]);
+  const last=s=>s.expansion.simulation.knowledge.player[id('km_last')]?.value;
+  ok('after cast',last(s1));assert.match(last(s1),/2 boars down/);
+  // Leave the Little Light Gu unfed; keep the Moonlight Gu fed.
+  await step(1440*2);await act(id('buy_petals'));await act(id('feed_moon'));await step(1440*2);
+  t=await movesText();const lightWord=await p.locator('[data-gu-move="little_light_moonblade"] [data-gu-role="light"]').innerText();ok('Little Light after 4 days unfed',lightWord);
+  assert.match(lightWord,/hungry|starved/);assert.match(await formText(PAIR),/will backfire/);ok('pair form',await formText(PAIR));
+  await p.locator('[data-gu="moves"]').scrollIntoViewIfNeeded();await p.screenshot({path:out+'/02-moves-unfed-1920.png'});
+  const moonBefore=(await save()).expansion.simulation.people[id('moon')].vitals.health;
+  await act(mv(PAIR));await step(31);const s2=await save();
+  ok('backfire',last(s2));assert.match(last(s2),/came apart/);
+  const moonAfter=s2.expansion.simulation.people[id('moon')].vitals.health;assert.ok(moonAfter<moonBefore);ok('Moonlight condition',`${moonBefore} -> ${moonAfter}`);
+  await open('beginning');await p.locator('[data-gu="moves"]').scrollIntoViewIfNeeded();await p.screenshot({path:out+'/03-backfire-1920.png'});
+  // Above your rank (GKM13-GKM16): three weeks of stipend buy a rank-two Moonglow Gu and a stored vial of its grade.
+  await step(1440*21);for(const n of ['take_glow','buy_petals','buy_petals','feed_glow','buy_vial'])await act(id(n));
+  const glowWord=await p.locator('[data-gu-move="moonblade"] [data-gu-role="blade"]').innerText();ok('Moonglow in the blade role',glowWord);assert.match(glowWord,/rank 2: 1 above yours/);
+  const ownForm=await formText('moonblade__glow__own'),vialForm=await formText('moonblade__glow__stored');ok('own-essence form',ownForm);ok('stored form',vialForm);
+  assert.match(ownForm,/2 of your essence \(1 rank under the Gu\).*25% backlash/);assert.match(vialForm,/stored rank-2 vial/);
+  await p.locator('[data-gu-move="moonblade"]').scrollIntoViewIfNeeded();await p.screenshot({path:out+'/04-above-rank-1920.png'});
+  const sv=await save(),vials=x=>x.inventories?.person?.main_character?.[JSON.stringify({id:id('vial')})]?.count||0,st=x=>x.inventories?.person?.main_character?.[JSON.stringify({id:id('stone')})]?.count||0;
+  await act(mv('moonblade__glow__stored'));await step(61);const sa=await save();
+  ok('stored cast',`${last(sa)}; vials ${vials(sv)} -> ${vials(sa)}; stones ${st(sv)} -> ${st(sa)}`);assert.equal(vials(sa),vials(sv)-1);assert.equal(st(sa),st(sv)+3);
+  const s2b=sa;
+  const k1=known(s2);ok('known recipes',JSON.stringify(k1));
+  await p.reload();await play();const s3=await save();assert.deepEqual(known(s3),k1);assert.match(await movesText(),/Little Light moonblade[\s\S]*known/);ok('reload keeps recipes');
+  const literal=await p.evaluate(()=>window.save_to_file());
+  const c2=await browser.newContext({viewport:{width:1920,height:1080}});const p2=await c2.newPage();
+  await p2.goto('http://127.0.0.1:'+server.address().port+'/?test_hooks=1');
+  await p2.locator('#loading_screen_play_button').waitFor({state:'visible',timeout:60000});
+  await Promise.all([p2.waitForNavigation({waitUntil:'domcontentloaded'}),p2.locator('#saved_file_input').setInputFiles({name:'gu.txt',mimeType:'text/plain',buffer:Buffer.from(literal)})]);
+  await p2.locator('#loading_screen_play_button').waitFor({state:'visible',timeout:60000});await p2.evaluate(()=>window.simulationTestHooks.pause());await p2.locator('#loading_screen_play_button').click();await p2.waitForFunction(()=>document.documentElement.dataset.startScreen==='closed');
+  const s4=await p2.evaluate(()=>{window.saveProgress();return JSON.parse(localStorage.getItem('save data'));});
+  assert.deepEqual(known(s4),k1);ok('import into a fresh origin keeps recipes',JSON.stringify(known(s4)));
+  await c2.close();
+}catch(e){result.error=String(e.stack||e);await p.screenshot({path:out+'/fail.png'}).catch(()=>{});}
+result.errors=errors;
+await writeFile(out+'/result.json',JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));
+await browser.close();server.close();

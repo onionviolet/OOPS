@@ -191,6 +191,7 @@ function buildSimulationFacts(state, context, registry) {
     // Native clock callers may supply only expedition facts. Re-read current LOTM role/body
     // support through its existing domain projection at the actual commit boundary.
     if(state.lotm) Object.assign(facts,domainRegistry.project('lotm','facts',state,context)||{});
+    Object.assign(facts,domainRegistry.project('gu_keeper','facts',state,context)||{});
     Object.assign(facts,hpFacts(state,context),tieFacts(state));
     const beginning = context.structuredNative;
     if(actor === 'player' && beginning?.bound && beginning.worldId === a.worldId) {
