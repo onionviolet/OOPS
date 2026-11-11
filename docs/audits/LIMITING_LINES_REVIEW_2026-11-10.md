@@ -43,6 +43,7 @@ Lines that only restate accepted direction (his own words or an AD line) are lis
 | LLR34 | XWR6 | A title's entitlement or power works abroad only where the destination recognises its issuer or the carrier brings the means; the record of the title crosses as history | Titles, entitlement and active power are different facts and no universal conversion is selected; STN11 already holds foreign credentials | A title keeps working everywhere by default, or converts at an equalising edge by default |
 | LLR35 | XWR8 | A body that the destination cannot support shows that before crossing and needs a carrier, an adaptation or a local means | AD13 and AD38: bodies are real and things work by how they work | Bodies always adapt on crossing, or an unsupportable body simply cannot cross |
 | LLR36 | XWR27 | A counterpart in a branch or parallel world is a different person after the fork, and meeting one's own counterpart is meeting a stranger | Multiverse structures' branching row | Counterparts keep a link by default (shared memory, a bond), by world |
+| LLR37 | MND5 mood gates (`moodAtLeast` on Dunn's funding question and Ron's charm practice) | A sour person refuses an offer for a day or two, even with regard high enough | Canon people act on how they feel (Ron is short after a charm goes wrong for him); a person with a reason, never a penalty | Mood shapes the answer without refusing: a sour Ron practises badly or briefly, a warm one adds more |
 
 ## Answers so far
 
