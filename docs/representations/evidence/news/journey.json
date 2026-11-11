@@ -1,0 +1,118 @@
+{
+ "bundleHash": "51c0830550fb",
+ "viewport": "1920x1080",
+ "route": "named fixture: earned Klein ch70 checkpoint (kj3af); real clicks: hand in, wait, walk to the office, ask",
+ "steps": [
+  {
+   "step": "loaded earned checkpoint",
+   "checkpoint": "kj3af-ch70"
+  },
+  {
+   "step": "handed in the application",
+   "dunnHolds": true
+  },
+  {
+   "step": "news reached Neil",
+   "hoursAfterFiling": 3
+  },
+  {
+   "step": "away from the office",
+   "heard": [],
+   "neilButton": null,
+   "reasons": [],
+   "said": []
+  },
+  {
+   "step": "walk to the office",
+   "found": 1,
+   "enabled": true
+  },
+  {
+   "step": "at the office",
+   "here": true
+  },
+  {
+   "step": "what Neil heard",
+   "heard": [
+    {
+     "text": "Old Neil · what they have heard: from Dunn Smith, that you are angling for the captain's good opinion.",
+     "audience": "lotm.person.cast-6aaa65265bb46e581535",
+     "visible": true
+    }
+   ],
+   "neilButton": null,
+   "reasons": [],
+   "said": []
+  },
+  {
+   "step": "reload",
+   "heard": [
+    {
+     "text": "Old Neil · what they have heard: from Dunn Smith, that you are angling for the captain's good opinion.",
+     "audience": "lotm.person.cast-6aaa65265bb46e581535",
+     "visible": true
+    }
+   ],
+   "neilButton": null,
+   "reasons": [],
+   "said": []
+  },
+  {
+   "step": "import",
+   "heard": [
+    {
+     "text": "Old Neil · what they have heard: from Dunn Smith, that you are angling for the captain's good opinion.",
+     "audience": "lotm.person.cast-6aaa65265bb46e581535",
+     "visible": true
+    }
+   ],
+   "neilButton": null,
+   "reasons": [],
+   "said": []
+  }
+ ],
+ "away": {
+  "heard": [],
+  "neilButton": null,
+  "reasons": [],
+  "said": []
+ },
+ "after": {
+  "heard": [
+   {
+    "text": "Old Neil · what they have heard: from Dunn Smith, that you are angling for the captain's good opinion.",
+    "audience": "lotm.person.cast-6aaa65265bb46e581535",
+    "visible": true
+   }
+  ],
+  "neilButton": null,
+  "reasons": [],
+  "said": []
+ },
+ "reload": {
+  "heard": [
+   {
+    "text": "Old Neil · what they have heard: from Dunn Smith, that you are angling for the captain's good opinion.",
+    "audience": "lotm.person.cast-6aaa65265bb46e581535",
+    "visible": true
+   }
+  ],
+  "neilButton": null,
+  "reasons": [],
+  "said": []
+ },
+ "import": {
+  "heard": [
+   {
+    "text": "Old Neil · what they have heard: from Dunn Smith, that you are angling for the captain's good opinion.",
+    "audience": "lotm.person.cast-6aaa65265bb46e581535",
+    "visible": true
+   }
+  ],
+  "neilButton": null,
+  "reasons": [],
+  "said": []
+ },
+ "errors": [],
+ "result": "PASS"
+}

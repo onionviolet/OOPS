@@ -27,13 +27,24 @@ const TOPICS = Object.freeze({
 const PHRASES = Object.freeze({habits: 'you asked about his working habits', materials: 'you supplied the agreed materials',
     interruption: 'you interrupted his counting at the bench', apology: 'you apologized and supplied a log',
     cover: 'you had only asked him for a moment', helped: 'you helped them', harmed: 'you harmed them', betrayed: 'you betrayed them'});
+// FRC news (proposal, AD56): a world names its own scene topics by cause prefix, so its episodes read as what happened rather than
+// "you helped them", in saw and heard voice alike. Topics are lowercase ids; the phrase is second person, past or habitual.
+const causeTopics = [], topicPhrases = new Map();
+export function registerMemoryTopic({causePrefix, topic, phrase}) {
+    if(typeof causePrefix !== 'string' || !causePrefix || !/^[a-z][a-z0-9_]*$/.test(topic) || typeof phrase !== 'string' || !phrase.trim()) throw Error('A memory topic needs a cause prefix, an id and a phrase.');
+    for(let i = causeTopics.length - 1; i >= 0; i--) if(causeTopics[i].causePrefix === causePrefix) causeTopics.splice(i, 1);
+    causeTopics.push({causePrefix, topic}); topicPhrases.set(topic, phrase);
+}
+export const registerTopicPhrase = (topic, phrase) => { if(!/^[a-z][a-z0-9_]*$/.test(topic) || !phrase?.trim()) throw Error('A topic phrase needs an id and words.'); topicPhrases.set(topic, phrase); };
+const causeTopic = cause => typeof cause === 'string' ? causeTopics.find(r => cause.startsWith(r.causePrefix))?.topic : undefined;
+export const topicPhrase = (topic, kind) => topicPhrases.get(topic) || PHRASES[topic] || PHRASES[kind] || '';
 import {payload, token} from './person_episode.js';
 // The fact is an opaque event pointer plus a small template payload, never prose.
 export function episodeFromEffect({holder, subject, cause, axis, amount, text, day}) {
     if(!Number.isFinite(amount)) throw TypeError('Memory effect needs a finite amount.');
     if(amount === 0) return null;
     const kind = TOPICS[text] === 'apology' ? 'amends' : amount > 0 ? 'helped' : 'harmed';
-    return {kind, about: subject, fact: `fx1|${encodeURIComponent(axis)}|${amount}|${TOPICS[text] || kind}|${token(holder)}|${token([cause, holder, subject, axis])}`,
+    return {kind, about: subject, fact: `fx1|${encodeURIComponent(axis)}|${amount}|${TOPICS[text] || causeTopic(cause) || kind}|${token(holder)}|${token([cause, holder, subject, axis])}`,
         source: 'saw', certainty: 100, feeling: Math.sign(amount)*Math.min(100,Math.floor(Math.abs(amount))), day, count: 1};
 }
 export function rememberEffect(memory, effect, day, limits = MEMORY_LIMITS) {
@@ -93,7 +104,7 @@ export function observedMemoryTraits({memory = freshMemory(), holder, subject, d
 // What a holder remembers seeing, in words, even when it is too faint to change their manner.
 export function recalledPhrase({memory = freshMemory(), holder, subject, day, limits = MEMORY_LIMITS}) {
     const e=readMemories(memory,holder,day,{limits}).filter(r=>r.about===subject && payload(r)).sort((a,b)=>b.day-a.day||compareCodePoints(a.fact,b.fact))[0];
-    return e ? `${e.source==='saw'?'Saw':'Heard'} that ${PHRASES[payload(e).topic]||PHRASES[e.kind]||'something happened'}.` : '';
+    return e ? `${e.source==='saw'?'Saw':'Heard'} that ${topicPhrase(payload(e).topic,e.kind)||'something happened'}.` : '';
 }
 export function revengeStub({memory = freshMemory(), holder, subject, day, temperamentOf = defaultTemperamentOf, limits = MEMORY_LIMITS}) {
     const t=temperamentOf(holder);
@@ -107,7 +118,7 @@ export function reactionLine({memory = freshMemory(), holder, subject, day, root
     const e=rows[0], p=payload(e), bond=derivedBond({memory,holder,subject,axis:p.axis,baseline:baseline[p.axis]||0,day,temperamentOf,limits});
     const key=checkKey({subject:holder,method:'memory.manner@1',period:{day},targetState:{other:subject,fact:e.fact,bond:Math.round(bond*1000)}});
     const manner=bond>=0 ? ['Warmer toward you','More at ease with you'] : ['Wary of you','Cooler toward you'];
-    const phrase=PHRASES[p.topic]||PHRASES[e.kind]||'that encounter';
+    const phrase=topicPhrase(p.topic,e.kind)||'that encounter';
     const why=e.source==='saw' ? `since ${phrase}` : `after hearing that ${phrase}`;
     const habit=temperament.harmFade>1 && harm(e) ? ' Still brings up that hurt.' : e.kind==='amends' && temperament.amends>1 ? ' Lets the interruption rest after your amends.' : '';
     return `${manner[drawFraction(root,key)<0.5?0:1]} ${why}.${habit}`;
@@ -154,28 +165,44 @@ function noteConfidence(memory, holder, secret, outcome, day, limits) {
 
 // Called at a played-time transaction boundary. Existing causes own daily
 // receipts, so save/reload and split advances cannot repeat a day's telling.
-export function gossipStep({memory, simulation, actors, day, root, temperamentOf = defaultTemperamentOf, limits = MEMORY_LIMITS}) {
+// news (FRC news, proposal under AD56): optional ports from a world's news table (news_reach.js), all read-only.
+//   contactsOf(holder, other) -> extra baseline axes for a real tie the edge store does not hold (a pack's colleague or kin line);
+//   limitsOf(worldId) -> that world's memory table (telling loss, rate, hearsay trust: the distortion dial);
+//   drift({row, told, holder, listener, day, root}) -> {topic, feeling} when a retelling bends what is said, else null.
+// Without ports the telling is unchanged; the one change for every world is when the daily receipt is spent (below).
+export function gossipStep({memory, simulation, actors, day, root, temperamentOf = defaultTemperamentOf, limits = MEMORY_LIMITS, news = {}}) {
     const causes = {...simulation.causes}, people = simulation.people || {}, before = memory;
     const ids = Object.keys(people).sort(compareCodePoints);
     for(const holder of ids) {
         const receipt = `memory.gossip:${day}:${holder}`;
         if(Object.hasOwn(causes,receipt)) continue;
-        causes[receipt] = simulation.clock ?? day;
         const here = people[holder];
         if(here.life !== 'alive') continue;
-        const listeners = ids.filter(other => other !== holder && people[other].life === 'alive' &&
-            people[other].location === here.location && actors[other]?.worldId === actors[holder]?.worldId &&
-            Object.entries(simulation.relationships?.[holder]?.[other]?.axes || {}).some(([axis,base]) =>
-                Math.abs(derivedBond({memory:before,holder,subject:other,axis,baseline:base,day,temperamentOf,limits})) >= 1));
-        const temperament=temperamentOf(holder), loss=Math.max(1,Math.min(100,Math.round(limits.tellingLoss*temperament.loss)));
+        const told = news.limitsOf?.(actors[holder]?.worldId) || limits;
+        const temperament=temperamentOf(holder), loss=Math.max(1,Math.min(100,Math.round(told.tellingLoss*temperament.loss)));
         const rows = readMemories(before,holder,day,{limits}).filter(e => e.kind !== 'impression' && !PRIVATE_TOPICS.includes(payload(e)?.topic) && e.certainty > loss && Math.abs(e.feeling) >= 1 && vividness(e,day,temperament,limits) >= limits.reactionVividness)
             .sort((a,b) => Math.abs(b.feeling)*vividness(b,day,temperament,limits)-Math.abs(a.feeling)*vividness(a,day,temperament,limits) || compareCodePoints(a.fact,b.fact));
+        if(!rows.length) continue;
+        const listeners = ids.filter(other => other !== holder && people[other].life === 'alive' &&
+            people[other].location === here.location && actors[other]?.worldId === actors[holder]?.worldId &&
+            Object.entries({...(news.contactsOf?.(holder, other) || {}), ...(simulation.relationships?.[holder]?.[other]?.axes || {})}).some(([axis,base]) =>
+                Math.abs(derivedBond({memory:before,holder,subject:other,axis,baseline:base,day,temperamentOf,limits})) >= 1));
+        // The day's one telling is spent only on a real chance (someone with a tie in the same place, something to tell), so two
+        // colleagues who meet in the evening still talk that day; a save at dawn with nobody around spends nothing (AD38, news).
         if(!listeners.length || !rows.length) continue;
+        causes[receipt] = simulation.clock ?? day;
         const baselineOf=(h,o)=>simulation.relationships?.[h]?.[o]?.axes||{};
         const weigh=(row,listener)=>row.silence ? silenceCase({memory:before,secret:row,holder,listener,day,root,baselineOf,temperamentOf,limits}) : null;
         // Nobody retells an account to the person it is about, and a flagged one never to its asker.
-        const tellFact=row=>tellMemory(row,holder,day,loss,limits).fact;
-        const hearers=row=>listeners.filter(l=>l!==row.about && l!==row.silence?.asker && !readMemories(memory,l,day,{limits}).some(m=>m.fact===tellFact(row)));
+        // What this listener would be told: the account less the loss, bent by the world's drift when it bends (same draw on every read).
+        const tellTo=(row,listener)=>{
+            const e=tellMemory(row,holder,day,loss,limits), bent=news.drift?.({row,told:e,holder,listener,day,root});
+            if(bent) {const parts=e.fact.split('|'); parts[3]=bent.topic; e.fact=parts.join('|'); const v=e.feeling*(bent.feeling ?? 1); e.feeling=Math.max(-100,Math.min(100,Math.round(v) || Math.sign(v)));}
+            return e;
+        };
+        // Nor to anyone who already holds an account of the same event, bent or plain (the witness does not hear his own story back).
+        const eventOf=fact=>typeof fact==='string' && fact.startsWith('fx1|') ? fact.split('|')[5] : null;
+        const hearers=row=>listeners.filter(l=>l!==row.about && l!==row.silence?.asker && !readMemories(memory,l,day,{limits}).some(m=>m.fact===tellTo(row,l).fact || eventOf(row.fact) && eventOf(m.fact)===eventOf(row.fact)));
         const probeOf=row=>{const h=hearers(row);return h[Math.floor(drawFraction(root,checkKey({subject:holder,method:'memory.gossip@1',period:{day},targetState:{listeners:h, fact:row.fact}}))*h.length)];};
         // Rows asked to stay quiet are weighed first; a kept secret yields to the next-strongest row.
         let row=null;
@@ -187,14 +214,14 @@ export function gossipStep({memory, simulation, actors, day, root, temperamentOf
         if(!row) continue;
         const targets=hearers(row);
         const key = checkKey({subject:holder,method:'memory.gossip@1',period:{day},targetState:{listeners:targets, fact:row.fact}});
-        if(drawFraction(root,address(key,'rate'))*100>=Math.min(100,limits.tellingRate*temperament.telling)) continue;
+        if(drawFraction(root,address(key,'rate'))*100>=Math.min(100,told.tellingRate*temperament.telling)) continue;
         const start=Math.floor(drawFraction(root,key)*targets.length);
         for(let index=0;index<Math.min(targets.length,Math.ceil(temperament.telling));index++) {
-        const listener = targets[(start+index)%targets.length], e = tellMemory(row,holder,day,loss,limits);
+        const listener = targets[(start+index)%targets.length], e = tellTo(row,listener);
         if(row.silence && weigh(row,listener).keeps) {memory=noteConfidence(memory,holder,row,'kept',day,limits); continue;}
         if(row.silence) {e.silence={asker:row.silence.asker,promised:false}; memory=noteConfidence(memory,holder,row,'broke',day,limits);}
         e.feeling=Math.max(-100,Math.min(100,Math.round(e.feeling*(1+temperament.slant))));
-        e.certainty=Math.min(row.certainty,Math.max(0,Math.round(e.certainty*temperamentOf(listener).trust*limits.hearsayTrust/100)));
+        e.certainty=Math.min(row.certainty,Math.max(0,Math.round(e.certainty*temperamentOf(listener).trust*told.hearsayTrust/100)));
         if(!readMemories(memory,listener,day,{limits}).some(r => r.fact === e.fact)) memory = remember(memory,listener,e,day,limits);
         }
     }
@@ -202,7 +229,7 @@ export function gossipStep({memory, simulation, actors, day, root, temperamentOf
 }
 
 // Produce an envelope candidate. Nothing live changes until durable publication.
-export function memoryForPlan({memory = freshMemory(), plan, day, minute = day*1440, temperamentOf = defaultTemperamentOf, limits = MEMORY_LIMITS}) {
+export function memoryForPlan({memory = freshMemory(), plan, day, minute = day*1440, temperamentOf = defaultTemperamentOf, limits = MEMORY_LIMITS, news = {}}) {
     memory=memorySnapshot(memory,day,limits);
     for(const input of plan.memoryEffects || []) {
         const at=minute-(plan.state.clock-input.clock), effect={...input,day:Math.max(0,Math.floor(at/1440))};
@@ -220,7 +247,7 @@ export function memoryForPlan({memory = freshMemory(), plan, day, minute = day*1
         }
     }
     if(!plan.state.simulation) return {memory, causes:null};
-    const result=gossipStep({memory, simulation:plan.state.simulation,actors:plan.state.actors,day,root:plan.state.simulation.seed,temperamentOf,limits});
+    const result=gossipStep({memory, simulation:plan.state.simulation,actors:plan.state.actors,day,root:plan.state.simulation.seed,temperamentOf,limits,news:typeof news==='function' ? news(plan.state) : news});
     result.observations=[];
     const people=plan.state.simulation.people, player=people.player;
     if(player?.life==='alive') for(const [holder,person] of Object.entries(people)) {

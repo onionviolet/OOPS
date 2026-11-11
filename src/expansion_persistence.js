@@ -2,6 +2,7 @@ import {simulationDefinitions} from './simulation_content.js';
 import {createTemperamentPort} from './person_temperament.js';
 import {domainRegistry} from './domain_registry.js';
 import {memoryForPlan} from './person_memory_effects.js';
+import {newsPorts} from './news_reach.js';
 import {calendarMinutes} from './world_rhythm.js';
 import {validateExpansionState} from "./expansion_engine.js";
 import {writeOwnershipToEnvelope} from "./acquisition.js";
@@ -60,7 +61,7 @@ function writeExpansionPlan(plan, {createSave, storage, key, bindings, ownership
     }
     nativePublication?.write(envelope);
     const temperamentOf=createTemperamentPort(id=>memoryDefinitions.get(plan.state.simulation?.people[id]?.definitionId || id));
-    const memoryCandidate = envelope['current time'] ? memoryForPlan({memory:envelope.memory,plan,temperamentOf,minute:calendarMinutes(envelope['current time']),day:Math.floor(calendarMinutes(envelope['current time'])/1440)}) : null;
+    const memoryCandidate = envelope['current time'] ? memoryForPlan({memory:envelope.memory,plan,temperamentOf,news:newsPorts,minute:calendarMinutes(envelope['current time']),day:Math.floor(calendarMinutes(envelope['current time'])/1440)}) : null;
     if(memoryCandidate && (Object.hasOwn(envelope, 'memory') || Object.keys(memoryCandidate.memory.holders).length)) envelope.memory = memoryCandidate.memory;
     if(memoryCandidate?.causes) envelope.expansion.simulation.causes = memoryCandidate.causes;
     for(const {holder,trait} of memoryCandidate?.observations || []) {
