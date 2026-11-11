@@ -10,12 +10,15 @@
 //   stability  opening a centre view moves or resizes a side column that did not change (UR144)
 //   oversized  a region of 10% or more of the screen is less than a quarter used (UR145)
 //   shift      the layout jumps during idle play with no input (UR146)
+//   leak       visible text shows engine words or a marker: text not found, undefined, NaN, [object Object] (PRS6, PRS9)
+//   repeat     one module shows the same sentence of 30+ characters twice (UR147)
 import {readFile, writeFile, mkdtemp} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {prepareTree, build, serve} from './perf/lib.mjs';
 import {Session} from './playtest/lib.mjs';
 import {defaultCustomizationState} from '../src/customization_profiles.js';
+import {ENGINE_WORDS} from './check_player_text.mjs';
 
 const root = new URL('..', import.meta.url).pathname;
 const jsonOut = process.argv.includes('--json') ? process.argv[process.argv.indexOf('--json') + 1] : null;
@@ -72,6 +75,24 @@ const usage = () => p.evaluate(() => [...document.querySelectorAll('#main_conten
     }
     return {module: m.dataset.module, area: Math.round(r.width * r.height / (innerWidth * innerHeight) * 100), used: Math.round((bottom - r.top) / Math.max(1, r.height) * 100)};
 }));
+// What a player reads, per module: engine words and broken markers (leak), and a sentence said twice (repeat).
+const LEAK = new RegExp(`\\b(${ENGINE_WORDS.join('|')})\\b|text not found|\\bundefined\\b|\\bNaN\\b|\\[object Object\\]`, 'i');
+// In-world uses of a listed word (a place named a registry, a tailor's seam) are not leaks.
+const INWORLD = /seal registry|seams?(?= (?:reading|of|on|in)\b)/gi;
+const reading = async where => {
+    const mods = await p.evaluate(() => [...document.querySelectorAll('#main_content .workspace-module:not([hidden])')].filter(m => m.offsetParent)
+        .map(m => ({module: m.dataset.module || '', text: m.innerText})));
+    for(const {module, text} of mods) {
+        for(const line of text.split('\n').map(l => l.trim()).filter(Boolean)) {
+            const hit = line.replace(INWORLD, '').match(LEAK); if(hit) add('leak', where, `${module}: "${hit[0]}" in "${line.slice(0, 70)}"`);
+        }
+        const seen = new Map();
+        for(const sentence of text.replace(/\s+/g, ' ').match(/[^.!?]{30,}[.!?]/g) || []) {
+            const k = sentence.trim().toLowerCase(); seen.set(k, (seen.get(k) || 0) + 1);
+            if(seen.get(k) === 2) add('repeat', where, `${module}: "${sentence.trim().slice(0, 70)}" shows twice`);
+        }
+    }
+};
 const oversized = async where => {for(const u of await usage()) if(u.area >= 10 && u.used < 25) add('oversized', where, `${u.module} takes ${u.area}% of the screen and uses ${u.used}% of its box`);};
 const moved = (before, after, where) => {
     for(const [id, b] of Object.entries(before)) {
@@ -87,6 +108,7 @@ await p.waitForTimeout(8000);
 const idleShift = await p.evaluate(() => window.__flowShifts);
 if(idleShift > 0.05) add('shift', 'home', `layout shift ${idleShift.toFixed(3)} in 8 s of idle play`);
 await oversized('home');
+await reading('home');
 const homeFrame = await frame();
 const home = await screen();
 for(const line of await placeholders()) add('placeholder', 'home', line);
@@ -99,6 +121,7 @@ for(const route of routes) {
     const now = await screen();
     moved(homeFrame, await frame(), route.name);
     await oversized(route.name);
+    await reading(route.name);
     const target = await p.evaluate(id => document.querySelector(`[data-module="${id}"]`)?.dataset.module || id, route.id);
     if(now.sig === home.sig && now.focused !== target) add('response', route.name, 'the click changed nothing visible and left focus where it was');
     for(const line of await placeholders()) add('placeholder', route.name, line);

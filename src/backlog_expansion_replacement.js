@@ -31,7 +31,7 @@ export const replacementSources=freeze([
     {id:I.apprentice,revision:1,label:'Taught template pressing',kind:'knowledge',grants:[]}]);
 const row=(name,label,description,family='replacement')=>({id:`backlog.replacement.${name}`,label,description,family});
 export const replacementCommands=freeze([
-    row('meet','Hear the seal-steward’s terms','Meet the seal steward, counter clerk and a longtime colleague. Hearing their actual terms changes no identity, office, duty or possessions.'),
+    row('meet','Hear the seal-steward’s terms','Meet the seal steward, the counter clerk and a longtime colleague. Hearing them out commits you to nothing.'),
     row('honest_entry','Enter as an ordinary visitor','Use your own name. This transfers no office, duty, source, memory, possessions or relationship.'),
     row('public_delivery','Make an ordinary counter delivery · 1 kit','An honest visitor may transfer one actual owned survey kit to Orrin for one funded coin, once. No replacement or special method is needed.'),
     row('ask_eda_press','Ask Eda for her own press · 1 blank + 1 coin','As visitor or deputy, pay for Eda’s one fueled demonstration while her actual template is with her. She consumes her own fuel and your supplied blank, then transfers one real seal. You receive no mastery or source.'),

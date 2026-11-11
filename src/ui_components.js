@@ -137,7 +137,7 @@ export function summarizeGroups(root, {actions = true, skip = null} = {}) {
         if(/\d/.test(own)){summary.querySelector('[data-group-status]')?.remove();continue;}
         const buttons=actions?[...group.querySelectorAll('button')].filter(n=>!n.hidden&&!n.closest('summary')):[];
         const rows=buttons.length?[]:[...group.querySelectorAll(':scope li, :scope tr, :scope [data-panel-row]')].filter(n=>!n.hidden&&!n.closest('summary')&&!n.closest('thead'));
-        const text=buttons.length?`${buttons.filter(n=>!n.disabled&&n.getAttribute('aria-disabled')!=='true').length} ready / ${buttons.length} actions`:rows.length?`${rows.length} ${rows.length===1?'entry':'entries'}`:'';
+        const text=buttons.length?`${buttons.filter(n=>!n.disabled&&n.getAttribute('aria-disabled')!=='true').length} of ${buttons.length} ready`:rows.length?`${rows.length} ${rows.length===1?'entry':'entries'}`:'';
         let status=summary.querySelector('[data-group-status]');
         if(!text){status?.remove();continue;}
         if(!status){status=document.createElement('small');status.dataset.groupStatus='';summary.append(status);}

@@ -174,16 +174,16 @@
     "Original independent local scavenger guarding a short hatch for salvage. Own hook, meal, finite effort and purse; no sourced antagonist identity or future intelligence. Intervention changes actual injury/position/means."
    ],
    "locDesc": [
-    "Cyoria · independent academy visitor. Use Notebook for retained local work, actual stock, optional assignments and departure.",
-    "Cyoria · independent academy visitor. Use Notebook for retained local work, actual stock, optional assignments and departure.",
-    "Cyoria · independent academy visitor. Use Notebook for retained local work, actual stock, optional assignments and departure.",
-    "Cyoria · independent academy visitor. Use Notebook for retained local work, actual stock, optional assignments and departure.",
-    "Cyoria · independent academy visitor. Use Notebook for retained local work, actual stock, optional assignments and departure.",
-    "Cyoria · independent academy visitor. Use Notebook for retained local work, actual stock, optional assignments and departure.",
-    "Cyoria · independent academy visitor. Use Notebook for retained local work, actual stock, optional assignments and departure.",
-    "Cyoria · independent academy visitor. Use Notebook for retained local work, actual stock, optional assignments and departure.",
-    "Cyoria · independent academy visitor. Use Notebook for retained local work, actual stock, optional assignments and departure.",
-    "Cyoria · independent academy visitor. Use Notebook for retained local work, actual stock, optional assignments and departure."
+    "Cyoria · independent academy visitor.",
+    "Cyoria · independent academy visitor.",
+    "Cyoria · independent academy visitor.",
+    "Cyoria · independent academy visitor.",
+    "Cyoria · independent academy visitor.",
+    "Cyoria · independent academy visitor.",
+    "Cyoria · independent academy visitor.",
+    "Cyoria · independent academy visitor.",
+    "Cyoria · independent academy visitor.",
+    "Cyoria · independent academy visitor."
    ]
   },
   "absentValidate": true,
@@ -840,22 +840,22 @@
     "book.paradise.goa.shop"
    ],
    "npcDesc": [
-    "A resident of Paradise independent entry. Native stock, equipment, XP and vitals remain their actual owners.",
-    "A resident of Goa before the Gray Terminal fire. Native stock, equipment, XP and vitals remain their actual owners.",
-    "A resident of Goa before the Gray Terminal fire. Native stock, equipment, XP and vitals remain their actual owners.",
-    "A resident of Goa before the Gray Terminal fire. Native stock, equipment, XP and vitals remain their actual owners.",
-    "A resident of Goa before the Gray Terminal fire. Native stock, equipment, XP and vitals remain their actual owners.",
-    "A resident of Goa before the Gray Terminal fire. Native stock, equipment, XP and vitals remain their actual owners.",
-    "A resident of Goa before the Gray Terminal fire. Native stock, equipment, XP and vitals remain their actual owners."
+    "A resident of Paradise independent entry.",
+    "A resident of Goa before the Gray Terminal fire.",
+    "A resident of Goa before the Gray Terminal fire.",
+    "A resident of Goa before the Gray Terminal fire.",
+    "A resident of Goa before the Gray Terminal fire.",
+    "A resident of Goa before the Gray Terminal fire.",
+    "A resident of Goa before the Gray Terminal fire."
    ],
    "locDesc": [
-    "Paradise independent entry. Use Notebook for retained local work, actual stock, optional assignments and departure.",
-    "Paradise independent entry. Use Notebook for retained local work, actual stock, optional assignments and departure.",
-    "Goa before the Gray Terminal fire. Use Notebook for retained local work, actual stock, optional assignments and departure.",
-    "Goa before the Gray Terminal fire. Use Notebook for retained local work, actual stock, optional assignments and departure.",
-    "Goa before the Gray Terminal fire. Use Notebook for retained local work, actual stock, optional assignments and departure.",
-    "Goa before the Gray Terminal fire. Use Notebook for retained local work, actual stock, optional assignments and departure.",
-    "Goa before the Gray Terminal fire. Use Notebook for retained local work, actual stock, optional assignments and departure."
+    "Paradise independent entry.",
+    "Paradise independent entry.",
+    "Goa before the Gray Terminal fire.",
+    "Goa before the Gray Terminal fire.",
+    "Goa before the Gray Terminal fire.",
+    "Goa before the Gray Terminal fire.",
+    "Goa before the Gray Terminal fire."
    ]
   },
   "absentValidate": true,

@@ -55,7 +55,7 @@ export function createTidemarkNativeBindings({NPC,NPCRegistry,SafeLocation,locat
     is_unlocked:false,...(d.id===ids.wright?{trader:shop}: {})});npc.reputation={};NPCRegistry.add(d.id,npc);}
   for(const [type,id] of Object.entries(places))locations[id]=new SafeLocation({id,name:id,is_unlocked:false,npcs:[],connected_locations:[],is_under_roof:type==='dock',
    is_temperature_static:true,static_temperature:16,light_level:'normal',tags:{feature_destination:true},entrance_rewards:{},
-   description:type==='dock'?'A return marker stands above the tide. Nessa tends the linked floats; Venn keeps supplies nearby. Use Notebook to negotiate, work, buy or return.':'Counterweight terraces carry washed-up timber below the harbor wall. The tide changes only with time spent in this destination. Use Notebook to recover finite supplies or return to the landing.'});
+   description:type==='dock'?'A return marker stands above the tide. Nessa tends the linked floats; Venn keeps supplies nearby.':'Counterweight terraces carry washed-up timber below the harbor wall. The tide here waits for you.',stations:[{id:'notebook',name:'Notebook',description:'Work, trade, practice and the way back.',module:'notebook'}],});
   // Native Quest currently registers availability through this.id before it
   // assigns quest_id. Preserve those unrelated historical placeholder entries,
   // then bind this definition's actual distinct ID and tasks explicitly.

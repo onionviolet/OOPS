@@ -126,13 +126,13 @@ export function createProto23NativeBindings({NPC,NPCRegistry,SafeLocation,locati
    assert(person.inventory==='native'&&person.provision===false,'Proto23 residents require actual unseeded native owners.');
    // Constructor capacities define this locked placeholder. Durable root activation
    // alone enrolls the actor and initializes usable vitals, inventory and XP.
-   const npc=new NPC({id:person.id,name:person.label,levelable:copy(person.vitals),is_unlocked:false,description:person.description||`A resident of ${footprints.find(f=>f.worldId===person.worldId).definition.label}. Native stock, equipment, XP and vitals remain their actual owners.`});
+   const npc=new NPC({id:person.id,name:person.label,levelable:copy(person.vitals),is_unlocked:false,description:person.description||`A resident of ${footprints.find(f=>f.worldId===person.worldId).definition.label}.`});
    npc.reputation={};NPCRegistry.add(person.id,npc);
   }
   for(const o of owners)for(const id of o.locations)locations[id]=new SafeLocation({id,name:id,is_unlocked:false,
    npcs:proto23Definitions.people.filter(p=>p.location===id).map(p=>p.id),connected_locations:[],is_under_roof:id!=='Proto23 Village Center',
    is_temperature_static:true,static_temperature:20,light_level:'normal',tags:{proto23_world:true},entrance_rewards:{},
-   description:`${footprints.find(f=>f.worldId===o.worldId).definition.label}. Use Notebook for paid or ordinary work, personal practice, actual furnishings and return.`});
+   description:`${footprints.find(f=>f.worldId===o.worldId).definition.label}.`,stations:[{id:'notebook',name:'Notebook',description:'Work, trade, practice and the way back.',module:'notebook'}],});
   registered=true;
  }
  function applyQuest(id,value){const quest=localQuests[id],a=quest.getAvailabilityComponent();a.is_unlocked=value.is_active||value.is_finished;a.is_finished=value.is_finished;a.is_locked=false;

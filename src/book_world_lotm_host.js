@@ -146,7 +146,8 @@ export function createLotmHost(ports){
  function startBlockers(){const s=state(),out=[];if(s.lotm)return ['This life is already in Tingen.'];
   if(!atVillage())out.push('Return to the Village first; Tingen is reached from there.');
   if(!ports.writable())out.push(ports.writeBlockReason?.()||'Saving is paused, so you can\'t start a new life right now.');
-  if(ports.busy())out.push('Finish or stop the work under way first.');
+  // PX54: practice with no stake (running, lifting) does not block a crossing; the crossing stops it.
+  if(ports.busy()&&!ports.idle?.())out.push('Finish or stop the work under way first.');
   return out;}
  function atVillage(){const s=state();return s.actors.player.worldId==='base.frontier'&&ports.location()==='Village';}
  function startable(){return !startBlockers().length;}
@@ -154,6 +155,7 @@ export function createLotmHost(ports){
   const profile=LOTM_PROFILES[profileKey];assert(profile&&(!['beside','be'].includes(profileKey)||castAvailable)&&(profileKey!=='be'||validLeadLife(getPrivateLotmCast())),'Choose one of the available Tingen starts.');
   assert(profileKey!=='be'||independent,'This life needs a fresh independent beginning.');
   assert(startable(),startBlockers().join(' '));
+  if(ports.idle?.()){const was=ports.stopIdle();ports.logMessage?.(`You stop ${String(was||'what you were doing').replace(/^Just /,'').toLowerCase()} and cross.`);}
   const s=state(),c=ports.context();let cur=s,external=c.external,gameplay=c.gameplay,vitals=c.vitals,equipment=c.equipment,enrolled=null;
   if(!s.simulation){enrolled=enrollSimulation(s,registry,{...c,busy:false,facts:{...c.facts,location:'Village'}},s.sequence);cur=enrolled.state;external=enrolled.external;gameplay=enrolled.gameplay;vitals=enrolled.vitals||vitals;equipment=enrolled.equipment||equipment;}
   const plan=base(cur,{external,gameplay,vitals,equipment});

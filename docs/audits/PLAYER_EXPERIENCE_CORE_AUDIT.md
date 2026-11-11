@@ -154,7 +154,7 @@ Weibao played the v0.6 snapshot (built from 35ed6580b, before the round 2 fixes)
 | PX43 | "What Old Hesk, the village elder knows of you" | One display string carried name and role into every sentence. | The talk host splits at the comma: sentences say "Old Hesk", the header says "Talking with Old Hesk, the village elder" once. | MCP replay |
 | PX44 | "You told them: Hello? / Who are you?" | Every line you said counted as something you told them, questions included, and a "one of" row too. | "You said" lists statements; questions and "one of" rows tell them nothing; a questions-only talk reads "knows little of you". | Talk tests |
 | PX45 | Rapport as four rings on a line; "1 more to reach…" | The rapport figure reused the shared figure track (the circles of UI round 40, UR98), and its text counted lines. | Rapport is one sentence: "Familiar. Closer, they might offer secrets they would keep from a stranger." No rings, no line count. | Talk tests, MCP replay |
-| PX46 | Around you: "Nothing here to inspect yet", the willow stand's first sentence, then the same sentence again | The count line had a fallback text; the fold title was the first sentence and the body held the whole account. | A short account shows whole; a long one shows its first sentence with the rest behind "More about this place"; no count line when nothing is here; an empty place reads "No one else is here." The willow stand now ends "Could you make a shelter here? Homes has what it would take." | `tests/nearby_context_view.test.js` PX46, headless probe |
+| PX46 | Around you: "Nothing here to inspect yet", the willow stand's first sentence, then the same sentence again | The count line had a fallback text; the fold title was the first sentence and the body held the whole account. | A short account shows whole; a long one shows its first sentence with the rest behind "More about this place"; no count line when nothing is here; an empty place reads "No one else is here." The willow stand first ended "Could you make a shelter here? Homes has what it would take."; Weibao found that too much, so round 4 made it "Maybe I can build a house here." (PX57) | `tests/nearby_context_view.test.js` PX46, headless probe |
 | PX47 | "Original local prototype… represented irrigation", "Following creates no past history", the temperature note's "makes no claim about heat safety", the herb answer's "thirty played minutes" | The PRS6 lint read `field: '…'` strings and missed text set with `textContent = '…'`. | Rewrote the four strings; the lint now reads `textContent`/`innerText` assignments and knows the new terms. It found 60 older strings it could not see before; they went to the baseline and the [rewrite backlog](../prose/PROSE_REWRITE_BACKLOG.md). | `node scripts/check_player_text.mjs` catches the old workshop intro |
 | PX48 | "Move somewhere else" needs a second click after every move | Proto23's dropdown is rebuilt shut on each location change. | Menus remember the state the player gave them; travel starts open. | Headless probe: open on load and after a move |
 | PX49 | Scrolling past the lives table to the Begin buttons; "Finish or stop the work under way first" under every button | The table was read-only and each disabled button printed its own reason. | Each table row carries its Begin button; a reason that blocks them all shows once above the table and the buttons point at it. | `tests/start_compare.test.js` PX49, headless probe |
@@ -174,3 +174,50 @@ Rules so they do not come back: UR147 (say a thing once per view), UR148 (a menu
 | PX56 | Is "Old Hesk" his real name? | It is an agent-given name (2026-11-07 names pass) for Proto23's unnamed "village elder", and it is not on the naming sheet. Keep it, or rename from the Village naming sheet. | Weibao's call. | Trivial either way. |
 
 PX53 is the one that needs Weibao's answer before building; PX51 is the next flow slice.
+
+## Round 4, 2026-11-10: narrator voice and the rest of the playthrough
+
+Weibao on the round 3 willow line: "too much, we can try and be mysterious, and kind of be a casual narrater", plus "Being able to show things in specific ways could be products of feats or unlockable in the future" and "Address all the issue and similar issues". Agent-verified, not human-reviewed: focused tests (71 across 13 files, plus center_modes), a rebuild, `npm run check:flow` with two new checks, and headless probes at 1920x1080.
+
+### Fixed
+
+| Code | What | Fix | Proof |
+| --- | --- | --- | --- |
+| PX57 | Place text gave instructions ("Use Notebook to…", "Homes has what it would take") | Places get a casual narrator; how-to moved to station rows in Around you through a new `stations` field on locations (a data-driven path; main.js growth 0). The willow stand reads "…deadwood and dry grass under a forked canopy. Maybe I can build a house here." with a Homes row. Same treatment for Tingen, the book and Proto23 destinations, the pocket room and the tide and district destinations; resident lines lost "Native stock, equipment, XP and vitals remain their actual owners." | Golden trace refreshed (text changes, no state); probe shows the willow text and Homes row |
+| PX44b | "You said" printed above every row of what they know of you | The source heads its group once (UR147). | Talk tests |
+| PX52a | Section counts read "0 ready / 1 actions" | They read "1 of 9 ready". | Rebuild |
+| PX53 | Rapport rose to Familiar in five lines | Talking gets a stranger to Acquainted; Familiar and Confidant need regard, trust plus affection on the one relationship store (`person_ties.tieValue`). Dial: the `talk` and `regard` thresholds per stage. Default today: in the Village nothing raises those ties yet, so talk alone stops at Acquainted. | Talk tests (talk alone stops at Acquainted; regard 3 makes Familiar) |
+| PX54 | Crossing blocked by "Just running around" | Practice with no stake (running, lifting) no longer blocks; the crossing stops it and says "You stop running around and cross." Work with a stake still blocks with its reason. | Probe on the mid fixture: running, Begin enabled, confirm, run stopped, Tingen workroom shown |
+| PX59 | Esc stopped returning home from every route | Found by the flow walk: "Fast travel" and challenges share the travel menu's class, and the centre view restored menus by class into the first match. Menus are now keyed by name; the centre leaves keyed menus to their owner. | check:flow: no back findings on 13 routes |
+| PX60 | Leaked engine words on first-hour routes | New check:flow checks: `leak` (PRS6 words and markers in visible text) and `repeat` (a sentence twice in one module). Fixed what they found: Iona's ledger terms and records, the seal steward line, the bread-carrier life, "native crafting stations". | check:flow leak findings down from 10 to 4; the 4 left are knowledge saved in the test fixture, which keeps its wording (PRS8) |
+
+### Still proposed
+
+| Code | What | Why not now |
+| --- | --- | --- |
+| PX51 | A conversation opens in the person's card instead of taking the centre | A layout change to the native dialogue flow; one slice of its own, judged by eye. |
+| PX52 | A calmer Village screen: ready actions first, the rest under one "More here" line | Needs the fold owner and a first-meeting flag per panel; Iona's ledger also holds the opt-in for following local people and work, so hiding it needs a new home for that switch. |
+| PX55 | "Already covered" names the line you said, not "One of: …" | Needs a small save note: a dialogue line's `is_finished` already carries quest meaning ("defeated boars"). |
+| PX56 | Keep or rename Old Hesk | Weibao's call. |
+| PX58 | The rapport ladder as an earned view (UR151) | Waits for a feat or skill to unlock it, such as reading people. |
+| M1 | Side columns move when a centre view opens (check:flow stability) | Round 47; waits for Weibao's look. |
+
+### Did we absorb everything: the ledger
+
+| From | Note | Status |
+| --- | --- | --- |
+| This playthrough | Doubled place text | Fixed (PX46, PX57) |
+| | Pose a question, mysterious casual narrator | Fixed (PX57, PRS9) |
+| | Travel menu double click | Fixed (PX48, PX59) |
+| | Conversation jumps over the screen | Proposed (PX51) |
+| | Herb answer "text not found" | Fixed (PX42) |
+| | Old Hesk's name | His call (PX56) |
+| | Rapport box at the bottom, circles | Fixed (PX45); ladder can return earned (UR151) |
+| | Relationship too easy | Fixed (PX53) |
+| | Begin from the table | Fixed (PX49) |
+| | Blocked by running | Fixed (PX54) |
+| | UI overwhelming | Partly: counts read plainly (PX52a); calmer screen proposed (PX52) |
+| | "?" sheet will not close | Fixed (PX50, all three modal sheets) |
+| | Engine words in text | Fixed where the flow walk sees them (PX47, PX60); the rest are in the [rewrite backlog](../prose/PROSE_REWRITE_BACKLOG.md) |
+| | Show things in specific ways as unlocks | Recorded (UR151), not built |
+| Round 46 Q1–Q15 | Reports column, Focus/You, opening at the bottom, item pages, scrolling, way back, clutter, spacing, zoom, spoilers, button feedback, circles, improvements showing up, Proto23 look, memory | Unchanged from [round 46](UI_DESIGN_CORE_AUDIT.md) except Q3 and Q6, which regressed (Esc) and are fixed again (PX59), and Q12, where rapport no longer uses circles. |

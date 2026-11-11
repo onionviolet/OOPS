@@ -99,6 +99,7 @@ class BaseLocation {
         temperature_modifier = 0,
         is_under_roof = false,
         entrance_rewards = {}, //rewards gained on entering it
+        stations = [], // PX57: places to use here, listed in Around you ({id, name, description, module}); how-to lives here, not in the description
     }) {
 
 
@@ -121,6 +122,7 @@ class BaseLocation {
         this.temperature_range_modifier = temperature_range_modifier; //multiplier to how much temperature varies from base; lower value will make both max and min temps closer do base
         this.temperature_modifier = temperature_modifier; //flat modifier to temperature, applied AFTER range modifier
         this.is_under_roof = is_under_roof; //only for weather display
+        this.stations = stations;
     }
 
     getAvailabilityComponent() {
@@ -185,6 +187,7 @@ class SafeLocation extends BaseLocation {
                 temperature_modifier = 0,
                 is_under_roof = false,
                 entrance_rewards, //rewards gained on entering it, because why not
+                stations,
             }) {
         // always a safe zone
 
@@ -192,7 +195,7 @@ class SafeLocation extends BaseLocation {
             name, id, description, getDescription,
             types, light_level, tags, 
             is_temperature_static, static_temperature, reverse_day_night_temperatures, temperature_range_modifier, temperature_modifier, is_under_roof,
-            entrance_rewards, is_unlocked
+            entrance_rewards, is_unlocked, stations
         });
 
         this.background_noises = background_noises;

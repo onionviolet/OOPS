@@ -8,6 +8,7 @@ import {topicsFromLines, talkModel} from './read_models/talk_bridge.js';
 import {renderTalkView} from './ui/talk_view.js';
 import {storyRecap} from './lore_history_view.js';
 import {readPort} from './ui_ports.js';
+import {tieValue} from './person_ties.js';
 
 export function nativeTalkLines({dialogue, shownKeys, labelOf, answerOf}) {
     const lines = [], groups = new Map();
@@ -41,7 +42,9 @@ export function mountTalkView({actionDiv, npcId, name, role, place, dialogue, tr
     // PX43: "Old Hesk, the village elder" is a name and a role. Sentences use the name; the role rides beside it.
     const [shortName, ...title] = String(name).split(', ');
     const person = {id: npcId, name: shortName, role: role || title.join(', ')};
-    const model = talkModel({person, place, topics: topicsFromLines(lines), hiddenMore, deeds, manner});
+    // PX53: regard is trust plus affection on the one relationship edge store (AREA_GUIDE: People and ties).
+    const expansion = readPort('expansion'), regard = tieValue(expansion, npcId, 'trust') + tieValue(expansion, npcId, 'affection');
+    const model = talkModel({person, place, topics: topicsFromLines(lines), hiddenMore, deeds, manner, regard});
     // PX45, UR98: rapport reads as a sentence; a ring-and-pip track made a feeling look like a progress bar.
     const answerNode = actionDiv.querySelector('#dialogue_answer_div');
     for (const n of natives) { n.classList.add('talk-native-list'); n.setAttribute('aria-hidden', 'true'); }

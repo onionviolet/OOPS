@@ -2574,14 +2574,16 @@ function update_location_icon() {
     }
 }
 
-const open_location_dropdowns = new Set(["choice_travel"]);
+const open_location_dropdowns = new Set(["Move somewhere else"]);
 function create_location_choice_dropdown({name, icon, class_name}) {
 
     const elem = document.createElement("div");
     insert_HTML(elem, `<i class="material-icons">${icon}</i> ${name}`);
     elem.classList.add("location_choice_dropdown", class_name);
     // PX48, UR148: a choice menu keeps the open or shut state the player gave it across moves; travel starts open.
-    if(open_location_dropdowns.has(class_name)) elem.classList.add("location_choice_dropdown_expanded");
+    // Keyed by its name: several menus share a class (Move, Fast travel and challenges are all choice_travel).
+    elem.dataset.choiceKey = name;
+    if(open_location_dropdowns.has(name)) elem.classList.add("location_choice_dropdown_expanded");
 
     elem.addEventListener("click", (event)=>{
         let target = event.target;
@@ -2591,7 +2593,7 @@ function create_location_choice_dropdown({name, icon, class_name}) {
 
         if(target.classList.contains("location_choice_dropdown")) {
             target.classList.toggle("location_choice_dropdown_expanded");
-            if(target.classList.contains("location_choice_dropdown_expanded")) open_location_dropdowns.add(class_name); else open_location_dropdowns.delete(class_name);
+            if(target.classList.contains("location_choice_dropdown_expanded")) open_location_dropdowns.add(name); else open_location_dropdowns.delete(name);
 
             //done after toggling class, so it will trigger if class was NOT present when clicked
             if(target.classList.contains("location_choice_dropdown_expanded")) {

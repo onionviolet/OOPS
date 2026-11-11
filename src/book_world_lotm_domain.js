@@ -30,7 +30,7 @@ registerOwnedWorkPanel((_work,definition)=>definition?.group==='book_lotm'?'lotm
 function register({NPC,NPCRegistry,SafeLocation,locations}){
  for(const p of lotmPeople){const npc=new NPC({id:p.id,name:p.label,levelable:structuredClone(p.vitals),is_unlocked:false,description:p.description});npc.reputation={};NPCRegistry.add(p.id,npc);}
  for(const {id,name} of [...Object.values(L).map(id=>({id,name:id})),...castPlaces])locations[id]=new SafeLocation({id,name,is_unlocked:true,npcs:[],connected_locations:[],is_under_roof:true,is_temperature_static:true,static_temperature:20,light_level:'normal',
-  tags:{book_world_lotm:true},entrance_rewards:{},description:'Tingen probationer branch. Use the Tingen workroom panel for the supervisor, the bench and your lodging.'});
+  tags:{book_world_lotm:true},entrance_rewards:{},description:'Gas lamps, fog and the smell of coal. The probationer branch keeps its own hours.',stations:[{id:'lotm-workroom',name:'Tingen workroom',description:'Your supervisor, the bench and your lodging.',module:'lotm'}]});
 }
 function ensureCastLocation(id){
  const row=castPlaces.find(p=>p.id===id);if(!row||!ports)return;

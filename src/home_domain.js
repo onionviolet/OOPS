@@ -25,7 +25,7 @@ const bodyControlled=c=>c.body.ownerId==='player'&&c.body.controllerId==='player
 export function configureHomes(operations) {
     ports=operations;configureFortunes({root:ports.root});registerHomeWork(ports.registry);
     if(!ports.locations[HOME_SITE]) {
-        const site=new ports.SafeLocation({name:HOME_SITE,description:'An unclaimed willow stand above the flood line. Fallen twigs, sheltered dry grass and deadwood lie near a forked canopy, diggable roots and a level clearing. Could you make a shelter here? Homes has what it would take.',is_unlocked:true,is_under_roof:false,
+        const site=new ports.SafeLocation({name:HOME_SITE,description:'An unclaimed willow stand above the flood line, deadwood and dry grass under a forked canopy. Maybe I can build a house here.',stations:[{id:'homes',name:'Homes',description:'Gather, clear ground and build.',module:'homes'}],is_unlocked:true,is_under_roof:false,
             connected_locations:[{location:ports.locations.Village,travel_time:5,custom_text:'Return to Village'}]});
         ports.locations[HOME_SITE]=site;ports.locations.Village.connected_locations.push({location:site,travel_time:5});
     }

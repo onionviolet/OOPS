@@ -44,7 +44,7 @@ export function centerModes() {
     }
     host.append(nav);
     const views=new Map(),positions=new Map(),returnFocus=new Map();let activeMode='local',releasedMode=null;
-    const remember=mode=>{const root=views.get(mode)?.node||content;positions.set(mode,{scroll:[content,root,...root.querySelectorAll('*')].filter(n=>n.scrollHeight>n.clientHeight).map(n=>[n,n.scrollTop,n.scrollLeft]),groups:[...root.querySelectorAll('details')].map(n=>[n,n.open]),dropdowns:[...root.querySelectorAll('.location_choice_dropdown')].map(n=>[n.className.split(' ').find(c=>c.startsWith('choice_')),n.classList.contains('location_choice_dropdown_expanded')])});};
+    const remember=mode=>{const root=views.get(mode)?.node||content;positions.set(mode,{scroll:[content,root,...root.querySelectorAll('*')].filter(n=>n.scrollHeight>n.clientHeight).map(n=>[n,n.scrollTop,n.scrollLeft]),groups:[...root.querySelectorAll('details')].map(n=>[n,n.open]),dropdowns:[...root.querySelectorAll('.location_choice_dropdown:not([data-choice-key])')].map(n=>[n.className.split(' ').find(c=>c.startsWith('choice_')),n.classList.contains('location_choice_dropdown_expanded')])/* UR148: keyed menus keep their own open state in display.js */});};
     const surfaces = {crafting: 'crafting_window', trade: 'trade_div', storage: 'storage_div', mixing: 'village_mixing_panel'};
     const titles={crafting:'Crafting',trade:'Trade',storage:'Storage',mixing:'Village mixing counter'};
     const nativeHeadings=new Map();
@@ -97,7 +97,7 @@ export function centerModes() {
         bindHeadingInset(mode);
         if (changed) {
             const saved=positions.get(mode);
-            if(saved) {for(const [n,open]of saved.groups)if(n.isConnected)n.open=open;for(const [cls,open]of saved.dropdowns){const n=cls&&content.querySelector('.'+cls);n?.classList.toggle('location_choice_dropdown_expanded',open);}for(const [n,top,left]of saved.scroll)if(n.isConnected){n.scrollTop=top;n.scrollLeft=left;}}
+            if(saved) {for(const [n,open]of saved.groups)if(n.isConnected)n.open=open;for(const [cls,open]of saved.dropdowns){const n=cls&&content.querySelector('.'+cls+':not([data-choice-key])');n?.classList.toggle('location_choice_dropdown_expanded',open);}for(const [n,top,left]of saved.scroll)if(n.isConnected){n.scrollTop=top;n.scrollLeft=left;}}
             else content.scrollTop=0;
             if(depth)host.closest('.workspace-module')?.scrollIntoView({block:'nearest'});
             if(direction==='back'){

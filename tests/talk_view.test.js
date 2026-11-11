@@ -70,10 +70,12 @@ test('real elder data: one of three sibling lines said reads as one heard row, n
 
 test('rapport stages count things said and name what the next stage opens', () => {
     assert.equal(rapportOf({heardCount: 0}).stage.id, 'stranger');
-    assert.equal(rapportOf({heardCount: 3}).stage.id, 'familiar');
+    assert.equal(rapportOf({heardCount: 3}).stage.id, 'acquainted', 'PX53: talk alone stops at acquainted');
+    assert.equal(rapportOf({heardCount: 3, regard: 3}).stage.id, 'familiar');
+    assert.equal(rapportOf({heardCount: 0, regard: 9}).stage.id, 'stranger', 'regard without ever talking does not make them familiar');
     assert.match(rapportOf({heardCount: 1}).text, /might offer favors and personal matters/);
     assert.doesNotMatch(rapportOf({heardCount: 1}).text, /\d+ more/, 'PX45: no line count in the rapport sentence');
-    assert.equal(rapportOf({heardCount: 99}).next, null);
+    assert.equal(rapportOf({heardCount: 99, regard: 99}).next, null);
 });
 
 test('what they know of you: empty state in words, then sourced rows from what you said and did', () => {

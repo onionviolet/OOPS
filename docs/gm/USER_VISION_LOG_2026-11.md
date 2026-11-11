@@ -1033,3 +1033,11 @@ Recorded: [player experience round 3](../audits/PLAYER_EXPERIENCE_CORE_AUDIT.md#
 > Refinements we can do? core rules to incorporate for future implementation and more?
 
 Recorded: SPR23–SPR34 in [system practice rules](../SYSTEM_PRACTICE_RULES.md#lessons-from-the-2026-11-10-build-wave), proposed (AD32): derive then store, thresholds as costs not walls, typed amounts with provenance, NPCs on the player's rules, effects composed from parts, every timed system in the replay harness, adaptation notes for borrowed shapes, per-holder caps, knowledge labelled by how it was learned, an in-world cause line for visible changes, records before counters, fixtures for setup with live proof. Refinements stay in the [deeper takes](../audits/BANK_DEEPER_TAKES_2026-11-10.md) (BDT1–BDT111).
+
+## Casual narrator and earned views, 2026-11-10
+
+Weibao:
+
+> ""Could you make a shelter here? Homes has what it would take."" this is too much, we can try and be mysterious, and kind of be a casual narrater, "Maybe I can build a house here" Being able to show things in specific ways could be products of feats or unlockable in the future, other aspects to consider? Did we absorb everything? Address all the issue and similar issues?
+
+Recorded: places and hints use a casual, mysterious narrator; how-to moves out of place text into station rows in Around you; costs, effects and refusals stay plain (PRS9, [USER_VISION](../USER_VISION.md#words-and-prose)). How a thing is shown can be earned through feats, skills, titles or knowledge (UR151; first candidate the rapport ladder, PX58). [Player experience round 4](../audits/PLAYER_EXPERIENCE_CORE_AUDIT.md#round-4-2026-11-10-narrator-voice-and-the-rest-of-the-playthrough) lists what was fixed, what stays proposed and a ledger of every note from his playthroughs.

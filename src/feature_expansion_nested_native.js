@@ -64,16 +64,16 @@ export function createNestedNativeBindings({NPC,NPCRegistry,SafeLocation,locatio
    for(const [key,p] of Object.entries(prior)){if(p.present)availabilities.quest[key]=p.value;else delete availabilities.quest[key];}
    quest.id=o.questId;quest.quest_id=o.questId;quests[o.questId]=quest;localQuests[o.questId]=quest;availabilities.quest[o.questId]=quest.getAvailabilityComponent();quest.quest_tasks.forEach((task,index)=>{availabilities.quest[`${o.questId}:task:${index}`]=task.getAvailabilityComponent();});
   }
-  for(const person of nestedDefinitions.people){const npc=new NPC({id:person.id,name:person.label,levelable:copy(person.vitals),is_unlocked:false,description:`An original resident of ${footprints.find(f=>f.worldId===person.worldId).definition.label}. Native stock, body, equipment, XP, relationships and duties remain their actual owners.`});npc.reputation={};NPCRegistry.add(person.id,npc);}
+  for(const person of nestedDefinitions.people){const npc=new NPC({id:person.id,name:person.label,levelable:copy(person.vitals),is_unlocked:false,description:`An original resident of ${footprints.find(f=>f.worldId===person.worldId).definition.label}.`});npc.reputation={};NPCRegistry.add(person.id,npc);}
   const descriptions={
-   [L.hub]:'Lin keeps a service desk beside Mara’s assignment counter. Rooms, staff shifts, finite shops and return reports make this a lived district. Use Notebook to approve a role, accept terms or move to Oren’s workroom.',
-   [L.workroom]:'Oren’s counted tools lie beside the pressure bench. Paid body care, physical refit and practiced return strokes use actual stock and body support.',
-   [L.salt]:'Sela keeps the drinking-water schedule beside the extraction landing. Finite supplies and the water/export aftermath persist between missions.',
-   [L.enginehouse]:'Brin’s export duty shares an engine with the drinking-water line. Real braces and supported pressure change the pump; an issuer delivery is a separate decision.',
-   [L.archive]:'Tess’s register and Ada’s claim remain at the reception counter. An office title grants only its actual claimant rights; copied identity buys no jurisdiction.',
-   [L.records]:'Ivo keeps the surviving witness sheet at a small press. Inspect, preserve or correct it with actual evidence and earned means. The archive keeps the result on revisit.'};
+   [L.hub]:'Lin keeps a service desk beside Mara’s assignment counter. Rooms to let, shifts changing, a few shops with what they have. People live here.',
+   [L.workroom]:'Oren’s tools lie counted beside the pressure bench. He mends bodies and gear for a fee.',
+   [L.salt]:'Sela keeps the drinking-water schedule beside the extraction landing. What runs short here stays short.',
+   [L.enginehouse]:'Brin’s export line and the drinking water share one engine. Brace it right and the pump answers.',
+   [L.archive]:'Tess’s register and Ada’s claim wait at the reception counter. A title here is worth what its holder can prove.',
+   [L.records]:'Ivo keeps the last witness sheet at a small press. What you do to it, the archive remembers.'};
   for(const id of places)locations[id]=new SafeLocation({id,name:id,is_unlocked:false,npcs:people.filter(p=>nestedDefinitions.people.find(d=>d.id===p).location===id),connected_locations:[],is_under_roof:id!==L.salt,
-   is_temperature_static:true,static_temperature:id===L.salt||id===L.enginehouse?17:20,light_level:'normal',tags:{nested_campaign:true},entrance_rewards:{},description:descriptions[id]});
+   is_temperature_static:true,static_temperature:id===L.salt||id===L.enginehouse?17:20,light_level:'normal',tags:{nested_campaign:true},entrance_rewards:{},description:descriptions[id],stations:[{id:'notebook',name:'Notebook',description:'Work, trade, practice and the way back.',module:'notebook'}],});
   registered=true;
  }
  function applyQuest(id,value){const quest=localQuests[id],a=quest.getAvailabilityComponent();a.is_unlocked=value.is_active||value.is_finished;a.is_finished=value.is_finished;a.is_locked=false;

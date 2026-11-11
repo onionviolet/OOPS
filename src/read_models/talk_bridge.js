@@ -11,11 +11,14 @@
 //          names of places, people or items the hero has not met (PIR5); `rewardQuote` is the one mapper.
 
 // Default rapport stages, counted in things said. A default with a dial: a world passes its own table.
+// PX53: talk gets you from stranger to acquainted; closer than that is regard (trust and affection from the ties
+// owner, person_ties.js), earned by time together, help and kept promises. Dial: `talk` and `regard` thresholds per
+// stage; a world or an open, friendly person can lower them.
 export const RAPPORT_STAGES = Object.freeze([
-    {id: 'stranger', label: 'Stranger', from: 0, opens: 'Small talk and plain answers.'},
-    {id: 'acquainted', label: 'Acquainted', from: 1, opens: 'What they know of the place and its people.'},
-    {id: 'familiar', label: 'Familiar', from: 3, opens: 'Favors and personal matters, where this world allows them.'},
-    {id: 'confidant', label: 'Confidant', from: 6, opens: 'Secrets they would keep from a stranger, for their own reasons.'},
+    {id: 'stranger', label: 'Stranger', talk: 0, opens: 'Small talk and plain answers.'},
+    {id: 'acquainted', label: 'Acquainted', talk: 1, opens: 'What they know of the place and its people.'},
+    {id: 'familiar', label: 'Familiar', regard: 3, opens: 'Favors and personal matters, where this world allows them.'},
+    {id: 'confidant', label: 'Confidant', regard: 6, opens: 'Secrets they would keep from a stranger, for their own reasons.'},
 ]);
 
 // Reward kinds -> what the hero can know before saying the line. Names only when `known(kind, value)` says the
@@ -76,11 +79,11 @@ export function topicsFromTopicTalk(quotes, {heard = () => false} = {}) {
     });
 }
 
-export function rapportOf({heardCount = 0, stages = RAPPORT_STAGES} = {}) {
+export function rapportOf({heardCount = 0, regard = 0, stages = RAPPORT_STAGES} = {}) {
     let index = 0;
-    stages.forEach((s, i) => { if (heardCount >= s.from) index = i; });
+    stages.forEach((s, i) => { if (s.regard != null ? regard >= s.regard && heardCount >= 1 : heardCount >= s.talk) index = i; });
     const next = stages[index + 1] || null;
-    return {stage: stages[index], index, next, toNext: next ? next.from - heardCount : 0,
+    return {stage: stages[index], index, next, toNext: next ? (next.regard != null ? next.regard - regard : next.talk - heardCount) : 0,
         text: next ? `${stages[index].label}. Closer, they might offer ${next.opens.charAt(0).toLowerCase()}${next.opens.slice(1)}` : `${stages[index].label}. ${stages[index].opens}`};
 }
 /** What this person now knows of you, as a ledger of sourced rows. `told` rows are your own words, taken from the lines you said. */
@@ -106,9 +109,9 @@ export function witnessLine({witness, who, topic, outcome = ''}) {
     return '';
 }
 
-export function talkModel({person, place = '', topics, hiddenMore = false, stages = RAPPORT_STAGES, deeds = [], manner = '', cheat = false}) {
+export function talkModel({person, place = '', topics, hiddenMore = false, stages = RAPPORT_STAGES, deeds = [], manner = '', cheat = false, regard = 0}) {
     const heardCount = topics.filter(t => t.state === 'heard').length;
-    const rapport = rapportOf({heardCount, stages});
+    const rapport = rapportOf({heardCount, regard, stages});
     const open = topics.filter(t => t.state === 'new' || t.state === 'locked');
     // When every open line takes no time, say it once instead of on each row (UR42); a line with a cost still quotes its own.
     const noTime = open.length > 0 && open.every(t => t.quote.time === NO_TIME);

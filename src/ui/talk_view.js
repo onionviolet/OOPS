@@ -45,7 +45,9 @@ export function renderTalkView(host, model, hooks = {}, options = {}) {
     knows.append(make('h3', '', `What ${model.person.name} knows of you`));
     if (!model.knows.rows.length) knows.append(make('p', 'talk-empty', model.knows.empty));
     const list = make('ul', 'talk-knows-list');
-    for (const r of model.knows.rows) { const li = make('li', 'talk-knows-row'); li.dataset.knowsKind = r.kind; li.append(make('small', '', r.source), make('span', '', r.text)); list.append(li); }
+    // UR147: the source ('You said', 'They saw') heads its group once instead of repeating on every row.
+    let lastSource = null;
+    for (const r of model.knows.rows) { const li = make('li', 'talk-knows-row'); li.dataset.knowsKind = r.kind; if (r.source !== lastSource) li.append(make('small', '', r.source)); lastSource = r.source; li.append(make('span', '', r.text)); list.append(li); }
     if (model.knows.rows.length) knows.append(list);
     if (model.cheat) knows.append(make('p', 'talk-cheat', 'Cheat view: shows what they privately think.'));
     const rapport = make('div', 'talk-rapport'); rapport.dataset.rapportStage = model.rapport.stage.id;
