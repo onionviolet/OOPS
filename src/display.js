@@ -31,7 +31,7 @@ import {projectGameAbsorptionAssayItemView} from './game_absorption_assay_item_v
 import {projectFieldcraftItemView} from './nethack_fieldcraft_item_view.js';
 "use strict";
 
-import { current_trader, to_buy, to_sell } from "./trade.js";
+import { current_trader, to_buy, to_sell, regionalUnit } from "./trade.js";
 import { skills } from "./data/skills.js";
 import { get_next_skill_milestone, get_unlocked_skill_rewards } from "./models/skill.js";
 import { character, cold_status_temperatures, lowest_tolerable_temperature } from "./data/character.js";
@@ -137,8 +137,8 @@ function refreshVendorStates() {
     for(const [key, row] of seenVendorRows) {
         const entry = inventory[key];
         if(!row.isConnected) trader_inventory_div.append(row);
-        const price = entry ? round_item_price(entry.item.getValue({region: current_location.market_region,
-            multiplier: trader.getProfitMargin(current_location.market_region) || 1})) : 0;
+        const price = entry ? (regionalUnit(entry.item, 'buy') ?? round_item_price(entry.item.getValue({region: current_location.market_region,
+            multiplier: trader.getProfitMargin(current_location.market_region) || 1}))) : 0;
         const selected = to_buy.items.find(x => x.item_key === key)?.count || 0;
         const status = vendorState({stock: entry?.count || 0, selected, price,
             money: character.money, buying: to_buy.value, selling: to_sell.value});
@@ -756,9 +756,9 @@ function create_item_tooltip_content({item, options={}, is_trade = false}) {
             round_item_price(
                 item[value_function]({quality:options.quality[0], region:current_location?.market_region})))} - ${format_money(round_item_price(item.getBaseValue({quality:options.quality[1]})
             ))}`;
-        } else {
-            item_tooltip += `<br><br>Value: ${format_money(round_item_price(item[value_function]({quality, region:current_location?.market_region, multiplier: ((options && options.trader) ? NPCRegistry.get(current_trader).getTraderComponent().getProfitMargin(current_location.market_region) : 1)})))}`;
-            if(item.saturates_market) {
+        } else { const regional = regionalUnit(item, options?.trader ? 'buy' : 'sell');
+            item_tooltip += `<br><br>Value: ${format_money(regional ?? round_item_price(item[value_function]({quality, region:current_location?.market_region, multiplier: ((options && options.trader) ? NPCRegistry.get(current_trader).getTraderComponent().getProfitMargin(current_location.market_region) : 1)})))}`;
+            if(item.saturates_market && regional === null) {
                 item_tooltip += ` [originally ${format_money(round_item_price(item.getBaseValue({quality, region:current_location?.market_region}) * ((options && options.trader) ? NPCRegistry.get(current_trader).getTraderComponent().getProfitMargin(current_location.market_region) : 1) || 1))}]`
             }
         }
@@ -1767,7 +1767,7 @@ function update_displayed_trader_inventory({item_key, trader_sorting="name", sor
                 tooltip_div.replaceWith(create_item_tooltip(inventory[inventory_key].item, {trader: true}, true));
 
                 const price_span = trader_item_divs[inventory_key].getElementsByClassName("item_value")[0];
-                set_HTML(price_span, `${format_money(round_item_price(inventory[inventory_key].item.getValue({region: current_location.market_region, multiplier: (trader.getProfitMargin(current_location.market_region) || 1)})), true)}`);
+                set_HTML(price_span, `${format_money(regionalUnit(inventory[inventory_key].item, 'buy') ?? round_item_price(inventory[inventory_key].item.getValue({region: current_location.market_region, multiplier: (trader.getProfitMargin(current_location.market_region) || 1)})), true)}`);
             }
         });
 
@@ -1955,7 +1955,7 @@ function update_displayed_character_inventory({item_key, equip_slot, character_s
                 if(!character.getItems()[inventory_key].item.tags.unsellable) {
                     const price_span = item_divs[inventory_key].getElementsByClassName("item_value")[0];
                     const price_html = is_trade
-                        ? `${format_money(round_item_price(character.getItems()[inventory_key].item.getValue({region: current_location.market_region})), true)}`
+                        ? `${format_money(regionalUnit(character.getItems()[inventory_key].item, 'sell') ?? round_item_price(character.getItems()[inventory_key].item.getValue({region: current_location.market_region})), true)}`
                         : `${format_money(round_item_price(character.getItems()[inventory_key].item.getBaseValue()), true)}`;
                     if(price_span.__item_value_html !== price_html || price_span.innerHTML !== price_span.__item_value_rendered) {
                         set_HTML(price_span, price_html);
@@ -2279,7 +2279,7 @@ function create_inventory_item_div({key, item_count, target, is_equipped, trade_
 
     if(!target_item.tags.unsellable) {
         item_additional.appendChild(create_trade_buttons());
-        insert_HTML(item_value_span, `${format_money(round_item_price(target_item.getValue({region: current_location?.market_region, multiplier: price_multiplier})), true)}`);
+        insert_HTML(item_value_span, `${format_money(regionalUnit(target_item, (target === "trader") === (typeof trade_index === "undefined") ? 'buy' : 'sell') ?? round_item_price(target_item.getValue({region: current_location?.market_region, multiplier: price_multiplier})), true)}`);
     } else {
         item_control_div.setAttribute("data-unsellable", "true");
         clear_HTML_content(item_value_span);
