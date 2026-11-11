@@ -955,3 +955,23 @@ Proposals, not accepted decisions.
 > Feel free to also adapt and adjust things to fit our purpose better too
 
 Said while the decompile-bank build sessions were running (RimWorld storyteller and mood, Kenshi bodies and law, Cultist mind meters, Factorio spoilage, Naev prices, Melvor offline replay). Recorded: a bank shape is a starting point, not a spec. Sessions may change it to fit YAIRPG's mechanisms, worlds and rules (AD38, AD55, AD56). They say what they changed and why in the commit and the area guide row, and keep the source's mechanism labelled where they kept it. This restates the existing "gameplay stays original unless he asks for a direct adaptation" line (SKR11) as license to rework.
+
+## UI flow, and a playable snapshot, 2026-11-10
+
+Weibao:
+
+> Also UI flow and more?
+
+> Also compile a semi current version of the game that I can tap through and test general play and more?
+
+Recorded:
+- [Player experience audit round 2](../audits/PLAYER_EXPERIENCE_CORE_AUDIT.md#round-2-2026-11-10-ui-flow) plays the fresh start's first minutes (PX28–PX35). Findings:
+  - the guide takes the long way;
+  - "Meet traveler" means "Talk to";
+  - layout-migration notices appear on day 1;
+  - choice captions repeat jargon;
+  - the weapon choice has no numbers;
+  - rapport moves fast;
+  - the top bar is busy on day 1.
+- It adds flow defaults PX36–PX41: measured journeys, context that travels, returning after interruptions and reloads, announced mode changes, and a guide that grows with the player.
+- A frozen build was snapshotted into the installed desktop app for him to play (snapshot `v0.6-c4f997fe257e`, from commit `35ed6580b`).

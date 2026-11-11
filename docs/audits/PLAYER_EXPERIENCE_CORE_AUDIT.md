@@ -94,3 +94,37 @@ A good experience here is mostly about **respect** (his time, his saves, his att
 3. **PX1, measure a check-in.** Idle games live or die on the two-minute visit.
 
 Then PX5 and PX6 (direction at a glance), and PX9 (moments that feel like events).
+
+## Round 2, 2026-11-10: UI flow
+
+Weibao: "Also UI flow and more?"
+
+**Method.** Played the fresh start through the game MCP as a new player: the first screen, the Next step guide, meeting the elder, the conversation, and picking the spare weapon. Combined with the route walk in [UI audit rounds 46 and 47](UI_DESIGN_CORE_AUDIT.md#round-46-2026-11-10-intuitive-sectioned-flowing-and-the-playtest-complaints). Agent-verified, not human-reviewed.
+
+### What the first minutes show
+
+| Code | Finding | Rule | Disposition |
+| --- | --- | --- | --- |
+| PX28 | **The guide takes the long way.** Next step says "In Local actions: Talk to someone, then Talk to Old Hesk", and Show me opens Local actions. Old Hesk is also a button in Around you, one click away. | UR140, PX5 | LATER: the guide points at the shortest visible route and names it ("Old Hesk, in Around you"). Sonnet, effort S. Done check: on a fresh start, Show me lands on the elder's card. |
+| PX29 | **One act, two names.** The guide says "Talk to Old Hesk"; his card's button says "Meet traveler", though he is the village elder. | UR74, UR140 | LATER: the person card's verb comes from the person's kind (talk, trade, meet). Effort S. Done check: the elder's card says "Talk". |
+| PX30 | **Layout notices on day 1.** A fresh game's Reports shows "Inventory tools and Inventory view options are now in Inventory. Nothing was removed." and "Stats and equipment is now in Vitals". Those are migration notes for an older layout. | OPN2, UR88 | LATER: layout-move notices show for a save that had the old layout, and not on a fresh start. Effort S. Done check: a fresh start's Reports has no "now in" lines. |
+| PX31 | **Choice captions repeat and use jargon.** Three choices each carry "Opens more to ask. · Moves one of your journal tasks forward. · Settles the other ways to put this." | PRS1–PRS8, UR64 | LATER: one caption per group when every choice shares it; replace "Settles the other ways to put this" with "Picking one closes the others". Effort S. Done check: the elder's first menu shows the caption once. |
+| PX32 | **A choice without its facts.** The weapon pick gives flavour lines and no numbers to compare (speed, damage, hands). The choice can be redone later ("you don't need to stick to it forever"), so the stakes are low. | UR63, UR40 | LATER: a small compare row under each option, from the weapon's real stats. Effort S–M. Done check: the five weapons show speed and damage side by side. |
+| PX33 | **Rapport moves faster than the story.** Three lines in zero minutes took Old Hesk from Stranger to Familiar, and the full four-step ladder shows at first meeting. | TIE rules, PAC1 | ACCOUNT FOR NOW: rapport steps should need time or deeds as well as lines; the ladder can show the next step alone until the player opens it. Owner: the ties rulebook. |
+| PX34 | **Unlocks link to where they live.** Each unlock writes a Reports line with a "Here ›" link (UR29), and each conversation line shows what it costs before you say it. | UR29, FBK | Keep. |
+| PX35 | **A busy top bar on day 1.** A fresh start shows 11 routes (Stats, Condition, Inventory, Travelers, Projects, Ledger, Organizations, Worlds, Beginning, Connection, Settings); several are empty or locked. | UR82 (held as LLR30), UR77 | Waits for Weibao's answer on LLR30; meanwhile check:flow can count routes that open on an empty state. |
+
+### UI flow considerations
+
+Each is a default with a dial:
+
+- **PX36, journeys have a measured length.** For each core loop (start a craft, sell an item, equip new gear, take a job, travel, cross worlds), record the clicks from the home view and any dead end. Default: a frequent loop takes three clicks or fewer, and the step that commits says its cost. LATER: a `journeys` section in check:flow driven by the game MCP. Sonnet, effort M. Done check: a click count per loop per start.
+- **PX37, context travels with you.** Default: a selected item, person or recipe stays selected when you move to a related view (from an item to the craft that uses it, from a person to their trade), with a way back to where you were (UR22, UR23).
+- **PX38, interruptions return you.** Default: when a fight, event or scene interrupts, ending it returns you to the view and selection you left, and the work line says what resumed (UR23, UR88).
+- **PX39, reload returns you.** Default: after a reload, the game opens on the view you were in, with a one-line "you were…" (UR23, UR58).
+- **PX40, mode changes are announced and reversible.** Default: entering a fight, a scene, another world or a full-screen form says what changed, keeps the work line visible, and shows how to leave (UR144, round 47).
+- **PX41, the guide grows with the player.** Default: on day 1 the guide gives one step; later it gives the next step plus open directions (PX5); deep into a life it can be hidden. Dial: guide level.
+
+### Ranked
+
+PX28 and PX29 are the first thing a new life meets; together they cost one small change in the guide and the person card. Then PX30 and PX31 (noise in the first minute), then PX36 (measure the loops).
