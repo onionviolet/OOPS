@@ -5,6 +5,7 @@ import {registerDomain} from './domain_registry.js';
 import {energyCharge} from './energy_resources.js';
 import {guKeeperLife as life, kId as id, kKey as key, KEEPER_GU, KEEPER_DIALS as DIAL, KEEPER_DAY, keeperDiets} from './world_packs/book_gu_keeper.js';
 import {nextMeal, starvation, sustainable, dailyCost, dailyFood, mealSize, stipendAgreement} from './living_upkeep.js';
+import {guCard} from './being_gu.js';
 import {createObligations, writeObligation} from './obligations_ledger.js';
 const check = (ok, message) => { if(!ok) throw Error(message); };
 const own = (rows, k) => rows?.[k] || 0;
@@ -50,17 +51,21 @@ export function keeperHouseView(state, definition, record, context) {
         const refined = !!state.actors?.[id(g.slot)]?.facts?.[id(g.slot + '_refined')];
         const stock = own(s.owners[id(g.slot)], key(g.food)), cond = p.vitals.health;
         const altStock = g.alt ? own(s.owners[id(g.slot)], key(g.alt.food)) : 0, worked = !!state.actors?.[id(g.slot)]?.facts?.[id(g.slot + '_kept.worked')];
+        const resents = !!state.actors?.[id(g.slot)]?.facts?.[id(g.slot + '_resents')];
         const order = !!state.actors?.player?.facts?.[id('auto_' + g.slot)], bag = own(inventory, key(g.food));
         const row = {id: g.slot, label: g.label, food: g.foodLabel, kept, alive: p.life === 'alive', condition: cond, maxCondition: diet.maxCondition, stock, altStock, altFood: g.alt?.foodLabel || null, refined,
             meal: mealSize(diet, refined), everyDays: g.days, price: g.price, perDayStones: dailyCost(diet, unitPrice(g), refined), lethal: diet.lethal !== false,
-            order, bagMeals: Math.floor(bag / mealSize(diet, refined)), worked, yield: g.yield,
-            ability: cond >= 3 ? (worked ? 'worked this window' : 'sound') : cond === 2 ? (worked ? 'worked this window' : 'works through hunger at risk') : 'starved out'};
+            order, resents, canRefine: !!g.refinedMeal, bagMeals: Math.floor(bag / mealSize(diet, refined)), worked, yield: g.yield,
+            ability: null};
         if(kept && row.alive) {
             const st = starvation(diet, {stock, altStock, condition: cond, now, anchor, refined});
             Object.assign(row, {nextMealIn: st.nextMeal - now, mealsStocked: st.meals, firstMissIn: st.firstMiss - now, starvesIn: st.deathAt == null ? null : st.deathAt - now,
                 starvedOutIn: st.starvedOutAt - now, willEat: st.meals > 0, poorMeals: st.altMeals > 0 && st.mainMeals === 0});
             held.push({id: g.slot, perDay: row.perDayStones});
         }
+        // CPR10: the shared being record reads this row. Its care reader owns the work-ability words; grain and custody show beside them.
+        row.being = guCard(row);
+        row.ability = row.being.care.ability ?? (row.alive ? row.ability : null);
         return row;
     });
     const weeklyIncome = DIAL.stipendStones / DIAL.stipendDays;
