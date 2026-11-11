@@ -132,3 +132,16 @@ Weibao asked "Other systems we can take? send chats for each? More aspects to co
 | FRC60 | **Separately built systems now meet.** Spoilage, needs, regional stock and mood each passed alone; whether rotten food still feeds, whether shelf stock spoils and whether hunger moves mood is untested together. | ACCOUNT FOR NOW: one combined headless play after each merge batch; a cross-system defect becomes a regression in the owning module |
 | FRC61 | **Save shape across merged slices.** Several slices add saved state; each passed save, reload and import alone. | ACCOUNT FOR NOW: the merge batch runs one combined save, reload and import (AD43 line six) |
 | FRC62 | **The blind playtest pilot fits now.** With several systems landed, a no-knowledge agent through the game MCP is the cheapest cross-system check. | Offer stands; Weibao picks LOTM or HP |
+
+## Round 7, 2026-11-10: architecture under a wide build wave
+
+Weibao asked "Other systems we can take? send chats for each Do we need to consider archetecture and more?" with nine bank slices merged and about eleven build sessions running. Facts at the time: load average 15 to 30, 1,184 files in `src/`, `dist/bundle.js` 9.6 MB, 5,904 tests taking about six minutes per full run through one machine-wide slot, `display.js` 6,761 lines (baseline held), 205 grandfathered cyclic edges (none added by the merges).
+
+| Code | Aspect | Disposition |
+| --- | --- | --- |
+| FRC63 | **The test slot is the throughput limit.** Every lane runs one full suite and each merge batch runs another; with eleven lanes, waits stretch to hours. | ACCOUNT FOR NOW: lanes run focused tests and leave the full suite to the merge batch (AD36); merges go in batches; new lanes wait until running ones land, about eight build lanes at once |
+| FRC64 | **One seam, four writers.** Mind meters, Harry Potter mood, opinion and gifts all build on `mood_thoughts.js` at once. | ACCOUNT FOR NOW: mind meters merges first as the mood core's owner this round; the others read and write through its API and rebase on it, with any core change named in their report |
+| FRC65 | **`person_ties.js` is the people hot spot.** Mood, pet record, opinion, gifts and news all touch it; RCL11 counts three person stores already. | LATER: the one person record (RCL11) runs after this wave's people slices merge, as its own consolidation slice (RCL3) |
+| FRC66 | **Seams with one world caller (AR11).** Spoilage, regional prices, item knowledge, needs and offline replay have one world each; storyteller, exams and mood have second-world lanes running. | LATER: a second-world lane per seam once the current ones land; revise or delete a seam the second case fights |
+| FRC67 | **Merged slices were proven alone.** No combined play, no combined save, reload and import, no reachability or registry sweep across them (AR10, AR19, AR6, FRC60, FRC61). | ACT NOW: an integration lane: combined headless play through the merged systems at 1920×1080, one save, reload and import, an AR2 and AR19 check of each new module, AR13 change surfaces, and a regression for any cross-system defect in its owner |
+| FRC68 | **Many small new modules.** Each slice adds a pure reader; the area guide is the only map. | ACCOUNT FOR NOW: each slice adds its area guide row (already practice); the integration lane flags any reader with no caller |
