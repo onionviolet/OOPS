@@ -351,3 +351,33 @@ From round 47 and the same causes: number jitter on live counters (tabular figur
 3. **New lints and flow checks** (PF2, PF3, PF5, PF9, PF24, PF29, PF31): cheap, and they keep the rest from coming back.
 4. **PX51 talk in place and PX52 calmer Village** (PF14, PF18).
 5. **M1b** (PF16): fit the top row to You alone.
+
+## Round 7, 2026-11-10: marking what you do not know, and research to lean on
+
+Weibao: "Consider using Question marks on a paged targeted way to indicate not knowing and more? Other aspects to consider?", "Is ther general research we can do to avoid those and more?" and "Is there a game dev guide for stuff like these and more?"
+
+### Question marks, targeted (proposals under AD56; UR136 and UR142 already cover "unknown is not zero" and the `???` name convention)
+
+- **UK1, a ? sits on the exact thing not known.** Default: one mark on the cell, field or name instead of the word "unknown" repeated across a grid (PF13); dial: a world can spell it out. Its hover says how to find out ("Drink one dose to learn what it does"), so the mark is a lead, not a wall. Screen readers hear "not known yet" rather than "question mark".
+- **UK2, levels of knowing.** Unseen (not listed, or `???` per Proto23), seen ("a herb with silver veins"), tried (some fields filled, the rest ?), known (a word: "helps stamina"), mastered (the number, earned per UR151). Each level is a fact the character holds, through the `knowledge` effect.
+- **UK3, a page per subject.** A bestiary, herbal or person page shows its slots with ? marks that fill in as you learn, and a quiet "3 of 7 known". Dial per world and per page: show the slot count, or hide it when the count itself would spoil (sealed secrets).
+- **UK4, a guess is not a fact.** "Helps stamina?" with the ? after a word marks a belief (one try, hearsay, a rumour); confirmed knowledge drops the mark. Wrong beliefs can stand until tested.
+- **UK5, where knowing came from.** Hover on a known value says how you know it (tried it, Old Hesk said so, read it). Hearsay can fade or be contradicted.
+- **UK6, collapse the fully unknown.** Rows with nothing known fold into one line: "Untried: River bellleaf, Emberseed, Mellow salt".
+- **UK7, no ? on what the character plainly knows** (their own name, their purse), and no ? as a stand-in for missing content (UR142 keeps bare placeholders a bug).
+
+First slice to try: the mixing counter's knowledge table (UK1, UK2, UK6), then the person page (UK3, UK5).
+
+### Research we can lean on (proposed pass, not started)
+
+| Kind | Sources | What it gives us |
+| --- | --- | --- |
+| Game UX method | Celia Hodent, *The Gamer's Brain* (usability and engage-ability pillars) | A lens for heuristic reviews of each screen |
+| General usability | Nielsen Norman Group's ten heuristics; cognitive walkthrough | A repeatable review: visibility of state, match with the world, recognition over recall |
+| Accessibility | Game Accessibility Guidelines; Xbox Accessibility Guidelines | Concrete checks (text size, contrast, motion, input, screen readers) |
+| Interface writing | *Writing Is Designing* (Metts and Welfle); Microsoft and GOV.UK style guides | Microcopy rules: plain labels, errors that say what to do |
+| Game reference library | Game UI Database (screens from released games, searchable by screen type) | How other games show alchemy, dialogue, relationships, codex pages |
+| Close references | Potion Craft (mixing), Caves of Qud and NetHack (unidentified items), Disco Elysium (dialogue and knowledge), Dwarf Fortress and CDDA (dense sim UI), Stardew Valley (relationships) | Worked answers to the same problems; the project already has Proto23, YAIR, NetHack and CDDA readers |
+| Platform | Apple HIG, Material Design (motion, dialogs, popovers) | Transition timing, light dismiss, focus |
+
+Proposed method: one sonnet lane per row group reads the source, then a heuristic and cognitive-walkthrough review of five screens (Village home, talk, mixing, Local life, Tingen start) against it. Output: findings mapped to PF codes, new rules with checks where a check is cheap, saved in `docs/research/GAME_UX_GUIDES_2026-11.md`. Source claims get links and dates in that pass; this table names the sources from memory.

@@ -1073,3 +1073,15 @@ Weibao:
 > write down these pitfalls, consider other similar ones, and then we can address accordingly
 
 Recorded: the side columns now hold still while a centre view is open (M1) and views ease in (UR152). The mixing counter's problems, with every similar pitfall from his playthroughs, are in the [pitfall catalog](../audits/PLAYER_EXPERIENCE_CORE_AUDIT.md#round-6-2026-11-10-pitfall-catalog) (PF1–PF31), with a ranked order to address them. The mixing rework itself waits for that order.
+
+## Marking what you do not know, and research, 2026-11-10
+
+Weibao:
+
+> Is ther general research we can do to avoid those and more?
+
+> Consider using Question marks on a paged targeted way to indicate not knowing and more? Other aspects to consider?
+
+> Is there a game dev guide for stuff like these and more?
+
+Recorded: [player experience round 7](../audits/PLAYER_EXPERIENCE_CORE_AUDIT.md#round-7-2026-11-10-marking-what-you-do-not-know-and-research-to-lean-on): targeted question marks UK1–UK7 (proposals) and a proposed research pass over game UX, accessibility, interface-writing guides and close reference games. Nothing started.
