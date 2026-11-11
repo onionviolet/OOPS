@@ -51,10 +51,11 @@ export function keeperHouseView(state, definition, record, context) {
         const refined = !!state.actors?.[id(g.slot)]?.facts?.[id(g.slot + '_refined')];
         const stock = own(s.owners[id(g.slot)], key(g.food)), cond = p.vitals.health;
         const altStock = g.alt ? own(s.owners[id(g.slot)], key(g.alt.food)) : 0, worked = !!state.actors?.[id(g.slot)]?.facts?.[id(g.slot + '_kept.worked')];
+        const resents = !!state.actors?.[id(g.slot)]?.facts?.[id(g.slot + '_resents')];
         const order = !!state.actors?.player?.facts?.[id('auto_' + g.slot)], bag = own(inventory, key(g.food));
         const row = {id: g.slot, label: g.label, food: g.foodLabel, kept, alive: p.life === 'alive', condition: cond, maxCondition: diet.maxCondition, stock, altStock, altFood: g.alt?.foodLabel || null, refined,
             meal: mealSize(diet, refined), everyDays: g.days, price: g.price, perDayStones: dailyCost(diet, unitPrice(g), refined), lethal: diet.lethal !== false,
-            order, bagMeals: Math.floor(bag / mealSize(diet, refined)), worked, yield: g.yield,
+            order, resents, canRefine: !!g.refinedMeal, bagMeals: Math.floor(bag / mealSize(diet, refined)), worked, yield: g.yield,
             ability: null};
         if(kept && row.alive) {
             const st = starvation(diet, {stock, altStock, condition: cond, now, anchor, refined});

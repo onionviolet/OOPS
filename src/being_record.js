@@ -114,7 +114,7 @@ export function readTie(being, care = null) {
         const stage = bondStage(t.level), behaviours = [];
         if (hungry) behaviours.push('refuses to be handled until it has eaten');
         if (t.level >= 6) behaviours.push(`settles with ${t.who}`, `follows ${t.who}`);
-        else if (t.level >= 3) behaviours.push(`comes when ${t.who} calls`);
+        else if (t.level >= 3) behaviours.push(`comes when ${t.who} ${t.who === 'you' ? 'call' : 'calls'}`);
         else if (temper === 'bites' && t.level <= 0) behaviours.push(`snaps at ${t.who}`);
         else behaviours.push(`warns ${t.who} off`);
         return {who: t.who, level: t.level, word: stage.word, behaviours};
