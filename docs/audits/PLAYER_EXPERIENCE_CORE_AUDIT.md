@@ -279,3 +279,75 @@ Weibao, on three screenshots (the talk preamble, the herb answer, the Local life
 | PX64 | Why the lint missed it | `check_player_text` read `src/*.js` and skipped subfolders such as `src/absorb_c2/`. It now reads every source folder except dev previews; 114 older hits went to the baseline and the [rewrite backlog](../prose/PROSE_REWRITE_BACKLOG.md). | `node scripts/check_player_text.mjs` |
 
 PRS9 now says it outright: hints and answers leave something to find, exact numbers sit one step away until earned, and a view needs no preamble.
+
+## Round 6, 2026-11-10: pitfall catalog
+
+Weibao: "write down these pitfalls, consider other similar ones, and then we can address accordingly". Each pitfall below has a code, where it showed up in his playthroughs, similar cases to look for, and what catches it. Status: **fixed** (where it was seen), **open** (seen, not fixed), **watch** (not seen yet, likely). The mixing counter screenshot (round 6) is broken out under its pitfalls.
+
+### Words
+
+| Code | Pitfall | Seen | Similar cases | Caught by | Status |
+| --- | --- | --- | --- | --- | --- |
+| PF1 | **Engine words reach the player** ("native", "actual", "represented", "seam", "prototype") | Iona's ledger, temperature note, Local life, resident lines | Debug ids, save keys, "proposal", "slice" in tooltips; Settings pacing text ("native pacing", "Native rain is retained") | PRS6 lint (now subfolders and `textContent`), check:flow `leak` | Fixed where seen; 593 older strings in the [backlog](../prose/PROSE_REWRITE_BACKLOG.md); Settings open |
+| PF2 | **A manual where a hint belongs** (windows, rates, odds, shortcuts spelled out) | Herb answer, Local life odds | Settings pacing paragraphs ("drains over eight played hours… 80% to 100%"), quest text with exact windows, station descriptions | Proposed: a lint for digit-dense sentences on narrator surfaces (place text, dialogue answers, panel intros) | Fixed where seen; Settings open |
+| PF3 | **Interface instructions inside world text** ("Use Notebook to…", "Homes has what it would take") | Willow stand, six destinations | Reports "Click it to rename", work line "Pick something under Here to start" | Proposed: lint `Use|Open|Click <Panel>` in description fields; station rows carry the how-to | Fixed in place text; Reports and work line open |
+| PF4 | **A view explains itself** ("Each line shows what it costs before you say it") | Talk view | Mixing: "Words give the dose in a standard vial: one pack of the plant, one of water."; "Whole packs: water + plants. Drink to observe the dose. Responsive follows local laws." | Review rule (PRS9); proposed `repeat`-style check for a panel's first line restating its own controls | Talk fixed; mixing open |
+| PF5 | **Ledger shorthand** (counts and states in compressed notation) | "0 ready / 1 actions" | Mixing: "(0 free, short 1)", "One stock, two products: 0 carried · 0 held in vessel · 0 blocked by other holds", "3 game minutes/batch", "Queue: Save an observed method before queuing." | Proposed: lint for `\d+ free`, `short \d`, `/batch`, `·`-chains of zeros | Count fixed; mixing open |
+| PF6 | **Full display names inside sentences** ("Old Hesk, the village elder knows of you") | Talk view | Reports lines, quest steps ("Talk to Old Hesk, the village elder."), Around you rows | Talk host splits name and role; proposed: a names helper (`shortName`) used by sentences | Talk fixed; guide and Reports open |
+| PF7 | **The wrong relation** (a question counted as telling) | "You told them: Who are you?" | Witness lines, "They saw" rows, gossip that credits the wrong speaker | Talk tests | Fixed |
+| PF8 | **Missing-text markers** ("text not found, id: …") | Herb answer | `undefined`, `NaN`, `[object Object]`, empty labels | Translator fallback, dialogue test, check:flow `leak` | Fixed |
+| PF9 | **Raw minute counts for waits** ("next opening in 9227 minutes") | Local life | Mixing "3 game minutes/batch", watch shifts, travel ETAs, cooldowns | `formatDuration` (number_format.js); proposed lint `in \$\{[^}]+\} minutes` | Fixed in Local life; others open |
+| PF10 | **Saved history keeps old wording** | Knows: "Witnessed: the accepted commission consumed your log…" | Notebook entries, Reports history | PRS8 keeps history as written; new saves get new text | Accepted (by design) |
+
+### Repetition and noise
+
+| Code | Pitfall | Seen | Similar cases | Caught by | Status |
+| --- | --- | --- | --- | --- | --- |
+| PF11 | **The same title or line twice** | Around you fold title; "You said" per row | Mixing: "Village mixing counter" in the view header and again as the panel title; "Next step" in the guide box and again in Reports "Right now" | check:flow `repeat` (sentences of 30+ characters); proposed: heading-pair check (a view header equal to its first heading) | Around you, knows rows fixed; mixing, Next step open |
+| PF12 | **The same reason under every disabled button** | Tingen Begin buttons | Shop rows when broke, craft rows without a station | Shared reason pattern (UR149); sweeper links `aria-describedby` | Fixed where seen |
+| PF13 | **A grid of unknowns** | Mixing: 12 cells of "? unknown" | Bestiary, skill lists, herb lore tables | Proposed: show known rows, then one line "Untested: River bellleaf, Emberseed, Mellow salt" (the Proto23 `???` for names stays) | Open |
+| PF14 | **Everything shown at once** | Village screen: many folds, Iona's ledger mid-screen | Mixing: method and process selects ("Ordinary method", "Steep") before the first mix; Settings page; module header controls (Dock, Earlier, Later) | UR32 progressive disclosure; proposed: first-meeting flag per panel and control (PX52) | Open |
+| PF15 | **A preamble before the first action** | Talk view | Mixing intro line, Local life readiness line ("Ready. …") | PRS9 | Talk, Local life fixed; mixing open |
+
+### Layout and flow
+
+| Code | Pitfall | Seen | Similar cases | Caught by | Status |
+| --- | --- | --- | --- | --- | --- |
+| PF16 | **Opening a view moves what you did not touch** | Every centre route, mixing | Expanding a module, closing a dropdown (M4), combat entering | check:flow `stability` | Fixed while a view is open (M1); M1b, one refit after the first return from the Journal, open |
+| PF17 | **A hard cut of most of the screen** | Mixing, conversation | World crossing, sleep, reading | UR152 ease-in | Fixed for centre views |
+| PF18 | **A conversation or task takes the whole centre** | Talk, mixing | Trade, storage, crafting | PX51 proposal (open in place) | Open |
+| PF19 | **State lost on redraw** | Travel menu shut after moves and after Esc | Scroll position, selected item, open folds, typed quantities in the mixing counter | Keyed menus (UR148); proposed check:flow item: open a menu, move, return, still open | Fixed for menus |
+| PF20 | **A shared class used as an identity** | `choice_travel` on three menus restored the wrong one | `querySelector` on non-unique classes elsewhere | Proposed: grep for restores by class; key by name or id | Fixed where seen |
+| PF21 | **Measuring a hidden or lazily drawn panel as real** | Around you measured short after a view closed | Any fit or size measure taken right after a reveal | Settle window in shell composition | Fixed for the top row |
+| PF22 | **Compare in one place, act in another** | Tingen lives table | Shop compare vs buy, equipment comparison vs equip | UR149 | Fixed where seen |
+| PF23 | **A sheet you cannot click out of** | "?" shortcuts | Control boxes (already close), item detail pop-outs | UR150 light dismiss | Fixed |
+| PF24 | **Buttons whose labels wrap** | Mixing "Buy 1 (8 coins)" on two lines | Long action labels in Local life, Begin buttons | Proposed check:flow item: a button taller than two text lines | Open |
+| PF25 | **A menu that must be reopened after every move** | Move somewhere else | Talk to someone, Find work | UR148 | Fixed for all location menus |
+
+### Systems standing in for systems
+
+| Code | Pitfall | Seen | Similar cases | Caught by | Status |
+| --- | --- | --- | --- | --- | --- |
+| PF26 | **A counter standing in for a real system** | Rapport counted lines said | Reputation from clicks, skill "mastery" from repeats, trust from gifts alone | AREA_GUIDE owners (ties, memory); PX53 | Rapport fixed |
+| PF27 | **A block with no stake** | Crossing blocked by running | Talking blocked by idle training, saving blocked by harmless work | PX54 (idle practice yields) | Fixed for crossing |
+| PF28 | **Exact numbers before they are earned** | Rapport track, find odds | Weather numbers, enemy stats before meeting, forecast | UR151 (hover detail until earned) | Rapport, Local life fixed; others open |
+
+### Checks that missed
+
+| Code | Pitfall | Seen | Fix |
+| --- | --- | --- | --- |
+| PF29 | **A lint with blind spots** | PRS6 read top-level `src/*.js` and `field: '…'` strings | Now recursive and reads `textContent`; proposed: also `innerHTML` templates and `title=` attributes |
+| PF30 | **Tests read the model, the player reads the screen** | Rapport, herb answer, mixing all passed tests | check:flow reads visible text per route; proposed: add the mixing, Local life and Settings views to its walk |
+| PF31 | **The test harness starts in a state players do not** | Top row 512 px at load, 305 px after any view | Proposed: check:flow compares home before and after one round trip |
+
+### Watch list (not seen yet, likely)
+
+From round 47 and the same causes: number jitter on live counters (tabular figures, UR117); focus lost after a redraw (UIC120); popovers covering the row they describe (UR111); notices that open themselves mid-read (UR88); the work line hidden by a view (UR11); layout choices forgotten after reload (UR58).
+
+### Address next (ranked)
+
+1. **Mixing counter** (PF4, PF5, PF9, PF11, PF13, PF14, PF15, PF24): one pass, since it shows eight pitfalls on one screen.
+2. **Settings and the work line** (PF1, PF2, PF3): the pacing paragraphs and "Pick something under Here to start".
+3. **New lints and flow checks** (PF2, PF3, PF5, PF9, PF24, PF29, PF31): cheap, and they keep the rest from coming back.
+4. **PX51 talk in place and PX52 calmer Village** (PF14, PF18).
+5. **M1b** (PF16): fit the top row to You alone.

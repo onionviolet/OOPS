@@ -1063,3 +1063,13 @@ Recorded: [player experience round 5](../audits/PLAYER_EXPERIENCE_CORE_AUDIT.md#
 > adjust accordingly, and long term
 
 "Que" queued PX78 (life-end to legacy loop). On tests: the faster-tests lane (FRC69, FRC70) makes speed standing practice, not a one-off pass: test-writing defaults in AD36 and the AGENTS verification paragraph (shared life-start builders, no real waits, a slow tier for play-length tests, a per-file budget), a duration budget check whose baseline shrinks as files get faster, `test:changed` as the lane default with the full suite as the merge gate, and a re-profile trigger as the suite grows.
+
+## Steady frame, mixing, and a pitfall catalog, 2026-11-10
+
+Weibao:
+
+> mixing changes the entire screen in a dirastic way? should we have transtition betwen panels? make panel flow faster? Remove duplicate text? make it make more sense? condisense/reimagine if need be
+
+> write down these pitfalls, consider other similar ones, and then we can address accordingly
+
+Recorded: the side columns now hold still while a centre view is open (M1) and views ease in (UR152). The mixing counter's problems, with every similar pitfall from his playthroughs, are in the [pitfall catalog](../audits/PLAYER_EXPERIENCE_CORE_AUDIT.md#round-6-2026-11-10-pitfall-catalog) (PF1–PF31), with a ranked order to address them. The mixing rework itself waits for that order.
