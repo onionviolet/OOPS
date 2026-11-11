@@ -4,7 +4,8 @@
 // and when (STY30). It writes nothing and saves nothing: the run is derived from the occurrence log on every read.
 // Dials (default, reason):
 //   window        one played day, the care check's own interval: the Gu eats once a day, so at most one care notice a day stands out.
-//   routine       a fed Gu is of the moment (hold 0) and fades from attention while the Gu is going hungry; after a lull it returns.
+//   routine       a fed Gu is of the moment (hold 0), and one meal notice keeps the next out for two days (cooldown by kind: a daily
+//                 meal is not news every day); it fades while the Gu is going hungry and returns after a lull.
 //   pressure      a missed meal may wait two days for attention and grows with recent hunger; a recheck drops it once the Gu has died.
 //   tension       missed meals in the last three days, two or more reading as full tension (a mechanism fact, not a world kind, WKR1).
 //   death         a fixed point: it never passes through the director and shows on its day, like Tingen's calendar days.
@@ -17,7 +18,7 @@ const GU = id('moonlight'), RESET = id('care.a_reset'), DEATH = id('care.b_death
 const CATEGORY = Object.freeze({[id('care.c_meal')]: 'routine', [id('care.d_hunger')]: 'pressure'});
 export const GU_DIRECTED = Object.freeze(Object.keys(CATEGORY));
 export const GU_CARE_DIRECTOR = validateDirector({id: 'gu.annex.care', quiet: 2, tensionQuiet: .8, cooldown: 0, attempts: 2, dry: {after: 2, relief: .6, floor: .2},
-    categories: {routine: {weight: 2, hold: 0, tension: -.7, comfort: 1}, pressure: {weight: 2, hold: 2, tension: 4}}});
+    categories: {routine: {weight: 2, hold: 0, cooldown: 2, tension: -.7, comfort: 1}, pressure: {weight: 2, hold: 2, tension: 4}}});
 export const GU_WHY_WORDS = Object.freeze({tense: 'Your Gu has been going hungry, so this is what you notice.',
     lull: 'The annex has been quiet for a few days, so this catches your eye.', calm: 'Nothing else in the annex claimed your attention.',
     late: 'You only took it in a day or two later.'});
@@ -40,7 +41,7 @@ export function guCareDirected(state) {
     for(const e of rows) { const w = clock.window(e.at); byWindow.set(w, [...(byWindow.get(w) || []), e]); }
     const hungerIn = w => (byWindow.get(w) || []).filter(e => CATEGORY[e.definitionId] === 'pressure').length;
     const factsAt = w => ({tension: Math.min(1, (hungerIn(w) + hungerIn(w - 1) + hungerIn(w - 2)) / 2), dead: w >= deathWindow});
-    const born = w => (byWindow.get(w) || []).map(e => ({id: e.id, category: CATEGORY[e.definitionId], weight: 1,
+    const born = w => (byWindow.get(w) || []).map(e => ({id: e.id, kind: e.definitionId, category: CATEGORY[e.definitionId], weight: 1,
         ...(CATEGORY[e.definitionId] === 'pressure' ? {recheck: f => !f.dead} : {})}));
     const upto = Math.max(0, clock.window(state.clock));
     const signature = `${rows.map(e => e.id).join(',')}|${deathWindow}`;

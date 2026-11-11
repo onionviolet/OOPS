@@ -67,6 +67,14 @@ test('Tingen: the director only surfaces cards the deck drew, heat shifts the mi
     assert.ok(news.some(n => n.id.startsWith('tingen:deck') && n.why));
     assert.equal(TINGEN_DIRECTOR.id, 'tingen.director');
 });
+test('kind and per-category cooldown: repeated occurrences of one kind sit out together, other categories keep their own', () => {
+    const sp = validateDirector({...spec, id: 'kc', quiet: 0, cooldown: 0, categories: {texture: {weight: 1, hold: 0, cooldown: 3}, pressure: {weight: 1, hold: 0}}});
+    const run = runDirector(sp, 5, 40, w => [{id: `m${w}`, kind: 'meal', category: 'texture', weight: 1}], () => ({tension: 0}), 'kc');
+    const at = run.filter(o => o.surfaced).map(o => o.window);
+    assert.ok(at.length > 3);
+    for(let i = 1; i < at.length; i++) assert.ok(at[i] - at[i - 1] >= 3);
+    assert.throws(() => validateDirector({...sp, categories: {texture: {weight: 1, hold: 0, cooldown: -1}}}));
+});
 test('Tingen paces the same after the second-world words change (golden captured before it, 2026-11-10)', () => {
     const s = tingen(7, 60), hot = {heat: () => ({heat: [{level: 3}]}), positions: () => []};
     const rows = r => r.map(o => o.surfaced ? `${o.window}:${o.surfaced.id}@${o.surfaced.born}/${o.surfaced.category}|${whyLine(o.receipt)}` : `${o.window}:-`).join('\n');

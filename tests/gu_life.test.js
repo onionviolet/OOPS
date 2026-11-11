@@ -93,6 +93,7 @@ test('story director, second world: care notices are paced from what happened, d
     assert.ok(shown.length&&shown.every(o=>seen.has(o.surfaced.id)),'only occurrences the lead saw surface');
     assert.ok(shown.length<[...seen].filter(i=>s.simulation.events[i].definitionId!==id('care.b_death')).length,'the director thins, it does not echo');
     assert.ok(run.some(o=>o.surfaced?.category==='pressure'&&o.receipt.tension>.5),'hunger raises tension and surfaces');
+    const meals=shown.filter(o=>o.surfaced.category==='routine').map(o=>o.window);for(let i=1;i<meals.length;i++)assert.ok(meals[i]-meals[i-1]>=2,'a daily meal is not news every day');
     const news=eventFeed(s,f.registry,{}).news;assert.equal(JSON.stringify(s),before);
     assert.ok(news.some(n=>n.text.startsWith('Moonlight Gu died')&&!n.why),'death stays a fixed point');
     assert.ok(news.some(n=>n.why&&!/city/.test(n.why)),'the why line uses the annex words');
