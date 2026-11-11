@@ -22,7 +22,9 @@ export function renderGuHouse(parent, house) {
     const body = el('tbody', null, table);
     for(const r of house.gu) {
         const tr = el('tr', null, body, {'data-gu-row': r.id, ...(r.kept && r.alive && !r.willEat ? {'data-hungry': ''} : {})});
-        el('th', `${r.label}${r.refined ? ' (refined)' : ''}`, tr, {scope: 'row'});
+        const head = el('th', `${r.label}${r.refined ? ' (refined)' : ''}`, tr, {scope: 'row'});
+        // CPR9/CPR10: grain, holder and custody from the shared being record, one home beside the care numbers.
+        if(r.being) el('small', `${r.being.grain} · with ${r.being.holder} · ${r.being.tie.line}`, head, {'data-gu': 'being', title: r.being.custody.join(' ')});
         if(!r.kept) { const c = el('td', `In the clan house · ${r.price ? `${r.price} stones to take in` : 'issued free'} · eats ${r.meal} ${r.food} every ${r.everyDays} day${r.everyDays > 1 ? 's' : ''}`, tr, {colspan: 5}); c.dataset.gu = 'unheld'; continue; }
         if(!r.alive) { el('td', 'Dead', tr, {colspan: 5, 'data-gu': 'dead'}); continue; }
         const cond = el('td', null, tr); const m = el('meter', `${r.condition} of ${r.maxCondition}`, cond, {min: 0, max: r.maxCondition, low: 2, optimum: r.maxCondition, value: r.condition, 'aria-label': `${r.label} condition`}); el('span', ` ${r.condition}/${r.maxCondition}`, cond);

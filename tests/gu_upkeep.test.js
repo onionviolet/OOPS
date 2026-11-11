@@ -137,6 +137,8 @@ test('house view: timers, gauge, cap and ledger read the save', () => {
     let h = v(); assert.equal(h.gauge.max, DIAL.capacity); assert.equal(h.stones, DIAL.startStones);
     const m = h.gu.find(x => x.id === 'moon'); assert.deepEqual([m.kept, m.mealsStocked, m.nextMealIn, m.starvesIn, m.starvedOutIn], [true, 2, DAY, null, 5 * DAY - f.p.state.clock]);
     assert.equal(h.gu.find(x => x.id === 'worm').kept, false); assert.match(h.feedingCap.line, /1 of 1/);
+    assert.deepEqual([m.being.grain, m.being.holder, m.being.care.state, m.being.tie.rows.length, m.ability], ['held', 'you', 'fed', 0, 'sound'], 'CPR10: the shared being record reads the Gu row');
+    assert.equal(h.gu.find(x => x.id === 'worm').being.holder, 'the clan steward');
     f.step(7 * DAY - f.p.state.clock); h = v();
     assert.equal(h.ledger.lines[0].amount, DIAL.stipendStones); assert.equal(h.ledger.agreement.kind, 'coin'); assert.equal(h.ledger.nextStipendIn, 7 * DAY);
     f.start('chores'); f.step(DIAL.choreMinutes); f.start('buy_petals'); h = v();
@@ -156,4 +158,44 @@ test('automatic keeper events that act on the player are gated, so another world
     assert.ok(events.length>0);
     const open=events.filter(e=>e.automatic&&(e.actorId||'player')==='player'&&!e.requires).map(e=>e.id);
     assert.deepEqual(open,[]);
+});
+test('a refined Gu is a tied being: pushed hungry it resents it, the work verb shuts, feeding makes amends (CPR10, TIE19)', () => {
+    let f = null;
+    for(let seed = 1; seed <= 60 && !f; seed++) {
+        const g = setup(seed); g.start('take_moon'); g.start('buy_petals'); g.start('buy_lees');
+        g.p.state.simulation.seed = seed * 2654435761 % 4294967295 + 1; g.start('fuse');
+        if(gu(g, 'moon').vitals.health === 4) f = g;
+    }
+    assert.ok(f, 'some seed refines');
+    const view = () => keeperHouseView(f.p.state, f.d, f.record, f.ctx()).gu.find(r => r.id === 'moon');
+    assert.equal(view().being.grain, 'tied');
+    assert.match(view().being.tie.line, /comes when you call/);
+    assert.equal(f.quote('work_moon').eligible, true);
+    assert.equal(f.quote('work_moon_weak').eligible, false);
+    // Starve it to condition 2 and push it: the bound variant is the one on offer, and it leaves the Gu resenting.
+    f.start('feed_moon'); f.step(DAY * 4);
+    const cond = gu(f, 'moon').vitals.health;
+    assert.ok(cond <= 3, 'it got hungry');
+    f.p.state.simulation.people[id('moon')].vitals.health = 2;
+    assert.equal(f.quote('work_moon_weak').eligible, false, 'a refined Gu uses the bound variant');
+    assert.equal(f.quote('work_moon_weak_bound').eligible, true);
+    f.start('work_moon_weak_bound');
+    assert.equal(view().resents, true);
+    assert.match(view().being.tie.line, /snaps at you/);
+    assert.match(view().being.tie.line, /refuses to be handled|snaps/);
+    // Shut by the tie, not by hunger: set it fed and sound; the verb stays shut until you feed it.
+    f.p.state.simulation.people[id('moon')].vitals.health = 4;
+    f.step(DAY);
+    f.p.state.simulation.people[id('moon')].vitals.health = 4;
+    assert.equal(f.quote('work_moon').eligible, false);
+    f.start('feed_moon');
+    assert.equal(view().resents, false);
+    assert.equal(f.quote('work_moon').eligible, true);
+    assert.match(view().being.tie.line, /comes when you call/);
+    valid(f);
+});
+test('an unrefined Gu is held, has no mind to resent, and keeps the plain hungry-work command', () => {
+    const f = setup(); f.start('take_moon');
+    assert.equal(f.quote('work_moon_weak_bound').eligible, false);
+    assert.equal(keeperHouseView(f.p.state, f.d, f.record, f.ctx()).gu.find(r => r.id === 'moon').being.grain, 'held');
 });
