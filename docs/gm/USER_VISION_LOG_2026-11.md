@@ -976,8 +976,54 @@ Recorded:
 - It adds flow defaults PX36–PX41: measured journeys, context that travels, returning after interruptions and reloads, announced mode changes, and a guide that grows with the player.
 - A frozen build was snapshotted into the installed desktop app for him to play (snapshot `v0.6-c4f997fe257e`, from commit `35ed6580b`).
 
+## First-minutes flow fixes and one app in Spotlight, 2026-11-10
+
+Weibao:
+
+> Yes, fix them
+
+> Consider also deleting the duplicate noes that shows up in spotlight and only keeping the main one, so that its easy to know which one
+
+Recorded:
+- PX28–PX31 are fixed ([round 2 fixes](../audits/PLAYER_EXPERIENCE_CORE_AUDIT.md#round-2-fixes-2026-11-10)):
+  - the guide points at the elder's card;
+  - the card says "Talk with Old Hesk";
+  - no layout notices on a fresh start;
+  - alternatives state their effect once, in plain words.
+- The two extra app copies (build output and an old rollback) went to the Trash, and their folders are excluded from Spotlight. `~/Applications/Yet Another Idle RPG.app` is the one left.
+
 ## Gu abilities and killer moves, 2026-11-10
 
 > Address bottlenecks long term too, also consider abilities tied to gu, gu killer moves, which is moves made by using a combinatiobn of gus, other stuff and more?
 
 Recorded: [Gu abilities and killer moves](../GU_ABILITIES_AND_KILLER_MOVES_CONSIDERATIONS_2026-11-10.md) GKM1–GKM12 (palette, proposals), and long-term bottleneck fixes FRC69–FRC74 in the [coverage audit](../audits/FOUNDATIONAL_RULES_COVERAGE_2026-11-10.md) round 8. FRC72 (build outputs in git) waits for his answer.
+
+## Above-rank Gu, procedural moves and worlds with the same shape, 2026-11-10
+
+> Using gu above rank is possible? consider techniques of condensing higher rank essense and mroe? or other people giving you some? We should consider all possibilities, Other stuff to consider? procedural system for in world systems like gu killer moves? More to consider? We can build the rules around the worlds too, consider other worlds with similar considerations we would need to consider
+
+Recorded: round 2 of [Gu abilities and killer moves](../GU_ABILITIES_AND_KILLER_MOVES_CONSIDERATIONS_2026-11-10.md), GKM13–GKM26. Above-rank use is possible at a cost through stored, condensed, given, lent or burned essence; round 1's "cannot be driven" line is revised. A killer move generator over the same grammar; a cross-world composed abilities rulebook (CAB, proposed) built from Reverend Insanity, Mother of Learning, Lord of the Mysteries, Harry Potter, D&D and Jujutsu Kaisen.
+
+## A short playthrough: duplicate text, menus, talk, immersion, 2026-11-10
+
+Weibao (after playing the v0.6 snapshot, with nine screenshots):
+
+> this duplicates text, for the home one, rather than saying something we can pose a question instead, that should be prose rules, something like "Maybe you can build a house here?" maybe the go menu should be left open so no need to double click
+>
+> Clicjking into conversation changes the whole screen and could be surprovsing, some menus should be clicked to open and not jump out so people can be acquainted?
+>
+> Some texts break immersion? Asking about the herb field birng up not found,
+>
+> Also is Old Hesk the guy's official name? the menu on the bottom like this? Is relationship this easy?
+>
+> For someting like the new life stuff, maybe we can have the begin as, clickable from the table rather than scrolling down?
+>
+> Ui can be overwhelming? More to consider?
+>
+> This short playthrough already gave many issues, lets addressthem and extrapolate stuff so they dont happen again for the future and can be fixed?
+>
+> Unable to click out of menues like the ? mark on without clicking close or escate, rather than it dissapearing when I click seomthing behind it
+
+> ALso relationbship is also represented as circle in a linear path, is that something optimal even? That falls under all the system becomming circles and stuff that I talked about
+
+Recorded: [player experience round 3](../audits/PLAYER_EXPERIENCE_CORE_AUDIT.md#round-3-2026-11-10-weibaos-short-playthrough). Fixed PX42–PX50 (missing-text marker, name and role, "knows of you", rapport as a sentence instead of rings, Around you duplication with the willow stand posing a question, engine-speak strings and a wider prose lint, travel menu stays open, Begin from the compare table, outside press closes sheets). New working defaults under AD56: UR147–UR150 and PRS9. Proposed, not built: PX51 (talk opens in place), PX52 (a calmer Village screen), PX53 (rapport from real ties, which changes pace and waits for him), PX54 (crossing stops the idle run), PX55 (show which "one of" line was said), PX56 (keep or rename Old Hesk).

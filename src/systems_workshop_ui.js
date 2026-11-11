@@ -5,7 +5,7 @@ const node=(tag,text)=>{const n=document.createElement(tag);if(text)n.textConten
 export function createSystemsWorkshopPanel({read,act,parent,registry}) {
  const panel=node('details');panel.id='systems_workshop_panel';panel.className='expedition_panel';
  panel.append(node('summary','Iona’s work ledger · systems and workshop'));const body=node('div'),intro=node('p'),status=node('p'),notice=node('p'),controls=node('div'),records=node('details'),recordBody=node('div');records.append(node('summary','Terms and observed workshop records'),recordBody);panel.append(body);body.append(intro,status,notice,controls,records);
- intro.textContent='Original local prototype. Earn authority-backed points through real work, keep permanent learning, or lease guidance. Optional workshop chance and a represented irrigation experiment share your actual inventory. Only played time advances work.';
+ intro.textContent='Iona keeps a ledger of village work. Real work earns her points; spend them to learn a method for good or to borrow her guidance for a while. The workshop and her irrigation trials draw on what you carry, and work moves only while you play.';
  let message='',sig='';
  const run=id=>{const r=read();try{act({id,sequence:r.state.sequence});message='Progress saved.';}catch(e){message=e.message;}sig='';render();};
  const nextActions=node('section'),later=node('details'),laterBody=node('div');
@@ -28,7 +28,7 @@ export function createSystemsWorkshopPanel({read,act,parent,registry}) {
   notice.textContent=message||r.error||'';
   recordBody.replaceChildren();for(const [id,k] of Object.entries(s?.knowledge.player||{}))if(id.startsWith(SW+'.'))recordBody.append(node('p',k.value));
   const own=r.context.gameplay?.player.inventory||{},points=state.actors.player.resources[SW+'.points']||0,ren=state.actors[APPRENTICE];
-  status.textContent=!s?'Following creates no past history.':f[SW+'.joined']?
+  status.textContent=!s?'You have not worked with Iona yet.':f[SW+'.joined']?
    `${s.titles.player?.[SW+'.commissioner']?'Iona recognizes you as a proven ledger craftsperson. ':''}Points ${points}. Ledger ${f[SW+'.connected']?'connected':'disconnected'}. Permanent method ${f[SW+'.learned']?'learned':'unlearned'}. Assistance ${state.actors.player.sources[SW+'.assist']?'leased':'absent'}. Module ${f[SW+'.upgraded']?'parcel guidance':'preparation'}. Sealed draw ${f[SW+'.round']==='open'?'awaits your fold or continue decision':f[SW+'.round']||'not entered'}. `+
    (f[SW+'.modeled']?`Represented model v1: ${f[SW+'.modelLayout']}, inlet ${f[SW+'.modelInlet']}, harvest ${f[SW+'.modelHarvest']} (represented only); recommended ${f[SW+'.modelBest']}. `:'')+
    (ren?.facts[SW+'.taught']?`Ren has learned your method; ${s.owners[APPRENTICE]?.[SWK.kit]||0} own finished kits await trade. `:'')+

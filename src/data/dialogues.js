@@ -11,7 +11,7 @@ const dialogues = {};
         //ram
         name: "village elder",
         textlines: {
-            "p23 moon bed": new Textline({name:"Ask about the moonlit herb bed",text:"The elder points out the public Golmoon growth by the Village path. One leaf grows back with each New moon phase. Search between midnight and four in the morning, and finish before four. Scouting Village or fighting in the Infested field teaches its ground; thirty played minutes lets you search in three minutes instead of six.",is_unlocked:false}),
+            "p23 moon bed": new Textline({name:"Ask about the moonlit herb bed",text:"The elder points out the Golmoon growing by the Village path, free for anyone to pick. A leaf grows back each new moon. It shows only between midnight and four in the morning. Learn that ground first, by scouting the Village or fighting in the Infested field, and a search takes half as long.",is_unlocked:false}),
             "hello": new Textline({
                 name: "elder hello",
                 text: "elder hello answ",

@@ -12,10 +12,10 @@
 
 // Default rapport stages, counted in things said. A default with a dial: a world passes its own table.
 export const RAPPORT_STAGES = Object.freeze([
-    {id: 'stranger', label: 'Stranger', from: 0, opens: 'Small talk and direct questions.'},
-    {id: 'acquainted', label: 'Acquainted', from: 1, opens: 'Plain questions about the place and its people.'},
-    {id: 'familiar', label: 'Familiar', from: 3, opens: 'Favors and personal topics, where this world allows them.'},
-    {id: 'confidant', label: 'Confidant', from: 6, opens: 'Secrets they would not tell a stranger, with their own reasons.'},
+    {id: 'stranger', label: 'Stranger', from: 0, opens: 'Small talk and plain answers.'},
+    {id: 'acquainted', label: 'Acquainted', from: 1, opens: 'What they know of the place and its people.'},
+    {id: 'familiar', label: 'Familiar', from: 3, opens: 'Favors and personal matters, where this world allows them.'},
+    {id: 'confidant', label: 'Confidant', from: 6, opens: 'Secrets they would keep from a stranger, for their own reasons.'},
 ]);
 
 // Reward kinds -> what the hero can know before saying the line. Names only when `known(kind, value)` says the
@@ -52,11 +52,17 @@ const minutesText = m => m > 0 ? `${m} min` : NO_TIME;
  * lines: [{id, label, state, text?, rewards?, closesOthers?}] already filtered to what the hero sees.
  * Rewards are quoted through rewardQuote; `closesOthers` adds the one structural fact the hero can see.
  */
+export const CLOSES_OTHERS = 'Picking one closes the others.';
+export const SAME_AS_ABOVE = 'Same as the line above.';
 export function topicsFromLines(lines, {known, nameOf, minutes = () => 0} = {}) {
+    let previous = null;
     return lines.map(line => {
-        const effects = line.state === 'new' || line.state === 'locked' ? rewardQuote(line.rewards, {known, nameOf}) : [];
-        if (line.closesOthers && line.state === 'new') effects.push('Settles the other ways to put this.');
-        return {id: line.id, label: line.label, state: line.state, reason: line.reason || '', recall: line.state === 'heard' ? line.text || '' : '',
+        let effects = line.state === 'new' || line.state === 'locked' ? rewardQuote(line.rewards, {known, nameOf}) : [];
+        if (line.closesOthers && line.state === 'new') effects.push(CLOSES_OTHERS);
+        // PX31, UR64: alternatives that do the same thing say it once; the next ones point back to it.
+        const key = effects.length > 1 ? JSON.stringify(effects) : null;
+        if (key && key === previous) effects = [SAME_AS_ABOVE]; else previous = key;
+        return {id: line.id, label: line.label, state: line.state, group: !!line.group, reason: line.reason || '', recall: line.state === 'heard' ? line.text || '' : '',
             quote: {time: minutesText(minutes(line)), effects}};
     });
 }
@@ -75,21 +81,17 @@ export function rapportOf({heardCount = 0, stages = RAPPORT_STAGES} = {}) {
     stages.forEach((s, i) => { if (heardCount >= s.from) index = i; });
     const next = stages[index + 1] || null;
     return {stage: stages[index], index, next, toNext: next ? next.from - heardCount : 0,
-        text: next ? `${stages[index].label}. ${Math.max(1, next.from - heardCount)} more to reach ${next.label}: ${next.opens}` : `${stages[index].label}. ${stages[index].opens}`};
+        text: next ? `${stages[index].label}. Closer, they might offer ${next.opens.charAt(0).toLowerCase()}${next.opens.slice(1)}` : `${stages[index].label}. ${stages[index].opens}`};
 }
-/** The ladder as a figure spec (src/ui/figure.js track), so the same words and glyphs read everywhere. */
-export function rapportFigure(person, rapport, stages = RAPPORT_STAGES) {
-    return {id: `rapport-${person.id}`, title: `Rapport with ${person.name}`, size: 360,
-        tracks: [{id: 'rapport', label: 'Rapport', steps: stages.map((s, i) => ({label: s.label, state: i < rapport.index ? 'done' : i === rapport.index ? 'current' : 'pending'}))}]};
-}
-
 /** What this person now knows of you, as a ledger of sourced rows. `told` rows are your own words, taken from the lines you said. */
 export function knowsOfYou({person, topics = [], deeds = [], manner = ''}) {
     const rows = [];
-    for (const t of topics) if (t.state === 'heard') rows.push({kind: 'told', source: 'You told them', text: t.label});
+    // PX44: a question tells them nothing about you, and a "one of" row cannot say which was said; only your statements count.
+    for (const t of topics) if (t.state === 'heard' && !t.group && !/\?\s*$/.test(t.label)) rows.push({kind: 'told', source: 'You said', text: t.label});
     for (const d of deeds) rows.push({kind: 'deed', source: 'They saw', text: d});
     if (manner) rows.push({kind: 'manner', source: 'How they act', text: manner});
-    return {rows, empty: rows.length ? '' : `${person.name} has not spoken with you yet, so they know nothing of you.`};
+    const asked = topics.some(t => t.state === 'heard');
+    return {rows, empty: rows.length ? '' : asked ? `You have only asked questions so far; ${person.name} knows little of you.` : `${person.name} has not spoken with you yet, so they know nothing of you.`};
 }
 
 /**

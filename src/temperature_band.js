@@ -19,6 +19,6 @@ export function createTemperatureBand(doc = document) {
         node.dataset.reading = view.position;
         name.textContent = view.text;
         marker.textContent = `${view.position === 'below' ? '● ' : ''}Cold ← ${view.position === 'at' ? '● ' : ''}threshold → No cold exposure${view.position === 'above' ? ' ●' : ''}`;
-        note.textContent = 'Current local reading; tolerance changes this boundary. The warmer side makes no claim about heat safety.';
+        note.textContent = 'The air here, now. How well you bear cold moves this line. Being warmer than it says nothing about heat.';
     }};
 }

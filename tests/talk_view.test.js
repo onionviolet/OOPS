@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {rewardQuote, topicsFromLines, topicsFromTopicTalk, rapportOf, rapportFigure, knowsOfYou, witnessLine, talkModel, talkText, RAPPORT_STAGES, NO_TIME} from '../src/read_models/talk_bridge.js';
+import {rewardQuote, topicsFromLines, topicsFromTopicTalk, rapportOf, knowsOfYou, witnessLine, talkModel, talkText, RAPPORT_STAGES, NO_TIME} from '../src/read_models/talk_bridge.js';
 import {nativeTalkLines} from '../src/talk_dialogue_host.js';
 import {renderTalkView} from '../src/ui/talk_view.js';
 import {validateFigureSpec, figureText} from '../src/ui/figure.js';
@@ -63,7 +63,7 @@ test('real elder data: one of three sibling lines said reads as one heard row, n
         assert.equal(heard.length, 2, 'hello, plus one grouped row for the three siblings');
         assert.match(heard.find(l => l.group)?.label, /^One of: label:what happened \/ label:where am i \/ label:dont remember$/);
         const model = talkModel({person: {id: 'p', name: 'Elder'}, topics: topicsFromLines(lines)});
-        assert.equal(model.knows.rows.filter(r => r.kind === 'told').length, 2);
+        assert.equal(model.knows.rows.filter(r => r.kind === 'told').length, 1, 'PX44: the one-of row cannot say which was said, so it tells them nothing');
         assert.equal(model.rapport.stage.id, 'acquainted');
     } finally { keys.forEach((k, i) => { [status(k).is_unlocked, status(k).is_locked] = saved[i]; }); }
 });
@@ -71,12 +71,9 @@ test('real elder data: one of three sibling lines said reads as one heard row, n
 test('rapport stages count things said and name what the next stage opens', () => {
     assert.equal(rapportOf({heardCount: 0}).stage.id, 'stranger');
     assert.equal(rapportOf({heardCount: 3}).stage.id, 'familiar');
-    assert.match(rapportOf({heardCount: 1}).text, /2 more to reach Familiar/);
+    assert.match(rapportOf({heardCount: 1}).text, /might offer favors and personal matters/);
+    assert.doesNotMatch(rapportOf({heardCount: 1}).text, /\d+ more/, 'PX45: no line count in the rapport sentence');
     assert.equal(rapportOf({heardCount: 99}).next, null);
-    const spec = rapportFigure({id: 'p', name: 'Elder'}, rapportOf({heardCount: 1}));
-    assert.doesNotThrow(() => validateFigureSpec(spec));
-    assert.match(figureText(spec), /Acquainted/);
-    assert.equal(spec.tracks[0].steps.length, RAPPORT_STAGES.length);
 });
 
 test('what they know of you: empty state in words, then sourced rows from what you said and did', () => {
@@ -126,4 +123,25 @@ test('the view draws card, covered and knows columns through the given document 
 test('styles use tokens only (UR6)', () => {
     const css = readFileSync(new URL('../styles/talk_view.css', import.meta.url), 'utf8');
     assert.doesNotMatch(css, /#[0-9a-f]{3,8}\b|rgba?\(|\d+px\b/i);
+});
+
+test('alternatives that do the same thing say it once, in plain words (PX31)', () => {
+    const rewards = {textlines: [1], quest_progress: [1]};
+    const topics = topicsFromLines([
+        {id: 'a', label: 'What happened?', state: 'new', rewards, closesOthers: true},
+        {id: 'b', label: 'Where am I?', state: 'new', rewards, closesOthers: true},
+        {id: 'c', label: 'Who are you?', state: 'new', rewards: {textlines: [1]}},
+    ]);
+    assert.deepEqual(topics[0].quote.effects, ['Opens more to ask.', 'Moves one of your journal tasks forward.', 'Picking one closes the others.']);
+    assert.deepEqual(topics[1].quote.effects, ['Same as the line above.']);
+    assert.deepEqual(topics[2].quote.effects, ['Opens more to ask.']);
+});
+
+test('PX42: a dialogue line reads as prose, never as a missing-text marker', async () => {
+    const {translationManager} = await import('../src/translation.js');
+    await translationManager.init('english');
+    for (const [who, d] of Object.entries(dialogues)) for (const [key, line] of Object.entries(d.textlines || {})) for (const field of ['name', 'text']) {
+        if (line[field]) assert.doesNotMatch(String(translationManager.getText(line[field])), /text not found/, `${who}/${key}.${field} shows a missing-text marker`);
+    }
+    assert.equal(translationManager.getText('The elder points out the herb bed.'), 'The elder points out the herb bed.');
 });

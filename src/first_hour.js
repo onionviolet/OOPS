@@ -6,29 +6,31 @@
 import {sayReason} from './locked_control.js';
 export const FIRST_HOUR_QUEST = 'Lost memory';
 
-// First row whose `when` is true wins. `where` names a workspace module for the Show me button.
+// First row whose `when` is true wins. `where` names a workspace module for the Show me button and
+// `place` its player name. `open` is a free inspection Show me performs (the elder's card) and `focus`
+// the control it lands on, so the guide points at the shortest visible route (PX28, UR140).
 export const FIRST_HOUR_STEPS = [
-    {id: 'ask-elder', when: s => !s.tasks[0], where: 'local-actions',
+    {id: 'ask-elder', when: s => !s.tasks[0], where: 'focus', place: 'Around you', open: '[data-inspect-nearby="villageElder"]', focus: '[data-focus-action="talk:villageElder"]',
         line: 'Talk to Old Hesk, the village elder.',
-        how: 'In Local actions: Talk to someone, then Talk to Old Hesk, the village elder.'},
+        how: 'In Around you: Old Hesk, the village elder, then "Talk with Old Hesk".'},
     {id: 'ask-to-leave', when: s => !s.tasks[1], where: 'local-actions',
         line: 'Keep talking: say you want to leave.',
         how: 'In the conversation, pick the line about leaving, then "But I want to leave".'},
-    {id: 'get-weapon', when: s => !s.tasks[2] && !s.armed && !s.fieldCleared, where: 'local-actions',
+    {id: 'get-weapon', when: s => !s.tasks[2] && !s.armed && !s.fieldCleared, where: 'focus', place: 'Around you', open: '[data-inspect-nearby="villageElder"]', focus: '[data-focus-action="talk:villageElder"]',
         line: 'Ask the elder about the spare weapon and pick one, or go without.',
-        how: 'Talk to the elder, then "About the spare weapon...". Your choice goes in your inventory.'},
+        how: 'Talk with Old Hesk in Around you, then "About the spare weapon...". Your choice goes in your inventory.'},
     {id: 'fight-rats', when: s => !s.tasks[2] && !s.fieldCleared, where: 'local-actions',
         line: 'Clear the wolf rats in the Infested field.',
         how: 'Local actions, then Move somewhere else, then Infested field. Fights run on their own; watch your health.'},
-    {id: 'report-field', when: s => !s.tasks[2] && !s.fieldReported, where: 'local-actions',
+    {id: 'report-field', when: s => !s.tasks[2] && !s.fieldReported, where: 'focus', place: 'Around you', open: '[data-inspect-nearby="villageElder"]', focus: '[data-focus-action="talk:villageElder"]',
         line: 'The field is clear. Tell the elder.',
-        how: 'Back in the village: Local actions, Talk to someone, Talk to Old Hesk, the village elder.'},
+        how: 'Back in the village: Old Hesk in Around you, then "Talk with Old Hesk".'},
     {id: 'clear-cave', when: s => !s.tasks[2] && !s.caveCleared, where: 'local-actions',
         line: 'Clear the Nearby cave, then tell the elder.',
         how: 'Local actions, then Move somewhere else, then Nearby cave. Rest first if your health is low.'},
-    {id: 'report-cave', when: s => !s.tasks[2], where: 'local-actions',
+    {id: 'report-cave', when: s => !s.tasks[2], where: 'focus', place: 'Around you', open: '[data-inspect-nearby="villageElder"]', focus: '[data-focus-action="talk:villageElder"]',
         line: 'The cave is clear. Tell the elder.',
-        how: 'Back in the village: Local actions, Talk to someone, Talk to Old Hesk, the village elder.'},
+        how: 'Back in the village: Old Hesk in Around you, then "Talk with Old Hesk".'},
     {id: 'journal', when: s => !s.tasks[3], where: 'records',
         line: 'Your next lead is in the Journal.',
         how: 'Open Journal at the top, then read the quest "Lost memory".'},
@@ -53,8 +55,11 @@ export function createNextStepCard({host, read, show, enabled = () => true}) {
     button.onclick = () => {
         if (!shown?.where) return;
         show(shown.where);
+        const doc = host.ownerDocument;
+        if (shown.open) doc.querySelector(shown.open)?.click();
+        if (shown.focus) doc.querySelector(shown.focus)?.focus();
         // FBK3: the opened view is a panel the trace may not see, so the press says where it went.
-        sayReason(button, `Opened ${shown.where.replace(/-/g, ' ')}. ${shown.line}`);
+        sayReason(button, `Opened ${shown.place || shown.where.replace(/-/g, ' ')}. ${shown.line}`);
     };
     function render() {
         // Sit directly under the top strip; the workspace may mount its strip after this card.

@@ -22,10 +22,11 @@ export function projectNearbyContext(frame = {}, selected = null, description = 
     const requested = frame.dialogue || selected;
     const subject = subjects.find(row => row.id === requested) || null;
     const summary = [people.length ? `${people.length} ${people.length === 1 ? 'person' : 'people'}` : '',
-        services.length ? `${services.length} ${services.length === 1 ? 'service / station' : 'services / stations'}` : ''].filter(Boolean).join(' · ') || 'Nothing here to inspect yet';
+        services.length ? `${services.length} ${services.length === 1 ? 'service / station' : 'services / stations'}` : ''].filter(Boolean).join(' · ');
     return {place:frame.place || 'This place',people,services,subjects,subject,
         selectedId:subject?.id || null,summary,description:String(description || '').trim(),
-        descriptionLead:firstSentence(description),missing:!!requested && !subject};
+        // A short account shows whole; a long one shows its first sentence with the rest behind More (PX46).
+        ...(String(description || '').trim().length <= 320 ? {descriptionLead:String(description || '').trim(),descriptionRest:''} : {descriptionLead:firstSentence(description),descriptionRest:String(description || '').trim().slice(firstSentence(description).length).trim()}),missing:!!requested && !subject};
 }
 
 export function createNearbyContextView({choose,act,document:doc=globalThis.document} = {}) {
@@ -33,7 +34,7 @@ export function createNearbyContextView({choose,act,document:doc=globalThis.docu
     const text=(n,value)=>{value=String(value||'');if(n.textContent!==value)n.textContent=value;};
     const node=el('section');node.className='nearby-context-view';node.setAttribute('aria-label','Around you');
     const summary=el('p');summary.className='nearby-context-summary';
-    const place=el('details'),placeSummary=el('summary'),placeBody=el('p');place.className='nearby-place-description';place.append(placeSummary,placeBody);
+    const placeLead=el('p'),place=el('details'),placeSummary=el('summary','More about this place'),placeBody=el('p');placeLead.className='nearby-place-lead';place.className='nearby-place-description';place.append(placeSummary,placeBody);
     const split=el('div');split.className='nearby-context-split';
     const list=el('div');list.className='nearby-context-list';list.setAttribute('aria-label','Known nearby subjects');
     const detail=el('section');detail.className='nearby-context-detail';detail.tabIndex=-1;detail.setAttribute('aria-label','Selected nearby subject');
@@ -41,7 +42,7 @@ export function createNearbyContextView({choose,act,document:doc=globalThis.docu
     const back=el('button'),previous=el('button','‹ Previous'),next=el('button','Next ›');for(const b of [back,previous,next])b.type='button';
     back.dataset.nearbyBack='';previous.dataset.nearbyPrevious='';next.dataset.nearbyNext='';navigation.append(previous,next);
     const title=el('h3'),role=el('p'),facts=el('p'),memory=el('p'),actions=el('div'),empty=el('p');actions.className='nearby-context-actions';
-    detail.append(navigation,title,role,facts,memory,actions,back);split.append(list,detail);node.append(summary,place,split,empty);
+    detail.append(navigation,title,role,facts,memory,actions,back);split.append(list,detail);node.append(summary,placeLead,place,split,empty);
     const groups=new Map(),buttons=new Map(),actionButtons=new Map();let model=null,lastPlace=null,returnId=null,missingNotice=false;
     const select=id=>{missingNotice=false;returnId=id || model?.selectedId || returnId;choose?.(id);};
     const move=direction=>{if(!model?.subjects.length)return;const index=model.subjects.findIndex(s=>s.id===model.selectedId);const target=model.subjects[(index+direction+model.subjects.length)%model.subjects.length];select(target.id);};
@@ -55,9 +56,9 @@ export function createNearbyContextView({choose,act,document:doc=globalThis.docu
         const previousModel=model;model=projectNearbyContext(frame,selected,description);
         if(lastPlace!==model.place){place.open=false;returnId=null;missingNotice=false;lastPlace=model.place;list.scrollTop=0;detail.scrollTop=0;}
         if(model.missing)missingNotice=true;
-        text(summary,model.summary);text(placeSummary,model.descriptionLead);text(placeBody,model.description);place.hidden=!model.description;
-        // The first sentence is the compact place account; the disclosure holds its full native text.
-        placeSummary.title='More about this place';text(back,`← ${model.place} overview`);
+        // PX46, UR147: the first sentence shows once; the disclosure holds only what follows it. No count line when there is nothing to count.
+        text(summary,model.summary);summary.hidden=!model.summary;text(placeLead,model.descriptionLead);placeLead.hidden=!model.descriptionLead;
+        text(placeBody,model.descriptionRest);place.hidden=!model.descriptionRest;text(back,`← ${model.place} overview`);
         node.dataset.selected=String(!!model.subject);node.dataset.selectionMissing=String(model.missing);
         for(const [kind,label,subjects] of [['people','People here',model.people],['services','Services & stations',model.services]]){
             let group=groups.get(kind);if(!group){group=el('section');const heading=el('h3'),body=el('div');group.append(heading,body);groups.set(kind,group);list.append(group);}
@@ -72,7 +73,7 @@ export function createNearbyContextView({choose,act,document:doc=globalThis.docu
         }
         let removedFocus=false;for(const [id,button] of buttons)if(!model.subjects.some(s=>s.id===id)){removedFocus ||= doc.activeElement===button;button.remove();buttons.delete(id);}
         const subject=model.subject;detail.hidden=!subject;empty.hidden=!!subject;
-        text(empty,missingNotice?'That subject is no longer available here. Choose another known subject.':model.subjects.length?'Choose someone or something here to inspect.':'Nothing here to inspect yet. Talk to someone in Local actions to meet them.');
+        text(empty,missingNotice?'That subject is no longer available here. Choose another known subject.':model.subjects.length?'Choose someone or something here to inspect.':(model.description?'No one else is here.':'Nothing here to inspect yet. Talk to someone in Local actions to meet them.'));
         if(subject){text(title,subject.name);text(role,subject.role);role.hidden=!subject.role;
             const known=[subject.traits.length?`Known traits: ${subject.traits.join(', ')}`:'',subject.relationship?`Relationship: ${subject.relationship}`:''].filter(Boolean).join(' · ');
             text(facts,known);facts.hidden=!known;text(memory,subject.memory);memory.hidden=!subject.memory;

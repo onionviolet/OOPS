@@ -7,7 +7,7 @@ test('nearby representation separates admitted people and stations without chang
  const input=frame(),before=structuredClone(input),view=projectNearbyContext(input,'mixing','A quiet village. Paths lead outward.');
  assert.deepEqual(view.people.map(p=>p.id),['elder','visitor']);assert.deepEqual(view.services.map(p=>p.id),['clerk','mixing']);
  assert.equal(view.subject.actions[0],input.actions[1]);assert.equal(view.subject.actions[0].disabled,true);
- assert.equal(view.descriptionLead,'A quiet village.');assert.equal(view.selectedId,'mixing');assert.deepEqual(input,before);
+ assert.equal(view.descriptionLead,'A quiet village. Paths lead outward.');assert.equal(view.selectedId,'mixing');assert.deepEqual(input,before);
  assert.doesNotMatch(JSON.stringify(view),/private trait|private relationship|Sealed subject|Projects/);
 });
 test('a disappearing selection is reconciled without selecting or acting on a sibling',()=>{
@@ -25,4 +25,11 @@ test('service identities deduplicate and no absent routes, hours or danger are m
  const input=frame();input.things.push({id:'clerk',name:'Duplicate clerk'});
  const view=projectNearbyContext(input);assert.equal(view.services.filter(s=>s.id==='clerk').length,1);
  assert.equal(view.subject,null);assert.doesNotMatch(view.summary,/way|night|open|danger/);
+});
+
+test('PX46: a place account shows once; a short one whole, a long one as its first sentence plus the rest behind More', () => {
+    const short = projectNearbyContext({place: 'Stand', people: [], services: [], things: []}, null, 'An unclaimed willow stand. Could you make a shelter here?');
+    assert.equal(short.descriptionLead, 'An unclaimed willow stand. Could you make a shelter here?'); assert.equal(short.descriptionRest, ''); assert.equal(short.summary, '');
+    const long = projectNearbyContext({place: 'Stand', people: [], services: [], things: []}, null, 'First. ' + 'More words here. '.repeat(30));
+    assert.equal(long.descriptionLead, 'First.'); assert.ok(long.descriptionRest.startsWith('More words')); assert.doesNotMatch(long.descriptionRest, /^First/);
 });

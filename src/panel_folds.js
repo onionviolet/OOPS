@@ -37,17 +37,30 @@ const selectors = new Map();
 export function bindSectionSelect(ownerId, select) { selectors.set(ownerId, select); }
 export function selectSection(ownerId, sectionId) { if (sectionId) selectors.get(ownerId)?.(sectionId); }
 
-// The first load that finds a retired or folded id in a saved layout says where it went, once.
-export function movedNotices({spec = LAYOUT_SPEC, titleOf = id => id, storage = globalThis.localStorage} = {}) {
-    const folds = Object.entries(spec.folds || {});
-    let seen = []; let stored = [];
-    try { seen = JSON.parse(storage.getItem(MOVED_KEY) || '[]'); } catch { seen = []; }
+const readLayouts = storage => {
+    const out = [];
     try {
         for (let i = 0; i < storage.length; i++) {
             const key = storage.key(i);
-            if (key?.startsWith('yairpg.workspace.')) stored.push(storage.getItem(key) || '');
+            if (key?.startsWith('yairpg.workspace.')) out.push(storage.getItem(key) || '');
         }
-    } catch { stored = []; }
+    } catch { /* no storage: nothing to announce */ }
+    return out;
+};
+// What saved layouts held when the page loaded. A fresh start writes its own default layout, which
+// names folded panels too, so only a layout from an earlier session can announce a move (PX30).
+const layoutsAtLoad = (() => { try { return readLayouts(globalThis.localStorage); } catch { return []; } })();
+// The first load that finds a retired or folded id in a saved layout says where it went, once.
+export function movedNotices({spec = LAYOUT_SPEC, titleOf = id => id, storage = globalThis.localStorage, stored} = {}) {
+    const folds = Object.entries(spec.folds || {});
+    let seen = [];
+    try { seen = JSON.parse(storage.getItem(MOVED_KEY) || '[]'); } catch { seen = []; }
+    stored ??= storage === globalThis.localStorage ? layoutsAtLoad : readLayouts(storage);
+    if (!stored.length) {
+        // A first session has nothing to have moved from; later loads stay quiet too.
+        try { storage.setItem(MOVED_KEY, JSON.stringify([...new Set([...seen, ...folds.map(([id]) => id)])])); } catch { /* retried next load */ }
+        return [];
+    }
     const hits = folds.filter(([id, f]) => !seen.includes(id) && f.announce !== false && stored.some(text => text.includes(`"id":"${id}"`)));
     if (!hits.length) return [];
     try { storage.setItem(MOVED_KEY, JSON.stringify([...seen, ...hits.map(([id]) => id)])); } catch { /* shown again next load */ }

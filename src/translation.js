@@ -24,7 +24,9 @@ class TranslationManager {
             //todo: try fallback to default if a different language is being used
             //will need to init the default first, if it's not loaded yet
 
-            //otherwise:
+            // A line authored as plain prose has no key: show the prose itself, never a raw marker the player
+            // reads mid-scene (PRS, PX42). A key-shaped id (no spaces) is a real gap: keep the marker for tests.
+            if(/\s/.test(String(text_id))) return text_id;
             return "text not found, id: '" + text_id+"'";
         } else {
             if(global_flags.is_mofu_mofu_enabled) {

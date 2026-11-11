@@ -157,9 +157,12 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
     for(const axis of v.axes){const on=axis.options.find(o=>o.available),line=node('p',`${axis.label}: ${on.label}.`);line.dataset.lotmEntryAxis=axis.id;
      for(const o of axis.options.filter(o=>!o.available)){const off=node('small',` Also listed: ${o.label}. ${o.reason}`);off.dataset.lotmEntryUnwritten=o.id;line.append(off);}
      actions.append(line);}
-    renderStartCompare(actions,v.profiles); // CG5: compare the lives before picking one.
-    for(const pr of v.profiles)actions.append(row(button(pr.label,`pick_${pr.key}`,()=>{choosing=pr.key;notice.textContent='';signature='';render();},!v.startable||pr.available===false,pr.available===false?'This life isn\'t open to you yet.':v.startable?(pr.independent?'See this new life.':'See what this life keeps and leaves before crossing.'):v.startReasons.join(' '))),node('p',pr.blurb));
-    if(!v.startable)actions.append(node('p',v.startReasons.join(' ')));tabsUi.update(v);return;
+    // PX49: one shared reason above the choices instead of the same line under every button (UR64).
+    const shared=v.startable?null:node('p',v.startReasons.join(' '));if(shared){shared.id='lotm-start-blocked';actions.append(shared);}
+    const pickButton=pr=>{const b=button(pr.label,`pick_${pr.key}`,()=>{choosing=pr.key;notice.textContent='';signature='';render();},!v.startable||pr.available===false,pr.available===false?'This life isn\'t open to you yet.':v.startable?(pr.independent?'See this new life.':'See what this life keeps and leaves before crossing.'):'');if(shared&&pr.available!==false){b.title=shared.textContent;b.setAttribute('aria-describedby',shared.id);}return b;};
+    const inTable=new Set();renderStartCompare(actions,v.profiles,undefined,{action:key=>{const pr=v.profiles.find(p=>p.key===key);inTable.add(key);return pickButton(pr);}}); // CG5: compare the lives before picking one.
+    for(const pr of v.profiles){const blurb=node('p',pr.blurb);if(inTable.has(pr.key)){const label=String(pr.label||'').replace(/^Begin /,'');if(label)blurb.prepend(node('strong',label+'. '));actions.append(blurb);}else actions.append(row(pickButton(pr)),blurb);}
+    tabsUi.update(v);return;
    }
    // The nine entry answers come before the irreversible step (WER3, UR43), grouped as a carry list (RPX20).
    renderCrossingThreshold(actions,lotmThresholdView(v,pick,{onConfirm:()=>{choosing=null;notice.textContent=pick.independent?'Starting…':'Crossing…';Promise.resolve().then(()=>enroll(pick.key)).then(()=>{notice.textContent='Your first day in Tingen begins.';},e=>{const message=e?.message||'The new life could not start.';notice.textContent=/current save is kept/i.test(message)?message:`${message} Your current save is kept.`;}).finally(()=>{signature='';render();});},

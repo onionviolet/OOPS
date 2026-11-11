@@ -11,7 +11,7 @@ Canon facts below are stated from the community wiki digest and the read books; 
 | Code | Default | Dial and reason | Builds on |
 | --- | --- | --- | --- |
 | GKM1 | **A Gu's ability is its function, read from the being.** Each Gu kind has one function (a blade of moonlight, a jade skin), a path, a rank and a use cost in essence of that rank. Using it is a command that quotes cost and readiness, then revalidates (AR7). | Dial: a world sets how many functions a kind has. Reason: canon Gu are specialised living tools. | CPR10 being record, ability records |
-| GKM2 | **Readiness is the Gu's real state.** A hungry, injured, rebellious or absent Gu cannot act or acts weakly; rank above the user's aperture cannot be driven. | Dial: rebellion odds per world. Reason: "your strength is your stable" (world card). | Needs seam, being record |
+| GKM2 | **Readiness is the Gu's real state.** A hungry, injured, rebellious or absent Gu cannot act or acts weakly; driving a Gu above your rank is possible at a cost (round 2, GKM13). | Dial: rebellion odds per world. Reason: "your strength is your stable" (world card); the wiki digest says a stronger Gu can exceed the bearer's means and become dangerous, not that it is impossible (DR1). | Needs seam, being record |
 | GKM3 | **Some Gu are spent by use.** Single-use and consumable Gu leave the being record when used; refinement consumes inputs. | Reason: canon single-use Gu and refinement; conserved custody (SR, ITM). | Spoilage-style instance ids |
 | GKM4 | **Immortal Gu are one of a kind.** A kind marked unique has one instance in the world; owning it is a fact others can hunt. | Dial: uniqueness per kind. Reason: canon; gives theft and fate pressure. | Acting powers, news travels |
 
@@ -38,3 +38,56 @@ Canon facts below are stated from the community wiki digest and the read books; 
 ## First slice (proposal)
 
 One canon mortal killer move Fang Yuan uses early, built from Gu he holds at that point, calibrated to the text, plus one substitute that works by mechanism. Shown in a move panel listing roles, which owned Gu fill them and their readiness. Save, reload and import keep known recipes and practice.
+
+## Round 2, 2026-11-10: above your rank, procedural moves, and worlds with the same shape
+
+Weibao asked: "Using gu above rank is possible? consider techniques of condensing higher rank essense and mroe? or other people giving you some? We should consider all possibilities, Other stuff to consider? procedural system for in world systems like gu killer moves? More to consider? We can build the rules around the worlds too, consider other worlds with similar considerations we would need to consider." Round 1's GKM2 line said a Gu above your rank "cannot be driven"; that was a limiting line written without his answer (AD56) and is now revised to GKM13.
+
+### ACT NOW (done in this round)
+
+| Code | Default | Dial and reason |
+| --- | --- | --- |
+| GKM13 | **Driving a Gu above your rank works by how essence works.** A Gu needs essence of its own grade; any route that supplies that grade drives it. The cost grows with the gap (more essence per use, strain on the aperture, a chance the Gu resists or backlashes) and is shown before use (AR7 quote). | Dial: cost curve and backlash per world. Reason: wiki digest DR1 ("a stronger tool can exceed the bearer's means and become dangerous"); AD38. |
+| GKM14 | **Routes to higher-grade essence, each a real mechanism with its own cost:** (a) **stored**: essence held in a vessel or stone of that grade, bought, found or inherited, spent once; (b) **condensed**: a technique or Gu that refines your essence upward, slow and lossy, with aperture strain; (c) **given**: another person pours their essence in, through contact, a shared Gu or a pact, so the giver's trust, presence and price matter (ties, opinion); (d) **lent core**: a higher-rank ally drives the core Gu of a killer move while you fill support roles; (e) **burned**: spending something you cannot easily regain (lifespan, aperture damage, a Gu sacrificed) for one surge. | Dial: which routes a world has and their rates. Reason: each route is a lever other systems already model (custody, ties, harm, sacrifice). Canon locators owed per route before a slice uses it (SKR1). |
+| GKM15 | **Above-rank use is legible.** The quote names the route, the gap, the essence cost, the strain and the backlash odds; the panel shows which roles in a move are above rank. | Reason: trust (PX), cheap mistakes. |
+
+### ACCOUNT FOR NOW (constraints on the current killer-move lane)
+
+| Code | Constraint |
+| --- | --- |
+| GKM16 | Rank is an input to cost and risk, never a hard gate in code; a gate needs Weibao's answer as a limiting line. |
+| GKM17 | Essence is a typed amount (grade, owner, source), so given and stored essence keep their provenance and a giver's essence can carry their path or intent where canon says it does. |
+| GKM18 | The recipe, the role fill and the cost read are separate pure functions, so a generator (GKM19) and NPCs can call the same code the player uses. |
+
+### Procedural killer moves
+
+| Code | Default | Dial and reason |
+| --- | --- | --- |
+| GKM19 | **A killer move generator over the same grammar.** Candidate moves come from the Gu kinds a holder owns: pick a core by path, add supporting roles whose functions compose (GKM6), score by synergy, cost and dao-mark fit. Generated moves are `original` rows with generator `id@rev` and seed (SKR17, GR3, GR10). | Reason: NPC Gu masters get real moves from their real Gu; invention (GKM12) becomes the player using the same generator through study. |
+| GKM20 | **NPCs fight with what they hold.** An NPC's moves are generated from their Gu, so taking or killing their Gu changes what they can do. | Reason: AD38; makes theft and Gu loss matter. |
+| GKM21 | **Gu kinds can be generated too, inside a path's grammar.** A path names function families; a generated kind is a function, rank, food and cost from those families, labelled generated. | Dial: off for canon-only seats. Reason: canon has thousands of kinds; the text names few. |
+| GKM22 | **Generators are calibrated against canon first.** A generator's output for a canon holder (Fang Yuan's early Gu) must reproduce or sit near canon's moves before it fills unknown holders. | Reason: SKR21, WKR21. |
+
+### Worlds with the same shape (cross-world rules)
+
+The shared shape: **abilities composed from parts you hold, fuelled by a graded resource, with knowledge of the recipe, practice for reliability, a cost and risk for going beyond your level, and invention as a route.** Proposed as one cross-world rulebook (working name: composed abilities, codes CAB) built from these worlds rather than from Gu alone (WKR21: presets come from canon worlds built first).
+
+| World | Parts | Graded fuel | Above your level | Composition and invention |
+| --- | --- | --- | --- | --- |
+| Reverend Insanity | Gu | Essence by grade | GKM13–GKM14 | Killer moves, deduction |
+| Mother of Learning | Spell formulas, shaping skills | Mana reserves | Overchannelling, borrowed mana via items | Zorian edits and builds formulas; formula cubes as stored spells |
+| Lord of the Mysteries | Potion ingredients, ritual parts, Beyonder characteristics | Sequence and spirituality | Rituals that borrow a higher being's power, at the price of attention (acting powers) | Rituals composed from symbols, names and offerings |
+| Harry Potter | Wand, incantation, intent | Skill and wand fit | Magic beyond training goes wild; wand allegiance changes power | Spell invention (canon examples exist) |
+| D&D (SRD) | Spell components, metamagic | Spell slots by level | Scrolls above level with a check | Metamagic composes onto spells; homebrew as generated rows |
+| Jujutsu Kaisen | Cursed technique, binding vows | Cursed energy | Vows trade a restriction for power | Technique extensions, domain expansion |
+| Naruto, Hunter x Hunter, Fullmetal Alchemist (later, acquisition first) | Hand seals and natures; Nen categories; transmutation circles | Chakra; aura; equivalent exchange | Borrowed chakra; vows; a toll for the gate | Combining natures; Nen vows; circle design |
+| Ars Nouveau, Noita (games, bank) | Glyphs; wand modifiers | Mana | None by default | Form, effect, augment; modifier stacking (the composition model GKM6 uses) |
+
+### LATER / DELEGATE
+
+| Code | Item | Level, effort | Done check |
+| --- | --- | --- | --- |
+| GKM23 | Build the GKM19 generator on the killer-move lane's pure functions, calibrated per GKM22 | Sonnet, medium | Fang Yuan's early holdings generate his canon early move among the top candidates |
+| GKM24 | Second world for the composed-ability seam (AR11): Zorian's spell formulas | Sonnet, medium | One MOL spell built from formula parts through the same role and cost reader |
+| GKM25 | Draft the composed abilities rulebook (CAB) from GKM1–GKM22 and the table above, register its prefix in RULES_INDEX | Sonnet, small | `check:rules` passes with the new register row |
+| GKM26 | Canon locators for each GKM14 route in Reverend Insanity | Haiku reader, small, from the held text | Each route row carries a chapter locator or is marked original |

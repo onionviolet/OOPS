@@ -1,7 +1,7 @@
 // Start comparison (CG5, UR61 compare before commit): the lives a world offers side by side on the
 // answers that differ in what a player gives up or takes on, so a start is chosen before it is opened.
 // Holds no world's names: the caller passes profiles ({key, label, answers: [[question, answer]]}).
-// Read-only; the buttons that open a start stay where they were.
+// PX49, UR149: `action(key)` puts each start's button in its own row, so the choice sits beside its comparison.
 export const COMPARE_QUESTIONS = Object.freeze(['Money and items', 'Name and papers', 'What you owe']);
 
 // Columns are the preferred questions that at least one start answers; rows are the starts.
@@ -13,7 +13,7 @@ export function compareRows(profiles, questions = COMPARE_QUESTIONS) {
         cells: columns.map(q => p.answers.find(([question]) => question === q)?.[1] || '')}))};
 }
 
-export function renderStartCompare(host, profiles, questions) {
+export function renderStartCompare(host, profiles, questions, {action} = {}) {
     const {columns, rows} = compareRows(profiles, questions);
     if (!rows.length) return null;
     const doc = host.ownerDocument || globalThis.document;
@@ -22,11 +22,13 @@ export function renderStartCompare(host, profiles, questions) {
     table.append(make('caption', 'Compare the lives: what each gives up or asks of you'));
     const head = make('tr'); head.append(Object.assign(make('th', 'Life'), {scope: 'col'}));
     for (const c of columns) head.append(Object.assign(make('th', c), {scope: 'col'}));
+    if (action) head.append(Object.assign(make('th', 'Choose'), {scope: 'col'}));
     const thead = make('thead'), tbody = make('tbody');
     thead.append(head); table.append(thead, tbody);
     for (const r of rows) {
         const tr = make('tr'); tr.dataset.startCompareRow = r.key;
         tr.append(Object.assign(make('th', r.label), {scope: 'row'}), ...r.cells.map(t => make('td', t)));
+        if (action) { const cell = make('td'); cell.className = 'start-compare-action'; const node = action(r.key); if (node) cell.append(node); tr.append(cell); }
         tbody.append(tr);
     }
     host.append(table);
