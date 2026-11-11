@@ -56,6 +56,19 @@ const moodShut = (state, decl, o) => {
     const mood = moodOf(state, decl.worldId, decl.people[o.alias]);
     return mood && mood.total < o.moodAtLeast ? `${o.moodBlocked || 'They are not in the mood for it right now.'} ${moodWords(mood)}`.trim() : null;
 };
+// FRC39 opinion (proposal): a world may also register one reader for what a person thinks of the player over weeks, {total, band, rows} or
+// null (mood_thoughts opinionOf over the social rows). Regard (tieValue, the edge) is standing built by acts; mood is the last few days;
+// opinion is the remembered acts still running. The tie module stores none of them (TIE1). Gates that read it name `opinion.<alias>` (TIE7).
+const opinionReaders = new Map();
+export const registerTieOpinion = (worldId, read) => { if(typeof read !== 'function') throw Error('A tie opinion reader is a function.'); opinionReaders.set(worldId, read); };
+export const tieOpinion = (state, worldId, personId) => { try { return opinionReaders.get(worldId)?.(state, personId) ?? null; } catch { return null; } };
+// Words, never the number (TIE24): the strongest remembered act on the side the opinion leans.
+export const opinionWords = op => {
+    if(!op?.rows?.length || op.band === 'even') return '';
+    const row = op.rows.find(r => (op.band === 'fond') === (r.value > 0));
+    if(!row) return '';
+    return op.band === 'fond' ? `They have thought well of you lately: ${row.line}.` : `They hold something against you: ${row.line}.`;
+};
 export const worldTies = worldId => declarations.get(worldId) || null;
 export const tieWorlds = () => [...declarations.keys()];
 const seenNote = (decl, holder, key, value) => ({type: 'knowledge', actor: 'player', key, stage: 'seen', value,
@@ -82,6 +95,7 @@ export function tieFacts(state) {
     for(const [alias, id] of Object.entries(decl.people)) {
         for(const kind of decl.kinds) out[`tie.${alias}.${kind}`] = tieValue(state, id, kind);
         if(moodReaders.has(decl.worldId)) out[`mood.${alias}`] = moodOf(state, decl.worldId, id)?.total ?? 0; // only worlds with a mood reader
+        if(opinionReaders.has(decl.worldId)) out[`opinion.${alias}`] = tieOpinion(state, decl.worldId, id)?.total ?? 0; // only worlds with an opinion reader
     }
     return out;
 }
@@ -105,7 +119,7 @@ export function tieShownView(state) {
     return decl.shown.map(r => {
         const personId = decl.people[r.alias];
         const seen = notes.some(([k, n]) => k.startsWith(r.seenPrefix) && n?.basis?.attributedTo === personId && n.basis.situationId === decl.situationId);
-        return {personId, alias: r.alias, kind: r.kind, label: r.label, line: `${seen ? r.noticed : r.none} ${r.moves} ${moodWords(moodOf(state, decl.worldId, personId))}`.trim()};
+        return {personId, alias: r.alias, kind: r.kind, label: r.label, line: `${seen ? r.noticed : r.none} ${r.moves} ${moodWords(moodOf(state, decl.worldId, personId))} ${opinionWords(tieOpinion(state, decl.worldId, personId))}`.replace(/ +/g, ' ').trim()};
     });
 }
 export function tieOfferView(state) {

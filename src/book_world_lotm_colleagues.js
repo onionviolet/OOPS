@@ -5,8 +5,8 @@
 // retried save writes nothing new. Default: the note keeps the first filing's date; a later consumer that wants the latest week can rewrite it (dial).
 import {applySimulationEffects} from './simulation_effects.js';
 import {wakeCastPerson, castKnown, LOTM_CAST_SITUATION} from './book_world_lotm_cast_host.js';
-import {registerWorldTies, tieEffects, registerTieMood} from './person_ties.js';
-import {addMoodThought, readMood} from './mood_thoughts_domain.js';
+import {registerWorldTies, tieEffects, registerTieMood, registerTieOpinion} from './person_ties.js';
+import {addMoodThought, readMood, readOpinion} from './mood_thoughts_domain.js';
 import {temperamentFromTraits} from './person_temperament.js';
 import {recurringWindow} from './world_rhythm.js';
 import {LOTM_DUTIES} from './book_world_lotm_duties.js';
@@ -65,11 +65,40 @@ export const DUNN_MOOD = Object.freeze({
     lapsed: {source: 'lotm.expense.lapsed', magnitude: -8, minutes: 5 * 24 * 60, line: 'a week went by with no application from you'}});
 const dunnTempo = (s, row) => { const t = temperamentFromTraits(s.simulation?.people?.[DUNN_ID]?.traits); return Math.max(1, Math.round(row.minutes * (row.magnitude < 0 ? t.harmFade : t.helpFade))); };
 function thought(s, row, key) {
-    addMoodThought({holder: DUNN_ID, subject: 'player', source: row.source, magnitude: row.magnitude, minutes: dunnTempo(s, row), line: row.line, key}, s.clock);
+    addMoodThought({holder: DUNN_ID, subject: 'player', source: row.source, magnitude: row.magnitude, minutes: dunnTempo(s, row), line: row.line, key, ...(row.kind ? {kind: row.kind} : {})}, s.clock);
 }
 export const dunnMood = s => readMood(DUNN_ID, s.clock);
 registerTieMood('book.lotm.tingen', (s, id) => id === DUNN_ID && Number.isSafeInteger(s?.clock) && castKnown(s, DUNN_ID) ? readMood(DUNN_ID, s.clock) : null);
+
+// FRC39 opinion (proposal): what Dunn thinks of the player over a month, read from his social rows (no store; mood_thoughts opinionOf).
+// Each week leaves a social row beside the mood row, the RimWorld insult shape: the mood passes in days, the remembered act runs a month.
+// Calibration hints (SKR11): three on-time weeks in a month make him fond; one lapse costs about as much as one and a half good weeks.
+export const DUNN_OPINION = Object.freeze({
+    kept: {source: 'lotm.expense.kept', magnitude: 4, minutes: 30 * 24 * 60, line: 'you have kept up your weekly applications', kind: 'social'},
+    missed: {source: 'lotm.expense.missed', magnitude: -6, minutes: 30 * 24 * 60, line: 'you let a week go by without an application', kind: 'social'}});
+// The consumer: a captain who thinks well of you lets one late week pass. Default: opinion at or above `atLeast` (fond) turns the lapse's sour
+// mood into a mild one, so the funding question stays open, and the player gets a note saying so. The lapse still costs opinion, so he does
+// not do it twice running. Dial: atLeast. Reason: Dunn covers for his team in the book; leniency has to be earned, never a free pass. Reads
+// opinion (TIE7), not the trust edge (tieValue) or the derived bond.
+export const DUNN_LENIENCY = Object.freeze({atLeast: 8,
+    mood: {source: 'lotm.expense.let_pass', magnitude: -2, minutes: 2 * 24 * 60, line: 'he signed a late application without a word'},
+    noteKey: 'book.lotm.tie.dunn_let_pass', note: 'Captain Dunn signed your late expense application without a word. You have kept up the others.'});
+export const dunnOpinion = s => readOpinion(DUNN_ID, 'player', s.clock);
+registerTieOpinion('book.lotm.tingen', (s, id) => id === DUNN_ID && Number.isSafeInteger(s?.clock) && castKnown(s, DUNN_ID) ? dunnOpinion(s) : null);
 // Called after the filing went through.
-export function moodExpenseFiled(s, week) { if(Number.isSafeInteger(s?.clock) && castKnown(s, DUNN_ID)) thought(s, DUNN_MOOD.filed, `expense.filed.w${week}`); }
-// A lapse is read once, when the player files after a week closed with nothing handed in.
-export function moodExpenseLapsed(s, week) { if(Number.isSafeInteger(s?.clock) && castKnown(s, DUNN_ID)) thought(s, DUNN_MOOD.lapsed, `expense.lapsed.w${week}`); }
+export function moodExpenseFiled(s, week) {
+    if(!Number.isSafeInteger(s?.clock) || !castKnown(s, DUNN_ID)) return;
+    thought(s, DUNN_MOOD.filed, `expense.filed.w${week}`); thought(s, DUNN_OPINION.kept, `expense.kept.w${week}`);
+}
+// A lapse is read once, when the player files after a week closed with nothing handed in. Opinion is read before the lapse is remembered.
+// Returns true when Dunn let it pass (the caller writes DUNN_LENIENCY's note to the player).
+export function moodExpenseLapsed(s, week) {
+    if(!Number.isSafeInteger(s?.clock) || !castKnown(s, DUNN_ID)) return false;
+    const lenient = dunnOpinion(s).total >= DUNN_LENIENCY.atLeast;
+    thought(s, lenient ? DUNN_LENIENCY.mood : DUNN_MOOD.lapsed, `expense.lapsed.w${week}`);
+    thought(s, DUNN_OPINION.missed, `expense.missed.w${week}`);
+    return lenient;
+}
+// The player's note for a let-pass week: an observation attributed to Dunn (People and the Notebook show it). Latest occasion wins.
+export const lenientNoteEffects = () => [{type: 'knowledge', actor: 'player', key: DUNN_LENIENCY.noteKey, stage: 'seen', value: DUNN_LENIENCY.note,
+    basis: {kind: 'observation', attributedTo: DUNN_ID, situationId: LOTM_CAST_SITUATION}}];

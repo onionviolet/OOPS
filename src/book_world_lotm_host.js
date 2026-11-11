@@ -22,7 +22,7 @@ import {installRoleDefinitions} from './recurring_people.js';
 import {lotmResignPlan,CIVIL_RESIGN_COST} from './book_world_lotm_positions.js';
 import {GUARD_POSITION_ID,GUARD_RESIGN_COST,GUARD_OFFER,guardSignQuote,guardBegin,guardStand,guardCollect,guardResignPlan,guardView,guardSnapshot,guardRestore,guardPayWords} from './book_world_lotm_guard.js';
 import {LOTM_GUARD_DUTY_ID} from './book_world_lotm_duties.js';
-import {noteExpenseFiled,tieExpenseFiled,moodExpenseFiled,moodExpenseLapsed,expenseTieCycle} from './book_world_lotm_colleagues.js';
+import {noteExpenseFiled,tieExpenseFiled,moodExpenseFiled,moodExpenseLapsed,expenseTieCycle,lenientNoteEffects} from './book_world_lotm_colleagues.js';
 import {reputationView} from './reputation_view.js';
 import {tieOfferEffects,tieOfferView,tieShownView} from './person_ties.js';
 import {lotmHomeView} from './lotm_home_household.js';
@@ -336,8 +336,10 @@ export function createLotmHost(ports){
   const lapsed=(domainRegistry.project('duties')?.items||[]).find(d=>d.id==='lotm.expense_claim')?.missed>0;
   domainRegistry.command('duties','attend')({dutyId:'lotm.expense_claim'});
   const week=expenseTieCycle(s.clock);
-  if(lapsed)moodExpenseLapsed(s,week);else moodExpenseFiled(s,week);
-  if(noted||tied)persist(plan);
+  // FRC39 opinion: a fond Dunn lets one lapsed week pass; the player is told by his note (persisted with the plan).
+  const letPass=lapsed?moodExpenseLapsed(s,week):(moodExpenseFiled(s,week),false);
+  if(letPass)applySimulationEffects(plan,lenientNoteEffects(),{actorId:'player'},registry,`book.lotm.expense_claim.dunn_let_pass.w${week}`);
+  if(noted||tied||letPass)persist(plan);
  }
  // LT8: a tie-gated conversation (person_ties offers). One save; the note is attributed to the person, so People and the Notebook show it.
  function tieAsk(id){
