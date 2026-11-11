@@ -54,6 +54,7 @@ Owners and neighbours (linked, not restated): Rulebook 5; MR1, MR3, MR5, MR30–
 | Code | Rule | Default, dial, reason | Builds on |
 | --- | --- | --- | --- |
 | ITM16 | **True properties act whether known or not; screens show what is known** (restates MR1, MR31). | Default: an item in hand is read at the appraisal level the character's means allow (`item_card_model.js` SEES); names, sort order and prices leak nothing (KNW22). Dial: per means. Reason: MR1, MR31. | MR1, MR31, KNW22 |
+| ITM23 | **Who knows what an item is: the name is a reading, not a flag** (proposal, AD56, FRC54, 2026-11-10). An unknown find is named by what this character has learned; another character sees the same item differently. | Default: a world registers an identity per item id (open name, then routes, each a knowledge key with an optional cap), and every screen that names the item reads the seat's own knowledge through `item_identity.js` (`itemReading`; main inventory via `item_views.js`). Certainty is the knowledge ladder (KNW3: known, guessed, open); a route cap keeps a record of someone's claim (a seller's word) at a guess. Learning comes from a real mechanism through the one knowledge writer: study, being told, use. Dial: per world, which routes exist and how far each reaches (an expert's look, a skill, a book); per item, whether its open name says anything at all. Reason: KNW1, KNW22 and ITM16; Caves of Qud's Examiner path (understanding by skill per kind) is the one bank precedent. First caller: the Tingen broker's lots (`book_world_lotm_item_names.js`). | ITM16, KNW1, KNW3, KNW22 |
 | ITM17 | **A text is an item that makes an account** (restates KNW16). | Default: KNW16; possession, readability, comprehension and mastery are separate (SR17). Dial: per text. Reason: KNW16. | KNW16, SR17 |
 
 ## Unique items, crossing and money
@@ -76,7 +77,7 @@ Owners and neighbours (linked, not restated): Rulebook 5; MR1, MR3, MR5, MR30–
 1. Decide stack or individual (ITM1) and the instance id (ITM2).
 2. Write through `stageAcquisition` (ITM5); name holder and place (ITM3, ITM4).
 3. Stats through the one pipeline (ITM9); wear and repair by the defaults (ITM11, ITM12).
-4. Check the card for leaks at each appraisal level (ITM16).
+4. Check the card for leaks at each appraisal level (ITM16); an item whose id or template name tells the truth gets an identity so screens show the reading (ITM23).
 5. Tests: the inventory, acquisition, durability and equipment-stat tests; browser proof at the desktop viewport (AD43); save, reload and import when keys change.
 
 ## Open details

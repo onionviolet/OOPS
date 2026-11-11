@@ -11,6 +11,7 @@ export const BROKER_CUT={percent:10,floorPence:P.soli};
 export const BROKER_VERIFY_FEE=P.soli;
 import {LOTM_CHARACTERISTIC as CORE} from './book_world_lotm_bench.js';
 import {pathwayRows} from './book_world_lotm_rows.js';
+import {itemIdentityOf,itemReading,itemReadingLine} from './item_identity.js';
 // Unmarked doses: every pathway row that defines a market gets two lots (its Sequence 9 and its Sequence 8 dose), so a pathway added as data is
 // purchasable and carries the stated causes through book_world_lotm_causes.js. The appraiser's verdict names what the dose is.
 const marketLots=pathwayRows.filter(r=>r.market).flatMap(r=>[
@@ -77,9 +78,11 @@ export function brokerAssertions({a,has,assert}){
 }
 
 // Known trade status only: posted prices reveal no appraisal result before verification.
-export function brokerView(state,facts){
+// ITM23: a lot in custody is named by the buyer's own reading (item_identity.js); a lot with no identity keeps its posted label.
+const lotReading=(l,knowledge)=>{const id=itemIdentityOf(l.item);if(!id)return {label:l.label,certainty:null};const r=itemReading(knowledge,id);return {label:itemReadingLine(r),certainty:r.certainty};};
+export function brokerView(state,facts,knowledge=state.simulation?.knowledge?.player||{}){
  if(!facts['lotm.brokerHere'])return null;
  const has=(l,n)=>state.actors?.player?.facts?.[`book.lotm.${f(l,n)}`]===true;
  return {escrowPence:facts['lotm.escrow'],barters:LOTM_LOTS.filter(l=>l.payment.barter).map(l=>({id:l.id,label:l.label,offered:l.payment.barter.label,...brokerQuote(l)})),
-  trades:LOTM_LOTS.filter(l=>has(l,'paid')).map(l=>({id:l.id,label:l.label,status:has(l,'settled')?'settled':has(l,'rejected')?'rejected and refunded':has(l,'forged')?'verification failed; refund available':has(l,'genuine')?'verified; release available':'held; awaiting verification'}))};
+  trades:LOTM_LOTS.filter(l=>has(l,'paid')).map(l=>({id:l.id,...lotReading(l,knowledge),status:has(l,'settled')?'settled':has(l,'rejected')?'rejected and refunded':has(l,'forged')?'verification failed; refund available':has(l,'genuine')?'verified; release available':'held; awaiting verification'}))};
 }

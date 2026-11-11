@@ -27,8 +27,7 @@ import {foodPacingDescription} from './absorb_e1/panel.js';
 import {rarityColor} from './rarity_palette.js';
 import {getDisplaySetting} from './display_settings.js';
 import {accessoryCraftingTiers} from './absorb_c1/accessories.js';
-import {projectGameAbsorptionAssayItemView} from './game_absorption_assay_item_view.js';
-import {projectFieldcraftItemView} from './nethack_fieldcraft_item_view.js';
+import {projectItemView} from './item_views.js';
 "use strict";
 
 import { current_trader, to_buy, to_sell } from "./trade.js";
@@ -547,7 +546,7 @@ function create_equipment_comparison(item, quality, baseline, qualityRange) {
 // item templates, stable keys, native quantities, custody or discovery records.
 let fieldcraftKnowledgeReader=()=>null;
 export function setFieldcraftKnowledgeReader(read){if(typeof read!=='function')throw new Error('Bind the current player knowledge reader.');fieldcraftKnowledgeReader=read;}
-function nativeItemView(item){const state=fieldcraftKnowledgeReader();return projectGameAbsorptionAssayItemView(item,state,projectFieldcraftItemView(item,state,{name:item.getName(),description:item.description||''}));}
+function nativeItemView(item){return projectItemView(item,fieldcraftKnowledgeReader(),{name:item.getName(),description:item.description||''});}
 function create_item_tooltip_content({item, options={}, is_trade = false}) {
     let item_tooltip = "";
 

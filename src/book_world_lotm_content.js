@@ -12,6 +12,7 @@ import {BENCH_STOCK,STOCK_REV_KEY,LOTM_CHARACTERISTIC as CORE} from './book_worl
 import {LOTM_BENCH_ITEMS,FORMULA_ROWS_REVISION} from './lotm_formula_rows.js';
 import {RITE_ITEMS} from './book_world_lotm_ritual.js';
 import {HOUSEHOLD_MEAL_ITEMS} from './household_meal_items.js';
+import './book_world_lotm_item_names.js'; // ITM23: registers what each broker lot can be known as
 export {LOTM_IDS,LOTM_LOCATIONS,LOTM_KEYS,LOTM_SOURCE_HASH,LOTM_SOURCE_SNAPSHOT} from './book_world_lotm_ids.js';
 export {lotmSources};
 export const lotmWorlds=[{id:I.world,label:'Tingen · supervised probationer branch',publicName:'Tingen',continuityLabel:'Original early-Tingen probationer branch',
