@@ -20,6 +20,7 @@ export function lifeEpitaph(c, milestones = []) {
     if(c.relationships.villageElder?.ties.firstConcession)deeds.push('stood firm before the old master');
     if(c.knowledge.routeSignals)deeds.push('learned to find a way home');
     for(const m of milestones.slice(-2))if(typeof m.text==='string'&&!deeds.includes(m.text))deeds.push(m.text.slice(0,120));
+    if(c.life?.endCause==='retired')return deeds.length ? `Stepped aside from the road: one who ${deeds.slice(0,3).join('; ')}.` : 'Stepped aside from the road. Not every kindness found its way into a book.';
     return deeds.length ? `Here rests one who ${deeds.slice(0,3).join('; ')}.` : 'Here rests a traveler. Not every kindness found its way into a book.';
 }
 export function lifeExperienceView(c) {
@@ -44,5 +45,5 @@ export function remembersLived(c, tag) {return !!c?.life?.experience?.inheritedF
 
 export function lifeGrave(c, name='A traveler') {
     if(c.life.endedAt===null)throw new Error('This life is still being lived.');
-    return {name:String(name).slice(0,80),age:Math.floor(lifeAge(c)),epitaph:lifeEpitaph(c),lesson:c.life.experience?.bequest ?? null,lived:livedTags(c)};
+    return {name:String(name).slice(0,80),age:Math.floor(lifeAge(c)),epitaph:lifeEpitaph(c),lesson:c.life.experience?.bequest ?? null,lived:livedTags(c),...(c.life.endCause==='retired'?{ended:'retired'}:{})};
 }

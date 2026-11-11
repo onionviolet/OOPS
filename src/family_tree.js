@@ -17,7 +17,7 @@ const text = s => String(s ?? '').slice(0, 80);
 export function extendLineage(previousChronicle, grave, recipient, relatives = []) {
     const old = previousChronicle?.life?.experience?.lineage;
     const generation = previousChronicle?.life?.experience?.generation || 1;
-    const ancestors = [{name: text(grave.name), age: grave.age, generation, via: recipient === 'apprentice' ? 'apprentice' : 'kin'},
+    const ancestors = [{name: text(grave.name), age: grave.age, generation, via: ['apprentice', 'ward'].includes(recipient) ? recipient : 'kin'},
         ...(old?.ancestors || [])].slice(0, MAX_ANCESTORS);
     const rel = (Array.isArray(relatives) ? relatives : []).filter(r => object(r) && typeof r.name === 'string' && RELATIONS.includes(r.relation))
         .map(r => ({name: text(r.name), relation: r.relation, age: integer(r.age) ? r.age : null, of: generation}));
@@ -28,7 +28,7 @@ export function extendLineage(previousChronicle, grave, recipient, relatives = [
 export function validateLineage(l) {
     if(l == null) return;
     check(object(l) && Array.isArray(l.ancestors) && l.ancestors.length <= MAX_ANCESTORS && Array.isArray(l.relatives) && l.relatives.length <= MAX_RELATIVES, 'Invalid lineage.');
-    check(l.ancestors.every(a => object(a) && typeof a.name === 'string' && a.name.length <= 80 && integer(a.age) && integer(a.generation) && a.generation > 0 && ['kin', 'apprentice'].includes(a.via)), 'Invalid lineage ancestor.');
+    check(l.ancestors.every(a => object(a) && typeof a.name === 'string' && a.name.length <= 80 && integer(a.age) && integer(a.generation) && a.generation > 0 && ['kin', 'apprentice', 'ward'].includes(a.via)), 'Invalid lineage ancestor.');
     check(l.relatives.every(r => object(r) && typeof r.name === 'string' && r.name.length <= 80 && RELATIONS.includes(r.relation) && (r.age === null || integer(r.age)) && integer(r.of) && r.of > 0), 'Invalid lineage relative.');
 }
 
@@ -53,7 +53,7 @@ export function projectFamilyTree(chronicle, selfName = 'You') {
     return {root: node, count: l.ancestors.length + l.relatives.length + living.length + 1, hasFamily: true};
 }
 
-const LINK_WORDS = {kin: 'next of kin', apprentice: 'taught apprentice'};
+const LINK_WORDS = {kin: 'next of kin', apprentice: 'taught apprentice', ward: 'a ward taken in'};
 const RELATION_WORDS = {spouse: 'spouse', child: 'child', sibling: 'sibling', kin: 'kin'};
 // Flat, ordered rows for a list view: {key, depth, name, detail}.
 export function familyTreeRows(tree) {

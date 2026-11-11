@@ -123,6 +123,7 @@ export function familyFigureSpec(projection, options = {}) {
             {label: 'This life', state: 'current'}]});
         // Step labels stay two lines under the track; how each estate passed is said in a note.
         for (const a of lives.ancestors) if (a.via === 'apprentice') notes.push({text: `${a.name}'s estate passed to a taught apprentice, not to blood kin.`});
+            else if (a.via === 'ward') notes.push({text: `${a.name}'s estate passed to a ward they took in, not to blood kin.`});
     }
     if (s) {
         const next = successionRows(s).slice(1).map(r => r.name);

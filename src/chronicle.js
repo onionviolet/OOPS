@@ -6,6 +6,9 @@ import {extendLineage, validateLineage} from './family_tree.js';
 import {LIFE_LESSONS, LIVED_TAGS, remembersLived, lifeVoice, learnedLifeLessons, lifeStage,lifeGrave} from './life_experience.js';
 // Original frontier content. Saved history is authoritative; views never roll events.
 export const GAME_YEAR = 360 * 24 * 60;
+// How a life can end (PX72, proposal 2026-11-11). Old age stays the mortal default; a lead may also
+// step aside by choice in either mode. Death by harm still faints in the native game (not wired here).
+export const END_CAUSES = Object.freeze(["old-age", "retired"]);
 const object = value => value && typeof value === "object" && !Array.isArray(value);
 const key = value => typeof value === "string" && /^[a-z][a-z0-9_.:-]*$/i.test(value) && !["__proto__", "constructor", "prototype"].includes(value);
 const statuses = ["scheduled", "open", "resolved", "missed"];
@@ -16,20 +19,23 @@ export function validateChronicle(c, clock) {
     check(object(c.calendarAtEnrollment) && ["year", "month", "day", "hour", "minute", "day_count"].every(k => integer(c.calendarAtEnrollment[k])), "Invalid chronicle calendar anchor.");
     check(object(c.life) && finite(c.life.initialAge) && c.life.initialAge >= 0 && ["open", "mortal"].includes(c.life.mode) &&
         finite(c.life.lifespan) && c.life.lifespan > c.life.initialAge && (c.life.endedAt === null || integer(c.life.endedAt) && c.life.endedAt <= clock), "Invalid lifespan policy.");
-    check(c.life.endedAt === null || c.life.mode === "mortal" && c.life.endedAt === lifespanDeadline(c), "Invalid old-age ending.");
+    // PX72: an absent endCause is the original old-age ending; 'retired' is a chosen ending at any played minute.
+    check(c.life.endCause === undefined || c.life.endedAt !== null && END_CAUSES.includes(c.life.endCause), "Invalid life ending cause.");
+    check(c.life.endedAt === null || (c.life.endCause === "retired" ? c.life.endedAt >= c.enrolledAt && c.life.endedAt <= lifespanDeadline(c)
+        : c.life.mode === "mortal" && c.life.endedAt === lifespanDeadline(c)), "Invalid old-age ending.");
     check(c.life.mode !== "mortal" || Number.isSafeInteger(lifespanDeadline(c)), "Unsupported mortal time range.");
     if(c.life.experience != null) {
         const x=c.life.experience, ids=['routeSignals','guardLesson','controlPattern'];
         check(object(x) && ['reflected','taught'].every(k=>Array.isArray(x[k]) && x[k].length<=3 && new Set(x[k]).size===x[k].length && x[k].every(id=>ids.includes(id)&&c.knowledge[id])) && (x.bequest===null || ids.includes(x.bequest)&&c.knowledge[x.bequest]), "Invalid life experience.");
         check(x.lastYear==null||typeof x.lastYear==='boolean', "Invalid last-year memory.");
         check(x.generation==null||integer(x.generation)&&x.generation>0, "Invalid generation.");
-        for(const grave of [x.grave,x.inheritedFrom].filter(v=>v!=null))check(object(grave)&&typeof grave.name==='string'&&grave.name.length<=80&&integer(grave.age)&&typeof grave.epitaph==='string'&&grave.epitaph.length<=512&&(grave.lesson===null||ids.includes(grave.lesson))&&(grave.lived==null||Array.isArray(grave.lived)&&grave.lived.length<=LIVED_TAGS.length&&new Set(grave.lived).size===grave.lived.length&&grave.lived.every(t=>LIVED_TAGS.includes(t))), "Invalid remembered grave.");
+        for(const grave of [x.grave,x.inheritedFrom].filter(v=>v!=null))check(object(grave)&&(grave.ended==null||END_CAUSES.includes(grave.ended))&&typeof grave.name==='string'&&grave.name.length<=80&&integer(grave.age)&&typeof grave.epitaph==='string'&&grave.epitaph.length<=512&&(grave.lesson===null||ids.includes(grave.lesson))&&(grave.lived==null||Array.isArray(grave.lived)&&grave.lived.length<=LIVED_TAGS.length&&new Set(grave.lived).size===grave.lived.length&&grave.lived.every(t=>LIVED_TAGS.includes(t))), "Invalid remembered grave.");
         validateLineage(x.lineage);
         check(x.grave==null||c.life.endedAt!==null, "A living life cannot have its own grave.");
         if(x.inheritance!=null) {
             if(x.inheritance.residences!=null)check(integer(x.inheritance.residences)&&x.inheritance.residences<=16,'Invalid inherited residence count.');
             const h=x.inheritance, list=v=>Array.isArray(v)&&v.length<=3&&new Set(v).size===v.length&&v.every(id=>ids.includes(id));
-            check(object(h)&&['kin','apprentice'].includes(h.recipient)&&list(h.papers)&&list(h.apprentice)&&['money','belongings','chest'].every(k=>integer(h[k]))&&
+            check(object(h)&&['kin','apprentice','ward','stranger'].includes(h.recipient)&&list(h.papers)&&list(h.apprentice)&&['money','belongings','chest'].every(k=>integer(h[k]))&&
                 typeof h.home==='boolean'&&typeof h.archiveLine==='boolean'&&(h.debtsPaid==null||integer(h.debtsPaid))&&Array.isArray(h.obligations)&&h.obligations.every(o=>['grievance','archiveDuty'].includes(o)), "Invalid inheritance record.");
         }
     }
@@ -120,13 +126,21 @@ export function advanceChronicle(c, clock) {
         const x=next.life.experience ||= {reflected:[],taught:[],bequest:null};x.lastYear=true;
         note(next,"The seasons feel shorter. Before the next year turns, I should leave someone a little of what I know.",Math.max(next.enrolledAt,c.lastClock,lifespanDeadline(next)-GAME_YEAR),true);
     }
-    if(next.life.endedAt === null && clock >= lifespanDeadline(next)) {
-        next.life.endedAt = lifespanDeadline(next); next.session = null;
-        const x=next.life.experience ||= {reflected:[],taught:[],bequest:null};
-        x.grave=lifeGrave(next);
-        note(next, "The road is quiet now. Others will walk it after me.", next.life.endedAt,true);
-    }
+    if(next.life.endedAt === null && clock >= lifespanDeadline(next)) closeLife(next, lifespanDeadline(next), "old-age");
     return next;
+}
+// One writer for both endings, so the grave, the cause and the closing note stay together (SPR33).
+function closeLife(c, at, cause) {
+    c.life.endedAt = at; c.life.endCause = cause; c.session = null;
+    const x=c.life.experience ||= {reflected:[],taught:[],bequest:null};
+    x.grave=lifeGrave(c);
+    note(c, cause === "retired" ? "I have told the elder I am stepping aside. Someone else will walk the road from here." : "The road is quiet now. Others will walk it after me.", at, true);
+}
+// The same ending a retire command writes, on a copy: the carry list is counted from it before the
+// player commits, so the preview and the handover read one derivation (PX73, SPR23).
+export function retiredChronicleCopy(c, at = c.lastClock) {
+    check(c && c.life.endedAt === null && !c.session, "Only a living life with no encounter running can step aside.");
+    const next = clone(c); closeLife(next, at, "retired"); return next;
 }
 
 export function chronicleFacts(c) {
@@ -170,7 +184,11 @@ export function commandChronicle(state, command, context, expectedSequence = sta
         if(c.session) check(["respond", "withdraw", "policy"].includes(command.type), "Finish or withdraw from the elder encounter first.");
         const r = c.relationships.villageElder;
         const resolve = id => {const e = c.events[id]; check(e?.status === "open", "This opportunity is not currently open."); e.status = "resolved"; e.settledAt = at; return e;};
-        if(command.type === "reflect") {
+        if(command.type === "retire") {
+            // PX72: offered, never forced. Ends this lead's play now; the heir handover stays the host's job.
+            check(!c.session, "Finish or withdraw from the elder encounter first.");
+            closeLife(c, at, "retired");
+        } else if(command.type === "reflect") {
             check(learnedLifeLessons(c).some(l=>l.id===command.lesson), "You have not learned that lesson.");
             const x=c.life.experience ||= {reflected:[], taught:[], bequest:null};
             check(!x.reflected.includes(command.lesson), "That memory is already written down.");
@@ -322,6 +340,14 @@ export function createHeirChronicle(previous, clock, calendar, name, leftovers) 
     check(leftovers && leftovers.schema===1, "The inheritance has not been counted.");
     const grave=lifeGrave(previous,name), c=createChronicle(clock,calendar,previous.life.mode==='mortal'), l=leftovers;
     c.knowledge={};
+    // PX78: a ward begins at her own age; a newcomer is no one's heir and starts a line of their own.
+    if(l.recipient==='ward'&&Number.isSafeInteger(l.ward?.age)&&l.ward.age<c.life.lifespan)c.life.initialAge=l.ward.age;
+    if(l.recipient==='stranger') {
+        c.life.experience={reflected:[],taught:[],bequest:null,generation:1,
+            inheritance:{recipient:'stranger',papers:[],apprentice:[],money:0,belongings:0,chest:0,home:false,obligations:[],archiveLine:false,debtsPaid:l.debts.reduce((n,d)=>n+d.paid,0)}};
+        note(c,`I came to the Village with nothing of anyone else's. People still talk about ${grave.name}, who ${grave.ended==='retired'?'stepped aside from the road':'was buried'} not long ago.`,clock,true);
+        return c;
+    }
     if(l.recipient==='apprentice')for(const id of l.apprentice)c.knowledge[id]=true;
     c.life.experience={reflected:[],taught:[],bequest:null,generation:(previous.life.experience?.generation||1)+1,inheritedFrom:grave,lineage:extendLineage(previous,grave,l.recipient,l.kin),
         inheritance:{recipient:l.recipient,papers:[...l.papers],apprentice:[...l.apprentice],money:l.money,residences:Object.values(l.residences?.homes.properties||{}).filter(h=>h.id!=='shack'||!l.home).length+(l.residences?.homes.portable?1:0),
@@ -332,7 +358,8 @@ export function createHeirChronicle(previous, clock, calendar, name, leftovers) 
     if(l.archiveLine) {ties.successor=true;const e=c.events.inheritance;e.status="resolved";e.settledAt=clock;}
     relationshipChange(c,"villageElder",{id:"heir.memory",ties,text:`Remembers ${grave.name}. ${l.obligations.length?'Old business with that life is still open.':'Nothing from that life is owed.'}`},clock);
     const label=id=>LIFE_LESSONS.find(x=>x.id===id).label;
-    note(c,l.recipient==='apprentice'?`I was ${grave.name}'s apprentice. What I was taught is still in my hands: ${l.apprentice.map(label).join(', ')}.`:`I am ${grave.name}'s next of kin. What they left behind is mine now.`,clock,true);
+    note(c,l.recipient==='apprentice'?`I was ${grave.name}'s apprentice. What I was taught is still in my hands: ${l.apprentice.map(label).join(', ')}.`
+        :l.recipient==='ward'?`${grave.name} took me in when I had no one. What they left behind is mine now.`:`I am ${grave.name}'s next of kin. What they left behind is mine now.`,clock,true);
     const got=[];
     if(l.money)got.push(`${l.money} coins`);
     if(l.belongings.length)got.push('their belongings');

@@ -83,7 +83,7 @@ test('an heir saved under the old one-lesson rule stays valid unchanged; invalid
     const c=createChronicle(0,calendar,true);c.knowledge={guardLesson:true};
     c.life.experience={reflected:[],taught:[],bequest:null,generation:2,inheritedFrom:{name:'Old',age:80,epitaph:'Here rests a traveler.',lesson:'guardLesson'}};
     const before=structuredClone(c);validateChronicle(c,0);assert.deepEqual(c,before);
-    const bad=structuredClone(c);bad.life.experience.inheritance={recipient:'stranger',papers:[],apprentice:[],money:0,belongings:0,chest:0,home:false,obligations:[],archiveLine:false};
+    const bad=structuredClone(c);bad.life.experience.inheritance={recipient:'rival',papers:[],apprentice:[],money:0,belongings:0,chest:0,home:false,obligations:[],archiveLine:false};
     assert.throws(()=>validateChronicle(bad,0),/inheritance record/);
     assert.throws(()=>validateHeirLeftovers({schema:1,recipient:'kin',money:-1}),/Invalid/);
     assert.throws(()=>applyHeirLeftovers(fresh(),{schema:1,recipient:'kin',money:1,belongings:[['x',0]],chest:[],home:false,archiveLine:false,empty:false,papers:[],apprentice:[],obligations:[],reputation:{}}),/goods/);
