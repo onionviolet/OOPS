@@ -404,9 +404,9 @@ task record and checks. No separate checklist file or universal compliance score
    {scenario: "<name>"}`. Each fixture is built by play, or COMPOSED on a begun
    life through the save path when the walk is hours (its summary says which and
    what was set), and is cached only after it loads through the real load path,
-   passes the runner invariants and proves its state. A cold build takes up to a
-   few minutes under load, past the game MCP's 300 s call limit for the slow
-   ones, so warm it with `scenarios.mjs build` first; later code reuses the last
+   passes the runner invariants and proves its state. A cold build takes about
+   16 minutes for LOTM and 8 for Frontier under load, past the game MCP's 300 s
+   call limit, so warm those with `scenarios.mjs build` first; later code reuses the last
    build while it still loads and proves (`YAIRPG_FIXTURE_REBUILD=1` forces a
    rebuild). The fixture is setup only: the lane still plays the changed
    behaviour from it and still runs save, reload and import from a fresh origin
