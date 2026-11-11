@@ -25,6 +25,7 @@ export function certaintyOf(entry) {
 export function provenanceOf(entry) {
     const b = entry.basis;
     if (b?.method) return b.status === 'obscured' ? `Divined by ${b.method}; the sign was unclear` : b.status === 'unanswered' ? `Asked by ${b.method}; nothing answered` : `Divined by ${b.method}`;
+    if (b?.route === 'used') return 'You used it'; // SPR31 / BDT86: the use route
     switch (b?.kind) {
         case 'observation': return 'You saw it';
         case 'recollection': return 'You remember it';

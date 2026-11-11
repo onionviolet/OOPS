@@ -3,6 +3,7 @@
 import {all, eq, not} from './basics.js';
 import {FEATURE_OBJECT_IDS as O, FEATURE_OBJECT_KEYS as OK} from './feature_expansion_objects.js';
 import {REFERENCE_GAMEPLAY_KEYS as RK} from './reference_gameplay_content.js';
+import {defineItemIdentity, usedKnowledge} from './item_identity.js';
 import {gteReason as gte, itemKeyActorReturned as item, staminaAmountFirst as stamina} from './content_kit.js';
 export const NETHACK_FIELDCRAFT_IDS = Object.freeze({world: O.world, group: 'nethack_fieldcraft', eda: O.miri, site: O.site,
     dog: 'nethack_fieldcraft.rill', open: 'nethack_fieldcraft.open', oil: 'nethack_fieldcraft.reed_oil', scent: 'nethack_fieldcraft.scented_recess', train: 'nethack_fieldcraft.train', assay: 'nethack_fieldcraft.assay',
@@ -19,11 +20,16 @@ export const nethackFieldcraftItemSpecifications = Object.freeze([
     {id: 'Workshop ration', description: 'One actual portion suitable for Rill, Eda\'s workshop dog. Feeding supplies disclosed satiety and effort capacity; it creates no friendship reward.', value: 1},
     {id: 'Recovered fitting pin', description: 'One actual fitting pin retrieved from Eda\'s recess with her permission. Bind it with one sound stave and one set resin into an existing Prepared survey kit.', value: 1},
 ]);
+// ITM23: the pale vial is named by what this character has learned from using it, not by a flag on the vial.
+defineItemIdentity({itemId: 'Unmarked pale vial', open: {name: 'Unmarked pale vial', description: nethackFieldcraftItemSpecifications[0].description},
+    routes: [{knowledge: I.oil, via: 'used', name: 'Reed oil vial • 1 charge', description: `${nethackFieldcraftItemSpecifications[0].description} Identified as reed oil: one external application at Eda’s fitting bench uses this charge; the empty vial remains.`}]});
 const resource = (key, amount, actor = I.dog) => ({type: 'resource', actor, key, amount});
 const fact = (name, value = true, actor = 'player') => ({type: 'fact', scope: 'actor', actor, key: `nethack_fieldcraft.${name}`, value});
 const know = (name, value, stage = 'seen', actor = 'player', attributedTo = 'player', kind = 'observation') =>
     ({type: 'knowledge', actor, key: `nethack_fieldcraft.${name}`, stage, value, basis: {kind, attributedTo, situationId: O.situation}});
-const identity = () => know('reed_oil', 'Firsthand bench application identified the pale substance as reed oil. Other full vials of this same fixed bench stock contain reed oil; empty containers remain empty.', 'understood');
+// BDT86 use route (SPR31): the bench film and reed scent show plainly, so the use supports a known name for the user only.
+const identity = () => usedKnowledge({key: I.oil, visibility: 'plain', situationId: O.situation,
+    value: 'Firsthand bench application identified the pale substance as reed oil. Other full vials of this same fixed bench stock contain reed oil; empty containers remain empty.'});
 const opened = eq('fieldcraft.opened');
 const live = all(eq('fieldcraft.supported', true, 'Return to the Village with your supported living body and local played clock.'),
     eq('fieldcraft.handsUsable', true, 'Recover your usable hands for bench work.'), gte('vital.health', 2));

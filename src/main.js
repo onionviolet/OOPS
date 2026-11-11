@@ -157,7 +157,7 @@ import {validateAuditRemainderNative} from './audit_remainder_facts.js';
 import {auditRemainderContext,commitAuditRemainderCommand} from './audit_remainder_host.js';
 // Initialize the existing cyclic core before optional host adapters.
 import './expansion_engine.js';
-import {setFieldcraftKnowledgeReader} from './display.js';
+import {setFieldcraftKnowledgeReader,displayItemName} from './display.js';
 import {nethackFieldcraftContext,commitNethackFieldcraftCommand} from './nethack_fieldcraft_host.js';
 import {auditedWorkshopContext,commitAuditedWorkshopCommand} from './audited_workshop_host.js';
 import {startAuditedKitReserve,controlAuditedKitReserve} from './audited_kit_reserve_host.js';
@@ -2221,7 +2221,7 @@ function grantHarvest(plan){
     const items=plan.outputs.map(o=>({item_key:o.item_key,count:o.count}));
     character.addToInventory(items);
     add_xp_to_skill({skill:skills.Butchering,xp_to_add:plan.xp,should_info:false,cap_gained_xp:false});
-    log_message('Processed carcass: '+plan.outputs.map(o=>`${o.count} ${getItemFromKey(o.item_key).getName()}`).join(', '),'loot');
+    log_message('Processed carcass: '+plan.outputs.map(o=>`${o.count} ${displayItemName(getItemFromKey(o.item_key))}`).join(', '),'loot');
     update_displayed_character_inventory();update_displayed_crafting_recipes();
 }
 
@@ -2721,7 +2721,7 @@ function previewHeir() {
     if(heirRequest?.error) return [heirRequest.error];
     if(heirPreviewLines || expansionState.chronicle?.life.endedAt == null || !ownsSave) return heirPreviewLines || [];
     const serialized = create_save(); if(!serialized) return ["Saving is paused, so what this life left can't be counted yet."];
-    return heirPreviewLines ||= heirLeftoverLines(deriveHeirLeftovers(JSON.parse(serialized), {equippedKeys: equippedInventoryKeys(), law: domainRegistry.project('inheritance_law')?.law}), lessonLabels(), key => getItemFromKey(key).getName());
+    return heirPreviewLines ||= heirLeftoverLines(deriveHeirLeftovers(JSON.parse(serialized), {equippedKeys: equippedInventoryKeys(), law: domainRegistry.project('inheritance_law')?.law}), lessonLabels(), key => displayItemName(getItemFromKey(key)));
 }
 function beginHeir() {
     if(!ownsSave || importProbeToken || foundationSaveBlocked || is_loading_error) throw new Error("Saving must be available before an heir can begin.");
@@ -4130,7 +4130,7 @@ function process_rewards({rewards = {}, source_type, source_name, is_first_clear
 
             const item = quality ? getItem({...template, quality}) : template;
 
-            nativeCraftMessage(`%HeroName% obtained "${item.getName()} x${count}"`);
+            nativeCraftMessage(`%HeroName% obtained "${displayItemName(item)} x${count}"`);
             character.addToInventory([{item_key: item.getInventoryKey(), count}]);
             if(!is_from_loading)observeFortAcquisition(item_id,count,source_type==="location"?"clear":"contact",source_name||source_type||"native.reward",source_name||"Received native reward");
         }
@@ -5474,7 +5474,7 @@ function execute_native_recipe(target, ammount_wanted_to_craft = 1) {
                 if(final_count) {
                     character.addToInventory([{item_key: recipeMaterialOutput({resultId:result_id,count:final_count,quality:treatedRecipeQuality(harvestQuality,result_id,lineageInputs),allocations:lineageInputs,recipeId:selected_recipe.id,clock:calendarMinutes(current_game_time),world:expansionState.actors.player.worldId}) || (harvestQuality ? gradedKey(result_id,harvestQuality) : item_templates[result_id].getInventoryKey()), count: final_count}]);
                     observeFortAcquisition(result_id,final_count,"craft",selected_recipe.id,selected_recipe.name);
-                    let msg = `Created ${item_templates[result_id].getName()}`;
+                    let msg = `Created ${displayItemName(item_templates[result_id])}`;
                     if(attempted_crafting_ammount > 1 || scale_results) {
                         msg+=` [${final_count} out of ${count*attempted_crafting_ammount}]`;
                     } else {
@@ -5482,7 +5482,7 @@ function execute_native_recipe(target, ammount_wanted_to_craft = 1) {
                     }
                     nativeCraftMessage(msg, "crafting");
                 } else {
-                    let msg = `Failed to create ${item_templates[result_id].getName()}`;
+                    let msg = `Failed to create ${displayItemName(item_templates[result_id])}`;
                     if(attempted_crafting_ammount > 1 || scale_results) {
                         msg+=` [0 out of ${count*attempted_crafting_ammount}]`;
                     } else {
@@ -5511,7 +5511,7 @@ function execute_native_recipe(target, ammount_wanted_to_craft = 1) {
                     }
                 });
                 
-                settleWorkLedgerCraft({sequence:workLedger.sequence+1,category,subcategory,recipeId:recipe_id,attempts:attempted_crafting_ammount,successes:successful_crafting_ammount,outputs:final_count,outputLabel:item_templates[result_id].getName(),chanceBefore,chanceAfter:success_chance},recipe_div);
+                settleWorkLedgerCraft({sequence:workLedger.sequence+1,category,subcategory,recipeId:recipe_id,attempts:attempted_crafting_ammount,successes:successful_crafting_ammount,outputs:final_count,outputLabel:displayItemName(item_templates[result_id]),chanceBefore,chanceAfter:success_chance},recipe_div);
                 if(attempted_crafting_ammount < ammount_that_can_be_crafted) {
                     use_recipe(target, ammount_that_can_be_crafted - attempted_crafting_ammount);
                 }
@@ -5576,9 +5576,9 @@ function execute_native_recipe(target, ammount_wanted_to_craft = 1) {
                             const highest_qual = qualities[0];
 
                             if(crafted_count > 1) {
-                                nativeCraftMessage(`Created ${result.getName()} x${crafted_count} [highest quality: ${highest_qual}% x${crafted_items[highest_qual]}] (+${Math.floor(accumulated_xp)} xp)`, "crafting");
+                                nativeCraftMessage(`Created ${displayItemName(result)} x${crafted_count} [highest quality: ${highest_qual}% x${crafted_items[highest_qual]}] (+${Math.floor(accumulated_xp)} xp)`, "crafting");
                             } else {
-                                nativeCraftMessage(`Created ${result.getName()} [${highest_qual}% quality] x1 (+${Math.floor(accumulated_xp)} xp)`, "crafting");
+                                nativeCraftMessage(`Created ${displayItemName(result)} [${highest_qual}% quality] x1 (+${Math.floor(accumulated_xp)} xp)`, "crafting");
                             }
 
                             add_xp_to_skill({skill: recipe_skill, xp_to_add: accumulated_xp, cap_gained_xp: false, use_bonus: false});
@@ -5597,10 +5597,10 @@ function execute_native_recipe(target, ammount_wanted_to_craft = 1) {
                         const highest_qual = qualities[0];
 
                         if(crafted_count > 1) {
-                            nativeCraftMessage(`Created ${result.getName()} x${crafted_count} [highest quality: ${highest_qual}% x${crafted_items[highest_qual]}] (+${Math.floor(accumulated_xp)} xp)`, "crafting");
+                            nativeCraftMessage(`Created ${displayItemName(result)} x${crafted_count} [highest quality: ${highest_qual}% x${crafted_items[highest_qual]}] (+${Math.floor(accumulated_xp)} xp)`, "crafting");
 
                         } else {
-                            nativeCraftMessage(`Created ${result.getName()} [${highest_qual}% quality] x1 (+${Math.floor(accumulated_xp)} xp)`, "crafting");
+                            nativeCraftMessage(`Created ${displayItemName(result)} [${highest_qual}% quality] x1 (+${Math.floor(accumulated_xp)} xp)`, "crafting");
                         }
                         add_xp_to_skill({skill: recipe_skill, xp_to_add: accumulated_xp, cap_gained_xp: false, use_bonus: false});
                     }
@@ -5617,7 +5617,7 @@ function execute_native_recipe(target, ammount_wanted_to_craft = 1) {
                     character.addToInventory(to_add);
 
                             character.removeFromInventory([{item_key: material_1_key, item_count: recipe_material.count*ammount_that_can_be_crafted}]);
-                    settleWorkLedgerCraft({sequence:workLedger.sequence+1,category,subcategory,recipeId:recipe_id,attempts:ammount_that_can_be_crafted,successes:ammount_that_can_be_crafted,outputs:to_add.reduce((n,r)=>n+r.count,0),outputLabel:result.getName(),...ledgerQuality},recipe_div);
+                    settleWorkLedgerCraft({sequence:workLedger.sequence+1,category,subcategory,recipeId:recipe_id,attempts:ammount_that_can_be_crafted,successes:ammount_that_can_be_crafted,outputs:to_add.reduce((n,r)=>n+r.count,0),outputLabel:displayItemName(result),...ledgerQuality},recipe_div);
 
                     //update display
                     material_div.classList.remove("selected_material");
@@ -5690,9 +5690,9 @@ function execute_native_recipe(target, ammount_wanted_to_craft = 1) {
                     const highest_qual = qualities[0];
 
                     if(crafted_count > 1) {
-                        nativeCraftMessage(`Created ${result.getName()} x${crafted_count} [highest quality: ${highest_qual}% x${crafted_items[highest_qual]}] (+${Math.floor(accumulated_xp)} xp)`, "crafting");
+                        nativeCraftMessage(`Created ${displayItemName(result)} x${crafted_count} [highest quality: ${highest_qual}% x${crafted_items[highest_qual]}] (+${Math.floor(accumulated_xp)} xp)`, "crafting");
                     } else {
-                        nativeCraftMessage(`Created ${result.getName()} [${highest_qual}% quality] x1 (+${Math.floor(accumulated_xp)} xp)`, "crafting");
+                        nativeCraftMessage(`Created ${displayItemName(result)} [${highest_qual}% quality] x1 (+${Math.floor(accumulated_xp)} xp)`, "crafting");
                     }
 
                     add_xp_to_skill({skill: recipe_skill, xp_to_add: accumulated_xp, use_bonus: false, cap_gained_xp: false});
@@ -5712,10 +5712,10 @@ function execute_native_recipe(target, ammount_wanted_to_craft = 1) {
                 const highest_qual = qualities[0];
 
                 if(crafted_count > 1) {
-                    nativeCraftMessage(`Created ${result.getName()} x${crafted_count} [highest quality: ${highest_qual}% x${crafted_items[highest_qual]}] (+${Math.floor(accumulated_xp)} xp)`, "crafting");
+                    nativeCraftMessage(`Created ${displayItemName(result)} x${crafted_count} [highest quality: ${highest_qual}% x${crafted_items[highest_qual]}] (+${Math.floor(accumulated_xp)} xp)`, "crafting");
 
                 } else {
-                    nativeCraftMessage(`Created ${result.getName()} [${highest_qual}% quality] x1 (+${Math.floor(accumulated_xp)} xp)`, "crafting");
+                    nativeCraftMessage(`Created ${displayItemName(result)} [${highest_qual}% quality] x1 (+${Math.floor(accumulated_xp)} xp)`, "crafting");
                 }
                 add_xp_to_skill({skill: recipe_skill, xp_to_add: accumulated_xp, use_bonus: false, cap_gained_xp: false});
             }
@@ -5729,7 +5729,7 @@ function execute_native_recipe(target, ammount_wanted_to_craft = 1) {
                 character.removeFromInventory([{ item_key: comp[i].item.getInventoryKey(), item_count: ammount_that_can_be_crafted }]);
             }
 
-            settleWorkLedgerCraft({sequence:workLedger.sequence+1,category,subcategory,recipeId:recipe_id,attempts:ammount_that_can_be_crafted,successes:ammount_that_can_be_crafted,outputs:Object.values(all_crafted).reduce((n,c)=>n+c,0),outputLabel:result.getName()},recipe_div);
+            settleWorkLedgerCraft({sequence:workLedger.sequence+1,category,subcategory,recipeId:recipe_id,attempts:ammount_that_can_be_crafted,successes:ammount_that_can_be_crafted,outputs:Object.values(all_crafted).reduce((n,c)=>n+c,0),outputLabel:displayItemName(result)},recipe_div);
             update_displayed_component_choice({ category, subcategory, recipe_id, component_keys });
         }  
     }
@@ -5827,7 +5827,7 @@ function knownItemHotkeyRows(){
         let eligible=free;
         try{assertNativeItemDisposition(expansionState,id);assertNativeItemDisposition(expansionState,canonicalDurabilityKey(id));}catch{eligible=false;}
         if(usable&&!equip&&row.item.id!==MIXTURE_ID){const nourishment=prepareFood(getPacingState(),row.item,homePacingContext());eligible=eligible&&(nourishment.restored>0||(row.item.effects||[]).some(effect=>!active_effects[effect.effect]||active_effects[effect.effect].duration<effect.duration));}
-        return [{id,label:row.item.getName(),known:true,owned:true,eligible,action:equip?'equip':'use',inputFingerprint:JSON.stringify({id,count:row.count,equipment:readNativeEquipment({player:character}).player,effects:active_effects,pacing:getPacingState(),clock:expansionState.clock,world:expansionState.actors.player.worldId,location:current_location?.id,body:expansionState.actors.player,stats:character.getFullStats(),money:character.money})}];
+        return [{id,label:displayItemName(row.item),known:true,owned:true,eligible,action:equip?'equip':'use',inputFingerprint:JSON.stringify({id,count:row.count,equipment:readNativeEquipment({player:character}).player,effects:active_effects,pacing:getPacingState(),clock:expansionState.clock,world:expansionState.actors.player.worldId,location:current_location?.id,body:expansionState.actors.player,stats:character.getFullStats(),money:character.money})}];
     });return {canWrite:free,items};
 }
 function identifyKnownHotkeyCopy(key){
@@ -6656,7 +6656,7 @@ function save_progress() {
     }
 }
 
-setNativeObservedDropReader(name=>Object.entries(p23DropObservations?.creatures?.[name]?.drops||{}).filter(([id])=>item_log.is_known(id)).map(([id,count])=>({label:item_templates[id].getName(),count})));
+setNativeObservedDropReader(name=>Object.entries(p23DropObservations?.creatures?.[name]?.drops||{}).filter(([id])=>item_log.is_known(id)).map(([id,count])=>({label:displayItemName(item_templates[id]),count})));
 
 //core function for loading
 function load(save_data) {
@@ -9744,7 +9744,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
             }):[];
             return knownRoutesPresentation(snapshot,{refinement:refinementPresentation(snapshot,expeditionRegistry,{base:featureWavePresentation,relayHost,referenceDeskHost,replacementContext:backlogContext}),proto23:proto23Presentation(snapshot.state,expeditionRegistry,snapshot.context),pocket:{view:pocketView,actions:pocketActions}});
         },command:command=>command.type?actFeatureExpansion(command):actPocketRealm(command)});
-    configureCheatHost({furnace:{read:()=>({cheats:cheatState,harvest:harvestOwner,clock:expansionState.clock,context:harvestContext(),quoteXP:amount=>p00NativeSkillXP('Butchering',amount,undefined,{cap:false,preparedUnlock:true}),world:expansionState.actors.player.worldId,reason:harvestBlockReason()}),advance:()=>advanceChroniclePlan({state:expansionState,external:{money:character.money},gameplay:gameplaySnapshot()},1),commit:plan=>persistExpansion(plan)},nameItem:key=>getItemFromKey(key).getName(),read:()=>({'current time':current_game_time,decisions:(current_combat?.defenders||[]).filter(e=>e.is_alive&&e.rngKey).flatMap(e=>{const i=e.loot_list.findIndex(row=>!replacedHarvestDrop(e.name,row.item_name));return i<0?[]:[{id:e.rngKey,label:e.name+' · first remaining drop',key:e.rngKey+':drop:'+i,keyed:true}];}),crafting:craftingOwner,inventories:{person:{main_character:character.getItems()},storage:{player:inventories.storage.player.getItems()}},harvest:harvestOwner,expansion:expansionState,locations,levels:{person:{main_character:{skill_xp:{Crafting:character.getLevelableComponent().skill_progress.Crafting?.total_xp||0,Perception:character.getLevelableComponent().skill_progress.Perception?.total_xp||0}}}}}),
+    configureCheatHost({furnace:{read:()=>({cheats:cheatState,harvest:harvestOwner,clock:expansionState.clock,context:harvestContext(),quoteXP:amount=>p00NativeSkillXP('Butchering',amount,undefined,{cap:false,preparedUnlock:true}),world:expansionState.actors.player.worldId,reason:harvestBlockReason()}),advance:()=>advanceChroniclePlan({state:expansionState,external:{money:character.money},gameplay:gameplaySnapshot()},1),commit:plan=>persistExpansion(plan)},nameItem:key=>displayItemName(getItemFromKey(key)),read:()=>({'current time':current_game_time,decisions:(current_combat?.defenders||[]).filter(e=>e.is_alive&&e.rngKey).flatMap(e=>{const i=e.loot_list.findIndex(row=>!replacedHarvestDrop(e.name,row.item_name));return i<0?[]:[{id:e.rngKey,label:e.name+' · first remaining drop',key:e.rngKey+':drop:'+i,keyed:true}];}),crafting:craftingOwner,inventories:{person:{main_character:character.getItems()},storage:{player:inventories.storage.player.getItems()}},harvest:harvestOwner,expansion:expansionState,locations,levels:{person:{main_character:{skill_xp:{Crafting:character.getLevelableComponent().skill_progress.Crafting?.total_xp||0,Perception:character.getLevelableComponent().skill_progress.Perception?.total_xp||0}}}}}),
         harvestSkill:()=>harvestContext().skill,occupied:request=>!['peek','call'].includes(request.type)&&continuationOccupied(),publish:next=>{setCraftingOwner(next.crafting??null);setHarvestOwner(next.harvest??null);expansionState.streams=next.expansion.streams;harvestPanel?.render();},
         writable:()=>!importProbeToken&&ownsSave&&!foundationSaveBlocked&&!is_loading_error&&!restoringNativeSave,
         moment:()=>({dayCount:current_game_time.day_count,at:cheatCalendarTime()}),
@@ -9926,7 +9926,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
             const stats={};if(item.getAttack)stats.Attack=item.getAttack();if(item.getDefense)stats.Defense=item.getDefense();
             if(item.quality!=null)stats.Quality=item.quality+'%';
             for(const [key,value]of Object.entries(item.getStats?.()||{}))stats[key]=[value.flat!=null?`+${value.flat}`:null,value.multiplier!=null?`×${value.multiplier}`:null].filter(Boolean).join(' ');
-            return {id,label:label+': '+item.getName(),slot:item.equip_slot,stats};
+            return {id,label:label+': '+displayItemName(item),slot:item.equip_slot,stats};
         });
     }});
     // Current work names the activity in the game's own words; jobs add native next-pay timing.
@@ -9938,7 +9938,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     mountProto23Shell({transferStorage:commitNativeStorage,compareWorn:key=>structuredEquipmentView(key),readItemCard:makeItemCardReader({getItemFromKey,getItemRarity,equipmentOf:()=>character.getEquipment(),durability}),read:()=>{
         const stats=character.getFullStats();
         return {stats:[['STR',stats.strength],['AGL',stats.agility],['DEX',stats.dexterity],['INT',stats.intuition],['Attack',character.getAttackPower()],['Defense',stats.defense]].map(([label,value])=>[label,Number.isFinite(value)?Number(value.toFixed(1)):'???']),
-            equipment:[...document.querySelectorAll('#character_equipment_div .equipment_slot_div, #character_tools_div .equipment_slot_div')].map(slot=>{const id=slot.id.replace(/_slot$/,'');const item=character.getEquipment()[id==='fishing'?'fishing_pole':id];return {id,label:id.replaceAll('_',' '),name:item?item.getName():null};}),
+            equipment:[...document.querySelectorAll('#character_equipment_div .equipment_slot_div, #character_tools_div .equipment_slot_div')].map(slot=>{const id=slot.id.replace(/_slot$/,'');const item=character.getEquipment()[id==='fishing'?'fishing_pole':id];return {id,label:id.replaceAll('_',' '),name:item?displayItemName(item):null};}),
             reason:nativeActionReasons(expansionState).join(' ')};
     }});
     createVillageWorkspace({placeDetail:quietPlaceDetail.node,read:()=>{
