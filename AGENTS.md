@@ -49,7 +49,7 @@ router rows, and a new or changed accepted decision updates its AD line. Lane
 briefs and task packets name the codes they apply. Shared guidance lives here and
 in the repo docs, not in one agent's private memory.
 
-Player-facing UI: follow [DESIGN.md](DESIGN.md) (the look, DSG1–DSG19), `.claude/rules/player-ui.md` and [UI rules](docs/UI_RULES.md) (UR1–UR75 standing, UR76–UR82 proposed, UR83–UR127 for what the 2026-11-10 rulebooks need on screen, open forms, distinct surfaces and every element). Lane briefs that touch UI link that file.
+Player-facing UI: follow [DESIGN.md](DESIGN.md) (the look, DSG1–DSG19), `.claude/rules/player-ui.md` and [UI rules](docs/UI_RULES.md) (UR1–UR75 standing, UR76–UR82 proposed, UR83–UR143 for what the 2026-11-10 rulebooks need on screen, open forms, distinct surfaces and every element). Lane briefs that touch UI link that file.
 
 Player-facing words (content strings, confirm text, tooltips, Reports lines, dialogue): follow [prose rules](docs/PROSE_RULES.md) PRS1–PRS8; `npm run check:rules` lints engine vocabulary out of player text and a lane brief that writes player text quotes one voice sample (PRS7).
 

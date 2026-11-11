@@ -25,7 +25,7 @@ export function createMixturePanel({craftingContainer,actionContainer,read,act})
     const controls=document.createElement('div');controls.className='mixture-controls';panel.append(controls);
     const method=document.createElement('select');method.id='mixture_method';method.setAttribute('aria-label','Mixing method');for(const [value,label]of [['ordinary@1','Ordinary method'],[RESPONSIVE_METHOD,'Responsive method']]){const option=document.createElement('option');option.value=value;option.textContent=label;method.append(option);}method.onchange=()=>{lastFailure=null;preview();};controls.append(method);
     const process=document.createElement('select');process.id='mixture_process';for(const kind of ['steep','boil']){const option=document.createElement('option');option.value=kind;option.textContent=kind==='steep'?'Steep':'Boil';process.append(option);}process.onchange=()=>{lastFailure=null;preview();};controls.append(process);
-    const mix=document.createElement('button');mix.id='mixture_craft';mix.textContent='Mix one vial';mix.onclick=()=>run({type:'mix',...selection(),quote:currentQuote});controls.append(mix);
+    const mix=document.createElement('button');mix.id='mixture_craft';mix.textContent='Mix one vial · instant';mix.onclick=()=>run({type:'mix',...selection(),quote:currentQuote});controls.append(mix);
 
     const feedback=document.createElement('div');feedback.id='mixture_feedback';
     const workControls=document.createElement('div');
@@ -39,7 +39,7 @@ export function createMixturePanel({craftingContainer,actionContainer,read,act})
         for(const d of data.destinations){const card=destinationCards[d.process];card.hidden=false;
             const head=document.createElement('strong');head.textContent=`${d.process==='steep'?'Steep':'Boil'} → ${d.name}`;const body=document.createElement('div');
             body.textContent=d.uses?`Uses ${d.uses.map(u=>`${u.need} ${u.id} (${u.free} free → ${u.after<0?`short ${u.short}`:`${u.after} left`})`).join('; ')}. Free stock makes ${d.vials} vial${d.vials===1?'':'s'}. ${d.description}`:d.error;
-            const go=document.createElement('button');go.type='button';go.textContent=`Mix one vial: ${d.process}`;go.disabled=!frame.ready||!d.token||!!d.error;go.title=d.error||'Commits only if this quote is still current.';
+            const go=document.createElement('button');go.type='button';go.textContent=`Mix one vial: ${d.process} · instant`;go.disabled=!frame.ready||!d.token||!!d.error;go.title=d.error||'Commits only if this quote is still current.';
             go.onclick=()=>run({type:'mix',method,inputs,process:d.process,quote:d.token});card.replaceChildren(head,body,go);}}
     const prediction=document.createElement('p');prediction.id='mixture_prediction';panel.append(prediction,notice);
     const output=document.createElement('div');output.id='mixture_products';panel.append(output);

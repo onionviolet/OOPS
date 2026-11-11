@@ -5,26 +5,26 @@
         <link rel="stylesheet" href="styles/settled_text_effects.css?version=0dc9427f3e7f">
         <link rel="stylesheet" href="styles/organization.css?version=aa33616826ae">
         <link rel="stylesheet" href="styles/customization.css?version=f1364c6c5bce">
-        <link rel="stylesheet" href="styles/workspace.css?version=d118598566bd">
+        <link rel="stylesheet" href="styles/workspace.css?version=c0a36a907ca6">
         <link rel="stylesheet" href="styles/workspace_discovery.css?version=b5eeb0896e80">
         <link rel="stylesheet" href="styles/display_settings.css?version=26b21c1fadde">
         <link rel="stylesheet" href="styles/status_window.css?version=0023c5675b2d">
-        <link rel="stylesheet" href="style.css?version=v0.6-c3476681b5a8">
+        <link rel="stylesheet" href="style.css?version=v0.6-e0364dc6f5c1">
         <link rel="stylesheet" href="styles/action_legibility.css?version=7a7c36a0289c">
         <link rel="stylesheet" href="styles/crafting_detail.css?version=ed431a67123b">
-        <link rel="stylesheet" href="styles/component_themes.css?version=7c80e2f1f996">
+        <link rel="stylesheet" href="styles/component_themes.css?version=6511fc060073">
         <link rel="stylesheet" href="styles/start_probe.css?version=f8faff61cea7">
-        <link rel="stylesheet" href="styles/ui_tokens.css?version=f21980a198fa">
+        <link rel="stylesheet" href="styles/ui_tokens.css?version=0b8de0a2134b">
         <link rel="stylesheet" href="styles/shell_layout.css?version=c114835c8955">
         <link rel="stylesheet" href="styles/inventory.css?version=c71f66873b87">
         <link rel="stylesheet" href="styles/opponents.css?version=fa6db5d61628">
         <link rel="stylesheet" href="styles/combat_log.css?version=aec488eac3b1">
         <link rel="stylesheet" href="styles/oops_branding.css?version=be2f6469874f">
-        <link rel="stylesheet" href="styles/shell_chrome.css?version=5696c1288a7b">
+        <link rel="stylesheet" href="styles/shell_chrome.css?version=39b9b03b3433">
         <link rel="stylesheet" href="styles/inventory_composition.css?version=103486cbc3e7">
         <link rel="stylesheet" href="styles/item_card.css?version=4b9f7f13dff6">
         <link rel="stylesheet" href="styles/nearby_context_view.css?version=3c6c97f95cfe">
-        <link rel="stylesheet" href="styles/ui_extras.css?version=d5793e5d02ae">
+        <link rel="stylesheet" href="styles/ui_extras.css?version=c22bc0b0275d">
         <link rel="stylesheet" href="styles/scene_card.css?version=80d7a6d95feb">
         <link rel="stylesheet" href="styles/figure.css?version=08248f70672f">
         <link rel="stylesheet" href="styles/skin_paper.css?version=7417c6351259">
@@ -35,7 +35,7 @@
         <link rel="stylesheet" href="styles/character_sheet.css?version=19c3400ad0b1">
         <link rel="stylesheet" href="styles/body_view.css?version=c4f5085b6997">
         <link rel="stylesheet" href="styles/research.css?version=0c0f75ed8bbf">
-        <link rel="stylesheet" href="styles/meter_bar.css?version=94f5b2f9efc8">
+        <link rel="stylesheet" href="styles/meter_bar.css?version=5799cf60a406">
         <link rel="stylesheet" href="styles/corc_readability.css?version=c0a352950af8">
         <link rel="stylesheet" href="styles/talk_view.css?version=abe8bc675ee6">
         <link rel="stylesheet" href="styles/material_icons.css?version=3fc1347eba2f">
@@ -52,7 +52,7 @@
         
         <script type="module" src="resources/js/HackTimer/HackTimer.min.js"></script>
 
-        <script type="module" src="dist/bundle.js?version=v0.6-5388d7c38a5d"></script>
+        <script type="module" src="dist/bundle.js?version=v0.6-97240c4f8233"></script>
 
 
         <!--favicon-->
@@ -267,25 +267,25 @@
                     <div id = "inventory_content_div"> </div>
 
                     <div id = "inventory_sorting_div" class="activable_buttons flex_wrap">
-                        <div id = "inventory_sort_by_name" class = "character_sorting_button active_selection_button" onclick='sortCharacterInventory("name")' data-translation="ui sort name"></div>
-                        <div id = "inventory_sort_by_price" class = "character_sorting_button" onclick='sortCharacterInventory("price")' data-translation="ui sort value"></div>
-                        <div id = "inventory_sort_by_type" class = "character_sorting_button" onclick='sortCharacterInventory("type")' data-translation="ui sort type"></div>
+                        <button type="button" id = "inventory_sort_by_name" class = "ui-native-control character_sorting_button active_selection_button" onclick='sortCharacterInventory("name")' data-translation="ui sort name"></button>
+                        <button type="button" id = "inventory_sort_by_price" class = "ui-native-control character_sorting_button" onclick='sortCharacterInventory("price")' data-translation="ui sort value"></button>
+                        <button type="button" id = "inventory_sort_by_type" class = "ui-native-control character_sorting_button" onclick='sortCharacterInventory("type")' data-translation="ui sort type"></button>
                     </div>
                     <div id = "inventory_control_div" class="activable_buttons flex_wrap">
-                        <div id = "inventory_show_all" class = "inventory_control_button active_selection_button" onclick = "showAllItems()" data-translation="ui show all"></div>
-                        <div id = "inventory_show_equipment" class = "inventory_control_button" onclick = "showOnlyEquipment()" data-translation="ui show equipment"></div>
-                        <div id = "inventory_show_consumable" class = "inventory_control_button" onclick = "showOnlyConsumables()" data-translation="ui show usable"></div>
-                        <div id = "inventory_show_other" class = "inventory_control_button" onclick = "showOnlyOther()" data-translation="ui show other"></div> 
-                        <div id = "inventory_show_favs" class = "inventory_control_button" onclick = "showOnlyFavs()" data-translation="ui show favs"></div> 
+                        <button type="button" id = "inventory_show_all" class = "ui-native-control inventory_control_button active_selection_button" onclick = "showAllItems()" data-translation="ui show all"></button>
+                        <button type="button" id = "inventory_show_equipment" class = "ui-native-control inventory_control_button" onclick = "showOnlyEquipment()" data-translation="ui show equipment"></button>
+                        <button type="button" id = "inventory_show_consumable" class = "ui-native-control inventory_control_button" onclick = "showOnlyConsumables()" data-translation="ui show usable"></button>
+                        <button type="button" id = "inventory_show_other" class = "ui-native-control inventory_control_button" onclick = "showOnlyOther()" data-translation="ui show other"></button> 
+                        <button type="button" id = "inventory_show_favs" class = "ui-native-control inventory_control_button" onclick = "showOnlyFavs()" data-translation="ui show favs"></button> 
                     </div>
                 </div>
 
                 <div id = "character_combat_management" class = "box_div"></div>
 
                 <div id = "inventory_combat_switch_selection" class="activable_buttons box_div flex_wrap">
-                    <div id="switch_to_inventory" class="active_selection_button" onclick="switchToInventory()">Inventory
-                    </div>
-                    <div id="switch_to_combat" onclick="switchToCombat()">Combat</div>
+                    <button type="button" id="switch_to_inventory" class="ui-native-control active_selection_button" onclick="switchToInventory()">Inventory
+                    </button>
+                    <button type="button" class="ui-native-control" id="switch_to_combat" onclick="switchToCombat()">Combat</button>
                 </div>
 
                 <!-- location info (name, types, description, etc?)-->
@@ -336,6 +336,7 @@
                     <div id = "trade_div">
                         <p id="trade_greeting" class="trade_greeting" hidden></p>
                         <p id="trade_stock_notice" role="status" hidden></p>
+                        <ul id="trade_price_notes" class="trade_price_notes" aria-label="Prices here and why" hidden></ul>
                         <div id = "trader_sorting_buttons" class="activable_buttons flex_wrap"> 
                             <button type="button" id="shop_lock_clear">Release kept stock</button> 
                             <button type="button" id = "trader_sort_by_name" class = "trader_sorting_button active_selection_button" onclick='sortTraderInventory("name")' data-translation="ui sort name"></button>
@@ -388,23 +389,23 @@
                     <div id = "storage_div">
                         <section id="storage_comparison" aria-label="Carried and chest comparison"></section>
                         <div id = "storage_sorting_buttons" class="activable_buttons flex_wrap"> 
-                            <div id = "storage_sort_by_name" class = "storage_sorting_button active_selection_button" onclick='sortStorageInventory("name")' data-translation="ui sort name"></div>
-                            <div id = "storage_sort_by_price" class = "storage_sorting_button" onclick='sortStorageInventory("price")' data-translation="ui sort value"></div>
-                            <div id = "storage_sort_by_type" class = "storage_sorting_button" onclick='sortStorageInventory("type")' data-translation="ui sort type"></div>
+                            <button type="button" id = "storage_sort_by_name" class = "ui-native-control storage_sorting_button active_selection_button" onclick='sortStorageInventory("name")' data-translation="ui sort name"></button>
+                            <button type="button" id = "storage_sort_by_price" class = "ui-native-control storage_sorting_button" onclick='sortStorageInventory("price")' data-translation="ui sort value"></button>
+                            <button type="button" id = "storage_sort_by_type" class = "ui-native-control storage_sorting_button" onclick='sortStorageInventory("type")' data-translation="ui sort type"></button>
                         </div>
                         <div id = "storage_category_buttons" class="activable_buttons flex_wrap">
-                            <div id = "storage_category_all" class = "storage_category_button active_selection_button" onclick='switchStorageItemVisibility()'>
+                            <button type="button" id = "storage_category_all" class = "ui-native-control storage_category_button active_selection_button" onclick='switchStorageItemVisibility()'>
                                 all
-                            </div>
-                            <div id = "storage_category_equipment" class = "storage_category_button" onclick="switchStorageItemVisibility('equipment')">
+                            </button>
+                            <button type="button" id = "storage_category_equipment" class = "ui-native-control storage_category_button" onclick="switchStorageItemVisibility('equipment')">
                                 equipment
-                            </div>
-                            <div id = "storage_category_usable" class = "storage_category_button" onclick="switchStorageItemVisibility('consumables')">
+                            </button>
+                            <button type="button" id = "storage_category_usable" class = "ui-native-control storage_category_button" onclick="switchStorageItemVisibility('consumables')">
                                 usable
-                            </div>
-                            <div id = "storage_category_other" class = "storage_category_button" onclick="switchStorageItemVisibility('other')">
+                            </button>
+                            <button type="button" id = "storage_category_other" class = "ui-native-control storage_category_button" onclick="switchStorageItemVisibility('other')">
                                 other
-                            </div>
+                            </button>
                         </div>
 
 
@@ -412,26 +413,26 @@
 
                         </div>
                         <div id = "storage_control_div">
-                            <div id = "exit_storage_button" onclick = "exitStorage()">
+                            <button type="button" class="ui-native-control" id = "exit_storage_button" onclick = "exitStorage()">
                                 Exit
-                            </div>
+                            </button>
                         </div>
                     </div>
 
                     <div id = "crafting_window" class="crafting_window">
                         <div id="crafting_mainpage_buttons" class="activable_buttons crafting_mainpage_buttons flex_wrap">
-                            <div class="crafting_mainpage_button" data-crafting_category="crafting" onclick="switchCraftingRecipesPage('crafting')">Tinkering</div>
-                            <div class="crafting_mainpage_button" data-crafting_category="butchering" onclick="switchCraftingRecipesPage('butchering')">Butchering</div>
-                            <div class="crafting_mainpage_button" data-crafting_category="cooking" onclick="switchCraftingRecipesPage('cooking')">Cooking</div>
-                            <div class="crafting_mainpage_button" data-crafting_category="woodworking" onclick="switchCraftingRecipesPage('woodworking')">Woodworking</div>
-                            <div class="crafting_mainpage_button" data-crafting_category="smelting" onclick="switchCraftingRecipesPage('smelting')">Smelting</div>
-                            <div class="crafting_mainpage_button" data-crafting_category="forging" onclick="switchCraftingRecipesPage('forging')">Forging</div>
-                            <div class="crafting_mainpage_button" data-crafting_category="alchemy" onclick="switchCraftingRecipesPage('alchemy')">Alchemy</div>
+                            <button type="button" class="ui-native-control crafting_mainpage_button" data-crafting_category="crafting" onclick="switchCraftingRecipesPage('crafting')">Tinkering</button>
+                            <button type="button" class="ui-native-control crafting_mainpage_button" data-crafting_category="butchering" onclick="switchCraftingRecipesPage('butchering')">Butchering</button>
+                            <button type="button" class="ui-native-control crafting_mainpage_button" data-crafting_category="cooking" onclick="switchCraftingRecipesPage('cooking')">Cooking</button>
+                            <button type="button" class="ui-native-control crafting_mainpage_button" data-crafting_category="woodworking" onclick="switchCraftingRecipesPage('woodworking')">Woodworking</button>
+                            <button type="button" class="ui-native-control crafting_mainpage_button" data-crafting_category="smelting" onclick="switchCraftingRecipesPage('smelting')">Smelting</button>
+                            <button type="button" class="ui-native-control crafting_mainpage_button" data-crafting_category="forging" onclick="switchCraftingRecipesPage('forging')">Forging</button>
+                            <button type="button" class="ui-native-control crafting_mainpage_button" data-crafting_category="alchemy" onclick="switchCraftingRecipesPage('alchemy')">Alchemy</button>
                         </div>
                         <div id="crafting_subpage_buttons" class="crafting_subpage_buttons activable_buttons flex_wrap">
-                            <div class="crafting_subpage_button active_selection_button" data-crafting_subcategory="items" onclick="switchCraftingRecipesSubpage('items')">Items/trinkets</div>
-                            <div class="crafting_subpage_button" data-crafting_subcategory="components" onclick="switchCraftingRecipesSubpage('components')">Components</div>
-                            <div class="crafting_subpage_button" data-crafting_subcategory="equipment" onclick="switchCraftingRecipesSubpage('equipment')">Equipment</div>
+                            <button type="button" class="ui-native-control crafting_subpage_button active_selection_button" data-crafting_subcategory="items" onclick="switchCraftingRecipesSubpage('items')">Items/trinkets</button>
+                            <button type="button" class="ui-native-control crafting_subpage_button" data-crafting_subcategory="components" onclick="switchCraftingRecipesSubpage('components')">Components</button>
+                            <button type="button" class="ui-native-control crafting_subpage_button" data-crafting_subcategory="equipment" onclick="switchCraftingRecipesSubpage('equipment')">Equipment</button>
                         </div>
                         <label class="crafting_filter">
                             <input id="crafting_makeable_filter" type="checkbox"> Makeable now
@@ -441,9 +442,9 @@
                             <div id="recipe_categories" class="crafting_category"></div>
                             <section id="crafting_detail" class="crafting_detail" data-craft-detail aria-label="Selected recipe"></section>
                         </div>
-                        <div id="exit_crafting_button" onclick="closeCraftingWindow()">
+                        <button type="button" class="ui-native-control" id="exit_crafting_button" onclick="closeCraftingWindow()">
                             Exit
-                        </div>
+                        </button>
                     </div>
                 </div>
 
@@ -457,15 +458,15 @@
                                 <label for="options_hide_max_level_skills">Hide max level skills</label>
                             </div>
                             <div id="skill_sorting_buttons" class="activable_buttons flex_wrap">
-                                <div id="skill_sort_by_name" class="skill_sorting_button active_selection_button" onclick='sortSkills({sort_by:"name"})' .>
+                                <button type="button" id="skill_sort_by_name" class="ui-native-control skill_sorting_button active_selection_button" onclick='sortSkills({sort_by:"name"})' .>
                                     Sort by name
-                                </div>
-                                <div id="skill_sort_by_level" class="skill_sorting_button" onclick='sortSkills({sort_by:"level"})'>
+                                </button>
+                                <button type="button" id="skill_sort_by_level" class="ui-native-control skill_sorting_button" onclick='sortSkills({sort_by:"level"})'>
                                     Sort by level
-                                </div>
-                                <div id="skill_sort_by_progress" class="skill_sorting_button" onclick='sortSkills({sort_by:"progress"})'>
+                                </button>
+                                <button type="button" id="skill_sort_by_progress" class="ui-native-control skill_sorting_button" onclick='sortSkills({sort_by:"progress"})'>
                                     Sort by progress
-                                </div>
+                                </button>
                             </div>
                         </div>
                         <div id = "stance_list_div">
@@ -478,24 +479,24 @@
                         </div>
                     </div>
                     <div id = "skill_and_stance_control_div" class="activable_buttons flex_wrap">
-                        <div id="show_skills" class="skill_stance_control_button active_selection_button" onclick="showSkills()">
+                        <button type="button" id="show_skills" class="ui-native-control skill_stance_control_button active_selection_button" onclick="showSkills()">
                             Skills
-                        </div>
-                        <div id="show_stances" class="skill_stance_control_button" onclick="showStances()">
+                        </button>
+                        <button type="button" id="show_stances" class="ui-native-control skill_stance_control_button" onclick="showStances()">
                             Stances
-                        </div>
-                        <div id="show_magic" class="skill_stance_control_button" onclick="showMagic()">
+                        </button>
+                        <button type="button" id="show_magic" class="ui-native-control skill_stance_control_button" onclick="showMagic()">
                             Magic
-                        </div>
+                        </button>
                     </div>
                 </div>
 
                 <div id = "journal_div" class = "box_div">
                     <div id = "journal_control_div" class="activable_buttons flex_wrap">
-                        <div id = "journal_show_quests" class = "journal_control_button active_selection_button" onclick = "showQuests()"> Quests </div>
-                        <div id = "journal_show_bestiary" class = "journal_control_button" onclick = "showBestiary()"> Bestiary </div>
-                        <div id = "journal_show_books" class = "journal_control_button" onclick = "showReadBooks()"> Anthology </div>
-                        <div id = "journal_show_data" class = "journal_control_button" onclick = "showData()"> Data </div>
+                        <button type="button" id = "journal_show_quests" class = "ui-native-control journal_control_button active_selection_button" onclick = "showQuests()"> Quests </button>
+                        <button type="button" id = "journal_show_bestiary" class = "ui-native-control journal_control_button" onclick = "showBestiary()"> Bestiary </button>
+                        <button type="button" id = "journal_show_books" class = "ui-native-control journal_control_button" onclick = "showReadBooks()"> Anthology </button>
+                        <button type="button" id = "journal_show_data" class = "ui-native-control journal_control_button" onclick = "showData()"> Data </button>
                         <button id="journal_show_notebook" type="button" class="journal_control_button" onclick="showNotebook()" hidden>Notebook</button>
                     </div>
                     <div id = "journal_content_div">
@@ -721,10 +722,10 @@
                         </div>
                     </div>
                     <div id = "character_control_div" class="activable_buttons flex_wrap">
-                        <div id = "character_show_stats" class = "character_control_button active_selection_button" onclick = "showCharacterStats()" data-translation="ui show stats"></div>
-                        <div id = "character_show_bio" class = "character_control_button" onclick = "showCharacterBio()" data-translation="ui show bio"></div>
-                        <div id = "character_show_equipment" class = "character_control_button" onclick = "showCharacterEquipment()" data-translation="ui show equipment"></div>
-                        <div id = "character_show_tools" class = "character_control_button" onclick = "showCharacterTools()" data-translation="ui show tools"></div>
+                        <button type="button" id = "character_show_stats" class = "ui-native-control character_control_button active_selection_button" onclick = "showCharacterStats()" data-translation="ui show stats"></button>
+                        <button type="button" id = "character_show_bio" class = "ui-native-control character_control_button" onclick = "showCharacterBio()" data-translation="ui show bio"></button>
+                        <button type="button" id = "character_show_equipment" class = "ui-native-control character_control_button" onclick = "showCharacterEquipment()" data-translation="ui show equipment"></button>
+                        <button type="button" id = "character_show_tools" class = "ui-native-control character_control_button" onclick = "showCharacterTools()" data-translation="ui show tools"></button>
                     </div>
                 </div>
             </div>
@@ -735,36 +736,36 @@
                 </div>
                 <div id = "message_controls">
 
-                    <div id = "message_show_unlocks" class = "message_control_button active_selection_button" onclick = "showUnlocksMessages()">
+                    <button type="button" id = "message_show_unlocks" class = "ui-native-control message_control_button active_selection_button" onclick = "showUnlocksMessages()">
                         Levels / unlocks
-                    </div>
-                    <div id = "message_show_events" class = "message_control_button active_selection_button" onclick = "showEventsMessages()">
+                    </button>
+                    <button type="button" id = "message_show_events" class = "ui-native-control message_control_button active_selection_button" onclick = "showEventsMessages()">
                         Events
-                    </div>
-                    <div id = "message_show_crafting" class = "message_control_button active_selection_button" onclick = "showCraftingMessages()">
+                    </button>
+                    <button type="button" id = "message_show_crafting" class = "ui-native-control message_control_button active_selection_button" onclick = "showCraftingMessages()">
                         Crafting
-                    </div>
-                    <div id = "message_show_combat" class = "message_control_button active_selection_button" onclick = "showCombatMessages()">
+                    </button>
+                    <button type="button" id = "message_show_combat" class = "ui-native-control message_control_button active_selection_button" onclick = "showCombatMessages()">
                         Combat
-                    </div>
-                    <div id = "message_show_loot" class = "message_control_button active_selection_button" onclick = "showLootMessages()">
+                    </button>
+                    <button type="button" id = "message_show_loot" class = "ui-native-control message_control_button active_selection_button" onclick = "showLootMessages()">
                         Loot
-                    </div>
-                    <div id = "message_show_background" class = "message_control_button active_selection_button" onclick = "showBackgroundMessages()">
+                    </button>
+                    <button type="button" id = "message_show_background" class = "ui-native-control message_control_button active_selection_button" onclick = "showBackgroundMessages()">
                         BGM
-                    </div>
+                    </button>
                     
                 </div>
             </div>
         </div>
 
         <div id = "bottom_panel_div" data-nosnippet>
-            <div id = "save_button" class = "sl_button" onclick = "saveProgress()"> Save </div>
-            <div id = "save_to_file_button" class = "sl_button" onclick = "saveToFile()"> Export <div id= "export_button_tooltip">Reward not available</div></div>
+            <button type="button" id = "save_button" class = "ui-native-control sl_button" onclick = "saveProgress()"> Save </button>
+            <button type="button" id = "save_to_file_button" class = "ui-native-control sl_button" onclick = "saveToFile()"> Export <span id= "export_button_tooltip">Reward not available</span></button>
             <label id = "load_from_file_button" class = "sl_button" for = "saved_file_input"> Import </label> 
             <input id = "saved_file_input" type='file' accept = 'text/plain' onchange = 'loadProgress(event)'>	
 
-            <div id = "options_button" class = "game_info" onclick="openOptions()"><span><i class="material-icons">settings</i></span></div>
+            <button type="button" id = "options_button" class = "ui-native-control game_info" onclick="openOptions()"><span><i class="material-icons">settings</i></span></button>
             <div id = "changelog_button" class = "game_info"><a href="changelog.html" target="_blank"></a></div>
             <div id = "help_button" class = "game_info"><a href="help.html" target="_blank"><i class="material-icons">help_outline</i></a></div>
 
@@ -838,10 +839,10 @@
                 </div>
 
             </div>
-            <div id="close_options" onclick="closeOptions()"> X </div>
-            <div id = "backup_load_button" class="options_button" onclick = "loadTheBackup()">Load the backup autosave</div>
-            <div id = "import_other_save_button" class="options_button" onclick = "importOtherSave()"> Import save from </div>
-            <div id = "hard_reset_button" class="options_button" onclick = "hardReset()"> Hard reset the game <i class="material-icons"> warning_amber </i> </div>
+            <button type="button" class="ui-native-control" id="close_options" onclick="closeOptions()"> X </button>
+            <button type="button" id = "backup_load_button" class="options_button" onclick = "loadTheBackup()">Load the backup autosave</button>
+            <button type="button" id = "import_other_save_button" class="options_button" onclick = "importOtherSave()"> Import save from </button>
+            <button type="button" id = "hard_reset_button" class="options_button" onclick = "hardReset()"> Hard reset the game <i class="material-icons" aria-hidden="true"> warning_amber </i> </button>
         </div>
 
         <canvas id="foreground_canvas">
@@ -1683,13 +1684,16 @@
                 }
 
                 //export button tooltip (reward timer)
-                save_to_file_button.addEventListener('mousemove', (event) => {
-                     if(Date.now() >= tooltip_wait) {
+                //placed on entry too, so a pointer that arrives without moving does not show it in the corner
+                const place_export_tooltip = (event) => {
+                     if(event.type === 'mouseenter' || Date.now() >= tooltip_wait) {
                         document.documentElement.style.setProperty('--export_button_tooltip_bottom', `${displayHeight() - event.pageY}px`);
                         document.documentElement.style.setProperty('--export_button_tooltip_left', `${event.pageX}px`);
                         tooltip_wait = Date.now() + 1000 / tooltip_move_ticks;
                     }
-                });
+                };
+                save_to_file_button.addEventListener('mousemove', place_export_tooltip);
+                save_to_file_button.addEventListener('mouseenter', place_export_tooltip);
 
                 //move clicked items to proper list
                 inventory_div.addEventListener('click', (event)=>move_trade_item(event, "character"), false);

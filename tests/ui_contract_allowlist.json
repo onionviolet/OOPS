@@ -5797,6 +5797,22 @@
       "rule": "declaration",
       "snippet": "border-radius: var(--ui-radius)",
       "count": 1
+    },
+    {
+      "key": "src/mixture_ui.js|pixel-geometry|3bf129a9e15d1183",
+      "path": "src/mixture_ui.js",
+      "rule": "pixel-geometry",
+      "snippet": ".style.width='55px'",
+      "count": 1,
+      "reason": "Number entry width predating UR131 (2026-11-10); move to a token width with UR106."
+    },
+    {
+      "key": "src/mixture_ui.js|pixel-geometry|f886b12536f94662",
+      "path": "src/mixture_ui.js",
+      "rule": "pixel-geometry",
+      "snippet": ".style.width='50px'",
+      "count": 1,
+      "reason": "Number entry width predating UR131 (2026-11-10); move to a token width with UR106."
     }
   ]
 }

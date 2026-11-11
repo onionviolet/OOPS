@@ -113,7 +113,7 @@ export function relationshipBars(person) {
     const bars = [], sign = Number.isFinite(person.trust) ? Math.sign(person.trust) : 0;
     bars.push({id: `trust.${person.id}`, label: `Trust: ${TRUST_WORD[sign + 1]}`, kind: 'track', value: sign + 1, max: 2, discrete: true, note: 'Your own regard for them, from what you have lived through.'});
     const m = person.manner, warmth = !m ? 1 : m.warm ? 2 : 0;
-    bars.push({id: `warmth.${person.id}`, label: !m ? 'Their warmth: not read now' : m.warm ? 'Their warmth: warmer toward you' : 'Their warmth: wary of you', kind: 'track', value: warmth, max: 2, discrete: true,
+    bars.push({id: `warmth.${person.id}`, label: !m ? 'Their warmth: not read now' : m.warm ? 'Their warmth: warmer toward you' : 'Their warmth: wary of you', kind: 'track', value: warmth, max: 2, discrete: true, unknown: !m,
         note: !m ? 'Manner is read only face to face.' : `${m.heard ? 'Heard of you; ' : ''}Seen here now: ${m.line.replace(/\.$/, '')}.`});
     const open = person.owes.filter(o => !o.settled), you = open.filter(o => o.by === 'you').length, them = open.length - you;
     bars.push({id: `debt.${person.id}`, label: !open.length ? 'Debts: none open' : `Debts: you owe ${you}, they owe ${them}`, kind: 'track', value: Math.min(open.length, 4), max: 4, discrete: true,

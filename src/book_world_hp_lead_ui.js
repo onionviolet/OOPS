@@ -163,6 +163,24 @@ export function createHpLeadPanel({project,read,command,keepSlot,study,homeAct})
      nb.onclick=()=>{try{study.writeNote(r.id);notice='You wrote a note.';}catch(e){notice=e.message;}render();};row.append(nb);}
     s3.append(row);}
    section.append(s3);}
+  // Exams (hp_exam_model.js, book_world_hp_exams.js): a dated event of the year, so it shows beside any story passage, not only between excursions. The date, revision by subject before it, the papers on the day, the marks after.
+  const ex=v.exams;
+  if(ex&&v.school?.atSchool){const s6=node('section');s6.className='ui-panel-section';s6.dataset.hpExams=ex.phase;s6.append(node('h3','End-of-year exams'),node('p',ex.line));
+   const actionRow=(id,label,note,quiet)=>{const a=(campaign.actions||[]).find(x=>x.id===id);if(!a)return;
+    const row=node('div');row.dataset.panelRow='';const sh=shortActionLabel(label),b=node('button',sh.text);b.type='button';
+    b.disabled=!a.eligible||!campaign.canWrite||!!v.jobs.find(j=>j.commandId===id);if(sh.chip)b.append(node('span',` · ${sh.chip}`));
+    b.onclick=()=>{try{command({type:'action',id});notice='';}catch(e){notice=e.message;}render();};
+    row.append(b,node('p',note));if(!a.eligible&&!quiet)row.append(node('p',(a.reasons||[]).join(' ')));return row;};
+   if(ex.phase==='revision')for(const r of ex.revision){const row=actionRow(r.commandId,`Revise ${r.label} · 90 min`,`${r.sessions} of ${ex.cap} sessions so far.${r.full?` You know ${r.label} as well as notes can teach you; what is left is practice or a teacher.`:''}`,r.full);
+    if(row){row.dataset.hpRevise=r.id;s6.append(row);}}
+   if(ex.phase==='exams'){const p=ex.nextPaper;
+    if(p){const row=actionRow(p.commandId,`Sit the ${p.label} paper · 90 min`,'Marks are read on the last day of term.');if(row){row.dataset.hpPaper=p.id;s6.append(row);}}
+    const doneRows=ex.papers.filter(x=>x.done);if(doneRows.length)s6.append(node('p',`Sat: ${doneRows.map(x=>x.label).join(', ')}.`));}
+   if(ex.phase==='marks_pending'){const row=actionRow('book.hp.lead.read_marks','Read your marks on the board · 10 min','Pinned on the board in the common room.');if(row){row.dataset.hpMarks='';s6.append(row);}}
+   if(ex.results){const r=ex.results;s6.append(node('p',`Overall: ${r.overallWords}.`));
+    const list=node('ul');list.dataset.hpMarksList='';for(const m of r.rows)list.append(node('li',`${m.label}: ${m.words}. ${m.remark}`));s6.append(list);
+    for(const line of r.others)s6.append(node('p',line));s6.append(node('p',r.nextYear));}
+   section.append(s6);}
   // W1a: the Potions bench (shared craft engine rows); shown at school, a shut brew says what it needs (UR70-UR75).
   if(v.school?.atSchool&&schoolExtras){const s5=node('section');s5.className='ui-panel-section';s5.dataset.hpBench='';s5.append(node('h3','Potions bench'));
    for(const j of campaign.jobs||[]){if(!hpLeadMakingCommands.some(c=>c.id===j.commandId))continue;const line=node('p',`${j.label} · ${j.remaining} min left`);s5.append(line);if(j.cancellable){const b=node('button','Stop this preparation');b.type='button';b.dataset.hpProcedureCancel=j.id;b.onclick=()=>{try{command({type:'cancel',jobId:j.id});notice='Completed steps are kept. You can try this step again.';}catch(e){notice=e.message;}render();};s5.append(b);}}

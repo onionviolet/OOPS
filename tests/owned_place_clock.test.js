@@ -20,7 +20,7 @@ test('lapsed upkeep closes the place, rushes the owed hours onto the shelf and r
     const c=setup();run({type:'still',place:'cottage',days:1});run({type:'store',place:'cottage',key:potato});
     c.clock=3*DAY;
     assert.throws(()=>quotePlaceClock({type:'store',place:'cottage',key:potato}),/closed/);
-    run({type:'take',place:'cottage',key:potato});assert.equal(c.inventory[potato],2,'spoiled by the rushed hours');
+    run({type:'take',place:'cottage',key:potato});assert.equal(c.inventory[potato],2,'spoiled by the rushed hours');assert.equal(c.inventory[JSON.stringify({id:'Spoiled food'})],1,'rot is kept, not deleted');
     assert.throws(()=>quotePlaceClock({type:'still',place:'cottage',days:1}),/closed/);
     run({type:'reopen',place:'cottage'});assert.equal(placeClockState().places.cottage.status,'open');run({type:'still',place:'cottage',days:1});
 });
@@ -125,7 +125,7 @@ test('preserved food expires by retained age after redeposit and projections nev
     assert.deepEqual(placeClockState(),before);assert.deepEqual(c.inventory,stock);assert.equal(c.money,money);
     assert.match(projectPlaceClock('cottage','present').lines.join(' '),/spoiled/);assert.doesNotMatch(projectPlaceClock('cottage','present').lines.join(' '),/Ratio|min old/);
     c.fail=true;assert.throws(()=>run({type:'take',place:'cottage',key}),/Storage/);assert.deepEqual(placeClockState(),before);assert.deepEqual(c.inventory,stock);
-    c.fail=false;const out=run({type:'take',place:'cottage',key});assert.equal(out.spoiled,true);assert.deepEqual(out.cost.items,[]);
+    c.fail=false;const out=run({type:'take',place:'cottage',key});assert.equal(out.spoiled,true);assert.deepEqual(out.cost.items,[{key:JSON.stringify({id:'Spoiled food'}),delta:1}],'rot is returned, not deleted');
 });
 test('actual food outcomes and release fees agree when many actions commit projected time',()=>{
     const clam=JSON.stringify({id:'Cooked clam'});
@@ -133,7 +133,7 @@ test('actual food outcomes and release fees agree when many actions commit proje
         const c=setup({inventory:{[clam]:1}});run({type:'still',place:'cottage',days:7});run({type:'store',place:'cottage',key:clam});let key=clam;
         for(const at of ends){c.clock=at;const out=run({type:'take',place:'cottage',key});assert.equal(out.spoiled,false);key=out.cost.items[0].key;run({type:'store',place:'cottage',key});}
         c.clock=2881;const out=run({type:'take',place:'cottage',key});
-        return {spoiled:out.spoiled,remaining:Object.values(c.inventory).reduce((a,b)=>a+b,0),age:placeClockState().places.cottage.age,remainder:placeClockState().places.cottage.remainder,drift:placeClockState().places.cottage.drift,fee:quotePlaceClock({type:'release',place:'cottage'}).cost.money};
+        return {spoiled:out.spoiled,remaining:Object.entries(c.inventory).filter(([k])=>!/Spoiled food/.test(k)).reduce((a,[,b])=>a+b,0),age:placeClockState().places.cottage.age,remainder:placeClockState().places.cottage.remainder,drift:placeClockState().places.cottage.drift,fee:quotePlaceClock({type:'release',place:'cottage'}).cost.money};
     };
     const long=play([]);assert.deepEqual(play(Array.from({length:2880},(_,i)=>i+1)),long);assert.deepEqual(play([1,3,79,333,720,1000,1919,2880]),long);assert.equal(long.spoiled,true);assert.equal(long.remaining,0);
 });

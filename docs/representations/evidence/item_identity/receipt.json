@@ -1,0 +1,47 @@
+{
+ "bundle": "feffa6050e2f",
+ "viewport": "1920x1080",
+ "steps": [
+  {
+   "step": "paid for the hairs: the seller's word reads as a guess",
+   "lines": [
+    {
+     "text": "Bundle sold as rare hairs (unchecked): held; awaiting verification.",
+     "reading": "guessed"
+    }
+   ]
+  },
+  {
+   "step": "appraised: the guess was wrong",
+   "lines": [
+    {
+     "text": "Forged bundle of hairs: verification failed; refund available.",
+     "reading": "known"
+    }
+   ]
+  },
+  {
+   "step": "frog held: main inventory reads the known identity",
+   "row": "Dried black-spotted frog\n1 penny",
+   "appraisedLineInDetail": true
+  },
+  {
+   "step": "ink in custody before checking",
+   "lines": [
+    {
+     "text": "Dried black-spotted frog: settled.",
+     "reading": "known"
+    },
+    {
+     "text": "Forged bundle of hairs: verification failed; refund available.",
+     "reading": "known"
+    },
+    {
+     "text": "Jar sold as grave-dust ink (unchecked): held; awaiting verification.",
+     "reading": "guessed"
+    }
+   ]
+  }
+ ],
+ "pageErrors": []
+}

@@ -27,3 +27,8 @@
 .work-stage-track [data-state='complete'] { border-style:solid; }
 .work-stage-track [data-state='current'] { border-width:2px; }
 @media (forced-colors:active) { .meter-bar-delta { color:CanvasText; } }
+.meter-bar[data-unknown='true'] .meter-bar-track { border:1px dashed currentColor; opacity:.65; }
+.meter-bar[data-unknown='true'] .meter-bar-fill, .meter-bar[data-unknown='true'] .meter-bar-steps { display:none; }
+/* Vitals read low with a mark beyond colour (UR115, element audit UIC106). */
+.character_bar_parent_div[data-state="low"] { box-shadow: inset 3px 0 0 var(--ui-meter-warn); }
+

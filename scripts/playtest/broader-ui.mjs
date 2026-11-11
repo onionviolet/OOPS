@@ -32,7 +32,7 @@ if(phase==='sample'){
   const selected=p.locator('#proto23_item_detail');const selectedTitle=await selected.locator('.shell-item-title').innerText();
   await selected.locator('.shell-item-more > summary').click();await pause();assert.equal(await task(),null);assert(await selected.locator('.shell-item-more').evaluate(n=>n.open));
   await shot(`local-item-${suffix}`);
-  await selected.getByRole('button',{name:'Equip',exact:true}).click();await pause();assert.match(await selected.innerText(),/Equipped · legs/);
+  await selected.getByRole('button',{name:/^Equip( · |$)/}).click();await pause();assert.match(await selected.innerText(),/Equipped · legs/);
   await selected.getByRole('button',{name:'Take off',exact:true}).click();await pause();assert.match(await selected.locator('.shell-item-title').innerText(),/slot · empty/);assert.equal(await selected.getByRole('button',{name:'Take off',exact:true}).count(),0);assert.match(await selected.innerText(),/Choose carried equipment/);
   await selected.getByRole('button',{name:'Cheap leather pants',exact:true}).click();await pause();
   await inv.click();await find.fill('');await p.keyboard.press('Escape');

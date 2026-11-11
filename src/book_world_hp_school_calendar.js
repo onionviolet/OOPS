@@ -16,6 +16,8 @@ export const SCHOOL_YEAR = Object.freeze([
         source: 'Authored proposal. The book mentions Easter holidays for revision, no dates. The year is unknown, so Easter is not tied to a real moon.'}),
     Object.freeze({id: 'term_resumes_easter', label: 'Lessons resume', date: '20 April', day: 263, phase: 'term',
         source: 'Authored proposal.'}),
+    Object.freeze({id: 'exams', label: 'End-of-year exams', date: '17 June', day: 321, phase: 'exams',
+        source: 'Authored proposal. The book has the exams in June after the forest detention and puts the last paper just before the night in the trapdoor chapters; no date is given. The week of papers is compressed to one day of sittings (dial: hp_exam_model.js EXAM_DAY). Lessons stop while the exams run.'}),
     Object.freeze({id: 'term_end', label: 'Term ends', date: '25 June', day: 329, phase: 'summer_after',
         source: 'Authored proposal. The book puts the exams in June and the end-of-year feast and the train home after them; no day is given.'})]);
 const plural = n => `${n} day${n === 1 ? '' : 's'}`;

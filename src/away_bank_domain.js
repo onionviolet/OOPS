@@ -4,6 +4,8 @@ import {computeAway} from './away_ledger.js';
 // minutes at the native awake cadence (one per tick, like the Patient Furnace). Nothing is applied
 // on return: the player spends the bank through the native clock, so every cost, body need and
 // choice stop applies and no time-free reward is granted (AD16, AD38).
+// Spending counts minutes on the root clock (a sleeping tick covers several), so a spend of n moves the clock n minutes,
+// plus at most one tick's span when a tick straddles the end; the debit is what the clock consumed (TMR5, TMR11).
 // Dials (proposals, not accepted numbers): capacity 7 days, drop beyond it, 60 minutes per spend.
 // Capacity is the AD18 improvement hook: ports.capacity() may return a larger value.
 // Compatibility: a save without the slice starts at an empty bank with lastSeen = now, so old
@@ -73,7 +75,7 @@ export async function spendAwayBank(minutes=AWAY_BANK_DEFAULTS.spendMinutes){
     if(!(n>=1))throw new Error('No time is banked.');
     const root=ports.root(),before=root.clock;
     busy=true;
-    try{await ports.fastForward(n);}finally{busy=false;}
+    try{await ports.fastForward(n,{untilClock:before+n});}finally{busy=false;}
     const consumed=Math.max(0,ports.root().clock-before);
     state.bankedMinutes=Math.max(0,state.bankedMinutes-consumed);
     lastSpend=consumed<n?`Stopped after ${consumed} of ${n} minutes at a waiting choice or boundary; the rest stays banked.`:`Spent ${consumed} banked minutes.`;

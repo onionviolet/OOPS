@@ -1,5 +1,6 @@
 import {stageAcquisition, recordAcquisitions} from "./acquisition.js";
 import {applyGameplayEffect} from "./gameplay_transactions.js";
+import {isStaple} from "./regional_prices.js";
 import {validateExpansionState} from "./expansion_engine.js";
 
 // Quotes include the price inputs and both owners' quantities. Revalidation is
@@ -20,7 +21,7 @@ export function stageNativeTrade({state, gameplay, owners, money, market, itemLo
     const nextMarket = structuredClone(market);
     for(const [entries, selling] of [[quote.buy, false], [quote.sell, true]]) for(const entry of entries) {
         const item = getItem(entry.item_key);
-        if(!item.saturates_market) continue;
+        if(!item.saturates_market || isStaple(quote.vendorId, item.id) && entry.item_key === JSON.stringify({id: item.id})) continue; // a regional staple's one cause is the shelf (XWR17)
         const {group_key, group_tier} = item.getMarketSaturationGroup();
         const region = nextMarket[quote.region];
         if(!region) throw new Error("Unknown market region.");

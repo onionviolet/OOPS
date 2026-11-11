@@ -1,5 +1,7 @@
 // W8-A: the route from Harry's summer to Hogwarts: arrival on day 32 (1 September), then the Sorting (canon: Gryffindor, others locked).
 import test from 'node:test';
+import {hpLeadExamCommands} from '../src/world_packs/book_hp_lead_exam_data.js';
+const hpExamCommandIds=hpLeadExamCommands.map(c=>c.id);
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {packNative} from '../src/world_pack_registry.js';
@@ -80,7 +82,7 @@ test('save and reload keep both facts; the Reports Now note and the class duty f
 test('the school route survives a private cast that replaces the household acts',()=>{
  const cast={schema:'hp-cast/1',locations:[],people:[],householdActs:{acts:[{id:P+'.w1.one',place:P+'.cupboard',minutes:5,label:'One',description:'d',report:'r',knowledgeKey:P+'.w1.k',operation:'use',effects:[]}],sequences:[{id:P+'.s',title:'S',stages:[{commandId:P+'.w1.one',label:'One'}]}]}};
  const raw=withHpLeadCast(packNative(P),cast);
- assert.deepEqual(raw.simulation.commands.map(c=>c.id),[P+'.w1.one',ARRIVE,SORT,P+'.go_dormitory',P+'.leave_dormitory',P+'.lesson_charms',P+'.charms_practice',P+'.lesson_potions',P+'.tie.ron_family',P+'.tie.ron_practice',P+'.make.cure_boils.procedure.1',P+'.make.cure_boils.procedure.2',P+'.make.cure_boils',P+'.make.cure_boils.use',P+'.make.cure_boils_quills_early.procedure.1',P+'.make.cure_boils_quills_early',P+'.make.cure_boils_quills_early.use',P+'.sp.use.levitation_charm',P+'.sp.use.pass_feather']);
+ assert.deepEqual(raw.simulation.commands.map(c=>c.id),[P+'.w1.one',ARRIVE,SORT,P+'.go_dormitory',P+'.leave_dormitory',P+'.lesson_charms',P+'.charms_practice',P+'.lesson_potions',P+'.tie.ron_family',P+'.tie.ron_practice',P+'.make.cure_boils.procedure.1',P+'.make.cure_boils.procedure.2',P+'.make.cure_boils',P+'.make.cure_boils.use',P+'.make.cure_boils_quills_early.procedure.1',P+'.make.cure_boils_quills_early',P+'.make.cure_boils_quills_early.use',P+'.sp.use.levitation_charm',P+'.sp.use.pass_feather',...hpExamCommandIds]);
  const f=setup(raw);atDay(f,32,10);assert.equal(preview(f,ARRIVE).eligible,true);
 });
 test('a private school week joins the train to placement and later work through native receipts',()=>{

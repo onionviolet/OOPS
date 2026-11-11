@@ -22,6 +22,10 @@ test('UI contract catches new literal styling and aliased/direct foreign panel i
     // UR66-UR68: control heights, layers and type roles.
     for(const [text,rule] of [['button.x {min-height:23px}','control-height'],['.x {z-index:30}','layer'],["el.style.zIndex='5';",'layer'],['.x {line-height:1.35}','type'],['.x {font-weight:600}','type'],['.x {font-size:.85em}','type']])
         assert.deepEqual(scanUiText(text).map(v=>v.rule),[rule],text);
+    // UR130, UR131, UR133: clickable divs, fixed-pixel geometry and a partial inert are caught; fractions are not.
+    for(const [text,rule] of [['<div id="x" onclick="go()">','clickable-div'],['bar.style.width=(385*f)+"px";','pixel-geometry'],["i.style.width='50px';",'pixel-geometry'],['main_content.inert=true;','partial-inert']])
+        assert.deepEqual(scanUiText(text).map(v=>v.rule),[rule],text);
+    assert.deepEqual(scanUiText('bar.style.width=`${f*100}%`;i.style.width="0px";<button onclick="go()">'),[]);
     // DL10: literal motion timing is caught; token timing and none are not.
     for(const text of ['.x {transition: width .2s}','.x {animation: pulse 900ms ease-out 1}','.x {animation-duration: 1s}'])assert.deepEqual(scanUiText(text).map(v=>v.rule),['motion'],text);
     assert.deepEqual(scanUiText('.x {transition: width var(--ui-motion-normal, .2s)} .y {transition:none;animation:none}'),[]);

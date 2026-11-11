@@ -9,7 +9,8 @@ import {LOTM_IDS} from './book_world_lotm_ids.js';
 import {worldLight, TINGEN_LIGHT} from './world_light.js';
 import {positionsOf} from './positions.js';
 import {domainRegistry} from './domain_registry.js';
-import {runDeck2, validateDeck2} from './storylet_deck2.js';
+import {runDeck2, validateDeck2, matches, cardWeight} from './storylet_deck2.js';
+import {runDirector, validateDirector, whyLine} from './story_director.js';
 
 const DAY = 1440, SLOT = 360, SLOTS_PER_DAY = DAY / SLOT;
 // Dials (default, reason):
@@ -28,13 +29,13 @@ export const TINGEN_CARDS = Object.freeze([
     card('lamplighter', 'A lamplighter works his way down the street with his long pole, one small flame at a time, and does not look up.',
         {needs: {slotOfDay: m(3, 0)}, weight: 2}),
     card('cab_in_the_dark', 'A cab goes by too fast for the fog. You hear the horse and the wheels long before the lamps show you anything.',
-        {needs: {fog: true, slotOfDay: NIGHT}, weight: 2}),
+        {category: 'pressure', needs: {fog: true, slotOfDay: NIGHT}, weight: 2}),
     card('constable_lantern', 'A constable\'s lantern lingers on you a moment longer than it needs to, then moves on.',
-        {needs: {night: true}, weight: .5, plus: [{when: {heat: m(1, 2, 3)}, mult: 6}]}),
+        {category: 'pressure', needs: {night: true}, weight: .5, plus: [{when: {heat: m(1, 2, 3)}, mult: 6}]}),
     card('headline_coal', 'The news-stand headline is about the price of coal and the temper of the dockers. A clerk beside you reads it twice and sighs.',
-        {needs: {slotOfDay: m(1, 2)}, weight: 2.5}),
+        {category: 'civic', needs: {slotOfDay: m(1, 2)}, weight: 2.5}),
     card('headline_shipping', 'Someone has left yesterday\'s paper on the bench, folded open at the shipping notices and a long column of arrivals.',
-        {needs: {slotOfDay: m(1, 2)}, weight: 1.5, plus: [{when: {market: true}, add: 1}]}),
+        {category: 'civic', needs: {slotOfDay: m(1, 2)}, weight: 1.5, plus: [{when: {market: true}, add: 1}]}),
     card('chestnut_seller', 'A woman with a brazier sells hot chestnuts at the corner, calling the price in a voice the fog does not muffle.',
         {needs: {slotOfDay: m(2, 3)}, weight: 2, plus: [{when: {market: true}, add: 2}, {when: {fog: true}, add: 1}]}),
     card('market_noise', 'The market street is loud with carts, bargaining and a boy shouting the day\'s cabbage price over everyone else.',
@@ -42,19 +43,26 @@ export const TINGEN_CARDS = Object.freeze([
     card('street_singer', 'A street singer works the market crowd with a cracked, cheerful song about a sailor who never came home to pay his debts.',
         {needs: {market: true, slotOfDay: m(2, 3)}, weight: 3}),
     card('church_bell', 'A church bell tolls across the rooftops, and the people on the street drift in the same direction without anyone saying why.',
-        {needs: {slotOfDay: m(1, 2)}, weight: .5, plus: [{when: {service: true}, add: 6}]}),
+        {category: 'civic', needs: {slotOfDay: m(1, 2)}, weight: .5, plus: [{when: {service: true}, add: 6}]}),
     card('service_hats', 'Families in their good coats pass by on the way to the service, children walking carefully so as not to scuff their boots.',
-        {needs: {service: true, slotOfDay: MORN}, weight: 4}),
+        {category: 'civic', needs: {service: true, slotOfDay: MORN}, weight: 4}),
     card('neighbour_stairs', 'Your neighbour is on the stairs again, talking to nobody in particular about draughts, bills and the state of the landing.',
         {needs: {slotOfDay: m(0, 1, 3)}, weight: 1.5, cooldown: 16}),
     card('landlord_step', 'The landlord\'s heavy step crosses the hall below. Every door on the stair stays shut a little longer than usual.',
-        {needs: {rentWeek: true, slotOfDay: m(1, 3)}, weight: 3, plus: [{when: {slotOfDay: 1}, add: 1}]}),
+        {category: 'civic', needs: {rentWeek: true, slotOfDay: m(1, 3)}, weight: 3, plus: [{when: {slotOfDay: 1}, add: 1}]}),
     card('clerks_hurry', 'Clerks hurry past with their collars up, each one carrying the same thin expression of a man afraid of being late.',
-        {needs: {slotOfDay: MORN, weekdayWork: true}, weight: 2, plus: [{when: {position: 'Civil staff'}, add: 2}]}),
+        {category: 'civic', needs: {slotOfDay: MORN, weekdayWork: true}, weight: 2, plus: [{when: {position: 'Civil staff'}, add: 2}]}),
     card('ferry_horn', 'A ferry horn sounds from the river, low and long, and somewhere a dog answers it.',
         {needs: {slotOfDay: m(0, 1)}, weight: 1.5, plus: [{when: {fog: true}, add: 1.5}]}),
 ]);
 export const TINGEN_DECK = validateDeck2({id: 'tingen.daily', slotMinutes: SLOT, quiet: 3, cooldown: 12, dry: {after: 3, relief: .5, floor: .15}, cards: TINGEN_CARDS});
+// Story director for the deck (STY10, STY11): the deck above causes the ambient happenings; the director chooses which of them reach the
+// lead's Events list and when. Dials (default, reason): one pick per six-hour window at most; city pressure (constable's lantern, a cab
+// in the dark) grows with heat and crowds out street texture; civic news may wait two windows and pressure one, texture is of the moment;
+// a long lull brings texture back. Calendar days (market, service) are fixed points and never pass through it.
+export const TINGEN_DIRECTOR = validateDirector({id: 'tingen.director', quiet: 2, tensionQuiet: .5, cooldown: 4, attempts: 2, dry: {after: 3, relief: .6, floor: .2},
+    categories: {texture: {weight: 3, hold: 0, tension: -.6, comfort: 1}, civic: {weight: 2, hold: 2}, pressure: {weight: 1, hold: 1, tension: 5}}});
+const CARD_BY_ID = new Map(TINGEN_CARDS.map(c => [c.id, c]));
 const text = (id, e) => `${id}:${e}`;
 
 const gated = state => state?.actors?.player?.worldId === LOTM_IDS.world && Number.isFinite(state.lotm?.initializedAt) && Number.isFinite(state.clock);
@@ -87,14 +95,23 @@ export function tingenDraws(state, readers) {
     const slow = slowFacts(state, readers), upto = tingenSlot(state);
     return runDeck2(TINGEN_DECK, tingenDeckSeed(state), upto, s => slotFacts(s, slow), JSON.stringify(slow));
 }
-// The feed adapter: news rows {id, at, text}. Empty outside a Tingen life.
+export const tingenTension = slow => Math.min(1, (slow.heat || 0) / 3);
+// The director's run over the deck's draws: per six-hour window which drawn card surfaced (and why). Derived, no save field.
+export function tingenDirected(state, readers) {
+    if(!gated(state)) return [];
+    const slow = slowFacts(state, readers), upto = tingenSlot(state), draws = tingenDraws(state, readers);
+    const factsAt = s => ({...slotFacts(s, slow), tension: tingenTension(slow)});
+    const born = s => { const c = draws[s]?.cardId && CARD_BY_ID.get(draws[s].cardId); return c ? [{id: c.id, category: c.category ?? 'texture', weight: cardWeight(c, factsAt(s)) || 1, recheck: f => matches(c.needs, f)}] : []; };
+    return runDirector(TINGEN_DIRECTOR, tingenDeckSeed(state), upto, born, factsAt, JSON.stringify(slow));
+}
+// The feed adapter: news rows {id, at, text, why}. Empty outside a Tingen life.
 export function tingenDeckNews(state, readers) {
     if(!gated(state)) return [];
     const epoch = state.lotm.initializedAt, upto = tingenSlot(state), out = [], byId = new Map(TINGEN_CARDS.map(c => [c.id, c]));
-    const draws = tingenDraws(state, readers);
+    const directed = tingenDirected(state, readers);
     for(let s = upto, n = 0; s >= 0 && n < SHOW_CARDS && s > upto - SHOW_DAYS * SLOTS_PER_DAY - 1; s--) {
-        const d = draws[s];
-        if(d?.cardId) { n++; out.push({id: text('tingen:deck', `${d.cardId}@${s}`), at: epoch + s * SLOT, text: byId.get(d.cardId).text}); }
+        const d = directed[s]?.surfaced;
+        if(d) { n++; out.push({id: text('tingen:deck', `${d.id}@${d.born}`), at: epoch + s * SLOT, text: byId.get(d.id).text, why: whyLine(directed[s].receipt)}); }
     }
     const today = Math.floor((state.clock - epoch) / DAY) + 1;
     for(let day = Math.max(1, today - SHOW_DAYS + 1); day <= today; day++) for(const e of calendarEventsOn(day)) {

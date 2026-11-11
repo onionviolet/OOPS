@@ -55,7 +55,7 @@ export function createEventFeed({registry, read, open}) {
         // Keep current buttons mounted while countdowns tick, preserving focus.
         feed.leads.forEach((e,i) => {const card=rows.get(e.id).card; if(leads.children[i] !== card) leads.insertBefore(card,leads.children[i] || null);});
         const signature=JSON.stringify(feed.news);
-        if(signature !== historySignature) {historySignature=signature; history.replaceChildren(...feed.news.map(m => node("li",m.text)));}
+        if(signature !== historySignature) {historySignature=signature; history.replaceChildren(...feed.news.map(m => {const li = node("li",m.text); if(m.why) li.title = m.why; return li;}));}
         past.hidden=!feed.news.length;
         const ls=JSON.stringify(feed.life),hs=JSON.stringify(feed.heard);
         if(ls!==lifeSignature){lifeSignature=ls;lifeHistory.replaceChildren(...feed.life.map(m=>node('li',m.text)));}

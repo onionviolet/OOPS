@@ -28,7 +28,7 @@ Owners and neighbours (linked, not restated): Rulebook 7 in [RULES_FROM_SCRATCH]
 | TMR1 | **One root clock; worlds read it.** Played minutes advance `state.clock` in `expansion_engine.js`; each world projects its own calendar from it. | Default: `resolveWorldCalendar` and `dayIndex` (`world_day_index.js`) are the readers; a new feature adds no clock counter. Dial: a world's calendar profile. Reason: the area guide's "do not add another clock counter"; LOTM's own `lotmDay` (twice) and the 12×30 constant in `world_rhythm.js` are the cases to fold in when touched. | AR3, AREA_GUIDE |
 | TMR2 | **Each world has its own calendar.** Month lengths, weekdays, festivals, seasons and eras are world data. | Default: a calendar profile in `world_calendar_content.js`; seasons only where the world defines them. Dial: per world; a world with no calendar uses plain day numbers. Reason: AD46; a sect's lunar months and Hogwarts' terms are not the same year. | AD46, LVR7 |
 | TMR3 | **Clocks are scoped to what they touch.** A world clock, a body clock and a place clock (a stilled room, a sealed vault) can run at different rates. | Default: one world clock and one body clock per person; a place clock only through a mechanism (`owned_place_clock.js`). Dial: a world with time-dilated places or a 3:1 realm. Reason: his "many clocks" question; a clock that touches nothing is not saved. | GR17, BHR28 |
-| TMR4 | **Draws key on the owning clock** (restates GR17, MR28). | Default: catching up in one step or many gives the same results. Dial: none. Reason: a skip that rerolls the world breaks trust; a slice-equivalence test is still missing. | GR17, MR28, WA37 |
+| TMR4 | **Draws key on the owning clock** (restates GR17, MR28). | Default: catching up in one step or many gives the same results. Dial: none. Reason: a skip that rerolls the world breaks trust. `tests/headless/away_bank_equivalence.test.js` plays N minutes live and spends N banked minutes from one save and seed (hearth, woodcutting, sleeping, a blocking choice mid-run) and allows only the bank debit to differ; it runs on request, not in `npm test`. | GR17, MR28, WA37 |
 
 ## Away
 
@@ -72,7 +72,7 @@ Owners and neighbours (linked, not restated): Rulebook 7 in [RULES_FROM_SCRATCH]
 - AD16 says routines progress while away; the code banks and spends. TMR5 states that as the default; an auto-spend option is open.
 - Resolved 2026-11-10 (RCL6): one bank. The Mistglass practice draws from it at an efficiency dial, the Furnace rebases on it, and the cap grows through registered sources (play first) shown in the projection (TMR6).
 - LOTM keeps its own day formula in two places (TMR1).
-- No slice-equivalence test for catch-up draws (TMR4).
+- Resolved 2026-11-10 (FRC40): the catch-up equivalence harness exists for four routines. Found and fixed: a spend counted ticks, so a sleeping spend of 120 minutes moved the clock 720; it now stops on the root clock (`untilClock`). Remaining: a spend can overshoot by one tick's span when a tick straddles the end; LOTM and Mistglass routines are covered at unit level only.
 - AD17's recap has no owner (TMR10).
 - Two schedule owners, `cast_schedule.js` and `npc_schedule.js`; one wraps midnight and one does not.
 - The census of every catch-up answer (LAYX206, N10) has not run; about ten answers are known.

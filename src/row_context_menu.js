@@ -87,21 +87,31 @@ export function mountRowContextMenu() {
         const box = row.getBoundingClientRect(), keyboard = event.clientX === 0 && event.clientY === 0;
         if (open(row, keyboard ? box.left + 12 : event.clientX, keyboard ? box.bottom - 4 : event.clientY)) event.preventDefault();
     };
+    // Window capture runs before the shell's document-level Esc handlers, so an open menu closes
+    // first even while the item preview is up (UR53, element audit G3).
     const onKey = event => {
-        if (menu.hidden || !menu.contains(document.activeElement)) return;
-        if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); close(); }
-        else if (event.key === 'ArrowDown') { event.preventDefault(); highlight(index + 1); }
+        if (menu.hidden) return;
+        if (event.key === 'Escape') { event.preventDefault(); event.stopImmediatePropagation(); close(); return; }
+        if (!menu.contains(document.activeElement)) return;
+        if (event.key === 'ArrowDown') { event.preventDefault(); highlight(index + 1); }
         else if (event.key === 'ArrowUp') { event.preventDefault(); highlight(index - 1); }
         else if (event.key === 'Tab') { close(); }
     };
-    const onOutside = event => { if (!menu.hidden && !menu.contains(event.target)) close({restore: false}); };
+    // An outside press closes the menu without activating what was under it (UR53), as control boxes do.
+    const onOutside = event => {
+        if (menu.hidden || menu.contains(event.target)) return;
+        close({restore: false});
+        const swallow = e => { e.preventDefault(); e.stopImmediatePropagation(); };
+        window.addEventListener('click', swallow, {capture: true, once: true});
+        setTimeout(() => window.removeEventListener('click', swallow, {capture: true}), 600);
+    };
     document.addEventListener('contextmenu', onContext);
-    document.addEventListener('keydown', onKey, true);
+    window.addEventListener('keydown', onKey, true);
     document.addEventListener('pointerdown', onOutside, true);
     window.addEventListener('blur', () => close({restore: false}));
     registerShortcut({id: 'row-menu', keys: 'Right-click, Menu key or Shift+F10', label: 'Row menu: every action a row offers, in one list', scope: 'On a row'});
     return {open, close, destroy() {
-        document.removeEventListener('contextmenu', onContext); document.removeEventListener('keydown', onKey, true);
+        document.removeEventListener('contextmenu', onContext); window.removeEventListener('keydown', onKey, true);
         document.removeEventListener('pointerdown', onOutside, true); menu.remove();
     }};
 }

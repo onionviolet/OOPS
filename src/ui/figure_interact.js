@@ -6,6 +6,7 @@
 // Nothing here is the only route to a fact: the text form and the native <title> words stay as figure.js draws
 // them, and the cards repeat the same facts. Motion is a class that flashes a real change and is off under effects off.
 import {FIGURE_STATES, validateFigureSpec} from './figure.js';
+import {searchLabel} from './search_field.js';
 
 const word = state => state ? state.charAt(0).toUpperCase() + state.slice(1) : '';
 const stateMark = state => state ? `${FIGURE_STATES[state]} ${word(state)}` : '';
@@ -128,7 +129,7 @@ export function attachFigureInteract(host, spec, options = {}) {
     const count = make('span', 'fig-filter-count'); count.setAttribute('aria-live', 'polite');
     const focusBtn = make('button', 'fig-focus-toggle', 'Focus: off'); focusBtn.type = 'button'; focusBtn.setAttribute('aria-pressed', 'false');
     const clearBtn = make('button', 'fig-clear', 'Clear'); clearBtn.type = 'button';
-    if (options.filter !== false) bar.append(input, count);
+    if (options.filter !== false) bar.append(searchLabel(input, 'Filter'), count);
     bar.append(focusBtn, clearBtn);
     const hint = make('p', 'fig-interact-hint', 'Hover or focus a point to light its neighbours. Click or press Enter to pin; pin two to compare. Arrow keys move, Esc clears.');
     const cards = make('div', 'fig-cards');

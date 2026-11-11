@@ -97,3 +97,17 @@ test('unchanged empty detail keeps its node, while selecting and clearing a reci
         assert.match(root.textContent,/Select a recipe/);assert.doesNotMatch(root.textContent,/Balm/);
     } finally {globalThis.document=previous;}
 });
+
+test('a blocked commit names its time and says why beside the buttons (UR102, UIC111)',()=>{
+    const previous=globalThis.document,dom=createDom();dom.loadHTML('<html><body><div id="detail"></div></body></html>');globalThis.document=dom.document;
+    try {
+        const root=document.getElementById('detail');let blocked=0;
+        renderCraftingDetail(root,{title:'Steep',requirements:[],effects:[],output:{name:'Preparation',count:1},singleAttempt:true,commitLabel:'Try one batch',when:'instant',available:false,attempts:0,blocked_reason:'Select at least one carried material for an experiment.'},{onBlocked:()=>blocked++});
+        const commit=root.querySelector('[data-craft-commit]'),why=root.querySelector('[data-craft-commit-reason]');
+        assert.equal(commit.textContent,'Try one batch · instant');
+        assert.equal(why.textContent,'Select at least one carried material for an experiment.');
+        assert.equal(commit.getAttribute('aria-describedby'),why.id);
+        assert.equal(why.parentElement,commit.closest('.craft_detail_actions'));
+        commit.click();assert.equal(blocked,1);
+    } finally {globalThis.document=previous;}
+});

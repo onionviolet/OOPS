@@ -97,3 +97,4 @@ Owners and neighbours (linked, not restated): WER1–WER17 in [world entry rules
 - No slice-equivalence test exists for a crossing that is interrupted and resumed.
 - Whether bodies, titles and counterparts (LLR34–LLR36) stay at these defaults is his call.
 - `native_realm_traveler.js` retains one learned method by hard-coded id; the general shape for retained methods is XWR7.
+- XWR17 is built for two native stalls (Village and Slums staples): [regional staple prices](AREA_GUIDE.md#regional-staple-prices). Other worlds, non-staple goods and shipping between worlds (XWR9) are not covered; Naev's numbers are not copied.

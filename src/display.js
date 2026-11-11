@@ -27,11 +27,10 @@ import {foodPacingDescription} from './absorb_e1/panel.js';
 import {rarityColor} from './rarity_palette.js';
 import {getDisplaySetting} from './display_settings.js';
 import {accessoryCraftingTiers} from './absorb_c1/accessories.js';
-import {projectGameAbsorptionAssayItemView} from './game_absorption_assay_item_view.js';
-import {projectFieldcraftItemView} from './nethack_fieldcraft_item_view.js';
+import {projectItemView} from './item_views.js';
 "use strict";
 
-import { current_trader, to_buy, to_sell } from "./trade.js";
+import { current_trader, to_buy, to_sell, regionalUnit } from "./trade.js";
 import { skills } from "./data/skills.js";
 import { get_next_skill_milestone, get_unlocked_skill_rewards } from "./models/skill.js";
 import { character, cold_status_temperatures, lowest_tolerable_temperature } from "./data/character.js";
@@ -48,6 +47,8 @@ import { book_stats, item_templates, Weapon, Armor, Shield, rarity_multipliers, 
 import { favourite_locations, location_types, locations } from "./data/locations.js";
 import { get_location_type_penalty } from "./models/location.js";
 import { enemy_killcount, enemy_templates } from "./enemies.js";
+import { formatPercent, formatMultiplier, formatRatio, moneyParts } from "./number_format.js";
+import { set_bar_fraction, mark_vital_meter } from "./ui/bar_semantics.js";
 import { playerAttributeDefinitions, ATTRIBUTE_DESCRIPTIONS, GEAR_DIMENSION_NOTES, PERCENT_ATTRIBUTES, DAMAGE_TAKEN_FLOOR, affixSourceRows } from "./player_attribute_definitions.js";
 import { expo, format_reading_time, stat_names, round_item_price, format_working_time, task_type_names, celsius_to_fahrenheit, is_a_older_than_b, select_outline_class } from "./misc.js"
 //import { stances } from "./combat_stances.js";
@@ -137,8 +138,8 @@ function refreshVendorStates() {
     for(const [key, row] of seenVendorRows) {
         const entry = inventory[key];
         if(!row.isConnected) trader_inventory_div.append(row);
-        const price = entry ? round_item_price(entry.item.getValue({region: current_location.market_region,
-            multiplier: trader.getProfitMargin(current_location.market_region) || 1})) : 0;
+        const price = entry ? (regionalUnit(entry.item, 'buy') ?? round_item_price(entry.item.getValue({region: current_location.market_region,
+            multiplier: trader.getProfitMargin(current_location.market_region) || 1}))) : 0;
         const selected = to_buy.items.find(x => x.item_key === key)?.count || 0;
         const status = vendorState({stock: entry?.count || 0, selected, price,
             money: character.money, buying: to_buy.value, selling: to_sell.value});
@@ -547,7 +548,7 @@ function create_equipment_comparison(item, quality, baseline, qualityRange) {
 // item templates, stable keys, native quantities, custody or discovery records.
 let fieldcraftKnowledgeReader=()=>null;
 export function setFieldcraftKnowledgeReader(read){if(typeof read!=='function')throw new Error('Bind the current player knowledge reader.');fieldcraftKnowledgeReader=read;}
-function nativeItemView(item){const state=fieldcraftKnowledgeReader();return projectGameAbsorptionAssayItemView(item,state,projectFieldcraftItemView(item,state,{name:item.getName(),description:item.description||''}));}
+function nativeItemView(item){return projectItemView(item,fieldcraftKnowledgeReader(),{name:item.getName(),description:item.description||''});}
 function create_item_tooltip_content({item, options={}, is_trade = false}) {
     let item_tooltip = "";
 
@@ -756,9 +757,9 @@ function create_item_tooltip_content({item, options={}, is_trade = false}) {
             round_item_price(
                 item[value_function]({quality:options.quality[0], region:current_location?.market_region})))} - ${format_money(round_item_price(item.getBaseValue({quality:options.quality[1]})
             ))}`;
-        } else {
-            item_tooltip += `<br><br>Value: ${format_money(round_item_price(item[value_function]({quality, region:current_location?.market_region, multiplier: ((options && options.trader) ? NPCRegistry.get(current_trader).getTraderComponent().getProfitMargin(current_location.market_region) : 1)})))}`;
-            if(item.saturates_market) {
+        } else { const regional = regionalUnit(item, options?.trader ? 'buy' : 'sell');
+            item_tooltip += `<br><br>Value: ${format_money(regional ?? round_item_price(item[value_function]({quality, region:current_location?.market_region, multiplier: ((options && options.trader) ? NPCRegistry.get(current_trader).getTraderComponent().getProfitMargin(current_location.market_region) : 1)})))}`;
+            if(item.saturates_market && regional === null) {
                 item_tooltip += ` [originally ${format_money(round_item_price(item.getBaseValue({quality, region:current_location?.market_region}) * ((options && options.trader) ? NPCRegistry.get(current_trader).getTraderComponent().getProfitMargin(current_location.market_region) : 1) || 1))}]`
             }
         }
@@ -1767,7 +1768,7 @@ function update_displayed_trader_inventory({item_key, trader_sorting="name", sor
                 tooltip_div.replaceWith(create_item_tooltip(inventory[inventory_key].item, {trader: true}, true));
 
                 const price_span = trader_item_divs[inventory_key].getElementsByClassName("item_value")[0];
-                set_HTML(price_span, `${format_money(round_item_price(inventory[inventory_key].item.getValue({region: current_location.market_region, multiplier: (trader.getProfitMargin(current_location.market_region) || 1)})), true)}`);
+                set_HTML(price_span, `${format_money(regionalUnit(inventory[inventory_key].item, 'buy') ?? round_item_price(inventory[inventory_key].item.getValue({region: current_location.market_region, multiplier: (trader.getProfitMargin(current_location.market_region) || 1)})), true)}`);
             }
         });
 
@@ -1955,7 +1956,7 @@ function update_displayed_character_inventory({item_key, equip_slot, character_s
                 if(!character.getItems()[inventory_key].item.tags.unsellable) {
                     const price_span = item_divs[inventory_key].getElementsByClassName("item_value")[0];
                     const price_html = is_trade
-                        ? `${format_money(round_item_price(character.getItems()[inventory_key].item.getValue({region: current_location.market_region})), true)}`
+                        ? `${format_money(regionalUnit(character.getItems()[inventory_key].item, 'sell') ?? round_item_price(character.getItems()[inventory_key].item.getValue({region: current_location.market_region})), true)}`
                         : `${format_money(round_item_price(character.getItems()[inventory_key].item.getBaseValue()), true)}`;
                     if(price_span.__item_value_html !== price_html || price_span.innerHTML !== price_span.__item_value_rendered) {
                         set_HTML(price_span, price_html);
@@ -2210,6 +2211,8 @@ function create_inventory_item_div({key, item_count, target, is_equipped, trade_
         item_faving_div.classList.add("item_fav_div");
         const icon = document.createElement("i");
         icon.classList.add("material-icons", "item_fav_icon");
+        // The ligature word is a glyph, not text; the control carries the name (UR121, element audit UIC108).
+        icon.setAttribute("aria-hidden", "true"); item_faving_div.setAttribute("aria-label", "Toggle favorite");
         if(typeof trade_index === "undefined") {
             if(favourite_items[key]) {
                 icon.innerText = 'star';
@@ -2279,7 +2282,7 @@ function create_inventory_item_div({key, item_count, target, is_equipped, trade_
 
     if(!target_item.tags.unsellable) {
         item_additional.appendChild(create_trade_buttons());
-        insert_HTML(item_value_span, `${format_money(round_item_price(target_item.getValue({region: current_location?.market_region, multiplier: price_multiplier})), true)}`);
+        insert_HTML(item_value_span, `${format_money(regionalUnit(target_item, (target === "trader") === (typeof trade_index === "undefined") ? 'buy' : 'sell') ?? round_item_price(target_item.getValue({region: current_location?.market_region, multiplier: price_multiplier})), true)}`);
     } else {
         item_control_div.setAttribute("data-unsellable", "true");
         clear_HTML_content(item_value_span);
@@ -2362,7 +2365,7 @@ function update_displayed_book(book_id) {
 
     const percent = Math.min(book_stats[book_id].accumulated_time / book_stats[book_id].required_time, 1);
     const progressBar = document.getElementById("action_progress_bar");
-    if(progressBar) progressBar.style.width = 385*percent+"px";
+    if(progressBar) set_bar_fraction(progressBar, percent);
 }
 
 function update_displayed_location_identity(location) {
@@ -3397,7 +3400,7 @@ function build_item_recipe_model(selection) {
         effects: item_recipe_result_effects(item_templates[result_id]),
         related: item_recipe_related_uses(selection, known_ids, result_id), back,
         output: {name: item_templates[result_id].getName(), count, scaled: !!recipe.scale_results && count > 1},
-        chance, time: "Instant: no game time passes", spendsOnFailure: true, station: station_tier > 0 ? `${station_name}, tier ${station_tier}` : `${station_name}: not available here`,
+        chance, time: "Instant: no game time passes", when: "instant", spendsOnFailure: true, station: station_tier > 0 ? `${station_name}, tier ${station_tier}` : `${station_name}: not available here`,
         xp, policy: materialPolicyText(game_options.stop_crafting_on_material_change), available: state.available, blocked_reason, receipt, cue, goal:craftBatchGoal.read()?.key===item_recipe_key(selection)?craftBatchGoal.read():null,
         result_details: create_item_tooltip_content({item: item_templates[result_id], options: {skip_quality: true, anchor_tooltip: true}})};
 }
@@ -4200,6 +4203,7 @@ function update_displayed_health() {
         + (total_regen != 0 ? " ("+ sign + expo({number: total_regen, precision: 1}) + "/s) " : "")
         + " hp";
     current_health_bar.style.width = (full_stats.health*100/full_stats.max_health).toString() +"%";
+    mark_vital_meter(document.getElementById("character_health_div"), {label: "Health", value: full_stats.health, max: full_stats.max_health, unit: "hp", low: .25});
 }
 function update_displayed_stamina() {
     if(deferSimulationRender(update_displayed_stamina, () => update_displayed_stamina(...arguments))) return; //call it when eating, resting or fighting
@@ -4211,6 +4215,7 @@ function update_displayed_stamina() {
         + (total_regen != 0 ? " (" + sign + expo({number: total_regen, precision: 1}) + "/s) " : " ")
         + "stamina";
     current_stamina_bar.style.width = (full_stats.stamina*100/full_stats.max_stamina).toString() +"%";
+    mark_vital_meter(document.getElementById("character_stamina_div"), {label: "Stamina", value: full_stats.stamina, max: full_stats.max_stamina, unit: "stamina", low: .2});
 }
 
 /**
@@ -4221,8 +4226,12 @@ function update_displayed_stats() {
     const full_stats = character.getFullStats();
     const equipment = character.getEquipment();
     Object.keys(stats_divs).forEach(function(key){
-        if(key === "crit_rate" || key === "crit_multiplier") {
-            stats_divs[key].innerText = `${(full_stats[key]*100).toFixed(1)}%`;
+        // Same format as the Stats panel (UR117, element audit UIC102): chance as a percent, damage as a multiplier.
+        if(key === "crit_rate") {
+            stats_divs[key].innerText = formatPercent(full_stats[key]);
+        }
+        else if(key === "crit_multiplier") {
+            stats_divs[key].innerText = formatMultiplier(full_stats[key]);
         } 
         else if(key === "attack_speed") {
             stats_divs[key].innerText = `${(character.getAttackSpeed()).toFixed(1)}`;
@@ -4415,8 +4424,8 @@ export function readPlayerAttributeInspector() {
     const number = value => value == null ? 'Unavailable' : String(Number(value.toFixed(value !== 0 && Math.abs(value) < .01 ? 6 : 3)));
     const format = (value, unit, key) => {
         if(value == null) return 'Unavailable';
-        if(PERCENT_ATTRIBUTES.has(key)) return `${number(value * 100)}%`;
-        if(unit === '×') return `×${number(value)}`;
+        if(PERCENT_ATTRIBUTES.has(key)) return formatPercent(value, 3);
+        if(unit === '×') return formatMultiplier(value, 3);
         return `${number(value)} ${unit}`;
     };
     const sourcesFor = (flat, multiplier, key, includeFlat = true) => {
@@ -4657,7 +4666,7 @@ function update_displayed_effect_durations() {
     for(const [key,row] of Object.entries(effect_divs)) {
         const effect = effects[key];
         if(!effect || effect.duration === 0) {row.remove();delete effect_divs[key];}
-        else row.querySelector(".active_effect_duration").innerText = effect.duration == null ? "Until resolved" : format_time({time:{minutes:effect.duration},round:false});
+        else row.querySelector(".active_effect_duration").innerText = effect.duration == null ? "Until resolved" : format_time({time:{minutes:effect.duration}}); // same rounding as when the row is first drawn (UIC102)
     }
     active_effect_count.innerText = Object.keys(effects).length;
     if(!Object.keys(effects).length && !active_effects_tooltip.textContent) set_HTML(active_effects_tooltip,'No active effects');
@@ -4769,29 +4778,10 @@ function create_temperature_tooltip() {
 function format_money(num) {
     const local=localMoneyLabel(num,currentWorldId());if(local!==null)return local;
     if(!denominationsKnown())return `${num} coins`;
-    let value;
-    const sign = num >= 0 ? '' : '-';
-    num = Math.abs(num);
-    
-    if(num > 0) {
-        value = (num%10 != 0 ? `${num%10}<span class="coin coin_wood">W</span>` : '');
-
-        if(num > 9) {
-            value = (Math.floor(num/10)%100 != 0?`${Math.floor(num/10)%100}<span class="coin coin_copper">C</span>${value?" ":""}` :'') + value;
-            if(num > 999) {
-                value = (Math.floor(num/1000)%100 != 0?`${Math.floor(num/1000)%100}<span class="coin coin_silver">S</span>${value?" ":""}` :'') + value;
-                if(num > 99999) {
-                    value = `${Math.floor(num/100000)}<span class="coin coin_gold">G</span>${value?" ":""}` + value;
-                }
-            
-            }  
-        }
-
-        return sign + value;
-
-    } else {
-        return 'nothing';
-    }
+    if(!num)return 'nothing';
+    // The denominations come from number_format.js, so text copies (formatMoneyText) match this purse (UIC102).
+    const coin={G:'coin_gold',S:'coin_silver',C:'coin_copper',W:'coin_wood'};
+    return (num < 0 ? '-' : '') + moneyParts(num).map(([amount, unit]) => `${amount}<span class="coin ${coin[unit]}">${unit}</span>`).join(' ');
 }
 
 function update_displayed_character_xp(did_level = false) {
@@ -4805,7 +4795,8 @@ function update_displayed_character_xp(did_level = false) {
 
     const levelable = character.getLevelableComponent();
     character_xp_div.children[0].children[0].style.width = `${100*levelable.current_xp/levelable.xp_to_next_lvl}%`;
-    character_xp_div.children[1].innerText = `${expo({number: levelable.current_xp})} / ${expo({number: levelable.xp_to_next_lvl})} xp`;
+    character_xp_div.children[1].innerText = formatRatio(expo({number: levelable.current_xp}), expo({number: levelable.xp_to_next_lvl}), "xp");
+    mark_vital_meter(character_xp_div, {label: "Experience to the next level", value: levelable.current_xp, max: levelable.xp_to_next_lvl, unit: "xp"});
     document.getElementById("character_vitals_level").textContent = `Lv ${levelable.current_level}`;
 
     if(did_level) {
@@ -5095,7 +5086,7 @@ function start_activity_display(current_activity) {
         const action_progress_bar = document.createElement("div");
         action_progress_bar_max.appendChild(action_progress_bar);
         action_progress_bar.id = "gathering_progress_bar";
-        action_progress_bar.style.width = 385*current_activity.gathering_time/current_activity.gathering_time_needed+"px";
+        set_bar_fraction(action_progress_bar, current_activity.gathering_time/current_activity.gathering_time_needed);
         action_progress_bar_max.id = "gathering_progress_bar_max";
         action_div.appendChild(action_progress_bar_max);
         if (current_activity.gained_resources) {
@@ -5172,7 +5163,7 @@ function update_displayed_ongoing_activity(current_activity) {
     }
 
     if(current_activity.gathering_time_needed != 1) {
-        document.getElementById("gathering_progress_bar").style.width = 385*current_activity.gathering_time/current_activity.gathering_time_needed+"px";
+        set_bar_fraction(document.getElementById("gathering_progress_bar"), current_activity.gathering_time/current_activity.gathering_time_needed);
     }
 }
 
@@ -5218,7 +5209,7 @@ function start_game_action_display(npc_id, action_key) {
 
 function update_game_action_progress_bar(percent) {
     if(deferSimulationRender(update_game_action_progress_bar, () => update_game_action_progress_bar(...arguments))) return;
-    document.getElementById("action_progress_bar").style.width = 385*percent+"px";
+    set_bar_fraction(document.getElementById("action_progress_bar"), percent);
 }
 
 function set_game_action_finish_text(text) {
@@ -6286,10 +6277,13 @@ function create_displayed_quest_task(quest_id, task_index) {
     let icon_html;
     if(task.isFinished()) {
         task_div.classList.add("task_finished");
-        icon_html = '<i class="material-icons">check_box</i>';
+        icon_html = '<i class="material-icons" aria-hidden="true">check_box</i>';
     } else {
-        icon_html = '<i class="material-icons">check_box_outline_blank</i>';
+        icon_html = '<i class="material-icons" aria-hidden="true">check_box_outline_blank</i>';
     }
+    // Done or open is said in words for assistive tech, not only by the glyph (UR121, UIC108).
+    task_status_icon_span.setAttribute('role', 'img');
+    task_status_icon_span.setAttribute('aria-label', task.isFinished() ? 'Done' : 'Not done yet');
 
     insert_HTML(task_status_icon_span, icon_html);
 

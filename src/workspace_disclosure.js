@@ -38,6 +38,8 @@ export function createReferenceDisclosure({root = document, read}) {
             if (visible && binding.title) node.setAttribute('title', binding.title);
             else node.removeAttribute('title');
             node.dataset.referenceKnown = String(visible);
+            // The unnamed tab keeps its mystery but says why it is shut (UR81, UR142).
+            if (visible) delete node.dataset.disabledReason; else node.dataset.disabledReason = 'You have not come across this yet.';
         }
     }
     render();
@@ -45,7 +47,7 @@ export function createReferenceDisclosure({root = document, read}) {
         for (const {node, label, title} of bindings) if (node) {
             node.hidden = false; node.textContent = label;
             if (title) node.setAttribute('title', title);
-            delete node.dataset.referenceKnown;
+            delete node.dataset.referenceKnown; delete node.dataset.disabledReason;
         }
     }};
 }

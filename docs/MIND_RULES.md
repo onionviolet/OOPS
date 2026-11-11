@@ -94,6 +94,7 @@ Hard cases, settled as defaults: hidden long-term control (a planted suggestion)
 - Resolved 2026-11-10 (RCL5): the two LOTM loss accumulators are one `harm` power carrier; cause rows write an inbox that drains onto it at 1.5x, lost holds, and the 30-minute grace runs in play only.
 - `harm_state.js` has body parts but no mind or soul part (MND1).
 - No mood state exists (MND5); LSD397 is blocked on it.
+- Dated note 2026-11-10 (FRC39, proposal): a first mood slice exists. `src/mood_thoughts.js` is the pure reader over dated, attributed thought rows (stored as `moodThoughts`, the sum recomputed); `person_ties.js` carries one mood reader per world and an offer's `moodAtLeast` gate; Captain Dunn is the first holder (a warm thought for an on-time weekly application, a sour one for a lapsed week; the funding question stays shut while he is sour). Runs scale by the holder's `harmFade`/`helpFade`. Still open: hunger and loss producers, LSD397's memory-follows-mood, the player's own mood, any break reading the `harm` carrier (no second counter).
 - The trait registry tunes memory, trust and gossip and nothing else yet; temper and risk dials are unwritten (MND2).
 - No code for compulsion, memory editing or possession beyond the `charmed` id (MND13–MND16); no `controlled` condition or act tag for MND21 yet.
 - The temperament slice (MR3) is implemented, below floor: its browser gate and commit are still owed.
