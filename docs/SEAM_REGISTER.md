@@ -16,8 +16,8 @@ Only two seams have a cited receipt today: `ready_stock` (fixture route, LOTM, f
 
 | World families importing (direct) | Seams | Which |
 |---|---|---|
-| 0 | 10 | check_contract, conflict_frame, tempo_fight, faction_rank, law_case, life_events, home_building_model, research_*, ability_ladders, effect_dsl |
-| 1 | 15 | notch_contest, recurring_duties, teacher_window, travel_legs, world_light, people_knowledge, constraint_store, world_events, storylet_deck, institution_access, owed_ledger_sources, structured_ability_runtime, ability_records, lore_history_state, combat_math |
+| 0 | 9 | check_contract, conflict_frame, tempo_fight, faction_rank, life_events, home_building_model, research_*, ability_ladders, effect_dsl |
+| 1 | 16 | notch_contest, recurring_duties, teacher_window, travel_legs, world_light, people_knowledge, constraint_store, world_events, storylet_deck, institution_access, law_case, owed_ledger_sources, structured_ability_runtime, ability_records, lore_history_state, combat_math |
 | 2+ | 17 | ready_stock, own_holdings, lesson, people_sources, harm_state, world_rhythm, cast_schedule, seeded_streams, institution_store, world_calendar, cast_* adapters, material_lineage, spell_cast_lowering, making_procedure, reputation_view, home_world_port, person_ties |
 
 | Seam | Purpose | src importers | tests / scripts | Shared importers | World families (importer files) | Families | Proof state | Receipt |
@@ -36,7 +36,7 @@ Only two seams have a cited receipt today: `ready_stock` (fixture route, LOTM, f
 | constraint_store | Standing constraints on the actor | 3 | 2 / 0 | 1 | lotm 2 | 1 | unknown | none cited |
 | conflict_frame | Shared frame for an encounter and its grains | 5 | 0 / 0 | 5 | none | 0 | unknown | none cited |
 | tempo_fight | Tempo fight engine, contract and domain | 3 | 23 / 1 | 3 | none | 0 | one-world route | `docs/gm/dispatch/protagonist-life-2026-10-27/cast-lives-lanes/P4_TEMPO_CHECKPOINT.md` |
-| harm_state | Harm ladder and wounds | 9 | 5 / 0 | 7 | lotm 1, village 1 | 2 | unknown | none cited |
+| harm_state | Harm ladder and wounds | 11 | 5 / 0 | 7 | lotm 3, village 1 | 2 | unknown | none cited |
 | world_rhythm | World clock rhythm and seasons | 32 | 6 / 7 | 25 | hp 2, lotm 2, proto23 2, primordial 1 | 4 | unknown | none cited |
 | cast_schedule | Where the cast is by hour | 5 | 6 / 1 | 1 | lotm 2, mol 1, village 1 | 3 | unknown | none cited |
 | world_events | Dated world events and who knows them | 9 | 10 / 1 | 7 | lotm 2 | 1 | unknown | none cited |
@@ -45,7 +45,7 @@ Only two seams have a cited receipt today: `ready_stock` (fixture route, LOTM, f
 | institution_store | Institutions with standing and credit | 2 | 1 / 0 | 0 | lotm 1, primordial 1 | 2 | unknown | none cited |
 | institution_access | What an institution lets a member reach | 1 | 1 / 0 | 0 | mol 1 | 1 | unknown | none cited |
 | faction_rank | Rank inside a faction | 7 | 1 / 0 | 7 | none | 0 | unknown | none cited |
-| law_case | Cases and jurisdiction rules | 0 | 2 / 0 | 0 | none | 0 | unknown | none cited |
+| law_case | Cases and jurisdiction rules | 1 | 3 / 0 | 0 | lotm 1 | 1 | unknown | none cited |
 | owed_ledger_sources | Sources of what is owed to or by the player | 5 | 5 / 0 | 4 | lotm 1 | 1 | unknown | none cited |
 | structured_ability_runtime | Structured ability execution | 8 | 4 / 0 | 7 | lotm 1 | 1 | unknown | none cited |
 | life_events | Life events and their domain | 1 | 1 / 0 | 1 | none | 0 | unknown | none cited |
@@ -53,8 +53,8 @@ Only two seams have a cited receipt today: `ready_stock` (fixture route, LOTM, f
 | research_* | Research content, view and home | 3 | 3 / 0 | 3 | none | 0 | unknown | none cited |
 | ability_ladders | Ability ladders | 2 | 1 / 0 | 2 | none | 0 | unknown | none cited |
 | effect_dsl | Effect description language (inert by ABR4) | 1 | 1 / 0 | 1 | none | 0 | unknown | none cited |
-| world_calendar | Per-world calendar | 10 | 8 / 0 | 4 | hp 2, paradise 2, mol 1, village 1 | 4 | unknown | none cited |
-| cast_* adapters | Adapters that give cast members shared mechanisms | 3 | 15 / 1 | 0 | lotm 2, hp 1 | 2 | unknown | none cited |
+| world_calendar | Per-world calendar | 13 | 8 / 0 | 4 | mol 4, hp 2, paradise 2, village 1 | 4 | unknown | none cited |
+| cast_* adapters | Adapters that give cast members shared mechanisms | 4 | 15 / 1 | 1 | lotm 2, hp 1 | 2 | unknown | none cited |
 | ability_records | Ability records | 4 | 4 / 0 | 3 | lotm 1 | 1 | unknown | none cited |
 | material_lineage | Where a material came from | 14 | 6 / 0 | 10 | paradise 2, hp 1, mistglass 1 | 3 | unknown | none cited |
 | lore_history_state | Lore and history knowledge state | 9 | 7 / 0 | 8 | mistglass 1 | 1 | unknown | none cited |

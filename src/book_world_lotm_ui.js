@@ -30,7 +30,7 @@ const node=(tag,text)=>{const n=document.createElement(tag);if(text!=null)n.text
 export const lotmPanelTitle=v=>v.resident?v.at:'Tingen workroom';
 // Surface type: place service (UR1). Home: the main workspace, discovered inside the Tingen
 // branch and in the Village, where its starts begin. Warden Hale runs the workroom; the lodging is where you sleep.
-export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,tieAsk,homeAct,setOrder,resign,signGuard,collectGuard,readOwed=readOwedLedger,settle=settleOwed}){
+export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,tieAsk,homeAct,setOrder,resign,signGuard,collectGuard,lawRoute,readOwed=readOwedLedger,settle=settleOwed}){
  const panel=node('section');panel.id='lotm_panel';panel.className='expedition_panel';panel.dataset.surfaceType='place-service';
  const status=node('p'),meters=node('div'),path=node('div'),work=node('div'),bench=node('details'),actions=node('div'),walks=node('div'),notebook=node('div'),notice=node('p');notice.setAttribute('role','status');
  const encounterSlot=node('div');encounterSlot.dataset.sharedSlot='encounter'; // AR17: shared panels (a fight) render here; not tab-owned, not re-rendered.
@@ -308,6 +308,14 @@ export function createLotmPanel({read,act,cancel,move,enroll,home,duties,attend,
    for(const a of v.waits){const b=button(a.label,a.id,()=>run(()=>{const r=act(a.id);notice.textContent=r.interrupted?`Wait interrupted after ${r.minutes} min. ${r.reason}`:`You waited ${r.minutes} min here.`;}),!a.eligible,a.reasons.join(' '));waitButtons.set(a.id,b);commonActions.append(row(b,...(!a.eligible?[node('span',a.reasons.join(' '))]:[])));}
   }
   const renderObjectAction=a=>row(button(a.label,a.id,()=>run(()=>act(a.id),()=>read(selected).jobs.length?`Started: ${shortActionLabel(a.label).text}. See In progress for time and stopping terms.`:'Action settled. See Last result for its consequence.'),!a.eligible,a.reasons.join(' ')));
+  // STN19: a constable who knows you and can place you has a case; the routes are yours. Cases that cannot be proven do not show (nobody has a case against a man they cannot place).
+  const lw=v.law;
+  if(lw){
+   const g=node('div');g.dataset.lotmLaw='';g.append(node('h3','The watch'));
+   for(const c of lw.cases){g.append(node('p',c.line));for(const r of c.routes)g.append(row(button(r.label,`law_${r.id}`,()=>{let said='';run(()=>{said=lawRoute(c.id,r.id);},()=>said);},!lawRoute||!!r.blocked,r.blocked||r.hint)));}
+   for(const t of lw.lines)g.append(node('p',t));
+   actions.prepend(g);
+  }
   if(v.arc)actions.prepend(renderLotmTaskSummary(v,{findControl,findWork,renderAction:renderObjectAction}));
   for(const stock of v.stockViews||[]){
    const supplies=node('section');supplies.dataset.lotmStock='true';supplies.append(node('h3',stock.title));

@@ -22,6 +22,8 @@ import {installRoleDefinitions} from './recurring_people.js';
 import {lotmResignPlan,CIVIL_RESIGN_COST} from './book_world_lotm_positions.js';
 import {GUARD_POSITION_ID,GUARD_RESIGN_COST,GUARD_OFFER,guardSignQuote,guardBegin,guardStand,guardCollect,guardResignPlan,guardView,guardSnapshot,guardRestore,guardPayWords} from './book_world_lotm_guard.js';
 import {LOTM_GUARD_DUTY_ID} from './book_world_lotm_duties.js';
+import {lawView,takeRoute,papersHeld,lawSnapshot,lawRestore} from './book_world_lotm_law.js';
+import {lookOf} from './observed_look.js';
 import {noteExpenseFiled,tieExpenseFiled} from './book_world_lotm_colleagues.js';
 import {reputationView} from './reputation_view.js';
 import {tieOfferEffects,tieOfferView,tieShownView} from './person_ties.js';
@@ -296,7 +298,7 @@ export function createLotmHost(ports){
  function payFine(amount){
   writable();const s=state(),plan=base(s,ports.context());
   applySimulationEffects(plan,[purseEffect(-amount)],{actorId:'player'},registry,'book.lotm.fine');persist(plan);
-  ports.logMessage?.(`You paid the landlady's fine, ${amount} pence from your purse.`,'notification');
+  ports.logMessage?.(`You paid a fine of ${amount} pence from your purse.`,'notification');
  }
  // FD15: the civil post's one exit. Writes the positions@1 record and a notebook line in one save; if saving fails the record is put back.
  function resign(id){
@@ -336,6 +338,16 @@ export function createLotmHost(ports){
   writable();const s=state(),plan=base(s,ports.context()),row=tieOfferView(s).find(o=>o.id===id);
   assert(row&&castKnown(s,row.personId),'You have not met them yet.');
   applySimulationEffects(plan,tieOfferEffects(s,id),{actorId:'player'},registry,id);persist(plan);
+ }
+ // STN19: what a constable can see of you now (the worn slots) and what you can show him; the purse is read only when it can be.
+ function lawCtx(s,c){let coins=null;try{coins=c.external?.money;}catch{coins=null;}
+  return {look:lookOf(c.equipment?.player,s.simulation?.equipment?.player),papers:papersHeld(s),coins:Number.isFinite(coins)?coins:null,at:s.clock};}
+ // One route on one open case. The slice and the player's own note are saved together; a failed save puts the slice back (the guard's pattern).
+ function lawRoute(caseId,route){
+  writable();const s=state(),c=ports.context(),prior=lawSnapshot();
+  try{const line=takeRoute(s,caseId,route,lawCtx(s,c)),plan=base(state(),ports.context());
+   applySimulationEffects(plan,[{type:'knowledge',actor:'player',key:`book.lotm.law_${s.clock}`,stage:'understood',value:line}],{actorId:'player'},registry,`book.lotm.law.${route}`);persist(plan);
+   ports.logMessage?.(line,'notification');return line;}catch(e){lawRestore(prior);throw e;}
  }
  function collectGuardPay(){
   writable();const s=state(),prior=guardSnapshot(),plan=base(s,ports.context());
@@ -382,7 +394,7 @@ export function createLotmHost(ports){
    const records=[...Object.entries(know).filter(([k])=>k.startsWith('book.lotm.history.')).map(([id,r])=>({id,text:r.value,at:r.at})),...placeActRecords(s,pack?.householdActs),...topicTalkRecords(s,castTalkCommands)];
    const region=lotmRegionAt(s.simulation.people.player.location,{hour:castCalendar(s).calendar.hour,money:nativeContext.external?.money??0,restrictions:lotmRestrictions({state:s,days:getPrivateLotmCast()?.bindings?.days||[]})});
    const sheets=lotmSheetsFor(s,getPrivateLotmCast(),Object.keys(know).map(k=>/^book\.lotm\.cast\.(?:known|met)\.(.+)$/.exec(k)?.[1]).filter(Boolean));
-   return {enrolled:true,resident:true,powers,reputation:reputationView(s,{known:id=>castKnown(s,id)}),home:pack?lotmHomeView(s,{pack,duties:domainRegistry.project('duties'),homes:domainRegistry.project('homes'),quote:domainRegistry.command('homes','quote')??null}):null,tieOffers:tieOfferView(s).filter(o=>castKnown(s,o.personId)),ties:tieShownView(s).filter(t=>castKnown(s,t.personId)),altarRites:rites,arc:placeActSequenceView(s,pack?.householdActs),remoteMeetings:remotePresenceView(s,pack?.householdActs),stockViews:placeStockViews(s,pack?.householdActs),runMode:s.lotm.runMode,entryProfile:s.lotm.entryProfile,at:castPlaceLabel(at),localClock:castClockLine(s),sky:skyLine(s),sleeping:ports.sleeping(),meters:[],places,moves,actions,journeys,topicTalks,objectActs,bodyCare,making,sealedRecords,exchanges,divinations,inferences,abilityConflicts,sheets,region,waits:waits(s),elsewhere:castElsewhere(s),jobs,records};
+   return {enrolled:true,resident:true,law:lawView(s,lawCtx(s,c)),powers,reputation:reputationView(s,{known:id=>castKnown(s,id)}),home:pack?lotmHomeView(s,{pack,duties:domainRegistry.project('duties'),homes:domainRegistry.project('homes'),quote:domainRegistry.command('homes','quote')??null}):null,tieOffers:tieOfferView(s).filter(o=>castKnown(s,o.personId)),ties:tieShownView(s).filter(t=>castKnown(s,t.personId)),altarRites:rites,arc:placeActSequenceView(s,pack?.householdActs),remoteMeetings:remotePresenceView(s,pack?.householdActs),stockViews:placeStockViews(s,pack?.householdActs),runMode:s.lotm.runMode,entryProfile:s.lotm.entryProfile,at:castPlaceLabel(at),localClock:castClockLine(s),sky:skyLine(s),sleeping:ports.sleeping(),meters:[],places,moves,actions,journeys,topicTalks,objectActs,bodyCare,making,sealedRecords,exchanges,divinations,inferences,abilityConflicts,sheets,region,waits:waits(s),elsewhere:castElsewhere(s),jobs,records};
   }
   const actions=[],actingGuidance=[];
   const path=lotmPathView(s,f),actingCrossing=path.crossings.find(x=>x.id==='acting');
@@ -417,10 +429,10 @@ export function createLotmHost(ports){
    return {id:cid,label:d.label,eligible:p.eligible&&!ports.sleeping(),reasons:p.eligible&&ports.sleeping()?['You are asleep.']:p.reasons,visible:p.visible};};
   const merit=f['lotm.home.evernight']&&f['lotm.beyonderTrack']?meritView(s,f,prevMerit):null;
   const bench={rows:benchRowList(s,f),selected:selected&&benchDetail(sv,cv,selected,{registry,asleep:ports.sleeping()})};
-  return {enrolled:true,...(lotmCastLife(s)?{resident:true,waits:waits(s),elsewhere:castElsewhere(s),localClock:castClockLine(s),sky:skyLine(s)}:{}),skills,pausedLife:ports.pausedLife?.()||null,termDay:Math.floor(s.clock/1440),guard:guardView(s),groups:groupLines(groupsOf(s)),merit,bench,broker:brokerView(s,f),places,marketHeld,cause:causeView(f),profile:profileKeyOf(s),entryProfile:s.lotm?.entryProfile,role:f['lotm.roleName'],clearance,district,doseLabels,beyonder:!!(f['lotm.sourceSupported']||[...pathwayRows,...generatedRows].some(r=>f[`lotm.${r.key}Supported`])),switchNotice:LOTM_SWITCH_NOTICE,at:castPlaceLabel(at),supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:lotmMeters(e),path,actingGuidance,holds,issuedDose:allocatedDoseView(s,holds.dose),actions,moves,jobs,records};
+  return {enrolled:true,...(lotmCastLife(s)?{resident:true,waits:waits(s),elsewhere:castElsewhere(s),localClock:castClockLine(s),sky:skyLine(s)}:{}),skills,pausedLife:ports.pausedLife?.()||null,termDay:Math.floor(s.clock/1440),guard:guardView(s),law:lawView(s,lawCtx(s,c)),groups:groupLines(groupsOf(s)),merit,bench,broker:brokerView(s,f),places,marketHeld,cause:causeView(f),profile:profileKeyOf(s),entryProfile:s.lotm?.entryProfile,role:f['lotm.roleName'],clearance,district,doseLabels,beyonder:!!(f['lotm.sourceSupported']||[...pathwayRows,...generatedRows].some(r=>f[`lotm.${r.key}Supported`])),switchNotice:LOTM_SWITCH_NOTICE,at:castPlaceLabel(at),supervisorHere:f['lotm.supervisorHere'],attention:f['lotm.supervisorAttention'],source:f['lotm.sourceSupported'],method:f['lotm.methodSupported'],sleeping:ports.sleeping(),energy:e?{reserve:e.reserve,capacity:e.policy.capacity,strain:e.strain,limit:e.policy.strainLimit}:null,meters:lotmMeters(e),path,actingGuidance,holds,issuedDose:allocatedDoseView(s,holds.dose),actions,moves,jobs,records};
  }
  function restoreSleep(){const s=state(),job=s.lotm&&sleepJob(s);if(!ports.restoring()||!job||!sleepingCommand(job.commandId))return false;ports.beginSleep();return true;}
- return {enroll,cross,resign,signGuard,standWatch,fileExpense,tieAsk,collectGuardPay,act,cancel,move,wake,tick,view,purseBalance,payDues,payFine,heldGoods,seizeGoods,sentencePlan,startable,restoreSleep,upcoming:()=>lotmUpcoming({state:ports.state(),days:getPrivateLotmCast()?.bindings?.days||[]}),inspectConstraints:()=>castRevisionReport(state())};
+ return {enroll,cross,resign,signGuard,standWatch,lawRoute,fileExpense,tieAsk,collectGuardPay,act,cancel,move,wake,tick,view,purseBalance,payDues,payFine,heldGoods,seizeGoods,sentencePlan,startable,restoreSleep,upcoming:()=>lotmUpcoming({state:ports.state(),days:getPrivateLotmCast()?.bindings?.days||[]}),inspectConstraints:()=>castRevisionReport(state())};
 }
 
 export function castClockLine(s){return castLocalClock(s)?.clock||'';}

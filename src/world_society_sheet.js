@@ -39,7 +39,7 @@ export const SHEETS = Object.freeze([
         calendar: f('authored', 'src/book_world_lotm_duties.js#LOTM_DUTIES', 'A weekly cycle (expense claim, rent) on world_rhythm; market day and service day from book_world_lotm_deck.js (week phase authored); no festivals yet.'),
         institutions: f('authored', 'src/book_world_lotm_merit.js#NIGHTHAWKS', 'Nighthawks with a merit store, and three churches\' districts in book_world_lotm_districts.js.'),
         positions: f('authored', 'src/book_world_lotm_positions.js#lotmPositions', 'Probationer and civil-staff positions derived from life profiles; terms and exits are not yet a record (FD15).'),
-        law: f('palette', LOTM_PASS + '#law-enforcement-aftermath', 'Pass table of statutes and enforcers, not loaded; src/law_case.js#defineLawBook has no importer.', 'industrial_city'),
+        law: f('palette', LOTM_PASS + '#law-enforcement-aftermath', 'Pass table of statutes and enforcers, not loaded as a whole; src/book_world_lotm_law.js is the first caller of law_case.js (one authored statute, not this table).', 'industrial_city'),
         information: f('authored', 'src/book_world_lotm_events.js#LOTM_LEAD_CHANNELS', 'Newspaper, notice board and word of mouth through world_events (learnedDay); a seeded Tingen daily deck (book_world_lotm_deck.js, flavour only).'),
         address: f('missing', KIT + '#k20', 'No forms of address or naming pool as data; K20 is content only.'),
     })}),

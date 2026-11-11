@@ -29,5 +29,7 @@ setKnownnessHalfLife('village', villageDial?.days ?? 30, villageDial?.reason ?? 
 export const WILD_SITE = HOME_SITE;
 
 // LOTM, Tingen: the city's claim stops at the city's own places (a "Tingen ..." location); its knownness readers (wages, divination fees) are in authority_sources_lotm.js.
-registerAuthoritySource(LOTM_IDS.world, (state, {place}) => typeof place === 'string' && place.startsWith('Tingen')
+// A cast life's places carry their own names ("Moretti flat"): wherever the lead stands inside the Tingen world is the city's ground too.
+const inTingen = (state, place) => typeof place === 'string' && (place.startsWith('Tingen') || (state?.actors?.player?.worldId === LOTM_IDS.world && place === state?.simulation?.people?.player?.location));
+registerAuthoritySource(LOTM_IDS.world, (state, {place}) => inTingen(state, place)
     ? {claimant: 'tingen', label: 'the Tingen authorities', inBounds: true} : null);

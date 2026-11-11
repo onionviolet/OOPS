@@ -75,7 +75,8 @@ const open = () => ports.root().simulation?.sessions.player?.nativeBattle?.schem
 
 // What each opposing fighter saw of the player (world-neutral). A knowledge entry must belong to a persistent actor, so unnamed fighters are skipped.
 // Written once per fight through the knowledge effect (cause = the fight's session id, so a second apply keeps the first record). The wording is the observer's: what he believes happened.
-export const FIGHT_SIGHT_KEY = 'person.player.fight_seen';
+import {SIGHT_KEY, LOOK_KEY, lookOf} from './observed_look.js';
+export const FIGHT_SIGHT_KEY = SIGHT_KEY;
 const SIGHT = {won: 'fought you and lost', lost: 'fought you and won', withdrawn: 'fought you, and you backed away', yielded: 'fought you, and you gave way'};
 export function recordFightSight(plan, registry, before) {
     const sessionId = before?.sessionId, b = before?.battle, result = plan?.state?.actors?.player?.facts?.['tempo.lastResult'];
@@ -84,7 +85,9 @@ export function recordFightSight(plan, registry, before) {
     for(const [id, f] of Object.entries(b.fighters)) {
         if(f.side !== 'b' || !plan.state.simulation.people[id] || !plan.state.actors[id]) continue;
         if(plan.state.simulation.knowledge[id]?.[FIGHT_SIGHT_KEY]?.cause === cause) continue;
-        applySimulationEffects(plan, [{type: 'knowledge', actor: id, key: FIGHT_SIGHT_KEY, stage: 'seen', value: SIGHT[result]}], {actorId: 'player'}, registry, cause);
+        // He also notes what you wore (the worn slots only), so a later reader can tell whether the person in front of it still looks like that one.
+        applySimulationEffects(plan, [{type: 'knowledge', actor: id, key: FIGHT_SIGHT_KEY, stage: 'seen', value: SIGHT[result]},
+            {type: 'knowledge', actor: id, key: LOOK_KEY, stage: 'seen', value: lookOf(plan.equipment?.player, plan.state.simulation.equipment?.player)}], {actorId: 'player'}, registry, cause);
         written.push(id);
     }
     return written;
