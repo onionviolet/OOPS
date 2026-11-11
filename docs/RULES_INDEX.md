@@ -524,4 +524,4 @@ for covered scenarios, gaps and cost recommendations.
   Link it from AGENTS only if it binds every agent.
 - New accepted decision: add or revise its AD line here when it changes an aspect.
 - Codes are never reused. A superseded rule keeps its code with a dated note.
-- Run `npm run check:rules` after any change here or to a rulebook's codes. It checks register coverage, code ranges, AD contiguity, cited codes and links.
+- Run `npm run check:rules` after any change here or to a rulebook's codes. It checks register coverage, code ranges, AD contiguity, cited codes and links. It also runs the warning-first rule lints (`scripts/check_rule_lints.mjs`, FRC27): a new day counter outside `world_day_index.js` (TMR1), a reader branching on a preset id (WKR1) and a story window module not built on `windowKit` (STY17). Each prints its rule code and does not fail; `scripts/rule_lints_baseline.json` holds today's hits, so a hit beyond it is what warns.
