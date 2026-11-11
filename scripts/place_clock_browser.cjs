@@ -11,7 +11,7 @@ const potato=JSON.stringify({id:'Cooked potato'});
   page=await context.newPage();page.setDefaultTimeout(16000);page.on('pageerror',e=>errors.push(e.stack));
   await page.goto(url);await page.getByText('PLAY',{exact:true}).click();if(await page.getByText('Confirm',{exact:true}).isVisible())await page.getByText('Confirm',{exact:true}).click();};
  const save=async()=>{await page.evaluate(()=>window.saveProgress());return page.evaluate(()=>JSON.parse(localStorage.getItem('save data')));};
- const act=async id=>{const b=page.locator(`#place_clock_panel [data-place-clock-action="${id}"]`);await b.evaluate(n=>{if(n.disabled)throw Error('disabled: '+n.nextSibling.textContent);n.click();});return page.locator('#place_clock_panel [role=status]').textContent();};
+ const act=async id=>{const b=page.locator(`#place_clock_panel [data-place-clock-action="${id}"]`).first();await b.evaluate(n=>{if(n.disabled)throw Error('disabled: '+n.nextSibling.textContent);n.click();});return page.locator('#place_clock_panel [role=status]').textContent();};
  const view=()=>page.locator('#place_clock_panel > div:nth-of-type(1)').innerText();
  const route=v=>page.evaluate(v=>{const s=document.querySelector('#place_clock_panel select');s.value=v;s.dispatchEvent(new Event('change'));},v);
  try{
@@ -35,15 +35,15 @@ const potato=JSON.stringify({id:'Cooked potato'});
   await act('still:1');s=await save();assert.equal(s.character.money,115);assert.equal(s.placeClocks.places.cottage.status,'stilled');line('still 1 day','money 115, status stilled');
   await act('store:Cooked potato');s=await save();assert.equal(s.inventories.person.main_character[potato].count,2);line('store','inventory potato 2, larder 1');
   await advanceGameMinutes(page,600);
-  await route('present');assert.doesNotMatch(await view(),/Ratio/);line('by eye after 600 min',(await view()).replace(/\n/g,' | '));
+  await route('present');assert.doesNotMatch(await view(),/Ratio/);assert.match(await view(),/fresh, good for about 1 day/);line('by eye after 600 min',(await view()).replace(/\n/g,' | '));
   await route('sandglass');const sg=await view();assert.match(sg,/Ratio 0.25/);line('by sand glass',sg.replace(/\n/g,' | '));
-  await page.getByRole('combobox').filter({hasText:'More panels'}).selectOption({label:'Hearthside clock'});await page.waitForFunction(()=>document.getElementById('place_clock_panel').offsetParent!==null);line('panel visible','1920x1080 via More panels > Hearthside clock');await page.screenshot({path:path.join(out,'02-sandglass.png')});
-  await act('take:Cooked potato');s=await save();assert.equal(s.inventories.person.main_character[potato].count,3);line('take (fresh, slowed)','potato back to 3');
+  await page.getByRole('combobox').filter({hasText:/All panels|More panels/}).selectOption({label:'Hearthside clock'});await page.waitForFunction(()=>document.getElementById('place_clock_panel').offsetParent!==null);line('panel visible','1920x1080 via All panels > Hearthside clock');await page.screenshot({path:path.join(out,'02-sandglass.png')});
+  await act('take:Cooked potato');s=await save();const potatoes=o=>Object.entries(o).filter(([k])=>JSON.parse(k).id==='Cooked potato').reduce((n,[,v])=>n+v.count,0);assert.equal(potatoes(s.inventories.person.main_character),3);line('take (fresh, slowed)','3 potatoes again, one carrying its shelf age');
   await act('store:Cooked potato');
   await advanceGameMinutes(page,1200);s=await save(); // past the paid day: lapse
   await route('present');const closed=await view();assert.match(closed,/closed/);line('lapse -> closed',closed.replace(/\n/g,' | '));
   const refuse=await page.locator('#place_clock_panel [data-place-clock-action="still:1"]').evaluate(n=>[n.disabled,n.nextSibling.textContent]);assert.equal(refuse[0],true);line('gatekeeper refusal',refuse[1]);
-  await act('take:Cooked potato');s=await save();assert.equal(s.inventories.person.main_character[potato].count,2);line('take after rush','spoiled, potato stays 2');
+  await act('take:Cooked potato');s=await save();assert.equal(potatoes(s.inventories.person.main_character),2);assert.equal(s.inventories.person.main_character[JSON.stringify({id:'Spoiled food'})].count,1);line('take after rush','spoiled: potato stays 2, Spoiled food 1');
   await act('reopen');s=await save();assert.equal(s.placeClocks.places.cottage.status,'open');assert.equal(s.character.money,111);line('reopen','offering 4 coins, status open, money 111');
   await act('still:1');await act('store:Cooked potato');s=await save();
   const saved=structuredClone(s);

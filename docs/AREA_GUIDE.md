@@ -141,6 +141,16 @@ By default a new slice declares data through the seam named here and does not ad
 - Do not: copy `mixture_rules.js` (Village-only responsive mixture reader, own owner and law table) or `hp_brewing_state.js` (own `hp_brewing` slice and state machine; only the timing row `hp_brewing_formula.js` uses `defineProcess`).
 - Competing: yes. Four making routes overlap: (a) craft engine with `crafting` domain (Village, `craft_content_frontier.js`), (b) cast making adapter (HP, LOTM cast host `book_world_lotm_cast_host.js`), (c) `hp_brewing_*` and `book_world_lotm_brew.js` per-world state machines, (d) `mixture_*` Village mixing. Shared pieces across them are `dose_process.js`, `making_traits.js` and `tag_store.js`.
 
+## Spoilage (perishable goods)
+
+- Use this: `spoilage.js` is the one pure reader: `readSpoilage(key, spent, {rate})`, `wordsFor` ("fresh, good for about 1 day"), `lifeOf` (quality-scaled), `resultOf` (what rot becomes), `oldestFirst`. The caller keeps the spent age; nothing is stored here.
+- Declare: add the good to `PERISHABLES` (life in the holder's own minutes, result item id); the result is a real item (`Spoiled food` in `items.js`).
+- State: none of its own. `owned_place_clock.js` (domain `placeClocks`) is the one storage that slows it (stilled hearth ratio) and keeps spent age on the place clock; the held-item receipt `hearthShelf` carries spent age across a take.
+- Rules: ITM8 (perishables only, storage slows by how it works), TMR9 (this timer spoils, projected lazily), ITM3/ITM22 (rot is kept, nothing vanishes), MR quality; Factorio shape from `docs/research/factorio/native/readers/quality-spoilage/REPORT.md`. Numbers are authored proposals.
+- Test: `tests/spoilage.test.js`, `tests/owned_place_clock.test.js`, `scripts/place_clock_browser.cjs`.
+- Competing: the Gu opening petal lot (`book_world_gu_domain.js`, `GU_FRESHNESS` condition expiry) still has its own deadline; not folded (its freshness is a shared lot condition, not a per-portion age). Fold when that line is next touched (AR9).
+- Do not: add another per-feature freshness counter; do not make unheld goods rot in a pack without a world saying so (held goods carry no timer here).
+
 ## Care and upkeep of living things
 
 - Use this: `needs.js` (the one needs reader: per-body food rate, ration, stage, work/heal multipliers; `readNeed`, `rationMinutes`, `BODIES`; RCL12) first; `living_upkeep.js` (diet compiled into ambient event rows, starvation and budget predictions, pure); `habitat_care.js` (Village meadow pen: sheep, hay, wool; lazy time projection); `companion_roster.js` (companion bond rites and bond slice, UI-facing); `creature_layers.js` (removable template layers on a creature body, pure); `status_care_*`, `field_care_*`, `book_care_*` (optional Village and supplied-MTL care procedures as feature-wave commands).
