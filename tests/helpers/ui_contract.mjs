@@ -30,6 +30,13 @@ export function scanUiText(text) {
         for(const d of m[2].matchAll(/(?<![\w-])(?:min-)?height\s*:[^;\n}]+/g))if(literalSpacing(d[0]))add('control-height',d[0]);
     }
     for(const line of text.split('\n'))if(/\.style\.cssText\s*=/.test(line))add('cssText',line);
+    // UR128-UR138 guards from the 2026-11-10 element fixes (UI audit round 45).
+    // UR130: a clickable div in markup is a button that keyboards cannot reach.
+    for(const m of text.matchAll(/<div\b[^>]*\bonclick\s*=/gi))add('clickable-div',m[0]);
+    // UR131: fills and sizes come from fractions or tokens, not from a fixed pixel width.
+    for(const m of text.matchAll(/\.style\.(?:width|height|minWidth|maxWidth)\s*=\s*(?:[^;\n%]*\b\d+\s*\*[^;\n%]*px|['"`](?:[1-9]\d*(?:\.\d+)?|0?\.\d+)px['"`])/g))add('pixel-geometry',m[0]);
+    // UR133: a blocking screen makes the whole page inert, not one region.
+    for(const m of text.matchAll(/\bmain_content\??\.inert\s*=/g))add('partial-inert',m[0]);
     // Detect both direct foreign-host writes and aliases obtained by DOM lookup.
     const hosts=new Set([...text.matchAll(/(?:const|let|var)\s+(\w+)\s*=\s*(?:document|root)\.getElementById\(/g)].map(m=>m[1]));
     for(const line of text.split('\n'))if(/(?:getElementById\([^;]+|(?:document|root)\.querySelector\([^;]+)\??\.(?:prepend|append|appendChild)\(/.test(line)||[...hosts].filter(host=>!new RegExp(`(?:const|let)\\s+${host}\\s*=\\s*projectsHome\\(`).test(line)).some(host=>new RegExp(`\\b${host}\\??\\.(?:prepend|append|appendChild)\\(`).test(line)))add('foreign-host',line);

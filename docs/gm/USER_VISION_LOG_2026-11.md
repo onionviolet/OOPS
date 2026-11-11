@@ -894,3 +894,14 @@ Weibao:
 
 Recorded: [the element sheet](../UI_RULES.md#every-element-the-element-sheet) adds UR100–UR127 as working defaults under AD56: a state sheet for every interactive element (UR100), auditing by element and then by journey (UR101), and one row per element kind, from buttons to truncated text. [UI audit round 43](../audits/UI_DESIGN_CORE_AUDIT.md#round-43-2026-11-10-every-element-census-and-coverage) holds the census of element kinds in the code, what earlier codes covered and what was new. The first element audit, gallery state sheets, contract-test additions and one number formatter are proposals, not started.
 
+## UI guard rules from the element fixes, 2026-11-10
+
+Weibao, after "Go through and fix 1 to 5" and "Do the action labels and Try one batch too":
+
+> what other aspects of UI to consider? UI rules so same mistakes wont me made again?
+
+Recorded:
+- [The guard rows](../UI_RULES.md#building-elements-guards-from-the-2026-11-10-fixes) UR128–UR138 add one rule per mistake found or made in the fixes, each with the check that catches a repeat. They are working defaults under AD56.
+- The UI contract test now enforces UR130, UR131 and UR133 as ratchets.
+- The reason sweeper touches only its own notes (UR129).
+- [UI audit round 45](../audits/UI_DESIGN_CORE_AUDIT.md#round-45-2026-11-10-guards-and-what-else-to-consider) ranks the other aspects (UIC116–UIC126): one Escape stack, the 53 legacy clickable divs, focus after redraws, a browser element check, visual baselines, live announcements, decorator cost, uncovered surfaces, and an undo window for instant spends.

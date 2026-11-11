@@ -131,3 +131,17 @@ test('inventory counts stacks and units with one native visibility read per row 
   document.querySelector('input[type=search]').value='Wood';view.refresh();assert.equal(reads,6);assert.match(document.querySelector('output').textContent,/1 \/ 2 stacks · 2 items/);
  }finally{Object.assign(globalThis,saved);}
 });
+
+test('the reason sweeper leaves a feature-owned reason line alone (UR129)', () => {
+    const saved = {document:globalThis.document, MutationObserver:globalThis.MutationObserver};
+    const dom = createDom(); dom.loadHTML('<body><section id="root"><button id="go" aria-disabled="true" aria-describedby="why">Try one batch</button><p id="why" class="ui-disabled-reason">Select a material first.</p><span id="detail" class="ui-disabled-reason">No tool slots yet.</span></section></body>');
+    globalThis.document = dom.document;
+    globalThis.MutationObserver = class {observe() {} disconnect() {}};
+    try {
+        const root = document.getElementById('root');
+        const decoration = decorateActionComponents(root); decoration.refresh();
+        assert.equal(document.getElementById('why')?.textContent, 'Select a material first.');
+        assert.equal(document.getElementById('why').hidden, false);
+        assert.equal(document.getElementById('detail')?.textContent, 'No tool slots yet.');
+    } finally {globalThis.document = saved.document; globalThis.MutationObserver = saved.MutationObserver;}
+});

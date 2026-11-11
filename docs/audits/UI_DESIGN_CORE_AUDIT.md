@@ -2090,3 +2090,40 @@ Weibao, 2026-11-10: "Do the action labels and Try one batch too".
 - Ledger "Lease woodworking assist (2 points)" names its cost but not the shortfall when disabled.
 - The remaining formatter sites are adopted when touched (AREA_GUIDE money "Display" line).
 - LOTM and household surfaces, and 150% text beyond the top bar.
+
+## Round 45, 2026-11-10: guards and what else to consider
+
+Weibao: "what other aspects of UI to consider? UI rules so same mistakes wont me made again?" Findings are proposals, not accepted decisions.
+
+**ACT NOW (done this round):**
+- **UIC116, the guard rules.** UR128–UR138 in [UI rules](../UI_RULES.md#building-elements-guards-from-the-2026-11-10-fixes): one row per mistake from the round 44 fixes, each with the check that catches a repeat.
+- **Static guards in the UI contract.** `tests/helpers/ui_contract.mjs` now flags `clickable-div` (UR130), `pixel-geometry` (UR131) and `partial-inert` (UR133). Existing hits are listed in the allowlist with a reason, so only new ones fail.
+- **The reason sweeper's root bug.** `decorateActionComponents` in `ui_components.js` claimed any `.ui-disabled-reason` node inside its roots. It now marks its own notes (`data-ui-sweeper`) and leaves the rest alone (UR129). Before the fix, two `proto23_shell.js` lines (the item detail's reason and the empty tool-slot note) and the locked-route line could be removed whenever they sat inside a decorated root. A test covers it.
+
+**ACCOUNT FOR NOW (constraints on the next UI work):**
+- **UIC117, one Escape stack.** 11 modules handle Esc on their own. UR132 states the order; a small shared stack (menu, query, preview, panel) would make it one owner. Effort M, sonnet. Done check: one module owns Esc order, and the row menu, search and preview journeys still pass.
+- **UIC118, 53 clickable divs in `index.html`.** These are the old tab, sort and category controls in Inventory, Journal, Storage, Skills and Crafting, the save bar and the options close. They are now grandfathered in the allowlist. Convert them to buttons in one pass with `font: inherit` so the look holds, then drop the allowlist entries. Effort M, sonnet. Done check: the allowlist count for `clickable-div` is 0, and Tab reaches every one at 1920×1080.
+- **UIC120, focus after a redraw.** 276 `replaceChildren` calls redraw panels. Where the focused control is redrawn, focus falls to the page body. Crafting keeps scroll but not focus. Default: a redraw keeps focus on the same `data-*` hook when it still exists (UR126, UR23). Effort M. Done check: Tab to Craft 1, let a tick redraw, and focus is still on Craft 1.
+
+**LATER / DELEGATE:**
+- **UIC119, a lint for inline number formats.** Flag `toFixed(` and `*100` followed by `%` in UI modules, as a ratchet like the others (UR135). Effort S, haiku. Done check: new inline formats fail the UI contract.
+- **UIC121, a browser element check.** The round 43 and 44 probes were scratch scripts. Promote the useful ones into `npm run check:elements`, run on request like `check:pacing`, covering:
+  - every disabled control has a visible reason in its group (UR128);
+  - focus rings exist;
+  - controls sit on the three heights;
+  - no title-only facts;
+  - the walk starts at the top (UR138).
+
+  Effort M, sonnet. Done check: the command reproduces round 44's counts on the old commit and passes on HEAD.
+- **UIC122, visual baselines.** No screenshot comparison exists, so every CSS change risks unseen shifts. This is why the base `min-height` rule (G7) waits. Keep a small baseline set (home, Village, craft, item detail, Reports at 1920×1080 and at 150% text) and diff on request. Effort M. Done check: a known one-pixel change shows in the diff.
+- **UIC123, live announcements.** 119 status or live regions exist. Nobody has checked how many speak at once during a busy tick. Count announcements in one played minute and merge per source (UR88, UR114). Effort S to measure.
+- **UIC124, decorator cost.** 22 MutationObservers run sweeps. The 2026-10-29 freeze and this round's loop both came from decorators. Measure one tick's sweep time on the mid fixture with all panels open. Effort S. Done check: a number in the perf notes.
+- **UIC125, uncovered surfaces.**
+  - The LOTM and household surfaces (private packs not loaded in round 44's probes).
+  - 150% text beyond the top bar.
+  - Each world dress's contrast (UR37).
+  - Failed save and import messages (UR125).
+  - Tauri window behaviour: resize, file dialogs.
+
+  The next element audit loads the packs first. Effort M per surface group.
+- **UIC126, undo for instant spends.** Craft, mix and Try one batch spend materials at once with no undo window. This is an idea that adds options, not a gate: a short undo window for an instant spend could sit beside UR112's ask-by-stakes, where a world allows it (AD56: it widens play, so it is a working default when built). Effort M.

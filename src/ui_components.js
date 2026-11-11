@@ -31,11 +31,11 @@ export function decorateActionComponents(root) {
             }
             let note=notes.get(button);
             if(!note) {
-                const existing=(button.getAttribute('aria-describedby')||'').split(/\s+/).map(id=>document.getElementById(id)).find(n=>n?.classList.contains('ui-disabled-reason'));
+                const existing=(button.getAttribute('aria-describedby')||'').split(/\s+/).map(id=>document.getElementById(id)).find(n=>n?.classList.contains('ui-disabled-reason')&&'uiSweeper' in n.dataset);
                 if(existing?.classList.contains('ui-disabled-reason')) {note=existing;notes.set(button,note);}
             }
             if(reason&&!note) {
-                note=document.createElement('small');note.className='ui-disabled-reason';
+                note=document.createElement('small');note.className='ui-disabled-reason';note.dataset.uiSweeper='';
                 note.id=`ui-disabled-${++reasonSequence}`;button.after(note);notes.set(button,note);
             }
             // A borrowed panel may have two decorators. Idempotent writes let
@@ -64,7 +64,8 @@ export function decorateActionComponents(root) {
                 }
             }
         }
-        for(const note of root.querySelectorAll('.ui-disabled-reason'))if(!liveNotes.has(note))note.remove();
+        // UR129: only notes this sweeper made are removed; a feature's own reason line is left alone.
+        for(const note of root.querySelectorAll('.ui-disabled-reason[data-ui-sweeper]'))if(!liveNotes.has(note))note.remove();
         observer.observe(root,{subtree:true,childList:true,attributes:true,attributeFilter:['disabled','hidden','title','data-disabled-reason','aria-describedby']});
     }
     const observer=new MutationObserver(()=>{if(!queued){queued=true;queueMicrotask(refresh);}});
