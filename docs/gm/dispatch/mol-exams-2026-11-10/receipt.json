@@ -1,0 +1,584 @@
+{
+ "route": "fresh native Zorian start; panel buttons; named clock-only day fixtures (day 4, 18, month end, run 2 day 3); automatic month restart; Save/reload/Export/Import",
+ "viewport": "1920x1080",
+ "bundle": "3488bb53ee7882ee0563236bab1f118de5f0ab4a1c18f4a6cceb4e32abb070dc",
+ "fixtures": {
+  "day-4.clock-fixture.json": "f32d144500ebd426c42ba637afd5b07ef49054bc4c8598f92c7c41cd432b8be6",
+  "day-18.clock-fixture.json": "89087ef5511058d601c26fcccd09447e0ddca25b7de4f69a6d28469960a52719",
+  "month-end.clock-fixture.json": "a678113e8437fd713158d4900694c8b5b34bde9b2b84d9758b11284676ff142d"
+ },
+ "errors": [
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  },
+  {
+   "op": -1,
+   "kind": "console",
+   "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  }
+ ],
+ "log": [
+  {
+   "step": "run 1 day 1",
+   "text": "Class tests this month\n3 entries\n\nRun 1, day 1. Spell Formulas is next (day 3). Your classmates sit the same papers every month; what you learn each time stays with you.\n\nRevise in the academy library; Nora’s tests are in the formula workshop, Warding at the academy. Each paper is marked against your class. Revision and earlier sittings are memory, so they carry into the next month; the marks themselves do not.\n\nSpell Formulas (day 3): not yet sat this run. Revision 0 of 8; you have not sat this paper before.\nAdvanced Mathematics (day 4): not yet sat this run. Revision 0 of 8; you have not sat this paper before.\nWarding (day 18): not yet sat this run. Revision 0 of 8; you have not sat this paper before."
+  },
+  {
+   "step": "revised",
+   "text": "Class tests this month\n6 entries\n\nRun 1, day 1. Spell Formulas is next (day 3). Your classmates sit the same papers every month; what you learn each time stays with you.\n\nRevise in the academy library; Nora’s tests are in the formula workshop, Warding at the academy. Each paper is marked against your class. Revision and earlier sittings are memory, so they carry into the next month; the marks themselves do not.\n\nKnown actions\nRevise Spell Formulas · 90 min, ~1 stamina\n\nGo over your Spell Formulas notes in the library. What you go over stays with you when the month starts again; past 8 sessions in all the notes add nothing.\n\nAvailable\n\nStated costs\n1 stamina · 90 played minutes · Cancel accepted work to return its reserved inputs.\nDo this: Revise Spell Formulas · 90 min, ~1 stamina\nRevise Advanced Mathematics · 90 min, ~1 stamina\n\nGo over your Advanced Mathematics notes in the library. What you go over stays with you when the month starts again; past 8 sessions in all the notes add nothing.\n\nAvailable\n\nStated costs\n1 stamina · 90 played minutes · Cancel accepted work to return its reserved inputs.\nDo this: Revise Advanced Mathematics · 90 min, ~1 stamina\nRevise Warding · 90 min, ~1 stamina\n\nGo over your Warding notes in the library. What you go over stays with you when the month starts again; past 8 sessions in all the notes add nothing.\n\nAvailable\n\nStated costs\n1 stamina · 90 played minutes · Cancel accepted work to return its reserved inputs.\nDo this: Revise Warding · 90 min, ~1 stamina\nSpell Formulas (day 3): not yet sat this run. Revision 1 of 8; you have not sat this paper before.\nAdvanced Mathematics (day 4): not yet sat this run. Revision 1 of 8; you have not sat this paper before.\nWarding (day 18): not yet sat this run. Revision 1 of 8; you have not sat this paper before."
+  },
+  {
+   "step": "Nora’s tests",
+   "text": "Class tests this month\n3 entries\n\nRun 1, day 4. Warding is next (day 18). Your classmates sit the same papers every month; what you learn each time stays with you.\n\nRevise in the academy library; Nora’s tests are in the formula workshop, Warding at the academy. Each paper is marked against your class. Revision and earlier sittings are memory, so they carry into the next month; the marks themselves do not.\n\nSpell Formulas (day 3): near the top of the class this run. Zach aced it; Akoja was near the top; Neolu aced it. Revision 1 of 8; you have not sat this paper before.\nAdvanced Mathematics (day 4): a solid mark this run. Zach aced it; Akoja was near the top; Neolu aced it. Revision 1 of 8; you have not sat this paper before.\nWarding (day 18): not yet sat this run. Revision 1 of 8; you have not sat this paper before."
+  },
+  {
+   "step": "run 1 results",
+   "bands": {
+    "formulas": "high",
+    "mathematics": "good",
+    "warding": "pass"
+   },
+   "text": "Class tests this month\n3 entries\n\nAll three tests marked this run: a solid mark overall. The class will have forgotten by next month; you will not.\n\nRevise in the academy library; Nora’s tests are in the formula workshop, Warding at the academy. Each paper is marked against your class. Revision and earlier sittings are memory, so they carry into the next month; the marks themselves do not.\n\nSpell Formulas (day 3): near the top of the class this run. Zach aced it; Akoja was near the top; Neolu aced it. Revision 1 of 8; you have not sat this paper before.\nAdvanced Mathematics (day 4): a solid mark this run. Zach aced it; Akoja was near the top; Neolu aced it. Revision 1 of 8; you have not sat this paper before.\nWarding (day 18): a pass this run. Zach aced it; Akoja got a solid mark; Neolu aced it. Revision 1 of 8; you have not sat this paper before."
+  },
+  {
+   "step": "run 2 day 1 after import",
+   "text": "Class tests this month\n3 entries\n\nRun 2, day 1. Spell Formulas is next (day 3). Your classmates sit the same papers every month; what you learn each time stays with you.\n\nRevise in the academy library; Nora’s tests are in the formula workshop, Warding at the academy. Each paper is marked against your class. Revision and earlier sittings are memory, so they carry into the next month; the marks themselves do not.\n\nSpell Formulas (day 3): not yet sat this run. Revision 1 of 8; you have sat this paper 1 time before, last time near the top of the class.\nAdvanced Mathematics (day 4): not yet sat this run. Revision 1 of 8; you have sat this paper 1 time before, last time a solid mark.\nWarding (day 18): not yet sat this run. Revision 1 of 8; you have sat this paper 1 time before, last time a pass."
+  },
+  {
+   "step": "run 2 formulas",
+   "band": "high",
+   "text": "Class tests this month\n5 entries\n\nRun 2, day 3. Advanced Mathematics is next (day 4). Your classmates sit the same papers every month; what you learn each time stays with you.\n\nRevise in the academy library; Nora’s tests are in the formula workshop, Warding at the academy. Each paper is marked against your class. Revision and earlier sittings are memory, so they carry into the next month; the marks themselves do not.\n\nKnown actions\nSit the Advanced Mathematics test · 60 min\n\nNora’s Advanced Mathematics test. What you revised, what you studied and every earlier time you sat this same paper count.\n\nUnavailable\n\nWhy this is unavailable\nThe Advanced Mathematics test is set on day 4 of the month; you sit it once a month.\nStated costs\n60 played minutes · Cancel accepted work to return its reserved inputs.\nUnavailable: Sit the Advanced Mathematics test · 60 min\nSpell Formulas (day 3): near the top of the class this run. Zach aced it; Akoja aced it; Neolu got a solid mark. Revision 2 of 8; you have sat this paper 1 time before.\nAdvanced Mathematics (day 4): not yet sat this run. Revision 1 of 8; you have sat this paper 1 time before, last time a solid mark.\nWarding (day 18): not yet sat this run. Revision 1 of 8; you have sat this paper 1 time before, last time a pass."
+  }
+ ]
+}

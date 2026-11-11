@@ -32,7 +32,9 @@ export const RESTART_SCOPES=deepFreeze({default:{...scoped},'book.lotm.tingen':{
         // `class` in harm_loops decides soul-bound versus multiplier). Memory of events (pinned loop facts) and the skill key they unlock;
         // every knowledge record under the namespace (memory of every run is soul-bound), including carried foreknowledge.
         prefix:'book.mol.',soulBound:{facts:[/^book\.mol\.loop\./,/^book\.mol\.invocationStudied$/],
-            knowledge:[/^book\.mol\./]}},
+            knowledge:[/^book\.mol\./],
+            // Counters of what he has learnt (revision sessions, papers sat before): memory, so soul-bound (mol_exam_model.js).
+            resources:[/^book\.mol\.loop\./]}},
     'base.frontier':{mode:'whole',replace:['save'],retain:['restore carries'],
         reason:'Frontier retains its existing whole-save intentional-loop semantics.'}});
 
@@ -102,6 +104,8 @@ export function scopedRestart(source,target,worldId,scopeKey=worldId) {
     const bound=scope.soulBound,keep=(list,id)=>list.some(re=>re.test(id));
     if(bound&&state.actors.player)for(const [id,value] of Object.entries(live.actors?.player?.facts||{}))
         if(keep(bound.facts,id)){state.actors.player.facts ||= {};state.actors.player.facts[id]=copy(value);}
+    if(bound?.resources&&state.actors.player)for(const [id,value] of Object.entries(live.actors?.player?.resources||{}))
+        if(keep(bound.resources,id)){state.actors.player.resources ||= {};state.actors.player.resources[id]=copy(value);}
     const belongs=(id,row)=> {
         if(id.startsWith(prefix)||actors.has(id)||actors.has(row?.actorId)||actors.has(row?.context?.actorId)||
             actors.has(row?.ownerId)||actors.has(row?.owner)||actors.has(row?.holder)||
