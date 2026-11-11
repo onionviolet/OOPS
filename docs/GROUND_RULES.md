@@ -53,7 +53,7 @@ A runtime slice missing a line is "implemented, below floor", never "done". Cont
 | FND4 | **Stack questions route to the ranked table** (TS10-TS17); reopen only with new measurement or Weibao's direction. | AD39 |
 | FND5 | **Design a reasonable shared seam from known world needs; a second, different world validates or revises it.** Extend existing verbs where they fit, and keep actual world differences local. This proposed prompt follows accepted AD51 and is not a two-implemented-world prerequisite. | AD51, AR11, WA1, WA5, WA20 |
 
-## System practice, SPR1-SPR22 (proposed 2026-11-09, [rulebook](SYSTEM_PRACTICE_RULES.md))
+## System practice, SPR1-SPR34 (proposed 2026-11-09, [rulebook](SYSTEM_PRACTICE_RULES.md))
 
 Prompts for a brief that builds or tunes a repeating system (ties, fights, making, care, research, generators). A blank answer stops nothing.
 

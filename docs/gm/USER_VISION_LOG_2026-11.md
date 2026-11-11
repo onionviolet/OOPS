@@ -1027,3 +1027,9 @@ Weibao (after playing the v0.6 snapshot, with nine screenshots):
 > ALso relationbship is also represented as circle in a linear path, is that something optimal even? That falls under all the system becomming circles and stuff that I talked about
 
 Recorded: [player experience round 3](../audits/PLAYER_EXPERIENCE_CORE_AUDIT.md#round-3-2026-11-10-weibaos-short-playthrough). Fixed PX42–PX50 (missing-text marker, name and role, "knows of you", rapport as a sentence instead of rings, Around you duplication with the willow stand posing a question, engine-speak strings and a wider prose lint, travel menu stays open, Begin from the compare table, outside press closes sheets). New working defaults under AD56: UR147–UR150 and PRS9. Proposed, not built: PX51 (talk opens in place), PX52 (a calmer Village screen), PX53 (rapport from real ties, which changes pace and waits for him), PX54 (crossing stops the idle run), PX55 (show which "one of" line was said), PX56 (keep or rename Old Hesk).
+
+## Core rules from the build wave, 2026-11-10
+
+> Refinements we can do? core rules to incorporate for future implementation and more?
+
+Recorded: SPR23–SPR34 in [system practice rules](../SYSTEM_PRACTICE_RULES.md#lessons-from-the-2026-11-10-build-wave), proposed (AD32): derive then store, thresholds as costs not walls, typed amounts with provenance, NPCs on the player's rules, effects composed from parts, every timed system in the replay harness, adaptation notes for borrowed shapes, per-holder caps, knowledge labelled by how it was learned, an in-world cause line for visible changes, records before counters, fixtures for setup with live proof. Refinements stay in the [deeper takes](../audits/BANK_DEEPER_TAKES_2026-11-10.md) (BDT1–BDT111).
