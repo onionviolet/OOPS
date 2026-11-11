@@ -22,7 +22,7 @@ const dutySlice = () => domainRegistry.save({}).duties;
 test('wiring: the bank, the LOTM duty clock and the native tick all read the one expansion state', () => {
     const main = readFileSync(new URL('../src/main.js', import.meta.url), 'utf8');
     assert.match(main, /configureLotm\(\{[^\n]*state:\(\)=>expansionState/, 'LOTM duties read the expansion clock');
-    assert.match(main, /configureNativeToolDomains\(\{[^\n]*fastForward:n=>fastForward\(n\)[^\n]*root:\(\)=>expansionState/, 'the bank reads and spends the same clock');
+    assert.match(main, /configureNativeToolDomains\(\{[^\n]*fastForward:\(n,options\)=>fastForward\(n,options\)[^\n]*root:\(\)=>expansionState/, 'the bank reads and spends the same clock');
     assert.match(readFileSync(new URL('../src/clock_owner.js', import.meta.url), 'utf8'), /domainRegistry\.tick\(consumed\)/, 'every native minute reaches the registry');
 });
 
