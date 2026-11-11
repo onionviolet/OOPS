@@ -949,3 +949,9 @@ Recorded: [player experience core audit](../audits/PLAYER_EXPERIENCE_CORE_AUDIT.
 - long-run health (late-game lists, "what's new since you last played", a "Note this" control in play, agent personas that play before he does).
 
 Proposals, not accepted decisions.
+
+## Adapt borrowed systems to fit, 2026-11-10
+
+> Feel free to also adapt and adjust things to fit our purpose better too
+
+Said while the decompile-bank build sessions were running (RimWorld storyteller and mood, Kenshi bodies and law, Cultist mind meters, Factorio spoilage, Naev prices, Melvor offline replay). Recorded: a bank shape is a starting point, not a spec. Sessions may change it to fit YAIRPG's mechanisms, worlds and rules (AD38, AD55, AD56). They say what they changed and why in the commit and the area guide row, and keep the source's mechanism labelled where they kept it. This restates the existing "gameplay stays original unless he asks for a direct adaptation" line (SKR11) as license to rework.
