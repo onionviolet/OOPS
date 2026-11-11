@@ -7,6 +7,9 @@
 //   back       an opened view has no visible way back, or Esc does not return home (UR22, UR53)
 //   placeholder visible text shows placeholder marks such as "???" (UR142)
 //   zoom       at 125% and 150% browser zoom the page scrolls sideways or a region clips its text (UR33)
+//   stability  opening a centre view moves or resizes a side column that did not change (UR144)
+//   oversized  a region of 10% or more of the screen is less than a quarter used (UR145)
+//   shift      the layout jumps during idle play with no input (UR146)
 import {readFile, writeFile, mkdtemp} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
@@ -56,6 +59,35 @@ const placeholders = () => p.evaluate(() => {
     return [...out];
 });
 
+// Side columns (the player, inventory and log docks) and how much of each region its content uses.
+const SIDES = new Set(['player', 'inventory', 'log']);
+const frame = () => p.evaluate(() => Object.fromEntries([...document.querySelectorAll('#main_content .workspace-module:not([hidden])')]
+    .filter(m => m.offsetParent).map(m => {const r = m.getBoundingClientRect(); return [m.dataset.module, {region: m.closest('[data-region]')?.dataset.region || '', x: r.x, y: r.y, w: r.width, h: r.height}];})));
+const usage = () => p.evaluate(() => [...document.querySelectorAll('#main_content .workspace-module:not([hidden])')].filter(m => m.offsetParent).map(m => {
+    const r = m.getBoundingClientRect(); let bottom = r.top;
+    for(const e of m.querySelectorAll('*')) {
+        if(!e.offsetParent || e.children.length) continue;
+        const q = e.getBoundingClientRect();
+        if(q.height && q.bottom <= r.bottom + 1 && (e.textContent.trim() || /^(svg|canvas|input|select|img)$/i.test(e.tagName))) bottom = Math.max(bottom, q.bottom);
+    }
+    return {module: m.dataset.module, area: Math.round(r.width * r.height / (innerWidth * innerHeight) * 100), used: Math.round((bottom - r.top) / Math.max(1, r.height) * 100)};
+}));
+const oversized = async where => {for(const u of await usage()) if(u.area >= 10 && u.used < 25) add('oversized', where, `${u.module} takes ${u.area}% of the screen and uses ${u.used}% of its box`);};
+const moved = (before, after, where) => {
+    for(const [id, b] of Object.entries(before)) {
+        const a = after[id];
+        if(!a || !SIDES.has(b.region)) continue;
+        const d = ['x', 'y', 'w', 'h'].filter(k => Math.abs(a[k] - b[k]) > 8).map(k => `${k} ${Math.round(b[k])}→${Math.round(a[k])}`);
+        if(d.length) add('stability', where, `${id} (${b.region}) moved: ${d.join(', ')}`);
+    }
+};
+// Idle play: the layout should hold still while the clock runs.
+await p.evaluate(() => {window.__flowShifts = 0; new PerformanceObserver(list => {for(const e of list.getEntries()) if(!e.hadRecentInput) window.__flowShifts += e.value;}).observe({type: 'layout-shift'});});
+await p.waitForTimeout(8000);
+const idleShift = await p.evaluate(() => window.__flowShifts);
+if(idleShift > 0.05) add('shift', 'home', `layout shift ${idleShift.toFixed(3)} in 8 s of idle play`);
+await oversized('home');
+const homeFrame = await frame();
 const home = await screen();
 for(const line of await placeholders()) add('placeholder', 'home', line);
 const routes = await p.evaluate(() => [...document.querySelectorAll('#workspace_navigation button')]
@@ -65,6 +97,8 @@ for(const route of routes) {
     await p.locator(`#workspace_navigation button[data-route-id="${route.id}"]`).click();
     await p.waitForTimeout(350);
     const now = await screen();
+    moved(homeFrame, await frame(), route.name);
+    await oversized(route.name);
     const target = await p.evaluate(id => document.querySelector(`[data-module="${id}"]`)?.dataset.module || id, route.id);
     if(now.sig === home.sig && now.focused !== target) add('response', route.name, 'the click changed nothing visible and left focus where it was');
     for(const line of await placeholders()) add('placeholder', route.name, line);
@@ -100,8 +134,11 @@ for(const [w, h, zoom] of [[1536, 864, '125%'], [1280, 720, '150%']]) {
 await session.close?.();
 const errors = session.errors.filter(e => e.kind === 'pageerror');
 for(const e of errors) add('error', 'page', e.text.split('\n')[0]);
-const unique = [...new Map(findings.map(f => [JSON.stringify(f), f])).values()];
-for(const f of unique) console.log(`${f.check.padEnd(11)} ${f.where.padEnd(14)} ${f.detail}`);
+// One cause usually shows on many routes: group by what was found, listing where.
+const grouped = new Map();
+for(const f of findings) {const k = f.check + '|' + f.detail; const g = grouped.get(k) || grouped.set(k, {check: f.check, detail: f.detail, where: []}).get(k); if(!g.where.includes(f.where)) g.where.push(f.where);}
+const unique = [...grouped.values()];
+for(const f of unique) console.log(`${f.check.padEnd(11)} ${f.detail}\n            at: ${f.where.length > 4 ? `${f.where.slice(0, 3).join(', ')} and ${f.where.length - 3} more` : f.where.join(', ')}`);
 console.log(`check:flow: ${routes.length} routes walked at 1920x1080, zoom at 125% and 150%; ${unique.length} finding${unique.length === 1 ? '' : 's'}.`);
 if(jsonOut) await writeFile(jsonOut, JSON.stringify({routes, findings: unique}, null, 1));
 process.exit(unique.length ? 1 : 0);

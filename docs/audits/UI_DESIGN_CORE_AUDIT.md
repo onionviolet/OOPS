@@ -2181,7 +2181,7 @@ Ranked by how much each confuses a player:
 - **R1, the Inventory route answers weakly (UR139).** The top-bar Inventory routes to the inventory already on the left; the one visible change is an "Expand" link. Fix: a route to an on-screen panel moves focus into it and marks it briefly. Effort S, in `workspace_navigation.js`. Done check: the click puts focus in the inventory and a mark shows.
 - **R2, Worlds contradicts the Village (UR140).** Worlds is locked ("No other world is open to you yet") because it holds optional content-pack worlds, while the Village offers "Cross to another world: Tingen". Fix: Worlds lists every crossing the life can make, the Tingen door included, with the content-pack worlds as one section. Until then, the lock reason names what Worlds holds. Effort M (`content_pack_ui.js`, `book_world_lotm_ui.js`, `panel_directory.js`). Done check: with Tingen open, Worlds opens and shows it.
 - **R3, Notebook is three panels in one (UR141).** It holds notes, practice and people (good), then "Known actions" with full cost cards and live task commands ("Close the lung valve", "Close the seal and return"). Fix: commands go back to their task's panel or the Village list. Known actions becomes a short reference with a route to each task. Effort M. Done check: Notebook shows no live command buttons.
-- **R4, "???????" tabs (UR142).** Fixed here: the Bestiary, Books and Magic tabs keep the mystery name and say "You have not come across this yet." on focus or click (`workspace_disclosure.js`).
+- **R4, "???????" tabs (UR142).** Kept as the Proto23 convention (round 47); the Bestiary, Books and Magic tabs keep the mystery name and now say "You have not come across this yet." on focus or click (`workspace_disclosure.js`).
 - **R5, the Journal opens on a blank half (UR143).** One quest is listed and the rest of the panel is empty. Fix: open on the current quest's detail, or say "Choose a quest to read its steps." Effort S. Done check: the Journal route shows a quest's detail.
 - **R6, a generic reason in Known actions (UR81).** "This action is not available under the current conditions…" is the fallback when no specific reason is disclosed (`action_legibility.js`). Where the action states a prerequisite ("Hear the seal-steward's terms"), the reason can name it. Effort S, with a knowledge check so nothing sealed leaks. Done check: Discuss the offered work names its missing step.
 - **R7, empty space early on (Q1, Q2, UR69).** Reports and the lower half of Around you sit mostly empty at the start of a life. Fix: empty regions lend height to busy neighbours until they fill (UR69 already says so), with the region sizes as a player dial. Effort M; a visual baseline (UIC122) should land first.
@@ -2197,3 +2197,63 @@ Ranked by how much each confuses a player:
 ### Proposed fix order
 
 R1, R5 and R6 are small and remove the most confusion. Then R2 and R3, which change where things live. R7 waits for visual baselines (UIC122).
+
+## Round 47, 2026-11-10: a steady frame, size and movement
+
+Weibao: "What about problem,s like ui taking up the whole page needlessly, or flowing and changing a large part for no reason and more? other aspects?" and "Some stuff being ????? is fine since thats how Proto23 did it right?"
+
+**On `???`.** Yes. The Proto23 readers record it in three places:
+- The craft tab reads `???????` until the first unlock (R4 crafting reader, L10893).
+- Ingredient names hide as `?????????` until discovered.
+- Undiscovered skill names show as ??? (side-by-side audit PFA056).
+
+UR142 now names it as a convention to keep. The round 46 change keeps the `???????` text and adds only a reason on focus.
+
+**Method.**
+- `npm run check:flow` gained three checks:
+  - `stability`: a side column that moves when a centre route opens;
+  - `oversized`: a region of 10% or more of the screen that is less than a quarter used;
+  - `shift`: layout shift during 8 s of idle play.
+- A scratch probe also diffed screenshots across 14 common actions and sampled region positions every half second for 12 s.
+- 1920×1080, mid fixture. Agent-verified, not human-reviewed.
+
+### Findings
+
+- **M1, opening any centre view moves both side columns (UR144).** On every route (Stats, Journal, Data, Knows, Notebook, People, Travelers, Projects, Ledger, Organizations, Beginning, and Crafting from the Village):
+  - The inventory moves up 163 px and grows 163 px (Condition: 232 px).
+  - Reports narrows from 499 to 372 px and slides right.
+  - Both return on close.
+
+  One open and close redraws about a third of the screen twice.
+
+  Cause: `styles/ui_tokens.css` hides the Around you region while a centre task is open and stretches the inventory region across the freed space; the board's columns then recompute. It is a deliberate trade (the centre view gets the full height), but it moves two columns the player did not touch.
+
+  Fix proposal:
+  - Keep the side columns fixed.
+  - Let the centre view take the Around you space within the centre column.
+  - The left column's top block keeps its height, with the space going to the stats or a scroll.
+
+  It changes the Proto23 frame's behaviour, so it waits for Weibao's look before landing. Effort M (`ui_tokens.css` lines 1441–1443, `shell_composition.js`). Done check: `stability` reports nothing on any route.
+- **M2, Reports is oversized early in a life (UR145).** It takes 25% of the screen and uses 22% of its box at home; on routes, 18% of the screen and 22% used. Fix proposal: Reports sizes to its content up to its share, and the spare width goes to the centre at stable moments (UR69), or it shows a calm empty state with the next step. Effort M. Done check: `oversized` clear at home in an early save.
+- **M3, the Village action list is mostly empty space.** It uses 8% of its 405 px box (seven rows), and 6% of 568 px when the inventory route is open. Fix proposal: the list sizes to its rows and the Journal or work line takes the rest, or the empty part says what will appear there (jobs, people met, unlocked places). Effort S.
+- **M4, inline disclosures nudge neighbours (UR146).** Closing "Move somewhere else" moved the item detail 27 px and shrank the Village header from 84 to 57 px. Effort S. Done check: opening and closing a dropdown leaves other regions' boxes the same.
+- **M5, idle play is steady.** No layout shift in 8 s of ticks, and no region moved in 12 s of half-second samples. Keep it: values update in place.
+
+### Other aspects to watch
+
+Not measured this round; ranked by how often a player meets them:
+
+1. **Focus and scroll after redraws (UIC120).** A redraw that drops focus or scroll is the keyboard and reading version of a jump.
+2. **Number jitter.** Counters and timers that change width each tick (proportional digits) wiggle their line. Default: tabular figures for live numbers (UR117).
+3. **Things that open themselves.** An event that opens a panel or steals the centre while the player reads (UR88: notices interrupt by stakes). Default: it waits in Reports unless it is on the stop list.
+4. **Popovers over the thing you need.** Tooltips and menus that cover the row or button being read (UR111, UR113). Default: they place away from the subject.
+5. **Mode switches that hide the work line.** Default: the current-work line stays visible in every centre view, so the player can see what is running (UR11).
+6. **Remembered layout.** Expanding, collapsing and region sizes the player sets should come back after reload (UR58).
+
+These join UIC120–UIC126 as LATER items. `check:flow` can grow a check for items 1, 2 and 5 cheaply.
+
+### Proposed order
+
+1. M1 first: it is the jump players feel on every route, and it needs Weibao's look at a before and after screenshot.
+2. Then M3 and M4 (small).
+3. Then M2, after visual baselines (UIC122).

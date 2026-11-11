@@ -918,3 +918,17 @@ Recorded:
 - New working defaults UR139–UR143 in [UI rules](../UI_RULES.md#intuitive-sectioned-flowing-rules-from-weibaos-playtest-complaints).
 - `npm run check:flow` plays the screens and catches a repeat.
 - On "Inherit UI design styles and guidelines?": the converted controls keep the shared design (their class styling, the shared focus ring, a pressed state that is not colour-only), recorded in the round 45 follow-up.
+
+## A steady frame: size and movement, 2026-11-10
+
+Weibao:
+
+> What about problem,s like ui taking up the whole page needlessly, or flowing and changing a large part for no reason and more? other aspects?
+
+> Some stuff being ????? is fine since thats how Proto23 did it right?
+
+Recorded:
+- **`???`.** Proto23 does show `???` for undiscovered tabs, ingredients and skills, so UR142 keeps it as a convention. Leaked failures such as "undefined" are still bugs.
+- **New rules.** UR144–UR146 ([UI rules](../UI_RULES.md#a-steady-frame-size-and-movement)): the frame holds still while the content changes, regions are sized by their content, and nothing moves without a cause.
+- **`check:flow`.** It now reports moved side columns, oversized regions and idle layout shift.
+- **Round 47 findings.** [UI audit round 47](../audits/UI_DESIGN_CORE_AUDIT.md#round-47-2026-11-10-a-steady-frame-size-and-movement) has M1–M5. M1 is that every centre route moves the inventory 163 px and narrows Reports. Changing that alters the Proto23 frame, so it waits for his look.
