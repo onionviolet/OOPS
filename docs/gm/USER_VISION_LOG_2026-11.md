@@ -1041,3 +1041,9 @@ Weibao:
 > ""Could you make a shelter here? Homes has what it would take."" this is too much, we can try and be mysterious, and kind of be a casual narrater, "Maybe I can build a house here" Being able to show things in specific ways could be products of feats or unlockable in the future, other aspects to consider? Did we absorb everything? Address all the issue and similar issues?
 
 Recorded: places and hints use a casual, mysterious narrator; how-to moves out of place text into station rows in Around you; costs, effects and refusals stay plain (PRS9, [USER_VISION](../USER_VISION.md#words-and-prose)). How a thing is shown can be earned through feats, skills, titles or knowledge (UR151; first candidate the rapport ladder, PX58). [Player experience round 4](../audits/PLAYER_EXPERIENCE_CORE_AUDIT.md#round-4-2026-11-10-narrator-voice-and-the-rest-of-the-playthrough) lists what was fixed, what stays proposed and a ledger of every note from his playthroughs.
+
+## The long-term loop, 2026-11-10
+
+> Consider long term gameplay loop, like, would it be endless progression? is there joy or the possibility for infinite possibilities?
+
+Recorded: round 5 of the [player experience audit](../audits/PLAYER_EXPERIENCE_CORE_AUDIT.md#round-5-2026-11-10-the-long-term-loop), PX61–PX81. Six shapes compared (numbers forever, life then legacy, a world that keeps going, collection, the traveller, becoming a power); proposed default is layered rather than endless: four time scales, tiers that change verbs, growth that bends within a world and continues across worlds, possibility from composition, the world going on after canon, endings offered not forced, and a legible carry list. Proposals.

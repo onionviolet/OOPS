@@ -221,3 +221,48 @@ Weibao on the round 3 willow line: "too much, we can try and be mysterious, and 
 | | Engine words in text | Fixed where the flow walk sees them (PX47, PX60); the rest are in the [rewrite backlog](../prose/PROSE_REWRITE_BACKLOG.md) |
 | | Show things in specific ways as unlocks | Recorded (UR151), not built |
 | Round 46 Q1–Q15 | Reports column, Focus/You, opening at the bottom, item pages, scrolling, way back, clutter, spacing, zoom, spoilers, button feedback, circles, improvements showing up, Proto23 look, memory | Unchanged from [round 46](UI_DESIGN_CORE_AUDIT.md) except Q3 and Q6, which regressed (Esc) and are fixed again (PX59), and Q12, where rapport no longer uses circles. |
+
+## Round 5, 2026-11-10: the long-term loop
+
+Weibao asked: "Consider long term gameplay loop, like, would it be endless progression? is there joy or the possibility for infinite possibilities?" ([log](../gm/USER_VISION_LOG_2026-11.md#the-long-term-loop-2026-11-10)). Standing direction already in play: long play is welcome (2026-11-04), progression is any lasting improvement, not only ranks, many worlds are the plan, events may try to end a run (AD50), and the lead's life is the main line. Proposals below, not accepted decisions.
+
+### Six shapes a long loop can take
+
+| Code | Shape | Joy it gives | Where it goes hollow | Fit here |
+| --- | --- | --- | --- | --- |
+| PX61 | **Numbers forever** (classic idle: growth, prestige, multipliers) | Steady visible growth, good for the two-minute check-in | Bigger numbers stop meaning anything; fights canon calibration (SKR21) | As a per-world dial where the source scales that way (cultivation ranks, Gu immortals), never the main reward |
+| PX62 | **A life with an end, then legacy** (heirs, successors, the next seat; Crusader Kings, Wildermyth, Rogue Legacy) | Endings that matter, a family or school that remembers | Restarting feels like loss if too little carries | Strong: `heir_inheritance.js`, `lineage_domain.js`, `home_personal_legacy.js` and heirlooms already exist |
+| PX63 | **A world that keeps going** (after canon, the world simulates on: storyteller, economy, news, creatures; Dwarf Fortress, RimWorld) | Endless stories rather than endless numbers | Thin if generators are uncalibrated or repeat | Strong: today's storyteller, prices, populations and news are exactly this layer |
+| PX64 | **Collection and completion** (routes, recipes, bestiary, deeds) | Finishing things; seeing what you have not tried | A checklist feels like a chore | Good as a record, not a goal: "Another way" deeds, known recipes, item knowledge |
+| PX65 | **The traveller** (cross worlds, carry what the rules allow, learn how each world works; jumpchain) | Meta-progression of understanding; each world a new rulebook | Carry-ins that trivialise a world | Strong: WER crossings, cheats, XWR carry rules |
+| PX66 | **Becoming a power** (the unusual one: late in a long line, the player stops being only a lead and becomes an acting power over other lives: a patron, a sealed artifact, a Venerable, a god; then authors new worlds) | A change of verb, not of size; the game turns inside out | Loses the daily-life texture if it replaces it | Built on today's acting-power record (AGT1); fits Fang Yuan's and Klein's own trajectories |
+
+### Proposed default: layered, not endless
+
+| Code | Default | Dial and reason |
+| --- | --- | --- |
+| PX67 | **Four time scales, each with its own reward.** A visit (tend, make, talk: something changed since last time); an arc (a rank, a tie, a canon beat reached by your route); a life (an ending, then what carries); a line (many lives and worlds, ending in PX66 if wanted). | Reason: each scale needs a reason to come back; idle games die when only the first exists. |
+| PX68 | **A new tier changes your verbs.** Default: reaching a tier opens new decisions (a killer move, a post, a domain, a patron's view), not only larger numbers; a tier that only scales numbers is flagged in its slice receipt. | Reason: the joy of the move from mortal to immortal Gu is what you can now do. |
+| PX69 | **Within a world, growth bends; across worlds it continues.** Default: a world's ladder follows canon and flattens at its top; new growth comes from crossing, legacy and becoming a power. | Dial: worlds whose canon has no ceiling (cultivation) keep climbing. Reason: canon-first calibration, and it keeps each world's top meaningful. |
+| PX70 | **Infinite possibility comes from composition, not counters.** Default: the open-endedness is combinations (killer moves, recipes, rituals, routes), generated content calibrated on canon, emergent stories, and other lives, all running on one set of rules (SPR26, SPR27). | Reason: a finite set of parts that compose gives more real novelty than an infinite number. |
+| PX71 | **After canon, the world goes on.** Default: when a lead's book ends, the world keeps its storyteller, economy, ties and news running, and generated pressures follow the world's own rules. | Reason: a book's last chapter should not be the game's. |
+| PX72 | **Endings are offered, never forced.** Default: a life can end by canon, by choice, by AD50 threats or by age; continuing as the same person stays possible where the mechanisms allow it. | Reason: no forced weakness (AD55); endings matter when chosen. |
+| PX73 | **What carries is legible.** Default: before a life ends or a crossing, the player sees what will carry (knowledge, heirlooms, ties, a legacy, a cheat) and what will not, by the world's rules. | Reason: trust (PX D); loss you understand is drama, loss you did not see is a bug. |
+
+### Joy checks (how to tell it is working)
+
+| Code | Check |
+| --- | --- |
+| PX74 | After ten hours in one world, the player still meets a decision they have not made before (pacing check, PAC). |
+| PX75 | A second life in the same world plays differently, because of the seat, the route or what carried. |
+| PX76 | A bot playing three styles (PX27) finds a different best route each. |
+| PX77 | The player can name something that happened that no designer wrote (an emergent story). |
+
+### LATER / DELEGATE
+
+| Code | Item | Level, effort | Done check |
+| --- | --- | --- | --- |
+| PX78 | One life-end to legacy loop on existing heir and lineage code: a lead dies or retires, the player picks the next seat, and PX73's carry list shows | Sonnet, medium | Headless play from an ending into the next seat, save, reload and import |
+| PX79 | Post-canon continuation for one world (LOTM after the first novel's ending, or Mother of Learning after the loop) with the storyteller and economy running | Sonnet, large | Thirty in-game days past canon produce events from world rules, not authored beats |
+| PX80 | A first "becoming a power" prototype on the acting-power record: the player, as a patron, answers one other life's prayer | Sonnet, medium, after AGT1 merges | A patron answer shows up as an ordinary effect in the other life |
+| PX81 | A tier review: list each world's ladder and which tiers only scale numbers (PX68) | Haiku, small | A table per world with each tier's new verbs |
