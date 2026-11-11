@@ -266,3 +266,16 @@ Weibao asked: "Consider long term gameplay loop, like, would it be endless progr
 | PX79 | Post-canon continuation for one world (LOTM after the first novel's ending, or Mother of Learning after the loop) with the storyteller and economy running | Sonnet, large | Thirty in-game days past canon produce events from world rules, not authored beats |
 | PX80 | A first "becoming a power" prototype on the acting-power record: the player, as a patron, answers one other life's prayer | Sonnet, medium, after AGT1 merges | A patron answer shows up as an ordinary effect in the other life |
 | PX81 | A tier review: list each world's ladder and which tiers only scale numbers (PX68) | Haiku, small | A table per world with each tier's new verbs |
+
+## Round 5, 2026-11-10: hints, not manuals
+
+Weibao, on three screenshots (the talk preamble, the herb answer, the Local life panel): "we can probably remove this, should the second one be prose instead? does that part leak too much?"
+
+| Code | What | Fix | Proof |
+| --- | --- | --- | --- |
+| PX61 | "Old Hesk is listening. Saying any of these takes no time. Each line shows what it costs before you say it." | No preamble while there is something to say; a line that costs time quotes it on its own row. "Has nothing new for you" stays for an empty talk. | Talk tests |
+| PX62 | The herb answer read as a manual (window, regrowth, scouting, "half as long") | Old Hesk says it in his voice and leaves the rest to find: "Golmoon, by the path. Anyone may pick it, if they can find it." … "It keeps odd hours. Late, well past midnight. And it takes a whole moon to grow a leaf back. Know the ground first, or you'll be crawling about till dawn." | Dialogue test (no marker); rebuild |
+| PX63 | Local life: "1 find remains. 10% find chance, capped at 40%…", "native food poisoning… Actual exposure adds 0.25 Poison resistance XP per played minute", "next opening in 9227 minutes", the parcel-work rank line | The panel speaks as the narrator ("Something might be tucked away around here.", "Raw potatoes and roasted rat meat can turn your stomach."); exact odds and timings moved to a hover detail (UR151 default until a feat earns them); waits read as durations ("back in 7 days"); the parcel button says what opens it, with the rank detail on hover; the busy line reads "Finish what you are doing first." | `tests/local_life.test.js` (summary has no digits; numbers in `summaryDetail`) |
+| PX64 | Why the lint missed it | `check_player_text` read `src/*.js` and skipped subfolders such as `src/absorb_c2/`. It now reads every source folder except dev previews; 114 older hits went to the baseline and the [rewrite backlog](../prose/PROSE_REWRITE_BACKLOG.md). | `node scripts/check_player_text.mjs` |
+
+PRS9 now says it outright: hints and answers leave something to find, exact numbers sit one step away until earned, and a view needs no preamble.

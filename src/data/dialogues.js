@@ -11,7 +11,7 @@ const dialogues = {};
         //ram
         name: "village elder",
         textlines: {
-            "p23 moon bed": new Textline({name:"Ask about the moonlit herb bed",text:"The elder points out the Golmoon growing by the Village path, free for anyone to pick. A leaf grows back each new moon. It shows only between midnight and four in the morning. Learn that ground first, by scouting the Village or fighting in the Infested field, and a search takes half as long.",is_unlocked:false}),
+            "p23 moon bed": new Textline({name:"Ask about the moonlit herb bed",text:"\"Golmoon, by the path. Anyone may pick it, if they can find it.\" He smiles. \"It keeps odd hours. Late, well past midnight. And it takes a whole moon to grow a leaf back. Know the ground first, or you'll be crawling about till dawn.\"",is_unlocked:false}),
             "hello": new Textline({
                 name: "elder hello",
                 text: "elder hello answ",

@@ -118,7 +118,7 @@ test('the view draws card, covered and knows columns through the given document 
     assert.deepEqual(chosen, ['h']);
     const text = root.find(n => n.dataset.talkText !== undefined)[0].textContent;
     assert.equal(text, talkText(model));
-    assert.match(text, /takes no time/);
+    assert.doesNotMatch(text, /is listening|takes no time/, 'round 5: no preamble while there is something to say');
     assert.match(text, /Already covered:\n- Done \(heard\)/);
 });
 

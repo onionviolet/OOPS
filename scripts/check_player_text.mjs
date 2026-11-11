@@ -67,7 +67,10 @@ export function scanSource(name, source) {
 
 export function scanTree() {
   const hits = [];
-  for (const name of readdirSync(resolve(root, 'src')).filter(f => f.endsWith('.js')).sort()) {
+  // Round 5: subfolders too (src/absorb_c2/local_life.js leaked "native food poisoning" unseen). Dev-only previews stay out.
+  const names = readdirSync(resolve(root, 'src'), {recursive: true}).map(String)
+    .filter(f => f.endsWith('.js') && !f.startsWith('ui/preview/')).sort();
+  for (const name of names) {
     hits.push(...scanSource(`src/${name}`, readFileSync(resolve(root, 'src', name), 'utf8')));
   }
   return hits;

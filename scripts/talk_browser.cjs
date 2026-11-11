@@ -32,7 +32,7 @@ fs.mkdirSync(output, {recursive: true});
         const text = () => page.locator('[data-talk-text]').evaluate(n => n.textContent);
         const firstText = await text();
         assert.match(firstText, /Hello|hello/i);
-        assert.match(firstText, /takes no time/);
+        assert.doesNotMatch(firstText, /is listening/);
         assert.match(firstText, /Opens more to ask\./);
         assert.doesNotMatch(firstText, /Infested|weightlifting|running/i, 'no unmet place or activity named before the click');
         assert.match(firstText, /know nothing of you/);

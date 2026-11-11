@@ -36,9 +36,9 @@ test('C2 five-minute searches persist misses, cap chance, and award a finite nat
     let s=localLifeAction(undefined,frame(),'look').state;
     let p=advanceLocalLife(s,frame({clock:4}),()=>.999);assert.equal(p.state.searches.Village.misses,0);
     p=advanceLocalLife(p.state,frame({clock:5}),()=>.999);assert.equal(p.state.searches.Village.misses,1);
-    s=JSON.parse(JSON.stringify(p.state));assert.match(localLifeView(s,frame()).summary,/15%/);
+    s=JSON.parse(JSON.stringify(p.state));assert.match(localLifeView(s,frame()).summaryDetail,/15%/);
     s.searches.Village.misses=100;
-    assert.match(localLifeView(s,frame({perception:1e5})).summary,/40%/);
+    assert.match(localLifeView(s,frame({perception:1e5})).summaryDetail,/40%/);
     p=advanceLocalLife(s,frame({clock:10}),()=>.39);assert.deepEqual(p.native.items,[{item_id:'Linen cloth',count:1}]);
     assert.equal(p.state.looking,false);assert.equal(localLifeAction(p.state,frame(),'look').ok,false);
     assert.deepEqual(advanceLocalLife(p.state,frame({clock:11})).native.items,[]);
@@ -120,7 +120,7 @@ test('ongoing local search changes method as light/means change and retains comp
  s=advanceLocalLife(s,frame({location:'Shack',illumination:60,clock:2})).state;assert.equal(s.searchProgress,2);
  s=advanceLocalLife(s,frame({location:'Shack',illumination:0,clock:4})).state;assert.equal(s.searchProgress,3);
  const before=structuredClone(s),view=localLifeView(s,frame({location:'Shack',illumination:0,clock:4}));
- assert.match(view.readiness,/feel nearby surfaces/);assert.match(view.rows[0].label,/3\/5 search work/);assert.deepEqual(s,before);
+ assert.match(view.summary,/too dark to look/);assert.match(view.summaryDetail,/feeling about/);assert.match(view.rows[0].label,/3 of 5 searched/);assert.deepEqual(s,before);
  s=normalizeLocalLife(JSON.parse(JSON.stringify(s)));assert.equal(s.searchProgress,3);
  const done=advanceLocalLife(s,frame({location:'Shack',illumination:0,nightVisionRatio:.5,clock:6}),()=>0);
  assert.equal(done.state.searches.Shack.found,true);assert.equal(done.native.items.length,1);
@@ -182,7 +182,7 @@ test('weekly restock uses saved calendar claim, next opening and no stockpiling 
     const p=localLifeAction(undefined,at,'market');assert.equal(p.ok,true);assert.equal(p.native.items[0].count,1);
     assert.equal(localLifeAction(JSON.parse(JSON.stringify(p.state)),at,'market').ok,false);
     const later=localLifeAction(p.state,c({calendarMinute:540+10080*10}),'market');assert.equal(later.native.items[0].count,1);
-    assert.match(localLifeView(p.state,at).rows.find(r=>r.id==='market').label,/next opening in 10080/);
+    assert.match(localLifeView(p.state,at).rows.find(r=>r.id==='market').label,/back in 7 days/);
 });
 test('chance visitor is rolled only on arrival, retained on meeting and pamphlet unlocks ordered relay',()=>{
     let s=advanceLocalLife(undefined,c()).state;
@@ -201,8 +201,8 @@ test('chance visitor is rolled only on arrival, retained on meeting and pamphlet
     assert.equal(advanceLocalLife(meet.state,c({clock:422}),()=>{throw Error('repeat clock');}).state.visitorMet,true);
 });
 test('search reports remaining finds and exhaustion; bleeding exposure trains Iron skin only on played ticks',()=>{
-    const empty=normalizeLocalLife();assert.match(localLifeView(empty,c()).summary,/1 find remains/);
-    empty.searches.Village.found=true;assert.match(localLifeView(empty,c()).summary,/0 finds remain/);
+    const empty=normalizeLocalLife();assert.match(localLifeView(empty,c()).summary,/Something might be tucked away/);assert.doesNotMatch(localLifeView(empty,c()).summary,/\d/,'round 5: odds live in summaryDetail');
+    empty.searches.Village.found=true;assert.match(localLifeView(empty,c()).summary,/Nothing left to find/);
     assert.equal(localLifeView(empty,c()).rows.find(r=>r.id==='look').disabled,true);
     empty.lastClock=420;
     const p=advanceLocalLife(empty,c({clock:425,bleedingRemaining:2}),()=>.999);
@@ -267,7 +267,7 @@ test('leaving says what it costs; returning says what waits; the place remembers
 test('Village standing opens the elder\'s parcel work without closing the courier route',()=>{
     const stranger=localLifeView(undefined,c({villageReputation:2})).rows.find(r=>r.id==='parcel');
     assert.equal(stranger.disabled,true);
-    assert.equal(stranger.label,"Elder's parcel work: Needs Known Face standing in Village (4 reputation); you are Stranger. The visiting courier's pamphlet also opens it.");
+    assert.equal(stranger.detail,"Needs Known Face standing in Village (4 reputation); you are Stranger. The visiting courier's pamphlet also opens it.");assert.match(stranger.label,/once the village knows your face/);
     assert.equal(localLifeAction(undefined,c({villageReputation:2}),'parcel').ok,false);
     assert.equal(localLifeQuestView(undefined,c({villageReputation:2})).some(q=>q.id==='village.parcel'),false);
     // Courier route unchanged for a Stranger.

@@ -1047,3 +1047,11 @@ Recorded: places and hints use a casual, mysterious narrator; how-to moves out o
 > Consider long term gameplay loop, like, would it be endless progression? is there joy or the possibility for infinite possibilities?
 
 Recorded: round 5 of the [player experience audit](../audits/PLAYER_EXPERIENCE_CORE_AUDIT.md#round-5-2026-11-10-the-long-term-loop), PX61–PX81. Six shapes compared (numbers forever, life then legacy, a world that keeps going, collection, the traveller, becoming a power); proposed default is layered rather than endless: four time scales, tiers that change verbs, growth that bends within a world and continues across worlds, possibility from composition, the world going on after canon, endings offered not forced, and a legible carry list. Proposals.
+
+## Hints, not manuals, 2026-11-10
+
+Weibao (on the talk preamble, the herb answer and the Local life panel):
+
+> we can probably remove this, should the second one be prose instead? does that part leak too much?
+
+Recorded: [player experience round 5](../audits/PLAYER_EXPERIENCE_CORE_AUDIT.md#round-5-2026-11-10-hints-not-manuals). The talk preamble is gone, the herb answer is Old Hesk's own hint, and Local life reads as the narrator with exact odds on hover. PRS9 extended: hints leave something to find, exact numbers sit one step away until earned (UR151), and a view needs no preamble.

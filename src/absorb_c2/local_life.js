@@ -1,3 +1,4 @@
+import {formatDuration} from '../number_format.js';
 import {natural} from '../basics.js';
 import {recurringWindow} from '../world_rhythm.js';
 import {rankOf,rankAllows} from '../faction_rank.js';
@@ -58,8 +59,8 @@ const ready = c => c.worldId==='base.frontier' && c.alive===true && c.idle===tru
 // Existing saved searchProgress is retained work; current means decide its rate.
 export function localSearchMethod(c) {
     const visual=!finite(c.illumination) || c.illumination>=60 || c.nightVisionRatio>=.5;
-    return visual ? {id:'visual',rate:1,text:'Visual search: five played minutes per attempt.'} :
-        {id:'touch',rate:.5,text:'Dim light: feel nearby surfaces, ten played minutes per attempt. A light or practiced night vision restores visual search.'};
+    return visual ? {id:'visual',rate:1,text:'Each look takes five minutes.'} :
+        {id:'touch',rate:.5,text:'Too dark to see: each try means feeling about for ten minutes. A light or night vision helps.'};
 }
 const chance = (s,c) => Math.min(LOCAL_LIFE_BALANCE.chanceCap,LOCAL_LIFE_BALANCE.baseChance+
     LOCAL_LIFE_BALANCE.missStep*(s.searches[c.location]?.misses||0)+Math.min(LOCAL_LIFE_BALANCE.perceptionCap,
@@ -247,24 +248,30 @@ export function localLifeView(raw,c) {
     const watch=natural(c.calendarMinute)?recurringWindow(WATCH_SCHEDULE,c.calendarMinute,s.watchDay):{open:false,nextIn:0};
     const market=natural(c.calendarMinute)?recurringWindow(MARKET_SCHEDULE,c.calendarMinute,s.marketClaim):{open:false,nextIn:0};
     const window=natural(c.calendarMinute)?recurringWindow(MEAL_SCHEDULE,c.calendarMinute,s.mealClaim):{open:false,nextIn:0};
-    return {visible,title:'Local life',summary:!places[c.location]?'No loose finds at this stop.':found?'0 finds remain. Nothing of interest left; search stopped.':
-        `1 find remains. ${Math.round(chance(s,c)*100)}% find chance, capped at 40%. ${localSearchMethod(c).text} Each miss adds 5 percentage points. Perception helps up to 10 points.`,
-        exposure:`Raw Potato causes twenty minutes of native food poisoning; Roasted rat meat causes forty-five. Food poisoning retains its native health loss and resistance scaling. Actual exposure adds 0.25 Poison resistance XP per played minute (${s.poisonMinutes} minutes recorded). Cooking or safe food avoids this risk.`,
-        readiness:available?`Ready. ${localSearchMethod(c).text} Completed search work stays when the method changes.`: 'Finish combat, travel, dialogue, sleep or other work first.',
-        rows:[{id:'look',label:found?'Search complete: nothing remains':s.looking?`Stop looking (${s.searchProgress}/5 search work; 1 find remains)`:'Look around (1 find remains)',disabled:!available||found||!places[c.location]},
+    // Round 5 (PRS9, UR151): the panel speaks as the narrator; exact odds and timings sit in `detail` (shown on hover)
+    // until a feat or skill earns them a place on screen.
+    const dark=localSearchMethod(c).id==='touch';
+    return {visible,title:'Local life',summary:!places[c.location]?'Nothing loose to find at this stop.':found?'Nothing left to find here.':
+        dark?'Something might be tucked away around here, but it is too dark to look. I would have to feel for it.':'Something might be tucked away around here.',
+        summaryDetail:places[c.location]&&!found?`${Math.round(chance(s,c)*100)}% chance per look, rising 5 points with each miss up to 40%; Perception adds up to 10. ${localSearchMethod(c).text} Search work already done is kept.`:'',
+        exposure:'Raw potatoes and roasted rat meat can turn your stomach. Cooked or safe food will not.',
+        exposureDetail:`Raw Potato: 20 minutes of food poisoning; Roasted rat meat: 45. Each poisoned minute trains Poison resistance (0.25 XP; ${s.poisonMinutes} minutes so far).`,
+        readiness:available?'':'Finish what you are doing first.',
+        rows:[{id:'look',label:found?'Nothing left to find':s.looking?`Stop looking (${s.searchProgress} of 5 searched)`:'Look around',disabled:!available||found||!places[c.location]},
             ...(s.parcelStep===3 && c.location==='Village'?[{id:'parcel_again',label:'Start another Village parcel relay',disabled:!available}]:[]),
             ...(relayOpen(s,c) && s.parcelStep<3?[{id:'parcel',label:`Parcel relay ${s.parcelStep+1}/3${s.parcelStep===2?` (receipt pays 8 coins, +${VILLAGE_STANDING.relay} Village reputation)`:''}: ${PARCEL_STOPS[s.parcelStep].text}${s.parcelStep===0&&!c.millUnlocked?' Clear the Cave room and report to the village elder to open Eastern mill first.':''}${s.parcelStarted?' The parcel waits while you travel or rest; nothing is lost.':''}`,disabled:!available||c.location!==PARCEL_STOPS[s.parcelStep].location||(s.parcelStep===0&&!c.millUnlocked)}]:[]),
             ...(c.location==='Village'?[
                 {id:'mentor',label:'Ask the village elder what to do next',disabled:!available},
-                ...(!relayOpen(s,c)?[{id:'parcel',label:`Elder's parcel work: ${elderTrust(c).reason} The visiting courier's pamphlet also opens it.`,disabled:true}]:[]),
+                ...(!relayOpen(s,c)?[{id:'parcel',label:"Elder's parcel work: once the village knows your face, or with the courier's pamphlet",detail:`${elderTrust(c).reason} The visiting courier's pamphlet also opens it.`,disabled:true}]:[]),
                 ...(s.visitorMet?[{id:'pamphlet',label:s.pamphletRead?'Courier: route pamphlet read':'Visiting courier: read route pamphlet (unlocks parcel relay)',disabled:!available||s.pamphletRead}]:[]),
-                {id:s.watching?'stop_watch':'watch',label:s.watching?`Leave watch (${s.watchMinutes} minutes served; forfeits ${WATCH_FORFEIT})` : watch.open?`Accept Village watch (until 20:00; 12 coins, +${VILLAGE_STANDING.watch} Village reputation; leaving early forfeits them)`:`Watch closed: next opening in ${watch.nextIn} minutes (07:00–10:00)`,disabled:!available||(!s.watching&&!watch.open)},
-                {id:'market',label:market.open?'Weekly market: take restocked bread':`Weekly market: next opening in ${market.nextIn} minutes (day 1, 09:00–17:00)`,disabled:!available||!market.open},
-                {id:'meal',label:window.open?'Take midday bread (free, one per game day)':window.claimed?'Midday bread already claimed today':`Midday bread: opens in ${window.nextIn} minutes (12:00–14:00)`,disabled:!available||!window.open},
+                {id:s.watching?'stop_watch':'watch',label:s.watching?`Leave watch (${s.watchMinutes} minutes served; forfeits ${WATCH_FORFEIT})` : watch.open?`Accept Village watch (until 20:00; 12 coins, +${VILLAGE_STANDING.watch} Village reputation; leaving early forfeits them)`:`Village watch: opens in ${formatDuration(watch.nextIn)} (07:00–10:00)`,disabled:!available||(!s.watching&&!watch.open)},
+                {id:'market',label:market.open?'Weekly market: take restocked bread':`Weekly market: back in ${formatDuration(market.nextIn)} (day 1, 09:00–17:00)`,disabled:!available||!market.open},
+                {id:'meal',label:window.open?'Take midday bread (free, one per game day)':window.claimed?'Midday bread already claimed today':`Midday bread: in ${formatDuration(window.nextIn)} (12:00–14:00)`,disabled:!available||!window.open},
                 ...(s.runnerMealsIssued>s.runnerMealsUsed?[{id:'runner_meal',label:`Use runner meal ticket (${s.runnerMealsIssued-s.runnerMealsUsed} left; 1 coin → 1 Stale bread)`,disabled:!available||!(c.money>=RUNNER_MEAL_COST)}]:[]),
                 ...(s.encounter?[{id:'help',label:'Offer runner a meal (5 coins; Perception +2 XP; one meal ticket)',disabled:!available||!(c.money>=5)},
                     {id:'decline',label:'Let the runner continue (free)',disabled:!available}]:[])]:[])],
-        encounter:c.location==='Village'?s.encounter?'A supply runner is waiting.':`A runner may stop by after fifteen quiet played minutes. Contact chance starts at 20%, rises on misses and caps at 50%; at most one contact per game day.`:''};
+        encounter:c.location==='Village'?s.encounter?'A supply runner is waiting by the well.':'Now and then a runner stops by when things are quiet.':'',
+        encounterDetail:c.location==='Village'&&!s.encounter?'After fifteen quiet minutes: 20% chance, rising with each miss up to 50%; at most one a day.':''};
 }
 
 // Facts other systems may read (storylet salience): what the player is doing here now.

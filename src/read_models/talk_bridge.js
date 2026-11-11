@@ -117,13 +117,14 @@ export function talkModel({person, place = '', topics, hiddenMore = false, stage
     const noTime = open.length > 0 && open.every(t => t.quote.time === NO_TIME);
     return {person, place, rapport, open, noTime, covered: topics.filter(t => t.state === 'heard' || t.state === 'closed'), hiddenMore,
         knows: knowsOfYou({person, topics, deeds, manner}), cheat,
-        stakes: open.some(t => t.state === 'new') ? `${person.name} is listening. ${noTime ? 'Saying any of these takes no time. ' : ''}Each line shows what it costs before you say it.` : `${person.name} has nothing new for you right now.`};
+        // Round 5: no preamble while there is something to say; a line that costs time quotes it on its own row.
+        stakes: open.some(t => t.state === 'new') ? '' : `${person.name} has nothing new for you right now.`};
 }
 
 /** Text form of the whole conversation view (UR37): every visual fact in words. */
 export function talkText(model) {
     const q = t => [model.noTime ? '' : t.quote?.time, t.quote?.cost, ...(t.quote?.effects || [])].filter(Boolean).join(' · ');
-    const lines = [`${model.person.name}${model.place ? ` · ${model.place}` : ''}`, model.stakes, '', 'You could say:'];
+    const lines = [`${model.person.name}${model.place ? ` · ${model.place}` : ''}`, ...(model.stakes ? [model.stakes] : []), '', 'You could say:'];
     for (const t of model.open) lines.push(`- ${t.label}${t.state === 'locked' ? ` (not yet: ${t.reason})` : ''}${/[.?!]$/.test(t.label) && t.state !== 'locked' ? '' : '.'} ${q(t)}`);
     if (!model.open.length) lines.push('- Nothing right now.');
     if (model.hiddenMore) lines.push('There may be more to ask as you learn more.');

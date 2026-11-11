@@ -21,9 +21,11 @@ export function createLocalLifePanel({container,read,act}) {
         if(reminderText.textContent!==text)reminderText.textContent=text;
         const next=JSON.stringify(v);if(next===signature)return;signature=next;
         const focused=document.activeElement?.dataset.localLifeAction;
-        body.replaceChildren(node('p',v.summary),node('p',v.readiness),node('p',v.exposure));
-        if(v.encounter)body.append(node('p',v.encounter));
-        for(const row of v.rows){const b=node('button',row.label);b.type='button';b.disabled=row.disabled;b.dataset.localLifeAction=row.id;
+        // Exact odds and timings are on hover (UR151 default until a feat earns them on screen); empty lines are left out.
+        const line=(text,detail)=>{const p=node('p',text);if(detail)p.title=detail;return p;};
+        body.replaceChildren(...[line(v.summary,v.summaryDetail),v.readiness&&line(v.readiness),line(v.exposure,v.exposureDetail)].filter(Boolean));
+        if(v.encounter)body.append(line(v.encounter,v.encounterDetail));
+        for(const row of v.rows){const b=node('button',row.label);b.type='button';b.disabled=row.disabled;b.dataset.localLifeAction=row.id;if(row.detail)b.title=row.detail;
             b.addEventListener('click',()=>{try{const answer=act(row.id);status.textContent=answer?.messages?.join(' ')||'';}catch(e){status.textContent=e.message;}render();});body.append(b);}
         if(focused)body.querySelector(`[data-local-life-action="${focused}"]`)?.focus();
     }
