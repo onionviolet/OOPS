@@ -15,14 +15,14 @@ export const CERTAINTY_ORDER = ['known', 'guessed', 'open'];
 const INTENT = {active: {label: 'You mean to act on it', verb: 'Act on', figure: 'current'}, postponed: {label: 'Set aside for now', verb: 'Set aside', figure: 'empty'}, considering: {label: 'Still thinking it over', verb: 'Thinking over', figure: 'unknown'}};
 const BOARD_COLUMN = 6, LABEL_MAX = 40;
 
-function certaintyOf(entry) {
+export function certaintyOf(entry) {
     const status = entry.basis?.status;
     if (status === 'obscured' || status === 'unanswered') return 'open';
     return entry.stage === 'interpreted' ? 'guessed' : 'known';
 }
 
 // How the seat came to hold it, in the seat's own words (MEANS_AND_APPRAISAL "by channel").
-function provenanceOf(entry) {
+export function provenanceOf(entry) {
     const b = entry.basis;
     if (b?.method) return b.status === 'obscured' ? `Divined by ${b.method}; the sign was unclear` : b.status === 'unanswered' ? `Asked by ${b.method}; nothing answered` : `Divined by ${b.method}`;
     switch (b?.kind) {
