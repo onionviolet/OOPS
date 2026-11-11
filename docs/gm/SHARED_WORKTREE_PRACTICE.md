@@ -128,6 +128,22 @@ Weibao, 2026-10-14: merge finished work "each time" before a new wave
    a replacement writer. Preserve unknown or interrupted reservations.
 4. If the shared index is blocked by another session's staged files, prove the
    merge in an isolated index (R15 G10 method).
+5. Merge released branches with the queue (FRC71, 2026-11-10):
+   `node scripts/merge_queue.mjs <branch>...` runs in order. It refuses while the
+   primary index has staged entries. Each branch goes through `merge-tree` and
+   `commit-tree` ("Merge <branch>", no trailer); a branch already in master is
+   skipped, and a conflict stops with the branch and paths. The result is built
+   and checked in a scratch worktree (`build`, `check:arch`, `check:rules`, one
+   `npm test`). A dry run is the default and never moves master; `--no-checks`
+   previews merges only. With `--apply` and a pass it moves master by guarded
+   `update-ref` (refused if master moved during the checks), then syncs the
+   primary: clean paths by `git checkout HEAD --`, dirty paths by three-way
+   `merge-file` with the index set to HEAD. A three-way conflict leaves the
+   working file untouched and saves the marked copy for review. The receipt
+   (commits, checks, test counts, synced and merged paths) prints and is saved
+   with logs under `.git/merge-queue/<stamp>/`. It never stashes, resets, forces
+   or pushes. Conflicts only in `dist/bundle.js`, its map or `index.html` take
+   master's side and are rebuilt into the last merge commit.
 
 Before dispatching, also check for same-day owner docs on the same topic.
 Parallel sessions often answer the same prompt (2026-10-14: duplicate comics pass).
