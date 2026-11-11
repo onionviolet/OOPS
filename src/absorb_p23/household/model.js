@@ -2,6 +2,7 @@
 // Pure transaction plans. P00 publishes these with native inventory/conditions
 // and the root sequence atomically; this module never owns those resources.
 import {natural} from '../../basics.js';
+import {readNeed} from '../../needs.js';
 export const HOUSEHOLD = Object.freeze({schema: 1, animalId: 'household.moss', name: 'Moss',
     fuelKey: JSON.stringify({id: 'Rough wood log'}), giftKey: JSON.stringify({id: 'Rat tail'}),
     burnMinutes: 20, dryMinutes: 3, giftMinutes: 60, growMinutes: 1440, firewoodCapacity: 5});
@@ -32,6 +33,11 @@ export function householdAnimalView(state, c) {
     return {name: HOUSEHOLD.name, mood: a.mood, bond: a.bond, metAt: a.metAt,
         knownMinutes: a.ageMinutes, playVisits: a.playVisits || 0,
         preference: a.playVisits > 0 ? a.playObject==='yarn'?'Likes chasing the yarn ball.':'Likes chasing a trailing cloth.' : null, posture};
+}
+/** Moss's food need through the shared seam (RCL12). A house cat hunts for itself, so the need costs the player nothing and
+ * no hunger state is saved; it reads as fed, self-met, and never kills. */
+export function householdAnimalNeed(state) {
+    return state?.animal ? readNeed({body: 'house_cat', sinceMeal: 0, baseMinutes: HOUSEHOLD.growMinutes}) : null;
 }
 export function stockFirewoodAction(key = HOUSEHOLD.fuelKey) {
     check(fuelKey(key), 'use an exact Rough wood log inventory key');
