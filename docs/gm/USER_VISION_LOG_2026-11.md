@@ -877,3 +877,11 @@ Weibao asked:
 > Deep level stuff to take?  Other stuff and more? other stuff that can use decompiled stuff rather than just hte pet stuff? Send chat to digest pet stuff
 
 Recorded: a separate session digests the held pet captures (CPR22, CPR23). Round 5 of the [coverage audit](../audits/FOUNDATIONAL_RULES_COVERAGE_2026-11-10.md#round-5-2026-11-10-what-the-decompile-bank-gives-the-open-gaps) maps bank systems to open gaps (FRC38–FRC50), as proposals; nothing is built.
+
+## Shared acting-power record, built now (LLR26), 2026-11-10
+
+Weibao asked:
+
+> FRC47, we can start a shared record for gods and patrons now?
+
+Recorded as the answer to LLR26 (AGT2 no longer waits for a second world): the shared acting-power record is built now, with LOTM and Reverend Insanity together. `src/acting_powers.js` holds the record and readers; the LOTM church agent and Heaven's Will are the first two records ([AGT2 note](../POWERS_THAT_ACT_RULES.md)). Chainsaw Man's fear and contracts (FRC35) and belief as a resource (AGT10) are left as room, not built.

@@ -169,6 +169,7 @@ Every former heading of this file, newest first, kept as an anchor. Each entry l
 
 ### 2026-11
 
+<a id="shared-acting-power-record-built-now-llr26-2026-11-10"></a>[Shared acting-power record, built now (LLR26), 2026-11-10](gm/USER_VISION_LOG_2026-11.md#shared-acting-power-record-built-now-llr26-2026-11-10)<br>
 <a id="world-kind-and-source-kind-rulebooks-2026-11-10"></a>[World kind and source kind rulebooks, 2026-11-10](gm/USER_VISION_LOG_2026-11.md#world-kind-and-source-kind-rulebooks-2026-11-10)<br>
 <a id="ideas-that-open-possibilities-are-welcome-limits-run-by-him-first-2026-11-10"></a>[Ideas that open possibilities are welcome; limits run by him first, 2026-11-10](gm/USER_VISION_LOG_2026-11.md#ideas-that-open-possibilities-are-welcome-limits-run-by-him-first-2026-11-10)<br>
 <a id="three-more-rulebooks-and-making-rules-reach-implementation-2026-11-10"></a>[Three more rulebooks, and making rules reach implementation, 2026-11-10](gm/USER_VISION_LOG_2026-11.md#three-more-rulebooks-and-making-rules-reach-implementation-2026-11-10)<br>

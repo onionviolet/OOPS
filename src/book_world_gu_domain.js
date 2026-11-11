@@ -6,6 +6,7 @@ import {guAcademyLife as life, guId as id, guKey as key, GU_DAY, GU_FRESHNESS, G
 import {GU_LEAD} from './world_packs/book_gu_lead_life.js';
 import {guLeadRefinementStatus} from './world_packs/book_gu_lead_refinement.js';
 import {guLeadVitalStatus} from './world_packs/book_gu_lead_vital.js';
+import {guHeavensWillStatus} from './ri_heavens_will.js';
 const check = (ok, message) => {if(!ok)throw Error(message);};
 const count = (rows, itemId, native = false) => Object.entries(rows || {}).reduce((n, [k, row]) => n + (JSON.parse(k).id === itemId ? native ? row.count : row : 0), 0);
 
@@ -46,7 +47,7 @@ export function validateGuEnvelope(save) {
 }
 
 export function guCareStatus(state, definition, record, context) {
-    if(definition.id === GU_LEAD)return [...guLeadVitalStatus(state, record), ...guLeadRefinementStatus(state, record, context)];
+    if(definition.id === GU_LEAD)return [...guLeadVitalStatus(state, record), ...guLeadRefinementStatus(state, record, context), ...guHeavensWillStatus(state, record)];
     if(definition.id !== life.id || !state.simulation?.knowledge?.player?.[id('gu_known')])return [];
     const s = state.simulation, gu = s.people[id('moonlight')], check = s.checks[id('care.a_reset')];
     const fresh = s.conditions[id('moonlight')]?.[id('fresh_petals')];

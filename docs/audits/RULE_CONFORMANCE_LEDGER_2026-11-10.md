@@ -31,4 +31,4 @@ Trigger names which RCL2 case applies, or "touch" for RCL1.
 | RCL16 | The LOTM pull beat names a church agent as a bare id | AGT11 | Touch | Powers that act, `canon_pull.js` | Haiku, small | The id resolves to an authority or church record |
 | RCL17 | Cheat cards mostly off the power registry | CHT4 | Touch | Cheats | Sonnet, medium | Each card's powers resolve through the registry |
 
-Lower rows, also from the books' open details: no tie reader starts an action (TIE8); plot rights carry no dues (LVR16); `law_case.js` has no caller (STN18); no mood state (MND5); no spoilage owner (ITM8); no shared acting-power record (AGT1, held as LLR26). These are missing features, not conflicts with a rule, so they wait for a slice that needs them.
+Lower rows, also from the books' open details: no tie reader starts an action (TIE8); plot rights carry no dues (LVR16); `law_case.js` has no caller (STN18); no mood state (MND5); no spoilage owner (ITM8); no shared acting-power record (AGT1; built 2026-11-10 after LLR26 was answered). These are missing features, not conflicts with a rule, so they wait for a slice that needs them.

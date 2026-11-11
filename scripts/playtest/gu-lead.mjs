@@ -131,6 +131,9 @@ try {
         assert.match(await panel.innerText(), /The elder calls C grade and puts you on the academy roll/);
         await panel.locator('.structured-status-details summary').click();
         assert.match(await panel.innerText(), /44%.*C-grade/);
+        // AGT14: the shared acting-power record shows Heaven's Will as a derived status row once the awakening is known (no saved key).
+        assert.match(await panel.innerText(), /Heaven’s Will[\s\S]*Not looking your way/);
+        assert.equal(JSON.stringify(await save()).includes('ri.heavens_will'), false);
         await action('circulate').locator('..').locator('summary').click();
         assert.match(await panel.innerText(), /1 Green-copper primeval essence/);
         await action('circulate').scrollIntoViewIfNeeded();
@@ -148,6 +151,7 @@ try {
         assert.equal(await action('circulate').isDisabled(), true);
         await panel.locator('.structured-status-details summary').click();
         assert.match(await panel.innerText(), /The elder marks your first exercise complete/);
+        assert.match(await panel.innerText(), /Heaven’s Will[\s\S]*Not looking your way/);   // still read after reload and Import
         await p.screenshot({path: path.join(out, 'first-exercise.png')});
         assert.deepEqual(result.pageErrors, []);
         await p.locator('#save_button').click();
