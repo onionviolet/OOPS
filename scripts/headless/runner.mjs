@@ -146,7 +146,7 @@ const storageProxy = s => new Proxy(s, {
 });
 
 // Globals a boot replaces; close() restores Node's originals (or deletes them).
-const NODE_GLOBALS = ['crypto','Date','setTimeout','setInterval','clearTimeout','clearInterval','requestAnimationFrame','cancelAnimationFrame',
+const NODE_GLOBALS = ['scheduler','crypto','Date','setTimeout','setInterval','clearTimeout','clearInterval','requestAnimationFrame','cancelAnimationFrame',
     'requestIdleCallback','cancelIdleCallback','window','self','top','parent','frames','location','document','localStorage','sessionStorage','Storage',
     'navigator','MutationObserver','ResizeObserver','IntersectionObserver','matchMedia','getComputedStyle','Audio','Image','alert','confirm','prompt',
     'scrollTo','scrollBy','scroll','focus','blur','open','postMessage','getSelection','innerWidth','innerHeight','outerWidth','outerHeight','devicePixelRatio',
@@ -214,6 +214,8 @@ export class HeadlessGame {
         def('cancelAnimationFrame', id => {this.timers.delete(id);});
         def('requestIdleCallback', fn => add(() => fn({didTimeout:false, timeRemaining:() => 50}), 1, [], false));
         def('cancelIdleCallback', id => {this.timers.delete(id);});
+        // fastForward (the away-bank spend) yields between slices; Node's MessageChannel breaks under the shimmed Event class.
+        def('scheduler', {yield: () => Promise.resolve()});
         const url = new URL(this.url);
         const location = {href:url.href, origin:url.origin, protocol:url.protocol, host:url.host, hostname:url.hostname, port:url.port,
             pathname:url.pathname, search:url.search, hash:url.hash, reload() {game.reloadRequested = true;}, assign() {game.reloadRequested = true;}, replace() {game.reloadRequested = true;}, toString() {return url.href;}};
