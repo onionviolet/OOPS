@@ -1,4 +1,6 @@
 import test from 'node:test';
+import {hpLeadExamCommands} from '../src/world_packs/book_hp_lead_exam_data.js';
+const hpExamCommandIds=hpLeadExamCommands.map(c=>c.id);
 import assert from 'node:assert/strict';
 import {withHpLeadCast,validateHpLeadCast} from '../src/book_world_hp_lead_pack.js';
 import {packNative} from '../src/world_pack_registry.js';
@@ -34,7 +36,7 @@ test('a second-window act chains to the act before it, and the chain crosses fro
 test('the pack with two sequences validates and merges into the native definition',()=>{
  assert.deepEqual(validateHpLeadCast(pack()),[]);
  const raw=withHpLeadCast(packNative(P),pack());
- assert.deepEqual(raw.simulation.commands.map(c=>c.id),[P+'.w1.a',P+'.w1.b',P+'.w2.c',P+'.w2.d',P+'.arrive_school',P+'.sorting',P+'.go_dormitory',P+'.leave_dormitory',P+'.lesson_charms',P+'.charms_practice',P+'.lesson_potions',P+'.tie.ron_family',P+'.tie.ron_practice',P+'.make.cure_boils.procedure.1',P+'.make.cure_boils.procedure.2',P+'.make.cure_boils',P+'.make.cure_boils.use',P+'.make.cure_boils_quills_early.procedure.1',P+'.make.cure_boils_quills_early',P+'.make.cure_boils_quills_early.use',P+'.sp.use.levitation_charm',P+'.sp.use.pass_feather']);
+ assert.deepEqual(raw.simulation.commands.map(c=>c.id),[P+'.w1.a',P+'.w1.b',P+'.w2.c',P+'.w2.d',P+'.arrive_school',P+'.sorting',P+'.go_dormitory',P+'.leave_dormitory',P+'.lesson_charms',P+'.charms_practice',P+'.lesson_potions',P+'.tie.ron_family',P+'.tie.ron_practice',P+'.make.cure_boils.procedure.1',P+'.make.cure_boils.procedure.2',P+'.make.cure_boils',P+'.make.cure_boils.use',P+'.make.cure_boils_quills_early.procedure.1',P+'.make.cure_boils_quills_early',P+'.make.cure_boils_quills_early.use',P+'.sp.use.levitation_charm',P+'.sp.use.pass_feather',...hpExamCommandIds]);
 });
 // G10 (receiving side only): the existing event owner already keeps a private delivery away from anyone who is not
 // the holder. A letter addressed to the lead but held by the guardian is "present" for the guardian and unknown to the lead.

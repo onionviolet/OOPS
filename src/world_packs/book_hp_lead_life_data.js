@@ -8,6 +8,7 @@ import {hpLeadPowerItems,hpLeadSpellIssueEffects} from '../hp_lead_spells.js';
 import {hpLeadHomeCommands} from '../hp_lead_home.js';
 import {lessonEffects} from '../lesson.js';
 import {registerWorldTies,tieEffects,tieOfferCommands} from '../person_ties.js';
+import {hpLeadExamCommands} from './book_hp_lead_exam_data.js';
 import {hpLeadMakingCommands as makingRows,hpLeadMakingItems,hpPotionsIssueEffects} from '../hp_lead_making.js';
 const P='book.hp.lead', id=n=>`${P}.${n}`;
 const note=(n,value)=>({type:'knowledge',key:id(n),stage:'understood',value});
@@ -115,6 +116,8 @@ export const hpLeadLessonCommands=(()=>{
 })();
 hpLeadLife.simulation.powers=[{id:HP_LEVITATION,revision:1,label:'Levitation charm',model:'practice',capacity:1,cooldown:0}];
 hpLeadLife.simulation.commands.push(...hpLeadLessonCommands);
+// Exams (hp_exam_model.js): revision sessions, the seven papers and the marks board, native so a paper can roll its band and a session can count.
+hpLeadLife.simulation.commands.push(...hpLeadExamCommands);
 export const hpLeadTieCommands=tieOfferCommands(id('world'),{group:'structured_local',worldId:id('world'),actorId:'player',location:id('school_hall'),audience:['$actor'],costs:[],
  duration:30,cancellation:'refund',requires:{all:[...alive.all,{fact:'actor.hp.lead.atSchool',op:'eq',value:true}]},completionRequires:alive,completionCoLocated:true,completionFailure:'refund'});
 const ronPractice=hpLeadTieCommands.find(c=>c.id===id('tie.ron_practice'));

@@ -1,4 +1,6 @@
 import test from 'node:test';
+import {hpLeadExamCommands} from '../src/world_packs/book_hp_lead_exam_data.js';
+const hpExamCommandIds=hpLeadExamCommands.map(c=>c.id);
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {packNative} from '../src/world_pack_registry.js';
@@ -30,7 +32,7 @@ test('a pack is validated and absence leaves the public stub untouched',()=>{
 });
 test('the merged definition compiles, replaces the stub command and keeps the source-only start',()=>{
  const {raw}=setup(synthetic());
- assert.deepEqual(raw.simulation.commands.map(c=>c.id),[P+'.w1.one',P+'.w1.two',P+'.arrive_school',P+'.sorting',P+'.go_dormitory',P+'.leave_dormitory',P+'.lesson_charms',P+'.charms_practice',P+'.lesson_potions',P+'.tie.ron_family',P+'.tie.ron_practice',P+'.make.cure_boils.procedure.1',P+'.make.cure_boils.procedure.2',P+'.make.cure_boils',P+'.make.cure_boils.use',P+'.make.cure_boils_quills_early.procedure.1',P+'.make.cure_boils_quills_early',P+'.make.cure_boils_quills_early.use',P+'.sp.use.levitation_charm',P+'.sp.use.pass_feather']);
+ assert.deepEqual(raw.simulation.commands.map(c=>c.id),[P+'.w1.one',P+'.w1.two',P+'.arrive_school',P+'.sorting',P+'.go_dormitory',P+'.leave_dormitory',P+'.lesson_charms',P+'.charms_practice',P+'.lesson_potions',P+'.tie.ron_family',P+'.tie.ron_practice',P+'.make.cure_boils.procedure.1',P+'.make.cure_boils.procedure.2',P+'.make.cure_boils',P+'.make.cure_boils.use',P+'.make.cure_boils_quills_early.procedure.1',P+'.make.cure_boils_quills_early',P+'.make.cure_boils_quills_early.use',P+'.sp.use.levitation_charm',P+'.sp.use.pass_feather',...hpExamCommandIds]);
  assert.ok(raw.locations.some(l=>l.id===P+'.yard'));
  assert.equal(raw.starts[0].effects.find(e=>e.type==='source').sourceId,P+'.magic');
  assert.ok(raw.items.every(i=>i.id.startsWith(P+'.item.'))); // only the W1a Potions items; the synthetic cast brings none
