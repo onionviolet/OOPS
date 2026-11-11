@@ -25,13 +25,16 @@ export function renderGuHouse(parent, house) {
         const head = el('th', `${r.label}${r.refined ? ' (refined)' : ''}`, tr, {scope: 'row'});
         // CPR9/CPR10: grain, holder and custody from the shared being record, one home beside the care numbers.
         if(r.being) el('small', `${r.being.grain} · with ${r.being.holder} · ${r.being.tie.line}`, head, {'data-gu': 'being', title: r.being.custody.join(' ')});
-        if(!r.kept) { const c = el('td', `In the clan house · ${r.price ? `${r.price} stones to take in` : 'issued free'} · eats ${r.meal} ${r.food} every ${r.everyDays} day${r.everyDays > 1 ? 's' : ''}`, tr, {colspan: 5}); c.dataset.gu = 'unheld'; continue; }
+        if(!r.kept) { const c = el('td', `In the clan house · ${r.price ? `${r.price} stones to take in` : 'issued free'} · eats ${r.meal} ${r.food} every ${r.everyDays} day${r.everyDays > 1 ? 's' : ''}`, tr, {colspan: 5}); c.dataset.gu = 'unheld'; if(r.work?.remembers) el('small', ` ${r.work.remembers}`, c, {'data-gu': 'remembers'}); continue; }
         if(!r.alive) { el('td', 'Dead', tr, {colspan: 5, 'data-gu': 'dead'}); continue; }
         const cond = el('td', null, tr); const m = el('meter', `${r.condition} of ${r.maxCondition}`, cond, {min: 0, max: r.maxCondition, low: 2, optimum: r.maxCondition, value: r.condition, 'aria-label': `${r.label} condition`}); el('span', ` ${r.condition}/${r.maxCondition}`, cond);
         el('td', `${r.stock} ${r.food}${r.altFood ? ` + ${r.altStock} ${r.altFood}` : ''} · ${r.mealsStocked} meal${r.mealsStocked === 1 ? '' : 's'}${r.order ? ` · standing order on (bag covers ${r.bagMeals})` : ''}`, tr);
         el('td', `${span(r.nextMealIn)} · eats ${r.meal}${r.willEat ? '' : ' (not enough: it will miss this meal)'}`, tr);
         el('td', r.condition <= 1 && !r.lethal ? 'Starved out now: feed it to recover' : `${r.lethal ? 'Dies' : 'Starved out'} in ${span(r.lethal ? r.starvesIn : r.starvedOutIn)} if unfed${r.sustained === false ? ' · beyond what the stipend feeds' : ''}`, tr, {'data-gu': 'starves-in'});
-        el('td', `${r.ability} · ${r.yield} stone${r.yield > 1 ? 's' : ''} a window`, tr, {'data-gu': 'work'});
+        const work = el('td', `${r.ability} · ${r.yield} stone${r.yield > 1 ? 's' : ''} a window`, tr, {'data-gu': 'work'});
+        // CPR15: the standing order line; CPR18: its opinion of you, apart from the tie line under its name.
+        if(r.work?.line) el('small', ` · ${r.work.line}`, work, {'data-gu': 'work-order'});
+        if(r.work?.remembers) el('small', ` · ${r.work.remembers}`, work, {'data-gu': 'opinion'});
     }
     const led = el('section', null, root, {'data-gu': 'ledger', 'aria-label': 'Stipend and stone ledger'});
     const a = house.ledger.agreement;

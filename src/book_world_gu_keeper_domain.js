@@ -6,6 +6,7 @@ import {energyCharge} from './energy_resources.js';
 import {guKeeperLife as life, kId as id, kKey as key, KEEPER_GU, KEEPER_DIALS as DIAL, KEEPER_DAY, keeperDiets} from './world_packs/book_gu_keeper.js';
 import {nextMeal, starvation, sustainable, dailyCost, dailyFood, mealSize, stipendAgreement} from './living_upkeep.js';
 import {guCard} from './being_gu.js';
+import {guWorkView} from './companion_work_gu_domain.js';
 import {createObligations, writeObligation} from './obligations_ledger.js';
 const check = (ok, message) => { if(!ok) throw Error(message); };
 const own = (rows, k) => rows?.[k] || 0;
@@ -66,6 +67,8 @@ export function keeperHouseView(state, definition, record, context) {
         // CPR10: the shared being record reads this row. Its care reader owns the work-ability words; grain and custody show beside them.
         row.being = guCard(row);
         row.ability = row.being.care.ability ?? (row.alive ? row.ability : null);
+        // CPR15/CPR18: the standing work order and what the Gu thinks of you (kept apart from the claim and tie above).
+        row.work = guWorkView(state, g, row);
         return row;
     });
     const weeklyIncome = DIAL.stipendStones / DIAL.stipendDays;

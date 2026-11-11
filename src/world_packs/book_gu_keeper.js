@@ -3,6 +3,7 @@
 // stipend, prices, meals and the refinement odds. Ranks above the first need unread blocks and are not modelled.
 // Upkeep rows come from the living_upkeep seam; the pack adds ownership, prices, the stipend and one refinement.
 import {compileUpkeepEvents, compileStandingOrder} from '../living_upkeep.js';
+import {guWorkRows} from '../companion_work_gu.js';
 export const KEEPER_PREFIX = 'book.ri.keeper';
 export const kId = n => `${KEEPER_PREFIX}.${n}`;
 export const kKey = n => JSON.stringify({id: kId(n)});
@@ -54,7 +55,7 @@ export const guKeeperLife = {
         effects: [{type: 'source', sourceId: id('aperture'), operation: 'grant', origin: 'acquired', awakened: true, active: true},
             {type: 'energy', energyId: id('primeval'), operation: 'learn'}, {type: 'energy', energyId: id('primeval'), operation: 'recover', amount: KEEPER_DIALS.startEssence},
             item('stone', KEEPER_DIALS.startStones), item('petals', 8),
-            ...KEEPER_GU.flatMap(g => [item(g.slot + '_gu', 1, steward), {type: 'claim', actor: steward, key: id(g.slot + '_title'), operation: 'acquire'}, flag(g.slot + '_kept', false, gu(g)), flag(g.slot + '_refined', false, gu(g)), ...(g.refinedMeal ? [flag(g.slot + '_resents', false, gu(g))] : []), flag(g.slot + '_kept.fed', false, gu(g)), flag(g.slot + '_kept.worked', false, gu(g)), flag('auto_' + g.slot, false)]),
+            ...KEEPER_GU.flatMap(g => [item(g.slot + '_gu', 1, steward), {type: 'claim', actor: steward, key: id(g.slot + '_title'), operation: 'acquire'}, flag(g.slot + '_kept', false, gu(g)), flag(g.slot + '_refined', false, gu(g)), ...(g.refinedMeal ? [flag(g.slot + '_resents', false, gu(g))] : []), flag(g.slot + '_kept.fed', false, gu(g)), flag(g.slot + '_kept.worked', false, gu(g)), flag('auto_' + g.slot, false), flag('order_' + g.slot, 'none')]),
             note('stipend_known', `The clan pays ${KEEPER_DIALS.stipendStones} primeval stones every ${KEEPER_DIALS.stipendDays} days for ${KEEPER_DIALS.stipendWeeks} weeks. Stones are both money and fuel; this is an authored first-year agreement.`),
             note('gu_known', 'Gu are living. Each has its own food and meal schedule; a missed meal costs one point of condition and a Gu at condition 1 is starved out: it cannot work until fed again, but a keeper’s Gu does not die of hunger (a dial: the clan’s unheld Gu and other people’s still can). Taking in more Gu than you can feed is allowed.')]
     }],
@@ -89,8 +90,10 @@ for(const g of KEEPER_GU) {
         description: `The steward sells ${g.bundle} ${g.foodLabel} for ${g.bundlePrice} primeval stone.`, costs: [{type: 'transfer', from: 'player', to: steward, key: key('stone'), count: g.bundlePrice}],
         effects: [item(g.food, g.bundle), note('purchase', `You bought ${g.bundle} ${g.foodLabel}.`)]}));
     // Slice: what a Gu is for. One working per meal window; condition sets how well it goes (4-3 sound, 2 works through at risk, 1 starved out).
+    // One gate for the hand verb and the standing work order (CPR15): care (condition), the tie (a resentful bound Gu refuses), the window and essence.
+    const workGate = condition => all(owned(g), condition, eq(`target.actor.${id(g.slot + '_kept.worked')}`, false), ge(`energy.${id('primeval')}.reserve`, 1), ...(g.refinedMeal ? [eq(`target.actor.${id(g.slot + '_resents')}`, false)] : []));
     const workBase = (suffix, label, condition, extra) => cmd(`work_${g.slot}${suffix}`, label, {targetId: gu(g), coLocated: true, participants: ['$target'],
-        requires: because(all(owned(g), condition, eq(`target.actor.${id(g.slot + '_kept.worked')}`, false), ge(`energy.${id('primeval')}.reserve`, 1), ...(g.refinedMeal ? [eq(`target.actor.${id(g.slot + '_resents')}`, false)] : [])),
+        requires: because(workGate(condition),
             `You need this Gu in your care at the right condition, not yet worked this meal window, and 1 essence. A starved-out Gu (condition 1) must eat first.${g.refinedMeal ? ' A refined Gu that was pushed hungry will not work for you until you feed it.' : ''}`),
         costs: [essence(1)], ...extra});
     S.commands.push(workBase('', `Put the ${g.label} to work · 1 essence, ${g.yield} stone${g.yield > 1 ? 's' : ''}`, ge('target.vital.health', 3), {description: `A sound Gu does its clan work once per meal window: ${g.yield} primeval stone${g.yield > 1 ? 's' : ''} for 1 essence.`,
@@ -105,6 +108,10 @@ for(const g of KEEPER_GU) {
             outcomes: [{id: id(`work_${g.slot}_fine${sfx}`), weight: KEEPER_DIALS.workWeakInjuryOdds.fine, effects: [item('stone', g.yield), flag(g.slot + '_kept.worked', true, gu(g)), ...mark, note('work', `The hungry ${g.label} got through its work.`)]},
                 {id: id(`work_${g.slot}_hurt${sfx}`), weight: KEEPER_DIALS.workWeakInjuryOdds.hurt, effects: [item('stone', g.yield), flag(g.slot + '_kept.worked', true, gu(g)), ...mark, {type: 'vital', actor: gu(g), key: 'health', amount: -1}, note('work', `The hungry ${g.label} finished its work and was hurt; it is starved out until it eats.`)]}]}));
     }
+    // Standing work order (CPR15, FRC55): the same gate at the sound floor, on the Gu's own window after it eats; plus give back and take back (CPR18).
+    const work = guWorkRows(g, {ids: id, keys: key, worldId: id('world'), location: id('annex'), interval: g.days * KEEPER_DAY, energy: id('primeval'), note: t => note('work', t), steward, ready, faculty, flag,
+        gate: workGate(ge('target.vital.health', 3)), assignGate: all(ready, eq(`claim.${id(g.slot + '_title')}.owner`, 'player'), eq('target.life', 'alive'))});
+    S.commands.push(...work.commands); S.events.push(...work.events);
     // Standing feed order: your bag tops up the larder one meal at each boundary while you have the food.
     S.commands.push(cmd(`order_${g.slot}_on`, `Set a standing feed order for the ${g.label}`, {requires: because(all(ready, eq(`claim.${id(g.slot + '_title')}.owner`, 'player'), eq(`actor.${id('auto_' + g.slot)}`, false)), 'Take this Gu in first, and it must not already have an order.'),
         description: `At each meal boundary one meal of ${g.foodLabel} moves from your bag to its larder if you hold it. When your bag runs out the order does nothing and the Gu goes hungry on its normal schedule.`, effects: [flag('auto_' + g.slot, true)]}));

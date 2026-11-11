@@ -21,6 +21,7 @@ export function persistExpansionPlan(plan, options) {
 }
 function writeExpansionPlan(plan, {createSave, storage, key, bindings, ownershipBindings, validateEnvelope, unlockPublication, equipmentPublication, nativePublication}) {
     validateExpansionState(plan.state);
+    domainRegistry.stage(plan);
     const serialized = createSave();
     if(typeof serialized !== "string") throw new Error("No valid save could be created.");
     const envelope = plan.replacementEnvelope ? structuredClone(plan.replacementEnvelope) : JSON.parse(serialized);
