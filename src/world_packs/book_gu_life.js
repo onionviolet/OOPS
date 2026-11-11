@@ -3,11 +3,13 @@
 // RI-c0023-02 (ch23 b031–064): four Moon Orchid petals/day, five-day freshness.
 // Reserve normalization, starting provisions, supervised work and starvation
 // timing are authored dials, not a complete aptitude or Gu refinement model.
+import {lifeOf} from '../spoilage.js';
 export const GU_PREFIX = 'book.ri.academy';
 export const guId = n => `${GU_PREFIX}.${n}`;
 export const guKey = n => JSON.stringify({id: guId(n)});
 const id = guId, key = guKey, keeper = id('keeper'), gu = id('moonlight');
-export const GU_DAY = 1440, GU_FRESHNESS = 5 * GU_DAY, GU_INITIAL_PETALS = 16;
+// The opening lot's five-day life is owned by the spoilage reader (ITM8, FRC42); the condition below carries it into the simulation.
+export const GU_DAY = 1440, GU_FRESHNESS = lifeOf(guKey('petals')), GU_INITIAL_PETALS = 16;
 const eq = (fact, value = true, reason) => ({fact, op: 'eq', value, ...(reason ? {reason} : {})});
 const ge = (fact, value, reason) => ({fact, op: 'gte', value, ...(reason ? {reason} : {})});
 const le = (fact, value) => ({fact, op: 'lte', value});

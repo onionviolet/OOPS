@@ -96,11 +96,15 @@ export function runDirector(spec, seed, upto, born, factsAt, signature = '') {
     }
     return run.out.slice(0, upto + 1);
 }
-// Plain-words reading of a receipt for the player's "why now" line: no weights, no codes (PRS).
-export function whyLine(receipt) {
+// Plain-words reading of a receipt for the player's "why now" line: no weights, no codes (PRS). `words` is the world's own wording
+// (a city, an annex, a ship): the defaults are Tingen's. Finding from the second world (Gu annex, 2026-11-10): the reading hard-coded
+// "the city", so a world without one needs its own lines; the receipt fields read are unchanged.
+export const WHY_WORDS = Object.freeze({tense: 'The city is on edge, so this is what stands out.', lull: 'It has been quiet for a while, so this catches your eye.',
+    calm: 'Nothing else competed for your attention.', late: 'It had been waiting for the right moment.'});
+export function whyLine(receipt, words = WHY_WORDS) {
     if(!receipt?.surfaced) return '';
-    const late = receipt.late ? ' It had been waiting for the right moment.' : '';
-    if(receipt.tension > 0.5) return `The city is on edge, so this is what stands out.${late}`;
-    if(receipt.comfort > 0.5) return `It has been quiet for a while, so this catches your eye.${late}`;
-    return `Nothing else competed for your attention.${late}`;
+    const w = {...WHY_WORDS, ...words}, late = receipt.late ? ` ${w.late}` : '';
+    if(receipt.tension > 0.5) return `${w.tense}${late}`;
+    if(receipt.comfort > 0.5) return `${w.lull}${late}`;
+    return `${w.calm}${late}`;
 }
