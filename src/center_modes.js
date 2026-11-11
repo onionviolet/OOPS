@@ -81,6 +81,11 @@ export function centerModes() {
         host.classList.toggle('center-mode-open', !!depth);
         // R13: one published fact for layout: which center task or reference is open, if any.
         const root = document.getElementById('main_content'); if (root) { if (depth) root.dataset.centerTask = mode; else delete root.dataset.centerTask; }
+        // UR144: the rows the home view had stay while any centre view is open, whatever mode rules the view
+        // sets (workspace mode, stats open), so the columns beside it hold still; closing hands them back.
+        const board = root?.querySelector('.workspace-board');
+        if (board && depth && !board.dataset.heldRows) { board.dataset.heldRows = board.style.getPropertyValue('grid-template-rows') || ' '; board.style.setProperty('grid-template-rows', getComputedStyle(board).gridTemplateRows, 'important'); }
+        else if (board && !depth && board.dataset.heldRows) { const was = board.dataset.heldRows.trim(); delete board.dataset.heldRows; if (was) board.style.setProperty('grid-template-rows', was, 'important'); else board.style.removeProperty('grid-template-rows'); }
         const place = document.getElementById('location_name_span')?.textContent.trim() || 'Local actions';
         const label = views.get(destination)?.label || {mixing:'Village mixing counter',dialogue:'Conversation',reading:'Reading',sleep:'Resting',activity:'Current work',action:'Current work',crafting:'Crafting',trade:'Trade',storage:'Storage'}[destination] || place;
         back.textContent = `← ${label}${mode === 'reading' ? ' · Stop reading' : mode === 'sleep' ? ' · Wake up' : ''}`;
@@ -96,6 +101,8 @@ export function centerModes() {
         actions.classList.toggle('center-mode-hidden', !native); actions.style.display = native ? 'block' : 'none';
         bindHeadingInset(mode);
         if (changed) {
+            // UR152: the new view eases in (opacity and a few pixels) so the swap reads as a step, not a cut.
+            if(!matchMedia?.('(prefers-reduced-motion: reduce)').matches){content.classList.remove('center-mode-enter');void content.offsetWidth;content.classList.add('center-mode-enter');}
             const saved=positions.get(mode);
             if(saved) {for(const [n,open]of saved.groups)if(n.isConnected)n.open=open;for(const [cls,open]of saved.dropdowns){const n=cls&&content.querySelector('.'+cls+':not([data-choice-key])');n?.classList.toggle('location_choice_dropdown_expanded',open);}for(const [n,top,left]of saved.scroll)if(n.isConnected){n.scrollTop=top;n.scrollLeft=left;}}
             else content.scrollTop=0;

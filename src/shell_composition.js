@@ -91,7 +91,7 @@ export function topTerms(regions, combat) {
 }
 
 export function createShellComposition({root, board, regions, resize}) {
-    let frame = 0;
+    let frame = 0, heldRow = false, settling = 0;
     const measure = () => {
         frame = 0;
         const started = performance.now();
@@ -116,7 +116,13 @@ export function createShellComposition({root, board, regions, resize}) {
         // The bottom row's own content (actions, inventory) bounds what the top row may borrow.
         const below = Math.max(0, ...[regions.actions, regions.inventory].filter(r => r?.isConnected).map(intrinsicExtent));
         const value = `${topRowHeight({player: top.player, elastic: top.elastic, focus: combat ? top.focus : top.idleFocus, combat, board: height, fontSize, viewport: window.innerHeight, frame: frameFor(fontSize), below})}px`;
-        if (root.style.getPropertyValue('--shell-top-row') !== value) root.style.setProperty('--shell-top-row', value);
+        // UR144: while a centre view is open the top row keeps its home height, so the inventory below
+        // You does not ride up and down with each view. After it closes, Around you redraws lazily (it skips
+        // renders while hidden), so the row waits a settle window before fitting again.
+        const current = root.style.getPropertyValue('--shell-top-row');
+        if (root.dataset.centerTask && current) { heldRow = true; clearTimeout(settling); settling = 0; }
+        else if (heldRow) { if (!settling) settling = setTimeout(() => { settling = 0; heldRow = false; schedule(); }, LAYOUT_SPEC.settleMs); }
+        else if (current !== value) root.style.setProperty('--shell-top-row', value);
         if (root.dataset.shellFit !== 'true') root.dataset.shellFit = 'true';
         resize?.measure();
         // GU2: each measure is timed so checks can confirm it stays within a frame.
