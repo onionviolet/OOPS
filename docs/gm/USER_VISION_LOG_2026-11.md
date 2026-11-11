@@ -932,3 +932,20 @@ Recorded:
 - **New rules.** UR144–UR146 ([UI rules](../UI_RULES.md#a-steady-frame-size-and-movement)): the frame holds still while the content changes, regions are sized by their content, and nothing moves without a cause.
 - **`check:flow`.** It now reports moved side columns, oversized regions and idle layout shift.
 - **Round 47 findings.** [UI audit round 47](../audits/UI_DESIGN_CORE_AUDIT.md#round-47-2026-11-10-a-steady-frame-size-and-movement) has M1–M5. M1 is that every centre route moves the inventory 163 px and narrows Reports. Changing that alters the Proto23 frame, so it waits for his look.
+
+## Player experience considerations, 2026-11-10
+
+Weibao:
+
+> COnsider other General player considerations and more, what would give a good experience and more?
+
+Recorded: [player experience core audit](../audits/PLAYER_EXPERIENCE_CORE_AUDIT.md) round 1 opens the root palette, PX1–PX27, in seven areas:
+- respecting time (session shapes, away stories, idle stop points, no chores);
+- knowing what to do (a next step plus open directions, goals at three ranges, visible cause and effect, learning by doing);
+- feeling progress (growth and moments, player skill, records, surprise that pays off);
+- trust (no lost progress, predictable rules, cheap mistakes, no pressure tricks);
+- comfort (speed, readability, a steady frame, optional sound);
+- ownership (customization, remembered choices, many ways to play);
+- long-run health (late-game lists, "what's new since you last played", a "Note this" control in play, agent personas that play before he does).
+
+Proposals, not accepted decisions.

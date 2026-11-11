@@ -15,6 +15,8 @@ Execution and evidence: [checkpoint](../gm/dispatch/quality-deep-dives-2026-11-0
 | One fact, one value across files | [CTR1-CTR9](../CONTINUITY_RULES.md) | `check_continuity.mjs` | in `check:rules` | [continuity](../continuity/CONTINUITY_BACKLOG.md) |
 | Feedback after every action | [FBK1-FBK8](../FEEDBACK_RULES.md) | `npm run check:feedback` (`--probe-disabled`) | periodic, game-driven | [feedback](../feedback/FEEDBACK_BACKLOG.md) |
 
+The broader palette above these five, covering time, direction, progress, trust, comfort and ownership, is the [player experience core audit](PLAYER_EXPERIENCE_CORE_AUDIT.md) (PX1–PX27, 2026-11-10).
+
 Shared tool: `scripts/headless/trace.mjs` (schema in its header; default policy for openings and feedback,
 `--policy work` for pacing).
 
