@@ -43,8 +43,8 @@ const dials = {chainCap: 2000};
 const all = ENGINE_PACKS.map(p => p.id);
 const config = {settings, dials};
 
-test('the registry holds sixteen packs and all of them compose into one rule set', () => {
-    assert.equal(ENGINE_PACKS.length, 16);
+test('the registry holds seventeen packs and all of them compose into one rule set', () => {
+    assert.equal(ENGINE_PACKS.length, 17);
     const engine = createEngineWorld(config);
     assert.deepEqual(engine.rules.packs, all);
     // One declarer per fact: satiety is l.living_body's, vitality is the shared vocabulary's.
@@ -78,7 +78,7 @@ test('one satiety serves a grazer and a wild worm: each turns hungry at its own 
 });
 
 const PACK_FILES = ['agency_wild.js', 'contest_bodies.js', 'market_substrate.js', 'world_sky.js',
-    ...['body_alteration', 'brew_steam', 'colony_light', 'forage_attraction', 'gu_brew_regulator', 'living_body', 'living_residue', 'mind', 'presence', 'residue_flow', 'shell_regulator', 'working_end']
+    ...['body_alteration', 'brew_steam', 'colony_light', 'forage_attraction', 'gu_brew_regulator', 'knowledge', 'living_body', 'living_residue', 'mind', 'presence', 'residue_flow', 'shell_regulator', 'working_end']
         .map(name => `world_substrate_packs/${name}.js`)];
 // Shared vocabulary and plain helpers; any other import is a domain's own module.
 const NEUTRAL = ['world_quantities.js', 'basics.js'];
@@ -108,6 +108,7 @@ test('no pack file imports another pack file, and every domain import is a liste
         'world_substrate_packs/body_alteration.js': ['body_alteration.js'],
         'world_substrate_packs/brew_steam.js': ['craft_process_thermal.js'],
         'world_substrate_packs/gu_brew_regulator.js': ['gu_activation.js'],
+        'world_substrate_packs/knowledge.js': ['knowledge_record.js'],
         'world_substrate_packs/mind.js': ['agency.js', 'kernel_working.js'],
         'world_substrate_packs/working_end.js': ['stored_working.js'],
     });
