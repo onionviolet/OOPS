@@ -1,0 +1,14 @@
+{
+  "route": "Gu Keeper → fuse Four Flavors → concentrate rank-two red steel → cast Moonglow",
+  "errors": [],
+  "checks": [
+    "refused at 3 stones: ",
+    "four-flavors-red-steel-held: Save/reload/Export/literal Import equal",
+    "four-flavors-red-steel-spent: Save/reload/Export/literal Import equal",
+    "The Four Flavors reserve funded Moonglow without spending aperture essence."
+  ],
+  "matrix": [],
+  "bundleSha256": "7f888a6a4c46b1ff2dcbb7a0987487c16710de034503b9b7b7053accf1388562",
+  "reviewState": "agent-verified, not human-reviewed",
+  "success": true
+}
