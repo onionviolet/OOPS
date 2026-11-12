@@ -255,3 +255,7 @@ disposable-profile/
 # Tauri prototype build output and local scratch runs
 scripts/perf/tauri-prototype/target/
 work/
+
+# Dispatch screenshots stay local-only (untracked 2026-11-12; history still holds older ones).
+# A screenshot linked from a doc outside docs/gm/dispatch stays tracked: add it with git add -f.
+/docs/gm/dispatch/**/*.png
