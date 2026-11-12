@@ -12,8 +12,26 @@ tests: none run; docs-only (check:rules)
 review: none
 ```
 
-**State:** phase 1 done (docs only). No runtime code touched. Save compatibility (MC4): unchanged.
-**Next phase:** embed, after K v0 and W v0 are merged to master. Start with the three first consumers in [the last section](#first-consumers-after-k-v0).
+**State:** phase 2a done: the path contract v0 module on K, with the three first consumers proven in its test file. Save compatibility (MC4): unchanged (no live key). Phase 1 inventory below is unchanged history.
+**Next phase:** 2b, the live LOTM digestion refactor (one counter for the five sites), then the request to G to read the Gu row, then folding Frontier tempering in with rolled risk (PRB1).
+
+## Phase 2a (2026-11-12): path contract v0
+
+Merged master (K v0, W v0, all phase-1 checkpoints). Added:
+
+- [`src/progression_path.js`](../../../../src/progression_path.js) and [contract](../../../PROGRESSION_PATH_CONTRACT.md) PRG1-PRG12, backlog PRB1-PRB8. It imports `ascension_paths`, `progression_gates` and `kernel_working` unchanged; no evaluator of its own.
+- [`src/progression_packs/ri_gu_master.js`](../../../../src/progression_packs/ri_gu_master.js): the Gu Master rank row, R-written and marked for G (SC5). Wall 114 parts and 3 days are authored calibration: any wall of 24 + 6y with stone yield y >= 15 fits both chapter outcomes.
+- [`tests/progression_path.test.js`](../../../../tests/progression_path.test.js): 9 tests. Consumer adapters live in the test file, as K did.
+- Register and router rows in `docs/RULES_INDEX.md`; one row in `docs/AREA_GUIDE.md`.
+
+Decisions taken (proposals, AD56):
+- The skill done check was split: curve parity with the `models/skill.js` loop (that class does not load under node, so the loop is restated in the test), and partition invariance on the track. The per-gain cap stays host policy, since upstream `add_xp` itself depends on gain size there.
+- None of the three consumers rolls, so `breakthrough_trial` is not generalised yet (PRB1, when tempering folds in).
+- The Gu step reads one supplied fact, `pressable` (sea plus what stones refill); the sea, stones and the quarter-hour lapse stay Gu law and L's aperture organ (SC4).
+- R did not take over the four existing leaves; the module only imports them.
+
+PFP2 for 2a: before = after (13 book canon as data, 75 original and generic as data, 27 bespoke). Adapters in tests move no live count.
+
 
 ## What R covers
 
@@ -163,7 +181,16 @@ R proposes to own `ascension_paths.js`, `ladder_holdings.js`, `breakthrough_tria
 - **School years** (Hogwarts, MoL months): a calendar-gated path with a credential; needs W's calendar.
 - **Felt progress text** per track (R-10) needs prose rules and the knowledge owners.
 
-## Requests to other chats (to send at embed)
+## Requests to other chats
+
+Phase 2a (for the coordinator to relay):
+
+- **G:** read the Gu Master position from `ri.gu_master` (`src/progression_packs/ri_gu_master.js`) instead of `aperture_stage` and `reserve_grade` strings in the 18 `book_gu_lead_*` scenes; supply `pressable` and the Rank One sub-stage facts; take the row into the Gu world pack when ready.
+- **K:** KB9 odds on the quote, for rolled steps (PRB1).
+- **L:** a backlash inbox for `progression.backlash` (PRB2) and the aperture as an organ with capacity.
+- **M:** agreed split: M owns the standing number, R owns rank thresholds over it (`faction_rank`).
+
+Phase 1:
 
 - **K:** the working must carry an optional attempt (risk, draw, outcome ladder) and keep the admission quote (GTR11).
 - **W:** essence as a typed quantity with kind and grade; a time-integration hook R can use for rates.
@@ -171,6 +198,15 @@ R proposes to own `ascension_paths.js`, `ladder_holdings.js`, `breakthrough_tria
 - **G:** Gu Master rank and sub-stage move from scene strings to a path position on the body; Gu worm rank as a thing path. Note left in the shared notes folder.
 
 ## Checks run
+
+| Phase 2a | | |
+| --- | --- | --- |
+| `node --test tests/progression_path.test.js` | 9 pass | Consumers are test adapters, not live play |
+| `npm run check:arch` | Exit 0 | None |
+| `npm run check:rules` | Exit 0; pre-existing TMR1 warning | None |
+
+Phase 1:
+
 
 | Command | Result | Gaps |
 | --- | --- | --- |
