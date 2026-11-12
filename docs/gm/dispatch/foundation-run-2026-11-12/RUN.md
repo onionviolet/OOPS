@@ -575,3 +575,14 @@ Five numbers: G1 92 computed cases in three of seven ledgers (75 Hogwarts spells
 For Q1, which stays open: a row that gains a computed case moves its typed state from runs to expressed under the existing case workflow, so the typed "runs" headline for Hogwarts spells reads 4.5% where it read 19.6%, while computed expressed rose from 58 to 75. No row without a case changed typed state.
 
 Next, in order: the runner timeline packet (moves the 17 Gu body rows and lets the Draught show recovery in its case), then the shell regulator's rate form before another oscillating pack joins, then G5's first parity fixture and G4's first generator from the second handoff.
+
+## Wave 16 dispatch (2026-11-12)
+
+Base `d390ef378`, usage 28% before each launch, same model, bounds and stops as Wave 15.
+
+| Lane | Worktree | Outcome |
+| --- | --- | --- |
+| `w16-timeline` | `../yair-w16-timeline` | An optional ordered timeline in the common runner (engine actions and settled clock advances with observations after named steps). Moves G1: the 17 stated-diet Gu body rows become computed cases, and the Draught case shows recovery as the second consumer |
+| `w16-parity` | `../yair-w16-parity` | Moves G5 from 0: one Keeper module re-expressed as engine rows with a parity fixture of at least six input sets, divergences named and asserted. The old module stays |
+
+The shell regulator's rate form is held out of this wave with a reason: `shell_regulator.js` is reachable from `src/main.js`, so changing it needs the full suite, a build and a look at its live consumer, and its trigger (another oscillating pack joining the mixed day) has not happened. The mixed day still costs 799 of 800 segments. It goes ahead of any packet that adds an oscillating pack to that day. Resume: poll both handles, review, fold on `claude/fdn-coord-w14`, regenerate coverage, apply PC99's gate. No push.
