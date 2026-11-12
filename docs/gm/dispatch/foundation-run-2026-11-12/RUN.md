@@ -738,3 +738,9 @@ Where E24 stands, from `check:coverage` and the ledgers' own block reasons:
 | Creatures | 96 | 35 | 0 | 61 diets unknown |
 
 Hogwarts potions are the largest engine debt: 259 rows wait on five mechanisms, mostly what a dose does once inside a body and a mind. Those five, the 41 Gu mechanisms and the items ledger go ahead of Wave 19.
+
+### Wave 18 engine host fold (2026-11-12)
+
+One Fable lane, alone, since it edited the shared files. Full suite on the merged tree: tests 6693, pass 6688, fail 0, skipped 5, exit 0 (`wave18-host-suite.log`); `check:arch`, `check:rules`, `check:coverage`, `check:docs` exit 0. `src/kernel_working.js` is game-reachable; its change is one optional port that no game caller passes. No build run.
+
+E9 is met in `tests/engine_host.test.js`: the engine save gains a versioned records slice (workings in flight, stored workings, bindings with their dues), advanced on the pack clock in the order world, workings, stored workings, bindings. Costs settle through the kernel port with the cost owner (closing H1 and H2 of the cost owners lane). The case runner computes working cases. Spellcraft, composition, process crafts, stored workings and bindings each run one example through the host; progression, contest, brewing, body alteration and Gu moves with held slots stay on private loops. Open: a short payment does not weaken an effect; knowledge checks need a per-working read port; resuming a pending advance and authority-attached penalties are built without a test. An engine save with no records slice restores unchanged.

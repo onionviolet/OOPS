@@ -232,3 +232,21 @@ test('a named timeline observes a ward before and after expiry and keeps the ori
     assert.equal(pending.state, 'blocked:runner-clock-advance');
     assert.match(pending.detail, /expire: advance to 8 is pending at 7/);
 });
+
+// ---- Working cases through the engine host (E9) ----
+import {coverageCase as workingCase} from './fixtures/coverage_cases/working_cases.mjs';
+
+test('a working case computes: a cast with its cost, a shortfall, a process that takes time and a stored working that fires', async () => {
+    const run = id => runCaseData(workingCase(id), {id});
+    for (const id of ['shield-then-strike', 'overdrawn-strike', 'tempered-blade', 'ward-fires']) assert.equal((await run(id)).state, 'expressed-authored', id);
+    assert.deepEqual(await run('blocked-strike'), {state: 'blocked:runner-working-interrupted', detail: 'case.working step 0: role-unavailable'});
+    assert.match((await run('unknown-family')).detail, /no law family named alchemy/);
+    // The outcome is computed, not typed: a wrong expectation on the same working is a mismatch.
+    const wrong = workingCase('overdrawn-strike');
+    wrong.expect[2].amount = 1;
+    assert.equal((await runCaseData(wrong)).state, 'blocked:runner-expect-mismatch');
+    const both = {...workingCase('overdrawn-strike'), sentence: {verb: 'add', object: 'heat'}};
+    await assert.rejects(runCaseData(both), /a sentence or a working, not both/);
+    const row = {id: 'r-blade', source: 'fixture', state: 'expressed-authored', mechanisms: ['F'], case: {module: 'tests/fixtures/coverage_cases/working_cases.mjs', id: 'tempered-blade'}};
+    assert.equal((await runCase(row, {reachable: new Set()})).state, 'expressed-authored');
+});

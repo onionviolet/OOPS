@@ -23,6 +23,11 @@ import {createWorkingEndPack} from './world_substrate_packs/working_end.js';
 import {createPresencePack} from './world_substrate_packs/presence.js';
 import {createMarketPack} from './market_substrate.js';
 import {createKnowledgePack} from './world_substrate_packs/knowledge.js';
+import {advanceRecords, emptyRecords, hostOf, recordsEmpty, restoreRecords, serializeRecords} from './engine_records.js';
+
+// The records slice and its engine actions (E9): kernel workings in flight, stored workings and bindings.
+export {RECORDS_SCHEMA, engineReceipts, exitEngineBinding, fireEngineStored, makeEngineBinding, startEngineWorking,
+    storeEngineWorking, waitingWorkings} from './engine_records.js';
 
 export const ENGINE_SCHEMA = 'engine.world@1';
 
@@ -50,7 +55,7 @@ export const ENGINE_PACKS = Object.freeze([
 
 const fail = message => { throw new Error(`Engine world: ${message}`); };
 
-function compose({packs = ENGINE_PACKS.map(p => p.id), settings = {}, shared = {}, dials = {}}) {
+function compose({packs = ENGINE_PACKS.map(p => p.id), settings = {}, shared = {}, dials = {}, host}) {
     if (new Set(packs).size !== packs.length) fail('a pack is listed twice.');
     for (const id of packs) if (!ENGINE_PACKS.some(p => p.id === id)) fail(`${id} is not a registered pack.`);
     const loaded = ENGINE_PACKS.filter(p => packs.includes(p.id)).map(entry => {
@@ -60,33 +65,41 @@ function compose({packs = ENGINE_PACKS.map(p => p.id), settings = {}, shared = {
     });
     const rules = composeSubstrate({packs: loaded, dials, quantities: shared.quantities ?? [],
         properties: shared.properties ?? [], effectKinds: shared.effectKinds ?? []});
-    return {rules, publishes: Object.fromEntries(loaded.map(p => [p.id, [...(p.publishes ?? [])]]))};
+    return {rules, publishes: Object.fromEntries(loaded.map(p => [p.id, [...(p.publishes ?? [])]])), host: hostOf(host)};
 }
 
-/** `settings` is keyed by pack id; `packs` defaults to every registered pack. */
+/** `settings` is keyed by pack id; `packs` defaults to every registered pack. `host` is what the
+ * records slice needs from the caller and cannot save: laws, things, costs, effects, ports. */
 export function createEngineWorld({clock = 0, holders = [], lawFields = [], ...config} = {}) {
-    const {rules, publishes} = compose(config);
-    return {rules, publishes, world: createWorld(rules, {clock, holders, lawFields})};
+    const {rules, publishes, host} = compose(config);
+    return {rules, publishes, host, world: createWorld(rules, {clock, holders, lawFields}), records: emptyRecords()};
 }
 
+/** The packs and the records advance on one clock; the order at each stop is stated in engine_records.js. */
 export function advanceEngineWorld(engine, toClock) {
-    const {world, segments, pending} = advanceWorld(engine.rules, engine.world, toClock);
-    return {engine: {...engine, world}, segments, pending};
+    if (recordsEmpty(engine.records)) {
+        const {world, segments, pending} = advanceWorld(engine.rules, engine.world, toClock);
+        return {engine: {...engine, world}, segments, pending};
+    }
+    return advanceRecords(engine, toClock);
 }
 
 export function applyEngineOps(engine, ops, cause) {
     return {...engine, world: applyWorldOps(engine.rules, engine.world, ops, cause)};
 }
 
-/** Plain JSON. The pack list is saved; settings are the caller's and are not. */
+/** Plain JSON. The pack list is saved; settings and the host are the caller's and are not.
+ * `records` is written when the slice holds something, so a world with no records saves as it did before. */
 export function serializeEngineWorld(engine) {
-    return {schema: ENGINE_SCHEMA, packs: [...engine.rules.packs], world: serializeWorld(engine.world)};
+    return {schema: ENGINE_SCHEMA, packs: [...engine.rules.packs], world: serializeWorld(engine.world),
+        ...(recordsEmpty(engine.records) ? {} : {records: serializeRecords(engine.records)})};
 }
 
 export function restoreEngineWorld(saved, config = {}) {
     if (saved?.schema !== ENGINE_SCHEMA || !Array.isArray(saved.packs)) fail('not an engine world save.');
-    const {rules, publishes} = compose({...config, packs: saved.packs});
-    return {rules, publishes, world: restoreWorld(rules, saved.world)};
+    const {rules, publishes, host} = compose({...config, packs: saved.packs});
+    // Compatibility: a save with no `records` (every save before E9) restores with an empty slice.
+    return {rules, publishes, host, world: restoreWorld(rules, saved.world), records: restoreRecords(saved.records, host)};
 }
 
 /**

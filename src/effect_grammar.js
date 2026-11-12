@@ -72,22 +72,29 @@ export const effectKind = (verb, object) => `effect.${verb}.${object}`;
 // luck waits for the generator contract's owner (P: a luck effect shifts the weights of named draws, PC82)
 // and soul for the living-things owner (L). Neither has a W act.
 export const OBJECT_OWNER = Object.freeze({working: 'K', information: 'N', memory: 'N', mind: 'A', force: 'L', lifespan: 'L', luck: 'P', soul: 'L'});
-export function lowerEffect(parts, {keys = {}, key = null, objectOf = W_OBJECT_OF, quantities = WORLD_QUANTITIES} = {}) {
+// E9 (proposal, W17 request H1). A sentence names its cost account as a word; the
+// moment supplies the amount (`details.cost`) and, when it is not the caster, who
+// pays (`details.payer`). With a whole amount the sentence publishes one cost row
+// for the cost owner; with none it publishes no row, as before.
+export const sentenceCosts = (parts, details = {}) => Number.isSafeInteger(details.cost) && details.cost >= 0 && parts?.cost
+    ? [{kind: parts.cost, amount: details.cost, ...(details.payer ? {payer: details.payer} : {})}] : [];
+export function lowerEffect(parts, {keys = {}, key = null, objectOf = W_OBJECT_OF, quantities = WORLD_QUANTITIES, cost, payer} = {}) {
     const base = objectOf[parts.object];
     const acts = [], publish = [], needs = [];
+    const costs = sentenceCosts(parts, {cost, payer});
     if (base === undefined) throw Error(`No W reading for object ${parts.object}.`);
     if (base === null) {
         // Sensing and hiding run on W's channels whatever the object; what is
         // learned or hidden is recorded by its owner (N for knowledge).
         if (['sense', 'conceal', 'release'].includes(parts.verb)) acts.push({verb: parts.verb});
         publish.push({kind: effectKind(parts.verb, parts.object), owner: OBJECT_OWNER[parts.object] ?? null});
-        return {acts, publish, needs};
+        return {acts, publish, needs, ...(costs.length ? {costs} : {})};
     }
     let object = base;
     if (quantities[base]?.keyed) {
         // A thing's own key (this Gu's light is starlight) beats the world default.
         const k = key ?? (typeof keys[parts.object] === 'function' ? keys[parts.object](parts) : keys[parts.object]);
-        if (!k) { needs.push(`${base}:<key>`); return {acts, publish, needs}; }
+        if (!k) { needs.push(`${base}:<key>`); return {acts, publish, needs, ...(costs.length ? {costs} : {})}; }
         object = `${base}:${k}`;
     }
     // A block names the verb it stops on that object: a guard on a quantity stops
@@ -97,7 +104,7 @@ export function lowerEffect(parts, {keys = {}, key = null, objectOf = W_OBJECT_O
     const act = parts.verb === 'block' ? {verb: 'block', params: {verb: stops, object}} : {verb: parts.verb, object};
     if (object === 'law:*') { delete act.object; act.kind = parts.object; }
     acts.push(act);
-    return {acts, publish, needs};
+    return {acts, publish, needs, ...(costs.length ? {costs} : {})};
 }
 
 // A world declares its carriers and the cost accounts each may pay with.
@@ -157,7 +164,8 @@ export function applySentence(rules, world, parts, details, {keys = {}, cause, b
     let observedTargets;
     const until = parts.time === 'sustained' && Number.isSafeInteger(details.minutes) ? world.clock + details.minutes : undefined;
     for (const act of lowered.acts) {
-        const {minutes, place, key, ...rest} = details;
+        // cost and payer are for the cost owner (sentenceCosts), not for the act.
+        const {minutes, place, key, cost, payer, ...rest} = details;
         const run = applyEffect(rules, next, {...act, ...rest, ...(until != null ? {until} : {}), by: by ?? rest.by}, cause);
         next = run.world;
         outcomes.push(run.outcome);
