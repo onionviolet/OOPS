@@ -31,8 +31,9 @@ const nameFunction = [
 [/\b(step|steps|dash|charge|travel|escape|leap|run)\b/i, 'move'],
     [/\b(light|glow|shine|bright\w*)\b/i, 'illuminate'], [/\b(steal|theft|plunder|rob)\b/i, 'steal'],
 ];
-const mechanismOf = {activate: 'K:gu.working/activate', convert: 'W:essence/convert', refine: 'F:gu.working/refine',
-    grow: 'L:gu.working/grow', treat: 'L:gu.working/treat', move: 'K:gu.working/move'};
+// Mechanism owners by chat letter (SC4): every Gu row sits on G; each running method adds its owner.
+const mechanismOf = {activate: 'K', convert: 'W', refine: 'F', grow: 'L', treat: 'L', move: 'K'};
+const owners = methods => ['G', ...new Set(methods.map(m => mechanismOf[m]))];
 
 const coverage = new Map(guRunnableCoverage().rows.map(row => [row.kind, row]));
 const ranksOf = record => [...new Set([...(record.metadata?.fandom_category_ranks ?? []),
@@ -46,23 +47,23 @@ const nameOf = record => record.saga?.name ?? record.fandom?.name ?? record.id;
 
 function kindRow(record) {
     const base = {id: record.id, name: nameOf(record), source: sourceOf(record), test};
-    if (record.status === 'reference-page') return {...base, layer: 'wiki', state: 'not-a-thing:wiki-reference-page', mechanisms: [], note: 'A wiki list or overview page.'};
+    if (record.status === 'reference-page') return {...base, layer: 'wiki', state: 'not-a-thing:wiki-reference-page', mechanisms: ['G'], note: 'A wiki list or overview page.'};
     if (record.status === 'novel-checked') {
         const entry = guCatalogue[record.id];
         const row = coverage.get(record.id);
         const chapters = record.observation?.chapters ?? [];
         const checked = {...base, source: [...base.source, ...chapters.map(ch => `ch${ch}`)], layer: 'chapter'};
         if (record.id === 'yaksha-octopus-king-wild-immortal') {
-            return {...checked, state: 'not-a-thing:provisional-sighting', mechanisms: [],
+            return {...checked, state: 'not-a-thing:provisional-sighting', mechanisms: ['G'],
                 note: 'A sighting of an unnamed wild Immortal; no kind to run until a chapter names it.'};
         }
         if (row?.methods.length) {
-            return {...checked, state: 'runs-authored', mechanisms: row.methods.map(m => mechanismOf[m]),
+            return {...checked, state: 'runs-authored', mechanisms: owners(row.methods),
                 note: row.derived ? 'Chapter rank and function; ability derived by gu.working dials (labelled derived).'
                     : 'Chapter-checked identity; numbers that the chapters leave open are authored in the catalogue binding.'};
         }
         const rule = !entry?.parts?.value.function ? 'effect-unknown' : 'rank-unknown';
-        return {...checked, state: `blocked:${rule}`, mechanisms: [], note: row?.gap ?? 'not catalogued'};
+        return {...checked, state: `blocked:${rule}`, mechanisms: ['G'], note: row?.gap ?? 'not catalogued'};
     }
     const ranks = ranksOf(record);
     const types = (record.fandom?.categories ?? []).filter(c => typeFunction[c]);
@@ -72,10 +73,10 @@ function kindRow(record) {
     const rank = ranks.length ? ranks[0] : null;
     const wiki = {...base, layer: 'wiki', status: record.status, rank, function: fn, path: pathOf(record),
         labelBasis: byType ? 'wiki-type' : byName ? 'name-keyword-inference' : null};
-    if (rank === null) return {...wiki, state: 'blocked:rank-unknown', mechanisms: [], note: 'No wiki rank label; needs a chapter pass or an authored-rank dial.'};
-    if (!fn) return {...wiki, state: 'blocked:effect-unknown', mechanisms: [], note: 'No effect label from type or name; needs a chapter pass (GL2).'};
+    if (rank === null) return {...wiki, state: 'blocked:rank-unknown', mechanisms: ['G'], note: 'No wiki rank label; needs a chapter pass or an authored-rank dial.'};
+    if (!fn) return {...wiki, state: 'blocked:effect-unknown', mechanisms: ['G'], note: 'No effect label from type or name; needs a chapter pass (GL2).'};
     if (!derivedAbilityFrom({rank, function: fn})) throw Error(`cannot derive ${record.id}`);
-    return {...wiki, state: 'runs-authored', mechanisms: ['K:gu.working/activate'],
+    return {...wiki, state: 'runs-authored', mechanisms: owners(['activate']),
         note: `Unchecked wiki identity (tentative, SKR3); lowest wiki rank ${rank}; ${byType ? 'function from wiki type' : 'function inferred from the name'}; ability derived.`};
 }
 
@@ -83,12 +84,12 @@ function moveRow(move) {
     const base = {id: move.id, name: move.family, source: [move.source, ...(move.chapters ?? []).map(ch => `ch${ch}`)],
         layer: 'chapter', status: move.status, roles: move.roles.map(role => ({id: role.id, kind: role.kind ?? null})), test};
     const unnamed = move.roles.filter(role => !role.kind);
-    if (unnamed.length) return {...base, state: 'blocked:unnamed-role', mechanisms: [],
+    if (unnamed.length) return {...base, state: 'blocked:unnamed-role', mechanisms: ['G'],
         note: `Roles with no named Gu: ${unnamed.map(role => role.id).join(', ')}.`};
     const stuck = move.roles.filter(role => !guMethods(role.kind).activate);
-    if (stuck.length) return {...base, state: `blocked:role-cannot-run`, mechanisms: [],
+    if (stuck.length) return {...base, state: `blocked:role-cannot-run`, mechanisms: ['G'],
         note: `Role kinds that cannot activate yet: ${stuck.map(role => role.kind).join(', ')}.`};
-    return {...base, state: 'runs-authored', mechanisms: ['K:gu.working/move'],
+    return {...base, state: 'runs-authored', mechanisms: owners(['move']),
         note: 'Composed working, one activate step per role; supports before cores (GG9), otherwise record order; order and costs authored where the chapters leave them open.'};
 }
 function leadRow(lead) {
@@ -96,7 +97,7 @@ function leadRow(lead) {
     const slug = (lead.saga?.url ?? lead.fandom?.url).replace(/[?#].*$/, '').replace(/\/$/, '').split('/').pop().toLowerCase();
     return {id: `lead:${slug}`, name, source: [lead.saga?.url, lead.fandom?.url].filter(Boolean), layer: 'wiki', status: lead.status,
         tier: lead.saga?.tier ?? null, chapterHint: lead.saga?.chapter_hint ?? null, test,
-        state: 'blocked:roles-unknown', mechanisms: [], note: 'A wiki move lead; its component Gu and order need a chapter pass before it can run.'};
+        state: 'blocked:roles-unknown', mechanisms: ['G'], note: 'A wiki move lead; its component Gu and order need a chapter pass before it can run.'};
 }
 
 const kinds = index.records.map(kindRow);
@@ -108,11 +109,18 @@ for (const rows of [kinds, moves]) {
         seen.add(row.id);
     }
 }
+// P's ledger format (docs/coverage/README.md) keeps six fields. G's labels (layer, rank, function, roles and
+// their basis) go to a sidecar keyed by ledger and id, which the coverage test reads to run each row.
+const FIELDS = ['id', 'source', 'state', 'mechanisms', 'test', 'note'];
+const ledgerRow = row => ({...Object.fromEntries(FIELDS.map(f => [f, row[f]])), source: row.source.join('; ')});
+const labelsOf = rows => Object.fromEntries(rows.map(row => [row.id, Object.fromEntries(Object.entries(row)
+    .filter(([key, value]) => !FIELDS.includes(key) && value !== null && value !== undefined))]));
 const out = join(root, 'docs/coverage');
 mkdirSync(out, {recursive: true});
-const write = (name, rows) => writeFileSync(join(out, name), rows.map(row => JSON.stringify(row)).join('\n') + '\n');
+const write = (name, rows) => writeFileSync(join(out, name), rows.map(row => JSON.stringify(ledgerRow(row))).join('\n') + '\n');
 write('gu_kinds.jsonl', kinds);
 write('gu_moves.jsonl', moves);
+writeFileSync(join(out, 'gu_labels.json'), JSON.stringify({kinds: labelsOf(kinds), moves: labelsOf(moves)}) + '\n');
 const tally = rows => rows.reduce((acc, row) => ({...acc, [row.state.split(':')[0] === 'blocked' || row.state.startsWith('not-a-thing')
     ? row.state : row.state]: (acc[row.state] ?? 0) + 1}), {});
 console.log(JSON.stringify({kinds: kinds.length, moves: moves.length, kindStates: tally(kinds), moveStates: tally(moves)}));

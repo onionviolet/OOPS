@@ -7,8 +7,10 @@ import {asBoundGu, derivedAbilityFrom, guAbility, guMethods, guMoveMethod, guRef
 
 const ledger = name => readFileSync(new URL(`../docs/coverage/${name}.jsonl`, import.meta.url), 'utf8')
     .trim().split('\n').map(line => JSON.parse(line));
-const kinds = ledger('gu_kinds');
-const moves = ledger('gu_moves');
+const labels = JSON.parse(readFileSync(new URL('../docs/coverage/gu_labels.json', import.meta.url), 'utf8'));
+const withLabels = (rows, table) => rows.map(row => ({...table[row.id], ...row}));
+const kinds = withLabels(ledger('gu_kinds'), labels.kinds);
+const moves = withLabels(ledger('gu_moves'), labels.moves);
 const states = /^(runs-canon|runs-authored|blocked:[a-z-]+|not-a-thing:[a-z-]+)$/;
 const operator = {kind: 'operator', id: 'keeper'};
 const plenty = {reserves: {keeper: {primeval: 1000, immortal: 1000, mental: 1000}}};
@@ -23,8 +25,8 @@ test('both Gu ledgers cover their denominators with no unclassified row (MS1, CV
         assert.equal(new Set(rows.map(row => row.id)).size, rows.length, 'ids are unique');
         for (const row of rows) {
             assert.match(row.state, states, row.id);
-            assert.ok(Array.isArray(row.source) && Array.isArray(row.mechanisms) && row.test && row.note, row.id);
-            if (row.state.startsWith('runs')) assert.ok(row.mechanisms.length, `${row.id} names its mechanism`);
+            assert.ok(typeof row.source === 'string' && row.source && Array.isArray(row.mechanisms) && row.mechanisms.includes('G') && row.test && row.note, row.id);
+            if (row.state.startsWith('runs')) assert.ok(row.mechanisms.length > 1, `${row.id} names the mechanism it runs on`);
         }
     }
     const checked = kinds.filter(row => row.layer === 'chapter');
