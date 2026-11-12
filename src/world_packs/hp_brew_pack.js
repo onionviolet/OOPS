@@ -5,7 +5,8 @@
 // Book 6 ch. 9 anchors the bean, crushing rather than cutting, the stirring
 // direction and the colour changes (HPPE012 and the potion evidence README);
 // every quantity, threshold and rate below is an original game dial.
-import {BREW_LAW} from '../brew_law.js';
+import {deepFreeze} from '../basics.js';
+import {BREW_LAW, brewMethod} from '../brew_law.js';
 import {beginWorking, settleWorking} from '../kernel_working.js';
 
 export const DRAUGHT_OF_LIVING_DEATH = Object.freeze({
@@ -50,4 +51,42 @@ export function brewDraughtOfLivingDeath({preparation, beanUnits, precursor, car
     if (done.status !== 'complete') throw Error(done.receipts.at(-1).reason);
     const seen = op => done.receipts.find(r => r.op === op).observed.cues ?? [];
     return {facts: done.facts, cues: {afterAddition: seen('react'), afterStirring: seen('stir')}};
+}
+
+// Book 6 ch. 18 establishes that a blended poison requires a combined remedy.
+// The classroom binder, catalyst and their reaction rates are original tuning.
+const bindRemedies = {reactants: {remedyA: 1, remedyB: 1, binder: 1}, products: {joint: 3}};
+const antidoteReactions = deepFreeze({
+    hot: [{id: 'binder-degrades', limitPermille: 500, reactants: {binder: 1}, products: {residue: 1}}],
+    bind: [{id: 'bind-remedies', ...bindRemedies}],
+    'cool-bind': [
+        {id: 'catalysed-cool-binding', priority: 1, catalyst: 'bond-catalyst', ...bindRemedies},
+        {id: 'slow-cool-binding', limitPermille: 500, ...bindRemedies},
+    ],
+});
+
+export function brewBlendedAntidote({remedyA, remedyB, binder, operations, catalyst}) {
+    const lots = Object.entries({binder, carrier: 1, remedyA, remedyB}).filter(([, amount]) => amount > 0)
+        .map(([material, amount]) => ({kind: 'lot', id: `lot.${material}`, material, amount,
+            properties: material === 'carrier' ? {} : {[material]: 1000}}));
+    const vessel = {kind: 'vessel', id: 'class.cauldron', place: 'class'};
+    const things = new Map([vessel, ...lots].map(thing => [thing.id, thing]));
+    const bindings = {vessel: {kind: 'vessel', id: vessel.id},
+        ...Object.fromEntries(lots.map(({material, kind, id}) => [material, {kind, id}]))};
+    const method = brewMethod({id: 'hp.brew.blended_antidote', slots: lots.map(({material}) => ({id: material})),
+        process: operations.map(op => ({op: 'react', options: {reactions: antidoteReactions[op],
+            catalysts: catalyst ? ['bond-catalyst'] : []}}))});
+    const initial = beginWorking(BREW_LAW, method, {id: 'hp.brew.blended_antidote.attempt', bindings, at: 0});
+    const ports = {read: ref => things.get(ref.id)};
+    const admitted = settleWorking(BREW_LAW, initial, {now: 0, ports, maxSteps: lots.length});
+    const trace = [];
+    let record = admitted.record;
+    for (let step = 0; step < operations.length && record.status === 'running'; step++) {
+        const before = record.facts.reactions?.length ?? 0;
+        ({record} = settleWorking(BREW_LAW, record, {now: 0, ports, maxSteps: 1}));
+        for (const {reaction: id, extent} of (record.facts.reactions ?? []).slice(before)) trace.push({step, kind: 'reaction', id, extent});
+    }
+    if (record.status !== 'complete') throw Error(record.receipts.at(-1).reason);
+    const spent = admitted.effects.map(({effect}) => ({material: things.get(effect.holder).material, qty: effect.amount}));
+    return {batch: record.facts.brew.batch, spent, trace};
 }

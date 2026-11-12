@@ -1,6 +1,6 @@
 import {disturbGuPlot, plantGuFruit, produceGuFruit, refineGuFruit, sortGuFruit, thunderPotatoPropagation as rule} from './gu_propagation.js';
 import {applyKeeperVitalityEffect, keeperVitality, keeperVitalityFacts, validateKeeperVitality,
-    vitalityOperations} from './gu_keeper_vitality.js';
+    vitalityOperations} from './world_packs/book_gu_keeper_gardens.js';
 import {keeperPotatoMarket, potatoBuyer, potatoBuyerPlot, potatoMarketOperations, potatoMarketOptions,
     potatoMarketPin, potatoMarketView, settlePotatoMarket, validatePotatoMarket} from './gu_keeper_potato_market.js';
 import {applyDrainOperation, drainOperations, drainOptions, drainPin, drainWake, drainWearPin, keeperDrain, keeperDrainWear,

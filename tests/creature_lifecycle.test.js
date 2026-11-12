@@ -6,6 +6,10 @@ import {
     openWildHabitat, practiceWithCreature, restoreCreatureLifecycle, settleCreatureCare, startCreatureCare,
     settleCohortStock, settleCreatureBirth, startCreatureBrood, transferCreature,
 } from '../src/creature_lifecycle.js';
+import {bloodline, createDescent, purity, restoreDescent, serializeDescent} from '../src/kernel_descent.js';
+import {addIdentity, createIdentities} from '../src/kernel_identity.js';
+import {projectCreatureBirth} from '../src/living_descent.js';
+import {LIVING_GENOMES} from '../src/living_genomes.js';
 
 const habitat = (id, capacity, ...supportedSpecies) => ({id, capacity, supportedSpecies});
 const stock = (state, id, species, site, delta) =>
@@ -125,6 +129,60 @@ test('a pending sheep birth survives reload and capacity failure, then yields an
     assert.deepEqual(creatureDevelopment(lamb.state, lamb.id, 12), {ageMinutes: 5, mature: true});
     assert.throws(() => settleCreatureBirth(lamb.state, {...birth, revision: lamb.state.revision}),
         /No creature birth is due/);
+});
+
+test('a settled birth supplies a replay-safe pedigree for known parents after reload', () => {
+    const field = habitat('field', 3, 'sheep');
+    const genome = LIVING_GENOMES['village.sheep'];
+    const genes = {fleece: ['F', 'f'], coat: ['D', 'd'], winter: ['W', 'w'], vigor: ['V', 'v']};
+    const acquire = (state, woolTenths) => acquireCreature(state, {revision: state.revision, cohortId: 'field.sheep',
+        destination: field, keeper: 'player', genome, genes, breeding: {woolTenths}});
+    const ewe = acquire(stock(restoreCreatureLifecycle(), 'field.sheep', 'sheep', field, 2), 62);
+    const ram = acquire(ewe.state, 58);
+    const parents = [ewe.id, ram.id];
+    const brood = startCreatureBrood(ram.state, {revision: ram.state.revision, parents, keeper: 'player',
+        clock: 1, gestationMinutes: 4, growthMinutes: 2, root: 'pedigree', genome});
+    const pending = restoreCreatureLifecycle(JSON.parse(JSON.stringify(brood.state)));
+    const lamb = settleCreatureBirth(pending, {revision: pending.revision, broodId: brood.id, clock: 5, destination: field});
+    const loaded = restoreCreatureLifecycle(JSON.parse(JSON.stringify(lamb.state)));
+    assert.deepEqual(loaded, lamb.state);
+    assert.deepEqual(loaded.broods, {});
+    assert.deepEqual(loaded.individuals[lamb.id].parents, parents);
+    assert.deepEqual(loaded.individuals[lamb.id].genes, pending.broods[brood.id].genes);
+    assert.deepEqual(loaded.individuals[lamb.id].breeding, pending.broods[brood.id].breeding);
+
+    const mint = (registry, id, key, at) => addIdentity(registry, {id, at, cause: 'observed',
+        facets: {body: {owner: 'lifecycle', key}}});
+    const eweRegistry = mint(createIdentities(), 'flock:ewe', ewe.id, 0);
+    const registry = mint(eweRegistry, 'flock:lamb', lamb.id, 5);
+    const known = new Map([[ewe.id, 'flock:ewe'], [lamb.id, 'flock:lamb']]);
+    const allKnown = new Map([...known, [ram.id, 'flock:ram']]);
+    const graph = createDescent();
+    assert.equal(projectCreatureBirth(graph, eweRegistry, loaded, lamb.id, known), graph);
+    const partial = projectCreatureBirth(graph, registry, loaded, lamb.id, known);
+    assert.deepEqual(partial.edges, [
+        {kind: 'born-of', from: 'flock:lamb', to: 'flock:ewe', at: 5, writer: 'l', cause: 'birth'},
+    ]);
+    assert.deepEqual(graph.edges, []);
+    assert.deepEqual(purity(partial, 'flock:lamb', () => true), {matching: 0.5, unknown: 0.5, other: 0});
+    const restoredGraph = restoreDescent(serializeDescent(partial), registry);
+    assert.equal(projectCreatureBirth(restoredGraph, registry, loaded, lamb.id, allKnown), restoredGraph);
+    const fullRegistry = mint(registry, 'flock:ram', ram.id, 0);
+    assert.equal(projectCreatureBirth(restoredGraph, fullRegistry, loaded, lamb.id, known), restoredGraph);
+    const full = projectCreatureBirth(restoredGraph, fullRegistry, loaded, lamb.id, allKnown);
+    assert.deepEqual(bloodline(full, 'flock:lamb').ancestors.map(row => row.id), ['flock:ewe', 'flock:ram']);
+    assert.equal(projectCreatureBirth(full, fullRegistry, loaded, lamb.id, allKnown), full);
+
+    const oldSave = JSON.parse(JSON.stringify(lamb.state));
+    delete oldSave.individuals[lamb.id].parents;
+    const oldLoaded = restoreCreatureLifecycle(oldSave);
+    assert.deepEqual(oldLoaded, oldSave);
+    assert.equal(projectCreatureBirth(graph, fullRegistry, oldLoaded, lamb.id, allKnown), graph);
+    for (const invalid of [null, [ewe.id], [ewe.id, ewe.id], [ewe.id, lamb.id], [ewe.id, 'creature:999']]) {
+        const malformed = structuredClone(oldSave);
+        malformed.individuals[lamb.id].parents = invalid;
+        assert.throws(() => restoreCreatureLifecycle(malformed), /Invalid creature birth parentage/);
+    }
 });
 
 test('finite sheep care settles identically across time partitions and JSON restore', () => {

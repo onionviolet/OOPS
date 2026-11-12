@@ -1,8 +1,7 @@
-import {defineCatalogue} from './craft_materials.js';
-import {defineCraftLaw, resolveBatch} from './craft_resolver.js';
+import {deepFreeze} from './basics.js';
 import {cancelOutputs, defineDoseRules} from './craft_dose_rules.js';
 import {bindMethod} from './method_program.js';
-import {DRAUGHT_OF_LIVING_DEATH, brewDraughtOfLivingDeath} from './world_packs/hp_brew_pack.js';
+import {DRAUGHT_OF_LIVING_DEATH, brewBlendedAntidote, brewDraughtOfLivingDeath} from './world_packs/hp_brew_pack.js';
 
 export const ANTIDOTE_OPERATIONS = Object.freeze({
     heat: Object.freeze({label: 'Heat the binder', input: 'unmixed ingredients', output: 'unmixed ingredients', reaction: 'hot'}),
@@ -21,43 +20,13 @@ const phialRules = defineDoseRules({id: 'book.hp.antidote.phial', revision: 1, p
 ]});
 
 const axes = ['precursor', 'juice', 'intermediate', 'remedyA', 'remedyB', 'binder', 'joint', 'residue'];
-const materials = ['carrier', ...axes.filter(id => id !== 'intermediate' && id !== 'joint' && id !== 'residue')];
-const catalogue = defineCatalogue({
-    id: 'workshop.hogwarts', revision: 1, basis: 1,
-    axes: axes.map(id => ({id, kind: 'fraction'})),
-    tags: [{id: 'bond-catalyst', kind: 'functional', revision: 1}],
-    materials: [
-        ...materials.map(id => ({id, revision: 1, properties: id === 'carrier' ? {} : {[id]: 1}})),
-        {id: 'catalyst-stone', revision: 1, properties: {}, tags: ['bond-catalyst']},
-    ],
-});
-
-const law = defineCraftLaw({
-    id: 'workshop.hogwarts.reactions', revision: 1, catalogue, carrier: 'Cauldron',
-    ops: [{id: 'admit'}, {id: 'hot'}, {id: 'bind'}, {id: 'cool-bind'}],
-    reactions: [
-        {id: 'juice-reacts', after: 'admit', reactants: {juice: 1, precursor: 1}, products: {intermediate: 2}},
-        {id: 'binder-degrades', after: 'hot', limit: 500, reactants: {binder: 1}, products: {residue: 1}},
-        {id: 'bind-remedies', after: 'bind', reactants: {remedyA: 1, remedyB: 1, binder: 1}, products: {joint: 3}},
-        {id: 'catalysed-cool-binding', after: 'cool-bind', priority: 1, catalyst: 'bond-catalyst',
-            reactants: {remedyA: 1, remedyB: 1, binder: 1}, products: {joint: 3}},
-        {id: 'slow-cool-binding', after: 'cool-bind', limit: 500,
-            reactants: {remedyA: 1, remedyB: 1, binder: 1}, products: {joint: 3}},
-    ],
-});
+const antidoteAxes = [...axes, 'matrix'].sort();
 
 export function quantity(value, label, minimum = 0) {
     if (!Number.isSafeInteger(value) || value < minimum || value > 999) {
         throw Error(`${label} must be a whole number from ${minimum} to 999.`);
     }
     return value;
-}
-
-function mix(amounts, operations, catalyst = false) {
-    const inputs = Object.entries(amounts).filter(([, qty]) => qty > 0)
-        .map(([id, qty]) => ({material: catalogue.materials[id], qty}));
-    if (catalyst) inputs.push({material: catalogue.materials['catalyst-stone'], qty: 1, role: 'catalyst'});
-    return resolveBatch(law, {inputs, process: operations.map(op => ({op}))});
 }
 
 // The classroom Draught of Living Death runs on the shared brew law
@@ -101,13 +70,15 @@ export function brewWorkshopAntidote({remedyA = 4, remedyB = 4, binder = 0, hot 
     if ([hot, cool, catalyst].some(value => typeof value !== 'boolean')) throw Error('Hot, cool and catalyst must be true or false.');
     for (const key of ['a', 'b', 'blend']) quantity(burden?.[key], `Burden ${key}`);
     const operations = bindAntidoteMethod(steps ?? [...(hot ? ['heat'] : []), cool ? 'cool' : 'warm']).map(op => op.reaction);
-    const {product, debits, retained, trace} = mix({carrier: 1, remedyA, remedyB, binder}, operations, catalyst);
-    const {composition: amounts} = product;
+    const {batch, spent, trace} = brewBlendedAntidote({remedyA, remedyB, binder, operations, catalyst});
+    const amounts = Object.freeze(Object.fromEntries(antidoteAxes.map(id => [id, batch[id === 'matrix' ? 'carrier:matrix' : id] ?? 0])));
+    const mass = Object.values(amounts).reduce((sum, amount) => sum + amount, 0);
+    const retained = catalyst ? [{material: 'catalyst-stone', qty: 1}] : [];
     const {outputs} = cancelOutputs(phialRules, {phial: {...burden, remedyA: amounts.remedyA,
         remedyB: amounts.remedyB, joint: Math.floor(amounts.joint / 3)}});
     const remaining = Object.fromEntries(['a', 'b', 'blend'].map(key => [key, outputs.phial?.[key] ?? 0]));
     return {
-        method: 'antidote', mass: product.mass, amounts, spent: debits, retained, trace, remaining,
+        method: 'antidote', mass, amounts, spent: deepFreeze(spent), retained: deepFreeze(retained), trace: deepFreeze(trace), remaining,
         observation: Object.values(remaining).some(value => value > 0) ? 'Some of the burden remains.' : 'All three burdens cleared.',
         basis: 'Harry Potter book 6, chapter 18, supplies the blend requirement. The assay materials, conditions and effects are original game tuning.',
     };

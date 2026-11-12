@@ -1,7 +1,7 @@
 import {guCatalogue} from './gu_catalogue.js';
 import {resolveGuActivation} from './gu_activation.js';
 import {resolveGuDefense} from './gu_defense.js';
-import {controlledScaleArmor} from './gu_keeper_stealth.js';
+import {controlledScaleArmor} from './world_packs/book_gu_keeper_refinement_trials.js';
 import {runGuGoal, searchGuGoal} from './gu_goal_search.js';
 
 const keeper = 'book.ri.keeper';

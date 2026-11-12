@@ -103,6 +103,8 @@ function checkReaction(r) {
     check(object(r) && typeof r.id === 'string' && object(r.reactants) && object(r.products), 'A reaction needs reactants and products.');
     const total = side => Object.values(side).reduce((n, k) => { check(positive(k), 'Reaction coefficients are positive whole numbers.'); return n + k; }, 0);
     check(total(r.reactants) === total(r.products), `Reaction ${r.id} must conserve its amounts.`);
+    check(r.limitPermille == null || natural(r.limitPermille) && r.limitPermille <= 1000,
+        `Reaction ${r.id} needs a rate between 0 and 1000 per mille.`);
 }
 
 // Fractional extent in milli-units: the limiting reactant decides, so a short
@@ -112,7 +114,11 @@ function react(batch, reactions, present, shortfall = null) {
     for (const r of [...reactions].sort((a, b) => (b.priority ?? 0) - (a.priority ?? 0))) {
         checkReaction(r);
         if (r.catalyst && !present.includes(r.catalyst)) continue;
-        let extent = Math.min(...Object.entries(r.reactants).map(([id, k]) => Math.floor((batch[id] ?? 0) / k)));
+        let extent = Math.min(...Object.entries(r.reactants).map(([id, k]) => {
+            const amount = batch[id] ?? 0;
+            const available = r.limitPermille == null ? amount : Math.floor(amount * r.limitPermille / 1000);
+            return Math.floor(available / k);
+        }));
         if (r.limit != null) extent = Math.min(extent, r.limit);
         if (shortfall) extent -= Math.floor(extent * shortfall(r) / 1000);
         if (extent <= 0) continue;

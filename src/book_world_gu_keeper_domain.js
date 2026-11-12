@@ -10,9 +10,9 @@ import {moonlightTrialView, validateMoonlightTrial} from './gu_keeper_moonlight_
 import {moonlightStockView, validateMoonlightStock} from './gu_moonlight_stock.js';
 import {keeperMoveTrialView, keeperTrayMoveView, validateKeeperMoveTrial} from './gu_keeper_move_trial.js';
 import {keeperFireTrialView} from './gu_keeper_fire_trial.js';
-import {keeperRainbowView, validateKeeperRainbow} from './gu_keeper_rainbow.js';
+import {keeperRainbowView, validateKeeperRainbow} from './world_packs/book_gu_keeper_sustained.js';
 import {keeperPropagationView, validateKeeperPropagation} from './gu_keeper_propagation.js';
-import {keeperVitalityView} from './gu_keeper_vitality.js';
+import {keeperVitalityView} from './world_packs/book_gu_keeper_gardens.js';
 import {hostedWolfView, validateHostedWolf} from './gu_hosted_wolf.js';
 import {keeperFusionView, validateKeeperFusion} from './gu_keeper_fusion.js';
 import {keeperGoalView, validateKeeperGoal} from './gu_keeper_goal.js';

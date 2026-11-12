@@ -56,7 +56,7 @@ import {keeperCooperationView, mothClue, mothLightMinutes} from '../src/gu_keepe
 import {requestGuAid} from '../src/gu_cooperation.js';
 import {hostedWolfView} from '../src/gu_hosted_wolf.js';
 import {keeperPotatoFruit, keeperPropagationView} from '../src/gu_keeper_propagation.js';
-import {keeperRainbowView} from '../src/gu_keeper_rainbow.js';
+import {keeperRainbowView} from '../src/world_packs/book_gu_keeper_sustained.js';
 import {fourFlavorsWines} from '../src/gu_liquor_worm.js';
 import {keeperWildView} from '../src/gu_keeper_wild.js';
 import {guKeeperImmortalRefinement} from '../src/world_packs/book_gu_keeper_immortal_refinement.js';
@@ -1429,4 +1429,150 @@ test('automatic keeper events that act on the player are gated, so another world
     assert.ok(events.length>0);
     const open=events.filter(e=>e.automatic&&(e.actorId||'player')==='player'&&!e.requires).map(e=>e.id);
     assert.deepEqual(open,[]);
+});
+
+// Compression regressions exercise saved native ledgers across the shared Gu working hosts.
+import {refinementLine} from '../src/gu_refinement_line.js';
+import {sevenLine, nineLine} from '../src/world_packs/book_gu_keeper_lines.js';
+import {guGarden} from '../src/gu_garden_host.js';
+import {vitalityGarden} from '../src/world_packs/book_gu_keeper_gardens.js';
+import {sustainedGuHost} from '../src/gu_sustained_host.js';
+import {rainbowLine} from '../src/world_packs/book_gu_keeper_sustained.js';
+import {guRefinementTrial} from '../src/gu_refinement_trial_host.js';
+import {stealthTrial} from '../src/world_packs/book_gu_keeper_refinement_trials.js';
+
+function compressedFixture(config, packs = []) {
+    const state = {clock: 10, worlds: {[config.world]: {facts: {}}},
+        actors: {player: {worldId: config.world, completed: {}, facts: {}}},
+        simulation: {people: {player: {life: 'alive', location: config.place ?? 'test.host'},
+            [config.custodian]: {life: 'alive', location: config.place ?? 'test.host'}}}};
+    const record = {initializedAt: 0, extensions: [config.id, ...packs].map(id => ({id}))};
+    const receipt = (op, pack = config.id) => {
+        const key = `${pack}.${op}`;
+        state.actors.player.completed[key] = (state.actors.player.completed[key] ?? 0) + 1;
+    };
+    return {state, record, receipt};
+}
+
+test('compressed Worm lines retain cancellation, late failure, lineage and saved reserve receipts', () => {
+    const seven = refinementLine(sevenLine, {ready: () => true, activate: () => 2});
+    const {state, record, receipt} = compressedFixture(sevenLine);
+    const parent = {id: 'test.four', rank: 2, provenance: {recipe: 'four-flavors-fusion'}};
+    const act = op => {seven.apply(state, record, op, parent, true); receipt(op); seven.validate(state, record, parent);};
+    assert.equal(seven.actions(state, parent, false).prepare_seven, false);
+    act('prepare_seven');
+    assert.equal(seven.actions(state, parent, true).finish_seven, false);
+    act('cancel_seven'); act('prepare_seven');
+    state.clock += sevenLine.minutes;
+    act('finish_seven'); act('feed_seven'); act('concentrate_silver'); act('cast_seven');
+    assert.equal(seven.view(state, record).stock, 0);
+    assert.equal(seven.actions(state, parent, true, true).concentrate_silver, false);
+    const savedSeven = JSON.parse(JSON.stringify(state));
+    assert.deepEqual(seven.view(savedSeven, record), seven.view(state, record));
+    seven.validate(savedSeven, record, parent);
+    savedSeven.actors.player.completed[`${sevenLine.id}.cast_seven`]++;
+    assert.throws(() => seven.validate(savedSeven, record, parent), /receipts/);
+
+    const nine = refinementLine(nineLine), fixture = compressedFixture(nineLine);
+    const input = seven.specimen(state);
+    const next = op => {nine.apply(fixture.state, fixture.record, op, input); fixture.receipt(op);
+        nine.validate(fixture.state, fixture.record, input);};
+    fixture.receipt('buy_second');
+    next('prepare_nine'); fixture.state.clock += nineLine.holdMinutes; next('settle_nine');
+    assert.equal(nine.view(fixture.state, fixture.record).status, 'failed');
+    next('prepare_nine'); next('cancel_nine'); next('prepare_nine');
+    fixture.state.clock += nineLine.minutes; next('settle_nine'); next('feed_nine');
+    next('test_initial'); assert.equal(nine.view(fixture.state, fixture.record).lastDistance, 100);
+    next('concentrate_gold'); next('cross_cut');
+    assert.equal(nine.view(fixture.state, fixture.record).lastDistance, 200);
+    assert.equal(nine.view(fixture.state, fixture.record).stock, 0);
+    const savedNine = JSON.parse(JSON.stringify(fixture.state));
+    nine.validate(savedNine, fixture.record, input);
+    assert.deepEqual(nine.view(savedNine, fixture.record), nine.view(fixture.state, fixture.record));
+    const job = JSON.parse(savedNine.worlds[nineLine.world].facts[`${nineLine.id}.work`]);
+    job.world.gu.at(-1).provenance.ingredients.second = 'wrong.worm';
+    savedNine.worlds[nineLine.world].facts[`${nineLine.id}.work`] = JSON.stringify(job);
+    assert.throws(() => nine.validate(savedNine, fixture.record, input), /lineage/);
+});
+
+test('a garden row keeps the same plant, detached stock, daylight and treatment rest after serialization', () => {
+    // A second location and operation vocabulary exercise row reuse without a new host.
+    const config = {...vitalityGarden, id: 'test.garden', key: 'test.garden.bed', place: 'test.courtyard',
+        plantId: 'test.plant', item: 'test.leaf', ops: {borrow: 'lend', return: 'give_back', grow: 'nurture',
+            harvest: 'pluck', treat: 'heal', sell: 'trade'}};
+    const host = guGarden(config), {state, record, receipt} = compressedFixture(config);
+    const inventory = {}, context = {actorId: 'player', structuredNative: record,
+        vitals: {player: {health: 4, max_health: 10}}, nativeWeatherClock: {minute: 600, clock: state.clock}};
+    const act = op => {
+        const result = host.apply(state, {operation: op}, context); receipt(op);
+        if (result) inventory[result.key] = (inventory[result.key] ?? 0) + result.count;
+        if (op === config.ops.treat) inventory[config.item]--;
+        host.validate(state, record, inventory);
+    };
+    act('lend'); act('nurture');
+    assert.equal(host.facts(state, context)['test.garden.can_nurture'], false);
+    act('pluck'); act('heal');
+    assert.equal(host.facts(state, context)['test.garden.can_heal'], false);
+    act('give_back'); act('lend'); state.clock += config.growthMinutes; act('nurture');
+    const saved = JSON.parse(JSON.stringify(state));
+    host.validate(saved, record, inventory);
+    assert.deepEqual(host.view(saved, record), host.view(state, record));
+    state.clock += 720;
+    assert.equal(host.facts(state, context)['test.garden.can_nurture'], false);
+});
+
+test('a sustained row settles support loss, exhaustion and exact due-time renewal on the working law', () => {
+    const host = sustainedGuHost(rainbowLine), {state, record, receipt} = compressedFixture(rainbowLine);
+    state.actors.player.facts[rainbowLine.core.id] = true;
+    state.actors.player.facts[rainbowLine.support.id] = true;
+    const context = {actorId: 'player', structuredNative: record};
+    const act = operation => {host.apply(state, {type: rainbowLine.effectType, actor: 'player', operation}, context);
+        receipt(operation); host.validate(state, record);};
+    assert.equal(host.quote(false), 6); assert.equal(host.quote(true), 4);
+    act('buy'); act('start_supported');
+    const saved = JSON.parse(JSON.stringify(state));
+    state.clock = host.boundary(state); host.advance(state); host.validate(state, record);
+    assert.equal(host.view(state, record).reserve, 4);
+    const restored = sustainedGuHost(rainbowLine);
+    saved.clock = restored.boundary(saved); restored.advance(saved);
+    assert.deepEqual(saved, state);
+    delete state.actors.player.facts[rainbowLine.support.id];
+    state.clock = host.boundary(state); host.advance(state); host.validate(state, record);
+    assert.equal(host.view(state, record).reason, 'Gu unavailable');
+    assert.equal(host.view(state, record).reserve, 4);
+    act('buy'); act('start_solo');
+    state.clock = host.boundary(state); host.advance(state);
+    state.clock = host.boundary(state); host.advance(state);
+    assert.equal(host.view(state, record).reason, 'needs more essence');
+    host.validate(state, record);
+    // A support can pay before the core refuses. Preserve that paid debit at renewal.
+    act('buy'); act('start_solo'); act('stop');
+    state.actors.player.facts[rainbowLine.support.id] = true;
+    act('start_supported');
+    state.clock = host.boundary(state); host.advance(state);
+    assert.equal(host.view(state, record).reserve, 2);
+    state.clock = host.boundary(state); host.advance(state);
+    assert.equal(host.view(state, record).reserve, 1);
+    assert.equal(host.view(state, record).reason, 'needs more essence');
+    host.validate(state, record);
+});
+
+test('branch rows conserve exact Fish Scale inputs across cancellation and both consumed-input products', () => {
+    const host = guRefinementTrial(stealthTrial);
+    const {state, record, receipt} = compressedFixture(stealthTrial, ['book.ri.keeper.scale_armor']);
+    const act = op => {host.apply(state, record, op); receipt(op, host.pack(op)); host.validate(state, record);};
+    act('take_rock'); act('bind_rock'); act('test_rock'); act('buy_fish'); act('prepare_cloak');
+    assert.equal(host.facts(state)[`${stealthTrial.id}.can_test_rock`], false);
+    act('cancel_cloak'); act('prepare_cloak'); state.clock += stealthTrial.branches.cloak.minutes;
+    act('finish_cloak'); act('test_scales'); act('cross_screen');
+    act('trade_fish'); act('prepare_armor'); state.clock += stealthTrial.branches.armor.minutes;
+    act('finish_armor'); act('guard_run');
+    assert.equal(host.view(state, record).armorGuarded, true);
+    assert.equal(host.facts(state)[`${stealthTrial.id}.can_buy_fish`], false);
+    const saved = JSON.parse(JSON.stringify(state)); host.validate(saved, record);
+    assert.deepEqual(host.view(saved, record), host.view(state, record));
+    const ledger = JSON.parse(saved.worlds[stealthTrial.world].facts[stealthTrial.key]);
+    ledger.world.gu.find(gu => gu.kind === 'fish-scale').alive = true;
+    saved.worlds[stealthTrial.world].facts[stealthTrial.key] = JSON.stringify(ledger);
+    assert.throws(() => host.validate(saved, record), /receipts/);
 });

@@ -75,6 +75,17 @@ export function restoreCreatureLifecycle(saved) {
                     key(skill) && positive(practice)), 'Invalid creature experience.');
         }
     }
+    for (const individual of Object.values(state.individuals)) {
+        if (individual.parents === undefined) continue;
+        const parents = individual.parents;
+        check(Array.isArray(parents) && parents.length === 2 && parents.every(key) &&
+            parents[0] !== parents[1], 'Invalid creature birth parentage.');
+        for (const id of parents) {
+            const parent = lookup(state.individuals, id);
+            check(parent && parent.serial < individual.serial && parent.species === individual.species &&
+                parent.matureAt < individual.bornAt, 'Invalid creature birth parentage.');
+        }
+    }
     const occupiedParents = new Set();
     for (const [id, brood] of Object.entries(state.broods)) {
         check(key(id) && object(brood) && Array.isArray(brood.parents) && brood.parents.length === 2 &&
@@ -305,7 +316,7 @@ export function settleCreatureBirth(state, {revision, broodId, clock, destinatio
     delete broods[broodId];
     return addIndividual({...next, broods}, {origin: carrier.origin, species: carrier.species,
         habitat: carrier.habitat, keeper: carrier.keeper, bornAt: clock,
-        matureAt: clock + brood.growthMinutes, traits: {...brood.traits},
+        matureAt: clock + brood.growthMinutes, traits: {...brood.traits}, parents: [...brood.parents],
         ...(brood.genes ? {genes: structuredClone(brood.genes), tested: []} : {}),
         ...(brood.breeding ? {breeding: {...brood.breeding}} : {})});
 }

@@ -65,7 +65,7 @@ import {applyKeeperColonyEffect, keeperColonyFacts} from './gu_keeper_colony.js'
 import {applyKeeperTimeEffect, keeperTimeFacts} from './gu_keeper_time.js';
 import {applyMoonlightTrialEffect, moonlightTrialFacts} from './gu_keeper_moonlight_trial.js';
 import {applyKeeperMoveTrialEffect, keeperMoveTrialFacts} from './gu_keeper_move_trial.js';
-import {applyKeeperRainbowEffect, keeperRainbowFacts} from './gu_keeper_rainbow.js';
+import {applyKeeperRainbowEffect, keeperRainbowFacts} from './world_packs/book_gu_keeper_sustained.js';
 import {applyCoordinationEffect, guCoordinationFacts} from './gu_coordination_trial.js';
 import {applyKeeperPropagationEffect, keeperPropagationFacts} from './gu_keeper_propagation.js';
 import {applyKeeperFixedForgeEffect, keeperFixedForgeFacts} from './gu_keeper_fixed_forge.js';

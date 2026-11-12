@@ -1,4 +1,4 @@
-import {keeperVitality as id, keeperVitalityLeaf, leafGrowthMinutes} from '../gu_keeper_vitality.js';
+import {keeperVitality as id, keeperVitalityLeaf, leafGrowthMinutes} from './book_gu_keeper_gardens.js';
 import {vitalityGrass, vitalityLeaf} from '../gu_vitality_grass.js';
 import {extensionFact} from '../structured_pack_extensions.js';
 import {KEEPER_PREFIX, kId, kKey} from './book_gu_keeper.js';

@@ -5,7 +5,7 @@ import {isKeeperWildEffect} from './gu_keeper_wild.js';
 import {isKeeperRefinementEffect} from './gu_keeper_refinement.js';
 import {isMoonlightTrialEffect} from './gu_keeper_moonlight_trial.js';
 import {isKeeperMoveTrialEffect} from './gu_keeper_move_trial.js';
-import {isKeeperRainbowEffect} from './gu_keeper_rainbow.js';
+import {isKeeperRainbowEffect} from './world_packs/book_gu_keeper_sustained.js';
 import {isCoordinationEffect} from './gu_coordination_trial.js';
 import {isKeeperPropagationEffect} from './gu_keeper_propagation.js';
 import {isKeeperFixedForgeEffect} from './gu_keeper_fixed_forge.js';

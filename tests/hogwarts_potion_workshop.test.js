@@ -37,6 +37,19 @@ test('a cool batch retains the catalyst and achieves a different reaction extent
     assert.equal(assisted.mass, cool.mass);
 });
 
+test('repeated heat consumes the current binder fraction and keeps the bench receipt shape', () => {
+    const r = brewWorkshopAntidote({remedyA: 4, remedyB: 3, binder: 5, catalyst: true, steps: ['heat', 'heat', 'warm']});
+    assert.deepEqual(r.trace, [
+        {step: 0, kind: 'reaction', id: 'binder-degrades', extent: 2},
+        {step: 1, kind: 'reaction', id: 'binder-degrades', extent: 1},
+        {step: 2, kind: 'reaction', id: 'bind-remedies', extent: 2},
+    ]);
+    assert.deepEqual(r.spent, [{material: 'binder', qty: 5}, {material: 'carrier', qty: 1},
+        {material: 'remedyA', qty: 4}, {material: 'remedyB', qty: 3}]);
+    assert.equal(r.mass, 13);
+    assert.deepEqual(r.remaining, {a: 0, b: 1, blend: 0});
+});
+
 test('Draught equivalence test: the brew-law Draught matches the pre-law bench on 240 attempts', async () => {
     const {readFileSync} = await import('node:fs');
     const golden = JSON.parse(readFileSync(new URL('./fixtures/brew/draught_legacy_golden.json', import.meta.url), 'utf8'));

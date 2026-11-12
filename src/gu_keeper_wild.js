@@ -7,9 +7,16 @@ import {beginGuRefinement, stepGuRefinement} from './gu_refinement.js';
 import {applyLine, lineActions, lineOperations, lineView} from './gu_essence_line.js';
 import {keeperRankTrialId, keeperRedSteel, redSteelLine} from './world_packs/book_gu_keeper_lines.js';
 const redSteelView = state => lineView(state, redSteelLine);
-import {applySeven, fourCommitted, keeperSeven, sevenActions, sevenOperations, sevenSpecimen, sevenView, validateSeven} from './gu_keeper_seven.js';
-import {applyNine, keeperNine, nineActions, nineCommitsSeven, nineOperations, nineView, validateNine} from './gu_keeper_nine.js';
-import {hostedWolfGlade} from './gu_hosted_wolf.js';
+import {refinementLine} from './gu_refinement_line.js';
+import {keeperSeven, sevenLine, keeperNine, nineLine} from './world_packs/book_gu_keeper_lines.js';
+const {apply: applySeven, committed: fourCommitted, actions: sevenActions, operations: sevenOperations,
+    specimen: sevenSpecimen, view: sevenView, validate: validateSeven} = refinementLine(sevenLine, {
+    ready: state => hostedThunderclapReady(state),
+    activate: (state, record, options) => activateHostedThunderclap(state, record, options),
+});
+const {apply: applyNine, committed: nineCommitsSeven, actions: nineActions, operations: nineOperations,
+    view: nineView, validate: validateNine} = refinementLine(nineLine);
+import {activateHostedThunderclap, hostedThunderclapReady, hostedWolfGlade} from './gu_hosted_wolf.js';
 
 const prefix = 'book.ri.keeper';
 export const keeperWild = `${prefix}.wild_worm`;
