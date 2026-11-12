@@ -88,7 +88,8 @@ test('W2 contact: brew steam and the living regulator exchange humidity and smok
     const imports = f => [...readFileSync(new URL(`../src/${f}`, import.meta.url), 'utf8').matchAll(/from '([^']+)'/g)].map(m => m[1]);
     assert.deepEqual(imports('world_substrate_packs/shell_regulator.js'), ['../world_quantities.js']);
     assert.deepEqual(imports('world_substrate_packs/brew_steam.js'), ['../craft_process_thermal.js', '../world_quantities.js']);
-    assert.deepEqual(imports('world_substrate.js'), []);
+    // E12: the substrate keeps lineage in the identity registry, its one import (a leaf over basics.js).
+    assert.deepEqual(imports('world_substrate.js'), ['./kernel_identity.js']);
 });
 
 test('W3 one jump, many steps, near detail and reloads give the same world', () => {

@@ -25,6 +25,8 @@ export const W_OBJECT_OF = Object.freeze({
     luck: null, soul: null,
 });
 export const EFFECT_PRIMITIVES_REVISION = 0;
+// E12: the verb each holder-lifecycle act rides when a landed effect carries it.
+export const LIFECYCLE_VERB = Object.freeze({create: 'add', end: 'end', copy: 'copy', split: 'transform', merge: 'transform', promote: 'transform', demote: 'transform'});
 
 const fail = message => { throw new Error(`World effects: ${message}`); };
 const check = (ok, message) => { if (!ok) fail(message); };
@@ -114,7 +116,7 @@ export function applyEffect(rules, world, act, cause) {
         obj = parseObject(rules, act.quantity);
     }
     const changes = physical && verb === 'transform' ? Object.entries(act.properties ?? {}) : [];
-    if (physical && verb === 'transform') {
+    if (physical && verb === 'transform' && !act.lifecycle /* E12 */) {
         check(changes.length && changes.every(([name, value]) => rules.properties.has(name) && value != null),
             'transform material needs explicit declared properties and values.');
     }
@@ -125,7 +127,7 @@ export function applyEffect(rules, world, act, cause) {
     if (grips || obj !== base) affected.push(grips ? position : base);
     if (copyNew) affected.push(position);
     const targets = resolveTargets(world, act.target);
-    if (physical && verb === 'add') {
+    if (physical && verb === 'add' && !act.lifecycle /* E12 */) {
         check(targets.length === 1 && ['thing', 'body'].includes(act.create?.kind),
             'add material needs one target and a thing or body to create.');
     }
@@ -144,9 +146,30 @@ export function applyEffect(rules, world, act, cause) {
                 detail: {target, channel: act.channel, presence: true}});
         }
     };
-    const createAt = (target, value) => {
-        ops.push({op: 'holder_add', value: {...value, place: placeOf(world, target)}});
+    // E12: a holder an effect makes records what it came from (`parents`, empty for a plain make).
+    const createAt = (target, value, parents = [], note) => {
+        ops.push({op: 'holder_add', value: {...value, place: placeOf(world, target)}, lineage: {parents, ...(note ? {note} : {})}});
     };
+    // E12 (begin): a landed effect may carry one holder-lifecycle act in `act.lifecycle` (the substrate's
+    // {act, ...} without `op`). The verb must be the one in LIFECYCLE_VERB. The target is the holder
+    // acted on (end, copy, split, promote), the place or holder a create happens at, or the holders
+    // merged or demoted. A block on the verb over `position` stops it. A fault comes back in
+    // `outcome.faults` with its reason, way around and price; the world has already charged it.
+    if (act.lifecycle) {
+        const L = act.lifecycle, many = L.act === 'merge' || L.act === 'demote';
+        check(LIFECYCLE_VERB[L.act] === verb, `lifecycle act ${L.act} rides the verb ${LIFECYCLE_VERB[L.act]}.`);
+        check(targets.length && (many || targets.length === 1), 'this lifecycle act names one target.');
+        const stopped = targets.map(target => ({target, by: blockerOf(world, target, verb, position)})).filter(x => x.by);
+        if (stopped.length) { outcome.blocked.push(...stopped); return {world, outcome}; }
+        const subject = L.act === 'create' ? {value: {...L.value, ...(L.value?.kind === 'place' ? {} : {place: L.value?.place ?? placeOf(world, targets[0])})}}
+            : many ? {holders: targets} : {holder: targets[0]};
+        const next = applyWorldOps(rules, world, [{...L, op: 'lifecycle', by, ...subject}], cause);
+        const faults = next.chain.filter(row => row.seq > world.seq && row.kind === 'lifecycle.fault').map(row => ({target: targets[0], ...row.detail}));
+        if (faults.length) outcome.faults = faults;
+        else outcome.applied.push(...targets.map(target => ({target, verb, object: 'holder', act: L.act})));
+        return {world: next, outcome};
+    }
+    // E12 (end)
     if (verb === 'sense') {
         const sensor = act.by && world.holders[act.by];
         if (sensor?.properties.senses && !sensor.properties.senses.includes(act.channel)) {
@@ -280,7 +303,7 @@ export function applyEffect(rules, world, act, cause) {
             const value = world.holders[act.from].properties[obj.name];
             if (value === undefined) { outcome.skipped.push({target, reason: 'nothing-to-copy'}); break; }
             if (copyNew) {
-                createAt(target, {id: act.create.id, kind: act.create.kind, properties: {[obj.name]: value}});
+                createAt(target, {id: act.create.id, kind: act.create.kind, properties: {[obj.name]: value}}, [act.from], `copy:property:${obj.name}`); // E12: lineage
                 note(target, {from: act.from, created: act.create.id});
                 break;
             }

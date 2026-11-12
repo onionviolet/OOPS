@@ -98,10 +98,47 @@ export function validateIdentities(registry) {
             check(!keys.has(key), 'Two identities claim one owner key.');
             keys.add(key);
         }
-        for (const row of entry.history) check(object(row) && natural(row.at) && ['add', 'remove'].includes(row.change), `Invalid history on ${thingId}.`);
+        // E12: a lineage row sits beside facet rows in the same history.
+        for (const row of entry.history) check(object(row) && natural(row.at) && (['add', 'remove'].includes(row.change) ||
+            (row.change === 'lineage' && LINEAGE_ACTS.includes(row.act))), `Invalid history on ${thingId}.`);
     }
     return registry;
 }
 
 export const serializeIdentities = registry => JSON.parse(JSON.stringify(registry));
 export const restoreIdentities = raw => validateIdentities(clone(raw));
+
+// ---------- E12 lineage (begin) ----------
+// Where a thing came from and what it became. A lineage row is one act (create,
+// end, copy, split, merge, promote, demote) with its parents or what it went
+// into, the minute and the cause. Rows join the same history as facet changes,
+// so one read tells the whole life. `traitKey` is the address innate draws use:
+// a copy that shares traits carries its source's key, a redraw carries its own.
+export const LINEAGE_ACTS = Object.freeze(['create', 'end', 'copy', 'split', 'merge', 'promote', 'demote']);
+
+export function recordLineage(registry, thingId, {act, at, cause, ...detail}) {
+    check(registry?.schema === IDENTITY_SCHEMA && Object.hasOwn(registry.entries, thingId), 'Unknown identity.');
+    check(LINEAGE_ACTS.includes(act) && natural(at) && typeof cause === 'string' && cause.length > 0,
+        'A lineage row needs an act, a time and a cause.');
+    const next = clone(registry);
+    next.entries[thingId].history.push({at, change: 'lineage', act, ...clone(detail), cause});
+    return next;
+}
+
+export const lineageOf = (registry, thingId) => identityHistory(registry, thingId).filter(row => row.change === 'lineage');
+
+// The address for this thing's innate draws: the latest key a lineage row gave it, else its own id.
+export const lineageKey = (registry, thingId) =>
+    (registry.entries[thingId]?.history ?? []).findLast(row => row.change === 'lineage' && row.traitKey)?.traitKey ?? thingId;
+
+// Every ancestor id, nearest first, following `parents` on lineage rows.
+export function ancestorsOf(registry, thingId) {
+    const out = [], queue = [thingId];
+    while (queue.length) {
+        for (const row of registry.entries[queue.shift()]?.history ?? []) for (const parent of row.change === 'lineage' ? row.parents ?? [] : []) {
+            if (parent !== thingId && !out.includes(parent)) { out.push(parent); queue.push(parent); }
+        }
+    }
+    return out;
+}
+// ---------- E12 lineage (end) ----------

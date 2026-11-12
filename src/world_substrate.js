@@ -8,6 +8,8 @@
 // that answer effects published into a place. Time settles in segments cut at
 // every boundary a law can see, so one jump, many steps, near detail and far
 // detail all give the same totals (SPR28, TMR4).
+import {addIdentity, changeFacets, createIdentities, lineageKey, lineageOf, recordLineage, validateIdentities} from './kernel_identity.js'; // E12
+
 export const SUBSTRATE_SCHEMA = 'oops.world-substrate';
 export const SUBSTRATE_REVISION = 1;
 
@@ -15,7 +17,7 @@ const fail = message => { throw new Error(`World substrate: ${message}`); };
 const check = (ok, message) => { if (!ok) fail(message); };
 const idLike = x => typeof x === 'string' && /^[a-z][a-z0-9_.:-]*$/i.test(x);
 const whole = n => Number.isSafeInteger(n);
-const KINDS = ['place', 'body', 'thing'];
+const KINDS = ['place', 'body', 'thing', 'cohort']; // E12: a cohort is a counted group with shared properties
 const PROPERTY_TYPES = ['flag', 'level', 'label', 'set'];
 const OPS = {gte: (a, b) => a >= b, gt: (a, b) => a > b, lt: (a, b) => a < b, lte: (a, b) => a <= b, eq: (a, b) => a === b};
 const byId = (a, b) => a < b ? -1 : a > b ? 1 : 0;
@@ -33,7 +35,9 @@ export const SUBSTRATE_DIALS = Object.freeze({
  * fixed settlement order (then law order inside a pack, then holder id). */
 // Effect kinds the substrate itself publishes. `effect.<verb>` and
 // `effect.<verb>.<object>` belong to the effect primitives (world_effects.js).
-const BUILT_IN_KINDS = Object.freeze(['departed', 'arrived', 'law.lapsed']);
+const BUILT_IN_KINDS = Object.freeze(['departed', 'arrived', 'law.lapsed',
+    // E12: one kind per holder-lifecycle act, and the priced fault.
+    'lifecycle.create', 'lifecycle.end', 'lifecycle.copy', 'lifecycle.split', 'lifecycle.merge', 'lifecycle.promote', 'lifecycle.demote', 'lifecycle.fault']);
 const primitiveKind = kind => /^effect\.[a-z]+(\.[a-z0-9_:.*-]+)?$/.test(kind);
 
 export function composeSubstrate({packs, quantities = [], properties = [], effectKinds = [], dials = {}}) {
@@ -86,9 +90,21 @@ export function composeSubstrate({packs, quantities = [], properties = [], effec
             reactors.push(Object.freeze({pack: pack.id, reactor, reads, writes}));
         }
     }
+    // E12 (begin): a pack names the holder-lifecycle acts its laws and reactors may use, the price of
+    // an act that cannot be done as asked, and whether its copies share or redraw innate traits.
+    const lifecycle = new Map();
+    for (const pack of packs) {
+        const l = pack.lifecycle;
+        if (l == null) continue;
+        check(Array.isArray(l.acts) && l.acts.every(a => LIFECYCLE_ACTS.includes(a)), `pack ${pack.id}: lifecycle names acts from ${LIFECYCLE_ACTS.join(', ')}.`);
+        check(l.fault == null || faultPriceOk(q, l.fault), `pack ${pack.id}: a lifecycle fault price is {quantity, amount, to?}.`);
+        check(l.innate == null || INNATE.includes(l.innate), `pack ${pack.id}: innate is share or redraw.`);
+        lifecycle.set(pack.id, Object.freeze({acts: Object.freeze([...l.acts]), fault: l.fault ? Object.freeze({...l.fault}) : null, innate: l.innate ?? 'share'}));
+    }
+    // E12 (end)
     const d = {...SUBSTRATE_DIALS, ...dials};
     for (const [k, v] of Object.entries(d)) check(whole(v) && v >= (k === 'cascadeDepth' ? 0 : 1), `dial ${k} must be a whole number.`);
-    return Object.freeze({quantities: q, properties: pr, effectKinds: Object.freeze(kinds), packs: Object.freeze(packs.map(p => p.id)), laws, reactors, dials: Object.freeze(d)});
+    return Object.freeze({quantities: q, properties: pr, effectKinds: Object.freeze(kinds), packs: Object.freeze(packs.map(p => p.id)), laws, reactors, dials: Object.freeze(d), lifecycle /* E12 */});
 }
 
 // A keyed quantity is a family: `energy:primeval.rank1`, `stock:bread`. The
@@ -133,8 +149,10 @@ function makeHolder(rules, h) {
     // (item, body, gu); `refs` points at the records other owners keep for it.
     const as = [...new Set(h.as ?? [])].sort(), refs = {...(h.refs ?? {})};
     check(as.every(idLike) && Object.entries(refs).every(([k, v]) => idLike(k) && typeof v === 'string' && v), `holder ${h.id}: bad identity.`);
+    // E12: a cohort counts its members; other kinds carry no count.
+    check(h.kind === 'cohort' ? whole(h.count ?? 0) && (h.count ?? 0) >= 0 : h.count == null, `holder ${h.id}: a cohort has a whole count; other kinds have none.`);
     return {id: h.id, kind: h.kind, place: h.place ?? null, tags: [...(h.tags ?? [])].sort(), as, refs,
-        ...(h.detail ? {detail: h.detail} : {}), quantities, properties,
+        ...(h.detail ? {detail: h.detail} : {}), ...(h.kind === 'cohort' ? {count: h.count ?? 0} : {}) /* E12 */, quantities, properties,
         ledger: structuredClone(h.ledger ?? {}), state: structuredClone(h.state ?? {})};
 }
 
@@ -185,6 +203,10 @@ function viewFor(rules, world, pack) {
         state: id => structuredClone(holder(id)?.state[pack] ?? null),
         placeOf: id => { const h = holder(id); return !h ? null : h.kind === 'place' ? h.id : h.place; },
         present: place => Object.keys(world.holders).filter(id => world.holders[id].place === place).sort(byId),
+        // E12: members of a cohort, and a holder's lineage rows and trait address.
+        count: id => holder(id)?.count ?? null,
+        lineage: id => readLineage(world, id),
+        lineageKey: id => readLineageKey(world, id),
         // Nearest scope first: the holder, then its place, then the world.
         lawFields: (id, kind) => {
             const h = holder(id), scopes = [id, h?.kind === 'place' ? null : h?.place, 'world'].filter(Boolean);
@@ -192,6 +214,289 @@ function viewFor(rules, world, pack) {
         },
     });
 }
+
+// ---------- E12 holder lifecycle (begin) ----------
+//
+// Birth, death, copy, split, merge and a cohort becoming individuals and back
+// are world acts: {op: 'lifecycle', act, ...}. A pack law or reactor may use the
+// acts its pack declares (`lifecycle: {acts, fault, innate}`); an outside caller
+// or a landed effect may use any. Each act writes lineage into `world.identity`
+// (kernel_identity.js), hands every quantity on to a holder or a named row in
+// `world.rows`, and publishes `lifecycle.<act>` where it happened. An act that
+// cannot be done as asked changes nothing else, charges the fault price from
+// the pack's or the op's data and publishes `lifecycle.fault` with the reason
+// and a way around. A malformed op (no id, an unknown act) is a contract error
+// and throws like any other op.
+//
+//   create  {value: {id, kind, place?, quantities?, ...}, parents?, from?}
+//   copy    {holder, value: {id, ...overrides}, from?, innate?: 'share' | 'redraw'}
+//   end     {holder, remains?: {id, ...}, to?, routes?}
+//   split   {holder, into: [{id, share, ...overrides}], keep?, to?}
+//   merge   {holders, value: {id, ...} | into: id, to?, routes?}
+//   promote {holder: cohort, ids, kind?, value?, to?}
+//   demote  {holders, into: cohort, to?, routes?}
+//
+// `from` lists where a new holder's starting amounts come from, in order:
+// holder ids, then `row:<name>` for the rest (default `row:lifecycle.made`).
+// `to` lists who takes what the act's own heir does not: holder ids take the
+// quantities they already carry, `row:<name>` takes anything; whatever is left
+// lands on `row:lifecycle.unclaimed`. `routes` names a list per quantity.
+// A row amount is what left the holders through it; a source row runs negative.
+export const LIFECYCLE_ACTS = Object.freeze(['create', 'end', 'copy', 'split', 'merge', 'promote', 'demote']);
+const INNATE = ['share', 'redraw'];
+const LIFECYCLE_WAYS = Object.freeze({
+    'id-taken': 'name an id no holder, living or ended, has used',
+    'no-holder': 'name holders that exist at this minute',
+    'no-place': 'give the new holder a place that exists',
+    short: 'name a row among the sources, or ask for less',
+    occupied: 'move what the place holds first, or keep a share of the place',
+    'not-cohort': 'make a cohort with create, or merge instead',
+});
+const faultPriceOk = (quantities, f) => typeof f?.quantity === 'string' && quantities.has(family(f.quantity)) && whole(f.amount) && f.amount >= 0 &&
+    (f.to == null || (typeof f.to === 'string' && f.to));
+const clampTo = (def, n) => Math.min(def.max, Math.max(def.min, n));
+
+function rowAdd(world, row, name, amount) {
+    if (!amount) return;
+    check(idLike(row), `a named row needs an id (${row}).`);
+    const r = (world.rows ??= {})[row] ??= {};
+    r[name] = (r[name] ?? 0) + amount;
+}
+function knownIdentity(world, id, cause) {
+    world.identity ??= createIdentities();
+    if (!Object.hasOwn(world.identity.entries, id))
+        world.identity = addIdentity(world.identity, {id, facets: {holder: {owner: 'world', key: id}}, at: world.clock, cause});
+}
+function lineageRow(world, id, row, cause) {
+    knownIdentity(world, id, cause);
+    world.identity = recordLineage(world.identity, id, {...row, at: world.clock, cause});
+}
+function retireIdentity(world, id, cause) {
+    if (Object.hasOwn(world.identity.entries[id].facets, 'holder'))
+        world.identity = changeFacets(world.identity, id, {remove: ['holder'], at: world.clock, cause});
+}
+function lineageForAdd(world, id, lineage, cause) {
+    const parents = lineage.parents ?? [];
+    check(Array.isArray(parents) && parents.every(idLike), 'holder_add lineage names parent ids.');
+    lineageRow(world, id, {act: lineage.act ?? 'create', parents, traitKey: id, ...(lineage.note ? {note: lineage.note} : {})}, cause);
+}
+// A quantity newly carried starts at zero, or at the nearest bound with the difference on a named row.
+function carryFor(rules, world, h, name) {
+    if (name in h.quantities) return;
+    const start = clampTo(quantityDef(rules, name), 0);
+    h.quantities[name] = start;
+    credit(rules, h, name, 'lifecycle:bound', start);
+    rowAdd(world, 'lifecycle.bound', name, -start);
+}
+// Take up to `amount` from a holder that stays, down to the quantity's floor.
+function takeFrom(rules, h, name, amount, source) {
+    const got = Math.max(0, Math.min(amount, h.quantities[name] - quantityDef(rules, name).min));
+    h.quantities[name] -= got;
+    credit(rules, h, name, source, -got);
+    return got;
+}
+// Hand `amount` down the destinations. `heirs` are holders this act made or chose: they start carrying what they are handed.
+function handOn(rules, world, name, amount, dests, heirs, source) {
+    let left = amount;
+    for (const d of dests) {
+        if (!left) return;
+        check(typeof d === 'string' && d, 'a destination is a holder id or row:<name>.');
+        if (d.startsWith('row:')) { rowAdd(world, d.slice(4), name, left); return; }
+        const h = world.holders[d];
+        if (!h || (!(name in h.quantities) && !heirs.includes(d))) continue;
+        carryFor(rules, world, h, name);
+        const before = h.quantities[name], after = clampTo(quantityDef(rules, name), before + left);
+        h.quantities[name] = after;
+        credit(rules, h, name, source, after - before);
+        left -= after - before;
+    }
+    rowAdd(world, 'lifecycle.unclaimed', name, left);
+}
+
+function lifecycleAct(rules, world, op, ctx, queue) {
+    check(LIFECYCLE_ACTS.includes(op.act), `unknown lifecycle act ${op.act}.`);
+    const decl = ctx.pack ? rules.lifecycle.get(ctx.pack) : null;
+    check(!ctx.pack || decl?.acts.includes(op.act), `pack ${ctx.pack} does not declare the lifecycle act ${op.act}.`);
+    check(op.fault == null || faultPriceOk(rules.quantities, op.fault), 'a lifecycle fault price is {quantity, amount, to?}.');
+    const H = id => world.holders[id], act = op.act, cause = ctx.source, source = `lifecycle:${act}`;
+    const taken = id => !!H(id) || Object.hasOwn(world.identity?.entries ?? {}, id);
+    const placeOf = id => H(id)?.kind === 'place' ? id : H(id)?.place ?? null;
+    const occupied = id => H(id).kind === 'place' && Object.values(world.holders).some(x => x.place === id);
+    const key = id => readLineageKey(world, id);
+    const effect = (kind, place, detail) => queue.push({kind, place, quantity: null, amount: 0, detail,
+        by: op.by ?? ctx.by ?? ctx.source, depth: ctx.depth ?? 0, cause: ctx.parent ?? ctx.cause ?? null});
+    const done = (place, detail) => effect(`lifecycle.${act}`, place, {act, ...detail});
+    const fault = (reason, payerId) => {
+        const price = op.fault ?? decl?.fault ?? null, payer = H(op.payer ?? payerId);
+        let paid = 0;
+        if (price && payer && price.quantity in payer.quantities) {
+            paid = takeFrom(rules, payer, price.quantity, price.amount, `${source}:fault`);
+            handOn(rules, world, price.quantity, paid, [price.to ?? 'row:lifecycle.fault'], [], `${source}:fault:${payer.id}`);
+        }
+        effect('lifecycle.fault', payer ? placeOf(payer.id) : null, {act, reason, way: LIFECYCLE_WAYS[reason],
+            price: price ? {quantity: price.quantity, asked: price.amount, paid, payer: payer?.id ?? null} : null});
+    };
+    const dests = (name, heirs) => [...heirs, ...(op.routes?.[name] ?? op.to ?? [])];
+    // Everything a leaving holder carries goes on: the heirs first, then the op's list, then the unclaimed row.
+    const empty = (h, heirs) => {
+        for (const [name, amount] of Object.entries(h.quantities)) {
+            handOn(rules, world, name, amount, op.routes?.[name] ? op.routes[name] : dests(name, heirs), heirs, `${source}:${h.id}`);
+            h.quantities[name] = 0;
+        }
+    };
+    // Law fields scoped to a leaving holder follow its heir, or lapse with it.
+    const remove = (id, heir) => {
+        world.laws = world.laws.flatMap(f => f.scope !== id ? [f] : heir ? [{...f, scope: heir}] : []);
+        knownIdentity(world, id, cause);
+        retireIdentity(world, id, cause);
+        delete world.holders[id];
+    };
+    // A new holder shaped like `like` (kind, place, tags, properties and pack state, so a design kept as state goes along).
+    const shaped = (like, spec) => makeHolder(rules, {kind: like.kind, place: like.place, tags: like.tags, as: like.as,
+        properties: like.properties, state: like.state, ...(like.kind === 'cohort' ? {count: 0} : {}), ...spec, quantities: {}});
+    const fresh = ids => ids.every(idLike) && new Set(ids).size === ids.length && !ids.some(taken);
+
+    switch (act) {
+    case 'create': case 'copy': {
+        const src = act === 'copy' ? H(op.holder) : null;
+        if (act === 'copy' && !src) return fault('no-holder');
+        const parents = act === 'copy' ? [src.id] : op.parents ?? [];
+        check(Array.isArray(parents) && idLike(op.value?.id), `${act} needs a value with an id.`);
+        if (!fresh([op.value.id])) return fault('id-taken', parents.find(H));
+        if (parents.some(p => !H(p))) return fault('no-holder', parents.find(H));
+        const v = src ? {kind: src.kind, tags: src.tags, as: src.as, properties: src.properties, state: src.state,
+            ...(src.kind === 'cohort' ? {count: src.count} : {}), quantities: src.quantities, ...op.value} : op.value;
+        const place = v.kind === 'place' ? null : v.place ?? (src ? src.place : placeOf(parents[0]));
+        if (v.kind !== 'place' && H(place)?.kind !== 'place') return fault('no-place', parents.find(H));
+        const amounts = Object.entries(v.quantities ?? {}), from = op.from ?? ['row:lifecycle.made'];
+        check(Array.isArray(from) && from.every(s => typeof s === 'string' && s), 'sources are holder ids or row:<name>.');
+        const hasRow = from.some(s => s.startsWith('row:'));
+        for (const [name, need] of amounts) {
+            const def = quantityDef(rules, name);
+            check(def && whole(need) && need >= def.min && need <= def.max, `${act}: ${name} is undeclared or out of bounds.`);
+        }
+        const short = ([name, need]) => !hasRow && (need < 0 || need > from.reduce((n, s) =>
+            n + (H(s) && name in H(s).quantities ? H(s).quantities[name] - quantityDef(rules, name).min : 0), 0));
+        if (amounts.some(short)) return fault('short', parents.find(H));
+        const made = makeHolder(rules, {...v, place, quantities: {}});
+        world.holders[made.id] = made;
+        for (const [name, need] of amounts) {
+            made.quantities[name] = 0;
+            let left = need;
+            for (const s of from) {
+                if (!left) break;
+                let got = left;
+                if (s.startsWith('row:')) rowAdd(world, s.slice(4), name, -left);
+                else if (H(s) && s !== made.id && name in H(s).quantities && left > 0) got = takeFrom(rules, H(s), name, left, `${source}:${made.id}`);
+                else continue;
+                made.quantities[name] += got;
+                credit(rules, made, name, `${source}:${s}`, got);
+                left -= got;
+            }
+        }
+        const innate = act === 'copy' ? op.innate ?? decl?.innate ?? 'share' : null;
+        check(innate == null || INNATE.includes(innate), 'innate is share or redraw.');
+        lineageRow(world, made.id, {act, parents, ...(innate ? {innate} : {}),
+            traitKey: innate === 'share' ? key(src.id) : made.id, ...(op.note ? {note: op.note} : {})}, cause);
+        for (const p of parents) lineageRow(world, p, {act, role: act === 'copy' ? 'source' : 'parent', into: [made.id]}, cause);
+        return done(place ?? made.id, {id: made.id, parents});
+    }
+    case 'end': {
+        const h = H(op.holder), r = op.remains;
+        if (!h) return fault('no-holder');
+        if (occupied(h.id)) return fault('occupied', h.id);
+        if (r && !fresh([r.id])) return fault('id-taken', h.id);
+        const place = h.kind === 'place' ? r?.place ?? null : h.place;
+        if (r && H(place)?.kind !== 'place') return fault('no-place', h.id);
+        let heir = null;
+        if (r) {
+            heir = makeHolder(rules, {kind: 'thing', tags: h.tags, properties: h.properties, state: h.state, refs: h.refs, ...r, place, quantities: {}});
+            world.holders[heir.id] = heir;
+        }
+        const traitKey = key(h.id), heirs = heir ? [heir.id] : [];
+        empty(h, heirs);
+        lineageRow(world, h.id, {act, into: heirs, ...(h.kind === 'cohort' ? {count: h.count} : {})}, cause);
+        remove(h.id, heir?.id);
+        if (heir) lineageRow(world, heir.id, {act, role: 'remains', parents: [h.id], traitKey}, cause);
+        return done(place, {id: h.id, remains: heir?.id ?? null});
+    }
+    case 'split': {
+        const h = H(op.holder), parts = op.into, keep = op.keep ?? 0;
+        check(Array.isArray(parts) && parts.length && parts.every(p => idLike(p?.id) && whole(p.share) && p.share > 0) && whole(keep) && keep >= 0,
+            'split needs parts with an id and a whole share, and a whole keep.');
+        if (!h) return fault('no-holder');
+        if (!keep && occupied(h.id)) return fault('occupied', h.id);
+        if (!fresh(parts.map(p => p.id))) return fault('id-taken', h.id);
+        const all = keep + parts.reduce((n, p) => n + p.share, 0), traitKey = key(h.id), ids = parts.map(p => p.id);
+        const before = {...h.quantities}, members = h.count ?? null;
+        for (const {share, ...spec} of parts) world.holders[spec.id] = shaped(h, spec);
+        // Each part takes floor(amount * share / all shares). What the floors leave stays with a kept holder, else goes to the first part.
+        for (const p of parts) {
+            for (const [name, total] of Object.entries(before)) {
+                const part = Math.floor(total * p.share / all);
+                const got = keep ? takeFrom(rules, h, name, part, `${source}:${p.id}`) : part;
+                if (!keep) h.quantities[name] -= got;
+                handOn(rules, world, name, got, dests(name, [p.id]), [p.id], `${source}:${h.id}`);
+            }
+            if (members != null && H(p.id).kind === 'cohort') { const n = Math.floor(members * p.share / all); H(p.id).count = n; h.count -= n; }
+        }
+        lineageRow(world, h.id, {act, into: ids, kept: keep > 0}, cause);
+        for (const p of parts) lineageRow(world, p.id, {act, parents: [h.id], share: p.share, of: all, traitKey}, cause);
+        if (!keep) {
+            if (members != null && H(ids[0]).kind === 'cohort') H(ids[0]).count += h.count;
+            empty(h, [ids[0]]);
+            remove(h.id, ids[0]);
+        }
+        return done(placeOf(ids[0]), {id: h.id, into: ids, kept: keep > 0});
+    }
+    case 'merge': case 'demote': {
+        const ids = op.holders;
+        check(Array.isArray(ids) && ids.length && new Set(ids).size === ids.length && (op.into != null || idLike(op.value?.id)),
+            `${act} needs holders and a value with an id, or an existing holder \`into\`.`);
+        const payer = ids.find(H);
+        if (ids.some(id => !H(id)) || (op.into != null && !H(op.into))) return fault('no-holder', payer);
+        if (act === 'demote' && H(op.into)?.kind !== 'cohort') return fault('not-cohort', payer);
+        const leaving = ids.filter(id => id !== op.into);
+        if (op.into == null && !fresh([op.value.id])) return fault('id-taken', payer);
+        if (leaving.some(occupied)) return fault('occupied', payer);
+        const first = H(ids[0]);
+        const t = op.into != null ? H(op.into) : world.holders[op.value.id] = shaped(first, {refs: first.refs, ...op.value});
+        const traitKey = op.into != null ? key(t.id) : t.id;
+        for (const id of leaving) {
+            const h = H(id);
+            empty(h, [t.id]);
+            if (t.kind === 'cohort') t.count += h.count ?? 1;
+            lineageRow(world, id, {act, into: [t.id]}, cause);
+            remove(id, t.id);
+        }
+        lineageRow(world, t.id, {act, parents: leaving, traitKey, ...(t.kind === 'cohort' ? {count: t.count} : {})}, cause);
+        return done(placeOf(t.id), {id: t.id, parents: leaving});
+    }
+    case 'promote': {
+        const c = H(op.holder), ids = op.ids;
+        check(Array.isArray(ids) && ids.length && ids.every(idLike), 'promote names the ids of the individuals to take out.');
+        if (!c) return fault('no-holder');
+        if (c.kind !== 'cohort') return fault('not-cohort', c.id);
+        if (!fresh(ids)) return fault('id-taken', c.id);
+        if (ids.length > c.count) return fault('short', c.id);
+        // Each individual takes one head's share, floor(amount / count); what the floors leave stays with the cohort.
+        const head = Object.fromEntries(Object.entries(c.quantities).map(([name, total]) => [name, Math.floor(total / c.count)]));
+        const traitKey = key(c.id), serial = readLineage(world, c.id).reduce((n, row) => n + (row.act === 'promote' ? row.into.length : 0), 0);
+        ids.forEach((id, i) => {
+            world.holders[id] = shaped(c, {kind: op.kind ?? 'body', count: undefined, ...op.value, id});
+            for (const [name, part] of Object.entries(head))
+                handOn(rules, world, name, takeFrom(rules, c, name, part, `${source}:${id}`), [id, c.id, ...dests(name, [])], [id], `${source}:${c.id}`);
+            // The lineage key the saved-dice lane draws this individual's innate traits by: the cohort's key and a serial.
+            lineageRow(world, id, {act, parents: [c.id], traitKey: `${traitKey}/${serial + i + 1}`}, cause);
+        });
+        c.count -= ids.length;
+        lineageRow(world, c.id, {act, into: [...ids], count: c.count}, cause);
+        return done(c.place, {id: c.id, into: [...ids]});
+    }
+    default: return fail(`unhandled lifecycle act ${act}.`);
+    }
+}
+// ---------- E12 holder lifecycle (end) ----------
 
 // ---------- operations and contact ----------
 
@@ -253,14 +558,20 @@ function applyOps(rules, world, ops, ctx, queue) {
             check(!world.holders[made.id], `holder ${made.id} exists.`);
             check(made.kind === 'place' || world.holders[made.place]?.kind === 'place', `holder ${made.id} sits in an unknown place.`);
             world.holders[made.id] = made;
+            // E12: an outside caller may say what the new holder came from.
+            if (op.lineage) lineageForAdd(world, made.id, op.lineage, ctx.source);
             break;
         }
         case 'holder_remove': {
             check(!ctx.pack && h, 'only outside callers remove holders.');
             check(!Object.values(world.holders).some(x => x.place === h.id), `place ${h.id} still holds things.`);
+            // E12: what the holder carried goes to a named row instead of vanishing.
+            for (const [name, amount] of Object.entries(h.quantities)) rowAdd(world, 'holder.removed', name, amount);
+            if (world.identity && Object.hasOwn(world.identity.entries, h.id)) retireIdentity(world, h.id, ctx.source);
             delete world.holders[h.id];
             break;
         }
+        case 'lifecycle': lifecycleAct(rules, world, op, ctx, queue); break; // E12
         case 'law_add': {
             const f = op.field;
             check(idLike(f?.id) && idLike(f.kind) && (f.scope === 'world' || world.holders[f.scope]), 'law field needs id, kind and a scope.');
@@ -470,6 +781,21 @@ export function advanceWorld(rules, world0, toClock) {
 
 // ---------- reading ----------
 
+// E12 readers (begin)
+/** Lineage rows of a holder, living or ended: [{at, act, parents?, into?, traitKey?, cause, ...}]. */
+export const readLineage = (world, id) => world.identity ? lineageOf(world.identity, id) : [];
+/** The address the saved-dice lane draws innate traits by. A copy that shares traits has its source's key. */
+export const readLineageKey = (world, id) => world.identity ? lineageKey(world.identity, id) : id;
+/** Held amounts summed over holders, the named source and sink rows, and their sum. A lifecycle act leaves `total` unchanged. */
+export function readTotals(world) {
+    const held = {}, total = {};
+    for (const h of Object.values(world.holders)) for (const [name, amount] of Object.entries(h.quantities)) held[name] = (held[name] ?? 0) + amount;
+    Object.assign(total, held);
+    for (const row of Object.values(world.rows ?? {})) for (const [name, amount] of Object.entries(row)) total[name] = (total[name] ?? 0) + amount;
+    return {held, rows: structuredClone(world.rows ?? {}), total};
+}
+// E12 readers (end)
+
 export const readQuantity = (world, id, name) => world.holders[id]?.quantities[name] ?? null;
 export const readProvenance = (world, id, name) => structuredClone(world.holders[id]?.ledger[name] ?? {});
 
@@ -561,6 +887,9 @@ export function restoreWorld(rules, saved) {
     check(whole(raw.clock) && whole(raw.decidedAt) && raw.decidedAt <= raw.clock && whole(raw.seq), 'save clock fields are invalid.');
     for (const h of Object.values(raw.holders ?? {})) world.holders[h.id] = makeHolder(rules, h);
     world.laws = structuredClone(raw.laws ?? []);
+    // E12: identity history and named rows exist once a lifecycle act has run.
+    if (raw.identity) world.identity = validateIdentities(structuredClone(raw.identity));
+    if (raw.rows) world.rows = structuredClone(raw.rows);
     return validateWorld(rules, world);
 }
 
@@ -578,6 +907,9 @@ export function validateWorld(rules, world) {
     }
     for (const [id, h] of Object.entries(world.holders)) for (const [name, value] of Object.entries(h.properties ?? {})) checkProperty(rules, name, value, `holder ${id}`);
     for (const f of world.laws) check(idLike(f.id) && (f.scope === 'world' || world.holders[f.scope]), `law field ${f.id} has no scope.`);
+    // E12: cohort counts and named rows are whole.
+    for (const [id, h] of Object.entries(world.holders)) check(h.kind === 'cohort' ? whole(h.count) && h.count >= 0 : h.count == null, `holder ${id}: bad count.`);
+    for (const row of Object.values(world.rows ?? {})) check(Object.values(row).every(whole), 'a named row holds whole amounts.');
     check(world.chain.length <= rules.dials.chainCap, 'chain exceeds its cap.');
     return world;
 }
