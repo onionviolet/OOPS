@@ -141,7 +141,7 @@ function move(view, id, exits) {
     const goal = order ?? (lapsed ? null : view.property(id, 'agency_goal'));
     const here = view.placeOf(id);
     if (!goal || goal === here || view.property(id, 'mind_awake') === false) return cleanup;
-    if (!exits.get(here)?.has(goal) || view.holder(goal)?.kind !== 'place') return cleanup;
+    if (!exits(view, here).includes(goal) || view.holder(goal)?.kind !== 'place') return cleanup;
     const candidate = {
         id: 'cross', label: 'crosses to the destination', law: travel,
         method: {id: 'a.cross', revision: 0, law: travel.ref, roles: {origin: 'place', destination: 'place'},
@@ -155,13 +155,15 @@ function move(view, id, exits) {
     return choice.choice ? [...cleanup, {op: 'move', holder: id, to: goal}] : cleanup;
 }
 
-export function createMindPack({routes = []} = {}) {
-    const exits = new Map();
+// E10: a body crosses along the world's open links of `linkKinds` (default path). `routes` is the
+// older pack-level list, read as one-way links of the first kind through the same reader.
+export function createMindPack({routes = [], linkKinds = ['path']} = {}) {
+    const own = [];
     for (const {from, to} of routes) {
         if (!text(from) || !text(to) || from === to) throw new Error('Mind motion needs a directed route between places.');
-        if (!exits.has(from)) exits.set(from, new Set());
-        exits.get(from).add(to);
+        own.push({id: `own.${own.length}`, kind: linkKinds[0], from, to, oneWay: true});
     }
+    const exits = (view, here) => view.neighbours(here, {kinds: linkKinds, also: own});
     const names = properties.map(def => def.id);
     return {
         id: MIND_PACK, revision: 0, properties, reads: names, writes: names, hears: kinds,

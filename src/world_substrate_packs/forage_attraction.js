@@ -7,7 +7,10 @@ const DIET = 'forage_light';
 const validId = value => typeof value === 'string' && /^[a-z][a-z0-9_.:-]*$/i.test(value);
 const wholePositive = value => Number.isSafeInteger(value) && value > 0;
 
-export function createForageAttractionPack({profiles, connections, maxNeighbors}) {
+// E10: exits come from the world's links of `linkKinds` (default path). `connections` is the
+// older pack-level list; it is read as one-way links of the first kind through the same reader,
+// so a world can declare its ways once as links and pass no connections.
+export function createForageAttractionPack({profiles, connections = [], maxNeighbors, linkKinds = ['path']}) {
     if (!wholePositive(maxNeighbors)) throw new Error('Forage attraction needs a positive neighbor budget.');
     const diets = new Map();
     for (const {light, minimum, interval} of profiles) {
@@ -18,17 +21,20 @@ export function createForageAttractionPack({profiles, connections, maxNeighbors}
         diets.set(light, {light, minimum, interval});
     }
 
-    const neighbors = new Map();
+    const neighbors = new Map(), own = [];
     for (const {from, to, open} of connections) {
         if (!validId(from) || !validId(to) || from === to || typeof open !== 'boolean') {
             throw new Error('Forage attraction needs directed connections with explicit access.');
         }
+        own.push({id: `own.${own.length}`, kind: linkKinds[0], from, to, oneWay: true, state: open ? 'open' : 'closed'});
         if (!open) continue;
         const exits = neighbors.get(from) ?? new Set();
         exits.add(to);
         if (exits.size > maxNeighbors) throw new Error(`Forage attraction neighbor budget exceeded at ${from}.`);
         neighbors.set(from, exits);
     }
+    // The budget is how many exits a forager weighs. Past it, world links are taken in place-id order.
+    const exitsFrom = (view, from) => view.neighbours(from, {kinds: linkKinds, also: own}).slice(0, maxNeighbors);
 
     const lightAt = (view, place, light) => view.has(place, light) ? view.amount(place, light) : 0;
     return {
@@ -38,8 +44,9 @@ export function createForageAttractionPack({profiles, connections, maxNeighbors}
         reads: ['light', 'alive', DIET],
         laws: [{
             id: 'follow-light',
+            // Whether the place has an exit is the world's to say (its links), so it is asked in decide.
             appliesTo: holder => holder.kind === 'body' && holder.properties.alive === true &&
-                diets.has(holder.properties[DIET]) && neighbors.has(holder.place),
+                diets.has(holder.properties[DIET]),
             // Due minutes are absolute W clock boundaries. Caller cuts and
             // reloads cannot create an extra opportunity to move.
             horizon: (view, id) => {
@@ -54,7 +61,7 @@ export function createForageAttractionPack({profiles, connections, maxNeighbors}
                 const here = lightAt(view, from, light);
                 let to = null;
                 let best = here;
-                for (const place of neighbors.get(from)) {
+                for (const place of exitsFrom(view, from)) {
                     if (view.holder(place)?.kind !== 'place') continue;
                     const grade = lightAt(view, place, light);
                     if (grade < minimum || grade <= here) continue;

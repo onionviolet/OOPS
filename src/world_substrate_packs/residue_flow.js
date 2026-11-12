@@ -16,25 +16,32 @@ export function residueQuantity(substance) {
     return `${Q.residue.id}:${encodedPrefix}${encoded}`;
 }
 
-export function createResidueFlowPack({drains}) {
-    const routes = new Map();
+// E10: a drain is a one-way open link of `linkKinds` (default water) out of the place, read from the
+// world's links. `drains` is the older pack-level list, read as such links through the same reader.
+// With several ways out, the water takes the cheapest, then the lowest link id.
+export function createResidueFlowPack({drains = [], linkKinds = ['water']} = {}) {
+    const routes = new Map(), own = [];
     for (const {from, to, reason} of drains) {
         check(placeId(from) && placeId(to) && typeof reason === 'string' && reason.trim(),
             'Residue flow needs source and destination places and a reason.');
         check(!routes.has(from), `Residue flow has more than one drain from ${from}.`);
         routes.set(from, to);
+        own.push({id: `own.${own.length}`, kind: linkKinds[0], from, to, oneWay: true, note: reason});
     }
+    const drainFrom = (view, source) => view.exits(source, {kinds: linkKinds, also: own})
+        .sort((a, b) => a.cost - b.cost)[0]?.to ?? null;
 
     return {
         id: 'w.residue_flow', revision: 0,
         quantities: [Q.residue], writes: [Q.residue.id], hears: [K.water_poured.id],
         reactors: [{
             id: 'drain', on: [K.water_poured.id],
-            appliesTo: holder => holder.kind === 'place' && routes.has(holder.id),
+            appliesTo: holder => holder.kind === 'place',
             react(view, source, effect) {
                 const contents = effect.detail?.contents;
                 if (contents == null) return [];
-                const destination = routes.get(source);
+                const destination = drainFrom(view, source);
+                if (destination == null) return [];
                 check(object(contents) && effect.quantity == null, 'Residue flow needs a pour with a contents map.');
                 check(view.holder(destination)?.kind === 'place', `Residue drain from ${source} needs a place at ${destination}.`);
 

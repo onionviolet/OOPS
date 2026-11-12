@@ -5,7 +5,7 @@
 // acts; K pays for them as a working; W only executes. Nothing here names a
 // world or a domain (PFP3). Counterplay comes free (EF3): `block` stops any verb
 // on any object it names, `conceal` defeats `sense`, `alter` changes law fields.
-import {applyWorldOps, quantityDef} from './world_substrate.js';
+import {applyWorldOps, quantityDef, reachReport, worldLinks} from './world_substrate.js'; // E10: reachReport, worldLinks
 
 // Kept in step with P's effect grammar verbs (src/effect_grammar.js EFFECT_VERBS): one list of twelve.
 export const EFFECT_VERBS = Object.freeze(['move', 'add', 'remove', 'transform', 'bind', 'release', 'sense', 'conceal', 'copy', 'block', 'end', 'alter']);
@@ -60,9 +60,35 @@ export function resolveTargets(world, target) {
     case 'marked': return all.filter(id => (h(id).properties.marks ?? []).includes(target.mark) && (!target.place || placeOf(id) === target.place));
     case 'having': return all.filter(id => (!target.place || placeOf(id) === target.place) && id in world.holders &&
         target.property in h(id).properties && (target.value === undefined || JSON.stringify(h(id).properties[target.property]) === JSON.stringify(target.value)));
+    // E10 place graph: holders within a number of links; this list is what is reachable with nothing forced.
+    case 'within': return resolveReach(world, target).ids;
     default: return fail(`unknown target shape ${target?.shape}.`);
     }
 }
+
+// >>> E10 place graph: target resolution over links
+/** `{shape: 'within', from, links?, kinds?, cost?, weights?, present?, force?, payer?}`:
+ * holders in places within `links` links (default 1) of the place of `from`, over
+ * the named link kinds (all kinds when absent) and inside `cost` when given.
+ * `present: true` leaves the places themselves out. Returns the free reach (`ids`,
+ * `places`) and the graph's report of what a force would open and what has no way. */
+export function resolveReach(world, target) {
+    const h = id => world.holders[id];
+    check(h(target?.from), `no holder ${target?.from}.`);
+    check(target.kinds == null || Array.isArray(target.kinds) && target.kinds.every(k => typeof k === 'string'), 'within: kinds is a list.');
+    const from = h(target.from).kind === 'place' ? target.from : h(target.from).place;
+    const report = reachReport(worldLinks(world), from, {kinds: target.kinds, weights: target.weights, maxLinks: target.links ?? 1, maxCost: target.cost});
+    const places = report.reached.map(e => e.place);
+    return {from, places, ids: holdersIn(world, places, target), ...report};
+}
+function holdersIn(world, places, target) {
+    const set = new Set(places);
+    return Object.keys(world.holders).sort(byId).filter(id => {
+        const x = world.holders[id];
+        return x.kind === 'place' ? !target.present && set.has(id) : set.has(x.place);
+    });
+}
+// <<< E10 place graph
 
 // Block fields: kind 'block', params {verb, object}, either may be '*'. They
 // guard the target, its place and the world, nearest first.
@@ -124,7 +150,10 @@ export function applyEffect(rules, world, act, cause) {
     const affected = [obj, ...changes.map(([name]) => ({type: 'property', name}))];
     if (grips || obj !== base) affected.push(grips ? position : base);
     if (copyNew) affected.push(position);
-    const targets = resolveTargets(world, act.target);
+    // >>> E10 place graph: a `within` target also reports what it could not reach
+    const reaching = act.target?.shape === 'within' ? resolveReach(world, act.target) : null;
+    let targets = reaching ? reaching.ids : resolveTargets(world, act.target);
+    // <<< E10 place graph
     if (physical && verb === 'add') {
         check(targets.length === 1 && ['thing', 'body'].includes(act.create?.kind),
             'add material needs one target and a thing or body to create.');
@@ -172,6 +201,32 @@ export function applyEffect(rules, world, act, cause) {
         ops.push({op: 'add', holder: target, quantity: obj.name, amount: after - before, source: by});
         note(target, {amount: after - before});
     };
+    // >>> E10 place graph: closed links. With `force` the payer (target.payer, else the actor) pays each
+    // forced link's stated price once and the effect passes; a place whose price is not met, or that is not
+    // forced, or that has no stated way, is listed in outcome.unreached with the price a way would cost.
+    if (reaching) {
+        outcome.unreached = reaching.unreached.map(u => ({...u}));
+        outcome.forced = [];
+        const payer = act.target.payer ?? act.by, paid = new Set(), extra = [];
+        for (const way of reaching.forceable) {
+            const quote = {place: way.place, via: way.forced, price: way.price};
+            if (act.target.force !== true) { outcome.unreached.push({...quote, reason: 'closed'}); continue; }
+            const due = way.price.filter(p => !paid.has(p.link)), need = {};
+            for (const p of due) need[p.quantity] = (need[p.quantity] ?? 0) + p.amount;
+            const can = Object.hasOwn(world.holders, payer ?? '') && Object.entries(need).every(([name, amount]) =>
+                !amount || name in world.holders[payer].quantities && cur(payer)[name] - quantityDef(rules, name).min >= amount);
+            if (!can) { outcome.unreached.push({...quote, reason: 'price'}); continue; }
+            for (const p of due) {
+                if (p.amount) { cur(payer)[p.quantity] -= p.amount; ops.push({op: 'add', holder: payer, quantity: p.quantity, amount: -p.amount, source: `force:${p.link}`}); }
+            }
+            for (const link of way.forced) paid.add(link);
+            outcome.forced.push({...quote, payer});
+            extra.push(way.place);
+        }
+        outcome.unreached.sort((a, b) => byId(a.place, b.place));
+        if (extra.length) targets = [...new Set([...targets, ...holdersIn(world, extra, act.target)])].sort(byId);
+    }
+    // <<< E10 place graph
     for (const target of targets) {
         const blocker = affected.map(object => blockerOf(world, target, verb, object)).find(Boolean);
         if (blocker) { outcome.blocked.push({target, by: blocker}); continue; }
