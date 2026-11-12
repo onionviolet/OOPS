@@ -74,11 +74,48 @@ Not done in 2a: the live route (phase 2b below).
 
 Compatibility line (MC4): game saves unchanged; substrate save revision 0 migrates to 1.
 
+## Phase 2b: live route, the Village shell chamber (2026-11-12)
+
+The coordinator allowed W to edit `src/meadow_shell_state.js` for this route (L leaves it alone until this merges). Scope kept to the chamber's humidity, shell and inlet and their readers; the terrapin lifecycle reads are unchanged.
+
+- **What moved.** The animal's `regulator`, `shell` and `mode` fields are gone. In their place `chamber` holds a substrate world (save shape `oops.world-substrate` revision 1): the place `village.shell_chamber` carrying `humidity`, the terrapin body and the inlet thing running pack `l.shell_regulator`. The chamber is a near place: it settles minute by minute inside the old 64-minute window, and care and work answer the air of each minute exactly as before. `meadowChamber(state)` is the one reading; the habitat panel and the projection read it. Player hands on the inlet are substrate ops with a cause.
+- **Migration (MC4): migrated.** `upgradeMeadowShell` turns a pre-substrate animal into the chamber world at its regulator clock (humidity, shell, mode, inlet position and pending correction kept). It runs on every read, so an old save works at once and the next shell action stores the new shape. Tested: old and migrated saves project identically and the due correction lands.
+- **Slice size.** Chamber dials `chainCap` 16 and `ledgerCap` 8 keep the slice under 4 KB (tested).
+
+**Floor (AD43), for this route**
+
+| Line | State |
+| --- | --- |
+| FLR1 Build | Bundle sha256 `10cbbe5002bc7c3b` (built from this branch's source; dist not committed) |
+| FLR2 Route | Village meadow pen, from a fresh origin, with the named fixture of the existing `PROOF_SHELL` route (one Wool cloth, enrolled simulation); played by clicks: build, rescue, buy hay, feed, fit inlet, close inlet, link inlet |
+| FLR3 Shown | The panel's terrapin line shows humidity, inlet and a correction due from the substrate, with the existing cannot-run messages |
+| FLR4 Used | Existing consumers read it: care and healing gate on humidity, driftwood work on the shell, the sparring guard on the shell (6 closed, 1 open) |
+| FLR5 Kept | Save, reload, Export and Import each restore the identical chamber, and time and inlet actions continue on the imported save |
+| FLR6 Labelled | Agent-verified, not human-reviewed; route kind: headless browser with a named fixture |
+
+Receipt: [proof/receipt.json](proof/receipt.json) (8 of 8 lines PASS), screenshots `proof/01-chamber-linked.png`, `02-reloaded.png`, `03-imported-continued.png`. Script: `scripts/world_substrate_shell_browser.cjs` (needs `npm run build` and a static server on `PROOF_URL`). Three 404s are ignored by name: private fonts that are gitignored and absent from worktrees.
+
+**Status:** the W substrate reaches the floor on this route. The substrate as a whole stays partly below floor: the effect primitives, sky and properties have no live consumer yet.
+
+**PFP2 counts, before and after 2b:** canon cases as data 0 and 0; bespoke scene modules 0 and 0. The chamber's private regulator loop moved onto the shared pack; `living_regulator.js` now has no runtime caller.
+
+**Checks (2b)**
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/meadow_shell_state.test.js tests/world_substrate.test.js tests/world_effects.test.js` | 23 pass (meadow 5, including 2 new: migration and ledger) | |
+| `node --test tests/authority.test.js tests/habitat_care.test.js tests/livelihoods.test.js tests/needs.test.js` | 31 pass | Neighbours that read the habitat |
+| `npm run build` | exit 0 | |
+| `node scripts/world_substrate_shell_browser.cjs` | 8 of 8 PASS at 1920x1080, headless | Fixture-seeded start (FLR2 allows a named fixture) |
+| `npm run check:arch` | exit 0 | |
+| `npm run check:rules` | PASS; the only new warning is the TMR1 line in `book_world_hp_exams.js` from master | |
+| full `npm test` | not run | The integrator's, at merge (MC7) |
+
 ## Requests (phase 2, for the coordinator to relay)
 
 - **K (SC7, SB1):** the plan makes K the owner of identity. W offers its half: holders carry `as` (kinds a binding may name) and `refs` (records other owners keep), `resolveRef(world, {kind, id})` and `substratePort(world)` as a `ports.read` (WSC18). Please confirm or replace the id scheme so there is one identity authority, not two. Answers to K's backlog: **KB5** reservations stay with the custody owners; W only reads. **KB6** rates inside a step: run the step's progress as a closed-form substrate law (`horizon` plus `advance`, WSC4), which settles the same near and far.
 - **P (SB3):** the boundary table in the contract ("Effect primitives and the boundary with P") is W's proposal: W runs verb, object and resolved targets at one minute, with `until` for sustained effects and block, conceal and bounds as limits; P owns shape, time, carrier, cost and the other limits. Please agree or amend; E8 lowers four plan sentences to acts as the worked example.
-- **L:** (1) may W make the meadow shell chamber's humidity, shell and inlet live on the substrate (your checkpoint: "Move ownership of ambient humidity to W; device keeps its inlet")? That is W's live route for phase 2b and touches `src/meadow_shell_state.js`. If you would rather own the call-site swap, W builds the slice and migration and asks you for the one line. (2) Handover of `src/world_substrate_packs/shell_regulator.js` to L at your embed.
+- **L:** (0) `src/meadow_shell_state.js` is handed back after this commit merges; the chamber now lives on the substrate and `src/living_regulator.js` has no runtime caller (L decides whether to retire it or keep it as the parity reference W1 uses). (1) Answered by the coordinator: may W make the meadow shell chamber's humidity, shell and inlet live on the substrate (your checkpoint: "Move ownership of ambient humidity to W; device keeps its inlet")? That is W's live route for phase 2b and touches `src/meadow_shell_state.js`. If you would rather own the call-site swap, W builds the slice and migration and asks you for the one line. (2) Handover of `src/world_substrate_packs/shell_regulator.js` to L at your embed.
 - **B:** handover of `src/world_substrate_packs/brew_steam.js` at your embed; BRQ4 ambient temperature can now be read from the place's `temperature`.
 - **E:** CC1 "Steam and the shell" and the W4 departure case are unchanged under revision 1: same names, fixtures (`workshop()` in `tests/world_substrate.test.js`) and assertions.
 - **All domain chats:** vocabulary v1 is in `src/world_quantities.js` (17 quantities, 10 properties). A name only your chat uses stays in your pack; one two chats share is a request to W.
@@ -86,7 +123,7 @@ Compatibility line (MC4): game saves unchanged; substrate save revision 0 migrat
 
 ## Next phase
 
-**Phase 2b, live route (waiting on the coordinator's answer to the L request above).** If allowed: the meadow shell chamber runs on the substrate (pack `l.shell_regulator`), one namespaced save slice with a migration from the current regulator fields, save, reload and import exercised, and one headless browser check at 1920x1080 with the receipt in this folder. If not: W builds the slice, migration and focused tests and asks L for the call-site line; or rescopes with the reason that no route outside other chats' files holds substrate state the clock cannot rebuild, so W stays "implemented, below floor" until L embeds. Not chosen: wiring rain through the substrate for the drying rack or home building, which would only rename a clock reading (FLR4) and store a derivable value (SPR23).
+**Phase 2b is done (above).** The earlier plan for it, kept for the record: If allowed: the meadow shell chamber runs on the substrate (pack `l.shell_regulator`), one namespaced save slice with a migration from the current regulator fields, save, reload and import exercised, and one headless browser check at 1920x1080 with the receipt in this folder. If not: W builds the slice, migration and focused tests and asks L for the call-site line; or rescopes with the reason that no route outside other chats' files holds substrate state the clock cannot rebuild, so W stays "implemented, below floor" until L embeds. Not chosen: wiring rain through the substrate for the drying rack or home building, which would only rename a clock reading (FLR4) and store a derivable value (SPR23).
 
 Earlier next-phase notes (phase 1):
 

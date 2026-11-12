@@ -360,8 +360,8 @@ By default a new slice declares data through the seam named here and does not ad
 - Declare: a pack `{id, quantities, reads, writes, laws, reactors}`; reference packs in `src/world_substrate_packs/` (`shell_regulator.js` for L, `brew_steam.js` for B, both handed over at embed).
 - Write: `applyWorldOps` (outside changes at the current minute), `advanceWorld` (time). Laws and reactors return ops; they never mutate.
 - Read: `readQuantity`, `readProvenance`, `explainEffect`, `substrateFacts`, `readScarcity`, `resolveRef`, `substratePort` (K's `ports.read`).
-- State: not in the game save yet; its own versioned shape `oops.world-substrate` revision 1 (revision 0 migrates) (`serializeWorld`, `restoreWorld`, `migrateWorldSave`).
-- Copy: `tests/world_substrate.test.js` (`workshop()` fixture, W1-W10).
+- State: first live slice is the Village shell chamber (`meadow_pen` slice, `shellAnimal.chamber`, read through `meadowChamber`); its own versioned shape `oops.world-substrate` revision 1 (revision 0 migrates) (`serializeWorld`, `restoreWorld`, `migrateWorldSave`).
+- Copy: `src/meadow_shell_state.js` (a near place settled minute by minute, a save-on-read migration, player ops with a cause); `tests/world_substrate.test.js` (`workshop()` fixture, W1-W10).
 - Test: tests/world_substrate.test.js; tests/world_effects.test.js.
 - Rules: [contract](WORLD_SUBSTRATE_CONTRACT.md) WSC1-WSC20; PFP22, SB2, SB3, SC7; PFP10-PFP15, OS6, OS8; TMR4, TMR7, SPR25, SPR28, SPR30.
 - Limits/traps: whole-unit amounts and rates only; one near place steps the whole world by minutes; the sky computes its own day (not `dayIndex` yet).
