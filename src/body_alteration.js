@@ -39,5 +39,7 @@ export function quoteActivation(row, {target, tick, clock, strain = 0, mindPress
     return {effect: {sentence: {verb: 'alter', object: 'time', target: 'self', time: 'sustained'},
         details: {target: {shape: 'holder', id: target}, field: `${row.id}:${target}:${tick}`, kind: 'time',
             params: {permille: a.permille, from: tick, to: tick + a.ticks, per: a.per},
-            minutes: Math.max(0, Math.ceil((tick + a.ticks) / a.per) - clock)}}, strain: cost};
+            minutes: Math.max(0, Math.ceil((tick + a.ticks) / a.per) - clock)}}, strain: cost,
+        // E1 (proposal): the same price as a cost row, a burden on the row's own course, for the cost owner to land.
+        costs: [{kind: a.cost ?? `alteration_course:${row.course.key}`, quantity: `alteration_course:${row.course.key}`, amount: cost, payer: target, as: 'burden'}]};
 }

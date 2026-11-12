@@ -3,6 +3,7 @@
 import {landEffect} from './effect_host.js';
 import {applyWorldOps, quantityDef} from './world_substrate.js';
 import {resolveTargets} from './world_effects.js';
+import {settleCosts} from './cost_owner.js';
 
 export const STORED_SCHEMA = 'kernel.stored@1';
 const clone = value => structuredClone(value);
@@ -83,13 +84,19 @@ function pay(rules, world, from, quantity, amount, cause) {
     check(natural(amount), 'payment must be whole units.');
     return amount ? applyWorldOps(rules, world, [{op: 'add', holder: from, quantity, amount: -amount, source: cause}], cause) : world;
 }
+// E1 (proposal). With `costs` ({accounts, backers, fault}: the world's data) a published price goes to
+// the cost owner: it is debited here, and a payer who is short gets a fault with its price, no refusal.
+function owed(rules, world, costs, rows, payer, cause, more) {
+    const {world: next, ...settled} = settleCosts({rules, world, costs: rows, payer, cause, ...costs, ...more});
+    return {world: next, settled, paid: rows.reduce((n, r) => n + r.amount, 0) - settled.lines.reduce((n, l) => n + l.short, 0)};
+}
 function receipt(record, row) {
     const entry = {...row, authority: {store: clone(record.stored.authority), fire: row.authority ?? null}, ways: row.ways ?? [...(WAYS_FOR[row.reason] ?? (row.reason ? ways : []))]};
     record.receipts.push(entry);
     return entry;
 }
 
-export function fireStored({rules, world, record: input, at, stimulus = {}, way = {}, ports = {}, keys, read}) {
+export function fireStored({rules, world, record: input, at, stimulus = {}, way = {}, ports = {}, keys, read, costs}) {
     const record = clone(validate(input));
     check(at === world.clock && at >= record.stored.at, 'fire at the world clock.');
     decayTo(record, at);
@@ -97,10 +104,17 @@ export function fireStored({rules, world, record: input, at, stimulus = {}, way 
     const answer = authority(ports, record, 'fire', by, at, stimulus);
     const finish = (status, reason, extra = {}) => ({world, record,
         receipt: receipt(record, {at, by, status, reason, authority: answer, ...extra})});
+    // What the authority charges for this firing, allowed or not, is debited from whoever fired (the storer when nobody did).
+    const asked = () => {
+        if (!costs || !answer.costs?.length) return {};
+        const run = owed(rules, world, costs, answer.costs, by ?? record.stored.by, `stored:${record.id}:authority`, {keys, read});
+        world = run.world;
+        return {settled: run.settled};
+    };
     if (terminal(record)) return finish('resisted', record.status);
     if (['touch', 'word'].includes(record.trigger.kind) && stimulus.kind !== 'force' &&
         (stimulus.kind !== record.trigger.kind || !by || record.trigger.word && stimulus.word !== record.trigger.word)) return finish('resisted', 'stimulus');
-    if (!answer.ok) return finish('resisted', answer.reason ?? 'authority', {costs: answer.costs ?? [], ways: answer.ways ?? ways});
+    if (!answer.ok) return finish('resisted', answer.reason ?? 'authority', {costs: answer.costs ?? [], ways: answer.ways ?? ways, ...asked()});
     if (stimulus.kind !== 'force' && by && (record.keys ?? []).some(key => (world.holders[by]?.properties.marks ?? []).includes(key))) return finish('bypassed', 'key');
     const carrier = world.holders[record.carrier];
     if (!carrier || carrier.properties.lost) { record.status = 'lost'; return finish('lost', 'carrier-lost'); }
@@ -158,10 +172,10 @@ export function fireStored({rules, world, record: input, at, stimulus = {}, way 
     const resisted = outcomes.find(o => o.reason || o.outcomes.some(a => a.blocked.length || a.skipped.length));
     const reason = resisted?.reason ?? (resisted ? 'world-resisted' : null);
     record.status = broken ? 'broken' : record.mode === 'once' ? 'spent' : 'armed';
-    return finish(reason ? 'resisted' : 'fired', reason, {cost: spent * rate, scale, outcomes});
+    return finish(reason ? 'resisted' : 'fired', reason, {cost: spent * rate, scale, outcomes, ...asked()});
 }
 
-export function advanceStoredWorkings({rules, world, records, to, advance, ports = {}, keys, read}) {
+export function advanceStoredWorkings({rules, world, records, to, advance, ports = {}, keys, read, costs}) {
     check(natural(to) && to >= world.clock, 'advance needs a later whole clock.');
     records = records.map(r => clone(validate(r))).sort((a, b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
     check(new Set(records.map(r => r.id)).size === records.length, 'duplicate record id.');
@@ -200,7 +214,7 @@ export function advanceStoredWorkings({rules, world, records, to, advance, ports
             record.watch.seq = world.seq;
             for (const stimulus of stimuli) {
                 if (terminal(record)) break;
-                const run = fireStored({rules, world, record, at: next, stimulus, ports, keys, read});
+                const run = fireStored({rules, world, record, at: next, stimulus, ports, keys, read, costs});
                 world = run.world; record = run.record; receipts.push(run.receipt);
             }
             records[i] = record;
@@ -210,7 +224,7 @@ export function advanceStoredWorkings({rules, world, records, to, advance, ports
     return {world, records, receipts};
 }
 
-function maintain({rules, world, record: input, at, by, amount = 0}, renew) {
+function maintain({rules, world, record: input, at, by, amount = 0, costs}, renew) {
     const record = clone(validate(input));
     check(at === world.clock && at >= record.anchor && natural(amount), 'invalid maintenance clock or amount.');
     decayTo(record, at);
@@ -223,6 +237,14 @@ function maintain({rules, world, record: input, at, by, amount = 0}, renew) {
     check(price && natural(renew ? price.price : price.rate), 'pack must quote maintenance price.');
     const added = renew ? record.charge.max - record.charge.now : Math.min(amount, record.charge.max - record.charge.now);
     const cost = renew ? price.price : added * price.rate;
+    if (costs) {
+        // Short of the price: what was paid restores its share, and the fault's price is the rest of the answer.
+        const run = owed(rules, world, costs, [{kind: price.kind, quantity: price.quantity, amount: cost}], by, `stored:${record.id}:maintenance`);
+        const got = cost ? Math.floor(added * run.paid / cost) : added;
+        record.charge.now += got; record.anchor = at;
+        if (got && (record.status === 'dormant' || renew && got === added)) record.status = 'armed';
+        return {world: run.world, record, receipt: receipt(record, {at, by, status: renew ? 'renewed' : 'recharged', cost: run.paid, added: got, settled: run.settled})};
+    }
     if (available(rules, world, by, price.quantity) < cost) return {world, record,
         receipt: receipt(record, {at, by, status: 'resisted', reason: 'price', cost})};
     world = pay(rules, world, by, price.quantity, cost, `stored:${record.id}:maintenance`);
@@ -233,16 +255,24 @@ function maintain({rules, world, record: input, at, by, amount = 0}, renew) {
 export const rechargeStored = args => maintain(args, false);
 export const renewStored = args => maintain(args, true);
 
-export function breakStored({rules, world, record: input, at, by, force, payment, ports, keys, read}) {
+export function breakStored({rules, world, record: input, at, by, force, payment, ports, keys, read, costs}) {
     check(natural(force) && at === world.clock, 'break needs force at the world clock.');
     const record = clone(validate(input));
     decayTo(record, at);
     if (terminal(record)) return {world, record, receipt: receipt(record, {at, by, status: 'resisted', reason: record.status})};
     check(payment && natural(payment.rate), 'pack must quote force price.');
-    const cost = force * payment.rate;
-    if (available(rules, world, by, payment.quantity) < cost) return {world, record,
-        receipt: receipt(record, {at, by, status: 'resisted', reason: 'price', cost})};
-    world = pay(rules, world, by, payment.quantity, cost, `stored:${record.id}:force`);
+    let cost = force * payment.rate, settled = null;
+    if (costs) {
+        // Short of the price: the force that was paid for is the force that lands.
+        const run = owed(rules, world, costs, [{kind: payment.kind, quantity: payment.quantity, amount: cost}], by, `stored:${record.id}:force`);
+        world = run.world; settled = run.settled;
+        if (cost) force = Math.floor(force * run.paid / cost);
+        cost = run.paid;
+    } else {
+        if (available(rules, world, by, payment.quantity) < cost) return {world, record,
+            receipt: receipt(record, {at, by, status: 'resisted', reason: 'price', cost})};
+        world = pay(rules, world, by, payment.quantity, cost, `stored:${record.id}:force`);
+    }
     const broken = force >= (record.strength ?? 0);
     if (!broken && record.charge) record.charge.now = Math.max(0, record.charge.now - force);
     const remaining = record.charge?.now ?? 0;
@@ -251,11 +281,12 @@ export function breakStored({rules, world, record: input, at, by, force, payment
             target: {shape: 'holder', id: by}, ...(e.details?.amount != null ? {amount: record.charge?.per ? Math.floor(e.details.amount * remaining / record.charge.per) : e.details.amount} : {})}}));
         if (record.charge) record.charge.per = remaining;
     }
-    const run = fireStored({rules, world, record, at, stimulus: {by, kind: 'force'}, ports, keys, read});
+    const run = fireStored({rules, world, record, at, stimulus: {by, kind: 'force'}, ports, keys, read, costs});
     run.record.effects = clone(input.effects);
     if (run.record.charge) run.record.charge.per = input.charge.per;
     if (broken) { run.record.status = 'broken'; if (run.record.charge) run.record.charge.now = 0; }
     run.receipt.forceCost = cost; run.receipt.broken = broken;
+    if (settled) run.receipt.forcePaid = settled;
     return run;
 }
 export const serializeStored = record => JSON.parse(JSON.stringify(validate(record)));
