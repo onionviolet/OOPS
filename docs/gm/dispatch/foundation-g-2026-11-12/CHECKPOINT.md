@@ -74,3 +74,42 @@ tests: focused Gu tests (208 pass per chat G)
 review: diff-scoped
 surface: gu_catalogue.js grew 28 to 78 identity kinds; scripts/gu_keeper_inventory.mjs added
 ```
+
+# Phase 2a, 2026-11-12: Gu on the kernel, runnable data
+
+Started from master `ea6a170dd` (merged into this branch). Scope per the new plan sections: SC4 and PFP21 (a Gu is rows on each mechanism; G keeps writing `gu_*` files, SC5), SC6 (moves as composed workings), PFP22-PFP24.
+
+## What changed
+
+- [`src/gu_working_law.js`](../../../../src/gu_working_law.js): one K working law (`gu.working@1`) with five operations: `activate` (gu_activation), `convert` (catalogue conversion between essence stages), `refine` (gu_refinement begin and one step per recipe stage), `grow` and `treat` (Vitality Grass rows). `guMethods(kind)` builds every method a catalogue kind supplies from its rows; `guMoveMethod(record)` turns a move record into a composed working with one activate step per role. Bound Gu carry the role kind `gu` and their catalogue kind in `guKind` (KW3); the law hands leaves their own view.
+- `derivedGuAbility(kind)`: a parts row with a chapter rank and a function, but no authored ability, runs on a labelled `derived` default (fuel family from rank by GG13 unless the chapters state it; cost and magnitude one unit, dials in `GU_WORKING_DIALS`). Rank-open kinds get no derived default, so the open-rank rule of the catalogue test holds.
+- [`src/gu_activation.js`](../../../../src/gu_activation.js): optional `modifiers` input and output, so supports carry from one kernel step to the next. This closes K's backlog KB1 on G's side with no kernel change.
+- [`tests/gu_working_law.test.js`](../../../../tests/gu_working_law.test.js), 7 tests: coverage and labelled gaps; every runnable ability quotes through K; one jump versus steps and reload; Little Light Moonblade as a composed working equals the whole-move activation; Red Fire with three supports equals the move search's best row; Four Flavors refines from its recipe row under any partition and interrupts when short of wine; conversion, growth and treatment numbers.
+
+Save compatibility (MC4): unchanged. No scene uses the law yet; no save key changed.
+
+## PFP2 counts
+
+| Count | Phase 1 end | Phase 2a end |
+| --- | ---: | ---: |
+| Kinds in the catalogue | 78 | 78 |
+| Kinds that run as data with no scene module (through `gu.working`) | 7 | **46** (28 authored bindings, 18 on labelled derived abilities) |
+| Kinds that cannot run yet | 71 | 32: 18 lack a standalone function in the cited scenes, 14 lack a chapter rank |
+| Move records running as composed workings (tests) | 0 | 2 (Little Light Moonblade, Red Fire set) |
+| Bespoke scene modules (keeper src + packs) | 67 | 67 |
+
+`guRunnableCoverage()` reports the list and each gap.
+
+## Checks
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/gu_working_law.test.js tests/gu_*.test.js tests/kernel_working.test.js` | 232/232 pass | |
+| `npm run check:arch` | pass, main.js growth -1 | |
+| `npm run check:rules` | PASS; one TMR1 warning in `book_world_hp_exams.js`, pre-existing and not G's | |
+
+## Rescope and next
+
+Compression did not start in 2a: deleting a scene module needs a host that runs scene operations through `gu.working`, and the first candidates (seven, nine, red_steel) are dispatched together through `gu_keeper_wild` with cross-scene readiness. Phase 2b builds that host for one owned module and deletes it, using the `gu_upkeep` headless harness as the regression. Then the 23 evidence move records drive move search (phase 2c), and generation through P's grammar (phase 3).
+
+Request to K: none. KB1 is handled on G's side.
