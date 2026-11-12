@@ -137,3 +137,43 @@ Save compatibility (MC4): unchanged. Same facts keys and counters; the host comp
 | `npm run check:arch`, `npm run check:rules` | pass; the TMR1 warning in `book_world_hp_exams.js` is pre-existing | |
 
 Next: the seven and nine scenes join the same host for their conversion and cast halves, and their refinement halves move onto the `refine` method of `gu.working`. Both are dispatched through `gu_keeper_wild`, so they go together.
+
+# Phase 2c, 2026-11-12: MS1 coverage ledgers
+
+Merged master `2fff2285e` (plan section "Making all achievable": CV1-CV4, GL1-GL7, PR1-PR9, MS1-MS7, PFP25-PFP26).
+
+- [`docs/coverage/gu_kinds.jsonl`](../../../coverage/gu_kinds.jsonl): 1,466 rows, one per review-index record. [`docs/coverage/gu_moves.jsonl`](../../../coverage/gu_moves.jsonl): 776 rows (23 move records plus 753 wiki leads). **Zero unclassified.** Row fields per CV1 (`id`, `source`, `state`, `mechanisms`, `test`, `note`) plus `layer` (chapter or wiki), labels and, for wiki rows, `labelBasis`.
+- Regenerate: `node scripts/gu_coverage_ledgers.mjs [private index path]` ([script](../../../../scripts/gu_coverage_ledgers.mjs)). Deterministic, two runs byte-identical. It needs the gitignored review index; the test reads only the committed ledgers.
+- [`tests/gu_coverage.test.js`](../../../../tests/gu_coverage.test.js): denominators, unique ids, valid states, a mechanism on every runs row, and it **runs** every runs row: chapter kinds through their catalogue methods, wiki kinds on an ability derived from their labels, moves as composed workings.
+- `gu_working_law.js`: `derivedAbilityFrom(labels)` (shared by catalogue and ledger rows); `guMoveMethod` now settles support-only roles before effect roles (GG9), so a record that lists its core first still shapes the effect. `ordered: true` keeps a record's order exactly.
+
+**Labelling rules (GL7, data first).** Chapter rows: catalogue methods decide runs; otherwise the parts row names the missing rank or function. Wiki rows: lowest wiki rank label; function from the wiki type category (Offensive, Defensive, Movement, Flying, Steed, Investigative, Concealment, Healing, Amplification), else a short name-keyword table marked `name-keyword-inference` (123 rows). Support, Consumable, Grass, Storage and House name a role or a form and supply no function. The yaksha sighting is `not-a-thing:provisional-sighting`; three wiki overview pages are `not-a-thing:wiki-reference-page`. No `runs-canon` rows yet: every running binding has at least one authored number (catalogue `authored` fields or derived dials), so all are `runs-authored`.
+
+## Runs share per ledger
+
+| Ledger | Rows | runs-canon | runs-authored | blocked | not-a-thing | Runs share |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| gu_kinds, chapter layer | 78 | 0 | 46 | 31 (rank-unknown 11, effect-unknown 20) | 1 | 59% |
+| gu_kinds, wiki layer | 1,388 | 0 | 337 | 1,048 (rank-unknown 668, effect-unknown 380) | 3 | 24% |
+| **gu_kinds, all** | **1,466** | 0 | **383** | 1,079 | 4 | **26%** |
+| gu_moves, chapter records | 23 | 0 | 4 (Red Fire set, both Year Beast Summonings, Self-cleansing Formation Plate) | 19 (unnamed-role 17, role-cannot-run 2) | 0 | 17% |
+| gu_moves, wiki leads | 753 | 0 | 0 | 753 (roles-unknown) | 0 | 0% |
+| **gu_moves, all** | **776** | 0 | **4** | 772 | 0 | **0.5%** |
+
+Blocked rules, by owner (backlog for MS3, MS4 and MS7):
+- **rank-unknown** (679): G. Either a chapter pass, or an authored-rank dial that the catalogue test now forbids for chapter-checked open ranks; a world-pack dial with a reason would lift the wiki rows.
+- **effect-unknown** (400): G with P's effect layer (GL2, MS2). An effect label from a chapter pass or an effect sentence.
+- **unnamed-role** (17) and **roles-unknown** (753): G. A move with an unnamed participant needs either a chapter pass or a role filled by any Gu with the required function (a function-typed role, GL3 composition layer).
+- **role-cannot-run** (2): lifts when Ice Blade, Swirl, Fierce Wind and Group Strength get a rank or function.
+
+PFP2 after 2c: kinds that run as data 46 chapter-checked plus 337 wiki-layer; bespoke keeper src modules 30; MS3's 10 deleted modules: 1 so far.
+
+Counts table: P supplies the CV1 `docs/coverage/README.md` script; the table above is G's numbers for it.
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `node scripts/gu_coverage_ledgers.mjs` twice | byte-identical ledgers | needs the private index |
+| `node --test tests/gu_*.test.js tests/kernel_working.test.js` | 236/236 pass | |
+| `npm run check:arch`, `npm run check:rules` | pass (pre-existing HP TMR1 warning only) | |
+
+Next: GL2 and GL3 for Gu (an effect layer and a composition layer with their own canon tests, MS2 and MS4), function-typed move roles to lift unnamed-role moves, and further Keeper deletions toward 10 (MS3).

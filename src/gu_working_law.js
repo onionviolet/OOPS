@@ -26,11 +26,13 @@ const binding = (kind, name) => guCatalogue[kind]?.[name]?.value;
 // Labelled `derived` so a consumer can tell it from a canon calibration (PFP16, SKR3).
 export function derivedGuAbility(kind) {
     const parts = guCatalogue[kind]?.parts?.value;
-    if (!parts?.function || !parts.rank.length) return null;
-    const rank = Math.min(...parts.rank);
-    const fuel = parts.fuel ?? (rank >= GU_WORKING_DIALS.immortalFromRank ? 'immortal' : 'primeval');
-    return {derived: true, fuel, cost: GU_WORKING_DIALS.derivedCost, ...(parts.path && {path: parts.path}),
-        effect: {kind: parts.function, magnitude: GU_WORKING_DIALS.derivedMagnitude}};
+    return parts ? derivedAbilityFrom({...parts, rank: parts.rank.length ? Math.min(...parts.rank) : null}) : null;
+}
+// The same derivation from labels alone (a coverage ledger row: rank, function, optional path and fuel).
+export function derivedAbilityFrom({rank, function: fn, path = null, fuel = null}) {
+    if (!fn || !Number.isSafeInteger(rank)) return null;
+    return {derived: true, fuel: fuel ?? (rank >= GU_WORKING_DIALS.immortalFromRank ? 'immortal' : 'primeval'),
+        cost: GU_WORKING_DIALS.derivedCost, ...(path && {path}), effect: {kind: fn, magnitude: GU_WORKING_DIALS.derivedMagnitude}};
 }
 export const guAbility = kind => binding(kind, 'ability') ?? derivedGuAbility(kind);
 
@@ -143,11 +145,17 @@ export function guMethods(kind) {
     return out;
 }
 
-// A killer move as a composed working: one activate step per role, in the record's order, all on one
-// operator. Each role binds a Gu of the role's kind.
-export function guMoveMethod({id, roles, operator = 'operator'}) {
+// A killer move as a composed working: one activate step per role, all on one operator. Roles whose
+// ability only modifies others (supports) settle before the roles that produce effects (GG9), otherwise
+// the record's order holds; a record with `ordered: true` keeps its order exactly. Each role binds a Gu.
+const supportOnly = role => {
+    const ability = role.kind && guAbility(role.kind);
+    return !!ability && !ability.effect && !!(ability.modifier || ability.modifiers);
+};
+export function guMoveMethod({id, roles, operator = 'operator', ordered = false}) {
+    const steps = ordered ? roles : [...roles.filter(supportOnly), ...roles.filter(role => !supportOnly(role))];
     return method(`gu.move.${id}`, {[operator]: 'operator', ...Object.fromEntries(roles.map(role => [role.id, 'gu']))},
-        roles.map(role => ({op: 'activate', bindings: {gu: role.id, operator}, ...(role.minutes && {minutes: role.minutes})})));
+        steps.map(role => ({op: 'activate', bindings: {gu: role.id, operator}, ...(role.minutes && {minutes: role.minutes})})));
 }
 
 // Kinds the rules can run with no scene module, and why the others cannot.
