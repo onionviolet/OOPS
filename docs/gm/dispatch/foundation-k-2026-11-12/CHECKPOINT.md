@@ -1,5 +1,40 @@
 # Chat K · Kernel, checkpoint 2026-11-12
 
+## Phase 5 (2026-11-12): LR13 oaths that enforce themselves
+
+Merged master at 9a804f1ac (plan section "Lore first, inheritance beyond genes, and a depth checklist"). Contract v0.5, KW35-KW39.
+
+```receipt
+build: n/a
+route: n/a
+state: built
+viewport: n/a
+persistence: unchanged
+tests: 65 focused kernel tests (kernel_working 24, kernel_compose 20, kernel_meet 5, kernel_identity 5, kernel_search 5, kernel_oath 6)
+review: diff-scoped
+surface: new leaf src/kernel_oath.js; authority consequences in src/kernel_working.js
+```
+
+- **KW35.** An authority answer can attach effects, costs, a cause and a breach mark to the step it allows or refuses.
+- **KW36-KW39.** An oath is data (terms that forbid or require an act, a penalty, an enforce dial), read as authority at settlement. Breaking a forbid term settles the act and attaches the price (canon Vow: the vower's death); the vower's own quote shows the lethal cost line while the act stays eligible; the price is paid once, derived from receipts; an undone required act breaks the oath at its deadline, the same in one jump or many. The `prevent` dial covers worlds whose oaths stop the act instead.
+
+DC answers for oaths (DC1-DC10, one line each): carried by a relationship between vower, parties and bonder (DC1); varies by terms and price per oath (DC2); does not pass on, the vower carries it (DC3); not improved, only made or broken (DC4); hidden from anyone who does not know of it, so their quote shows no price (DC5); magic is the enforcement itself, its price the penalty (DC6); canon fixed point is the Vow's lethal price, locator pending a source dive (DC7); society's view of oaths is M's (DC8); one record per oath, derived state (DC9); the player reads the price in the quote and chooses (DC10).
+
+PFP2 counts (kernel scope): canon cases as data 3 before, 4 after (the Vow pattern as an oath row; locator pending); bespoke modules 0 and 0; working shapes 6 and 6.
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/kernel_*.test.js` | 65/65 pass | No host calls the kernel yet |
+| `npm run check:arch`, `npm run check:rules` | pass | |
+| Full `npm test` | not run | Integrator (MC7) |
+
+Could not express: an oath whose term reads intent or a state of mind rather than an act (the canon Vow's "protect" is judged by the magic itself); v0.5 matches settled acts and deadlines only. Making the oath (the bonding ritual) is an S working; the oath record it produces is this shape.
+
+Requests: S, the vow-making ritual as an S working that outputs a `defineOath` row; A, pass `oathAuthority` of the oaths an actor knows as `believedAuthority` so NPC choices weigh the price; M, contracts and sworn bargains can reuse `defineOath` with non-lethal prices; source dive owner, confirm the Vow's locator before it is a fixed point.
+
+Next phase (K): support G's MS4 move rebuild and A's search consumer; retire an old shape when its consumers move.
+
+
 ## Phase 4 (2026-11-12): PR2 grammar refs, PR3 search budget (milestones MS1-MS7)
 
 Merged master at 700ed2f39 (plan section "Making all achievable"). Contract v0.4, KW31-KW34.

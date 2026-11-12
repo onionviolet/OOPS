@@ -7,7 +7,7 @@
 // Not to be confused with working_state.js, which is the UI busy note.
 import {check, natural, object} from './basics.js';
 
-export const KERNEL_CONTRACT_VERSION = '0.4';
+export const KERNEL_CONTRACT_VERSION = '0.5';
 export const WORKING_SCHEMA = 'kernel.working@1';
 export const MAX_WORKING_STEPS = 64;
 
@@ -100,6 +100,16 @@ function extras(op, outcome) {
     return out;
 }
 
+function withConsequence(own, effects, consequence) {
+    if (!consequence) return {effects, extras: own};
+    const merged = {...own};
+    if (own.costs || consequence.extras.costs) merged.costs = [...(own.costs ?? []), ...(consequence.extras.costs ?? [])];
+    if (consequence.extras.cause) merged.cause = consequence.extras.cause;
+    if (consequence.extras.odds !== undefined) merged.odds = consequence.extras.odds;
+    if (consequence.breach) merged.breach = consequence.breach;
+    return {effects: [...effects, ...consequence.effects], extras: merged};
+}
+
 function settleStep({law, method, workingId, bindings, facts, index, at, ports, fingerprint}) {
     const step = method.steps[index];
     const operation = law.operations[step.op];
@@ -114,12 +124,21 @@ function settleStep({law, method, workingId, bindings, facts, index, at, ports, 
         bound[slot] = clone(thing);
         used[slot] = ref.id;
     }
+    // KW35. An authority that allows a step may attach consequences to it:
+    // effects published after the operation's own, costs, a cause and a
+    // breach mark (a binding vow broken by this step, LR13). One that refuses
+    // may attach costs and a cause too.
+    let consequence = null;
     if (ports.authority) {
         const answer = ports.authority({working: workingId, method: {id: method.id, revision: method.revision},
             step: index, op: step.op, at, bindings: clone(bindings), ...(fingerprint ? {fingerprint} : {})});
         check(object(answer) && typeof answer.ok === 'boolean', 'Authority must answer ok or not.');
+        check(answer.effects === undefined || Array.isArray(answer.effects), 'Authority returned invalid effects.');
+        check(answer.breach === undefined || object(answer.breach), 'Authority returned an invalid breach.');
+        consequence = {extras: extras('authority', answer), effects: clone(answer.effects ?? []),
+            ...(answer.breach ? {breach: clone(answer.breach)} : {})};
         if (!answer.ok) return {ok: false, reason: answer.reason || 'not-permitted', cause: 'authority', used,
-            observed: clone(answer.observed)};
+            observed: clone(answer.observed), extras: {...consequence.extras, ...(consequence.breach ? {breach: consequence.breach} : {})}};
     }
     const outcome = operation.settle({bound, facts: clone(facts), options: clone(step.options ?? {}), at,
         address: `${workingId}/${index}`, step: index});
@@ -131,8 +150,8 @@ function settleStep({law, method, workingId, bindings, facts, index, at, ports, 
     }
     check(outcome.facts === undefined || object(outcome.facts), `Operation ${step.op} returned invalid facts.`);
     check(outcome.effects === undefined || Array.isArray(outcome.effects), `Operation ${step.op} returned invalid effects.`);
-    return {ok: true, used, facts: clone(outcome.facts ?? {}), effects: clone(outcome.effects ?? []),
-        observed: clone(outcome.observed), extras: extras(step.op, outcome)};
+    return {ok: true, used, facts: clone(outcome.facts ?? {}),
+        observed: clone(outcome.observed), ...withConsequence(extras(step.op, outcome), clone(outcome.effects ?? []), consequence)};
 }
 
 // KW4. A quote is the same settlement run as a forecast: nothing is kept and

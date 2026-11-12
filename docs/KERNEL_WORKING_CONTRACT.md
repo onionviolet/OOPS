@@ -1,6 +1,6 @@
 # Kernel working contract
 
-*Version 0.4, 2026-11-12 (v0.1 to v0.3 published earlier the same day; changes in the [changelog](#changelog)). Owner: chat K in the [procedural foundation plan](PROCEDURAL_FOUNDATION_PLAN.md). Module: [`src/kernel_working.js`](../src/kernel_working.js). Contract tests: [`tests/kernel_working.test.js`](../tests/kernel_working.test.js). A proposal under AD56: it widens what every domain can do and every line is an adjustable default. Changes are versioned requests to chat K (MC2); domain chats do not edit the module.*
+*Version 0.5, 2026-11-12 (v0.1 to v0.4 published earlier the same day; changes in the [changelog](#changelog)). Owner: chat K in the [procedural foundation plan](PROCEDURAL_FOUNDATION_PLAN.md). Module: [`src/kernel_working.js`](../src/kernel_working.js). Contract tests: [`tests/kernel_working.test.js`](../tests/kernel_working.test.js). A proposal under AD56: it widens what every domain can do and every line is an adjustable default. Changes are versioned requests to chat K (MC2); domain chats do not edit the module.*
 
 Not to be confused with `src/working_state.js`, which is the UI busy note for slow page actions.
 
@@ -104,6 +104,16 @@ Module [`src/kernel_search.js`](../src/kernel_search.js), tests [`tests/kernel_s
 - **KW33. Same inputs, same search.** Candidates are tried in the given order and the search stops before a trial the budget no longer covers, so options, rejections and `truncated` repeat exactly. The player and every NPC call the same search (PR6); with the same knowledge and the same working ids they get the same result.
 - **KW34. Goals and reasons.** `keep(quote)` is the actor's goal (PM3); options are eligible quotes that meet it, and every rejection keeps its reason, including `goal-unmet` (PM4). Where candidates come from (a move search, a grammar, a recipe book, `invention_planner`) is the caller's.
 
+### Oaths that enforce themselves (LR13, v0.5)
+
+Module [`src/kernel_oath.js`](../src/kernel_oath.js), tests [`tests/kernel_oath.test.js`](../tests/kernel_oath.test.js). The first canon case is the Harry Potter Unbreakable Vow (a vow to watch over and protect a named boy, made with a bonder, Half-Blood Prince's opening chapters); the locator is from memory and waits for a source dive before it becomes a fixed point (LR1, LR2).
+
+- **KW35. Authority can attach consequences.** An authority answer that allows a step may add `effects` (published after the operation's own), `costs`, a `cause` and a `breach` mark; one that refuses may add costs and a cause. They join the receipt's truth, the quote and the fingerprint like an operation's KW15 fields.
+- **KW36. An oath is data.** `defineOath({id, vower, parties, terms, penalty, enforce, madeAt})`. A term forbids or requires an act, matched by method, operation and who fills which role. The penalty is effects, costs and a cause; the canon Vow's is the vower's death. `enforce` is a dial: `penalize` (the act happens and the price is paid, the canon Vow) or `prevent` (a world whose oath stops the act).
+- **KW37. Read at settlement.** `oathAuthority(oaths, {inner, brokenBefore})` is an ordinary authority port layered over any other: other authority decides first, then a step that breaks a forbid term after the oath was made carries the price. The vower's own quote (`quoteForActor` with this as `believedAuthority`) shows the lethal cost line while the act stays eligible; someone who does not know of the oath sees no price, and the price changes the fingerprint.
+- **KW38. The price is paid once.** An oath is broken when a receipt carries its breach or a due breach was published; `oathBroken` derives it from those records, with no stored flag.
+- **KW39. An undone duty breaks at its deadline.** `dueOathBreaches(oaths, {now, receipts, breaches})` finds require terms with no matching settled act by their deadline and returns the price rows at the deadline minute, so one jump and many give the same rows. The host publishes the effects; the kernel kills no one.
+
 ## Save shape (OS8)
 
 ```json
@@ -169,6 +179,7 @@ From the shared notes. Covered means v0 already expresses it as data; no kernel 
 
 ## Changelog
 
+- **0.5 (2026-11-12).** KW35 authority consequences; KW36-KW39 oaths (`kernel_oath.js`), LR13. Optional fields, no schema change.
 - **0.4 (2026-11-12).** KW31 grammar refs on methods, compositions and identities; KW32-KW34 `searchForActor` with a trial and step budget. Optional fields, no schema change.
 - **0.3 (2026-11-12).** KW27-KW30 workings that meet (`kernel_meet.js`); `settleWorking` takes `maxSteps`; `interruptWorking` takes `by` and `observed`. Optional fields, no schema change.
 - **0.2 (2026-11-12).** KW15 forecast fields, KW16 fingerprint and `beginQuotedWorking`, KW17 `quoteForActor`; KW18-KW21 composed workings (`kernel_compose.js`); KW22-KW26 identity (`kernel_identity.js`). Kernel failure reasons are codes (`role-unavailable`, `not-permitted`) with the role kept as data. No schema change.
