@@ -1208,3 +1208,9 @@ Recorded in the [procedural foundation plan](../PROCEDURAL_FOUNDATION_PLAN.md#bl
 Weibao: "hand off for codex coordinator to take over and work on implementing everything in full? maybe can defer gameplay for now to focus on foundational systems like the procedural stuff and more. OTher systems with the same depth to send out too" Then: "Then send out that codex coordinator to pick thing up and continue work until goals fufiled or limits met, I am bumping credit limit to 62000, and usage to 20%"
 
 Recorded: playable slices stay deferred while foundations are built; more systems at the same depth (MD1-MD15) in the [procedural foundation plan](../PROCEDURAL_FOUNDATION_PLAN.md#more-systems-at-the-same-depth-2026-11-12); the [Codex coordinator handoff](dispatch/foundation-run-2026-11-12/CODEX_COORDINATOR_HANDOFF.md) with limits of 20% Codex usage and a 62,000 credit floor.
+
+## Procedural core frozen as a proposal, 2026-11-12
+
+Weibao: "use fable to improve the plan on the procedural aspect" (after "Have fable review Wave 9 and the plan" and "use advisor on the core procedural goals").
+
+A Fable review and an advisor pass found the run's numbers rewarded labelling over mechanism. [PROCEDURAL_CORE](../PROCEDURAL_CORE.md) (PC1-PC21) proposes the core goals, ledger states that separate expressed from runs from catalogued, an executing runs check, a compression ledger, a no-join-code lint and a core/palette split. Its Q1 (may headline numbers fall) and Q2 (approve the split) wait for Weibao.

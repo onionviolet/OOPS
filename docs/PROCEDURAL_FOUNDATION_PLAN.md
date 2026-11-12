@@ -1,5 +1,7 @@
 # Procedural foundation plan
 
+**Start at [PROCEDURAL_CORE](PROCEDURAL_CORE.md)** (proposal, 2026-11-12): the frozen procedural core, its metrics and work queue. It marks which sections below are core and which are palette, and its definitions of ledger states, expressibility and generation fit replace CV2 and the GL2 target here.
+
 *Owner of the foundations-first build: what the foundation is, who builds which part, and when each part is done. Weibao's direction is quoted. Everything else here is a proposal under AD56 (it widens play) and stays adjustable. Started 2026-11-11 after the [Codex foundations review](audits/CODEX_FOUNDATIONS_REVIEW_2026-11-11.md).*
 
 ## The idea, in his words
