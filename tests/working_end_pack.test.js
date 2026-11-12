@@ -35,11 +35,22 @@ test('generic workshop guard ends on its target, leaving paid upkeep and the oth
     assert.equal(strike(engine.world, 'keeper').outcome.blocked.length, 1);
     const publish = detail => ({op: 'publish', kind: END_WORKING, place: 'workshop', by: 'assistant', detail});
     const cancelled = (current, detail) => applyEngineOps(current, [publish(detail)], 'dismiss-guard');
-    const wrong = cancelled(engine, {target: at('keeper'), working: 'assistant-guard'});
+    const wrong = cancelled(engine, {application: {targets: ['keeper'], working: 'assistant-guard'}});
     assert.equal(wrong.world.holders.keeper.state[pack].active.length, 1);
     assert.deepEqual(wrong.world.laws, engine.world.laws);
     const restored = restoreEngineWorld(JSON.parse(JSON.stringify(serializeEngineWorld(engine))), config);
-    const detail = {target: at('keeper'), working: 'keeper-guard'};
+    const detail = {application: {targets: ['keeper'], working: 'keeper-guard'}};
+    for (const unbound of [
+        {application: {targets: [], working: 'keeper-guard'}},
+        {application: {targets: ['assistant'], working: 'keeper-guard'}},
+        {application: {targets: ['keeper', 'assistant'], working: 'keeper-guard'}},
+        {application: {targets: ['keeper']}},
+        {target: at('keeper'), working: 'keeper-guard'},
+    ]) {
+        const unchanged = cancelled(restored, unbound);
+        assert.deepEqual(unchanged.world.holders, restored.world.holders);
+        assert.deepEqual(unchanged.world.laws, restored.world.laws);
+    }
     const ended = cancelled(restored, detail);
     assert.deepEqual(ended.world.holders.keeper.state[pack].active, []);
     assert.deepEqual(ended.world.holders.keeper.state[pack].ended,

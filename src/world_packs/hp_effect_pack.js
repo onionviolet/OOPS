@@ -15,6 +15,8 @@ import {defineGrammar} from '../procedural_grammar.js';
 import {sharedEffect} from '../spell_effects.js';
 import {HP_SPELL_ROWS} from '../spell_pack_hogwarts.js';
 import {HP_PRIMITIVE_SCENES} from './hp_primitive_case_scenes.js';
+import {HP_MIND_SCENES} from './hp_mind_case_scenes.js';
+import {HP_WORKING_INFO_SCENES, HP_WORKING_END_SCENES} from './hp_working_info_case_scenes.js';
 
 // ---------- Effect grammar and labeller (spellbook research records) ----------
 // W keys: light is wand light and essence is mana unless a thing names its own.
@@ -152,6 +154,16 @@ const fieldChanged = (lawField, scope, kind, params, until) => ({lawField, direc
  * A row absent here has no case; HP_CASE_LEFT_OUT says why. */
 export const HP_CASE_SCENES = Object.freeze({
     ...HP_PRIMITIVE_SCENES,
+    ...HP_MIND_SCENES,
+    ...HP_WORKING_INFO_SCENES,
+    ...HP_WORKING_END_SCENES,
+    // B5 p2106: the potion disappears from the cauldron.
+    vanish: {
+        seen: 'the cauldron is emptied of potion',
+        holders: [room('classroom'), {id: 'cauldron', kind: 'thing', place: 'classroom', quantities: {'stock:potion': 20}}],
+        details: {target: at('cauldron'), quantity: 'stock:potion', amount: 20},
+        expect: [{holder: 'cauldron', quantity: 'stock:potion', direction: 'down', amount: 20, to: 0}],
+    },
     // An object or a body is somewhere else afterwards.
     levitation: carried('a feather leaves the desk and hangs overhead', 'feather', 'desk', 'overhead'),
     hover: carried('a pudding leaves the counter and hangs near the ceiling', 'pudding', 'counter', 'ceiling'),
@@ -232,9 +244,11 @@ export const HP_CASE_SCENES = Object.freeze({
 
 // Rows with no case, by reason (data for the report; nothing here is forced to pass).
 export const HP_CASE_LEFT_OUT = Object.freeze({
-    'publishes-only': 'the shared reading lowers to no W act; it waits as a publish for the mind, knowledge or working owner',
-    'act-and-publish': 'one W act plus a publish for another owner; left until that owner answers so the case shows the whole effect',
-    'no-shared-reading': 'the spell verb has no reading in the shared vocabulary',
+    oppugno: 'Needs a persistent agency order with a separately bound victim and an attack consumer that resolves contact.',
+    patronus: 'Needs a formed guardian that intercepts or repels an attacker and lapses when concentration ends.',
+    revive: 'Needs a stun-owned incapacitation state that can be released, plus a distinct impairment path for partial recovery after potion exposure.',
+    'unjinx-weather': 'Needs a magical working that drives local weather separately from calendar rain and restores natural weather when ended.',
+    'history-release': 'Needs an observable replay projection that stops when its hold ends while retaining the underlying spell history.',
 });
 
 const ROWS = new Map(HP_SPELL_ROWS.map(r => [r.id, r]));
@@ -250,7 +264,10 @@ export function coverageCase(id) {
     const row = ROWS.get(id), scene = HP_CASE_SCENES[id];
     if (!row) throw Error(`hp_effect_pack: ${id} is not a Hogwarts spell row`);
     if (!scene) throw Error(`hp_effect_pack: ${id} has no case scene`);
-    return {basis: 'authored', world: {clock: 0, holders: structuredClone(scene.holders)}, sentence: caseSentence(row),
+    return {basis: 'authored', world: {clock: 0, holders: structuredClone(scene.holders),
+        ...(scene.lawFields ? {lawFields: structuredClone(scene.lawFields)} : {})},
+        ...(scene.engine ? {engine: structuredClone(scene.engine)} : {}),
+        ...(scene.by ? {by: scene.by} : {}), sentence: caseSentence(row),
         details: structuredClone(scene.details), keys: {...HP_KEYS},
         cause: `hp-case:${id}`, expect: structuredClone(scene.expect)};
 }

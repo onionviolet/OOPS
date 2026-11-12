@@ -103,7 +103,6 @@ test('spell words that were unmapped now land, and each lands the change its wor
     const waits = sentence => { const r = land(w0, sentence, {...at('goblin'), place: 'hall'}); assert.deepEqual(r.world, w0); return [r.status, r.waiting.map(p => `${p.kind}:${p.owner}`)]; };
     assert.deepEqual(waits(spell('counter', 'effect')), ['waiting', ['effect.block.working:K']]);
     assert.deepEqual(waits(spell('compel', 'creature', 'sustained')), ['waiting', ['effect.bind.mind:A']]);
-    assert.deepEqual(waits(spell('vanish', 'object')), ['waiting', ['effect.remove.information:N']]);
     assert.deepEqual(land(w0, spell('divine', 'self'), {...at('goblin'), channel: 'sight'}).waiting, [{kind: 'effect.sense.information', owner: 'N'}]);
 });
 
@@ -126,7 +125,7 @@ test('every spell word maps to a P word or is listed with its reason; a word wit
         const kind = shared.gap ?? (lowerEffect(shared, {keys}).acts.length ? 'acts' : 'publish');
         count[kind] = (count[kind] ?? 0) + 1;
     }
-    assert.deepEqual(count, {acts: 65, publish: 15});
+    assert.deepEqual(count, {acts: 66, publish: 14});
 });
 
 test('luck and soul are P objects that wait for their owners, and no canon sentence assembles differently for them', async () => {

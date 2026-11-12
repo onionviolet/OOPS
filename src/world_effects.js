@@ -90,7 +90,7 @@ const placeOf = (world, id) => world.holders[id].kind === 'place' ? id : world.h
  * Run one act at the world's current minute.
  * act = {verb, object, target, amount?, to?, into?, ratio?, value?, from?, channel?, mark?, until?, field?, params?, by}
  * Physical thing details name a quantity to remove, properties to transform,
- * or a holder to create at the target. A move on marks moves the marked
+ * or a thing or body to create at the target. A move on marks moves the marked
  * implement and releases its named grip. A quantity transform without a
  * conversion names a signed delta. Copy writes one property from a source
  * holder; with create: {id, kind: 'thing'}, it creates that thing at the
@@ -126,7 +126,8 @@ export function applyEffect(rules, world, act, cause) {
     if (copyNew) affected.push(position);
     const targets = resolveTargets(world, act.target);
     if (physical && verb === 'add') {
-        check(targets.length === 1 && act.create?.kind === 'thing', 'add material needs one target and a thing holder to create.');
+        check(targets.length === 1 && ['thing', 'body'].includes(act.create?.kind),
+            'add material needs one target and a thing or body to create.');
     }
     if (copyNew) {
         check(targets.length === 1 && act.create?.kind === 'thing', 'copy into a new thing needs one target and a thing holder to create.');

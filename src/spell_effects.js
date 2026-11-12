@@ -51,7 +51,7 @@ export const INTENT_LAW = Object.freeze({
     harden: {verb: 'transform', object: 'material', direction: 'harder'},
     enlarge: {verb: 'transform', object: 'size', direction: 'up'},
     shrink: {verb: 'transform', object: 'size', direction: 'down'},
-    vanish: {verb: 'remove', object: 'presence'},
+    vanish: {verb: 'remove', object: 'material'},
     clean: {verb: 'remove', object: 'material', direction: 'surface'},
     duplicate: {verb: 'copy', object: 'form'},
     // Added for the hp_spells ledger (EF2): Orchideous conjures flowers and Ferula
@@ -143,7 +143,7 @@ export const P_VERB_OF = Object.freeze({move: 'move', add: 'add', remove: 'remov
 export const P_OBJECT_OF = Object.freeze({position: 'position', light: 'light', fire: 'heat', cold: 'heat', water: 'moisture', force: 'force',
     form: 'form', size: 'form', integrity: 'form', material: 'thing', motion: 'position', vitality: 'vitality', harm: 'vitality',
     mind: 'mind', mood: 'mind', pain: 'mind', sight: 'mind', agent: 'thing', memory: 'memory',
-    presence: 'information',  // whether a thing can be found: revealed, hidden or (vanish) taken from what can be known of the place
+    presence: 'information',  // whether a thing can be sensed or concealed on a channel
     answer: 'information',    // a divined answer is knowledge its owner records
     voice: 'sound', sound: 'sound',
     access: 'relation',       // a lock or a seal is a mark on the thing (see PAIR)

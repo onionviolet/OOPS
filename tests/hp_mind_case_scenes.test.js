@@ -1,17 +1,17 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {runCaseData, expectHolds} from '../scripts/coverage_report.mjs';
+import {runCaseData} from '../scripts/coverage_report.mjs';
 import {caseSentence, HP_KEYS} from '../src/world_packs/hp_effect_pack.js';
 import {HP_SPELL_ROWS} from '../src/spell_pack_hogwarts.js';
-import {HP_MIND_ENGINE, HP_MIND_SCENES} from '../src/world_packs/hp_mind_case_scenes.js';
-import {advanceEngineWorld, applyEngineOps, createEngineWorld} from '../src/engine_world.js';
+import {HP_MIND_SCENES} from '../src/world_packs/hp_mind_case_scenes.js';
+import {advanceEngineWorld, createEngineWorld} from '../src/engine_world.js';
 import {landEffect} from '../src/effect_host.js';
 import {WORLD_PROPERTIES} from '../src/world_quantities.js';
 
 const rows = new Map(HP_SPELL_ROWS.map(row => [row.id, row]));
 const sceneCase = id => {
-    const {holders, details, by, expect} = structuredClone(HP_MIND_SCENES[id]);
-    return {engine: HP_MIND_ENGINE, world: {holders}, sentence: caseSentence(rows.get(id)),
+    const {holders, details, by, expect, engine} = structuredClone(HP_MIND_SCENES[id]);
+    return {engine, world: {holders}, sentence: caseSentence(rows.get(id)),
         details, by, expect, keys: HP_KEYS};
 };
 const create = data => createEngineWorld({...data.world, ...data.engine,
@@ -19,24 +19,30 @@ const create = data => createEngineWorld({...data.world, ...data.engine,
 const advance = (engine, to) => advanceEngineWorld(engine, to).engine;
 const read = (engine, holder, property) => engine.world.holders[holder].properties[property];
 
-// Exercise the requested producer payload through the real substrate contact
-// boundary. The common runner separately exercises today's producer.
 function contact(data, engine = create(data)) {
-    const {target, place, ...application} = data.details;
-    const {verb, object} = data.sentence;
-    return applyEngineOps(engine, [{op: 'publish', kind: `effect.${verb}.${object}`, place, by: data.by,
-        detail: {parts: data.sentence, application: {...application, targets: [target.id]}}}], 'fixture:contact');
+    const result = landEffect(engine.rules, engine.world, data, {cause: 'fixture:contact', by: data.by});
+    return {...engine, world: result.world};
 }
 
 for (const id of ['blind', 'stun', 'pain', 'control', 'memory', 'confuse', 'cheer', 'legilimency']) {
-    test(`${id}: substrate contact changes the observed world; common runner records the producer gap`, async () => {
-        const data = sceneCase(id);
-        const before = create(data);
-        assert.ok(expectHolds(before.world, contact(data, before).world, data.expect));
-        const result = await runCaseData(data, {id});
-        assert.equal(result.state, 'blocked:runner-expect-mismatch', result.detail);
+    test(`${id}: common runner observes the changed world after contact`, async () => {
+        const result = await runCaseData(sceneCase(id), {id});
+        assert.equal(result.state, 'expressed-authored', result.detail);
     });
 }
+
+test('legilimency grants no access when the target cannot be sensed', async () => {
+    for (const obstacle of ['concealed', 'no-sense', 'blocked']) {
+        const data = sceneCase('legilimency');
+        if (obstacle === 'concealed') data.world.holders.find(h => h.id === 'subject').properties.concealed = ['mind'];
+        if (obstacle === 'no-sense') data.world.holders.find(h => h.id === 'caster').properties.senses = ['sight'];
+        if (obstacle === 'blocked') data.world.lawFields = [
+            {id: 'sense-ward', scope: 'subject', kind: 'block', params: {verb: 'sense', object: '*'}},
+        ];
+        assert.equal((await runCaseData(data)).state, 'blocked:runner-expect-mismatch', obstacle);
+        assert.equal(read(contact(data), 'caster', 'mind_access'), undefined, obstacle);
+    }
+});
 
 test('a portrait loses sight while it retains hearing, as read by the W sense act', () => {
     const engine = contact(sceneCase('blind'));
@@ -82,13 +88,11 @@ test('a controlled subject takes a real route and resumes its own destination on
 });
 
 for (const id of ['bird', 'serpent']) {
-    test(`${id}: common runner reaches W's kind check; the bodily output can act once created`, async () => {
+    test(`${id}: common runner creates a body that can move on its own`, async () => {
         const data = sceneCase(id);
-        await assert.rejects(runCaseData(data, {id}), /add material needs one target and a thing holder/);
-        const before = create(data);
-        const after = applyEngineOps(before, [{op: 'holder_add', value: {...data.details.create, place: 'hall'}}], 'fixture:creation');
-        assert.ok(expectHolds(before.world, after.world, data.expect));
-        assert.equal(advance(after, 1).world.holders[id].place, 'doorway');
+        const result = await runCaseData(data, {id});
+        assert.equal(result.state, 'expressed-authored', result.detail);
+        assert.equal(advance(contact(data), 1).world.holders[id].place, 'doorway');
     });
 }
 

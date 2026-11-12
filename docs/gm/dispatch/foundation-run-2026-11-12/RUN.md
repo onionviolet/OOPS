@@ -555,3 +555,23 @@ Base `671e5f507`, usage 27% before each launch, same model, bounds and stops.
 | `w15-gu-bodies` | `../yair-w15-gu-bodies` | An adapter from chapter-checked Gu body data to the lifecycle, the 17 stated-diet kinds first, per-field unknowns in place of the blanket block on 78 creature rows |
 
 Resume: poll both handles, review return and diff, fold, regenerate coverage, then the PC99 gate for the whole wave on the branch. No push.
+
+### Wave 15 second fold and gate (2026-11-12)
+
+Both lanes returned and released writes. Their files are folded on `claude/fdn-coord-w14` after diff review of the shared modules.
+
+- Producer (`w15-producer`, goal complete, 110,299 tokens): the grammar's qualified publish now carries `application: {targets, working, minutes, mind}`. Targets resolve producer-side through W; a companion sense act passes the holders it observed, so concealment, a missing channel or a block field grants nothing. `working_end` reads the same shape and still needs one matching holder and an explicit working id. Physical add creates a thing or a body; copy into a new holder keeps its thing default for now. vanish reads as material removal in the shared reading and the Hogwarts truth string. The mind and working-info scenes are combined into the HP pack. Seventeen rows gained a computed case: blind, stun, pain, control, memory, confuse, legilimency, cheer, bird, serpent, animate, person-reveal, disillusion, dangling-release, counter-spell, quiet and vanish. Hogwarts spells compute 75 of 80; the five without a case (oppugno, patronus, revive, unjinx-weather, history-release) each name their missing mechanism in the ledger note. Below the bar, unchanged: the generation grammar still rejects `add mind` and `transform memory`; end probes start from authored holds; whole living-holder vanishing and durable learning from mind access have no proof.
+- Gu bodies (`w15-gu-bodies`, goal blocked, 126,229 tokens): `gu_living_body.js` adapts chapter-checked body data to a living holder, keeping locators and per-field unknowns. Seventeen stated-diet kinds run in the engine world: matching food restores satiety, the unfed control starves and loses vitality on the clock, and the wrong food is untouched. The blanket `blocked:gu-body-fields` on 78 rows is gone: 61 are `blocked:diet-unknown` and 17 are `blocked:runner-clock-advance`. No creature row earns a computed case yet, because the common runner lands one sentence and cannot advance the clock between observations. Owner request to P: an optional ordered timeline in `runCaseData` on one engine instance, with the Draught's recovery as the second consumer. Serving sizes and durations the source lacks are authored case calibration, kept outside the catalogue.
+
+Wave 15 gate on `52796fcea` plus both folds. No changed source file is reachable from `src/main.js` (`reachable.mjs --is` exits 1 for each) and no shared test helper changed, so PC99's gate is the dependent tests and the four checks:
+
+- Every test file that transitively imports a changed module or names a changed ledger: 34 files, 266 tests, 266 pass, 0 fail, 0 skipped.
+- `check:coverage`, `check:arch`, `check:rules`, `check:docs` exit 0. The coverage README is regenerated.
+- The mixed engine day still costs 799 of 800 segments with 16 packs registered.
+- Gaps: engine fixture verified, not human-reviewed. No full suite and no build this wave; the day's full suite was Wave 14's. No live route, browser or save claim (PC95).
+
+Five numbers: G1 92 computed cases in three of seven ledgers (75 Hogwarts spells, 16 Gu kinds, 1 Hogwarts potion); G2 16 of 16; G3 5; G4 0; G5 0. Usage 28%, credit headroom 2,961.
+
+For Q1, which stays open: a row that gains a computed case moves its typed state from runs to expressed under the existing case workflow, so the typed "runs" headline for Hogwarts spells reads 4.5% where it read 19.6%, while computed expressed rose from 58 to 75. No row without a case changed typed state.
+
+Next, in order: the runner timeline packet (moves the 17 Gu body rows and lets the Draught show recovery in its case), then the shell regulator's rate form before another oscillating pack joins, then G5's first parity fixture and G4's first generator from the second handoff.

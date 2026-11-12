@@ -5,7 +5,6 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {runCaseData, runCase} from '../scripts/coverage_report.mjs';
 import {assembleEffect, lowerEffect} from '../src/effect_grammar.js';
-import {sharedEffect} from '../src/spell_effects.js';
 import {HP_SPELL_ROWS} from '../src/spell_pack_hogwarts.js';
 import * as pack from '../src/world_packs/hp_effect_pack.js';
 import * as fixture from './fixtures/procedural_grammar/effect_worlds.mjs';
@@ -19,13 +18,17 @@ test('the fixture re-exports the pack, so one Hogwarts grammar and labeller exis
     assert.deepEqual(pack.compareHpEffect(out, out.truth), []);
 });
 
-test('every Hogwarts case executes through the generic runner and lowers to W acts alone', async () => {
+test('every Hogwarts case executes through the generic runner', async () => {
     assert.ok(ids.length >= 30);
     for (const id of ids) {
         const data = pack.coverageCase(id);
-        assert.deepEqual(assembleEffect(pack.hpEffects, data.sentence).receipt.violations, [], `${id} sentence is not in the Hogwarts grammar`);
-        const lowered = lowerEffect(data.sentence, {keys: data.keys});
-        assert.ok(lowered.acts.length && !lowered.publish.length, `${id} publishes for another owner`);
+        // Preserve the generation grammar check for W-only scenes. Authored
+        // owner scenes use the registered engine and prove their contact below.
+        if (!data.engine) {
+            assert.deepEqual(assembleEffect(pack.hpEffects, data.sentence).receipt.violations, [], `${id} sentence is not in the Hogwarts grammar`);
+            const lowered = lowerEffect(data.sentence, {keys: data.keys});
+            assert.ok(lowered.acts.length && !lowered.publish.length, id);
+        }
         assert.equal((await runCaseData(data, {id})).state, 'expressed-authored', id);
         assert.ok(pack.HP_CASE_SCENES[id].seen, `${id} scene says what a reader sees`);
     }
@@ -55,25 +58,13 @@ test('a wrong expect is blocked, and an expect that restates the label is reject
     assert.doesNotMatch(out, /^expressed|^runs/);
 });
 
-test('every pack row without a case has a computed reason, none keyed on a row', () => {
-    const reasons = {};
-    for (const row of HP_SPELL_ROWS) {
-        if (pack.HP_CASE_SCENES[row.id]) continue;
-        const shared = sharedEffect(row.truth);
-        let why;
-        if (shared.gap) why = 'no-shared-reading';
-        else {
-            const {acts, publish} = lowerEffect(shared, {keys: pack.HP_KEYS});
-            const act = acts[0];
-            if (!acts.length) why = 'publishes-only';
-            else if (publish.length) why = 'act-and-publish';
-            else if (['block', 'alter'].includes(act.verb)) why = 'law-field-outcome';
-            else if (act.verb === 'copy') why = 'makes-a-thing';
-            else why = 'lowers-to-wrong-act';
-        }
-        assert.ok(pack.HP_CASE_LEFT_OUT[why], `${row.id}: ${why}`);
-        (reasons[why] ??= []).push(row.id);
+test('every pack row without a case has a mechanism gap recorded in the ledger', () => {
+    const ledger = fs.readFileSync(new URL('../docs/coverage/hp_spells.jsonl', import.meta.url), 'utf8').trim().split('\n').map(JSON.parse);
+    const missing = HP_SPELL_ROWS.filter(row => !pack.HP_CASE_SCENES[row.id]).map(row => row.id);
+    assert.deepEqual(Object.keys(pack.HP_CASE_LEFT_OUT).sort(), missing.sort());
+    for (const id of missing) {
+        const row = ledger.find(row => row.id === id);
+        assert.equal(row.state, 'runs-authored', id);
+        assert.ok(row.note.endsWith(pack.HP_CASE_LEFT_OUT[id]), id);
     }
-    assert.equal(Object.values(reasons).flat().length + ids.length, HP_SPELL_ROWS.length);
-    if (process.env.HP_CASE_REPORT) console.log(JSON.stringify(Object.fromEntries(Object.entries(reasons).map(([k, v]) => [k, v])), null, 1));
 });

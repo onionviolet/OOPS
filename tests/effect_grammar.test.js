@@ -65,6 +65,7 @@ test('one executor: sentences run through W applyEffect (SB3, E8 shape)', async 
     assert.deepEqual(applySentence(rules, w, {verb: 'add', object: 'light'}, {target: {shape: 'holder', id: 'glade'}, amount: 3}, {cause: 'x'}).needs, ['light:<key>']);
     const calm = applySentence(rules, w, {verb: 'transform', object: 'mind'}, {place: 'glade'}, {cause: 'test:calm'});
     assert.deepEqual(calm.published, [{kind: 'effect.transform.mind', owner: 'A'}]);
+    assert.deepEqual(calm.world.chain.at(-1).detail.application.targets, []);
     // The Gu grammar derives the same acts it would run.
     const built = assemble(gu.grammar, {verb: 'add', object: 'light', target: 'area', time: 'sustained', carrier: 'gu', cost: 'essence-primeval', limits: []});
     assert.deepEqual(built.value.derived.acts, [{verb: 'add', object: 'light:moon'}]);

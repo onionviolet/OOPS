@@ -3,12 +3,12 @@ import assert from 'node:assert/strict';
 import {runCaseData, expectHolds} from '../scripts/coverage_report.mjs';
 import {caseSentence, HP_KEYS} from '../src/world_packs/hp_effect_pack.js';
 import {HP_SPELL_ROWS} from '../src/spell_pack_hogwarts.js';
-import {HP_WORKING_INFO_SCENES, HP_WORKING_SCENES_PENDING_TRANSPORT} from '../src/world_packs/hp_working_info_case_scenes.js';
-import {applyEngineOps, createEngineWorld} from '../src/engine_world.js';
+import {HP_WORKING_INFO_SCENES, HP_WORKING_END_SCENES} from '../src/world_packs/hp_working_info_case_scenes.js';
+import {createEngineWorld} from '../src/engine_world.js';
 import {landEffect} from '../src/effect_host.js';
 import {applyEffect} from '../src/world_effects.js';
 import {WORLD_PROPERTIES} from '../src/world_quantities.js';
-import {WORKING_END_PACK, END_WORKING} from '../src/world_substrate_packs/working_end.js';
+import {WORKING_END_PACK} from '../src/world_substrate_packs/working_end.js';
 
 function caseData(id, scene) {
     const {holders, lawFields, engine, details, by, expect} = scene;
@@ -27,13 +27,12 @@ for (const [id, scene] of Object.entries(HP_WORKING_INFO_SCENES)) {
     });
 }
 
-for (const [id, scene] of Object.entries(HP_WORKING_SCENES_PENDING_TRANSPORT)) {
-    test(`${id}: common runner exposes missing transport, explicit publish changes the held effect`, async () => {
+for (const [id, scene] of Object.entries(HP_WORKING_END_SCENES)) {
+    test(`${id}: the shared runner and producer end the bound working`, async () => {
         const data = caseData(id, scene);
-        assert.equal((await runCaseData(data, {id})).state, 'blocked:runner-expect-mismatch');
+        assert.equal((await runCaseData(data, {id})).state, 'expressed-authored');
         const engine = createEngineWorld({...data.world, ...data.engine});
-        const result = applyEngineOps(engine, [{op: 'publish', kind: END_WORKING,
-            place: data.details.place, detail: data.details}], `effect-probe:${id}`);
+        const result = landEffect(engine.rules, engine.world, data, {cause: `effect-probe:${id}`});
         assert.ok(expectHolds(engine.world, result.world, data.expect));
         const holder = result.world.holders[data.details.target.id];
         assert.deepEqual(holder.state[WORKING_END_PACK].active, []);

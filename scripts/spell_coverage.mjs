@@ -10,7 +10,7 @@
 // Usage: node scripts/spell_coverage.mjs [--check]
 import fs from 'node:fs';
 import {HP_SPELL_ROWS, HP_SPELL_LEDGER_EXCEPTIONS} from '../src/spell_pack_hogwarts.js';
-import {HP_CASE_SCENES, HP_CASE_MODULE} from '../src/world_packs/hp_effect_pack.js';
+import {HP_CASE_SCENES, HP_CASE_MODULE, HP_CASE_LEFT_OUT} from '../src/world_packs/hp_effect_pack.js';
 
 const book = 'docs/research/HOGWARTS_SPELLBOOK_2026-11-11.md', out = 'docs/coverage/hp_spells.jsonl';
 const TEST = 'tests/spell_grammar.test.js#every Hogwarts spellbook row runs through the spell law';
@@ -24,9 +24,10 @@ const ledger = records.map(({id, forms, evidence}) => {
     const row = rows.get(id), exception = HP_SPELL_LEDGER_EXCEPTIONS[id];
     if (row && exception) throw Error(`${id} is both a row and an exception.`);
     const scene = HP_CASE_SCENES[id];
+    const gap = HP_CASE_LEFT_OUT[id];
     if (row) return {id, source, state: scene ? 'expressed-authored' : 'runs-authored', mechanisms: ['S', 'K'], test: TEST,
         ...(scene ? {case: {module: HP_CASE_MODULE, id}} : {}),
-        note: `${forms}: effect from the book (${row.truth.verb} ${row.truth.object}); wand carrier and stamina cost authored.${row.note ? ' ' + row.note : ''}${scene?.modelNote ? ' ' + scene.modelNote : ''}`};
+        note: `${forms}: effect from the book (${row.truth.verb} ${row.truth.object}); wand carrier and stamina cost authored.${row.note ? ' ' + row.note : ''}${scene?.modelNote ? ' ' + scene.modelNote : ''}${gap ? ' ' + gap : ''}`};
     if (exception) return {id, source, state: exception.state, mechanisms: exception.mechanisms,
         test: exception.state.startsWith('blocked') ? TEST : '', note: `${forms}: ${exception.note}`};
     return {id, source, state: 'unclassified', mechanisms: ['S'], test: '', note: forms};

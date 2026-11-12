@@ -13,8 +13,8 @@ export function createWorkingEndPack() {
         reactors: [{
             id: 'end', on: [END_WORKING], appliesTo: holder => !!holder.state[WORKING_END_PACK]?.active?.length,
             react(view, id, effect) {
-                const {target, working} = effect.detail ?? {};
-                if ((target?.shape !== 'holder' && target?.shape !== 'self') || target.id !== id ||
+                const {targets, working} = effect.detail?.application ?? {};
+                if (!Array.isArray(targets) || targets.length !== 1 || targets[0] !== id ||
                     typeof working !== 'string' || !working) return [];
                 const state = view.state(id);
                 const entry = state.active.find(item => item.record.id === working);

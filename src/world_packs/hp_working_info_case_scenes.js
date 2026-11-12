@@ -85,4 +85,4 @@ export const HP_WORKING_INFO_SCENES = Object.freeze({
 });
 
 // These require the qualified end publication to carry its resolved binding.
-export const HP_WORKING_SCENES_PENDING_TRANSPORT = Object.freeze(held);
+export const HP_WORKING_END_SCENES = Object.freeze(held);

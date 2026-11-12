@@ -5,6 +5,7 @@
 import {readFileSync, writeFileSync, mkdirSync} from 'node:fs';
 import {LIVING_KIND_ROWS, guLivingRows, livingKindRegistry} from '../src/living_kinds.js';
 import {guCatalogue} from '../src/gu_catalogue.js';
+import {guBodyRow} from '../src/world_packs/gu_body_cases.js';
 
 const OUT = new URL('../docs/coverage/creatures.jsonl', import.meta.url);
 const TEST = 'tests/living_foundation.test.js';
@@ -20,10 +21,21 @@ const mechanisms = kind => kind.class === 'gu' ? ['L', 'G'] : ['L'];
 const heredity = kind => `heredity=${kind.inheritance}${kind.genome ? '+genome' : ''}`;
 function classify(kind) {
     if (kind.class === 'gu' && !kind.placeholder) {
-        // Every Gu eats and can die, so each is a creature. A Gu body runs only with a
-        // diet, ration and stage timing, which live as scene constants in Keeper code,
-        // not as catalogue fields (G's backlog GB7).
-        return {state: 'blocked:gu-body-fields', note: `G row has no diet, ration or stage minutes (GB7); living roles: ${kind.living.join(', ') || 'none recorded'}`};
+        const {row, durationMinutes} = guBodyRow(kind.id);
+        const fields = {...row.bodyFields, rationMinutes: durationMinutes};
+        const unknown = Object.entries(fields).filter(([, field]) => field.basis === 'unknown').map(([name]) => name);
+        const chapters = Object.entries(fields).filter(([, field]) => field.basis === 'chapter')
+            .map(([name, field]) => `${name} ch. ${field.chapters.join(', ')}`);
+        // The current common runner applies a single sentence at one minute.
+        // Engine fixtures are evidence for the body, not a computed ledger state.
+        const hasDiet = fields.diet.basis === 'chapter';
+        return {
+            state: hasDiet ? 'blocked:runner-clock-advance' : 'blocked:diet-unknown',
+            note: [`unknown fields: ${unknown.join(', ')}`,
+                chapters.length ? `stated fields: ${chapters.join('; ')}` : null,
+                hasDiet ? 'authored engine feeding fixture; common runner cannot advance time' : null,
+                `living roles: ${kind.living.join(', ') || 'none recorded'}`].filter(Boolean).join('; '),
+        };
     }
     // L rows: every value the body read needs (class, needs body, stages, inheritance,
     // reproduction, prey) is authored, including for kinds a book names, because no

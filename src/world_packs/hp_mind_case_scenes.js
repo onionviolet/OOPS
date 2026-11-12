@@ -13,7 +13,8 @@ export const HP_MIND_ENGINE = {
 
 function contact(seen, mind, before, expect, timing = {}) {
     return {
-        seen, holders: [room('hall'), room('doorway'), person('caster'),
+        seen, engine: HP_MIND_ENGINE,
+        holders: [room('hall'), room('doorway'), person('caster', {senses: ['mind']}),
             person('subject', before, mind.faculty === 'sense' ? 'thing' : 'body')],
         by: 'caster',
         details: {place: 'hall', target: at('subject'), mind, ...timing},
@@ -22,7 +23,7 @@ function contact(seen, mind, before, expect, timing = {}) {
 }
 function conjure(seen, id, form) {
     return {
-        seen, holders: [room('hall'), room('doorway')],
+        seen, engine: HP_MIND_ENGINE, holders: [room('hall'), room('doorway')],
         details: {target: at('hall'), create: {id, kind: 'body',
             properties: {form, mind_awake: true, agency_goal: 'doorway'}}},
         expect: [
@@ -54,7 +55,7 @@ export const HP_MIND_SCENES = Object.freeze({
     bird: conjure('a living bird appears', 'bird', 'bird'),
     serpent: conjure('a living serpent appears', 'serpent', 'serpent'),
     animate: {
-        seen: 'the statue gains motion of its own',
+        seen: 'the statue gains motion of its own', engine: HP_MIND_ENGINE,
         holders: [room('hall'), room('doorway'), {id: 'statue', kind: 'thing', place: 'hall'}],
         details: {target: at('statue'), properties: {agency_goal: 'doorway', agency_until: 3}},
         expect: [changed('statue', 'agency_goal', 'doorway')],

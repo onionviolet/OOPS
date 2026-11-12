@@ -32,6 +32,7 @@ test('copy a workshop pattern to a new holder or an existing blank without copyi
     const at = id => ({shape: 'holder', id});
     const copy = {verb: 'copy', object: 'property:form', from: 'pattern', target: at('vault')};
     const create = {id: 'impression', kind: 'thing'};
+    assert.throws(() => act(w, {...copy, create: {...create, kind: 'body'}}), /copy into a new thing/);
     const formed = act(w, {...copy, create});
     const output = formed.world.holders.impression;
     assert.deepEqual([output.kind, output.place, output.properties], ['thing', 'vault', {form: 'hinge'}]);
@@ -293,9 +294,14 @@ test('adding a physical output creates one holder at its resolved worksite', () 
     const target = {shape: 'holder', id: 'chest'};
     const form = {verb: 'add', object: 'position', target,
         create: {id: 'rivet', kind: 'thing', properties: {material: 'iron'}}};
-    assert.throws(() => act(w, {...form, create: undefined}), /needs one target and a thing holder/);
+    assert.throws(() => act(w, {...form, create: undefined}), /needs one target and a thing or body/);
     const guarded = act(w, {verb: 'block', target, params: {verb: 'add', object: 'position'}, field: 'no-output'}).world;
     assert.equal(act(guarded, form).world, guarded);
+    const summon = {...form, create: {id: 'familiar', kind: 'body', properties: {form: 'cat'}}};
+    assert.equal(act(guarded, summon).world, guarded);
+    const familiar = act(w, summon).world.holders.familiar;
+    assert.deepEqual([familiar.kind, familiar.place, familiar.properties.form], ['body', 'hall', 'cat']);
+    assert.throws(() => act(w, {...form, create: {id: 'new-room', kind: 'place'}}), /thing or body/);
     const made = act(w, form).world;
     assert.deepEqual([made.holders.rivet.place, made.holders.rivet.properties.material], ['hall', 'iron']);
     assert.throws(() => act(made, form), /holder rivet exists/);
