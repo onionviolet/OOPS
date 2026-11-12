@@ -22,6 +22,8 @@ import {guKeeperGoal} from '../src/world_packs/book_gu_keeper_goal.js';
 import {guKeeperFusion} from '../src/world_packs/book_gu_keeper_fusion.js';
 import {keeperFusionView} from '../src/gu_keeper_fusion.js';
 import {keeperGoalView} from '../src/gu_keeper_goal.js';
+import {applyKeeperDefense, applyKeeperDefenseResearch, defenseFacts, defenseFarBank, keeperDefense,
+    keeperDefenseResearch, keeperDefenseResearchFacts, keeperDefenseView, validateKeeperDefense} from '../src/gu_keeper_defense.js';
 import {searchGuGoal} from '../src/gu_goal_search.js';
 import {guKeeperSpirit} from '../src/world_packs/book_gu_keeper_spirit.js';
 import {keeperSpiritView} from '../src/gu_keeper_spirit.js';
@@ -1647,4 +1649,64 @@ test('branch rows conserve exact Fish Scale inputs across cancellation and both 
     ledger.world.gu.find(gu => gu.kind === 'fish-scale').alive = true;
     saved.worlds[stealthTrial.world].facts[stealthTrial.key] = JSON.stringify(ledger);
     assert.throws(() => host.validate(saved, record), /receipts/);
+});
+
+test('Keeper demonstrations and crossing plans keep exact damage, recovery and saved receipts after guard loss', () => {
+    const config = {id: keeperDefense, world: id('world')};
+    const {state, record, receipt} = compressedFixture(config, [keeperDefenseResearch]);
+    const jadeId = id('jade');
+    const aperture = {reserve: 6};
+    state.simulation.energies = {player: {[id('primeval')]: aperture}};
+    state.simulation.people[jadeId] = {life: 'alive', body: {controllerId: 'player'}, vitals: {health: 2}};
+    state.simulation.claims = {[`${jadeId}_title`]: {owner: 'player'}};
+    const facts = state.worlds[config.world].facts;
+    const note = 'book.ri.keeper.layered_defense.trial';
+    const armor = {...stealthTrial.specimens.armor, alive: true};
+    facts[stealthTrial.key] = JSON.stringify({world: {gu: [armor]}});
+
+    const initial = keeperDefenseView(state, record);
+    assert.equal(initial.research.limit, 8);
+    assert.deepEqual(initial.research.options.find(row => row.operation === 'cross_6'), {
+        operation: 'cross_6', cost: 4, kinds: ['white-jade', 'scale-armor'], blast: 7, landing: 1,
+    });
+    assert.equal(applyKeeperDefense(state, record, 'bare_blast', 1), 13);
+    receipt('bare_blast');
+    assert.equal(facts[note], '{"operation":"bare_blast","at":10,"shieldAt":null}');
+    assert.throws(() => applyKeeperDefenseResearch(state, record, 'cross_5', 1), /hunter can fire again/);
+
+    state.clock = 15;
+    armor.alive = false;
+    facts[stealthTrial.key] = JSON.stringify({world: {gu: [armor]}});
+    assert.equal(defenseFacts(state, true)[`${keeperDefense}.armor_ready`], false);
+    assert.equal(keeperDefenseResearchFacts(state, record)[`${keeperDefenseResearch}.cross_5`], undefined);
+    assert.throws(() => applyKeeperDefense(state, record, 'braced_blast', 1), /chosen defenses must be ready/);
+    assert.throws(() => applyKeeperDefenseResearch(state, record, 'cross_5', 1), /Gu or essence.*changed/);
+    assert.equal(facts[note], '{"operation":"bare_blast","at":10,"shieldAt":null}');
+
+    armor.alive = true;
+    facts[stealthTrial.key] = JSON.stringify({world: {gu: [armor]}});
+    aperture.reserve = 3;
+    assert.throws(() => applyKeeperDefenseResearch(state, record, 'cross_5', 1), /Gu or essence.*changed/);
+    aperture.reserve = 6;
+    assert.deepEqual(applyKeeperDefenseResearch(state, record, 'cross_5', 1), {cost: 4, damage: 5});
+    receipt('cross_5', keeperDefenseResearch);
+    state.simulation.people.player.location = defenseFarBank;
+    assert.equal(facts[note], '{"operation":"cross_5","at":15,"shieldAt":15}');
+    assert.equal(state.actors.player.completed['book.ri.keeper.defense_research.cross_5'], 1);
+    assert.equal(aperture.reserve, 6, 'The native command owns the quoted debit.');
+
+    state.clock = 20;
+    armor.alive = false;
+    facts[stealthTrial.key] = JSON.stringify({world: {gu: [armor]}});
+    const saved = JSON.parse(JSON.stringify(state));
+    validateKeeperDefense(saved, record);
+    const restored = keeperDefenseView(saved, record);
+    assert.deepEqual(restored, keeperDefenseView(state, record));
+    assert.deepEqual(restored.last.remainder.map(packet => packet.amount), [4, 1]);
+    assert.deepEqual(restored.last.layers, [{id: 'water-shield', absorbed: 5, broken: true},
+        {id: 'scale-armor', absorbed: 3, broken: false}]);
+    assert.equal(restored.shotIn, 0);
+    assert.equal(restored.shieldIn, 15);
+    assert.deepEqual(restored.research.missing, ['water-shield', 'scale-armor']);
+    assert.deepEqual(restored.research.options, []);
 });

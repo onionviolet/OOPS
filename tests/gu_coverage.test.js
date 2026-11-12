@@ -1,8 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {quoteWorking} from '../src/kernel_working.js';
+import {beginWorking, quoteWorking, settleWorking} from '../src/kernel_working.js';
 import {guCatalogue} from '../src/gu_catalogue.js';
+import {compileGuMove} from '../src/gu_move_roles.js';
 import {asBoundGu, derivedAbilityFrom, guAbility, guMethods, guMoveMethod, guRef, guWorkingLaw as law} from '../src/gu_working_law.js';
 
 const ledger = name => readFileSync(new URL(`../docs/coverage/${name}.jsonl`, import.meta.url), 'utf8')
@@ -61,7 +62,7 @@ test('every wiki-layer runs row runs on an ability derived from its labels', () 
     }
 });
 
-test('every runs move is a composed working that quotes, and blocked moves name what they lack', () => {
+test('every runs move quotes and settles through typed composition, and blocked moves name what they lack', () => {
     for (const row of moves) {
         if (!row.state.startsWith('runs')) {
             if (row.layer === 'chapter') assert.ok(row.roles.some(role => !role.kind || !guAbility(role.kind)), row.id);
@@ -69,9 +70,22 @@ test('every runs move is a composed working that quotes, and blocked moves name 
         }
         const specimens = Object.fromEntries(row.roles.map(role => [role.id, fed(role.id, role.kind, rankOf(role.kind))]));
         const bindings = {operator, ...Object.fromEntries(row.roles.map(role => [role.id, guRef(role.id)]))};
-        const quote = quoteWorking(law, guMoveMethod({id: row.id, roles: row.roles}), {id: `m.${row.id}`, at: 0,
-            facts: plenty, bindings, ports: portsFor(specimens)});
+        const move = {id: row.id, roles: row.roles};
+        const inputs = {id: `m.${row.id}`, at: 0, facts: plenty, bindings, ports: portsFor(specimens)};
+        const legacy = quoteWorking(law, guMoveMethod(move), inputs);
+        assert.equal(legacy.ok, true, `${row.id}: ${legacy.reason}`);
+        const composed = compileGuMove(move, inputs);
+        assert.equal(composed.ok, true, `${row.id}: ${JSON.stringify(composed.requirements)}`);
+        const typedInputs = {...inputs, bindings: composed.bindings};
+        const quote = quoteWorking(composed.law, composed.method, typedInputs);
         assert.equal(quote.ok, true, `${row.id}: ${quote.reason}`);
+        assert.deepEqual(quote.effects, legacy.effects, row.id);
+        assert.deepEqual(quote.facts.reserves, legacy.facts.reserves, row.id);
+        const working = beginWorking(composed.law, composed.method, typedInputs);
+        const settled = settleWorking(composed.law, working, {now: quote.endsAt, ports: inputs.ports});
+        assert.equal(settled.record.status, 'complete', row.id);
+        assert.deepEqual(settled.effects.map(row => row.effect), quote.effects, row.id);
+        assert.deepEqual(settled.record.facts.reserves, quote.facts.reserves, row.id);
     }
     // The Red Fire record lists its core first; supports still settle before it and shape the flame.
     const fire = moves.find(row => row.id === 'xiao-yan-fire-set');

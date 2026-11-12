@@ -14,6 +14,7 @@ import {bindGuMove} from '../src/gu_move_roles.js';
 import {littleLightMoonblade, littleLightSupport, moonlightBlade} from '../src/gu_ability_profiles.js';
 import {restoreCreatureLifecycle} from '../src/creature_lifecycle.js';
 import {resolveGuDefense} from '../src/gu_defense.js';
+import {guGuardWorking} from '../src/gu_guard_working_host.js';
 import {deriveGuCondensation} from '../src/gu_condensation.js';
 import {castGiantHandVariant, castGiantHandWard, castRevisedGiantHand, prepareGiantHandPhantoms, releasePreparedGiantHand,
     searchGiantHandVariants, searchGiantHandWard} from '../src/gu_giant_hand.js';
@@ -606,4 +607,35 @@ test('a Stealth Rock mask leaves clothes visible while the fused profile leaves 
     assert.deepEqual(observeGuCloak({senses: {...guard, scent: {reach: 1}}, cloak}), {channel: 'scent', surfaces: []});
     assert.deepEqual(observeGuCloak({senses: {...guard, sight: {reach: 1, penetration: 2}}, cloak}),
         {channel: 'sight', surfaces: ['body', 'clothing']});
+});
+
+test('direct guard activations keep paid stages while an interrupted crossing beat rolls them back', () => {
+    const host = guGuardWorking({
+        packets: [{type: 'lightning', phase: 'blast', amount: 8}],
+        layers: {shield: {id: 'shield', type: 'lightning', phase: 'blast'}},
+        crossing: {kind: 'cross-test', methodId: 'guards', guardKinds: ['outer', 'inner'], maxDamage: 2},
+    });
+    const guard = kind => ({gu: {id: kind, kind, fedThrough: 10}, operator: 'player',
+        ability: {fuel: 'essence', cost: 1, effect: {kind: 'shield', magnitude: 3}}});
+    const outer = guard('outer'), inner = guard('inner');
+    const input = {available: [outer, inner], day: 10, reserves: {player: {essence: 2}}};
+    const [plan] = host.search(input).options;
+    assert.deepEqual(plan.outcome.remainder.map(packet => packet.amount), [2]);
+    assert.deepEqual(host.cross(input, plan).targetOutcome, plan.outcome);
+    assert.equal(host.demonstrate({...input, stages: [outer]}).targetOutcome.remainder[0].amount, 5);
+
+    const stale = {...input, available: [outer]};
+    const crossed = host.cross(stale, plan);
+    assert.equal(crossed.reason, 'Gu unavailable');
+    assert.equal(crossed.targetOutcome, null);
+    assert.deepEqual(crossed.activations, []);
+    assert.deepEqual(crossed.remaining, input.reserves);
+    assert.deepEqual(host.search(stale).options, []);
+
+    const demonstrated = host.demonstrate({...input, stages: [outer, {...inner, gu: {...inner.gu, alive: false}}]});
+    assert.equal(demonstrated.reason, 'Gu unavailable');
+    assert.equal(demonstrated.targetOutcome, null);
+    assert.deepEqual(demonstrated.activations.map(row => row.id), ['outer']);
+    assert.deepEqual(demonstrated.remaining, {player: {essence: 1}});
+    assert.deepEqual(input.reserves, {player: {essence: 2}});
 });

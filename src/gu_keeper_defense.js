@@ -1,8 +1,6 @@
 import {guCatalogue} from './gu_catalogue.js';
-import {resolveGuActivation} from './gu_activation.js';
-import {resolveGuDefense} from './gu_defense.js';
+import {guardDamage, guGuardWorking} from './gu_guard_working_host.js';
 import {controlledScaleArmor} from './world_packs/book_gu_keeper_refinement_trials.js';
-import {runGuGoal, searchGuGoal} from './gu_goal_search.js';
 
 const keeper = 'book.ri.keeper';
 const world = `${keeper}.world`;
@@ -12,6 +10,7 @@ export const keeperDefenseResearch = `${keeper}.defense_research`;
 export const defenseFarBank = `${keeperDefenseResearch}.far_bank`;
 const aperture = `${keeper}.primeval`;
 const fact = `${keeperDefense}.trial`;
+// Existing Keeper scene dials. Effect magnitude stays in the catalogue.
 const shieldRecovery = 20;
 const shotRecovery = 5;
 export const defenseTrials = Object.freeze({
@@ -53,12 +52,20 @@ export function defenseFacts(state, thunderclapReady) {
     };
 }
 
-const profiles = Object.fromEntries(guardKinds.map(kind => [
-    guCatalogue[kind].ability.value.effect.kind, {
-        id: kind, type: kind === 'scale-armor' ? 'bludgeoning' : 'lightning',
-        phase: kind === 'scale-armor' ? 'landing' : 'blast', breaks: kind === 'water-shield',
+const standardPower = guCatalogue.thunderclap.ability.value.effect.magnitude;
+const crossing = {kind: 'cross-thunderclap', methodId: 'layer-guards', guardKinds, maxDamage: 8};
+const defense = guGuardWorking({
+    packets: [
+        {type: 'lightning', phase: 'blast', powerFactor: 9},
+        {type: 'bludgeoning', phase: 'landing', amount: 4},
+    ],
+    layers: {
+        'water-guard': {id: 'water-shield', type: 'lightning', phase: 'blast', breaks: true},
+        'jade-guard': {id: 'white-jade', type: 'lightning', phase: 'blast', breaks: false},
+        'impact-guard': {id: 'scale-armor', type: 'bludgeoning', phase: 'landing', breaks: false},
     },
-]));
+    crossing,
+});
 
 function guardStage(kind, clock, armor) {
     const ids = {'white-jade': jadeId, 'water-shield': `${keeperDefense}.loan`, 'scale-armor': armor?.id ?? 'scale-armor'};
@@ -67,44 +74,24 @@ function guardStage(kind, clock, armor) {
         supply: {pool: 'essence', family: 'primeval', rank: 1, source: 'aperture'}};
 }
 
-function resolveGuardEffects(power, effects) {
-    return resolveGuDefense([
-        {type: 'lightning', phase: 'blast', amount: 9 * power},
-        {type: 'bludgeoning', phase: 'landing', amount: 4},
-    ], effects.map(({kind, magnitude}) => ({...profiles[kind], capacity: magnitude})));
-}
-
 function resolveTrial(operation, power, {armor, clock}) {
     const stages = kindsFor(operation).map(kind => guardStage(kind, clock, armor));
-    if (!stages.length) return resolveGuardEffects(power, []);
-    const active = resolveGuActivation({stages, reserves: {player: {essence: stages.length * 2}}, day: clock});
-    if (active.outcome !== 'complete') throw Error('The trial defenses could not be raised.');
-    return resolveGuardEffects(power, active.effects);
+    const result = defense.demonstrate({power, stages, reserves: {player: {essence: stages.length * 2}}, day: clock});
+    if (result.outcome !== 'complete') throw Error('The trial defenses could not be raised.');
+    return result.targetOutcome;
 }
-
-const damage = result => result.remainder.reduce((sum, packet) => sum + packet.amount, 0);
-const standardPower = guCatalogue.thunderclap.ability.value.effect.magnitude;
-const crossing = {kind: 'cross-thunderclap', maxDamage: 8, power: standardPower};
-const defenseMethod = {
-    id: 'layer-guards', goal: crossing.kind,
-    recipe: {roles: guardKinds.map(kind => ({id: kind, kind, optional: true})), beats: [{roles: guardKinds}]},
-    apply: (target, effects) => {
-        const result = resolveGuardEffects(target.power, effects);
-        return damage(result) <= target.maxDamage ? result : null;
-    },
-};
 
 function crossingRequest(state, receipt, power = standardPower) {
     const armor = controlledScaleArmor(state);
     const ready = [state.clock >= shieldReadyAt(receipt), jadeReady(state), !!armor];
     const reserve = state.simulation.energies.player[aperture].reserve;
-    return {ready, goal: {...crossing, power}, methods: [defenseMethod], day: state.clock,
+    return {ready, power, day: state.clock,
         reserves: {player: {essence: reserve}}, available: guardKinds.flatMap((kind, i) =>
             ready[i] ? [guardStage(kind, state.clock, armor)] : [])};
 }
 
 function crossingOptions(request) {
-    return searchGuGoal(request).options.map(plan => ({
+    return defense.search(request).options.map(plan => ({
         operation: optionId(guardKinds.filter(kind => plan.binding[kind])),
         cost: request.reserves.player.essence - plan.remaining.player.essence,
         plan,
@@ -134,7 +121,7 @@ export function applyKeeperDefense(state, record, operation, thunderclapPower) {
     const previous = read(state);
     const result = resolveTrial(operation, thunderclapPower, {armor: controlledScaleArmor(state), clock: state.clock});
     writeResult(state, operation, previous, result);
-    return damage(result);
+    return guardDamage(result);
 }
 
 export function applyKeeperDefenseResearch(state, record, operation, power) {
@@ -143,10 +130,10 @@ export function applyKeeperDefenseResearch(state, record, operation, power) {
     const request = crossingRequest(state, receipt, power);
     const option = crossingOptions(request).find(row => row.operation === operation);
     if (!option) throw Error('The Gu or essence for this crossing has changed.');
-    const result = runGuGoal({...request, plan: option.plan});
+    const result = defense.cross(request, option.plan);
     if (!result.targetOutcome) throw Error('This combination cannot carry you across the blast lane.');
     writeResult(state, operation, receipt, result.targetOutcome);
-    return {cost: option.cost, damage: damage(result.targetOutcome)};
+    return {cost: option.cost, damage: guardDamage(result.targetOutcome)};
 }
 
 export function keeperDefenseView(state, record) {

@@ -26,8 +26,8 @@ Weibao (2026-11-12): "send the plan updates to the chats and start phase 2. Cont
 - Gate policy (Weibao asked whether gates are skippable, 2026-11-12): chats run focused tests only. The coordinator batches returns into one merge wave and runs the full suite once per wave, never per chat. Docs-only merges run check:rules and doc checks, not the suite. A fix that touches only comments or docs reuses the last full-suite evidence plus its focused file (AGENTS: reuse passing evidence for unchanged inputs). Merging and dispatch do not wait on a running suite: chats work on branches, and a red suite is fixed on master and relayed. The browser pass runs once per domain milestone, not per phase.
 - Failed approaches: starting sessions from a background-task turn is refused by the app; dispatch only on a user turn or by messaging existing sessions.
 - Goals: each chat runs the plan's per-chat goal (its done-check row, phase after phase); this record holds the coordinator goal. E started 2026-11-12 (local_d9c26029, fdn-e-emergence). N, X and D wait for the usage read after phase 2 returns.
-- Next useful action: integrate X's substrate place, the Gu generated-move archive, PG1's caused-person verification and PG2's society proposal. Verify the L residue-to-grazer and G defense returns as they arrive. MS3-MS6 remain open, with gameplay development deferred.
-- Usage pacing: `python3 -I scripts/codex_goal_lane.py usage` works in this session. Latest read 17% used, 2,961 credits above the floor. Limits are 20% used and 62,000 credits. Recheck before dispatch or a new wave and at least every 30 minutes. No push.
+- Next useful action: Review the regulated-brew, coupled Gu and light attraction returns on the current primary tree and verify them together. Keep MS3-MS6 and gameplay deferral visible.
+- Usage pacing: `python3 -I scripts/codex_goal_lane.py usage` works in this session. Latest read 19% used, 2,961 credits above the floor. Limits are 20% used and 62,000 credits. Recheck before dispatch or a new wave and at least every 30 minutes. No push.
 - Stop condition: MS1-MS6 met and committed or either authorized limit reached. Neither limit reached at the latest read. The old coordinator and its three Codex lanes are finished. This chat owns the active takeover goal.
 
 ### Takeover worker queue (2026-11-12)
@@ -100,6 +100,25 @@ Build `83c7d75f6441ab3a6c2d8dd9dfc98b4c84d1fedce82ceeba24896c036cd0ef3b` passes.
 - `fdn-x-procedural-places` (`01a1ced4-c686-7840-bc6c-2b5c83f54234`) returned a context-caused place holder whose saved wet-soil capacity changes the real substrate drain result. The worker reports 31/31 focused checks. Integration pending.
 - PG1 verified the existing history-to-traveler generator and its observer-safe needs consumer. PG2 returned a scarcity-caused society proposal using P's grammar and the existing market quote. Both await the combined gate.
 - Usage reads 18% used and 2,961 credits above the floor. Keep 20% and 62,000 as the stop lines. No push.
+
+### Wave 7 engine candidate (2026-11-12)
+
+Wave 6 landed locally at `cc27b9a09`. This candidate folds the following verified returns before the combined gate.
+
+| Foundation | Evidence and remaining gap |
+| --- | --- |
+| MS4 Gu generation | The Fire Path engine fixture searches known, held Gu, checks actual kernel quote and costs, applies the world policy and explanation, settles the selected move, then archives a matching receipt. One novel three-Gu move spends five primeval and keeps its cause and grammar through JSON restore. All four canon records currently marked running now quote and settle on typed composition. Nineteen records still require roles or mechanisms. |
+| X caused places | A bounded keyed draw supplies an adjacent wet field in an existing region and era, with evidence and a frozen address. W loads it and a real drain consumes its capacity. A fixed place or missing terrain evidence prevents generation. Broader place types and discovery wiring remain open. |
+| PG1 caused people | Actual world-history wars cause refugees in the existing traveler generator. A focused regression proves deterministic saved origin, disclosure on meeting and real needs consumption. Family, upbringing and training use their separate owners. |
+| PG2 caused society | P's grammar proposes a society from current market shortage and a founder with actual means. The result keeps its source, holdings references and grammar through reload. NPC founding settlement and canon calibration remain open. |
+
+Combined focused checks pass 132/132 across the folded candidate. The separate typed Gu coverage and archive checks pass 15/15 after extending coverage to the four running canon records. Build `4db9e24483331a7975fb965a1d47a480bafc23c550b62802feda295a7dd47870`, architecture, rules, coverage and doc checks exit 0. Full `npm test` exits 0 with 6,456 passed, 0 failed and 2 skipped (`/tmp/yair-fdn-takeover.aNvM3v/wave7-suite.log`). Both existing guard routes pass rebuilt parity on that bundle, with five total save/reload/Export/Import checks and zero page errors.
+
+- `fdn-a-caused-people` (`01a1cedb-0d53-7c10-9603-b1febc029468`) and `fdn-m-procedural-societies` (`01a1ced8-383b-7090-a3b4-202088b5c81f`) completed their bounded goals. Their patches are in the candidate.
+- `fdn-l-residue-grazing` (`01a1cedd-865b-78e3-8639-2b67c8e7ad0f`) completed the pc2 engine chain using real B and W effects. The clover takes up 15 active units from the new deposit. The sheep meal consumes finite forage, transfers seven active units and reaches the existing harm inbox when the dose meets the authored threshold. Mass, cause, partition and reload agree. Host wiring, crop regrowth and the long-run deposit-lot budget remain open.
+- `fdn-g-keeper-defense` (`01a1cede-26ac-77a2-b652-f914694b18fc`) returned a shared guard host for two existing native consumers. No deletion credit. Keeper remains at seven of ten. The guard adapter retains native custody and recovery data.
+- `fdn-e-regulated-brew` (`01a1cee5-2fd7-71b3-9b32-2944ca8a3355`) owns the pc1 engine bridge from regulated humidity into brew outcome. `fdn-g-coupled-beat` (`01a1cee5-3584-7343-ac57-e044583e8904`) owns a bounded typed beat for the documented Iceblade Storm participants.
+- Latest read: 19% used, 2,961 credits above the floor. Gameplay development remains deferred.
 
 Resume prompt for a fresh session: "Continue the unattended foundation run from the Resume block in docs/gm/dispatch/foundation-run-2026-11-12/RUN.md. Check git status and git log -3 against its input identity first; finish the next useful action; keep the block current; commit own paths, no push."
 
