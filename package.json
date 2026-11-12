@@ -26,6 +26,8 @@
     "check:descriptions": "node scripts/check_descriptions.mjs",
     "check:generators": "node scripts/check_generators.mjs",
     "report:cycles": "node scripts/cycle_ledger.mjs",
+    "report:compression": "node scripts/compression_report.mjs",
+    "report:couplings": "node scripts/coupling_map.mjs",
     "check:rule-behavior": "node scripts/check_rule_behavior.mjs",
     "build:preview": "node scripts/build_ui_preview.mjs",
     "build:figures": "node scripts/build_figure_gallery.mjs",

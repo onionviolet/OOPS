@@ -136,8 +136,8 @@ export const assembleEffect = (grammar, parts) => assemble(grammar, parts);
 // geometry such as a line arrives as {shape: 'holders', ids} from X), amount,
 // to, into, mark, channel, reads, from, value, field and, for sustained time,
 // minutes (until = now + minutes). Publishes for other owners land on
-// details.place. Returns the world and every act's outcome.
-export function applySentence(rules, world, parts, details, {keys = {}, cause, by} = {}) {
+// details.place; `publishIf(kind)` lets a host keep some out of the world. Returns the world and every act's outcome.
+export function applySentence(rules, world, parts, details, {keys = {}, cause, by, publishIf = () => true} = {}) {
     if (!cause) throw Error('A sentence needs a cause.');
     const lowered = lowerEffect(parts, {keys, key: details.key ?? null});
     if (lowered.needs.length) return {world, outcomes: [], needs: lowered.needs, published: []};
@@ -150,12 +150,12 @@ export function applySentence(rules, world, parts, details, {keys = {}, cause, b
         next = run.world;
         outcomes.push(run.outcome);
     }
-    const published = [];
-    if (lowered.publish.length) {
+    const published = [], wanted = lowered.publish.filter(p => publishIf(p.kind));
+    if (wanted.length) {
         if (!details.place) throw Error('An effect for another owner needs a place to land.');
-        next = applyWorldOps(rules, next, lowered.publish.map(p => ({op: 'publish', kind: p.kind, place: details.place, by: by ?? cause,
+        next = applyWorldOps(rules, next, wanted.map(p => ({op: 'publish', kind: p.kind, place: details.place, by: by ?? cause,
             detail: {owner: p.owner, parts}})), cause);
-        published.push(...lowered.publish);
+        published.push(...wanted);
     }
     return {world: next, outcomes, needs: [], published};
 }

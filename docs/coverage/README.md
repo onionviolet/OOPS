@@ -14,6 +14,26 @@
 | [hp_spells](hp_spells.jsonl) | S | 117 | 117 | 0 | 80 | 32 | 5 | 0 | 100% | 71.4% |
 | [creatures](creatures.jsonl) | L | to build | 96 | 0 | 18 | 78 | 0 | 0 | 100% | 18.8% |
 
+## Typed and computed, side by side (PC9, PC10)
+
+*Typed states are the owners' hand-typed values and are unchanged. Computed states come from the generic case runner (`case` field) and count only rows that carry a case. "Computed expressed" counts rows whose world changed as `expect` says, including those that run; "computed runs" are the part whose case module is reachable from `src/main.js`. "Typed runs, no case" counts `runs-*` rows that nothing computed. Whether headline numbers may fall is Weibao's call, so nothing is rewritten.*
+
+| Ledger | Typed runs | Computed expressed | Computed runs | Typed runs, no case |
+| --- | ---: | ---: | ---: | ---: |
+| creatures | 18 | 0 | 0 | 18 |
+| gu_kinds | 383 | 0 | 0 | 383 |
+| gu_moves | 4 | 0 | 0 | 4 |
+| hp_ingredients | 20 | 0 | 0 | 20 |
+| hp_potions | 5 | 0 | 0 | 5 |
+| hp_spells | 80 | 0 | 0 | 80 |
+| lotm_potions | 43 | 0 | 0 | 43 |
+
+## Reachability from `src/main.js` (PC14)
+
+`node scripts/reachable.mjs`: 1491 of 1657 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
+
+- `src/translation.js`: `` import(`../locales/${language}.js`) ``
+
 ## Blocking rules
 
 | Ledger | Missing rule | Rows |
@@ -62,4 +82,6 @@
 
 - `state`: `runs-canon`, `runs-authored`, `blocked:<rule>`, `not-a-thing:<reason>` or `unclassified` (CV2). Rules and reasons are short slugs, such as `blocked:PGB2` or `not-a-thing:alias`.
 - A `runs-*` row names an existing test file in `test` (optionally `#test name`).
+- `catalogued` is a typed state for identity parts with a source and no executed effect. `expressed-*` is computed by the runner; a row carrying `case` is the one place it is typed, because the runner checks it there.
+- `case`: optional `{"module": "<repo-relative js>", "id": "<case id>"}`; the module exports `coverageCase(id)` (shape in the header of `scripts/coverage_report.mjs`). `check:coverage` fails when a typed state disagrees with the computed one, a case module is missing or lacks the export, or a case throws.
 - `mechanisms`: the owners the thing appears on (SC4), by chat letter or owner name.

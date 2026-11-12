@@ -2657,3 +2657,8 @@ Superseded standing-priority line (now thirteen rulebooks, adding XWR):
 Superseded opening of the PROJECT.md current-focus line (foundations now lead; the lead lives pause at their endpoints):
 
 > **Immediate build order:** Klein first through Tingen, with Fang Yuan through the Qing Mao departure. Klein is verified through ch129. Fang Yuan is verified through ch140.
+
+## 2026-11-12 engine first, tie-in later
+
+The PROJECT.md build-order line gained a clause: game tie-in waits for the engine (Weibao, [direction](USER_VISION_LOG_2026-11.md#engine-first-game-tie-in-later-2026-11-12)). Its earlier wording ended at "one chat per part, canon as data over shared rules." and named the procedural foundation plan alone as the owner of order; the [procedural core](../PROCEDURAL_CORE.md) and [carry-out](../PROCEDURAL_CARRY_OUT.md) now hold the current order.
+

@@ -1269,3 +1269,33 @@ Asked "Do you want one early playable scene after phase 1 (PC88)?", Weibao: "No,
 
 Recorded on [PC88 and Q8](../PROCEDURAL_CORE.md#additions-from-a-check-of-the-readings-pc81-pc88-2026-11-12). The engine phases run without an early lead-life scene. This restates [foundations first](../USER_VISION.md) for this case.
 
+## Claude coordinator and Codex ceiling, 2026-11-12
+
+Weibao: "hand off for you to be the coordinatoe" and, during the first wave, "Use codex up till 50%".
+
+Recorded in the [run record](dispatch/foundation-run-2026-11-12/RUN.md#claude-coordinator-takeover-2026-11-12): the Claude session coordinates the foundation run with the carry-out as its picking rule; the Codex weekly-window ceiling is 50% and the 62,000 credit floor is unchanged.
+
+## Finer plans readjusted from the details, 2026-11-12
+
+Weibao: "Did you reorient the plans to cover for the properly adjusted dates?" then "I meant details, readjust the finer plans based on the details and the end goal".
+
+Recorded in the [carry-out](../PROCEDURAL_CARRY_OUT.md#readjusted-from-the-details-pc89-pc93-2026-11-12) (PC89-PC93, proposal): the end goal as five script-printed numbers, a table of what each found detail changes, a revised packet order with a live world per place as the new critical piece, and the phase 2 potion row changed to the Draught of Living Death.
+
+## Keep the run small, 2026-11-12
+
+Weibao: "do take into consider these too", with a screenshot summarizing a thread on AI overengineering (clear completion criteria, review the plan and changes, stop runaway retry loops).
+
+Recorded in the [carry-out](../PROCEDURAL_CARRY_OUT.md#keep-it-small-pc94-2026-11-12) (PC94): completion is five numbers, no new checker until an old one is used, one ratchet, two tries then stop, small reviewable waves, delete before adding, the plan docs stop growing, and a report in outcomes at each wave. The absorption matrix, the status script, three ratchets and the module allowlist are withdrawn.
+
+## Engine first, game tie-in later, 2026-11-12
+
+Weibao: "Because foundational first, We can omit game tie in until foundational and procedural systems work?" Then, after the coordinator laid out the trade-off and a headless engine world as the integration target: "reconcile accordingly, we can absorb bespoke into the system" and "What procedural systems will we be cranking out?"
+
+Recorded in the [carry-out](../PROCEDURAL_CARRY_OUT.md#engine-first-tie-in-later-pc95-2026-11-12) (PC95): foundation work is proven in one headless engine world; wiring into the game, browser proofs and game save slices wait for a tie-in phase after the engine phases; bespoke modules are absorbed with parity fixtures now and deleted at tie-in.
+
+## Loops and levels, 2026-11-12
+
+Weibao: "More to consider? other systems we might be missing? Anything worth starting concurrently? I mean emergent behavior at multiple levels, overall, in comning game feautres and domains, systems that creates subsystems like in creating creatures and genetics, can lead to stuff like optimizing creatures and more, and similar things can apply everywhere else?"
+
+Recorded as a proposal in the [carry-out](../PROCEDURAL_CARRY_OUT.md#loops-and-levels-pc96-2026-11-12) (PC96): one improvement loop with five parts across creatures, potions, spells, Gu and made things; emergence by six levels; five systems the plan lacked (assay, standing programs, material sources, contagion, decay); and three lanes to run beside the next wave.
+

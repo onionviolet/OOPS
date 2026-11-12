@@ -10,10 +10,12 @@ Lowercase `pc1` to `pc3` in the run record and `scripts/emergence_cases.mjs` are
 | Absorbing whole systems, techniques | PC22-PC33, TG1-TG7 | Proposal; PC29's order has his "Yes, use that order" | Q5 |
 | Emergent behavior | PC34-PC43 | Proposal | None |
 | The build plan | PC44-PC50 | Proposal | Q7 |
-| [Carry-out](PROCEDURAL_CARRY_OUT.md): packets, tracker, reconciliation | PC51-PC66 | Proposal | Whether the coordinator adopts it |
+| [Carry-out](PROCEDURAL_CARRY_OUT.md): packets, tracker, reconciliation, readjusted order and end-state numbers | PC51-PC66, PC89-PC96 | Working order for the run since the coordinator handoff; proposal in status | None |
 | Combinations beyond canon | PC67-PC76 | Proposal | None |
 | Other avenues | PC77-PC80 | Proposal | None |
 | Additions from the readings check | PC81-PC88 | Proposal; PC88 declined ("No, engine first") | None |
+
+**Engine first, tie-in later (Weibao, 2026-11-12).** "We can omit game tie in until foundational and procedural systems work?" and "reconcile accordingly, we can absorb bespoke into the system". Until the tie-in phase, every line below that counts something by "reachable from `src/main.js`", "the game loads" or "in play" is read as "runs in the engine world": one headless world that composes every pack. Bespoke modules are absorbed with a parity fixture now and deleted at tie-in. Details and the current order: [carry-out PC95](PROCEDURAL_CARRY_OUT.md#engine-first-tie-in-later-pc95-2026-11-12).
 
 ## Why a core
 
@@ -429,7 +431,7 @@ Reason: V1 lets a potion, a spell and a Gu do the same thing in one language, wh
 | 3 Widen by rows | Coverage grows by data and reading, and bespoke code is deleted | PC47 at scale; chapter reads; techniques, identity and contest (A3 to A5); the rest of item 5; Making's census and first vertical | Per-domain expressibility reported with misses by rule; compression rows C1 and C3 at their floors for Gu; `other` rates at their dials |
 | 4 Generate and soak | New things and chains nobody arranged | Queue items 6 and 7, E2, E3, A's actors loaded, composition interactions (PC27) | A generated Gu, move, potion and spell are each reachable in play and frozen on discovery; a soak run reports discovered chains from all three sources (PC34) |
 
-After phase 4 a domain opens for playable slices (PFP9), lead lives first. Dial: a domain that finishes phase 2 early may open one slice as a consumer test.
+After phase 4 comes tie-in (carry-out PC95): the engine world is hosted in the game, live routes move onto it and absorbed modules are deleted. Then a domain opens for playable slices (PFP9), lead lives first. Dial: a domain that finishes phase 2 early may open one slice as a consumer test.
 
 Reason for phase 2 before phase 3: one row per domain taken through every step finds the missing joints while they are cheap. Widening first is how 383 rows came to run by label.
 

@@ -22,13 +22,15 @@ for (const verb of EFFECT_VERBS) for (const target of EFFECT_TARGETS) operations
         // Limits as properties: a move reads mass against the spell's limit (dial per spell, default none).
         if (verb === 'move' && Number.isFinite(options.massLimit) && Number.isFinite(thing.mass) && thing.mass > options.massLimit)
             return {ok: false, reason: `${thing.id} is too heavy for this working.`, observed: {step, seen: 'it strains and does not move'}};
-        return {ok: true, effects: [{kind: `spell.${sentence.verb}.${sentence.object}`, target: thing.id, sentence, name: options.name ?? null}],
+        // The host takes {sentence, details} (PC8). The old kind label stays beside it while consumers migrate.
+        const details = options.details ?? {target: {shape: 'holder', id: thing.id}};
+        return {ok: true, effects: [{kind: `spell.${sentence.verb}.${sentence.object}`, target: thing.id, sentence, details, name: options.name ?? null}],
             observed: {step, seen: options.explain ?? null}};
     },
 };
 export const SPELL_EFFECT_LAW = defineWorkingLaw({id: 'spell.effect', revision: 1, operations});
 
-// spells: [{sentence, target: {id, kind?}, name?, massLimit?, explain?, minutes?, status?, unmodeled?, ruling?}] -> K method and bindings.
+// spells: [{sentence, target: {id, kind?}, details? (W target, amount, place), name?, massLimit?, explain?, minutes?, status?, unmodeled?, ruling?}] -> K method and bindings.
 export function spellEffectMethod(spells, {id = 'spell.composed', revision = 1} = {}) {
     if (!Array.isArray(spells) || !spells.length) throw Error('Choose at least one spell.');
     const roles = {}, bindings = {};
@@ -37,7 +39,7 @@ export function spellEffectMethod(spells, {id = 'spell.composed', revision = 1} 
         roles[role] = spell.sentence.target;
         bindings[role] = {kind: spell.sentence.target, id: spell.target.id};
         return {op: `${spell.sentence.verb}.${spell.sentence.target}`, bindings: {target: role}, minutes: spell.minutes,
-            options: {sentence: spell.sentence, name: spell.name ?? null, massLimit: spell.massLimit, explain: spell.explain ?? null,
+            options: {sentence: spell.sentence, name: spell.name ?? null, massLimit: spell.massLimit, ...(spell.details ? {details: spell.details} : {}), explain: spell.explain ?? null,
                 status: spell.status ?? null, unmodeled: spell.unmodeled ?? [], ruling: spell.ruling ?? null}};
     });
     return {law: SPELL_EFFECT_LAW, method: {id, revision, law: SPELL_EFFECT_LAW.ref, roles, steps}, bindings};

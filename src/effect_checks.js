@@ -7,6 +7,7 @@ import {address, compareCodePoints, drawU32, indexFromU32, pickWeighted} from '.
 import {assemble} from './procedural_grammar.js';
 import {searchParts, previewValue} from './grammar_search.js';
 import {EFFECT_OBJECTS, scopeOf} from './effect_grammar.js';
+import {landEffect} from './effect_host.js';
 
 const CORE = ['verb', 'object', 'target', 'time', 'carrier', 'cost'];
 const MUTABLE = ['verb', 'object', 'target', 'time', 'limits'];
@@ -85,14 +86,28 @@ export function proposeEffects(fitted, canon, {root, address: base, cause, novel
     return out;
 }
 
+// Land a candidate in the caller's probe world. Passes when state changes or an owner's answer ran.
+function probeRuns(probe, parts) {
+    try {
+        const details = typeof probe.details === 'function' ? probe.details(parts) : probe.details;
+        const run = landEffect(probe.rules, probe.world, {sentence: parts, details}, {cause: probe.cause ?? 'probe:runs', keys: probe.keys});
+        const pass = run.changed;
+        return {pass, reason: pass ? `ran in the probe world: ${run.status}` : `nothing landed in the probe world: ${run.reason ?? run.status}`};
+    } catch (error) { return {pass: false, reason: `the probe world refused it: ${error.message}`}; }
+}
+
 // The four per-candidate checks, in order. world: {laws:Set, curve, words:{slot:{value:word}}, forbid:[{law, reason, exception?:{reason, cost}}]}.
 export function checkEffect(fitted, candidate, world) {
     const checks = [];
     const built = assemble(fitted, candidate.parts);
     const law = lawKey(candidate.parts);
-    const runs = built.ok && world.laws.has(law);
-    checks.push({id: 'runs', pass: runs, reason: !built.ok ? built.receipt.violations.map(v => v.reason ?? v.kind).join('; ')
-        : runs ? `the world's ${law} law runs it` : `no law in this world runs ${law}`});
+    // PC16: with a probe world the candidate executes through the effect host; without one the old
+    // law-name lookup stands and the reason says so. probe: {rules, world, details?, keys?, cause?}.
+    let runs, ran;
+    if (!built.ok) { runs = false; ran = built.receipt.violations.map(v => v.reason ?? v.kind).join('; '); }
+    else if (world.probe) ({pass: runs, reason: ran} = probeRuns(world.probe, candidate.parts));
+    else { runs = world.laws.has(law); ran = runs ? `lookup only, nothing was executed: the world's ${law} law is declared` : `lookup only, nothing was executed: no law in this world runs ${law}`; }
+    checks.push({id: 'runs', pass: runs, executed: Boolean(built.ok && world.probe), reason: ran});
     const price = priceOf(world.curve, candidate.parts);
     const declared = candidate.amount;
     const pays = declared === undefined || declared >= price;

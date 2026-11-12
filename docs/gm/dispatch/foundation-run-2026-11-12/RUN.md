@@ -8,11 +8,11 @@ Weibao (2026-11-12): "hand off for you to be the coordinatoe". The Claude sessio
 
 This block is the current resume block. The older one below is history.
 
-- Objective: unchanged, MS1-MS6 committed in order, foundations with gameplay deferred. Weibao also declined an early playable scene ("No, engine first").
-- Picking rule: the carry-out's wave ritual (PC65) and tracker. Milestones map to its phases in the [carry-out reconciliation](../../../PROCEDURAL_CARRY_OUT.md#milestones-and-phases-rc3). The facet order ability, body, technique, custody, contest, progression has his "Yes, use that order". The rest of both docs is a proposal used as working order; Q1, Q2, Q5 and Q7 in the core stay open and nothing they would defer is deferred.
+- Objective: foundations with gameplay deferred, and from 2026-11-12 game tie-in deferred too (carry-out PC95): work is proven in one headless engine world, measured by the five numbers G1 to G5. MS5's reachable route per domain moves to the tie-in phase; the other milestones map to the phases as before. Weibao also declined an early playable scene ("No, engine first").
+- Picking rule: the carry-out's wave ritual (PC65) and tracker, in the readjusted order (PC91) and under its keep-it-small rules (PC94): each packet names which of the five end-state numbers it moves, two tries then stop, no new checker scripts. Milestones map to its phases in the [carry-out reconciliation](../../../PROCEDURAL_CARRY_OUT.md#milestones-and-phases-rc3). The facet order ability, body, technique, custody, contest, progression has his "Yes, use that order". The rest of both docs is a proposal used as working order; Q1, Q2, Q5 and Q7 in the core stay open and nothing they would defer is deferred.
 - Input identity: master `a77fda00c`. Dirty and inherited: Wave 9 source and fixtures (`src/creature_lifecycle.js`, `src/gu_keeper_moonlight_trial.js`, `src/gu_moonlight_stock.js`, `tests/gu_light_attraction.test.js`, `tests/gu_upkeep.test.js`, untracked `src/world_substrate_packs/gu_brew_regulator.js`, `tests/gu_brew_regulator.test.js`, `scripts/wave_scratch.sh`). Dirty and not this run's: `dist/bundle.js`, `dist/bundle.js.map`, `index.html`, `docs/tools/game_mcp_limits.jsonl`, and earlier edits to the playbook and the Codex handoff.
 - Workers: Claude subagents from this session, sonnet for code lanes and haiku for bounded lookups, at most three code lanes at once, one writer per file. Lanes run focused tests; the coordinator runs the full gate set once per merge wave and commits own paths. No push.
-- Codex limits (20% weekly window, 62,000 credits) still bind any Codex lane. None is planned while the window reads 20%.
+- Codex limits: Weibao (2026-11-12, after the takeover): "Use codex up till 50%". The shared limits file now holds a 50% weekly-window ceiling; the 62,000 credit floor is unchanged (headroom 2,961 at a 21% read). Read usage before each Codex lane and at least every 30 minutes; stop lanes at 49%.
 - Step states: see the Wave 10 section at the end of this file.
 - Stop condition: MS1-MS6 met and committed, or a decision that is Weibao's to make, or his word to pause.
 - Resume prompt: "Continue the foundation run as coordinator from the Claude takeover block in docs/gm/dispatch/foundation-run-2026-11-12/RUN.md. Check git status and git log -3 against its input identity, read the Wave 10 section, run the carry-out's wave ritual (PC65), keep the block current, commit own paths, no push."
@@ -246,3 +246,41 @@ Delivery state: Wave 9's Moonlight roster refactor is agent-verified at parity o
 Milestones: unchanged from the Usage stop section. MS3 seven of ten deletions; MS4 to MS6 open.
 
 Next: phase 1 packets by the carry-out (PC51). P1.1 first; P1.3 to P1.5 beside it as disjoint new scripts.
+
+### Wave 10 dispatch (2026-11-12)
+
+Wave 9 landed as `9aa344278`. Three Claude sonnet lanes run in the primary checkout on disjoint files, focused tests only, no git and no build:
+
+| Lane | Packet | Files | State |
+| --- | --- | --- | --- |
+| reach-and-states | P1.1 (PC5, PC9, PC10, PC14) | `scripts/reachable.mjs`, `scripts/coverage_report.mjs`, `tests/coverage_report.test.js`, `tests/fixtures/coverage_cases/`, generated coverage README | Running. Typed states are kept and computed states shown beside them, since Q1 is open |
+| effect-host | P1.2 (PC7, PC8, PC16) | `src/effect_host.js`, `src/spell_law.js`, `src/effect_checks.js`, focused tests | Running. Library and tests in this lane; live wiring is a follow-up after its first-consumer finding is reviewed |
+| report-scripts | P1.3 and P1.5 (PC12, PC35) | `scripts/compression_report.mjs`, baseline json, `scripts/coupling_map.mjs`, `tests/procedural_reports.test.js`, two `package.json` script lines | Running |
+
+Rejected for this wave: P1.4 (needs P1.1's reachability module and P1.3's rows); the canon negatives ledger (edits P1.1's file); live wiring of the effect host (needs P1.2's finding and a browser proof).
+
+Queued for Codex lanes once this wave is folded (merge before dispatch): the 177 Lord of the Mysteries formulas into potion rows (PC85) and a feeding pass on the 78 chapter-checked Gu kinds (PC86).
+
+More to consider before dispatch. ACCOUNT FOR NOW: tests that read ledger states must keep passing, so P1.1 leaves typed states alone; three lanes share one checkout, so each brief lists its files and forbids git and builds; the effect host must add no import cycle (`check:arch`). LATER: replace the copied import walk in the report scripts with `scripts/reachable.mjs` when P1.4 lands.
+
+### Wave 10 fold (2026-11-12)
+
+Each lane's claim was checked at its locator and its tests rerun from the repository root. Combined focused run: 52 of 52 across `tests/procedural_reports.test.js`, `tests/coverage_report.test.js`, `tests/effect_host.test.js`, `tests/effect_grammar.test.js`, `tests/world_effects.test.js`, `tests/spell_grammar.test.js`, `tests/gu_coverage.test.js`.
+
+| Lane | Files | Evidence | Not covered | State |
+| --- | --- | --- | --- | --- |
+| reach-and-states (P1.1) | `scripts/reachable.mjs`, `scripts/coverage_report.mjs`, `tests/coverage_report.test.js`, `tests/fixtures/coverage_cases/`, generated `docs/coverage/README.md` | `node scripts/reachable.mjs`: 1,491 of 1,657 src files reachable, one computed import (`src/translation.js` locales). `check:coverage` passes on 7 ledgers. README shows typed and computed states side by side | No ledger row has a `case` yet, so computed expressed and runs are 0 in every ledger. A working case returns `blocked:runner-working-case` until a pack supplies one | Tooling done; P1.1's tracker line stays open until a real row computes |
+| effect-host (P1.2) | new `src/effect_host.js`; `src/spell_law.js`, `src/effect_checks.js`, `src/effect_grammar.js`; `tests/effect_host.test.js` | A settled Hogwarts spell changes a W world through `landEffect`; a sentence with no W reading returns a publish and changes nothing; the runs check executes when given a probe world. Lowering the 109 labelled sentences: 68 to W acts, 37 publish, 4 need a key, matching PC7. Executed in a probe world: 55 landed, 9 ran with no change, 20 wait for an owner, 25 were refused for missing amounts or destinations | Not loaded by the game: all four modules are unreachable (`reachable.mjs --is`, exit 1), so the bundle is unchanged and no build or browser pass applies. `spell_law` words outside the effect vocabulary (fire, water, access, harm, mood) return `unmapped` | Implemented, below floor |
+| report-scripts (P1.3, P1.5) | new `scripts/compression_report.mjs`, `scripts/compression_baseline.json`, `scripts/coupling_map.mjs`, `tests/procedural_reports.test.js`; two `package.json` script lines | C1 36 files (32 reachable), C2 24 + 41, C3 5, C4 4, C5 10, C6 0 of 7; baseline written. Coupling map: 11 packs, 5 cross-domain couplings, one pack reachable (`l.shell_regulator`) | Three packs declare reads or writes through computed lists the map cannot resolve (`c.contest`, `m.market`, `w.sky`); `w.residue_flow` publishes `effect.add` undeclared | Done as reports |
+
+Coordinator changes at the fold: the compression script takes `--baseline <path>` and its test uses a temp file, since the lane's test rewrote the tracked baseline in place.
+
+Findings for the next wave:
+
+- **First live consumer for the effect host.** The game's spell path is `src/spellbook_host.js` (imported at `src/main.js:173`), whose casts go through `spell_working.js`, not `spell_law.js`. Landing a spellbook cast needs a W world for the practice place and a sentence on the dictionary entry. This is P1.2b and it needs a build and a browser pass.
+- **C5 is 10, not 2.** The fixture file holds six grammars and four labellers.
+- **The vocabulary split (F16) blocks landing** for spells whose words are outside P's lists. PC81's fold is on the critical path for P1.2b.
+- **One pack of eleven is loaded.** Couplings among loaded packs: zero across domains. This is the number phase 2 has to move.
+
+Wave 10 gate: `npm test` on the folded tree, 6,496 tests, 6,494 pass, 0 fail, 2 skipped, exit 0 (`wave10-fold-suite.log` in the takeover folder). `check:arch`, `check:rules`, `check:coverage`, `check:docs` exit 0. No build or browser pass: the four changed `src` modules are unreachable from the game, and game tie-in is deferred (carry-out PC95). Doc edits made after the suite started are covered by the doc and rule checks, not by that suite run.
+
