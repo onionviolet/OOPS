@@ -643,3 +643,12 @@ Weibao (2026-11-12): "some stuff like false move fixture should probably come af
 | Third, scenes as acceptance cases | The false move and its variants, totems, natural moves, the Gu House, a second power system, the levels run | Each should pass from data rows alone; a scene that needs its own module names a missing rule |
 
 The recipe-truth lane (`b63d5096f`) was built before this order was set. It stays on its branch as a reference: its own return says nothing debits its costs and it is outside the engine world, which is the gap this order closes. Its test cases become the acceptance cases for the knowledge record, and its module is folded in or dropped once that record exists.
+
+### Wave 16 fold (2026-11-12)
+
+Both lanes were dispatched by the branch coordinator and folded by this session. Focused: 56 of 56 across the six touched test files. Full suite on the folded tree: 6657 tests, 6652 pass, 0 fail, exit 0 (`wave16-suite.log`); `check:arch`, `check:rules`, `check:coverage` exit 0.
+
+| Lane | Result | Not covered |
+| --- | --- | --- |
+| `w16-timeline` | The case runner takes an ordered timeline of engine actions and settled clock advances. 17 stated-diet Gu bodies compute as expressed in the creatures ledger; the Draught case shows recovery as the second consumer | 61 diet-unknown Gu stay blocked; feeding uses quoted fixture offers and authored amounts where the source gives none |
+| `w16-parity` | G5 0 to 1: the Keeper potato market module re-expressed as an engine case, 16 input rows matching the old module's receipts and one asserted divergence (a stronger blast clears the same stone, by AD38) | The old module stays until tie-in; entry and milling commands downstream remain with the live host |

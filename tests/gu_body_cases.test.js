@@ -1,7 +1,8 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {guCatalogue} from '../src/gu_catalogue.js';
-import {guBodyCase} from '../src/world_packs/gu_body_cases.js';
+import {coverageCase, guBodyCase} from '../src/world_packs/gu_body_cases.js';
+import {runCaseData} from '../scripts/coverage_report.mjs';
 import {advanceEngineWorld, applyEngineOps, createEngineWorld} from '../src/engine_world.js';
 import {readQuantity} from '../src/world_substrate.js';
 
@@ -47,4 +48,20 @@ test('a conjunction needs both inputs and an alternative can feed alone', () => 
         const next = applyEngineOps(engine, scene.mealOps(engine.world, scene.ids.fed, 'extra'), 'fixture:offer');
         assert.equal(readQuantity(next.world, scene.ids.fed, 'satiety'), expected);
     }
+});
+
+test('the common runner checks both food offers against observed satiety', async () => {
+    const missedMeal = coverageCase('moonlight');
+    missedMeal.timeline.find(step => step.id === 'offer-matching-food').ops = [];
+    const missed = await runCaseData(missedMeal);
+    assert.equal(missed.state, 'blocked:runner-expect-mismatch');
+    assert.match(missed.detail, /^offer-matching-food:/);
+
+    const wrongMeal = coverageCase('moonlight');
+    wrongMeal.timeline.find(step => step.id === 'offer-wrong-food').ops = [
+        {op: 'add', holder: guBodyCase('moonlight').ids.wrong, quantity: 'satiety', amount: 1},
+    ];
+    const wrong = await runCaseData(wrongMeal);
+    assert.equal(wrong.state, 'blocked:runner-expect-mismatch');
+    assert.match(wrong.detail, /^offer-wrong-food:/);
 });

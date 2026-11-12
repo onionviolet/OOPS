@@ -16,6 +16,8 @@
 //    sentence: {verb, object, target?, time?, carrier?, cost?, limits?},   // run through landEffect
 //    working?: {...},                       // kernel settlement pending; computes blocked:runner-working-case
 //    details?: {target, amount, minutes, place, ...},  keys?: {light: 'moon', ...},  by?: string,
+//    timeline?: [{id, sentence, details?, keys?, by?, cause?, expect?}
+//                | {id, ops, cause?, expect?} | {id, advanceTo, expect?}],  // replaces the top-level sentence
 //    expect: [{holder, quantity | property | position: true | exists: true, direction, amount?, to?}
 //             | {lawField, direction, to?}]}
 // `expect` is in world terms only. Quantities support up|down|changed|unchanged and an exact
@@ -23,6 +25,8 @@
 // A law field reads as {scope, kind, params, until?} or null if absent. A new holder must be
 // named by an exists observation with changed and to: true before other observations can name it.
 // Unknown keys are rejected, and at least one entry must expect an actual change.
+// A named step's optional expect compares immediately before and after that step.
+// The required case expect still compares the initial and final world.
 // Computed states: expressed-<basis> when the world changed as `expect` says; runs-<basis> when the
 // case module is also reachable from src/main.js (scripts/reachable.mjs). A case under tests/ is never reachable.
 // Other states: blocked:runner-expect-mismatch, blocked:runner-needs (missing world key),
@@ -104,7 +108,7 @@ const QUANTITY_CHANGE = ['up', 'down', ...CHANGE];
 const named = value => typeof value === 'string' && value.length > 0;
 const createsHolder = e => e?.exists === true && e.direction === 'changed' && e.to === true;
 
-function checkExpect(world, expect, id) {
+function checkExpect(world, expect, id, requireChange = true) {
     const bad = m => { throw new Error(`case ${id}: ${m}`); };
     if (!Array.isArray(expect) || !expect.length) bad('expect must be a nonempty array of world outcomes');
     const created = new Set(expect.filter(createsHolder).map(e => e.holder));
@@ -126,7 +130,7 @@ function checkExpect(world, expect, id) {
         }
         if (createsHolder(e) && Object.hasOwn(world.holders, e.holder)) bad(`expected new holder ${e.holder} already exists`);
     }
-    if (!expect.some(e => e.direction !== 'unchanged')) bad('expect must name at least one change');
+    if (requireChange && !expect.some(e => e.direction !== 'unchanged')) bad('expect must name at least one change');
 }
 
 const readTerm = (world, e) => {
@@ -164,8 +168,13 @@ export async function runCaseData(data, {id = 'case', typedState = '', moduleRea
     if (data.working !== undefined) {
         return {state: 'blocked:runner-working-case', detail: 'kernel settlement for working cases is pending'};
     }
-    if (!data.sentence || typeof data.sentence !== 'object') throw new Error(`case ${id}: a case carries a sentence or a working`);
-    const {createEngineWorld} = await import('../src/engine_world.js');
+    const timeline = data.timeline;
+    if (timeline === undefined) {
+        if (!data.sentence || typeof data.sentence !== 'object') throw new Error(`case ${id}: a case carries a sentence or a working or a timeline`);
+    } else if (!Array.isArray(timeline) || !timeline.length || data.sentence !== undefined) {
+        throw new Error(`case ${id}: a timeline is a nonempty array and replaces the sentence`);
+    }
+    const {createEngineWorld, applyEngineOps, advanceEngineWorld} = await import('../src/engine_world.js');
     const {WORLD_QUANTITIES, WORLD_PROPERTIES} = await import('../src/world_quantities.js');
     const {landEffect} = await import('../src/effect_host.js');
     const config = data.engine ?? {};
@@ -174,17 +183,47 @@ export async function runCaseData(data, {id = 'case', typedState = '', moduleRea
     const {packs = ['w.sky'], settings, shared, dials} = config;
     // The sky pack needs no caller settings and runs no clock laws in these
     // instant probes. Keep the legacy vocabulary unless a case declares its own.
-    const {rules, world: before} = createEngineWorld({...data.world, packs, settings, dials, shared: {
+    let engine = createEngineWorld({...data.world, packs, settings, dials, shared: {
         quantities: Object.values(WORLD_QUANTITIES), properties: Object.values(WORLD_PROPERTIES), ...shared,
     }});
+    const before = engine.world;
     checkExpect(before, data.expect, id);
-    const run = landEffect(rules, before, {sentence: data.sentence, details: data.details},
-        {keys: data.keys ?? {}, cause: data.cause ?? `coverage:${id}`, by: data.by});
-    if (run.needs.length) return {state: 'blocked:runner-needs', detail: `needs ${run.needs.join(', ')}`};
-    if (run.waiting.length) return {state: 'blocked:runner-waiting',
-        detail: `waiting for an owner: ${run.waiting.map(effect => effect.kind).join(', ')}`};
-    if (run.status === 'unmapped') return {state: 'blocked:runner-unmapped', detail: run.reason};
-    if (!expectHolds(before, run.world, data.expect)) return {state: 'blocked:runner-expect-mismatch', detail: 'the world did not change as expect says'};
+    const names = new Set();
+    for (const step of timeline ?? [data]) {
+        let action = 'sentence';
+        if (timeline) {
+            if (!named(step?.id) || names.has(step.id)) throw new Error(`case ${id}: timeline steps need distinct names`);
+            names.add(step.id);
+            const actions = ['sentence', 'ops', 'advanceTo'].filter(key => Object.hasOwn(step, key));
+            if (actions.length !== 1) throw new Error(`case ${id} step ${step.id}: expected one action`);
+            [action] = actions;
+        }
+        const stepBefore = engine.world;
+        const at = timeline ? ` step ${step.id}` : '';
+        const cause = step.cause ?? `coverage:${id}${at}`;
+        if (action === 'advanceTo') {
+            const advanced = advanceEngineWorld(engine, step.advanceTo);
+            if (advanced.pending !== false) return {state: 'blocked:runner-clock-advance',
+                detail: `${step.id}: advance to ${step.advanceTo} is pending at ${advanced.engine.world.clock}`};
+            engine = advanced.engine;
+        } else if (action === 'ops') {
+            engine = applyEngineOps(engine, step.ops, cause);
+        } else {
+            const run = landEffect(engine.rules, stepBefore, {sentence: step.sentence, details: step.details},
+                {keys: step.keys ?? {}, cause, by: step.by});
+            if (run.needs.length) return {state: 'blocked:runner-needs', detail: `needs ${run.needs.join(', ')}`};
+            if (run.waiting.length) return {state: 'blocked:runner-waiting',
+                detail: `waiting for an owner: ${run.waiting.map(effect => effect.kind).join(', ')}`};
+            if (run.status === 'unmapped') return {state: 'blocked:runner-unmapped', detail: run.reason};
+            engine = {...engine, world: run.world};
+        }
+        if (timeline && step.expect !== undefined) {
+            checkExpect(stepBefore, step.expect, id + at, false);
+            if (!expectHolds(stepBefore, engine.world, step.expect)) return {state: 'blocked:runner-expect-mismatch',
+                detail: `${step.id}: the world did not change as step expect says`};
+        }
+    }
+    if (!expectHolds(before, engine.world, data.expect)) return {state: 'blocked:runner-expect-mismatch', detail: 'the world did not change as expect says'};
     return {state: `${moduleReachable ? 'runs' : 'expressed'}-${suffix}`, detail: moduleReachable ? 'case module reachable from src/main.js' : 'case module is library or test only'};
 }
 

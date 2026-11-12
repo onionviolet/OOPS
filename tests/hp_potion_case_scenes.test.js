@@ -22,19 +22,29 @@ test('the only Hogwarts potion case earns authored expression through the common
     const data = coverageCase(DRAUGHT_CASE_ID);
     const noUptake = structuredClone(data);
     noUptake.engine.settings['l.living_body'].dose.liquid = 'energy:other-liquid';
-    assert.equal((await runCaseData(noUptake)).state, 'blocked:runner-expect-mismatch');
+    const uptakeResult = await runCaseData(noUptake);
+    assert.equal(uptakeResult.state, 'blocked:runner-expect-mismatch');
+    assert.match(uptakeResult.detail, /^dose:/);
+
+    const slowerRecovery = structuredClone(data);
+    slowerRecovery.engine.settings['l.living_body'].dose.recoveryPerMinute = 6;
+    const recoveryResult = await runCaseData(slowerRecovery);
+    assert.equal(recoveryResult.state, 'blocked:runner-expect-mismatch');
+    assert.match(recoveryResult.detail, /^before-recovery:/);
 });
 
-test('equal volumes of different brews and unequal volumes of the same brew change responsiveness and recovery', () => {
+test('equal volumes of different brews and unequal volumes of the same brew change responsiveness and recovery', async () => {
     for (const [input, dose, remaining, activeLeft, expected, minutes] of [
         [{}, 100, 8, 1, 2, 14],
         [{preparation: 'slice'}, 100, 3, 1, 30, 10],
         [{amount: 50}, 50, 58, 5, 58, 6],
     ]) {
         const data = coverageCase(DRAUGHT_CASE_ID, input);
+        assert.equal((await runCaseData(data)).state, 'expressed-authored');
         const engine = createEngineWorld({...data.world, ...data.engine});
         assert.equal(response(engine.world), 100);
-        const run = landEffect(engine.rules, engine.world, data, {keys: data.keys, cause: 'measured-dose'});
+        const [step] = data.timeline;
+        const run = landEffect(engine.rules, engine.world, step, {keys: step.keys, cause: 'measured-dose'});
         assert.equal(run.outcomes[0].applied[0].amount, dose);
         assert.equal(readQuantity(run.world, 'flask', 'energy:oral-liquid'), remaining);
         assert.equal(readQuantity(run.world, 'flask', 'energy:settled-soporific'), activeLeft);

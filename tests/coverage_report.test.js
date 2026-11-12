@@ -201,3 +201,34 @@ test('an act plus an unanswered publish cannot earn expression for the act alone
     assert.equal(result.state, 'blocked:runner-waiting');
     assert.match(result.detail, /effect.conceal.information/);
 });
+
+test('a named timeline observes a ward before and after expiry and keeps the original baseline', async () => {
+    const data = {
+        world: {clock: 5, holders: [{id: 'room', kind: 'place'}]},
+        timeline: [
+            {id: 'ward', sentence: {verb: 'block', object: 'position', time: 'sustained'},
+                details: {target: {shape: 'holder', id: 'room'}, field: 'ward', minutes: 2},
+                expect: [{lawField: 'ward', direction: 'changed',
+                    to: {kind: 'block', scope: 'room', params: {object: 'position', verb: 'move'}, until: 7}}]},
+            {id: 'add-marker', ops: [{op: 'holder_add', value: {id: 'marker', kind: 'thing', place: 'room'}}]},
+            {id: 'expire', advanceTo: 8, expect: [{lawField: 'ward', direction: 'changed', to: null}]},
+        ],
+        expect: [
+            {holder: 'marker', exists: true, direction: 'changed', to: true},
+            {lawField: 'ward', direction: 'unchanged', to: null},
+        ],
+    };
+    assert.equal((await runCaseData(data)).state, 'expressed-authored');
+
+    const early = structuredClone(data);
+    early.timeline[2].advanceTo = 6;
+    const mismatch = await runCaseData(early);
+    assert.equal(mismatch.state, 'blocked:runner-expect-mismatch');
+    assert.match(mismatch.detail, /^expire:/);
+
+    // The ward already expires at the partial endpoint. These observations
+    // would pass if the runner credited a clock advance that remained pending.
+    const pending = await runCaseData({...data, engine: {dials: {segmentBudget: 1}}});
+    assert.equal(pending.state, 'blocked:runner-clock-advance');
+    assert.match(pending.detail, /expire: advance to 8 is pending at 7/);
+});

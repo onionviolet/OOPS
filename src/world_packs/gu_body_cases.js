@@ -53,6 +53,14 @@ export function guBodyCase(id) {
         ids[trial] = acquired.id;
     }
     const registry = livingKindRegistry({extra: [row]});
+    const quoteMeal = (source, body, supply, satiety) => {
+        const matching = recipeAccounts.find(recipe => recipe.every(account => (source[account] ?? 0) >= mealAmount));
+        const refill = ration - satiety;
+        return matching && refill > 0 ? [
+            ...matching.map(quantity => ({op: 'add', holder: supply, quantity, amount: -mealAmount})),
+            {op: 'add', holder: body, quantity: 'satiety', amount: refill},
+        ] : [];
+    };
 
     return {
         basis: 'authored', row, ration, ids, knownStock, wrongStock, mealAmount,
@@ -67,17 +75,39 @@ export function guBodyCase(id) {
         mealOps(world, body, supply) {
             const source = world.holders[supply], target = world.holders[body];
             if (!source || !target || source.place !== target.place || target.state[pack]?.species !== id) return [];
-            const matching = recipeAccounts.find(recipe => recipe.every(account => (source.quantities[account] ?? 0) >= mealAmount));
-            const refill = ration - target.quantities.satiety;
-            return matching && refill > 0 ? [
-                ...matching.map(quantity => ({op: 'add', holder: supply, quantity, amount: -mealAmount})),
-                {op: 'add', holder: body, quantity: 'satiety', amount: refill},
-            ] : [];
+            return quoteMeal(source.quantities, body, supply, target.quantities.satiety);
         },
+        quoteMeal,
         read(world, body) {
             const holder = world.holders[body];
             return readLivingBody({lifecycle, registry, id: body, clock: world.clock, ration,
                 satiety: {amount: holder.quantities.satiety, emptySince: holder.state[pack].emptySince}});
         },
+    };
+}
+
+export function coverageCase(id) {
+    const {basis, engine: {holders, ...engine}, ids: {fed, unfed, wrong}, ration, knownStock, wrongStock,
+        mealAmount, quoteMeal} = guBodyCase(id);
+    const satiety = (holder, direction, to) => ({holder, quantity: 'satiety', direction, to});
+    const [matchingSupply, wrongSupply] = holders.slice(-2);
+    const wrongStockHolds = {holder: wrongSupply.id, quantity: wrongStock, direction: 'unchanged', to: mealAmount * 4};
+    return {
+        basis, world: {holders}, engine,
+        timeline: [
+            {id: 'appetite', advanceTo: ration - 1,
+                expect: [fed, unfed, wrong].map(body => satiety(body, 'down', 1))},
+            {id: 'offer-wrong-food', ops: quoteMeal(wrongSupply.quantities, wrong, wrongSupply.id, 1),
+                expect: [satiety(wrong, 'unchanged', 1), wrongStockHolds]},
+            {id: 'offer-matching-food', ops: quoteMeal(matchingSupply.quantities, fed, matchingSupply.id, 1),
+                expect: [satiety(fed, 'up', ration)]},
+            {id: 'controls-run-empty', advanceTo: ration,
+                expect: [satiety(wrong, 'down', 0), satiety(unfed, 'down', 0)]},
+        ],
+        expect: [
+            satiety(fed, 'down', ration - 1), satiety(unfed, 'down', 0), satiety(wrong, 'down', 0),
+            wrongStockHolds,
+            ...knownStock.map(quantity => ({holder: matchingSupply.id, quantity, direction: 'down', amount: mealAmount})),
+        ],
     };
 }
