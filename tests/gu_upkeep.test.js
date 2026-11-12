@@ -40,6 +40,7 @@ import {guKeeperMoonlightStock} from '../src/world_packs/book_gu_keeper_moonligh
 import {moonlightStockView} from '../src/gu_moonlight_stock.js';
 import {clanMoonlightTraits, drawGuTraits} from '../src/gu_traits.js';
 import {moonlightTrialView} from '../src/gu_keeper_moonlight_trial.js';
+import {guKeeperFireTrial, keeperFireTrialView} from '../src/world_packs/book_gu_keeper_fire_trial.js';
 import {guKeeperMoveTrial} from '../src/world_packs/book_gu_keeper_move_trial.js';
 import {keeperMoveTrialView} from '../src/gu_keeper_move_trial.js';
 import {guKeeperMoonblade} from '../src/world_packs/book_gu_keeper_moonblade.js';
@@ -425,6 +426,77 @@ test('Keeper generates and tries Moonblade candidates, retaining early costs whe
     life.step(60);
     action(`try_${alternate.slot}`);
     assert.equal(view().last.outcome, 'complete');
+});
+
+test('Keeper Red Fire keeps the written recipe and prior payments across a returned loan', () => {
+    const life = setup(717, guKeeperFireTrial);
+    const act = op => life.start(`fire_trial.${op}`);
+    const view = (state = life.p.state) => keeperFireTrialView(state, life.record);
+    const savedNote = state => state.worlds[id('world')].facts[id('fire_trial.notes')];
+    const restTo = amount => {
+        for (let hour = 0; hour < amount && reserve(life) < amount; hour++) {
+            life.start('rest');
+            life.step(60);
+        }
+        assert.ok(reserve(life) >= amount);
+    };
+    life.admitExtension();
+    act('loan');
+    act('research');
+    const {plans} = view();
+    const all = plans.find(plan => plan.names.length === 3);
+    assert.deepEqual([all.cost, all.count, all.force], [6, 2, 2]);
+    const research = savedNote(life.p.state);
+    const legacyPlans = [[], ['fire-source'], ['duplicate'], ['enlarge'], ['fire-source', 'duplicate'],
+        ['fire-source', 'enlarge'], ['duplicate', 'enlarge'], ['fire-source', 'duplicate', 'enlarge']];
+    assert.equal(research, JSON.stringify({pair: false, bundle: false, plans: legacyPlans, last: null}));
+
+    act('return_duplicate');
+    assert.deepEqual(view().plans, plans);
+    assert.equal(savedNote(life.p.state), research);
+    const beforeReturnCast = reserve(life);
+    act(`try_${all.slot}`);
+    assert.equal(reserve(life), beforeReturnCast - 1);
+    assert.deepEqual(view().last, {slot: all.slot, spent: 1, outcome: 'interrupted', reason: 'Gu unavailable'});
+
+    const interrupted = research.replace('"last":null',
+        `"last":{"slot":${all.slot},"spent":1,"outcome":"interrupted","reason":"Gu unavailable"}`);
+    const envelope = JSON.parse(JSON.stringify(life.envelope()));
+    validateKeeperEnvelope(envelope);
+    const loaded = loadExpansionState(envelope.expansion, life.registry);
+    assert.equal(savedNote(loaded), interrupted);
+    assert.deepEqual(view(loaded), view());
+
+    act('borrow_duplicate');
+    const pair = plans.find(plan => plan.count === 2 && plan.force === 1 && plan.cost === 5);
+    const bundle = plans.find(plan => plan.count === 1 && plan.force === 2 && plan.cost === 5);
+    restTo(pair.cost);
+    const beforePair = reserve(life);
+    act(`try_${pair.slot}`);
+    assert.equal(reserve(life), beforePair - pair.cost);
+    assert.deepEqual(view().last, {slot: pair.slot, spent: pair.cost, outcome: 'complete', count: pair.count, force: pair.force});
+    assert.throws(() => act('cross'));
+
+    const beforeBundle = reserve(life);
+    assert.equal(beforeBundle, 2);
+    act(`try_${bundle.slot}`);
+    assert.equal(reserve(life), 0);
+    assert.deepEqual(view().last, {slot: bundle.slot, spent: 2, outcome: 'interrupted', reason: 'needs more essence'});
+    restTo(bundle.cost);
+    act(`try_${bundle.slot}`);
+    assert.equal(view().pair, true);
+    assert.equal(view().bundle, true);
+
+    restTo(2);
+    const beforeCross = reserve(life);
+    const beforeCrossNote = savedNote(life.p.state);
+    act('cross');
+    assert.equal(reserve(life), beforeCross - 2);
+    assert.equal(life.p.state.simulation.people.player.location, id('fire_trial.ledge'));
+    assert.equal(savedNote(life.p.state), beforeCrossNote);
+    assert.equal(life.p.state.actors.player.completed[id('fire_trial.cross')], 1);
+    act('return_house');
+    validateKeeperEnvelope(JSON.parse(JSON.stringify(life.envelope())));
 });
 
 test('Generated clan specimens retain innate blade focus and a separate individual refinement across custody', () => {

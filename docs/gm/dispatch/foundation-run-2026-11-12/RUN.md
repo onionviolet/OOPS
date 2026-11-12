@@ -26,7 +26,7 @@ Weibao (2026-11-12): "send the plan updates to the chats and start phase 2. Cont
 - Gate policy (Weibao asked whether gates are skippable, 2026-11-12): chats run focused tests only. The coordinator batches returns into one merge wave and runs the full suite once per wave, never per chat. Docs-only merges run check:rules and doc checks, not the suite. A fix that touches only comments or docs reuses the last full-suite evidence plus its focused file (AGENTS: reuse passing evidence for unchanged inputs). Merging and dispatch do not wait on a running suite: chats work on branches, and a red suite is fixed on master and relayed. The browser pass runs once per domain milestone, not per phase.
 - Failed approaches: starting sessions from a background-task turn is refused by the app; dispatch only on a user turn or by messaging existing sessions.
 - Goals: each chat runs the plan's per-chat goal (its done-check row, phase after phase); this record holds the coordinator goal. E started 2026-11-12 (local_d9c26029, fdn-e-emergence). N, X and D wait for the usage read after phase 2 returns.
-- Next useful action: integrate the focused N and E returns and review D's generated-situation restore gap. A second Keeper compression lane works on Fire and Moonblade trials. Continue MS3 compression and MS4 composition, and apply the same engine-first procedure to N/X/D, PG1/PG2 and E.
+- Next useful action: integrate X's substrate place, the Gu generated-move archive, PG1's caused-person verification and PG2's society proposal. Verify the L residue-to-grazer and G defense returns as they arrive. MS3-MS6 remain open, with gameplay development deferred.
 - Usage pacing: `python3 -I scripts/codex_goal_lane.py usage` works in this session. Latest read 17% used, 2,961 credits above the floor. Limits are 20% used and 62,000 credits. Recheck before dispatch or a new wave and at least every 30 minutes. No push.
 - Stop condition: MS1-MS6 met and committed or either authorized limit reached. Neither limit reached at the latest read. The old coordinator and its three Codex lanes are finished. This chat owns the active takeover goal.
 
@@ -82,6 +82,24 @@ The combined source build `e68af9b0b2a075ce4c66541da816fa971f4985c91186505ff4b65
 - `fdn-d-caused-situations` (`01a1ceca-9f1a-7941-ab3a-97b6d0178935`) returned a scarcity-driven situation through the existing owner, with 44 focused checks reported. Registry-backed restore of generated IDs remains open.
 - `fdn-g-keeper-trials` (`01a1cec9-60f2-78c1-b2d1-9d9ebfc4d16e`) works on common Fire and Moonblade trial execution in the released first Keeper worktree. Preserve the Wave 5 evidence and its inputs. Its output belongs to a later candidate.
 - Usage at these dispatches: 17% used, 2,961 credits above the floor. Both detached goals use the shared guard. No gameplay work was assigned.
+
+### Wave 6 engine candidate (2026-11-12)
+
+Input `246799b4e` on master. N, E and D returned engine fixtures. The second Keeper lane is folded into this candidate and leaves the live route behavior under parity review.
+
+| Foundation | Evidence and remaining gap |
+| --- | --- |
+| N observer knowledge | An observed parentage claim goes through the existing knowledge effect and store. Witness and hearsay produce different pedigree graphs for the same birth. A host authenticates the relationship evidence. No new store or truth projection. Production evidence authentication remains open. |
+| E residue chain | A real B working pours rinse contents into a W drain. The field receives matching constituent amounts and the child effects retain the cause. Minute steps, a long advance and reload agree. Crop uptake and grazing remain open, so pc2 is partial. |
+| D caused situations | A measured shortage produces an addressed episode for real participants. The existing director and situation effect select and open it. A registered generator validates its identity and pressure evidence on restore. Unknown generators and altered causes are refused. Existing authored situation rows keep their previous format. Production pressure and scheduling wiring remains open. |
+| G Keeper compression | Fire and Moonblade trials share the move-trial host, with world rows for distinct rules and notes. This removes one more bespoke module for a total of seven. Focused tests verify old note bytes, a returned support and the partial debit. Rebuilt Fire, Moonblade and tray routes passed eight total save/reload/Export/Import checks with no page errors. Tray's first check hit the harness's 20-second load timeout. The same synthetic save imported on both builds. The full tray route passed on the same candidate bundle with a 60-second wait. |
+
+Build `83c7d75f6441ab3a6c2d8dd9dfc98b4c84d1fedce82ceeba24896c036cd0ef3b` passes. Combined focused checks pass 106/106. Architecture, rules and coverage exit 0. Full `npm test` exits 0 with 6,435 passed, 0 failed and 2 skipped (`/tmp/yair-fdn-takeover.aNvM3v/wave6-suite.log`). Gameplay development remains deferred.
+
+- `fdn-ms4-gu-archive` (`01a1ced0-b57e-7b83-89a9-78dd674f9c79`) returned a generated Fire Path combination that settles on a typed working and earns a niche archive entry. The worker reports 25/25 focused checks. Integration pending.
+- `fdn-x-procedural-places` (`01a1ced4-c686-7840-bc6c-2b5c83f54234`) returned a context-caused place holder whose saved wet-soil capacity changes the real substrate drain result. The worker reports 31/31 focused checks. Integration pending.
+- PG1 verified the existing history-to-traveler generator and its observer-safe needs consumer. PG2 returned a scarcity-caused society proposal using P's grammar and the existing market quote. Both await the combined gate.
+- Usage reads 18% used and 2,961 credits above the floor. Keep 20% and 62,000 as the stop lines. No push.
 
 Resume prompt for a fresh session: "Continue the unattended foundation run from the Resume block in docs/gm/dispatch/foundation-run-2026-11-12/RUN.md. Check git status and git log -3 against its input identity first; finish the next useful action; keep the block current; commit own paths, no push."
 

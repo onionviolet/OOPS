@@ -9,7 +9,7 @@ import {keeperGateSky, keeperStargateSky} from './gu_stargate.js';
 import {moonlightTrialView, validateMoonlightTrial} from './gu_keeper_moonlight_trial.js';
 import {moonlightStockView, validateMoonlightStock} from './gu_moonlight_stock.js';
 import {keeperMoveTrialView, keeperTrayMoveView, validateKeeperMoveTrial} from './gu_keeper_move_trial.js';
-import {keeperFireTrialView} from './gu_keeper_fire_trial.js';
+import {keeperFireTrialView} from './world_packs/book_gu_keeper_fire_trial.js';
 import {keeperRainbowView, validateKeeperRainbow} from './world_packs/book_gu_keeper_sustained.js';
 import {keeperPropagationView, validateKeeperPropagation} from './gu_keeper_propagation.js';
 import {keeperVitalityView} from './world_packs/book_gu_keeper_gardens.js';

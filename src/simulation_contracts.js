@@ -147,6 +147,14 @@ const registeredSimulation = new WeakSet();
 function freeze(v) {if(record(v) || Array.isArray(v)) {Object.values(v).forEach(freeze); Object.freeze(v);} return v;}
 export function createSimulationRegistry(definitions = {}) {
     const registry = {};
+    if (definitions.situationGenerators) {
+        registry.situationGenerators = new Map();
+        for (const generator of definitions.situationGenerators) {
+            assert(stableId(generator?.id) && typeof generator.validate === "function" &&
+                !registry.situationGenerators.has(generator.id), "Invalid or duplicate situation generator.");
+            registry.situationGenerators.set(generator.id, Object.freeze({id: generator.id, validate: generator.validate}));
+        }
+    }
     registry.onEnroll = freeze(copy(definitions.onEnroll || [])); registry.onEnroll.forEach(validateSimulationEffect);
     for(const family of families) {
         registry[family] = new Map();
