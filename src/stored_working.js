@@ -1,7 +1,7 @@
 // SW1-SW12, KW5/KW10/KW12: plain saved patterns over the one effect host.
 // The caller owns the clock and supplies all prices, pulses and world vocabulary.
 import {landEffect} from './effect_host.js';
-import {applyWorldOps, quantityDef} from './world_substrate.js';
+import {applyWorldOps, linkDistance, quantityDef, worldLinks} from './world_substrate.js';
 import {resolveTargets} from './world_effects.js';
 import {settleCosts} from './cost_owner.js';
 
@@ -133,7 +133,10 @@ export function fireStored({rules, world, record: input, at, stimulus = {}, way 
             const h = world.holders[id], place = h.kind === 'place' ? id : h.place;
             if (place === refs.$place) continue;
             const reach = record.reach;
-            if (!reach?.holders?.includes(id) && !(reach?.mark && h.properties.marks?.includes(reach.mark))) return finish('resisted', 'reach');
+            // E10: `reach.links: {within, kinds?}` also reaches places that many open links from the carrier's place.
+            const linked = reach?.links && refs.$place && linkDistance(worldLinks(world), refs.$place, place,
+                {kinds: reach.links.kinds, maxLinks: reach.links.within ?? 1});
+            if (!linked && !reach?.holders?.includes(id) && !(reach?.mark && h.properties.marks?.includes(reach.mark))) return finish('resisted', 'reach');
             far = true;
         }
     }

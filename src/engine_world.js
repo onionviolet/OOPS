@@ -77,10 +77,10 @@ function compose({ownPacks = [], packs = [...ENGINE_PACKS, ...ownPacks].map(p =>
 
 /** `settings` is keyed by pack id; `packs` defaults to every registered pack. `host` is what the
  * records slice needs from the caller and cannot save: laws, things, costs, effects, ports. */
-export function createEngineWorld({clock = 0, holders = [], lawFields = [], drawRoot, ...config} = {}) {
+export function createEngineWorld({clock = 0, holders = [], lawFields = [], links = [], drawRoot, ...config} = {}) {
     const draws = drawsOf(drawRoot);
     const {rules, publishes, host} = compose(config, draws);
-    return {rules, publishes, host, draws, world: createWorld(rules, {clock, holders, lawFields}), records: emptyRecords()};
+    return {rules, publishes, host, draws, world: createWorld(rules, {clock, holders, lawFields, links}), records: emptyRecords()};
 }
 
 /** E11: a raw draw at an address under this world's saved root (an unsigned whole number of four bytes).

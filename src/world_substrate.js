@@ -210,6 +210,13 @@ function viewFor(rules, world, pack) {
         state: id => structuredClone(holder(id)?.state[pack] ?? null),
         placeOf: id => { const h = holder(id); return !h ? null : h.kind === 'place' ? h.id : h.place; },
         present: place => Object.keys(world.holders).filter(id => world.holders[id].place === place).sort(byId),
+        // >>> E10 place graph: every pack reads the same links. opts: {kinds, weights, closed, maxLinks, maxCost, also}
+        links: () => structuredClone(worldLinks(world)),
+        exits: (place, opts) => linkExits(linksFor(world, opts), place, opts),
+        neighbours: (place, opts) => linkNeighbours(linksFor(world, opts), place, opts),
+        distance: (from, to, opts) => linkDistance(linksFor(world, opts), from, to, opts),
+        within: (from, opts) => linksWithin(linksFor(world, opts), from, opts),
+        // <<< E10 place graph
         // Nearest scope first: the holder, then its place, then the world.
         lawFields: (id, kind) => {
             const h = holder(id), scopes = [id, h?.kind === 'place' ? null : h?.place, 'world'].filter(Boolean);
@@ -308,6 +315,27 @@ function applyOps(rules, world, ops, ctx, queue) {
             f.params = {...f.params, ...structuredClone(op.params ?? {})};
             break;
         }
+        // >>> E10 place graph: links are world data; opening, closing and rerouting are ops
+        case 'link_add': {
+            const link = normalizeLink(op.link);
+            check(!(world.links ?? []).some(x => x.id === link.id), `link ${link.id} exists.`);
+            world.links = [...(world.links ?? []), link].sort((a, b) => byId(a.id, b.id));
+            break;
+        }
+        case 'link_set': {
+            const at = (world.links ?? []).findIndex(x => x.id === op.id);
+            check(at >= 0, `no link ${op.id}.`);
+            const {op: ignored, id, ...changes} = op;
+            world.links[at] = normalizeLink({...world.links[at], ...structuredClone(changes), id});
+            if (changes.force === null) delete world.links[at].force;
+            break;
+        }
+        case 'link_remove':
+            check((world.links ?? []).some(x => x.id === op.id), `no link ${op.id}.`);
+            world.links = world.links.filter(x => x.id !== op.id);
+            if (!world.links.length) delete world.links;
+            break;
+        // <<< E10 place graph
         default: fail(`unknown op ${op.op}.`);
         }
     }
@@ -346,12 +374,13 @@ function settleContact(rules, world, queue) {
 
 // ---------- worlds ----------
 
-export function createWorld(rules, {clock = 0, holders = [], lawFields = []} = {}) {
+export function createWorld(rules, {clock = 0, holders = [], lawFields = [], links = []} = {}) { // E10: links
     check(whole(clock) && clock >= 0, 'clock must be whole minutes.');
     // A new world counts its first minute as decided: nothing fires at creation.
     const world = {schema: SUBSTRATE_SCHEMA, revision: SUBSTRATE_REVISION, clock, decidedAt: clock, seq: 0, holders: {}, laws: [], chain: []};
     applyOps(rules, world, holders.map(value => ({op: 'holder_add', value})), {source: 'create'}, []);
     applyOps(rules, world, lawFields.map(field => ({op: 'law_add', field})), {source: 'create'}, []);
+    applyOps(rules, world, links.map(link => ({op: 'link_add', link})), {source: 'create'}, []); // E10 place graph
     return validateWorld(rules, world);
 }
 
@@ -587,6 +616,7 @@ export function restoreWorld(rules, saved) {
     check(whole(raw.clock) && whole(raw.decidedAt) && raw.decidedAt <= raw.clock && whole(raw.seq), 'save clock fields are invalid.');
     for (const h of Object.values(raw.holders ?? {})) world.holders[h.id] = makeHolder(rules, h);
     world.laws = structuredClone(raw.laws ?? []);
+    if (raw.links?.length) world.links = raw.links.map(normalizeLink).sort((a, b) => byId(a.id, b.id)); // E10 place graph (absent in older saves)
     return validateWorld(rules, world);
 }
 
@@ -605,5 +635,129 @@ export function validateWorld(rules, world) {
     for (const [id, h] of Object.entries(world.holders)) for (const [name, value] of Object.entries(h.properties ?? {})) checkProperty(rules, name, value, `holder ${id}`);
     for (const f of world.laws) check(idLike(f.id) && (f.scope === 'world' || world.holders[f.scope]), `law field ${f.id} has no scope.`);
     check(world.chain.length <= rules.dials.chainCap, 'chain exceeds its cap.');
+    // >>> E10 place graph
+    check(world.links === undefined || Array.isArray(world.links) && world.links.length > 0 &&
+        new Set(world.links.map(l => l.id)).size === world.links.length, 'links need unique ids.');
+    // <<< E10 place graph
     return world;
 }
+
+// ---------- place graph (E10, audit AF2) ----------
+// >>> E10 place graph: links between places and the one reader over them.
+// A link is world data: {id, kind, from, to, cost, state, oneWay, force?, note?}.
+// `kind` is any id a world uses (path, door, air, water, sightline, wire, ...);
+// nothing here names one. `cost` is the link's length in whatever unit the world
+// counts (minutes, paces). A closed link is not a wall: `force` states what
+// passing it anyway costs (extra length, and a price in quantities the caller
+// debits). A closed link with no `force` has no stated way through, so a reader
+// lists the places behind it as unreached rather than failing. The readers are
+// pure over a list of links, so a caller can add rows of its own (`also`).
+const natural = n => Number.isSafeInteger(n) && n >= 0;
+/** The world's links whose two ends are places that exist now. A link to a place
+ * that is gone stays stored and dormant; it works again if the place returns. */
+export const worldLinks = world => (world.links ?? []).filter(l => world.holders[l.from]?.kind === 'place' && world.holders[l.to]?.kind === 'place');
+// What a pack's view reads: the world's links plus any rows the pack passes in `also`.
+const linksFor = (world, opts) => opts?.also?.length ? [...opts.also.map(normalizeLink), ...worldLinks(world)] : worldLinks(world);
+export const LINK_STATES = Object.freeze(['open', 'closed']);
+
+/** One link in its stored shape. Defaults: cost 1, open, two-way. */
+export function normalizeLink(raw) {
+    check(idLike(raw?.id) && idLike(raw.kind) && idLike(raw.from) && idLike(raw.to) && raw.from !== raw.to,
+        `a link needs an id, a kind and two different places (${raw?.id}).`);
+    const cost = raw.cost ?? 1, state = raw.state ?? 'open';
+    check(natural(cost) && LINK_STATES.includes(state), `link ${raw.id}: cost is a whole number and state is open or closed.`);
+    const out = {id: raw.id, kind: raw.kind, from: raw.from, to: raw.to, cost, state, oneWay: raw.oneWay === true};
+    if (raw.force != null) {
+        const price = raw.force.price ?? [];
+        check(natural(raw.force.cost ?? 0) && Array.isArray(price) &&
+            price.every(p => typeof p?.quantity === 'string' && p.quantity && natural(p.amount)),
+            `link ${raw.id}: force is {cost, price: [{quantity, amount}]}.`);
+        out.force = {cost: raw.force.cost ?? 0, price: price.map(p => ({quantity: p.quantity, amount: p.amount}))};
+    }
+    if (raw.note != null) { check(typeof raw.note === 'string', `link ${raw.id}: note is text.`); out.note = raw.note; }
+    return out;
+}
+
+/** Ways out of `place`, in link-id order. opts: kinds (list; all when absent),
+ * weights ({kind: multiplier} on cost), closed: 'skip' (default) leaves closed
+ * links out, 'force' passes those that state a force at its added cost, 'any'
+ * passes every closed link (used to say what lies behind them). */
+export function linkExits(links, place, {kinds, weights, closed = 'skip'} = {}) {
+    const out = [];
+    for (const link of links) {
+        if (kinds && !kinds.includes(link.kind)) continue;
+        const to = link.from === place ? link.to : !link.oneWay && link.to === place ? link.from : null;
+        if (to == null) continue;
+        const shut = link.state === 'closed';
+        if (shut && (closed === 'skip' || closed === 'force' && !link.force)) continue;
+        const cost = link.cost * (weights?.[link.kind] ?? 1) + (shut && closed === 'force' ? link.force.cost : 0);
+        check(natural(cost), `link ${link.id}: weighted cost must stay whole.`);
+        out.push({link: link.id, to, cost, forced: shut});
+    }
+    return out.sort((a, b) => byId(a.link, b.link));
+}
+
+/** Places one open link away, sorted. */
+export const linkNeighbours = (links, place, opts) => [...new Set(linkExits(links, place, opts).map(x => x.to))].sort(byId);
+
+const better = (a, b) => !b || a.cost < b.cost || a.cost === b.cost && (a.links < b.links ||
+    a.links === b.links && a.route.join('\u0000') < b.route.join('\u0000'));
+
+/** Every place reachable from `from`, with the cheapest way there:
+ * Map place -> {place, links, cost, route: [link ids], forced: [link ids]}.
+ * opts as linkExits, plus maxLinks (hops) and maxCost. The origin is in the map at
+ * 0. With both limits the answer is the cheapest route inside both, exactly: the
+ * search keeps the least cost per place for each number of links. */
+export function linkReach(links, from, opts = {}) {
+    const {maxLinks, maxCost} = opts;
+    check(maxLinks == null || natural(maxLinks), 'maxLinks is a whole number.');
+    check(maxCost == null || natural(maxCost), 'maxCost is a whole number.');
+    const places = new Set([from]);
+    for (const link of links) { places.add(link.from); places.add(link.to); }
+    const hops = Math.min(maxLinks ?? Infinity, places.size - 1);
+    const best = new Map([[from, {place: from, links: 0, cost: 0, route: [], forced: []}]]);
+    let layer = new Map(best);
+    for (let h = 1; h <= hops && layer.size; h++) {
+        const next = new Map();
+        for (const place of [...layer.keys()].sort(byId)) {
+            const at = layer.get(place);
+            for (const exit of linkExits(links, place, opts)) {
+                const cost = at.cost + exit.cost;
+                if (maxCost != null && cost > maxCost) continue;
+                const cand = {place: exit.to, links: h, cost, route: [...at.route, exit.link],
+                    forced: exit.forced ? [...at.forced, exit.link] : at.forced};
+                if (better(cand, next.get(exit.to))) next.set(exit.to, cand);
+            }
+        }
+        for (const [place, cand] of next) if (better(cand, best.get(place))) best.set(place, cand);
+        layer = next;
+    }
+    return best;
+}
+
+/** Places within the limits, sorted by id, each with its cheapest way. */
+export const linksWithin = (links, from, opts) => [...linkReach(links, from, opts).values()].sort((a, b) => byId(a.place, b.place));
+
+/** The cheapest way from one place to another, or null when no way is open. */
+export const linkDistance = (links, from, to, opts) => linkReach(links, from, opts).get(to) ?? null;
+
+/** What a reaching effect needs in one answer. `reached` are places with an open
+ * way inside the limits (going around a closed link counts when the limits allow
+ * it). `forceable` are further places a stated force would open, each with the
+ * links to force and their summed price. `unreached` are places that lie inside
+ * the limits only through closed links with no stated way. */
+export function reachReport(links, from, opts = {}) {
+    const open = linkReach(links, from, {...opts, closed: 'skip'});
+    const forced = linkReach(links, from, {...opts, closed: 'force'});
+    const any = linkReach(links, from, {...opts, closed: 'any'});
+    const byLink = new Map(links.map(l => [l.id, l]));
+    const sorted = map => [...map.values()].sort((a, b) => byId(a.place, b.place));
+    return {
+        reached: sorted(open),
+        forceable: sorted(forced).filter(e => !open.has(e.place)).map(e => ({...e,
+            price: e.forced.flatMap(id => byLink.get(id).force.price.map(p => ({link: id, ...p})))})),
+        unreached: sorted(any).filter(e => !forced.has(e.place)).map(e => ({place: e.place, reason: 'closed',
+            via: e.forced.filter(id => !byLink.get(id).force)})),
+    };
+}
+// <<< E10 place graph

@@ -50,8 +50,8 @@ const method = (cid, travel, op) => ({id: `a.forage.${cid}`, revision: 0, law: f
 
 // Candidates from what the worm knows: home, drinking at each place it has seen,
 // and any routine it invented earlier (kept in its own state, AGC8).
-function candidates(view, id, s, here, people) {
-    const travel = to => to === here ? 0 : LIQUOR_WORM_ROW.travelMinutes;
+function candidates(view, id, s, here, people, minutesTo = () => LIQUOR_WORM_ROW.travelMinutes) {
+    const travel = to => to === here ? 0 : minutesTo(view, here, to);
     const b = site => ({worm: {kind: 'creature', id}, site: {kind: 'place', id: site}});
     const list = [{id: 'home', label: here === s.home ? 'lies still at home' : 'goes home', law: forageLaw,
         method: {id: 'a.forage.home', revision: 0, law: forageLaw.ref, roles, steps: [{op: 'go', bindings: {mover: 'worm', to: 'site'}, minutes: travel(s.home)}]},
@@ -91,20 +91,27 @@ const drinking = (view, id) => {
         view.amount(id, 'satiety') < FULL;
 };
 
-export function createWildAgencyPack({invent = null} = {}) {
+// E10: `travel: {kinds?, minutesPerCost?}` makes the trip take the linked route's cost (times
+// minutesPerCost, default 1) when the world links the two places; with no linked way, or without the
+// setting, the trip is the row's cross-country travelMinutes.
+export function createWildAgencyPack({invent = null, travel = null} = {}) {
+    const minutesTo = (view, from, to) => {
+        const way = travel && view.distance(from, to, {kinds: travel.kinds});
+        return way ? Math.max(1, way.cost * (travel.minutesPerCost ?? 1)) : LIQUOR_WORM_ROW.travelMinutes;
+    };
     const choose = (view, id) => {
         const s = view.state(id), here = view.placeOf(id), satiety = view.amount(id, 'satiety');
         const people = view.present(here).some(x => view.holder(x).tags.includes('person'));
         const knows = ref => ref.kind === 'creature' ? {kind: 'creature', id: ref.id, quantities: {satiety}}
             : view.holder(ref.id)?.kind === 'place' ? {kind: 'place', id: ref.id, quantities: {liquor: s.beliefs[ref.id]?.liquor ?? 0}} : null;
-        const list = candidates(view, id, s, here, people);
+        const list = candidates(view, id, s, here, people, minutesTo);
         let fresh = null;
         // Grammar parts {verb, site} become a search routine; a site it already
         // knows, or where it stands, is not new.
         const build = value => {
             const made = {id: `${value.parts.verb}:${value.parts.site}`, verb: value.parts.verb, site: value.parts.site, cause: value.cause};
             if (made.site === here || Object.hasOwn(s.beliefs, made.site)) return null;
-            const c = candidates(view, id, {...s, beliefs: {}, repertoire: [made]}, here, people).find(x => x.id === made.id);
+            const c = candidates(view, id, {...s, beliefs: {}, repertoire: [made]}, here, people, minutesTo).find(x => x.id === made.id);
             return c ? {...c, made} : null;
         };
         const wrap = invent && (args => {
@@ -160,7 +167,7 @@ export function createWildAgencyPack({invent = null} = {}) {
                 let next = s;
                 if (doing !== s.doing || (choice.invented && !s.repertoire.some(r => r.id === choice.invented))) {
                     const made = choice.invented && fresh?.made ? [...s.repertoire, fresh.made].slice(-REPERTOIRE_CAP) : s.repertoire;
-                    next = {...s, doing, target, arriveAt: target === here ? null : view.clock + LIQUOR_WORM_ROW.travelMinutes,
+                    next = {...s, doing, target, arriveAt: target === here ? null : view.clock + minutesTo(view, here, target),
                         repertoire: made, ring: recordChoice(s.ring, choice)};
                 }
                 const before = view.state(id);
