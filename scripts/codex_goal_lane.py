@@ -148,7 +148,8 @@ def run_lane(a):
             s.request('thread/name/set', {'threadId': tid, 'name': a.name})
         except Exception as e:
             note(f'name not set: {e}')
-        objective = brief if len(brief) <= 4000 else brief[:4000] + '\n[brief continues in the CODEX_LANE.md file in your working directory]'
+        tail = '\n[The full brief is CODEX_LANE.md in your working directory.]'
+        objective = brief if len(brief) <= 3900 else brief[:3900 - len(tail)] + tail
         s.request('thread/goal/set', {'threadId': tid, 'objective': objective, 'tokenBudget': a.token_budget,
                                       'status': 'active'})
         prompt = ('You are a Codex worker lane for the YAIRPG foundation run. Read AGENTS.md and the brief below, '
