@@ -58,6 +58,24 @@ The comparison that the contract was promoted from (review [F3/A4](audits/CODEX_
 - **KW16. A quote has a fingerprint.** `workingFingerprint` hashes the law, method, bound references, starting facts, times, effects, costs and outcome. A host shows a quote, the maker commits to its fingerprint, and `beginQuotedWorking` re-quotes and returns `stale` instead of a record when anything changed. The record keeps the fingerprint and authority receives it at each step, so standing terms can be checked against what was quoted (M's SMK7). Rolling back several owners when a settlement fails stays with the host's transaction owner (AR3), as `book_craft_transaction` does today.
 - **KW17. The quote an actor can make.** `quoteForActor` takes the actor, the bindings, `known(ref, at)` (what the actor knows of each thing) and `believedAuthority` (what the actor believes about permissions). It never reads the truth: a role the actor knows nothing of comes back as `{role, cause: 'unknown'}`, a refusal as the step, cause and reason code. Reasons are data; the host or operation writes the words (PRS). The player and anyone else with the same knowledge get the same quote (PFP11), and a wrong belief quotes as eligible and is then interrupted by settlement against the truth.
 
+### Composed workings (SC6, v0.2)
+
+Module [`src/kernel_compose.js`](../src/kernel_compose.js), tests [`tests/kernel_compose.test.js`](../tests/kernel_compose.test.js). A killer move, a combined spell, a recipe step that runs two processes and a formation are all one working made of other workings.
+
+- **KW18. Slots are interfaces.** `defineComposition({id, revision, roles, slots})` declares each slot by what a filler must bind (`needs: {role: kind}`) and which composite role fills each (`bindings`). Each slot says whether its facts are `shared` (one table, as Gu essence reserves are) or `own` (kept under `part:<slot>`); there is no default, because shared facts collide. `minutes` on a slot is a duration dial for every filler step.
+- **KW19. Fillers are chosen at bind time.** `composeWorking(composition, fillers)` takes any method that binds exactly the slot's roles and kinds, so a move or spell can be assembled from parts no book paired (NV2). The result is one ordinary law and method: quote, settle, partition, receipts, the actor quote and saves are the kernel's own, and a composition can fill a slot with another composition.
+- **KW20. A filler stays one part.** Its steps are copied as they are, never split. A two-Gu beat settles all or nothing against a cloned reserve; splitting it would spend the first Gu alone (tested). A dictionary method's operations share one native transaction, while repeated casts stay separate steps.
+- **KW21. The composite names its fillers.** Operations are `<slot>/<op>` and the law ref lists every filler's law ref, method id and revision, so a saved working restores only against the same fillers; `composedPart(op)` reads which slot a receipt came from.
+
+First consumers, adapters in the test file, owners unchanged:
+
+| Consumer | Composition | Parity check |
+| --- | --- | --- |
+| G: `resolveGuActivation` per beat | Three-core move, slots `lead` (one Gu) and `pair` (two Gu at once), shared reserves | Same reserves as `runGuProcedure` on the ch. 961 recipe, full and short (enough for Pulling Mountain, not Pulling Water); a move from three Gu the book never paired quotes and runs |
+| S: `compileSpellWorking` + `nativeSpellSteps` per dictionary method | Hogwarts bench (levitation, summoning, release) and Cyoria slate (torch, direct light, oblique twice), own facts, one minute per cast | Exactly the native command lists the spell owner produces for the same drafts |
+
+Both run the seven-test contract suite (now [`tests/kernel_contract_suite.mjs`](../tests/kernel_contract_suite.mjs), shared by every kernel test file).
+
 ## Save shape (OS8)
 
 ```json
@@ -121,5 +139,5 @@ Retire one old shape: `method_program` (16 lines, three consumers in other chats
 
 ## Changelog
 
-- **0.2 (2026-11-12).** KW15 forecast fields, KW16 fingerprint and `beginQuotedWorking`, KW17 `quoteForActor`. Kernel failure reasons are codes (`role-unavailable`, `not-permitted`) with the role kept as data. No schema change.
+- **0.2 (2026-11-12).** KW15 forecast fields, KW16 fingerprint and `beginQuotedWorking`, KW17 `quoteForActor`; KW18-KW21 composed workings (`kernel_compose.js`). Kernel failure reasons are codes (`role-unavailable`, `not-permitted`) with the role kept as data. No schema change.
 - **0.1 (2026-11-12).** KW1-KW14, the record `kernel.working@1` and one migration.
