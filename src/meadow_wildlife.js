@@ -1,12 +1,15 @@
 // Original Village comparison for AD38, AD51 and WPR5. Local time and
 // inventory settlement come from the same host as the meadow pen.
 import {check} from './basics.js';
+import {habitatFromKinds, livingKindRegistry} from './living_kinds.js';
 import {advanceWildHabitat, openWildHabitat, restoreCreatureLifecycle, settleCohortStock} from './creature_lifecycle.js';
 
 export const RABBIT_MEAT_KEY = JSON.stringify({id: 'Rabbit meat'});
 export const MEADOW_BAIT_KEY = JSON.stringify({id: 'Stale bread'});
-const copse = {id: 'village.meadow_copse', capacity: 10, supportedSpecies: ['rabbit', 'fox'],
-    preyRequirements: {fox: {species: 'rabbit', perPredator: 3}}};
+// Who eats whom comes from the kind rows (the fox row's prey); the copse supplies
+// its capacity and how many rabbits one fox needs (a Village dial).
+const copse = habitatFromKinds(livingKindRegistry(), {id: 'village.meadow_copse', capacity: 10,
+    species: ['rabbit', 'fox'], perPredator: {fox: 3}});
 const populations = [{id: 'rabbit', births: 1, losses: 1}, {id: 'fox', births: 1, losses: 1}];
 const interval = 12;
 

@@ -1,0 +1,80 @@
+{
+ "milestone": "MS5 foundation L",
+ "date": "2026-11-12",
+ "bundleSha256": "8ea62bea4eff1254d0d566be4dc3a95e7e6d26ea7dd6d8bdab9d42a6d427cc09",
+ "command": "PROOF_LIFECYCLE=1 PROOF_URL=http://127.0.0.1:19733/?test_hooks=1 node scripts/modular_seams_browser.cjs (BUILD_OUT in session scratchpad; private fonts copied from the primary checkout into that build only)",
+ "receiptKeys": [
+  "saved",
+  "restored",
+  "imported",
+  "final",
+  "moss"
+ ],
+ "savedMeadowPen": {
+  "collected": 1,
+  "sheepId": "creature:1",
+  "individuals": {
+   "creature:1": {
+    "species": "sheep",
+    "keeper": "player",
+    "habitat": "village.meadow_pen",
+    "bornAt": 518011680,
+    "matureAt": 518011680,
+    "traits": {
+     "coat": "cream"
+    },
+    "injury": {
+     "kind": "cut",
+     "at": 518011680,
+     "required": 6,
+     "remaining": 0,
+     "healedAt": 518011686
+    },
+    "organs": {}
+   },
+   "creature:2": {
+    "species": "sheep",
+    "keeper": "shepherd",
+    "habitat": "village.ram_yard",
+    "bornAt": 518011692,
+    "matureAt": 518011692,
+    "traits": {
+     "coat": "brown",
+     "fleece": "fine"
+    },
+    "injury": null,
+    "organs": {}
+   },
+   "creature:3": {
+    "species": "sheep",
+    "keeper": "shepherd",
+    "habitat": "village.buyer_yard",
+    "bornAt": 518011704,
+    "matureAt": 518011722,
+    "traits": {
+     "coat": "cream",
+     "fleece": "fine"
+    },
+    "injury": null,
+    "organs": {}
+   }
+  },
+  "wildlife": {
+   "rabbit": {
+    "species": "rabbit",
+    "habitat": "village.meadow_copse",
+    "stock": 2
+   },
+   "fox": {
+    "species": "fox",
+    "habitat": "village.meadow_copse",
+    "stock": 1
+   }
+  }
+ },
+ "route": "new game, elder dialogue, meadow pen: build, rescue injured ewe (welfare reads \"she is weak\"), feed, attend, collect wool (welfare reads \"she is in full health\"), breed, lamb, copse hunt; Save, reload, Export download, literal Import; Moss on an owned Shack",
+ "viewport": "1920x1080",
+ "errors": [],
+ "headless": true,
+ "result": "exit 0"
+}

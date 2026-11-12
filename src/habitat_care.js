@@ -6,6 +6,8 @@ import {planMeadowCourier, validateMeadowCourier} from './meadow_courier.js';
 import {planMeadowShell, projectMeadowShell, SHELL_ACTIONS, validateMeadowShell} from './meadow_shell_state.js';
 import {planMeadowFleece} from './meadow_fleece.js';
 import {discoverMeadowWildlife, huntMeadowRabbit, meadowWildlife, validateMeadowWildlife} from './meadow_wildlife.js';
+import {livingKindRegistry} from './living_kinds.js';
+import {readLivingBody} from './living_body.js';
 import {acquireCreature, creatureDevelopment, creatureHealth, injureCreature, practiceWithCreature, restoreCreatureLifecycle,
     settleCohortStock, settleCreatureBirth, settleCreatureCare, startCreatureBrood, startCreatureCare, transferCreature} from './creature_lifecycle.js';
 // The sheep's hunger is the shared food need (needs.js, RCL12/LVR13): one hay ration holds careMinutes at the sheep's body rate.
@@ -14,6 +16,7 @@ export const HABITAT = Object.freeze({site:'village.meadow_pen',animal:'meadow.f
     location:'Village',world:'base.frontier',buildCost:18,adoptCost:12,feedCost:2,
     rescueCost:8, extensionCost:10, breedingCost:6, lambPrice:12, gestationMinutes:12, growthMinutes:18,
     careMinutes:rationMinutes(HABITAT_BODY,'food'),batchMinutes:6,yield:5});
+const LIVING_KINDS = livingKindRegistry();
 export const HAY_KEY=JSON.stringify({id:'Meadow hay'});
 export const WOOL_KEY=JSON.stringify({id:'Wool'});
 const pen = {id: HABITAT.site, capacity: 1, supportedSpecies: [HABITAT_BODY]};
@@ -33,7 +36,7 @@ function enrollSheep(state, clock) {
 function breedSheep(state, clock) {
     check(state.site.capacity === 2, 'Extend the pen to make room for a lamb.');
     check(!state.broodId && !state.lambId, 'The ewe is expecting or the spare stall is occupied.');
-    check(!creatureHealth(state.lifecycle, state.sheepId, clock).injury?.remaining,
+    check(!readLivingBody({lifecycle: state.lifecycle, registry: LIVING_KINDS, id: state.sheepId, clock}).injury,
         'Let the ewe recover before breeding.');
     const stall = {...pen, capacity: 2};
     let lifecycle = state.lifecycle;
@@ -160,14 +163,21 @@ export function projectHabitat(owner,clock){
     }
     s.lastMinute=clock;return s;
 }
+// How the ewe's projected vitality reads to her keeper. Bands are a Village dial.
+const strengthWords = body => !body ? 'she is settling in' : body.vitality.value >= 90 ? 'she is in full health' :
+    body.vitality.value >= 60 ? 'she is a little worn' : 'she is weak';
 export function habitatFacts(owner,clock){
     const s=projectHabitat(owner,clock),
         need=readNeed({body:HABITAT_BODY,sinceMeal:s?.fedAt==null?null:clock-s.fedAt}),fed=s?.fedAt!=null&&need.level>0,
         attended=s?.attendedAt!=null&&clock<s.attendedAt+HABITAT.careMinutes;
-    const wound = s?.sheepId ? creatureHealth(s.lifecycle, s.sheepId, clock).injury : null;
+    // The ewe is read through the shared body read (foundation L, MS5): the same
+    // lifecycle, kind row and needs seam every other living consumer reads.
+    const body = s?.sheepId ? readLivingBody({lifecycle: s.lifecycle, registry: LIVING_KINDS, id: s.sheepId, clock,
+        sinceMeal: s.fedAt == null ? undefined : clock - s.fedAt}) : null;
+    const wound = body?.injury ?? null;
     const lamb = s?.lambId ? s.lifecycle.individuals[s.lambId] : null;
-    return {state:s,wound,lamb,shellAnimal:projectMeadowShell(s?.shellAnimal, clock),wildlife:meadowWildlife(s?.wildlife, clock),need,fed:!!fed,attended:!!attended,ready:s?.progress===HABITAT.batchMinutes,
-        welfare:!s?.animal?'No animal':'Safe in suitable shelter with clean water'};
+    return {state:s,wound,body,lamb,shellAnimal:projectMeadowShell(s?.shellAnimal, clock),wildlife:meadowWildlife(s?.wildlife, clock),need,fed:!!fed,attended:!!attended,ready:s?.progress===HABITAT.batchMinutes,
+        welfare:!s?.animal?'No animal':`Safe in suitable shelter with clean water; ${strengthWords(body)}`};
 }
 export function planHabitatAction(owner,action,{clock,money,inventory,location,world,ready}){
     check(ready&&location===HABITAT.location&&world===HABITAT.world,'Return free and alive to your Village meadow pen.');

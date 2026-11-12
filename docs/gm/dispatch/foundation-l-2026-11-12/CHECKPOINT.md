@@ -288,3 +288,51 @@ Requests: **G**, unblocking GB7 (diet, ration minutes, stage minutes on catalogu
 | --- | --- | --- |
 | `node scripts/coverage_creatures.mjs` then `--check` | 96 rows, 0 unclassified, check passes | none |
 | `node --test tests/living_foundation.test.js` | 7 pass | focused |
+
+## MS5: the shared lifecycle in play, at the floor (2026-11-12)
+
+Route: the Village meadow pen, desktop target 1920×1080 (UI priority: desktop first; mobile deferred). The pen already ran on `creature_lifecycle`. Now it also reads the ewe through the shared body read and the kind catalogue, and the copse takes its predator and prey link from kind rows.
+
+| Change | File | What the player sees or meets |
+| --- | --- | --- |
+| The welfare line reads the ewe's projected vitality from `readLivingBody` | `src/habitat_care.js` | "Welfare: Safe in suitable shelter with clean water; she is weak." while the rescued ewe's cut is open, then "...she is in full health." once it heals. The bands (90, 60) are a Village dial |
+| The injury line and the breeding gate read the wound from `readLivingBody` | `src/habitat_care.js` | "Let the ewe recover before breeding." now comes from the shared read (FLR4: a gate, not only a display) |
+| The copse habitat is built by `habitatFromKinds` | `src/meadow_wildlife.js` | Same copse; the fox's prey now comes from the fox row, and the copse keeps its own number (3 rabbits per fox) |
+| Proof asserts both welfare lines | `scripts/modular_seams_browser.cjs` (lifecycle block only) | |
+| Regression | `tests/habitat_care.test.js` | Welfare weak at minute 100, vitality 91 with one of six minutes owed, full health at minute 106; the old exact welfare string updated |
+
+Voice sample kept from the pen (PRS7): "Brush and inspect sheep."
+
+### Floor (AD43)
+
+| Line | State |
+| --- | --- |
+| FLR1 Build | Bundle SHA-256 `8ea62bea4eff1254d0d566be4dc3a95e7e6d26ea7dd6d8bdab9d42a6d427cc09`, built with `BUILD_OUT` in the session scratchpad |
+| FLR2 Route | From a fresh life by earned steps in a headless Chrome at 1920×1080 (`PROOF_LIFECYCLE=1 node scripts/modular_seams_browser.cjs`). Gap: no yairpg-game MCP walk first. The Moss leg uses the script's named owned-Shack fixture |
+| FLR3 Shown | The welfare line changes with the ewe's condition; the breeding refusal names the reason |
+| FLR4 Used | The breeding gate reads the body read |
+| FLR5 Kept | Save, reload, Export download and literal Import ran in the proof; the persisted meadow pen matched after each |
+| FLR6 Labelled | Agent-verified, not human-reviewed. Route kind: earned walk plus a named fixture for Moss |
+
+Receipt: [ms5_receipt.json](ms5_receipt.json) (summary; the full 1.2 MB receipt with synthetic saves stays in the scratchpad). Environment note: the worktree has no gitignored private fonts, so I copied three of them from the primary checkout into the scratchpad build only. The first run, before the copy, failed only on those 404s.
+
+Save compatibility (MC4): **unchanged.** No save key changed; the lifecycle's optional `organs` defaults to empty.
+
+### PFP2 after MS5
+
+| Count | Before MS5 | After |
+| --- | --- | --- |
+| Living kinds read by live play through the new modules | 0 | **3** (sheep through the body read; rabbit and fox through `habitatFromKinds`) |
+| Separate live lifecycle stores | 14 | 14 (a shared live store is 2b) |
+| Coverage ledger | 96 rows, 0 unclassified | unchanged |
+
+### Checks run
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/habitat_care.test.js tests/living_foundation.test.js tests/creature_lifecycle.test.js tests/meadow_shell_state.test.js` | 34 pass | Focused |
+| `node --test tests/habitat_care.test.js tests/living_foundation.test.js` after the gate change | 21 pass | Focused |
+| `npm run check:arch`, `npm run check:rules` | exit 0 | The one TMR1 warning is pre-existing (`book_world_hp_exams.js`) |
+| Headless proof on the final bundle | exit 0, page errors 0, 404s 0 | No MCP walk |
+
+`meadow_shell_state.js` was not touched (handed to W for this phase).
