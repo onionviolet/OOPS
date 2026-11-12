@@ -2,9 +2,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {runCase, runEquivalence, overBudget, seededRandom, HARNESS_DIALS} from '../scripts/emergence_harness.mjs';
+import {runCase, runEquivalence, overBudget, seededRandom, contextFit, HARNESS_DIALS} from '../scripts/emergence_harness.mjs';
 import {EMERGENCE_CASES, PENDING_CHAINS, steamShellCase} from '../scripts/emergence_cases.mjs';
 import {toyCase} from './fixtures/emergence/toy_packs.mjs';
+import {contextCase, PLACES, corpusShare} from './fixtures/emergence/context_case.mjs';
 
 const CC1 = EMERGENCE_CASES['cc1-steam-shell'], CC1D = EMERGENCE_CASES['cc1-steam-shell-depart'];
 const SMOKE_CHAIN = 'b.brew_steam:batch>smoke | l.shell_regulator:startle>shell.pull | l.shell_regulator:inlet-link';
@@ -91,4 +92,34 @@ test('E6 seeded draws are deterministic and stay out of the packs', () => {
     const a = seededRandom(9), b = seededRandom(9);
     assert.deepEqual(Array.from({length: 5}, () => a.int(0, 99)), Array.from({length: 5}, () => b.int(0, 99)));
     assert.equal(PENDING_CHAINS.length, 3, 'the three plan chains are named with what each waits on');
+});
+
+const gl4 = generations => contextFit(generations, {expect: PLACES, base: Object.fromEntries(Object.values(PLACES).map(v => [v, corpusShare(v)])), partOf: g => g.parts.path});
+
+test('E7 GL4 context: place-caused generation runs in a seeded world; on P v0 no place raises its path (the PGB5 gap), the overlay control does', () => {
+    for (const seed of [1, 2, 3]) {
+        const eq = runEquivalence(contextCase(), {seed});
+        assert.ok(eq.sameWorld && eq.sameChains, `seed ${seed}: generation repeats after one jump, cuts and reloads (PR1)`);
+        const r = eq.runs.day;
+        assert.equal(r.generations.length, 48);
+        assert.ok(r.generations.every(g => g.cause.kind === 'place' && g.cause.id === g.place && g.grammar === 'proof.gu-kind@2'));
+        // Baseline recorded: P v0 draws ignore the place, so no place fits. When P's place
+        // weights land (PGB5), this assertion turns into the GL4 regression.
+        assert.equal(gl4(r.generations).fit, 0, `seed ${seed}: P v0 does not read the place`);
+        const control = runCase(contextCase({placeOverlay: true}), {seed, mode: 'day'});
+        assert.equal(gl4(control.generations).fit, 2, `seed ${seed}: a place-weighted grammar shows the lift the metric looks for`);
+    }
+});
+
+test('E8 PR3 and MC16: generator searches are metered per simulated day and gated by a budget', () => {
+    const c = contextCase(), r = runCase(c, {seed: 1, mode: 'jump'});
+    assert.equal(r.cost.search.length, 4);
+    for (const day of r.cost.search) {
+        assert.equal(day.calls, 12, 'six kinds per place per dusk');
+        assert.ok(day.trials >= 12 && day.by['p.generate'] === day.trials, 'trials are the draws the generator reports');
+        assert.ok(day.ms >= 0);
+    }
+    assert.deepEqual(overBudget(r, c.budget), [], `${r.cost.maxSearchTrialsPerDay} draws/day within ${c.budget.searchTrialsPerDay}`);
+    assert.deepEqual(overBudget(r, {searchTrialsPerDay: 10}).length, 1, 'a tighter budget fails');
+    assert.equal(runCase(CC1, {seed: 1, mode: 'jump'}).cost.maxSearchTrialsPerDay, 0, 'a case with no generator reports zero');
 });

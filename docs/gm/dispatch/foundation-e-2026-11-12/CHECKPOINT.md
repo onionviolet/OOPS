@@ -6,7 +6,7 @@
 
 > Each run reports the chains it found and the loops it damped; the three chains above appear without join code.
 
-Plus MC16 (settlement time per simulated day, a budget and a test that fails when it is exceeded) and P's done check share (one place-driven and one actor-driven generation in a seeded world run).
+Plus MC16 (settlement time per simulated day, a budget and a test that fails when it is exceeded) and P's done check share (one place-driven and one actor-driven generation in a seeded world run). From master 2fff2285e (plan section "Making all achievable"): **GL4** the context layer's canon test with P (a seeded world produces things in the places and under the pressures the source shows), **MS5** the combined browser pass at the end, **MS6** E's three chains, and **PR3 with MC16** settlement time per simulated day for any search a generator runs.
 
 | Part | State |
 | --- | --- |
@@ -16,7 +16,10 @@ Plus MC16 (settlement time per simulated day, a budget and a test that fails whe
 | pc1 a regulating Gu leaves mid-brew | partial: departure, latch and stored heat run; "batch finishes weaker" waits on B (the brew reads nothing the regulator moves) |
 | pc2 rinse water, field, sheep | waits on B, W, L |
 | pc3 fireflies, wild Gu, rival keeper | waits on W, L, A |
-| Place-driven and actor-driven generation in a seeded run | waits on P (generated thing handed to a working) and A |
+| Place-driven and actor-driven generation in a seeded run | place-driven **built** (gl4-context: Gu kinds from P's grammar with cause `place` at two places each dusk, placed as things, same after jump, cuts and reload); actor-driven waits on A and P |
+| GL4 context canon test | metric **built** (`contextFit`); baseline on P v0: **0 of 2** places fit at seeds 1 to 3 (the grammar does not read the place, PGB5); a test-only overlay control fits 2 of 2. Source-quantified expectations wait on G's habitat rows |
+| PR3 and MC16 for generator searches | **built**: calls, trials and ms per simulated day per search name; budget 400 draws per day (gl4 uses 149); a tighter budget fails |
+| MS5 combined browser pass | not started: runs at the end, after domains reach play |
 
 ## What was built (phase 1, 2026-11-12)
 
@@ -30,7 +33,8 @@ Plus MC16 (settlement time per simulated day, a budget and a test that fails whe
 - [`scripts/emergence_cases.mjs`](../../../../scripts/emergence_cases.mjs): CC1 run long under the `w.sky` pack, four days, one brew a day at a drawn minute with a drawn hold; the departure variant carries the shell out while the burner still burns and back next morning. Draws are identical in both variants, so they differ only by the keeper's moves. Cases compose packs and schedule outside ops; the test checks they define no law or reactor. `PENDING_CHAINS` names the three plan chains and what each waits on.
 - [`scripts/emergence_known_chains.json`](../../../../scripts/emergence_known_chains.json): known multi-domain signatures per case (seeds 1 to 8). A multi-domain chain not in it is reported as new.
 - [`scripts/emergence_run.mjs`](../../../../scripts/emergence_run.mjs): `node scripts/emergence_run.mjs [--case id|all] [--seed N] [--days N] [--mode jump|day|odd|reload|all] [--json]`; exits 1 when modes disagree.
-- [`tests/emergence_harness.test.js`](../../../../tests/emergence_harness.test.js) E1 to E6, with test-only toy packs in [`tests/fixtures/emergence/toy_packs.mjs`](../../../../tests/fixtures/emergence/toy_packs.mjs) as positive controls (an echo only the cascade dial stops; a swarm that doubles each day).
+- Phase 2a (2026-11-12, after merging master 2fff2285e): a scheduled op may be a function of the world as it stands, given `ctx.search(name, fn)` (metered per simulated day, PR3) and `ctx.generated(row)` (the generation log); `contextFit` measures GL4 lift per place against the corpus rate; [`tests/fixtures/emergence/context_case.mjs`](../../../../tests/fixtures/emergence/context_case.mjs) is the gl4 case (in tests because P's grammar is a test fixture; it moves to the cases file when G owns a Gu kind grammar in src).
+- [`tests/emergence_harness.test.js`](../../../../tests/emergence_harness.test.js) E1 to E8, with test-only toy packs in [`tests/fixtures/emergence/toy_packs.mjs`](../../../../tests/fixtures/emergence/toy_packs.mjs) as positive controls (an echo only the cascade dial stops; a swarm that doubles each day).
 
 ## Run report (seeds 1 and 5, four days each)
 
@@ -44,6 +48,7 @@ Findings:
 - **F1 · The smoke chain and the steam contact appear with no join code.** Signatures pinned in the known list; E1 is their regression.
 - **F2 · pc1 is half there.** With the shell gone mid-brew, humidity and the inlet change but every batch finishes exactly as it would have (E3 asserts this, so the test turns into the pc1 regression when B's law reads what the regulator moves).
 - **F3 · Far settlement is barely cheaper with a regulator running.** The shell flips about every 7 minutes, and each flip cuts a segment: about 632 segments a day far against 1,440 near. Fine at this scale; it is the number to watch when many places run far (request W3 below).
+- **F5 · P v0 generates under the corpus rate in every place.** Generated kinds carry the place's matching path less often than the corpus does (lift 0.56 to 1.25), which matches P's own report that slots drawn apart produce canon pairs only 56% of the time (GL5). Place weights (PGB5) and joint conditioning (GL5) are the two P items GL4 waits on.
 - **F4 · The returned shell is not relinked until its next pull.** After `keeper.returns`, the inlet follows nothing until the shell's next state change publishes `shell.pull`; this reads correctly in-world (the fitting reconnects when the shell moves) and is recorded, not a defect.
 
 ## Requests
@@ -58,7 +63,8 @@ To other chats (owners decide; E edits none of their files):
 - **L1 · The shell regulator as a living body pack** at embed, and a Gu-as-creature body able to regulate (pc1 with G). **L2 · Crop uptake and grazing** bodies reading residue (pc2); a colony that writes light and wild cohorts that move toward it (pc3).
 - **G1 · A regulating Gu as an L body** on the substrate, so pc1 runs with a Gu instead of the shell.
 - **A1 · A rival actor** that reads what it knows of a place and picks a working (pc3).
-- **P1 · A generated thing with cause `place`** handed to a working in a substrate world, and one with cause `inventor` from an actor (P's done check with E).
+- **P1 · Place-driven weights (PGB5).** gl4-context calls `generate` with cause `place`; the grammar should read the place (W quantities or aspect) so the GL4 baseline lifts. The test's overlay control shows the size of lift the metric looks for. **P2 · One generated thing with cause `inventor`** from an actor, handed to a working, for the actor-driven run.
+- **G2 · Habitat rows.** Where each catalogue kind arises (place quantities, care, carrier marks) with locators, so GL4 expectations come from the source instead of the plan default.
 
 ## Backlog (E)
 
@@ -68,13 +74,13 @@ To other chats (owners decide; E edits none of their files):
 
 ## Counts (PFP2, harness form)
 
-Plan chains running with no join code: 0 of 3 complete (pc1 partial). Contact cases in the harness: 2. Bespoke join modules: 0.
+Plan chains running with no join code: 0 of 3 complete (pc1 partial). Contact cases in the harness: 2. Generation cases: 1 (place-driven). GL4 places fitting: 0 of 2 on P v0. Bespoke join modules: 0.
 
 ## Checks
 
 | Command | Result | Gaps |
 | --- | --- | --- |
-| `node --test tests/emergence_harness.test.js` | 6 pass, 0 fail | CC1 only; the plan chains wait on domain packs |
+| `node --test tests/emergence_harness.test.js` | 8 pass, 0 fail (phase 2a) | CC1 and gl4 only; the plan chains wait on domain packs |
 | `node scripts/emergence_run.mjs --seed 1` and `--seed 5` | all modes agree, 0 new chains, exit 0 | |
 | `npm run check:arch` | pass | |
 | `npm run check:rules` | pass (one lint warning beyond baseline is in `src/book_world_hp_exams.js`, not this branch's work) | |
@@ -87,9 +93,9 @@ route: n/a
 state: built
 viewport: n/a
 persistence: unchanged
-tests: focused tests/emergence_harness.test.js (6 pass); check:arch and check:rules pass
+tests: focused tests/emergence_harness.test.js (8 pass); check:arch and check:rules pass
 review: diff-scoped
-surface: new harness scripts emergence_harness, emergence_cases, emergence_run and known chains; test file and test-only toy packs; not wired into play
+surface: new harness scripts emergence_harness, emergence_cases, emergence_run and known chains; test file, test-only toy packs and the gl4 context case; not wired into play
 ```
 
 ## Next

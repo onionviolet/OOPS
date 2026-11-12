@@ -115,6 +115,16 @@ export function runCase(caseDef, {seed = 1, days = caseDef.days ?? 3, mode = 'da
         windows[(world.clock - start) / W - 1] = moved;
         lastLedger = now;
     };
+    // Generator and search cost per simulated day (PR3, MC16): calls, trials
+    // (draws or evaluated candidates, as the search reports them) and wall ms.
+    const searchDaily = [], generations = [];
+    const metered = at => (name, fn) => {
+        const t0 = now(), out = fn();
+        const d = Math.floor((at - start) / DAY), row = searchDaily[d] ??= {day: d, calls: 0, trials: 0, ms: 0, by: {}};
+        row.calls++; row.trials += out.trials ?? 0; row.ms += now() - t0;
+        row.by[name] = (row.by[name] ?? 0) + (out.trials ?? 0);
+        return out.value;
+    };
     // Case observations, last reading per key (a batch read when it is cleared or the run ends).
     const outcomeMap = new Map();
     const observe = at => { for (const o of built.observe?.(world, at) ?? []) outcomeMap.set(o.key ?? JSON.stringify(o), o); };
@@ -125,14 +135,17 @@ export function runCase(caseDef, {seed = 1, days = caseDef.days ?? 3, mode = 'da
         while (si < schedule.length && schedule[si].at === cut) {
             const s = schedule[si++];
             observe(cut);
-            world = applyWorldOps(rules, world, s.ops, s.cause);
+            // An op list may be computed at settlement time (an actor or a generator acting
+            // on the world as it stands); its searches are metered (PR3, MC16).
+            const ops = typeof s.ops === 'function' ? s.ops(world, {at: cut, search: metered(cut), generated: g => generations.push({at: cut, ...g})}) : s.ops;
+            world = applyWorldOps(rules, world, ops, s.cause);
             harvest();
         }
         if (reloads.has(cut)) world = restoreWorld(rules, JSON.parse(JSON.stringify(serializeWorld(world))));
     }
     observe(end);
     const outcomes = [...outcomeMap.values()];
-    return analyse({caseDef, rules, world, records: [...records.values()].sort((a, b) => a.seq - b.seq), gaps, daily, outcomes, seed, days, mode, start, windows});
+    return analyse({caseDef, rules, world, records: [...records.values()].sort((a, b) => a.seq - b.seq), gaps, daily, outcomes, seed, days, mode, start, windows, searchDaily, generations});
 }
 
 function ledgerSnapshot(world) {
@@ -159,7 +172,7 @@ function publisherOf(rec, bySeq, packs) {
     return pack ? {pack, via: cause.slice(pack.length + 1)} : {pack: 'outside', via: cause};
 }
 
-function analyse({caseDef, rules, world, records, gaps, daily, outcomes, seed, days, mode, start, windows}) {
+function analyse({caseDef, rules, world, records, gaps, daily, outcomes, seed, days, mode, start, windows, searchDaily = [], generations = []}) {
     const packs = [...rules.packs];
     const bySeq = new Map(records.map(r => [r.seq, r]));
     const children = new Map();
@@ -262,9 +275,16 @@ function analyse({caseDef, rules, world, records, gaps, daily, outcomes, seed, d
         contacts,
         loops: {damped: loops.filter(l => l.kind === 'damped-by-cascade-dial'), repeats: loops.filter(l => l.kind === 'repeat-on-path'), runaways, rhythms},
         outcomes,
-        cost: {segmentsPerDay, maxSegmentsPerDay: Math.max(0, ...segmentsPerDay), msPerDay, maxMsPerDay: Math.max(0, ...msPerDay)},
+        generations,
+        cost: {segmentsPerDay, maxSegmentsPerDay: Math.max(0, ...segmentsPerDay), msPerDay, maxMsPerDay: Math.max(0, ...msPerDay),
+            search: Array.from({length: days}, (_, d) => {
+                const r = searchDaily[d] ?? {calls: 0, trials: 0, ms: 0, by: {}};
+                return {day: d, calls: r.calls, trials: r.trials, ms: Math.round(r.ms * 100) / 100, by: r.by};
+            })},
     };
-    report.chainFingerprint = fingerprint({chains: chainRows, contacts, loops: report.loops, outcomes});
+    report.cost.maxSearchTrialsPerDay = Math.max(0, ...report.cost.search.map(r => r.trials));
+    report.cost.maxSearchMsPerDay = Math.max(0, ...report.cost.search.map(r => r.ms));
+    report.chainFingerprint = fingerprint({chains: chainRows, contacts, loops: report.loops, outcomes, generations});
     return report;
 }
 
@@ -285,7 +305,30 @@ export function overBudget(report, budget = {}) {
     if (budget.segmentsPerDay != null && report.cost.maxSegmentsPerDay > budget.segmentsPerDay)
         out.push(`segments/day ${report.cost.maxSegmentsPerDay} > ${budget.segmentsPerDay}`);
     if (budget.msPerDay != null && report.cost.maxMsPerDay > budget.msPerDay) out.push(`ms/day ${report.cost.maxMsPerDay} > ${budget.msPerDay}`);
+    if (budget.searchTrialsPerDay != null && report.cost.maxSearchTrialsPerDay > budget.searchTrialsPerDay)
+        out.push(`search trials/day ${report.cost.maxSearchTrialsPerDay} > ${budget.searchTrialsPerDay}`);
+    if (budget.searchMsPerDay != null && report.cost.maxSearchMsPerDay > budget.searchMsPerDay)
+        out.push(`search ms/day ${report.cost.maxSearchMsPerDay} > ${budget.searchMsPerDay}`);
     return out;
+}
+
+/**
+ * GL4 context fit: do things arise where the source says they do? For each
+ * place with an expected value of one part (`expect[place] = value`), compare
+ * the share of that place's generations carrying the value with its base share
+ * (the corpus rate, `base[value]`). Lift at or above the dial counts as fit.
+ * `partOf(generation)` returns the list of values a generation carries.
+ */
+export function contextFit(generations, {expect, base, partOf, lift = 1.5, minCount = 8}) {
+    const rows = Object.entries(expect).sort().map(([place, value]) => {
+        const here = generations.filter(g => g.place === place);
+        const hits = here.filter(g => partOf(g).includes(value)).length;
+        const share = here.length ? hits / here.length : 0, b = base[value] ?? 0;
+        const ratio = b ? share / b : 0;
+        return {place, value, count: here.length, hits, share: Math.round(share * 1000) / 1000, base: Math.round(b * 1000) / 1000,
+            lift: Math.round(ratio * 100) / 100, fit: here.length >= minCount && ratio >= lift};
+    });
+    return {rows, fit: rows.filter(r => r.fit).length, of: rows.length, lift, minCount};
 }
 
 /** Short text form of a report for the CLI and checkpoints. */
