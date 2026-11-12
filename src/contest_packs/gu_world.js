@@ -7,6 +7,38 @@
 // contest only says how the moves meet, not what a Gu is.
 import {defineContestLaw} from '../contest.js';
 import {contestBody} from '../contest_bodies.js';
+import {guWorkingLaw, guMethods, guMoveMethod, guRef, asBoundGu} from '../gu_working_law.js';
+import {guCatalogue} from '../gu_catalogue.js';
+
+// G's own Gu workings entering a contest unchanged (SC9): the bridge binds the entrant's carried Gu, runs G's
+// method on G's law, reads G's `damage` effects as effect sentences and debits what G's activation spent.
+export const GU_CONTEST_DIALS = Object.freeze({
+    bladeForce: {value: 14, why: 'Vitality one unit of Gu damage magnitude removes from an unarmoured body; one plain moonblade drops a mortal hunter (ch65-70).'},
+});
+const carried = actor => Object.fromEntries((actor.profile.gu ?? []).map(g => [g.id, g]));
+export function guBridge(method) {
+    return {
+        law: guWorkingLaw, method,
+        bindings: actor => {
+            const byKind = Object.fromEntries((actor.profile.gu ?? []).map(g => [g.kind, g.id]));
+            return Object.fromEntries(Object.entries(method.roles).map(([role, kind]) => [role, kind === 'operator'
+                ? {kind: 'operator', id: actor.id}
+                : guRef(byKind[guRoleKind(method, role)] ?? `${actor.id}.missing.${role}`)]));
+        },
+        facts: actor => ({reserves: {[actor.id]: {primeval: actor.quantities.primeval_essence ?? 0}}}),
+        ports: actor => ({read: ref => ref.kind === 'operator' ? ref
+            : carried(actor)[ref.id] ? asBoundGu({fedThrough: 1e9, alive: true, holder: actor.id, ...carried(actor)[ref.id]}) : null}),
+        effects: rows => rows.filter(row => row.kind === 'damage')
+            .map(row => ({verb: 'remove', object: 'vitality', amount: Math.round(row.magnitude * GU_CONTEST_DIALS.bladeForce.value)})),
+        spent: (actor, facts) => ({primeval_essence: (actor.quantities.primeval_essence ?? 0) - (facts.reserves?.[actor.id]?.primeval ?? 0)}),
+    };
+}
+// Which Gu kind fills a role: a move record names it per role; a single activation binds the method's own kind.
+function guRoleKind(method, role) {
+    const move = Object.values(guCatalogue).map(row => row.move?.value).find(m => m && `gu.move.${m.id}` === method.id);
+    if (move) return move.roles.find(r => r.id === role)?.kind;
+    return method.id.replace(/^gu\./, '').replace(/\.activate$/, '');
+}
 
 export const GU_ESSENCE = Object.freeze({id: 'primeval_essence', unit: 'part', min: 0, max: 1_000_000});
 
@@ -21,6 +53,12 @@ export const GU_CONTEST = defineContestLaw({
             why: 'Moonglow brightens the blade: more reach and bite for the same four parts.'},
         bow_shot: {resolver: 'strike', steps: [8, 4], costs: {arrows: 1}, power: 9, lethal: true,
             why: 'Draw and loose: a hunter\'s arrow. Slower than a thrown blade, about as deadly to an unarmoured body.'},
+        // G's Moonlight Gu activation and the Little Light Moonblade killer move, run on G's law (ch22, ch34, ch70).
+        moonlight_gu: {resolver: 'layers', type: 'slashing', steps: [6, 4], aim: 1.15, lethal: true, bridge: guBridge(guMethods('moonlight').activate),
+            why: 'The same throw as moonblade, but its cost and force come from G\'s catalogue row through G\'s working.'},
+        little_light_moonblade: {resolver: 'layers', type: 'slashing', steps: [8, 4], aim: 1.3, lethal: true,
+            bridge: guBridge(guMoveMethod(guCatalogue.moonlight.move.value)),
+            why: 'Little Light doubles the blade\'s size and reach; one more beat to gather (ch70).'},
         fist: {resolver: 'strike', steps: [6], power: 3, why: 'A bare fist: quick and weak.'},
         bite: {resolver: 'strike', steps: [7], power: 3, lethal: true, why: 'A lunge and bite. Crippled wolves bite weakly (ch122: a crippled pack, not a healthy one).'},
     },

@@ -92,3 +92,49 @@ test('FC3 lands on L: fallen wolves leave the lifecycle cohort through its own d
     const after = applyLifecycleIntents(lifecycle, intents, {clock: 0});
     assert.equal(after.cohorts['qing_mao.lightning_wolves'].stock, 20 - fallen);
 });
+
+// ---------- entrants as effect sentences and composed workings (MS goal update; SC9) ----------
+import {guMethods} from '../src/gu_working_law.js';
+import {hpEffects} from './fixtures/procedural_grammar/effect_worlds.mjs';
+import {assembleEffect} from '../src/effect_grammar.js';
+
+const withGu = (scene, moves) => {
+    const fy = scene.entrants.find(e => e.id === 'fang_yuan');
+    fy.moves = moves;
+    fy.profile.gu = [{id: 'fy.moonlight', kind: 'moonlight', rank: 1}, {id: 'fy.little_light', kind: 'little-light', rank: 1}];
+    return scene;
+};
+
+test('G\'s own Moonlight Gu working enters the duel unchanged: G\'s cost, G\'s force, the same canon outcome', () => {
+    assert.deepEqual(GU_CONTEST.moves.moonlight_gu.bridge.method, guMethods('moonlight').activate);
+    let wins = 0;
+    for (const seed of seeds(30)) {
+        const {record, world} = fight(GU_CONTEST, withGu(wangErDuel(), ['moonlight_gu', 'fist']), seed);
+        if (record.result.winner === 'fang_yuan') wins += 1;
+        const spent = 16 - readQuantity(world, 'fang_yuan', 'primeval_essence');
+        const blades = record.log.filter(l => l.actor === 'fang_yuan' && l.move === 'moonlight_gu').length;
+        assert.ok(blades > 0);
+        assert.equal(spent, 4 * blades, 'G\'s activation charges four parts a blade');
+    }
+    assert.ok(wins >= 22, `won ${wins}/30`);
+});
+
+test('the Little Light Moonblade composed working costs five and cuts twice as hard; with too little essence the chooser falls back', () => {
+    const {record, world} = fight(GU_CONTEST, withGu(wangErDuel({essence: 5}), ['little_light_moonblade', 'fist']), 2);
+    const hit = record.log.find(l => l.move === 'little_light_moonblade' && l.outcome === 'hit');
+    if (hit) assert.match(hit.landed, /vitality -28/);
+    assert.equal(readQuantity(world, 'fang_yuan', 'primeval_essence'), 0);
+    assert.equal(record.log.filter(l => l.actor === 'fang_yuan' && l.move === 'little_light_moonblade').length, 1);
+    assert.ok(record.log.some(l => l.actor === 'fang_yuan' && l.move === 'fist'), 'out of essence, he fights on with fists');
+});
+
+test('the Hogwarts rows are effect sentences the effect grammar accepts', () => {
+    for (const [id, move] of Object.entries(HOGWARTS_CONTEST.moves)) {
+        if (!move.sentences) continue;
+        for (const sentence of move.sentences) {
+            const {verb, object, target, time, carrier, cost} = sentence;
+            const out = assembleEffect(hpEffects, {verb, object, target, time, carrier, cost, limits: []});
+            assert.equal(out.ok, true, `${id}: ${JSON.stringify(out.receipt.violations)}`);
+        }
+    }
+});

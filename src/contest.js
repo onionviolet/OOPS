@@ -9,7 +9,7 @@
 import {check, natural, object} from './basics.js';
 import {drawFraction} from './gen_kit.js';
 import {checkKey} from './check_keys.js';
-import {defineWorkingLaw, beginWorking, settleWorking, nextWorkingDeadline, interruptWorking,
+import {defineWorkingLaw, beginWorking, settleWorking, nextWorkingDeadline, interruptWorking, quoteWorking,
     validateWorkingRecord} from './kernel_working.js';
 import {applyWorldOps, readQuantity} from './world_substrate.js';
 import {CONTEST_RESOLVERS} from './contest_resolvers.js';
@@ -58,6 +58,8 @@ function validateMove(id, move, resolvers) {
         `Move ${id} needs steps of whole ticks.`);
     check(['foe', 'self'].includes(move.target ?? 'foe'), `Move ${id} targets a foe or itself.`);
     check(move.kind === 'guard' || resolvers[move.resolver], `Move ${id} names an unknown resolver.`);
+    if (move.bridge) check(object(move.bridge.law) && object(move.bridge.method) && ['bindings', 'facts', 'ports', 'effects', 'spent']
+        .every(k => typeof move.bridge[k] === 'function'), `Move ${id} has an incomplete working bridge.`);
     for (const table of [move.costs ?? {}, move.requires ?? {}]) for (const [q, n] of Object.entries(table))
         check(idOk(q) && natural(n), `Move ${id} has an invalid cost or requirement.`);
     if (move.kind === 'guard') check(object(move.block), `Guard ${id} needs what it blocks.`);
@@ -89,9 +91,49 @@ function release(law, {bound, options, address, facts}) {
     if (!target.able) return {ok: true, effects: [{kind: 'contest.meet', actor: actor.id, target: target.id, move: move.id,
         outcome: 'wasted', landed: [], chance: 0}], observed: {outcome: 'wasted'}};
     const draw = name => drawFraction(facts.seed, checkKey({subject: address, method: `contest.${name}`}));
-    const result = law.resolvers[move.resolver]({actor, target, move, draw, dials: law.dials});
-    return {ok: true, effects: [{kind: 'contest.meet', actor: actor.id, target: target.id, move: move.id, ...result}],
+    let meeting = move, spent = {};
+    if (move.bridge) {
+        // SC9: the entrant's own working (a Gu move, a cast) runs unchanged on its own law. The contest only
+        // reads what it produced, as effect sentences, and what it spent.
+        const ran = runBridge(move.bridge, actor, `${address}.w`);
+        if (!ran.ok) return {ok: true, effects: [{kind: 'contest.meet', actor: actor.id, target: target.id, move: move.id,
+            outcome: 'failed', reason: ran.reason, landed: [], chance: 0, spent: ran.spent}], observed: {outcome: 'failed'}};
+        meeting = {...move, effects: ran.effects};
+        spent = ran.spent;
+    }
+    const result = law.resolvers[move.resolver]({actor, target, move: meeting, draw, dials: law.dials});
+    return {ok: true, effects: [{kind: 'contest.meet', actor: actor.id, target: target.id, move: move.id, ...result, spent}],
         observed: {outcome: result.outcome}};
+}
+
+// A working bridge: {law, method, bindings(actor), facts(actor), ports(actor), effects(rows, actor) -> [{verb, object, amount}],
+// spent(actor, facts) -> {quantity: amount}}. It runs the foreign working to its end at contest step time; its own
+// minutes are its own clock. A working that stops (no fuel, a lost Gu) fails the move with that reason.
+function runBridge(bridge, actor, id) {
+    const begun = beginWorking(bridge.law, bridge.method, {id, bindings: bridge.bindings(actor), facts: bridge.facts(actor), at: 0});
+    const {record, effects} = settleWorking(bridge.law, begun, {now: begun.deadlines.at(-1), ports: bridge.ports(actor)});
+    const spent = bridge.spent(actor, record.facts);
+    if (record.status !== 'complete') return {ok: false, reason: record.receipts.at(-1)?.reason ?? 'The working stopped.', spent};
+    return {ok: true, effects: bridge.effects(effects.map(row => row.effect), actor), spent};
+}
+function bridgeQuote(bridge, actor) {
+    return quoteWorking(bridge.law, bridge.method, {id: 'contest.quote', bindings: bridge.bindings(actor), facts: bridge.facts(actor),
+        at: 0, ports: bridge.ports(actor)}).ok;
+}
+
+/** A move row from effect sentences (PFP23, SB3): {verb, object, target, time, carrier, cost, limits} plus an amount.
+ * Every verb but `add` lowers the object's body quantity (a cut removes vitality, a charm that sets legs dancing moves
+ * footing); `block` makes a guard on its object. quantityOf maps grammar objects onto the body quantities a world uses. */
+export function moveFromSentence(sentences, {resolver, steps, quantityOf = {}, costAmount = 0, ...rest}) {
+    const list = Array.isArray(sentences) ? sentences : [sentences];
+    check(list.length > 0 && list.every(p => object(p) && typeof p.verb === 'string' && typeof p.object === 'string'),
+        'A move from sentences needs at least one sentence with a verb and an object.');
+    const q = o => quantityOf[o] ?? o, first = list[0];
+    const costs = first.cost && costAmount > 0 ? {[q(first.cost)]: costAmount} : {};
+    if (list.every(p => p.verb === 'block')) return {kind: 'guard', target: 'self', steps,
+        block: Object.fromEntries(list.map(p => [q(p.object), p.amount ?? 1])), costs, sentences: structuredClone(list), ...rest};
+    return {resolver, steps, target: first.target === 'self' ? 'self' : 'foe', costs, sentences: structuredClone(list),
+        effects: list.map(p => ({verb: p.verb === 'add' ? 'add' : 'remove', object: q(p.object), amount: p.amount})), ...rest};
 }
 
 function methodFor(law, moveId, speed) {
@@ -121,8 +163,10 @@ function runningMove(law, e) {
 /** What an entrant is at this moment, read from its body in the world. */
 export function entrantView(law, record, world, id) {
     const e = record.entrants[id];
+    // Everything the body carries, so an entrant's own working (a Gu move) can read its fuel.
     const quantities = Object.fromEntries([...new Set([...BODY_QUANTITIES, ...Object.keys(law.endings).filter(k => k !== 'noMeans'),
-        ...e.reads])].map(q => [q, quantity(record, world, e, q)]).filter(([, v]) => v !== null));
+        ...e.reads, ...Object.keys(world.holders[e.body]?.quantities ?? {})])].sort()
+        .map(q => [q, quantity(record, world, e, q)]).filter(([, v]) => v !== null));
     const max = e.max.vitality || 1, fraction = (quantities.vitality ?? max) / max;
     const ends = Object.keys(law.endings).filter(k => k !== 'noMeans' && k in quantities);
     const able = e.status === 'in' && ends.every(q => quantities[q] > 0);
@@ -170,8 +214,9 @@ export function beginContest(law, {id, seed, place, entrants, sides = {}, detail
 
 // ---------- choosing ----------
 
-function affordable(law, record, world, e, moveId) {
+function affordable(law, record, world, e, moveId, id) {
     const move = law.moves[moveId];
+    if (move.bridge && id && !bridgeQuote(move.bridge, entrantView(law, record, world, id))) return false;
     for (const [q, n] of Object.entries({...move.requires, ...move.costs})) {
         const have = quantity(record, world, e, q);
         if (have === null || have < (move.requires?.[q] ?? 0) || have < (move.costs?.[q] ?? 0)) return false;
@@ -210,7 +255,7 @@ export function defaultChoice(law, record, world, id) {
         const move = law.moves[moveId];
         if (move.kind === 'guard' && !(threatened && e.wants.guards)) continue;
         if (move.kind !== 'guard' && move.target !== 'self' && !pick) return {move: 'wait', target: id, why: 'no opening'};
-        if (!affordable(law, record, world, e, moveId)) continue;
+        if (!affordable(law, record, world, e, moveId, id)) continue;
         return {move: moveId, target: move.target === 'self' ? id : pick.id, why: move.kind === 'guard' ? 'an attack is coming' : 'best open move'};
     }
     return null;
@@ -243,13 +288,16 @@ function applyMeeting(law, record, world, rules, effect, at) {
     if (effect.kind !== 'contest.meet') return world;
     const target = record.entrants[effect.target];
     const ops = [];
+    for (const [q, n] of Object.entries(effect.spent ?? {}).sort(([a], [b]) => (a < b ? -1 : 1)))
+        if (n && quantity(record, world, record.entrants[effect.actor], q) !== null)
+            ops.push({op: 'add', holder: record.entrants[effect.actor].body, quantity: q, amount: -n, source: `${cause}:spent`});
     let vitalityLost = 0;
     for (const {verb, object: q, amount} of effect.landed) {
         if (quantity(record, world, target, q) === null) continue;
         ops.push({op: 'add', holder: target.body, quantity: q, amount: verb === 'add' ? amount : -amount, source: cause});
         if (q === 'vitality' && verb !== 'add') vitalityLost += amount;
     }
-    if (ops.length && record.detail === 'near') ops.push({op: 'publish', kind: 'contest.blow', place: record.place,
+    if (effect.landed.length && record.detail === 'near') ops.push({op: 'publish', kind: 'contest.blow', place: record.place,
         detail: {actor: effect.actor, target: effect.target, move: effect.move, landed: effect.landed}});
     world = land(law, record, world, rules, ops, cause);
     if (effect.landed.length) record.landed += 1;
@@ -399,7 +447,7 @@ export function stepContest(law, record0, rules, world0, ports = {}) {
         return {record, world};
     }
     check(e.moves.includes(choice.move) || BUILT_INS.includes(choice.move), `${id} cannot use ${choice.move}.`);
-    check(affordable(law, record, world, e, choice.move), `${id} cannot pay for ${choice.move}.`);
+    check(affordable(law, record, world, e, choice.move, id), `${id} cannot pay for ${choice.move}.`);
     const move = law.moves[choice.move];
     // Costs are paid as the working begins (KB3 on the kernel side); the refund policy is none by default.
     const costs = Object.entries(move.costs ?? {}).filter(([, n]) => n > 0)

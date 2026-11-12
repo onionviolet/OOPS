@@ -5,7 +5,7 @@
 // quantity, not always health: Disarming takes the wand from the hand
 // (focus), Tickling takes composure, the Dancing Feet charm takes footing.
 // Numbers are dials with reasons, calibrated to the scene's outcomes (AD49).
-import {defineContestLaw} from '../contest.js';
+import {defineContestLaw, moveFromSentence} from '../contest.js';
 import {contestBody} from '../contest_bodies.js';
 
 export const HOGWARTS_QUANTITIES = Object.freeze([
@@ -14,20 +14,31 @@ export const HOGWARTS_QUANTITIES = Object.freeze([
     {id: 'footing', unit: 'point', min: 0, max: 100},
 ]);
 
+// Grammar objects onto this world's body quantities.
+export const QUANTITY_OF = Object.freeze({relation: 'focus', mind: 'composure', position: 'footing'});
+
 export const HOGWARTS_CONTEST = defineContestLaw({
     id: 'c.hogwarts', revision: 0, lethal: false,
     // A wizard who cannot stand or stop laughing cannot duel on; without a wand there is nothing to cast (noMeans).
     endings: {composure: 'yielded', footing: 'yielded', noMeans: 'yielded'},
+    // Each charm is an effect sentence (PFP23, the plan's grammar), read the way P's Hogwarts mapping reads the
+    // spellbook. The world's quantities stand for the grammar's objects: the wand in hand is the held-implement
+    // relation, composure the mind, footing the body's position.
     moves: {
-        expelliarmus: {resolver: 'notch', steps: [4, 3], requires: {focus: 1}, notch: 0.5,
-            effects: [{verb: 'remove', object: 'focus', amount: 1}, {verb: 'remove', object: 'footing', amount: 30}],
-            why: 'The Disarming Charm takes the wand and, cast hard, throws the target off its feet (ch11: Lockhart is blasted backwards).'},
-        rictusempra: {resolver: 'notch', steps: [4, 3], requires: {focus: 1}, effects: [{verb: 'remove', object: 'composure', amount: 40}],
-            why: 'The Tickling Charm doubles the target over with laughter; one charm does not end a duel, a third would.'},
-        tarantallegra: {resolver: 'notch', steps: [4, 3], requires: {focus: 1}, effects: [{verb: 'remove', object: 'footing', amount: 40}],
-            why: 'The Dancing Feet charm sets the legs jerking out of control.'},
-        shield_guard: {kind: 'guard', target: 'self', steps: [8], requires: {focus: 1}, block: {focus: 2, composure: 1, footing: 1},
-            why: 'A held block makes incoming charms on its objects harder to land (EF3 counterplay). Not cast in ch11; kept as a generic guard row.'},
+        expelliarmus: moveFromSentence([
+            {verb: 'move', object: 'relation', target: 'line', time: 'instant', carrier: 'spoken-spell', cost: 'stamina', amount: 1},
+            {verb: 'move', object: 'position', target: 'line', time: 'instant', carrier: 'spoken-spell', cost: 'stamina', amount: 30},
+        ], {resolver: 'notch', steps: [4, 3], requires: {focus: 1}, notch: 0.5, quantityOf: QUANTITY_OF,
+            why: 'The Disarming Charm takes the wand and, cast hard, throws the target off its feet (ch11: Lockhart is blasted backwards).'}),
+        rictusempra: moveFromSentence({verb: 'transform', object: 'mind', target: 'line', time: 'instant', carrier: 'spoken-spell', cost: 'stamina', amount: 40},
+            {resolver: 'notch', steps: [4, 3], requires: {focus: 1}, quantityOf: QUANTITY_OF,
+                why: 'The Tickling Charm doubles the target over with laughter; one charm does not end a duel, a third would.'}),
+        tarantallegra: moveFromSentence({verb: 'move', object: 'position', target: 'line', time: 'instant', carrier: 'spoken-spell', cost: 'stamina', amount: 40},
+            {resolver: 'notch', steps: [4, 3], requires: {focus: 1}, quantityOf: QUANTITY_OF,
+                why: 'The Dancing Feet charm sets the legs jerking out of control.'}),
+        shield_guard: moveFromSentence(['relation', 'mind', 'position'].map((object, i) => ({verb: 'block', object, target: 'self', time: 'sustained',
+            carrier: 'spoken-spell', cost: 'stamina', amount: i === 0 ? 2 : 1})), {steps: [8], requires: {focus: 1}, quantityOf: QUANTITY_OF,
+            why: 'A held block makes incoming charms on its objects harder to land (EF3 counterplay). Not cast in ch11; kept as a generic guard row.'}),
     },
 });
 
