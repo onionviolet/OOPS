@@ -1,0 +1,52 @@
+{
+ "probe": {
+  "inDom": true,
+  "hidden": true,
+  "shellModule": "spellbook",
+  "dock": "workspace-dock parity-region",
+  "foreignHosts": [],
+  "option": "Spellbook · not here",
+  "optionValue": "spellbook",
+  "status": "Not available at this place or story yet",
+  "viewport": [
+   1920,
+   1080
+  ]
+ },
+ "eligible": {
+  "hidden": false,
+  "open": true,
+  "shellModule": "local-actions",
+  "borrowed": true,
+  "back": "← Cyoria supervised practice court",
+  "dockId": "",
+  "rect": [
+   362,
+   113,
+   1027,
+   920
+  ],
+  "foreignHosts": [],
+  "location": "Cyoria supervised practice court",
+  "text": "Spellbook / Test workingCast next stepRecord working",
+  "afterBack": "spellbook"
+ },
+ "errors": [],
+ "lines": [
+  "PASS viewport 1920x1080 · 1920x1080",
+  "PASS panel node in the document",
+  "PASS panel sits in its own workspace shell · shell=spellbook dock=workspace-dock parity-region",
+  "PASS no foreign panel host contains it · none",
+  "PASS listed in All panels with an unavailable reason · Spellbook · not here",
+  "PASS panel hidden away from a practice place",
+  "PASS no page errors",
+  "PASS earned save: listed as available · Spellbook",
+  "PASS earned save: spellbook shown · location=Cyoria supervised practice court",
+  "PASS earned save: opened as a borrowed centre view, no foreign panel host · shell=local-actions back=← Cyoria supervised practice court",
+  "PASS earned save: shell on screen at 1920x1080 · 362,113,1027,920",
+  "PASS earned save: opened panel shows its controls · Spellbook / Test workingCast next stepRecord working",
+  "PASS earned save: learned methods listed (info only; depends on what this save has studied) · no method studied yet at this save",
+  "PASS earned save: Back returns it to its own workspace shell · shell=spellbook",
+  "PASS earned save: no page errors"
+ ]
+}
