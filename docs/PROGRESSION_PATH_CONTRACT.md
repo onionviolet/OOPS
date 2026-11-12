@@ -33,6 +33,8 @@ method   = crossingMethod(law, row, {kind, to, minutes})
 | PRG10 | **Felt, not read.** A track may carry three felt words (none, some, reached). Views show those where the holder could only feel progress, and the count where they could measure it (GTR15). | Per track. |
 | PRG11 | **Paths can be held by things.** A Gu's rank or a creature's rank is a path with a thing as holder; the thing's owner keeps the row and record. | Per world. |
 | PRG13 | **Rolled attempts.** A step with `attempt` (breakthrough rules) rolls through `breakthrough_trial` with the stage index as its tier. The caller passes the roll (from a K step address under GR1-GR17, or its own RNG), units paid and the holder's trial state; the result returns the updated trial state for the owner to keep. A failed roll keeps the position. Per-stage gate dials (`gateDials`) set a stage's threshold on a shared gate. | Risk, floor and pay per world, as `defineTrialRules`. |
+| PRG14 | **Undigested power leaves pressure.** A step with `rush: {track, pressure, residual?}` admits without its count track; crossing short of the need publishes `progression.pressure` of `ceil(pressure × missing ÷ need)` with cause `undigested`, and a full track publishes the `residual` dial with cause `residual`. A reads it as madness, L as harm; R never applies it. Other crossings and gates still bind. | Both dials per row and per rung; the text gives ranges, not numbers (AD49). |
+| PRG15 | **Conserved power.** A step with `conserves: <identity>` records what the holder took in. `heldConserved` lists it; `releaseConserved` publishes `progression.released` at death with the highest identity containing the lower ones, for W's conservation law to place and M to claim. Nothing in R destroys it. | Per world: only where the source conserves power (Lord of the Mysteries LR3); other worlds leave `conserves` out. |
 | PRG12 | **NPCs walk the same rows.** An NPC's step uses the same row, quote and working (GTR20, PFP11). | Far from the player a host may settle a path as a rate to the same expected position (PFP12). |
 
 ## First consumers (in the test file)
@@ -48,13 +50,17 @@ method   = crossingMethod(law, row, {kind, to, minutes})
 | Code | Gap | Default proposal | Owner |
 | --- | --- | --- | --- |
 | PRB1 | Odds on a K quote for a rolled step (PRG13 landed for direct crossings; Frontier tempering runs on it) | A K quote runs the draw and shows the outcome, so odds need KB9 | K |
-| PRB2 | Backlash on bodies (cracked aperture, loss of control from an undigested drink) | A `progression.backlash` effect L applies | R with L |
+| PRB2 | Applying pressure and backlash to bodies and minds (PRG14 publishes `progression.pressure`) | L applies harm, A reads madness | L, A |
 | PRB3 | Digestion by acting quality: an act counts if it fits the potion's principle | A principle match supplied by S or N; R counts what is supplied | S, N |
 | PRB4 | Threshold expressions over facts (GTR30) | A fourth kind once a second consumer needs it | R |
 | PRB5 | Rank One sub-stages from essence purity rather than recognition | G supplies purity as a track or W quantity; the row's crossings change to quotas | G |
 | PRB6 | Transitions between paths (swap, branch, demote, wrong order) | `ladder_holdings` transitions settled as R workings | R |
-| PRB7 | Conserved seats and characteristics (GTR33) | A world ledger read as a gate fact | M or W |
+| PRB7 | Placing and gathering released characteristics, fixed totals per pathway (PRG15 publishes `progression.released`) | A W conservation law on an identity (SC7) plus convergence; M claims on remains | W, M |
 | PRB8 | Live wiring | Each consumer's owner stores the record and reads it in its scenes (G for Gu, the LOTM owner for sequences, the skill host for levels) | R with each owner |
+
+## Lore fixed points (LR1)
+
+`src/progression_packs/lotm_sequences.js` exports `LOTM_LORE` with locators: LR3 conservation (EPUB `0209`, `0220`) and folding (`C0295`); LR4 acting digestion (ch21 P8, ch101 P29-30, ch93 P33-34, ch167 P55) and loss of control from undigested power (ch295 P11, ch1380 P23, ch451 P48, ch168 P8). Seer and Corpse Collector rows wrap the live descriptors; identities use the proposed `lotm_potions` ids.
 
 ## Live consumers
 

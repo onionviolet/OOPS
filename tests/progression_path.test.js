@@ -174,3 +174,39 @@ test('tempering: the path row rolls exactly as the breakthrough trial and reads 
         assert.deepEqual(q.gate, evaluateGate(temperingGate, facts, {dials: {need: stageNeed(tier)}, knows: () => true}));
     }
 });
+
+test('lotm lore LR4: undigested advancing leaves pressure in proportion; digested leaves the residual', async () => {
+    const {lotmSeerRow, lotmCorpseCollectorRow, LOTM_LORE} = await import('../src/progression_packs/lotm_sequences.js');
+    const held = {assessed: true, examined: true, heldClown: true, heldNext: true};
+    for (const row of [lotmSeerRow, lotmCorpseCollectorRow]) {
+        const need = row.tracks.acting.need;
+        for (let acts = 0; acts <= need; acts++) {
+            let rec = createPosition(row, {position: 1});
+            if (acts) rec = accrue(row, rec, 'acting', acts);
+            const r = crossStep(row, rec, held, {holder: 'klein'});
+            assert.equal(r.ok, true, 'the rule lets a rushed drink happen; the cost is pressure');
+            const p = r.effects.find(e => e.kind === PROGRESSION_EFFECTS.pressure);
+            const missing = need - acts;
+            if (missing === 0) assert.equal(p, undefined, 'digested Seq 9 to 8 leaves no residue at the default dial');
+            else assert.deepEqual([p.amount, p.cause, p.missing], [Math.ceil(2 * missing / need), 'undigested', missing]);
+            assert.match(r.observed.felt, missing ? /not settled/ : /takes\.$/);
+        }
+        const raised = crossStep(row, accrue(row, createPosition(row, {position: 1}), 'acting', need), held, {dials: {residualPressure: 1}});
+        assert.equal(raised.effects.find(e => e.kind === PROGRESSION_EFFECTS.pressure).cause, 'residual');
+        assert.equal(crossStep(row, createPosition(row, {position: 1}), {...held, assessed: false}).refused, true, 'other crossings still bind');
+    }
+    assert.ok(LOTM_LORE.every(l => l.locators.length > 0));
+});
+
+test('lotm lore LR3: what a Beyonder took in is conserved and released whole at death, the highest holding the rest', async () => {
+    const {lotmSeerRow, LOTM_POTION_IDS} = await import('../src/progression_packs/lotm_sequences.js');
+    const {heldConserved, releaseConserved} = await import('../src/progression_path.js');
+    assert.deepEqual(releaseConserved(lotmSeerRow, createPosition(lotmSeerRow)), [], 'an ordinary person releases nothing');
+    const nine = crossStep(lotmSeerRow, createPosition(lotmSeerRow), {heldSeer: true});
+    assert.equal(nine.effects.find(e => e.kind === PROGRESSION_EFFECTS.crossed).conserves, LOTM_POTION_IDS.seer.seq9);
+    const eight = crossStep(lotmSeerRow, accrue(lotmSeerRow, nine.record, 'acting', 6), {assessed: true, examined: true, heldClown: true});
+    assert.deepEqual(heldConserved(lotmSeerRow, eight.record), [LOTM_POTION_IDS.seer.seq9, LOTM_POTION_IDS.seer.seq8]);
+    const [released] = releaseConserved(lotmSeerRow, eight.record, {holder: 'klein', place: 'tingen.street', at: 99});
+    assert.deepEqual(released, {kind: PROGRESSION_EFFECTS.released, holder: 'klein', path: 'lotm.seer', at: 99, place: 'tingen.street',
+        identity: LOTM_POTION_IDS.seer.seq8, contains: [LOTM_POTION_IDS.seer.seq9]});
+});

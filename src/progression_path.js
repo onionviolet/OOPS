@@ -15,7 +15,8 @@ export const PROGRESSION_CONTRACT_VERSION = '0.1';
 export const POSITION_SCHEMA = 'progression.position@1';
 export const THRESHOLD_KINDS = Object.freeze(['count', 'table', 'geometric']);
 // Effect kinds R publishes (KW11). Hosts and W reactors match these constants, never free strings.
-export const PROGRESSION_EFFECTS = Object.freeze({crossed: 'progression.crossed', spent: 'progression.spent'});
+export const PROGRESSION_EFFECTS = Object.freeze({crossed: 'progression.crossed', spent: 'progression.spent',
+    pressure: 'progression.pressure', released: 'progression.released'});
 
 const id = v => typeof v === 'string' && /^[a-z][a-z0-9_.-]*$/.test(v);
 const key = v => typeof v === 'string' && /^[a-zA-Z][a-zA-Z0-9_]*$/.test(v);
@@ -56,6 +57,7 @@ function validateTrack(name, t) {
 // PRG1, PRG2. A path row. `dials` hold every world number a step reads, each with a reason (AD5).
 // steps[stageId] = {open: 'auto' | 'working', gate?: GTR descriptor, supply?: {fact, need: dialName},
 //                   attempt?: breakthrough rules (defineTrialRules), gateDials?: {name: value},
+//                   rush?: {track, pressure: dialName, residual?: dialName}, conserves?: identity id,
 //                   minutes?: dialName | natural, fail?: {reason, felt?}, felt?: text}
 export function definePathRow(row) {
     check(object(row) && object(row.path), 'A path row needs a path.');
@@ -76,6 +78,9 @@ export function definePathRow(row) {
         if (step.supply || step.gate || step.attempt) check(step.fail && text(step.fail.reason), `Step ${stageId} states what failing looks like.`);
         if (step.attempt) check(object(step.attempt) && object(step.attempt.baseRisk) && Object.hasOwn(step.attempt.baseRisk, index), `Step ${stageId} attempt rules need a risk for tier ${index}.`);
         check(step.gateDials === undefined || (object(step.gateDials) && Object.values(step.gateDials).every(amount)), `Step ${stageId} gate dials are numbers.`);
+        if (step.rush) check(object(step.rush) && row.tracks?.[step.rush.track]?.kind === 'count' && Object.hasOwn(dials, step.rush.pressure) &&
+            (step.rush.residual === undefined || Object.hasOwn(dials, step.rush.residual)), `Step ${stageId} rush needs a count track and pressure dials.`);
+        check(step.conserves === undefined || id(step.conserves), `Step ${stageId} conserves an identity id.`);
         steps[stageId] = {...step, gate: step.gate ? defineGate(step.gate) : undefined};
     }
     for (const [i, stage] of path.stages.entries()) if (i > 0) check(Object.hasOwn(steps, stage.id) || stage.crossings.length > 0, `Stage ${stage.id} has no way in.`);
@@ -130,13 +135,25 @@ export function stepQuote(row, rec, facts = {}, {dials = {}, knows = () => false
     const next = rec.position + 1;
     if (next >= row.path.stages.length || next > row.ceiling) return {ready: false, capped: true, from: rec.position, to: null};
     const stage = row.path.stages[next], step = row.steps[stage.id], all = pathFacts(row, rec, facts);
-    const crossings = stage.crossings.map(c => ({id: c.id, type: c.type, met: crossingMet(c, all)}));
+    // PRG14. A rush step does not require its track: crossings that read it stay listed but do not block admission.
+    const rushFacts = step?.rush ? new Set([step.rush.track, `${step.rush.track}.met`, `${step.rush.track}.level`]) : new Set();
+    const crossings = stage.crossings.map(c => ({id: c.id, type: c.type, met: crossingMet(c, all), ...(rushFacts.has(c.fact) ? {rushable: true} : {})}));
     const gate = step?.gate ? evaluateGate(step.gate, all, {dials: {...(step.gateDials ?? {}), ...dials}, knows}) : null;
     const supply = step?.supply ? {fact: step.supply.fact, have: all[step.supply.fact] ?? 0, need: dialValue(row, step.supply.need, dials)} : null;
     if (supply) supply.met = amount(supply.have) && supply.have >= supply.need;
-    const admitted = crossings.every(c => c.met) && (!gate || gate.met);
-    return {from: rec.position, to: next, stage: stage.id, open: step?.open ?? 'auto', crossings, gate, supply, admitted, attempt: !!step?.attempt,
+    const admitted = crossings.every(c => c.met || c.rushable) && (!gate || gate.met);
+    const pressure = step?.rush ? rushPressure(row, rec, step.rush, dials) : null;
+    return {from: rec.position, to: next, stage: stage.id, open: step?.open ?? 'auto', crossings, gate, supply, admitted, attempt: !!step?.attempt, pressure,
         ready: admitted && (!supply || supply.met), minutes: dialValue(row, step?.minutes, dials), capped: false};
+}
+
+// PRG14. Undigested power: crossing with a count track short of its need leaves pressure in proportion to what
+// was missing (ceil of the pressure dial times the missing share); a fully worked track leaves the residual dial.
+// The amount is published for A's madness read and L's body; R never applies it.
+function rushPressure(row, rec, rush, dials) {
+    const t = row.tracks[rush.track], have = Math.min(rec.tracks[rush.track] ?? 0, t.need), missing = t.need - have;
+    const amount = missing > 0 ? Math.ceil(dialValue(row, rush.pressure, dials) * missing / t.need) : dialValue(row, rush.residual, dials);
+    return {track: rush.track, missing, amount, cause: missing > 0 ? 'undigested' : 'residual'};
 }
 
 // PRG7. Crossing one step. Admission is crossings plus gate; a supply step then needs its supply.
@@ -161,10 +178,24 @@ export function crossStep(row, rec, facts = {}, {dials = {}, holder = null, at =
         if (!trial.passed) return {ok: false, reason: step.fail.reason, record: rec, effects: [], trial, observed: {felt: step.fail.felt ?? null}};
     }
     const record = {...rec, position: q.to, since: at};
-    return {ok: true, record, trial, observed: {felt: step.felt ?? null, stage: stage.label},
+    const pressed = q.pressure && q.pressure.amount > 0 ? [{kind: PROGRESSION_EFFECTS.pressure, holder, path: row.path.id, stage: stage.id, ...q.pressure}] : [];
+    return {ok: true, record, trial, observed: {felt: q.pressure?.missing > 0 ? (step.rush.felt ?? step.felt ?? null) : step.felt ?? null, stage: stage.label},
         effects: [...(q.supply ? spend(q.supply.fact, q.supply.need) : []),
             {kind: PROGRESSION_EFFECTS.crossed, holder, path: row.path.id, from: rec.position, to: q.to, stage: stage.id,
-                grants: [...stage.grants], position: record}]};
+                grants: [...stage.grants], position: record, ...(step.conserves ? {conserves: step.conserves} : {})}, ...pressed]};
+}
+
+// PRG15. Conserved power (a world law, LR3 in Lord of the Mysteries): what a holder took in at `conserves` steps is a
+// thing with an identity, never destroyed. The highest one holds the lower ones (folding). At the holder's death R
+// publishes it for W to place, as one identity that contains the rest; W's conservation law and M's claims take over.
+export function heldConserved(row, rec) {
+    validatePosition(row, rec);
+    return row.path.stages.slice(1, rec.position + 1).map(s => row.steps[s.id]?.conserves).filter(Boolean);
+}
+export function releaseConserved(row, rec, {holder = null, at = rec.since, place = null} = {}) {
+    const held = heldConserved(row, rec);
+    if (!held.length) return [];
+    return [{kind: PROGRESSION_EFFECTS.released, holder, path: row.path.id, at, place, identity: held.at(-1), contains: held.slice(0, -1)}];
 }
 // Auto steps open as soon as they are met (a skill level); stops at the first working step or unmet one.
 export function openAutoSteps(row, rec, facts = {}, options = {}) {
