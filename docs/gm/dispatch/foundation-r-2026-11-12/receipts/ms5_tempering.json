@@ -1,0 +1,55 @@
+{
+ "route": "natural",
+ "seed": 20261112,
+ "steps": [
+  {
+   "step": "elder",
+   "field": true
+  },
+  {
+   "step": "before",
+   "tempering": "Current body tempering: Raw",
+   "notReady": true
+  },
+  {
+   "step": "arrived",
+   "location": "Infested field"
+  },
+  {
+   "step": "fought",
+   "halfHours": 3,
+   "notReady": false,
+   "hp": "34/61 hp Max health:"
+  },
+  {
+   "step": "temper button",
+   "text": "Temper without rations"
+  },
+  {
+   "step": "after",
+   "tempering": "Current body tempering: Tempered"
+  },
+  {
+   "step": "saved",
+   "stage": "1"
+  },
+  {
+   "step": "reloaded",
+   "tempering": "Current body tempering: Tempered"
+  },
+  {
+   "step": "imported",
+   "tempering": "Current body tempering: Tempered"
+  }
+ ],
+ "bundle": "sha256:0b336d1e791ed1686f3fecfd464692bce18a86b7c12ff5d08c2c63131e0eb56c",
+ "pageErrors": null,
+ "command": "node scripts/headless/r_tempering_walk.mjs --out <receipt> --export <file>",
+ "browser": {
+  "tool": "yairpg-game MCP game_load of the walk export, then game_screenshot chromium",
+  "png": "ms5_tempering_imported.png",
+  "sha256": "80621b0709b85fa2eed329404dbe37576128d5256b25e8ebbf729cacd19d34b0",
+  "viewport": "1920x1080",
+  "shows": "imported life at Village: STR 12.4, max HP 63 (Tempered stage bonus); the Vows panel is transient and not mirrored"
+ }
+}

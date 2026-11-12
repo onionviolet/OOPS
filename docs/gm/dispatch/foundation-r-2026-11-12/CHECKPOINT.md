@@ -12,8 +12,23 @@ tests: none run; docs-only (check:rules)
 review: none
 ```
 
-**State:** phase 2c done: Frontier tempering's readiness and rolled attempt run on the path rule (PRG13). Phase 2b: live LOTM digestion runs on one counter over R's count track; phase 2a added the path contract v0 module on K, with the three first consumers proven in its test file. Save compatibility (MC4): unchanged (no live key). Phase 1 inventory below is unchanged history.
-**Next phase:** 2d, `skill_ladder` perks as path grants over the skill track, then `faction_rank` rungs as a `table` track over M's standing number (SMK10 split), then the two LOTM ladder descriptors and read models (duplication 2).
+**State:** MS5 route at the floor: Frontier tempering reached from a fresh life, saved, reloaded, exported and imported, with a headless Chromium receipt. Phase 2c: Frontier tempering's readiness and rolled attempt run on the path rule (PRG13). Phase 2b: live LOTM digestion runs on one counter over R's count track; phase 2a added the path contract v0 module on K, with the three first consumers proven in its test file. Save compatibility (MC4): unchanged (no live key). Phase 1 inventory below is unchanged history.
+**Next phase:** key the LOTM sequence steps to B's `lotm_potions` row ids once that ledger lands (it is on no branch yet; id proposal in the shared notes), then 2d, `skill_ladder` perks as path grants over the skill track, then `faction_rank` rungs as a `table` track over M's standing number (SMK10 split), then the two LOTM ladder descriptors and read models (duplication 2).
+
+## MS5 (2026-11-12): one reachable advancement route at the floor
+
+Route: Frontier tempering, the first live consumer of R's step rule (PRG13). Script [`scripts/headless/r_tempering_walk.mjs`](../../../../scripts/headless/r_tempering_walk.mjs); receipt [`receipts/ms5_tempering.json`](receipts/ms5_tempering.json); Chromium image [`receipts/ms5_tempering_imported.png`](receipts/ms5_tempering_imported.png).
+
+| Floor line | Evidence |
+| --- | --- |
+| FLR1 Build | `npm run build` in this worktree; bundle `sha256:0b336d1e791ed1686f3fecfd464692bce18a86b7c12ff5d08c2c63131e0eb56c` (in the receipt) |
+| FLR2 Route | Natural, seed 20261112: fresh hero; elder lines hello, where am I, ask to leave, need to (unlocks the Infested field); travel by the travel button's own entry point `change_location`, because the action list is hidden while a centre panel is open; 1.5 game hours of fighting train Combat; the Vows and trials panel's "Temper without rations" passes (30% fail at this stage, so another seed can fail and keep Raw) |
+| FLR3 Shown | The panel shows "Current body tempering: Raw, Next: Tempered, 30% chance to fail" and "Not ready yet" before the fights; after, "Current body tempering: Tempered" |
+| FLR4 Used | The stage feeds the existing stat consumer: STR 12.4 and max HP 63 after import, from the stage bonus (`STAGE_BONUS`) |
+| FLR5 Kept | Save stores `pledges.trial.stage` 1; reload, Export and Import each show Tempered |
+| FLR6 Labelled | Agent-verified, not human-reviewed; route kind natural; browser proof is the yairpg-game MCP loading the walk's export on the same build and a real headless Chromium screenshot at 1920x1080 (saved-state mirror: the open panel is transient and not shown) |
+
+Gaps: the game MCP's action paging and compact view returned the full page every call (reported with `game_report_limit`), so the walk runs in the headless runner and the browser step proves the imported state, not the click.
 
 ## Phase 2c (2026-11-12): tempering on the path rule
 
@@ -219,8 +234,10 @@ Phase 1:
 
 ## Checks run
 
-| Phase 2a to 2c | | |
+| Phase 2a to MS5 | | |
 | --- | --- | --- |
+| `node scripts/headless/r_tempering_walk.mjs` | Raw, Tempered, stage 1 saved, Tempered after reload and import; no page errors | One seed; the fail branch is covered by the parity test, not a walk |
+| yairpg-game `game_load` plus `game_screenshot chromium` | PNG sha256 80621b07...; STR 12.4, HP 63 visible | Panel not mirrored |
 | Pledges and trial tests (15 files incl. `pledges.test.js`, `progression_pledges.test.js`) before and after 2c | 97 pass, 0 fail both times | None |
 | `node --test tests/progression_path.test.js` after 2c | 11 pass | None |
 | `node --test tests/lotm_*.test.js tests/book_world_lotm*.test.js` (72 files) after 2b | 421 tests, 406 pass, 0 fail, 15 skipped | Same set before 2b: 14 named files 84 pass 0 fail |
