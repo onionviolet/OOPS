@@ -51,6 +51,22 @@ The target is 70% (dial). Not met. The misses, as named missing rules, with the 
 
 `tests/spell_grammar.test.js` holds the blind numbers as floors (35 and 15), so a change that lowers them fails.
 
+**GL2 requests to P and W** (for the coordinator to relay; each names the misses it would address, blind-run counts):
+
+| Code | To | Request | Misses it addresses | Done check (default) |
+| --- | --- | --- | --- | --- |
+| S2R1 | P | **Ordered token composition.** A `tokens` slot where a later token can modify what an earlier one contributes (head plus modifier), fitted from the corpus: Locomotor carries, Locomotor Mortis binds; Petrificus Totalus and Protego Totalum share a modifier with different heads. Today each root votes for an intent alone | `intent-from-identity` 36 | Leg-Locker and Full Body-Bind predicted as binding from their roots with Locomotor still predicted as carrying, in S's effect-layer test |
+| S2R2 | P | **Two givens per slot (PGB1, GL5).** Target and time conditioned on intent and on roots together, so a noun root (corpus, dens, lingua) and the intent both weigh the target | `target-from-intent` 16, `time-from-intent` 4 | Mobilicorpus, Levicorpus and Densaugeo predicted with a body target |
+| S2R3 | P | **Lexicon overlay as a contract feature.** A world's source-language glosses (root to meaning to intents and targets) as a labelled evidence overlay on `inferSlot`, with the blind-written list as the honest default and an authored list as a dial. S has this locally (`inferIntent`, `effectLayerTest`); G's Gu names and B's ingredient names could use it | `no-identity-evidence` 23 (partly) | `inferSlot` takes an overlay; S's local scorer is removed with the same numbers |
+| S2R4 | P | **Per-child weight in `inferSlot`.** Two children conditioned on one given let the stronger one swamp the weaker (target swamped roots in revision 2) | test design | S drops its local scorer |
+| S2R5 | W | **Effect kind vocabulary on W.** Promote S's 13 verbs and 28 objects (`spell_effects.js`) to W's shared kind list so the effect layer is predicted against W primitives, not S's private list (plan SB3) | all GL2 rows (the target vocabulary) | `spell_law` publishes kinds from W's list; G and B use the same list |
+| S2R6 | W | **An object slot on an effect.** Block, add or remove one chosen quantity (fire, water, a trail), so an intent can carry its object: unblocks Flame-Freezing, Impervius and the Obliteration Charm | ledger `blocked:intent-object-slot` 3 | the three rows move to `runs-authored` |
+| S2R7 | W | **Rates as effect objects.** Change how fast a quantity moves (a fall slowed, not stopped), settled the same near and far | ledger `blocked:rate-change` 1 (Braking) | Braking Charm runs |
+| S2R8 | W | **Self-propagating effects and event triggers.** An effect that spreads to neighbours under the cascade dial (Fiendfyre), and effects that watch a speech event (Taboo) or follow a linked source (Protean) | ledger `propagating-effect`, `speech-trigger`, `linked-effect` 3 | each row runs or has a narrower named rule |
+| S2R9 | W | **Property names `mass`, `blocks`, and living-ness.** `spell_law` reads `mass` and `blocks`; the grammar's living-target law reads whether a target is alive. W should own all three (seam SB2) | `target-from-intent` (law-aware target choice) | `spell_law` and the grammar read W property names |
+
+Rows for other owners: `blocked:keeper-secret`, `language-key` and `enforcement-record` wait on N's knowledge as a held thing; `breath-need` on L; `accidental-magic` on A; `vow-clauses` on K's multi-party authority; `interior-capacity` on F.
+
 **MS3.** Every spellbook record either runs or is blocked with a named rule (above). Bespoke modules deleted: 0 so far (MS3's deletion count is G's Keeper compression; S's own candidates are `dnd_levitate` and the two variant grids, next phase).
 
 **Codex lane.** Brief for the coordinator: [CODEX_LANE.md](CODEX_LANE.md), a source check of the 94 runs rows against the cited omnibus pages, with S reviewing the diff.
