@@ -407,3 +407,9 @@ Folded `9ddb0a947` onto `2fa90317e`. `node --test tests/binding.test.js tests/ke
 `kernel_oath.js` does not export its matcher. Binding channel answers use a local matcher with the same method/op/role semantics. Please export the existing matcher when its owner next changes the oath API, so the binding module can import it.
 
 The existing oath authority returns the first matching oath, and a working receipt has one `truth.breach` slot. This lane retains that behavior within an oath collection. If one act must independently break multiple matching oaths with separately remembered prices, the oath/working owners need a multi-breach receipt contract. No owner files were changed to invent that contract here.
+
+### Process crafts
+
+Folded `5f77574a3` onto `c8d1fd44a`. `node --test tests/process_law.test.js`: 10 passed, exit 0. Verified the lead's correction to the blocked worker return. The ordinary 56-minute blade lands whole levels in the engine while the process record keeps fractional values. Architecture, rules, coverage and docs passed. The two new source files are outside main reachability. Engine fixture evidence, below the AD43 gameplay floor.
+
+Lead gaps: one kernel shape, two laws: brewing stays a conserved ledger. Chained rows integrate in up to 256 slices; fuel, vessel capacity, maker skill, fold and aging are outside the law; no parity fixture against `gear_work.js`.
