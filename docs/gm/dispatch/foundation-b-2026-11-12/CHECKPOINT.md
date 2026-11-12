@@ -1,6 +1,6 @@
 # Foundation B · Brewing and chemistry · checkpoint
 
-*Chat B of the [procedural foundation plan](../../../PROCEDURAL_FOUNDATION_PLAN.md). Phase 1 (inventory), phase 2a (brew law on K and W v0) and MS1 (coverage ledgers). Started from 9bbc51363 on branch `claude/fdn-b-brewing-afd93a`. Everything below is evidence plus proposals under AD56; nothing here is accepted direction. Codes BRI (inventory), BRC (conservation), BRG (grammar), BRQ (quantities), BRX (could not express) and BRN (next) are local to this chat and continue in later rounds.*
+*Chat B of the [procedural foundation plan](../../../PROCEDURAL_FOUNDATION_PLAN.md). Phase 1 (inventory), phase 2a (brew law on K and W v0), MS1 (coverage ledgers) and the GL2 and GL3 grammar layers. Started from 9bbc51363 on branch `claude/fdn-b-brewing-afd93a`. Everything below is evidence plus proposals under AD56; nothing here is accepted direction. Codes BRI (inventory), BRC (conservation), BRG (grammar), BRQ (quantities), BRX (could not express) and BRN (next) are local to this chat and continue in later rounds.*
 
 ```receipt
 build: n/a
@@ -8,7 +8,7 @@ route: n/a
 state: built
 viewport: n/a (no UI; no host calls the brew law yet)
 persistence: unchanged
-tests: tests/brew_law.test.js 12 pass; tests/b_coverage_ledgers.test.js 3 pass; phase 1 baseline 8 focused potion and lead-life files, 81 pass
+tests: tests/brew_law.test.js 12 pass; tests/b_coverage_ledgers.test.js 3 pass; tests/brew_grammar_layers.test.js 4 pass; phase 1 baseline 8 focused potion and lead-life files, 81 pass
 review: none
 surface: new leaves src/brew_law.js and src/world_packs/lotm_brew_pack.js; zero registration lines
 ```
@@ -19,6 +19,39 @@ surface: new leaves src/brew_law.js and src/world_packs/lotm_brew_pack.js; zero 
 - Phase 2a: done at the law level, **implemented, below floor** (AD43: no host calls it and no player route crosses it yet). Agent-verified, not human-reviewed.
 - Save compatibility (MC4): unchanged. The brew is a `kernel.working@1` record, so it inherits K's save shape and migration path when a host adopts it.
 - `book_hp_pack.js` untouched; no fingerprint re-pin.
+
+## Grammar layers GL2 (effect) and GL3 (composition) (2026-11-12)
+
+Merged master at c36a671be (P's effect grammar `src/effect_grammar.js`, PGC13-PGC18). B's layers sit on it and on K; nothing forked.
+
+**GL2 · Potion effects as effect sentences** (`src/world_packs/brew_effects_pack.js`). Two world grammars on P's `defineEffectGrammar`: Hogwarts brewing (carriers potion, topical, spray, eaten; cost ingredients) and LOTM brewing (carriers potion, scent, bath; costs characteristic and ingredients). Sentences:
+- 23 Hogwarts potions labelled from evidence observations, each citing its HPPE id (a model reading of paraphrased evidence, SKR3 layer).
+- 6 LOTM aid preparations labelled from their recorded use.
+- Every one of the 43 running LOTM pathway rows gets two sentences from the brew law: the bound charge binds the Sequence's characteristic to the drinker (lasting, limits digestion and acting; R digests it), and unbound charge transforms the mind (delayed, the hazard). These are by construction, so they are not in the held-out test.
+- All sentences assemble on P's grammar and lower onto W ops. Every `vitality` sentence lands in W's `needs` list, because W declares no vitality quantity (request below).
+
+**GL2 canon test.** Hold out each labelled effect and predict it from the potion's name alone through the ledger's title family rule (`potionFamily` in `scripts/b_coverage_ledgers.mjs`, which reads no evidence). Hogwarts: **19 of 23 hold (82.6%)**. The four misses are real:
+- Two ledger mislabels: Mandrake Restorative Draught (filed under plants, but it restores petrified pupils) and Dr Ubbly's Oblivious Unction (filed under minds, but it heals scars). These go to the Codex evidence pass as corrections.
+- Two mixed effects: Skele-Gro (the name says healing; the evidence shows bones regrowing, a form change) and Wolfsbane (filed as form; the evidence shows the mind kept through the change).
+
+LOTM: only 2 of the 6 aid titles imply an effect, and both hold. A name-only predictor cannot reach the other four; they need an ingredient or use reader.
+
+**GL3 · Composition** (`src/brew_compose.js`, world-neutral). It composes a K brew method from a recipe's unordered parts using four ordering rules, each written as default, dial and reason:
+- CR1: long preparations start first, as nested steps (P's PGB2).
+- CR2: the world's admission order. Dial `listed` or `aux-then-main`.
+- CR3: heat-reactive parts wait until the vessel is off the heat. A dial turns it off for a brew that wants the reaction.
+- CR4: identity parts bind at delivery.
+
+Two new brew-law operations support it: `prepare` (a part's own preparation, recorded on the lot) and `cool` (stops the burner, keeps the batch's heat history).
+
+**GL3 canon test.** Three held-out canon orders in two worlds, rebuilt from their parts, kept **17 of 18 precedence pairs (94.4%)**:
+- Seer: aux before main, S 0031.
+- Cure for Boils: crush, stew, then quills off the fire, HPPE002-004.
+- Polyjuice: stew the lacewings first, sample at delivery, HPPE013 and HPPE020.
+
+Every composed brew completes through K with a balanced ledger. The composed Seer gives the same dose as the canonical method. The one miss is HPPE015: leeches go in before the stewed lacewings. Missing rule: a part with a long preparation joins after the base is in (a CR1 refinement, BRX9). I left it as a miss rather than tune the rules to the test.
+
+PFP2 effect: no new canon runs in play. The layers add 29 canon effect sentences and 3 rebuilt canon recipe orders as data.
 
 ## MS1 · Coverage ledgers (2026-11-12)
 
@@ -110,6 +143,9 @@ Mutation check: dropping the last dose's remainder fails 3 tests; dropping the v
 - Then BRN2-BRN5 as below, a stated-reason substitution, potion effects as effect-grammar sentences with P, and medicine and poison through L.
 
 ### Requests (relay through the coordinator)
+
+- **W:** declare `vitality` (with L): every healing, poison and pest potion sentence lowers to it and lands in `needs` today.
+- **Codex lane (via coordinator):** the GL2 test found two title mislabels to correct with evidence: Mandrake Restorative Draught (HPPE027) and Dr Ubbly's Oblivious Unction (HPPE121).
 
 - **P:** the shared `check:coverage` script and the `docs/coverage/README.md` counts table (CV1, CV4); `scripts/b_coverage_ledgers.mjs` exports `summarize` if useful. B's effect and composition layers (GL2, GL3) wait on PGB2 nested parts for steps.
 - **L, A:** the ledger ranks your door first: 79 Hogwarts potions wait on a dose-on-body response and 50 on minds.
@@ -273,6 +309,7 @@ Effects B would publish into a place (O3): heat released, vapor released, rinse 
 - **BRX6** Polyjuice sample forms (nail versus hair), partial doses and overlapping transformations.
 - **BRX7** Spills and vessel failure as matter leaving into the place (Neville's cauldron).
 - **BRX8** The five Seer supplements and Polyjuice amounts: the source gives participation, not a quantity rule.
+- **BRX9** Composition: a long-prepared part joining after the base (Polyjuice leeches before stewed lacewings, HPPE015); stirring patterns as steps (Draught of Living Death); delivery-time rituals (Marionettist).
 
 ## Checks run
 

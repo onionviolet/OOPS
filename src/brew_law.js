@@ -10,7 +10,7 @@
 // row's own unit (TSW9); a reaction balances by its coefficients.
 import {check, natural, object, positive} from './basics.js';
 import {defineWorkingLaw} from './kernel_working.js';
-import {advanceThermal, createThermalState, quoteThermalBatch, resumeThermal, thermalYield} from './craft_process_thermal.js';
+import {advanceThermal, createThermalState, quoteThermalBatch, resumeThermal, stopThermal, thermalYield} from './craft_process_thermal.js';
 
 export const BREW_LAW_ID = 'b.brew';
 export const BREW_LAW_REVISION = 1;
@@ -148,6 +148,26 @@ const operations = {
         l.fuel = state.fuelSpent;
         l.heat = {at, thermal: state, law};
         return {ok: true, facts: {brew: l}, effects, observed: {temperature: Math.round(state.temperature)}};
+    }},
+    // A part's own preparation (crush, slice, stew), a nested step of its slot
+    // (BRG3, PGB2). It records the preparation on the lot; amounts are moved
+    // only when the lot is admitted, so the ledger stays balanced.
+    prepare: {roles: {vessel: 'vessel', lot: 'lot'}, settle({bound, facts, options, at}) {
+        const l = ledgerOf(facts);
+        if (typeof options.how !== 'string' || !options.how) return {ok: false, reason: 'Say how the part is prepared.'};
+        (l.prepared ??= {})[bound.lot.id] = {how: options.how, at};
+        return {ok: true, facts: {brew: l}, observed: {prepared: bound.lot.material, how: options.how}};
+    }},
+    // Take the vessel off the heat: the burner stops, the batch keeps its
+    // residence and cools from here (craft_process_thermal stopThermal).
+    cool: {roles: {vessel: 'vessel'}, settle({facts, at}) {
+        const l = ledgerOf(facts);
+        if (l.heat?.law) {
+            const settled = advanceThermal(l.heat.law, l.heat.thermal, (at - l.heat.at) * 60);
+            l.heat = {at, thermal: stopThermal(l.heat.law, settled), law: l.heat.law};
+        }
+        l.offHeat = true;
+        return {ok: true, facts: {brew: l}, observed: {offHeat: true}};
     }},
     // Divide the batch into doses. The vessel keeps its film share (retainPermille)
     // of each constituent; the doses share the rest, remainders to the last dose.
