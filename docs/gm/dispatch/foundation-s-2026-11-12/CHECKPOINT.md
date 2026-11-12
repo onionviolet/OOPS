@@ -1,4 +1,4 @@
-# Foundation S · Spellcraft · checkpoint (phases 1 and 2, 2026-11-12)
+# Foundation S · Spellcraft · checkpoint (phases 1 and 2, MS1 to MS3, 2026-11-12)
 
 Chat S in the [procedural foundation plan](../../../PROCEDURAL_FOUNDATION_PLAN.md). Phase 1 is inventory only: nothing here embeds on K or W, and no runtime file changed. Everything below is a proposal under AD56 (it widens play) unless it quotes Weibao. Codes: SI inventory findings, SG grammar parts, SQ quantities, SF findings for other chats, SB backlog.
 
@@ -13,9 +13,47 @@ route: fixture(mol-zorian-xvim)
 state: browser-verified
 viewport: 1920x1080 headless Chromium
 persistence: unchanged
-tests: 15 focused files (spell, kernel, grammar, effect_dsl, D&D, ritual, divination), 197 pass, 0 fail, after merging master 886d8c1e7
+tests: 15 focused files (spell, kernel, grammar, effect_dsl, D&D, ritual, divination) pass after merging master 2fff2285e; spell_grammar 11 of 11
 review: none
 ```
+
+## Milestones MS1 to MS3 (2026-11-12, after master 2fff2285e)
+
+**Runs share: 94 of 117 spellbook records run (80.3%)** as data through the spell law (`runs-authored`), 18 are blocked with a named rule and 5 are not spells; 0 unclassified. (`check:coverage` reports 83.9%; see the note under the table.) Ledger: [docs/coverage/hp_spells.jsonl](../../../coverage/hp_spells.jsonl), built by `node scripts/spell_coverage.mjs` from the spellbook in its order and checked by `tests/spell_grammar.test.js` ("every Hogwarts spellbook row runs through the spell law": each runs row has a pack row whose sentence quotes through `spell_law`, and no blocked row has one).
+
+| State | Rows | Notes |
+| --- | --- | --- |
+| `runs-authored` | 94 | Effect from the book; wand carrier and stamina cost authored (the books state no cost), so none is `runs-canon`. 25 rows added this phase (hover, banishing, Waddiwasi, freezing, Apparition, Disillusionment, Meteolojinx Recanto, Anti-Disapparation, Prior Incantato, Deletrius, Morsmordre, Caterwauling, Orchideous, Ferula, Anapneo, the wound countercurse, Avada Kedavra, Legilimens, Furnunculus, Cheering, Bat-Bogey, Jelly-Legs, Dolohov's curse, Dissendium, Permanent Sticking) |
+| `blocked:effect-unknown` | 3 | Salvio Hexia, Cave Inimicum (ward words in a group, isolated effect not shown), Bedazzling (named in discussion) |
+| `blocked:intent-object-slot` | 3 | Flame-Freezing, Impervius, the Obliteration Charm: each blocks or removes one chosen thing (fire, water, a trail); an intent needs an object parameter |
+| `blocked:<one each>` | 12 | rate-change (Braking), propagating-effect (Fiendfyre), interior-capacity (Extension), keeper-secret (Fidelius), speech-trigger (Taboo), enforcement-record (Trace), breath-need (Bubble-Head), accidental-magic (Aunt Marge), language-key (Parseltongue), linked-effect (Protean), vow-clauses (Unbreakable Vow), discipline-not-cast (Occlumency) |
+| `not-a-thing` | 5 | phenomenon (Priori Incantatem), artefact-command (Mischief managed), no-effect-shown (Lockhart's pixie attempt), fake-spell (Ron's rhyme), category (Unforgivable Curses) |
+
+The coverage script counts `runs` over the rows that are things (117 minus 5 `not-a-thing`), hence 83.9%; over all 117 records it is 80.3%.
+
+Two intents were added for the ledger under EF2: `conjure` (Orchideous, Ferula; Incarcerous a third case) and `read_mind` (Legilimens; LOTM mind reading as second consumer). Gamp's Law now refuses conjured food only, as the book states; flowers, ropes and bandages are canon conjurations.
+
+**MS2, GL2 effect layer (Hogwarts, 94 rows, leave one out).** Hold out the whole effect (intent, target, execution), predict it from identity (roots, catalogue name words, the world's lexicon) plus the grammar's laws, derive the sentence, compare with the recorded truth (`effectLayerTest`).
+
+| Identity evidence | Verb and object right | Full sentence right |
+| --- | --- | --- |
+| Blind glosses (roots plus English name words, written without spell names; [evidence/blind_root_lexicon.json](evidence/blind_root_lexicon.json)) | **35/94 (37.2%)** | **15/94 (16.0%)** |
+| Authored root glosses plus blind name words (upper bound: glosses written knowing the spells) | 59/94 (62.8%) | 25/94 (26.6%) |
+
+The target is 70% (dial). Not met. The misses, as named missing rules, with the blind run's counts:
+
+| Missing rule | Rows | What it needs | Owner |
+| --- | --- | --- | --- |
+| `intent-from-identity` | 36 | Root composition: a modifier root changes the head's intent (Locomotor carries, Locomotor Mortis binds). Today roots vote independently | S (grammar), P (two-given conditioning, PGB1) |
+| `no-identity-evidence` | 23 | Coined words with no gloss (Relashio), or a gloss that names a thing with no action (agua as water, lum as light). A source-language lexicon with wider coverage, or a reader's knowledge of the tradition (N) | S, N |
+| `target-from-intent` | 16 | Target needs its own evidence: noun roots vote targets (corpus means body) but most spells name no target; creature versus body is a fine line the source does not fix | S |
+| `time-from-intent` | 4 | Time needs its own evidence (Totalus and Mortis read as lasting) | S |
+
+`tests/spell_grammar.test.js` holds the blind numbers as floors (35 and 15), so a change that lowers them fails.
+
+**MS3.** Every spellbook record either runs or is blocked with a named rule (above). Bespoke modules deleted: 0 so far (MS3's deletion count is G's Keeper compression; S's own candidates are `dnd_levitate` and the two variant grids, next phase).
+
+**Codex lane.** Brief for the coordinator: [CODEX_LANE.md](CODEX_LANE.md), a source check of the 94 runs rows against the cited omnibus pages, with S reviewing the diff.
 
 ## Phase 2 (2026-11-12): spells on the kernel, canon rebuilt from parts, spells beyond the book
 

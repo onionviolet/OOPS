@@ -28,8 +28,8 @@ export function spellCost(sentence, {anchor}) {
 // World laws (check 3): default, dial and reason. An exception needs an in-world
 // reason and cost (AD5); `exceptions` lists the law ids a caller can cite with one.
 export const WORLD_SPELL_LAWS = Object.freeze({
-    hogwarts: [{id: 'gamp', refuses: s => s.verb === 'add' && s.object === 'material',
-        reason: "Gamp's Law: matter such as food cannot be conjured from nothing (B7)."}],
+    hogwarts: [{id: 'gamp', refuses: s => s.verb === 'add' && s.object === 'material' && s.direction === 'food',
+        reason: "Gamp's Law: food cannot be conjured from nothing (B7); flowers, ropes and bandages can."}],
     dnd: [{id: 'slot-ceiling', refuses: (s, ctx) => ctx.cost > 9, reason: 'No spell slot above ninth level holds it.'}],
     cyoria: [{id: 'boundary', refuses: (s, ctx) => ctx.cost > (ctx.reserve ?? 12), reason: 'More mana than the caster can hold breaks the formula boundary (MoL ch 46).'}],
     lotm: [{id: 'pathway', refuses: s => s.carrier === 'ability' && !['sense', 'conceal', 'add'].includes(s.verb),

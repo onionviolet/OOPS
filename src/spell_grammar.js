@@ -133,3 +133,54 @@ export function rootRebuild(grammar, rows, world, {lexicon = {}, fitGrammar, ass
     }
     return {rows: labelled.length, inferred, rebuilt, misses};
 }
+
+// GL2 effect-layer canon test (plan "Grammar layers"): hold out the whole effect
+// (intent, target, execution) and predict it from identity (family, roots) plus
+// the world's lexicon; derive the sentence; compare with the recorded truth.
+// Leave one out. Misses are grouped by the first field that went wrong, each a
+// named missing rule. Dials: familyWeight (default 0: a family prior lowered
+// verb and object hits in the 2026-11-12 run) and the lexicon weight. A gloss may
+// carry `targets` (a noun root such as corpus votes for a body target).
+export function effectLayerTest(grammar, rows, world, {lexicon = {}, nameWords = {}, familyWeight = 0, fitGrammar, assemble} = {}) {
+    const labelled = rows.map(r => ({row: r, ...labelSpellRow(r, world)})).filter(r => r.parts);
+    const misses = {}, fields = {verbObject: 0, sentence: 0};
+    const most = (counts) => Object.entries(counts).sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1))[0]?.[0] ?? null;
+    for (const {row, parts, truth} of labelled) {
+        const train = labelled.filter(x => x.row.id !== row.id);
+        const fitted = fitGrammar(grammar, train.map(x => ({id: x.row.id, parts: x.parts})));
+        const identity = {...parts, target: undefined, roots: [...(parts.roots ?? []), ...(nameWords[row.id] ?? [])]};
+        const scores = new Map((inferIntent(fitted, identity, {lexicon}).ranked ?? []).map(([k, v]) => [k, v]));
+        const family = {};
+        for (const x of train) if (x.row.family === row.family) family[x.parts.intent] = (family[x.parts.intent] ?? 0) + 1;
+        const familyTotal = Object.values(family).reduce((n, c) => n + c, 0);
+        if (familyWeight > 0) for (const [intent, c] of Object.entries(family)) scores.set(intent, (scores.get(intent) ?? 0) + familyWeight * c / familyTotal);
+        const top = [...scores.entries()].filter(([, v]) => v > 0).sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1))[0];
+        const intent = top?.[0] ?? null;
+        // An intent the rest of the corpus never shows falls back to the whole corpus for target and time.
+        const seen = train.filter(x => x.parts.intent === intent);
+        const withIntent = seen.length ? seen : train;
+        const targetVotes = Object.fromEntries(withIntent.reduce((m, x) => m.set(x.parts.target, (m.get(x.parts.target) ?? 0) + 1 / withIntent.length), new Map()));
+        for (const root of identity.roots) for (const t of lexicon[root]?.targets ?? []) targetVotes[t] = (targetVotes[t] ?? 0) + 1;
+        const execution = most(Object.fromEntries(withIntent.reduce((m, x) => m.set(x.parts.execution, (m.get(x.parts.execution) ?? 0) + 1), new Map())));
+        // The world's laws join the prediction: take the best-voted target the grammar's rules accept.
+        const ranked = Object.entries(targetVotes).sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1)).map(([t]) => t);
+        let built = null;
+        for (const target of ranked) {
+            const attempt = intent && execution ? assemble(fitted, {...parts, intent, target, execution}) : null;
+            if (attempt?.ok) { built = attempt; break; }
+            built ??= attempt;
+        }
+        const got = built?.ok ? built.value.derived.sentence : null;
+        const law = intent ? INTENT_LAW[intent] : null;
+        const vo = law && law.verb === truth.verb && law.object === truth.object;
+        const mismatch = got ? compareSentences(got, truth) : [{field: 'sentence'}];
+        if (vo) fields.verbObject++;
+        if (!mismatch.length) { fields.sentence++; continue; }
+        const rule = !intent ? 'no-identity-evidence' : !vo ? 'intent-from-identity' : !got ? 'target-rejected-by-law'
+            : mismatch[0].field === 'target' ? 'target-from-intent' : mismatch[0].field === 'time' ? 'time-from-intent' : `field-${mismatch[0].field}`;
+        (misses[rule] ??= []).push(row.id);
+    }
+    const n = labelled.length, pct = x => Math.round(x / n * 1000) / 10;
+    return {rows: n, verbObject: fields.verbObject, sentence: fields.sentence, verbObjectRate: pct(fields.verbObject), sentenceRate: pct(fields.sentence),
+        missingRules: Object.entries(misses).map(([rule, ids]) => ({rule, count: ids.length, examples: ids.slice(0, 6)})).sort((a, b) => b.count - a.count)};
+}

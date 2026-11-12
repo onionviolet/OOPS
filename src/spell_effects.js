@@ -54,7 +54,12 @@ export const INTENT_LAW = Object.freeze({
     vanish: {verb: 'remove', object: 'presence'},
     clean: {verb: 'remove', object: 'material', direction: 'surface'},
     duplicate: {verb: 'copy', object: 'form'},
+    // Added for the hp_spells ledger (EF2): Orchideous conjures flowers and Ferula
+    // bandages and splints (two Hogwarts cases; Incarcerous ropes are a third).
+    conjure: {verb: 'add', object: 'material'},
     reveal: {verb: 'sense', object: 'presence'},
+    // Added for Legilimens (EF2); second consumer: Lord of the Mysteries mind reading.
+    read_mind: {verb: 'sense', object: 'mind'},
     // Added 2026-11-12 after the D&D canon test missed Detect Magic (EF2); second
     // consumer: Lord of the Mysteries Spirit Vision senses hidden spiritual properties.
     sense_magic: {verb: 'sense', object: 'magic'},

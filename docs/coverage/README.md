@@ -11,7 +11,7 @@
 | hp_potions | B | 316 | not started | | | | | | | |
 | hp_ingredients | B | 409 | not started | | | | | | | |
 | lotm_potions | B | to build | not started | | | | | | | |
-| hp_spells | S | 117 | not started | | | | | | | |
+| [hp_spells](hp_spells.jsonl) | S | 117 | 117 | 0 | 94 | 18 | 5 | 0 | 100% | 83.9% |
 | creatures | L | to build | not started | | | | | | | |
 
 ## Blocking rules
@@ -22,7 +22,21 @@
 | gu_kinds | rank-unknown | 679 |
 | gu_kinds | effect-unknown | 400 |
 | gu_moves | unnamed-role | 17 |
+| hp_spells | effect-unknown | 3 |
+| hp_spells | intent-object-slot | 3 |
 | gu_moves | role-cannot-run | 2 |
+| hp_spells | accidental-magic | 1 |
+| hp_spells | breath-need | 1 |
+| hp_spells | discipline-not-cast | 1 |
+| hp_spells | enforcement-record | 1 |
+| hp_spells | interior-capacity | 1 |
+| hp_spells | keeper-secret | 1 |
+| hp_spells | language-key | 1 |
+| hp_spells | linked-effect | 1 |
+| hp_spells | propagating-effect | 1 |
+| hp_spells | rate-change | 1 |
+| hp_spells | speech-trigger | 1 |
+| hp_spells | vow-clauses | 1 |
 
 ## Row format
 

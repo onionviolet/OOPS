@@ -100,9 +100,10 @@ test('check 2 and 3: bigger reach costs more by one curve, and a world law refus
     const small = sentenceFromIntent({intent: 'kindle', target: 'object', execution: 'instant', carrier: 'wand', cost: 'stamina'});
     const wide = sentenceFromIntent({intent: 'kindle', target: 'area', execution: 'lasting', carrier: 'wand', cost: 'stamina'});
     assert.ok(spellCost(wide, {anchor}) > spellCost(small, {anchor}));
-    const conjure = sentenceFromIntent({intent: 'clean', target: 'object', execution: 'instant', carrier: 'wand', cost: 'stamina'});
-    assert.equal(worldAllows('hogwarts', {...conjure, verb: 'add', object: 'material'}).law, 'gamp');
-    assert.equal(worldAllows('hogwarts', {...conjure, verb: 'add', object: 'material'}, {}, {gamp: {reason: 'a house-elf larder', cost: 'the food is fetched, not made'}}).ok, true);
+    const conjure = sentenceFromIntent({intent: 'conjure', target: 'place', execution: 'instant', carrier: 'wand', cost: 'stamina'});
+    assert.equal(worldAllows('hogwarts', conjure).ok, true, 'flowers are fine');
+    assert.equal(worldAllows('hogwarts', {...conjure, direction: 'food'}).law, 'gamp');
+    assert.equal(worldAllows('hogwarts', {...conjure, direction: 'food'}, {}, {gamp: {reason: 'a house-elf larder', cost: 'the food is fetched, not made'}}).ok, true);
 });
 
 test('NV3 transfer: a Hogwarts summoning carried into Cyoria pays in mana and runs; into D&D it pays a slot', () => {
@@ -141,4 +142,37 @@ test('a D&D record that still needs a ruling does not run until a ruling resolve
     assert.equal(pending.ok, false);
     assert.match(pending.reason, /needs a ruling/);
     assert.equal(quoteSpells([{sentence, target: {id: 'goblin'}, status: fireBolt.status, ruling: {id: 'table', reason: 'objects ignite as the table rules'}}]).ok, true);
+});
+
+test('every Hogwarts spellbook row runs through the spell law', async () => {
+    const {HP_SPELL_LEDGER_EXCEPTIONS} = await import('../src/spell_pack_hogwarts.js');
+    const ledger = fs.readFileSync(new URL('../docs/coverage/hp_spells.jsonl', import.meta.url), 'utf8').trim().split('\n').map(l => JSON.parse(l));
+    assert.equal(ledger.length, 117);
+    assert.equal(ledger.filter(r => r.state === 'unclassified').length, 0);
+    const rows = new Map(HP_SPELL_ROWS.map(r => [r.id, r]));
+    for (const entry of ledger) {
+        if (entry.state.startsWith('runs')) {
+            const row = rows.get(entry.id);
+            assert.ok(row, `${entry.id} runs but has no pack row`);
+            const sentence = sentenceFromIntent(partsOf(row, HP_SPELL_WORLD));
+            const quote = quoteSpells([{sentence, target: {id: `practice.${entry.id}`}}]);
+            assert.equal(quote.ok, true, `${entry.id}: ${quote.reason}`);
+            assert.equal(quote.effects[0].kind, `spell.${row.truth.verb}.${row.truth.object}`);
+        } else {
+            assert.ok(!rows.has(entry.id), `${entry.id} is ${entry.state} but has a pack row`);
+            assert.equal(HP_SPELL_LEDGER_EXCEPTIONS[entry.id].state, entry.state);
+        }
+    }
+});
+
+test('GL2 effect layer: Hogwarts effects predicted from identity alone with blind glosses (floor, not target)', async () => {
+    const {HP_SPELL_NAME_WORDS} = await import('../src/spell_pack_hogwarts.js');
+    const {effectLayerTest} = await import('../src/spell_grammar.js');
+    const blind = JSON.parse(fs.readFileSync(new URL('../docs/gm/dispatch/foundation-s-2026-11-12/evidence/blind_root_lexicon.json', import.meta.url), 'utf8'));
+    const report = effectLayerTest(grammar, HP_SPELL_ROWS, HP_SPELL_WORLD, {lexicon: {...blind.roots, ...blind.names}, nameWords: HP_SPELL_NAME_WORDS, fitGrammar, assemble});
+    assert.equal(report.rows, 94);
+    // Measured 2026-11-12: 35 verb and object, 15 full sentences. The plan's target is 70% (dial); these floors catch regressions.
+    assert.ok(report.verbObject >= 35, `verb and object ${report.verbObject}`);
+    assert.ok(report.sentence >= 15, `full sentence ${report.sentence}`);
+    assert.deepEqual(report.missingRules.map(m => m.rule).sort(), ['intent-from-identity', 'no-identity-evidence', 'target-from-intent', 'time-from-intent']);
 });
