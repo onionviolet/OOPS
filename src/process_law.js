@@ -196,7 +196,13 @@ function expose({bound, facts, options, at}, working) {
     // pack's projection weights choose the unit. The facts keep the exact state.
     const effects = options.finish ? Object.entries(projectProcess(nextFacts, projection))
         .map(([property, value]) => ({op: 'property', holder: bound.piece.holder ?? bound.piece.id, property, value: Math.round(value)})) : [];
-    return {ok: true, facts: nextFacts, effects,
+    // E1 (proposal): what the exposure spends is step data (`options.costs`: fuel by the minute from
+    // the medium, wear by the step from the tool), published as cost rows for the cost owner to debit.
+    const costs = (options.costs ?? []).map(({from = 'medium', perMinute = 0, amount = 0, ...row}) => {
+        check(object(bound[from]) && natural(perMinute) && natural(amount), 'An exposure cost names a bound role and whole amounts.');
+        return {...row, amount: perMinute * minutes + amount, payer: bound[from].holder ?? bound[from].id};
+    });
+    return {ok: true, facts: nextFacts, effects, ...(costs.length ? {costs} : {}),
         observed: {temperature: piece.temperature, rows: structuredClone(traces)},
         cause: 'Exposure time, contact and delivered work changed the piece.'};
 }

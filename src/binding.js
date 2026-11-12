@@ -37,6 +37,7 @@ export function defineBinding(data) {
             (s.breachLoss === undefined || s.breachLoss === 'all' || natural(s.breachLoss)) &&
             (s.of === undefined || side(s.of)), 'Invalid standing.');
     }
+    check(b.price === undefined || priceOk(b.price), 'Invalid making price.');
     check(!b.upkeep.length || b.standing !== undefined, 'Upkeep needs standing.');
     check(object(b.channel) && object(b.onDeath), 'Invalid channel or aftermath.');
     for (const [s, fields] of Object.entries(b.channel.senses ?? {})) check(side(s) && Array.isArray(fields) && fields.every(id), 'Invalid senses.');
@@ -208,6 +209,13 @@ export function takeExit(b, state, {exit, by, at, consents = []}) {
     if (missing.length) return {ok: false, reason: 'binding-consent-missing', missing};
     return {ok: true, event: {id: `${b.id}/exit/${e.id}/${at}`, binding: b.id, kind: 'exit', exit: e.id, by, at,
         ...(e.kind === 'transfer' ? {side: e.side ?? e.by, to: e.to} : {})}, costs: copy(e.costs ?? []), effects: copy(e.effects), cause: e.cause};
+}
+// E1 (proposal). The cost rows one moment of the binding publishes, each naming who pays:
+// the row's own `owes` side, or `by` (a side or a holder id). Default moment: the making price.
+// The host hands these to the cost owner in the same step that logs the moment.
+export function bindingDues(b, {log = [], at = b.madeAt, by = 'a', price = b.price} = {}) {
+    const sides = bindingSides(b, log, at);
+    return copy(price?.costs ?? []).map(({owes, ...row}) => ({...row, payer: side(owes ?? by) ? sides[owes ?? by] : by}));
 }
 export function dueBindingEvents(b, {published = [], ...options}) {
     const ids = new Set(published.map(r => typeof r === 'string' ? r : r.id));
