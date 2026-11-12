@@ -113,3 +113,27 @@ Save compatibility (MC4): unchanged. No scene uses the law yet; no save key chan
 Compression did not start in 2a: deleting a scene module needs a host that runs scene operations through `gu.working`, and the first candidates (seven, nine, red_steel) are dispatched together through `gu_keeper_wild` with cross-scene readiness. Phase 2b builds that host for one owned module and deletes it, using the `gu_upkeep` headless harness as the regression. Then the 23 evidence move records drive move search (phase 2c), and generation through P's grammar (phase 3).
 
 Request to K: none. KB1 is handled on G's side.
+
+# Phase 2b, 2026-11-12: first scene module deleted
+
+- New generic host [`src/gu_essence_line.js`](../../../../src/gu_essence_line.js): a fed converter raises essence one stage and a cast spends the raised pool through a catalogue ability, settled on `gu.working` through the kernel. Conversion numbers, cast cost and strike come from catalogue rows.
+- Scene row [`src/world_packs/book_gu_keeper_lines.js`](../../../../src/world_packs/book_gu_keeper_lines.js): the red-steel scene as data, keeping its saved facts keys and ids. The one authored value (a day between Four Flavors meals) is labelled.
+- **Deleted** `src/gu_keeper_red_steel.js`. `gu_keeper_wild`, the red-steel pack and the seven pack now read the row and the host. AREA_GUIDE's Gu entry points new scenes at rows plus `gu_working_law` methods.
+
+Save compatibility (MC4): unchanged. Same facts keys and counters; the host computes the same stock and strike.
+
+| Count | 2a end | 2b end |
+| --- | ---: | ---: |
+| Kinds that run as data with no scene module | 46 | 46 |
+| Bespoke keeper src modules | 31 | **30** |
+| Keeper packs (command surfaces, kept) | 36 | 36 |
+| Scenes run as rows on a generic host | 0 | 1 (red_steel; rank_trial's cast shares it) |
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/gu_*.test.js tests/kernel_working.test.js` | 232/232 pass (the `gu_upkeep` red-steel journey feeds, converts and casts through the host) | |
+| `npm run build` | pass, bundle SHA-256 `7f888a6a4c46b1ff2dcbb7a0987487c16710de034503b9b7b7053accf1388562` | |
+| `node scripts/playtest/gu-keeper.mjs <repo> <out> --four-flavors-red-steel-only` (headless Chrome, 1920x1080) | success: refusal at 3 stones, Save/reload/Export/literal Import equal while held and after spending, reserve funded Moonglow without aperture essence. Receipt [receipts/red-steel-phase-2b.json](receipts/red-steel-phase-2b.json) | agent-verified, not human-reviewed |
+| `npm run check:arch`, `npm run check:rules` | pass; the TMR1 warning in `book_world_hp_exams.js` is pre-existing | |
+
+Next: the seven and nine scenes join the same host for their conversion and cast halves, and their refinement halves move onto the `refine` method of `gu.working`. Both are dispatched through `gu_keeper_wild`, so they go together.
