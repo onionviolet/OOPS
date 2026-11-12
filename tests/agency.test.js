@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {actorQuote, bandOf, chooseWorking, defineAgent, recordChoice, CHOICE_RING} from '../src/agency.js';
+import {actorQuote, bandOf, chooseWorking, defineAgent, inventBySearch, recordChoice, searchWorkings, CHOICE_RING, SEARCH_TRIAL_LIMIT} from '../src/agency.js';
 import {householdCandidates, householdCook, householdLaw, householdMethods, householdNeeds, householdReader, ROUTINE_NEED} from '../src/agency_household.js';
 import {createWildAgencyPack, liquorWormState, LIQUOR_WORM_ROW} from '../src/agency_wild.js';
 import {composeSubstrate, createWorld, advanceWorld, applyWorldOps} from '../src/world_substrate.js';
@@ -154,11 +154,7 @@ const habits = defineGrammar({id: 'a.test.worm_habits', revision: 1,
     slots: [{id: 'verb', type: 'one', values: ['nose', 'dig']}, {id: 'site', type: 'one', values: 'corpus'}],
     rules: [], fallback: {id: 'fallback', parts: {verb: 'nose', site: 'grove'}}});
 const fitted = fitGrammar(habits, [{id: 'a', parts: {verb: 'nose', site: 'grove'}}, {id: 'b', parts: {verb: 'dig', site: 'grove'}}]);
-const invent = ({actor, at, cause, here, known}) => {
-    const g = generate(fitted, {root: 'world-seed', address: address('agency.invent', actor, at), cause,
-        validate: v => v.parts.site !== here && !known.includes(v.parts.site)});
-    return {id: `${g.value.parts.verb}:${g.value.parts.site}`, verb: g.value.parts.verb, site: g.value.parts.site, cause: g.value.cause};
-};
+const invent = inventBySearch({grammar: fitted, root: 'world-seed', budget: {trials: 4}});
 
 test('NV4: a hungry worm with no known wine invents a search, finds wine, and keeps the routine', () => {
     const run = () => advanceWorld(...Object.values(wormWorld({satiety: 300, liquor: 0, believe: {cellar: 0}, grove: 500, invent})), 1440).world;
@@ -216,6 +212,26 @@ test('parity holds for invention and for an outside arrival mid-run', () => {
     const keeper = [[70, [{op: 'holder_add', value: {id: 'keeper', kind: 'body', place: P.cellar, tags: ['person'], quantities: {}}}]],
         [200, [{op: 'holder_remove', holder: 'keeper'}]]];
     parity(detail => wormWorld({detail, satiety: 100, liquor: 5000}), 1440, keeper);
+});
+
+// PR3, PR6, PM3: one bounded search for the player and for NPCs, at the same prices.
+test('the player and the cook search the same way and pay the same quote', () => {
+    const menu = fitGrammar(defineGrammar({id: 'a.test.errands', revision: 1, slots: [{id: 'errand', type: 'one', values: ['cook', 'buy', 'rest', 'sing']}],
+        rules: [], fallback: {id: 'fallback', parts: {errand: 'rest'}}}), ['cook', 'buy', 'rest', 'sing'].map(e => ({id: e, parts: {errand: e}})));
+    const table = Object.fromEntries(householdCandidates().map(c => [c.id, c]));
+    const s = house({pantry: {raw: 0, cooked: 0}});
+    const search = actor => searchWorkings({actor, at: 9, grammar: menu, root: 'seed', cause: {kind: 'inventor', id: actor}, budget: {trials: 6},
+        build: v => table[v.parts.errand] ?? null, knows: householdReader(s), rate: (c, q) => c.serves(q).feed ?? 0});
+    const player = search('player'), cook = search('a.household.cook');
+    assert.equal(player.tried, 6);
+    assert.ok(player.blocked.some(b => b.reason === 'There is no raw meat in the pantry.'), 'failed quotes keep the kernel reason');
+    assert.ok(player.blocked.some(b => b.reason === 'The parts do not make a working here.'));
+    const buyP = player.options.find(o => o.id === 'buy'), buyC = cook.options.find(o => o.id === 'buy');
+    assert.ok(buyP && buyC);
+    assert.deepEqual(buyC.quote, buyP.quote, 'the same working costs the player and the cook the same');
+    assert.deepEqual(search('player'), player, 'a search replays at its address');
+    assert.throws(() => searchWorkings({actor: 'player', at: 0, grammar: menu, root: 'seed', cause: {kind: 'inventor', id: 'p'}, build: () => null,
+        budget: {trials: SEARCH_TRIAL_LIMIT + 1}}), /trials/);
 });
 
 test('bands', () => {

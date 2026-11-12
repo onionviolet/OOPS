@@ -1,4 +1,4 @@
-// Agency contract v0 (docs/AGENCY_CONTRACT.md, AGC1-AGC12). How any actor, a
+// Agency contract v0 (docs/AGENCY_CONTRACT.md, AGC1-AGC14). How any actor, a
 // person, a creature, a Gu or a process, picks a working from what it wants,
 // what it knows and what it can bind. Every candidate is quoted through the
 // kernel's own quote (KW4) with the actor's knowledge as the reader, which is
@@ -9,8 +9,9 @@
 import {check, natural, object} from './basics.js';
 import {quoteWorking} from './kernel_working.js';
 import {address, drawFraction} from './gen_kit.js';
+import {generate} from './procedural_grammar.js';
 
-export const AGENCY_CONTRACT_VERSION = '0.1';
+export const AGENCY_CONTRACT_VERSION = '0.2';
 
 const id = v => typeof v === 'string' && /^[a-z][a-z0-9_.:/-]*$/i.test(v) && !['__proto__', 'constructor', 'prototype'].includes(v);
 const unit = v => Number.isFinite(v) && v >= 0 && v <= 1;
@@ -129,7 +130,7 @@ export function chooseWorking({agent, actor = agent.id, needs, candidates, at, k
     const unserved = want && want.v > 0 && want.v >= agent.pressureAt && !eligible.some(r => r.terms.some(t => t.want === want.w && t.value > 0));
     if (agent.novelty > 0 && invent && unserved) {
         pressure = {kind: 'pressure', id: `${actor}:${want.w}`, want: want.w, why: want.why};
-        const made = invent({agent, actor, needs, at, cause: pressure, existing: scored.map(r => r.id)});
+        const made = invent({agent, actor, needs, at, knows, cause: pressure, existing: scored.map(r => r.id)});
         if (made) {
             const row = rate(made, true);
             scored.push(row);
@@ -145,6 +146,49 @@ export function chooseWorking({agent, actor = agent.id, needs, candidates, at, k
         quote: top?.quote ?? null, cause: top ? {line: causeLine(agent, needs, top, passed), terms: top.terms} : null,
         passed, pressure, invented,
         scored: scored.map(({quote, ...row}) => row)};
+}
+
+// AGC13, AGC14 (PR3, PR6, PM3). One bounded search for new workings, called by
+// the player ("say what you want, get candidates") and by any NPC under
+// pressure alike. Each trial draws parts from a fitted grammar at
+// address(agency.search, actor, at, trial) with a stated cause, the caller's
+// build(value) turns them into a candidate (or null when they do not fit), and
+// the candidate is priced by the same actorQuote, so a player and an NPC pay
+// the same costs for the same working. The trial count is the budget; nothing
+// past it is drawn or quoted. Options come back ranked by rate(candidate,
+// quote), ties in trial order; failed quotes are kept with their reasons.
+export const SEARCH_TRIAL_LIMIT = 64;
+export function searchWorkings({actor, at, grammar, root, cause, build, rate, knows, authority, facts, budget = {trials: 8}, exclude = []}) {
+    check(id(actor) && natural(at) && grammar && typeof build === 'function' && object(cause), 'A search needs an actor, a time, a grammar, a cause and a builder.');
+    check(natural(budget?.trials) && budget.trials >= 1 && budget.trials <= SEARCH_TRIAL_LIMIT, `A search runs 1 to ${SEARCH_TRIAL_LIMIT} trials.`);
+    const seen = new Set(exclude), options = [], blocked = [];
+    for (let trial = 0; trial < budget.trials; trial++) {
+        const drawn = generate(grammar, {root, address: address('agency.search', actor, at, trial), cause});
+        const candidate = build(drawn.value);
+        if (!candidate) { blocked.push({trial, reason: 'The parts do not make a working here.'}); continue; }
+        checkCandidate(candidate);
+        if (seen.has(candidate.id)) continue;
+        seen.add(candidate.id);
+        const quote = actorQuote(candidate.law, candidate.method, {id: `${actor}/${candidate.id}/${at}`, bindings: candidate.bindings, at, knows, authority, facts});
+        if (!quote.ok) { blocked.push({trial, id: candidate.id, reason: quote.reason}); continue; }
+        const value = rate ? rate(candidate, quote) : 0;
+        check(Number.isFinite(value), `${candidate.id} was rated with an invalid value.`);
+        options.push({trial, id: candidate.id, candidate, quote, value, parts: drawn.value.parts, draws: drawn.receipt.draws});
+    }
+    options.sort((a, b) => b.value - a.value || a.trial - b.trial);
+    return {actor, at, cause, tried: budget.trials, options, blocked};
+}
+
+// The NV4 port built on the shared search: the best option for the want under
+// pressure, rated by how much its quote serves that want. `build` comes from
+// the actor's own host (args.build), so the same grammar can serve many hosts.
+export function inventBySearch({grammar, root, budget}) {
+    return args => {
+        const found = searchWorkings({actor: args.actor, at: args.at, grammar, root, cause: args.cause, budget, exclude: args.existing,
+            build: args.build, knows: args.knows, rate: (c, q) => c.serves(q)?.[args.cause.want] ?? 0});
+        const best = found.options.find(o => o.value > 0);
+        return best ? best.candidate : null;
+    };
 }
 
 // AGC9. Banded readings, so a choice changes only when an input crosses a band

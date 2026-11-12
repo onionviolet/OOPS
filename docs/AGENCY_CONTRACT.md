@@ -1,6 +1,6 @@
 # Agency contract
 
-*Version 0.1 (v0), 2026-11-12. Owner: chat A in the [procedural foundation plan](PROCEDURAL_FOUNDATION_PLAN.md) (OS1). Module: [`src/agency.js`](../src/agency.js). Consumers: [`src/agency_household.js`](../src/agency_household.js) (a person) and [`src/agency_wild.js`](../src/agency_wild.js) (a wild creature on the world substrate). Tests: [`tests/agency.test.js`](../tests/agency.test.js). A proposal under AD56: it widens what every actor can do, and every line is an adjustable default. Changes are versioned requests to chat A.*
+*Version 0.2 (v0), 2026-11-12 (0.2 adds AGC13-AGC14). Owner: chat A in the [procedural foundation plan](PROCEDURAL_FOUNDATION_PLAN.md) (OS1). Module: [`src/agency.js`](../src/agency.js). Consumers: [`src/agency_household.js`](../src/agency_household.js) (a person) and [`src/agency_wild.js`](../src/agency_wild.js) (a wild creature on the world substrate). Tests: [`tests/agency.test.js`](../tests/agency.test.js). A proposal under AD56: it widens what every actor can do, and every line is an adjustable default. Changes are versioned requests to chat A.*
 
 ## What it does
 
@@ -12,6 +12,8 @@ quote    = actorQuote(law, method, {id, bindings, at, knows, authority?, facts?}
 needs    = {want: {urgency 0-1, why}}                                               // read live from body, place and knowledge
 candidate= {id, label, law, method, bindings, serves(quote) -> {want: gain -1..1}, cost?(quote), costWhy?, riskWhy?, bias?}
 choice   = chooseWorking({agent, actor?, needs, candidates, at, knows, authority?, facts?, root?, invent?})
+found    = searchWorkings({actor, at, grammar, root, cause, build, rate?, knows, budget?, exclude?})   // player and NPC alike
+invent   = inventBySearch({grammar, root, budget})
          -> {choice, label, score, quote, cause: {line, terms}, passed: [{id, reason}], pressure, invented, scored}
 ```
 
@@ -31,6 +33,8 @@ choice   = chooseWorking({agent, actor?, needs, candidates, at, knows, authority
 | AGC10 | **Every choice has a cause line** (SPR32, PFP13). The two strongest positive terms, said in the actor's own reasons; when the strongest want goes unserved, the line leads with why the working that would have served it dropped out. | The line says only what the actor knows. |
 | AGC11 | **Receipts are bounded.** Each actor keeps its last `CHOICE_RING` (8) choices with time, choice, cause and any invention, and at most `REPERTOIRE_CAP` (4) invented routines (SPR30). Quote ids, draws and invention are keyed by the actor instance (`actor`, a holder id), not the shared profile. | Ring and cap per world. |
 | AGC12 | **Latitude is a keyed draw.** A temperament with `latitude` above 0 may take any option within that score of the best, drawn at `address(agency.choice, actor, clock)` (GR17), so a reload replays it. | Default 0: deterministic best. |
+| AGC13 | **One bounded search for everyone** (PR3, PR6, PM3). `searchWorkings` draws parts from a fitted P grammar at `address(agency.search, actor, at, trial)` with a stated cause, builds candidates through the caller's `build`, and prices each by `actorQuote`. The player stating a goal and an NPC under pressure call the same function and pay the same quote for the same working. Failed quotes are kept with the kernel's reason. | Trials per search are the budget, default 8, at most `SEARCH_TRIAL_LIMIT` (64); per actor. Reason: idle settlement stays cheap (MC16). |
+| AGC14 | **NV4 invents through the search.** `inventBySearch` is the standard `invent` port: it runs AGC13 and returns the best option for the want under pressure, rated by the want it serves. | A host may supply another port with the same shape. |
 
 ## The two consumers
 

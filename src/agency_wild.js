@@ -77,9 +77,9 @@ function needs(s, satiety, people) {
 export const REPERTOIRE_CAP = 4;
 const isWorm = h => h.kind === 'body' && h.tags.includes('a.wild.liquor_worm');
 
-// invent(args) -> candidate | null is the NV4 hook: a caller (usually through
-// P's generate with cause pressure) proposes a new routine; the worm keeps it
-// only if the same quote runs it.
+// invent(args) -> candidate | null is the NV4 hook, usually agency's
+// inventBySearch over a P grammar (PR3, PR6): it calls args.build on drawn parts
+// and the worm keeps the routine only if the same quote runs it.
 export function createWildAgencyPack({invent = null} = {}) {
     const choose = (view, id) => {
         const s = view.state(id), here = view.placeOf(id), satiety = view.amount(id, 'satiety');
@@ -88,11 +88,18 @@ export function createWildAgencyPack({invent = null} = {}) {
             : view.holder(ref.id)?.kind === 'place' ? {kind: 'place', id: ref.id, quantities: {liquor: s.beliefs[ref.id]?.liquor ?? 0}} : null;
         const list = candidates(view, id, s, here, people);
         let fresh = null;
-        const wrap = invent && (args => {
-            const made = invent({...args, here, home: s.home, known: Object.keys(s.beliefs)});
-            if (!made || args.existing.includes(made.id)) return null;
+        // Grammar parts {verb, site} become a search routine; a site it already
+        // knows, or where it stands, is not new.
+        const build = value => {
+            const made = {id: `${value.parts.verb}:${value.parts.site}`, verb: value.parts.verb, site: value.parts.site, cause: value.cause};
+            if (made.site === here || Object.hasOwn(s.beliefs, made.site)) return null;
             const c = candidates(view, id, {...s, beliefs: {}, repertoire: [made]}, here, people).find(x => x.id === made.id);
-            fresh = c ? {...c, made} : null;
+            return c ? {...c, made} : null;
+        };
+        const wrap = invent && (args => {
+            const c = invent({...args, here, home: s.home, known: Object.keys(s.beliefs), build});
+            if (!c?.made || args.existing.includes(c.id)) return null;
+            fresh = c;
             return fresh;
         });
         const choice = chooseWorking({agent: liquorWorm, needs: needs(s, satiety, people), candidates: list, at: view.clock, actor: id, knows, invent: wrap});

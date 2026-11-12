@@ -189,9 +189,27 @@ Compatibility (MC4): unchanged. No game save key is added; the worm's state live
 - **Household owner (no foundation chat):** consent to call `chooseWorking` from `household_fortunes_domain.runRoutines` behind a dial.
 - **P:** none; `generate` with cause `pressure` worked as written.
 
+## Phase 3a (2026-11-12): one bounded search for player and NPC (PR3, PR6)
+
+Merged master (460c295b3, plan at 2fff2285e) and read "Making all achievable" (CV, GL, PR1-PR9, MS1-MS7, GN, PM, RV). For A: PR3 (bounded search), PR6 (same search, same costs), MS5 (a reachable route where an NPC's choice shows), MS6 (PG1 people with A).
+
+- `searchWorkings` (AGC13): draws parts from a fitted P grammar at `address(agency.search, actor, at, trial)` with a cause, builds candidates through the caller, and prices each with `actorQuote`. Trials are the budget (default 8, at most 64). Failed quotes keep the kernel's reason.
+- `inventBySearch` (AGC14): the standard NV4 port on that search. The worm now invents through it; the NV4 and parity tests pass unchanged in outcome.
+- Test: the player and the cook run the same search over the household workings; the same working's quote is deep-equal for both, a search replays at its address, and a budget past the limit is refused.
+
+PFP2 counts: unchanged from phase 2 (no live owner moved). PR6 holds at foundation level: one search function, one quote.
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/agency.test.js` | 16 pass, 0 fail | Focused file only |
+| `npm run check:arch` | exit 0 | |
+| `npm run check:rules` | exit 0 | |
+
+Compatibility (MC4): unchanged.
+
 ## Next phase
 
-Stopping at the done check (PFP6). Proposed for the coordinator, not started: A phase 3, AGB6, an opt-in `agency` field on a `simulation.js` controller definition that scores its candidates through this contract with priority as the bias term (zero behavior change for controllers without it, proven by the existing controller tests), then one live controller with wants and a Reports cause line through a fresh-origin browser route. Live wiring of C1 and C2 follows the G and household consents above.
+Next, for MS5 (proposed, not started): A phase 3b, AGB6, an opt-in `agency` field on a `simulation.js` controller definition that scores its candidates through this contract with priority as the bias term (zero behavior change for controllers without it, proven by the existing controller tests), then one live controller with wants and a Reports cause line through a fresh-origin browser route. Live wiring of C1 and C2 follows the G and household consents above. MS6 (PG1 people) waits for N, X and D v0: a generated person is an agent row (AGC1) whose wants come from lineage, upbringing and place.
 
 ```receipt
 build: n/a
@@ -199,7 +217,7 @@ route: n/a
 state: built
 viewport: n/a
 persistence: unchanged
-tests: 15 focused agency tests plus the rules-index test (same quote as the player, routine reproduction, scarcity through belief and truth, priority bias, keyed latitude, bounded ring, wild choice, fear, belief correction, far versus near parity and partitions, NV4 invention and replay, per-actor keying, parity under invention and outside arrivals)
+tests: 16 focused agency tests plus the rules-index test (shared bounded search for player and NPC, same quote as the player, routine reproduction, scarcity through belief and truth, priority bias, keyed latitude, bounded ring, wild choice, fear, belief correction, far versus near parity and partitions, NV4 invention and replay, per-actor keying, parity under invention and outside arrivals)
 review: diff-scoped
 surface: new leaves src/agency.js, src/agency_household.js, src/agency_wild.js; zero registration lines; imports kernel_working, world_substrate shape only through tests, gen_kit, basics
 ```
