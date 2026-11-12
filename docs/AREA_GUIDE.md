@@ -353,6 +353,20 @@ By default a new slice declares data through the seam named here and does not ad
 - Do not: copy the 33 `src/world_packs/book_gu_lead_*.js` modules' private `eq/all/set/note/stock/act` helpers (atlas: 44 files redefine them); start from `windowKit`. Also do not copy `src/book_world_hp_lead_duel.js` private-JSON fetch (`private_packs/hp-cast/duel.json`) when the data can ship in-source; Gu windows keep data in-source, HP windows load private JSON with `fetchFile` and return null when absent.
 - Competing: windows have three shapes: Gu (in-source data plus own helpers, `src/world_packs/book_gu_lead_*.js`), HP (`src/book_world_hp_lead_*.js` over `definePlaceActs` and a private JSON pack), LOTM (`lotm_act_engine.js` rows plus bindings). `window_chain.js` is the intended single builder, adopted by none. Two "pack" systems (`world_pack_*` vs `structured_pack_*`) do not share a loader.
 
+## World substrate (shared quantities, effects, sky)
+
+- Use this: `world_substrate.js` (v0, chat W of the procedural foundation plan) for quantities a place, body or thing carries, law fields scoped to them, effects published into a place, and settling time near or far; `world_quantities.js` for shared quantity names; `world_sky.js` for daylight, moon phase, rain and day as place quantities.
+- Declare: a pack `{id, quantities, reads, writes, laws, reactors}`; reference packs in `src/world_substrate_packs/` (`shell_regulator.js` for L, `brew_steam.js` for B, both handed over at embed).
+- Write: `applyWorldOps` (outside changes at the current minute), `advanceWorld` (time). Laws and reactors return ops; they never mutate.
+- Read: `readQuantity`, `readProvenance`, `explainEffect`, `substrateFacts`.
+- State: not in the game save yet; its own versioned shape `oops.world-substrate` revision 0 (`serializeWorld`, `restoreWorld`, `migrateWorldSave`).
+- Copy: `tests/world_substrate.test.js` (`workshop()` fixture, W1-W10).
+- Test: tests/world_substrate.test.js.
+- Rules: [contract](WORLD_SUBSTRATE_CONTRACT.md) WSC1-WSC14; PFP10-PFP15, OS6, OS8; TMR4, TMR7, SPR25, SPR28, SPR30.
+- Limits/traps: whole-unit amounts and rates only; one near place steps the whole world by minutes; the sky computes its own day (not `dayIndex` yet).
+- Do not: import one pack from another, or read another pack's state slice; exchange through quantities and effects.
+- Competing: `simulation_effects.js` `applySimulationEffects` (the action effect hub, untouched in v0) and per-module timers such as `living_regulator.js`; the substrate is where they move at embed.
+
 ## Domains, saves and panels
 
 - Use this: `src/domain_registry.js` (one synchronous lifecycle: init, save, validate, load, tick, refresh, mountPanels, commands, projection; 112 importers), `src/save_files.js` (save envelope validation, encode/import, size budget; calls `domainRegistry.validate`), `src/panel_kit.js` (`definePanel`, wraps the workspace module registry; 57 importers), `src/ui_ports.js` (live reader ports from `main.js`; 33 importers), `src/read_models/` (pure bridges from engine views to the figure and view models in `src/ui/`; each states the observer rule it enforces, e.g. ABR19, RPT7, RPT10).
