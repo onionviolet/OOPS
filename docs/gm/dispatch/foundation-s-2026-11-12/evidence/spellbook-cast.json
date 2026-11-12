@@ -1,0 +1,13 @@
+{
+ "lines": [
+  "PASS Torch study is offered at the court",
+  "PASS studied Torch appears as a spellbook method · Spellbook / Torch invocation / Torch invocation · Observed · A taught way to produce light. The wording is unspecified here. / Spell boundary · Interpretation ·",
+  "PASS draft quotes its cost and time before casting · Spellbook / 1 entry / Torch invocation / Torch invocation · Observed · A taught way to produce light. The wording is unspecified here. / Spell boundary · Interpretation · Use the boundary model to explain what the invoca",
+  "PASS test working starts the native cast · no error",
+  "PASS the cast settles and the working reports its result · The working succeeded.",
+  "PASS Save and reload keep the draft and result",
+  "PASS save carries the spellbook entry",
+  "PASS no page errors"
+ ],
+ "errors": []
+}
