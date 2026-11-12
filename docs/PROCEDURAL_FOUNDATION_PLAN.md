@@ -268,6 +268,8 @@ The same split answers the other worlds: Hogwarts potions are B rows, spells S r
 
 - **SC10 · Mechanism coverage view.** A table per world thing, generated from the packs, showing which mechanisms it appears in. A Gu missing from L's lifecycle, or a move with no composition row, then shows up as a gap. Level haiku, effort low. Done check: the view lists every catalogue Gu with its mechanism rows and flags the empty ones.
 
+How far each system has moved, the order, and killer moves as cross-world techniques: [absorbing whole systems](PROCEDURAL_CORE.md#absorbing-whole-systems-pc22-pc33-2026-11-12) (PC22-PC33, proposal).
+
 - **PFP21 · Section by mechanism.** A world's thing is rows on every mechanism it uses, under one identity. Only rules no other world shares stay in that world's law.
 
 ## Separate but connected, and effects beyond the book (2026-11-12)

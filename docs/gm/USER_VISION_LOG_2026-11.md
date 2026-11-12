@@ -1214,3 +1214,58 @@ Recorded: playable slices stay deferred while foundations are built; more system
 Weibao: "use fable to improve the plan on the procedural aspect" (after "Have fable review Wave 9 and the plan" and "use advisor on the core procedural goals").
 
 A Fable review and an advisor pass found the run's numbers rewarded labelling over mechanism. [PROCEDURAL_CORE](../PROCEDURAL_CORE.md) (PC1-PC21) proposes the core goals, ledger states that separate expressed from runs from catalogued, an executing runs check, a compression ledger, a no-join-code lint and a core/palette split. Its Q1 (may headline numbers fall) and Q2 (approve the split) wait for Weibao.
+
+## Absorbing whole systems, 2026-11-12
+
+Weibao: "Improve and solidify the plans we have in store for OOP, like the procedural stuff, to absorb the entire systems, like Gu system under creatures, killer moves under either its own or a better one, other aspects to consider and more?"
+
+Recorded as a proposal in [PROCEDURAL_CORE](../PROCEDURAL_CORE.md#absorbing-whole-systems-pc22-pc33-2026-11-12) (PC22-PC33): absorption by facet with a scripted ladder, Gu's body facet under living things, killer moves as the Gu world's rows on a cross-world technique, the same table for the other large systems, and an absorption queue. Its Q5 (may upstream systems wait) waits for Weibao; Q6 is answered below.
+
+## Absorption facet order, 2026-11-12
+
+Asked "Is the facet order (ability, body, technique, custody, contest, progression) the build order?", Weibao: "Yes, use that order".
+
+Recorded on [PC29](../PROCEDURAL_CORE.md#the-other-systems-pc28-pc30): Gu is absorbed first, facet by facet, in that order. His "Yes, use that order" covers the order; the rest of PC22-PC33 stays a proposal.
+
+## Emergent behavior in the procedural core, 2026-11-12
+
+Weibao: "HOw does my idea pan out? does it feel feasible to create a procedural system to cover everything on all aspects?" then "Consider emergent behavior and more?"
+
+Recorded as a proposal in [PROCEDURAL_CORE](../PROCEDURAL_CORE.md#emergent-behavior-pc34-pc43-2026-11-12) (PC34-PC43): three sources of emergence with separate checks, a coupling map as the emergent surface, soak worlds for chains nobody arranged, chains as knowledge the player works out, and near and far parity so chains survive idle settlement.
+
+## Build plan for the procedural core, 2026-11-12
+
+Weibao: "make plan to achieve proceduralness and emergent behavior and basically cover everything from creatures, to stuff that fall inside like gu and pets and more,to potion crafting, to spellcrafting, breaking down the vocab and more? Deeper aspects too?"
+
+Recorded as a proposal in [PROCEDURAL_CORE](../PROCEDURAL_CORE.md#the-build-plan-pc44-pc50-2026-11-12) (PC44-PC50): seven steps every domain climbs, where each domain stands, four vocabulary layers with one breakdown procedure, first depth per domain and four phases. Its Q7 (phase order) waits for Weibao.
+
+## Carry-out detail for the procedural plan, 2026-11-12
+
+Weibao: "Fine details for each one too? MOre to consider? steps to make sure all is carried out?"
+
+Recorded as a proposal in [PROCEDURAL_CARRY_OUT](../PROCEDURAL_CARRY_OUT.md) (PC51-PC66): five phase 1 packets with files and steps, four named phase 2 rows with a hard row per domain, the phase 3 loops, a status script that decides what is done, ratchets, a rule that new modules sit on the game's path, a wave ritual and a tracker.
+
+## Combinations the books never made, 2026-11-12
+
+Weibao: "creating combinations and more that wasnt in the original text? MOre to consider?"
+
+Recorded as a proposal in [PROCEDURAL_CORE](../PROCEDURAL_CORE.md#combinations-the-books-never-made-pc67-pc76-2026-11-12) (PC67-PC76): results computed from properties and repeatable, three kinds of combining, interaction tables over properties fitted from canon, canon failures as data, held-out combinations as the test, and untried mixes as unknowns the maker works out.
+
+## Procedural plan reconciled, other avenues, 2026-11-12
+
+Weibao: "goahead and /reconcile-project /more-to-consider other avenues that might need this and more"
+
+Recorded: a [reconciliation ledger](../PROCEDURAL_CARRY_OUT.md#reconciliation-2026-11-12) (RC1-RC10, with the plan's milestones mapped to phases) and [other avenues](../PROCEDURAL_CORE.md#other-avenues-that-need-the-same-treatment-pc77-pc80-2026-11-12) (PC77-PC80, proposal). The message was read as a go-ahead for this pass; Q1, Q2, Q5, Q7 and coordinator adoption stay open.
+
+## Additions from a readings check, 2026-11-12
+
+Weibao: "what will be the end result from this? does it match what I want" then "anything we should add to this? Feel free to use lesser agent to check the readings"
+
+Recorded as a proposal in [PROCEDURAL_CORE](../PROCEDURAL_CORE.md#additions-from-a-check-of-the-readings-pc81-pc88-2026-11-12) (PC81-PC88), from three haiku readers over existing notes: a growth rule for the effect vocabulary, luck through the generator contract, shape gaps mapped to owners, a state for the authored tail, data moves before new reading, a feeding pass for Gu bodies, a done-enough exit and one early playable scene (Q8, answered below).
+
+## Engine first, no early scene, 2026-11-12
+
+Asked "Do you want one early playable scene after phase 1 (PC88)?", Weibao: "No, engine first".
+
+Recorded on [PC88 and Q8](../PROCEDURAL_CORE.md#additions-from-a-check-of-the-readings-pc81-pc88-2026-11-12). The engine phases run without an early lead-life scene. This restates [foundations first](../USER_VISION.md) for this case.
+

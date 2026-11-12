@@ -2,6 +2,21 @@
 
 Coordinator: Codex, taking over from the Claude session that wrote the [procedural foundation plan](../../../PROCEDURAL_FOUNDATION_PLAN.md), under the [handoff](CODEX_COORDINATOR_HANDOFF.md). The original twelve Claude workers used one worktree and branch per chat (K W P G L F B S A C R M). The coordinator verifies, merges, gates and dispatches.
 
+## Claude coordinator takeover (2026-11-12)
+
+Weibao (2026-11-12): "hand off for you to be the coordinatoe". The Claude session that wrote the [procedural core](../../../PROCEDURAL_CORE.md) and [carry-out](../../../PROCEDURAL_CARRY_OUT.md) is the coordinator from here. The Codex coordinator stopped at its usage ceiling with no detached worker alive (checked: `codex_goal_lane.py status` shows none alive; no test or lane process running).
+
+This block is the current resume block. The older one below is history.
+
+- Objective: unchanged, MS1-MS6 committed in order, foundations with gameplay deferred. Weibao also declined an early playable scene ("No, engine first").
+- Picking rule: the carry-out's wave ritual (PC65) and tracker. Milestones map to its phases in the [carry-out reconciliation](../../../PROCEDURAL_CARRY_OUT.md#milestones-and-phases-rc3). The facet order ability, body, technique, custody, contest, progression has his "Yes, use that order". The rest of both docs is a proposal used as working order; Q1, Q2, Q5 and Q7 in the core stay open and nothing they would defer is deferred.
+- Input identity: master `a77fda00c`. Dirty and inherited: Wave 9 source and fixtures (`src/creature_lifecycle.js`, `src/gu_keeper_moonlight_trial.js`, `src/gu_moonlight_stock.js`, `tests/gu_light_attraction.test.js`, `tests/gu_upkeep.test.js`, untracked `src/world_substrate_packs/gu_brew_regulator.js`, `tests/gu_brew_regulator.test.js`, `scripts/wave_scratch.sh`). Dirty and not this run's: `dist/bundle.js`, `dist/bundle.js.map`, `index.html`, `docs/tools/game_mcp_limits.jsonl`, and earlier edits to the playbook and the Codex handoff.
+- Workers: Claude subagents from this session, sonnet for code lanes and haiku for bounded lookups, at most three code lanes at once, one writer per file. Lanes run focused tests; the coordinator runs the full gate set once per merge wave and commits own paths. No push.
+- Codex limits (20% weekly window, 62,000 credits) still bind any Codex lane. None is planned while the window reads 20%.
+- Step states: see the Wave 10 section at the end of this file.
+- Stop condition: MS1-MS6 met and committed, or a decision that is Weibao's to make, or his word to pause.
+- Resume prompt: "Continue the foundation run as coordinator from the Claude takeover block in docs/gm/dispatch/foundation-run-2026-11-12/RUN.md. Check git status and git log -3 against its input identity, read the Wave 10 section, run the carry-out's wave ritual (PC65), keep the block current, commit own paths, no push."
+
 ## Phase 1 (2026-11-11 to 2026-11-12)
 
 | Chat | Branch | Commits | Delivered | State |
@@ -22,13 +37,13 @@ Weibao (2026-11-12): "send the plan updates to the chats and start phase 2. Cont
 - Earlier text: Objective: every chat in the plan meets its done check (plan tables plus PFP2 counts), Gu catalogue runs as data with moves beyond canon through the effect grammar and composed workings, potions as data across Hogwarts and Lord of the Mysteries, the three emergence chains run with no join code, one combined browser pass; each phase committed on master.
 - Input identity: takeover started on master at 35533590c. Preexisting changes: `dist/bundle.js`, `dist/bundle.js.map`, `index.html`, `docs/tools/game_mcp_limits.jsonl`. The coordinator's repair touches the C/L declarations, B/E test fixtures and K's spell test adapter. Build output is isolated.
 - State of the steps: MS1 verified, all seven ledgers have zero unclassified rows. MS2 reporting is delivered in Wave 4, with the 70% quality target still open and misses recorded. MS3-MS6 remain open. Gameplay development is deferred under Weibao's takeover instruction. MS5 can exercise existing routes as foundation proof; a missing route stays open.
-- Last committed evidence: `f622d4cdb` passed the Wave 7 full suite (6,456 passed, 0 failed, 2 skipped) and both rebuilt Keeper guard routes. See Wave 7 below for mechanics and scope. Wave 8 engine tests and build pass. Full `npm test` exits 0 with 6,468 passed, 0 failed and 2 skipped.
+- Last committed evidence: `6425dd1f0` passed the Wave 8 full suite (6,468 passed, 0 failed, 2 skipped), isolated build, rules, architecture and coverage. Its browser bundle matches the Wave 7 proof. Wave 9 has passing focused checks, an isolated build and partial Keeper parity. See the usage stop below.
 - Gate policy (Weibao asked whether gates are skippable, 2026-11-12): chats run focused tests only. The coordinator batches returns into one merge wave and runs the full suite once per wave, never per chat. Docs-only merges run check:rules and doc checks, not the suite. A fix that touches only comments or docs reuses the last full-suite evidence plus its focused file (AGENTS: reuse passing evidence for unchanged inputs). Merging and dispatch do not wait on a running suite: chats work on branches, and a red suite is fixed on master and relayed. The browser pass runs once per domain milestone, not per phase.
 - Failed approaches: starting sessions from a background-task turn is refused by the app; dispatch only on a user turn or by messaging existing sessions.
 - Goals: each chat runs the plan's per-chat goal (its done-check row, phase after phase); this record holds the coordinator goal. E started 2026-11-12 (local_d9c26029, fdn-e-emergence). N, X and D wait for the usage read after phase 2 returns.
-- Next useful action: Review and verify the paid Gu regulator and Moonlight roster returns together. Fold the rival choice fixture when available. Keep MS3-MS6 and gameplay deferral visible.
-- Usage pacing: `python3 -I scripts/codex_goal_lane.py usage` works in this session. Latest read 19% used, 2,961 credits above the floor. Limits are 20% used and 62,000 credits. Recheck before dispatch or a new wave and at least every 30 minutes. No push.
-- Stop condition: MS1-MS6 met and committed or either authorized limit reached. Neither limit reached at the latest read. The old coordinator and its three Codex lanes are finished. This chat owns the active takeover goal.
+- Next useful action: After Weibao resumes with budget available, finish Wave 9 combined and parity gates. Then review the returned teaching and dose-delivery fixtures on the primary tree. Keep MS3-MS6 and gameplay deferral visible.
+- Usage pacing: `python3 -I scripts/codex_goal_lane.py usage` works in this session. Latest read 20% used and 64,960.62 credits, which triggers the weekly usage ceiling. Limits are 20% used and 62,000 credits. Recheck before dispatch or a new wave and at least every 30 minutes. No push.
+- Stop condition: MS1-MS6 met and committed or either authorized limit reached. The weekly usage ceiling was reached at 20%. No detached worker is alive. The takeover stops with milestones open.
 
 ### Takeover worker queue (2026-11-12)
 
@@ -138,6 +153,32 @@ Combined focused tests pass 73/73, including the primary kernel compose suite. B
 - `fdn-e-rival-working` (`01a1cef3-f592-73b3-86a2-29b5203326cf`) owns the final pc3 engine link from observed Gu arrival to the rival’s working choice in the released integration worktree.
 - Usage reads 19% used and 2,961 credits above the floor.
 
+### Wave 9 engine candidate (2026-11-12)
+
+Input `6425dd1f0`. The three MS6 chains now have end-to-end fixture evidence with existing engine owners. Their live wiring and broader calibration remain open.
+
+| Foundation | Evidence and remaining gap |
+| --- | --- |
+| E pc1 paid Gu regulation | An authored Draft Wing body uses the actual Gu activation owner to spend primeval essence and exchange humidity through an open vent. B yields all 100 units with sustained regulation and 50 usable plus 50 film if it departs or cannot pay. Conserved volume-weighted moisture, direction, admissibility, partition and restore are tested. |
+| E pc3 rival working | Actual colony output, W light and wild movement feed W sight, observer-specific knowledge, A choice and a K Moonlight working. The cast spends four of six essence. A different observer's sighting, concealment, stale sight, missing means and inadequate essence cannot enable the rival. The fixture schedules observation and publishes the resulting damage. Consistent snapshots restore; autonomous scheduling and partial-write recovery are open. |
+| G/L Moonlight roster | Two existing consumers share lifecycle roster creation and custody validation and use the existing Gu working host for casts. Six existing serialized fact bytes match by hash. The local adapter retains unique receipt handling. No module deletion credit. |
+
+Combined engine checks pass 130/130 and the separate rival and knowledge slice passes 69/69. Build `c0d1e9e25876d09fcef138aa03dd49c66ce387e92c301d944ad83ed40da62947`, architecture, rules and coverage exit 0. Rebuilt Moonlight stock, Moonlight trial and tray move passed eight combined save/reload/Export/Import checks with zero page errors. At the usage ceiling, the full suite, Moonlight prospect and blade-chain checks were stopped. Light reader had not started.
+
+- `fdn-l-teaching` (`01a1cef9-6e85-7652-8162-d023848766e5`) owns the IH6 engine proof for non-genetic transmission through attended practice and observer-safe provenance if the existing seam supports it. It reuses the released `keeper-stock` worktree with a distinct write scope.
+- `fdn-b-body-delivery` (`01a1cefa-9054-7a23-911e-fa3750646309`) owns a PTD7/BRQ18 fixture for a measured brewed dose entering L with a physiological condition affecting delivery. It reuses the released integration worktree.
+- Usage reads 19% used and 2,961 credits above the floor. Gameplay development remains deferred.
+
+### Usage stop (2026-11-12)
+
+The launcher and the desktop account tool agree on 20% used in the weekly Codex window. The account balance is 64,960.62 credits. The 20% ceiling triggered; the 62,000-credit floor did not. No detached workers remain active. No push.
+
+Master is `6425dd1f0` (Wave 8). Wave 9 source and fixtures are uncommitted on primary. Its focused checks, build and three existing route proofs passed. The full suite has no completed result, and Moonlight prospect, blade chain and light reader still need rebuilt checks. Preserve the unrelated preexisting files listed above.
+
+Two separate worker goals finished before the stop. The keeper-stock worktree has `tests/creature_teaching.test.js` (2/2 worker checks). It shows a newborn acquires a learned response through attended practice and uses authenticated fixture evidence to project `taught-by` separately from `born-of`. The integration worktree has `tests/brew_body_delivery.test.js` (4/4 worker checks), connecting a measured Draught to contextual oral uptake and L's injury owner with K interruption and restore. Both remain outside the primary candidate. Their `CODEX_RETURN.md` files record authored settings, fixture-supplied authentication and live-host gaps.
+
+MS1 verified. MS2 report delivered and the 70% target remains open. MS3 remains at seven Keeper deletions of ten. MS4 has four existing running canon cases proved through typed composition, one generated archived move and an authored coupled Iceblade Storm fixture. MS5 has only existing route evidence under the gameplay deferral. MS6 has caused people, society, place and situation fixtures, observer pedigree and three connected emergence fixtures on the Wave 9 candidate. Production integration and calibration remain open. No gameplay development was added.
+
 Resume prompt for a fresh session: "Continue the unattended foundation run from the Resume block in docs/gm/dispatch/foundation-run-2026-11-12/RUN.md. Check git status and git log -3 against its input identity first; finish the next useful action; keep the block current; commit own paths, no push."
 
 ## Codex lanes (requested 2026-11-12, not dispatched)
@@ -184,3 +225,15 @@ New return evidence changes the review queue: S's launcher now records `finished
 
 Previous turn: progress from recovering S's previously absent return and its failed-test/classification evidence. This turn revalidated the same environment blocker for the third consecutive goal turn: `.git` and all three lane worktrees remain read-only, and the required direct usage read fails at app-server initialization. Master remains 0d745f584. No safe route available here can commit, merge, modify the external lanes, read current usage directly or stop their processes. No fresh equivalent test suite was run. Mark the coordinator goal blocked pending an environment change; preserve the full MS1-MS6 objective. RUN.md changes remain uncommitted. B's launcher still reports running; G and S report finished with goal blocked. No verified budget threshold crossing and no claim that B was stopped.
 - Wave 3 full suite (master after the wave 3 merges, before 0d745f584's docs): 6344 pass, 21 fail, 2 skipped, exit 1. Cause: W phase 3 (492c580b5) made effect kinds declared vocabulary, and consumers still publish or answer undeclared kinds: `contest.blow` (14 failures in `tests/contest.test.js`, `tests/contest_consumers.test.js`), `living.harm` (`l.living_body:harm-inbox`, reached by `tests/kernel_search.test.js`, `kernel_meet.test.js`, `kernel_compose.test.js`, `living_foundation.test.js:122`), plus B's BRC1/BRC2/BRC8 test and `emergence_harness.test.js:59`. Fix: declare those kinds in the owning packs' `publishes` (C, L, B, E) or in `composeSubstrate` effectKinds; then rerun the full suite. First task for the Codex coordinator.
+
+## Wave 10: takeover, Wave 9 settlement, phase 1 packets (2026-11-12)
+
+| Step | State |
+| --- | --- |
+| Takeover recorded; plan docs committed (no source change; `check:docs` and `check:rules` exit 0) | See the commit after `a77fda00c` |
+| Wave 9 full suite on the primary tree | Running at the time of writing; result recorded below when it exits |
+| Wave 9 remaining route checks (Moonlight prospect, blade chain, light reader) | Not started under this coordinator |
+| Wave 9 commit | Waits on the two rows above |
+| Returned fixtures in the takeover worktrees (`tests/creature_teaching.test.js`, `tests/brew_body_delivery.test.js`) | Not reviewed |
+| Phase 1 packets P1.1 to P1.5 | Not dispatched; P1.1 first after Wave 9 lands (merge before dispatch) |
+

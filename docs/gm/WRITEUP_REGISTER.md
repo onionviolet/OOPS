@@ -302,3 +302,8 @@ One chat's writeups on how repeating systems get built and tuned: [system practi
 ## Player experience palette, 2026-11-10
 
 [Player experience core audit](../audits/PLAYER_EXPERIENCE_CORE_AUDIT.md) round 1 (PX1–PX27) is the root palette for what gives a good experience across systems and worlds: respecting time, knowing what to do, feeling progress, trust, comfort, ownership, and playing a game that agents build. Proposals only; ranked suggestions are PX26 (note a problem while playing), PX25 (what's new since you last played) and PX1 (measure a check-in).
+
+## Procedural core and carry-out, 2026-11-12
+
+[Procedural core](../PROCEDURAL_CORE.md) (PC1-PC50 and PC67-PC88, proposed; for PC29's facet order Weibao said "Yes, use that order", [USER_VISION](../USER_VISION.md)) holds the core goals, honest metrics, absorption by facet, techniques, emergence and the build plan. [Procedural carry-out](../PROCEDURAL_CARRY_OUT.md) (PC51-PC66, proposed) holds the packets, the four phase 2 rows, the carry-out steps and the tracker.
+
