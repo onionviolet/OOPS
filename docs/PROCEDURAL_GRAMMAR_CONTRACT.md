@@ -1,6 +1,6 @@
 # Procedural grammar contract v0
 
-*Owner: chat P in the [procedural foundation plan](PROCEDURAL_FOUNDATION_PLAN.md#the-procedural-system-how-new-things-come-to-exist) (P2 base, P5 calibration, PFP16-PFP20). Published 2026-11-12 from commit 9bbc51363. Everything here is a proposal under AD56 (it widens what can be generated and checked) and stays adjustable. Changes to this contract are versioned requests to chat P (MC2). Module: [src/procedural_grammar.js](../src/procedural_grammar.js). Tests: [tests/procedural_grammar.test.js](../tests/procedural_grammar.test.js). Proof run and checkpoint: [foundation P checkpoint](gm/dispatch/foundation-p-2026-11-12/CHECKPOINT.md).*
+*Owner: chat P in the [procedural foundation plan](PROCEDURAL_FOUNDATION_PLAN.md#the-procedural-system-how-new-things-come-to-exist) (P2 base, P5 calibration, PFP16-PFP20). Published 2026-11-12 from commit 9bbc51363; phase 2 (effect grammar, PGC13-PGC18) the same day after K and W v0 merged. Everything here is a proposal under AD56 (it widens what can be generated and checked) and stays adjustable. Changes to this contract are versioned requests to chat P (MC2). Module: [src/procedural_grammar.js](../src/procedural_grammar.js). Tests: [tests/procedural_grammar.test.js](../tests/procedural_grammar.test.js). Proof run and checkpoint: [foundation P checkpoint](gm/dispatch/foundation-p-2026-11-12/CHECKPOINT.md).*
 
 ## What it is
 
@@ -83,3 +83,51 @@ Revision 2's 100% says the grammar can **express** every labelled canon kind. Si
 | PGB5 | Place-driven weights read from W quantities (moonlight makes Moonlight-path Gu likelier) | plan P3, E | an overlay computed from a place's quantities, with the place as cause |
 | PGB6 | Actor search over the grammar (P4, move search) | A, G | bounded `sampleAndScore` over `generate` with a goal score |
 | PGB7 | Names drawn from the world's naming sheet rather than corpus words | NMR | an open slot whose pool is the sheet register |
+
+## Effect grammar (phase 2, 2026-11-12)
+
+The plan's [one effect grammar](PROCEDURAL_FOUNDATION_PLAN.md#one-effect-grammar-for-every-world) (PFP22-PFP24, EF1-EF8, NV1-NV5) as a grammar on this contract. Module [src/effect_grammar.js](../src/effect_grammar.js); new-effect harness [src/effect_checks.js](../src/effect_checks.js); tests [tests/effect_grammar.test.js](../tests/effect_grammar.test.js); runner `node scripts/grammar_canon_effects.mjs`; full output [canon_test_effects_report.txt](gm/dispatch/foundation-p-2026-11-12/canon_test_effects_report.txt).
+
+| Code | Contract line | Default, dial and reason |
+| --- | --- | --- |
+| PGC13 | **An effect is a sentence of seven parts.** Verb (12: move, add, remove, transform, bind, release, sense, conceal, copy, block, end, alter), object (18, each of a kind: quantity, state, knowledge, relation, thing, working, law), target and shape (self, touched, bound, line, cone, area, marked), time (instant, sustained, lasting, delayed, triggered), carrier, cost and limits. `defineEffectGrammar({world, carriers, limits})` declares one per world; verbs, objects, targets and times are shared, carriers and costs are the world's. | Default: primitives stay few (EF2); a new verb or object needs a canon effect the set cannot express and a second consumer. Reason: an unchecked list is how every world grew its own effect names. |
+| PGC14 | **A verb acts on the object kinds it can change** (`VERB_ACCEPTS`). A carrier pays from the accounts its world gives it. | Default: both are reject rules, so a canon sentence that fails one names a missing primitive or a mislabel. Dial `anyCost`. Reason: laws read properties, not categories (PFP22). |
+| PGC15 | **The boundary with W.** P composes sentences; W lands them. `lowerEffect` turns a sentence into W ops: an add or remove on a quantity W declares becomes an `add` op; alter on a law becomes `law_add`; everything else publishes the effect kind `effect.<verb>.<object>` that present holders answer (WSC8). A quantity object W has not declared is published and listed in `needs`, as a request to W. | Default: P never declares a quantity, unit or bound (WSC2, W decides); W never names an effect sentence's parts. The one mapping P proposes is moisture to W's `humidity`. Reason: one owner per seam (SB2, SB3). |
+| PGC16 | **Counterplay is derived** (EF3). Each sentence carries the verbs that answer it on the same object (sense answers conceal, release answers bind, block and end answer most). | Default: wards, dispels and Gu defenses come out of the grammar, with no counter list per effect. |
+| PGC17 | **New effects pass five checks, in order.** `checkEffect` runs four per candidate: **runs** (it assembles, and the world's canon shows a law for its verb on that object kind), **pays** (its declared amount meets the price on one curve over scope, fitted from canon amounts), **allows** (no world law forbids it, or the forbidding law carries an exception with its in-world reason and cost) and **explains** (every part has a word in the world's vocabulary). `keepSpread` applies the fifth over a set: the best candidate per niche (verb on object kind) first, then by score (useful, novel, fit as integer dials), so the world keeps a spread, not one best effect copied. | Default: a world's laws, words and price curve come from its canon; a pack adds more with a reason. Reason: generated means runnable (PFP16) and new things have a cause (PFP19). |
+| PGC18 | **Novelty is a dial with a cause** (PFP24). `proposeEffects` takes `novelty: {level, cause}`: level 0 changes one part of a canon sentence (NV1), level 1 changes two, level 2 carries another world's sentence into this world's carrier and cost and changes one part (NV3). Level 3, composition (NV2), is refused here: it is a K composed working (SC6). Every proposal also carries the generation cause. | Default: a traditional teacher sits at 0, an inventor far from tradition at 1 or 2. Dial per world and per actor. |
+
+### Canon test on two worlds (EF1)
+
+Labels are deterministic readings of repo data (MC14 step 1): Gu from chat G's 78 chapter-checked parts rows (the function family read as a sentence, cost family from rank and fuel, limits from the observed note), Hogwarts from the 117-record spellbook's paraphrased "Operation or lead" column by ordered keyword rules. Each world also has a comparison the labeller does not read: G's separately authored ability effect kinds for Gu (14 kinds), and chat S's six family headings for Hogwarts.
+
+| World | Labelled | Rebuild | Verb read from object, target and time | Missing rules |
+| --- | --- | --- | --- | --- |
+| Gu | 57 of 78 (21 have no function in their scenes) | 55/57 = 96.5% | 64.9% (baseline 28.1%) | 2: Spring Autumn Cicada and Year Gu change **time**, which the grammar files as a law and `transform` does not reach. Either years are a quantity (lifespan) the Gu holds, or rebirth is a verb on time; the next scene check decides |
+| Hogwarts | 109 of 117 (8 leads have no operation: a legal category, witness accounts, artefact commands) | 85/109 = 78.0% | 40.4% (baseline 7.3%) | 5 verb-object rejects (Create boils reads as add on form; a revived state as transform on a working; the Taboo as block on knowledge; Descendo as release; clearing an airway as release on vitality) and 19 family mismatches, each a mislabel or a record whose family spans verbs |
+
+The Gu rate is higher partly by construction: its labels map G's function families, and only the ability-kind comparison (all 14 agree) is independent. The Hogwarts labeller reads free text, so its misses are real. **Across worlds:** 64.2% of Hogwarts sentences use a verb on an object kind that some Gu sentence also uses; 84.2% of Gu sentences have a Hogwarts counterpart. One grammar connects them without a join.
+
+### New effects from the harness
+
+Forty proposals per world and level, cause `pressure`, keep six. Pass rates: Gu 24, 16 and 22 of 40 at levels 0, 1 and 2; Hogwarts 24, 24 and 20. Most failures are **runs** (no canon law for that verb on that object kind) and, at level 2, **explains** (the world has no word yet for a part from the other world). Kept examples: a Gu that adds strength around the user instead of only to the user; a Gu that moves a bond held by a chosen target (from the Defodio lead carried into essence); a Hogwarts ward that blocks workings for good (from Cave Inimicum with its limit dropped); a Hogwarts spell that adds light around the caster (from the Starlight Firefly Gu carried into a spoken spell).
+
+**Pays:** the Gu curve fits 26 canon dose amounts but finds no rise with scope (slope clamped to 0, base 3.2): Gu costs follow rank and kind, not reach. Hogwarts has no canon amounts, so its curve is the default dial (1 + scope). Both are listed below.
+
+### What the effect grammar cannot express yet
+
+| Code | Gap | Proposed shape |
+| --- | --- | --- |
+| PGB8 | Cost by rank and kind (the Gu curve finds no scope slope) | a curve over scope plus a world-declared rank term, fitted when canon amounts carry rank |
+| PGB9 | Time as a quantity a Gu holds versus a law it changes (Year Gu, Spring Autumn Cicada) | decide per world: `lifespan` quantity with add and remove, or a verb on time with a law field |
+| PGB10 | Magnitude, range and duration numbers inside a sentence | numeric parts priced on the same curve (with PGB3) |
+| PGB11 | Composition (killer moves, combined charms) | K's composed working (SC6); P supplies sentences per step |
+| PGB12 | Fit checks on a kept set that read the actor's need (NV4) | a usefulness dial supplied by A's wants |
+
+### MC14 step 1: deterministic labels from repo data
+
+`node scripts/grammar_label_mc14.mjs --out <summary.json>`; summary in [mc14_labels_summary.json](gm/dispatch/foundation-p-2026-11-12/mc14_labels_summary.json).
+
+- **Gu index:** of 1,159 records missing a label, 170 get a path from a name word equal to a declared path ("Strength", "Soul"), and 3 a rank and 3 a path from G's chapter rows. On the 162 already-labelled rows where the name-word rule fires, it agrees with the wiki category 147 times (91%). It stays a separate layer, not a fit label (PGC11, dial to admit it). Roles (822 missing) have no repo source: the wiki page text sits outside the repo, so they wait for an approved reader plan.
+- **Spells:** 109 of 117 leads labelled as sentences; 8 are not effects.
+- **Potions:** 101 subjects in the evidence observations; 62 with ingredients, 13 with preparation operations, 11 recipe-shaped (both), as rows for B's grammar (BRG1, BRG3).
