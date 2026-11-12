@@ -51,6 +51,16 @@ Compatibility line (MC4): game saves unchanged. The substrate has its own versio
 - **W-B8 · Effect kind vocabulary.** Effect kinds are free strings; a misspelling reaches no reactor silently. Add a kind list once two packs share kinds.
 - **W-B9 · Contested law fields.** Add and remove only; contests between fields wait for G or S to name a rule.
 
+## Phase 2a: properties, primitives, identity (2026-11-12)
+
+Merged master (ea6a170dd, fast-forward) first. Contract now **v1**, save revision 1 (revision 0 migrates, E7).
+
+- **SB2 quantities and properties.** Vocabulary v1 in `world_quantities.js`: 17 shared quantities (keyed families for energy, stock, want, light, scent and residue) and 10 properties, each with the chats that asked for it. Requests answered: L (vitality, humidity, temperature, light, residue, noise and scent), G (energy by kind and rank as `energy:<kind>` keys, light by kind, noise, cover, concealment), B (temperature, residue, condition, moon phase, day), F (temperature, condition, humidity; provenance stays the ledger plus a lineage key in `refs`), S (energy accounts, light), C (light, noise, cover, energy accounts for stamina, essence and focus), M and A (`stock:<good>`, `want:<good>`, derived `readScarcity`), R (energy, day). Laws read properties (WSC15, E2).
+- **SB3 effect primitives.** `world_effects.js`: ten verbs on quantities, properties, positions and law fields, with block, conceal and alter as counterplay and `until` for sustained effects (WSC19, WSC20, E3, E4). The boundary with P is the table in the contract's "Effect primitives and the boundary with P".
+- **SC7 identity.** Holders carry `as` and `refs`; `resolveRef` and `substratePort` give K a `ports.read` (WSC18, E5).
+
+Not done in 2a: the live route (phase 2b below).
+
 ## Next phase
 
 - **E (emergence harness) can start now.** First contact case: **CC1 · Steam and the shell** (contract doc section "The first contact case"), fixtures in `tests/world_substrate.test.js`. The departure variant is W4 (keeper leaves at minute 109 with a correction due at 110; `onLeave` drop by default, finish as the dial).
