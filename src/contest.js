@@ -147,7 +147,9 @@ export function beginContest(law, {id, seed, place, entrants, sides = {}, detail
         table[e.id] = {side: e.side, body: e.body, profile: clone(e.profile ?? {}), moves: [...e.moves], speed: e.speed ?? 100,
             perception: e.perception ?? 5, stealth: e.stealth ?? 0, wants: {fleeAt: 0, yieldAt: 0, acceptsSurrender: true,
                 pursues: false, guards: true, ...clone(e.wants ?? {})}, reads: [...(e.reads ?? [])],
-            max: {vitality: e.maxVitality ?? readQuantity(world, e.body, 'vitality') ?? 0},
+            // Full health comes from the entrant row or the body's own max_vitality, so a body that enters
+            // already hurt fights impaired (CBR22). Only with neither does the current amount stand in.
+            max: {vitality: e.maxVitality ?? readQuantity(world, e.body, 'max_vitality') ?? readQuantity(world, e.body, 'vitality') ?? 0},
             lifecycle: clone(e.lifecycle ?? null), ready: at, status: 'in', outcome: null, working: null, yieldRefused: false, moveCount: 0};
     }
     const record = {schema: CONTEST_SCHEMA, id, law: law.ref, seed, place, detail, startedAt: at, clock: at, meetings: 0,

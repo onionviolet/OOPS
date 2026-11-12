@@ -149,6 +149,14 @@ test('injury lowers control before it stops the fighter (CBR22)', () => {
     assert.ok(hurt.impair < 1 && hurt.able);
 });
 
+test('a body that enters a fight already hurt fights impaired from its first meeting', () => {
+    const entrants = [fighter('a', 'red', {vitality: 15, maxVitality: 30}), fighter('b', 'blue')];
+    const {world} = arena(entrants);
+    const record = beginContest(LAW, {id: 'w', seed: 1, place: 'yard', entrants}, world);
+    assert.equal(record.entrants.a.max.vitality, 30);
+    assert.ok(entrantView(LAW, record, world, 'a').impair < 1);
+});
+
 test('odds quote is the same rule on keyed seeds and sums to one', () => {
     const entrants = [fighter('a', 'red', {profile: {attack: 20, evasion: 12}}), fighter('b', 'blue')];
     const {rules, world} = arena(entrants);

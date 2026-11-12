@@ -5,7 +5,8 @@
 ## Status
 
 - Phase 1 (inventory and proposal): sections 1 to 8 below, merged to master.
-- **Phase 2 (contest v0 and first consumers): done, section P2.** Status: **implemented, below floor** (AD43: no player route yet, FLR2 and FLR4 unmet). Agent-verified, not human-reviewed.
+- **Phase 2 (contest v0 and first consumers): committed, section P2.** Status: **implemented, below floor** (AD43: no player route yet, FLR2 and FLR4 unmet). Agent-verified, not human-reviewed.
+- **C's done check is not met yet.** One contest rule runs the Gu duel, both Hogwarts bouts and the wolf hunt, but only the wolves' damage reaches an L body store (the lifecycle cohort). People's hits land on W body holders' `vitality`, a quantity C's own pack declares; nothing writes `harm_state` or simulation vitals. It closes on L1 (an injure door on W bodies) or an adapter to L's people body once L names it.
 - Owner doc from phase 2 on: [CONTEST_CONTRACT](../../../CONTEST_CONTRACT.md) (CFC1 to CFC16, codes kept from the proposal; CFC13 and CFC14 not built yet).
 
 ## P2. Phase 2: contest contract v0 on K and W (2026-11-12)
@@ -46,11 +47,18 @@ Calibration dials named in the rows with reasons: wolf `kiteCrowd` 2, bite power
 
 | Command | Result | Gaps |
 | --- | --- | --- |
-| `node --test tests/contest.test.js tests/contest_consumers.test.js` | 17 pass, 0 fail | No player route; consumers run from fixtures |
+| `node --test tests/contest.test.js tests/contest_consumers.test.js` | 18 pass, 0 fail (after the starting-injury fix: a body that enters hurt fights impaired) | No player route; consumers run from fixtures |
 | `npm run check:arch` | pass; main.js 10114 against baseline 10115; no new cycles | |
 | `npm run check:rules` | pass; one pre-existing TMR1 warning in `book_world_hp_exams.js`; one stale private_packs glob | |
 | `npm run build` | pass | No bundled module imports the contest yet |
 | Full `npm test`, browser | not run | Integrator runs the full suite at merge (MC7); no player-facing change |
+
+**Rescopes and changed meanings (with reasons)**
+
+- **Folding moved to phase 3.** The phase-2 brief included folding the parallel engines; none is folded yet. Reason: `tempo_fight` is a live engine with schema-7 saved sessions, six opener files and a host panel; deleting any of it needs the contest wired to a player route first and a rebuilt-browser check (AGENTS verification, MC5 for the lead-life packs), which is a phase of its own.
+- **CFC12 changed meaning.** The phase-1 proposal said far contests settle as one keyed draw on aggregate strength, matched to the detailed odds within 5 points. v0 instead runs every meeting with the same draws and only batches what it writes to the world, which gives exact equality with the near fight. It is cheaper on the world (one write per body) but not on compute: FC3 takes about 50 ms a fight and odds run 24 fights. The aggregate settle is backlog CB-13.
+- **Two direct imports with reasons (PFP10).** `contest_bodies.js` imports `creature_lifecycle.js` (no L door yet, L1). `contest_resolvers.js` imports `gu_defense.js` for the layered-packet rule; that function names no Gu, so the request is for G to move it to a neutral file (G2). The SC9 test exempts only that file.
+- **FC1 order differs from the book.** The end state matches (Wang Er dead, the hunters kneeling), but the first moonblade usually kills the hunter it hits, where the book has him caught in the arm, and Wang Er often falls before the hunters kneel. A wound outcome short of a fall (CB-14) would fix the order.
 
 **What the rules could not express (new backlog rows)**
 
@@ -60,6 +68,8 @@ Calibration dials named in the rows with reasons: wolf `kiteCrowd` 2, bite power
 - **CB-10** Far equality holds only while no reactor answers a blow mid-fight. With reactors, far settlement loses mid-fight reactions by design; E should measure how often that matters.
 - **CB-11** Wild cohort members fight as individual entrants (twenty wolf holders). A cohort entrant with a count and shared morale would be cheaper for a full wolf tide (CB-5).
 - **CB-12** The chooser is C's default. A's wants-based chooser plugs in through `ports.choose`.
+- **CB-13** Aggregate far settle: one keyed draw per contest on side strength, checked against the detailed odds within a tolerance dial, for NPC-on-NPC fights and a full wolf tide away from the player. E measures the far cost first (MC16).
+- **CB-14** A wound short of a fall: a hit that lands a part injury and changes a want (the hunter caught in the arm kneels) without taking the body to zero.
 
 **Requests (relay to owners)**
 
@@ -68,6 +78,9 @@ Calibration dials named in the rows with reasons: wolf `kiteCrowd` 2, bite power
 - **L1** (repeat): one injure door on W body holders, and the impairment ladder as a pure leaf. `harm_state.js` registers a domain on import, so C copies its fifths ladder as a dial instead of importing it.
 - **A1**: a chooser for `ports.choose(law, record, world, id) -> {move, target, why}` reading wants and knowledge.
 - **G, S**: adopt the Gu and Hogwarts rows into your packs when ready (SC5, SC9); C keeps only how moves meet.
+- **G2**: move `resolveGuDefense` (layered packets, names no Gu) to a neutral file so the contest's resolver does not import a Gu file.
+- **K · units**: confirm kernel step counts are unit-free. Contest workings count deadlines in ticks of a tenth of a second under `kernel.working@1`, whose KW5 text says minutes.
+- **E**: measure far contest cost per fight (FC3 is about 50 ms) alongside MC16.
 
 **Next phase (C phase 3)**
 
