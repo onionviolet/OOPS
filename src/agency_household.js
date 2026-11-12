@@ -85,7 +85,7 @@ export function householdCandidates() {
     return [
         {id: 'cook', label: 'cooks a batch', law: householdLaw, method: householdMethods.cook, bindings: pick('cook', 'pantry'), serves: () => ({feed: 1})},
         {id: 'buy', label: 'goes to buy meat', law: householdLaw, method: householdMethods.buy, bindings: pick('cook', 'stall'),
-            serves: () => ({feed: 0.8}), cost: q => q.facts.spent / Math.max(1, q.facts.coin), costWhy: q => `${q.facts.spent} coins is a lot of the purse`},
+            serves: () => ({feed: 0.8}), cost: q => q.facts.spent / Math.max(1, q.facts.coin), costWhy: q => `it costs ${q.facts.spent} of the ${q.facts.coin} coins in the purse`},
         {id: 'repair', label: 'mends the roof', law: householdLaw, method: householdMethods.repair, bindings: pick('cook', 'house'), serves: () => ({mend: 1})},
         {id: 'dry', label: 'mops and airs the house', law: householdLaw, method: householdMethods.dry, bindings: pick('cook', 'house'), serves: () => ({dry: 1})},
         {id: 'rest', label: 'rests', law: householdLaw, method: householdMethods.rest, bindings: pick('cook'), serves: () => ({rest: 1})},

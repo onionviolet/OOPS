@@ -101,8 +101,12 @@ function causeLine(agent, needs, row, passed) {
 // pressureAt and nothing eligible serves it) an agent with novelty asks
 // `invent` for one new candidate;
 // it goes through the same quote and score, so generated means runnable (PFP16).
-// root (optional) keys the latitude draw at address(agency.choice, actor, at).
-export function chooseWorking({agent, needs, candidates, at, knows, authority, facts, root, invent}) {
+// actor is the instance (a holder id); it defaults to the agent's id, and keys
+// quote ids, the latitude draw and invention so two actors sharing one profile
+// choose independently. root (optional) keys the latitude draw at
+// address(agency.choice, actor, at).
+export function chooseWorking({agent, actor = agent.id, needs, candidates, at, knows, authority, facts, root, invent}) {
+    check(id(actor), 'Choose for a named actor.');
     check(natural(at) && Array.isArray(candidates), 'Choose at a whole minute from a list of candidates.');
     checkNeeds(agent, needs);
     const seen = new Set();
@@ -110,7 +114,7 @@ export function chooseWorking({agent, needs, candidates, at, knows, authority, f
         checkCandidate(c);
         check(!seen.has(c.id), `Candidate ${c.id} is listed twice.`);
         seen.add(c.id);
-        const quote = actorQuote(c.law, c.method, {id: `${agent.id}/${c.id}/${at}`, bindings: c.bindings, at, knows, authority, facts});
+        const quote = actorQuote(c.law, c.method, {id: `${actor}/${c.id}/${at}`, bindings: c.bindings, at, knows, authority, facts});
         if (!quote.ok) return {id: c.id, label: c.label, ok: false, reason: quote.reason, failedStep: quote.failedStep, quote, invented};
         return {id: c.id, label: c.label, ok: true, quote, invented, ...scoreCandidate(agent, needs, c, quote)};
     };
@@ -124,8 +128,8 @@ export function chooseWorking({agent, needs, candidates, at, knows, authority, f
         .sort((a, b) => b.v - a.v || (a.w < b.w ? -1 : 1))[0];
     const unserved = want && want.v > 0 && want.v >= agent.pressureAt && !eligible.some(r => r.terms.some(t => t.want === want.w && t.value > 0));
     if (agent.novelty > 0 && invent && unserved) {
-        pressure = {kind: 'pressure', id: `${agent.id}:${want.w}`, want: want.w, why: want.why};
-        const made = invent({agent, needs, at, cause: pressure, existing: scored.map(r => r.id)});
+        pressure = {kind: 'pressure', id: `${actor}:${want.w}`, want: want.w, why: want.why};
+        const made = invent({agent, actor, needs, at, cause: pressure, existing: scored.map(r => r.id)});
         if (made) {
             const row = rate(made, true);
             scored.push(row);
@@ -134,10 +138,10 @@ export function chooseWorking({agent, needs, candidates, at, knows, authority, f
     }
     if (top && agent.latitude > 0 && root !== undefined) {
         const pool = eligible.filter(r => r.score >= top.score - agent.latitude);
-        if (pool.length > 1) top = pool[Math.min(pool.length - 1, Math.floor(drawFraction(root, address('agency.choice', agent.id, at)) * pool.length))];
+        if (pool.length > 1) top = pool[Math.min(pool.length - 1, Math.floor(drawFraction(root, address('agency.choice', actor, at)) * pool.length))];
     }
     const passed = scored.filter(r => !r.ok).map(({id: cid, reason}) => ({id: cid, reason}));
-    return {agent: agent.id, at, choice: top?.id ?? null, label: top?.label ?? null, score: top?.score ?? null,
+    return {agent: agent.id, actor, at, choice: top?.id ?? null, label: top?.label ?? null, score: top?.score ?? null,
         quote: top?.quote ?? null, cause: top ? {line: causeLine(agent, needs, top, passed), terms: top.terms} : null,
         passed, pressure, invented,
         scored: scored.map(({quote, ...row}) => row)};

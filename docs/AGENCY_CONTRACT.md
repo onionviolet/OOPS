@@ -11,7 +11,7 @@ agent    = defineAgent({id, revision, label, wants: {want: {weight, label}}, thr
 quote    = actorQuote(law, method, {id, bindings, at, knows, authority?, facts?})   // player and NPC alike
 needs    = {want: {urgency 0-1, why}}                                               // read live from body, place and knowledge
 candidate= {id, label, law, method, bindings, serves(quote) -> {want: gain -1..1}, cost?(quote), costWhy?, riskWhy?, bias?}
-choice   = chooseWorking({agent, needs, candidates, at, knows, authority?, facts?, root?, invent?})
+choice   = chooseWorking({agent, actor?, needs, candidates, at, knows, authority?, facts?, root?, invent?})
          -> {choice, label, score, quote, cause: {line, terms}, passed: [{id, reason}], pressure, invented, scored}
 ```
 
@@ -29,7 +29,7 @@ choice   = chooseWorking({agent, needs, candidates, at, knows, authority?, facts
 | AGC8 | **Invent under pressure (NV4).** When the strongest want pulls at least `pressureAt` and no eligible candidate serves it, an agent with `novelty` above 0 asks its `invent` port for one new candidate (cause kind `pressure`). The candidate goes through the same quote and score; it counts only if it runs (PFP16). An actor keeps an invented routine in its own state. | `invent` is usually P's `generate` keyed at `address(agency.invent, actor, clock)`; one attempt per decision, within P's draw budget. |
 | AGC9 | **Banded inputs, watched edges.** A choice on the world substrate reads only banded quantities (`bandOf`) and declares every band edge as a watch (`bandWatches`), and dwell or travel time as a horizon. `decide` returns nothing unless the choice or a belief changes. Then far places settle an agent in a few segments with the same totals as minute-by-minute play (PFP12, SPR28, WSC5-WSC6). | Bands are per want; finer bands cost more segments. |
 | AGC10 | **Every choice has a cause line** (SPR32, PFP13). The two strongest positive terms, said in the actor's own reasons; when the strongest want goes unserved, the line leads with why the working that would have served it dropped out. | The line says only what the actor knows. |
-| AGC11 | **Receipts are bounded.** Each actor keeps its last `CHOICE_RING` (8) choices with time, choice, cause and any invention (SPR30). | Ring size per world. |
+| AGC11 | **Receipts are bounded.** Each actor keeps its last `CHOICE_RING` (8) choices with time, choice, cause and any invention, and at most `REPERTOIRE_CAP` (4) invented routines (SPR30). Quote ids, draws and invention are keyed by the actor instance (`actor`, a holder id), not the shared profile. | Ring and cap per world. |
 | AGC12 | **Latitude is a keyed draw.** A temperament with `latitude` above 0 may take any option within that score of the best, drawn at `address(agency.choice, actor, clock)` (GR17), so a reload replays it. | Default 0: deterministic best. |
 
 ## The two consumers

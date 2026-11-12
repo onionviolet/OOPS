@@ -73,6 +73,8 @@ function needs(s, satiety, people) {
     return {drink, safety: people ? {urgency: 1, why: 'people are close'} : {urgency: 0}, rest: {urgency: 1, why: band === 2 ? 'it has drunk its fill' : 'it can lie still in the hills'}};
 }
 
+// SPR30: invented routines kept per worm, oldest dropped first.
+export const REPERTOIRE_CAP = 4;
 const isWorm = h => h.kind === 'body' && h.tags.includes('a.wild.liquor_worm');
 
 // invent(args) -> candidate | null is the NV4 hook: a caller (usually through
@@ -93,7 +95,7 @@ export function createWildAgencyPack({invent = null} = {}) {
             fresh = c ? {...c, made} : null;
             return fresh;
         });
-        const choice = chooseWorking({agent: liquorWorm, needs: needs(s, satiety, people), candidates: list, at: view.clock, knows, invent: wrap});
+        const choice = chooseWorking({agent: liquorWorm, needs: needs(s, satiety, people), candidates: list, at: view.clock, actor: id, knows, invent: wrap});
         const picked = choice.choice === null ? null : list.find(c => c.id === choice.choice) ?? (fresh?.id === choice.choice ? fresh : null);
         return {choice, picked, fresh};
     };
@@ -138,7 +140,7 @@ export function createWildAgencyPack({invent = null} = {}) {
                 const doing = choice.choice;
                 let next = s;
                 if (doing !== s.doing || (choice.invented && !s.repertoire.some(r => r.id === choice.invented))) {
-                    const made = choice.invented && fresh?.made ? [...s.repertoire, fresh.made] : s.repertoire;
+                    const made = choice.invented && fresh?.made ? [...s.repertoire, fresh.made].slice(-REPERTOIRE_CAP) : s.repertoire;
                     next = {...s, doing, target, arriveAt: target === here ? null : view.clock + LIQUOR_WORM_ROW.travelMinutes,
                         repertoire: made, ring: recordChoice(s.ring, choice)};
                 }

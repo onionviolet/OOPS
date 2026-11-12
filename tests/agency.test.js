@@ -8,7 +8,7 @@ import {defineGrammar, fitGrammar, generate} from '../src/procedural_grammar.js'
 import {address} from '../src/gen_kit.js';
 
 const house = (over = {}) => ({cook: {coin: 20}, pantry: {raw: 2, cooked: 0}, stall: {raw: 6, price: 3}, house: {integrity: 100, wetness: 0}, ...over});
-const decideCook = (truth, belief = truth, at = 0) => chooseWorking({agent: householdCook, needs: householdNeeds(belief), candidates: householdCandidates(),
+const decideCook = (belief, at = 0) => chooseWorking({agent: householdCook, needs: householdNeeds(belief), candidates: householdCandidates(),
     at, knows: householdReader(belief)});
 
 // AGC3: the player's quote and the NPC's quote are one function.
@@ -18,8 +18,7 @@ test('the cook weighs the same quote the player is shown for the same knowledge'
     const player = actorQuote(householdLaw, householdMethods.buy, {id: 'a.household.cook/buy/0', bindings, at: 0, knows: householdReader(s)});
     const choice = decideCook(s);
     assert.equal(choice.choice, 'buy');
-    const npc = actorQuote(householdLaw, householdMethods.buy, {id: `${householdCook.id}/buy/0`, bindings, at: 0, knows: householdReader(s)});
-    assert.deepEqual(npc, player);
+    assert.deepEqual(choice.quote, player, 'the quote the cook weighed is the quote the player is shown');
     assert.equal(player.effects[0].amount, -6);
 });
 
@@ -56,7 +55,7 @@ test('scarcity the cook believes changes the choice; truth it has not seen does 
     // The stall sold out but the cook has not heard: the choice holds, and the
     // same working settled against the truth would stop with the reason.
     const truth = house({pantry: {raw: 0, cooked: 0}, stall: {raw: 0, price: 3}});
-    assert.equal(decideCook(truth, empty).choice, 'buy');
+    assert.equal(decideCook(empty).choice, 'buy', 'the cook acts on what it has heard');
     const settled = actorQuote(householdLaw, householdMethods.buy, {id: 'x', bindings: {cook: {kind: 'person', id: 'cook'}, stall: {kind: 'store', id: 'stall'}},
         at: 0, knows: householdReader(truth)});
     assert.equal(settled.ok, false);
@@ -155,8 +154,8 @@ const habits = defineGrammar({id: 'a.test.worm_habits', revision: 1,
     slots: [{id: 'verb', type: 'one', values: ['nose', 'dig']}, {id: 'site', type: 'one', values: 'corpus'}],
     rules: [], fallback: {id: 'fallback', parts: {verb: 'nose', site: 'grove'}}});
 const fitted = fitGrammar(habits, [{id: 'a', parts: {verb: 'nose', site: 'grove'}}, {id: 'b', parts: {verb: 'dig', site: 'grove'}}]);
-const invent = ({agent, at, cause, here, known}) => {
-    const g = generate(fitted, {root: 'world-seed', address: address('agency.invent', agent.id, at), cause,
+const invent = ({actor, at, cause, here, known}) => {
+    const g = generate(fitted, {root: 'world-seed', address: address('agency.invent', actor, at), cause,
         validate: v => v.parts.site !== here && !known.includes(v.parts.site)});
     return {id: `${g.value.parts.verb}:${g.value.parts.site}`, verb: g.value.parts.verb, site: g.value.parts.site, cause: g.value.cause};
 };
@@ -179,6 +178,44 @@ test('NV4 stays shut when an existing working already serves the want', () => {
     const counting = args => { calls++; return invent(args); };
     advanceWorld(...Object.values(wormWorld({satiety: 300, invent: counting})), 600);
     assert.equal(calls, 0);
+});
+
+test('two actors sharing one profile are keyed apart', () => {
+    const s = house();
+    const one = chooseWorking({agent: householdCook, actor: 'cook.ada', needs: householdNeeds(s), candidates: householdCandidates(), at: 5, knows: householdReader(s)});
+    const two = chooseWorking({agent: householdCook, actor: 'cook.bram', needs: householdNeeds(s), candidates: householdCandidates(), at: 5, knows: householdReader(s)});
+    assert.equal(one.actor, 'cook.ada');
+    assert.equal(two.actor, 'cook.bram');
+    const seen = [];
+    const spy = args => { seen.push(args.actor); return null; };
+    const rules = composeSubstrate({packs: [createWildAgencyPack({invent: spy})]});
+    const worm = id => ({id, kind: 'body', place: P.home, tags: ['a.wild.liquor_worm'], quantities: {satiety: 300}, state: {'a.wild_agency': liquorWormState(P.home)}});
+    const w = createWorld(rules, {holders: [{id: P.home, kind: 'place', quantities: {}}, {id: P.cellar, kind: 'place', quantities: {liquor: 0}}, worm('worm.a'), worm('worm.b')]});
+    advanceWorld(rules, w, 3);
+    assert.ok(seen.includes('worm.a') && seen.includes('worm.b'), 'invention is asked per worm, keyed by holder');
+});
+
+const parity = (make, until, outside = []) => {
+    const run = (detail, cuts) => {
+        let {rules, world} = make(detail);
+        for (const t of cuts) {
+            for (const [at, ops] of outside) if (at === t) world = applyWorldOps(rules, world, ops, 'test');
+            world = advanceWorld(rules, world, t).world;
+        }
+        return world;
+    };
+    const stops = [...new Set([...outside.map(([at]) => at), until])].sort((a, b) => a - b);
+    const near = run('near', stops), far = run('far', stops), cut = run('far', [...new Set([...stops, 13, 211, 777])].filter(t => t <= until).sort((a, b) => a - b));
+    assert.deepEqual(strip(far), strip(near));
+    assert.deepEqual(far.chain, near.chain);
+    assert.deepEqual(strip(cut), strip(far));
+};
+
+test('parity holds for invention and for an outside arrival mid-run', () => {
+    parity(detail => wormWorld({detail, satiety: 300, liquor: 0, believe: {cellar: 0}, grove: 500, invent}), 1440);
+    const keeper = [[70, [{op: 'holder_add', value: {id: 'keeper', kind: 'body', place: P.cellar, tags: ['person'], quantities: {}}}]],
+        [200, [{op: 'holder_remove', holder: 'keeper'}]]];
+    parity(detail => wormWorld({detail, satiety: 100, liquor: 5000}), 1440, keeper);
 });
 
 test('bands', () => {
