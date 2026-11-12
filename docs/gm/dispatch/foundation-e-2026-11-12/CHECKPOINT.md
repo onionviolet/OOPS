@@ -95,3 +95,12 @@ surface: new harness scripts emergence_harness, emergence_cases, emergence_run a
 ## Next
 
 Phase 2: as B, L, G and A land substrate packs on master or their branches, add pc1, pc2 and pc3 as cases (no join code), pin what they find, and add the place-driven and actor-driven generation runs with P.
+
+Read-only look at sibling branches (2026-11-12, not merged, so not importable here):
+
+- W `claude/fdn-w-substrate-ee40b6@0e2336350`: substrate v1 with light, residue, temperature, noise and scent families and effect primitives (`world_effects.js`). This answers W4 and parts of pc2 and pc3. W-B1 (partitioned detail) waits on E's cost number: F3 is that number.
+- L `claude/fdn-l-living-dd64ac@0b652a2c8`: a living body substrate pack (`world_substrate_packs/living_body.js`). pc1 and pc2 bodies become runnable once it merges.
+- B `claude/fdn-b-brewing-afd93a@b700490af`: brew law on the kernel working, tested against the substrate. pc1's weaker batch is runnable once B's law reads a regulated quantity (B1) and merges.
+- G `claude/fdn-g-gu-312887@57476c596`, A, P: no substrate pack yet for a regulating Gu or a rival actor.
+
+Phase 2 waits on those merges; the coordinator merges and messages E.
