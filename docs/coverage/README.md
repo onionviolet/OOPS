@@ -6,8 +6,8 @@
 
 | Ledger | Owner | Expected | Rows | runs-canon | runs-authored | blocked | not-a-thing | unclassified | Classified | Runs share |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| gu_kinds | G | 1466 | not started | | | | | | | |
-| gu_moves | G | 776 | not started | | | | | | | |
+| [gu_kinds](gu_kinds.jsonl) | G | 1466 | 1466 | 0 | 383 | 1079 | 4 | 0 | 100% | 26.2% |
+| [gu_moves](gu_moves.jsonl) | G | 776 | 776 | 0 | 4 | 772 | 0 | 0 | 100% | 0.5% |
 | hp_potions | B | 316 | not started | | | | | | | |
 | hp_ingredients | B | 409 | not started | | | | | | | |
 | lotm_potions | B | to build | not started | | | | | | | |
@@ -16,7 +16,13 @@
 
 ## Blocking rules
 
-None yet.
+| Ledger | Missing rule | Rows |
+| --- | --- | ---: |
+| gu_moves | roles-unknown | 753 |
+| gu_kinds | rank-unknown | 679 |
+| gu_kinds | effect-unknown | 400 |
+| gu_moves | unnamed-role | 17 |
+| gu_moves | role-cannot-run | 2 |
 
 ## Row format
 
