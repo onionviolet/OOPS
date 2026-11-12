@@ -3,27 +3,24 @@
 // substrate packs write or publish it and which read or hear it, grouped by the
 // domain letter of the pack id (`b.brew_steam` is domain b; no prefix is `?`).
 //   node scripts/coupling_map.mjs [--json]
-// Declarations (`reads`, `writes`, `publishes`, `hears`) come from the pack's own
-// object literal. Reads and writes found in the pack's file text but missing from
-// its declaration are added and marked `undeclared`. Static and best effort.
-import {existsSync, readdirSync, readFileSync, statSync} from 'node:fs';
+// Declarations (`reads`, `writes`, `publishes`, `hears`) are read from the packs
+// themselves: every pack registered in src/engine_world.js is created and its
+// object is read, so a list a pack computes counts the same as one it spells out.
+// A pack that needs caller settings is created from SAMPLE_SETTINGS; settings can
+// add declarations (a market's goods), so another world passes its own to buildMap.
+// Reads and writes found in the pack's file text but missing from its declaration
+// are still added and marked `undeclared`; that part is static and best effort.
+import {existsSync, readFileSync, statSync} from 'node:fs';
 import {dirname, join, relative, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {WORLD_QUANTITIES as Q, WORLD_PROPERTIES as P, WORLD_EFFECT_KINDS as K} from '../src/world_quantities.js';
+import {ENGINE_PACKS} from '../src/engine_world.js';
+import {THERMAL_REVISION} from '../src/craft_process_thermal.js';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const rel = p => relative(ROOT, p).split('\\').join('/');
 const read = p => readFileSync(p, 'utf8');
 const stripComments = s => s.replace(/\/\*[\s\S]*?\*\//g, '').replace(/(^|[\s;{}(),])\/\/[^\n]*/g, '$1');
-function walk(dir, out = []) {
-    for (const name of readdirSync(dir).sort()) {
-        const p = join(dir, name);
-        if (statSync(p).isDirectory()) walk(p, out);
-        else if (/\.m?js$/.test(name)) out.push(p);
-    }
-    return out;
-}
-
 // Duplicate of the walk in scripts/compression_report.mjs; replace both with scripts/reachable.mjs later.
 function reachableFrom(entry) {
     const seen = new Set(), queue = [resolve(entry)];
@@ -62,63 +59,47 @@ function resolver(text) {
     };
     return resolveExpr;
 }
-const splitList = body => {
-    const out = []; let depth = 0, cur = '';
-    for (const ch of body) {
-        if ('([{'.includes(ch)) depth++;
-        if (')]}'.includes(ch)) depth--;
-        if (ch === ',' && depth === 0) { out.push(cur); cur = ''; } else cur += ch;
-    }
-    if (cur.trim()) out.push(cur);
-    return out;
-};
-// Array literal after `key:` starting near `from`; spread or computed lists give {expr}.
-function arrayAfter(text, key, from, to) {
-    const m = new RegExp(`\\b${key}:\\s*`, 'g'); m.lastIndex = from;
-    const hit = m.exec(text);
-    if (!hit || hit.index > to) return null;
-    let i = hit.index + hit[0].length;
-    if (text[i] !== '[') return {computed: text.slice(i, i + 60).split(/[,\n]/)[0]};
-    let depth = 0, j = i;
-    for (; j < text.length; j++) { if (text[j] === '[') depth++; if (text[j] === ']' && --depth === 0) break; }
-    return {items: splitList(text.slice(i + 1, j))};
-}
-
 const family = name => name.split(':')[0];
 const QUANT = new Set(Object.keys(Q)), PROP = new Set(Object.keys(P));
 
-export function discoverPacks() {
-    const packs = [];
-    for (const file of walk(join(ROOT, 'src'))) {
-        const text = stripComments(read(file)), resolve1 = resolver(text);
-        const packRe = /\bid:\s*('([a-z])\.([a-z0-9_]+)'|[A-Z][A-Z0-9_]+)\s*,\s*revision:/g;
-        const found = [...text.matchAll(packRe)];
-        for (const m of found) {
-            let id = m[2] ? `${m[2]}.${m[3]}` : resolve1(m[1]);
-            if (!id || !/^[a-z]\.[a-z0-9_]+$/.test(id)) continue;
-            const end = Math.min(text.length, m.index + 1500);
-            if (!/\b(?:laws|reactors|quantities):/.test(text.slice(m.index, end))) continue;
-            const decl = {};
-            const unresolved = [];
-            for (const key of ['reads', 'writes', 'publishes', 'hears']) {
-                const arr = arrayAfter(text, key, m.index, end);
-                decl[key] = [];
-                if (!arr) continue;
-                if (arr.computed) {
-                    // `names` style: a const array of string literals in the same file; anything else stays unresolved.
-                    const lit = text.match(new RegExp(`\\bconst\\s+${arr.computed.trim()}\\s*=\\s*(\\[[^\\n]*\\])`))?.[1];
-                    const names = lit ? [...lit.matchAll(/'([^']+)'/g)].map(x => x[1]) : [];
-                    if (names.length) decl[key].push(...names); else unresolved.push(`${key}: ${arr.computed}`);
-                    continue;
-                }
-                for (const item of arr.items) {
-                    const name = resolve1(item);
-                    if (name) decl[key].push(name); else unresolved.push(`${key}: ${item.trim().slice(0, 40)}`);
-                }
-            }
-            packs.push({id, domain: id[0], file: rel(file), decl, unresolved, text, sharedFile: found.length > 1});
+// One row per pack that takes settings: the engine world's mixed valley
+// (tests/engine_world.test.js). They are sample world numbers for this report.
+export const SAMPLE_SETTINGS = Object.freeze({
+    'b.brew_steam': {thermalLaw: {revision: THERMAL_REVISION, ambient: 20, extraction: {min: 45, max: 80, seconds: 30}, degradation: {above: 85, seconds: 20}},
+        steamPerMinute: 4, humidityFinish: {activeAmount: 100, maxHumidity: 95, dampResiduePercent: 50}},
+    'l.shell_regulator': {delay: 2, draft: 9, recharge: 7, closeBelow: 47, openAbove: 60, startleMinutes: 15},
+    'g.brew_regulator': {room: 'workshop', outside: 'yard', vent: 'vent'},
+    'w.residue_flow': {drains: [{from: 'workshop', to: 'field', reason: 'Gravity carries wash water downhill.'}]},
+    'l.living_residue': {plots: [{field: 'field', crop: 'clover', forage: 'stock:clover', concentration: 'uniform-per-deposit', residues: [
+        {substance: 'active', quantity: 'residue:active', uptakePermille: 500, intakeReason: 'Trace in an eaten portion passes into tissue.',
+            dose: {threshold: 5, amount: 2, kind: 'irritation', reason: 'Five trace units in one meal irritate this grazer.'}}]}]},
+    'l.colony_light': {profiles: [{members: 'stock:starlight-firefly', light: 'light:star', gradePerMember: {dark: 12, daylit: 0}}]},
+    'l.forage_attraction': {profiles: [{light: 'light:star', minimum: 8, interval: 10}], maxNeighbors: 2, connections: [{from: 'ridge', to: 'hill', open: true}]},
+    'm.market': {goods: ['bread'], inputs: ['flour']},
+});
+
+// Which file a registered pack comes from: the import of its factory in the registry module.
+function packFiles() {
+    const registry = join(ROOT, 'src/engine_world.js'), text = stripComments(read(registry)), files = new Map();
+    for (const m of text.matchAll(/\bimport\s*\{([^}]+)\}\s*from\s*['"]([^'"]+)['"]/g))
+        for (const name of m[1].split(',')) files.set(name.trim().split(/\s+as\s+/).pop(), rel(resolve(dirname(registry), m[2])));
+    return files;
+}
+
+export function discoverPacks(settings = SAMPLE_SETTINGS) {
+    const files = packFiles(), packs = [];
+    for (const entry of ENGINE_PACKS) {
+        const file = files.get(entry.create.name) ?? 'src/engine_world.js', unresolved = [];
+        const decl = {reads: [], writes: [], publishes: [], hears: []};
+        let made = null;
+        try { made = entry.create(settings[entry.id]); } catch (error) { unresolved.push(`not created: ${error.message}`); }
+        for (const key of Object.keys(decl)) for (const name of made?.[key] ?? []) {
+            if (typeof name === 'string') decl[key].push(name); else unresolved.push(`${key}: ${String(name).slice(0, 40)}`);
         }
+        packs.push({id: entry.id, domain: entry.domain, file, decl, unresolved, text: stripComments(read(join(ROOT, file))),
+            quantities: (made?.quantities ?? []).map(q => q.id), properties: (made?.properties ?? []).map(q => q.id)});
     }
+    for (const pack of packs) pack.sharedFile = packs.filter(other => other.file === pack.file).length > 1;
     return packs;
 }
 
@@ -142,8 +123,10 @@ function detect(pack) {
     return {reads, writes, publishes};
 }
 
-export function buildMap() {
-    const packs = discoverPacks(), main = reachableFrom(join(ROOT, 'src/main.js'));
+export function buildMap(settings = SAMPLE_SETTINGS) {
+    const packs = discoverPacks(settings), main = reachableFrom(join(ROOT, 'src/main.js'));
+    // A name is a quantity when the shared vocabulary or any loaded pack declares it as one.
+    const quantities = new Set([...QUANT, ...packs.flatMap(p => p.quantities)]);
     const rows = new Map(); // key: `quantity:name` or `effect:name`
     const row = (type, name) => {
         const key = `${type}:${name}`;
@@ -154,7 +137,7 @@ export function buildMap() {
     const info = [];
     for (const pack of packs) {
         const d = pack.decl, det = pack.sharedFile ? {reads: new Set(), writes: new Set(), publishes: new Set()} : detect(pack);
-        const typeOf = n => QUANT.has(family(n)) ? 'quantity' : 'property';
+        const typeOf = n => quantities.has(family(n)) ? 'quantity' : 'property';
         const declaredRead = new Set([...d.reads, ...d.writes]), declaredWrite = new Set(d.writes);
         for (const n of d.writes) put(row(typeOf(n), family(n) === n ? n : family(n)).writers, pack, 'declared');
         for (const n of d.reads) put(row(typeOf(n), family(n)).readers, pack, 'declared');

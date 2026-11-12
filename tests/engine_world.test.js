@@ -26,7 +26,7 @@ const thermalLaw = {revision: THERMAL_REVISION, ambient: 20,
     extraction: {min: 45, max: 80, seconds: 30}, degradation: {above: 85, seconds: 20}};
 const settings = {
     'b.brew_steam': {thermalLaw, steamPerMinute: 4, humidityFinish: {activeAmount: 100, maxHumidity: 95, dampResiduePercent: 50}},
-    'l.shell_regulator': {delay: 2, draft: 9, recharge: 7, closeBelow: 47, openAbove: 60, startleMinutes: 15},
+    'l.shell_regulator': {delay: 2, draft: 9, recharge: 7, closeBelow: 47, openAbove: 60, startleMinutes: 15, settle: 'rate'},
     'g.brew_regulator': {room: 'workshop', outside: 'yard', vent: 'vent'},
     'w.residue_flow': {drains: [{from: 'workshop', to: 'field', reason: 'Gravity carries wash water downhill.'}]},
     'l.living_residue': {plots: [{field: 'field', crop: 'clover', forage, concentration: 'uniform-per-deposit', residues: [
@@ -127,9 +127,9 @@ const quote = quoteThermalBatch({
 
 // One valley: a workshop that brews (shell, inlet and a vent Gu all on its air),
 // whose wash water drains to a grazed field, beside a ridge and a lit hill.
-function mixedWorld() {
+function mixedWorld(cfg = config) {
     const sky = skyQuantities(0);
-    return createEngineWorld({...config, holders: [
+    return createEngineWorld({...cfg, holders: [
         {id: 'workshop', kind: 'place', tags: ['sky'], quantities: {...sky, humidity: 58}},
         {id: 'yard', kind: 'place', quantities: {humidity: 20}},
         {id: 'field', kind: 'place', quantities: {[active]: 7, [matrix]: 0}},
@@ -164,8 +164,8 @@ const schedule = [
 
 const reload = engine => restoreEngineWorld(JSON.parse(JSON.stringify(serializeEngineWorld(engine))), config);
 
-function run({step = Infinity, reloadAt = []} = {}, until = DAY) {
-    let engine = mixedWorld(), segments = 0;
+function run({step = Infinity, reloadAt = [], cfg = config} = {}, until = DAY) {
+    let engine = mixedWorld(cfg), segments = 0;
     const cuts = [...new Set([...schedule.map(e => e.at), ...reloadAt, until])].filter(at => at <= until).sort((a, b) => a - b);
     for (const cut of cuts) {
         while (engine.world.clock < cut) {
@@ -231,6 +231,25 @@ test('a mixed day runs three chains in one world and settles the same in one jum
     assert.deepEqual(couplings.filter(c => !c.crossDomain).map(c => c.text), [
         'effect living.harm: l.living_residue -> l.living_body',
     ]);
-    t.diagnostic(`mixed day: ${jump.segments} segments, ${ms.toFixed(1)} ms per world day, ${world.chain.length} cause rows`);
-    assert.ok(jump.segments < 800 && ms < 2000, 'far settlement stays inside the per-day budget');
+    // The shell regulator runs in its rate form here (settle: 'rate'). Against the same day with every
+    // switch published (settle: 'switch', 799 segments), the totals are exact, with no rounding: the
+    // rate form replays the same whole-number minutes inside the pack. Switches are counted, not published.
+    const perSwitch = run({cfg: {...config, settings: {...settings, 'l.shell_regulator': {...settings['l.shell_regulator'], settle: 'switch'}}}});
+    const rows = (w, kind) => w.chain.filter(row => row.kind === kind).length;
+    const tally = w => ({humidity: readQuantity(w, 'workshop', 'humidity'), ledger: readProvenance(w, 'workshop', 'humidity'),
+        yard: readQuantity(w, 'yard', 'humidity'), energy: readQuantity(w, 'keeper', energy),
+        pulls: rows(w, 'shell.pull') + (w.holders.shell.state['l.shell_regulator'].pulls ?? 0),
+        opened: rows(w, 'draft.opened') + (w.holders.inlet.state['l.shell_regulator'].opened ?? 0),
+        closed: rows(w, 'draft.closed') + (w.holders.inlet.state['l.shell_regulator'].closed ?? 0),
+        shell: w.holders.shell.state['l.shell_regulator'].shell, inlet: w.holders.inlet.state['l.shell_regulator'].position,
+        others: w.chain.filter(row => !['shell.pull', 'draft.opened', 'draft.closed'].includes(row.kind))
+            .map(({at, kind, place, by, quantity, amount, landed, reactions}) => ({at, kind, place, by, quantity, amount, landed, reactions}))}); // row numbers shift, so seq and details that quote one are left out
+    assert.deepEqual(tally(world), tally(perSwitch.engine.world));
+    assert.deepEqual({...tally(world), others: null}, {humidity: 20, yard: 30, energy: 0, pulls: 210, opened: 105, closed: 105, shell: 'closed', inlet: 'closed', others: null,
+        ledger: {'b.brew_steam:batch:batch': 124, 'l.shell_regulator:inlet:inlet': -16, 'effect:air.exchanged:draft-wing-one': -100, bound: -46}});
+    assert.equal(rows(world, 'shell.pull'), 1, 'the startle is still a published pull');
+    assert.ok(perSwitch.segments > 2 * jump.segments);
+    t.diagnostic(`mixed day: ${jump.segments} segments (${perSwitch.segments} with every switch published), ${ms.toFixed(1)} ms per world day, ${world.chain.length} cause rows`);
+    // 319 on 2026-11-12; 288 of them are the vent Gu's five-minute pulse.
+    assert.ok(jump.segments < 400 && ms < 2000, 'far settlement stays inside the per-day budget with headroom');
 });

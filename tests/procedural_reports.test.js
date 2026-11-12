@@ -7,6 +7,7 @@ import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {compare, measure} from '../scripts/compression_report.mjs';
 import {buildMap} from '../scripts/coupling_map.mjs';
+import {ENGINE_PACKS} from '../src/engine_world.js';
 
 const run = (script, ...args) => spawnSync(process.execPath, [`scripts/${script}`, ...args], {encoding: 'utf8'});
 
@@ -39,6 +40,24 @@ test('coupling map finds the humidity coupling between brewing and the shell reg
     assert.ok(humidity.writers.some(w => w.pack === 'b.brew_steam') && humidity.writers.some(w => w.pack === 'l.shell_regulator'));
     assert.ok(humidity.readers.some(w => w.pack === 'b.brew_steam') && humidity.readers.some(w => w.pack === 'l.shell_regulator'));
     for (const key of ['couplings', 'writesNothingReads', 'readsNothingWrites', 'packs']) assert.ok(Array.isArray(map[key]));
+});
+
+test('coupling map reads declarations from the registered packs, computed lists included', () => {
+    const map = buildMap();
+    assert.deepEqual(map.packs.map(p => p.pack), ENGINE_PACKS.map(p => p.id), 'one row per registered pack, and no row for a method id such as a.cross');
+    assert.deepEqual(map.packs.filter(p => p.unresolved.length).map(p => p.pack), []);
+    // Three packs whose lists are built in code: the sky's publishes, the market's goods, the contest's quantities.
+    const row = (type, name) => [...map.couplings, ...map.writesNothingReads, ...map.readsNothingWrites].find(r => r.type === type && r.name === name);
+    const daylight = map.couplings.find(r => r.type === 'effect' && r.name === 'sky.daylight');
+    assert.deepEqual([daylight.writers.map(w => w.pack), daylight.readers.map(w => w.pack)], [['w.sky'], ['l.colony_light']]);
+    assert.deepEqual(row('quantity', 'vitality').writers.map(w => w.pack), ['c.contest']);
+    assert.deepEqual(row('quantity', 'coin').writers.map(w => w.pack), ['m.market']);
+    assert.equal(row('quantity', 'satiety').writers.length, 2, 'satiety is a quantity because a loaded pack declares it as one');
+    assert.equal(map.couplings.length, 7);
+    // A pack that needs settings and gets none is listed with the reason, not dropped.
+    const bare = buildMap({});
+    assert.equal(bare.packs.length, ENGINE_PACKS.length);
+    assert.match(bare.packs.find(p => p.pack === 'm.market').unresolved.join(), /^not created: /);
 });
 
 test('both scripts run and exit 0 in default mode', () => {
