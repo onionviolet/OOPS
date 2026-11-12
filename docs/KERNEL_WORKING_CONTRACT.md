@@ -1,0 +1,115 @@
+# Kernel working contract
+
+*Version 0.1 (v0), 2026-11-12. Owner: chat K in the [procedural foundation plan](PROCEDURAL_FOUNDATION_PLAN.md). Module: [`src/kernel_working.js`](../src/kernel_working.js). Contract tests: [`tests/kernel_working.test.js`](../tests/kernel_working.test.js). A proposal under AD56: it widens what every domain can do and every line is an adjustable default. Changes are versioned requests to chat K (MC2); domain chats do not edit the module.*
+
+Not to be confused with `src/working_state.js`, which is the UI busy note for slow page actions.
+
+## What a working is
+
+A **method** is reusable data: typed roles, and ordered steps that each name an operation and say which role fills each of that operation's slots. A **working** is one attempt of a method with its roles bound to actual things. The kernel quotes it, settles each step at its own deadline, keeps a receipt per step with the truth and what the maker observed in separate fields, and saves one versioned record. It names no domain and no world: operations, durations, readers and authority all come from the caller (PFP3).
+
+```
+law      = defineWorkingLaw({id, revision, operations: {op: {roles: {slot: kind}, minutes?, settle}}})
+method   = {id, revision, law: law.ref, roles: {role: kind}, steps: [{op, bindings: {slot: role}, minutes?, options?}]}
+quote    = quoteWorking(law, method, {bindings, facts, at, ports})
+record   = beginWorking(law, method, {id, bindings, facts, at})
+{record, effects} = settleWorking(law, record, {now, ports})
+ports    = {read(ref, at) -> thing | null, authority({working, method, step, op, at, bindings}) -> {ok, reason?}}
+settle({bound, facts, options, at, address, step}) -> {ok: true, facts?, effects?, observed?} | {ok: false, reason, observed?}
+```
+
+## The five shapes on one page
+
+The comparison that the contract was promoted from (review [F3/A4](audits/CODEX_FOUNDATIONS_REVIEW_2026-11-11.md)). `making_procedure` is included because it already owns timed steps over simulation jobs.
+
+| | `craft_working` (+ `potion_workings`, `book_craft_workings`) | `spell_working` (+ `spellbook_workings`) | `creature_methods` (+ meadow courier, fleece, shell) | `gu_procedures` (+ Keeper procedure, goal search) | `method_program` (+ HP reactions, MOL light) | `making_procedure` (+ cast making, LOTM seer brew) |
+| --- | --- | --- | --- | --- | --- | --- |
+| **Roles** | Recipe slots with role (consumed, catalyst, solvent) and material selector; lots bound per trial | Dictionary row roles `{name, type}`; `worldRules.target(id)` checks type | Operation `roles: {role: kind}`; step bindings name refs; entity `kind` must match | Recipe roles `{id, kind, minRank, optional}`; binding role to `{id, operator}` | None; each operation has an input and output kind | Agents `{id, role, mode}` with a `requires` rule |
+| **Steps** | `{op, level}` or a saved part expanding to steps | `{method, revision, bindings}` expanding to operations | `{op, bindings, options}`, up to 12 | Beats, each a group of roles activated together | Operation ids chained by kind | `{id, minutes, label, condition, agents}`, two or more |
+| **Quote** | `compileCraftWorking`: stock check, recipe fit, whole-batch `resolveBatch`, setup | `compileSpellWorking`: bound plan; `nativeSpellSteps` lowers to commands | `planCreatureMethod`: facts threaded, effect intents, evidence | `runGuProcedure`: reserves, activations, effects; `searchGuProcedures` over bindings | `bindMethod`: kind chain check | `compileProcedure`: one timed command per step |
+| **Settle** | Host (potion job `readyAt`, `settleWorkshop`) | Native owners run the commands | Host publishes intents | Host publishes debits and effects | World adapter | Simulation jobs; agents rechecked at admission and settlement |
+| **Receipt** | `setup` (inputs, process, conditions); `recordWorkingTrial` with observer | None | `evidence: [{operation, bindings}]` | `activations` and `remaining` | None | Actor fact `procedure.<id>.step` |
+| **Observed vs truth** | `craft_state` `observe` and `learnCraftWorking` per observer | None | None | `observeGuRefinement` (refinement only) | None | None |
+| **Failure** | Throws at quote | Throws at compile | `{ok: false, operation, reason}` | `outcome: 'interrupted'`, reason, attempted funding | Throws | Job refund or keep |
+| **Interruption** | Host job only | None | Stops at the failing step | `stopBefore`, `controlFailedAt`, missing role at its beat; held effect expiry | None | Cancellation refunds the unfinished step; finished steps stay facts |
+| **Time** | Host minutes per op and level (potion) | None | None | Preparation and development minutes; transition `dueAt` | None | Step minutes sum to the command duration |
+
+**Where two or more agree, and so went into v0 (PFP5):** roles typed by kind and checked against the bound thing (craft, spell, creature, Gu); ordered steps over a world-supplied operation table (all six); quote as a pure forecast with the host publishing effects (craft, creature, Gu); failure as a reason tied to a step (creature, Gu); bound things reread at settlement (Gu, making procedure); finished steps stay settled when a later one stops (Gu, making procedure); step durations as data (potion, Gu, making procedure); observer kept apart from truth (craft, Gu refinement).
+
+**Left in the domains for now:** whole-batch matter resolution (craft), lowering to native commands (spell), binding search (Gu), kind chaining (method program), job refund policy (making procedure).
+
+## Rules (KW)
+
+- **KW1. A law is a table of operations.** Each declares the kinds it acts on and a `settle` rule for one step. World numbers live in the operation data or the method, not in the kernel.
+- **KW2. A method is data.** Roles with kinds, ordered steps, an optional duration per step (default: the operation's, else 0) and options. A canon case costs a method row (PFP1). A method is checked against its law's `ref` (`id@revision`).
+- **KW3. Roles bind to actual things.** A binding is a reference `{kind, id}`. The record keeps only references; every step reads the current thing through `ports.read(ref, at)`. A thing that is gone or changed kind interrupts that step with cause `binding`. Hosts pass `read`: without it the references stand in for the things and nothing is reread, which is only fit for tests.
+- **KW4. A quote is settlement run as a forecast.** `quoteWorking` runs the same steps through the same ports and keeps nothing. It takes the id the working will begin with, so draws and authority see the same step addresses in the quote and in settlement. What the quote shows is what settlement would publish if the world holds (PFP11: an NPC gets the same quote). An actor-scoped quote passes a reader over what that actor knows instead of the truth; settlement always reads the truth, so a wrong belief shows up as an interrupted step, not a hidden one (MC8).
+- **KW5. The same result in one jump or many.** Deadlines are absolute minutes from the start. `settleWorking` settles every step whose deadline has passed, in order, each at its own deadline, and never reads the call time. Settling to T once and settling at any partition up to T give the same record and effects (tested for both consumers, plus a mutation check that fails when the call time leaks in).
+- **KW6. Every port is asked at the step's time.** Readers and authority receive `at`, the step's deadline. Draws use the step's `address` (`<working>/<step>`) under GR1-GR17. A world that cannot answer for a past time settles its workings up to `nextWorkingDeadline` before it changes a bound thing (KW13).
+- **KW7. The record is the save.** `beginWorking` keeps the method snapshot, references, start, deadlines, cursor, facts, status and receipts. Nothing else is needed to continue after a reload.
+- **KW8. Interruption keeps what happened.** An operation that answers `ok: false`, a lost binding, a refusal by authority or the host's `interruptWorking` stop the working at that step with a cause and reason. Earlier steps and their published effects stand. Refunds are the domain's policy (making procedure refunds the unfinished step).
+- **KW9. What the maker observed is not the truth.** Each receipt has `truth` (facts and effects) and `observed` (what the operation says the maker could see). `viewWorking` shows only `observed`. A failure shows only what its operation or authority answer says was visible (default: nothing beyond that the step stopped); the private reason stays in the receipt's `reason`, outside the view, as `observeGuRefinement` already does. A host's own stop is something the maker saw, so its reason is observed. Knowledge stays with its owners (`craft_state`, `discovery_codex`, MC8); the host writes what was learned through them.
+- **KW10. One versioned save shape (OS8).** Records carry `schema: 'kernel.working@1'`. `restoreWorking` migrates through `WORKING_MIGRATIONS` one version at a time, then validates; an unknown version is refused so the owner can keep the original save. Each domain hangs its working records from its own save slice (AR6); the kernel registers no slice of its own.
+- **KW11. Effects are intents the host publishes.** Settlement returns `{working, step, at, effect}` rows. The kernel never writes inventory, clocks or saves (AR3). Effect payloads are opaque to the kernel; W's contact layer reads their `kind` when present.
+- **KW12. Authority is read at settlement (FG7).** Relationships, offers and permissions answer through `ports.authority` for each step at its time. An offer that has expired blocks the step that needed it. A step that settled while the offer held keeps its receipt after the offer ends; settlement never revisits a settled step.
+- **KW13. Settle before the world changes.** When a host moves, spends or removes a thing that a running working binds, it first settles that working to the change time. This is what makes a support leaving partway (PFP7, LT31) land on the right step.
+- **KW14. Contract versions.** The contract version is `KERNEL_CONTRACT_VERSION`. A change that alters a record's meaning bumps the schema and adds a migration; a new optional field does not.
+
+## Save shape (OS8)
+
+```json
+{"schema": "kernel.working@1", "id": "strength-reversing-life-and-death.trial", "law": "kernel.test.gu-procedure@1",
+ "method": {"id": "...", "revision": 1, "law": "...", "roles": {}, "steps": []},
+ "bindings": {"operator": {"kind": "cultivator", "id": "player"}},
+ "startedAt": 0, "deadlines": [120, 121, 122, 4442], "cursor": 1, "status": "running",
+ "facts": {"reserves": {"player": {"immortal": 6}}},
+ "receipts": [{"step": 0, "op": "prepare", "at": 120, "ok": true, "bindings": {"operator": "player"},
+   "truth": {"facts": {}, "effects": []}, "observed": {"felt": "focused"}}]}
+```
+
+The validator checks the schema, the law, the method against the law, binding kinds, that saved deadlines match the method, and that the count of settled receipts equals the cursor.
+
+**The migration path.** The first entry upgrades `making.procedure-step@1`, the saved progress of `making_procedure` (the actor fact `procedure.<command>.step`, the count of finished steps), into a kernel record at that step. The old owner already published those steps' effects, so migrated receipts are marked `migrated` with empty truth. The making chat calls it when it moves procedures onto the kernel. Compatibility line (MC4): no existing save key changes in this phase.
+
+## Proof in this phase
+
+Two existing consumers run through the contract suite with their own files unchanged; the adapters live in the test file.
+
+| Consumer | Adapter | Canon or source |
+| --- | --- | --- |
+| `gu_procedures.runGuProcedure` and `finishStrengthReversal` | One kernel step per beat; preparation and development minutes from the recipe | Strength Reversing Life and Death, RI ch. 961 (`strengthReversingProcedure`) |
+| `creature_methods.planCreatureMethod` | One kernel step per creature step | Courier-shaped attach and dispatch operations (the meadow courier's own table is module-private) |
+
+Each passes: typed roles and refusals, a pure quote equal to settlement, one jump versus every minute versus random partitions, save mid-run and reload, a bound thing leaving at the same step under any partition, authority lapsing mid-run and a settled receipt surviving the offer's end, and the observed-only view. The Gu adapter's per-beat run spends the same essence as the whole-recipe run.
+
+## What v0 cannot express yet (backlog, by owner)
+
+| Code | Gap | Default proposal | Owner |
+| --- | --- | --- | --- |
+| KB1 | Gu modifiers that carry from one beat to the next stay inside `resolveGuActivation`, so a per-beat split loses them | G exposes the modifier list as returned facts | G, request to K only if a field is needed |
+| KB2 | Whole-batch matter resolution: `resolveBatch` settles the whole process at once, so heat partway through a brew is not a step state (LT31) | B splits resolution per operation and keeps the batch as facts | B |
+| KB3 | Costs paid at the start with a refund policy (potion pays at start; making procedure refunds the unfinished step) | v0.2 `costs` at begin plus a per-step refund dial, once B and F both move | K, on request |
+| KB4 | Binding search (`searchGuProcedures`, `gu_goal_search`) for invention (P4) | v0.2 bounded search over bindings once a second domain searches | K with G and S |
+| KB5 | Two workings competing for one thing (reservation) | Custody owners hold reservations; the kernel only reads | W and the custody owners |
+| KB6 | Progress inside a step (rates while far away, SPR28) | W's detail level settles a step as a rate with the same total | W |
+| KB7 | Lowering a step to native commands (spell) | Effects stay opaque; S lowers in its own host | S |
+| KB8 | Several workings meeting in one settlement (a contest, a trade between two running workings), ordered across workings | v0.2 `settleTogether` that merges deadlines of several records in a fixed order (deadline, then working id), once C and M both need it | K, on C and M request |
+| KB9 | Quote fields for cost and odds, and a cause line | v0.2 optional `costs`, `odds` and `cause` on the quote, filled by the operations; with KB3 | K, on A request |
+| KB10 | A law revision bump makes every saved running record of the old revision unloadable; migrations are keyed on schema only | Add law-revision migrations (old revision to new, per law) beside `WORKING_MIGRATIONS` | K, on the first domain that bumps a law (likely B or F) |
+
+## Requests from sibling chats (2026-11-12)
+
+From the shared notes. Covered means v0 already expresses it as data; no kernel change.
+
+| From | Request | Answer in v0 |
+| --- | --- | --- |
+| A | Actor-scoped pure quote with eligibility reasons, cost, time, odds, cause | Covered for eligibility, reason, failing step and time (KW4 with a knowledge reader); cost, odds and cause are KB9 |
+| B | A stop that settles completed steps | Covered: KW8 (`interruptWorking`, outside reader, authority); refund policy is KB3 |
+| C | K1 several workings in one receipt, K4 ordering across workings | KB8 |
+| C | K2 cut partway by an outside input; K3 a role that binds another actor or that actor's running working | Covered: a lost binding or authority refusal interrupts (KW3, KW12); a role of kind `actor` or `working` is ordinary data (KW3) |
+| M | A trade working for any two holders, reading standing terms at settlement | Covered: two holder roles and terms through `ports.authority` (KW12); M writes the trade operation |
+| R | A crossing as a working with an optional attempt (risk, caller draw, outcome ladder), keeping the admission quote | Covered: the operation's `settle` owns the ladder and draws from the step `address` (KW6); the quote is kept by the caller |
+
+## Next phase (K)
+
+Retire one old shape: `method_program` (16 lines, three consumers in other chats' files) is the candidate, since its kind chain is a method whose operation roles are kinds. That needs the owning chats to move `hp_potion_reactions`, `mol_light_research` and `feature_expansion_ui`, or their consent for K to do it. Then the PFP7 join with B and G once their leaves run on the kernel.
