@@ -24,6 +24,24 @@ Check: `node scripts/check_pacing.mjs` (plays the game; not part of `check:rules
 | PAC7 | **A dead stretch needs a reason or a nudge.** If a start has a stretch past its dead target, the screen says what is happening and what ends it (a running job, a timer, a person who will answer). | Default: a named reason in the Current work or scene line. Dial: a silent wait is fine inside a ritual or sleep the world made. Reason: silence reads as broken; a stated wait reads as pacing. |
 | PAC8 | **Changing a dial that saves already used needs the usual care.** A pacing change to XP curves, prices or timers follows AGENTS.md Safety (migration or a compatibility note). | Default: new lives take the new pacing; saved lives keep theirs. Dial: a world may migrate. Reason: a life already lived should not be re-priced. |
 
+## Progression through ordinary play
+
+Adjustable working defaults under AD56, 2026-11-11. PAC1–PAC8 retain their
+proposal status. These review prompts use the existing pacing trace and local
+world rules. [Source comparisons and trial cases](research/GAME_UX_GUIDES_2026-11.md#ui-progression-and-choice-research-2026-11-11).
+
+| Code | Rule | Default, dial, reason |
+| --- | --- | --- |
+| PAC9 | **Measure time from a gain to its first useful consequence.** | Default: name the next real use of a skill, resource, tie, place or permission and trace when the player can first use it. Record the owning clock, time spent acting and the reason for any gap between gain and use. Dial: the payoff can open a route, remove a chore, change how something is understood, or improve a method the player already likes. Long waits can serve the world’s rhythm. Reason: frequent gains can leave choices unchanged. Use PAC1–PAC2 for visible payoffs and FLR4 for the consumer. |
+| PAC10 | **Compare progression under different conditions before tuning a curve.** | Default: for a changed repeating loop, compare a fresh start, an established routine and a plausible interruption or return. Record the source and use of resources, the rate or prerequisite that controls the next capability, and what the player can do about it. For a reset that exists, compare the next run’s useful choices and carryover. Dial: sample the cases that could change the decision and state what was simulated. Reason: a good opening can conceal an accumulating shortage, or a healthy rate can conceal a blocked appointment. Preserve lore anchors (AD49), long play and powers that legitimately remove work (ACR12). |
+
+**PAC9, applying a discovery.** For a targeted trial, name the player's purpose
+and the likely action before the discovery. On a separate use, record the
+decision the new evidence supports and compare what that decision gains, costs
+or trades away. Count the relevant inputs and actions when testing reduced
+setup. A discovery can matter by changing the recipe or route while taking the
+same number of actions. [PX84 Mix trial](audits/PLAYER_EXPERIENCE_CORE_AUDIT.md#round-10-2026-11-11-px84-at-the-mixing-counter).
+
 ## Measuring (how the numbers are made)
 
 SHOWN by `scripts/check_pacing.mjs` against `scripts/headless/trace.mjs`:

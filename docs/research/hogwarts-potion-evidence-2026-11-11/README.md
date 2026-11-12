@@ -1,0 +1,35 @@
+# Hogwarts potion and ingredient evidence database
+
+This database is an authoring reference for the [chemistry proposal](../HOGWARTS_POTION_CHEMISTRY_PROPOSAL_2026-11-11.md#potion-and-ingredient-evidence-database). It records what the sources establish about a particular material, operation or result, and what remains open. Rule proposals retain AD32 status. The data does not grant a character a recipe, identify a held lot, or set the outcome of a brew.
+
+## Files and coverage
+
+| File | Scope |
+|---|---|
+| [catalogue.jsonl](catalogue.jsonl) | 725 discovery entries from the saved wiki revision inventory, with the source revision, exact-title novel locators, and links to relevant observations where checked. Includes 316 potion-related and 409 ingredient-related entries. These include recipe families, teaching topics, adaptations and ordinary words. |
+| [observations.jsonl](observations.jsonl) | 190 paraphrased evidence records across 101 subjects and 107 participant identifiers. There are 144 novel records, 24 official supplemental records, 19 companion-book records and three cross-media leads. The counts include presence-only, reported claims, negative cases and unnamed products. |
+| [aliases.jsonl](aliases.jsonl) | 41 term relationships with 97 phrase checks. Each distinguishes spelling or identity aliases from prepared forms, related parts, generic search terms and misleading names. |
+| [potion-dictionary.json](potion-dictionary.json) | Source-linked vocabulary for the two workrooms. Entries distinguish operations, material roles, intermediate states, reactions, delivery, effects and original numerical dials. |
+| [polyjuice_comparison.mjs](polyjuice_comparison.mjs) | Reproducible donor-versus-preparation comparison through the existing HP brewing state owner. Run `node docs/research/hogwarts-potion-evidence-2026-11-11/polyjuice_comparison.mjs` from the checkout. |
+
+All 54 exact-title potion-related hits were classified in the previous pass. Four are generic terms. This pass reviewed all 53 previously open ingredient rows using the ranked literal contexts, the 76 combined brewing-proximity hits within 24 FTS5 tokens, and targeted alternate terms. Each row has a disposition, a representative novel locator and the matched candidate pages in `context_review`. This closes the identified queue at that depth. The general words still have many incidental appearances, and absence of a supported result in these checked contexts leaves other editions or media open. Overall, 149 catalogue entries link to observations, 40 have completed contextual dispositions without a direct observation link, four have generic title hits, and 532 remain unlinked with no exact title hit. No complete wiki or adaptation read is claimed.
+
+## Reading a row
+
+- **Identity.** `id` is the stable evidence reference. `subject` is the scoped potion, procedure, item, or scene. `ingredient` is the referenced participant when there is one. `participant_kind` distinguishes special roles such as tool, donor sample, incompatible addition, and rejected candidate. A relationship in one subject supplies no automatic behavior in another.
+- **Evidence.** `field` describes the observation, such as preparation, membership, extraction, omission, modifier, use or outcome. `status` describes its footing. `shown` means the event appears in the narrative. `stated` gives a reported, instructional, or supplemental claim. `lead` points to a source still to be checked. `basis` identifies the account type. The `open` field preserves uncertainty and confounders, including the case where the scene shows an event and a character identifies its likely cause.
+- **Sources.** `novel` sources give B1–B7 and one-based compilation PDF pages from the held source with SHA-256 prefix `9db33901964c`. The index searches the existing prepared text, with its known OCR and edition limitations. `companion_book` identifies the held *Fantastic Beasts and Where to Find Them* EPUB by SHA-256, spine document and named entry. `supplement` gives an official author or editorial URL. `cross_media_lead` links a discovery entry and stays out of novel formulas.
+- **Parameters.** Where isolated enough to be useful, structured `parameters` preserve the source quantity, unit and relevant scope. Twenty-one days belongs to the cited lacewing preparation. Two drops belongs to the classroom hellebore instruction. A three-drop application of dittany belongs to the witnessed topical treatment. Each has a different runtime reader.
+- **Catalogue links.** `observation_ids` points to relevant evidence, including related prepared forms. A match does not establish that two materials are interchangeable. `exact_title_novel_hits` lists book/page pairs from the text index. It includes literal but incidental appearances. `review` reports the current join or triage state.
+
+## Absorbing a record
+
+Map identity and form to the material catalogue. Keep exact harvest event, source actor and preparation receipt with the native lot or lineage owner. Assign a quantitative axis where an observation supports one or an explicitly original local model supplies it. An ingredient in a recipe establishes participation. An observed manipulation can establish an operation. An isolated change or contrast can support a reaction or delivery rule with a bounded scope. Assign the output to the existing body, condition, school, or other effect consumer. Keep source observations, any inference, and the actual authored operation distinguishable.
+
+For example, the hellebore omission supports an ordered dependency for the taught Draught of Peace. It does not identify a standalone sedative axis for hellebore. The Polyjuice samples support an actual donor binding that a tag or generic quality score cannot supply. The sugar report applies to Wolfsbane. The Gurdyroot serving shows why sugar's interaction should not become a rule across infusions. A medicine dose can be useful without identifying which unnamed constituent performs the action.
+
+Record each promotion in the rule or content owner with its evidence ID and its observable comparison. The source numbers constrain the cited process and servings under AD49. Keep unmeasured rates, bounds and alternate means open or explicitly original. Preserve the raw evidence record when later rules or experiments revise an inference.
+
+## Reproducing the catalogue join
+
+Use the [shared inventory](../power-systems/wiki-digests/full-dumps/harrypotter_SOURCES.json), archive hash prefix `34b0eeec50d8`, and the held `source-preparation-2026-10-11/search.sqlite` under the private Harry Potter research tree. The category selectors and normalization are documented in the [broader derivation](../HOGWARTS_POTION_CHEMISTRY_PROPOSAL_2026-11-11.md#broader-derivation-from-the-catalogue). For each selected title, query FTS5 `text : "TITLE"` for `source glob 'HP-B[1-7]'`, escaping internal quotes, and retain the returned locator. The links to observations are hand-qualified by context and alias. Raw novel text is kept in the private source owner.

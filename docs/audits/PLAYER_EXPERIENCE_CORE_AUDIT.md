@@ -368,7 +368,7 @@ Weibao: "Consider using Question marks on a paged targeted way to indicate not k
 
 First slice to try: the mixing counter's knowledge table (UK1, UK2, UK6), then the person page (UK3, UK5).
 
-### Research we can lean on (proposed pass, not started)
+### Research plan at the start of Round 7
 
 | Kind | Sources | What it gives us |
 | --- | --- | --- |
@@ -381,3 +381,427 @@ First slice to try: the mixing counter's knowledge table (UK1, UK2, UK6), then t
 | Platform | Apple HIG, Material Design (motion, dialogs, popovers) | Transition timing, light dismiss, focus |
 
 Proposed method: one sonnet lane per row group reads the source, then a heuristic and cognitive-walkthrough review of five screens (Village home, talk, mixing, Local life, Tingen start) against it. Output: findings mapped to PF codes, new rules with checks where a check is cheap, saved in `docs/research/GAME_UX_GUIDES_2026-11.md`. Source claims get links and dates in that pass; this table names the sources from memory.
+
+## Round 8, 2026-11-11: mixing counter and source follow-up
+
+The [guide report](../research/GAME_UX_GUIDES_2026-11.md) records the primary reading and proposed checks. The [screen report](../research/GAME_UX_REFERENCE_SCREENS_2026-11.md) separates what the Potion Craft and Stardew images show from what their developers or other sources say. Desktop review target is 1920×1080. This mapping is from the current mixing source and CSS. Browser verification belongs to the mixing delivery. Mobile optimization remains deferred.
+
+| Codes | What the current source shows | What to check |
+| --- | --- | --- |
+| PF4, PF11, PF15 | The centre header names the counter once. A shorter narrator line replaces the instructions. “Worth a try” sits by its setup action. | On a fresh visit, can the player tell that setting up the try fills the inputs and that Mix commits them? |
+| PF5, PF9, PF24 | The shortfall has a visible plain-language summary. Stock and purchase price stay in the ingredient row, the buy label uses one line, and the detailed ledger starts folded. The last-vial line still uses raw minutes. | Buy with enough and too few coins. Check the visible and accessible action names, wrapping, and time wording. |
+| PF13, UK1, UK4, UK6, UR157 | Fully unknown rows become an Untried line. A cell distinguishes an unknown, ambiguous evidence, a specific guess and an observed value. Its evidence opens from the cell. | Taste a blend, then isolate a plant. Open the blend's clue by keyboard and check that polling keeps focus and the clue open. |
+| PF14, PF16, PF19, UK2, UR156 | Steep and Boil remain on the ordinary route. The method fold is reachable on entry and shows the active method when closed. A suggested setup changes the method, process and inputs together. The work card appears during a batch. | Change method before tasting, apply a suggested setup, and return after tasting. Check the active method and the resulting state. The full UK2 ladder remains a proposal. |
+| UK3, UK5, UK7 | The mixing table groups observations by ingredient. | A person page and source-of-knowledge detail still need their own checks. Distinguish unavailable facts, confirmed absence and missing display content when exercising the unknown marks. |
+
+### Candidate checks from the sources (proposals under AD32 and AD56)
+
+- **Keep required decision information visible where the player acts** (PF22, PF23, PFG6, PFG7, PFG9). Show shortages and known consequences beside Mix. Adjust the amount of detail to what the character knows and reserve interruption for an unusual irreversible loss. Use the action’s outcome as its label. Test a routine shortage and a consequential choice with keyboard and pointer. [Apple Alerts](https://developer.apple.com/design/human-interface-guidelines/alerts), [NN/g command labels](https://www.nngroup.com/articles/ui-copy/), [Metts and Welfle excerpt](https://rosenfeldmedia.com/sample-chapter-writing-is-designing/).
+- **Give unknowns a target** (UK1, UK3–UK6, PFG4, PFG5, PFG10). Mark a specific missing fact when the character can tell something is missing. A subject page can group discoveries and show a progress count where the size of the set is known and useful. Test a guess, a confirmation and a case where the total would give something away. [Stardew Gift Log](https://www.stardewvalley.net/wp-content/uploads/2019/11/giftlog-1024x576.png), [Hodent’s onboarding talk](https://celiahodent.com/gamers-brain-ux-onboarding/).
+- **Keep action and comparison context in view** (PF14, PF16, PF19, PF22, PF30). Try a stable stock area and local preview while brewing, with saved methods available as a separate view or fold. Measure the controls and focus through a change to the preview and a return from saved methods. Adjust the layout to fit a short or long task. [Potion Craft store gallery](https://store.steampowered.com/app/1210320/Potion_Craft_Alchemist_Simulator/).
+- **Review copy and motion in the route** (PF4, PF17, PF24, PFG11, PFG12). Use copy length to flag review. Judge the actual label beside its action. Compare the existing 140 ms centre transition and reduced motion at the desktop target. Adjust fade and movement where they improve orientation. [NN/g microcopy](https://www.nngroup.com/articles/3-cs-microcopy/), [Material motion](https://m3.material.io/styles/motion).
+
+Open evidence: full text of both books, Game UI Database access, direct Potion Craft wiki text, first-session reveal order, a Stardew capture of unmet rows and direct codex and dialogue screenshots. The reports list the other secondary claims and follow-up checks.
+
+### Round 8 follow-through after the usage pause
+
+- **ACT NOW:** keep existing methods reachable, make observed clues operable by keyboard, and show the current reason beside Mix. The [resume checkpoint](../gm/dispatch/claude-resume-2026-11-11/CHECKPOINT.md) records the scope and the browser and unit checks.
+- **ACCOUNT FOR NOW:** apply UR156–UR157 when a similar view already needs work. Check what the selected control will actually do after disclosure, refresh or import. Review evidence vocabulary across the counter and item identification where BDT86/89 already touches the subject.
+- **LATER / DELEGATE:** sample a person or item page with a witnessed fact, a report, and an inconclusive use. Sonnet, small. Done when a rebuilt desktop walk shows each clue's subject and source and an independent seat retains its own knowledge. Use the existing knowledge readers and keep the page's counts within what the seat can know.
+
+## Round 9, 2026-11-11: which rules help in play
+
+Scope is UI, choice and place prose, and progression. The [register](../RULES_INDEX.md#register-of-rule-sets)
+owns status. UR1–UR75 and PRS1–PRS9 are standing. UR76–UR82 are proposed and
+in use. UR83–UR87 and UR89–UR157 are adjustable working defaults, with UR88
+held for Weibao. PAC1–PAC8 are proposed. PAC9–PAC10 and PRS10–PRS12 are
+adjustable working defaults. A working default can still lack playable evidence.
+
+| What exists | Usefulness and evidence |
+| --- | --- |
+| UI, especially UR154 and UR156–UR157 | Keep the player's place, show the active value of a folded control and name what is uncertain. A rebuilt desktop fixture exercised these at Mix. A method change stayed visible when folded, a suggestion changed the actual setup, and a clue held keyboard focus during polling. A blend gave inconclusive evidence and a single-plant mix resolved specific effects. UR153's next-use cue and UR155's progression readout still need a second context or a real gate walk. |
+| Prose, especially PRS9–PRS12 | Distinguish scene voice, actual choice and result. The earlier Village walk exposed doubled place text and internal vocabulary (PX46, PX47, PX57). PRS10–PRS12 give a way to review stronger writing. The house-on-the-ledge example is a sketch, and this pass found no matching walk from hint through action to a changed place. |
+| Pacing, especially PAC9–PAC10 | The recorder can flag long gaps and dead stretches. It classifies an item, skill, unlock or other gain without tracing its later use. The dated Hogwarts lead example in the [pacing backlog](../pacing/PACING_BACKLOG.md) shows a 368-game-minute payoff gap and a 41-minute dead stretch on the recorded policy. Those answer different questions. A targeted route still needs to show which new action or improved method the player could use and what delayed it. |
+
+**ACT NOW.** Ran `node scripts/playtest/mixing-capture.mjs /tmp/oops-rule-utility.p7ZyaF`.
+Fresh headless Chrome origin, 1920×1080, `tests/fixtures/perf/mid.json`,
+rebuilt bundle SHA-256 `6301518686cc6f81db140d9af38893d5c742d4df92fefc34cec4e4ef2c7b436a`.
+Passed folded method, insufficient stock and funds, reduced motion, focus,
+discovery, and reservation reload, cancellation and import. Evidence applies
+to the named fixture and build. Rule index check passed.
+
+**ACCOUNT FOR NOW.** For any new design rule, name the failure it would catch
+and the observable difference during an existing journey. Start with the
+following three trials. They are applications and candidates under AD56.
+
+| Ref | Adaptation | Existing owner and done check |
+| --- | --- | --- |
+| PX82 | **Let a player return to a pursuit they chose.** Give a known clue, appointment or job an optional way back to its actual person, place or work. If circumstances changed, show what remains available. Microsoft’s objective-clarity guidance supports easy review and next-step help. OOPS can apply it to voluntary pursuits. [XAG 109](https://learn.microsoft.com/en-us/xbox/accessibility/xbox-accessibility-guidelines/109) | UR81, TMR10, STY22. UI and systems reviewer, small. Reload an interrupted job or clue, follow its return action, and see the current blocker or next move without replaying the introduction. |
+| PX83 | **Let the world offer a taste of a capability.** A borrowed bench, guided shift or supervised lesson can demonstrate a method before an expensive commitment where a teacher or venue can provide it. Blizzard’s Class Trial is an example of trying a role before a boost. [Class Trials](https://news.blizzard.com/en-us/article/22265421/learn-about-battle-for-azeroth-tm-class-trials) | UR153, PAC9, AD38. Systems and narrative designer, medium. Try one supervised action, see what it changes, and make an informed choice about pursuing independent access. The temporary access and any learning follow the world's terms. |
+| PX84 | **Play the same route a second time.** Compare the first discovery with an ordinary repeat. Record time in-world, player actions and the first downstream use. See whether earned knowledge or a saved method removes setup, and whether a new supply or world condition creates an actual decision. | ACR3–ACR4, ACR12, PAC9–PAC10. Systems reviewer, small. Walk Mix from an inconclusive blend to a usable observation, then use the observation in a separate decision and repeat the routine without rereading the lesson. |
+
+**LATER / DELEGATE.** Trial PX84 first on Mix. Apply PX82 to the existing return
+surface when that route is next open for work. Use PX83 where an actual teacher,
+workplace or loan can furnish the example. Revisit the rulebook if a trial exposes
+a recurring failure that the existing owner cannot explain.
+
+## Round 10, 2026-11-11: PX84 at the mixing counter
+
+**Decision set before the trial.** Make an Ordinary Steep Emberseed stamina
+vial. Add bellleaf for health regeneration if the ingredient table supports
+that use and shows at most slight agility drag. Both runs started from the
+same mid-game fixture with fresh mixing knowledge and the same stock purchases.
+The decision used player-visible evidence. Applied doses were checked in
+the save after drinking.
+
+| Route | Recipe, one pack of each | Applied health regen | Applied stamina regen | Agility penalty |
+| --- | --- | --- | --- | --- |
+| Without the observation | Emberseed and Spring water | 0 | +1.35 | 0.0045 |
+| First visit, isolate bellleaf | River bellleaf and Spring water | +0.78 | 0 | 0.006 |
+| Return and use what was learned | Emberseed, River bellleaf and Spring water | +0.52 | +0.90 | 0.007 |
+
+After the first drink, left Mix, advanced 30 game minutes, confirmed the
+25-minute dose had expired, then reopened the saved life in a fresh browser
+context and returned to Mix. The ingredient row still showed mild health
+regeneration when steeped and slight agility drag. That evidence changed the
+recipe. The result gained health regeneration, gave up 0.45 stamina
+regeneration, used one extra plant pack and increased the agility penalty.
+Each vial took a Mix and a Drink action with zero game minutes elapsed for
+those actions. The 30-minute gap was chosen for the trial. Input edits varied
+with the prefilled defaults, so this pass gives no evidence of setup savings.
+
+Before the new mix, its preview called the exact recipe untested and gave no
+ingredient-level cue beside the controls. After the drink, the short last-vial
+line named stamina and agility drag. The detailed product row can show the
+health effect once the recipe is observed. The quick readout omitted the
+effect that motivated this particular choice.
+
+- **ACT NOW:** updated PAC9 to compare the intended action, first separate use
+  and actual tradeoff. Updated UR157 to carry relevant learned facts into
+  a new choice with their original scope and keep distinct effects accessible
+  from the result. Both are adjustable defaults under AD56.
+- **ACCOUNT FOR NOW:** the unknown outcome of a new blend and observed facts
+  about its ingredients can both be useful on the same screen. Confirmed
+  composition and effect data come from the mixture owners.
+- **LATER / DELEGATE:** UI engineer, small. When the Mix preview is next open
+  for work, show the applicable ingredient clue and the observed secondary
+  benefit close to the decision. Done when the same return walk shows the
+  source and scope of the clue, preserves uncertainty for the blend and makes
+  both observed benefits easy to find afterward.
+
+**Evidence.** Rebuilt headless Chrome at 1920×1080 on
+`tests/fixtures/perf/mid.json`, bundle SHA-256
+`6301518686cc6f81db140d9af38893d5c742d4df92fefc34cec4e4ef2c7b436a`.
+`node /tmp/oops-px84.adFzHv/trial.mjs` passed the paired fixture walk, save
+and reload, visible-knowledge choice, applied-dose checks and browser error
+check. Local receipt and screenshots are in `/tmp/oops-px84.adFzHv/`.
+Agent-verified fixture route. Setup shortcuts and player preference still need
+their own evidence.
+
+## Round 11, 2026-11-11: Mix preview and result
+
+**ACT NOW.** The Village mixing counter stays a desktop centre workstation
+(1920×1080, mobile deferred). For an untested recipe, its preview gives the
+existing uncertainty and a short note from the selected plants' readings for
+that method and process. The note states the scope of the standard vial.
+It reads the same discovery projection as the table and uses no unobserved
+recipe dose. The exact recipe's observed readout takes over once the player
+tastes it. The last-vial summary now sits above the knowledge table and names
+both observed benefits, any noticeable side effect, and duration.
+This applies UR70–UR74, UR93–UR96 and UR157 through the existing mixture
+projection and panel. It adds zero composition-root registrations and no save
+fields or core-owner changes. Voice sample from the existing counter:
+“Bundles of plants and a jug of spring water. I wonder what I could make here.”
+
+**PX84 replay.** Isolated ordinary-steep bellleaf, left the counter, advanced
+30 game minutes, and returned through a loaded save to make the Emberseed
+blend. The untested preview showed that bellleaf suggested mild health
+regeneration and slight agility drag in equal parts plant and water. It
+gave no Emberseed claim. The ordinary-steep note disappeared for Boil and
+for the Responsive method and returned on switching back. The result line
+showed mild stamina and faint health regeneration, slight agility drag and
+25 minutes. The applied effects matched the previous PX84 replay, including
++0.52 health and +0.90 stamina regeneration. The goal and action count stayed
+the same. The reading was available before Mix without opening the table.
+
+**Reimagine the counter.** Compare the same return trip with the same prior
+bellleaf reading. The first row was exercised in Chrome. The other rows are
+paper walkthroughs using that state.
+
+| Form | Return trip | Tradeoff |
+| --- | --- | --- |
+| Current bench with local evidence | Enter the desired inputs, read the scoped observation beside Mix, taste, and see both benefits above the table. | Fits the existing layout and preserves the direct path. A long history can still crowd the work area. |
+| Bench, recent result and field notes | Enter the recipe on the bench, with the latest result and its controls nearby. Open field notes for older trials and comparisons. | Recommended next composition if mature inventories crowd the bench. A saved recipe, current batch and historical observation each need a clear home, with direct links back to the bench and keyboard focus preserved. |
+| Ingredient-first notebook | Start by inspecting bellleaf, choose a reading, and carry it into a fresh recipe. | Good alternate entry for discovering a plant. It adds a detour when the player already knows what they want to brew. Keep it as an optional path if built. |
+
+**ACCOUNT FOR NOW.** Attach the short evidence to the choice that uses it.
+The current setup, the latest settled result and the long-term notebook can
+read the same owners while serving three distinct tasks. This clarifies UR157
+and keeps the broader bench composition a proposal.
+
+**LATER / DELEGATE.** UI designer, small. Compare the recommended composition
+against the current bench on a save with multiple known recipes, a batch in
+progress and a change of method. Done when a player can set up the next vial,
+find why work stopped, and return from field notes to the same setup. Keep
+direct access to existing methods and saved recipes.
+
+**Verification.** Fresh headless Chrome at 1920×1080 on
+`tests/fixtures/perf/mid.json`, bundle SHA-256
+`f60a927162e73a5f429a808715d79964d2dc099716ec98c2d50e8e057fcb7e77`.
+
+- `BUILD_OUT=<temp dir> npm run build` passed, with an existing travel-leg warning.
+- `node --test tests/mixture*.test.js` passed 51 tests.
+- `node /tmp/oops-px84-preview.oeBc6w/trial.mjs` passed the paired fixture walk,
+  reload, method and process separation, untested preview and applied effects.
+  Reviewed the preview and result screenshots. Receipt and images are in that directory.
+- `node scripts/playtest/mixing-capture.mjs /tmp/oops-mix-regression.qFR3vV`
+  passed the existing keyboard, focus, reduced-motion and reservation save,
+  reload, cancellation and import walk on the same bundle.
+- `npm run check:arch`, `npm run check:rules` and scoped `git diff --check`
+  passed. The rules check retained unrelated time-counter and stale-glob warnings.
+  Agent-verified fixture evidence. Human play review remains open.
+
+## Round 12, 2026-11-11: crowded Mix layout
+
+**Comparison.** Rebuilt the current Mix screen and a disposable layout using
+the real Mix controls and owners on a synthetic copy of the mid-game fixture.
+Used 18 observed recipes, six saved methods, four owned vials and a
+three-batch queue with only the first reservation supplied. In the prototype,
+the active job and latest vial sit above a Bench / Field notes switch. The
+bench holds owned vials and saved methods. Field notes holds the knowledge
+table and older observations that have neither an owned vial nor a saved
+method. Both used the same 1920×1080 desktop shell. Mobile is deferred.
+
+**Decision before the walk.** Prefer the split if it brings the live job and
+usable vial actions into easier reach and allows a clean return from history.
+Keep an inline layout viable where notes are short or the player frequently
+compares old readings during setup. Count navigation and measure position and
+scroll instead of timing scripted clicks.
+
+| Observation | Current Mix | Bench and Field notes |
+| --- | --- | --- |
+| Opening position of current work / latest vial, in px from top | 511 / 623, both visible | 260 / 348, both visible |
+| Opening position of Mix / first Drink | 365 / 1009; Drink clipped by the centre's scrolling area | 540 / 778; both visible |
+| Scroll to oldest observed recipe, from the top | 2,043 px | 1,025 px after opening Field notes |
+| Inspect and return | Scroll to the recipe and back | Open Field notes, scroll, and use Escape to return focus to the Field notes button |
+| Batch stops while reading history | The same bellleaf shortage appears beside Mix, above the reading position | Work and latest vial are visible on entering notes. The stop receipt is above the bench on return, with the completed vial and the reason the queue stopped |
+
+Both walks set Responsive / Boil / two Emberseed packs, read the same oldest
+ordinary-steep bellleaf observation, advanced three game minutes and returned
+with the same draft. The engine completed one vial and stopped the next
+reservation for insufficient bellleaf. No additional ingredient use or
+settlement was introduced by either layout.
+
+**ACT NOW.** Added a scoped workbench application to the UI rules under
+UR81/96/154/157. For a crowded counter, the split gives the first useful vial
+action a better position and removes old observations from the ordinary work
+view. A short, frequently consulted history can still work inline.
+
+**ACCOUNT FOR NOW.** The prototype's work area moves Mix down by 175 px on
+opening and shifts it by 57 px when the batch stops. The stop reason appears
+in both the top receipt and the original notice by Mix. Both layouts also show
+the shell's “No work running” above the station's active batch. The production
+design should use a compact station-scoped job/settlement area, reuse the
+receipt in its details and label the scope of any separate shell readout.
+
+**LATER / DELEGATE.** UI engineer, small. Trial a more compact job header and a
+single stop receipt on the same save. Done when the live job, Mix and first
+Drink remain in reach through settlement, the old reading is findable and
+return preserves focus and the draft. Try the enlarged desktop text setting
+before applying the production layout. User acceptance of the composition is
+open.
+
+**Evidence.** `node /tmp/oops-mix-layout.ZefBcU/compare.mjs` passed two fresh
+headless Chrome walks. Current bundle `f60a927162e7`, scratch bundle
+`d512706f8851`. Both assertions and screenshots are in the scratch directory
+with `comparison.json` and the generated fixture. The scratch bundle only
+overlays the Mix panel at build time. The prototype does not change the
+production layout.
+
+## Round 13, 2026-11-11: other surfaces worth reimagining
+
+This is a ranked set of design trials under AD56. The rebuilt desktop walk
+used the existing mid-game Village fixture at 1920×1080. It opened Talk,
+asked Old Hesk about the herb bed, returned with Escape, and opened Notebook.
+The earlier crowded Mix walk supplies the batch-status case. Notebook
+crowding and ritual structure use source and prior audit evidence. The
+design trials below have no prototype evidence yet.
+
+| Ref | Surface and problem | Proposed form and first trial |
+| --- | --- | --- |
+| PX85 | **Everyday conversation (PX51).** A quick herb question replaced Around you and hid local actions. The existing scene includes the latest answer, choices, earlier topics and what the speaker knows about you. Those are useful at different moments. | Keep a short exchange in the selected person card. Give the current answer and next choices the space, with history and rapport available there. Let consequential scenes expand. Compare the same elder question and return against today's centre scene. Check that the person, reply, next choice and previous place selection stay legible at normal and enlarged desktop text. UI designer, small. |
+| PX86 | **Current work and Reports (PX82, round 12).** The shell said “No work running” while Mix showed an active batch. Reports already answers an early “what now?” question, while its history serves a different purpose. | Use a compact work strip for the character's activity and relevant station work with their scopes labelled. Link to the action that can help, such as reviewing a stopped batch. Keep Reports as the dated account and let the strip read the same settlement. Run one batch alongside another compatible activity, open a reference, then let the batch run out of stock. Check that the scopes agree and the player can reach the correct work from the cue. UI and systems designer, medium. |
+| PX87 | **Notebook and active leads (UI audit R3, PX82).** The sampled Notebook opened on a sparse People view. The source and earlier audit also show a fuller Known actions area that mixes reference and command cards. | Open around a subject or question, with witnessed facts, reports, guesses and an optional follow-up link to the person or work. Compare a normal list/detail view with a small investigation page that groups claims by question. On one populated case, find what is known, open the actual follow-up, and return to the same entry. Check that a second character cannot read the first one's evidence. UI designer, medium. |
+| PX88 | **Village home (PX52).** The fixture shows people and stations in Around you, related verbs in Local actions, and five destinations or action groups below the place header. The same task can be found by several routes, with different levels of detail. | Let “who and what is here” lead to an action at its source. Give regular work, travel and services predictable spots, with secondary or unavailable actions still findable and explained. Compare today's lists with a compact place directory on a fresh and a developed Village. Find a person, paid work and a service, then verify access to an unavailable option and the local-ledger setting. UI designer, medium. |
+| PX89 | **Ritual setup (UIC50).** Prior source inspection found ordered steps, parts, conditions and consequences. The old “sets of circles” complaint is the user's observation. The current ritual surface was outside this desktop walk. | Try an altar or an ordered preparation view for one existing rite. Offerings, tools, performers and words occupy the roles they serve. Compare it with a plain checklist before investing in a spatial view. Check that the player can spot what is missing, substitute where the rite allows, and see the result when it resolves. UI and domain designer, medium. |
+
+**ACCOUNT FOR NOW.** Trial PX85 first. The low-change form is today's centre
+scene with its reading order tightened. The in-place form keeps the current
+person as the anchor. A more expressive variant keeps the person's answer
+in the place panel while a consequential offer opens a dedicated scene
+with an explicit return. Walk the same quick question and one long
+conversation before deciding where the size dial should sit. Use UR41/53/94/144
+and PRS10–PRS12. The wider shell retains DSG1's role during each comparison.
+
+**LATER / DELEGATE.** Take PX86 next because a shell cue and its local work
+view need to agree across multiple systems. PX87 and PX88 benefit from the
+return and disclosure checks of the first two trials. PX89 is the first
+world-specific trial when an existing rite can furnish the fixture.
+
+**Evidence.** Rebuilt headless Chrome, bundle `f60a927162e7`, from
+`tests/fixtures/perf/mid.json`. Scratch walk and screenshots in
+`/tmp/oops-ui-candidates.4kRDr3/`. Earlier evidence:
+[crowded Mix](#round-12-2026-11-11-crowded-mix-layout),
+[Notebook and shell](UI_DESIGN_CORE_AUDIT.md#round-46-2026-11-10-intuitive-sectioned-flowing-and-the-playtest-complaints),
+[ritual forms](UI_DESIGN_CORE_AUDIT.md#round-39-2026-11-10-why-surfaces-look-alike-and-how-to-make-them-distinct).
+
+## Round 14, 2026-11-11: where the base game can be lighter
+
+“Base game” here covers both the inherited YAIR play loop and the Village
+and Frontier screens where OOPS exercises it. The local upstream
+`e3356432a` tree and [YAIR release comparison](../reviews/YAIR_RELEASE_SCALE_2026-11-08.md)
+show the underlying shape: jobs and training, fighting and recovery, gathering
+and making, trade and equipment, travel and quests. The standing direction
+puts new depth in book worlds and shared menus while Frontier and Mistglass
+serve as playable test beds. The suggestions below concern presentation and
+effort. [Standing direction](../USER_VISION.md#book-worlds-and-menus-first-frontier-and-mistglass-as-test-beds-2026-10-26).
+
+| Ref | Area | Lightest useful treatment now | Detail that earns a place |
+| --- | --- | --- | --- |
+| PX90 | Village home and navigation | Omit repeated place headings and duplicate instructional captions where their meaning is already visible. Keep people, services and ready local actions easy to find. Put secondary panels within the existing directory or a relevant subject. | A reason beside an unavailable action, a route to each service, and the existing local-ledger preference. Check the opening and a developed Village before changing any direct route. |
+| PX91 | Routine work, training and gathering | Start from a compact activity row and one current-work readout. Familiar repeats can use existing sessions or batches where supported. A dedicated screen for each small activity is low priority. | Method, tool, time, relevant risk, useful output and a way to stop or change course. Add a fuller form when decisions differ by method, location, interruption or condition. |
+| PX92 | Gear, trade and ordinary combat | Show the few effects that matter for the selected comparison, with price, stock, equip action or combat control nearby. Put modifier breakdowns, detailed provenance and transaction history behind an existing inspection route. | Preserve the real tradeoff and source of any changed stat. Keep immediate threat, stance or action, and retreat findable where applicable. Review one equip or trade decision and its later use. |
+| PX93 | Conversation, Journal, Notebook and Reports | A short exchange needs a person, the answer and the next choices. Earlier dialogue, relationship details and old evidence can open on demand. Keep one timely return cue and use the dated record for older events. | Put a consequential choice and its known terms on screen before commitment. Keep a path back to an optional lead and distinguish the current job from a finished or stopped one. |
+| PX94 | Specialized world displays | A plain actionable form is enough for a basic service or an early world fixture. Spend design time on a route, altar, body chart or case board when its structure helps make a choice. | Existing detailed modes, settings and expressive scenes remain in the palette. Select one use with an observable decision before designing a bespoke view. |
+
+**ACCOUNT FOR NOW.** Favor folding or moving details to their subject over
+giving every system a separate panel. A direct control is useful even when a
+second route exists. Treat duplicated status prose as a candidate for removal
+once its remaining home answers the same question. Apply ACR3–ACR7 and
+UR41/64/96/147 to retain consequences, reliable outcomes and the ability to
+inspect them. The crowded Mix trial gives a worked example and shows the
+extra step that can make a split a poor fit on a sparse screen.
+
+**LATER / DELEGATE.** Trial PX90 first. UI reviewer, small. From a fresh
+Village and a developed fixture, find a job, compare or equip something,
+and leave for a gathering or combat location. Done when each of those
+decisions is easy to locate and the player can still reach a secondary
+service and understand one unavailable action. Next sample one work loop
+for PX91 with a normal payoff and an interruption. UI and systems reviewer,
+small. Done when the live job, settled result and next use stay legible
+without opening a separate workstation.
+
+**Evidence boundary.** This round used the local upstream tree, existing
+owners and the earlier rebuilt Village and Mix screenshots. The proposed
+simplifications need their own desktop comparisons.
+
+## Round 15, 2026-11-11: lighter Village home and routine decisions
+
+**ACT NOW (done), PX90.** Compared the rebuilt Village home with a
+browser-only variant that hid the repeated overview counts and the generic
+inspection hint when subjects were present, and shortened the idle work
+sentence. Per-group counts, scene text, service descriptions, saving
+status and the existing routes were visible in both versions. On the
+1920 × 1080 desktop viewport, Find work moved up 31 px on a fresh save
+and 36 px on the developed fixture. On both saves, both variants opened
+Mix from the directory, equipped Cheap leather pants from the item detail,
+finished Tessa's two-hour patrol for 50 coins, and reached Wild willow
+stand. The equip check used an empty slot.
+
+**PX90 decision.** Prefer the copy cuts as the first Village change. They
+make the actions easier to scan in the screenshot and leave each tested
+route the same length. The directory still takes most of the upper place
+panel. A subsequent layout variant could put visible local actions first
+and keep the complete directory one action away. Compare it on a Village
+with more people and services before moving any existing direct entry
+point. Keep mobile outside this desktop trial. Apply UR41/64/147.
+
+**ACCOUNT FOR NOW.** Use the unit of work that can actually change the
+player's choice. These are proposed applications of the existing
+[activity rules](../ACTIVITY_ABSTRACTION_RULES.md).
+
+| Ref | Unit to summarize | Detail that earns a place |
+| --- | --- | --- |
+| PX95 | A paid shift or gathering session. Show what is running, the next earned result and the last settlement in the same place. | Surface the decision when the shift ends or when a tool, weather or supply changes the available work. Tessa's loaned-kit patrol settles at its full two-hour round. Show those terms before the player starts. ACR3/5–8. |
+| PX96 | A travel leg. Show destination, time and what the character knows about the route. Group uneventful steps. | Bring forward a fork, closure, encounter or a route choice that affects arrival or risk. Give the map room when position changes the plan. ACR4/8–9. |
+| PX97 | A trade or gear decision. Show what changes on the body or what leaves the purse at the selected quantity. Fold the modifier tree and older transactions. | Separate lots when quality, wear, ownership, price or provenance can change the choice. Inspect the precise item and terms before confirming. ACR2/6/13, UR149. |
+| PX98 | A question in the field notebook. Group comparable trials under the question and surface the observation that makes the next test different. | Keep method, materials, observer and cost available as evidence. Repetition can increase practice without resolving an attribution the method cannot distinguish. Use the new observation in a different recipe, as in PX84. ACR5/9/11, UR157. |
+| PX99 | A round of care at a home or workshop. Where a character or helper can actually tend routine tasks, show what they handled and what needs the player's judgment. | Keep the care provider, supplies and elapsed time. Show an injury, failed supply or changed condition at the point a treatment or assignment changes. ACR8/10/12–13. |
+
+**LATER / DELEGATE.** PX95 is the next small UI and systems trial. Use
+the existing patrol and one repeatable gathering activity. Done when the
+same work strip explains what is running, why a full round is paid, and
+what settled after stopping early or finishing, with the expected output
+available to its existing consumer. PX96 is a medium follow-on for a
+systems and UI reviewer after choosing a route with a real fork. Compare
+travel with and without an interruption and check arrival, time and the
+available next choice.
+
+**PX95 baseline.** In a fresh Village, stopping Tessa's patrol after one
+hour paid zero and returned the work strip to idle. The strip could
+already say when the next full round would pay while the job was running.
+During patrol the disabled Crafting shortcut offered a generic reason
+about an unavailable station or finishing a conversation. Check that
+unavailable actions can name the current blocker before changing their
+placement.
+
+**Evidence.** Rebuilt headless browser, bundle `f60a927162e7`. Scratch
+fixture was `tests/fixtures/perf/mid.json` with stale undefined recipe keys
+stripped on the test copy. Runner, screenshots and results in
+`/tmp/oops-village-home.Wud0ZA/`. Prototype and desktop comparison only.
+The local-ledger preference was outside this trial.
+
+## Round 16, 2026-11-11: Village home in game and PX95 work strip trial
+
+**PX90, implemented.** The Frontier Village omits the aggregate counts and
+the generic inspection hint above or below populated groups. Group headings
+and counts, place prose, empty or vanished-subject messages, and action
+routes stay available. Village idle work reads “No work running.” PRS7 voice
+sample from the same strip is “Saving available.” Other places keep their
+existing copy. Desktop target 1920 × 1080. No mobile pass or change to ledger
+placement. UR41/64/147, PRS4/6/7. The workspace and nearby views own the
+rendering and take the existing location context from the host, with zero
+new imports or registration lines.
+
+**PX95, tested as a browser-only comparison.** Both patrols began from
+separate fresh Village saves. For woodcutting, a fresh fixture made the
+craftsman available, then the played route earned and equipped his Old axe.
+The comparison inserted sample copy based on the observed results into the
+running game. It exercised the existing simulation, Reports, inventory and
+kit return controls. PX95 display changes are a proposal.
+
+| Played case | Current strip and outcome | What the trial should keep |
+| --- | --- | --- |
+| Full Tessa patrol | After an hour, the strip already said the next full-round pay was an hour away. At two hours the job ended automatically, 50 coins went into the purse, and the strip went idle. | Keep the live countdown. In the idle slot, show the paid result and use the existing route to return the lantern and baton. |
+| Stopped Tessa patrol | At one hour the stop control showed no accrued pay. Stopping paid zero. Returning the kit through Patrol & custody worked in both runs. | Put the pay at risk beside Stop. Afterward say the shift was cut short, with zero pay and the same kit obligation. One return cue is enough. |
+| Stopped gathering | After one hour, the strip still said “Gathering wood.” Two rough wood logs were already in the pack and remained there after stopping. Reports showed both gains and the total. | Show actual gathered output while the job runs. After stopping, say what is in the pack. If a future version shows time to the next attempt, call it an attempt where the yield is uncertain. |
+
+**PX95 decision.** Use the idle slot for one recent outcome when it helps
+the next choice. The comparison put it beside “No work running” and repeated
+the kit reminder below the strip. Replace that empty status and reuse the
+existing kit link for one actionable reminder. Keep deep history in Reports.
+Read pay and yield from actual job settlement and inventory credit, including
+wage modifiers when relevant. ACR5–ACR8, UR147/155, PRS11. The current browser
+trial did not test modified pay, empty gathering attempts, or new receipt
+persistence.
+
+**Checks.**
+
+- `BUILD_OUT=/tmp/oops-px95.FoQLlr/build npm run build` passed. Existing
+  duplicate `dial` key warning in `src/travel_legs.js`. Rebuilt browser bundle
+  matched build hash `c922057130549688`.
+- Game MCP, fresh seed 19, reached patrol and stopped after 60 minutes. This
+  was the incumbent route check.
+- `node /tmp/oops-px95.FoQLlr/try.mjs` passed in rebuilt headless Chrome.
+  Fresh and developed Village checked both omitted lines and the idle copy,
+  entered Mix, equipped pants and reached Wild willow stand. Developed
+  fixture `tests/fixtures/perf/mid.json` used a test copy without stale
+  undefined recipe keys. Full and early patrol, kit return and gathering
+  verified as above. Zero page errors. Screenshots and result JSON beside
+  the runner.
+- `node --test tests/nearby_context_view.test.js` passed 5 tests.
+  `npm run check:arch` and `npm run check:rules` passed. Rules reported
+  a day-counter warning and two stale route globs outside the touched files.
+  `git diff --check` passed for the edited paths.
+- Agent verified the Village change in source and the isolated desktop
+  build. Human review open. PX95 remains at the browser comparison stage.

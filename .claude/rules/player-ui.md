@@ -48,3 +48,7 @@ Distinct surfaces: UR93–UR97 (working defaults under AD56). Draw the mechanism
 Levels (UR98): tokens, marks and layouts are shared; a mechanism gets its own form (altar, vessel, body chart, case board) built on the figure primitive, and a world dresses it. Map domain data to a mechanism form, not straight to rings and pips. Materials (UR99): glyphs, seeded SVG sigils, SVG filters and settle motion are the cheap start; a library or raster or generated art is welcome where it buys something, noted with its size or source (LLR32, LLR33 opened).
 
 Elements: UR100–UR127 (working defaults under AD56); build guards UR128–UR138 (each names the mistake it prevents and its check; the UI contract test enforces UR130, UR131 and UR133); flow rules UR139–UR143 and the steady-frame rules UR144–UR146 with `npm run check:flow`, which plays every route and both zoom levels and reports moved side columns, oversized regions and idle layout shift. Before adding or changing any control, readout or overlay, read its row in the element sheet in docs/UI_RULES.md and give it a state sheet (idle, hover, focus, pressed, selected, disabled with reason, pending, settled, failed, empty or unknown; 150% text, reduced motion, world dress).
+
+For folded controls and knowledge views, apply UR156–UR157. Keep the active
+choice readable and existing methods reachable. Give an unknown mark a subject
+and field, with evidence reachable by keyboard and pointer.

@@ -97,7 +97,7 @@ Source Library search of 2026-10-28 (metadata only, local and Z-Library provider
 |---|---|---|
 | Circle of Inevitability in Chinese (宿命之环, 爱潜水的乌贼) | **Exists on Z-Library**: about ten Chinese epub editions, e.g. `zlibrary:121534267:ee13ae` 宿命之环(校对版全本)(诡秘世界第二部), `zlibrary:115227440:e31db3` 完结版 无番外, `zlibrary:119795152:c9b7d7` 精排版 | Superseded pending action: B626uniquely resolves receipt prefix `f76f8c412e2f` to registered 宿命之环 with an existing location. Do not reacquire from a zero literal-title match; completeness/translation comparison remains unverified here |
 | Circle of Inevitability, other English editions | Z-Library has the eight-volume set by "Cuttlefish That Loves Diving" (vol 1 chapters 1-109, vol 2 110-263, vol 3 264-494, vol 4 495-735, vol 5-8) and a "full" file. Our copy (Calibre 34) is the Light Novel World scrape, 1,178 chapters | Use the prime EnglishCOI row and later compilation coverage first; the older Calibre1026/title gap is not a new volume-acquisition request, and edition/text equivalence remains separate |
-| Shadow Slave chapters 3001+ | No volume 12 on Z-Library (a "Volume 12" query returns volumes 1-8, a 1-9 omnibus and "1-1925" files); our volumes 9-11 are the newest | Wait for a release; recheck monthly |
+| Shadow Slave chapters 3001–3242 in the 2026-11-11 check | Local EPUB coverage ends at 3000. Webnovel lists the continuation across volumes 12 and 13. The scoped Z-Library search surfaced earlier editions | [Continuation check and source](DOWNLOAD_WISHLIST_2026-10-30.md#fiction-gap-and-source-check-2026-11-11) |
 | A Soldier's Life book 7 and later | Z-Library lists books 2-6 only. Book 7 (The Otherworlders) exists as a Patreon draft | Recheck when a Kindle release appears |
 | Shadow Slave Vol 9 ("Throne of War"), Circle of Inevitability | The Calibre copies are byte-identical to the originals in `~/Downloads/Books_Reading` (same hashes), whose Z-Library names credit Guiltythree and Cuttlefish That Loves Diving; the text is a web scrape, so the edition and translation stay unverified | None unless a quality problem shows |
 | ttks captures woyouyigexiuxianmoniqi and fanrencongjiyindao | On disk, not registered for batch reading | Register on request |
@@ -1086,6 +1086,8 @@ The complete [source request list](SOURCE_REQUESTS.md), S1–S99, retains useful
 
 Downloaded and md5-checked, registered as managed assets (not screened, not read): No Game No Life 1 and 2, Sword Coast Adventurer's Guide, Lord El-Melloi II Case Files 1 to 3, How to Invent Everything, Fate/strange Fake 1, Re:Zero LN 11 and 12, Slime LN 13 and 14, Ironsworn Starforged Rulebook, RuneQuest Roleplaying in Glorantha, WFRP 4e Core (Cubicle 7), Mutants & Masterminds Hero's Handbook, Kingdom 2nd Edition, Invisible Sun (epub), Forbidden Lands Player's Handbook and Warhammer 40,000 Core Book (9th). Already held, skipped by md5: Traveller Core Update 2022, GURPS 4e Infinite Worlds, the Delicious in Dungeon World Guide CBZ, Fate/strange Fake 4 and 5, Cinnamon Bun 2 and 6, Mark of the Fool 9 and 10, Heretical Fishing 3 to 5. Not found on either route: an English Torg Eternity core book (French only), The Strange core, GURPS Low-Tech Companion 3, Monster Manual 2025, No Game No Life 3. Receipts: `docs/research/novels/wave-2026-11-04/receipts14` to `receipts17`.
 
+Mislabel, 2026-11-10: the asset registered as "WFRP 4e Core (Cubicle 7)" (`5b9abafc84`, 144 pages) is *Deft Steps, Light Fingers*, a WFRP 4e career supplement, checked from its cover and first pages. No WFRP 4e core rulebook is held. The catalogue title comes from the Source Library database and was left unchanged.
+
 Quota spend later on 2026-11-05 (Z-Library, epubs, md5-checked, not screened): Slime LN 1, 4, 6, 8, 9, 12 and 15; Re:Zero LN 13 to 24 except the volumes already held (14, 15, 16 to 24 landed this round); Overlord, Slime 2, 3, 5, 7, 10, 11 and the rest were already held. Not found on Z-Library: Mark of the Fool 11 and up, Fate/strange Fake 2 and 3, Overlord 4, 7 and 9, Infinite Dendrogram 1 to 3. Receipts: `docs/research/novels/wave-2026-11-04/receipts18` to `receipts20`.
 
 Anna's fast route, 2026-11-05 evening: Overlord LN 4 (epub) and four Fate/strange Fake PDF scans (volume 2, 8, 9 and one more whose volume number is unverified, 7 to 12 MB each) are in. Overlord 9 on Anna's is neither a valid epub nor a valid PDF (probably MOBI), so it is not held. Receipts: `docs/research/novels/wave-2026-11-04/receipts21` and `receipts22`. Mark of the Fool 11 and up did not appear on Anna's either.
@@ -1244,3 +1246,194 @@ The standalone lab page matched the publisher packet's page 8 in rendered pixels
 |---|---|---|
 | Hogwarts or Mother of Learning lab | Runtime designer, medium | Run the same known procedure with different tools or preparation. Show why the result, cost or interruption differs. For a time loop, account separately for what the character remembers and what the room retains. |
 | Expedition with a return trip | Runtime designer, medium | Save after an interrupted leg with a party role and fatigue recorded. Reload, change the approach and revisit a Delve-style site with earlier observations intact. The recorded journey and the party's current state agree. |
+
+## Anna's P3 and P4 wave, 2026-11-10 (DL108, DL109, DL90, DL91, DL96, DL99, DL101)
+
+Anna's download host passed the TLS preflight and the quota had reset to 50. Z-Library's host timed out from this network, so the run used no Z-Library and kept its fallback off. Md5s came from Anna's own search, opened once in the built-in browser past its automatic DDoS-Guard check. **35 files registered in Source Library**, each matching its expected md5: the 20 DL108 power-system books and compilations and the DL109 rulebooks listed in the [wishlist](DOWNLOAD_WISHLIST_2026-10-30.md) write-backs, plus *Microscope*, *Ptolus* (2006 d20), PF1 *Advanced Class Guide* and *Occult Adventures*, and *Wanderhome* (178 MB). *Dungeon World* (EPUB md5 `48ce396716c50140105ba38cbc8e044e`) arrived as a non-ZIP file and spent one use without registering (DL101). A second pass spent the rest: 13 more files registered (*Dungeon World* PDF, *So I'm a Spider* 3-6, *Reincarnated as a Sword* 3-5, *Konosuba* 3-4, *Dresden Files* 16-18), and one more corrupt EPUB (*Konosuba* 3 md5 `8a4dc340a6ed869839412477483e3e78`) was replaced by another copy. Day total: 48 registered, 2 corrupt, 50 of 50 used. Not checked yet: compilation chapter ranges, the *Mistborn* boxed set contents (MC13), and `pdf-screen` on the new PDFs. Private list, runner and receipts: `novels/wave-2026-11-10/`.
+
+## Game design and writing references, 2026-11-11 (DL117)
+
+Six English EPUBs acquired through Source Library's Z-Library `provider_api`.
+Live locations, expected MD5, SHA-256, ZIP CRC, package XML and every spine
+target were checked. Hodent’s EPUB has an empty package creator field. Its
+copyright and author pages identify Celia Hodent. Each table of contents and
+selected passages were inspected. Full reading and batch registration remain open.
+
+| EPUB | Edition identifier | Managed SHA-256 prefix | First reading locator |
+| --- | --- | --- | --- |
+| Celia Hodent, *The Gamer’s Brain* | 9781351650762 | `061b91cf2dc2` | Ch. 4, memory. Author’s separate GDC onboarding transcript supplies the craft recall example. |
+| Ian Schreiber and Brenda Romero, *Game Balance* | 9781351643412 | `7c56944b42fb` | Ch. 3, resource-flow exercise. Ch. 6, economic systems contents. |
+| Tracy Fullerton, *Game Design Workshop*, fifth edition | 9781003858447 | `d1865bd361e3` | Ch. 9, observation during playtesting. |
+| Michael J. Metts and Andy Welfle, *Writing Is Designing* | 9781933820668 | `5ee34ff11cc1` | Ch. 4, errors and stress cases. |
+| Steve Swink, *Game Feel* | 9781498717717 | `e34cfe8e668f` | Ch. 1, scope of game feel. Ch. 7, response metrics opening. |
+| Hannah Nicklin, *Writing for Games: Theory and Practice* | 9781000582734 | `55b52c13e734` | Ch. 5, Choice Voice, Type, and Modality. |
+
+[Research applications](GAME_UX_GUIDES_2026-11.md#ui-progression-and-choice-research-2026-11-11)
+link to the working rules and first playtest questions.
+
+## Wishlist intake, 2026-11-11
+
+The [download wishlist](DOWNLOAD_WISHLIST_2026-10-30.md) owns the remaining
+requests. Private transfer and PDF receipts are in
+`docs/research/novels/wave-2026-11-11-wishlist/`. The four English EPUBs were
+acquired through the Source Library Z-Library route and are on disk with
+matching source MD5, SHA-256 and readable EPUB spines.
+
+| Wishlist | Acquired | Managed SHA-256 prefix | Coverage |
+|---|---|---|---|
+| DL3 | *The Lost Steersman*, Rosemary Kirstein | `50f9afb594a9` | Steerswoman book 3 |
+| DL113 | *Chainsaw Man: Buddy Stories*, VIZ | `ceceb1e40598` | English prose collection |
+| DL65 | *Forty Millenniums of Cultivation*, English compilation | `c971d0ea5018` | Spine headings 1–3350 without detected gaps, plus extra headings. The [publisher catalogue](https://www.webnovel.com/book/6838665402001705/catalog) ends at 3523. Exact late-story and side-story gaps still need a chapter map. |
+| DL37 | *No Game No Life* 3, Yuu Kamiya | `6ce57e179a1f` | Light novel, books 1–4 now on disk |
+
+DL115 acquired the English *Reincarnated as a Sword* web-novel community
+compilation (*Tenken WN* v1.5.00), `1366f4a927ea`, from a [shared EPUB](https://drive.google.com/file/d/1_sqx8iaKSFS7tGVSzcVRbYMDXsms4Jan/view).
+ZIP CRC and spine checks found consecutive numbered chapters 1–1064.
+Two additional EPUBs use Seeker’s English translator repository at the
+commit in `tenken-translator-commit.txt`. Chapters 1065–1310
+(`1a6f06c0b5cc`) reach the main ending, and chapters 1311–1364
+(`2b2de4c6c45e`) reach the last English release in that snapshot. The
+300 source posts and both output spines were checked for missing and
+duplicate chapter numbers. [Translator repository](https://github.com/seeker142/seeker142.github.io) · [Japanese main ending](https://ncode.syosetu.com/n6006cw/1310/)
+
+DL116 acquired a [community subtitle pack](https://subdl.com/subtitle/sd1300193/code-geass-lelouch-of-the-rebellion/first-season/english)
+for *Code Geass*. The ZIP (`6a38ac9b1f34`) passed CRC. All 50 timestamped
+English files are under `code-geass-english-subs/` in the private intake
+directory, one file for each R1 and R2 episode 1–25. Release synchronization
+was not tested against a video. The old Discord and Dropbox links returned 404.
+
+The [publisher’s A5E SRD index](https://a5esrd.com/a5esrd) supplied 37 PDFs
+including licensing files (DL72). The [Kobold Press Black Flag PDF](https://www.koboldpress.com/bfr-reference-doc/)
+was registered as `084cdd75de54` (385 pages, v0.2, DL73). Both mirror copies
+of the free editions already matched existing assets: *Worlds Without Number*
+`b48761e04e67` (352 pages, DL92) and *Stars Without Number Revised*
+`22ef6826a5b3` (261 pages, DL93). The 40 PDFs were hash-checked and
+registered or matched. Screening was run on Black Flag and both Crawford
+PDFs. The other PDFs still need screening before text use. The publisher’s
+[Old-School Essentials rules](https://oldschoolessentials.necroticgnome.com/rules/doku.php?id=start)
+and [Starfinder 2e Archives of Nethys](https://2e.aonsrd.com/) were verified as
+live online references.
+
+The English *Fate/strange Fake* fan PDFs close DL27’s requested books 1–5.
+Volume 2 (`8a69904826e1`, 154 pages) matched the library by hash. Volume 3
+(`105263f4a6ae`, 160 pages) was newly registered. Both covers matched and
+screened text contained English prose. [Fan edition links](https://www.reddit.com/r/fatestrangefake/comments/1hs3y1b/new_link_to_translated_novels/)
+
+The *Acquisitions Incorporated* PDF (`a4b48edff70e`, 226 file pages) matched
+the English fifth-edition cover and was registered for DL11. PDF screening
+flagged an invisible OCR layer across the scanned pages. The shared file
+offered as the 2025 *Monster Manual* showed a *Player’s Handbook* cover and
+was excluded. DL8 remains open. [Acquisitions Incorporated source](https://www.housegriffon.com/RPG/Games/DnD/dd5/Core/Acquisitions%20Incorporated.pdf)
+
+DL30 acquired Brewitt-Taylor’s *Romance of the Three Kingdoms*, volume 2,
+as the 1925 edition DjVu scan (`916649910c11`). It is held in the private
+intake directory. Source Library does not index DjVu. [Wikimedia Commons scan](https://commons.wikimedia.org/wiki/File:Romance_of_the_Three_Kingdoms_-_tr._Brewitt-Taylor_-_Volume_2.djvu)
+
+DL114 acquired all 439 numbered Part II chapters and the 22 side-story
+entries between Parts I and II from the translator’s index. Numbered chapters
+are in five verified EPUBs: 1–100 (`cdb24bd0d279`), 101–200
+(`223d6b1d6dd3`), 201–300 (`b8611b4d0b99`), 301–400
+(`b01676edbb48`) and 401–439 (`47654024aff4`). The side stories are
+in `d20744e7c8d4`. The selected links, body checks and raw source hashes
+are in the private capture receipts. EPUB spines contain every entry in
+the captured order. [Translator index](https://eatapplepies.com/mybookmarks/tcf-table-of-contents/)
+
+Anna’s preflight failed certificate verification before a fast-link request.
+At final check the local governor showed WARP disconnected and a disk
+pause at 18 GB free against its 30 GB floor. Z-Library remained at 0 of 10
+after four downloads.
+Bookracy timed out at catalogue response and the LibGen parser failed on its
+probe. The author’s *Wandering Inn* table of contents was verified via web
+lookup. The shared polite transport stopped on a Cloudflare challenge before
+capturing any *Memory’s Flame* chapters. Royal Road and Scribble Hub already
+have persisted transport refusals. The manga queue is still pending under the
+existing governor, which also shows a runner halt.
+
+`next-candidates.json` in the private receipt directory records Z-Library
+metadata leads for *The Irregular at Magic High School*, *No Game No Life*,
+*Konosuba*, *Reincarnated as a Sword*, *A Thousand Li* and *Acquisitions
+Incorporated*. Verify coverage, language, format and held hashes before
+transfers. Candidate hits do not close a wishlist item.
+
+## Anna’s fast follow-up, 2026-11-11
+
+With WARP connected, the download host passed verified TLS preflight.
+Anna’s transfers below were checked against the requested MD5, indexed
+in Source Library by SHA-256, and checked against their EPUB package
+metadata and spines. Private receipts are in
+`docs/research/novels/wave-2026-11-11-wishlist/`.
+
+| Wishlist | Acquisition | SHA-256 prefixes in volume order |
+|---|---|---|
+| DL105 / DL108 | *Konosuba* 5–17, English, including fan editions. Books 1–4 were already held. | `dff46bdb3491`, `2fb16c64a977`, `1a8f4effef96`, `754a8252e221`, `91cb7faa153f`, `4c1e042a1ec0`, `1dbb4cb220cf`, `c18cff2b2f62`, `3a38efcf59a4`, `5b5e0814a292`, `3cb8b980d4f9`, `a5a65c754b6a`, `a8ded73cd7b0` |
+| DL40 | *No Game No Life* 7 and 9, English. These were the two requested gaps in this series. | `33fd4f288e17`, `8646be0fccb6` |
+
+DL39 acquired *Lord El-Melloi II Case Files* 6, *The Contract of Atlas*,
+as the English fan edition (`a95ed8e6e234`). Its EPUB contains the
+prologue, chapters 1–4 and epilogue. [Translator's edition link](https://www.reddit.com/r/grandorder/comments/yq60xn/english_translation_links_for_books_610_of_the/)
+
+The live catalogue already held *Heretical Fishing* 1–5 (DL50) and the
+requested *Re:Zero* and *Tensura* volumes under DL40. Those files did
+not need a download.
+
+DL71 acquired *The Irregular at Magic High School* 7–18 and 24–26 in English,
+including fan editions of 24–26. Those three volumes contain 47,000–53,000
+words apiece with consecutive chapter headings. The SHA-256 prefixes in
+volume order are `fb7755e78fb7`, `29b2386e2c2e`, `cd6a5496ba08`, `134fca8c45e5`, `345e6e665f86`, `38237e1c2ee2`, `810b1b7637a6`, `55c9bc792c9e`, `8bd2a637c197`, `011acc609a4d`, `2f510cbaab80`, `a390c5eea64d`, `0c33076a611e`, `d2fd7981a632`, `6635a4d5a2fd`.
+
+DL6 acquired *Shadow Slave* chapters 3001–3242 (`2b6a68c06361`). All
+242 English chapter bodies and the consecutive chapter headings were
+verified. Together with prior EPUBs, the library covers chapters
+1–3242 through the [checked publisher snapshot](https://www.webnovel.com/book/22196546206090805/catalog).
+The [mirror](https://novelori.com/en/novels/shadow-slave/) was read through
+the project’s paced transport. Chapter URLs, source hashes and receipts
+are private.
+
+DL78 already held the 160-page *HârnMaster* third-edition core
+(`63f20d303b69`). The rendered title page identifies Columbia Games
+and the third edition.
+
+The revised *Monster Manual* (DL8, `bb762cf93a19`) has 388 PDF pages
+and passed `qpdf --check`. The cover and title page match the
+[Wizards release](https://wpn.wizards.com/en/products/2024-monster-manual).
+The first three pages were screened before the edition check, and the full PDF screen later completed.
+The 60-page *Mothership Warden’s Operation Manual* (DL80, `a7d3ec60f540`)
+also matched its cover and passed the PDF screening workflow.
+
+| Wishlist | Additional rulebook | SHA-256 prefix | PDF pages |
+|---|---|---|---:|
+| DL15 | *GURPS Low-Tech Companion 3: Daily Life and Economics*, fourth edition | `79b3efbc77dc` | 52 |
+| DL19 | *Ironsworn: Delve*, full rulebook | `d0abed9ff3b7` | 246 |
+| DL19 | *Mythic Game Master Emulator*, second edition | `edf8b571db51` | 230 |
+| DL21 / DL42 | *The Strange: In Translation*, Bruce R. Cordell | `fd6cca34dc99` | 97 |
+| DL77 | *Night’s Black Agents* core, Kenneth Hite | `605a0ae00b5b` | 234 |
+
+Covers were checked after screening their front matter. `qpdf --check`
+passed for *Delve*, *Mythic* and *In Translation*. *GURPS*, *Mothership*
+and *Night’s Black Agents* opened and rendered with warnings about their
+PDF linearization hint tables.
+
+DL81 acquired the *Mutants & Masterminds Deluxe Gamemaster’s Guide*
+third edition (`6dde7a333943`, 298 PDF pages). Cover and PDF structure
+were verified. DL85 remains open. The EPUB named *Empire of the Petal
+Throne* in the provider catalogue contains M. A. R. Barker’s *Flamesong*
+(`bc3d5dbb53c6`), and the Source Library title was corrected.
+
+| Wishlist | Additional English fiction | SHA-256 prefixes in volume order |
+|---|---|---|
+| DL68 | *Infinite Dendrogram* 17–23. Books 20–21 are complete collected part releases. The library reaches 1–23. [Publisher](https://j-novel.club/series/infinite-dendrogram) | `3b3532602330`, `c1096f0b700e`, `60e762ac117c`, `931f954a444f`, `585cc1f5b6a8`, `348fd9050a74`, `ca91118c0566` |
+| DL50 | *A Thousand Li* 7–10. The earlier two omnibuses supply books 1–6. Still wanted: books 11–12. [Author](https://www.mylifemytao.com/my-book-series/a-thousand-li/) | `78ffed00d5ff`, `a3f7a6fb8618`, `62efd922c10d`, `83dcd78757ef` |
+
+Anna’s finished 50 transfers and returned quota exhausted at *A Thousand
+Li* 11. Forty-nine were requested editions (41 EPUBs and eight PDFs).
+The remaining transfer was the mislabeled *Flamesong*. An interrupted
+*In Translation* transfer succeeded on a same-day retry. The *Case Files*
+and *Shadow Slave* EPUBs came from independent web sources. The signed-in
+Z-Library account still had zero of ten downloads left.
+
+The remaining edition candidates are in `anna-warp-retry.json` and the
+terminal state is in `anna-warp-third.jsonl` in the private intake
+directory. Remaining identified candidates include *A Thousand Li* 11–12,
+*Irregular* 19–23 and 27, and 13 Mystara Gazetteers. GAZ9 remains unlocated.
+The manga governor was paused at 17 GB free against its 30 GB floor, and
+its runner was already halted on `naruto-extra` chapter 11537.

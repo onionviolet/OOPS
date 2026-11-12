@@ -15,6 +15,7 @@ Proposed, in use as the default (CHOICES item 4, 2026-10-30, [packet](audits/UI_
 - Scenes, choices, travel and Reports: SUI1-SUI19 and RPT1-RPT14 ("Scene and report rules").
 - Knowledge, warnings, readouts, unchosen acts, other lives and notices: UR83-UR88 ("What the 2026-11-10 rulebooks need on screen").
 - New surface kinds, progression views, effects and sound, history: UR89-UR92 ("Open forms").
+- Onboarding, return to work, live refresh and progression estimates: UR153–UR155 ("Learning, returning and reading progress").
 - A new surface or a redesign: UR93-UR99 (form follows the mechanism, shared grammar with distinct composition, reacting, layers, craft pass, six levels, cheap materials).
 - Any single element (button, select, toggle, slider, field, tab, disclosure, drag, tooltip, modal, menu, toast, meter, progress, number, chip, list, table, icon, picture, log line, header, empty or error state, focus, text): its row in UR102-UR127, plus the state sheet UR100 and the element audit UR101 ("Every element").
 - Wording of the always-visible set and navigation: UR11, UR21-UR33.
@@ -122,6 +123,21 @@ and other tasks; they do not impose one form or new mechanics.
 Crafting examples and source/adoption boundaries live in the
 [comparison round 2](reviews/crafting-reference-2026-11-04/REPORT.md#round-2-source-adoption-ui-layers-and-other-making-2026-11-04),
 with current implementation evidence in its [checkpoint](gm/dispatch/crafting-layers-2026-11-04/CHECKPOINT.md).
+
+**Workstations with growing history (UR81/96/154/157, adjustable under AD56).**
+Keep the current setup, usable outputs, repeat controls and the latest relevant
+result on the work surface. When old observations crowd those actions, give
+history a labelled view with a direct return to the same draft and a visible
+focus target. Dial: a short history can stay inline when the main actions
+remain easy to reach. Compare the ordinary action and a history round trip on
+a populated save before settling the layout.
+
+Keep a live job readable when the player opens its reference view. After it
+settles, use that same area for a compact receipt when there is an interruption
+to resolve. Name what completed and what stopped, and keep the cause near the
+way forward. Reuse that receipt for detail. Check whether the header's state
+change displaces the main action or repeats the same notice. When a shell and
+a workstation report different work, label the scope of each. [Mix comparison](audits/PLAYER_EXPERIENCE_CORE_AUDIT.md#round-12-2026-11-11-crowded-mix-layout).
 
 ## Descriptions explain the experience and effect, 2026-10-25
 
@@ -512,6 +528,33 @@ Working defaults 2026-11-10 under AD56, adjustable. Requested by Weibao: "What a
 | UR150 | **A sheet closes when you press outside it.** Default: a modal sheet (shortcuts, palette, confirm) closes on a press outside it, on Esc and on its Close button, all through the same cancel path, and the outside press does not reach what is underneath. Dial: a sheet holding half-typed input opts out with `data-no-light-dismiss`. Reason: being trapped behind a sheet until you find Close feels broken. | The "?" shortcuts sheet stayed open over the page until Close or Esc (PX50). | `tests/native_controls.test.js` PX50 |
 | UR151 | **How a thing is shown can be earned.** Default: a fresh character sees impressions in words (rapport as a sentence, weather as a feeling, a stat as a description); feats, skills, titles or knowledge can open the precise views: the rapport ladder (the UR98 L2 track), exact numbers, a forecast, a map grid. The unlock is a fact the character holds (the `knowledge` effect, `titles.js`, a skill level), shown where the view appears ("You read people well now: their regard shows as a ladder."). Dial: a Settings switch "show exact numbers" opens the precise views from the start for a player who wants them; a world can open them early or late. Reason: seeing precisely is itself progress, and it keeps the first hours quiet. | Weibao, 2026-11-10: "Being able to show things in specific ways could be products of feats or unlockable in the future". PX45 turned the rapport rings into a sentence; under this rule the ladder can return as an earned view. | Not built; first candidate is the rapport ladder (PX58) |
 | UR152 | **A view eases in.** Default: opening or closing a centre view fades and lifts it in over 140 ms; nothing else on screen moves (UR144). Dial: reduced motion turns it off. Reason: a hard cut of most of the screen reads as a jump; a short ease says "this replaced that". | Weibao, 2026-11-10: "mixing changes the entire screen in a dirastic way? should we have transtition betwen panels?" | `styles/ui_tokens.css` `center-mode-enter`; check:flow `stability` |
+
+## Learning, returning and reading progress
+
+Adjustable working defaults under AD56, 2026-11-11. Use the desktop 1920×1080
+route when applying these rules. [Research and trial cases](research/GAME_UX_GUIDES_2026-11.md#ui-progression-and-choice-research-2026-11-11).
+
+| Code | Rule | Observe in play |
+| --- | --- | --- |
+| UR153 | **Teach at a useful action and offer a cue at the next use.** Default: introduce a verb through a task the player can do and has a reason to do. On a later use, put a short cue or the relevant control where the need arises. Dial: cues can come from a person, a work surface or optional help and can fade as the player learns. Reason: recalling a mechanic includes finding it again. | After the first supervised mix, leave the counter and return with a purpose. The player can find and use Mix again without replaying the lesson. |
+| UR154 | **Keep the player's place through live changes.** Default: retain visible focus and the inspected subject when a refresh leaves them available. If the subject or control disappears, move focus to a nearby meaningful target or the originating control and explain a consequential change on the surface. Give consequential state changes a readable or accessible cue alongside an effect. Dial: per-world cues and adjustable motion. Reason: a clock tick, search or effect can otherwise hide the next action. | Use keyboard focus during an inventory update, and close a supply picker. Check focus, retained inputs and the changed state with sound off and reduced motion. |
+| UR155 | **A progress view explains what will change and what it depends on.** Default: name the next known capability or consequence, show the relevant completed and pending requirements from the evaluator, and show the basis of an ETA when the rate can be estimated. Dial: a range, a known event, an uncertain hint or a character's partial reading may fit better than a timer. Reason: a meter or extrapolation alone cannot explain a stalled method or a choice of routes. | Vary a supply or appointment. The view distinguishes a rate change from a blocked requirement and stays within what the character can know (UR90, UR151, KNW). |
+| UR156 | **Show the active choice when folding its controls.** Default: existing actions and methods stay reachable, and a folded selector shows the value the next action will use. A suggested setup updates the relevant controls together. Dial: characters can discover a method through a world-specific route, and precision can be earned under UR151. Reason: rearranging a view can accidentally remove a usable route or keep a choice active after its control disappears. | Open a new counter, pick a different method, fold it, use a suggested setup, then return or import. Check the displayed method against the resulting action. |
+| UR157 | **An unknown mark names the missing fact.** Default: give each mark a subject and field, expose its evidence by keyboard and pointer, and distinguish an unknown, ambiguous evidence, a specific guess and a measured absence. Dial: use words, a small mark, or an in-world clue. The size of a hidden set can itself be withheld. Reason: tasting a blend may show a result without identifying which part caused it. | Taste a blend and then a single plant. Find the evidence from the cell without a pointer, and verify that the newly confirmed fact changes while unrelated facts keep their previous state. |
+
+**UR157, using an observation in a new choice.** Default: where a known fact
+bears on the current setup, make it readable near the choice with the conditions
+under which it was learned. Keep the new result's uncertainty visible. After
+the action, keep distinct observed effects within reach of the summary when
+one effect gets the headline. Dial: offer a brief clue, a comparison or a
+linked observation as the world and surface fit. Reason: a known plant can
+guide an untested blend, and its smaller effect can be the reason to make it.
+[PX84 Mix trial](audits/PLAYER_EXPERIENCE_CORE_AUDIT.md#round-10-2026-11-11-px84-at-the-mixing-counter).
+
+For a workstation with an evidence table, the current setup can pull a short
+reading from that table. Keep comparison history and detailed sources in the
+reference surface. Once the exact setup has an observed result, that result
+can take the preview's place. [Mix application](audits/PLAYER_EXPERIENCE_CORE_AUDIT.md#round-11-2026-11-11-mix-preview-and-result).
 
 ## Scene and report rules (SUI, RPT)
 

@@ -1,0 +1,78 @@
+{
+  "revision": 1,
+  "scope": "Authoring vocabulary for the Hogwarts and Cyoria workrooms. Source statements, inferred roles, and original game models occupy separate fields. Source observation IDs resolve in observations.jsonl.",
+  "grammar": {
+    "working": ["world law and revision", "measured material roles", "ordered operations with effort"],
+    "batch": ["bound stock", "intermediate states and reactions", "route-specific outputs"],
+    "trial": ["recipient or test baseline", "delivery", "observed response"],
+    "notebook": ["witnessed working", "exact operation order", "material roles to bind to new stock"]
+  },
+  "operations": [
+    {"id":"extract","meaning":"Expose or separate a usable fraction.","hogwarts":"Crush and extract. The frozen egg yields egg extract.","cyoria":"Grind and press. Intact balm leaf yields leaf extract.","model":"original"},
+    {"id":"steep","meaning":"Hold the mixture at a controlled heat for a stage.","hogwarts":"Low heat allows exposed egg extract and rose oil to combine.","cyoria":"A warm bath spoils unpressed balm leaf in this trial.","model":"original"},
+    {"id":"stir","meaning":"Move the mixture through a controlled dispersal stage.","hogwarts":"Used for treacle and mucus trials.","cyoria":"Disperse pressed leaf extract into oil to make a salve.","model":"original"},
+    {"id":"freeze","meaning":"Stabilize a hot Ashwinder egg before it scorches.","evidence":["HPPE172"],"model":"Sourced operation in acquisition. The collection window and instructor service are original."}
+  ],
+  "entries": [
+    {
+      "id":"hp.frozen_ashwinder_egg",
+      "terms":["Ashwinder egg","Ashwinder eggs","frozen Ashwinder egg"],
+      "evidence":["HPPE171","HPPE172","HPPE173","HPPE174"],
+      "source":"A magical fire can produce the creature. Its eggs are hot and need freezing. Frozen eggs are used in Love Potions and can be eaten whole for ague.",
+      "inference":"An egg's state matters. Its place in a mixture and its direct use are separate records.",
+      "game":{"material":"frozen_egg","role":"reactant","forms":["hot","frozen"],"intermediate":"egg_extract","axis":"sealed_egg","fractionPermille":600,"model":"original constituent and amount"}
+    },
+    {
+      "id":"hp.rose_petals",
+      "terms":["rose petal","rose petals"],
+      "sources":["https://www.hp-lexicon.org/magic/love-potion/"],
+      "source":"The Lexicon attributes rose petals and thorns in a Love Potion to Wonderbook: Book of Potions. The companion-book egg statement is a separate source.",
+      "game":{"material":"rose","role":"co-reactant","axis":"rose_oil","fractionPermille":400,"model":"original constituent, amount, and pairing"}
+    },
+    {
+      "id":"hp.love_potion",
+      "terms":["Love Potion","Love Potions"],
+      "sources":["https://www.hp-lexicon.org/magic/love-potion/"],
+      "evidence":["HPPE068","HPPE173"],
+      "bookLocator":"Half-Blood Prince, chapters 9 and 18. See B6 compilation p3067 for the explanation of fixation.",
+      "source":"The novels depict potion-induced fixation and distinguish it from love. The companion guide establishes egg participation in the family. The Lexicon tracks the rose lead to a separate adaptation and records Hogwarts restrictions.",
+      "game":{"reaction":"egg_extract + rose_oil -> fixative after low heat","delivery":"oral","effect":"fixation","subject":"Voluntary self-trial with the greenhouse or library chosen at use","model":"original working and object binding. This is a Love Potion family trial, with no claim to an Amortentia formula or a Hogwarts lesson."}
+    },
+    {
+      "id":"hp.flobberworm_mucus",
+      "terms":["Flobberworm mucus","Flobberworm secretion"],
+      "evidence":["HPPE183"],
+      "sources":["https://www.hp-lexicon.org/thing/flobberworm-parts/"],
+      "source":"Mucus sometimes thickens potions. Specific potion entries in games need their own evidence.",
+      "game":{"material":"mucus","role":"physical modifier","axis":"thickener","fractionPermille":700,"delivery":"assay","effect":"viscosity","model":"original viscosity scale and supply route"}
+    },
+    {
+      "id":"hp.glumbumble_treacle",
+      "terms":["Glumbumble treacle","treacle"],
+      "evidence":["HPPE184"],
+      "source":"Glumbumble treacle is used against hysteria associated with eating Alihotsy leaves. The companion guide also associates the treacle with melancholy.",
+      "inference":"Resolve the response against the condition present and dose delivered. The generic word treacle is a search term, not an identity alias.",
+      "game":{"material":"treacle","role":"paired remedy","axis":"treacle","fractionPermille":800,"delivery":"oral","recipientCondition":"alihotsy hysteria","model":"original strengths, cancellation scale and supply. Melancholy remains evidence only."}
+    },
+    {
+      "id":"hp.alihotsy_leaf",
+      "terms":["Alihotsy","Alihotsy leaf","Alihotsy leaves"],
+      "evidence":["HPPE184"],
+      "sources":["https://www.hp-lexicon.org/thing/one-thousand-magical-herbs-and-fungi/"],
+      "source":"Eating the leaves is associated with hysteria. The Lexicon separately attributes the Hyena tree name to supplemental herb lore.",
+      "game":{"material":"alihotsy","role":"provocation for the remedy comparison","axis":"alihotsy","fractionPermille":500,"delivery":"oral","effect":"hysteria","model":"original draught, strength and clock"}
+    },
+    {
+      "id":"mol.topical_salve",
+      "terms":["salve","Cyorian balm leaf","Apothecary oil"],
+      "bookLocator":"Mother of Learning ch7 ¶160, ch9 ¶80, ch28 ¶137, ch74 ¶214–221 and ch84 ¶78. See the held-source MAGIC_SYSTEM reader §3.8.",
+      "source":"Alchemy can use ingredients and equipment without the maker shaping mana. A salve for an irritated patch of skin appears. Improvised and formal alchemical practice both appear.",
+      "game":{"materials":{"leaf":{"axis":"unbroken_leaf","fractionPermille":600},"oil":{"axis":"oil","fractionPermille":500}},"intermediate":"leaf_extract","reaction":"leaf_extract + oil -> soothing after stirring","delivery":"topical","effect":"relief against recorded skin irritation","model":"original ingredients, premature heating failure, symptom baseline, clock and amounts"}
+    },
+    {
+      "id":"shared.water",
+      "terms":["water"],
+      "game":{"material":"water","role":"carrier portion","model":"original comparison input. Additional water is admitted as stock and supplies no active fraction in these laws."}
+    }
+  ]
+}

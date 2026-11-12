@@ -122,6 +122,10 @@ Weibao, 2026-10-14: merge finished work "each time" before a new wave
    combined gates on settled inputs. Do not run a full suite for each lane or
    repeat an equivalent suite/subset without changed inputs or a named failure
    hypothesis. Required changed-behavior browser and persistence gates remain.
+   Use the gate's own exit status and recorded candidate identity. A background
+   wrapper that prints or filters a log can finish successfully after the gate
+   fails. Keep the gate's status through the wrapper, or read the recorded
+   status and suite summary before applying the candidate.
    Pushing waits for Weibao's yes; there is no standing push authorization.
 3. Use the incumbent owner or its explicit handoff. If a supported task route
    reaches that owner, an addressing failure on another route does not justify

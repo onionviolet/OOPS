@@ -73,6 +73,15 @@ Added 2026-11-10, proposed (AD32), after Weibao asked "Refinements we can do? co
 | SPR33 | **Read records before adding counters.** Achievements, deeds, histories and statistics read existing dated records; a new counter needs a reason no record covers. | Parallel counters that disagree with the history the player can read | The record each deed reads |
 | SPR34 | **Set up fast, prove for real.** A dev fixture built through the real game or save code may supply the setup; the changed behaviour, save, reload and import still play in a browser, and a fixture never stands in for the start of a life when the feature is that start. | Hours of walking to reach a state, or a fixture that hides a real path (FRC74) | Fixture name and the steps played live |
 
+### Applying results-based calibration
+
+For an AD49 calibration pass, pair the canon case in SPR20 or SPR27 with an
+alternate route through the same mechanism. Let the canon case establish the
+result under the source's conditions. Change one relevant means or condition
+in the other case and check what it leaves behind, such as a cost, a changed
+tie, an injury or a lost opportunity. The source and the world's dials set the
+size of the variation. See [Weibao's route-variance direction](gm/USER_VISION_LOG_2026-11.md#results-based-calibration-with-routes-that-vary-2026-11-10).
+
 ## What this does not change
 
 - AD42: human review is optional. SPR6 offers a save; it does not wait for an answer.
