@@ -686,6 +686,19 @@ Recorded:
 - **Levels of fate** go into the story rules as a ladder with world dials, covering lore and non-lore runs; the agent's ladder and the Reverend Insanity reading (canon versus fan theory) are proposals.
 - **Cheats:** a further look, and a catalogue of cheat types to draw on later ([CHEAT_CATALOGUE](../CHEAT_CATALOGUE.md)). The catalogue is a palette, not a build order.
 
+## Ahead sources and cross-checking versions, 2026-11-10
+
+While reviewing which held sources trail another medium, Weibao asked:
+
+> For behindness, we can find the source that is ahead, so for something like Re zero we can get the webnovel instead? and hold the original instead? Consider ease of prsing and more?
+
+The agent proposed holding the ahead source, an ease-of-parsing order and keeping rewrites where they revise canon. He answered "Yes, record and queue" and added:
+
+> do consider cases where the webnovel might be better too, or we can cross check betwee nthe two?
+
+Recorded as lasting direction for acquisition: [AR56-AR59](../research/SOURCE_ACQUISITION_TOOLS.md#ahead-sources-per-franchise-2026-11-10-ar56-ar59), the [USER_VISION](../USER_VISION.md#research-and-sources) line and the digest. Queued as wishlist rows DL114-DL116. In the same review he said nonfiction should be "extremely low priority" (DL31, DL33), and suggested a slice-of-life or sci-fi lore run for the original and everyday world; that run is a proposal card, not started.
+
+
 ## Three more rulebooks, and making rules reach implementation, 2026-11-10
 
 After the coverage audit ([FOUNDATIONAL_RULES_COVERAGE](../audits/FOUNDATIONAL_RULES_COVERAGE_2026-11-10.md)) ranked the aspects still without rules, Weibao said:
@@ -894,6 +907,7 @@ Weibao:
 
 Recorded: [the element sheet](../UI_RULES.md#every-element-the-element-sheet) adds UR100–UR127 as working defaults under AD56: a state sheet for every interactive element (UR100), auditing by element and then by journey (UR101), and one row per element kind, from buttons to truncated text. [UI audit round 43](../audits/UI_DESIGN_CORE_AUDIT.md#round-43-2026-11-10-every-element-census-and-coverage) holds the census of element kinds in the code, what earlier codes covered and what was new. The first element audit, gallery state sheets, contract-test additions and one number formatter are proposals, not started.
 
+
 ## UI guard rules from the element fixes, 2026-11-10
 
 Weibao, after "Go through and fix 1 to 5" and "Do the action labels and Try one batch too":
@@ -1085,3 +1099,70 @@ Weibao:
 > Is there a game dev guide for stuff like these and more?
 
 Recorded: [player experience round 7](../audits/PLAYER_EXPERIENCE_CORE_AUDIT.md#round-7-2026-11-10-marking-what-you-do-not-know-and-research-to-lean-on): targeted question marks UK1–UK7 (proposals) and a proposed research pass over game UX, accessibility, interface-writing guides and close reference games. Nothing started.
+
+## Course correction after the usage pause, 2026-11-11
+
+Weibao asked Codex to fix the findings, consider core-rule improvements, update
+the handoffs and make them remembered. The two research reports and the mixing
+trial reached [player experience Round 8](../audits/PLAYER_EXPERIENCE_CORE_AUDIT.md#round-8-2026-11-11-mixing-counter-and-source-follow-up).
+The folded-choice and unknown-evidence defaults are UR156–UR157. The
+[checkpoint](dispatch/claude-resume-2026-11-11/CHECKPOINT.md) has current
+verification and next actions for the interrupted sessions.
+
+## Foundations first, playable slices later, 2026-11-11
+
+Weibao, in the Codex world-rules chat:
+
+> foundations first, wiring later? We want the foundational systems to be able to cover basically the whole story
+
+> Foundations without playable slices, just focusing on expanding the possibilitties an overing everything, finding the rules, and then playable slices in the future?
+
+Asked by Claude which direction governs, after a [review of the Codex foundations wave](../audits/CODEX_FOUNDATIONS_REVIEW_2026-11-11.md) found this was recorded nowhere and PROJECT.md still put Klein and Fang Yuan first:
+
+> Foundations first
+
+Recorded: the procedural foundations (Gu, creatures, potions, chemistry, crafting and engineering, spellcraft, adjacent systems) lead, with the [foundations map](../CROSS_WORLD_SYSTEMS_TRANSFER.md#round-6-foundations-goals-by-existing-chat) as the plan. The Klein and Fang Yuan sequence is paused at its verified endpoints (ch129 and ch140), not dropped. Default (proposal): when playable slices resume, the lead lives are their first consumers, so a foundation counts as covering the story when it can express the lead's next arc.
+
+## One procedural foundation, one chat per part, 2026-11-11
+
+Weibao, after the Codex chats stopped:
+
+> They have all stopped, we should have chats each working on creating the foundational procedural system? can you explain and sharpen my idea back to me and embedded long terM?
+
+Recorded: the [procedural foundation plan](../PROCEDURAL_FOUNDATION_PLAN.md) owns it. Sharpened (proposal): canon cases become data that shared rules run, built in three layers (kernel, domain law, world pack) by one chat per part (K kernel, G Gu, L living things, F fabrication, B brewing and chemistry, S spellcraft), each with a runnable done check and long-term rules PFP1-PFP9.
+
+## The overarching system and emergence, 2026-11-11
+
+Weibao:
+
+> What about the overarchiing system and then embedding these into them?
+>
+> Consider proceduralness, and emergent behavior and more>
+
+Recorded in the [procedural foundation plan](../PROCEDURAL_FOUNDATION_PLAN.md#the-overarching-system-one-world-the-parts-embed-into) (proposal): five shapes weighed (O1-O5) and combined in layers. A shared world substrate (typed quantities, scoped law fields, effects that land on whatever is present, actors on the player's rules, detail near and rates far) is built on the existing facts frame and simulation effects. Each domain embeds by declaring quantities, laws, workings, generators and catalogue rows. Two more chats (W world substrate, E emergence harness) and PFP10-PFP15.
+
+## The procedural system, 2026-11-11
+
+Weibao:
+
+> procedural system?
+
+Recorded in the [procedural foundation plan](../PROCEDURAL_FOUNDATION_PLAN.md#the-procedural-system-how-new-things-come-to-exist) (proposal): five sources of new things weighed (P1-P5). The default is a grammar of parts per domain, fitted to the source corpus, with the world and actors as the sources of new things in play, drawing through the accepted GR1-GR17 contract. Each grammar's finish line is rebuilding held-out canon. Adds chat P (procedural grammar) and PFP16-PFP20.
+
+## A goal for each foundation, 2026-11-11
+
+Weibao: "go ahead and /sharpen /more-to-consider /goal creating comprehensive system for each sytem, /sharpen goal first"
+
+Recorded as the coordinator and per-chat goal text in the [procedural foundation plan](../PROCEDURAL_FOUNDATION_PLAN.md#the-goal), with a more-to-consider round (MC1-MC16). The goal closes on each chat's done check; breadth beyond goes to backlog.
+
+## Other foundation systems, stabilize and send out, 2026-11-11
+
+Weibao: "other systems that might also be needed? Stablize and then commit, and then send out"
+
+Proposed systems are in the [procedural foundation plan](../PROCEDURAL_FOUNDATION_PLAN.md#other-systems-the-foundations-need-2026-11-11) (OS1-OS8: agency, conflict, progression, societies and markets, plus scope notes). Authorizes fixing the combined-tree failures, committing the wave and starting the foundation chats.
+
+## Broad systems and generators on them, 2026-11-11
+
+Weibao: "include agency, conflict, progression and markets chats too, consider other braod systems, and then procedural systems to build upon them?"
+
+A, C, R and M join the send-out. Proposed broad systems N (knowledge and learning), X (places and travel) and D (situations and story), and generators PG1-PG9 over them, are in the [procedural foundation plan](../PROCEDURAL_FOUNDATION_PLAN.md#broad-systems-and-the-generators-built-on-them-2026-11-11).

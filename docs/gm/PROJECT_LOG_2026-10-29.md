@@ -2651,3 +2651,9 @@ Superseded standing-priority line (now twelve rulebooks, adding WKR and SKR):
 Superseded standing-priority line (now thirteen rulebooks, adding XWR):
 
 > - **Twelve proposed rulebooks (2026-11-10, AD32):** world kinds [WKR](docs/WORLD_KIND_RULES.md), source kinds [SKR](docs/SOURCE_KIND_RULES.md), relationships [TIE](docs/RELATIONSHIP_RULES.md), livelihoods [LVR](docs/LIVELIHOOD_RULES.md), time [TMR](docs/TIME_RULES.md), knowledge [KNW](docs/KNOWLEDGE_RULES.md), standing and law [STN](docs/STANDING_RULES.md), story [STY](docs/STORY_RULES.md), cheats [CHT](docs/CHEAT_RULES.md), mind [MND](docs/MIND_RULES.md), items [ITM](docs/ITEM_RULES.md), powers that act [AGT](docs/POWERS_THAT_ACT_RULES.md); cheats are back in consideration ([direction](docs/USER_VISION.md#four-more-rulebooks-and-cheats-brought-forward-2026-11-10)).
+
+## 2026-11-11 foundations first
+
+Superseded opening of the PROJECT.md current-focus line (foundations now lead; the lead lives pause at their endpoints):
+
+> **Immediate build order:** Klein first through Tingen, with Fang Yuan through the Qing Mao departure. Klein is verified through ch129. Fang Yuan is verified through ch140.

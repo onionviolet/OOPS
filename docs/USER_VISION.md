@@ -137,6 +137,8 @@ How to use and update it:
 - **Relationships and livelihoods get rulebooks of their own.** Asked whether foundational rules covered everything "from relationship to ui to farming", he said "Draft both": [TIE1–TIE25](RELATIONSHIP_RULES.md) and [LVR1–LVR25](LIVELIHOOD_RULES.md), proposals until he accepts them ([2026-11-10](gm/USER_VISION_LOG_2026-11.md#relationship-and-livelihood-rulebooks-2026-11-10)).
 - **World kinds and source kinds get rulebooks.** He asked for "foundational implementation rules for types of worlds and more? also types of source?": [WKR1–WKR21](WORLD_KIND_RULES.md) and [SKR1–SKR21](SOURCE_KIND_RULES.md), working defaults under AD56 except LLR31; other aspects ranked as FRC17–FRC23 in the [coverage audit](audits/FOUNDATIONAL_RULES_COVERAGE_2026-11-10.md#round-2-2026-11-10-world-kinds-source-kinds-and-what-is-left) ([2026-11-10](gm/USER_VISION_LOG_2026-11.md#world-kind-and-source-kind-rulebooks-2026-11-10)).
 - **Between worlds gets a rulebook.** He asked "Another caht to work on the cross world rulebook?": [XWR1–XWR28](CROSS_WORLD_RULES.md) cover the hub, carry per crossing, authority per edge, time and prices across worlds and travel authorities, working defaults under AD56 except LLR34–LLR36 ([2026-11-10](gm/USER_VISION_LOG_2026-11.md#cross-world-rulebook-2026-11-10)).
+- **Foundations first, playable slices later.** "We want the foundational systems to be able to cover basically the whole story"; asked which direction governs, he said "Foundations first". The procedural foundations lead; Klein and Fang Yuan pause at their verified endpoints and become the first consumers when slices resume ([2026-11-11](gm/USER_VISION_LOG_2026-11.md#foundations-first-playable-slices-later-2026-11-11)).
+- **One procedural foundation, one chat per part.** "we should have chats each working on creating the foundational procedural system": canon becomes data over shared rules, in kernel, domain and world layers, one writer per part with a done check each ([plan](PROCEDURAL_FOUNDATION_PLAN.md), [2026-11-11](gm/USER_VISION_LOG_2026-11.md#one-procedural-foundation-one-chat-per-part-2026-11-11)).
 - **Open:** the balance between active play and idling has no decision yet ([2026-10-07](gm/USER_VISION_LOG_2026-10.md#vision-update-what-weibao-asked-for-2026-10-05-evening-to-2026-10-07)).
 
 ## Research and sources
@@ -146,6 +148,7 @@ How to use and update it:
 - **Batch readers record everything a source states** and invent nothing; implementers read the cited paragraphs ([2026-10-28](gm/USER_VISION_LOG_2026-10.md#batch-api-reading-campaign-2026-10-27)).
 - **Reading order (2026-11-08):** Circle of Inevitability, then Reverend Insanity 5-24, then scenes for Luna-read books (the TTKS books by title), then the rest; each run still needs its own go ([2026-11-08](gm/USER_VISION_LOG_2026-11.md#2026-11-08-reading-order-for-the-openai-credits)).
 - **Manga sources:** SM5–SM7 high, SM9 next, anime deferred ([2026-10-18](gm/USER_VISION_LOG_2026-10.md#extensible-panels-and-layout-seams-2026-10-16)).
+- **Ahead sources, cross-checked (2026-11-10):** hold the source that runs furthest (often the web novel), keep a behind version when it adds something, prefer text that parses easily, and where a web novel and its rewrite both exist hold both and cross-check them; neither wins by default (AR56-AR59, [2026-11-10](gm/USER_VISION_LOG_2026-11.md#ahead-sources-and-cross-checking-versions-2026-11-10)).
 - **Book-reading budget:** conservative reader rules AU1–AU15 after one book used most of his tokens ([2026-10-16](gm/USER_VISION_LOG_2026-10.md#agent-generation-and-book-usage-2026-10-16)).
 
 ## Working with agents
@@ -172,6 +175,8 @@ Every former heading of this file, newest first, kept as an anchor. Each entry l
 
 ### 2026-11
 
+<a id="one-procedural-foundation-one-chat-per-part-2026-11-11"></a>[One procedural foundation, one chat per part, 2026-11-11](gm/USER_VISION_LOG_2026-11.md#one-procedural-foundation-one-chat-per-part-2026-11-11)<br>
+<a id="foundations-first-playable-slices-later-2026-11-11"></a>[Foundations first, playable slices later, 2026-11-11](gm/USER_VISION_LOG_2026-11.md#foundations-first-playable-slices-later-2026-11-11)<br>
 <a id="world-kind-and-source-kind-rulebooks-2026-11-10"></a>[World kind and source kind rulebooks, 2026-11-10](gm/USER_VISION_LOG_2026-11.md#world-kind-and-source-kind-rulebooks-2026-11-10)<br>
 <a id="cross-world-rulebook-2026-11-10"></a>[Cross-world rulebook, 2026-11-10](gm/USER_VISION_LOG_2026-11.md#cross-world-rulebook-2026-11-10)<br>
 <a id="ideas-that-open-possibilities-are-welcome-limits-run-by-him-first-2026-11-10"></a>[Ideas that open possibilities are welcome; limits run by him first, 2026-11-10](gm/USER_VISION_LOG_2026-11.md#ideas-that-open-possibilities-are-welcome-limits-run-by-him-first-2026-11-10)<br>
