@@ -532,3 +532,26 @@ Base `52796fcea`, usage 27%, credit headroom 2,961 read before each launch. Thre
 | `w15-draught` | `../yair-w15-draught` | The Draught of Living Death into a body as the first computed potion case, with one contrast where the mechanism decides; owns the body packs and the potion ledger hookup |
 
 Both owner lanes may add one registry row each to `engine_world.js`; the coordinator keeps every row and updates the pack counts at the fold. ACT NOW: answered publishes and the measured dose. ACCOUNT FOR NOW: a case needs an independent observation, an unanswered publish earns none, Q1 stays open and typed states are untouched, the HP pack and ledgers are combined centrally. LATER in the current queue: Gu body data into the living-things lifecycle, then the shell rate form, the parity, generation and improvement packets. Resume: poll these three handles with `codex_goal_lane.py status`, review each `CODEX_RETURN.md` and diff, fold into `claude/fdn-coord-w14`, regenerate coverage, then apply PC99's gate. No push.
+
+### Wave 15 first fold (2026-11-12)
+
+All three lanes returned and released writes; their files are folded on `claude/fdn-coord-w14` as `671e5f507`. The registry holds 16 packs (`a.mind`, `k.working_end`, `n.presence` added). Combined focused run: 95 of 95 across 13 test files. `check:coverage`, `check:arch` and `check:rules` exit 0. None of the changed modules is reachable from `src/main.js`.
+
+- Draught (`w15-draught`, goal complete, 98,537 tokens): the Draught of Living Death is the first computed potion case. A measured aliquot moves from the flask through `landEffect`, the living-body pack absorbs the settled share and lowers responsiveness, and recovery runs on the engine clock. Crushed bean at 100 units leaves responsiveness 2 of 100 for 14 minutes, sliced leaves 30 for 10, and half a crushed dose leaves 58 for 6. Disabling uptake computes a mismatch. Dose sizes and the response curve are authored calibration. The row's typed state follows its computed case, as the Wave 14 Gu cases did; its prior typed state is kept in its note. Below the bar, unchanged from the return: no antidote route, administration authority, metabolism beyond the authored curve or behaviour of a live actor with reduced responsiveness.
+- Working and information (`w15-working-info`, goal blocked, 139,131 tokens): `working_end` ends an explicitly bound held record and its field or gain without refunding spent upkeep, with a workshop guard as the second consumer. `presence` keeps channel contacts per observer. person-reveal and disillusion compute through the common runner. dangling-release, counter-spell and quiet answer correctly when the binding arrives but compute blocked because the grammar publish drops it. revive, unjinx-weather and history-release have no case and name their missing mechanism. vanish is a physical removal by the checked evidence and needs its reading corrected.
+- Mind (`w15-mind`, goal blocked, 145,414 tokens): `a.mind` holds faculties as holder state with leases on the world clock, with a Wood Path confusion fixture and a commanded wild worm as second consumers. animate computes through the common runner after a reading correction. blind, stun, pain, control, memory, confuse, cheer and legilimency pass their independent observations when the application arrives and compute blocked for the same producer reason. bird and serpent read as physical addition and stop at W's thing-only create check. oppugno and patronus have no scene and name their missing mechanism.
+
+Finding F2: pack registry order is behaviour. With `a.mind` registered after `a.wild_agency` the released worm does not go home and one mind test fails; before it, all pass. The fold keeps the lane's order. A reactor-order dependence between packs has no stated contract yet.
+
+Five numbers: G1 75 computed cases in three of seven ledgers (58 Hogwarts spells, 16 Gu kinds, 1 Hogwarts potion), with three more scenes computing but not yet combined into the ledger; G2 16 of 16; G3 5; G4 0; G5 0. Usage 27% after the three lanes.
+
+### Wave 15 second dispatch (2026-11-12)
+
+Base `671e5f507`, usage 27% before each launch, same model, bounds and stops.
+
+| Lane | Worktree | Outcome |
+| --- | --- | --- |
+| `w15-producer` | `../yair-w15-producer` | One shared application payload on the grammar's qualified publish (resolved targets, working, minutes, mind), physical add of a body, vanish read as material removal, then the central combine of mind and working-info scenes into the HP pack and ledger. Expected to move up to fourteen rows |
+| `w15-gu-bodies` | `../yair-w15-gu-bodies` | An adapter from chapter-checked Gu body data to the lifecycle, the 17 stated-diet kinds first, per-field unknowns in place of the blanket block on 78 creature rows |
+
+Resume: poll both handles, review return and diff, fold, regenerate coverage, then the PC99 gate for the whole wave on the branch. No push.
