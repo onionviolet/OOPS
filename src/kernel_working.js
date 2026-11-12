@@ -229,12 +229,14 @@ export function nextWorkingDeadline(record) {
 // its own deadline. One call to `now` and many calls up to `now` give the same
 // record because no step reads the call time. Earlier steps stay settled when a
 // later step is interrupted. The input record is not changed.
-export function settleWorking(law, record, {now, ports = {}}) {
+export function settleWorking(law, record, {now, ports = {}, maxSteps = Infinity}) {
     check(record?.schema === WORKING_SCHEMA && record.law === law.ref, 'This working belongs to a different law.');
     check(natural(now), 'Settle at a whole minute.');
     const next = clone(record);
     const effects = [];
-    while (next.status === 'running' && next.cursor < next.deadlines.length && next.deadlines[next.cursor] <= now) {
+    let settled = 0;
+    while (settled < maxSteps && next.status === 'running' && next.cursor < next.deadlines.length && next.deadlines[next.cursor] <= now) {
+        settled += 1;
         const index = next.cursor;
         const at = next.deadlines[index];
         const op = next.method.steps[index].op;
@@ -258,12 +260,16 @@ export function settleWorking(law, record, {now, ports = {}}) {
 }
 
 // KW8. The host stops a working (the maker walks away). Settled steps stay.
-export function interruptWorking(record, {at, reason}) {
+// With `by` ({working, step}), the stop came from another working's settled
+// step (KW27): cause 'interrupt', and the maker sees only `observed`.
+export function interruptWorking(record, {at, reason, by, observed}) {
     check(record.status === 'running' && natural(at) && typeof reason === 'string' && reason.length, 'Only a running working can be stopped.');
+    check(by === undefined || (object(by) && id(by.working) && natural(by.step)), 'An interrupt names the working and step that caused it.');
     const next = clone(record);
     next.status = 'interrupted';
-    next.receipts.push({step: next.cursor, op: next.method.steps[next.cursor].op, at, ok: false, cause: 'host',
-        reason, bindings: {}, truth: {facts: {}, effects: []}, observed: {reason}});
+    next.receipts.push({step: next.cursor, op: next.method.steps[next.cursor].op, at, ok: false, cause: by ? 'interrupt' : 'host',
+        reason, ...(by ? {by: clone(by)} : {}), bindings: {}, truth: {facts: {}, effects: []},
+        observed: by ? clone(observed ?? {}) : {reason}});
     return next;
 }
 

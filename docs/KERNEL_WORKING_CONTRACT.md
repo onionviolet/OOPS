@@ -1,6 +1,6 @@
 # Kernel working contract
 
-*Version 0.2, 2026-11-12 (v0.1 published earlier the same day; changes in the [changelog](#changelog)). Owner: chat K in the [procedural foundation plan](PROCEDURAL_FOUNDATION_PLAN.md). Module: [`src/kernel_working.js`](../src/kernel_working.js). Contract tests: [`tests/kernel_working.test.js`](../tests/kernel_working.test.js). A proposal under AD56: it widens what every domain can do and every line is an adjustable default. Changes are versioned requests to chat K (MC2); domain chats do not edit the module.*
+*Version 0.3, 2026-11-12 (v0.1 and v0.2 published earlier the same day; changes in the [changelog](#changelog)). Owner: chat K in the [procedural foundation plan](PROCEDURAL_FOUNDATION_PLAN.md). Module: [`src/kernel_working.js`](../src/kernel_working.js). Contract tests: [`tests/kernel_working.test.js`](../tests/kernel_working.test.js). A proposal under AD56: it widens what every domain can do and every line is an adjustable default. Changes are versioned requests to chat K (MC2); domain chats do not edit the module.*
 
 Not to be confused with `src/working_state.js`, which is the UI busy note for slow page actions.
 
@@ -86,6 +86,15 @@ Module [`src/kernel_identity.js`](../src/kernel_identity.js), tests [`tests/kern
 - **KW25. Read through the owners.** `identityReader(registry, owners)` is an ordinary `ports.read`: the facet's owner answers for its key at the step's time, and the answer carries the identity id, the bound kind and the facet. A death removes the body (the W holder) while the item facet still reads. Hosts settle any running working that binds an identity before calling `changeFacets` on it (as KW13). A stack is not one thing: an owner answer with `count` above one reads as absent, so an identity points at an individual key (split a stack first, as `material_lineage` does).
 - **KW26. One versioned save.** `kernel.identity@1`, validated on restore (unknown versions and two identities claiming one owner key are refused). Where it lives in the game save is settled at embed (request to W and the integrator below).
 
+### Workings that meet (KB8, v0.3)
+
+Module [`src/kernel_meet.js`](../src/kernel_meet.js), tests [`tests/kernel_meet.test.js`](../tests/kernel_meet.test.js). A hit lands before a killer move's last beat (C); a Counterspell ends a cast in flight (S).
+
+- **KW27. One working can stop another.** `settleTogether(entries, {now, ports, meets})` settles several running records step by step. After each successfully settled step, the caller's `meets({settled, running})` sees that step's effects and the next step of every other running working, and returns interrupts `{working, reason, observed?}`. An interrupted receipt has cause `interrupt` and `by: {working, step}`; the maker sees only `observed`. What counts as a hit or a counter is the caller's rule (C's contest, S's grammar), never the kernel's.
+- **KW28. One fixed order.** The next step is the earliest deadline, then the order dial (a readiness, C's K4; lower first, default 0), then the working id. A strike due in the same minute as the pair beat lands first only if its order is lower.
+- **KW29. One level, no cascade.** Interrupts apply at the settled step's time and do not call `meets` again. Effects landing on whatever is present, and chains of reactions, are W's contact layer (WSC7-WSC9). Ending an active effect (Nox ending Lumos, S's SQ15) is a W law-field removal, not a kernel interrupt.
+- **KW30. The same meeting in one jump or many; each record saves alone.** The set settled to `now` once or in any partition gives the same records and effects (tested, plus a mutation that applies interrupts at the call time and fails). There is no meeting record: each working saves as `kernel.working@1` and the host passes them in again.
+
 ## Save shape (OS8)
 
 ```json
@@ -124,7 +133,7 @@ Each passes: typed roles and refusals, a pure quote equal to settlement, one jum
 | KB5 | Two workings competing for one thing (reservation) | Custody owners hold reservations; the kernel only reads | W and the custody owners |
 | KB6 | Progress inside a step (rates while far away, SPR28) | W's detail level settles a step as a rate with the same total | W |
 | KB7 | Lowering a step to native commands (spell) | Effects stay opaque; S lowers in its own host | S |
-| KB8 | One working's settled step interrupting another running working at that step's time: a hit landing before a killer move's last beat (C), Counterspell ending a cast in flight (S) | PFP5 met by C and S. K orders the steps of several records and applies interrupts that a caller's `meets` hook returns, one level deep; effects landing on what is present stay with W (WSC7-WSC9). M's trade is one working with two holder roles and needs none of this. Ending an active effect (Nox ending Lumos, S's SQ15) is a W law-field removal, not a K interrupt | K, phase 3 |
+| KB8 | One working's settled step interrupting another running working | **Resolved in v0.3** (KW27-KW30) | K |
 | KB9 | Quote fields for cost and odds, and a cause line | **Resolved in v0.2** (KW15, KW17) | K |
 | KB10 | A law revision bump makes every saved running record of the old revision unloadable; migrations are keyed on schema only | Add law-revision migrations (old revision to new, per law) beside `WORKING_MIGRATIONS` | K, on the first domain that bumps a law (likely B or F) |
 
@@ -136,7 +145,7 @@ From the shared notes. Covered means v0 already expresses it as data; no kernel 
 | --- | --- | --- |
 | A | Actor-scoped pure quote with eligibility reasons, cost, time, odds, cause | Done in v0.2: `quoteForActor` (KW17) with KW15 fields |
 | B | A stop that settles completed steps | Covered: KW8 (`interruptWorking`, outside reader, authority); refund policy is KB3 |
-| C | K1 several workings in one receipt, K4 ordering across workings | KB8 |
+| C | K1 several workings in one receipt, K4 ordering across workings | Done in v0.3: `settleTogether` with an order dial (KW27-KW30); each working keeps its own receipt, linked by `by` |
 | C | K2 cut partway by an outside input; K3 a role that binds another actor or that actor's running working | Covered: a lost binding or authority refusal interrupts (KW3, KW12); a role of kind `actor` or `working` is ordinary data (KW3) |
 | M | A trade working for any two holders, reading standing terms at settlement | Covered: two holder roles and terms through `ports.authority` (KW12); M writes the trade operation |
 | F | Re-quote compare and atomic rollback across owners (FBD1), from `book_craft_transaction` | Re-quote compare done in v0.2 (KW16, `beginQuotedWorking`); rollback stays with the host transaction owner (AR3) |
@@ -145,11 +154,12 @@ From the shared notes. Covered means v0 already expresses it as data; no kernel 
 
 ## Next phase (K)
 
-1. **KB8, several workings settling together**, now asked by C, M and S (PFP5 met): a joint settlement over several records in one fixed order, for contests, trades and Counterspell ending a cast in flight.
+1. **Embed support.** Answer G, S, C and A as they move leaves onto the kernel; a move between `book_craft_transaction` and `beginQuotedWorking` with F.
 2. **Retire one old shape** once its consumers move: `method_program` (three consumers in other chats' files) is the candidate; `spell_working`'s compile step goes once S embeds on the composition adapter above. K deletes nothing in another chat's files without that chat's move or consent.
 3. **PFP7 join** with B and G once their leaves run on the kernel.
 
 ## Changelog
 
+- **0.3 (2026-11-12).** KW27-KW30 workings that meet (`kernel_meet.js`); `settleWorking` takes `maxSteps`; `interruptWorking` takes `by` and `observed`. Optional fields, no schema change.
 - **0.2 (2026-11-12).** KW15 forecast fields, KW16 fingerprint and `beginQuotedWorking`, KW17 `quoteForActor`; KW18-KW21 composed workings (`kernel_compose.js`); KW22-KW26 identity (`kernel_identity.js`). Kernel failure reasons are codes (`role-unavailable`, `not-permitted`) with the role kept as data. No schema change.
 - **0.1 (2026-11-12).** KW1-KW14, the record `kernel.working@1` and one migration.

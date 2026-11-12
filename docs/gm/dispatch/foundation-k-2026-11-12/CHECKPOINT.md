@@ -1,5 +1,36 @@
 # Chat K · Kernel, checkpoint 2026-11-12
 
+## Phase 3 (2026-11-12): workings that meet (KB8)
+
+```receipt
+build: n/a
+route: n/a
+state: built
+viewport: n/a
+persistence: unchanged
+tests: 54 focused kernel tests (kernel_working 24, kernel_compose 20, kernel_meet 5, kernel_identity 5)
+review: diff-scoped
+surface: new leaf src/kernel_meet.js; settleWorking maxSteps and interruptWorking by/observed in src/kernel_working.js; adapters moved to tests/kernel_adapters.mjs
+```
+
+Contract v0.3, KW27-KW30. `settleTogether` settles several records in one fixed order (deadline, order dial, id); after each settled step the caller's `meets` hook may interrupt other running workings at that step's time, one level, no cascade. First consumers through the shared adapters: a C-shaped strike that lands before the three-core move's pair beat (the lead beat's essence stays spent) and a Counterspell that ends the Hogwarts bench cast before the summoning. Same result in one jump, every minute or random partitions; each record saves alone mid-meeting and the meeting continues the same.
+
+PFP2 counts (kernel scope): before 3 canon cases as data, after 3 (no new canon; the meeting is new mechanism); bespoke modules 0 and 0; working shapes in `src` 6 and 6.
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/kernel_working.test.js tests/kernel_compose.test.js tests/kernel_meet.test.js tests/kernel_identity.test.js` | 54/54 pass | Adapters in tests; no domain host calls the kernel yet |
+| Mutation: interrupts applied at call time | 2 tests fail as they should (C case, partition); reverted | |
+| `npm run check:arch`, `npm run check:rules` | pass | |
+| Full `npm test` | not run | Integrator (MC7) |
+
+Could not express: an interrupt that itself provokes another (a counter to the counter) needs W's cascade, by design (KW29); refunds for what an interrupted step had reserved stay the host's policy (KB3).
+
+Requests: C, the contest runner can call `settleTogether` with its own `meets` and readiness as the order dial; S, Counterspell on `settleTogether`, and Nox/Finite on W law-field removal (SQ15), not K.
+
+Next phase (K): support G, S, C and A embeds; retire `method_program` or `spell_working`'s compile step when consumers move; PFP7 join with B and G.
+
+
 ## Phase 2 (2026-11-12): actor quote, composed workings, identity
 
 Branch `claude/fdn-k-kernel-a28c4b`, merged master at ea6a170dd (fast-forward) before work. Contract now v0.2 ([changelog](../../../KERNEL_WORKING_CONTRACT.md#changelog)), KW1-KW26.
