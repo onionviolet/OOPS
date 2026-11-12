@@ -72,7 +72,7 @@ First consumers, adapters in the test file, owners unchanged:
 | Consumer | Composition | Parity check |
 | --- | --- | --- |
 | G: `resolveGuActivation` per beat | Three-core move, slots `lead` (one Gu) and `pair` (two Gu at once), shared reserves | Same reserves as `runGuProcedure` on the ch. 961 recipe, full and short (enough for Pulling Mountain, not Pulling Water); a move from three Gu the book never paired quotes and runs |
-| S: `compileSpellWorking` + `nativeSpellSteps` per dictionary method | Hogwarts bench (levitation, summoning, release) and Cyoria slate (torch, direct light, oblique twice), own facts, one minute per cast | Exactly the native command lists the spell owner produces for the same drafts |
+| S: one dictionary method per filler (the adapter now calls S's `spellDraftCommands`, since S retired `compileSpellWorking` and `nativeSpellSteps` in its phase 2) | Hogwarts bench (levitation, summoning, release) and Cyoria slate (torch, direct light, oblique twice), own facts, one minute per cast | Exactly the native command lists the spell owner produces for the same drafts |
 
 Both run the seven-test contract suite (now [`tests/kernel_contract_suite.mjs`](../tests/kernel_contract_suite.mjs), shared by every kernel test file).
 
@@ -195,7 +195,7 @@ From the shared notes. Covered means v0 already expresses it as data; no kernel 
 ## Next phase (K)
 
 1. **Embed support.** Answer G, S, C and A as they move leaves onto the kernel; a move between `book_craft_transaction` and `beginQuotedWorking` with F.
-2. **Retire one old shape** once its consumers move: `method_program` (three consumers in other chats' files) is the candidate; `spell_working`'s compile step goes once S embeds on the composition adapter above. K deletes nothing in another chat's files without that chat's move or consent.
+2. **Retire one old shape:** done by S (spell drafts run on the kernel; the old spell plan shape is deleted). `method_program` remains a candidate when its owners move.
 3. **PFP7 join** with B and G once their leaves run on the kernel.
 
 ## Changelog

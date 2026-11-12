@@ -20,7 +20,7 @@ surface: new leaf src/kernel_descent.js with its own record kernel.descent@1; re
 
 DC answers (one line each): carried by identities and edges (DC1); varies by kind and writer (DC2); spreads by the owners' own events (DC3); improved by the owners (breeding, teaching) not the graph (DC4); hidden ancestry is simply not stored until observed, and queries report unknown (DC5); magic adds edges through the owners' workings (DC6); canon families are lore rows first (BX4, LR1) (DC7); purity in law is M's (DC8); edges only, far populations as L's frequencies (DC9); the player reads lines, holdings and purity with their unknown share (DC10).
 
-PFP2 counts (kernel scope): canon cases as data 4 before and 4 after; bespoke modules 0 and 0; working shapes 6 and 6.
+PFP2 counts (kernel scope): canon cases as data 4 before and 4 after; bespoke modules 0 and 0; working shapes 6 before, 5 after (S retired the old spell plan shape).
 
 | Command | Result | Gaps |
 | --- | --- | --- |
@@ -32,7 +32,15 @@ Could not express: a false or hidden parentage (BL8) needs N's known-versus-true
 
 Requests: L, write `born-of` from `lineage_traits` and `village_family` at embed and fold `creature_lifecycle` inheritance (OA5) onto it; F and B, `made-from` and `refined-from` from `material_lineage` history; M, `inherited-by` from `heir_inheritance` and heirlooms, `founded-by` for sects; N, `taught-by` and the known-versus-true layer for parentage (BL8); P, `forked-from` for recipe, spell and move variants.
 
-Next phase (K): support embeds (G's MS4 moves, A's search, owners' descent edges); retire an old shape when its consumers move.
+**K done check (plan table), now met on master 0d745f584 plus this branch:**
+
+- *One contract that two domains run on with their focused tests passing:* met. Domain modules on the kernel: `spell_working` and `spell_law` (S), `agency`, `agency_wild`, `agency_household` (A), `craft_assembly` (F), `gu_working_law`, `gu_essence_line` (G), `market_trade` (M), `progression_path` (R), `living_workings` (L), `brew_law` (B), `contest` (C). Passing here: `agency`, `craft_assembly`, `gu_coverage`, `gu_working_law`, `market_foundation`, `progression_path`, `spell_grammar`, `spell_working` (95 of 112 across the twelve files).
+- *One old shape retired:* met by S, which moved spellbook drafts onto the kernel and deleted `compileSpellWorking` and `nativeSpellSteps` (c0df2923d). K's adapters moved to S's `spellDraftCommands` in this phase. Working shapes in `src`: 6 before, 5 after.
+- *A time-partition and reload test in the kernel's own suite:* met since phase 1.
+
+**Failures outside K seen in this phase (for the coordinator, not caused by K):** 17 of 112 tests in `brew_law` (1), `contest` (8), `contest_consumers` (7) and `living_foundation` (1) fail on master 0d745f584. Every one is W's new effect-kind vocabulary refusing an undeclared kind: `heat_released` (B), `contest.blow` and `contest.settled` (C), `living.harm` (L reactor). K changed no existing `src` file this phase. Request: B, C and L declare their effect kinds in their packs' `publishes` or composeSubstrate `effectKinds` (W's fix), or W relaxes the check for packs not yet migrated.
+
+Next phase (K): the plan's K done check is met; further K work is on request from embedding chats (G's MS4 moves on `composeWorking`, A's search consumer, owners writing their descent edges). `method_program` remains a candidate for a second retirement when its owners move.
 
 
 ## Phase 5 (2026-11-12): LR13 oaths that enforce themselves
