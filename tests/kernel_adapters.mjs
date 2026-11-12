@@ -1,5 +1,6 @@
 // Kernel test adapters for G (resolveGuActivation per beat) and S
-// (spellDraftCommands per dictionary method). The owners'
+// (S's spellDraftCommands per dictionary method, which runs on the kernel since
+// S phase 2). The owners'
 // files are unchanged; domain chats can copy these when they embed.
 import {defineWorkingLaw} from '../src/kernel_working.js';
 import {composeWorking, defineComposition} from '../src/kernel_compose.js';

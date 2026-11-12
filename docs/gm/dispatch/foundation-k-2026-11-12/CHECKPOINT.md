@@ -1,5 +1,48 @@
 # Chat K · Kernel, checkpoint 2026-11-12
 
+## Phase 6 (2026-11-12): one descent graph (DG1-DG7, PFP33)
+
+Merged master at 4c476b518. Contract v0.6, KW40-KW45.
+
+```receipt
+build: n/a
+route: n/a
+state: built
+viewport: n/a
+persistence: unchanged
+tests: 70 focused kernel tests (working 24, compose 20, meet 5, identity 5, search 5, oath 6, descent 5)
+review: diff-scoped
+surface: new leaf src/kernel_descent.js with its own record kernel.descent@1; reads lineage_traits and family_tree in tests only
+```
+
+- Typed edges descendant to ancestor between observed identities, one writer per kind (`DESCENT_KINDS`), no loops on time-ordered kinds, fixed-order walks, `bloodline` (ancestors plus inherited holdings and teaching among members), `purity` as `{matching, unknown, other}` with unobserved parent slots counted as unknown, `descendsFrom` for blood as a key.
+- Tested over the real `lineage_traits.breed` pedigree (three generations) and `family_tree.extendLineage` chronicles (kin heir and apprentice); the other three owners' mappings are a table in the contract.
+
+DC answers (one line each): carried by identities and edges (DC1); varies by kind and writer (DC2); spreads by the owners' own events (DC3); improved by the owners (breeding, teaching) not the graph (DC4); hidden ancestry is simply not stored until observed, and queries report unknown (DC5); magic adds edges through the owners' workings (DC6); canon families are lore rows first (BX4, LR1) (DC7); purity in law is M's (DC8); edges only, far populations as L's frequencies (DC9); the player reads lines, holdings and purity with their unknown share (DC10).
+
+PFP2 counts (kernel scope): canon cases as data 4 before and 4 after; bespoke modules 0 and 0; working shapes 6 before, 5 after (S retired the old spell plan shape).
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/kernel_*.test.js` | 70/70 pass | Owners do not write edges yet |
+| `npm run check:arch`, `npm run check:rules` | pass | |
+| Full `npm test` | not run | Integrator (MC7) |
+
+Could not express: a false or hidden parentage (BL8) needs N's known-versus-true layer on top: the graph holds what is true and observed, N holds who believes which edge. Far ancestry stays L's trait frequencies (GN8).
+
+Requests: L, write `born-of` from `lineage_traits` and `village_family` at embed and fold `creature_lifecycle` inheritance (OA5) onto it; F and B, `made-from` and `refined-from` from `material_lineage` history; M, `inherited-by` from `heir_inheritance` and heirlooms, `founded-by` for sects; N, `taught-by` and the known-versus-true layer for parentage (BL8); P, `forked-from` for recipe, spell and move variants.
+
+**K done check (plan table), now met on master 0d745f584 plus this branch:**
+
+- *One contract that two domains run on with their focused tests passing:* met. Domain modules on the kernel: `spell_working` and `spell_law` (S), `agency`, `agency_wild`, `agency_household` (A), `craft_assembly` (F), `gu_working_law`, `gu_essence_line` (G), `market_trade` (M), `progression_path` (R), `living_workings` (L), `brew_law` (B), `contest` (C). Passing here: `agency`, `craft_assembly`, `gu_coverage`, `gu_working_law`, `market_foundation`, `progression_path`, `spell_grammar`, `spell_working` (95 of 112 across the twelve files).
+- *One old shape retired:* met by S, which moved spellbook drafts onto the kernel and deleted `compileSpellWorking` and `nativeSpellSteps` (c0df2923d). K's adapters moved to S's `spellDraftCommands` in this phase. Working shapes in `src`: 6 before, 5 after.
+- *A time-partition and reload test in the kernel's own suite:* met since phase 1.
+
+**Failures outside K seen in this phase (for the coordinator, not caused by K):** 17 of 112 tests in `brew_law` (1), `contest` (8), `contest_consumers` (7) and `living_foundation` (1) fail on master 0d745f584. Every one is W's new effect-kind vocabulary refusing an undeclared kind: `heat_released` (B), `contest.blow` and `contest.settled` (C), `living.harm` (L reactor). K changed no existing `src` file this phase. Request: B, C and L declare their effect kinds in their packs' `publishes` or composeSubstrate `effectKinds` (W's fix), or W relaxes the check for packs not yet migrated.
+
+Next phase (K): the plan's K done check is met; further K work is on request from embedding chats (G's MS4 moves on `composeWorking`, A's search consumer, owners writing their descent edges). `method_program` remains a candidate for a second retirement when its owners move.
+
+
 ## Phase 5 (2026-11-12): LR13 oaths that enforce themselves
 
 Merged master at 9a804f1ac (plan section "Lore first, inheritance beyond genes, and a depth checklist"). Contract v0.5, KW35-KW39.

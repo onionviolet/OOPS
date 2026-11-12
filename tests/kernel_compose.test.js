@@ -1,7 +1,7 @@
 // Composed workings (SC6, KW18-KW21). G and S are the first two consumers,
 // through adapters kept here so their files stay with their owners:
-// resolveGuActivation for killer-move beats, and spellDraftCommands for combined
-// spells over the real Hogwarts and Cyoria rules.
+// resolveGuActivation for killer-move beats, and S's spellDraftCommands for
+// combined spells over the real Hogwarts and Cyoria rules.
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
