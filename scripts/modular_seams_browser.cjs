@@ -43,11 +43,14 @@ const viewport=lifecycleProof||shellProof ? {width:1920,height:1080} : {width:13
    assert.equal(lifecycle.individuals[sheepId].experience.player.bond,1);
    assert.ok(lifecycle.individuals[sheepId].health.careUntil>calendarMinutes(pending['current time']));
    assert.equal(await page.locator('[data-habitat="collect"]').isDisabled(),true);
+   // Foundation L MS5: the pen reads the ewe through the shared body read.
+   assert.match(await page.locator('[data-habitat-fact="welfare"]').innerText(),/she is weak/);
   }
   await page.evaluate(ticks=>window.advanceTicks(ticks,{render:true}),lifecycleProof?12:6);
   // Rendering uses the played clock lazily, as before the registry move.
   await page.waitForFunction(()=>!document.querySelector('[data-habitat="collect"]').disabled);
   await page.locator('[data-habitat="collect"]').click();
+  if(lifecycleProof)await page.waitForFunction(()=>document.querySelector('[data-habitat-fact="welfare"]')?.textContent.includes('she is in full health'));
   if(lifecycleProof){
    const snapshot=()=>page.evaluate(()=>window.simulationTestHooks.snapshot());
    await page.locator('[data-habitat="extend_pen"]').click();

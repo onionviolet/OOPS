@@ -16,7 +16,7 @@ test('site and creature are actually paid, unique and bound to suitable player o
     for(const change of [{ready:false},{location:'Shack'},{world:'pocket.other'}])assert.throws(()=>act({...own,...change},'buy_feed'),/Village/);
 });
 test('no inherited care, instant harm or stock; feeding spends real inventory once',()=>{
-    let p=housed();assert.equal(habitatFacts(p.owner,500).welfare,'Safe in suitable shelter with clean water');assert.equal(projectHabitat(p.owner,500).progress,0);assert.deepEqual(p.inventory,{});
+    let p=housed();assert.equal(habitatFacts(p.owner,500).welfare,'Safe in suitable shelter with clean water; she is in full health');assert.equal(projectHabitat(p.owner,500).progress,0);assert.deepEqual(p.inventory,{});
     assert.throws(()=>act(p,'feed'),/actual/);p=act(p,'buy_feed');assert.equal(p.inventory[hay],1);assert.equal(p.money,68);
     p=act(p,'feed');assert.equal(p.inventory[hay],undefined);assert.equal(p.owner.feeds,1);assert.throws(()=>act(p,'feed'),/ration/);
     assert.equal(projectHabitat(p.owner,106).progress,0);assert.throws(()=>act({...p,clock:106},'collect'),/not ready/);
@@ -117,6 +117,10 @@ test('an injured ewe recovers before wool and a paid brood yields one saleable l
     assert.throws(() => act(p, 'breed_sheep'), /recover/);
     p = act(act(act(p, 'buy_feed'), 'feed'), 'attend');
     assert.equal(habitatFacts(p.owner, 105).wound.remaining, 1);
+    // The pen reads the ewe through the shared body read (foundation L, MS5).
+    assert.match(habitatFacts(p.owner, 100).welfare, /she is weak$/);
+    assert.equal(habitatFacts(p.owner, 105).body.vitality.value, 91, 'one of six minutes still owed');
+    assert.match(habitatFacts(p.owner, 106).welfare, /she is in full health$/);
     assert.equal(habitatFacts(p.owner, 106).state.progress, 0);
     assert.equal(habitatFacts(p.owner, 112).ready, true);
     p = act({...p, clock: 112}, 'collect');

@@ -7,8 +7,11 @@ import {
 } from '../src/world_substrate.js';
 import {createShellRegulatorPack, shellBodyState, shellInletState} from '../src/world_substrate_packs/shell_regulator.js';
 import {createBrewSteamPack, brewBatchState} from '../src/world_substrate_packs/brew_steam.js';
-import {createSkyPack, skyAt} from '../src/world_sky.js';
-import {isRainingAtMinute} from '../src/weather_calendar.js';
+import {createSkyPack, skyQuantities} from '../src/world_sky.js';
+import {isRainingAtMinute, weatherClockMinute} from '../src/weather_calendar.js';
+import {projectCalendar} from '../src/world_calendar.js';
+import {WORLD_CALENDAR_PROFILES} from '../src/world_calendar_content.js';
+import {dayIndex} from '../src/world_day_index.js';
 import {openLivingRegulator, advanceLivingRegulator} from '../src/living_regulator.js';
 import {SHELL_LAW} from '../src/meadow_shell_state.js';
 import {THERMAL_REVISION, quoteThermalBatch, createThermalState, advanceThermal} from '../src/craft_process_thermal.js';
@@ -184,10 +187,10 @@ test('W7 bounds clamp the same way in one jump or many, and the ledger records t
     assert.ok(advanceWorld(r, start(), 600).segments <= 3);
 });
 
-test('W8 sky: weather, day length and moon are W quantities settled by the root clock (OS6)', () => {
+test('W8 sky: weather, day length, moon and season are W quantities read from the world calendar (OS6, TMR1)', () => {
     const sky = createSkyPack({moonCycleDays: 16});
     const r = composeSubstrate({packs: [sky]});
-    const start = 0, init = skyAt(start, {moonCycleDays: 16});
+    const start = 0, init = skyQuantities(start, {moonCycleDays: 16});
     const make = () => createWorld(r, {clock: start, holders: [{id: 'valley', kind: 'place', tags: ['sky'], quantities: init}]});
     const end = 20 * 1440 + 77;
     const far = advanceWorld(r, make(), end);
@@ -195,11 +198,14 @@ test('W8 sky: weather, day length and moon are W quantities settled by the root 
     for (let t = 0; t <= end; t += 97) steps = jump(r, steps, t);
     steps = jump(r, steps, end);
     assert.deepEqual(far.world, steps);
-    assert.deepEqual(readQuantity(far.world, 'valley', 'day'), 20);
-    assert.equal(readQuantity(far.world, 'valley', 'rain'), isRainingAtMinute(end) ? 1 : 0);
-    assert.equal(readQuantity(far.world, 'valley', 'daylight'), 0);
-    assert.equal(readQuantity(far.world, 'valley', 'moon_phase'), Math.floor((20 % 16) * 8 / 16));
-    assert.ok(far.segments <= 3 * 21, `about three boundaries a day (${far.segments})`);
+    // The sky agrees with the shared day reader and the native rain calendar.
+    const view = projectCalendar(WORLD_CALENDAR_PROFILES['base.frontier'], {elapsed: end, instanceId: 'w8'});
+    assert.equal(readQuantity(far.world, 'valley', 'day'), dayIndex({clock: end, worldId: 'base.frontier'}));
+    assert.equal(readQuantity(far.world, 'valley', 'rain'), isRainingAtMinute(weatherClockMinute(view)) ? 1 : 0);
+    assert.equal(readQuantity(far.world, 'valley', 'daylight'), view.minuteWithinDay >= 360 && view.minuteWithinDay < 1200 ? 1 : 0);
+    assert.equal(readQuantity(far.world, 'valley', 'moon_phase'), Math.floor((view.day_count % 16) * 8 / 16));
+    assert.equal(readQuantity(far.world, 'valley', 'season'), ['Spring', 'Summer', 'Autumn', 'Winter'].indexOf(view.seasonId));
+    assert.ok(far.segments <= 3 * 22, `about three boundaries a day (${far.segments})`);
     assert.ok(far.world.chain.some(e => e.kind === 'sky.daylight'), 'dawn and dusk are effects any pack can answer');
     // A pack that never imports the sky can watch the moon through the same quantity.
     let howls = 0;
@@ -211,6 +217,8 @@ test('W8 sky: weather, day length and moon are W quantities settled by the root 
     const r2 = composeSubstrate({packs: [sky, listener]});
     advanceWorld(r2, createWorld(r2, {clock: start, holders: [{id: 'valley', kind: 'place', tags: ['sky'], quantities: init}]}), end);
     assert.ok(howls >= 2, 'new-moon nights reach a pack that only reads quantities');
+    // A world whose calendar has no seasons carries none.
+    assert.equal('season' in skyQuantities(0, {worldId: 'book.mol.cyoria'}), false);
 });
 
 test('W9 save shape: versioned, validated, foreign pack slices kept, newer saves refused (OS8)', () => {
@@ -227,13 +235,23 @@ test('W9 save shape: versioned, validated, foreign pack slices kept, newer saves
     assert.deepEqual(substrateFacts(w, 'shell'), {'world.clock': 130, 'here.humidity': readQuantity(w, 'workshop', 'humidity')});
 });
 
+test('W11 effect kinds are vocabulary: a reactor on an unknown kind is refused, an undeclared publish fails (W-B8)', () => {
+    assert.throws(() => composeSubstrate({packs: [{id: 'x', reactors: [{id: 'r', on: ['smoek'], appliesTo: () => true, react: () => []}]}]}), /unknown effect kind smoek/);
+    assert.throws(() => composeSubstrate({packs: [{id: 'x', hears: [undefined]}]}), /malformed effect kind/);
+    const r = composeSubstrate({packs: [shellPack]});
+    assert.ok(r.effectKinds.has('smoke'), 'the shell hears smoke from the shared list even with no brew loaded');
+    const w = createWorld(r, {clock: 0, holders: workshop({withBatch: false})});
+    assert.throws(() => applyWorldOps(r, w, [{op: 'publish', kind: 'splash', place: 'workshop'}], 'pour'), /not declared/);
+    assert.equal(applyWorldOps(r, w, [{op: 'publish', kind: 'effect.add.light', place: 'workshop'}], 'p').chain.at(-1).kind, 'effect.add.light', 'primitive kinds pass');
+});
+
 test('W10 contract guards: undeclared writes, unit clashes, bounded chain and ledger', () => {
     assert.throws(() => composeSubstrate({packs: [shellPack, {id: 'x', quantities: [{id: 'humidity', unit: 'grams', min: 0, max: 100}]}]}), /different unit/);
     const sneaky = {id: 'x', quantities: [], reads: ['humidity'], writes: [], laws: [{id: 'leak', appliesTo: h => h.kind === 'place',
         rates: (view, id) => view.has(id, 'humidity') ? [{holder: id, quantity: 'humidity', perMinute: 1}] : []}]};
     const r = composeSubstrate({packs: [shellPack, sneaky]});
     assert.throws(() => advanceWorld(r, createWorld(r, {holders: [{id: 'p', kind: 'place', quantities: {humidity: 1}}]}), 5), /does not declare writing/);
-    const tight = composeSubstrate({packs, dials: {chainCap: 3, ledgerCap: 2}});
+    const tight = composeSubstrate({packs, effectKinds: ['splash'], dials: {chainCap: 3, ledgerCap: 2}});
     let w = createWorld(tight, {clock: 0, holders: workshop({withShell: false, withBatch: false})});
     for (let i = 0; i < 6; i++) w = applyWorldOps(tight, w, [{op: 'add', holder: 'workshop', quantity: 'humidity', amount: 1, source: `pour.${i}`},
         {op: 'publish', kind: 'splash', place: 'workshop'}], `pour.${i}`);

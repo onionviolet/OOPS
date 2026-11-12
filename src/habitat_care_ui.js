@@ -66,14 +66,13 @@ export function createHabitatPanel({parent,read,act}){
             status.append(p);
         }
         if(f.shellAnimal){
-            const {state:animal,condition,pending}=f.shellAnimal;
-            const {regulator}=animal;
-            const posture=animal.shell==='open'?'out of its shell':'tucked into its shell';
+            const {state:animal,condition,pending,chamber}=f.shellAnimal;
+            const posture=chamber.shell==='open'?'out of its shell':'tucked into its shell';
             const recovery=condition.injury?.remaining?
                 `Its leg needs ${condition.injury.remaining} more minutes with food and damp air.`:'Its leg has healed.';
-            const inlet=regulator.pending?` A change is due in ${regulator.pending.at-regulator.clock} minutes.`:'';
+            const inlet=chamber.pending?` A change is due in ${chamber.pending.at-chamber.clock} minutes.`:'';
             const p=node('p',pending?'Check the chamber again to see how the terrapin is doing.':
-                `The terrapin is ${posture}. ${recovery} Humidity ${regulator.humidity}%. Inlet ${regulator.inlet}.${inlet} ${animal.work===4?'One driftwood bundle ready.':`Driftwood work ${animal.work}/4.`}`);
+                `The terrapin is ${posture}. ${recovery} Humidity ${chamber.humidity}%. Inlet ${chamber.inlet}.${inlet} ${animal.work===4?'One driftwood bundle ready.':`Driftwood work ${animal.work}/4.`}`);
             p.dataset.habitatFact='terrapin';status.append(p);
         }
         if(s?.courier){
@@ -103,7 +102,7 @@ export function createHabitatPanel({parent,read,act}){
                 const shell=f.shellAnimal;
                 b.hidden=action==='rescue_shell'? !s||!!shell :
                     !shell||(action==='check_shell'&&!shell.pending)||(action==='fit_inlet'&&!!shell.state.fitting)||
-                    (action==='link_inlet'&&(!shell.state.fitting||shell.state.mode==='linked'));
+                    (action==='link_inlet'&&(!shell.state.fitting||shell.chamber.mode==='linked'));
             }
             if(action==='spar_shell'){
                 b.hidden=!f.shellAnimal;

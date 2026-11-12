@@ -33,6 +33,7 @@ import {lifeCommands,LOTM_PROFILES,profileKeyOf,weeksOwed} from './book_world_lo
 import {LOTM_DISTRICTS,districtOfPlace,districtCommands,districtFacts,onShift,roleOutcomeFacts} from './book_world_lotm_districts.js';
 import {lessonEffects} from './lesson.js';
 import {makeBatchRef,describeBatch} from './batch_identity.js';
+import {digestionFacts} from './book_world_lotm_digestion.js';
 const acted=()=>({type:'resource',actor:'player',key:'book.lotm.acting',amount:1}),undigested=not(gte('lotm.acting',LOTM_DIGEST_ACTS));
 const sample=name=>K[name];
 const findings={
@@ -139,7 +140,7 @@ export function lotmFacts(state,ctx={}){
  f['lotm.holds.dose']=inv[K.dose]||0;for(const n of LOTM_SAMPLES)f[`lotm.holds.${n}`]=inv[K[n]]||0;
  f['lotm.supplierDoses']=natural[I.lot]?.[K.dose]??ctx.gameplay?.[I.supervisor]?.inventory?.[K.dose]??0;
  const acting=state.actors?.player?.resources?.['book.lotm.acting']||0;
- f['lotm.acting']=acting;f['lotm.digested']=acting>=LOTM_DIGEST_ACTS;f['lotm.holds.clownDose']=inv[K.clownDose]||0;
+ digestionFacts(f,'lotm',acting,LOTM_DIGEST_ACTS);f['lotm.holds.clownDose']=inv[K.clownDose]||0;
  examFacts(allRows[0],state,f);
  for(const row of [...pathwayRows,...generatedRows])pathwayFacts(row,state,f,{inv,flag});
  seq7Facts(state,f,{inv,flag});

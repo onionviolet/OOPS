@@ -1,6 +1,6 @@
 # Kernel working contract
 
-*Version 0.1 (v0), 2026-11-12. Owner: chat K in the [procedural foundation plan](PROCEDURAL_FOUNDATION_PLAN.md). Module: [`src/kernel_working.js`](../src/kernel_working.js). Contract tests: [`tests/kernel_working.test.js`](../tests/kernel_working.test.js). A proposal under AD56: it widens what every domain can do and every line is an adjustable default. Changes are versioned requests to chat K (MC2); domain chats do not edit the module.*
+*Version 0.5, 2026-11-12 (v0.1 to v0.4 published earlier the same day; changes in the [changelog](#changelog)). Owner: chat K in the [procedural foundation plan](PROCEDURAL_FOUNDATION_PLAN.md). Module: [`src/kernel_working.js`](../src/kernel_working.js). Contract tests: [`tests/kernel_working.test.js`](../tests/kernel_working.test.js). A proposal under AD56: it widens what every domain can do and every line is an adjustable default. Changes are versioned requests to chat K (MC2); domain chats do not edit the module.*
 
 Not to be confused with `src/working_state.js`, which is the UI busy note for slow page actions.
 
@@ -54,6 +54,65 @@ The comparison that the contract was promoted from (review [F3/A4](audits/CODEX_
 - **KW12. Authority is read at settlement (FG7).** Relationships, offers and permissions answer through `ports.authority` for each step at its time. An offer that has expired blocks the step that needed it. A step that settled while the offer held keeps its receipt after the offer ends; settlement never revisits a settled step.
 - **KW13. Settle before the world changes.** When a host moves, spends or removes a thing that a running working binds, it first settles that working to the change time. This is what makes a support leaving partway (PFP7, LT31) land on the right step.
 - **KW14. Contract versions.** The contract version is `KERNEL_CONTRACT_VERSION`. A change that alters a record's meaning bumps the schema and adds a migration; a new optional field does not.
+- **KW15. Forecast fields.** An operation's answer may add `costs` (rows the host draws from its accounts, W quantities once embedded), `odds` (whole permille for this step) and `cause` (a short code the host turns into words). Quotes list them per step; receipts keep them in `truth`. The kernel does not combine odds: a caller that wants one number multiplies the steps it cares about. Optional fields, so no schema bump (KW14).
+- **KW16. A quote has a fingerprint.** `workingFingerprint` hashes the law, method, bound references, starting facts, times, effects, costs and outcome. A host shows a quote, the maker commits to its fingerprint, and `beginQuotedWorking` re-quotes and returns `stale` instead of a record when anything changed. The record keeps the fingerprint and authority receives it at each settled step (not during a quote, where none exists yet). The pattern for standing terms (M's SMK7): terms that change the deal show up in an operation's costs, odds or effects, so they are hashed; the offer owner stores the fingerprint the maker accepted and refuses a step whose record carries another (tested). Rolling back several owners when a settlement fails stays with the host's transaction owner (AR3), as `book_craft_transaction` does today.
+- **KW17. The quote an actor can make.** `quoteForActor` takes the actor, the bindings, `known(ref, at)` (what the actor knows of each thing), `knownFacts` (the actor's beliefs about the starting facts), `believedAuthority` (what the actor believes about permissions) and optionally `knowsMethod(actor, method)` (whether the actor knows the method at all; `spell_world_rules`' `knows` and `craft_state`'s `readCraftWorking` by observer answer it today, cause `method-unknown`). Every answer has the same fields; an ineligible one carries `null` minutes and fingerprint. It never reads the truth: a role the actor knows nothing of comes back as `{role, cause: 'unknown'}`, a refusal as the step, cause and reason code. Reasons are data; the host or operation writes the words (PRS). The player and anyone else with the same knowledge get the same quote (PFP11), and a wrong belief quotes as eligible and is then interrupted by settlement against the truth.
+
+### Composed workings (SC6, v0.2)
+
+Module [`src/kernel_compose.js`](../src/kernel_compose.js), tests [`tests/kernel_compose.test.js`](../tests/kernel_compose.test.js). A killer move, a combined spell, a recipe step that runs two processes and a formation are all one working made of other workings.
+
+- **KW18. Slots are interfaces.** `defineComposition({id, revision, roles, slots})` declares each slot by what a filler must bind (`needs: {role: kind}`) and which composite role fills each (`bindings`). Each slot says whether its facts are `shared` (one table, as Gu essence reserves are) or `own` (kept under `part:<slot>`); there is no default, because shared facts collide. `minutes` on a slot is a duration dial for every filler step.
+- **KW19. Fillers are chosen at bind time.** `composeWorking(composition, fillers)` takes any method that binds exactly the slot's roles and kinds, so a move or spell can be assembled from parts no book paired (NV2). The result is one ordinary law and method: quote, settle, partition, receipts, the actor quote and saves are the kernel's own, and a composition can fill a slot with another composition.
+- **KW20. A filler stays one part.** Its steps are copied as they are, never split. A two-Gu beat settles all or nothing against a cloned reserve; splitting it would spend the first Gu alone (tested). A dictionary method's operations share one native transaction, while repeated casts stay separate steps.
+- **KW21. The composite names its fillers.** Operations are `<slot>/<op>` and the law ref lists every filler's law ref, method id and revision, so a saved working restores only against the same fillers; `composedPart(op)` reads which slot a receipt came from.
+
+First consumers, adapters in the test file, owners unchanged:
+
+| Consumer | Composition | Parity check |
+| --- | --- | --- |
+| G: `resolveGuActivation` per beat | Three-core move, slots `lead` (one Gu) and `pair` (two Gu at once), shared reserves | Same reserves as `runGuProcedure` on the ch. 961 recipe, full and short (enough for Pulling Mountain, not Pulling Water); a move from three Gu the book never paired quotes and runs |
+| S: `compileSpellWorking` + `nativeSpellSteps` per dictionary method | Hogwarts bench (levitation, summoning, release) and Cyoria slate (torch, direct light, oblique twice), own facts, one minute per cast | Exactly the native command lists the spell owner produces for the same drafts |
+
+Both run the seven-test contract suite (now [`tests/kernel_contract_suite.mjs`](../tests/kernel_contract_suite.mjs), shared by every kernel test file).
+
+### One identity, several kinds (SC7, SB1, v0.2)
+
+Module [`src/kernel_identity.js`](../src/kernel_identity.js), tests [`tests/kernel_identity.test.js`](../tests/kernel_identity.test.js). A Gu is an item someone holds and a living body; a Beyonder characteristic is a person's remnant, then an item, then a potion input.
+
+- **KW22. One id, several facets.** The registry maps an identity id to facets, `{kind: {owner, key}}`: which owner holds that aspect and under which key (`w.holder` and a holder id, `inventory` and an individual item key, a lifecycle individual, a claim). A kernel binding `{kind, id}` names the facet it needs, so one Gu binds as `body` in a feeding working and as `item` in a loan.
+- **KW23. A cross-reference, not an authority (AR3).** The registry copies no count, health, custody or position; owners stay the one writer of their facts. One owner key belongs to at most one identity. Existing owners keep their own ids and are pointed at, not replaced: `item_identity` (what an observer calls the item), `material_lineage` individual and heirloom keys, `creature_lifecycle` individuals, `gu_world_claims` living claims.
+- **KW24. Changing kind keeps the individual (MR41).** `changeFacets` removes and adds facets in one change with its time and cause; the history says when the remnant became an item and the item a brew input.
+- **KW25. Read through the owners.** `identityReader(registry, owners)` is an ordinary `ports.read`: the facet's owner answers for its key at the step's time, and the answer carries the identity id, the bound kind and the facet. A death removes the body (the W holder) while the item facet still reads. Hosts settle any running working that binds an identity before calling `changeFacets` on it (as KW13). A stack is not one thing: an owner answer with `count` above one reads as absent, so an identity points at an individual key (split a stack first, as `material_lineage` does).
+- **KW26. One versioned save.** `kernel.identity@1`, validated on restore (unknown versions and two identities claiming one owner key are refused). Where it lives in the game save is settled at embed (request to W and the integrator below).
+
+### Workings that meet (KB8, v0.3)
+
+Module [`src/kernel_meet.js`](../src/kernel_meet.js), tests [`tests/kernel_meet.test.js`](../tests/kernel_meet.test.js). A hit lands before a killer move's last beat (C); a Counterspell ends a cast in flight (S).
+
+- **KW27. One working can stop another.** `settleTogether(entries, {now, ports, meets})` settles several running records step by step. After each successfully settled step, the caller's `meets({settled, running})` sees that step's effects and the next step of every other running working, and returns interrupts `{working, reason, observed?}`. An interrupted receipt has cause `interrupt` and `by: {working, step}`; the maker sees only `observed`. What counts as a hit or a counter is the caller's rule (C's contest, S's grammar), never the kernel's.
+- **KW28. One fixed order.** The next step is the earliest deadline, then the order dial (a readiness, C's K4; lower first, default 0), then the working id. A strike due in the same minute as the pair beat lands first only if its order is lower.
+- **KW29. One level, no cascade.** Interrupts apply at the settled step's time and do not call `meets` again. Effects landing on whatever is present, and chains of reactions, are W's contact layer (WSC7-WSC9). Ending an active effect (Nox ending Lumos, S's SQ15) is a W law-field removal, not a kernel interrupt.
+- **KW30. The same meeting in one jump or many; each record saves alone.** The set settled to `now` once or in any partition gives the same records and effects (tested, plus a mutation that applies interrupts at the call time and fails). There is no meeting record: each working saves as `kernel.working@1` and the host passes them in again.
+
+### Grammar refs and bounded search (PR2, PR3, v0.4)
+
+Module [`src/kernel_search.js`](../src/kernel_search.js), tests [`tests/kernel_search.test.js`](../tests/kernel_search.test.js).
+
+- **KW31. Frozen with their grammar (PR2, PM7).** A generated method carries `grammar: '<id>@<revision>'`, the ref P's grammar values already use; a composition may carry one too, and each filler's grammar joins the composite law ref. The record snapshots the method, so the ref is saved with it, and the fingerprint includes it. A grammar revision changes only what has not been frozen: the host rebuilds a saved composite from the frozen fillers it stored, and a filler from a newer grammar makes a different law that the old record refuses. An identity may also keep the grammar ref of what generated it (`addIdentity({grammar})`, `identityGrammar`); its frozen values stay with their owners.
+- **KW32. Search has a budget per settlement (PR3).** `searchForActor({actor, candidates, known, knownFacts, believedAuthority, knowsMethod, at, budget: {trials, steps}, keep, limit})` quotes candidate workings from what the actor knows. A trial is one quoted candidate; steps count the forecast steps those quotes settle and stand in for a time budget, because wall-clock time would make a reload search differently (PR1). Both are dials per actor; the default is 64 trials and 512 steps.
+- **KW33. Same inputs, same search.** Candidates are tried in the given order and the search stops before a trial the budget no longer covers, so options, rejections and `truncated` repeat exactly. The player and every NPC call the same search (PR6); with the same knowledge and the same working ids they get the same result.
+- **KW34. Goals and reasons.** `keep(quote)` is the actor's goal (PM3); options are eligible quotes that meet it, and every rejection keeps its reason, including `goal-unmet` (PM4). Where candidates come from (a move search, a grammar, a recipe book, `invention_planner`) is the caller's.
+
+### Oaths that enforce themselves (LR13, v0.5)
+
+Module [`src/kernel_oath.js`](../src/kernel_oath.js), tests [`tests/kernel_oath.test.js`](../tests/kernel_oath.test.js). The first canon case is the Harry Potter Unbreakable Vow (a vow to watch over and protect a named boy, made with a bonder, Half-Blood Prince's opening chapters); the locator is from memory and waits for a source dive before it becomes a fixed point (LR1, LR2).
+
+- **KW35. Authority can attach consequences.** An authority answer that allows a step may add `effects` (published after the operation's own), `costs`, a `cause` and a `breach` mark; one that refuses may add costs and a cause. They join the receipt's truth, the quote and the fingerprint like an operation's KW15 fields.
+- **KW36. An oath is data.** `defineOath({id, vower, parties, terms, penalty, enforce, madeAt})`. A term forbids or requires an act, matched by method, operation and who fills which role. The penalty is effects, costs and a cause; the canon Vow's is the vower's death. `enforce` is a dial: `penalize` (the act happens and the price is paid, the canon Vow) or `prevent` (a world whose oath stops the act).
+- **KW37. Read at settlement.** `oathAuthority(oaths, {inner, brokenBefore})` is an ordinary authority port layered over any other: other authority decides first, then a step that breaks a forbid term after the oath was made carries the price. The vower's own quote (`quoteForActor` with this as `believedAuthority`) shows the lethal cost line while the act stays eligible; someone who does not know of the oath sees no price, and the price changes the fingerprint.
+- **KW38. The price is paid once.** An oath is broken when a receipt carries its breach or a due breach was published; `oathBroken` derives it from those records, with no stored flag.
+- **KW39. An undone duty breaks at its deadline.** `dueOathBreaches(oaths, {now, receipts, breaches})` finds require terms with no matching settled act by their deadline and returns the price rows at the deadline minute, so one jump and many give the same rows. The host publishes the effects; the kernel kills no one.
 
 ## Save shape (OS8)
 
@@ -93,8 +152,8 @@ Each passes: typed roles and refusals, a pure quote equal to settlement, one jum
 | KB5 | Two workings competing for one thing (reservation) | Custody owners hold reservations; the kernel only reads | W and the custody owners |
 | KB6 | Progress inside a step (rates while far away, SPR28) | W's detail level settles a step as a rate with the same total | W |
 | KB7 | Lowering a step to native commands (spell) | Effects stay opaque; S lowers in its own host | S |
-| KB8 | Several workings meeting in one settlement (a contest, a trade between two running workings), ordered across workings | v0.2 `settleTogether` that merges deadlines of several records in a fixed order (deadline, then working id), once C and M both need it | K, on C and M request |
-| KB9 | Quote fields for cost and odds, and a cause line | v0.2 optional `costs`, `odds` and `cause` on the quote, filled by the operations; with KB3 | K, on A request |
+| KB8 | One working's settled step interrupting another running working | **Resolved in v0.3** (KW27-KW30) | K |
+| KB9 | Quote fields for cost and odds, and a cause line | **Resolved in v0.2** (KW15, KW17) | K |
 | KB10 | A law revision bump makes every saved running record of the old revision unloadable; migrations are keyed on schema only | Add law-revision migrations (old revision to new, per law) beside `WORKING_MIGRATIONS` | K, on the first domain that bumps a law (likely B or F) |
 
 ## Requests from sibling chats (2026-11-12)
@@ -103,13 +162,25 @@ From the shared notes. Covered means v0 already expresses it as data; no kernel 
 
 | From | Request | Answer in v0 |
 | --- | --- | --- |
-| A | Actor-scoped pure quote with eligibility reasons, cost, time, odds, cause | Covered for eligibility, reason, failing step and time (KW4 with a knowledge reader); cost, odds and cause are KB9 |
+| A | Actor-scoped pure quote with eligibility reasons, cost, time, odds, cause | Done in v0.2: `quoteForActor` (KW17) with KW15 fields |
 | B | A stop that settles completed steps | Covered: KW8 (`interruptWorking`, outside reader, authority); refund policy is KB3 |
-| C | K1 several workings in one receipt, K4 ordering across workings | KB8 |
+| C | K1 several workings in one receipt, K4 ordering across workings | Done in v0.3: `settleTogether` with an order dial (KW27-KW30); each working keeps its own receipt, linked by `by` |
 | C | K2 cut partway by an outside input; K3 a role that binds another actor or that actor's running working | Covered: a lost binding or authority refusal interrupts (KW3, KW12); a role of kind `actor` or `working` is ordinary data (KW3) |
 | M | A trade working for any two holders, reading standing terms at settlement | Covered: two holder roles and terms through `ports.authority` (KW12); M writes the trade operation |
+| F | Re-quote compare and atomic rollback across owners (FBD1), from `book_craft_transaction` | Re-quote compare done in v0.2 (KW16, `beginQuotedWorking`); rollback stays with the host transaction owner (AR3) |
+| M | Settlement reads standing terms through the quote fingerprint (SMK7) | Done in v0.2: authority receives the record's fingerprint (KW16) |
 | R | A crossing as a working with an optional attempt (risk, caller draw, outcome ladder), keeping the admission quote | Covered: the operation's `settle` owns the ladder and draws from the step `address` (KW6); the quote is kept by the caller |
 
 ## Next phase (K)
 
-Retire one old shape: `method_program` (16 lines, three consumers in other chats' files) is the candidate, since its kind chain is a method whose operation roles are kinds. That needs the owning chats to move `hp_potion_reactions`, `mol_light_research` and `feature_expansion_ui`, or their consent for K to do it. Then the PFP7 join with B and G once their leaves run on the kernel.
+1. **Embed support.** Answer G, S, C and A as they move leaves onto the kernel; a move between `book_craft_transaction` and `beginQuotedWorking` with F.
+2. **Retire one old shape** once its consumers move: `method_program` (three consumers in other chats' files) is the candidate; `spell_working`'s compile step goes once S embeds on the composition adapter above. K deletes nothing in another chat's files without that chat's move or consent.
+3. **PFP7 join** with B and G once their leaves run on the kernel.
+
+## Changelog
+
+- **0.5 (2026-11-12).** KW35 authority consequences; KW36-KW39 oaths (`kernel_oath.js`), LR13. Optional fields, no schema change.
+- **0.4 (2026-11-12).** KW31 grammar refs on methods, compositions and identities; KW32-KW34 `searchForActor` with a trial and step budget. Optional fields, no schema change.
+- **0.3 (2026-11-12).** KW27-KW30 workings that meet (`kernel_meet.js`); `settleWorking` takes `maxSteps`; `interruptWorking` takes `by` and `observed`. Optional fields, no schema change.
+- **0.2 (2026-11-12).** KW15 forecast fields, KW16 fingerprint and `beginQuotedWorking`, KW17 `quoteForActor`; KW18-KW21 composed workings (`kernel_compose.js`); KW22-KW26 identity (`kernel_identity.js`). Kernel failure reasons are codes (`role-unavailable`, `not-permitted`) with the role kept as data. No schema change.
+- **0.1 (2026-11-12).** KW1-KW14, the record `kernel.working@1` and one migration.

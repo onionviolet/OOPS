@@ -1,8 +1,8 @@
 # World substrate contract
 
-*Version **v0** (revision 0), 2026-11-12, chat W of the [procedural foundation plan](PROCEDURAL_FOUNDATION_PLAN.md#the-overarching-system-one-world-the-parts-embed-into). Owner of the shared world the domains act on: quantities, law fields, contact and detail level (O2, O3, O5, PFP10-PFP15, OS6, OS8). A proposal under AD56: it widens play, and every number below is a default with a dial. Changes are versioned requests to chat W. The kernel working (how an action quotes and settles) belongs to chat K; this contract is what that action touches.*
+*Version **v1** (save revision 1), 2026-11-12; v0 (revision 0) was the phase-1 shape and migrates on load. Chat W chat W of the [procedural foundation plan](PROCEDURAL_FOUNDATION_PLAN.md#the-overarching-system-one-world-the-parts-embed-into). Owner of the shared world the domains act on: quantities and properties (SB2), effect primitives (SB3), law fields, contact and detail level (O2, O3, O5, PFP10-PFP15, PFP22, OS6, OS8). A proposal under AD56: it widens play, and every number below is a default with a dial. Changes are versioned requests to chat W. The kernel working (how an action quotes and settles) belongs to chat K; this contract is what that action touches.*
 
-Code: [`src/world_substrate.js`](../src/world_substrate.js), vocabulary [`src/world_quantities.js`](../src/world_quantities.js), sky [`src/world_sky.js`](../src/world_sky.js), reference packs in [`src/world_substrate_packs/`](../src/world_substrate_packs/). Tests: [`tests/world_substrate.test.js`](../tests/world_substrate.test.js) (W1-W10).
+Code: [`src/world_substrate.js`](../src/world_substrate.js), vocabulary [`src/world_quantities.js`](../src/world_quantities.js), effect primitives [`src/world_effects.js`](../src/world_effects.js), sky [`src/world_sky.js`](../src/world_sky.js), reference packs in [`src/world_substrate_packs/`](../src/world_substrate_packs/). Tests: [`tests/world_substrate.test.js`](../tests/world_substrate.test.js) (W1-W10) and [`tests/world_effects.test.js`](../tests/world_effects.test.js) (E1-E8).
 
 ## What a world is
 
@@ -10,7 +10,9 @@ A world is a clock (whole played minutes, the root clock of TMR1) and a set of *
 
 | Field | Holds |
 | --- | --- |
-| `quantities` | Typed integer amounts, each from a declared quantity with a unit and bounds |
+| `quantities` | Typed integer amounts, each from a declared quantity with a unit and bounds. A keyed family (`energy:mana`, `stock:bread`) shares one unit and bounds across its keys |
+| `properties` | Typed values that say what the holder is like: a flag, a level, a label or a set (alive, material, aspects, flammable, senses, concealed, marks, form) |
+| `as`, `refs` | Identity (SC7): the kinds a kernel binding may name it as (`gu`, `item`), and the records other owners keep for it (an inventory key, a lifecycle id) |
 | `ledger` | Per quantity, the net amount each source contributed, so the amounts carry provenance (SPR25) |
 | `state` | One slice per pack, keyed by pack id. A pack reads and writes only its own slice |
 | `tags` | What the holder is, for packs' `appliesTo` tests |
@@ -34,8 +36,31 @@ A world is a clock (whole played minutes, the root clock of TMR1) and a set of *
 | WSC10 | **Every outcome explains itself.** Each effect keeps a record (time, kind, place, publisher, depth, cause, who answered). `explainEffect` walks a record back to its root. The ledger says who moved each quantity, including `bound` for what a limit refused, and always sums to the change. | `chainCap` 200 records, oldest trimmed first; `ledgerCap` 24 sources per quantity, older ones merged into `earlier` (SPR30). PFP13. |
 | WSC11 | **Bounds clamp, never throw, inside time.** A rate that would push a quantity past its bound settles one clamped minute and then reads as stopped at the bound. Outside ops and saves that put an amount out of bounds are refused. | Bounds are part of the quantity's declaration. |
 | WSC12 | **Budgeted.** An advance that needs more than `segmentBudget` (20,000) segments returns `pending` with the world settled so far; the caller calls again. | CX5, TMR8. E records settlement time per simulated day (MC16). |
-| WSC13 | **Sky is substrate.** `daylight`, `moon_phase`, `rain` and `day` are quantities of a place tagged `sky`, set at dawn, dusk and midnight by one W law from the root clock, and each change publishes a `sky.*` effect. | Dawn and dusk minute, moon cycle days, rain source (default the native 13-day calendar) and epoch, per world (OS6, AD46). |
+| WSC13 | **Sky is substrate.** `daylight`, `moon_phase`, `rain`, `day` and (where the calendar has seasons) `season` are quantities of a place tagged `sky`, set at dawn, dusk and local midnight by one W law, and each change publishes a `sky.*` effect. Day, minute of day and season come from the world's calendar profile through `projectCalendar`, so `day` equals `dayIndex` (TMR1, TMR2); rain follows the native rain calendar on the native weather minute. | Calendar (world id and the root minute its anchor sits at), dawn and dusk minute, moon cycle days and rain source, per world (OS6, AD46). |
 | WSC14 | **Saves are a contract.** The save shape is versioned and every revision step has a migration. | See below (OS8, MC4). |
+| WSC15 | **Laws read properties, not categories** (PFP22). A law or reactor selects by what a holder is like (`flammable`, `ignites_at`, `aspects`), never by what it is called. Tags remain for a pack's own bookkeeping. | A property shared by two chats goes in `WORLD_PROPERTIES`; one chat's property stays in its pack (as WSC2). E2: a Gu's heat, a charm, a hot stone and a neighbour's fire all light the hay. |
+| WSC16 | **Families, not names per grade.** Energy by kind, stock by good, light by kind, scent by kind and residue by substance are keyed families. Declaring the family covers every key; declaring one key covers only it. | A world adds keys freely (a new essence grade is a key, not a vocabulary change). |
+| WSC17 | **Scarcity is derived.** `readScarcity(world, place, good)` reads `stock:<good>` against `want:<good>` of the holders there and is never saved (SPR23). | Days of cover is the default reading; M's price curve and A's wants read it. |
+| WSC18 | **One identity, several kinds** (SC7). A holder is the one record of a thing that is an item, a body and a Gu at once. `resolveRef` maps a kernel binding `{kind, id}` to it by id (with the kind in `as` or its physical kind) or by an owner's ref. `substratePort(world)` is K's `ports.read` over the world at its own minute. | Two holders claiming one ref is refused. Custody stays with inventory and K. |
+| WSC19 | **Effect primitives are verbs on W objects** (SB3). `applyEffect(rules, world, act, cause)` runs one of twelve verbs (move, add, remove, transform, bind, release, sense, conceal, copy, block, end, alter), the same list as P's effect grammar on quantities, properties, positions or law fields of resolved targets at one minute, and publishes `effect.<verb>` into each target's place. | A new verb needs a canon effect the twelve cannot express and a second consumer (EF2); W and P keep one list (E9). |
+| WSC21 | **Effect kinds are vocabulary** (W-B8). A pack declares the kinds it `publishes` and the kinds it `hears` from other packs; shared kinds live in `WORLD_EFFECT_KINDS` and packs import their names. A reactor on an unknown kind is refused at composition and an undeclared publish fails at once. `departed`, `arrived`, `law.lapsed` and the primitives' `effect.<verb>[.<object>]` are built in. | Outside callers declare extra kinds with `composeSubstrate({effectKinds})`. |
+| WSC20 | **Counterplay is a verb too** (EF3). `block` is a law field that stops a verb on an object at a scope; `conceal` defeats `sense` on a channel; `release` undoes `bind` and `conceal`; `end` stops a sustained effect (a law field) early; `alter` removes or changes law fields, and a block on `alter` guards a ward. Sustained effects are law fields with `until`, which lapse at that minute's boundary and publish `law.lapsed`. | Durations are whole minutes. |
+
+## Effect primitives and the boundary with P (SB3)
+
+*The table below is W's proposal for the boundary until chat P agrees it (requested in W's checkpoint).*
+
+| Grammar part (plan) | Who owns it | In W |
+| --- | --- | --- |
+| Verb | W runs it | `act.verb`, one of the twelve |
+| Object | W's vocabulary | a quantity (`vitality`, `energy:mana`), `property:<name>`, `position` or `law:<kind>`. P's object names map through `W_OBJECT_OF`: heat to `temperature`, sound to `noise`, essence to `energy:<kind>`, moisture to `humidity`, light to `light:<kind>`, form to `property:form`, relation to `property:marks`; force, lifespan, mind, information, memory and working belong to other owners and are published as effects |
+| Target and shape | P composes; X resolves geometry | W resolves `self`, `holder`, `holders`, `place`, `present`, `marked`, `having`; a line or cone arrives as `holders` |
+| Time | P and K | instant is the act; sustained is `until` on a law field; delayed or triggered is a K step deadline or a reactor |
+| Carrier | P and K | `act.by` records it for the cause chain; nothing in W reads it |
+| Cost and source | K's working, paid from W accounts (`energy:*`, `stock:*`) | not in the act |
+| Limits | W for bounds, block fields and concealment; P and K for mass, distance and will | `outcome.blocked`, `outcome.skipped` |
+
+A sentence lowers to one or more acts. E8 runs four from the plan: a Moonblade-style cut (`remove vitality` on resolved holders), Polyjuice (`copy property:form`), Spirit Vision (`sense` through `spirit` reading hidden properties) and a Protego-shaped ward (`block remove vitality` on everything bound to a mark, lapsing at minute 10). `outcome` returns what applied, what was blocked and by which field, what was skipped and why, and what a `sense` observed. An observation is returned, not stored: N records knowledge (SB5).
 
 ## Pack shape
 
@@ -46,12 +71,13 @@ A world is a clock (whole played minutes, the root clock of TMR1) and a set of *
   reads: ['humidity'], writes: ['humidity'],
   laws: [{id, appliesTo(holder), rates?, watches?, horizon?, advance?, decide?}],
   reactors: [{id, on: ['smoke'], appliesTo(holder), react(view, id, effect)}],
+  properties: [WORLD_PROPERTIES.flammable],  // optional; reads/writes may name properties too
 }
 ```
 
 The plan's other three pack parts (workings, generators, catalogue rows) are not substrate: workings go through K, generators through P, catalogue rows are the pack's own data. A pack id starts with its chat letter (`b.`, `l.`, `g.`, `w.`).
 
-Ops a law or reactor may return: `state` (its own slice), `add` and `set` (quantities it writes), `carry` (start carrying a quantity), `publish`, `move`, `law_add`, `law_remove`. Outside callers (a kernel settlement, a player action) also have `holder_add` and `holder_remove`, through `applyWorldOps(rules, world, ops, cause)`.
+Ops a law or reactor may return: `state` (its own slice), `add` and `set` (quantities it writes), `property` (properties it writes), `carry` (start carrying a quantity), `publish`, `move`, `law_add` (with optional `until`), `law_remove`, `law_params`. The view adds `property(id, name)` and `properties(id)`. Outside callers (a kernel settlement, a player action) also have `holder_add` and `holder_remove`, through `applyWorldOps(rules, world, ops, cause)`.
 
 ## Entry points
 
@@ -62,6 +88,8 @@ Ops a law or reactor may return: `state` (its own slice), `add` and `set` (quant
 | `applyWorldOps(rules, world, ops, cause)` | Outside changes at the current minute; effects settle at once |
 | `advanceWorld(rules, world, toClock)` | `{world, segments, pending}` |
 | `readQuantity`, `readProvenance`, `explainEffect` | Reading and cause chains |
+| `readScarcity`, `resolveRef`, `substratePort` | Derived scarcity, identity, the kernel read port |
+| `applyEffect`, `resolveTargets` (`world_effects.js`) | The effect primitives |
 | `substrateFacts(world, id)` | `self.<q>`, `here.<q>`, `world.clock` in the simulation predicate shape, for `meets` rules |
 | `serializeWorld`, `restoreWorld`, `migrateWorldSave` | The save contract |
 
@@ -70,15 +98,15 @@ Every call returns a new world and leaves its input untouched.
 ## Save shape (OS8)
 
 ```json
-{"schema": "oops.world-substrate", "revision": 0, "clock": 190, "decidedAt": 190, "seq": 25,
+{"schema": "oops.world-substrate", "revision": 1, "clock": 190, "decidedAt": 190, "seq": 25,
  "holders": {"workshop": {"id": "workshop", "kind": "place", "place": null, "tags": [],
-   "quantities": {"humidity": 74}, "ledger": {"humidity": {"b.brew_steam:batch:batch": 124, "bound": -34}},
+   "as": [], "refs": {}, "quantities": {"humidity": 74}, "properties": {}, "ledger": {"humidity": {"b.brew_steam:batch:batch": 124, "bound": -34}},
    "state": {}}},
  "laws": [], "chain": []}
 ```
 
 - Each domain's save keys hang from `holders[id].state[packId]`. A slice for a pack this build does not load is kept untouched, so a world saved with the Gu pack survives a build without it.
-- `migrateWorldSave` runs one migration per revision step and refuses a save newer than the build. v0 has no earlier shape, so its table is empty.
+- `migrateWorldSave` runs one migration per revision step and refuses a save newer than the build. Revision 0 to 1 adds empty `properties`, `as` and `refs` to every holder (E7).
 - Compatibility line (MC4): **unchanged.** v0 adds no key to the game save. Wiring the substrate into `state` is the embed phase, and it will add one namespaced slice through the domain registry (AR1-AR16).
 
 ## Detail level
@@ -96,13 +124,13 @@ The exchange: the brew's steam is a quantity the regulator reads, and the brew's
 
 E's harness can start from `tests/world_substrate.test.js` fixtures: `composeSubstrate({packs: [shellPack, brewPack]})` and the `workshop()` holders.
 
-## What v0 cannot express yet
+## What v1 cannot express yet
 
 - **Partitioned detail.** One near place makes the whole world step by minutes. Places that share no holder could settle apart; that waits for E's cost numbers (MC16).
 - **Rates between holders by distance or contact area.** Rates are written by laws; there is no built-in diffusion between neighbouring places or between a thing and its place. The first domain that needs it (B for heat moving through a batch and a room) requests it.
 - **Effects within a minute.** Everything happens on whole-minute boundaries. A fight's seconds stay in C's own state until a contest needs the substrate.
+- **Geometric target shapes.** Line, cone and radius need places with positions (X). P passes their result as `holders`.
+- **Knowledge.** `sense` returns observations; storing who knows what, from which source and how sure is N's (SB5).
 - **Units conversion.** Units are labels that must match; there is no converter.
-- **Calendar profiles.** The sky computes its own day from the root clock and an epoch; reading the day through `dayIndex` and seasons from the world calendar profile (TMR1, TMR2) is the next sky step.
-- **Effect kind vocabulary.** Effect kinds (`smoke`, `shell.pull`) are free strings; a misspelled kind reaches no reactor and fails silently. A kind list like WSC2's quantity vocabulary is the fix once two packs share kinds.
 - **Contested law fields.** Fields can be added and removed; stacked fields of one kind simply apply in scope order. Contests between fields (two dao marks interfering) need a rule from G or S.
 - **Live wiring.** Nothing in play uses the substrate yet. The away-time equivalence harness case (SPR28, `tests/headless/away_bank_equivalence.test.js`) lands when the first domain embeds into live state; W3 proves the substrate's own one-jump, many-step and reload equivalence, not live play.

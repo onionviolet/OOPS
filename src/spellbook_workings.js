@@ -1,5 +1,5 @@
 import {spellDictionary} from './spell_dictionary.js';
-import {compileSpellWorking,nativeSpellSteps} from './spell_working.js';
+import {spellDraftCommands} from './spell_working.js';
 
 const key = world => 'spellbook.'+world+'.workings';
 const stepsShape = steps => Array.isArray(steps)&&steps.every(step=>step&&typeof step.method==='string'&&
@@ -18,7 +18,7 @@ const read = (state, world) => {
             !['ready','worked','failed','interrupted'].includes(trial.status))))return null;
     return {...book,schema:1};
 };
-const compile = (draft,rules) => nativeSpellSteps(compileSpellWorking(draft,spellDictionary,rules),rules);
+const compile = (draft,rules) => spellDraftCommands(draft,spellDictionary,rules);
 
 function result(state,rules,trial) {
     if(!trial?.receipt) return trial?.status;

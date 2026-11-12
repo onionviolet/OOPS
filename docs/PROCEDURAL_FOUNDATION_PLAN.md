@@ -595,6 +595,89 @@ Foundations first: none of these starts before its owner's MS1 to MS3 items, exc
 - **PFP31 · Inheritance has channels.** Genes for bodies, plus aptitude, upbringing, conserved essence, teaching, bonds and making, each with its own rules.
 - **PFP32 · Every aspect answers DC1-DC10** before its generator is built.
 
+## Bloodlines, descent beyond creatures, and depth for spellcraft and potions (2026-11-12)
+
+Weibao (2026-11-12): "consider aspects like bloodlines and more? Stuff beyond Creatures? Some stuff to focus on Spellcraft and potioncrafting? More to consider?"
+
+### One descent graph for everything that has ancestors (DG)
+
+Bodies are not the only things with lineage. A recipe has a parent recipe, a spell has a teacher, a sword has its ore, a sect has a founder, an estate has heirs. Today each keeps its own: `family_tree.js` and `village_family.js` for people, `lineage_traits.js` for breeding, `material_lineage.js` for materials, `heir_inheritance.js` and `heirloom_*` for estates and heirlooms. Proposal: one **descent graph** on K's identity (SC7), each owner writing its own edge kind.
+
+| Edge | Means | Owner |
+| --- | --- | --- |
+| DG1 born-of | Biological parents | L |
+| DG2 made-from | Materials and parts | F |
+| DG3 refined-from | A Gu, potion or item made out of another, or a move refined into a Gu (SC8) | F, G, B |
+| DG4 taught-by | A skill, spell, recipe or move learned from someone | N |
+| DG5 forked-from | A variant of a recipe, spell or move | P |
+| DG6 inherited-by | An estate, title, heirloom, Gu or Beyonder characteristic passed on | M, R (LR3) |
+| DG7 founded-by | Sects, schools, families, houses | M |
+
+Then "bloodline" is a query, not a separate system: everything reachable along born-of, plus what rides with it.
+
+### Bloodlines (BL)
+
+| Code | Part | Default, dial and reason |
+| --- | --- | --- |
+| BL1 | **Body inheritance** rides IH1-IH3: polygenic traits, markers and magical aptitude | Canon odds are fixed points (magical families, squibs, aperture grades) |
+| BL2 | **Latent and awakened.** A trait can stay hidden for generations and wake under a trigger: danger, a ritual, an essence surge, a lore event | Reason: the xianxia and fantasy pattern of awakening blood. Trigger and odds are dials |
+| BL3 | **Dilution and purity** as a computed share along born-of. Purity can matter in law and prestige without mattering to the body, or the other way round | Keeps "pure-blood" politics (M) separate from what blood actually does (L) |
+| BL4 | **Blood-bound law fields.** Curses, blessings, pacts and vows scoped to a line (IH7, LR13), broken only by a working with a cost | A family curse is a law field, not a flag |
+| BL5 | **Blood as a key.** Some wards, inheritances and artifacts open only to a line (LR10) | Identity check on born-of, with forgery possible at a cost |
+| BL6 | **Family assets.** Family Gu, heirloom wands, guarded recipes and signature moves pass along inherited-by and taught-by | A bloodline's power is often its holdings and teaching, not its genes |
+| BL7 | **Claims and politics.** Titles, succession, marriages, feuds and blood debts are M facts on the graph | Feuds can outlive the people who started them |
+| BL8 | **Known versus true.** Parentage can be hidden, false or unknown. Bloodline tests, divination and records reveal it (N) | Secret lineage is a story engine (D) |
+
+### Lineage beyond creatures (LN)
+
+- **LN1 · Plants.** Cultivars, grafting, cuttings and seed saving. Spirit herbs and Gu-feeding grasses breed and drift like animals (L).
+- **LN2 · Gu lines.** Propagation (the Thunder Potato mother), refinement upgrades, and fusion into new kinds (G, F).
+- **LN3 · Objects.** Makers' schools, named smiths, a blade reforged from an older one, heirloom history raising value and attunement (F, M).
+- **LN4 · Recipes and spells.** Family recipes, school spells, a teacher's annotated book. Drift and improvement along taught-by and forked-from (N, P).
+- **LN5 · Institutions.** Sects split and merge, schools found branches, houses rise and fall (M, PG2).
+- **LN6 · Places.** Estates, blessed lands and grottoes pass to heirs with their history and their trials (X, LR7, LR10).
+
+### Spellcraft depth (SPD)
+
+S's own finding: blind identity got verb and object right for only 35 of 94 spells (GL2). So the parts list does not yet carry what makes a spell work. What the grammar and laws need:
+
+| Code | Aspect | What it adds |
+| --- | --- | --- |
+| SPD1 | **Components** | Incantation, gesture, focus (wand, staff, talisman), intent and attention as separate parts, each able to fail or be skipped at a cost (wordless and wandless casting) |
+| SPD2 | **Skill curve** | Practice raises reliability, power and speed separately; a plateau per spell; rust without use |
+| SPD3 | **Shaping** | Spell-shaping exercises (the Mother of Learning pattern) change area, precision and efficiency as trained skills |
+| SPD4 | **Failure modes** | Fizzle, backfire, misfire onto another target, partial effect. Each is a sentence of its own, not just "failed" |
+| SPD5 | **Counterplay** | Shields, counter-spells, dispels and wards as effect sentences against matching objects (EF3) |
+| SPD6 | **Invention** | Canon shows students inventing spells. Research is an experiment loop on the grammar (NV1, NV5) with a notebook as the knowledge record |
+| SPD7 | **Personal style** | A caster's signature: preferred families, quirks and variations that teaching passes on (LN4) |
+| SPD8 | **Standing fields** | Wards, enchantments and charms that persist on places and objects, as W law fields with upkeep |
+| SPD9 | **Cost sources by world** | Stamina, spirituality, mana, spell slots, essence; each world's pack maps its cost to the grammar's cost slot |
+
+### Potion-craft depth (PTD)
+
+| Code | Aspect | What it adds |
+| --- | --- | --- |
+| PTD1 | **Ingredient properties** | Each ingredient carries properties, not a label: what it does, how strongly, how it reacts. Preparation forms (sliced, crushed, powdered, stewed) change them |
+| PTD2 | **Freshness and provenance** | Age, storage, harvest conditions (moon phase, season), and source quality change potency (the fluxweed rule as a general case) |
+| PTD3 | **Process** | Temperature, stirring count and direction, timing, order and resting as tokens with tolerances. Off-tolerance steps shift the result rather than only failing it |
+| PTD4 | **Vessel and tools** | Cauldron material, size and residue history (B's vessel history) |
+| PTD5 | **Brewer skill and judgement** | Reading the brew's color, smell and texture; a skilled brewer can correct mid-process |
+| PTD6 | **Batch variation** | Quality spread per batch, by address (PR1). Two batches of the same recipe differ |
+| PTD7 | **Interactions** | Potions mix in a body: stacking, cancelling, dangerous combinations. Antidotes to blended poisons need more than the sum of single antidotes (a Hogwarts canon principle; locator owed) |
+| PTD8 | **Shelf life and spoilage** | Potions degrade, separate or turn, using the existing spoilage owner |
+| PTD9 | **Improvement and annotation** | A brewer's notes can improve a canon recipe. A notebook is an item carrying knowledge (N), like an annotated textbook |
+| PTD10 | **Lord of the Mysteries formulas** | Main and supplementary ingredients, ritual conditions, and digestion afterwards (R, LR4); characteristics conserved (LR3) |
+
+### More to consider (BX)
+
+- **BX1 · Shared research loop.** Spell research, potion research, breeding programs and Gu refinement are all one loop: hypothesis, trial, observation, notebook update. K's working plus N's knowledge. Build it once (P, K, N).
+- **BX2 · Notebooks and books as items.** An annotated book carries knowledge, provenance and a forger's risk. Reading it teaches on the taught-by edge (N, F).
+- **BX3 · Descent is cheap if stored as edges.** One graph, with detail near and counts far (GN8). Only observed ancestors are stored.
+- **BX4 · Canon families as fixed points.** Named canon families, clans and lines with their stated traits go into the lore ledger first (LR1).
+
+- **PFP33 · One descent graph.** Bodies, things, knowledge, institutions and places record their ancestry as typed edges on one identity graph; a bloodline is a query over it.
+- **PFP34 · Spells and potions are made of working parts.** Components, process steps and ingredient properties each carry their own tolerance, failure and skill, not one success roll.
+
 ## The goal
 
 Weibao (2026-11-11): "go ahead and /sharpen /more-to-consider /goal creating comprehensive system for each sytem, /sharpen goal first"

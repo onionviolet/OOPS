@@ -9,7 +9,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {canonTest} from '../src/procedural_grammar.js';
 import {drawU32, address, compareCodePoints} from '../src/gen_kit.js';
-import {guKindGrammar, guKindGrammarV2, labelGuRow, compareGuKind, guKindIdentity} from '../tests/fixtures/procedural_grammar/gu_kind_grammar.mjs';
+import {guKindGrammar, guKindGrammarV2, guKindGrammarV3, labelGuRow, compareGuKind, guKindIdentity} from '../tests/fixtures/procedural_grammar/gu_kind_grammar.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2), arg = name => { const i = args.indexOf(name); return i < 0 ? null : args[i + 1]; };
@@ -36,7 +36,7 @@ export function sliceRows(rows, labelledSize = SLICE_SIZE, unlabelledSize = 20) 
     const labelled = rows.filter(r => labelGuRow(r).parts), unlabelled = rows.filter(r => !labelGuRow(r).parts);
     return [...order(labelled).slice(0, labelledSize), ...order(unlabelled).slice(0, unlabelledSize)].sort((a, b) => compareCodePoints(a.id, b.id));
 }
-export const runGuCanon = (rows, grammar = guKindGrammar) => canonTest(grammar, rows, {label: labelGuRow, compare: compareGuKind, identity: guKindIdentity, infer: ['path', 'role'], pairs: [['path', 'role'], ['rank', 'path']]});
+export const runGuCanon = (rows, grammar = guKindGrammar) => canonTest(grammar, rows, {label: labelGuRow, compare: compareGuKind, identity: guKindIdentity, infer: ['path', 'role'], pairs: [['path', 'role'], ['rank', 'path'], ['rank', 'role']]});
 
 function summary(name, report) {
     const lines = [`${name}: ${report.corpus.rows} rows, ${report.corpus.labelled} labelled, ${report.corpus.unlabelled} unlabelled`,
@@ -61,10 +61,12 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
         }
         out['full v1'] = runGuCanon(rows);
         out['full v2'] = runGuCanon(rows, guKindGrammarV2);
+        out['full v3'] = runGuCanon(rows, guKindGrammarV3);
     }
     const slice = JSON.parse(fs.readFileSync(slicePath, 'utf8')).rows;
     out['slice v1'] = runGuCanon(slice);
     out['slice v2'] = runGuCanon(slice, guKindGrammarV2);
+    out['slice v3'] = runGuCanon(slice, guKindGrammarV3);
     if (args.includes('--json')) console.log(JSON.stringify(out, null, 1));
     else for (const [k, v] of Object.entries(out)) console.log(summary(k, v));
 }

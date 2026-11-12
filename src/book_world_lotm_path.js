@@ -10,6 +10,7 @@ import {pathwayRows,ccRow} from './book_world_lotm_rows.js';
 import {generatedRows} from './book_world_lotm_generated.js';
 import {advanceLadders} from './lotm_advancement.js';
 import {setSeq7Loaded} from './book_world_lotm_seq7.js';
+import {digestionFelt} from './book_world_lotm_digestion.js';
 export const seerPathway=definePath({id:'lotm.seer',world:'book.lotm.tingen',label:'Seer pathway',shape:'ladder',stages:[
  {id:'ordinary',label:'Ordinary clerk',crossings:[],grants:['No Beyonder source']},
  {id:'seq9',label:'Sequence 9 · Seer',crossings:[{id:'seer_dose',type:'ingest',label:'Hold the allocated Seer dose, then drink it',fact:'heldSeer',need:true,irreversible:true}],
@@ -25,7 +26,6 @@ export const seerPathway=definePath({id:'lotm.seer',world:'book.lotm.tingen',lab
 ]});
 // Other pathways are descriptors built from rows (book_world_lotm_pathways.js, Q1 onward).
 export const corpsePathway=rowDescriptor(ccRow);
-const SETTLE=['unsettled','settling','settled'];
 // L10: the ladder above Sequence 8 comes from the private advancement pack (fetch-if-present). With no pack the ceiling stays
 // at Sequence 8 and play is unchanged. Rung facts the host cannot supply yet read as zero, so each blocker shows unmet and typed.
 const ADVANCEMENT='lotm-advancement/advancement.json';
@@ -56,7 +56,7 @@ export function lotmPathView(state,f){
   const rungFacts=ladder?{acting7:position>=2?f['lotm.clown.acting']||0:0,heldMagician:(f['lotm.holds.magicianDose']||0)>0}:{};
  const v=ladderViewFromRecord(ladder?ladder.path:seerPathway,{position,facts:{heldSeer:(f['lotm.holds.dose']||0)>0,acting:f['lotm.acting']||0,assessed:flag('assessed'),examined:flag('examined')||flag('assessed')&&!flag('exam.required'),heldClown:(f['lotm.holds.clownDose']||0)>0,...rungFacts},known:ladder?Math.min(Math.max(3,position+2),ladder.path.stages.length):3,ceiling:ladder?ladder.path.stages.length-1:2});
  // Canon: you know a potion is digested by feel, so the felt state is words; the act count is a plain record of what you did.
- const felt=position===2&&ladder?(f['lotm.clown.digested']?SETTLE[2]:(f['lotm.clown.acting']||0)>0?SETTLE[1]:SETTLE[0]):position!==1?null:f['lotm.digested']?SETTLE[2]:(f['lotm.acting']||0)>0?SETTLE[1]:SETTLE[0];
+ const felt=position===2&&ladder?digestionFelt(f,'lotm.clown'):position!==1?null:digestionFelt(f,'lotm');
  const chosen=flag('allocated')||flag('ingested');
  // Before any dose is accepted every ladder this life's church holds is offered; once one is taken the others are not shown as paths.
  const others=chosen?[]:homeRows.map(r=>ladderViewFromRecord(rowDescriptor(r),{position:0,facts:{},known:3,ceiling:2}));

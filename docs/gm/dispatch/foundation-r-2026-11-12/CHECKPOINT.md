@@ -12,8 +12,71 @@ tests: none run; docs-only (check:rules)
 review: none
 ```
 
-**State:** phase 1 done (docs only). No runtime code touched. Save compatibility (MC4): unchanged.
-**Next phase:** embed, after K v0 and W v0 are merged to master. Start with the three first consumers in [the last section](#first-consumers-after-k-v0).
+**State:** LR3 and LR4 are fixed points on the LOTM sequence step (PRG14, PRG15). Earlier: MS5 route at the floor: Frontier tempering reached from a fresh life, saved, reloaded, exported and imported, with a headless Chromium receipt. Phase 2c: Frontier tempering's readiness and rolled attempt run on the path rule (PRG13). Phase 2b: live LOTM digestion runs on one counter over R's count track; phase 2a added the path contract v0 module on K, with the three first consumers proven in its test file. Save compatibility (MC4): unchanged (no live key). Phase 1 inventory below is unchanged history.
+**Next phase:** key the LOTM sequence steps to B's `lotm_potions` row ids once that ledger lands (it is on no branch yet; id proposal in the shared notes), then 2d, `skill_ladder` perks as path grants over the skill track, then `faction_rank` rungs as a `table` track over M's standing number (SMK10 split), then the two LOTM ladder descriptors and read models (duplication 2).
+
+## Lore fixed points LR3 and LR4 (2026-11-12)
+
+The rule gained PRG14 (a `rush` step admits without its count track and publishes `progression.pressure` in proportion to what was undigested, or a residual dial when digested) and PRG15 (`conserves` identities on ingest steps; `releaseConserved` publishes the highest identity holding the lower ones at death). New pack [`src/progression_packs/lotm_sequences.js`](../../../../src/progression_packs/lotm_sequences.js): Seer and Corpse Collector rows over the live descriptors, `LOTM_LORE` with locators from the existing source passes (L2 digestion note, potion-pathways B3.1 and B3.9), identities on the proposed `lotm_potions` ids.
+
+Calibration: rush pressure 2 matches the live `rushed` cause; residual 0 at Seq 9 to 8 follows the L2 note's P1 (the text says non-zero but small, ch451 P48). Proportional pressure is an authored proposal; the text gives no numbers.
+
+Not changed: the live LOTM commands still refuse or price rushing through `book_world_lotm_causes.js`; moving them onto PRG14 is the next LOTM step, together with the ledger re-key. LR3's conservation law itself (placing, gathering, fixed totals) is W's (request below).
+
+PFP2: before = after (13, 75, 27); the pack is a rule row over live descriptors, not yet the live command path.
+
+## MS5 (2026-11-12): one reachable advancement route at the floor
+
+Route: Frontier tempering, the first live consumer of R's step rule (PRG13). Script [`scripts/headless/r_tempering_walk.mjs`](../../../../scripts/headless/r_tempering_walk.mjs); receipt [`receipts/ms5_tempering.json`](receipts/ms5_tempering.json); Chromium image [`receipts/ms5_tempering_imported.png`](receipts/ms5_tempering_imported.png).
+
+| Floor line | Evidence |
+| --- | --- |
+| FLR1 Build | `npm run build` in this worktree; bundle `sha256:0b336d1e791ed1686f3fecfd464692bce18a86b7c12ff5d08c2c63131e0eb56c` (in the receipt) |
+| FLR2 Route | Natural, seed 20261112: fresh hero; elder lines hello, where am I, ask to leave, need to (unlocks the Infested field); travel by the travel button's own entry point `change_location`, because the action list is hidden while a centre panel is open; 1.5 game hours of fighting train Combat; the Vows and trials panel's "Temper without rations" passes (30% fail at this stage, so another seed can fail and keep Raw) |
+| FLR3 Shown | The panel shows "Current body tempering: Raw, Next: Tempered, 30% chance to fail" and "Not ready yet" before the fights; after, "Current body tempering: Tempered" |
+| FLR4 Used | The stage feeds the existing stat consumer: STR 12.4 and max HP 63 after import, from the stage bonus (`STAGE_BONUS`) |
+| FLR5 Kept | Save stores `pledges.trial.stage` 1; reload, Export and Import each show Tempered |
+| FLR6 Labelled | Agent-verified, not human-reviewed; route kind natural; browser proof is the yairpg-game MCP loading the walk's export on the same build and a real headless Chromium screenshot at 1920x1080 (saved-state mirror: the open panel is transient and not shown) |
+
+Gaps: the game MCP's action paging and compact view returned the full page every call (reported with `game_report_limit`), so the walk runs in the headless runner and the browser step proves the imported state, not the click.
+
+## Phase 2c (2026-11-12): tempering on the path rule
+
+`progression_path.js` gained PRG13: a step `attempt` rolls through `breakthrough_trial` with the stage index as tier, plus per-stage `gateDials`. `temperingRow` in `src/pledges_content.js` carries the four stages, the readiness gate per stage and `trialRules`; `pledges.readiness` and `pledges.attempt` now call `stepQuote` and `crossStep`. A parity test checks every 37th roll across tiers, pressure and paid units against `attemptBreakthrough`, and the gate against the direct `evaluateGate`. The `pledges` slice still stores `trial.stage`; the position record is built from it per call, so saves are unchanged (MC4). `progression_path` imports `breakthrough_trial` unchanged.
+
+New measure, live advancement steps that run on R's rule (before 2b: 0). After 2c: 3 tempering steps, plus digestion tracks for 7 potions (Seer, Corpse Collector, Savant, Sailor, Spectator, Sun, Clown). PFP2 book-canon, generic and bespoke counts: before = after (13, 75, 27); tempering was already data and stays data, now on the shared rule.
+
+Verification state: focused tests pass; behaviour-identical by parity; browser not exercised (implemented, browser-unverified).
+
+## Phase 2b (2026-11-12): one LOTM digestion counter
+
+New [`src/book_world_lotm_digestion.js`](../../../../src/book_world_lotm_digestion.js) writes `<prefix>.acting` and `<prefix>.digested` from R's `count` track and gives the felt words. The Seer (`book_world_lotm_actions.js`), every pathway row (`book_world_lotm_pathways.js`), Seq 7 (`book_world_lotm_seq7.js`) and the Seer view (`book_world_lotm_path.js`) call it; the two `SETTLE` arrays are gone. Fact names, resource keys and command rules are unchanged, so saves are unchanged (MC4) and the command golden fixture still matches. The generated rows' `not(gte(acting, row.digest))` command rule stays: it is a rule over the row's own number, not a second counter.
+
+Ownership: no foundation chat claims `book_world_lotm_actions`, `_pathways`, `_seq7` or `_path` (A notes acting stays in LotM files under MND10); R edited only the digestion lines and records that here.
+
+Defects fixed from the inventory: duplication 1 (five digestion derivations to one) and 3 (two `SETTLE` arrays to one). Still open: two ladder descriptors and three read models (2), two ability sources above Seq 8 (6), Seq 7 hard-coding its gate (7).
+
+PFP2 for 2b: before = after (13, 75, 27). The change removes duplicated counters inside modules that stay bespoke; no module was deleted.
+
+Verification state: focused tests pass (below); behaviour-identical by facts and golden fixture; not exercised in a browser (implemented, browser-unverified; the combined pass is PFP8).
+
+## Phase 2a (2026-11-12): path contract v0
+
+Merged master (K v0, W v0, all phase-1 checkpoints). Added:
+
+- [`src/progression_path.js`](../../../../src/progression_path.js) and [contract](../../../PROGRESSION_PATH_CONTRACT.md) PRG1-PRG12, backlog PRB1-PRB8. It imports `ascension_paths`, `progression_gates` and `kernel_working` unchanged; no evaluator of its own.
+- [`src/progression_packs/ri_gu_master.js`](../../../../src/progression_packs/ri_gu_master.js): the Gu Master rank row, R-written and marked for G (SC5). Wall 114 parts and 3 days are authored calibration: any wall of 24 + 6y with stone yield y >= 15 fits both chapter outcomes.
+- [`tests/progression_path.test.js`](../../../../tests/progression_path.test.js): 9 tests. Consumer adapters live in the test file, as K did.
+- Register and router rows in `docs/RULES_INDEX.md`; one row in `docs/AREA_GUIDE.md`.
+
+Decisions taken (proposals, AD56):
+- The skill done check was split: curve parity with the `models/skill.js` loop (that class does not load under node, so the loop is restated in the test), and partition invariance on the track. The per-gain cap stays host policy, since upstream `add_xp` itself depends on gain size there.
+- None of the three consumers rolls, so `breakthrough_trial` is not generalised yet (PRB1, when tempering folds in).
+- The Gu step reads one supplied fact, `pressable` (sea plus what stones refill); the sea, stones and the quarter-hour lapse stay Gu law and L's aperture organ (SC4).
+- R did not take over the four existing leaves; the module only imports them.
+
+PFP2 for 2a: before = after (13 book canon as data, 75 original and generic as data, 27 bespoke). Adapters in tests move no live count.
+
 
 ## What R covers
 
@@ -163,7 +226,19 @@ R proposes to own `ascension_paths.js`, `ladder_holdings.js`, `breakthrough_tria
 - **School years** (Hogwarts, MoL months): a calendar-gated path with a credential; needs W's calendar.
 - **Felt progress text** per track (R-10) needs prose rules and the knowledge owners.
 
-## Requests to other chats (to send at embed)
+## Requests to other chats
+
+Phase 2a (for the coordinator to relay):
+
+- **W:** LR3 as a conservation law on an identity (SC7): a released characteristic (`progression.released`) is placed, never destroyed, gathers by convergence, and a pathway's total stays fixed.
+- **A and L:** read `progression.pressure` (cause `undigested` or `residual`) as madness and harm.
+- **B:** confirm the `lotm_potions` ids (`lotm.<pathway>.seq<n>` proposed in the shared notes).
+- **G:** read the Gu Master position from `ri.gu_master` (`src/progression_packs/ri_gu_master.js`) instead of `aperture_stage` and `reserve_grade` strings in the 18 `book_gu_lead_*` scenes; supply `pressable` and the Rank One sub-stage facts; take the row into the Gu world pack when ready.
+- **K:** KB9 odds on the quote, for rolled steps (PRB1; PRG13 covers direct crossings).
+- **L:** a backlash inbox for `progression.backlash` (PRB2) and the aperture as an organ with capacity.
+- **M:** agreed split: M owns the standing number, R owns rank thresholds over it (`faction_rank`).
+
+Phase 1:
 
 - **K:** the working must carry an optional attempt (risk, draw, outcome ladder) and keep the admission quote (GTR11).
 - **W:** essence as a typed quantity with kind and grade; a time-integration hook R can use for rates.
@@ -171,6 +246,23 @@ R proposes to own `ascension_paths.js`, `ladder_holdings.js`, `breakthrough_tria
 - **G:** Gu Master rank and sub-stage move from scene strings to a path position on the body; Gu worm rank as a thing path. Note left in the shared notes folder.
 
 ## Checks run
+
+| Phase 2a to LR3/LR4 | | |
+| --- | --- | --- |
+| `node --test tests/progression_path.test.js` after LR3/LR4 | 13 pass | None |
+| `node scripts/headless/r_tempering_walk.mjs` | Raw, Tempered, stage 1 saved, Tempered after reload and import; no page errors | One seed; the fail branch is covered by the parity test, not a walk |
+| yairpg-game `game_load` plus `game_screenshot chromium` | PNG sha256 80621b07...; STR 12.4, HP 63 visible | Panel not mirrored |
+| Pledges and trial tests (15 files incl. `pledges.test.js`, `progression_pledges.test.js`) before and after 2c | 97 pass, 0 fail both times | None |
+| `node --test tests/progression_path.test.js` after 2c | 11 pass | None |
+| `node --test tests/lotm_*.test.js tests/book_world_lotm*.test.js` (72 files) after 2b | 421 tests, 406 pass, 0 fail, 15 skipped | Same set before 2b: 14 named files 84 pass 0 fail |
+| `node --test tests/lotm_commands_golden.test.js tests/batch_identity.test.js` plus the 14 digestion-touching files | 93 tests, 91 pass, 0 fail | None |
+| `node --test tests/progression_path.test.js` after 2b | 10 pass | None |
+| `node --test tests/progression_path.test.js` | 9 pass | Consumers are test adapters, not live play |
+| `npm run check:arch` | Exit 0 | None |
+| `npm run check:rules` | Exit 0; pre-existing TMR1 warning | None |
+
+Phase 1:
+
 
 | Command | Result | Gaps |
 | --- | --- | --- |
