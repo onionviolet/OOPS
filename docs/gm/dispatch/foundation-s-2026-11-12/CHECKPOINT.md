@@ -1,4 +1,4 @@
-# Foundation S · Spellcraft · checkpoint (phases 1 and 2, MS1 to MS3, 2026-11-12)
+# Foundation S · Spellcraft · checkpoint (phases 1 and 2, MS1 to MS3, SPD, 2026-11-12)
 
 Chat S in the [procedural foundation plan](../../../PROCEDURAL_FOUNDATION_PLAN.md). Phase 1 is inventory only: nothing here embeds on K or W, and no runtime file changed. Everything below is a proposal under AD56 (it widens play) unless it quotes Weibao. Codes: SI inventory findings, SG grammar parts, SQ quantities, SF findings for other chats, SB backlog.
 
@@ -16,6 +16,61 @@ persistence: unchanged
 tests: 15 focused files (spell, kernel, grammar, effect_dsl, D&D, ritual, divination) pass after merging master 2fff2285e; spell_grammar 11 of 11
 review: none
 ```
+
+## Spellcraft depth SPD1 to SPD9 (2026-11-12, after master 4c476b518)
+
+Read the plan's SPD table and checked each item against the GL2 misses (S2R1-S2R9), using the committed blind lexicon run: 35/94 verb and object, 15/94 full. Measured, not guessed: only 2 of 94 Hogwarts rows record a gesture, none records a focus, and of the 79 missed rows only 1 (a target miss) records a gesture.
+
+### Codex lane return reviewed and committed (2026-11-12)
+
+The source check (`source_check_hp_spells.jsonl`) gave 94 verdicts: 6 confirmed, 74 corrected, 14 unsupported, 0 not found. S applied its pack and ledger edits, fixed the three row targets it could not touch (Engorgio and Reducio on a creature, Obscura on a portrait, with Hogwarts dial `mindedObjects` because portraits have minds), and moved the 14 unsupported rows to ledger exceptions (`blocked:missing-intent` 10, `blocked:effect-unshown` 3, `blocked:effect-unknown` 1). Ledger: 117 records, runs 80 (68.4%), blocked 32, not-a-thing 5, unclassified 0. GL2 on the 80 checked rows: blind 33 verb and object (41.3%), 12 full (15.0%); authored 52 and 22.
+
+SPD1 measured: 40 of 80 rows now record a gesture. As identity tokens they gave 5 rows evidence but no new hits (blind 33 either way; authored 52 to 51), because most gestures are generic pointing or raising. Default `components` is off; the parts and skip costs stay. Gesture shape as evidence needs a finer gesture vocabulary (request S3R1, rewritten).
+
+### Which SPD items explain which misses
+
+| SPD | Explains | How much | Folded into |
+| --- | --- | --- | --- |
+| SPD1 components | `no-identity-evidence` 23, `intent-from-identity` 36 | The likeliest cause: a spell's identity is split across words, gesture, focus and will, and the corpus records the words alone. Not measurable yet: 2 rows carry a gesture. The Codex lane already checks gestures (CODEX_LANE.md), so its return is the first test | Grammar revision 4: `focus` and `attention` slots, a `components` derive rule, recorded gesture and focus join identity as `gesture:` and `focus:` tokens on both sides of the leave-one-out. GL2 unchanged at 35 and 15 (no data yet) |
+| SPD8 standing fields | `time-from-intent` 4 (Portkey triggered; Erecto, Engorgio and the rope lasting) | All four leave a standing change on a thing. Time is set by what the effect leaves behind, not by the intent | `standingField`: a lasting, timed, sustained or triggered effect on a holder is a W `law_add`; a ward is W's `block` kind with upkeep (default: renewed daily by recasting; lasting charms hold until broken) |
+| SPD5 counterplay | part of `target-from-intent` (Shield Charm on self, Disarming on a creature) | Small: a counter's target is whoever it protects, which the intent alone does not say | `counterFor` and `counters`: a counter is a W block field on the spell's verb and object, or `*`. Runs through `applyEffect` in the test |
+| SPD9 cost sources | none of the GL2 misses (cost is not in the scored sentence) | n/a | `WORLD_COST_SOURCES` for Hogwarts, Cyoria, D&D, LOTM and Gu, each naming an account the cost slot accepts |
+| SPD2 skill, SPD3 shaping, SPD4 failure | none: GL2 scores the spell, not the cast | n/a | `castProfile` (reliability, power and speed on separate curves to a plateau, rust after a week idle; area, precision and efficiency from drills); `failureSentences` and `castOutcome` (fizzle, partial, misfire, backfire as sentences, drawn by address; precision lowers misfire, a skipped focus doubles backfire) |
+| SPD6 invention | none | already NV1 (`recombine`) with the spellbook trial notebook | no change |
+| SPD7 personal style | none | rides on lineage LN4 | request below, not built |
+
+S2R1 (ordered token composition), S2R2 (two givens per slot) and S2R3 (lexicon overlay) still carry most of the misses: 36 intent misses come from roots that vote alone, and target misses such as Mobilicorpus, Levicorpus and Densaugeo come from a noun root and the intent weighed apart. No SPD item replaces them.
+
+### Defaults and dials (SPD)
+
+- Skip costs (`SKIP_COST`): words 1.5 times the cost and 0.15 reliability; gesture 1.25 and 0.1; focus 2 and 0.25; attention no discount and 0.5. Reason: canon nonverbal and wandless casting are harder, not forbidden. An unrecorded part charges nothing.
+- Skill curve (`SKILL_CURVE`): half-practice 10 casts for reliability, 25 for power, 40 for speed; rust 3% a week after a week's grace, at most 30%; plateau 1 per spell (dial).
+- Failure mix (`FAILURE_MIX`): fizzle 0.55, partial 0.25, misfire 0.12, backfire 0.08.
+
+### PFP2 counts, before and after SPD
+
+| Count | Before | After |
+| --- | --- | --- |
+| Canon spell cases as data | 102 | 88 (14 moved to blocked by the source check) |
+| Lowered into native play | 4 | 4 |
+| Bespoke spell modules | 7 | 7 |
+| Grammar parts | 9 | 11 (focus, attention) |
+| Cast depth as shared code (components, skill, failure, counter, standing field, cost source) | 0 | 6 functions in `spell_depth.js` |
+
+### Checks (SPD)
+
+- `node --test tests/spell_depth.test.js tests/spell_grammar.test.js tests/spell_working.test.js`: 22 pass, 0 fail (6 new in spell_depth).
+- `npm run check:arch`: pass. `npm run check:rules`: PASS (0 new player-text strings). `node scripts/spell_coverage.mjs --check`: 117 records, runs 94, unclassified 0. `node scripts/check_doc_slips.mjs`: no new hits.
+- `spell_depth.js` is implemented, below floor: no caller in play yet. Not run: browser, full `npm test` (integrator).
+- Hogwarts `costSource` lives on `HP_SPELL_WORLD`; D&D, Cyoria and LOTM on their pack world records (SPD9 owner per pack).
+
+### Requests (SPD)
+
+| Code | To | Request | Done check |
+| --- | --- | --- | --- |
+| S3R1 | S next phase | Gesture as shape (direction, contact, path) instead of a free label, then rerun GL2 with components on; add the 10 missing intents the source check named (EF2 review) | GL2 with components beats components off |
+| S3R2 | P and W | Objects with no W reading (mind, memory, force, workings) need their owners' block fields; S maps all 28 objects onto P (`sharedEffect`) and counters lower through `lowerEffect` | a counter on a mind spell blocks through A's field |
+| S3R3 | lineage owner (LN4) | A taught-by edge that carries a caster's style (preferred families, quirks) so SPD7 can pass it on | a student's spell inherits the teacher's variation |
 
 ## Milestones MS1 to MS3 (2026-11-12, after master 2fff2285e)
 

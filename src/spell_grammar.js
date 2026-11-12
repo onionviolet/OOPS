@@ -6,6 +6,7 @@
 // path (PFP16, PFP17). Names no world; world packs supply rows and dials (PFP3).
 import {defineGrammar} from './procedural_grammar.js';
 import {address, drawU32, indexFromU32} from './gen_kit.js';
+import {spellComponents} from './spell_depth.js';
 import {INTENTS, INTENT_LAW, EFFECT_TARGETS, EFFECT_CARRIERS, EFFECT_COSTS, EXECUTION_TIME, sentenceFromIntent, compareSentences} from './spell_effects.js';
 
 // Which account a carrier pays from by default (a list: a cantrip spends no slot). Dial: a world (or a transfer,
@@ -18,7 +19,7 @@ export const CARRIER_COST = Object.freeze({wand: 'stamina', attuned_mana: 'mana'
 const EFFECT_VERBS_ON_EFFECTS = new Set(['end', 'remove', 'block', 'sense', 'copy', 'conceal']);
 const LIVING_OBJECTS = new Set(['mind', 'mood', 'memory', 'pain', 'vitality', 'voice', 'sight']);
 
-export function defineSpellGrammar({id = 'spell', revision = 3, dials = {}} = {}) {
+export function defineSpellGrammar({id = 'spell', revision = 4, dials = {}} = {}) {
     return defineGrammar({
         id, revision, dials: {carrierCostStrict: false, mindedObjects: false, ...dials},
         slots: [
@@ -28,6 +29,9 @@ export function defineSpellGrammar({id = 'spell', revision = 3, dials = {}} = {}
             {id: 'execution', type: 'one', values: Object.keys(EXECUTION_TIME)},
             {id: 'delivery', type: 'one', open: true},
             {id: 'gesture', type: 'one', open: true},
+            // SPD1: focus (wand, staff, talisman, none) and attention are their own parts (revision 4).
+            {id: 'focus', type: 'one', open: true},
+            {id: 'attention', type: 'one', open: true},
             {id: 'carrier', type: 'one', values: EFFECT_CARRIERS},
             {id: 'cost', type: 'one', values: EFFECT_COSTS},
             {id: 'access', type: 'one', open: true},
@@ -40,6 +44,10 @@ export function defineSpellGrammar({id = 'spell', revision = 3, dials = {}} = {}
                     try { return {sentence: sentenceFromIntent(parts)}; }
                     catch (error) { return {sentenceError: error.message}; }
                 }},
+            {id: 'components', kind: 'derive', reads: ['delivery', 'gesture', 'focus', 'attention'],
+                default: 'Incantation, gesture, focus and attention are separate; a skipped one raises the cost and lowers reliability (SPD1).',
+                reason: 'Wordless and wandless casting are harder, not forbidden (canon nonverbal lessons). Unrecorded parts cost nothing.',
+                run: ({parts}) => ({components: spellComponents(parts)})},
             {id: 'sentence-runs', kind: 'check', default: 'A spell needs a sentence the effect law can run.',
                 reason: 'Generated means runnable (PFP16).',
                 run: ({derived}) => derived.sentence ? null : {reason: derived.sentenceError ?? 'no sentence'}},
@@ -65,7 +73,7 @@ export function defineSpellGrammar({id = 'spell', revision = 3, dials = {}} = {}
                 }},
         ],
         fallback: {id: 'fallback.light', parts: {intent: 'light', roots: [], target: 'implement', execution: 'sustained',
-            delivery: 'spoken', gesture: 'unrecorded', carrier: 'wand', cost: 'stamina', access: 'taught'}},
+            delivery: 'spoken', gesture: 'unrecorded', focus: 'wand', attention: 'unrecorded', carrier: 'wand', cost: 'stamina', access: 'taught'}},
     });
 }
 
@@ -76,6 +84,7 @@ export function labelSpellRow(row, world) {
     if (missing.length) return {missing};
     return {parts: {intent: row.intent, roots: row.roots ?? [], target: row.target, execution: row.execution,
         delivery: row.delivery ?? 'unrecorded', gesture: row.gesture ?? 'unrecorded',
+        focus: row.focus ?? world.focus ?? 'unrecorded', attention: row.attention ?? 'unrecorded',
         carrier: row.carrier ?? world.carrier, cost: row.cost ?? world.cost, access: row.access ?? world.access}, truth: row.truth};
 }
 
@@ -134,21 +143,28 @@ export function rootRebuild(grammar, rows, world, {lexicon = {}, fitGrammar, ass
     return {rows: labelled.length, inferred, rebuilt, misses};
 }
 
+// SPD1: a recorded gesture or focus is identity evidence beside the words (a swish
+// and flick lifts), so it joins the roots as a `gesture:` or `focus:` token on both
+// the training and the held-out side. The world's usual focus says nothing.
+const withMarks = (parts, world, on = true) => !on ? parts : ({...parts, roots: [...(parts.roots ?? []),
+    ...['gesture', 'focus'].filter(k => parts[k] && !['unrecorded', 'none', world.focus].includes(parts[k])).map(k => `${k}:${parts[k]}`)]});
+
 // GL2 effect-layer canon test (plan "Grammar layers"): hold out the whole effect
 // (intent, target, execution) and predict it from identity (family, roots) plus
 // the world's lexicon; derive the sentence; compare with the recorded truth.
 // Leave one out. Misses are grouped by the first field that went wrong, each a
 // named missing rule. Dials: familyWeight (default 0: a family prior lowered
-// verb and object hits in the 2026-11-12 run) and the lexicon weight. A gloss may
+// verb and object hits in the 2026-11-12 run), components (default off: recorded gesture and focus
+// as identity tokens gained nothing on 80 rows, 40 with a gesture, 2026-11-12; SPD1) and the lexicon weight. A gloss may
 // carry `targets` (a noun root such as corpus votes for a body target).
-export function effectLayerTest(grammar, rows, world, {lexicon = {}, nameWords = {}, familyWeight = 0, fitGrammar, assemble} = {}) {
+export function effectLayerTest(grammar, rows, world, {lexicon = {}, nameWords = {}, familyWeight = 0, components = false, fitGrammar, assemble} = {}) {
     const labelled = rows.map(r => ({row: r, ...labelSpellRow(r, world)})).filter(r => r.parts);
     const misses = {}, fields = {verbObject: 0, sentence: 0};
     const most = (counts) => Object.entries(counts).sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1))[0]?.[0] ?? null;
     for (const {row, parts, truth} of labelled) {
         const train = labelled.filter(x => x.row.id !== row.id);
-        const fitted = fitGrammar(grammar, train.map(x => ({id: x.row.id, parts: x.parts})));
-        const identity = {...parts, target: undefined, roots: [...(parts.roots ?? []), ...(nameWords[row.id] ?? [])]};
+        const fitted = fitGrammar(grammar, train.map(x => ({id: x.row.id, parts: withMarks(x.parts, world, components)})));
+        const identity = {...parts, target: undefined, roots: [...withMarks(parts, world, components).roots, ...(nameWords[row.id] ?? [])]};
         const scores = new Map((inferIntent(fitted, identity, {lexicon}).ranked ?? []).map(([k, v]) => [k, v]));
         const family = {};
         for (const x of train) if (x.row.family === row.family) family[x.parts.intent] = (family[x.parts.intent] ?? 0) + 1;
@@ -182,5 +198,5 @@ export function effectLayerTest(grammar, rows, world, {lexicon = {}, nameWords =
     }
     const n = labelled.length, pct = x => Math.round(x / n * 1000) / 10;
     return {rows: n, verbObject: fields.verbObject, sentence: fields.sentence, verbObjectRate: pct(fields.verbObject), sentenceRate: pct(fields.sentence),
-        missingRules: Object.entries(misses).map(([rule, ids]) => ({rule, count: ids.length, examples: ids.slice(0, 6)})).sort((a, b) => b.count - a.count)};
+        missingRules: Object.entries(misses).map(([rule, ids]) => ({rule, count: ids.length, examples: ids.slice(0, 6), ids})).sort((a, b) => b.count - a.count)};
 }

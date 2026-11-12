@@ -30,14 +30,15 @@ const anchor = {sentence: sentenceFromIntent(partsOf(levitation, HP_SPELL_WORLD)
 
 test('canon spells of four worlds rebuild from their parts through one grammar', () => {
     for (const [world, rows, pack] of worlds) {
-        const report = canonTest(grammar, rows, {label: r => labelSpellRow(r, pack), compare: compareSpell, generated: 20});
+        // Each world's own dials (Hogwarts portraits have minds: mindedObjects).
+        const report = canonTest(defineSpellGrammar({dials: pack.dials}), rows, {label: r => labelSpellRow(r, pack), compare: compareSpell, generated: 20});
         assert.equal(report.corpus.unlabelled, 0, world);
         assert.equal(report.rebuild.rate, 1, `${world}: ${JSON.stringify(report.missingRules)}`);
     }
 });
 
 test('generated Hogwarts spells use intent and target pairs the books show', () => {
-    const report = canonTest(grammar, HP_SPELL_ROWS, {label: r => labelSpellRow(r, HP_SPELL_WORLD), compare: compareSpell,
+    const report = canonTest(defineSpellGrammar({dials: HP_SPELL_WORLD.dials}), HP_SPELL_ROWS, {label: r => labelSpellRow(r, HP_SPELL_WORLD), compare: compareSpell,
         generated: 100, pairs: [['intent', 'target']]});
     assert.equal(report.range.pairs['intent+target'].supportedRate, 1);
     assert.equal(report.range.fallbacks, 0);
@@ -170,9 +171,9 @@ test('GL2 effect layer: Hogwarts effects predicted from identity alone with blin
     const {effectLayerTest} = await import('../src/spell_grammar.js');
     const blind = JSON.parse(fs.readFileSync(new URL('../docs/gm/dispatch/foundation-s-2026-11-12/evidence/blind_root_lexicon.json', import.meta.url), 'utf8'));
     const report = effectLayerTest(grammar, HP_SPELL_ROWS, HP_SPELL_WORLD, {lexicon: {...blind.roots, ...blind.names}, nameWords: HP_SPELL_NAME_WORDS, fitGrammar, assemble});
-    assert.equal(report.rows, 94);
-    // Measured 2026-11-12: 35 verb and object, 15 full sentences. The plan's target is 70% (dial); these floors catch regressions.
-    assert.ok(report.verbObject >= 35, `verb and object ${report.verbObject}`);
-    assert.ok(report.sentence >= 15, `full sentence ${report.sentence}`);
+    assert.equal(report.rows, 80);
+    // Measured 2026-11-12 after the source check moved 14 rows out: 33 verb and object, 12 full sentences. The plan's target is 70% (dial); these floors catch regressions.
+    assert.ok(report.verbObject >= 33, `verb and object ${report.verbObject}`);
+    assert.ok(report.sentence >= 12, `full sentence ${report.sentence}`);
     assert.deepEqual(report.missingRules.map(m => m.rule).sort(), ['intent-from-identity', 'no-identity-evidence', 'target-from-intent', 'time-from-intent']);
 });

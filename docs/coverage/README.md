@@ -8,11 +8,11 @@
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | [gu_kinds](gu_kinds.jsonl) | G | 1466 | 1466 | 0 | 383 | 1079 | 4 | 0 | 100% | 26.2% |
 | [gu_moves](gu_moves.jsonl) | G | 776 | 776 | 0 | 4 | 772 | 0 | 0 | 100% | 0.5% |
-| hp_potions | B | 316 | not started | | | | | | | |
-| hp_ingredients | B | 409 | not started | | | | | | | |
-| lotm_potions | B | to build | not started | | | | | | | |
-| [hp_spells](hp_spells.jsonl) | S | 117 | 117 | 0 | 94 | 18 | 5 | 0 | 100% | 83.9% |
-| creatures | L | to build | not started | | | | | | | |
+| [hp_potions](hp_potions.jsonl) | B | 316 | 316 | 0 | 5 | 279 | 32 | 0 | 100% | 1.8% |
+| [hp_ingredients](hp_ingredients.jsonl) | B | 409 | 409 | 0 | 20 | 380 | 9 | 0 | 100% | 5% |
+| [lotm_potions](lotm_potions.jsonl) | B | to build | 226 | 10 | 33 | 183 | 0 | 0 | 100% | 19% |
+| [hp_spells](hp_spells.jsonl) | S | 117 | 117 | 0 | 80 | 32 | 5 | 0 | 100% | 71.4% |
+| [creatures](creatures.jsonl) | L | to build | 96 | 0 | 18 | 78 | 0 | 0 | 100% | 18.8% |
 
 ## Blocking rules
 
@@ -21,9 +21,25 @@
 | gu_moves | roles-unknown | 753 |
 | gu_kinds | rank-unknown | 679 |
 | gu_kinds | effect-unknown | 400 |
+| hp_ingredients | ingredient-properties | 380 |
+| lotm_potions | formula-in-notes | 177 |
+| hp_potions | body-door | 79 |
+| creatures | gu-body-fields | 78 |
+| hp_potions | mind-state | 50 |
+| hp_potions | effect-sentence | 48 |
+| hp_potions | body-form | 41 |
+| hp_potions | plant-or-creature-target | 32 |
 | gu_moves | unnamed-role | 17 |
-| hp_spells | effect-unknown | 3 |
+| hp_spells | missing-intent | 10 |
+| hp_potions | conceal-or-sense | 9 |
+| hp_potions | object-surface | 8 |
+| lotm_potions | body-door | 6 |
+| hp_potions | place-release | 6 |
+| hp_spells | effect-unknown | 4 |
+| hp_spells | effect-unshown | 3 |
 | hp_spells | intent-object-slot | 3 |
+| hp_potions | luck-field | 3 |
+| hp_potions | protection-field | 3 |
 | gu_moves | role-cannot-run | 2 |
 | hp_spells | accidental-magic | 1 |
 | hp_spells | breath-need | 1 |

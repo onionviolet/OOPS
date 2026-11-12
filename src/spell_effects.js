@@ -128,3 +128,25 @@ export function describeSentence(s) {
     const article = /^[aeiou]/.test(s.target) ? 'an' : 'a';
     return `It ${VERB_WORDS[s.verb]} ${what} of ${article} ${s.target}, ${TIME_WORDS[s.time]}. Paid with ${s.cost}.`;
 }
+
+// S2R5, S side: S's spell words on P's shared effect grammar (src/effect_grammar.js),
+// which lowers onto W (W_OBJECT_OF). One map so counters and standing fields
+// speak W's names. Default reading per word, with the reason where it is a
+// judgment; `gap` marks a word P has no object for yet (a request, not a refusal).
+export const P_VERB_OF = Object.freeze({move: 'move', add: 'add', remove: 'remove', transform: 'transform', bind: 'bind', sense: 'sense',
+    conceal: 'conceal', copy: 'copy', block: 'block', end: 'end',
+    alter_law: 'alter',      // a working on a law field
+    animate: 'transform',    // nearest: the thing's state changes so it moves of itself (no P verb for will-driven motion)
+    command: 'bind'});       // nearest: the agent's will is bound to the caster's (Imperius)
+export const P_OBJECT_OF = Object.freeze({position: 'position', light: 'light', fire: 'heat', cold: 'heat', water: 'moisture', force: 'force',
+    form: 'form', size: 'form', integrity: 'form', material: 'thing', motion: 'position', vitality: 'vitality', harm: 'vitality',
+    mind: 'mind', mood: 'mind', pain: 'mind', sight: 'mind', agent: 'mind', memory: 'memory', presence: 'information', answer: 'information',
+    voice: 'sound', sound: 'sound', access: 'relation', custody: 'relation', mark: 'relation', effect: 'working', magic: 'working'});
+// Cold is heat taken away: adding cold removes heat (and back).
+const FLIP = {add: 'remove', remove: 'add'};
+export function sharedEffect(sentence) {
+    const object = P_OBJECT_OF[sentence.object], base = P_VERB_OF[sentence.verb];
+    if (!object || !base) return {gap: !object ? `object ${sentence.object}` : `verb ${sentence.verb}`};
+    const verb = sentence.object === 'cold' ? FLIP[base] ?? base : base;
+    return {verb, object, time: sentence.time};
+}

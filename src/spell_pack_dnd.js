@@ -48,7 +48,8 @@ const truthOf = text => {
     return Object.freeze({verb, object, target, time, direction});
 };
 
-export const DND_SPELL_WORLD = Object.freeze({world: 'dnd', carrier: 'spell_slot', cost: 'slot', access: 'prepared'});
+export const DND_SPELL_WORLD = Object.freeze({world: 'dnd', carrier: 'spell_slot', cost: 'slot', access: 'prepared',
+    costSource: {account: 'spell slots', word: 'slot', recovers: 'long rest'}});
 
 // records: the SRD spell array. Returns rows in the shape labelSpellRow reads.
 export function dndSpellRows(records) {
