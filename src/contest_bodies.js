@@ -20,7 +20,8 @@ export const CONTEST_QUANTITIES = Object.freeze({
 /** The contest's substrate pack: it declares body quantities and reacts to nothing by default. */
 export function contestPack({extra = []} = {}) {
     const quantities = [...Object.values(CONTEST_QUANTITIES), ...extra];
-    return {id: 'c.contest', revision: 0, quantities, reads: quantities.map(q => q.id), writes: quantities.map(q => q.id), laws: [], reactors: []};
+    return {id: 'c.contest', revision: 0, quantities, reads: quantities.map(q => q.id), writes: quantities.map(q => q.id),
+        publishes: ['contest.blow', 'contest.down', 'contest.settled'], laws: [], reactors: []};
 }
 
 /** A body holder for an entrant. */

@@ -9,7 +9,7 @@ const DAY = 1440;
 // x.ping answers pong with ping and y.pong answers ping with pong: an echo
 // that only the cascade dial stops. A daily bell starts one echo each morning.
 const pingPack = {
-    id: 'x.ping', revision: 0,
+    id: 'x.ping', revision: 0, publishes: ['ping'],
     laws: [{id: 'bell', appliesTo: h => h.kind === 'place',
         horizon: view => DAY - (view.clock % DAY) || DAY,
         decide: (view, id) => view.clock % DAY === 0 && view.clock > 0 ? [{op: 'publish', kind: 'ping', place: id}] : []}],
@@ -17,7 +17,7 @@ const pingPack = {
         react: (view, id) => [{op: 'publish', kind: 'ping', place: view.placeOf(id)}]}],
 };
 const pongPack = {
-    id: 'y.pong', revision: 0,
+    id: 'y.pong', revision: 0, publishes: ['pong'],
     reactors: [{id: 'echo', on: ['ping'], appliesTo: h => h.kind === 'body' && h.tags.includes('ponger'),
         react: (view, id) => [{op: 'publish', kind: 'pong', place: view.placeOf(id)}]}],
 };
@@ -25,7 +25,7 @@ const pongPack = {
 // z.swarm doubles its members each dawn and each member buzzes once: a count
 // that grows day on day with nothing in the world to stop it.
 const swarmPack = {
-    id: 'z.swarm', revision: 0,
+    id: 'z.swarm', revision: 0, publishes: ['buzz'],
     laws: [{id: 'grow', appliesTo: h => h.kind === 'thing' && h.tags.includes('swarm'),
         horizon: view => DAY - (view.clock % DAY) || DAY,
         decide: (view, id) => {

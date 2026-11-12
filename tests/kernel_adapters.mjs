@@ -1,12 +1,12 @@
 // Kernel test adapters for G (resolveGuActivation per beat) and S
-// (compileSpellWorking + nativeSpellSteps per dictionary method). The owners'
+// (spellDraftCommands per dictionary method). The owners'
 // files are unchanged; domain chats can copy these when they embed.
 import {defineWorkingLaw} from '../src/kernel_working.js';
 import {composeWorking, defineComposition} from '../src/kernel_compose.js';
 import {resolveGuActivation} from '../src/gu_activation.js';
 import {strengthReversingProcedure as reversal} from '../src/gu_procedures.js';
 import {spellDictionary} from '../src/spell_dictionary.js';
-import {compileSpellWorking, nativeSpellSteps} from '../src/spell_working.js';
+import {spellDraftCommands} from '../src/spell_working.js';
 import {hogwartsSpellRules} from '../src/spell_world_rules.js';
 
 // ---- G: one Gu activation law, beats stay atomic ---------------------------
@@ -56,7 +56,7 @@ export function spellLaw(rules) {
             }};
             const draft = [{method: entry.id, revision: entry.revision, bindings: Object.fromEntries(entry.roles.map(({name}) => [name, bound[name].id]))}];
             let native;
-            try { native = nativeSpellSteps(compileSpellWorking(draft, spellDictionary, world), world); }
+            try { native = spellDraftCommands(draft, spellDictionary, world); }
             catch { return {ok: false, reason: 'cannot-reach'}; }
             return {ok: true, effects: native.map(({command}) => ({kind: 'command', id: command.id})), observed: {spoke: entry.id}};
         },
@@ -87,7 +87,7 @@ export const hpComposed = () => {
     const {filler} = spellLaw(hogwartsSpellRules);
     return composeWorking(hpCombined, {lift: filler('hp.levitation'), summon: filler('hp.summoning'), release: filler('hp.release')});
 };
-export const nativeIds = (draft, rules) => nativeSpellSteps(compileSpellWorking(draft, spellDictionary, rules), rules).map(({command}) => command.id);
+export const nativeIds = (draft, rules) => spellDraftCommands(draft, spellDictionary, rules).map(({command}) => command.id);
 
 export function composedSpellConsumer() {
     const {law, method} = hpComposed();

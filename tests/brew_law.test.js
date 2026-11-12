@@ -121,7 +121,7 @@ test('BRC1, BRC2, BRC8: heat, vapor and rinse water leave into the place and the
     assert.ok(brewBalance(done.facts).balanced);
     // The published effects are accepted by a real W v0 place as cause-chain
     // records. No W quantity holds vapor or waste water yet (request to W).
-    const rules = composeSubstrate({packs: [{id: 'b.brew', quantities: [], laws: [], reactors: []}]});
+    const rules = composeSubstrate({packs: [{id: 'b.brew', publishes: ['heat_released', 'vapor', 'rinse_water']}]});
     let world = createWorld(rules, {holders: [{id: 'workroom', kind: 'place'}, {id: 'cauldron', kind: 'thing', place: 'workroom'}]});
     world = applyWorldOps(rules, world, effects.filter(e => e.effect.op === 'publish').map(e => e.effect), 'b.brew:w.herb');
     assert.deepEqual(world.chain.map(row => row.kind), ['heat_released', 'vapor', 'rinse_water']);

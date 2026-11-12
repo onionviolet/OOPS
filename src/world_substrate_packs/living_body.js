@@ -28,6 +28,7 @@ export function createLivingBodyPack({inboxLimit = 16} = {}) {
     return {
         id: 'l.living_body', revision: 0,
         quantities: [SATIETY], reads: ['satiety'], writes: ['satiety'],
+        publishes: ['living.hungry'], hears: ['living.harm'],
         laws: [{
             id: 'appetite', appliesTo: isBody,
             rates: (view, id) => {

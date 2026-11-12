@@ -1,7 +1,7 @@
 // Composed workings (SC6, KW18-KW21). G and S are the first two consumers,
 // through adapters kept here so their files stay with their owners:
-// resolveGuActivation for killer-move beats, and compileSpellWorking with
-// nativeSpellSteps for combined spells over the real Hogwarts and Cyoria rules.
+// resolveGuActivation for killer-move beats, and spellDraftCommands for combined
+// spells over the real Hogwarts and Cyoria rules.
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
@@ -10,7 +10,6 @@ import {composeWorking, composedPart, defineComposition, fillsSlot} from '../src
 import {resolveGuActivation} from '../src/gu_activation.js';
 import {runGuProcedure, strengthReversingProcedure as reversal} from '../src/gu_procedures.js';
 import {spellDictionary} from '../src/spell_dictionary.js';
-import {compileSpellWorking, nativeSpellSteps} from '../src/spell_working.js';
 import {cyoriaSpellRules, hogwartsSpellRules} from '../src/spell_world_rules.js';
 import {reader, runWorkingContract} from './kernel_contract_suite.mjs';
 
