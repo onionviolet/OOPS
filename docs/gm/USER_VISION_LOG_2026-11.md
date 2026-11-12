@@ -1202,3 +1202,9 @@ Recorded in the [procedural foundation plan](../PROCEDURAL_FOUNDATION_PLAN.md#lo
 Weibao: "consider aspects like bloodlines and more? Stuff beyond Creatures? Some stuff to focus on Spellcraft and potioncrafting? More to consider?"
 
 Recorded in the [procedural foundation plan](../PROCEDURAL_FOUNDATION_PLAN.md#bloodlines-descent-beyond-creatures-and-depth-for-spellcraft-and-potions-2026-11-12): one descent graph (DG1-DG7), bloodlines (BL1-BL8), lineage beyond creatures (LN1-LN6), spellcraft depth (SPD1-SPD9), potion-craft depth (PTD1-PTD10), BX1-BX4, PFP33-PFP34.
+
+## Codex coordinator takes over; gameplay deferred, 2026-11-12
+
+Weibao: "hand off for codex coordinator to take over and work on implementing everything in full? maybe can defer gameplay for now to focus on foundational systems like the procedural stuff and more. OTher systems with the same depth to send out too" Then: "Then send out that codex coordinator to pick thing up and continue work until goals fufiled or limits met, I am bumping credit limit to 62000, and usage to 20%"
+
+Recorded: playable slices stay deferred while foundations are built; more systems at the same depth (MD1-MD15) in the [procedural foundation plan](../PROCEDURAL_FOUNDATION_PLAN.md#more-systems-at-the-same-depth-2026-11-12); the [Codex coordinator handoff](dispatch/foundation-run-2026-11-12/CODEX_COORDINATOR_HANDOFF.md) with limits of 20% Codex usage and a 62,000 credit floor.

@@ -48,3 +48,14 @@ Weibao (2026-11-12): "Have those chats direct codex chats accordingly, with indi
 - Merged to master: P MS1 tooling and effect grammar (5cd05f309), G MS1 ledgers (f91fc20bb, e68a175d3), E harness (8a8b58460). Focused: P 18/18, Gu plus emergence 227/227; check:coverage pass (gu_kinds 26.2% runs, gu_moves 0.5% runs, 0 unclassified); check:rules and check:arch pass. Full suite for this wave running.
 - Codex pilot lane `fdn-g-codex-1` (Keeper compression batch 1) running in `/Users/weiwei/code/yair-codex-g1` on `codex/fdn-g-keeper-batch1`; status via `python3 -I scripts/codex_goal_lane.py status`. More lanes open after the pilot's usage per lane is measured.
 - Usage read 2026-11-12 01:25 local: 5-hour 73%, weekly 57%. N, X and D chats held until the 5-hour window resets (09:50Z) per the 85% rule's margin.
+
+## Wave 3 log and hold (2026-11-12)
+
+- Wave 2 suite: 6211 pass, 0 fail, 2 skipped. Wave 3 merged to master (P with W phase 2 and the effect-grammar fix, W phase 3, K v0.5 with oaths, A agency v0 and shared search, B ledgers, C contest moves as effect sentences, F lore backlog, L IH1 and DC answers, M DC answers, R LR3 and LR4 fixed points, S hp_spells ledger and GL2 rate). AREA_GUIDE and RULES_INDEX table conflicts resolved by keeping every row. check:rules, check:arch and check:coverage pass. Ledgers: gu_moves 0.5%, hp_ingredients 5%, hp_potions 1.8%, hp_spells 83.9%, lotm_potions 19% runs; 0 unclassified anywhere. Wave 3 full suite running.
+- Codex lanes running: fdn-g-codex-1, fdn-b-codex-1, fdn-s-codex-1 (worktrees yair-codex-g1, -b1, -s1). Codex usage 15%, credit headroom about 961 above the floor at last read.
+- Hold: usage read 2026-11-12 01:46 local: 5-hour 93%, weekly 60%. Rule: no new dispatch until the 5-hour window resets (09:50Z). S, K and B were messaged just before the read and are working.
+- Next useful action after reset: read usage; if the wave 3 suite is green, message the idle chats (W, P, G, L, F, A, C, R, M, E) to continue their next phase; start N (knowledge), then X and D; review Codex returns with their owners; merge wave 4.
+
+## Handoff to the Codex coordinator (2026-11-12)
+
+- Weibao handed the run to a Codex coordinator with new limits: Codex usage 20%, credit floor 62,000 (`~/.codex/foundation-lanes/limits.json`). Handoff: [CODEX_COORDINATOR_HANDOFF.md](CODEX_COORDINATOR_HANDOFF.md); goal: [CODEX_COORDINATOR_GOAL.md](CODEX_COORDINATOR_GOAL.md). Launched as lane `fdn-codex-coordinator` in the primary checkout. The Claude coordinator stops writing after this commit; Claude chats K, B and S finish their current phase and stop.
