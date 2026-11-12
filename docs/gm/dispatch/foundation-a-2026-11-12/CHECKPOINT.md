@@ -1,6 +1,6 @@
 # Foundation A · Agency, checkpoint 2026-11-12
 
-*Chat A in the [procedural foundation plan](../../../PROCEDURAL_FOUNDATION_PLAN.md) (OS1). Phase 1: inventory and contract proposal, before K and W v0. Docs only; no `src` edits. Started from 9bbc51363 (branch `claude/fdn-a-agency-9dddef`, fast-forwarded from c25fd396d). Everything below is a proposal under AD56 and stays adjustable.*
+*Chat A in the [procedural foundation plan](../../../PROCEDURAL_FOUNDATION_PLAN.md) (OS1). Phase 1: inventory and contract proposal, before K and W v0 (docs only). Phase 2: contract v0 and the first two consumers (below). Started from 9bbc51363 (branch `claude/fdn-a-agency-9dddef`, fast-forwarded from c25fd396d). Everything below is a proposal under AD56 and stays adjustable.*
 
 ## Reading
 
@@ -133,17 +133,68 @@ Fallback for C1: a causal-story courier controller with competing candidates, if
 
 Compatibility (MC4): unchanged; no save shape touched.
 
+## Phase 2 (2026-11-12): contract v0 and the first two consumers
+
+Merged master (ea6a170dd) into the branch first. Read the plan's new sections (SC1-SC10, PFP21, SB1-SB6, NV1-NV5, EF1-EF8, PFP22-PFP24) and every sibling checkpoint. Built on K v0 (`kernel_working.js`, KW1-KW14), W v0 (`world_substrate.js`, WSC1-WSC14) and P v0 (`procedural_grammar.js`, PGC1-PGC12) with no edit to their files.
+
+**What landed** (owner doc: [Agency contract](../../../AGENCY_CONTRACT.md), AGC1-AGC12, AGB1-AGB9):
+
+- `src/agency.js`: `defineAgent`, `actorQuote` (the one quote, through `quoteWorking`), `chooseWorking` (labelled score terms, dropped candidates with reasons, cause line, keyed latitude draw, NV4 `invent` port under pressure), `bandOf`/`bandWatches` for far settlement, `recordChoice` (bounded ring).
+- `src/agency_household.js`: **C1, the manor cook** on law `a.household@0`. Copies `routineNeed` as `ROUTINE_NEED`; default wants reproduce it, and add buying meat when the pantry is empty and passing on it when the believed price exceeds the purse.
+- `src/agency_wild.js`: **C2, the wild Liquor Worm** as W pack `a.wild_agency` on law `a.forage@0`, numbers copied from `gu_keeper_wild.js` (1440-minute meal, 60-minute trip). It goes for wine it knows of when hungry, drinks to full, comes home, flees people, corrects wrong beliefs on sight, and invents a search through P's `generate` when no known working serves its hunger.
+- Plan done check (OS1): both actors pick K workings from wants and what they know, with the same quote the player gets (deep-equal test), and a changed scarcity changes the choice through the quote (cook: pantry, stall price; worm: cellar wine).
+- Coarse choice away: the worm's three days settle in **29 segments far against 4,320 near**, deep-equal worlds and effect chains, and the same world under any partition.
+- NV4: the hungry worm with no known wine invents `nose:grove` (cause `pressure`), searches, learns the grove holds wine, drinks there and keeps the routine; the same seed replays it, and invention stays shut while an existing working serves the want.
+
+Sample cause lines from the far run: "The Liquor Worm goes to drink at the cellar: it is hungry for wine." "The Liquor Worm goes home: it has drunk its fill." "The cook goes to buy meat: only 0 cooked portions are left, though 6 coins is a lot of the purse."
+
+Rescope (with reason): the earlier next-phase line said to score `controllerOrder` in `simulation.js` first. The plan's done check is "through K", and the controller loop quotes through `previewCommand`, not K, so this phase builds the contract on K and leaves `simulation.js` untouched; the opt-in controller field is AGB6.
+
+**PFP2 counts, before and after this phase**
+
+| Count | Before | After | Note |
+| --- | --- | --- | --- |
+| Live choices as data (controllers on the shared loop) | 58 (226 candidates) | 58 | No live owner moved yet |
+| Live bespoke choosers | 8 | 8 | `routineNeed` is re-expressed but the live manor still calls the old one (AGB9) |
+| Live choices with a stated cause | 1 | 1 | `allyMove` |
+| Foundation cases on the agency contract | 0 | 2 actors, 9 workings (5 household, 4 forage) | Cook and worm, both data rows over shared rules |
+| Foundation choices with a stated cause | 0 | every choice | AGC10 |
+| Wild creatures that choose | 0 | 1 (foundation, not live) | The worm |
+
+State: implemented, below floor, no live route (FLR2 and FLR4 wait on AGB9). Agent-verified, not human-reviewed.
+
+**Checks (phase 2)**
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/agency.test.js` | 13 pass, 0 fail | Focused file only; the integrator runs `npm test` |
+| `npm run check:arch` | exit 0 (main.js growth -1 from the merge, no new cycle) | |
+| `npm run check:rules` | PASS; one rule-lint warning in `book_world_hp_exams.js` (not this chat's) | |
+| Scratch segment count (`scratchpad/seg.mjs`) | far 29, near 4,320 segments over 3 days | Not committed; the test asserts a 20x margin |
+| `npm run build`, browser | not run | No bundled file imports the new modules |
+
+Compatibility (MC4): unchanged. No game save key is added; the worm's state lives in a substrate pack slice, which is not in the game save yet.
+
+## Requests (phase 2)
+
+- **K:** KB9, a cost field on the quote, so A stops computing cost from quote facts (AGB8). Optional: an `actor` field on the quote id convention so receipts can name the chooser.
+- **L:** the body read (vitality, hunger or feed level, injury, condition) as one per-actor read; the worm keeps its own `satiety` quantity until then.
+- **W:** an effect-kind vocabulary entry for `arrived` and `departed` reactions, so fear can be a reactor instead of a presence scan; an in-transit place (or X's route holder) for travelling bodies (AGB7).
+- **G:** consent to wire C2 into the Keeper roaming worm (`gu_keeper_wild.advanceRoamingWorm`) when W embeds into live state, replacing its fixed timer.
+- **Household owner (no foundation chat):** consent to call `chooseWorking` from `household_fortunes_domain.runRoutines` behind a dial.
+- **P:** none; `generate` with cause `pressure` worked as written.
+
 ## Next phase
 
-Phase 2 waits for K and W v0 on master. Then: wire A5 as a scored `controllerOrder` with the priority-only dial (zero behavior change, proven by the existing controller tests and a new one-jump-versus-steps harness case), then C1, then C2, each with its focused test and a Reports cause line.
+A phase 3: AGB6, an opt-in `agency` field on a `simulation.js` controller definition that scores its candidates through this contract with priority as the bias term (zero behavior change for controllers without it, proven by the existing controller tests), then one live controller with wants and a Reports cause line through a fresh-origin browser route. Live wiring of C1 and C2 follows the G and household consents above.
 
 ```receipt
 build: n/a
 route: n/a
-state: drafted
+state: built
 viewport: n/a
 persistence: unchanged
-tests: docs only
+tests: 13 focused agency tests (same quote as the player, routine reproduction, scarcity through belief and truth, priority bias, keyed latitude, bounded ring, wild choice, fear, belief correction, far versus near parity and partitions, NV4 invention and replay)
 review: diff-scoped
-surface: agency inventory and contract proposal; no runtime change
+surface: new leaves src/agency.js, src/agency_household.js, src/agency_wild.js; zero registration lines; imports kernel_working, world_substrate shape only through tests, gen_kit, basics
 ```
