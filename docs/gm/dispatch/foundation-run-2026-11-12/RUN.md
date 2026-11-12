@@ -395,3 +395,8 @@ D2: The packet's required `grants.quantities` path is implemented. The palette's
 D3: The required workaround changes a method snapshot's explicit `minutes` and retains each step's authored duration as `paceDuration`. Future kernel-owner request, as specified by the design: a holder-local duration/rate port supplied at settlement, with holder binding, authored local step duration and original start as inputs; it must derive absolute cumulative whole-tick deadlines, preserve already-settled receipts, keep the authored method unchanged in the record, and validate/restore with the same course identity. That kernel change is not required for these engine fixtures and no kernel file was touched. No substrate-owner change is requested.
 
 D4: No player journey, packaged build, installed behavior or UI acceptance is claimed. This lane's requested acceptance is engine fixtures plus the named checks. The owning chat still reviews and commits the diff.
+
+### Stored workings
+
+Folded `0f64436f6` onto `22167d678`. `node --test tests/stored_working.test.js tests/stored_working_engine.test.js`: 23 passed, exit 0. The four rows settle across one clock and survive restore. Architecture, rules, coverage and docs passed. `src/stored_working.js` is outside main reachability. Engine fixture evidence, below the AD43 gameplay floor.
+The requested engine mechanism and focused proof are delivered. The body-hit route currently requires the documented caller journal until O1 is adopted. A host must keep that journal with its own save if it supplies payload-based events. Automatic `hold: true` lowering, consuming the carrier on once fire, game wiring and UI remain with their owning lanes or the design's deferred scope.
