@@ -356,6 +356,24 @@ Agent-verified, not human-reviewed.
 - **MS1 ledgers.** CV3 lists no fabrication corpus. Proposal, for the coordinator to accept or drop: a `docs/coverage/fabrication.jsonl` with one row per native recipe (167) and per book-canon made thing (pane, formula carrier, Tingen amulet variants), using the CV2 states, so the ten-recipe count above becomes the `runs` share.
 - **Merge check:** 9 focused files, 85 pass after the merge.
 
+## Backlog after MS3: lore laws and the item depth checklist (master c36a671be)
+
+Routed to F with A, after F's MS3. Not started. Defaults are proposals (AD5, AD56).
+
+| Code | Lore law | Where it lands in F | Default shape |
+| --- | --- | --- | --- |
+| FBL1 | LR6, sealed artifacts carry a standing negative effect as the cost of their power (Lord of the Mysteries) | A pack row's cost slot holds a standing effect sentence, not a one-off debit; the item carries it while held or used | The effect lives on the item instance with its provenance; dial: how strongly and how often it acts, set per artifact |
+| FBL2 | LR12, a wand chooses its owner and changes allegiance through defeat (Harry Potter) | Item identity plus a tie to its holder (A); C's contest outcome is the trigger | Allegiance is a fact on the item instance that only a qualifying C outcome rewrites; custody and allegiance stay separate facts, so a stolen wand is held but not loyal |
+| FBL3 | LR16, attunement limits how many strong items one person can use (D&D) | A limit on the holder's ties to items, read at equip or use | A limit adjective per world (AD22): how many, how strong counts as strong, and what attuning costs; worlds without the law have no cap |
+
+Item depth checklist (DC1-DC10, PFP32), what F already has and what is missing:
+
+- **Wear (DC2, DC9):** per element by carried share (`wearFromUse`); live condition is still one number per item (FBX10).
+- **Provenance (DC3):** material lineage keys carry source, process and inputs through every partition.
+- **Hidden flaws (DC5):** not modeled. Proposal: a flaw is a part or join fact that inspection reveals as evidence, never by default (MR1), read by `carryLoad` as a lower capacity.
+- **Makers' marks (DC3, DC8):** not modeled. Proposal: the maker's identity is a lineage fact set at the step that shaped the piece, read by M for prestige and price.
+- DC1, DC4, DC6, DC7 and DC10 answered per row when each generator is built (PFP32).
+
 ## Requests (relayed by the coordinator)
 
 - **G:** which record shape is a practiced move? F's `refine` step reads either completed kernel working records of the move's method (default) or a fact a performance writes. A G move record as the bound input closes SC8 for both of us. Your move-to-Gu rows can then be F pack rows `{id, method, minPractice, practice, product}`; the Gu law keeps what the refined Gu is.
