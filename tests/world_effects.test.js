@@ -26,6 +26,39 @@ function hall(extra = []) {
 }
 const act = (w, a, cause = 'test') => applyEffect(rules, w, a, cause);
 
+test('copy a workshop pattern to a new holder or an existing blank without copying hidden state', () => {
+    const w = hall([{id: 'pattern', kind: 'thing', place: 'hall', tags: ['master'], as: ['item'], refs: {item: 'pattern-item'},
+        properties: {form: 'hinge', material: 'iron', marks: ['maker']}, quantities: {condition: 80}, state: {workshop: {master: true}}}]);
+    const at = id => ({shape: 'holder', id});
+    const copy = {verb: 'copy', object: 'property:form', from: 'pattern', target: at('vault')};
+    const create = {id: 'impression', kind: 'thing'};
+    const formed = act(w, {...copy, create});
+    const output = formed.world.holders.impression;
+    assert.deepEqual([output.kind, output.place, output.properties], ['thing', 'vault', {form: 'hinge'}]);
+    assert.deepEqual([output.tags, output.as, output.refs, output.quantities, output.state, output.ledger], [[], [], {}, {}, {}, {}]);
+    assert.equal(w.holders.impression, undefined);
+    assert.deepEqual(formed.world.holders.pattern, w.holders.pattern);
+    assert.deepEqual(formed.outcome.applied, [{target: 'vault', verb: 'copy', object: 'form', from: 'pattern', created: 'impression'}]);
+    const existing = act(w, {...copy, target: at('chest')}).world.holders.chest;
+    assert.deepEqual(existing, {...w.holders.chest, properties: {...w.holders.chest.properties, form: 'hinge'}});
+
+    for (const from of [undefined, 'missing', ['pattern'], 'constructor']) {
+        assert.throws(() => act(w, {...copy, from, create}), /copy needs a property and a holder `from`/);
+    }
+    const blank = act(w, {...copy, from: 'chest', create});
+    assert.deepEqual(blank.outcome.skipped, [{target: 'vault', reason: 'nothing-to-copy'}]);
+    assert.deepEqual(blank.world, w);
+    assert.throws(() => act(w, {...copy, create: {...create, id: 'chest'}}), /holder chest exists/);
+    assert.throws(() => act(w, {...copy, create: {kind: 'thing'}}), /holder needs id and kind/);
+    assert.throws(() => act(w, {...copy, create, target: at('missing')}), /no holder missing/);
+    for (const object of ['property:form', 'position']) {
+        const guarded = act(w, {verb: 'block', target: at('vault'), field: 'ward.copy', params: {verb: 'copy', object}}).world;
+        const stopped = act(guarded, {...copy, create});
+        assert.deepEqual(stopped.outcome.blocked, [{target: 'vault', by: 'ward.copy'}]);
+        assert.deepEqual(stopped.world, guarded);
+    }
+});
+
 test('E1 keyed families: one unit per family, any key, declarations cover the family or one key', () => {
     const w = hall();
     assert.equal(readQuantity(w, 'mage', 'energy:mana'), 20);
@@ -202,4 +235,69 @@ test('E9 one verb list with P, every P object mapped, and release and end answer
     assert.deepEqual(ended.outcome.applied.map(a => a.ended), ['snare']);
     assert.equal(act(ended.world, {verb: 'move', object: 'position', to: 'vault', target: {shape: 'holder', id: 'thief'}}).world.holders.thief.place, 'vault');
     assert.deepEqual(act(w, {verb: 'end', working: 'w1', target: {shape: 'holder', id: 'mage'}}).outcome.skipped, [{target: 'mage', reason: 'kernel-working'}]);
+});
+
+test('moving a gripped tool clears its grip atomically and still answers a position ward', () => {
+    const w = hall([{id: 'tongs', kind: 'thing', place: 'hall', properties: {marks: ['grip:mage', 'smith-mark']}}]);
+    const target = {shape: 'holder', id: 'tongs'};
+    const move = {verb: 'move', object: 'property:marks', target, to: 'vault', mark: 'grip:mage'};
+    const denied = act(w, {...move, mark: 'grip:thief'});
+    assert.deepEqual(denied.outcome.skipped, [{target: 'tongs', reason: 'not-held'}]);
+    assert.equal(denied.world, w);
+
+    const warded = act(w, {verb: 'block', target, params: {verb: 'move', object: 'position'}, field: 'tool-tether'}).world;
+    const blocked = act(warded, move);
+    assert.deepEqual(blocked.outcome.blocked, [{target: 'tongs', by: 'tool-tether'}]);
+    assert.equal(blocked.world, warded);
+    const done = act(w, move).world;
+    assert.equal(done.holders.tongs.place, 'vault');
+    assert.deepEqual(done.holders.tongs.properties.marks, ['smith-mark']);
+});
+
+test('physical changes use the specified account or properties and cannot guess missing details', () => {
+    const w = hall([{id: 'plate', kind: 'thing', place: 'hall',
+        quantities: {condition: 40, 'residue:scale': 8},
+        properties: {material: 'iron', hardness: 20}}]);
+    const target = {shape: 'holder', id: 'plate'};
+    const object = 'position';
+    assert.throws(() => act(w, {verb: 'remove', object, target, amount: 3}), /needs a declared quantity/);
+    assert.throws(() => act(w, {verb: 'transform', object, target}), /needs explicit declared properties/);
+
+    const stripped = act(w, {verb: 'remove', object, target, quantity: 'residue:scale', amount: 10});
+    assert.deepEqual(stripped.world.holders.plate.quantities, {condition: 40, 'residue:scale': 0});
+    assert.equal(stripped.outcome.applied[0].amount, -8);
+    const scored = act(stripped.world, {verb: 'remove', object, target, quantity: 'condition', amount: 10});
+    assert.equal(readQuantity(scored.world, 'plate', 'condition'), 30);
+    const absent = act(w, {verb: 'remove', object, target, quantity: 'stock:ore', amount: 1});
+    assert.deepEqual(absent.outcome.skipped, [{target: 'plate', reason: 'not-carried'}]);
+    assert.equal(absent.world, w);
+
+    const temper = {verb: 'transform', object, target, properties: {hardness: 70}};
+    const guarded = act(w, {verb: 'block', target, params: {verb: 'transform', object: 'property:hardness'}, field: 'hardness-guard'}).world;
+    assert.deepEqual(act(guarded, temper).outcome.blocked, [{target: 'plate', by: 'hardness-guard'}]);
+    assert.deepEqual(act(w, temper).world.holders.plate.properties, {material: 'iron', hardness: 70});
+});
+
+test('an explicit quantity transform adjusts one account and cannot convert an unspecified quantity', () => {
+    const w = hall();
+    const target = {shape: 'holder', id: 'hall'};
+    const cool = {verb: 'transform', object: 'temperature', target, delta: -8};
+    assert.throws(() => act(w, {...cool, delta: undefined, amount: 8}), /needs a quantity, `into` and an amount/);
+    assert.equal(readQuantity(act(w, cool).world, 'hall', 'temperature'), 12);
+    const guarded = act(w, {verb: 'block', target, params: {verb: 'transform', object: 'temperature'}, field: 'temperature-guard'}).world;
+    assert.equal(act(guarded, cool).world, guarded);
+});
+
+test('adding a physical output creates one holder at its resolved worksite', () => {
+    const w = hall();
+    const target = {shape: 'holder', id: 'chest'};
+    const form = {verb: 'add', object: 'position', target,
+        create: {id: 'rivet', kind: 'thing', properties: {material: 'iron'}}};
+    assert.throws(() => act(w, {...form, create: undefined}), /needs one target and a thing holder/);
+    const guarded = act(w, {verb: 'block', target, params: {verb: 'add', object: 'position'}, field: 'no-output'}).world;
+    assert.equal(act(guarded, form).world, guarded);
+    const made = act(w, form).world;
+    assert.deepEqual([made.holders.rivet.place, made.holders.rivet.properties.material], ['hall', 'iron']);
+    assert.throws(() => act(made, form), /holder rivet exists/);
+    assert.equal(Object.keys(made.holders).filter(id => id === 'rivet').length, 1);
 });

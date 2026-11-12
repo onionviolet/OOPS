@@ -12,7 +12,7 @@ const labels = JSON.parse(readFileSync(new URL('../docs/coverage/gu_labels.json'
 const withLabels = (rows, table) => rows.map(row => ({...table[row.id], ...row}));
 const kinds = withLabels(ledger('gu_kinds'), labels.kinds);
 const moves = withLabels(ledger('gu_moves'), labels.moves);
-const states = /^(runs-canon|runs-authored|blocked:[a-z-]+|not-a-thing:[a-z-]+)$/;
+const states = /^(runs-canon|runs-authored|expressed-authored|catalogued|blocked:[a-z-]+|not-a-thing:[a-z-]+)$/;
 const operator = {kind: 'operator', id: 'keeper'};
 const plenty = {reserves: {keeper: {primeval: 1000, immortal: 1000, mental: 1000}}};
 const fed = (id, kind, rank) => ({id, kind, rank, fedThrough: 1e9, alive: true, holder: 'keeper'});
@@ -32,11 +32,11 @@ test('both Gu ledgers cover their denominators with no unclassified row (MS1, CV
     }
     const checked = kinds.filter(row => row.layer === 'chapter');
     assert.equal(checked.length, 78);
-    assert.ok(checked.every(row => row.state.startsWith('runs') || row.state.startsWith('blocked:') || row.state.startsWith('not-a-thing')));
+    assert.ok(checked.every(row => row.state.startsWith('runs') || row.state === 'expressed-authored' || row.state === 'catalogued' || row.state.startsWith('blocked:') || row.state.startsWith('not-a-thing')));
 });
 
-test('every chapter-checked runs row runs through the Gu working law from catalogue data', () => {
-    for (const row of kinds.filter(entry => entry.layer === 'chapter' && entry.state.startsWith('runs'))) {
+test('legacy chapter-checked working rows still quote through the Gu working law', () => {
+    for (const row of kinds.filter(entry => entry.layer === 'chapter' && (entry.state.startsWith('runs') || entry.note.includes('Former state: runs-authored.')))) {
         const methods = guMethods(row.id);
         assert.ok(Object.keys(methods).length, row.id);
         if (methods.activate) {

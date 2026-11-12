@@ -6,12 +6,12 @@
 
 | Ledger | Owner | Expected | Rows | runs-canon | runs-authored | blocked | not-a-thing | unclassified | Classified | Runs share |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| [gu_kinds](gu_kinds.jsonl) | G | 1466 | 1466 | 0 | 383 | 1079 | 4 | 0 | 100% | 26.2% |
+| [gu_kinds](gu_kinds.jsonl) | G | 1466 | 1466 | 0 | 368 | 1078 | 4 | 0 | 100% | 25.2% |
 | [gu_moves](gu_moves.jsonl) | G | 776 | 776 | 0 | 4 | 772 | 0 | 0 | 100% | 0.5% |
 | [hp_potions](hp_potions.jsonl) | B | 316 | 316 | 0 | 5 | 279 | 32 | 0 | 100% | 1.8% |
 | [hp_ingredients](hp_ingredients.jsonl) | B | 409 | 409 | 0 | 20 | 380 | 9 | 0 | 100% | 5% |
 | [lotm_potions](lotm_potions.jsonl) | B | to build | 226 | 10 | 36 | 180 | 0 | 0 | 100% | 20.4% |
-| [hp_spells](hp_spells.jsonl) | S | 117 | 117 | 0 | 42 | 32 | 5 | 0 | 100% | 37.5% |
+| [hp_spells](hp_spells.jsonl) | S | 117 | 117 | 0 | 22 | 32 | 5 | 0 | 100% | 19.6% |
 | [creatures](creatures.jsonl) | L | to build | 96 | 0 | 18 | 78 | 0 | 0 | 100% | 18.8% |
 
 ## Typed and computed, side by side (PC9, PC10)
@@ -21,16 +21,16 @@
 | Ledger | Typed runs | Computed expressed | Computed runs | Typed runs, no case |
 | --- | ---: | ---: | ---: | ---: |
 | creatures | 18 | 0 | 0 | 18 |
-| gu_kinds | 383 | 0 | 0 | 383 |
+| gu_kinds | 368 | 16 | 0 | 368 |
 | gu_moves | 4 | 0 | 0 | 4 |
 | hp_ingredients | 20 | 0 | 0 | 20 |
 | hp_potions | 5 | 0 | 0 | 5 |
-| hp_spells | 42 | 38 | 0 | 42 |
+| hp_spells | 22 | 58 | 0 | 22 |
 | lotm_potions | 46 | 0 | 0 | 46 |
 
 ## Reachability from `src/main.js` (PC14)
 
-`node scripts/reachable.mjs`: 1491 of 1660 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
+`node scripts/reachable.mjs`: 1492 of 1669 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
 
 - `src/translation.js`: `` import(`../locales/${language}.js`) ``
 
@@ -39,7 +39,7 @@
 | Ledger | Missing rule | Rows |
 | --- | --- | ---: |
 | gu_moves | roles-unknown | 753 |
-| gu_kinds | rank-unknown | 679 |
+| gu_kinds | rank-unknown | 678 |
 | gu_kinds | effect-unknown | 400 |
 | hp_ingredients | ingredient-properties | 380 |
 | lotm_potions | formula-in-notes | 174 |

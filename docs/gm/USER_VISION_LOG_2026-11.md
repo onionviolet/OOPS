@@ -1323,3 +1323,9 @@ Weibao: "'One slot rule' 'Capacity' There are always ways around everything? Don
 
 Recorded in the [carry-out](../PROCEDURAL_CARRY_OUT.md#gate-rule-craft-families-in-the-order-and-body-alteration-pc99-2026-11-12): capacity is a default with a reason and a cost curve, with five ways around it, restating AD5, AD22 and AD38 for this mechanism; all four craft families start now, each led by a Fable lane that directs a Codex lane.
 
+## Ways around world rules in expansions, 2026-11-12
+
+Weibao: "for expansions, there are in world and maybe out world methods to break certan ruels, with difficulties accordingly, there is cannon and non cannon ways to do so too, but of course, it should be possible, have we started on all of the lanes?"
+
+The [carry-out](../PROCEDURAL_CARRY_OUT.md#direct-operators-science-fiction-and-magical-tweaks-pc97-2026-11-12) applies AD5 and AD38 to local and cross-world routes. Canon evidence and invented routes keep their own provenance.
+

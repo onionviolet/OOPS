@@ -62,6 +62,8 @@ A world is a clock (whole played minutes, the root clock of TMR1) and a set of *
 
 A sentence lowers to one or more acts. E8 runs four from the plan: a Moonblade-style cut (`remove vitality` on resolved holders), Polyjuice (`copy property:form`), Spirit Vision (`sense` through `spirit` reading hidden properties) and a Protego-shaped ward (`block remove vitality` on everything bound to a mark, lapsing at minute 10). `outcome` returns what applied, what was blocked and by which field, what was skipped and why, and what a `sense` observed. An observation is returned, not stored: N records knowledge (SB5).
 
+Physical acts use explicit application data. Removing material names its declared `quantity` account, transformation names declared `properties`, a quantity transform can supply a signed `delta`, and moving a gripped implement names its grip mark and destination. Physical addition accepts a caller-specified `create` holder at a resolved target's place. Property copy can likewise create an explicit output identity carrying the requested property. Existing-target copy retains its prior behavior. Field counters apply to the affected account, property and position, and the substrate validates the resulting holder transaction. Costs and any additional consequences stay with the working and world pack.
+
 ## Pack shape
 
 ```js

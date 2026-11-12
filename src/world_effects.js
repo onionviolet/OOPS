@@ -89,6 +89,12 @@ const placeOf = (world, id) => world.holders[id].kind === 'place' ? id : world.h
 /**
  * Run one act at the world's current minute.
  * act = {verb, object, target, amount?, to?, into?, ratio?, value?, from?, channel?, mark?, until?, field?, params?, by}
+ * Physical thing details name a quantity to remove, properties to transform,
+ * or a holder to create at the target. A move on marks moves the marked
+ * implement and releases its named grip. A quantity transform without a
+ * conversion names a signed delta. Copy writes one property from a source
+ * holder; with create: {id, kind: 'thing'}, it creates that thing at the
+ * single target's place and initializes only the copied property.
  * Returns {world, outcome: {applied, blocked, skipped, observed}}. Each applied
  * target also gets an `effect.<verb>` effect in its place so present things can
  * answer (a ward noticing, a Gu reacting to being sensed).
@@ -99,13 +105,39 @@ export function applyEffect(rules, world, act, cause) {
     const verb = act.verb;
     // bind and conceal write the marks and concealed properties; block, alter and a bare sense name no object.
     const implied = {bind: 'property:marks', conceal: 'property:concealed'}[verb] ?? (verb === 'release' ? `property:${act.channel ? 'concealed' : 'marks'}` : undefined);
-    const obj = implied ? parseObject(rules, implied) : verb === 'block' || verb === 'alter' || verb === 'end' || verb === 'sense' && !act.object
+    const base = implied ? parseObject(rules, implied) : verb === 'block' || verb === 'alter' || verb === 'end' || verb === 'sense' && !act.object
         ? {type: 'none', name: act.object ?? '*'} : parseObject(rules, act.object);
+    const physical = base.type === 'position';
+    let obj = base;
+    if (physical && verb === 'remove') {
+        check(quantityDef(rules, act.quantity), 'remove material needs a declared quantity.');
+        obj = parseObject(rules, act.quantity);
+    }
+    const changes = physical && verb === 'transform' ? Object.entries(act.properties ?? {}) : [];
+    if (physical && verb === 'transform') {
+        check(changes.length && changes.every(([name, value]) => rules.properties.has(name) && value != null),
+            'transform material needs explicit declared properties and values.');
+    }
+    const position = {type: 'position', name: 'position'};
+    const grips = verb === 'move' && obj.type === 'property' && obj.name === 'marks';
+    const copyNew = verb === 'copy' && act.create !== undefined;
+    const affected = [obj, ...changes.map(([name]) => ({type: 'property', name}))];
+    if (grips || obj !== base) affected.push(grips ? position : base);
+    if (copyNew) affected.push(position);
     const targets = resolveTargets(world, act.target);
+    if (physical && verb === 'add') {
+        check(targets.length === 1 && act.create?.kind === 'thing', 'add material needs one target and a thing holder to create.');
+    }
+    if (copyNew) {
+        check(targets.length === 1 && act.create?.kind === 'thing', 'copy into a new thing needs one target and a thing holder to create.');
+    }
     const by = act.by ?? cause, ops = [], outcome = {applied: [], blocked: [], skipped: [], observed: []};
     const note = (target, extra = {}) => {
         outcome.applied.push({target, verb, object: obj.name, ...extra});
         ops.push({op: 'publish', kind: `effect.${verb}`, place: placeOf(world, target), by, detail: {target, object: obj.name, ...extra}});
+    };
+    const createAt = (target, value) => {
+        ops.push({op: 'holder_add', value: {...value, place: placeOf(world, target)}});
     };
     if (verb === 'sense') {
         const sensor = act.by && world.holders[act.by];
@@ -117,27 +149,48 @@ export function applyEffect(rules, world, act, cause) {
     // Amount changes are planned on a working copy so a transfer conserves exactly.
     const working = new Map();
     const cur = id => { if (!working.has(id)) working.set(id, {...world.holders[id].quantities}); return working.get(id); };
+    const adjust = (target, delta) => {
+        if (!(obj.name in world.holders[target].quantities)) {
+            outcome.skipped.push({target, reason: 'not-carried'});
+            return;
+        }
+        const def = quantityDef(rules, obj.name), before = cur(target)[obj.name];
+        const after = Math.min(def.max, Math.max(def.min, before + delta));
+        if (after === before && (physical || verb === 'transform')) {
+            outcome.skipped.push({target, reason: 'at-bound'});
+            return;
+        }
+        cur(target)[obj.name] = after;
+        ops.push({op: 'add', holder: target, quantity: obj.name, amount: after - before, source: by});
+        note(target, {amount: after - before});
+    };
     for (const target of targets) {
-        const blocker = blockerOf(world, target, verb, obj);
+        const blocker = affected.map(object => blockerOf(world, target, verb, object)).find(Boolean);
         if (blocker) { outcome.blocked.push({target, by: blocker}); continue; }
         const h = world.holders[target];
         switch (verb) {
         case 'add': case 'remove': {
+            if (physical && verb === 'add') {
+                createAt(target, act.create);
+                note(target, {created: act.create.id});
+                break;
+            }
             check(obj.type === 'quantity' && whole(act.amount) && act.amount > 0, `${verb} needs a quantity and a positive whole amount.`);
-            if (!(obj.name in h.quantities)) { outcome.skipped.push({target, reason: 'not-carried'}); break; }
-            const def = quantityDef(rules, obj.name), before = cur(target)[obj.name];
-            const after = Math.min(def.max, Math.max(def.min, before + (verb === 'add' ? act.amount : -act.amount)));
-            cur(target)[obj.name] = after;
-            ops.push({op: 'add', holder: target, quantity: obj.name, amount: after - before, source: by});
-            note(target, {amount: after - before});
+            adjust(target, verb === 'add' ? act.amount : -act.amount);
             break;
         }
         case 'move': {
-            if (obj.type === 'position') {
+            if (physical || grips) {
                 check(world.holders[act.to]?.kind === 'place', 'move position needs a place `to`.');
                 if (h.kind === 'place') { outcome.skipped.push({target, reason: 'is-a-place'}); break; }
+                if (grips) {
+                    check(typeof act.mark === 'string' && act.mark, 'move a gripped holder needs a grip mark.');
+                    const marks = h.properties.marks ?? [];
+                    if (!marks.includes(act.mark)) { outcome.skipped.push({target, reason: 'not-held'}); break; }
+                    ops.push({op: 'property', holder: target, property: 'marks', value: marks.filter(mark => mark !== act.mark)});
+                }
                 ops.push({op: 'move', holder: target, to: act.to});
-                note(target, {to: act.to});
+                note(target, {to: act.to, ...(grips ? {released: act.mark} : {})});
                 break;
             }
             check(obj.type === 'quantity' && whole(act.amount) && act.amount > 0 && world.holders[act.to], 'move amount needs a quantity, an amount and a holder `to`.');
@@ -153,9 +206,21 @@ export function applyEffect(rules, world, act, cause) {
             break;
         }
         case 'transform': {
+            if (physical) {
+                const changed = changes.filter(([name, value]) => JSON.stringify(h.properties[name]) !== JSON.stringify(value));
+                if (!changed.length) { outcome.skipped.push({target, reason: 'unchanged-properties'}); break; }
+                for (const [property, value] of changed) ops.push({op: 'property', holder: target, property, value});
+                note(target, {properties: Object.fromEntries(changed)});
+                break;
+            }
             if (obj.type === 'property') {
                 ops.push({op: 'property', holder: target, property: obj.name, value: act.value});
                 note(target, {value: act.value});
+                break;
+            }
+            if (obj.type === 'quantity' && act.into == null && act.delta !== undefined) {
+                check(whole(act.delta) && act.delta !== 0, 'transform quantity needs a nonzero whole delta.');
+                adjust(target, act.delta);
                 break;
             }
             check(obj.type === 'quantity' && quantityDef(rules, act.into) && whole(act.amount) && act.amount > 0, 'transform needs a quantity, `into` and an amount.');
@@ -202,9 +267,15 @@ export function applyEffect(rules, world, act, cause) {
             break;
         }
         case 'copy': {
-            check(obj.type === 'property' && world.holders[act.from], 'copy needs a property and a holder `from`.');
+            check(obj.type === 'property' && typeof act.from === 'string' && Object.hasOwn(world.holders, act.from),
+                'copy needs a property and a holder `from`.');
             const value = world.holders[act.from].properties[obj.name];
             if (value === undefined) { outcome.skipped.push({target, reason: 'nothing-to-copy'}); break; }
+            if (copyNew) {
+                createAt(target, {id: act.create.id, kind: act.create.kind, properties: {[obj.name]: value}});
+                note(target, {from: act.from, created: act.create.id});
+                break;
+            }
             ops.push({op: 'property', holder: target, property: obj.name, value});
             note(target, {from: act.from});
             break;

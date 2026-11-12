@@ -73,11 +73,11 @@ Not authorized without Weibao: any reading pass that spends paid credit; a readi
 | Corpus | Enough to run now | Needs reading first |
 | --- | --- | --- |
 | Hogwarts spells | 117 spellbook rows with page locators; 80 have effect sentences | Spell names from the wiki without book hits (640 titles) |
-| Gu | 78 chapter-checked kinds; 57 with labelled effects; 23 move records | 1,388 wiki-only kinds; 753 move leads; Reverend Insanity volumes 5 to 24 have no reading passes |
+| Gu | 78 chapter-checked kinds; 57 with labelled effects; 23 move records | 1,388 wiki-only kinds and 753 move leads are not yet matched to chapters. Corrected 2026-11-12: the book is read. All 2,334 chapters are integrated in the [full-book reading](../../../research/novels/full-book/reverend-insanity/COVERAGE.md) with a power index; it is the batch index that stops at volume 4. The job is extraction from those notes |
 | Lord of the Mysteries potions | 46 with formulas | 173 Sequences with no main material in the notes |
 | Hogwarts potions and ingredients | 5 potions run by test; 79 ingredients have evidence rows | 380 ingredients lack property rows |
 | Creatures | 18 run; no Hogwarts creature row exists | Hogwarts creatures |
-| The Perfect Run | The eight-question recipe (PC98) and a generic power-granting potion in the body alteration fixture | The whole power system |
+| The Perfect Run | The eight-question recipe (PC98), a generic power-granting potion in the body alteration fixture, and a bounded [design return](../parallel-book-design-2026-10-11/perfect-run/REPORT.md) from one full chapter and targeted ranges (corrected 2026-11-12; the first version of this row missed it) | The rest of the power system: 130 chapters held, most unread |
 
 ## Limits (hard)
 

@@ -6,6 +6,7 @@
 // Usage: node scripts/gu_coverage_ledgers.mjs [path/to/gu-identities.json]
 import {readFileSync, writeFileSync, mkdirSync, existsSync} from 'node:fs';
 import {join} from 'node:path';
+import {GU_CASE_GAPS, GU_CASE_MODULE, guCaseNote} from '../src/world_packs/gu_effect_pack.js';
 import {guCatalogue} from '../src/gu_catalogue.js';
 import {derivedAbilityFrom, guMethods, guRunnableCoverage} from '../src/gu_working_law.js';
 
@@ -57,13 +58,20 @@ function kindRow(record) {
             return {...checked, state: 'not-a-thing:provisional-sighting', mechanisms: ['G'],
                 note: 'A sighting of an unnamed wild Immortal; no kind to run until a chapter names it.'};
         }
-        if (row?.methods.length) {
-            return {...checked, state: 'runs-authored', mechanisms: owners(row.methods),
-                note: row.derived ? 'Chapter rank and function; ability derived by gu.working dials (labelled derived).'
-                    : 'Chapter-checked identity; numbers that the chapters leave open are authored in the catalogue binding.'};
-        }
         const rule = !entry?.parts?.value.function ? 'effect-unknown' : 'rank-unknown';
-        return {...checked, state: `blocked:${rule}`, mechanisms: ['G'], note: row?.gap ?? 'not catalogued'};
+        const former = row?.methods.length
+            ? {state: 'runs-authored', mechanisms: owners(row.methods),
+                note: row.derived ? 'Chapter rank and function; ability derived by gu.working dials (labelled derived).'
+                    : 'Chapter-checked identity; numbers that the chapters leave open are authored in the catalogue binding.'}
+            : {state: `blocked:${rule}`, mechanisms: ['G'], note: row?.gap ?? 'not catalogued'};
+        const seen = guCaseNote(record.id);
+        const gap = GU_CASE_GAPS[record.id];
+        if (!seen && !gap) return {...checked, ...former};
+        const history = `Former state: ${former.state}. ${former.note}`;
+        if (seen) return {...checked, state: 'expressed-authored', mechanisms: ['G', 'P', 'W'],
+            case: {module: GU_CASE_MODULE, id: record.id}, test: 'tests/gu_effect_pack.test.js',
+            note: `${seen} Resolved effect scene; inputs and any open amounts are authored calibration. ${history}`};
+        return {...checked, ...former, note: `${gap} ${history}`};
     }
     const ranks = ranksOf(record);
     const types = (record.fandom?.categories ?? []).filter(c => typeFunction[c]);
@@ -109,9 +117,9 @@ for (const rows of [kinds, moves]) {
         seen.add(row.id);
     }
 }
-// P's ledger format (docs/coverage/README.md) keeps six fields. G's labels (layer, rank, function, roles and
+// P's ledger format has six base fields and the optional case link. G's labels (layer, rank, function, roles and
 // their basis) go to a sidecar keyed by ledger and id, which the coverage test reads to run each row.
-const FIELDS = ['id', 'source', 'state', 'mechanisms', 'test', 'note'];
+const FIELDS = ['id', 'source', 'state', 'mechanisms', 'test', 'note', 'case'];
 const ledgerRow = row => ({...Object.fromEntries(FIELDS.map(f => [f, row[f]])), source: row.source.join('; ')});
 const labelsOf = rows => Object.fromEntries(rows.map(row => [row.id, Object.fromEntries(Object.entries(row)
     .filter(([key, value]) => !FIELDS.includes(key) && value !== null && value !== undefined))]));
