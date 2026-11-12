@@ -32,21 +32,27 @@ class Server:
             args += ['-c', kv]
         args += ['app-server', '--stdio']
         self.p = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
-                                  stderr=subprocess.DEVNULL, text=True, bufsize=1)
+                                  stderr=subprocess.DEVNULL, bufsize=0)
         self.next_id = 10
         self.backlog = []
+        self.pending = b''
 
     def send(self, obj):
-        self.p.stdin.write(json.dumps(obj) + '\n')
+        self.p.stdin.write((json.dumps(obj) + '\n').encode())
         self.p.stdin.flush()
 
     def read(self, timeout):
-        r, _, _ = select.select([self.p.stdout], [], [], timeout)
-        if not r:
-            return None
-        line = self.p.stdout.readline()
-        if not line:
-            raise EOFError('app-server closed')
+        if b'\n' not in self.pending:
+            r, _, _ = select.select([self.p.stdout], [], [], timeout)
+            if not r:
+                return None
+            chunk = os.read(self.p.stdout.fileno(), 65536)
+            if not chunk:
+                raise EOFError('app-server closed')
+            self.pending += chunk
+            if b'\n' not in self.pending:
+                return None
+        line, self.pending = self.pending.split(b'\n', 1)
         try:
             return json.loads(line)
         except ValueError:
@@ -114,7 +120,8 @@ def current_limits(ceiling, floor):
 
 
 def guard_trips(u, ceiling, floor):
-    ceiling, floor = current_limits(ceiling, floor)
+    shared_ceiling, shared_floor = current_limits(ceiling, floor)
+    ceiling, floor = min(ceiling, shared_ceiling), max(floor, shared_floor)
     if u['usedPercent'] is None or u['creditBalance'] is None:
         return 'usage unreadable'
     if u['usedPercent'] >= ceiling:
@@ -141,7 +148,8 @@ def run_lane(a):
         log.write(time.strftime('%H:%M:%S ') + text + '\n')
 
     brief = open(a.brief).read()
-    cfg = [f'model_auto_compact_token_limit={a.auto_compact}']
+    cfg = [f'model_auto_compact_token_limit={a.auto_compact}',
+           f'model={json.dumps(a.model)}', f'model_reasoning_effort={json.dumps(a.effort)}']
     s = Server(cfg)
     try:
         s.init()
@@ -273,6 +281,8 @@ def main():
     s.add_argument('--token-budget', type=int, default=4_000_000)
     s.add_argument('--auto-compact', type=int, default=200_000)
     s.add_argument('--max-turns', type=int, default=40)
+    s.add_argument('--model', default='gpt-6-luna')
+    s.add_argument('--effort', default='low')
     s.add_argument('--usage-ceiling', type=float, default=20)
     s.add_argument('--credit-floor', type=float, default=62000)
     s.add_argument('--runs-dir', default=DEFAULT_RUNS)

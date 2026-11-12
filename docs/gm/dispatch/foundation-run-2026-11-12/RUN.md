@@ -413,3 +413,37 @@ The existing oath authority returns the first matching oath, and a working recei
 Folded `5f77574a3` onto `c8d1fd44a`. `node --test tests/process_law.test.js`: 10 passed, exit 0. Verified the lead's correction to the blocked worker return. The ordinary 56-minute blade lands whole levels in the engine while the process record keeps fractional values. Architecture, rules, coverage and docs passed. The two new source files are outside main reachability. Engine fixture evidence, below the AD43 gameplay floor.
 
 Lead gaps: one kernel shape, two laws: brewing stays a conserved ledger. Chained rows integrate in up to 256 slices; fuel, vessel capacity, maker skill, fold and aging are outside the law; no parity fixture against `gear_work.js`.
+
+## Wave 13 recovery and owner requests (2026-11-12)
+
+Input `f5439cd02`. All four family folds are committed. The earlier coordinator launcher ended on `account/rateLimits/read`; the app's thread reader confirms that this is the same coordinator thread, recovered here. The three first worker turns were interrupted without source edits. The remaining chain-detail launcher was stopped by its recorded group 89658 after the worker turn was confirmed interrupted. This resolves the apparent competing-writer question.
+
+The launcher's text-buffered pipe could hide a second RPC line from `select`. Its binary reader now retains and drains complete lines before waiting. An inline subprocess emitting two replies in one write passes both reads, including the second with timeout zero. The 49-percent guard is also checked against the shared 50-percent setting. Explicit model/effort options keep worker routing inspectable. `codex_goal_lane.py usage` succeeds after the repair. This tooling packet supports the already-authorized G2/G3/G4 owner requests and adds no checker.
+
+| Lane | Owner paths and outcome | Routing and state |
+| --- | --- | --- |
+| `w13-chain-detail-r1` | W: `world_substrate.js`, its test, stored-working engine test. Preserve saved publish details for the blow trigger and restored movement observer. G3 support | Luna low, 180,000-token bound, two turns; worktree `yair-w13-chain-detail` |
+| `w13-pace-port-r1` | K: `kernel_working.js`, `pace.js`, pace and focused working tests. Holder-local settlement preserves authored methods; second movement/contest reader. G2/G3 support | Sol low for the coupled clock/save contract, 220,000-token bound, two turns; worktree `yair-w13-pace-port` |
+| `w13-held-slot-r1` | K: `kernel_compose.js`, its focused suite. Lower `hold: true` through a supplied stored-record factory for technique and ward consumers. G4 support, no generator credit yet | Sol low for composition and held-effect scheduling, 220,000-token bound, two turns; worktree `yair-w13-held-slot` |
+
+ACT NOW: recover the existing three packets with disjoint file ownership. ACCOUNT FOR NOW: retain older saves, authoritative timing history, and held-upkeep lapse in their briefs. LATER: Hogwarts and Gu coverage packets follow these returns under merge-before-dispatch. No paid reading, live host or UI work is part of these packets.
+
+Review finding F1: on committed `f5439cd02`, transferring side B from Bob to Carol updates `bindingSides`, but a forbid term owed by unchanged side A still matches Bob. A direct assertion expecting the term against Carol fails. A scratch correction that segments on either side's transfer fixes that example but fails the existing contract test at `tests/binding.test.js:210`, because it recharges an already-paid breach for an unchanged vower. Keep the source unchanged until a correction preserves stable breach identity while rematching party roles. Scratch reproduction and correction logs are in `/private/tmp/yair-coord2-review-5azgvh9f/`. The combined family fixture run on the isolated candidate before that scratch correction passed 62/62. That candidate's first doc/rule checks lacked Git metadata, so they supply no gate evidence. The committed family receipts above retain their own gate scope.
+
+Usage at recovery: 23%, then 24% before the second and third relaunch; credit headroom 2,961. All relaunches use the 49%/62,000 guard, at most three live lanes. Resume: monitor these exact handles, review returns before folding, then continue the second handoff's Next list. G1 38 in one of seven ledgers; G2 13/13; G3 5; G4 0; G5 0. Existing unrelated dirty paths remain uncommitted.
+
+### Wave 13 owner packets
+
+Base `f5439cd02`. Retired the Wave 11 formulas and feeding worktrees after verifying byte-identical landed content. Kept both branches and archived the patch, briefs and returns in the private sibling directory `.yair-w11-retired-vaevSI` with verified SHA-256 manifests.
+
+| Owner | Worktree and scope | Proof |
+| --- | --- | --- |
+| W, chain detail | `../yair-w13-chain-detail`; world substrate and its tests, stored-working engine fixture | A restored blow triggers its own target, a wrong target stays quiet, a restored move retains its route, and legacy chain rows still load |
+| K, pace | `../yair-w13-pace-port`; working kernel, pace adapter and tests | An opt-in local duration leaves authored steps and settled receipts intact, with partition and restore agreement |
+| K, composition | `../yair-w13-held-slot`; composition kernel and focused test | A held technique support and a combined spell ward use the same stored record alongside an ordinary part, with a priced lapse |
+
+ACT NOW: use the saved substrate chain in place of the caller journal. ACCOUNT FOR NOW: pace must use holder-specific history across a restore, and the hold lane keeps composition free of a W dependency through a supplied factory. LATER: binding's multi-breach receipt is broader than this K wave. General same-time scheduling for non-held slots also needs its own proof.
+
+Detached launches at 23% produced no edits. The pace and hold supervisors timed out on `account/rateLimits/read`; the chain supervisor exited without a return. Confirmed all three processes gone before reassigning. Fresh usage passed before each in-session retry at 23%, with 2,961 above the credit floor. In-session lanes `chain_detail`, `pace_port` and `held_slot` own the same isolated worktrees and follow the 49% stop. Merge all releasable returns before the next dispatch.
+
+Next after owner packets: address the G1 runner boundary. The 38 measured spell cases currently use the vocabulary-only world in `scripts/coverage_report.mjs`, so they prove computed expression there. A composed-engine proof needs the common `createEngineWorld` path before it can claim the PC95 destination. Preserve the 38 cases as a regression baseline and start with law-field and new-holder observations before asking a domain reactor to answer publishes. G2 13 of 13; G3 5 on one mixed day; G4 and G5 remain 0. The inherited headless woodcutting failure (RC18) remains outside this work.
