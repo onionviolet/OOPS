@@ -47,6 +47,8 @@ A world is a clock (whole played minutes, the root clock of TMR1) and a set of *
 
 ## Effect primitives and the boundary with P (SB3)
 
+*The table below is W's proposal for the boundary until chat P agrees it (requested in W's checkpoint).*
+
 | Grammar part (plan) | Who owns it | In W |
 | --- | --- | --- |
 | Verb | W runs it | `act.verb`, one of the ten |

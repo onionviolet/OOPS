@@ -61,7 +61,35 @@ Merged master (ea6a170dd, fast-forward) first. Contract now **v1**, save revisio
 
 Not done in 2a: the live route (phase 2b below).
 
+**PFP2 counts, before and after 2a:** canon cases running as data 0 and 0; bespoke scene modules 0 and 0 (W carries no canon; E8's four canon sentences are illustrative acts, not catalogue rows).
+
+**Checks (2a)**
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/world_substrate.test.js tests/world_effects.test.js` | 18 pass, 0 fail (W1-W10, E1-E8) | Substrate only; no live play |
+| `npm run check:arch` | exit 0 | |
+| `npm run check:rules` | PASS; the one TMR1 warning is `src/book_world_hp_exams.js:14` from master, none in W files | |
+| build, full suite, browser | not run | No bundle module imports W yet |
+
+Compatibility line (MC4): game saves unchanged; substrate save revision 0 migrates to 1.
+
+## Requests (phase 2, for the coordinator to relay)
+
+- **K (SC7, SB1):** the plan makes K the owner of identity. W offers its half: holders carry `as` (kinds a binding may name) and `refs` (records other owners keep), `resolveRef(world, {kind, id})` and `substratePort(world)` as a `ports.read` (WSC18). Please confirm or replace the id scheme so there is one identity authority, not two. Answers to K's backlog: **KB5** reservations stay with the custody owners; W only reads. **KB6** rates inside a step: run the step's progress as a closed-form substrate law (`horizon` plus `advance`, WSC4), which settles the same near and far.
+- **P (SB3):** the boundary table in the contract ("Effect primitives and the boundary with P") is W's proposal: W runs verb, object and resolved targets at one minute, with `until` for sustained effects and block, conceal and bounds as limits; P owns shape, time, carrier, cost and the other limits. Please agree or amend; E8 lowers four plan sentences to acts as the worked example.
+- **L:** (1) may W make the meadow shell chamber's humidity, shell and inlet live on the substrate (your checkpoint: "Move ownership of ambient humidity to W; device keeps its inlet")? That is W's live route for phase 2b and touches `src/meadow_shell_state.js`. If you would rather own the call-site swap, W builds the slice and migration and asks you for the one line. (2) Handover of `src/world_substrate_packs/shell_regulator.js` to L at your embed.
+- **B:** handover of `src/world_substrate_packs/brew_steam.js` at your embed; BRQ4 ambient temperature can now be read from the place's `temperature`.
+- **E:** CC1 "Steam and the shell" and the W4 departure case are unchanged under revision 1: same names, fixtures (`workshop()` in `tests/world_substrate.test.js`) and assertions.
+- **All domain chats:** vocabulary v1 is in `src/world_quantities.js` (17 quantities, 10 properties). A name only your chat uses stays in your pack; one two chats share is a request to W.
+
+
 ## Next phase
+
+**Phase 2b, live route (waiting on the coordinator's answer to the L request above).** If allowed: the meadow shell chamber runs on the substrate (pack `l.shell_regulator`), one namespaced save slice with a migration from the current regulator fields, save, reload and import exercised, and one headless browser check at 1920x1080 with the receipt in this folder. If not: W builds the slice, migration and focused tests and asks L for the call-site line; or rescopes with the reason that no route outside other chats' files holds substrate state the clock cannot rebuild, so W stays "implemented, below floor" until L embeds. Not chosen: wiring rain through the substrate for the drying rack or home building, which would only rename a clock reading (FLR4) and store a derivable value (SPR23).
+
+Earlier next-phase notes (phase 1):
+
 
 - **E (emergence harness) can start now.** First contact case: **CC1 · Steam and the shell** (contract doc section "The first contact case"), fixtures in `tests/world_substrate.test.js`. The departure variant is W4 (keeper leaves at minute 109 with a correction due at 110; `onLeave` drop by default, finish as the dial).
 - Domain chats embed on v0 after this branch merges: L takes `shell_regulator.js`, B takes `brew_steam.js`, and the others declare packs against `world_quantities.js`.
