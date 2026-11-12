@@ -348,6 +348,14 @@ Agent-verified, not human-reviewed.
 | `npm run check:rules` | pass after a follow-up commit; 7ed85b926 itself failed the player-text lint on the word "fixture" in the capacity reason string | |
 | Three headless browser drivers on the rebuilt bundle | 3 PASS | Fixture admission as each driver states |
 
+## Milestones MS1-MS7: where F stands (2026-11-12, master 2fff2285e and later, merged as 11737bfa2)
+
+- **MS5 · Works in play: met for F, agent-verified.** The phase 2b receipts are one reachable making route at the AD43 floor: mine, smelt, forge a head with offcut and scale, assemble, equip and chop, plus forge-and-reclaim. Each has native Save, reload, Export and literal Import, headless at 1920x1080 ([receipts/](receipts/)). Two limits: each driver grants admission and starting tools as its receipt states, and the bundle `13fed22bffc1998b` predates this merge. The combined browser pass belongs to the integrator and E.
+- **GL3 · Composition: not started on P's contract.** F's recipes and assemblies are composition. The canon test set is listed in section 3. It cannot run as a P grammar until nested parts (GL6, P's PGB2) ship; P v0 on master has no nested slot yet. Meanwhile composition runs through K: `FABRICATION_LAW` methods bind parts to roles in order, and fit and load decide the outcome (`tests/craft_assembly.test.js`). When GL6 lands, the held-out rebuild is: given materials, parts and joins, rebuild the axe heads, handles, smelting, both chopping axes, the Tingen amulet in both face orders and the Hogwarts pane, and run each through K.
+- **SC8 feeds G's MS4.** F's `refine` step takes a practiced working as input (by completed runs or a declared fact). It closes when a G move record is the bound input (request to G below).
+- **MS1 ledgers.** CV3 lists no fabrication corpus. Proposal, for the coordinator to accept or drop: a `docs/coverage/fabrication.jsonl` with one row per native recipe (167) and per book-canon made thing (pane, formula carrier, Tingen amulet variants), using the CV2 states, so the ten-recipe count above becomes the `runs` share.
+- **Merge check:** 9 focused files, 85 pass after the merge.
+
 ## Requests (relayed by the coordinator)
 
 - **G:** which record shape is a practiced move? F's `refine` step reads either completed kernel working records of the move's method (default) or a fact a performance writes. A G move record as the bound input closes SC8 for both of us. Your move-to-Gu rows can then be F pack rows `{id, method, minPractice, practice, product}`; the Gu law keeps what the refined Gu is.
