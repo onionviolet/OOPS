@@ -88,6 +88,16 @@ const HP_POTION_FAMILY_OVERRIDES = {
     'Wound-Cleaning Potion': 'body-door', "Severus Snape's fake Felix Felicis": 'mind-state', 'Fluxweed Syrup': 'effect-sentence',
 };
 
+/** The title-only family rule (no evidence read): the blocking rule a potion
+ * name implies, or 'effect-sentence' when the name says nothing. Exported for
+ * the effect layer's canon test, which compares it with evidence labels. */
+export function potionFamily(title) {
+    const forced = HP_POTION_FAMILY_OVERRIDES[title];
+    if (forced) return forced;
+    const lower = title.toLowerCase();
+    return HP_POTION_FAMILIES.find(([, , pattern]) => pattern.test(lower))?.[0] ?? 'effect-sentence';
+}
+
 function hpPotionRow(entry) {
     const t = entry.title, novel = entry.exact_title_novel_hits.length > 0 || entry.observation_ids.length > 0;
     const base = {id: `hp.potion.${slug(t)}`, title: t, source: entry.source, layer: novel ? 'novel' : 'wiki-only',

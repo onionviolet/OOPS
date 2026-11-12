@@ -4,7 +4,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {beginWorking, interruptWorking, quoteWorking, restoreWorking, serializeWorking, settleWorking} from '../src/kernel_working.js';
-import {BREW_LAW, brewBalance, brewMethod, spillBatch, unfinishedBatch} from '../src/brew_law.js';
+import {BREW_LAW, BREW_PUBLISHES, ageDose, brewBalance, brewMethod, spillBatch, unfinishedBatch} from '../src/brew_law.js';
 import {LOTM_BREW_ROWS, lotmBrewRow, lotmDoseReading, lotmLots, parseLotmAmount} from '../src/world_packs/lotm_brew_pack.js';
 import {brewSeer} from '../src/lotm_seer_brew.js';
 import {THERMAL_REVISION, quoteThermalBatch} from '../src/craft_process_thermal.js';
@@ -114,17 +114,17 @@ test('BRC1, BRC2, BRC8: heat, vapor and rinse water leave into the place and the
     assert.ok(litMinutes > 0);
     assert.equal(l.out.vapor.water, litMinutes * heatOptions.vaporPerMinute, 'vapor comes from the lit minutes');
     const kinds = effects.map(e => e.effect.kind ?? e.effect.op);
-    assert.deepEqual(kinds, ['debit', 'debit', 'heat_released', 'vapor', 'rinse_water']);
-    const rinse = effects.find(e => e.effect.kind === 'rinse_water').effect;
+    assert.deepEqual(kinds, ['debit', 'debit', 'heat.released', 'vapor.released', 'water.poured']);
+    const rinse = effects.find(e => e.effect.kind === 'water.poured').effect;
     assert.deepEqual(rinse.detail.contents, l.out.waste);
     assert.deepEqual(l.film, {});
     assert.ok(brewBalance(done.facts).balanced);
     // The published effects are accepted by a real W v0 place as cause-chain
     // records. No W quantity holds vapor or waste water yet (request to W).
-    const rules = composeSubstrate({packs: [{id: 'b.brew', publishes: ['heat_released', 'vapor', 'rinse_water']}]});
+    const rules = composeSubstrate({packs: [{id: 'b.brew', quantities: [], laws: [], reactors: [], publishes: BREW_PUBLISHES}]});
     let world = createWorld(rules, {holders: [{id: 'workroom', kind: 'place'}, {id: 'cauldron', kind: 'thing', place: 'workroom'}]});
     world = applyWorldOps(rules, world, effects.filter(e => e.effect.op === 'publish').map(e => e.effect), 'b.brew:w.herb');
-    assert.deepEqual(world.chain.map(row => row.kind), ['heat_released', 'vapor', 'rinse_water']);
+    assert.deepEqual(world.chain.map(row => row.kind), ['heat.released', 'vapor.released', 'water.poured']);
     const sealed = runHerb(herbMethod(), herbVessel('sealed')).record;
     assert.deepEqual(sealed.facts.brew.out.vapor, {});
     assert.ok(brewBalance(sealed.facts).balanced);
@@ -195,7 +195,8 @@ test('a spill moves the batch out into the place; a quote keeps nothing', () => 
     const early = settleWorking(BREW_LAW, beginWorking(BREW_LAW, row.method, {id: 'w.spill', bindings: bindingsFor(row, lots), at: 0}),
         {now: 0, ports: portsFor(lots)}).record;
     const {facts, effect} = spillBatch(early.facts, vessel());
-    assert.equal(effect.kind, 'spill');
+    assert.equal(effect.kind, 'water.poured');
+    assert.equal(effect.detail.what, 'spill');
     assert.deepEqual(facts.brew.batch, {});
     assert.ok(brewBalance(facts).balanced && brewBalance(facts).released === brewBalance(facts).admitted);
     const q = quoteWorking(BREW_LAW, row.method, {id: 'w.q', bindings: bindingsFor(row, lots), at: 0, ports: portsFor(lots)});
@@ -213,4 +214,59 @@ test('a lot that is gone at its step interrupts the brew without losing what was
     assert.equal(done.receipts.at(-1).cause, 'binding');
     assert.ok(brewBalance(done.facts).balanced);
     assert.equal(brewBalance(done.facts).admitted, lots.m1.amount);
+});
+
+// PTD depth on the law itself: one small method, run against chosen lots and vessels.
+function runSteps(steps, lots, v = vessel(), id = 'w.ptd') {
+    const method = {id: 'ptd', revision: 1, law: BREW_LAW.ref, roles: {vessel: 'vessel', ...Object.fromEntries(Object.keys(lots).map(k => [k, 'lot']))}, steps};
+    const record = beginWorking(BREW_LAW, method, {id, bindings: bindingsFor(null, lots, v), at: 0});
+    return settleWorking(BREW_LAW, record, {now: record.deadlines.at(-1), ports: portsFor(lots, v)}).record;
+}
+const at = {vessel: 'vessel'};
+
+test('PTD2: a perishable the spoilage owner knows loses its spent share before it goes in', () => {
+    const herb = days => ({herb: {kind: 'lot', id: 'lot.herb', material: 'fluxweed', amount: 100, properties: {sap: 600},
+        key: JSON.stringify({id: 'book.hp.ing.fluxweed'}), spent: days * 1440}});
+    const brew = days => runSteps([{op: 'admit', bindings: {...at, lot: 'herb'}}], herb(days));
+    const fresh = brew(0), aged = brew(3.5), gone = brew(8);
+    assert.equal(fresh.facts.brew.batch.sap, 60);
+    assert.equal(aged.facts.brew.batch.sap, 30, 'half its seven-day life spent');
+    assert.equal(aged.facts.brew.out.retained['sap:spent'], 30);
+    assert.equal(gone.facts.brew.batch.sap ?? 0, 0, 'spoiled: nothing active goes in');
+    for (const r of [fresh, aged, gone]) assert.ok(brewBalance(r.facts).balanced);
+});
+
+test('PTD4: a vessel film from an earlier brew comes back once, balanced, and the vessel is told to clear it', () => {
+    const lots = {a: {kind: 'lot', id: 'lot.a', material: 'water', amount: 50, properties: {}},
+        b: {kind: 'lot', id: 'lot.b', material: 'salt', amount: 10, properties: {salt: 1000}}};
+    const v = vessel({films: [{id: 'old:residue', amount: 3}]});
+    const r = runSteps([{op: 'admit', bindings: {...at, lot: 'a'}}, {op: 'admit', bindings: {...at, lot: 'b'}}], lots, v);
+    assert.equal(r.facts.brew.batch['old:residue'], 3);
+    assert.equal(r.facts.brew.in['vessel:cauldron'], 3);
+    assert.ok(brewBalance(r.facts).balanced);
+    const clears = r.receipts.flatMap(x => x.truth?.effects ?? []).filter(e => e.op === 'clear-films');
+    assert.deepEqual(clears, [{op: 'clear-films', holder: 'cauldron', amount: 3}]);
+});
+
+test('PTD6: batch variation by address: two batches differ, the same batch repeats, totals still conserved', () => {
+    const lots = {a: {kind: 'lot', id: 'lot.a', material: 'a', amount: 1000, properties: {x: 500, y: 500}}};
+    const steps = [{op: 'admit', bindings: {...at, lot: 'a'}},
+        {op: 'react', bindings: at, options: {variationPermille: 400, reactions: [{id: 'xy', reactants: {x: 1, y: 1}, products: {z: 2}}]}}];
+    const z = id => runSteps(steps, lots, vessel(), id).facts.brew.batch.z ?? 0;
+    const seen = new Set(['w.b1', 'w.b2', 'w.b3', 'w.b4'].map(z));
+    assert.ok(seen.size > 1, `addresses give different extents: ${[...seen]}`);
+    assert.equal(z('w.b1'), z('w.b1'));
+    assert.ok(brewBalance(runSteps(steps, lots, vessel(), 'w.b2').facts).balanced);
+});
+
+test('PTD8: a finished dose ages through the spoilage owner or a stated life, and nothing vanishes', () => {
+    const dose = {id: 'd1', contents: {sap: 60, 'water:matrix': 40}};
+    const total = d => Object.values(d.contents).reduce((n, a) => n + a, 0);
+    const known = ageDose(dose, {key: JSON.stringify({id: 'book.hp.ing.fluxweed'}), spent: 4 * 1440});
+    assert.deepEqual(known.dose.contents, {sap: 26, 'sap:spent': 34, 'water:matrix': 40});
+    assert.equal(known.state, 'turning');
+    const dial = ageDose(dose, {life: 1000, spent: 2000});
+    assert.equal(dial.dose.contents.sap ?? 0, 0);
+    assert.equal(dial.state, 'spoiled');
+    for (const d of [known.dose, dial.dose]) assert.equal(total(d), 100);
 });

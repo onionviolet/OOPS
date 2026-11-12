@@ -2,6 +2,7 @@ import {defineCatalogue} from './craft_materials.js';
 import {defineCraftLaw, resolveBatch} from './craft_resolver.js';
 import {cancelOutputs, defineDoseRules} from './craft_dose_rules.js';
 import {bindMethod} from './method_program.js';
+import {DRAUGHT_OF_LIVING_DEATH, brewDraughtOfLivingDeath} from './world_packs/hp_brew_pack.js';
 
 export const ANTIDOTE_OPERATIONS = Object.freeze({
     heat: Object.freeze({label: 'Heat the binder', input: 'unmixed ingredients', output: 'unmixed ingredients', reaction: 'hot'}),
@@ -59,6 +60,10 @@ function mix(amounts, operations, catalyst = false) {
     return resolveBatch(law, {inputs, process: operations.map(op => ({op}))});
 }
 
+// The classroom Draught of Living Death runs on the shared brew law
+// (world_packs/hp_brew_pack.js); this adapter keeps its long-standing return
+// shape for the HP bench. Storage loss is now its own retained amount
+// (spentBeans), no longer counted as bean solids (BRC9).
 export function brewWorkshopDraught({preparation = 'crush', beanUnits = 12, precursor = 6, carrier = 94, strokes = '',
     storage = {days: 0, vessel: 'open'}} = {}) {
     if (!['crush', 'slice'].includes(preparation)) throw Error('Choose crush or slice.');
@@ -68,26 +73,24 @@ export function brewWorkshopDraught({preparation = 'crush', beanUnits = 12, prec
     quantity(carrier, 'Carrier', 1);
     quantity(storage?.days, 'Storage days');
     if (!['open', 'sealed'].includes(storage.vessel)) throw Error('Choose open or sealed storage.');
-    const extractable = Math.max(0, beanUnits - storage.days * (storage.vessel === 'open' ? 2 : 1));
-    const juice = Math.floor(extractable * (preparation === 'crush' ? 2 / 3 : 1 / 4));
-    const batch = mix({carrier, precursor, juice}, ['admit']);
-    const amounts = {...batch.product.composition, settled: 0};
-    const lilac = amounts.intermediate * 100 >= batch.product.mass * 9;
-    const trace = [{step: 'storage', ...storage, extractable}, {step: preparation, juice, solids: beanUnits - juice}, ...batch.trace];
-    let leftRun = 0;
-    for (const [index, direction] of [...strokes].entries()) {
-        const reversal = direction === 'R' && leftRun >= 7;
-        leftRun = direction === 'L' ? leftRun + 1 : 0;
-        const settled = Math.min(amounts.intermediate, reversal ? 8 : leftRun % 8 === 0 && direction === 'L' ? 2 : 0);
-        amounts.intermediate -= settled;
-        amounts.settled += settled;
-        trace.push({step: 'stir', stroke: index + 1, direction, reversal, settled});
+    const {facts, cues} = brewDraughtOfLivingDeath({preparation, beanUnits, precursor, carrier, strokes, storage});
+    const {batch, out} = facts.brew;
+    const cue = DRAUGHT_OF_LIVING_DEATH.cues;
+    const amounts = Object.fromEntries([...axes, 'matrix', 'settled'].map(id => [id, 0]));
+    for (const [id, n] of Object.entries(batch)) {
+        if (id.endsWith(':matrix')) amounts.matrix += n;
+        else amounts[id] = (amounts[id] ?? 0) + n;
     }
-    const pink = amounts.settled * 100 >= batch.product.mass * 7;
+    const mass = Object.values(batch).reduce((n, v) => n + v, 0);
+    const spentBeans = out.retained['bean:spent'] ?? 0, beanSolids = out.retained.bean ?? 0;
+    const juice = beanUnits - spentBeans - beanSolids;
     return {
-        method: 'draught', mass: batch.product.mass, amounts,
-        observations: {afterAddition: lilac ? 'Lilac' : 'Below the lilac cue', afterStirring: pink ? 'Pale pink' : 'Below the pale pink cue'},
-        spent: {carrier, precursor, beanUnits}, retained: {beanSolids: beanUnits - juice}, trace,
+        method: 'draught', mass, amounts,
+        observations: {afterAddition: cues.afterAddition.includes(cue.afterAddition.cue) ? cue.afterAddition.cue : cue.afterAddition.below,
+            afterStirring: cues.afterStirring.includes(cue.afterStirring.cue) ? cue.afterStirring.cue : cue.afterStirring.below},
+        spent: {carrier, precursor, beanUnits}, retained: {beanSolids, spentBeans},
+        trace: [{step: 'storage', ...storage, extractable: beanUnits - spentBeans}, {step: preparation, juice, solids: beanSolids},
+            ...(facts.reactions ?? []), ...(facts.strokes ?? []).map(row => ({step: 'stir', ...row}))],
         basis: 'Harry Potter book 6, chapter 9, anchors the preparation and colour changes. Quantities, thresholds and checkpoint predictions are original game tuning.',
     };
 }
