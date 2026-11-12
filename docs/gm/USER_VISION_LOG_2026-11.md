@@ -1190,3 +1190,9 @@ Recorded in the [procedural foundation plan](../PROCEDURAL_FOUNDATION_PLAN.md#ma
 Weibao: "Procedural rules to account for player made possiblities and more? Have those chats direct codex chats accordingly, with individual codex chats to bring their visions to life? using /goal and also /autocompact accordingly?" Then: "Overarching systems like genetics and stuff, creature variations between same type and more? other aspects to consider? Procedural system to allow player made combinations nad more, but also for existing combinations to create the stuff in lore and more? Other fun ways we can take these ideas?"
 
 Recorded in the [procedural foundation plan](../PROCEDURAL_FOUNDATION_PLAN.md#heredity-and-variation-player-made-things-and-lore-from-parts-2026-11-12): heredity GN1-GN9, player-made rules PM1-PM8, forward and backward grammar RV1-RV5, other aspects OA1-OA5, fun palette FN1-FN9, PFP27-PFP29. Codex lane dispatch is recorded in the [run record](dispatch/foundation-run-2026-11-12/RUN.md) pending the paid-fallback decision.
+
+## Lore first, inheritance channels, depth checklist, 2026-11-12
+
+Weibao: "send out stuff to cover OA1-5. FN1-9, but we need to make sure foundational stuff works out too, Other stuff in books worth adapting into procedural systems and more? Consider lore aspects first?" Then: "Consider Aspects beyond genone, if that would even be the most optimal and more? other aspects to consider? selective breeding and more? consider magical aspects? Similar depth considerations for other aspects too?"
+
+Recorded in the [procedural foundation plan](../PROCEDURAL_FOUNDATION_PLAN.md#lore-first-inheritance-beyond-genes-and-a-depth-checklist-2026-11-12): lore laws as fixed points first (LR1-LR16), inheritance channels (IH1-IH8), selective breeding (SB7-SB12), the depth checklist DC1-DC10, routing with foundations first, PFP30-PFP32.

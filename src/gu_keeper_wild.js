@@ -4,7 +4,9 @@ import {discoverLiquorWorm, fourFlavorsRecipe, fourFlavorsWines, liquorWormAppro
 import {moonlightBlade} from './gu_ability_profiles.js';
 import {resolveGuActivation} from './gu_activation.js';
 import {beginGuRefinement, stepGuRefinement} from './gu_refinement.js';
-import {applyRedSteel, isRedSteelOperation, keeperRankTrialId, keeperRedSteel, keeperRedSteelActions, redSteelView} from './gu_keeper_red_steel.js';
+import {applyLine, lineActions, lineOperations, lineView} from './gu_essence_line.js';
+import {keeperRankTrialId, keeperRedSteel, redSteelLine} from './world_packs/book_gu_keeper_lines.js';
+const redSteelView = state => lineView(state, redSteelLine);
 import {applySeven, fourCommitted, keeperSeven, sevenActions, sevenOperations, sevenSpecimen, sevenView, validateSeven} from './gu_keeper_seven.js';
 import {applyNine, keeperNine, nineActions, nineCommitsSeven, nineOperations, nineView, validateNine} from './gu_keeper_nine.js';
 import {hostedWolfGlade} from './gu_hosted_wolf.js';
@@ -46,7 +48,7 @@ export function keeperWildEffectPack(operation) {
     if (nineOperations.includes(operation)) return keeperNine;
     if (roamOperations.includes(operation)) return keeperRoamingWorm;
     return operations.includes(operation) ? keeperWild : essenceOperations.includes(operation) ? keeperWormEssence :
-        operation === 'fuse_four' ? keeperFourFlavors : isRedSteelOperation(operation) ? keeperRedSteel : null;
+        operation === 'fuse_four' ? keeperFourFlavors : lineOperations(redSteelLine).includes(operation) ? keeperRedSteel : null;
 }
 
 function hasPin(record, pack = keeperWild) {
@@ -184,7 +186,7 @@ export function keeperWildFacts(state, actor) {
     const steel = redSteelView(state);
     const actions = {...readActions(encounter, state.clock), ...essenceActions(state, encounter, essence),
         fuse_four: fourFlavorsReady(state, encounter, essence),
-        ...keeperRedSteelActions(state, fourCommitted(state) ? null : product, steel),
+        ...lineActions(state, redSteelLine, fourCommitted(state) ? null : product, steel),
         ...sevenActions(state, product, steel.fed, nineCommitsSeven(state)), ...nineActions(state, sevenSpecimen(state))};
     return {[`${keeperFourFlavors}.held`]: !!product,
         ...Object.fromEntries(Object.entries(actions)
@@ -238,7 +240,7 @@ export function applyKeeperWildEffect(state, effect, context) {
         if (!hasPin(context.structuredNative, keeperFourFlavors) || !hasPin(context.structuredNative, keeperRankTrialId)) {
             throw Error('Prepare Four Flavors and the Moonglow trial first.');
         }
-        applyRedSteel(state, fourCommitted(state) ? null : readFourFlavors(state), operation, context.gameplay?.player?.inventory);
+        applyLine(state, redSteelLine, fourCommitted(state) ? null : readFourFlavors(state), operation, context.gameplay?.player?.inventory);
         return;
     }
     if (!readActions(encounter, clock)[operation]) throw Error('The Liquor Worm trail has changed.');
