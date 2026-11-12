@@ -744,3 +744,15 @@ Hogwarts potions are the largest engine debt: 259 rows wait on five mechanisms, 
 One Fable lane, alone, since it edited the shared files. Full suite on the merged tree: tests 6693, pass 6688, fail 0, skipped 5, exit 0 (`wave18-host-suite.log`); `check:arch`, `check:rules`, `check:coverage`, `check:docs` exit 0. `src/kernel_working.js` is game-reachable; its change is one optional port that no game caller passes. No build run.
 
 E9 is met in `tests/engine_host.test.js`: the engine save gains a versioned records slice (workings in flight, stored workings, bindings with their dues), advanced on the pack clock in the order world, workings, stored workings, bindings. Costs settle through the kernel port with the cost owner (closing H1 and H2 of the cost owners lane). The case runner computes working cases. Spellcraft, composition, process crafts, stored workings and bindings each run one example through the host; progression, contest, brewing, body alteration and Gu moves with held slots stay on private loops. Open: a short payment does not weaken an effect; knowledge checks need a per-working read port; resuming a pending advance and authority-attached penalties are built without a test. An engine save with no records slice restores unchanged.
+
+### Wave 18 fold: dice, places, holders (2026-11-12)
+
+Three Fable lanes edited `src/world_substrate.js` side by side, each in marked regions. Dice and places merged cleanly; holders met four conflicts where two lanes added lines at the same spot, resolved by keeping both. Full suite on the tree holding all three: tests 6717, pass 6712, fail 0, skipped 5, exit 0 (`wave18-suite.log`); focused 151 of 151; `check:arch`, `check:rules`, `check:coverage`, `check:docs` exit 0. No build run.
+
+| Lane | Commit | Result | Open |
+| --- | --- | --- | --- |
+| Saved dice (E11) | `6c58ea7ab` | One saved draw root; addressed draws for odds steps and pack laws; a quote shows odds and no outcome; a copy can share innate draws | Creature lifecycle does not use the draw key; an operation gets a hit or miss and no raw draw; five older modules take a root from the caller |
+| Place graph (E10) | `a9466b048` | Links as world data with kind, cost and state; effects target within links; a closed link has a price; forage, mind and residue read the shared graph with their tests unchanged | The forcing price is debited directly; a stored working behind a closed door still resists; links join places and not yet bodies or things |
+| Holder lifecycle (E12) | this fold | Create, end, copy, split, merge, promote and demote as world acts with lineage in the identity kernel; a cohort holder kind; every quantity handed to a holder or a named row; nine faults priced | The creature engine is not on the acts; its lineage key and the dice draw key need joining; no count-only cohort change; rate laws still change totals with no row |
+
+Coordination passes to Codex under the [third handoff](CODEX_COORDINATOR_HANDOFF_3.md) at this commit. The seam test lane (E23) was still running.
