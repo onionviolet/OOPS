@@ -5,6 +5,7 @@
 // supplies its laws, words, prices and exceptions. Draws go through gen_kit.
 import {address, compareCodePoints, drawU32, indexFromU32, pickWeighted} from './gen_kit.js';
 import {assemble} from './procedural_grammar.js';
+import {searchParts, previewValue} from './grammar_search.js';
 import {EFFECT_OBJECTS, scopeOf} from './effect_grammar.js';
 
 const CORE = ['verb', 'object', 'target', 'time', 'carrier', 'cost'];
@@ -167,4 +168,31 @@ export function exploreEffects(fitted, canon, world, options) {
     for (const c of spread.kept) archive = archiveOffer(archive, {id: c.id, parts: c.parts, score: c.score, cause: c.cause, grammar: fitted.ref}).archive;
     return {proposed: candidates.length, checked: results.length, passed: passing.length, failures, kept: spread.kept, niches: spread.niches, archive,
         budget: {trials: budget.trials, used, truncated: stopped || count < (options.count ?? 12)}, results};
+}
+
+// PM3 · Say what you want, get candidates. goal: a partial sentence ("hide the
+// camp" = conceal information around). actor.knows bounds the verbs and objects
+// the actor understands; actor.owns bounds carriers and costs. Target, time and
+// limits stay open, so a preview can show them as unknown to the actor (PM2).
+// Every candidate passes the same four checks as any new effect (PM1).
+export function searchEffectsForGoal(fitted, goal, {actor, world, budget = {trials: 120}, beam = 24, answers = 4}) {
+    if (!actor?.knows || !actor.owns) fail('A goal search reads what the actor knows and owns.');
+    const pool = {verb: actor.knows.verb, object: actor.knows.object, carrier: actor.owns.carrier, cost: actor.owns.cost};
+    for (const k of Object.keys(pool)) if (!pool[k]) delete pool[k];
+    const out = searchParts(fitted, {want: {parts: goal}, pool, budget, beam, answers,
+        accept: value => checkEffect(fitted, {id: 'goal', parts: value.parts}, world).pass});
+    // What the actor asked for is known to them; the rest of the preview is as they know it.
+    const knows = {...actor.knows};
+    for (const [slot, v] of Object.entries(goal)) knows[slot] = [...new Set([...(Array.isArray(knows[slot]) ? knows[slot] : []), ...(Array.isArray(v) ? v : [v])])];
+    return {...out, answers: out.answers.map(a => ({parts: a.parts, checks: checkEffect(fitted, {id: 'goal', parts: a.parts}, world).checks,
+        preview: previewValue(fitted, a.value, knows)}))};
+}
+// What an actor knows, read from the canon sentences they have seen.
+export function knowledgeFrom(sentences) {
+    const knows = {};
+    for (const s of sentences) for (const [slot, v] of Object.entries(s)) {
+        knows[slot] ??= [];
+        for (const x of Array.isArray(v) ? v : [v]) if (!knows[slot].includes(x)) knows[slot].push(x);
+    }
+    return knows;
 }

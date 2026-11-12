@@ -5,7 +5,8 @@
 import {canonTest, fitGrammar, assemble} from '../src/procedural_grammar.js';
 import {guCatalogue} from '../src/gu_catalogue.js';
 import {EFFECT_OBJECTS} from '../src/effect_grammar.js';
-import {exploreEffects, fitCostCurve, worldLaws} from '../src/effect_checks.js';
+import {exploreEffects, fitCostCurve, worldLaws, searchEffectsForGoal, knowledgeFrom} from '../src/effect_checks.js';
+import {backwardCanonTest} from '../src/grammar_search.js';
 import * as w from '../tests/fixtures/procedural_grammar/effect_worlds.mjs';
 import {fileURLToPath} from 'node:url';
 
@@ -60,6 +61,18 @@ export async function runEffects() {
         if (b.ok && !f.length) complete++;
         for (const x of f) flags[x.rule] = (flags[x.rule] ?? 0) + 1;
     }
+    // RV2: backward from each canon sentence's verb, object, target and time.
+    const id = v => JSON.stringify([...['verb', 'object', 'target', 'time', 'carrier', 'cost'].map(k => v.parts[k]), [...(v.parts.limits ?? [])].sort()]);
+    out.backward = Object.fromEntries(worlds.map(world => [world.id, backwardCanonTest(world.fitted, world.canon.map(c => c.parts),
+        {fix: ['verb', 'object', 'target', 'time'], identity: id})]));
+    // PM3: a keeper who has seen four Gu states "hide the camp".
+    const gu = worlds[0], seen = gu.canon.filter(c => ['gu:stealth-scales', 'gu:moonlight', 'gu:earth-communication-ear-grass', 'gu:white-jade'].includes(c.id));
+    const knows = knowledgeFrom(seen.map(c => c.parts));
+    delete knows.target; delete knows.time;
+    const camp = searchEffectsForGoal(gu.fitted, {verb: 'conceal', object: 'information', target: 'area'},
+        {actor: {knows, owns: {carrier: ['gu'], cost: ['essence-primeval']}}, world: gu.checks});
+    out.goal = {goal: 'hide the camp: conceal information around', answers: camp.answers.map(a => ({sentence: Object.values(a.parts).flat().join(' '),
+        explains: a.checks.find(c => c.id === 'explains').text, unknown: a.preview.unknown})), tried: camp.tried, gaps: camp.gaps};
     out.moves = {records: moves.length, roles: moves.reduce((n, m) => n + m.parts.roles.length, 0), assembled, complete, flags};
     return out;
 }
@@ -78,6 +91,9 @@ function summary(out) {
         for (const m of p.misses.slice(0, 8)) lines.push(`    ${m.count} x ${m.miss} e.g. ${m.examples.join(', ')}`);
     }
     lines.push(`GL6 moves: ${out.moves.assembled}/${out.moves.records} assemble as nested roles (${out.moves.roles} roles); ${out.moves.complete} fully named and catalogued; flags ${JSON.stringify(out.moves.flags)}`);
+    for (const [id, b] of Object.entries(out.backward)) lines.push(`RV2 backward ${id}: canon route found for ${b.canonFound}/${b.tested} = ${b.rate}; ${b.alternativesPerTarget} other routes per target`);
+    lines.push(`PM3 ${out.goal.goal}: ${out.goal.answers.length} candidates in ${out.goal.tried} trials`);
+    for (const a of out.goal.answers) lines.push(`    ${a.sentence}  ("${a.explains}"; unknown to the keeper: ${a.unknown.join(', ') || 'none'})`);
     for (const t of out.transfer) lines.push(`transfer ${t.from} laws -> ${t.to} canon: ${t.shared}/${t.tested} = ${t.rate}`);
     for (const [id, e] of Object.entries(out.explore)) {
         lines.push(`explore ${id}: ${e.passed}/${e.proposed} pass, failures ${JSON.stringify(e.failures)}, ${e.niches} niches kept`);

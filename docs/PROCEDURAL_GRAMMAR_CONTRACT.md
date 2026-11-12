@@ -173,3 +173,28 @@ Weibao's "making all achievable" direction set coverage ledgers (CV1-CV4), gramm
 ### Coverage tooling (MS1, CV1-CV4)
 
 `scripts/coverage_report.mjs` validates `docs/coverage/<corpus>.jsonl` and writes the [counts table](coverage/README.md). `npm run check:coverage` fails only on malformed rows: bad JSON, unknown fields, a missing or duplicate id, an empty source, a state outside the five CV2 forms, mechanisms not a list of names, or a `runs-*` row whose test file does not exist. Percentages are a report, not a gate (CV4). Test: `tests/coverage_report.test.js`. The ledgers belong to their owners (G, B, S, L).
+
+## Phase 4 (2026-11-12): grammars run both ways, player goals and honest previews
+
+The plan's [lore from parts](PROCEDURAL_FOUNDATION_PLAN.md#lore-from-parts-forward-and-backward-rv) (RV1-RV5, PFP28) and [player-made possibilities](PROCEDURAL_FOUNDATION_PLAN.md#player-made-possibilities-pm) (PM1-PM8, PFP29). Module [src/grammar_search.js](../src/grammar_search.js); goal search in `src/effect_checks.js`; tests [tests/grammar_search.test.js](../tests/grammar_search.test.js).
+
+| Code | Contract line | Default, dial and reason |
+| --- | --- | --- |
+| PGC25 | **Backward search (RV2).** `searchParts(fitted, {want, pool, accept, budget, beam, answers, canon, identity})` searches the part combinations that assemble to a wanted thing: some parts fixed, some derived fields wanted, plus any acceptance test (a law, a check, a cost). It runs a beam over the fitted weights, scored as smoothed log probabilities (sets add a size term), and every assembly costs one trial (PR3). Answers come best first, marked canon where they match a canon thing. Nested slots draw ordered child lists from a pool of child things the actor holds (GL3). Deterministic: no draws. | Default beam 12, budget 200 trials. Reason: canon recipes are one answer among those the mechanisms allow (AD38, PFP28). |
+| PGC26 | **Gaps are answers too (RV4).** When nothing answers, the search returns the gaps: wanted parts the actor does not know or own (`lacks-part`), and the rules that refused the near candidates, with counts. | Reason: a lore thing the player cannot make yet is a goal with a visible missing part, skill or law. |
+| PGC27 | **Honest preview (PM2).** `previewValue(grammar, value, knowledge)` shows each part the actor knows, marks the rest `{unknown: true}`, and marks a derived field `{uncertain: true}` when its rule reads an unknown part (by the rule's `reads`; a rule with no reads counts as reading everything). | Reason: knowing more sharpens previews; a guess is never shown as fact (GR5, UK1-UK7). |
+| PGC28 | **Say what you want (PM3).** `searchEffectsForGoal(fitted, goal, {actor, world})` takes a partial sentence ("hide the camp" is conceal information around). The actor's known verbs and objects and owned carriers and costs bound the search. Target, time and limits stay open, and every candidate passes the same four checks as any new effect (PM1). Each answer carries its checks and its preview; parts the actor stated count as known. `knowledgeFrom(sentences)` reads what an actor knows from the canon sentences they have seen. | Reason: one gate for everyone (PM1, PFP11); the player still chooses and pays. |
+
+### Results
+
+- **Backward canon test** (`backwardCanonTest`): from only the verb, object, target and time of each canon sentence, the search returns the canon route among its top five answers for 48 of 57 Gu sentences (84.2%) and 97 of 109 Hogwarts sentences (89.0%). Each target averages about four other allowed routes (other costs, limits or carriers). The misses are mostly ties between a canon sentence with no limits and a cheaper cost family. The first scoring, summed raw weights, found 10.5% and 7.3%, because every added limit outscored the canon's empty set; log probabilities fixed that.
+- **"Hide the camp":** a keeper who has seen Stealth Scales, Moonlight, Earth Communication Ear Grass and White Jade, owning only a Gu on primeval essence, gets four candidates in six trials, all passing the checks. The first is "hides what is hidden around while fed by a Gu on primeval essence". Its preview marks the time part unknown, since none of the four Gu the keeper knows shows it. The same keeper asking to alter a law of the place gets a `lacks-part` gap on the object.
+- **Nested backward search:** the toy move test finds every ordered pair and triple of held roles with exactly one core; the real moves wait on K's composed working for an acceptance test that runs them (GL3, MS4).
+
+### Backlog
+
+| Code | Gap | Proposed shape |
+| --- | --- | --- |
+| PGB13 | Backward search that wants an effect of a composed move (the move's sentence from its roles) | K's composed working supplies the composed effect; `accept` reads it |
+| PGB14 | Search depth by skill and knowledge (PM3 "search depth rises") | beam and budget from the actor's skill, supplied by A or R |
+| PGB15 | Failures that teach (PM4): a failed candidate updates the actor's knowledge | a knowledge write through N's owner from the refused-rule gaps |

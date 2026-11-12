@@ -1,4 +1,4 @@
-# Foundation P checkpoint, 2026-11-12: grammar contract, effect grammar, layers and coverage tooling (phase 3)
+# Foundation P checkpoint, 2026-11-12: grammar contract, effect grammar, layers, coverage tooling and backward search (phase 4)
 
 *Chat P in the [procedural foundation plan](../../../PROCEDURAL_FOUNDATION_PLAN.md#one-more-chat). Branch `claude/fdn-p-grammar-4ffe18`, started from 9bbc51363 (fast-forwarded from c25fd396d, no own commits before). Phase: publish the grammar contract v0 and the canon test harness, prove it on one corpus slice. Rules applied: PFP16-PFP20, P2, P5, GR1-GR17 (GR2, GR3, GR6, GR9, GR10, GR11, GR16 tested), AD5, AD38, AD56, NMR2, NMR3, NMR5, AU13 (plan only), MC2, MC12, MC14. Status: implemented, below floor (AD43): agent-verified at the focused test slice, not human-reviewed, no runtime caller yet, so no playable change and no browser pass. GR12 (no generator without a reader) stays open until the first consumer lands in the next phase.*
 
@@ -8,9 +8,24 @@ route: n/a
 state: rules-reconciled
 viewport: n/a (no player-facing change)
 persistence: unchanged
-tests: node --test tests/procedural_grammar.test.js tests/effect_grammar.test.js tests/coverage_report.test.js (23/23); check:rules; check:arch; check:coverage
+tests: node --test tests/procedural_grammar.test.js tests/effect_grammar.test.js tests/coverage_report.test.js tests/grammar_search.test.js (29/29); check:rules; check:arch; check:coverage
 review: none
 ```
+
+## Phase 4 (2026-11-12, grammars both ways, master 46b39fb22 merged)
+
+Read the plan section "Heredity and variation, player-made things, and lore from parts" (GN1-GN9, PM1-PM8, RV1-RV5, OA1-OA5, FN1-FN9, PFP27-PFP29). P's part: backward search, player goals, honest previews. Status: implemented, below floor (AD43), agent-verified, not human-reviewed; GR12 still open (no runtime caller).
+
+| Item | Result |
+| --- | --- |
+| PGC25 backward search | `searchParts`: beam over fitted weights, log-probability scores, trial budget, canon marking, nested child pools |
+| PGC26 gaps | `lacks-part` and refused-rule counts when nothing answers |
+| PGC27 honest preview | `previewValue`: unknown parts and uncertain derived fields by rule reads |
+| PGC28 goal search | `searchEffectsForGoal`, `knowledgeFrom` |
+| RV2 backward canon test | Canon route among the top five for 84.2% of Gu sentences and 89.0% of Hogwarts sentences, about four other routes each |
+| PM3 proof | "Hide the camp" for a keeper who has seen four Gu: four passing candidates in six trials, time shown as unknown; altering a law returns a `lacks-part` gap |
+
+Requests (phase 4): **K**, a composed working whose composed effect a backward search can accept (PGB13, GL3, MS4). **A or R**, search depth from skill (PGB14). **N**, a knowledge write for failures that teach (PGB15). **L** owns heredity (GN1-GN9); P's grammar has no genome slot type yet and will take L's request when L has a draft.
 
 ## Phase 3 (2026-11-12, coverage milestones, master 2fff2285e merged)
 
@@ -152,6 +167,12 @@ Target: path, role and rank labels for the 1,159 unlabelled Gu records (missing 
 5. **Deterministic checks on all output.** Schema, label in the declared lists (`GU_PATHS`, `GU_ROLES`, ranks 1-9), locator present, no raw prose beyond the paraphrase cap. Spot-check a 10% sample against its locator (sonnet or the coordinator). Done check: labelled rows with locators and a spot-check pass rate of 90% or more; then rerun `scripts/grammar_canon_gu.mjs` and record the new labelled count and rates.
 
 Level haiku, effort high (volume); preserve the Codex reserve (local or Claude readers only).
+
+## Next phase (after phase 4)
+
+1. GL3 with K: rebuild the 23 canon moves backward from their roles through K's composed working, and accept by the composed effect (PGB13).
+2. GL2 rerun once G and S supply independent identity parts.
+3. GL4 with E.
 
 ## Next phase (after phase 3)
 

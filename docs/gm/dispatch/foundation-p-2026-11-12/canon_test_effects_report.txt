@@ -43,6 +43,13 @@ GL2 hogwarts: whole effect predicted from identity 12/109 = 0.11 (majority 0.009
     6 x object: vitality read as form e.g. hp:episkey, hp:pain, hp:dolohov, hp:anapneo
     4 x object: position read as form e.g. hp:dance, hp:tongue-lock, hp:wipe, hp:oppugno
 GL6 moves: 23/23 assemble as nested roles (51 roles); 3 fully named and catalogued; flags {"participant-named":28,"two-or-more":6}
+RV2 backward gu: canon route found for 48/57 = 0.842; 3.98 other routes per target
+RV2 backward hogwarts: canon route found for 97/109 = 0.89; 3.88 other routes per target
+PM3 hide the camp: conceal information around: 4 candidates in 6 trials
+    conceal information area sustained gu essence-primeval  ("hides what is hidden around while fed by a Gu on primeval essence"; unknown to the keeper: time)
+    conceal information area instant gu essence-primeval  ("hides what is hidden around at once by a Gu on primeval essence"; unknown to the keeper: time)
+    conceal information area lasting gu essence-primeval  ("hides what is hidden around for good by a Gu on primeval essence"; unknown to the keeper: time)
+    conceal information area sustained gu essence-primeval distance  ("hides what is hidden around while fed by a Gu on primeval essence"; unknown to the keeper: time)
 transfer gu laws -> hogwarts canon: 70/109 = 0.642
 transfer hogwarts laws -> gu canon: 48/57 = 0.842
 explore gu@0: 24/40 pass, failures {"runs":16,"explains":1}, 6 niches kept
