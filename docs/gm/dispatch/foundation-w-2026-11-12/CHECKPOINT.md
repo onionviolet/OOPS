@@ -122,6 +122,24 @@ Merged master (2fff2285e, milestones MS1-MS7). P's effect grammar (`src/effect_g
 | `node --test tests/world_effects.test.js tests/world_substrate.test.js tests/meadow_shell_state.test.js` | 24 pass (E1-E9, W1-W10, meadow 5) |
 | `node --test tests/effect_grammar.test.js` | 1 fail (line 23, above), rest pass |
 
+## Phase 3: calendar sky and effect kinds (2026-11-12)
+
+Backlog rows W-B4 and W-B8, in W's own files.
+
+- **W-B4 done.** `world_sky.js` reads day, minute of day and season from the world calendar profile through `projectCalendar` (the reader `dayIndex` uses), defaulting to the home frontier calendar with its anchor at root minute 0. Rain follows the native rain calendar on the native weather minute, so the sky agrees with the existing weather. New shared quantity `season` (0 spring to 3 winter) where the calendar has seasons; Cyoria's calendar has none, so its sky carries none. W8 checks `day` against `dayIndex`, rain against `isRainingAtMinute(weatherClockMinute(view))`, daylight, moon and season.
+- **W-B8 done.** Effect kinds are vocabulary (WSC21): `WORLD_EFFECT_KINDS` lists ten shared kinds with the chats that asked, packs declare `publishes` and `hears`, a reactor on an unknown kind is refused at composition and an undeclared publish fails. The check found one real gap at once: the shell answers `smoke`, which only the brew publishes, so the live chamber (shell pack alone) now declares it hears smoke from the shared list.
+
+**PFP2 counts, before and after:** 0 and 0.
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/world_substrate.test.js tests/world_effects.test.js tests/meadow_shell_state.test.js` | 25 pass (W1-W11, E1-E9, meadow 5) | |
+| `node --test tests/effect_grammar.test.js` | 5 pass, 1 fail (the known line-23 assertion awaiting P) | |
+| `npm run check:arch` | exit 0 | |
+| `npm run check:rules` | PASS; only the TMR1 line in `book_world_hp_exams.js` from master | |
+
+Compatibility (MC4): unchanged. The live chamber save shape is the same; the sky is not in any save.
+
 ## Requests (phase 2, for the coordinator to relay)
 
 - **K (SC7, SB1):** the plan makes K the owner of identity. W offers its half: holders carry `as` (kinds a binding may name) and `refs` (records other owners keep), `resolveRef(world, {kind, id})` and `substratePort(world)` as a `ports.read` (WSC18). Please confirm or replace the id scheme so there is one identity authority, not two. Answers to K's backlog: **KB5** reservations stay with the custody owners; W only reads. **KB6** rates inside a step: run the step's progress as a closed-form substrate law (`horizon` plus `advance`, WSC4), which settles the same near and far.
@@ -134,6 +152,8 @@ Merged master (2fff2285e, milestones MS1-MS7). P's effect grammar (`src/effect_g
 
 
 ## Next phase
+
+**Next for W:** W-B1 partitioned detail and W-B2 diffusion when E's cost numbers or a domain's embed asks for them; K's identity answer and P's boundary answer as they arrive. W's plan done check is met; further rows are backlog, not this goal (PFP6).
 
 **Phase 2b is done (above).** The earlier plan for it, kept for the record: If allowed: the meadow shell chamber runs on the substrate (pack `l.shell_regulator`), one namespaced save slice with a migration from the current regulator fields, save, reload and import exercised, and one headless browser check at 1920x1080 with the receipt in this folder. If not: W builds the slice, migration and focused tests and asks L for the call-site line; or rescopes with the reason that no route outside other chats' files holds substrate state the clock cannot rebuild, so W stays "implemented, below floor" until L embeds. Not chosen: wiring rain through the substrate for the drying rack or home building, which would only rename a clock reading (FLR4) and store a derivable value (SPR23).
 
