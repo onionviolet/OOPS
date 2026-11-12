@@ -252,3 +252,32 @@ Not chosen for MS5: the substrate trade itself, because substrate coin is not th
 - EF8: a sect's repertoire is a set of effect sentences held as taught or secret knowledge; a move spreads by teaching, theft or rumor through the same knowledge rows as prices (SMK12). Waits on N's knowledge port (MB8) and P's effect layer (MS2).
 
 Order for M: MS5 first, then MS6 PG2, then EF8.
+
+## 11. Depth checklist for societies and markets (DC1-DC10), before PG2 (PFP30, PFP32)
+
+Merged master (plan section "Lore first, inheritance beyond genes, and a depth checklist"). Answers are proposals under AD56; a group here is a sect, clan, guild, house, family, church team, registry or crew.
+
+| Code | Answer for societies (and markets where they differ) |
+| --- | --- |
+| DC1 · What carries it | **Records and people.** A group is a record on `organizations@1` (charter, doctrine, ranks, holdings, rivals, SMK9) plus its members' ties (K). Holdings are substrate stock and places (SMK1). Standing is an audience's account about a subject (SMK10). Doctrine, secrets and repertoires (EF8) live as knowledge rows held by members (SMK12). Law is statute rows over `jurisdiction_rules` (SMK11). A market's state is stock on holders; its prices are projected on read, not stored (SMK5) |
+| DC2 · How it varies | Between groups by charter dials (admission, dues, secrecy, rhythm) and doctrine; within a group by rank and faction; over time by treasury, membership, holdings and standing that drift with what members do. Markets vary by place factors, season, keyed local events and the shelf against want |
+| DC3 · How it passes on or spreads | Succession (a post's exit kinds in `positions@1`: died, term end, buy out), schism (`split` status), founding by a member who leaves, teaching of doctrine and moves to recruits, theft of secrets, rumor of standing and prices through the knowledge rows (SMK13). Goods spread by trade (SMK8) |
+| DC4 · How it is improved on purpose | Recruiting, dues and treasury, missions that pay the institution's own currency (`institution_store`), alliances, claiming ground (`claimGround`), raising standing by deeds with a named cause, and for markets building a supplier (SMK3) or a route. Each costs time, coin, members or standing with a rival (backlash share) |
+| DC5 · What is hidden, and how it is learned | Hidden membership and meeting places (`secrecy: hidden`, sealed by ID), true doctrine versus stated doctrine, a sect's guarded lines and move sets, the real stock behind a price. Learned by observation, being told (with a teller who may be wrong), joining, rank-gated teaching, informers and audits (`authorityOver` knownness) |
+| DC6 · What magic adds or bends | Binding vows and oaths as authority read at settlement (LR13, K), secrets bound to one keeper (LR11, N), divination of membership or prices (S on N), Gu or charms that hide a meeting place (GQ9 concealment), luck as a quantity a rival can read or steal (LR8). Each is a working with a price |
+| DC7 · Canon fixed points | To collect with locators before PG2 (LR1). Candidates: Reverend Insanity Gu clan structure and contribution; the Primordial Saint Sect credit terms (sourced in `book_world_primordial_credit.js`, c0004 p11 and c0006 p12); Lord of the Mysteries church teams, merit and the broker's verification hold (`book_world_lotm_broker.js`, 459 p32 and 460 p76-p80); Hogwarts houses and points; Ministry law on experimental breeding (LR14, locator needed). The world institution passes in `docs/worlds/*_INSTITUTIONS_ROLES_AND_SUBTLE_DETAILS_*.md` are the first place to read |
+| DC8 · What society does about it | This is M's own row: law, markets, prestige and secrecy. Statutes with detection and enforcers, heat raised by knowledge, registries and shows that confer standing, black markets outside an authority's claim, guarded lines and teachings |
+| DC9 · Scale and cost | Near: named members, meetings, individual trades and talk. Far: a group as counts (members, treasury, holdings, standing per audience) and a market as stock plus net flow per day (SMK4). History run forward (PG4) settles groups far |
+| DC10 · What the player can pull on | Join, leave, found, betray or inform on a group; pay dues; trade, haggle, buy out a shelf; tell or withhold a price; register, show or hide an animal; bribe or obey a law. Read back: standing terms, a group's view of you, prices with their reasons, who told you what, heat with an authority |
+
+### SB12 and LR14 (after the first chain, which runs in focused tests)
+
+Each is rows on existing owners, no new store:
+
+- **Breed registry:** a group (kind `registry`) whose holdings are pedigree records (knowledge rows held by the registrar, N's port when it exists). Registration is a K working with a fee and an inspection step that reads what the registrar can observe, not the hidden genotype (SB7).
+- **Prize show:** a recurring event at a place; judging is a contest (C, notch resolver) over observed traits; the outcome writes standing with the show's audience and moves the price of the line's young (SMK5 world factor with a reason).
+- **Black market:** a shelf at a place no authority claims or reaches (`authorityOver` reach false), or one an authority would claim but does not know about. Prices carry a risk factor; buying there raises heat only when an authority comes to know (heat rises from known acts).
+- **Sect-guarded line:** a lineage held as group holdings with doctrine `secrecy: hidden` for its breeding notes; outsiders learn it by teaching after joining, theft or rumor.
+- **LR14 · Breeding law:** a statute row on `jurisdiction_rules`/`law_case`: act `experimental_breeding`, places where it is enforced, a penalty (fine, seizure, standing loss), an enforcer, the evidence it needs and exemptions (a licence from a registry). Default dial: enforced in the world's ministry jurisdiction with a fine and seizure of the offspring; in-world reason: dangerous hybrids threaten the secrecy and safety the ministry keeps. Strictness is a per-region dial; a world without the law sets it off. Nothing blocks the breeding itself: L's breeding working runs, and the law answers when someone with a claim and reach comes to know.
+
+**PFP2 counts:** unchanged by this section (docs only).
