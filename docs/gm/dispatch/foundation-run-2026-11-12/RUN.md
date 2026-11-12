@@ -711,3 +711,30 @@ Four Fable lanes in sparse worktrees plus the read-only audit above. Each lane r
 | Knowledge record (E2) | this fold | Pack `n.knowledge`, seventeenth in the engine world: believed and true sides, four priced checks, teaching with side, cover and withheld steps; the false move, formula, blueprint, variants and rumours run from data rows. Couplings across domains 7 to 9 | Its cost rows are not yet passed to the cost owner; checks miss but give no false alarm; the game's own knowledge store is separate until tie-in |
 
 Fold fix by the coordinator: the coupling test pinned the count at 7 and the knowledge pack made it 9, so the assertion is now a floor. E1 to E4 and E8 are met in part as the Open column says; none is closed.
+
+### Gameplay-shaped and canon-first finish lines (2026-11-12)
+
+Weibao (2026-11-12), on whether the engines tie into gameplay: "the engine should b built around that shoudnt it?"; on adding the four lines below: "All of them"; and "does the procedural system firstly work for all the cannon spells, gu, items and more?" The first four are his yes. E24 and E25 are the coordinator's proposal from his canon question.
+
+| # | Finish line |
+| --- | --- |
+| E20 | Every engine offers the same four surfaces: the options a holder has from what it knows and holds; a quote of cost, odds and risk read from the believed side; the act; a receipt in plain words that says what happened, why a thing failed and the ways around it |
+| E21 | A week away settles to the same result as a week played, inside a stated time budget, for every engine |
+| E22 | The player is a holder: an act open to the player is open to another holder through the same path, and the reverse |
+| E23 | One seam test, headless and with no interface: the engine world saved and restored inside a real game save and driven by the game's clock. It runs after E9 folds |
+| E24 | Canon first: in every ledger, no row is blocked for a reason the engine owns. A row may stay blocked where the source does not say what the thing does, and it names that. Generators and operators start after this holds |
+| E25 | Items have a ledger: Hogwarts magical objects, Gu-world tools and refinement materials, and Lord of the Mysteries sealed artifacts and charms, on the same states as the other seven |
+
+Where E24 stands, from `check:coverage` and the ledgers' own block reasons:
+
+| Ledger | Rows | Run or compute | Blocked on the engine | Blocked on the source or on reading |
+| --- | --- | --- | --- | --- |
+| Hogwarts spells | 117 | 80 | 3 (an intent slot) | 17 (intent or effect not stated or shown), 5 not things |
+| Hogwarts potions | 316 | 5 | 259: body door 82, mind state 50, effect sentence 47, body form 40, plant or creature target 31, conceal or sense 9 | 32 not things |
+| Hogwarts ingredients | 409 | 20 | 0 | 380 lack property rows |
+| Gu kinds | 1,466 | 384 typed, 16 computed | 41 of the 57 labelled kinds name a missing mechanism | 678 rank unknown, 400 effect unknown |
+| Gu moves | 776 | 4 | 2 (a role that cannot run) | 770 roles unknown or unnamed |
+| Lord of the Mysteries potions | 226 | 46 | 6 (body door) | 174 formulas |
+| Creatures | 96 | 35 | 0 | 61 diets unknown |
+
+Hogwarts potions are the largest engine debt: 259 rows wait on five mechanisms, mostly what a dose does once inside a body and a mind. Those five, the 41 Gu mechanisms and the items ledger go ahead of Wave 19.
