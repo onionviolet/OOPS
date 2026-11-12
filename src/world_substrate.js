@@ -9,13 +9,14 @@
 // every boundary a law can see, so one jump, many steps, near detail and far
 // detail all give the same totals (SPR28, TMR4).
 export const SUBSTRATE_SCHEMA = 'oops.world-substrate';
-export const SUBSTRATE_REVISION = 0;
+export const SUBSTRATE_REVISION = 1;
 
 const fail = message => { throw new Error(`World substrate: ${message}`); };
 const check = (ok, message) => { if (!ok) fail(message); };
 const idLike = x => typeof x === 'string' && /^[a-z][a-z0-9_.:-]*$/i.test(x);
 const whole = n => Number.isSafeInteger(n);
 const KINDS = ['place', 'body', 'thing'];
+const PROPERTY_TYPES = ['flag', 'level', 'label', 'set'];
 const OPS = {gte: (a, b) => a >= b, gt: (a, b) => a > b, lt: (a, b) => a < b, lte: (a, b) => a <= b, eq: (a, b) => a === b};
 const byId = (a, b) => a < b ? -1 : a > b ? 1 : 0;
 
@@ -30,26 +31,39 @@ export const SUBSTRATE_DIALS = Object.freeze({
 
 /** Merge pack declarations into one frozen rule set. Order of `packs` is the
  * fixed settlement order (then law order inside a pack, then holder id). */
-export function composeSubstrate({packs, quantities = [], dials = {}}) {
+export function composeSubstrate({packs, quantities = [], properties = [], dials = {}}) {
     check(Array.isArray(packs) && packs.length, 'compose needs packs.');
-    const q = new Map();
+    const q = new Map(), pr = new Map();
     const addQuantity = (def, owner) => {
-        check(idLike(def?.id) && typeof def.unit === 'string' && def.unit, `quantity needs id and unit (${owner}).`);
-        const min = def.min ?? 0, max = def.max ?? Number.MAX_SAFE_INTEGER;
+        check(idLike(def?.id) && !def.id.includes(':') && typeof def.unit === 'string' && def.unit, `quantity needs id and unit (${owner}).`);
+        const min = def.min ?? 0, max = def.max ?? Number.MAX_SAFE_INTEGER, keyed = def.keyed === true;
         check(whole(min) && whole(max) && min <= max, `quantity ${def.id} has bad bounds.`);
         const prior = q.get(def.id);
-        if (prior) check(prior.unit === def.unit && prior.min === min && prior.max === max,
-            `quantity ${def.id} declared twice with different unit or bounds (${prior.owner}, ${owner}).`);
-        else q.set(def.id, Object.freeze({id: def.id, unit: def.unit, min, max, owner}));
+        if (prior) check(prior.unit === def.unit && prior.min === min && prior.max === max && prior.keyed === keyed,
+            `quantity ${def.id} declared twice with different unit, bounds or keying (${prior.owner}, ${owner}).`);
+        else q.set(def.id, Object.freeze({id: def.id, unit: def.unit, min, max, keyed, owner}));
+    };
+    const addProperty = (def, owner) => {
+        check(idLike(def?.id) && PROPERTY_TYPES.includes(def.type), `property needs id and a type (${owner}).`);
+        const shape = {type: def.type, min: def.min ?? 0, max: def.max ?? Number.MAX_SAFE_INTEGER, values: def.values ? [...def.values].sort() : null};
+        const prior = pr.get(def.id);
+        if (prior) check(JSON.stringify({type: prior.type, min: prior.min, max: prior.max, values: prior.values}) === JSON.stringify(shape),
+            `property ${def.id} declared twice with different shapes (${prior.owner}, ${owner}).`);
+        else pr.set(def.id, Object.freeze({id: def.id, ...shape, owner}));
     };
     for (const def of quantities) addQuantity(def, 'world');
+    for (const def of properties) addProperty(def, 'world');
     const seen = new Set(), laws = [], reactors = [];
     for (const pack of packs) {
         check(idLike(pack?.id) && !seen.has(pack.id), 'each pack needs a unique id.');
         seen.add(pack.id);
         for (const def of pack.quantities ?? []) addQuantity(def, pack.id);
+        for (const def of pack.properties ?? []) addProperty(def, pack.id);
+    }
+    for (const id of q.keys()) check(!pr.has(id), `${id} is both a quantity and a property.`);
+    for (const pack of packs) {
         const reads = new Set([...(pack.reads ?? []), ...(pack.writes ?? [])]), writes = new Set(pack.writes ?? []);
-        for (const name of reads) check(q.has(name), `pack ${pack.id} names undeclared quantity ${name}.`);
+        for (const name of reads) check(q.has(family(name)) || pr.has(name), `pack ${pack.id} names undeclared quantity or property ${name}.`);
         for (const law of pack.laws ?? []) {
             check(idLike(law.id) && typeof law.appliesTo === 'function', `law in ${pack.id} needs id and appliesTo.`);
             check(!law.advance === !law.horizon || !law.advance, `law ${law.id}: advance needs a horizon.`);
@@ -63,7 +77,30 @@ export function composeSubstrate({packs, quantities = [], dials = {}}) {
     }
     const d = {...SUBSTRATE_DIALS, ...dials};
     for (const [k, v] of Object.entries(d)) check(whole(v) && v >= (k === 'cascadeDepth' ? 0 : 1), `dial ${k} must be a whole number.`);
-    return Object.freeze({quantities: q, packs: Object.freeze(packs.map(p => p.id)), laws, reactors, dials: Object.freeze(d)});
+    return Object.freeze({quantities: q, properties: pr, packs: Object.freeze(packs.map(p => p.id)), laws, reactors, dials: Object.freeze(d)});
+}
+
+// A keyed quantity is a family: `energy:primeval.rank1`, `stock:bread`. The
+// family carries unit and bounds; the key names the kind (WSC2).
+const family = name => typeof name === 'string' ? name.split(':')[0] : name;
+const keyOk = name => !name.includes(':') || /^[a-z][a-z0-9_.-]*:[a-z0-9][a-z0-9_.-]*$/i.test(name);
+export function quantityDef(rules, name) {
+    const def = rules.quantities.get(family(name));
+    if (!def || !keyOk(name) || def.keyed !== name.includes(':')) return null;
+    return def;
+}
+// A declaration of the family covers every key; a keyed name covers only itself.
+const declares = (set, name) => set.has(name) || set.has(family(name));
+
+function checkProperty(rules, name, value, where) {
+    const def = rules.properties.get(name);
+    check(def, `${where}: undeclared property ${name}.`);
+    const ok = def.type === 'flag' ? typeof value === 'boolean'
+        : def.type === 'level' ? whole(value) && value >= def.min && value <= def.max
+        : def.type === 'label' ? typeof value === 'string' && (!def.values || def.values.includes(value))
+        : Array.isArray(value) && value.every(v => typeof v === 'string' && (!def.values || def.values.includes(v))) && new Set(value).size === value.length;
+    check(ok, `${where}: ${name} has a bad value.`);
+    return def.type === 'set' ? [...value].sort() : value;
 }
 
 // ---------- holders, ledger, chain ----------
@@ -73,14 +110,20 @@ function makeHolder(rules, h) {
     check(h.kind === 'place' ? h.place == null : idLike(h.place), `holder ${h.id}: places have no place; bodies and things sit in one.`);
     const quantities = {};
     for (const [name, amount] of Object.entries(h.quantities ?? {})) {
-        const def = rules.quantities.get(name);
+        const def = quantityDef(rules, name);
         check(def, `holder ${h.id} carries undeclared quantity ${name}.`);
         check(whole(amount) && amount >= def.min && amount <= def.max, `holder ${h.id}: ${name} out of bounds.`);
         quantities[name] = amount;
     }
     check(h.detail == null || (h.kind === 'place' && ['near', 'far'].includes(h.detail)), `holder ${h.id}: detail is near or far, on places.`);
-    return {id: h.id, kind: h.kind, place: h.place ?? null, tags: [...(h.tags ?? [])].sort(),
-        ...(h.detail ? {detail: h.detail} : {}), quantities,
+    const properties = {};
+    for (const [name, value] of Object.entries(h.properties ?? {})) properties[name] = checkProperty(rules, name, value, `holder ${h.id}`);
+    // Identity (SC7, SB1): one holder id; `as` lists the kinds it can be bound as
+    // (item, body, gu); `refs` points at the records other owners keep for it.
+    const as = [...new Set(h.as ?? [])].sort(), refs = {...(h.refs ?? {})};
+    check(as.every(idLike) && Object.entries(refs).every(([k, v]) => idLike(k) && typeof v === 'string' && v), `holder ${h.id}: bad identity.`);
+    return {id: h.id, kind: h.kind, place: h.place ?? null, tags: [...(h.tags ?? [])].sort(), as, refs,
+        ...(h.detail ? {detail: h.detail} : {}), quantities, properties,
         ledger: structuredClone(h.ledger ?? {}), state: structuredClone(h.state ?? {})};
 }
 
@@ -98,7 +141,7 @@ function credit(rules, holder, name, source, amount) {
 // Adds with clamping; whatever the bound refuses is credited to 'bound' so the
 // ledger always sums to the change in amount (SPR25).
 function addAmount(rules, holder, name, amount, source) {
-    const def = rules.quantities.get(name);
+    const def = quantityDef(rules, name);
     check(def && name in holder.quantities, `${holder.id} does not carry ${name}.`);
     check(whole(amount), `amount for ${name} must be whole.`);
     const before = holder.quantities[name];
@@ -122,7 +165,10 @@ function viewFor(rules, world, pack) {
     const holder = id => world.holders[id];
     return Object.freeze({
         clock: world.clock,
-        holder: id => { const h = holder(id); return h && Object.freeze({id: h.id, kind: h.kind, place: h.place, tags: h.tags}); },
+        holder: id => { const h = holder(id); return h && Object.freeze({id: h.id, kind: h.kind, place: h.place, tags: h.tags, as: h.as}); },
+        // Properties are what laws test instead of categories (PFP22, SB2).
+        property: (id, name) => structuredClone(holder(id)?.properties[name] ?? null),
+        properties: id => structuredClone(holder(id)?.properties ?? {}),
         has: (id, name) => !!holder(id) && name in holder(id).quantities,
         amount: (id, name) => { const h = holder(id); check(h && name in h.quantities, `${id} does not carry ${name}.`); return h.quantities[name]; },
         state: id => structuredClone(holder(id)?.state[pack] ?? null),
@@ -152,22 +198,29 @@ function applyOps(rules, world, ops, ctx, queue) {
         }
         case 'add': case 'set': {
             check(h, `${op.op} op on unknown holder ${op.holder}.`);
-            check(!ctx.writes || ctx.writes.has(op.quantity), `pack ${ctx.pack} does not declare writing ${op.quantity}.`);
+            check(!ctx.writes || declares(ctx.writes, op.quantity), `pack ${ctx.pack} does not declare writing ${op.quantity}.`);
             const amount = op.op === 'set' ? op.amount - (h.quantities[op.quantity] ?? 0) : op.amount;
             addAmount(rules, h, op.quantity, amount, op.source ?? ctx.source);
             break;
         }
+        case 'property': {
+            check(h, `property op on unknown holder ${op.holder}.`);
+            check(!ctx.writes || ctx.writes.has(op.property), `pack ${ctx.pack} does not declare writing ${op.property}.`);
+            if (op.value == null) delete h.properties[op.property];
+            else h.properties[op.property] = checkProperty(rules, op.property, op.value, `holder ${h.id}`);
+            break;
+        }
         case 'carry': {
-            check(h && rules.quantities.has(op.quantity), 'carry needs a holder and a declared quantity.');
+            check(h && quantityDef(rules, op.quantity), 'carry needs a holder and a declared quantity.');
             check(!(op.quantity in h.quantities), `${h.id} already carries ${op.quantity}.`);
-            const def = rules.quantities.get(op.quantity), amount = op.amount ?? Math.max(def.min, 0);
+            const def = quantityDef(rules, op.quantity), amount = op.amount ?? Math.max(def.min, 0);
             check(whole(amount) && amount >= def.min && amount <= def.max, 'carry amount out of bounds.');
             h.quantities[op.quantity] = amount;
             break;
         }
         case 'publish': {
             check(typeof op.kind === 'string' && world.holders[op.place]?.kind === 'place', 'publish needs a kind and a place.');
-            if (op.quantity != null) check(rules.quantities.has(op.quantity) && whole(op.amount), 'an effect on a quantity needs a whole amount.');
+            if (op.quantity != null) check(quantityDef(rules, op.quantity) && whole(op.amount), 'an effect on a quantity needs a whole amount.');
             queue.push({kind: op.kind, place: op.place, quantity: op.quantity ?? null, amount: op.amount ?? 0,
                 detail: structuredClone(op.detail ?? null), by: op.by ?? ctx.by ?? ctx.source,
                 depth: ctx.depth ?? 0, cause: ctx.parent ?? ctx.cause ?? null});
@@ -200,7 +253,10 @@ function applyOps(rules, world, ops, ctx, queue) {
             const f = op.field;
             check(idLike(f?.id) && idLike(f.kind) && (f.scope === 'world' || world.holders[f.scope]), 'law field needs id, kind and a scope.');
             check(!world.laws.some(x => x.id === f.id), `law field ${f.id} exists.`);
-            world.laws.push({id: f.id, scope: f.scope, kind: f.kind, params: structuredClone(f.params ?? {}), source: f.source ?? ctx.source ?? null});
+            // `until` (a later whole minute) makes the field lapse at that boundary: sustained effects end by time.
+            check(f.until == null || (whole(f.until) && f.until > world.clock), `law field ${f.id}: until is a later minute.`);
+            world.laws.push({id: f.id, scope: f.scope, kind: f.kind, params: structuredClone(f.params ?? {}), source: f.source ?? ctx.source ?? null,
+                ...(f.until != null ? {until: f.until} : {})});
             world.laws.sort((a, b) => byId(a.id, b.id));
             break;
         }
@@ -208,6 +264,12 @@ function applyOps(rules, world, ops, ctx, queue) {
             check(world.laws.some(x => x.id === op.id), `no law field ${op.id}.`);
             world.laws = world.laws.filter(x => x.id !== op.id);
             break;
+        case 'law_params': {
+            const f = world.laws.find(x => x.id === op.id);
+            check(f, `no law field ${op.id}.`);
+            f.params = {...f.params, ...structuredClone(op.params ?? {})};
+            break;
+        }
         default: fail(`unknown op ${op.op}.`);
         }
     }
@@ -278,6 +340,19 @@ function decideAll(rules, world) {
     }
 }
 
+function expireLaws(rules, world) {
+    const due = world.laws.filter(f => f.until != null && f.until <= world.clock);
+    if (!due.length) return;
+    world.laws = world.laws.filter(f => !due.includes(f));
+    const queue = [];
+    for (const f of due) {
+        const place = f.scope === 'world' ? null : world.holders[f.scope]?.kind === 'place' ? f.scope : world.holders[f.scope]?.place;
+        if (place) queue.push({kind: 'law.lapsed', place, quantity: null, amount: 0, detail: {id: f.id, kind: f.kind, scope: f.scope},
+            by: f.source ?? 'law', depth: 0, cause: null});
+    }
+    settleContact(rules, world, queue);
+}
+
 function applicable(rules, world) {
     const out = [];
     for (const entry of rules.laws) for (const id of Object.keys(world.holders).sort(byId))
@@ -304,14 +379,14 @@ export function advanceWorld(rules, world0, toClock) {
     const world = structuredClone(world0);
     let segments = 0;
     for (;;) {
-        if (world.decidedAt !== world.clock) { decideAll(rules, world); world.decidedAt = world.clock; }
+        if (world.decidedAt !== world.clock) { expireLaws(rules, world); decideAll(rules, world); world.decidedAt = world.clock; }
         if (world.clock >= toClock) break;
         if (segments >= rules.dials.segmentBudget) return {world: validateWorld(rules, world), segments, pending: true};
         const laws = applicable(rules, world);
         // Net per-minute rate on each (holder, quantity), and who contributes it.
         const flows = new Map();
         for (const l of laws) for (const r of l.law.rates?.(l.view, l.id) ?? []) {
-            check(l.writes.has(r.quantity), `pack ${l.pack} does not declare writing ${r.quantity}.`);
+            check(declares(l.writes, r.quantity), `pack ${l.pack} does not declare writing ${r.quantity}.`);
             check(world.holders[r.holder] && r.quantity in world.holders[r.holder].quantities, `${r.holder} does not carry ${r.quantity}.`);
             check(whole(r.perMinute), 'rates are whole units per minute.');
             if (!r.perMinute) continue;
@@ -327,7 +402,7 @@ export function advanceWorld(rules, world0, toClock) {
         // changed out of line with its own thresholds) acts at the next minute.
         if (laws.some(l => l.law.decide?.(l.view, l.id)?.length)) k = 1;
         const effective = (holder, name) => {
-            const f = flows.get(`${holder}\u0000${name}`), v = world.holders[holder].quantities[name], def = rules.quantities.get(name);
+            const f = flows.get(`${holder}\u0000${name}`), v = world.holders[holder].quantities[name], def = quantityDef(rules, name);
             if (!f?.net || (f.net > 0 && v >= def.max) || (f.net < 0 && v <= def.min)) return 0;
             return f.net;
         };
@@ -335,12 +410,13 @@ export function advanceWorld(rules, world0, toClock) {
         for (const f of flows.values()) {
             const r = effective(f.holder, f.quantity);
             if (!r) continue;
-            const v = world.holders[f.holder].quantities[f.quantity], def = rules.quantities.get(f.quantity);
+            const v = world.holders[f.holder].quantities[f.quantity], def = quantityDef(rules, f.quantity);
             k = Math.min(k, Math.max(1, Math.floor((r > 0 ? def.max - v : v - def.min) / Math.abs(r))));
         }
+        for (const f of world.laws) if (f.until != null) k = Math.min(k, f.until - world.clock);
         for (const l of laws) {
             for (const w of l.law.watches?.(l.view, l.id) ?? []) {
-                check(l.reads.has(w.quantity), `pack ${l.pack} does not declare reading ${w.quantity}.`);
+                check(declares(l.reads, w.quantity), `pack ${l.pack} does not declare reading ${w.quantity}.`);
                 if (!world.holders[w.holder] || !(w.quantity in world.holders[w.holder].quantities)) continue;
                 k = Math.min(k, linearFlip(world.holders[w.holder].quantities[w.quantity], effective(w.holder, w.quantity), w.op, w.value, k));
             }
@@ -354,7 +430,7 @@ export function advanceWorld(rules, world0, toClock) {
             const h = world.holders[f.holder];
             const before = h.quantities[f.quantity];
             for (const p of f.parts) credit(rules, h, f.quantity, p.source, p.perMinute * k);
-            const def = rules.quantities.get(f.quantity);
+            const def = quantityDef(rules, f.quantity);
             h.quantities[f.quantity] = Math.min(def.max, Math.max(def.min, before + f.net * k));
             credit(rules, h, f.quantity, 'bound', h.quantities[f.quantity] - before - f.net * k);
         }
@@ -382,6 +458,43 @@ export function explainEffect(world, seq) {
     return out;
 }
 
+/** SC7 identity: the holder a kernel binding `{kind, id}` names. It matches the
+ * holder id or a ref another owner keeps (an inventory key, a lifecycle id), and
+ * the holder must be bindable as that kind (`as`, or its physical kind). */
+export function resolveRef(world, ref) {
+    if (!ref || typeof ref.kind !== 'string' || typeof ref.id !== 'string') return null;
+    const fits = h => h.as.includes(ref.kind) || h.kind === ref.kind;
+    const direct = world.holders[ref.id];
+    if (direct && fits(direct)) return direct.id;
+    const found = Object.values(world.holders).filter(h => h.refs[ref.kind] === ref.id).map(h => h.id).sort(byId);
+    check(found.length <= 1, `two holders claim ${ref.kind} ${ref.id}.`);
+    return found[0] ?? null;
+}
+
+/** A `ports.read(ref, at)` for the kernel working over this world (K's KW3).
+ * It answers for the world's own minute only; a host settles the world to the
+ * step's time first (KW6, KW13). */
+export function substratePort(world) {
+    return (ref, at) => {
+        check(at == null || at === world.clock, `substrate port asked for minute ${at} but the world is at ${world.clock}.`);
+        const id = resolveRef(world, ref);
+        if (!id) return null;
+        const h = world.holders[id];
+        return Object.freeze({kind: ref.kind, id: ref.id, holder: h.id, place: h.place, as: [...h.as],
+            quantities: {...h.quantities}, properties: structuredClone(h.properties)});
+    };
+}
+
+/** Scarcity is derived, never stored (SPR23): stock of a good held in a place
+ * against the want rate of the holders there. `days` is how long the stock lasts
+ * at that want (Infinity with no want). */
+export function readScarcity(world, place, good) {
+    const holders = [place, ...Object.keys(world.holders).filter(id => world.holders[id].place === place)];
+    const sum = name => holders.reduce((n, id) => n + (world.holders[id]?.quantities[name] ?? 0), 0);
+    const stock = sum(`stock:${good}`), want = sum(`want:${good}`);
+    return {good, place, stock, want, days: want ? Math.floor(stock / want) : Infinity, short: want > 0 && stock < want};
+}
+
 /** Flat facts in the simulation predicate shape: self.<q>, here.<q>, world.clock. */
 export function substrateFacts(world, id) {
     const h = world.holders[id];
@@ -395,8 +508,12 @@ export function substrateFacts(world, id) {
 
 // ---------- save shape (OS8) ----------
 
-// One migration per revision step; v0 is the first shape, so the table is empty.
-const MIGRATIONS = Object.freeze({});
+// One migration per revision step (OS8).
+const MIGRATIONS = Object.freeze({
+    // 0 -> 1 (2026-11-12, phase 2): holders gain properties, identity kinds and refs; nothing else moves.
+    0: saved => ({...saved, revision: 1, holders: Object.fromEntries(Object.entries(saved.holders ?? {})
+        .map(([id, h]) => [id, {...h, properties: h.properties ?? {}, as: h.as ?? [], refs: h.refs ?? {}}]))}),
+});
 
 export function migrateWorldSave(saved) {
     check(saved?.schema === SUBSTRATE_SCHEMA && whole(saved.revision), 'not a world substrate save.');
@@ -427,12 +544,13 @@ export function validateWorld(rules, world) {
         check(h.id === id && KINDS.includes(h.kind), `holder ${id} is malformed.`);
         if (h.kind !== 'place') check(world.holders[h.place]?.kind === 'place', `holder ${id} sits in an unknown place.`);
         for (const [name, amount] of Object.entries(h.quantities)) {
-            const def = rules.quantities.get(name);
+            const def = quantityDef(rules, name);
             check(def && whole(amount) && amount >= def.min && amount <= def.max, `holder ${id}: ${name} invalid.`);
             const sum = Object.values(h.ledger[name] ?? {}).reduce((a, b) => a + b, 0);
             check(whole(sum), `holder ${id}: ${name} ledger invalid.`);
         }
     }
+    for (const [id, h] of Object.entries(world.holders)) for (const [name, value] of Object.entries(h.properties ?? {})) checkProperty(rules, name, value, `holder ${id}`);
     for (const f of world.laws) check(idLike(f.id) && (f.scope === 'world' || world.holders[f.scope]), `law field ${f.id} has no scope.`);
     check(world.chain.length <= rules.dials.chainCap, 'chain exceeds its cap.');
     return world;

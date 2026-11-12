@@ -356,14 +356,14 @@ By default a new slice declares data through the seam named here and does not ad
 
 ## World substrate (shared quantities, effects, sky)
 
-- Use this: `world_substrate.js` (v0, chat W of the procedural foundation plan) for quantities a place, body or thing carries, law fields scoped to them, effects published into a place, and settling time near or far; `world_quantities.js` for shared quantity names; `world_sky.js` for daylight, moon phase, rain and day as place quantities.
+- Use this: `world_substrate.js` (v0, chat W of the procedural foundation plan) for quantities a place, body or thing carries, law fields scoped to them, effects published into a place, and settling time near or far; `world_quantities.js` for shared quantity and property names (keyed families such as `energy:<kind>`, `stock:<good>`); `world_effects.js` for the effect verbs (move, add, remove, transform, bind, sense, conceal, copy, block, alter); `world_sky.js` for daylight, moon phase, rain and day as place quantities.
 - Declare: a pack `{id, quantities, reads, writes, laws, reactors}`; reference packs in `src/world_substrate_packs/` (`shell_regulator.js` for L, `brew_steam.js` for B, both handed over at embed).
 - Write: `applyWorldOps` (outside changes at the current minute), `advanceWorld` (time). Laws and reactors return ops; they never mutate.
-- Read: `readQuantity`, `readProvenance`, `explainEffect`, `substrateFacts`.
-- State: not in the game save yet; its own versioned shape `oops.world-substrate` revision 0 (`serializeWorld`, `restoreWorld`, `migrateWorldSave`).
-- Copy: `tests/world_substrate.test.js` (`workshop()` fixture, W1-W10).
-- Test: tests/world_substrate.test.js.
-- Rules: [contract](WORLD_SUBSTRATE_CONTRACT.md) WSC1-WSC14; PFP10-PFP15, OS6, OS8; TMR4, TMR7, SPR25, SPR28, SPR30.
+- Read: `readQuantity`, `readProvenance`, `explainEffect`, `substrateFacts`, `readScarcity`, `resolveRef`, `substratePort` (K's `ports.read`).
+- State: first live slice is the Village shell chamber (`meadow_pen` slice, `shellAnimal.chamber`, read through `meadowChamber`); its own versioned shape `oops.world-substrate` revision 1 (revision 0 migrates) (`serializeWorld`, `restoreWorld`, `migrateWorldSave`).
+- Copy: `src/meadow_shell_state.js` (a near place settled minute by minute, a save-on-read migration, player ops with a cause); `tests/world_substrate.test.js` (`workshop()` fixture, W1-W10).
+- Test: tests/world_substrate.test.js; tests/world_effects.test.js.
+- Rules: [contract](WORLD_SUBSTRATE_CONTRACT.md) WSC1-WSC20; PFP22, SB2, SB3, SC7; PFP10-PFP15, OS6, OS8; TMR4, TMR7, SPR25, SPR28, SPR30.
 - Limits/traps: whole-unit amounts and rates only; one near place steps the whole world by minutes; the sky computes its own day (not `dayIndex` yet).
 - Do not: import one pack from another, or read another pack's state slice; exchange through quantities and effects.
 - Competing: `simulation_effects.js` `applySimulationEffects` (the action effect hub, untouched in v0) and per-module timers such as `living_regulator.js`; the substrate is where they move at embed.
