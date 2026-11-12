@@ -9,7 +9,7 @@ import {parseLedger} from '../scripts/coverage_report.mjs';
 import {LOTM_BREW_ROWS} from '../src/world_packs/lotm_brew_pack.js';
 
 const read = name => readFileSync(new URL(`../docs/coverage/${name}.jsonl`, import.meta.url), 'utf8').trim().split('\n').map(l => JSON.parse(l));
-const STATE = /^(runs-canon|runs-authored|blocked:[a-z-]+|not-a-thing:[a-z-]+)$/;
+const STATE = /^(runs-canon|runs-authored|expressed-authored|blocked:[a-z-]+|not-a-thing:[a-z-]+)$/;
 
 test('committed B ledgers equal a fresh build', async () => {
     const built = await buildLedgers();

@@ -201,6 +201,13 @@ async function nonPathwayRows() {
 
 // ---------- build ----------
 
+// The runner currently requires a case-bearing row's typed state to match
+// its computed state. Keep the workshop receipt when adding the engine case.
+const DRAUGHT_CASE = {
+    module: 'src/world_packs/hp_potion_case_scenes.js',
+    id: 'draught_of_living_death',
+};
+
 export async function buildLedgers() {
     const catalogue = readFileSync(at(CATALOGUE), 'utf8').trim().split('\n').map(l => JSON.parse(l));
     const potions = catalogue.filter(r => r.kinds.includes('potion_related')).map(hpPotionRow);
@@ -213,7 +220,13 @@ export async function buildLedgers() {
         return {mechanisms: ['brew_law'], test: null, ...rest, basis: `reviewed addition (${evidence})`};
     });
     const lotm = [...lotmInventory(readFileSync(at(TABLE), 'utf8'), LOTM_BREW_ROWS), ...await nonPathwayRows(), ...extra];
-    return {hp_potions: applyOverrides(potions, o.hp_potions, 'hp_potions'),
+    const hpPotions = applyOverrides(potions, o.hp_potions, 'hp_potions');
+    const draught = hpPotions.find(row => row.id === 'hp.potion.draught_of_living_death');
+    draught.note += ` Prior typed state: ${draught.state} (workshop reaction). The engine case uses authored dose size, uptake, responsiveness and recovery.`;
+    draught.state = 'expressed-authored';
+    draught.mechanisms = [...draught.mechanisms, 'brew_law', 'l.living_body'];
+    draught.case = DRAUGHT_CASE;
+    return {hp_potions: hpPotions,
         hp_ingredients: applyOverrides(ingredients, o.hp_ingredients, 'hp_ingredients'),
         lotm_potions: applyOverrides(lotm, o.lotm_potions, 'lotm_potions')};
 }
@@ -234,7 +247,8 @@ export function toLedgerRow(r) {
         r.offered === false && 'not offered at a bench (formula incomplete in notes)'].filter(Boolean).join('; ');
     const source = [r.source, ...(r.observations ?? [])].join('; ');
     return {id: r.id, source, state: r.state, mechanisms: r.mechanisms, test: r.test ?? null,
-        note: [label + '.', r.note, extra && `(${extra})`].filter(Boolean).join(' ')};
+        note: [label + '.', r.note, extra && `(${extra})`].filter(Boolean).join(' '),
+        ...(r.case ? {case: r.case} : {})};
 }
 const serialize = rows => rows.map(r => JSON.stringify(toLedgerRow(r))).join('\n') + '\n';
 

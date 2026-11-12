@@ -134,7 +134,14 @@ export function applyEffect(rules, world, act, cause) {
     const by = act.by ?? cause, ops = [], outcome = {applied: [], blocked: [], skipped: [], observed: []};
     const note = (target, extra = {}) => {
         outcome.applied.push({target, verb, object: obj.name, ...extra});
-        ops.push({op: 'publish', kind: `effect.${verb}`, place: placeOf(world, target), by, detail: {target, object: obj.name, ...extra}});
+        const place = placeOf(world, target);
+        ops.push({op: 'publish', kind: `effect.${verb}`, place, by, detail: {target, object: obj.name, ...extra}});
+        // Presence is learned only from a successful channel act. The bare
+        // grammar publish has no resolved observation and grants no knowledge.
+        if (act.presence === true && (verb === 'sense' || verb === 'conceal')) {
+            ops.push({op: 'publish', kind: `effect.${verb}.information`, place, by,
+                detail: {target, channel: act.channel, presence: true}});
+        }
     };
     const createAt = (target, value) => {
         ops.push({op: 'holder_add', value: {...value, place: placeOf(world, target)}});

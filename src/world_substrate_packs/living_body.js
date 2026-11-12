@@ -25,11 +25,52 @@ export function livingBodyState({species, rate}) {
     return {species, rate, hungry: false, emptySince: null, inbox: []};
 }
 
-export function createLivingBodyPack({inboxLimit = 16} = {}) {
+// A dose transfers liquid volume. The flask's active account records its
+// concentration, and the body turns its absorbed share into lost responsiveness.
+function doseResponse({liquid, active, baseline, suppressionPerUnit, recoveryPerMinute}) {
+    if (!liquid?.startsWith('energy:') || !active?.startsWith('energy:') || liquid === active ||
+        ![baseline, suppressionPerUnit, recoveryPerMinute].every(n => whole(n) && n > 0))
+        throw new Error('Living body: invalid dose response settings.');
+    const response = 'responsiveness';
+    const add = (holder, quantity, amount) => ({op: 'add', holder, quantity, amount});
+    return {
+        quantities: [{id: response, unit: 'response-unit', min: 0, max: baseline}],
+        reads: ['energy', response], writes: ['energy', response],
+        hears: ['effect.move'],
+        laws: [{
+            id: 'response-recovery',
+            appliesTo: h => isBody(h) && response in h.quantities,
+            rates: (view, id) => view.amount(id, response) < baseline
+                ? [{holder: id, quantity: response, perMinute: recoveryPerMinute}] : [],
+        }],
+        reactors: [{
+            id: 'liquid-uptake', on: ['effect.move'], appliesTo: isBody,
+            react: (view, id, effect) => {
+                const {target: flask, object, to, amount} = effect.detail ?? {};
+                if (to !== id || object !== liquid || !whole(amount) || amount === 0 ||
+                    !view.has(id, liquid) || !view.has(id, response) ||
+                    view.holder(flask)?.kind !== 'thing' || !view.has(flask, active)) return [];
+                const before = view.amount(flask, liquid) + amount;
+                const available = view.amount(flask, active);
+                if (available > before) throw new Error('Living body: active material exceeds liquid volume.');
+                const absorbed = Number(BigInt(available) * BigInt(amount) / BigInt(before));
+                const loss = Math.min(view.amount(id, response), absorbed * suppressionPerUnit);
+                return [
+                    add(id, liquid, -amount),
+                    ...(absorbed ? [add(flask, active, -absorbed), add(id, response, -loss)] : []),
+                ];
+            },
+        }],
+    };
+}
+
+export function createLivingBodyPack({inboxLimit = 16, dose} = {}) {
+    const response = dose ? doseResponse(dose) : {quantities: [], reads: [], writes: [], hears: [], laws: [], reactors: []};
     return {
         id: 'l.living_body', revision: 0,
-        quantities: [SATIETY], reads: ['satiety'], writes: ['satiety'],
-        publishes: ['living.hungry'], hears: ['living.harm'],
+        quantities: [SATIETY, ...response.quantities],
+        reads: ['satiety', ...response.reads], writes: ['satiety', ...response.writes],
+        publishes: ['living.hungry'], hears: ['living.harm', ...response.hears],
         laws: [{
             id: 'appetite', appliesTo: isBody,
             rates: (view, id) => {
@@ -43,7 +84,7 @@ export function createLivingBodyPack({inboxLimit = 16} = {}) {
                 return [{op: 'state', holder: id, value: {...s, hungry: empty, emptySince: empty ? view.clock : null}},
                     ...(empty ? [{op: 'publish', kind: 'living.hungry', place: view.placeOf(id), detail: {species: s.species}}] : [])];
             },
-        }],
+        }, ...response.laws],
         reactors: [{
             id: 'harm-inbox', on: ['living.harm'], appliesTo: isBody,
             react: (view, id, effect) => {
@@ -53,6 +94,6 @@ export function createLivingBodyPack({inboxLimit = 16} = {}) {
                 const inbox = [...s.inbox, {at: view.clock, kind, amount, by: effect.by}].slice(-inboxLimit);
                 return [{op: 'state', holder: id, value: {...s, inbox}}];
             },
-        }],
+        }, ...response.reactors],
     };
 }
