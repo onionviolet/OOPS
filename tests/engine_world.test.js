@@ -43,15 +43,15 @@ const all = ENGINE_PACKS.map(p => p.id);
 const composable = all.filter(id => id !== 'a.wild_agency');
 const config = {settings, shared, dials, packs: composable};
 
-test('the registry holds eleven packs; ten compose into one rule set and the eleventh is named with its reason', () => {
-    assert.equal(ENGINE_PACKS.length, 11);
+test('the registry holds twelve packs; eleven compose into one rule set and the twelfth is named with its reason', () => {
+    assert.equal(ENGINE_PACKS.length, 12);
     assert.throws(() => createEngineWorld({settings, shared, dials}),
         /quantity satiety declared twice with different unit, bounds or keying \(l\.living_body, a\.wild_agency\)/);
     const engine = createEngineWorld(config);
     assert.deepEqual(engine.rules.packs, composable);
-    assert.equal(engine.rules.packs.length, 10);
+    assert.equal(engine.rules.packs.length, 11);
     // The other way round also composes: the clash is that one pair, on that one quantity.
-    assert.equal(createEngineWorld({...config, packs: all.filter(id => id !== 'l.living_body')}).rules.packs.length, 10);
+    assert.equal(createEngineWorld({...config, packs: all.filter(id => id !== 'l.living_body')}).rules.packs.length, 11);
     assert.throws(() => createEngineWorld({...config, packs: ['x.unknown']}), /not a registered pack/);
 });
 
