@@ -11,7 +11,7 @@ This block is the current resume block. The older one below is history.
 - Objective: foundations with gameplay deferred, and from 2026-11-12 game tie-in deferred too (carry-out PC95): work is proven in one headless engine world, measured by the five numbers G1 to G5. MS5's reachable route per domain moves to the tie-in phase; the other milestones map to the phases as before. Weibao also declined an early playable scene ("No, engine first").
 - Picking rule: the carry-out's wave ritual (PC65) and tracker, in the readjusted order (PC91) and under its keep-it-small rules (PC94): each packet names which of the five end-state numbers it moves, two tries then stop, no new checker scripts. Milestones map to its phases in the [carry-out reconciliation](../../../PROCEDURAL_CARRY_OUT.md#milestones-and-phases-rc3). The facet order ability, body, technique, custody, contest, progression has his "Yes, use that order". The rest of both docs is a proposal used as working order; Q1, Q2, Q5 and Q7 in the core stay open and nothing they would defer is deferred.
 - Input identity: master `a77fda00c`. Dirty and inherited: Wave 9 source and fixtures (`src/creature_lifecycle.js`, `src/gu_keeper_moonlight_trial.js`, `src/gu_moonlight_stock.js`, `tests/gu_light_attraction.test.js`, `tests/gu_upkeep.test.js`, untracked `src/world_substrate_packs/gu_brew_regulator.js`, `tests/gu_brew_regulator.test.js`, `scripts/wave_scratch.sh`). Dirty and not this run's: `dist/bundle.js`, `dist/bundle.js.map`, `index.html`, `docs/tools/game_mcp_limits.jsonl`, and earlier edits to the playbook and the Codex handoff.
-- Workers: Claude subagents from this session, sonnet for code lanes and haiku for bounded lookups, at most three code lanes at once, one writer per file. Lanes run focused tests; the coordinator runs the full gate set once per merge wave and commits own paths. No push.
+- Workers: Weibao (2026-11-12): "work with fable + codex only, I want to use all my fable usage so I can use my reset". His reason is to use the Fable allowance before its reset. Claude lanes run on Fable from this session and Codex lanes run under the 50% ceiling; sonnet and haiku lanes are paused for this run. At most three Claude code lanes at once, one writer per file. Lanes run focused tests; the coordinator runs the full gate set once per merge wave and commits own paths. No push.
 - Codex limits: Weibao (2026-11-12, after the takeover): "Use codex up till 50%". The shared limits file now holds a 50% weekly-window ceiling; the 62,000 credit floor is unchanged (headroom 2,961 at a 21% read). Read usage before each Codex lane and at least every 30 minutes; stop lanes at 49%.
 - Step states: see the Wave 10 section at the end of this file.
 - Stop condition: MS1-MS6 met and committed, or a decision that is Weibao's to make, or his word to pause.
@@ -283,4 +283,45 @@ Findings for the next wave:
 - **One pack of eleven is loaded.** Couplings among loaded packs: zero across domains. This is the number phase 2 has to move.
 
 Wave 10 gate: `npm test` on the folded tree, 6,496 tests, 6,494 pass, 0 fail, 2 skipped, exit 0 (`wave10-fold-suite.log` in the takeover folder). `check:arch`, `check:rules`, `check:coverage`, `check:docs` exit 0. No build or browser pass: the four changed `src` modules are unreachable from the game, and game tie-in is deferred (carry-out PC95). Doc edits made after the suite started are covered by the doc and rule checks, not by that suite run.
+
+## Wave 11: engine world, vocabulary, loops, data (2026-11-12)
+
+Wave 10 landed as `463eb3792`. Input for every lane is that commit. Codex usage read 21% of a 50% ceiling before dispatch.
+
+| Lane | Model | Packet and number | Files or worktree | State |
+| --- | --- | --- | --- | --- |
+| engine-world | Fable | P1.7; G2, G3 | new `src/engine_world.js`, `tests/engine_world.test.js`, `tests/fixtures/engine_world/` | Running in the primary checkout |
+| vocabulary-fold | Fable | P1.6; G1 | `src/effect_grammar.js`, `src/world_effects.js`, `src/effect_host.js`, `src/spell_effects.js`, their tests | Running in the primary checkout |
+| breeding-program | Fable | PC96 worked example; G4 | new `tests/breeding_program.test.js` | Running in the primary checkout |
+| `w11-formulas` (pid 80774) | Codex | PC85; G1 | `/Users/weiwei/code/yair-w11-formulas`, branch `codex/w11-formulas`; `src/world_packs/lotm_brew_pack.js`, regenerated `lotm_potions.jsonl` | Running; brief `CODEX_LANE.md` there |
+| `w11-feeding` (pid 80780) | Codex | PC86; G1 | `/Users/weiwei/code/yair-w11-feeding`, branch `codex/w11-feeding`; `src/gu_catalogue.js` | Running; brief `CODEX_LANE.md` there |
+
+Rejected for this wave: P1.8 (Hogwarts grammar as a world pack with cases), since it depends on the vocabulary fold's result; contagion, assay and standing programs (PC96), which wait for a consumer.
+
+Correction carried into the brief: the `formula-in-notes` state means a Sequence has no brew pack row, not that its formula is known. The formulas lane counts first.
+
+Stop Codex lanes with `python3 -I scripts/codex_goal_lane.py stop --name <lane>`. Worktrees are retired after their branches are reviewed and merged.
+
+### Wave 11 fold, Fable lanes (2026-11-12)
+
+Diffs read and tests rerun from the repository root. Focused: 45 tests, 42 pass, 0 fail, 3 skipped (the breeding fixture's named gaps), across the effect, engine world, breeding, heredity and substrate fixture files. `check:arch`, `check:rules`, `check:coverage` exit 0; compression baseline holds.
+
+| Lane | Files | Evidence | Not covered | State |
+| --- | --- | --- | --- | --- |
+| engine-world (P1.7) | new `src/engine_world.js`, `tests/engine_world.test.js` | Ten of eleven packs compose into one world. A mixed day (brew steam and shell, residue to grazing, colony light to wild movement) reaches the same serialized state in one jump, in steps and across a mid-run restore. Four cross-domain couplings exercised: `effect.add` (residue flow to living residue), `smoke` (brew steam to shell regulator), `humidity` (three writers), `residue:active` | `a.wild_agency` excluded: it and `l.living_body` declare `satiety` with different units and maxima. Read-only couplings leave no record, so they are uncounted. The light chain runs with the colony as an outside op, so it shows no pack-to-pack coupling. Cost 797 of an 800-segment budget per world day | G2 at 10 of 11, G3 at 4 |
+| vocabulary-fold (P1.6) | `src/spell_effects.js`, `src/effect_grammar.js`, `src/world_effects.js`, `src/effect_host.js`, `tests/effect_host.test.js` | Spell words read through one map: 79 of 80 spellbook rows now map (61 to W acts, 18 publish), against 30 before. `luck` and `soul` are P objects that publish. One word has no reading: `animate` | Mapped sentences such as conjure, dig, disarm and sever still throw in `applyEffect` for missing amounts or a non-quantity target. The lane could not reproduce Wave 10's executed counts, whose per-row details were not recorded | Done as library |
+| breeding-program (PC96) | new `tests/breeding_program.test.js` | Selection by looks raises wool on all 8 seeds over 20 generations (51.7 to 76.8 mean); a different goal ends with a different flock; a storm changes outcomes through the lightning mutagen | See findings | Loop holds for variation, result and retention; trade-off and hidden information are weak |
+
+Coordinator change at the fold: the lane had `effect_host.js` import `spell_effects.js`. The host now takes the reader from its caller (`read`), so the K to W joint imports no domain; the test passes `sharedEffect` and asserts that a spell word is `unmapped` without it.
+
+Findings for Wave 12, by consequence:
+
+1. **Two settlement faults in living things.** Cohort births give different gene frequencies by step size (`addBirthsToFrequencies`: 47% in twenty single births against 40% in one settlement), and brood draws are addressed by revision, so an unrelated settlement changes later offspring. Both break "the same result in one jump or many" (KW5, PC42a). The breeding test pins today's behavior and changes with the fix.
+2. **`satiety` is declared twice** (`a.wild_agency` minutes to 1,440; `l.living_body` ration-minutes to 1,000,000). One owner has to declare it; `c.contest` and the shared vocabulary both define `vitality` and compose by luck.
+3. **Three packs reach outside their lane:** `contest_bodies.js` imports the creature lifecycle, `gu_brew_regulator.js` imports `gu_activation.js`, `world_sky.js` imports a world's calendar content with a default world.
+4. **No creature assay and no real trade-off.** `markCreatureGenesKnown` is free and exact; the sheep genome has no linked or correlated traits and animal inbreeding costs nothing.
+5. **The colony is not a pack**, so the light chain is not a coupling yet.
+6. **Budget.** The shell's oscillation uses nearly the whole per-day segment budget.
+
+Wave 11 gate for the Fable lanes: `npm test`, 6511 tests, 6506 pass, 0 fail, 5 skipped (`wave11a-suite.log` in the takeover folder). Doc sections PC97 to PC99 were written while it ran and are covered by `check:docs` and `check:rules`.
 

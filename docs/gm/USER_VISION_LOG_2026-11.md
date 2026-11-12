@@ -1299,3 +1299,21 @@ Weibao: "More to consider? other systems we might be missing? Anything worth sta
 
 Recorded as a proposal in the [carry-out](../PROCEDURAL_CARRY_OUT.md#loops-and-levels-pc96-2026-11-12) (PC96): one improvement loop with five parts across creatures, potions, spells, Gu and made things; emergence by six levels; five systems the plan lacked (assay, standing programs, material sources, contagion, decay); and three lanes to run beside the next wave.
 
+## Science-fiction and magical tweaks, 2026-11-12
+
+Weibao: "consider sci fi and magical aspects and tweaks too, like cloning, gmo, other stuff and more? Same level of depth for each group". Earlier the same hour: "work with fable + codex only, I want to use all my fable usage so I can use my reset" (recorded in the run record's worker line).
+
+Recorded as a proposal in the [carry-out](../PROCEDURAL_CARRY_OUT.md#direct-operators-science-fiction-and-magical-tweaks-pc97-2026-11-12) (PC97): six direct operators (copy, edit, graft, induce, transfer, make from nothing born), each with a counterpart for creatures, potions, spells, Gu and techniques, and made things; science and magic as two carriers of one operator; each operator's price as a mechanism.
+
+## Crafts, features and power systems, 2026-11-12
+
+Weibao: "keep going, start the next wave, other opertator types we should consider? runes? forging? other stuff? Other game featues that could benefit from a procedural system? Absorbing a world's power system into something, like what we ddi for gu? So maybe like superpowers, maybe from potions, for something like the perfect run?"
+
+Recorded as a proposal in the [carry-out](../PROCEDURAL_CARRY_OUT.md#crafts-other-features-and-absorbing-a-power-system-pc98-2026-11-12) (PC98): four craft families (stored workings, process crafts, body alteration, bindings), features the treatment helps, and eight questions for absorbing a power system, with Gu, Lord of the Mysteries, Hogwarts and The Perfect Run side by side.
+
+## Gate rule, craft families and the Sandevistan, 2026-11-12
+
+Weibao: "keep going, more to consider? Consider if suite is skippable? Reconcile these long term, should we start on each faimly now? Consider more to consider? For bodyalteration, consider biotech that exists in cyberpunk too, consider how to implement the sandevestan, I know it gives initiative but then in the anime it is shown doing much more too".
+
+Recorded as a proposal in the [carry-out](../PROCEDURAL_CARRY_OUT.md#gate-rule-craft-families-in-the-order-and-body-alteration-pc99-2026-11-12) (PC99): the full suite runs when a wave touches code the game loads and is otherwise replaced by a focused gate, with one full run a day; body alteration and stored workings start now, process crafts after a Making census, bindings later; six carriers for body alteration including cyberpunk hardware and bioware; the Sandevistan as one quantity, pace, read as many steps up close and as initiative from afar, paid for in strain.
+

@@ -129,24 +129,42 @@ export function describeSentence(s) {
     return `It ${VERB_WORDS[s.verb]} ${what} of ${article} ${s.target}, ${TIME_WORDS[s.time]}. Paid with ${s.cost}.`;
 }
 
-// S2R5, S side: S's spell words on P's shared effect grammar (src/effect_grammar.js),
-// which lowers onto W (W_OBJECT_OF). One map so counters and standing fields
-// speak W's names. Default reading per word, with the reason where it is a
-// judgment; `gap` marks a word P has no object for yet (a request, not a refusal).
+// S2R5, S side, and the vocabulary fold (PC81): S's spell words on P's shared
+// effect grammar (src/effect_grammar.js), which lowers onto W (W_OBJECT_OF). This
+// is the one map: the effect host, counters and standing fields all read a spell
+// sentence through `sharedEffect`. Default reading per word, with the reason where
+// it is a judgment. A word with no honest P reading is listed in NO_P_READING
+// with its reason and the ledger rows that use it; nothing falls through.
 export const P_VERB_OF = Object.freeze({move: 'move', add: 'add', remove: 'remove', transform: 'transform', bind: 'bind', sense: 'sense',
     conceal: 'conceal', copy: 'copy', block: 'block', end: 'end',
-    alter_law: 'alter',      // a working on a law field
-    animate: 'transform',    // nearest: the thing's state changes so it moves of itself (no P verb for will-driven motion)
-    command: 'bind'});       // nearest: the agent's will is bound to the caster's (Imperius)
+    alter_law: 'alter',      // with object law: the verb already names its object (ward: alter_law access)
+    command: 'bind'});       // the agent's will is bound to the caster's (Imperius, Oppugno); publishes for the mind's owner
 export const P_OBJECT_OF = Object.freeze({position: 'position', light: 'light', fire: 'heat', cold: 'heat', water: 'moisture', force: 'force',
     form: 'form', size: 'form', integrity: 'form', material: 'thing', motion: 'position', vitality: 'vitality', harm: 'vitality',
-    mind: 'mind', mood: 'mind', pain: 'mind', sight: 'mind', agent: 'mind', memory: 'memory', presence: 'information', answer: 'information',
-    voice: 'sound', sound: 'sound', access: 'relation', custody: 'relation', mark: 'relation', effect: 'working', magic: 'working'});
-// Cold is heat taken away: adding cold removes heat (and back).
+    mind: 'mind', mood: 'mind', pain: 'mind', sight: 'mind', agent: 'mind', memory: 'memory',
+    presence: 'information',  // whether a thing can be found: revealed, hidden or (vanish) taken from what can be known of the place
+    answer: 'information',    // a divined answer is knowledge its owner records
+    voice: 'sound', sound: 'sound',
+    access: 'relation',       // a lock or a seal is a mark on the thing (see PAIR)
+    custody: 'relation', mark: 'relation',
+    effect: 'working', magic: 'working'});  // a standing effect and magic at large are both workings, K's to answer
+export const NO_P_READING = Object.freeze({
+    animate: Object.freeze({part: 'verb', reason: 'P has no verb for giving a thing motion of its own; transform on mind would land as a change of mind, which it is not',
+        rows: Object.freeze(['hp_spells:animate (Piertotum Locomotor)'])}),
+});
+// Pairs whose P verb differs from the spell verb. Cold is heat taken away, so
+// adding cold removes heat (and back). Opening access releases the mark that
+// seals a thing and sealing binds it; writing a mark binds it and wiping one
+// releases it (W's bind and release write and drop marks).
 const FLIP = {add: 'remove', remove: 'add'};
+const PAIR = {access: {add: 'release', remove: 'bind'}, mark: {add: 'bind', remove: 'release'}, cold: FLIP};
+// Spell sentence -> {verb, object, time} in P's words, or {gap, reason} naming the word.
 export function sharedEffect(sentence) {
-    const object = P_OBJECT_OF[sentence.object], base = P_VERB_OF[sentence.verb];
-    if (!object || !base) return {gap: !object ? `object ${sentence.object}` : `verb ${sentence.verb}`};
-    const verb = sentence.object === 'cold' ? FLIP[base] ?? base : base;
-    return {verb, object, time: sentence.time};
+    const none = part => { const no = NO_P_READING[sentence[part]]; return no?.part === part ? {gap: `${part} ${sentence[part]}`, reason: no.reason} : null; };
+    const base = P_VERB_OF[sentence.verb], object = P_OBJECT_OF[sentence.object];
+    if (!base) return none('verb') ?? {gap: `verb ${sentence.verb}`, reason: 'it is not in the spell vocabulary'};
+    // alter_law names its own object; the spell's object says which law (about).
+    if (sentence.verb === 'alter_law') return {verb: 'alter', object: 'law', time: sentence.time, about: sentence.object};
+    if (!object) return none('object') ?? {gap: `object ${sentence.object}`, reason: 'it is not in the spell vocabulary'};
+    return {verb: PAIR[sentence.object]?.[base] ?? base, object, time: sentence.time};
 }

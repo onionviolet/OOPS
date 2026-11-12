@@ -5,8 +5,9 @@ import {composeSubstrate, createWorld, advanceWorld, serializeWorld, restoreWorl
 import {WORLD_QUANTITIES as WQ, WORLD_PROPERTIES as WP} from '../src/world_quantities.js';
 import {settleWorking, beginWorking} from '../src/kernel_working.js';
 import {spellEffectMethod} from '../src/spell_law.js';
-import {sentenceFromIntent} from '../src/spell_effects.js';
-import {lowerEffect} from '../src/effect_grammar.js';
+import {sentenceFromIntent, sharedEffect, EFFECT_VERBS as S_VERBS, EFFECT_OBJECTS as S_OBJECTS, P_VERB_OF, P_OBJECT_OF, NO_P_READING} from '../src/spell_effects.js';
+import {HP_SPELL_ROWS, HP_SPELL_WORLD} from '../src/spell_pack_hogwarts.js';
+import {lowerEffect, assembleEffect, EFFECT_VERBS, EFFECT_OBJECTS} from '../src/effect_grammar.js';
 import {landEffect} from '../src/effect_host.js';
 import {checkEffect} from '../src/effect_checks.js';
 import {effectWorlds} from '../scripts/grammar_canon_effects.mjs';
@@ -56,8 +57,91 @@ test('a law that emits only a label lands nothing, and a missing world key is na
     assert.equal(label.changed, false);
     const keyless = landEffect(rules, hall(rules), {sentence: lumos, details: {target: {shape: 'holder', id: 'hall'}, amount: 1}}, {cause: 'test:nokey'});
     assert.deepEqual([keyless.status, keyless.needs], ['needs-key', ['light:<key>']]);
-    const strange = landEffect(rules, hall(rules), {sentence: {...hurt, object: 'harm'}, details: {}}, {cause: 'test:words'});
-    assert.equal(strange.status, 'unmapped');
+});
+
+// PC81, the vocabulary fold: spell words reach W through the one map in src/spell_effects.js.
+const spell = (intent, target = 'place', execution = 'instant') => sentenceFromIntent({intent, target, execution, carrier: 'wand', cost: 'stamina'});
+const room = () => createWorld(rules, {clock: 0, holders: [
+    {id: 'hall', kind: 'place', quantities: {temperature: 18, humidity: 40, noise: 10, 'light:wand': 5}},
+    {id: 'door', kind: 'thing', place: 'hall', properties: {marks: ['seal']}},
+    {id: 'goblin', kind: 'body', place: 'hall', quantities: {vitality: 20}, properties: {alive: true}}]});
+const at = id => ({target: {shape: 'holder', id}});
+
+test('spell words that were unmapped now land, and each lands the change its word means', () => {
+    // Through the spell law first: the settled effect still carries spell words.
+    const [fire] = settle([{sentence: spell('kindle'), target: {id: 'hall'}, minutes: 1, details: {...at('hall'), amount: 5}}]);
+    assert.deepEqual([fire.kind, fire.sentence.object], ['spell.add.fire', 'fire']);
+    const w0 = room();
+    const read = (w, q) => readQuantity(w, 'hall', q);
+    const land = (w, sentence, details, cause = 'test:fold') => landEffect(rules, w, {sentence, details}, {cause, keys, read: sharedEffect});
+    const warm = landEffect(rules, w0, fire, {cause: 'test:kindle', keys, read: sharedEffect});
+    // The host imports no domain: without the caller's reader a spell word stays unmapped.
+    assert.equal(landEffect(rules, w0, fire, {cause: 'test:noreader', keys}).status, 'unmapped');
+    assert.deepEqual([warm.status, read(warm.world, 'temperature')], ['landed', 23]);
+    // Each word moves its own quantity and no other: a wrong row in the map would show here.
+    assert.deepEqual(['humidity', 'noise', 'light:wand'].map(q => read(warm.world, q)), [40, 10, 5]);
+    // Cold is heat taken away: adding cold lowers temperature, it does not raise it.
+    assert.equal(read(land(w0, spell('chill'), {...at('hall'), amount: 5}).world, 'temperature'), 13);
+    const wet = land(w0, spell('pour'), {...at('hall'), amount: 7}).world;
+    assert.deepEqual([read(wet, 'humidity'), read(wet, 'temperature')], [47, 18]);
+    assert.equal(read(land(w0, spell('amplify'), {...at('hall'), amount: 3}).world, 'noise'), 13);
+    // A shield (block harm) guards vitality: the next hurt is blocked and the goblin keeps its 20.
+    const shielded = land(w0, spell('shield', 'creature', 'sustained'), {...at('goblin'), minutes: 10});
+    assert.equal(shielded.status, 'landed');
+    const struck = land(shielded.world, hurt, {...at('goblin'), amount: 6});
+    assert.deepEqual([struck.outcomes[0].blocked.length, readQuantity(struck.world, 'goblin', 'vitality')], [1, 20]);
+    // Access is a mark on the thing: opening releases the seal, sealing binds it again.
+    const opened = land(w0, spell('open', 'object'), {...at('door'), mark: 'seal'});
+    assert.deepEqual([opened.status, opened.world.holders.door.properties.marks], ['landed', []]);
+    assert.deepEqual(land(opened.world, spell('seal', 'object'), {...at('door'), mark: 'seal'}).world.holders.door.properties.marks, ['seal']);
+    // A ward (alter_law access) is P's alter on a law: it adds a law field on the place.
+    const ward = land(w0, spell('ward', 'place', 'lasting'), {...at('hall'), field: 'ward.hall', kind: 'access'});
+    assert.deepEqual(ward.world.laws.map(f => [f.id, f.scope, f.kind]), [['ward.hall', 'hall', 'access']]);
+    // Words whose object another owner holds publish for that owner and change nothing in W.
+    const waits = sentence => { const r = land(w0, sentence, {...at('goblin'), place: 'hall'}); assert.deepEqual(r.world, w0); return [r.status, r.waiting.map(p => `${p.kind}:${p.owner}`)]; };
+    assert.deepEqual(waits(spell('counter', 'effect')), ['waiting', ['effect.block.working:K']]);
+    assert.deepEqual(waits(spell('compel', 'creature', 'sustained')), ['waiting', ['effect.bind.mind:A']]);
+    assert.deepEqual(waits(spell('vanish', 'object')), ['waiting', ['effect.remove.information:N']]);
+    assert.deepEqual(land(w0, spell('divine', 'self'), {...at('goblin'), channel: 'sight'}).waiting, [{kind: 'effect.sense.information', owner: 'N'}]);
+});
+
+test('every spell word maps to a P word or is listed with its reason; a word with no reading is named', () => {
+    for (const v of S_VERBS) assert.ok(EFFECT_VERBS.includes(P_VERB_OF[v]) !== (NO_P_READING[v]?.part === 'verb'), `verb ${v}`);
+    for (const o of S_OBJECTS) assert.ok((P_OBJECT_OF[o] in EFFECT_OBJECTS) !== (NO_P_READING[o]?.part === 'object'), `object ${o}`);
+    for (const no of Object.values(NO_P_READING)) assert.ok(no.reason && no.rows.length);
+    const w0 = room();
+    const none = landEffect(rules, w0, {sentence: spell('animate', 'object', 'sustained'), details: at('door')}, {cause: 'test:animate', read: sharedEffect});
+    assert.deepEqual([none.status, none.word, none.changed], ['unmapped', 'verb animate', false]);
+    assert.match(none.reason, /verb animate has no P reading yet/);
+    assert.deepEqual(none.world, w0);
+    const stray = landEffect(rules, w0, {sentence: {...hurt, object: 'karma'}, details: at('goblin')}, {cause: 'test:stray', read: sharedEffect});
+    assert.deepEqual([stray.status, stray.word], ['unmapped', 'object karma']);
+    // The spellbook rows: 79 of 80 read through the map (61 lower to W acts, 18 publish); Piertotum Locomotor is the one listed gap.
+    // Before the fold the host read 30 of them, by object name alone.
+    const count = {};
+    for (const row of HP_SPELL_ROWS) {
+        const shared = sharedEffect(sentenceFromIntent({intent: row.intent, target: row.target, execution: row.execution, carrier: HP_SPELL_WORLD.carrier, cost: HP_SPELL_WORLD.cost}));
+        const kind = shared.gap ?? (lowerEffect(shared, {keys}).acts.length ? 'acts' : 'publish');
+        count[kind] = (count[kind] ?? 0) + 1;
+    }
+    assert.deepEqual(count, {acts: 61, publish: 18, 'verb animate': 1});
+});
+
+test('luck and soul are P objects that wait for their owners, and no canon sentence assembles differently for them', async () => {
+    assert.deepEqual([EFFECT_OBJECTS.luck, EFFECT_OBJECTS.soul], ['quantity', 'thing']);
+    const w0 = hall(bare), base = {target: 'bound', time: 'sustained', carrier: 'spoken-spell', cost: 'stamina', limits: []};
+    for (const [verb, object, owner] of [['add', 'luck', 'P'], ['move', 'soul', 'L'], ['block', 'luck', 'P'], ['bind', 'soul', 'L']]) {
+        const run = landEffect(bare, w0, {sentence: {...base, verb, object}, details: {target: {shape: 'holder', id: 'goblin'}, amount: 3, place: 'hall'}}, {cause: 'test:owners'});
+        assert.deepEqual([run.status, run.acts, run.waiting], ['waiting', [], [{kind: `effect.${verb}.${object}`, owner}]], `${verb} ${object}`);
+        assert.deepEqual(run.world, w0);
+    }
+    // The canon sentences of both fixture worlds assemble as before (55 of 57 Gu, 104 of 109 Hogwarts): none uses a new object.
+    const assembled = {};
+    for (const w of await effectWorlds()) {
+        assert.ok(w.canon.every(c => !['luck', 'soul'].includes(c.parts.object)));
+        assembled[w.id] = `${w.canon.filter(c => assembleEffect(w.grammar, c.parts).ok).length} of ${w.canon.length}`;
+    }
+    assert.deepEqual(assembled, {gu: '55 of 57', hogwarts: '104 of 109'});
 });
 
 test('a sentence whose object lowers to nothing waits for its owner and changes nothing', () => {

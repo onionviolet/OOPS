@@ -12,7 +12,8 @@ export const EFFECT_VERBS = Object.freeze(['move', 'add', 'remove', 'transform',
 
 /** P's effect objects (src/effect_grammar.js EFFECT_OBJECTS) on W's vocabulary.
  * A string is the W object; null means the object belongs to another owner
- * (K for workings, N for knowledge, A and L for minds) and W publishes the
+ * (K for workings, N for knowledge, A and L for minds, P for luck on draws, L
+ * for souls) and W publishes the
  * effect for that owner to answer. Keyed families take the world's key at
  * lowering (`light:<kind>`, `energy:<kind>`). */
 export const W_OBJECT_OF = Object.freeze({
@@ -21,6 +22,7 @@ export const W_OBJECT_OF = Object.freeze({
     position: 'position', form: 'property:form', mind: null,
     information: null, memory: null,
     relation: 'property:marks', thing: 'position', working: null, law: 'law:*', time: 'law:*',
+    luck: null, soul: null,
 });
 export const EFFECT_PRIMITIVES_REVISION = 0;
 

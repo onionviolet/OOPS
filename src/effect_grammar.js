@@ -19,6 +19,15 @@ export const EFFECT_OBJECTS = Object.freeze({
     position: 'state', form: 'state', mind: 'state',
     information: 'knowledge', memory: 'knowledge',
     relation: 'relation', thing: 'thing', working: 'working', law: 'law', time: 'law',
+    // Added 2026-11-12 by the stated rule (PC81): two worlds need the object, both named here.
+    // luck: Reverend Insanity's luck path (docs/GU_ABILITIES_AND_KILLER_MOVES_CONSIDERATIONS_2026-11-10.md GKM40)
+    // and Lord of the Mysteries (docs/research/CONCEPTUAL_ABILITIES_ENGINE_AUDIT_2026-10-27.md CAE-F5, luck on a
+    // draw). A quantity: both worlds add, take, move and hide an amount of it. It acts on draws (PC82).
+    luck: 'quantity',
+    // soul: Reverend Insanity's soul path (a soul is strengthened, searched, seized and leaves its body) and
+    // Hogwarts (split and bound into an object, removed by the Dementor's Kiss). A thing: it is moved, bound,
+    // released, copied and removed whole.
+    soul: 'thing',
 });
 // What each verb can act on, by object kind. Reason: a verb is a kind of
 // change; it reads the property it changes (PFP22), never a category.
@@ -60,7 +69,9 @@ export const effectKind = (verb, object) => `effect.${verb}.${object}`;
 // for that owner to answer. Returns {acts, publish, needs}: an act is
 // {verb, object} plus what P knows of it (until for sustained time); the caller
 // adds targets and amounts and runs it with `applySentence`.
-export const OBJECT_OWNER = Object.freeze({working: 'K', information: 'N', memory: 'N', mind: 'A', force: 'L', lifespan: 'L'});
+// luck waits for the generator contract's owner (P: a luck effect shifts the weights of named draws, PC82)
+// and soul for the living-things owner (L). Neither has a W act.
+export const OBJECT_OWNER = Object.freeze({working: 'K', information: 'N', memory: 'N', mind: 'A', force: 'L', lifespan: 'L', luck: 'P', soul: 'L'});
 export function lowerEffect(parts, {keys = {}, key = null, objectOf = W_OBJECT_OF, quantities = WORLD_QUANTITIES} = {}) {
     const base = objectOf[parts.object];
     const acts = [], publish = [], needs = [];

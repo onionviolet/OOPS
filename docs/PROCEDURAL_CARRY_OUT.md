@@ -1,6 +1,6 @@
 # Procedural carry-out
 
-*Proposal for Weibao, 2026-11-12, and a proposal throughout (AD32). Companion to the [procedural core](PROCEDURAL_CORE.md): that doc says what and why, this one says who does what in which file, how each piece is checked, and how the whole plan is kept from stalling. Codes continue the core's: PC51-PC66 here, PC67-PC88 in the core, PC89-PC96 here again. **Read PC95 first: it sets the engine world as the bar and defers game tie-in.** File facts were read from the tree at a77fda00c plus that day's uncommitted files. Every number is a dial with a reason.*
+*Proposal for Weibao, 2026-11-12, and a proposal throughout (AD32). Companion to the [procedural core](PROCEDURAL_CORE.md): that doc says what and why, this one says who does what in which file, how each piece is checked, and how the whole plan is kept from stalling. Codes continue the core's: PC51-PC66 here, PC67-PC88 in the core, PC89-PC99 here again. **Read PC95 first: it sets the engine world as the bar and defers game tie-in.** File facts were read from the tree at a77fda00c plus that day's uncommitted files. Every number is a dial with a reason.*
 
 Weibao (2026-11-12): "Fine details for each one too? MOre to consider? steps to make sure all is carried out?"
 
@@ -151,7 +151,7 @@ Everything canon cannot be derived by rule counts under PC84's `authored` state,
 | The dose-to-body joint is proven in a fixture with the Draught of Living Death (`tests/brew_body_delivery.test.js`) | Cure for Boils was the potion row | The phase 2 potion row is the **Draught of Living Death**, which already brews as data and now reaches a body in a fixture. Cure for Boils becomes the second potion row |
 | The light chain (colony light to wild movement to a rival's choice) and the residue chain exist as fixtures on packs the game does not load | Phase 2 had to build a chain | Phase 2's chain work is loading those packs through P1.7 and adding them to the known-chains file. The chain itself is built |
 | The creatures ledger has no Hogwarts creature | A Hogwarts creature was the body facet's second consumer | The second consumer for the body facet is the house cat and sheep rows that already run, until a reading pass adds a Hogwarts creature row |
-| 177 Lord of the Mysteries formulas and about fifteen canon failures are already in notes | Reading was the next step | Data moves first (PC85), as Codex lanes |
+| About fifteen canon failures are already in notes. For the 177 blocked Lord of the Mysteries potions the earlier claim was wrong: the rule means no pack row exists, and how many have a formula in the pathway table is uncounted (core F15) | Reading was the next step | Count first, move what the table names, leave the rest for reading (PC85), as a Codex lane |
 
 ### Revised phase 1 and 2 order (PC91)
 
@@ -286,11 +286,150 @@ A chain that climbs levels is the payoff: an optimized ewe changes a price, a ri
 
 | Lane | Deliverable | Files | Moves |
 | --- | --- | --- | --- |
-| Formulas | The 177 Lord of the Mysteries formulas into potion rows (PC85) | B's ledger script and pack data | G1 |
+| Formulas | Count which of the 177 blocked potions have a main material in the pathway table; move those into pack rows (PC85) | The brew pack's data | G1 |
 | Feeding pass | Diet fields for the 78 chapter-checked Gu from their chapters (PC86) | `src/gu_catalogue.js` | G1 |
 | Breeding program fixture | Over twenty generations of the existing sheep genome, select for one trait and show the gain, its cost in another trait, and that hidden genes limit the breeder until tested. A second run with a different goal ends with a different flock | One new test file on `src/heredity.js` and the lifecycle | G4, and it is the worked example of the loop above |
 
 Not started now: MS-A to MS-E. Each waits for a consumer in phase 2 or 3, by PC94.
+
+## Direct operators: science-fiction and magical tweaks (PC97, 2026-11-12)
+
+Weibao (2026-11-12): "consider sci fi and magical aspects and tweaks too, like cloning, gmo, other stuff and more? Same level of depth for each group".
+
+Proposal. PC96's loop improves a thing slowly, by variation and selection. A direct operator reaches into a thing's parts and changes them. Cloning and gene editing are two of six, and each has a counterpart in every group, at the same depth.
+
+| Operator | Creatures | Potions | Spells | Gu and techniques | Made things |
+| --- | --- | --- | --- | --- | --- |
+| **Copy** the design | Clone; a cutting; a twin grown from a sample | Reverse a sample into its recipe; rebrew to a reference | Transcribe to a scroll; steal or imitate a cast | Replicate a mortal Gu; teach a move exactly | Mold, pattern, print |
+| **Edit** one part | Set one gene (GMO); awaken or suppress a trait | Purify, concentrate, swap one property | Change one slot: reach, duration, target, cost | Reforge one aspect; retune a role in a move | Retrofit one part; re-temper |
+| **Graft** two wholes | Chimera, hybrid across kinds, a transplanted organ | Blend two finished potions; layer doses | Fuse two spells into one casting | Fuse two Gu; splice two moves | Composite materials; hybrid mechanisms |
+| **Induce** change by condition | Mutagens, radiation, a storm, a potion in the feed | Catalysts, moonlight, aging, vessel history | Wild surges, ley conditions, emotional state | Dao mark infusion, tribulation tempering | Stress hardening, weathering, enchantment by exposure |
+| **Transfer** a part across things | Bloodline infusion; a trait moved into another kind; a mind into a new body | An ingredient's property extracted and carried into another base | A spell bound into an object or a body | A move refined into a Gu; a Gu's ability lent to a host | A property moved from one object to another; a living item |
+| **Make from nothing born** | Homunculus, construct, vat-grown or summoned body | Synthesis of the active property with no natural source | A spell derived from first principles, with no tradition | An artificial Gu; a designed move with no lineage | Self-building or grown artifacts |
+
+How this fits what exists, as defaults:
+
+- **Operators are workings on parts.** The effect vocabulary already has `copy`, `transform`, `bind`, `move` and `alter`. An operator is one of those aimed at another thing's parts, so the parts have to be addressable in the engine world as properties on a holder (a body's genes, a recipe's steps, a spell's slots). That is the one new requirement, and identity (KW22-KW26) is where it lands.
+- **Science and magic are two carriers for the same operator.** A gene edit by laboratory and a bloodline infusion by ritual are both an Edit or a Transfer; they differ in carrier, cost, what the maker must know and what goes wrong. Which carriers a world has is pack data. Default: an operator is available wherever the world has a mechanism for it, at that world's cost.
+- **Every operator has a price that is a mechanism.** Copy raises the question of whether the copy is the same individual (KW24) and loses what was learned after birth. Edit needs the part to be known first (assay, MS-A) and can miss. Graft risks rejection or interference (PC69's tables). Induce is cheap and blind. Transfer takes from a donor. A world's absolutes are these prices at their extreme: the uniqueness of Immortal Gu is a Copy that the world's law refuses, with the stated exceptions costing what canon says they cost.
+- **Each feeds the higher levels (PC96).** A cloned flock has one weakness, so one contagion takes all of it. An edited kind that escapes changes the wild cohort. A copied spell or potion moves its price and its maker's standing. A society can forbid, tax or worship an operator.
+
+Not started now (PC94). First worked example, when the two lifecycle faults from Wave 11 are fixed: Copy and Edit on the sheep genome in the breeding fixture, showing a cloned pen losing to a storm-borne affliction that a bred pen survives.
+
+## Crafts, other features, and absorbing a power system (PC98, 2026-11-12)
+
+Weibao (2026-11-12): "other opertator types we should consider? runes? forging? other stuff? Other game featues that could benefit from a procedural system? Absorbing a world's power system into something, like what we ddi for gu? So maybe like superpowers, maybe from potions, for something like the perfect run?"
+
+Proposal, one section (PC94).
+
+### Runes and forging are crafts, and crafts come in four families
+
+PC97's six operators say what is done to a design. A craft is how it is done. Each family below is one mechanism that several crafts share, so building the mechanism once gives every craft in its row.
+
+| Family | Crafts in it | The shared mechanism | What exists |
+| --- | --- | --- | --- |
+| **Stored workings** | Runes, talismans, scrolls, enchanted items, wards, traps, formations, potions held ready, programmed constructs | A working bound to a carrier thing with a trigger, a charge and a decay. It fires later, for someone else, or on a condition | The sentence has a `triggered` time; `src/rune_grammar.js` already resolves rune pairs by a table where an unnamed pair still gives a result. No shared stored-working shape yet |
+| **Process crafts** | Forging, tempering, brewing, cooking, refining, distilling, firing, curing | A thing's state moved along a path of steps where order, heat, time and tool matter, and the path is part of the result | Brewing has it (`src/brew_law.js`), and a thermal process exists for craft. Forging has no law on it yet |
+| **Body alteration** | Implants, cybernetics, tattoos, grafts, permanent potions, cultivation methods, a Gu in an aperture, an Elixir | A lasting change held in a body slot with limited capacity, an upkeep and a rejection risk | Organs and apertures on L; `src/implant_service.js`; no shared slot rule |
+| **Bindings** | Contracts, oaths, familiars, taming, summoning, soul bonds, sworn items | A lasting relation between two holders with terms, a price and a breach | Oaths in the kernel (KW35-KW39); ties and custody |
+
+Default: a new craft is a pack on one of the four, plus a thin law for what only it does. A rune is a stored working whose parts interact by a pair table. A forged blade is a process craft whose result lands as properties another law reads.
+
+### Other features the same treatment helps
+
+Each already has an owner in the plan; the note is what "procedural" would mean there.
+
+| Feature | What becomes data over rules | Owner |
+| --- | --- | --- |
+| Quests and situations | A pressure, actors, stakes and a clock, arising from the world's state | D |
+| Sites, dungeons, ruins | A place generated from its history and quantities; what is found follows from who lived there | X |
+| Loot and found items | A thing made by a maker in the world, with its lineage, and found where it was left | F, identity |
+| Shops and prices | Stock from what is made nearby, price from scarcity | M |
+| Skills and training | Practice of a technique changing cost and failure; teaching with drift | N, R |
+| Illness, injury, medicine | Courses on a body that doses and care change | L, B |
+| Names and descriptions | Words built from a thing's parts | P with the naming and prose rules |
+| Weather and seasons | Sky quantities every other system reads | W |
+| Rivals and companions | Actors on the player's rules with their own improvement loops | A |
+
+### Absorbing a world's power system: eight questions
+
+What was done for Gu, written as a recipe. A power system is absorbed when a world pack answers these with rows, and a thin law holds what no other world shares.
+
+| # | Question | Owner | Gu | Lord of the Mysteries | Hogwarts | The Perfect Run (from memory of the book, not a reading) |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | Where does the power come from? | Making, sources | A Gu, refined or caught | A potion brewed from a formula | Inborn talent, a wand | An Elixir, drunk |
+| 2 | Where does it sit, and how much fits? | L's body slots | The aperture | One Sequence at a time | The person | One power per Elixir |
+| 3 | What does using it cost? | W quantities | Primeval essence | Spirituality | Stamina, focus | Varies by power |
+| 4 | What does it do? | K working, effect sentence | Abilities | Sequence abilities, rituals | Spells | The power |
+| 5 | How does it grow? | R | Rank, feeding, refinement | Digestion by acting | Study and practice | Mastery and understanding |
+| 6 | What does it cost to hold, and what goes wrong? | Laws on the body | Feeding, backlash | Loss of control | Mishaps, rebounds | A second Elixir breaks the mind |
+| 7 | How do powers combine? | Technique, interaction tables | Killer moves | Rituals, sealed artifacts | Combined casting | Teams and synergies |
+| 8 | Who controls access? | M | Clans, inheritances | Churches, formula keepers | The Ministry, schools | Makers and sellers of Elixirs |
+
+For powers that come from potions, the path already exists in fixtures: brewing makes the dose (B), the dose enters a body (`tests/brew_body_delivery.test.js`), the body gains an ability row in a slot (question 2), and the ability is an effect sentence the host lands. A second dose meeting the first is question 6, answered by an interaction table on the body. A generated power is a draw from the grammar by the Elixir's kind, which makes superpowers the natural test of generation (G4).
+
+The Perfect Run is in the library as a prepared capture of 130 chapters (`docs/research/LIBRARY_INDEX.md`), with no reading pass recorded here. Its column above is a sketch until one is run. One caution: a power that rewinds time to a saved point is the conceptual tail (PC84), close to the game's own cheat and rebirth rules, and it would be authored there before any rule derives it.
+
+Not started now. The first use of the recipe is the next world pack after Hogwarts spells compute as running; a superpower world is a good candidate for the second-world verticals (PC58b) because its powers are few per person and varied in kind.
+
+## Gate rule, craft families in the order, and body alteration (PC99, 2026-11-12)
+
+Weibao (2026-11-12): "keep going, more to consider? Consider if suite is skippable? Reconcile these long term, should we start on each faimly now? Consider more to consider? For bodyalteration, consider biotech that exists in cyberpunk too, consider how to implement the sandevestan, I know it gives initiative but then in the anime it is shown doing much more too".
+
+### When the full suite is skipped
+
+Default from Wave 12, as coordinator practice under AD36: the full suite runs when a wave changes any `src` file the game loads (`node scripts/reachable.mjs --is <file>` exits 0), any shared test helper, the build, or `package.json` dependencies. Otherwise the wave's gate is the focused set: every test that imports a changed module or reads a changed data file (found by grep on the module and file names), plus `check:arch`, `check:rules`, `check:coverage` and `check:docs`. Reason: engine-first work is in modules the game does not import, so the other six thousand tests cannot see it, and eight to twelve minutes per wave buys nothing. Dial: one full suite per day of waves in any case, and one before any tie-in work. Known gap: a test that reads a file without importing it is found by name search alone, so data-file changes get a wider search.
+
+### Should each craft family start now
+
+By PC94 a family starts when it has two consumers waiting. Read against what the engine has today:
+
+| Family | Consumers waiting | Start | First packet |
+| --- | --- | --- | --- |
+| Body alteration | A Gu in an aperture, a potion that grants a lasting power, a Sequence, an implant, the Sandevistan below | **Now** | One slot rule on a body with capacity, load, upkeep and rejection, with three consumer rows in a fixture |
+| Stored workings | Runes and talismans (already in the game), wards, a potion held ready, a sustained part of a technique (TG1) | **Now** | One stored-working shape on the kernel: carrier, trigger, charge, decay; a rune strip and a ward as rows |
+| Process crafts | Brewing uses it; forging has no law | After a census of Making (PC45) | The census, as a Codex lane |
+| Bindings | Oaths exist in the kernel; taming and familiars have no engine consumer yet | Later, with custody (PC23) | None now |
+
+Long-term place in the order: the two that start now are phase 2 work beside the four rows, because the potion row and the Gu row both end in a body slot, and the spell row's wards and the technique's held parts are stored workings. Process crafts join phase 3 with Making. Bindings join the custody and contest facets.
+
+### Body alteration, with cyberpunk biotech
+
+One slot rule, six carriers. The carrier decides the numbers; the rule is shared.
+
+| Carrier | Examples | Capacity it draws on | Upkeep | What goes wrong |
+| --- | --- | --- | --- | --- |
+| Hardware | Cyberlimbs, optics, reflex boosters, a spine-mounted speed rig | Body budget and a mind budget (the scout's CW1: one pool each install reduces) | Power, maintenance, a clinic | Rejection, malfunction, the mind pressure that ends in cyberpsychosis (CW35) |
+| Grown tissue (bioware) | Grafted muscle, skin weave, cloned organs, enhanced antibodies, toxin filters | Body budget, lighter on the mind | Nutrition, time to heal in | Immune response, overgrowth |
+| Nanotech | Repair swarms, blood filters | A small standing load | Feedstock | Runaway, depletion |
+| Genetic | Somatic edits in one body; germline edits that breed true | None after it takes | None | Off-target change; it reaches offspring (PC97 Edit meets heredity) |
+| Chemical | Combat drugs, boosters, immunosuppressants | Tolerance | Each dose | Dependence, a crash, interactions in the body |
+| Magical | A Gu in an aperture, a tattoo, a permanent potion, an Elixir | The aperture, the soul, one power per person, by world | Feeding, essence | Backlash, loss of control, a second power breaking the first |
+
+Default: capacity, load and rejection are quantities on the body in the engine world, so a suppressant dose (B) lowering rejection, a clinic visit, and a second implant crowding the first all meet with no code for the pair.
+
+### The Sandevistan as the worked example
+
+The tabletop reading is an initiative bonus for a short window with a cooldown. The anime shows a user moving through a scene that has all but stopped: crossing rooms, carrying people, stepping around bullets, and paying for it in the body afterwards. Proposal: both are the same quantity read at two levels of detail.
+
+- **The alteration** is a hardware row in a spine slot, with its load on the body and mind budgets.
+- **The activation** is a working whose effect raises one quantity on the holder for a few seconds: their **pace**, the rate at which that holder's own steps settle against the world's clock. In sentence terms it is `alter` on `time`, target self, sustained.
+- **Near, in detail**, pace multiplies how many of the holder's steps fit in the window. Because it applies to every working the holder starts, it covers moving, carrying, sensing and dodging as well as striking. Nothing is written per use.
+- **Far, or in a coarse contest**, the same pace is read as acting first and acting more: the initiative bonus. This is PFP12's near and far forms for one quantity, and the two have to agree on totals.
+- **The price** is strain: a quantity on the body that rises with pace times duration, feeds an affliction course (nosebleeds, tremor, collapse), and recovers with rest. A cooldown is strain above a threshold, with no separate timer. A military-grade unit has a higher pace and a steeper strain curve. Heavy use plus other installs pushes the mind budget.
+- **What follows with no extra rules:** two users cancel to the ratio of their paces; an area effect or a held ward (stored working) ignores who moved first; a suppressant or a booster changes the strain curve through the body; a brewer or a smith with the rig gets more steps in a timed process, and pays the same strain.
+
+The kernel consequence, stated once because it is the costly part: steps settle on one world clock today. Pace needs a holder-local rate inside a window, with the same result in one jump or many (KW5). Default: the window is split at its start and end, and the holder's steps inside it are scaled, so no second clock exists. That is a request to K when the fixture needs it.
+
+### More to consider
+
+**ACCOUNT FOR NOW**
+
+- **Capacity is the common limit.** Aperture size, implant budget, one Elixir per person, one Sequence at a time and tolerance are one adjective, "how much fits" (AD22), with the number and its reason per world. The slot rule should carry it once.
+- **Skipping the suite moves risk to tie-in.** The focused gate protects the engine. The first full suite after a long gap may surface several failures at once, which is the reason for the daily run.
+- **Stored workings change who acts.** A ward fires with nobody present, so authority is read at storing and again at firing (KW12), and the receipt names both.
+- **Pace interacts with idle settlement.** A sped-up holder during a long far settlement would multiply output for the whole stretch unless strain bounds it. The strain curve is what keeps the rate form honest.
+- **More lanes at once.** Weibao asked to use the Fable allowance. Wave 12 runs five Fable lanes on disjoint files, above PC94's three; the coordinator still reads every diff, and the count drops back if a fold finds overlap.
 
 ## Tracker
 
@@ -314,7 +453,7 @@ Not started now: MS-A to MS-E. Each waits for a consumer in phase 2 or 3, by PC9
 | 3 | Techniques, identity and contest loaded with a second consumer | Matrix | Open |
 | 4 | Generated Gu, move, potion and spell reachable in play | Runner, reachability | Open |
 | 4 | Soak reports discovered chains from all three sources | Emergence harness | Open |
-| 3 | Data already read is in the ledgers (PC85) | Coverage README | Open: 177 potions on `formula-in-notes`; no `canon_negatives` ledger |
+| 3 | Data already read is in the ledgers (PC85) | Coverage README | Open: 177 potions on `formula-in-notes`, of which the share with a formula in the table is uncounted; no `canon_negatives` ledger |
 | Reading | Chapter-checked share of Gu kinds, moves and ingredients | Coverage README | 78 of 1,466 kinds; 23 of 776 moves; 20 of 409 ingredients running, 79 more with evidence rows |
 
-Resume line: phase 1 under way. P1.1 tooling, P1.2 library, P1.3 and P1.5 landed in Wave 10. Next, by PC95: P1.7 (engine world), P1.6 (vocabulary fold), P1.8 (Hogwarts grammar as a world pack with cases). Game tie-in is deferred. Questions waiting: Q1, Q2, Q5, Q7 in the [core](PROCEDURAL_CORE.md#open-questions).
+Resume line: Wave 11 landed P1.7 (engine world: 10 of 11 packs, 4 couplings exercised) and P1.6 (vocabulary fold: 79 of 80 spellbook rows map). Numbers: G1 0, G2 10 of 11, G3 4, G4 0, G5 0. Next: P1.8 (Hogwarts grammar as a world pack with cases, for G1), the two living-things settlement faults, the `satiety` owner, and the colony as a pack. Codex lanes on formulas and Gu feeding are out. Game tie-in is deferred. Questions waiting: Q1, Q2, Q5, Q7 in the [core](PROCEDURAL_CORE.md#open-questions).
