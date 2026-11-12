@@ -31,7 +31,12 @@ export const SUBSTRATE_DIALS = Object.freeze({
 
 /** Merge pack declarations into one frozen rule set. Order of `packs` is the
  * fixed settlement order (then law order inside a pack, then holder id). */
-export function composeSubstrate({packs, quantities = [], properties = [], dials = {}}) {
+// Effect kinds the substrate itself publishes. `effect.<verb>` and
+// `effect.<verb>.<object>` belong to the effect primitives (world_effects.js).
+const BUILT_IN_KINDS = Object.freeze(['departed', 'arrived', 'law.lapsed']);
+const primitiveKind = kind => /^effect\.[a-z]+(\.[a-z0-9_:.*-]+)?$/.test(kind);
+
+export function composeSubstrate({packs, quantities = [], properties = [], effectKinds = [], dials = {}}) {
     check(Array.isArray(packs) && packs.length, 'compose needs packs.');
     const q = new Map(), pr = new Map();
     const addQuantity = (def, owner) => {
@@ -53,7 +58,11 @@ export function composeSubstrate({packs, quantities = [], properties = [], dials
     };
     for (const def of quantities) addQuantity(def, 'world');
     for (const def of properties) addProperty(def, 'world');
-    const seen = new Set(), laws = [], reactors = [];
+    const seen = new Set(), laws = [], reactors = [], kinds = new Set([...BUILT_IN_KINDS, ...effectKinds]);
+    for (const pack of packs) for (const kind of [...(pack.publishes ?? []), ...(pack.hears ?? [])]) {
+        check(typeof kind === 'string' && /^[a-z][a-z0-9_.:-]*$/.test(kind), `pack ${pack?.id} declares a malformed effect kind (${kind}).`);
+        kinds.add(kind);
+    }
     for (const pack of packs) {
         check(idLike(pack?.id) && !seen.has(pack.id), 'each pack needs a unique id.');
         seen.add(pack.id);
@@ -72,12 +81,14 @@ export function composeSubstrate({packs, quantities = [], properties = [], dials
         for (const reactor of pack.reactors ?? []) {
             check(idLike(reactor.id) && Array.isArray(reactor.on) && typeof reactor.react === 'function' &&
                 typeof reactor.appliesTo === 'function', `reactor in ${pack.id} needs id, on, appliesTo and react.`);
+            // W-B8: a reactor on a kind nobody publishes would wait forever; say so at composition.
+            for (const kind of reactor.on) check(kinds.has(kind) || primitiveKind(kind), `reactor ${pack.id}:${reactor.id} answers unknown effect kind ${kind}.`);
             reactors.push(Object.freeze({pack: pack.id, reactor, reads, writes}));
         }
     }
     const d = {...SUBSTRATE_DIALS, ...dials};
     for (const [k, v] of Object.entries(d)) check(whole(v) && v >= (k === 'cascadeDepth' ? 0 : 1), `dial ${k} must be a whole number.`);
-    return Object.freeze({quantities: q, properties: pr, packs: Object.freeze(packs.map(p => p.id)), laws, reactors, dials: Object.freeze(d)});
+    return Object.freeze({quantities: q, properties: pr, effectKinds: Object.freeze(kinds), packs: Object.freeze(packs.map(p => p.id)), laws, reactors, dials: Object.freeze(d)});
 }
 
 // A keyed quantity is a family: `energy:primeval.rank1`, `stock:bread`. The
@@ -220,6 +231,7 @@ function applyOps(rules, world, ops, ctx, queue) {
         }
         case 'publish': {
             check(typeof op.kind === 'string' && world.holders[op.place]?.kind === 'place', 'publish needs a kind and a place.');
+            check(rules.effectKinds.has(op.kind) || primitiveKind(op.kind), `effect kind ${op.kind} is not declared (a pack's publishes, or composeSubstrate effectKinds).`);
             if (op.quantity != null) check(quantityDef(rules, op.quantity) && whole(op.amount), 'an effect on a quantity needs a whole amount.');
             queue.push({kind: op.kind, place: op.place, quantity: op.quantity ?? null, amount: op.amount ?? 0,
                 detail: structuredClone(op.detail ?? null), by: op.by ?? ctx.by ?? ctx.source,

@@ -364,7 +364,7 @@ By default a new slice declares data through the seam named here and does not ad
 - Copy: `src/meadow_shell_state.js` (a near place settled minute by minute, a save-on-read migration, player ops with a cause); `tests/world_substrate.test.js` (`workshop()` fixture, W1-W10).
 - Test: tests/world_substrate.test.js; tests/world_effects.test.js.
 - Rules: [contract](WORLD_SUBSTRATE_CONTRACT.md) WSC1-WSC20; PFP22, SB2, SB3, SC7; PFP10-PFP15, OS6, OS8; TMR4, TMR7, SPR25, SPR28, SPR30.
-- Limits/traps: whole-unit amounts and rates only; one near place steps the whole world by minutes; the sky computes its own day (not `dayIndex` yet).
+- Limits/traps: whole-unit amounts and rates only; one near place steps the whole world by minutes; effect kinds must be declared (`publishes`, `hears`, `WORLD_EFFECT_KINDS`); the sky reads the world calendar profile, so its anchor minute is a dial.
 - Do not: import one pack from another, or read another pack's state slice; exchange through quantities and effects.
 - Competing: `simulation_effects.js` `applySimulationEffects` (the action effect hub, untouched in v0) and per-module timers such as `living_regulator.js`; the substrate is where they move at embed.
 

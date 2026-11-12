@@ -11,7 +11,7 @@
 // complete the stroke on its own (a spring or a counterweight). Either way the
 // inlet then stays where it is: nothing is left for it to follow.
 // tests/world_substrate.test.js holds the minute-by-minute parity with advanceLivingRegulator.
-import {WORLD_QUANTITIES as Q} from '../world_quantities.js';
+import {WORLD_QUANTITIES as Q, WORLD_EFFECT_KINDS as K} from '../world_quantities.js';
 
 const scaled = (view, id, amount) => view.lawFields(view.placeOf(id), 'airflow.scale')
     .reduce((n, f) => Math.floor(n * f.params.numerator / f.params.denominator), amount);
@@ -27,6 +27,8 @@ export function createShellRegulatorPack(law) {
     return {
         id: 'l.shell_regulator', revision: 0,
         quantities: [Q.humidity], reads: ['humidity'], writes: ['humidity'],
+        publishes: ['shell.pull', 'draft.opened', 'draft.closed'],
+        hears: [K.smoke.id],
         laws: [{
             id: 'shell', appliesTo: isBody,
             watches: (view, id) => {
@@ -87,7 +89,7 @@ export function createShellRegulatorPack(law) {
                 return [{op: 'state', holder: id, value: {...s, pending, wanted: pending?.position ?? s.position, follows: null}}];
             },
         }, {
-            id: 'startle', on: ['smoke'], appliesTo: isBody,
+            id: 'startle', on: [K.smoke.id], appliesTo: isBody,
             react: (view, id) => {
                 if (!startleMinutes) return [];
                 const s = view.state(id), place = view.placeOf(id);

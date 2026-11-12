@@ -6,7 +6,7 @@
 // out it publishes smoke into the place. The pack knows nothing about who else
 // is in the room.
 import {advanceThermal, createThermalState, validateThermalState} from '../craft_process_thermal.js';
-import {WORLD_QUANTITIES as Q} from '../world_quantities.js';
+import {WORLD_QUANTITIES as Q, WORLD_EFFECT_KINDS as K} from '../world_quantities.js';
 
 const remainingBurn = t => t.segment.at + t.segment.burnSeconds - t.elapsedSeconds;
 
@@ -18,6 +18,7 @@ export function createBrewSteamPack({thermalLaw, steamPerMinute}) {
     return {
         id: 'b.brew_steam', revision: 0,
         quantities: [Q.humidity], reads: ['humidity'], writes: ['humidity'],
+        publishes: [K.smoke.id],
         laws: [{
             id: 'batch', appliesTo: isBatch,
             rates: (view, id) => {
@@ -37,7 +38,7 @@ export function createBrewSteamPack({thermalLaw, steamPerMinute}) {
                 const s = view.state(id), lit = burning(s);
                 if (lit === s.lit) return [];
                 return [{op: 'state', holder: id, value: {...s, lit}},
-                    ...(!lit ? [{op: 'publish', kind: 'smoke', place: view.placeOf(id), detail: {fuelSpent: s.thermal.fuelSpent}}] : [])];
+                    ...(!lit ? [{op: 'publish', kind: K.smoke.id, place: view.placeOf(id), detail: {fuelSpent: s.thermal.fuelSpent}}] : [])];
             },
         }],
     };
