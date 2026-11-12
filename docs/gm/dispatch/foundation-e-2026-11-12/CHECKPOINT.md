@@ -109,4 +109,4 @@ Read-only look at sibling branches (2026-11-12, not merged, so not importable he
 - B `claude/fdn-b-brewing-afd93a@b700490af`: brew law on the kernel working, tested against the substrate. pc1's weaker batch is runnable once B's law reads a regulated quantity (B1) and merges.
 - G `claude/fdn-g-gu-312887@57476c596`, A, P: no substrate pack yet for a regulating Gu or a rival actor.
 
-Phase 2 waits on those merges; the coordinator merges and messages E.
+Phase 2 waits on those merges; the coordinator merges and messages E. Master at 2fff2285e still carries only W's two reference packs (checked after merging it). MS5, the combined browser pass, runs last, after domains reach play.
