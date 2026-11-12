@@ -1,0 +1,48 @@
+{
+ "route": "Village meadow pen: shell chamber (fixture: one Wool cloth, enrolled simulation)",
+ "viewport": "1920x1080",
+ "headless": true,
+ "bundleSha256": "10cbbe5002bc7c3b",
+ "lines": [
+  {
+   "name": "the chamber is a substrate world in the meadow_pen slice",
+   "ok": true,
+   "extra": "{\"schema\":\"oops.world-substrate\",\"revision\":1}"
+  },
+  {
+   "name": "the panel shows the substrate humidity",
+   "ok": true,
+   "extra": "The terrapin is tucked into its shell. Its leg needs 3 more minutes with food and damp air. Humidity 40%. Inlet open. A change is due in 2 minutes. Driftwood work 0/4."
+  },
+  {
+   "name": "save writes the settled inlet and fitting on the substrate",
+   "ok": true,
+   "extra": "{\"clock\":[518011680,518011685],\"inlet\":{\"mode\":\"closed\",\"position\":\"closed\",\"pending\":null,\"wanted\":\"closed\",\"follows\":\"village.shell_chamber.terrapin\"}}"
+  },
+  {
+   "name": "humidity has its sources on record",
+   "ok": true,
+   "extra": "{\"l.shell_regulator:inlet:village.shell_chamber.inlet\":-29}"
+  },
+  {
+   "name": "reload restores the same chamber",
+   "ok": true,
+   "extra": "clock 518011685"
+  },
+  {
+   "name": "import restores the same chamber",
+   "ok": true,
+   "extra": "clock 518011685"
+  },
+  {
+   "name": "the imported chamber keeps settling and takes new hands on the inlet",
+   "ok": true,
+   "extra": "clock 518011685 -> 518011689, humidity 29 -> 57"
+  },
+  {
+   "name": "no page errors",
+   "ok": true,
+   "extra": "ignored 404s: http://127.0.0.1:19471/resources/fonts/private/gothic-bitmap-14.woff2, http://127.0.0.1:19471/resources/fonts/private/msgothic.ttc, http://127.0.0.1:19471/resources/fonts/private/gothic-bitmap-12.woff2"
+  }
+ ]
+}

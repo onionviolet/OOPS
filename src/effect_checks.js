@@ -5,6 +5,7 @@
 // supplies its laws, words, prices and exceptions. Draws go through gen_kit.
 import {address, compareCodePoints, drawU32, indexFromU32, pickWeighted} from './gen_kit.js';
 import {assemble} from './procedural_grammar.js';
+import {searchParts, previewValue} from './grammar_search.js';
 import {EFFECT_OBJECTS, scopeOf} from './effect_grammar.js';
 
 const CORE = ['verb', 'object', 'target', 'time', 'carrier', 'cost'];
@@ -124,14 +125,74 @@ export function keepSpread(candidates, canonParts, {k = 6, weights = {useful: 1,
     return {kept, niches: niches.size, considered: candidates.length};
 }
 
+// PR4 · Niche archive (quality-diversity). One best entry per niche, keyed by
+// verb, object and carrier by default; plain JSON so a world can save it. A new
+// entry replaces the holder only with a strictly higher score; ties keep the
+// older entry, so the archive is stable under replay.
+export const ARCHIVE_SCHEMA = 'effects.archive@1';
+export function createNicheArchive({keys = ['verb', 'object', 'carrier']} = {}) {
+    return {schema: ARCHIVE_SCHEMA, keys: [...keys], niches: {}};
+}
+export function archiveOffer(archive, entry) {
+    if (archive?.schema !== ARCHIVE_SCHEMA) fail('Not a niche archive.');
+    if (!entry?.id || !entry.parts || !Number.isSafeInteger(entry.score)) fail('An archive entry needs an id, parts and an integer score.');
+    const niche = archive.keys.map(k => entry.parts[k]).join('|');
+    const held = archive.niches[niche];
+    const accepted = !held || entry.score > held.score;
+    const next = accepted ? {...archive, niches: {...archive.niches, [niche]: structuredClone(entry)}} : archive;
+    return {archive: next, receipt: {niche, accepted, replaced: accepted && held ? held.id : null, reason: !held ? 'new niche' : accepted ? `beats ${held.score}` : `holder scores ${held.score}`}};
+}
+
 // Whole pipeline: propose, check, keep. Returns every candidate's checks so a
 // failure reads as the missing law, price, exception or word.
+// PR3 · Bounded search: budget.trials caps proposals plus checks (each counts
+// one trial); budget.stop() is an optional caller-owned clock test (the caller
+// owns time, so the search stays pure). A truncated search says so.
 export function exploreEffects(fitted, canon, world, options) {
-    const candidates = proposeEffects(fitted, canon, options);
-    const results = candidates.map(c => ({candidate: c, ...checkEffect(fitted, c, world)}));
+    const budget = options.budget ?? {trials: 400};
+    if (!Number.isSafeInteger(budget.trials) || budget.trials < 2) fail('A search budget needs at least two trials (PR3).');
+    const count = Math.min(options.count ?? 12, Math.floor(budget.trials / 2));
+    const candidates = proposeEffects(fitted, canon, {...options, count});
+    const results = [];
+    let used = count, stopped = false;
+    for (const c of candidates) {
+        if (used >= budget.trials || budget.stop?.()) { stopped = true; break; }
+        results.push({candidate: c, ...checkEffect(fitted, c, world)});
+        used++;
+    }
     const passing = results.filter(r => r.pass).map(r => r.candidate);
     const spread = keepSpread(passing, canon.map(c => c.parts), options.keep);
     const failures = {};
     for (const r of results) for (const c of r.checks) if (!c.pass) failures[c.id] = (failures[c.id] ?? 0) + 1;
-    return {proposed: candidates.length, passed: passing.length, failures, kept: spread.kept, niches: spread.niches, results};
+    let archive = options.archive ?? createNicheArchive();
+    for (const c of spread.kept) archive = archiveOffer(archive, {id: c.id, parts: c.parts, score: c.score, cause: c.cause, grammar: fitted.ref}).archive;
+    return {proposed: candidates.length, checked: results.length, passed: passing.length, failures, kept: spread.kept, niches: spread.niches, archive,
+        budget: {trials: budget.trials, used, truncated: stopped || count < (options.count ?? 12)}, results};
+}
+
+// PM3 · Say what you want, get candidates. goal: a partial sentence ("hide the
+// camp" = conceal information around). actor.knows bounds the verbs and objects
+// the actor understands; actor.owns bounds carriers and costs. Target, time and
+// limits stay open, so a preview can show them as unknown to the actor (PM2).
+// Every candidate passes the same four checks as any new effect (PM1).
+export function searchEffectsForGoal(fitted, goal, {actor, world, budget = {trials: 120}, beam = 24, answers = 4}) {
+    if (!actor?.knows || !actor.owns) fail('A goal search reads what the actor knows and owns.');
+    const pool = {verb: actor.knows.verb, object: actor.knows.object, carrier: actor.owns.carrier, cost: actor.owns.cost};
+    for (const k of Object.keys(pool)) if (!pool[k]) delete pool[k];
+    const out = searchParts(fitted, {want: {parts: goal}, pool, budget, beam, answers,
+        accept: value => checkEffect(fitted, {id: 'goal', parts: value.parts}, world).pass});
+    // What the actor asked for is known to them; the rest of the preview is as they know it.
+    const knows = {...actor.knows};
+    for (const [slot, v] of Object.entries(goal)) knows[slot] = [...new Set([...(Array.isArray(knows[slot]) ? knows[slot] : []), ...(Array.isArray(v) ? v : [v])])];
+    return {...out, answers: out.answers.map(a => ({parts: a.parts, checks: checkEffect(fitted, {id: 'goal', parts: a.parts}, world).checks,
+        preview: previewValue(fitted, a.value, knows)}))};
+}
+// What an actor knows, read from the canon sentences they have seen.
+export function knowledgeFrom(sentences) {
+    const knows = {};
+    for (const s of sentences) for (const [slot, v] of Object.entries(s)) {
+        knows[slot] ??= [];
+        for (const x of Array.isArray(v) ? v : [v]) if (!knows[slot].includes(x)) knows[slot].push(x);
+    }
+    return knows;
 }

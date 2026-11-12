@@ -1,8 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {defineGrammar, fitGrammar, overlayGrammar, assemble, generate, inferSlot, canonTest} from '../src/procedural_grammar.js';
-import {guKindGrammar, guKindGrammarV2, labelGuRow, compareGuKind, guKindIdentity} from './fixtures/procedural_grammar/gu_kind_grammar.mjs';
+import {defineGrammar, fitGrammar, overlayGrammar, assemble, generate, inferSlot, canonTest, predictSlot, freezeValue, thawValue} from '../src/procedural_grammar.js';
+import {guKindGrammar, guKindGrammarV2, guKindGrammarV3, labelGuRow, compareGuKind, guKindIdentity} from './fixtures/procedural_grammar/gu_kind_grammar.mjs';
 
 const slice = JSON.parse(fs.readFileSync(new URL('./fixtures/procedural_grammar/gu_kind_slice.json', import.meta.url))).rows;
 const labelled = slice.map(r => ({id: r.id, ...labelGuRow(r)})).filter(r => r.parts);
@@ -131,4 +131,64 @@ test('the canon test rebuilds held-out Gu kinds and lists what v1 is missing', (
     // Name parts carry real signal about the hidden path, above the majority guess.
     assert.ok(v2.inference.path.rate > v2.inference.path.baseline);
     assert.deepEqual(canonTest(guKindGrammarV2, slice, {label: labelGuRow, compare: compareGuKind, identity: guKindIdentity}), canonTest(guKindGrammarV2, slice, {label: labelGuRow, compare: compareGuKind, identity: guKindIdentity}));
+});
+
+test('joint and chained conditioning keep generated combinations inside the source (GL5, GL1)', () => {
+    const joint = defineGrammar({id: 'toy.joint', revision: 1,
+        slots: [{id: 'a', type: 'one', values: ['x', 'y']}, {id: 'b', type: 'one', values: ['p', 'q']}, {id: 'c', type: 'one', values: ['m', 'n'], given: ['a', 'b']}],
+        fallback: {id: 'toy.joint.f', parts: {a: 'x', b: 'p', c: 'm'}}});
+    const rows = [{id: '1', parts: {a: 'x', b: 'p', c: 'm'}}, {id: '2', parts: {a: 'x', b: 'q', c: 'n'}}, {id: '3', parts: {a: 'y', b: 'p', c: 'n'}}];
+    const fitted = fitGrammar(joint, rows);
+    assert.deepEqual(fitted.weights.c.given['["x","p"]'], {m: 1});
+    assert.equal(predictSlot(fitted, {a: 'x', b: 'p'}, 'c').best, 'm');
+    assert.equal(predictSlot(fitted, {a: 'x', b: 'q'}, 'c').best, 'n');
+    // An unseen combination backs off to each given alone.
+    assert.match(predictSlot(fitted, {a: 'y', b: 'q'}, 'c').ranked[0].reason, /backed off/);
+    assert.throws(() => defineGrammar({...joint.spec, slots: [{id: 'c', type: 'one', values: ['m'], given: ['zz']}]}), /declared earlier/);
+    const v3 = canonTest(guKindGrammarV3, slice, {label: labelGuRow, compare: compareGuKind, pairs: [['path', 'role'], ['rank', 'path']], infer: ['path']});
+    const v2 = canonTest(guKindGrammarV2, slice, {label: labelGuRow, compare: compareGuKind, pairs: [['path', 'role'], ['rank', 'path']]});
+    for (const pair of ['path+role', 'rank+path']) {
+        assert.ok(v3.range.pairs[pair].supportedRate >= 0.8, pair);
+        assert.ok(v3.range.pairs[pair].supportedRate > v2.range.pairs[pair].supportedRate, pair);
+    }
+    assert.equal(v3.rebuild.rate, 1);
+    assert.ok(v3.inference.path.rate > v3.inference.path.baseline);
+});
+
+test('a frozen value keeps its grammar ref and is not re-derived by a newer revision (PR2)', () => {
+    const fitted = fitGrammar(guKindGrammarV2, labelled);
+    const out = generate(fitted, {root: 5, address: 'test:pr2', cause});
+    const frozen = JSON.parse(JSON.stringify(freezeValue(out.value)));
+    assert.equal(frozen.grammar, 'proof.gu-kind@2');
+    const thawed = thawValue(frozen, {'proof.gu-kind@2': fitted});
+    assert.deepEqual(thawed.value.derived, out.value.derived);
+    assert.equal(thawed.receipt.stillValid, true);
+    // Only revision 3 loaded: the stored value comes back as seen, flagged as not re-checked.
+    const later = thawValue(frozen, {'proof.gu-kind@3': fitGrammar(guKindGrammarV3, labelled)});
+    assert.deepEqual(later.value.derived, out.value.derived);
+    assert.equal(later.receipt.pinnedLoaded, false);
+    assert.throws(() => thawValue({grammar: 'x'}), /frozen/);
+});
+
+test('nested parts assemble, fit and generate through a child grammar (GL6)', () => {
+    const step = defineGrammar({id: 'toy.step', revision: 1,
+        slots: [{id: 'op', type: 'one', values: ['crush', 'stir', 'heat']}, {id: 'input', type: 'one', open: true, given: 'op'}],
+        fallback: {id: 'toy.step.f', parts: {op: 'stir', input: 'water'}}});
+    const recipe = defineGrammar({id: 'toy.recipe', revision: 1, slots: [{id: 'steps', type: 'parts', grammar: step, min: 1, max: 4}],
+        rules: [{id: 'heat-last', kind: 'check', default: 'Heat comes after the inputs are prepared.', reason: 'Test order rule.',
+            run: ({parts}) => parts.steps.findIndex(s => s.op === 'heat') === 0 && parts.steps.length > 1 ? {reason: 'heat first'} : null}],
+        fallback: {id: 'toy.recipe.f', parts: {steps: [{op: 'stir', input: 'water'}]}}});
+    assert.throws(() => defineGrammar({...recipe.spec, slots: [{id: 'steps', type: 'parts'}]}), /child grammar/);
+    const rows = [{id: 'r1', parts: {steps: [{op: 'crush', input: 'fang'}, {op: 'heat', input: 'water'}]}},
+        {id: 'r2', parts: {steps: [{op: 'stir', input: 'water'}, {op: 'crush', input: 'nettle'}, {op: 'heat', input: 'water'}]}}];
+    const fitted = fitGrammar(recipe, rows);
+    assert.equal(fitted.weights.steps.child.weights.input.given.crush.fang, 1);
+    const bad = assemble(fitted, {steps: [{op: 'boil', input: 'x'}, {op: 'heat', input: 'y'}]});
+    assert.deepEqual(bad.receipt.violations.map(v => v.slot), ['steps[0].op']);
+    assert.equal(assemble(fitted, {steps: [{op: 'heat', input: 'x'}, {op: 'stir', input: 'y'}]}).receipt.violations[0].rule, 'heat-last');
+    const a = generate(fitted, {root: 9, address: 'test:gl6', cause});
+    assert.deepEqual(generate(fitted, {root: 9, address: 'test:gl6', cause}).value, a.value);
+    assert.ok(a.value.parts.steps.length >= 2 && a.value.parts.steps.every(s => ['crush', 'stir', 'heat'].includes(s.op)));
+    assert.ok(a.receipt.picks.some(p => p.slot.startsWith('steps[0].')));
+    assert.deepEqual(overlayGrammar(fitted, {id: 'o', reason: 'test', reweight: {}}).weights.steps.child, fitted.weights.steps.child);
 });

@@ -1,4 +1,4 @@
-# Foundation P checkpoint, 2026-11-12: grammar contract v0 and effect grammar (phase 2)
+# Foundation P checkpoint, 2026-11-12: grammar contract, effect grammar, layers, coverage tooling, backward search and W lowering (phase 5)
 
 *Chat P in the [procedural foundation plan](../../../PROCEDURAL_FOUNDATION_PLAN.md#one-more-chat). Branch `claude/fdn-p-grammar-4ffe18`, started from 9bbc51363 (fast-forwarded from c25fd396d, no own commits before). Phase: publish the grammar contract v0 and the canon test harness, prove it on one corpus slice. Rules applied: PFP16-PFP20, P2, P5, GR1-GR17 (GR2, GR3, GR6, GR9, GR10, GR11, GR16 tested), AD5, AD38, AD56, NMR2, NMR3, NMR5, AU13 (plan only), MC2, MC12, MC14. Status: implemented, below floor (AD43): agent-verified at the focused test slice, not human-reviewed, no runtime caller yet, so no playable change and no browser pass. GR12 (no generator without a reader) stays open until the first consumer lands in the next phase.*
 
@@ -8,9 +8,65 @@ route: n/a
 state: rules-reconciled
 viewport: n/a (no player-facing change)
 persistence: unchanged
-tests: node --test tests/procedural_grammar.test.js tests/effect_grammar.test.js (15/15); check:rules; check:arch
+tests: node --test tests/procedural_grammar.test.js tests/effect_grammar.test.js tests/coverage_report.test.js tests/grammar_search.test.js tests/world_effects.test.js tests/world_substrate.test.js (49/49); check:rules; check:arch; check:coverage
 review: none
 ```
+
+## Phase 5 (2026-11-12, lowering onto W's effect primitives)
+
+W's phase 2 (`claude/fdn-w-substrate-ee40b6` at 64d0adedf) was held because `tests/effect_grammar.test.js` asserted light was missing from W. Merged W's branch into this one (0ed53bebf) to test against it.
+
+- **(a)** The assertion now expects `light:<key>` in `needs` only when no world key is given; with a key, light lowers to `light:moon`.
+- **(b)** `lowerEffect` maps objects through `W_OBJECT_OF` and adds world keys (Gu: essence by fuel family, light `moon` by default; Hogwarts: light `wand`, essence `mana`; a thing's own key overrides). Every P object lowers to a W act or a publish for its named owner (test loops all 18).
+- **(c)** `applySentence` runs lowered acts through W's `applyEffect`: a Moonblade-shaped cut removes vitality, a sustained guard sentence blocks the next cut, light adds to `light:moon`, a mind effect publishes for A. The Gu grammar's derived `acts` are the acts it runs.
+- PGC15 updated: W's boundary table is agreed as written, with the three P-side choices stated (keys, owner publishes, block verb by object kind).
+
+Checks: `node --test tests/effect_grammar.test.js tests/grammar_search.test.js tests/procedural_grammar.test.js tests/world_effects.test.js tests/world_substrate.test.js tests/coverage_report.test.js` 49/49 on this branch with W merged; effects report numbers unchanged.
+
+Request to **W**: `applyEffect`'s generated block field id embeds `params.verb`, so a block with verb `*` (which `blockerOf` accepts) fails W's own id check ("law field needs id, kind and a scope"). P avoids it by naming the stopped verb; a sanitized id (for example `any` for `*`) would let `*` blocks run.
+
+## Phase 4 (2026-11-12, grammars both ways, master 46b39fb22 merged)
+
+Read the plan section "Heredity and variation, player-made things, and lore from parts" (GN1-GN9, PM1-PM8, RV1-RV5, OA1-OA5, FN1-FN9, PFP27-PFP29). P's part: backward search, player goals, honest previews. Status: implemented, below floor (AD43), agent-verified, not human-reviewed; GR12 still open (no runtime caller).
+
+| Item | Result |
+| --- | --- |
+| PGC25 backward search | `searchParts`: beam over fitted weights, log-probability scores, trial budget, canon marking, nested child pools |
+| PGC26 gaps | `lacks-part` and refused-rule counts when nothing answers |
+| PGC27 honest preview | `previewValue`: unknown parts and uncertain derived fields by rule reads |
+| PGC28 goal search | `searchEffectsForGoal`, `knowledgeFrom` |
+| RV2 backward canon test | Canon route among the top five for 84.2% of Gu sentences and 89.0% of Hogwarts sentences, about four other routes each |
+| PM3 proof | "Hide the camp" for a keeper who has seen four Gu: four passing candidates in six trials, time shown as unknown; altering a law returns a `lacks-part` gap |
+
+Requests (phase 4): **K**, a composed working whose composed effect a backward search can accept (PGB13, GL3, MS4). **A or R**, search depth from skill (PGB14). **N**, a knowledge write for failures that teach (PGB15). **L** owns heredity (GN1-GN9); P's grammar has no genome slot type yet and will take L's request when L has a draft.
+
+## Phase 3 (2026-11-12, coverage milestones, master 2fff2285e merged)
+
+Read the plan section "Making all achievable" (CV1-CV4, GL1-GL7, PR1-PR9, MS1-MS7, PFP25, PFP26). Status: implemented, below floor (AD43), agent-verified, not human-reviewed; no runtime caller yet, so GR12 stays open.
+
+| Item | Result | Commit |
+| --- | --- | --- |
+| MS1 tooling | `scripts/coverage_report.mjs`, `npm run check:coverage` (fails only on malformed rows), generated `docs/coverage/README.md` with every CV3 ledger listed as not started. Sent to the coordinator first | 5cd05f309 |
+| GL5 joint conditioning (PGC19) | `given` arrays with backoff; `proof.gu-kind@3` chains path on rank and role on path and rank | this commit |
+| GL1 identity | Pair support 96.5% (path and role), 94.0% (rank and path), 98.5% (rank and role) on the full index; slice 94.0%, 92.5%, 93.5%. Target 80%: **met**. Path read from name parts 39.5% (baseline 13.2%) | this commit |
+| Inference scoring (PGC20) | Naive Bayes with add-one smoothing, prior as a dial (off). v1 and v2 path inference moved from 39.8% to 37.8%, role from 48.4% to 44.4%; effect verb inference rose to 77.2% (Gu) and 46.8% (Hogwarts). The phase 1 and 2 tables below keep their original numbers as history | this commit |
+| GL2 effect (MS2) | Predicted from identity: Gu whole sentence 43.9% (majority 0%), verb 54.4%; Hogwarts 11.0% (0.9%), verb 31.2%. **Below the 70% target**, misses grouped as missing rules in the contract doc and the effects report. Re-assembly rebuild stays 96.5% and 78.0% | this commit |
+| GL6 nested parts (PGC21) | `parts` slot type with child grammars: assemble, fit, generate, path-prefixed violations. All 23 canon moves assemble as nested roles; 28 roles unnamed in the source, 6 single-role moves, every named kind catalogued | this commit |
+| PR2 frozen ref (PGC22) | `freezeValue`, `thawValue`; a newer revision never re-derives a seen value | this commit |
+| PR3 budgets (PGC23) | `exploreEffects` budget `{trials, stop}` with a truncation receipt | this commit |
+| PR4 niche archive (PGC24) | `createNicheArchive`, `archiveOffer`; explore fills it from the kept spread | this commit |
+| PR1-PR9 mapping | Contract doc table: each PR rule to its PGC line | this commit |
+
+Rescope (PFP6): MS2's 70% applies to the effect predicted from identity, which P's harness can measure but cannot raise alone. Gu "support" and "offensive" types and Hogwarts family headings span many verbs. Closing the gap needs identity the domains own (G's resolver kind per Gu, S's operation per spell, SG2) as inputs independent of the sentence labels. The test and the target stay; the requests below carry it.
+
+### Requests (phase 3, coordinator relays)
+
+- **G:** a resolver or ability kind per catalogued Gu, independent of `function`, as GL2 identity. Write `docs/coverage/gu_kinds.jsonl` and `gu_moves.jsonl` with the MS1 tool. Name the 28 unnamed move roles where a chapter names them; otherwise keep them as counted roles.
+- **S:** an operation per spellbook record (SG2) as GL2 identity, and `docs/coverage/hp_spells.jsonl`.
+- **B:** `hp_potions`, `hp_ingredients`, `lotm_potions` ledgers. The nested `parts` slot (PGC21) is ready for BRG3 steps.
+- **L:** `creatures` ledger.
+- **K:** the composed working for GL3 and MS4. Each role in P's move shape (`roles: [{role, kind}]`) is one step.
+- **E:** GL4 needs a seeded world run with place causes (PGB5).
 
 ## Phase 2 (2026-11-12, after K and W v0 merged)
 
@@ -124,6 +180,18 @@ Target: path, role and rank labels for the 1,159 unlabelled Gu records (missing 
 5. **Deterministic checks on all output.** Schema, label in the declared lists (`GU_PATHS`, `GU_ROLES`, ranks 1-9), locator present, no raw prose beyond the paraphrase cap. Spot-check a 10% sample against its locator (sonnet or the coordinator). Done check: labelled rows with locators and a spot-check pass rate of 90% or more; then rerun `scripts/grammar_canon_gu.mjs` and record the new labelled count and rates.
 
 Level haiku, effort high (volume); preserve the Codex reserve (local or Claude readers only).
+
+## Next phase (after phase 4)
+
+1. GL3 with K: rebuild the 23 canon moves backward from their roles through K's composed working, and accept by the composed effect (PGB13).
+2. GL2 rerun once G and S supply independent identity parts.
+3. GL4 with E.
+
+## Next phase (after phase 3)
+
+1. GL2: rerun the identity prediction once G and S supply independent identity parts; target 70%.
+2. GL3: rebuild the 23 moves through K's composed working when it lands (MS4).
+3. GL4 with E: a place-driven and an actor-driven generation in a seeded world.
 
 ## Next phase (after phase 2)
 

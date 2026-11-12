@@ -7,6 +7,8 @@
 // vocabulary onto these parts and declare carriers, costs and words.
 import {defineGrammar, assemble} from './procedural_grammar.js';
 import {WORLD_QUANTITIES} from './world_quantities.js';
+import {W_OBJECT_OF, applyEffect} from './world_effects.js';
+import {applyWorldOps} from './world_substrate.js';
 
 // Few primitives (EF2): a new one needs a canon effect these cannot express
 // and a second consumer.
@@ -48,30 +50,49 @@ export const scopeOf = parts => (TARGET_TIER[parts.target] ?? 0) + (TIME_TIER[pa
 // The effect kind a sentence publishes when its object is not a W quantity.
 export const effectKind = (verb, object) => `effect.${verb}.${object}`;
 
-// Lower a sentence onto W ops (WSC8 op names). quantities: the W vocabulary
-// in play (default WORLD_QUANTITIES). Quantities W has not declared yet are
-// published as effects and listed in `needs` for W (WSC2: W decides).
-// Boundary proposal for W: an effect on moisture reads W's place humidity.
-export const DEFAULT_QUANTITY_OF = Object.freeze({moisture: 'humidity'});
-export function lowerEffect(parts, {quantities = WORLD_QUANTITIES, quantityOf = DEFAULT_QUANTITY_OF} = {}) {
-    const kind = EFFECT_OBJECTS[parts.object];
-    const wName = quantityOf[parts.object] ?? parts.object;
-    const ops = [], needs = [];
-    if (kind === 'quantity' && quantities[wName] && ['add', 'remove'].includes(parts.verb)) {
-        ops.push({op: 'add', quantity: wName, sign: parts.verb === 'add' ? 1 : -1});
-    } else if (kind === 'law' && parts.verb === 'alter') {
-        ops.push({op: 'law_add', field: parts.object});
-    } else {
-        if (kind === 'quantity' && !quantities[wName]) needs.push(wName);
-        ops.push({op: 'publish', kind: effectKind(parts.verb, parts.object)});
+// Lower a sentence onto W's effect primitives (src/world_effects.js, SB3).
+// Objects map through W_OBJECT_OF (heat to temperature, sound to noise,
+// essence to energy). A keyed family (light, energy) takes the world's key:
+// `keys[object]` is a string or a function of the sentence's parts, so a Gu
+// pack can name `energy:primeval.rank1` and a Hogwarts pack `light:wand`. A
+// keyed object with no key is listed in `needs` (W refuses a bare family).
+// Objects W leaves to another owner (null in W_OBJECT_OF) lower to a publish
+// for that owner to answer. Returns {acts, publish, needs}: an act is
+// {verb, object} plus what P knows of it (until for sustained time); the caller
+// adds targets and amounts and runs it with `applySentence`.
+export const OBJECT_OWNER = Object.freeze({working: 'K', information: 'N', memory: 'N', mind: 'A', force: 'L', lifespan: 'L'});
+export function lowerEffect(parts, {keys = {}, key = null, objectOf = W_OBJECT_OF, quantities = WORLD_QUANTITIES} = {}) {
+    const base = objectOf[parts.object];
+    const acts = [], publish = [], needs = [];
+    if (base === undefined) throw Error(`No W reading for object ${parts.object}.`);
+    if (base === null) {
+        // Sensing and hiding run on W's channels whatever the object; what is
+        // learned or hidden is recorded by its owner (N for knowledge).
+        if (['sense', 'conceal', 'release'].includes(parts.verb)) acts.push({verb: parts.verb});
+        publish.push({kind: effectKind(parts.verb, parts.object), owner: OBJECT_OWNER[parts.object] ?? null});
+        return {acts, publish, needs};
     }
-    return {ops, needs};
+    let object = base;
+    if (quantities[base]?.keyed) {
+        // A thing's own key (this Gu's light is starlight) beats the world default.
+        const k = key ?? (typeof keys[parts.object] === 'function' ? keys[parts.object](parts) : keys[parts.object]);
+        if (!k) { needs.push(`${base}:<key>`); return {acts, publish, needs}; }
+        object = `${base}:${k}`;
+    }
+    // A block names the verb it stops on that object: a guard on a quantity stops
+    // its loss, on a position stops movement, on a form or bond stops change.
+    // details.params overrides it at run time.
+    const stops = {quantity: 'remove', state: parts.object === 'position' ? 'move' : 'transform', relation: 'bind', thing: 'move', law: 'alter'}[EFFECT_OBJECTS[parts.object]] ?? 'remove';
+    const act = parts.verb === 'block' ? {verb: 'block', params: {verb: stops, object}} : {verb: parts.verb, object};
+    if (object === 'law:*') { delete act.object; act.kind = parts.object; }
+    acts.push(act);
+    return {acts, publish, needs};
 }
 
 // A world declares its carriers and the cost accounts each may pay with.
 // carriers: {carrier: [cost]}. The grammar is per world because carrier and
 // cost vocabularies are world data; verbs, objects, targets and times are shared.
-export function defineEffectGrammar({world, carriers, limits = [], revision = 1, dials = {}}) {
+export function defineEffectGrammar({world, carriers, limits = [], keys = {}, revision = 1, dials = {}}) {
     if (!world || !carriers || !Object.keys(carriers).length) throw Error('An effect grammar needs a world id and carriers with costs.');
     const costs = [...new Set(Object.values(carriers).flat())];
     const first = Object.keys(carriers)[0];
@@ -99,9 +120,9 @@ export function defineEffectGrammar({world, carriers, limits = [], revision = 1,
             {id: 'scope', kind: 'derive', reads: ['target', 'time', 'limits'], default: 'Scope is target tier plus time tier plus fewer limits.',
                 reason: 'Bigger reach, longer time and fewer limits cost more by one curve (plan check 2).',
                 run: ({parts}) => ({scope: scopeOf(parts)})},
-            {id: 'lowered', kind: 'derive', reads: ['verb', 'object'], default: 'Objects W declares become quantity ops; the rest publish an effect kind.',
+            {id: 'lowered', kind: 'derive', reads: ['verb', 'object', 'cost'], default: 'A sentence lowers to W acts through W_OBJECT_OF and the world keys; objects of other owners publish.',
                 reason: 'P composes sentences; W lands them (SB3).',
-                run: ({parts}) => ({...lowerEffect(parts), counters: COUNTERS[parts.verb] ?? []})},
+                run: ({parts}) => ({...lowerEffect(parts, {keys}), counters: COUNTERS[parts.verb] ?? []})},
         ],
         fallback: {id: `effect.${world}.fallback`, parts: {verb: 'sense', object: 'information', target: 'area', time: 'sustained',
             carrier: first, cost: carriers[first][0], limits: []}},
@@ -109,3 +130,32 @@ export function defineEffectGrammar({world, carriers, limits = [], revision = 1,
 }
 
 export const assembleEffect = (grammar, parts) => assemble(grammar, parts);
+
+// Run a sentence in a W world: one executor for the verbs (W's applyEffect).
+// details supply what the sentence leaves to the moment: target (a W shape;
+// geometry such as a line arrives as {shape: 'holders', ids} from X), amount,
+// to, into, mark, channel, reads, from, value, field and, for sustained time,
+// minutes (until = now + minutes). Publishes for other owners land on
+// details.place. Returns the world and every act's outcome.
+export function applySentence(rules, world, parts, details, {keys = {}, cause, by} = {}) {
+    if (!cause) throw Error('A sentence needs a cause.');
+    const lowered = lowerEffect(parts, {keys, key: details.key ?? null});
+    if (lowered.needs.length) return {world, outcomes: [], needs: lowered.needs, published: []};
+    let next = world;
+    const outcomes = [];
+    const until = parts.time === 'sustained' && Number.isSafeInteger(details.minutes) ? world.clock + details.minutes : undefined;
+    for (const act of lowered.acts) {
+        const {minutes, place, key, ...rest} = details;
+        const run = applyEffect(rules, next, {...act, ...rest, ...(until != null ? {until} : {}), by: by ?? rest.by}, cause);
+        next = run.world;
+        outcomes.push(run.outcome);
+    }
+    const published = [];
+    if (lowered.publish.length) {
+        if (!details.place) throw Error('An effect for another owner needs a place to land.');
+        next = applyWorldOps(rules, next, lowered.publish.map(p => ({op: 'publish', kind: p.kind, place: details.place, by: by ?? cause,
+            detail: {owner: p.owner, parts}})), cause);
+        published.push(...lowered.publish);
+    }
+    return {world: next, outcomes, needs: [], published};
+}
