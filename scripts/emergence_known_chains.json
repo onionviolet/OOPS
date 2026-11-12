@@ -1,0 +1,12 @@
+{
+  "cc1-steam-shell": [
+    "b.brew_steam:batch>smoke | l.shell_regulator:startle",
+    "b.brew_steam:batch>smoke | l.shell_regulator:startle>shell.pull | l.shell_regulator:inlet-link",
+    "humidity{b.brew_steam,l.shell_regulator} ~ l.shell_regulator:shell>shell.pull | l.shell_regulator:inlet-link"
+  ],
+  "cc1-steam-shell-depart": [
+    "b.brew_steam:batch>smoke | l.shell_regulator:startle",
+    "b.brew_steam:batch>smoke | l.shell_regulator:startle>shell.pull | l.shell_regulator:inlet-link",
+    "humidity{b.brew_steam,l.shell_regulator} ~ l.shell_regulator:shell>shell.pull | l.shell_regulator:inlet-link"
+  ]
+}

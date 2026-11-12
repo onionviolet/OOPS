@@ -1,4 +1,4 @@
-import {keeperRedSteel as id, keeperRankTrialId, keeperMoonglowLoan} from '../gu_keeper_red_steel.js';
+import {keeperRedSteel as id, keeperRankTrialId, keeperMoonglowLoan} from './book_gu_keeper_lines.js';
 import {keeperFourFlavors, keeperTrailWine, keeperWildWorld} from '../gu_keeper_wild.js';
 import {fourFlavorsConversion as recipe} from '../gu_liquor_worm.js';
 import {extensionFact} from '../structured_pack_extensions.js';
