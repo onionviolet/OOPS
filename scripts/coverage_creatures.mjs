@@ -10,17 +10,14 @@ const OUT = new URL('../docs/coverage/creatures.jsonl', import.meta.url);
 const TEST = 'tests/living_foundation.test.js';
 const registry = livingKindRegistry({extra: guLivingRows(guCatalogue)});
 
-// Shared-rule owners a kind appears on (SC4). L's lifecycle and body read run every row;
-// the others are named only where a module actually reads that kind today.
-const LIFECYCLE_HOSTS = new Set(['liquor-worm', 'starlight-firefly', 'moonlight']);
-const mechanisms = kind => {
-    const out = ['L:living_kinds', 'L:living_body'];
-    if (kind.class === 'gu') out.push('G:gu_catalogue');
-    if (LIFECYCLE_HOSTS.has(kind.id) || kind.class !== 'gu' && kind.hosts.some(h => !/simulation|chronicle|npc_lives|shipping|hired|hp_brewing|household_brood/.test(h)))
-        out.push('L:creature_lifecycle');
-    return out;
-};
+// Owners a kind appears on (SC4), by chat letter: L runs every body; G owns Gu rows.
+const mechanisms = kind => kind.class === 'gu' ? ['L', 'G'] : ['L'];
 
+// Heredity state per kind (GN, PFP27), kept in the note until the shared row format
+// has a heredity field (request to P): alleles (lineage_traits model), coin (the
+// lifecycle's per-trait draw, to fold onto alleles, OA5), none (traits drawn from a
+// source, not inherited), and whether the kind has genome rows yet (GN1).
+const heredity = kind => `heredity=${kind.inheritance}${kind.genome ? '+genome' : ''}`;
 function classify(kind) {
     if (kind.class === 'gu' && !kind.placeholder) {
         // Every Gu eats and can die, so each is a creature. A Gu body runs only with a
@@ -40,7 +37,8 @@ function classify(kind) {
 const rows = Object.values(registry.kinds).sort((a, b) => a.id < b.id ? -1 : 1).map(kind => {
     const {state, note} = classify(kind);
     return {id: kind.id, source: kind.source.locator, state, mechanisms: mechanisms(kind),
-        test: state.startsWith('runs') ? `${TEST}: every L kind reads through one body read` : null, class: kind.class, note};
+        test: state.startsWith('runs') ? `${TEST}#every L kind reads through one body read` : null,
+        note: [`class=${kind.class}`, heredity(kind), note].filter(Boolean).join('; ')};
 });
 const text = rows.map(row => JSON.stringify(row)).join('\n') + '\n';
 
