@@ -76,6 +76,16 @@ First consumers, adapters in the test file, owners unchanged:
 
 Both run the seven-test contract suite (now [`tests/kernel_contract_suite.mjs`](../tests/kernel_contract_suite.mjs), shared by every kernel test file).
 
+### One identity, several kinds (SC7, SB1, v0.2)
+
+Module [`src/kernel_identity.js`](../src/kernel_identity.js), tests [`tests/kernel_identity.test.js`](../tests/kernel_identity.test.js). A Gu is an item someone holds and a living body; a Beyonder characteristic is a person's remnant, then an item, then a potion input.
+
+- **KW22. One id, several facets.** The registry maps an identity id to facets, `{kind: {owner, key}}`: which owner holds that aspect and under which key (`w.holder` and a holder id, `inventory` and an individual item key, a lifecycle individual, a claim). A kernel binding `{kind, id}` names the facet it needs, so one Gu binds as `body` in a feeding working and as `item` in a loan.
+- **KW23. A cross-reference, not an authority (AR3).** The registry copies no count, health, custody or position; owners stay the one writer of their facts. One owner key belongs to at most one identity. Existing owners keep their own ids and are pointed at, not replaced: `item_identity` (what an observer calls the item), `material_lineage` individual and heirloom keys, `creature_lifecycle` individuals, `gu_world_claims` living claims.
+- **KW24. Changing kind keeps the individual (MR41).** `changeFacets` removes and adds facets in one change with its time and cause; the history says when the remnant became an item and the item a brew input.
+- **KW25. Read through the owners.** `identityReader(registry, owners)` is an ordinary `ports.read`: the facet's owner answers for its key at the step's time, and the answer carries the identity id, the bound kind and the facet. A death removes the body (the W holder) while the item facet still reads. A stack is not one thing: an owner answer with `count` above one reads as absent, so an identity points at an individual key (split a stack first, as `material_lineage` does).
+- **KW26. One versioned save.** `kernel.identity@1`, validated on restore (unknown versions and two identities claiming one owner key are refused). Where it lives in the game save is settled at embed (request to W and the integrator below).
+
 ## Save shape (OS8)
 
 ```json
@@ -135,9 +145,11 @@ From the shared notes. Covered means v0 already expresses it as data; no kernel 
 
 ## Next phase (K)
 
-Retire one old shape: `method_program` (16 lines, three consumers in other chats' files) is the candidate, since its kind chain is a method whose operation roles are kinds. That needs the owning chats to move `hp_potion_reactions`, `mol_light_research` and `feature_expansion_ui`, or their consent for K to do it. Then the PFP7 join with B and G once their leaves run on the kernel.
+1. **KB8, several workings settling together**, now asked by C, M and S (PFP5 met): a joint settlement over several records in one fixed order, for contests, trades and Counterspell ending a cast in flight.
+2. **Retire one old shape** once its consumers move: `method_program` (three consumers in other chats' files) is the candidate; `spell_working`'s compile step goes once S embeds on the composition adapter above. K deletes nothing in another chat's files without that chat's move or consent.
+3. **PFP7 join** with B and G once their leaves run on the kernel.
 
 ## Changelog
 
-- **0.2 (2026-11-12).** KW15 forecast fields, KW16 fingerprint and `beginQuotedWorking`, KW17 `quoteForActor`; KW18-KW21 composed workings (`kernel_compose.js`). Kernel failure reasons are codes (`role-unavailable`, `not-permitted`) with the role kept as data. No schema change.
+- **0.2 (2026-11-12).** KW15 forecast fields, KW16 fingerprint and `beginQuotedWorking`, KW17 `quoteForActor`; KW18-KW21 composed workings (`kernel_compose.js`); KW22-KW26 identity (`kernel_identity.js`). Kernel failure reasons are codes (`role-unavailable`, `not-permitted`) with the role kept as data. No schema change.
 - **0.1 (2026-11-12).** KW1-KW14, the record `kernel.working@1` and one migration.
