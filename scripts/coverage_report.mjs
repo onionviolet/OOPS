@@ -11,20 +11,24 @@
 // Cases (PC5, PC9, PC10, PC51 P1.1). A row may carry `"case": {"module": "<repo-relative js>", "id": "<case id>"}`.
 // The module exports `coverageCase(id)`, returning plain data:
 //   {basis?: 'canon'|'authored',            // else taken from the typed state, else 'authored'
-//    world: {clock?, holders: [...], lawFields?},   // createWorld input; W's default vocabulary pack
-//    sentence: {verb, object, target?, time?, carrier?, cost?, limits?},   // run through applySentence
-//    working?: {...},                       // TODO: needs the effect host (another lane); computes blocked:runner-working-case
+//    world: {clock?, holders: [...], lawFields?},
+//    engine?: {packs?, settings?, shared?, dials?},  // plain createEngineWorld config
+//    sentence: {verb, object, target?, time?, carrier?, cost?, limits?},   // run through landEffect
+//    working?: {...},                       // kernel settlement pending; computes blocked:runner-working-case
 //    details?: {target, amount, minutes, place, ...},  keys?: {light: 'moon', ...},  by?: string,
-//    expect: [{holder, quantity | property | position: true, direction, amount?, to?}]}
-// `expect` is in world terms only. direction is up|down|changed|unchanged for a quantity and
-// changed|unchanged for a property or position. `amount` is the exact size of a quantity change;
-// `to` is the final value of a property or place. Unknown keys are rejected, so a verb or object
-// word cannot stand in for an outcome, and at least one entry must expect a change.
+//    expect: [{holder, quantity | property | position: true | exists: true, direction, amount?, to?}
+//             | {lawField, direction, to?}]}
+// `expect` is in world terms only. Quantities support up|down|changed|unchanged and an exact
+// change `amount`. Other terms support changed|unchanged. `to` matches the final value.
+// A law field reads as {scope, kind, params, until?} or null if absent. A new holder must be
+// named by an exists observation with changed and to: true before other observations can name it.
+// Unknown keys are rejected, and at least one entry must expect an actual change.
 // Computed states: expressed-<basis> when the world changed as `expect` says; runs-<basis> when the
 // case module is also reachable from src/main.js (scripts/reachable.mjs). A case under tests/ is never reachable.
-// Otherwise blocked:runner-expect-mismatch, blocked:runner-needs (the sentence needs a world key) or
-// blocked:runner-working-case.
+// Other states: blocked:runner-expect-mismatch, blocked:runner-needs (missing world key),
+// blocked:runner-unmapped, blocked:runner-waiting or blocked:runner-working-case.
 import fs from 'node:fs';
+import {isDeepStrictEqual} from 'node:util';
 import path from 'node:path';
 import {fileURLToPath, pathToFileURL} from 'node:url';
 import {reachableFrom, walkFrom, srcFiles} from './reachable.mjs';
@@ -93,24 +97,46 @@ export function countLedger(rows) {
 }
 
 // ---- The generic case runner (PC9, PC10) ----
-const DIRECTIONS = {quantity: ['up', 'down', 'changed', 'unchanged'], property: ['changed', 'unchanged'], position: ['changed', 'unchanged']};
-const EXPECT_KEYS = new Set(['holder', 'quantity', 'property', 'position', 'direction', 'amount', 'to']);
+const TERMS = ['quantity', 'property', 'position', 'exists', 'lawField'];
+const EXPECT_KEYS = new Set(['holder', ...TERMS, 'direction', 'amount', 'to']);
+const CHANGE = ['changed', 'unchanged'];
+const QUANTITY_CHANGE = ['up', 'down', ...CHANGE];
+const named = value => typeof value === 'string' && value.length > 0;
+const createsHolder = e => e?.exists === true && e.direction === 'changed' && e.to === true;
 
 function checkExpect(world, expect, id) {
     const bad = m => { throw new Error(`case ${id}: ${m}`); };
     if (!Array.isArray(expect) || !expect.length) bad('expect must be a nonempty array of world outcomes');
+    const created = new Set(expect.filter(createsHolder).map(e => e.holder));
     for (const e of expect) {
         if (!e || typeof e !== 'object') bad('an expect entry must be an object');
         for (const k of Object.keys(e)) if (!EXPECT_KEYS.has(k)) bad(`expect key ${k} is not a world term`);
-        if (!(world.holders ?? []).some(h => h.id === e.holder)) bad(`expect names holder ${e.holder}, which the case world does not define`);
-        const kinds = ['quantity', 'property', 'position'].filter(k => e[k] !== undefined);
-        if (kinds.length !== 1) bad('an expect entry names exactly one of quantity, property or position');
-        if (!DIRECTIONS[kinds[0]].includes(e.direction)) bad(`direction for a ${kinds[0]} is one of ${DIRECTIONS[kinds[0]].join(', ')}`);
+        const kinds = TERMS.filter(k => e[k] !== undefined);
+        if (kinds.length !== 1) bad('an expect entry names exactly one world term');
+        const [kind] = kinds;
+        if (!(kind === 'position' || kind === 'exists' ? e[kind] === true : named(e[kind]))) bad(`invalid ${kind} observation`);
+        const directions = kind === 'quantity' ? QUANTITY_CHANGE : CHANGE;
+        if (!directions.includes(e.direction)) bad(`direction for ${kind} is one of ${directions.join(', ')}`);
+        if (e.amount !== undefined && (kind !== 'quantity' || !Number.isFinite(e.amount) || e.amount < 0))
+            bad('amount must be a nonnegative number on a quantity observation');
+        if (kind === 'lawField') {
+            if (e.holder !== undefined) bad('a law field is named by its id');
+        } else if (!named(e.holder) || !(Object.hasOwn(world.holders, e.holder) || created.has(e.holder))) {
+            bad(`expect names holder ${e.holder}, which the case world does not define or expect to create`);
+        }
+        if (createsHolder(e) && Object.hasOwn(world.holders, e.holder)) bad(`expected new holder ${e.holder} already exists`);
     }
     if (!expect.some(e => e.direction !== 'unchanged')) bad('expect must name at least one change');
 }
 
 const readTerm = (world, e) => {
+    if (e.lawField !== undefined) {
+        const field = world.laws.find(f => f.id === e.lawField);
+        if (!field) return null;
+        const {scope, kind, params, until} = field;
+        return {scope, kind, params, ...(until === undefined ? {} : {until})};
+    }
+    if (e.exists) return Object.hasOwn(world.holders, e.holder);
     const h = world.holders[e.holder];
     if (e.quantity !== undefined) return h?.quantities?.[e.quantity] ?? 0;
     if (e.property !== undefined) return h?.properties?.[e.property] ?? null;
@@ -121,13 +147,12 @@ const readTerm = (world, e) => {
 export function expectHolds(before, after, expect) {
     return expect.every(e => {
         const a = readTerm(before, e), b = readTerm(after, e);
-        const same = JSON.stringify(a) === JSON.stringify(b);
-        if (e.direction === 'unchanged') return same;
-        if (same) return false;
+        const same = isDeepStrictEqual(a, b);
+        if (same !== (e.direction === 'unchanged')) return false;
         if (e.direction === 'up' && !(b > a)) return false;
         if (e.direction === 'down' && !(b < a)) return false;
         if (e.amount !== undefined && Math.abs(b - a) !== e.amount) return false;
-        if (e.to !== undefined && JSON.stringify(b) !== JSON.stringify(e.to)) return false;
+        if (e.to !== undefined && !isDeepStrictEqual(b, e.to)) return false;
         return true;
     });
 }
@@ -137,19 +162,28 @@ export async function runCaseData(data, {id = 'case', typedState = '', moduleRea
     if (!data || typeof data !== 'object') throw new Error(`case ${id}: coverageCase must return an object`);
     const suffix = data.basis ?? (/-(canon|authored)$/.exec(typedState)?.[1]) ?? 'authored';
     if (data.working !== undefined) {
-        // TODO (another lane's packet): run a K working through the effect host, then compare as below.
-        return {state: 'blocked:runner-working-case', detail: 'working cases wait for the effect host'};
+        return {state: 'blocked:runner-working-case', detail: 'kernel settlement for working cases is pending'};
     }
     if (!data.sentence || typeof data.sentence !== 'object') throw new Error(`case ${id}: a case carries a sentence or a working`);
-    const {composeSubstrate, createWorld} = await import('../src/world_substrate.js');
+    const {createEngineWorld} = await import('../src/engine_world.js');
     const {WORLD_QUANTITIES, WORLD_PROPERTIES} = await import('../src/world_quantities.js');
-    const {applySentence} = await import('../src/effect_grammar.js');
-    const rules = composeSubstrate({packs: [{id: 'w.vocabulary', quantities: Object.values(WORLD_QUANTITIES), properties: Object.values(WORLD_PROPERTIES)}]});
-    const spec = data.world ?? {};
-    checkExpect(spec, data.expect, id);
-    const before = createWorld(rules, spec);
-    const run = applySentence(rules, before, data.sentence, data.details ?? {}, {keys: data.keys ?? {}, cause: data.cause ?? `coverage:${id}`, by: data.by});
+    const {landEffect} = await import('../src/effect_host.js');
+    const config = data.engine ?? {};
+    if (typeof config !== 'object' || Array.isArray(config) || !isDeepStrictEqual(config, JSON.parse(JSON.stringify(config))))
+        throw new Error(`case ${id}: engine must be a plain JSON configuration object`);
+    const {packs = ['w.sky'], settings, shared, dials} = config;
+    // The sky pack needs no caller settings and runs no clock laws in these
+    // instant probes. Keep the legacy vocabulary unless a case declares its own.
+    const {rules, world: before} = createEngineWorld({...data.world, packs, settings, dials, shared: {
+        quantities: Object.values(WORLD_QUANTITIES), properties: Object.values(WORLD_PROPERTIES), ...shared,
+    }});
+    checkExpect(before, data.expect, id);
+    const run = landEffect(rules, before, {sentence: data.sentence, details: data.details},
+        {keys: data.keys ?? {}, cause: data.cause ?? `coverage:${id}`, by: data.by});
     if (run.needs.length) return {state: 'blocked:runner-needs', detail: `needs ${run.needs.join(', ')}`};
+    if (run.waiting.length) return {state: 'blocked:runner-waiting',
+        detail: `waiting for an owner: ${run.waiting.map(effect => effect.kind).join(', ')}`};
+    if (run.status === 'unmapped') return {state: 'blocked:runner-unmapped', detail: run.reason};
     if (!expectHolds(before, run.world, data.expect)) return {state: 'blocked:runner-expect-mismatch', detail: 'the world did not change as expect says'};
     return {state: `${moduleReachable ? 'runs' : 'expressed'}-${suffix}`, detail: moduleReachable ? 'case module reachable from src/main.js' : 'case module is library or test only'};
 }

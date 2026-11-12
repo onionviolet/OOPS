@@ -1,71 +1,7 @@
-// Two world mappings onto the effect grammar (chat P proof, EF1). The Gu half is a fixture,
-// not a world pack (Hogwarts moved to src/world_packs/hp_effect_pack.js): G and S own their packs and adopt or replace these
-// (PFP3, PFP4). Labels are deterministic readings of repo data (MC14 step 1):
-// Gu from chat G's chapter-checked parts rows, Hogwarts from the spellbook's
-// paraphrased "Operation or lead" column. Every label is a proposal.
+// Compatibility exports for the world grammars. GL2 and move-role proofs live here.
 import fs from 'node:fs';
-import {defineEffectGrammar} from '../../../src/effect_grammar.js';
-
-// ---------- Gu (Reverend Insanity) ----------
-export const guEffects = defineEffectGrammar({
-    world: 'gu', carriers: {gu: ['essence-primeval', 'essence-immortal', 'mental']},
-    // W keys: essence by fuel family; light defaults to moonlight (a kind's own light passes `key`).
-    keys: {essence: parts => parts.cost === 'essence-immortal' ? 'immortal' : 'primeval', light: 'moon'},
-    limits: ['ward', 'dao-mark', 'cover', 'distance', 'mass', 'will', 'counter-effect', 'fuel'],
-});
-// G's function families read as sentences. The world's reading, written before
-// the rules judged it.
-const GU_FUNCTION = {
-    attack: {verb: 'remove', object: 'vitality', target: 'line', time: 'instant'},
-    guard: {verb: 'block', object: 'vitality', target: 'self', time: 'sustained'},
-    conceal: {verb: 'conceal', object: 'information', target: 'self', time: 'sustained'},
-    sense: {verb: 'sense', object: 'information', target: 'area', time: 'sustained'},
-    move: {verb: 'move', object: 'position', target: 'self', time: 'instant'},
-    fly: {verb: 'move', object: 'position', target: 'self', time: 'sustained'},
-    travel: {verb: 'move', object: 'position', target: 'bound', time: 'instant'},
-    heal: {verb: 'add', object: 'vitality', target: 'touched', time: 'instant'},
-    'convert-essence': {verb: 'transform', object: 'essence', target: 'touched', time: 'instant'},
-    produce: {verb: 'add', object: 'thing', target: 'self', time: 'lasting'},
-    record: {verb: 'copy', object: 'information', target: 'area', time: 'lasting'},
-    strength: {verb: 'add', object: 'force', target: 'self', time: 'sustained'},
-    amplify: {verb: 'alter', object: 'working', target: 'bound', time: 'sustained'},
-    economize: {verb: 'alter', object: 'working', target: 'bound', time: 'sustained'},
-    restore: {verb: 'transform', object: 'form', target: 'area', time: 'lasting'},
-    stabilize: {verb: 'block', object: 'form', target: 'touched', time: 'sustained'},
-    mind: {verb: 'transform', object: 'mind', target: 'area', time: 'sustained'},
-    suppress: {verb: 'block', object: 'working', target: 'area', time: 'sustained'},
-    formation: {verb: 'alter', object: 'law', target: 'area', time: 'sustained'},
-    time: {verb: 'transform', object: 'time', target: 'self', time: 'lasting'},
-    illuminate: {verb: 'add', object: 'light', target: 'area', time: 'sustained'},
-    steal: {verb: 'move', object: 'relation', target: 'bound', time: 'instant'},
-};
-const GU_LIMITS = [[/formation|block/i, 'ward'], [/dao mark/i, 'dao-mark'], [/smoke|cover/i, 'cover'], [/steps|reach|range/i, 'distance'],
-    [/short of essence|starves|supplies essence/i, 'fuel']];
-export function labelGuEffect(row) {
-    const p = row.parts?.value;
-    if (!p) return {missing: ['parts']};
-    if (!p.function) return {missing: ['function']};
-    const base = GU_FUNCTION[p.function];
-    if (!base) return {missing: [`function:${p.function}`]};
-    const cost = p.fuel === 'mental' ? 'mental' : p.fuel === 'immortal' || p.rank.some(r => r >= 6) ? 'essence-immortal' : 'essence-primeval';
-    const text = row.parts.observed ?? '';
-    const limits = [...new Set(GU_LIMITS.filter(([re]) => re.test(text)).map(([, l]) => l))];
-    return {parts: {...base, carrier: 'gu', cost, limits}, truth: {function: p.function, abilityKinds: row.abilityKinds ?? []}};
-}
-// Non-circular check: G's ability rows name an effect kind authored apart from
-// the function family. Each kind implies the verb its resolver performs.
-const ABILITY_VERB = {lightning: 'remove', flame: 'remove', damage: 'remove', 'water-guard': 'block', 'jade-guard': 'block', 'impact-guard': 'block',
-    'lightning-shield': 'block', 'ground-hearing': 'sense', 'pierce-visual-concealment': 'sense', 'visual-concealment': 'conceal', flight: 'move',
-    dash: 'move', travel: 'move', 'project-demeanor': 'transform'};
-export function compareGuEffect(value, truth) {
-    return truth.abilityKinds.filter(k => ABILITY_VERB[k] && ABILITY_VERB[k] !== value.parts.verb)
-        .map(k => ({field: 'verb', rule: 'ability-kind', cause: `${k} implies ${ABILITY_VERB[k]}`, expected: ABILITY_VERB[k], got: value.parts.verb}));
-}
-export async function guEffectRows() {
-    const {guCatalogue} = await import('../../../src/gu_catalogue.js');
-    return Object.entries(guCatalogue).map(([id, v]) => ({id: `gu:${id}`, parts: v.parts,
-        abilityKinds: Object.values(v).map(b => b?.value?.effect?.kind).filter(Boolean)}));
-}
+import {guEffects, labelGuEffect} from '../../../src/world_packs/gu_effect_pack.js';
+export {guEffects, labelGuEffect, compareGuEffect, guEffectRows, guCanonAmounts, GU_FORBID} from '../../../src/world_packs/gu_effect_pack.js';
 
 // ---------- Hogwarts (spellbook research records) ----------
 // The grammar, labeller, family check and world law live in the world pack (PC6);
@@ -110,14 +46,6 @@ export function worldWords(canonParts, overrides = {}) {
     }
     return words;
 }
-// G's ability rows carry a dose cost; the curve fits on them.
-export async function guCanonAmounts() {
-    const {guCatalogue} = await import('../../../src/gu_catalogue.js');
-    return Object.fromEntries(Object.entries(guCatalogue).map(([id, v]) => [`gu:${id}`, Object.values(v).map(b => b?.value?.cost).find(Number.isFinite)]));
-}
-// World laws as data. Hogwarts' is in its pack (HP_FORBID).
-export const GU_FORBID = [];
-
 // ---------- GL2: the effect predicted from identity ----------
 // The identity layer goes first and the effect slots are conditioned on it,
 // so holding out the effect and predicting it reads identity through the fit.

@@ -166,5 +166,8 @@ export function sharedEffect(sentence) {
     // alter_law names its own object; the spell's object says which law (about).
     if (sentence.verb === 'alter_law') return {verb: 'alter', object: 'law', time: sentence.time, about: sentence.object};
     if (!object) return none('object') ?? {gap: `object ${sentence.object}`, reason: 'it is not in the spell vocabulary'};
+    // Taking away integrity spends a physical account such as condition.
+    // Restoration of shape still acts on form.
+    if (base === 'remove' && sentence.object === 'integrity') return {verb: base, object: 'thing', time: sentence.time};
     return {verb: PAIR[sentence.object]?.[base] ?? base, object, time: sentence.time};
 }

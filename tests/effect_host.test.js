@@ -12,6 +12,8 @@ import {landEffect} from '../src/effect_host.js';
 import {checkEffect} from '../src/effect_checks.js';
 import {effectWorlds} from '../scripts/grammar_canon_effects.mjs';
 import {hpEffectRows, labelHpEffect} from './fixtures/procedural_grammar/effect_worlds.mjs';
+import {caseSentence, hpEffects, HP_KEYS} from '../src/world_packs/hp_effect_pack.js';
+import {HP_PRIMITIVE_SCENES} from '../src/world_packs/hp_primitive_case_scenes.js';
 
 const vocabulary = {id: 'w.vocabulary', quantities: Object.values(WQ), properties: Object.values(WP)};
 // An owner for mind effects: it hears the kind, so a publish there is answered.
@@ -210,4 +212,40 @@ test('the Hogwarts effect corpus lowers: acts, publishes for other owners, and k
     }
     // PC7 said 68 land alone, 37 publish (17 of them with an act too) and 4 need a key, of 109 labelled.
     assert.deepEqual(count, {acts: 68, 'acts-and-publish': 17, publish: 20, 'needs-key': 4, unlabelled: 8});
+});
+
+test('physical spell cases express their scene outcomes through the one effect host', () => {
+    assert.equal(Object.keys(HP_PRIMITIVE_SCENES).length, 15);
+    for (const [id, scene] of Object.entries(HP_PRIMITIVE_SCENES)) {
+        const row = HP_SPELL_ROWS.find(row => row.id === id);
+        const sentence = caseSentence(row);
+        assert.deepEqual(assembleEffect(hpEffects, sentence).receipt.violations, [], id);
+        const before = createWorld(bare, {holders: scene.holders});
+        // Exercise both the pack's shared sentence and the original spell
+        // vocabulary that a settled working carries into the same host.
+        for (const input of [sentence, row.truth]) {
+            const landed = landEffect(bare, before, {sentence: input, details: scene.details},
+                {cause: `case:${id}`, keys: HP_KEYS, read: sharedEffect});
+            assert.equal(landed.status, 'landed', id);
+            assert.deepEqual([landed.waiting, landed.published], [[], []], id);
+            for (const e of scene.expect) {
+                const read = w => {
+                    const holder = w.holders[e.holder];
+                    if (e.exists) return holder !== undefined;
+                    if (e.quantity) return holder?.quantities[e.quantity];
+                    if (e.property) return holder?.properties[e.property];
+                    return holder?.place;
+                };
+                const prior = read(before), after = read(landed.world);
+                if (e.direction === 'unchanged') assert.deepEqual(after, prior, id);
+                else {
+                    assert.notDeepEqual(after, prior, id);
+                    assert.deepEqual(after, e.to, id);
+                }
+                if (e.direction === 'up' || e.direction === 'down') {
+                    assert.equal(after - prior, e.direction === 'up' ? e.amount : -e.amount, id);
+                }
+            }
+        }
+    }
 });

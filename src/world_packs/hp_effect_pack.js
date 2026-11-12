@@ -14,6 +14,7 @@ import {defineEffectGrammar} from '../effect_grammar.js';
 import {defineGrammar} from '../procedural_grammar.js';
 import {sharedEffect} from '../spell_effects.js';
 import {HP_SPELL_ROWS} from '../spell_pack_hogwarts.js';
+import {HP_PRIMITIVE_SCENES} from './hp_primitive_case_scenes.js';
 
 // ---------- Effect grammar and labeller (spellbook research records) ----------
 // W keys: light is wand light and essence is mana unless a thing names its own.
@@ -113,6 +114,9 @@ export const HP_CASE_DEFAULTS = Object.freeze({
     damp: 40,
     voice: 20,       // loudness an ordinary speaker carries
     louder: 50,      // loudness the amplifying charm adds
+    shieldMinutes: 1, // enough to intercept a blow in the probe
+    silenceMinutes: 2, // enough to stop a reply in the probe
+    muffleMinutes: 3, // enough to cover a short conversation in the probe
 });
 const D = HP_CASE_DEFAULTS;
 
@@ -140,9 +144,14 @@ const measured = (seen, id, quantity, start, amount, direction, place, kind = 'b
     holders: [room(place), {id, kind, place, quantities: {[quantity]: start}}],
     details: {target: at(id), amount}, expect: [{holder: id, quantity, direction, amount}]});
 
+// Independently observed fields, scoped to the protected holder or place.
+const fieldChanged = (lawField, scope, kind, params, until) => ({lawField, direction: 'changed',
+    to: {scope, kind, params, ...(until === undefined ? {} : {until})}});
+
 /** One scene per spellbook row that honestly executes: what the cited pages show, as a probe world.
  * A row absent here has no case; HP_CASE_LEFT_OUT says why. */
 export const HP_CASE_SCENES = Object.freeze({
+    ...HP_PRIMITIVE_SCENES,
     // An object or a body is somewhere else afterwards.
     levitation: carried('a feather leaves the desk and hangs overhead', 'feather', 'desk', 'overhead'),
     hover: carried('a pudding leaves the counter and hangs near the ceiling', 'pudding', 'counter', 'ceiling'),
@@ -178,6 +187,37 @@ export const HP_CASE_SCENES = Object.freeze({
     boils: reshaped('a face breaks out in boils', 'struck-person', 'clear-skin', 'boils', 'corridor', 'body'),
     'bat-bogey': reshaped('a face is covered in flapping growths', 'struck-person', 'ordinary-face', 'bat-bogeys', 'office', 'body'),
     boggart: reshaped('a feared shape turns into a silly one', 'boggart', 'feared-shape', 'silly-shape', 'staffroom', 'body'),
+    // Scoped fields. Page locators are those of the existing spell truths.
+    // B6 pp3058–3059, B7 p4018: one protective binding and one modeled way to intercept harm.
+    shield: {seen: 'a barrier is interposed to protect the caster',
+        modelNote: 'Probe records a temporary block on vitality loss for one protected holder.',
+        holders: [room('practice-room'), {id: 'caster', kind: 'body', place: 'practice-room'}],
+        details: {target: at('caster'), field: 'shield-barrier', minutes: D.shieldMinutes},
+        expect: [fieldChanged('shield-barrier', 'caster', 'block', {verb: 'remove', object: 'vitality'}, D.shieldMinutes)]},
+    // B7 pp3916, 3936: scope one inferred access condition. Individual reactions remain open.
+    'muggle-repelling': {seen: 'a repelling ward is laid around the camp',
+        modelNote: 'Probe records a scoped access field; individual reactions are outside this observation.',
+        holders: [room('camp')],
+        details: {target: at('camp'), field: 'repelling-ward', kind: 'access', params: {discourages: 'muggle-entry'}},
+        expect: [fieldChanged('repelling-ward', 'camp', 'access', {discourages: 'muggle-entry'})]},
+    // B5 pp2771–2772: the restriction is reported. Record its transport mode, without blocking mundane movement.
+    'anti-apparition': {seen: 'a place bears a restriction on magical departure',
+        modelNote: 'Probe records a scoped departure restriction; transport enforcement is outside this observation.',
+        holders: [room('hall')],
+        details: {target: at('hall'), field: 'departure-ward', kind: 'access', params: {restricts: 'disapparition'}},
+        expect: [fieldChanged('departure-ward', 'hall', 'access', {restricts: 'disapparition'})]},
+    // B5 p2742: suppress the voice account on this speaker while other actions remain available.
+    silence: {seen: 'the speaker is silenced and can still act',
+        modelNote: 'Probe models voice suppression as a temporary block on adding noise to the speaker.',
+        holders: [room('chamber'), {id: 'speaker', kind: 'body', place: 'chamber', quantities: {noise: 0}}],
+        details: {target: at('speaker'), field: 'silenced-voice', params: {verb: 'add', object: 'noise'}, minutes: D.silenceMinutes},
+        expect: [fieldChanged('silenced-voice', 'speaker', 'block', {verb: 'add', object: 'noise'}, D.silenceMinutes)]},
+    // B6 p3131: the listener-side effect is modeled as a scoped block on adding audible sound.
+    muffle: {seen: 'nearby listeners cannot make out the conversation',
+        modelNote: 'Probe models listener-side interference as a temporary block on adding noise in the area.',
+        holders: [room('listening-area')],
+        details: {target: at('listening-area'), field: 'muffled-sound', params: {verb: 'add', object: 'noise'}, minutes: D.muffleMinutes},
+        expect: [fieldChanged('muffled-sound', 'listening-area', 'block', {verb: 'add', object: 'noise'}, D.muffleMinutes)]},
     // More or less of an amount.
     water: {seen: 'a jet of water wets the room',
         holders: [room('burning-room')], details: {target: at('burning-room'), amount: D.pour},
@@ -194,9 +234,6 @@ export const HP_CASE_SCENES = Object.freeze({
 export const HP_CASE_LEFT_OUT = Object.freeze({
     'publishes-only': 'the shared reading lowers to no W act; it waits as a publish for the mind, knowledge or working owner',
     'act-and-publish': 'one W act plus a publish for another owner; left until that owner answers so the case shows the whole effect',
-    'law-field-outcome': 'the act writes a law field (a block or an altered law), which `expect` cannot name',
-    'lowers-to-wrong-act': 'the shared reading lowers to an act W refuses for that object (remove or add on a form or a position, transform on an amount with no `into`, move on a mark)',
-    'makes-a-thing': 'the scene shows a new thing; a case world cannot gain a holder',
     'no-shared-reading': 'the spell verb has no reading in the shared vocabulary',
 });
 

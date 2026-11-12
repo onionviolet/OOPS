@@ -26,7 +26,7 @@ const ledger = records.map(({id, forms, evidence}) => {
     const scene = HP_CASE_SCENES[id];
     if (row) return {id, source, state: scene ? 'expressed-authored' : 'runs-authored', mechanisms: ['S', 'K'], test: TEST,
         ...(scene ? {case: {module: HP_CASE_MODULE, id}} : {}),
-        note: `${forms}: effect from the book (${row.truth.verb} ${row.truth.object}); wand carrier and stamina cost authored.${row.note ? ' ' + row.note : ''}`};
+        note: `${forms}: effect from the book (${row.truth.verb} ${row.truth.object}); wand carrier and stamina cost authored.${row.note ? ' ' + row.note : ''}${scene?.modelNote ? ' ' + scene.modelNote : ''}`};
     if (exception) return {id, source, state: exception.state, mechanisms: exception.mechanisms,
         test: exception.state.startsWith('blocked') ? TEST : '', note: `${forms}: ${exception.note}`};
     return {id, source, state: 'unclassified', mechanisms: ['S'], test: '', note: forms};

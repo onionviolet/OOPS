@@ -50,7 +50,10 @@ import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {reachableFrom, walkFrom, importsOf} from '../scripts/reachable.mjs';
-import {computeLedgers, runCase, computedCounts} from '../scripts/coverage_report.mjs';
+import {computeLedgers, runCase, runCaseData, computedCounts, expectHolds} from '../scripts/coverage_report.mjs';
+
+import {applyEngineOps, createEngineWorld} from '../src/engine_world.js';
+import {configured} from './fixtures/coverage_cases/w_cases.mjs';
 
 const repo = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const CASES = 'tests/fixtures/coverage_cases/w_cases.mjs';
@@ -128,4 +131,73 @@ test('--check fails on a typed/computed disagreement, a missing module, a missin
     assert.equal(throws.status, 1);
     assert.match(throws.stderr, /threw: boom/);
     assert.equal(check([caseRow('cut', 'expressed-canon', {case: undefined})]).status, 1);
+});
+
+test('a plain case uses the engine registry, pack settings, shared vocabulary and dials', async () => {
+    const row = caseRow('configured', 'expressed-authored');
+    assert.equal((await runCase(row, {reachable: new Set()})).state, 'expressed-authored');
+    for (const pack of configured.engine.packs) {
+        const engine = {...configured.engine, packs: configured.engine.packs.filter(id => id !== pack)};
+        await assert.rejects(runCaseData({...configured, engine}), /undeclared quantity/);
+    }
+    const engine = structuredClone(configured.engine);
+    engine.settings['m.market'].goods = ['grain'];
+    await assert.rejects(runCaseData({...configured, engine}), /undeclared quantity stock\.herb/);
+    engine.settings['m.market'].goods = ['herb'];
+    engine.dials.chainCap = 0;
+    await assert.rejects(runCaseData({...configured, engine}), /dial chainCap must be a whole number/);
+    engine.dials.chainCap = 3;
+    engine.shared.properties = [];
+    await assert.rejects(runCaseData({...configured, engine}), /undeclared property ready/);
+    engine.shared.properties = configured.engine.shared.properties;
+    engine.settings['m.market'].dials = () => ({});
+    await assert.rejects(runCaseData({...configured, engine}), /plain JSON configuration/);
+});
+
+test('law fields compare scope, kind, parameters and expiry against independent outcomes', async () => {
+    const world = {clock: 5, holders: [{id: 'room', kind: 'place'}]};
+    const data = {
+        world, sentence: {verb: 'block', object: 'position', time: 'sustained'},
+        details: {target: {shape: 'holder', id: 'room'}, field: 'ward', minutes: 2},
+        expect: [{lawField: 'ward', direction: 'changed',
+            to: {kind: 'block', scope: 'room', params: {object: 'position', verb: 'move'}, until: 7}}],
+    };
+    assert.equal((await runCaseData(data)).state, 'expressed-authored');
+    const wrongExpiry = {...data, details: {...data.details, minutes: 3}};
+    assert.equal((await runCaseData(wrongExpiry)).state, 'blocked:runner-expect-mismatch');
+    const noChange = {...data, expect: [{lawField: 'ward', direction: 'unchanged'}]};
+    await assert.rejects(runCaseData(noChange), /expect must name at least one change/);
+    await assert.rejects(runCaseData({...data, sentence: undefined, kind: 'ward'}), /carries a sentence or a working/);
+});
+
+test('a new holder observation requires the holder to be absent before and present after', async () => {
+    const engine = createEngineWorld({packs: ['w.sky'], holders: [{id: 'room', kind: 'place'}]});
+    const expect = [
+        {holder: 'copy', exists: true, direction: 'changed', to: true},
+        {holder: 'copy', position: true, direction: 'changed', to: 'room'},
+    ];
+    const value = {id: 'copy', kind: 'thing', place: 'room'};
+    const after = applyEngineOps(engine, [{op: 'holder_add', value}], 'fixture:copy');
+    assert.equal(expectHolds(engine.world, after.world, expect), true);
+    assert.equal(expectHolds(engine.world, engine.world, expect), false);
+    assert.equal(expectHolds(after.world, after.world, expect), false);
+
+    const data = {...configured, expect};
+    assert.equal((await runCaseData(data)).state, 'blocked:runner-expect-mismatch');
+    const world = {holders: [...configured.world.holders, {...value, place: 'stall'}]};
+    await assert.rejects(runCaseData({...data, world}), /expected new holder copy already exists/);
+    await assert.rejects(runCaseData({...data, expect: expect.slice(1)}), /case world does not define or expect to create/);
+});
+
+test('an act plus an unanswered publish cannot earn expression for the act alone', async () => {
+    const data = {
+        world: {holders: [{id: 'room', kind: 'place'},
+            {id: 'subject', kind: 'body', place: 'room', properties: {concealed: []}}]},
+        sentence: {verb: 'conceal', object: 'information', time: 'instant'},
+        details: {target: {shape: 'holder', id: 'subject'}, channel: 'sight'},
+        expect: [{holder: 'subject', property: 'concealed', direction: 'changed', to: ['sight']}],
+    };
+    const result = await runCaseData(data);
+    assert.equal(result.state, 'blocked:runner-waiting');
+    assert.match(result.detail, /effect.conceal.information/);
 });

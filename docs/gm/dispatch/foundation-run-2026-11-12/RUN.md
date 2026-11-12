@@ -1,6 +1,6 @@
 # Foundation run, 2026-11-12
 
-Coordinator: Codex, taking over from the Claude session that wrote the [procedural foundation plan](../../../PROCEDURAL_FOUNDATION_PLAN.md), under the [handoff](CODEX_COORDINATOR_HANDOFF.md). The original twelve Claude workers used one worktree and branch per chat (K W P G L F B S A C R M). The coordinator verifies, merges, gates and dispatches.
+Coordinator: Claude, resuming from the [Wave 14 handoff](CLAUDE_COORDINATOR_HANDOFF.md). The original twelve Claude workers used one worktree and branch per chat (K W P G L F B S A C R M). The coordinator verifies, merges, gates and dispatches.
 
 ## Claude coordinator takeover (2026-11-12)
 
@@ -476,3 +476,43 @@ Base `b80cb50da`, usage 25%, credit headroom 2,961 before each launch. Three Sol
 | `w14-gu-cases` | `../yair-w14-gu-cases` | Gu grammar and labeller leave the fixture for their world pack; account for all 57 chapter-checked labelled kinds with cases or exact missing fields/owners |
 
 ACT NOW: common engine destination and executed cases. ACCOUNT FOR NOW: the W lane leaves the HP pack to P/S, source qualifiers and Q1 stay explicit, unknown and unanswered outcomes earn no case credit, and no wiki-only row is promoted. LATER in the current queue: owners for publish-based effects, the measured Draught into a body, Gu lifecycle fields, then the shell rate form and the parity/generation/improvement packets in the second handoff. This queues authorized work without changing standing direction. Resume: poll these exact lane handles, review and fold released returns, regenerate coverage centrally, and apply PC99's reachability-sensitive gate. Never push.
+
+
+### Wave 14 reviewed fold
+
+P/S moved the sentence runner to `createEngineWorld` and `landEffect`, preserving old case inputs through the registered sky pack and shared vocabulary. Cases can supply plain engine pack settings. Independent observations now include law fields and absent-to-present holder creation, with wrong or preseeded outcomes rejected. The return passed 35 focused tests and added five field cases. It released a five-of-six result with the duplicate case waiting on W, rather than claiming that holder creation was already implemented.
+
+W's first return passed 44 focused tests for the fourteen refused readings. Its one corrected brief added explicit-output property copy for the sixth P/S case and an ordinary pattern-copy consumer, preserving existing-target copy. The corrected return passed 45 tests. Physical removal names a declared account, physical transformation names properties, a gripped implement moves and releases its named grip atomically, a quantity transform supplies a signed delta, and physical addition supplies a holder identity. No new verb or world-specific dispatch was introduced. The coordinator spread the fifteen case-data rows into the HP scene table and regenerated its ledger. Hogwarts now computes 58 of 80 spell-pack rows as expressed through the common engine runner. Twenty-two remain without cases: 18 publish-only, 3 act plus publish, 1 unmapped reading.
+
+W's remaining-scope return is retained here unchanged: At fixture resolution, zero localized condition records structural failure. Passage geometry, debris placement, ricochet and bystander impacts have no observations here. The grip mark represents physical contact and the dressing mark represents application. Inventory custody, movement of an attached dressing, stabilization effects, collision resolution and localized medical state remain outside these cases. Full engine-world integration and tie-in are unverified. The combined common-runner check below supersedes the engine-integration clause for these case observations, with the listed physical-scope gaps still open.
+
+G moved its effect grammar, labeller, comparison, row/amount readers and world-law list from the shared fixture into `gu_effect_pack.js`, preserving re-exports and GL2/move fixtures. Its 46-test return exercised 16 cases independently in the engine world and named exact missing mechanisms for the other 41 labelled kinds. All 57 chapter-labelled kinds are accounted for and all 78 chapter rows retain their qualification. No wiki-only case was promoted. The move ledger is byte-identical, SHA-256 `52193e41eb4f96e0c5298b37468ac38cee6e478bfc5345389b3b8b8e8df3a068`. The return's 41 non-case demotions to catalogued were not adopted while Q1 is open. Those rows retain their prior typed states and gain the explicit gap and prior-state note. Fifteen prior typed runs and one prior rank-unknown row become genuine expressed cases. Gu typed runs are 368, computed expressed 16. These are separate measurements.
+
+G's effect-scene boundary remains: starts with resolved targets and eligible inputs, leaving activation/debit, geometry, autonomous choice, flight upkeep, support settlement, leaf consumption and cooldown to their owners. They are authored-calibration effect cases, with no live route claim. The coordinator also closed a runner hole: an act accompanied by any unanswered publish now computes blocked, even when its W-only part changed. A focused regression catches that partial-credit error.
+
+The first combined P/G fold passed 57 tests. After W's correction and scene integration, 87 focused tests passed. The added unanswered-publish regression passes in the 12-test runner suite. Final wave gates run on the complete tree. `spell_effects.js` and `world_effects.js` are outside main reachability, but the shared `effect_worlds.mjs` test helper changed, so this wave uses the full suite under PC99. No duplicate suite is run on unchanged inputs.
+
+
+## Claude coordinator acceptance and Wave 14 gate (2026-11-12)
+
+Weibao (2026-11-12): "now that claude  usage is back, we can hand off for claude ot take over for now again". This Claude background session succeeds Claude coordinator `301ff912-157d-4a0d-aff7-fb45b7308f12` and accepts coordination, dispatch and writes from the [return handoff](CLAUDE_COORDINATOR_HANDOFF.md). `coord-2` (`01a1d13a-ea03-75e1-b6fc-25e7cda5e284`) released all three. `codex_goal_lane.py status` shows every lane finished and no process alive. Limits, scope and the no-push boundary are unchanged from the [second handoff](CODEX_COORDINATOR_HANDOFF_2.md#limits-hard).
+
+Wave 14 gate, matched to the candidate on base `5d793f21a`:
+
+- Identity: the suite log was created 15:29:15 and closed 15:35:23. The candidate's 17 source, script, test, fixture and ledger files were last written between 15:23:51 and 15:28:18, before the suite started. The files written later are documents (the contract and coverage docs at 15:29:15, then the direction, carry-out and run records).
+- `npm test`: exit summary 6,586 tests, 6,581 pass, 0 fail, 5 skipped, 360 s (`/private/tmp/yair-wave14-suite.log`).
+- Isolated build: exit 0, bundle SHA-256 `de8d95c58d28b2f091586f73a33c4bff03510a35f278481dfd53889d872c3c8d`, recomputed from `/private/tmp/yair-wave14-build/dist/bundle.js`. It equals the Wave 13 hash, as expected: no changed source is reachable from `src/main.js`. The inherited duplicate `dial` warning remains.
+- Rerun by this session after the later document writes: `check:docs`, `check:rules`, `check:arch` and `check:coverage` exit 0; the four document-shape tests (direction sync, rules index, receipts, PROJECT.md shape) pass 18/18; `git diff --check` on the wave paths is clean.
+- Gaps: engine fixture verified, not human-reviewed. No live route, browser or save claim (PC95). The suite was not repeated on unchanged inputs. RC18's out-of-glob woodcutting failure is still outside this run.
+
+Five numbers after the fold: G1 74 computed cases on the common engine runner in two of seven ledgers (58 Hogwarts, 16 Gu); G2 13 of 13; G3 5; G4 0; G5 0. Codex usage at acceptance 27%, credit headroom 2,961.
+
+This session is a background job, so its edits are made in the worktree `.claude/worktrees/fdn-coord-w14` (branch `claude/fdn-coord-w14`), built from the primary checkout's verified files, and `master` moves by guarded `update-ref`. Left uncommitted in the primary checkout as not this run's: `dist/bundle.js`, `dist/bundle.js.map`, `index.html`, `docs/tools/game_mcp_limits.jsonl`, `docs/gm/FOUNDATION_RUN_PLAYBOOK.md`, the first `CODEX_COORDINATOR_HANDOFF.md`, `scripts/wave_scratch.sh`.
+
+Next, in the existing order: owners that answer the publish-only Hogwarts rows (18 publish, 3 act plus publish), the Draught of Living Death into a body as a measured case, then Gu body data into the living-things lifecycle. Later packets and budgets stay as queued in the second handoff.
+
+### Wave 14 landed, Claude coordinator (2026-11-12)
+
+Candidate identity: every code and test file in the fold was last written by 15:28:18; the suite log's run began after that and ended 15:35 with 6,586 tests, 6,581 pass, 0 fail, 5 skipped. Later writes are prose. `check:docs`, `check:rules` and `check:coverage` rerun on the final tree exit 0. G1 at this commit: 58 Hogwarts and 16 Gu cases compute as expressed.
+
+Reading correction. The second handoff said Reverend Insanity volumes 5 to 24 had no reading passes. That is true of the batch index and false of the book: the [full-book reading](../../../research/novels/full-book/reverend-insanity/COVERAGE.md) has all 2,334 chapters integrated, with a power index and 179 reader notes that mention killer moves. Weibao (2026-11-12): "I think we do have readnigs". Matching the 753 move leads and wiki-only kinds to chapters is an extraction job over those notes, with a batched reader for chapters where the notes are too thin.
