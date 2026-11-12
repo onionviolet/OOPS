@@ -216,6 +216,142 @@ Each broad system gets a generator on P's grammar contract once its v0 exists. E
 
 Order: K, W and P first; domain and broad inventories in parallel; each generator after its system's v0, with PG4 (histories) last because it runs everything else.
 
+## Sectioning: by mechanism, not by franchise (2026-11-12)
+
+Weibao (2026-11-12): "how to section things properly? gu under creatures, gu killer moves, under combat system? or its own thing? More to consider?"
+
+### Options weighed
+
+| | Shape | Fits | Breaks |
+| --- | --- | --- | --- |
+| SC1 | **Gu is its own domain** (today's G) | One owner for the book's richest system | It rebuilds a lifecycle, a making system and a contest of its own, which is how 67 bespoke modules happened (review F2) |
+| SC2 | **Gu under creatures** | Gu eat, breed, die, live wild and in habitats (GKM51) | A Gu is also an owned tool, a refinement product and a part in moves; L would absorb making and abilities |
+| SC3 | **Killer moves under combat** | Many moves fight | Many do not: Fixed Immortal Travel moves people, Ear Grass with Lightning Eye scouts (GKM141), moves refine into new Gu (ch. 1561, 1570; GKM162, GKM200). Combat would own travel, scouting and making |
+| SC4 | **By mechanism** | A Gu shows up in every mechanism it uses, as data on that mechanism's contract | Needs one identity for a thing that is several kinds at once |
+
+### The default: SC4, with Gu as a world pack and a thin law
+
+Proposal. Section the foundations by mechanism. A world's thing, whether a Gu, a wand, a Beyonder characteristic or a familiar, is a set of rows on every mechanism it uses, under one identity.
+
+| A Gu as | Mechanism owner | What the Gu supplies |
+| --- | --- | --- |
+| A living thing: feeding, hunger, breeding, wild cohorts, death | L | Lineage and diet rows on L's lifecycle |
+| An owned thing you carry, lend, steal or lose | Inventory, custody, M for claims | One identity that is both item and body |
+| An ability you activate | K working | Activation as a working with essence cost |
+| A part in a killer move | K **composed working** | Roles filled by Gu; the move is a recipe of workings |
+| A refinement product, and a move refined into a Gu | F making grammar, B process steps | Recipe rows; the move-to-Gu cycle is a making recipe whose input is a practiced move |
+| A move in a fight | C contest | C runs the contest; the move enters it like any working |
+| Rank and aperture | R and L | Aperture as a body organ with capacity (L); rank steps as R's path |
+| Essence and dao marks | W | Essence by kind and rank as quantities; dao marks as law fields |
+| A new Gu | P grammar | Path, role, rank, dao marks |
+
+What stays Gu-only, in the **Gu law** (the G chat's files): the rules no other world shares, such as primeval essence, aperture grades, the Immortal uniqueness rule and dao mark interference. Everything else is the Gu world pack: catalogue rows, recipes, moves and numbers.
+
+The same split answers the other worlds: Hogwarts potions are B rows, spells S rows, wands F plus a bond; a Lord of the Mysteries potion is B to brew and R to digest; a familiar is L plus a tie.
+
+### More to consider (SC5 onward)
+
+**ACT NOW**
+
+- **SC5 · One writer per file stays.** The G chat keeps writing `gu_*` files; the mechanism chats own the contracts. Moving Gu files to L, F or C mid-phase would cost churn for nothing. G re-expresses each Gu piece on the owning contract when that contract's v0 lands, and asks the owner for anything missing.
+
+**ACCOUNT FOR NOW**
+
+- **SC6 · Composition is a kernel feature.** A killer move combines workings into one. So do a spell combined from charms, a recipe step that runs two processes and a formation. Under PFP5 it enters K once a second consumer exists. Spells and Gu are the first two candidates. K owns it; G and S are its first consumers.
+- **SC7 · One identity, several kinds.** A Gu is an item and a living body at once; a Beyonder characteristic is an item, a potion input and a remnant of a person. Inventory keys and L's bodies need a shared identity, not a copy in each. The request goes to K and W for v0 (the OS8 save shape).
+- **SC8 · Moves and Gu turn into each other.** Practiced moves refine into Gu, and Gu simplify moves (ch. 1561, 1570, 1571). The making grammar takes a working as input, not only materials. F's grammar draft accounts for it.
+- **SC9 · The contest does not own its entrants.** C defines how workings meet, with timing, interruption and outcomes landing on bodies. It never defines what a Gu, spell or weapon does. The same holds for travel (X), scouting (N) and healing (B on L).
+
+**LATER / DELEGATE**
+
+- **SC10 · Mechanism coverage view.** A table per world thing, generated from the packs, showing which mechanisms it appears in. A Gu missing from L's lifecycle, or a move with no composition row, then shows up as a gap. Level haiku, effort low. Done check: the view lists every catalogue Gu with its mechanism rows and flags the empty ones.
+
+- **PFP21 · Section by mechanism.** A world's thing is rows on every mechanism it uses, under one identity. Only rules no other world shares stay in that world's law.
+
+## Separate but connected, and effects beyond the book (2026-11-12)
+
+Weibao (2026-11-12): "How to make things both seperate but interconnected? Consider procedural settings that can have interesting results, like killer moves not from the original book and more? or spell not from the original book? How can we do about that?" and "Can we create a procedural system that generates the effects of the oriignal, but broad enough to cover stuff beyond the original?"
+
+### Separate in law, connected through six seams
+
+Each domain keeps its own law, files and writer. Domains never import each other (PFP10). They connect only through six shared seams, each owned once:
+
+| Seam | What crosses it | Owner |
+| --- | --- | --- |
+| SB1 **Identity** | One id for a thing that is several kinds at once (SC7) | K |
+| SB2 **Quantities and properties** | Heat, load, essence by kind, vitality, light, noise; plus properties such as sharp, alive, moon-aspected | W |
+| SB3 **Effects** | The shared effect grammar below | W primitives, P composition |
+| SB4 **Workings** | Quote, settle, receipt, composed workings (SC6) | K |
+| SB5 **Knowledge** | Who knows what, from which source, how sure (OS9) | N, existing owners until then |
+| SB6 **Generators** | Grammar contract and canon test | P |
+
+The rule that makes connection free: **laws read properties, not categories** (AD38). A cauldron's law reads heat, not "is this a fire charm". A Gu that gives off heat, a fire charm, a hot stone and a burning barn all warm it, with no join written between Gu and brewing.
+
+### One effect grammar for every world
+
+Today each world names its effects in its own terms. The D&D-shaped `effect_dsl.js` has schools, conditions and damage types; Gu abilities, Hogwarts spells and potions each have their own forms. Proposal: one **effect grammar** whose primitives act on W's quantities and properties. Canon effects become sentences in it, and new effects are new sentences.
+
+| Part | What it says | Examples |
+| --- | --- | --- |
+| **Verb** | What changes | move, add, remove, transform, bind, sense, conceal, copy, block, alter a law field |
+| **Object** | Which quantity or property | load, heat, vitality, essence, position, form, light, sound, memory, a relation |
+| **Target and shape** | Where it lands | self, touched thing, line, cone, area, everything bound to a mark |
+| **Time** | How long and when | instant, sustained while paid, lasting, delayed, triggered |
+| **Carrier** | What delivers it | a Gu, a spoken spell, a potion, an item, a ritual, a formation |
+| **Cost and source** | What it spends | essence by kind, stamina, spirituality, mana, lifespan, a consumed ingredient |
+| **Limits** | What stops or resists it | mass, distance, a ward, a dao mark, the target's will, counter-effects |
+
+Canon as sentences (paraphrased, illustrative):
+
+- **Levitation charm:** move position upward, target touched thing, sustained while paid, carrier spoken spell with wand, cost stamina, limit mass.
+- **Moonblade-style Gu attack:** remove vitality along a line, instant, carrier Gu, cost moon essence of its rank.
+- **Polyjuice:** transform form to a donor's, self, lasting about an hour, carrier potion, source a donor's hair.
+- **Spirit Vision (Lord of the Mysteries):** sense hidden properties, area around self, sustained, carrier Beyonder ability, cost spirituality.
+
+Each world pack maps its own vocabulary onto the grammar (D&D's schools and conditions, Gu paths, Hogwarts charm families). Nothing in the grammar names a world (PFP3).
+
+### Effects, moves and spells beyond the book
+
+Generation is search over the grammar, with the world's laws as the judge:
+
+| Code | Route | How it makes something new | Example |
+| --- | --- | --- | --- |
+| NV1 | **Recombine** | Swap one part of a canon sentence: a different verb, shape or carrier | A levitation that lifts along a line; a moon-essence move that conceals instead of cuts |
+| NV2 | **Compose** | Chain workings into one composed working (SC6). The Gu move search already does this for supports plus a core (`gu_move_search.js`) | A killer move from three Gu the book never paired |
+| NV3 | **Transfer** | Carry a sentence into another world's carrier and cost, when that world's laws can run it | A "summoning" Gu built from a Hogwarts summoning sentence, paid in essence |
+| NV4 | **Invent under pressure** | An actor with a need searches for a sentence that meets it (P4, A's wants, `invention_planner.js`) | A besieged clan's keeper finds a move that hides the village from scouts |
+| NV5 | **Discover by trying** | Experiments produce effects the maker did not intend. What they observe is separate from what is true (GR5) | A brew that was meant to heal also dulls pain in animals |
+
+What a new effect must pass, in order:
+
+1. **It runs.** The same laws that run canon effects run it (PFP16).
+2. **It pays.** Cost and limits come from the world's rates. Bigger reach, longer time or more targets cost more by the same curve canon uses (P5 fit).
+3. **The world allows it.** It breaks none of the world's ordinary laws, or it names the in-world reason and cost for the exception (AD5).
+4. **It explains itself.** The player can read why it works, in the world's own words (SPR32, PRS rules).
+5. **It is worth keeping.** Score candidates for usefulness, novelty and fit, and keep a spread rather than only the strongest (MC2 sample and score in GR; quality-diversity search). That way the world fills with different moves, not one best move copied.
+
+A **novelty dial** per world and per actor runs from canon-near (one part changed) to far (new compositions and transfers). A traditional sect sits near. A genius or a desperate inventor sits far.
+
+### More to consider
+
+**ACCOUNT FOR NOW**
+
+- **EF1 · Two worlds before it is real.** The grammar counts only when it rebuilds held-out canon effects from at least two worlds (P's canon test). Gu abilities and Hogwarts spells come first, D&D next through `effect_dsl.js` as a world-pack mapping.
+- **EF2 · Primitives stay few.** A new verb or object needs a canon effect that the current set cannot express, and a second consumer (PFP5). Otherwise the grammar turns into an unchecked list.
+- **EF3 · Counterplay comes free.** Block, conceal, sense and law-field verbs work against any effect with the matching object. Wards, Gu defenses and dispels then come out of the same grammar.
+- **EF4 · Strong combos meet in-world pushback.** No balance is forced (AD22). A degenerate combo meets its costs, backlash, rivals who copy or counter it, and the world's limits, each with a dial.
+- **EF5 · Names come last.** A new effect gets its name from the world's naming sheet after its substance is fixed (P1 flavor fill, NMR). A Gu path name or a Latin-root incantation follows the world's patterns.
+- **EF6 · Generated truths can be sealed.** A randomized effect that a world hides is referred to by ID outside play.
+
+**LATER / DELEGATE**
+
+- **EF7 · Effect explorer.** A debug view that renders any sentence, its cost and its cause chain, and lists near neighbours of a canon effect. Read-only, on the existing inspectors (MC10). Level sonnet, effort medium. Done check: pick Levitation and see three runnable neighbours with costs.
+- **EF8 · NPC repertoires.** Sects and teachers hold sets of sentences as secret or taught knowledge (M, N). A move spreads by teaching, theft or rumor. Level sonnet, effort medium, after A, M and N.
+
+- **PFP22 · Laws read properties, not categories.**
+- **PFP23 · Effects are sentences in one grammar.** Canon effects are sentences that already exist. New effects are new sentences that pass the five checks.
+- **PFP24 · Novelty is a dial with a cause.** How far an actor strays from canon depends on who they are and what pushes them.
+
 ## The goal
 
 Weibao (2026-11-11): "go ahead and /sharpen /more-to-consider /goal creating comprehensive system for each sytem, /sharpen goal first"

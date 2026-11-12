@@ -1166,3 +1166,15 @@ Proposed systems are in the [procedural foundation plan](../PROCEDURAL_FOUNDATIO
 Weibao: "include agency, conflict, progression and markets chats too, consider other braod systems, and then procedural systems to build upon them?"
 
 A, C, R and M join the send-out. Proposed broad systems N (knowledge and learning), X (places and travel) and D (situations and story), and generators PG1-PG9 over them, are in the [procedural foundation plan](../PROCEDURAL_FOUNDATION_PLAN.md#broad-systems-and-the-generators-built-on-them-2026-11-11).
+
+## Sectioning foundations by mechanism, 2026-11-12
+
+Weibao: "how to section things properly? gu under creatures, gu killer moves, under combat system? or its own thing? More to consider?"
+
+Proposal recorded in the [procedural foundation plan](../PROCEDURAL_FOUNDATION_PLAN.md#sectioning-by-mechanism-not-by-franchise-2026-11-12): section by mechanism (SC4, PFP21); Gu keeps a thin Gu law plus a world pack, and appears as rows on L, K composition, F, C, R and W. SC5-SC10 hold the round.
+
+## Separate but connected, and effects beyond the book, 2026-11-12
+
+Weibao: "How to make things both seperate but interconnected? Consider procedural settings that can have interesting results, like killer moves not from the original book and more? or spell not from the original book? How can we do about that?" Then: "Can we create a procedural system that generates the effects of the oriignal, but broad enough to cover stuff beyond the original?"
+
+Recorded in the [procedural foundation plan](../PROCEDURAL_FOUNDATION_PLAN.md#separate-but-connected-and-effects-beyond-the-book-2026-11-12): six seams (SB1-SB6), one effect grammar, routes beyond canon (NV1-NV5) with five checks and a novelty dial, EF1-EF8 and PFP22-PFP24.
