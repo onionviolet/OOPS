@@ -497,3 +497,27 @@ The first combined P/G fold passed 57 tests. After W's correction and scene inte
 Candidate identity: every code and test file in the fold was last written by 15:28:18; the suite log's run began after that and ended 15:35 with 6,586 tests, 6,581 pass, 0 fail, 5 skipped. Later writes are prose. `check:docs`, `check:rules` and `check:coverage` rerun on the final tree exit 0. G1 at this commit: 58 Hogwarts and 16 Gu cases compute as expressed.
 
 Reading correction. The second handoff said Reverend Insanity volumes 5 to 24 had no reading passes. That is true of the batch index and false of the book: the [full-book reading](../../../research/novels/full-book/reverend-insanity/COVERAGE.md) has all 2,334 chapters integrated, with a power index and 179 reader notes that mention killer moves. Weibao (2026-11-12): "I think we do have readnigs". Matching the 753 move leads and wiki-only kinds to chapters is an extraction job over those notes, with a batched reader for chapters where the notes are too thin.
+
+## Wave schedule from Wave 15 (2026-11-12, proposal)
+
+Weibao (2026-11-12): "What about the procedural stuff? add that to waves as well", pointing at the direct operators (PC97), the craft families and the eight questions (PC98), the ways around capacity (PC99) and the canon tables. Working order, three lanes at a time, engine first. Each row names the number it moves (G1 to G5) or the plan line it proves. A later wave is re-picked from the results of the one before it.
+
+| Wave | Lane | Builds | Moves or proves |
+| --- | --- | --- | --- |
+| 15 | False-move fixture | Claimed and true recipe, checking as a priced act, the ch. 2118 scene run both ways, and a potion formula row on the same records (GKM247 to GKM250) | G3 |
+| 15 | Small killer moves | Codex batched readers over the reader notes for chapters 1 to 600; moves with every role named become runnable | G1 |
+| 15 | Hogwarts remainder | The 22 rows left, the mind, knowledge and working owners answering publishes, the Draught of Living Death in a body | G1 |
+| 15 | Gu bodies | The 78 kinds with body data on the shared lifecycle | G1, G2 |
+| 15 | Day budget | A rate form for the oscillating regulator | G2 headroom |
+| 16 | Operators one: Copy, Edit, Graft | Each operator once as a shared act on a design's parts, proven on a creature genome and on one made thing (a potion or a blade), with its price and its fault | PC97 |
+| 16 | First generator | Generated Gu moves from Gu held, landing through the effect host, frozen on discovery, false and incomplete ones included | G4 |
+| 16 | Loop gaps | A real trade-off in a genome row, an assay with a cost, a standing breeding program over many generations in one settlement | PC96 |
+| 17 | Operators two: Induce, Transfer, Make | Mutagen or tribulation, a property moved between holders, a thing made with no parent; each on two groups | PC97 |
+| 17 | Totems and natural moves | A totem on the body alteration family with process crafts making the food; a creature's innate move as an authorless composition that heredity passes (GKM251, GKM252) | G3 |
+| 17 | Second generator | Potion and spell variants from the same grammar, so the generator is shown to be domain-neutral | G4 |
+| 18 | Ways around, across families | The five ways around a capacity (raise, go past, stabilize, move the load, change what counts), one worked row in each of the four craft families | PC99 |
+| 18 | A second power system by the eight questions | A Lord of the Mysteries Sequence answered as rows, then The Perfect Run once Weibao approves its reading | PC98 |
+| 18 | First absorbed Keeper scene and the Gu House | One Keeper scene as engine rows with a parity fixture; the Eighty-Eight True Yang Building as the place-bound end of the composition ladder (GKM253) | G5, G3 |
+| 18 | Levels run | One mixed run where a copied or edited kind escapes into a wild cohort and a copied recipe moves a market price | PC96 |
+
+Operators across the five groups (creatures, potions, spells, Gu and moves, made things) fill in after Wave 17 by data rows, since each operator is built once. A cell with no canon source stays an authored default and is labelled so.
