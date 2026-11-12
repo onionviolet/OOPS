@@ -1178,3 +1178,21 @@ Proposal recorded in the [procedural foundation plan](../PROCEDURAL_FOUNDATION_P
 Weibao: "How to make things both seperate but interconnected? Consider procedural settings that can have interesting results, like killer moves not from the original book and more? or spell not from the original book? How can we do about that?" Then: "Can we create a procedural system that generates the effects of the oriignal, but broad enough to cover stuff beyond the original?"
 
 Recorded in the [procedural foundation plan](../PROCEDURAL_FOUNDATION_PLAN.md#separate-but-connected-and-effects-beyond-the-book-2026-11-12): six seams (SB1-SB6), one effect grammar, routes beyond canon (NV1-NV5) with five checks and a novelty dial, EF1-EF8 and PFP22-PFP24.
+
+## "All" made countable, 2026-11-12
+
+Weibao: "does the live goal meet the ambitions of my stated goal?" then "Consider procedural aspects, defining grammer, other aspects and more? Make sure it is achivable and actionable?"
+
+Recorded in the [procedural foundation plan](../PROCEDURAL_FOUNDATION_PLAN.md#making-all-achievable-ledgers-grammar-layers-procedural-rules-milestones-2026-11-12): coverage ledgers with denominators (CV1-CV4), four grammar layers each with a canon test (GL1-GL7), procedural rules (PR1-PR9), milestones MS1-MS7, PFP25-PFP26. The run objective now uses them.
+
+## Heredity, player-made things and lore from parts, 2026-11-12
+
+Weibao: "Procedural rules to account for player made possiblities and more? Have those chats direct codex chats accordingly, with individual codex chats to bring their visions to life? using /goal and also /autocompact accordingly?" Then: "Overarching systems like genetics and stuff, creature variations between same type and more? other aspects to consider? Procedural system to allow player made combinations nad more, but also for existing combinations to create the stuff in lore and more? Other fun ways we can take these ideas?"
+
+Recorded in the [procedural foundation plan](../PROCEDURAL_FOUNDATION_PLAN.md#heredity-and-variation-player-made-things-and-lore-from-parts-2026-11-12): heredity GN1-GN9, player-made rules PM1-PM8, forward and backward grammar RV1-RV5, other aspects OA1-OA5, fun palette FN1-FN9, PFP27-PFP29. Codex lane dispatch is recorded in the [run record](dispatch/foundation-run-2026-11-12/RUN.md) pending the paid-fallback decision.
+
+## Lore first, inheritance channels, depth checklist, 2026-11-12
+
+Weibao: "send out stuff to cover OA1-5. FN1-9, but we need to make sure foundational stuff works out too, Other stuff in books worth adapting into procedural systems and more? Consider lore aspects first?" Then: "Consider Aspects beyond genone, if that would even be the most optimal and more? other aspects to consider? selective breeding and more? consider magical aspects? Similar depth considerations for other aspects too?"
+
+Recorded in the [procedural foundation plan](../PROCEDURAL_FOUNDATION_PLAN.md#lore-first-inheritance-beyond-genes-and-a-depth-checklist-2026-11-12): lore laws as fixed points first (LR1-LR16), inheritance channels (IH1-IH8), selective breeding (SB7-SB12), the depth checklist DC1-DC10, routing with foundations first, PFP30-PFP32.

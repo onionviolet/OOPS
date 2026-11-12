@@ -1,0 +1,935 @@
+{
+ "spells": {
+  "records": 117,
+  "labelled": 109,
+  "byVerb": {
+   "move": 14,
+   "release": 8,
+   "block": 16,
+   "sense": 12,
+   "bind": 9,
+   "end": 5,
+   "conceal": 3,
+   "add": 12,
+   "remove": 12,
+   "transform": 17,
+   "copy": 1
+  },
+  "unlabelled": [
+   "hp:bedazzling",
+   "hp:unjinx-weather",
+   "hp:stun",
+   "hp:bat-bogey",
+   "hp:marge",
+   "hp:map-close",
+   "hp:parseltongue-open",
+   "hp:unforgivable"
+  ]
+ },
+ "potions": {
+  "subjects": 101,
+  "withIngredients": 62,
+  "withOps": 13,
+  "recipeShaped": 11,
+  "rows": [
+   {
+    "subject": "cure_for_boils",
+    "ingredients": [
+     "dried_nettles",
+     "horned_slugs",
+     "porcupine_quills",
+     "snake_fangs"
+    ],
+    "identity": [],
+    "ops": [
+     "crush",
+     "stew",
+     "weigh"
+    ],
+    "evidence": [
+     "HPPE001",
+     "HPPE002",
+     "HPPE003",
+     "HPPE004",
+     "HPPE005",
+     "HPPE111"
+    ]
+   },
+   {
+    "subject": "draught_of_living_death",
+    "ingredients": [
+     "asphodel_root",
+     "sloth_brain",
+     "sopophorous_bean",
+     "valerian_root",
+     "wormwood_infusion"
+    ],
+    "identity": [],
+    "ops": [
+     "add",
+     "crush",
+     "cut",
+     "infuse",
+     "powder",
+     "stir"
+    ],
+    "evidence": [
+     "HPPE006",
+     "HPPE007",
+     "HPPE008",
+     "HPPE009",
+     "HPPE010",
+     "HPPE011",
+     "HPPE012",
+     "HPPE088",
+     "HPPE155"
+    ]
+   },
+   {
+    "subject": "polyjuice_potion",
+    "ingredients": [
+     "bicorn_horn",
+     "boomslang_skin",
+     "fluxweed",
+     "knotgrass",
+     "lacewing_flies",
+     "leeches"
+    ],
+    "identity": [
+     "cat_hair",
+     "donor_dandruff",
+     "human_donor_sample",
+     "toenail_clippings"
+    ],
+    "ops": [
+     "add",
+     "powder",
+     "shred",
+     "stew",
+     "tear"
+    ],
+    "evidence": [
+     "HPPE013",
+     "HPPE014",
+     "HPPE015",
+     "HPPE016",
+     "HPPE017",
+     "HPPE018",
+     "HPPE019",
+     "HPPE020",
+     "HPPE021",
+     "HPPE022",
+     "HPPE089",
+     "HPPE090",
+     "HPPE091",
+     "HPPE092",
+     "HPPE093",
+     "HPPE094",
+     "HPPE108",
+     "HPPE169",
+     "HPPE190"
+    ]
+   },
+   {
+    "subject": "swelling_solution",
+    "ingredients": [
+     "puffer_fish_eyes"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE023",
+     "HPPE024"
+    ]
+   },
+   {
+    "subject": "mandrake_restorative_draught",
+    "ingredients": [
+     "mandrake"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE026",
+     "HPPE027"
+    ]
+   },
+   {
+    "subject": "mandrake",
+    "ingredients": [
+     "mandrake"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE028"
+    ]
+   },
+   {
+    "subject": "shrinking_solution",
+    "ingredients": [
+     "caterpillar",
+     "daisy_roots",
+     "leech_juice",
+     "rat_spleen",
+     "shrivelfig",
+     "spleen_unspecified"
+    ],
+    "identity": [],
+    "ops": [
+     "cut"
+    ],
+    "evidence": [
+     "HPPE029",
+     "HPPE030",
+     "HPPE031",
+     "HPPE032",
+     "HPPE033",
+     "HPPE034",
+     "HPPE098"
+    ]
+   },
+   {
+    "subject": "wolfsbane_potion",
+    "ingredients": [
+     "aconite"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE035",
+     "HPPE036",
+     "HPPE113"
+    ]
+   },
+   {
+    "subject": "draught_of_peace",
+    "ingredients": [
+     "hellebore_syrup",
+     "moonstone"
+    ],
+    "identity": [],
+    "ops": [
+     "add",
+     "heat",
+     "powder",
+     "stir"
+    ],
+    "evidence": [
+     "HPPE037",
+     "HPPE038",
+     "HPPE039",
+     "HPPE040"
+    ]
+   },
+   {
+    "subject": "strengthening_solution",
+    "ingredients": [
+     "griffin_claw",
+     "salamander_blood"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE041",
+     "HPPE042",
+     "HPPE109",
+     "HPPE149"
+    ]
+   },
+   {
+    "subject": "euphoria_elixir",
+    "ingredients": [
+     "peppermint"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE043",
+     "HPPE044"
+    ]
+   },
+   {
+    "subject": "blended_poison_antidote",
+    "ingredients": [
+     "cauldron_fire"
+    ],
+    "identity": [],
+    "ops": [
+     "add"
+    ],
+    "evidence": [
+     "HPPE045",
+     "HPPE046",
+     "HPPE167"
+    ]
+   },
+   {
+    "subject": "bezoar",
+    "ingredients": [
+     "bezoar"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE047",
+     "HPPE049"
+    ]
+   },
+   {
+    "subject": "unnamed_class_potion",
+    "ingredients": [
+     "bezoar"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE048"
+    ]
+   },
+   {
+    "subject": "bubotuber_pus",
+    "ingredients": [
+     "bubotuber_pus"
+    ],
+    "identity": [],
+    "ops": [
+     "bottle"
+    ],
+    "evidence": [
+     "HPPE050",
+     "HPPE051",
+     "HPPE052"
+    ]
+   },
+   {
+    "subject": "murtlap_essence",
+    "ingredients": [
+     "murtlap_tentacles"
+    ],
+    "identity": [],
+    "ops": [
+     "cut",
+     "strain"
+    ],
+    "evidence": [
+     "HPPE053",
+     "HPPE054"
+    ]
+   },
+   {
+    "subject": "essence_of_dittany",
+    "ingredients": [
+     "essence_of_dittany"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE055"
+    ]
+   },
+   {
+    "subject": "gillyweed",
+    "ingredients": [
+     "gillyweed"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE056"
+    ]
+   },
+   {
+    "subject": "felix_felicis",
+    "ingredients": [],
+    "identity": [],
+    "ops": [
+     "stew"
+    ],
+    "evidence": [
+     "HPPE063",
+     "HPPE064",
+     "HPPE065",
+     "HPPE114"
+    ]
+   },
+   {
+    "subject": "wit_sharpening_potion",
+    "ingredients": [
+     "armadillo_bile",
+     "ginger_root",
+     "scarab_beetles"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE070",
+     "HPPE071",
+     "HPPE107",
+     "HPPE110"
+    ]
+   },
+   {
+    "subject": "confusing_concoction",
+    "ingredients": [
+     "lovage",
+     "scurvy_grass",
+     "sneezewort"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE072",
+     "HPPE095",
+     "HPPE096",
+     "HPPE097"
+    ]
+   },
+   {
+    "subject": "rudimentary_body_potion",
+    "ingredients": [
+     "nagini_venom",
+     "unicorn_blood"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE073",
+     "HPPE074"
+    ]
+   },
+   {
+    "subject": "unicorn_blood",
+    "ingredients": [
+     "unicorn_blood"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE075"
+    ]
+   },
+   {
+    "subject": "restoration_rite",
+    "ingredients": [
+     "enemys_blood",
+     "fathers_bone",
+     "servants_flesh"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE076",
+     "HPPE077",
+     "HPPE078",
+     "HPPE079",
+     "HPPE165"
+    ]
+   },
+   {
+    "subject": "acromantula_venom",
+    "ingredients": [
+     "acromantula_venom"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE081"
+    ]
+   },
+   {
+    "subject": "apothecary_stock",
+    "ingredients": [
+     "beetle_eyes",
+     "belladonna_essence",
+     "eel_eyes",
+     "unicorn_horn"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE082",
+     "HPPE083",
+     "HPPE085",
+     "HPPE170"
+    ]
+   },
+   {
+    "subject": "unnamed_potions_lesson",
+    "ingredients": [
+     "crocodile_heart",
+     "dragon_liver",
+     "lionfish_spine",
+     "unicorn_hair"
+    ],
+    "identity": [],
+    "ops": [
+     "cut",
+     "powder"
+    ],
+    "evidence": [
+     "HPPE084",
+     "HPPE141",
+     "HPPE145",
+     "HPPE153"
+    ]
+   },
+   {
+    "subject": "phoenix_tears",
+    "ingredients": [
+     "phoenix_tears"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE086"
+    ]
+   },
+   {
+    "subject": "basilisk_venom",
+    "ingredients": [
+     "basilisk_venom"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE087"
+    ]
+   },
+   {
+    "subject": "self_stirring_cauldron",
+    "ingredients": [],
+    "identity": [],
+    "ops": [
+     "stir"
+    ],
+    "evidence": [
+     "HPPE101"
+    ]
+   },
+   {
+    "subject": "animagus_process",
+    "ingredients": [
+     "death_head_hawk_moth_chrysalis",
+     "mandrake_leaf",
+     "protected_dew"
+    ],
+    "identity": [
+     "self_hair"
+    ],
+    "ops": [],
+    "evidence": [
+     "HPPE102",
+     "HPPE103",
+     "HPPE104",
+     "HPPE105",
+     "HPPE106"
+    ]
+   },
+   {
+    "subject": "aconite",
+    "ingredients": [
+     "aconite"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE112"
+    ]
+   },
+   {
+    "subject": "sopophorous_bean",
+    "ingredients": [
+     "sopophorous_bean"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE115"
+    ]
+   },
+   {
+    "subject": "dragon_dung_fertiliser",
+    "ingredients": [
+     "dragon_dung"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE124"
+    ]
+   },
+   {
+    "subject": "love_potion_family",
+    "ingredients": [
+     "ashwinder_eggs"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE130",
+     "HPPE173"
+    ]
+   },
+   {
+    "subject": "moonstone_potions_essay",
+    "ingredients": [
+     "moonstone"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE137"
+    ]
+   },
+   {
+    "subject": "diadem_reconstruction",
+    "ingredients": [
+     "billywig_wings"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE140"
+    ]
+   },
+   {
+    "subject": "skiving_snackboxes",
+    "ingredients": [
+     "doxy_venom",
+     "venomous_tentacula_seed"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE142",
+     "HPPE151"
+    ]
+   },
+   {
+    "subject": "hagrids_injury_care",
+    "ingredients": [
+     "dragon_blood"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE143"
+    ]
+   },
+   {
+    "subject": "erumpent_horn",
+    "ingredients": [
+     "erumpent_horn"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE146"
+    ]
+   },
+   {
+    "subject": "gnome_saliva",
+    "ingredients": [
+     "gnome_saliva"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE147"
+    ]
+   },
+   {
+    "subject": "gurdyroot_infusion",
+    "ingredients": [
+     "gurdyroot"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE148"
+    ]
+   },
+   {
+    "subject": "rons_poisoning_care",
+    "ingredients": [
+     "rue_essence"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE150"
+    ]
+   },
+   {
+    "subject": "wartcap_powder",
+    "ingredients": [
+     "wartcap_powder"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE152"
+    ]
+   },
+   {
+    "subject": "antivenom_study",
+    "ingredients": [
+     "chinese_chomping_cabbage"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE156"
+    ]
+   },
+   {
+    "subject": "demiguise_cloak",
+    "ingredients": [
+     "demiguise_hair"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE157",
+     "HPPE177"
+    ]
+   },
+   {
+    "subject": "herbology_exam",
+    "ingredients": [
+     "fanged_geranium"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE158"
+    ]
+   },
+   {
+    "subject": "purported_spattergroit_remedy",
+    "ingredients": [
+     "toad_liver"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE160"
+    ]
+   },
+   {
+    "subject": "firenze_divination",
+    "ingredients": [
+     "mallowsweet",
+     "sage"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE161",
+     "HPPE162"
+    ]
+   },
+   {
+    "subject": "puffapod_harvest",
+    "ingredients": [
+     "puffapod"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE163"
+    ]
+   },
+   {
+    "subject": "mimbulus_mimbletonia",
+    "ingredients": [
+     "stinksap"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE164"
+    ]
+   },
+   {
+    "subject": "hagrids_drinks",
+    "ingredients": [
+     "dandelion_juice"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE166"
+    ]
+   },
+   {
+    "subject": "detention_stock_sorting",
+    "ingredients": [
+     "flobberworm"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE168"
+    ]
+   },
+   {
+    "subject": "ashwinder_lifecycle",
+    "ingredients": [
+     "ashwinder"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE171"
+    ]
+   },
+   {
+    "subject": "ashwinder_egg_harvest",
+    "ingredients": [
+     "ashwinder_eggs"
+    ],
+    "identity": [],
+    "ops": [
+     "freeze",
+     "heat"
+    ],
+    "evidence": [
+     "HPPE172"
+    ]
+   },
+   {
+    "subject": "ague_remedy",
+    "ingredients": [
+     "ashwinder_eggs"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE174"
+    ]
+   },
+   {
+    "subject": "unnamed_potion_family",
+    "ingredients": [
+     "dried_billywig_stings",
+     "erumpent_exploding_fluid",
+     "erumpent_horn",
+     "erumpent_tail",
+     "graphorn_horn",
+     "lobalug_poison",
+     "romanian_longhorn_horn"
+    ],
+    "identity": [],
+    "ops": [
+     "powder"
+    ],
+    "evidence": [
+     "HPPE175",
+     "HPPE179",
+     "HPPE180",
+     "HPPE181",
+     "HPPE182",
+     "HPPE185",
+     "HPPE187"
+    ]
+   },
+   {
+    "subject": "station_contamination",
+    "ingredients": [
+     "chizpurfle"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE176"
+    ]
+   },
+   {
+    "subject": "doxy_bite",
+    "ingredients": [
+     "doxy_venom"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE178"
+    ]
+   },
+   {
+    "subject": "potion_thickening",
+    "ingredients": [
+     "flobberworm_mucus"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE183"
+    ]
+   },
+   {
+    "subject": "alihotsy_hysteria_antidote",
+    "ingredients": [
+     "glumbumble_treacle"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE184"
+    ]
+   },
+   {
+    "subject": "truth_and_memory_potions",
+    "ingredients": [
+     "jobberknoll_feather"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE186"
+    ]
+   },
+   {
+    "subject": "mental_agility_potions",
+    "ingredients": [
+     "runespoor_eggs"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE188"
+    ]
+   },
+   {
+    "subject": "horklump_control",
+    "ingredients": [
+     "streeler_venom"
+    ],
+    "identity": [],
+    "ops": [],
+    "evidence": [
+     "HPPE189"
+    ]
+   }
+  ]
+ },
+ "gu": {
+  "records": 1463,
+  "alreadyLabelled": 304,
+  "missing": {
+   "role": 822,
+   "name": 2,
+   "rank": 686,
+   "path": 719
+  },
+  "recovered": {
+   "path:name-word": 170,
+   "rank:chapter": 3,
+   "path:chapter": 3
+  },
+  "proposals": {
+   "path": 165
+  }
+ }
+}

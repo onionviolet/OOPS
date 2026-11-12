@@ -1,0 +1,68 @@
+gu: 78 rows, 57 labelled; rebuild 55/57 = 0.965
+  verb inferred from object, target, time: 0.649 (baseline 0.281)
+  pair support: object+target 0.76, object+time 0.765
+  unlabelled: 21 x function (gu:fish-scale, gu:stone-scar, gu:change-form, gu:man-as-before, gu:yaksha-octopus-king-wild-immortal)
+  missing rules:
+    2 x rule-reject verb-object e.g. gu:spring-autumn-cicada, gu:year-gu
+hogwarts: 117 rows, 109 labelled; rebuild 85/109 = 0.78
+  verb inferred from object, target, time: 0.404 (baseline 0.073)
+  pair support: object+target 0.975, object+time 0.98
+  unlabelled: 8 x verb (hp:bedazzling, hp:unjinx-weather, hp:stun, hp:bat-bogey, hp:marge)
+  missing rules:
+    5 x rule-reject verb-object e.g. hp:boils, hp:revive, hp:taboo, hp:descend, hp:anapneo
+    3 x derive-mismatch family (move outside "Make, change and repair") e.g. hp:defodio, hp:wipe, hp:obliterate-trace
+    3 x derive-mismatch family (block outside "Change a creature, mind or ongoing condition") e.g. hp:kill, hp:occlumency, hp:jelly-legs
+    2 x derive-mismatch family (end outside "See, know, signal and conceal") e.g. hp:history-release, hp:quiet
+    2 x derive-mismatch family (transform outside "Access, agreements and named attempts") e.g. hp:rat-attempt, hp:protean
+    2 x derive-mismatch family (release outside "Make, change and repair") e.g. hp:deprimo, hp:sticking
+    1 x derive-mismatch family (end outside "Move, stop and position") e.g. hp:dangling-release
+    1 x derive-mismatch family (block outside "Make, change and repair") e.g. hp:waterproof
+    1 x derive-mismatch family (move outside "See, know, signal and conceal") e.g. hp:alarm
+    1 x derive-mismatch family (sense outside "Move, stop and position") e.g. hp:mobilicorpus
+    1 x derive-mismatch family (bind outside "Defend, interrupt and end") e.g. hp:disarm
+    1 x derive-mismatch family (add outside "Defend, interrupt and end") e.g. hp:flame-freezing
+    1 x derive-mismatch family (end outside "Change a creature, mind or ongoing condition") e.g. hp:tickle
+transfer gu laws -> hogwarts canon: 70/109 = 0.642
+transfer hogwarts laws -> gu canon: 48/57 = 0.842
+explore gu@0: 24/40 pass, failures {"runs":16,"explains":1}, 6 niches kept
+    add force area sustained via gu on essence-primeval  [from gu:wind-overlord, changed target, score 9]
+    add thing line lasting via gu on essence-immortal  [from gu:after, changed target, score 8]
+    conceal information line sustained via gu on essence-primeval  [from gu:stealth-scales, changed target, score 8]
+    remove vitality line sustained via gu on essence-primeval  [from gu:red-fire, changed time, score 8]
+    transform mind area instant via gu on mental  [from gu:attitude, changed time, score 7]
+    copy information area instant via gu on essence-primeval  [from gu:photo-audio, changed time, score 7]
+explore gu@1: 16/40 pass, failures {"runs":24,"explains":2}, 6 niches kept
+    add essence line sustained via gu on essence-primeval  [from gu:self-strength, changed target+object, score 10]
+    transform vitality line sustained via gu on essence-primeval  [from gu:thunderclap, changed verb+time, score 10]
+    remove vitality bound sustained via gu on essence-primeval  [from gu:charred-thunder-potato, changed target+time, score 10]
+    move position self lasting via gu on essence-immortal  [from gu:love, changed time+target, score 9]
+    conceal information touched instant via gu on essence-primeval  [from gu:stealth-scales, changed target+time, score 7]
+    block working area instant via gu on essence-primeval  [from gu:blood-asset, changed time+limits, score 7]
+explore gu@2: 22/40 pass, failures {"explains":10,"runs":15}, 6 niches kept
+    move relation bound sustained via gu on essence-immortal  [from hp:defodio, changed carrier+cost+time, score 10]
+    transform vitality bound sustained via gu on essence-primeval  [from hp:episkey, changed carrier+cost+time, score 10]
+    transform form bound sustained via gu on mental  [from hp:duro, changed carrier+cost+time, score 10]
+    block working bound sustained via gu on essence-immortal  [from hp:kill, changed carrier+cost+time, score 10]
+    move position bound lasting via gu on essence-immortal  [from hp:obliterate-trace, changed carrier+cost+time, score 9]
+    block position bound instant via gu on essence-primeval  [from hp:hover, changed carrier+cost+verb, score 8]
+explore hogwarts@0: 24/40 pass, failures {"runs":12,"explains":4}, 6 niches kept
+    add thing area instant via spoken-spell on stamina  [from hp:serpent, changed target, score 7]
+    move position bound triggered via spoken-spell on stamina  [from hp:obliterate-trace, changed time, score 7]
+    move light area instant via spoken-spell on stamina  [from hp:alarm, changed target, score 7]
+    block form area instant via spoken-spell on stamina  [from hp:shield, changed target, score 7]
+    sense information bound sustained via spoken-spell on stamina  [from hp:flowers, changed time, score 6]
+    transform position bound instant via spoken-spell on stamina  [from hp:obliterate-trace, changed verb, score 6]
+explore hogwarts@1: 24/40 pass, failures {"explains":6,"runs":11}, 6 niches kept
+    block working area lasting via ward on stamina  [from hp:cave, changed time+limits, score 10]
+    remove vitality bound lasting via spoken-spell on stamina  [from hp:dolohov, changed time+limits, score 8]
+    sense light bound sustained via spoken-spell on stamina  [from hp:fire, changed time+verb, score 8]
+    transform thing bound sustained via spoken-spell on stamina  [from hp:mark, changed time+verb, score 8]
+    transform moisture bound lasting via spoken-spell on stamina  [from hp:episkey, changed object+limits, score 8]
+    bind form area sustained via spoken-spell on stamina  [from hp:body-bind, changed target+limits, score 8]
+explore hogwarts@2: 20/40 pass, failures {"explains":14,"runs":12}, 6 niches kept
+    block form area sustained via spoken-spell on stamina  [from gu:river-as-before, changed carrier+cost+target, score 11]
+    transform thing area sustained via spoken-spell on stamina  [from gu:attitude, changed carrier+cost+object, score 11]
+    add light area sustained via spoken-spell on stamina  [from gu:starlight-firefly, changed carrier+cost+limits, score 10]
+    transform mind area sustained via spoken-spell on stamina  [from gu:attitude, changed carrier+cost+limits, score 10]
+    bind thing self lasting via spoken-spell on stamina  [from gu:ant-nest, changed carrier+cost+verb, score 9]
+    add thing bound lasting via spoken-spell on stamina  [from gu:vitality-grass, changed carrier+cost+target, score 9]
