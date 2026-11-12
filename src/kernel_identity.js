@@ -24,10 +24,13 @@ function claimed(registry, owner, key, except) {
 }
 
 // KW22. Mint an identity with its first facets ({kind: {owner, key}}).
-export function addIdentity(registry, {id: thingId, facets, at, cause}) {
+// grammar: the ref of the grammar that generated this thing (PR2, KW31); the
+// owners keep its frozen values, the identity keeps which grammar made them.
+export function addIdentity(registry, {id: thingId, facets, at, cause, grammar}) {
     check(registry?.schema === IDENTITY_SCHEMA, 'Unsupported identity registry.');
     check(id(thingId) && !Object.hasOwn(registry.entries, thingId), 'Choose a new identity id.');
-    return changeFacets({...registry, entries: {...registry.entries, [thingId]: {facets: {}, history: []}}},
+    check(grammar === undefined || (typeof grammar === 'string' && grammar.length > 0), 'A grammar ref is a string.');
+    return changeFacets({...registry, entries: {...registry.entries, [thingId]: {facets: {}, history: [], ...(grammar ? {grammar} : {})}}},
         thingId, {add: facets, at, cause});
 }
 
@@ -56,6 +59,7 @@ export function changeFacets(registry, thingId, {add = {}, remove = [], at, caus
 
 export const facetsOf = (registry, thingId) => clone(registry.entries[thingId]?.facets ?? {});
 export const identityHistory = (registry, thingId) => clone(registry.entries[thingId]?.history ?? []);
+export const identityGrammar = (registry, thingId) => registry.entries[thingId]?.grammar ?? null;
 
 // From an owner's key back to the identity (an inventory row to the Gu).
 export function identityFor(registry, owner, key) {
@@ -86,7 +90,8 @@ export function validateIdentities(registry) {
     check(object(registry) && registry.schema === IDENTITY_SCHEMA && object(registry.entries), 'Unsupported identity registry.');
     const keys = new Set();
     for (const [thingId, entry] of Object.entries(registry.entries)) {
-        check(id(thingId) && object(entry) && object(entry.facets) && Array.isArray(entry.history), `Invalid identity ${thingId}.`);
+        check(id(thingId) && object(entry) && object(entry.facets) && Array.isArray(entry.history) &&
+            (entry.grammar === undefined || (typeof entry.grammar === 'string' && entry.grammar.length > 0)), `Invalid identity ${thingId}.`);
         for (const [kind, facet] of Object.entries(entry.facets)) {
             check(id(kind) && facetOk(facet), `Invalid facet on ${thingId}.`);
             const key = JSON.stringify([facet.owner, facet.key]);

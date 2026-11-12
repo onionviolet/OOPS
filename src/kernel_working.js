@@ -7,7 +7,7 @@
 // Not to be confused with working_state.js, which is the UI busy note.
 import {check, natural, object} from './basics.js';
 
-export const KERNEL_CONTRACT_VERSION = '0.2';
+export const KERNEL_CONTRACT_VERSION = '0.4';
 export const WORKING_SCHEMA = 'kernel.working@1';
 export const MAX_WORKING_STEPS = 64;
 
@@ -39,6 +39,9 @@ export function validateWorkingMethod(law, method) {
     check(object(method.roles) && Array.isArray(method.steps) && method.steps.length > 0 &&
         method.steps.length <= MAX_WORKING_STEPS, 'Choose at least one step.');
     for (const [role, kind] of Object.entries(method.roles)) check(id(role) && id(kind), 'The method has an invalid role.');
+    // KW31 (PR2): a generated method keeps the grammar ref it was frozen under.
+    check(method.grammar === undefined || (typeof method.grammar === 'string' && method.grammar.length > 0),
+        'A method\'s grammar ref is a string.');
     method.steps.forEach((step, index) => {
         const operation = own(law.operations, step?.op);
         check(object(step) && operation, `Step ${index + 1} uses an operation this law does not have.`);
@@ -165,7 +168,7 @@ const canonical = value => Array.isArray(value) ? `[${value.map(canonical).join(
     : object(value) ? `{${Object.keys(value).sort().map(key => `${JSON.stringify(key)}:${canonical(value[key])}`).join(',')}}`
         : JSON.stringify(value ?? null);
 export function workingFingerprint({law, method, bindings, facts, quote}) {
-    const text = canonical({law, method: {id: method.id, revision: method.revision, steps: method.steps}, bindings, facts,
+    const text = canonical({law, method: {id: method.id, revision: method.revision, steps: method.steps, grammar: method.grammar ?? null}, bindings, facts,
         deadlines: quote.deadlines, effects: quote.effects, costs: quote.costs, odds: quote.odds, ok: quote.ok,
         failedStep: quote.failedStep ?? null});
     let hash = 0x811c9dc5;

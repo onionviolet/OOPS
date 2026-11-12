@@ -1,6 +1,6 @@
 # Kernel working contract
 
-*Version 0.3, 2026-11-12 (v0.1 and v0.2 published earlier the same day; changes in the [changelog](#changelog)). Owner: chat K in the [procedural foundation plan](PROCEDURAL_FOUNDATION_PLAN.md). Module: [`src/kernel_working.js`](../src/kernel_working.js). Contract tests: [`tests/kernel_working.test.js`](../tests/kernel_working.test.js). A proposal under AD56: it widens what every domain can do and every line is an adjustable default. Changes are versioned requests to chat K (MC2); domain chats do not edit the module.*
+*Version 0.4, 2026-11-12 (v0.1 to v0.3 published earlier the same day; changes in the [changelog](#changelog)). Owner: chat K in the [procedural foundation plan](PROCEDURAL_FOUNDATION_PLAN.md). Module: [`src/kernel_working.js`](../src/kernel_working.js). Contract tests: [`tests/kernel_working.test.js`](../tests/kernel_working.test.js). A proposal under AD56: it widens what every domain can do and every line is an adjustable default. Changes are versioned requests to chat K (MC2); domain chats do not edit the module.*
 
 Not to be confused with `src/working_state.js`, which is the UI busy note for slow page actions.
 
@@ -95,6 +95,15 @@ Module [`src/kernel_meet.js`](../src/kernel_meet.js), tests [`tests/kernel_meet.
 - **KW29. One level, no cascade.** Interrupts apply at the settled step's time and do not call `meets` again. Effects landing on whatever is present, and chains of reactions, are W's contact layer (WSC7-WSC9). Ending an active effect (Nox ending Lumos, S's SQ15) is a W law-field removal, not a kernel interrupt.
 - **KW30. The same meeting in one jump or many; each record saves alone.** The set settled to `now` once or in any partition gives the same records and effects (tested, plus a mutation that applies interrupts at the call time and fails). There is no meeting record: each working saves as `kernel.working@1` and the host passes them in again.
 
+### Grammar refs and bounded search (PR2, PR3, v0.4)
+
+Module [`src/kernel_search.js`](../src/kernel_search.js), tests [`tests/kernel_search.test.js`](../tests/kernel_search.test.js).
+
+- **KW31. Frozen with their grammar (PR2, PM7).** A generated method carries `grammar: '<id>@<revision>'`, the ref P's grammar values already use; a composition may carry one too, and each filler's grammar joins the composite law ref. The record snapshots the method, so the ref is saved with it, and the fingerprint includes it. A grammar revision changes only what has not been frozen: the host rebuilds a saved composite from the frozen fillers it stored, and a filler from a newer grammar makes a different law that the old record refuses. An identity may also keep the grammar ref of what generated it (`addIdentity({grammar})`, `identityGrammar`); its frozen values stay with their owners.
+- **KW32. Search has a budget per settlement (PR3).** `searchForActor({actor, candidates, known, knownFacts, believedAuthority, knowsMethod, at, budget: {trials, steps}, keep, limit})` quotes candidate workings from what the actor knows. A trial is one quoted candidate; steps count the forecast steps those quotes settle and stand in for a time budget, because wall-clock time would make a reload search differently (PR1). Both are dials per actor; the default is 64 trials and 512 steps.
+- **KW33. Same inputs, same search.** Candidates are tried in the given order and the search stops before a trial the budget no longer covers, so options, rejections and `truncated` repeat exactly. The player and every NPC call the same search (PR6); with the same knowledge and the same working ids they get the same result.
+- **KW34. Goals and reasons.** `keep(quote)` is the actor's goal (PM3); options are eligible quotes that meet it, and every rejection keeps its reason, including `goal-unmet` (PM4). Where candidates come from (a move search, a grammar, a recipe book, `invention_planner`) is the caller's.
+
 ## Save shape (OS8)
 
 ```json
@@ -160,6 +169,7 @@ From the shared notes. Covered means v0 already expresses it as data; no kernel 
 
 ## Changelog
 
+- **0.4 (2026-11-12).** KW31 grammar refs on methods, compositions and identities; KW32-KW34 `searchForActor` with a trial and step budget. Optional fields, no schema change.
 - **0.3 (2026-11-12).** KW27-KW30 workings that meet (`kernel_meet.js`); `settleWorking` takes `maxSteps`; `interruptWorking` takes `by` and `observed`. Optional fields, no schema change.
 - **0.2 (2026-11-12).** KW15 forecast fields, KW16 fingerprint and `beginQuotedWorking`, KW17 `quoteForActor`; KW18-KW21 composed workings (`kernel_compose.js`); KW22-KW26 identity (`kernel_identity.js`). Kernel failure reasons are codes (`role-unavailable`, `not-permitted`) with the role kept as data. No schema change.
 - **0.1 (2026-11-12).** KW1-KW14, the record `kernel.working@1` and one migration.

@@ -20,7 +20,7 @@ const sameKinds = (a, b) => Object.keys(a).length === Object.keys(b).length &&
 // fact table (Gu essence reserves), own slots keep theirs under part:<name>.
 // `minutes` overrides every filler step's duration (a dial, e.g. one minute per
 // cast). A filler is one part and stays one part: its steps are not split.
-export function defineComposition({id: compId, revision, roles, slots}) {
+export function defineComposition({id: compId, revision, roles, slots, grammar}) {
     check(id(compId) && natural(revision) && object(roles) && Array.isArray(slots) && slots.length > 0,
         'A composition needs an id, a revision, roles and slots.');
     for (const [role, kind] of Object.entries(roles)) check(id(role) && id(kind), 'The composition has an invalid role.');
@@ -37,7 +37,8 @@ export function defineComposition({id: compId, revision, roles, slots}) {
             check(roles[slot.bindings[role]] === kind, `Slot ${slot.name} maps ${role} to a role of another kind.`);
         }
     }
-    return Object.freeze({id: compId, revision, roles: {...roles}, slots: structuredClone(slots)});
+    check(grammar === undefined || (typeof grammar === 'string' && grammar.length > 0), 'A composition\'s grammar ref is a string.');
+    return Object.freeze({id: compId, revision, roles: {...roles}, slots: structuredClone(slots), ...(grammar ? {grammar} : {})});
 }
 
 // Does this method fit the slot? Exact roles and kinds, so a filler's steps
@@ -71,7 +72,7 @@ export function composeWorking(composition, fillers) {
         const filler = fillers[slot.name];
         check(fillsSlot(slot, filler), `The filler for ${slot.name} does not bind the roles that slot needs.`);
         validateWorkingMethod(filler.law, filler.method);
-        refs.push(`${slot.name}=${filler.law.ref}:${filler.method.id}@${filler.method.revision}`);
+        refs.push(`${slot.name}=${filler.law.ref}:${filler.method.id}@${filler.method.revision}${filler.method.grammar ? `#${filler.method.grammar}` : ''}`);
         for (const [op, operation] of Object.entries(filler.law.operations)) operations[`${slot.name}/${op}`] = wrap(slot, operation);
         for (const step of filler.method.steps) {
             const bindings = Object.fromEntries(Object.entries(step.bindings ?? {})
@@ -84,7 +85,8 @@ export function composeWorking(composition, fillers) {
     const law = defineWorkingLaw({id: composition.id, revision: composition.revision, operations});
     const ref = `${law.ref}[${refs.join(',')}]`;
     const composed = Object.freeze({...law, ref});
-    const method = {id: composition.id, revision: composition.revision, law: ref, roles: {...composition.roles}, steps};
+    const method = {id: composition.id, revision: composition.revision, law: ref, roles: {...composition.roles}, steps,
+        ...(composition.grammar ? {grammar: composition.grammar} : {})};
     validateWorkingMethod(composed, method);
     return {law: composed, method};
 }

@@ -1,5 +1,39 @@
 # Chat K · Kernel, checkpoint 2026-11-12
 
+## Phase 4 (2026-11-12): PR2 grammar refs, PR3 search budget (milestones MS1-MS7)
+
+Merged master at 700ed2f39 (plan section "Making all achievable"). Contract v0.4, KW31-KW34.
+
+```receipt
+build: n/a
+route: n/a
+state: built
+viewport: n/a
+persistence: unchanged
+tests: 59 focused kernel tests (kernel_working 24, kernel_compose 20, kernel_meet 5, kernel_identity 5, kernel_search 5)
+review: diff-scoped
+surface: new leaf src/kernel_search.js; optional grammar fields in kernel_working, kernel_compose, kernel_identity
+```
+
+- **PR2.** Methods, compositions and identities keep `grammar: '<id>@<rev>'` (P's ref format); filler grammars join the composite law ref and the fingerprint. A saved generated move restores against the frozen fillers and refuses a newer grammar's law.
+- **PR3.** `searchForActor` quotes candidate workings from the actor's knowledge under `{trials, steps}` per settlement (steps stand in for time so reloads repeat, PR1); same inputs give the same options, rejections and truncation for the player and NPCs (PR6); goals via `keep`, reasons kept for every rejection (PM3, PM4).
+- **MS4 readiness.** Composed workings (SC6, KW18-KW21) are on master already and ready for G's 23 canon moves; `tests/kernel_adapters.mjs` holds the Gu beat adapter G can copy.
+
+PFP2 counts (kernel scope): canon cases as data 3 before and 3 after; bespoke modules 0 and 0; working shapes 6 and 6.
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/kernel_*.test.js` | 59/59 pass | Adapters in tests; no host calls the kernel yet |
+| `npm run check:arch`, `npm run check:rules` | pass | |
+| Full `npm test` | not run | Integrator (MC7) |
+
+Could not express: a wall-clock time budget (deliberately replaced by a step budget, PR1); where candidates come from stays the caller's (P's grammar, G's move search).
+
+Requests: W, store a generated holder's grammar ref with its frozen values in the holder's pack slice (PR2), matching `grammar: '<id>@<rev>'`; P, keep the ref format stable, since K pins it in saves; G, MS4 moves can start on `composeWorking` now.
+
+Next phase (K): support G's MS4 move rebuild and A's search consumer; retire an old shape when its consumers move.
+
+
 ## Phase 3 (2026-11-12): workings that meet (KB8)
 
 ```receipt
