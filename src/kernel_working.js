@@ -96,7 +96,8 @@ function settleStep({law, method, workingId, bindings, facts, index, at, ports})
         const answer = ports.authority({working: workingId, method: {id: method.id, revision: method.revision},
             step: index, op: step.op, at, bindings: clone(bindings)});
         check(object(answer) && typeof answer.ok === 'boolean', 'Authority must answer ok or not.');
-        if (!answer.ok) return {ok: false, reason: answer.reason || 'No one with the right permits this.', cause: 'authority', used};
+        if (!answer.ok) return {ok: false, reason: answer.reason || 'No one with the right permits this.', cause: 'authority', used,
+            observed: clone(answer.observed)};
     }
     const outcome = operation.settle({bound, facts: clone(facts), options: clone(step.options ?? {}), at,
         address: `${workingId}/${index}`, step: index});
@@ -113,7 +114,10 @@ function settleStep({law, method, workingId, bindings, facts, index, at, ports})
 
 // KW4. A quote is the same settlement run as a forecast: nothing is kept and
 // nothing is published. It reads the world through the same ports.
-export function quoteWorking(law, method, {bindings, facts = {}, at, ports = {}, id: workingId = 'quote'}) {
+// Pass the same id the working will begin with: draws and authority see the
+// same address in the quote and in settlement.
+export function quoteWorking(law, method, {bindings, facts = {}, at, ports = {}, id: workingId}) {
+    check(id(workingId), 'Quote with the id the working will begin with.');
     validateWorkingMethod(law, method);
     checkBindings(method, bindings);
     const record = beginWorking(law, method, {id: workingId, bindings, facts, at});
@@ -158,7 +162,7 @@ export function settleWorking(law, record, {now, ports = {}}) {
         if (!result.ok) {
             next.status = 'interrupted';
             next.receipts.push({step: index, op, at, ok: false, cause: result.cause, reason: result.reason,
-                bindings: result.used, truth: {facts: {}, effects: []}, observed: result.observed ?? {reason: result.reason}});
+                bindings: result.used, truth: {facts: {}, effects: []}, observed: result.observed ?? {}});
             break;
         }
         next.facts = {...next.facts, ...result.facts};
@@ -182,6 +186,8 @@ export function interruptWorking(record, {at, reason}) {
 }
 
 // KW9. What the maker can see: the observed field of each receipt, never truth.
+// A failure shows only what its operation or port said was visible; the
+// private reason stays in truth. A host's own stop is seen by the maker.
 export function viewWorking(record) {
     return {id: record.id, status: record.status, startedAt: record.startedAt, next: nextWorkingDeadline(record),
         steps: record.receipts.map(({step, op, at, ok, observed}) => ({step, op, at, ok, observed: clone(observed)}))};

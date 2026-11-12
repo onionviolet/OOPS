@@ -42,13 +42,13 @@ The comparison that the contract was promoted from (review [F3/A4](audits/CODEX_
 
 - **KW1. A law is a table of operations.** Each declares the kinds it acts on and a `settle` rule for one step. World numbers live in the operation data or the method, not in the kernel.
 - **KW2. A method is data.** Roles with kinds, ordered steps, an optional duration per step (default: the operation's, else 0) and options. A canon case costs a method row (PFP1). A method is checked against its law's `ref` (`id@revision`).
-- **KW3. Roles bind to actual things.** A binding is a reference `{kind, id}`. The record keeps only references; every step reads the current thing through `ports.read(ref, at)`. A thing that is gone or changed kind interrupts that step with cause `binding`.
-- **KW4. A quote is settlement run as a forecast.** `quoteWorking` runs the same steps through the same ports and keeps nothing. What the quote shows is what settlement would publish if the world holds (PFP11: an NPC gets the same quote). An actor-scoped quote passes a reader over what that actor knows instead of the truth; settlement always reads the truth, so a wrong belief shows up as an interrupted step, not a hidden one (MC8).
+- **KW3. Roles bind to actual things.** A binding is a reference `{kind, id}`. The record keeps only references; every step reads the current thing through `ports.read(ref, at)`. A thing that is gone or changed kind interrupts that step with cause `binding`. Hosts pass `read`: without it the references stand in for the things and nothing is reread, which is only fit for tests.
+- **KW4. A quote is settlement run as a forecast.** `quoteWorking` runs the same steps through the same ports and keeps nothing. It takes the id the working will begin with, so draws and authority see the same step addresses in the quote and in settlement. What the quote shows is what settlement would publish if the world holds (PFP11: an NPC gets the same quote). An actor-scoped quote passes a reader over what that actor knows instead of the truth; settlement always reads the truth, so a wrong belief shows up as an interrupted step, not a hidden one (MC8).
 - **KW5. The same result in one jump or many.** Deadlines are absolute minutes from the start. `settleWorking` settles every step whose deadline has passed, in order, each at its own deadline, and never reads the call time. Settling to T once and settling at any partition up to T give the same record and effects (tested for both consumers, plus a mutation check that fails when the call time leaks in).
 - **KW6. Every port is asked at the step's time.** Readers and authority receive `at`, the step's deadline. Draws use the step's `address` (`<working>/<step>`) under GR1-GR17. A world that cannot answer for a past time settles its workings up to `nextWorkingDeadline` before it changes a bound thing (KW13).
 - **KW7. The record is the save.** `beginWorking` keeps the method snapshot, references, start, deadlines, cursor, facts, status and receipts. Nothing else is needed to continue after a reload.
 - **KW8. Interruption keeps what happened.** An operation that answers `ok: false`, a lost binding, a refusal by authority or the host's `interruptWorking` stop the working at that step with a cause and reason. Earlier steps and their published effects stand. Refunds are the domain's policy (making procedure refunds the unfinished step).
-- **KW9. What the maker observed is not the truth.** Each receipt has `truth` (facts and effects) and `observed` (what the operation says the maker could see). `viewWorking` shows only `observed`. Knowledge stays with its owners (`craft_state`, `discovery_codex`, MC8); the host writes what was learned through them.
+- **KW9. What the maker observed is not the truth.** Each receipt has `truth` (facts and effects) and `observed` (what the operation says the maker could see). `viewWorking` shows only `observed`. A failure shows only what its operation or authority answer says was visible (default: nothing beyond that the step stopped); the private reason stays in the receipt's `reason`, outside the view, as `observeGuRefinement` already does. A host's own stop is something the maker saw, so its reason is observed. Knowledge stays with its owners (`craft_state`, `discovery_codex`, MC8); the host writes what was learned through them.
 - **KW10. One versioned save shape (OS8).** Records carry `schema: 'kernel.working@1'`. `restoreWorking` migrates through `WORKING_MIGRATIONS` one version at a time, then validates; an unknown version is refused so the owner can keep the original save. Each domain hangs its working records from its own save slice (AR6); the kernel registers no slice of its own.
 - **KW11. Effects are intents the host publishes.** Settlement returns `{working, step, at, effect}` rows. The kernel never writes inventory, clocks or saves (AR3). Effect payloads are opaque to the kernel; W's contact layer reads their `kind` when present.
 - **KW12. Authority is read at settlement (FG7).** Relationships, offers and permissions answer through `ports.authority` for each step at its time. An offer that has expired blocks the step that needed it. A step that settled while the offer held keeps its receipt after the offer ends; settlement never revisits a settled step.
@@ -61,8 +61,10 @@ The comparison that the contract was promoted from (review [F3/A4](audits/CODEX_
 {"schema": "kernel.working@1", "id": "strength-reversing-life-and-death.trial", "law": "kernel.test.gu-procedure@1",
  "method": {"id": "...", "revision": 1, "law": "...", "roles": {}, "steps": []},
  "bindings": {"operator": {"kind": "cultivator", "id": "player"}},
- "startedAt": 0, "deadlines": [120, 121, 122, 4442], "cursor": 2, "status": "running",
- "facts": {}, "receipts": [{"step": 0, "op": "prepare", "at": 120, "ok": true, "bindings": {}, "truth": {}, "observed": {}}]}
+ "startedAt": 0, "deadlines": [120, 121, 122, 4442], "cursor": 1, "status": "running",
+ "facts": {"reserves": {"player": {"immortal": 6}}},
+ "receipts": [{"step": 0, "op": "prepare", "at": 120, "ok": true, "bindings": {"operator": "player"},
+   "truth": {"facts": {}, "effects": []}, "observed": {"felt": "focused"}}]}
 ```
 
 The validator checks the schema, the law, the method against the law, binding kinds, that saved deadlines match the method, and that the count of settled receipts equals the cursor.
@@ -93,6 +95,7 @@ Each passes: typed roles and refusals, a pure quote equal to settlement, one jum
 | KB7 | Lowering a step to native commands (spell) | Effects stay opaque; S lowers in its own host | S |
 | KB8 | Several workings meeting in one settlement (a contest, a trade between two running workings), ordered across workings | v0.2 `settleTogether` that merges deadlines of several records in a fixed order (deadline, then working id), once C and M both need it | K, on C and M request |
 | KB9 | Quote fields for cost and odds, and a cause line | v0.2 optional `costs`, `odds` and `cause` on the quote, filled by the operations; with KB3 | K, on A request |
+| KB10 | A law revision bump makes every saved running record of the old revision unloadable; migrations are keyed on schema only | Add law-revision migrations (old revision to new, per law) beside `WORKING_MIGRATIONS` | K, on the first domain that bumps a law (likely B or F) |
 
 ## Requests from sibling chats (2026-11-12)
 

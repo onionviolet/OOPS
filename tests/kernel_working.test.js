@@ -140,7 +140,7 @@ for (const make of [guConsumer, creatureConsumer]) {
     test(`${c.name}: the quote is pure and forecasts what settlement publishes`, () => {
         const ports = {read: reader(c.things)};
         const before = structuredClone({method: c.method, bindings: c.bindings, facts: c.facts, things: c.things});
-        const quote = quoteWorking(c.law, c.method, {bindings: c.bindings, facts: c.facts, at: c.start, ports});
+        const quote = quoteWorking(c.law, c.method, {id: `${c.method.id}.trial`, bindings: c.bindings, facts: c.facts, at: c.start, ports});
         assert.deepEqual({method: c.method, bindings: c.bindings, facts: c.facts, things: c.things}, before);
         assert.equal(quote.ok, true);
         assert.deepEqual(quote.effects.at(-1), c.finalEffect);
@@ -217,6 +217,15 @@ for (const make of [guConsumer, creatureConsumer]) {
         const {record} = settleWorking(c.law, begin(), {now: end(), ports});
         const view = viewWorking(record);
         assert.equal(JSON.stringify(view).includes('"truth"'), false);
+        // A refusal's private reason stays in truth unless the port says what was visible.
+        const secret = {read: reader(c.things), authority: ({step}) => step === 0 ? {ok: true}
+            : {ok: false, reason: 'private-token-7731'}};
+        const refused = settleWorking(c.law, begin(), {now: end(), ports: secret}).record;
+        assert.equal(refused.receipts.at(-1).reason, 'private-token-7731');
+        assert.equal(JSON.stringify(viewWorking(refused)).includes('private-token-7731'), false);
+        const shown = settleWorking(c.law, begin(), {now: end(), ports: {...secret,
+            authority: args => ({...secret.authority(args), ...(args.step ? {observed: {saw: 'the gate stayed shut'}} : {})})}}).record;
+        assert.deepEqual(viewWorking(shown).steps.at(-1).observed, {saw: 'the gate stayed shut'});
         assert.equal(view.steps.length, c.method.steps.length);
         assert.ok(record.receipts.every(row => row.truth && row.observed));
         const stopped = interruptWorking(begin(), {at: c.start + 1, reason: 'The maker walked away.'});
@@ -255,4 +264,25 @@ test('one migration path: making_procedure step progress becomes a kernel record
     assert.deepEqual(effects.map(row => row.effect.part), ['steep', 'pour']);
     assert.throws(() => restoreWorking(law, {...legacy, completed: 3}, {method, bindings, startedAt: 10}), /unfinished/);
     assert.throws(() => restoreWorking(law, {schema: 'mystery@1'}), /Unsupported/);
+});
+
+test('the quote draws from the same addresses as settlement, so a forecast holds (KW4, KW6)', () => {
+    const hash = text => [...text].reduce((n, ch) => (n * 31 + ch.charCodeAt(0)) % 1000, 7);
+    const law = defineWorkingLaw({id: 'kernel.test.draw', revision: 1, operations: {
+        attempt: {roles: {maker: 'actor'}, minutes: 3, settle: ({address}) => hash(address) % 2
+            ? {ok: true, effects: [{kind: 'drawn', value: hash(address)}]} : {ok: false, reason: 'The draw went against it.'}},
+    }});
+    const method = {id: 'attempt', revision: 1, law: law.ref, roles: {maker: 'actor'},
+        steps: [0, 1, 2].map(() => ({op: 'attempt', bindings: {maker: 'maker'}}))};
+    const bindings = {maker: {kind: 'actor', id: 'player'}};
+    const ids = Array.from({length: 40}, (_, n) => `trial.${n}`);
+    for (const id of ids) {
+        const quote = quoteWorking(law, method, {id, bindings, at: 0});
+        const settled = settleWorking(law, beginWorking(law, method, {id, bindings, at: 0}), {now: 9});
+        assert.deepEqual(quote.effects, settled.effects.map(row => row.effect));
+        assert.equal(quote.ok, settled.record.status === 'complete');
+    }
+    const outcomes = new Set(ids.map(id => JSON.stringify(quoteWorking(law, method, {id, bindings, at: 0}).effects)));
+    assert.ok(outcomes.size > 1, 'different ids draw differently');
+    assert.throws(() => quoteWorking(law, method, {bindings, at: 0}), /id the working will begin with/);
 });
