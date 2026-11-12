@@ -7,7 +7,7 @@
 // Not to be confused with working_state.js, which is the UI busy note.
 import {check, natural, object} from './basics.js';
 
-export const KERNEL_CONTRACT_VERSION = '0.1';
+export const KERNEL_CONTRACT_VERSION = '0.2';
 export const WORKING_SCHEMA = 'kernel.working@1';
 export const MAX_WORKING_STEPS = 64;
 
@@ -78,7 +78,26 @@ function checkBindings(method, bindings) {
 
 // KW3 and KW6. One step at its own boundary time. Roles are read through the
 // caller's reader at `at`, authority is asked at `at`, then the operation settles.
-function settleStep({law, method, workingId, bindings, facts, index, at, ports}) {
+// Optional forecast fields an operation may add (KW15): costs it would draw,
+// odds in permille, and a short cause the host turns into words.
+function extras(op, outcome) {
+    const out = {};
+    if (outcome.costs !== undefined) {
+        check(Array.isArray(outcome.costs) && outcome.costs.every(object), `Operation ${op} returned invalid costs.`);
+        out.costs = clone(outcome.costs);
+    }
+    if (outcome.odds !== undefined) {
+        check(natural(outcome.odds) && outcome.odds <= 1000, `Operation ${op} odds must be whole permille.`);
+        out.odds = outcome.odds;
+    }
+    if (outcome.cause !== undefined) {
+        check(typeof outcome.cause === 'string' && outcome.cause.length > 0, `Operation ${op} returned an invalid cause.`);
+        out.cause = outcome.cause;
+    }
+    return out;
+}
+
+function settleStep({law, method, workingId, bindings, facts, index, at, ports, fingerprint}) {
     const step = method.steps[index];
     const operation = law.operations[step.op];
     const bound = {};
@@ -87,16 +106,16 @@ function settleStep({law, method, workingId, bindings, facts, index, at, ports})
         const ref = bindings[role];
         const thing = ports.read ? ports.read(ref, at) : ref;
         if (!object(thing) || thing.kind !== ref.kind || thing.id !== ref.id) {
-            return {ok: false, reason: `${role} is no longer available.`, cause: 'binding', used};
+            return {ok: false, reason: 'role-unavailable', role, cause: 'binding', used};
         }
         bound[slot] = clone(thing);
         used[slot] = ref.id;
     }
     if (ports.authority) {
         const answer = ports.authority({working: workingId, method: {id: method.id, revision: method.revision},
-            step: index, op: step.op, at, bindings: clone(bindings)});
+            step: index, op: step.op, at, bindings: clone(bindings), ...(fingerprint ? {fingerprint} : {})});
         check(object(answer) && typeof answer.ok === 'boolean', 'Authority must answer ok or not.');
-        if (!answer.ok) return {ok: false, reason: answer.reason || 'No one with the right permits this.', cause: 'authority', used,
+        if (!answer.ok) return {ok: false, reason: answer.reason || 'not-permitted', cause: 'authority', used,
             observed: clone(answer.observed)};
     }
     const outcome = operation.settle({bound, facts: clone(facts), options: clone(step.options ?? {}), at,
@@ -104,12 +123,13 @@ function settleStep({law, method, workingId, bindings, facts, index, at, ports})
     check(object(outcome) && typeof outcome.ok === 'boolean', `Operation ${step.op} must answer ok or not.`);
     if (!outcome.ok) {
         check(typeof outcome.reason === 'string' && outcome.reason.length > 0, `Operation ${step.op} needs a reason.`);
-        return {ok: false, reason: outcome.reason, cause: 'operation', used, observed: clone(outcome.observed)};
+        return {ok: false, reason: outcome.reason, cause: 'operation', used, observed: clone(outcome.observed),
+            extras: extras(step.op, outcome)};
     }
     check(outcome.facts === undefined || object(outcome.facts), `Operation ${step.op} returned invalid facts.`);
     check(outcome.effects === undefined || Array.isArray(outcome.effects), `Operation ${step.op} returned invalid effects.`);
     return {ok: true, used, facts: clone(outcome.facts ?? {}), effects: clone(outcome.effects ?? []),
-        observed: clone(outcome.observed)};
+        observed: clone(outcome.observed), extras: extras(step.op, outcome)};
 }
 
 // KW4. A quote is the same settlement run as a forecast: nothing is kept and
@@ -123,21 +143,73 @@ export function quoteWorking(law, method, {bindings, facts = {}, at, ports = {},
     const record = beginWorking(law, method, {id: workingId, bindings, facts, at});
     const {record: done, effects} = settleWorking(law, record, {now: record.deadlines.at(-1), ports});
     const last = done.receipts.at(-1);
-    return {ok: done.status === 'complete', startsAt: at, endsAt: record.deadlines.at(-1),
+    const quote = {ok: done.status === 'complete', startsAt: at, endsAt: record.deadlines.at(-1),
         deadlines: [...record.deadlines], effects: effects.map(row => row.effect), facts: done.facts,
-        ...(done.status === 'interrupted' ? {failedStep: last.step, reason: last.reason} : {}),
-        steps: done.receipts.map(({step, op, at: stepAt, ok, reason}) => ({step, op, at: stepAt, ok, ...(reason ? {reason} : {})}))};
+        costs: done.receipts.flatMap(row => row.truth.costs ?? []),
+        odds: done.receipts.map(row => row.truth.odds ?? null),
+        cause: done.receipts.map(row => row.truth.cause ?? null),
+        ...(done.status === 'interrupted' ? {failedStep: last.step, reason: last.reason,
+            ...(last.role ? {role: last.role} : {}), failure: last.cause} : {}),
+        steps: done.receipts.map(({step, op, at: stepAt, ok, reason, cause, role}) => ({step, op, at: stepAt, ok,
+            ...(ok ? {} : {cause, reason, ...(role ? {role} : {})})}))};
+    quote.fingerprint = workingFingerprint({law: law.ref, method, bindings: record.bindings, facts, quote});
+    return quote;
+}
+
+// KW16. A fingerprint names one quote: the law, method, bound references,
+// starting facts, times, effects, costs and outcome. A host shows a quote,
+// the maker commits to its fingerprint, and beginQuotedWorking re-quotes and
+// refuses a changed one. The record keeps it and authority receives it at
+// each step, so standing terms can be checked against what was quoted.
+const canonical = value => Array.isArray(value) ? `[${value.map(canonical).join(',')}]`
+    : object(value) ? `{${Object.keys(value).sort().map(key => `${JSON.stringify(key)}:${canonical(value[key])}`).join(',')}}`
+        : JSON.stringify(value ?? null);
+export function workingFingerprint({law, method, bindings, facts, quote}) {
+    const text = canonical({law, method: {id: method.id, revision: method.revision, steps: method.steps}, bindings, facts,
+        deadlines: quote.deadlines, effects: quote.effects, costs: quote.costs, ok: quote.ok, failedStep: quote.failedStep ?? null});
+    let hash = 0x811c9dc5;
+    for (let i = 0; i < text.length; i += 1) hash = Math.imul(hash ^ text.charCodeAt(i), 0x01000193) >>> 0;
+    return `kw1:${hash.toString(16).padStart(8, '0')}:${text.length}`;
+}
+
+export function beginQuotedWorking(law, method, {id: workingId, bindings, facts = {}, at, ports = {}, fingerprint}) {
+    const quote = quoteWorking(law, method, {id: workingId, bindings, facts, at, ports});
+    if (quote.fingerprint !== fingerprint) return {stale: true, quote};
+    return {stale: false, quote, record: beginWorking(law, method, {id: workingId, bindings, facts, at, fingerprint})};
+}
+
+// KW17. The quote an actor can make: every read and every authority answer
+// comes from what that actor knows or believes, never from the truth. A role
+// the actor knows nothing of is reported, not looked up. Reasons are data
+// ({step, role, cause, reason}); the host or the operation supplies the words.
+// The same knowledge gives the same quote to the player and to anyone else.
+export function quoteForActor(law, method, {id: workingId, actor, bindings, known, believedAuthority, facts = {}, at}) {
+    check(id(actor) && typeof known === 'function', 'An actor quote needs an actor and what they know.');
+    validateWorkingMethod(law, method);
+    checkBindings(method, bindings);
+    const unknown = Object.entries(bindings).filter(([, ref]) => {
+        const thing = known(ref, at);
+        return !object(thing) || thing.kind !== ref.kind || thing.id !== ref.id;
+    }).map(([role]) => ({step: null, role, cause: 'unknown', reason: 'role-unknown'}));
+    if (unknown.length) return {actor, eligible: false, reasons: unknown, startsAt: at, endsAt: null, effects: [], costs: [], odds: [], cause: []};
+    const quote = quoteWorking(law, method, {id: workingId, bindings, facts, at,
+        ports: {read: known, ...(believedAuthority ? {authority: believedAuthority} : {})}});
+    const failed = quote.steps.find(row => !row.ok);
+    return {actor, eligible: quote.ok, reasons: failed ? [{step: failed.step, role: failed.role ?? null, cause: failed.cause,
+        reason: failed.reason}] : [], startsAt: at, endsAt: quote.endsAt, minutes: quote.endsAt - at,
+    effects: quote.effects, costs: quote.costs, odds: quote.odds, cause: quote.cause, fingerprint: quote.fingerprint};
 }
 
 // KW7. Beginning keeps only references to bound things and the method snapshot.
-export function beginWorking(law, method, {id: workingId, bindings, facts = {}, at}) {
+export function beginWorking(law, method, {id: workingId, bindings, facts = {}, at, fingerprint}) {
     validateWorkingMethod(law, method);
     checkBindings(method, bindings);
     check(id(workingId) && object(facts), 'A working needs an id and facts.');
+    check(fingerprint === undefined || typeof fingerprint === 'string', 'A fingerprint is a string.');
     return {schema: WORKING_SCHEMA, id: workingId, law: law.ref, method: clone(method),
         bindings: Object.fromEntries(Object.entries(bindings).map(([role, {kind, id: ref}]) => [role, {kind, id: ref}])),
         startedAt: at, deadlines: workingDeadlines(law, method, at), cursor: 0, status: 'running',
-        facts: clone(facts), receipts: []};
+        facts: clone(facts), receipts: [], ...(fingerprint ? {fingerprint} : {})};
 }
 
 export function nextWorkingDeadline(record) {
@@ -158,16 +230,17 @@ export function settleWorking(law, record, {now, ports = {}}) {
         const at = next.deadlines[index];
         const op = next.method.steps[index].op;
         const result = settleStep({law, method: next.method, workingId: next.id, bindings: next.bindings,
-            facts: next.facts, index, at, ports});
+            facts: next.facts, index, at, ports, fingerprint: next.fingerprint});
         if (!result.ok) {
             next.status = 'interrupted';
             next.receipts.push({step: index, op, at, ok: false, cause: result.cause, reason: result.reason,
-                bindings: result.used, truth: {facts: {}, effects: []}, observed: result.observed ?? {}});
+                ...(result.role ? {role: result.role} : {}), bindings: result.used,
+                truth: {facts: {}, effects: [], ...(result.extras ?? {})}, observed: result.observed ?? {}});
             break;
         }
         next.facts = {...next.facts, ...result.facts};
         next.receipts.push({step: index, op, at, ok: true, bindings: result.used,
-            truth: {facts: result.facts, effects: result.effects}, observed: result.observed ?? {}});
+            truth: {facts: result.facts, effects: result.effects, ...result.extras}, observed: result.observed ?? {}});
         effects.push(...result.effects.map(effect => ({working: next.id, step: index, at, effect})));
         next.cursor = index + 1;
         if (next.cursor === next.deadlines.length) next.status = 'complete';
@@ -202,6 +275,7 @@ export function validateWorkingRecord(law, record) {
     checkBindings(record.method, record.bindings);
     const deadlines = workingDeadlines(law, record.method, record.startedAt);
     check(JSON.stringify(deadlines) === JSON.stringify(record.deadlines), 'The saved step times do not match the method.');
+    check(record.fingerprint === undefined || typeof record.fingerprint === 'string', 'The saved fingerprint is invalid.');
     check(natural(record.cursor) && record.cursor <= deadlines.length && Array.isArray(record.receipts) && object(record.facts),
         'The saved working position is invalid.');
     const settled = record.receipts.filter(row => row.ok).length;

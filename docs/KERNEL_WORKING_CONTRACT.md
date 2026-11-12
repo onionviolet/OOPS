@@ -1,6 +1,6 @@
 # Kernel working contract
 
-*Version 0.1 (v0), 2026-11-12. Owner: chat K in the [procedural foundation plan](PROCEDURAL_FOUNDATION_PLAN.md). Module: [`src/kernel_working.js`](../src/kernel_working.js). Contract tests: [`tests/kernel_working.test.js`](../tests/kernel_working.test.js). A proposal under AD56: it widens what every domain can do and every line is an adjustable default. Changes are versioned requests to chat K (MC2); domain chats do not edit the module.*
+*Version 0.2, 2026-11-12 (v0.1 published earlier the same day; changes in the [changelog](#changelog)). Owner: chat K in the [procedural foundation plan](PROCEDURAL_FOUNDATION_PLAN.md). Module: [`src/kernel_working.js`](../src/kernel_working.js). Contract tests: [`tests/kernel_working.test.js`](../tests/kernel_working.test.js). A proposal under AD56: it widens what every domain can do and every line is an adjustable default. Changes are versioned requests to chat K (MC2); domain chats do not edit the module.*
 
 Not to be confused with `src/working_state.js`, which is the UI busy note for slow page actions.
 
@@ -54,6 +54,9 @@ The comparison that the contract was promoted from (review [F3/A4](audits/CODEX_
 - **KW12. Authority is read at settlement (FG7).** Relationships, offers and permissions answer through `ports.authority` for each step at its time. An offer that has expired blocks the step that needed it. A step that settled while the offer held keeps its receipt after the offer ends; settlement never revisits a settled step.
 - **KW13. Settle before the world changes.** When a host moves, spends or removes a thing that a running working binds, it first settles that working to the change time. This is what makes a support leaving partway (PFP7, LT31) land on the right step.
 - **KW14. Contract versions.** The contract version is `KERNEL_CONTRACT_VERSION`. A change that alters a record's meaning bumps the schema and adds a migration; a new optional field does not.
+- **KW15. Forecast fields.** An operation's answer may add `costs` (rows the host draws from its accounts, W quantities once embedded), `odds` (whole permille for this step) and `cause` (a short code the host turns into words). Quotes list them per step; receipts keep them in `truth`. The kernel does not combine odds: a caller that wants one number multiplies the steps it cares about. Optional fields, so no schema bump (KW14).
+- **KW16. A quote has a fingerprint.** `workingFingerprint` hashes the law, method, bound references, starting facts, times, effects, costs and outcome. A host shows a quote, the maker commits to its fingerprint, and `beginQuotedWorking` re-quotes and returns `stale` instead of a record when anything changed. The record keeps the fingerprint and authority receives it at each step, so standing terms can be checked against what was quoted (M's SMK7). Rolling back several owners when a settlement fails stays with the host's transaction owner (AR3), as `book_craft_transaction` does today.
+- **KW17. The quote an actor can make.** `quoteForActor` takes the actor, the bindings, `known(ref, at)` (what the actor knows of each thing) and `believedAuthority` (what the actor believes about permissions). It never reads the truth: a role the actor knows nothing of comes back as `{role, cause: 'unknown'}`, a refusal as the step, cause and reason code. Reasons are data; the host or operation writes the words (PRS). The player and anyone else with the same knowledge get the same quote (PFP11), and a wrong belief quotes as eligible and is then interrupted by settlement against the truth.
 
 ## Save shape (OS8)
 
@@ -93,8 +96,8 @@ Each passes: typed roles and refusals, a pure quote equal to settlement, one jum
 | KB5 | Two workings competing for one thing (reservation) | Custody owners hold reservations; the kernel only reads | W and the custody owners |
 | KB6 | Progress inside a step (rates while far away, SPR28) | W's detail level settles a step as a rate with the same total | W |
 | KB7 | Lowering a step to native commands (spell) | Effects stay opaque; S lowers in its own host | S |
-| KB8 | Several workings meeting in one settlement (a contest, a trade between two running workings), ordered across workings | v0.2 `settleTogether` that merges deadlines of several records in a fixed order (deadline, then working id), once C and M both need it | K, on C and M request |
-| KB9 | Quote fields for cost and odds, and a cause line | v0.2 optional `costs`, `odds` and `cause` on the quote, filled by the operations; with KB3 | K, on A request |
+| KB8 | Several workings meeting in one settlement (a contest, a trade between two running workings), ordered across workings | v0.2 `settleTogether` that merges deadlines of several records in a fixed order (deadline, then working id), PFP5 is met: C (contests), M (trades) and S (Counterspell ending a cast in flight, SB4) all ask. Next after composition and identity | K, on C and M request |
+| KB9 | Quote fields for cost and odds, and a cause line | **Resolved in v0.2** (KW15, KW17) | K |
 | KB10 | A law revision bump makes every saved running record of the old revision unloadable; migrations are keyed on schema only | Add law-revision migrations (old revision to new, per law) beside `WORKING_MIGRATIONS` | K, on the first domain that bumps a law (likely B or F) |
 
 ## Requests from sibling chats (2026-11-12)
@@ -103,13 +106,20 @@ From the shared notes. Covered means v0 already expresses it as data; no kernel 
 
 | From | Request | Answer in v0 |
 | --- | --- | --- |
-| A | Actor-scoped pure quote with eligibility reasons, cost, time, odds, cause | Covered for eligibility, reason, failing step and time (KW4 with a knowledge reader); cost, odds and cause are KB9 |
+| A | Actor-scoped pure quote with eligibility reasons, cost, time, odds, cause | Done in v0.2: `quoteForActor` (KW17) with KW15 fields |
 | B | A stop that settles completed steps | Covered: KW8 (`interruptWorking`, outside reader, authority); refund policy is KB3 |
 | C | K1 several workings in one receipt, K4 ordering across workings | KB8 |
 | C | K2 cut partway by an outside input; K3 a role that binds another actor or that actor's running working | Covered: a lost binding or authority refusal interrupts (KW3, KW12); a role of kind `actor` or `working` is ordinary data (KW3) |
 | M | A trade working for any two holders, reading standing terms at settlement | Covered: two holder roles and terms through `ports.authority` (KW12); M writes the trade operation |
+| F | Re-quote compare and atomic rollback across owners (FBD1), from `book_craft_transaction` | Re-quote compare done in v0.2 (KW16, `beginQuotedWorking`); rollback stays with the host transaction owner (AR3) |
+| M | Settlement reads standing terms through the quote fingerprint (SMK7) | Done in v0.2: authority receives the record's fingerprint (KW16) |
 | R | A crossing as a working with an optional attempt (risk, caller draw, outcome ladder), keeping the admission quote | Covered: the operation's `settle` owns the ladder and draws from the step `address` (KW6); the quote is kept by the caller |
 
 ## Next phase (K)
 
 Retire one old shape: `method_program` (16 lines, three consumers in other chats' files) is the candidate, since its kind chain is a method whose operation roles are kinds. That needs the owning chats to move `hp_potion_reactions`, `mol_light_research` and `feature_expansion_ui`, or their consent for K to do it. Then the PFP7 join with B and G once their leaves run on the kernel.
+
+## Changelog
+
+- **0.2 (2026-11-12).** KW15 forecast fields, KW16 fingerprint and `beginQuotedWorking`, KW17 `quoteForActor`. Kernel failure reasons are codes (`role-unavailable`, `not-permitted`) with the role kept as data. No schema change.
+- **0.1 (2026-11-12).** KW1-KW14, the record `kernel.working@1` and one migration.
