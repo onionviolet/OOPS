@@ -166,7 +166,8 @@ const canonical = value => Array.isArray(value) ? `[${value.map(canonical).join(
         : JSON.stringify(value ?? null);
 export function workingFingerprint({law, method, bindings, facts, quote}) {
     const text = canonical({law, method: {id: method.id, revision: method.revision, steps: method.steps}, bindings, facts,
-        deadlines: quote.deadlines, effects: quote.effects, costs: quote.costs, ok: quote.ok, failedStep: quote.failedStep ?? null});
+        deadlines: quote.deadlines, effects: quote.effects, costs: quote.costs, odds: quote.odds, ok: quote.ok,
+        failedStep: quote.failedStep ?? null});
     let hash = 0x811c9dc5;
     for (let i = 0; i < text.length; i += 1) hash = Math.imul(hash ^ text.charCodeAt(i), 0x01000193) >>> 0;
     return `kw1:${hash.toString(16).padStart(8, '0')}:${text.length}`;
@@ -183,16 +184,24 @@ export function beginQuotedWorking(law, method, {id: workingId, bindings, facts 
 // the actor knows nothing of is reported, not looked up. Reasons are data
 // ({step, role, cause, reason}); the host or the operation supplies the words.
 // The same knowledge gives the same quote to the player and to anyone else.
-export function quoteForActor(law, method, {id: workingId, actor, bindings, known, believedAuthority, facts = {}, at}) {
+// knownFacts are the actor's beliefs about the starting facts, never the truth.
+// knowsMethod(actor, method) answers whether the actor knows the method at all
+// (spell_world_rules' knows, craft_state's readCraftWorking by observer).
+export function quoteForActor(law, method, {id: workingId, actor, bindings, known, believedAuthority, knowsMethod, knownFacts = {}, at}) {
     check(id(actor) && typeof known === 'function', 'An actor quote needs an actor and what they know.');
     validateWorkingMethod(law, method);
     checkBindings(method, bindings);
+    const blank = reasons => ({actor, eligible: false, reasons, startsAt: at, endsAt: null, minutes: null,
+        effects: [], costs: [], odds: [], cause: [], fingerprint: null});
+    if (knowsMethod && !knowsMethod(actor, {id: method.id, revision: method.revision})) {
+        return blank([{step: null, role: null, cause: 'method-unknown', reason: 'method-unknown'}]);
+    }
     const unknown = Object.entries(bindings).filter(([, ref]) => {
         const thing = known(ref, at);
         return !object(thing) || thing.kind !== ref.kind || thing.id !== ref.id;
     }).map(([role]) => ({step: null, role, cause: 'unknown', reason: 'role-unknown'}));
-    if (unknown.length) return {actor, eligible: false, reasons: unknown, startsAt: at, endsAt: null, effects: [], costs: [], odds: [], cause: []};
-    const quote = quoteWorking(law, method, {id: workingId, bindings, facts, at,
+    if (unknown.length) return blank(unknown);
+    const quote = quoteWorking(law, method, {id: workingId, bindings, facts: knownFacts, at,
         ports: {read: known, ...(believedAuthority ? {authority: believedAuthority} : {})}});
     const failed = quote.steps.find(row => !row.ok);
     return {actor, eligible: quote.ok, reasons: failed ? [{step: failed.step, role: failed.role ?? null, cause: failed.cause,

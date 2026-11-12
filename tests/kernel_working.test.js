@@ -172,15 +172,20 @@ test('the quote draws from the same addresses as settlement, so a forecast holds
 
 // ---- Actor-scoped quote (KW17), forecast fields (KW15), fingerprint (KW16) ----
 const guRun = (c, overrides = {}) => ({id: 'gu.actor', bindings: c.bindings, facts: c.facts, at: 0, ...overrides});
+const actorRun = c => ({id: 'gu.actor', bindings: c.bindings, knownFacts: c.facts, at: 0});
 
 test('an actor quote reads only what the actor knows, and reports unknown roles as data', () => {
     const c = guConsumer();
     const truth = reader(c.things);
     const known = (ref, at) => ref.id === 'pulling-water' ? null : truth(ref, at);
-    const quote = quoteForActor(c.law, c.method, {...guRun(c), actor: 'player', known});
+    const quote = quoteForActor(c.law, c.method, {...actorRun(c), actor: 'player', known});
     assert.equal(quote.eligible, false);
     assert.deepEqual(quote.reasons, [{step: null, role: 'water', cause: 'unknown', reason: 'role-unknown'}]);
-    const full = quoteForActor(c.law, c.method, {...guRun(c), actor: 'player', known: truth});
+    assert.deepEqual([quote.minutes, quote.fingerprint], [null, null]);
+    const unlearned = quoteForActor(c.law, c.method, {...actorRun(c), actor: 'npc.novice', known: truth,
+        knowsMethod: (actor, {id}) => actor !== 'npc.novice' || id !== reversal.id});
+    assert.deepEqual(unlearned.reasons, [{step: null, role: null, cause: 'method-unknown', reason: 'method-unknown'}]);
+    const full = quoteForActor(c.law, c.method, {...actorRun(c), actor: 'player', known: truth});
     assert.equal(full.eligible, true);
     assert.equal(full.minutes, full.endsAt - 0);
     assert.deepEqual(full.effects.at(-1), c.finalEffect);
@@ -190,7 +195,7 @@ test('a wrong belief quotes as eligible and settlement interrupts it', () => {
     const c = guConsumer();
     const believed = reader(c.things);
     const actual = {...c.things, 'supplementary-mortal-gu': {...c.things['supplementary-mortal-gu'], count: 1}};
-    const quote = quoteForActor(c.law, c.method, {...guRun(c), actor: 'player', known: believed});
+    const quote = quoteForActor(c.law, c.method, {...actorRun(c), actor: 'player', known: believed});
     assert.equal(quote.eligible, true);
     const {record} = settleWorking(c.law, beginWorking(c.law, c.method, guRun(c)), {now: 10_000, ports: {read: reader(actual)}});
     assert.equal(record.status, 'interrupted');
@@ -200,7 +205,7 @@ test('a wrong belief quotes as eligible and settlement interrupts it', () => {
 
 test('the player and an NPC with the same knowledge get the same quote (PFP11)', () => {
     for (const c of [guConsumer(), creatureConsumer()]) {
-        const run = {id: `${c.method.id}.same`, bindings: c.bindings, facts: c.facts, at: c.start, known: reader(c.things)};
+        const run = {id: `${c.method.id}.same`, bindings: c.bindings, knownFacts: c.facts, at: c.start, known: reader(c.things)};
         const {actor: a, ...player} = quoteForActor(c.law, c.method, {...run, actor: 'player'});
         const {actor: b, ...npc} = quoteForActor(c.law, c.method, {...run, actor: 'npc.rival'});
         assert.deepEqual(npc, player);
@@ -213,7 +218,7 @@ test('authority in an actor quote is what the actor believes; the truth decides 
     const record = beginWorking(c.law, c.method, {id: 'courier.offer', bindings: c.bindings, facts: c.facts, at: c.start});
     const expired = () => ({ok: false, reason: 'offer-expired'});
     const quote = quoteForActor(c.law, c.method, {id: 'courier.offer', actor: 'npc.carter', bindings: c.bindings,
-        facts: c.facts, at: c.start, known: reader(c.things), believedAuthority: () => ({ok: true})});
+        knownFacts: c.facts, at: c.start, known: reader(c.things), believedAuthority: () => ({ok: true})});
     assert.equal(quote.eligible, true);
     assert.equal(JSON.stringify(quote).includes('offer-expired'), false);
     const settled = settleWorking(c.law, record, {now: 999, ports: {read: reader(c.things), authority: expired}});
@@ -256,4 +261,28 @@ test('a committed quote fingerprint refuses a stale quote and reaches authority 
     }}});
     assert.deepEqual(seen, [quote.fingerprint, quote.fingerprint]);
     assert.equal(restoreWorking(c.law, serializeWorking(begun.record)).fingerprint, quote.fingerprint);
+});
+
+test('an offer owner keeps the accepted fingerprint and refuses a record carrying another (SMK7)', () => {
+    // A priced sale: the price comes from the offer and is a cost, so it is in the fingerprint.
+    const law = defineWorkingLaw({id: 'kernel.test.sale', revision: 1, operations: {
+        sell: {roles: {buyer: 'actor', offer: 'offer'}, minutes: 1, settle: ({bound}) => ({ok: true,
+            costs: [{quantity: 'money', amount: bound.offer.price, holder: 'buyer'}], odds: bound.offer.sure ? 1000 : 600,
+            effects: [{kind: 'sold', good: bound.offer.good}]})},
+    }});
+    const method = {id: 'buy', revision: 1, law: law.ref, roles: {buyer: 'actor', offer: 'offer'},
+        steps: [{op: 'sell', bindings: {buyer: 'buyer', offer: 'offer'}}]};
+    const bindings = {buyer: {kind: 'actor', id: 'player'}, offer: {kind: 'offer', id: 'stall.salt'}};
+    const terms = (price, sure = true) => reader({player: {kind: 'actor', id: 'player'}, 'stall.salt': {kind: 'offer', id: 'stall.salt', good: 'salt', price, sure}});
+    const accepted = quoteWorking(law, method, {id: 'buy.1', bindings, at: 0, ports: {read: terms(6)}});
+    assert.notEqual(quoteWorking(law, method, {id: 'buy.1', bindings, at: 0, ports: {read: terms(9)}}).fingerprint, accepted.fingerprint);
+    assert.notEqual(quoteWorking(law, method, {id: 'buy.1', bindings, at: 0, ports: {read: terms(6, false)}}).fingerprint, accepted.fingerprint,
+        'a changed chance is a changed deal');
+    const offerOwner = {accepted: accepted.fingerprint};
+    const authority = ({fingerprint}) => fingerprint === offerOwner.accepted ? {ok: true} : {ok: false, reason: 'terms-changed'};
+    const good = beginWorking(law, method, {id: 'buy.1', bindings, at: 0, fingerprint: accepted.fingerprint});
+    assert.equal(settleWorking(law, good, {now: 1, ports: {read: terms(6), authority}}).record.status, 'complete');
+    const other = beginWorking(law, method, {id: 'buy.1', bindings, at: 0, fingerprint: 'kw1:00000000:1'});
+    const refused = settleWorking(law, other, {now: 1, ports: {read: terms(6), authority}}).record;
+    assert.deepEqual([refused.status, refused.receipts[0].cause, refused.receipts[0].reason], ['interrupted', 'authority', 'terms-changed']);
 });

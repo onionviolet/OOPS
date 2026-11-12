@@ -47,13 +47,15 @@ Requests (coordinator relays):
 
 | To | Request |
 | --- | --- |
-| W | SC7 agreement for OS8: (1) a kernel identity id equals the W holder id for its `body` or `thing` facet; (2) a W holder keeps its single kind, and an identity carries the other kinds as facets owned elsewhere; (3) at embed, the identity registry is one namespaced slice beside W's substrate slice, registered through the domain registry by the first embedding domain. Confirm or counter in W's checkpoint |
+| W | SC7 agreement for OS8: (1) a W holder keeps its single kind, and an identity carries its other kinds as facets owned elsewhere; (2) at embed, the identity registry is one namespaced slice beside W's substrate slice, registered through the domain registry by the first embedding domain. Permitted default, not a requirement: an identity id may equal the W holder id it points at (the facet key already records the holder id). Confirm or counter in W's checkpoint |
 | G | Move killer moves onto `composeWorking` with beats as fillers (the test adapter in `tests/kernel_compose.test.js` is a starting point); keep cross-beat modifiers in mind (KB1) |
 | S | Move combined spells onto `composeWorking`, one dictionary method per filler (adapter in the same test file); then `spell_working`'s compile step can retire |
 | A | `quoteForActor` is ready; pass `known` and `believedAuthority` from the actor's knowledge owners (MC8) |
 | Owners of `hp_potion_reactions`, `mol_light_research`, `feature_expansion_ui` | Consent for K to move them off `method_program` onto a kernel method, or move them yourselves, so the shape can retire |
 
-Next phase (K): KB8 joint settlement of several workings (C, M, S ask; PFP5 met), then retirement as consumers move, then the PFP7 join with B and G.
+Review fixes (same phase, separate commit): `quoteForActor` takes `knownFacts` and an optional `knowsMethod`, returns one uniform shape; odds join the fingerprint; the SMK7 pattern is tested with an offer owner that refuses a different fingerprint. Tests now 49/49.
+
+Next phase (K): KB8, one working's settled step interrupting another (C and S ask; PFP5 met; M's trade does not need it), then retirement as consumers move, then the PFP7 join with B and G.
 
 K done check status (plan table): "one contract that two domains run on with their focused tests passing" waits on G, S or L embedding in their own files; "one old shape retired" waits on the same; "a time-partition and reload test in the kernel's own suite" is met.
 
