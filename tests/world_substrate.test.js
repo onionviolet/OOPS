@@ -33,7 +33,7 @@ function workshop({humidity = 58, mode = 'linked', withShell = true, withBatch =
         {id: 'workshop', kind: 'place', quantities: {humidity}, ...(detail ? {detail} : {})},
         {id: 'yard', kind: 'place'},
         ...(withShell ? [{id: 'shell', kind: 'body', place: 'workshop', tags: ['shell.body'], state: {'l.shell_regulator': shellBodyState('open')}}] : []),
-        {id: 'inlet', kind: 'thing', place: 'workshop', tags: ['shell.inlet'], state: {'l.shell_regulator': shellInletState({mode})}},
+        {id: 'inlet', kind: 'thing', place: 'workshop', tags: ['shell.inlet'], state: {'l.shell_regulator': shellInletState({mode, follows: withShell ? 'shell' : null})}},
         ...(withBatch ? [{id: 'batch', kind: 'thing', place: 'workshop', tags: ['brew.batch'], state: {'b.brew_steam': brewBatchState(thermalLaw, quote)}}] : []),
     ];
 }
@@ -114,23 +114,31 @@ test('W3 one jump, many steps, near detail and reloads give the same world', () 
     assert.deepEqual(base.holders.batch.state['b.brew_steam'].thermal, direct);
 });
 
-test('W4 the keeper takes the shell away mid-brew: the latch holds, the heat keeps working (PFP7, LT31)', () => {
-    const leaveAt = 112;
-    const before = jump(rules, fresh(), leaveAt);
-    const latched = before.holders.inlet.state['l.shell_regulator'];
-    const gone = applyWorldOps(rules, before, [{op: 'move', holder: 'shell', to: 'yard'}], 'keeper.leaves');
-    assert.deepEqual(gone.chain.slice(-2).map(r => [r.kind, r.place]), [['departed', 'workshop'], ['arrived', 'yard']]);
-    const after = jump(rules, gone, 190), stayed = jump(rules, before, 190);
-    const inlet = after.holders.inlet.state['l.shell_regulator'];
-    const pendingLanded = latched.pending ? latched.pending.position : latched.position;
-    assert.equal(inlet.position, pendingLanded, 'a correction already under way finishes; then the inlet stays where it is');
-    assert.equal(inlet.pending, null);
-    const smoke = after.chain.find(r => r.kind === 'smoke');
-    assert.deepEqual(smoke.reactions, [], 'nobody in the workshop answers the smoke');
-    assert.ok(stayed.chain.find(r => r.kind === 'smoke').reactions.length > 0);
-    assert.notDeepEqual(after.holders.workshop.quantities, stayed.holders.workshop.quantities);
-    assert.deepEqual(after.holders.batch.state, stayed.holders.batch.state, 'the batch\'s heat history does not depend on the shell');
-    assert.deepEqual(jump(rules, roundTrip(rules, gone), 190), after, 'reload after the departure');
+test('W4 the keeper takes the shell away with a correction due: drop leaves it unsettled, finish completes it (PFP7, LT31)', () => {
+    const leaveAt = 109;
+    for (const onLeave of ['drop', 'finish']) {
+        const r = composeSubstrate({packs: [createShellRegulatorPack({...shellLaw, onLeave}), brewPack]});
+        const before = jump(r, fresh({}, r), leaveAt);
+        const was = before.holders.inlet.state['l.shell_regulator'];
+        assert.equal(was.pending?.at, leaveAt + 1, 'a correction the shell is driving is due next minute');
+        const gone = applyWorldOps(r, before, [{op: 'move', holder: 'shell', to: 'yard'}], 'keeper.leaves');
+        const [left, arrived] = gone.chain.slice(-2);
+        assert.deepEqual([left.kind, left.place, arrived.kind, arrived.place], ['departed', 'workshop', 'arrived', 'yard']);
+        assert.deepEqual(left.reactions, ['l.shell_regulator:inlet-leave@inlet'], 'the inlet hears the body it follows leave');
+        const after = jump(r, gone, 190), stayed = jump(r, before, 190);
+        const inlet = after.holders.inlet.state['l.shell_regulator'];
+        assert.equal(inlet.position, onLeave === 'drop' ? was.position : was.pending.position, `${onLeave}: where the latch rests`);
+        assert.deepEqual([inlet.pending, inlet.follows], [null, null]);
+        const strokes = after.chain.filter(e => e.kind.startsWith('draft.') && e.at > leaveAt);
+        assert.equal(strokes.length, onLeave === 'drop' ? 0 : 1, `${onLeave}: the inlet does not chase a body that is gone`);
+        assert.deepEqual(after.chain.find(e => e.kind === 'smoke').reactions, [], 'nobody in the workshop answers the smoke');
+        assert.ok(stayed.chain.find(e => e.kind === 'smoke').reactions.length > 0);
+        assert.notDeepEqual(after.holders.workshop.quantities, stayed.holders.workshop.quantities);
+        assert.deepEqual(after.holders.batch.state, stayed.holders.batch.state, 'the stored heat keeps working the same');
+        assert.deepEqual(jump(r, roundTrip(r, gone), 190), after, `${onLeave}: reload after the departure`);
+        assert.deepEqual(jump(r, applyWorldOps(r, roundTrip(r, before), [{op: 'move', holder: 'shell', to: 'yard'}], 'keeper.leaves'), 190), after,
+            `${onLeave}: reload before the departure`);
+    }
 });
 
 test('W5 cascade depth is a dial; damped effects still land and are recorded', () => {

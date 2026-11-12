@@ -5,6 +5,11 @@
 // shell through a fitted link after a delay. Here humidity is the place's shared
 // quantity, so anything else in the room that adds or removes moisture counts.
 // Smoke published into the place startles the shell shut for a while.
+// When the body the inlet follows leaves, `onLeave` decides a correction still
+// under way: 'drop' (default) leaves it unsettled, because the shell's push was
+// what drove it (LT31 row 1); 'finish' is for an actuator that has the means to
+// complete the stroke on its own (a spring or a counterweight). Either way the
+// inlet then stays where it is: nothing is left for it to follow.
 // tests/world_substrate.test.js holds the minute-by-minute parity with advanceLivingRegulator.
 import {WORLD_QUANTITIES as Q} from '../world_quantities.js';
 
@@ -12,10 +17,10 @@ const scaled = (view, id, amount) => view.lawFields(view.placeOf(id), 'airflow.s
     .reduce((n, f) => Math.floor(n * f.params.numerator / f.params.denominator), amount);
 
 export function createShellRegulatorPack(law) {
-    const {delay, draft, recharge, closeBelow, openAbove, startleMinutes = 0} = law;
+    const {delay, draft, recharge, closeBelow, openAbove, startleMinutes = 0, onLeave = 'drop'} = law;
     for (const n of [delay, draft, recharge, closeBelow, openAbove, startleMinutes])
         if (!Number.isSafeInteger(n) || n < 0) throw new Error('Shell regulator: law values are whole numbers.');
-    if (!(delay >= 1 && closeBelow < openAbove)) throw new Error('Shell regulator: delay >= 1 and closeBelow < openAbove.');
+    if (!(delay >= 1 && closeBelow < openAbove && ['drop', 'finish'].includes(onLeave))) throw new Error('Shell regulator: delay >= 1, closeBelow < openAbove, onLeave drop or finish.');
     const isBody = h => h.kind === 'body' && h.tags.includes('shell.body');
     const isInlet = h => h.kind === 'thing' && h.tags.includes('shell.inlet');
     const pull = (place, position) => ({op: 'publish', kind: 'shell.pull', place, detail: {position}});
@@ -70,7 +75,16 @@ export function createShellRegulatorPack(law) {
             id: 'inlet-link', on: ['shell.pull'], appliesTo: isInlet,
             react: (view, id, e) => {
                 const s = view.state(id);
-                return s.wanted === e.detail.position ? [] : [{op: 'state', holder: id, value: {...s, wanted: e.detail.position}}];
+                return s.wanted === e.detail.position && s.follows === e.by ? []
+                    : [{op: 'state', holder: id, value: {...s, wanted: e.detail.position, follows: e.by}}];
+            },
+        }, {
+            id: 'inlet-leave', on: ['departed'], appliesTo: isInlet,
+            react: (view, id, e) => {
+                const s = view.state(id);
+                if (!s.follows || s.follows !== e.by) return [];
+                const pending = onLeave === 'finish' ? s.pending : null;
+                return [{op: 'state', holder: id, value: {...s, pending, wanted: pending?.position ?? s.position, follows: null}}];
             },
         }, {
             id: 'startle', on: ['smoke'], appliesTo: isBody,
@@ -86,5 +100,5 @@ export function createShellRegulatorPack(law) {
 
 /** Holder state for a shell and its inlet, matching openLivingRegulator's start. */
 export const shellBodyState = (shell = 'open') => ({shell});
-export const shellInletState = ({mode = 'open', position = mode === 'linked' ? 'open' : mode, wanted = 'open'} = {}) =>
-    ({mode, position, pending: null, wanted});
+export const shellInletState = ({mode = 'open', position = mode === 'linked' ? 'open' : mode, wanted = 'open', follows = null} = {}) =>
+    ({mode, position, pending: null, wanted, follows});

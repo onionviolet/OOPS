@@ -21,7 +21,7 @@ const byId = (a, b) => a < b ? -1 : a > b ? 1 : 0;
 
 // Dials with their defaults. Each is a world setting, not a fixed limit.
 export const SUBSTRATE_DIALS = Object.freeze({
-    cascadeDepth: 4,      // deepest effect that still gets reactions; deeper effects land and are recorded as damped
+    cascadeDepth: 4,      // reacting levels: an effect at this depth or deeper lands with no reactions and is recorded as damped
     chainCap: 200,        // effect records kept for cause chains (oldest trimmed first, SPR30)
     ledgerCap: 24,        // provenance sources kept per quantity; older ones merge into 'earlier'
     segmentBudget: 20000, // segments per advance call before it returns pending (CX5, TMR8)
