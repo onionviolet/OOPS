@@ -35,7 +35,12 @@ import {assert, natural, copy, stableId, meets, createSimulationState, validateS
 import {cloneData, person, participant, simulationFacts, simulationFactsFor, applySimulationEffects, refundCosts, inventory, writeInventory, advanceNativeContainerClocks,resolveSimulationCostKeys} from "./simulation_effects.js";
 import {previewPowerModel, resolveEffectAmount, fluencyDuration} from "./power_models.js";
 import {prepareSimulationEffects, resolveOutcomeWeights} from "./simulation_resolution.js";
+import {reserveAmuletCosts,settledAmuletEffects} from './lotm_amulet_crafting.js';
 import {advanceConstructs,nextConstructBoundary} from './temporary_construct.js';
+import {advanceKeeperRainbow,nextKeeperRainbowBoundary} from './gu_keeper_rainbow.js';
+import {advanceKeeperDrain,nextKeeperDrainBoundary} from './gu_keeper_propagation.js';
+import {advanceRoamingWorm,nextRoamingWormBoundary} from './gu_keeper_wild.js';
+import {advanceFixedWatch,nextFixedWatchBoundary} from './gu_keeper_fixed_claim.js';
 import {pursuitReservesActor,nextPursuitBoundary,advancePursuits} from "./pursuit.js";
 export {createSimulationRegistry} from "./simulation_contracts.js";
 export {simulationFacts,simulationRuleFacts} from "./simulation_effects.js";
@@ -183,7 +188,8 @@ function previewCommand(state, registry, commandId, context, rehearse, knownFact
     const resolve = effects => (alloyTechniqueEffects(d, effects, facts, value => resolveEffectAmount(value, facts, model || {})) || []).map(e => e.amount != null ? {...e, amount: resolveEffectAmount(e.amount, facts, model || {})} : copy(e));
     let costs = [], effects = [], weights = null;
     try {
-        costs = resolveSimulationCostKeys(test || {state, gameplay: context.gameplay || {}},resolve(d.costs),context); effects = resolve(d.effects); if(d.outcomes) weights = resolveOutcomeWeights(d.outcomes, facts, model || {});
+        const plannedCosts=reserveAmuletCosts(d.id,resolve(d.costs),context.gameplay?.player?.inventory);
+        costs = resolveSimulationCostKeys(test || {state, gameplay: context.gameplay || {}},plannedCosts,context); effects = resolve(d.effects); if(d.outcomes) weights = resolveOutcomeWeights(d.outcomes, facts, model || {});
         if(rehearse) {
         applySimulationEffects(test, costs, context, registry, "preview", {spending: true});
         if(d.claim && !s.claims[d.claim]) applySimulationEffects(test,[{type:"claim",operation:"acquire",key:d.claim}],context,registry,"preview");
@@ -292,7 +298,7 @@ function startCommand(out, registry, commandId, context, immediatePreview, conte
         s.sessions[context.actorId].participants = job.participants;
         if(d.pursuitId) {const p=s.pursuits[d.pursuitId];p.status="encounter";p.due=null;s.sessions[context.actorId].pursuitId=d.pursuitId;}
     } else if(job.due > state.clock) {s.jobs.push(job); if(job.siteId) s.sites[job.siteId].reservations[job.id] = job.actorId;}
-    else completeJob(out, job, registry, effects.some(e=>e.type==='container'||e.type==='relocate')?{[context.actorId]:context}:d.group?.startsWith('world_completion_')?{...contexts,[context.actorId]:context,player:contexts.player||context}:['causal_story','causal_story_npc'].includes(d.group) ?
+    else completeJob(out, job, registry, effects.some(needsNativeEffectContext)?{[context.actorId]:context}:d.group?.startsWith('world_completion_')?{...contexts,[context.actorId]:context,player:contexts.player||context}:['causal_story','causal_story_npc'].includes(d.group) ?
         currentCausalStoryContexts(out,{...contexts,[context.actorId]:context}) : ['proto23','book_paradise_npc','book_mol','book_mol_npc','book_paradise_campaign','book_paradise_campaign_npc'].includes(d.group)?{[context.actorId]:context}:{});
     return job;
 }
@@ -305,6 +311,10 @@ export function commitSimulationCommand(state, registry, command, context, expec
     initializeStoryletDecks(out.state);validateStoryletState(out.state);
     validateSimulationState(out.state.simulation, out.state, registry.simulation); return out;
 }
+const nativeEffectTypes = new Set(['container', 'relocate', 'guColony', 'guTime', 'guWild', 'guRefinement',
+    'guMoonlightTrial', 'guMoveTrial', 'guRainbow', 'guPropagate', 'guHostedWolf', 'guCooperation', 'guFixedTravel', 'guAttitude', 'guAntNest', 'guProcedure', 'guSpirit', 'guGoal', 'guFusion', 'guFixedForge']);
+const needsNativeEffectContext = effect => nativeEffectTypes.has(effect.type);
+
 function completeJob(out, job, registry, contexts = {}, beforeJob=null) {
     const state = out.state, s = state.simulation;
     if(completeLorePracticeJob(out,job,registry,contexts)) return;
@@ -341,10 +351,10 @@ function completeJob(out, job, registry, contexts = {}, beforeJob=null) {
             return;
         }
     }
-    const containerContext=job.effects.some(e=>e.type==='container'||e.type==='relocate')?{...contexts[job.actorId],...job.context,external:out.external,gameplay:out.gameplay,vitals:out.vitals}:null;
-    const effectContext=containerContext||wcContext||(['proto23','book_care_npc','book_paradise_npc','book_mol','book_mol_npc','book_paradise_campaign','book_paradise_campaign_npc','causal_story','causal_story_npc'].includes(completionGroup)?{...contexts[job.actorId],...job.context,...(['book_mol','book_mol_npc'].includes(completionGroup)?{molAcceptedJob:job}:{}),
+    const nativeEffectContext=job.effects.some(needsNativeEffectContext)?{...contexts[job.actorId],...job.context,external:out.external,gameplay:out.gameplay,vitals:out.vitals}:null;
+    const effectContext=nativeEffectContext||wcContext||(['proto23','book_care_npc','book_paradise_npc','book_mol','book_mol_npc','book_paradise_campaign','book_paradise_campaign_npc','causal_story','causal_story_npc'].includes(completionGroup)?{...contexts[job.actorId],...job.context,...(['book_mol','book_mol_npc'].includes(completionGroup)?{molAcceptedJob:job}:{}),
             ...(['book_paradise_campaign','book_paradise_campaign_npc'].includes(completionGroup)?{paradiseCampaignAcceptedJob:job}:{}),external:out.external,gameplay:out.gameplay,vitals:out.vitals,vitalsByActor:out.vitals,equipment:out.equipment}:job.context);
-    applySimulationEffects(out, job.effects, effectContext, registry, job.id);
+    applySimulationEffects(out, settledAmuletEffects(job,state), effectContext, registry, job.id);
     if(job.claim && s.claims[job.claim]?.status === "held") applySimulationEffects(out, [{type: "claim", operation: "settle", key: job.claim}], job.context, registry, job.id);
     const actor = state.actors[job.actorId]; actor.completed[job.commandId] = (actor.completed[job.commandId] || 0) + 1;
     recordCausalStoryJobCompletion(out,job,registry);
@@ -521,7 +531,7 @@ export function previewSimulationResponse(state, registry, choice, context) {
 const lorePendingJob = /^lore\.(?:work|warning)\./;
 export function nextSimulationBoundary(state,{skipLoreJobs=false,skipCompletionJobs=false,skipCompletionCropChecks=false,controllerWakes=null}={}) {
     const s = state.simulation; if(!s) return Infinity;
-    let at = Math.min(nextConstructBoundary(state),nextStoryletBoundary(state),nextFoundationInteractionBoundary(state),nextPursuitBoundary(state));
+    let at = Math.min(nextConstructBoundary(state),nextStoryletBoundary(state),nextFoundationInteractionBoundary(state),nextPursuitBoundary(state),nextKeeperRainbowBoundary(state),nextKeeperDrainBoundary(state),nextRoamingWormBoundary(state),nextFixedWatchBoundary(state));
     for(const j of s.jobs) if((!skipLoreJobs||!lorePendingJob.test(j.commandId))&&(!skipCompletionJobs||!j.commandId.startsWith("world.completion."))) at = Math.min(at, j.due);
     for(const c of Object.values(s.checks)) if(!skipCompletionCropChecks||!["remainder_consequences.frost_warning","remainder_consequences.frost_settlement"].includes(c.definitionId)) at = Math.min(at, c.due);
     const queue=controllerWakes?createWakeQueue():null;
@@ -654,6 +664,10 @@ export function advanceSimulationBoundary(out, registry, contexts = {}) {
         const beforeJob=j.commandId.startsWith("world.completion.")?cloneData(state):null;
         s.jobs = s.jobs.filter(job => job.id !== j.id); completeJob(out, j, registry, contexts,beforeJob); work++;
     }
+    work += advanceKeeperRainbow(state);
+    work += advanceKeeperDrain(state);
+    work += advanceRoamingWorm(state);
+    work += advanceFixedWatch(state);
     reconcileRemainderConsequences(out,registry,contexts.player || {});
     reconcileWorldCompletionPlan(out,registry,contexts);
     work += advanceConstructs(out,registry,{readInventory:inventory,writeInventory});

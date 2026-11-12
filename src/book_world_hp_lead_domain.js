@@ -1,3 +1,4 @@
+import {hpLeadTrialJournal} from './hp_lead_spells.js';
 // Read-only 'hp' panel projection for the HP lead life: the shape the slice runner and the native route
 // driver read (`arc.next`, `arc.done`), built by the shared sequence owner (place_act_sequence.js), as the
 // LOTM host does. No state, tick or save of its own. registerBookBeginnings passes the ports; the panel mounts
@@ -68,7 +69,7 @@ export function hpLeadProjection(state,data=actData(),locked=getHpLeadCast()?.lo
     const hufflepuffResult=state.simulation.knowledge?.player?.[HP_LEAD_NORBERT+'.match-result']?.value??null;
     const termResults=state.simulation.knowledge?.player?.[HP_LEAD_FINALE+'.cup-result']?.value??null;
     return {enrolled:state.actors?.player?.worldId===`${LEAD_ID}.world`,arc,schoolWeek:!!week,halloweenCharms,
-        termResults,hufflepuffResult,excursion:excursion?{id:arc.id,venue}:null,housePoints:halloweenArc?hpHalloweenHousePoints(state):null,match:matchArc?hpQuidditchMatch(state):null,reputation:reputationView(state,{known:id=>id==='book.hp.lead.ron'&&!!hpSchoolRoute(state).house}),school:hpSchoolRoute(state),ties:hpSchoolRoute(state).house?tieShownView(state):[],home:hpLeadHomeView(state,{homes:domainRegistry.project('homes'),quote:domainRegistry.command('homes','quote')??null}),lessons:hpLessonView(state),exams:hpExamView(state),locked:structuredClone((excursion?excursion.locked?.[shown]:locked[shown])??[]),jobs:structuredClone(state.simulation.jobs||[])};
+        termResults,hufflepuffResult,excursion:excursion?{id:arc.id,venue}:null,housePoints:halloweenArc?hpHalloweenHousePoints(state):null,match:matchArc?hpQuidditchMatch(state):null,reputation:reputationView(state,{known:id=>id==='book.hp.lead.ron'&&!!hpSchoolRoute(state).house}),school:hpSchoolRoute(state),ties:hpSchoolRoute(state).house?tieShownView(state):[],home:hpLeadHomeView(state,{homes:domainRegistry.project('homes'),quote:domainRegistry.command('homes','quote')??null}),lessons:hpLessonView(state),atCharmsBench:state.simulation.people.player.location===LEAD_ID+'.school_hall',trialJournal:hpLeadTrialJournal(state),boardResult:state.simulation.knowledge?.player?.[LEAD_ID+'.spell_practice.last']?.value??null,exams:hpExamView(state),locked:structuredClone((excursion?excursion.locked?.[shown]:locked[shown])??[]),jobs:structuredClone(state.simulation.jobs||[])};
 }
 // Live holdings: the purse is the player's own resource under the pack's currency key (one integer in the smallest coin,
 // shown on the pack's ladder); other holders (a vault, another person's coins) are different actors and never show here.

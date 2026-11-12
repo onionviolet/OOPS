@@ -17,12 +17,14 @@ export function requireStructuredExtensions(record,base,state) {
         const e=base?.extensions?.find(e=>e.id===pin.id);
         check(e&&e.revision===pin.revision&&e.contentHash===pin.contentHash,'Restore the exact school extension content. Your saved life has been preserved.');
         requireExtensionBase(e,base);
+        check((e.dependsOn||[]).every(id=>record.extensions.some(required=>required.id===id)), 'Restore the required continuation before loading this save.');
     }
     // Only the installed command extension's declared outputs are considered.
     // A settled counter or witnessed note still belongs to its saved identity.
     if(state)for(const e of base?.extensions||[]) {
-        const produced=e.commands.some(c=>(state.actors?.player?.completed?.[c.id]||0)>0||c.effects.some(effect=>effect.type==='knowledge'&&Object.hasOwn(state.simulation?.knowledge?.player||{},effect.key)));
-        check(!produced||record?.extensions?.some(pin=>pin.id===e.id),'Settled extension work requires its saved content pin.');
+        const produced=e.commands.some(c=>(state.actors?.player?.completed?.[c.id]||0)>0||[...(c.effects||[]),...(c.outcomes||[]).flatMap(o=>o.effects||[])].some(effect=>effect.type==='knowledge'&&Object.hasOwn(state.simulation?.knowledge?.player||{},effect.key)));
+        const learned=e.energies?.some(d=>Object.hasOwn(state.simulation?.energies?.player||{},d.id));
+        check(!(produced||learned)||record?.extensions?.some(pin=>pin.id===e.id),'Settled extension work requires its saved content pin.');
     }
     if(state)for(const job of state.simulation?.jobs||[]) {
         const e=base?.extensions?.find(e=>job.commandId.startsWith(e.id+'.'));
@@ -37,6 +39,10 @@ export function admittedExtensionCommands(base,record) {
     requireStructuredExtensions(record,base);
     return (base.extensions||[]).filter(e=>record?.extensions?.some(pin=>pin.id===e.id)).flatMap(e=>e.commands);
 }
+export function structuredAdmittedLocations(base,record) {
+    return [...(base?.locations||[]),...(record?.extensions||[]).flatMap(pin=>
+        base?.extensions?.find(e=>e.id===pin.id)?.locations||[])];
+}
 export function previewStructuredExtension(state,base,record,e,context,facts) {
     requireExtensionBase(e,base);
     const reasons=[];
@@ -44,7 +50,7 @@ export function previewStructuredExtension(state,base,record,e,context,facts) {
     if(record?.extensions?.some(pin=>pin.id===e.id))reasons.push('This optional continuation is already admitted.');
     if(context.busy||state.pending.length||state.simulation?.jobs.length||state.chronicle?.session||state.chronicle?.life.endedAt!=null||Object.values(state.actors.player.techniques||{}).some(t=>t.practice))reasons.push('Finish your current work before admitting this continuation.');
     if(context.nativeAlive!==true||context.nativeReady!==true||state.simulation?.people.player?.life!=='alive'||context.vitals?.player&&!(context.vitals.player.health>0))reasons.push('Continue with a ready living body.');
-    if(!evaluateRule(e.requires,facts).met)reasons.push(e.reason);
+    if(!(e.dependsOn||[]).every(id=>record?.extensions?.some(pin=>pin.id===id))||!evaluateRule(e.requires,facts).met)reasons.push(e.reason);
     return {id:e.id,revision:e.revision,contentHash:e.contentHash,label:e.label,description:e.description,eligible:!reasons.length,reasons};
 }
 // A plan only: the host publishes the pin through its existing content_packs
@@ -56,5 +62,6 @@ export function planStructuredExtension(state,base,record,request,context,facts)
     const quote=previewStructuredExtension(state,base,record,e,context,facts);
     check(quote.eligible,quote.reasons.join(' '));
     const next=structuredClone(record);(next.extensions??=[]).push({id:e.id,revision:e.revision,contentHash:e.contentHash});
+    next.locationIds=structuredAdmittedLocations(base,next).map(l=>l.id);
     return {record:next,plan:{state:structuredClone(state),external:structuredClone(context.external),gameplay:structuredClone(context.gameplay),vitals:structuredClone(context.vitals||{}),acquisitions:[],unlocks:[]}};
 }

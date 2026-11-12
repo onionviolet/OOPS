@@ -97,7 +97,7 @@ export function mixturePresentation(s,p){
     const known=s?.knowledge?.[p.id]?.observed;
     return currentProductAppearanceView(p,s?.knowledge,{name:`${p.process==='steep'?'Steeped':'Boiled'} Village mixture`,description:known?
         `Observed dose: +${p.dose.health} health regeneration, +${p.dose.stamina} stamina regeneration; agility -${p.dose.sedation}. ${p.dose.duration} minutes. Same family replaces the previous dose.`:
-        'An untested mixture. Its properties still operate. Drink one dose to observe them. Same family replaces the previous dose.'});
+        'An untested mix. It works whether you know it or not; drink a dose to find out how. A new dose of the same kind replaces the last.'});
 }
 // Exact rational aliquots: traces are never rounded. This slice exposes whole vials.
 export function splitComposition(p,numerator,denominator){validateProduct(p);if(!Number.isSafeInteger(numerator)||!Number.isSafeInteger(denominator)||numerator<=0||numerator>=denominator||denominator*p.mass>Number.MAX_SAFE_INTEGER)fail('Invalid aliquot.');return [numerator,denominator-numerator].map(n=>({unit:p.unit,fractions:Object.fromEntries(Object.entries(p.fractions).map(([k,v])=>[k,{numerator:v*n,denominator}]))}));}

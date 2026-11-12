@@ -1,3 +1,4 @@
+import {scopedRestart} from '../src/harm_restart_scope.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {fixture,context,envelope} from '../docs/gm/dispatch/pc-groups-2026-10-26/lore-and-idea-sources/implementation/L2/fixture.mjs';
@@ -160,4 +161,58 @@ test('a Zorian save made before the reserve existed shows the panel and refuses 
  assert.equal(q.eligible,false);assert.ok(q.reasons.length>0,"reason shown");
  assert.doesNotThrow(()=>molPresentation(p.state,registry,zctx(p)));
  assert.ok(!/reserve of/.test(molPresentation(p.state,registry,zctx(p)).sections[0].description));
+});
+
+test('Cyoria light research compares two methods and tests a new formula against the slate',()=>{
+ let p=zorian();
+ p.state.simulation.people.player.location=L.court;
+ p.state.actors.player.facts['book.mol.loop.s0.basic_three_drilled']=true;
+ const anchor={expansion:structuredClone(p.state)};
+ const prefix='book.mol.zorian.light.';
+ const preview=key=>previewMolCommand(p.state,registry,prefix+key,zctx(p));
+ const act=key=>{
+  assert.equal(preview(key).eligible,true,preview(key).reasons.join(' '));
+  p=finish({...p,...commitMolCommand(p.state,registry,{type:'book_mol',id:prefix+key},zctx(p))});
+ };
+ const known=key=>p.state.simulation.knowledge.player[prefix+key]?.value;
+ const reserve=()=>p.state.simulation.energies.player['book.mol.zorian.reserve'].reserve;
+ assert.equal(preview('torch').eligible,false);
+ act('study_torch'); const initial=reserve();
+ act('overload');assert.match(known('trial.overload.failed'),/broke apart/);assert.equal(preview('draft_oblique').eligible,false);assert.equal(reserve(),initial-3);assert.equal(preview('read_heading').eligible,false);
+ act('torch');act('read_heading');assert.match(known('heading'),/academy practice/);
+ assert.equal(preview('read_cut').eligible,false);
+ act('review_shaping');act('shaped');assert.equal(preview('read_heading').eligible,true);
+ assert.equal(preview('read_cut').eligible,false);
+ act('draft_oblique');
+ assert.equal(preview('read_heading').eligible,false,'direct light expired during research');
+ act('oblique');assert.ok(known('trial.oblique.worked'));act('read_cut');assert.match(known('incisions'),/direction of the light/);
+ assert.match(known('torch_formula'),/bounded construct/);
+ assert.equal(reserve(),initial-6);
+ act('start_formula');act('copy_cuts');
+ assert.equal(known('cut_copy'),undefined,'the four-minute light ends before the copy can finish');
+ act('draft.direction.oblique');act('draft_cast.oblique.plain.one');
+ assert.match(known('trial.draft_cast.oblique.plain.one.failed'),/spread too thin/);
+ const move=id=>{p=finish({...p,...commitMolCommand(p.state,registry,{type:'book_mol',id},zctx(p))});};
+ move('book.mol.move.house');move('book.mol.zorian.s0.rest_reserve');move('book.mol.move.court');
+ act('draft.draw.three');act('draft_cast.oblique.plain.three');
+ assert.match(known('trial.draft_cast.oblique.plain.three.failed'),/broke apart/);
+ const compose=steps=>commitMolCommand(p.state,registry,{type:'book_mol',id:prefix+'compose_formula',steps},zctx(p));
+ assert.throws(()=>compose(['direction.oblique','boundary.braced','draw.three']),/preceding step leaves unshaped formula/);
+ p=finish({...p,...compose(['boundary.braced','direction.oblique','draw.three'])});
+ act('draft_cast.oblique.braced.three');
+ assert.match(known('trial.draft_cast.oblique.braced.three.worked'),/low band/);
+ act('copy_cuts');assert.ok(known('cut_copy'));
+ act('write_formula.oblique.braced.three');
+ act('draft.direction.diffuse');act('recall_formula.oblique.braced.three');
+ assert.equal(preview('draft_cast.oblique.braced.three').visible,true);
+ p={...p,state:scopedRestart({expansion:p.state},anchor,I.world,I.world+'#zorian').expansion};
+ assert.equal(reserve(),initial);
+ assert.equal(preview('copy_cuts').eligible,false,'the old light did not survive the restart');
+ assert.equal(preview('draft_cast.oblique.braced.three').visible,false,'the old draft did not survive');
+ assert.ok(known('recipe.oblique.braced.three'));
+ assert.ok(known('trial.draft_cast.oblique.plain.three.failed'));
+ act('recall_formula.oblique.braced.three');act('draft_cast.oblique.braced.three');
+ assert.equal(preview('read_cut').eligible,true);
+
+
 });

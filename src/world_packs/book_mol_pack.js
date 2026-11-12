@@ -1,5 +1,5 @@
-// Plain-data world pack (WA21): a JSON-shaped literal, no code. Generated once from the
-// hand-coded Cyoria content; this file is now the authority for those definitions.
+// Cyoria pack data, with generated practice rows from its local light-research owner.
+import {molLightCommands,molLightConditions} from '../mol_light_research.js';
 export default {
  "format": "yairpg.world-pack",
  "formatVersion": 1,
@@ -681,6 +681,7 @@ export default {
     }
    ],
    "conditions": [
+    ...molLightConditions,
     {
      "id": "book.mol.smoke_exposure",
      "revision": 1,
@@ -1630,6 +1631,7 @@ export default {
     }
    ],
    "commands": [
+    ...molLightCommands,
     {
      "id": "book.mol.zorian.s2.wait_for_xvim",
      "revision": 1,

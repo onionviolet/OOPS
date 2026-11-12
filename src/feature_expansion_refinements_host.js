@@ -29,14 +29,17 @@ function qualifiedAction(action,state,registry,context){
   preview:{visible:true,eligible:action.eligible,reasons:rawReasons},context,command:{...action.command,sequence:state.sequence},
   disclosure:{costs:terms?[{known:true,text:terms}]:[],reasons:rawReasons.map(match=>({known:true,match,text:publicReason(match)}))}};
 }
-export function refinementPresentation(snapshot,registry,{base,relayHost,referenceDeskHost,replacementContext}){
+export function refinementPresentation(snapshot,registry,{base,relayHost,referenceDeskHost,replacementContext,craftControls}){
  const {state,context}=snapshot,view=base(snapshot,registry),sections=[...view.sections],actual=replacementContext();
  const relay=relayHost.presentation(state,registry,actual);
  if(relay.visible)sections.push({...relay,actions:[...relay.officeActions,...relay.actions],records:relay.records});
  const reference=referenceDeskHost.presentation(state,registry,actual);if(reference.visible)sections.push(reference);
  const life=nestedLifePresentation(state,registry,context);sections.push(...life.sections);
  const book=paradisePresentation(state,registry,context);sections.push(...book.sections);
- const mol=molPresentation(state,registry,context);sections.push(...mol.sections);
+ const mol=molPresentation(state,registry,context);
+ const workshop=mol.sections.find(section=>section.id==='book.mol.campaign');
+ if(workshop)workshop.craft=craftControls?.(state,context);
+ sections.push(...mol.sections);
  const paradiseDepth=paradiseCampaignDepthPresentation(state,registry,context);sections.push(...paradiseDepth.sections);
  const nested=nestedPresentation(state,registry,context),chainView=nestedChainPresentation(state,registry,context);
  if(nested.visible){

@@ -80,3 +80,42 @@ test('IS1–IS4 native consumers: inspect, cross-category return, exact craft, a
  await g.call('useRecipe',material.parentNode,1);
  assert.equal(JSON.stringify(n.character.getItems()),busyStock);assert.deepEqual(n.expansionState.streams,busyRng);
 });
+
+test('native axe forging settles head and offcuts together and rolls back both on a refused save', async () => {
+ const g = await boot(null, {seed: 23}), n = g.internals;
+ n.global_flags.is_crafting_unlocked = true;
+ n.current_location.crafting = {isUnlocked: () => true, tiers: {forging: 1, smelting: 1}};
+ n.character.addToInventory([{item_id: 'Iron ingot', count: 4}]);
+ await g.call('openCraftingWindow');
+ await g.call('switchCraftingRecipesPage', 'forging');
+ await g.call('switchCraftingRecipesSubpage', 'components');
+ const choose = async () => {
+  const row = g.$('[data-crafting_category="forging"][data-crafting_subcategory="components"] [data-recipe_id="Axe head"]');
+  if (!row.classList.contains('selected_recipe')) await g.click(row.querySelector('.recipe_name'));
+  const material = row.querySelector('.selectable_material');
+  await g.click(material.querySelector('.recipe_comp_name'));
+  return material.querySelector('[data-material-craft="1"]');
+ };
+ const inventory = () => Object.fromEntries(Object.entries(n.character.getItems()).map(([key, row]) => [key, row.count]));
+ const before = inventory(), originalWrite = g.storage.setItem;
+ const refused = await choose();
+ g.storage.setItem = function(key, value) {
+  if (key === 'save data') throw Error('Synthetic forge write refusal');
+  return originalWrite.call(this, key, value);
+ };
+ try {
+  await g.click(refused);
+  assert.deepEqual(inventory(), before);
+ } finally {
+  g.storage.setItem = originalWrite;
+ }
+ await g.click(await choose());
+ const settled = inventory();
+ assert.equal(settled['{"id":"Iron ingot"}'], undefined);
+ for (const id of ['Iron axe head', 'Mixed forge offcuts']) {
+  const key = Object.keys(settled).find(key => JSON.parse(key).id === id);
+  assert.equal(settled[key], 1);
+  assert.equal(JSON.parse(key).lineage.history[0].inputs[0].count, 4);
+  assert.equal(JSON.parse(g.storage.getItem('save data')).inventories.person.main_character[key].count, 1);
+ }
+});

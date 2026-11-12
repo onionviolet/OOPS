@@ -352,3 +352,29 @@ test('IP6: the idle harvest budget is a dial; the default stops at 500 and a lar
     assert.ok(wide.harvests > small.harvests);
     assert.throws(() => gatherIdle(sources, {...args, budget: 0}), /budget/);
 });
+
+test('fixed conversion capacity leaves more remainder at scale and feeds later reactions in order',()=>{
+    const catalogue=defineCatalogue({id:'trial.work-capacity',revision:1,
+        axes:['raw','prepared','set'].map(id=>({id,kind:'fraction'})),
+        materials:[{id:'feedstock',revision:1,phase:'solid',properties:{raw:1000}}]});
+    const conversion={from:'raw',to:'prepared',permille:1000,unitsPerLevel:1000};
+    const spec={id:'trial.prepare-then-set',revision:1,catalogue,
+        ops:[{id:'prepare',levels:[1,2],converts:[conversion]},{id:'set'}],
+        reactions:[{id:'set-prepared',after:'set',reactants:{prepared:1},products:{set:1}}]};
+    const law=defineCraftLaw(spec);
+    const run=(qty,process)=>resolveBatch(law,{inputs:[{material:catalogue.materials.feedstock,qty}],process});
+    const prepare={op:'prepare',level:1},set={op:'set',level:1};
+    const small=run(1,[prepare,set]),large=run(2,[prepare,set]);
+    assert.equal(small.product.composition.raw,0);
+    assert.equal(large.product.composition.raw,1000);
+    assert.equal(large.product.composition.set,1000);
+    assert.deepEqual(large.trace[0],{step:0,kind:'convert',op:'prepare',from:'raw',to:'prepared',moved:1000,capacity:1000,remaining:1000});
+    assert.equal(run(2,[set,prepare]).product.composition.set,0);
+    assert.equal(run(2,[prepare,prepare,set]).product.composition.set,2000);
+    assert.equal(run(2,[{...prepare,level:2},set]).product.composition.set,2000);
+    assert.deepEqual(validateBatchProduct(law,roundTrip(large.product),catalogue.materials),large.product);
+    assert.throws(()=>validateBatchProduct(law,{...roundTrip(large.product),composition:small.product.composition},catalogue.materials),/disagrees/);
+    for(const unitsPerLevel of [0,-1,1.5,null]) {
+        assert.throws(()=>defineCraftLaw({...spec,ops:[{id:'prepare',converts:[{...conversion,unitsPerLevel}]},{id:'set'}]}),/capacity/);
+    }
+});

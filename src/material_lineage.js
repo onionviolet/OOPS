@@ -205,6 +205,13 @@ export function planMaterialMerge(fragments) {
 // Output count cannot exceed consumed count here: recipes that transform volume
 // need a separate explicit, world-authored yield mechanism at their call site.
 export function planProcessedMaterial({stock, inputs, supportInputs = [], output, process, sourceFacts = {}, yieldRatio = {numerator: 1, denominator: 1}}) {
+    const plan = prepareMaterialProcess({stock, inputs, supportInputs, process, sourceFacts});
+    if (!positive(yieldRatio.numerator) || !positive(yieldRatio.denominator) || !positive(output?.count) || BigInt(output.count) * BigInt(yieldRatio.denominator) > plan.selected.reduce((sum, row) => sum + BigInt(row.count), 0n) * BigInt(yieldRatio.numerator)) fail('Processed yield exceeds consumed material.');
+    const product = materialProduct(output, plan);
+    return {item_key: product.item_key, output: product.output, inputs: plan.debits, lineage: product.lineage};
+}
+
+function prepareMaterialProcess({stock, inputs, supportInputs = [], process, sourceFacts = {}}) {
     const selected = exactAllocations(stock, inputs);
     // Supports retain causal identity without becoming extra units of hide,
     // meat or wood. A retained tool is checked but is not an expenditure.
@@ -215,12 +222,6 @@ export function planProcessedMaterial({stock, inputs, supportInputs = [], output
         if (selected.some(input => input.item_key === row.item_key)) fail('Primary and support selections overlap; supply one exact allocation per stock key.');
         return {item_key: row.item_key, count: row.count};
     })).map((row, i) => ({...row, disposition: supportInputs[i].disposition})) : [];
-    if (!object(output) || Object.keys(output).some(k => !['id', 'family', 'count', 'quality', 'completeness', 'treatment'].includes(k))) fail('Invalid processed material output.');
-    const id = boundedText(output.id, 'material id', 180);
-    const family = boundedText(output.family, 'material family', 120);
-    if (!positive(yieldRatio.numerator) || !positive(yieldRatio.denominator) || !positive(output.count) || BigInt(output.count) * BigInt(yieldRatio.denominator) > selected.reduce((sum, row) => sum + BigInt(row.count), 0n) * BigInt(yieldRatio.numerator)) fail('Processed yield exceeds consumed material.');
-    if (output.quality != null && (!Number.isFinite(output.quality) || output.quality < 0 || output.quality > 1000)) fail('Invalid processed quality.');
-    if (output.completeness != null) boundedText(output.completeness, 'completeness', 80);
     if (!object(process) || Object.keys(process).some(k => !['id', 'revision', 'at', 'world_id', 'parameters'].includes(k))) fail('Invalid process.');
     const processId = boundedText(process.id, 'process id', 120);
     if (!positive(process.revision) || !nonnegative(process.at)) fail('Invalid process revision or time.');
@@ -239,8 +240,24 @@ export function planProcessedMaterial({stock, inputs, supportInputs = [], output
             ...(typeof source.completeness === 'string' ? {completeness: source.completeness} : {})
         }, ...supplied};
     });
+    const event = {
+        process_id: processId, revision: process.revision, at: process.at,
+        ...(process.world_id ? {world_id: process.world_id} : {}),
+        parameters: clone(process.parameters ?? {}),
+        inputs: [...selected, ...supports].map((row, index) => ({item_key: row.item_key, count: row.count, facts: clone(parentFacts[index]),
+            ...(row.disposition ? {role: 'support', disposition: row.disposition} : {})}))
+    };
+    return {selected, event, inheritedFacts: parentFacts.slice(0, selected.length),
+        debits: [...selected, ...supports.filter(row => row.disposition === 'consumed')].map(({item_key, count}) => ({item_key, count}))};
+}
+
+function materialProduct(output, {event, inheritedFacts}) {
+    if (!object(output) || Object.keys(output).some(k => !['id', 'family', 'count', 'quality', 'completeness', 'treatment'].includes(k))) fail('Invalid processed material output.');
+    const id = boundedText(output.id, 'material id', 180);
+    const family = boundedText(output.family, 'material family', 120);
+    if (output.quality != null && (!Number.isFinite(output.quality) || output.quality < 0 || output.quality > 1000)) fail('Invalid processed quality.');
+    if (output.completeness != null) boundedText(output.completeness, 'completeness', 80);
     const facts = {};
-    const inheritedFacts = parentFacts.slice(0, selected.length);
     const ages = inheritedFacts.map(row => row.born).filter(nonnegative);
     if (ages.length) facts.born = Math.min(...ages); // processing never rejuvenates a perishable input
     const worlds = [...new Set(inheritedFacts.map(row => row.origin_world).filter(Boolean))];
@@ -253,20 +270,43 @@ export function planProcessedMaterial({stock, inputs, supportInputs = [], output
     // and timestamped inspection records) in the exact parent event. The item
     // projection must still honor observer knowledge separately.
 
-    const event = {
-        process_id: processId, revision: process.revision, at: process.at,
-        ...(process.world_id ? {world_id: process.world_id} : {}),
-        parameters: clone(process.parameters ?? {}),
-        inputs: [...selected, ...supports].map((row, index) => ({item_key: row.item_key, count: row.count, facts: clone(parentFacts[index]),
-            ...(row.disposition ? {role: 'support', disposition: row.disposition} : {})}))
-    };
     const lineage = {schema: MATERIAL_LINEAGE_SCHEMA, revision: MATERIAL_LINEAGE_REVISION, family, facts, history: [event]};
     if (lineage.history.length > 64) fail('Material history exceeds supported depth.');
     const itemKey = canonical({id, ...(output.quality != null ? {quality: output.quality} : {}), ...(output.completeness != null ? {completeness: output.completeness} : {}), lineage});
     return {
         item_key: itemKey,
         output: {item_key: itemKey, count: output.count},
-        inputs: [...selected, ...supports.filter(row => row.disposition === 'consumed')].map(({item_key, count}) => ({item_key, count})),
         lineage
     };
+}
+
+// The calling law supplies all amounts in one declared conserved unit. Tool
+// wear, fuel and other process costs are outside this material balance.
+export function planMaterialPartition({stock, inputs, supportInputs, process, sourceFacts,
+    unit, outputs, losses = [], unitsPerInput}) {
+    boundedText(unit, 'material balance unit', 80);
+    if (!Array.isArray(outputs) || !Array.isArray(losses)) fail('Material partition needs output and loss rows.');
+    if (typeof unitsPerInput !== 'function') fail('Material partition needs an input measure.');
+    const plan = prepareMaterialProcess({stock, inputs, supportInputs, process, sourceFacts});
+    const measure = (count, unitsPerItem) => {
+        if (!positive(count) || !positive(unitsPerItem)) fail('Invalid material partition measure.');
+        return BigInt(count) * BigInt(unitsPerItem);
+    };
+    const incoming = plan.selected.reduce((sum, row) =>
+        sum + measure(row.count, unitsPerInput(row.item_key)), 0n);
+    const produced = outputs.reduce((sum, row) => sum + measure(row.output?.count, row.unitsPerItem), 0n);
+    const lost = losses.reduce((sum, row) => {
+        boundedText(row.reason, 'material loss reason', 120);
+        return sum + measure(row.amount, 1);
+    }, 0n);
+    if (incoming !== produced + lost) fail('Material partition must account for every input unit.');
+    if (incoming > BigInt(Number.MAX_SAFE_INTEGER)) fail('Material partition exceeds safe arithmetic.');
+    const balance = {unit, input: Number(incoming), output: Number(produced), loss: Number(lost)};
+    const grants = outputs.map(row => {
+        const product = materialProduct(row.output, plan);
+        validateFacts(product.lineage.facts);
+        return product.output;
+    });
+    if (new Set(grants.map(row => row.item_key)).size !== grants.length) fail('Combine identical material outputs before planning.');
+    return {inputs: plan.debits, outputs: grants, losses: clone(losses), balance, event: plan.event};
 }

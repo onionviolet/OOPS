@@ -25,10 +25,14 @@ export function createStructuredNativeRegistration({registry,locations,items,inv
         for(const [category,id,inventory]of staged.inventories){inventories[category]||={};inventories[category][id]=inventory;}
         definitions.set(d.id,d);return d;
     };
-    register.extension=async(raw,base)=>registerStructuredCommandExtension(raw,await structuredContentHash(raw),base,registry,rows=>{
+    const extension=async(raw,base,options)=>registerStructuredCommandExtension(raw,await structuredContentHash(raw),base,registry,(rows,places)=>{
         if(rows.some(row=>Object.hasOwn(items,row.id)))throw Error('Structured native item collision.');
-        const staged=stageStructuredNativeObjects({locations:[],items:rows,simulation:{}},{availabilities,makeLocation,makeItem,makeInventory});
+        if(places.some(row=>Object.hasOwn(locations,row.id)))throw Error('Structured native location collision.');
+        const staged=stageStructuredNativeObjects({locations:places,items:rows,simulation:{}},{availabilities,makeLocation,makeItem,makeInventory});
         for(const [id,item] of staged.items)items[id]=item;
-    });
+        for(const [id,location] of staged.locations)locations[id]=location;
+    },options);
+    register.extension=(raw,base)=>extension(raw,base);
+    register.bundledInstantExtension=(raw,base)=>extension(raw,base,{bundledInstant:true});
     return register;
 }

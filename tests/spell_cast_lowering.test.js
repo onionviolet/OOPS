@@ -4,10 +4,10 @@ import assert from 'node:assert/strict';
 import {defineSpells} from '../src/spell_seam.js';
 import {hpSpellAdapter} from '../src/spell_adapter_hp.js';
 import {lowerSpellCasts, spellCastFacts, defaultChanceFact} from '../src/spell_cast_lowering.js';
-import {hpLeadSpellSet, hpLeadSpellCommands, hpLeadSpellFacts, hpLeadChanceFact} from '../src/hp_lead_spells.js';
+import {HP_SPELL_PRACTICE, hpLeadBenchCommands, hpLeadSpellSet, hpLeadSpellCommands, hpLeadSpellFacts, hpLeadChanceFact} from '../src/hp_lead_spells.js';
 import {HP_SPELL_ROWS} from '../src/book_world_hp_lessons.js';
 import {HP_LEVITATION} from '../src/world_packs/book_hp_lead_life_data.js';
-import {createExpansionState, createContentRegistry} from '../src/expansion_engine.js';
+import {createExpansionState, createContentRegistry, loadExpansionState} from '../src/expansion_engine.js';
 import {enrollSimulation, previewSimulationCommand, commitSimulationCommand} from '../src/simulation.js';
 
 const know = value => ({type: 'knowledge', key: 'test.note', stage: 'understood', value});
@@ -47,7 +47,6 @@ test('a spell with no failure chance keeps its plain command', () => {
 
 test('Harry: the cast binds to the learned levitation power, spends stamina and agrees with the Charms class dial', () => {
     const [cmd] = hpLeadSpellCommands;
-    assert.equal(hpLeadSpellCommands.length, 2);
     assert.equal(cmd.powerId, HP_LEVITATION);
     assert.ok(cmd.requires.all.some(r => r.fact === `power.${HP_LEVITATION}.owned` && r.value === true));
     assert.ok(cmd.requires.all.some(r => r.fact === 'actor.hp.lead.atSchool'));
@@ -106,4 +105,89 @@ test('practice: every cast adds to the power, lifted or not (Harry), and to the 
     assert.deepEqual(lotmBeSpellCommands[0].effects.at(-1), {type: 'source', sourceId: BE_SEER_SOURCE, operation: 'develop', amount: 1});
     assert.throws(() => lowerSpellCasts(hpLeadSpellSet, {practice: {amount: 1}}), /one power or source/);
     assert.throws(() => lowerSpellCasts(hpLeadSpellSet, {practice: {powerOf: () => 'x', sourceOf: () => 'y', amount: 1}}), /one power or source/);
+});
+
+test('the school board stays aloft across reload and gates recovery of a real brass weight', () => {
+    const commands = hpLeadBenchCommands;
+    const [takeWand, lift, takeWeight, release] = commands;
+    const worldId = lift.worldId;
+    const registry = createContentRegistry({
+        worlds: [{id: 'base.frontier', label: 'Home'}, {id: worldId, label: 'Hogwarts'}],
+        simulation: {
+            commands,
+            powers: [{id: HP_LEVITATION, revision: 1, label: 'Levitation charm', model: 'practice', capacity: 1, cooldown: 0}],
+            people: [],
+            onEnroll: [{type: 'power', powerId: HP_LEVITATION, operation: 'learn'}],
+        },
+    });
+    const state = createExpansionState(73);
+    state.actors.player.worldId = worldId;
+    state.actors.player.facts['hp.lead.atSchool'] = true;
+    state.worlds[worldId] = {facts: {}, resources: {}, completed: {}};
+    const context = {
+        actorId: 'player', worldId, facts: {location: lift.location, [defaultChanceFact(lift.id)]: 1, [`structured.extension.${HP_SPELL_PRACTICE}.admitted`]: true},
+        vitals: {player: {health: 100, stamina: 100, max_health: 100, max_stamina: 100}},
+        gameplay: {player: {inventory: {}, skills: {}, reputation: {}}}, external: {},
+    };
+    let live = enrollSimulation(state, registry, context);
+    const current = () => ({...context, ...live, facts:{...hpLeadSpellFacts(live.state),...context.facts}, vitals: live.vitals ?? context.vitals});
+    const preview = command => previewSimulationCommand(live.state, registry, command.id, current());
+    const act = command => {live = commitSimulationCommand(live.state, registry, {id: command.id}, current());};
+    assert.equal(preview(lift).eligible, false, 'no wand');
+    act(takeWand);
+    assert.equal(preview(lift).eligible, true, JSON.stringify(preview(lift).reasons));
+    act(lift);
+    assert.equal(preview(takeWeight).eligible, false, 'fizzle leaves the weight out of reach');
+    assert.equal(live.vitals.player.stamina, 99);
+    context.facts[defaultChanceFact(lift.id)] = 0;
+    act(lift);
+    assert.equal(preview(lift).eligible, false, 'the same board is already supported');
+    live.state = loadExpansionState(JSON.parse(JSON.stringify(live.state)), registry);
+    assert.equal(preview(takeWeight).eligible, true, 'the scene remembers the live effect');
+    act(release);
+    assert.equal(preview(takeWeight).eligible, false, 'setting down the board closes access');
+    const by = key => commands.find(command=>command.id===HP_SPELL_PRACTICE+'.'+key);
+    act(by('accio.study'));act(by('accio.step_back'));act(by('accio.summon_weight'));
+    assert.ok(live.state.simulation.knowledge.player[HP_SPELL_PRACTICE+'.trial.accio.weight.failed']);
+    act(lift);
+    assert.equal(preview(takeWeight).eligible,false,'the rail is out of reach');
+    act(by('accio.summon_weight'));act(by('accio.return_to_desk'));
+    const key = takeWeight.effects.find(effect=>effect.type==='item').key;
+    const stock = live.state.simulation.owners.player ?? live.gameplay.player.inventory;
+    assert.equal(stock[key], 1);
+    assert.equal(preview(takeWeight).eligible, false, 'the same weight cannot be collected twice');
+    act(release);
+    act(by('start_draft'));
+    act(by('draft.aim.tilt'));
+    act(by('try.spoken.standard.tilt'));
+    assert.equal(preview(by('inspect_edge')).eligible,false);
+    const failed=HP_SPELL_PRACTICE+'.trial.spoken.standard.tilt.failed';
+    assert.ok(live.state.simulation.knowledge.player[failed]);
+    assert.equal(preview(by('write.spoken.guided.tilt')).visible,false);
+    act(by('draft.stroke.guided'));
+    live.state=loadExpansionState(JSON.parse(JSON.stringify(live.state)),registry);
+    assert.equal(preview(by('try.spoken.guided.tilt')).visible,true);
+    assert.equal(preview(by('try.spoken.standard.tilt')).visible,false);
+    for(let tries=0;tries<10&&!preview(by('inspect_edge')).eligible;tries++)act(by('try.spoken.guided.tilt'));
+    act(by('inspect_edge'));
+    const journal=live.state.simulation.knowledge.player;
+    assert.ok(journal[failed]&&journal[HP_SPELL_PRACTICE+'.trial.spoken.guided.tilt.worked']);
+    assert.ok(journal[HP_SPELL_PRACTICE+'.edge_mark']);
+    act(by('write.spoken.guided.tilt'));
+    act(by('draft.aim.raise'));
+    live.state=loadExpansionState(JSON.parse(JSON.stringify(live.state)),registry);
+    act(by('recall.spoken.guided.tilt'));
+    assert.equal(preview(by('try.spoken.guided.tilt')).visible,true);
+    act(release);
+    assert.equal(preview(lift).eligible,true,'the taught cast is still available');
+
+});
+
+test('mental delivery changes the failure dial without changing the selected stroke or aim',()=>{
+    const chance=(mastery,delivery)=>hpLeadSpellFacts(stateAt(HP_LEVITATION,mastery))[
+        HP_SPELL_PRACTICE+'.trial.'+delivery+'.guided.tilt.chance'];
+    assert.equal(chance(0,'mental'),1);
+    assert.ok(chance(0,'spoken')<1);
+    assert.equal(chance(12,'mental'),0.2);
+    assert.equal(chance(12,'spoken'),0);
 });

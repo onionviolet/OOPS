@@ -80,6 +80,7 @@ export default {
    orig('degraded', 'A near miss yields a thin draught lasting half the stated hour; the novel does not show one.'),
    orig('failure', 'A far miss yields an inert murky infusion, never another named potion (OV1, MR7).'),
    orig('lots', 'Lot provenance, store stock, prices, loans, notice chances and donors are generated or authored proposals.'),
+   orig('fluxweed_bed', 'A bench-side bed grows a new clipping in one played day. Picking fixes the moon provenance; fresh clippings wilt after seven played days. These are original growth and storage dials.'),
    orig('purse', 'A small slice purse in whole coins; not joined to the main game money. Denominations are not canon prices.'),
    orig('moon_window', 'Full moon is the game calendar phase named Full, which spans several days; the novel gives no window length.'),
    orig('recovery', 'Animal features last 14 played days, shorter than the several weeks shown, as a dial.')
@@ -100,7 +101,8 @@ export default {
    {"id": "book.hp.ing.bicorn_horn", "label": "Horn of a bicorn", "store": "private", "forms": ["raw", "powdered"], "evidence": ["book.hp.ev.recipe_list", "book.hp.ev.private_store"]},
    {"id": "book.hp.ing.boomslang_skin", "label": "Skin of a boomslang", "store": "private", "forms": ["raw", "shredded"], "evidence": ["book.hp.ev.recipe_list", "book.hp.ev.private_store"]},
    {"id": "book.hp.ing.dried_nettles", "label": "Dried nettles (other potion)", "store": "student", "forms": ["raw"], "evidence": ["book.hp.ev.ps_ingredients"]},
-   {"id": "book.hp.ing.snake_fangs", "label": "Snake fangs (other potion)", "store": "student", "forms": ["raw"], "evidence": ["book.hp.ev.ps_ingredients"]}
+   {"id": "book.hp.ing.snake_fangs", "label": "Snake fangs (other potion)", "store": "student", "forms": ["raw"], "evidence": ["book.hp.ev.ps_ingredients"]},
+   {"id": "book.hp.ing.bonemeal", "label": "Bonemeal", "store": "private", "forms": ["powdered"], "evidence": []}
   ],
   "variants": [
    {"id": "book.hp.prep.powder_fine", "label": "Fine powder", "makes": "powdered", "gradePermille": 1000},
@@ -139,7 +141,7 @@ export default {
     "cost": {"book.hp.ing.lacewing_flies": 0, "book.hp.ing.leeches": 0, "book.hp.ing.fluxweed": 0, "book.hp.ing.knotgrass": 0, "book.hp.ing.dried_nettles": 0, "book.hp.ing.snake_fangs": 0},
     "evidence": ["book.hp.ev.student_store"]},
    {"id": "book.hp.route.market_stall", "label": "Market stall (cheap, unverified)", "kind": "supplier", "custody": "owned", "fluxweedOkPermille": 500,
-    "cost": {"book.hp.ing.lacewing_flies": 1, "book.hp.ing.leeches": 1, "book.hp.ing.fluxweed": 2, "book.hp.ing.knotgrass": 1}, "evidence": []},
+    "cost": {"book.hp.ing.lacewing_flies": 1, "book.hp.ing.leeches": 1, "book.hp.ing.fluxweed": 2, "book.hp.ing.knotgrass": 1, "book.hp.ing.bonemeal": 1}, "evidence": []},
    {"id": "book.hp.route.trusted_supplier", "label": "Trusted supplier", "kind": "supplier", "custody": "owned", "fluxweedOkPermille": 950,
     "cost": {"book.hp.ing.lacewing_flies": 2, "book.hp.ing.leeches": 2, "book.hp.ing.fluxweed": 5, "book.hp.ing.knotgrass": 2, "book.hp.ing.bicorn_horn": 14, "book.hp.ing.boomslang_skin": 16, "book.hp.ing.dried_nettles": 1, "book.hp.ing.snake_fangs": 1},
     "preparedStewedLacewing": 8, "evidence": []},
@@ -147,7 +149,8 @@ export default {
     "cost": {"book.hp.ing.bicorn_horn": 0, "book.hp.ing.boomslang_skin": 0}, "evidence": ["book.hp.ev.private_store"]},
    {"id": "book.hp.route.unlicensed_take", "label": "Take from the private stores without leave", "kind": "unlicensed", "custody": "taken",
     "cost": {"book.hp.ing.bicorn_horn": 0, "book.hp.ing.boomslang_skin": 0}, "evidence": ["book.hp.ev.private_store"]},
-   {"id": "book.hp.route.harvest", "label": "Gather fluxweed yourself", "kind": "harvest", "custody": "owned", "cost": {"book.hp.ing.fluxweed": 0}, "evidence": ["book.hp.ev.fluxweed_moon"]}
+   {"id": "book.hp.route.harvest", "label": "Gather fluxweed yourself", "kind": "harvest", "custody": "owned", "cost": {"book.hp.ing.fluxweed": 0}, "evidence": ["book.hp.ev.fluxweed_moon"]},
+   {"id": "book.hp.route.bed", "label": "Your fluxweed bed", "kind": "cultivation", "custody": "owned", "growMinutes": 1440, "cost": {}, "evidence": []}
   ],
   "donorNames": {
    "given": ["Marlo", "Tessa", "Orrin", "Wynne", "Bastian", "Isolde", "Corwin", "Petra"],

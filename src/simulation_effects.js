@@ -61,6 +61,26 @@ import {realmFacts,applyRealmWorldEffect,applyRealmSiteEffect} from './realm_sta
 import {originalFrontierFacts} from './original_frontier_facts.js';
 import {applySituationEffect} from "./causal_situations.js";
 import {assert, stableId, finite, copy, meets, validateSimulationEffect} from "./simulation_contracts.js";
+import {applyKeeperColonyEffect, keeperColonyFacts} from './gu_keeper_colony.js';
+import {applyKeeperTimeEffect, keeperTimeFacts} from './gu_keeper_time.js';
+import {applyMoonlightTrialEffect, moonlightTrialFacts} from './gu_keeper_moonlight_trial.js';
+import {applyKeeperMoveTrialEffect, keeperMoveTrialFacts} from './gu_keeper_move_trial.js';
+import {applyKeeperRainbowEffect, keeperRainbowFacts} from './gu_keeper_rainbow.js';
+import {applyCoordinationEffect, guCoordinationFacts} from './gu_coordination_trial.js';
+import {applyKeeperPropagationEffect, keeperPropagationFacts} from './gu_keeper_propagation.js';
+import {applyKeeperFixedForgeEffect, keeperFixedForgeFacts} from './gu_keeper_fixed_forge.js';
+import {applyKeeperFusionEffect, keeperFusionFacts} from './gu_keeper_fusion.js';
+import {applyKeeperGoalEffect, keeperGoalFacts} from './gu_keeper_goal.js';
+import {applyKeeperSpiritEffect, keeperSpiritFacts} from './gu_keeper_spirit.js';
+import {applyKeeperProcedureEffect, keeperProcedureFacts} from './gu_keeper_procedure.js';
+import {applyKeeperAntNestEffect, keeperAntNestFacts} from './gu_keeper_ant_nest.js';
+import {applyKeeperAttitudeEffect, keeperAttitudeFacts} from './gu_keeper_attitude.js';
+import {applyKeeperFixedTravelEffect, keeperFixedTravelFacts} from './gu_keeper_immortal_travel.js';
+import {applyKeeperCooperationEffect, keeperCooperationFacts} from './gu_keeper_cooperation.js';
+import {applyHostedWolfEffect, hostedWolfFacts} from './gu_hosted_wolf.js';
+import {keeperStargateFacts} from './gu_stargate.js';
+import {applyKeeperWildEffect, keeperWildFacts} from './gu_keeper_wild.js';
+import {applyKeeperRefinementEffect, keeperRefinementFacts} from './gu_keeper_refinement.js';
 import {stageAcquisition} from "./acquisition.js";
 import {applyGameplayEffect} from "./gameplay_transactions.js";
 import {prepareSimulationEffects, deriveSimulationSeed} from "./simulation_resolution.js";
@@ -191,7 +211,7 @@ function buildSimulationFacts(state, context, registry) {
     // Native clock callers may supply only expedition facts. Re-read current LOTM role/body
     // support through its existing domain projection at the actual commit boundary.
     if(state.lotm) Object.assign(facts,domainRegistry.project('lotm','facts',state,context)||{});
-    Object.assign(facts,hpFacts(state,context),tieFacts(state));
+    Object.assign(facts,hpFacts(state,context),tieFacts(state),keeperColonyFacts(state,actor),keeperTimeFacts(state,actor),keeperWildFacts(state,actor),keeperRefinementFacts(state,actor),keeperStargateFacts(state,context),moonlightTrialFacts(state,actor),keeperMoveTrialFacts(state,actor,context.structuredNative),keeperRainbowFacts(state,actor),guCoordinationFacts(state,actor),keeperPropagationFacts(state,actor,context),hostedWolfFacts(state,actor,context.structuredNative),keeperCooperationFacts(state,actor),keeperFixedTravelFacts(state,actor),keeperAttitudeFacts(state,actor),keeperAntNestFacts(state,actor),keeperProcedureFacts(state,actor,context.structuredNative),keeperSpiritFacts(state,actor),keeperGoalFacts(state,actor),keeperFusionFacts(state,actor),keeperFixedForgeFacts(state,actor));
     const beginning = context.structuredNative;
     if(actor === 'player' && beginning?.bound && beginning.worldId === a.worldId) {
         for(const pin of beginning.extensions || []) facts[`structured.extension.${pin.id}.admitted`] = true;
@@ -376,6 +396,36 @@ function applyEffects(plan, effects, context, registry, cause, {spending = false
             }
         } else if(e.type === "fact") {
             const d = e.scope === "actor" ? a : e.scope === "world" ? state.worlds[a.worldId] : state[e.scope]; d.facts[e.key] = e.value;
+        } else if(e.type === "guTime") applyKeeperTimeEffect(state, e, context);
+        else if(e.type === "guCoordinate") applyCoordinationEffect(state, e, context, registry.simulation, cause);
+        else if(e.type === "guFixedForge") applyKeeperFixedForgeEffect(state, e, context);
+        else if(e.type === "guFusion") applyKeeperFusionEffect(state, e, context);
+        else if(e.type === "guGoal") applyKeeperGoalEffect(state, e, context, registry.simulation);
+        else if(e.type === "guSpirit") applyKeeperSpiritEffect(state, e, context, registry.simulation);
+        else if(e.type === "guProcedure") applyKeeperProcedureEffect(state, e, context, registry.simulation);
+        else if(e.type === "guAntNest") applyKeeperAntNestEffect(state, e, context);
+        else if(e.type === "guAttitude") applyKeeperAttitudeEffect(state, e, context);
+        else if(e.type === "guFixedTravel") applyKeeperFixedTravelEffect(state, e, context);
+        else if(e.type === "guCooperation") applyKeeperCooperationEffect(state, e, context);
+        else if(e.type === "guHostedWolf") {
+            const consequences = applyHostedWolfEffect(state, e, context);
+            if (consequences) applyEffects(plan, consequences, context, registry, cause);
+        }
+        else if(e.type === "guRainbow") applyKeeperRainbowEffect(state, e, context);
+        else if(e.type === "guMoveTrial") applyKeeperMoveTrialEffect(state, e, context, registry.simulation);
+        else if(e.type === "guMoonlightTrial") applyMoonlightTrialEffect(state, e, context);
+        else if(e.type === "guWild") applyKeeperWildEffect(state, e, context);
+        else if(e.type === "guColony" || e.type === "guRefinement" || e.type === "guPropagate") {
+            const collected = e.type === "guColony" ? applyKeeperColonyEffect(state, e, context) : null;
+            const grant = e.type === "guRefinement" ? applyKeeperRefinementEffect(state, e, context) :
+                e.type === "guPropagate" ? applyKeeperPropagationEffect(state, e, context, registry.simulation) : collected && {key: collected, count: 1};
+            if(grant) {
+                const {key, count} = grant;
+                const next = stageAcquisition({owner: inventory(plan, actor)},
+                    {grants: [{owner: 'owner', key, count}]}).owner;
+                writeInventory(plan, actor, next);
+                plan.acquisitions.push({owner: actor, key, count});
+            }
         } else if(e.type === "container") applyContainerEffect(plan,e,context,registry,{readInventory:inventory,writeInventory});
         else if(e.type === "world") {assert(state.worlds[e.worldId], "Unknown effect world."); if(!applyRealmWorldEffect(state,e))state.worlds[e.worldId].facts[e.key] = e.value;}
         else if(e.type === "resource") {

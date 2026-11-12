@@ -4,7 +4,7 @@ import {definePanel} from './panel_kit.js';
 import {shortActionLabel} from './ui/action_label.js';
 import {registerOwnedWorkPanel} from './adventure_notebook.js';
 import {hpLeadTieCommands,hpLeadMakingCommands} from './world_packs/book_hp_lead_life_data.js';
-import {hpLeadSpellCommands} from './hp_lead_spells.js';
+import {hpLeadSpellCommands,hpLeadBenchCommands,HP_SPELL_PRACTICE} from './hp_lead_spells.js';
 import {HP_LEAD_FLIGHT,isHpSchoolPassage} from './book_world_hp_lead_flight.js';
 import {isHpDuelPassage} from './book_world_hp_lead_duel.js';
 import {isHpHalloweenPassage} from './book_world_hp_lead_halloween.js';
@@ -128,6 +128,13 @@ export function createHpLeadPanel({project,read,command,keepSlot,study,homeAct})
    if(!v.schoolWeek)for(const o of sc.locked){const r=node('div');r.dataset.hpLocked=o.id;const b=node('button',o.label);b.disabled=true;r.append(b,node('span',` Not how it happened. ${o.reason}`));s2.append(r);}
    if(sc.atSchool)s2.append(node('p',sc.house?`You are a first year at Hogwarts, in ${sc.house}.`:'You have reached Hogwarts.'));
    if(sc.next||sc.atSchool)section.append(s2);}
+  const renderCharm=(parent,c)=>{const a=(campaign.actions||[]).find(x=>x.id===c.id);if(!a)return;
+    const row=node('div');row.dataset.panelRow='';const s=shortActionLabel(a.label),b=node('button',s.text);b.type='button';b.dataset.hpCast=c.id;
+    b.disabled=!a.eligible||!campaign.canWrite||!!v.jobs.find(j=>j.commandId===c.id);if(s.chip)b.append(node('span',` · ${s.chip}`));
+    b.onclick=()=>{try{command({type:'action',id:c.id});notice='';}catch(e){notice=e.message;}render();};
+    const stamina=-(c.costs||[]).filter(x=>x.type==='vital'&&x.key==='stamina').reduce((n,x)=>n+x.amount,0);
+    row.append(b);if(c.description)row.append(node('p',c.description));
+    if(stamina)row.append(node('p',`Costs ${stamina} stamina, even if it fizzles${c.powerId?'; every try adds practice':''}.`));if(!a.eligible)row.append(node('p',(a.reasons||[]).join(' ')));parent.append(row);};
   const ls=v.lessons;
   if(ls&&schoolExtras){const s3=node('section');s3.className='ui-panel-section';s3.dataset.hpLessons='';s3.append(node('h3','Lessons'));
    for(const l of ls.lessons){const a=(campaign.actions||[]).find(x=>x.id===l.commandId);if(!a)continue;
@@ -141,12 +148,7 @@ export function createHpLeadPanel({project,read,command,keepSlot,study,homeAct})
     row.append(b);row.append(node('p',l.open?(a.description||''):l.reason));s3.append(row);}
    for(const sp of ls.spells){const p=node('p',sp.line);p.dataset.hpSpell=sp.key;s3.append(p);}
    // W1b: casting the learned charm outside class (shared spell lowering; stamina either way, a fizzle chance that falls with practice).
-   for(const c of hpLeadSpellCommands){const a=(campaign.actions||[]).find(x=>x.id===c.id);if(!a)continue;
-    const row=node('div');row.dataset.panelRow='';const s=shortActionLabel(a.label),b=node('button',s.text);b.type='button';b.dataset.hpCast=c.id;
-    b.disabled=!a.eligible||!campaign.canWrite||!!v.jobs.find(j=>j.commandId===c.id);if(s.chip)b.append(node('span',` · ${s.chip}`));
-    b.onclick=()=>{try{command({type:'action',id:c.id});notice='';}catch(e){notice=e.message;}render();};
-    const stamina=-(c.costs||[]).filter(x=>x.type==='vital'&&x.key==='stamina').reduce((n,x)=>n+x.amount,0);
-    row.append(b,node('p',`Costs ${stamina} stamina, even if it fizzles; every try adds practice.`));if(!a.eligible)row.append(node('p',(a.reasons||[]).join(' ')));s3.append(row);}
+   for(const c of hpLeadSpellCommands)renderCharm(s3,c);
    for(const t of ls.last){const p=node('p',`Last class: ${t}`);p.dataset.hpLessonResult='';s3.append(p);}
    // W11-C: library study through the inquiry domain (one hour a session; the topic finishes on minutes plus lessons attended).
    for(const r of study?.rows?.()||[]){const row=node('div');row.dataset.panelRow='';
@@ -157,6 +159,16 @@ export function createHpLeadPanel({project,read,command,keepSlot,study,homeAct})
      nb.onclick=()=>{try{study.writeNote(r.id);notice='You wrote a note.';}catch(e){notice=e.message;}render();};row.append(nb);}
     s3.append(row);}
    section.append(s3);}
+  const practice=node('section');practice.className='ui-panel-section';
+   const bench=(campaign.extensions||[]).find(e=>e.id===HP_SPELL_PRACTICE);
+   if(bench?.eligible&&v.atCharmsBench){const b=node('button','Open the Charms practice bench');b.type='button';b.disabled=!campaign.canWrite;
+    b.onclick=()=>{try{command({type:'adopt-extension',id:bench.id,revision:bench.revision,contentHash:bench.contentHash});notice='';}catch(e){notice=e.message;}render();};practice.append(b);}
+  for(const c of hpLeadBenchCommands)renderCharm(practice,c);
+  if(practice.childElementCount){practice.prepend(node('h3','Charms practice bench'));
+   if(v.boardResult)practice.append(node('p',v.boardResult));
+   if(v.trialJournal.length){const journal=node('details');journal.append(node('summary','Cast observations'));
+    for(const entry of v.trialJournal)journal.append(node('p',entry));practice.append(journal);}
+   section.append(practice);}
   // Exams (hp_exam_model.js, book_world_hp_exams.js): a dated event of the year, so it shows beside any story passage, not only between excursions. The date, revision by subject before it, the papers on the day, the marks after.
   const ex=v.exams;
   if(ex&&v.school?.atSchool){const s6=node('section');s6.className='ui-panel-section';s6.dataset.hpExams=ex.phase;s6.append(node('h3','End-of-year exams'),node('p',ex.line));

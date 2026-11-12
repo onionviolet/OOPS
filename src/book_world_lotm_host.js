@@ -1,5 +1,6 @@
 import {testHooksEnabled} from './simulation_clock.js';
 import {placeActRecords,placeStockViews} from './place_acts.js';
+import {blackthornDepartureMishap} from './lotm_amulet_protection.js';
 import {remotePresenceView} from './place_remote_presence.js';
 import {placeActSequenceView} from './place_act_sequence.js';
 import {topicTalkRecords} from './cast_topic_talk.js';
@@ -123,7 +124,13 @@ export function createLotmHost(ports){
  // FD15: the civil contract's term ends on the clock; the positions domain settles it for any live LOTM state.
  registerPositionsPort('lotm',()=>{const s=ports.state();return s?.lotm?s:null;});
  registerPositionsLifePort('life',()=>ports.state()); // any life's old-age end, not only a LOTM seat's
- const persist=(plan,options={})=>persistLotmCastPlan(plan,ports.persist,{...options,publish:r=>ports.logMessage?.(r.text,r.kind,{safeText:true,panelId:'known-people'})});
+ const persist=(plan,options={})=>persistLotmCastPlan(plan,p=>{
+  const drained=drainLotmInbox(p.state,harmState());
+  if(drained)p.nativePatch={...p.nativePatch,harm:drained};
+  const result=ports.persist(p);
+  if(drained)setHarmState(drained);
+  return result;
+ },{...options,publish:r=>ports.logMessage?.(r.text,r.kind,{safeText:true,panelId:'known-people'})});
  const state=()=>{installCast(registry);return ports.state();};
  const castState=s=>{if(!lotmCastLife(s))return s;const projected=copy(s);syncLotmCast(projected);return projected;};
  const sleepingCommand=id=>id===SLEEP||registry.simulation.commands.get(id)?.group==='book_lotm'&&registry.simulation.commands.get(id)?.bodyCare?.kind==='sleep';
@@ -227,9 +234,7 @@ export function createLotmHost(ports){
   const plan=def.castAbility?commitCastAbility(castAbilityCommands,id,{state:s,context:ctx(s,def),commit}):commit(id);
   recordEmergent(plan,def);
   syncLotmCast(plan.state);
-  const drained=drainLotmInbox(plan.state,harmState());
   persist(plan);
-  if(drained)setHarmState(drained);
   accrueHarm(plan.state,def);
   noteStage(plan.state);
   if(id===SLEEP||def.bodyCare?.kind==='sleep')ports.beginSleep();
@@ -252,22 +257,45 @@ export function createLotmHost(ports){
   const def=installCastWalk(registry,from,to)||registry.simulation.commands.get(walkId(s,from,to));assert(def,'There is no walk from here to there.');
   const canon=canonActionDecision(s,def,getPrivateLotmCast(),ports.context());assert(canon.allowed,canon.reason);
   ports.ensureCastLocation?.(to);
-  const plan=commitSimulationCommand(s,registry,{id:def.id},ctx(s,def),s.sequence);
+  const c=ctx(s,def),plan=commitSimulationCommand(s,registry,{id:def.id},c,s.sequence);
+  const mishap=blackthornDepartureMishap(s,c.equipment);
+  if(mishap)applySimulationEffects(plan,mishap.effects,{actorId:'player'},registry,mishap.receipt.check.id);
   recordEmergent(plan,def);
   plan.state.simulation.people.player.location=to;castWriteCode(plan.state,'location:player','emergent');plan.nativeLocation=to;plan.nativePatch={'current location':to};
-  syncLotmCast(plan.state);persist(plan);return plan;
+  syncLotmCast(plan.state);persist(plan);
+  if(mishap)ports.logMessage?.(mishap.value,'notification');
+  return plan;
  }
  // The last stage this host reported; the first read after load only records it, so a reload repeats nothing.
  let shownStage=null;
  function noteStage(s){const now=lotmLossLine(harmState(),s).stage.id,line=lotmStageNote(shownStage,now);shownStage=now;if(line)try{ports.logMessage?.(line,'notification');}catch{/* the change already landed */}}
- // MND8 (RCL5): a completed job (the self rite) or another route may leave loss-of-control inbox amounts; move them onto
- // the one carrier in a saved plan, then set the slice (persist throws when saving is paused, and nothing moves).
+ // MND8 (RCL5): completed jobs may leave pressure in the inbox. Persist moves
+ // the inbox and the carrier in the same save before publishing the new harm.
  function drainInbox(s){const r=s.actors?.player?.resources;if(!(r?.['book.lotm.pressure']>0||r?.['book.lotm.relief']>0)||!ports.writable())return;
-  const plan=base(s,ports.context()),drained=drainLotmInbox(plan.state,harmState());if(!drained)return;persist(plan);setHarmState(drained);}
+  persist(base(s,ports.context()));}
  // Native sleep ended by any cause before the job finished: the job is forfeited, nothing is restored (D4).
  function wake(){const s=state(),job=s.lotm&&sleepJob(s);if(job&&!ports.restoring()&&ports.writable())cancel(job.id);}
  // The job finished (or was cancelled) while native sleep was still on: end native sleep once.
- function tick(minutes=0){const s=state();if(s.lotm){drainInbox(s);if(ports.sleeping())restHarm(s,minutes);noteStage(state());if(!dying&&ports.die&&ports.writable()&&lossOfControlStep(s,{minutes,skipping:!!ports.skipping?.()}).die&&lostControlOutcome(s)?.default==='final'){dying=true;try{domainRegistry.command('positions','died')({state:s,at:s.clock});}catch{/* positions settle on the next tick */}Promise.resolve(ports.die('loss_of_control')).finally(()=>{dying=false;});}}if(lotmCastLife(s)&&(castSyncDue(s)||castBeatsPending(s))&&ports.writable()&&(!lotmBe(s)||validLeadLife(getPrivateLotmCast()))){const plan=base(s,ports.context());if(syncLotmCast(plan.state)||castBeatsPending(plan.state))persist(plan);}if(s.lotm&&ports.sleeping()&&!sleepJob(s))ports.endSleep();}
+ function tick(minutes=0){
+  if(state().lotm)drainInbox(state());
+  // Inbox settlement publishes a new root. Cast wakes and reports must work
+  // from that root or their save can put the spent pressure back in the inbox.
+  const s=state();
+  if(s.lotm){
+   if(ports.sleeping())restHarm(s,minutes);
+   noteStage(s);
+   if(!dying&&ports.die&&ports.writable()&&lossOfControlStep(s,{minutes,skipping:!!ports.skipping?.()}).die&&lostControlOutcome(s)?.default==='final'){
+    dying=true;
+    try{domainRegistry.command('positions','died')({state:s,at:s.clock});}catch{/* positions settle on the next tick */}
+    Promise.resolve(ports.die('loss_of_control')).finally(()=>{dying=false;});
+   }
+  }
+  if(lotmCastLife(s)&&(castSyncDue(s)||castBeatsPending(s))&&ports.writable()&&(!lotmBe(s)||validLeadLife(getPrivateLotmCast()))){
+   const plan=base(s,ports.context());
+   if(syncLotmCast(plan.state)||castBeatsPending(plan.state))persist(plan);
+  }
+  if(s.lotm&&ports.sleeping()&&!sleepJob(s))ports.endSleep();
+ }
  // Standing orders (OB1/OB4): rent and dues leave the native purse through the purse seam on the clock, in one save with the duties slice. Throws when saving is paused.
  const purseBalance=()=>{const m=ports.context().external?.money;assert(Number.isFinite(m),'The purse is not readable now.');return m;};
  // Read the current life's actual inventory. Unknown or protected goods have no seizure value.

@@ -1,3 +1,4 @@
+import {isTingenAmulet} from './lotm_amulet_crafting.js';
 import {castAvailable,castWalkCommands,castPeople,castEnrollmentPeople,castTalkCommands,castSituation,LOTM_CAST_SITUATION,syncLotmCast} from './book_world_lotm_cast_host.js';
 import {applySituationEffect} from './causal_situations.js';
 import {LOTM_IDS as I,LOTM_LOCATIONS as L,LOTM_KEYS as K} from './book_world_lotm_ids.js';
@@ -60,6 +61,10 @@ export const LOTM_ITEM_SPECIFICATIONS=[
 ].map(([id,description])=>({id,name:id,description,value:1,tags:{expedition:true,book_world_lotm:true}}));
 const LEAD_ITEMS=[
  ['silver_amulet_blank','Silver amulet blank','A plain silver piece ready for engraving.'],
+ ['silver_trial_blank','Trial silver blank','A silver blank bought separately for inscription trials.'],
+ ['silver_trial_marked','Front-marked silver','The front has been engraved and the back is still bare.'],
+ ['reworked_silver_amulet','Reworked silver amulet','The original front engraving joins the marks added to the back.'],
+ ['reversed_silver_amulet','Back-first silver amulet','A silver amulet carved back first, then bound after both faces were marked.'],
  ['silver_practice_offcut','Silver practice offcut','A scrap for testing an inscription before engraving the finished piece.'],
  ['silver_protective_amulet','Silver protective amulet','Silver with a request for protection from misfortune engraved on both faces.'],
  ['wood_rite_supplies','Candles and altar supplies','The candles, salt, oils and writing materials set aside for the rite in the Wood house.'],
@@ -78,7 +83,15 @@ const LEAD_ITEMS=[
  ['sirius_scene_slumber_oil','Slumber flower oil','A small bottle of oil pressed from slumber flowers.'],
  ['sirius_scene_dried_chamomile','Dried chamomile petals','Dried petals kept apart from the other supplies.']
 ].map(([id,name,description])=>({id:'book.lotm.'+id,name,description,value:1,tags:{expedition:true,book_world_lotm:true}}));
-export function registerLotmItems({itemTemplates,OtherItem}){for(const spec of [...LOTM_ITEM_SPECIFICATIONS,...HOUSEHOLD_MEAL_ITEMS,...LEAD_ITEMS]){if(itemTemplates[spec.id])throw Error(`Duplicate Lord of the Mysteries item ${spec.id}.`);itemTemplates[spec.id]=new OtherItem(spec);}}
+export function registerLotmItems({itemTemplates,OtherItem,Amulet}) {
+ for(const spec of [...LOTM_ITEM_SPECIFICATIONS,...HOUSEHOLD_MEAL_ITEMS,...LEAD_ITEMS]){
+  if(itemTemplates[spec.id])throw Error(`Duplicate Lord of the Mysteries item ${spec.id}.`);
+  itemTemplates[spec.id]=isTingenAmulet(spec.id)
+   ? new Amulet({...spec,tags:{...spec.tags,fixedStockKey:true},stats:{},item_tier:1,use_quality:false})
+   : new OtherItem(spec);
+  if(isTingenAmulet(spec.id))itemTemplates[spec.id].inventory_key=JSON.stringify({id:spec.id});
+ }
+}
 // Pure enrollment of the original probationer branch (plan S2 prototype start).
 // The caller owns the publication; this changes only the passed state.
 export function enrollLotmBranch(state,profile='probationer'){

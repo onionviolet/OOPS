@@ -102,7 +102,7 @@ export function centerModes() {
         bindHeadingInset(mode);
         if (changed) {
             // UR152: the new view eases in (opacity and a few pixels) so the swap reads as a step, not a cut.
-            if(!matchMedia?.('(prefers-reduced-motion: reduce)').matches){content.classList.remove('center-mode-enter');void content.offsetWidth;content.classList.add('center-mode-enter');}
+            if(!globalThis.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches&&content.classList?.remove&&content.classList?.add){content.classList.remove('center-mode-enter');void content.offsetWidth;content.classList.add('center-mode-enter');}
             const saved=positions.get(mode);
             if(saved) {for(const [n,open]of saved.groups)if(n.isConnected)n.open=open;for(const [cls,open]of saved.dropdowns){const n=cls&&content.querySelector('.'+cls+':not([data-choice-key])');n?.classList.toggle('location_choice_dropdown_expanded',open);}for(const [n,top,left]of saved.scroll)if(n.isConnected){n.scrollTop=top;n.scrollLeft=left;}}
             else content.scrollTop=0;

@@ -12,6 +12,11 @@ import {createExperimentLog, recordTrial, validateExperimentLog} from './craft_e
 import {afflict, advance} from './affliction_track.js';
 import {ANIMAL_FEATURES, HOSPITAL_CARE, BODY_SAVE_MODIFIER} from './hp_animal_features.js';
 import {createDemonstratedMethod, validateDemonstratedMethod, planDemonstratedRepeat, MAX_DEMONSTRATED_METHODS} from './craft_reference.js';
+import {readSpoilage, wordsFor} from './spoilage.js';
+import {bindAntidoteMethod, brewWorkshopAntidote, brewWorkshopDraught} from './hp_potion_reactions.js';
+import {applyCompanionPotionAction, isCompanionPotionAction, settleCompanionPotions, validateCompanionPotions, viewCompanionPotions} from './hp_companion_potions.js';
+import {planPolyjuiceFinish} from './hp_polyjuice_duration.js';
+import {applyPotionWorking, settlePotionWorkings, validatePotionWorkings, viewPotionWorkings} from './potion_workings.js';
 
 const PACK = packNative('book.hp');
 export const HP = Object.freeze({rules: PACK.rules, formula: PACK.formula, outcomes: PACK.outcomes, routes: PACK.routes, ingredients: PACK.ingredients, variants: PACK.variants, evidence: PACK.evidence});
@@ -19,6 +24,37 @@ const R = PACK.rules, F = PACK.formula;
 const ING = Object.fromEntries(PACK.ingredients.map(i => [i.id, i]));
 const ROUTE = Object.fromEntries(PACK.routes.map(r => [r.id, r]));
 const VARIANT = Object.fromEntries(PACK.variants.map(v => [v.id, v]));
+const FLUXWEED = 'book.hp.ing.fluxweed';
+const BED = ROUTE['book.hp.route.bed'];
+const DRAUGHT_CLASS_FEE = 3;
+const DRAUGHT_LAW = 'book.hp.draught.class@1';
+const ANTIDOTE_LAW = 'book.hp.antidote.assay@1';
+const FRESH_PHIAL = Object.freeze({a: 2, b: 2, blend: 2});
+const ANTIDOTE_BINDERS = [0, 1, 2, 3, 4];
+const ANTIDOTE_METHODS = {
+    warm: {}, heated: {hot: true}, cool: {cool: true}, catalysed: {cool: true, catalyst: true},
+};
+const antidoteCost = binder => 2 + binder;
+function resolveAntidoteTrial(trial, burden = FRESH_PHIAL) {
+    if(trial.method === 'composed') {
+        need(ANTIDOTE_BINDERS.includes(trial.binder) && typeof trial.catalyst === 'boolean' && Array.isArray(trial.steps), 'Choose a binder amount, catalyst setting and steps.');
+        return brewWorkshopAntidote({binder: trial.binder, steps: trial.steps, catalyst: trial.catalyst, burden});
+    }
+    need(ANTIDOTE_BINDERS.includes(trial.binder) && Object.hasOwn(ANTIDOTE_METHODS, trial.method), 'Choose a binder amount and a mixing method.');
+    return brewWorkshopAntidote({binder: trial.binder, ...ANTIDOTE_METHODS[trial.method], burden});
+}
+function antidoteSetup(trial, result) {
+    const inputs = result.spent.map(({material, qty}) => ({key: `class.${material}`, material, qty}));
+    const process = trial.method === 'composed' ? bindAntidoteMethod(trial.steps).map(op => [op.id, 1]) : [...(trial.method === 'heated' ? [['heat', 1]] : []),
+        [trial.method === 'cool' || trial.method === 'catalysed' ? 'cool mixing' : 'warm mixing', 1]];
+    return {revision: 1, law: ANTIDOTE_LAW, inputs, process,
+        conditions: {apparatus: 'class cauldron', catalyst: trial.method === 'catalysed' || trial.catalyst === true}};
+}
+const antidoteRequest = ({binder, method, steps, catalyst}) => ({
+    type: 'mixAntidote', binder, method, ...(method === 'composed' ? {steps: clone(steps), catalyst} : {}),
+});
+const freshnessOf = (lot, now) => lot?.harvestedAt == null ? null
+    : readSpoilage({id: lot.ingredient}, now - lot.harvestedAt);
 export const HP_SLICE_ID = 'hp_brewing';
 export const SCHEMA = 1;
 const LEDGER_CAP = 64;
@@ -87,6 +123,8 @@ export function settle(s, now) {
         n.done = true;
         if(n.noticed) { s.master.standing -= R.noticeStandingLoss; log(s, n.at, 'notice', `The Potions master noticed ${label(n.ingredient)} missing from the private stores and has marked you down.`); }
     }
+    settleCompanionPotions(s.companionPotions, now);
+    settlePotionWorkings(s.potionWorkings, now);
     s.now = now;
     return s;
 }
@@ -103,16 +141,19 @@ function settleFeatures(s, now) {
     else c.track = track;
 }
 
-const slotGrade = (slot, lot) => {
+const slotGrade = (slot, lot, now) => {
     if(!lot || lot.ingredient !== slot.ingredient || lot.form !== slot.form) return 'bad';
     if(slot.id === 'lacewing') return lot.truth.stewedMinutes >= slot.minStewMinutes ? 'ok' : lot.truth.stewedMinutes >= slot.nearStewMinutes ? 'near' : 'bad';
-    if(slot.provenance) return lot.truth.provenance === slot.provenance ? 'ok' : 'bad';
+    if(slot.provenance) {
+        if(lot.truth.provenance !== slot.provenance) return 'bad';
+        return freshnessOf(lot, now)?.state === 'spoiled' ? 'near' : 'ok';
+    }
     if(lot.variant) return VARIANT[lot.variant].gradePermille >= 1000 ? 'ok' : 'near';
     return 'ok';
 };
 // MR7, MR35: exact formula is the canon product, a near miss is degraded, anything else is original.
-export function resolveBrew(lots, condition) {
-    const rows = F.slots.map(slot => ({slot: slot.id, grade: slotGrade(slot, lots[slot.id])}));
+export function resolveBrew(lots, condition, now = 0) {
+    const rows = F.slots.map(slot => ({slot: slot.id, grade: slotGrade(slot, lots[slot.id], now)}));
     const bad = rows.filter(r => r.grade === 'bad').length, near = rows.filter(r => r.grade === 'near').length;
     const wear = condition >= R.cauldronOkFrom ? 0 : condition >= R.cauldronBadBelow ? 1 : 2;
     const grade = bad === 0 && near + wear === 0 ? 'canon' : bad === 0 && near + wear <= 2 ? 'degraded' : 'original';
@@ -122,8 +163,26 @@ export function resolveBrew(lots, condition) {
 const need = (ok, why) => { if(!ok) fail(why); };
 const lotOf = (s, id) => s.lots[id] ?? fail('Choose a lot you hold.');
 const spend = (s, n) => { need(n <= s.purse, `That costs ${n} ${n === 1 ? 'coin' : 'coins'}. You have ${s.purse}.`); s.purse -= n; };
+function checkFluxweedGrowth(growth, now) {
+    need(/^L[1-9][0-9]*$/.test(growth.parentLotId) && int(growth.plantedAt) && growth.plantedAt >= 0 &&
+        growth.plantedAt <= now && growth.readyAt === growth.plantedAt + BED.growMinutes, 'Malformed fluxweed bed record.');
+}
+function checkFluxweedLot(lot) {
+    if(lot.harvestedAt == null && !lot.growth) return;
+    need(lot.ingredient === FLUXWEED && lot.harvestedAt === lot.acquiredAt &&
+        (lot.growth ? lot.route === BED.id : lot.route === 'book.hp.route.harvest'), 'Malformed fluxweed harvest.');
+    if(lot.growth) {
+        checkFluxweedGrowth(lot.growth, lot.harvestedAt);
+        need(lot.id !== lot.growth.parentLotId && lot.harvestedAt >= lot.growth.readyAt, 'Fluxweed was picked before maturity.');
+    }
+}
 // Retained paid terms, not a second clock or native lot authority. Legacy completed
 // batches stay usable; unknown consumed history is never reconstructed from grade.
+function polyjuiceFinish(mode, resolution, inputs) {
+    return planPolyjuiceFinish({mode, resolution, inputs, standardMinutes: F.transformMinutes, standardDoses: R.doses,
+        brewMinutes: HP_PROCESS.minutes, lacewingSlot: F.slots.find(slot => slot.id === 'lacewing')});
+}
+
 function checkHistory(h) {
     need(h && h.revision === 1 && [HP_PROCESS.id, ABRASIVE.id].includes(h.process) && h.clock === 'played-calendar', 'Unsupported retained HP process terms. Keep the saved brew for supported recovery.');
     need(int(h.startedAt) && h.startedAt >= 0 && int(h.minutes) && h.minutes > 0 && int(h.readyAt) && h.readyAt === h.startedAt + h.minutes, 'Malformed retained HP deadline.');
@@ -136,6 +195,7 @@ function checkHistory(h) {
         slots.add(slot); ids.add(lot.id);
         need(ING[lot.ingredient]?.forms.includes(lot.form) && int(lot.acquiredAt) && lot.acquiredAt >= 0 && lot.acquiredAt <= h.startedAt && !lot.stew && lot.truth && lot.known, 'Malformed paid HP lot history.');
         if(lot.preparation) validateHpPreparationReceipt(lot.preparation, lot, h.startedAt);
+        checkFluxweedLot(lot);
     }
     if(h.process === ABRASIVE.id) {
         const expected = planHpAbrasiveMixture({localInputs: h.inputs, externalMaterials: h.externalMaterials,
@@ -143,6 +203,15 @@ function checkHistory(h) {
         need(h.resolution.grade === 'original' && h.minutes === h.abrasivePlan.process.minutes && h.producedDoses === h.abrasivePlan.process.producedDoses &&
             JSON.stringify(expected) === JSON.stringify(h.abrasivePlan), 'Unsupported or inconsistent retained suspension terms. Keep the paid contents for supported recovery.');
     } else need(!h.externalMaterials && !h.abrasivePlan, 'External solids cannot silently change a pinned potion.');
+    if(Object.hasOwn(h, 'finish')) {
+        need(h.process === HP_PROCESS.id && h.finish?.revision === 1, 'Unsupported retained Polyjuice finish.');
+        const lots = Object.fromEntries(h.inputs.map(({slot, lot}) => [slot, lot]));
+        const resolution = resolveBrew(lots, h.cauldronCondition, h.startedAt);
+        const expected = polyjuiceFinish(h.finish.mode, resolution, h.inputs);
+        need(JSON.stringify(resolution) === JSON.stringify(h.resolution)
+            && Object.keys(h.finish).length === 3 && h.finish.doseMinutes === expected.doseMinutes
+            && h.producedDoses === expected.doses, 'Inconsistent retained Polyjuice finish.');
+    }
     return h;
 }
 function checkPending(b, s) {
@@ -151,13 +220,30 @@ function checkPending(b, s) {
     need(!s.batches[`b${b.id}`] && h.inputs.every(({lot}) => !s.lots[lot.id]), 'Pending HP custody duplicates paid contents.');
 }
 const batchOf = (s, id) => s.batches[id] ?? fail('Choose a batch you hold.');
+// Original bench tuning: after an hour, a top pour carries half its even share.
+// The grit left in the vessel is available to later pours or to stirring.
+const SUSPENSION_SETTLE_MINUTES = 60;
+const suspensionOf = b => b.history?.process === ABRASIVE.id
+    ? b.suspension ?? {work: b.history.abrasivePlan.strength * b.dosesLeft, mixedAt: b.readyAt}
+    : null;
+const settledSuspension = (suspension, now) => now - suspension.mixedAt >= SUSPENSION_SETTLE_MINUTES;
+function pourSuspension(batch, doses, now, stir = false) {
+    const suspension = suspensionOf(batch);
+    if(!suspension) return null;
+    const mixedAt = stir ? now : suspension.mixedAt;
+    const work = doses === batch.dosesLeft ? suspension.work
+        : Math.floor(suspension.work * doses / batch.dosesLeft / (settledSuspension({mixedAt}, now) ? 2 : 1));
+    batch.suspension = {work: suspension.work - work, mixedAt};
+    return {work, mixedAt};
+}
 const carried = b => need((b.custody ?? 'carried') === 'carried', 'Retrieve this portion from the bench before using it.');
 const retained = b => { need(b.cohortId && b.history, 'This older batch can\'t be poured. Its brewing record is missing.'); checkHistory(b.history); };
 
 
 const conditionWord = n => n >= R.cauldronOkFrom ? 'clean' : n >= R.cauldronBadBelow ? 'sooty' : 'badly fouled';
 const residueWord = n => n === R.cauldronStart ? 'no residue' : n >= R.cauldronOkFrom ? 'traces of residue' : 'visible residue';
-const programFor = h => ({type: 'brew', method: h.process === ABRASIVE.id ? ABRASIVE.ref : HP_PROCESS.id});
+const programFor = h => ({type: 'brew', method: h.process === ABRASIVE.id ? ABRASIVE.ref : HP_PROCESS.id,
+    ...(h.finish?.mode === 'concentrated' ? {finish: 'concentrated'} : {})});
 // A method describes observed inputs; exact custody bindings remain in paid history
 // and the current command. Neither receipts nor these notes expose lot truth.
 function knownSetup(h) {
@@ -186,25 +272,139 @@ function noteObservation(s, batch, {route, seen, response, baseline, confounders
     const observation = {route, response, confounders, ...(route === 'oral' ? {recipient: 'you', baseline} : {})};
     s.experiments = recordTrial(s.experiments ?? createExperimentLog(), {materials: setup.inputs.map(x => x.material), process: setup.process,
         seen, at: s.now, setup: trialSetup, observation});
-    const id = `hp.method.${batch.cohortId}`;
-    if(viable && !(s.methods ?? []).some(m => m.id === id)) {
-        const method = createDemonstratedMethod({id, setup, request: programFor(batch.history), at: s.now, success: true});
-        s.methods = [...(s.methods ?? []), method].slice(-MAX_DEMONSTRATED_METHODS);
-    }
+    if(viable) rememberMethod(s, `hp.method.${batch.cohortId}`, setup, programFor(batch.history));
+}
+function rememberMethod(s, id, setup, request) {
+    if((s.methods ?? []).some(m => m.id === id)) return;
+    const method = createDemonstratedMethod({id, setup, request, at: s.now, success: true});
+    s.methods = [...(s.methods ?? []), method].slice(-MAX_DEMONSTRATED_METHODS);
 }
 
 function newLot(s, now, ingredient, route, extra) {
     const id = nextLot(s, 'L');
-    s.lots[id] = {id, ingredient, form: 'raw', variant: null, route: route.id, custody: route.custody === 'school' ? 'owned' : route.custody, acquiredAt: now,
+    s.lots[id] = {id, ingredient, form: ING[ingredient].forms[0], variant: null, route: route.id, custody: route.custody === 'school' ? 'owned' : route.custody, acquiredAt: now,
         claim: null, truth: {provenance: null, stewedMinutes: 0}, known: {provenance: 'unknown', assayed: false, stewed: false}, stew: null, ...extra};
     return s.lots[id];
+}
+
+function pickFluxweed(s, now, route, moon, growth) {
+    need(typeof moon === 'string', 'You can\'t tell the moon\'s phase right now.');
+    const lot = newLot(s, now, FLUXWEED, route, growth ? {harvestedAt: now, growth} : {});
+    lot.truth.provenance = moon === R.moonFull ? 'full_moon' : 'other';
+    lot.known.provenance = lot.truth.provenance;
+    lot.claim = `Gathered by you under the ${moon.toLowerCase()} moon.`;
+    return lot;
 }
 
 // One entry point; returns a summary. Mutates s (callers pass a copy to preview).
 export function act(s, ctx, req) {
     settle(s, ctx.now);
     const now = ctx.now;
+    if(req?.type === 'potionWorking') {
+        const summary = applyPotionWorking(s, ctx, req, n => spend(s, n));
+        log(s, now, 'making', summary);
+        return summary;
+    }
+    if(isCompanionPotionAction(req?.type)) {
+        const summary = applyCompanionPotionAction(s, req, n => spend(s, n));
+        log(s, now, 'practice', summary);
+        return summary;
+    }
     switch(req?.type) {
+    case 'mixAntidote': {
+        need(!s.cauldron.brew && !s.draughtTrial && !s.antidoteTrial, 'Finish the current cauldron work first.');
+        const known = req.repeatMethodId == null ? null : (s.methods ?? []).find(m => m.id === req.repeatMethodId && m.request.type === 'mixAntidote');
+        need(req.repeatMethodId == null || known, 'Choose an antidote method you demonstrated.');
+        const {type, ...working} = antidoteRequest(known?.request ?? req);
+        const trial = {...working, startedAt: now};
+        const result = resolveAntidoteTrial(trial);
+        if(known) {
+            const repeat = planDemonstratedRepeat(known, {setup: antidoteSetup(trial, result), request: antidoteRequest(trial)});
+            need(repeat.ok, repeat.reason);
+        }
+        spend(s, antidoteCost(trial.binder));
+        s.antidoteTrial = trial;
+        return 'Mixed one test dose. Apply it to a fresh assay phial to see what remains.';
+    }
+    case 'assayAntidote': {
+        const trial = s.antidoteTrial;
+        need(trial, 'Mix a test dose first.');
+        need(!req.reusePhial || s.antidotePhial, 'There is no treated phial to test again.');
+        const baseline = req.reusePhial ? s.antidotePhial : FRESH_PHIAL;
+        const result = resolveAntidoteTrial(trial, baseline);
+        const response = `Phial after one dose: first burden ${result.remaining.a}, second ${result.remaining.b}, blended ${result.remaining.blend}.`;
+        const setup = antidoteSetup(trial, result);
+        s.experiments = recordTrial(s.experiments ?? createExperimentLog(), {
+            materials: setup.inputs.map(x => x.material), process: setup.process, at: now,
+            seen: Object.entries(result.remaining).filter(([burden, amount]) => baseline[burden] > 0 && amount === 0)
+                .map(([burden]) => `assay.cleared.${burden}`),
+            setup,
+            observation: {route: 'phial assay', baseline, response},
+        });
+        if(Object.values(result.remaining).every(amount => amount === 0)) {
+            delete s.antidotePhial;
+            const {binder, method, steps, catalyst} = trial;
+            const suffix = method === 'composed' ? `.${steps.join('.')}.stone-${catalyst ? 'yes' : 'no'}` : '';
+            if(!req.reusePhial) rememberMethod(s, `hp.antidote.${method}.${binder}${suffix}`, setup, antidoteRequest(trial));
+        } else s.antidotePhial = result.remaining;
+        delete s.antidoteTrial;
+        log(s, now, 'antidote', response);
+        return response;
+    }
+    case 'startDraught': {
+        need(!s.cauldron.brew && !s.draughtTrial && !s.antidoteTrial, 'Finish the current cauldron work first.');
+        need(['crush', 'slice'].includes(req.preparation), 'Choose how to prepare the bean.');
+        const trial = {preparation: req.preparation, strokes: '', startedAt: now};
+        const result = brewWorkshopDraught(trial);
+        spend(s, DRAUGHT_CLASS_FEE);
+        s.draughtTrial = trial;
+        return `Juice added. ${result.observations.afterAddition}.`;
+    }
+    case 'stirDraught': {
+        const trial = s.draughtTrial;
+        need(trial, 'Prepare a Draught flask first.');
+        need(req.direction === 'L' || req.direction === 'R', 'Choose a stirring direction.');
+        const next = {...trial, strokes: trial.strokes + req.direction};
+        const result = brewWorkshopDraught(next);
+        s.draughtTrial = next;
+        return `${result.observations.afterStirring}.`;
+    }
+    case 'submitDraught': {
+        const trial = s.draughtTrial;
+        need(trial, 'Prepare a Draught flask first.');
+        const result = brewWorkshopDraught(trial);
+        const accepted = result.observations.afterStirring === 'Pale pink';
+        const response = accepted ? 'The teacher accepts the pale-pink sample.' : 'The teacher returns the flask. It missed the pale-pink checkpoint.';
+        const materials = ['prepared base', 'sopophorous bean'];
+        const process = [['admit', 1], ...Array.from(trial.strokes, stroke => [stroke === 'L' ? 'counterclockwise' : 'clockwise', 1])];
+        s.experiments = recordTrial(s.experiments ?? createExperimentLog(), {
+            materials, process,
+            at: now, seen: [result.observations.afterAddition, result.observations.afterStirring],
+            setup: {revision: 1, law: DRAUGHT_LAW, inputs: [{key: 'class.base', material: materials[0], qty: 1},
+                {key: 'class.bean', material: materials[1], qty: 1}], process, preparation: {bean: trial.preparation},
+                conditions: {apparatus: 'class cauldron'}},
+            observation: {route: 'examination', response},
+        });
+        delete s.draughtTrial;
+        log(s, now, 'draught', response);
+        return response;
+    }
+    case 'plantFluxweed': {
+        need(!s.fluxweedBed, 'Pick the current plant before filling the bed again.');
+        const lot = lotOf(s, req.lotId);
+        need(lot.ingredient === FLUXWEED && lot.form === 'raw' && !lot.stew, 'Choose a raw fluxweed clipping.');
+        need(freshnessOf(lot, now)?.state !== 'spoiled', 'That wilted clipping will not take root.');
+        s.fluxweedBed = {parentLotId: lot.id, plantedAt: now, readyAt: now + BED.growMinutes};
+        delete s.lots[lot.id];
+        return 'Planted one fluxweed clipping. New growth can be picked in one played day.';
+    }
+    case 'pickFluxweed': {
+        const growth = s.fluxweedBed;
+        need(growth && now >= growth.readyAt, 'The fluxweed bed is not ready to pick.');
+        pickFluxweed(s, now, BED, ctx.moon, growth);
+        delete s.fluxweedBed;
+        return 'Picked a new fluxweed clipping from your bed.';
+    }
     case 'acquire': {
         const route = ROUTE[req.route] ?? fail('Choose a route.'), ing = req.ingredient;
         need(ING[ing] && Object.hasOwn(route.cost, ing), `This route does not offer ${label(ing)}.`);
@@ -235,11 +435,8 @@ export function act(s, ctx, req) {
         } else if(route.kind === 'harvest') {
             need(ing === 'book.hp.ing.fluxweed', 'Only fluxweed grows here.');
             need(s.harvestAt === null || now - s.harvestAt >= R.harvestCooldownMinutes, 'The patch hasn\'t grown back yet.');
-            need(typeof ctx.moon === 'string', 'You can\'t tell the moon\'s phase right now.');
+            lot = pickFluxweed(s, now, route, ctx.moon);
             s.harvestAt = now;
-            lot = newLot(s, now, ing, route);
-            lot.truth.provenance = ctx.moon === R.moonFull ? 'full_moon' : 'other';
-            lot.known.provenance = lot.truth.provenance; lot.claim = `Gathered by you under the ${ctx.moon.toLowerCase()} moon.`;
         } else fail('Unsupported route.');
         return `Obtained ${label(ing)}${req.prepared ? ' (ready-stewed)' : ''}.`;
     }
@@ -280,9 +477,11 @@ export function act(s, ctx, req) {
         return `Sample obtained: ${s.samples[id].claim}`;
     }
     case 'brew': {
+        need(!s.draughtTrial && !s.antidoteTrial, 'Finish the class flask before starting another brew.');
         need(!s.cauldron.brew, 'The cauldron is already simmering or settling.');
         need(!req.method || [HP_PROCESS.id, ABRASIVE.ref].includes(req.method), 'Choose a supported making method.');
         const suspension = req.method === ABRASIVE.ref;
+        need(req.finish == null || !suspension && ['standard', 'concentrated'].includes(req.finish), 'Choose a supported Polyjuice finish.');
         if(suspension && req.materialInputs?.length) need(ctx.externalMaterials?.length === req.materialInputs.length, 'The host must validate every selected native input before admission.');
         const picked = {}, seen = new Set();
         for(const slot of F.slots) {
@@ -295,21 +494,27 @@ export function act(s, ctx, req) {
         const inputs = Object.entries(picked).map(([slot, lot]) => ({slot, lot: clone(lot)}));
         const externalMaterials = suspension ? clone(ctx.externalMaterials ?? []) : [];
         need(seen.size > 0 || suspension && externalMaterials.length > 0, 'Add at least one lot, or a portion you\'re carrying.');
-        const out = resolveBrew(picked, s.cauldron.condition);
-        let minutes = HP_PROCESS.minutes, producedDoses = R.doses, abrasivePlan;
+        const out = resolveBrew(picked, s.cauldron.condition, now);
+        let minutes, producedDoses, abrasivePlan, finish;
         if(suspension) {
             abrasivePlan = planHpAbrasiveMixture({localInputs: inputs, externalMaterials, process: ABRASIVE.steps,
                 apparatus: {station: 'cauldron', carrier: 'water-suspension', application: 'manual-scour'}});
             if(ctx.abrasivePlan) need(JSON.stringify(ctx.abrasivePlan) === JSON.stringify(abrasivePlan), 'The suspension you picked has changed. Check the portions again.');
             minutes = abrasivePlan.process.minutes; producedDoses = abrasivePlan.process.producedDoses; out.grade = 'original';
-        } else need(!req.materialInputs?.length && !ctx.externalMaterials?.length, 'Solids from other worlds only go in with the suspension method.');
+        } else {
+            need(!req.materialInputs?.length && !ctx.externalMaterials?.length, 'Solids from other worlds only go in with the suspension method.');
+            const plan = polyjuiceFinish(req.finish ?? 'standard', out, inputs);
+            finish = {revision: plan.revision, mode: plan.mode, doseMinutes: plan.doseMinutes};
+            minutes = plan.brewMinutes;
+            producedDoses = plan.doses;
+        }
         const history = {revision: 1, process: suspension ? ABRASIVE.id : HP_PROCESS.id, clock: 'played-calendar', startedAt: now, minutes, readyAt: now + minutes,
             producedDoses, cauldronCondition: s.cauldron.condition, inputs, resolution: clone(out),
-            ...(suspension ? {externalMaterials, abrasivePlan: clone(abrasivePlan)} : {})};
+            ...(suspension ? {externalMaterials, abrasivePlan: clone(abrasivePlan)} : {finish})};
         checkHistory(history);
         let repeatAssurance = '';
         if(req.repeatMethodId) {
-            const method = (s.methods ?? []).find(m => m.id === req.repeatMethodId) ?? fail('Choose a method you actually demonstrated.');
+            const method = (s.methods ?? []).find(m => m.id === req.repeatMethodId && m.request.type === 'brew') ?? fail('Choose a brewing method you actually demonstrated.');
             const repeat = planDemonstratedRepeat(method, {mode: req.repeatMode ?? 'quick', setup: knownSetup(history), request: programFor(history)});
             need(repeat.ok, repeat.reason); repeatAssurance = repeat.assurance;
         }
@@ -318,7 +523,8 @@ export function act(s, ctx, req) {
         s.cauldron.brew = {id: ++s.seq, startedAt: now, readyAt: history.readyAt, grade: out.grade, history};
         s.cauldron.condition = Math.max(0, s.cauldron.condition - R.cauldronWearPerBrew);
         const summary = suspension ? 'Water service paid: 1 coin. The original suspension will settle for 20 played minutes into three doses; its cleaning effect is untested.'
-            : 'The cauldron is simmering. It will take two days; the sample goes in at the glass, not here.';
+            : finish.mode === 'concentrated' ? 'The cauldron will simmer for two days and one hour into two doses. Add the sample at the glass.'
+                : 'The cauldron is simmering for two days. Add the sample at the glass.';
         return repeatAssurance ? `${summary} ${repeatAssurance}` : summary;
     }
     case 'treatCauldron': {
@@ -327,7 +533,8 @@ export function act(s, ctx, req) {
         need(!s.cauldron.brew, 'Wait for the current cauldron work to finish.');
         need(s.cauldron.condition < R.cauldronStart, 'The cauldron has no residue to treat.');
         const before = s.cauldron.condition, target = {condition: conditionWord(before), residue: residueWord(before)};
-        const strength = batch.history.abrasivePlan?.strength ?? 0;
+        need(!req.stir || suspensionOf(batch), 'Choose a suspension to stir.');
+        const strength = pourSuspension(batch, 1, now, req.stir)?.work ?? 0;
         batch.dosesLeft--; s.cauldron.condition = Math.min(R.cauldronStart, before + strength);
         const removed = s.cauldron.condition - before;
         const response = removed ? `The dose lifted residue; the cauldron now has ${residueWord(s.cauldron.condition)}.` : 'The dose was spent, but it lifted no residue.';
@@ -342,8 +549,8 @@ export function act(s, ctx, req) {
     case 'splitBatch': {
         const b = batchOf(s, req.batchId); carried(b); retained(b);
         need(int(req.doses) && req.doses > 0 && req.doses <= b.dosesLeft, 'Choose a positive number of remaining doses.');
-        const id = nextLot(s, 'a');
-        s.batches[id] = {...clone(b), id, doses: req.doses, dosesLeft: req.doses};
+        const id = nextLot(s, 'a'), suspension = pourSuspension(b, req.doses, now);
+        s.batches[id] = {...clone(b), id, doses: req.doses, dosesLeft: req.doses, ...(suspension ? {suspension} : {})};
         b.doses -= req.doses; b.dosesLeft -= req.doses;
         return `Set aside ${req.doses} dose${req.doses === 1 ? '' : 's'} as a separate portion of the same batch.`;
     }
@@ -352,6 +559,8 @@ export function act(s, ctx, req) {
         carried(b); carried(source); retained(b); retained(source);
         need(b.id !== source.id && source.dosesLeft > 0, 'Choose another remaining portion.');
         need(b.cohortId === source.cohortId && b.grade === source.grade && b.readyAt === source.readyAt && JSON.stringify(b.history) === JSON.stringify(source.history), 'These are different batches. Keep their portions separate.');
+        const left = suspensionOf(b), right = suspensionOf(source);
+        if(left && right) b.suspension = {work: left.work + right.work, mixedAt: now};
         b.doses += source.doses; b.dosesLeft += source.dosesLeft;
         b.known.identified ||= source.known.identified; b.known.assayed ||= source.known.assayed;
         if(source.known.treatmentObserved && !b.known.treatmentObserved) b.known.treatmentObserved = source.known.treatmentObserved;
@@ -409,6 +618,7 @@ export function act(s, ctx, req) {
         const baseline = {condition: s.condition?.id ?? 'clear', effect: s.effect?.kind ?? 'none', sampleSpecies: sample.known.assayed ? sample.truth.species : 'unknown'};
         const observeDrink = (response, effect, viable) => noteObservation(s, batch, {route: 'oral', seen: [effect], response, baseline,
             confounders: sample.known.assayed ? [] : ['Sample species was not assayed before use'], viable});
+        pourSuspension(batch, 1, now);
         batch.dosesLeft--; delete s.samples[sample.id]; batch.known.identified = true;
         if(batch.grade === 'original') { s.effect = {kind: 'nothing', startedAt: now, endsAt: now, donorId: donor.id, discovered: false}; log(s, now, 'drink', 'You drank it. Nothing changed, and the sample was wasted.'); observeDrink('Nothing happened.', 'oral.no-change', false); return 'Nothing happened.'; }
         if(sample.truth.species !== 'human') {
@@ -418,10 +628,12 @@ export function act(s, ctx, req) {
             observeDrink('Animal features appeared.', 'oral.animal-features', true);
             return 'The potion took the wrong kind of hair.';
         }
-        const kind = batch.grade === 'canon' ? 'transform' : 'thin', minutes = kind === 'transform' ? F.transformMinutes : Math.floor(F.transformMinutes * R.degradedPermille / 1000);
+        const kind = batch.grade === 'canon' ? 'transform' : 'thin';
+        const legacyMinutes = kind === 'transform' ? F.transformMinutes : Math.floor(F.transformMinutes * R.degradedPermille / 1000);
+        const minutes = batch.history?.finish?.doseMinutes ?? legacyMinutes;
         const discovered = sample.route === 'brush' && chance(s, `drink:${s.seq}:found`, R.discoverPermille);
         s.effect = {kind, startedAt: now, endsAt: now + minutes, donorId: donor.id, discovered};
-        log(s, now, 'drink', `You became ${donor.name} for ${kind === 'transform' ? 'an hour' : 'a short while'}.`);
+        log(s, now, 'drink', `You became ${donor.name} for ${minutes} minutes.`);
         observeDrink(`You look and sound like ${donor.name}.`, `oral.${kind}`, true);
         return `You look and sound like ${donor.name}.`;
     }
@@ -431,7 +643,11 @@ export function act(s, ctx, req) {
 
 // A preview shows what the observer can already know (MR31): assay and drink would otherwise
 // report the hidden result in their summaries before the player commits or pays.
-const PREVIEW = {assay: `Pay ${R.assayCost} coins to learn what this really is.`, drink: 'Drink one dose with this sample.', treatCauldron: 'Spend one carried dose to test it against the current cauldron residue; it may do nothing.'};
+const PREVIEW = {assay: `Pay ${R.assayCost} coins to learn what this really is.`, drink: 'Drink one dose with this sample.', treatCauldron: 'Spend one carried dose to test it against the current cauldron residue; it may do nothing.',
+    startDraught: `Pay ${DRAUGHT_CLASS_FEE} coins for one prepared base and one bean. The class bench supplies the knife and cauldron.`,
+    stirDraught: 'Stir once in this direction.', submitDraught: 'Hand in this flask for a colour assessment.',
+    mixAntidote: 'Mix one paid test dose. The assay shows its result after use.', assayAntidote: 'Spend one test dose on the selected phial.',
+    companionTreat: 'Give one serving and observe the response.', potionWorking: 'Carry out this work at the local station.'};
 export function quote(s, ctx, req) {
     try { const copy = clone(s), summary = act(copy, ctx, req); return {eligible: true, summary: PREVIEW[req.type] ?? summary}; }
     catch(error) { return {eligible: false, reason: error.message}; }
@@ -444,14 +660,23 @@ export function commit(s, ctx, req) {
 // Player-visible projection (MR31): claims and witnessed facts only.
 const standingWord = n => n <= -3 ? 'hostile' : n < 0 ? 'cool' : n === 0 ? 'neutral' : 'warm';
 export function view(s, ctx) {
-    if(!s) return {begun: false};
+    if(!s) return {begun: false, potionWorkings: viewPotionWorkings(undefined, ctx)};
     const t = clone(s); settle(t, ctx.now);
     const lotView = l => ({id: l.id, name: label(l.ingredient), ingredient: l.ingredient, form: l.form, variant: l.variant && VARIANT[l.variant].label, custody: l.custody, claim: l.claim, stewing: !!l.stew,
         preparation: l.preparation ? projectHpPreparation(l.preparation) : null,
+        ...(l.harvestedAt != null ? {freshness: freshnessOf(l, t.now).state, freshnessText: wordsFor(freshnessOf(l, t.now))} : {}),
         stewDaysDone: l.stew ? Math.floor((t.now - l.stew.startedAt) / 1440) : null,
         provenance: l.ingredient === 'book.hp.ing.fluxweed' ? l.known.provenance : null, stewedKnown: l.known.stewed ? (l.form === 'stewed' ? (l.truth.stewedMinutes >= F.slots[0].minStewMinutes ? 'twenty-one days' : 'short of twenty-one days') : null) : null, assayed: l.known.assayed});
+    const draught = t.draughtTrial && brewWorkshopDraught(t.draughtTrial);
     return {begun: true, purse: t.purse, store: t.store,
+        companionPotions: viewCompanionPotions(t.companionPotions, t.now),
+        potionWorkings: viewPotionWorkings(t.potionWorkings, ctx),
+        draught: draught ? {...draught.observations, strokes: t.draughtTrial.strokes} : null, draughtFee: DRAUGHT_CLASS_FEE,
+        antidote: t.antidoteTrial ? {binder: t.antidoteTrial.binder, method: t.antidoteTrial.method} : null,
+        antidotePhial: t.antidotePhial ?? null,
+        antidotePrices: ANTIDOTE_BINDERS.map(binder => [binder, antidoteCost(binder)]),
         lots: Object.values(t.lots).map(lotView),
+        fluxweedBed: t.fluxweedBed ? {minutesLeft: Math.max(0, t.fluxweedBed.readyAt - t.now)} : null,
         samples: Object.values(t.samples).map(x => ({id: x.id, claim: x.claim, donorName: t.donors[x.known.assayed ? x.donorId : x.claimDonorId].name, species: x.known.assayed ? x.truth.species : 'unknown', assayed: x.known.assayed})),
         donors: Object.values(t.donors).map(d => ({id: d.id, name: d.name, mood: standingWord(d.standing), askReady: d.askedAt === null || t.now - d.askedAt >= R.donorAskCooldownMinutes})),
         master: standingWord(t.master.standing),
@@ -462,7 +687,7 @@ export function view(s, ctx) {
         batches: Object.values(t.batches).map(b => {
             const suspension = b.history?.process === ABRASIVE.id;
             return {id: b.id, cohortId: b.cohortId ?? null, custody: b.custody ?? 'carried', readyAt: b.readyAt, retainedHistory: !!b.history, dosesLeft: b.dosesLeft,
-                suspension, cue: suspension ? 'Suspended solids in water.' : b.known.assayed || b.known.identified ? HP.outcomes[b.grade].cue + ' ' + HP.outcomes[b.grade].label : HP.outcomes[b.grade === 'original' ? 'original' : 'canon'].cue,
+                suspension, cue: suspension ? (settledSuspension(suspensionOf(b), t.now) ? 'The solids have settled.' : 'Suspended solids in water.') : b.known.assayed || b.known.identified ? HP.outcomes[b.grade].cue + ' ' + HP.outcomes[b.grade].label : HP.outcomes[b.grade === 'original' ? 'original' : 'canon'].cue,
                 treatment: b.known.treatmentObserved ?? (b.known.assayed && suspension ? (b.history.abrasivePlan.strength > 0 ? 'Abrasive particles detected; test against actual residue.' : 'No abrasive contribution found.') : 'Cleaning effect untested.'),
                 tested: !!b.known.treatmentObserved, identified: b.known.identified, label: suspension ? (b.known.identified ? 'Original suspension' : b.known.treatmentObserved ? 'Tested suspension (original)' : 'Untested suspension (original)') : b.known.identified ? HP.outcomes[b.grade].label : 'Unidentified brew'};
         }),
@@ -480,15 +705,41 @@ const KEYS = ['schema', 'packRevision', 'root', 'begunAt', 'now', 'purse', 'seri
 export function validate(s) {
     need(s && typeof s === 'object' && !Array.isArray(s), 'Polyjuice slice is not an object.');
     need(s.schema === SCHEMA && s.packRevision === 1, 'Unsupported Polyjuice slice revision.');
-    need(KEYS.every(k => Object.hasOwn(s, k)) && Object.keys(s).every(k => KEYS.includes(k) || ['experiments', 'methods'].includes(k)), 'Polyjuice slice has missing or unknown fields.');
+    need(KEYS.every(k => Object.hasOwn(s, k)) && Object.keys(s).every(k => KEYS.includes(k) || ['experiments', 'methods', 'fluxweedBed', 'draughtTrial', 'antidoteTrial', 'antidotePhial', 'companionPotions', 'potionWorkings'].includes(k)), 'Polyjuice slice has missing or unknown fields.');
     need(Number.isInteger(s.root) && s.root >= 0 && s.root <= 0xffffffff, 'Bad slice seed.');
     for(const k of ['begunAt', 'now', 'purse', 'serial', 'seq']) need(int(s[k]) && s[k] >= 0, `Bad ${k}.`);
     need(s.now >= s.begunAt, 'Slice clock is behind its start.');
+    if(Object.hasOwn(s, 'companionPotions')) validateCompanionPotions(s.companionPotions, s.now);
+    if(Object.hasOwn(s, 'potionWorkings')) validatePotionWorkings(s.potionWorkings, s.now);
+    if(Object.hasOwn(s, 'antidotePhial')) {
+        const phial = s.antidotePhial;
+        need(phial && Object.keys(phial).length === 3 && Object.entries(FRESH_PHIAL).every(([key, initial]) =>
+            int(phial[key]) && phial[key] >= 0 && phial[key] <= initial) && Object.values(phial).some(amount => amount > 0), 'Malformed retained assay phial.');
+    }
+    if(s.antidoteTrial) {
+        const a = s.antidoteTrial;
+        const fields = ['binder', 'method', 'startedAt', ...(a.method === 'composed' ? ['steps', 'catalyst'] : [])];
+        need(!s.cauldron.brew && !s.draughtTrial && Object.keys(a).length === fields.length && fields.every(k => Object.hasOwn(a, k)) &&
+            int(a.startedAt) && a.startedAt >= s.begunAt && a.startedAt <= s.now, 'Malformed antidote flask.');
+        resolveAntidoteTrial(a);
+    }
+    if(s.draughtTrial) {
+        const d = s.draughtTrial;
+        need(!s.cauldron.brew && Object.keys(d).length === 3 && ['preparation', 'strokes', 'startedAt'].every(k => Object.hasOwn(d, k)) &&
+            int(d.startedAt) && d.startedAt >= s.begunAt && d.startedAt <= s.now && typeof d.strokes === 'string'
+            && ['crush', 'slice'].includes(d.preparation), 'Malformed class flask.');
+        brewWorkshopDraught(d);
+    }
+    if(s.fluxweedBed) {
+        checkFluxweedGrowth(s.fluxweedBed, s.now);
+        need(!s.lots[s.fluxweedBed.parentLotId], 'The planted clipping is already in the bed.');
+    }
     for(const l of Object.values(s.lots)) {
         need(ING[l.ingredient] && ING[l.ingredient].forms.includes(l.form) && l.id in s.lots, 'A lot has an unknown ingredient or form.');
         need(!l.variant || VARIANT[l.variant]?.makes === l.form, 'A lot variant does not match its form.');
         need(l.acquiredAt <= s.now && (!l.stew || l.stew.startedAt <= s.now), 'A lot is dated after the slice clock.');
         if(l.preparation) validateHpPreparationReceipt(l.preparation, l, s.now);
+        checkFluxweedLot(l);
         need(Object.hasOwn(l.truth, 'provenance') && int(l.truth.stewedMinutes) && ['full_moon', 'other', null].includes(l.truth.provenance), 'A lot lacks its truth record.');
     }
     for(const x of Object.values(s.samples)) need(s.donors[x.donorId] && s.donors[x.claimDonorId] && ['human', 'cat'].includes(x.truth.species), 'A sample lacks a donor or species.');
@@ -500,14 +751,21 @@ export function validate(s) {
     const cohorts = new Map();
     for(const [id, b] of Object.entries(s.batches)) {
         need(b.id === id && ['canon', 'degraded', 'original'].includes(b.grade) && int(b.doses) && int(b.dosesLeft) && b.dosesLeft >= 0 && b.dosesLeft <= b.doses, 'A batch is malformed.');
+        if(b.suspension) need(b.history?.process === ABRASIVE.id && int(b.suspension.work) && b.suspension.work >= 0
+            && (b.dosesLeft > 0 || b.suspension.work === 0) && int(b.suspension.mixedAt) && b.suspension.mixedAt >= b.readyAt
+            && b.suspension.mixedAt <= s.now, 'Malformed retained suspension.');
         if(b.history || b.cohortId || b.custody) {
             retained(b); need(typeof b.cohortId === 'string' && ['carried', 'bench'].includes(b.custody) && b.readyAt === b.history.readyAt && b.grade === b.history.resolution.grade, 'Malformed HP cohort custody.');
-            const c = cohorts.get(b.cohortId) ?? {doses: 0, history: JSON.stringify(b.history), yield: b.history.producedDoses};
+            const c = cohorts.get(b.cohortId) ?? {doses: 0, work: 0, history: JSON.stringify(b.history), yield: b.history.producedDoses,
+                initialWork: (b.history.abrasivePlan?.strength ?? 0) * b.history.producedDoses};
             need(c.history === JSON.stringify(b.history), 'Cohort portions disagree about their paid history.');
-            c.doses += b.doses; cohorts.set(b.cohortId, c);
+            c.doses += b.doses; c.work += suspensionOf(b)?.work ?? 0; cohorts.set(b.cohortId, c);
         }
     }
-    for(const c of cohorts.values()) need(c.doses === c.yield, 'HP cohort portions do not conserve the produced doses.');
+    for(const c of cohorts.values()) {
+        need(c.doses === c.yield, 'HP cohort portions do not conserve the produced doses.');
+        need(c.work <= c.initialWork, 'HP cohort portions exceed the batch’s abrasive work.');
+    }
     if(s.cauldron.brew) { checkPending(s.cauldron.brew, s); need(s.cauldron.brew.startedAt <= s.now, 'Pending HP brew is ahead of the slice clock.'); }
     need(int(s.cauldron.condition) && s.cauldron.condition >= 0 && s.cauldron.condition <= R.cauldronStart, 'Bad cauldron condition.');
     if(s.condition) {

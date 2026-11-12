@@ -18,6 +18,7 @@ const P = HP_ABRASIVE_PROCESS;
 const need = (ok, why) => {if(!ok) throw Error(why);};
 const positive = n => Number.isSafeInteger(n) && n > 0;
 const horn = 'book.hp.ing.bicorn_horn';
+const bonemeal = 'book.hp.ing.bonemeal';
 const fine = 'book.hp.prep.powder_fine', coarse = 'book.hp.prep.powder_coarse';
 const localKey = id => `hp:${id}`;
 // Work is an authored per-portion contribution, not mass, hardness or volume.
@@ -30,8 +31,14 @@ const catalogue = defineCatalogue({id: 'book.hp.abrasion', revision: 1,
         {id: 'native-bonemeal', revision: 1, tags: ['solid', 'abrasive'], properties: {work: 1}},
         {id: 'side-solid', revision: 1, tags: ['solid'], properties: {work: 0}},
     ]});
-const profileForLot = lot => catalogue.materials[lot.ingredient === horn && lot.form === 'powdered'
-    ? lot.variant === fine ? 'fine-horn' : lot.variant === coarse ? 'coarse-horn' : 'side-solid' : 'side-solid'];
+function profileForLot(lot) {
+    if(lot.form === 'powdered') {
+        if(lot.ingredient === bonemeal) return catalogue.materials['native-bonemeal'];
+        if(lot.ingredient === horn && lot.variant === fine) return catalogue.materials['fine-horn'];
+        if(lot.ingredient === horn && lot.variant === coarse) return catalogue.materials['coarse-horn'];
+    }
+    return catalogue.materials['side-solid'];
+}
 export const hpAbrasiveHostWorld = world => ['book.hp.school.world', 'book.hp.trade.world'].includes(world) ? 'book.hp' : null;
 
 // Call with actual current native stock. A request is a choice, not a profile
@@ -125,6 +132,8 @@ export function projectHpIngredientChoices({lots = [], nativeHoldings = [], sele
         if(lot.variant === 'Coarse powder') for(const stock of nativeHoldings)
             add(`blend:${lot.id}:${stock.key}`, `Coarse horn and Bonemeal blend · ${lot.id}`, 'blend', [lot], [{key: stock.key, qty: 1}]);
     }
+    for(const lot of lots.filter(lot => lot.ingredient === bonemeal))
+        add(`market-bonemeal:${lot.id}`, `Market Bonemeal · ${lot.id}`, 'alternative', [lot], []);
     for(const stock of nativeHoldings) {
         add(`alternative:${stock.key}`, 'Bonemeal alternative · 2 carried portions', 'alternative', [], [{key: stock.key, qty: 2}]);
         add(`alternative-small:${stock.key}`, 'Small Bonemeal trial · 1 carried portion', 'alternative', [], [{key: stock.key, qty: 1}]);

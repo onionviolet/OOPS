@@ -46,7 +46,7 @@ export const neutralWritable = operations => operations.tradeWritable || operati
 export function configureNativeToolDomains(operations) {
     configureAwayBank({root: operations.root, persist: operations.persist, writable: neutralWritable(operations), fastForward: operations.fastForward, furnaceAssigned: operations.furnaceAssigned});
     configureHpBrewingDomain({persist: operations.persist, writable: operations.tradeWritable || operations.writable,
-        world: operations.world, inventory: () => operations.actor().getItems(), itemOwners: operations.itemOwners,
+        world: operations.world, location: operations.location, inventory: () => operations.actor().getItems(), itemOwners: operations.itemOwners,
         assertSpend: operations.assertSpend,
         removeExact: (key, qty) => operations.actor().removeFromInventory([{item_key: key, item_count: qty}])});
     configureOrganizations({...operations, writable: neutralWritable(operations), blocked: operations.worldWorkBlocked});

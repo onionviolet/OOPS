@@ -2,15 +2,18 @@
 // obtain -> prepare/stew -> brew -> use -> aftermath, then Save, reload, Export and literal Import.
 // Disposable temp-dir bundle and private port; never opens a personal save; no window opens.
 import assert from 'node:assert/strict';
-import {mkdir, writeFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {mkdir, readFile, writeFile} from 'node:fs/promises';
 import {resolve, join} from 'node:path';
 import {Session, buildBundle, serve} from './lib.mjs';
 
 const out = resolve(process.argv[2] || '/tmp/hp-polyjuice-journey');
 await mkdir(out, {recursive: true});
 const bundle = await buildBundle(), server = await serve(bundle.dir);
+const bundleSha256 = createHash('sha256').update(await readFile(join(bundle.dir, 'bundle.js'))).digest('hex');
 const s = new Session({url: server.url, seed: 21, wall: Date.UTC(2026, 9, 22), opTimeout: 15000});
 const checks = [], I = id => `book.hp.ing.${id}`;
+const coarse = process.env.HP_COARSE_HORN === '1';
 let p;
 const panelSlice = save => save.hp_brewing;
 const play = async () => {
@@ -64,7 +67,7 @@ try {
 
     // 2. Prepare and stew (timed play; a game day costs real seconds headless, so the full
     // twenty-one-day completion is unit-verified and the brew uses the bought ready-stewed lot).
-    await lotRow('Horn of a bicorn').getByRole('button', {name: 'Fine powder'}).click();
+    await lotRow('Horn of a bicorn').getByRole('button', {name: coarse ? 'Coarse powder' : 'Fine powder'}).click();
     await lotRow('Skin of a boomslang').getByRole('button', {name: 'Fine shreds'}).click();
     await p.locator('[data-hp-lot]').filter({hasText: 'raw'}).filter({hasText: 'Lacewing flies'}).first().getByRole('button', {name: 'Stew', exact: true}).click();
     for(let d = 0; d < 3; d++) await s.step(1440);
@@ -96,24 +99,41 @@ try {
     await s.step(1440); await s.step(1440 + 5); await p.waitForTimeout(100);
     const final = panelSlice(await s.save()), batch = Object.values(final.batches)[0];
     // The bought ready-stewed lot hides a 90% draw; the expected grade comes from saved truth, so a seed change cannot flake this.
-    const expected = process.env.HP_FULL_STEW || stewedTruth >= 30240 ? 'canon' : 'degraded';
+    const expected = coarse || stewedTruth < 30240 ? 'degraded' : 'canon';
     assert.equal(batch.grade, expected, 'saved truth decides the grade');
     assert.match(await text(), /Unidentified brew/);
     assert.ok(!(await text()).includes('Polyjuice Potion · 3 doses'), 'grade is not shown before it is observed (MR31)');
-    checks.push('Exact formula with fine preparations and a clean cauldron brews the canon batch; the panel still says "Unidentified brew"');
+    checks.push(`${coarse ? 'Coarse horn' : 'Fine horn'} yielded a ${expected} batch; its grade stayed hidden before use`);
 
-    // 4. Sample (consent), drink, observe, save/reload mid-effect, Export and literal Import.
+    // 4. Keep the batch at the bench, then retrieve it before adding a sample at the glass.
     await p.getByRole('button', {name: 'Ask for a hair'}).first().click();
+    const sampleId = Object.keys(panelSlice(await s.save()).samples)[0];
+    await act('store-batch');
+    const stored = panelSlice(await s.save());
+    assert.equal(stored.batches[batch.id].custody, 'bench');
+    assert.equal(stored.batches[batch.id].dosesLeft, batch.dosesLeft);
+    await p.reload(); await play(); await open();
+    assert.deepEqual(panelSlice(await s.save()).batches[batch.id], stored.batches[batch.id]);
     await pick('batch', batch.id);
-    await pick('sample', Object.keys(panelSlice(await s.save()).samples)[0]);
+    await pick('sample', sampleId);
+    assert.equal(await p.locator('[data-hp-action="drink"]:not([disabled])').count(), 0);
+    assert.ok(panelSlice(await s.save()).samples[sampleId], 'a stored portion does not spend the sample');
+    await act('retrieve-batch');
+    await pick('batch', batch.id);
+    await pick('sample', sampleId);
     await act('drink');
+    const drunk = panelSlice(await s.save());
+    assert.equal(drunk.batches[batch.id].dosesLeft, batch.dosesLeft - 1);
+    assert.equal(drunk.samples[sampleId], undefined);
+    assert.equal(drunk.effect.endsAt - drunk.effect.startedAt, expected === 'canon' ? 60 : 30);
+    checks.push('Bench custody survives reload, blocks use, and retrieval preserves the exact batch for a single dose and sample debit');
     assert.match(await text(), /You are .* \((Polyjuice|thin draught)\) for about \d+ more minutes/);
     save = await s.save();
     const keep = JSON.stringify(panelSlice(save));
     await p.reload(); await play(); await open();
     assert.equal(JSON.stringify(panelSlice(await s.save())), keep, 'Save then reload keeps the slice byte for byte');
     assert.match(await text(), /You are .* \((Polyjuice|thin draught)\)/);
-    checks.push('Drinking binds the donor for an hour; Save and reload keep the effect and the slice byte for byte');
+    checks.push(`Drinking binds the donor for ${expected === 'canon' ? 60 : 30} minutes; Save and reload keep the effect and the slice byte for byte`);
     const literal = await p.evaluate(() => save_to_file());
     assert.equal(typeof literal, 'string');
     await importLiteral(literal);
@@ -129,7 +149,7 @@ try {
     await p.reload(); await play(); await open();
     assert.match(await text(), /The change wore off/);
     assert.match(await text(), /Batch|2 doses/);
-    checks.push('After the hour the aftermath is recorded in the saved ledger and shown after a reload; two doses remain');
+    checks.push('After the effect expires, the aftermath is recorded in the saved ledger and shown after a reload; two doses remain');
 
     // 5b. Animal hair: staged features on the shared affliction seam, hospital care, a weekly check,
     // then Save/reload and literal Import. The sample's hidden species is set in the stored save
@@ -172,7 +192,7 @@ try {
     // The fixture host 404s optional private_packs files in every session; anything else is a failure.
     assert.deepEqual(s.errors.filter(e => !(e.kind === 'console' && /status of 404/.test(e.text))), []);
     checks.push('No page errors; no horizontal overflow at 1920x1080; labelled controls');
-    await writeFile(join(out, 'receipt.json'), JSON.stringify({checks, errors: s.errors, viewport: '1920x1080', origin: 'fresh headless context'}, null, 2));
+    await writeFile(join(out, 'receipt.json'), JSON.stringify({bundleSha256, checks, errors: s.errors, viewport: '1920x1080', origin: 'fresh headless context'}, null, 2));
     console.log(JSON.stringify({checks, out, errors: s.errors}, null, 1));
 } catch(e) {
     await writeFile(join(out, 'failure.txt'), e.stack || String(e));

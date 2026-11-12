@@ -3,11 +3,15 @@
 import {isFeatureBattleSchema} from './feature_expansion_battle.js';
 import {createActionLegibilityList} from './action_legibility_ui.js';
 import {rendered,shownOrDeferred} from './panel_reveal.js';
+import {renderMethodEditor} from './method_editor.js';
+import {bindMethod} from './method_program.js';
 const node = (tag, text = '', className = '') => {
     const n = document.createElement(tag); n.textContent = text; n.className = className; return n;
 };
 const textOf = v => typeof v === 'string' ? v : v?.known === false ? '' : v?.text || v?.reason || '';
 const reasonsOf = values => (values || []).map(textOf).filter(Boolean).join(' ');
+
+import {createBookCraftControls} from './ui/book_craft_controls.js';
 
 export function createFeatureExpansionPanel({read, command, present}) {
     const element = node('details', '', 'expedition_panel'); element.id = 'feature_expansion_panel';
@@ -48,8 +52,9 @@ export function createFeatureExpansionPanel({read, command, present}) {
             if(!entry) {
                 const card = node('details', '', 'notebook_preparation'), heading = node('summary'), intro = node('p');
                 const work = node('p', '', 'expedition_preview'), actions = node('div'), records = node('ul', '', 'expedition_history');
-                card.append(heading, intro, work, actions, records); sections.append(card);
-                entry = {card, heading, intro, work, actions, records, actionRows: new Map(), recordRows: new Map()}; rows.set(section.id, entry);
+                const method = node('section');
+                card.append(heading, intro, work, method, actions, records); sections.append(card);
+                entry = {card, heading, intro, work, method, steps: [], actions, records, actionRows: new Map(), recordRows: new Map()}; rows.set(section.id, entry);
                 entry.currentActions = new Map();
                 entry.legibility = createActionLegibilityList({parent:actions,idPrefix:`feature-${section.id}`,focusFallback:summary,
                     onAction:row=>{
@@ -62,6 +67,31 @@ export function createFeatureExpansionPanel({read, command, present}) {
             entry.heading.textContent = section.label;
             entry.intro.textContent = section.description || ''; entry.intro.hidden = !entry.intro.textContent;
             entry.work.textContent = section.work || ''; entry.work.hidden = !entry.work.textContent;
+            if(section.craft&&!entry.craft) {
+                entry.craft=createBookCraftControls(request=>{
+                    command({...request,type:'book_mol_craft'});
+                    render();
+                    return {pending:true};
+                });
+                entry.card.insertBefore(entry.craft.element,entry.actions);
+            }
+            entry.craft?.render(section.craft,enabled);
+            const editor = section.methodEditor;
+            entry.method.hidden = !editor;
+            const editorKey = editor && JSON.stringify([editor, entry.steps, enabled]);
+            if(editor && entry.editorKey !== editorKey) {
+                entry.editorKey = editorKey;
+                const controls = renderMethodEditor({element: node, operations: editor.operations, steps: entry.steps, limit: editor.limit,
+                    change: steps => {entry.steps = steps; render();}});
+                const apply = node('button', 'Set your composed formula');
+                apply.type = 'button';
+                const feedback = node('p');
+                try {bindMethod(entry.steps, editor.operations, editor);}
+                catch(error) {feedback.textContent = error.message;}
+                apply.disabled = !enabled || !!feedback.textContent;
+                apply.onclick = () => run({...editor.command, steps: entry.steps, sequence: read().state.sequence});
+                entry.method.replaceChildren(node('h3', 'Compose a light formula'), controls, feedback, apply);
+            }
             const actionsShown = new Set();
             entry.currentActions = new Map((section.actions||[]).map(a=>[a.id,{...a,command:{...a.command,sequence:a.command.sequence??snapshot.state.sequence}}]));
             entry.legibility.render({actions:(section.actions||[]).map(a=>a.legibility).filter(Boolean),enabled,notice:snapshot.error||''});

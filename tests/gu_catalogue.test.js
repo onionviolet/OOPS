@@ -1,0 +1,61 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {guCatalogue} from '../src/gu_catalogue.js';
+import {searchGuMoves} from '../src/gu_move_search.js';
+
+const evidence = JSON.parse(readFileSync(new URL('../docs/research/gu-identity-evidence.json', import.meta.url)));
+const byKind = new Map(evidence.kinds.map(row => [row.id, row]));
+const byMove = new Map(evidence.moves.map(row => [row.id, row]));
+
+test('every playable Gu catalogue binding cites a checked chapter and identifies its tuning', () => {
+    assert.equal(byKind.size, evidence.kinds.length, 'source identities must be unique');
+    for (const [kind, bindings] of Object.entries(guCatalogue)) {
+        const record = byKind.get(kind);
+        assert.ok(record, `${kind} needs a checked identity`);
+        for (const [mechanism, {chapters, observed, authored, value}] of Object.entries(bindings)) {
+            const label = `${kind} ${mechanism}`;
+            assert.ok(chapters.length && chapters.every(chapter => record.chapters.includes(chapter)), label);
+            assert.ok(observed.trim() && authored.trim(), label);
+            assert.ok(Object.isFrozen(value), label);
+        }
+    }
+});
+
+test('the Red Fire search retains count, force and fuel as separate tradeoffs', () => {
+    const roles = byMove.get('xiao-yan-fire-set').roles;
+    const attack = roles.find(role => role.id === 'attack');
+    const supports = roles.filter(role => role.id !== 'attack').map(role => role.kind);
+    const kinds = [...supports, attack.kind, 'fire-discharge'];
+    const available = kinds.map(kind => ({gu: {id: kind, kind, rank: 1, fedThrough: 0},
+        operator: 'keeper', ability: guCatalogue[kind].ability.value}));
+    const reserves = {keeper: {primeval: 10}};
+    const {options} = searchGuMoves({available, reserves, day: 0, effect: 'flame', maxSupports: 3});
+    const outcomes = new Map(options.map(row => [[...row.supports].sort().join(','),
+        [row.effects[0].count, row.effects[0].magnitude, 10 - row.remaining.keeper.primeval]]));
+    assert.equal(options.length, 8);
+    assert.deepEqual(outcomes.get(''), [1, 1, 6]);
+    assert.deepEqual(outcomes.get('fire-source'), [1, 1, 4]);
+    assert.deepEqual(outcomes.get('duplicate,fire-source'), [2, 1, 5]);
+    assert.deepEqual(outcomes.get('enlarge,fire-source'), [1, 2, 5]);
+    assert.deepEqual(outcomes.get('duplicate,enlarge,fire-source'), [2, 2, 6]);
+    assert.ok(options.every(row => row.core === attack.kind && row.supports.every(kind => supports.includes(kind))));
+    const travel = searchGuMoves({available, reserves, day: 0, effect: 'travel'});
+    assert.deepEqual(travel.options.map(({core, supports}) => [core, supports]), [['fire-discharge', []]]);
+});
+
+test('unresolved ranks and the reported Immortal Worm recipe supply no playable defaults', () => {
+    for (const kind of ['light-source', 'moon-scar', 'stone-scar']) {
+        assert.deepEqual(byKind.get(kind).ranks, []);
+        assert.ok(byKind.get(kind).openFields.includes('rank in the cited scene'));
+        assert.equal(guCatalogue[kind]?.rank, undefined);
+    }
+    assert.equal(guCatalogue['stone-scar']?.ability, undefined);
+    const legend = evidence.interpretations.find(row => row.kind === 'liquor-worm');
+    assert.equal(legend.status, 'chapter-reported-legend');
+    assert.deepEqual(legend.chapters, [1191]);
+    assert.ok(legend.openFields.includes('living specimen or holder'));
+    assert.deepEqual(byKind.get('liquor-worm').ranks, [1]);
+    assert.equal(guCatalogue['liquor-worm'].conversion.value.rank, 1);
+    assert.equal(guCatalogue['liquor-worm'].recipe, undefined);
+});

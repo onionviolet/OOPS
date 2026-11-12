@@ -6,9 +6,12 @@ import {createRequire} from 'node:module';
 import {mkdir, readFile, writeFile} from 'node:fs/promises';
 import path from 'node:path';
 import {GU_LEAD, riLeadId as id} from '../../src/world_packs/book_gu_lead_life.js';
+import {encodeSaveFile} from '../../src/save_files.js';
+import {writeGameplayToEnvelope} from '../../src/gameplay_transactions.js';
 
 const {runBrowser, advanceGameMinutes} = createRequire(import.meta.url)('../ui_helpers.cjs');
-const [buildRoot, evidenceDir] = process.argv.slice(2);
+const [buildRoot, evidenceDir, pairingFixture] = process.argv.slice(2);
+const compactDesktop = process.env.YAIR_GU_DESKTOP_FLOOR === '1';
 if (!buildRoot || !evidenceDir) throw Error('Pass an isolated BUILD_OUT and an evidence directory.');
 const build = path.resolve(buildRoot);
 const out = path.resolve(evidenceDir);
@@ -29,9 +32,11 @@ const server = createServer(async (req, res) => {
 });
 await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
 const result = {
-    route: 'Fresh Village → returned clan youth → morning roll → Awakening Ceremony → first academy exercise',
+    route: pairingFixture ? 'Earned Qing Mao fixture → Moonlight comparison → save and import'
+        : 'Fresh Village → returned clan youth → morning roll → Awakening Ceremony → first academy exercise',
     bundleSha256: createHash('sha256').update(await readFile(path.join(build, 'dist/bundle.js'))).digest('hex'),
-    viewport: {width: 1920, height: 1080}, checks: [], pageErrors: []
+    viewport: compactDesktop ? {width: 1536, height: 864} : {width: 1920, height: 1080},
+    checks: [], pageErrors: []
 };
 const progress = save => {
     const {expansion, content_packs} = save;
@@ -42,6 +47,8 @@ const progress = save => {
         source: actors.player.sources[id('aperture')], faculty: simulation.faculties.player?.[id('aperture')],
         energy: simulation.energies?.player?.[id('primeval')], roll: simulation.claims[id('academy_roll')],
         knowledge: simulation.knowledge.player, completed: actors.player.completed,
+        farTargetCut: actors.player.facts[id('light_pairing.far_target_cut')],
+        littleLight: save.inventories.person.main_character[JSON.stringify({id: id('second_gu.little_light')})]?.count ?? 0,
         jobs: simulation.jobs.filter(job => job.commandId.startsWith(GU_LEAD + '.'))
     };
 };
@@ -82,7 +89,11 @@ try {
             await p.locator('#save_to_file_button').click();
             const file = path.join(out, name + '.txt');
             await (await downloading).saveAs(file);
-            await Promise.all([p.waitForEvent('load'), p.locator('#saved_file_input').setInputFiles(file)]);
+            await Promise.all([p.waitForEvent('load'), p.locator('#saved_file_input').setInputFiles(file)])
+                .catch(async error => {
+                    const message = await p.locator('#message_box_div').textContent();
+                    throw Error(`${name} import failed. ${message}`, {cause: error});
+                });
             await play();
             assert.deepEqual(await state(), expected, name + ' file Import');
             assert.equal((await p.evaluate(() => window.simulationTestHooks.saveStatus())).ownsSave, true);
@@ -91,6 +102,42 @@ try {
         };
         await p.goto(`http://127.0.0.1:${server.address().port}/?test_hooks=1`);
         await play();
+        if (pairingFixture) {
+            const fixture = JSON.parse(await readFile(pairingFixture, 'utf8'));
+            const envelope = await save();
+            Object.assign(envelope, {expansion: fixture.expansion, 'current location': fixture.location});
+            envelope.content_packs.structured = fixture.record;
+            writeGameplayToEnvelope(envelope, fixture.gameplay, {player: {category: 'person', id: 'main_character'}});
+            const file = path.join(out, 'earned-prefix.txt');
+            await writeFile(file, encodeSaveFile(JSON.stringify(envelope)));
+            await Promise.all([p.waitForEvent('load'), p.locator('#saved_file_input').setInputFiles(file)]);
+            await play();
+            await open();
+
+            const reserve = async () => (await state()).energy.reserve;
+            const targetCut = async () => (await save()).expansion.actors.player.facts[id('light_pairing.far_target_cut')];
+            const before = await reserve();
+            assert.equal(before, 28);
+            await p.locator(`[data-structured-extension="${id('light_pairing')}"]`).click();
+            await action('light_pairing.solo').click();
+            await step(5);
+            assert.equal(await targetCut(), false);
+            assert.equal(await reserve(), before - 4);
+            await open();
+            await action('light_pairing.paired').click();
+            await roundTrip('paired-throw-pending');
+            await step(5);
+            assert.equal(await targetCut(), true);
+            assert.equal(await reserve(), before - 9);
+            await roundTrip('paired-throw-settled');
+            await panel.locator('.structured-status-details summary').click();
+            const resultLine = panel.locator('.structured-status-details p').filter({hasText: 'reaches the far straw target'});
+            await resultLine.scrollIntoViewIfNeeded();
+            assert.equal(await resultLine.isVisible(), true);
+            await p.screenshot({path: path.join(out, 'paired-throw.png')});
+            assert.deepEqual(result.pageErrors, []);
+            return;
+        }
         await open();
         const choice = p.locator('[data-structured-choice="life"]');
         const available = await choice.locator('option').evaluateAll(options => options.map(option => option.value));
@@ -156,6 +203,9 @@ try {
         await writeFile(path.join(out, 'completed-checkpoint.json'), checkpoint);
     });
     console.log(JSON.stringify(result, null, 2));
+} catch (error) {
+    result.failure = error.message;
+    throw error;
 } finally {
     await writeFile(path.join(out, 'receipt.json'), JSON.stringify(result, null, 2) + '\n');
     await new Promise(resolve => server.close(resolve));

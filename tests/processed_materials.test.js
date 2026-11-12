@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {loadNative} from './helpers/native_loader.mjs';
 import {drawSpecimen,finishHarvest,createHarvest,observeCarcass,addCarcass,validateHarvest} from '../src/harvest.js';
-import {recipeMaterialOutput,allocatedRecipeInputs,lineagePresentation} from '../src/processed_materials.js';
+import {FORGE_OFFCUT,IRON_SLAG,allocateComponentLots,componentCraftEntries,componentInputLots,forgeAxeHeadOutputs,gatheredIronKey,smeltIronOutputs,recipeMaterialOutput,allocatedRecipeInputs,lineagePresentation} from '../src/processed_materials.js';
 import {readMaterialLineage} from '../src/material_lineage.js';
 import {validateMaterialLineageEnvelope} from '../src/material_lineage_domain.js';
 let native;
@@ -103,4 +103,85 @@ test('two prepared portions of one source retain both parents but display each s
  assert.equal(lineagePresentation(product,90).observations.length,2,'same source readings are not repeated through each treatment branch');
  assert.equal(product,before);
  validateMaterialLineageEnvelope({inventories:{person:{player:{[product]:{count:1}}}}});
+});
+
+test('Village forge output carries exact ingot ancestry into an equippable axe and reclaimable offcuts', async () => {
+ const native = await n();
+ const ingot = '{"id":"Iron ingot"}', handle = '{"id":"Wooden medium handle","quality":95}';
+ const request = {resultId:'Iron axe head',allocations:[{item_key:ingot,count:8}],stock:{[ingot]:8},
+  crafted:{90:1,105:1},clock:75,world:'base.frontier'};
+ const [head, betterHead, offcuts] = forgeAxeHeadOutputs(request);
+ assert.equal(offcuts.count,2);
+ assert.equal(JSON.parse(offcuts.item_key).id,FORGE_OFFCUT);
+ assert.equal(native.getItemFromKey(offcuts.item_key).getInventoryKey(),offcuts.item_key);
+ assert.equal(native.getItemFromKey(head.item_key).getInventoryKey(),head.item_key);
+ assert.equal(native.getItemFromKey(betterHead.item_key).quality,105);
+ assert.throws(()=>forgeAxeHeadOutputs({...request,stock:{[ingot]:7}}),/stale or insufficient/);
+ assert.throws(()=>forgeAxeHeadOutputs({...request,allocations:[{item_key:ingot,count:7}]}),/every input unit/);
+ const axeKey = recipeMaterialOutput({resultId:'Iron chopping axe',count:1,
+  allocations:[{item_key:head.item_key,count:1},{item_key:handle,count:1}],
+  recipeId:'forging.iron_axe',clock:79,world:request.world});
+ const axe = native.getItemFromKey(axeKey);
+ assert.equal(axe.getInventoryKey(),axeKey);
+ assert.equal(axe.equip_slot,'axe');
+ const parents = readMaterialLineage(axeKey).history[0].inputs;
+ assert.deepEqual(parents.map(row=>row.item_key),[head.item_key,handle]);
+ assert.equal(readMaterialLineage(parents[0].item_key).history[0].inputs[0].item_key,ingot);
+ validateMaterialLineageEnvelope({inventories:{person:{player:{[axeKey]:{count:1},[offcuts.item_key]:{count:2}}}}});
+});
+
+test('smelting joins mined lots and spent fuel, and leaves a durable outcome on failure', async () => {
+ const native = await n();
+ const ore = gatheredIronKey({id:'Iron ore',count:3,world:'base.frontier',location:'Nearby cave',activity:'mining2',clock:20});
+ assert.equal(native.getItemFromKey(ore).getInventoryKey(),ore);
+ assert.deepEqual(readMaterialLineage(ore).history[0].parameters,{location:'Nearby cave',activity:'mining2'});
+ const otherOre = gatheredIronKey({id:'Iron ore',count:2,world:'base.frontier',location:'Nearby cave',activity:'mining2',clock:24});
+ const fuel = '{"id":"Charcoal"}';
+ const request = {resultId:'Iron ingot',recipeId:'Iron ingot',attempts:1,allocations:[
+  {item_key:ore,count:3},{item_key:otherOre,count:2},{item_key:fuel,count:1}
+ ],world:'base.frontier',clock:35};
+ const [ingot, slag] = smeltIronOutputs({...request,count:1});
+ assert.equal(native.getItemFromKey(ingot.item_key).getInventoryKey(),ingot.item_key);
+ const event = readMaterialLineage(ingot.item_key).history[0];
+ assert.deepEqual(event.inputs.map(row=>row.item_key),[ore,otherOre,fuel]);
+ assert.equal(event.inputs[2].disposition,'consumed');
+ assert.equal(JSON.parse(slag.item_key).id,IRON_SLAG);
+ const failed = smeltIronOutputs({...request,count:0});
+ assert.equal(failed.length,1);
+ assert.equal(native.getItemFromKey(failed[0].item_key).id,IRON_SLAG);
+ assert.equal(readMaterialLineage(failed[0].item_key).history[0].parameters.lostMetalUnits,100);
+ validateMaterialLineageEnvelope({inventories:{person:{player:{[ingot.item_key]:{count:1},[failed[0].item_key]:{count:1}}}}});
+ assert.throws(()=>smeltIronOutputs({...request,count:1,allocations:request.allocations.slice(1)}),/every input unit/);
+ assert.equal(gatheredIronKey({id:'Rough wood log',world:'base.frontier'}),null);
+});
+
+test('axe-head forging fills a selected grade across spendable lots in stable order', () => {
+ const iron = 'Iron ingot', row = (id, count) => ({item:{id}, count});
+ const inventory = {b:row(iron,2), a:row(iron,2), reserved:row(iron,5), steel:row('Steel ingot',8)};
+ const available = key => key !== 'reserved';
+ const lots = componentInputLots(inventory, 'b', 'Iron axe head', 'base.frontier', available);
+ assert.deepEqual(allocateComponentLots(lots,3),[{item_key:'b',count:2},{item_key:'a',count:1}]);
+ assert.throws(()=>allocateComponentLots(lots,5),/no longer sufficient/);
+ assert.deepEqual(componentInputLots(inventory,'reserved','Iron axe head','base.frontier',available),[]);
+ assert.deepEqual(componentInputLots(inventory,'b','Iron short blade','base.frontier',available),[{item_key:'b',count:2}]);
+});
+
+test('a worked medium handle retains its log through native assembly', async () => {
+ const native = await n();
+ const log = '{"id":"Wood log"}';
+ const prepared = recipeMaterialOutput({resultId:'Processed wood',recipeId:'Processed wood',clock:30,world:'base.frontier',
+  count:3,allocations:[{item_key:log,count:1}]});
+ assert.equal(native.getItemFromKey(prepared).getInventoryKey(),prepared);
+ const [handle] = componentCraftEntries({parsedKey:{id:'Wooden medium handle'},clock:40,world:'base.frontier',
+  crafted:{95:1},allocations:[{item_key:prepared,count:2}]});
+ assert.equal(native.getItemFromKey(handle.item_key).quality,95);
+ const head = '{"id":"Iron axe head","quality":90}';
+ const axe = recipeMaterialOutput({resultId:'Iron chopping axe',recipeId:'Iron chopping axe',clock:50,world:'base.frontier',
+  count:1,allocations:[{item_key:head,count:1},{item_key:handle.item_key,count:1}]});
+ const source = readMaterialLineage(axe).history[0].inputs[1].item_key;
+ const preparedKey = readMaterialLineage(source).history[0].inputs[0].item_key;
+ assert.equal(readMaterialLineage(preparedKey).history[0].inputs[0].item_key,log);
+ assert.throws(()=>componentCraftEntries({parsedKey:{id:'Ash wood medium handle'},clock:40,world:'base.frontier',
+  crafted:{95:1},allocations:[{item_key:prepared,count:2}]}),/selected wood grade/);
+ validateMaterialLineageEnvelope({inventories:{person:{player:{[axe]:{count:1}}}}});
 });

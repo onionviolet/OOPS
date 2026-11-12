@@ -2,6 +2,7 @@
 // No world registration, source rows or Node filesystem path enters the bundle.
 import {deepFreeze} from './basics.js';
 import {validateLotmCast} from './book_world_lotm_cast.js';
+import {withAmuletCrafting} from './lotm_amulet_crafting.js';
 import {loadCities} from './lotm_next_city.js';
 import {withCities,setCities} from './book_world_lotm_cities.js';
 export async function loadPrivateCast(kind,validate,fetchFile=globalThis.fetch){
@@ -12,7 +13,7 @@ export async function loadPrivateCast(kind,validate,fetchFile=globalThis.fetch){
   const file=await fetchFile('private_packs/'+path);if(!file.ok)return null;
   const pack=await file.json();if(validate(pack).length)return null;
   if(kind==='lotm'&&(!pack.bindings?.days?.length||!pack.host?.profile||!pack.host?.situation))return null;
-  return deepFreeze(pack);
+  return deepFreeze(kind === 'lotm' ? withAmuletCrafting(pack) : pack);
  }catch{return null;}
 }
 let loadedCast=null;

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createMixtureState, resolveMixture, validateMixtureState} from '../src/mixture_state.js';
-import {projectMixtureDiscovery, describeVial, observedVials, MIXTURE_EFFECTS} from '../src/mixture_discovery.js';
+import {projectMixtureDiscovery, describeSelectedPlantReadings, describeVial, observedVials, MIXTURE_EFFECTS} from '../src/mixture_discovery.js';
 
 const BELL = 'River bellleaf', EMBER = 'Emberseed', WATER = 'Spring water', SALT = 'Mellow salt';
 function drink(state, inputs, process) {
@@ -31,6 +31,29 @@ test('a single-plant vial makes that plant known; the other plant stays unknown 
     assert.ok(d.suggestion.prefill.inputs[EMBER]);
     assert.equal(cell(d, BELL, 'health').state, 'known');
     assert.match(cell(d, BELL, 'health').text, /steeped/);
+});
+
+test('a new blend preview uses only selected, observed plant readings for its process and method', () => {
+    const state = createMixtureState(7);
+    const inputs = {[BELL]: 1, [EMBER]: 1, [WATER]: 1};
+    const blend = resolveMixture(state, inputs, 'steep');
+    state.products[blend.id] = blend;
+    const preview = {inputs, process: 'steep', revision: 1};
+    assert.equal(describeSelectedPlantReadings(projectMixtureDiscovery(state), preview), '');
+
+    drink(state, {[BELL]: 1, [WATER]: 1}, 'steep');
+    const discovery = projectMixtureDiscovery(state);
+    const evidence = describeSelectedPlantReadings(discovery, preview);
+    assert.match(evidence, /River bellleaf.*health regeneration.*when steeped.*ordinary method/);
+    assert.doesNotMatch(evidence, /Emberseed|stamina regeneration/);
+    assert.equal(describeSelectedPlantReadings(discovery, {...preview, process: 'boil'}), '');
+    assert.equal(describeSelectedPlantReadings(discovery, {...preview, revision: 2}), '');
+    assert.equal(describeSelectedPlantReadings(discovery, {...preview, inputs: {[EMBER]: 1, [WATER]: 1}}), '');
+
+    const tasted = describeVial(drink(state, inputs, 'steep'));
+    assert.ok(tasted.benefits.some(effect => effect.endsWith('health regeneration')));
+    assert.ok(tasted.benefits.some(effect => effect.endsWith('stamina regeneration')));
+    assert.ok(tasted.side.some(effect => effect.endsWith('agility drag')));
 });
 
 test('a plant seen only beside another plant is guessed, then worked out once the other is known', () => {

@@ -64,6 +64,28 @@ export function createMistglassPanel({host,read,act}){
             if(w.last)text(`Last precise work: ${w.last.productId}, quality ${w.last.quality}, control ${w.last.control}.`);
             for(const [id,label,enabled] of [['prepare','Prepare this path’s reserve · 1 condensate; refinement also uses a dose',!!w.label&&!w.prepared],['cut','Flow-cut one owned pelt',w.prepared?.path==='breath'],['set','Set-grain one owned pelt',w.prepared?.path==='settling'],['discard','Abandon the committed preparation',!!w.prepared]]){const b=document.createElement('button');b.textContent=label;b.dataset.mistglassAction='method:path:'+id;const q=v.pathQuotes?.[id];b.disabled=f.disabled||!v.supported||!!v.pending||!enabled||q?.eligible===false;b.title=q?.reason||'';b.onclick=()=>{try{act('method:path:'+id);notice.textContent='';}catch(e){notice.textContent=e.message;}render();};body.append(b);}}
 
+        if(v?.refinement&&f.inside){
+            const {options,pending,last}=v.refinement;
+            if(pending)text(`The ${pending.material} sword is in the refining bed. ${pending.minutesLeft} minutes remain. Leaving interrupts the work.`);
+            if(last)text(last.status==='success'?'The last sword took the mist binding.':'The last sword was lost during refinement.');
+            if(options.length){
+                const controls=document.createElement('details');
+                controls.dataset.mistglassSection='refine';
+                controls.open=opened.has('refine');
+                const heading=document.createElement('summary');heading.textContent='Refine a carried sword';
+                controls.append(heading);
+                for(const option of options){
+                    const b=document.createElement('button'),id='method:refine:'+option.key;
+                    b.dataset.mistglassAction=id;
+                    b.textContent=`Refine ${option.label} (${option.quality}% quality) · ${option.energyCost/1000} condensate, ${option.minutes} min, ${option.chancePermille/10}% chance`;
+                    b.disabled=f.disabled||!!v.pending||!!v.pathWork?.prepared;
+                    b.title='Once work starts, the sword and condensate are spent even if the binding fails.';
+                    b.onclick=()=>invoke(id);controls.append(b);
+                }
+                body.append(controls);
+            }
+        }
+
         if(v?.history){const h=v.history;if(h.consequence)text(h.consequence+' '+h.terms);for(const [id,label,enabled] of [['inspect','Inspect the surviving outflow masonry',h.heard],['restore','Restore the old outflow brace · 1 rough log',h.inspected&&!h.restored]]){const b=document.createElement('button');b.textContent=label;b.dataset.mistglassAction='method:history:'+id;b.disabled=f.disabled||!f.inside||!enabled;b.onclick=()=>{try{act('method:history:'+id);notice.textContent='';}catch(e){notice.textContent=e.message;}render();};body.append(b);}}
         if(f.preview){text(`Spend one Cloudseed dose and 2 condensate. Twelve played minutes. ${f.preview.successPercent}% success awards 30 native Meditation XP; what one sitting cannot hold settles into your drill's practice minutes (one per 5 surplus) or fades if there is no drill to deepen.`);text(f.preview.risk);}
         const methods=v&&f.inside?Object.entries(cultivationMethods).map(([id,m])=>({id:`method:${id}`,label:m.label,enabled:!v.pending&&(!v.pathWork?.prepared||v.pathWork.canSwitch)&&v.supported&&v.technique.id!==id,reason:'Finish purification or rawness before switching; the active method is already selected.'})):[];

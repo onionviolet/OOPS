@@ -929,6 +929,7 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
         name: "Amulet", // names: allow recipe label for a common starter item (NMR5 dial); the made item carries material and quality
         materials: [
             {material_id: "Wool cloth", count: 5, result_id: "Wool scarf"},
+            {material_id: "Fine wool cloth", count: 5, result_id: "Wool scarf"},
             {material_id: "Springsteel ingot", count: 1, result_id: "Springsteel brace"},
             {material_id: "Silk cloth", count: 5, result_id: "Silk scarf"}
         ],
@@ -1096,6 +1097,15 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
         recipe_skill: "Crafting",
         recipe_level: [5,15],
     });
+    crafting_recipes.items["Fine wool cloth"] = new ItemRecipe({
+        name: "Fine wool cloth",
+        recipe_type: "material",
+        materials: [{material_id: "Fine wool", count: 5}],
+        result: {result_id: "Fine wool cloth", count: 1},
+        success_chance: [0.1,1],
+        recipe_skill: "Crafting",
+        recipe_level: [5,15],
+    });
     crafting_recipes.items["Linen cloth"] = new ItemRecipe({
         name: "Linen cloth",
         is_unlocked: false,
@@ -1211,6 +1221,14 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
         success_chance: [0.4,1],
         recipe_level: [5,15],
         recipe_skill: "Smelting",
+    });
+    smelting_recipes.items["Reclaim forge offcuts"] = new ItemRecipe({
+        name: "Reclaim forge offcuts",
+        recipe_type: "material",
+        materials: [{material_id: "Mixed forge offcuts", count: 5}, {material_type: "fuel", heat: {minGrade: 2, load: 4}, count: 1}],
+        result: {result_id: "Low quality iron ingot", count: 1},
+        success_chance: [1,1],
+        recipe_level: [5,15], recipe_skill: "Smelting",
     });
     /*
     smelting_recipes.items["Silver ingot"] = new ItemRecipe({

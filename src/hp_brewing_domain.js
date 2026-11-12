@@ -38,7 +38,7 @@ function publish(next, summary, materials = []) {
 function context() {
     const t = readPort('gameTime');
     if(!t) return null;
-    return {now: calendarMinutes(t), moon: t.getMoonPhaseName(t.getMoonPhase())};
+    return {now: calendarMinutes(t), moon: t.getMoonPhaseName(t.getMoonPhase()), world: native?.world?.(), location: native?.location?.()};
 }
 const need = () => context() ?? (() => { throw new Error('The bench isn\'t ready yet. Try again in a moment.'); })();
 function nativeHoldings() {
@@ -109,6 +109,7 @@ export function quote(req) {
     const reason = writeReason();
     if(reason) return {eligible: false, reason};
     if(req?.type === 'begin') return state ? {eligible: false, reason: 'You\'ve already set up the bench.'} : {eligible: true, summary: 'Set up a bench and a small purse.'};
+    if(!state && req?.type === 'potionWorking') return quoteAction(begin({seed: 0, now: c.now}), c, req);
     if(!state) return {eligible: false, reason: 'Set up the Polyjuice bench first.'};
     if(req?.type === 'foreignUse') return {eligible: false, reason: foreignUseReason(req)};
     try {
@@ -127,6 +128,11 @@ export function execute(req) {
         if(state) throw new Error('You\'ve already set up the bench.');
         const seed = req.seed ?? globalThis.crypto.getRandomValues(new Uint32Array(1))[0];
         return publish(begin({seed, now: c.now}), 'The Polyjuice slice is set up.');
+    }
+    if(!state && req?.type === 'potionWorking') {
+        const seed = globalThis.crypto.getRandomValues(new Uint32Array(1))[0];
+        const out = commit(begin({seed, now: c.now}), c, req);
+        return publish(out.state, out.summary);
     }
     if(!state) throw new Error('Set up the Polyjuice bench first.');
     if(req?.type === 'foreignUse') throw new Error(foreignUseReason(req));

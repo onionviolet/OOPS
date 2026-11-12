@@ -67,13 +67,15 @@ export function compareTrials(before, after) {
     const a = before.observation, b = after.observation;
     if(a !== undefined) validateObservation(a);
     if(b !== undefined) validateObservation(b);
-    for(const field of ['route', ...((a?.route === 'oral' || b?.route === 'oral') ? ['recipient', 'baseline'] : [])]) {
+    const oral = a?.route === 'oral' || b?.route === 'oral';
+    for(const field of ['route', ...(oral ? ['recipient'] : []), ...(oral || a?.baseline || b?.baseline ? ['baseline'] : [])]) {
         if(a?.[field] == null || b?.[field] == null) unknown.push(`observation.${field}`);
         else if(!same(a[field], b[field])) changed.push({field: `observation.${field}`, before: structuredClone(a[field]), after: structuredClone(b[field])});
     }
     const confounders = uniq([...(a?.confounders ?? []), ...(b?.confounders ?? []),
         ...(a?.route && b?.route && a.route !== b.route ? ['Different observation routes'] : []),
-        ...(changed.some(c => ['observation.recipient', 'observation.baseline'].includes(c.field)) ? ['Recipient baseline changed'] : [])]);
+        ...(changed.some(c => ['observation.recipient', 'observation.baseline'].includes(c.field))
+            ? [oral ? 'Recipient baseline changed' : 'Starting condition changed'] : [])]);
     return {...comparison, changed, unknown, confounders,
         observed: {added: (after.seen ?? []).filter(e => !(before.seen ?? []).includes(e)),
             notSeenAgain: (before.seen ?? []).filter(e => !(after.seen ?? []).includes(e))},

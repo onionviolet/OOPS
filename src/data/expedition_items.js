@@ -17,7 +17,7 @@ import {registerFeatureObjectItems} from '../feature_expansion_objects.js';
 import {FEATURE_POWER_ITEMS} from '../feature_expansion_powers.js';
 import {registerReferenceGameplayItems} from '../reference_gameplay_content.js';
 import {registerFrontierBowItems} from '../frontier_bow.js';
-import {item_templates, OtherItem} from "../items.js";
+import {item_templates, OtherItem, Amulet} from "../items.js";
 
 registerManagementItems({itemTemplates:item_templates,OtherItem});
 registerFrontierBowItems({itemTemplates:item_templates,OtherItem});
@@ -42,7 +42,7 @@ registerFeatureObjectItems({itemTemplates:item_templates,OtherItem});
 registerReferenceGameplayItems({itemTemplates:item_templates,OtherItem});
 registerParadiseItems({itemTemplates:item_templates,OtherItem});
 registerMolItems({itemTemplates:item_templates,OtherItem});
-registerLotmItems({itemTemplates:item_templates,OtherItem});
+registerLotmItems({itemTemplates:item_templates,OtherItem,Amulet});
 registerFactorioRetortItems({itemTemplates:item_templates,OtherItem});
 registerProto23Items({itemTemplates:item_templates,OtherItem});
 registerNethackFieldcraftItems({itemTemplates:item_templates,OtherItem});

@@ -17,11 +17,13 @@
 //
 // Why a non-player maker and facts, not an inventory cup: the text has Neil make it and leaves the cup in the room ("nobody
 // holds the cup"). The engine is pure (resolveBatch), so an NPC maker calls it directly; the pack's own act that finishes the
-// brew records the product, and the drink requires it. The cup itself stays scene text (no holder, no item).
-import {compileProcedure} from './making_procedure.js';
+// brew records the product. The drink spends the scene's cup in the same settlement that grants the source.
+import {compileProcedure, procedureStepKey} from './making_procedure.js';
+import {seedPlaceObjects} from './place_acts.js';
 import {MAKING_TRAITS} from './making_traits.js';
 import {defineCatalogue} from './craft_materials.js';
 import {defineCraftLaw, resolveBatch} from './craft_resolver.js';
+import {LOTM_INBOX} from './book_world_lotm_harm.js';
 
 const P = 'book.lotm.seer_brew';
 export const SEER_BREW_FACTS = Object.freeze({product: `${P}.product`, madness: `${P}.madness`, seer: `${P}.seer`});
@@ -58,30 +60,78 @@ export function brewSeer(amounts = {}) {
     return resolveBatch(SEER_BREW_LAW, {inputs, process: [{op: 'supplements'}, {op: 'crucial'}, {op: 'fog'}]}).product;
 }
 
-const NEIL_BREW = brewSeer();
 // The pack act that ends the brew, and the drink that consumes it. Both are pack rows; without the private pack neither exists.
 export const SEER_BREW_BINDING = Object.freeze({brewAct: 'book.lotm.kj3o.cup', consumer: 'book.lotm.kj3p.drink'});
+const stockKey = material => `${P}.stock.${material.toLowerCase().replaceAll(' ', '-')}`;
+const BLOOD = 'Lavos Squid blood';
+const EXTRA_MEASURE = 11;
+const OVERMEASURE_SEED = `place.act.seed.${P}.overmeasure`;
 
-// Adds the engine's product to the brew act and the brewed-batch gate to the drink. Returns how many commands it bound.
-export function bindSeerBrew(commands, product = NEIL_BREW) {
-    const brew = commands.find(d => d.id === SEER_BREW_BINDING.brewAct), drink = commands.find(d => d.id === SEER_BREW_BINDING.consumer);
-    if(!brew || !drink) return 0;
-    const fact = (key, value) => ({type: 'fact', scope: 'actor', actor: 'player', key, value});
+// Neil holds the chapter's measured allocation as simulation resources, in each ingredient's own unit.
+export function seedSeerStock(state, worldId, maker, {overmeasure = false} = {}) {
+    const world = state.worlds[worldId];
+    if(!maker || !world || !state.actors[maker]) return false;
+    if(world.facts[`place.act.seed.${P}`] && (!overmeasure || world.facts[OVERMEASURE_SEED])) return false;
+    const player = state.actors.player;
+    const cup = SEER_BREW_BINDING.brewAct;
+    const legacySpent = player?.facts[procedureStepKey(cup)] === 1 || !!player?.completed?.[cup] ||
+        (state.simulation.jobs ?? []).some(job => job.commandId === `${cup}.procedure.1` && job.costs.length === 0);
+    const seeded = seedPlaceObjects(state, {objects: [{id: P, resources: SEER_BREW_FORMULA.map(({material, qty}) => ({
+        actor: maker, key: stockKey(material), amount: legacySpent ? 0 : qty,
+    }))}]}, worldId);
+    if(!overmeasure) return seeded;
+    // The extra measure is an original allocation. Add it once, including to
+    // an existing untouched allocation. A reserved or used allocation stays spent.
+    const resources = state.actors[maker].resources;
+    const blood = stockKey(BLOOD);
+    if(!legacySpent && resources[blood] === EXTRA_MEASURE - 1) resources[blood] = EXTRA_MEASURE;
+    world.facts[OVERMEASURE_SEED] = true;
+    return true;
+}
+
+const fact = (key, value) => ({type: 'fact', scope: 'actor', actor: 'player', key, value});
+function bindMeasuredCup(commands, brew, amounts, variant = false) {
+    const product = brewSeer(amounts);
+    if(brew.targetId) brew.costs = [...(brew.costs ?? []), ...product.inputs.map(([, material, , qty]) => ({
+        type: 'resource', actor: brew.targetId, key: stockKey(material), amount: -qty,
+    }))];
     brew.effects = [...brew.effects, fact(SEER_BREW_FACTS.product, product.id),
         fact(SEER_BREW_FACTS.seer, product.outputs.beyonder?.seer ?? 0), fact(SEER_BREW_FACTS.madness, product.outputs.spirit?.madness ?? 0)];
-    // The drink needs a batch the engine resolved with the Seer's power in it; a missing fact reads as not brewed.
-    const gate = {fact: `actor.${SEER_BREW_FACTS.seer}`, op: 'gte', value: 1, reason: 'The potion has to be brewed first.'};
-    for(const k of ['requires', 'completionRequires']) drink[k] = {all: [...(drink[k] ? [drink[k]] : []), gate]};
     // The source already supplies Neil as the target participant. Retain that
     // actual actor rather than spawning a second maker. Klein remains the viewer.
     if(brew.duration >= 2) {
         const maker = brew.targetId ? [{id:brew.targetId,role:'maker'}] : [];
         const steps = compileProcedure(brew,{steps:[
-            {id:'crucial',minutes:Math.floor(brew.duration/2),label:'Watch Neil measure the blood and crystal',agents:maker},
-            {id:'fog',minutes:Math.ceil(brew.duration/2),label:'Watch the fog settle into the cup',agents:maker},
+            {id:'crucial',minutes:Math.floor(brew.duration/2),label: variant ? 'Ask Neil to use 11 ml of squid blood' : 'Watch Neil measure the blood and crystal',
+                description: variant ? 'Use the extra millilitre from the alchemy stock. Neil warns that too much blood can leave the potion dangerous.'
+                    : 'Neil sets aside the measured ingredients from his alchemy stock for this cup.',agents:maker},
+            {id:'fog',minutes:Math.ceil(brew.duration/2),label:variant ? 'Let the stronger mixture settle' : 'Watch the fog settle into the cup',agents:maker},
         ]});
+        // Both procedures complete the same story stage. Their job and
+        // prerequisite identities stay distinct so the measured path cannot switch.
+        if(variant) for(const step of steps) step.procedure.parentId = SEER_BREW_BINDING.brewAct;
+        if(brew.targetId) steps[0].procedure.costLabel = `Neil's stock, including ${amounts[BLOOD] ?? EXTRA_MEASURE - 1} ml squid blood`;
         Object.assign(brew,steps.at(-1));
         commands.push(...steps.slice(0,-1));
     }
+}
+
+// The same measured allocation determines the reservation and the resolved cup.
+export function bindSeerBrew(commands, amounts = {}, {overmeasure = false} = {}) {
+    const brew = commands.find(d => d.id === SEER_BREW_BINDING.brewAct), drink = commands.find(d => d.id === SEER_BREW_BINDING.consumer);
+    if(!brew || !drink) return 0;
+    const alternate = overmeasure && brew.targetId && brew.duration >= 2
+        ? {...structuredClone(brew), id: `${brew.id}.overmeasure`}
+        : null;
+    bindMeasuredCup(commands, brew, amounts);
+    if(alternate) {
+        bindMeasuredCup(commands, alternate, {...amounts, [BLOOD]: EXTRA_MEASURE}, true);
+        commands.push(alternate);
+    }
+    const brewed = {fact: `actor.${SEER_BREW_FACTS.seer}`, op: 'gte', value: 1, reason: 'The potion has to be brewed first.'};
+    for(const k of ['requires', 'completionRequires']) drink[k] = {all: [drink[k], brewed].filter(Boolean)};
+    // The power fact represents the available contents. Keep the product and hazard facts as brew history.
+    drink.effects = [...drink.effects, fact(SEER_BREW_FACTS.seer, 0),
+        {type: 'resource', actor: 'player', key: LOTM_INBOX.loss, amount: {fact: `actor.${SEER_BREW_FACTS.madness}`}}];
     return 2;
 }

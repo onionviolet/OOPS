@@ -57,7 +57,7 @@ export function createNearbyContextView({choose,act,document:doc=globalThis.docu
         if(lastPlace!==model.place){place.open=false;returnId=null;missingNotice=false;lastPlace=model.place;list.scrollTop=0;detail.scrollTop=0;}
         if(model.missing)missingNotice=true;
         // PX46, UR147: the first sentence shows once; the disclosure holds only what follows it. No count line when there is nothing to count.
-        text(summary,model.summary);summary.hidden=!model.summary;text(placeLead,model.descriptionLead);placeLead.hidden=!model.descriptionLead;
+        text(summary,model.summary);summary.hidden=frame?.inVillage===true||!model.summary;text(placeLead,model.descriptionLead);placeLead.hidden=!model.descriptionLead;
         text(placeBody,model.descriptionRest);place.hidden=!model.descriptionRest;text(back,`← ${model.place} overview`);
         node.dataset.selected=String(!!model.subject);node.dataset.selectionMissing=String(model.missing);
         for(const [kind,label,subjects] of [['people','People here',model.people],['services','Services & stations',model.services]]){
@@ -72,7 +72,9 @@ export function createNearbyContextView({choose,act,document:doc=globalThis.docu
             }
         }
         let removedFocus=false;for(const [id,button] of buttons)if(!model.subjects.some(s=>s.id===id)){removedFocus ||= doc.activeElement===button;button.remove();buttons.delete(id);}
-        const subject=model.subject;detail.hidden=!subject;empty.hidden=!!subject;
+        const subject=model.subject;detail.hidden=!subject;
+        // PX90: the populated Village list already shows what can be inspected.
+        empty.hidden=!!subject || (frame?.inVillage===true && model.subjects.length>0 && !missingNotice);
         text(empty,missingNotice?'That subject is no longer available here. Choose another known subject.':model.subjects.length?'Choose someone or something here to inspect.':(model.description?'No one else is here.':'Nothing here to inspect yet. Talk to someone in Local actions to meet them.'));
         if(subject){text(title,subject.name);text(role,subject.role);role.hidden=!subject.role;
             const known=[subject.traits.length?`Known traits: ${subject.traits.join(', ')}`:'',subject.relationship?`Relationship: ${subject.relationship}`:''].filter(Boolean).join(' · ');

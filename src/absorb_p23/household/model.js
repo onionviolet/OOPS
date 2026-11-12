@@ -3,6 +3,8 @@
 // and the root sequence atomically; this module never owns those resources.
 import {natural} from '../../basics.js';
 import {readNeed} from '../../needs.js';
+import {acquireCreature, creatureDevelopment, practiceWithCreature, restoreCreatureLifecycle, settleCohortStock,
+    transferCreature} from '../../creature_lifecycle.js';
 export const HOUSEHOLD = Object.freeze({schema: 1, animalId: 'household.moss', name: 'Moss',
     fuelKey: JSON.stringify({id: 'Rough wood log'}), giftKey: JSON.stringify({id: 'Rat tail'}),
     burnMinutes: 20, dryMinutes: 3, giftMinutes: 60, growMinutes: 1440, firewoodCapacity: 5});
@@ -14,6 +16,48 @@ const bounded = (v, max) => natural(v) && v <= max;
 const fuelKey = key => {
     try {return typeof key === 'string' && JSON.parse(key)?.id === 'Rough wood log';} catch {return false;}
 };
+const catHabitat = (homeId, adopted) => ({
+    id: `household.${adopted ? 'home' : 'doorstep'}:${Array.from(homeId, ch => ch.codePointAt(0).toString(16)).join('.')}`,
+    capacity: 1, supportedSpecies: ['house_cat'],
+});
+const cat = a => a.lifecycle?.individuals[a.creatureId];
+const experience = a => cat(a)?.experience.player;
+const catBond = a => experience(a)?.bond ?? a.bond;
+
+function enrollMoss(a, homeId) {
+    const doorstep = catHabitat(homeId, false);
+    const state = settleCohortStock(restoreCreatureLifecycle(), {revision: 0, id: HOUSEHOLD.animalId,
+        species: 'house_cat', habitat: doorstep, delta: 1});
+    const found = acquireCreature(state, {revision: state.revision, cohortId: HOUSEHOLD.animalId,
+        destination: catHabitat(homeId, a.adopted), keeper: a.adopted ? 'player' : null,
+        clock: a.metAt, growthMinutes: HOUSEHOLD.growMinutes, traits: {coat: 'brindled'}});
+    a.creatureId = found.id;
+    a.lifecycle = found.state;
+    cat(a).experience.player = {bond: a.bond, lastAt: a.lastInteraction,
+        training: a.playVisits ? {chase: a.playVisits} : {}};
+}
+
+function interactWithMoss(a, homeId, clock, play) {
+    a.lifecycle = practiceWithCreature(a.lifecycle, {revision: a.lifecycle.revision,
+        id: a.creatureId, actor: 'player', clock, minimumGap: 5, bondGain: 10, skill: play ? 'chase' : null});
+    if (catBond(a) >= 30 && cat(a).keeper === null) {
+        a.lifecycle = transferCreature(a.lifecycle, {revision: a.lifecycle.revision,
+            id: a.creatureId, fromKeeper: null, toKeeper: 'player', destination: catHabitat(homeId, true), clock});
+    }
+    a.bond = catBond(a);
+    a.adopted = cat(a).keeper === 'player';
+}
+
+export function relocateHouseholdAnimal(source, destinationHomeId, clock) {
+    const animal = structuredClone(source.animal);
+    if (!animal.lifecycle) enrollMoss(animal, source.homeId);
+    const keeper = cat(animal).keeper;
+    animal.lifecycle = transferCreature(animal.lifecycle, {revision: animal.lifecycle.revision,
+        id: animal.creatureId, fromKeeper: keeper, toKeeper: keeper,
+        destination: catHabitat(destinationHomeId, animal.adopted), clock});
+    return animal;
+}
+
 // Same exact-key custody projection as hearth stock. A toy is reused, not spent.
 export function householdPlayCloth(c) {
     if(c.playToy === true) return true;
@@ -30,7 +74,7 @@ export function householdAnimalView(state, c) {
     const smoky = state.hearth?.smoke > 0;
     const posture = smoky ? 'Moss waits outside the smoky room.' : !a.adopted ? 'Moss watches you from the doorway.' :
         state.hearth?.fuelMinutes > 0 ? 'Moss curls up beside the warm hearth.' : 'Moss settles near your usual resting place.';
-    return {name: HOUSEHOLD.name, mood: a.mood, bond: a.bond, metAt: a.metAt,
+    return {name: HOUSEHOLD.name, mood: a.mood, bond: catBond(a), metAt: a.metAt,
         knownMinutes: a.ageMinutes, playVisits: a.playVisits || 0,
         preference: a.playVisits > 0 ? a.playObject==='yarn'?'Likes chasing the yarn ball.':'Likes chasing a trailing cloth.' : null, posture};
 }
@@ -60,7 +104,8 @@ export function validateHousehold(s, {clock = Number.MAX_SAFE_INTEGER, sequence 
         natural(s.lastSequence) && s.lastSequence <= sequence, 'unsupported schema or clock');
     const a = s.animal;
     check(a === null || (shape(a, ['id', 'metAt', 'bond', 'interactions', 'lastInteraction', 'ageMinutes', 'mood', 'adopted', 'lastGiftAt', 'gifts',
-        ...(a && Object.hasOwn(a, 'playVisits') ? ['playVisits'] : []),...(a && Object.hasOwn(a, 'playObject') ? ['playObject'] : [])]) &&
+        ...(a && Object.hasOwn(a, 'playVisits') ? ['playVisits'] : []),...(a && Object.hasOwn(a, 'playObject') ? ['playObject'] : []),
+        ...(a && Object.hasOwn(a, 'lifecycle') ? ['lifecycle', 'creatureId'] : [])]) &&
         a.id === HOUSEHOLD.animalId && natural(a.metAt) && a.metAt <= s.lastClock &&
         bounded(a.bond, 100) && natural(a.interactions) && a.interactions >= 1 && natural(a.lastInteraction) &&
         a.lastInteraction >= a.metAt && a.lastInteraction <= s.lastClock && natural(a.ageMinutes) &&
@@ -70,6 +115,15 @@ export function validateHousehold(s, {clock = Number.MAX_SAFE_INTEGER, sequence 
         a.gifts <= Math.floor((s.lastClock - a.metAt) / HOUSEHOLD.giftMinutes) &&
         (!Object.hasOwn(a,'playObject') || ['yarn','cloth'].includes(a.playObject)&&a.playVisits>0) &&
         (!Object.hasOwn(a, 'playVisits') || natural(a.playVisits) && a.playVisits < a.interactions)), 'invalid animal');
+    if (a?.lifecycle !== undefined) {
+        const lifecycle = restoreCreatureLifecycle(a.lifecycle);
+        const animal = Object.hasOwn(lifecycle.individuals, a.creatureId) && lifecycle.individuals[a.creatureId];
+        check(animal && Object.keys(lifecycle.individuals).length === 1 && animal.species === 'house_cat' &&
+            animal.origin === HOUSEHOLD.animalId && animal.bornAt === a.metAt && animal.health.lastAt <= s.lastClock &&
+            animal.keeper === (a.adopted ? 'player' : null) && animal.habitat === catHabitat(s.homeId, a.adopted).id &&
+            animal.experience.player?.bond === a.bond && animal.experience.player.lastAt === a.lastInteraction &&
+            (animal.experience.player.training.chase ?? 0) === (a.playVisits ?? 0), 'invalid Moss lifecycle');
+    }
     const h = s.hearth;
     check(shape(h, ['fuelMinutes', 'ventilated', 'smokeOptIn', 'smoke', 'dryProgress', ...(h && Object.hasOwn(h, 'firewood') ? ['firewood'] : [])]) &&
         bounded(h.fuelMinutes, HOUSEHOLD.burnMinutes) && typeof h.ventilated === 'boolean' &&
@@ -112,6 +166,7 @@ export function planHousehold(state, event, c) {
     if(!state) {check(['meet', 'light', 'stock_firewood'].includes(type), 'meet Moss, light a hearth or stock firewood to enroll'); supported(c); check(c.atHome === true, 'enroll only at your owned home');}
     const s = structuredClone(state || create(c.clock, c.sequence, c.homeId)), effects = [], notices = [];
     const h = s.hearth, a = s.animal;
+    if (a && !a.lifecycle) enrollMoss(a, s.homeId);
     check(s.homeId === c.homeId, 'household belongs to another home');
     const delta = c.clock - s.lastClock;
     if(type === 'tick') {
@@ -152,13 +207,15 @@ export function planHousehold(state, event, c) {
             check(c.animalKnown === true && !a, 'meet the discovered animal only once');
             s.animal = {id: HOUSEHOLD.animalId, metAt: c.clock, bond: 10, interactions: 1,
                 lastInteraction: c.clock, ageMinutes: 0, mood: 'curious', adopted: false, lastGiftAt: c.clock, gifts: 0};
+            enrollMoss(s.animal, s.homeId);
             notices.push('Moss, a young brindled cat, sniffs your hand and remembers it.'); break;
         case 'pet': case 'play':
             check(a && c.animalKnown === true && h.smoke === 0, 'Moss must be known and safely here');
             check(c.clock >= a.lastInteraction + 5, 'Give Moss five played minutes between visits.');
             if(type === 'play') check(householdPlayCloth(c), 'carry your own usable Linen cloth to play; it is not consumed');
-            a.interactions++; a.bond = Math.min(100, a.bond + 10); a.lastInteraction = c.clock;
-            a.adopted = a.bond >= 30; a.mood = a.adopted ? 'content' : 'curious';
+            interactWithMoss(a, s.homeId, c.clock, type === 'play');
+            a.interactions++; a.lastInteraction = c.clock;
+            a.mood = a.adopted ? 'content' : 'curious';
             if(type === 'play') {
                 a.playVisits = (a.playVisits || 0) + 1; a.playObject=c.playToy?'yarn':'cloth';
                 notices.push(c.playToy?`Moss bats the yarn ball, then pounces. The ball remains installed. Bond ${a.bond}/100.`:`Moss crouches, follows the trailing cloth, then pounces. You learn what kind of play Moss likes. Your cloth stays in your pack. Bond ${a.bond}/100.`);
@@ -215,6 +272,7 @@ export function householdRest(state, c, comfort = {score: 0}) {
         c.alive !== true || c.controlled !== true || state.hearth.smoke > 0) return 1;
     check(bounded(comfort.score, 20), 'invalid owned comfort');
     const animal = state.animal?.adopted && state.animal.mood === 'content' && c.animalKnown === true ?
-        (state.animal.ageMinutes >= HOUSEHOLD.growMinutes ? 0.05 : 0.03) : 0;
+        ((state.animal.lifecycle ? creatureDevelopment(state.animal.lifecycle, state.animal.creatureId, c.clock).mature :
+            state.animal.ageMinutes >= HOUSEHOLD.growMinutes) ? 0.05 : 0.03) : 0;
     return 1 + animal + Math.min(6, comfort.score) * 0.01;
 }

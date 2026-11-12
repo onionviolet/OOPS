@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
+import {writeFileSync} from 'node:fs';
 import {guLeadLife, riLeadId as id} from '../src/world_packs/book_gu_lead_life.js';
 import {GU_LEAD_SELECTION, guLeadSelection, guLeadAcademyPassageClockRequest, leadMoonlightKey} from '../src/world_packs/book_gu_lead_selection.js';
 import {GU_LEAD_REFINEMENT, guLeadRefinement, guLeadRefinementClockRequest, guLeadRefinementStatus} from '../src/world_packs/book_gu_lead_refinement.js';
@@ -15,6 +16,7 @@ import {GU_LEAD_INHERITANCE, guLeadInheritance, guLeadInheritanceClockRequest, r
 import {GU_LEAD_MOONVEIL, guLeadMoonveil, guLeadMoonveilClockRequest, registerGuLeadMoonveil} from '../src/world_packs/book_gu_lead_moonveil.js';
 import {GU_LEAD_HEARING, guLeadHearing, registerGuLeadHearing} from '../src/world_packs/book_gu_lead_hearing.js';
 import {GU_LEAD_SECOND_GU, guLeadSecondGu, guLeadSecondGuClockRequest, registerGuLeadSecondGu} from '../src/world_packs/book_gu_lead_second_gu.js';
+import {guLeadLightPairing} from '../src/world_packs/book_gu_lead_light_pairing.js';
 import {GU_LEAD_EARLY_DUEL, guLeadEarlyDuel, guLeadEarlyDuelClockRequest, registerGuLeadEarlyDuel} from '../src/world_packs/book_gu_lead_early_duel.js';
 import {GU_LEAD_HUNT_FOLLOWTHROUGH, guLeadHuntFollowthrough, guLeadHuntFollowthroughClockRequest, registerGuLeadHuntFollowthrough} from '../src/world_packs/book_gu_lead_hunt_followthrough.js';
 import {GU_LEAD_EXAM_RESULT, guLeadExamResult, guLeadExamResultClockRequest, registerGuLeadExamResult} from '../src/world_packs/book_gu_lead_exam_result.js';
@@ -68,6 +70,7 @@ function beginning() {
     const moonveil = registerStructuredCommandExtension(guLeadMoonveil, hash(guLeadMoonveil), definition, registry);
     const hearing = registerStructuredCommandExtension(guLeadHearing, hash(guLeadHearing), definition, registry);
     const secondGu = registerStructuredCommandExtension(guLeadSecondGu, hash(guLeadSecondGu), definition, registry);
+    const lightPairing = registerStructuredCommandExtension(guLeadLightPairing, hash(guLeadLightPairing), definition, registry);
     const earlyDuel = registerStructuredCommandExtension(guLeadEarlyDuel, hash(guLeadEarlyDuel), definition, registry);
     const hunt = registerStructuredCommandExtension(guLeadHuntFollowthrough, hash(guLeadHuntFollowthrough), definition, registry);
     const exam = registerStructuredCommandExtension(guLeadExamResult, hash(guLeadExamResult), definition, registry);
@@ -154,6 +157,18 @@ function beginning() {
         admitCaravan() {this.admit(caravan);},
         admitHearing() {this.admit(hearing);},
         admitSecondGu() {this.admit(secondGu);},
+        practiceLightPairing(check) {
+            const saved = structuredClone({plan, record, nativeVitals});
+            try {
+                this.admit(lightPairing);
+                check(this);
+            } finally {
+                ({plan, record, nativeVitals} = saved);
+            }
+        },
+        pairingFixture() {
+            return {expansion: plan.state, record, gameplay: plan.gameplay, location: this.location};
+        },
         admitExam() {this.admit(exam);},
         admitYearEnd() {this.admit(yearEnd);},
         admitRankTwo() {this.admit(rankTwo);},
@@ -1192,6 +1207,22 @@ test('the later search separates sighting, custody, the prior bond, new refineme
         play('find_boar',120);
         play('wear_down',3);
         assert.equal(life.energy.reserve, 28);
+        if (process.env.YAIR_GU_PAIRING_FIXTURE) {
+            writeFileSync(process.env.YAIR_GU_PAIRING_FIXTURE, JSON.stringify(life.pairingFixture()));
+        }
+        life.practiceLightPairing(practice => {
+            practice.act('light_pairing.solo');
+            practice.step(5);
+            assert.equal(practice.player.facts[id('light_pairing.far_target_cut')], false);
+            assert.equal(practice.energy.reserve, 24);
+            practice.act('light_pairing.paired');
+            practice.roundTrip();
+            practice.step(5);
+            assert.equal(practice.player.facts[id('light_pairing.far_target_cut')], true);
+            assert.equal(practice.energy.reserve, 19);
+            assert.equal(stock('second_gu.little_light'), 1);
+            practice.roundTrip();
+        });
         assert.equal(life.quote(names('cultivate_strength')).visible, false);
         life.act(names('pair_gu'));
         assert.equal(life.energy.reserve, 23);

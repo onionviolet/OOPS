@@ -21,7 +21,7 @@ const safe = n => Number.isSafeInteger(n) ? n : fail('Crafting arithmetic left t
 const sortKeys = object => Object.fromEntries(Object.keys(object).sort(compareCodePoints).map(key => [key, object[key]]));
 
 // Law spec: {id, revision, catalogue, carrier, ops, reactions, outputs, tagLaws}.
-//  op:       {id, station?, levels:[min,max], converts:[{from,to,permille,perLevel?,minLevel?}], availability:{axis:permille}}
+//  op:       {id, station?, levels:[min,max], converts:[{from,to,permille,perLevel?,minLevel?,unitsPerLevel?}], availability:{axis:permille}}
 //  reaction: {id, priority?, after?:opId, catalyst?:tagQuery, station?, limit?:permille, reactants:{axis:n}, products:{axis:n}}
 //  output:   {id, route, effect, axis, per, mode:'dose'|'total'|'scalar'}
 //  tagLaw:   {tag, axis, min}  (fraction axes: permille concentration; scalar: value)
@@ -45,10 +45,12 @@ export function defineCraftLaw(spec) {
         if(!pos(min) || !Number.isSafeInteger(max) || max < min) fail(`Invalid levels for ${op.id}.`);
         if(op.station != null && !catalogue.registry.has(op.station)) fail(`Unknown station tag: ${op.station}.`);
         const converts = (op.converts ?? []).map(c => {
-            only(c, ['from', 'to', 'permille', 'perLevel', 'minLevel'], 'convert');
+            only(c, ['from', 'to', 'permille', 'perLevel', 'minLevel', 'unitsPerLevel'], 'convert');
             axis(c.from, 'fraction'); axis(c.to, 'fraction');
             if(c.from === c.to || !nat(c.permille) || c.permille > 1000 || !Number.isSafeInteger(c.perLevel ?? 0) || !pos(c.minLevel ?? min)) fail(`Invalid convert in ${op.id}.`);
-            return {from: c.from, to: c.to, permille: c.permille, perLevel: c.perLevel ?? 0, minLevel: c.minLevel ?? min};
+            if(c.unitsPerLevel !== undefined && !pos(c.unitsPerLevel)) fail('Conversion capacity must be positive whole mass units per level.');
+            return {from: c.from, to: c.to, permille: c.permille, perLevel: c.perLevel ?? 0, minLevel: c.minLevel ?? min,
+                ...(c.unitsPerLevel === undefined ? {} : {unitsPerLevel: c.unitsPerLevel})};
         });
         const availability = {};
         for(const [id, permille] of Object.entries(op.availability ?? {})) { axis(id); if(!nat(permille)) fail('Availability must be an integer permille.'); availability[id] = permille; }
@@ -177,10 +179,15 @@ export function resolveBatch(law, {inputs, process = [], stations = [], recipe =
         for(const c of op.converts) {
             if(level < c.minLevel) continue;
             const permille = Math.max(0, Math.min(1000, c.permille + c.perLevel * (level - c.minLevel)));
-            const moved = Math.floor(amounts[c.from] * permille / 1000);
-            if(!moved) continue;
+            const possible = Math.floor(amounts[c.from] * permille / 1000);
+            // The local conversion can have a fixed work capacity at this
+            // level. Unprocessed material stays available to later steps.
+            const capacity = c.unitsPerLevel === undefined ? null : safe(c.unitsPerLevel * level);
+            const moved = capacity === null ? possible : Math.min(possible, capacity);
+            if(!moved && capacity === null) continue;
             amounts[c.from] -= moved; amounts[c.to] = safe(amounts[c.to] + moved);
-            trace.push({step, kind: 'convert', op: op.id, from: c.from, to: c.to, moved});
+            trace.push({step, kind: 'convert', op: op.id, from: c.from, to: c.to, moved,
+                ...(capacity === null ? {} : {capacity, remaining: amounts[c.from]})});
         }
         for(const [id, permille] of Object.entries(op.availability)) availability[id] = safe(Math.floor(availability[id] * permille / 1000));
         react(op.id, step);

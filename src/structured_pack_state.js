@@ -1,5 +1,5 @@
 import {object} from './basics.js';
-import {validateExtensionRefs,requireStructuredExtensions} from './structured_pack_extensions.js';
+import {validateExtensionRefs,requireStructuredExtensions,structuredAdmittedLocations} from './structured_pack_extensions.js';
 import {canonicalDurabilityKey} from './absorb_e2/durability.js';
 const id=v=>typeof v==='string'&&/^[a-zA-Z0-9_.:-]+$/.test(v)&&!['__proto__','constructor','prototype'].includes(v);
 export function validateStructuredRecord(r) {
@@ -34,7 +34,7 @@ export function requireStructuredContent(record,definitions,state) {
     requireStructuredExtensions(record,d,state);
     if(record.schema===2)requireStructuredSelection(record,definitions);
     const b=record.schema===2?d?.starts?.find(b=>b.id===record.startId):d?.bootstrap;
-    if(!d||d.revision!==record.revision||d.contentHash!==record.contentHash||d.world.id!==record.worldId||b?.id!==record.startId||b?.locationId!==record.locationId||JSON.stringify(d.locations.map(l=>l.id))!==JSON.stringify(record.locationIds)||JSON.stringify((d.simulation.people||[]).map(p=>p.id))!==JSON.stringify(record.peopleIds)||JSON.stringify(record.units)!==JSON.stringify(d.units||[])||JSON.stringify(record.containerBindings||[])!==JSON.stringify((d.simulation.containers||[]).map(c=>({id:c.id,category:c.category,holder:c.holder,revision:c.revision}))))throw Error('Restore the exact beginning content to resume this character. The saved beginning has been preserved.');
+    if(!d||d.revision!==record.revision||d.contentHash!==record.contentHash||d.world.id!==record.worldId||b?.id!==record.startId||b?.locationId!==record.locationId||JSON.stringify(structuredAdmittedLocations(d,record).map(l=>l.id))!==JSON.stringify(record.locationIds)||JSON.stringify((d.simulation.people||[]).map(p=>p.id))!==JSON.stringify(record.peopleIds)||JSON.stringify(record.units)!==JSON.stringify(d.units||[])||JSON.stringify(record.containerBindings||[])!==JSON.stringify((d.simulation.containers||[]).map(c=>({id:c.id,category:c.category,holder:c.holder,revision:c.revision}))))throw Error('Restore the exact beginning content to resume this character. The saved beginning has been preserved.');
 }
 export function validateStructuredEnvelope(save) {
     const pending=save.content_packs?.pendingStructured;

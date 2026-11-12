@@ -1,3 +1,4 @@
+import {advanceMistglassArtifact,mistglassArtifactView,startMistglassArtifact,validateMistglassArtifactWork} from '../../mistglass_artifact_refining.js';
 import {pressureTimingKnown,revelationView,stageRevelation} from '../../mistglass_revelation.js';
 import {validateSeedbed,seedbedView,quoteSeedbed,stageSeedbed} from '../../mistglass_seedbed.js';
 import {retainShopStock} from '../../shop_locks.js';
@@ -51,9 +52,10 @@ export function validateMistglassEnvelope(save){
     validateAdaptation(family);
     check(realm!==undefined||state.actors.player.worldId!==P.worldId,'Mistglass placement requires a retained world owner.');
     if(realm!==undefined){
-        check(realm!==null && realm.schema===1 && Object.keys(realm).filter(k=>k!=='history'&&k!=='seedbed').sort().join(',')==='activeVisitId,instance,lastRestock,schema,visits','Invalid retained Mistglass fields/schema.');
+        check(realm!==null && realm.schema===1 && Object.keys(realm).filter(k=>k!=='history'&&k!=='seedbed'&&k!=='refinement').sort().join(',')==='activeVisitId,instance,lastRestock,schema,visits','Invalid retained Mistglass fields/schema.');
         if(realm.history!==undefined)check(realm.history&&Object.keys(realm.history).filter(k=>k!=='receiptId').sort().join(',')==='drawnAt,id,schema'&&realm.history.schema===1&&Object.hasOwn(sluiceHistories,realm.history.id)&&nat(realm.history.drawnAt)&&realm.history.drawnAt<=state.clock,'Invalid retained Mistglass history.');
         validateMistglassOrigin(state,realm.history);
+        validateMistglassArtifactWork(realm.refinement,state,realm);
         validateWorldInstance(realm.instance,MISTGLASS_DEFINITION);validateSeedbed(realm.seedbed,realm.instance.clock.elapsed);
         check(state.worlds[P.worldId] && typeof state.worlds[P.worldId]==='object','Missing native Mistglass world registration.');
         check(realm.instance.clock.observedAt===state.clock && Array.isArray(realm.visits) && realm.visits.length<=64 && nat(realm.lastRestock) && realm.lastRestock<=state.clock,'Invalid retained Mistglass clock/stock.');
@@ -110,6 +112,7 @@ function applyPlan(plan,result,registry,{quoteXP=(_id,n)=>n}={}){
 }
 export function stageMistglassEnrollment(plan,context,registry,options){return applyPlan(plan,prepareEnrollment(plan.state.worldAdaptation,{...context,optIn:true}),registry,options);}
 export function stageMistglassTrial(plan,context,registry,{doseKey,quoteXP}={}){
+    check(!plan.state.mistglassRealm?.refinement?.pending,'Finish the sword already in the refining bed.');
     const inventory=plan.gameplay.player.inventory;
     const doseAvailable=typeof doseKey==='string'&&JSON.parse(doseKey).id===P.doseItemId&&(inventory[doseKey]||0)>0;
     const preview=previewTrial(plan.state.worldAdaptation,context,mistglassReserve(plan.state),doseAvailable);
@@ -119,7 +122,7 @@ export function stageMistglassTrial(plan,context,registry,{doseKey,quoteXP}={}){
 }
 export function mistglassNextBoundary(state,target){
     const due=state.worldAdaptation?.pending?.dueAt,raw=state.simulation?.conditions?.player?.[P.blockedConditionId]?.expiresAt;
-    return Math.min(target,...[due,raw].filter(t=>nat(t)&&t>state.clock));
+    return Math.min(target,...[due,raw,state.mistglassRealm?.refinement?.pending?.due].filter(t=>nat(t)&&t>state.clock));
 }
 // Root calls this once per segment using OLD native placement/body context,
 // before applying the segment's travel/body changes; then once with NEW context
@@ -130,6 +133,7 @@ export function stageMistglassAdvance(plan,oldContext,registry,options){
         const result=prepareAdvance(plan.state.worldAdaptation,{...oldContext,clock:plan.state.clock},mistglassReserve(plan.state));
         applyPlan(plan,result,registry,options);
     }
+    advanceMistglassArtifact(plan,oldContext,(key,count)=>applyGameplayEffect(plan.gameplay,{type:'item',key,amount:count},'player'));
     if(plan.state.mistglassRealm){
         const r=plan.state.mistglassRealm,p=planWorldClock(r.instance,{playedAt:plan.state.clock,visits:r.visits},MISTGLASS_DEFINITION);
         check(p.allowed,p.reasons?.join(' ')||'Invalid retained Mistglass clock.');r.instance=p.nextInstance;
@@ -162,7 +166,7 @@ export function stageMistglassTravel(plan,direction,{fromLocation='Village'}={})
 export function knownMistglassView(state,context,doseKey){
     const family=state.worldAdaptation;
     if(family===undefined)return {enrolled:false,view:null,preview:null};
-    return {enrolled:true,view:{...adaptationView(family,context,mistglassReserve(state)),history:mistglassHistoryView(state),seedbed:state.mistglassRealm?{...seedbedView(state,context),quotes:Object.fromEntries(['build','plant','harvest','clear'].map(id=>[id,quoteSeedbed(state,context,id)]))}:null,inquiry:inquiryView(state),revelation:state.mistglassRealm?revelationView(state):null,purgeCost:controlledPurgeKnown(state)?250:500,sealEligible:!!doseKey&&mistglassReserve(state)>=1000&&!family.pending&&!family.pathWork?.prepared,pathQuotes:Object.fromEntries(['prepare','cut','set','discard'].map(id=>[id,quotePathWork(family,context,mistglassReserve(state),context.inventory||{},id)]))},preview:previewTrial(family,context,mistglassReserve(state),!!doseKey),sluice:previewSluice(family,context,mistglassReserve(state)),history:mistglassHistoryAccount(state)};
+    return {enrolled:true,view:{...adaptationView(family,context,mistglassReserve(state)),refinement:mistglassArtifactView(state,context,mistglassReserve(state)),history:mistglassHistoryView(state),seedbed:state.mistglassRealm?{...seedbedView(state,context),quotes:Object.fromEntries(['build','plant','harvest','clear'].map(id=>[id,quoteSeedbed(state,context,id)]))}:null,inquiry:inquiryView(state),revelation:state.mistglassRealm?revelationView(state):null,purgeCost:controlledPurgeKnown(state)?250:500,sealEligible:!!doseKey&&mistglassReserve(state)>=1000&&!family.pending&&!family.pathWork?.prepared,pathQuotes:Object.fromEntries(['prepare','cut','set','discard'].map(id=>[id,quotePathWork(family,context,mistglassReserve(state),context.inventory||{},id)]))},preview:previewTrial(family,context,mistglassReserve(state),!!doseKey),sluice:previewSluice(family,context,mistglassReserve(state)),history:mistglassHistoryAccount(state)};
 }
 // Stock stays in the actual TraderComponent inventory. Only its native refresh
 // deadline joins this optional realm; the conserved Proto23 shop is untouched.
@@ -186,7 +190,14 @@ export function stageMistglassMethod(plan,context,registry,methodId,options={}){
     if(methodId.startsWith('inquiry:')){prepareCultivationMethod(plan.state.worldAdaptation,context,plan.state.worldAdaptation?.techniques?.selected||'mist');return stageInquiry(plan,methodId.slice(8),{reserve:mistglassReserve(plan.state),debit:amount=>applyEnergyEffect(plan.state,'player',{energyId:P.resourceId,operation:'use',output:amount,control:1},registry.simulation)});}
     if(methodId.startsWith('away:'))return stageMistglassAway(plan,context,registry,methodId.slice(5),options);
     if(methodId.startsWith('vessel:'))return applyPlan(plan,prepareDiscipline(plan.state.worldAdaptation,context,mistglassReserve(plan.state),methodId.slice(7)),registry);
-    if(methodId.startsWith('path:'))return applyPlan(plan,planPathWork(plan.state.worldAdaptation,context,mistglassReserve(plan.state),plan.gameplay.player.inventory,methodId.slice(5)),registry);
+    if(methodId.startsWith('refine:'))return startMistglassArtifact(plan,context,mistglassReserve(plan.state),methodId.slice(7),{
+        spend:key=>{assertNativeItemDisposition(plan.state,key);applyGameplayEffect(plan.gameplay,{type:'item',key,amount:1},'player',true);},
+        debit:amount=>applyEnergyEffect(plan.state,'player',{energyId:P.resourceId,operation:'use',output:amount,control:1},registry.simulation)
+    });
+    if(methodId.startsWith('path:')){
+        check(!plan.state.mistglassRealm?.refinement?.pending,'Finish the sword already in the refining bed.');
+        return applyPlan(plan,planPathWork(plan.state.worldAdaptation,context,mistglassReserve(plan.state),plan.gameplay.player.inventory,methodId.slice(5)),registry);
+    }
     if(methodId.startsWith('history:'))return stageMistglassHistory(plan,context,methodId.slice(8),registry);
     return applyPlan(plan,prepareCultivationMethod(plan.state.worldAdaptation,context,methodId),registry);}
 export function stageMistglassSluice(plan,context,registry){return applyPlan(plan,prepareSluice(plan.state.worldAdaptation,context,mistglassReserve(plan.state)),registry);}

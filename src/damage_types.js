@@ -14,7 +14,7 @@
 import {damageTypes} from './effect_dsl.js';
 
 export const PHYSICAL = 'physical';
-export const DAMAGE_TYPES = Object.freeze([PHYSICAL, ...damageTypes]);
+export const DAMAGE_TYPES = Object.freeze([PHYSICAL, ...damageTypes, 'metal']);
 const KNOWN = new Set(DAMAGE_TYPES);
 
 // Proposal values (agent-authored, adjustable). Weapon family -> how the head actually bites.
@@ -27,7 +27,7 @@ export const UNARMED_MIX = Object.freeze({bludgeoning: 1});
 // Proposal values. Worn protection is the fraction of that type's damage turned away per piece, summed over pieces and
 // capped (dial). Matched by the item's id or external component name, like the elemental affinity table.
 export const ARMOR_PROTECTION = Object.freeze([
-    [/chainmail/i, {slashing: .08, piercing: .04}],
+    [/chainmail/i, {slashing: .08, piercing: .04, metal: .15}],
     [/turtleshell|turtle shell/i, {slashing: .06, piercing: .06, bludgeoning: .03}],
     [/alligator/i, {slashing: .05, piercing: .05}],
     [/hide|pelt|leather/i, {slashing: .03, bludgeoning: .02}],
@@ -56,7 +56,7 @@ export function attackMix(fighter) {
     if (declared) return declared;
     if (fighter?.tags?.main_character) {
         const weapon = fighter.getEquipment?.()?.weapon;
-        return normalizeMix(weapon ? WEAPON_MIX[weapon.weapon_type] : UNARMED_MIX) || {[PHYSICAL]: 1};
+        return normalizeMix(weapon ? weapon.attack_types ?? WEAPON_MIX[weapon.weapon_type] : UNARMED_MIX) || {[PHYSICAL]: 1};
     }
     return {[PHYSICAL]: 1};
 }

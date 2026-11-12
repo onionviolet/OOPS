@@ -1,6 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {HABITAT as H,HAY_KEY as hay,WOOL_KEY as wool,planHabitatAction,projectHabitat,habitatFacts,validateHabitat} from '../src/habitat_care.js';
+import {HABITAT as H,HAY_KEY as hay,WOOL_KEY as wool,planHabitatAction,projectHabitat,habitatFacts,migrateHabitat,validateHabitat} from '../src/habitat_care.js';
+import {MEADOW_BAIT_KEY, RABBIT_MEAT_KEY} from '../src/meadow_wildlife.js';
+import {creatureHealth, injureCreature} from '../src/creature_lifecycle.js';
 import {beginNativeCraftTransaction} from '../src/native_craft_transaction.js';
 import {encodeSaveFile,decodeSaveFile,validateSaveEnvelope} from '../src/save_files.js';
 const initial=()=>({owner:null,clock:100,money:100,inventory:{},location:H.location,world:H.world,ready:true});
@@ -63,4 +65,123 @@ test('real native save encoding accepts optional care and leaves old envelopes w
     const p=cared(),saved={...old,meadow_pen:p.owner};
     assert.deepEqual(decodeSaveFile(encodeSaveFile(JSON.stringify(saved)),version),saved);
     saved.meadow_pen.animal.owner='foreign';assert.throws(()=>decodeSaveFile(encodeSaveFile(JSON.stringify(saved)),version),/owned pen/);
+});
+
+test('an active legacy meadow save migrates without altering inventory or earned wool', () => {
+    const p = cared();
+    const legacy = projectHabitat(p.owner, 103);
+    delete legacy.lifecycle;
+    delete legacy.sheepId;
+    const migrated = migrateHabitat(legacy, 103);
+    const sheep = migrated.lifecycle.individuals[migrated.sheepId];
+    assert.equal(sheep.habitat, H.site);
+    assert.equal(sheep.keeper, 'player');
+    assert.equal(sheep.health.careUntil, 112);
+    assert.equal(migrated.progress, 3);
+    assert.equal(legacy.lifecycle, undefined);
+    const collected = act({...p, owner: migrated, clock: 106}, 'collect');
+    assert.equal(collected.inventory[wool], 5);
+    assert.equal(collected.owner.sheepId, migrated.sheepId);
+    assert.equal(creatureHealth(collected.owner.lifecycle, migrated.sheepId, 106).careUntil, null);
+});
+
+test('paid hay and brushing support recovery on the same persistent sheep', () => {
+    const p = housed();
+    const {sheepId: id, lifecycle} = p.owner;
+    p.owner.lifecycle = injureCreature(lifecycle, {revision: lifecycle.revision, id, clock: p.clock,
+        kind: 'cut', recoveryMinutes: 9});
+    const fed = act(act(p, 'buy_feed'), 'feed');
+    assert.equal(creatureHealth(fed.owner.lifecycle, id, 102).injury.remaining, 9);
+    const brushed = act({...fed, clock: 102}, 'attend');
+    assert.equal(brushed.owner.lifecycle.individuals[id].experience.player.bond, 1);
+    assert.equal(creatureHealth(brushed.owner.lifecycle, id, 108).injury.remaining, 3);
+    assert.equal(brushed.inventory[hay], undefined);
+});
+
+test('the Village copse exchanges finite prey for meat and keeps the later population outcome', () => {
+    const p = act(act(initial(), 'build'), 'survey_copse');
+    assert.throws(() => act(p, 'hunt_rabbit'), /Stale bread/);
+    const hunted = act({...p, inventory: {[MEADOW_BAIT_KEY]: 1}}, 'hunt_rabbit');
+    assert.equal(hunted.inventory[RABBIT_MEAT_KEY], 1);
+    assert.equal(hunted.inventory[MEADOW_BAIT_KEY], undefined);
+    assert.equal(habitatFacts(hunted.owner, 111).wildlife.foxes, 1);
+    const reload = JSON.parse(JSON.stringify(hunted.owner));
+    const {rabbits, foxes} = habitatFacts(reload, 112).wildlife;
+    assert.deepEqual({rabbits, foxes}, {rabbits: 3, foxes: 0});
+    assert.equal(habitatFacts(p.owner, 112).wildlife.foxes, 1);
+});
+
+test('an injured ewe recovers before wool and a paid brood yields one saleable lamb', () => {
+    let p = act(act(initial(), 'build'), 'rescue_ewe');
+    p = act(p, 'extend_pen');
+    assert.throws(() => act(p, 'breed_sheep'), /recover/);
+    p = act(act(act(p, 'buy_feed'), 'feed'), 'attend');
+    assert.equal(habitatFacts(p.owner, 105).wound.remaining, 1);
+    assert.equal(habitatFacts(p.owner, 106).state.progress, 0);
+    assert.equal(habitatFacts(p.owner, 112).ready, true);
+    p = act({...p, clock: 112}, 'collect');
+    const before = p.money;
+    p = act(p, 'breed_sheep');
+    assert.equal(p.money, before - H.breedingCost);
+    assert.throws(() => act(p, 'breed_sheep'), /expecting/);
+    assert.equal(habitatFacts(p.owner, 123).lamb, null);
+    const restored = JSON.parse(JSON.stringify(p.owner));
+    const {state, lamb} = habitatFacts(restored, 124);
+    assert.ok(['cream', 'brown'].includes(lamb.traits.coat));
+    assert.deepEqual(lamb.experience, {});
+    assert.throws(() => act({...p, owner: restored, clock: 141}, 'sell_lamb'), /time to grow/);
+    const sale = act({...p, owner: restored, clock: 142}, 'sell_lamb');
+    assert.equal(sale.money, p.money + H.lambPrice);
+    assert.equal(sale.owner.lifecycle.individuals[state.lambId].keeper, 'shepherd');
+    assert.throws(() => act(sale, 'sell_lamb'), /no lamb/);
+    const next = act(sale, 'breed_sheep');
+    assert.equal(next.owner.ramId, sale.owner.ramId);
+    assert.notEqual(habitatFacts(next.owner, 154).state.lambId, state.lambId);
+});
+
+test('a fine-fleece lamb yields a distinct lot only after growing and paid care', () => {
+    const fineWool = JSON.stringify({id: 'Fine wool'});
+    let p = act(act(housed(), 'extend_pen'), 'breed_sheep');
+    assert.throws(() => act({...p, clock: 120}, 'tend_lamb'), /grow/);
+    p = {...p, clock: 130};
+    assert.equal(habitatFacts(p.owner, p.clock).lamb.traits.fleece, 'fine');
+    assert.throws(() => act(p, 'tend_lamb'), /Meadow hay/);
+    p = act(act(p, 'buy_feed'), 'tend_lamb');
+    assert.equal(p.inventory[hay], undefined);
+    assert.throws(() => act({...p, clock: 135}, 'shear_lamb'), /six minutes/);
+    const reloaded = JSON.parse(JSON.stringify(p));
+    const clipped = act({...reloaded, clock: 136}, 'shear_lamb');
+    assert.equal(clipped.inventory[fineWool], 5);
+    assert.equal(clipped.inventory[wool], undefined);
+    assert.throws(() => act(clipped, 'shear_lamb'), /feed and brush/i);
+    assert.throws(() => act(clipped, 'tend_lamb'), /grow back/);
+});
+
+test('a fitted construct reserves bread, can recall it, and settles the recipient inventory once', () => {
+    const cloth = JSON.stringify({id: 'Wool cloth'});
+    const bread = JSON.stringify({id: 'Stale bread'});
+    const p = act({...act(initial(), 'build'), inventory: {[bread]: 2, [cloth]: 1}}, 'hire_courier');
+    const carrier = p.owner.courier.id;
+    assert.throws(() => act(p, 'dispatch_courier'), /too heavy/);
+    assert.throws(() => act({...p, inventory: {}}, 'fit_courier'), /Wool cloth/);
+    const fitted = act(p, 'fit_courier');
+    assert.equal(fitted.inventory[cloth], undefined);
+    const dispatched = act(fitted, 'dispatch_courier');
+    assert.equal(dispatched.inventory[bread], undefined);
+    assert.deepEqual(dispatched.owner.courier.order.parcel, {key: bread, count: 2});
+    assert.throws(() => act({...dispatched, clock: 107}, 'receive_courier'), /Wait/);
+
+    const recalled = act({...dispatched, clock: 107}, 'recall_courier');
+    assert.equal(recalled.inventory[bread], 2);
+    const second = act(recalled, 'dispatch_courier');
+    const restored = JSON.parse(JSON.stringify(second));
+    const arrived = {...restored, clock: 115};
+    assert.throws(() => act(arrived, 'recall_courier'), /at the gate/);
+    const delivered = act(arrived, 'receive_courier');
+    assert.deepEqual(delivered.owner.courier.recipientStock, {[bread]: 2});
+    assert.equal(delivered.owner.courier.order.parcel, undefined);
+    assert.equal(delivered.owner.courier.id, carrier);
+    assert.equal(delivered.owner.courier.lifecycle.individuals[carrier].habitat, 'village.shepherd_gate');
+    assert.equal(delivered.money, second.money + 6);
+    assert.throws(() => act(delivered, 'receive_courier'), /Wait/);
 });

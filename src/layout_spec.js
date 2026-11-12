@@ -182,6 +182,7 @@ export const LAYOUT_SPEC = Object.freeze({
         'notebook': surface('ST6', {representations: routed}),
         'reading-reference': surface('ST6'),
         'learned-preparations': surface(UNSET),
+        'spellbook': surface('ST6', {home: 'Reference dock; opens once a spell method is known', frequency: 'occasional', status: 'proposal'}),
         'village-neighbors': surface('ST6', {home: 'Village'}),
         'village-travelers': surface('ST6', {home: 'Village', representations: routed}),
         'world-events': surface(UNSET),

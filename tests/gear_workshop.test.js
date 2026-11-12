@@ -1,6 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {loadNative, STANCE_LOCATION_STUBS} from './helpers/native_loader.mjs';
+import {readMaterialLineage, planProcessedMaterial} from '../src/material_lineage.js';
+import {recoveredGearComponent, retainGearComponentLineage} from '../src/gear_component_lineage.js';
+import {validateMaterialLineageEnvelope} from '../src/material_lineage_domain.js';
 import {quoteGearWork, workContributions, freshWork, validateWork} from '../src/gear_work.js';
 let native;
 const getNative = async () => native ||= await loadNative(`
@@ -79,6 +82,25 @@ test('process law: real heat, cooling, material families, independent world rule
  f.setWorld('unmodeled.world');assert.match(n.quoteWorkshop({action:'heat',key:k}).reason,/no authored/);
  assert.equal(Object.values(n.item_templates).find(t=>t.material_label==='steel chainmail').material_family,'metal');
  assert.equal(n.item_templates['Weak bone short handle'].material_family,'bone');
+});
+
+test('a cooled shaped piece keeps its paid shaping when reheated', async () => {
+ const f = await fixture(), {n, items, run} = f;
+ assert.match(n.quoteWorkshop({action: 'shape', key: basicKey}).reason, /heat the metal/i);
+ const shapedKey = run('shape', run('heat'));
+ const shaped = JSON.parse(shapedKey);
+ f.setClock(106);
+ assert.match(n.quoteWorkshop({action: 'quench', key: shapedKey, material: key('Lamp oil')}).reason, /cooled/);
+
+ const fuelBefore = items[key('Charcoal')].count;
+ const reheatedKey = run('heat', shapedKey);
+ const reheated = n.getItemFromKey(reheatedKey);
+ assert.equal(items[key('Charcoal')].count, fuelBefore - 1);
+ assert.equal(JSON.parse(reheatedKey).e2_instance, shaped.e2_instance);
+ assert.deepEqual(reheated.gearwork.treatment, {...shaped.gearwork.treatment, at: 106});
+ assert.match(n.quoteWorkshop({action: 'shape', key: reheatedKey}).reason, /already been shaped/);
+ const quenchedKey = run('quench', reheatedKey, {material: key('Lamp oil')});
+ assert.equal(n.getItemFromKey(quenchedKey).gearwork.treatment.stage, 'quenched');
 });
 
 test('same worked-item modifiers feed both equipment consumers; wear uses persist and honing cannot reroll',async()=>{
@@ -214,4 +236,61 @@ test('selected inscription reroll preserves neighboring affixes and copy identit
  f.setFail(false);const result=n.executeWorkshop(q),again=JSON.parse(result.resultKey);
  assert.deepEqual(again.affixes.find(a=>a.id==='armor.vital'),data.affixes[1]);assert.equal(again.affixes.length,2);assert.equal(items[key('Iron ingot')].count,stock-1);assert.ok(again.e2_instance);assert.ok(draws.length>0);
  n.validateWorkshopEnvelope({inventories:{player:{[result.resultKey]:{count:1}}}});
+});
+
+test('a traced axe keeps its fitted parts through swap and degrades the exact removed cohorts', async () => {
+ const f = await fixture(), {n, actor, items, run} = f;
+ const traced = (id, family, quality, parent) => planProcessedMaterial({
+  stock:{[parent]:1},inputs:[{item_key:parent,count:1}],output:{id,family,count:1,quality},
+  process:{id:'test.fixture-craft',revision:1,at:10,world_id:'base.frontier'}
+ }).item_key;
+ const head = traced('Iron axe head','axe-head',90,key('Iron ingot'));
+ const handle = traced('Simple wooden medium handle','wooden-handle',60,key('Processed rough wood'));
+ const ash = traced('Ash wood medium handle','wooden-handle',100,key('Processed ash wood'));
+ const base = JSON.stringify(retainGearComponentLineage(
+  {components:{head:'Iron axe head',handle:'Simple wooden medium handle'},quality:100},
+  [n.getItemFromKey(head),n.getItemFromKey(handle)]));
+ actor.addToInventory([{item_key:base,count:1},{item_key:ash,count:1}]);
+ assert.equal(n.getItemFromKey(base).getInventoryKey(),base);
+ const oldTier = items[base].item.getItemTier();
+ const forged = run('swap',base,{slot:'handle',material:ash});
+ assert.deepEqual(JSON.parse(forged).componentLineage,{head,handle:ash});
+ assert.equal(items[ash],undefined);
+ const [removed] = Object.keys(items).filter(k=>JSON.parse(k).id==='Simple wooden medium handle');
+ assert.equal(JSON.parse(removed).quality,30);
+ assert.equal(readMaterialLineage(removed).history[0].inputs[0].item_key,handle);
+ assert.ok(items[forged].item.getItemTier() > oldTier);
+ validateMaterialLineageEnvelope({inventories:{person:{player:{[forged]:{count:1}}}}});
+ const malformed = JSON.parse(forged);
+ malformed.componentLineage.handle = handle;
+ assert.throws(()=>n.getItemFromKey(JSON.stringify(malformed)),/disagrees with its fitted component/);
+
+ run('salvage',forged);
+ assert.equal(items[forged],undefined);
+ const salvage = Object.keys(items).filter(k=>['Iron axe head','Ash wood medium handle'].includes(JSON.parse(k).id));
+ assert.deepEqual(salvage.map(k=>readMaterialLineage(k).history[0].inputs[0].item_key),[head,ash]);
+});
+
+test('repeated recovery keeps a dated flat history that the native save accepts', async () => {
+ const n = await getNative();
+ const id = 'Iron axe head', source = key('Iron ingot');
+ const forged = planProcessedMaterial({
+  stock:{[source]:1}, inputs:[{item_key:source,count:1}], output:{id,family:'axe-head',count:1,quality:100},
+  process:{id:'test.fixture-craft',revision:1,at:10,world_id:'base.frontier'}
+ }).item_key;
+ let previous = forged;
+ for(let i=0;i<24;i++) {
+  previous = recoveredGearComponent({id,quality:Math.max(1,100>>Math.min(i+1,7)),previous,
+   at:20+i,world:'base.frontier',operation:i%2?'swap':'salvage',condition:100});
+ }
+ const saved = JSON.parse(JSON.stringify({inventories:{person:{player:{[previous]:{count:1}}}}}));
+ validateMaterialLineageEnvelope(saved);
+ assert.equal(n.getItemFromKey(previous).getInventoryKey(),previous);
+ const {history} = readMaterialLineage(previous);
+ assert.equal(history.length,24);
+ assert.equal(history[0].inputs[0].item_key,forged);
+ assert.equal(history[1].inputs[0].facts.quality,50);
+ assert.deepEqual(history.map(event=>event.at),Array.from({length:24},(_,i)=>20+i));
+ assert.ok(previous.length<10000);
+ assert.throws(()=>recoveredGearComponent({id,quality:1,previous,at:19,world:'base.frontier',operation:'swap',condition:100}),/predate/);
 });

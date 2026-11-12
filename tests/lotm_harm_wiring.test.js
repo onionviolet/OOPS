@@ -58,6 +58,27 @@ test('one carrier (MND8, RCL5): peek strain and a bad dose add on one line, and 
  assert.equal(lotmLossLine({schema:1,backlash:{power:9}},relief).count,9,'past the line nothing eases it');
 });
 
+test('the host saves the inbox debit and resulting harm together before publishing', () => {
+ let written, fail=false;
+ const o=hostOver(bare(),{persist:plan=>{
+  if(fail)throw Error('storage unavailable');
+  written=structuredClone(plan);
+  o.box.p={...o.box.p,...plan};
+ }});
+ o.host.enroll('probationer');
+ o.box.p.state.actors.player.resources['book.lotm.pressure']=1;
+ fail=true;
+ assert.throws(()=>o.host.tick(1),/storage unavailable/);
+ assert.equal(o.box.p.state.actors.player.resources['book.lotm.pressure'],1);
+ assert.equal(harmState().backlash.power,undefined);
+ fail=false;
+ o.host.tick(1);
+ assert.equal(written.state.actors.player.resources['book.lotm.pressure'],undefined);
+ assert.equal(written.nativePatch.harm.backlash.power,1.5);
+ o.host.tick(1);
+ assert.equal(harmState().backlash.power,1.5);
+});
+
 test('crossing a stage leaves one Reports line, and the line counts the grace down (FBK, RCL5)', () => {
  const logs=[];const o=hostOver(bare(),{logMessage:t=>logs.push(t),die:()=>Promise.resolve()});o.host.enroll('probationer');
  o.host.tick(1);o.box.p.state.actors.player.resources['book.lotm.pressure']=6;o.host.tick(1);

@@ -3,7 +3,7 @@
 import {check,natural} from './basics.js';
 import {cultivationView} from './absorb_p23/world_adaptation/techniques.js';
 import {mistglassProfile as P} from './absorb_p23/world_adaptation/profile.js';
-import {planProcessedMaterial} from './material_lineage.js';
+import {planMaterialPartition} from './material_lineage.js';
 export const PATH_WORK=Object.freeze({
  breath:{label:'Flow-cut',source:'ambient conservatory mist',product:'Processed rat pelt',quality:[65,85,95]},
  settling:{label:'Set-grain',source:'one paid Cloudseed dose dissolved into condensate',product:'Piece of wolf rat leather',quality:[70,90,100]},
@@ -34,9 +34,19 @@ export function quotePathWork(s,c,reserve,inventory,action){
   }else if(action==='discard'){check(w.prepared,'There is no prepared work to abandon.');summary='The prepared charge disperses into its source mist. Already converted energy and any dose remain spent.';
   }else{
    const p=w.prepared,d=PATH_WORK[p?.path];check(!p?.supportInstance||p.supportInstance===c.ruleRelic,'Equip the same woven carrier on its bound body to finish this held charge.');check(p&&d,'Prepare a path-specific charge before its compatible technique.');check(action===(p.path==='breath'?'cut':'set'),'This prepared reserve supports its own technique; use Flow-cut for circulation or Set-grain for refinement.');
-   const lot=Object.keys(inventory).find(k=>JSON.parse(k).id==='Rat pelt'&&inventory[k]>0);check(lot,'Carry an owned rat pelt as the physical workpiece.');take(lot,1);
-   const product=planProcessedMaterial({stock:inventory,inputs:[{item_key:lot,count:1}],output:{id:d.product,family:'animal-hide',count:1,quality:d.quality[p.control-1]},process:{id:'mistglass.'+action,revision:1,at:c.materialClock??c.clock,world_id:P.worldId,parameters:{path:p.path,control:p.control,energySpent:p.energySpent,conversion:p.path==='breath'?'mist pressure guides the cut':'dissolved seed loosens hair and settles grain'}}});
-   receive.push({key:product.item_key,count:1});summary=`${d.label} consumes the actual pelt and committed charge, leaving one ${d.quality[p.control-1]}-quality ${d.product} for native leatherwork. Control changes the material result, not its count.`;
+   const lot=Object.keys(inventory).find(k=>JSON.parse(k).id==='Rat pelt'&&inventory[k]>0);check(lot,'Carry an owned rat pelt as the physical workpiece.');
+   // This local law preserves one hide workpiece. Its unit tracks custody of
+   // the pelt, while the prepared charge already accounts for paid energy.
+   const partition=planMaterialPartition({
+    stock:inventory,inputs:[{item_key:lot,count:1}],unit:'hide workpiece',unitsPerInput:()=>1,
+    outputs:[{output:{id:d.product,family:'animal-hide',count:1,quality:d.quality[p.control-1]},unitsPerItem:1}],
+    process:{id:'mistglass.'+action,revision:1,at:c.materialClock??c.clock,world_id:P.worldId,
+     parameters:{path:p.path,control:p.control,energySpent:p.energySpent,
+      conversion:p.path==='breath'?'mist pressure guides the cut':'dissolved seed loosens hair and settles grain'}}
+   });
+   for(const {item_key,count} of partition.inputs) spend.push({key:item_key,count});
+   for(const {item_key,count} of partition.outputs) receive.push({key:item_key,count});
+   summary=`${d.label} consumes the actual pelt and committed charge, leaving one ${d.quality[p.control-1]}-quality ${d.product} for native leatherwork. Control changes the material result, not its count.`;
   }
   return {eligible:true,action,spend,receive,summary,revision:s.revision,reserve};
  }catch(e){return {eligible:false,action,reason:e.message};}

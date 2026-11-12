@@ -36,6 +36,91 @@ test('MR35: the exact pinned formula makes the canon product', () => {
     assert.equal(b.dosesLeft, HP.rules.doses);
 });
 
+test('Draught class charges once, resumes the stirring sequence, and records contrasting assessments', () => {
+    const r = new Run();
+    const purse = r.s.purse;
+    r.do({type: 'startDraught', preparation: 'crush'});
+    assert.equal(r.s.purse, purse - 3);
+    assert.throws(() => r.do({type: 'startDraught', preparation: 'slice'}), /current cauldron/);
+    assert.equal(view(r.s, {now: r.now}).draught.afterAddition, 'Lilac');
+    for(let i = 0; i < 7; i++) r.do({type: 'stirDraught', direction: 'L'});
+    r.s = validate(JSON.parse(JSON.stringify(r.s)));
+    r.do({type: 'stirDraught', direction: 'R'});
+    assert.equal(view(r.s, {now: r.now}).draught.afterStirring, 'Pale pink');
+    assert.match(r.do({type: 'submitDraught'}), /accepts/);
+    assert.throws(() => r.do({type: 'submitDraught'}), /first/);
+    r.do({type: 'startDraught', preparation: 'crush'});
+    r.do({type: 'stirDraught', direction: 'R'});
+    assert.match(r.do({type: 'submitDraught'}), /missed/);
+    const [correct, early] = r.s.experiments.entries;
+    assert.deepEqual(compareTrials(correct, early).changed.map(row => row.field), ['process']);
+    assert.equal(r.s.purse, purse - 6);
+    validate(JSON.parse(JSON.stringify(r.s)));
+});
+
+test('a paid antidote dose survives reload and clears the blend only when enough binder reacts', () => {
+    const r = new Run();
+    const purse = r.s.purse;
+    const mix = (binder, method) => r.do({type: 'mixAntidote', binder, method});
+    const assay = () => r.do({type: 'assayAntidote'});
+    mix(0, 'warm');
+    assert.equal(r.s.purse, purse - 2);
+    assert.throws(() => mix(2, 'warm'), /current cauldron/);
+    r.s = validate(JSON.parse(JSON.stringify(r.s)));
+    assert.match(assay(), /first burden 0, second 0, blended 2/);
+    assert.equal(r.s.methods, undefined);
+    assert.throws(assay, /test dose first/);
+    mix(2, 'cool');
+    assert.match(assay(), /blended 1/);
+    mix(2, 'catalysed');
+    assert.match(assay(), /first burden 0, second 0, blended 0/);
+    const [separate, cool, catalysed] = r.s.experiments.entries;
+    assert.deepEqual(separate.seen, ['assay.cleared.a', 'assay.cleared.b']);
+    assert.deepEqual(compareTrials(cool, catalysed).changed.map(row => row.field), ['conditions.catalyst']);
+    assert.equal(r.s.purse, purse - 10);
+    r.s = validate(JSON.parse(JSON.stringify(r.s)));
+    const [learned] = r.s.methods;
+    assert.equal(learned.request.type, 'mixAntidote');
+    r.do({type: 'mixAntidote', repeatMethodId: learned.id});
+    assert.equal(r.s.purse, purse - 14);
+    assert.match(assay(), /first burden 0, second 0, blended 0/);
+    assert.equal(r.s.methods.length, 1);
+});
+
+test('two partial doses can clear the same phial without teaching a single-dose method', () => {
+    const r = new Run();
+    const request = {type: 'mixAntidote', binder: 2, method: 'cool'};
+    r.do(request);
+    assert.throws(() => r.do({type: 'assayAntidote', reusePhial: true}), /no treated phial/);
+    r.do({type: 'assayAntidote'});
+    assert.deepEqual(r.s.antidotePhial, {a: 0, b: 0, blend: 1});
+    r.s = validate(JSON.parse(JSON.stringify(r.s)));
+    r.do(request);
+    r.do({type: 'assayAntidote', reusePhial: true});
+    assert.equal(r.s.antidotePhial, undefined);
+    assert.equal(r.s.methods, undefined);
+    const [first, second] = r.s.experiments.entries;
+    assert.deepEqual(second.seen, ['assay.cleared.blend']);
+    assert.deepEqual(compareTrials(first, second).changed.map(row => row.field), ['observation.baseline']);
+    assert.equal(r.s.purse, HP.rules.startPurse - 8);
+});
+
+test('a composed antidote rejects backwards binding and repeats the demonstrated operation sequence', () => {
+    const r = new Run();
+    const request = {type: 'mixAntidote', binder: 4, method: 'composed', steps: ['heat', 'cool'], catalyst: true};
+    assert.throws(() => r.do({...request, steps: ['cool', 'heat']}), /preceding step leaves a test dose/);
+    assert.equal(r.s.purse, HP.rules.startPurse);
+    r.do(request);
+    r.s = validate(JSON.parse(JSON.stringify(r.s)));
+    assert.match(r.do({type: 'assayAntidote'}), /blended 0/);
+    const [known] = r.s.methods;
+    assert.deepEqual(known.request, request);
+    r.s = validate(JSON.parse(JSON.stringify(r.s)));
+    r.do({type: 'mixAntidote', repeatMethodId: known.id});
+    assert.equal(r.s.purse, HP.rules.startPurse - 12);
+    assert.match(r.do({type: 'assayAntidote'}), /blended 0/);
+});
+
 test('MR7/MR35: a near miss makes a labelled degraded batch, never the canon product', () => {
     const coarse = new Run(); assert.equal(coarse.brew(coarse.slots({coarse: true})).grade, 'degraded');
     const short = new Run(); assert.equal(short.brew(short.slots({stewMinutes: 15 * DAY})).grade, 'degraded');
@@ -46,6 +131,33 @@ test('wrong provenance or a missing preparation fails the formula and yields onl
     const wrong = new Run(); assert.equal(wrong.brew(wrong.slots({moon: 'New'})).grade, 'original');
     const raw = new Run(); assert.equal(raw.brew(raw.slots({preps: false})).grade, 'original');
     const early = new Run(); assert.equal(early.brew(early.slots({stewMinutes: 5 * DAY})).grade, 'original');
+});
+
+test('cultivated fluxweed retains its parent, takes provenance at picking, and wilts on the played clock', () => {
+    const r = new Run();
+    const slots = r.slots({moon: 'New'});
+    const parent = slots.fluxweed;
+    r.do({type: 'plantFluxweed', lotId: parent});
+    assert.equal(r.s.lots[parent], undefined);
+    r.s = validate(JSON.parse(JSON.stringify(r.s)));
+    assert.throws(() => r.do({type: 'pickFluxweed'}), /not ready/);
+    r.wait(DAY);
+    r.moon = 'Full';
+    r.do({type: 'pickFluxweed'});
+    const child = r.lot(I('fluxweed'));
+    assert.notEqual(child, parent);
+    assert.equal(r.s.lots[child].growth.parentLotId, parent);
+    assert.equal(r.s.lots[child].truth.provenance, 'full_moon');
+    assert.equal(r.s.fluxweedBed, undefined);
+    const selected = Object.fromEntries(Object.entries({...slots, fluxweed: child}).map(([slot, id]) => [slot, r.s.lots[id]]));
+    assert.equal(resolveBrew(selected, r.s.cauldron.condition, r.now).grade, 'canon');
+    r.wait(7 * DAY + 1);
+    assert.equal(view(r.s, {now: r.now}).lots.find(l => l.id === child).freshness, 'spoiled');
+    assert.throws(() => r.do({type: 'plantFluxweed', lotId: child}), /will not take root/);
+    const batch = r.brew({...slots, fluxweed: child});
+    assert.equal(batch.grade, 'degraded');
+    assert.equal(batch.history.inputs.find(x => x.slot === 'fluxweed').lot.growth.parentLotId, parent);
+    validate(JSON.parse(JSON.stringify(r.s)));
 });
 
 test('MR6: free mixing always resolves; a similar mix is not Polyjuice', () => {
@@ -353,6 +465,32 @@ test('unknown treatment preview is pure and neutral; inert trial spends a dose a
     const clean = structuredClone(r.s);
     assert.throws(() => r.do({type: 'treatCauldron', batchId: batch.id}), /no residue/);
     assert.deepEqual(r.s, clean);
+});
+
+test('settled pours leave work behind, and stirring a loaded portion redistributes the same work', () => {
+    const {r, batch} = suspension();
+    r.wait(60);
+    const id = batch.id;
+    r.do({type: 'transferBatch', batchId: id, custody: 'bench'});
+    r.s = validate(JSON.parse(JSON.stringify(r.s)));
+    r.do({type: 'transferBatch', batchId: id, custody: 'carried'});
+    const initial = structuredClone(r.s);
+    const strength = batch.history.abrasivePlan.strength;
+    r.do({type: 'treatCauldron', batchId: id});
+    assert.equal(r.s.cauldron.condition, initial.cauldron.condition + strength / 2);
+    assert.equal(r.s.batches[id].suspension.work, strength * 2.5);
+    r.s = initial;
+    r.do({type: 'splitBatch', batchId: id, doses: 1});
+    const portion = Object.values(r.s.batches).at(-1);
+    assert.equal(portion.suspension.work, strength / 2);
+    assert.equal(r.s.batches[id].suspension.work + portion.suspension.work, strength * 3);
+    r.do({type: 'mergeBatch', batchId: id, sourceId: portion.id});
+    assert.equal(r.s.batches[id].suspension.work, strength * 3);
+    r.wait(60);
+    r.do({type: 'treatCauldron', batchId: id, stir: true});
+    assert.equal(r.s.cauldron.condition, 1000);
+    assert.equal(r.s.batches[id].suspension.work, strength * 2);
+    validate(JSON.parse(JSON.stringify(r.s)));
 });
 
 test('demonstrated HP quick replay binds new current lots; changed preparation needs guided/deep review through the same resolver', () => {

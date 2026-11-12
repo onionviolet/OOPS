@@ -9,7 +9,8 @@ const DAY=1440;
 export const PERISHABLES=Object.freeze({
     'Cooked potato':{life:DAY,result:'Spoiled food'},
     'Cooked carrot':{life:DAY,result:'Spoiled food'},
-    'Cooked clam':{life:DAY/2,result:'Spoiled food'}});
+    'Cooked clam':{life:DAY/2,result:'Spoiled food'},
+    'book.hp.ing.fluxweed':{life:7*DAY,result:'Wilted fluxweed'}});
 // Default: quality 100 is the base life; better work keeps longer (x0.5 at 50, x2 at 200). Dial: per world.
 export const qualityLifeFactor=q=>Number.isFinite(q)?Math.min(2,Math.max(.5,q/100)):1;
 const parse=key=>{try{const k=typeof key==='string'?JSON.parse(key):key;return k&&typeof k==='object'?k:null;}catch{return null;}};

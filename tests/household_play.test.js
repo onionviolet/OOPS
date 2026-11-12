@@ -65,3 +65,29 @@ test('posture follows known current warmth and smoke without a new mood timer',(
     assert.equal(householdAnimalView(r.state(),r.context).posture,'Moss waits outside the smoky room.');
     r.run('ventilate');assert.equal(householdAnimalView(r.state(),r.context).posture,'Moss curls up beside the warm hearth.');
 });
+
+test('legacy Moss retains learned play and gains custody without changing identity', () => {
+    const r = rig();
+    r.tick(5);
+    r.run('play');
+    const old = structuredClone(r.state());
+    delete old.animal.lifecycle;
+    delete old.animal.creatureId;
+    const context = {...r.context, clock: r.context.clock + 5};
+    const tick = planHousehold(old, {type: 'tick', clock: context.clock, elapsed: 5,
+        sequence: context.sequence + 1}, context).state;
+    const {creatureId: id, lifecycle} = tick.animal;
+    assert.equal(lifecycle.individuals[id].keeper, null);
+    assert.deepEqual(lifecycle.individuals[id].experience.player.training, {chase: 1});
+
+    context.sequence++;
+    const adopted = planHousehold(tick, {type: 'pet', clock: context.clock,
+        sequence: context.sequence + 1}, context).state;
+    assert.equal(adopted.animal.creatureId, id);
+    const cat = adopted.animal.lifecycle.individuals[id];
+    assert.equal(cat.keeper, 'player');
+    assert.equal(cat.experience.player.bond, 30);
+    assert.deepEqual(cat.experience.player.training, {chase: 1});
+    assert.deepEqual(preflightHouseholdImport(JSON.parse(JSON.stringify(adopted)), context.clock,
+        context.sequence + 1), adopted);
+});

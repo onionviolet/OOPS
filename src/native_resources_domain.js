@@ -1,14 +1,16 @@
-import {registerDomain} from './domain_registry.js';
+import {domainRegistry, registerDomain} from './domain_registry.js';
 import {createHarvest,validateHarvest,validateHarvestEnvelope,supportedHarvest,drawSpecimen,addCarcass,beginHarvest,cancelHarvest,advanceHarvest,setHarvestRoutine,pauseHarvestRoutine,resumeHarvestRoutine,cancelHarvestRoutine,observeCarcass} from './harvest.js';
-import {validateHabitat,planHabitatAction} from './habitat_care.js';
+import {validateHabitat,migrateHabitat,planHabitatAction} from './habitat_care.js';
 import {createHarvestPanel} from './harvest_ui.js';
 import {createHabitatPanel} from './habitat_care_ui.js';
+import {registerMeadowShellFight} from './meadow_shell_combat.js';
 import {calendarMinutes} from './world_rhythm.js';
 export let harvestOwner=null,habitatOwner=null,harvestPanel,habitatPanel;
 export function setHarvestOwner(value){harvestOwner=value;}
 export function setHabitatOwner(value){habitatOwner=value;}
 let ports;
 export function configureResourceDomains(operations){ports=operations;}
+registerMeadowShellFight(() => ({owner: habitatOwner, clock: ports.clock()}));
 function envelopeClock(save){return save['current time']?calendarMinutes(save['current time']):Number.MAX_SAFE_INTEGER;}
 export function receiveHarvest(target){
     if(!supportedHarvest(target.name)||!ports.harvestWritable())return;
@@ -45,14 +47,23 @@ function tickHarvest(minutes){
     harvestPanel?.render();
 }
 
-function actHabitat(action){ports.commitHabitatPlan(planHabitatAction(habitatOwner,action,ports.habitatContext()));}
+function actHabitat(action){
+    if(action==='spar_shell'){
+        const begin=domainRegistry.command('tempo_fight','begin');
+        if(!begin)throw Error('Practice is unavailable right now.');
+        return begin({openerId:'meadow.terrapin'});
+    }
+    ports.commitHabitatPlan(planHabitatAction(habitatOwner,action,ports.habitatContext()));
+}
 // Preserve the old validation order: care cross-checks first, carcasses second.
 registerDomain({id:'meadow_pen',initialState:()=>null,
     save:()=>habitatOwner?structuredClone(validateHabitat(habitatOwner,ports.clock())):undefined,
     validate:(slice,save)=>{if(slice!=null)validateHabitat(slice,calendarMinutes(save['current time']));},
-    migrate:(slice,save)=>slice==null?null:structuredClone(validateHabitat(slice,envelopeClock(save))),load:setHabitatOwner,
+    migrate:(slice,save)=>migrateHabitat(slice,envelopeClock(save)),load:setHabitatOwner,
     commands:{act:actHabitat},projection:()=>ports.habitatContext(),
-    panels:[()=>{habitatPanel=createHabitatPanel({parent:ports.careContainer(),read:ports.habitatContext,act:actHabitat});}]});
+    panels:[()=>{habitatPanel=createHabitatPanel({parent:ports.careContainer(),read:()=>{const context=ports.habitatContext();
+        const spar=context.owner?.shellAnimal ? domainRegistry.project('tempo_fight')?.openers?.find(o=>o.id==='meadow.terrapin') : null;
+        return {...context,spar};},act:actHabitat});}]});
 registerDomain({id:'harvest',initialState:()=>null,
     save:()=>harvestOwner?structuredClone(validateHarvest(harvestOwner,ports.clock())):undefined,
     validate:(_,save)=>validateHarvestEnvelope(save,envelopeClock(save)),

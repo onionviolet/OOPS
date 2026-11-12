@@ -1,21 +1,27 @@
 import {registerDomain} from './domain_registry.js';
+import {readGearComponentLineage} from './gear_component_lineage.js';
 import {readMaterialLineage} from './material_lineage.js';
 import {parseHeirloomKey} from './heirloom_items.js';
-import {isLineageMaterial} from './processed_materials.js';
+import {nativeLineageFamily} from './processed_materials.js';
 import {validateSpecimen} from './harvest.js';
 import {calendarMinutes} from './world_rhythm.js';
-const own = key => {try{return JSON.parse(key).lineage != null;}catch{return false;}};
+const own = key => {try{const parsed=JSON.parse(key);return parsed.lineage!=null || parsed.componentLineage!=null;}catch{return false;}};
 // No save slice: the key is the product record, native count is the stock owner.
 // Existing native chest transfers split/coalesce exact keys without rewriting
 // the immutable batch. Different batches remain separately selectable.
 export function validateMaterialLineageEnvelope(envelope) {
     const now=envelope['current time']?calendarMinutes(envelope['current time']):Number.MAX_SAFE_INTEGER;
     function validate(key,depth=0) {
-        if(!own(key))return;
+        let parsed;
+        try {parsed=JSON.parse(key);} catch {return;}
+        if(!parsed || (parsed.lineage==null && parsed.componentLineage==null))return;
         if(depth>12)throw Error('Unsupported material lineage depth.');
         if(parseHeirloomKey(key))return; // G3: a unique named object, its identity is the key; story_requests owns its request
-        const parsed=JSON.parse(key),lineage=readMaterialLineage(key);
-        if(!isLineageMaterial(parsed.id))throw Error('Unsupported native material lineage carrier.');
+        const parts=readGearComponentLineage(parsed);
+        if(parts) for(const part of Object.values(parts)) validate(part,depth+1);
+        const lineage=readMaterialLineage(key);
+        if(!lineage)return;
+        if(nativeLineageFamily(parsed.id)!==lineage.family)throw Error('Unsupported native material lineage carrier.');
         for(const e of lineage.history) {
             if(e.at>now)throw Error('Material process is ahead of its owning clock.');
             for(const input of e.inputs) {

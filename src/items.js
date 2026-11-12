@@ -1,9 +1,12 @@
+import {MISTGLASS_ARTIFACT,refinedArtifactStrike} from './artifact_refining.js';
+import {isTingenAmulet,TINGEN_AMULET_FAMILY} from './lotm_amulet_crafting.js';
 import {configureInventoryItems} from "./components/inventory_component.js";
 import {registerDomicileItems} from './home_content.js';
 import {addDescriptionClauses} from './item_description.js';
 import {applyNamedIdentity, namingState} from './naming_act.js';
 import {registerGearMaterials} from './gear_native_content.js';
 import {registerFieldWorksItems} from './field_works_content.js';
+import {readGearComponentLineage} from './gear_component_lineage.js';
 import {readMaterialLineage, heirloomText} from './material_lineage.js';
 import {lotmDivinationItems} from './lotm_anna_session_items.js';
 import {inquiryNoteItems} from './inquiry_note_item.js';
@@ -12,7 +15,7 @@ import {domainRegistry} from './domain_registry.js';
 import {current_game_time} from './game_time.js';
 import {calendarMinutes} from './world_rhythm.js';
 import {parseHeirloomKey} from './heirloom_items.js';
-import {lineagePresentation} from './processed_materials.js';
+import {FORGE_OFFCUT, IRON_SLAG, lineagePresentation, nativeLineageFamily} from './processed_materials.js';
 import {validateWork, workedWearProfile, workContributions, mergeWorkStats} from './gear_work.js';
 import {resolveNativeCraftingItem,registerCraftingCarriers} from './crafting_native_items.js';
 import {GRADED_IDS,validateGradedKey} from './harvest.js';
@@ -1288,7 +1291,11 @@ function getItemFromKey(key) {
     const lineage = readMaterialLineage(key);
     if(lineage) {
         const tool=item?.id==='Portable leatherworking kit'&&item.tags.tool&&lineage.family==='workshop-tool';
-        if(!item || !tool&&(item.tags.equippable || !GRADED_IDS.includes(item.id))) throw Error('Unsupported processed material carrier.');
+        const family = nativeLineageFamily(item?.id);
+        const forge = family === lineage.family && (family === 'refined-artifact' || family === TINGEN_AMULET_FAMILY || (['axe-head', 'wooden-handle'].includes(family) && item.tags.component)
+            || (family === 'assembled-axe' && item.tags.tool) || family === 'forge-offcut' || family === 'reclaimed-iron'
+            || family === 'smelted-iron' || family === 'iron-ore' || family === 'iron-slag' || family === 'handle-wood');
+        if(!item || !tool && !forge && (item.tags.equippable || !GRADED_IDS.includes(item.id))) throw Error('Unsupported processed material carrier.');
         item.materialLineage = lineage; item.inventory_key = key;
         const name = item.getName(), view = lineagePresentation(key, lineage.history.at(-1).at);
         item.getName = () => `${name} · batch ${view.at}`;
@@ -1297,7 +1304,13 @@ function getItemFromKey(key) {
         const heirloomLine = heirloomText(key, calendarMinutes(current_game_time));
         if(heirloomLine) addDescriptionClauses(item, [{kind: 'history', source: 'heirloom', text: heirloomLine}]);
     }
-    const work = JSON.parse(key).gearwork;
+    const data = JSON.parse(key);
+    if(isTingenAmulet(data.id)) item.inventory_key=key;
+    if(readGearComponentLineage(data)) {
+        if(!item?.tags?.equippable) throw Error('Gear component history needs equipment.');
+        item.inventory_key = key;
+    }
+    const work = data.gearwork;
     if(work != null) {
         if(!item?.tags?.equippable) throw Error('Worked gear must be equipment.');
         item.gearwork = structuredClone(validateWork(work));
@@ -1316,6 +1329,22 @@ function getItemFromKey(key) {
 function nativeGetItemFromKey(key) {
     const crafted=resolveNativeCraftingItem(key,{Material,UsableItem});if(crafted)return crafted;
     let {id, components, quality, completeness, affixes} = JSON.parse(key);
+    if(id===MISTGLASS_ARTIFACT) {
+        const strike=refinedArtifactStrike(key), source=readMaterialLineage(key)?.history.at(-1)?.inputs[0];
+        if(!strike||!source)throw Error('A mist-bound sword needs its refining history.');
+        const item=nativeGetItemFromKey(source.item_key), getStats=item.getStats.bind(item);
+        item.id=id;item.inventory_key=key;item.tags.fixedStockKey=true;
+        item.getName=()=>MISTGLASS_ARTIFACT;
+        item.getAttack=()=>strike.attack;
+        // The mist binding carries the source's element through the edge.
+        item.attack_types={[strike.element]:.6,slashing:.28,piercing:.12};
+        item.getStats=(...args)=>{
+            const stats=structuredClone(getStats(...args));
+            stats.attack_speed={...stats.attack_speed,multiplier:(stats.attack_speed?.multiplier??1)*(strike.recovery===2?1.15:1)};
+            return stats;
+        };
+        return item;
+    }
     if(GRADED_IDS.includes(id) && quality != null) {
         validateGradedKey(key);
         const item=getItem({...item_templates[id],quality});item.inventory_key=key;item.completeness=completeness;
@@ -1686,6 +1715,12 @@ item_templates[RAT_STEP_MANUAL] = new Book({name: RAT_STEP_MANUAL, value: 4,
         value: 30,
         material_type: "pelt",
     });
+    item_templates["Rabbit meat"] = new Material({
+        name: "Rabbit meat",
+        description: "Lean meat from a rabbit. Cook it before eating.",
+        value: 5,
+        material_type: "raw meat",
+    });
     item_templates["Boar meat"] = new Material({
         name: "Boar meat",
         description: "Fatty meat of a wild boar, all it needs is to be cooked",
@@ -1972,6 +2007,11 @@ item_templates[RAT_STEP_MANUAL] = new Book({name: RAT_STEP_MANUAL, value: 4,
     item_templates["Wool"] = new Material({
         description: "A handful of wool, raw and unprocessed",
         value: 8,
+        material_type: "raw fabric",
+    });
+    item_templates["Fine wool"] = new Material({
+        description: "Soft, fine fleece from a sheep. Weave it into fine wool cloth.",
+        value: 10,
         material_type: "raw fabric",
     });
     item_templates["Meadow hay"] = new Material({
@@ -4066,6 +4106,15 @@ function add_gear() {
         value: 10,
         material_type: "metal",
     });
+    item_templates[IRON_SLAG] = new Material({
+        description: "Stony waste left after smelting iron ore. A failed firing traps some of the metal in the waste.",
+        value: 0,
+    });
+    item_templates[FORGE_OFFCUT] = new Material({
+        description: "Metal trimmed from axe heads. Melt five offcuts with forge fuel to recover one low quality iron ingot.",
+        value: 1,
+        material_type: "metal",
+    });
     item_templates["Iron ingot"] = new Material({
         description: "It doesn't suffer from any excessive impurities and can be used without worries",
         value: 20,
@@ -4204,6 +4253,11 @@ function add_gear() {
     item_templates["Wool cloth"] = new Material({
         description: "Thick and warm, might possibly absorb some punches",
         value: 8,
+        material_type: "fabric",
+    });
+    item_templates["Fine wool cloth"] = new Material({
+        description: "A soft bolt of cloth woven from fine fleece. It sells for more than ordinary wool cloth.",
+        value: 18,
         material_type: "fabric",
     });
 	item_templates["Linen cloth"] = new Material({

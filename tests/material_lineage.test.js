@@ -1,7 +1,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {gradedKey} from '../src/harvest.js';
-import {planMaterialMerge, planMaterialSplit, planProcessedMaterial, readMaterialLineage} from '../src/material_lineage.js';
+import {planMaterialMerge, planMaterialPartition, planMaterialSplit, planProcessedMaterial, readMaterialLineage} from '../src/material_lineage.js';
 
 const process = {id: 'drying', revision: 1, at: 40, world_id: 'base.frontier', parameters: {method: 'rack'}};
 const stock = (...rows) => Object.fromEntries(rows);
@@ -111,4 +111,80 @@ test('support receipts retain exact consumed and retained inputs without inflati
     assert.throws(()=>planProcessedMaterial({...base,output:{...base.output,count:4}}),/exceeds consumed/,'consumed oil and retained kit cannot inflate count yield');
     assert.throws(()=>planProcessedMaterial({...base,supportInputs:[{item_key:'hide',count:1,disposition:'retained'}]}),/overlap/);
     assert.throws(()=>planProcessedMaterial({...base,supportInputs:[{item_key:'oil-lot-A',count:1,disposition:'invented'}]}),/disposition/);
+});
+
+test('forging accounts for shaped stock, recoverable scrap and scale in one transaction', () => {
+    const billet = gradedKey('Iron billet', 85, 'whole');
+    const hammer = gradedKey('Smithing hammer', 90, 'whole');
+    const request = {
+        stock: stock([billet, 2], [hammer, 1]), inputs: [{item_key: billet, count: 2}],
+        supportInputs: [{item_key: hammer, count: 1, disposition: 'retained'}],
+        process: {...process, id: 'forge-head'}, unit: 'grams', unitsPerInput: () => 500,
+        outputs: [
+            {output: {id: 'Axe head', family: 'iron', count: 1, quality: 790}, unitsPerItem: 820},
+            {output: {id: 'Iron scrap', family: 'iron', count: 3}, unitsPerItem: 50}
+        ],
+        losses: [{reason: 'scale', amount: 30}]
+    };
+    const result = planMaterialPartition(request);
+    assert.deepEqual(result.inputs, request.inputs);
+    assert.deepEqual(result.balance, {unit: 'grams', input: 1000, output: 970, loss: 30});
+    assert.deepEqual(request.stock, stock([billet, 2], [hammer, 1]));
+    for (const row of JSON.parse(JSON.stringify(result.outputs))) {
+        const event = readMaterialLineage(row.item_key).history[0];
+        assert.equal(event.inputs[0].item_key, billet);
+        assert.equal(event.inputs[1].disposition, 'retained');
+    }
+    assert.throws(() => planMaterialPartition({...request, losses: []}), /every input unit/);
+    assert.throws(() => planMaterialPartition({...request, stock: stock([billet, 1], [hammer, 1])}), /stale or insufficient/);
+});
+
+test('advanced conversion preserves its exact parent on success and accounts for a spent parent on failure', () => {
+    const sword = gradedKey('Iron sword', 82, 'whole');
+    const request = {
+        stock: stock([sword, 1]), inputs: [{item_key: sword, count: 1}],
+        process: {...process, id: 'bind-artifact', world_id: 'fixture.refinement'},
+        unit: 'grams', unitsPerInput: () => 1400
+    };
+    const success = planMaterialPartition({...request, outputs: [
+        {output: {id: 'Bound sword', family: 'artifact', count: 1}, unitsPerItem: 1400}
+    ]});
+    assert.equal(readMaterialLineage(success.outputs[0].item_key).history[0].inputs[0].item_key, sword);
+    const failure = planMaterialPartition({...request, outputs: [], losses: [{reason: 'shattered', amount: 1400}]});
+    assert.deepEqual(failure.inputs, success.inputs);
+    assert.deepEqual(failure.outputs, []);
+    assert.equal(failure.event.inputs[0].item_key, sword);
+    assert.deepEqual(failure.balance, {unit: 'grams', input: 1400, output: 0, loss: 1400});
+});
+
+test('forged heads and substitute handles carry exact ancestry through assembly and salvage', () => {
+    const billet = gradedKey('Iron billet', 85, 'whole');
+    const oak = gradedKey('Oak handle', 90, 'whole');
+    const ash = gradedKey('Ash handle', 85, 'whole');
+    const forge = planMaterialPartition({
+        stock: stock([billet, 1]), inputs: [{item_key: billet, count: 1}],
+        process: {...process, id: 'shape-head'}, unit: 'grams', unitsPerInput: () => 1000,
+        outputs: [{output: {id: 'Axe head', family: 'iron', count: 1}, unitsPerItem: 950}],
+        losses: [{reason: 'scale', amount: 50}]
+    });
+    const head = forge.outputs[0].item_key;
+    const assemble = handle => planMaterialPartition({
+        stock: stock([head, 1], [handle, 1]), inputs: [{item_key: head, count: 1}, {item_key: handle, count: 1}],
+        process: {...process, id: 'fit-handle', at: 45}, unit: 'grams',
+        unitsPerInput: key => key === head ? 950 : 200,
+        outputs: [{output: {id: 'Axe', family: 'tool', count: 1}, unitsPerItem: 1150}]
+    });
+    const axe = assemble(oak).outputs[0].item_key;
+    assert.notEqual(axe, assemble(ash).outputs[0].item_key);
+    const salvage = planMaterialPartition({
+        stock: stock([axe, 1]), inputs: [{item_key: axe, count: 1}],
+        process: {...process, id: 'dismantle', at: 95}, unit: 'grams', unitsPerInput: () => 1150,
+        outputs: [{output: {id: 'Recovered head', family: 'iron', count: 1}, unitsPerItem: 950}],
+        losses: [{reason: 'split handle', amount: 200}]
+    });
+    const [recovered] = salvage.outputs;
+    const [{item_key: ancestor}] = readMaterialLineage(recovered.item_key).history[0].inputs;
+    assert.equal(ancestor, axe);
+    assert.deepEqual(readMaterialLineage(ancestor).history[0].inputs.map(row => row.item_key), [head, oak]);
+    assert.equal(readMaterialLineage(head).history[0].inputs[0].item_key, billet);
 });

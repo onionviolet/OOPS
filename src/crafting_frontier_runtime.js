@@ -1,4 +1,5 @@
 import {readItemKey} from './inventory_key.js';
+import {bookCraftLaws as localLaws} from './book_craft_workings.js';
 import {consumeTablet,tabletConsequence,startTreatment,treatmentNow} from './craft_body_treatment.js';
 // ORIGINAL Village trial. Uses the engine's composition law, not the older mixture law.
 import {natural} from './basics.js';
@@ -47,7 +48,9 @@ export function isCraftedKey(key){return classifyProductKey(key)?.family===BATCH
 export function validateOwner(owner) {
  if(owner==null)return null;
  if(owner.scope?.world!=='base.frontier'||!natural(owner.scope?.life))fail('Unsupported crafting scope.');
- validateCraftState(owner,{catalogues:{[catalogue.ref]:catalogue},laws:{[law.ref]:law,[layeredLaw.ref]:layeredLaw,[tabletLaw.ref]:tabletLaw},sourceTables:{[villageSources.ref]:villageSources}});
+ validateCraftState(owner,{catalogues:{[catalogue.ref]:catalogue,...Object.fromEntries(localLaws.map(local=>[local.catalogue.ref,local.catalogue]))},
+  laws:{[law.ref]:law,[layeredLaw.ref]:layeredLaw,[tabletLaw.ref]:tabletLaw,...Object.fromEntries(localLaws.map(local=>[local.ref,local]))},
+  sourceTables:{[villageSources.ref]:villageSources}});
  validateReferences(owner);
  for(const [id,d] of Object.entries(owner.references?.defs??{}))if(JSON.stringify(REFERENCE_SPECS.find(r=>r.id===id))!==JSON.stringify(d))fail(`Unknown Village reference ${id}.`);
  return owner;

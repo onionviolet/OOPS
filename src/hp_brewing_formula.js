@@ -35,6 +35,7 @@ export function assessHpPreparation(projected, selections = {}) {
         if(slot.provenance) {
             if(!lot.provenance || lot.provenance === 'unknown') return row('uncertain', 'Picking conditions are unverified. Assay or use your own witnessed harvest.');
             if(lot.provenance !== slot.provenance) return row('deviation', 'Observed picking conditions differ from the pinned method.');
+            if(lot.freshness === 'spoiled') return row('deviation', 'The fluxweed has wilted. It weakens the pinned brew.');
         }
         if(lot.variant) {
             const variant = PACK.variants.find(v => v.label === lot.variant);

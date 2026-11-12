@@ -3,6 +3,7 @@
 // method are never read, so nothing here can leak truth the player has not earned (AD6-AD8) and no saved
 // field is added. A later world or the brewing panel adds effect rows to MIXTURE_EFFECTS, not code.
 import {INGREDIENTS} from './mixture_state.js';
+import {RESPONSIVE_METHOD} from './mixture_rules.js';
 
 // tiers: ascending [upper bound, word] on the dose of one vial. A plant's table word is its dose in a standard
 // vial (one pack of it, one of water), so one scale serves the table and the vial card.
@@ -130,14 +131,38 @@ function nextTry(rows, readings, vials) {
             return {kind:'process', text:`You know ${r.id} ${PROCESS_WORD[have[0]]}. ${other === 'boil' ? 'Boil' : 'Steep'} the same vial: the process changes how much of each effect reaches you.`, prefill:alone(r.id, other)}; }
     }
     const salt = rows.find(r => r.role === 'carrier' && !INGREDIENTS.find(i => i.id === r.id).base && r.state !== 'known');
-    if (salt) return {kind:'carrier', text:`Add ${salt.id} to a plant mix you already know, then compare the dose with the one before.`, prefill:{inputs:{[plants[0].id]:1, [water]:1, [salt.id]:1}, process:Object.values(readings[plants[0].id])[0].process}};
+    if (salt) {
+        const reading = Object.values(readings[plants[0].id])[0];
+        return {kind:'carrier', text:`Add ${salt.id} to a plant mix you already know, then compare the dose with the one before.`, prefill:{inputs:{[plants[0].id]:1, [water]:1, [salt.id]:1}, process:reading.process, method:reading.revision===2?RESPONSIVE_METHOD:'ordinary@1'}};
+    }
     return {kind:'blend', text:'Every ingredient here is known. Blend both plants and read the result against what you expect from each.', prefill:{inputs:{[plants[0].id]:1, [plants[1]?.id ?? plants[0].id]:1, [water]:1}, process:'steep'}};
 }
 
-/** Potency and side effects of one vial in words: the quality band the player sees on a vial card. */
+/** Ingredient evidence for the selected process and method, without reading the quoted dose. */
+export function describeSelectedPlantReadings(discovery, {inputs, process, revision}) {
+    const method = revision === 2 ? 'responsive method' : 'ordinary method';
+    const notes = [];
+    for (const row of discovery.rows) {
+        if (row.role !== 'plant' || !(inputs[row.id] > 0)) continue;
+        const readings = row.cells.flatMap((cell, index) => {
+            const reading = cell.readings?.find(r => r.process === process && r.revision === revision);
+            return reading ? [{reading, effect: discovery.effects[index]}] : [];
+        });
+        if (!readings.length) continue;
+        const effects = readings.filter(({reading}) => reading.word !== 'none seen')
+            .map(({reading, effect}) => `${reading.word} ${effect.label.toLowerCase()}`);
+        const result = effects.join(' and ') || 'no clear effect';
+        const evidence = readings[0].reading.how === 'worked out' ? 'Vial comparisons' : 'Your notes';
+        notes.push(`${evidence} on ${row.id} suggest ${result} when ${PROCESS_WORD[process]} (${method}, equal parts plant and water).`);
+    }
+    return notes.join(' ');
+}
+
+/** Observed benefits and side effects, in the same bands as the ingredient table. */
 export function describeVial(product) {
     const bands = MIXTURE_EFFECTS.map(e => ({e, v:product.dose[e.dose], word:tierWord(e, product.dose[e.dose])}));
-    const main = bands.filter(b => !b.e.side).sort((a, b) => b.v - a.v)[0];
-    const side = bands.filter(b => b.e.side && b.v >= b.e.tiers[0][0]);
-    return {potency: main.v < main.e.tiers[0][0] ? 'inert' : `${main.word} ${main.e.label.toLowerCase()}`, side: side.map(b => `${b.word} ${b.e.label.toLowerCase()}`), minutes: product.dose.duration};
+    const describe = ({e, word}) => `${word} ${e.label.toLowerCase()}`;
+    const benefits = bands.filter(b => !b.e.side && b.word !== 'none seen').sort((a, b) => b.v - a.v).map(describe);
+    const side = bands.filter(b => b.e.side && b.word !== 'none seen').map(describe);
+    return {potency: benefits[0] ?? 'inert', benefits, side, minutes: product.dose.duration};
 }

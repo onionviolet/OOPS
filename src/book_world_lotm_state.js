@@ -26,6 +26,8 @@ import {payAssertions} from './book_world_lotm_pay.js';
 import {beSeerAssertions,BE_SEER_ENERGY_ID} from './book_world_lotm_be_seer.js';
 import {beFirearmAssertions} from './book_world_lotm_be_firearm.js';
 import {validEntryRecord} from './book_world_lotm_entry.js';
+import {SEER_BREW_BINDING,SEER_BREW_FACTS} from './lotm_seer_brew.js';
+import {resolveEffectAmount} from './power_models.js';
 const assert=(ok,text)=>{if(!ok)throw Error(text);},natural=x=>Number.isSafeInteger(x)&&x>=0;
 const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
 const prefix=k=>typeof k==='string'&&k.startsWith('book.lotm.');
@@ -61,7 +63,12 @@ export function validateLotmState(state){
  for(const j of (s.jobs||[]).filter(j=>prefix(j.commandId)||[...castBodyCommands,...castObjectCommands,...castJourneyCommands,...castDivinationCommands,...castRecordCommands,...castMakingCommands,...castInferenceCommands,...castExchangeCommands,...castAbilityCommands].some(c=>c.id===j.commandId))){
   if(lotmCastLife(state)&&dormantCastWalk(j))continue;
   const def=castWalkDefinitionById(j.commandId)||[...lotmBeSpellCommands,...castBodyCommands,...lotmCommands,...castWalkCommands,...castObjectCommands,...castTopicCommands,...castJourneyCommands,...castDivinationCommands,...castRecordCommands,...castMakingCommands,...castInferenceCommands,...castExchangeCommands,...castAbilityCommands].find(c=>c.id===j.commandId);
-  assert(def&&def.duration>0&&j.actorId===def.actorId&&j.revision===def.revision&&(j.cancellation||'none')===(def.cancellation||'none')&&same(j.costs,def.costs)&&same(j.effects,def.effects),'Tingen work differs from its exact admitted definition.');
+  // The pending dose freezes the numeric hazard of the cup it will consume.
+  const hazard=`actor.${SEER_BREW_FACTS.madness}`;
+  const effects=def?.id===SEER_BREW_BINDING.consumer
+   ? def.effects.map(e=>e.amount?.fact===hazard?{...e,amount:resolveEffectAmount(e.amount,{[hazard]:a.player.facts[SEER_BREW_FACTS.madness]})}:e)
+   : def?.effects;
+  assert(def&&def.duration>0&&j.actorId===def.actorId&&j.revision===def.revision&&(j.cancellation||'none')===(def.cancellation||'none')&&same(j.costs,expectedAmuletCosts(def.id,def.costs,j.costs))&&same(j.effects,effects),'Tingen work differs from its exact admitted definition.');
   if(def.bodyCare&&def.duration>0)assert(same(j.completionSupport,{schema:1,requires:def.completionRequires,coLocated:def.completionCoLocated??true,location:j.context?.facts?.location||s.people[j.actorId].location,failure:'refund'}),'Body support differs from its exact admitted definition.');
   if(def.castAbility)assert(same(j.completionSupport,{schema:1,requires:def.completionRequires,coLocated:def.completionCoLocated,location:j.context?.facts?.location||s.people[j.actorId].location,failure:'refund'}),'Encounter support differs from its exact admitted definition.');
   if(def.inference)assert(same(j.completionSupport,{schema:1,requires:def.completionRequires,coLocated:def.completionCoLocated,location:j.context?.facts?.location||s.people[j.actorId].location,failure:'refund'}),'Thought support differs from its exact admitted definition.');
@@ -115,3 +122,4 @@ export function validateLotmState(state){
  beClientAssertions({a,assert});payAssertions({a,assert});
  return true;
 }
+import {expectedAmuletCosts} from './lotm_amulet_crafting.js';

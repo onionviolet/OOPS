@@ -32,8 +32,9 @@ import {defineRecords,quoteRecords} from './book_world_lotm_records_host.js';
 import {accrueAct} from './book_world_lotm_harm.js';
 import {defineDivinations,quoteDivinations,pendingDivinationReports,settleDivinationReports} from './cast_divination_adapter.js';
 import {defineCastExchanges,quoteCastExchanges} from './cast_exchange_adapter.js';
-import {bindSeerBrew} from './lotm_seer_brew.js';
+import {bindSeerBrew, seedSeerStock, SEER_BREW_BINDING} from './lotm_seer_brew.js';
 import {defineCastMaking,quoteCastMaking,validateCastMakingConsumers} from './cast_making_adapter.js';
+import {amuletTrialCommands,LEGACY_EARLY_AMULET_TRIAL} from './lotm_amulet_crafting.js';
 import {defineTopicTalks,quoteTopicTalks,pendingTopicTalkReports,settleTopicTalkReports} from './cast_topic_talk.js';
 import {definePlaceActs,seedPlaceObjects,quotePlaceActs,settlePlaceActReports,pendingPlaceActReports,placeActVisitors} from './place_acts.js';
 
@@ -122,9 +123,11 @@ export function castExchangeOffers(state,preview,options={}){
 export let castMakingCommands=[];
 export function castMakingOffers(state,preview,options={}){
  if(!lotmBe(state)||!castAvailable)return [];
- return quoteCastMaking(state,castMakingCommands,preview,options);
+ const commands=castMakingCommands.filter(d=>d.id!==LEGACY_EARLY_AMULET_TRIAL);
+ return quoteCastMaking(state,commands,preview,options);
 }
 export let castObjectCommands=[];
+let seerMaker;
 export function castObjectOffers(state,preview,options={}){
  if(!lotmBe(state)||!castAvailable)return [];
  return quotePlaceActs(state,castObjectCommands,LOTM_CAST.householdActs,preview,options);
@@ -202,8 +205,8 @@ function deriveCast(pack){
  castActCommands=defineActs({situationId:LOTM_CAST_SITUATION,resolvePlace:resolveCastPlace,requires:eq('lotm.profile.be')}).commands;
  castRecordCommands=defineRecords({situationId:LOTM_CAST_SITUATION,resolvePlace:resolveCastPlace,resolvePerson:x=>pack.people.find(p=>p.indexId===x)?.id||null,hasPlace:x=>placesById.has(resolveCastPlace(x))}).commands;
  castExchangeCommands=defineCastExchanges(pack.exchanges,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
- castMakingCommands=defineCastMaking(pack.making,{worldId:I.world,group:'book_lotm',
-  situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
+ castMakingCommands=[...defineCastMaking(pack.making,{worldId:I.world,group:'book_lotm',
+  situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')}),...amuletTrialCommands(LOTM_CAST_SITUATION)];
  castTopicCommands=defineTopicTalks(pack.topicTalks,{worldId:I.world,group:'book_lotm',
   situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
  castJourneyCommands=defineJourneys(pack.journeys,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be')});
@@ -217,7 +220,8 @@ function deriveCast(pack){
  const placeInquiries=defineDivinations(pack.householdActs?.inquiries,{worldId:I.world,group:'book_lotm',situationId:LOTM_CAST_SITUATION});
  castObjectCommands=definePlaceActs(pack.householdActs,{worldId:I.world,group:'book_lotm',
   situationId:LOTM_CAST_SITUATION,requires:eq('lotm.profile.be'),inquiries:new Map(placeInquiries.map(d=>[d.id,d]))});
- bindSeerBrew(castObjectCommands);
+ bindSeerBrew(castObjectCommands, {}, {overmeasure:true});
+ seerMaker=castObjectCommands.find(d=>d.id===SEER_BREW_BINDING.brewAct)?.targetId;
  for(const d of castObjectCommands)for(const e of d.effects)if(e.type==='relocate'&&e.actor==='player'&&!placesById.has(e.location))throw Error('Place-act travel needs a declared destination.');
  castAvailable=true;
 }
@@ -321,6 +325,7 @@ export function syncLotmCast(state){
   const place=projectedPlaces.get(person.id);
   if(place!=null&&body.location!==place){body.location=place;castWriteCode(state,`location:${person.id}`,constraintProvenance(scheduleIndex.whereabouts(person.id,at).row||{}));changed=true;}
  }
+ if(lotmBe(state))changed=seedSeerStock(state,I.world,seerMaker,{overmeasure:true})||changed;
  const facts=state.worlds[I.world].facts;
  for(const row of lotmCastDays()){const key=`lotm.cast.window.${row.scene}`,value=row.day===at.calendar.day_count;
   if(facts[key]!==value){facts[key]=value;castWriteCode(state,`fact:${key}`,'canon-derived');changed=true;}}

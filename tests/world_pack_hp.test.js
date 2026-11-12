@@ -162,3 +162,42 @@ test('school and trade expose an elapsed local calendar without the Frontier civ
  for(const profile of ['school','trade']){const f=hpSetup(profile),clock=resolveWorldCalendar(f.plan.state,{year:999,month:4,day:1,hour:8,minute:0,day_count:1});assert.equal(clock.year,1);assert.equal(clock.hour,9);assert.equal(clock.format,'elapsed');assert.equal(clock.seasonId,null);assert.equal(clock.instanceId,f.record.instanceId);}
  const f=hpSetup(),state=structuredClone(f.plan.state);state.clock=15*60;const c=hpSchoolCalendar(state);assert.equal(c.day,2);assert.equal(c.hour,0);assert.equal(c.charms,false);
 });
+
+test('school working settles through the taught cast with native stock, stamina and custody',async()=>{
+ const {stageSchoolCraftTrial}=await import('../src/book_craft_simulation.js');
+ const {bookCraftWorkshops}=await import('../src/book_craft_workings.js');
+ const {readCraftWorking}=await import('../src/craft_state.js');
+ const {validateOwner}=await import('../src/crafting_frontier_runtime.js');
+ const f=hpSetup(),P=f.d.id,K=n=>JSON.stringify({id:P+'.'+n});
+ const world=f.d.world.id,law=bookCraftWorkshops[world].law.ref;
+ const base={id:'maker.pane',revision:1,world,law,slots:[
+    {id:'pieces',role:'base',select:{material:'glass'}},{id:'wand',role:'catalyst',select:{material:'wand'}}]};
+ const run=(plan,ops,wand='wand',craftState=null)=>stageSchoolCraftTrial({
+    state:plan.state,registry:f.registry,context:f.ctx(plan),craftState,
+    working:{...base,steps:ops.map(op=>({op,level:1}))},
+    lots:[{key:K('glass_shards'),qty:1},{key:K(wand),qty:1,role:'catalyst'}],learn:true});
+ assert.throws(()=>run(f.plan,['align','join']),/held method|Learn|Practice|mastery/);
+ let plan=hpAdvance(f,hpAct(f,f.plan,'lesson_repair'),30);
+ plan=hpAdvance(f,hpAct(f,plan,'practice_repair_glass'),3);
+ plan=hpAct(f,plan,'borrow_wand');
+ const failed=run(plan,['join'],'practice_wand');
+ assert.equal(failed.success,false);
+ assert.equal(failed.plan.gameplay.player.inventory[K('glass_shards')],2);
+ assert.equal(failed.plan.gameplay.player.inventory[K('glass_pane')],undefined);
+ assert.equal(failed.plan.vitals.player.stamina,plan.vitals.player.stamina-1);
+ const improved=run(failed.plan,['align','join'],'practice_wand',failed.craftState);
+ assert.equal(improved.learned,true);
+ assert.equal(improved.plan.gameplay.player.inventory[K('glass_pane')],1);
+ assert.equal(improved.plan.gameplay.player.inventory[K('practice_wand')],1);
+ assert.equal(plan.gameplay.player.inventory[K('glass_shards')],3);
+ const saved=validateOwner(JSON.parse(JSON.stringify(improved.craftState)));
+ const method=readCraftWorking(saved,base.id,'player');
+ assert.deepEqual(method.steps,[{op:'align',level:1},{op:'join',level:1}]);
+ const restored={...improved.plan,state:loadExpansionState(JSON.parse(JSON.stringify(improved.plan.state)),f.registry)};
+ const exchanged=hpAct(f,restored,'return_wand');
+ const repeated=stageSchoolCraftTrial({state:exchanged.state,registry:f.registry,context:f.ctx(exchanged),
+    craftState:saved,working:method,lots:[{key:K('glass_shards'),qty:1},{key:K('wand'),qty:1,role:'catalyst'}]});
+ assert.equal(repeated.plan.gameplay.player.inventory[K('glass_pane')],2);
+ assert.equal(repeated.plan.gameplay.player.inventory[K('glass_shards')]??0,0);
+ assert.equal(repeated.plan.gameplay.player.inventory[K('wand')],1);
+});

@@ -25,6 +25,15 @@ export function withPanelDom(run) {
             this.parentElement = null;
         }
         append(...nodes) {for(const node of nodes) {node.remove(); node.parentElement = this; this.children.push(node);}}
+        insertBefore(node, reference) {
+            if(reference === null) {this.append(node); return node;}
+            if(reference.parentElement !== this) throw new Error('Reference is not a child.');
+            if(node === reference) return node;
+            node.remove();
+            node.parentElement = this;
+            this.children.splice(this.children.indexOf(reference), 0, node);
+            return node;
+        }
         prepend(node) {node.remove(); node.parentElement = this; this.children.unshift(node);}
         replaceChildren(...nodes) {for(const node of [...this.children]) node.remove(); this.append(...nodes);}
         focus() {if(this.isConnected && !this.disabled) document.activeElement = this;}

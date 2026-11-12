@@ -1,4 +1,23 @@
 import {stableId} from "./simulation_ids.js";
+import {isKeeperColonyEffect} from './gu_keeper_colony.js';
+import {isKeeperTimeEffect} from './gu_keeper_time.js';
+import {isKeeperWildEffect} from './gu_keeper_wild.js';
+import {isKeeperRefinementEffect} from './gu_keeper_refinement.js';
+import {isMoonlightTrialEffect} from './gu_keeper_moonlight_trial.js';
+import {isKeeperMoveTrialEffect} from './gu_keeper_move_trial.js';
+import {isKeeperRainbowEffect} from './gu_keeper_rainbow.js';
+import {isCoordinationEffect} from './gu_coordination_trial.js';
+import {isKeeperPropagationEffect} from './gu_keeper_propagation.js';
+import {isKeeperFixedForgeEffect} from './gu_keeper_fixed_forge.js';
+import {isKeeperFusionEffect} from './gu_keeper_fusion.js';
+import {isKeeperGoalEffect} from './gu_keeper_goal.js';
+import {isKeeperSpiritEffect} from './gu_keeper_spirit.js';
+import {isKeeperProcedureEffect} from './gu_keeper_procedure.js';
+import {isKeeperAntNestEffect} from './gu_keeper_ant_nest.js';
+import {isKeeperAttitudeEffect} from './gu_keeper_attitude.js';
+import {isKeeperFixedTravelEffect} from './gu_keeper_immortal_travel.js';
+import {isKeeperCooperationEffect} from './gu_keeper_cooperation.js';
+import {isHostedWolfEffect} from './gu_hosted_wolf.js';
 export {stableId} from "./simulation_ids.js";
 import {RF1_POWER,validateRehearsedRecord} from './rehearsed_foe.js';
 import {validateFoundationInteractionEffect,validateFoundationDelivery,validateFoundationInteractionState} from './foundation_interaction_policy.js';
@@ -44,7 +63,7 @@ export function numeric(v) {return finite(v) || record(v) && typeof v.fact === "
 // Lazy and hoisted so declarative project compilation can validate through the
 // existing native-registry import cycle without weakening any effect checks.
 var operations;
-function simulationOperations() {return operations ||= new Set(["spawn", "relocate", "fact", "resource", "vital", "body", "item", "transfer", "xp", "reputation", "knowledge", "relationship", "claim", "condition", "life", "source", "faculty", "power", "progress", "title", "equipment", "custody", "unlock", "event", "world", "party", "energy", "observation", "site", "pursuit", "situation", "container", "foundationInteraction", "construct"]);}
+function simulationOperations() {return operations ||= new Set(["spawn", "relocate", "fact", "resource", "vital", "body", "item", "transfer", "xp", "reputation", "knowledge", "relationship", "claim", "condition", "life", "source", "faculty", "power", "progress", "title", "equipment", "custody", "unlock", "event", "world", "party", "energy", "observation", "site", "pursuit", "situation", "container", "foundationInteraction", "construct", "guColony", "guTime", "guWild", "guRefinement", "guMoonlightTrial", "guMoveTrial", "guRainbow", "guCoordinate", "guPropagate", "guHostedWolf", "guCooperation", "guFixedTravel", "guAttitude", "guAntNest", "guProcedure", "guSpirit", "guGoal", "guFusion", "guFixedForge"]);}
 
 
 export function validateSimulationEffect(e) {
@@ -58,6 +77,25 @@ export function validateSimulationEffect(e) {
     if(e.type === "relocate") assert(typeof e.location === "string" && e.location.length > 0, "Invalid actor destination.");
     if(e.target != null) assert(selector(e.target), "Invalid effect target.");
     if(e.type === "fact") assert(["actor", "world", "campaign", "journey"].includes(e.scope) && stableId(e.key) && ["boolean", "number", "string"].includes(typeof e.value), "Invalid fact effect.");
+    if(e.type === "guFixedForge") assert(isKeeperFixedForgeEffect(e), "Invalid Fixed Immortal Travel forge effect.");
+    if(e.type === "guFusion") assert(isKeeperFusionEffect(e), "Invalid Moonlight fusion effect.");
+    if(e.type === "guGoal") assert(isKeeperGoalEffect(e), "Invalid Gu research effect.");
+    if(e.type === "guSpirit") assert(isKeeperSpiritEffect(e), "Invalid Fighting Spirit effect.");
+    if(e.type === "guProcedure") assert(isKeeperProcedureEffect(e), "Invalid Gu procedure effect.");
+    if(e.type === "guAntNest") assert(isKeeperAntNestEffect(e), "Invalid Ant Nest effect.");
+    if(e.type === "guAttitude") assert(isKeeperAttitudeEffect(e), "Invalid Attitude Gu effect.");
+    if(e.type === "guFixedTravel") assert(isKeeperFixedTravelEffect(e), "Invalid Fixed Immortal Travel effect.");
+    if(e.type === "guCooperation") assert(isKeeperCooperationEffect(e), "Invalid Gu cooperation effect.");
+    if(e.type === "guHostedWolf") assert(isHostedWolfEffect(e), "Invalid hosted Gu effect.");
+    if(e.type === "guPropagate") assert(isKeeperPropagationEffect(e), "Invalid Thunder Potato propagation effect.");
+    if(e.type === "guCoordinate") assert(isCoordinationEffect(e), "Invalid Gu coordination effect.");
+    if(e.type === "guRainbow") assert(isKeeperRainbowEffect(e), "Invalid Rainbow Light effect.");
+    if(e.type === "guMoveTrial") assert(isKeeperMoveTrialEffect(e), "Invalid Gu move trial effect.");
+    if(e.type === "guMoonlightTrial") assert(isMoonlightTrialEffect(e), "Invalid Moonlight Gu trial effect.");
+    if(e.type === "guRefinement") assert(isKeeperRefinementEffect(e), "Invalid Gu refinement effect.");
+    if(e.type === "guWild") assert(isKeeperWildEffect(e), "Invalid wild Gu effect.");
+    if(e.type === "guTime") assert(isKeeperTimeEffect(e), "Invalid Gu time effect.");
+    if(e.type === "guColony") assert(isKeeperColonyEffect(e), "Invalid firefly colony effect.");
     if(e.type === "resource") assert(stableId(e.key) && numeric(e.amount), "Invalid resource effect.");
     if(e.type === "vital") assert(["health", "stamina"].includes(e.key) && numeric(e.amount), "Invalid vital effect.");
     if(e.minimumCapacity!==undefined)assert(e.type==='vital'&&finite(e.minimumCapacity)&&e.minimumCapacity>0, "Invalid supported vital capacity.");

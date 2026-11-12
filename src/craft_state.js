@@ -7,8 +7,11 @@ import {copyJson as plainCopy, natural as nat, sameJson as same} from './basics.
 import {compareCodePoints} from './gen_kit.js';
 import {MATRIX, validateMaterial} from './craft_materials.js';
 import {validateBatchProduct} from './craft_resolver.js';
-import {defineRecipe} from './craft_recipes.js';
+import {defineRecipe, recognizeRecipe} from './craft_recipes.js';
 import {createSourceState, validateSourceState} from './craft_sources.js';
+import {createExperimentLog,recordTrial,validateExperimentLog,validateTrialSetup} from './craft_experiment_log.js';
+import {validateItemKey} from './inventory_key.js';
+import {readMaterialLineage} from './material_lineage.js';
 
 export const CRAFT_SCHEMA = 1;
 const fail = message => { throw new Error(message); };
@@ -43,6 +46,76 @@ export function recordProduct(state, product) {
     const prior = state.products[product.id];
     if(prior && !same(prior, product)) fail(`Product ${product.id} disagrees with its stored record.`);
     return bump({...state, products: {...state.products, [product.id]: prior ?? plainCopy(product)}});
+}
+
+// The settlement host supplies what the maker actually saw after publishing
+// the batch. Discovery retains a reusable recipe and a witnessed product.
+function validateWorkingSetup(setup, product) {
+    validateTrialSetup(setup);
+    const amounts=new Map();
+    const keys=new Set();
+    for(const {key,qty,role,material,materialRevision} of setup.inputs) {
+        validateItemKey(key);
+        readMaterialLineage(key);
+        if(keys.has(key))fail('Duplicate physical stock in trial setup.');
+        keys.add(key);
+        const id=JSON.stringify([role,material,materialRevision]);
+        amounts.set(id,(amounts.get(id)??0)+qty);
+    }
+    if(!product||setup.law!==product.law||!same(setup.process,product.process)||
+        amounts.size!==product.inputs.length||product.inputs.some(([role,material,revision,qty])=>
+            amounts.get(JSON.stringify([role,material,revision]))!==qty)||
+        setup.conditions.consumedUnits!==product.inputs.reduce((sum,[role,,,qty])=>sum+(role==='consumed'?qty:0),0))
+        fail('The trial setup does not match the resolved batch.');
+}
+
+export function recordWorkingTrial(state, product, {observer, at, effects, setup, observation}) {
+    if(!Array.isArray(effects)||effects.some(({route,effect})=>!(product.outputs[route]?.[effect]>0)))
+        fail('Record only effects witnessed in this trial.');
+    const recorded=recordProduct(state,product);
+    const witnessed=observe(recorded,observer,product.id,effects.map(({route,effect})=>`effect:${route}.${effect}`),at);
+    if(setup===undefined)return witnessed;
+    validateWorkingSetup(setup,product);
+    const log=recordTrial(state.workingTrials?.[observer]??createExperimentLog(),{
+        materials:product.inputs.map(([,material])=>material),process:product.process,
+        seen:effects.map(({route,effect})=>`${route}.${effect}`),at,setup:{...setup,product:product.id},observation
+    });
+    return {...witnessed,workingTrials:{...state.workingTrials,[observer]:log}};
+}
+
+function validateWorkingWitness(state, law, recipe, witness) {
+    const {observer,world}=recipe.origin;
+    text(observer,'Observer');
+    text(world,'World');
+    if(!recipe.process?.length||recipe.process.some(({op,levels})=>!Object.hasOwn(law.ops,op)||levels[0]!==levels[1]))
+        fail('A saved working needs exact supported operations.');
+    const product=state.products[witness?.product];
+    if(!product||product.law!==law.ref||!knows(state,observer,product.id,witness.fact)
+        ||!Object.entries(product.outputs).some(([route,effects])=>Object.entries(effects)
+            .some(([effect,value])=>value>0&&witness.fact===`effect:${route}.${effect}`)))
+        fail('A working needs a witnessed useful result.');
+    const inputs=product.inputs.map(([role,id,,qty])=>({role,qty,material:law.catalogue.materials[id]??state.materials[id]}));
+    const process=product.process.map(([op,level])=>({op,level}));
+    if(!recognizeRecipe(law.catalogue,recipe,inputs,{process,law:law.ref,stations:product.stations}).recognized)
+        fail('This observation came from a different working.');
+}
+
+export function learnCraftWorking(state, law, working, {observer, product, route, effect}) {
+    if(working.law!==law.ref||!working.world||!Array.isArray(working.steps)||!working.steps.length)
+        fail('The working needs its original law and operations.');
+    const recipe=defineRecipe(law.catalogue,{id:working.id,revision:working.revision,law:law.ref,
+        slots:working.slots,process:working.steps.map(({op,level})=>({op,levels:[level,level]})),
+        origin:{kind:'player-working',world:working.world,observer}});
+    const witness={product,fact:`effect:${route}.${effect}`};
+    validateWorkingWitness(state,law,recipe,witness);
+    return freezeRecipe(state,recipe,witness);
+}
+
+export function readCraftWorking(state, id, observer) {
+    const recipe=state.recipes[id]?.recipe;
+    if(recipe?.origin?.kind!=='player-working'||recipe.origin.observer!==observer)return null;
+    return plainCopy({id:recipe.id,revision:recipe.revision,law:recipe.law,world:recipe.origin.world,
+        slots:recipe.slots,steps:recipe.process.map(({op,levels})=>({op,level:levels[0]}))});
 }
 export function setSourceNode(state, key, node) {
     return {...state, sources: {...state.sources, nodes: {...state.sources.nodes, [key]: {...node}}}};
@@ -95,10 +168,11 @@ export function validateCraftState(state, {catalogues, laws, sourceTables = {}})
         const catalogue = catalogues[m.origin?.catalogue] ?? fail(`Material ${id} needs unsupported catalogue ${m.origin?.catalogue}.`);
         if(id !== m.id || !same(plainCopy(validateMaterial(catalogue, m)), m)) fail(`Invalid frozen material ${id}.`);
     }
-    for(const [id, {recipe}] of Object.entries(state.recipes)) {
+    for(const [id, {recipe,witness}] of Object.entries(state.recipes)) {
         const law = laws[recipe.law] ?? fail(`Recipe ${id} needs unsupported law ${recipe.law}.`);
         const {ref, ...spec} = recipe;
         if(id !== recipe.id || !same(plainCopy(defineRecipe(law.catalogue, spec)), recipe)) fail(`Invalid frozen recipe ${id}.`);
+        if(recipe.origin?.kind==='player-working')validateWorkingWitness(state,law,recipe,witness);
     }
     for(const [id, product] of Object.entries(state.products)) {
         const law = laws[product.law] ?? fail(`Product ${id} needs unsupported law ${product.law}.`);
@@ -111,6 +185,22 @@ export function validateCraftState(state, {catalogues, laws, sourceTables = {}})
         if(!Array.isArray(k.facts) || !nat(k.firstAt) || !nat(k.lastAt) || k.lastAt < k.firstAt) fail(`Invalid knowledge ${observer}/${subject}.`);
     }
     const table = Object.values(sourceTables)[0];
+    if(state.workingTrials!==undefined) {
+        if(!state.workingTrials||typeof state.workingTrials!=='object'||Array.isArray(state.workingTrials))
+            fail('Invalid working trial records.');
+        for(const [observer,log] of Object.entries(state.workingTrials)) {
+            validateExperimentLog(log);
+            for(const {setup,seen,process,materials} of log.entries) {
+                const product=state.products[setup?.product];
+                validateWorkingSetup(setup,product);
+                const resolvedMaterials=[...new Set(product.inputs.map(([,id])=>id))].sort(compareCodePoints);
+                if(!same(process,product.process)||!same(materials,resolvedMaterials))
+                    fail('Working trial summary disagrees with its resolved batch.');
+                if(seen.some(effect=>!knows(state,observer,setup.product,`effect:${effect}`)))
+                    fail('Working trial evidence needs an observation by its maker.');
+            }
+        }
+    }
     validateSourceState(state.sources, Object.keys(sourceTables).length === 1 ? table : undefined);
     return state;
 }

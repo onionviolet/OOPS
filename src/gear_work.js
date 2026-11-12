@@ -1,5 +1,6 @@
 // Native gear processes, GDP1–20/24/38. Pure: snapshots in, proposed native key
 // changes out. No inventory, RNG, clock, save writer or actor singleton here.
+import {readGearComponentLineage, recoveredGearComponent, replaceGearComponentLineage} from './gear_component_lineage.js';
 import {wearScale} from './gear_dimensions.js';
 import {quoteHeat, HEAT_WORLDS} from './heat_grades.js';
 import {energyCharge} from './energy_resources.js';
@@ -151,6 +152,13 @@ export function quoteGearWork({request, inventory, templates, maker, condition =
     const properties = materialProperties(chosenTemplate);
     const hot = ['heated', 'shaped'].includes(work.treatment.stage) && clock - work.treatment.at <= law.hotMinutes;
     let repair = null, destroyed = false, nextQuality = key.quality ?? item.quality, summary;
+    const lineage = readGearComponentLineage(key);
+    const recover = (slot, operation) => recoveredGearComponent({
+        id: item.components[slot],
+        quality: Math.max(1, Math.floor(Math.min(item.quality || 100,
+            lineage?.[slot] ? JSON.parse(lineage[slot]).quality : Infinity) * condition / 100 * law.salvageShare)),
+        previous: lineage?.[slot], at: clock, world: maker.world, operation, condition
+    });
     if (action === 'attach') {
         const role = request.role;
         if(role === 'setting' && (!work.socket || chosenTemplate?.socket_kind !== work.socket.type)) return block('Make a rigid setting first, then select a fitted mineral insert of that type.');
@@ -196,9 +204,16 @@ export function quoteGearWork({request, inventory, templates, maker, condition =
             if (!heat.ok || heat.have < heat.unitsPerCraft) return block(heat.reason || `Need ${heat.unitsPerCraft} ${heat.fuelId}.`);
             let left = heat.unitsPerCraft;
             for (const [k, row] of Object.entries(inventory)) if (row.item.id === heat.fuelId && left > 0) {const n = Math.min(left, row.count); take(k, n); left -= n;}
-            if (action === 'heat') work.treatment = {...work.treatment, stage: 'heated', at: clock};
-            else work.treatment = {stage: 'tempered', at: clock, hardness: 1.05, toughness: 1.1 + .1 * control};
-            summary = action === 'heat' ? `Heat the metal; work or quench within ${law.hotMinutes} played minutes. Fuel is spent now.` : 'Temper the quenched metal: less hardness, more toughness. Fuel is spent now.';
+            if (action === 'heat') {
+                const shaped = work.treatment.stage === 'shaped';
+                work.treatment = {...work.treatment, stage: shaped ? 'shaped' : 'heated', at: clock};
+                summary = shaped
+                    ? `Reheat the shaped metal; quench within ${law.hotMinutes} played minutes. Fuel is spent now.`
+                    : `Heat the metal; work or quench within ${law.hotMinutes} played minutes. Fuel is spent now.`;
+            } else {
+                work.treatment = {stage: 'tempered', at: clock, hardness: 1.05, toughness: 1.1 + .1 * control};
+                summary = 'Temper the quenched metal: less hardness, more toughness. Fuel is spent now.';
+            }
         } else {
             if (!hot) return block('Heat the metal first; this workpiece has cooled or already settled.');
             if (action === 'shape') {
@@ -229,8 +244,9 @@ export function quoteGearWork({request, inventory, templates, maker, condition =
         take(request.material);
         // Replaced material is recovered degraded, so repeated swaps cannot
         // manufacture valuable full-grade stock from a worn assembly.
-        const oldKey = JSON.stringify({id: oldId, quality: Math.max(1, Math.floor((item.quality || 100) * condition / 100 * law.salvageShare))});
-        give(oldKey); key.components = {...key.components, [request.slot]: chosen.id};
+        give(recover(request.slot, 'swap'));
+        replaceGearComponentLineage(key, request.slot, request.material);
+        key.components = {...key.components, [request.slot]: chosen.id};
         nextQuality = Math.round((item.quality * (parts.length - 1) + (chosen.quality ?? 100)) / parts.length);
         summary = 'Replace the structural component. Identity, condition and provenance stay; the removed part returns at reduced quality.';
     } else if (action === 'repair' || field) {
@@ -247,7 +263,7 @@ export function quoteGearWork({request, inventory, templates, maker, condition =
         take(request.material, units); repair = round(Math.min(cap, condition + units * unit));
         summary = `Restore condition ${round(condition)} → ${repair}/${cap}; ${same ? 'matching material' : 'compatible substitute at half efficiency'}${field ? ', field efficiency' : ''}.`;
     } else if (action === 'salvage') {
-        for (const id of Object.values(item.components)) give(JSON.stringify({id, quality: Math.max(1, Math.floor((item.quality || 100) * condition / 100 * law.salvageShare))}));
+        for (const slot of Object.keys(item.components)) give(recover(slot, 'salvage'));
         for (const p of Object.values(work.roles)) give(p.key);
         destroyed = true; summary = 'Dismantle this item. Structural parts lose quality; removable fittings return. The assembled item is consumed.';
     }

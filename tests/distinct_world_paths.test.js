@@ -35,5 +35,51 @@ test('W4 prepared work and native reserve stay bound and inert across foreign wo
 test('W4 precision preserves dated source chronology through the native material clock',()=>{
  const p=setup('breath');advance(p,14);
  const lot=planProcessedMaterial({stock:{[pelt]:1},inputs:[{item_key:pelt,count:1}],sourceFacts:{[pelt]:{born:1000}},output:{id:'Rat pelt',family:'animal-hide',count:1},process:{id:'dated.source',revision:1,at:1000,world_id:'base.frontier',parameters:{}}}).item_key;
- act(p,'prepare');const context={...ctx(p),materialClock:1014},q=quotePathWork(p.state.worldAdaptation,context,mistglassReserve(p.state),{[lot]:1},'cut');assert.equal(q.eligible,true);assert.equal(JSON.parse(q.receive[0].key).lineage.history.at(-1).at,1014);
+ act(p,'prepare');
+ const context={...ctx(p),materialClock:1014}, stock={[lot]:1};
+ const q=quotePathWork(p.state.worldAdaptation,context,mistglassReserve(p.state),stock,'cut');
+ assert.equal(q.eligible,true);
+ assert.deepEqual(q.spend,[{key:lot,count:1}]);
+ const previous=planProcessedMaterial({
+  stock,inputs:[{item_key:lot,count:1}],output:{id:'Processed rat pelt',family:'animal-hide',count:1,quality:65},
+  process:{id:'mistglass.cut',revision:1,at:1014,world_id:context.worldId,
+   parameters:{path:'breath',control:1,energySpent:1000,conversion:'mist pressure guides the cut'}}
+ });
+ assert.deepEqual(q.receive,[{key:previous.item_key,count:1}],'the same process produces the exact prior item key');
+ assert.equal(JSON.parse(q.receive[0].key).lineage.facts.born,1000);
+});
+
+test('Mistglass refinement pays once, replays pending work, and settles into exact native weapon stock',()=>{
+ const sword=JSON.stringify({components:{head:'Iron long blade',handle:'Simple wooden short handle'},quality:100});
+ for(const expected of ['success','failure','interrupted']){
+  let selected;
+  for(let seed=1;seed<=20;seed++){
+   const p=setup('breath');advance(p,40);
+   p.state.rng=seed;p.gameplay.player.inventory[sword]=1;
+   const old=mistglassReserve(p.state);
+   stageMistglassMethod(p,ctx(p),registry,'refine:'+sword);
+   assert.equal(p.gameplay.player.inventory[sword]||0,0);
+   assert.equal(mistglassReserve(p.state),old-2000);
+   const restored=JSON.parse(JSON.stringify(p));
+   const row=restored.state.mistglassRealm.refinement.pending;
+   validateMistglassEnvelope({expansion:restored.state,'current location':native.location});
+   if(expected==='interrupted'){
+    stageMistglassTravel(restored,'exit');
+    stageMistglassAdvance(restored,mistglassContext(restored.state,{...native,location:'Village'}),registry);
+   }else advance(restored,row.due-restored.state.clock);
+   if(restored.state.mistglassRealm.refinement.last.status!==expected)continue;
+   selected=restored;
+   const output=Object.keys(restored.gameplay.player.inventory).filter(key=>JSON.parse(key).id==='Mist-bound sword');
+   assert.equal(output.length,expected==='success'?1:0);
+   if(output.length)assert.equal(JSON.parse(output[0]).lineage.history.at(-1).inputs[0].item_key,sword);
+   assert.equal(restored.state.mistglassRealm.refinement.pending,null);
+   const stock=structuredClone(restored.gameplay.player.inventory);
+   const context=mistglassContext(restored.state,{...native,location:restored.state.simulation.people.player.location});
+   stageMistglassAdvance(restored,context,registry);
+   assert.deepEqual(restored.gameplay.player.inventory,stock);
+   validateMistglassEnvelope({expansion:restored.state,'current location':context.worldId==='base.frontier'?'Village':native.location});
+   break;
+  }
+  assert.ok(selected,`missing ${expected} branch`);
+ }
 });

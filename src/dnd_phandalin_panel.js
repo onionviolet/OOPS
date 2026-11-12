@@ -15,9 +15,15 @@ export function createDndPhandalinPanel({read, quote, execute}) {
         body.replaceChildren();
         if (!v.started) {
             const b = el('button', 'Begin the test start'); b.type = 'button'; b.dataset.dndAction = 'start'; b.disabled = !v.start.eligible;
-            b.title = v.start.eligible ? v.start.summary : v.start.reason; b.onclick = () => run(v.start); body.append(b, el('small', v.start.summary ?? v.start.reason)); return;
+            b.title = v.start.eligible ? v.start.summary : v.start.reason; b.onclick = () => run(v.start); body.append(b, el('small', v.start.summary ?? v.start.reason));
+            const study=el('button','Begin with a borrowed spellbook');study.type='button';study.dataset.dndAction='startStudy';
+            study.disabled=!v.studyStart.eligible;study.onclick=()=>run(v.studyStart);
+            body.append(study,el('small',v.studyStart.summary));return;
         }
         body.append(el('p', `Time ${v.clock} · ${v.bag}${v.cast ? ` · casting until ${v.cast.until}` : ''}${v.settled ? ' · settled' : ''}`));
+        body.append(el('p',`Levitate ${v.levitation.prepared?'prepared':v.levitation.known?'in your spellbook':'in the borrowed spellbook'} · Second-level slots: ${v.levitation.slots} · Crate: ${v.levitation.feet? v.levitation.feet+' feet above the ground':'on the ground'}`));
+        body.append(el('p',`${v.levitation.position==='screened'?'Behind the screen, outside the mage’s view':'In the open, within the mage’s view'} · Movement left: ${v.levitation.movement} ft · Casting aid: ${v.levitation.castingAid}`));
+        if(v.levitation.study)body.append(el('p',`Copying purse: ${v.levitation.study.gp} GP`));
         for (const a of v.actions) {
             const q = a.quote, b = el('button', a.label); b.type = 'button'; b.dataset.dndAction = a.id; b.disabled = !q.eligible;
             b.title = q.eligible ? q.summary : q.reason; b.onclick = () => run(q);

@@ -95,7 +95,7 @@ export function createDurability(initial) {
         // Clone BEFORE giving identity: native equip may leave identical copies
         // sharing the inventory's original item object. Never mutate that object.
         prepareEquip(item, getItemFromKey, {requireIdentity = false} = {}) {
-            if (!item?.tags?.equippable || (!state.enabled && !requireIdentity)) return item;
+            if (!item?.tags?.equippable || item.tags.fixedStockKey || (!state.enabled && !requireIdentity)) return item;
             const key = item.getInventoryKey();
             if (identity(key)) {
                 state.nextId = Math.max(state.nextId, Number(identity(key).slice(3)) + 1);

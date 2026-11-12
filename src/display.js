@@ -4,6 +4,7 @@ import {keptShopKeys} from './shop_locks.js';
 import {gearItemFactsHtml} from './gear_item_facts.js';
 import {craftBatchGoal} from './craft_batch_goal.js';
 import {knownRecipeVariants, relatedKnownRecipes, knownUsesHTML, installKnownRecipeLinks, renderRecipeConnections, materialPolicyText, bindSubjectGesture} from './recipe_connections.js';
+import {componentInputLots} from './processed_materials.js';
 import {mountMaterialChoice} from './material_choice_view.js';
 import {renderCraftingSelection} from './crafting_selection_detail.js';
 import {renderRecentLearning} from './recent_learning.js';
@@ -3886,13 +3887,11 @@ function create_recipe_tooltip_content({category, subcategory, recipe_id, materi
         //some component
         let name = obscure_name_to_type(material.material_id);
 
-        //TODO maybe allow material type?
-        tooltip += `Material required:<br>`;
-        if(character.getItems()[material.item_key || item_templates[material.material_id].getInventoryKey()]?.count >= material.count) {
-            tooltip += `<span style="color:lime"><b>${name} x${character.getItems()[material.item_key || item_templates[material.material_id].getInventoryKey()]?.count || 0}/${material.count}</b></span><br>`;
-        } else {
-            tooltip += `<span style="color:red"><b>${name} x${character.getItems()[material.item_key || item_templates[material.material_id].getInventoryKey()]?.count || 0}/${material.count}</b></span><br>`;
-        }
+        const selectedKey=material.item_key || item_templates[material.material_id].getInventoryKey();
+        const lots=componentInputLots(character.getItems(),selectedKey,material.result_id,get_context().worldId,canConsumeNativeCraftingItem);
+        const count=lots.reduce((sum,row)=>sum+row.count,0);
+        tooltip += `Material required:<br><span style="color:${count>=material.count?'lime':'red'}"><b>${name} x${count}/${material.count}</b></span><br>`;
+        if(lots.length>1) tooltip += 'Uses the selected lot first, then other available lots of the same grade.<br>';
 
         const result_tier = item_templates[material.result_id].component_tier ?? item_templates[material.result_id].item_tier;
         const quality_range = recipe.get_quality_range(station_tier - result_tier).map(q=>nativeWorkLedgerQuality(q,category,subcategory,recipe.get_quality_cap()));
@@ -4063,8 +4062,9 @@ function update_displayed_material_choice({category, subcategory, recipe_id, ref
             name_span.classList.add('recipe_comp_name');item_div.append(name_span);item_div.classList.add('selectable_material');
             item_div.dataset.item_key=entry.item.getInventoryKey();
             const available=canConsumeNativeCraftingItem(item_div.dataset.item_key) && accessoryCraftingTiers(current_location,undefined,global_flags.is_crafting_unlocked)[category]>0;
-            if(entry.count<material_recipe.count||!available)item_div.classList.add('recipe_unavailable');
-            mountMaterialChoice(item_div,{key:item_div.dataset.item_key,count:entry.count,need:material_recipe.count,name:name_span.textContent,allowed:available,
+            const count=componentInputLots(character.getItems(),item_div.dataset.item_key,material_recipe.result_id,get_context().worldId,canConsumeNativeCraftingItem).reduce((sum,row)=>sum+row.count,0);
+            if(count<material_recipe.count||!available)item_div.classList.add('recipe_unavailable');
+            mountMaterialChoice(item_div,{key:item_div.dataset.item_key,count,need:material_recipe.count,name:name_span.textContent,allowed:available,
                 select:()=>{for(const other of material_selections_div.children)other.classList.remove('selected_material');selected_item_recipe={category,subcategory,recipe_id,material_id:material_recipe.material_id,material_key:item_div.dataset.item_key};refresh_crafting_detail();},
                 commit:amount=>window.useRecipe(material_selections_div,amount)});
             item_div.append(create_recipe_tooltip({category,subcategory,recipe_id,material:{...material_recipe,item_key:item_div.dataset.item_key}}));

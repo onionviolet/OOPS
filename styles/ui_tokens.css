@@ -326,7 +326,7 @@ body { font-family: var(--ui-font); font-size: var(--ui-type-body); }
 #village_mixing_panel h3 { font-size: var(--ui-type-title); margin: 0 0 var(--ui-space-2); }
 #village_mixing_panel :is(p,label,button) { font-size: var(--ui-type-body); }
 .mixture-ingredients { display: grid; gap: var(--ui-space-1); }
-.mixture-ingredient { display: grid; grid-template-columns: minmax(105px,1fr) 50px 82px 116px; gap: 3px; align-items: center; border-bottom: 1px solid var(--workspace-border); }
+.mixture-ingredient { display: grid; grid-template-columns: minmax(105px,1fr) 50px 82px max-content; gap: 3px; align-items: center; border-bottom: 1px solid var(--workspace-border); }
 .mixture-controls { display: flex; gap: var(--ui-space-3); align-items: center; flex-wrap: wrap; margin-top: var(--ui-space-3); }
 #mixture_feedback { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: var(--ui-space-2); margin: var(--ui-space-2) 0; font-size: var(--ui-type-small); line-height: 1.35; }
 .mixture-feedback-row { border-bottom: 1px solid var(--workspace-border); padding: var(--ui-space-2); overflow-wrap: anywhere; }
@@ -1895,3 +1895,10 @@ body:has(#main_content #location_related_div[data-component-theme="luminous"][da
 @keyframes center-mode-enter {from {opacity:.0;transform:translateY(6px);} to {opacity:1;transform:none;}}
 #main_content .center-mode-enter {animation:center-mode-enter 140ms ease-out;}
 @media (prefers-reduced-motion: reduce) {#main_content .center-mode-enter {animation:none;}}
+
+/* Round 8 mixing counter (PF24): buy labels stay on one line; the ledger sits behind a fold. */
+#village_mixing_panel .mixture-buy {white-space:nowrap;}
+#village_mixing_panel .mixture-have {color:var(--workspace-muted, inherit);}
+#village_mixing_panel .mixture-status {margin:var(--ui-space-1) 0;}
+#village_mixing_panel .mixture-details > summary {cursor:pointer;margin-top:var(--ui-space-2);}
+.mixture-discovery-table td[data-state="unknown"] {color:var(--workspace-muted, inherit);}

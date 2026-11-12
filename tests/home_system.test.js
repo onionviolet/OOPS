@@ -53,7 +53,16 @@ test('multiple homes retain separate stock, fire and companion ownership across 
     r.c.location='Village';r.run({type:'acquire',home:'rental'});r.c.location=P.rental.location;r.advance(5);
     assert.equal(r.state.properties.cottage.household.hearth.fuelMinutes,15);assert.equal(r.state.properties.rental.household,undefined);assert.equal(r.state.properties.cottage.stock[k('Linen cloth')],1);
     r.c.animalElsewhere=true;assert.throws(()=>r.run({type:'household',home:'rental',action:'meet'}),/already has a home/);
-    r.run({type:'move_cat',home:'rental',from:'cottage'});assert.equal(r.state.properties.cottage.household.animal,null);assert.equal(r.state.properties.rental.household.animal.id,'household.moss');
+    const before = r.state.properties.cottage.household.animal;
+    r.run({type:'move_cat',home:'rental',from:'cottage'});
+    assert.equal(r.state.properties.cottage.household.animal,null);
+    const after = r.state.properties.rental.household.animal;
+    assert.equal(after.id,'household.moss');
+    assert.equal(after.creatureId, before.creatureId);
+    const previous = before.lifecycle.individuals[before.creatureId];
+    const relocated = after.lifecycle.individuals[after.creatureId];
+    assert.notEqual(relocated.habitat, previous.habitat);
+    assert.deepEqual(relocated.experience, previous.experience);
     const cloned=JSON.parse(JSON.stringify(r.state));validateHomes(cloned,r.c);assert.deepEqual(cloned,r.state);
     const corrupt=structuredClone(cloned);corrupt.properties.cottage.owner='stranger';assert.throws(()=>validateHomes(corrupt,r.c),/title/);
 });

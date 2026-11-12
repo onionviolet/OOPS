@@ -30,7 +30,8 @@ test('the lead pack loads in its own list and does not touch book.hp or the scho
  assert.ok(!worldPackRegistry.packs.has(P),'main bundled list is unchanged');
  assert.equal(sha(createHpLifeContent('school')),'60f98887abca007da8c704d5d4ecc4dd4cfc4f3da7575c667b999737ac543017');
  assert.equal(sha(createHpLifeContent('trade')),'75d141fba477539271646133d1c1190759efcd07fb7963eb587dd8c703b0eb6b');
- assert.equal(installedWorldPack('book.hp').fingerprint,'wp1:d2e3d53c88303348');
+ // Re-pinned 2026-11-11: the potion lane added the fluxweed bed and bonemeal to book_hp_pack.js; the lead pack still does not touch book.hp.
+ assert.equal(installedWorldPack('book.hp').fingerprint,'wp1:a851c410e5cdcce6');
 });
 test('a start produces a child body in guardian custody with no wand, money or learned method',()=>{
  const f=leadSetup(),s=f.plan.state,p=s.simulation.people.player;
@@ -87,4 +88,25 @@ test('a rejected lead cast warns once with its reasons and still returns null',a
   assert.equal(await loadHpLeadCast(async()=>{throw new Error('boom');}),null);
  }finally{console.warn=orig;}
  assert.equal(warns.length,2);assert.match(warns[0],/schema/);assert.match(warns[1],/boom/);
+});
+
+test('the bundled Charms bench leaves base identity intact and requires a separate content pin',async()=>{
+ const {hpLeadPracticeExtension}=await import('../src/hp_lead_spells.js');
+ const {createStructuredNativeRegistration}=await import('../src/structured_native_registration.js');
+ const {requireStructuredContent}=await import('../src/structured_pack_state.js');
+ const f=leadSetup(),raw=hpLeadPracticeExtension(f.d);
+ const register=createStructuredNativeRegistration({
+  registry:f.registry,locations:{},items:{},inventories:{},availabilities:{},definitions:new Map(),
+  makeLocation:row=>row,makeItem:row=>row,makeInventory:row=>row,
+ });
+ await assert.rejects(register.extension(raw,f.d),/Unsupported or colliding extension command/);
+ const extension=await register.bundledInstantExtension(raw,f.d);
+ const definitions=new Map([[f.d.id,f.d]]);
+ requireStructuredContent(f.record,definitions,f.plan.state);
+ const lifted=structuredClone(f.plan.state);
+ const effect=extension.commands.find(c=>c.outcomes).outcomes[0].effects.find(e=>e.type==='knowledge');
+ lifted.simulation.knowledge.player[effect.key]={stage:effect.stage,value:effect.value};
+ assert.throws(()=>requireStructuredContent(f.record,definitions,lifted),/saved content pin/);
+ const {id,revision,contentHash}=extension;
+ requireStructuredContent({...f.record,extensions:[{id,revision,contentHash}]},definitions,lifted);
 });
