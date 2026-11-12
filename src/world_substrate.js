@@ -439,16 +439,29 @@ export function advanceWorld(rules, world0, toClock) {
                 k = Math.min(k, hz);
             }
         }
+        // Closed-form laws settle their k minutes reading the world as the segment starts. An `add` to a
+        // quantity the pack declares is the law's own total for the segment: it joins the rates on that
+        // quantity, so the bound clamps the sum once and the ledger credits the law (WSC4).
+        const closed = laws.filter(l => l.law.advance).map(l => ({l, source: `${l.pack}:${l.law.id}:${l.id}`, ops: l.law.advance(l.view, l.id, k) ?? []}));
+        for (const {l, source, ops} of closed) for (const op of ops) {
+            if (op.op !== 'add') continue;
+            check(declares(l.writes, op.quantity), `pack ${l.pack} does not declare writing ${op.quantity}.`);
+            check(world.holders[op.holder] && op.quantity in world.holders[op.holder].quantities && whole(op.amount), `${op.holder} does not carry ${op.quantity}.`);
+            const key = `${op.holder}\u0000${op.quantity}`;
+            const f = flows.get(key) ?? {holder: op.holder, quantity: op.quantity, net: 0, parts: []};
+            f.total = (f.total ?? 0) + op.amount; f.parts.push({source, total: op.amount});
+            flows.set(key, f);
+        }
         for (const f of flows.values()) {
             const h = world.holders[f.holder];
-            const before = h.quantities[f.quantity];
-            for (const p of f.parts) credit(rules, h, f.quantity, p.source, p.perMinute * k);
+            const before = h.quantities[f.quantity], change = f.net * k + (f.total ?? 0);
+            for (const p of f.parts) credit(rules, h, f.quantity, p.source, p.total ?? p.perMinute * k);
             const def = quantityDef(rules, f.quantity);
-            h.quantities[f.quantity] = Math.min(def.max, Math.max(def.min, before + f.net * k));
-            credit(rules, h, f.quantity, 'bound', h.quantities[f.quantity] - before - f.net * k);
+            h.quantities[f.quantity] = Math.min(def.max, Math.max(def.min, before + change));
+            credit(rules, h, f.quantity, 'bound', h.quantities[f.quantity] - before - change);
         }
-        for (const l of laws) if (l.law.advance)
-            applyOps(rules, world, l.law.advance(l.view, l.id, k), {pack: l.pack, writes: new Set(), source: `${l.pack}:${l.law.id}:${l.id}`}, []);
+        for (const {l, source, ops} of closed)
+            applyOps(rules, world, ops.filter(op => op.op !== 'add'), {pack: l.pack, writes: new Set(), source}, []);
         world.clock += k;
         segments++;
     }
