@@ -36,7 +36,7 @@ export const SUBSTRATE_DIALS = Object.freeze({
 const BUILT_IN_KINDS = Object.freeze(['departed', 'arrived', 'law.lapsed']);
 const primitiveKind = kind => /^effect\.[a-z]+(\.[a-z0-9_:.*-]+)?$/.test(kind);
 
-export function composeSubstrate({packs, quantities = [], properties = [], effectKinds = [], dials = {}}) {
+export function composeSubstrate({packs, quantities = [], properties = [], effectKinds = [], dials = {}, draw = null}) {
     check(Array.isArray(packs) && packs.length, 'compose needs packs.');
     const q = new Map(), pr = new Map();
     const addQuantity = (def, owner) => {
@@ -88,8 +88,33 @@ export function composeSubstrate({packs, quantities = [], properties = [], effec
     }
     const d = {...SUBSTRATE_DIALS, ...dials};
     for (const [k, v] of Object.entries(d)) check(whole(v) && v >= (k === 'cascadeDepth' ? 0 : 1), `dial ${k} must be a whole number.`);
-    return Object.freeze({quantities: q, properties: pr, effectKinds: Object.freeze(kinds), packs: Object.freeze(packs.map(p => p.id)), laws, reactors, dials: Object.freeze(d)});
+    return Object.freeze({quantities: q, properties: pr, effectKinds: Object.freeze(kinds), packs: Object.freeze(packs.map(p => p.id)), laws, reactors, dials: Object.freeze(d),
+        draw: checkDraw(draw)}); // E11 saved dice
 }
+
+// ---- E11 saved dice (proposal): begin ----
+// The substrate keeps no dice of its own. Whoever composes it may pass `draw(pack, address)`,
+// a pure function of a saved root and the address (engine_world.js does). A pack law reads it
+// as `view.draw(address)`: the value depends on the root, the pack and the address alone, so
+// settlement order, jump size and a save and restore cannot change it. An address is a list of
+// strings and whole numbers the law chooses: a holder, a purpose, and the minute or period
+// when the draw is of a moment.
+// Lineage: `drawKey` is the name a holder's innate draws go by. It is the holder's id unless
+// the holder carries `refs.draws`, which a copy act sets to the original's key so a clone
+// shares the original's innate draws; leaving it off is the dial for an independent copy.
+// Draws of a moment (does the gust hit today) use the holder's own id, so copies fare apart.
+export const drawKeyOf = holder => holder?.refs?.draws ?? holder?.id ?? null;
+const checkDraw = draw => { check(draw == null || typeof draw === 'function', 'draw is a function of (pack, address).'); return draw ?? null; };
+const viewDraws = (rules, world, pack) => ({
+    draw: address => {
+        check(rules.draw, `pack ${pack} asked for a draw, and this world was composed without a draw root.`);
+        const drawn = rules.draw(pack, address);
+        check(Number.isInteger(drawn) && drawn >= 0 && drawn <= 0xffffffff, 'a draw is a whole number below 2^32.');
+        return drawn;
+    },
+    drawKey: id => drawKeyOf(world.holders[id]),
+});
+// ---- E11 saved dice: end ----
 
 // A keyed quantity is a family: `energy:primeval.rank1`, `stock:bread`. The
 // family carries unit and bounds; the key names the kind (WSC2).
@@ -190,6 +215,7 @@ function viewFor(rules, world, pack) {
             const h = holder(id), scopes = [id, h?.kind === 'place' ? null : h?.place, 'world'].filter(Boolean);
             return scopes.flatMap(s => world.laws.filter(f => f.scope === s && f.kind === kind)).map(f => structuredClone(f));
         },
+        ...viewDraws(rules, world, pack), // E11 saved dice
     });
 }
 

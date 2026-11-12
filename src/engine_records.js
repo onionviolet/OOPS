@@ -26,6 +26,7 @@ import {bindingAuthority, bindingDues, bindingState, defineBinding, dueBindingEv
 import {settleCosts} from './cost_owner.js';
 import {landEffect} from './effect_host.js';
 import {sentenceCosts} from './effect_grammar.js';
+import {address, drawU32} from './gen_kit.js';
 
 export const RECORDS_SCHEMA = 'engine.records@1';
 const fail = message => { throw new Error(`Engine records: ${message}`); };
@@ -33,6 +34,33 @@ const byId = (a, b) => a < b ? -1 : a > b ? 1 : 0;
 const plain = value => JSON.parse(JSON.stringify(value));
 const live = state => ['held', 'strained'].includes(state.status);
 const terminal = record => ['spent', 'broken', 'lost'].includes(record.status);
+
+// ---- E11 saved dice (proposal): begin ----
+// One draw root, saved in the engine save beside the world. A draw is a pure function of
+// (root, address): nothing is counted or consumed, so order, jump size and restore cannot move it.
+export const DRAWS_SCHEMA = 'engine.draws@1';
+export const DEFAULT_DRAW_ROOT = 0;
+const rootOk = root => (Number.isInteger(root) && root >= 0 && root <= 0xffffffff) || (typeof root === 'string' && root.length > 0);
+export function drawsOf(root = DEFAULT_DRAW_ROOT) {
+    if (!rootOk(root)) fail('a draw root is an unsigned whole number of four bytes or a non-empty string.');
+    return {schema: DRAWS_SCHEMA, root};
+}
+/** A save from before the root (no `draws` key) restores with the default root. */
+export function restoreDraws(saved) {
+    if (saved === undefined) return drawsOf();
+    if (saved?.schema !== DRAWS_SCHEMA) fail('unsupported draws save version.');
+    return drawsOf(saved.root);
+}
+/** A raw draw (an unsigned whole number of four bytes) at an address: a list of strings and whole numbers. */
+export const drawAt = (draws, ...parts) => drawU32(draws.root, address(...parts));
+/** What a pack law's `view.draw(address)` reads: the pack's own lane under the root. */
+export const packDraw = draws => (pack, parts) => drawAt(draws, 'law', pack, ...(Array.isArray(parts) ? parts : [parts]));
+// A working's odds step: keyed by the working id, the step and its deadline minute. The kernel turns the raw draw into a roll.
+const oddsDraw = draws => ({working, step, at}) => {
+    const key = ['working', working, step, at, 'odds'];
+    return {address: key.join('/'), value: drawAt(draws, ...key)};
+};
+// ---- E11 saved dice: end ----
 
 export const emptyRecords = () => ({schema: RECORDS_SCHEMA, workings: {}, stored: {}, bindings: [], log: [], published: [], dues: []});
 export const recordsEmpty = r => !r || !Object.keys(r.workings).length && !Object.keys(r.stored).length && !r.bindings.length && !r.dues.length;
@@ -76,6 +104,7 @@ function kernelPorts(engine, entry, world) {
         read: reader(host, world.get),
         ...(bindings.length || inner ? {authority: bindingAuthority(bindings, {log: records.log, receipts: engineReceipts(engine), inner})} : {}),
         ...(host.ports.pace ? {pace: host.ports.pace} : {}),
+        draw: oddsDraw(engine.draws), // E11: a published odds is drawn from the saved root
         // KW15 and H2: the step's own cost rows and the rows its sentences carry are debited
         // before its effects land. A quote asks the same question and keeps nothing.
         settleCosts({working, step, costs, effects, forecast}) {

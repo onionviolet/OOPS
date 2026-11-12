@@ -172,8 +172,46 @@ function settleStep({law, method, workingId, bindings, facts, index, at, ports, 
     check(outcome.facts === undefined || object(outcome.facts), `Operation ${step.op} returned invalid facts.`);
     check(outcome.effects === undefined || Array.isArray(outcome.effects), `Operation ${step.op} returned invalid effects.`);
     return {ok: true, used, facts: clone(outcome.facts ?? {}),
-        observed: clone(outcome.observed), ...withConsequence(extras(step.op, outcome), clone(outcome.effects ?? []), consequence)};
+        observed: clone(outcome.observed), ...withConsequence(extras(step.op, outcome), clone(outcome.effects ?? []), consequence),
+        ...missBranch(step.op, outcome, consequence)};
 }
+
+// ---- E11 saved dice (proposal): begin ----
+// An operation that publishes `odds` may say what a missed draw does with `miss`:
+// {facts?, effects?, observed?} for a step that settles another way, or
+// {ok: false, reason, observed?} for a miss that stops the working. With no `miss`
+// the step settles and lands nothing of the operation's own. What an authority
+// attached to the step (KW35) lands either way.
+function missBranch(op, outcome, consequence) {
+    if (outcome.odds === undefined && outcome.miss === undefined) return {};
+    const miss = outcome.miss ?? {};
+    check(object(miss) && (miss.facts === undefined || object(miss.facts)) && (miss.effects === undefined || Array.isArray(miss.effects)) &&
+        (miss.ok !== false || (typeof miss.reason === 'string' && miss.reason.length > 0)), `Operation ${op} returned an invalid miss.`);
+    return {miss: {...(miss.ok === false ? {ok: false, reason: miss.reason} : {}), facts: clone(miss.facts ?? {}),
+        effects: [...clone(miss.effects ?? []), ...(consequence?.effects ?? [])],
+        ...(miss.observed !== undefined ? {observed: clone(miss.observed)} : {})}};
+}
+
+// An optional `ports.draw` resolves a settled step's published odds (KW15). It is asked
+// once per allowed step that carries odds, with {working, step, op, at, address, odds},
+// and answers {value, address?}: a raw draw, a whole number below 2^32, which the kernel
+// scales to a permille roll; a roll below `odds` is a hit. The draw is
+// kept as `truth.draw`. A quote does not ask: it shows the odds and the hit branch, so a
+// forecast cannot read the outcome. With no port the receipt is as it was before.
+function withDraw(result, {ports, working, step, op, at, forecast}) {
+    const {miss, ...rest} = result;
+    const odds = rest.extras?.odds;
+    if (!rest.ok || odds === undefined || !ports.draw || forecast) return rest;
+    const drawn = ports.draw({working, step, op, at, address: `${working}/${step}`, odds});
+    check(object(drawn) && natural(drawn.value) && drawn.value < 0x100000000, 'A draw answers with a whole number below 2^32.');
+    const roll = Math.floor(drawn.value * 1000 / 0x100000000), hit = roll < odds;
+    const extras = {...rest.extras, draw: {address: drawn.address ?? `${working}/${step}`, roll, hit}};
+    if (hit) return {...rest, extras};
+    if (miss?.ok === false) return {ok: false, reason: miss.reason, cause: 'draw', used: rest.used,
+        observed: miss.observed ?? rest.observed, extras};
+    return {...rest, facts: miss?.facts ?? {}, effects: miss?.effects ?? [], observed: miss?.observed ?? rest.observed, extras};
+}
+// ---- E11 saved dice: end ----
 
 // KW4. A quote is the same settlement run as a forecast: nothing is kept and
 // nothing is published. It reads the world through the same ports.
@@ -331,8 +369,10 @@ function settleDueSteps(law, next, now, ports, maxSteps, forecast = false) {
         const index = next.cursor;
         const at = next.deadlines[index];
         const op = next.method.steps[index].op;
-        const result = withPaid(settleStep({law, method: next.method, workingId: next.id, bindings: next.bindings,
-            facts: next.facts, index, at, ports, fingerprint: next.fingerprint}), {ports, working: next.id, step: index, op, at, forecast});
+        const asked = {ports, working: next.id, step: index, op, at, forecast};
+        // E11: the odds are drawn before the costs are debited, so the price is for the branch that happened.
+        const result = withPaid(withDraw(settleStep({law, method: next.method, workingId: next.id, bindings: next.bindings,
+            facts: next.facts, index, at, ports, fingerprint: next.fingerprint}), asked), asked);
         if (!result.ok) {
             next.status = 'interrupted';
             next.receipts.push({step: index, op, at, ok: false, cause: result.cause, reason: result.reason,
@@ -381,7 +421,7 @@ function validatePaceRecord(record) {
         typeof pace.history === 'string' && /^[a-f0-9]{8}:\d+$/.test(pace.history),
     'The saved pace context is invalid.');
     const failure = receipts?.[cursor];
-    const failedAtDeadline = record.status === 'interrupted' && ['binding', 'authority', 'operation'].includes(failure?.cause);
+    const failedAtDeadline = record.status === 'interrupted' && ['binding', 'authority', 'operation', 'draw'].includes(failure?.cause);
     const count = failedAtDeadline ? cursor + 1 : method.steps.length;
     check(Array.isArray(deadlines) && deadlines.length === count && [...deadlines].every((at, i) =>
         natural(at) && at >= (i ? deadlines[i - 1] : startedAt)), 'The saved paced deadlines are invalid.');
