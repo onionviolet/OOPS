@@ -38,7 +38,16 @@ export async function runEffects() {
     out.gl2 = {};
     for (const world of worlds) {
         const [grammar, label] = gl2[world.id];
-        out.gl2[world.id] = canonTest(grammar, world.rows, {label, predict: ['verb', 'object', 'target', 'time'], generated: 20}).prediction;
+        const predict = world.id === 'gu' ? w.GU_GL2_FIELDS : ['verb', 'object', 'target', 'time'];
+        out.gl2[world.id] = canonTest(grammar, world.rows, {label, predict, generated: 20}).prediction;
+        if (world.id === 'gu') {
+            const baseline = canonTest(w.guEffectsGl2Baseline, world.rows, {label, predict, generated: 20});
+            const excluded = world.rows.flatMap(row => {
+                const result = label(row);
+                return result.parts ? [] : [{id: row.id, missing: result.missing, chapters: row.parts?.chapters ?? []}];
+            });
+            Object.assign(out.gl2.gu, {baseline: baseline.prediction, folds: baseline.folds, corpusRows: world.rows.length, excluded});
+        }
         out.canon[world.id] = canonTest(world.grammar, world.rows, {label: world.label, compare: world.compare, infer: ['verb'],
             pairs: [['object', 'target'], ['object', 'time']]});
         const other = worlds.find(x => x !== world);
@@ -86,6 +95,13 @@ function summary(out) {
         for (const f of r.missingRules) lines.push(`    ${f.count} x ${f.kind} ${f.rule ?? f.slot}${f.cause ? ` (${f.cause})` : ''} e.g. ${f.examples.join(', ')}`);
     }
     for (const [id, p] of Object.entries(out.gl2)) {
+        if (id === 'gu') {
+            lines.push(`GL2 gu: ${p.tested}/${p.corpusRows} chapter-checked rows scored in ${p.folds} fixed folds; ${p.excluded.length} excluded:`,
+                ...p.excluded.map(row => `    ${row.id}: missing ${row.missing.join(', ')} (ch. ${row.chapters.join(', ')})`),
+                '  before -> after (hits): ' + [['whole', p.all], ...Object.entries(p.slots)]
+                    .map(([field, current]) => `${field} ${(field === 'whole' ? p.baseline.all : p.baseline.slots[field]).hits}/${p.baseline.tested} -> ${current.hits}/${p.tested}`)
+                    .join(', '));
+        }
         lines.push(`GL2 ${id}: whole effect predicted from identity ${p.all.hits}/${p.tested} = ${p.all.rate} (majority ${p.all.baseline}); ` +
             Object.entries(p.slots).map(([k, v]) => `${k} ${v.rate} (${v.baseline})`).join(', '), '  top misses:');
         for (const m of p.misses.slice(0, 8)) lines.push(`    ${m.count} x ${m.miss} e.g. ${m.examples.join(', ')}`);

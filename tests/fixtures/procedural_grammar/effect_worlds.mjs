@@ -189,14 +189,39 @@ function withIdentity(effects, identitySlots, verbGiven) {
     return defineG({...spec, id: `${spec.id}.gl2`, slots: [...identitySlots,
         ...spec.slots.map(s => s.id === 'verb' ? {...s, given: verbGiven} : s)]});
 }
-export const guEffectsGl2 = withIdentity(guEffects, [
-    {id: 'type', type: 'set', open: true, min: 0}, {id: 'gpath', type: 'set', open: true, min: 0}], ['type', 'gpath']);
+export const GU_GL2_FIELDS = ['verb', 'object', 'target', 'time'];
+const guGl2Spec = guEffects.spec;
+export const guEffectsGl2Baseline = defineG({
+    ...guGl2Spec, id: 'effect.gu.gl2',
+    slots: [
+        {id: 'type', type: 'set', open: true, min: 0},
+        {id: 'gpath', type: 'set', open: true, min: 0},
+        ...guGl2Spec.slots.filter(s => GU_GL2_FIELDS.includes(s.id))
+            .map(s => s.id === 'verb' ? {...s, given: ['type', 'gpath']} : s),
+    ],
+    rules: guGl2Spec.rules.filter(r => r.reads.every(id => GU_GL2_FIELDS.includes(id))),
+    fallback: {id: 'effect.gu.gl2.fallback', parts: Object.fromEntries(
+        GU_GL2_FIELDS.map(id => [id, guGl2Spec.fallback.parts[id]]))},
+});
+// Wiki type distinguishes affected properties within a verb. Path can
+// distinguish how long the same verb operates. Both back off through GL5.
+const guGl2Given = {object: ['verb', 'type'], time: ['verb', 'gpath']};
+export const guEffectsGl2 = defineG({
+    ...guEffectsGl2Baseline.spec, revision: 2,
+    slots: guEffectsGl2Baseline.spec.slots.map(s => guGl2Given[s.id] ? {...s, given: guGl2Given[s.id]} : s),
+});
 export const hpEffectsGl2 = withIdentity(hpEffects, [{id: 'family', type: 'one', open: true}], 'family');
+// G's catalogue keeps chapter-stated path separate from the wiki review index.
+// Retain raw categories and empty sets when neither source supplies a value.
+export function guGl2Identity(row) {
+    const p = row.parts?.value;
+    return {type: [...(p?.wiki?.type ?? [])], gpath: p?.path ? [p.path] : [...(p?.wiki?.path ?? [])]};
+}
 export function labelGuEffectGl2(row) {
     const out = labelGuEffect(row);
     if (!out.parts) return out;
-    const p = row.parts.value;
-    return {...out, parts: {...out.parts, type: [...(p.wiki?.type ?? [])], gpath: p.path ? [p.path] : [...(p.wiki?.path ?? [])]}};
+    const {verb, object, target, time} = out.parts;
+    return {parts: {...guGl2Identity(row), verb, object, target, time}};
 }
 export function labelHpEffectGl2(row) {
     const out = labelHpEffect(row);

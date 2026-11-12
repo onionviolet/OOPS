@@ -1,11 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {assemble} from '../src/procedural_grammar.js';
+import {assemble, fitGrammar, predictParts, predictSlot} from '../src/procedural_grammar.js';
 import {lowerEffect, defineEffectGrammar, effectKind, applySentence, EFFECT_OBJECTS} from '../src/effect_grammar.js';
 import {composeSubstrate, createWorld, readQuantity} from '../src/world_substrate.js';
 import {WORLD_QUANTITIES as WQ, WORLD_PROPERTIES as WP} from '../src/world_quantities.js';
 import {proposeEffects, checkEffect, keepSpread, fitCostCurve, priceOf, exploreEffects, createNicheArchive, archiveOffer} from '../src/effect_checks.js';
 import {runEffects, effectWorlds} from '../scripts/grammar_canon_effects.mjs';
+import {GU_GL2_FIELDS, guEffectRows, guEffectsGl2, guGl2Identity, labelGuEffectGl2} from './fixtures/procedural_grammar/effect_worlds.mjs';
 
 const sentence = {verb: 'move', object: 'position', target: 'bound', time: 'sustained', carrier: 'spoken-spell', cost: 'stamina', limits: ['mass']};
 const cause = {kind: 'pressure', id: 'test:siege'};
@@ -149,4 +150,28 @@ test('GL2: the effect predicted from identity beats the majority guess in both w
         assert.ok(p.misses.length > 0);
     }
     assert.deepEqual([out.moves.records, out.moves.assembled], [23, 23]);
+});
+
+test('Gu GL2 uses only sourced identity and can back off without a standalone label', async () => {
+    const rows = await guEffectRows();
+    const missing = rows.find(row => row.id === 'gu:stone-scar');
+    assert.deepEqual(labelGuEffectGl2(missing), {missing: ['function']});
+    const identity = guGl2Identity(missing);
+    assert.deepEqual(identity, {type: [], gpath: []});
+
+    const labelled = rows.flatMap(row => {
+        const {parts} = labelGuEffectGl2(row);
+        if (!parts) return [];
+        const known = Object.fromEntries(Object.entries(parts).filter(([id]) => !GU_GL2_FIELDS.includes(id)));
+        assert.deepEqual(known, guGl2Identity(row));
+        assert.deepEqual(Object.keys(known).sort(), ['gpath', 'type']);
+        return [{id: row.id, parts}];
+    });
+    const fitted = fitGrammar(guEffectsGl2, labelled);
+    const verb = predictSlot(fitted, identity, 'verb');
+    assert.ok(verb.ranked.length);
+    assert.ok(verb.ranked.every(entry => entry.weight === entry.marginal));
+    const prediction = predictParts(fitted, identity, GU_GL2_FIELDS);
+    assert.equal(prediction.verb, verb.best);
+    assert.ok(GU_GL2_FIELDS.every(field => prediction[field]));
 });

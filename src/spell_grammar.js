@@ -164,7 +164,10 @@ export function effectLayerTest(grammar, rows, world, {lexicon = {}, nameWords =
     for (const {row, parts, truth} of labelled) {
         const train = labelled.filter(x => x.row.id !== row.id);
         const fitted = fitGrammar(grammar, train.map(x => ({id: x.row.id, parts: withMarks(x.parts, world, components)})));
-        const identity = {...parts, target: undefined, roots: [...withMarks(parts, world, components).roots, ...(nameWords[row.id] ?? [])]};
+        // Project the held-out row onto known inputs before inference or assembly.
+        const {roots, delivery, gesture, focus, attention, carrier, cost, access} = parts;
+        const known = {roots, delivery, gesture, focus, attention, carrier, cost, access};
+        const identity = {roots: [...withMarks(known, world, components).roots, ...(nameWords[row.id] ?? [])]};
         const scores = new Map((inferIntent(fitted, identity, {lexicon}).ranked ?? []).map(([k, v]) => [k, v]));
         const family = {};
         for (const x of train) if (x.row.family === row.family) family[x.parts.intent] = (family[x.parts.intent] ?? 0) + 1;
@@ -182,7 +185,7 @@ export function effectLayerTest(grammar, rows, world, {lexicon = {}, nameWords =
         const ranked = Object.entries(targetVotes).sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1)).map(([t]) => t);
         let built = null;
         for (const target of ranked) {
-            const attempt = intent && execution ? assemble(fitted, {...parts, intent, target, execution}) : null;
+            const attempt = intent && execution ? assemble(fitted, {...known, intent, target, execution}) : null;
             if (attempt?.ok) { built = attempt; break; }
             built ??= attempt;
         }

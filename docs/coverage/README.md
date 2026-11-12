@@ -23,12 +23,12 @@
 | gu_kinds | effect-unknown | 400 |
 | hp_ingredients | ingredient-properties | 380 |
 | lotm_potions | formula-in-notes | 177 |
-| hp_potions | body-door | 79 |
+| hp_potions | body-door | 82 |
 | creatures | gu-body-fields | 78 |
 | hp_potions | mind-state | 50 |
-| hp_potions | effect-sentence | 48 |
-| hp_potions | body-form | 41 |
-| hp_potions | plant-or-creature-target | 32 |
+| hp_potions | effect-sentence | 47 |
+| hp_potions | body-form | 40 |
+| hp_potions | plant-or-creature-target | 31 |
 | gu_moves | unnamed-role | 17 |
 | hp_spells | missing-intent | 10 |
 | hp_potions | conceal-or-sense | 9 |

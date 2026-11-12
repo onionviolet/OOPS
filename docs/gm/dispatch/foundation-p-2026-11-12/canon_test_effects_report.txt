@@ -22,13 +22,36 @@ hogwarts: 117 rows, 109 labelled; rebuild 85/109 = 0.78
     1 x derive-mismatch family (bind outside "Defend, interrupt and end") e.g. hp:disarm
     1 x derive-mismatch family (add outside "Defend, interrupt and end") e.g. hp:flame-freezing
     1 x derive-mismatch family (end outside "Change a creature, mind or ongoing condition") e.g. hp:tickle
-GL2 gu: whole effect predicted from identity 25/57 = 0.439 (majority 0); verb 0.544 (0.281), object 0.474 (0.228), target 0.632 (0.456), time 0.649 (0.491)
+GL2 gu: 57/78 chapter-checked rows scored in 5 fixed folds; 21 excluded:
+    gu:fish-scale: missing function (ch. 123, 127)
+    gu:stone-scar: missing function (ch. 106)
+    gu:change-form: missing function (ch. 976)
+    gu:man-as-before: missing function (ch. 609, 610, 611)
+    gu:yaksha-octopus-king-wild-immortal: missing function (ch. 933)
+    gu:heavenly-essence-treasure-imperial-lotus: missing function (ch. 2233, 2234)
+    gu:heavenly-secret: missing function (ch. 2275, 2279, 2285)
+    gu:light: missing function (ch. 2279, 2280, 2281, 2287, 2318, 2320)
+    gu:swirl: missing function (ch. 167)
+    gu:fierce-wind: missing function (ch. 167)
+    gu:wisdom: missing function (ch. 817)
+    gu:fixed-space: missing function (ch. 1795)
+    gu:permanence: missing function (ch. 1795)
+    gu:beast-enslavement: missing function (ch. 463, 701)
+    gu:slavery: missing function (ch. 656)
+    gu:responsive-luck: missing function (ch. 1919)
+    gu:reputation-restriction: missing function (ch. 1370)
+    gu:eat-strength: missing function (ch. 961)
+    gu:pulling-mountain: missing function (ch. 961)
+    gu:pulling-water: missing function (ch. 961)
+    gu:fight: missing function (ch. 1394, 1395, 1396)
+  before -> after (hits): whole 25/57 -> 25/57, verb 31/57 -> 31/57, object 27/57 -> 31/57, target 36/57 -> 36/57, time 37/57 -> 40/57
+GL2 gu: whole effect predicted from identity 25/57 = 0.439 (majority 0); verb 0.544 (0.281), object 0.544 (0.228), target 0.632 (0.456), time 0.702 (0.491)
   top misses:
     8 x target: area read as self e.g. gu:blood-asset, gu:landscape-as-before, gu:lightning-eye, gu:starlight-firefly
-    8 x time: lasting read as sustained e.g. gu:vitality-grass, gu:charred-thunder-potato-mother, gu:ant-nest, gu:landscape-as-before
     7 x target: bound read as self e.g. gu:duplicate, gu:plunder, gu:love, gu:light-source
     7 x time: instant read as sustained e.g. gu:plunder, gu:love, gu:ice-blade, gu:self-reliance
-    6 x object: vitality read as force e.g. gu:ice-blade, gu:self-reliance, gu:charred-thunder-potato, gu:moon-scar
+    7 x time: lasting read as sustained e.g. gu:vitality-grass, gu:charred-thunder-potato-mother, gu:ant-nest, gu:landscape-as-before
+    5 x object: vitality read as force e.g. gu:ice-blade, gu:charred-thunder-potato, gu:moon-scar, gu:thunder-shield
     5 x object: working read as force e.g. gu:duplicate, gu:blood-asset, gu:light-source, gu:enlarge
     5 x verb: alter read as add e.g. gu:duplicate, gu:light-source, gu:enlarge, gu:fire-source
     4 x target: line read as self e.g. gu:ice-blade, gu:charred-thunder-potato, gu:moon-scar, gu:red-fire
