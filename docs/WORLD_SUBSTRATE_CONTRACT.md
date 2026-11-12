@@ -42,8 +42,8 @@ A world is a clock (whole played minutes, the root clock of TMR1) and a set of *
 | WSC16 | **Families, not names per grade.** Energy by kind, stock by good, light by kind, scent by kind and residue by substance are keyed families. Declaring the family covers every key; declaring one key covers only it. | A world adds keys freely (a new essence grade is a key, not a vocabulary change). |
 | WSC17 | **Scarcity is derived.** `readScarcity(world, place, good)` reads `stock:<good>` against `want:<good>` of the holders there and is never saved (SPR23). | Days of cover is the default reading; M's price curve and A's wants read it. |
 | WSC18 | **One identity, several kinds** (SC7). A holder is the one record of a thing that is an item, a body and a Gu at once. `resolveRef` maps a kernel binding `{kind, id}` to it by id (with the kind in `as` or its physical kind) or by an owner's ref. `substratePort(world)` is K's `ports.read` over the world at its own minute. | Two holders claiming one ref is refused. Custody stays with inventory and K. |
-| WSC19 | **Effect primitives are verbs on W objects** (SB3). `applyEffect(rules, world, act, cause)` runs one of ten verbs (move, add, remove, transform, bind, sense, conceal, copy, block, alter) on quantities, properties, positions or law fields of resolved targets at one minute, and publishes `effect.<verb>` into each target's place. | A new verb needs a canon effect the ten cannot express and a second consumer (EF2). |
-| WSC20 | **Counterplay is a verb too** (EF3). `block` is a law field that stops a verb on an object at a scope; `conceal` defeats `sense` on a channel; `alter` removes or changes law fields, and a block on `alter` guards a ward. Sustained effects are law fields with `until`, which lapse at that minute's boundary and publish `law.lapsed`. | Durations are whole minutes. |
+| WSC19 | **Effect primitives are verbs on W objects** (SB3). `applyEffect(rules, world, act, cause)` runs one of twelve verbs (move, add, remove, transform, bind, release, sense, conceal, copy, block, end, alter), the same list as P's effect grammar on quantities, properties, positions or law fields of resolved targets at one minute, and publishes `effect.<verb>` into each target's place. | A new verb needs a canon effect the twelve cannot express and a second consumer (EF2); W and P keep one list (E9). |
+| WSC20 | **Counterplay is a verb too** (EF3). `block` is a law field that stops a verb on an object at a scope; `conceal` defeats `sense` on a channel; `release` undoes `bind` and `conceal`; `end` stops a sustained effect (a law field) early; `alter` removes or changes law fields, and a block on `alter` guards a ward. Sustained effects are law fields with `until`, which lapse at that minute's boundary and publish `law.lapsed`. | Durations are whole minutes. |
 
 ## Effect primitives and the boundary with P (SB3)
 
@@ -51,8 +51,8 @@ A world is a clock (whole played minutes, the root clock of TMR1) and a set of *
 
 | Grammar part (plan) | Who owns it | In W |
 | --- | --- | --- |
-| Verb | W runs it | `act.verb`, one of the ten |
-| Object | W's vocabulary | a quantity (`vitality`, `energy:mana`), `property:<name>`, `position` or `law:<kind>` |
+| Verb | W runs it | `act.verb`, one of the twelve |
+| Object | W's vocabulary | a quantity (`vitality`, `energy:mana`), `property:<name>`, `position` or `law:<kind>`. P's object names map through `W_OBJECT_OF`: heat to `temperature`, sound to `noise`, essence to `energy:<kind>`, moisture to `humidity`, light to `light:<kind>`, form to `property:form`, relation to `property:marks`; force, lifespan, mind, information, memory and working belong to other owners and are published as effects |
 | Target and shape | P composes; X resolves geometry | W resolves `self`, `holder`, `holders`, `place`, `present`, `marked`, `having`; a line or cone arrives as `holders` |
 | Time | P and K | instant is the act; sustained is `until` on a law field; delayed or triggered is a K step deadline or a reactor |
 | Carrier | P and K | `act.by` records it for the cause chain; nothing in W reads it |

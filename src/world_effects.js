@@ -7,7 +7,21 @@
 // on any object it names, `conceal` defeats `sense`, `alter` changes law fields.
 import {applyWorldOps, quantityDef} from './world_substrate.js';
 
-export const EFFECT_VERBS = Object.freeze(['move', 'add', 'remove', 'transform', 'bind', 'sense', 'conceal', 'copy', 'block', 'alter']);
+// Kept in step with P's effect grammar verbs (src/effect_grammar.js EFFECT_VERBS): one list of twelve.
+export const EFFECT_VERBS = Object.freeze(['move', 'add', 'remove', 'transform', 'bind', 'release', 'sense', 'conceal', 'copy', 'block', 'end', 'alter']);
+
+/** P's effect objects (src/effect_grammar.js EFFECT_OBJECTS) on W's vocabulary.
+ * A string is the W object; null means the object belongs to another owner
+ * (K for workings, N for knowledge, A and L for minds) and W publishes the
+ * effect for that owner to answer. Keyed families take the world's key at
+ * lowering (`light:<kind>`, `energy:<kind>`). */
+export const W_OBJECT_OF = Object.freeze({
+    vitality: 'vitality', heat: 'temperature', light: 'light', sound: 'noise', essence: 'energy', moisture: 'humidity',
+    force: null, lifespan: null,
+    position: 'position', form: 'property:form', mind: null,
+    information: null, memory: null,
+    relation: 'property:marks', thing: 'position', working: null, law: 'law:*', time: 'law:*',
+});
 export const EFFECT_PRIMITIVES_REVISION = 0;
 
 const fail = message => { throw new Error(`World effects: ${message}`); };
@@ -82,8 +96,8 @@ export function applyEffect(rules, world, act, cause) {
     check(typeof cause === 'string' && cause, 'an act needs a cause.');
     const verb = act.verb;
     // bind and conceal write the marks and concealed properties; block, alter and a bare sense name no object.
-    const implied = {bind: 'property:marks', conceal: 'property:concealed'}[verb];
-    const obj = implied ? parseObject(rules, implied) : verb === 'block' || verb === 'alter' || verb === 'sense' && !act.object
+    const implied = {bind: 'property:marks', conceal: 'property:concealed'}[verb] ?? (verb === 'release' ? `property:${act.channel ? 'concealed' : 'marks'}` : undefined);
+    const obj = implied ? parseObject(rules, implied) : verb === 'block' || verb === 'alter' || verb === 'end' || verb === 'sense' && !act.object
         ? {type: 'none', name: act.object ?? '*'} : parseObject(rules, act.object);
     const targets = resolveTargets(world, act.target);
     const by = act.by ?? cause, ops = [], outcome = {applied: [], blocked: [], skipped: [], observed: []};
@@ -165,6 +179,24 @@ export function applyEffect(rules, world, act, cause) {
                 if (!now.includes(value)) ops.push({op: 'property', holder: target, property: prop, value: [...now, value]});
             }
             note(target, {[verb === 'bind' ? 'mark' : 'channel']: value, ...(act.until != null ? {until: act.until} : {})});
+            break;
+        }
+        case 'release': {
+            // The counter to bind and conceal: drop a mark, or a hidden channel.
+            const prop = act.channel ? 'concealed' : 'marks', value = act.channel ?? act.mark;
+            check(typeof value === 'string' && value, 'release needs a mark or a channel.');
+            const now = h.properties[prop] ?? [];
+            if (!now.includes(value)) { outcome.skipped.push({target, reason: 'not-held'}); break; }
+            ops.push({op: 'property', holder: target, property: prop, value: now.filter(v => v !== value)});
+            note(target, {[act.channel ? 'channel' : 'mark']: value});
+            break;
+        }
+        case 'end': {
+            // Ends a sustained effect: a law field scoped to the target, by id or kind. A running working is K's to end.
+            const f = world.laws.find(x => x.scope === target && (act.field ? x.id === act.field : x.kind === act.kind));
+            if (!f) { outcome.skipped.push({target, reason: act.working ? 'kernel-working' : 'no-field'}); break; }
+            ops.push({op: 'law_remove', id: f.id});
+            note(target, {ended: f.id});
             break;
         }
         case 'copy': {

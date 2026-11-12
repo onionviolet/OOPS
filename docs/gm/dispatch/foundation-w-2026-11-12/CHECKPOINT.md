@@ -111,9 +111,21 @@ Receipt: [proof/receipt.json](proof/receipt.json) (8 of 8 lines PASS), screensho
 | `npm run check:rules` | PASS; the only new warning is the TMR1 line in `book_world_hp_exams.js` from master | |
 | full `npm test` | not run | The integrator's, at merge (MC7) |
 
+## Phase 2c: one verb list with P for MS2 (2026-11-12)
+
+Merged master (2fff2285e, milestones MS1-MS7). P's effect grammar (`src/effect_grammar.js`) had twelve verbs; W had ten. W added `release` (undo `bind` or `conceal`) and `end` (stop a sustained effect early; a running working is K's), so both chats run one list of twelve (E9 checks the lists match). `W_OBJECT_OF` maps each of P's 18 objects to a W object or names the owner that answers it.
+
+**Known break for the integrator:** `tests/effect_grammar.test.js` line 23 (P's file) expects `light` to be missing from W and lowered as a published effect. Vocabulary v1 declares `light` as a keyed family (asked by L, G, C and S), so that one assertion fails on this branch; P's other tests pass. Fix is P's (request below). W did not edit P's file.
+
+| Command | Result |
+| --- | --- |
+| `node --test tests/world_effects.test.js tests/world_substrate.test.js tests/meadow_shell_state.test.js` | 24 pass (E1-E9, W1-W10, meadow 5) |
+| `node --test tests/effect_grammar.test.js` | 1 fail (line 23, above), rest pass |
+
 ## Requests (phase 2, for the coordinator to relay)
 
 - **K (SC7, SB1):** the plan makes K the owner of identity. W offers its half: holders carry `as` (kinds a binding may name) and `refs` (records other owners keep), `resolveRef(world, {kind, id})` and `substratePort(world)` as a `ports.read` (WSC18). Please confirm or replace the id scheme so there is one identity authority, not two. Answers to K's backlog: **KB5** reservations stay with the custody owners; W only reads. **KB6** rates inside a step: run the step's progress as a closed-form substrate law (`horizon` plus `advance`, WSC4), which settles the same near and far.
+- **P (SB3, MS2), urgent for the merge:** (a) update `tests/effect_grammar.test.js` line 23: `light` is now W vocabulary, a keyed family, so it is no longer a need; (b) in `lowerEffect`, map objects through `W_OBJECT_OF` from `src/world_effects.js` (heat to temperature, sound to noise, essence to energy) and add the world's key for keyed families (`light:moon`, `energy:primeval.rank1`); a bare family name is refused by W; (c) better still, lower to W acts and let `applyEffect` run them, so the verbs have one executor. The verb lists already match (E9).
 - **P (SB3):** the boundary table in the contract ("Effect primitives and the boundary with P") is W's proposal: W runs verb, object and resolved targets at one minute, with `until` for sustained effects and block, conceal and bounds as limits; P owns shape, time, carrier, cost and the other limits. Please agree or amend; E8 lowers four plan sentences to acts as the worked example.
 - **L:** (0) `src/meadow_shell_state.js` is handed back after this commit merges; the chamber now lives on the substrate and `src/living_regulator.js` has no runtime caller (L decides whether to retire it or keep it as the parity reference W1 uses). (1) Answered by the coordinator: may W make the meadow shell chamber's humidity, shell and inlet live on the substrate (your checkpoint: "Move ownership of ambient humidity to W; device keeps its inlet")? That is W's live route for phase 2b and touches `src/meadow_shell_state.js`. If you would rather own the call-site swap, W builds the slice and migration and asks you for the one line. (2) Handover of `src/world_substrate_packs/shell_regulator.js` to L at your embed.
 - **B:** handover of `src/world_substrate_packs/brew_steam.js` at your embed; BRQ4 ambient temperature can now be read from the place's `temperature`.

@@ -4,7 +4,8 @@ import {
     composeSubstrate, createWorld, advanceWorld, applyWorldOps, serializeWorld, restoreWorld,
     readQuantity, resolveRef, substratePort, readScarcity, SUBSTRATE_REVISION,
 } from '../src/world_substrate.js';
-import {applyEffect, resolveTargets, EFFECT_VERBS} from '../src/world_effects.js';
+import {applyEffect, resolveTargets, EFFECT_VERBS, W_OBJECT_OF} from '../src/world_effects.js';
+import {EFFECT_VERBS as P_VERBS, EFFECT_OBJECTS as P_OBJECTS} from '../src/effect_grammar.js';
 import {WORLD_QUANTITIES as Q, WORLD_PROPERTIES as P} from '../src/world_quantities.js';
 
 const allQ = Object.values(Q), allP = Object.values(P);
@@ -68,7 +69,7 @@ test('E2 laws read properties, not categories (PFP22): any heat source lights wh
 });
 
 test('E3 every verb runs on W objects, and its counter is another verb', () => {
-    assert.deepEqual([...EFFECT_VERBS].sort(), ['add', 'alter', 'bind', 'block', 'conceal', 'copy', 'move', 'remove', 'sense', 'transform']);
+    assert.deepEqual([...EFFECT_VERBS].sort(), ['add', 'alter', 'bind', 'block', 'conceal', 'copy', 'end', 'move', 'release', 'remove', 'sense', 'transform']);
     let w = hall();
     // add and remove stay in bounds and report what landed.
     let r = act(w, {verb: 'add', object: 'noise', target: {shape: 'holder', id: 'hall'}, amount: 250});
@@ -184,4 +185,21 @@ test('E8 canon sentences lower to acts: the boundary P composes on', () => {
     assert.equal(readQuantity(struck.world, 'boar', 'vitality'), 4);
     const later = advanceWorld(rules, w, 10).world;
     assert.equal(act(later, {verb: 'remove', object: 'vitality', amount: 8, target: {shape: 'holder', id: 'mage'}}).outcome.blocked.length, 0, 'the ward lapses');
+});
+
+test('E9 one verb list with P, every P object mapped, and release and end answer bind, conceal and sustained effects', () => {
+    assert.deepEqual([...EFFECT_VERBS].sort(), [...P_VERBS].sort(), 'W runs exactly the verbs P composes');
+    assert.deepEqual(Object.keys(W_OBJECT_OF).sort(), Object.keys(P_OBJECTS).sort(), 'every P object has a W reading or a named owner');
+    for (const w of Object.values(W_OBJECT_OF).filter(v => v && !v.includes(':') && v !== 'position')) assert.ok(Q[w], `${w} is W vocabulary`);
+    let w = act(hall(), {verb: 'bind', mark: 'oath', target: {shape: 'holder', id: 'mage'}}).world;
+    w = act(w, {verb: 'release', mark: 'oath', target: {shape: 'holder', id: 'mage'}}).world;
+    assert.deepEqual(w.holders.mage.properties.marks, []);
+    w = act(w, {verb: 'conceal', channel: 'sight', target: {shape: 'holder', id: 'thief'}}).world;
+    w = act(w, {verb: 'release', channel: 'sight', target: {shape: 'holder', id: 'thief'}}).world;
+    assert.equal(act(w, {verb: 'sense', channel: 'sight', by: 'mage', target: {shape: 'holder', id: 'thief'}}).outcome.observed.length, 1);
+    w = act(w, {verb: 'block', params: {verb: 'move', object: 'position'}, until: 50, field: 'snare', target: {shape: 'holder', id: 'thief'}}).world;
+    const ended = act(w, {verb: 'end', field: 'snare', target: {shape: 'holder', id: 'thief'}});
+    assert.deepEqual(ended.outcome.applied.map(a => a.ended), ['snare']);
+    assert.equal(act(ended.world, {verb: 'move', object: 'position', to: 'vault', target: {shape: 'holder', id: 'thief'}}).world.holders.thief.place, 'vault');
+    assert.deepEqual(act(w, {verb: 'end', working: 'w1', target: {shape: 'holder', id: 'mage'}}).outcome.skipped, [{target: 'mage', reason: 'kernel-working'}]);
 });
