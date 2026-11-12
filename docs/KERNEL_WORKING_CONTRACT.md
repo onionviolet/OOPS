@@ -1,6 +1,6 @@
 # Kernel working contract
 
-*Version 0.5, 2026-11-12 (v0.1 to v0.4 published earlier the same day; changes in the [changelog](#changelog)). Owner: chat K in the [procedural foundation plan](PROCEDURAL_FOUNDATION_PLAN.md). Module: [`src/kernel_working.js`](../src/kernel_working.js). Contract tests: [`tests/kernel_working.test.js`](../tests/kernel_working.test.js). A proposal under AD56: it widens what every domain can do and every line is an adjustable default. Changes are versioned requests to chat K (MC2); domain chats do not edit the module.*
+*Version 0.6, 2026-11-12 (v0.1 to v0.5 published earlier the same day; changes in the [changelog](#changelog)). Owner: chat K in the [procedural foundation plan](PROCEDURAL_FOUNDATION_PLAN.md). Module: [`src/kernel_working.js`](../src/kernel_working.js). Contract tests: [`tests/kernel_working.test.js`](../tests/kernel_working.test.js). A proposal under AD56: it widens what every domain can do and every line is an adjustable default. Changes are versioned requests to chat K (MC2); domain chats do not edit the module.*
 
 Not to be confused with `src/working_state.js`, which is the UI busy note for slow page actions.
 
@@ -114,6 +114,27 @@ Module [`src/kernel_oath.js`](../src/kernel_oath.js), tests [`tests/kernel_oath.
 - **KW38. The price is paid once.** An oath is broken when a receipt carries its breach or a due breach was published; `oathBroken` derives it from those records, with no stored flag.
 - **KW39. An undone duty breaks at its deadline.** `dueOathBreaches(oaths, {now, receipts, breaches})` finds require terms with no matching settled act by their deadline and returns the price rows at the deadline minute, so one jump and many give the same rows. The host publishes the effects; the kernel kills no one.
 
+### One descent graph (DG1-DG7, PFP33, v0.6)
+
+Module [`src/kernel_descent.js`](../src/kernel_descent.js), tests [`tests/kernel_descent.test.js`](../tests/kernel_descent.test.js). A recipe has a parent recipe, a spell a teacher, a sword its ore, a sect a founder, an estate its heirs; a bloodline is a query over the same edges.
+
+- **KW40. Typed edges, one writer per kind.** Edges run descendant to ancestor between identity ids: `born-of` (L), `made-from` (F), `refined-from` (F, G, B), `taught-by` (N), `forked-from` (P), `inherited-by` (M, R; names what passed with `via`), `founded-by` (M). The kinds and writers are a table (`DESCENT_KINDS`) a world may extend.
+- **KW41. Only observed ancestors (BX3).** Both ends must be identities the registry already holds, so an ancestor nobody has seen is not stored. Kinds that follow time one way (born-of, made-from, refined-from, forked-from) cannot loop; teaching, inheritance and founding can (two masters teach each other).
+- **KW42. Walks are fixed-order queries.** `ancestors`, `descendants` and `descendsFrom` walk chosen kinds breadth first, ordered by depth then id, under a depth dial. Blood as a key (BL5) is `descendsFrom` on born-of; a teaching line is the same call on taught-by.
+- **KW43. A bloodline is a query.** `bloodline(graph, id)` returns the observed born-of ancestors and what rides with the line (BL6): things passed between its members by inheritance, and teaching among them.
+- **KW44. Purity is computed, and the unknown stays unknown (BL3).** `purity(graph, id, judge, {expected})` gives each observed parent an equal share; an unobserved parent slot (`expected` parents per world: 2 for bodies, 1 for a Gu propagated from one mother) or a founder the judge cannot place counts as unknown. The answer is `{matching, unknown, other}`. What purity means in law or prestige is M's; what blood does to a body is L's.
+- **KW45. One versioned save** (`kernel.descent@1`) beside the identity registry, rebuilt edge by edge on restore so every rule is rechecked.
+
+Existing owners and their edges (read, not replaced; each owner writes its own kind when it embeds):
+
+| Owner | What it keeps today | Edges |
+| --- | --- | --- |
+| `lineage_traits.js` | `sire` and `dam` on each bred member (tested) | `born-of` (L) |
+| `family_tree.js` | an ended life's heir by `kin` or `apprentice`, names only (tested) | `inherited-by` (M) for both, plus `born-of` for kin and `taught-by` for an apprentice; named ancestors become identities when observed |
+| `village_family.js` | parents of each villager in `npc_lives` | `born-of` (L) |
+| `material_lineage.js` | process history with inputs in the item key | `made-from` or `refined-from` (F, B) |
+| `heir_inheritance.js` | what an ended life left and to whom | `inherited-by` (M) with `via` the item, estate or Gu |
+
 ## Save shape (OS8)
 
 ```json
@@ -179,6 +200,7 @@ From the shared notes. Covered means v0 already expresses it as data; no kernel 
 
 ## Changelog
 
+- **0.6 (2026-11-12).** KW40-KW45 descent graph (`kernel_descent.js`), its own record `kernel.descent@1`.
 - **0.5 (2026-11-12).** KW35 authority consequences; KW36-KW39 oaths (`kernel_oath.js`), LR13. Optional fields, no schema change.
 - **0.4 (2026-11-12).** KW31 grammar refs on methods, compositions and identities; KW32-KW34 `searchForActor` with a trial and step budget. Optional fields, no schema change.
 - **0.3 (2026-11-12).** KW27-KW30 workings that meet (`kernel_meet.js`); `settleWorking` takes `maxSteps`; `interruptWorking` takes `by` and `observed`. Optional fields, no schema change.
