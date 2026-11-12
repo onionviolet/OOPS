@@ -21,6 +21,12 @@ review: none
 
 Read the plan's SPD table and checked each item against the GL2 misses (S2R1-S2R9), using the committed blind lexicon run: 35/94 verb and object, 15/94 full. Measured, not guessed: only 2 of 94 Hogwarts rows record a gesture, none records a focus, and of the 79 missed rows only 1 (a target miss) records a gesture.
 
+### Codex lane return reviewed and committed (2026-11-12)
+
+The source check (`source_check_hp_spells.jsonl`) gave 94 verdicts: 6 confirmed, 74 corrected, 14 unsupported, 0 not found. S applied its pack and ledger edits, fixed the three row targets it could not touch (Engorgio and Reducio on a creature, Obscura on a portrait, with Hogwarts dial `mindedObjects` because portraits have minds), and moved the 14 unsupported rows to ledger exceptions (`blocked:missing-intent` 10, `blocked:effect-unshown` 3, `blocked:effect-unknown` 1). Ledger: 117 records, runs 80 (68.4%), blocked 32, not-a-thing 5, unclassified 0. GL2 on the 80 checked rows: blind 33 verb and object (41.3%), 12 full (15.0%); authored 52 and 22.
+
+SPD1 measured: 40 of 80 rows now record a gesture. As identity tokens they gave 5 rows evidence but no new hits (blind 33 either way; authored 52 to 51), because most gestures are generic pointing or raising. Default `components` is off; the parts and skip costs stay. Gesture shape as evidence needs a finer gesture vocabulary (request S3R1, rewritten).
+
 ### Which SPD items explain which misses
 
 | SPD | Explains | How much | Folded into |
@@ -45,7 +51,7 @@ S2R1 (ordered token composition), S2R2 (two givens per slot) and S2R3 (lexicon o
 
 | Count | Before | After |
 | --- | --- | --- |
-| Canon spell cases as data | 102 | 102 |
+| Canon spell cases as data | 102 | 88 (14 moved to blocked by the source check) |
 | Lowered into native play | 4 | 4 |
 | Bespoke spell modules | 7 | 7 |
 | Grammar parts | 9 | 11 (focus, attention) |
@@ -55,14 +61,15 @@ S2R1 (ordered token composition), S2R2 (two givens per slot) and S2R3 (lexicon o
 
 - `node --test tests/spell_depth.test.js tests/spell_grammar.test.js tests/spell_working.test.js`: 22 pass, 0 fail (6 new in spell_depth).
 - `npm run check:arch`: pass. `npm run check:rules`: PASS (0 new player-text strings). `node scripts/spell_coverage.mjs --check`: 117 records, runs 94, unclassified 0. `node scripts/check_doc_slips.mjs`: no new hits.
-- Not run: browser (no player-facing change; the depth functions have no caller in play yet), full `npm test` (integrator).
+- `spell_depth.js` is implemented, below floor: no caller in play yet. Not run: browser, full `npm test` (integrator).
+- Hogwarts `costSource` lives on `HP_SPELL_WORLD`; D&D, Cyoria and LOTM on their pack world records (SPD9 owner per pack).
 
 ### Requests (SPD)
 
 | Code | To | Request | Done check |
 | --- | --- | --- | --- |
-| S3R1 | Codex lane return (S itself) | Record a gesture and focus wherever the cited scene shows one, then rerun GL2 with the component tokens | GL2 reported with gesture coverage stated |
-| S3R2 | W | Object names for S's spell objects (S2R5 again): `counterFor` passes S object names to W block fields; they match only where both lists share a name (`position`) | a fire-blocking counter blocks W `add temperature` |
+| S3R1 | S next phase | Gesture as shape (direction, contact, path) instead of a free label, then rerun GL2 with components on; add the 10 missing intents the source check named (EF2 review) | GL2 with components beats components off |
+| S3R2 | P and W | Objects with no W reading (mind, memory, force, workings) need their owners' block fields; S maps all 28 objects onto P (`sharedEffect`) and counters lower through `lowerEffect` | a counter on a mind spell blocks through A's field |
 | S3R3 | lineage owner (LN4) | A taught-by edge that carries a caster's style (preferred families, quirks) so SPD7 can pass it on | a student's spell inherits the teacher's variation |
 
 ## Milestones MS1 to MS3 (2026-11-12, after master 2fff2285e)

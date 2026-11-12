@@ -12,7 +12,8 @@ const SEARCH = new Set(['lotm.div.cane-dowsing', 'lotm.div.altar-search-divinati
 // Authored truth (verb object target time), from each row's question and locator.
 const truth = text => { const [verb, object, target, time] = text.split(' '); return Object.freeze({verb, object, target, time, direction: null}); };
 
-export const LOTM_SPELL_WORLD = Object.freeze({world: 'lotm', carrier: 'ritual', cost: 'spirituality', access: 'taught'});
+export const LOTM_SPELL_WORLD = Object.freeze({world: 'lotm', carrier: 'ritual', cost: 'spirituality', access: 'taught',
+    costSource: {account: 'spirituality', word: 'spirituality', recovers: 'sleep and meditation'}});
 
 export function lotmDivinationSpellRows(rows = LOTM_DIVINATION_ROWS.queries) {
     return rows.map(q => Object.freeze({id: q.id, family: 'divination', forms: [q.method], roots: [],

@@ -3,10 +3,12 @@
 // with separate reliability, power and speed (SPD2), shaping as trained skill
 // (SPD3), failure modes as sentences of their own (SPD4), counterplay as W block
 // fields (SPD5), standing fields with upkeep (SPD8) and each world's cost source
-// (SPD9). SPD6 invention is NV1 (spell_invention.js) with the spellbook notebook;
+// (SPD9, on each pack's world record). SPD6 invention is NV1 (spell_invention.js) with the spellbook notebook;
 // SPD7 personal style rides on lineage (LN4) and is a request, not built here.
 // Every number is a default with a dial; draws are addressed (GR2). Names no world.
 import {address, drawU32} from './gen_kit.js';
+import {lowerEffect} from './effect_grammar.js';
+import {sharedEffect} from './spell_effects.js';
 
 // SPD1. Components and what skipping one costs. Default from canon: wordless and
 // wandless casting are harder, not forbidden (B6 nonverbal lessons; Dumbledore and
@@ -96,36 +98,48 @@ export function castOutcome(sentence, {profile, components, root = 'cast', at = 
 }
 
 // SPD5. Counterplay as W block fields (WSC20, EF3): a shield, counter or ward is
-// `block` with params {verb, object}, either may be '*'. A spell is countered by a
-// block on its verb, its object or on everything, and ended (if it stands) by `end`.
-export function counterFor(sentence, {broad = false} = {}) {
-    return {verb: 'block', params: broad ? {verb: '*', object: '*'} : {verb: sentence.verb, object: sentence.object}};
+// W's `block` with params {verb, object} in W's names, either may be '*'. The
+// spell's words lower through P (sharedEffect, then lowerEffect onto W_OBJECT_OF),
+// so a counter to a fire spell blocks `add temperature`. A keyed object (light)
+// takes the world's key; an object W leaves to another owner (mind, memory, a
+// working) has no W block and returns {gap, owner} for that owner to answer.
+export function counterFor(sentence, {broad = false, keys = {}} = {}) {
+    if (broad) return {verb: 'block', params: {verb: '*', object: '*'}};
+    const shared = sharedEffect(sentence);
+    if (shared.gap) return {gap: shared.gap};
+    const lowered = lowerEffect(shared, {keys});
+    const act = lowered.acts[0];
+    if (!act?.object) return {gap: lowered.needs[0] ?? `no W object for ${shared.object}`, owner: lowered.publish[0]?.owner ?? null};
+    return {verb: 'block', params: {verb: shared.verb, object: act.object}};
 }
-export const counters = (block, sentence) => (block.verb === '*' || block.verb === sentence.verb) && (block.object === '*' || block.object === sentence.object);
+export const counters = (block, act) => (block.verb === '*' || block.verb === act.verb) && (block.object === '*' || block.object === act.object);
 
-// SPD8. Standing fields: a lasting or timed effect on a thing or place is a W law
-// field (`law_add`) with upkeep. Default upkeep: none for lasting enchantments
-// (canon charms hold until broken), renewal per day for wards (Hogwarts' own
-// protections are kept up). Dial `upkeep` per field. Sustained effects end when
-// the caster stops: `until` is the caster's minute budget, set by the caller.
+// SPD8. Standing fields: an effect that stays on a thing or place is a W law
+// field (`law_add`) with upkeep. Lasting and triggered effects hold until broken
+// or sprung (no `until`); sustained and timed ones need the caster's minutes and
+// lapse then (W's `until`). A ward (verb block) lowers through P, which names the
+// verb it stops on that object (a guard on a quantity stops its loss, on a
+// position stops movement); `stops` overrides it. Default upkeep: wards renew
+// daily by recasting (Hogwarts' protections are kept up); other charms none.
 const HOLDS = new Set(['object', 'place', 'area', 'implement', 'body', 'creature', 'self']);
-export function standingField(sentence, {id, scope, at = 0, minutes = null, upkeep = null, source = null} = {}) {
+export function standingField(sentence, {id, scope, at = 0, minutes = null, upkeep = null, source = null, stops = null, keys = {}} = {}) {
     if (!['lasting', 'timed', 'sustained', 'triggered'].includes(sentence.time) || !HOLDS.has(sentence.target)) return null;
-    const until = sentence.time === 'lasting' ? null : minutes != null ? at + minutes : null;
+    const lapses = sentence.time === 'sustained' || sentence.time === 'timed';
+    if (lapses && !Number.isSafeInteger(minutes)) throw Error(`A ${sentence.time} field needs the minutes it lasts.`);
     const ward = sentence.verb === 'block';
+    let params = {sentence};
+    if (ward) {
+        const shared = sharedEffect(sentence);
+        const act = shared.gap ? null : lowerEffect(shared, {keys}).acts[0];
+        if (!act?.params) return {gap: shared.gap ?? `no W block for ${sentence.object}`};
+        params = {verb: stops ?? act.params.verb, object: act.params.object};
+    }
     return {op: 'law_add', field: {id: id ?? `spell.${sentence.verb}.${sentence.object}.${scope}.${at}`, scope,
         kind: ward ? 'block' : `spell.${sentence.verb}.${sentence.object}`,
-        params: {...(ward ? {verb: sentence.direction ?? '*', object: sentence.object} : {sentence}),
-            upkeep: upkeep ?? (ward ? {every: 24 * 60, renew: 'recast'} : null)},
-        ...(until != null ? {until} : {}), source}};
+        params: {...params, upkeep: upkeep ?? (ward ? {every: 24 * 60, renew: 'recast'} : null)},
+        ...(lapses ? {until: at + minutes} : {}), source}};
 }
 
-// SPD9. Cost sources by world: the account the grammar's cost slot names, and the
-// world's word for it. Default from each pack's canon; a world pack overrides it.
-export const WORLD_COST_SOURCES = Object.freeze({
-    hogwarts: {cost: 'stamina', account: 'stamina', word: 'effort', recovers: 'rest'},
-    cyoria: {cost: 'mana', account: 'mana', word: 'mana', recovers: 'ambient mana over hours'},
-    dnd: {cost: 'slot', account: 'spell slots', word: 'slot', recovers: 'long rest'},
-    lotm: {cost: 'spirituality', account: 'spirituality', word: 'spirituality', recovers: 'sleep and meditation'},
-    gu: {cost: 'essence', account: 'primeval essence', word: 'essence', recovers: 'aperture regeneration'},
-});
+// SPD9. Cost sources by world live on each pack's world record (`costSource`:
+// the account, the world's word for it, how it recovers), beside the world's cost
+// slot value; this file names no world.

@@ -146,7 +146,7 @@ export function rootRebuild(grammar, rows, world, {lexicon = {}, fitGrammar, ass
 // SPD1: a recorded gesture or focus is identity evidence beside the words (a swish
 // and flick lifts), so it joins the roots as a `gesture:` or `focus:` token on both
 // the training and the held-out side. The world's usual focus says nothing.
-const withMarks = (parts, world) => ({...parts, roots: [...(parts.roots ?? []),
+const withMarks = (parts, world, on = true) => !on ? parts : ({...parts, roots: [...(parts.roots ?? []),
     ...['gesture', 'focus'].filter(k => parts[k] && !['unrecorded', 'none', world.focus].includes(parts[k])).map(k => `${k}:${parts[k]}`)]});
 
 // GL2 effect-layer canon test (plan "Grammar layers"): hold out the whole effect
@@ -154,16 +154,17 @@ const withMarks = (parts, world) => ({...parts, roots: [...(parts.roots ?? []),
 // the world's lexicon; derive the sentence; compare with the recorded truth.
 // Leave one out. Misses are grouped by the first field that went wrong, each a
 // named missing rule. Dials: familyWeight (default 0: a family prior lowered
-// verb and object hits in the 2026-11-12 run) and the lexicon weight. A gloss may
+// verb and object hits in the 2026-11-12 run), components (default off: recorded gesture and focus
+// as identity tokens gained nothing on 80 rows, 40 with a gesture, 2026-11-12; SPD1) and the lexicon weight. A gloss may
 // carry `targets` (a noun root such as corpus votes for a body target).
-export function effectLayerTest(grammar, rows, world, {lexicon = {}, nameWords = {}, familyWeight = 0, fitGrammar, assemble} = {}) {
+export function effectLayerTest(grammar, rows, world, {lexicon = {}, nameWords = {}, familyWeight = 0, components = false, fitGrammar, assemble} = {}) {
     const labelled = rows.map(r => ({row: r, ...labelSpellRow(r, world)})).filter(r => r.parts);
     const misses = {}, fields = {verbObject: 0, sentence: 0};
     const most = (counts) => Object.entries(counts).sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1))[0]?.[0] ?? null;
     for (const {row, parts, truth} of labelled) {
         const train = labelled.filter(x => x.row.id !== row.id);
-        const fitted = fitGrammar(grammar, train.map(x => ({id: x.row.id, parts: withMarks(x.parts, world)})));
-        const identity = {...parts, target: undefined, roots: [...withMarks(parts, world).roots, ...(nameWords[row.id] ?? [])]};
+        const fitted = fitGrammar(grammar, train.map(x => ({id: x.row.id, parts: withMarks(x.parts, world, components)})));
+        const identity = {...parts, target: undefined, roots: [...withMarks(parts, world, components).roots, ...(nameWords[row.id] ?? [])]};
         const scores = new Map((inferIntent(fitted, identity, {lexicon}).ranked ?? []).map(([k, v]) => [k, v]));
         const family = {};
         for (const x of train) if (x.row.family === row.family) family[x.parts.intent] = (family[x.parts.intent] ?? 0) + 1;

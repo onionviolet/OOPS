@@ -5,7 +5,8 @@
 // fixes. The low-angle light is an original variant and is not a canon row.
 const truth = text => { const [verb, object, target, time, direction = null] = text.split(' '); return Object.freeze({verb, object, target, time, direction}); };
 
-export const MOL_SPELL_WORLD = Object.freeze({world: 'cyoria', carrier: 'attuned_mana', cost: 'mana', access: 'studied'});
+export const MOL_SPELL_WORLD = Object.freeze({world: 'cyoria', carrier: 'attuned_mana', cost: 'mana', access: 'studied',
+    costSource: {account: 'mana', word: 'mana', recovers: 'ambient mana over hours'}});
 
 export const MOL_SPELL_ROWS = Object.freeze([
     Object.freeze({id: 'mol.torch', family: 'light', forms: ['Torch invocation'], roots: [], intent: 'light', target: 'place', execution: 'timed',
