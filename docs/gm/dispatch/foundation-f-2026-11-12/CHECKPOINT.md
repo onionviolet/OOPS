@@ -228,6 +228,58 @@ Default (proposal): the Tingen silver amulet workings (English v1 ch83) are F's 
 - **FBN3 · Tingen on the shared host.** Replace `resolveAmuletInscription` with the law plus an arrangement of two faces; protection waning reads FBQ6. Done check: the off-route fixtures pass unchanged and Klein's ch83 tests stay green.
 - **FBN4 · Delete `book_craft_transaction.js`** per FBD1.
 
+## Phase 2a · One fabrication law on K, Village rows as data (2026-11-12)
+
+Merged master (K v0.1, W v0, P v0, every phase-1 checkpoint) into this branch first. Read the plan's sectioning (SC1-SC10, PFP21), separate-but-connected (SB1-SB6, NV1-NV5, EF1-EF8, PFP22-PFP24) and broad-systems sections, and every sibling checkpoint. Only one request names F: C's CB-4 (hits on items such as disarm have no item-side owner); recorded as FBX9 below.
+
+**What landed**
+
+- **`src/craft_assembly.js`**, one world-free fabrication law: partition processes that conserve a world's unit with a declared loss rule (per batch, per failed attempt, or the balance), joins that check fit before capacity (FBC4), load paths whose first limiting element fails (FBC5, beam and direct geometry, exact fractions), wear by carried share of capacity (FBC6), salvage by condition that refuses borrowed parts (FBC7), and a practiced working as input (SC8). The same operations run as one kernel law, `FABRICATION_LAW` (`f.fabrication@1`: `partition`, `join`, `load`, `refine`), so a making quotes and settles through `kernel_working` with each step rereading its bound thing.
+- **`src/craft_assembly_village.js`**, the Village pack: families, the mining source, four processes (forge axe head with offcut and scale, medium handle, log preparation, iron smelting with slag and trapped metal), part interfaces and capacities, the hafting join and the two chopping-axe arrangements. **`src/craft_assembly_packs.js`** registers Village, Tingen (families, from `TINGEN_FABRICATION` in `lotm_amulet_crafting.js`) and Mistglass (family).
+- **`src/processed_materials.js`** now reads the packs. Its `AXE_HEADS`, `HANDLE_WOOD`, `MEDIUM_HANDLES`, `IRON_ORES`, `CHOPPING_AXES` and `FAMILIES` maps, the per-function `world !== 'base.frontier'` gates and its direct Tingen and Mistglass imports are gone. Every export keeps its name and output.
+- **Recipes re-expressed as data on the shared law, live in play:** 13 native recipes' material accounting (three axe heads, four medium handles, four prepared woods, two ingots), plus iron mining lots. Their native quality and stat formulas still come from `crafting_recipes.js` (FBX4).
+
+**Save compatibility (MC4): unchanged.** A one-off byte comparison of the old and new `processed_materials` exports matched 71 of 71 cases: families for 23 ids, forge (three grades, two quality mixes, stale stock, mixed grades, another world), handles, logs, smelting success and failure, bad yield, gathering and lot pooling, error messages included. The old file was copied in temporarily for the comparison and removed; the script stays outside the repo.
+
+**A changed part fails at a different point by the rules alone** (`tests/craft_assembly.test.js`). One method (forge, haft, test under load 20) run as a kernel working: a hickory handle completes; a simple handle fits and gives way at the load step; a short-tang handle swapped in before the join stops at the join, and the forged head and offcut stand. FG4-A and FG4-B: reactions 2 and 6; a stronger seat moves the first limit to the anchor at total 12, not 13 1/3. FG4-D: 10 units at condition 70 give 7 reusable, 2 scrap, 1 loss. One jump, steps every 7 minutes and save and reload mid-run give the same record and effects (KW5, KW7).
+
+**SC8 for G.** A `refine` step binds a role of kind `working` and reads the bound record: it refuses an unfinished method or one practiced fewer times than the row's `minPractice`, and publishes `fabrication.refined` otherwise. G's move-to-Gu rows can be pack rows of this shape (`{id, method, minPractice, product}`); the Gu law keeps what the refined Gu is.
+
+**PFP2, before and after**
+
+| Count | Before | After |
+| --- | --- | --- |
+| Native recipe rows on shared classes | 167 | 167 |
+| Native recipes whose material accounting runs from pack rows on the shared law | 0 | 13 |
+| Book-canon cases as data through a shared law | 2 | 2 |
+| Bespoke scene or item modules | 7 | 7 |
+| World branch lines in shared fabrication files | 41 in 6 files | **19 in 6 files** (`processed_materials` 24 to 2, both in the harvest adapter's fixed world id); `craft_assembly.js` has none |
+
+**Phase 2a checks**
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/craft_assembly.test.js` | 8 pass | New file |
+| 15 focused files: assembly, processed materials, lineage, native craft transaction, interaction native, gear workshop, amulet crafting and protection, artifact refining, craft working, salvage, craft engine, kernel working, material inspector, distinct world paths | 144 pass, 0 fail | |
+| Paused lead-life and LOTM cast (MC5): `book_world_lotm_cast`, `lotm_cast_energy_act`, `lotm_cast_tier`, `lotm_cast_week`, `gu_lead_life`, `hp_lead_life`, plus alloy, accessory and living gear | 141 pass, 0 fail | |
+| Byte parity script (scratchpad, old versus new) | 71/71 identical | One-off; covered going forward by `processed_materials.test.js` |
+| `npm run check:arch` | pass, main.js growth -1 | |
+| `npm run check:rules` | pass; existing HP time-rule warning | |
+| Browser | not run | No player-visible change: same keys, same grants. Implemented, below floor (AD43) for the new law, which has no player route yet |
+
+**More the rules could not express**
+
+- **FBX9 · Hits on items** (C's CB-4): disarm, sundering and corrosion from a blow have no item-side owner. Proposal: a blow is a demand on the arrangement through `carryLoad`, and wear lands by FBC6; disarm is a custody change, not F's.
+- **FBX10 · Live wear is still one number.** `durability.js` keeps one condition per item; `wearFromUse` per element has no live caller yet.
+
+**Next (phase 2b onward)**
+
+- Retire one making stack: move the `processed_materials` adapters' callers onto `FABRICATION_LAW` records through the native craft transaction, so the native forge and the procedural engine share one settle.
+- Tingen on the shared host (FBN3): two faces as joins, protection waning on FBQ6; delete `resolveAmuletInscription`'s hard-wired materials.
+- Leather vest dismantle and gear salvage onto `planSalvage` rows; delete `absorb_p23/salvage/salvage.js`.
+- `book_craft_transaction.js` per FBD1, once the Hogwarts and Cyoria trials settle through K.
+- Fabrication grammar on P's contract with the canon test set, then NV1 and NV4 objects through the five checks.
+
 ## Checks
 
 | Command | Result | Gaps |

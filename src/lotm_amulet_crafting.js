@@ -20,6 +20,11 @@ const TRIAL_STOCK = new Set([TINGEN_TRIAL_BLANK,MARKED_TRIAL_SILVER]);
 export function tingenSilverFamily(id) {
     return isTingenAmulet(id) || TRIAL_STOCK.has(JSON.stringify({id})) ? TINGEN_AMULET_FAMILY : null;
 }
+// Tingen rows for the shared fabrication law (craft_assembly.js). The bound
+// silver pieces share one lineage family; the inscription joins two faces.
+export const TINGEN_FABRICATION = Object.freeze({id: 'f.tingen', revision: 1, world: LOTM_IDS.world,
+    families: Object.fromEntries([TINGEN_AMULET_ID, TRIAL_AMULET_ID, REWORKED_AMULET_ID,
+        ...[...TRIAL_STOCK].map(stock => JSON.parse(stock).id)].map(id => [id, TINGEN_AMULET_FAMILY]))});
 const AMULET = JSON.stringify({id: TINGEN_AMULET_ID});
 const OFFCUT = key('silver_practice_offcut');
 const DESK = 'engraving-desk';
