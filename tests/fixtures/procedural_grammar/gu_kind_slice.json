@@ -1,0 +1,2026 @@
+{
+ "source": "held Gu review index, labels only",
+ "revision": 1,
+ "rows": [
+  {
+   "id": "beast-enslavement",
+   "name": "Beast Enslavement Immortal Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "categories": [
+    "Enslavement Path",
+    "Support Type Gu",
+    "Consumable & Expendable Type Gu"
+   ],
+   "revision": "64033",
+   "status": "novel-checked"
+  },
+  {
+   "id": "borrow-strength",
+   "name": "Borrow Strength Gu",
+   "sagaRank": 5,
+   "fandomRanks": [
+    5
+   ],
+   "categories": [
+    "Strength Path",
+    "Support Type Gu",
+    "Amplification Type Gu"
+   ],
+   "revision": "54705",
+   "status": "novel-checked"
+  },
+  {
+   "id": "candidate:ancient-bronze-skin-gu",
+   "name": "Ancient Bronze Skin Gu",
+   "sagaRank": 4,
+   "fandomRanks": [
+    4
+   ],
+   "categories": [
+    "Defensive Type Gu",
+    "Metal Path"
+   ],
+   "revision": "50089",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:asura-zombie-gu",
+   "name": "Asura Zombie Gu",
+   "sagaRank": 5,
+   "fandomRanks": [
+    5
+   ],
+   "categories": [
+    "Transformation Path",
+    "Movement Type Gu",
+    "Flying Type Gu"
+   ],
+   "revision": "50112",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:bear-enslavement-gu",
+   "name": "Bear Enslavement Gu",
+   "sagaRank": 2,
+   "fandomRanks": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "categories": [
+    "Enslavement Path",
+    "Support Type Gu",
+    "Consumable & Expendable Type Gu"
+   ],
+   "revision": "50189",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:beast-strength-gu",
+   "name": "Beast Strength Gu",
+   "sagaRank": null,
+   "fandomRanks": [],
+   "categories": [
+    "Strength Path",
+    "Support Type Gu"
+   ],
+   "revision": "50201",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:big-family-qi-immortal-gu",
+   "name": "Big Family Qi Immortal Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    6,
+    7
+   ],
+   "categories": [
+    "Qi Path",
+    "Storage Type Gu",
+    "Support Type Gu"
+   ],
+   "revision": "56892",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:bitter-strength-gu",
+   "name": "Bitter Strength Gu",
+   "sagaRank": 4,
+   "fandomRanks": [
+    4
+   ],
+   "categories": [
+    "Strength Path",
+    "Support Type Gu"
+   ],
+   "revision": "58512",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:blade-qi-gu",
+   "name": "Blade Qi Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    7
+   ],
+   "categories": [
+    "Qi Path",
+    "Blade Path",
+    "Offensive Type Gu"
+   ],
+   "revision": "56981",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:bladewing-blood-bat-gu",
+   "name": "Bladewing Blood Bat Gu",
+   "sagaRank": 3,
+   "fandomRanks": [
+    3
+   ],
+   "categories": [
+    "Blood Path",
+    "Enslavement Path"
+   ],
+   "revision": "50290",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:blood-curtain-skyflower-gu",
+   "name": "Blood Curtain Skyflower Gu",
+   "sagaRank": 5,
+   "fandomRanks": [
+    5
+   ],
+   "categories": [
+    "Defensive Type Gu",
+    "Consumable & Expendable Type Gu",
+    "Blood Path"
+   ],
+   "revision": "60011",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:blood-sense-gu",
+   "name": "Blood Sense Gu",
+   "sagaRank": 5,
+   "fandomRanks": [
+    5
+   ],
+   "categories": [
+    "Blood Path",
+    "Investigative Type Gu"
+   ],
+   "revision": "50337",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:blood-steps-gu",
+   "name": "Blood Steps Gu",
+   "sagaRank": 3,
+   "fandomRanks": [
+    3
+   ],
+   "categories": [
+    "Blood Path",
+    "Movement Type Gu"
+   ],
+   "revision": "50340",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:blood-wight-gu",
+   "name": "Blood Wight Gu",
+   "sagaRank": 5,
+   "fandomRanks": [
+    5
+   ],
+   "categories": [
+    "Transformation Path",
+    "Movement Type Gu",
+    "Flying Type Gu"
+   ],
+   "revision": "53488",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:blue-bird-ice-coffin-gu",
+   "name": "Blue Bird Ice Coffin Gu",
+   "sagaRank": 3,
+   "fandomRanks": [
+    3
+   ],
+   "categories": [
+    "Ice Path",
+    "Offensive Type Gu",
+    "Unknown Path"
+   ],
+   "revision": "59991",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:bone-flesh-unity-gu",
+   "name": "Bone Flesh Unity Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    3,
+    4,
+    5
+   ],
+   "categories": [
+    "Bone Path",
+    "Support Type Gu"
+   ],
+   "revision": "59992",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:brown-bear-innate-strength-gu",
+   "name": "Brown Bear Innate Strength Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    2
+   ],
+   "categories": [
+    "Strength Path",
+    "Support Type Gu",
+    "Offensive Type Gu"
+   ],
+   "revision": "50416",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:bull-enslavement-gu",
+   "name": "Bull Enslavement Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "categories": [
+    "Enslavement Path",
+    "Support Type Gu",
+    "Consumable & Expendable Type Gu"
+   ],
+   "revision": "50422",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:cactus-pointer",
+   "name": "Cactus Pointer",
+   "sagaRank": null,
+   "fandomRanks": [
+    3
+   ],
+   "categories": [
+    "Grass Type Gu"
+   ],
+   "revision": "58621",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:calamity-beckoning-gu",
+   "name": "Calamity Beckoning Gu",
+   "sagaRank": 7,
+   "fandomRanks": [
+    7
+   ],
+   "categories": [
+    "Luck Path",
+    "Support Type Gu",
+    "Defensive Type Gu"
+   ],
+   "revision": "60625",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:cauldron-strength-immortal-gu",
+   "name": "Cauldron Strength Immortal Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    6
+   ],
+   "categories": [
+    "Strength Path"
+   ],
+   "revision": "64401",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:clear-mind-gu",
+   "name": "Clear Mind Gu",
+   "sagaRank": 4,
+   "fandomRanks": [
+    4
+   ],
+   "categories": [
+    "Wisdom Path",
+    "Support Type Gu"
+   ],
+   "revision": "50541",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:clearing-heat-gu",
+   "name": "Clearing Heat Gu",
+   "sagaRank": 2,
+   "fandomRanks": [
+    2
+   ],
+   "categories": [
+    "Unknown Path",
+    "Healing Type Gu"
+   ],
+   "revision": "50544",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:conceal-luck-immortal-gu",
+   "name": "Conceal Luck Immortal Gu",
+   "sagaRank": 6,
+   "fandomRanks": [
+    6
+   ],
+   "categories": [
+    "Luck Path",
+    "Concealment Type Gu"
+   ],
+   "revision": "50575",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:crocodile-strength-gu",
+   "name": "Crocodile Strength Gu",
+   "sagaRank": 2,
+   "fandomRanks": [
+    2
+   ],
+   "categories": [
+    "Strength Path",
+    "Support Type Gu"
+   ],
+   "revision": "50606",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:divination-tortoise-shell-immortal-gu",
+   "name": "Divination Tortoise Shell Immortal Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    7
+   ],
+   "categories": [
+    "Transformation Path",
+    "Wisdom Path",
+    "Defensive Type Gu"
+   ],
+   "revision": "50707",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:divine-soul-gu",
+   "name": "Divine Soul Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    3
+   ],
+   "categories": [
+    "Soul Path",
+    "Amplification Type Gu"
+   ],
+   "revision": "50718",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:divine-travel",
+   "name": "Divine Travel",
+   "sagaRank": null,
+   "fandomRanks": [
+    6
+   ],
+   "categories": [
+    "Movement Type Gu",
+    "Space Path"
+   ],
+   "revision": "58106",
+   "status": "candidate-suffix"
+  },
+  {
+   "id": "candidate:do-or-die-gu",
+   "name": "Do or Die Gu",
+   "sagaRank": 5,
+   "fandomRanks": [
+    5
+   ],
+   "categories": [
+    "Unknown Path",
+    "Support Type Gu"
+   ],
+   "revision": "50728",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:dog-enslavement-gu",
+   "name": "Dog Enslavement Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "categories": [
+    "Enslavement Path",
+    "Support Type Gu",
+    "Consumable & Expendable Type Gu"
+   ],
+   "revision": "58615",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:dog-guts-above-heaven-gu",
+   "name": "Dog Guts Above Heaven Gu",
+   "sagaRank": 5,
+   "fandomRanks": [
+    5
+   ],
+   "categories": [
+    "Enslavement Path",
+    "Offensive Type Gu"
+   ],
+   "revision": "50732",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:dragon-strength-gu",
+   "name": "Dragon Strength Gu",
+   "sagaRank": 5,
+   "fandomRanks": [
+    5
+   ],
+   "categories": [
+    "Strength Path",
+    "Offensive Type Gu",
+    "Support Type Gu"
+   ],
+   "revision": "50785",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:dried-pond-gu",
+   "name": "Dried Pond Gu",
+   "sagaRank": 4,
+   "fandomRanks": [
+    4
+   ],
+   "categories": [
+    "Water Path",
+    "Support Type Gu",
+    "Amplification Type Gu"
+   ],
+   "revision": "50802",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:emotion-poetry-gu",
+   "name": "Emotion Poetry Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    4
+   ],
+   "categories": [
+    "Wisdom Path",
+    "Emotion Path",
+    "Support Type Gu",
+    "Storage Type Gu",
+    "Consumable & Expendable Type Gu"
+   ],
+   "revision": "50891",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:expend-strength-gu",
+   "name": "Expend Strength Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    4,
+    7
+   ],
+   "categories": [
+    "Strength Path",
+    "Offensive Type Gu"
+   ],
+   "revision": "57262",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:extreme-past-immortal-gu",
+   "name": "Extreme Past Immortal Gu",
+   "sagaRank": 8,
+   "fandomRanks": [
+    8
+   ],
+   "categories": [
+    "Time Path",
+    "Investigative Type Gu"
+   ],
+   "revision": "50921",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:fire-dragon-gu",
+   "name": "Fire Dragon Gu",
+   "sagaRank": 4,
+   "fandomRanks": [
+    4
+   ],
+   "categories": [
+    "Fire Path",
+    "Offensive Type Gu"
+   ],
+   "revision": "51018",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:flying-soul-gu",
+   "name": "Flying Soul Gu",
+   "sagaRank": 3,
+   "fandomRanks": [
+    3
+   ],
+   "categories": [
+    "Soul Path",
+    "Support Type Gu"
+   ],
+   "revision": "51109",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:flying-sword-gu",
+   "name": "Flying Sword Gu",
+   "sagaRank": 7,
+   "fandomRanks": [
+    7
+   ],
+   "categories": [
+    "Sword Path",
+    "Offensive Type Gu"
+   ],
+   "revision": "60047",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:footless-bird-gu",
+   "name": "Footless Bird",
+   "sagaRank": null,
+   "fandomRanks": [
+    3
+   ],
+   "categories": [
+    "Movement Type Gu",
+    "Flying Type Gu",
+    "Bone Path"
+   ],
+   "revision": "60051",
+   "status": "candidate-suffix"
+  },
+  {
+   "id": "candidate:formation-flag-immortal-gu",
+   "name": "Formation Flag Immortal Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    6,
+    7
+   ],
+   "categories": [
+    "Formation Path",
+    "Consumable & Expendable Type Gu"
+   ],
+   "revision": "64059",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:formation-spirit-immortal-gu",
+   "name": "Formation Spirit Immortal Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    6,
+    7
+   ],
+   "categories": [
+    "Formation Path",
+    "Consumable & Expendable Type Gu"
+   ],
+   "revision": "64057",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:frost-moon-gu",
+   "name": "Frost Moon Gu",
+   "sagaRank": 3,
+   "fandomRanks": [
+    3
+   ],
+   "categories": [
+    "Offensive Type Gu",
+    "Ice Path"
+   ],
+   "revision": "64019",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:ghost-cry-gu",
+   "name": "Ghost Cry Gu",
+   "sagaRank": 3,
+   "fandomRanks": [
+    3
+   ],
+   "categories": [
+    "Soul Path",
+    "Offensive Type Gu"
+   ],
+   "revision": "51196",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:ghost-face-gu",
+   "name": "Ghost Face Gu",
+   "sagaRank": 4,
+   "fandomRanks": [
+    4
+   ],
+   "categories": [
+    "Soul Path",
+    "Offensive Type Gu"
+   ],
+   "revision": "51199",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:ghost-fire-gu",
+   "name": "Ghost Fire Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    1,
+    2
+   ],
+   "categories": [
+    "Fire Path",
+    "Soul Path",
+    "Offensive Type Gu"
+   ],
+   "revision": "51201",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:golden-dragon-gu",
+   "name": "Golden Dragon Gu",
+   "sagaRank": 4,
+   "fandomRanks": [
+    4
+   ],
+   "categories": [
+    "Metal Path",
+    "Offensive Type Gu"
+   ],
+   "revision": "51237",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:golden-lion-fur-gu",
+   "name": "Golden Lion Fur Gu",
+   "sagaRank": 5,
+   "fandomRanks": [
+    5
+   ],
+   "categories": [
+    "Defensive Type Gu",
+    "Transformation Path"
+   ],
+   "revision": "51248",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:grass-puppet-gu",
+   "name": "Grass Puppet Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    1,
+    2,
+    3,
+    4,
+    6
+   ],
+   "categories": [
+    "Enslavement Path",
+    "Grass Type Gu"
+   ],
+   "revision": "64114",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:green-bull-labor-gu",
+   "name": "Green Bull Labor Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    3
+   ],
+   "categories": [
+    "Strength Path",
+    "Support Type Gu",
+    "Offensive Type Gu"
+   ],
+   "revision": "51318",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:gruel-mud",
+   "name": "Gruel Mud",
+   "sagaRank": 6,
+   "fandomRanks": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "categories": [
+    "Earth Path",
+    "Offensive Type Gu",
+    "Consumable & Expendable Type Gu"
+   ],
+   "revision": "51356",
+   "status": "candidate-suffix"
+  },
+  {
+   "id": "candidate:habitual-strength-gu",
+   "name": "Habitual Strength Gu",
+   "sagaRank": 4,
+   "fandomRanks": [
+    4
+   ],
+   "categories": [
+    "Strength Path",
+    "Offensive Type Gu",
+    "Storage Type Gu"
+   ],
+   "revision": "51423",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:hard-qi-gu",
+   "name": "Hard Qi Gu",
+   "sagaRank": null,
+   "fandomRanks": [],
+   "categories": [
+    "Qi Path",
+    "Defensive Type Gu"
+   ],
+   "revision": "56973",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:heart-sound-gu",
+   "name": "Heart Sound Gu",
+   "sagaRank": 2,
+   "fandomRanks": [
+    2
+   ],
+   "categories": [
+    "Unknown Path",
+    "Support Type Gu"
+   ],
+   "revision": "51461",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:hundred-ghost-night-travel-gu",
+   "name": "Hundred Ghost Night Travel Gu",
+   "sagaRank": 5,
+   "fandomRanks": [
+    5
+   ],
+   "categories": [
+    "Soul Path",
+    "Offensive Type Gu"
+   ],
+   "revision": "51610",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:impermanence-bone-gu",
+   "name": "Impermanence Bone Gu",
+   "sagaRank": 4,
+   "fandomRanks": [
+    4
+   ],
+   "categories": [
+    "Bone Path",
+    "Soul Path",
+    "Support Type Gu"
+   ],
+   "revision": "51687",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:jade-bone-gu",
+   "name": "Jade Bone Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    3
+   ],
+   "categories": [
+    "Bone Path",
+    "Consumable & Expendable Type Gu"
+   ],
+   "revision": "56624",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:jumping-grass-gu",
+   "name": "Jumping Grass Gu",
+   "sagaRank": null,
+   "fandomRanks": [],
+   "categories": [
+    "Grass Type Gu",
+    "Movement Type Gu"
+   ],
+   "revision": "51801",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:kunlun-bull-strength-gu",
+   "name": "Kunlun Bull Strength Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    4
+   ],
+   "categories": [
+    "Strength Path",
+    "Support Type Gu",
+    "Offensive Type Gu"
+   ],
+   "revision": "64571",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:letter-sending-green-bird-gu",
+   "name": "Letter Sending Green Bird Gu",
+   "sagaRank": 5,
+   "fandomRanks": [
+    5
+   ],
+   "categories": [
+    "Information Path",
+    "Support Type Gu"
+   ],
+   "revision": "51874",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:liquid-metal-gu",
+   "name": "Liquid Metal Gu",
+   "sagaRank": 5,
+   "fandomRanks": [
+    5
+   ],
+   "categories": [
+    "Metal Path",
+    "Defensive Type Gu"
+   ],
+   "revision": "51949",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:memory-thought-gu",
+   "name": "Memory Thought Gu",
+   "sagaRank": 5,
+   "fandomRanks": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "categories": [
+    "Wisdom Path",
+    "Support Type Gu"
+   ],
+   "revision": "52058",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:pine-needle-gu",
+   "name": "Pine Needle Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    2
+   ],
+   "categories": [
+    "Wood Path",
+    "Offensive Type Gu"
+   ],
+   "revision": "52362",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:poison-vow-gu",
+   "name": "Poison Vow Gu",
+   "sagaRank": 3,
+   "fandomRanks": [
+    3
+   ],
+   "categories": [
+    "Consumable & Expendable Type Gu"
+   ],
+   "revision": "63835",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:qi-flow-gu",
+   "name": "Qi Flow Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    6
+   ],
+   "categories": [
+    "Qi Path",
+    "Support Type Gu"
+   ],
+   "revision": "57862",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:refine-essence-spirit-gu",
+   "name": "Refine Essence Spirit Gu",
+   "sagaRank": 4,
+   "fandomRanks": [
+    4
+   ],
+   "categories": [
+    "Soul Path",
+    "Healing Type Gu"
+   ],
+   "revision": "52553",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:rewind-gu",
+   "name": "Rewind Gu",
+   "sagaRank": 2,
+   "fandomRanks": [
+    2
+   ],
+   "categories": [
+    "Time Path",
+    "Support Type Gu"
+   ],
+   "revision": "52594",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:scorpion-faeces-gu",
+   "name": "Scorpion Faeces Gu",
+   "sagaRank": 2,
+   "fandomRanks": [
+    2
+   ],
+   "categories": [
+    "Poison Path",
+    "Offensive Type Gu"
+   ],
+   "revision": "52664",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:self-ignition-gu",
+   "name": "Self-ignition Gu",
+   "sagaRank": 3,
+   "fandomRanks": [
+    3
+   ],
+   "categories": [
+    "Enslavement Path",
+    "Defensive Type Gu"
+   ],
+   "revision": "56538",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:shadow-follower-gu",
+   "name": "Shadow Follower Gu",
+   "sagaRank": 2,
+   "fandomRanks": [
+    2
+   ],
+   "categories": [
+    "Dark Path",
+    "Concealment Type Gu"
+   ],
+   "revision": "52709",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:sight-blow-gu",
+   "name": "Sight Blow Gu",
+   "sagaRank": 3,
+   "fandomRanks": [
+    3
+   ],
+   "categories": [
+    "Soul Path",
+    "Offensive Type Gu"
+   ],
+   "revision": "52792",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:soul-combination-gu",
+   "name": "Soul Combination Gu",
+   "sagaRank": 4,
+   "fandomRanks": [
+    4
+   ],
+   "categories": [
+    "Soul Path",
+    "Support Type Gu"
+   ],
+   "revision": "52889",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:spiral-water-arrow-gu",
+   "name": "Spiral Water Arrow Gu",
+   "sagaRank": 3,
+   "fandomRanks": [
+    3
+   ],
+   "categories": [
+    "Water Path",
+    "Offensive Type Gu"
+   ],
+   "revision": "52932",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:star-desolate-hound-strength-gu",
+   "name": "Star Desolate Hound Strength Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    6
+   ],
+   "categories": [
+    "Strength Path",
+    "Support Type Gu"
+   ],
+   "revision": "52965",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:star-shoot-gu",
+   "name": "Star Shoot Gu",
+   "sagaRank": 3,
+   "fandomRanks": [
+    3
+   ],
+   "categories": [
+    "Star Path",
+    "Consumable & Expendable Type Gu"
+   ],
+   "revision": "52985",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:starlight-gu",
+   "name": "Starlight Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    6
+   ],
+   "categories": [
+    "Star Path"
+   ],
+   "revision": "56514",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:starshine-fake-eye-gu",
+   "name": "Starshine Fake Eye Gu",
+   "sagaRank": 5,
+   "fandomRanks": [
+    5
+   ],
+   "categories": [
+    "Star Path",
+    "Investigative Type Gu"
+   ],
+   "revision": "52996",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:stone-turtle-strength-gu",
+   "name": "Stone Turtle Strength Gu",
+   "sagaRank": 3,
+   "fandomRanks": [],
+   "categories": [
+    "Strength Path",
+    "Support Type Gu",
+    "Offensive Type Gu"
+   ],
+   "revision": "53027",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:swallow-fire-gu",
+   "name": "Swallow Fire Gu",
+   "sagaRank": 4,
+   "fandomRanks": [
+    4
+   ],
+   "categories": [
+    "Fire Path",
+    "Storage Type Gu",
+    "Offensive Type Gu"
+   ],
+   "revision": "53075",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:swimword-gu",
+   "name": "Swimword Gu",
+   "sagaRank": 1,
+   "fandomRanks": [
+    1
+   ],
+   "categories": [
+    "Unknown Path",
+    "Support Type Gu"
+   ],
+   "revision": "53083",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:third-watch-gu",
+   "name": "Third Watch Gu",
+   "sagaRank": 5,
+   "fandomRanks": [
+    5
+   ],
+   "categories": [
+    "Time Path",
+    "Support Type Gu",
+    "Consumable & Expendable Type Gu"
+   ],
+   "revision": "53149",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:thunder-boar-strength",
+   "name": "Thunder Boar Strength",
+   "sagaRank": null,
+   "fandomRanks": [
+    4
+   ],
+   "categories": [
+    "Strength Path",
+    "Offensive Type Gu",
+    "Support Type Gu"
+   ],
+   "revision": "64570",
+   "status": "candidate-suffix"
+  },
+  {
+   "id": "candidate:tiger-roar-gu",
+   "name": "Tiger Roar Gu",
+   "sagaRank": 4,
+   "fandomRanks": [
+    4
+   ],
+   "categories": [
+    "Sound Path",
+    "Offensive Type Gu"
+   ],
+   "revision": "53240",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:turn-rock-gu",
+   "name": "Turn Rock Gu",
+   "sagaRank": 6,
+   "fandomRanks": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "categories": [
+    "Earth Path",
+    "Offensive Type Gu"
+   ],
+   "revision": "53297",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:unlimited-spring-light-gu",
+   "name": "Unlimited Spring Light Gu",
+   "sagaRank": 5,
+   "fandomRanks": [
+    5
+   ],
+   "categories": [
+    "Light Path",
+    "Healing Type Gu"
+   ],
+   "revision": "53332",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:vine-information-gu",
+   "name": "Vine Information Gu",
+   "sagaRank": 1,
+   "fandomRanks": [
+    1
+   ],
+   "categories": [
+    "Information Path",
+    "Support Type Gu",
+    "Grass Type Gu"
+   ],
+   "revision": "53360",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:water-armor-gu",
+   "name": "Water Armor Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    2,
+    3
+   ],
+   "categories": [
+    "Water Path",
+    "Defensive Type Gu"
+   ],
+   "revision": "63836",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:water-curtain-skyflower-gu",
+   "name": "Water Curtain Skyflower Gu",
+   "sagaRank": 4,
+   "fandomRanks": [
+    4
+   ],
+   "categories": [
+    "Water Path",
+    "Defensive Type Gu"
+   ],
+   "revision": "53908",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:water-dragon-gu",
+   "name": "Water Dragon Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    3
+   ],
+   "categories": [
+    "Water Path",
+    "Offensive Type Gu"
+   ],
+   "revision": "53411",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:water-trace-gu",
+   "name": "Water Trace Gu",
+   "sagaRank": 3,
+   "fandomRanks": [
+    3
+   ],
+   "categories": [
+    "Water Path",
+    "Movement Type Gu"
+   ],
+   "revision": "53427",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:whale-enslavement-gu",
+   "name": "Whale Enslavement Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "categories": [
+    "Enslavement Path",
+    "Support Type Gu",
+    "Consumable & Expendable Type Gu"
+   ],
+   "revision": "53456",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:white-boar-gu",
+   "name": "White Boar Gu",
+   "sagaRank": 1,
+   "fandomRanks": [
+    1
+   ],
+   "categories": [
+    "Strength Path",
+    "Support Type Gu",
+    "Offensive Type Gu"
+   ],
+   "revision": "58827",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:wind-tiger-cloud-dragon-gu",
+   "name": "Wind Tiger Cloud Dragon Gu",
+   "sagaRank": 5,
+   "fandomRanks": [
+    5
+   ],
+   "categories": [
+    "Wind Path",
+    "Cloud Path",
+    "Offensive Type Gu"
+   ],
+   "revision": "53532",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:wolf-care-gu",
+   "name": "Wolf Care Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    4
+   ],
+   "categories": [
+    "Enslavement Path",
+    "Investigative Type Gu"
+   ],
+   "revision": "53553",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:wolf-howl-gu",
+   "name": "Wolf Howl Gu",
+   "sagaRank": 4,
+   "fandomRanks": [
+    4
+   ],
+   "categories": [
+    "Enslavement Path",
+    "Support Type Gu",
+    "Amplification Type Gu"
+   ],
+   "revision": "53556",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:wolf-soul-gu",
+   "name": "Wolf Soul Gu",
+   "sagaRank": 3,
+   "fandomRanks": [
+    3,
+    4,
+    5
+   ],
+   "categories": [
+    "Soul Path",
+    "Support Type Gu"
+   ],
+   "revision": "60207",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "candidate:worldly-wave-trace",
+   "name": "Worldly Wave Trace",
+   "sagaRank": 6,
+   "fandomRanks": [
+    6
+   ],
+   "categories": [
+    "Water Path",
+    "Movement Type Gu"
+   ],
+   "revision": "53574",
+   "status": "candidate-suffix"
+  },
+  {
+   "id": "candidate:yellow-camel-longhorn-beetle-gu",
+   "name": "Yellow Camel Longhorn Beetle Gu",
+   "sagaRank": 1,
+   "fandomRanks": [
+    1
+   ],
+   "categories": [
+    "Strength Path",
+    "Support Type Gu"
+   ],
+   "revision": "53747",
+   "status": "candidate-exact"
+  },
+  {
+   "id": "earth-overlord",
+   "name": "Earth Overlord Gu",
+   "sagaRank": 5,
+   "fandomRanks": [
+    5
+   ],
+   "categories": [
+    "Strength Path",
+    "Support Type Gu",
+    "Amplification Type Gu"
+   ],
+   "revision": "50839",
+   "status": "novel-checked"
+  },
+  {
+   "id": "fandom:Blessing_In_Disguise",
+   "name": "Blessing In Disguise",
+   "sagaRank": null,
+   "fandomRanks": [
+    7
+   ],
+   "categories": [
+    "Luck Path",
+    "Support Type Gu"
+   ],
+   "revision": "50296",
+   "status": "fandom-only"
+  },
+  {
+   "id": "fandom:Dream_Soul_Gu",
+   "name": "Dream Soul Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    3
+   ],
+   "categories": [
+    "Soul Path",
+    "Support Type Gu",
+    "Amplification Type Gu"
+   ],
+   "revision": "50798",
+   "status": "fandom-only"
+  },
+  {
+   "id": "fandom:Dusty_Gu",
+   "name": "Dusty Gu",
+   "sagaRank": null,
+   "fandomRanks": [],
+   "categories": [
+    "Unknown Path",
+    "Concealment Type Gu"
+   ],
+   "revision": "50813",
+   "status": "fandom-only"
+  },
+  {
+   "id": "fandom:Earth_Prison_Immortal_Gu",
+   "name": "Earth Prison Immortal Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    7
+   ],
+   "categories": [
+    "Earth Path",
+    "Offensive Type Gu"
+   ],
+   "revision": "63590",
+   "status": "fandom-only"
+  },
+  {
+   "id": "fandom:Edge_Gu",
+   "name": "Edge Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    6,
+    7
+   ],
+   "categories": [
+    "Blade Path",
+    "Sword Path",
+    "Offensive Type Gu"
+   ],
+   "revision": "50868",
+   "status": "fandom-only"
+  },
+  {
+   "id": "fandom:Falling_Meteor_Gu",
+   "name": "Falling Meteor Gu",
+   "sagaRank": null,
+   "fandomRanks": [],
+   "categories": [
+    "Star Path"
+   ],
+   "revision": "50939",
+   "status": "fandom-only"
+  },
+  {
+   "id": "fandom:Firelight_Gu",
+   "name": "Firelight Gu",
+   "sagaRank": null,
+   "fandomRanks": [],
+   "categories": [
+    "Unknown Path"
+   ],
+   "revision": "51031",
+   "status": "fandom-only"
+  },
+  {
+   "id": "fandom:Flying_Zombie_Gu",
+   "name": "Flying Zombie Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    5
+   ],
+   "categories": [
+    "Transformation Path",
+    "Movement Type Gu",
+    "Flying Type Gu"
+   ],
+   "revision": "51114",
+   "status": "fandom-only"
+  },
+  {
+   "id": "fandom:Frost_Dragon_Manor",
+   "name": "Frost Dragon Manor",
+   "sagaRank": null,
+   "fandomRanks": [],
+   "categories": [],
+   "revision": "51158",
+   "status": "fandom-only"
+  },
+  {
+   "id": "fandom:Golden_Armor_Gu",
+   "name": "Golden Armor Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    5
+   ],
+   "categories": [
+    "Metal Path",
+    "Defensive Type Gu"
+   ],
+   "revision": "51226",
+   "status": "fandom-only"
+  },
+  {
+   "id": "fandom:Green_Shine_Gu",
+   "name": "Green Shine Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    4
+   ],
+   "categories": [
+    "Light Path",
+    "Healing Type Gu"
+   ],
+   "revision": "51333",
+   "status": "fandom-only"
+  },
+  {
+   "id": "fandom:Gruel_Mud_Immortal_Gu",
+   "name": "Gruel Mud Immortal Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    6
+   ],
+   "categories": [
+    "Earth Path",
+    "Offensive Type Gu",
+    "Consumable & Expendable Type Gu"
+   ],
+   "revision": "51357",
+   "status": "fandom-only"
+  },
+  {
+   "id": "fandom:Heavenly_Essence_Treasure_Imperial_Lotus",
+   "name": "Heavenly Essence Treasure Imperial Lotus",
+   "sagaRank": null,
+   "fandomRanks": [
+    6,
+    7,
+    8,
+    9
+   ],
+   "categories": [
+    "Grass Type Gu",
+    "Wood Path"
+   ],
+   "revision": "51499",
+   "status": "fandom-only"
+  },
+  {
+   "id": "fandom:Heavenly_Essence_Treasure_King_Lotus",
+   "name": "Heavenly Essence Treasure King Lotus",
+   "sagaRank": null,
+   "fandomRanks": [
+    5
+   ],
+   "categories": [
+    "Grass Type Gu",
+    "Wood Path"
+   ],
+   "revision": "51500",
+   "status": "fandom-only"
+  },
+  {
+   "id": "fandom:Heavenly_Essence_Treasure_Monarch_Lotus",
+   "name": "Heavenly Essence Treasure Monarch Lotus",
+   "sagaRank": null,
+   "fandomRanks": [
+    4
+   ],
+   "categories": [
+    "Grass Type Gu",
+    "Wood Path"
+   ],
+   "revision": "54179",
+   "status": "fandom-only"
+  },
+  {
+   "id": "fandom:Horse_Soul_Gu",
+   "name": "Horse Soul Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    3
+   ],
+   "categories": [
+    "Soul Path",
+    "Enslavement Path",
+    "Support Type Gu",
+    "Amplification Type Gu"
+   ],
+   "revision": "51558",
+   "status": "fandom-only"
+  },
+  {
+   "id": "fandom:Ice_Soul_Gu",
+   "name": "Ice Soul Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    3
+   ],
+   "categories": [
+    "Soul Path",
+    "Amplification Type Gu"
+   ],
+   "revision": "56128",
+   "status": "fandom-only"
+  },
+  {
+   "id": "fandom:Iron_Skin_Gu",
+   "name": "Iron Skin Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    1
+   ],
+   "categories": [
+    "Metal Path",
+    "Defensive Type Gu"
+   ],
+   "revision": "51734",
+   "status": "fandom-only"
+  },
+  {
+   "id": "fandom:Lightning_Flash_Gu",
+   "name": "Lightning Flash Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    5
+   ],
+   "categories": [
+    "Light Path",
+    "Movement Type Gu"
+   ],
+   "revision": "51918",
+   "status": "fandom-only"
+  },
+  {
+   "id": "fandom:Moon_Poison_Gu",
+   "name": "Moon Poison Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    3
+   ],
+   "categories": [
+    "Poison Path",
+    "Offensive Type Gu"
+   ],
+   "revision": "52118",
+   "status": "fandom-only"
+  },
+  {
+   "id": "fandom:Moon_Soul_Gu",
+   "name": "Moon Soul Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    3
+   ],
+   "categories": [
+    "Soul Path",
+    "Support Type Gu",
+    "Amplification Type Gu"
+   ],
+   "revision": "52120",
+   "status": "fandom-only"
+  },
+  {
+   "id": "fandom:Nightmare_Zombie_Gu",
+   "name": "Nightmare Zombie Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    5
+   ],
+   "categories": [
+    "Transformation Path",
+    "Movement Type Gu",
+    "Flying Type Gu"
+   ],
+   "revision": "52229",
+   "status": "fandom-only"
+  },
+  {
+   "id": "fandom:Plague_Zombie_Gu",
+   "name": "Plague Zombie Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    5
+   ],
+   "categories": [
+    "Transformation Path",
+    "Movement Type Gu",
+    "Flying Type Gu"
+   ],
+   "revision": "52370",
+   "status": "fandom-only"
+  },
+  {
+   "id": "fandom:Smelly_Fart_Gu",
+   "name": "Smelly Fart Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    1
+   ],
+   "categories": [
+    "Poison Path",
+    "Offensive Type Gu"
+   ],
+   "revision": "52844",
+   "status": "fandom-only"
+  },
+  {
+   "id": "fandom:Store_Strength_Gu",
+   "name": "Store Strength Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    3
+   ],
+   "categories": [
+    "Strength Path",
+    "Offensive Type Gu",
+    "Storage Type Gu"
+   ],
+   "revision": "53029",
+   "status": "fandom-only"
+  },
+  {
+   "id": "fandom:Sword_Escape_Gu",
+   "name": "Sword Escape Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    7
+   ],
+   "categories": [
+    "Sword Path",
+    "Movement Type Gu",
+    "Flying Type Gu"
+   ],
+   "revision": "53087",
+   "status": "fandom-only"
+  },
+  {
+   "id": "fandom:Ten_Jun_Strength_Gu",
+   "name": "Ten Jun Strength Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    4
+   ],
+   "categories": [
+    "Strength Path",
+    "Consumable & Expendable Type Gu"
+   ],
+   "revision": "53130",
+   "status": "fandom-only"
+  },
+  {
+   "id": "fandom:Thunder_Hammer_Gu",
+   "name": "Thunder Hammer Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    5
+   ],
+   "categories": [
+    "Lightning Path",
+    "Offensive Type Gu"
+   ],
+   "revision": "53190",
+   "status": "fandom-only"
+  },
+  {
+   "id": "fandom:Tiger_Spirit_Gu",
+   "name": "Tiger Spirit Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    3
+   ],
+   "categories": [
+    "Soul Path",
+    "Amplification Type Gu"
+   ],
+   "revision": "53242",
+   "status": "fandom-only"
+  },
+  {
+   "id": "fandom:Time_Concealment_Gu",
+   "name": "Time Concealment Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    7
+   ],
+   "categories": [
+    "Time Path",
+    "Concealment Type Gu"
+   ],
+   "revision": "53248",
+   "status": "fandom-only"
+  },
+  {
+   "id": "fandom:Wandering_Wave_Trace_Gu",
+   "name": "Wandering Wave Trace Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    5
+   ],
+   "categories": [
+    "Water Path",
+    "Movement Type Gu"
+   ],
+   "revision": "53384",
+   "status": "fandom-only"
+  },
+  {
+   "id": "fandom:Waterfall_Gu",
+   "name": "Waterfall Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    4
+   ],
+   "categories": [
+    "Water Path",
+    "Offensive Type Gu"
+   ],
+   "revision": "53431",
+   "status": "fandom-only"
+  },
+  {
+   "id": "four-flavors-liquor-worm",
+   "name": "Four Flavors Liquor Worm",
+   "sagaRank": 2,
+   "fandomRanks": [
+    2
+   ],
+   "categories": [
+    "Support Type Gu",
+    "Food Path"
+   ],
+   "revision": "51137",
+   "status": "novel-checked"
+  },
+  {
+   "id": "heavenly-secret",
+   "name": "Heavenly Secret Gu",
+   "sagaRank": 7,
+   "fandomRanks": [
+    8,
+    9
+   ],
+   "categories": [
+    "Heaven Path",
+    "Investigative Type Gu"
+   ],
+   "revision": "64462",
+   "status": "novel-checked"
+  },
+  {
+   "id": "landscape-as-before",
+   "name": "Landscape as Before Gu",
+   "sagaRank": 6,
+   "fandomRanks": [
+    6,
+    7,
+    8
+   ],
+   "categories": [
+    "Time Path",
+    "Healing Type Gu"
+   ],
+   "revision": "64499",
+   "status": "novel-checked"
+  },
+  {
+   "id": "liquor-worm",
+   "name": "Liquor Worm",
+   "sagaRank": 1,
+   "fandomRanks": [
+    1,
+    8
+   ],
+   "categories": [
+    "Support Type Gu",
+    "Food Path"
+   ],
+   "revision": "61382",
+   "status": "novel-checked"
+  },
+  {
+   "id": "saga:gather-poem-gu",
+   "name": "Gather Poem Gu",
+   "sagaRank": null,
+   "fandomRanks": [],
+   "categories": [],
+   "revision": null,
+   "status": "saga-only"
+  },
+  {
+   "id": "saga:good-deeds-gu",
+   "name": "Good Deeds Gu",
+   "sagaRank": 5,
+   "fandomRanks": [],
+   "categories": [],
+   "revision": null,
+   "status": "saga-only"
+  },
+  {
+   "id": "saga:peach-blossom-luck",
+   "name": "Peach Blossom Luck",
+   "sagaRank": null,
+   "fandomRanks": [],
+   "categories": [],
+   "revision": null,
+   "status": "saga-only"
+  },
+  {
+   "id": "saga:winter-gu",
+   "name": "Winter Gu",
+   "sagaRank": null,
+   "fandomRanks": [],
+   "categories": [],
+   "revision": null,
+   "status": "saga-only"
+  },
+  {
+   "id": "wind-overlord",
+   "name": "Wind Overlord Gu",
+   "sagaRank": null,
+   "fandomRanks": [
+    5
+   ],
+   "categories": [
+    "Strength Path",
+    "Support Type Gu",
+    "Amplification Type Gu"
+   ],
+   "revision": "53523",
+   "status": "novel-checked"
+  }
+ ]
+}
