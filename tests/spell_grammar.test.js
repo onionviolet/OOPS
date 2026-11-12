@@ -131,3 +131,14 @@ test('assembly rejects a verb that cannot act on a running effect and explains a
     assert.equal(describeSentence(anchor.sentence), 'It moves position (up) of an object, while you keep it up. Paid with stamina.');
     assert.equal(incantationName(['lev'], {canonForms: ['Leviosa']}).collides, false);
 });
+
+test('a D&D record that still needs a ruling does not run until a ruling resolves it', () => {
+    const rows = dndSpellRows(srd);
+    assert.equal(rows.filter(r => r.status === 'supported').length, 4);
+    const fireBolt = rows.find(r => r.id === 'srd521.spell.fire_bolt');
+    const sentence = sentenceFromIntent(partsOf(fireBolt, DND_SPELL_WORLD));
+    const pending = quoteSpells([{sentence, target: {id: 'goblin'}, status: fireBolt.status, unmodeled: fireBolt.unmodeled}]);
+    assert.equal(pending.ok, false);
+    assert.match(pending.reason, /needs a ruling/);
+    assert.equal(quoteSpells([{sentence, target: {id: 'goblin'}, status: fireBolt.status, ruling: {id: 'table', reason: 'objects ignite as the table rules'}}]).ok, true);
+});

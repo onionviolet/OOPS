@@ -2,7 +2,10 @@
 // (src/data/srd521, SRD 5.2.1, CC-BY-4.0, attribution travels with each record)
 // onto spell grammar parts. effect_dsl stays the inert authoring contract; this
 // is its world-pack mapping onto the effect grammar (plan "One effect grammar
-// for every world"). Pure: takes validated records, writes nothing.
+// for every world"). Pure: takes validated records, writes nothing. A record's
+// status travels with its row: the srd521 README says an executor refuses
+// needs_ruling and unsupported records unless a reviewed ruling resolves them,
+// and spell_law enforces that.
 import {validateEffectRecord} from './effect_dsl.js';
 
 // What a record's function does -> the intent law (world-pack vocabulary map).
@@ -58,6 +61,7 @@ export function dndSpellRows(records) {
             delivery: delivery(effect.components), gesture: effect.components.somatic ? 'somatic' : 'none',
             carrier: 'spell_slot', cost: record.spell.level === 0 ? 'none' : 'slot', access: effect.castingTime.ritual ? 'ritual_or_prepared' : 'prepared',
             locator: `SRD 5.2.1 p${record.source.page}, ${record.source.heading}`, status: record.status,
+            unmodeled: record.unmodeled, rulings: record.rulings.map(r => r.id),
             limits: record.function.doesWhat.slice(1), truth: TRUTH[key] ? truthOf(TRUTH[key]) : null});
     });
 }

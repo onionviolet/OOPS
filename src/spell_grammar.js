@@ -115,3 +115,21 @@ export function inferIntent(fitted, parts, {lexicon = {}, lexiconWeight = 1, tar
     const ranked = [...scores.entries()].sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1));
     return {best: ranked[0]?.[0] ?? null, ranked: ranked.slice(0, 5), votes};
 }
+
+// The canon rebuild from roots (the honest form of PFP17 for spells): hide the
+// intent, infer it from roots (and the lexicon, if given), derive the sentence and
+// compare it to the canon truth. Leave one out over the rows.
+export function rootRebuild(grammar, rows, world, {lexicon = {}, fitGrammar, assemble} = {}) {
+    const labelled = rows.map(r => ({row: r, ...labelSpellRow(r, world)})).filter(r => r.parts);
+    let inferred = 0, rebuilt = 0;
+    const misses = [];
+    for (const {row, parts, truth} of labelled) {
+        const fitted = fitGrammar(grammar, labelled.filter(x => x.row.id !== row.id).map(x => ({id: x.row.id, parts: x.parts})));
+        const guess = inferIntent(fitted, parts, {lexicon}).best;
+        if (guess === parts.intent) inferred++;
+        const built = guess ? assemble(fitted, {...parts, intent: guess}) : null;
+        if (built?.ok && !compareSpell(built.value, truth).length) rebuilt++;
+        else misses.push(row.id);
+    }
+    return {rows: labelled.length, inferred, rebuilt, misses};
+}

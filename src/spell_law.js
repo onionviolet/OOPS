@@ -13,6 +13,9 @@ for (const verb of EFFECT_VERBS) for (const target of EFFECT_TARGETS) operations
     roles: {target}, minutes: 0,
     settle: ({bound, options, step}) => {
         const thing = bound.target, sentence = options.sentence;
+        // A source record that still needs a ruling does not run until a reviewed ruling resolves it (srd521 README).
+        if (options.status && options.status !== 'supported' && !options.ruling)
+            return {ok: false, reason: `This spell needs a ruling first: ${(options.unmodeled ?? []).join('; ') || options.status}.`, observed: {step, seen: 'the working is not settled for this world yet'}};
         // EF3: counterplay comes free. A thing that carries a block for this verb or object refuses it.
         const blocker = (thing.blocks ?? []).find(b => b === verb || b === sentence.object || b === 'magic');
         if (blocker) return {ok: false, reason: `${thing.id} is protected against ${blocker}.`, observed: {step, seen: 'the spell met resistance'}};
@@ -25,7 +28,7 @@ for (const verb of EFFECT_VERBS) for (const target of EFFECT_TARGETS) operations
 };
 export const SPELL_EFFECT_LAW = defineWorkingLaw({id: 'spell.effect', revision: 1, operations});
 
-// spells: [{sentence, target: {id, kind?}, name?, massLimit?, explain?, minutes?}] -> K method and bindings.
+// spells: [{sentence, target: {id, kind?}, name?, massLimit?, explain?, minutes?, status?, unmodeled?, ruling?}] -> K method and bindings.
 export function spellEffectMethod(spells, {id = 'spell.composed', revision = 1} = {}) {
     if (!Array.isArray(spells) || !spells.length) throw Error('Choose at least one spell.');
     const roles = {}, bindings = {};
@@ -34,7 +37,8 @@ export function spellEffectMethod(spells, {id = 'spell.composed', revision = 1} 
         roles[role] = spell.sentence.target;
         bindings[role] = {kind: spell.sentence.target, id: spell.target.id};
         return {op: `${spell.sentence.verb}.${spell.sentence.target}`, bindings: {target: role}, minutes: spell.minutes,
-            options: {sentence: spell.sentence, name: spell.name ?? null, massLimit: spell.massLimit, explain: spell.explain ?? null}};
+            options: {sentence: spell.sentence, name: spell.name ?? null, massLimit: spell.massLimit, explain: spell.explain ?? null,
+                status: spell.status ?? null, unmodeled: spell.unmodeled ?? [], ruling: spell.ruling ?? null}};
     });
     return {law: SPELL_EFFECT_LAW, method: {id, revision, law: SPELL_EFFECT_LAW.ref, roles, steps}, bindings};
 }

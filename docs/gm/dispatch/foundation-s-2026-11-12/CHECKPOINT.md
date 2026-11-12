@@ -25,7 +25,7 @@ Master (ending ea6a170dd, with K and W v0 and every phase 1 checkpoint) merged i
 
 | Code | Change | Files (all S-owned) |
 | --- | --- | --- |
-| S2-1 | **Spellbook workings run on K's working; the old spell plan shape is retired.** A draft becomes a K method (typed roles per step, one kernel step per operation); the world's rule table is the operation law; a step settles to the native command it lowers to (KB7). `compileSpellWorking` and `nativeSpellSteps` are gone; `spellbook_workings.js` calls `spellDraftCommands`. The same draft gives the same record and effects settled in one jump or minute by minute through save and restore, and a target that goes missing interrupts at its own step with the earlier steps kept (KW3, KW5, KW8) | `spell_working.js`, `spellbook_workings.js`, `tests/spell_working.test.js` |
+| S2-1 | **Spellbook drafts compile and quote on K's working; the old spell plan shape is retired.** A draft becomes a K method (typed roles per step, one kernel step per operation); the world's rule table is the operation law; a step settles to the native command it lowers to (KB7). `compileSpellWorking` and `nativeSpellSteps` are gone; `spellbook_workings.js` calls `spellDraftCommands`. The same draft gives the same record and effects settled in one jump or minute by minute through save and restore, and a target that goes missing interrupts at its own step with the earlier steps kept (KW3, KW5, KW8). Limit: the live trial state (`next`, `length`, `receipt`, `status` in the spellbook fact) is still the spellbook's own shape and no `kernel.working@1` record is saved (KW7); that test proves the law, not the spellbook's saved trial | `spell_working.js`, `spellbook_workings.js`, `tests/spell_working.test.js` |
 | S2-2 | **Effect sentences and the intent law.** Verb, object, target, time, carrier, cost and limits, as in the plan's effect grammar. An intent law (56 intents) says what willing an outcome does in those terms; no world is named. Two intents were added because a second world forced them (EF2): `sense_magic` (D&D Detect Magic; LOTM Spirit Vision) and `divine` (nine LOTM divination rows; Hogwarts Divination lessons) | `spell_effects.js` |
 | S2-3 | **The spell grammar on P's contract** (SG1-SG9 made code): intent, roots (conditioned on intent), target (conditioned on intent), execution, delivery, gesture, carrier, cost, access. Rules: derive the sentence; reject a sentence that cannot run; reject a verb that cannot act on a running effect; reject mind, mood, memory, pain, vitality, voice or sight on a lifeless target (dial `mindedObjects`); flag a carrier paid from an unusual account (dial, for transfers). Revision 3 | `spell_grammar.js` |
 | S2-4 | **Spell families as data, four worlds.** Hogwarts: 69 canon rows in six families, each with omnibus locators, roots read as lexical clues (inference), gesture and delivery only where shown. D&D: the 20 SRD 5.2.1 records in `effect_dsl.js` mapped onto the grammar; `effect_dsl.js` stays the inert authoring contract and `spell_pack_dnd.js` is its world-pack mapping. Mother of Learning: Torch, direct shaping, Magic Missile. Lord of the Mysteries: the nine source-pinned divination rows (rite stages as execution) and Spirit Vision (OS7) | `spell_pack_hogwarts.js`, `spell_pack_dnd.js`, `spell_pack_mol.js`, `spell_pack_lotm.js` |
@@ -38,7 +38,7 @@ Master (ending ea6a170dd, with K and W v0 and every phase 1 checkpoint) merged i
 | World | Rows | Rebuild | First contact | Missing rule found |
 | --- | --- | --- | --- | --- |
 | Hogwarts | 69 | 69/69 | 69/69 | none for the sentence; root inference below |
-| D&D (SRD 5.2.1) | 20 | 20/20 | 19/20 | no intent sensed magic (Detect Magic): added `sense_magic` |
+| D&D (SRD 5.2.1) | 20 | 20/20 expressed (4 `supported`, 16 with a pending ruling) | 19/20 | no intent sensed magic (Detect Magic): added `sense_magic`. The srd521 README says an executor refuses `needs_ruling` and `unsupported` records until a reviewed ruling resolves them; `spell_law` now does so and names the record's own unmodeled lines |
 | Mother of Learning | 3 | 3/3 | 3/3 | none |
 | Lord of the Mysteries | 10 | 10/10 | 9/10 before `divine` existed | divination reads an answer, not a presence: added `divine` |
 
@@ -48,6 +48,26 @@ The full rebuild is close to by construction, as P found for Gu: the truth sente
 - **Held-out families** (reserved before any rule was derived): the wand-light family (Lumos, Nox) and the `-corpus` family (Levicorpus, Liberacorpus, Mobilicorpus). Corpus roots alone recover 2 of 5 (`lev`, `mobil`). With the lexicon, 5 of 5. The missing rule the test found is "a root unseen in the corpus needs the world's language", now `HP_ROOT_LEXICON` plus `inferIntent`.
 - **Pair support.** Generated spells drawing intent and target separately used canon intent and target pairs 30.5% of the time. Conditioning target on intent raised it to 100% (P's PGB1 shape, one given per slot, was enough here).
 
+### Rescopes and limits (with reasons)
+
+- **Gesture is recorded, not derived.** The done check names canon rebuilt "from roots, gesture and intent". Gesture stays a recorded part with no derive role: the vocabulary proposal V1 marks the independent weight of speech and motion as unknown, and no scene isolates a gesture's effect. It becomes a derive input when a scene shows one (backlog SB9).
+- **The rebuild that counts is from roots.** Intent is an input to the 102/102 above. The honest rebuild hides the intent, infers it from roots, derives the sentence and compares it to canon: see "Rebuild from roots" below.
+- **Pair support of 100% is by construction** once target is conditioned on intent, like P's per-slot inside rate.
+- **Check 4 speaks engine words today.** "It moves position (up) of an object" passes `check:player-text` because it is assembled at runtime, out of the lint's sight. Before the first grammar spell reaches a player, the explanation needs world-pack word tables and a PRS7 voice sample (next phase item 2).
+- **Making rules.** Spell effects and made things share one effect vocabulary (MR38, proposed); `spell_invention.js` applies it.
+
+### Rebuild from roots (the reported canon number)
+
+Leave one out over the 69 Hogwarts rows: hide the intent, infer it with `inferIntent`, derive the sentence, compare all five truth fields (`rootRebuild` in `spell_grammar.js`).
+
+| Lexicon | Intent inferred | Sentence rebuilt | Held-out families (5 rows) |
+| --- | --- | --- | --- |
+| None (corpus roots alone) | 4/69 | 4/69 (5.8%) | 2/5 |
+| Blind glosses: a haiku reader given the 78 root strings and the intent list and nothing else, no spell names or outcomes ([evidence/blind_root_lexicon.json](evidence/blind_root_lexicon.json); 43 roots got an intent) | 29/69 | **29/69 (42.0%)** | 3/5 (Lumos and Nox missed: the reader glossed light and night as nouns with no action) |
+| Authored glosses (`HP_ROOT_LEXICON`, written knowing the spells) | 48/69 | 48/69 (69.6%), an upper bound | 5/5 |
+
+The blind 42% is the number to stand behind. The gap to 69.6% is the knowledge a teacher or a book supplies; in play it maps to a character who knows the spell's tradition reading roots better than an outsider (N's knowledge owners, MC8).
+
 ### Beyond-canon sample (seeded, address `report`, four Hogwarts parents, one part changed)
 
 96 recombinations tried: 84 pass all checks, 12 fail check 1 (a move or similar verb aimed at a running effect, or a mind effect on a lifeless thing). Kept spread, one per verb, for example: *Noxendo* (takes light away from an object, held while paid, cost 1), *Glissum* (changes the form of an object, cost 2), *Obscurendo* (hides an object, cost 2), *Wing Levo* (lifts a creature, cost 2), *Appario* (reveals a mark on an object, cost 1); one candidate (blocks magic on an implement) stayed unnamed because no Hogwarts root glosses to countering. Transfer: Accio carried into Cyoria pays mana and runs; into D&D it pays a slot.
@@ -56,9 +76,10 @@ The full rebuild is close to by construction, as P found for Gu: the truth sente
 
 | Count | Phase 1 | Phase 2 |
 | --- | --- | --- |
-| Canon spell cases as data rows on S's grammar, rebuilt from parts | 4 | **102** (69 Hogwarts, 20 D&D, 3 MoL, 10 LOTM) |
+| Canon spell cases as data rows on S's grammar, expressed from parts | 4 | **102** (69 Hogwarts, 20 D&D of which 16 await a ruling, 3 MoL, 10 LOTM) |
+| Hogwarts canon rebuilt from roots alone (intent hidden, blind glosses) | n/a | **29 of 69** |
 | Of those, lowered into native play end to end | 4 | 4 (the spellbook's Levitation, Summoning, Torch and direct shaping). The other 98 run as K workings that publish effect intents; no host lowers them onto world owners yet |
-| Spell data shapes | 5 parallel (SI1) | 5, plus the grammar as the canon record; `spell_working`'s own plan shape retired (one of K's five) |
+| Spell data shapes | 5 parallel (SI1) | 5, plus the grammar as the canon record; `spell_working`'s own plan shape retired (one of K's five): spellbook drafts compile and quote on K, while the trial state is still spellbook-owned |
 | Bespoke scene modules | 7 | 7 (none deleted this phase) |
 | Per-world rule hooks | 2 | 2 |
 | Code-generated variant grids | 2 | 2 (recombination now produces the same kind of variants from data; the grids are not yet deleted) |
@@ -81,7 +102,7 @@ Save compatibility (MC4): unchanged. The spellbook's actor fact keeps schema 1; 
 | To | Request |
 | --- | --- |
 | K | Update the spell column of "The five shapes on one page": `compileSpellWorking` and `nativeSpellSteps` are retired; spellbook drafts are K methods (`spellDraftMethod`). Sequential composition (SC6) needed no kernel change: a composed spell is one K method over `spell_law`. A joint composition, where several parts fire in one beat (Gu killer moves, PGB4), needs a kernel answer; S and G are ready to be the two consumers |
-| W | The spell effect vocabulary (13 verbs, 28 objects, 9 targets, 5 times) and the effect kinds `spell.<verb>.<object>` are ready to become W's shared effect kind list (W's "effect kind vocabulary" backlog). Mana is still two quantities (the native bar and `book.mol.zorian.reserve`); W decides which is the projection |
+| W | The spell effect vocabulary (13 verbs, 28 objects, 9 targets, 5 times) and the effect kinds `spell.<verb>.<object>` are ready to become W's shared effect kind list (W's "effect kind vocabulary" backlog). `spell_law` reads two ad hoc properties, `mass` and `blocks`; W should own those names (seam SB2). Mana is still two quantities (the native bar and `book.mol.zorian.reserve`); W decides which is the projection |
 | P | `inferIntent` scores roots, then a lexicon, then target, because two conditioned children on one given let the stronger one swamp the weaker. A per-child weight dial in `inferSlot` would let S drop its local scorer. A lexicon overlay (source-language glosses as an evidence kind) may suit other domains' names too |
 | Naming owner (NMR) | Hogwarts needs an incantation register for generated spells (today: joined roots plus a drawn ending). D&D and Mother of Learning have no root vocabulary, so their generated spells stay unnamed |
 | G | First consumer pairing for joint composition (SC6): a killer move and a combined charm through the same kernel answer |
@@ -89,10 +110,11 @@ Save compatibility (MC4): unchanged. The spellbook's actor fact keeps schema 1; 
 
 ### Next phase
 
-1. Lower grammar spells into play: a Hogwarts host that maps effect intents from `spell_law` onto the bench's owners, so a recombined spell can be cast at the bench (FLR2 route).
-2. Re-express `dnd_levitate` as D&D pack rows plus world rules (SB5) and delete its switch; then the HP lab and MoL formula grids as recombination (SI3).
-3. Run the LOTM divination rows through `spell_law` with their rite stages as steps, retiring `cast_divination_adapter`'s own compiler (SB6).
-4. Export and Import in the spellbook walk; the Hogwarts bench walk.
+1. Store the spellbook trial as a K record (`kernel.working@1`) in the spellbook slice, settled when the native job finishes (KW7, KW13). Save shape becomes spellbook schema 2 with a one-step migration from schema 1 (MC4).
+2. Lower grammar spells into play, with world-pack word tables for the explanation line (PRS7): a Hogwarts host that maps effect intents from `spell_law` onto the bench's owners, so a recombined spell can be cast at the bench (FLR2 route).
+3. Re-express `dnd_levitate` as D&D pack rows plus world rules (SB5) and delete its switch; then the HP lab and MoL formula grids as recombination (SI3).
+4. Run the LOTM divination rows through `spell_law` with their rite stages as steps, retiring `cast_divination_adapter`'s own compiler (SB6).
+5. Export and Import in the spellbook walk; the Hogwarts bench walk.
 
 ## 1. Inventory: every spell, cast lowering and spell rule in code
 
