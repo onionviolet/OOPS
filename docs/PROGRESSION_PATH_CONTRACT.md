@@ -32,6 +32,7 @@ method   = crossingMethod(law, row, {kind, to, minutes})
 | PRG9 | **Effects, not writes.** Crossing publishes `progression.crossed` (with grants and the new record for the owner to store) and `progression.spent` (fact and amount). Kinds are exported constants. L applies body changes, G Gu changes, the holder's owner moves the position (PFP10). | Backlash effects for L land with PRB2. |
 | PRG10 | **Felt, not read.** A track may carry three felt words (none, some, reached). Views show those where the holder could only feel progress, and the count where they could measure it (GTR15). | Per track. |
 | PRG11 | **Paths can be held by things.** A Gu's rank or a creature's rank is a path with a thing as holder; the thing's owner keeps the row and record. | Per world. |
+| PRG13 | **Rolled attempts.** A step with `attempt` (breakthrough rules) rolls through `breakthrough_trial` with the stage index as its tier. The caller passes the roll (from a K step address under GR1-GR17, or its own RNG), units paid and the holder's trial state; the result returns the updated trial state for the owner to keep. A failed roll keeps the position. Per-stage gate dials (`gateDials`) set a stage's threshold on a shared gate. | Risk, floor and pay per world, as `defineTrialRules`. |
 | PRG12 | **NPCs walk the same rows.** An NPC's step uses the same row, quote and working (GTR20, PFP11). | Far from the player a host may settle a path as a rate to the same expected position (PFP12). |
 
 ## First consumers (in the test file)
@@ -46,7 +47,7 @@ method   = crossingMethod(law, row, {kind, to, minutes})
 
 | Code | Gap | Default proposal | Owner |
 | --- | --- | --- | --- |
-| PRB1 | Rolled risk (Frontier tempering, a heart demon, an exam) | Fold `breakthrough_trial` in as a step `attempt` drawing from the K step address when tempering moves; a K quote then shows the outcome, so odds on the quote need KB9 | R, K for KB9 |
+| PRB1 | Odds on a K quote for a rolled step (PRG13 landed for direct crossings; Frontier tempering runs on it) | A K quote runs the draw and shows the outcome, so odds need KB9 | K |
 | PRB2 | Backlash on bodies (cracked aperture, loss of control from an undigested drink) | A `progression.backlash` effect L applies | R with L |
 | PRB3 | Digestion by acting quality: an act counts if it fits the potion's principle | A principle match supplied by S or N; R counts what is supplied | S, N |
 | PRB4 | Threshold expressions over facts (GTR30) | A fourth kind once a second consumer needs it | R |
@@ -54,6 +55,13 @@ method   = crossingMethod(law, row, {kind, to, minutes})
 | PRB6 | Transitions between paths (swap, branch, demote, wrong order) | `ladder_holdings` transitions settled as R workings | R |
 | PRB7 | Conserved seats and characteristics (GTR33) | A world ledger read as a gate fact | M or W |
 | PRB8 | Live wiring | Each consumer's owner stores the record and reads it in its scenes (G for Gu, the LOTM owner for sequences, the skill host for levels) | R with each owner |
+
+## Live consumers
+
+| Consumer | Where | What runs on the rule |
+| --- | --- | --- |
+| Lord of the Mysteries digestion | `src/book_world_lotm_digestion.js`, called by the Seer, pathway rows and Seq 7 | One `count` track per potion and the felt words |
+| Frontier tempering | `temperingRow` in `src/pledges_content.js`; `readiness` and `attempt` in `src/pledges.js` | Gate per stage and the rolled trial (PRG13) |
 
 ## Save shape
 

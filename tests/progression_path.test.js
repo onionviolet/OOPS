@@ -154,3 +154,23 @@ test('lotm live: one digestion counter writes the same facts and felt words for 
         assert.equal(digestionFacts({}, prefix, undefined, need)[`${prefix}.acting`], 0);
     }
 });
+
+test('tempering: the path row rolls exactly as the breakthrough trial and reads the same gate', async () => {
+    const {temperingRow, trialRules, temperingGate, stageNeed} = await import('../src/pledges_content.js');
+    const {attemptBreakthrough, createTrialState} = await import('../src/breakthrough_trial.js');
+    const {evaluateGate} = await import('../src/progression_gates.js');
+    for (const tier of [1, 2, 3]) for (const pressure of [0, 3]) for (const units of [0, 5]) for (let roll = 0; roll < 1000; roll += 37) {
+        const state = {...createTrialState(), pressure};
+        const direct = attemptBreakthrough(trialRules, state, {tier, roll, progress: 0, units, stability: 4, scar: 1});
+        const r = crossStep(temperingRow, createPosition(temperingRow, {position: tier - 1}), {trialFree: true, 'skill.combat': 9},
+            {attempt: {roll, units, state, stability: 4, scar: 1}});
+        assert.deepEqual(r.trial, direct);
+        assert.equal(r.ok, direct.passed);
+        assert.equal(r.record.position, direct.passed ? tier : tier - 1);
+    }
+    for (const tier of [1, 2, 3]) for (const combat of [0, 1, 3, 6]) {
+        const facts = {'skill.combat': combat, 'skill.equilibrium': 0, 'skill.persistence': 0};
+        const q = stepQuote(temperingRow, createPosition(temperingRow, {position: tier - 1}), {...facts, trialFree: true}, {knows: () => true});
+        assert.deepEqual(q.gate, evaluateGate(temperingGate, facts, {dials: {need: stageNeed(tier)}, knows: () => true}));
+    }
+});

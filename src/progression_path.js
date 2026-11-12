@@ -9,6 +9,7 @@ import {check, deepFreeze, natural, object} from './basics.js';
 import {definePath, crossingMet} from './ascension_paths.js';
 import {defineGate, evaluateGate} from './progression_gates.js';
 import {defineWorkingLaw} from './kernel_working.js';
+import {attemptBreakthrough} from './breakthrough_trial.js';
 
 export const PROGRESSION_CONTRACT_VERSION = '0.1';
 export const POSITION_SCHEMA = 'progression.position@1';
@@ -54,6 +55,7 @@ function validateTrack(name, t) {
 
 // PRG1, PRG2. A path row. `dials` hold every world number a step reads, each with a reason (AD5).
 // steps[stageId] = {open: 'auto' | 'working', gate?: GTR descriptor, supply?: {fact, need: dialName},
+//                   attempt?: breakthrough rules (defineTrialRules), gateDials?: {name: value},
 //                   minutes?: dialName | natural, fail?: {reason, felt?}, felt?: text}
 export function definePathRow(row) {
     check(object(row) && object(row.path), 'A path row needs a path.');
@@ -71,7 +73,9 @@ export function definePathRow(row) {
         const dialed = v => v === undefined || natural(v) || Object.hasOwn(dials, v);
         check(dialed(step.minutes), `Step ${stageId} minutes must be whole or a dial.`);
         if (step.supply) check(text(step.supply.fact) && Object.hasOwn(dials, step.supply.need), `Step ${stageId} supply needs a fact and a dial.`);
-        if (step.supply || step.gate) check(step.fail && text(step.fail.reason), `Step ${stageId} states what failing looks like.`);
+        if (step.supply || step.gate || step.attempt) check(step.fail && text(step.fail.reason), `Step ${stageId} states what failing looks like.`);
+        if (step.attempt) check(object(step.attempt) && object(step.attempt.baseRisk) && Object.hasOwn(step.attempt.baseRisk, index), `Step ${stageId} attempt rules need a risk for tier ${index}.`);
+        check(step.gateDials === undefined || (object(step.gateDials) && Object.values(step.gateDials).every(amount)), `Step ${stageId} gate dials are numbers.`);
         steps[stageId] = {...step, gate: step.gate ? defineGate(step.gate) : undefined};
     }
     for (const [i, stage] of path.stages.entries()) if (i > 0) check(Object.hasOwn(steps, stage.id) || stage.crossings.length > 0, `Stage ${stage.id} has no way in.`);
@@ -127,17 +131,21 @@ export function stepQuote(row, rec, facts = {}, {dials = {}, knows = () => false
     if (next >= row.path.stages.length || next > row.ceiling) return {ready: false, capped: true, from: rec.position, to: null};
     const stage = row.path.stages[next], step = row.steps[stage.id], all = pathFacts(row, rec, facts);
     const crossings = stage.crossings.map(c => ({id: c.id, type: c.type, met: crossingMet(c, all)}));
-    const gate = step?.gate ? evaluateGate(step.gate, all, {dials, knows}) : null;
+    const gate = step?.gate ? evaluateGate(step.gate, all, {dials: {...(step.gateDials ?? {}), ...dials}, knows}) : null;
     const supply = step?.supply ? {fact: step.supply.fact, have: all[step.supply.fact] ?? 0, need: dialValue(row, step.supply.need, dials)} : null;
     if (supply) supply.met = amount(supply.have) && supply.have >= supply.need;
     const admitted = crossings.every(c => c.met) && (!gate || gate.met);
-    return {from: rec.position, to: next, stage: stage.id, open: step?.open ?? 'auto', crossings, gate, supply, admitted,
+    return {from: rec.position, to: next, stage: stage.id, open: step?.open ?? 'auto', crossings, gate, supply, admitted, attempt: !!step?.attempt,
         ready: admitted && (!supply || supply.met), minutes: dialValue(row, step?.minutes, dials), capped: false};
 }
 
 // PRG7. Crossing one step. Admission is crossings plus gate; a supply step then needs its supply.
 // A failed supply spends what was pressed and keeps the position (the attempt happened); a refused admission spends nothing.
-export function crossStep(row, rec, facts = {}, {dials = {}, holder = null, at = rec.since} = {}) {
+// PRG13. An `attempt` step rolls through breakthrough_trial with the stage index as its tier. The caller passes
+// `attempt: {roll, units, state, stability, scar}`: the roll comes from the caller's draw (a K step
+// address under GR1-GR17, or the host's own RNG) and `state` is the holder's trial state, which the result returns
+// updated for the holder's owner to keep. A failed roll keeps the position; what it cost is in `trial`.
+export function crossStep(row, rec, facts = {}, {dials = {}, holder = null, at = rec.since, attempt} = {}) {
     const q = stepQuote(row, rec, facts, {dials});
     if (q.capped) return {ok: false, reason: 'Nothing further is offered on this path here.', record: rec, effects: []};
     const stage = row.path.stages[q.to], step = row.steps[stage.id] ?? {};
@@ -145,8 +153,15 @@ export function crossStep(row, rec, facts = {}, {dials = {}, holder = null, at =
     const spend = (fact, n) => n > 0 ? [{kind: PROGRESSION_EFFECTS.spent, holder, path: row.path.id, stage: stage.id, fact, amount: n}] : [];
     if (q.supply && !q.supply.met) return {ok: false, reason: step.fail.reason, record: rec,
         effects: spend(q.supply.fact, q.supply.have), observed: {felt: step.fail.felt ?? null}};
+    let trial = null;
+    if (step.attempt) {
+        check(object(attempt) && object(attempt.state), `Step ${stage.id} needs an attempt with a roll and the holder's trial state.`);
+        const {roll, units = 0, state, stability = 0, scar = 0} = attempt;
+        trial = attemptBreakthrough(step.attempt, state, {tier: q.to, roll, progress: 0, units, stability, scar});
+        if (!trial.passed) return {ok: false, reason: step.fail.reason, record: rec, effects: [], trial, observed: {felt: step.fail.felt ?? null}};
+    }
     const record = {...rec, position: q.to, since: at};
-    return {ok: true, record, observed: {felt: step.felt ?? null, stage: stage.label},
+    return {ok: true, record, trial, observed: {felt: step.felt ?? null, stage: stage.label},
         effects: [...(q.supply ? spend(q.supply.fact, q.supply.need) : []),
             {kind: PROGRESSION_EFFECTS.crossed, holder, path: row.path.id, from: rec.position, to: q.to, stage: stage.id,
                 grants: [...stage.grants], position: record}]};

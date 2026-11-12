@@ -4,6 +4,7 @@ import {defineVowRules} from './vow_rules.js';
 import {defineTrialRules} from './breakthrough_trial.js';
 import {defineRuneGrammar} from './rune_grammar.js';
 import {defineGate} from './progression_gates.js';
+import {definePathRow} from './progression_path.js';
 
 export const RATION = 'Stale bread', CARVING_WOOD = 'Rough wood log';
 export const TALISMAN_MINUTES = 120;
@@ -41,6 +42,17 @@ export const temperingGate = defineGate({id: 'pledges.tempering', kind: 'capacit
     dials: {need: {default: 1}},
     routes: [{id: 'drill', reason: 'Drilling a technique or fighting trains a qualifying skill.', cost: 'Played time and risk.'}]});
 export const stageNeed = tier => ({1: 1, 2: 3, 3: 6})[tier];
+// Tempering as a path row (PRG1, PRG13): the stages, the readiness gate per stage and the rolled trial
+// are the same data the Pledges domain already used; the stage index is the trial tier.
+const temper = (id, label, n) => ({id, label, grants: [`+${STAGE_BONUS * n / 10}% strength and max health`],
+    crossings: [{id: 'frame', type: 'trial', label: 'Take the trial with no ordeal under way', fact: 'trialFree', need: true}]});
+const temperStep = tier => ({open: 'working', gate: temperingGate, gateDials: {need: stageNeed(tier)}, attempt: trialRules,
+    fail: {reason: 'The tempering did not set; the fear stays with you.'}});
+export const temperingRow = definePathRow({revision: 1,
+    path: {id: 'frontier.tempering', world: 'base.frontier', label: 'Tempering', shape: 'ladder', stages: [
+        {id: 'raw', label: STAGE_NAMES[0], crossings: [], grants: []},
+        temper('tempered', STAGE_NAMES[1], 1), temper('hardened', STAGE_NAMES[2], 2), temper('seasoned', STAGE_NAMES[3], 3)]},
+    steps: {tempered: temperStep(1), hardened: temperStep(2), seasoned: temperStep(3)}});
 
 export const runeGrammar = defineRuneGrammar({id: 'frontier.runes', revision: 1, runes: ['ember', 'gale', 'root', 'tide'], maxLength: 4, perRuneCost: 1,
     pairs: [

@@ -12,8 +12,16 @@ tests: none run; docs-only (check:rules)
 review: none
 ```
 
-**State:** phase 2b done: live LOTM digestion runs on one counter over R's count track; phase 2a added the path contract v0 module on K, with the three first consumers proven in its test file. Save compatibility (MC4): unchanged (no live key). Phase 1 inventory below is unchanged history.
-**Next phase:** 2c, fold Frontier tempering onto a path row with rolled risk (PRB1, `breakthrough_trial` as a step attempt), then `skill_ladder` perks as path grants, then `faction_rank` rungs as a table track over M's standing number.
+**State:** phase 2c done: Frontier tempering's readiness and rolled attempt run on the path rule (PRG13). Phase 2b: live LOTM digestion runs on one counter over R's count track; phase 2a added the path contract v0 module on K, with the three first consumers proven in its test file. Save compatibility (MC4): unchanged (no live key). Phase 1 inventory below is unchanged history.
+**Next phase:** 2d, `skill_ladder` perks as path grants over the skill track, then `faction_rank` rungs as a `table` track over M's standing number (SMK10 split), then the two LOTM ladder descriptors and read models (duplication 2).
+
+## Phase 2c (2026-11-12): tempering on the path rule
+
+`progression_path.js` gained PRG13: a step `attempt` rolls through `breakthrough_trial` with the stage index as tier, plus per-stage `gateDials`. `temperingRow` in `src/pledges_content.js` carries the four stages, the readiness gate per stage and `trialRules`; `pledges.readiness` and `pledges.attempt` now call `stepQuote` and `crossStep`. A parity test checks every 37th roll across tiers, pressure and paid units against `attemptBreakthrough`, and the gate against the direct `evaluateGate`. The `pledges` slice still stores `trial.stage`; the position record is built from it per call, so saves are unchanged (MC4). `progression_path` imports `breakthrough_trial` unchanged.
+
+New measure, live advancement steps that run on R's rule (before 2b: 0). After 2c: 3 tempering steps, plus digestion tracks for 7 potions (Seer, Corpse Collector, Savant, Sailor, Spectator, Sun, Clown). PFP2 book-canon, generic and bespoke counts: before = after (13, 75, 27); tempering was already data and stays data, now on the shared rule.
+
+Verification state: focused tests pass; behaviour-identical by parity; browser not exercised (implemented, browser-unverified).
 
 ## Phase 2b (2026-11-12): one LOTM digestion counter
 
@@ -198,7 +206,7 @@ R proposes to own `ascension_paths.js`, `ladder_holdings.js`, `breakthrough_tria
 Phase 2a (for the coordinator to relay):
 
 - **G:** read the Gu Master position from `ri.gu_master` (`src/progression_packs/ri_gu_master.js`) instead of `aperture_stage` and `reserve_grade` strings in the 18 `book_gu_lead_*` scenes; supply `pressable` and the Rank One sub-stage facts; take the row into the Gu world pack when ready.
-- **K:** KB9 odds on the quote, for rolled steps (PRB1).
+- **K:** KB9 odds on the quote, for rolled steps (PRB1; PRG13 covers direct crossings).
 - **L:** a backlash inbox for `progression.backlash` (PRB2) and the aperture as an organ with capacity.
 - **M:** agreed split: M owns the standing number, R owns rank thresholds over it (`faction_rank`).
 
@@ -211,8 +219,10 @@ Phase 1:
 
 ## Checks run
 
-| Phase 2a and 2b | | |
+| Phase 2a to 2c | | |
 | --- | --- | --- |
+| Pledges and trial tests (15 files incl. `pledges.test.js`, `progression_pledges.test.js`) before and after 2c | 97 pass, 0 fail both times | None |
+| `node --test tests/progression_path.test.js` after 2c | 11 pass | None |
 | `node --test tests/lotm_*.test.js tests/book_world_lotm*.test.js` (72 files) after 2b | 421 tests, 406 pass, 0 fail, 15 skipped | Same set before 2b: 14 named files 84 pass 0 fail |
 | `node --test tests/lotm_commands_golden.test.js tests/batch_identity.test.js` plus the 14 digestion-touching files | 93 tests, 91 pass, 0 fail | None |
 | `node --test tests/progression_path.test.js` after 2b | 10 pass | None |
