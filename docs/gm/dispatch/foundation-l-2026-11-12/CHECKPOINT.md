@@ -1,0 +1,185 @@
+# Foundation L · Living things: phase 1 inventory
+
+*Chat L in the [procedural foundation plan](../../../PROCEDURAL_FOUNDATION_PLAN.md) (OS5 scope: people, animals, Gu-as-creatures and plants). Phase 1, before K and W publish v0: inventory only. Started 2026-11-12 from commit 9bbc51363 on branch `claude/fdn-l-living-dd64ac`. Everything below the inventory is a proposal under AD56, adjustable. Rules applied: PFP1-PFP3, PFP10, PFP16-PFP19, CR1-CR17 and FG1 from the [creature root rules](../../../research/CREATURE_ROOT_RULES_2026-11-11.md), AR3, LVR13, BHR16.*
+
+## Headline
+
+1. **One library, fourteen stores.** `creature_lifecycle.js` (371 lines, family `creature_lifecycle@1`) is already the shared library for 19 host modules. But 14 of those hosts call `restoreCreatureLifecycle` on their **own** save record, so every pen, glade and nest has its own identity counter, revision and clock. `gu_hosted_wolf.js` requires exactly one individual in its store. The previous lane's checkpoint says identity is "scoped to the host save record". The plan's done check ("pet, livestock, wild cohort and Gu-as-creature all read one lifecycle") turns on a **shared store and a species catalogue**, not on more imports.
+2. **No species catalogue.** Species are string literals inside host modules (`'lightning-wolf'` in two files, `'reed-terrapin'`, `'insight-moth'`, `army-ant-${caste}`, `'reed-construct'`, `'house_cat'`, `'sheep'`). The only per-body data table is `needs.js` `BODIES` with 5 rows (human, gu, sheep, house_cat, construct), whose keys do not match most lifecycle species. Canon living kinds that run as data rows through shared rules: effectively zero.
+3. **The body model is thin and split.** Breeding has three paths (`household_brood.js` beside the lifecycle), injury four owners and hunger four forms (see Duplicates). The lifecycle holds one injury slot that heals only while care is active. Hunger lives elsewhere (`needs.js`, `living_upkeep.js`) and each host reads it itself. There is no condition or vitality scalar, no illness, no poison response, no death by age, and plants and the player body are entirely off the lifecycle.
+
+## PFP2 counts
+
+Counting rule, rerunnable:
+
+- **Bespoke scene hosts:** `grep -rlE "creature_lifecycle\.js'" src | grep -v '^src/creature_lifecycle.js$' | wc -l` gives **19**; of those, `grep -rc "restoreCreatureLifecycle(" src` shows **14** holding their own store. Each hard-codes its species, habitat literals and law constants.
+- **Canon living kinds as data:** rows in a catalogue that shared lifecycle rules run with no host code. **0** (no catalogue exists). The nearest data, `needs.js` BODIES, has **5** rows and only drives food rate.
+
+| Count | Value at 9bbc51363 | Direction |
+| --- | --- | --- |
+| Canon living kinds run as data | 0 | rises |
+| Body-data rows (`needs.js` BODIES) | 5 | rises, merges into the catalogue |
+| Lifecycle host modules | 19 | falls as hosts become catalogue rows plus a thin consumer |
+| Separate lifecycle stores | 14 | falls to 1 per save (or per world if W scopes stores) |
+| Living-body modules off the lifecycle | `household_brood`, plants (4 sites), player and NPC bodies | fall as they become kinds |
+
+## Inventory: modules that model a living body
+
+### Lifecycle core (owned by L)
+
+| File | Stores | Time | Notes |
+| --- | --- | --- | --- |
+| `creature_lifecycle.js` | `cohorts{species, habitat, stock}`, `individuals{serial, origin, species, habitat, keeper, traits, bornAt, matureAt, experience{actor:{bond 0-100, lastAt, training{skill:count}}}, health{lastAt, careUntil, injury{kind, at, required, remaining, healedAt}}}`, `broods{parents[2], dueAt, growthMinutes, traits}`, `habitats{interval, nextAt, births, losses}`, `revision`, `nextIdentity` | Played minutes, lazy projection; optimistic revision check per action; wild windows settle up to 64 per call | Pure (AR3). Inheritance: per-trait coin flip between two parents, drawn at brood start by `address('creature-inheritance', broodId, trait)`. One offspring per brood. Prey dependency via `habitat.preyRequirements` |
+| `creature_methods.js` | none (pure planner) | none | `measureCreatureCapability` (sum or max of sourced contributions) and `planCreatureMethod` (ordered typed-role steps, max 12). One of the four "ordered steps over typed inputs" shapes K is comparing |
+| `creature_layers.js` | `base`, `layerDefs` on a body | none | Removable template layers (add, set, tag, untag), PF1 calibration. Not wired to the lifecycle |
+| `living_regulator.js` | `{clock, humidity, inlet, pending}` | Played minutes, 64-window bound | Chamber feedback for the terrapin. Device state, not body state |
+| `habitat_care.js` (+ `_ui`) | Village pen: site, `lifecycle`, sheep, ram, lamb, brood ids, hay and wool | Native calendar minutes, lazy | Livestock consumer. LVR rules say not to copy it |
+| `meadow_wildlife.js` | copse store (rabbit, fox) | Wild habitat windows | Wild cohort consumer |
+| `meadow_shell_state.js` | terrapin store + regulator | Minutes | Care, work and combat read one projected condition (CR17) |
+| `meadow_courier.js`, `meadow_fleece.js`, `meadow_shell_combat.js` | reed construct; wool plan; shell guard | Minutes | Construct uses the lifecycle for custody only |
+
+### Shared need seams (not owned by L, read by L)
+
+| File | Stores | Time | Notes |
+| --- | --- | --- | --- |
+| `needs.js` | `NEED_KINDS` (food only, four stages with work and heal multipliers), `BODIES` (5 rows: rate, heal, strength, rationMinutes, selfFed) | Pure; callers pass minutes since meal | Default: low need slows, does not kill (BHR16, LVR15). Only 2 importers |
+| `living_upkeep.js` | Compiles diets into ambient event rows (`upkeep@1`): reset, meal, hunger, death | Ambient simulation events | Gu keeper diets. Condition falls one step per missed meal; `lethal` opt-in |
+
+### Gu as creatures (lifecycle hosts; Gu semantics owned by G)
+
+| File | Lifecycle use | Bespoke content |
+| --- | --- | --- |
+| `gu_liquor_worm.js` | acquire, practice, cohort, transfer | Wine lure, familiarity |
+| `gu_moonlight_stock.js`, `gu_keeper_moonlight_trial.js` | acquire, health, cohort, transfer | Loan stock, trial |
+| `gu_keeper_colony.js`, `gu_colony.js` | acquire, health, injure, care; wild windows | Star firefly farm, ordinary-to-Gu emergence (G owns emergence) |
+| `gu_army_ants.js`, `gu_keeper_ant_nest.js` | occupancy, cohort | Castes as species strings |
+| `gu_hosted_wolf.js`, `gu_wolf_scouting.js`, `gu_wolf_ridge.js`, `gu_crown_flight.js` | acquire, injure, care, transfer | Lightning wolf host body, single-individual store |
+| `gu_keeper_cooperation.js` | own store | Insight moth cohort |
+| `gu_keeper_wild.js`, `gu_workshop.js` | restore only | Composition of the above |
+| `gu_keeper_vitality.js`, `gu_vitality_grass.js` | none | A living plant Gu as a world fact string: grow leaf (15 min), harvest, treat |
+
+### Pet
+
+| File | Lifecycle use | Notes |
+| --- | --- | --- |
+| `absorb_p23/household/model.js` | Moss the house cat: doorstep cohort, practice (bond +10, `chase`), transfer into the home | Legacy bond migrates lazily. Self-fed through `needs.js` |
+
+### People and the player body (not on the lifecycle)
+
+Swept by a read-only sonnet agent; the file sizes, `household_brood` and affliction-catalogue claims were spot-checked.
+
+| File | Stores | Time | Notes |
+| --- | --- | --- | --- |
+| `models/person.js`, `components/levelable_component.js` | Native `stats.full.health/stamina/max_*` and regen stats in the main save | Real-time regen ticks | Player vitals authority. Mirrored into `simulation.people[id].vitals` through `native_gameplay_adapter.js` (`publishNativeVitals`) with `hpToFull`/`staminaToFull` offsets. The ~215 `vitals` files are readers of that bridge |
+| `simulation.js` `people[id]` | `{life, bornAt, vitals?, body?, lifePolicy?, lifeCause}` | Played minutes; old age ends a life at `bornAt + lifespan` | Generic over pack-declared people |
+| `harm_state.js` (273), `harm_engine.js` | Save key `harm`: `backlash`, `parts{rung, cause, care}` with rungs shaken to dying | Pure, caller clock | Data-driven world rows; wired only for LOTM, tempo fight and combat UI |
+| `affliction_track.js` (174), `affliction_catalogue.js` (66) | Track `{since, stage}` carried by the consumer; d20 stages | Pure, minutes (`DAY`, `WEEK`) | **Generic illness seam with no src consumer of its catalogue** (only `hp_companion_potions` uses tracks) |
+| `active_effects.js`, `craft_dose_rules.js` (`craft.dose@1`) | Native timed effects incl. poison; tolerance and overdose ledger | Real time; dose per intake | B's side of dose, L's side of response is missing |
+| `body_progression.js`, `body_figure.js` | Conditions `body.sore_hands`, `body.underfed`, `frail_frame` and others as simulation conditions | Per command, `expiresAt` | Bespoke to `base.frontier` |
+| `status_care_*`, `book_care_*`, `field_care_*` | Short care conditions (`warmed`, `braced`, field venoms list) | Fixed 12-20 min durations | Three bespoke Village and Paradise modules sharing facts, not code |
+| `aging_contact.js` + `chronicle.js` (351) | Wear from age 40, floors; `life{initialAge, lifespan, mode, endedAt}` | `GAME_YEAR` from minutes | Dialled per world, only `base.frontier` registered |
+| `npc_lives.js` (86), `village_family.js`, `life_events*` | Village people `{birthYear, deathYear, parents, spouseId}`, pregnancies | Whole years, 270-day gestation | Bespoke: one household |
+| `craft_body_treatment.js`, `home_medicine.js` | Body-bound treatment `{binding, conditioning, impurity, capacity, job}`; the manor copy for four NPCs as facts | Job `due` on the clock | `home_medicine` duplicates the player treatment for NPCs |
+| `hp_companion_potions.js`, `hp_animal_features.js` | Patient affliction track; animal features with week stages | Minutes | Bespoke HP pack |
+
+### Breeding and kin outside the lifecycle
+
+| File | Stores | Notes |
+| --- | --- | --- |
+| `household_brood.js` (65) | Cloudseed beetles `{clock, roster, food, breeding, pair, births}`, incubation 60, maturity 120 | **A second creature breeding path that does not use `creature_lifecycle`** |
+| `lineage_traits.js` (174), `lineage_domain.js` | Alleles per member, `breed()`, `phenotype()` | Generic genetics with 7 importers (cultivation root, village family, household brood). A better inheritance law than the lifecycle's coin flip, not wired to it |
+| `companion_roster.js`, `companion_stage.js` | Bond stages `[0,1,3,6,10]`; roster a view over Lio's vitals | Bonds separate from lifecycle `experience.bond` |
+| `heir_inheritance.js`, `family_tree.js` | Estate and reputation succession | Not a body; out of L scope except lineage edges |
+
+### Plants and crops (no owner)
+
+| File | Stores | Notes |
+| --- | --- | --- |
+| `management/shipping_farming.js`, `hired_hands_plot.js` | Actor facts `mg.cropStage` (planted, tended, ready), `mg.cropType` | One courtyard plot, two crops |
+| `hp_brewing_state.js` | `fluxweedBed{parentLotId, plantedAt, readyAt}` | One HP bed |
+| `gu_vitality_grass.js`, `gu_keeper_vitality.js` | JSON fact `{plant{kind, alive, leaves, injured}, grownAt, treatedAt}` | One Gu grass |
+| `spoilage.js` | `PERISHABLES` (4 rows), pure | The only generic decay reader |
+| `field_layer*`, `field_works*`, `planar_drying_field.js` | Material and fire levels, apparatus pulses | **Not living**: physical models. `field_layer_factory` hurts a person directly, a further injury path |
+
+### Duplicates the foundation should fold
+
+- **Injury, four owners:** `harm_state` parts, lifecycle `health.injury`, the Gu record's `injured` boolean, and native `takeDamage` plus `field_layer_factory` hazards. `affliction_track` also stages wounds.
+- **Hunger, four forms:** `needs.js`, `body_progression` `UNDERFED`, ad-hoc hunger in `enemies.js`/`items.js`/`main.js`, and `household_brood.food`.
+- **Breeding, three paths:** lifecycle broods, `household_brood`, and `village_family` with `lineage_traits` for people.
+- **Life end, three owners:** `simulation.js` `lifePolicy`, `chronicle.js` `endedAt`, `npc_lives.js` `deathYear`; `harm_state` and `defeat_domain` each keep a death-cause list.
+- **Age computed in five places:** `chronicle`, `life_experience`, `aging_contact`, `village_family`, `lineage_traits`.
+- **Clocks:** played minutes (dominant), chronicle years, native calendar days, real-time native ticks, local module clocks (`household_brood`, `owned_place_clock`), and the Gu integer day (`fedThrough`).
+
+## Grammar of parts for living things (draft for P)
+
+A living thing is assembled from four parts plus a projection. Each part has one owner and its own clock (FG1 "read the creature in layers"). Canon creatures become catalogue rows that fill these parts; generated ones fill the same slots and must run through the same laws (PFP16).
+
+| Part | Holds | Settled by | Canon test question |
+| --- | --- | --- | --- |
+| **Lineage** (kind and inheritance) | Kind row: body plan, diet, stages, lifespan band, reproduction roles (sexual, parthenogenetic, fission, budding, emergence), heritable traits with alleles or ranges, compatibility with other kinds. Individual: inherited potential, contributor per offspring, lineage edges | Conception or commitment boundary (world dial: conception, birth or another point) | Given two parents or a source, does the kind rebuild a canon offspring's traits? |
+| **Body** (development and condition) | Stage (egg, juvenile, adult, elder, host body), size and mass, parts and attachments (grafts, implants, a hosted Gu), vitality, wounds (several, each with kind, site, required recovery), illnesses and poisons as courses with an onset and a response, needs by kind, temperature tolerance | Elapsed exposure and paid support to the next boundary (CR14) | Does a canon creature at a given age and care reach the source's stated size, stage or recovery? |
+| **Environment fit** (habitat) | Supported conditions (humidity, temperature, light, essence where Gu), prey and supply dependencies, capacity use, what the body releases into the place (heat, noise, residue, light) | Place quantities from W, read at settlement | Does a canon habitat support or fail the kind for the source's stated reason (CR2)? |
+| **Learned behavior** (experience) | Per actor: bond, training by skill with cue and context, fears and aversions, carried-forward lessons across development (CR7), context-gated extinction (CR8) | Practice events at their real time | Does a canon trained response survive the development or context change the source shows? |
+| *Projection* (not stored) | What it can do now: capabilities with sources (`measureCreatureCapability`), work and heal multipliers from needs and wounds | Read on demand by care, work, combat, Gu activation | One cause read by many consumers without multiplying it (CR17) |
+
+Combination rules to write (P contract, L's grammar):
+
+- **G1 · Inheritance is a law per kind, not a coin flip per trait.** The current per-trait 50/50 draw is one rule; `lineage_traits.js` already has alleles and phenotype and is the likelier base; kinds may declare blending, dominance, mutation rate or no inheritance (emergent Gu). Contributors are per offspring (FG1-A), so a brood of several can have different sires.
+- **G2 · Stages swap body parts, not identity** (CR1, CR6). A stage row changes diet, size, hazards, habitat needs and affordances; the individual id, lineage and learned history persist unless the stage row says a lesson is lost.
+- **G3 · Afflictions are courses.** Start from the existing generic `affliction_track.js` rather than a new shape. Injury, illness and poison share one shape: onset, a dose or severity, a response curve that care, medicine (B) or the body's own heal multiplier moves, and an outcome (healed, chronic, scar, death with a dial). B owns dose composition; L owns the response (CR4).
+- **G4 · Kinds are rows, hosts are consumers.** A Gu-as-creature is a kind row with `body: gu` and an essence need; its refinement, activation and uniqueness stay with G. A plant is a kind with no locomotion, growth in stages and yield as a harvest part. A person is a kind with lifespan, aging stages and learned behavior read by A.
+- **G5 · Corpus fit (P5).** Weights for kind rows come from the source: the RI index for Gu-as-creature diets and habitats, the HP care texts for creature stages, real biology only as a contrast, never as a book fact.
+
+## Quantities L reads and writes (request to W)
+
+Proposed names; W decides the vocabulary in v0. Unit, clock and direction are what L needs. Essence semantics belong to G; L reads essence only as a body need of a Gu.
+
+| Quantity | Unit | Clock | L | Current owner | Notes |
+| --- | --- | --- | --- | --- | --- |
+| `vitality` | 0..max per body | Played minutes, settled at boundaries | writes (bodies), reads (consumers) | none (only injury `remaining`) | The condition scalar every consumer projects from |
+| `hunger` (need level by kind: food, water, essence, sleep) | fraction of ration, or minutes since meal | Played minutes at body rate | writes | `needs.js` (food only), `living_upkeep.js` | Supply comes from W stocks (hay, prey cohort, essence) |
+| `food stock` / supply | item count or ration-minutes | per meal | reads and debits | inventory, host save | Prey cohorts already count as supply (`preyRequirements`) |
+| `temperature` | degrees (world unit) | ambient process | reads (tolerance), writes (body heat released) | none for bodies; B and W for vessels | First emergence chain: brew heat warming a Gu |
+| `humidity` | 0..100 | regulator minutes | reads | `living_regulator.js` (device state) | Move ownership of ambient humidity to W; device keeps its inlet |
+| `light` (moonlight, starlight) | world unit | sky process (OS6) | reads (Gu habitat), writes (firefly brightness) | `gu_colony` literals | Third emergence chain: firefly colony attracts starlight feeders |
+| `essence by kind` | Gu world unit | G's rates | reads as a Gu body need | G | L does not define it |
+| `residue` (dose in tissue or crop) | mass by substance | per exposure | reads intake, writes uptake | none | Second chain: rinse water into a field into sheep |
+| `occupancy` / capacity | count | per settlement | writes | `creature_lifecycle` habitat checks | Place owns capacity; L reports use |
+| `noise`, `scent` | effect, not stock | per event | writes (published effects) | none | O3 contact: "the noise drew the wolf" |
+
+## First readers of one lifecycle
+
+Proposed order for the embed phase, cheapest first because they already share call shapes (`settleCohortStock`, `acquireCreature`, `transferCreature`, `creatureHealth`):
+
+1. **Livestock:** `habitat_care.js` (sheep, ram, lamb, brood, injury and care). Most of the lifecycle API exercised; browser receipts exist.
+2. **Pet:** `absorb_p23/household/model.js` (Moss: bond, practice, transfer into the home).
+3. **Wild cohort:** `meadow_wildlife.js` (rabbit and fox windows), with `gu_colony.js` as the Gu-side wild cohort.
+4. **Gu-as-creature:** `gu_moonlight_stock.js` (acquire, health, transfer) first, then `gu_liquor_worm.js` (adds practice).
+5. **Player body:** second wave. Its authority is native `Person` stats mirrored into `simulation.people[].vitals` by offsets, with injury in `harm_state` and life end in `chronicle`. Moving it means a vitals authority decision with K and W (OS8 save contract), not a host swap. Before that, the person kinds (`human` body row, Village NPCs from `npc_lives`) can become catalogue rows that the player body reads later.
+
+The embed for 1-4 is: one lifecycle store per save under one key, kind rows in a catalogue that replaces host species literals, hosts reduced to their place and law constants, then one task consumer reading the lifecycle through K's working.
+
+## What the rules cannot express yet
+
+- Multi-offspring broods and per-offspring contributors (FG1-A); the brood shape is two parents, one offspring.
+- Rediscovery of a precommitted wild slot without minting a duplicate (FG1-B).
+- Cross-store and cross-clock transfer: an animal moving between two host stores, or between a minute clock and a day clock (FG1-C).
+- More than one injury at a time, injury that heals without active care, illness, poison, chronic conditions, scars.
+- Death by age, lifespan, aging stages beyond `matureAt`.
+- Needs other than food, and needs settled by the lifecycle rather than read by each host.
+- Plants and crops as living kinds (growth stages, yield, uptake) on the same lifecycle.
+- A body with attached living parts (host and hosted Gu, graft) settled atomically (CR12, the "hard case").
+- Inheritance laws other than a per-trait coin flip; mutation; emergence as a lineage edge.
+
+## Checks run
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `git merge --ff-only 9bbc51363` | worktree started at c25fd396d, behind the stated start; fast-forwarded cleanly | none |
+| Read-only sonnet sweep of person, medicine, plant and kin modules | rows folded above; spot-checked `household_brood` (no lifecycle import), `affliction_catalogue` (0 src importers), fluxweed bed fields, file sizes | importer counts in the sweep are approximate |
+| `grep` counts above | 19 hosts, 14 stores, 5 BODIES rows | counts are text-based; a host that builds the lifecycle by another name would be missed |
+| Code changes | none, so no focused tests were needed | no data-only addition was made: the natural one (species rows in `needs.js` BODIES) is outside L's files |
+
+## Next phase
+
+Embed waits for K and W v0 on master. Then, in order: (1) a living-kind catalogue file owned by L with rows for the 10 or so species now hard-coded in hosts, plus the grammar fields above; (2) one shared lifecycle store per save and a migration line (MC4); (3) move the four first readers onto it and delete their species literals; (4) afflictions as courses (G3) on `affliction_track` with B's dose as input, and `household_brood` folded in; (5) one task consumer through K. Requests out: W for the quantity names above; G to confirm `body: gu` rows read essence as a need only; B for the dose shape L will read; `needs.js` owner (not in any chat's table yet) to fold BODIES into L's catalogue.
