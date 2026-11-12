@@ -1196,3 +1196,9 @@ Recorded in the [procedural foundation plan](../PROCEDURAL_FOUNDATION_PLAN.md#he
 Weibao: "send out stuff to cover OA1-5. FN1-9, but we need to make sure foundational stuff works out too, Other stuff in books worth adapting into procedural systems and more? Consider lore aspects first?" Then: "Consider Aspects beyond genone, if that would even be the most optimal and more? other aspects to consider? selective breeding and more? consider magical aspects? Similar depth considerations for other aspects too?"
 
 Recorded in the [procedural foundation plan](../PROCEDURAL_FOUNDATION_PLAN.md#lore-first-inheritance-beyond-genes-and-a-depth-checklist-2026-11-12): lore laws as fixed points first (LR1-LR16), inheritance channels (IH1-IH8), selective breeding (SB7-SB12), the depth checklist DC1-DC10, routing with foundations first, PFP30-PFP32.
+
+## Bloodlines, descent graph, spell and potion depth, 2026-11-12
+
+Weibao: "consider aspects like bloodlines and more? Stuff beyond Creatures? Some stuff to focus on Spellcraft and potioncrafting? More to consider?"
+
+Recorded in the [procedural foundation plan](../PROCEDURAL_FOUNDATION_PLAN.md#bloodlines-descent-beyond-creatures-and-depth-for-spellcraft-and-potions-2026-11-12): one descent graph (DG1-DG7), bloodlines (BL1-BL8), lineage beyond creatures (LN1-LN6), spellcraft depth (SPD1-SPD9), potion-craft depth (PTD1-PTD10), BX1-BX4, PFP33-PFP34.
