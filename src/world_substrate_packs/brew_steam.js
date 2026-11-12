@@ -5,13 +5,25 @@
 // burner burns, the batch steams into its place's humidity. When the burner goes
 // out it publishes smoke into the place. The pack knows nothing about who else
 // is in the room.
-import {advanceThermal, createThermalState, validateThermalState} from '../craft_process_thermal.js';
+import {advanceThermal, createThermalState, thermalYield, validateThermalState} from '../craft_process_thermal.js';
 import {WORLD_QUANTITIES as Q, WORLD_EFFECT_KINDS as K} from '../world_quantities.js';
 
 const remainingBurn = t => t.segment.at + t.segment.burnSeconds - t.elapsedSeconds;
 
-export function createBrewSteamPack({thermalLaw, steamPerMinute}) {
+// Optional recipe row: at burnout, a moisture-sensitive binder leaves part
+// of the usable active material in the vessel film. The thermal leaf still
+// owns heat, extraction and degradation, including cooling after burnout.
+export function createBrewSteamPack({thermalLaw, steamPerMinute, humidityFinish}) {
     if (!Number.isSafeInteger(steamPerMinute) || steamPerMinute < 0) throw new Error('Brew steam: steamPerMinute is whole.');
+    const finishRule = humidityFinish == null ? null : {...humidityFinish};
+    if (finishRule) {
+        const {activeAmount, maxHumidity, dampResiduePercent} = finishRule;
+        if (!Number.isSafeInteger(activeAmount) || activeAmount < 0 ||
+            !Number.isSafeInteger(maxHumidity) || maxHumidity < Q.humidity.min || maxHumidity > Q.humidity.max ||
+            !Number.isSafeInteger(dampResiduePercent) || dampResiduePercent < 0 || dampResiduePercent > 100) {
+            throw new Error('Brew steam: humidity finish needs a whole active amount and whole percentages.');
+        }
+    }
     const isBatch = h => h.kind === 'thing' && h.tags.includes('brew.batch');
     // A minute steams when the burner is lit at its start; that is the same test in one jump or many steps.
     const burning = s => remainingBurn(s.thermal) > 0;
@@ -37,8 +49,19 @@ export function createBrewSteamPack({thermalLaw, steamPerMinute}) {
             decide: (view, id) => {
                 const s = view.state(id), lit = burning(s);
                 if (lit === s.lit) return [];
-                return [{op: 'state', holder: id, value: {...s, lit}},
-                    ...(!lit ? [{op: 'publish', kind: K.smoke.id, place: view.placeOf(id), detail: {fuelSpent: s.thermal.fuelSpent}}] : [])];
+                const place = view.placeOf(id);
+                const next = {...s, lit};
+                if (!lit && finishRule) {
+                    const {activeAmount, maxHumidity, dampResiduePercent} = finishRule;
+                    const humidity = view.has(place, Q.humidity.id) ? view.amount(place, Q.humidity.id) : null;
+                    const yieldAtBurnout = thermalYield(thermalLaw, s.thermal, activeAmount);
+                    const film = humidity !== null && humidity > maxHumidity
+                        ? Number(BigInt(yieldAtBurnout.usable) * BigInt(dampResiduePercent) / 100n) : 0;
+                    next.finish = {at: view.clock, place, humidity, activeAmount, maxHumidity, dampResiduePercent,
+                        ...yieldAtBurnout, usable: yieldAtBurnout.usable - film, film};
+                }
+                return [{op: 'state', holder: id, value: next},
+                    ...(!lit ? [{op: 'publish', kind: K.smoke.id, place, detail: {fuelSpent: s.thermal.fuelSpent}}] : [])];
             },
         }],
     };
