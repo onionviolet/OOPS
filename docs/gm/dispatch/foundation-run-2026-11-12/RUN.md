@@ -380,3 +380,18 @@ Each lead reviewed its Codex lane's work and committed on its own branch. None i
 | Process crafts | `codex/w12-process` `5f77574a3` | `src/process_law.js` (law `f.process`: `hold`, `work`) and `src/load_law.js`; a forged, quenched and tempered blade against an untempered one, a kitchen pack on the same law, equal records across settle sizes and a restore (10 tests pass). Census: 71 Making modules, 12 are processes, one runs on the kernel | One kernel shape, two laws: brewing stays a conserved ledger. Chained rows integrate in up to 256 slices; fuel, vessel capacity, maker skill, fold and aging are outside the law; no parity fixture against `gear_work.js` |
 
 Codex usage read 22% of 50% at the fold.
+
+## Codex coordinator fold (2026-11-12)
+
+Wave 12 base `5bc9d0eb9` passed its daily full suite. At takeover all four family lanes were finished and their worktrees had no source edits outside the branch commits. Usage 23% weekly, 2,961 credits above the floor. PC95 remains the integration boundary.
+
+### Body alteration
+
+Folded `af757abd2` onto `5bc9d0eb9`. Kept colony light and the common satiety declaration. The import test initially mistook the domain's same-named helper for a pack. Comparing resolved import paths fixes the false positive while checking the new pack. `node --test tests/body_alteration.test.js tests/pace.test.js tests/engine_world.test.js`: 12 passed, exit 0. Architecture, rules, coverage and docs passed. The four changed source files are outside main reachability. G2 now 13 of 13. G3 remains 5 on the mixed day (799 of 800 segments). Engine fixture evidence, below the AD43 gameplay floor.
+D1: Active pack state uses a one-minute horizon. This is the small exact implementation of changing pressure/upkeep/recovery rates, rather than a predictive breakpoint optimizer. It preserves jump/partition equality; it does not claim optimized long-duration far settlement. The existing engine-world mixed-day fixture remains unchanged apart from pack counts and passes with the new default-empty pack.
+
+D2: The packet's required `grants.quantities` path is implemented. The palette's optional `grants.sentence/details` is not automatically landed by this pack; activation uses the existing effect host explicitly, and the drink fixture publishes the required install directly. No general sentence-grant host or UI integration was added. Fusion is deferred by the settled design itself.
+
+D3: The required workaround changes a method snapshot's explicit `minutes` and retains each step's authored duration as `paceDuration`. Future kernel-owner request, as specified by the design: a holder-local duration/rate port supplied at settlement, with holder binding, authored local step duration and original start as inputs; it must derive absolute cumulative whole-tick deadlines, preserve already-settled receipts, keep the authored method unchanged in the record, and validate/restore with the same course identity. That kernel change is not required for these engine fixtures and no kernel file was touched. No substrate-owner change is requested.
+
+D4: No player journey, packaged build, installed behavior or UI acceptance is claimed. This lane's requested acceptance is engine fixtures plus the named checks. The owning chat still reviews and commits the diff.

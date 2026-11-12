@@ -43,8 +43,8 @@ const dials = {chainCap: 2000};
 const all = ENGINE_PACKS.map(p => p.id);
 const config = {settings, dials};
 
-test('the registry holds twelve packs and all of them compose into one rule set', () => {
-    assert.equal(ENGINE_PACKS.length, 12);
+test('the registry holds thirteen packs and all of them compose into one rule set', () => {
+    assert.equal(ENGINE_PACKS.length, 13);
     const engine = createEngineWorld(config);
     assert.deepEqual(engine.rules.packs, all);
     // One declarer per fact: satiety is l.living_body's, vitality is the shared vocabulary's.
@@ -78,22 +78,23 @@ test('one satiety serves a grazer and a wild worm: each turns hungry at its own 
 });
 
 const PACK_FILES = ['agency_wild.js', 'contest_bodies.js', 'market_substrate.js', 'world_sky.js',
-    ...['brew_steam', 'colony_light', 'forage_attraction', 'gu_brew_regulator', 'living_body', 'living_residue', 'residue_flow', 'shell_regulator']
+    ...['body_alteration', 'brew_steam', 'colony_light', 'forage_attraction', 'gu_brew_regulator', 'living_body', 'living_residue', 'residue_flow', 'shell_regulator']
         .map(name => `world_substrate_packs/${name}.js`)];
 // Shared vocabulary and plain helpers; any other import is a domain's own module.
 const NEUTRAL = ['world_quantities.js', 'basics.js'];
 
 test('no pack file imports another pack file, and every domain import is a listed one', () => {
     const imports = {};
+    const packUrls = new Set(PACK_FILES.map(file => new URL(`../src/${file}`, import.meta.url).href));
     for (const file of PACK_FILES) {
-        const text = readFileSync(new URL(`../src/${file}`, import.meta.url), 'utf8');
-        const names = [...text.matchAll(/^import\s[^'"]*['"]([^'"]+)['"]/gm)].map(m => m[1].split('/').pop());
+        const url = new URL(`../src/${file}`, import.meta.url);
+        const text = readFileSync(url, 'utf8');
+        const paths = [...text.matchAll(/^import\s[^'"]*['"]([^'"]+)['"]/gm)].map(m => m[1]);
+        assert.deepEqual(paths.filter(path => packUrls.has(new URL(path, url).href)), [], `${file} imports another pack`);
+        const names = paths.map(path => path.split('/').pop());
         const rest = names.filter(name => !NEUTRAL.includes(name)).sort();
         if (rest.length) imports[file] = rest;
     }
-    const packNames = PACK_FILES.map(file => file.split('/').pop());
-    for (const [file, names] of Object.entries(imports))
-        assert.deepEqual(names.filter(name => packNames.includes(name)), [], `${file} imports another pack`);
     // Findings, kept explicit so a new one fails here:
     //   contest_bodies.js reaches L's creature_lifecycle.js from domain C (its own PFP10 note);
     //   gu_brew_regulator.js calls G's resolveGuActivation directly;
@@ -104,6 +105,7 @@ test('no pack file imports another pack file, and every domain import is a liste
         'contest_bodies.js': ['creature_lifecycle.js'],
         'market_substrate.js': ['regional_prices.js'],
         'world_sky.js': ['weather_calendar.js', 'world_calendar.js', 'world_calendar_content.js'],
+        'world_substrate_packs/body_alteration.js': ['body_alteration.js'],
         'world_substrate_packs/brew_steam.js': ['craft_process_thermal.js'],
         'world_substrate_packs/gu_brew_regulator.js': ['gu_activation.js'],
     });

@@ -11,6 +11,7 @@ import {createBrewSteamPack} from './world_substrate_packs/brew_steam.js';
 import {createShellRegulatorPack} from './world_substrate_packs/shell_regulator.js';
 import {createGuBrewRegulatorPack} from './world_substrate_packs/gu_brew_regulator.js';
 import {createResidueFlowPack} from './world_substrate_packs/residue_flow.js';
+import {createBodyAlterationPack} from './world_substrate_packs/body_alteration.js';
 import {createLivingBodyPack} from './world_substrate_packs/living_body.js';
 import {createLivingResiduePack} from './world_substrate_packs/living_residue.js';
 import {createForageAttractionPack} from './world_substrate_packs/forage_attraction.js';
@@ -30,6 +31,7 @@ export const ENGINE_PACKS = Object.freeze([
     pack('g.brew_regulator', createGuBrewRegulatorPack),
     pack('w.residue_flow', createResidueFlowPack),
     pack('l.living_body', createLivingBodyPack),
+    pack('l.body_alteration', createBodyAlterationPack),
     pack('l.living_residue', createLivingResiduePack),
     pack('l.colony_light', createColonyLightPack),
     pack('l.forage_attraction', createForageAttractionPack),
