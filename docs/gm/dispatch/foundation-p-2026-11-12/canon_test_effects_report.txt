@@ -1,11 +1,11 @@
 gu: 78 rows, 57 labelled; rebuild 55/57 = 0.965
-  verb inferred from object, target, time: 0.649 (baseline 0.281)
+  verb inferred from object, target, time: 0.772 (baseline 0.281)
   pair support: object+target 0.76, object+time 0.765
   unlabelled: 21 x function (gu:fish-scale, gu:stone-scar, gu:change-form, gu:man-as-before, gu:yaksha-octopus-king-wild-immortal)
   missing rules:
     2 x rule-reject verb-object e.g. gu:spring-autumn-cicada, gu:year-gu
 hogwarts: 117 rows, 109 labelled; rebuild 85/109 = 0.78
-  verb inferred from object, target, time: 0.404 (baseline 0.073)
+  verb inferred from object, target, time: 0.468 (baseline 0.073)
   pair support: object+target 0.975, object+time 0.98
   unlabelled: 8 x verb (hp:bedazzling, hp:unjinx-weather, hp:stun, hp:bat-bogey, hp:marge)
   missing rules:
@@ -22,6 +22,27 @@ hogwarts: 117 rows, 109 labelled; rebuild 85/109 = 0.78
     1 x derive-mismatch family (bind outside "Defend, interrupt and end") e.g. hp:disarm
     1 x derive-mismatch family (add outside "Defend, interrupt and end") e.g. hp:flame-freezing
     1 x derive-mismatch family (end outside "Change a creature, mind or ongoing condition") e.g. hp:tickle
+GL2 gu: whole effect predicted from identity 25/57 = 0.439 (majority 0); verb 0.544 (0.281), object 0.474 (0.228), target 0.632 (0.456), time 0.649 (0.491)
+  top misses:
+    8 x target: area read as self e.g. gu:blood-asset, gu:landscape-as-before, gu:lightning-eye, gu:starlight-firefly
+    8 x time: lasting read as sustained e.g. gu:vitality-grass, gu:charred-thunder-potato-mother, gu:ant-nest, gu:landscape-as-before
+    7 x target: bound read as self e.g. gu:duplicate, gu:plunder, gu:love, gu:light-source
+    7 x time: instant read as sustained e.g. gu:plunder, gu:love, gu:ice-blade, gu:self-reliance
+    6 x object: vitality read as force e.g. gu:ice-blade, gu:self-reliance, gu:charred-thunder-potato, gu:moon-scar
+    5 x object: working read as force e.g. gu:duplicate, gu:blood-asset, gu:light-source, gu:enlarge
+    5 x verb: alter read as add e.g. gu:duplicate, gu:light-source, gu:enlarge, gu:fire-source
+    4 x target: line read as self e.g. gu:ice-blade, gu:charred-thunder-potato, gu:moon-scar, gu:red-fire
+GL2 hogwarts: whole effect predicted from identity 12/109 = 0.11 (majority 0.009); verb 0.312 (0.073), object 0.349 (0.183), target 0.89 (0.89), time 0.862 (0.862)
+  top misses:
+    12 x object: thing read as form e.g. hp:sever, hp:reducto, hp:blasting, hp:expulso
+    11 x time: sustained read as instant e.g. hp:dangling-release, hp:twin-wand, hp:body-bind, hp:anti-apparition
+    11 x verb: remove read as transform e.g. hp:sever, hp:reducto, hp:blasting, hp:expulso
+    8 x target: area read as bound e.g. hp:project, hp:perimeter, hp:cave, hp:blasting
+    8 x verb: add read as transform e.g. hp:boils, hp:bubble-head, hp:water, hp:fiendfyre
+    6 x object: mind read as form e.g. hp:control, hp:legilimency, hp:occlumency, hp:confuse
+    6 x object: vitality read as form e.g. hp:episkey, hp:pain, hp:dolohov, hp:anapneo
+    4 x object: position read as form e.g. hp:dance, hp:tongue-lock, hp:wipe, hp:oppugno
+GL6 moves: 23/23 assemble as nested roles (51 roles); 3 fully named and catalogued; flags {"participant-named":28,"two-or-more":6}
 transfer gu laws -> hogwarts canon: 70/109 = 0.642
 transfer hogwarts laws -> gu canon: 48/57 = 0.842
 explore gu@0: 24/40 pass, failures {"runs":16,"explains":1}, 6 niches kept

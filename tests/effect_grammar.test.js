@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {assemble} from '../src/procedural_grammar.js';
 import {lowerEffect, defineEffectGrammar, effectKind} from '../src/effect_grammar.js';
-import {proposeEffects, checkEffect, keepSpread, fitCostCurve, priceOf} from '../src/effect_checks.js';
+import {proposeEffects, checkEffect, keepSpread, fitCostCurve, priceOf, exploreEffects, createNicheArchive, archiveOffer} from '../src/effect_checks.js';
 import {runEffects, effectWorlds} from '../scripts/grammar_canon_effects.mjs';
 
 const sentence = {verb: 'move', object: 'position', target: 'bound', time: 'sustained', carrier: 'spoken-spell', cost: 'stamina', limits: ['mass']};
@@ -73,4 +73,36 @@ test('pricing follows one curve and the kept set is a spread (checks 2 and 5)', 
     const cands = ['a', 'b', 'c', 'd'].map((id, i) => ({id, parts: {...sentence, verb: i < 3 ? 'move' : 'sense', object: i < 3 ? 'position' : 'information'}}));
     const kept = keepSpread(cands, [sentence], {k: 2});
     assert.deepEqual(new Set(kept.kept.map(c => c.parts.verb)), new Set(['move', 'sense']));
+});
+
+test('search runs under a trial budget and fills a niche archive (PR3, PR4)', async () => {
+    const [gu] = await effectWorlds();
+    const opts = {root: 2, address: 'test:budget', cause, novelty: {level: 1, cause: 'inventor'}, count: 40};
+    const small = exploreEffects(gu.fitted, gu.canon, gu.checks, {...opts, budget: {trials: 10}});
+    assert.equal(small.proposed, 5);
+    assert.ok(small.budget.used <= 10 && small.budget.truncated);
+    let calls = 0;
+    const stopped = exploreEffects(gu.fitted, gu.canon, gu.checks, {...opts, budget: {trials: 200, stop: () => ++calls > 3}});
+    assert.equal(stopped.checked, 3);
+    assert.ok(stopped.budget.truncated);
+    const full = exploreEffects(gu.fitted, gu.canon, gu.checks, opts);
+    assert.equal(Object.keys(full.archive.niches).length, full.kept.length);
+    let archive = createNicheArchive();
+    const entry = {id: 'e1', parts: {verb: 'move', object: 'position', carrier: 'gu'}, score: 5};
+    archive = archiveOffer(archive, entry).archive;
+    assert.equal(archiveOffer(archive, {...entry, id: 'e2', score: 5}).receipt.accepted, false);
+    const better = archiveOffer(archive, {...entry, id: 'e3', score: 6});
+    assert.deepEqual([better.receipt.accepted, better.receipt.replaced], [true, 'e1']);
+    assert.deepEqual(JSON.parse(JSON.stringify(better.archive)), better.archive);
+});
+
+test('GL2: the effect predicted from identity beats the majority guess in both worlds', async () => {
+    const out = await runEffects();
+    for (const world of ['gu', 'hogwarts']) {
+        const p = out.gl2[world];
+        assert.ok(p.all.rate > p.all.baseline, world);
+        assert.ok(p.slots.verb.rate > p.slots.verb.baseline, world);
+        assert.ok(p.misses.length > 0);
+    }
+    assert.deepEqual([out.moves.records, out.moves.assembled], [23, 23]);
 });

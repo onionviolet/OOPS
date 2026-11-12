@@ -6,13 +6,22 @@
 import {address, compareCodePoints, drawU32, indexFromU32, pickWeighted, withRetries} from './gen_kit.js';
 
 export const GRAMMAR_CONTRACT = 'grammar@0';
-const SLOT_TYPES = new Set(['one', 'set', 'tokens']);
+const SLOT_TYPES = new Set(['one', 'set', 'tokens', 'parts']);
 const CAUSES = new Set(['place', 'history', 'pressure', 'inventor', 'flavor', 'canon-test']);
 const fail = message => { throw new Error(message); };
 const natural = n => Number.isSafeInteger(n) && n >= 0;
 const key = v => typeof v === 'string' ? v : JSON.stringify(v);
 const asList = (slot, v) => slot.type === 'one' ? (v === undefined || v === null ? [] : [v]) : (Array.isArray(v) ? v : []);
 const sortKeys = list => [...list].sort((a, b) => compareCodePoints(key(a), key(b)));
+const givensOf = slot => !slot.given ? [] : Array.isArray(slot.given) ? slot.given : [slot.given];
+// Joint conditioning keys (GL5): one key per combination of the given slots'
+// values. A single given keeps its plain value key, so v0 grammars fit as before.
+function jointKeys(grammar, slot, parts) {
+    const lists = givensOf(slot).map(id => asList(grammar.slots.find(s => s.id === id), parts[id]).map(key));
+    if (!lists.length || lists.some(l => !l.length)) return [];
+    if (lists.length === 1) return lists[0];
+    return lists.reduce((acc, list) => acc.flatMap(prefix => list.map(v => [...prefix, v])), [[]]).map(t => JSON.stringify(t));
+}
 
 // spec: {id, revision, slots:[{id, type, values?:[...]|'corpus', open?, min?, max?, given?}],
 //        rules:[{id, kind:'derive'|'check', severity?:'reject'|'flag', reads?, run, default, dial?, reason}],
@@ -24,8 +33,12 @@ export function defineGrammar(spec) {
     const slots = (spec.slots ?? []).map(s => {
         if (!s?.id || ids.has(s.id)) fail(`Slot ${s?.id} is missing or repeated.`);
         if (!SLOT_TYPES.has(s.type)) fail(`Slot ${s.id} has unknown type ${s.type}.`);
-        if (s.given && !ids.has(s.given)) fail(`Slot ${s.id} is conditioned on ${s.given}, which must be declared earlier.`);
-        if (!(Array.isArray(s.values) || s.values === 'corpus' || s.open)) fail(`Slot ${s.id} needs values, 'corpus' or open.`);
+        for (const g of givensOf(s)) if (!ids.has(g)) fail(`Slot ${s.id} is conditioned on ${g}, which must be declared earlier.`);
+        // GL6 · Nested parts: a `parts` slot holds an ordered list of child things,
+        // each assembled by its own child grammar (a step, a role in a move).
+        if (s.type === 'parts' && s.grammar?.contract !== GRAMMAR_CONTRACT) fail(`Slot ${s.id} of type parts needs a child grammar.`);
+        if (s.type === 'parts' && s.given) fail(`Slot ${s.id}: a parts slot is not conditioned; condition the child grammar's slots instead.`);
+        if (s.type !== 'parts' && !(Array.isArray(s.values) || s.values === 'corpus' || s.open)) fail(`Slot ${s.id} needs values, 'corpus' or open.`);
         ids.add(s.id);
         return Object.freeze({min: s.type === 'one' ? 1 : 0, max: s.type === 'one' ? 1 : Infinity, ...s,
             values: Array.isArray(s.values) ? Object.freeze(sortKeys(s.values)) : s.values});
@@ -50,18 +63,30 @@ export function fitGrammar(grammar, rows, {smoothing = 0} = {}) {
     if (!natural(smoothing)) fail('Smoothing is a nonnegative integer.');
     const n = rows.length, weights = {}, support = {};
     for (const slot of grammar.slots) {
-        const marginal = new Map(), sizes = new Map(), cond = new Map();
+        if (slot.type === 'parts') {
+            const sizes = new Map(), children = [];
+            for (const row of rows) {
+                const list = asList(slot, row.parts[slot.id]);
+                sizes.set(list.length, (sizes.get(list.length) ?? 0) + 1);
+                list.forEach((child, i) => children.push({id: `${row.id}#${slot.id}${i}`, parts: child}));
+            }
+            const child = fitGrammar(slot.grammar, children, {smoothing});
+            weights[slot.id] = {marginal: {}, sizes: Object.fromEntries(sizes), given: null, byGiven: null, child};
+            const sizeKeys = [...sizes.keys()];
+            support[slot.id] = {values: [], minSize: sizeKeys.length ? Math.min(...sizeKeys) : 0, maxSize: sizeKeys.length ? Math.max(...sizeKeys) : 0,
+                children: children.length};
+            continue;
+        }
+        const marginal = new Map(), sizes = new Map(), cond = new Map(), parts = new Map(givensOf(slot).map(g => [g, new Map()]));
+        const bump = (table, k, v) => { const t = table.get(k) ?? new Map(); t.set(key(v), (t.get(key(v)) ?? 0) + 1); table.set(k, t); };
         for (const row of rows) {
             const values = asList(slot, row.parts[slot.id]);
             sizes.set(values.length, (sizes.get(values.length) ?? 0) + 1);
-            const givens = slot.given ? asList(grammar.slots.find(s => s.id === slot.given), row.parts[slot.given]) : [];
+            const joint = jointKeys(grammar, slot, row.parts);
             for (const v of values) {
                 marginal.set(key(v), {value: v, count: (marginal.get(key(v))?.count ?? 0) + 1});
-                for (const g of givens) {
-                    const table = cond.get(key(g)) ?? new Map();
-                    table.set(key(v), (table.get(key(v)) ?? 0) + 1);
-                    cond.set(key(g), table);
-                }
+                for (const k of joint) bump(cond, k, v);
+                for (const [g, table] of parts) for (const gv of asList(grammar.slots.find(s => s.id === g), row.parts[g])) bump(table, key(gv), v);
             }
         }
         const declared = Array.isArray(slot.values) ? slot.values : [];
@@ -72,6 +97,7 @@ export function fitGrammar(grammar, rows, {smoothing = 0} = {}) {
                 reason: `corpus ${marginal.get(key(v)).count}/${n}${smoothing ? ` + smoothing ${smoothing}` : ''}`}])),
             sizes: Object.fromEntries([...sizes].map(([size, count]) => [size, count])),
             given: slot.given ? Object.fromEntries([...cond].map(([g, table]) => [g, Object.fromEntries(table)])) : null,
+            byGiven: slot.given ? Object.fromEntries([...parts].map(([g, table]) => [g, Object.fromEntries([...table].map(([k, t]) => [k, Object.fromEntries(t)]))])) : null,
         };
         const sizeKeys = [...sizes.keys()];
         support[slot.id] = {values: values.filter(v => marginal.get(key(v)).count > 0).map(key),
@@ -86,7 +112,8 @@ export function fitGrammar(grammar, rows, {smoothing = 0} = {}) {
 export function overlayGrammar(grammar, {id, reason, reweight = {}}) {
     if (!grammar.weights) fail('Overlay a fitted grammar.');
     if (!id || typeof reason !== 'string' || !reason) fail('An overlay needs an id and an in-world reason.');
-    const weights = structuredClone(grammar.weights), departures = [];
+    // Per-slot copies, so a nested child grammar (GL6) is shared, not cloned.
+    const weights = Object.fromEntries(Object.entries(grammar.weights).map(([k, v]) => [k, {...v, marginal: structuredClone(v.marginal)}])), departures = [];
     for (const [slotId, table] of Object.entries(reweight)) {
         const slot = weights[slotId] ?? fail(`Overlay names unknown slot ${slotId}.`);
         for (const [value, weight] of Object.entries(table)) {
@@ -111,6 +138,16 @@ export function assemble(grammar, parts) {
         if (values.length > slot.max) violations.push({kind: 'too-many-parts', slot: slot.id, count: values.length, max: slot.max});
         else if (values.length > (grammar.support?.[slot.id]?.maxSize ?? Infinity))
             flags.push({kind: 'outside-range', slot: slot.id, count: values.length, max: grammar.support[slot.id].maxSize});
+        if (slot.type === 'parts') {
+            const child = grammar.weights?.[slot.id]?.child ?? slot.grammar;
+            normalized[slot.id] = values.map((childParts, i) => {
+                const built = assemble(child, childParts);
+                for (const v of built.receipt.violations) violations.push({...v, slot: `${slot.id}[${i}].${v.slot ?? v.rule}`, child: child.ref});
+                for (const f of built.receipt.flags) flags.push({...f, slot: `${slot.id}[${i}].${f.slot ?? f.rule}`, child: child.ref});
+                return {...built.value.parts, ...(Object.keys(built.value.derived).length ? {derived: built.value.derived} : {})};
+            });
+            continue;
+        }
         const known = Array.isArray(slot.values) ? new Set(slot.values.map(key)) : null;
         const seen = grammar.support ? new Set(grammar.support[slot.id].values) : null;
         for (const v of values) {
@@ -132,12 +169,22 @@ export function assemble(grammar, parts) {
 function slotWeight(grammar, slot, value, chosen) {
     const w = grammar.weights[slot.id], base = w.marginal[key(value)]?.weight ?? 0;
     if (!slot.given || !w.given) return {weight: base, reason: w.marginal[key(value)]?.reason ?? 'unweighted'};
-    const givens = asList(grammar.slots.find(s => s.id === slot.given), chosen[slot.given]);
-    const conditional = givens.reduce((sum, g) => sum + (w.given[key(g)]?.[key(value)] ?? 0), 0);
-    // Conditioned slots fall back to the marginal when the given value has no history.
-    return conditional > 0 || !givens.some(g => w.given[key(g)])
-        ? {weight: conditional || base, reason: conditional ? `given ${slot.given} ${givens.map(key).join('+')}: ${conditional}` : w.marginal[key(value)]?.reason}
-        : {weight: grammar.dials.smoothing ?? 0, reason: `unseen with ${slot.given}; smoothing`};
+    const names = givensOf(slot).join('+');
+    const keys = jointKeys(grammar, slot, chosen);
+    const conditional = keys.reduce((sum, k) => sum + (w.given[k]?.[key(value)] ?? 0), 0);
+    if (conditional > 0) return {weight: conditional, reason: `given ${names} ${keys.join(' ')}: ${conditional}`};
+    if (keys.some(k => w.given[k])) return {weight: grammar.dials.smoothing ?? 0, reason: `unseen with ${names}; smoothing`};
+    // Joint combination never seen: back off to each given alone (chained), then the marginal.
+    if (givensOf(slot).length > 1 && w.byGiven) {
+        let backoff = 0, history = false;
+        for (const g of givensOf(slot)) for (const gv of asList(grammar.slots.find(s => s.id === g), chosen[g])) {
+            const t = w.byGiven[g]?.[key(gv)];
+            if (t) { history = true; backoff += t[key(value)] ?? 0; }
+        }
+        if (backoff > 0) return {weight: backoff, reason: `combination unseen; backed off to ${names} singly: ${backoff}`};
+        if (history) return {weight: grammar.dials.smoothing ?? 0, reason: `unseen with any of ${names}; smoothing`};
+    }
+    return {weight: base, reason: w.marginal[key(value)]?.reason};
 }
 
 // One draw of parts in slot order, every draw addressed (GR2). draw(slot) -> uint32.
@@ -148,6 +195,15 @@ function drawParts(grammar, draw) {
             .filter(s => s.size >= slot.min && s.size <= slot.max);
         const size = slot.type === 'one' ? {value: {size: 1}} : pickWeighted(sizes, s => ({weight: s.count, reason: `corpus size ${s.size}`}), draw(address(slot.id, 'size')));
         const k = size.value?.size ?? slot.min;
+        if (slot.type === 'parts') {
+            const child = grammar.weights[slot.id].child;
+            chosen[slot.id] = Array.from({length: k}, (_, i) => {
+                const drawn = drawParts(child, sub => draw(address(slot.id, {i}, sub)));
+                picks.push(...drawn.picks.map(p => ({...p, slot: `${slot.id}[${i}].${p.slot}`})));
+                return drawn.parts;
+            });
+            continue;
+        }
         const values = [], pool = Object.values(grammar.weights[slot.id].marginal).map(e => ({id: key(e.value), value: e.value}));
         for (let i = 0; i < k; i++) {
             const remaining = slot.type === 'tokens' ? pool : pool.filter(p => !values.some(v => key(v) === p.id));
@@ -190,18 +246,41 @@ export function generate(grammar, {root, address: base, cause, maxAttempts = 8, 
 export function inferSlot(grammar, parts, slotId) {
     if (!grammar.weights) fail('Infer from a fitted grammar.');
     const slot = grammar.slots.find(s => s.id === slotId) ?? fail(`Unknown slot ${slotId}.`);
-    const children = grammar.slots.filter(s => s.given === slotId);
+    const children = grammar.slots.filter(s => givensOf(s).includes(slotId));
     const marginal = grammar.weights[slotId].marginal;
+    const total = Object.values(marginal).reduce((n, e) => n + e.weight, 0);
     const ranked = Object.values(marginal).filter(e => e.weight > 0).map(e => {
-        const table = children.map(c => grammar.weights[c.id].given?.[key(e.value)] ?? {});
-        let score = 0;
+        // A jointly conditioned child is read through its table for this slot alone.
+        const table = children.map(c => (givensOf(c).length > 1 ? grammar.weights[c.id].byGiven?.[slotId] : grammar.weights[c.id].given)?.[key(e.value)] ?? {});
+        // Naive Bayes with add-one smoothing over each observed child part; the
+        // log prior is a dial (inferPrior), off by default because it pulls sparse
+        // name evidence toward the majority value.
+        let score = grammar.dials.inferPrior ? Math.log(e.weight / total) : 0;
         children.forEach((c, i) => {
-            const total = Object.values(table[i]).reduce((n, x) => n + x, 0);
-            for (const v of asList(c, parts[c.id])) if (total) score += (table[i][key(v)] ?? 0) / total;
+            const n = Object.values(table[i]).reduce((a, x) => a + x, 0), vocab = (grammar.support?.[c.id]?.values.length ?? 0) + 1;
+            for (const v of asList(c, parts[c.id])) score += Math.log(((table[i][key(v)] ?? 0) + 1) / (n + vocab));
         });
-        return {value: e.value, score, marginal: e.weight, reason: children.map(c => c.id).join('+') || 'marginal only'};
+        return {value: e.value, score: Math.round(score * 1000) / 1000, marginal: e.weight, reason: children.map(c => c.id).join('+') || 'marginal only'};
     }).sort((a, b) => b.score - a.score || b.marginal - a.marginal || compareCodePoints(key(a.value), key(b.value)));
     return {slot: slot.id, ranked: ranked.slice(0, 5), best: ranked[0]?.value ?? null};
+}
+
+// Forward prediction (GL2): the most weighted value of a slot given the parts
+// already known, read through the same conditional weights a draw uses.
+export function predictSlot(grammar, parts, slotId) {
+    if (!grammar.weights) fail('Predict from a fitted grammar.');
+    const slot = grammar.slots.find(s => s.id === slotId) ?? fail(`Unknown slot ${slotId}.`);
+    const ranked = Object.values(grammar.weights[slotId].marginal)
+        .map(e => ({value: e.value, ...slotWeight(grammar, slot, e.value, parts), marginal: e.weight}))
+        .filter(e => e.weight > 0)
+        .sort((a, b) => b.weight - a.weight || b.marginal - a.marginal || compareCodePoints(key(a.value), key(b.value)));
+    return {slot: slotId, best: ranked[0]?.value ?? null, ranked: ranked.slice(0, 5)};
+}
+// Predict several slots in order, each from the known parts plus earlier predictions.
+export function predictParts(grammar, known, slotIds) {
+    const parts = {...known}, out = {};
+    for (const id of slotIds) { out[id] = predictSlot(grammar, parts, id).best; parts[id] = out[id]; }
+    return out;
 }
 
 const foldOf = (id, folds) => indexFromU32(drawU32('canon-test', address('fold', id)), folds);
@@ -222,7 +301,7 @@ function group(failures) {
 // compare(value, truth) -> [{field, expected, got}] mismatches. identity(value)
 // names a thing for collision checks (NMR2). Deterministic folds by row id.
 export function canonTest(grammar, rows, {label, compare = () => [], identity = null, folds = 5, smoothing = 0,
-    generated = 200, root = 'canon-test', tolerance = 0.25, infer = [], pairs = []} = {}) {
+    generated = 200, root = 'canon-test', tolerance = 0.25, infer = [], pairs = [], predict = []} = {}) {
     const labelled = [], unlabelled = [];
     for (const row of rows) {
         const out = label(row);
@@ -231,6 +310,8 @@ export function canonTest(grammar, rows, {label, compare = () => [], identity = 
     }
     const failures = [], openCoverage = {tested: 0, covered: 0};
     const inference = Object.fromEntries(infer.map(id => [id, {tested: 0, hits: 0, baselineHits: 0}]));
+    // predict: hide these slots (one-valued) and predict them in order from the rest.
+    const prediction = {tested: 0, all: 0, baselineAll: 0, misses: new Map(), slots: Object.fromEntries(predict.map(id => [id, {hits: 0, baselineHits: 0}]))};
     let passed = 0;
     for (let fold = 0; fold < folds; fold++) {
         const test = labelled.filter(r => foldOf(r.id, folds) === fold);
@@ -245,6 +326,27 @@ export function canonTest(grammar, rows, {label, compare = () => [], identity = 
                 inference[slotId].tested++;
                 if (best !== null && truth.includes(key(best))) inference[slotId].hits++;
                 if (majority !== undefined && truth.includes(key(majority))) inference[slotId].baselineHits++;
+            }
+            if (predict.length) {
+                const known = Object.fromEntries(Object.entries(row.parts).filter(([k]) => !predict.includes(k)));
+                const got = predictParts(fitted, known, predict);
+                const majority = Object.fromEntries(predict.map(id => [id, Object.values(fitted.weights[id].marginal)
+                    .sort((a, b) => b.weight - a.weight || compareCodePoints(key(a.value), key(b.value)))[0]?.value]));
+                prediction.tested++;
+                let all = true, baseAll = true;
+                for (const id of predict) {
+                    const hit = key(got[id]) === key(row.parts[id]), base = key(majority[id]) === key(row.parts[id]);
+                    if (hit) prediction.slots[id].hits++; else {
+                        all = false;
+                        const k = `${id}: ${key(row.parts[id])} read as ${key(got[id])}`;
+                        const m = prediction.misses.get(k) ?? {miss: k, count: 0, examples: []};
+                        m.count++; if (m.examples.length < 4) m.examples.push(row.id);
+                        prediction.misses.set(k, m);
+                    }
+                    if (base) prediction.slots[id].baselineHits++; else baseAll = false;
+                }
+                if (all) prediction.all++;
+                if (baseAll) prediction.baselineAll++;
             }
             const built = assemble(fitted, row.parts);
             const mismatches = built.ok ? compare(built.value, row.truth) : [];
@@ -269,7 +371,7 @@ export function canonTest(grammar, rows, {label, compare = () => [], identity = 
     for (let i = 0; i < generated; i++) {
         const out = generate(full, {root, address: address('canon-test', grammar.ref, {i}), cause: {kind: 'canon-test', id: `range:${i}`}});
         if (out.receipt.fallbackUsed) fallbacks++;
-        for (const s of full.slots) for (const v of asList(s, out.value.parts[s.id])) counts[s.id].set(key(v), (counts[s.id].get(key(v)) ?? 0) + 1);
+        for (const s of full.slots) if (s.type !== 'parts') for (const v of asList(s, out.value.parts[s.id])) counts[s.id].set(key(v), (counts[s.id].get(key(v)) ?? 0) + 1);
         const novel = out.receipt.flags.filter(f => f.kind === 'novel-part' || f.kind === 'outside-range');
         if (out.receipt.flags.some(f => f.kind === 'rule-flag')) flagged++;
         pairSlots.forEach((ps, j) => {
@@ -282,6 +384,7 @@ export function canonTest(grammar, rows, {label, compare = () => [], identity = 
     }
     const shares = {};
     for (const s of full.slots) {
+        if (s.type === 'parts') { shares[s.id] = {distance: null, nested: true}; continue; }
         const corpus = full.weights[s.id].marginal, total = Object.values(corpus).reduce((n, e) => n + e.weight, 0);
         const gen = counts[s.id], genTotal = [...gen.values()].reduce((n, c) => n + c, 0);
         if (!total || !genTotal) { shares[s.id] = {distance: null}; continue; }
@@ -296,6 +399,13 @@ export function canonTest(grammar, rows, {label, compare = () => [], identity = 
         rebuild: {tested: labelled.length, passed, rate: Math.round(rate * 1000) / 1000},
         openPartCoverage: {...openCoverage, rate: openCoverage.tested ? Math.round(openCoverage.covered / openCoverage.tested * 1000) / 1000 : 0},
         missingRules: group(failures),
+        prediction: predict.length ? {tested: prediction.tested,
+            misses: [...prediction.misses.values()].sort((a, b) => b.count - a.count || compareCodePoints(a.miss, b.miss)).slice(0, 12),
+            all: {hits: prediction.all, rate: prediction.tested ? Math.round(prediction.all / prediction.tested * 1000) / 1000 : 0,
+                baseline: prediction.tested ? Math.round(prediction.baselineAll / prediction.tested * 1000) / 1000 : 0},
+            slots: Object.fromEntries(Object.entries(prediction.slots).map(([id, r]) => [id, {hits: r.hits,
+                rate: prediction.tested ? Math.round(r.hits / prediction.tested * 1000) / 1000 : 0,
+                baseline: prediction.tested ? Math.round(r.baselineHits / prediction.tested * 1000) / 1000 : 0}]))} : null,
         inference: Object.fromEntries(Object.entries(inference).map(([id, r]) => [id, {...r,
             rate: r.tested ? Math.round(r.hits / r.tested * 1000) / 1000 : 0,
             baseline: r.tested ? Math.round(r.baselineHits / r.tested * 1000) / 1000 : 0}])),
@@ -303,4 +413,22 @@ export function canonTest(grammar, rows, {label, compare = () => [], identity = 
             tolerance, shares, outside,
             pairs: Object.fromEntries(pairSlots.map(([a, b], j) => [`${a.id}+${b.id}`, {...pairStats[j], seenInCorpus: seenPairs[j].size,
                 supportedRate: pairStats[j].items ? Math.round((1 - pairStats[j].unseenItems / pairStats[j].items) * 1000) / 1000 : 0}]))}};
+}
+
+// PR2 · Freeze on reveal, grammar version pinned. A frozen value keeps its
+// parts, derived fields, cause and the grammar ref that made it. Thawing never
+// re-derives under a newer revision: a revision changes only unseen things.
+export const FROZEN_SCHEMA = 'grammar.frozen@1';
+export function freezeValue(value) {
+    if (!value?.grammar || !value.parts) fail('Freeze an assembled or generated value.');
+    return structuredClone({schema: FROZEN_SCHEMA, grammar: value.grammar, parts: value.parts, derived: value.derived ?? {}, cause: value.cause ?? null});
+}
+// grammars: {ref: grammar}. Returns the stored value as it was seen, plus
+// whether the pinned revision is still loaded and still accepts it.
+export function thawValue(frozen, grammars = {}) {
+    if (frozen?.schema !== FROZEN_SCHEMA || typeof frozen.grammar !== 'string') fail('Not a frozen grammar value.');
+    const pinned = grammars[frozen.grammar];
+    const check = pinned ? assemble(pinned, frozen.parts) : null;
+    return {value: structuredClone({grammar: frozen.grammar, parts: frozen.parts, derived: frozen.derived, cause: frozen.cause}),
+        receipt: {pinnedLoaded: Boolean(pinned), stillValid: check ? check.ok : null, violations: check?.receipt.violations ?? []}};
 }

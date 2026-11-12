@@ -2,7 +2,8 @@
 // Effect grammar canon test on two worlds (chat P, EF1) and the new-effect
 // harness (five checks, novelty dial).
 //   node scripts/grammar_canon_effects.mjs [--json]
-import {canonTest, fitGrammar} from '../src/procedural_grammar.js';
+import {canonTest, fitGrammar, assemble} from '../src/procedural_grammar.js';
+import {guCatalogue} from '../src/gu_catalogue.js';
 import {EFFECT_OBJECTS} from '../src/effect_grammar.js';
 import {exploreEffects, fitCostCurve, worldLaws} from '../src/effect_checks.js';
 import * as w from '../tests/fixtures/procedural_grammar/effect_worlds.mjs';
@@ -32,7 +33,11 @@ function transfer(from, to) {
 export async function runEffects() {
     const worlds = await effectWorlds();
     const out = {canon: {}, transfer: [transfer(worlds[0], worlds[1]), transfer(worlds[1], worlds[0])], explore: {}};
+    const gl2 = {gu: [w.guEffectsGl2, w.labelGuEffectGl2], hogwarts: [w.hpEffectsGl2, w.labelHpEffectGl2]};
+    out.gl2 = {};
     for (const world of worlds) {
+        const [grammar, label] = gl2[world.id];
+        out.gl2[world.id] = canonTest(grammar, world.rows, {label, predict: ['verb', 'object', 'target', 'time'], generated: 20}).prediction;
         out.canon[world.id] = canonTest(world.grammar, world.rows, {label: world.label, compare: world.compare, infer: ['verb'],
             pairs: [['object', 'target'], ['object', 'time']]});
         const other = worlds.find(x => x !== world);
@@ -45,6 +50,17 @@ export async function runEffects() {
                     sentence: `${c.parts.verb} ${c.parts.object} ${c.parts.target} ${c.parts.time} via ${c.parts.carrier} on ${c.parts.cost}`}))};
         }
     }
+    // GL6: canon killer moves as nested roles (GL3 precursor).
+    const moves = w.guMoveRows(), moveGrammar = fitGrammar(w.guMoveGrammar(Object.keys(guCatalogue)), moves);
+    const flags = {};
+    let assembled = 0, complete = 0;
+    for (const m of moves) {
+        const b = assemble(moveGrammar, m.parts), f = b.receipt.flags.filter(x => x.kind === 'rule-flag');
+        if (b.ok) assembled++;
+        if (b.ok && !f.length) complete++;
+        for (const x of f) flags[x.rule] = (flags[x.rule] ?? 0) + 1;
+    }
+    out.moves = {records: moves.length, roles: moves.reduce((n, m) => n + m.parts.roles.length, 0), assembled, complete, flags};
     return out;
 }
 function summary(out) {
@@ -56,6 +72,12 @@ function summary(out) {
             `  unlabelled: ${r.corpus.unlabelledReasons.map(u => `${u.count} x ${u.field} (${u.examples.join(', ')})`).join('; ')}`, '  missing rules:');
         for (const f of r.missingRules) lines.push(`    ${f.count} x ${f.kind} ${f.rule ?? f.slot}${f.cause ? ` (${f.cause})` : ''} e.g. ${f.examples.join(', ')}`);
     }
+    for (const [id, p] of Object.entries(out.gl2)) {
+        lines.push(`GL2 ${id}: whole effect predicted from identity ${p.all.hits}/${p.tested} = ${p.all.rate} (majority ${p.all.baseline}); ` +
+            Object.entries(p.slots).map(([k, v]) => `${k} ${v.rate} (${v.baseline})`).join(', '), '  top misses:');
+        for (const m of p.misses.slice(0, 8)) lines.push(`    ${m.count} x ${m.miss} e.g. ${m.examples.join(', ')}`);
+    }
+    lines.push(`GL6 moves: ${out.moves.assembled}/${out.moves.records} assemble as nested roles (${out.moves.roles} roles); ${out.moves.complete} fully named and catalogued; flags ${JSON.stringify(out.moves.flags)}`);
     for (const t of out.transfer) lines.push(`transfer ${t.from} laws -> ${t.to} canon: ${t.shared}/${t.tested} = ${t.rate}`);
     for (const [id, e] of Object.entries(out.explore)) {
         lines.push(`explore ${id}: ${e.passed}/${e.proposed} pass, failures ${JSON.stringify(e.failures)}, ${e.niches} niches kept`);

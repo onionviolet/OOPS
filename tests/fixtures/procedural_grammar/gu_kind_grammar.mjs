@@ -106,3 +106,12 @@ export function compareGuKind(value, truth) {
     return [{field: 'name', rule: value.grammar.endsWith('@1') ? 'immortal-title' : 'kind-name', cause, expected: truth.name, got}];
 }
 export const guKindIdentity = value => value.derived.name;
+
+// Revision 3 (GL1 with GL5): the substance slots are chained so generated kinds
+// keep the source's combinations. Path given rank, role jointly given path and
+// rank, head given role, marks given path. Revision 2's rules and naming parts
+// are unchanged; only the weights' conditioning differs.
+export const guKindGrammarV3 = defineGrammar({
+    ...guKindGrammarV2.spec, revision: 3,
+    slots: guKindGrammarV2.spec.slots.map(s => s.id === 'path' ? {...s, given: 'rank'} : s.id === 'role' ? {...s, given: ['path', 'rank']} : s),
+});

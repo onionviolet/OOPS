@@ -174,3 +174,59 @@ export async function guCanonAmounts() {
 // the place. A pack can add an exception with its in-world reason and cost.
 export const HP_FORBID = [{law: 'alter|law', reason: 'no shown spell rewrites a law of the place; wards act on what enters, not on the law'}];
 export const GU_FORBID = [];
+
+// ---------- GL2: the effect predicted from identity ----------
+// The identity layer goes first and the effect slots are conditioned on it,
+// so holding out the effect and predicting it reads identity through the fit.
+// Gu identity: wiki type and path labels (authored apart from G's function
+// families). Hogwarts identity: chat S's family heading.
+import {defineGrammar as defineG} from '../../../src/procedural_grammar.js';
+function withIdentity(effects, identitySlots, verbGiven) {
+    const spec = effects.spec;
+    return defineG({...spec, id: `${spec.id}.gl2`, slots: [...identitySlots,
+        ...spec.slots.map(s => s.id === 'verb' ? {...s, given: verbGiven} : s)]});
+}
+export const guEffectsGl2 = withIdentity(guEffects, [
+    {id: 'type', type: 'set', open: true, min: 0}, {id: 'gpath', type: 'set', open: true, min: 0}], ['type', 'gpath']);
+export const hpEffectsGl2 = withIdentity(hpEffects, [{id: 'family', type: 'one', open: true}], 'family');
+export function labelGuEffectGl2(row) {
+    const out = labelGuEffect(row);
+    if (!out.parts) return out;
+    const p = row.parts.value;
+    return {...out, parts: {...out.parts, type: [...(p.wiki?.type ?? [])], gpath: p.path ? [p.path] : [...(p.wiki?.path ?? [])]}};
+}
+export function labelHpEffectGl2(row) {
+    const out = labelHpEffect(row);
+    return out.parts ? {...out, parts: {...out.parts, family: row.family}} : out;
+}
+
+// ---------- GL6 proof: killer moves as nested roles ----------
+// Each canon move record lists roles, each filled by a Gu kind. The move is a
+// thing whose `roles` slot holds child things (role id, kind). GL3's canon
+// test (rebuild through K's composed working) builds on this shape.
+export const guMoveRole = defineG({
+    id: 'proof.gu-move-role', revision: 1,
+    slots: [{id: 'role', type: 'one', open: true}, {id: 'kind', type: 'one', open: true, min: 0}],
+    rules: [
+        {id: 'participant-named', kind: 'check', severity: 'flag', default: 'A role may leave its Gu unnamed when the source does; flagged.',
+            reason: 'Records keep unspecified participants as a role with a count or band, not an invented kind.',
+            run: ({parts}) => parts.kind ? null : {reason: 'participant unnamed in the source'}},
+        {id: 'kind-catalogued', kind: 'check', severity: 'flag', default: 'A named role is filled by a catalogued kind; an uncatalogued one is flagged.',
+            reason: 'A move can only run through kinds the catalogue gives a working (PFP16).',
+            run: ({parts, dials}) => parts.kind && dials.catalogue && !dials.catalogue.includes(parts.kind) ? {reason: `${parts.kind} has no catalogue row`} : null}],
+    fallback: {id: 'proof.gu-move-role.fallback', parts: {role: 'core', kind: 'moonlight'}},
+});
+export function guMoveGrammar(catalogue) {
+    const role = defineG({...guMoveRole.spec, dials: {catalogue}});
+    return defineG({
+        id: 'proof.gu-move', revision: 1,
+        slots: [{id: 'roles', type: 'parts', grammar: role, min: 1}],
+        rules: [{id: 'two-or-more', kind: 'check', severity: 'flag', default: 'A killer move combines two or more Gu.',
+            reason: 'A single Gu activation is an ability, not a move; flagged, since a lone-core move may exist.',
+            run: ({parts}) => parts.roles.length < 2 ? {reason: 'one role'} : null}],
+        fallback: {id: 'proof.gu-move.fallback', parts: {roles: [{role: 'core', kind: 'moonlight'}, {role: 'support', kind: 'little-light'}]}},
+    });
+}
+export function guMoveRows(file = new URL('../../../docs/research/gu-identity-evidence.json', import.meta.url)) {
+    return JSON.parse(fs.readFileSync(file, 'utf8')).moves.map(m => ({id: `move:${m.id}`, parts: {roles: m.roles.map(r => ({role: r.id, kind: r.kind}))}}));
+}

@@ -124,14 +124,47 @@ export function keepSpread(candidates, canonParts, {k = 6, weights = {useful: 1,
     return {kept, niches: niches.size, considered: candidates.length};
 }
 
+// PR4 · Niche archive (quality-diversity). One best entry per niche, keyed by
+// verb, object and carrier by default; plain JSON so a world can save it. A new
+// entry replaces the holder only with a strictly higher score; ties keep the
+// older entry, so the archive is stable under replay.
+export const ARCHIVE_SCHEMA = 'effects.archive@1';
+export function createNicheArchive({keys = ['verb', 'object', 'carrier']} = {}) {
+    return {schema: ARCHIVE_SCHEMA, keys: [...keys], niches: {}};
+}
+export function archiveOffer(archive, entry) {
+    if (archive?.schema !== ARCHIVE_SCHEMA) fail('Not a niche archive.');
+    if (!entry?.id || !entry.parts || !Number.isSafeInteger(entry.score)) fail('An archive entry needs an id, parts and an integer score.');
+    const niche = archive.keys.map(k => entry.parts[k]).join('|');
+    const held = archive.niches[niche];
+    const accepted = !held || entry.score > held.score;
+    const next = accepted ? {...archive, niches: {...archive.niches, [niche]: structuredClone(entry)}} : archive;
+    return {archive: next, receipt: {niche, accepted, replaced: accepted && held ? held.id : null, reason: !held ? 'new niche' : accepted ? `beats ${held.score}` : `holder scores ${held.score}`}};
+}
+
 // Whole pipeline: propose, check, keep. Returns every candidate's checks so a
 // failure reads as the missing law, price, exception or word.
+// PR3 · Bounded search: budget.trials caps proposals plus checks (each counts
+// one trial); budget.stop() is an optional caller-owned clock test (the caller
+// owns time, so the search stays pure). A truncated search says so.
 export function exploreEffects(fitted, canon, world, options) {
-    const candidates = proposeEffects(fitted, canon, options);
-    const results = candidates.map(c => ({candidate: c, ...checkEffect(fitted, c, world)}));
+    const budget = options.budget ?? {trials: 400};
+    if (!Number.isSafeInteger(budget.trials) || budget.trials < 2) fail('A search budget needs at least two trials (PR3).');
+    const count = Math.min(options.count ?? 12, Math.floor(budget.trials / 2));
+    const candidates = proposeEffects(fitted, canon, {...options, count});
+    const results = [];
+    let used = count, stopped = false;
+    for (const c of candidates) {
+        if (used >= budget.trials || budget.stop?.()) { stopped = true; break; }
+        results.push({candidate: c, ...checkEffect(fitted, c, world)});
+        used++;
+    }
     const passing = results.filter(r => r.pass).map(r => r.candidate);
     const spread = keepSpread(passing, canon.map(c => c.parts), options.keep);
     const failures = {};
     for (const r of results) for (const c of r.checks) if (!c.pass) failures[c.id] = (failures[c.id] ?? 0) + 1;
-    return {proposed: candidates.length, passed: passing.length, failures, kept: spread.kept, niches: spread.niches, results};
+    let archive = options.archive ?? createNicheArchive();
+    for (const c of spread.kept) archive = archiveOffer(archive, {id: c.id, parts: c.parts, score: c.score, cause: c.cause, grammar: fitted.ref}).archive;
+    return {proposed: candidates.length, checked: results.length, passed: passing.length, failures, kept: spread.kept, niches: spread.niches, archive,
+        budget: {trials: budget.trials, used, truncated: stopped || count < (options.count ?? 12)}, results};
 }

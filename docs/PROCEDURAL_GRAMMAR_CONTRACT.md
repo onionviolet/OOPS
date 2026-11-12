@@ -16,7 +16,7 @@ The module is domain-free: it names no world, no domain and no save key. Each do
 | --- | --- | --- |
 | PGC1 | **A grammar is declared data plus rule code.** `defineGrammar({id, revision, slots, rules, fallback, dials?, budget?})` returns a frozen grammar with `ref = id@revision` (GR10). | Default: slots and weights are data; a rule is a small function, written once per mechanism (PFP1). Reason: a new canon case should cost a row, a new mechanism costs code once. |
 | PGC2 | **Slots are typed.** `one` (a single part), `set` (distinct parts, order ignored), `tokens` (ordered, repeats allowed). Each slot declares `values` (a list), `'corpus'` (the vocabulary is learned from the fit) or `open: true` (any value, novel ones flagged). `min` and `max` bound the count. | Default: a world's own declared lists (paths, roles, operations) are closed; names and flavor are open. Dial: a slot may move from `corpus` to a declared list when the source enumerates it. Reason: the proof run showed corpus-learned vocabularies reject rare canon parts (one held Steed-type Gu). |
-| PGC3 | **One slot may be conditioned on one earlier slot** (`given`). Its weights are then counts per given value, summed across a set. | Default: condition the part the source ties together (head word on role, name marks on path). Reason: weights that ignore the tie make plausible parts in implausible pairs. v0 limit: one given per slot (see backlog). |
+| PGC3 | **A slot may be conditioned on earlier slots** (`given`: one slot, or an array for joint conditioning, PGC19). Its weights are then counts per given value, summed across a set. | Default: condition the part the source ties together (head word on role, name marks on path). Reason: weights that ignore the tie make plausible parts in implausible pairs. |
 | PGC4 | **Rules are `derive` or `check`.** A derive rule computes fields (a band, a name). A check returns null or a reason. Each rule carries `default` and `reason` text and may name a `dial`. | Default severity `reject`; `flag` for "allowed but outside what the source shows". Reason: AD5 constraint form; AD56 says lines that would remove options are flags until Weibao says otherwise. |
 | PGC5 | **Assembly is the one gate.** `assemble(grammar, parts)` returns `{ok, value:{grammar, parts, derived}, receipt:{violations, flags, overlays}}`. Violation kinds: `missing-part`, `too-many-parts` (past the declared `max`), `unknown-part` (closed slot), `bad-shape`, `rule-reject`. Flag kinds: `novel-part` (open slot, unseen in the fit), `outside-range` (more parts than any corpus row), `rule-flag`. | Default: canon parts, generated parts and player-invented parts (P4) all call `assemble`. Reason: generated means runnable (PFP16); a second validation path is how special cases appear. |
 | PGC6 | **Weights come from the source.** `fitGrammar(grammar, rows, {smoothing})` turns labelled corpus rows `{id, parts}` into integer weights, each with a reason string (`corpus 12/304`), per-slot size counts and the seen support. | Default `smoothing` 0: only what the source shows. Dial: a positive integer opens every declared value, so a world can widen its range without code. Reason: PFP18 and GR9. |
@@ -65,7 +65,7 @@ What revision 2 changed, each from a v1 failure group (GKG codes live in the fix
 
 Revision 2's 100% says the grammar can **express** every labelled canon kind. Since the two new parts are read off the name, that rebuild is close to by construction. So is the per-slot range check: at smoothing 0 a draw can only pick values and part counts the corpus shows, so 200 of 200 inside is guaranteed. The informative numbers are these:
 
-- **Inference.** Hiding the path and reading it from the name parts finds the canon path in 39.8% of held-out kinds against a 13.2% majority guess; role, 48.4% against 33.6%. Name words carry signal, and v0 uses only the marks for path because a slot takes one given.
+- **Inference.** Hiding the path and reading it from the name parts finds the canon path in 37.8% of held-out kinds against a 13.2% majority guess; role, 44.4% against 33.6% (naive Bayes scoring from phase 3; the phase 1 sum of fractions gave 39.8% and 48.4%). Name words carry signal, and v0 uses only the marks for path because a slot takes one given.
 - **Pair support.** Only 112 of 200 generated kinds (56%) use path and role pairs that some canon kind shows; for rank and path, 152 of 200 (76%). Path and role are drawn separately, so generated kinds drift from the book's combinations. Under AD56 an unseen pair stays allowed; the fix is conditioning (role given path, PGB1), not a reject. This is the next rule P5 calibration needs.
 - **Shares.** Rank, path and role shares land within 0.07, 0.15 and 0.06 total variation of the corpus, inside the 0.25 tolerance. Head and mark words are over it (0.37 and 0.39), which is expected for open slots with mostly unique words and is reported as over, not passed.
 - **Open-part coverage.** Only 32.9% of held-out kinds use name words all seen elsewhere. Gu names are mostly unique, so a naming register (PGC12) matters more than a fitted word list.
@@ -76,8 +76,8 @@ Revision 2's 100% says the grammar can **express** every labelled canon kind. Si
 
 | Code | Gap | Who asks | Proposed v1 shape |
 | --- | --- | --- | --- |
-| PGB1 | A slot conditioned on two parts (path read from head word and marks) | proof run | `given: [slotA, slotB]` with summed or product counts |
-| PGB2 | Nested parts: a step with its own operation, ingredient and heat | B (BG3) | a slot of type `parts` that references a child grammar |
+| PGB1 | A slot conditioned on two parts | proof run | Done in phase 3 as PGC19 (joint keys with single-given backoff) |
+| PGB2 | Nested parts: a step with its own operation, ingredient and heat | B (BG3) | Done in phase 3 as PGC21 (`parts` slot with a child grammar) |
 | PGB3 | Quantities on parts (a dose, a fraction, a rank threshold) | B, F, R | numeric slots with integer ranges, read by W's quantities |
 | PGB4 | Joint rules over many held items (a killer move's core and supports) | G | a grammar whose parts are references to other things' values |
 | PGB5 | Place-driven weights read from W quantities (moonlight makes Moonlight-path Gu likelier) | plan P3, E | an overlay computed from a place's quantities, with the place as cause |
@@ -103,8 +103,8 @@ Labels are deterministic readings of repo data (MC14 step 1): Gu from chat G's 7
 
 | World | Labelled | Rebuild | Verb read from object, target and time | Missing rules |
 | --- | --- | --- | --- | --- |
-| Gu | 57 of 78 (21 have no function in their scenes) | 55/57 = 96.5% | 64.9% (baseline 28.1%) | 2: Spring Autumn Cicada and Year Gu change **time**, which the grammar files as a law and `transform` does not reach. Either years are a quantity (lifespan) the Gu holds, or rebirth is a verb on time; the next scene check decides |
-| Hogwarts | 109 of 117 (8 leads have no operation: a legal category, witness accounts, artefact commands) | 85/109 = 78.0% | 40.4% (baseline 7.3%) | 5 verb-object rejects (Create boils reads as add on form; a revived state as transform on a working; the Taboo as block on knowledge; Descendo as release; clearing an airway as release on vitality) and 19 family mismatches, each a mislabel or a record whose family spans verbs |
+| Gu | 57 of 78 (21 have no function in their scenes) | 55/57 = 96.5% | 77.2% (baseline 28.1%) | 2: Spring Autumn Cicada and Year Gu change **time**, which the grammar files as a law and `transform` does not reach. Either years are a quantity (lifespan) the Gu holds, or rebirth is a verb on time; the next scene check decides |
+| Hogwarts | 109 of 117 (8 leads have no operation: a legal category, witness accounts, artefact commands) | 85/109 = 78.0% | 46.8% (baseline 7.3%) | 5 verb-object rejects (Create boils reads as add on form; a revived state as transform on a working; the Taboo as block on knowledge; Descendo as release; clearing an airway as release on vitality) and 19 family mismatches, each a mislabel or a record whose family spans verbs |
 
 The Gu rate is higher partly by construction: its labels map G's function families, and only the ability-kind comparison (all 14 agree) is independent. The Hogwarts labeller reads free text, so its misses are real. **Across worlds:** 64.2% of Hogwarts sentences use a verb on an object kind that some Gu sentence also uses; 84.2% of Gu sentences have a Hogwarts counterpart. One grammar connects them without a join.
 
@@ -131,3 +131,45 @@ Forty proposals per world and level, cause `pressure`, keep six. Pass rates: Gu 
 - **Gu index:** of 1,159 records missing a label, 170 get a path from a name word equal to a declared path ("Strength", "Soul"), and 3 a rank and 3 a path from G's chapter rows. On the 162 already-labelled rows where the name-word rule fires, it agrees with the wiki category 147 times (91%). It stays a separate layer, not a fit label (PGC11, dial to admit it). Roles (822 missing) have no repo source: the wiki page text sits outside the repo, so they wait for an approved reader plan.
 - **Spells:** 109 of 117 leads labelled as sentences; 8 are not effects.
 - **Potions:** 101 subjects in the evidence observations; 62 with ingredients, 13 with preparation operations, 11 recipe-shaped (both), as rows for B's grammar (BRG1, BRG3).
+
+## Phase 3 (2026-11-12): grammar layers, procedural rules, coverage tooling
+
+Weibao's "making all achievable" direction set coverage ledgers (CV1-CV4), grammar layers GL1-GL7, procedural rules PR1-PR9 and milestones MS1-MS7 in the [plan](PROCEDURAL_FOUNDATION_PLAN.md#making-all-achievable-ledgers-grammar-layers-procedural-rules-milestones-2026-11-12). P's part follows.
+
+| Code | Contract line | Default, dial and reason |
+| --- | --- | --- |
+| PGC19 | **Joint and chained conditioning (GL5).** `given` may be an array: weights are counted per combination of the given slots' values. An unseen combination backs off to each given alone, then the marginal. Chains (path given rank, role given path and rank) are slots in order, each with its own `given`. | Default: condition the parts the source ties. Reason: separate draws break the source's combinations (phase 2 pair support 56%). |
+| PGC20 | **Inference and prediction read the same weights.** `inferSlot` reads a hidden part from the parts conditioned on it (naive Bayes with add-one smoothing; the log prior is the `inferPrior` dial, off by default because it pulls sparse name evidence toward the majority). `predictSlot` and `predictParts` go forward: the most weighted value given the parts already known. `canonTest({predict})` hides slots and predicts them in order, against the majority guess, and groups the misses. | Reason: a canon test that only re-assembles labelled parts is close to circular; prediction and inference are not. |
+| PGC21 | **Nested parts (GL6).** A slot of type `parts` holds an ordered list of child things, each assembled, fitted and generated by its own child grammar; violations and flags carry the path (`steps[1].op`). Parent rules read the children (order, counts). A `parts` slot is not conditioned itself; its child grammar's slots are. | Reason: recipes and moves have steps with their own parts (GL3). |
+| PGC22 | **Frozen values pin their grammar (PR2).** `freezeValue` stores parts, derived fields, cause and the grammar ref; `thawValue` returns the value as seen and reports whether the pinned revision is loaded and still accepts it. A revision changes only unseen things. | Reason: saves stay stable across grammar edits (GR3, GR10, OS8). |
+| PGC23 | **Bounded search (PR3).** `exploreEffects` takes `budget: {trials, stop}`: proposals and checks each cost one trial; `stop` is a caller-owned clock test, so the search stays pure. A truncated search says so. | Default 400 trials. Dial per actor. Reason: idle settlement stays cheap (MC16). |
+| PGC24 | **Niche archive (PR4).** `createNicheArchive({keys})` and `archiveOffer` keep one best entry per niche (verb, object, carrier by default); ties keep the holder, so replays are stable; plain JSON, so a world can save it. | Reason: a world fills with different moves, not one best move copied. |
+
+### Procedural rules PR1-PR9 in this contract
+
+| Plan rule | Where it lives |
+| --- | --- |
+| PR1 addressed and repeatable | PGC8 (`generate` needs an address and a cause), GR1-GR17 |
+| PR2 freeze on reveal, ref pinned | PGC22 |
+| PR3 bounded search | PGC23 |
+| PR4 spread, not a winner | PGC17 (`keepSpread`) and PGC24 (archive) |
+| PR5 novelty dial with a cause | PGC18 |
+| PR6 everyone uses the same generator | PGC5 (one assembly gate); NPC callers arrive with A |
+| PR7 explain every output | PGC17 (`explains`), PGC4 reasons on every rule |
+| PR8 names last | PGC12; waits on the naming owner's Gu kind-name register (PGB7) |
+| PR9 sealed truths by ID | MC12; nothing generated in these proofs is sealed |
+
+### Grammar layers, where each stands
+
+| Layer | Canon test (non-circular) | Result |
+| --- | --- | --- |
+| GL1 identity | Joint pair support on generated items, 80% target; hidden-part inference over the majority guess | `proof.gu-kind@3` (path given rank, role given path and rank): path and role 96.5%, rank and path 94.0%, rank and role 98.5% on the full index (v2: 56.0%, 76.0%, 91.0%). Path read from name parts 39.5% against 13.2%. **Met** |
+| GL2 effect | Hold out the effect sentence; predict verb, object, target and time from identity through the fit | Gu (identity: wiki type and path): whole sentence 43.9% (majority 0%), verb 54.4% (28.1%). Hogwarts (identity: S's family): whole sentence 11.0% (0.9%), verb 31.2% (7.3%). **Below the 70% target.** The re-assembly rebuild (96.5% and 78.0%) meets it, but that one is close to circular |
+| GL3 composition | Rebuild held-out moves and recipes from components, through K | Shape ready: all 23 canon moves assemble as nested roles (51 roles). 28 roles name no Gu and 6 moves list one role, both flagged. The rebuild through K waits on K's composed working (MS4) |
+| GL4 context | A seeded world grows things where the source shows them | Not started; needs E and PGB5 |
+
+**What GL2 is missing, read from its grouped misses.** In Gu, wiki "support" and "offensive" types span many verbs, so identity cannot tell amplify from strength or an area sense from a self guard. Missing rules: area versus self target by kind, and a lasting versus sustained split for producers. In Hogwarts, a family heading spans verbs: "Make, change and repair" holds removes (Reducto, Expulso) and adds (Aguamenti, Fiendfyre) as well as transforms. Four-letter incantation stems were tried as a further identity part and scored slightly worse (verb 29.4%), because 117 mostly unique incantations are too sparse. What would close the gap is identity the world packs own: G's ability resolver kind per Gu, and S's operation per spell (SG2), both independent of the sentence labels. Those are requests to G and S, not P rules.
+
+### Coverage tooling (MS1, CV1-CV4)
+
+`scripts/coverage_report.mjs` validates `docs/coverage/<corpus>.jsonl` and writes the [counts table](coverage/README.md). `npm run check:coverage` fails only on malformed rows: bad JSON, unknown fields, a missing or duplicate id, an empty source, a state outside the five CV2 forms, mechanisms not a list of names, or a `runs-*` row whose test file does not exist. Percentages are a report, not a gate (CV4). Test: `tests/coverage_report.test.js`. The ledgers belong to their owners (G, B, S, L).
