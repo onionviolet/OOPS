@@ -652,3 +652,24 @@ Both lanes were dispatched by the branch coordinator and folded by this session.
 | --- | --- | --- |
 | `w16-timeline` | The case runner takes an ordered timeline of engine actions and settled clock advances. 17 stated-diet Gu bodies compute as expressed in the creatures ledger; the Draught case shows recovery as the second consumer | 61 diet-unknown Gu stay blocked; feeding uses quoted fixture offers and authored amounts where the source gives none |
 | `w16-parity` | G5 0 to 1: the Keeper potato market module re-expressed as an engine case, 16 input rows matching the old module's receipts and one asserted divergence (a stronger blast clears the same stone, by AD38) | The old module stays until tie-in; entry and milling commands downstream remain with the live host |
+
+### Foundations audit and the longer finish list (2026-11-12, proposal)
+
+A read-only audit checked the engine for foundations the E list missed. Its evidence locators are in the lane return; the findings below are agent-verified by reading, with no test run. Weibao (2026-11-12): "We can have one engine for each thing that all works together"; the audit's per-engine matrix follows when it returns.
+
+| # | Added finish line | From |
+| --- | --- | --- |
+| E9 | One engine host: a working settles through the kernel inside the engine world and the case runner, and one engine save holding a running working, a stored working and a binding agrees across jump, minute and restore | AF1: the engine save is packs and world; kernel records are saved elsewhere, so each family writes its own loop |
+| E10 | Places are linked once in the world; an effect can target within a number of links, and the three packs with private routes read that graph | AF2 |
+| E11 | One saved draw root; an odds step and a pack law draw by address and replay the same across jump, minute and restore | AF3: published odds are resolved by nothing today |
+| E12 | Birth, death, copy, split, merge, and a cohort becoming individuals and back are world acts that keep identity history and hand quantities on | AF4 |
+| E13 | A conserved quantity's world total changes through named source and sink rows | AF5 |
+| E14 | A save with an unknown pack or quantity restores with both kept inert, and changed settings are reported | AF6 |
+| E15 | A landed effect yields per-observer rows filtered by senses and concealment, written to the knowledge record | AF7 |
+| E16 | A thousand holders in fifty places with one near place settle a day inside a stated budget, and a pending advance resumes to the same state | AF8 |
+| E17 | Each refusal the audit listed carries a cost or a way around, or is named as a dial | AF9; a refusal with no price breaks AD5 and AD56 |
+| E18 | Sub-minute effects, progress inside a step, start costs with refunds, and reservations each have a test | AF10, open items KB3, KB5, KB6 |
+
+Changes to the first eight: E1 names where a debit goes (with E13). E2 takes in the worm's private beliefs. E4's timeline half is done; working cases in the runner move to E9. E5 extends to records in flight after E9. E6 waits on E12, since the engine world has no cohort to compare yet. E7 reads "carried out through kernel settlement and the effect host". E8 is open.
+
+Order after the Wave 17 lanes fold: E9 first, since E1, E2 and E7 each need it; then E11, E12 and E10 side by side; then E13 to E18 with E5 to E7. Wave 19 (operators, generators) starts when E1 to E18 pass. Tie-in needs the audit listed, for the later phase: a game-save slice for the engine world, a mapping from player and inventory to holders, a bridge from the game clock to engine minutes, readable text for receipts, and a draw root tied to the save.
