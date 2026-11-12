@@ -19,7 +19,8 @@ const handles = {'Processed rough wood': 'Simple wooden medium handle', 'Process
     'Processed ash wood': 'Ash wood medium handle', 'Processed hickory wood': 'Hickory wood medium handle'};
 const ores = {'Iron ore': 'Iron ingot', 'Low quality iron ore': 'Low quality iron ingot'};
 export const CAPACITY_RULE = Object.freeze({perTier: 0.1,
-    reason: 'A head or handle carries in proportion to its material strength and toughness and to how well it is made (tier). Fixture dial, not a source measurement.'});
+    reason: 'A head or handle carries in proportion to its material strength and toughness and to how well it is made.'});
+// perTier is an original tuning dial, not a source measurement.
 const materialFacts = key => {
     const row = material_properties[key];
     if (!row) throw Error(`No component material ${key}.`);

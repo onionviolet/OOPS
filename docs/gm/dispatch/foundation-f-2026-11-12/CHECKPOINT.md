@@ -345,6 +345,7 @@ Agent-verified, not human-reviewed.
 | Item template hash before and after the material table move | 874 templates, identical hash | One-off script in scratchpad |
 | `npm run check:arch` | pass, main.js growth -1 | |
 | `npm run check:rule-routes -- --message` | runtime-code and making-systems areas touched; codes cited in the commit | |
+| `npm run check:rules` | pass after a follow-up commit; 7ed85b926 itself failed the player-text lint on the word "fixture" in the capacity reason string | |
 | Three headless browser drivers on the rebuilt bundle | 3 PASS | Fixture admission as each driver states |
 
 ## Requests (relayed by the coordinator)
