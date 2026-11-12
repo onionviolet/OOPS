@@ -10,6 +10,7 @@ Start note: the worktree was cut at `c25fd396d`, 37 commits behind the stated st
 - [`tests/gu_catalogue.test.js`](../../../../tests/gu_catalogue.test.js): one new test. Every evidence identity has a parts row; rank equals the evidence ranks; every evidence open field stays open; an empty rank, a null path or a null function each name an open field; roles and functions come from the exported vocabularies; the wiki layer is present.
 - [`scripts/gu_keeper_inventory.mjs`](../../../../scripts/gu_keeper_inventory.mjs): read-only extractor behind the inventory.
 - Docs in this folder: [inventory](KEEPER_COMPRESSION_INVENTORY.md), [grammar proposal for P](GU_GRAMMAR_PROPOSAL.md) (GG1-GG13), [quantities draft for W](GU_QUANTITIES_FOR_W.md) (GQ1-GQ13).
+- Follow-up commit: lineage `inputs` on Moon Scar and Landscape as Before (tested to be catalogued kinds), the inventory appendix table, a ten-module compression set where each pick owns its module, and default-dial-reason wording in GG5, GG9, GG13 and GQ11.
 
 Save compatibility (MC4): unchanged. No save key, slice or scene row changed; `parts` is read by nothing at runtime.
 
@@ -53,7 +54,7 @@ Source facts, authored values and open questions stay separate: `observed` parap
 
 ## Requests sent (shared notes folder)
 
-- K: the five-part scene shape (facts row, counter ledger, availability predicate, dispatcher, counter stock) maps onto `defineWorkingLaw` / method / `settleWorking` from K v0. C's G1 request (killer moves as K workings with beats as steps) is accepted as G's phase 2 target.
+- K: the five-part scene shape (facts row, counter ledger, availability predicate, dispatcher, counter stock) maps onto `defineWorkingLaw` / method / `settleWorking` from K v0. C's G1 request (killer moves as K workings with beats as steps) is taken on as G's phase 2 target.
 - W: GQ1-GQ13.
 - P: GG1-GG13 and the corpus weights.
 - L: Gu-as-creature rows (producer, hosted, wild, emergent) come from the parts `roles`; L runs the body.
@@ -61,4 +62,4 @@ Source facts, authored values and open questions stay separate: `observed` parap
 
 ## Next phase (after K v0 and W v0 are on master)
 
-Re-express the ten-scene set (seven, nine, red_steel, four_flavors, stealth, rank_trial, moonlight_stock, rainbow, fire_trial, vitality; reserve move_trial) as catalogue rows plus one generic Gu working on K, with essence stock read from W, and delete their src modules. Move stage minutes and feed windows onto rows. Drive move search from the 23 evidence move records. Done check from the plan: 60 or more kinds as data (met), 10 scenes re-expressed with old modules deleted, move records drive move search, this backlog kept.
+Re-express the ten-module set (`gu_keeper_red_steel` with rank_trial, `gu_keeper_seven`, `gu_keeper_nine`, `gu_keeper_stealth`, `gu_moonlight_stock`, `gu_keeper_rainbow`, `gu_keeper_fire_trial`, `gu_keeper_move_trial`, `gu_keeper_defense`, `gu_keeper_vitality`; order red_steel, seven, nine first) as catalogue rows plus one generic Gu working on K, with essence stock read from W, and delete those ten src modules. Move stage minutes and feed windows onto rows. Drive move search from the 23 evidence move records. Done check from the plan: 60 or more kinds as data (78 now as identity data; runnable kinds still 7, so this line counts as met only for identity rows), 10 scenes re-expressed with old modules deleted, move records drive move search, this backlog kept.

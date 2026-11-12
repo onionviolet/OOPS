@@ -276,7 +276,8 @@ const bindings = {
 // identity data, not a playable default: no resolver reads it yet. `rank` and `path` hold only what the
 // cited chapters state; wiki rank, path and type labels stay in `wiki`, a separate tentative layer (SKR3).
 // `roles` are the parts a kind was seen playing in a working; `function` is its effect family, null when
-// the cited scenes do not show one. Open questions name what the chapters leave unsettled.
+// the cited scenes do not show one. `inputs` lists catalogued kinds a fusion product was seen made from.
+// Open questions name what the chapters leave unsettled.
 export const guFunctions = deepFreeze(['attack', 'guard', 'conceal', 'sense', 'move', 'fly', 'travel', 'heal',
     'convert-essence', 'produce', 'record', 'strength', 'amplify', 'economize', 'restore', 'stabilize', 'mind',
     'suppress', 'formation', 'time', 'illuminate', 'steal']);
@@ -284,14 +285,14 @@ export const guRoles = deepFreeze(['core', 'support', 'ingredient', 'product', '
     'vital', 'hosted', 'wild', 'loaned', 'emergent', 'formation', 'substitute']);
 const readFromScene = 'Roles and function read from the cited scenes by the catalogue author; wiki labels kept apart.';
 
-function parts(chapters, observed, {rank = [], path = null, roles = [], fn = null, fuel = null, marks, wiki = {}}, open = [],
+function parts(chapters, observed, {rank = [], path = null, roles = [], fn = null, fuel = null, marks, inputs, wiki = {}}, open = [],
     authored = readFromScene) {
     const gaps = [...open];
     if (!rank.length && !gaps.some(gap => /rank/.test(gap))) gaps.push('rank in the cited scene');
     if (!path && !gaps.some(gap => /path/.test(gap))) gaps.push('path in the cited scene');
     if (!fn && !gaps.some(gap => /standalone|effect|operation|contribution/.test(gap))) gaps.push('standalone effect');
     return {parts: {chapters, observed, authored, open: gaps, value: {rank, path, roles, function: fn, fuel,
-        ...(marks && {marks}), wiki: {rank: wiki.rank ?? [], path: wiki.path ?? [], type: wiki.type ?? []}}}};
+        ...(marks && {marks}), ...(inputs && {inputs}), wiki: {rank: wiki.rank ?? [], path: wiki.path ?? [], type: wiki.type ?? []}}}};
 }
 const partsRows = {
     thunderclap: parts([150], 'A frenzy lightning wolf carries two and the Gu throws a thunderball.',
@@ -346,7 +347,7 @@ const partsRows = {
     moonglow: parts([106], 'A fusion product distinct from Moonlight with a stronger blade.',
         {rank: [2], roles: ['product'], fn: 'attack', wiki: {rank: [2], type: ['offensive']}}),
     'moon-scar': parts([106], 'Moonlight fused with Stone Scar keeps its force and doubles its reach to twenty meters.',
-        {roles: ['product'], fn: 'attack'}, ['rank in the cited scene', 'standalone fuel cost']),
+        {roles: ['product'], fn: 'attack', inputs: ['moonlight', 'stone-scar']}, ['rank in the cited scene', 'standalone fuel cost']),
     'stone-scar': parts([106], 'The living fusion ingredient for Moon Scar.', {roles: ['ingredient']},
         ['rank in the cited scene', 'standalone power']),
     'liquor-worm': parts([7, 14, 17, 19, 34, 105], 'Refines green-copper essence at half volume; a wild Worm flees and takes wine.',
@@ -401,7 +402,7 @@ const partsRows = {
         {rank: [5], roles: ['ingredient'], fn: 'stabilize', wiki: {rank: [5], path: ['time'], type: ['healing']}},
         ['complete standalone operation', 'whether the pair has a reusable recipe away from ascension']),
     'landscape-as-before': parts([554, 609, 611], 'Emerges from River and Mountain as Before during ascension and restores terrain with green grape essence.',
-        {rank: [6], roles: ['product'], fn: 'restore', fuel: 'immortal', wiki: {rank: [6, 7, 8], path: ['time'], type: ['healing']}},
+        {rank: [6], roles: ['product'], fn: 'restore', fuel: 'immortal', inputs: ['river-as-before', 'mountain-as-before'], wiki: {rank: [6, 7, 8], path: ['time'], type: ['healing']}},
         ['ordinary repeatable refinement recipe', 'alternative inputs', 'limits across objects, injuries and independent ongoing threats']),
     'yaksha-octopus-king-wild-immortal': parts([933], 'A provisional sighting: one Gu living in an ancient beast emerged as a wild Immortal over a long period.',
         {roles: ['wild', 'hosted', 'emergent']},

@@ -75,5 +75,6 @@ test('every chapter-checked identity has grammar parts that keep chapter facts, 
             : guFunctions.includes(value.function), `${label} function`);
         assert.ok(value.roles.every(role => guRoles.includes(role)), `${label} roles`);
         assert.ok(['rank', 'path', 'type'].every(field => Array.isArray(value.wiki[field])), `${label} wiki layer`);
+        for (const input of value.inputs ?? []) assert.ok(guCatalogue[input]?.parts, `${label} input ${input} is a catalogued kind`);
     }
 });
