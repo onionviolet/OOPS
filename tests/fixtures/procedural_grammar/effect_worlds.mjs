@@ -9,6 +9,8 @@ import {defineEffectGrammar} from '../../../src/effect_grammar.js';
 // ---------- Gu (Reverend Insanity) ----------
 export const guEffects = defineEffectGrammar({
     world: 'gu', carriers: {gu: ['essence-primeval', 'essence-immortal', 'mental']},
+    // W keys: essence by fuel family; light defaults to moonlight (a kind's own light passes `key`).
+    keys: {essence: parts => parts.cost === 'essence-immortal' ? 'immortal' : 'primeval', light: 'moon'},
     limits: ['ward', 'dao-mark', 'cover', 'distance', 'mass', 'will', 'counter-effect', 'fuel'],
 });
 // G's function families read as sentences. The world's reading, written before
@@ -68,6 +70,7 @@ export async function guEffectRows() {
 // ---------- Hogwarts (spellbook research records) ----------
 export const hpEffects = defineEffectGrammar({
     world: 'hogwarts', carriers: {'spoken-spell': ['stamina'], ward: ['stamina']},
+    keys: {light: 'wand', essence: 'mana'},
     limits: ['ward', 'cover', 'distance', 'mass', 'will', 'counter-effect'],
 });
 // Ordered: the first verb rule that matches wins. Words are the paraphrase's.

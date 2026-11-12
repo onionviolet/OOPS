@@ -1,4 +1,4 @@
-# Foundation P checkpoint, 2026-11-12: grammar contract, effect grammar, layers, coverage tooling and backward search (phase 4)
+# Foundation P checkpoint, 2026-11-12: grammar contract, effect grammar, layers, coverage tooling, backward search and W lowering (phase 5)
 
 *Chat P in the [procedural foundation plan](../../../PROCEDURAL_FOUNDATION_PLAN.md#one-more-chat). Branch `claude/fdn-p-grammar-4ffe18`, started from 9bbc51363 (fast-forwarded from c25fd396d, no own commits before). Phase: publish the grammar contract v0 and the canon test harness, prove it on one corpus slice. Rules applied: PFP16-PFP20, P2, P5, GR1-GR17 (GR2, GR3, GR6, GR9, GR10, GR11, GR16 tested), AD5, AD38, AD56, NMR2, NMR3, NMR5, AU13 (plan only), MC2, MC12, MC14. Status: implemented, below floor (AD43): agent-verified at the focused test slice, not human-reviewed, no runtime caller yet, so no playable change and no browser pass. GR12 (no generator without a reader) stays open until the first consumer lands in the next phase.*
 
@@ -8,9 +8,22 @@ route: n/a
 state: rules-reconciled
 viewport: n/a (no player-facing change)
 persistence: unchanged
-tests: node --test tests/procedural_grammar.test.js tests/effect_grammar.test.js tests/coverage_report.test.js tests/grammar_search.test.js (29/29); check:rules; check:arch; check:coverage
+tests: node --test tests/procedural_grammar.test.js tests/effect_grammar.test.js tests/coverage_report.test.js tests/grammar_search.test.js tests/world_effects.test.js tests/world_substrate.test.js (49/49); check:rules; check:arch; check:coverage
 review: none
 ```
+
+## Phase 5 (2026-11-12, lowering onto W's effect primitives)
+
+W's phase 2 (`claude/fdn-w-substrate-ee40b6` at 64d0adedf) was held because `tests/effect_grammar.test.js` asserted light was missing from W. Merged W's branch into this one (0ed53bebf) to test against it.
+
+- **(a)** The assertion now expects `light:<key>` in `needs` only when no world key is given; with a key, light lowers to `light:moon`.
+- **(b)** `lowerEffect` maps objects through `W_OBJECT_OF` and adds world keys (Gu: essence by fuel family, light `moon` by default; Hogwarts: light `wand`, essence `mana`; a thing's own key overrides). Every P object lowers to a W act or a publish for its named owner (test loops all 18).
+- **(c)** `applySentence` runs lowered acts through W's `applyEffect`: a Moonblade-shaped cut removes vitality, a sustained guard sentence blocks the next cut, light adds to `light:moon`, a mind effect publishes for A. The Gu grammar's derived `acts` are the acts it runs.
+- PGC15 updated: W's boundary table is agreed as written, with the three P-side choices stated (keys, owner publishes, block verb by object kind).
+
+Checks: `node --test tests/effect_grammar.test.js tests/grammar_search.test.js tests/procedural_grammar.test.js tests/world_effects.test.js tests/world_substrate.test.js tests/coverage_report.test.js` 49/49 on this branch with W merged; effects report numbers unchanged.
+
+Request to **W**: `applyEffect`'s generated block field id embeds `params.verb`, so a block with verb `*` (which `blockerOf` accepts) fails W's own id check ("law field needs id, kind and a scope"). P avoids it by naming the stopped verb; a sanitized id (for example `any` for `*`) would let `*` blocks run.
 
 ## Phase 4 (2026-11-12, grammars both ways, master 46b39fb22 merged)
 
