@@ -1,11 +1,11 @@
 # Foundation P checkpoint, 2026-11-12: procedural grammar contract v0
 
-*Chat P in the [procedural foundation plan](../../../PROCEDURAL_FOUNDATION_PLAN.md#one-more-chat). Branch `claude/fdn-p-grammar-4ffe18`, started from 9bbc51363 (fast-forwarded from c25fd396d, no own commits before). Phase: publish the grammar contract v0 and the canon test harness, prove it on one corpus slice. Rules applied: PFP16-PFP20, P2, P5, GR1-GR17 (GR2, GR3, GR6, GR9, GR10, GR11, GR16 tested), AD5, AD38, AD56, NMR2, NMR3, NMR5, AU13 (plan only), MC2, MC12, MC14. Status: implemented and agent-verified at the focused test slice; not human-reviewed; no runtime caller yet, so no playable change and no browser pass (nothing a player can see changed).*
+*Chat P in the [procedural foundation plan](../../../PROCEDURAL_FOUNDATION_PLAN.md#one-more-chat). Branch `claude/fdn-p-grammar-4ffe18`, started from 9bbc51363 (fast-forwarded from c25fd396d, no own commits before). Phase: publish the grammar contract v0 and the canon test harness, prove it on one corpus slice. Rules applied: PFP16-PFP20, P2, P5, GR1-GR17 (GR2, GR3, GR6, GR9, GR10, GR11, GR16 tested), AD5, AD38, AD56, NMR2, NMR3, NMR5, AU13 (plan only), MC2, MC12, MC14. Status: implemented, below floor (AD43): agent-verified at the focused test slice, not human-reviewed, no runtime caller yet, so no playable change and no browser pass. GR12 (no generator without a reader) stays open until the first consumer lands in the next phase.*
 
 ```receipt
 build: n/a
 route: n/a
-state: built
+state: rules-reconciled
 viewport: n/a (no player-facing change)
 persistence: unchanged
 tests: node --test tests/procedural_grammar.test.js (9/9); check:rules; check:arch
@@ -37,12 +37,12 @@ No domain file was edited. Compatibility line (MC4): no save shape touched, unch
 
 ## Canon test result
 
-| Grammar | Corpus | Rebuild | Inference from name parts | Range |
+| Grammar | Corpus | Rebuild | Inference from name parts | Pair support (path+role, rank+path) |
 | --- | --- | --- | --- | --- |
-| `proof.gu-kind@1` | full, 304 labelled | 236/304 = 77.6% | path 39.8% (baseline 13.2%), role 48.4% (baseline 33.6%) | 200/200 inside |
-| `proof.gu-kind@2` | full, 304 labelled | 304/304 | same | 200/200 inside, 1 to 4 flagged |
-| `proof.gu-kind@1` | slice, 120 labelled | 87/120 = 72.5% | path 24.2% (11.7%), role 40.0% (24.2%) | 200/200 inside |
-| `proof.gu-kind@2` | slice, 120 labelled | 120/120 | same | 200/200 inside |
+| `proof.gu-kind@1` | full, 304 labelled | 236/304 = 77.6% | path 39.8% (baseline 13.2%), role 48.4% (baseline 33.6%) | 54.5%, 80.0% |
+| `proof.gu-kind@2` | full, 304 labelled | 304/304 | same | 56.0%, 76.0% |
+| `proof.gu-kind@1` | slice, 120 labelled | 87/120 = 72.5% | path 24.2% (11.7%), role 40.0% (24.2%) | 36.0%, 51.0% |
+| `proof.gu-kind@2` | slice, 120 labelled | 120/120 | same | 38.0%, 52.0% |
 
 Revision 1's failures, listed as missing rules (full index):
 
@@ -51,17 +51,21 @@ Revision 1's failures, listed as missing rules (full index):
 3. 11 kinds whose ranks cross the Immortal threshold (Year Gu, Liquor Worm, Beast Enslavement). A kind is a line; the threshold rule became a dial (GKG1).
 4. 6 rare path or role values unseen in the training folds (Rule, Emotion, Phantom, Heaven, Snow paths; Steed type). Declared world lists replace learned ones (PGC2).
 
-Revision 2's rebuild is close to by construction for the naming parts, which are read off the name. The non-circular evidence is the inference lift over the majority guess and the range check. Stated in the contract doc.
+Revision 2's rebuild is close to by construction for the naming parts, which are read off the name, and the per-slot range check (200/200 inside every run) is guaranteed at smoothing 0. The non-circular evidence is the inference lift over the majority guess and the pair support: generated kinds use a canon path and role pair only 56% of the time, because the slots are drawn separately. Head and mark word shares are over the 0.25 tolerance (0.37, 0.39). Stated in the contract doc.
 
 ## Checks run
 
 | Command | Input | Result | Gaps |
 | --- | --- | --- | --- |
-| `node --test tests/procedural_grammar.test.js` | this branch | 9/9 pass | Focused only; full `npm test` left to the integrator (MC7) |
+| `node --test tests/procedural_grammar.test.js` | this branch, after the pair-support follow-up | 9/9 pass | Focused only; full `npm test` left to the integrator (MC7) |
 | `node scripts/grammar_canon_gu.mjs --index <held gu-identities.json>` | private index, 1,463 records | numbers above | Private index is not in git; the slice reproduces without it |
 | `npm run check:rules` | this branch | pass; rules index 0 warnings | One pre-existing TMR1 lint warning in `src/book_world_hp_exams.js`, not this change |
 | `npm run check:arch` | this branch | pass | |
 | `npm run build` | not run | n/a | No bundled file imports the module; the integrator's build covers it |
+
+## Decision to name
+
+The committed slice (`gu_kind_slice.json`) and the report are derived from the gitignored private review index. They hold catalogue names, ranks, wiki path and type category labels and revision ids, no book or wiki prose, which matches what the tracked `gu-identity-evidence.json` already carries. The coordinator or integrator can veto that and the test would then need a different tracked slice.
 
 ## What the rules could not express
 
@@ -85,7 +89,7 @@ Level haiku, effort high (volume); preserve the Codex reserve (local or Claude r
 
 1. Wait for K and W v0 on master; then wire one consumer: a generated Gu kind (cause `place`) handed to G's working through K, so "generated means runnable" is shown on a real working (PFP16).
 2. Second domain canon test with B (needs PGB2), so the plan's "two domains pass" done check can close.
-3. PGB1 (two givens), then rerun the Gu inference.
+3. PGB1 (two givens, and role given path), then rerun the Gu inference and pair support.
 4. MC14 step 1 (deterministic, no agents) when the coordinator approves the labelling plan.
 
-Requests to other chats: G adopts or replaces `tests/fixtures/procedural_grammar/gu_kind_grammar.mjs` in its own files and owns GKG1-GKG3; B and L declare their drafts on PGC slots and send PGB requests to P.
+Requests to other chats: the naming owner adds a Gu kind-name register to the `gu` sheet and repairs its sample person names (log labels such as "Chores" are listed as names); G adopts or replaces `tests/fixtures/procedural_grammar/gu_kind_grammar.mjs` in its own files and owns GKG1-GKG3; B and L declare their drafts on PGC slots and send PGB requests to P.

@@ -222,7 +222,7 @@ function group(failures) {
 // compare(value, truth) -> [{field, expected, got}] mismatches. identity(value)
 // names a thing for collision checks (NMR2). Deterministic folds by row id.
 export function canonTest(grammar, rows, {label, compare = () => [], identity = null, folds = 5, smoothing = 0,
-    generated = 200, root = 'canon-test', tolerance = 0.25, infer = []} = {}) {
+    generated = 200, root = 'canon-test', tolerance = 0.25, infer = [], pairs = []} = {}) {
     const labelled = [], unlabelled = [];
     for (const row of rows) {
         const out = label(row);
@@ -256,6 +256,12 @@ export function canonTest(grammar, rows, {label, compare = () => [], identity = 
         }
     }
     const full = fitGrammar(grammar, labelled, {smoothing});
+    // Joint support: which value pairs across two slots the corpus shows. Slots
+    // are drawn separately, so this is the range check that can actually miss.
+    const pairSlots = pairs.map(([a, b]) => [a, b].map(id => full.slots.find(s => s.id === id) ?? fail(`Unknown pair slot ${id}.`)));
+    const combos = (parts, [a, b]) => asList(a, parts[a.id]).flatMap(x => asList(b, parts[b.id]).map(y => `${key(x)}|${key(y)}`));
+    const seenPairs = pairSlots.map(ps => new Set(labelled.flatMap(r => combos(r.parts, ps))));
+    const pairStats = pairSlots.map(() => ({items: 0, unseenItems: 0, examples: []}));
     const corpusIds = identity ? new Set(labelled.map(r => identity(assemble(full, r.parts).value))) : null;
     const counts = Object.fromEntries(full.slots.map(s => [s.id, new Map()]));
     let inside = 0, fallbacks = 0, collisions = 0, flagged = 0;
@@ -266,6 +272,11 @@ export function canonTest(grammar, rows, {label, compare = () => [], identity = 
         for (const s of full.slots) for (const v of asList(s, out.value.parts[s.id])) counts[s.id].set(key(v), (counts[s.id].get(key(v)) ?? 0) + 1);
         const novel = out.receipt.flags.filter(f => f.kind === 'novel-part' || f.kind === 'outside-range');
         if (out.receipt.flags.some(f => f.kind === 'rule-flag')) flagged++;
+        pairSlots.forEach((ps, j) => {
+            const unseen = combos(out.value.parts, ps).filter(c => !seenPairs[j].has(c));
+            pairStats[j].items++;
+            if (unseen.length) { pairStats[j].unseenItems++; if (pairStats[j].examples.length < 5) pairStats[j].examples.push(unseen[0]); }
+        });
         if (corpusIds?.has(identity(out.value))) collisions++;
         if (!out.receipt.fallbackUsed && !novel.length) inside++; else if (outside.length < 5) outside.push({i, novel, fallback: out.receipt.fallbackUsed});
     }
@@ -289,5 +300,7 @@ export function canonTest(grammar, rows, {label, compare = () => [], identity = 
             rate: r.tested ? Math.round(r.hits / r.tested * 1000) / 1000 : 0,
             baseline: r.tested ? Math.round(r.baselineHits / r.tested * 1000) / 1000 : 0}])),
         range: {generated, inside, rate: Math.round(inside / generated * 1000) / 1000, fallbacks, ruleFlagged: flagged, canonCollisions: collisions,
-            tolerance, shares, outside}};
+            tolerance, shares, outside,
+            pairs: Object.fromEntries(pairSlots.map(([a, b], j) => [`${a.id}+${b.id}`, {...pairStats[j], seenInCorpus: seenPairs[j].size,
+                supportedRate: pairStats[j].items ? Math.round((1 - pairStats[j].unseenItems / pairStats[j].items) * 1000) / 1000 : 0}]))}};
 }

@@ -36,7 +36,7 @@ export function sliceRows(rows, labelledSize = SLICE_SIZE, unlabelledSize = 20) 
     const labelled = rows.filter(r => labelGuRow(r).parts), unlabelled = rows.filter(r => !labelGuRow(r).parts);
     return [...order(labelled).slice(0, labelledSize), ...order(unlabelled).slice(0, unlabelledSize)].sort((a, b) => compareCodePoints(a.id, b.id));
 }
-export const runGuCanon = (rows, grammar = guKindGrammar) => canonTest(grammar, rows, {label: labelGuRow, compare: compareGuKind, identity: guKindIdentity, infer: ['path', 'role']});
+export const runGuCanon = (rows, grammar = guKindGrammar) => canonTest(grammar, rows, {label: labelGuRow, compare: compareGuKind, identity: guKindIdentity, infer: ['path', 'role'], pairs: [['path', 'role'], ['rank', 'path']]});
 
 function summary(name, report) {
     const lines = [`${name}: ${report.corpus.rows} rows, ${report.corpus.labelled} labelled, ${report.corpus.unlabelled} unlabelled`,
@@ -44,7 +44,8 @@ function summary(name, report) {
         `  open-part coverage ${report.openPartCoverage.rate}`,
         `  inference from name parts: ${Object.entries(report.inference).map(([k, v]) => `${k} ${v.hits}/${v.tested} = ${v.rate} (majority baseline ${v.baseline})`).join('; ')}`,
         `  range: ${report.range.inside}/${report.range.generated} inside, fallbacks ${report.range.fallbacks}, rule-flagged ${report.range.ruleFlagged}, canon collisions ${report.range.canonCollisions}`,
-        `  shares (total variation): ${Object.entries(report.range.shares).map(([k, v]) => `${k} ${v.distance}`).join(', ')}`,
+        `  shares (total variation, tolerance ${report.range.tolerance}): ${Object.entries(report.range.shares).map(([k, v]) => `${k} ${v.distance}${v.withinTolerance ? '' : ' OVER'}`).join(', ')}`,
+        `  pair support (generated items whose every pair the corpus shows): ${Object.entries(report.range.pairs).map(([k, v]) => `${k} ${v.items - v.unseenItems}/${v.items} = ${v.supportedRate} (${v.seenInCorpus} pairs seen)`).join('; ')}`,
         '  missing rules:'];
     for (const f of report.missingRules.slice(0, 12)) lines.push(`    ${f.count} x ${f.kind} ${f.rule ?? f.slot ?? f.field}${f.cause ? ` (${f.cause})` : ''}${f.value !== undefined ? ` = ${JSON.stringify(f.value)}` : ''} (e.g. ${f.examples.slice(0, 3).join(', ')})`);
     lines.push('  unlabelled:', ...report.corpus.unlabelledReasons.map(f => `    ${f.count} x ${f.field}`));

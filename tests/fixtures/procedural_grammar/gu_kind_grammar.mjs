@@ -53,10 +53,6 @@ export const guKindGrammar = defineGrammar({
             default: 'An Immortal kind carries "Immortal" before "Gu"; a mortal kind does not.',
             reason: 'The source names the tier in the kind name.',
             run: ({parts, derived}) => ({name: [...parts.marks, parts.head, ...(derived.band === 'immortal' ? ['Immortal'] : []), 'Gu'].join(' ')})},
-        {id: 'path-role-seen', kind: 'check', reads: ['path', 'role'], severity: 'flag',
-            default: 'A path and role pair the source never shows is allowed and flagged.',
-            reason: 'AD56: unseen pairs widen play; the flag lets a fit report them.',
-            run: () => null},
     ],
     fallback: {id: 'proof.gu-kind.fallback', parts: {rank: [1], path: ['strength'], role: ['support'], head: 'Strength', marks: []}},
 });

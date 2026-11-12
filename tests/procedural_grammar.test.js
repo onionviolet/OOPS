@@ -113,7 +113,7 @@ test('inference reads a hidden part from the parts conditioned on it', () => {
 });
 
 test('the canon test rebuilds held-out Gu kinds and lists what v1 is missing', () => {
-    const run = grammar => canonTest(grammar, slice, {label: labelGuRow, compare: compareGuKind, identity: guKindIdentity, infer: ['path', 'role']});
+    const run = grammar => canonTest(grammar, slice, {label: labelGuRow, compare: compareGuKind, identity: guKindIdentity, infer: ['path', 'role'], pairs: [['path', 'role']]});
     const v1 = run(guKindGrammar), v2 = run(guKindGrammarV2);
     assert.equal(v1.corpus.labelled, 120);
     assert.equal(v1.corpus.unlabelled, 20);
@@ -124,6 +124,10 @@ test('the canon test rebuilds held-out Gu kinds and lists what v1 is missing', (
     assert.deepEqual(v2.missingRules, []);
     assert.equal(v2.range.inside, v2.range.generated);
     for (const share of Object.values(v2.range.shares)) assert.ok(share.distance <= 0.4);
+    // Path and role are drawn separately, so the joint check can miss: it measures drift, not a gate (AD56).
+    const pair = v2.range.pairs['path+role'];
+    assert.equal(pair.items, 200);
+    assert.ok(pair.unseenItems > 0 && pair.supportedRate < 1);
     // Name parts carry real signal about the hidden path, above the majority guess.
     assert.ok(v2.inference.path.rate > v2.inference.path.baseline);
     assert.deepEqual(canonTest(guKindGrammarV2, slice, {label: labelGuRow, compare: compareGuKind, identity: guKindIdentity}), canonTest(guKindGrammarV2, slice, {label: labelGuRow, compare: compareGuKind, identity: guKindIdentity}));

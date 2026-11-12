@@ -3,7 +3,8 @@ full v1: 1463 rows, 304 labelled, 1159 unlabelled
   open-part coverage 0.329
   inference from name parts: path 121/304 = 0.398 (majority baseline 0.132); role 147/304 = 0.484 (majority baseline 0.336)
   range: 200/200 inside, fallbacks 0, rule-flagged 0, canon collisions 1
-  shares (total variation): rank 0.073, path 0.148, role 0.061, head 0.375, marks 0.396
+  shares (total variation, tolerance 0.25): rank 0.073, path 0.148, role 0.061, head 0.375 OVER, marks 0.396 OVER
+  pair support (generated items whose every pair the corpus shows): path+role 109/200 = 0.545 (138 pairs seen); rank+path 160/200 = 0.8 (167 pairs seen)
   missing rules:
     26 x derive-mismatch immortal-title (immortal band, canon name untitled) (e.g. candidate:sovereign-immortal-fetus-gu, fandom:Wailing_Whale_Strength_Gu, fandom:Edge_Gu)
     25 x derive-mismatch immortal-title (canon name has no Gu suffix) (e.g. fandom:Heavenly_Essence_Treasure_Imperial_Lotus, fixed-immortal-travel, candidate:love-life-separation)
@@ -24,7 +25,8 @@ full v2: 1463 rows, 304 labelled, 1159 unlabelled
   open-part coverage 0.329
   inference from name parts: path 121/304 = 0.398 (majority baseline 0.132); role 147/304 = 0.484 (majority baseline 0.336)
   range: 200/200 inside, fallbacks 0, rule-flagged 1, canon collisions 2
-  shares (total variation): rank 0.068, path 0.146, role 0.059, head 0.371, marks 0.391, title 0.006, suffix 0.039
+  shares (total variation, tolerance 0.25): rank 0.068, path 0.146, role 0.059, head 0.371 OVER, marks 0.391 OVER, title 0.006, suffix 0.039
+  pair support (generated items whose every pair the corpus shows): path+role 112/200 = 0.56 (138 pairs seen); rank+path 152/200 = 0.76 (167 pairs seen)
   missing rules:
   unlabelled:
     822 x role
@@ -36,7 +38,8 @@ slice v1: 140 rows, 120 labelled, 20 unlabelled
   open-part coverage 0.167
   inference from name parts: path 29/120 = 0.242 (majority baseline 0.117); role 48/120 = 0.4 (majority baseline 0.242)
   range: 200/200 inside, fallbacks 0, rule-flagged 0, canon collisions 2
-  shares (total variation): rank 0.047, path 0.115, role 0.053, head 0.275, marks 0.314
+  shares (total variation, tolerance 0.25): rank 0.047, path 0.115, role 0.053, head 0.275 OVER, marks 0.314 OVER
+  pair support (generated items whose every pair the corpus shows): path+role 72/200 = 0.36 (79 pairs seen); rank+path 102/200 = 0.51 (94 pairs seen)
   missing rules:
     9 x derive-mismatch immortal-title (immortal band, canon name untitled) (e.g. fandom:Edge_Gu, candidate:star-desolate-hound-strength-gu, candidate:calamity-beckoning-gu)
     9 x derive-mismatch immortal-title (canon name has no Gu suffix) (e.g. fandom:Heavenly_Essence_Treasure_Imperial_Lotus, candidate:thunder-boar-strength, candidate:footless-bird-gu)
@@ -59,7 +62,8 @@ slice v2: 140 rows, 120 labelled, 20 unlabelled
   open-part coverage 0.158
   inference from name parts: path 29/120 = 0.242 (majority baseline 0.117); role 48/120 = 0.4 (majority baseline 0.242)
   range: 200/200 inside, fallbacks 0, rule-flagged 4, canon collisions 1
-  shares (total variation): rank 0.082, path 0.146, role 0.048, head 0.287, marks 0.354, title 0.035, suffix 0.048
+  shares (total variation, tolerance 0.25): rank 0.082, path 0.146, role 0.048, head 0.287 OVER, marks 0.354 OVER, title 0.035, suffix 0.048
+  pair support (generated items whose every pair the corpus shows): path+role 76/200 = 0.38 (79 pairs seen); rank+path 104/200 = 0.52 (94 pairs seen)
   missing rules:
   unlabelled:
     14 x path
