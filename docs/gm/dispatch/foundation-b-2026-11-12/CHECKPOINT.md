@@ -49,7 +49,9 @@ The LOTM inventory is one row per pathway Sequence (22 pathways times 10, names 
 
 All 380 blocked ingredients wait on `ingredient-properties` (BRG1 property axes, MR37); 79 of them have linked evidence rows and come first. MS3's "every real Hogwarts potion runs or is blocked with a rule" is met in the ledger sense: each has a named rule; few run.
 
-Checks: `node --test tests/b_coverage_ledgers.test.js` 3 pass (fresh build equals the committed ledgers, valid states and unique ids, denominators 316, 409 and 220, every brew pack row present and running); `node scripts/b_coverage_ledgers.mjs --check` exit 0.
+Format (after merging P's tooling at 5cd05f309): rows carry only P's six fields (id, source, state, mechanisms, test, note); title, medium layer, basis and observation ids fold into `source` and `note`, and not-a-thing reasons are slugs. `scripts/coverage_report.mjs` finds 0 problems in B's three ledgers (G's `gu_kinds` and `gu_moves` still carry extra fields, which is G's to fix). Reviewed corrections go in `docs/coverage/b_overrides.json` (patches by id plus `lotm_extra` rows, each with `evidence`), applied by the generator, so a lane never hand-edits a ledger. Codex lane brief for the evidence pass: [CODEX_LANE.md](CODEX_LANE.md).
+
+Checks: `node --test tests/b_coverage_ledgers.test.js` 3 pass (shared validator finds no problems, fresh build equals the committed ledgers, valid states and unique ids, denominators 316, 409 and 220, every brew pack row present and running); `node scripts/b_coverage_ledgers.mjs --check` exit 0.
 
 ## Phase 2a · Brew law on the kernel working (2026-11-12)
 

@@ -17,6 +17,28 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const at = p => join(root, p);
 const CATALOGUE = 'docs/research/hogwarts-potion-evidence-2026-11-11/catalogue.jsonl';
 const TABLE = 'docs/gm/dispatch/potion-pathways-2026-10-24/PATHWAY_POTION_TABLE.md';
+// Reviewed corrections and additions, applied after the title rules. A lane
+// edits only this file: {hp_potions: {id: patch}, hp_ingredients: {id: patch},
+// lotm_potions: {id: patch}, lotm_extra: [row]}. A patch may set state, note,
+// source, mechanisms, test, title, layer, basis; every patch needs `evidence`
+// (a locator or observation id) so a reviewer can check it.
+export const OVERRIDES = 'docs/coverage/b_overrides.json';
+const PATCHABLE = new Set(['state', 'note', 'source', 'mechanisms', 'test', 'title', 'layer', 'basis', 'evidence']);
+function readOverrides() {
+    try { return JSON.parse(readFileSync(at(OVERRIDES), 'utf8')); } catch (e) { if (e.code === 'ENOENT') return {}; throw e; }
+}
+function applyOverrides(rows, patches = {}, name) {
+    const byId = new Map(rows.map(r => [r.id, r]));
+    for (const [id, patch] of Object.entries(patches)) {
+        const row = byId.get(id);
+        if (!row) throw new Error(`${OVERRIDES}: ${name} has no row ${id}.`);
+        for (const k of Object.keys(patch)) if (!PATCHABLE.has(k)) throw new Error(`${OVERRIDES}: ${id} cannot patch ${k}.`);
+        if (!patch.evidence) throw new Error(`${OVERRIDES}: ${id} needs evidence.`);
+        const {evidence, ...rest} = patch;
+        Object.assign(row, rest, {basis: rest.basis ?? `reviewed override (${evidence})`});
+    }
+    return rows;
+}
 const slug = s => s.toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
 
 // ---------- Hogwarts potions ----------
@@ -36,14 +58,14 @@ const HP_POTION_RUNS = {
 };
 
 const HP_POTION_NOT = {
-    'topic or publication': ['Abandoned potions of the Middle Ages as compared to the Black Plague', 'Essay on shrinking potions',
+    'topic-or-publication': ['Abandoned potions of the Middle Ages as compared to the Black Plague', 'Essay on shrinking potions',
         'Essay on the properties of Hemlock', 'The Properties of Moonstone and its Uses in Potion-Making', 'Cheese-Based Potions',
         'Forbidden XPotions', 'Everlasting Elixirs'],
-    'person, group, business or award': ['Ancient Potion Maker', 'E. M. L. Potions Co.', 'Excellence in Potions Cup', 'Potions Association',
+    'person-group-or-business': ['Ancient Potion Maker', 'E. M. L. Potions Co.', 'Excellence in Potions Cup', 'Potions Association',
         'Potions Club', 'Potions Lady', 'Potions market', 'Rubens Winikus and Company Inc.'],
-    'generic word, category or list': ['List of potions', 'Potion', 'Elixir', 'Antidote', 'Hair care potions', 'Cleaning Solutions',
+    'generic-or-category': ['List of potions', 'Potion', 'Elixir', 'Antidote', 'Hair care potions', 'Cleaning Solutions',
         'Restorative Draughts', 'Fake protective potions', 'Chemical recipe', 'Potion symbols table', 'Potions (class)', 'Stamina Game'],
-    'technique, puzzle, law or phrase': ['Golpalott\'s Third Law', 'Potion skimming', 'Aeration', 'Potion riddle', 'Brewed glory'],
+    'technique-law-or-phrase': ['Golpalott\'s Third Law', 'Potion skimming', 'Aeration', 'Potion riddle', 'Brewed glory'],
 };
 
 // Ordered families: the first matching pattern names the missing rule and its owner.
@@ -102,10 +124,10 @@ const HP_INGREDIENT_RUNS = {
     'Alihotsy': ['potion_working_rules', 'tests/potion_workings.test.js'], 'Water': ['potion_working_rules', 'tests/potion_workings.test.js'],
 };
 const HP_INGREDIENT_NOT = {
-    'person or card': ['Agrippa'],
-    'concept or abstraction': ['Counter-ingredient', 'Standard Ingredient', 'Mercury and Mars', 'Square Root'],
-    'element or process, not a material': ['Fire'],
-    'unclear title': ['Gulf', 'Herbaria', 'Thaumatagoria'],
+    'person': ['Agrippa'],
+    'concept': ['Counter-ingredient', 'Standard Ingredient', 'Mercury and Mars', 'Square Root'],
+    'process-not-material': ['Fire'],
+    'unclear-title': ['Gulf', 'Herbaria', 'Thaumatagoria'],
 };
 
 function hpIngredientRow(entry) {
@@ -174,8 +196,16 @@ export async function buildLedgers() {
     const potions = catalogue.filter(r => r.kinds.includes('potion_related')).map(hpPotionRow);
     const ingredients = catalogue.filter(r => r.kinds.includes('ingredient_related')).map(hpIngredientRow);
     const {LOTM_BREW_ROWS} = await import(at('src/world_packs/lotm_brew_pack.js'));
-    const lotm = [...lotmInventory(readFileSync(at(TABLE), 'utf8'), LOTM_BREW_ROWS), ...await nonPathwayRows()];
-    return {hp_potions: potions, hp_ingredients: ingredients, lotm_potions: lotm};
+    const o = readOverrides();
+    const extra = (o.lotm_extra ?? []).map(r => {
+        if (!r.id?.startsWith('lotm.potion.') || !r.evidence) throw new Error(`${OVERRIDES}: lotm_extra rows need a lotm.potion. id and evidence.`);
+        const {evidence, ...rest} = r;
+        return {mechanisms: ['brew_law'], test: null, ...rest, basis: `reviewed addition (${evidence})`};
+    });
+    const lotm = [...lotmInventory(readFileSync(at(TABLE), 'utf8'), LOTM_BREW_ROWS), ...await nonPathwayRows(), ...extra];
+    return {hp_potions: applyOverrides(potions, o.hp_potions, 'hp_potions'),
+        hp_ingredients: applyOverrides(ingredients, o.hp_ingredients, 'hp_ingredients'),
+        lotm_potions: applyOverrides(lotm, o.lotm_potions, 'lotm_potions')};
 }
 
 export function summarize(rows) {
@@ -186,7 +216,17 @@ export function summarize(rows) {
         notAThing: count('not-a-thing:'), unclassified: count('unclassified'), real, runsShareOfReal: real ? Math.round(runs * 1000 / real) / 10 : 0};
 }
 
-const serialize = rows => rows.map(r => JSON.stringify(r)).join('\n') + '\n';
+// P's row format (docs/coverage/README.md): id, source, state, mechanisms,
+// test, note. Title, layer, basis and observations fold into source and note.
+export function toLedgerRow(r) {
+    const label = r.title ?? [r.pathway, r.seq != null ? `Sequence ${r.seq}` : null, r.name ?? '(name missing in notes)'].filter(Boolean).join(' ');
+    const extra = [r.layer && `layer ${r.layer}`, r.basis, r.nameNote && `name note: ${r.nameNote}`,
+        r.offered === false && 'not offered at a bench (formula incomplete in notes)'].filter(Boolean).join('; ');
+    const source = [r.source, ...(r.observations ?? [])].join('; ');
+    return {id: r.id, source, state: r.state, mechanisms: r.mechanisms, test: r.test ?? null,
+        note: [label + '.', r.note, extra && `(${extra})`].filter(Boolean).join(' ')};
+}
+const serialize = rows => rows.map(r => JSON.stringify(toLedgerRow(r))).join('\n') + '\n';
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
     const ledgers = await buildLedgers();
