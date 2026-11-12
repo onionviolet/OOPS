@@ -66,11 +66,14 @@ Reads by three bounded readers, then spot-checked by hand (file and line checks 
 | Mother of Learning study | `src/mol_zorian_study_months.js:19,27,68` | Study month 1 to 6 | `actors.player.completed[...]`, knowledge, `state.motherOfLearning.runStartedAt` | Month-end event, departure plan, on-time check | Time | Bespoke gating over generated ids |
 | Harry Potter lessons and spell | `src/book_world_hp_lessons.js:22-82`; `src/lesson.js:9,16`; `src/book_world_hp_school_calendar.js:8` | Spell mastery (levitation), brew chance | `simulation.powers.player['book.hp.lead.levitation']` | Failure 0.6 minus 0.1 per practice, floor 0.05; brew `0.5 + 0.02·xp`, cap 0.95; study bonus 0.1 | Lesson time | Data rows, bespoke view; school year does not advance |
 | D&D | `src/dnd_levitate.js:34,107,129,161`; `src/dnd_phandalin.js:8` | Spell slots only | Local slots | Rest refills | Slot use | No level, no XP, no level-up step |
+| Drill proficiency | `src/techniques.js:10-12` | Technique observed, understood, owned, proficiency, executions | Per-technique record `{observed, understood, owned, proficiency, executions, practice}` | Definitions' `maxProficiency` and `readyAt`; understanding origin teacher or manual (SLR4) | Practice time | Data definitions per world |
+| Village patrol career | `src/village_career.js:3,12-33` | Rank 0 to 2 (Apprentice, Dependable worker, Mentor) | Slice `{schema:4, rank, shifts, completed, returned, ...}` | Completed and returned shifts 2 then 5, hard-coded in the validator | Time, kit debt 50 | Bespoke (original world) |
+| Household school rank | `src/home_school.js:37-45` | `home.schoolRank` for staff, then a mentor title | Staff resources | `schoolRankQuote`; powered qi cradle; two lessons for the milestone | Estate coins fee | Bespoke, original world |
 | Route expertise | `src/trial_expertise.js:8-10` | Steadiness per route, cap 3 | `state.trial.routeLessons` | Failed tasks teach | None | Data, small |
 | Life stage learning | `src/life_experience.js:9-10` | Learning rate by age | `c.knowledge[...]` | Age bands 25 and 65 | None | Data, 3 lessons |
 | Rank-gap perception | `src/rank_gap_observer.js:64-100` | What an observer can read across a rank gap | Slice `rankGapObserver` | Tiers 0 to 3, 8 dials | Strain | Data (GTR35 shape) |
 
-Not traced: `src/book_world_lotm_cast_host.js`, `src/book_world_lotm_ui.js`, `src/feature_expansion_book_cultivation.js`, `src/home_cultivation*.js`, Hogwarts exams (`src/hp_exam_model.js`). They may hold more steps; phase 2 re-measures with the commands below.
+Checked, not advancement: `src/home_cultivation.js` and `src/home_cultivation_content.js` (household qi field use; the school rank above reads it), `src/feature_expansion_book_cultivation.js` (read-only authoring input, no runtime), `src/lore_practice_runtime.js` (scheduler hooks), `src/lever_practice_supply.js` (a practice item), `src/hp_exam_model.js` (exam marks: an input a credential gate would read, no step), `src/recurring_people.js` ("promotion" means a role becoming a saved person). `grep -rliE 'promot' src` was run; the remaining hits are combat witnesses and UI. Not traced: `src/book_world_lotm_cast_host.js`, `src/book_world_lotm_ui.js`; phase 2 re-measures with the commands below.
 
 ### Defects and duplication found
 
@@ -85,12 +88,13 @@ Not traced: `src/book_world_lotm_cast_host.js`, `src/book_world_lotm_ui.js`, `sr
 
 | Count | Value | How measured |
 | --- | --- | --- |
-| Canon advancement steps run as data through shared code | 88 | 65 upstream skills on one curve (`grep -cE '^\s*skills\["' src/data/skills.js`); LOTM 10 Seq 9 and 8 steps from 5 rows (`book_world_lotm_rows.js`, `book_world_lotm_generated.js`, `book_world_lotm_sun_rows.js`; 2 lack Seq 8 digestion); faction rank 5 steps above the floor (`DEFAULT_LADDER`); Frontier tempering 3 steps (`pledges_content.js:29`); Shadow Slave 3 modelled trials; Mistglass 2 tracks, counted as 1 step each (stages per track not tallied). Small rows (cultivation insights, titles, body traits) are left out |
-| Bespoke advancement modules or scene files | 24 | 18 Gu lead scenes setting `aperture_stage` or `reserve_grade` (`grep -rlE "aperture_stage\|reserve_grade" src/world_packs \| wc -l`); LOTM Seer literal and acts, Seq 7 module (2); Keeper rank trial and Fortune Thread rank 7 (2); `skill_ladder.js` (1); MoL study gating (1) |
+| Book canon steps run as data through shared code | 13 | LOTM 10 Seq 9 and 8 steps from 5 rows (`book_world_lotm_rows.js` 3 rows, `book_world_lotm_generated.js` and `book_world_lotm_sun_rows.js` 2 rows; the 2 generated Seq 8 steps lack digestion); Shadow Slave 3 modelled trials (`ascension_paths_ss.js`). Gu worm rank-ups through `gu_refinement.js` recipe rows are book canon but G's rows, so excluded here; G counts them |
+| Original and generic steps run as data | 75 | 65 upstream skills on one XP curve (`grep -cE '^\s*skills\["' src/data/skills.js`); faction rank 5 rungs above the floor (`DEFAULT_LADDER`); Frontier tempering 3 tiers (`pledges_content.js:29`); Mistglass 2 tracks counted 1 each (stages not tallied). Small rows (titles, body traits, cultivation insights, drill definitions) left out |
+| Bespoke advancement modules or scene files | 27 | 18 Gu lead scenes setting `aperture_stage` or `reserve_grade` (`grep -rlE "aperture_stage\|reserve_grade" src/world_packs \| wc -l`); LOTM Seer Seq 9, Seer Seq 8, Seq 7 module (3); Keeper rank trial and Fortune Thread rank 7 (2); `skill_ladder.js` (1); MoL study gating (1); Village career and household school rank (2) |
 | Path descriptors on the shared ASC seam (production) | 6 call sites | `grep -rnE "definePath\(" src` minus fixtures and the definer: LOTM Seer, LOTM pathways, LOTM pack, Mistglass, Shadow Slave, ladder rows |
 | Gate descriptors in use | 5 | `grep -rnE "defineGate\(" src \| grep -v "export function" \| wc -l` |
 
-The data count is mostly upstream skills, which is one curve, not 65 mechanisms. The measure that matters for R is mechanisms per path shape: today there are at least seven ways to hold a position (skill_progress, levelable, facts with prose values, resource counters, pack position facts, trial slice, energies) and two attempt shapes.
+The original and generic count is mostly upstream skills, which is one curve, not 65 mechanisms. The measure that matters for R is mechanisms per path shape: today there are at least seven ways to hold a position (skill_progress, levelable, facts with prose values, resource counters, pack position facts, trial slice, energies) and two attempt shapes.
 
 ## Contract proposal (R v0 draft)
 
@@ -173,4 +177,6 @@ R proposes to own `ascension_paths.js`, `ladder_holdings.js`, `breakthrough_tria
 | `git merge --ff-only 9bbc51363` | Branch fast-forwarded from c25fd396d to the plan's start commit | None |
 | Three read-only inventory readers (haiku) over `src` | Reports above | Files listed under "Not traced" |
 | Spot checks: `LOTM_DIGEST_ACTS`, `LOTM_CC_ACTS`, `src/models/skill.js:204`, generated-row Seq 8 gap, Gu rank-two scene, `aperture_stage` grep, importer counts | Confirmed; the reader's "no Gu Master rank-up exists" was wrong: it exists as a bespoke scene (`book_gu_lead_rank_two.js`) | Mistglass stage counts not tallied |
+| Cited-path check (every `src/...js:line` in this file exists and is long enough) | No missing or short paths | Line content beyond the spot checks not re-read |
+| Named-owner sweep: `home_cultivation*`, `feature_expansion_book_cultivation`, `techniques`, `lore_practice_runtime`, `lever_practice_supply`, `hp_exam_model`, `grep -rliE 'promot' src` | Rows added or marked not advancement | None |
 | `npm run check:rules` | Exit 0; receipts pass; one pre-existing TMR1 warning in `src/book_world_hp_exams.js:14` (not this change) | Docs-only change; no tests run |
