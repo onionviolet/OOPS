@@ -455,7 +455,7 @@ The kernel consequence, stated once because it is the costly part: steps settle 
 
 | Phase | Check | Source of truth | State |
 | --- | --- | --- | --- |
-| 1 | Ledger states computed by the runner | `npm run check:coverage` | Met for `hp_spells` (Wave 12): 38 of 80 rows compute as expressed. The other six ledgers have no cases yet |
+| 1 | Ledger states computed by the runner | `npm run check:coverage` | The runner computes 38 of 80 `hp_spells` rows as expressed in its vocabulary probe. Running cases through the common engine-world constructor remains open. The other six ledgers have no cases yet |
 | 1 | A settled spell changes a world through one host | Focused tests | Met in the engine (Waves 10 to 12). Hosting on the game's spellbook cast is tie-in work (PC95) |
 | 1 | Compression ledger prints with a baseline | `npm run report:compression` | Met (Wave 10): C1 36, C2 65, C3 5, C4 4, C5 10, C6 0 of 7 |
 | 1 | Absorption matrix prints | | Withdrawn (PC94) |
@@ -474,4 +474,4 @@ The kernel consequence, stated once because it is the costly part: steps settle 
 | 3 | Data already read is in the ledgers (PC85) | Coverage README | Open: 177 potions on `formula-in-notes`, of which the share with a formula in the table is uncounted; no `canon_negatives` ledger |
 | Reading | Chapter-checked share of Gu kinds, moves and ingredients | Coverage README | 78 of 1,466 kinds; 23 of 776 moves; 20 of 409 ingredients running, 79 more with evidence rows |
 
-Resume line (after the four Wave 12 craft-family folds): G1 38 expressed rows in one ledger of seven; G2 13 of 13 registered packs compose; G3 5 cross-domain couplings exercised in one mixed run; G4 0; G5 0. Body alteration, stored workings, bindings and process crafts have engine fixture evidence on master. Current state and next steps: [second Codex handoff](gm/dispatch/foundation-run-2026-11-12/CODEX_COORDINATOR_HANDOFF_2.md). Questions waiting: Q1, Q2, Q5, Q7 in the [core](PROCEDURAL_CORE.md#open-questions).
+Resume line (after the four Wave 12 craft-family folds): G1 38 computed probe rows in one ledger of seven, with the common engine-world runner pending; G2 13 of 13 registered packs compose; G3 5 cross-domain couplings exercised in one mixed run; G4 0; G5 0. Body alteration, stored workings, bindings and process crafts have engine fixture evidence on master. Wave 13 adds saved event payloads, holder-local pace and nested held-slot lowering, with engine fixture evidence. G1 common-runner migration is next. Current state and next steps: [second Codex handoff](gm/dispatch/foundation-run-2026-11-12/CODEX_COORDINATOR_HANDOFF_2.md). Questions waiting: Q1, Q2, Q5, Q7 in the [core](PROCEDURAL_CORE.md#open-questions).

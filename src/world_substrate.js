@@ -300,6 +300,7 @@ function settleContact(rules, world, queue) {
             landed = addAmount(rules, place, e.quantity, e.amount, `effect:${e.kind}:${e.by}`);
         const damped = e.depth >= rules.dials.cascadeDepth;
         const row = {seq, at: world.clock, kind: e.kind, place: e.place, by: e.by, depth: e.depth, cause: e.cause,
+            ...(e.detail != null ? {detail: structuredClone(e.detail)} : {}),
             quantity: e.quantity, amount: e.amount, landed, reactions: [], ...(damped ? {damped: true} : {})};
         record(rules, world, row);
         if (damped || !place) continue;

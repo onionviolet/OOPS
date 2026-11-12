@@ -1,6 +1,17 @@
 // Proposal (AD32), KW5: holder-local duration mapped onto a whole-tick clock.
 const valid = ok => { if (!ok) throw Error('Pace: malformed course or duration.'); };
 const natural = n => Number.isSafeInteger(n) && n >= 0;
+const validWindow = w => w && [w.permille, w.from, w.to].every(natural) && w.to >= w.from;
+const validCourse = course => Array.isArray(course) && [...course].every(validWindow);
+
+// Canonical half-open prefix. Future windows and the unelapsed tail of a
+// window can change without rewriting the history the working has used.
+export function paceHistory(course, from, through) {
+    valid(validCourse(course) && natural(from) && natural(through) && through >= from);
+    return course.filter(w => w.permille !== 1000 && Math.max(from, w.from) < Math.min(through, w.to))
+        .map(w => [Math.max(from, w.from), Math.min(through, w.to), w.permille]).sort((a, b) =>
+            a[0] - b[0] || a[1] - b[1] || a[2] - b[2]);
+}
 export function paceCourse(world, holderId) {
     return world.laws.filter(f => f.kind === 'time' && f.scope === holderId).map(f => {
         const {permille, from, to, per} = f.params;
@@ -25,12 +36,17 @@ function integral(from, to, course) {
     return sum;
 }
 export function pacedDeadlines(durations, startedAt, course) {
-    valid(natural(startedAt) && durations.every(natural));
+    valid(natural(startedAt) && durations.every(natural) && validCourse(course));
     let cumulative = 0;
-    const last = Math.max(startedAt, ...course.map(w => w.to));
+    const last = course.reduce((at, w) => Math.max(at, w.to), startedAt);
     return durations.map(duration => {
         cumulative += duration;
-        let lo = startedAt, hi = last + cumulative;
+        valid(natural(cumulative));
+        let lo = startedAt, hi = last + Math.min(cumulative, Number.MAX_SAFE_INTEGER - last);
+        if (hi - last < cumulative) {
+            const [n, d] = integral(startedAt, hi, course);
+            valid(n >= BigInt(cumulative) * 1000n * d);
+        }
         while (lo < hi) {
             const mid = lo + Math.floor((hi - lo) / 2);
             const [n, d] = integral(startedAt, mid, course);

@@ -144,6 +144,22 @@ test('W4 the keeper takes the shell away with a correction due: drop leaves it u
     }
 });
 
+test('movement details survive chain restore; legacy rows without detail remain readable', () => {
+    const moved = applyWorldOps(rules, fresh(), [{op: 'move', holder: 'shell', to: 'yard'}], 'keeper.leaves');
+    const restored = roundTrip(rules, moved);
+    const [departed, arrived] = restored.chain;
+    assert.deepEqual([departed.kind, departed.place, departed.detail], ['departed', 'workshop', {to: 'yard'}]);
+    assert.deepEqual([arrived.kind, arrived.place, arrived.detail], ['arrived', 'yard', {from: 'workshop'}]);
+
+    const legacy = serializeWorld(moved);
+    for (const row of legacy.chain) delete row.detail;
+    const old = restoreWorld(rules, legacy);
+    assert.deepEqual(old.chain.map(({kind, place, ...row}) => ({kind, place, hasDetail: Object.hasOwn(row, 'detail')})), [
+        {kind: 'departed', place: 'workshop', hasDetail: false},
+        {kind: 'arrived', place: 'yard', hasDetail: false},
+    ]);
+});
+
 test('W5 cascade depth is a dial; damped effects still land and are recorded', () => {
     const shallow = composeSubstrate({packs, dials: {cascadeDepth: 1}});
     const deep = jump(rules, fresh(), 190), cut = jump(shallow, fresh({}, shallow), 190);
@@ -254,8 +270,9 @@ test('W10 contract guards: undeclared writes, unit clashes, bounded chain and le
     const tight = composeSubstrate({packs, effectKinds: ['splash'], dials: {chainCap: 3, ledgerCap: 2}});
     let w = createWorld(tight, {clock: 0, holders: workshop({withShell: false, withBatch: false})});
     for (let i = 0; i < 6; i++) w = applyWorldOps(tight, w, [{op: 'add', holder: 'workshop', quantity: 'humidity', amount: 1, source: `pour.${i}`},
-        {op: 'publish', kind: 'splash', place: 'workshop'}], `pour.${i}`);
+        {op: 'publish', kind: 'splash', place: 'workshop', detail: {pour: i}}], `pour.${i}`);
     assert.equal(w.chain.length, 3);
+    assert.deepEqual(w.chain.map(row => row.detail), [{pour: 3}, {pour: 4}, {pour: 5}], 'trimming retains each saved row detail');
     assert.deepEqual(Object.keys(readProvenance(w, 'workshop', 'humidity')).sort(), ['earlier', 'pour.4', 'pour.5'], 'cap sources plus one merged row');
     assert.equal(Object.values(readProvenance(w, 'workshop', 'humidity')).reduce((a, b) => a + b, 0), 6);
     assert.equal(linearFlip(10, 3, 'gte', 20, 100), 4);

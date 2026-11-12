@@ -6,6 +6,7 @@
 // world: operations, durations, readers and authority come from the caller.
 // Not to be confused with working_state.js, which is the UI busy note.
 import {check, natural, object} from './basics.js';
+import {pacedDeadlines, paceHistory} from './pace.js';
 
 export const KERNEL_CONTRACT_VERSION = '0.5';
 export const WORKING_SCHEMA = 'kernel.working@1';
@@ -68,6 +69,26 @@ export function workingDeadlines(law, method, startedAt) {
         check(Number.isSafeInteger(at), 'The working runs past the clock range.');
         return at;
     });
+}
+
+// AD32, KW5: the host certifies a course from the absolute start through the
+// requested tick. The course may also include known future windows for a
+// forecast. An empty course explicitly means ordinary pace.
+function readPace(law, record, ports, now) {
+    check(typeof ports?.pace === 'function', 'A paced working needs a pace history port.');
+    const {role, through, history} = record.pace;
+    const from = record.startedAt;
+    check(now >= through, 'The requested pace time precedes the working history.');
+    const timing = ports.pace({role, holder: clone(record.bindings[role]), from, through: now});
+    check(object(timing) && natural(timing.through) && timing.through >= now && Array.isArray(timing.course),
+        'Pace history is missing or stale through the requested time.');
+    const {course} = timing;
+    const historyAt = at => fingerprintText(JSON.stringify(paceHistory(course, from, at)));
+    check(history === undefined || history === historyAt(through), 'The elapsed pace history changed.');
+    const deadlines = pacedDeadlines(record.method.steps.map(step => stepMinutes(law, step)), from, course);
+    check(record.deadlines.slice(0, record.cursor).every((at, i) => at === deadlines[i]),
+        'Pace history disagrees with a settled deadline.');
+    return {deadlines, historyAt};
 }
 
 function checkBindings(method, bindings) {
@@ -158,12 +179,15 @@ function settleStep({law, method, workingId, bindings, facts, index, at, ports, 
 // nothing is published. It reads the world through the same ports.
 // Pass the same id the working will begin with: draws and authority see the
 // same address in the quote and in settlement.
-export function quoteWorking(law, method, {bindings, facts = {}, at, ports = {}, id: workingId}) {
+export function quoteWorking(law, method, {bindings, facts = {}, at, ports = {}, id: workingId, paceRole}) {
     check(id(workingId), 'Quote with the id the working will begin with.');
-    validateWorkingMethod(law, method);
-    checkBindings(method, bindings);
-    const record = beginWorking(law, method, {id: workingId, bindings, facts, at});
-    const {record: done, effects} = settleWorking(law, record, {now: record.deadlines.at(-1), ports});
+    const record = beginWorking(law, method, {id: workingId, bindings, facts, at, paceRole, ports});
+    return forecastWorking(law, record, ports);
+}
+
+function forecastWorking(law, record, ports) {
+    const {method, startedAt: at, facts} = record;
+    const {record: done, effects} = settleDueSteps(law, clone(record), record.deadlines.at(-1), ports, Infinity);
     const last = done.receipts.at(-1);
     const quote = {ok: done.status === 'complete', startsAt: at, endsAt: record.deadlines.at(-1),
         deadlines: [...record.deadlines], effects: effects.map(row => row.effect), facts: done.facts,
@@ -174,7 +198,8 @@ export function quoteWorking(law, method, {bindings, facts = {}, at, ports = {},
             ...(last.role ? {role: last.role} : {}), failure: last.cause} : {}),
         steps: done.receipts.map(({step, op, at: stepAt, ok, reason, cause, role}) => ({step, op, at: stepAt, ok,
             ...(ok ? {} : {cause, reason, ...(role ? {role} : {})})}))};
-    quote.fingerprint = workingFingerprint({law: law.ref, method, bindings: record.bindings, facts, quote});
+    quote.fingerprint = workingFingerprint({law: law.ref, method, bindings: record.bindings, facts, quote,
+        paceRole: record.pace?.role});
     return quote;
 }
 
@@ -186,19 +211,24 @@ export function quoteWorking(law, method, {bindings, facts = {}, at, ports = {},
 const canonical = value => Array.isArray(value) ? `[${value.map(canonical).join(',')}]`
     : object(value) ? `{${Object.keys(value).sort().map(key => `${JSON.stringify(key)}:${canonical(value[key])}`).join(',')}}`
         : JSON.stringify(value ?? null);
-export function workingFingerprint({law, method, bindings, facts, quote}) {
+export function workingFingerprint({law, method, bindings, facts, quote, paceRole}) {
     const text = canonical({law, method: {id: method.id, revision: method.revision, steps: method.steps, grammar: method.grammar ?? null}, bindings, facts,
         deadlines: quote.deadlines, effects: quote.effects, costs: quote.costs, odds: quote.odds, ok: quote.ok,
-        failedStep: quote.failedStep ?? null});
-    let hash = 0x811c9dc5;
-    for (let i = 0; i < text.length; i += 1) hash = Math.imul(hash ^ text.charCodeAt(i), 0x01000193) >>> 0;
-    return `kw1:${hash.toString(16).padStart(8, '0')}:${text.length}`;
+        failedStep: quote.failedStep ?? null, ...(paceRole === undefined ? {} : {paceRole})});
+    return `kw1:${fingerprintText(text)}`;
 }
 
-export function beginQuotedWorking(law, method, {id: workingId, bindings, facts = {}, at, ports = {}, fingerprint}) {
-    const quote = quoteWorking(law, method, {id: workingId, bindings, facts, at, ports});
+function fingerprintText(text) {
+    let hash = 0x811c9dc5;
+    for (let i = 0; i < text.length; i += 1) hash = Math.imul(hash ^ text.charCodeAt(i), 0x01000193) >>> 0;
+    return `${hash.toString(16).padStart(8, '0')}:${text.length}`;
+}
+
+export function beginQuotedWorking(law, method, {id: workingId, bindings, facts = {}, at, ports = {}, fingerprint, paceRole}) {
+    const record = beginWorking(law, method, {id: workingId, bindings, facts, at, ports, paceRole});
+    const quote = forecastWorking(law, record, ports);
     if (quote.fingerprint !== fingerprint) return {stale: true, quote};
-    return {stale: false, quote, record: beginWorking(law, method, {id: workingId, bindings, facts, at, fingerprint})};
+    return {stale: false, quote, record: {...record, fingerprint}};
 }
 
 // KW17. The quote an actor can make: every read and every authority answer
@@ -209,7 +239,7 @@ export function beginQuotedWorking(law, method, {id: workingId, bindings, facts 
 // knownFacts are the actor's beliefs about the starting facts, never the truth.
 // knowsMethod(actor, method) answers whether the actor knows the method at all
 // (spell_world_rules' knows, craft_state's readCraftWorking by observer).
-export function quoteForActor(law, method, {id: workingId, actor, bindings, known, believedAuthority, knowsMethod, knownFacts = {}, at}) {
+export function quoteForActor(law, method, {id: workingId, actor, bindings, known, believedAuthority, believedPace, paceRole, knowsMethod, knownFacts = {}, at}) {
     check(id(actor) && typeof known === 'function', 'An actor quote needs an actor and what they know.');
     validateWorkingMethod(law, method);
     checkBindings(method, bindings);
@@ -223,8 +253,9 @@ export function quoteForActor(law, method, {id: workingId, actor, bindings, know
         return !object(thing) || thing.kind !== ref.kind || thing.id !== ref.id;
     }).map(([role]) => ({step: null, role, cause: 'unknown', reason: 'role-unknown'}));
     if (unknown.length) return blank(unknown);
-    const quote = quoteWorking(law, method, {id: workingId, bindings, facts: knownFacts, at,
-        ports: {read: known, ...(believedAuthority ? {authority: believedAuthority} : {})}});
+    const quote = quoteWorking(law, method, {id: workingId, bindings, facts: knownFacts, at, paceRole,
+        ports: {read: known, ...(believedAuthority ? {authority: believedAuthority} : {}),
+            ...(believedPace ? {pace: believedPace} : {})}});
     const failed = quote.steps.find(row => !row.ok);
     return {actor, eligible: quote.ok, reasons: failed ? [{step: failed.step, role: failed.role ?? null, cause: failed.cause,
         reason: failed.reason}] : [], startsAt: at, endsAt: quote.endsAt, minutes: quote.endsAt - at,
@@ -232,15 +263,25 @@ export function quoteForActor(law, method, {id: workingId, actor, bindings, know
 }
 
 // KW7. Beginning keeps only references to bound things and the method snapshot.
-export function beginWorking(law, method, {id: workingId, bindings, facts = {}, at, fingerprint}) {
+export function beginWorking(law, method, {id: workingId, bindings, facts = {}, at, fingerprint, paceRole, ports}) {
     validateWorkingMethod(law, method);
     checkBindings(method, bindings);
     check(id(workingId) && object(facts), 'A working needs an id and facts.');
     check(fingerprint === undefined || typeof fingerprint === 'string', 'A fingerprint is a string.');
-    return {schema: WORKING_SCHEMA, id: workingId, law: law.ref, method: clone(method),
+    const record = {schema: WORKING_SCHEMA, id: workingId, law: law.ref, method: clone(method),
         bindings: Object.fromEntries(Object.entries(bindings).map(([role, {kind, id: ref}]) => [role, {kind, id: ref}])),
-        startedAt: at, deadlines: workingDeadlines(law, method, at), cursor: 0, status: 'running',
+        startedAt: at, deadlines: [], cursor: 0, status: 'running',
         facts: clone(facts), receipts: [], ...(fingerprint ? {fingerprint} : {})};
+    if (paceRole === undefined) {
+        record.deadlines = workingDeadlines(law, method, at);
+    } else {
+        check(natural(at) && id(paceRole) && own(record.bindings, paceRole), 'Pace needs a start time and a bound role.');
+        record.pace = {role: paceRole, through: at};
+        const {deadlines, historyAt} = readPace(law, record, ports, at);
+        record.deadlines = deadlines;
+        record.pace.history = historyAt(at);
+    }
+    return record;
 }
 
 export function nextWorkingDeadline(record) {
@@ -255,6 +296,20 @@ export function settleWorking(law, record, {now, ports = {}, maxSteps = Infinity
     check(record?.schema === WORKING_SCHEMA && record.law === law.ref, 'This working belongs to a different law.');
     check(natural(now), 'Settle at a whole minute.');
     const next = clone(record);
+    if (next.status !== 'running' || next.pace === undefined) return settleDueSteps(law, next, now, ports, maxSteps);
+    validatePaceRecord(next);
+    const {deadlines, historyAt} = readPace(law, next, ports, now);
+    next.deadlines = deadlines;
+    const result = settleDueSteps(law, next, now, ports, maxSteps);
+    next.pace.through = next.status === 'running' ? now : next.receipts.at(-1).at;
+    next.pace.history = historyAt(next.pace.through);
+    // Keep the failed step's time and drop its unexecuted forecast. Future
+    // windows learned after interruption then cannot change a terminal save.
+    if (next.status === 'interrupted') next.deadlines.length = next.cursor + 1;
+    return result;
+}
+
+function settleDueSteps(law, next, now, ports, maxSteps) {
     const effects = [];
     let settled = 0;
     while (settled < maxSteps && next.status === 'running' && next.cursor < next.deadlines.length && next.deadlines[next.cursor] <= now) {
@@ -305,19 +360,49 @@ export function viewWorking(record) {
 
 // KW10 and OS8. One versioned save record. Unknown versions are refused so an
 // owner can keep the original save rather than guess.
-export function validateWorkingRecord(law, record) {
+function validatePaceRecord(record) {
+    const {pace, startedAt, deadlines, method, cursor, receipts} = record;
+    check(object(pace) && Object.keys(pace).length === 3 && id(pace.role) && own(record.bindings, pace.role) &&
+        natural(pace.through) && pace.through >= startedAt &&
+        typeof pace.history === 'string' && /^[a-f0-9]{8}:\d+$/.test(pace.history),
+    'The saved pace context is invalid.');
+    const failure = receipts?.[cursor];
+    const failedAtDeadline = record.status === 'interrupted' && ['binding', 'authority', 'operation'].includes(failure?.cause);
+    const count = failedAtDeadline ? cursor + 1 : method.steps.length;
+    check(Array.isArray(deadlines) && deadlines.length === count && [...deadlines].every((at, i) =>
+        natural(at) && at >= (i ? deadlines[i - 1] : startedAt)), 'The saved paced deadlines are invalid.');
+    check(natural(cursor) && cursor <= method.steps.length && (!failedAtDeadline || cursor < method.steps.length) &&
+        Array.isArray(receipts) &&
+        receipts.slice(0, cursor).length === cursor && receipts.slice(0, cursor).every((row, i) =>
+            row?.ok === true && row.step === i && row.at === deadlines[i] && row.at <= pace.through),
+    'The saved paced receipts do not match the settled deadlines.');
+    if (failedAtDeadline) {
+        check(failure.ok === false && failure.step === cursor && failure.at === deadlines[cursor] &&
+            failure.at === pace.through, 'The saved paced interruption does not match its deadline.');
+    }
+}
+
+export function validateWorkingRecord(law, record, {ports} = {}) {
     check(object(record) && record.schema === WORKING_SCHEMA, 'Unsupported working save version.');
     check(record.law === law.ref && id(record.id) && natural(record.startedAt), 'This working belongs to a different law.');
     validateWorkingMethod(law, record.method);
     checkBindings(record.method, record.bindings);
-    const deadlines = workingDeadlines(law, record.method, record.startedAt);
-    check(JSON.stringify(deadlines) === JSON.stringify(record.deadlines), 'The saved step times do not match the method.');
+    if (record.pace === undefined) {
+        const deadlines = workingDeadlines(law, record.method, record.startedAt);
+        check(JSON.stringify(deadlines) === JSON.stringify(record.deadlines), 'The saved step times do not match the method.');
+    } else {
+        validatePaceRecord(record);
+        if (record.status === 'running') {
+            const {deadlines} = readPace(law, record, ports, record.pace.through);
+            check(deadlines.every((at, i) => at === record.deadlines[i]), 'The saved pace forecast does not match the course.');
+        }
+    }
     check(record.fingerprint === undefined || typeof record.fingerprint === 'string', 'The saved fingerprint is invalid.');
-    check(natural(record.cursor) && record.cursor <= deadlines.length && Array.isArray(record.receipts) && object(record.facts),
+    check(natural(record.cursor) && record.cursor <= record.deadlines.length && Array.isArray(record.receipts) && object(record.facts),
         'The saved working position is invalid.');
     const settled = record.receipts.filter(row => row.ok).length;
     check(settled === record.cursor && ['running', 'complete', 'interrupted'].includes(record.status) &&
-        (record.status === 'complete') === (record.cursor === deadlines.length),
+        (record.status === 'complete') === (record.cursor === record.deadlines.length),
     'The saved working receipts do not match its position.');
     return record;
 }
@@ -347,5 +432,5 @@ export function restoreWorking(law, raw, context = {}) {
         check(path, 'Unsupported working save version.');
         record = path.migrate(clone(record), {law, ...context});
     }
-    return validateWorkingRecord(law, clone(record));
+    return validateWorkingRecord(law, clone(record), context);
 }

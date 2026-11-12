@@ -11,7 +11,6 @@ import {config, engine, n, rowRecords, moveSchedule, strikeLaw, strikeWorking, e
 function run(row, stops = [n.end], reload = false) {
     let current = engine(), records = rowRecords(row), working = strikeWorking();
     const receipts = [], hits = [];
-    let events = [];
     const advance = (world, to) => {
         const times = [...new Set([to, ...moveSchedule.map(s => s.at), ...n.strikeTimes])]
             .filter(t => t > world.clock && t <= to).sort((a, b) => a - b);
@@ -24,11 +23,6 @@ function run(row, stops = [n.end], reload = false) {
                 working = settled.record;
                 for (const {effect} of settled.effects) {
                     const hit = landEffect(current.rules, world, effect, {cause: 'strike', by: 'visitor'});
-                    // W currently omits detail in saved chain rows. The effect host retains
-                    // it in applied outcomes, so this caller journals it by chain sequence.
-                    const rows = hit.world.chain.filter(r => r.seq > world.seq);
-                    const applied = hit.outcomes.flatMap(o => o.applied);
-                    events.push(...rows.map((r, i) => ({...r, detail: applied[i] ?? null})));
                     world = hit.world; hits.push({at, outcomes: hit.outcomes});
                 }
             }
@@ -37,16 +31,16 @@ function run(row, stops = [n.end], reload = false) {
     };
     for (const to of stops) {
         const out = advanceStoredWorkings({rules: current.rules, world: current.world, records, to, advance,
-            ports: {events: world => world.chain.map(r => events.find(e => e.seq === r.seq) ?? r), stimuli: (_world, record, at) => row === 'strip' && at === n.pulse ? [{kind: 'touch', by: 'person'}] : []}});
+            ports: {stimuli: (_world, record, at) => row === 'strip' && at === n.pulse ? [{kind: 'touch', by: 'person'}] : []}});
         current = {...current, world: out.world}; records = out.records; receipts.push(...out.receipts);
         if (reload) {
             current = restoreEngineWorld(JSON.parse(JSON.stringify(serializeEngineWorld(current))), config);
             records = records.map(record => restoreStored(JSON.parse(JSON.stringify(serializeStored(record)))));
             working = restoreWorking(strikeLaw, JSON.parse(JSON.stringify(serializeWorking(working))));
-            events = JSON.parse(JSON.stringify(events));
         }
     }
-    return {engine: serializeEngineWorld(current), records, receipts, working, hits, events};
+    return {engine: serializeEngineWorld(current), records, receipts, working, hits,
+        events: current.world.chain};
 }
 
 for (const row of ['strip', 'ward', 'draught', 'held']) {
@@ -74,6 +68,7 @@ for (const row of ['strip', 'ward', 'draught', 'held']) {
             assert.equal(world.holders.person.quantities.vitality, expected.draughtVitality, JSON.stringify(jump.records.map(r => r.receipts)));
             assert.ok(jump.records.every(r => r.status === 'spent'));
             assert.ok(jump.events.some(r => r.kind === 'effect.remove' && r.detail.object === 'vitality' && r.detail.amount < 0));
+            assert.equal(jump.records[0].status, 'spent', 'the saved event detail matches the carrier after reload');
         } else {
             assert.equal(jump.working.status, 'complete');
             assert.ok(jump.hits[0].outcomes[0].blocked.length, 'held guard protects the kernel step at its deadline');
@@ -85,6 +80,44 @@ for (const row of ['strip', 'ward', 'draught', 'held']) {
         }
     });
 }
+
+test('a blow published before restore triggers from its saved detail at the next pulse', () => {
+    const current = engine(), records = rowRecords('draught').slice(0, 1);
+    // Put the pulse at minute 2: the blow lands at 3 and is read at 4.
+    records[0].pulse = 2;
+    records[0].watch.next = 2;
+    let working = strikeWorking();
+    const advance = (world, to) => {
+        const times = [...new Set([to, ...n.strikeTimes])].filter(t => t > world.clock && t <= to).sort((a, b) => a - b);
+        for (const at of times) {
+            world = advanceWorld(current.rules, world, at).world;
+            if (n.strikeTimes.includes(at)) {
+                const settled = settleWorking(strikeLaw, working, {now: at, ports: {read: substratePort(world)}});
+                working = settled.record;
+                for (const {effect} of settled.effects) world = landEffect(current.rules, world, effect, {cause: 'strike', by: 'visitor'}).world;
+            }
+        }
+        return {world};
+    };
+    const beforePulse = advanceStoredWorkings({rules: current.rules, world: current.world, records, to: 3, advance, ports: {}});
+    const hit = beforePulse.world.chain.find(r => r.kind === 'effect.remove');
+    assert.deepEqual(hit.detail, {target: 'person', object: 'vitality', amount: -n.harm});
+    assert.equal(beforePulse.receipts.length, 0);
+    const saved = JSON.parse(JSON.stringify(serializeEngineWorld({...current, world: beforePulse.world})));
+    const restored = restoreEngineWorld(saved, config);
+    const restoredRecords = beforePulse.records.map(record => restoreStored(JSON.parse(JSON.stringify(serializeStored(record)))));
+    const out = advanceStoredWorkings({rules: restored.rules, world: restored.world, records: restoredRecords, to: 4,
+        advance: (world, to) => ({world: advanceWorld(restored.rules, world, to).world}), ports: {}});
+    assert.equal(out.receipts.length, 1, 'the restored chain detail triggers the draught');
+    assert.equal(out.records[0].status, 'spent');
+
+    const wrongRecord = restoreStored(JSON.parse(JSON.stringify(serializeStored(restoredRecords[0]))));
+    wrongRecord.trigger.where['detail.target'] = 'visitor';
+    const wrong = advanceStoredWorkings({rules: restored.rules, world: restored.world, records: [wrongRecord], to: 4,
+        advance: (world, to) => ({world: advanceWorld(restored.rules, world, to).world}), ports: {}});
+    assert.equal(wrong.receipts.length, 0, 'a different target does not trigger');
+    assert.equal(wrong.records[0].status, 'armed', 'the unmatched working remains untriggered and held');
+});
 
 test('mutation guard: pulse receipts use event boundaries even when the call ends later', () => {
     const runToEnd = run('ward');

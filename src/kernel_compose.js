@@ -5,9 +5,10 @@
 // killer move or a combined spell can be assembled from parts no book paired.
 // composeWorking builds one ordinary law and method from the chosen fillers,
 // so quote, settle, partition, receipts and saves are the kernel's own.
-// Names no domain or world; imports only the kernel.
+// Held slots lower through the caller's stored-working factory (TG1, SW11).
+// Names no domain or world; imports only the kernel and shared helpers.
 import {check, natural, object} from './basics.js';
-import {defineWorkingLaw, validateWorkingMethod} from './kernel_working.js';
+import {defineWorkingLaw, validateWorkingMethod, validateWorkingRecord} from './kernel_working.js';
 
 const id = value => typeof value === 'string' && /^[a-z][a-z0-9_.:-]*$/i.test(value) &&
     !['__proto__', 'constructor', 'prototype'].includes(value);
@@ -16,7 +17,7 @@ const sameKinds = (a, b) => Object.keys(a).length === Object.keys(b).length &&
 
 // KW18. roles: the composite's own roles. slots: [{name, needs: {fillerRole:
 // kind}, bindings: {fillerRole: compositeRole}, facts: 'shared' | 'own',
-// minutes?}]. `facts` is an explicit choice: shared slots read and write one
+// minutes?, hold?}]. `facts` is an explicit choice: shared slots read and write one
 // fact table (Gu essence reserves), own slots keep theirs under part:<name>.
 // `minutes` overrides every filler step's duration (a dial, e.g. one minute per
 // cast). A filler is one part and stays one part: its steps are not split.
@@ -32,6 +33,7 @@ export function defineComposition({id: compId, revision, roles, slots, grammar})
             `Slot ${slot.name} needs an interface.`);
         check(['shared', 'own'].includes(slot.facts), `Slot ${slot.name} must say whether its facts are shared or its own.`);
         check(slot.minutes === undefined || natural(slot.minutes), `Slot ${slot.name} has an invalid duration.`);
+        check(slot.hold === undefined || typeof slot.hold === 'boolean', `Slot ${slot.name} has an invalid hold flag.`);
         check(Object.keys(slot.bindings).length === Object.keys(slot.needs).length, `Slot ${slot.name} must map every role it needs.`);
         for (const [role, kind] of Object.entries(slot.needs)) {
             check(roles[slot.bindings[role]] === kind, `Slot ${slot.name} maps ${role} to a role of another kind.`);
@@ -49,6 +51,8 @@ export function fillsSlot(slot, filler) {
 }
 
 const partKey = name => `part:${name}`;
+// Hold descriptors belong to the bound law, outside the saved working.
+const heldByLaw = new WeakMap();
 
 function wrap(slot, operation) {
     if (slot.facts === 'shared') return operation;
@@ -68,11 +72,21 @@ export function composeWorking(composition, fillers) {
     const operations = {};
     const steps = [];
     const refs = [];
+    const held = [];
     for (const slot of composition.slots) {
         const filler = fillers[slot.name];
         check(fillsSlot(slot, filler), `The filler for ${slot.name} does not bind the roles that slot needs.`);
         validateWorkingMethod(filler.law, filler.method);
-        refs.push(`${slot.name}=${filler.law.ref}:${filler.method.id}@${filler.method.revision}${filler.method.grammar ? `#${filler.method.grammar}` : ''}`);
+        refs.push(`${slot.hold ? '!' : ''}${slot.name}=${filler.law.ref}:${filler.method.id}@${filler.method.revision}${filler.method.grammar ? `#${filler.method.grammar}` : ''}`);
+        if (slot.hold) {
+            held.push({name: slot.name, bindings: {...slot.bindings}, method: structuredClone(filler.method)});
+        }
+        for (const nested of heldByLaw.get(filler.law) ?? []) {
+            const bindings = Object.fromEntries(Object.entries(nested.bindings)
+                .map(([role, fillerRole]) => [role, slot.bindings[fillerRole]]));
+            held.push({...nested, name: `${slot.name}/${nested.name}`, bindings});
+        }
+        if (slot.hold) continue;
         for (const [op, operation] of Object.entries(filler.law.operations)) operations[`${slot.name}/${op}`] = wrap(slot, operation);
         for (const step of filler.method.steps) {
             const bindings = Object.fromEntries(Object.entries(step.bindings ?? {})
@@ -82,13 +96,33 @@ export function composeWorking(composition, fillers) {
                 ...(step.options !== undefined ? {options: structuredClone(step.options)} : {})});
         }
     }
+    check(steps.length > 0, 'A composition needs an ordinary step alongside any held slots.');
     const law = defineWorkingLaw({id: composition.id, revision: composition.revision, operations});
     const ref = `${law.ref}[${refs.join(',')}]`;
     const composed = Object.freeze({...law, ref});
     const method = {id: composition.id, revision: composition.revision, law: ref, roles: {...composition.roles}, steps,
         ...(composition.grammar ? {grammar: composition.grammar} : {})};
     validateWorkingMethod(composed, method);
-    return {law: composed, method};
+    if (!held.length) return {law: composed, method};
+    heldByLaw.set(composed, held);
+
+    // Fixture route (PC95). The host calls this when it starts the working,
+    // persists the returned records and drives their upkeep on its own clock.
+    // describeHold supplies the bound slot's carrier, pulse, timed effects and draw.
+    function storeHeld(working, {describeHold, storeWorking, by, ports}) {
+        validateWorkingRecord(composed, working, {ports});
+        check(typeof describeHold === 'function' && typeof storeWorking === 'function', 'Held slots need a description and a stored-working factory.');
+        return held.map(slot => {
+            const bindings = Object.fromEntries(Object.entries(slot.bindings)
+                .map(([role, compositeRole]) => [role, structuredClone(working.bindings[compositeRole])]));
+            const at = working.startedAt;
+            const spec = describeHold({slot: slot.name, method: structuredClone(slot.method), bindings, at});
+            // Encode the path as one segment so the working ID may itself contain "/hold/".
+            return storeWorking({...spec, mode: 'held', trigger: {kind: 'time', every: spec.pulse}},
+                {id: `${working.id}/hold/${slot.name.replaceAll('/', '%2F')}`, by, at, ports});
+        });
+    }
+    return {law: composed, method, storeHeld};
 }
 
 // Which slot a receipt's step came from (KW21): the part before the slash.
