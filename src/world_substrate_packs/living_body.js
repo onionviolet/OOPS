@@ -11,8 +11,9 @@
 // When a body sits on the substrate, its satiety is the hunger authority:
 // living_body.js readLivingBody takes {satiety, emptySince} and reads the same need
 // stage as a host's minutes-since-meal would (one hunger source, not two).
-// Satiety stays a pack quantity (WSC2) until a second pack reads it (A's wants, M's
-// want rates); then it moves to world_quantities.js as a request to chat W.
+// This pack is the one declarer of satiety. A second pack reads it now (A's wild
+// agency, which declares nothing and keeps its own fullness as row data), so the
+// move to world_quantities.js is an open request to chat W.
 export const SATIETY = Object.freeze({id: 'satiety', unit: 'ration-minute', min: 0, max: 1_000_000});
 
 const isBody = holder => holder.kind === 'body' && holder.tags.includes('living.body');

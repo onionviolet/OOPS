@@ -21,9 +21,13 @@ export const LIQUOR_WORM_ROW = Object.freeze({
     drinkPerMinute: {value: 24, why: 'One cup a minute fills a day of hunger in about an hour, the Keeper scene\'s visit length.'},
 });
 
+// `satiety` is declared once, by l.living_body (AR3: a body's satiety belongs to
+// living things). This pack reads and writes it without declaring it, so a world
+// that loads the worm loads that pack or supplies the same declaration. The worm
+// eats one ration a minute, so its ration-minutes are the row's minutes, and its
+// fullness is the row's mealMinutes, not the quantity's bound.
 export const WILD_QUANTITIES = Object.freeze({
     liquor: Object.freeze({id: 'liquor', unit: 'cup', min: 0, max: 100000}),
-    satiety: Object.freeze({id: 'satiety', unit: 'minute', min: 0, max: LIQUOR_WORM_ROW.mealMinutes}),
 });
 
 export const liquorWorm = defineAgent({id: 'a.wild.liquor_worm', revision: 0, label: 'The Liquor Worm',
@@ -80,6 +84,13 @@ const isWorm = h => h.kind === 'body' && h.tags.includes('a.wild.liquor_worm');
 // invent(args) -> candidate | null is the NV4 hook, usually agency's
 // inventBySearch over a P grammar (PR3, PR6): it calls args.build on drawn parts
 // and the worm keeps the routine only if the same quote runs it.
+const FULL = LIQUOR_WORM_ROW.mealMinutes, GAIN = LIQUOR_WORM_ROW.drinkPerMinute.value;
+const drinking = (view, id) => {
+    const s = view.state(id), here = view.placeOf(id);
+    return s.doing === `drink:${here}` && !s.arriveAt && view.has(here, 'liquor') && view.amount(here, 'liquor') > 0 &&
+        view.amount(id, 'satiety') < FULL;
+};
+
 export function createWildAgencyPack({invent = null} = {}) {
     const choose = (view, id) => {
         const s = view.state(id), here = view.placeOf(id), satiety = view.amount(id, 'satiety');
@@ -108,18 +119,19 @@ export function createWildAgencyPack({invent = null} = {}) {
     };
     return {
         id: 'a.wild_agency', revision: 0,
-        quantities: [WILD_QUANTITIES.liquor, WILD_QUANTITIES.satiety],
+        quantities: [WILD_QUANTITIES.liquor],
         reads: ['liquor', 'satiety'], writes: ['liquor', 'satiety'],
         laws: [{
             id: 'appetite', appliesTo: isWorm,
             rates: (view, id) => {
-                const s = view.state(id), here = view.placeOf(id), out = [{holder: id, quantity: 'satiety', perMinute: -1}];
-                if (s.doing === `drink:${here}` && !s.arriveAt && view.has(here, 'liquor') && view.amount(here, 'liquor') > 0 &&
-                    view.amount(id, 'satiety') < LIQUOR_WORM_ROW.mealMinutes) {
-                    out.push({holder: here, quantity: 'liquor', perMinute: -1}, {holder: id, quantity: 'satiety', perMinute: LIQUOR_WORM_ROW.drinkPerMinute.value + 1});
-                }
+                const out = [{holder: id, quantity: 'satiety', perMinute: -1}], here = view.placeOf(id);
+                // The last cup only tops it up: a full worm holds one meal.
+                if (drinking(view, id)) out.push({holder: here, quantity: 'liquor', perMinute: -1},
+                    {holder: id, quantity: 'satiety', perMinute: Math.min(GAIN, FULL - view.amount(id, 'satiety')) + 1});
                 return out;
             },
+            // Cut the segment where a whole cup no longer fits, so the top-up minute is its own.
+            watches: (view, id) => drinking(view, id) ? bandWatches(id, 'satiety', [FULL - GAIN + 1]) : [],
         }, {
             id: 'choose', appliesTo: isWorm,
             watches: (view, id) => {

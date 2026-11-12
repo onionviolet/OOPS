@@ -8,12 +8,14 @@
 // no shared injure door yet (C's request L1); this adapter is the only place
 // the contest touches L, and it goes when L publishes the door.
 import {check} from './basics.js';
+import {WORLD_QUANTITIES} from './world_quantities.js';
 import {injureCreature, settleCohortStock, creatureHealth} from './creature_lifecycle.js';
 
-// Body quantities the contest pack declares until W adopts them (request W4).
-// Bounds are save-integrity budgets, not limits on any world's bodies.
+// Vitality is W's shared quantity. Stamina the contest pack declares until W
+// adopts it (request W4). Bounds are save-integrity budgets, not limits on any
+// world's bodies.
 export const CONTEST_QUANTITIES = Object.freeze({
-    vitality: Object.freeze({id: 'vitality', unit: 'point', min: 0, max: 1_000_000}),
+    vitality: WORLD_QUANTITIES.vitality,
     stamina: Object.freeze({id: 'stamina', unit: 'point', min: 0, max: 1_000_000}),
 });
 

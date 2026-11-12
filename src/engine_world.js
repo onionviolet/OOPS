@@ -14,6 +14,7 @@ import {createResidueFlowPack} from './world_substrate_packs/residue_flow.js';
 import {createLivingBodyPack} from './world_substrate_packs/living_body.js';
 import {createLivingResiduePack} from './world_substrate_packs/living_residue.js';
 import {createForageAttractionPack} from './world_substrate_packs/forage_attraction.js';
+import {createColonyLightPack} from './world_substrate_packs/colony_light.js';
 import {createWildAgencyPack} from './agency_wild.js';
 import {contestPack} from './contest_bodies.js';
 import {createMarketPack} from './market_substrate.js';
@@ -30,6 +31,7 @@ export const ENGINE_PACKS = Object.freeze([
     pack('w.residue_flow', createResidueFlowPack),
     pack('l.living_body', createLivingBodyPack),
     pack('l.living_residue', createLivingResiduePack),
+    pack('l.colony_light', createColonyLightPack),
     pack('l.forage_attraction', createForageAttractionPack),
     pack('a.wild_agency', createWildAgencyPack),
     pack('c.contest', contestPack),

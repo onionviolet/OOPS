@@ -13,11 +13,29 @@ test('every playable Gu catalogue binding cites a checked chapter and identifies
     for (const [kind, bindings] of Object.entries(guCatalogue)) {
         const record = byKind.get(kind);
         assert.ok(record, `${kind} needs a checked identity`);
-        for (const [mechanism, {chapters, observed, authored, value}] of Object.entries(bindings)) {
+        const runtimeBindings = Object.entries(bindings).filter(([mechanism]) => mechanism !== 'body');
+        for (const [mechanism, {chapters, observed, authored, value}] of runtimeBindings) {
             const label = `${kind} ${mechanism}`;
             assert.ok(chapters.length && chapters.every(chapter => record.chapters.includes(chapter)), label);
             assert.ok(observed.trim() && authored.trim(), label);
             assert.ok(Object.isFrozen(value), label);
+        }
+        // Body facts can cite feeding passages outside the identity's original behavior scenes.
+        const {body} = bindings;
+        assert.ok(Object.isFrozen(body), `${kind} body`);
+        assert.ok(['stated', 'unknown'].includes(body.status), `${kind} diet status`);
+        assert.ok(body.searchedChapters.length, `${kind} searched chapters`);
+        assert.ok(record.chapters.every(chapter => body.searchedChapters.includes(chapter)), `${kind} starts from its citations`);
+        assert.ok(body.searchedChapters.every(chapter => Number.isInteger(chapter) && chapter >= 1 && chapter <= 2334), kind);
+        assert.equal(Boolean(body.diet), body.status === 'stated', `${kind} stated diet needs food evidence`);
+        if (body.diet) assert.ok(body.diet.food.length && body.diet.food.every(food => typeof food === 'string' && food.trim()), kind);
+        for (const field of ['diet', 'interval', 'ration', 'starves', 'notes']) {
+            const fact = body[field];
+            if (!fact) continue;
+            assert.ok(Object.isFrozen(fact), `${kind} ${field}`);
+            assert.ok(fact.observed.trim(), `${kind} ${field} paraphrase`);
+            assert.ok(fact.chapters.length && fact.chapters.every(chapter => body.searchedChapters.includes(chapter)),
+                `${kind} ${field} source`);
         }
     }
 });

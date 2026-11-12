@@ -32,7 +32,7 @@ const mean = list => list.reduce((sum, n) => sum + n, 0) / list.length;
  * goal locus (markCreatureGenesKnown, one test each, counted).
  */
 function runProgram({seed, goal, judge = 'phenotype', generations = 20, exposure = {}, environment = {},
-    gestation = GESTATION, late = 0, founders = null}) {
+    gestation = GESTATION, late = 0, founders = null, bystander = false}) {
     const root = `breeding-program:${seed}`;
     let state = settleCohortStock(restoreCreatureLifecycle(null),
         {revision: 0, id: 'pen.sheep', species: 'sheep', habitat: pen, delta: FLOCK});
@@ -83,7 +83,13 @@ function runProgram({seed, goal, judge = 'phenotype', generations = 20, exposure
                 clock, gestationMinutes: gestation, growthMinutes: GROWTH, root, genome, exposure});
             mutations += brood.mutated.length;
             clock += gestation + late;
-            const born = settleCreatureBirth(brood.state, {revision: brood.state.revision, broodId: brood.id, clock, destination: pen});
+            let carrying = brood.state;
+            if (bystander) {
+                // An unrelated settlement between conception and birth: a gene test on another animal.
+                const other = flock().find(animal => animal.id !== first.id && animal.id !== second.id);
+                carrying = markCreatureGenesKnown(carrying, {revision: carrying.revision, id: other.id, loci: ['coat']});
+            }
+            const born = settleCreatureBirth(carrying, {revision: carrying.revision, broodId: brood.id, clock, destination: pen});
             state = born.state;
             if (judge === 'offspring') {
                 const child = state.individuals[born.id];
@@ -143,9 +149,12 @@ test('3. trade-off: what selection costs today, and what it does not', () => {
     assert.ok(mean(fleece.map(r => r.end.fine)) - mean(wool.map(r => r.end.fine)) >= 0.3);
     // True today: nothing ties fleece to wool. Selecting for fleece leaves wool to drift,
     // up in some flocks and down in others, with no pull either way.
-    const drift = fleece.map(r => r.end.woolBreeding - r.history[0].woolBreeding);
+    // Eight pens are too few to tell no pull from luck (their mean is 5.7 tenths on
+    // these draws), so the mean is taken over forty.
+    const many = [...SEEDS, ...Array.from({length: 32}, (_, i) => `s${i}`)].map(seed => runProgram({seed, goal: FLEECE}));
+    const drift = many.map(r => r.end.woolBreeding - r.history[0].woolBreeding);
     assert.ok(drift.some(d => d > 0) && drift.some(d => d < 0), `wool drift under fleece selection: ${drift}`);
-    assert.ok(Math.abs(mean(drift)) < 4, `mean drift ${mean(drift)}`);
+    assert.ok(Math.abs(mean(drift)) < 2, `mean drift ${mean(drift)}`);
     // True today: a one-pair program makes the pen close kin, and the creature path
     // charges nothing for it (lineage_traits.breed does, for people).
     assert.ok(fleece.every(r => r.kinship > 0.5), `kinship ${fleece.map(r => r.kinship.toFixed(2))}`);
@@ -186,17 +195,18 @@ test('5. a changed world changes the outcome through rows the genome already dec
         `winter allele ${mean(warm.map(r => r.end.strong.winter))} warm, ${mean(cold.map(r => r.end.strong.winter))} cold`);
 });
 
-test('6. time: the flock does not depend on when births are settled', () => {
+test('6. time: the flock does not depend on when births are settled or what settles in between', () => {
     const prompt = runProgram({seed: 'a', goal: WOOL});
     const late = runProgram({seed: 'a', goal: WOOL, late: 5000});
     const slow = runProgram({seed: 'a', goal: WOOL, gestation: 9000});
     assert.ok(late.clock > prompt.clock * 5);
     assert.deepEqual(late.genes, prompt.genes);
     assert.deepEqual(slow.genes, prompt.genes);
-    // The far-time form that exists is the cohort's allele counts, and there the step
-    // size does change the herd: each single birth rounds 0.8 of a strong allele up to
-    // one, so twenty settlements of one birth drift from 40% to 47% strong while one
-    // settlement of twenty keeps 40%. Asserted as it stands today; see GAP 6.
+    // A brood is addressed by its pair and litter number, so a gene test on another
+    // animal between conception and birth changes no lamb.
+    assert.deepEqual(runProgram({seed: 'a', goal: WOOL, bystander: true}).genes, prompt.genes);
+    // The far-time form is the cohort's allele counts. Births are computed from the
+    // proportion held when the run began, so any partition of twenty births agrees.
     const herd = delta => {
         let state = settleCohortStock(restoreCreatureLifecycle(null), {revision: 0, id: 'hill', species: 'sheep', habitat: market, delta: 10});
         state = setCohortAlleles(state, {revision: state.revision, id: 'hill',
@@ -206,10 +216,10 @@ test('6. time: the flock does not depend on when births are settled', () => {
         return state.cohorts.hill;
     };
     assert.deepEqual(herd(20).alleles.fleece, {strong: 24, plain: 36});
-    assert.deepEqual(herd(1).alleles.fleece, {strong: 28, plain: 32});
+    for (const step of [1, 2, 4, 5, 10]) assert.deepEqual(herd(step).alleles, herd(20).alleles, `births settled ${step} at a time`);
 });
 
 // ---- gaps: what an improvement loop still lacks (findings for the coordinator) ----
 test.skip('GAP 3: no gene of the sheep costs another trait (no linkage, no pleiotropy, no inbreeding cost on the creature path)', () => {});
 test.skip('GAP 4: a creature gene test has no price or instrument; markCreatureGenesKnown is free and exact', () => {});
-test.skip('GAP 6: no standing program; twenty generations cannot settle in one call, cohort births cannot select, and cohort births round differently by step size', () => {});
+test.skip('GAP 6: no standing program; twenty generations cannot settle in one call and cohort births cannot select', () => {});

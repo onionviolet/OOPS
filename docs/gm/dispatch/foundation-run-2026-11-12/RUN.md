@@ -6,7 +6,7 @@ Coordinator: Codex, taking over from the Claude session that wrote the [procedur
 
 Weibao (2026-11-12): "hand off for you to be the coordinatoe". The Claude session that wrote the [procedural core](../../../PROCEDURAL_CORE.md) and [carry-out](../../../PROCEDURAL_CARRY_OUT.md) is the coordinator from here. The Codex coordinator stopped at its usage ceiling with no detached worker alive (checked: `codex_goal_lane.py status` shows none alive; no test or lane process running).
 
-This block is the current resume block. The older one below is history.
+From the Wave 12 commit the coordinator is Codex again, under the [second handoff](CODEX_COORDINATOR_HANDOFF_2.md), which is the current resume owner: decisions, the five numbers, branch states, the next list and the limits are there. This block stays as the standing objective and picking rule; the older one below is history.
 
 - Objective: foundations with gameplay deferred, and from 2026-11-12 game tie-in deferred too (carry-out PC95): work is proven in one headless engine world, measured by the five numbers G1 to G5. MS5's reachable route per domain moves to the tie-in phase; the other milestones map to the phases as before. Weibao also declined an early playable scene ("No, engine first").
 - Picking rule: the carry-out's wave ritual (PC65) and tracker, in the readjusted order (PC91) and under its keep-it-small rules (PC94): each packet names which of the five end-state numbers it moves, two tries then stop, no new checker scripts. Milestones map to its phases in the [carry-out reconciliation](../../../PROCEDURAL_CARRY_OUT.md#milestones-and-phases-rc3). The facet order ability, body, technique, custody, contest, progression has his "Yes, use that order". The rest of both docs is a proposal used as working order; Q1, Q2, Q5 and Q7 in the core stay open and nothing they would defer is deferred.
@@ -325,3 +325,58 @@ Findings for Wave 12, by consequence:
 
 Wave 11 gate for the Fable lanes: `npm test`, 6511 tests, 6506 pass, 0 fail, 5 skipped (`wave11a-suite.log` in the takeover folder). Doc sections PC97 to PC99 were written while it ran and are covered by `check:docs` and `check:rules`.
 
+### Wave 11 fold, Codex lanes (2026-11-12)
+
+Both lanes left their changes uncommitted in their worktrees. The coordinator copied them into the primary tree and reran the tests that read the changed data: 31 of 31, `check:coverage` passes. They are committed with Wave 12, after its full suite, because `src/gu_catalogue.js` is loaded by the game.
+
+| Lane | Result | Not covered |
+| --- | --- | --- |
+| `w11-formulas` (104,430 tokens) | Of 177 blocked Lord of the Mysteries potions, 3 have a main material named in the pathway table, 1 partly, 173 do not. Three rows added to `src/world_packs/lotm_brew_pack.js` (46 rows); ledger runs-authored 33 to 36, `formula-in-notes` 177 to 174. One stale row count in `tests/brew_law.test.js` updated at the fold | The 173 are a reading job |
+| `w11-feeding` | All 78 chapter-checked Gu carry `body` data in `src/gu_catalogue.js`: 17 stated diets, 4 intervals, 8 starvation facts, 61 unknown diets with the chapters searched listed | Not yet read by the lifecycle; wiki-only kinds out of scope |
+
+## Wave 12: first canon rows, lifecycle faults, eleventh pack, four families (2026-11-12)
+
+Wave 11's Fable lanes landed as `0876c3906`. Weibao (2026-11-12): "Start the other families accordingly, each with their own fable directing codex", and on capacity, "There are always ways around everything? Dont forget our core rules too". Every brief carries the core rules: limits are defaults with a cost and ways around, never refusals. Codex usage read 21% of 50% before dispatch.
+
+Primary checkout, Fable lanes on disjoint files:
+
+| Lane | Packet and number | Files |
+| --- | --- | --- |
+| hp-cases | P1.8; G1 | new pack under `src/world_packs/`, the Hogwarts parts of the effect fixture, the spell ledger generator, `hp_spells.jsonl`, coverage README |
+| lifecycle-faults | KW5 for living things | `src/creature_lifecycle.js`, `src/heredity.js`, `tests/breeding_program.test.js`, tests whose pins move |
+| satiety-and-colony | G2, G3 | `src/agency_wild.js`, `src/world_substrate_packs/living_body.js`, new `colony_light.js`, `src/engine_world.js` registry, `tests/engine_world.test.js` |
+
+Family leads, each a Fable lane in its own worktree directing one Codex lane, committing on its own branch:
+
+| Family | Worktree and branch | Codex lane | Worked rows |
+| --- | --- | --- | --- |
+| Body alteration | `/Users/weiwei/code/yair-w12-body`, `codex/w12-body` | `w12-body` | A Gu in an aperture, a power-granting potion with a second dose and a stabilizer, bioware and hardware with a suppressant, the Sandevistan as pace and strain |
+| Stored workings | `/Users/weiwei/code/yair-w12-stored`, `codex/w12-stored` | `w12-stored` | A rune strip, a ward on a place, a held potion or charm, a held part of a technique |
+| Process crafts | `/Users/weiwei/code/yair-w12-process`, `codex/w12-process` | `w12-process` | A census of Making, then a forged, quenched and tempered blade and a cooking row on one process mechanism |
+| Bindings | `/Users/weiwei/code/yair-w12-bindings`, `codex/w12-bindings` | `w12-bindings` | A tamed animal, a familiar bond, a contract with a way around it, a bonded item, a holder carried by a body |
+
+Gate for this wave: the full suite, since `src/creature_lifecycle.js` and `src/gu_catalogue.js` are loaded by the game. Family branches are reviewed and merged after the primary lanes are committed. This wave runs seven Fable lanes, above PC94's three, at Weibao's request to use the Fable allowance; the coordinator reads every diff.
+
+
+### Wave 12 fold, primary lanes (2026-11-12)
+
+Folded tree: the three Fable lanes plus the two Wave 11 Codex data lanes. Focused gate on the folded tree: 26 test files, 281 tests, 278 pass, 0 fail, 3 skipped; `check:arch`, `check:rules`, `check:coverage`, `check:docs` exit 0. Full suite on the same tree: 6,517 tests, 6,512 pass, 0 fail, 5 skipped, exit 0 (`wave12a-suite.log`).
+
+| Lane | Result | Not covered |
+| --- | --- | --- |
+| hp-cases | G1 0 to 38: 38 Hogwarts spellbook rows have a case in `src/world_packs/hp_effect_pack.js` and compute as expressed through the generic runner | 42 rows without a case: 18 publish-only, 14 refused by W, 5 law fields, 3 act plus publish, 1 new holder, 1 `animate`. The runner's `expect` cannot yet name a law field, a new holder or a publish |
+| lifecycle-faults | Living-thing faults (KW5) in `src/creature_lifecycle.js` and `src/heredity.js`; breeding fixture pins moved | Births interleaved with losses still round per run |
+| satiety-and-colony | `colony_light.js` joins the engine world (G2 12 of 12); coupling map C5 falls 10 to 6 | The mixed day costs 799 of 800 segments from the shell regulator oscillating; the coupling map misses computed declarations (`c.contest`, `m.market`, `w.sky`) |
+
+### Wave 12 family branches (2026-11-12)
+
+Each lead reviewed its Codex lane's work and committed on its own branch. None is merged; the second handoff's first step is the merge.
+
+| Family | Commit | Runs | Asks and gaps |
+| --- | --- | --- | --- |
+| Body alteration | `codex/w12-body` `af757abd2` | `src/body_alteration.js`, pack `l.body_alteration`, `src/pace.js`; a Gu in an aperture, a power-granting potion, bioware with a suppressant, pace and strain | Pace needs a holder-local rate port in K. Edits the engine world registry, so the merge meets the colony pack lines |
+| Stored workings | `codex/w12-stored` `0f64436f6` | `src/stored_working.js`; rune strip, ward, held potion, held technique part | W drops chain `detail` on save, which the blow trigger needs |
+| Bindings | `codex/w12-bindings` `9ddb0a947` | `src/binding.js`; tamed animal, familiar, contract, sworn item, carried holder, each across a save and restore; eight ways around with their costs (17 tests pass with the oath and identity kernels) | K: export `matches` from `kernel_oath.js`; one receipt holds one breach. The making price is validated data that no working charges yet; no summoning row; the module is dense |
+| Process crafts | `codex/w12-process` `5f77574a3` | `src/process_law.js` (law `f.process`: `hold`, `work`) and `src/load_law.js`; a forged, quenched and tempered blade against an untempered one, a kitchen pack on the same law, equal records across settle sizes and a restore (10 tests pass). Census: 71 Making modules, 12 are processes, one runs on the kernel | One kernel shape, two laws: brewing stays a conserved ledger. Chained rows integrate in up to 256 slices; fuel, vessel capacity, maker skill, fold and aging are outside the law; no parity fixture against `gear_work.js` |
+
+Codex usage read 22% of 50% at the fold.

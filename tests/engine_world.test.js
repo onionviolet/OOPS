@@ -13,11 +13,12 @@ import {skyQuantities} from '../src/world_sky.js';
 import {brewBatchState} from '../src/world_substrate_packs/brew_steam.js';
 import {shellBodyState, shellInletState} from '../src/world_substrate_packs/shell_regulator.js';
 import {livingBodyState} from '../src/world_substrate_packs/living_body.js';
+import {liquorWormState} from '../src/agency_wild.js';
 import {grazeOp} from '../src/world_substrate_packs/living_residue.js';
 import {residueQuantity} from '../src/world_substrate_packs/residue_flow.js';
 
 const DAY = 1440;
-const energy = 'energy:primeval.rank1', star = 'light:star', forage = 'stock:clover';
+const energy = 'energy:primeval.rank1', star = 'light:star', forage = 'stock:clover', fireflies = 'stock:starlight-firefly';
 const active = residueQuantity('active'), matrix = residueQuantity('herb:matrix');
 
 // World numbers, keyed by pack id (PFP3). They are the existing fixtures' rows.
@@ -32,31 +33,52 @@ const settings = {
         {substance: 'active', quantity: active, uptakePermille: 500, intakeReason: 'Trace in an eaten portion passes into tissue.',
             dose: {threshold: 5, amount: 2, kind: 'irritation', reason: 'Five trace units in one meal irritate this grazer.'}},
     ]}]},
+    // The light fixture's 12 a head (gu_light_attraction.test.js); none by day is this run's calibration.
+    'l.colony_light': {profiles: [{members: fireflies, light: star, gradePerMember: {dark: 12, daylit: 0}}]},
     'l.forage_attraction': {profiles: [{light: star, minimum: 8, interval: 10}], maxNeighbors: 2,
         connections: [{from: 'ridge', to: 'hill', open: true}]},
     'm.market': {goods: ['bread'], inputs: ['flour']},
 };
-const shared = {effectKinds: ['light.given']};
 const dials = {chainCap: 2000};
 const all = ENGINE_PACKS.map(p => p.id);
-// a.wild_agency cannot share a world with l.living_body today (see the first test).
-const composable = all.filter(id => id !== 'a.wild_agency');
-const config = {settings, shared, dials, packs: composable};
+const config = {settings, dials};
 
-test('the registry holds eleven packs; ten compose into one rule set and the eleventh is named with its reason', () => {
-    assert.equal(ENGINE_PACKS.length, 11);
-    assert.throws(() => createEngineWorld({settings, shared, dials}),
-        /quantity satiety declared twice with different unit, bounds or keying \(l\.living_body, a\.wild_agency\)/);
+test('the registry holds twelve packs and all of them compose into one rule set', () => {
+    assert.equal(ENGINE_PACKS.length, 12);
     const engine = createEngineWorld(config);
-    assert.deepEqual(engine.rules.packs, composable);
-    assert.equal(engine.rules.packs.length, 10);
-    // The other way round also composes: the clash is that one pair, on that one quantity.
-    assert.equal(createEngineWorld({...config, packs: all.filter(id => id !== 'l.living_body')}).rules.packs.length, 10);
+    assert.deepEqual(engine.rules.packs, all);
+    // One declarer per fact: satiety is l.living_body's, vitality is the shared vocabulary's.
+    assert.equal(engine.rules.quantities.get('satiety').owner, 'l.living_body');
+    assert.equal(engine.rules.quantities.get('vitality').unit, 'vitality');
+    // The substrate still refuses a second, different declaration of either.
+    assert.throws(() => createEngineWorld({...config, shared: {quantities: [{id: 'satiety', unit: 'minute', min: 0, max: 1440}]}}),
+        /quantity satiety declared twice with different unit, bounds or keying \(world, l\.living_body\)/);
+    assert.throws(() => createEngineWorld({...config, shared: {quantities: [{id: 'vitality', unit: 'point', min: 0, max: 1_000_000}]}}),
+        /quantity vitality declared twice/);
+    // The wild pack declares no satiety of its own: alone, it has nothing to read.
+    assert.throws(() => createEngineWorld({...config, packs: ['a.wild_agency']}), /a\.wild_agency names undeclared quantity or property satiety/);
     assert.throws(() => createEngineWorld({...config, packs: ['x.unknown']}), /not a registered pack/);
 });
 
+test('one satiety serves a grazer and a wild worm: each turns hungry at its own threshold', () => {
+    const worm = liquorWormState('border');
+    worm.beliefs = {cellar: {liquor: 1}};
+    const engine = createEngineWorld({...config, holders: [
+        {id: 'border', kind: 'place'}, {id: 'cellar', kind: 'place', quantities: {liquor: 300}},
+        {id: 'worm', kind: 'body', place: 'border', tags: ['a.wild.liquor_worm'], quantities: {satiety: 400}, state: {'a.wild_agency': worm}},
+        {id: 'ewe', kind: 'body', place: 'border', tags: ['living.body'], quantities: {satiety: 8},
+            state: {'l.living_body': livingBodyState({species: 'sheep', rate: 1})}},
+    ]});
+    const {world} = advanceEngineWorld(engine, 200).engine;
+    // The worm's row says hungry below 360: from 400 at one a minute that is minute 41, as before the fix.
+    assert.deepEqual(world.holders.worm.state['a.wild_agency'].ring.map(({at, chose}) => ({at, chose})),
+        [{at: 41, chose: 'drink:cellar'}, {at: 149, chose: 'home'}]);
+    assert.equal(readQuantity(world, 'worm', 'satiety'), 1440 - (200 - 149), 'a full worm holds one meal, not the quantity bound');
+    assert.deepEqual(world.chain.filter(row => row.kind === 'living.hungry').map(({at, place}) => ({at, place})), [{at: 8, place: 'border'}]);
+});
+
 const PACK_FILES = ['agency_wild.js', 'contest_bodies.js', 'market_substrate.js', 'world_sky.js',
-    ...['brew_steam', 'forage_attraction', 'gu_brew_regulator', 'living_body', 'living_residue', 'residue_flow', 'shell_regulator']
+    ...['brew_steam', 'colony_light', 'forage_attraction', 'gu_brew_regulator', 'living_body', 'living_residue', 'residue_flow', 'shell_regulator']
         .map(name => `world_substrate_packs/${name}.js`)];
 // Shared vocabulary and plain helpers; any other import is a domain's own module.
 const NEUTRAL = ['world_quantities.js', 'basics.js'];
@@ -108,7 +130,7 @@ function mixedWorld() {
         {id: 'yard', kind: 'place', quantities: {humidity: 20}},
         {id: 'field', kind: 'place', quantities: {[active]: 7, [matrix]: 0}},
         {id: 'ridge', kind: 'place', quantities: {[star]: 0}},
-        {id: 'hill', kind: 'place', quantities: {[star]: 0}},
+        {id: 'hill', kind: 'place', tags: ['sky'], quantities: {...sky, [star]: 0}},
         {id: 'shell', kind: 'body', place: 'workshop', tags: ['shell.body'], state: {'l.shell_regulator': shellBodyState('closed')}},
         {id: 'inlet', kind: 'thing', place: 'workshop', tags: ['shell.inlet'],
             state: {'l.shell_regulator': shellInletState({mode: 'linked', position: 'closed', wanted: 'closed', follows: 'shell'})}},
@@ -121,19 +143,19 @@ function mixedWorld() {
         {id: 'clover', kind: 'thing', place: 'field', quantities: {[forage]: 4, [active]: 0, [matrix]: 1}},
         {id: 'ewe', kind: 'body', place: 'field', tags: ['living.body'], quantities: {[active]: 0, [matrix]: 2, satiety: 8},
             state: {'l.living_body': livingBodyState({species: 'sheep', rate: 1})}},
-        {id: 'colony', kind: 'thing', place: 'hill'},
+        {id: 'colony', kind: 'thing', place: 'hill', tags: ['colony.light'], quantities: {[fireflies]: 0}},
         {id: 'feeder', kind: 'body', place: 'ridge', properties: {alive: true, forage_light: star}},
     ]});
 }
 
-// Outside ops: the keeper rinses the cauldron, the ewe is put to graze, and the
-// hill colony's emergence windows give light. Nothing here knows which pack answers.
+// Outside ops: the keeper rinses the cauldron, the ewe is put to graze, and one
+// firefly emerges in the hill colony at each of three windows after dusk (720).
+// The colony's head count is its keeper's; no op here writes light or knows which pack answers.
 const schedule = [
     {at: 3, cause: 'keeper.rinses', ops: [{op: 'publish', kind: 'water.poured', place: 'workshop', by: 'cauldron',
         detail: {contents: {active: 30, 'herb:matrix': 20}}}]},
     {at: 5, cause: 'shepherd.grazes', ops: [grazeOp({place: 'field', crop: 'clover', body: 'ewe', portions: 2})]},
-    ...[15, 30, 45].map(at => ({at, cause: `colony.window:${at}`,
-        ops: [{op: 'publish', kind: 'light.given', place: 'hill', quantity: star, amount: 12, by: 'colony'}]})),
+    ...[735, 750, 765].map(at => ({at, cause: `colony.window:${at}`, ops: [{op: 'add', holder: 'colony', quantity: fireflies, amount: 1}]})),
 ];
 
 const reload = engine => restoreEngineWorld(JSON.parse(JSON.stringify(serializeEngineWorld(engine))), config);
@@ -173,17 +195,21 @@ test('a mixed day runs three chains in one world and settles the same in one jum
     // Rinse water to the field, the crop and the ewe.
     assert.deepEqual(['field', 'clover', 'ewe'].map(id => readQuantity(world, id, active)), [22, 8, 7]);
     assert.deepEqual(world.holders.ewe.state['l.living_body'].inbox, [{at: 5, kind: 'irritation', amount: 2, by: 'clover'}]);
-    // Colony light to the wild feeder.
-    assert.equal(readQuantity(world, 'hill', star), 36);
+    // Colony light to the wild feeder: three fireflies glow 36 through the night, and dawn (1320) puts it out.
+    assert.equal(readQuantity(run({}, 1319).engine.world, 'hill', star), 36);
+    assert.equal(readQuantity(world, 'hill', star), 0);
+    assert.deepEqual(readProvenance(world, 'hill', star), {'l.colony_light:glow:colony': 36, 'l.colony_light:sky-turn:colony': -36});
+    assert.deepEqual(world.chain.find(row => row.kind === 'sky.daylight' && row.place === 'hill' && row.at === 1320).reactions,
+        ['l.colony_light:sky-turn@colony']);
     assert.equal(world.holders.feeder.place, 'hill');
     assert.deepEqual(world.holders.feeder.state['l.forage_attraction'].lastMove,
-        {at: 20, from: 'ridge', to: 'hill', light: star, here: 0, there: 12, minimum: 8});
+        {at: 740, from: 'ridge', to: 'hill', light: star, here: 0, there: 12, minimum: 8});
     assert.ok(world.chain.length < dials.chainCap, 'no cause row was trimmed');
 
     // One jump, ten-minute steps, single minutes, and save then restore midway.
     assert.deepEqual(serializeEngineWorld(run({step: 10}).engine), saved, 'ten-minute steps');
     assert.deepEqual(serializeEngineWorld(run({step: 1}).engine), saved, 'minute steps');
-    assert.deepEqual(serializeEngineWorld(run({reloadAt: [4, 5, 17, 20, 31, 33, 720]}).engine), saved, 'reloads');
+    assert.deepEqual(serializeEngineWorld(run({reloadAt: [4, 5, 17, 20, 720, 735, 736, 740, 751, 1320]}).engine), saved, 'reloads');
     assert.deepEqual(serializeEngineWorld(reload(jump.engine)), saved);
     // A second day from a restored save matches a second day played straight through.
     const twoDays = serializeEngineWorld(run({}, 2 * DAY).engine);
@@ -193,6 +219,7 @@ test('a mixed day runs three chains in one world and settles the same in one jum
     const couplings = exercisedCouplings(jump.engine);
     assert.deepEqual(couplings.filter(c => c.crossDomain).map(c => c.text), [
         'effect effect.add: w.residue_flow -> l.living_residue',
+        'effect sky.daylight: w.sky -> l.colony_light',
         'effect smoke: b.brew_steam -> l.shell_regulator',
         'quantity humidity: b.brew_steam + g.brew_regulator + l.shell_regulator',
         `quantity ${active}: l.living_residue + w.residue_flow`,

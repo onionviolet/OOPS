@@ -23,7 +23,8 @@ const testedValid = (tested, genes) => tested === undefined || Array.isArray(tes
 const breedingValid = breeding => breeding === undefined || object(breeding) &&
     Object.entries(breeding).every(([trait, value]) => key(trait) && Number.isSafeInteger(value));
 const allelesValid = alleles => alleles === undefined || object(alleles) && Object.entries(alleles).every(([locus, row]) =>
-    key(locus) && object(row) && natural(row.strong) && natural(row.plain));
+    key(locus) && object(row) && natural(row.strong) && natural(row.plain) &&
+    (row.held === undefined || Array.isArray(row.held) && row.held.length === 2 && natural(row.held[0]) && positive(row.held[1])));
 const organsValid = organs => object(organs) && Object.entries(organs).every(([name, organ]) => key(name) &&
     object(organ) && Object.entries(organ).every(([field, value]) => key(field) && (key(value) || natural(value))));
 
@@ -312,7 +313,12 @@ export function startCreatureBrood(state, {
         first.matureAt <= clock && second.matureAt <= clock, 'Parents need compatible adult stock in the same habitat.');
     check(!Object.values(state.broods).some(brood => brood.parents.some(id => parents.includes(id))),
         'A parent already has a pending brood.');
-    const id = `brood:${next.revision}`;
+    // GR4: a brood is named by what it is, the ordered pair and how many young that
+    // pair already has, so its draws do not move when an unrelated settlement (a gene
+    // test, a care action) lands first. Derived from saved parentage; no counter is stored.
+    const litter = Object.values(state.individuals).filter(young =>
+        young.parents?.[0] === parents[0] && young.parents[1] === parents[1]).length;
+    const id = `brood:${first.serial}.${second.serial}.${litter}`;
     // Whole traits copy from one parent (the parental draw, OA5); loci with alleles follow
     // the genome's rules when the kind has one (GN1), with exposure raising mutation (GN4).
     const traits = {};

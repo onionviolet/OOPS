@@ -1,5 +1,5 @@
 // Lord of the Mysteries brewing pack (chat B). Every formula row in
-// lotm_formula_rows.js (43 rows from the pathway table) as a brew method on the
+// lotm_formula_rows.js (43 rows), plus the named mains below, as methods on the
 // shared brew law (brew_law.js), with its text quantities parsed into amounts.
 //
 // World law, default, dial and reason (proposal under AD56, calibrated to the
@@ -69,7 +69,33 @@ function packRow(row) {
         offered: row.status === 'brewable'});
 }
 
-export const LOTM_BREW_ROWS = Object.freeze(LOTM_FORMULA_ROWS.map(packRow));
+// Additional mains in the table's detailed rows, absent from its 43-row summary.
+// PC85, PFP3: keep these world facts here; unknown quantities use the existing
+// portion default. Timing inherits the existing authored dial for that Sequence.
+// No bench offer: auxiliaries and/or the complete formula remain unknown.
+const ADDITIONAL_FORMULAS = [
+    {id: 'twilight_giant_3', pathway: 'Twilight Giant', seq: 3, name: 'Silver Knight',
+        main: 'Silver Knight characteristic', aux: [],
+        evidence: 'T 1155; PATHWAY_POTION_TABLE.md:221'},
+    {id: 'hermit_3', pathway: 'Hermit', seq: 3, name: 'Prophecy Master',
+        main: 'Sequence 3 Prophecy Master characteristic', aux: [],
+        evidence: 'S 1207; PATHWAY_POTION_TABLE.md:281'},
+    {id: 'chained_4', pathway: 'Chained', seq: 4, name: 'Puppet',
+        main: 'Wraith consciousness crystal',
+        aux: ['Wraith blood', 'dust', 'contaminated water', 'mirror', 'souls'],
+        evidence: 'W, medium; PATHWAY_POTION_TABLE.md:382'},
+].map(({main, aux, evidence, ...row}) => ({...row, status: 'inspect-only',
+    minutes: LOTM_FORMULA_ROWS.find(r => r.seq === row.seq).minutes,
+    slots: [{id: 'm1', role: 'main', select: {material: main}, qty: 1, evidence},
+        ...aux.map((material, i) => ({id: `a${i + 1}`, role: 'aux',
+            select: {material}, qty: 1, ...(material === 'souls' ? {amount: '9'} : {}), evidence}))],
+    gaps: [evidence, 'Main amount is unstated; the existing one-portion default applies.',
+        ...(aux.length ? ['Wiki-only formula; no novel-note confirmation in the table.']
+            : ['Auxiliary materials are not named in the table.']),
+        'Complete formula unverified; no bench brew is offered.'],
+}));
+
+export const LOTM_BREW_ROWS = Object.freeze([...LOTM_FORMULA_ROWS, ...ADDITIONAL_FORMULAS].map(packRow));
 export const lotmBrewRow = id => LOTM_BREW_ROWS.find(r => r.id === id) ?? null;
 
 /** Lots for one attempt: each slot's measured amount (milli) of its material.

@@ -105,6 +105,14 @@ Scope: the core (PC1-PC50, PC67-PC80) and this doc against the [foundation plan]
 | RC10 | The core says the plan "grew to 748 lines"; the core is now about 590 | Stale framing | Core | `wc -l` | A section map was added at the top of the core. Splitting it is a later tidy, with no content change |
 | RC11 | S checkpoint line 77 says 94 of 117 spells run; `docs/coverage/hp_spells.jsonl` and the coverage README say 80 | Stale documentation or a later ledger change | S chat; coverage report | Both read; cause not traced | Open: S confirms which is current. P1.1 makes the ledger the computed source either way |
 | RC12 | PC29 called the Gu body facet mostly data; no Gu row has a diet | Evidence correction | Core; L and G | `src/gu_catalogue.js`, `docs/coverage/gu_kinds.jsonl` | Fixed in the core (F14, PC86) |
+| RC13 | The core's Q1 (may headline numbers fall) is open, while `hp_spells` typed runs fell from 80 to 42 in Wave 12 because 38 rows now carry a case and are typed `expressed-authored` | Genuine disagreement between an open question and delivered work | Core Q1; S's ledger | `docs/coverage/README.md` side-by-side table: typed 42, computed expressed 38 | Left as delivered, with both figures shown. Weibao's answer to Q1 either keeps it or restores the old typing for case rows |
+| RC14 | PC49's four phases, PC91's order, PC95's order and PC99's family starts each state an order | Duplicate, with later ones superseding | This doc | Sections read | The current order is the handoff's "Next" list, built from PC95 and PC99. PC49 and PC91 are history where they differ |
+| RC15 | PC94 caps a wave at three code lanes; Waves 11 and 12 ran five and seven | Compatible variant, by Weibao's instruction to use the Fable allowance | Run record | Run record Wave 12 | The cap returns to three under a Codex coordinator unless Weibao says otherwise |
+| RC16 | The first PC99 wording gave body alteration "one slot rule" and "capacity" as limits | Evidence correction, from Weibao's words | PC99 | PC99 as corrected | Fixed: capacity is a default with a cost curve and five ways around it |
+| RC17 | Core F15 said 177 potion formulas were already written down | Evidence correction | Core F15; `w11-formulas` return | 3 named, 1 partly, 173 not named | Fixed in the core; the 173 are a reading job |
+| RC18 | `tests/headless/*.test.js` is outside the suite glob (`tests/*.test.js`), and `tests/headless/away_bank_equivalence.test.js` fails its woodcutting case | Missing proof | Away bank (TMR4); no wave in this run touched it | Fails the same way on a clean checkout of `0876c3906` | Open: not caused by this run. Its owner decides whether headless tests join the suite |
+| RC19 | Two focused runs in this run's records (Wave 11 fold and the Codex fold) passed fewer files than intended, because the shell did not split a file list | Evidence correction | Run record | Rerun with one argument per file: 26 files, 281 tests, 278 pass, 0 fail, 3 skipped | Wave 11's full suite already covered the first; the Codex fold is covered by the rerun and by Wave 12's full suite |
+| RC20 | The run record, handoff and playbook did not mention these docs (RC6) | Resolved | Run record | Takeover block and Waves 10 to 12 cite them | Closed. The earlier uncommitted edits to the playbook and the first Codex handoff are still not this run's and stay uncommitted |
 
 Unmapped: the plan's GN, IH, DG, BL, LN, SPD, PTD, MD, FN, OA and BX families were not compared row by row against PC48; the per-chat checkpoints under `docs/gm/dispatch/foundation-*-2026-11-12/` were read for L and B alone.
 
@@ -386,16 +394,26 @@ By PC94 a family starts when it has two consumers waiting. Read against what the
 
 | Family | Consumers waiting | Start | First packet |
 | --- | --- | --- | --- |
-| Body alteration | A Gu in an aperture, a potion that grants a lasting power, a Sequence, an implant, the Sandevistan below | **Now** | One slot rule on a body with capacity, load, upkeep and rejection, with three consumer rows in a fixture |
+| Body alteration | A Gu in an aperture, a potion that grants a lasting power, a Sequence, an implant, the Sandevistan below | **Now** | One slot mechanism on a body with capacity as a cost curve, load, upkeep and rejection, the ways around it, and three consumer rows in a fixture |
 | Stored workings | Runes and talismans (already in the game), wards, a potion held ready, a sustained part of a technique (TG1) | **Now** | One stored-working shape on the kernel: carrier, trigger, charge, decay; a rune strip and a ward as rows |
-| Process crafts | Brewing uses it; forging has no law | After a census of Making (PC45) | The census, as a Codex lane |
-| Bindings | Oaths exist in the kernel; taming and familiars have no engine consumer yet | Later, with custody (PC23) | None now |
+| Process crafts | Brewing uses it; forging has no law | **Now** (Weibao, 2026-11-12: "Start the other families accordingly, each with their own fable directing codex") | A census of Making, then a forging row on the shared process mechanism |
+| Bindings | Oaths exist in the kernel; taming and familiars have no engine consumer yet | **Now**, by the same instruction | One binding shape on the kernel's oaths, with a tamed animal and a familiar as rows |
 
 Long-term place in the order: the two that start now are phase 2 work beside the four rows, because the potion row and the Gu row both end in a body slot, and the spell row's wards and the technique's held parts are stored workings. Process crafts join phase 3 with Making. Bindings join the custody and contest facets.
 
 ### Body alteration, with cyberpunk biotech
 
-One slot rule, six carriers. The carrier decides the numbers; the rule is shared.
+One shared slot mechanism, six carriers. The carrier decides the numbers; the mechanism is shared.
+
+Weibao (2026-11-12), on the first wording of this section: "'One slot rule' 'Capacity' There are always ways around everything? Dont forget our core rules too". Corrected here. Capacity is a default with a dial and an in-world reason (AD5, AD22, AD38), and it is a pressure, not a wall: going past it works, at a rising cost, and every world has ways around it. "One Elixir per person" and "one Sequence at a time" describe the ordinary case; the exceptions exist with their reason and their price.
+
+| Way around a capacity | Examples | What it costs |
+| --- | --- | --- |
+| Raise it | A larger aperture by rank or treasure; training; a better frame or a second heart | Time, materials, risk during the change |
+| Go past it | A second Elixir, an overloaded aperture, chrome beyond the budget | A cost curve on the body or mind that steepens; canon's failures are the far end of that curve |
+| Stabilize the excess | Suppressants, a sealing artifact, a ritual anchor, a regulating Gu | Upkeep, and dependence on the stabilizer |
+| Move the load elsewhere | Carried in an item, a familiar, a second body, a shared pool between partners | Custody risk; the carrier can be lost or taken |
+| Change what counts | Fuse two into one, compress, digest fully, swap the body | The operators in PC97, each with its own price |
 
 | Carrier | Examples | Capacity it draws on | Upkeep | What goes wrong |
 | --- | --- | --- | --- | --- |
@@ -425,7 +443,7 @@ The kernel consequence, stated once because it is the costly part: steps settle 
 
 **ACCOUNT FOR NOW**
 
-- **Capacity is the common limit.** Aperture size, implant budget, one Elixir per person, one Sequence at a time and tolerance are one adjective, "how much fits" (AD22), with the number and its reason per world. The slot rule should carry it once.
+- **Capacity is the common pressure.** Aperture size, implant budget, the usual one Elixir per person, the usual one Sequence at a time and tolerance are one adjective, "how much fits" (AD22), with the number, its in-world reason and its ways around per world. The slot mechanism carries it once, as a cost curve and not a refusal.
 - **Skipping the suite moves risk to tie-in.** The focused gate protects the engine. The first full suite after a long gap may surface several failures at once, which is the reason for the daily run.
 - **Stored workings change who acts.** A ward fires with nobody present, so authority is read at storing and again at firing (KW12), and the receipt names both.
 - **Pace interacts with idle settlement.** A sped-up holder during a long far settlement would multiply output for the whole stretch unless strain bounds it. The strain curve is what keeps the rate form honest.
@@ -437,8 +455,8 @@ The kernel consequence, stated once because it is the costly part: steps settle 
 
 | Phase | Check | Source of truth | State |
 | --- | --- | --- | --- |
-| 1 | Ledger states computed by the runner | `npm run check:coverage` | Open: runner and README columns exist (Wave 10); no row has a `case`, so computed runs are 0 |
-| 1 | A settled spell changes a W world through one host on the game's path | `scripts/reachable.mjs`, focused tests | Open: `src/effect_host.js` lands a spell in tests (Wave 10); unreachable from the game. Next: P1.2b on `src/spellbook_host.js` |
+| 1 | Ledger states computed by the runner | `npm run check:coverage` | Met for `hp_spells` (Wave 12): 38 of 80 rows compute as expressed. The other six ledgers have no cases yet |
+| 1 | A settled spell changes a world through one host | Focused tests | Met in the engine (Waves 10 to 12). Hosting on the game's spellbook cast is tie-in work (PC95) |
 | 1 | Compression ledger prints with a baseline | `npm run report:compression` | Met (Wave 10): C1 36, C2 65, C3 5, C4 4, C5 10, C6 0 of 7 |
 | 1 | Absorption matrix prints | | Withdrawn (PC94) |
 | 1 | Coupling map prints | `npm run report:couplings` | Met (Wave 10): 11 packs, 5 cross-domain couplings, 1 pack loaded |
@@ -456,4 +474,4 @@ The kernel consequence, stated once because it is the costly part: steps settle 
 | 3 | Data already read is in the ledgers (PC85) | Coverage README | Open: 177 potions on `formula-in-notes`, of which the share with a formula in the table is uncounted; no `canon_negatives` ledger |
 | Reading | Chapter-checked share of Gu kinds, moves and ingredients | Coverage README | 78 of 1,466 kinds; 23 of 776 moves; 20 of 409 ingredients running, 79 more with evidence rows |
 
-Resume line: Wave 11 landed P1.7 (engine world: 10 of 11 packs, 4 couplings exercised) and P1.6 (vocabulary fold: 79 of 80 spellbook rows map). Numbers: G1 0, G2 10 of 11, G3 4, G4 0, G5 0. Next: P1.8 (Hogwarts grammar as a world pack with cases, for G1), the two living-things settlement faults, the `satiety` owner, and the colony as a pack. Codex lanes on formulas and Gu feeding are out. Game tie-in is deferred. Questions waiting: Q1, Q2, Q5, Q7 in the [core](PROCEDURAL_CORE.md#open-questions).
+Resume line (after Wave 12's main-checkout lanes): G1 38 expressed rows in one ledger of seven; G2 12 of 12 registered packs compose; G3 5 cross-domain couplings exercised in one run; G4 0; G5 0. The four craft families each have a first mechanism on a branch. Current state and next steps: [second Codex handoff](gm/dispatch/foundation-run-2026-11-12/CODEX_COORDINATOR_HANDOFF_2.md). Questions waiting: Q1, Q2, Q5, Q7 in the [core](PROCEDURAL_CORE.md#open-questions).

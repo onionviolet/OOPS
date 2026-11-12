@@ -1317,3 +1317,9 @@ Weibao: "keep going, more to consider? Consider if suite is skippable? Reconcile
 
 Recorded as a proposal in the [carry-out](../PROCEDURAL_CARRY_OUT.md#gate-rule-craft-families-in-the-order-and-body-alteration-pc99-2026-11-12) (PC99): the full suite runs when a wave touches code the game loads and is otherwise replaced by a focused gate, with one full run a day; body alteration and stored workings start now, process crafts after a Making census, bindings later; six carriers for body alteration including cyberpunk hardware and bioware; the Sandevistan as one quantity, pace, read as many steps up close and as initiative from afar, paid for in strain.
 
+## Ways around every limit; all four families start, 2026-11-12
+
+Weibao: "'One slot rule' 'Capacity' There are always ways around everything? Dont forget our core rules too, Start the other families accordingly, each with their own fable directing codex".
+
+Recorded in the [carry-out](../PROCEDURAL_CARRY_OUT.md#gate-rule-craft-families-in-the-order-and-body-alteration-pc99-2026-11-12): capacity is a default with a reason and a cost curve, with five ways around it, restating AD5, AD22 and AD38 for this mechanism; all four craft families start now, each led by a Fable lane that directs a Codex lane.
+

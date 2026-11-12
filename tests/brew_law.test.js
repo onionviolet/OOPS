@@ -46,7 +46,7 @@ test('Seer equivalence test: the formula row on the shared law matches the scene
 });
 
 test('every known LOTM formula runs as data: full dose at formula, balanced ledger', () => {
-    assert.equal(LOTM_BREW_ROWS.length, 43);
+    assert.equal(LOTM_BREW_ROWS.length, 46);
     assert.equal(LOTM_BREW_ROWS.filter(r => r.offered).length, 23);
     for (const row of LOTM_BREW_ROWS) {
         const {record} = brewRow(row);

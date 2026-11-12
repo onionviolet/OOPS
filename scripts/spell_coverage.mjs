@@ -2,10 +2,15 @@
 // of docs/research/HOGWARTS_SPELLBOOK_2026-11-11.md, in spellbook order. A record
 // that is a row of the Hogwarts spell pack runs through the spell law (tested in
 // tests/spell_grammar.test.js); the rest carry the state named in
-// HP_SPELL_LEDGER_EXCEPTIONS. Fails when any record is unclassified.
+// HP_SPELL_LEDGER_EXCEPTIONS. A row with a case scene in the Hogwarts effect pack
+// carries `case` and is typed `expressed-authored` (PC5, PC10): the coverage runner
+// executes the case and `check:coverage` fails if it computes anything else. The
+// scene's amounts, places and marks are pack defaults, hence authored.
+// Fails when any record is unclassified.
 // Usage: node scripts/spell_coverage.mjs [--check]
 import fs from 'node:fs';
 import {HP_SPELL_ROWS, HP_SPELL_LEDGER_EXCEPTIONS} from '../src/spell_pack_hogwarts.js';
+import {HP_CASE_SCENES, HP_CASE_MODULE} from '../src/world_packs/hp_effect_pack.js';
 
 const book = 'docs/research/HOGWARTS_SPELLBOOK_2026-11-11.md', out = 'docs/coverage/hp_spells.jsonl';
 const TEST = 'tests/spell_grammar.test.js#every Hogwarts spellbook row runs through the spell law';
@@ -18,7 +23,9 @@ const ledger = records.map(({id, forms, evidence}) => {
     const source = `HOGWARTS_SPELLBOOK_2026-11-11 ${id}; ${evidence}`;
     const row = rows.get(id), exception = HP_SPELL_LEDGER_EXCEPTIONS[id];
     if (row && exception) throw Error(`${id} is both a row and an exception.`);
-    if (row) return {id, source, state: 'runs-authored', mechanisms: ['S', 'K'], test: TEST,
+    const scene = HP_CASE_SCENES[id];
+    if (row) return {id, source, state: scene ? 'expressed-authored' : 'runs-authored', mechanisms: ['S', 'K'], test: TEST,
+        ...(scene ? {case: {module: HP_CASE_MODULE, id}} : {}),
         note: `${forms}: effect from the book (${row.truth.verb} ${row.truth.object}); wand carrier and stamina cost authored.${row.note ? ' ' + row.note : ''}`};
     if (exception) return {id, source, state: exception.state, mechanisms: exception.mechanisms,
         test: exception.state.startsWith('blocked') ? TEST : '', note: `${forms}: ${exception.note}`};
@@ -31,5 +38,5 @@ if (process.argv.includes('--check')) {
     if (fs.readFileSync(out, 'utf8') !== text) { console.error(`${out} is stale; run node scripts/spell_coverage.mjs`); process.exit(1); }
 } else fs.writeFileSync(out, text);
 const count = s => ledger.filter(r => r.state.startsWith(s)).length;
-console.log(`${ledger.length} records: runs ${count('runs')}, blocked ${count('blocked')}, not-a-thing ${count('not-a-thing')}, unclassified ${count('unclassified')}`);
+console.log(`${ledger.length} records: expressed by case ${count('expressed')}, runs ${count('runs')}, blocked ${count('blocked')}, not-a-thing ${count('not-a-thing')}, unclassified ${count('unclassified')}`);
 if (count('unclassified')) process.exit(1);

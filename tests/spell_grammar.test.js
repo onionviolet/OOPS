@@ -152,7 +152,8 @@ test('every Hogwarts spellbook row runs through the spell law', async () => {
     assert.equal(ledger.filter(r => r.state === 'unclassified').length, 0);
     const rows = new Map(HP_SPELL_ROWS.map(r => [r.id, r]));
     for (const entry of ledger) {
-        if (entry.state.startsWith('runs')) {
+        // A row with a coverage case is typed expressed-* (PC10); it is still a pack row under the spell law.
+        if (/^(runs|expressed)-/.test(entry.state)) {
             const row = rows.get(entry.id);
             assert.ok(row, `${entry.id} runs but has no pack row`);
             const sentence = sentenceFromIntent(partsOf(row, HP_SPELL_WORLD));

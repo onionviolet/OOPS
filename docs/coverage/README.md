@@ -10,8 +10,8 @@
 | [gu_moves](gu_moves.jsonl) | G | 776 | 776 | 0 | 4 | 772 | 0 | 0 | 100% | 0.5% |
 | [hp_potions](hp_potions.jsonl) | B | 316 | 316 | 0 | 5 | 279 | 32 | 0 | 100% | 1.8% |
 | [hp_ingredients](hp_ingredients.jsonl) | B | 409 | 409 | 0 | 20 | 380 | 9 | 0 | 100% | 5% |
-| [lotm_potions](lotm_potions.jsonl) | B | to build | 226 | 10 | 33 | 183 | 0 | 0 | 100% | 19% |
-| [hp_spells](hp_spells.jsonl) | S | 117 | 117 | 0 | 80 | 32 | 5 | 0 | 100% | 71.4% |
+| [lotm_potions](lotm_potions.jsonl) | B | to build | 226 | 10 | 36 | 180 | 0 | 0 | 100% | 20.4% |
+| [hp_spells](hp_spells.jsonl) | S | 117 | 117 | 0 | 42 | 32 | 5 | 0 | 100% | 37.5% |
 | [creatures](creatures.jsonl) | L | to build | 96 | 0 | 18 | 78 | 0 | 0 | 100% | 18.8% |
 
 ## Typed and computed, side by side (PC9, PC10)
@@ -25,12 +25,12 @@
 | gu_moves | 4 | 0 | 0 | 4 |
 | hp_ingredients | 20 | 0 | 0 | 20 |
 | hp_potions | 5 | 0 | 0 | 5 |
-| hp_spells | 80 | 0 | 0 | 80 |
-| lotm_potions | 43 | 0 | 0 | 43 |
+| hp_spells | 42 | 38 | 0 | 42 |
+| lotm_potions | 46 | 0 | 0 | 46 |
 
 ## Reachability from `src/main.js` (PC14)
 
-`node scripts/reachable.mjs`: 1491 of 1657 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
+`node scripts/reachable.mjs`: 1491 of 1660 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
 
 - `src/translation.js`: `` import(`../locales/${language}.js`) ``
 
@@ -42,7 +42,7 @@
 | gu_kinds | rank-unknown | 679 |
 | gu_kinds | effect-unknown | 400 |
 | hp_ingredients | ingredient-properties | 380 |
-| lotm_potions | formula-in-notes | 177 |
+| lotm_potions | formula-in-notes | 174 |
 | hp_potions | body-door | 82 |
 | creatures | gu-body-fields | 78 |
 | hp_potions | mind-state | 50 |

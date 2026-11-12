@@ -201,22 +201,31 @@ export function drawFromFrequencies(genome, alleles, {root, at}) {
             check(total > 0, `No alleles left at ${id}.`);
             const strong = drawU32(root, address(at, id, i, 'draw')) % total < row.strong;
             row[strong ? 'strong' : 'plain']--;
+            delete row.held;
             return strong ? locus.strong : locus.plain;
         });
     }
     return {genes, alleles: left};
 }
 
-/** Births add alleles in the cohort's current proportion (random mating, Hardy-Weinberg). */
+/** Births add alleles in the cohort's proportion (random mating, Hardy-Weinberg). The
+ * proportion is the one held when the run of births began (`held: [strong, total]`),
+ * and the count is computed from totals, so one settlement of twenty and twenty of one
+ * agree (KW5). The row drops `held` once the counts sit exactly on that proportion. */
 export function addBirthsToFrequencies(alleles, count) {
     return Object.fromEntries(Object.entries(alleles).map(([id, row]) => {
-        const total = row.strong + row.plain, strong = total ? Math.round(2 * count * row.strong / total) : 0;
-        return [id, {strong: row.strong + strong, plain: row.plain + 2 * count - strong}];
+        const [strong0, total0] = row.held ?? [row.strong, row.strong + row.plain];
+        const total = row.strong + row.plain + 2 * count;
+        if (!total0) return [id, {strong: row.strong, plain: total - row.strong}];
+        const strong = strong0 + Math.round((total - total0) * strong0 / total0);
+        return [id, {strong, plain: total - strong, ...(strong * total0 === strong0 * total ? {} : {held: [strong0, total0]})}];
     }));
 }
 
-/** Losses take alleles in proportion; a share that rounds to more than what is left takes all of it. */
+/** Losses take alleles in proportion; a share that rounds to more than what is left takes
+ * all of it. A loss ends a run of births, so the row's held proportion is dropped. */
 export function removeFromFrequencies(alleles, count) {
+    if (count === 0) return alleles;
     return Object.fromEntries(Object.entries(alleles).map(([id, row]) => {
         const total = row.strong + row.plain, take = Math.min(total, 2 * count);
         const strong = total ? Math.min(row.strong, Math.round(take * row.strong / total)) : 0;

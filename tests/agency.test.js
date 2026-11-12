@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {actorQuote, bandOf, chooseWorking, defineAgent, inventBySearch, recordChoice, searchWorkings, CHOICE_RING, SEARCH_TRIAL_LIMIT} from '../src/agency.js';
 import {householdCandidates, householdCook, householdLaw, householdMethods, householdNeeds, householdReader, ROUTINE_NEED} from '../src/agency_household.js';
 import {createWildAgencyPack, liquorWormState, LIQUOR_WORM_ROW} from '../src/agency_wild.js';
+import {SATIETY} from '../src/world_substrate_packs/living_body.js';
 import {composeSubstrate, createWorld, advanceWorld, applyWorldOps} from '../src/world_substrate.js';
 import {defineGrammar, fitGrammar, generate} from '../src/procedural_grammar.js';
 import {address} from '../src/gen_kit.js';
@@ -89,7 +90,7 @@ test('the choice ring is bounded per holder', () => {
 
 const P = {home: 'border', cellar: 'cellar', grove: 'grove'};
 function wormWorld({liquor = 300, satiety = 400, detail = 'far', believe = {cellar: 1}, grove = 0, invent = null} = {}) {
-    const rules = composeSubstrate({packs: [createWildAgencyPack({invent})]});
+    const rules = composeSubstrate({packs: [createWildAgencyPack({invent})], quantities: [SATIETY]});
     const state = liquorWormState(P.home);
     state.beliefs = Object.fromEntries(Object.entries(believe).map(([k, v]) => [k, {liquor: v}]));
     const world = createWorld(rules, {holders: [
@@ -184,7 +185,7 @@ test('two actors sharing one profile are keyed apart', () => {
     assert.equal(two.actor, 'cook.bram');
     const seen = [];
     const spy = args => { seen.push(args.actor); return null; };
-    const rules = composeSubstrate({packs: [createWildAgencyPack({invent: spy})]});
+    const rules = composeSubstrate({packs: [createWildAgencyPack({invent: spy})], quantities: [SATIETY]});
     const worm = id => ({id, kind: 'body', place: P.home, tags: ['a.wild.liquor_worm'], quantities: {satiety: 300}, state: {'a.wild_agency': liquorWormState(P.home)}});
     const w = createWorld(rules, {holders: [{id: P.home, kind: 'place', quantities: {}}, {id: P.cellar, kind: 'place', quantities: {liquor: 0}}, worm('worm.a'), worm('worm.b')]});
     advanceWorld(rules, w, 3);

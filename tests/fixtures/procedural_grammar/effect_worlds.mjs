@@ -1,5 +1,5 @@
-// Two world mappings onto the effect grammar (chat P proof, EF1). Fixtures,
-// not world packs: G and S own their packs and adopt or replace these
+// Two world mappings onto the effect grammar (chat P proof, EF1). The Gu half is a fixture,
+// not a world pack (Hogwarts moved to src/world_packs/hp_effect_pack.js): G and S own their packs and adopt or replace these
 // (PFP3, PFP4). Labels are deterministic readings of repo data (MC14 step 1):
 // Gu from chat G's chapter-checked parts rows, Hogwarts from the spellbook's
 // paraphrased "Operation or lead" column. Every label is a proposal.
@@ -68,68 +68,10 @@ export async function guEffectRows() {
 }
 
 // ---------- Hogwarts (spellbook research records) ----------
-export const hpEffects = defineEffectGrammar({
-    world: 'hogwarts', carriers: {'spoken-spell': ['stamina'], ward: ['stamina']},
-    keys: {light: 'wand', essence: 'mana'},
-    limits: ['ward', 'cover', 'distance', 'mass', 'will', 'counter-effect'],
-});
-// Ordered: the first verb rule that matches wins. Words are the paraphrase's.
-const HP_VERBS = [
-    ['transform', /repair|\bmend/], ['end', /\bend\b|finite|\bcounter|dismiss/],
-    ['block', /barrier|shield|\bward|repel|imped|protect|restrict|prevent|interpose|suppress|interfere|defensive/],
-    ['release', /release|\bopen|unlock|\bfree\b|unbind|\bclear/], ['bind', /\bbind|hold|immobili|rigidif|suspend|lock|stick|seal|restrain/],
-    ['conceal', /conceal|hide|disillusion|invisib|disguise|muffl|blindfold/], ['copy', /copy|duplicat|record|replica/],
-    ['sense', /reveal|detect|\bsee\b|show|identif|locate|\bread|find|sense|point|test|track|inspect|access mental|query|orient/],
-    ['move', /move|lift|bring|send|carry|raise|summon|transport|descend|fetch|float|slow|fall|throw|pull|push|banish|away|dance|\bdirect/],
-    ['remove', /remove|destroy|vanish|erase|\bcut|\bsever(?!al)|extinguish|damage|harm|kill|wound|explo|blast|break|clean|scour|strike|pain/],
-    ['transform', /transform|change|transfigur|\bturn|becom|shrink|enlarg|swell|grow|alter|reshape|harden|set up|restore|animate|impose/],
-    ['add', /make|creat|conjur|produc|\blight|illuminat|fire|flame|water|spark|heal|fill|mark|signal|cheer|sound|amplif|manifest/],
-    ['alter', /carrier|enchant|charm the|jinx the/],
-];
-const HP_OBJECTS = [
-    ['mind', /\bmind|mental|emotion|confus|cheer|mood|sleep|dream|\bwill\b|thought|laugh|calm|command/],
-    ['working', /\bend\b|finite|\bcounter|curse|jinx|\bhex|enchant|working|spell\b|echo/], ['vitality', /harm|wound|heal|kill|pain|injur|blood|airway|choking/],
-    ['light', /\blight|illuminat|glow|lumos|spark|\bdark/], ['heat', /\bfire|flame|heat|warm|burn|cold|freez/], ['sound', /sound|voice|noise|silen|muffl|loud|hearers/],
-    ['moisture', /\bwater|\bwet\b|\bdry\b|\brain\b/], ['memory', /memor|forget/],
-    ['relation', /custody|held implement|access|agreement|\block|unlock|door|oath|passage|key/], ['information', /reveal|detect|identif|locate|signal|show|find|test|track|point|inspect|navigation|eyes/],
-    ['form', /shape|transfigur|size|colou?r|\bform\b|repair|mend|grow|shrink|swell|rigid|body|teeth|hair|boils|harden|tent|hole/],
-    ['position', /move|lift|bring|send|carry|raise|summon|transport|descend|fetch|float|fall|slow|suspend|immobili|legs|away|route|destination|attack/],
-    ['thing', /object|item|luggage|tree|target|thing|guardian|statue|restraints|material/],
-];
-const HP_TARGET = [['self', /self|caster|oneself|own /], ['area', /ward|perimeter|area|room|camp|group|surround/], ['touched', /touch/],
-    ['line', /toward a target|jet|beam|send a/]];
-const HP_TIME = [['sustained', /support|maintain|keep|until|while|ongoing|active/], ['lasting', /permanent|lasting|repair|mend|transfigur|make/],
-    ['triggered', /when|trigger/]];
-const HP_LIMITS = [['ward', /protected|obstruct|ward/], ['mass', /mass|weight|heavy/], ['distance', /distance|range|far|route/], ['will', /will|resist/],
-    ['counter-effect', /eligible|counter/]];
-const first = (table, text) => table.find(([, re]) => re.test(text))?.[0] ?? null;
-export function labelHpEffect(row) {
-    const text = row.lead.toLowerCase();
-    const verb = first(HP_VERBS, text);
-    if (!verb) return {missing: ['verb']};
-    let object = first(HP_OBJECTS, text);
-    const defaults = {move: 'position', block: 'working', end: 'working', sense: 'information', conceal: 'information', bind: 'position',
-        release: 'working', add: 'thing', remove: 'thing', transform: 'form', copy: 'form', alter: 'working'};
-    object ??= defaults[verb];
-    const limits = HP_LIMITS.filter(([, re]) => re.test(text)).map(([l]) => l);
-    const carrier = row.family === 'Defend, interrupt and end' && /ward|perimeter|repel/.test(text) ? 'ward' : 'spoken-spell';
-    return {parts: {verb, object, target: first(HP_TARGET, text) ?? 'bound', time: first(HP_TIME, text) ?? 'instant', carrier, cost: 'stamina', limits},
-        truth: {family: row.family}};
-}
-// Non-circular check: chat S's family headings group records by operation,
-// apart from the lead text the labeller reads.
-const FAMILY_VERBS = {
-    'Move, stop and position': ['move', 'bind', 'block', 'release'],
-    'Defend, interrupt and end': ['block', 'end', 'release', 'conceal', 'move', 'alter'],
-    'Make, change and repair': ['add', 'transform', 'remove', 'copy', 'alter'],
-    'See, know, signal and conceal': ['sense', 'conceal', 'add', 'copy', 'block'],
-    'Change a creature, mind or ongoing condition': ['transform', 'bind', 'alter', 'add', 'remove', 'move', 'sense'],
-    'Access, agreements and named attempts': ['release', 'bind', 'alter', 'sense', 'add'],
-};
-export function compareHpEffect(value, truth) {
-    const allowed = FAMILY_VERBS[truth.family] ?? [];
-    return allowed.includes(value.parts.verb) ? [] : [{field: 'verb', rule: 'family', cause: `${value.parts.verb} outside "${truth.family}"`, expected: allowed.join('|'), got: value.parts.verb}];
-}
+// The grammar, labeller, family check and world law live in the world pack (PC6);
+// re-exported so existing callers keep their import. The row reader stays here
+// because it reads a research file from disk.
+export {hpEffects, labelHpEffect, compareHpEffect, HP_FORBID, hpEffectsGl2, labelHpEffectGl2} from '../../../src/world_packs/hp_effect_pack.js';
 // Rows from the spellbook tables under the six family headings.
 export function hpEffectRows(path = new URL('../../../docs/research/HOGWARTS_SPELLBOOK_2026-11-11.md', import.meta.url)) {
     const rows = [];
@@ -173,9 +115,7 @@ export async function guCanonAmounts() {
     const {guCatalogue} = await import('../../../src/gu_catalogue.js');
     return Object.fromEntries(Object.entries(guCatalogue).map(([id, v]) => [`gu:${id}`, Object.values(v).map(b => b?.value?.cost).find(Number.isFinite)]));
 }
-// One world law as data (proposal): no shown Hogwarts spell rewrites a law of
-// the place. A pack can add an exception with its in-world reason and cost.
-export const HP_FORBID = [{law: 'alter|law', reason: 'no shown spell rewrites a law of the place; wards act on what enters, not on the law'}];
+// World laws as data. Hogwarts' is in its pack (HP_FORBID).
 export const GU_FORBID = [];
 
 // ---------- GL2: the effect predicted from identity ----------
@@ -184,11 +124,6 @@ export const GU_FORBID = [];
 // Gu identity: wiki type and path labels (authored apart from G's function
 // families). Hogwarts identity: chat S's family heading.
 import {defineGrammar as defineG} from '../../../src/procedural_grammar.js';
-function withIdentity(effects, identitySlots, verbGiven) {
-    const spec = effects.spec;
-    return defineG({...spec, id: `${spec.id}.gl2`, slots: [...identitySlots,
-        ...spec.slots.map(s => s.id === 'verb' ? {...s, given: verbGiven} : s)]});
-}
 export const GU_GL2_FIELDS = ['verb', 'object', 'target', 'time'];
 const guGl2Spec = guEffects.spec;
 export const guEffectsGl2Baseline = defineG({
@@ -210,7 +145,6 @@ export const guEffectsGl2 = defineG({
     ...guEffectsGl2Baseline.spec, revision: 2,
     slots: guEffectsGl2Baseline.spec.slots.map(s => guGl2Given[s.id] ? {...s, given: guGl2Given[s.id]} : s),
 });
-export const hpEffectsGl2 = withIdentity(hpEffects, [{id: 'family', type: 'one', open: true}], 'family');
 // G's catalogue keeps chapter-stated path separate from the wiki review index.
 // Retain raw categories and empty sets when neither source supplies a value.
 export function guGl2Identity(row) {
@@ -222,10 +156,6 @@ export function labelGuEffectGl2(row) {
     if (!out.parts) return out;
     const {verb, object, target, time} = out.parts;
     return {parts: {...guGl2Identity(row), verb, object, target, time}};
-}
-export function labelHpEffectGl2(row) {
-    const out = labelHpEffect(row);
-    return out.parts ? {...out, parts: {...out.parts, family: row.family}} : out;
 }
 
 // ---------- GL6 proof: killer moves as nested roles ----------
