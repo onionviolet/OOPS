@@ -9,6 +9,7 @@ import {definePath} from './ascension_paths.js';
 import {ladderViewFromRecord} from './read_models/ability_ladder_bridge.js';
 import {lotmRoleOf} from './book_world_lotm_clearance.js';
 import {allRows,pathwayRows,seerRow} from './book_world_lotm_rows.js';
+import {digestionFacts,digestionFelt} from './book_world_lotm_digestion.js';
 export const flagOf=(row,name)=>row.prefix?`${row.prefix}.${name}`:name;
 const U='understood',grant=(sourceId)=>({type:'source',actor:'player',sourceId,operation:'grant',origin:'acquired',awakened:true,active:true});
 const knowRow=(row,which,stage)=>{const [key,text,kind]=row.know[which];return know(key,text,'player','player',kind,stage||U);};
@@ -43,8 +44,7 @@ export function pathwayFacts(row,state,f,{inv,flag}){
  const s=state.simulation||{},p=s.people?.player,a=state.actors?.player,k=row.key;
  const enrolled=f['lotm.enrolled'],src=a?.sources?.[row.base],fac=s.faculties?.player?.[row.base];
  f[`lotm.${k}Supported`]=enrolled&&!!src&&(src.expiresAt==null||src.expiresAt>state.clock)&&fac?.awakened===true&&fac.active===true&&!fac.suppressed;
- const n=a?.resources?.[`book.lotm.${k}.acting`]||0;
- f[`lotm.${k}.acting`]=n;f[`lotm.${k}.digested`]=n>=row.digest;
+ digestionFacts(f,`lotm.${k}`,a?.resources?.[`book.lotm.${k}.acting`],row.digest);
  if(row.exam)examFacts(row,state,f);
  f[`lotm.holds.${row.holds.base}`]=inv[K[row.holds.base]]||0;f[`lotm.holds.${row.holds.next}`]=inv[K[row.holds.next]]||0;
 }
@@ -81,14 +81,13 @@ export function pathwayDescriptor(row){
    grants:row.ladder.s8,failure:row.ladder.failure},
   {id:'seq7',label:'Sequence 7',crossings:[{id:'unknown',type:'ingest',label:'Not offered in this slice',fact:'never',need:true}],grants:[]}]});
 }
-const SETTLE=['unsettled','settling','settled'];
 const descriptors=new Map();const descriptor=row=>{if(!descriptors.has(row.key))descriptors.set(row.key,pathwayDescriptor(row));return descriptors.get(row.key);};
 export const rowDescriptor=descriptor;
 export function pathwayView(row,f,flag){
  const k=row.key,position=flag(flagOf(row,'promoted'))?2:flag(flagOf(row,'ingested'))?1:0;
  const facts={heldBase:(f[`lotm.holds.${row.holds.base}`]||0)>0,acting:f[`lotm.${k}.acting`]||0,assessed:flag(flagOf(row,'assessed')),examined:flag(flagOf(row,'examined'))||row.exam?.legacyRelease&&flag(flagOf(row,'assessed'))&&!flag(flagOf(row,'exam.required')),heldNext:(f[`lotm.holds.${row.holds.next}`]||0)>0};
  const v=ladderViewFromRecord(descriptor(row),{position,facts,known:3,ceiling:2});
- const felt=position!==1?null:f[`lotm.${k}.digested`]?SETTLE[2]:(f[`lotm.${k}.acting`]||0)>0?SETTLE[1]:SETTLE[0];
+ const felt=position!==1?null:digestionFelt(f,`lotm.${k}`);
  const historical=row.exam?.legacyRelease&&flag(flagOf(row,'assessed'))&&!flag(flagOf(row,'exam.required'));
  return {...v,crossings:v.crossings.map(c=>historical&&c.id==='exam'?{...c,label:'Historical promotion-dose release retained'}:c),felt,potion:row.potion};
 }

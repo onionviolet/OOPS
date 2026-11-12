@@ -5,12 +5,12 @@ import {validateTrialRoutine} from './trial_routine.js';
 // Pledges: one namespaced slice `pledges` (vows, tempering trial, rune record, worn talisman) and the pure
 // transitions over it. The domain (pledges_domain.js) supplies the clock, the roll and the item debits.
 import {natural as nat} from './basics.js';
-import {evaluateGate} from './progression_gates.js';
 import {createVowState, takeVow, breakVow, vowBonuses, vowScar, validateVowState} from './vow_rules.js';
-import {createTrialState, riskFor, quoteSafeBreakthrough, attemptBreakthrough, validateTrialState} from './breakthrough_trial.js';
+import {createTrialState, riskFor, quoteSafeBreakthrough, validateTrialState} from './breakthrough_trial.js';
 import {createRuneRecord, recordPair, readTalisman, readPair, coverage, validateRuneRecord} from './rune_grammar.js';
 import {quoteExchange, releasedUnits} from './exchange_ledger.js';
-import {vowRules, trialRules, runeGrammar, temperingGate, stageNeed, TRACK_STATS, STAGE_BONUS, DEMON_PENALTY, EFFECT_STATS, TALISMAN_MINUTES, STAGE_NAMES, RATION, ORDEAL_TERMS as O, ORDEAL_LOADS} from './pledges_content.js';
+import {createPosition, stepQuote, crossStep} from './progression_path.js';
+import {vowRules, trialRules, runeGrammar, temperingRow, TRACK_STATS, STAGE_BONUS, DEMON_PENALTY, EFFECT_STATS, TALISMAN_MINUTES, STAGE_NAMES, RATION, ORDEAL_TERMS as O, ORDEAL_LOADS} from './pledges_content.js';
 
 export const PLEDGES_FAMILY = 'progression.pledges@1';
 const fail = message => { throw new Error(message); };
@@ -108,9 +108,9 @@ export const vowBreak = (s, id, at) => ({...s, vows: breakVow(vowRules, s.vows, 
 
 // Readiness reads live skill levels; the gate is data (GTR1) and the player view names only what the hero knows.
 export function readiness(tier, skills) {
-    const facts = {'skill.combat': skills.combat ?? 0, 'skill.equilibrium': skills.equilibrium ?? 0, 'skill.persistence': skills.persistence ?? 0};
-    return evaluateGate(temperingGate, facts, {dials: {need: stageNeed(tier)}, knows: () => true});
+    return stepQuote(temperingRow, createPosition(temperingRow, {position: tier - 1}), temperingFacts(skills), {knows: () => true}).gate;
 }
+const temperingFacts = skills => ({'skill.combat': skills.combat ?? 0, 'skill.equilibrium': skills.equilibrium ?? 0, 'skill.persistence': skills.persistence ?? 0, trialFree: true});
 const situation = (s,skills={}) => ({pressure: s.trial.pressure, stability:taskSteadiness(s,'quick')+ Object.keys(s.vows.kept).length * 2 + Math.min(10,(s.trial.learning??0)+(skills.fieldLearning||0))+2*Math.max(0,Math.min(3,skills.channels||0))+(skills.intent?.stability||0), scar: vowScar(s.vows)});
 export function trialView(s, skills) {
     const tier = s.trial.stage + 1;
@@ -125,7 +125,8 @@ export function attempt(s, {roll, units, skills, at=0}) {
     const tier = s.trial.stage + 1;
     if(tier > 3) fail('Nothing is left to temper.');
     if(!readiness(tier, skills).met) fail('You are not ready for this tempering yet.');
-    const r = attemptBreakthrough(trialRules, s.trial, {tier, roll, progress: 0, units, ...situation(s,skills)});
+    const {trial: r} = crossStep(temperingRow, createPosition(temperingRow, {position: s.trial.stage}), temperingFacts(skills),
+        {at, attempt: {roll, units, state: s.trial, ...situation(s,skills)}});
     const trial = {...r.state, stage: r.passed ? tier : s.trial.stage, attempts: s.trial.attempts + 1,...(!r.passed?{learning:(s.trial.learning??0)+1}:{})};
     return {state: recordTrialChoice(s,learnFailedTask(s,withTrial(s,trial),'quick',r.passed),{at,route:'quick',units,passed:r.passed,risk:r.risk}), passed: r.passed, risk: r.risk, spent: r.spent, tier, pressureGain: r.passed ? 0 : trialRules.pressureOnFail * Math.max(1, r.waves)};
 }
