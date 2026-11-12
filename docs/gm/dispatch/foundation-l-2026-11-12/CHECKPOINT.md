@@ -385,3 +385,56 @@ Save compatibility (MC4): **unchanged.** Genes, tested lists and cohort allele c
 ### Codex lane
 
 No Codex lane is proposed yet. The bulk work L could hand off is GN7 and GN9 canon rows (aptitude and Beyonder heredity from the open sources), and those need G's and B's data shape first.
+
+## Inheritance channels and the depth checklist (IH1, IH2, DC1-DC10) (2026-11-12)
+
+Merged master at c36a671be ("Lore first, inheritance beyond genes, and a depth checklist": LR1-LR16, IH1-IH8, SB7-SB12, DC1-DC10, PFP30-PFP32). Routing for L: OA5, IH1 and IH2 now. OA1, IH4 and SB7-SB11 come after MS1 and MS5 (both done) with W and E. OA2 waits for A v0.
+
+### What landed
+
+| Code | State | Where |
+| --- | --- | --- |
+| OA5 | Done in the previous commit (`5a7f1aa28`): one allele rule set, the coin flip at its old address | `heredity.js`, lifecycle |
+| IH2 | Done in the previous commit: marker loci are genome rows on the allele model (sheep fleece, coat, winter coat, vigor; rabbit agouti, lop; the household person loci) | `living_genomes.js` |
+| IH1 | **New.** A genome row may declare `polygenic: {trait: {mean, sd, heritability, min, max}}`. Each individual carries a hidden breeding value per trait. A child lands at the parents' mean plus Mendelian noise (variance h² sd² / 2). What shows is the breeding value plus a non-genetic share ((1 - h²) sd²), drawn per individual by address and clamped to the kind's range. The sheep row has `woolTenths` (mean 50, sd 8, heritability 350 per-mille, range 20 to 80; a real-flock contrast, not a book fact). The lifecycle saves breeding values on individuals and broods. `readLivingBody` returns `measured` values and never the breeding value (SB7) | `heredity.js`, `living_genomes.js`, lifecycle, `living_body.js` |
+
+Test evidence: six generations of truncation selection on measured wool gain nothing at heritability 0, gain at 350, and gain more at 1000. A lamb's breeding value lands within 12 of its parents' mean and survives a JSON reload. A fractional breeding value is refused.
+
+### DC1-DC10 for living things and heredity
+
+| Code | Answer for L (defaults and dials under AD56) |
+| --- | --- |
+| DC1 What carries it | The body (lifecycle individual: genes, breeding values, wound, organs, learned experience). The cohort (allele counts for a herd away from the player). The place, through W quantities the body reads (cold, humidity, satiety on the substrate). Knowledge of the genotype goes to N later; for now it is the `tested` list. Law fields over a lineage (IH7) are W's O5 shape, not built |
+| DC2 How it varies | Between kinds by genome rows. Between siblings by marker loci and breeding values. Between clones by spread, upbringing and place (GN2, GN3). Over a life by stage, wound, hunger and learned behavior. Over generations by mutation (GN4), drift in allele counts and selection (IH1) |
+| DC3 How it passes on | Genes and breeding values by breeding (GN1, IH1). Whole traits copy from one parent where a kind has no genome. Learned behavior does not copy into a newborn (FG1-A, tested). Teaching (IH6), conserved essence (IH5) and bonds (IH7) are other channels with other owners (N, R with W, W law fields) |
+| DC4 How it is improved on purpose | Selection on what shows (IH1, tested). Test crosses and deduction for marker loci (GN6). Care and feeding change condition, not genes. The costs (generation time, feed, space, culls; SB8) come from the lifecycle's gestation, growth and habitat capacity and the host's prices. Inbreeding cost (SB9) is not yet in `heredity.js`; `lineage_traits` has kinship for people |
+| DC5 What is hidden and how it is learned | The genotype behind a showing dominant or a plain recessive shows as `?`. A test, or a child's phenotype, reveals it (GN6). Breeding values are never shown; only measured values are, so a breeder estimates them (SB7, with N records later). Generated truths stay sealed by ID (EF6) |
+| DC6 What magic adds or bends | Exposure raises mutation through genome mutagens (a storm for the sheep; essence surges and potion residue are row data). IH4 upbringing and essence, and SB11 workings that reveal a genotype or push expression, come next with W and E. Each is a working with a price, not a free shortcut |
+| DC7 Canon fixed points | None of L's genome rows is canon yet: sheep, rabbit and the household person line are original. Candidates need locators first (LR1): Reverend Insanity aperture grade by aptitude (G's data, IH3); Hogwarts squibs and Muggle-born magic as aptitude odds (IH3); LR14's breeding law (M). Until a source dive supplies them, these stay requests, not rows |
+| DC8 What society does | Not L's. Registries, shows, bans and black markets are SB12 and LR14 with M; pedigrees are OA3 with N. L supplies the facts they read: lineage edges, measured values, tested loci |
+| DC9 Scale and cost | Near: individuals with genes, breeding values and wounds. Far: allele counts per cohort, two per member, adjusted in proportion by births and losses, the same in one jump or many windows (GN8, tested). Polygenic counts far (a herd mean and variance) are not built yet; a far herd keeps allele counts only |
+| DC10 What the player can pull on | Choose parents, test a locus, read a child for clues, select on measured wool, keep a herd near or far. They read back phenotype with its cause (genes, growth, place, condition), the genotype view with its unknowns, measured values, and the lamb's traits. Not yet in play: the pen's ewe and ram have no genes (that rides with 2b) |
+
+### PFP2 and ledger
+
+| Count | Before | After |
+| --- | --- | --- |
+| Inheritance channels with code | marker loci (GN) | marker loci + polygenic value (IH1) |
+| Genome rows with polygenic traits | 0 | 1 (sheep) |
+| Creatures ledger | 96 rows, 0 unclassified | unchanged |
+
+### Checks run
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/heredity.test.js tests/living_foundation.test.js tests/creature_lifecycle.test.js tests/habitat_care.test.js tests/lineage_traits.test.js tests/household_brood.test.js tests/village_family.test.js tests/gu_colony.test.js` | 60 pass | Focused |
+| `npm run check:arch`, `npm run check:rules`, `npm run check:coverage` | exit 0, coverage PASS | |
+| Browser | not rerun | No player-facing change |
+
+Save compatibility (MC4): **unchanged.** `breeding` is an optional field on individuals and broods.
+
+### Next (L order)
+
+1. 2b: one live lifecycle store per save (pen and copse first), giving the ewe and ram genes and breeding values so the lamb's wool and coat come from heredity in play. Browser pass at 1920×1080.
+2. SB9 inbreeding cost in `heredity.js` (kinship from lifecycle lineage edges), then IH4 upbringing and essence, OA1 ecology and SB7-SB11, with W (cold, essence quantities) and E (seeded runs).
+3. OA2 domestication after A v0.

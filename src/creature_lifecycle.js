@@ -2,8 +2,8 @@
 // supplies current habitat conditions, authority and any payment settlement.
 import {check, natural, object, positive} from './basics.js';
 import {address} from './gen_kit.js';
-import {addBirthsToFrequencies, drawFromFrequencies, inheritGenes, pickParental, removeFromFrequencies,
-    validateGenes} from './heredity.js';
+import {addBirthsToFrequencies, drawFromFrequencies, inheritBreeding, inheritGenes, pickParental, removeFromFrequencies,
+    validateBreeding, validateGenes} from './heredity.js';
 
 const family = 'creature_lifecycle@1';
 const key = value => typeof value === 'string' && value !== '__proto__' && /^[a-zA-Z0-9][a-zA-Z0-9_.:-]*$/.test(value);
@@ -19,6 +19,9 @@ const genesValid = genes => genes === undefined || object(genes) &&
     Object.entries(genes).every(([locus, pair]) => key(locus) && Array.isArray(pair) && pair.length === 2 && pair.every(key));
 const testedValid = (tested, genes) => tested === undefined || Array.isArray(tested) && tested.every(l => genes && Object.hasOwn(genes, l)) &&
     new Set(tested).size === tested.length;
+// IH1: hidden breeding values, {trait: whole number}; what shows is drawn from them.
+const breedingValid = breeding => breeding === undefined || object(breeding) &&
+    Object.entries(breeding).every(([trait, value]) => key(trait) && Number.isSafeInteger(value));
 const allelesValid = alleles => alleles === undefined || object(alleles) && Object.entries(alleles).every(([locus, row]) =>
     key(locus) && object(row) && natural(row.strong) && natural(row.plain));
 const organsValid = organs => object(organs) && Object.entries(organs).every(([name, organ]) => key(name) &&
@@ -63,7 +66,8 @@ export function restoreCreatureLifecycle(saved) {
         validateHealth(individual.health, individual.bornAt);
         individual.organs ??= {};
         check(organsValid(individual.organs), 'Invalid creature organs.');
-        check(genesValid(individual.genes) && testedValid(individual.tested, individual.genes), 'Invalid creature genes.');
+        check(genesValid(individual.genes) && testedValid(individual.tested, individual.genes) &&
+            breedingValid(individual.breeding), 'Invalid creature genes.');
         for (const [actor, experience] of Object.entries(individual.experience)) {
             check(key(actor) && object(experience) && natural(experience.lastAt) &&
                 experience.lastAt >= individual.bornAt && natural(experience.bond) && experience.bond <= 100 &&
@@ -76,7 +80,7 @@ export function restoreCreatureLifecycle(saved) {
         check(key(id) && object(brood) && Array.isArray(brood.parents) && brood.parents.length === 2 &&
             brood.parents.every(key) && natural(brood.dueAt) &&
             natural(brood.growthMinutes) && natural(brood.dueAt + brood.growthMinutes) &&
-            traitsValid(brood.traits) && genesValid(brood.genes), 'Invalid creature brood.');
+            traitsValid(brood.traits) && genesValid(brood.genes) && breedingValid(brood.breeding), 'Invalid creature brood.');
         const [first, second] = brood.parents.map(parent => lookup(state.individuals, parent));
         check(first && second && first !== second && first.species === second.species &&
             first.matureAt < brood.dueAt && second.matureAt < brood.dueAt, 'Invalid creature parents.');
@@ -134,7 +138,7 @@ export function settleCohortStock(state, {revision, id, species, habitat, delta}
 
 export function acquireCreature(state, {
     revision, cohortId, destination, keeper, traits = {}, clock = 0, ageMinutes = 0, growthMinutes = 0,
-    genes, genome, root,
+    genes, breeding, genome, root,
 }) {
     const next = beginSettlement(state, revision);
     const cohort = lookup(state.cohorts, cohortId);
@@ -157,11 +161,13 @@ export function acquireCreature(state, {
         left = {...cohort, alleles: drawn.alleles};
     }
     check(genesValid(carried) && (carried === undefined || !genome || validateGenes(genome, carried)), 'Invalid creature genes.');
+    check(breedingValid(breeding) && (breeding === undefined || !genome || validateBreeding(genome, breeding)), 'Invalid breeding values.');
     return addIndividual({
         ...next, cohorts: {...state.cohorts, [cohortId]: {...left, stock: cohort.stock - 1}},
     }, {origin: cohortId, species: cohort.species, habitat: destination.id, keeper,
         bornAt, matureAt: bornAt + growthMinutes, traits: {...traits},
-        ...(carried ? {genes: structuredClone(carried), tested: []} : {})}, clock);
+        ...(carried ? {genes: structuredClone(carried), tested: []} : {}),
+        ...(breeding ? {breeding: {...breeding}} : {})}, clock);
 }
 
 function addIndividual(state, fields, settledAt = fields.bornAt) {
@@ -279,8 +285,11 @@ export function startCreatureBrood(state, {
         check(first.genes && second.genes, 'Both parents need genes for this kind.');
         ({genes, mutated} = inheritGenes(genome, first.genes, second.genes, {root, at: address('creature-genes', id), exposure}));
     }
+    const breeding = genome && first.breeding && second.breeding && Object.keys(genome.polygenic ?? {}).length ?
+        inheritBreeding(genome, first.breeding, second.breeding, {root, at: address('creature-breeding', id)}) : undefined;
     return {id, mutated, state: {...next, broods: {...state.broods, [id]: {
         parents: [...parents], dueAt: clock + gestationMinutes, growthMinutes, traits, ...(genes ? {genes} : {}),
+        ...(breeding ? {breeding} : {}),
     }}}};
 }
 
@@ -297,7 +306,8 @@ export function settleCreatureBirth(state, {revision, broodId, clock, destinatio
     return addIndividual({...next, broods}, {origin: carrier.origin, species: carrier.species,
         habitat: carrier.habitat, keeper: carrier.keeper, bornAt: clock,
         matureAt: clock + brood.growthMinutes, traits: {...brood.traits},
-        ...(brood.genes ? {genes: structuredClone(brood.genes), tested: []} : {})});
+        ...(brood.genes ? {genes: structuredClone(brood.genes), tested: []} : {}),
+        ...(brood.breeding ? {breeding: {...brood.breeding}} : {})});
 }
 
 function validateHealth(health, bornAt) {

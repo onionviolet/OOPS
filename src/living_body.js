@@ -13,7 +13,7 @@ import {check, natural, object} from './basics.js';
 import {aggravateCreatureInjury, creatureDevelopment, creatureHealth, injureCreature} from './creature_lifecycle.js';
 import {bodyData, needRate, readNeed} from './needs.js';
 import {livingGenome, livingKind} from './living_kinds.js';
-import {expressGenes, genotypeView, individualSpread} from './heredity.js';
+import {expressGenes, expressPolygenic, genotypeView, individualSpread} from './heredity.js';
 
 // Dials, with reasons. Every number is a default a world may change.
 export const LIVING_BODY_LAW = Object.freeze({
@@ -131,11 +131,14 @@ export function readLivingBody({lifecycle, registry, id, clock, sinceMeal, ratio
 // the individual's own spread. Only for kinds whose genome runs on alleles.
 function heredityOf(registry, animal, {mature, environment, conditions, root, id}) {
     const genome = livingGenome(registry, animal.species);
-    if (!genome || !animal.genes) return {};
+    if (!genome) return {};
     const tested = animal.tested ?? [];
-    return {phenotype: expressGenes(genome, animal.genes, {mature, environment, conditions}),
-        genotype: Object.fromEntries(Object.keys(genome.loci).map(l => [l, genotypeView(genome, animal.genes, tested, l)])),
-        ...(typeof root === 'string' ? {spread: individualSpread(genome, {root, id})} : {})};
+    const seeded = typeof root === 'string';
+    // IH1: the measured value shows; the breeding value behind it stays hidden (SB7).
+    return {...(animal.genes ? {phenotype: expressGenes(genome, animal.genes, {mature, environment, conditions}),
+        genotype: Object.fromEntries(Object.keys(genome.loci).map(l => [l, genotypeView(genome, animal.genes, tested, l)]))} : {}),
+        ...(seeded ? {spread: individualSpread(genome, {root, id})} : {}),
+        ...(seeded && animal.breeding ? {measured: expressPolygenic(genome, animal.breeding, {root, id})} : {})};
 }
 
 /** The body read as flat facts in the substrate's `self.<name>` shape (W's

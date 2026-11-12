@@ -4,7 +4,7 @@ import test from 'node:test';
 
 import {acquireCreature, advanceWildHabitat, markCreatureGenesKnown, openWildHabitat, restoreCreatureLifecycle,
     setCohortAlleles, settleCohortStock, settleCreatureBirth, startCreatureBrood} from '../src/creature_lifecycle.js';
-import {crossOutcome, expressGenes, frequenciesFrom, genomeDistance, hybridGenome, individualSpread, inheritGenes,
+import {crossOutcome, expressGenes, expressPolygenic, foundingBreeding, inheritBreeding, frequenciesFrom, genomeDistance, hybridGenome, individualSpread, inheritGenes,
     learnFromChild, mutationRate, pickParental, validateGenome} from '../src/heredity.js';
 import {LIVING_GENOMES} from '../src/living_genomes.js';
 import {livingGenome, livingKindRegistry} from '../src/living_kinds.js';
@@ -82,7 +82,7 @@ test('GN3: each individual draws its own spread inside the kind’s range, the s
     const a = individualSpread(sheep, {root: 'w', id: 'creature:1'}), b = individualSpread(sheep, {root: 'w', id: 'creature:2'});
     assert.deepEqual(a, individualSpread(sheep, {root: 'w', id: 'creature:1'}));
     assert.notDeepEqual(a, b);
-    for (const v of [a, b]) assert.ok(v.heightCm >= 60 && v.heightCm <= 75 && v.woolPerBatch >= 4 && v.woolPerBatch <= 6);
+    for (const v of [a, b]) assert.ok(v.heightCm >= 60 && v.heightCm <= 75);
 });
 
 test('GN4: a storm during the brood raises mutation by the genome’s mutagen', () => {
@@ -131,4 +131,42 @@ test('GN8: a wild warren keeps allele counts, not individuals; one caught rabbit
     const left = caught.state.cohorts.rabbit;
     for (const row of Object.values(left.alleles)) assert.equal(pair(row), 2 * left.stock);
     assert.equal(caught.state.individuals[caught.id].genes.agouti.length, 2);
+});
+
+test('IH1: selecting on measured wool raises the flock by heritability; with none it does not move', () => {
+    // Truncation selection over generations (the breeder's equation R = h^2 * S as the expectation).
+    const run = heritability => {
+        const genome = {...sheep, polygenic: {woolTenths: {...sheep.polygenic.woolTenths, heritability}}};
+        let herd = Array.from({length: 40}, (_, i) => ({id: `g0.${i}`, breeding: foundingBreeding(genome, {root: 'flock', at: `f${i}`})}));
+        const mean = h => h.reduce((n, x) => n + expressPolygenic(genome, x.breeding, {root: 'flock', id: x.id}).woolTenths, 0) / h.length;
+        const start = mean(herd);
+        for (let g = 1; g <= 6; g++) {
+            const best = [...herd].sort((x, y) => expressPolygenic(genome, y.breeding, {root: 'flock', id: y.id}).woolTenths -
+                expressPolygenic(genome, x.breeding, {root: 'flock', id: x.id}).woolTenths).slice(0, 10);
+            herd = Array.from({length: 40}, (_, i) => ({id: `g${g}.${i}`,
+                breeding: inheritBreeding(genome, best[i % 10].breeding, best[(i + 3) % 10].breeding, {root: 'flock', at: `g${g}.${i}`})}));
+        }
+        return mean(herd) - start;
+    };
+    const none = run(0), some = run(350), full = run(1000);
+    assert.ok(Math.abs(none) < 3, `h2 0 moved ${none}`);
+    assert.ok(some > 3 && full > some, `h2 .35 gained ${some}, h2 1 gained ${full}`);
+});
+
+test('IH1: a lamb’s breeding value lands near its parents’ mean, is saved, and only the measured value shows', () => {
+    let s = restoreCreatureLifecycle();
+    s = settleCohortStock(s, {revision: s.revision, id: 'market', species: 'sheep', habitat: pen, delta: 2});
+    const g = genes(['F', 'f'], ['D', 'd'], ['W', 'w'], ['V', 'v']);
+    const ewe = acquireCreature(s, {revision: s.revision, cohortId: 'market', destination: pen, keeper: 'player', clock: 0, genes: g, breeding: {woolTenths: 62}, genome: sheep});
+    const ram = acquireCreature(ewe.state, {revision: ewe.state.revision, cohortId: 'market', destination: pen, keeper: 'player', clock: 0, genes: g, breeding: {woolTenths: 58}, genome: sheep});
+    const brood = startCreatureBrood(ram.state, {revision: ram.state.revision, parents: [ewe.id, ram.id], keeper: 'player', clock: 1,
+        gestationMinutes: 5, growthMinutes: 5, root: 'meadow:9', genome: sheep});
+    const born = settleCreatureBirth(brood.state, {revision: brood.state.revision, broodId: brood.id, clock: 6, destination: pen});
+    const lamb = restoreCreatureLifecycle(JSON.parse(JSON.stringify(born.state))).individuals[born.id];
+    assert.ok(Math.abs(lamb.breeding.woolTenths - 60) <= 12, `lamb ${lamb.breeding.woolTenths}`);
+    const read = readLivingBody({lifecycle: born.state, registry, id: born.id, clock: 12, sinceMeal: 0, root: 'meadow:9'});
+    assert.ok(Number.isSafeInteger(read.measured.woolTenths) && !('breeding' in read));
+    const more = settleCohortStock(born.state, {revision: born.state.revision, id: 'market', species: 'sheep', habitat: pen, delta: 1});
+    assert.throws(() => acquireCreature(more, {revision: more.revision, cohortId: 'market', destination: pen, keeper: 'player',
+        clock: 6, genes: g, breeding: {woolTenths: 1.5}, genome: sheep}), /breeding values/i);
 });

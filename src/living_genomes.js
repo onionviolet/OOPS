@@ -10,7 +10,7 @@ const fromLineage = (id, profileId) => {
     return {id, family: 'human', mutation: Math.round(dials.mutation * 1000), fickle: Math.round(dials.fickle * 1000),
         mutagens: {}, loci: Object.fromEntries(Object.entries(LOCI).map(([locus, def]) => [locus,
             {mode: def.mode, strong: def.strong, plain: def.plain, ...(def.fickle ? {fickle: true} : {}), affects: def.label}])),
-        spread: {heightCm: [150, 190]}};
+        spread: {heightCm: [150, 190]}, polygenic: {}};
 };
 
 export const LIVING_GENOMES = Object.freeze(Object.fromEntries([
@@ -25,7 +25,10 @@ export const LIVING_GENOMES = Object.freeze(Object.fromEntries([
             winter: {mode: 'dominant', strong: 'W', plain: 'w', affects: 'winter coat', shows: {needs: {quantity: 'cold', min: 1}}},
             vigor: {mode: 'dominant', strong: 'V', plain: 'v', affects: 'quick growth', shows: {suppressedBy: ['starved']}},
         },
-        spread: {heightCm: [60, 75], woolPerBatch: [4, 6]}},
+        spread: {heightCm: [60, 75]},
+        // IH1: wool per batch in tenths of a bundle; moderately heritable, as fleece weight is
+        // in real flocks (a contrast, not a book fact). Ceiling 80 is the breed's limit (SB10).
+        polygenic: {woolTenths: {mean: 50, sd: 8, heritability: 350, min: 20, max: 80}}},
     {id: 'village.rabbit', family: 'leporid', mutation: 10, fickle: 500, mutagens: {},
         loci: {agouti: {mode: 'dominant', strong: 'A', plain: 'a', affects: 'wild grey coat'},
             lop: {mode: 'recessive', strong: 'L', plain: 'l', affects: 'lop ears'}},

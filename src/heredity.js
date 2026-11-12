@@ -16,6 +16,7 @@
 //             shows: {mature?: true, needs?: {quantity, min}, suppressedBy?: [condition]}
 //             says what the gene needs to show (GN2: growth, place, life).
 //   spread    {measure: [min, max]}: each individual's own draw in the kind's range (GN3).
+//   polygenic {trait: {mean, sd, heritability, min, max}}: IH1, below.
 import {check, natural, object} from './basics.js';
 import {address, drawU32} from './gen_kit.js';
 
@@ -39,6 +40,7 @@ export function validateGenome(genome) {
             (shows.suppressedBy === undefined || Array.isArray(shows.suppressedBy) && shows.suppressedBy.every(isKey)),
         `${genome.id}: locus ${id} shows.`);
     }
+    polygenicRows(genome);
     for (const [measure, range] of Object.entries(genome.spread ?? {}))
         check(isKey(measure) && Array.isArray(range) && range.length === 2 && range.every(Number.isSafeInteger) &&
             range[0] <= range[1], `${genome.id}: spread ${measure} is [min, max].`);
@@ -219,5 +221,60 @@ export function removeFromFrequencies(alleles, count) {
         const total = row.strong + row.plain, take = Math.min(total, 2 * count);
         const strong = total ? Math.min(row.strong, Math.round(take * row.strong / total)) : 0;
         return [id, {strong: row.strong - strong, plain: Math.max(0, row.plain - (take - strong))}];
+    }));
+}
+
+// ---- IH1: polygenic values (size, yield, speed, essence capacity) ----
+// A polygenic trait is a sum of many small effects, so it is modelled as one number, not
+// loci: each individual carries a hidden breeding value (its genetic worth for the trait)
+// and shows breeding value plus a non-genetic share. Offspring land at the parents' mean
+// plus Mendelian noise. Heritability (per-mille) is the dial: at 1000 what shows is the
+// breeding value; at 0 selection on what shows changes nothing. Genome rows declare
+//   polygenic: {trait: {mean, sd, heritability, min, max}}  (whole units of the trait)
+// GN3's spread stays for non-heritable measures; a heritable measure belongs here.
+
+// Addressed standard normal: the sum of twelve addressed uniforms minus six.
+function normal(root, ...parts) {
+    let sum = 0;
+    for (let i = 0; i < 12; i++) sum += drawU32(root, address(...parts, i)) / 4294967296;
+    return sum - 6;
+}
+
+function polygenicRows(genome) {
+    const rows = genome.polygenic ?? {};
+    for (const [trait, t] of Object.entries(rows))
+        check(isKey(trait) && object(t) && [t.mean, t.sd, t.min, t.max].every(Number.isSafeInteger) && t.sd >= 0 &&
+            t.min <= t.mean && t.mean <= t.max && perMille(t.heritability), `${genome.id}: polygenic ${trait}.`);
+    return rows;
+}
+
+export function validateBreeding(genome, breeding) {
+    const rows = polygenicRows(genome);
+    check(object(breeding) && Object.keys(rows).every(t => Number.isSafeInteger(breeding[t])) &&
+        Object.keys(breeding).every(t => Object.hasOwn(rows, t)), `Breeding values for ${genome.id} need every polygenic trait.`);
+    return breeding;
+}
+
+/** Breeding values for a founder: the kind's mean plus the genetic share of its spread. */
+export function foundingBreeding(genome, {root, at}) {
+    return Object.fromEntries(Object.entries(polygenicRows(genome)).map(([trait, t]) =>
+        [trait, Math.round(t.mean + normal(root, at, trait, 'found') * t.sd * Math.sqrt(t.heritability / 1000))]));
+}
+
+/** A child's breeding values: the parents' mean plus Mendelian sampling, whose variance
+ * is half the genetic variance (h^2 * sd^2 / 2). */
+export function inheritBreeding(genome, sire, dam, {root, at}) {
+    validateBreeding(genome, sire); validateBreeding(genome, dam);
+    return Object.fromEntries(Object.entries(polygenicRows(genome)).map(([trait, t]) =>
+        [trait, Math.round((sire[trait] + dam[trait]) / 2 + normal(root, at, trait, 'mendel') * t.sd * Math.sqrt(t.heritability / 2000))]));
+}
+
+/** What shows: breeding value plus the non-genetic share ((1 - h^2) * sd^2), drawn per
+ * individual by address, clamped to the kind's biological range (SB10's ceiling). */
+export function expressPolygenic(genome, breeding, {root, id}) {
+    validateBreeding(genome, breeding);
+    return Object.fromEntries(Object.entries(polygenicRows(genome)).map(([trait, t]) => {
+        const shown = breeding[trait] + normal(root, 'polygenic-env', id, trait) * t.sd * Math.sqrt(1 - t.heritability / 1000);
+        return [trait, Math.min(t.max, Math.max(t.min, Math.round(shown)))];
     }));
 }
