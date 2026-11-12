@@ -172,3 +172,14 @@ Sent as a note in the shared notes folder; owners decide.
 ## 10. Next phase
 
 After K v0 and W v0 are on master: write the contest contract as code over K (a contest runner and resolver registry), port E3's moves to rows, build FC1 first (smallest, two resolvers), then FC3, then FC2 once S exposes spell workings. Retire bespoke tempo openers into rows as each becomes expressible. Stop at the plan's done check for C: one contest rule runs FC1, FC2 and FC3 with damage on L's bodies.
+
+```receipt
+build: n/a
+route: n/a
+state: drafted
+viewport: n/a
+persistence: unchanged
+tests: docs only
+review: diff-scoped
+surface: conflict inventory and contest contract proposal; no runtime change
+```

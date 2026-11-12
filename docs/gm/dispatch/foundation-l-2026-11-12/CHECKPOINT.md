@@ -183,3 +183,14 @@ The embed for 1-4 is: one lifecycle store per save under one key, kind rows in a
 ## Next phase
 
 Embed waits for K and W v0 on master. Then, in order: (1) a living-kind catalogue file owned by L with rows for the 10 or so species now hard-coded in hosts, plus the grammar fields above; (2) one shared lifecycle store per save and a migration line (MC4); (3) move the four first readers onto it and delete their species literals; (4) afflictions as courses (G3) on `affliction_track` with B's dose as input, and `household_brood` folded in; (5) one task consumer through K. Requests out: W for the quantity names above; G to confirm `body: gu` rows read essence as a need only; B for the dose shape L will read; `needs.js` owner (not in any chat's table yet) to fold BODIES into L's catalogue.
+
+```receipt
+build: n/a
+route: n/a
+state: drafted
+viewport: n/a
+persistence: unchanged
+tests: docs only
+review: diff-scoped
+surface: living-things inventory, grammar draft and W quantity request; no runtime change
+```

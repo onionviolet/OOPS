@@ -157,3 +157,14 @@ Written as needs from K and W, not as their shape, since neither v0 exists yet. 
 ## 8. Next phase
 
 After K and W v0 merge to master: embed SMK1 to SMK8 on `regional_prices` and `native_trade_transaction` first, then build the section 5 chain as M's focused test, then fold the six bespoke market scenes into rows. Done check stays the plan's OS4 row.
+
+```receipt
+build: n/a
+route: n/a
+state: drafted
+viewport: n/a
+persistence: unchanged
+tests: docs only
+review: diff-scoped
+surface: societies and markets inventory and contract proposal; no runtime change
+```

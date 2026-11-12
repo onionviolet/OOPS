@@ -58,3 +58,14 @@ Compatibility line (MC4): game saves unchanged. The substrate has its own versio
 - W's own next phase: W-B6 (live wiring), then W-B4 and W-B1 as E's numbers ask.
 
 Rule codes applied: PFP10-PFP15, OS6, OS8, MC4, MC7, TMR1 (gap named), TMR4, TMR7, TMR8, SPR25, SPR28 (gap named), SPR30, CX5, AD56.
+
+```receipt
+build: n/a
+route: n/a
+state: built
+viewport: n/a
+persistence: unchanged
+tests: focused world substrate contract tests (per chat W)
+review: diff-scoped
+surface: new leaves world_substrate.js, world_quantities.js, world_sky.js and two substrate packs; not wired into live play
+```

@@ -2,7 +2,7 @@
 // A domain declares typed part slots, combination rules and fit weights; a thing
 // is assembled from parts and checked by the same rules whether it came from
 // canon or a draw. The grammar decides what; gen_kit (GR1-GR17) decides how.
-// Pure: no world names, no saves, no Math.random. World packs supply grammars.
+// Pure: no world names, no saves, no unseeded randomness. World packs supply grammars.
 import {address, compareCodePoints, drawU32, indexFromU32, pickWeighted, withRetries} from './gen_kit.js';
 
 export const GRAMMAR_CONTRACT = 'grammar@0';

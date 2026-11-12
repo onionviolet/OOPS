@@ -63,3 +63,14 @@ Source facts, authored values and open questions stay separate: `observed` parap
 ## Next phase (after K v0 and W v0 are on master)
 
 Re-express the ten-module set (`gu_keeper_red_steel` with rank_trial, `gu_keeper_seven`, `gu_keeper_nine`, `gu_keeper_stealth`, `gu_moonlight_stock`, `gu_keeper_rainbow`, `gu_keeper_fire_trial`, `gu_keeper_move_trial`, `gu_keeper_defense`, `gu_keeper_vitality`; order red_steel, seven, nine first) as catalogue rows plus one generic Gu working on K, with essence stock read from W, and delete those ten src modules. Move stage minutes and feed windows onto rows. Drive move search from the 23 evidence move records. Done check from the plan: 60 or more kinds as data (78 now as identity data; runnable kinds still 7, so this line counts as met only for identity rows), 10 scenes re-expressed with old modules deleted, move records drive move search, this backlog kept.
+
+```receipt
+build: n/a
+route: n/a
+state: built
+viewport: n/a
+persistence: unchanged
+tests: focused Gu tests (208 pass per chat G)
+review: diff-scoped
+surface: gu_catalogue.js grew 28 to 78 identity kinds; scripts/gu_keeper_inventory.mjs added
+```

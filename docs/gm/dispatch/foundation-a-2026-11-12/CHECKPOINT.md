@@ -136,3 +136,14 @@ Compatibility (MC4): unchanged; no save shape touched.
 ## Next phase
 
 Phase 2 waits for K and W v0 on master. Then: wire A5 as a scored `controllerOrder` with the priority-only dial (zero behavior change, proven by the existing controller tests and a new one-jump-versus-steps harness case), then C1, then C2, each with its focused test and a Reports cause line.
+
+```receipt
+build: n/a
+route: n/a
+state: drafted
+viewport: n/a
+persistence: unchanged
+tests: docs only
+review: diff-scoped
+surface: agency inventory and contract proposal; no runtime change
+```
