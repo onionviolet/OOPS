@@ -673,3 +673,28 @@ A read-only audit checked the engine for foundations the E list missed. Its evid
 Changes to the first eight: E1 names where a debit goes (with E13). E2 takes in the worm's private beliefs. E4's timeline half is done; working cases in the runner move to E9. E5 extends to records in flight after E9. E6 waits on E12, since the engine world has no cohort to compare yet. E7 reads "carried out through kernel settlement and the effect host". E8 is open.
 
 Order after the Wave 17 lanes fold: E9 first, since E1, E2 and E7 each need it; then E11, E12 and E10 side by side; then E13 to E18 with E5 to E7. Wave 19 (operators, generators) starts when E1 to E18 pass. Tie-in needs the audit listed, for the later phase: a game-save slice for the engine world, a mapping from player and inventory to holders, a bridge from the game clock to engine minutes, readable text for receipts, and a draw root tied to the save.
+
+### One engine per domain: completeness matrix (2026-11-12, audit reading)
+
+From the same read-only audit. Cells marked (inf) in the lane return were inferred from test names or imports. Columns: own law on the kernel shape; registered in the engine world; costs debited by an owner; faults priced instead of refused; jump, minute and restore agreement tested; canon cases that compute; a tested coupling and its partner.
+
+| Engine | Law | Registered | Debited | Priced faults | Time agreement | Canon | Coupling |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Living things, heredity, populations | yes | partial: four packs; heredity and cohorts outside | no | no | partial | partial: 17 | brewing, agency |
+| Brewing | yes | partial: steam pack | partial: debit handed outside the world | no | yes | partial: 1 | living body |
+| Spellcraft | yes | no | no | no | partial, no engine | yes: 75 | mind, presence |
+| Composition and moves | yes | no | no | no | partial | no | none |
+| Process crafts | yes | no | no | no: throws | yes | no | partial |
+| Stored workings | own record shape | no | yes | partial | yes | no | brew steam, sky |
+| Body alteration | rows and a quote | yes | no: quoted | yes | partial | no | living body, pace |
+| Bindings | authority port | no | no | partial | partial | no | partial |
+| Contest | yes | yes, no laws or reactors | yes | partial | partial | no | its three effects have no reader |
+| Markets and societies | yes | yes | yes | no | partial | no | none beyond the Keeper case |
+| Knowledge and mind | partial | yes | no | no | partial | partial | agency, living body |
+| Places and sites | no | partial | not applicable | not applicable | yes | no | colony light, brew regulator |
+| Agency | yes | yes | no | no | partial, no restore | no | living body |
+| Progression | yes | no | no | no | partial | no | none |
+
+Pairs with no tested coupling that should have one: spellcraft and stored workings (a ward is a stored spell); contest and living body; markets and brewing; progression and body alteration; heredity and markets; composition and contest; bindings and agency; knowledge and brewing.
+
+Finish line added, E19: every engine row reads yes in the first five columns, and each of the eight pairs has a test in one mixed run. The canon column fills by data and reading, outside the finish list.
