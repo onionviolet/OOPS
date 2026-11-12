@@ -233,3 +233,22 @@ Compatibility line (MC4): game saves unchanged. Shelf state lives in substrate h
 1. Fold what M owns, one module at a time, each its own phase with its own focused test: `economy_standing.drawRumour` onto `market_word` (drop the stored truth flag, keep its lie-rate dial as a teller's error). It changes the live `economy_standing.rumours` save key and the `rumourView` UI, so that phase carries an MC4 line, a save, reload and Import check and a desktop browser pass. Then `exchange` and `feature_expansion_society` (original content) as shelf and trade rows, then `market_saturation` into want behind an opt-in. The Gu scenes fall through G's work (SC5); the LOTM broker waits for assignment.
 2. Groups v0 (SMK9): doctrine, ranks and rivals on `organizations@1`.
 3. Embed: wire substrate coin to the purse authority (MB2) with W's live slice (W-B6), then one browser pass.
+
+## 10. Milestones for M (merged master at 5327d5617, plan section "Making all achievable")
+
+M has no row in MS1 to MS4. Its milestones are MS5 and MS6; MS7 is the long tail.
+
+**MS5 · one reachable market route at the AD43 floor.** Route chosen: the Village and Slums market rumours, which are already reachable in play (`economy_standing_domain.js` draws one a day, `economy_standing_ui.js` shows them). Phase plan:
+
+1. Fold `drawRumour` onto `market_word`: a rumour becomes a market row with basis `reported` and a teller, the stored `honest` flag goes, and the lie rate becomes the teller's error kept in the teller's own record (the truth stays with the shelf). `rumourView` reads `believedPrice`-shaped rows.
+2. Save key: `economy_standing.rumours` changes shape. MC4 line: migrate old rows by dropping `honest` (old saves are disposable by standing direction, so a reset with reason is the fallback).
+3. Floor: `npm run build`; focused tests; save, reload, Export and Import of a life holding rumours; a headless 1920x1080 browser receipt of the Standing panel showing who said a price and how old it is.
+
+Not chosen for MS5: the substrate trade itself, because substrate coin is not the live purse yet (MB2) and W's live slice (W-B6) has not landed.
+
+**MS6 · PG2 societies and EF8 repertoires.**
+
+- PG2: a society generator on P's grammar contract (`procedural_grammar.js` `defineGrammar`, `generate`, `canonTest`), parts founding need, doctrine, ranks, holdings, rivals (SMK9), each drawn with a cause (a scarcity, a conflict, a founder; PR1, PFP19). Canon test: rebuild held-out canon groups (a Gu clan, the Nighthawks, a Hogwarts house) from their parts. Records land on `organizations@1` with the doctrine dial set.
+- EF8: a sect's repertoire is a set of effect sentences held as taught or secret knowledge; a move spreads by teaching, theft or rumor through the same knowledge rows as prices (SMK12). Waits on N's knowledge port (MB8) and P's effect layer (MS2).
+
+Order for M: MS5 first, then MS6 PG2, then EF8.
