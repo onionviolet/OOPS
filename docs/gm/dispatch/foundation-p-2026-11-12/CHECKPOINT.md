@@ -1,4 +1,4 @@
-# Foundation P checkpoint, 2026-11-12: procedural grammar contract v0
+# Foundation P checkpoint, 2026-11-12: grammar contract v0 and effect grammar (phase 2)
 
 *Chat P in the [procedural foundation plan](../../../PROCEDURAL_FOUNDATION_PLAN.md#one-more-chat). Branch `claude/fdn-p-grammar-4ffe18`, started from 9bbc51363 (fast-forwarded from c25fd396d, no own commits before). Phase: publish the grammar contract v0 and the canon test harness, prove it on one corpus slice. Rules applied: PFP16-PFP20, P2, P5, GR1-GR17 (GR2, GR3, GR6, GR9, GR10, GR11, GR16 tested), AD5, AD38, AD56, NMR2, NMR3, NMR5, AU13 (plan only), MC2, MC12, MC14. Status: implemented, below floor (AD43): agent-verified at the focused test slice, not human-reviewed, no runtime caller yet, so no playable change and no browser pass. GR12 (no generator without a reader) stays open until the first consumer lands in the next phase.*
 
@@ -8,11 +8,51 @@ route: n/a
 state: rules-reconciled
 viewport: n/a (no player-facing change)
 persistence: unchanged
-tests: node --test tests/procedural_grammar.test.js (9/9); check:rules; check:arch
+tests: node --test tests/procedural_grammar.test.js tests/effect_grammar.test.js (15/15); check:rules; check:arch
 review: none
 ```
 
-## What landed
+## Phase 2 (2026-11-12, after K and W v0 merged)
+
+Merged master (ea6a170dd) into this branch first. Read the plan sections on sectioning (SC1-SC10, PFP21), separate but connected (SB1-SB6, NV1-NV5, EF1-EF8, PFP22-PFP24) and broad systems (OS9-OS11, PG1-PG9), W's [substrate contract](../../../WORLD_SUBSTRATE_CONTRACT.md) and every phase-1 checkpoint (G's GG1-GG13, L's grammar, F's FBG and FBC, B's BRG1-BRG8, S's SG1-SG9). Status: implemented, below floor (AD43), agent-verified, not human-reviewed; no runtime caller yet.
+
+| Path | What |
+| --- | --- |
+| `src/effect_grammar.js` | The effect grammar (PGC13-PGC16): 12 verbs, 18 objects by kind, shared targets and times, world carriers and costs, verb-object and carrier-cost rules, scope, lowering onto W ops, derived counters |
+| `src/effect_checks.js` | The five checks and the novelty dial (PGC17, PGC18): `proposeEffects`, `checkEffect`, `keepSpread`, `fitCostCurve`, `worldLaws`, `exploreEffects` |
+| `tests/effect_grammar.test.js` | 6 tests: rules, lowering and W requests, two-world canon test, dial and cause, each check's failure reason, curve and spread |
+| `tests/fixtures/procedural_grammar/effect_worlds.mjs` | Gu and Hogwarts mappings, labellers, independent comparisons, world words and one world law. Fixtures for G and S to adopt |
+| `scripts/grammar_canon_effects.mjs`, [canon_test_effects_report.txt](canon_test_effects_report.txt) | Runner and output |
+| `scripts/grammar_label_mc14.mjs`, [mc14_labels_summary.json](mc14_labels_summary.json) | MC14 step 1, deterministic, repo data only; private Gu labels written to the gitignored private path |
+| Contract doc, rules index, area guide | PGC13-PGC18, PGB8-PGB12, results; register range PGC1-PGC18 |
+
+### Results
+
+- **EF1, two worlds:** Gu effects rebuild 55/57 (96.5%), Hogwarts spells 85/109 (78.0%). Missing rules: Gu time effects (PGB9); Hogwarts 5 verb-object rejects and 19 family mismatches, each listed in the report. Reading the verb back from object, target and time beats the majority guess in both worlds (64.9% against 28.1%; 40.4% against 7.3%). Across worlds, 64.2% of Hogwarts sentences and 84.2% of Gu sentences use a verb on an object kind the other world's canon also uses. The Gu rate is partly by construction (labels map G's function families); G's 14 independently authored ability kinds all agree.
+- **Five checks and novelty dial:** 40 proposals per world and level keep six across six niches each; pass rates 40% to 60%. Failures name the missing law (runs) or the missing world word (explains). The Gu cost curve finds no scope slope over 26 canon amounts (PGB8). Composition is refused and routed to K (SC6).
+- **MC14 step 1:** 170 Gu paths from name words (91% agreement with categories where both exist, kept as a separate layer), 6 from chapter rows; 109 of 117 spell leads as sentences; 11 of 101 potion subjects recipe-shaped for B. Roles (822 missing) have no repo source. No agents were used.
+
+### Plan done check, where it stands
+
+| Done check (plan table, P row) | Status |
+| --- | --- |
+| Two domains pass the canon test on held-out items | Met in P's harness for Gu kinds, Gu effects and Hogwarts spell effects, on P's fixture grammars. Domain-owned grammars (G, S) adopting the fixtures would make it the domains' |
+| Generated items from both run through their laws with no special case | Open. Generated effects pass P's checks and lower onto W ops, but no domain working settles them yet (needs G or S on K, then a W pack answering `effect.*` kinds) |
+| One place-driven and one actor-driven generation in a seeded world run (with E) | Open. Causes and the novelty dial are in place (`place`, `pressure`, `inventor`); needs E's harness and PGB5 |
+
+No rescope: the open rows depend on consumers in other chats, which is what the plan's order expects.
+
+## Requests (coordinator relays)
+
+- **W:** (1) agree the boundary in PGC15 (P composes and lowers; W declares quantities and lands effects). (2) Two-world quantity candidates for WSC2: `vitality` (Gu 13 sentences, Hogwarts 6) and `light` (Gu 1, Hogwarts 4); `force`, `essence`, `heat` and `sound` have one world each so far. (3) For W-B8, a first effect kind list: the 11 `effect.<verb>.<object>` kinds both worlds publish (`effect.remove.vitality`, `effect.sense.information`, `effect.conceal.information`, `effect.move.position`, `effect.add.thing`, `effect.transform.mind`, `effect.move.relation`, `effect.add.light`, `effect.block.working`, `effect.block.form`, `effect.transform.form`). (4) Confirm or replace the one mapping P proposes: an effect on moisture adds to place `humidity`.
+- **G:** adopt or replace `gu_kind_grammar.mjs` and the Gu half of `effect_worlds.mjs` in your files (GKG1-GKG3, the function-to-sentence table); decide PGB9 (Year Gu and Spring Autumn Cicada: years as a held quantity, or a verb on time).
+- **S:** adopt or replace the Hogwarts labeller; review the 19 family mismatches and 5 rejects in the effects report (labeller errors or records whose family spans verbs); supply world words for parts canon does not yet use, so level-2 transfers can explain themselves.
+- **B:** the 11 recipe-shaped potion rows in `mc14_labels_summary.json` are your BRG1 and BRG3 starting set; B's grammar on PGC slots needs nested steps (PGB2).
+- **K:** composition (NV2, PGB11) as a composed working; P supplies one sentence per step.
+- **Naming owner:** the `gu` sheet still lacks a kind-name register (PGC12, PGB7).
+- **Coordinator:** MC14 roles need wiki page text that is outside the repo, or bounded haiku readers on it; not started without approval.
+
+## What landed (phase 1)
 
 | Path | What |
 | --- | --- |
@@ -85,7 +125,14 @@ Target: path, role and rank labels for the 1,159 unlabelled Gu records (missing 
 
 Level haiku, effort high (volume); preserve the Codex reserve (local or Claude readers only).
 
-## Next phase
+## Next phase (after phase 2)
+
+1. When G or S has a working on K: settle one generated effect through it and a W pack that answers its `effect.*` kind (generated means runnable, PFP16; closes GR12).
+2. PGB1 (two givens) and PGB8 (rank term in the cost curve), then rerun both canon tests.
+3. PGB2 nested parts with B's potion rows as the second grammar of things.
+4. With E: one place-driven (PGB5) and one actor-driven generation in a seeded world run.
+
+## Next phase (phase 1 text, kept)
 
 1. Wait for K and W v0 on master; then wire one consumer: a generated Gu kind (cause `place`) handed to G's working through K, so "generated means runnable" is shown on a real working (PFP16).
 2. Second domain canon test with B (needs PGB2), so the plan's "two domains pass" done check can close.
