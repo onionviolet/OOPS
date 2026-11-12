@@ -463,3 +463,16 @@ G1 evidence correction for the next packet: all 38 existing cases run through `c
 Wave 13 gate on `969b087ae` plus the reviewed fold: `npm test` exits 0, 6,572 tests, 6,567 pass, 0 fail, 5 skipped (`/private/tmp/yair-wave13-suite.log`). Isolated `BUILD_OUT=/private/tmp/yair-wave13-build npm run build` exits 0, bundle SHA-256 `de8d95c58d28b2f091586f73a33c4bff03510a35f278481dfd53889d872c3c8d`. The inherited duplicate `dial` warning in `travel_legs.js` remains. `check:arch`, `check:rules`, `check:coverage`, `check:docs`, `report:couplings` and `report:compression` exit 0. The final doc-only receipt/tracker changes receive the doc and rule checks again before commit. The broad whitespace check encountered inherited generated-file whitespace; the check scoped to this wave's paths passes. No equivalent full suite was repeated. The inherited out-of-glob headless woodcutting failure (RC18) remains outside this packet.
 
 Usage after the fold is 25%, with 2,961 credits above the floor. All three released worker processes have exited. Engine fixture verified, not human-reviewed. The ports and held factory are available to a host; durable expired pace-course ownership, combined host lifecycle, binding multi-breach receipts and F1 remain open. Next wave starts with G1's common runner and law-field/new-holder observations, plus existing chapter-checked Gu data. Preserve the unrelated dirty paths and never push.
+
+
+## Wave 14 dispatch (2026-11-12)
+
+Base `b80cb50da`, usage 25%, credit headroom 2,961 before each launch. Three Sol-low lanes, each bounded to 300,000 tokens and two turns, use the repaired launcher with the 49%/62,000 stop. Sol is selected for the runner's observation contract, cross-verb semantic changes, and independent canon-outcome judgments. Each lane moves G1 and has a disjoint path list in its `CODEX_LANE.md`.
+
+| Lane | Worktree | Outcome |
+| --- | --- | --- |
+| `w14-runner` | `../yair-w14-runner` | Common engine-world runner, independent law-field and holder-creation observations, six Hogwarts cases; owns HP pack and ledger |
+| `w14-effects` | `../yair-w14-effects` | Repair the fourteen refused primitive readings with second consumers, return separate `HP_PRIMITIVE_SCENES` data; coordinator combines it with the HP pack after release |
+| `w14-gu-cases` | `../yair-w14-gu-cases` | Gu grammar and labeller leave the fixture for their world pack; account for all 57 chapter-checked labelled kinds with cases or exact missing fields/owners |
+
+ACT NOW: common engine destination and executed cases. ACCOUNT FOR NOW: the W lane leaves the HP pack to P/S, source qualifiers and Q1 stay explicit, unknown and unanswered outcomes earn no case credit, and no wiki-only row is promoted. LATER in the current queue: owners for publish-based effects, the measured Draught into a body, Gu lifecycle fields, then the shell rate form and the parity/generation/improvement packets in the second handoff. This queues authorized work without changing standing direction. Resume: poll these exact lane handles, review and fold released returns, regenerate coverage centrally, and apply PC99's reachability-sensitive gate. Never push.
