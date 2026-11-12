@@ -7,7 +7,8 @@ import {composeSubstrate, createWorld, advanceWorld, applyWorldOps, serializeWor
 import {quoteWorking, beginWorking, settleWorking} from '../src/kernel_working.js';
 import {createMarketPack, shelfState, shelfQuote, marketPrice, stockOf, MARKET_PACK, DAY} from '../src/market_substrate.js';
 import {TRADE_LAW, tradeDeal, marketPorts} from '../src/market_trade.js';
-import {sightingKnowledge, applyKnowledge, marketTalk, believedPrice, priceKey} from '../src/market_word.js';
+import {sightingKnowledge, retellKnowledge, toNativeKnowledge, applyKnowledge, marketTalk, believedPrice, priceKey} from '../src/market_word.js';
+import {validateSimulationEffect} from '../src/simulation_contracts.js';
 import {unitPrice, worthHere, stapleOf} from '../src/regional_prices.js';
 
 const rules = composeSubstrate({packs: [createMarketPack({goods: ['bread'], inputs: ['grain']})]});
@@ -161,6 +162,21 @@ test('M6 a stale belief is a guess, and talk passes only newer sightings (SMK13,
     known = applyKnowledge(known, [sightingKnowledge({observer: 'vale', quote: {...quote, price: 5}, at: 10})], 10);
     const rows = marketTalk(known, ['orr', 'vale']);
     assert.deepEqual(rows.map(r => [r.basis.attributedTo, r.actor]), [['vale', 'orr']], 'only the newer sighting is told');
+});
+
+test('M8 market rows reach the native knowledge writer only through the adapter (MB8)', () => {
+    const seen = sightingKnowledge({observer: 'hessa', quote: {place: 'village', good: 'bread', price: 9}, at: 6360});
+    const told = retellKnowledge(seen, {from: 'hessa', to: 'vale'});
+    // The structured row is refused by the native contract: value must be text and 'reported' is not a native basis kind.
+    assert.throws(() => validateSimulationEffect(seen));
+    assert.throws(() => validateSimulationEffect(told));
+    const text = 'Bread at the village bakery was nine coins this morning.';
+    for (const row of [seen, told]) {
+        const native = toNativeKnowledge(row, {text, situationId: 'market.talk.day4'});
+        assert.doesNotThrow(() => validateSimulationEffect(native));
+        assert.equal(native.value, text);
+    }
+    assert.deepEqual(toNativeKnowledge(told, {text, situationId: 'market.talk.day4'}).basis, {kind: 'recollection', attributedTo: 'hessa', situationId: 'market.talk.day4'});
 });
 
 test('M7 second world consumer: a short nest yield raises a clan storehouse price by the same rule (MC9)', () => {

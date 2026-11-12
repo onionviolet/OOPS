@@ -2,7 +2,7 @@
 
 *Version **v0**, 2026-11-12, chat M of the [procedural foundation plan](PROCEDURAL_FOUNDATION_PLAN.md#other-systems-the-foundations-need-2026-11-11) (OS4, MC15). Built on the [kernel working contract](KERNEL_WORKING_CONTRACT.md) v0.1 and the [world substrate contract](WORLD_SUBSTRATE_CONTRACT.md) v0. A proposal under AD56: it widens play, and every number is a default with a dial and an in-world reason. Changes are versioned requests to chat M. Inventory and the reasoning behind each line: [M checkpoint](gm/dispatch/foundation-m-2026-11-12/CHECKPOINT.md).*
 
-Code: [`src/market_substrate.js`](../src/market_substrate.js) (goods, want, supply, price), [`src/market_trade.js`](../src/market_trade.js) (trade on K), [`src/market_word.js`](../src/market_word.js) (word of prices as knowledge). Tests: [`tests/market_foundation.test.js`](../tests/market_foundation.test.js) (M1-M7).
+Code: [`src/market_substrate.js`](../src/market_substrate.js) (goods, want, supply, price), [`src/market_trade.js`](../src/market_trade.js) (trade on K), [`src/market_word.js`](../src/market_word.js) (word of prices as knowledge). Tests: [`tests/market_foundation.test.js`](../tests/market_foundation.test.js) (M1-M8).
 
 ## The rules (SMK)
 
@@ -19,7 +19,7 @@ Code: [`src/market_substrate.js`](../src/market_substrate.js) (goods, want, supp
 | SMK9 | **A group is a record with charter, doctrine, ranks, holdings and rivals** on `organizations@1`. | Doctrine as a new charter dial set; ranks read by R; holdings as W stock; rivals with a backlash share. | Proposal |
 | SMK10 | **Standing is held by an audience about a subject**, written through one seam with a named cause; R owns rank thresholds over it. | The eight current standing owners become sources or readers. | Proposal (request to R) |
 | SMK11 | **Law reads who knew.** Statutes apply where `authorityOver` gives claim and reach; heat is an authority's standing raised through knowledge. | No second enforcement table. | Proposal |
-| SMK12 | **A rumour is a knowledge row.** A sighting is the existing `knowledge` effect with basis `observation`; a retelling has basis `reported`, route `told`, `attributedTo` the teller, and keeps the sighting's time. No truth flag beside the claim. | The truth stays with the shelf. `economy_standing.drawRumour` moves onto this when folded. | Built |
+| SMK12 | **A rumour is a knowledge row.** A sighting is the existing `knowledge` effect with basis `observation`; a retelling has basis `reported`, route `told`, `attributedTo` the teller, and keeps the sighting's time. No truth flag beside the claim. | The truth stays with the shelf. `economy_standing.drawRumour` moves onto this when folded. | Shape built; reaches the native writer through `toNativeKnowledge` (M8, MB8) |
 | SMK13 | **Spread follows people.** `marketTalk`: people in one place tell each other every price the listener lacks or knows from an older sighting, in fixed order. | Default deterministic; a temperament or density-of-talk dial (as `gossipStep` uses) is the next step. A shortage is known first where it happened. | Built |
 | SMK14 | **Choices read beliefs, not truth.** `believedPrice` gives the remembered price, its age, basis and teller; past `memoryDays` (20) it is stale. | A stale or false price sends someone to the wrong market, and the cause line says who told them. | Built (read port for A) |
 
@@ -39,4 +39,5 @@ Second consumer (M7, MC9): a clan storehouse of moon orchid fed by a nest's yiel
 | MB4 | Price memory has two stores: `economy_standing` price memory and `market_word` sightings | Fold the memory onto knowledge rows | M (next fold) |
 | MB5 | Custody and claims for a Gu (SC4 table): v0 has trade custody, not claims, lending or theft | Claims on SB1 identity rows | M with G |
 | MB6 | Groups, standing and law (SMK9 to SMK11) are proposals with no code yet | Organizations doctrine dials first | M |
+| MB8 | The native knowledge writer keeps `value` as text and its basis kinds are observation, recollection, instruction and inference, each with `attributedTo` and a `situationId`. M's structured rows (price, sighting time, basis `reported`) fail that contract; `toNativeKnowledge` turns them into native rows (text value, recollection for a retelling), so the structured part stays in M's rows. `world_events_knowledge.js` also writes basis `reported`, which the same validator refuses | A `data` field on knowledge entries, or M keeps structured beliefs in its own slice keyed by the knowledge key; and one basis vocabulary | Knowledge owner (N, or K until then) |
 | MB7 | The shelf law counts days from the substrate root clock, as `world_sky.js` does (TMR1) | Read `dayIndex` when W-B4 lands | W, then M |

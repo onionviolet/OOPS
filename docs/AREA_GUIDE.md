@@ -267,6 +267,7 @@ By default a new slice declares data through the seam named here and does not ad
 - Test: tests/regional_prices.test.js; browser proof `scripts/regional_prices_browser.cjs` (1920x1080, buy, 540-minute walk, sell, reload).
 - Limits/traps: the first fill of an empty shelf still keeps the template draw; a shelf saved while due loads with `last_refresh = -1` and counts as one cycle; only unqualified items (key `{"id":...}`) qualify; the shortage cause is divided out of the terms for staples so one cause is not counted twice; Tingen has no shops and is not covered.
 - Do not: add a price factor beside `unitPrice`; do not give a second world a stall without its own `PLACES` row and reasons.
+- Competing: `market_substrate.js` `marketPrice` (2026-11-12, [markets contract](MARKETS_CONTRACT.md)) is the substrate generalization on the same `scarcityFactor` curve, margin, bid share and rounding, with world factors passed as rows; `tests/market_foundation.test.js` M1 checks parity at every stock. New shelves on the world substrate use it; the staple stalls stay here until their trader host embeds.
 
 ## Travel and journeys
 

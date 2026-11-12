@@ -47,6 +47,20 @@ export function marketTalk(known, present, {keys = null} = {}) {
     return rows;
 }
 
+/**
+ * The native knowledge effect for a market row (MB8). The native writer keeps `value` as player-readable text and
+ * accepts basis kinds observation, recollection, instruction and inference, each with `attributedTo` and the
+ * `situationId` it happened in (causal_situations.validateKnowledgeBasis). A sighting is the observer's own
+ * observation; a retelling is the teller's recollection. The structured price and sighting time stay in M's rows
+ * until the knowledge owner gives entries a data field.
+ */
+export function toNativeKnowledge(row, {text, situationId = null}) {
+    if (typeof text !== 'string' || !text) fail('a native knowledge row needs the line the actor would say.');
+    const teller = row.basis?.attributedTo ?? row.actor;
+    return {type: 'knowledge', actor: row.actor, key: row.key, stage: row.stage, value: text,
+        ...(situationId ? {basis: {kind: row.basis?.kind === 'reported' ? 'recollection' : 'observation', attributedTo: teller, situationId}} : {})};
+}
+
 /** What an actor believes a price is (SMK14): the remembered value, its age and whether it has gone stale. */
 export function believedPrice(known, actor, place, good, at, dials = MARKET_DIALS) {
     const e = known[actor]?.[priceKey(place, good)];
