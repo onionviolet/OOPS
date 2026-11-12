@@ -48,6 +48,11 @@ test('every species a host names has one kind row, and Gu rows come from G’s c
     assert.ok(livingKind(registry, 'starlight-firefly').reproduction.includes('emergence'));
     assert.equal(livingKind(registry, 'thunderclap').class, 'gu');
     assert.throws(() => livingKindRegistry({extra: [LIVING_KIND_ROWS[0]]}), /defined twice/);
+    // L's insight-moth placeholder gives way when G's catalogue supplies the kind.
+    const withMoth = livingKindRegistry({extra: guLivingRows({...guCatalogue,
+        'insight-moth': {parts: {chapters: [1], value: {roles: ['loaned'], rank: [1]}}}})});
+    assert.equal(livingKind(withMoth, 'insight-moth').placeholder, undefined);
+    assert.equal(livingKind(registry, 'insight-moth').placeholder, true);
     assert.deepEqual(copse.preyRequirements, {fox: {species: 'rabbit', perPredator: 2}});
 });
 
@@ -131,6 +136,16 @@ test('substrate: bodies of different kinds drain satiety at their own rate; one 
     const hungry = j => j.chain.filter(e => e.kind === 'living.hungry').map(e => [e.at, e.by]);
     assert.deepEqual(hungry(jump), [[5, 'worm'], [12, 'ewe']]);
     assert.deepEqual(hungry(steps), hungry(jump));
+    // Satiety is the hunger authority on the substrate: the body read from it matches
+    // the read from minutes since the meal, before and after the body runs empty.
+    const {s: life, ewe: eweId} = village();
+    for (const [w, t] of [[advanceWorld(rules, world, 8).world, 8], [jump, 20]]) {
+        const pack = w.holders.ewe.state['l.living_body'];
+        const fromSatiety = readLivingBody({lifecycle: life, registry, id: eweId, clock: t,
+            satiety: {amount: readQuantity(w, 'ewe', 'satiety'), emptySince: pack.emptySince}});
+        const fromMinutes = readLivingBody({lifecycle: life, registry, id: eweId, clock: t, sinceMeal: t});
+        assert.deepEqual(fromSatiety.hunger, fromMinutes.hunger, `minute ${t}`);
+    }
     // A hit published into the place lands in the target's inbox only.
     const hit = applyWorldOps(rules, jump, [{op: 'publish', kind: 'living.harm', place: 'farm',
         detail: {target: 'ewe', kind: 'bite', amount: 2}}], 'c.contest:test');

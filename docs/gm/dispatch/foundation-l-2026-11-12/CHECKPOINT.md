@@ -206,7 +206,7 @@ Started after merging master at ea6a170dd (K v0, W v0, P v0 and every phase-1 ch
 | `src/living_kinds.js` (new) | 17 kind rows for every species a host names today, plus `guLivingRows(catalogue)`, which turns each of G's 78 catalogue kinds into a gu-class body row. The catalogue is passed in, not imported (PFP10). `habitatFromKinds` builds a habitat's prey needs from kind rows (the fox row says it eats rabbits; the place says how many). | Done check (catalogue half), G's request ("L runs the body") |
 | `src/living_body.js` (new) | `readLivingBody`: one read of vitality, hunger stage, injury, condition list, Gu feeding state (`fedThrough` against the day), organs, traits and learned behavior. `livingBodyFacts` gives the same read as `self.<name>` facts in W's `substrateFacts` shape. `applyBodyHarm` is the one door for C's hits and R's backlash (points become owed recovery minutes on the lifecycle). `apertureOrgan` reads a world pack's aperture law. | A's body read, C's CFC7 door, R's capacity facts and backlash inbox, SC table aperture |
 | `src/creature_lifecycle.js` | Optional `organs` on each individual (key strings and whole numbers, defaults to empty on restore, so old saves load). `setCreatureOrgan`. `aggravateCreatureInjury`, so a second hurt worsens an open wound instead of being refused. | Aperture as a body organ, one wound slot that stacks |
-| `src/world_substrate_packs/living_body.js` (new) | Pack `l.living_body`: every body tagged `living.body` carries `satiety` (ration-minutes), draining at its kind's whole food rate. It publishes `living.hungry` once when a body runs empty, and keeps a `living.harm` inbox per body that the host drains through `applyBodyHarm`. | W embed, first L quantity and effects |
+| `src/world_substrate_packs/living_body.js` (new) | Pack `l.living_body`: every body tagged `living.body` carries `satiety` (ration-minutes), draining at its kind's whole food rate. For a body on the substrate, satiety is the hunger authority: `readLivingBody` takes `{amount, emptySince}` and gives the same stage a host's minutes-since-meal would (tested before and after the body runs empty), so this is not a fifth hunger form. It is unwired in live play. It publishes `living.hungry` once when a body runs empty, and keeps a `living.harm` inbox per body that the host drains through `applyBodyHarm`. | W embed, first L quantity and effects |
 | `src/living_workings.js` (new) | `LIVING_CARE_LAW` (`l.care@1`: feed, tend) and `careRoutine`, a method row. Each step rereads the body at its own time. | "One task consumer reads it through the kernel" |
 | `docs/AREA_GUIDE.md` | Care and upkeep entry names the new entry points and test (hunk only) | AR rule: update the guide when a seam's entry points change |
 
@@ -216,7 +216,9 @@ The handed-over `world_substrate_packs/shell_regulator.js` (pack `l.shell_regula
 
 | Count | Before (9bbc51363) | After (this phase) | Note |
 | --- | --- | --- | --- |
-| Living kinds as data run by shared rules | 0 | **95** (17 L rows + 78 Gu rows from G) | Every row passes the registry and `readLivingBody`; the substrate pack and care law run any of them |
+| Living kinds as identity rows | 0 | **95** (17 L rows + 78 Gu rows from G) | Each passes the registry. The Gu rows are as thin as G's own (G counts them as identity data, 7 runnable): label equals id, one stage, no ration, so a Gu's hunger reads `unknown` without the host's diet |
+| Living kinds exercised by shared rules in tests | 0 | **6** (sheep, house cat, rabbit, fox, liquor worm, person) | Plus the reed construct in the substrate test |
+| Living kinds read by live play through the new modules | 0 | **0** | No host calls them yet (phase 2b) |
 | Body-data rows (`needs.js` BODIES) | 5 | 5 | Not L's file; folding it into kind rows is a request |
 | Lifecycle host modules | 19 | 19 | No live host moved yet (phase 2b) |
 | Separate live lifecycle stores | 14 | 14 | One store holding pet, ewe, ram, wild cohort, Gu and person is proven in `tests/living_foundation.test.js`, not yet in live saves |
@@ -233,6 +235,7 @@ The handed-over `world_substrate_packs/shell_regulator.js` (pack `l.shell_regula
 | Command | Result | Gaps |
 | --- | --- | --- |
 | `node --test tests/living_foundation.test.js tests/creature_lifecycle.test.js tests/habitat_care.test.js tests/needs.test.js tests/world_substrate.test.js tests/kernel_working.test.js tests/gu_colony.test.js tests/meadow_shell_state.test.js` | 67 pass, 0 fail | Focused only; the integrator runs the full `npm test` |
+| After the placeholder and satiety fixes: `node --test tests/living_foundation.test.js tests/creature_lifecycle.test.js tests/habitat_care.test.js tests/world_substrate.test.js` | 40 pass, 0 fail | same |
 | `npm run check:arch` | exit 0 (main.js unchanged, no new cycles) | none |
 | `npm run check:rules` | exit 0 after rewording one reason string the player-text lint flagged | One pre-existing TMR1 warning in `book_world_hp_exams.js`, not mine |
 | Browser | not run | Nothing player-facing changed; no host reads the new modules yet |
@@ -242,7 +245,7 @@ Save compatibility (MC4): **unchanged for live saves.** The lifecycle accepts an
 ### Requests (for the coordinator to relay)
 
 - **W:** promote `satiety` into `world_quantities.js` once A or M reads it (WSC2 says two packs first). Effect kinds `living.hungry` and `living.harm` are a first entry for the effect-kind list W's backlog names.
-- **G:** add `insight-moth` (used by `gu_keeper_cooperation.js`) to `gu_catalogue` so its row comes from G; L carries a placeholder row marked as missing from G. Supply the aperture law for the Reverend Insanity pack (`rankCapacity`, `grades` with sea percent, `conditions`) as world-pack data; L's test uses a fixture of that shape, not canon numbers. When re-expressing the ten Keeper scenes, read Gu bodies through `readLivingBody` and pass the Gu record's `fedThrough` as `feeding`.
+- **G:** add `insight-moth` (used by `gu_keeper_cooperation.js`) to `gu_catalogue` so its row comes from G. L's row is marked `placeholder` and gives way to G's row with the same id (tested), so adding it does not clash. Richer Gu body fields (label, stages, diet and ration per kind) on catalogue rows would make those 78 rows runnable bodies, not identity rows. Supply the aperture law for the Reverend Insanity pack (`rankCapacity`, `grades` with sea percent, `conditions`) as world-pack data; L's test uses a fixture of that shape, not canon numbers. When re-expressing the ten Keeper scenes, read Gu bodies through `readLivingBody` and pass the Gu record's `fedThrough` as `feeding`.
 - **C:** land hits by publishing `living.harm` with `{target, kind, amount}`, or call `applyBodyHarm` directly at settlement. Either way the wound lands on the lifecycle, so care and work read it.
 - **R:** aperture facts are `self.aperture.grade`, `self.aperture.rank`, `self.aperture.capacity` from `livingBodyFacts`. Backlash goes through `applyBodyHarm` with a kind such as `backlash`.
 - **A:** `readLivingBody` is the body read you asked for; `livingBodyFacts` is the same read as facts. Pass `sinceMeal` and `ration` from the diet owner.
@@ -258,6 +261,8 @@ Save compatibility (MC4): **unchanged for live saves.** The lifecycle accepts an
 - Multi-offspring broods and per-offspring contributors (FG1-A) are unchanged.
 
 ### Next phase (2b, then 2c)
+
+2b hazards to settle first: every host store starts at `nextIdentity: 1` (the sheep and Moss are both `creature:1`) and brood ids are `brood:<revision>`, so a merge needs a remap of `sheepId`, `ramId`, `lambId`, `broodId`, brood parents and household `creatureId`, or an explicit reset with a reason (old saves are disposable by standing direction; MC4 still wants the line). `absorb_p23/household/model.js` is not in L's file list, so 2b starts with the pen and the copse (one host) and asks the coordinator about the household file. The slice gets a schema id so a later move under W's `holders[id].state[packId]` is one migration step.
 
 2b: one live lifecycle store per save through the domain registry (one new namespaced slice, AR1-AR16), with migrations that pull in the stores of `habitat_care` (livestock), `absorb_p23/household/model.js` (pet) and `meadow_wildlife` (wild cohort). The Gu hosts move when G re-expresses them (request above). Then hosts read species from kind rows and drop their literals, with a browser pass on the meadow pen and Moss at 1920×1080.
 

@@ -11,7 +11,7 @@
 // condition; a world pack's law says what that holds (PFP3, SC table).
 import {check, natural, object} from './basics.js';
 import {aggravateCreatureInjury, creatureDevelopment, creatureHealth, injureCreature} from './creature_lifecycle.js';
-import {bodyData, readNeed} from './needs.js';
+import {bodyData, needRate, readNeed} from './needs.js';
 import {livingKind} from './living_kinds.js';
 
 // Dials, with reasons. Every number is a default a world may change.
@@ -36,6 +36,17 @@ function stageOf(kind, development, law) {
     if (!development.mature) return stages[0];
     const grown = stages.filter(stage => stage !== 'elder');
     return grown[grown.length - 1];
+}
+
+// Satiety on the substrate is ration-minutes at rate 1, draining at the body's rate.
+// The time since the last full ration follows from it: (ration - satiety) / rate while
+// any is left, then a full ration's time plus how long it has been empty.
+export function sinceMealFromSatiety({satiety, emptySince = null, ration, rate, clock}) {
+    check(natural(satiety) && natural(ration) && ration > 0 && natural(rate), 'Satiety needs a ration and a rate.');
+    if (rate === 0) return 0;
+    if (satiety > 0) return Math.max(0, ration - satiety) / rate;
+    check(natural(emptySince) && natural(clock) && clock >= emptySince, 'An empty body needs the minute it ran out.');
+    return ration / rate + (clock - emptySince);
 }
 
 function hungerOf(kind, sinceMeal, ration) {
@@ -71,16 +82,25 @@ export function apertureOrgan(organ, law) {
  * The one body read A asked for: vitality, hunger or feed level, injury, condition and
  * Gu feeding state together. `sinceMeal` is minutes since the last ration and `ration`
  * the diet's ration length at rate 1 (the host's diet owner knows both; a body row's
- * own ration length is the fallback); `feeding` is a Gu record's {fedThrough, day} where the Gu
+ * own ration length is the fallback). A body on the substrate passes `satiety`
+ * ({amount, emptySince}) instead of `sinceMeal`: the pack's quantity is then the one
+ * hunger source; `feeding` is a Gu record's {fedThrough, day} where the Gu
  * owner keeps feeding by day; `organLaws` maps an organ id to its world law.
  */
-export function readLivingBody({lifecycle, registry, id, clock, sinceMeal, ration, feeding, organLaws = {}, law = LIVING_BODY_LAW}) {
+export function readLivingBody({lifecycle, registry, id, clock, sinceMeal, ration, satiety, feeding, organLaws = {}, law = LIVING_BODY_LAW}) {
     const animal = lifecycle?.individuals && Object.hasOwn(lifecycle.individuals, id) ? lifecycle.individuals[id] : undefined;
     check(animal, `Unknown living body ${id}.`);
     const kind = livingKind(registry, animal.species);
     const development = creatureDevelopment(lifecycle, id, clock);
     const health = creatureHealth(lifecycle, id, clock);
-    const hunger = hungerOf(kind, sinceMeal, ration);
+    let since = sinceMeal;
+    if (satiety !== undefined && kind.needs !== null) {
+        check(sinceMeal === undefined, 'Pass satiety or sinceMeal, not both.');
+        const base = ration ?? bodyData(kind.needs).food?.rationMinutes;
+        if (base > 0) since = sinceMealFromSatiety({satiety: satiety.amount, emptySince: satiety.emptySince,
+            ration: base, rate: needRate(kind.needs, 'food'), clock});
+    }
+    const hunger = hungerOf(kind, since, ration);
     const wound = health.injury?.remaining > 0 ? health.injury : null;
     const woundFactor = wound ? 1 - law.woundShare * wound.remaining / wound.required : 1;
     const work = hunger?.work ?? 1, heal = hunger?.heal ?? 1;

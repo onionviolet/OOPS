@@ -21,6 +21,7 @@
 //   diet         what supplies it: {prey} for a predator, {food} for a ration.
 //   source       {kind: original | book, locator}. Book rows name the chapter that shows it.
 //   hosts        the modules that use this kind today (for PFP2 counting, not authority).
+//   placeholder  true for a row L holds until its owner's catalogue supplies it.
 // World numbers (rations, gestation minutes, prices) stay with the host or world pack.
 import {check, object} from './basics.js';
 
@@ -76,7 +77,9 @@ export const LIVING_KIND_ROWS = Object.freeze([
         stages: ['planted', 'tended', 'ready'], source: original('management/shipping_farming.js'),
         hosts: ['management/shipping_farming.js', 'hired_hands_plot.js']}),
     // Gu-shaped kind a host names that chat G's catalogue does not list yet (request to G).
+    // A placeholder gives way to a world-pack row with the same id, so G adding it is not a clash.
     row('insight-moth', 'Insight moth', 'gu', {needs: 'gu', inheritance: 'none', stages: ['adult'], reproduction: ['refinement'],
+        placeholder: true,
         source: original('gu_keeper_cooperation.js (not yet in gu_catalogue)'), hosts: ['gu_keeper_cooperation.js']}),
 ].map(Object.freeze));
 
@@ -111,18 +114,21 @@ function validateKind(kind) {
     check(kind.lifespan === null || Number.isSafeInteger(kind.lifespan) && kind.lifespan > 0, `${kind.id}: lifespan.`);
     check(Array.isArray(kind.organs) && kind.organs.every(o => LIVING_ORGANS.includes(o)), `${kind.id}: organs.`);
     check(object(kind.diet) && (kind.diet.prey === undefined || idLike(kind.diet.prey)), `${kind.id}: diet.`);
+    check(kind.placeholder === undefined || typeof kind.placeholder === 'boolean', `${kind.id}: placeholder.`);
     check(object(kind.source) && ['original', 'book'].includes(kind.source.kind) &&
         typeof kind.source.locator === 'string' && kind.source.locator, `${kind.id}: a kind names its source.`);
     return kind;
 }
 
 /** One registry for a world: L's rows plus world-pack rows (Gu from G, later others).
- * A later row for the same id is refused, so two packs cannot both define a kind. */
+ * A later row for the same id is refused, so two packs cannot both define a kind,
+ * except that a row replaces an L placeholder for the same id. */
 export function livingKindRegistry({rows = LIVING_KIND_ROWS, extra = []} = {}) {
     const kinds = {};
     for (const kind of [...rows, ...extra]) {
         validateKind(kind);
-        check(!Object.hasOwn(kinds, kind.id), `Living kind ${kind.id} is defined twice.`);
+        check(!Object.hasOwn(kinds, kind.id) || kinds[kind.id].placeholder === true,
+            `Living kind ${kind.id} is defined twice.`);
         kinds[kind.id] = kind;
     }
     for (const kind of Object.values(kinds))

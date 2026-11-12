@@ -8,6 +8,9 @@
 // the host drains the inbox into the lifecycle with applyBodyHarm, which stays the
 // one authority for wounds. No other pack is imported (PFP10, WSC1).
 //
+// When a body sits on the substrate, its satiety is the hunger authority:
+// living_body.js readLivingBody takes {satiety, emptySince} and reads the same need
+// stage as a host's minutes-since-meal would (one hunger source, not two).
 // Satiety stays a pack quantity (WSC2) until a second pack reads it (A's wants, M's
 // want rates); then it moves to world_quantities.js as a request to chat W.
 export const SATIETY = Object.freeze({id: 'satiety', unit: 'ration-minute', min: 0, max: 1_000_000});
@@ -18,7 +21,7 @@ const whole = n => Number.isSafeInteger(n) && n >= 0;
 /** Holder state for one body: its kind, its food rate per minute (0 never hungers). */
 export function livingBodyState({species, rate}) {
     if (typeof species !== 'string' || !species || !whole(rate)) throw new Error('Living body: species and a whole food rate.');
-    return {species, rate, hungry: false, inbox: []};
+    return {species, rate, hungry: false, emptySince: null, inbox: []};
 }
 
 export function createLivingBodyPack({inboxLimit = 16} = {}) {
@@ -35,7 +38,7 @@ export function createLivingBodyPack({inboxLimit = 16} = {}) {
             decide: (view, id) => {
                 const s = view.state(id), empty = s.rate > 0 && view.amount(id, 'satiety') <= 0;
                 if (empty === s.hungry) return [];
-                return [{op: 'state', holder: id, value: {...s, hungry: empty}},
+                return [{op: 'state', holder: id, value: {...s, hungry: empty, emptySince: empty ? view.clock : null}},
                     ...(empty ? [{op: 'publish', kind: 'living.hungry', place: view.placeOf(id), detail: {species: s.species}}] : [])];
             },
         }],
