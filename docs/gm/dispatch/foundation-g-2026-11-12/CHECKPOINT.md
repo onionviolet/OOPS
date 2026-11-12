@@ -74,3 +74,119 @@ tests: focused Gu tests (208 pass per chat G)
 review: diff-scoped
 surface: gu_catalogue.js grew 28 to 78 identity kinds; scripts/gu_keeper_inventory.mjs added
 ```
+
+# Phase 2a, 2026-11-12: Gu on the kernel, runnable data
+
+Started from master `ea6a170dd` (merged into this branch). Scope per the new plan sections: SC4 and PFP21 (a Gu is rows on each mechanism; G keeps writing `gu_*` files, SC5), SC6 (moves as composed workings), PFP22-PFP24.
+
+## What changed
+
+- [`src/gu_working_law.js`](../../../../src/gu_working_law.js): one K working law (`gu.working@1`) with five operations: `activate` (gu_activation), `convert` (catalogue conversion between essence stages), `refine` (gu_refinement begin and one step per recipe stage), `grow` and `treat` (Vitality Grass rows). `guMethods(kind)` builds every method a catalogue kind supplies from its rows; `guMoveMethod(record)` turns a move record into a composed working with one activate step per role. Bound Gu carry the role kind `gu` and their catalogue kind in `guKind` (KW3); the law hands leaves their own view.
+- `derivedGuAbility(kind)`: a parts row with a chapter rank and a function, but no authored ability, runs on a labelled `derived` default (fuel family from rank by GG13 unless the chapters state it; cost and magnitude one unit, dials in `GU_WORKING_DIALS`). Rank-open kinds get no derived default, so the open-rank rule of the catalogue test holds.
+- [`src/gu_activation.js`](../../../../src/gu_activation.js): optional `modifiers` input and output, so supports carry from one kernel step to the next. This closes K's backlog KB1 on G's side with no kernel change.
+- [`tests/gu_working_law.test.js`](../../../../tests/gu_working_law.test.js), 7 tests: coverage and labelled gaps; every runnable ability quotes through K; one jump versus steps and reload; Little Light Moonblade as a composed working equals the whole-move activation; Red Fire with three supports equals the move search's best row; Four Flavors refines from its recipe row under any partition and interrupts when short of wine; conversion, growth and treatment numbers.
+
+Save compatibility (MC4): unchanged. No scene uses the law yet; no save key changed.
+
+## PFP2 counts
+
+| Count | Phase 1 end | Phase 2a end |
+| --- | ---: | ---: |
+| Kinds in the catalogue | 78 | 78 |
+| Kinds that run as data with no scene module (through `gu.working`) | 7 | **46** (28 authored bindings, 18 on labelled derived abilities) |
+| Kinds that cannot run yet | 71 | 32: 18 lack a standalone function in the cited scenes, 14 lack a chapter rank |
+| Move records running as composed workings (tests) | 0 | 2 (Little Light Moonblade, Red Fire set) |
+| Bespoke scene modules (keeper src + packs) | 67 | 67 |
+
+`guRunnableCoverage()` reports the list and each gap.
+
+## Checks
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/gu_working_law.test.js tests/gu_*.test.js tests/kernel_working.test.js` | 232/232 pass | |
+| `npm run check:arch` | pass, main.js growth -1 | |
+| `npm run check:rules` | PASS; one TMR1 warning in `book_world_hp_exams.js`, pre-existing and not G's | |
+
+## Rescope and next
+
+Compression did not start in 2a: deleting a scene module needs a host that runs scene operations through `gu.working`, and the first candidates (seven, nine, red_steel) are dispatched together through `gu_keeper_wild` with cross-scene readiness. Phase 2b builds that host for one owned module and deletes it, using the `gu_upkeep` headless harness as the regression. Then the 23 evidence move records drive move search (phase 2c), and generation through P's grammar (phase 3).
+
+Request to K: none. KB1 is handled on G's side.
+
+# Phase 2b, 2026-11-12: first scene module deleted
+
+- New generic host [`src/gu_essence_line.js`](../../../../src/gu_essence_line.js): a fed converter raises essence one stage and a cast spends the raised pool through a catalogue ability, settled on `gu.working` through the kernel. Conversion numbers, cast cost and strike come from catalogue rows.
+- Scene row [`src/world_packs/book_gu_keeper_lines.js`](../../../../src/world_packs/book_gu_keeper_lines.js): the red-steel scene as data, keeping its saved facts keys and ids. The one authored value (a day between Four Flavors meals) is labelled.
+- **Deleted** `src/gu_keeper_red_steel.js`. `gu_keeper_wild`, the red-steel pack and the seven pack now read the row and the host. AREA_GUIDE's Gu entry points new scenes at rows plus `gu_working_law` methods.
+
+Save compatibility (MC4): unchanged. Same facts keys and counters; the host computes the same stock and strike.
+
+| Count | 2a end | 2b end |
+| --- | ---: | ---: |
+| Kinds that run as data with no scene module | 46 | 46 |
+| Bespoke keeper src modules | 31 | **30** |
+| Keeper packs (command surfaces, kept) | 36 | 36 |
+| Scenes run as rows on a generic host | 0 | 1 (red_steel; rank_trial's cast shares it) |
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/gu_*.test.js tests/kernel_working.test.js` | 232/232 pass (the `gu_upkeep` red-steel journey feeds, converts and casts through the host) | |
+| `npm run build` | pass, bundle SHA-256 `7f888a6a4c46b1ff2dcbb7a0987487c16710de034503b9b7b7053accf1388562` | |
+| `node scripts/playtest/gu-keeper.mjs <repo> <out> --four-flavors-red-steel-only` (headless Chrome, 1920x1080) | success: refusal at 3 stones, Save/reload/Export/literal Import equal while held and after spending, reserve funded Moonglow without aperture essence. Receipt [receipts/red-steel-phase-2b.json](receipts/red-steel-phase-2b.json) | agent-verified, not human-reviewed |
+| `npm run check:arch`, `npm run check:rules` | pass; the TMR1 warning in `book_world_hp_exams.js` is pre-existing | |
+
+Next: the seven and nine scenes join the same host for their conversion and cast halves, and their refinement halves move onto the `refine` method of `gu.working`. Both are dispatched through `gu_keeper_wild`, so they go together.
+
+# Phase 2c, 2026-11-12: MS1 coverage ledgers
+
+Merged master `2fff2285e` (plan section "Making all achievable": CV1-CV4, GL1-GL7, PR1-PR9, MS1-MS7, PFP25-PFP26).
+
+- [`docs/coverage/gu_kinds.jsonl`](../../../coverage/gu_kinds.jsonl): 1,466 rows, one per review-index record. [`docs/coverage/gu_moves.jsonl`](../../../coverage/gu_moves.jsonl): 776 rows (23 move records plus 753 wiki leads). **Zero unclassified.** Row fields per CV1 (`id`, `source`, `state`, `mechanisms`, `test`, `note`) plus `layer` (chapter or wiki), labels and, for wiki rows, `labelBasis`.
+- Regenerate: `node scripts/gu_coverage_ledgers.mjs [private index path]` ([script](../../../../scripts/gu_coverage_ledgers.mjs)). Deterministic, two runs byte-identical. It needs the gitignored review index; the test reads only the committed ledgers.
+- [`tests/gu_coverage.test.js`](../../../../tests/gu_coverage.test.js): denominators, unique ids, valid states, a mechanism on every runs row, and it **runs** every runs row: chapter kinds through their catalogue methods, wiki kinds on an ability derived from their labels, moves as composed workings.
+- `gu_working_law.js`: `derivedAbilityFrom(labels)` (shared by catalogue and ledger rows); `guMoveMethod` now settles support-only roles before effect roles (GG9), so a record that lists its core first still shapes the effect. `ordered: true` keeps a record's order exactly.
+
+**Labelling rules (GL7, data first).** Chapter rows: catalogue methods decide runs; otherwise the parts row names the missing rank or function. Wiki rows: lowest wiki rank label; function from the wiki type category (Offensive, Defensive, Movement, Flying, Steed, Investigative, Concealment, Healing, Amplification), else a short name-keyword table marked `name-keyword-inference` (123 rows). Support, Consumable, Grass, Storage and House name a role or a form and supply no function. The yaksha sighting is `not-a-thing:provisional-sighting`; three wiki overview pages are `not-a-thing:wiki-reference-page`. No `runs-canon` rows yet: every running binding has at least one authored number (catalogue `authored` fields or derived dials), so all are `runs-authored`.
+
+## Runs share per ledger
+
+| Ledger | Rows | runs-canon | runs-authored | blocked | not-a-thing | Runs share |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| gu_kinds, chapter layer | 78 | 0 | 46 | 31 (rank-unknown 11, effect-unknown 20) | 1 | 59% |
+| gu_kinds, wiki layer | 1,388 | 0 | 337 | 1,048 (rank-unknown 668, effect-unknown 380) | 3 | 24% |
+| **gu_kinds, all** | **1,466** | 0 | **383** | 1,079 | 4 | **26%** |
+| gu_moves, chapter records | 23 | 0 | 4 (Red Fire set, both Year Beast Summonings, Self-cleansing Formation Plate) | 19 (unnamed-role 17, role-cannot-run 2) | 0 | 17% |
+| gu_moves, wiki leads | 753 | 0 | 0 | 753 (roles-unknown) | 0 | 0% |
+| **gu_moves, all** | **776** | 0 | **4** | 772 | 0 | **0.5%** |
+
+Blocked rules, by owner (backlog for MS3, MS4 and MS7):
+- **rank-unknown** (679): G. Either a chapter pass, or an authored-rank dial that the catalogue test now forbids for chapter-checked open ranks; a world-pack dial with a reason would lift the wiki rows.
+- **effect-unknown** (400): G with P's effect layer (GL2, MS2). An effect label from a chapter pass or an effect sentence.
+- **unnamed-role** (17) and **roles-unknown** (753): G. A move with an unnamed participant needs either a chapter pass or a role filled by any Gu with the required function (a function-typed role, GL3 composition layer).
+- **role-cannot-run** (2): lifts when Ice Blade, Swirl, Fierce Wind and Group Strength get a rank or function.
+
+PFP2 after 2c: kinds that run as data 46 chapter-checked plus 337 wiki-layer; bespoke keeper src modules 30; MS3's 10 deleted modules: 1 so far.
+
+Counts table: P supplies the CV1 `docs/coverage/README.md` script; the table above is G's numbers for it.
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `node scripts/gu_coverage_ledgers.mjs` twice | byte-identical ledgers | needs the private index |
+| `node --test tests/gu_*.test.js tests/kernel_working.test.js` | 236/236 pass | |
+| `npm run check:arch`, `npm run check:rules` | pass (pre-existing HP TMR1 warning only) | |
+
+Next: GL2 and GL3 for Gu (an effect layer and a composition layer with their own canon tests, MS2 and MS4), function-typed move roles to lift unnamed-role moves, and further Keeper deletions toward 10 (MS3).
+
+# Phase 2d, 2026-11-12: ledgers in P's format, Codex lane brief
+
+Merged master (P's coverage tooling `5cd05f309`). The ledgers now use P's six-field row: `source` is a single locator string, and `mechanisms` lists owners by chat letter (G on every row, plus K, W, F or L for each mechanism a running row uses). G's labels moved to the sidecar [`docs/coverage/gu_labels.json`](../../../coverage/gu_labels.json), keyed by ledger and id: layer, name, rank, function, path, label basis and move roles. It is a sidecar because every `.jsonl` file in that folder counts as a ledger. `tests/gu_coverage.test.js` reads the ledger and the sidecar and still runs every runs row.
+
+| Command | Result |
+| --- | --- |
+| `npm run check:coverage` | PASS: gu_kinds 1,466 rows, 0 unclassified, runs 26.2%; gu_moves 776 rows, 0 unclassified, runs 0.5% |
+| `node --test tests/gu_coverage.test.js` | 4/4 pass |
+
+I did not regenerate `docs/coverage/README.md`, so it doesn't conflict with other ledger owners. `node scripts/coverage_report.mjs` rebuilds it at merge.
+
+Codex lane brief: [CODEX_LANE.md](CODEX_LANE.md). It asks for five more Keeper deletions (seven, nine, vitality, rainbow, stealth) on the essence-line pattern, with the route flags, file limits and done check. G reviews its diff before committing.

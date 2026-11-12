@@ -2,7 +2,10 @@ import {quoteGuFuel} from './gu_fuel.js';
 
 // Pure ordered settlement. The host supplies actual Gu, operators and reserves,
 // then publishes the returned debits and effects through its own state owners.
-export function resolveGuActivation({stages, beats, reserves, day, completionEffect, controlFailedAt, controlDraw, stopBefore}) {
+// `modifiers` seeds supports already active from an earlier step (a kernel working that splits a move into
+// one step per role); the result returns the list so the next step can carry it (kernel backlog KB1).
+export function resolveGuActivation({stages, beats, reserves, day, completionEffect, controlFailedAt, controlDraw, stopBefore,
+    modifiers: carried = []}) {
     if (stages && beats) throw Error('Choose stages or synchronized beats for an activation.');
     const sequence = beats ?? (stages ?? []).map(stage => ({stages: [stage]}));
     if (!sequence.length || sequence.some(beat => !beat.stages.length)) throw Error('Choose at least one Gu to activate.');
@@ -24,7 +27,7 @@ export function resolveGuActivation({stages, beats, reserves, day, completionEff
 
     let remaining = structuredClone(reserves);
     const activations = [];
-    const modifiers = [];
+    const modifiers = structuredClone(carried);
     const effects = [];
     for (const [index, beat] of sequence.entries()) {
         if (index === stopBefore) {
@@ -58,7 +61,7 @@ export function resolveGuActivation({stages, beats, reserves, day, completionEff
         }
     }
     if (completionEffect) effects.push(structuredClone(completionEffect));
-    return {outcome: 'complete', activations, remaining, effects};
+    return {outcome: 'complete', activations, remaining, effects, modifiers};
 }
 
 function validateBeat({stages, requires = {}}) {
