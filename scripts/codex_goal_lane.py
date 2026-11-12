@@ -101,7 +101,20 @@ def usage(server):
             'ordinaryUsageAllowed': res.get('ordinaryUsageAllowed')}
 
 
+LIMITS_FILE = os.path.expanduser('~/.codex/foundation-lanes/limits.json')
+
+
+def current_limits(ceiling, floor):
+    """A shared limits file, when present, overrides launch values (Weibao can change them mid-run)."""
+    try:
+        d = json.load(open(LIMITS_FILE))
+        return float(d.get('usageCeiling', ceiling)), float(d.get('creditFloor', floor))
+    except Exception:
+        return ceiling, floor
+
+
 def guard_trips(u, ceiling, floor):
+    ceiling, floor = current_limits(ceiling, floor)
     if u['usedPercent'] is None or u['creditBalance'] is None:
         return 'usage unreadable'
     if u['usedPercent'] >= ceiling:
@@ -152,7 +165,9 @@ def run_lane(a):
         objective = brief if len(brief) <= 3900 else brief[:3900 - len(tail)] + tail
         s.request('thread/goal/set', {'threadId': tid, 'objective': objective, 'tokenBudget': a.token_budget,
                                       'status': 'active'})
-        prompt = ('You are a Codex worker lane for the YAIRPG foundation run. Read AGENTS.md and the brief below, '
+        prompt = ('You are the Codex coordinator of the YAIRPG foundation run. Read AGENTS.md and the handoff below, '
+                  'then work toward the goal: dispatch worker lanes, review and commit their work, merge waves and run the '
+                  'gates as the handoff says. Never push. Stop at the limits in the handoff.\n\n' + brief) if a.coordinator else ('You are a Codex worker lane for the YAIRPG foundation run. Read AGENTS.md and the brief below, '
                   'then work toward the goal. Edit only the files the brief allows. Do not run git commit, git stash, '
                   'git reset, git checkout or git push; the owning Claude chat reviews your diff and commits. '
                   'Run only the focused tests the brief names. No visible windows. Write your return to '
@@ -258,9 +273,10 @@ def main():
     s.add_argument('--token-budget', type=int, default=4_000_000)
     s.add_argument('--auto-compact', type=int, default=200_000)
     s.add_argument('--max-turns', type=int, default=40)
-    s.add_argument('--usage-ceiling', type=float, default=30)
-    s.add_argument('--credit-floor', type=float, default=64000)
+    s.add_argument('--usage-ceiling', type=float, default=20)
+    s.add_argument('--credit-floor', type=float, default=62000)
     s.add_argument('--runs-dir', default=DEFAULT_RUNS)
+    s.add_argument('--coordinator', action='store_true')
     for n in ('status', 'stop'):
         x = sub.add_parser(n)
         x.add_argument('--runs-dir', default=DEFAULT_RUNS)
@@ -277,8 +293,8 @@ def main():
         try:
             sv.init()
             u = usage(sv)
-            print(json.dumps({'usedPercent': u['usedPercent'], 'aboveCreditFloor64000': None if u['creditBalance'] is None else u['creditBalance'] > 64000,
-                              'creditHeadroom': None if u['creditBalance'] is None else round(u['creditBalance'] - 64000), 'reached': u['reached']}))
+            print(json.dumps({'usedPercent': u['usedPercent'], 'limits': dict(zip(('usageCeiling', 'creditFloor'), current_limits(20, 62000))),
+                              'creditHeadroom': None if u['creditBalance'] is None else round(u['creditBalance'] - current_limits(20, 62000)[1]), 'reached': u['reached']}))
         finally:
             sv.close()
     elif a.cmd == 'stop':

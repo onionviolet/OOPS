@@ -678,6 +678,34 @@ S's own finding: blind identity got verb and object right for only 35 of 94 spel
 - **PFP33 · One descent graph.** Bodies, things, knowledge, institutions and places record their ancestry as typed edges on one identity graph; a bloodline is a query over it.
 - **PFP34 · Spells and potions are made of working parts.** Components, process steps and ingredient properties each carry their own tolerance, failure and skill, not one success roll.
 
+## More systems at the same depth (2026-11-12)
+
+Weibao (2026-11-12): "hand off for codex coordinator to take over and work on implementing everything in full? maybe can defer gameplay for now to focus on foundational systems like the procedural stuff and more. OTher systems with the same depth to send out too"
+
+Each row answers the depth checklist (DC1-DC10) in short: what carries it, how it varies and spreads, how it is improved, what is hidden, what magic adds, canon anchors and society's part. Owners are the plan's chats; new ones are marked.
+
+| Code | System | Carries it | Varies and spreads | Improved by | Hidden, and how learned | Magic and lore anchors | Society | Owner |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| MD1 | **Knowledge and research** | Actors, books, notebooks, rumors | Copying, decay, distortion, teaching drift | Study, experiment, deduction | Truth versus belief; dangerous knowledge | Secret keepers (LR11), names that draw attention (LR5), memory across loops (LR15) | Libraries, sects guarding texts, censorship | N (new) |
+| MD2 | **Places and terrain** | Regions, sites, routes | Soil, essence, ruin, weather history | Cultivation, building, drainage | Unsurveyed sites, hidden ruins | Blessed lands and their tribulations (LR7), inheritance trials (LR10) | Ownership, borders, claims | X (new) |
+| MD3 | **Situations and story** | Pressures, actors, beats | Escalation, aftermath | Player and NPC intervention | Hidden motives and causes | Canon beats as fixed points (AD49) | Reputation, rumor | D (new) |
+| MD4 | **Formations, wards and arrays** | Places and objects as law fields | Strength decays, upkeep | Layering, keystones, better materials | Unseen wards, traps | Gu formations, Hogwarts protective charms, ritual circles | Sect defenses, warded estates | S and W, with F for anchors |
+| MD5 | **Health, injury and medicine** | Bodies | Wounds, infection, illness spread | Treatment, rest, potions, Gu | Undiagnosed conditions | Healing magic, curses that block healing | Healers, hospitals, fees | L with B |
+| MD6 | **Minds and emotion** | Actors | Mood, fear, trust, sanity, loss of control | Rest, therapy, rituals, bonds | Hidden intentions | Lord of the Mysteries loss of control (LR4), mind magic | Stigma, cults | A |
+| MD7 | **Faith, gods and higher powers** | Beings, churches, law fields | Favor, attention, doctrine drift | Worship, offerings, deeds | Who is really answering | Lord of the Mysteries deities and churches, Heaven's will in Reverend Insanity | Churches, heresy, inquisitions | M with W (law fields) |
+| MD8 | **Law, crime and justice** | Societies, records | Enforcement strength by place | Bribes, patrons, reform | Unsolved crimes, evidence | Binding vows (LR13), breeding laws (LR14) | Courts, guards, bounties | M |
+| MD9 | **Economy and work** | Goods, labor, coin | Prices, scarcity, wages | Trade routes, skills, tools | Market rumors, insider knowledge | Essence stones and Gu as currency | Guilds, taxes, debts | M |
+| MD10 | **Time, calendar and sky** | W processes | Seasons, moon, festivals | Prediction, almanacs | Rare celestial events | Moon windows for brewing and Gu (LR2 rows) | Festivals, holy days | W |
+| MD11 | **Weather and disaster** | W quantities | Storms, droughts, plagues | Forecasting, wards, granaries | Coming disasters | Earthly calamities and tribulations (LR7) | Relief, blame, migration | W with X |
+| MD12 | **Language and names** | Knowledge, places, people | Dialects, nicknames, forgotten names | Learning, translation | True names, coded speech | Honorific names (LR5) | Prestige of names, taboos | N with naming sheets (NMR) |
+| MD13 | **Travel and transport** | Routes, mounts, vehicles, Gu houses | Danger, speed, cost by route | Better mounts, roads, travel Gu | Shortcuts, secret routes | Apparition, Fixed Immortal Travel, Gu houses | Tolls, caravans | X with F and L |
+| MD14 | **Enchanting and artifacts** | Items with law fields | Charge, wear, side effects | Recharging, refining, binding | Hidden properties, curses | Sealed artifacts (LR6), wand allegiance (LR12), attunement (LR16) | Collectors, bans, black markets | F with S |
+| MD15 | **Relationships and households** | Ties between actors | Trust, debt, love, rivalry | Gifts, help, time | Secret feelings, betrayals | Pacts, familiars, binding vows | Marriage, adoption, feuds (BL7) | A with M |
+
+Order, foundations first: N, X and D start as chats once usage allows, then the rows on existing owners join each owner's queue after its MS3. Each new system gets a contract v0, one consumer, a ledger where it has a canon corpus, and its DC answers before any generator.
+
+- **Gameplay deferred (Weibao, 2026-11-12).** Playable slices stay paused while foundations are built. MS5's "one reachable route per domain" stays as proof that a foundation runs in the real game, not as content work.
+
 ## The goal
 
 Weibao (2026-11-11): "go ahead and /sharpen /more-to-consider /goal creating comprehensive system for each sytem, /sharpen goal first"
