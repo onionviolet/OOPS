@@ -23,11 +23,15 @@ import {createWorkingEndPack} from './world_substrate_packs/working_end.js';
 import {createPresencePack} from './world_substrate_packs/presence.js';
 import {createMarketPack} from './market_substrate.js';
 import {createKnowledgePack} from './world_substrate_packs/knowledge.js';
-import {advanceRecords, emptyRecords, hostOf, recordsEmpty, restoreRecords, serializeRecords} from './engine_records.js';
+import {advanceRecords, emptyRecords, hostOf, recordsEmpty, restoreRecords, serializeRecords,
+    DEFAULT_DRAW_ROOT, drawAt, drawsOf, packDraw, restoreDraws} from './engine_records.js';
 
 // The records slice and its engine actions (E9): kernel workings in flight, stored workings and bindings.
 export {RECORDS_SCHEMA, engineReceipts, exitEngineBinding, fireEngineStored, makeEngineBinding, startEngineWorking,
     storeEngineWorking, waitingWorkings} from './engine_records.js';
+
+// The saved draw root (E11).
+export {DRAWS_SCHEMA, DEFAULT_DRAW_ROOT} from './engine_records.js';
 
 export const ENGINE_SCHEMA = 'engine.world@1';
 
@@ -55,25 +59,33 @@ export const ENGINE_PACKS = Object.freeze([
 
 const fail = message => { throw new Error(`Engine world: ${message}`); };
 
-function compose({packs = ENGINE_PACKS.map(p => p.id), settings = {}, shared = {}, dials = {}, host}) {
+// `ownPacks` (E11, proposal) are packs the caller brings: a world's own law or a fixture's. Like settings
+// they are the caller's, are passed again on restore, and settle after the registered packs in the order given.
+function compose({ownPacks = [], packs = [...ENGINE_PACKS, ...ownPacks].map(p => p.id), settings = {}, shared = {}, dials = {}, host}, draws) {
     if (new Set(packs).size !== packs.length) fail('a pack is listed twice.');
-    for (const id of packs) if (!ENGINE_PACKS.some(p => p.id === id)) fail(`${id} is not a registered pack.`);
-    const loaded = ENGINE_PACKS.filter(p => packs.includes(p.id)).map(entry => {
+    const known = [...ENGINE_PACKS, ...ownPacks.map(made => ({id: made.id, create: () => made}))];
+    for (const id of packs) if (!known.some(p => p.id === id)) fail(`${id} is not a registered pack.`);
+    const loaded = known.filter(p => packs.includes(p.id)).map(entry => {
         const made = entry.create(settings[entry.id]);
         if (made.id !== entry.id) fail(`registry id ${entry.id} made pack ${made.id}.`);
         return made;
     });
     const rules = composeSubstrate({packs: loaded, dials, quantities: shared.quantities ?? [],
-        properties: shared.properties ?? [], effectKinds: shared.effectKinds ?? []});
+        properties: shared.properties ?? [], effectKinds: shared.effectKinds ?? [], draw: packDraw(draws)});
     return {rules, publishes: Object.fromEntries(loaded.map(p => [p.id, [...(p.publishes ?? [])]])), host: hostOf(host)};
 }
 
 /** `settings` is keyed by pack id; `packs` defaults to every registered pack. `host` is what the
  * records slice needs from the caller and cannot save: laws, things, costs, effects, ports. */
-export function createEngineWorld({clock = 0, holders = [], lawFields = [], ...config} = {}) {
-    const {rules, publishes, host} = compose(config);
-    return {rules, publishes, host, world: createWorld(rules, {clock, holders, lawFields}), records: emptyRecords()};
+export function createEngineWorld({clock = 0, holders = [], lawFields = [], drawRoot, ...config} = {}) {
+    const draws = drawsOf(drawRoot);
+    const {rules, publishes, host} = compose(config, draws);
+    return {rules, publishes, host, draws, world: createWorld(rules, {clock, holders, lawFields}), records: emptyRecords()};
 }
+
+/** E11: a raw draw at an address under this world's saved root (an unsigned whole number of four bytes).
+ * `engine.draws.root` is the root itself, for owners that take a root and an id (heredity). */
+export const engineDraw = (engine, ...parts) => drawAt(engine.draws, ...parts);
 
 /** The packs and the records advance on one clock; the order at each stop is stated in engine_records.js. */
 export function advanceEngineWorld(engine, toClock) {
@@ -92,14 +104,18 @@ export function applyEngineOps(engine, ops, cause) {
  * `records` is written when the slice holds something, so a world with no records saves as it did before. */
 export function serializeEngineWorld(engine) {
     return {schema: ENGINE_SCHEMA, packs: [...engine.rules.packs], world: serializeWorld(engine.world),
-        ...(recordsEmpty(engine.records) ? {} : {records: serializeRecords(engine.records)})};
+        ...(recordsEmpty(engine.records) ? {} : {records: serializeRecords(engine.records)}),
+        // E11: the default root is not written, so a world that never chose a root saves as it did before.
+        ...(engine.draws.root === DEFAULT_DRAW_ROOT ? {} : {draws: {...engine.draws}})};
 }
 
 export function restoreEngineWorld(saved, config = {}) {
     if (saved?.schema !== ENGINE_SCHEMA || !Array.isArray(saved.packs)) fail('not an engine world save.');
-    const {rules, publishes, host} = compose({...config, packs: saved.packs});
+    // Compatibility (E11): a save with no `draws` (every save before E11) restores with the default root.
+    const draws = restoreDraws(saved.draws);
+    const {rules, publishes, host} = compose({...config, packs: saved.packs}, draws);
     // Compatibility: a save with no `records` (every save before E9) restores with an empty slice.
-    return {rules, publishes, host, world: restoreWorld(rules, saved.world), records: restoreRecords(saved.records, host)};
+    return {rules, publishes, host, draws, world: restoreWorld(rules, saved.world), records: restoreRecords(saved.records, host)};
 }
 
 /**
