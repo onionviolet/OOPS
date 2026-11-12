@@ -698,3 +698,16 @@ From the same read-only audit. Cells marked (inf) in the lane return were inferr
 Pairs with no tested coupling that should have one: spellcraft and stored workings (a ward is a stored spell); contest and living body; markets and brewing; progression and body alteration; heredity and markets; composition and contest; bindings and agency; knowledge and brewing.
 
 Finish line added, E19: every engine row reads yes in the first five columns, and each of the eight pairs has a test in one mixed run. The canon column fills by data and reading, outside the finish list.
+
+### Wave 17 fold (2026-11-12)
+
+Four Fable lanes in sparse worktrees plus the read-only audit above. Each lane ran its focused tests; the coordinator merged each branch, reran the tests of changed modules in the full checkout, and ran the full suite once, on the tree holding the two game-reachable changes: 6,674 tests, 6,669 pass, 0 fail, 5 skipped (`wave17-suite.log`). No build was run, since it would overwrite bundle files in the checkout that are not this run's.
+
+| Lane | Commit | Result | Open |
+| --- | --- | --- | --- |
+| Design record (E3) | `a0cfd2ea7` | One parts view over genome, recipe, spell sentence, move and blade; one edit operator and one copy operator reach all five | Round-trip gaps G1 to G12 in its note; a clone under a new id draws different traits (E11); a design does not fit as a holder property; an edit leaves no cause row |
+| Cost owners (E1) | `4f4fac051` | Published costs debited from the payer, then a substitute, then a backer; a shortfall is a priced fault. Shown for bindings, stored workings, body alteration, process crafts | Spells through the effect host carry a cost word with no amount (needs `lowerEffect`); the kernel does not see a short step (needs a `settleCosts` port); market, brew regulator and contest costs bypass accounts |
+| Day budget and couplings (E4, E8) | `d87ea1ca1` | Mixed day 799 to 319 segments with exact totals; coupling report loads the registered packs, none unresolved | The fast form counts switches without publishing them; the vent Gu's five-minute pulse is 288 of the 319 |
+| Knowledge record (E2) | this fold | Pack `n.knowledge`, seventeenth in the engine world: believed and true sides, four priced checks, teaching with side, cover and withheld steps; the false move, formula, blueprint, variants and rumours run from data rows. Couplings across domains 7 to 9 | Its cost rows are not yet passed to the cost owner; checks miss but give no false alarm; the game's own knowledge store is separate until tie-in |
+
+Fold fix by the coordinator: the coupling test pinned the count at 7 and the knowledge pack made it 9, so the assertion is now a floor. E1 to E4 and E8 are met in part as the Open column says; none is closed.

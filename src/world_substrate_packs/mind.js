@@ -20,7 +20,7 @@ const positive = n => Number.isSafeInteger(n) && n > 0;
 const text = v => typeof v === 'string' && v.length > 0;
 const kinds = [
     'effect.block.mind', 'effect.bind.mind', 'effect.add.mind',
-    'effect.transform.mind', 'effect.transform.memory', 'effect.sense.mind',
+    'effect.transform.mind', 'effect.transform.memory', 'effect.sense.mind', 'effect.add.memory',
 ];
 
 function effective({base, layers}) {
@@ -108,6 +108,10 @@ function influence(view, id, {kind, by, detail}) {
     case 'effect.transform.memory':
         if (mind.faculty === 'memory' && text(mind.record) && view.property(id, 'mind_memory')?.includes(mind.record))
             changes = {mind_memory: {remove: mind.record}};
+        break;
+    case 'effect.add.memory':
+        // The knowledge owner announces a record a mind has just taken in.
+        if (mind.faculty === 'memory' && text(mind.record)) changes = {mind_memory: {expose: [mind.record]}};
         break;
     case 'effect.sense.mind': {
         // W supplies only successfully sensed targets. The reader holds the

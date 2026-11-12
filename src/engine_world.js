@@ -22,6 +22,7 @@ import {createMindPack} from './world_substrate_packs/mind.js';
 import {createWorkingEndPack} from './world_substrate_packs/working_end.js';
 import {createPresencePack} from './world_substrate_packs/presence.js';
 import {createMarketPack} from './market_substrate.js';
+import {createKnowledgePack} from './world_substrate_packs/knowledge.js';
 
 export const ENGINE_SCHEMA = 'engine.world@1';
 
@@ -44,6 +45,7 @@ export const ENGINE_PACKS = Object.freeze([
     pack('m.market', createMarketPack),
     pack('k.working_end', createWorkingEndPack),
     pack('n.presence', createPresencePack),
+    pack('n.knowledge', createKnowledgePack),
 ]);
 
 const fail = message => { throw new Error(`Engine world: ${message}`); };
