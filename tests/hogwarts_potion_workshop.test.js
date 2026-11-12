@@ -6,7 +6,7 @@ test('Draught checkpoints depend on extraction and directional history', () => {
     const annotated = brewWorkshopDraught({strokes: 'LLLLLLLR'});
     assert.deepEqual(annotated.observations, {afterAddition: 'Lilac', afterStirring: 'Pale pink'});
     assert.equal(annotated.amounts.settled, 8);
-    assert.equal(Object.values(annotated.amounts).reduce((sum, amount) => sum + amount, 0) + annotated.retained.beanSolids, 112);
+    assert.equal(Object.values(annotated.amounts).reduce((sum, amount) => sum + amount, 0) + annotated.retained.beanSolids + annotated.retained.spentBeans, 112);
     assert.equal(brewWorkshopDraught({preparation: 'slice', strokes: 'LLLLLLLR'}).amounts.settled, 6);
     assert.equal(brewWorkshopDraught({strokes: 'LLLLLLRL'}).amounts.settled, 0);
 });
@@ -35,4 +35,23 @@ test('a cool batch retains the catalyst and achieves a different reaction extent
     assert.deepEqual([cool.remaining.blend, assisted.remaining.blend], [1, 0]);
     assert.deepEqual(assisted.retained, [{material: 'catalyst-stone', qty: 1}]);
     assert.equal(assisted.mass, cool.mass);
+});
+
+test('Draught equivalence test: the brew-law Draught matches the pre-law bench on 240 attempts', async () => {
+    const {readFileSync} = await import('node:fs');
+    const golden = JSON.parse(readFileSync(new URL('./fixtures/brew/draught_legacy_golden.json', import.meta.url), 'utf8'));
+    assert.equal(golden.cases.length, 240);
+    for (const {input, out} of golden.cases) {
+        const r = brewWorkshopDraught(input);
+        const {intermediate, settled, juice, precursor, matrix} = r.amounts;
+        assert.deepEqual({mass: r.mass, intermediate, settled, juice, precursor, matrix, observations: r.observations,
+            solidsWithLoss: r.retained.beanSolids + r.retained.spentBeans, preparedJuice: r.trace[1].juice}, out, JSON.stringify(input));
+    }
+});
+
+test('BRC9: storage loss is its own retained amount, not counted as bean solids', () => {
+    const r = brewWorkshopDraught({beanUnits: 12, storage: {days: 3, vessel: 'open'}});
+    assert.equal(r.retained.spentBeans, 6);
+    assert.equal(r.retained.beanSolids + r.retained.spentBeans + r.trace[1].juice, 12);
+    assert.equal(Object.values(r.amounts).reduce((n, a) => n + a, 0) + r.retained.beanSolids + r.retained.spentBeans, 12 + 6 + 94);
 });

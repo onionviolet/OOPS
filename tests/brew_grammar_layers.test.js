@@ -22,7 +22,7 @@ test('GL2: every potion sentence assembles on its world grammar and lowers onto 
     for (const [grammar, row] of rows) {
         const a = assemblePotionEffect(grammar, row.parts);
         assert.ok(a.ok, `${row.id}: ${JSON.stringify(a.receipt.violations)}`);
-        assert.ok(a.lowered.ops.length > 0, row.id);
+        assert.ok(a.lowered.acts.length + a.lowered.publish.length > 0 && a.lowered.needs.length === 0, `${row.id}: ${JSON.stringify(a.lowered)}`);
     }
     for (const r of HP_POTION_SENTENCES) assert.ok(evidenceIds.has(r.evidence), `${r.id} cites a real evidence row`);
 });

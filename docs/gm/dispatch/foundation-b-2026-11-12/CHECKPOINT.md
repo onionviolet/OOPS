@@ -8,7 +8,7 @@ route: n/a
 state: built
 viewport: n/a (no UI; no host calls the brew law yet)
 persistence: unchanged
-tests: tests/brew_law.test.js 12 pass; tests/b_coverage_ledgers.test.js 3 pass; tests/brew_grammar_layers.test.js 4 pass; phase 1 baseline 8 focused potion and lead-life files, 81 pass
+tests: tests/brew_law.test.js 16 pass; tests/hogwarts_potion_workshop.test.js 6 pass (240-case Draught equivalence); tests/b_coverage_ledgers.test.js 3 pass; tests/brew_grammar_layers.test.js 4 pass; phase 1 baseline 8 focused potion and lead-life files, 81 pass
 review: none
 surface: new leaves src/brew_law.js and src/world_packs/lotm_brew_pack.js; zero registration lines
 ```
@@ -19,6 +19,27 @@ surface: new leaves src/brew_law.js and src/world_packs/lotm_brew_pack.js; zero 
 - Phase 2a: done at the law level, **implemented, below floor** (AD43: no host calls it and no player route crosses it yet). Agent-verified, not human-reviewed.
 - Save compatibility (MC4): unchanged. The brew is a `kernel.working@1` record, so it inherits K's save shape and migration path when a host adopts it.
 - `book_hp_pack.js` untouched; no fingerprint re-pin.
+
+## Potion-craft depth PTD1-PTD10 (2026-11-12)
+
+The classroom Draught of Living Death is now data (`src/world_packs/hp_brew_pack.js`) on the shared brew law, and `hp_potion_reactions.brewWorkshopDraught` is a thin adapter keeping its old return shape. A 240-case golden fixture of the pre-law bench (`tests/fixtures/brew/draught_legacy_golden.json`) matches exactly, apart from the BRC9 relabel.
+
+| Item | Status | Where |
+| --- | --- | --- |
+| PTD1 preparation form changes properties | Done (crush 2/3, slice 1/4 juice; `prepare` changes, `admitOnly`) | brew law `prepare`/`admit`; Draught data |
+| PTD2 freshness and provenance | Done for freshness: per-day ageing or the spoilage owner's key; spent share to `<id>:spent`. Provenance open | "PTD2" test |
+| PTD3 tolerances that shift the result | Done for stirring (`stir` reversal and cadence); off-pattern settles less, never fails | Draught equivalence |
+| PTD4 vessel history | Done: films carry into the next brew once, balanced, with a `clear-films` effect | "PTD4" test |
+| PTD5 brewer judgement | Cues done (`batchCues`); mid-process corrections open | Draught cues |
+| PTD6 batch variation by address | Done (`variationPermille`, `drawFraction`) | "PTD6" test |
+| PTD7 interactions in a body | Open; blended-poison antidote locator: B6 compilation PDF pp. 3307-3308 (HBP ch. 18), evidence HPPE045, HPPE046, HPPE167 | needs L's body door |
+| PTD8 shelf life | Done (`ageDose`, spoilage owner or a `life` dial; conserved) | "PTD8" test |
+| PTD9 annotated notebooks | Open (N) | |
+| PTD10 LOTM main/supplementary and rituals | Mains and supplements done in phase 2a; rituals and digestion open (R) | |
+
+PFP2: canon recipes run by bespoke code 5 to **4** (the Draught is data on the brew law); bespoke potion modules stay 10 (`hp_potion_reactions` still owns the blended antidote, BRN8 rest).
+
+Checks: focused 10 files 130 pass; `check:rules` 0; `check:arch` 0 (main.js -1); `npm run build` 0; `scripts/procedural_workshop.mjs` 0. Not run: full `npm test`, browser pass (the Draught output is unchanged except the new `spentBeans` field). Implemented, below floor for the new PTD rules (no player route uses aged doses or films yet).
 
 ## Grammar layers GL2 (effect) and GL3 (composition) (2026-11-12)
 
@@ -107,7 +128,7 @@ Merged master at ea6a170dd (K v0.1, W v0, P v0). Built on them, nothing forked:
 | BRC6 brew by count | Fixed in the law: amounts move by milli-units into doses | "every known LOTM formula" |
 | BRC7 no interruption | **Fixed between steps.** A stopped or binding-failed brew keeps every settled step's matter; one jump equals minute steps; save and restore keep it. Inside a step, the kernel settles at the deadline, so an interrupted ledger-mode heat step loses its partial work (K backlog KB6, progress inside a step). In world mode the heat itself lives on W's batch holder and keeps working while nobody is at the bench | "BRC7", "a lot that is gone" |
 | BRC8 thermal unused, heat unpublished | **Fixed, with one limit.** One thermal state per batch: the ledger keeps it across steps (a burner that ran out is relit by a paid `resumeThermal` that keeps residence), or, in a world, it is W's brew steam holder read at each deadline, so humidity, vapor and extraction come from one state and the steam contact case is not forked. Each admitted portion splits by its own residence since admission. `heat_released` carries the step's fuel. Limit: load mass and vessel thermals are step options, not read from the batch's contents | "BRC8: two heat steps compose", "relit", "late addition", "one thermal state" |
-| BRC9 Draught storage loss | Open until `hp_potion_reactions` moves | none yet |
+| BRC9 Draught storage loss | **Fixed.** The Draught runs on the brew law; storage loss is `retained.spentBeans`, no longer counted as bean solids | `tests/hogwarts_potion_workshop.test.js` "BRC9" |
 | BRC10 cup as facts | Fixed in the law for LOTM: the dose is matter with power and hazard read from it | "Seer canon test" |
 | BRC11 boundary minting | Open (M owns supply; `admit` emits `debit` for the inventory owner) | none yet |
 | BRC12 effects with no body | Open (BRN5, needs L's body door) | none yet |
@@ -144,7 +165,7 @@ Mutation check: dropping the last dose's remainder fails 3 tests; dropping the v
 
 ### Requests (relay through the coordinator)
 
-- **W:** declare `vitality` (with L): every healing, poison and pest potion sentence lowers to it and lands in `needs` today.
+- **ITM spoilage owner:** potion rows in `PERISHABLES` (finished doses and more ingredients), so `ageDose` and lot ageing read the owner instead of a stated `life` dial.
 - **Codex lane (via coordinator):** the GL2 test found two title mislabels to correct with evidence: Mandrake Restorative Draught (HPPE027) and Dr Ubbly's Oblivious Unction (HPPE121).
 
 - **P:** the shared `check:coverage` script and the `docs/coverage/README.md` counts table (CV1, CV4); `scripts/b_coverage_ledgers.mjs` exports `summarize` if useful. B's effect and composition layers (GL2, GL3) wait on PGB2 nested parts for steps.
