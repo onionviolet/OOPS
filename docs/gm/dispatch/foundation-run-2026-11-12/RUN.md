@@ -31,3 +31,12 @@ Weibao (2026-11-12): "send the plan updates to the chats and start phase 2. Cont
 - Stop condition: objective met, or weekly >= 75%, or a blocker only Weibao can clear (push, direction change). Reached? no.
 
 Resume prompt for a fresh session: "Continue the unattended foundation run from the Resume block in docs/gm/dispatch/foundation-run-2026-11-12/RUN.md. Check git status and git log -3 against its input identity first; finish the next useful action; keep the block current; commit own paths, no push."
+
+## Codex lanes (requested 2026-11-12, not dispatched)
+
+Weibao (2026-11-12): "Have those chats direct codex chats accordingly, with individual codex chats to bring their visions to life? using /goal and also /autocompact accordingly?"
+
+- Route found: CLI at `/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex` (codex-cli 0.167.0-alpha.4.1). The `goals` feature is stable. Goals are set through the app-server protocol (`thread/goal/set`, `thread/goal/get`, `thread/goal/clear`); auto-compaction is a config limit (`AutoCompactTokenLimitScope`, set with `-c` at launch), not a separate command.
+- Usage preflight (read-only, 2026-11-12): account type chatgpt, ordinary usage allowed, no rate-limit reached, Codex window 15% used.
+- Gate not passed: no supported setting found that stops a worker from spending account credits once included usage runs out. AU7 also caps an unattended task at 5 percentage points of a usage window unless a larger ceiling is authorized. The 64,500-credit reserve stands.
+- Proposed protocol if authorized: one Codex goal thread per Claude chat, launched detached in its own process group from that chat's worktree; goal text = the chat's plan row plus milestone; auto-compact limit set at launch; the Claude chat reviews each Codex return at its locators before committing; the coordinator rereads Codex usage before each batch and stops all Codex threads at the authorized ceiling, before included usage runs out.
