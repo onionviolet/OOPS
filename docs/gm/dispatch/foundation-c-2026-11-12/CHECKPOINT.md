@@ -4,9 +4,127 @@
 
 ## Status
 
-- Done this phase: inventory (sections 1 to 4), PFP2 counts (section 2), contract proposal CFC1 to CFC14 (section 5), three first consumers (section 6), requests to other chats (section 7).
-- Not done, by design: no code, no tests, no rule registration. CFC codes are local to this checkpoint until the contract moves into an owner doc at embed time.
-- Next phase waits for K v0 and W v0 on master (plan order step 2, MC2).
+- Phase 1 (inventory and proposal): sections 1 to 8 below, merged to master.
+- **Phase 2 (contest v0 and first consumers): committed, section P2.** Status: **implemented, below floor** (AD43: no player route yet, FLR2 and FLR4 unmet). Agent-verified, not human-reviewed.
+- **C's done check is not met yet.** One contest rule runs the Gu duel, both Hogwarts bouts and the wolf hunt, but only the wolves' damage reaches an L body store (the lifecycle cohort). People's hits land on W body holders' `vitality`, a quantity C's own pack declares; nothing writes `harm_state` or simulation vitals. It closes on L1 (an injure door on W bodies) or an adapter to L's people body once L names it.
+- Owner doc from phase 2 on: [CONTEST_CONTRACT](../../../CONTEST_CONTRACT.md) (CFC1 to CFC16, codes kept from the proposal; CFC13 and CFC14 not built yet).
+
+## P2. Phase 2: contest contract v0 on K and W (2026-11-12)
+
+Branch `claude/fdn-c-conflict-085132`, after merging master at ea6a170dd (fast-forward). Plan sections read: sectioning (SC1 to SC10, PFP21), separate but connected (SB1 to SB6, NV1 to NV5, EF1 to EF8, PFP22 to PFP24), PG7; every sibling phase-1 checkpoint.
+
+**What was built**
+
+- `src/contest.js`: the contest runner. Each move is a kernel working (`kernel.working@1`, two operations `ready` and `release`) with roles `actor` and `target` of kind `entrant`, reread through `ports.read` at each step's time (KW3, KW6). One readiness clock with ties by id; noticing sets the opening; hard hits interrupt unfinished workings (KW8); costs paid as a working begins; typed outcomes; priced withdraw with pursuers recorded; yield accepted or refused by the other side's wants; side morale (`breakAt`); crowding; a referee limit (`limits.landed`); far detail by the same rule; odds by the same rule on keyed seeds; versioned save with nested kernel records.
+- `src/contest_resolvers.js`: `strike` (reuses `combat_math` hit chance and damage spread), `notch` (reuses `notch_contest.winChance`), `layers` (reuses `gu_defense.resolveGuDefense`). A held guard adds to the target's defense against the objects it names (EF3).
+- `src/contest_bodies.js`: the contest's substrate pack (`c.contest`, body quantities `vitality` and `stamina` until W adopts them), a body-holder helper, and `applyLifecycleIntents`, which calls `creature_lifecycle`'s own doors (`settleCohortStock`, `injureCreature`). PFP10 reason for the one direct import: L has no shared injure door yet (L1); this file is the only place C touches L.
+- `src/contest_packs/gu_world.js` and `src/contest_packs/hogwarts.js`: the three consumers as rows. No code of their own beyond scene builders that list bodies and entrants.
+- Docs: [CONTEST_CONTRACT](../../../CONTEST_CONTRACT.md); RULES_INDEX register and router rows; AREA_GUIDE "Fights and harm" foundation-path line.
+- Not touched: `main.js`, `save_files.js`, `display.js`, every existing fight engine, every other chat's files. Nothing registers a domain; no save key changed (MC4 compatibility line: unchanged).
+
+**The three consumers (calibrated to canon outcomes across seeds, AD49)**
+
+| Code | Consumer | Canon fixed point | Result over 40 seeds (test floor) |
+| --- | --- | --- | --- |
+| FC1 | Fang Yuan against Wang Er and three hunters (RI vol. 1 ch65-70) | Moonblades at four parts each; Wang Er fights bow then fists and dies; the other hunters kneel | Fang Yuan wins at least 32 of 40, Wang Er killed at least 28, hunters kneel in at least half; every blade debits exactly four parts with a ledger source |
+| FC2a | Snape against Lockhart, Duelling Club (CoS ch11) | Snape disarms Lockhart | Snape wins at least 36 of 40; the hit lands on `focus` (the wand), Lockhart's vitality untouched, outcome `yielded` |
+| FC2b | Harry against Draco (CoS ch11) | Each lands a charm and Snape stops the bout | Stopped after two landed charms; no winner; both stood; composure or footing lowered |
+| FC3 | Fang Yuan against about twenty crippled lightning wolves (RI vol. 2 ch122-123) | Twenty parts on Moonglow blades; the pack keeps working together until too many fall, then pulls away; the fight costs him about six health | Wins at least 34 of 40, pack routs at least 34, four to six wolves fall on average, mean health lost between 3 and 12 (measured 7.7 at the chosen dials); fallen wolves leave the lifecycle cohort through `settleCohortStock`; far detail gives the same result and totals |
+
+Calibration dials named in the rows with reasons: wolf `kiteCrowd` 2, bite power 3, wolf attack 10; hunters `yieldAtSideHurt` 0.2; Snape notch 3 against Lockhart minus 1; charm amounts 40 so one charm does not end a duel.
+
+**PFP2 counts, before and after phase 2**
+
+| Count | Before | After | Note |
+| --- | --- | --- | --- |
+| Data cases | 36 | 40 | The 36 enemy templates, plus FC1, FC2a, FC2b, FC3 |
+| Book-canon data cases | 0 | **4** | FC1, FC2a, FC2b, FC3, each rows over the shared contest |
+| Bespoke scene modules | 24 | 24 | None retired yet. The authored packs FC1 and FC3 shadow (`book_gu_lead_early_duel`, `book_gu_lead_wolf_front`) stay until a player route crosses the contest, because the paused lead lives are gated on them (MC5) |
+| Separate resolution engines | 5 | 5 plus the contest | The contest reuses three of them as resolvers; folding E2 and E3 onto it is phase 3 |
+| Separate body stores | 7 | 7 plus W bodies | W body holders are where L1 should land |
+
+**Checks (command, result, gaps)**
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/contest.test.js tests/contest_consumers.test.js` | 18 pass, 0 fail (after the starting-injury fix: a body that enters hurt fights impaired) | No player route; consumers run from fixtures |
+| `npm run check:arch` | pass; main.js 10114 against baseline 10115; no new cycles | |
+| `npm run check:rules` | pass; one pre-existing TMR1 warning in `book_world_hp_exams.js`; one stale private_packs glob | |
+| `npm run build` | pass | No bundled module imports the contest yet |
+| Full `npm test`, browser | not run | Integrator runs the full suite at merge (MC7); no player-facing change |
+
+**Rescopes and changed meanings (with reasons)**
+
+- **Folding moved to phase 3.** The phase-2 brief included folding the parallel engines; none is folded yet. Reason: `tempo_fight` is a live engine with schema-7 saved sessions, six opener files and a host panel; deleting any of it needs the contest wired to a player route first and a rebuilt-browser check (AGENTS verification, MC5 for the lead-life packs), which is a phase of its own.
+- **CFC12 changed meaning.** The phase-1 proposal said far contests settle as one keyed draw on aggregate strength, matched to the detailed odds within 5 points. v0 instead runs every meeting with the same draws and only batches what it writes to the world, which gives exact equality with the near fight. It is cheaper on the world (one write per body) but not on compute: FC3 takes about 50 ms a fight and odds run 24 fights. The aggregate settle is backlog CB-13.
+- **Two direct imports with reasons (PFP10).** `contest_bodies.js` imports `creature_lifecycle.js` (no L door yet, L1). `contest_resolvers.js` imports `gu_defense.js` for the layered-packet rule; that function names no Gu, so the request is for G to move it to a neutral file (G2). The SC9 test exempts only that file.
+- **FC1 order differs from the book.** The end state matches (Wang Er dead, the hunters kneeling), but the first moonblade usually kills the hunter it hits, where the book has him caught in the arm, and Wang Er often falls before the hunters kneel. A wound outcome short of a fall (CB-14) would fix the order.
+
+**What the rules could not express (new backlog rows)**
+
+- **CB-7** A blade along a line (several targets in one release). FC3 gets its five falls from five blades; canon prose may mean one blade cuts more than one wolf. Needs a target shape on the effect grammar (SB3).
+- **CB-8** Sun glare and place light. `use_sun` in the canon duel reads daylight; v0 entrants do not read place quantities into aim. Needs a read of W place quantities in the entrant view (W1).
+- **CB-9** Referee stops are a count of landed hits, not an actor. A referee as a third side with a stop working is closer to the scene.
+- **CB-10** Far equality holds only while no reactor answers a blow mid-fight. With reactors, far settlement loses mid-fight reactions by design; E should measure how often that matters.
+- **CB-11** Wild cohort members fight as individual entrants (twenty wolf holders). A cohort entrant with a count and shared morale would be cheaper for a full wolf tide (CB-5).
+- **CB-12** The chooser is C's default. A's wants-based chooser plugs in through `ports.choose`.
+- **CB-13** Aggregate far settle: one keyed draw per contest on side strength, checked against the detailed odds within a tolerance dial, for NPC-on-NPC fights and a full wolf tide away from the player. E measures the far cost first (MC16).
+- **CB-14** A wound short of a fall: a hit that lands a part injury and changes a want (the hunter caught in the arm kneels) without taking the body to zero.
+
+**Requests (relay to owners)**
+
+- **K · KB8**: `settleTogether` for several records in fixed order (deadline, then id). The contest does this ordering locally today; M is the second consumer that would promote it (PFP5). **K · KB3**: a refund row for costs paid at begin, so an interrupted killer move can refund by its own rule.
+- **W4**: adopt `vitality` and `stamina` into `world_quantities.js` (unit `point`, 0 to 1,000,000); C writes them, L reads and writes them. **W1** (repeat): a view of place quantities (light, footing, noise) for a contest reader.
+- **L1** (repeat): one injure door on W body holders, and the impairment ladder as a pure leaf. `harm_state.js` registers a domain on import, so C copies its fifths ladder as a dial instead of importing it.
+- **A1**: a chooser for `ports.choose(law, record, world, id) -> {move, target, why}` reading wants and knowledge.
+- **G, S**: adopt the Gu and Hogwarts rows into your packs when ready (SC5, SC9); C keeps only how moves meet.
+- **G2**: move `resolveGuDefense` (layered packets, names no Gu) to a neutral file so the contest's resolver does not import a Gu file.
+- **K · units**: confirm kernel step counts are unit-free. Contest workings count deadlines in ticks of a tenth of a second under `kernel.working@1`, whose KW5 text says minutes.
+- **E**: measure far contest cost per fight (FC3 is about 50 ms) alongside MC16.
+
+## P3a. Phase 3a: entrants as effect sentences and composed workings (2026-11-12)
+
+After merging master (2fff2285e line, plan section "Making all achievable", MS1 to MS7). The coordinator's goal update for C: contest entrants are effect sentences and composed workings, and G's moves enter contests unchanged (SC9); MS5 asks for one reachable contest route at the floor.
+
+**Built**
+
+- `moveFromSentence` in `src/contest.js` (CFC3a): a move row from effect-grammar sentences. The Hogwarts rows are now sentences (Expelliarmus: move relation plus move position; Tickling: transform mind; Dancing Feet: move position; the guard: block on all three), and a test assembles every one through P's effect grammar (`assembleEffect` with the Hogwarts fixture) with no violations.
+- Working bridges (CFC3a): a move can carry the entrant's own kernel working. `src/contest_packs/gu_world.js` adds `moonlight_gu` (G's `guMethods('moonlight').activate`, test-pinned as the same object G publishes) and `little_light_moonblade` (G's `guMoveMethod` on the catalogue's ch70 move record). Cost and force come from G's catalogue through G's `resolveGuActivation`: four parts and magnitude 1 for the plain blade, five parts and magnitude 2 with Little Light. `bladeForce` 14 is the one contest dial that turns G's magnitude into vitality.
+- The entrant view now carries every quantity on the body, so a bridge can read its fuel.
+- A miss no longer publishes `contest.blow` when only a cost was paid.
+
+**PFP2 counts, before and after 3a**
+
+| Count | Before | After | Note |
+| --- | --- | --- | --- |
+| Book-canon data cases | 4 | 4 | Same scenes; FC1 now also runs on G's rows |
+| G catalogue rows that run inside a contest unchanged | 0 | **2** | Moonlight activation; Little Light Moonblade composed move |
+| Contest moves written as effect sentences | 0 | **4** | The Hogwarts rows |
+| Bespoke scene modules | 24 | 24 | Folding still phase 3b |
+
+**Checks**
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/contest.test.js tests/contest_consumers.test.js` | 21 pass, 0 fail | Fixtures, no player route |
+| `npm run check:arch` | pass, no new cycles | |
+| `npm run check:rules` | pass (pre-existing warnings only) | |
+
+**Backlog**
+
+- **CB-15** A bridged working settles whole at one contest step; its own minutes do not map onto contest ticks, so a long Gu refinement inside a fight would happen instantly. Default: bridges are for workings whose steps are effectively immediate (activations, killer moves); a mapping dial from the foreign clock to ticks is the fix when one is not.
+- **CB-16** Only G's `damage` effects become sentences. Defense, movement and concealment effects from G's abilities need their own readings (block, move position, conceal information) before Gu defenses and escapes can enter as bridges.
+
+**MS5 plan (phase 3b, proposed order)**
+
+1. A contest host: one domain registered through the domain registry with a namespaced save slice (`contest@1`) holding the running record and its arena world, and a migration line (MC4).
+2. One opener reachable from a fresh life: the Frontier boar hunt (today `frontier_bow`, a tempo opener) re-expressed as contest rows, so the route needs no book save and replaces one bespoke tempo opener.
+3. Player choices through `ports.choose` from the existing tempo panel's move buttons; the auto policy is the default chooser.
+4. Floor: save, reload and Import with a fight open; headless browser receipt on the rebuilt bundle at 1920x1080.
+
+**Next phase (C phase 3)**
+
+Fold the parallel fight engines onto the contest one at a time, deleting what it covers: first `tempo_fight` (its moves become rows, `tempo_starters` openers become contest scenes, `tempo_exit` and `tempo_allies` dials move into CFC11 and CFC15), then the saved native battles (E2) behind a compatibility line, then a player route for one consumer through a host so FLR2 and FLR4 can be met.
 
 ## 1. The engines that resolve fights today
 
