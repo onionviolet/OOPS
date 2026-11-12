@@ -492,32 +492,154 @@ G's effect-scene boundary remains: starts with resolved targets and eligible inp
 
 The first combined P/G fold passed 57 tests. After W's correction and scene integration, 87 focused tests passed. The added unanswered-publish regression passes in the 12-test runner suite. Final wave gates run on the complete tree. `spell_effects.js` and `world_effects.js` are outside main reachability, but the shared `effect_worlds.mjs` test helper changed, so this wave uses the full suite under PC99. No duplicate suite is run on unchanged inputs.
 
+
+## Claude coordinator acceptance and Wave 14 gate (2026-11-12)
+
+Weibao (2026-11-12): "now that claude  usage is back, we can hand off for claude ot take over for now again". This Claude background session succeeds Claude coordinator `301ff912-157d-4a0d-aff7-fb45b7308f12` and accepts coordination, dispatch and writes from the [return handoff](CLAUDE_COORDINATOR_HANDOFF.md). `coord-2` (`01a1d13a-ea03-75e1-b6fc-25e7cda5e284`) released all three. `codex_goal_lane.py status` shows every lane finished and no process alive. Limits, scope and the no-push boundary are unchanged from the [second handoff](CODEX_COORDINATOR_HANDOFF_2.md#limits-hard).
+
+Wave 14 gate, matched to the candidate on base `5d793f21a`:
+
+- Identity: the suite log was created 15:29:15 and closed 15:35:23. The candidate's 17 source, script, test, fixture and ledger files were last written between 15:23:51 and 15:28:18, before the suite started. The files written later are documents (the contract and coverage docs at 15:29:15, then the direction, carry-out and run records).
+- `npm test`: exit summary 6,586 tests, 6,581 pass, 0 fail, 5 skipped, 360 s (`/private/tmp/yair-wave14-suite.log`).
+- Isolated build: exit 0, bundle SHA-256 `de8d95c58d28b2f091586f73a33c4bff03510a35f278481dfd53889d872c3c8d`, recomputed from `/private/tmp/yair-wave14-build/dist/bundle.js`. It equals the Wave 13 hash, as expected: no changed source is reachable from `src/main.js`. The inherited duplicate `dial` warning remains.
+- Rerun by this session after the later document writes: `check:docs`, `check:rules`, `check:arch` and `check:coverage` exit 0; the four document-shape tests (direction sync, rules index, receipts, PROJECT.md shape) pass 18/18; `git diff --check` on the wave paths is clean.
+- Gaps: engine fixture verified, not human-reviewed. No live route, browser or save claim (PC95). The suite was not repeated on unchanged inputs. RC18's out-of-glob woodcutting failure is still outside this run.
+
+Five numbers after the fold: G1 74 computed cases on the common engine runner in two of seven ledgers (58 Hogwarts, 16 Gu); G2 13 of 13; G3 5; G4 0; G5 0. Codex usage at acceptance 27%, credit headroom 2,961.
+
+This session is a background job, so its edits are made in the worktree `.claude/worktrees/fdn-coord-w14` (branch `claude/fdn-coord-w14`), built from the primary checkout's verified files, and `master` moves by guarded `update-ref`. Left uncommitted in the primary checkout as not this run's: `dist/bundle.js`, `dist/bundle.js.map`, `index.html`, `docs/tools/game_mcp_limits.jsonl`, `docs/gm/FOUNDATION_RUN_PLAYBOOK.md`, the first `CODEX_COORDINATOR_HANDOFF.md`, `scripts/wave_scratch.sh`.
+
+Next, in the existing order: owners that answer the publish-only Hogwarts rows (18 publish, 3 act plus publish), the Draught of Living Death into a body as a measured case, then Gu body data into the living-things lifecycle. Later packets and budgets stay as queued in the second handoff.
+
 ### Wave 14 landed, Claude coordinator (2026-11-12)
 
 Candidate identity: every code and test file in the fold was last written by 15:28:18; the suite log's run began after that and ended 15:35 with 6,586 tests, 6,581 pass, 0 fail, 5 skipped. Later writes are prose. `check:docs`, `check:rules` and `check:coverage` rerun on the final tree exit 0. G1 at this commit: 58 Hogwarts and 16 Gu cases compute as expressed.
 
 Reading correction. The second handoff said Reverend Insanity volumes 5 to 24 had no reading passes. That is true of the batch index and false of the book: the [full-book reading](../../../research/novels/full-book/reverend-insanity/COVERAGE.md) has all 2,334 chapters integrated, with a power index and 179 reader notes that mention killer moves. Weibao (2026-11-12): "I think we do have readnigs". Matching the 753 move leads and wiki-only kinds to chapters is an extraction job over those notes, with a batched reader for chapters where the notes are too thin.
 
-## Wave schedule from Wave 15 (2026-11-12, proposal)
+### Master landing held (2026-11-12)
 
-Weibao (2026-11-12): "What about the procedural stuff? add that to waves as well", pointing at the direct operators (PC97), the craft families and the eight questions (PC98), the ways around capacity (PC99) and the canon tables. Working order, three lanes at a time, engine first. Each row names the number it moves (G1 to G5) or the plan line it proves. A later wave is re-picked from the results of the one before it.
+The fold is committed as `7703f7395` (Wave 14) and `52796fcea` (expansion direction record) on `claude/fdn-coord-w14`, two commits on `5d793f21a`. `master` has not moved. The shared-worktree rule (D2) requires the session that moves `master` to sync the primary checkout's index and files in the same step, and this background session's git commands are confined to its own worktree, so it cannot do that sync. Landing is one guarded step from the primary checkout, waiting on Weibao or a session that owns that checkout. Work continues stacked on the branch.
 
-| Wave | Lane | Builds | Moves or proves |
+## Wave 15 dispatch (2026-11-12)
+
+Base `52796fcea`, usage 27%, credit headroom 2,961 read before each launch. Three `gpt-6.1-sol` low lanes, each bounded to 300,000 tokens and two turns, with the 49%/62,000 stop. Each moves G1; the two owner lanes also move G2. Briefs are each worktree's `CODEX_LANE.md`.
+
+| Lane | Worktree | Outcome |
+| --- | --- | --- |
+| `w15-working-info` | `../yair-w15-working-info` | Owners that answer the six end-working rows and the three information rows, a second consumer outside Hogwarts, scenes returned as a separate data module; owns `world_effects.js` |
+| `w15-mind` | `../yair-w15-mind` | A mind owner pack answering the twelve mind rows, an honest reading for the three conjured agents and `animate`, lapse shown for timed and sustained effects; owns `spell_effects.js` |
+| `w15-draught` | `../yair-w15-draught` | The Draught of Living Death into a body as the first computed potion case, with one contrast where the mechanism decides; owns the body packs and the potion ledger hookup |
+
+Both owner lanes may add one registry row each to `engine_world.js`; the coordinator keeps every row and updates the pack counts at the fold. ACT NOW: answered publishes and the measured dose. ACCOUNT FOR NOW: a case needs an independent observation, an unanswered publish earns none, Q1 stays open and typed states are untouched, the HP pack and ledgers are combined centrally. LATER in the current queue: Gu body data into the living-things lifecycle, then the shell rate form, the parity, generation and improvement packets. Resume: poll these three handles with `codex_goal_lane.py status`, review each `CODEX_RETURN.md` and diff, fold into `claude/fdn-coord-w14`, regenerate coverage, then apply PC99's gate. No push.
+
+### Wave 15 first fold (2026-11-12)
+
+All three lanes returned and released writes; their files are folded on `claude/fdn-coord-w14` as `671e5f507`. The registry holds 16 packs (`a.mind`, `k.working_end`, `n.presence` added). Combined focused run: 95 of 95 across 13 test files. `check:coverage`, `check:arch` and `check:rules` exit 0. None of the changed modules is reachable from `src/main.js`.
+
+- Draught (`w15-draught`, goal complete, 98,537 tokens): the Draught of Living Death is the first computed potion case. A measured aliquot moves from the flask through `landEffect`, the living-body pack absorbs the settled share and lowers responsiveness, and recovery runs on the engine clock. Crushed bean at 100 units leaves responsiveness 2 of 100 for 14 minutes, sliced leaves 30 for 10, and half a crushed dose leaves 58 for 6. Disabling uptake computes a mismatch. Dose sizes and the response curve are authored calibration. The row's typed state follows its computed case, as the Wave 14 Gu cases did; its prior typed state is kept in its note. Below the bar, unchanged from the return: no antidote route, administration authority, metabolism beyond the authored curve or behaviour of a live actor with reduced responsiveness.
+- Working and information (`w15-working-info`, goal blocked, 139,131 tokens): `working_end` ends an explicitly bound held record and its field or gain without refunding spent upkeep, with a workshop guard as the second consumer. `presence` keeps channel contacts per observer. person-reveal and disillusion compute through the common runner. dangling-release, counter-spell and quiet answer correctly when the binding arrives but compute blocked because the grammar publish drops it. revive, unjinx-weather and history-release have no case and name their missing mechanism. vanish is a physical removal by the checked evidence and needs its reading corrected.
+- Mind (`w15-mind`, goal blocked, 145,414 tokens): `a.mind` holds faculties as holder state with leases on the world clock, with a Wood Path confusion fixture and a commanded wild worm as second consumers. animate computes through the common runner after a reading correction. blind, stun, pain, control, memory, confuse, cheer and legilimency pass their independent observations when the application arrives and compute blocked for the same producer reason. bird and serpent read as physical addition and stop at W's thing-only create check. oppugno and patronus have no scene and name their missing mechanism.
+
+Finding F2: pack registry order is behaviour. With `a.mind` registered after `a.wild_agency` the released worm does not go home and one mind test fails; before it, all pass. The fold keeps the lane's order. A reactor-order dependence between packs has no stated contract yet.
+
+Five numbers: G1 75 computed cases in three of seven ledgers (58 Hogwarts spells, 16 Gu kinds, 1 Hogwarts potion), with three more scenes computing but not yet combined into the ledger; G2 16 of 16; G3 5; G4 0; G5 0. Usage 27% after the three lanes.
+
+### Wave 15 second dispatch (2026-11-12)
+
+Base `671e5f507`, usage 27% before each launch, same model, bounds and stops.
+
+| Lane | Worktree | Outcome |
+| --- | --- | --- |
+| `w15-producer` | `../yair-w15-producer` | One shared application payload on the grammar's qualified publish (resolved targets, working, minutes, mind), physical add of a body, vanish read as material removal, then the central combine of mind and working-info scenes into the HP pack and ledger. Expected to move up to fourteen rows |
+| `w15-gu-bodies` | `../yair-w15-gu-bodies` | An adapter from chapter-checked Gu body data to the lifecycle, the 17 stated-diet kinds first, per-field unknowns in place of the blanket block on 78 creature rows |
+
+Resume: poll both handles, review return and diff, fold, regenerate coverage, then the PC99 gate for the whole wave on the branch. No push.
+
+### Wave 15 second fold and gate (2026-11-12)
+
+Both lanes returned and released writes. Their files are folded on `claude/fdn-coord-w14` after diff review of the shared modules.
+
+- Producer (`w15-producer`, goal complete, 110,299 tokens): the grammar's qualified publish now carries `application: {targets, working, minutes, mind}`. Targets resolve producer-side through W; a companion sense act passes the holders it observed, so concealment, a missing channel or a block field grants nothing. `working_end` reads the same shape and still needs one matching holder and an explicit working id. Physical add creates a thing or a body; copy into a new holder keeps its thing default for now. vanish reads as material removal in the shared reading and the Hogwarts truth string. The mind and working-info scenes are combined into the HP pack. Seventeen rows gained a computed case: blind, stun, pain, control, memory, confuse, legilimency, cheer, bird, serpent, animate, person-reveal, disillusion, dangling-release, counter-spell, quiet and vanish. Hogwarts spells compute 75 of 80; the five without a case (oppugno, patronus, revive, unjinx-weather, history-release) each name their missing mechanism in the ledger note. Below the bar, unchanged: the generation grammar still rejects `add mind` and `transform memory`; end probes start from authored holds; whole living-holder vanishing and durable learning from mind access have no proof.
+- Gu bodies (`w15-gu-bodies`, goal blocked, 126,229 tokens): `gu_living_body.js` adapts chapter-checked body data to a living holder, keeping locators and per-field unknowns. Seventeen stated-diet kinds run in the engine world: matching food restores satiety, the unfed control starves and loses vitality on the clock, and the wrong food is untouched. The blanket `blocked:gu-body-fields` on 78 rows is gone: 61 are `blocked:diet-unknown` and 17 are `blocked:runner-clock-advance`. No creature row earns a computed case yet, because the common runner lands one sentence and cannot advance the clock between observations. Owner request to P: an optional ordered timeline in `runCaseData` on one engine instance, with the Draught's recovery as the second consumer. Serving sizes and durations the source lacks are authored case calibration, kept outside the catalogue.
+
+Wave 15 gate on `52796fcea` plus both folds. No changed source file is reachable from `src/main.js` (`reachable.mjs --is` exits 1 for each) and no shared test helper changed, so PC99's gate is the dependent tests and the four checks:
+
+- Every test file that transitively imports a changed module or names a changed ledger: 34 files, 266 tests, 266 pass, 0 fail, 0 skipped.
+- `check:coverage`, `check:arch`, `check:rules`, `check:docs` exit 0. The coverage README is regenerated.
+- The mixed engine day still costs 799 of 800 segments with 16 packs registered.
+- Gaps: engine fixture verified, not human-reviewed. No full suite and no build this wave; the day's full suite was Wave 14's. No live route, browser or save claim (PC95).
+
+Five numbers: G1 92 computed cases in three of seven ledgers (75 Hogwarts spells, 16 Gu kinds, 1 Hogwarts potion); G2 16 of 16; G3 5; G4 0; G5 0. Usage 28%, credit headroom 2,961.
+
+For Q1, which stays open: a row that gains a computed case moves its typed state from runs to expressed under the existing case workflow, so the typed "runs" headline for Hogwarts spells reads 4.5% where it read 19.6%, while computed expressed rose from 58 to 75. No row without a case changed typed state.
+
+Next, in order: the runner timeline packet (moves the 17 Gu body rows and lets the Draught show recovery in its case), then the shell regulator's rate form before another oscillating pack joins, then G5's first parity fixture and G4's first generator from the second handoff.
+
+## Wave 16 dispatch (2026-11-12)
+
+Base `d390ef378`, usage 28% before each launch, same model, bounds and stops as Wave 15.
+
+| Lane | Worktree | Outcome |
+| --- | --- | --- |
+| `w16-timeline` | `../yair-w16-timeline` | An optional ordered timeline in the common runner (engine actions and settled clock advances with observations after named steps). Moves G1: the 17 stated-diet Gu body rows become computed cases, and the Draught case shows recovery as the second consumer |
+| `w16-parity` | `../yair-w16-parity` | Moves G5 from 0: one Keeper module re-expressed as engine rows with a parity fixture of at least six input sets, divergences named and asserted. The old module stays |
+
+The shell regulator's rate form is held out of this wave with a reason: `shell_regulator.js` is reachable from `src/main.js`, so changing it needs the full suite, a build and a look at its live consumer, and its trigger (another oscillating pack joining the mixed day) has not happened. The mixed day still costs 799 of 800 segments. It goes ahead of any packet that adds an oscillating pack to that day. Resume: poll both handles, review, fold on `claude/fdn-coord-w14`, regenerate coverage, apply PC99's gate. No push.
+
+## Two coordinators reconciled (2026-11-12)
+
+Between 15:36 and 16:05 two Claude sessions coordinated at once: the session in the primary checkout on `master`, and a background session on `claude/fdn-coord-w14` that the Codex handoff started. Each folded Wave 14 from the same candidate (`28c2778dd` on master, `7703f7395` on the branch; the code and ledgers are byte-identical). The branch then ran Waves 15 and 16 while master took the killer-move palette round and a wave schedule. Weibao (2026-11-12): "This session should cooridnate" and "Retire finished, make sure they do that themselves"; he relayed the stand-down to the other session himself, since a cross-session message was held and expired.
+
+Merge: `claude/fdn-coord-w14` at `3832e5b30` into master. Conflicted code and ledger files had identical master sides to the branch's own Wave 14 fold, so the branch side was taken. This file is the branch's record plus the sections below. Gate on the merged tree: full suite 6,638 tests, 6,633 pass, 0 fail, 5 skipped (`merge-coord-suite.log`); `check:arch`, `check:rules`, `check:coverage` and `check:docs` exit 0. Lanes `w16-timeline` and `w16-parity` were still running at the merge and are folded by this session. The four `yair-w12-*` worktrees were removed after their branches were confirmed in master; their branches are kept.
+
+Reading correction. The second handoff said Reverend Insanity volumes 5 to 24 had no reading passes. That is true of the batch index and false of the book: the [full-book reading](../../../research/novels/full-book/reverend-insanity/COVERAGE.md) has all 2,334 chapters integrated, with a power index and 179 reader notes that mention killer moves. Weibao (2026-11-12): "I think we do have readnigs". Matching the 753 move leads and wiki-only kinds to chapters is an extraction job over those notes, with a batched reader for chapters where the notes are too thin.
+
+## Wave schedule from Wave 17 (2026-11-12, proposal)
+
+Weibao (2026-11-12): "What about the procedural stuff? add that to waves as well", then "change wave accordingly, make sure the foundational engine gets finished?" This table replaces the first schedule (Waves 15 to 18 by topic); the reasons for the order are in the next section. Waves 15 and 16 are the merged branch's work. Three lanes at a time unless Weibao says more, engine first, sparse worktrees.
+
+Wave 17 and 18 finish the foundational engine. It counts as finished when every line below is shown by a test in the engine world, and the list is the stop test for those two waves:
+
+| # | Finished when |
+| --- | --- |
+| E1 | Every cost a working publishes is debited by an owner, and a working that cannot pay settles as a fault with its own price |
+| E2 | A holder's knowledge has a believed side and a true side in one shared record, and activation, brewing and making all settle against the true side |
+| E3 | One design record with parts is read by heredity, recipes, spells, moves and made things, so an operator written once reaches all five |
+| E4 | The case runner takes an ordered timeline, and the mixed day runs with headroom (the oscillating regulator in rate form) |
+| E5 | Settling in one jump, minute by minute, and across a save and restore agree for every registered pack, births and losses interleaved included |
+| E6 | A far-away cohort and the same holders simulated one by one reach the same totals within a stated tolerance |
+| E7 | Another holder can plan with the same acts the player has (teach, deny, breed, copy), shown by one actor-driven chain |
+| E8 | The coupling report sees every pack's declarations, computed ones included |
+
+| Wave | Lane | Builds | Finishes |
 | --- | --- | --- | --- |
-| 15 | False-move fixture | Claimed and true recipe, checking as a priced act, the ch. 2118 scene run both ways, and a potion formula row on the same records (GKM247 to GKM250) | G3 |
-| 15 | Small killer moves | Codex batched readers over the reader notes for chapters 1 to 600; moves with every role named become runnable | G1 |
-| 15 | Hogwarts remainder | The 22 rows left, the mind, knowledge and working owners answering publishes, the Draught of Living Death in a body | G1 |
-| 15 | Gu bodies | The 78 kinds with body data on the shared lifecycle | G1, G2 |
-| 15 | Day budget | A rate form for the oscillating regulator | G2 headroom |
-| 16 | Operators one: Copy, Edit, Graft | Each operator once as a shared act on a design's parts, proven on a creature genome and on one made thing (a potion or a blade), with its price and its fault | PC97 |
-| 16 | First generator | Generated Gu moves from Gu held, landing through the effect host, frozen on discovery, false and incomplete ones included | G4 |
-| 16 | Loop gaps | A real trade-off in a genome row, an assay with a cost, a standing breeding program over many generations in one settlement | PC96 |
-| 17 | Operators two: Induce, Transfer, Make | Mutagen or tribulation, a property moved between holders, a thing made with no parent; each on two groups | PC97 |
-| 17 | Totems and natural moves | A totem on the body alteration family with process crafts making the food; a creature's innate move as an authorless composition that heredity passes (GKM251, GKM252) | G3 |
-| 17 | Second generator | Potion and spell variants from the same grammar, so the generator is shown to be domain-neutral | G4 |
-| 18 | Ways around, across families | The five ways around a capacity (raise, go past, stabilize, move the load, change what counts), one worked row in each of the four craft families | PC99 |
-| 18 | A second power system by the eight questions | A Lord of the Mysteries Sequence answered as rows, then The Perfect Run once Weibao approves its reading | PC98 |
-| 18 | First absorbed Keeper scene and the Gu House | One Keeper scene as engine rows with a parity fixture; the Eighty-Eight True Yang Building as the place-bound end of the composition ladder (GKM253) | G5, G3 |
-| 18 | Levels run | One mixed run where a copied or edited kind escapes into a wild cohort and a copied recipe moves a market price | PC96 |
+| 17 | Fold the two lanes in flight | The runner timeline and the first Keeper parity fixture, reviewed and gated | E4 part, G5 |
+| 17 | Cost owners | Owners debit published costs; inability to pay is a fault | E1 |
+| 17 | Knowledge record | Believed and true sides, checking as a priced act, with the recipe-truth cases as its acceptance tests | E2 |
+| 17 | Design record | One parts record over genome, recipe, spell, move and blueprint | E3 |
+| 17 | Day budget and coupling report | Rate form for the regulator; computed declarations in the report | E4, E8 |
+| 18 | Settlement agreement | Jump, minute and restore agreement across all packs; the interleaved births fault | E5 |
+| 18 | Near and far parity | Cohort against one-by-one totals | E6 |
+| 18 | Actor chain | One holder other than the player plans and carries out a chain of existing acts | E7 |
+| 19 | Six operators | Copy, Edit, Graft, Induce, Transfer, Make on the design record, each with its price and fault | PC97 |
+| 19 | Generators | Gu moves, then potion and spell variants, from the same grammar, frozen on discovery | G4 |
+| 19 | Loop gaps and ways around | A real trade-off gene, a priced assay, a standing program; the five ways around a capacity | PC96, PC99 |
+| 19 | Small killer moves | Codex batched readers over the reader notes for chapters 1 to 600 | G1 |
+| 20 | Scenes as acceptance cases, from data rows | The false move and its variants, totems, natural moves, the Gu House, a Lord of the Mysteries Sequence by the eight questions, cyberware and netrunning rows, the levels run | G3; a scene that needs its own module names a missing rule |
 
-Operators across the five groups (creatures, potions, spells, Gu and moves, made things) fill in after Wave 17 by data rows, since each operator is built once. A cell with no canon source stays an authored default and is labelled so.
+Wave 19 starts when E1 to E8 pass. A lane in 19 or 20 that finds it needs a new shared rule stops and reports it, and the rule goes back to the E list.
+
+Re-pick after the merge. Already built on the branch: the mind, working-end and presence owners for the publish-only Hogwarts rows, the Draught body case, Gu bodies on the lifecycle. New lanes use sparse worktrees without `docs/research`, since a full worktree is about 2.2 GB.
+
+### Foundations before scenes (2026-11-12)
+
+Weibao (2026-11-12): "some stuff like false move fixture should probably come after getting the foudnationals working, so that it can be embedded as part of the rules?" The schedule above follows that test: a lane goes first when other lanes would build on its rule, and a named scene goes last, as an acceptance case that passes with no code of its own.
+
+| Order | Lanes | Why here |
+| --- | --- | --- |
+| First, shared rules | A knowledge record with what a holder believes beside what is true (recipes, formulas, rumours, assays all read it). A design record with parts, the thing the six operators act on. Cost owners that debit what a working publishes. The runner timeline and the day budget | Each has several later consumers |
+| Second, mechanisms on those rules | The six operators, the two generators, the loop gaps, ways around a capacity | They read the shared records and add none |
+| Third, scenes as acceptance cases | The false move and its variants, totems, natural moves, the Gu House, a second power system, the levels run | Each should pass from data rows alone; a scene that needs its own module names a missing rule |
+
+The recipe-truth lane (`b63d5096f`) was built before this order was set. It stays on its branch as a reference: its own return says nothing debits its costs and it is outside the engine world, which is the gap this order closes. Its test cases become the acceptance cases for the knowledge record, and its module is folded in or dropped once that record exists.

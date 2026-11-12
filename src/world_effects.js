@@ -90,7 +90,7 @@ const placeOf = (world, id) => world.holders[id].kind === 'place' ? id : world.h
  * Run one act at the world's current minute.
  * act = {verb, object, target, amount?, to?, into?, ratio?, value?, from?, channel?, mark?, until?, field?, params?, by}
  * Physical thing details name a quantity to remove, properties to transform,
- * or a holder to create at the target. A move on marks moves the marked
+ * or a thing or body to create at the target. A move on marks moves the marked
  * implement and releases its named grip. A quantity transform without a
  * conversion names a signed delta. Copy writes one property from a source
  * holder; with create: {id, kind: 'thing'}, it creates that thing at the
@@ -126,7 +126,8 @@ export function applyEffect(rules, world, act, cause) {
     if (copyNew) affected.push(position);
     const targets = resolveTargets(world, act.target);
     if (physical && verb === 'add') {
-        check(targets.length === 1 && act.create?.kind === 'thing', 'add material needs one target and a thing holder to create.');
+        check(targets.length === 1 && ['thing', 'body'].includes(act.create?.kind),
+            'add material needs one target and a thing or body to create.');
     }
     if (copyNew) {
         check(targets.length === 1 && act.create?.kind === 'thing', 'copy into a new thing needs one target and a thing holder to create.');
@@ -134,7 +135,14 @@ export function applyEffect(rules, world, act, cause) {
     const by = act.by ?? cause, ops = [], outcome = {applied: [], blocked: [], skipped: [], observed: []};
     const note = (target, extra = {}) => {
         outcome.applied.push({target, verb, object: obj.name, ...extra});
-        ops.push({op: 'publish', kind: `effect.${verb}`, place: placeOf(world, target), by, detail: {target, object: obj.name, ...extra}});
+        const place = placeOf(world, target);
+        ops.push({op: 'publish', kind: `effect.${verb}`, place, by, detail: {target, object: obj.name, ...extra}});
+        // Presence is learned only from a successful channel act. The bare
+        // grammar publish has no resolved observation and grants no knowledge.
+        if (act.presence === true && (verb === 'sense' || verb === 'conceal')) {
+            ops.push({op: 'publish', kind: `effect.${verb}.information`, place, by,
+                detail: {target, channel: act.channel, presence: true}});
+        }
     };
     const createAt = (target, value) => {
         ops.push({op: 'holder_add', value: {...value, place: placeOf(world, target)}});

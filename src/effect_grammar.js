@@ -7,7 +7,7 @@
 // vocabulary onto these parts and declare carriers, costs and words.
 import {defineGrammar, assemble} from './procedural_grammar.js';
 import {WORLD_QUANTITIES} from './world_quantities.js';
-import {W_OBJECT_OF, applyEffect} from './world_effects.js';
+import {W_OBJECT_OF, applyEffect, resolveTargets} from './world_effects.js';
 import {applyWorldOps} from './world_substrate.js';
 
 // Few primitives (EF2): a new one needs a canon effect these cannot express
@@ -154,18 +154,24 @@ export function applySentence(rules, world, parts, details, {keys = {}, cause, b
     if (lowered.needs.length) return {world, outcomes: [], needs: lowered.needs, published: []};
     let next = world;
     const outcomes = [];
+    let observedTargets;
     const until = parts.time === 'sustained' && Number.isSafeInteger(details.minutes) ? world.clock + details.minutes : undefined;
     for (const act of lowered.acts) {
         const {minutes, place, key, ...rest} = details;
         const run = applyEffect(rules, next, {...act, ...rest, ...(until != null ? {until} : {}), by: by ?? rest.by}, cause);
         next = run.world;
         outcomes.push(run.outcome);
+        if (act.verb === 'sense') observedTargets = run.outcome.observed.map(reading => reading.target);
     }
     const published = [], wanted = lowered.publish.filter(p => publishIf(p.kind));
     if (wanted.length) {
         if (!details.place) throw Error('An effect for another owner needs a place to land.');
+        // A companion sense act grants contact only with holders it actually observed.
+        const {target, working, minutes, mind} = details;
+        const targets = observedTargets ?? (target == null ? [] : resolveTargets(next, target));
+        const application = {targets, working, minutes, mind};
         next = applyWorldOps(rules, next, wanted.map(p => ({op: 'publish', kind: p.kind, place: details.place, by: by ?? cause,
-            detail: {owner: p.owner, parts}})), cause);
+            detail: {owner: p.owner, parts, application}})), cause);
         published.push(...wanted);
     }
     return {world: next, outcomes, needs: [], published};

@@ -51,7 +51,7 @@ export const INTENT_LAW = Object.freeze({
     harden: {verb: 'transform', object: 'material', direction: 'harder'},
     enlarge: {verb: 'transform', object: 'size', direction: 'up'},
     shrink: {verb: 'transform', object: 'size', direction: 'down'},
-    vanish: {verb: 'remove', object: 'presence'},
+    vanish: {verb: 'remove', object: 'material'},
     clean: {verb: 'remove', object: 'material', direction: 'surface'},
     duplicate: {verb: 'copy', object: 'form'},
     // Added for the hp_spells ledger (EF2): Orchideous conjures flowers and Ferula
@@ -138,25 +138,25 @@ export function describeSentence(s) {
 export const P_VERB_OF = Object.freeze({move: 'move', add: 'add', remove: 'remove', transform: 'transform', bind: 'bind', sense: 'sense',
     conceal: 'conceal', copy: 'copy', block: 'block', end: 'end',
     alter_law: 'alter',      // with object law: the verb already names its object (ward: alter_law access)
+    animate: 'transform',  // an existing thing gains motion; animated objects and Cyoria golems can use the same capability
     command: 'bind'});       // the agent's will is bound to the caster's (Imperius, Oppugno); publishes for the mind's owner
 export const P_OBJECT_OF = Object.freeze({position: 'position', light: 'light', fire: 'heat', cold: 'heat', water: 'moisture', force: 'force',
     form: 'form', size: 'form', integrity: 'form', material: 'thing', motion: 'position', vitality: 'vitality', harm: 'vitality',
-    mind: 'mind', mood: 'mind', pain: 'mind', sight: 'mind', agent: 'mind', memory: 'memory',
-    presence: 'information',  // whether a thing can be found: revealed, hidden or (vanish) taken from what can be known of the place
+    mind: 'mind', mood: 'mind', pain: 'mind', sight: 'mind', agent: 'thing', memory: 'memory',
+    presence: 'information',  // whether a thing can be sensed or concealed on a channel
     answer: 'information',    // a divined answer is knowledge its owner records
     voice: 'sound', sound: 'sound',
     access: 'relation',       // a lock or a seal is a mark on the thing (see PAIR)
     custody: 'relation', mark: 'relation',
     effect: 'working', magic: 'working'});  // a standing effect and magic at large are both workings, K's to answer
-export const NO_P_READING = Object.freeze({
-    animate: Object.freeze({part: 'verb', reason: 'P has no verb for giving a thing motion of its own; transform on mind would land as a change of mind, which it is not',
-        rows: Object.freeze(['hp_spells:animate (Piertotum Locomotor)'])}),
-});
+export const NO_P_READING = Object.freeze({});
 // Pairs whose P verb differs from the spell verb. Cold is heat taken away, so
 // adding cold removes heat (and back). Opening access releases the mark that
 // seals a thing and sealing binds it; writing a mark binds it and wiping one
 // releases it (W's bind and release write and drop marks).
 const FLIP = {add: 'remove', remove: 'add'};
+// Command still binds a will. Addition makes a physical holder, as it can
+// for a summoned familiar in another world; a guardian's work is a separate effect.
 const PAIR = {access: {add: 'release', remove: 'bind'}, mark: {add: 'bind', remove: 'release'}, cold: FLIP};
 // Spell sentence -> {verb, object, time} in P's words, or {gap, reason} naming the word.
 export function sharedEffect(sentence) {
@@ -166,6 +166,7 @@ export function sharedEffect(sentence) {
     // alter_law names its own object; the spell's object says which law (about).
     if (sentence.verb === 'alter_law') return {verb: 'alter', object: 'law', time: sentence.time, about: sentence.object};
     if (!object) return none('object') ?? {gap: `object ${sentence.object}`, reason: 'it is not in the spell vocabulary'};
+    if (sentence.object === 'agent' && base === 'bind') return {verb: base, object: 'mind', time: sentence.time};
     // Taking away integrity spends a physical account such as condition.
     // Restoration of shape still acts on form.
     if (base === 'remove' && sentence.object === 'integrity') return {verb: base, object: 'thing', time: sentence.time};

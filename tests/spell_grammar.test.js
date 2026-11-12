@@ -7,7 +7,7 @@ import fs from 'node:fs';
 import {canonTest, fitGrammar, assemble} from '../src/procedural_grammar.js';
 import {settleWorking, beginWorking} from '../src/kernel_working.js';
 import {defineSpellGrammar, labelSpellRow, compareSpell, inferIntent, incantationName} from '../src/spell_grammar.js';
-import {sentenceFromIntent, describeSentence} from '../src/spell_effects.js';
+import {sentenceFromIntent, describeSentence, sharedEffect} from '../src/spell_effects.js';
 import {HP_SPELL_ROWS, HP_SPELL_WORLD, HP_ROOT_LEXICON} from '../src/spell_pack_hogwarts.js';
 import {dndSpellRows, DND_SPELL_WORLD} from '../src/spell_pack_dnd.js';
 import {MOL_SPELL_ROWS, MOL_SPELL_WORLD} from '../src/spell_pack_mol.js';
@@ -193,4 +193,14 @@ test('GL2 effect layer: Hogwarts effects predicted from identity alone with blin
     // The blind gloss names light without supplying a runnable intent.
     assert.ok(report.missingRules.find(m => m.rule === 'no-identity-evidence').ids.includes('light'));
     assert.equal(lightAttempts, 0);
+});
+
+test('new agents, animated things and commands read as different mechanisms', () => {
+    const read = id => sharedEffect(HP_SPELL_ROWS.find(row => row.id === id).truth);
+    for (const id of ['bird', 'serpent', 'patronus']) {
+        const {verb, object} = read(id);
+        assert.deepEqual([verb, object], ['add', 'thing']);
+    }
+    assert.deepEqual(read('animate'), {verb: 'transform', object: 'thing', time: 'sustained'});
+    assert.deepEqual(read('oppugno'), {verb: 'bind', object: 'mind', time: 'instant'});
 });

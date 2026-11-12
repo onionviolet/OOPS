@@ -8,10 +8,10 @@
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | [gu_kinds](gu_kinds.jsonl) | G | 1466 | 1466 | 0 | 368 | 1078 | 4 | 0 | 100% | 25.2% |
 | [gu_moves](gu_moves.jsonl) | G | 776 | 776 | 0 | 4 | 772 | 0 | 0 | 100% | 0.5% |
-| [hp_potions](hp_potions.jsonl) | B | 316 | 316 | 0 | 5 | 279 | 32 | 0 | 100% | 1.8% |
+| [hp_potions](hp_potions.jsonl) | B | 316 | 316 | 0 | 4 | 279 | 32 | 0 | 100% | 1.4% |
 | [hp_ingredients](hp_ingredients.jsonl) | B | 409 | 409 | 0 | 20 | 380 | 9 | 0 | 100% | 5% |
 | [lotm_potions](lotm_potions.jsonl) | B | to build | 226 | 10 | 36 | 180 | 0 | 0 | 100% | 20.4% |
-| [hp_spells](hp_spells.jsonl) | S | 117 | 117 | 0 | 22 | 32 | 5 | 0 | 100% | 19.6% |
+| [hp_spells](hp_spells.jsonl) | S | 117 | 117 | 0 | 5 | 32 | 5 | 0 | 100% | 4.5% |
 | [creatures](creatures.jsonl) | L | to build | 96 | 0 | 18 | 78 | 0 | 0 | 100% | 18.8% |
 
 ## Typed and computed, side by side (PC9, PC10)
@@ -24,13 +24,13 @@
 | gu_kinds | 368 | 16 | 0 | 368 |
 | gu_moves | 4 | 0 | 0 | 4 |
 | hp_ingredients | 20 | 0 | 0 | 20 |
-| hp_potions | 5 | 0 | 0 | 5 |
-| hp_spells | 22 | 58 | 0 | 22 |
+| hp_potions | 4 | 1 | 0 | 4 |
+| hp_spells | 5 | 75 | 0 | 5 |
 | lotm_potions | 46 | 0 | 0 | 46 |
 
 ## Reachability from `src/main.js` (PC14)
 
-`node scripts/reachable.mjs`: 1492 of 1669 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
+`node scripts/reachable.mjs`: 1492 of 1677 src files reachable. Imports with a computed path cannot be followed, so any pack loaded through one is a gap in this number, not a verdict:
 
 - `src/translation.js`: `` import(`../locales/${language}.js`) ``
 
@@ -44,11 +44,12 @@
 | hp_ingredients | ingredient-properties | 380 |
 | lotm_potions | formula-in-notes | 174 |
 | hp_potions | body-door | 82 |
-| creatures | gu-body-fields | 78 |
+| creatures | diet-unknown | 61 |
 | hp_potions | mind-state | 50 |
 | hp_potions | effect-sentence | 47 |
 | hp_potions | body-form | 40 |
 | hp_potions | plant-or-creature-target | 31 |
+| creatures | runner-clock-advance | 17 |
 | gu_moves | unnamed-role | 17 |
 | hp_spells | missing-intent | 10 |
 | hp_potions | conceal-or-sense | 9 |

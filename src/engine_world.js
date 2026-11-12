@@ -18,6 +18,9 @@ import {createForageAttractionPack} from './world_substrate_packs/forage_attract
 import {createColonyLightPack} from './world_substrate_packs/colony_light.js';
 import {createWildAgencyPack} from './agency_wild.js';
 import {contestPack} from './contest_bodies.js';
+import {createMindPack} from './world_substrate_packs/mind.js';
+import {createWorkingEndPack} from './world_substrate_packs/working_end.js';
+import {createPresencePack} from './world_substrate_packs/presence.js';
 import {createMarketPack} from './market_substrate.js';
 
 export const ENGINE_SCHEMA = 'engine.world@1';
@@ -35,9 +38,12 @@ export const ENGINE_PACKS = Object.freeze([
     pack('l.living_residue', createLivingResiduePack),
     pack('l.colony_light', createColonyLightPack),
     pack('l.forage_attraction', createForageAttractionPack),
+    pack('a.mind', createMindPack),
     pack('a.wild_agency', createWildAgencyPack),
     pack('c.contest', contestPack),
     pack('m.market', createMarketPack),
+    pack('k.working_end', createWorkingEndPack),
+    pack('n.presence', createPresencePack),
 ]);
 
 const fail = message => { throw new Error(`Engine world: ${message}`); };

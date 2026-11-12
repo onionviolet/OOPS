@@ -103,7 +103,6 @@ test('spell words that were unmapped now land, and each lands the change its wor
     const waits = sentence => { const r = land(w0, sentence, {...at('goblin'), place: 'hall'}); assert.deepEqual(r.world, w0); return [r.status, r.waiting.map(p => `${p.kind}:${p.owner}`)]; };
     assert.deepEqual(waits(spell('counter', 'effect')), ['waiting', ['effect.block.working:K']]);
     assert.deepEqual(waits(spell('compel', 'creature', 'sustained')), ['waiting', ['effect.bind.mind:A']]);
-    assert.deepEqual(waits(spell('vanish', 'object')), ['waiting', ['effect.remove.information:N']]);
     assert.deepEqual(land(w0, spell('divine', 'self'), {...at('goblin'), channel: 'sight'}).waiting, [{kind: 'effect.sense.information', owner: 'N'}]);
 });
 
@@ -112,13 +111,13 @@ test('every spell word maps to a P word or is listed with its reason; a word wit
     for (const o of S_OBJECTS) assert.ok((P_OBJECT_OF[o] in EFFECT_OBJECTS) !== (NO_P_READING[o]?.part === 'object'), `object ${o}`);
     for (const no of Object.values(NO_P_READING)) assert.ok(no.reason && no.rows.length);
     const w0 = room();
-    const none = landEffect(rules, w0, {sentence: spell('animate', 'object', 'sustained'), details: at('door')}, {cause: 'test:animate', read: sharedEffect});
-    assert.deepEqual([none.status, none.word, none.changed], ['unmapped', 'verb animate', false]);
-    assert.match(none.reason, /verb animate has no P reading yet/);
-    assert.deepEqual(none.world, w0);
+    const animated = landEffect(rules, w0, {sentence: spell('animate', 'object', 'sustained'),
+        details: {...at('door'), properties: {form: 'moving-statue'}}}, {cause: 'test:animate', read: sharedEffect});
+    assert.equal(animated.status, 'landed');
+    assert.equal(animated.world.holders.door.properties.form, 'moving-statue');
     const stray = landEffect(rules, w0, {sentence: {...hurt, object: 'karma'}, details: at('goblin')}, {cause: 'test:stray', read: sharedEffect});
     assert.deepEqual([stray.status, stray.word], ['unmapped', 'object karma']);
-    // The spellbook rows: 79 of 80 read through the map (61 lower to W acts, 18 publish); Piertotum Locomotor is the one listed gap.
+    // The spellbook rows all read through the map, including created holders and animation.
     // Before the fold the host read 30 of them, by object name alone.
     const count = {};
     for (const row of HP_SPELL_ROWS) {
@@ -126,7 +125,7 @@ test('every spell word maps to a P word or is listed with its reason; a word wit
         const kind = shared.gap ?? (lowerEffect(shared, {keys}).acts.length ? 'acts' : 'publish');
         count[kind] = (count[kind] ?? 0) + 1;
     }
-    assert.deepEqual(count, {acts: 61, publish: 18, 'verb animate': 1});
+    assert.deepEqual(count, {acts: 66, publish: 14});
 });
 
 test('luck and soul are P objects that wait for their owners, and no canon sentence assembles differently for them', async () => {
