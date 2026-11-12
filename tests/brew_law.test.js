@@ -7,8 +7,9 @@ import {beginWorking, interruptWorking, quoteWorking, restoreWorking, serializeW
 import {BREW_LAW, brewBalance, brewMethod, spillBatch, unfinishedBatch} from '../src/brew_law.js';
 import {LOTM_BREW_ROWS, lotmBrewRow, lotmDoseReading, lotmLots, parseLotmAmount} from '../src/world_packs/lotm_brew_pack.js';
 import {brewSeer} from '../src/lotm_seer_brew.js';
-import {THERMAL_REVISION} from '../src/craft_process_thermal.js';
-import {applyWorldOps, composeSubstrate, createWorld} from '../src/world_substrate.js';
+import {THERMAL_REVISION, quoteThermalBatch} from '../src/craft_process_thermal.js';
+import {brewBatchState, createBrewSteamPack} from '../src/world_substrate_packs/brew_steam.js';
+import {advanceWorld, applyWorldOps, composeSubstrate, createWorld} from '../src/world_substrate.js';
 
 const vessel = (extra = {}) => ({kind: 'vessel', id: 'cauldron', place: 'workroom', retainPermille: 0, closure: 'open', ...extra});
 const bindingsFor = (row, lots, v = vessel()) => ({vessel: {kind: 'vessel', id: v.id}, ...Object.fromEntries(Object.entries(lots).map(([k, lot]) => [k, {kind: 'lot', id: lot.id}]))});
@@ -31,7 +32,7 @@ test('LOTM quantities parse into amounts with a stated source', () => {
     assert.equal(parseLotmAmount('a large amount').source, 'unparsed');
 });
 
-test('Seer canon test: the formula row on the shared law matches the scene module', () => {
+test('Seer equivalence test: the formula row on the shared law matches the scene module', () => {
     const row = lotmBrewRow('fool_9');
     const cases = [{blood: 10, crystal: 48}, {blood: 11, crystal: 48}, {blood: 10, crystal: 50}, {blood: 10, crystal: 40}, {blood: 12, crystal: 50}];
     for (const {blood, crystal} of cases) {
@@ -92,44 +93,100 @@ test('BRC7: an interrupted brew keeps its settled steps and its matter, and part
 const thermal = {law: {revision: THERMAL_REVISION, ambient: 20, extraction: {min: 45, max: 80, seconds: 30}, degradation: {above: 85, seconds: 20}},
     load: {mass: 4, volume: 4, specificHeat: 2, containment: 1},
     maker: {tools: ['brazier'], competence: 4, workCapacity: 1000, fuelStock: 10000, heater: {maxTemperature: 150, maxConductance: 20, fuelPerSecond: 0.25}},
-    program: {startTemperature: 20, sourceTemperature: 140, targetTemperature: 100, holdSeconds: 30, heaterTool: 'brazier', agitationTool: 'paddle', requiredCompetence: 2}};
-const herbMethod = closure => {
-    const lots = {herb: {kind: 'lot', id: 'lot.herb', material: 'herb', amount: 1000, properties: {active: 600}},
-        water: {kind: 'lot', id: 'lot.water', material: 'water', amount: 5000, properties: {water: 1000}}};
-    const v = vessel({closure, retainPermille: 50, thermal: {capacity: 100, surfaceArea: 2, heatTransfer: 1, thermalMass: 4, containment: 2}});
-    const method = brewMethod({id: 'test.herb', slots: [{id: 'herb'}, {id: 'water'}], process: [
-        {op: 'heat', minutes: 10, options: {...thermal, seconds: 90, active: 'active', extract: 'extract', degraded: 'degraded', evaporate: {constituent: 'water', amount: 1200}}},
-        {op: 'divide', minutes: 1, options: {doses: 3}}, {op: 'rinse', minutes: 2, options: {water: 500}}]});
-    return {lots, v, method, bindings: {vessel: {kind: 'vessel', id: v.id}, herb: {kind: 'lot', id: 'lot.herb'}, water: {kind: 'lot', id: 'lot.water'}}};
-};
+    program: {startTemperature: 20, sourceTemperature: 75, targetTemperature: 65, holdSeconds: 900, heaterTool: 'brazier', agitationTool: 'paddle', requiredCompetence: 2}};
+const heatOptions = {...thermal, active: 'active', extract: 'extract', degraded: 'degraded', solvent: 'water', vaporPerMinute: 100};
+const herbLots = () => ({herb: {kind: 'lot', id: 'lot.herb', material: 'herb', amount: 1000, properties: {active: 600}},
+    water: {kind: 'lot', id: 'lot.water', material: 'water', amount: 5000, properties: {water: 1000}}});
+const herbVessel = (closure = 'open') => vessel({closure, retainPermille: 50, thermal: {capacity: 100, surfaceArea: 2, heatTransfer: 1, thermalMass: 4, containment: 2}});
+const herbBindings = {vessel: {kind: 'vessel', id: 'cauldron'}, herb: {kind: 'lot', id: 'lot.herb'}, water: {kind: 'lot', id: 'lot.water'}};
+const herbMethod = (heats = [10], tail = true) => brewMethod({id: 'test.herb', slots: [{id: 'herb'}, {id: 'water'}], process: [
+    ...heats.map(minutes => ({op: 'heat', minutes, options: heatOptions})),
+    ...(tail ? [{op: 'divide', minutes: 1, options: {doses: 3}}, {op: 'rinse', minutes: 2, options: {water: 500}}] : [])]});
+const runHerb = (method, v = herbVessel(), lots = herbLots()) =>
+    settleWorking(BREW_LAW, beginWorking(BREW_LAW, method, {id: 'w.herb', bindings: herbBindings, at: 0}), {now: 999, ports: portsFor(lots, v)});
 
 test('BRC1, BRC2, BRC8: heat, vapor and rinse water leave into the place and the ledger balances', () => {
-    const {lots, v, method, bindings} = herbMethod('open');
-    const record = beginWorking(BREW_LAW, method, {id: 'w.herb', bindings, at: 0});
-    const {record: done, effects} = settleWorking(BREW_LAW, record, {now: 100, ports: portsFor(lots, v)});
+    const {record: done, effects} = runHerb(herbMethod());
     assert.equal(done.status, 'complete');
     const l = done.facts.brew;
     assert.ok(l.batch.extract === undefined && l.doses.length === 3 && l.doses[0].contents.extract > 0);
-    assert.ok(l.doses.some(d => d.contents.degraded > 0), 'the hot pulse degrades some extract');
-    assert.equal(l.out.vapor.water, 1200);
-    assert.ok(l.fuel > 0);
+    const litMinutes = Math.ceil(l.fuel / thermal.maker.heater.fuelPerSecond / 60 - 1e-9);
+    assert.ok(litMinutes > 0);
+    assert.equal(l.out.vapor.water, litMinutes * heatOptions.vaporPerMinute, 'vapor comes from the lit minutes');
     const kinds = effects.map(e => e.effect.kind ?? e.effect.op);
     assert.deepEqual(kinds, ['debit', 'debit', 'heat_released', 'vapor', 'rinse_water']);
     const rinse = effects.find(e => e.effect.kind === 'rinse_water').effect;
     assert.deepEqual(rinse.detail.contents, l.out.waste);
     assert.deepEqual(l.film, {});
     assert.ok(brewBalance(done.facts).balanced);
-    // The published effects land in a real world place (W v0) with no B-to-W join code.
+    // The published effects are accepted by a real W v0 place as cause-chain
+    // records. No W quantity holds vapor or waste water yet (request to W).
     const rules = composeSubstrate({packs: [{id: 'b.brew', quantities: [], laws: [], reactors: []}]});
     let world = createWorld(rules, {holders: [{id: 'workroom', kind: 'place'}, {id: 'cauldron', kind: 'thing', place: 'workroom'}]});
     world = applyWorldOps(rules, world, effects.filter(e => e.effect.op === 'publish').map(e => e.effect), 'b.brew:w.herb');
     assert.deepEqual(world.chain.map(row => row.kind), ['heat_released', 'vapor', 'rinse_water']);
-    // A sealed vessel keeps its water.
-    const sealed = herbMethod('sealed');
-    const s = settleWorking(BREW_LAW, beginWorking(BREW_LAW, sealed.method, {id: 'w.sealed', bindings: sealed.bindings, at: 0}),
-        {now: 100, ports: portsFor(sealed.lots, sealed.v)}).record;
-    assert.deepEqual(s.facts.brew.out.vapor, {});
-    assert.ok(brewBalance(s.facts).balanced);
+    const sealed = runHerb(herbMethod(), herbVessel('sealed')).record;
+    assert.deepEqual(sealed.facts.brew.out.vapor, {});
+    assert.ok(brewBalance(sealed.facts).balanced);
+});
+
+test('BRC8: two heat steps compose like one, and residence decides the split', () => {
+    const one = runHerb(herbMethod([10], false)).record.facts.brew;
+    const two = runHerb(herbMethod([4, 6], false)).record.facts.brew;
+    assert.deepEqual(two.batch, one.batch);
+    assert.equal(two.fuel, one.fuel);
+    const short = runHerb(herbMethod([1], false)).record.facts.brew;
+    assert.ok((short.batch.active ?? 0) > (one.batch.active ?? 0), 'a shorter heat leaves more unextracted');
+    for (const l of [one, two, short]) assert.ok(brewBalance({brew: l}).balanced);
+});
+
+test('BRC8: a burner that ran out is relit by a paid resume that keeps earlier residence', () => {
+    const shortBurn = {...heatOptions, program: {...thermal.program, holdSeconds: 60}};
+    const method = steps => brewMethod({id: 'test.relight', slots: [{id: 'herb'}, {id: 'water'}],
+        process: steps.map(minutes => ({op: 'heat', minutes, options: shortBurn}))});
+    const once = runHerb(method([6])).record.facts.brew;
+    const twice = runHerb(method([3, 3])).record.facts.brew;
+    assert.ok(twice.fuel > once.fuel, 'the second step relit the burner');
+    assert.ok(twice.heat.thermal.extractionSeconds > once.heat.thermal.extractionSeconds, 'residence carried across the relight');
+    assert.ok(brewBalance({brew: twice}).balanced);
+});
+
+test('BRC8: a late addition does not inherit the heat earlier material had', () => {
+    const lots = {...herbLots(), late: {kind: 'lot', id: 'lot.late', material: 'herb', amount: 1000, properties: {active: 600}}};
+    const method = brewMethod({id: 'test.late', slots: [{id: 'herb'}, {id: 'water'}], process: [{op: 'heat', minutes: 8, options: heatOptions}]});
+    method.roles.late = 'lot';
+    method.steps.push({op: 'admit', bindings: {vessel: 'vessel', lot: 'late'}, minutes: 0}, {op: 'heat', bindings: {vessel: 'vessel'}, minutes: 2, options: heatOptions});
+    const {record} = settleWorking(BREW_LAW, beginWorking(BREW_LAW, method, {id: 'w.late', bindings: {...herbBindings, late: {kind: 'lot', id: 'lot.late'}}, at: 0}),
+        {now: 999, ports: portsFor(lots, herbVessel())});
+    const [early, late] = record.facts.brew.portions.filter(p => p.id === 'active');
+    assert.ok(early.applied.usable + early.applied.degraded > late.applied.usable + late.applied.degraded);
+    assert.ok(late.baseline.extractionSeconds > 0);
+    assert.ok(brewBalance(record.facts).balanced);
+});
+
+test('one thermal state: in a world, the brew steam holder drives both humidity and the batch', () => {
+    const law = thermal.law;
+    const thermalVessel = herbVessel().thermal;
+    const q = quoteThermalBatch({law, vessel: thermalVessel, load: thermal.load, maker: thermal.maker, program: thermal.program});
+    const steam = createBrewSteamPack({thermalLaw: law, steamPerMinute: 1});
+    const rules = composeSubstrate({packs: [steam]});
+    let world = createWorld(rules, {clock: 0, holders: [{id: 'workroom', kind: 'place', quantities: {humidity: 10}},
+        {id: 'batch', kind: 'thing', place: 'workroom', tags: ['brew.batch'], state: {'b.brew_steam': brewBatchState(law, q)}}]});
+    const lots = herbLots();
+    const byId = Object.fromEntries(Object.values(lots).map(lot => [lot.id, lot]));
+    const reader = () => ({read: ref => ref.kind === 'vessel'
+        ? {...herbVessel(), thermalState: world.holders.batch.state['b.brew_steam'].thermal} : byId[ref.id]});
+    let record = beginWorking(BREW_LAW, herbMethod([20], false), {id: 'w.world', bindings: herbBindings, at: 0});
+    for (const t of record.deadlines) {
+        world = advanceWorld(rules, world, t).world;
+        record = settleWorking(BREW_LAW, record, {now: t, ports: reader()}).record;
+    }
+    const l = record.facts.brew;
+    const litMinutes = Math.ceil(l.fuel / thermal.maker.heater.fuelPerSecond / 60 - 1e-9);
+    assert.equal(world.holders.workroom.quantities.humidity - 10, Math.min(90, litMinutes), 'humidity from the same lit minutes');
+    assert.equal(l.out.vapor.water, litMinutes * heatOptions.vaporPerMinute, 'and the batch lost water for those minutes');
+    assert.deepEqual(l.heat.thermal, world.holders.batch.state['b.brew_steam'].thermal);
+    assert.ok(brewBalance(record.facts).balanced);
 });
 
 test('a spill moves the batch out into the place; a quote keeps nothing', () => {

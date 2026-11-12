@@ -10,7 +10,7 @@
 // row's own unit (TSW9); a reaction balances by its coefficients.
 import {check, natural, object, positive} from './basics.js';
 import {defineWorkingLaw} from './kernel_working.js';
-import {advanceThermal, createThermalState, quoteThermalBatch, thermalYield} from './craft_process_thermal.js';
+import {advanceThermal, createThermalState, quoteThermalBatch, resumeThermal, thermalYield} from './craft_process_thermal.js';
 
 export const BREW_LAW_ID = 'b.brew';
 export const BREW_LAW_REVISION = 1;
@@ -23,7 +23,7 @@ const take = (rows, key, amount) => {
     check(natural(amount) && (rows[key] ?? 0) >= amount, `Not enough ${key} in the batch.`);
     add(rows, key, -amount);
 };
-const fresh = () => ({in: {}, batch: {}, film: {}, out: {vapor: {}, waste: {}, spill: {}}, doses: [], fuel: 0, heat: null});
+const fresh = () => ({in: {}, batch: {}, film: {}, out: {vapor: {}, waste: {}, spill: {}}, doses: [], portions: [], fuel: 0, heat: null, clock: null});
 const ledgerOf = facts => structuredClone(facts.brew ?? fresh());
 
 /** Totals that must balance: everything admitted equals everything still held
@@ -60,12 +60,33 @@ function react(batch, reactions, present) {
 }
 
 const vesselOf = bound => bound.vessel;
+
+// Move one portion of the active constituent toward the thermal leaf's split at
+// the current residence. Deltas only, so repeated heat steps never double count;
+// if extract has since been used, only what is still in the batch degrades.
+function yieldPortion(l, law, state, portion, extract, degraded) {
+    const target = thermalYield(law, state, portion.amount, portion.baseline);
+    const applied = portion.applied ?? {usable: 0, degraded: 0};
+    const out = Math.min(Math.max(0, portion.amount - applied.usable - applied.degraded - target.unextracted), l.batch[portion.id] ?? 0);
+    take(l.batch, portion.id, out);
+    let deg = Math.max(0, target.degraded - applied.degraded), use = out - deg, lifted = 0;
+    if (use < 0) { lifted = Math.min(-use, l.batch[extract] ?? 0); take(l.batch, extract, lifted); deg = out + lifted; use = 0; }
+    add(l.batch, extract, use); add(l.batch, degraded, deg);
+    portion.applied = {usable: applied.usable + use - lifted, degraded: applied.degraded + deg};
+}
+// Residence of the batch so far, as the baseline of a newly admitted portion:
+// late additions do not inherit the heat earlier material already had.
+function residenceAt(l, vessel, at) {
+    const t = vessel.thermalState ?? (l.heat ? advanceThermal(l.heat.law, l.heat.thermal, (at - l.heat.at) * 60) : null);
+    if (!t) return {extractionSeconds: 0, degradationSeconds: 0};
+    return {extractionSeconds: t.extractionSeconds, degradationSeconds: t.degradationSeconds};
+}
 const publish = (vessel, kind, detail) => ({op: 'publish', kind, place: vessel.place, by: vessel.id, detail});
 
 // BRG1-BRG4 as operations. Roles: every step works in a vessel; admit also
 // binds a lot. A lot is {kind:'lot', id, material, amount, properties:{constituent: permille}}.
 const operations = {
-    admit: {roles: {vessel: 'vessel', lot: 'lot'}, settle({bound, facts, options}) {
+    admit: {roles: {vessel: 'vessel', lot: 'lot'}, settle({bound, facts, options, at}) {
         const lot = bound.lot, l = ledgerOf(facts);
         const amount = options.amount ?? lot.amount;
         if (!natural(amount) || amount > lot.amount) return {ok: false, reason: 'You do not hold that much.', observed: {short: true}};
@@ -73,7 +94,11 @@ const operations = {
         const permille = props.reduce((n, [, p]) => n + p, 0);
         check(permille <= 1000, `Lot ${lot.id} properties exceed the whole.`);
         let placed = 0;
-        for (const [constituent, p] of props) { const n = Math.floor(amount * p / 1000); add(l.batch, constituent, n); placed += n; }
+        const r = residenceAt(l, bound.vessel, at);
+        for (const [constituent, p] of props) {
+            const n = Math.floor(amount * p / 1000); add(l.batch, constituent, n); placed += n;
+            if (n) l.portions.push({id: constituent, amount: n, lot: lot.id, baseline: r});
+        }
         add(l.batch, `${lot.material}:matrix`, amount - placed);
         add(l.in, lot.id, amount);
         return {ok: true, facts: {brew: l}, effects: [{op: 'debit', holder: lot.id, amount}],
@@ -84,28 +109,44 @@ const operations = {
         const trace = react(l.batch, options.reactions ?? [], options.catalysts ?? []);
         return {ok: true, facts: {brew: l, reactions: [...(facts.reactions ?? []), ...trace]}, observed: {changed: trace.length > 0}};
     }},
-    // Heat runs the thermal leaf over the step's own seconds. The active
-    // constituent splits into extract, degraded and untouched (conserved), the
-    // fuel burned is recorded and the heat and vapor go into the vessel's place.
-    heat: {roles: {vessel: 'vessel'}, settle({bound, facts, options}) {
+    // Heat keeps one thermal state per batch across steps (craft_process_thermal).
+    // The burner is lit (or relit by a paid resume) at the step's start and the
+    // state runs to its deadline, so two heat steps compose like one. When the
+    // vessel is read from a world, its batch holder's state (W's brew steam
+    // pack) is the state, so heat keeps working while nobody is at the bench and
+    // humidity and vapor come from the same lit minutes. The active constituent
+    // of each admitted portion splits by its own residence since admission.
+    heat: {roles: {vessel: 'vessel'}, settle({bound, facts, options, at}) {
         const l = ledgerOf(facts), vessel = vesselOf(bound);
-        const {law, load, maker, program, seconds, active, extract, degraded, evaporate} = options;
-        const quote = quoteThermalBatch({law, vessel: vessel.thermal, load, maker, program});
-        if (!quote.ok) return {ok: false, reason: quote.reasons[0], observed: {cold: true}};
-        const state = advanceThermal(law, createThermalState(law, quote), seconds);
-        const effects = [publish(vessel, 'heat_released', {fuel: state.fuelSpent, temperature: state.temperature})];
-        if (active && l.batch[active]) {
-            const y = thermalYield(law, state, l.batch[active]);
-            take(l.batch, active, y.usable + y.degraded);
-            add(l.batch, extract, y.usable); add(l.batch, degraded, y.degraded);
+        const {law, load, maker, program, active, extract, degraded, solvent, vaporPerMinute = 0} = options;
+        const before = l.heat?.thermal ?? null;
+        let state;
+        if (vessel.thermalState) state = vessel.thermalState;
+        else {
+            const start = l.clock ?? at;
+            let s = before ? advanceThermal(law, before, (start - l.heat.at) * 60) : null;
+            const burning = s && s.segment.at + s.segment.burnSeconds > s.elapsedSeconds;
+            if (!s || !burning && s.temperature < program.targetTemperature) {
+                const quote = quoteThermalBatch({law, vessel: vessel.thermal, load, maker,
+                    program: {...program, startTemperature: s?.temperature ?? program.startTemperature}});
+                if (!quote.ok) return {ok: false, reason: quote.reasons[0], observed: {cold: true}};
+                s = s ? resumeThermal(law, s, quote) : createThermalState(law, quote);
+            }
+            state = advanceThermal(law, s, (at - start) * 60);
         }
-        if (evaporate && vessel.closure !== 'sealed') {
-            const lost = Math.min(l.batch[evaporate.constituent] ?? 0, evaporate.amount);
-            take(l.batch, evaporate.constituent, lost); add(l.out.vapor, evaporate.constituent, lost);
-            if (lost) effects.push(publish(vessel, 'vapor', {constituent: evaporate.constituent, amount: lost}));
+        const fuel = state.fuelSpent - (before?.fuelSpent ?? 0);
+        const effects = fuel > 0 ? [publish(vessel, 'heat_released', {fuel, temperature: state.temperature})] : [];
+        if (active) for (const portion of l.portions.filter(p => p.id === active)) yieldPortion(l, law, state, portion, extract, degraded);
+        // A minute steams when the burner is lit at its start, as in brew_steam.js.
+        const litMinutes = Math.ceil(fuel / state.segment.fuelPerSecond / 60 - 1e-9);
+        if (solvent && vaporPerMinute && vessel.closure !== 'sealed') {
+            const lost = Math.min(l.batch[solvent] ?? 0, litMinutes * vaporPerMinute);
+            take(l.batch, solvent, lost); add(l.out.vapor, solvent, lost);
+            // In a world the brew steam pack already wrote this into humidity.
+            if (lost && !vessel.thermalState) effects.push(publish(vessel, 'vapor', {constituent: solvent, amount: lost}));
         }
-        l.fuel += state.fuelSpent;
-        l.heat = {temperature: state.temperature, extractionSeconds: state.extractionSeconds, degradationSeconds: state.degradationSeconds};
+        l.fuel = state.fuelSpent;
+        l.heat = {at, thermal: state, law};
         return {ok: true, facts: {brew: l}, effects, observed: {temperature: Math.round(state.temperature)}};
     }},
     // Divide the batch into doses. The vessel keeps its film share (retainPermille)
@@ -136,7 +177,19 @@ const operations = {
     }},
 };
 
-export const BREW_LAW = defineWorkingLaw({id: BREW_LAW_ID, revision: BREW_LAW_REVISION, operations});
+// Every operation stamps the ledger clock (the next step's start) and, when the
+// vessel is read from a world, keeps the batch's thermal state as last read.
+const stamped = Object.fromEntries(Object.entries(operations).map(([op, def]) => [op, {...def, settle(args) {
+    const result = def.settle(args);
+    if (!result.ok) return result;
+    const brew = result.facts?.brew ?? ledgerOf(args.facts);
+    brew.clock = args.at;
+    const t = args.bound.vessel?.thermalState;
+    if (t && op !== 'heat') brew.heat = {at: args.at, thermal: t, law: brew.heat?.law ?? null};
+    return {...result, facts: {...result.facts, brew}};
+}}]));
+
+export const BREW_LAW = defineWorkingLaw({id: BREW_LAW_ID, revision: BREW_LAW_REVISION, operations: stamped});
 
 /** After an interruption the batch stays in the vessel as an unfinished batch;
  * the host keeps it (or spills it) instead of deleting it (BRC7). */

@@ -8,7 +8,7 @@ route: n/a
 state: built
 viewport: n/a (no UI; no host calls the brew law yet)
 persistence: unchanged
-tests: tests/brew_law.test.js 8 pass; phase 1 baseline 8 focused potion and lead-life files, 81 pass
+tests: tests/brew_law.test.js 12 pass; phase 1 baseline 8 focused potion and lead-life files, 81 pass
 review: none
 surface: new leaves src/brew_law.js and src/world_packs/lotm_brew_pack.js; zero registration lines
 ```
@@ -26,21 +26,21 @@ Merged master at ea6a170dd (K v0.1, W v0, P v0). Built on them, nothing forked:
 
 - **`src/brew_law.js`** (B's domain law, names no world). A brew is a K working (`defineWorkingLaw`) with five operations: `admit` (a lot's amount enters the batch, split by its properties, the rest as that material's matrix), `react` (conserved reactions with fractional extent, catalysts and priority), `heat` (runs the thermal leaf `craft_process_thermal` for the step's seconds: the active constituent splits into extract, degraded and untouched; fuel is recorded), `divide` (doses, with the vessel's film share) and `rinse` (film to waste water). The facts carry one ledger: `in`, `batch`, `film`, `out.vapor`, `out.waste`, `out.spill`, `doses`. `brewBalance` checks admitted equals held plus released. Effects are W `publish` ops (`heat_released`, `vapor`, `rinse_water`, `spill`) addressed to the vessel's place, plus `debit` ops for the lot's inventory owner.
 - **`src/world_packs/lotm_brew_pack.js`** (LOTM world pack). All 43 formula rows from `lotm_formula_rows` as brew methods, with the table's text quantities parsed into amounts. LOTM law as default, dial and reason: the first main material carries the Beyonder charge, other mains bind it in their formula proportion, bound charge is the dose's power, unbound charge is the hazard; a single-main formula binds at most its formula amount. Auxiliaries are matrix and read by nothing (Neil: the first five barely matter).
-- **Canon test.** The Seer row (`fool_9`) on the shared law reproduces `lotm_seer_brew.brewSeer` power and madness exactly at five measures (10/48, 11/48, 10/50, 10/40, 12/50). That module's law can now retire into data when its host moves (BRN1).
-- **Not touched:** `kernel_working.js`, `world_substrate.js`, `brew_steam.js` (W hands it to B at embed; its steam-to-humidity contact case stays as W built it, and BRN6 below joins it to the brew law), every host.
+- **Seer equivalence test** (not P's held-out canon test, which rebuilds items from parts). The Seer row (`fool_9`) on the shared law reproduces `lotm_seer_brew.brewSeer` power and madness exactly at five measures (10/48, 11/48, 10/50, 10/40, 12/50). That module's law can now retire into data when its host moves (BRN1).
+- **Not touched:** `kernel_working.js`, `world_substrate.js`, `brew_steam.js` (now B's; unchanged, and the brew law reads its batch holder instead of forking it), every host.
 
 ### BRC fixes and their regressions (law level)
 
 | Break | Status | Regression in `tests/brew_law.test.js` |
 | --- | --- | --- |
-| BRC1 vapor exit | Fixed in the law: evaporated matter goes to `out.vapor` and publishes `vapor` into the place; a sealed vessel keeps it | "BRC1, BRC2, BRC8" |
-| BRC2 rinse water | Fixed in the law: `rinse` moves the film to `out.waste` and publishes `rinse_water` with its contents; W accepts it into a real place with no join code | same |
+| BRC1 vapor exit | **Recorded, destination pending W.** Evaporated solvent goes to `out.vapor` in the ledger, sized by the burner's lit minutes, and publishes `vapor` into the place, where W keeps it only as a cause-chain record (no W quantity holds vapor). In a world, W's brew steam pack writes the matching humidity from the same lit minutes. A sealed vessel keeps its water | "BRC1, BRC2, BRC8", "one thermal state" |
+| BRC2 rinse water | **Recorded, destination pending W.** `rinse` moves the film to `out.waste` and publishes `rinse_water` with its contents; W accepts it as a chain record with no join code, but no holder or quantity keeps the water yet, so the rinse-to-field chain still needs W | "BRC1, BRC2, BRC8" |
 | BRC3 volume vs mass | Open. The ledger counts amounts; volume is not tracked separately | none yet |
 | BRC4 press residue | Open until the Cyoria and Hogwarts workroom host moves | none yet |
 | BRC5 cauldron residue as a score | Open; the law's film is the replacement (BRN1) | none yet |
 | BRC6 brew by count | Fixed in the law: amounts move by milli-units into doses | "every known LOTM formula" |
-| BRC7 no interruption | Fixed in the law: a stopped or binding-failed brew keeps every settled step's matter; one jump equals minute steps; save and restore keep it | "BRC7", "a lot that is gone" |
-| BRC8 thermal unused, heat unpublished | Fixed: `heat` runs the thermal leaf and publishes `heat_released` | "BRC1, BRC2, BRC8" |
+| BRC7 no interruption | **Fixed between steps.** A stopped or binding-failed brew keeps every settled step's matter; one jump equals minute steps; save and restore keep it. Inside a step, the kernel settles at the deadline, so an interrupted ledger-mode heat step loses its partial work (K backlog KB6, progress inside a step). In world mode the heat itself lives on W's batch holder and keeps working while nobody is at the bench | "BRC7", "a lot that is gone" |
+| BRC8 thermal unused, heat unpublished | **Fixed, with one limit.** One thermal state per batch: the ledger keeps it across steps (a burner that ran out is relit by a paid `resumeThermal` that keeps residence), or, in a world, it is W's brew steam holder read at each deadline, so humidity, vapor and extraction come from one state and the steam contact case is not forked. Each admitted portion splits by its own residence since admission. `heat_released` carries the step's fuel. Limit: load mass and vessel thermals are step options, not read from the batch's contents | "BRC8: two heat steps compose", "relit", "late addition", "one thermal state" |
 | BRC9 Draught storage loss | Open until `hp_potion_reactions` moves | none yet |
 | BRC10 cup as facts | Fixed in the law for LOTM: the dose is matter with power and hazard read from it | "Seer canon test" |
 | BRC11 boundary minting | Open (M owns supply; `admit` emits `debit` for the inventory owner) | none yet |
@@ -54,11 +54,12 @@ Mutation check: dropping the last dose's remainder fails 3 tests; dropping the v
 
 | Count | Before (phase 1) | After (phase 2a) |
 | --- | --- | --- |
-| Canon recipes as data on a shared law that reads their amounts | 0 (Hogwarts and LOTM) | **43** LOTM rows (all known formulas), in tests; **0 in play** until the bench host moves |
+| LOTM formula rows as data on the shared brew law | 0 | **43** (all known formulas), in tests; **0 in play** until the bench host moves |
+| of which every main amount is stated by the source | 0 | **10**; 7 have some main amounts stated; 26 run on one portion per qty because the table gives no main amount |
 | LOTM rows offered at a bench | 23 (timer only) | 23 (unchanged; the 20 others lack auxiliaries in the notes, a knowledge gap, not a law gap) |
 | Canon recipes run by bespoke code | 5 | 5 (Seer now has a matching data row; retires at embed) |
 | Bespoke potion modules | 10 | 10 |
-| Separate "a brew" shapes | 7 | 8 counting the brew law; the seven retire as hosts move (BRN1) |
+| Separate "a brew" shapes | 7 | 8 counting the brew law (`craft_process_thermal` is now a leaf of the brew law, not a shape of its own, so the old seven are really six plus the new one); they retire as hosts move (BRN1) |
 
 ### What the LOTM rows cannot express yet
 
@@ -70,7 +71,8 @@ Mutation check: dropping the last dose's remainder fails 3 tests; dropping the v
 ### Next (phase 2b onward)
 
 - **BRN1** Move the LOTM bench and the Seer scene onto the brew law (dose power and hazard from matter), then retire `book_world_lotm_brew`'s command file and the Seer law.
-- **BRN6** Join `brew_steam.js` to the brew law: a heat step's steam writes humidity through W, and humidity or draft reaches the batch (W-B7), so the PFP7 chain "the batch finishes weaker" comes from the rules.
+- **BRN6** Done in part: the brew law reads `brew_steam`'s batch holder (one thermal state). Still open: humidity or draft reaching the batch (W-B7), so the PFP7 chain "the batch finishes weaker" comes from the rules, and load mass read from the batch.
+- **BRN8** Move `hp_potion_reactions` (Draught, blended antidote) onto the brew law with an equivalence test and fix BRC9 on the way; that frees `method_program` for K to retire once `hp_brewing_panel`'s editor moves (UI, needs a browser pass).
 - **BRN7** Hogwarts evidence catalogue rows (`docs/research/hogwarts-potion-evidence-2026-11-11/`) as brew rows where the evidence gives participants and steps, listing the rest.
 - Then BRN2-BRN5 as below, a stated-reason substitution, potion effects as effect-grammar sentences with P, and medicine and poison through L.
 
@@ -245,7 +247,9 @@ Effects B would publish into a place (O3): heat released, vapor released, rinse 
 | `npm run check:rules` after adding the receipt block | Exit 0; receipts 42 checked, 0 problems | One pre-existing TMR1 warning in `book_world_hp_exams.js`, not this change. The first run failed on this file's missing receipt block, now fixed |
 | Code prefix check: `grep -rlE` for BRI, BRC, BRG, BRQ, BRX, BRN in docs, src and tests | 0 hits before this file | BC and BX were already used in CHEAT_RULES, CHEAT_COSMOLOGY and the companions palette, so this chat uses BR prefixes |
 | Full `npm test`, build, `check:arch` | Not run | Docs-only change; the integrator runs the full suite at merge |
-| Phase 2a: `node --test tests/brew_law.test.js` | 8 pass, 0 fail | Law-level only; no host |
+| Phase 2a: `node --test tests/brew_law.test.js` | 12 pass, 0 fail (after the one-thermal-state rework) | Law-level only; no host |
+| Mutations: drop dose remainder; drop vapor bucket; stop tracking applied yield; create instead of resume on relight | Each fails at least one test; all reverted | The relight case needed its own test, added after the first mutation slipped through |
+| `node --test tests/world_look.test.js` (lists `src/` files) | 10 pass | Checked because the new pack sits in `src/world_packs/` |
 | Phase 2a: `npm run check:arch` | Exit 0; main.js growth -1 (from master) | |
 | Phase 2a: `npm run check:rules` | Exit 0; 53 receipts, 0 problems | Pre-existing TMR1 warning |
 | Phase 2a: build, full `npm test`, browser | Not run | Nothing in the bundle imports the new files; the integrator runs the full suite |
