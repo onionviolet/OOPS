@@ -516,3 +516,19 @@ Next, in the existing order: owners that answer the publish-only Hogwarts rows (
 Candidate identity: every code and test file in the fold was last written by 15:28:18; the suite log's run began after that and ended 15:35 with 6,586 tests, 6,581 pass, 0 fail, 5 skipped. Later writes are prose. `check:docs`, `check:rules` and `check:coverage` rerun on the final tree exit 0. G1 at this commit: 58 Hogwarts and 16 Gu cases compute as expressed.
 
 Reading correction. The second handoff said Reverend Insanity volumes 5 to 24 had no reading passes. That is true of the batch index and false of the book: the [full-book reading](../../../research/novels/full-book/reverend-insanity/COVERAGE.md) has all 2,334 chapters integrated, with a power index and 179 reader notes that mention killer moves. Weibao (2026-11-12): "I think we do have readnigs". Matching the 753 move leads and wiki-only kinds to chapters is an extraction job over those notes, with a batched reader for chapters where the notes are too thin.
+
+### Master landing held (2026-11-12)
+
+The fold is committed as `7703f7395` (Wave 14) and `52796fcea` (expansion direction record) on `claude/fdn-coord-w14`, two commits on `5d793f21a`. `master` has not moved. The shared-worktree rule (D2) requires the session that moves `master` to sync the primary checkout's index and files in the same step, and this background session's git commands are confined to its own worktree, so it cannot do that sync. Landing is one guarded step from the primary checkout, waiting on Weibao or a session that owns that checkout. Work continues stacked on the branch.
+
+## Wave 15 dispatch (2026-11-12)
+
+Base `52796fcea`, usage 27%, credit headroom 2,961 read before each launch. Three `gpt-6.1-sol` low lanes, each bounded to 300,000 tokens and two turns, with the 49%/62,000 stop. Each moves G1; the two owner lanes also move G2. Briefs are each worktree's `CODEX_LANE.md`.
+
+| Lane | Worktree | Outcome |
+| --- | --- | --- |
+| `w15-working-info` | `../yair-w15-working-info` | Owners that answer the six end-working rows and the three information rows, a second consumer outside Hogwarts, scenes returned as a separate data module; owns `world_effects.js` |
+| `w15-mind` | `../yair-w15-mind` | A mind owner pack answering the twelve mind rows, an honest reading for the three conjured agents and `animate`, lapse shown for timed and sustained effects; owns `spell_effects.js` |
+| `w15-draught` | `../yair-w15-draught` | The Draught of Living Death into a body as the first computed potion case, with one contrast where the mechanism decides; owns the body packs and the potion ledger hookup |
+
+Both owner lanes may add one registry row each to `engine_world.js`; the coordinator keeps every row and updates the pack counts at the fold. ACT NOW: answered publishes and the measured dose. ACCOUNT FOR NOW: a case needs an independent observation, an unanswered publish earns none, Q1 stays open and typed states are untouched, the HP pack and ledgers are combined centrally. LATER in the current queue: Gu body data into the living-things lifecycle, then the shell rate form, the parity, generation and improvement packets. Resume: poll these three handles with `codex_goal_lane.py status`, review each `CODEX_RETURN.md` and diff, fold into `claude/fdn-coord-w14`, regenerate coverage, then apply PC99's gate. No push.
