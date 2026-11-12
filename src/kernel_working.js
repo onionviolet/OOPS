@@ -187,7 +187,7 @@ export function quoteWorking(law, method, {bindings, facts = {}, at, ports = {},
 
 function forecastWorking(law, record, ports) {
     const {method, startedAt: at, facts} = record;
-    const {record: done, effects} = settleDueSteps(law, clone(record), record.deadlines.at(-1), ports, Infinity);
+    const {record: done, effects} = settleDueSteps(law, clone(record), record.deadlines.at(-1), ports, Infinity, true);
     const last = done.receipts.at(-1);
     const quote = {ok: done.status === 'complete', startsAt: at, endsAt: record.deadlines.at(-1),
         deadlines: [...record.deadlines], effects: effects.map(row => row.effect), facts: done.facts,
@@ -309,7 +309,21 @@ export function settleWorking(law, record, {now, ports = {}, maxSteps = Infinity
     return result;
 }
 
-function settleDueSteps(law, next, now, ports, maxSteps) {
+// E9 (proposal). An optional `ports.settleCosts` is asked once per settled step,
+// allowed or not, with the costs and effects that step published. Its answer is
+// kept as `truth.paid`, so the receipt says what was debited and what stayed
+// short. `forecast` is true inside a quote: the port answers and keeps nothing.
+// With no port, or an undefined answer, the receipt is as it was before.
+function withPaid(result, {ports, working, step, op, at, forecast}) {
+    if (!ports.settleCosts) return result;
+    const paid = ports.settleCosts({working, step, op, at, ok: result.ok, forecast,
+        costs: clone(result.extras?.costs ?? []), effects: clone(result.effects ?? [])});
+    if (paid === undefined) return result;
+    check(object(paid), 'A cost settlement answers with a record.');
+    return {...result, extras: {...(result.extras ?? {}), paid: clone(paid)}};
+}
+
+function settleDueSteps(law, next, now, ports, maxSteps, forecast = false) {
     const effects = [];
     let settled = 0;
     while (settled < maxSteps && next.status === 'running' && next.cursor < next.deadlines.length && next.deadlines[next.cursor] <= now) {
@@ -317,8 +331,8 @@ function settleDueSteps(law, next, now, ports, maxSteps) {
         const index = next.cursor;
         const at = next.deadlines[index];
         const op = next.method.steps[index].op;
-        const result = settleStep({law, method: next.method, workingId: next.id, bindings: next.bindings,
-            facts: next.facts, index, at, ports, fingerprint: next.fingerprint});
+        const result = withPaid(settleStep({law, method: next.method, workingId: next.id, bindings: next.bindings,
+            facts: next.facts, index, at, ports, fingerprint: next.fingerprint}), {ports, working: next.id, step: index, op, at, forecast});
         if (!result.ok) {
             next.status = 'interrupted';
             next.receipts.push({step: index, op, at, ok: false, cause: result.cause, reason: result.reason,

@@ -12,12 +12,19 @@
 // The module exports `coverageCase(id)`, returning plain data:
 //   {basis?: 'canon'|'authored',            // else taken from the typed state, else 'authored'
 //    world: {clock?, holders: [...], lawFields?},
-//    engine?: {packs?, settings?, shared?, dials?},  // plain createEngineWorld config
+//    engine?: {packs?, settings?, shared?, dials?,   // plain createEngineWorld config
+//              host?: {things?, costs?, keys?}},     // plain host data for workings: bound things, the price list, world keys
 //    sentence: {verb, object, target?, time?, carrier?, cost?, limits?},   // run through landEffect
-//    working?: {...},                       // kernel settlement pending; computes blocked:runner-working-case
+//    working?: {family, id?, payer?, ...},  // one kernel working started in the engine host (E9); families below
 //    details?: {target, amount, minutes, place, ...},  keys?: {light: 'moon', ...},  by?: string,
 //    timeline?: [{id, sentence, details?, keys?, by?, cause?, expect?}
-//                | {id, ops, cause?, expect?} | {id, advanceTo, expect?}],  // replaces the top-level sentence
+//                | {id, ops, cause?, expect?} | {id, advanceTo, expect?}
+//                | {id, working, expect?}                       // start a kernel working; steps due now settle now
+//                | {id, store: <stored spec>, by?, expect?}     // lay a stored working under the step's id
+//                | {id, fire: <stored id>, stimulus?, expect?}],  // replaces the top-level sentence or working
+// A working names its law family in plain data: {family: 'spell', spells: [...]} (spell_law.js spellEffectMethod)
+// or {family: 'process', method: <processMethod input>, bindings} (process_law.js). The host settles it on the
+// world clock, debits its costs and lands its effects; a later advanceTo settles the steps that take time.
 //    expect: [{holder, quantity | property | position: true | exists: true, direction, amount?, to?}
 //             | {lawField, direction, to?}]}
 // `expect` is in world terms only. Quantities support up|down|changed|unchanged and an exact
@@ -30,7 +37,8 @@
 // Computed states: expressed-<basis> when the world changed as `expect` says; runs-<basis> when the
 // case module is also reachable from src/main.js (scripts/reachable.mjs). A case under tests/ is never reachable.
 // Other states: blocked:runner-expect-mismatch, blocked:runner-needs (missing world key),
-// blocked:runner-unmapped, blocked:runner-waiting or blocked:runner-working-case.
+// blocked:runner-unmapped, blocked:runner-waiting, blocked:runner-working-case (the working names no
+// family the runner knows) or blocked:runner-working-interrupted (a step failed; the detail has its reason).
 import fs from 'node:fs';
 import {isDeepStrictEqual} from 'node:util';
 import path from 'node:path';
@@ -161,40 +169,64 @@ export function expectHolds(before, after, expect) {
     });
 }
 
+// Law families a working case may name. Each turns plain case data into {law, method, bindings}.
+const WORKING_FAMILIES = {
+    spell: async w => (await import('../src/spell_law.js')).spellEffectMethod(w.spells, w.method ? {id: w.method} : {}),
+    process: async w => {
+        const {PROCESS_LAW, processMethod} = await import('../src/process_law.js');
+        return {law: PROCESS_LAW, method: processMethod(w.method), bindings: w.bindings};
+    },
+};
+
 /** Run one case's plain data. Returns {state, detail}; hard failures throw. */
 export async function runCaseData(data, {id = 'case', typedState = '', moduleReachable = false} = {}) {
     if (!data || typeof data !== 'object') throw new Error(`case ${id}: coverageCase must return an object`);
     const suffix = data.basis ?? (/-(canon|authored)$/.exec(typedState)?.[1]) ?? 'authored';
-    if (data.working !== undefined) {
-        return {state: 'blocked:runner-working-case', detail: 'kernel settlement for working cases is pending'};
-    }
     const timeline = data.timeline;
     if (timeline === undefined) {
-        if (!data.sentence || typeof data.sentence !== 'object') throw new Error(`case ${id}: a case carries a sentence or a working or a timeline`);
-    } else if (!Array.isArray(timeline) || !timeline.length || data.sentence !== undefined) {
-        throw new Error(`case ${id}: a timeline is a nonempty array and replaces the sentence`);
+        if (data.working === undefined && (!data.sentence || typeof data.sentence !== 'object')) throw new Error(`case ${id}: a case carries a sentence or a working or a timeline`);
+        if (data.working !== undefined && data.sentence !== undefined) throw new Error(`case ${id}: a case carries a sentence or a working, not both`);
+    } else if (!Array.isArray(timeline) || !timeline.length || data.sentence !== undefined || data.working !== undefined) {
+        throw new Error(`case ${id}: a timeline is a nonempty array and replaces the sentence or working`);
     }
-    const {createEngineWorld, applyEngineOps, advanceEngineWorld} = await import('../src/engine_world.js');
+    const {createEngineWorld, applyEngineOps, advanceEngineWorld, startEngineWorking, storeEngineWorking, fireEngineStored} = await import('../src/engine_world.js');
     const {WORLD_QUANTITIES, WORLD_PROPERTIES} = await import('../src/world_quantities.js');
     const {landEffect} = await import('../src/effect_host.js');
     const config = data.engine ?? {};
     if (typeof config !== 'object' || Array.isArray(config) || !isDeepStrictEqual(config, JSON.parse(JSON.stringify(config))))
         throw new Error(`case ${id}: engine must be a plain JSON configuration object`);
-    const {packs = ['w.sky'], settings, shared, dials} = config;
+    const {packs = ['w.sky'], settings, shared, dials, host = {}} = config;
+    // The reader maps a domain's own words (spell words) onto the shared vocabulary; it is asked for no other sentence.
+    const {sharedEffect} = await import('../src/spell_effects.js');
     // The sky pack needs no caller settings and runs no clock laws in these
     // instant probes. Keep the legacy vocabulary unless a case declares its own.
     let engine = createEngineWorld({...data.world, packs, settings, dials, shared: {
         quantities: Object.values(WORLD_QUANTITIES), properties: Object.values(WORLD_PROPERTIES), ...shared,
-    }});
+    }, host: {things: host.things ?? {}, costs: host.costs ?? null, effects: {keys: host.keys ?? {}, read: sharedEffect}}});
+    // What the host could not land or settle since the last look, as the runner's blocked states.
+    const seen = {};
+    const hostProblem = () => {
+        for (const [wid, entry] of Object.entries(engine.records.workings)) {
+            const fresh = entry.landed.slice(seen[wid] ?? 0);
+            seen[wid] = entry.landed.length;
+            const failed = entry.record.status === 'interrupted' && entry.record.receipts.at(-1);
+            if (failed) return {state: 'blocked:runner-working-interrupted', detail: `${wid} step ${failed.step}: ${failed.reason}`};
+            for (const [status, state] of [['needs-key', 'needs'], ['waiting', 'waiting'], ['unmapped', 'unmapped'], ['label-only', 'unmapped']]) {
+                const row = fresh.find(l => l.status === status);
+                if (row) return {state: `blocked:runner-${state}`, detail: `${wid} step ${row.step}: ${row.reason}`};
+            }
+        }
+        return null;
+    };
     const before = engine.world;
     checkExpect(before, data.expect, id);
     const names = new Set();
     for (const step of timeline ?? [data]) {
-        let action = 'sentence';
+        let action = data.working !== undefined ? 'working' : 'sentence';
         if (timeline) {
             if (!named(step?.id) || names.has(step.id)) throw new Error(`case ${id}: timeline steps need distinct names`);
             names.add(step.id);
-            const actions = ['sentence', 'ops', 'advanceTo'].filter(key => Object.hasOwn(step, key));
+            const actions = ['sentence', 'ops', 'advanceTo', 'working', 'store', 'fire'].filter(key => Object.hasOwn(step, key));
             if (actions.length !== 1) throw new Error(`case ${id} step ${step.id}: expected one action`);
             [action] = actions;
         }
@@ -208,6 +240,14 @@ export async function runCaseData(data, {id = 'case', typedState = '', moduleRea
             engine = advanced.engine;
         } else if (action === 'ops') {
             engine = applyEngineOps(engine, step.ops, cause);
+        } else if (action === 'working') {
+            const bound = await WORKING_FAMILIES[step.working?.family]?.(step.working);
+            if (!bound) return {state: 'blocked:runner-working-case', detail: `no law family named ${step.working?.family ?? '(none)'} is known to the runner`};
+            engine = startEngineWorking(engine, {...bound, id: step.working.id ?? `case.${timeline ? step.id : 'working'}`, payer: step.working.payer ?? null});
+        } else if (action === 'store') {
+            engine = storeEngineWorking(engine, step.store, {id: step.id, by: step.by ?? cause});
+        } else if (action === 'fire') {
+            engine = fireEngineStored(engine, step.fire, {stimulus: step.stimulus});
         } else {
             const run = landEffect(engine.rules, stepBefore, {sentence: step.sentence, details: step.details},
                 {keys: step.keys ?? {}, cause, by: step.by});
@@ -217,6 +257,8 @@ export async function runCaseData(data, {id = 'case', typedState = '', moduleRea
             if (run.status === 'unmapped') return {state: 'blocked:runner-unmapped', detail: run.reason};
             engine = {...engine, world: run.world};
         }
+        const problem = hostProblem();
+        if (problem) return problem;
         if (timeline && step.expect !== undefined) {
             checkExpect(stepBefore, step.expect, id + at, false);
             if (!expectHolds(stepBefore, engine.world, step.expect)) return {state: 'blocked:runner-expect-mismatch',
