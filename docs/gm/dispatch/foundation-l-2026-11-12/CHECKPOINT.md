@@ -194,3 +194,71 @@ tests: docs only
 review: diff-scoped
 surface: living-things inventory, grammar draft and W quantity request; no runtime change
 ```
+
+## Phase 2a: catalogue, one body read, aperture organ, substrate pack, care on the kernel (2026-11-12)
+
+Started after merging master at ea6a170dd (K v0, W v0, P v0 and every phase-1 checkpoint). Rules applied: PFP1, PFP3, PFP10, PFP21 (section by mechanism), SC4 and SC7 (a Gu is rows on L's lifecycle under one identity), KW3, KW5, KW8, KW11, WSC1, WSC2, WSC7, CR4, CR17, FG1-A, BHR16, LVR13. Everything below is a proposal under AD56.
+
+### What landed
+
+| File | What it is | Answers |
+| --- | --- | --- |
+| `src/living_kinds.js` (new) | 17 kind rows for every species a host names today, plus `guLivingRows(catalogue)`, which turns each of G's 78 catalogue kinds into a gu-class body row. The catalogue is passed in, not imported (PFP10). `habitatFromKinds` builds a habitat's prey needs from kind rows (the fox row says it eats rabbits; the place says how many). | Done check (catalogue half), G's request ("L runs the body") |
+| `src/living_body.js` (new) | `readLivingBody`: one read of vitality, hunger stage, injury, condition list, Gu feeding state (`fedThrough` against the day), organs, traits and learned behavior. `livingBodyFacts` gives the same read as `self.<name>` facts in W's `substrateFacts` shape. `applyBodyHarm` is the one door for C's hits and R's backlash (points become owed recovery minutes on the lifecycle). `apertureOrgan` reads a world pack's aperture law. | A's body read, C's CFC7 door, R's capacity facts and backlash inbox, SC table aperture |
+| `src/creature_lifecycle.js` | Optional `organs` on each individual (key strings and whole numbers, defaults to empty on restore, so old saves load). `setCreatureOrgan`. `aggravateCreatureInjury`, so a second hurt worsens an open wound instead of being refused. | Aperture as a body organ, one wound slot that stacks |
+| `src/world_substrate_packs/living_body.js` (new) | Pack `l.living_body`: every body tagged `living.body` carries `satiety` (ration-minutes), draining at its kind's whole food rate. It publishes `living.hungry` once when a body runs empty, and keeps a `living.harm` inbox per body that the host drains through `applyBodyHarm`. | W embed, first L quantity and effects |
+| `src/living_workings.js` (new) | `LIVING_CARE_LAW` (`l.care@1`: feed, tend) and `careRoutine`, a method row. Each step rereads the body at its own time. | "One task consumer reads it through the kernel" |
+| `docs/AREA_GUIDE.md` | Care and upkeep entry names the new entry points and test (hunk only) | AR rule: update the guide when a seam's entry points change |
+
+The handed-over `world_substrate_packs/shell_regulator.js` (pack `l.shell_regulator`, written by W) is unchanged; L now owns it.
+
+### PFP2 counts, before and after
+
+| Count | Before (9bbc51363) | After (this phase) | Note |
+| --- | --- | --- | --- |
+| Living kinds as data run by shared rules | 0 | **95** (17 L rows + 78 Gu rows from G) | Every row passes the registry and `readLivingBody`; the substrate pack and care law run any of them |
+| Body-data rows (`needs.js` BODIES) | 5 | 5 | Not L's file; folding it into kind rows is a request |
+| Lifecycle host modules | 19 | 19 | No live host moved yet (phase 2b) |
+| Separate live lifecycle stores | 14 | 14 | One store holding pet, ewe, ram, wild cohort, Gu and person is proven in `tests/living_foundation.test.js`, not yet in live saves |
+| Bespoke breeding paths off the lifecycle | `household_brood`, `village_family` | same | Phase 2c |
+
+### Plan done check for L, where it stands
+
+- **Pet, livestock, wild cohort and Gu-as-creature all read one lifecycle:** met in a test fixture (one store, one identity counter, one body read, kind rows for each). Not met in live play: the 14 hosts still restore their own stores. Implemented, below floor (AD43).
+- **Inheritance, development, learned behavior and condition change independently:** met in a test. A brood keeps the parents' traits; the mother's wound and lesson stay hers; the lamb is born with no lesson and no wound, and matures on its own clock.
+- **One task consumer reads it through the kernel:** met in a test. The care routine quotes and settles to the same effects across a save and reload, and a change of keeper partway through leaves the feed step standing and refuses the tend step.
+
+### Checks run
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/living_foundation.test.js tests/creature_lifecycle.test.js tests/habitat_care.test.js tests/needs.test.js tests/world_substrate.test.js tests/kernel_working.test.js tests/gu_colony.test.js tests/meadow_shell_state.test.js` | 67 pass, 0 fail | Focused only; the integrator runs the full `npm test` |
+| `npm run check:arch` | exit 0 (main.js unchanged, no new cycles) | none |
+| `npm run check:rules` | exit 0 after rewording one reason string the player-text lint flagged | One pre-existing TMR1 warning in `book_world_hp_exams.js`, not mine |
+| Browser | not run | Nothing player-facing changed; no host reads the new modules yet |
+
+Save compatibility (MC4): **unchanged for live saves.** The lifecycle accepts an optional `organs` field and defaults it on restore. No new save key.
+
+### Requests (for the coordinator to relay)
+
+- **W:** promote `satiety` into `world_quantities.js` once A or M reads it (WSC2 says two packs first). Effect kinds `living.hungry` and `living.harm` are a first entry for the effect-kind list W's backlog names.
+- **G:** add `insight-moth` (used by `gu_keeper_cooperation.js`) to `gu_catalogue` so its row comes from G; L carries a placeholder row marked as missing from G. Supply the aperture law for the Reverend Insanity pack (`rankCapacity`, `grades` with sea percent, `conditions`) as world-pack data; L's test uses a fixture of that shape, not canon numbers. When re-expressing the ten Keeper scenes, read Gu bodies through `readLivingBody` and pass the Gu record's `fedThrough` as `feeding`.
+- **C:** land hits by publishing `living.harm` with `{target, kind, amount}`, or call `applyBodyHarm` directly at settlement. Either way the wound lands on the lifecycle, so care and work read it.
+- **R:** aperture facts are `self.aperture.grade`, `self.aperture.rank`, `self.aperture.capacity` from `livingBodyFacts`. Backlash goes through `applyBodyHarm` with a kind such as `backlash`.
+- **A:** `readLivingBody` is the body read you asked for; `livingBodyFacts` is the same read as facts. Pass `sinceMeal` and `ration` from the diet owner.
+- **B:** a dose landing on a body is the next L piece (afflictions as courses on `affliction_track`, G3). Until then, a dose that hurts can use `applyBodyHarm`.
+- **`needs.js` owner (unassigned):** a ration length for `human` and `gu` bodies. Today a person's or Gu's hunger reads `unknown` unless the host passes its diet's ration.
+
+### What the rules still cannot express
+
+- A live shared store: one lifecycle per save under one namespaced slice, with each host's record migrated in (phase 2b).
+- More than one wound at a time (the slot stacks, it does not split by part or kind); illness and poison as courses; death by age.
+- Satiety and the lifecycle are two records joined by the host. A body's satiety on the substrate and its wound on the lifecycle settle in the same host call, not in one atomic settlement.
+- Plants have kind rows and a stage read, but their growth is still each host's timer (fluxweed bed, courtyard plot, vitality garden).
+- Multi-offspring broods and per-offspring contributors (FG1-A) are unchanged.
+
+### Next phase (2b, then 2c)
+
+2b: one live lifecycle store per save through the domain registry (one new namespaced slice, AR1-AR16), with migrations that pull in the stores of `habitat_care` (livestock), `absorb_p23/household/model.js` (pet) and `meadow_wildlife` (wild cohort). The Gu hosts move when G re-expresses them (request above). Then hosts read species from kind rows and drop their literals, with a browser pass on the meadow pen and Moss at 1920×1080.
+
+2c: afflictions as courses on `affliction_track` with B's dose; `household_brood` onto the lifecycle with `lineage_traits` as the alleles law; plant growth onto kind stages; PG1 people and creature generation on P's grammar once P publishes phase 2.

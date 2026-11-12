@@ -8,6 +8,11 @@ const key = value => typeof value === 'string' && value !== '__proto__' && /^[a-
 const traitsValid = traits => object(traits) &&
     Object.entries(traits).every(([name, value]) => key(name) && key(value));
 const lookup = (table, id) => Object.hasOwn(table, id) ? table[id] : undefined;
+// An organ is a small record of key strings and whole numbers (a Gu Master's aperture:
+// grade, rank, stage, condition). What it can hold is a world law read elsewhere
+// (living_body.js apertureOrgan), so the save keeps facts, not derived capacity.
+const organsValid = organs => object(organs) && Object.entries(organs).every(([name, organ]) => key(name) &&
+    object(organ) && Object.entries(organ).every(([field, value]) => key(field) && (key(value) || natural(value))));
 
 export function restoreCreatureLifecycle(saved) {
     if (saved == null) return {family, revision: 0, nextIdentity: 1, cohorts: {}, individuals: {}, broods: {}, habitats: {}};
@@ -46,6 +51,8 @@ export function restoreCreatureLifecycle(saved) {
             individual.matureAt >= individual.bornAt && object(individual.experience), 'Invalid creature development.');
         individual.health ??= {lastAt: individual.bornAt, careUntil: null, injury: null};
         validateHealth(individual.health, individual.bornAt);
+        individual.organs ??= {};
+        check(organsValid(individual.organs), 'Invalid creature organs.');
         for (const [actor, experience] of Object.entries(individual.experience)) {
             check(key(actor) && object(experience) && natural(experience.lastAt) &&
                 experience.lastAt >= individual.bornAt && natural(experience.bond) && experience.bond <= 100 &&
@@ -133,7 +140,7 @@ function addIndividual(state, fields, settledAt = fields.bornAt) {
     check(natural(serial + 1), 'Creature identity exhausted.');
     const id = `creature:${serial}`;
     return {id, state: {...state, nextIdentity: serial + 1,
-        individuals: {...state.individuals, [id]: {...fields, serial, experience: {},
+        individuals: {...state.individuals, [id]: {...fields, serial, experience: {}, organs: {},
             health: {lastAt: settledAt, careUntil: null, injury: null}}}}};
 }
 
@@ -151,6 +158,20 @@ export function transferCreature(state, {revision, id, fromKeeper, toKeeper, des
         ...individual, keeper: toKeeper, habitat: destination.id,
         health: moving ? {...health, careUntil: null} : health,
     }}};
+}
+
+// L phase 2 (SC table: aperture as a body organ with capacity, for R and G). The
+// world's law sets what the organ is worth; this records what the body has. A null
+// organ removes it (a destroyed aperture is a condition, not a deletion, by default).
+export function setCreatureOrgan(state, {revision, id, organ, value}) {
+    const next = beginSettlement(state, revision);
+    const animal = lookup(state.individuals, id);
+    check(animal && key(organ), 'Unknown creature or organ.');
+    const organs = {...animal.organs};
+    if (value === null) delete organs[organ];
+    else organs[organ] = {...value};
+    check(organsValid(organs), 'Invalid creature organ.');
+    return {...next, individuals: {...state.individuals, [id]: {...animal, organs}}};
 }
 
 export function creatureDevelopment(state, id, clock) {
@@ -273,6 +294,20 @@ export function injureCreature(state, {revision, id, clock, kind, recoveryMinute
         check(!health.injury?.remaining, 'Creature already has an active injury.');
         return {...health, injury: {kind, at: clock, required: recoveryMinutes,
             remaining: recoveryMinutes, healedAt: null}};
+    });
+}
+
+// A second hurt while a wound is open worsens it instead of being refused (L phase 2,
+// one door for hits from C and backlash from R). The first kind stays the wound's
+// kind; the extra recovery adds to both what is owed and what was required.
+export function aggravateCreatureInjury(state, {revision, id, clock, recoveryMinutes}) {
+    check(positive(recoveryMinutes), 'Invalid creature injury.');
+    return settleHealth(state, revision, id, clock, health => {
+        check(health.injury?.remaining > 0, 'Creature has no open wound to worsen.');
+        const {injury} = health;
+        check(natural(injury.required + recoveryMinutes), 'Creature injury exhausted.');
+        return {...health, injury: {...injury, required: injury.required + recoveryMinutes,
+            remaining: injury.remaining + recoveryMinutes}};
     });
 }
 
