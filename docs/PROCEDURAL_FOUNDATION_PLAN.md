@@ -427,6 +427,75 @@ Order: MS1 first (cheap, and it shows the true size), then MS2 and MS3 together,
 - **PFP25 · "All" is a ledger.** A corpus is covered when every row has a state other than unclassified. Progress is the share that runs.
 - **PFP26 · Each grammar layer has its own canon test.** Identity alone is not enough: effect, composition and context each rebuild held-out canon.
 
+## Heredity and variation, player-made things, and lore from parts (2026-11-12)
+
+Weibao (2026-11-12): "Procedural rules to account for player made possiblities and more?" then "Overarching systems like genetics and stuff, creature variations between same type and more? other aspects to consider? Procedural system to allow player made combinations nad more, but also for existing combinations to create the stuff in lore and more? Other fun ways we can take these ideas?"
+
+### Heredity and variation within a kind (GN)
+
+Two inheritance models already exist and disagree. `lineage_traits.js` has an allele model, two alleles per locus with dominant, recessive, incomplete and fickle modes. Its phenotype shows and its genotype is learned by testing or deduced from a child. `creature_lifecycle.js` copies each trait whole from one parent at random. Proposal: one heredity layer owned by L, built from the first model, with the second folded onto it.
+
+| Code | Part | Default, dial and reason |
+| --- | --- | --- |
+| GN1 | **Genome as data.** Each kind declares loci in its world pack: what each one affects, its expression mode, mutation rate and any linkage | Loci are world rows, not code (PFP1). A Gu line, a Hogwarts beast and a sheep breed use the same machinery with different rows |
+| GN2 | **What shows comes from genes, growth, place and life.** Phenotype = genes expressed through development, environment (W quantities while growing), condition and learned behavior | Two siblings differ by genes; two clones differ by upbringing. Variation within a kind has four separate causes the player can read |
+| GN3 | **Individual spread.** Every individual draws its own spread around the kind's ranges, by address (PR1) | The tray Moonlight traits (G2) become the general case. No two of a kind are identical unless cloned |
+| GN4 | **Mutation, drift and selection.** Mutation at a per-world rate, raised by W conditions (lightning, essence surges, potion residue). Wild populations drift under P3 pressure; breeders select | Dial per world. Reason: how new breeds and wild variants come to exist with a cause (PFP19) |
+| GN5 | **Hybrids, fusions and lines.** Crosses inside a family breed true or not by genome distance. Some hybrids are sterile. Gu fusion and refinement make a different kind (GKM51), which goes through F's making grammar, not breeding | Distance thresholds are dials. Skrewt-style failures are allowed and costly |
+| GN6 | **Known versus true.** The genotype is hidden until tested, bred out or deduced (the existing model's rule), through N's knowledge | Breeding is a puzzle the player solves, not a stat sheet |
+| GN7 | **People too.** Talent and aperture grade (Gu), magical heredity and squibs (Hogwarts), Beyonder traits passed down (Lord of the Mysteries) use the same layer where the source does | Each world's own heredity claims are canon fixed points (AD49) |
+| GN8 | **Detail near, counts far.** Individuals the player has met are stored. Herds and wild populations away from the player keep trait frequencies, not individuals (SPR28, PR2) | Cost stays bounded. An individual is drawn from the frequencies when someone looks |
+| GN9 | **Canon breeds are fixed points.** A canon kind's normal range is its calibration (P5). Generated variants sit around it | Variants stay recognizably that kind |
+
+### Player-made possibilities (PM)
+
+| Code | Rule | Default, dial and reason |
+| --- | --- | --- |
+| PM1 | **One gate for everyone.** A player's move, spell, recipe, breed plan or device goes through the same `assemble` and the same K quote and settle as canon and NPC creations (PGC5, PFP16) | No special player path that NPCs lack, and none they have that the player lacks (PFP11) |
+| PM2 | **Honest preview.** The quote shows what the player's character expects, from what they know. An unknown part shows as unknown, not as a guess presented as fact (GR5, the unknown marks UK1-UK7) | Knowing more makes previews sharper; trying teaches |
+| PM3 | **Say what you want, get candidates.** The player can state a goal ("cross the river", "hide the camp"); a bounded search (PR3) proposes workings from what they know and own. The existing `invention_planner.js` and move search are the first engines | The player still chooses and pays. Search depth rises with skill and knowledge |
+| PM4 | **Failures teach.** A failed or odd result records what happened and why, and the player's knowledge of the parts improves (NV5) | Experimenting is progress, not a dead end |
+| PM5 | **Your names, true ids.** The player can name what they made. The name lives in knowledge, and the truth keeps a stable id (PGC9) | NPCs who learn it may call it something else |
+| PM6 | **Inventions live in the world.** A player creation can be taught, sold, stolen, copied or reverse-engineered by NPCs through M and N. Rivals counter it (EF3) | The world answers what you make |
+| PM7 | **Frozen with their grammar** (PR2) | A later grammar revision never changes what you already made |
+| PM8 | **No exploit hardening** (AD22) | A strong combo meets in-world costs and counters, not a cap |
+
+### Lore from parts: forward and backward (RV)
+
+The same grammar runs both ways.
+
+- **RV1 · Forward.** Combine parts and get a result. Canon combinations produce canon things: brew the Hogwarts recipe in its canon order and get its canon potion; pair the book's Gu and get the book's move. The canon test (PGC10) proves this for each corpus.
+- **RV2 · Backward.** Start from a lore thing and search for the combinations that make it. The canon recipe is one answer. Others may exist where the mechanisms allow (AD38), such as a substitution route or a different Gu pairing for the same effect.
+- **RV3 · Recipes are knowledge in the world.** Some canon recipes are common knowledge, some belong to a sect or teacher, and some are lost. The player finds them by teaching, books, theft, reverse-engineering or trying (N, M).
+- **RV4 · Lore as targets.** A canon Gu, move or potion the player has heard of but cannot make yet is a goal with a visible gap: which part, skill or law they are missing. The coverage ledgers (CV) feed the world's list of what exists.
+- **RV5 · New lore, too.** A player invention that spreads becomes part of the world's lore for later generations (PG4 histories).
+
+### Other aspects to account for (OA)
+
+- **OA1 · Ecology.** Population size, predators and prey, carrying capacity and invasive species, as W quantities and L actors. A released pet or an escaped Gu colony can change a region.
+- **OA2 · Domestication.** Temperament and trust across generations (L with A), so a wild line can become a working line over time.
+- **OA3 · Pedigree and registry costs.** Pedigrees are knowledge records with sources. Breeders and sects keep them; forged pedigrees are possible (M).
+- **OA4 · Teaching drift.** An apprentice learns a recipe or move with errors or improvements. Schools of practice diverge over generations (N, PG4).
+- **OA5 · One duplicate to fold.** `creature_lifecycle.js` inheritance folds onto the `lineage_traits.js` model. This is the first L task under GN.
+
+### Fun directions (FN), as a palette
+
+| Code | Idea | Built from |
+| --- | --- | --- |
+| FN1 | **Dynasties.** Breed a Gu or beast line over generations toward a goal, with tested and hidden genes | GN, N |
+| FN2 | **Recipe archaeology.** Ruins and old notes hold partial recipes; reconstruct the missing steps by experiment | RV3, NV5, sites (SR) |
+| FN3 | **Lore hunt.** A compendium shows every canon thing you have heard of, what you have made, and your own inventions. Gaps show what you lack | CV ledgers, RV4 |
+| FN4 | **Rival inventors.** NPCs race you to the same discovery; first to teach it sets its name in the region | A, M, N, PM6 |
+| FN5 | **Weather-born variants.** A thunderstorm season breeds lightning variants; a moon-heavy valley yields moon-aspected Gu | GN4, W sky |
+| FN6 | **Cross-world crossings.** A transmigrated keeper carries a Hogwarts charm's effect into a Gu, or a potion into Gu feed (NV3, WER rules) | NV3, effect grammar |
+| FN7 | **Your legacy.** Centuries later, a sect still uses your killer move under another name, slightly changed by teaching drift | PG4, OA4, PM6 |
+| FN8 | **Reverse puzzles.** Given a lore item and a limited kit, find any working route | RV2 |
+| FN9 | **Failed hybrids that turn useful.** A sterile, ugly cross finds a niche nobody planned (a Skrewt-like cross that guards a gate) | GN5, A |
+
+- **PFP27 · One heredity layer.** Kinds declare genomes as data; individuals differ by genes, growth, place and life; the true genotype is known only through testing or deduction.
+- **PFP28 · Grammars run both ways.** Forward builds results from parts; backward finds the parts for a lore thing. Canon recipes are one answer among the ones the mechanisms allow.
+- **PFP29 · Player creations are world citizens.** Same gate, same costs, a name in knowledge, and the world can learn, copy and counter them.
+
 ## The goal
 
 Weibao (2026-11-11): "go ahead and /sharpen /more-to-consider /goal creating comprehensive system for each sytem, /sharpen goal first"

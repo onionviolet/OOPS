@@ -1,6 +1,6 @@
 import {keeperSeven as id, sevenConversion, sevenMinutes} from '../gu_keeper_seven.js';
 import {keeperFourFlavors, keeperTrailWine, keeperWildWorld} from '../gu_keeper_wild.js';
-import {keeperRedSteel} from '../gu_keeper_red_steel.js';
+import {keeperRedSteel} from './book_gu_keeper_lines.js';
 import {hostedWolf, hostedWolfGlade} from '../gu_hosted_wolf.js';
 import {extensionFact} from '../structured_pack_extensions.js';
 import {KEEPER_PREFIX, kId, kKey} from './book_gu_keeper.js';
