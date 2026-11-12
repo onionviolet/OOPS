@@ -496,6 +496,105 @@ The same grammar runs both ways.
 - **PFP28 · Grammars run both ways.** Forward builds results from parts; backward finds the parts for a lore thing. Canon recipes are one answer among the ones the mechanisms allow.
 - **PFP29 · Player creations are world citizens.** Same gate, same costs, a name in knowledge, and the world can learn, copy and counter them.
 
+## Lore first, inheritance beyond genes, and a depth checklist (2026-11-12)
+
+Weibao (2026-11-12): "send out stuff to cover OA1-5. FN1-9, but we need to make sure foundational stuff works out too, Other stuff in books worth adapting into procedural systems and more? Consider lore aspects first?" then "Consider Aspects beyond genone, if that would even be the most optimal and more? other aspects to consider? selective breeding and more? consider magical aspects? Similar depth considerations for other aspects too?"
+
+### Lore first (LR)
+
+- **LR1 · Order: lore, then mechanism, then generator.** Before a generator is built for any area, its canon laws are collected as fixed points with locators (SKR1, AD49). The generator is then calibrated to them. A world law written as a W law field comes before any procedural variation of it.
+- **LR2 · Lore laws from the books worth adapting** (paraphrased; each needs a locator from a source dive before it becomes a fixed point):
+
+| Code | Source | Lore law or practice | Becomes |
+| --- | --- | --- | --- |
+| LR3 | Lord of the Mysteries | Beyonder characteristics are conserved. They pass on at death and gather together, and are never destroyed | A W conservation law on an identity (SC7). R reads it for advancement; M for trade in remains |
+| LR4 | Lord of the Mysteries | Acting method: a potion digests by living its role. Loss of control comes from undigested power | R progression by working style (A and K read the role), and a madness meter in A |
+| LR5 | Lord of the Mysteries | Speaking an honorific name draws a being's attention. Divination and ritual follow set forms | S ritual grammar; N knowledge hazards (knowing or saying a thing has a cost) |
+| LR6 | Lord of the Mysteries | Sealed artifacts carry negative side effects as the price of their power | F and the effect grammar: a cost slot that is a standing effect |
+| LR7 | Reverend Insanity | Blessed lands and immortal apertures face tribulations and calamities on a schedule set by their nature | X places with a W calendar of trials; R for the owner |
+| LR8 | Reverend Insanity | Luck and fortune as a resource that can be read, stolen and spent | W quantity on actors; effect grammar verbs move and sense on it |
+| LR9 | Reverend Insanity | Immortal Gu are unique in the world; refining one elsewhere is contested | P generator constraint plus M claims |
+| LR10 | Reverend Insanity | Inheritances: a dead master leaves a trial that a successor must pass to take it | D situations from X sites, with R and N |
+| LR11 | Harry Potter | A secret can be bound into one keeper, so that only that keeper can reveal it | N knowledge law: a fact whose spread routes through one actor |
+| LR12 | Harry Potter | Wands choose their owners and change allegiance through defeat | F item with a tie (A) and an allegiance rule triggered by C outcomes |
+| LR13 | Harry Potter | Binding vows enforce themselves | K authority read at settlement, with a lethal cost line |
+| LR14 | Harry Potter | Experimental breeding of magical creatures is restricted by law | M law on L breeding: a dial, an in-world reason and a penalty, not a hard block |
+| LR15 | Mother of Learning | A time loop resets the world but keeps a soul's memory | N plus save shape: what carries across a reset (WER) |
+| LR16 | D&D | Attunement limits how many strong items one person can use | A limit adjective on ties (AD22 limits are adjectives) |
+
+### Inheritance beyond genes (IH)
+
+A gene model is the right base for ordinary bodies, but not the whole answer. The books pass traits on in other ways, and breeders work with numbers, not single genes. Proposal: **inheritance channels**, each with its own rules, declared per kind in the world pack.
+
+| Code | Channel | How it passes | Fits |
+| --- | --- | --- | --- |
+| IH1 | **Polygenic value** | Most traits (size, speed, yield, essence capacity) are a sum of many small effects: offspring land near the parents' average plus noise. Heritability is a per-trait dial | Selective breeding as real breeders do it. Cheaper than many loci and better for "breed for X" |
+| IH2 | **Marker loci** | A few visible traits use the existing allele model (`lineage_traits.js`): coat, markings, a rare gift | Readable puzzles: hidden carriers, test crosses |
+| IH3 | **Magical aptitude** | Carried by blood but not purely by genes: magical families with rare squibs and rare magic from non-magical parents; Gu aperture grade | A world rule with canon odds as fixed points; can skip a generation |
+| IH4 | **Essence and upbringing** | What the young are fed, the essence around them and how they are raised shape the adult | Gu feeding, moonlight exposure, a Hogwarts beast raised in a menagerie. Same genes, different adult |
+| IH5 | **Conserved essence** | Some power is a thing that passes on rather than being copied (LR3) | Lord of the Mysteries remains; inherited Gu |
+| IH6 | **Learned and taught** | Skills, songs and hunting styles pass by teaching and imitation (OA4) | Animals and people both. Can be lost in one generation |
+| IH7 | **Blessings, curses and bonds** | A family curse, a divine favor or a contract follows a line until broken | Law fields scoped to a lineage (W O5) |
+| IH8 | **Making, not breeding** | Gu fusion and refinement create a new kind through F, not breeding (GN5) | Keeps breeding and making separate |
+
+**Selective breeding (SB7 onward):**
+
+- **SB7 · Breeding values from what you know.** A breeder estimates an animal's worth from its own traits, its relatives and its offspring. The estimate improves with records (N pedigrees) and is never the hidden truth.
+- **SB8 · Real costs.** Generation time, feed, space, culls and lost lines. Fast-breeding kinds such as insects and small Gu improve quickly; dragons barely do.
+- **SB9 · Inbreeding has a price.** Close breeding fixes traits faster but raises hidden defects. Outcrossing restores vigor. Hybrid vigor in a first cross fades in later ones.
+- **SB10 · Selection limits.** Traits linked to unwanted ones drag them along. A trait pushed hard reaches a ceiling set by the kind's biology or law.
+- **SB11 · Magic speeds or bends it.** Essence feeding, potions, charms or Gu can raise expression, cause chosen mutation (at a cost and with side effects), or reveal hidden genotype (a divination or a testing Gu). Each is a working with a price, not a free shortcut.
+- **SB12 · Society cares.** Breed registries, prize shows, bans (LR14), black markets and sect-guarded lines (M).
+
+### A depth checklist for every aspect (DC)
+
+The same questions applied to heredity work for every area. Each owner answers them in its checkpoint before building a generator:
+
+| Code | Question |
+| --- | --- |
+| DC1 | **What carries it?** The channels: body, item, place, knowledge, relationship, law field |
+| DC2 | **How does it vary?** Within a kind, between individuals, over time |
+| DC3 | **How does it pass on or spread?** Inheritance, teaching, trade, theft, contagion, conservation |
+| DC4 | **How is it improved on purpose?** Selection, practice, refinement, research, and what each costs |
+| DC5 | **What is hidden, and how is it learned?** Testing, deduction, divination, records |
+| DC6 | **What does magic add or bend?** Which working changes it and its price |
+| DC7 | **What are the canon fixed points?** Lore laws with locators (LR1) |
+| DC8 | **What does society do about it?** Law, markets, prestige, secrecy |
+| DC9 | **Scale and cost.** Detail near, counts far |
+| DC10 | **What can the player pull on?** The levers and what they read back |
+
+Applied in one line each:
+
+- **Items (F):** wear, provenance and history; repair and improvement; hidden flaws found by appraisal; enchantment adds properties; makers' marks.
+- **Skills (R, N):** practice, teaching and drift; hidden aptitude; plateaus.
+- **Potions (B):** recipe lines drift by teaching; batch variation; hidden contamination; substitution research.
+- **Spells (S):** schools and personal styles; misremembered incantations; spell research.
+- **Places (X):** soil, essence and history accumulate; land improves or exhausts; hidden sites found by survey.
+- **Societies (M):** doctrine drifts; succession; schisms; secrets held by few.
+- **Knowledge (N):** facts copy, decay and distort; records preserve them; some knowledge is dangerous (LR5, LR11).
+
+### Routing (sent 2026-11-12, after the foundation milestones)
+
+Foundations first: none of these starts before its owner's MS1 to MS3 items, except OA5, which is foundation work.
+
+| Item | Owner | When |
+| --- | --- | --- |
+| OA5 fold the duplicate inheritance; IH1 and IH2 as the base | L | Now |
+| OA1 ecology, IH4 upbringing, SB7-SB11 | L with W and E | After L's MS1 and MS5 |
+| OA2 domestication | L with A | After A v0 |
+| OA3 pedigrees, OA4 teaching drift, LR5, LR11, LR15, SB7 records | N (new chat) | When N starts |
+| SB12, LR14 breeding law and markets | M | After M's first chain |
+| LR3, LR4 | R with W | With R's sequence step |
+| LR6, LR12, LR16 | F with A | After F's MS3 |
+| LR7, LR10 | X and D (new chats) | When they start |
+| LR8, LR9 | G with W and M | After G's MS3 |
+| LR13 | K | With the actor quote |
+| FN1-FN9 | Owners named in the FN table | After MS3, as play slices on the foundation |
+
+- **PFP30 · Lore before generators.** Canon laws are fixed points with locators before any generator varies them.
+- **PFP31 · Inheritance has channels.** Genes for bodies, plus aptitude, upbringing, conserved essence, teaching, bonds and making, each with its own rules.
+- **PFP32 · Every aspect answers DC1-DC10** before its generator is built.
+
 ## The goal
 
 Weibao (2026-11-11): "go ahead and /sharpen /more-to-consider /goal creating comprehensive system for each sytem, /sharpen goal first"
