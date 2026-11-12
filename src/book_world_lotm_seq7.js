@@ -9,6 +9,7 @@
 import {LOTM_KEYS as K,LOTM_DIGEST_ACTS,LOTM_IDS as I} from './book_world_lotm_ids.js';
 import {eq,gte,all,not,af,has,no,item,know,cmd} from './book_world_lotm_kit.js';
 import {drunkEffect} from './book_world_lotm_bench.js';
+import {digestionFacts} from './book_world_lotm_digestion.js';
 export const SEQ7_SOURCE='book.lotm.adv.magician'; // lotm_advancement.js rewrites the pack's book.lotm.* source ids under book.lotm.adv.*
 export const SEQ7_FORMULA='fool_7';
 export const SEQ7_ACTING='book.lotm.clown.acting';
@@ -38,10 +39,9 @@ export const seq7Sources=Object.freeze([{id:SEQ7_SOURCE,revision:1,label:'Magici
  bioDetail:'A consumed brewed dose taken after the Clown potion had settled. Its abilities come from the ladder records, not from this source alone.'}]);
 export function seq7Facts(state,f,{inv,flag}){
  const s=state.simulation||{},a=state.actors?.player,src=a?.sources?.[I.clown],fac=s.faculties?.player?.[I.clown];
- const n=a?.resources?.[SEQ7_ACTING]||0;
  f['lotm.seq7.available']=loaded;
  f['lotm.clownSupported']=!!f['lotm.enrolled']&&!!src&&(src.expiresAt==null||src.expiresAt>state.clock)&&fac?.awakened===true&&fac.active===true&&!fac.suppressed;
- f['lotm.clown.acting']=n;f['lotm.clown.digested']=n>=LOTM_DIGEST_ACTS;f['lotm.holds.magicianDose']=inv[K.magicianDose]||0;
+ digestionFacts(f,'lotm.clown',a?.resources?.[SEQ7_ACTING],LOTM_DIGEST_ACTS);f['lotm.holds.magicianDose']=inv[K.magicianDose]||0;
 }
 export function seq7Assertions({a,has,assert,natural}){
  const n=a.player.resources?.[SEQ7_ACTING],src=a.player.sources?.[SEQ7_SOURCE],clown=a.player.sources?.[I.clown];

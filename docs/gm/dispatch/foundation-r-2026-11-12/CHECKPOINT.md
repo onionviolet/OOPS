@@ -12,8 +12,20 @@ tests: none run; docs-only (check:rules)
 review: none
 ```
 
-**State:** phase 2a done: the path contract v0 module on K, with the three first consumers proven in its test file. Save compatibility (MC4): unchanged (no live key). Phase 1 inventory below is unchanged history.
-**Next phase:** 2b, the live LOTM digestion refactor (one counter for the five sites), then the request to G to read the Gu row, then folding Frontier tempering in with rolled risk (PRB1).
+**State:** phase 2b done: live LOTM digestion runs on one counter over R's count track; phase 2a added the path contract v0 module on K, with the three first consumers proven in its test file. Save compatibility (MC4): unchanged (no live key). Phase 1 inventory below is unchanged history.
+**Next phase:** 2c, fold Frontier tempering onto a path row with rolled risk (PRB1, `breakthrough_trial` as a step attempt), then `skill_ladder` perks as path grants, then `faction_rank` rungs as a table track over M's standing number.
+
+## Phase 2b (2026-11-12): one LOTM digestion counter
+
+New [`src/book_world_lotm_digestion.js`](../../../../src/book_world_lotm_digestion.js) writes `<prefix>.acting` and `<prefix>.digested` from R's `count` track and gives the felt words. The Seer (`book_world_lotm_actions.js`), every pathway row (`book_world_lotm_pathways.js`), Seq 7 (`book_world_lotm_seq7.js`) and the Seer view (`book_world_lotm_path.js`) call it; the two `SETTLE` arrays are gone. Fact names, resource keys and command rules are unchanged, so saves are unchanged (MC4) and the command golden fixture still matches. The generated rows' `not(gte(acting, row.digest))` command rule stays: it is a rule over the row's own number, not a second counter.
+
+Ownership: no foundation chat claims `book_world_lotm_actions`, `_pathways`, `_seq7` or `_path` (A notes acting stays in LotM files under MND10); R edited only the digestion lines and records that here.
+
+Defects fixed from the inventory: duplication 1 (five digestion derivations to one) and 3 (two `SETTLE` arrays to one). Still open: two ladder descriptors and three read models (2), two ability sources above Seq 8 (6), Seq 7 hard-coding its gate (7).
+
+PFP2 for 2b: before = after (13, 75, 27). The change removes duplicated counters inside modules that stay bespoke; no module was deleted.
+
+Verification state: focused tests pass (below); behaviour-identical by facts and golden fixture; not exercised in a browser (implemented, browser-unverified; the combined pass is PFP8).
 
 ## Phase 2a (2026-11-12): path contract v0
 
@@ -199,8 +211,11 @@ Phase 1:
 
 ## Checks run
 
-| Phase 2a | | |
+| Phase 2a and 2b | | |
 | --- | --- | --- |
+| `node --test tests/lotm_*.test.js tests/book_world_lotm*.test.js` (72 files) after 2b | 421 tests, 406 pass, 0 fail, 15 skipped | Same set before 2b: 14 named files 84 pass 0 fail |
+| `node --test tests/lotm_commands_golden.test.js tests/batch_identity.test.js` plus the 14 digestion-touching files | 93 tests, 91 pass, 0 fail | None |
+| `node --test tests/progression_path.test.js` after 2b | 10 pass | None |
 | `node --test tests/progression_path.test.js` | 9 pass | Consumers are test adapters, not live play |
 | `npm run check:arch` | Exit 0 | None |
 | `npm run check:rules` | Exit 0; pre-existing TMR1 warning | None |

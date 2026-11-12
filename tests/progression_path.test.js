@@ -140,3 +140,17 @@ test('rows refuse what they cannot run', () => {
     assert.throws(() => definePathRow({path: {...riGuMasterRow.path}, dials: {d: {default: 1, reason: 'r'}}, steps: {rank2_initial: {open: 'working', supply: {fact: 'x', need: 'd'}}}}), /failing/);
     assert.throws(() => createPosition(riGuMasterRow, {position: 9}), /Invalid position/);
 });
+
+test('lotm live: one digestion counter writes the same facts and felt words for every pathway', async () => {
+    const {digestionFacts, digestionFelt} = await import('../src/book_world_lotm_digestion.js');
+    const {pathwayRows} = await import('../src/book_world_lotm_rows.js');
+    for (const [prefix, need] of [['lotm', LOTM_DIGEST_ACTS], ['lotm.clown', LOTM_DIGEST_ACTS], ...pathwayRows.map(r => [`lotm.${r.key}`, r.digest])]) {
+        for (let acts = 0; acts <= need + 1; acts++) {
+            const f = digestionFacts({}, prefix, acts, need);
+            assert.equal(f[`${prefix}.acting`], acts);
+            assert.equal(f[`${prefix}.digested`], acts >= need);
+            assert.equal(digestionFelt(f, prefix), acts >= need ? 'settled' : acts > 0 ? 'settling' : 'unsettled');
+        }
+        assert.equal(digestionFacts({}, prefix, undefined, need)[`${prefix}.acting`], 0);
+    }
+});
