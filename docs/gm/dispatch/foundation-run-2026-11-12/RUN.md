@@ -400,3 +400,10 @@ D4: No player journey, packaged build, installed behavior or UI acceptance is cl
 
 Folded `0f64436f6` onto `22167d678`. `node --test tests/stored_working.test.js tests/stored_working_engine.test.js`: 23 passed, exit 0. The four rows settle across one clock and survive restore. Architecture, rules, coverage and docs passed. `src/stored_working.js` is outside main reachability. Engine fixture evidence, below the AD43 gameplay floor.
 The requested engine mechanism and focused proof are delivered. The body-hit route currently requires the documented caller journal until O1 is adopted. A host must keep that journal with its own save if it supplies payload-based events. Automatic `hold: true` lowering, consuming the carrier on once fire, game wiring and UI remain with their owning lanes or the design's deferred scope.
+
+### Bindings
+
+Folded `9ddb0a947` onto `2fa90317e`. `node --test tests/binding.test.js tests/kernel_oath.test.js tests/kernel_identity.test.js`: 17 passed, exit 0. Architecture, rules and coverage passed. Rephrased three flagged lines in the family notes and reran the docs check. `src/binding.js` is outside main reachability. Engine fixture evidence, below the AD43 gameplay floor. The lead flagged making prices without a charging working, no summoning row, and a dense implementation.
+`kernel_oath.js` does not export its matcher. Binding channel answers use a local matcher with the same method/op/role semantics. Please export the existing matcher when its owner next changes the oath API, so the binding module can import it.
+
+The existing oath authority returns the first matching oath, and a working receipt has one `truth.breach` slot. This lane retains that behavior within an oath collection. If one act must independently break multiple matching oaths with separately remembered prices, the oath/working owners need a multi-breach receipt contract. No owner files were changed to invent that contract here.
