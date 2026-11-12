@@ -23,6 +23,7 @@ By default a new slice declares data through the seam named here and does not ad
 | [Homes](#homes) | home_overview_model.js (`worldHomeModel`), home_content.js | Native `homes` slice | world_home_model.test.js |
 | [Money, holdings and debts](#money-holdings-and-debts) | economy_domain.js, own_holdings.js | `character.money`; obligations and standing slices | economy_domain.test.js, own_holdings.test.js |
 | [Regional staple prices](#regional-staple-prices) | regional_prices.js (pure leaf) | None; reads trader stock (`inventories.trader`) and the standing slice's price memory | regional_prices.test.js |
+| Markets on the substrate (v0, [contract](MARKETS_CONTRACT.md)) | market_substrate.js, market_trade.js, market_word.js | Substrate holders (`stock.<good>`, `coin`, shelf state under `m.market`); not in the game save yet | market_foundation.test.js |
 | [Travel and journeys](#travel-and-journeys) | travel_legs.js | None (caller applies clock, purse, location) | lotm_next_city.test.js |
 | [Time and calendar](#time-and-calendar) | world_calendar.js | Native `current_game_time`; derived | world_calendar.test.js |
 | [Institutions, rank and law](#institutions-rank-and-law) | institution_store.js, institution_access.js | World adapter (no shared slice) | institution_store.test.js |

@@ -2,7 +2,7 @@
 
 *Chat M in the [procedural foundation plan](../../../PROCEDURAL_FOUNDATION_PLAN.md) (OS4, MC15). Branch `claude/fdn-m-markets-8ff00f`, fast-forwarded to the wave base 9bbc51363 (the worktree had been cut at c25fd396d, an ancestor). Date 2026-11-12. Everything below is a proposal under AD32 and AD56: it widens play and stays adjustable. No runtime file changed in this phase.*
 
-**State:** phase 1 done (inventory and contract proposal). Embedding waits for K and W v0 on master. Agent-verified, not human-reviewed.
+**State:** phase 2 done: contract v0 built on K and W, first chain running in focused tests (section 9). Phase 1 sections 1 to 8 below are kept as written. Status **implemented, below floor** (AD43: no live consumer or player route yet). Agent-verified, not human-reviewed.
 
 ## 1. Inventory: who stores what, and how prices and standing move
 
@@ -168,3 +168,56 @@ tests: docs only
 review: diff-scoped
 surface: societies and markets inventory and contract proposal; no runtime change
 ```
+
+## 9. Phase 2 (2026-11-12): contract v0 and the first chain
+
+Branch merged with master at ea6a170dd (K v0.1, W v0 and every phase 1 checkpoint), no rebase. Owner doc: [MARKETS_CONTRACT](../../../MARKETS_CONTRACT.md) v0, SMK1-SMK14 and backlog MB1-MB7. Rule codes applied: SMK1-SMK14, KW3, KW4, KW6, KW11, WSC2, WSC4, WSC5, WSC8, PFP10-PFP13, MC9, AR3, TMR1 (gap named as MB7).
+
+**Built**
+
+- `src/market_substrate.js`: the `m.market` W pack (stock as `stock.<good>`, `coin`, a shelf's want and supplier, deliveries and the day's use as once-a-day decisions cut by the horizon) and `marketPrice`/`shelfQuote`, a projection on `regional_prices.scarcityFactor` with its margin, bid share and rounding.
+- `src/market_trade.js`: kernel law `m.trade@0`, any two holders that carry coin; hold dial `agreed` or `current`; `marketPorts` reads a holder at the step time.
+- `src/market_word.js`: sightings and retellings as the existing `knowledge` effect rows (basis `observation` or `reported` with `attributedTo`), `marketTalk`, `believedPrice` with staleness.
+- `tests/market_foundation.test.js` M1-M7. The chain (M4, M5): a failed harvest written as an outside op on the mill's grain gives the village shelf no dawn delivery; its price goes 5 to 9; Hessa, holding Orr's report of slums bread, walks and buys in the slums through `m.trade`; Vale, who saw no shelf, hears Hessa's account and chooses the slums as well. Same world, beliefs and choices after one jump, minute steps and a mid-run reload. M7 runs the same pack on a clan storehouse fed by a nest's yield (Gu-shaped second consumer, authored numbers).
+
+**Stand-ins, named:** the harvest failure is an outside op in place of an L pack; walking is a move op with a coin dial in place of X; the chooser is a test-local version of A's A5 score (beliefs and quotes in, cause line out) until A v0. The trade's coin is substrate `coin`, not `character.money` (MB2).
+
+**PFP2 counts, before and after this phase**
+
+| Count | Before | After | Note |
+| --- | --- | --- | --- |
+| Market rows on a shared price rule | 6, canon 0 | 6 staple rows plus any substrate shelf row, canon 0 | Both now price by one curve (M1 checks every stock) |
+| Canon market cases running as data | 0 | 0 | Next phase folds the scene markets (potato, relic, caravan, broker) into shelf and trade rows |
+| Bespoke market scene modules | 6 | 6 | None folded yet |
+| Trade paths that admit two NPCs | 0 | 1 | `m.trade@0` (R1 closed in the foundation, not yet in live play) |
+| Rumour routes writing knowledge with a source | 2 of 3 | 3 of 4 | `market_word` added; `drawRumour` still stores its truth flag (fold step) |
+| Separate standing stores | 8 | 8 | SMK10 is a request to R |
+
+**Checks**
+
+| Command | Result | Gaps |
+| --- | --- | --- |
+| `node --test tests/market_foundation.test.js tests/regional_prices.test.js tests/kernel_working.test.js tests/world_substrate.test.js` | 44 pass, 0 fail | Focused files; the full suite is run by the integrator (MC7) |
+| Mutation: delivery ignores the supplier's input | M4 and M7 fail as they should; reverted | |
+| Mutation: shelf horizon removed | M2, M4, M5, M7 fail as they should; reverted | |
+| `npm run check:arch` | exit 0; main.js growth -1 (from the base), others 0 | |
+| `npm run check:rules` | PASS; TMR1 warning in `book_world_hp_exams.js` is from the base | |
+| `npm run check:docs` | no hits in M's files | |
+| `npm run build`, browser | not run | No module here is in the bundle; nothing player-facing changed |
+
+Compatibility line (MC4): game saves unchanged. Shelf state lives in substrate holders under `m.market`, inside W's own versioned shape.
+
+**Requests (for the coordinator to relay)**
+
+- **A:** when A v0 lands, replace the test chooser with A's scored candidates; M offers `believedPrice` (belief, age, basis, teller) and `m.trade` quotes as the inputs, and a cause line like "Orr says slums bread is 4".
+- **L:** a crop or harvest quantity M can name as a shelf supplier's input, so the chain's first link is L's law and not an outside op.
+- **W:** effect kinds are free strings (W-B8); M publishes none yet but will publish `market.sold_out` once a reactor wants it. MB7 waits on W-B4 (`dayIndex`).
+- **R:** SMK10 split stands as proposed in section 6.
+- **G:** an owned Gu's claims, lending and theft go through M (SC4, MB5); M needs SB1 identity rows to start.
+- **K:** KB8 (several workings in one settlement) when M and C both need a joint trade or auction; not needed yet.
+
+**Next phase (M)**
+
+1. Fold one parallel module at a time onto the contract, each with its own focused test: first `economy_standing.drawRumour` onto `market_word` (drop the stored truth flag, keep its lie-rate dial as a teller's error), then the six bespoke market scenes as shelf and trade rows (canon count rises, bespoke count falls), then `market_saturation` into want behind an opt-in.
+2. Groups v0 (SMK9): doctrine, ranks and rivals on `organizations@1`.
+3. Embed: wire substrate coin to the purse authority (MB2) with W's live slice (W-B6), then one browser pass.
